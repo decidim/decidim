@@ -100,7 +100,7 @@ pl:
     components:
       elections:
         actions:
-          vote: Głosuj
+          vote: Wspieranie
         name: Wybory
         settings:
           global:
@@ -813,6 +813,7 @@ pl:
             new:
               file_help:
                 message_1: Dozwolone są tylko pliki CSV (.csv).
+                message_2: Separatorem kolumn musi być średnik (";").
               submit: Prześlij csv
         document_types:
           passport: Paszport
@@ -853,16 +854,6 @@ pl:
               no_polling_stations: Nie jesteś jeszcze przypisany do żadnego lokalu wyborczego.
               role: Twoja rola
               voting: Głosowanie
-        votes:
-          in_person_fields:
-            day: Dzień
-            day_placeholder: DD
-            month: Miesiąc
-            month_placeholder: MM
-            name: Imię
-            select: Wybierz dokument
-            year: Rok
-            year_placeholder: RRRR
       polling_officers:
         actions:
           confirm_destroy: Jesteś pewny?

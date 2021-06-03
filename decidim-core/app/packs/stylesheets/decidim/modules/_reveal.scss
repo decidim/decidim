@@ -79,3 +79,18 @@
   justify-content: space-between;
   padding: 0 1rem;
 }
+
+.external-domain-warning{
+  .card-section{
+    padding: 0;
+  }
+
+  .buttons{
+    display: flex;
+    justify-content: center;
+
+    .button{
+      margin: 0;
+    }
+  }
+}

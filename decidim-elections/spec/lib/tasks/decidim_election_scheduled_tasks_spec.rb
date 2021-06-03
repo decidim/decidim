@@ -3,14 +3,7 @@
 require "spec_helper"
 
 describe "decidim_elections:scheduled_tasks", type: :task do
-  before do
-    VCR.turn_off!
-    Decidim::Elections.bulletin_board.reset_test_database
-  end
-
-  after do
-    VCR.turn_on!
-  end
+  include_context "with test bulletin board"
 
   it "runs gracefully" do
     expect { task.execute }.not_to raise_error

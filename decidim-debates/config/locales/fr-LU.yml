@@ -1,0 +1,237 @@
+fr-LU:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Catégorie
+        closed_at: Clôturé le
+        conclusions: Conclusions
+        decidim_category_id: Catégorie
+        description: Description
+        end_time: Prend fin à
+        information_updates: Informations mises à jour
+        instructions: Instructions pour participer
+        start_time: Commence à
+        title: Titre
+        user_group_id: Créer un débat en tant que
+    models:
+      decidim/debates/close_debate_event: Débat terminé
+      decidim/debates/create_debate_event: Débat
+      decidim/debates/creation_disabled_event: Débats désactivés
+      decidim/debates/creation_enabled_event: Débats activés
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Débat
+        other: Débats
+  decidim:
+    components:
+      debates:
+        actions:
+          create: Créer
+          endorse: Soutenir
+        name: Débats
+        settings:
+          global:
+            announcement: Annonce
+            comments_enabled: Commentaires activés
+            comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            scope_id: Secteur
+            scopes_enabled: Secteurs activés
+          step:
+            announcement: Annonce
+            comments_blocked: Commentaires désactivés
+            creation_enabled: Création de débats par les utilisateurs activés
+            endorsements_blocked: Soutiens bloqués
+            endorsements_enabled: Soutiens activés
+    debates:
+      actions:
+        close: Fermer
+        confirm_destroy: Êtes-vous certain ?
+        destroy: Supprimer
+        edit: Modifier
+        new: Nouveau %{name}
+        title: Actions
+      admin:
+        debate_closes:
+          edit:
+            close: Fermer
+            title: Clore le débat
+        debates:
+          create:
+            invalid: Il y a eu un problème lors de la création du débat.
+            success: Débat créé avec succès.
+          destroy:
+            success: Débat supprimé avec succès.
+          edit:
+            title: Modifier le débat
+            update: Actualiser le débat
+          form:
+            debate_type: Type de débat
+            finite: Limité (Avec les heures de début et de fin)
+            open: Ouvert (pas de date de début et de fin)
+          index:
+            title: Débats
+          new:
+            create: Créer un débat
+            title: Nouveau débat
+          update:
+            invalid: Il y a eu un problème lors de la mise à jour de ce débat.
+            success: Débat mis à jour avec succès.
+        exports:
+          comments: Commentaires
+        models:
+          debate:
+            name: Débat
+      admin_log:
+        debate:
+          close: "%{user_name} a clos le débat %{resource_name} dans l'espace %{space_name}"
+          create: "%{user_name} a créé le débat %{resource_name} sur l'espace %{space_name}"
+          update: "%{user_name} a mis à jour le débat %{resource_name} sur l'espace %{space_name}"
+      debate_m:
+        commented_time_ago: Commenté il y a %{time}
+      debates:
+        close:
+          invalid: Une erreur s'est produite lors de la fermeture du débat.
+          success: Débat clos avec succès.
+        close_debate_modal:
+          close: Fermer
+          description: Quel est le résumé ou la conclusion de ce débat?
+          send: Clore le débat
+        closed: Fermé
+        count:
+          debates_count:
+            one: "%{count} débat"
+            other: "%{count} débats"
+        create:
+          invalid: Il y a eu un problème lors de la création de ce débat.
+          success: Débat créé avec succès.
+        debate:
+          participate: Participer
+        edit:
+          back: Retour
+          save: Enregistrer les modifications
+          title: Modifier le débat
+        filters:
+          activity: Mon activité
+          all: Tout
+          category: Catégorie
+          category_prompt: Choisir une catégorie
+          citizens: Citoyenne
+          commented: Commenté
+          my_debates: Mes débats
+          official: Officielle
+          origin: Origine
+          scope: Secteur
+          search: Rechercher
+          state: Statut
+          state_values:
+            closed: Fermé
+            open: Ouvert
+          user_groups: Groupes
+        filters_small_view:
+          close_modal: Fermer la fenêtre de dialogue
+          filter: Filtre
+          filter_by: Filtrer par
+          unfold: Voir la suite
+        form:
+          select_a_category: Veuillez sélectionner une catégorie
+        index:
+          new_debate: Nouveau débat
+        new:
+          back: Retour
+          create: Créer
+          title: Nouveau débat
+        orders:
+          commented: Les plus commentés
+          label: Trier les débats par
+          random: Ordre aléatoire
+          recent: Les plus récents
+          updated: Mis à jour récemment
+        show:
+          back: Retour à la liste
+          close_debate: Clore le débat
+          date: Date
+          debate_closed: Fermé
+          debate_conclusions_are: 'Le débat a été clos le %{date} avec ces conclusions:'
+          edit_conclusions: Modifier les conclusions
+          edit_debate: Modifier le débat
+          groups_count: Groupes
+          last_comment_by: Dernier commentaire par
+          no_comments_yet: Pas encore de commentaire
+          open: Ouvrir le débat
+          participants_count: Participants
+        update:
+          invalid: Une erreur s'est produite lors de la mise à jour du débat.
+          success: Débat mis à jour avec succès.
+        versions:
+          debates:
+            back_to_resource: Revenir au débat
+          index:
+            title: Versions
+        versions_list:
+          back_to_resource: Revenir au débat
+      last_activity:
+        debate_updated_at_html: "<span>Débat mis à jour à %{link}</span>"
+        new_debate_at_html: "<span>Nouveau débat à %{link}</span>"
+      models:
+        debate:
+          fields:
+            end_time: Date de fin
+            official_debate: Débat officiel
+            start_time: Date de début
+            title: Titre
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Salut,
+              Un nouveau débat «%{resource_title}» a été créée sur le %{space_title} espace participatif, vérifier et contribuer:
+            email_outro: Vous avez reçu cette notification parce que vous suivez l'espace participatif %{space_title}. Vous pouvez cesser de recevoir des notifications en suivant ce dernier lien.
+            email_subject: Nouveau débat "%{resource_title}" sur %{space_title}
+            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé le <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Bonjour,
+              %{author_name} %{author_nickname}, qui vous suivez, a créé un nouveau débat "%{resource_title}". Découvrez-le et contribuez:
+            email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez cesser de recevoir des notifications à partir du lien précédent.
+            email_subject: Nouveau débat "%{resource_title}" par %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> créé le débat <a href="%{resource_path}">%{resource_title}</a>.
+        creation_disabled:
+          email_intro: 'La création de débat n''est plus possible dans %{participatory_space_title}. Vous pouvez toujours participer aux débats ouverts depuis cette page :'
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: La création de débats est désactivée dans %{participatory_space_title}
+          notification_title: La création de débats est maintenant désactivée dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Vous pouvez maintenant initier de nouveaux débats dans %{participatory_space_title}! Commencez à participer sur cette page :'
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Débats maintenant disponibles sur %{participatory_space_title}
+          notification_title: Vous pouvez maintenant initier <a href="%{resource_path}">nouveaux débats</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          affected_user:
+            email_intro: 'Le débat « %{resource_title} » est fermé. Vous pouvez lire les conclusions sur cette page :'
+            email_outro: Vous avez reçu cet avis parce que vous êtes abonné au débat « %{resource_title} ». Vous pouvez vous désabonner depuis le lien précédent.
+            email_subject: Le débat "%{resource_title}" est fermé
+            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> est fermé.
+          follower:
+            email_intro: 'Le débat « %{resource_title} » est fermé. Vous pouvez lire les conclusions sur cette page :'
+            email_outro: Vous avez reçu cet avis parce que vous êtes abonné au débat « %{resource_title} ». Vous pouvez vous désabonner depuis le lien précédent.
+            email_subject: Le débat "%{resource_title}" est fermé
+            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> est fermé.
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+            - Choisissez un débat ouvert pour participer à
+          description: Ce badge est attribué lorsque vous participez activement aux différents débats en laissant vos commentaires.
+          description_another: Cet utilisateur a participé à %{score} débats.
+          description_own: Vous avez participé à %{score} débats.
+          name: Des débats
+          next_level_in: Participez à %{score} autres débats pour atteindre le prochain niveau!
+          unearned_another: Cet utilisateur n'a encore participé à aucun débat.
+          unearned_own: Vous avez déjà participé à des débats.
+    metrics:
+      debates:
+        description: Nombre de débats créés
+        object: débats
+        title: Débats

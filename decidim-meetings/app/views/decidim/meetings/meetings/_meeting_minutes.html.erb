@@ -1,42 +1,31 @@
 <div class="section minutes-section">
-  <h3 class="section-heading"><%= t(".meeting_minutes") %></h3>
-  <% if translated_attribute(meeting.minutes.description).present? %>
-    <div class="card">
-      <div class="card-section">
-        <div class="row column">
-          <%= decidim_sanitize translated_attribute meeting.minutes.description %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-
-  <% if meeting.minutes.video_url.presence || meeting.minutes.audio_url.presence %>
+  <% if meeting.video_url.presence || meeting.audio_url.presence %>
     <div class="section">
       <h4 class="section-heading"><%= t(".related_information") %></h4>
       <div class="card card--list">
-        <% if meeting.minutes.video_url.presence %>
+        <% if meeting.video_url.presence %>
           <div class="card--list__item">
             <div class="card--list__text">
               <div>
-                <%= link_to decidim_url_escape(meeting.minutes.video_url), decidim_html_escape(meeting.minutes.video_url), target: "_blank", rel: "noopener" %>
+                <%= link_to decidim_url_escape(meeting.video_url), decidim_html_escape(meeting.video_url), target: "_blank", rel: "noopener" %>
               </div>
             </div>
             <div class="card--list__data" aria-hidden="true">
-              <%= link_to decidim_url_escape(meeting.minutes.video_url), target: "_blank", class: "card--list__data__icon", rel: "noopener" do %>
+              <%= link_to decidim_url_escape(meeting.video_url), target: "_blank", class: "card--list__data__icon", rel: "noopener" do %>
                 <%= icon "external-link", role: "img", "aria-hidden": true %>
               <% end %>
             </div>
           </div>
         <% end %>
-        <% if meeting.minutes.audio_url.presence %>
+        <% if meeting.audio_url.presence %>
           <div class="card--list__item">
             <div class="card--list__text">
               <div>
-                <%= link_to decidim_url_escape(meeting.minutes.audio_url), decidim_html_escape(meeting.minutes.audio_url), target: "_blank", rel: "noopener" %>
+                <%= link_to decidim_url_escape(meeting.audio_url), decidim_html_escape(meeting.audio_url), target: "_blank", rel: "noopener" %>
               </div>
             </div>
             <div class="card--list__data" aria-hidden="true">
-              <%= link_to decidim_url_escape(meeting.minutes.audio_url), target: "_blank", class: "card--list__data__icon", rel: "noopener" do %>
+              <%= link_to decidim_url_escape(meeting.audio_url), target: "_blank", class: "card--list__data__icon", rel: "noopener" do %>
                 <%= icon "external-link", role: "img", "aria-hidden": true %>
               <% end %>
             </div>

@@ -47,6 +47,10 @@ FactoryBot.define do
       type_of_meeting { :in_person }
     end
 
+    trait :published do
+      published_at { Time.current }
+    end
+
     trait :online do
       type_of_meeting { :online }
       online_meeting_url { "https://decidim.org" }
@@ -92,6 +96,14 @@ FactoryBot.define do
       contributions_count { rand(50) }
       attending_organizations { Array.new(3) { Faker::TvShows::GameOfThrones.house }.join(", ") }
       closed_at { Time.current }
+      closing_visible { true }
+    end
+
+    trait :closed_with_minutes do
+      closed
+      video_url { Faker::Internet.url }
+      audio_url { Faker::Internet.url }
+      closing_visible { true }
     end
 
     trait :with_registrations_enabled do
@@ -108,6 +120,10 @@ FactoryBot.define do
 
     trait :upcoming do
       start_time { Faker::Time.between(from: 1.day.from_now, to: 10.days.from_now) }
+    end
+
+    factory :published_meeting do
+      published_at { Time.current }
     end
   end
 
@@ -144,14 +160,6 @@ FactoryBot.define do
         create_list(:agenda_item, 2, parent: agenda_item, agenda: evaluator.agenda)
       end
     end
-  end
-
-  factory :minutes, class: "Decidim::Meetings::Minutes" do
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    video_url { Faker::Internet.url }
-    audio_url { Faker::Internet.url }
-    visible { true }
-    meeting
   end
 
   factory :invite, class: "Decidim::Meetings::Invite" do

@@ -66,7 +66,7 @@ module Decidim
             value: value,
             question: answer.question,
             answer: answer,
-            result_type: "valid_answers"
+            result_type: :valid_answers
           }
 
           election.bb_closure.results.create!(params)

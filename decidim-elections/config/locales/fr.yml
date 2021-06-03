@@ -298,6 +298,51 @@ fr:
           elections_count:
             one: "%{count} élection"
             other: "%{count} élections"
+        election_log:
+          chained_hash: La chaîne de hash de ce message
+          complete: Terminée
+          creation_description:
+            complete: L'élection a bien été créée et ajoutée sur le Tableau d'affichage.
+            not_created: L'élection n'est pas encore créée.
+          creation_title: Élection créée
+          description: Ceci est le journal des élections, où vous pouvez vérifier le statut de chaque étape, par exemple lorsque l'élection a été créée, si le processus de dépouillement est terminé, et la date de clôture de l'élection.
+          download: Télécharger
+          key_ceremony_description:
+            complete: La cérémonie de génération de clés est terminée. Chaque garant a des clés valides et a téléchargé les clés de sauvegarde nécessaires.
+            not_started: La génération des clés n'a pas encore commencée.
+            started: La cérémonie de génération des clés a commencé mais n'est pas encore terminée.
+          key_ceremony_title: Cérémonie de génération des clés
+          not_available: Pas encore disponible
+          not_created: N'est pas créée
+          not_published: Non publié
+          not_ready: Pas encore prêt
+          not_started: Non démarré
+          published: Publié
+          results_description:
+            not_published: Les résultats ne sont pas encore publiés.
+            published: Les résultats sont publiés.
+          results_title: Résultats
+          started: Débutée
+          tally_description:
+            finished: Le dépouillement est terminé.
+            not_started: Le dépouillement n'a pas encore commencé.
+            started: Le dépouillement a commencé.
+          tally_title: Dépouillement
+          title: Journal de l'élection
+          verifiable_results:
+            checksum: 'Somme de contrôle SHA256:'
+            description:
+              not_ready: Le fichier de vérification électoral et la somme de contrôle SHA256 ne sont pas encore disponibles. Dès que les résultats seront publiés, vous serez en mesure de vérifier cette élection.
+              ready: 'Ici, vous avez la possibilité de vérifier l''élection. D''abord, vous devez télécharger le fichier et vous assurer qu''il n''a pas été corrompu. Pour ce faire, exécutez la commande suivante et vérifiez que la sortie correspond à la somme de contrôle :'
+            how_to_verify: 'Une fois le fichier téléchargé et vérifié qu''il est correct, vous pouvez exécuter le vérificateur universel. Clonez <a href=''https://github.com/decidim/decidim-bulletin-board''>ce dépôt</a> et, depuis le dossier racine, exécutez la commande suivante :'
+            title: Vérifier les résultats de l'élection
+            verifiable_file: 'Fichier de vérification d''élection:'
+          verify: Vérifier l'élection
+          vote_description:
+            finished: Le vote est terminé.
+            not_started: Le vote n'a pas encore commencé.
+            started: Le vote a commencé.
+          vote_title: Processus de vote
         filters:
           active: Actif
           all: Toutes
@@ -330,6 +375,7 @@ fr:
           callout:
             already_voted: Vous avez déjà voté pour cette élection. Vous pouvez modifier votre vote ou le vérifier.
             vote_rejected: Il n'a pas été possible de vérifier votre vote. Veuillez recommencer.
+          election_log: Journal de l'élection
           preview: Aperçu
           verify:
             already_voted: Déjà voté?
@@ -483,6 +529,8 @@ fr:
           header: Vote confirmé
           lead: Votre vote a été comptabilisé !
           text: 'Vous pouvez vérifier que votre vote a bien été ajouté aux urnes avec l''identifiant suivant : <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+        create:
+          error: Un problème s'est produit lors de la validation du vote. Veuillez réessayer.
         failed:
           header: Le vote a échoué
           lead: Votre vote n'a pas été exprimé!
@@ -563,7 +611,6 @@ fr:
             attachments: Pièces jointes
             census: Recensement
             info: Information
-            monitoring_committee_certificates: Valider les certificats
             monitoring_committee_members: Membres
             polling_stations: Bureaux de vote
         models:
@@ -578,9 +625,6 @@ fr:
               promoted: Mise en avant
               published: Publié
               title: Titre
-        monitoring_committee_certificates:
-          index:
-            title: Bureaux de vote
         polling_stations:
           create:
             invalid: Une erreur est survenue lors de la création de ce bureau de vote
@@ -664,6 +708,7 @@ fr:
         document_types:
           passport: Passeport
         vote_flow:
+          already_voted_in_person: Ce participant a déjà voté en personne et n'a plus le droit de voter.
           datum_not_found: Les données données ne correspondent à aucun électeur.
       content_blocks:
         highlighted_votings:
@@ -686,13 +731,72 @@ fr:
             see_all_votings: Voir toutes les votations
             votings_button_title: Lien vers la page Votations où toutes les votations sont affichées
       polling_officer_zone:
-        votes:
+        closures:
+          show:
+            heading: Recomptage des votes
+          sign:
+            cancel: Annuler
+            check_box: J'ai passé en revue ce certificat, il est identique à celui de fermeture des élections physiques
+            close_modal: Clore
+            confirm: Ok, continuer
+            error: Une erreur est survenue, veuillez réessayer.
+            heading: Recomptage des voix - Signer la fermeture
+            info_text: Si vous continuez, vous ne pouvez plus modifier aucune des informations, cette action ne peut pas être annulée.
+            submit: Signer la fermeture
+            success: Fermeture signée avec succès.
+            title: Cette action ne peut pas être annulée
+        in_person_votes:
+          complete_voting:
+            available_answers: 'Réponses disponibles:'
+            census_verified: Le participant n'a pas encore voté.
+            complete_voting: Vote terminé
+            identify_another: Identifier un autre participant
+            questions_title: 'Elle a le droit de voter sur les questions suivantes:'
+            questions_title_voted: 'Le participant a déjà voté en ligne et a le droit de voter dans les questions suivantes :'
+            voted: Le participant a voté
           create:
-            success: Vote en personne émis avec succès
-          in_person_fields:
+            error: Le vote n'a pas été enregistré. Veuillez réessayer.
+          in_person_form:
+            census_not_present: Ce participant n'est pas répertorié dans le recensement.
+            census_not_present_description: Elle doit se rendre au bureau des plaintes du recensement ou contacter le support.
             date_of_birth: Date de naissance
             day: Jour
             day_placeholder: JJ
+            document_number: Numéro de document
+            document_number_placeholder: Numéro de carte d'identité
+            month: Mois
+            month_placeholder: MM
+            select: Sélectionnez le type de document
+            title: 'Sélectionnez le type de document et entrez le numéro de document du participant :'
+            validate_document: Valider le document
+            year: Année
+            year_placeholder: AAAA
+          new:
+            back: Retourner aux bureaux de vote
+            title: Identifier et vérifier un participant
+          show:
+            back: Retourner aux bureaux de vote
+            title: En attente de l'enregistrement du vote en personne
+          update:
+            error: Une erreur est survenue lors de l'enregistrement du vote. Veuillez réessayer.
+            success:
+              accepted: Le vote a été enregistré avec succès.
+              rejected: Le vote n'a pas été accepté par le Tableau d'Affichage. Veuillez contacter l'administrateur du système.
+          verify_document:
+            census_present: Ce participant n'est pas répertorié dans le recensement.
+            name: Nom
+            title: 'Vérifiez que les données suivantes sont correctes:'
+            verify_document: Document requis
+      polling_station_closure_recount:
+        nota_option: Vide / Aucune des options ci-dessus
+        polling_officer_notes: 'Notes de l''accesseur :'
+        polling_officer_notes_blank: Il n'y a aucune note
+        recount_summary: 'Bilan du recomptage:'
+        signed: Signé
+        total_ballots: 'Nombre total de bulletins :'
+        total_blank_ballots: 'Nombre total de bulletins blanc :'
+        total_null_ballots: 'Nombre total de bulletins nuls :'
+        total_valid_ballots: 'Nombre total de bulletins valides :'
       polling_stations:
         actions:
           confirm_destroy: Êtes-vous sûr(e) ?
@@ -721,6 +825,11 @@ fr:
           title:
             one: "%{count} élection"
             other: "%{count} élections"
+        elections_log:
+          bb_status: État actuel de l'élection
+          description: Le journal des élections vous montrera toutes les informations pertinentes sur chaque vote. Par exemple, le statut de la cérémonie de génération des clées ou du dépouillement ou si les résultats sont déjà publiés. Cliquez sur l'élection à propos de laquelle vous voulez des informations.
+          election_log: Journal de l'élection
+          title: Journal de l'élection
         filters:
           active: Actifs
           all: Tous
@@ -771,6 +880,7 @@ fr:
       election_votes_header:
         exit: Quitter
       voting_navigation:
+        election_log: Journal de l'élection
         voting_menu_item: Le vote
       votings:
         index:

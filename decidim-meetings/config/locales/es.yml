@@ -8,9 +8,12 @@ es:
       close_meeting:
         attendees_count: Número de asistentes
         attending_organizations: Lista de organizaciones que han participado
-        closing_report: Informe
+        audio_url: URL de audio
+        closing_report: Acta
+        closing_visible: Es visible
         contributions_count: Número de contribuciones
         proposal_ids: Propuestas creadas en el encuentro
+        video_url: URL de video
       meeting:
         address: Dirección
         available_slots: Espacios disponibles para este encuentro
@@ -35,11 +38,6 @@ es:
         title: Título
         transparent: Transparente
         type_of_meeting: Tipo
-      minutes:
-        audio_url: URL de audio
-        description: Descripción
-        video_url: URL de video
-        visible: Es visible
     errors:
       models:
         meeting_agenda:
@@ -172,7 +170,6 @@ es:
           proposals_count:
             one: 'El encuentro no se puede eliminar porque tiene %{count} propuesta asociada:'
             other: 'El encuentro no se puede eliminar porque tiene %{count} propuestas asociadas:'
-        minutes: Acta
         new: Nuevo encuentro
         preview: Previsualizar
         registrations: Inscripciones
@@ -249,7 +246,6 @@ es:
             success: Encuentro cerrado con éxito
           create:
             invalid: Se ha producido un error al crear este encuentro
-            success: Encuentro creado con éxito
           destroy:
             invalid:
               proposals_count:
@@ -288,19 +284,6 @@ es:
           update:
             invalid: Se ha producido un error al actualizar este encuentro
             success: Encuentro actualizado correctamente
-        minutes:
-          create:
-            invalid: Se ha producido un error al crear este acta
-            success: Acta creada con éxito
-          edit:
-            title: Editar actas
-            update: Actualizar
-          new:
-            create: Crear
-            title: Crear acta
-          update:
-            invalid: Se ha producido un error al actualizar este acta
-            success: Acta actualizada con éxito
         models:
           meeting:
             name: Encuentro
@@ -340,9 +323,6 @@ es:
           value_types:
             organizer_presenter:
               not_found: 'El organizador no se encontró en la base de datos (ID: %{id})'
-        minutes:
-          create: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
-          update: "%{user_name} ha actualizado el acta del encuentro %{resource_name} en el espacio %{space_name}"
       calendar_modal:
         calendar_url: URL del calendario
         close_window: Cerrar ventana
@@ -436,7 +416,6 @@ es:
         index:
           new_meeting: Nuevo encuentro
         meeting_minutes:
-          meeting_minutes: Acta del encuentro
           related_information: Información relacionada
         meetings:
           no_meetings_warning: No hay encuentros que coincidan con tu búsqueda o no hay ningún encuentro programado.
@@ -459,7 +438,7 @@ es:
           join: Inscríbete al encuentro
           leave: Cancela tu inscripción
           leave_confirmation: '¿Seguro que quieres cancelar tu inscripción para este encuentro?'
-          meeting_report: Informe del encuentro
+          meeting_minutes: Acta del encuentro
           no_slots_available: No hay plazas disponibles
           organizations: Organizaciones que han asistido
           registration_code_help_text: Tu código de inscripción

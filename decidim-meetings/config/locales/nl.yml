@@ -8,9 +8,12 @@ nl:
       close_meeting:
         attendees_count: Aantal deelnemers
         attending_organizations: Lijst van organisaties die bijwoonden
-        closing_report: Melden
+        audio_url: Audio URL
+        closing_report: Notulen
+        closing_visible: Is zichtbaar
         contributions_count: Aantal bijdragen
         proposal_ids: Voorstellen die in de vergadering zijn gemaakt
+        video_url: Video URL
       meeting:
         address: Adres
         available_slots: Beschikbare plaatsen voor dit event
@@ -35,11 +38,6 @@ nl:
         title: Titel
         transparent: Transparant
         type_of_meeting: Type
-      minutes:
-        audio_url: Audio URL
-        description: Beschrijving
-        video_url: Video URL
-        visible: Is zichtbaar
     errors:
       models:
         meeting_agenda:
@@ -167,7 +165,6 @@ nl:
         confirm_destroy: Weet u zeker dat u deze vergadering wilt verwijderen?
         destroy: Verwijderen
         edit: Bewerk
-        minutes: Notulen
         new: Nieuwe vergadering
         preview: Voorbeeld
         registrations: registraties
@@ -244,7 +241,7 @@ nl:
             success: Vergadering succesvol afgesloten
           create:
             invalid: Er is een probleem opgetreden met het maken van deze vergadering
-            success: Vergadering succesvol aangemaakt
+            success: Vergadering met succes aangemaakt. Merk op dat deze nog niet gepubliceerd is, je moet deze nog handmatig publiceren.
           destroy:
             success: Vergadering succesvol verwijderd
           edit:
@@ -265,6 +262,9 @@ nl:
           new:
             create: Creëren
             title: Creëer vergadering
+          publish:
+            invalid: Er is een fout opgetreden bij het publiceren van deze vergadering
+            success: Vergadering succesvol gepubliceerd
           service:
             description: Beschrijving
             down: Omlaag
@@ -275,21 +275,12 @@ nl:
           services:
             add_service: Dienst toevoegen
             services: Diensten
+          unpublish:
+            invalid: Er is een probleem opgetreden bij het weghalen van deze vergadering
+            success: Vergadering met succes weggehaald
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze vergadering
             success: Vergadering succesvol bijgewerkt
-        minutes:
-          create:
-            invalid: Er is een probleem opgetreden bij het maken van deze notulen
-            success: Notulen met succes gemaakt
-          edit:
-            update: Bijwerken
-          new:
-            create: creëren
-            title: Maak minuten
-          update:
-            invalid: Er is een probleem opgetreden bij het bijwerken van deze notulen
-            success: Notulen met succes bijgewerkt
         models:
           meeting:
             name: Vergadering
@@ -329,9 +320,6 @@ nl:
           value_types:
             organizer_presenter:
               not_found: 'De organisator is niet gevonden in de database (ID: %{id})'
-        minutes:
-          create: "%{user_name} heeft het verslag van de vergadering %{resource_name} gemaakt op de %{space_name} spatie"
-          update: "%{user_name} heeft het verslag van de vergadering %{resource_name} op de %{space_name} -spatie bijgewerkt"
       calendar_modal:
         calendar_url: Agenda-URL
         close_window: Venster sluiten
@@ -425,7 +413,6 @@ nl:
         index:
           new_meeting: Nieuwe vergadering
         meeting_minutes:
-          meeting_minutes: Verslag van de vergadering
           related_information: Gerelateerde informatie
         meetings:
           no_meetings_warning: Geen afspraken komen overeen met uw zoekcriteria of er is geen vergadering gepland.
@@ -448,7 +435,7 @@ nl:
           join: Deelnemen aan bijeenkomst
           leave: Inschrijving annuleren
           leave_confirmation: Weet je zeker dat je je inschrijving voor deze vergadering wil annuleren?
-          meeting_report: Bijeenkomst verslag
+          meeting_minutes: Verslag van de vergadering
           no_slots_available: Geen plaatsen beschikbaar
           organizations: Bijwonen van organisaties
           registration_code_help_text: Uw registratiecode

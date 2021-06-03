@@ -27,5 +27,17 @@
         <%= proposals_picker(form, :proposals, proposals_picker_meeting_meeting_closes_path(meeting)) %>
       </div>
     <% end %>
+
+    <div class="row column">
+      <%= form.text_field :video_url %>
+    </div>
+
+    <div class="row column">
+      <%= form.text_field :audio_url %>
+    </div>
+
+    <div class="row column">
+      <%= form.check_box :closing_visible %>
+    </div>
   </div>
 </div>

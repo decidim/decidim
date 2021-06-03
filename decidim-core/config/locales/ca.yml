@@ -851,6 +851,15 @@ ca:
       index:
         last_activity: Última activitat
         resource_type: Tipus
+    links:
+      invalid_url: URL no vàlida
+      warning:
+        body_1: Ara visitaràs un enllaç exterior i et recomanem que siguis prudent pel que fa als continguts en pàgines externes.
+        body_2: Assegura't que l'enllaç que visitaràs és d'un lloc segur abans de seguir.
+        cancel: Anuŀla
+        close_modal: Tanca el modal
+        proceed: Continua
+        title: Obre l'enllaç extern
     log:
       base_presenter:
         create: "%{user_name} ha creat %{resource_name}"
@@ -1252,6 +1261,8 @@ ca:
         filters:
           areas: Àrees
           select_an_area: Selecciona una àrea
+      public_participation:
+        public_participation: Mostra públicament l'assistència
       reference:
         reference: 'Referència: %{reference}'
       represent_user_group:

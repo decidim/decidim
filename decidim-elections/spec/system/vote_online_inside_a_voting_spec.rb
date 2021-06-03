@@ -122,6 +122,37 @@ describe "Vote online in an election inside a Voting", type: :system do
     end
   end
 
+  context "when the voter already voted in person" do
+    let!(:in_person_vote) { create :in_person_vote, election: election, polling_officer: polling_officer, voter_id: voter_id }
+    let(:polling_station) { create(:polling_station, voting: voting) }
+    let(:polling_officer) { create(:polling_officer, voting: voting, user: user, presided_polling_station: polling_station) }
+    let(:voter_id) { vote_flow.voter_id }
+    let(:vote_flow) do
+      ret = Decidim::Votings::CensusVoteFlow.new(election)
+      ret.voter_in_person(document_type: "DNI", document_number: "12345678X", day: "11", month: "05", year: "1980")
+      ret
+    end
+
+    it "doesn't allow to vote again" do
+      visit_component
+      click_link translated(election.title)
+      click_link "Start voting"
+
+      within ".card__content" do
+        select("DNI", from: "Document type")
+        fill_in "Document number", with: "12345678X"
+        fill_in "Postal code", with: "04001"
+        fill_in "Day", with: "11"
+        fill_in "Month", with: "05"
+        fill_in "Year", with: "1980"
+        fill_in "Access code", with: "1234"
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_content("This participant has already voted in person and is not entitled to vote.")
+    end
+  end
+
   def vote_with_census_data
     visit_component
     click_link translated(election.title)

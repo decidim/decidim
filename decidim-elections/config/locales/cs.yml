@@ -107,6 +107,16 @@ cs:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Vyhledejte %{collection} podle jména/e-mailu/přezdívky nebo volební místnosti.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
           : Hledat %{collection} podle názvu, adresy nebo jména úředníka/e-mailu/přezdívky.
+        signed_eq:
+          label: Podepsáno
+          values:
+            'false': Podepsáno
+            'true': Nepodepsáno
+        validated_eq:
+          label: Ověřeno
+          values:
+            'false': Ověřeno
+            'true': Neschváleno
     components:
       elections:
         actions:
@@ -477,6 +487,8 @@ cs:
             end_time: Končí v
             start_time: Začíná v
             title: Název
+            verifiable_results_file_hash: Kontrolní součet SHA256 souboru
+            verifiable_results_file_url: Ověřitelný volební soubor
         question:
           fields:
             answers: Odpovědi
@@ -618,6 +630,8 @@ cs:
           lead: Váš hlas byl odeslán!
           text: 'Můžete zkontrolovat, že váš hlas byl úspěšně přidán do volební urny s následujícím identifikátorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Chcete-li jej zkontrolovat, zkopírujte identifikátor a vložte jej na <a href="%{link}">stránku pro ověření hlasování</a>
+        create:
+          error: Při hlasování se vyskytl problém. Zkuste to prosím znovu.
         encrypting:
           header: Šifrování hlasování...
           text: Váš hlasovací lístek je šifrován, aby bylo zajištěno že vaše hlasování je tajné.
@@ -802,8 +816,10 @@ cs:
             info: Informace
             landing_page: Vstupní stránka
             monitoring_committee: Monitorovací výbor
-            monitoring_committee_certificates: Potvrdit certifikáty
+            monitoring_committee_election_results: Ověřit výsledky
             monitoring_committee_members: Členové
+            monitoring_committee_polling_station_closures: Potvrdit certifikáty
+            monitoring_committee_verify_elections: Ověřit volby
             polling_officers: Volební komisaři
             polling_stations: Volební místnost
         models:
@@ -835,9 +851,33 @@ cs:
               promoted: Zvýrazněno
               published: Publikováno
               title: Název
-        monitoring_committee_certificates:
+        monitoring_committee_election_results:
+          actions:
+            title: Akce
+            view: Zobrazit
           index:
-            title: Volební místnosti
+            title: Vyberte si volby, u kterých chcete vidět výsledky
+          results:
+            bulletin_board: Vývěska
+            election_totals: Volební součet
+            polling_stations: Volební místnosti
+            result_types:
+              blank_answers: Prázdné odpovědi
+              blank_ballots: Prázdné hlasovací lístky
+              null_ballots: Prázdné hlasovací lístky
+              total_ballots: Celkový počet hlasovacích lístků
+              valid_ballots: Platné hlasovací lístky
+            selected: Vybráno
+            title: Výsledky voleb <i>%{election_title}</i>
+            totals: Celkem
+          show:
+            change_election: Změnit volbu
+            publish_results: Zveřejnit výsledky
+            publishing: Zveřejňování výsledků...
+          update:
+            invalid: Při publikování výsledků došlo k chybě
+            rejected: Zveřejnění výsledků bylo výborem Vývěsky zamítnuto. Zkuste to znovu nebo se obraťte na správce systému.
+            success: Výsledky byly úspěšně publikovány
         monitoring_committee_members:
           create:
             invalid: Při vytváření tohoto člena monitorovacího výboru došlo k potížím
@@ -855,6 +895,38 @@ cs:
           new:
             create: Vytvořit
             title: Vytvořit člena monitorovacího výboru
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: Akce
+            validate: Ověřit
+            view: Zobrazit
+          closures:
+            change_election: Změnit volbu
+            signed: Podepsáno?
+            title: Hlasovací stanice pro volby <i>%{election_title}</i>
+            validated: Ověřeno?
+          edit:
+            change_polling_station: Zpět do volebních místností
+            monitoring_committee_notes: Poznámky
+            monitoring_committee_notes_placeholder: Zde nahlaste jakýkoliv incident
+            title: Výsledky voleb <i>%{election_title}</i> ve volební místnosti<i>%{polling_station_title}</i>
+          elections:
+            title: Vyberte volbu, kterou chcete ověřit
+          show:
+            change_polling_station: Zpět do volebních místností
+            monitoring_committee_notes: Poznámky monitorovacího výboru
+          validate:
+            error: Při ověřování uzavření došlo k chybě
+            success: Uzavření bylo správně ověřeno
+        monitoring_committee_verify_elections:
+          index:
+            download: Stáhnout
+            how_to_checksum: 'Chcete-li se ujistit, že stažený soubor nebyl během procesu stahování poškozen nebo zmanipulován, spusťte následující příkaz v konzoli a zkontrolujte, zda výstup odpovídá výše uvedenému kontrolním součtu:'
+            how_to_download: Chcete-li ověřit volby, stáhněte si ověřitelný soubor z tabulky výše.
+            how_to_run_verifier: 'Jakmile stáhnete soubor a ujistíte se, že je v pořádku, můžete pokračovat ve spuštění univerzálního ověřovače. Klonujte <a href=''https://github.com/decidim/decidim-bulletin-board''>tento repozitář</a> a z kořenové složky spusťte následující příkaz:'
+            how_to_title: Jak ověřit platnost voleb
+            not_available: Ještě není k dispozici
+            title: Volby
         polling_officers:
           create:
             invalid: Při vytváření tohoto volebního komisaře došlo k chybě
@@ -1006,6 +1078,7 @@ cs:
             download: Stáhnout
             subject: Export hlasovacích kódů pro %{voting_title} je k dispozici
         vote_flow:
+          already_voted_in_person: Tento uživatel již hlasoval osobně a nemá právo hlasovat.
           datum_not_found: Poskytnutá data neodpovídají žádnému voliči.
       content_blocks:
         highlighted_votings:
@@ -1036,21 +1109,106 @@ cs:
       polling_officer_zone:
         closures:
           back_to_polling_stations: Zpět do volební místnosti
+          certify:
+            add_images: Přidat obrázky
+            error: Došlo k chybě při připojování certifikátu, zkuste to prosím znovu.
+            form_legend: Nahrajte prosím fotografii volebního certifikátu o uzavření
+            heading: Přepočet hlasů - Nahrát certifikát
+            info_text: Nahrajte prosím fotografii volebního certifikátu o uzavření.
+            submit: Nahrát certifikát
+            success: Certifikát byl úspěšně nahrán.
           create:
             error: Při vytváření uzavření došlo k chybě, opakujte akci později.
+            success: Uzavření bylo úspěšně vytvořeno.
           edit:
+            heading: Přepočet hlasů - přepočet odpovědí
             info_text: Uveďte celkový počet odpovědí na každou otázku.
             modal_ballots_results_count_error:
               close_modal: Zavřít
+              info_text: Celkový počet hlasovacích lístků neodpovídá celkovému počtu obálek. Zkontrolujte prosím celkový počet hlasovacích lístků.
+              title: Součet hlasovacích lístků se nesčítá
+            save_recount: Uložit přepočet
+            total_ballots: Celkový počet hlasovacích lístků
+            total_blank_ballots: Celkový počet prázdných hlasovacích lístků
+            total_null_ballots: Celkový počet prázdných hlasovacích lístků
+            total_valid_ballots: Celkový počet platných hlasovacích lístků
           new:
             election: 'Volby:'
+            heading: Přepočet hlasů
+            info_text: 'Uveďte celkový počet hlasovacích lístků (obálek) přepočtených v této volební místnosti:'
             modal_ballots_count_error:
+              btn_validate_total: Ověření celkového přepočtu hlasovacích lístků
               close_modal: Zavřít
+              info_explanation_text: 'Zkontrolujte celkový počet hlasovacích lístků. Pokud je celkový počet správný, musíte monitorovacímu výboru poskytnout vysvětlení:'
+              info_text: Celkový počet vložených hlasovacích lístků (obálek) neodpovídá počtu osob, které v této volební místnosti hlasovaly.
               message_for_monitoring_committee: Zpráva pro monitorovací výbor
+              review_recount: Zkontrolovat přepočet
               text_area_placeholder: Zadejte prosím vaši zprávu
+              title: Celkový počet záznamů se nesčítá
+              total_ballots: 'Celkový počet hlasovacích lístků:'
               total_people: 'Celkem lidí:'
             polling_station: 'Volební místnost:'
             submit: Ověřit celkové číslo
+            total_ballots_count: Počet hlasovacích lístků
+          show:
+            heading: Počet hlasů
+            info_text: Uzavření hlasovací stanice voleb.
+          sign:
+            cancel: Zrušit
+            check_box: Přezkoumal jsem to a je to stejné jako fyzický certifikát o ukončení voleb
+            close_modal: Zavřít
+            confirm: Ok, pokračovat
+            error: Došlo k chybě. Prosím zkuste to znovu.
+            heading: Přepočet hlasů - uzavření podpisu
+            info_text: Pokud budete pokračovat, již nemůžete upravovat žádné informace, tuto akci nelze vrátit zpět.
+            submit: Podepsat uzavření
+            success: Uzavření úspěšně podepsáno.
+            title: Tuto akci nelze vrátit zpět
+          update:
+            error: Při aktualizaci výsledků uzávěrky došlo k chybě, zkuste to prosím později.
+            success: Výsledky uzávěrky byly úspěšně aktualizovány.
+        in_person_votes:
+          complete_voting:
+            available_answers: 'Dostupné odpovědi:'
+            census_verified: Uživatel ještě nehlasoval.
+            complete_voting: Dokončené hlasování
+            identify_another: Identifikovat jiného účastníka
+            questions_title: 'Má právo hlasovat v těchto otázkách:'
+            questions_title_voted: 'Účastník již hlasoval on-line a je oprávněn hlasovat v následujících otázkách:'
+            voted: Uživatel hlasoval
+          create:
+            error: Hlasování nebylo zaregistrováno. Zkuste to prosím znovu.
+          in_person_form:
+            census_not_present: Tento uživatel není uveden v seznamu osob.
+            census_not_present_description: Musí jít do úřadu pro stížnosti ze sčítání nebo kontaktovat podporu.
+            date_of_birth: Datum narození
+            day: Den
+            day_placeholder: DD
+            document_number: Číslo dokumentu
+            document_number_placeholder: Číslo občanského průkazu
+            month: Měsíc
+            month_placeholder: MM
+            select: Vyberte typ dokumentu
+            title: 'Vyberte typ dokumentu a zadejte číslo dokladu účastníka:'
+            validate_document: Ověřit platnost dokladu
+            year: Rok
+            year_placeholder: RRRR
+          new:
+            back: Zpět do volební místnosti
+            title: Identifikovat a ověřit účastníka
+          show:
+            back: Zpět do volební místnosti
+            title: Čekání na registraci osobního hlasu
+          update:
+            error: Při registraci hlasování došlo k chybě. Zkuste to znovu.
+            success:
+              accepted: Hlasování bylo úspěšně zaregistrováno.
+              rejected: Hlasování nebylo přijato Volební vývěskou. Kontaktujte prosím správce systému.
+          verify_document:
+            census_present: Tento uživatel je uveden v seznamu osob.
+            name: Jméno
+            title: 'Zkontrolujte, zda jsou tyto údaje správné:'
+            verify_document: Ověřit doklad
         menu:
           polling_officer_zone: Zóna volebního komisaře
         polling_officers:
@@ -1064,37 +1222,9 @@ cs:
               name: Jméno
               no_polling_stations: Zatím nejste přiřazeni k žádnému volební místnosti.
               role: Vaše role
+              show_closure: Zobrazit uzavření
               title: Volební místnosti
               voting: Hlasování
-        votes:
-          create:
-            success: Úspěšně zahlasováno Osobní volbou
-          in_person_fields:
-            date_of_birth: Datum narození
-            day: Den
-            day_placeholder: DD
-            document_number: Číslo dokumentu
-            document_number_placeholder: Číslo občanského průkazu
-            month: Měsíc
-            month_placeholder: MM
-            name: Název
-            select: Vyberte typ dokumentu
-            voted: Uživatel hlasoval
-            year: Rok
-            year_placeholder: RRRR
-          new:
-            back: Zpět do volební místnosti
-            census_not_present: Tento uživatel není uveden v seznamu osob.
-            census_not_present_description: Musí jít do úřadu spravující seznam osob nebo kontaktovat podporu.
-            census_present: Tento uživatel je uveden v seznamu osob.
-            census_verified: Uživatel ještě nehlasoval.
-            complete_voting: Dokončené hlasování
-            form_title: 'Vyberte typ dokumentu a zadejte číslo dokladu účastníka:'
-            questions_title: 'Má právo hlasovat v těchto otázkách:'
-            title: Identifikovat a ověřit účastníka
-            validate_document: Ověřit platnost dokladu
-            verify_document: Ověřit doklad
-            verify_title: 'Zkontrolujte, zda jsou tyto údaje správné:'
       polling_officers:
         actions:
           confirm_destroy: Jste si jisti?
@@ -1105,6 +1235,16 @@ cs:
           manager: Manažer
           president: Předseda
           unassigned: Nepřiřazen
+      polling_station_closure_recount:
+        nota_option: Prázdná/Nic z výše uvedených
+        polling_officer_notes: 'Poznámky volebního komisaře:'
+        polling_officer_notes_blank: Nejsou žádné poznámky
+        recount_summary: 'Přepočet shrnutí:'
+        signed: Podepsáno
+        total_ballots: 'Celkový počet hlasovacích lístků:'
+        total_blank_ballots: 'Celkový počet nevyplněných hlasovacích lístků:'
+        total_null_ballots: 'Celkový počet prázdných hlasovacích lístků:'
+        total_valid_ballots: 'Celkový počet platných hlasovacích lístků:'
       polling_stations:
         actions:
           confirm_destroy: Jste si jist?
@@ -1154,6 +1294,7 @@ cs:
             other: "%{count} hlasů"
         elections_log:
           bb_status: Stav voleb
+          description: Volební protokol vám zobrazí všechny příslušné informace o každém hlasování. Například status úvodního ceremoniálu nebo tally nebo pokud jsou výsledky již zveřejněny. Klikněte na volby, o kterých chcete protokolem informovat.
           election_log: Volební protokol
           title: Volební protokol
         filters:

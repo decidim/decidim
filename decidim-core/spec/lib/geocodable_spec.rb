@@ -38,11 +38,29 @@ module Decidim
       expect(subject.latitude).to eq(latitude)
       expect(subject.longitude).to eq(longitude)
 
+      expect(subject).to be_geocoded
+      expect(subject).to be_geocoded_and_valid
+
       # Check that the calculations are correctly passed to the
       # `Geocoder::Calculations` module.
       expect(
         subject.distance_to([60.169857, 24.938379], :km)
       ).to eq(2728.962159915394)
+    end
+
+    context "when the address is invalid" do
+      let(:address) { "aaa" }
+      let(:latitude) { Float::NAN }
+      let(:longitude) { Float::NAN }
+
+      it "calls the Decidim geocoding utility and try to geocode the resource, but the result is [NaN,NaN]" do
+        subject.geocode
+        expect(subject.latitude).to be_nan
+        expect(subject.longitude).to be_nan
+
+        expect(subject).to be_geocoded
+        expect(subject).not_to be_geocoded_and_valid
+      end
     end
   end
 end

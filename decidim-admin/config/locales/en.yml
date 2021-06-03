@@ -338,6 +338,12 @@ en:
         show:
           view_more_logs: View more logs
           welcome: Welcome to the Decidim Admin Panel.
+      domain_whitelist:
+        form:
+          domain_too_short: Domain too short
+        update:
+          error: Failed to update domain whitelist
+          success: Domain whitelist updated successfully
       exports:
         export_as: "%{name} as %{export_format}"
         formats:
@@ -471,6 +477,7 @@ en:
         areas: Areas
         configuration: Configuration
         dashboard: Dashboard
+        external_domain_whitelist: External domain whitelist
         help_sections: Help sections
         homepage: Homepage
         impersonations: Impersonations
@@ -742,6 +749,17 @@ en:
             layout_appearance_title: Edit layout appearance
             preview: Preview
           omnipresent_banner_appearance_title: Edit omnipresent banner
+      organization_external_domain_whitelist:
+        edit:
+          update: Update
+        external_domain:
+          down: Down
+          external_domain: External domain
+          remove: Remove
+          up: Up
+        form:
+          add: Add to whitelist
+          title: External domain whitelist
       organization_homepage:
         edit:
           active_content_blocks: Active content blocks

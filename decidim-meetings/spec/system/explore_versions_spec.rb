@@ -17,6 +17,7 @@ describe "Explore versions", versioning: true, type: :system do
   let!(:meeting) do
     create(
       :meeting,
+      :published,
       title: { I18n.locale => "My title" },
       component: component,
       # PaperTrail can create an extra version if there's a questionnaire

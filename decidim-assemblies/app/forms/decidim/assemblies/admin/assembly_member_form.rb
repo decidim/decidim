@@ -34,7 +34,7 @@ module Decidim
         end
 
         def user
-          @user ||= current_organization.users.find_by(id: user_id)
+          @user ||= current_organization.user_entities.find_by(id: user_id)
         end
 
         def positions_for_select

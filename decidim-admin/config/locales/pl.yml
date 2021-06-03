@@ -31,6 +31,7 @@ pl:
         body: Treść
         subject: Temat
       organization:
+        admin_terms_of_use_body: Warunki korzystania z serwisu dla administratora
         alert_color: Powiadomienie
         available_authorizations: Dostępne formy uwierzytelniania
         badges_enabled: Włącz odznaki
@@ -81,7 +82,7 @@ pl:
         send_welcome_notification: Wyślij komunikat powitalny
         success_color: Powodzenie
         time_zone: Strefa czasowa
-        tos_version: Warunki korzystania z usługi
+        tos_version: Warunki korzystania z Platformy
         twitter_handler: Handler Twittera
         user_groups_enabled: Włącz grupy użytkowników
         users_registration_mode: Tryb rejestracji użytkowników
@@ -166,7 +167,7 @@ pl:
         reject: Odrzuć
         share: Udostępnij
         user:
-          new: Nowy użytkownik
+          new: Nowy administrator
         verify: Zweryfikuj
       admin_terms_of_use:
         accept:
@@ -322,7 +323,7 @@ pl:
         transfer:
           email: Adres e-mail
           error: Podczas transferu bieżącego użytkownika do zarządzanego użytkownika wystąpił błąd.
-          name: Nazwa
+          name: Imię
           reason: Powód
           success: Bieżący transfer został pomyślnie zakończony.
           title: Transfer
@@ -367,7 +368,7 @@ pl:
         search_label: Szukaj
         search_placeholder:
           name_or_nickname_or_email_cont: Przeszukaj %{collection} według adresu e-mail, nazwiska lub nazwy użytkownika.
-          reported_id_string_or_reported_content_cont: Szukaj %{collection} według identyfikatora lub treści raportu.
+          reported_id_string_or_reported_content_cont: Szukaj %{collection} według identyfikatora lub treści zgłoszenia.
           title_cont: Przeszukaj %{collection} według tytułu.
         state_eq:
           label: Stan
@@ -392,7 +393,7 @@ pl:
           impersonate: Podszywać się
           impersonate_new_managed_user: Zarządzaj nowym uczestnikiem
           managed: Zamknięte
-          name: Nazwa
+          name: Imię
           needs_authorization_warning: Do tej organizacji potrzebna jest co najmniej jedna autoryzacja.
           not_managed: Niezamknięte
           promote: Awansuj
@@ -408,7 +409,7 @@ pl:
           success: Zarządzany użytkownik został pomyślnie utworzony.
         form:
           authorization_method: Metoda autoryzacji
-          name: Nazwa
+          name: Imię
           reason: Powód
         new:
           impersonate: Podszywać się
@@ -532,7 +533,7 @@ pl:
             created_at: Data utworzenia
             email: E-mail
             last_sign_in_at: Ostatni dzień rejestracji
-            name: Nazwa
+            name: Imię
             role: Rola
             roles:
               admin: Admin
@@ -573,7 +574,7 @@ pl:
         report:
           reasons:
             does_not_belong: Nie należy
-            offensive: Ofensywa
+            offensive: Ofensywna
             spam: Spam
         reports:
           index:
@@ -584,12 +585,12 @@ pl:
             reported_content: Zgłoszona zawartość
             see_current: Zobacz bieżący
             see_original: Zobacz oryginał
-            title: Raporty moderacyjne
+            title: Zgłoszenia moderacyjne
           show:
             report_details: Szczegóły przyczyny
             report_language: Zgłoś język
             report_reason: Powód
-            title: Szczegóły raportu
+            title: Szczegóły zgłoszenia
       newsletter_templates:
         index:
           preview_template: Podgląd
@@ -659,21 +660,21 @@ pl:
           error: Wystąpił błąd blokowania użytkownika
           success: Użytkownik został zablokowany
         create:
-          success: Użytkownik oficjalnie z powodzeniem
+          success: Użytkownik został zweryfikowany
         destroy:
-          success: Użytkownik nieoficjalizowany pomyślnie
+          success: Cofnięto weryfikację użytkownika
         index:
           actions: Działania
           badge: Odznaka
           block: Zablokuj użytkownika
           created_at: Utworzono
-          name: Nazwa
+          name: Imię
           nickname: Pseudonim
           not_officialized: Nieoficjalny
           officialize: Oficjalizuj
           officialized: Oficjalny
           reofficialize: Reoficjalizuj
-          reports: Raporty
+          reports: Zgłoszenia
           show_email: Pokaż adres e-mail
           status: Status
           unblock: Odblokuj użytkownika
@@ -869,7 +870,7 @@ pl:
         static_pages: Strony
         statistics: Działania
         user_groups: Grupy użytkowników
-        users: Użytkownicy
+        users: Administratorzy
       user_group:
         csv_verify:
           invalid: Wystąpił błąd podczas odczytu pliku CSV.
@@ -965,8 +966,8 @@ pl:
             report_count: Liczba
             reportable_id: Id
             reportable_type: Typ
-            reported_content_url: Zgłoszony URL treści
-            reports: Raporty
+            reported_content_url: URL zgłoszonej treści
+            reports: Zgłoszenia
             visit_url: Odwiedź adres URL
         report:
           fields:

@@ -383,6 +383,7 @@ gl:
             more_information: Máis información
             participate: Participar
             participate_in: Participar no proceso %{resource_name}
+            processes_button_title: Ligazón á páxina de Procesos que amosa todas as procesos
             see_all_processes: Ver todos os procesos
       participatory_process_steps:
         index:
