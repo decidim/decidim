@@ -465,6 +465,7 @@ de:
             start_time: Beginnt um
             title: Titel
             verifiable_results_file_hash: SHA256-Prüfsumme der Datei
+            verifiable_results_file_url: Überprüfbare Wahldatei
         question:
           fields:
             answers: Antworten
@@ -773,7 +774,10 @@ de:
             info: Information
             landing_page: Landing-Page
             monitoring_committee: Überwachungskomitee
+            monitoring_committee_election_results: Ergebnisse überprüfen
             monitoring_committee_members: Mitglieder
+            monitoring_committee_polling_station_closures: Zertifikate überprüfen
+            monitoring_committee_verify_elections: Wahlen überprüfen
             polling_officers: Wahllokal-Mitarbeitende
             polling_stations: Wahllokale
         models:
@@ -805,6 +809,20 @@ de:
               promoted: Hervorgehoben
               published: Veröffentlicht
               title: Titel
+        monitoring_committee_election_results:
+          actions:
+            title: Aktionen
+            view: Anzeigen
+          index:
+            title: Wählen Sie eine Wahl aus, für die die Ergebnisse angezeigt werden sollen
+          results:
+            bulletin_board: Bulletin Board
+            election_totals: Wahltotale
+            polling_stations: Wahllokale
+            result_types:
+              blank_answers: Leere Antworten
+              blank_ballots: Leere Stimmzettel
+              null_ballots: Ungültige Stimmzettel
         monitoring_committee_members:
           create:
             invalid: Beim Erfassen dieses Überwachungskomitee-Mitglieds ist ein Fehler aufgetreten
@@ -822,6 +840,38 @@ de:
           new:
             create: Hinzufügen
             title: Überwachungskomitee-Mitglied erfassen
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: Aktionen
+            validate: Überprüfen
+            view: Anzeigen
+          closures:
+            change_election: Wahl ändern
+            signed: Signiert?
+            title: Wahlbüros für die Wahl <i>%{election_title}</i>
+            validated: Überprüft?
+          edit:
+            change_polling_station: Zurück zu den Wahllokalen
+            monitoring_committee_notes: Bemerkungen
+            monitoring_committee_notes_placeholder: Melde jegliche Inzidenz hier
+            title: Ergebnisse für die Wahl <i>%{election_title}</i> im Wahllokal <i>%{polling_station_title}</i>
+          elections:
+            title: Wählen Sie eine Wahl aus, die Sie überprüfen möchten
+          show:
+            change_polling_station: Zurück zu den Wahllokalen
+            monitoring_committee_notes: Anmerkungen vom Überwachungsausschuss
+          validate:
+            error: Beim Überprüfen der Schliessung ist ein Problem aufgetreten
+            success: Die Schliessung wurde korrekt überprüft
+        monitoring_committee_verify_elections:
+          index:
+            download: Download
+            how_to_checksum: 'Um sicherzustellen, dass die heruntergeladene Datei während des Downloadprozesses nicht beschädigt oder manipuliert wurde, führen Sie den folgenden Befehl in Ihrer Konsole aus und überprüfen Sie, ob die Ausgabe der oben genannten Prüfsumme entspricht:'
+            how_to_download: Um eine Wahl zu überprüfen, laden Sie die überprüfbare Datei aus der obigen Tabelle herunter.
+            how_to_run_verifier: 'Wenn Sie die Datei heruntergeladen haben und sicher gestellt haben, dass sie in Ordnung ist, können Sie den universellen Überprüfer ausführen. Klonen Sie <a href=''https://github.com/decidim/decidim-bulletin-board''>dieses Repository</a> und führen Sie den folgenden Befehl im Root-Verzeichnis aus:'
+            how_to_title: Wie überprüfe ich die Gültigkeit einer Wahl
+            not_available: Noch nicht verfügbar
+            title: Wahlen
         polling_officers:
           create:
             invalid: Beim Erfassen dieses Wahllokal-Mitarbeiters ist ein Fehler aufgetreten
