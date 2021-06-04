@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "jquery-tmpl-rails"
 require "icalendar"
 
 require "decidim/core"
@@ -101,10 +100,6 @@ module Decidim
         Decidim.metrics_operation.register(:followers, :meetings) do |metric_operation|
           metric_operation.manager_class = "Decidim::Meetings::Metrics::MeetingFollowersMetricMeasure"
         end
-      end
-
-      initializer "decidim_meetings.assets" do |app|
-        app.config.assets.precompile += %w(decidim_meetings_manifest.js)
       end
     end
   end
