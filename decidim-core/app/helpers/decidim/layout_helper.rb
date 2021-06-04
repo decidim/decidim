@@ -53,7 +53,7 @@ module Decidim
         html_properties["aria-hidden"] = true
       end
 
-      href = Decidim.cors_enabled ? "" :  asset_pack_path("media/images/icons.svg")
+      href = Decidim.cors_enabled ? "" : asset_pack_path("media/images/icons.svg")
 
       content_tag :svg, html_properties do
         inner = content_tag :title, title

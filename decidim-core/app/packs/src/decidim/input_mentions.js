@@ -111,7 +111,12 @@ $(() => {
       let svg = "";
       if (window.Decidim && item.original.__typename === "UserGroup") {
         let corsMode = window.Decidim.config.get("cors_enabled");
-        let iconsPath = corsMode ? "" : window.Decidim.config.get("icons_path");
+
+        let iconsPath =  ""
+        if (corsMode === true) {
+          iconsPath = window.Decidim.config.get("icons_path");
+        }
+
         svg = `<span class="is-group">${item.original.membersCount}x <svg class="icon--members icon"><use href="${iconsPath}#icon-members"/></svg></span>`;
       }
       return `<div class="tribute-item ${item.original.__typename}">
