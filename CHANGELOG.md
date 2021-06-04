@@ -63,6 +63,16 @@ PR [\#7986](https://github.com/decidim/decidim/pull/7986) splits some jobs from 
 
 If your application uses Sidekiq and you set a manual configuration file, you'll need to update it to add these two new queues. Otherwise these queues [will never run](https://github.com/mperham/sidekiq/issues/4897).
 
+#### User groups in global search
+
+PR [\#8061](https://github.com/decidim/decidim/pull/8061) adds user groups to the global search and previously existing groups need to be indexed, otherwise it won't be available as search results. Run in a rails console or create a migration with:
+
+```ruby
+  Decidim::UserGroup.find_each(&:try_update_index_for_search_resource)
+```
+
+Please be aware that it could take a while if your database has a lot of groups.
+
 ### Added
 
 ### Changed
