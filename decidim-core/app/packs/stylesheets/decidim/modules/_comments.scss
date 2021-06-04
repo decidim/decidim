@@ -30,6 +30,12 @@ $comment-form-bg: $light-gray;
   padding: $comment-padding;
   display: flex;
 
+  .comment__edited,
+  .comment__deleted{
+    font-style: italic;
+    color: $muted;
+  }
+
   &__context-menu{
     position: relative;
     margin-left: auto;
