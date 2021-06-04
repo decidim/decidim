@@ -248,6 +248,65 @@ shared_examples "comments" do
       end
     end
 
+    context "when a user edits a comment" do
+      let(:comment_body) { "This coment has a typo" }
+      let!(:comment) { create(:comment, body: comment_body, commentable: commentable, author: comment_author) }
+
+      before do
+        visit resource_path
+      end
+
+      context "when the comment is not authored by user" do
+        let!(:comment_author) { create(:user, :confirmed, organization: organization) }
+
+        it "the context menu of the comment doesn't show an edit button" do
+          within "#comment_#{comment.id}" do
+            within ".comment__header__context-menu" do
+              page.find(".icon--ellipses").click
+              expect(page).to have_no_button("Edit")
+            end
+          end
+        end
+      end
+
+      context "when the comment is authored by user" do
+        let!(:comment_author) { user }
+
+        it "the context menu of the comment show an edit button" do
+          within "#comment_#{comment.id}" do
+            within ".comment__header__context-menu" do
+              page.find(".icon--ellipses").click
+              expect(page).to have_button("Edit")
+            end
+          end
+        end
+
+        context "when the user edits a comment" do
+          before do
+            within "#comment_#{comment.id} .comment__header__context-menu" do
+              page.find(".icon--ellipses").click
+              click_button "Edit"
+            end
+            fill_in "edit_comment_#{comment.id}", with: "This comment has been fixed"
+            click_button "Send"
+          end
+
+          it "the comment body changes" do
+            within "#comment_#{comment.id}" do
+              expect(page).to have_content("This comment has been fixed")
+              expect(page).to have_no_content(comment_body)
+            end
+          end
+
+          it "the header of the comment displays an edited message" do
+            within "#comment_#{comment.id} .comment__header" do
+              expect(page).to have_content("Edited")
+            end
+          end
+        end
+      end
+    end
+
     context "when a user replies to a comment", :slow do
       let!(:comment_author) { create(:user, :confirmed, organization: organization) }
       let!(:comment) { create(:comment, commentable: commentable, author: comment_author) }
