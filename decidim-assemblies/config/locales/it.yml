@@ -63,7 +63,7 @@ it:
         full_name: Nome e cognome
         gender: Genere
         position: Posizione
-        user_id: Utente o gruppo
+        user_id: Utente
       assembly_user_role:
         email: E-mail
         name: Nome
