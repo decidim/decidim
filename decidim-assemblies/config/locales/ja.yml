@@ -63,6 +63,7 @@ ja:
         full_name: フルネーム
         gender: 性別
         position: ポジション
+        user_id: ユーザー
       assembly_user_role:
         email: Eメールアドレス
         name: 名前
