@@ -143,6 +143,10 @@ module Decidim
         model.depth - root_depth
       end
 
+      def reloaded?
+        options[:reloaded]
+      end
+
       def voted_up?
         model.up_voted_by?(current_user)
       end
