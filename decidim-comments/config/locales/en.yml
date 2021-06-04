@@ -22,6 +22,8 @@ en:
           error: There was a problem creating the comment.
         delete:
           error: The comment couldn't be deleted.
+        update:
+          error: There was a problem updating the comment.
       comments_count: Comments count
       comments_title: Comments
       last_activity:
@@ -98,6 +100,14 @@ en:
           other: "%{count} comments"
       down_vote_button:
         text: I disagree with this comment
+      edit_comment_modal_form:
+        close: Close
+        form:
+          body:
+            label: Comment
+            placeholder: What do you think about this?
+          submit: Send
+        title: Edit your comment
       up_vote_button:
         text: I agree with this comment
     events:

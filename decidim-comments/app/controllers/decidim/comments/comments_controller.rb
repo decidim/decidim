@@ -8,8 +8,8 @@ module Decidim
       include Decidim::ResourceHelper
 
       before_action :authenticate_user!, only: [:create]
-      before_action :set_commentable, except: [:destroy]
-      before_action :ensure_commentable!, except: [:destroy]
+      before_action :set_commentable, except: [:destroy, :update]
+      before_action :ensure_commentable!, except: [:destroy, :update]
 
       helper_method :root_depth, :commentable, :order, :reply?, :reload?
 
@@ -34,6 +34,31 @@ module Decidim
 
           # This makes sure bots are not causing unnecessary log entries.
           format.html { redirect_to commentable_path }
+        end
+      end
+
+      def update
+        set_comment
+        enforce_permission_to :update, :comment, comment: comment
+
+        form = Decidim::Comments::CommentForm.from_params(
+          params.merge(commentable: comment.commentable)
+        ).with_context(
+          current_organization: current_organization
+        )
+
+        Decidim::Comments::UpdateComment.call(comment, current_user, form) do
+          on(:ok) do
+            respond_to do |format|
+              format.js { render :update }
+            end
+          end
+
+          on(:invalid) do
+            respond_to do |format|
+              format.js { render :update_error }
+            end
+          end
         end
       end
 

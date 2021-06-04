@@ -11,8 +11,8 @@ module Decidim
           can_read_comments?
         when :create
           can_create_comment?
-        when :destroy
-          can_destroy_comment?
+        when :update, :destroy
+          can_update_comment?
         when :vote
           can_vote_comment?
         end
@@ -36,7 +36,7 @@ module Decidim
         allow!
       end
 
-      def can_destroy_comment?
+      def can_update_comment?
         return disallow! unless user
         return disallow! unless comment.authored_by?(user)
 
