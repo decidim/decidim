@@ -22,6 +22,7 @@ it:
         area_enabled: Abilita gli autori a scegliere l'area per la loro iniziativa
         attachments_enabled: Abilita allegati
         banner_image: Immagine banner
+        child_scope_threshold_enabled: Abilita firme ambito figlio
         collect_user_extra_fields: Raccogliere dati personali dell'utente alla firma
         custom_signature_end_date_enabled: Consenti agli autori di scegliere la fine del periodo di raccolta delle firme
         description: Descrizione
@@ -29,6 +30,7 @@ it:
         extra_fields_legal_information: Informazioni legali sulla raccolta di dati personali
         minimum_committee_members: Minimo dei membri del comitato
         online_signature_enabled: Firma online abilitata
+        only_global_scope_enabled: Consenti solo la creazione di iniziative di portata globale
         promoting_committee_enabled: Abilita la commissione promozionale
         title: Titolo
         undo_online_signatures_enabled: Consenti agli utenti di annullare le loro firme online
@@ -66,13 +68,29 @@ it:
       actions:
         new_initiative_type: Nuovo tipo di iniziativa
       filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Area
+          state_eq:
+            label: Stato
+            values:
+              accepted: Numero di firme sufficiente
+              created: Creato
+              discarded: Rifiutato
+              published: Pubblicati
+              validating: Validazione tecnica
+          type_id_eq:
+            label: Tipo
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cerca %{collection} per titolo, descrizione, ID o nome dell'autore.
       menu:
+        attachments: Allegati
+        committee_members: Membri del comitato
         components: componenti
         information: Informazione
         initiatives: Iniziative
         initiatives_types: Tipi di iniziativa
+        moderations: Moderazioni
       models:
         initiatives:
           fields:
@@ -123,6 +141,11 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{resource_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: Data di fine delle firme dell'iniziativa estesa!
           notification_title: La data di fine della raccolta firme per l'iniziativa <a href="%{resource_path}">%{resource_title}</a> è stata estesa.
+        initiative_sent_to_technical_validation:
+          email_intro: L'iniziativa "%{resource_title}" è stata inviata alla convalida tecnica. Controlla il <a href="%{admin_initiative_url}">pannello di amministrazione</a>
+          email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
+          email_subject: L'iniziativa%{resource_title}" è stata inviata alla convalida tecnica.
+          notification_title: L'iniziativa "%{resource_title}" è stata inviata alla convalida tecnica. Controlla il <a href="%{admin_initiative_path}">pannello di amministrazione</a>
         milestone_completed:
           affected_user:
             email_intro: La tua iniziativa %{resource_title} ha raggiunto l' %{percentage}% delle firme!
@@ -135,6 +158,7 @@ it:
             email_subject: Nuova pietra miliare completata!
             notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> ha raggiunto il %{percentage}% delle firme.
         support_threshold_reached:
+          email_intro: L'iniziativa %{resource_title} ha raggiunto la soglia dei supporti richiesti
           email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
     gamification:
       badges:
@@ -180,12 +204,17 @@ it:
         content_blocks:
           highlighted_initiatives:
             max_results: Quantità massima di elementi da mostrare
+            order:
+              default: Predefinito (meno recente)
+              label: 'Ordina gli elementi per:'
+              most_recent: Più recenti
         exports:
           initiatives: Iniziative
         initiatives:
           edit:
             accept: Accetta l'iniziativa
             confirm: Sei sicuro?
+            confirm_send_to_technical_validation: Sei sicuro?
             discard: Scartare l'iniziativa
             export_pdf_signatures: Esporta PDF delle firme
             export_votes: Esporta le firme
@@ -194,6 +223,8 @@ it:
             success: L'iniziativa è stata inviata alla convalida tecnica
             update: Aggiornare
           form:
+            attachments: Allegati
+            settings: Impostazioni
             title: Informazione generale
           index:
             actions_title: Azione
@@ -240,6 +271,8 @@ it:
             update: Aggiornare
           form:
             authorizations: Impostazioni di autorizzazione
+            child_scope_threshold_enabled_help: 'Questo flag di configurazione non supporta i voti offline, abilita i sotto-ambiti e funziona con un gestore di autorizzazioni che associa un ambito all''utente, assicurarsi di selezionare tale autorizzazione, sotto nelle impostazioni di autorizzazione. Affinché gli ambiti di lavoro debbano essere configurati in modo gerarchico: 1 Genitore - N Bambino. Per ulteriori informazioni su come funziona questa configurazione, vedere questo <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a>.'
+            only_global_scope_enabled_help: Seleziona questo contrassegno se hai abilitato "Child scope signature" e hai configurato l'ambito globale come ambito genitore. Abilitando questo, la selezione del tipo di iniziativa sarà saltata nella procedura guidata di creazione di iniziativa. Per ulteriori informazioni su come funziona questa configurazione, vedere questo <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a>.
             options: Opzioni
             title: Informazione generale
           initiative_type_scopes:
@@ -278,9 +311,13 @@ it:
         filter_type_values:
           all: Tutti
       committee_requests:
+        approve:
+          success: La richiesta è stata approvata.
         new:
           continue: Continua
           help_text: Stai per chiedere di diventare un membro del comitato promotore di questa iniziativa
+        revoke:
+          success: La richiesta è stata negata.
         spawn:
           success: La tua richiesta è stata inviata all'autore dell'iniziativa.
       content_blocks:
@@ -297,8 +334,11 @@ it:
         finish:
           back: Indietro
           back_to_initiatives: Torna alle iniziative
+          callout_text: Complimenti! La tua iniziativa è stata creata con successo.
+          edit_my_initiative: Modifica la mia iniziativa
           go_to_my_initiatives: Vai alle mie iniziative
           more_information: "(Maggiori informazioni)"
+          send_my_initiative: Invia la mia iniziativa alla convalida tecnica
         previous_form:
           back: Indietro
           continue: Continua
@@ -320,6 +360,15 @@ it:
           compare_help: Se una qualsiasi delle seguenti iniziative è simile alla tua, ti incoraggiamo a supportarla. La tua proposta avrà più possibilità di essere scelta.
           continue: La mia iniziativa è diversa
           more_information: "(Maggiori informazioni)"
+      edit:
+        back: Indietro
+        confirm: Sei sicuro?
+        discard: Scarta l'iniziativa
+        export_pdf_signatures: Esporta PDF delle firme
+        export_votes: Esporta le firme
+        reject: Rifiuta l'iniziativa
+        title: Modifica la mia iniziativa
+        update: Modifica
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, che stai seguendo, ha creato una nuova iniziativa, dai un'occhiata e dai il tuo contributo:"
@@ -406,10 +455,17 @@ it:
           recently_published: Pubblicati più di recente
         print:
           city: Città
+          signature: Firma
         result:
+          answer_title: Questa iniziativa ha ricevuto una risposta
           initiative_rejected_reason: Questa iniziativa è stata respinta a causa della mancanza di firme.
         show:
+          confirm: Stai per inviare l'iniziativa per un amministratore per rivederla e pubblicarla. Una volta pubblicato non sarai in grado di modificarlo. Sei sicuro?
+          edit: Modifica
           follow_description: Ricevi una notifica quando ci sono novità in questa iniziativa
+          offline_method: Questa iniziativa dei cittadini raccoglie solo firme autografe.
+          print: Stampa Iniziativa
+          send_to_technical_validation: Invia per la convalida tecnica
         signatures_count:
           one: " firma"
           other: " firme"
@@ -455,6 +511,9 @@ it:
         accepted: Accettato
         expired: Scaduto
       unavailable_scope: Ambito non disponibile
+      update:
+        error: Qualcosa è andato storto
+        success: L'iniziativa è stata aggiornata correttamente
       versions:
         shared:
           back_to_resource: Torna all'iniziativa
