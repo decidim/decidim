@@ -90,7 +90,7 @@ module Decidim
             author.save!
           end
 
-          it "includes the name of the author and a link to their profile" do
+          it "includes the name of the author but no link to his profile" do
             expect(mail).not_to have_link(author.name)
           end
         end
