@@ -45,7 +45,7 @@ module Decidim
       end
 
       def exceeds_budget?
-        order.allocation_for(project) + order.total > project.budget.total_budget
+        order.allocation_for(project) + order.total > order.available_allocation
       end
 
       def voting_not_enabled?
