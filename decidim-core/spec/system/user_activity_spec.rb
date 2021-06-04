@@ -72,7 +72,6 @@ describe "User activity", type: :system do
     end
 
     context "when accessing a non existing profile" do
-
       before do
         visit decidim.profile_activity_path(nickname: "invalid_nickname")
       end

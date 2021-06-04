@@ -13,6 +13,7 @@ module Decidim
     def show
       return render :invalid if profile_holder.blank?
       return render :inaccessible if profile_holder.blocked? && current_user_logged_in?
+
       render :show
     end
 
