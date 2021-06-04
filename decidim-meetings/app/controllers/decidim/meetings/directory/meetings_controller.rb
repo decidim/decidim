@@ -47,7 +47,8 @@ module Decidim
             date: "upcoming",
             search_text: "",
             scope_id: "",
-            space: "all"
+            space: "all",
+            meeting_report: "all"
           }
         end
 

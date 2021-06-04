@@ -163,6 +163,29 @@ describe "Explore meetings", :slow, type: :system do
         expect(page).to have_css(".card--meeting", count: 5)
       end
 
+      it "allows filtering by closing report" do
+        closed_meeting = create(:meeting, :published, :closed, component: component, start_time: 1.week.ago)
+        visit_component
+
+        within ".date_check_boxes_tree_filter" do
+          uncheck "All"
+          check "Past"
+        end
+
+        within ".meeting_report_collection_radio_buttons_filter" do
+          choose "Closed"
+        end
+
+        expect(page).to have_css(".card--meeting", count: 1)
+        expect(page).to have_content(translated(closed_meeting.title))
+
+        within ".meeting_report_collection_radio_buttons_filter" do
+          choose "All"
+        end
+
+        expect(page).to have_css(".card--meeting", count: 5)
+      end
+
       it "allows filtering by scope" do
         scope = create(:scope, organization: organization)
         meeting = meetings.first

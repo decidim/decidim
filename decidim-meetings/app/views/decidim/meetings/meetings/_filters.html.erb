@@ -32,6 +32,8 @@
     <%= form.check_boxes_tree :origin, filter_origin_values, legend_title: t(".origin") %>
   <% end %>
 
+  <%= form.collection_radio_buttons :meeting_report, [["all", t(".all")], ["closed", t(".closed")]], :first, :last, legend_title: t(".meeting_report") %>
+
   <% if current_user %>
     <%= form.collection_radio_buttons :activity, activity_filter_values, :first, :last, { legend_title: t(".activity") }, "aria-controls": "meetings" %>
   <% end %>

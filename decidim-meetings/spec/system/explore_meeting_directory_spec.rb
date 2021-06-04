@@ -29,6 +29,22 @@ describe "Explore meeting directory", type: :system do
     expect(page).to have_css("#meetings-count", text: "6 MEETINGS")
   end
 
+  context "when filtering for closed meetings that have a report" do
+    let!(:closed_meeting) do
+      create(:meeting, :published, :closed, component: components.last, start_time: 1.week.ago)
+    end
+
+    it "allows filtering by closed events" do
+      within ".filters" do
+        choose "Past"
+        choose "Closed"
+      end
+
+      expect(page).to have_content(closed_meeting.title["en"])
+      expect(page).to have_css("#meetings-count", text: "1 MEETING")
+    end
+  end
+
   context "when there's a past meeting" do
     let!(:past_meeting) do
       create(:meeting, :published, component: components.last, start_time: 1.week.ago)
