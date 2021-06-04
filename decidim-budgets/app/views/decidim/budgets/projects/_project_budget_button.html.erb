@@ -1,11 +1,11 @@
 <% if current_user.blank? %>
   <div id="project-<%= project.id %>-budget-button">
-    <button class="button expanded button--sc" data-toggle="loginModal">
+    <button class="button expanded primary button--sc" data-toggle="loginModal">
       <%= t(".add") %>
     </button>
   </div> 
 <% else %>
-  <div id="project-<%= project.id %>-budget-button" class="<%= "added" if voted_for?(project) %> button expanded button--sc budget-vote-button budget-list__data">
+  <div id="project-<%= project.id %>-budget-button" class="<%= "added" if voted_for?(project) %> button expanded primary button--sc budget-vote-button budget-list__data">
     <span>
       <%= t(voted_for?(project) ? ".added" : ".add") %>
     </span>

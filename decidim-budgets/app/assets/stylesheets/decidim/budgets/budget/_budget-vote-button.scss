@@ -4,20 +4,19 @@
   justify-content: space-between;
   align-items: center;
 
-  &:hover,
-  &:focus {
-    &.added {
-      .budget-list__action {
-        background: var(--primary);
-        border-color: white;
-        color: white;
-      }
-    }
-    &:not(.added) {
-      .budget-list__action {
-        border-color: white;
-        color: white;
-      }
+  span {
+    font-size: 1rem;
+  }
+
+  &.added {
+    background-color: tint($success, 80%);
+    color: $body-font-color;
+  }
+
+  &:not(.added) {
+    .budget-list__action {
+      border-color: white;
+      color: white;
     }
   }
 }
