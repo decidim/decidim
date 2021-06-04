@@ -968,6 +968,9 @@ it:
       reported_users:
         object: utenti segnalati
         title: Utenti segnalati
+      user_reports:
+        object: rapporti utenti
+        title: Rapporti utenti
     moderations:
       actions:
         expand: Espandi
