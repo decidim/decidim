@@ -17,7 +17,7 @@ module Decidim
 
           # # Comment about participatory_texts_enabled.
           def base_query
-            Meeting.not_hidden.where(component: current_component).order(id: :desc).page(params[:page]).per(15)
+            Meeting.not_hidden.where(component: current_component).order(start_time: :desc).page(params[:page]).per(15)
           end
 
           def filters
