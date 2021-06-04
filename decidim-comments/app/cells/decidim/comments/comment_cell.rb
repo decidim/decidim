@@ -18,6 +18,7 @@ module Decidim
       property :translated_body
       property :comment_threads
       property :accepts_new_comments?
+      property :edited?
 
       def alignment_badge
         return unless [-1, 1].include?(alignment)

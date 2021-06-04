@@ -195,6 +195,10 @@ module Decidim
         deleted_at.present?
       end
 
+      def edited?
+        Decidim::ActionLog.where(resource: self).exists?(["extra @> ?", Arel.sql("{\"edit\":true}")])
+      end
+
       private
 
       def body_length

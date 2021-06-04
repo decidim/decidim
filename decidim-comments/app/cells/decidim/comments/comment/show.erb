@@ -9,6 +9,13 @@
           <span>
             <%= time_tag created_at, l(created_at, format: :decidim_short) %>
           </span>
+          <% if edited? %>
+            <div class="author-data__extra">
+              <span>
+                <%= t("decidim.components.comment.edited") %>
+              </span>
+            </div>
+          <% end %>
         </div>
       </div>
       <%= render :utilities %>

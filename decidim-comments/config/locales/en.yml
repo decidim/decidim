@@ -63,6 +63,7 @@ en:
         deleted_at: Comment deleted on %{date}
         deleted_user: Deleted participant
         edit: Edit
+        edited: Edited
         hide_replies: Hide replies
         reply: Reply
         report:
