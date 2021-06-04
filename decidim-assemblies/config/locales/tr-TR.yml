@@ -62,6 +62,7 @@ tr:
         full_name: Ad Soyad
         gender: Cinsiyet
         position: Pozisyon
+        user_id: Kullanıcı
       assembly_user_role:
         email: E-posta
         name: Adı
