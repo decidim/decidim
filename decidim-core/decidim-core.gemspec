@@ -2,6 +2,9 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
+# Unshift the webpacker to give priority for the Decidim webpacker override.
+$LOAD_PATH.unshift File.expand_path("lib/gem_overrides", __dir__)
+
 # Maintain your gem's version:
 require "decidim/core/version"
 
