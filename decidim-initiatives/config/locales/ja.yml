@@ -39,7 +39,7 @@ ja:
         minimum_committee_members: 委員の最小数
         online_signature_enabled: オンライン署名は有効です
         only_global_scope_enabled: グローバルスコープの取り組みの作成のみを許可する
-        promoting_committee_enabled: プロモーション委員会を有効にする
+        promoting_committee_enabled: 推進委員会を有効にする
         title: タイトル
         undo_online_signatures_enabled: 参加者がオンライン署名を取り消すことを有効にする
         validate_sms_code_on_votes: 署名プロセスにSMSコード検証ステップを追加
@@ -133,10 +133,10 @@ ja:
       initiatives:
         admin:
           initiative_sent_to_technical_validation:
-            email_intro: イニシアチブ %{resource_title}" が技術的な検証に送信されました。 <a href="%{admin_initiative_url}">管理者パネル</a> で確認してください。
+            email_intro: イニシアチブ %{resource_title}" が技術的な検証に提出されました。 <a href="%{admin_initiative_url}">管理者パネル</a> で確認してください。
             email_outro: あなたはプラットフォームの管理者であるため、この通知を受け取りました。
-            email_subject: イニシアチブ %{resource_title}" は技術的な検証に送信されました。
-            notification_title: イニシアチブ %{resource_title}" が技術的な検証に送信されました。 <a href="%{admin_initiative_path}">管理者パネル</a> で確認してください。
+            email_subject: イニシアチブ %{resource_title}" は技術的な検証に提出されました。
+            notification_title: イニシアチブ %{resource_title}" が技術的な検証に提出されました。 <a href="%{admin_initiative_path}">管理者パネル</a> で確認してください。
         initiative_extended:
           email_intro: イニシアチブ %{resource_title} の署名の終了日が延長されました！
           email_outro: '%{resource_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
@@ -195,8 +195,8 @@ ja:
           index:
             approve: 承認
             confirm_revoke: よろしいですか？
-            invite_to_committee_help: このリンクを共有して他の参加者をプロモーター委員会に招待します
-            no_members_yet: プロモーター委員会にメンバーがいません。
+            invite_to_committee_help: このリンクを共有して他の参加者を推進委員会に招待します
+            no_members_yet: 推進委員会にメンバーがいません。
             revoke: Revoke
             title: 委員会メンバー
         content_blocks:
@@ -212,8 +212,8 @@ ja:
             export_pdf_signatures: 署名の PDF をエクスポート
             export_votes: 署名をエクスポート
             reject: イニシアチブを拒否する
-            send_to_technical_validation: 技術検証に送る
-            success: このイニシアチブは技術検証に送信されました
+            send_to_technical_validation: 技術検証に提出する
+            success: このイニシアチブは技術検証に提出されました
             update: 更新
           form:
             attachments: 添付ファイル
@@ -279,7 +279,7 @@ ja:
       admin_log:
         initiative:
           publish: "%{user_name} が %{resource_name} イニシアチブを公開しました"
-          send_to_technical_validation: "%{user_name} が %{resource_name} イニシアチブを技術的な検証に送信しました"
+          send_to_technical_validation: "%{user_name} が %{resource_name} イニシアチブを技術的検証に提出しました"
           unpublish: "%{user_name} が %{resource_name} イニシアチブを破棄しました"
           update: "%{user_name} が %{resource_name} のイニシアチブを更新しました"
       admin_states:
@@ -306,7 +306,7 @@ ja:
       committee_requests:
         new:
           continue: 続ける
-          help_text: このイニシアチブのプロモーター委員会のメンバーになることを要求しようとしています
+          help_text: このイニシアチブの推進委員会のメンバーになることを要求しようとしています
         spawn:
           success: あなたのリクエストはイニシアチブの作成者に送信されました。
       content_blocks:
@@ -354,7 +354,7 @@ ja:
           select_initiative_type_help: 市民のイニシアチブは、市議会が市の管轄区域内にある一般的な利益の防衛のための行動を行うことができるように、市民権が介入することができる手段である。 どのイニシアチブを立ち上げますか？
         share_committee_link:
           continue: 続ける
-          invite_to_committee_help: プロモーター委員会に参加する人を招待するためのリンク
+          invite_to_committee_help: 推進委員会に参加する人を招待するためのリンク
         show_similar_initiatives:
           back: 戻る
           compare_help: 以下のイニシアチブのいずれかがあなたのものと似ている場合は、署名することをお勧めします。あなたの提案には、より多くの可能性があります。
@@ -478,7 +478,7 @@ ja:
         more_information: ここでは、イニシアチブの作成プロセスについての詳細情報があります。
         progress_report_body_for: '%{title} が必要な署名の %{percentage}%に達しました。'
         progress_report_for: 'イニシアチブの概要: %{title}'
-        promotal_committee_help: 少なくとも %{member_count} 人をプロモーター委員会に招待する必要があります。プロモーター委員会に招待するには、次のリンクを進めてください。
+        promotal_committee_help: 少なくとも %{member_count} 人をプロモーター委員会に招待する必要があります。推進委員会に招待するには、次のリンクを進めてください。
         status_change_body_for: 'イニシアチブ %{title} がステータスを %{state}に変更しました'
         status_change_for: イニシアチブ %{title} のステータスが変更されました
       last_activity:
@@ -523,7 +523,7 @@ ja:
         fill_data: 作成
         finish: 完了
         previous_form: 開始
-        promotal_committee: プロモーター委員会
+        promotal_committee: 推進委員会
         select_initiative_type: 選択
         show_similar_initiatives: 比較
         step: '%{current} / %{total}'
@@ -544,6 +544,6 @@ ja:
       initiatives:
         initiative:
           check: ご確認ください
-          check_and_support: サインアウトしてください
+          check_and_support: ログアウトしてください
         no_initiatives_yet:
           no_initiatives_yet: まだイニシアチブがありません！

@@ -161,9 +161,9 @@ ja:
         button: '%{model_name} を修正'
         error: リソースの修正中にエラーが発生しました。
         help_text: '%{model_name} を変更して、この %{amendable_fields} を改善しましょう。'
-        promote_button: '%{model_name} にプロモート'
-        promote_confirm_text: この承認を宣伝してもよろしいですか？
-        promote_help_text: この制約を宣伝し、独立した %{model_name} として公開することができます
+        promote_button: '%{model_name} に昇格'
+        promote_confirm_text: この修正を承認してもよろしいですか？
+        promote_help_text: この修正を昇格し、独立した %{model_name} として公開することができます
         section_heading: 修正履歴 (%{count})
       compare_draft:
         continue: 続ける
@@ -266,6 +266,8 @@ ja:
         name: 許可の例：
       dummy_authorization_workflow:
         name: ダミー認証ワークフロー
+      errors:
+        duplicate_authorization: 同じデータを持つ参加者はすでに承認されています．
       expired_at: '%{timestamp} で期限切れ'
       expires_at: '%{timestamp} で期限切れ'
       foo_authorization:
@@ -740,7 +742,7 @@ ja:
         current_members_without_admins: '現在のメンバー (管理者なし):'
         manage_members: メンバーの管理
       promote:
-        error: この参加者を宣伝する際に問題が発生しました
+        error: この参加者を昇格する際に問題が発生しました
         success: 参加者が正常に昇格しました
       reject:
         error: この参加リクエストを拒否する際に問題が発生しました
@@ -1185,7 +1187,7 @@ ja:
         description: このコンテンツは不適切ですか？
         does_not_belong: 違法行為、個人情報、または %{organization_name} に属していないと思われる内容が含まれています。
         offensive: 差別的な内容、誹謗中傷などの不適切な内容が含まれています。
-        report: レポート
+        report: 報告
         spam: 本来の内容に関係が無い広告、詐欺や悪意のある処理などが含まれています。
         title: 不適切な内容を報告する
       floating_help:
@@ -1418,11 +1420,11 @@ ja:
       update_needs_confirmation: アカウントを正常に更新しましたが、新しいメールアドレスを確認する必要があります。 メールを確認し、新しいメールアドレスを確認するためのリンクに従ってください。
       updated: アカウントが正常に更新されました。
     sessions:
-      already_signed_out: 正常にサインアウトしました。
+      already_signed_out: 正常にログアウトしました。
       new:
         sign_in: ログイン
       signed_in: 正常にログインしました。
-      signed_out: 正常にサインアウトしました。
+      signed_out: 正常にログアウトしました。
     shared:
       links:
         back: 戻る
@@ -1512,7 +1514,7 @@ ja:
         notifications: 通知
         profile: マイアカウント
         public_profile: 公開プロフィール
-        sign_out: サインアウト
+        sign_out: ログアウト
       user_profile:
         account: アカウント
         authorizations: 権限

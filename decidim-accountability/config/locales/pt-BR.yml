@@ -36,7 +36,7 @@ pt:
         destroy: Excluir
         edit: Editar
         new: Novo %{name}
-        preview: Visualização
+        preview: Pré-visualização
         timeline_entries: Evolução do projeto
         title: Ações
       admin:
@@ -51,10 +51,10 @@ pt:
             name: Entrada da linha de tempo
         results:
           create:
-            invalid: Tem havido um problema ao criar esse resultado
+            invalid: Houve um problema ao criar esse resultado
             success: Resultado criado com sucesso
           destroy:
-            success: Resultado eliminado com êxito
+            success: Resultado excluído com sucesso
           edit:
             title: Editar resultado
             update: Atualizar resultado
@@ -64,7 +64,7 @@ pt:
             create: Criar resultado
             title: Novo resultado
           update:
-            invalid: Ocorreu um problema ao atualizar este resultado
+            invalid: Houve um problema ao atualizar este resultado
             success: Resultado atualizado com sucesso
         shared:
           subnav:

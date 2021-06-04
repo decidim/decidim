@@ -21,6 +21,8 @@ it:
           global:
             announcement: Annuncio
             clean_after_publish: Eliminare le risposte quando si pubblica il sondaggio
+            scope_id: Ambito
+            scopes_enabled: Ambiti abilitati
           step:
             allow_answers: Consenti risposte
             allow_unregistered: Consenti agli utenti non registrati di rispondere al sondaggio

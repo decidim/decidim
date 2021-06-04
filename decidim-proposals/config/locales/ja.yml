@@ -419,6 +419,7 @@ ja:
           form:
             attachment_legend: "(オプション) 添付ファイルを追加"
             created_in_meeting: この提案は会議から来ています
+            delete_attachment: 添付ファイルを削除
             select_a_category: カテゴリを選択
             select_a_meeting: ミーティングを選択
           index:
@@ -670,6 +671,7 @@ ja:
         success: 提案の下書きは正常に削除されました。
       last_activity:
         new_proposal_at_html: "<span> %{link}で新しい提案</span>"
+        proposal_updated_at_html: "<span> %{link} で提案が更新されました</span>"
       models:
         collaborative_draft:
           fields:
@@ -714,8 +716,13 @@ ja:
           proposals_count:
             other: "%{count} の提案"
         edit:
+          add_documents: ドキュメント
+          add_images: ファイル
           attachment_legend: "(オプション) 添付ファイルを追加"
           back: 戻る
+          delete_document: ドキュメントの削除
+          delete_image: 画像を削除
+          gallery_legend: "(オプション) 提案カードに画像を追加する"
           select_a_category: カテゴリを選択してください
           send: 送信
           title: 提案を編集

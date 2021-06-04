@@ -13,6 +13,7 @@ ja:
         decidim_scope_id: スコープ
         description: 説明
         proposal_ids: 関連する提案
+        selected: 実装の選択
         title: タイトル
   activerecord:
     models:

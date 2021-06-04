@@ -1,4 +1,4 @@
-fr-CA:
+fr-LU:
   activemodel:
     attributes:
       assemblies_setting:
@@ -26,7 +26,7 @@ fr-CA:
         duration: Durée
         facebook: Facebook
         github: GitHub
-        hashtag: Mot-clic
+        hashtag: Hashtag
         hero_image: Image de la page d'accueil
         included_at: Intégrée à cette plateforme le
         instagram: Instagram
@@ -87,7 +87,7 @@ fr-CA:
   decidim:
     admin:
       actions:
-        import_assembly: Importation
+        import_assembly: Importer
         new_assembly: Nouvelle assemblée
         new_assembly_type: Nouveau type d'assemblée
       assemblies:
@@ -134,12 +134,12 @@ fr-CA:
           title: Dupliquer l'assemblée
       assembly_imports:
         create:
-          error: Un problème est survenu lors de l'importation de cette assemblée.
-          success: L'assemblage a été importé avec succès.
+          error: Un problème est survenu lors de l'import de cette assemblée.
+          success: L'assemblée a été importée avec succès.
         new:
-          import: Importation
+          import: Importer
           select: Sélectionnez les données que vous souhaitez importer
-          title: Importer un assemblage
+          title: Importer l'assemblée
       assembly_members:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un membre pour cette assemblée.
@@ -475,7 +475,7 @@ fr-CA:
           take_part: Participer
       assembly_navigation:
         assembly_member_menu_item: Membres
-        assembly_menu_item: L'assemblée
+        assembly_menu_item: Présentation
       assembly_widgets:
         show:
           take_part: Participer

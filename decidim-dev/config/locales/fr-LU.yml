@@ -1,0 +1,56 @@
+fr-LU:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Créé le
+        decidim_scope_id: Secteur
+        field: Champ
+        start_date: Date de début
+        title: Titre
+        translatable_text: Texte traduisible
+        updated_at: Mis à jour à
+  decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            readonly_attribute: Attribut en lecture seule
+            test: Un test
+            test_choices:
+              a: Choix A
+              b: Choix B
+              c: Choix C
+          step:
+            endorsements_blocked: Bloquer les soutiens
+            endorsements_enabled: Soutiens activés
+            readonly_step_attribute: Attribut étape en lecture seule
+    dummy:
+      admin:
+        exports:
+          dummies: Référence de test
+    gamification:
+      badges:
+        test:
+          conditions:
+            - Utilisez un environnement de test pour decidim.
+          description: Les utilisateurs obtiennent ce badge en créant des tests.
+          description_another: Cet utilisateur a créé %{score} tests.
+          description_own: Vous avez créé %{score} tests.
+          name: Tests
+          next_level_in: Créez %{score} autres tests pour atteindre le niveau suivant !
+          unearned_another: Cet utilisateur n'a pas encore créé de test.
+          unearned_own: Vous n'avez créé aucun test pour le moment.
+    pages:
+      home:
+        statistics:
+          bar: Seuil
+          dummies_count_high: Référence de test haute
+          dummies_count_medium: Référence de test moyenne
+          foo: Foo
+    participatory_processes:
+      statistics:
+        dummies_count_high: Référence de test haute
+        dummies_count_medium: Référence de test moyenne
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Référence de test concernée

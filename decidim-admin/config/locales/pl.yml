@@ -73,7 +73,7 @@ pl:
         show_statistics: Pokaż statystyki
         success_color: Powodzenie
         time_zone: Strefa czasowa
-        tos_version: Warunki korzystania z usługi
+        tos_version: Warunki korzystania z Platformy
         twitter_handler: Handler Twittera
         user_groups_enabled: Włącz grupy użytkowników
         warning_color: Ostrzeżenie
@@ -336,7 +336,7 @@ pl:
           impersonate: Podszywać się
           impersonate_new_managed_user: Zarządzaj nowym uczestnikiem
           managed: Zamknięte
-          name: Nazwa
+          name: Imię
           needs_authorization_warning: Do tej organizacji potrzebna jest co najmniej jedna autoryzacja.
           not_managed: Niezamknięte
           promote: Awansuj
@@ -352,7 +352,7 @@ pl:
           success: Zarządzany użytkownik został pomyślnie utworzony.
         form:
           authorization_method: Metoda autoryzacji
-          name: Nazwa
+          name: Imię
           reason: Powód
         new:
           impersonate: Podszywać się
@@ -456,7 +456,7 @@ pl:
             created_at: Data utworzenia
             email: E-mail
             last_sign_in_at: Ostatni dzień rejestracji
-            name: Nazwa
+            name: Imię
             role: Rola
             roles:
               admin: Admin
@@ -545,14 +545,14 @@ pl:
           success: Newsletter został zaktualizowany. Przeczytaj go przed wysłaniem.
       officializations:
         create:
-          success: Użytkownik oficjalnie z powodzeniem
+          success: Użytkownik został zweryfikowany
         destroy:
-          success: Użytkownik nieoficjalizowany pomyślnie
+          success: Cofnięto weryfikację użytkownika
         index:
           actions: Działania
           badge: Odznaka
           created_at: Utworzono
-          name: Nazwa
+          name: Imię
           nickname: Pseudonim
           not_officialized: Nieoficjalny
           officialize: Oficjalizuj
@@ -787,7 +787,7 @@ pl:
           success: Użytkownik nie jest już administratorem.
         form:
           email: E-mail
-          name: Nazwa
+          name: Imię
           role: Rola
         new:
           create: Zaproś

@@ -24,7 +24,6 @@ is-IS:
         transparent: Gegnsætt
       minutes:
         audio_url: Audio url
-        description: Lýsing
         video_url: Video url
         visible: Er sýnilegt
   decidim:
@@ -129,10 +128,7 @@ is-IS:
         minutes:
           create:
             success: Fundargerðir búin til með góðum árangri
-          edit:
-            update: Uppfæra
           new:
-            create: Búa til
             title: Búðu til mínútur
           update:
             success: Fundargerðir með góðum árangri uppfærð

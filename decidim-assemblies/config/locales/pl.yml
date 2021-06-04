@@ -65,7 +65,7 @@ pl:
         user_id: Użytkownik
       assembly_user_role:
         email: E-mail
-        name: Nazwa
+        name: Imię
         role: Rola
     errors:
       models:
@@ -219,7 +219,7 @@ pl:
           fields:
             ceased_date: Data zakończenia
             designation_date: Data wyznaczenia
-            full_name: Nazwa
+            full_name: Imię
             position: Pozycja
           name: Członek
           positions:
@@ -230,7 +230,7 @@ pl:
         assembly_user_role:
           fields:
             email: E-mail
-            name: Nazwa
+            name: Imię
             role: Rola
           name: Administrator zespołu
           roles:

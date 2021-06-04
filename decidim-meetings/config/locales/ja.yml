@@ -341,6 +341,7 @@ ja:
             space_type: 参加者のスペース
             upcoming: 近日公開
       last_activity:
+        meeting_updated_at_html: "<span>ミーティングが %{link} に更新されました</span>"
         new_meeting_at_html: "<span> %{link}に新しいミーティング</span>"
       mailer:
         invite_join_meeting_mailer:

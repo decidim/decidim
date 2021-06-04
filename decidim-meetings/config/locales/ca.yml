@@ -277,9 +277,9 @@ ca:
             invalid: S'ha produït un error en crear aquesta acta
             success: S'ha creat l'acta amb èxit
           edit:
-            update: Actualitza
+            update: Actualitzar
           new:
-            create: Crea
+            create: Crear
             title: Crea l'acta
           update:
             invalid: S'ha produït un error en actualitzar aquesta acta

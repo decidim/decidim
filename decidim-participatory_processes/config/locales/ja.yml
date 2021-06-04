@@ -311,6 +311,9 @@ ja:
         content_blocks:
           highlighted_processes:
             max_results: 表示する要素の最大量
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
