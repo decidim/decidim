@@ -432,6 +432,7 @@ it:
           loading: Caricamento risultati...
       show:
         area: Area
+        belongs_to_group: Questo processo appartiene a
         dates: Date
         developer_group: Promotore
         end_date: Data di fine
