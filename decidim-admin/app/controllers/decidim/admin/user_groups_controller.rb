@@ -6,6 +6,7 @@ module Decidim
     #
     class UserGroupsController < Decidim::Admin::ApplicationController
       include UserGroups
+      include Decidim::Admin::UserGroups::Filterable
 
       before_action :enforce_user_groups_enabled
 
@@ -13,11 +14,8 @@ module Decidim
 
       def index
         enforce_permission_to :index, :user_group
-        @query = params[:q]
-        @state = params[:state]
 
-        @user_groups = Decidim::Admin::UserGroupsEvaluation.for(collection, @query, @state)
-                                                           .page(params[:page]).per(15)
+        @user_groups = filtered_collection
       end
 
       def verify
@@ -55,6 +53,10 @@ module Decidim
       end
 
       private
+
+      def base_query
+        Decidim::Admin::UserGroupsEvaluation.for(collection, @query, @state)
+      end
 
       def collection
         UserGroup
