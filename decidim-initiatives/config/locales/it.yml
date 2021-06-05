@@ -78,6 +78,7 @@ it:
               created: Creato
               discarded: Rifiutato
               published: Pubblicati
+              rejected: Firme non sufficienti
               validating: Validazione tecnica
           type_id_eq:
             label: Tipo
@@ -155,6 +156,8 @@ it:
         support_threshold_reached:
           email_intro: L'iniziativa %{resource_title} ha raggiunto la soglia dei supporti richiesti
           email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
+          email_subject: Soglia di supporto raggiunta
+          notification_title: L'iniziativa <a href="%{resource_path}">%{resource_title}</a> ha raggiunto la soglia di sostegni
     gamification:
       badges:
         initiatives:
