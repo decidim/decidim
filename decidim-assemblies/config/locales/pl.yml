@@ -267,6 +267,7 @@ pl:
       admin:
         assemblies:
           form:
+            announcement_help: Wprowadzony tutaj tekst zostanie wyświetlony użytkownikowi tuż pod informacjami o zespole.
             duration: Czas trwania
             duration_help: Jeśli czas trwania tego zespołu jest ograniczony, wybierz datę końcową. W przeciwnym razie pojawi się jako nieokreślony.
             filters: Filtry
