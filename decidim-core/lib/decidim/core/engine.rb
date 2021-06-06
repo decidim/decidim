@@ -45,6 +45,9 @@ require "social-share-button"
 require "ransack"
 require "searchlight"
 
+# Needed for the assets:precompile task, for configuring webpacker instance
+require "decidim/webpacker"
+
 require "decidim/api"
 require "decidim/middleware/strip_x_forwarded_host"
 require "decidim/middleware/current_organization"

@@ -21,6 +21,9 @@ namespace :decidim do
       copy_file_to_application "decidim-core/lib/decidim/webpacker/webpacker.yml", "config/webpacker.yml"
       # Webpack JS config files
       copy_folder_to_application "decidim-core/lib/decidim/webpacker/webpack", "config"
+      # Modify the webpack binstubs
+      add_binstub_load_path "bin/webpack"
+      add_binstub_load_path "bin/webpack-dev-server"
 
       # Install JS dependencies
       system! "npm ci"
@@ -46,8 +49,34 @@ namespace :decidim do
       FileUtils.rm(path, force: true)
     end
 
+    def add_binstub_load_path(binstub_path)
+      file = rails_app_path.join(binstub_path)
+
+      contents = ""
+      File.readlines(file).each do |line|
+        contents += line
+        next unless line =~ %r{^require "bundler/setup"$}
+
+        contents += "\n"
+        contents += "# Add the Decidim override load path to override webpacker functionality\n"
+        contents += "$LOAD_PATH.unshift \"\#{Gem.loaded_specs[\"decidim-core\"].full_gem_path}/lib/gem_overrides\"\n"
+      end
+
+      File.write(file, contents)
+    end
+
     def system!(*args)
       system(*args) || abort("\n== Command #{args} failed ==")
     end
   end
+end
+
+# Override the Webpacker instance for the rake tasks to correctly assign the
+# configuration file path. This is needed e.g. when `rails assets:precompile` is
+# being run. Otherwise webpacker might not recognize if the assets need to be
+# compiled again (i.e. if the asset hash has been changed).
+if (config_path = Decidim::Webpacker.configuration.configuration_file)
+  Webpacker.instance = Webpacker::Instance.new(
+    config_path: Pathname.new(config_path)
+  )
 end
