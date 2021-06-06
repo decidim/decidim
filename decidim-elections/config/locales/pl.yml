@@ -812,6 +812,7 @@ pl:
               file_not_exists: Ten plik nie istnieje
             new:
               file_help:
+                explanation: 'Wytyczne dotyczące pliku:'
                 message_1: Dozwolone są tylko pliki CSV (.csv).
                 message_2: Separatorem kolumn musi być średnik (";").
               submit: Prześlij csv
