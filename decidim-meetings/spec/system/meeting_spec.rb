@@ -59,7 +59,7 @@ describe "Meeting", type: :system, download: true do
     end
 
     context "and meeting is online" do
-      let(:meeting) { create :meeting, :with_services, :online, component: component }
+      let(:meeting) { create :meeting, :published, :with_services, :online, component: component }
 
       it "hides the map section" do
         visit_meeting
@@ -69,7 +69,7 @@ describe "Meeting", type: :system, download: true do
     end
 
     context "and meeting is in_person" do
-      let(:meeting) { create :meeting, :with_services, component: component }
+      let(:meeting) { create :meeting, :published, :with_services, component: component }
 
       it "shows the map section" do
         visit_meeting
@@ -79,7 +79,7 @@ describe "Meeting", type: :system, download: true do
     end
 
     context "and meeting is hybrid" do
-      let(:meeting) { create :meeting, :with_services, :hybrid, component: component }
+      let(:meeting) { create :meeting, :published, :with_services, :hybrid, component: component }
 
       it "shows the map section" do
         visit_meeting
@@ -101,7 +101,7 @@ describe "Meeting", type: :system, download: true do
     end
 
     context "and meeting is in_person" do
-      let(:meeting) { create :meeting, :with_services, component: component }
+      let(:meeting) { create :meeting, :published, :with_services, component: component }
 
       it "hides the map section" do
         visit_meeting
@@ -111,7 +111,7 @@ describe "Meeting", type: :system, download: true do
     end
 
     context "and meeting is hybrid" do
-      let(:meeting) { create :meeting, :with_services, :hybrid, component: component }
+      let(:meeting) { create :meeting, :published, :with_services, :hybrid, component: component }
 
       it "hides the map section" do
         visit_meeting
