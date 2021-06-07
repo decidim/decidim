@@ -333,6 +333,9 @@ pl:
         show:
           view_more_logs: Zobacz więcej logów
           welcome: Witamy w panelu administracyjnym Decidim.
+      domain_whitelist:
+        form:
+          domain_too_short: Domena jest zbyt krótka
       exports:
         export_as: "%{name} jako %{export_format}"
         formats:
@@ -736,6 +739,14 @@ pl:
             layout_appearance_title: Edytuj wygląd layoutu
             preview: Podgląd
           omnipresent_banner_appearance_title: Edytuj stały baner
+      organization_external_domain_whitelist:
+        edit:
+          update: Aktualizuj
+        external_domain:
+          remove: Usuń
+        form:
+          add: Dodaj do białej listy
+          title: Biała lista domen zewnętrznych
       organization_homepage:
         edit:
           active_content_blocks: Aktywne bloki treści
