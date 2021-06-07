@@ -188,7 +188,7 @@ shared_examples "proposals wizards" do |options|
       end
 
       it "doesn't show a geocoded address" do
-        expect(page).not_to have_content("GEOCODED ADDRESS")
+        expect(page).not_to have_content("ADDRESS")
         expect(page).not_to have_css(".card__content.address")
       end
 
@@ -299,7 +299,7 @@ shared_examples "proposals wizards" do |options|
         expect(page).to have_content(user.name)
         expect(page).to have_content(proposal_body)
 
-        expect(page).to have_content("GEOCODED ADDRESS")
+        expect(page).to have_content("ADDRESS")
         expect(page).to have_css(".card__content.address")
       end
 
@@ -329,7 +329,7 @@ shared_examples "proposals wizards" do |options|
           expect(page).to have_content(user.name)
           expect(page).to have_content(proposal_body)
 
-          expect(page).not_to have_content("GEOCODED ADDRESS")
+          expect(page).not_to have_content("ADDRESS")
           expect(page).not_to have_css(".card__content.address")
         end
       end

@@ -260,7 +260,7 @@ en:
       documents:
         related_documents: Related documents
       geocoding:
-        geocoded_address: Geocoded address
+        geocoded_address: Address
       photos:
         related_photos: Related images
     author:
