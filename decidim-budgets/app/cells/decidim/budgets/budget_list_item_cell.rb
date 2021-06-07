@@ -52,7 +52,7 @@ module Decidim
       end
 
       def button_text
-        key = if current_workflow.vote_allowed?(budget)
+        key = if current_workflow.vote_allowed?(budget) && !voted?
                 progress? ? :progress : :vote
               else
                 :show
