@@ -89,6 +89,7 @@ it:
             creation_enabled_for_participants: I partecipanti possono creare riunioni
             default_registration_terms: Termini di registrazione predefiniti
             enable_pads_creation: Abilita la creazione di pad
+            maps_enabled: Mappe abilitate
             registration_code_enabled: Codice di registrazione abilitato
             resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni riunione
             scope_id: Ambito
