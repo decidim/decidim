@@ -94,6 +94,7 @@ pl:
             creation_enabled_for_participants: Uczestnicy mogą tworzyć spotkania
             default_registration_terms: Domyślne warunki rejestracji
             enable_pads_creation: Włącz tworzenie padów
+            maps_enabled: Mapy włączone
             registration_code_enabled: Włączono kod rejestracyjny
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdego spotkania
             scope_id: Zakres
@@ -371,6 +372,12 @@ pl:
           close: Zakończ spotkanie
           title: Zakończ spotkanie
       meetings:
+        calendar_modal:
+          add_to_calendar: Dodaj do kalendarza
+          apple: Dodaj do kalendarza Apple
+          close_window: Zamknij okno
+          google: Dodaj do kalendarza Google
+          outlook: Dodaj do kalendarza Outlook
         count:
           meetings_count:
             one: "%{count} spotkanie"
@@ -447,6 +454,7 @@ pl:
           date: Data
           edit_meeting: Edytuj spotkanie
           join: Dołącz do spotkania
+          leave: Anuluj swoją rejestrację
           meeting_minutes: Protokół ze spotkania
           no_slots_available: Brak dostępnych miejsc
           organizations: Organizacje biorące udział
