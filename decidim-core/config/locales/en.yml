@@ -259,6 +259,8 @@ en:
         download: Download file
       documents:
         related_documents: Related documents
+      geocoding:
+        geocoded_address: Geocoded address
       photos:
         related_photos: Related images
     author:
