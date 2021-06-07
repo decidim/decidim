@@ -1278,6 +1278,8 @@ pl:
         title: Wybierz liczbę wyników na stronie
       share_modal:
         close_window: Zamknij okno
+        copy_share_link_copied: Skopiowano!
+        copy_share_link_message: Link został pomyślnie skopiowany do schowka.
         share: Udostępnij
         share_link: Udostępnij link
     statistics:
@@ -1326,6 +1328,7 @@ pl:
         send: Wyślij
         title_reply: Odpowiedz
       show:
+        back: Pokaż wszystkie rozmowy
         not_allowed: Ten użytkownik nie przyjmuje więcej bezpośrednich wiadomości.
         title: Konwersacja z %{usernames}
       update:
@@ -1371,6 +1374,7 @@ pl:
         number_of_versions: Wersje
         title: Wersje
     versions_list_item:
+      back: Pokaż wszystkie wersje
       show:
         version_index: Wersja %{index}
     welcome_notification:
@@ -1573,9 +1577,11 @@ pl:
         made_with_open_source: Strona internetowa powstała z użyciem <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
         close_menu: Zamknij menu
+        main_menu: Menu główne
         navigation: Nawigacja
         sign_in: Zaloguj się
         sign_up: Zarejestruj się
+        user_menu: Menu użytkownika
       impersonation_warning:
         close_session: Zakończ sesję
         description_html: Zarządzasz uczestnikiem <b>%{user_name}</b>.
