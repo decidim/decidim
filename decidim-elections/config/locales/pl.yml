@@ -97,6 +97,10 @@ pl:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Przeszukaj %{collection} według nazwy/adresu e-mail/pseudonimu lub lokalu wyborczego.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
           : Szukaj %{collection} według tytułu, adresu lub imienia/adresu e-mail/pseudonimu oficera.
+        signed_eq:
+          label: Podpisane
+          values:
+            'false': Podpisane
     components:
       elections:
         actions:
@@ -348,6 +352,10 @@ pl:
             few: "%{count} wybory"
             many: "%{count} wybory"
             other: "%{count} wybory"
+        election_log:
+          verifiable_results:
+            title: Zweryfikuj wyniki wyborów
+          vote_title: Proces głosowania
         filters:
           active: Aktualne
           all: Wszystkie
@@ -361,8 +369,10 @@ pl:
           filter_by: Filtruj według
           unfold: Rozwiń
         preview:
+          available_answers: 'Dostępne odpowiedzi:'
           title: Pytania wyborcze
         results:
+          percentage: "%{count}%"
           selected: Wybrane
           title: Wyniki wyborów
           votes:
@@ -405,6 +415,7 @@ pl:
             end_time: Kończy się
             start_time: Zaczyna się
             title: Tytuł
+            verifiable_results_file_hash: Suma kontrolna pliku SHA256
         question:
           fields:
             answers: Odpowiedzi
@@ -538,6 +549,8 @@ pl:
           header: Oddanie głosu potwierdzone
           text: 'Możesz sprawdzić, czy Twój głos został pomyślnie dodany do skrzynki wyborczej z następującym identyfikatorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Aby sprawdzić, skopiuj identyfikator i wklej go na <a href="%{link}">stronie weryfikacji głosowania</a>
+        encrypting:
+          header: Szyfrowanie głosu...
         failed:
           header: Oddanie głosu nie powiodło się
           lead: Twój głos nie został oddany!
@@ -546,6 +559,7 @@ pl:
         header:
           confirm: Potwierdź swój głos
           confirmed: Głosowanie potwierdzone
+          failed: Oddanie głosu nie powiodło się
         messages:
           not_allowed: W tej chwili nie wolno Ci głosować na ten wybór.
         modal:
@@ -558,6 +572,9 @@ pl:
           preview_alert: To jest podgląd kabiny do głosowania.
           question_steps: Pytanie %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> opcji wyboru"
+        onboarding_modal:
+          create_account: Utwórz konto
+          no_account: Nie, dziękuję.
         verify:
           content:
             heading: Zweryfikuj swój głos
@@ -627,6 +644,14 @@ pl:
         ballot_styles:
           edit:
             update: Aktualizuj
+          index:
+            actions:
+              confirm_destroy: Czy na pewno?
+              destroy: Usuń
+              edit: Edytuj
+              new: Nowy
+          new:
+            create: Utwórz
         content_blocks:
           highlighted_votings:
             max_results: Maksymalna ilość elementów do wyświetlenia
@@ -676,6 +701,9 @@ pl:
             polling_officers: Oficerzy wyborczy
             polling_stations: Lokale wyborcze
         models:
+          ballot_style:
+            fields:
+              code: Kod
           monitoring_committee_member:
             fields:
               email: Adres e-mail
@@ -700,6 +728,12 @@ pl:
               promoted: Wyróżniony
               published: Opublikowano
               title: Tytuł
+        monitoring_committee_election_results:
+          actions:
+            view: Widok
+          show:
+            change_election: Zmień wybór
+            publish_results: Opublikuj wyniki
         monitoring_committee_members:
           create:
             invalid: Wystąpił błąd podczas tworzenia członka komisji monitorującej
@@ -717,6 +751,11 @@ pl:
           new:
             create: Utwórz
             title: Dodaj członka komisji monitorującej
+        monitoring_committee_polling_station_closures:
+          actions:
+            view: Widok
+          closures:
+            change_election: Zmień wybór
         polling_officers:
           create:
             invalid: Przy tworzeniu oficera wyborczego wystąpił błąd
@@ -846,12 +885,35 @@ pl:
             see_all_votings: Zobacz wszystkie głosowania
             votings_button_title: Link do strony Głosowań wyświetla wszystkie głosy
       polling_officer_zone:
+        closures:
+          certify:
+            add_images: Dodaj obrazy
+            error: Wystąpił błąd podczas dołączania certyfikatu, spróbuj ponownie.
+            submit: Prześlij certyfikat
+            success: Certyfikat przesłany pomyślnie.
+          edit:
+            modal_ballots_results_count_error:
+              close_modal: Zamknij
+          new:
+            modal_ballots_count_error:
+              close_modal: Zamknij
+          sign:
+            cancel: Anuluj
+            confirm: Ok, kontynuuj
+            error: Wystąpił błąd, spróbuj ponownie.
+        in_person_votes:
+          in_person_form:
+            date_of_birth: Data urodzenia
+            day: Dzień
+            year: Rok
+            year_placeholder: YYYY
         menu:
           polling_officer_zone: Strefa oficera wyborczego
         polling_officers:
           index:
             polling_officer_role_description: Zostałeś powołany do pełnienia funkcji oficera lokalu wyborczego (przewodniczącego lub kierownika) w niektórych wyborach prowadzonych na tej platformie.
             polling_station:
+              address: Adres
               no_polling_stations: Nie jesteś jeszcze przypisany do żadnego lokalu wyborczego.
               role: Twoja rola
               voting: Głosowanie
@@ -873,13 +935,22 @@ pl:
           new: Nowy
           title: Działania
       votings:
+        access_code_modal:
+          sms: Wyślij SMS do %{sms}
+          title: Uzyskaj kod dostępu
         check_census:
           check_status: Sprawdź status
+          success:
+            access_link: poprzez SMS lub e-mail.
           title: Mogę głosować?
         check_fields:
+          date_of_birth: Data urodzenia
+          day: Dzień
           day_placeholder: DD
+          document_number_placeholder: Numer ID
           month: Miesiąc
           month_placeholder: MM
+          postal_code: Kod pocztowy
           year: Rok
           year_placeholder: RRRR
         count:
@@ -914,6 +985,8 @@ pl:
           label: 'Sortuj głosowania według:'
           random: Losowo
           recent: Najnowsze
+        send_access_code:
+          success: Twój kod dostępu został wysłany pomyślnie
         show:
           dates: Daty
       votings_m:
@@ -937,6 +1010,7 @@ pl:
         exit: Wyjście
       voting_navigation:
         check_census: Mogę głosować?
+        election_log: Dziennik wyborów
         voting_menu_item: Głosowanie
       votings:
         index:
