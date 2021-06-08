@@ -47,6 +47,10 @@ it:
         one: Votazione
         other: Votazioni
   decidim:
+    admin:
+      filters:
+        signed_eq:
+          label: Firmato
     components:
       elections:
         actions:
