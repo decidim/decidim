@@ -203,10 +203,10 @@ pl:
         questions:
           create:
             invalid: Wystąpił błąd podczas tworzenia pytania
-            success: Pytanie zostało utworzone
+            success: Pytanie zostało pomyślnie utworzone
           destroy:
             invalid: Wystąpił błąd podczas usuwania pytania
-            success: Pytanie zostało usunięte
+            success: Pytanie zostało pomyślnie usunięte
           edit:
             title: Edytuj pytanie
             update: Zaktualizuj pytanie
@@ -217,51 +217,51 @@ pl:
             title: Nowe pytanie
           update:
             invalid: Wystąpił błąd podczas aktualizowania tego pytania
-            success: Pytanie zostało zaktualizowane
+            success: Pytanie zostało pomyślnie zaktualizowane
         steps:
           create_election:
             errors:
-              max_selections: Pytania nie mają <strong>poprawnej wartości dla ilości odpowiedzi</strong>
+              max_selections: <strong>Maksymalna liczba opcji do wybrania</strong> nie jest odpowiednia do pytania
               minimum_answers: Pytania muszą mieć <strong>co najmniej dwie odpowiedzi</strong>.
               minimum_questions: Wybory <strong>muszą mieć co najmniej jedno pytanie</strong>.
               published: Wybory <strong>nie zostały opublikowane</strong>.
               time_before: Godzina rozpoczęcia jest <strong>mniej niż 3 godziny</strong> przed rozpoczęciem wyborów.
-              trustees_number: Przestrzeń partycypacyjna <strong>musi mieć co najmniej %{number} powierników z kluczem publicznym</strong>.
+              trustees_number: Przestrzeń partycypacyjna <strong>musi mieć co najmniej %{number} mężów (osób) zaufania z kluczem publicznym</strong>.
             invalid: Wystąpił problem z konfiguracją tych wyborów
-            no_trustees: Nie ma powierników dla tej przestrzeni partycypacyjnej
+            no_trustees: Nie skonfigurowano mężów (osób) zaufania dla tej przestrzeni partycypacyjnej
             not_used_trustee: "(nieużywane)"
             public_key:
               'false': nie posiada <strong>klucza publicznego</strong>
               'true': posiada <strong>klucz publiczny</strong>
             requirements:
-              max_selections: Wszystkie pytania mają poprawną wartość dla <strong>maksymalnej liczby odpowiedzi</strong>.
+              max_selections: <strong>Maksymalna liczby opcji do wybrania</strong> jest odpowiednia dla wszystkich pytań.
               minimum_answers: Pytania muszą mieć <strong>co najmniej dwie odpowiedzi</strong>.
               minimum_questions: Wybory <strong>muszą mieć co najmniej jedno pytanie</strong>.
               published: Wybory <strong>zostały opublikowane</strong>.
               time_before: Konfiguracja odbywa się <strong>co najmniej %{hours} godzin(y)</strong> przed rozpoczęciem wyborów.
-              trustees_number: Przestrzeń partycypacyjna musi mieć <strong>co najmniej %{number} powierników z kluczem publicznym</strong>.
-            submit: Ustawienia wyborów
-            success: Wybory wysłano do tablicy ogłoszeń
+              trustees_number: Przestrzeń partycypacyjna <strong>musi mieć co najmniej %{number} mężów (osób) zaufania z kluczem publicznym</strong>.
+            submit: Ustaw wybory
+            success: Wybory pomyślnie wysłano do tablicy danych wyborczych
             title: Ustawienia wyborów
-            trustees: Powiernicy wyborczy
+            trustees: Mężowie (osoby) zaufania
           created:
-            invalid: Wystąpił błąd podczas próby rozpoczęcia głównego wydarzenia
-            submit: Rozpocznij główne wydarzenie
-            success: Prośba o rozpoczęcie wydarzenia głównego została umieszczona na tablicy ogłoszeń
+            invalid: Wystąpił błąd przy rozpoczęciu "ceremonii kluczy"
+            submit: Rozpocznij "ceremonię kluczy"
+            success: Prośba o rozpoczęcie "ceremonii kluczy" została przesłana do Tablicy danych wyborczych
             title: Utworzono wybory
-            trustees: Powiernicy
+            trustees: Mężowie (osoby) zaufania
           key_ceremony:
-            title: Główne wydarzenie
-            trustees: Powiernicy
+            title: '"Ceremonia kluczy"'
+            trustees: Mężowie (osoby) zaufania
           key_ceremony_ended:
             errors:
-              time_before: Wybory są przygotowane. Musisz poczekać do %{hours} godzin(y) przed czasem rozpoczęcia (%{start_time}), aby rozpocząć głosowanie.
+              time_before: Wybory są gotowe do otwarcia. Aby rozpocząć głosowanie musisz poczekać do %{hours} godzin(y) przed czasem rozpoczęcia (%{start_time}).
             invalid: Wystąpił błąd podczas otwierania głosowania
             requirements:
               time_before: Wybory rozpoczną się wkrótce. Możesz otworzyć głosowanie ręcznie lub rozpocznie się ono automatycznie przed godziną rozpoczęcia o %{start_time}.
-            submit: Rozpocznij głosowanie
-            success: Prośba o rozpoczęcie głosowania została pomyślnie umieszczona na tablicy ogłoszeń
-            title: Gotowy do startu
+            submit: Otwórz głosowanie
+            success: Prośba o otwarcie głosowania została pomyślnie przesłana do Tablicy danych wyborczych
+            title: Gotowe do rozpoczęcia
           processing: Przetwarzanie...
           results_published:
             answer: Odpowiedź
@@ -272,45 +272,45 @@ pl:
             submit: Prześlij
             title: Opublikowano wyniki
           tally:
-            title: Podsumowanie procesu
-            trustees: Powiernicy
+            title: Ustalenie wyniku głosowania
+            trustees: Mężowie (osoby) zaufania
           tally_ended:
             answer: Odpowiedź
             not_selected: Nie wybrano
             question: Pytanie
             result: Wynik
             selected: Wybrano
-            submit: Publikuj wyniki
+            submit: Opublikuj wyniki
             title: Obliczone wyniki
           vote:
             errors:
               time_after: Wybory nadal trwają. Musisz poczekać do daty zakończenia (%{end_time}) aby zamknąć głosowanie.
             invalid: Wystąpił błąd podczas zamykania głosowania
             requirements:
-              time_after: Wybory zakończyły się. Możesz manualnie zakończyć głosowanie lub zostanie ono automatycznie zakończone za kilka minut.
-            submit: Zakończ głosowanie
-            success: Prośba o zakończenie głosowania została pomyślnie umieszczona na tablicy ogłoszeń
+              time_after: Wybory zakończyły się. Możesz ręcznie zamknąć głosowanie lub zostanie ono automatycznie zamknięte za kilka minut.
+            submit: Zamknij głosowanie
+            success: Prośba o zamknięcie głosowania została pomyślnie przesłana na Tablicy danych wyborczych
             title: Czas głosowania
           vote_ended:
-            invalid: Wystąpił błąd podczas próby rozpoczęcia podsumowania
-            submit: Rozpocznij podsumowanie
-            success: Prośba o rozpoczęcie podsumowywania została pomyślnie umieszczona na tablicy ogłoszeń
+            invalid: Wystąpił błąd przy rozpoczęciu liczenia głosów
+            submit: Ustal wynik głosowania
+            success: Prośba o rozpoczęcie liczenia głosów została pomyślnie przesłana do Tablicy danych wyborczych
             title: Czas głosowania zakończony
           vote_stats:
             no_vote_statistics_yet: Brak statystyk głosowania
             title: Statystyki głosowania
-            voters: Głosujący
+            voters: Wyborcy
             votes: Głosy
         trustees_participatory_spaces:
           actions:
             disable: Wyłącz
             enable: Rozważ
           create:
-            exists: Istnieją powiernicy dla tej przestrzeni partycypacyjnej
-            invalid: Podczas tworzenia powiernika wystąpił błąd
-            success: Powiernik został utworzony
+            exists: Istnieje mąż (osoba) zaufania dla tej przestrzeni partycypacyjnej
+            invalid: Podczas tworzenia męża (osoby) zaufania wystąpił błąd
+            success: Mąż (osoba) zaufania został utworzony
           delete:
-            invalid: Wystąpił błąd podczas usuwania powiernika
+            invalid: Wystąpił błąd podczas usuwania męża (osoby) zaufania
             success: Powiernik został usunięty
           form:
             select_user: Wybierz użytkownika
