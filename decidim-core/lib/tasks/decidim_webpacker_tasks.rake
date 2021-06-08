@@ -23,7 +23,7 @@ namespace :decidim do
       system! "npm i decidim/decidim#develop"
 
       # Remove the webpacker dependencies as they come through Decidim dependencies.
-      # This ensures we can control their versions from Decidim dependencies and avoid version conflicts.
+      # This ensures we can control their versions from Decidim dependencies to avoid version conflicts.
       webpacker_packages = %w(
         @rails/actioncable
         @rails/activestorage
