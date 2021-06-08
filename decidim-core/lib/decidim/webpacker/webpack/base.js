@@ -27,9 +27,7 @@ const overrideSassRule = (modifyConfig) => {
         return null
       }
 
-      const statements = imports.map((style) => {
-        return `@import "${style}";`
-      })
+      const statements = imports.map((style) => `@import "${style}";`)
 
       return { contents: statements.join("\n") }
     }
