@@ -10,10 +10,13 @@ it:
         question_type: Tipo
       questionnaire_question:
         mandatory: Obbligatorio
+        max_characters: Limite di caratteri (lasciare a 0 se nessum limite)
     errors:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Deve essere allegato nuovamente
             body:
               too_long: è troppo lungo
             choices:
