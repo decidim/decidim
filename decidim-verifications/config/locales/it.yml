@@ -38,7 +38,7 @@ it:
           info: Ci sono un totale di %{count} partecipanti verificati.
           no_data: Nessun partecipante verificato
           title: Revoca delle autorizzazioni
-        authorization_workflows: Authorizzazioni
+        authorization_workflows: Autorizzazioni
     authorization_handlers:
       admin:
         csv_census:
