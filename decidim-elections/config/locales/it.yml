@@ -16,6 +16,9 @@ it:
         max_selections: Numero massimo di selezioni
         min_selections: Nessuna delle precedenti opzioni
         title: Titolo
+      voting:
+        end_time: La votazione termina il
+        start_time: La votazione inizia il
     errors:
       models:
         answer:
@@ -47,6 +50,12 @@ it:
         one: Votazione
         other: Votazioni
   decidim:
+    admin:
+      filters:
+        role_eq:
+          label: Ruolo
+          values:
+            president: Presidente
     components:
       elections:
         actions:
