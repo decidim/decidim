@@ -30,3 +30,5 @@ Decidim::Webpacker.register_entrypoints(
   decidim_votings_in_person_vote: "#{base_path}/app/packs/entrypoints/decidim_votings_in-person-vote.js",
   decidim_votings_admin_votings: "#{base_path}/app/packs/entrypoints/decidim_votings_admin_votings.js"
 )
+Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/elections/elections")
+Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/votings/votings")
