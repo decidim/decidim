@@ -61,9 +61,18 @@ it:
         role_eq:
           label: Ruolo
           values:
+            manager: Responsabile
             president: Presidente
         signed_eq:
           label: Firmato
+          values:
+            'false': Firmato
+            'true': Non firmato
+        validated_eq:
+          label: Convalidato
+          values:
+            'false': Convalidato
+            'true': Non convalidato
     components:
       elections:
         actions:
@@ -106,11 +115,13 @@ it:
           new:
             create: Crea risposta
             title: Nuova risposta
+          not_selected: Non selezionato
           select:
             disable: Deseleziona la risposta
             enable: Segna la risposta come selezionata
             invalid: Si è verificato un problema durante la selezione di questa risposta
             success: Risposta selezionata con successo
+          selected: Selezionato
           unselect:
             invalid: Si è verificato un problema deselezionazionando questa risposta
             success: Risposta deselezionata con successo
