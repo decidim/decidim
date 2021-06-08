@@ -55,9 +55,9 @@ pl:
         many: Odpowiedzi
         other: Odpowiedzi
       decidim/elections/election:
-        one: Wybór
-        few: Wybory
-        many: Wybory
+        one: Wybory
+        few: Wyborów
+        many: Wyborów
         other: Wybory
       decidim/elections/question:
         one: Pytanie
@@ -68,7 +68,7 @@ pl:
         one: Oficer wyborczy
         few: Oficerów wyborczych
         many: Oficerów wyborczych
-        other: Oficerzy wyborczy
+        other: Oficerowie wyborczy
       decidim/votings/polling_station:
         one: Lokal wyborczy
         few: Lokale wyborcze
