@@ -28,7 +28,7 @@ module Decidim
     def save
       return @registry if @registry
 
-      return if cumulative.zero? && !['blocked_users', 'reported_users', 'user_reports'].include?(@metric_name)
+      return if cumulative.zero? && %w(blocked_users reported_users user_reports).exclude?(@metric_name)
 
       @registry = Decidim::Metric.find_or_initialize_by(day: @day.to_s, metric_type: @metric_name, organization: @organization)
       @registry.assign_attributes(cumulative: cumulative, quantity: quantity)
