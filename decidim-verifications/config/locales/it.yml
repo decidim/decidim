@@ -34,8 +34,11 @@ it:
             confirm: Le autorizzazioni di revoca prima della data non possono essere annullate. Sei sicuro di voler continuare?
             confirm_all: Revocare tutte le autorizzazioni non può essere annullato. Sei sicuro di voler continuare?
           destroy_nok: C'è stato un problema durante la revoca delle autorizzazioni.
+          destroy_ok: Tutte le autorizzazioni corrispondenti sono state revocate correttamente.
           info: Ci sono un totale di %{count} partecipanti verificati.
           no_data: Nessun partecipante verificato
+          title: Revoca delle autorizzazioni
+        authorization_workflows: Authorizzazioni
     authorization_handlers:
       admin:
         csv_census:
@@ -123,6 +126,7 @@ it:
             title: Dati di censimento attuali
           instructions:
             body: Per fare ciò è necessario inserire l'amministrazione del sistema e aggiungere le autorizzazioni csv_census all'organizzazione
+            title: È necessario attivare il censimento CVS per questa organizzazione
           new:
             file: "file .csv con dati di posta elettronica"
             info: 'Deve essere un file in formato CSV con una sola colonna con l''indirizzo email:'
@@ -138,6 +142,9 @@ it:
             one: La partecipazione è riservata agli utenti con il codice postale %{postal_codes}.
             other: 'La partecipazione è riservata agli utenti con uno dei seguenti codici postali: %{postal_codes}.'
           scope: La partecipazione è limitata ai partecipanti con l'ambito %{scope_name}.
+          user_postal_codes:
+            one: La partecipazione è limitata alle partecipanti con il codice postale %{postal_codes}, e il tuo codice postale è %{user_postal_code}.
+            other: 'La partecipazione è limitata alle partecipanti con il codice postale %{postal_codes}, e il tuo codice postale è %{user_postal_code}.'
       id_documents:
         admin:
           config:
