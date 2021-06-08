@@ -328,6 +328,7 @@ it:
         html_3:
           name: Terzo blocco HTML
         metadata:
+          developer_group: Promosso da
           name: Metadati
           participatory_scope: Che cosa si decide
           participatory_structure: Come si decide
