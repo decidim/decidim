@@ -23,7 +23,19 @@ namespace :decidim do
       add_binstub_load_path "bin/webpack-dev-server"
 
       # Install JS dependencies
-      system! "npm i decidim/decidim#develop"
+      install_decidim_npm
+    end
+
+    desc "Upgrade Decidim dependencies in Rails instance application"
+    task upgrade: :environment do
+      raise "Decidim gem is not installed" if decidim_path.nil?
+
+      # Update JS dependencies
+      install_decidim_npm
+    end
+
+    def install_decidim_npm
+      system! "npm i #{decidim_npm_path}"
 
       # Remove the webpacker dependencies as they come through Decidim dependencies.
       # This ensures we can control their versions from Decidim dependencies to avoid version conflicts.
@@ -42,7 +54,27 @@ namespace :decidim do
     end
 
     def decidim_path
-      @decidim_path ||= Pathname.new(Gem.loaded_specs["decidim"].full_gem_path) if Gem.loaded_specs.has_key?("decidim")
+      @decidim_path ||= Pathname.new(gem_specs.full_gem_path) if Gem.loaded_specs.has_key?("decidim")
+    end
+
+    def decidim_npm_path
+      if gem_specs.source.is_a?(Bundler::Source::Path)
+        gem_specs.source.path.to_s
+      else
+        repo = "decidim/decidim"
+        ref = "develop"
+        if gem_specs.source.is_a?(Bundler::Source::Rubygems)
+          ref = "v#{gem_specs.version}"
+        elsif gem_specs.source.is_a?(Bundler::Source::Git)
+          repo = gem_specs.source.uri.to_s
+          ref = gem_specs.source.branch || gem_specs.source.ref || ref
+        end
+        "#{repo}##{ref}"
+      end
+    end
+
+    def gem_specs
+      @gem_specs ||= Gem.loaded_specs["decidim"]
     end
 
     def rails_app_path
