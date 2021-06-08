@@ -161,43 +161,43 @@ pl:
             invalid: Wystąpił błąd podczas tworzenia wyborów
             success: Wybory zostały pomyślnie utworzone
           destroy:
-            invalid: Wystąpił błąd podczas usuwania wyboru
-            success: Wybór został usunięty
+            invalid: Wystąpił błąd podczas usuwania wyborów
+            success: Wybory zostały pomyślnie usunięte
           edit:
-            title: Edytuj wybór
-            update: Aktualizuj wybór
+            title: Edytuj wybory
+            update: Aktualizuj wybory
           index:
-            no_bulletin_board: Brak skonfigurowanego <a href="https://github.com/decidim/decidim-bulletin-board">serwera tablicy ogłoszeń</a>, który jest potrzebny do korzystania z tego modułu. Zadanie to powinno być wykonane przez administratora systemu.
+            no_bulletin_board: Brak skonfigurowanego <a href="https://github.com/decidim/decidim-bulletin-board">serwera tablicy danych wyborczych</a>, który jest potrzebny do korzystania z tego modułu. Zadanie to powinno być wykonane przez administratora systemu.
             title: Wybory
           new:
-            create: Utwórz wybór
-            title: Nowy wybór
+            create: Utwórz wybory
+            title: Nowe wybory
           publish:
-            success: Wybór został opublikowany.
+            success: Wybory zostały pomyślnie opublikowane.
           unpublish:
-            success: Cofnięto publikacje wyboru.
+            success: Cofnięto publikacje wyborów.
           update:
             invalid: Wystąpił błąd podczas aktualizowania wyboru
-            success: Wybór zostały zaktualizowany
+            success: Wybory zostały pomyślnie zaktualizowane
         exports:
           elections: Wybory
-          feedback_form_answers: Informacja zwrotna z odpowiedzi
+          feedback_form_answers: Odpowiedzi zebrane z formularza
         models:
           answer:
             name: Odpowiedź
           election:
-            name: Wybór
+            name: Wybory
           question:
             name: Pytanie
           trustee:
-            name: Powiernik
+            name: Mąż (osoba) zaufania
         proposals_imports:
           create:
-            invalid: Wystąpił błąd podczas importowania propozycji do odpowiedzi
+            invalid: Wystąpił problem podczas importowania propozycji do odpowiedzi
             success: "Liczba propozycji pomyślnie zaimportowanych do odpowiedzi: %{number}"
           new:
             create: Importuj propozycje do odpowiedzi
-            no_components: W tej przestrzeni partycypacyjnej nie ma żadnych innych komponentów propozycji żeby zaimportować propozycje do odpowiedzi.
+            no_components: W tej przestrzeni partycypacyjnej nie ma już żadnych innych komponentów propozycji do zaimportowania do odpowiedzi.
             select_component: Wybierz komponent
             title: Importuj propozycje
         questions:
