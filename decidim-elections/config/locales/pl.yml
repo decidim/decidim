@@ -311,30 +311,30 @@ pl:
             success: Mąż (osoba) zaufania został utworzony
           delete:
             invalid: Wystąpił błąd podczas usuwania męża (osoby) zaufania
-            success: Powiernik został usunięty
+            success: Mąż (osoba) zaufania został usunięty
           form:
             select_user: Wybierz użytkownika
           index:
-            title: Powiernicy
+            title: Mężowie (osoby) zaufania
           new:
-            create: Utwórz powiernika
-            title: Nowy powiernik
+            create: Utwórz męża (osobę) zaufania
+            title: Nowy mąż (osoba) zaufania
           update:
-            invalid: Podczas aktualizacji %{trustee} wystąpił błąd
-            success: Powiernik %{trustee} został zaktualizowany
+            invalid: Podczas aktualizacji męża (osoby) zaufania %{trustee} wystąpił błąd
+            success: Mąż (osoba) zaufania %{trustee} został pomyślnie zaktualizowany
       admin_log:
         election:
-          end_vote: "%{user_name} zakończył(a) głosowanie w wyborach %{resource_name} na tablicy ogłoszeń"
-          publish: "%{user_name} opublikował(a) wybór %{resource_name}"
-          setup: "%{user_name} dodał wybory %{resource_name} na tablicy ogłoszeń"
-          start_key_ceremony: "%{user_name} rozpoczął/rozpoczęła główne wydarzenie w wyborach %{resource_name} na tablicy ogłoszeń"
-          start_tally: "%{user_name} rozpoczął podsumowywanie wyborów %{resource_name} na tablicy ogłoszeń"
-          start_vote: "%{user_name} rozpoczął/rozpoczęła głosowanie w wyborach %{resource_name} na tablicy ogłoszeń"
-          unpublish: "%{user_name} cofnął/cofnęła publikację wyboru %{resource_name}"
+          end_vote: "%{user_name} zamknął(ęła) głosowanie w wyborach %{resource_name} na Tablicy danych wyborczych"
+          publish: "%{user_name} opublikował(a) wybory %{resource_name}"
+          setup: "%{user_name} utworzył wybory %{resource_name} na Tablicy danych wyborczych"
+          start_key_ceremony: "%{user_name} rozpoczął/rozpoczęła \"ceremonię kluczy\" w wyborach %{resource_name} na Tablicy danych wyborczych"
+          start_tally: "%{user_name} rozpoczął proces liczenia głosów %{resource_name} na Tablicy danych wyborczych"
+          start_vote: "%{user_name} otworzył/otwarła głosowanie w wyborach %{resource_name} na Tablicy danych wyborczych"
+          unpublish: "%{user_name} cofnął/cofnęła publikację wyborów %{resource_name}"
       election_m:
         badge_name:
           finished: Zakończone
-          ongoing: Aktualne
+          ongoing: Aktywne
           upcoming: Nadchodzące
         end_date: Data zakończenia
         footer:
@@ -348,16 +348,16 @@ pl:
       elections:
         count:
           elections_count:
-            one: "%{count} wybór"
-            few: "%{count} wybory"
-            many: "%{count} wybory"
+            one: "%{count} wybory"
+            few: "%{count} wyborów"
+            many: "%{count} wyborów"
             other: "%{count} wybory"
         election_log:
           verifiable_results:
             title: Zweryfikuj wyniki wyborów
           vote_title: Proces głosowania
         filters:
-          active: Aktualne
+          active: Aktywne
           all: Wszystkie
           finished: Zakończone
           search: Szukaj
@@ -369,7 +369,7 @@ pl:
           filter_by: Filtruj według
           unfold: Rozwiń
         preview:
-          available_answers: 'Dostępne odpowiedzi:'
+          available_answers: 'Możliwe odpowiedzi:'
           title: Pytania wyborcze
         results:
           percentage: "%{count}%"
@@ -395,13 +395,13 @@ pl:
             verify_here: Sprawdź swój głos tutaj.
             will_verify: Po rozpoczęciu wyborów będziesz mógł zweryfikować swój głos.
           voting_period_status:
-            finished: Głosowanie rozpoczęło się %{start_time} i zakończyło %{end_time}
+            finished: Głosowanie rozpoczęło się %{start_time} i zakończyło się %{end_time}
             ongoing: 'Głosowanie aktywne do: %{end_time}'
             upcoming: Głosowanie rozpoczyna się %{start_time}
       feedback:
         answer:
           spam_detected: Wystąpił błąd podczas wypełniania formularza. Być może zostało to zrobione zbyt szybko, czy możesz spróbować ponownie?
-          success: Wiadomość zwrotna została wysłana.
+          success: Opinia została wysłana.
       models:
         answer:
           fields:
@@ -411,15 +411,15 @@ pl:
             votes: Głosy
         election:
           fields:
-            bb_status: Status tablicy ogłoszeń
-            end_time: Kończy się
-            start_time: Zaczyna się
+            bb_status: Status Tablicy danych wyborczych
+            end_time: Koniec o
+            start_time: Zaczyna się o
             title: Tytuł
             verifiable_results_file_hash: Suma kontrolna pliku SHA256
         question:
           fields:
             answers: Odpowiedzi
-            max_selections: Maks. liczba opcji do zaznaczenia
+            max_selections: Maks. liczba opcji do wybrania
             title: Tytuł
         trustees_participatory_space:
           fields:
@@ -427,39 +427,39 @@ pl:
             email: E-mail
             inactive: nieaktywne
             name: Imię
-            notification: Wysłano powiadomienie
+            notification: Wysłano powiadomienie o
             public_key: Klucz publiczny
             status: Status
       orders:
-        label: Sortuj według
+        label: Sortuj wybory według
         older: Najstarsze
         recent: Najnowsze
       trustee_zone:
         elections:
           backup_modal:
-            description: Te wybory są tworzone na tablicy ogłoszeń. Każdy przypisanych do nich powiernik powinien stworzyć kopię zapasową kluczy i przechowywał je w bezpiecznym miejscu. Po wykonaniu tego, proces będzie kontynuowany.
+            description: Te wybory są tworzone na Tablicy danych wyborczych. Każdy przypisany do niej mąż (osoba) zaufania powinien stworzyć kopię zapasową kluczy i przechowywać je w bezpiecznym miejscu. Po tym, proces będzie kontynuowany.
             download_election_keys: Pobierz klucze
             download_icon: Ikona wskazująca akcję pobierania
             title: Kopia zapasowa kluczy dla głosowania %{election}
           key_ceremony_steps:
             back: Wróć
-            description: Te wybory są tworzone na tablicy ogłoszeń. Aby zakończyć ten proces wymaga się twojego uczestnictwa jako powiernika.
+            description: Te wybory są tworzone na Tablicy danych wyborczych. Aby zakończyć ten proces potrzebny jest Twój udział jako męża (osoby) zaufania.
             keys:
               create_election: Generowanie kluczy
               key_ceremony:
-                joint_election_key: Wspólna generacja kluczy
+                joint_election_key: Wspólna tworzenie kluczy
                 step_1: Publikowanie kluczy
             list:
               status: Status
               task: Zadanie
-            process_warning: Po rozpoczęciu procesu, nie powinieneś opuszczać tej strony do czasu jego zakończenia. Zajmie to kilka minut, ponieważ wszyscy powiernicy powinni być podłączeni w celu jego ukończenia.
+            process_warning: Po rozpoczęciu procesu, nie powinieneś opuszczać tej strony do czasu jego zakończenia. Zajmie to kilka minut, ponieważ wszyscy mężowie (osoby) zaufania powinni być podłączeni w celu jego ukończenia.
             start: Rozpocznij
-            start_icon: Ikona wskazująca przycisk startu dla generowania kluczy wyborczych
+            start_icon: Ikona wskazująca przycisk startu dla tworzenia kluczy wyborczych
             status:
               completed: Zakończono
               pending: Oczekujące
               processing: Przetwarzanie
-            title: Wygeneruj klucze dla wyborów %{election}
+            title: Utwórz klucze dla wyborów %{election}
           restore_modal:
             description: Tablica ogłoszeń posiada informacje od Ciebie jako powiernika w tych wyborach. Aby kontynuować proces, najpierw wgraj plik kopii zapasowej wygenerowany podczas poprzedniej sesji.
             title: Odzyskaj klucze dla wyborów %{election}
