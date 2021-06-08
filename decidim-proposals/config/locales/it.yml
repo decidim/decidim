@@ -27,6 +27,7 @@ it:
         user_group_id: Crea proposta come
       proposal_answer:
         answer: Risposta
+        cost: Costo
         execution_period: Periodo di esecuzione
       proposals_copy:
         copy_proposals: Capisco che questo importerà tutte le proposte dal componente selezionato a quello corrente e che questa azione non può essere annullata.
@@ -774,6 +775,8 @@ it:
             document_index: Indice del documento
           view_index:
             see_index: Vedi indice
+        placeholder:
+          address: Homewood Drive 37, Brownsburg, IN 46112
         preview:
           announcement_body: La tua proposta è stata salvata come bozza. Deve essere pubblicata affinché appaia sul sito.
           announcement_title: La tua proposta non è stata ancora pubblicata
