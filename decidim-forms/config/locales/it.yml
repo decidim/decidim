@@ -14,6 +14,8 @@ it:
       models:
         answer:
           attributes:
+            body:
+              too_long: è troppo lungo
             choices:
               missing: non sono completi
               too_many: sono troppi
@@ -117,6 +119,7 @@ it:
           resize_and_pad: Ridimensionato e spaziato a
           resize_to_fit: Ridimensionato per adattarsi
       question_types:
+        files: I file
         long_answer: Risposta lunga
         matrix_multiple: Matrice (opzione multipla)
         matrix_single: Matrice (opzione singola)
