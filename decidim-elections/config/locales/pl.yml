@@ -182,6 +182,8 @@ pl:
         exports:
           elections: Wybory
           feedback_form_answers: Odpowiedzi zebrane z formularza
+        menu:
+          trustees: Mężowie (osoby) zaufania
         models:
           answer:
             name: Odpowiedź
@@ -281,6 +283,7 @@ pl:
             result: Wynik
             selected: Wybrano
             submit: Opublikuj wyniki
+            success: Prośba o publikację wyników została pomyślnie przesłana do Tablicy danych wyborczych
             title: Obliczone wyniki
           vote:
             errors:
@@ -295,6 +298,7 @@ pl:
             invalid: Wystąpił błąd przy rozpoczęciu liczenia głosów
             submit: Ustal wynik głosowania
             success: Prośba o rozpoczęcie liczenia głosów została pomyślnie przesłana do Tablicy danych wyborczych
+            text: Głosowanie zakończyło się. Możesz rozpocząć proces ustalania wyniku głosowania.
             title: Czas głosowania zakończony
           vote_stats:
             no_vote_statistics_yet: Brak statystyk głosowania
@@ -326,6 +330,7 @@ pl:
         election:
           end_vote: "%{user_name} zamknął(ęła) głosowanie w wyborach %{resource_name} na Tablicy danych wyborczych"
           publish: "%{user_name} opublikował(a) wybory %{resource_name}"
+          publish_results: "%{user_name} opublikował wyniki głosowania w wyborach %{resource_name} Tablicy danych wyborczych"
           setup: "%{user_name} utworzył wybory %{resource_name} na Tablicy danych wyborczych"
           start_key_ceremony: "%{user_name} rozpoczął/rozpoczęła \"ceremonię kluczy\" w wyborach %{resource_name} na Tablicy danych wyborczych"
           start_tally: "%{user_name} rozpoczął proces liczenia głosów %{resource_name} na Tablicy danych wyborczych"
@@ -353,6 +358,21 @@ pl:
             many: "%{count} wyborów"
             other: "%{count} wybory"
         election_log:
+          chained_hash: Cyfrowy odcisk (hasz) tej wiadomości
+          creation_description:
+            complete: Wybory zostały utworzone i pomyślnie dodano je do Tablicy danych wyborczych.
+          description: Oto dziennik zdarzeń wyborczych, w którym możesz sprawdzić status każdy krok procesu wyborczego np. kiedy utworzono wybory, czy ustalono wynik głosowania i czy wybory zostały zamknięte.
+          key_ceremony_description:
+            complete: '"Ceremonia kluczy" została zakończona. Każdy mąż (osoba) zaufania ma ważne klucze i pobrał niezbędne klucze zapasowe.'
+            not_started: '"Ceremonia kluczy" nie została jeszcze rozpoczęta.'
+            started: '"Ceremonia kluczy" rozpoczęła się, ale nie została jeszcze zakończona.'
+          key_ceremony_title: '"Ceremonia kluczy"'
+          tally_description:
+            finished: Proces ustalania wyniku głosowania został zakończony.
+            not_started: Proces ustalania wyniku głosowania jeszcze nie rozpoczął się.
+            started: Proce ustalania wyniku głosowania rozpoczął się.
+          tally_title: Proces ustalania wyniku głosowania
+          title: Dziennik zdarzeń wyborczych
           verifiable_results:
             title: Zweryfikuj wyniki wyborów
           vote_title: Proces głosowania
@@ -388,7 +408,9 @@ pl:
           back: Dostępne wybory
           callout:
             already_voted: Już głosowałeś w tych wyborach. Możesz zmienić swój głos lub zweryfikować go.
+            pending_vote: Twój głos jest właśnie oddawany na serwerze.
             vote_rejected: Nie udało się zweryfikować Twojego głosu. Proszę przesłać go ponownie.
+          election_log: Dziennik zdarzeń wyborczych
           preview: Podgląd
           verify:
             already_voted: Już głosowałem?
@@ -461,37 +483,37 @@ pl:
               processing: Przetwarzanie
             title: Utwórz klucze dla wyborów %{election}
           restore_modal:
-            description: Tablica ogłoszeń posiada informacje od Ciebie jako powiernika w tych wyborach. Aby kontynuować proces, najpierw wgraj plik kopii zapasowej wygenerowany podczas poprzedniej sesji.
-            title: Odzyskaj klucze dla wyborów %{election}
+            description: Tablica danych wyborczych posiada informacje od Ciebie jako męża (osoby) zaufania w tych wyborach. Aby kontynuować proces, najpierw wgraj plik kopii zapasowej wygenerowany podczas poprzedniej sesji.
+            title: Przywróć klucze dla wyborów %{election}
             upload_election_keys: Prześlij klucze wyborcze
             upload_icon: Ikona wskazująca akcję pobierania
           tally_steps:
             back: Wróć
-            description: Wyniki tego głosowania są generowane na tablicy ogłoszeń. Aby zakończyć ten proces niezbędne jest twoje uczestnictwo jako powiernika.
+            description: Wyniki tego głosowania są generowane na Tablicy danych wyborczych. Aby zakończyć ten proces niezbędne jest twoje uczestnictwo jako męża (osoby) zaufania.
             keys:
-              end_tally: Zakończono podsumowywanie
+              end_tally: Zakończono proces ustalania wyniku głosowania
               tally:
-                cast: Zliczanie danych
-                share: Udostępnij podsumowanie
+                cast: Suma oddanych głosów
+                share: Udostępnij ustalony wynik głosowania
             list:
               status: Status
               task: Zadanie
-            process_warning: Po rozpoczęciu procesu, nie powinieneś opuszczać tej strony do czasu jego zakończenia. Zajmie to kilka minut, ponieważ wszyscy powiernicy powinni być podłączeni w celu jego ukończenia.
+            process_warning: Po rozpoczęciu procesu, nie powinieneś opuszczać tej strony do czasu jego zakończenia. Zajmie to kilka minut, ponieważ wszyscy mężowie (osoby) zaufania powinni być podłączeni w celu jego ukończenia.
             start: Rozpocznij
-            start_icon: Ikona wskazująca przycisk startu dla generowania kluczy wyborczych
+            start_icon: Ikona wskazująca przycisk startu dla tworzenia kluczy wyborczych
             status:
               completed: Zakończono
               pending: Oczekujące
               processing: Przetwarzanie
-            title: Podsumowanie %{election}
+            title: Wynik głosowania dla %{election}
           update:
             error: Status wyborów nie został zaktualizowany.
             success: 'Status wyborów to: %{status}'
         menu:
-          trustee_zone: Strefa powierników
+          trustee_zone: Strefa mężów (osób) zaufania
         no_bulletin_board:
-          body: Ta sekcja wymaga skonfigurowania tablicy ogłoszeń. Aby uzyskać więcej informacji, skontaktuj się z administratorem.
-          title: Przykro nam, tablica ogłoszeń nie została jeszcze skonfigurowana.
+          body: Ta sekcja wymaga uprzedniego skonfigurowania Tablicy danych wyborczych. Aby uzyskać więcej informacji, skontaktuj się z administratorem.
+          title: Przykro nam, Tablica danych wyborczych nie została jeszcze skonfigurowana.
         trustees:
           show:
             elections:
@@ -503,36 +525,36 @@ pl:
                 bb_status: Status
                 election: Wybory
                 voting_period: Czas głosowania
-              no_elections: Nie ma głosowań, w których pełnisz rolę powiernika.
+              no_elections: Nie ma głosowań, w których pełnisz rolę męża (osoby) zaufania.
               title: Wybory
             identification_keys:
               cancel: Anuluj
-              generate: Generuj klucze identyfikacyjne
-              generate_error: Wystąpił błąd podczas generowania kluczy identyfikacyjnych.
-              generate_legend: Musisz wygenerować parę kluczy identyfikacyjnych do udziału w głosowaniu jako powiernik.
-              generate_legend_1: Po kliknięciu przycisku powinieneś pobrać plik z wygenerowanymi kluczami identyfikacyjnymi.
-              generate_legend_2: Skopiuj pobrany plik na czyste urządzenia USB
+              generate: Utwórz klucze identyfikacyjne
+              generate_error: Wystąpił błąd podczas tworzenia kluczy identyfikacyjnych.
+              generate_legend: Musisz utworzyć parę kluczy identyfikacyjnych do udziału w głosowaniu jako mąż (osoba) zaufania.
+              generate_legend_1: Po kliknięciu przycisku powinieneś pobrać plik z utworzonymi kluczami identyfikacyjnymi.
+              generate_legend_2: Skopiuj pobrany plik na puste urządzenia USB
               generate_legend_3: Upewnij się, że Twój komputer nie ma kopii pliku (np. sprawdź foldery Pobrane i Pulpit).
               generate_legend_4: Utwórz kolejną kopię pliku na innym urządzeniu zewnętrznym i przechowuj go w bezpiecznym miejscu.
               submit: Prześlij
               submit_legend: Po wykonaniu wszystkich opisanych wyżej kroków, zakończ proces wysyłania publicznego klucza identyfikacyjnego na serwer Decidim.
               submit_title: Prześlij publiczny klucz identyfikacyjny
-              title: Klucze identyfikacyjne powiernika
+              title: Klucze identyfikacyjne męża (osoby) zaufania
               upload: Prześlij swoje klucze identyfikacyjne
               upload_error:
                 invalid_format: Wgrany plik nie zawiera żadnego klucza identyfikacyjnego.
                 invalid_key: Nie można załadować kluczy identyfikacyjnych z przesłanego pliku.
                 invalid_public_key: Klucze identyfikacyjne z przesłanego pliku nie pasują do publicznego klucza identyfikacyjnego przechowywanego przez Decidim.
-              upload_legend: Decidim posiada twoje publiczne klucze identyfikacyjne, ale Twoja przeglądarka nadal nie ma tych kluczy. Musisz zaimportować plik z kluczami identyfikacyjnymi do komputera z kopii zapasowej, którą utworzyłeś po ich wygenerowaniu.
-            not_supported_browser_description: Wygląda na to, że używasz przeglądarki internetowej, która nie może być użyta do działań Powiernika. Upewnij się, że używasz najnowszej wersji przeglądarki, lub spróbuj użyć dowolnej z najpopularniejszych przeglądarek, aby móc wykonać zadania Powiernicze.
-            not_supported_browser_title: Aktualizuj przeglądarkę by działać jako powiernik
-            trustee_role_description: Zostałeś wyznaczony na powiernika w niektórych głosowaniach na tej platformie.
+              upload_legend: Decidim posiada twoje publiczne klucze identyfikacyjne, ale Twoja przeglądarka nadal nie ma tych kluczy. Musisz zaimportować plik z kluczami identyfikacyjnymi do komputera z kopii zapasowej, którą utworzyłeś po ich utworzeniu.
+            not_supported_browser_description: Wygląda na to, że używasz przeglądarki internetowej, która nie może być użyta do działań męża (osoby) zaufania. Upewnij się, że używasz najnowszej wersji przeglądarki, lub spróbuj użyć dowolnej z najpopularniejszych przeglądarek, aby móc wykonać zadania męża (osoby) zaufania.
+            not_supported_browser_title: Aktualizuj przeglądarkę by działać jako mąż (osoba) zaufania
+            trustee_role_description: Zostałeś powołany do pełnienia funkcji męża (osoby) zaufania w niektórych głosowaniach na tej platformie.
           update:
             success: Twój publiczny klucz identyfikacyjny został zapisany.
       votes:
         ballot_decision:
           back: Rozpocznij proces głosowania ponownie
-          cast: Rozpocznij głosowanie
+          cast: Oddaj głos
         confirm:
           answer: Odpowiedz
           answer_number: odpowiedź %{number}
@@ -543,11 +565,11 @@ pl:
           nota_option: Puste
           question: Pytanie %{count}
         confirmed:
-          back: Powrót do wyborów
-          experience: Jak oceniasz to przeprowadzony proces?
+          back: Wróć do wyborów
+          experience: Jak oceniasz proces głosowania?
           feedback: Podziel się z nami swoją opinią
           header: Oddanie głosu potwierdzone
-          text: 'Możesz sprawdzić, czy Twój głos został pomyślnie dodany do skrzynki wyborczej z następującym identyfikatorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          text: 'Możesz sprawdzić, czy Twój głos został pomyślnie dodany do urny wyborczej z następującym identyfikatorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Aby sprawdzić, skopiuj identyfikator i wklej go na <a href="%{link}">stronie weryfikacji głosowania</a>
         encrypting:
           header: Szyfrowanie głosu...
@@ -561,7 +583,7 @@ pl:
           confirmed: Głosowanie potwierdzone
           failed: Oddanie głosu nie powiodło się
         messages:
-          not_allowed: W tej chwili nie wolno Ci głosować na ten wybór.
+          not_allowed: W tej chwili nie wolno Ci głosować w tych wyborach.
         modal:
           close: Zamknij
           proposal_header: 'Propozycje:'
@@ -583,7 +605,7 @@ pl:
             header: Nie znaleziono głosu!
             info: Kod głosu nie został znaleziony na urnie wyborczej %{link}, spróbuj ponownie.
           form:
-            back: Powrót do Decidim
+            back: Wróć do Decidim
             submit: Sprawdź
             vote_identifier: 'Kod identyfikacyjny:'
           header:
