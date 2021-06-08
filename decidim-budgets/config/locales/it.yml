@@ -244,6 +244,7 @@ it:
             landing_page_content: Pagina iniziale dei budget
             more_information_modal: Finestra modale "Maggiori informazioni"
             projects_per_page: Progetti per pagina
+            resources_permissions_enabled: Le autorizzazioni relative alle azioni possono essere impostate per ogni progetto
             scope_id: Obiettivo
             scopes_enabled: Obiettivi abilitati
             title: Titolo
