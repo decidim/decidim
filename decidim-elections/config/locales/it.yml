@@ -55,6 +55,7 @@ it:
         role_eq:
           label: Ruolo
           values:
+            manager: Responsabile
             president: Presidente
     components:
       elections:
