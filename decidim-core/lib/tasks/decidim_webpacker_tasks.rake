@@ -51,14 +51,15 @@ namespace :decidim do
 
     def add_binstub_load_path(binstub_path)
       file = rails_app_path.join(binstub_path)
+      lines = File.readlines(file)
 
       # Skip if the load path is already added
-      return if File.readlines(file).grep(
+      return if lines.grep(
         %r{^\$LOAD_PATH.unshift "#\{Gem.loaded_specs\["decidim-core"\].full_gem_path\}/lib/gem_overrides"$}
       ).size.positive?
 
       contents = ""
-      File.readlines(file).each do |line|
+      lines.each do |line|
         contents += line
         next unless line =~ %r{^require "bundler/setup"$}
 
