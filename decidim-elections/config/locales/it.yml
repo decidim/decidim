@@ -16,6 +16,9 @@ it:
         max_selections: Numero massimo di selezioni
         min_selections: Nessuna delle precedenti opzioni
         title: Titolo
+      voting:
+        end_time: La votazione termina il
+        start_time: La votazione inizia il
     errors:
       models:
         answer:
@@ -43,12 +46,22 @@ it:
       decidim/elections/question:
         one: Domanda
         other: Domande
+      decidim/votings/census/dataset:
+        one: Set di dati
+        other: Set di dati
+      decidim/votings/census/datum:
+        one: Dato
+        other: Dati
       decidim/votings/voting:
         one: Votazione
         other: Votazioni
   decidim:
     admin:
       filters:
+        role_eq:
+          label: Ruolo
+          values:
+            president: Presidente
         signed_eq:
           label: Firmato
     components:
