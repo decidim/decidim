@@ -12,9 +12,6 @@ namespace :decidim do
       remove_file_from_application "bin/yarn"
       # Babel config
       copy_file_to_application "babel.config.json"
-      # Npm packagesj
-      copy_file_to_application "package.json"
-      copy_file_to_application "package-lock.json"
       # PostCSS configuration
       copy_file_to_application "decidim-core/lib/decidim/webpacker/postcss.config.js", "postcss.config.js"
       # Webpacker configuration
@@ -26,7 +23,22 @@ namespace :decidim do
       add_binstub_load_path "bin/webpack-dev-server"
 
       # Install JS dependencies
-      system! "npm ci"
+      system! "npm i decidim/decidim#develop"
+
+      # Remove the webpacker dependencies as they come through Decidim dependencies.
+      # This ensures we can control their versions from Decidim dependencies to avoid version conflicts.
+      webpacker_packages = %w(
+        @rails/actioncable
+        @rails/activestorage
+        @rails/ujs
+        @rails/webpacker
+        turbolinks
+        webpack
+        webpack-cli
+        @webpack-cli/serve
+        webpack-dev-server
+      )
+      system! "npm uninstall #{webpacker_packages.join(" ")}"
     end
 
     def decidim_path
