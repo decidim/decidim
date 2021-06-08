@@ -45,25 +45,10 @@ $comment-form-bg: $light-gray;
       cursor: pointer;
     }
 
-    &__toggle{
-      position: absolute;
-      visibility: hidden;
-    }
-
-    &__toggle:checked ~ &__content{
-      display: block;
-    }
-
     &__content{
-      display: none;
-      position: absolute;
-      top: 0;
-      right: 0;
-      transform: translateX(-$comment-padding);
       list-style-type: none;
       width: max-content;
       min-width: 180px;
-      z-index: 1;
       padding: 0;
       margin: 0;
       box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
