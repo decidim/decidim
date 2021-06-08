@@ -62,14 +62,14 @@ namespace :decidim do
         gem_specs.source.path.to_s
       else
         repo = "decidim/decidim"
-        ref = "develop"
+        ref = nil
         if gem_specs.source.is_a?(Bundler::Source::Rubygems)
           ref = "v#{gem_specs.version}"
         elsif gem_specs.source.is_a?(Bundler::Source::Git)
           repo = gem_specs.source.uri.to_s
-          ref = gem_specs.source.branch || gem_specs.source.ref || ref
+          ref = gem_specs.source.branch || gem_specs.source.ref
         end
-        "#{repo}##{ref}"
+        [repo, ref].compact.join("#")
       end
     end
 
