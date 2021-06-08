@@ -27,6 +27,7 @@ it:
         private_meeting: Incontro privato
         registration_form_enabled: Modulo di registrazione abilitato
         registration_terms: Termini di registrazione
+        registration_url: URL di iscrizione
         registrations_enabled: Registrazioni abilitate
         start_time: Orario inizio
         title: Titolo
