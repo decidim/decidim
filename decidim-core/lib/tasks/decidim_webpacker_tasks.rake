@@ -23,7 +23,7 @@ namespace :decidim do
       add_binstub_load_path "bin/webpack-dev-server"
 
       # Install JS dependencies
-      system! "npm i decidim/decidim#develop"
+      system! "npm i https://gitpkg.now.sh/mainio/decidim/packages/all?feature/split-npm-packages"
 
       # Remove the webpacker dependencies as they come through Decidim dependencies.
       # This ensures we can control their versions from Decidim dependencies to avoid version conflicts.
