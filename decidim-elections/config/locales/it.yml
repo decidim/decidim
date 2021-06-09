@@ -52,6 +52,9 @@ it:
       decidim/votings/census/datum:
         one: Dato
         other: Dati
+      decidim/votings/polling_station:
+        one: Seggio elettorale
+        other: Seggio elettorale
       decidim/votings/voting:
         one: Votazione
         other: Votazioni
@@ -222,19 +225,36 @@ it:
           results_published:
             answer: Risposta
             question: Domanda
+            result: Risultato
             submit: Invia
             title: Risultati pubblicati
           tally_ended:
+            answer: Risposta
+            question: Domanda
+            result: Risultato
             submit: Pubblica i risultati
+          vote:
+            title: Periodo di votazione
+          vote_stats:
+            voters: Votanti
+        trustees_participatory_spaces:
+          actions:
+            disable: Disattiva
       admin_log:
         election:
           publish: "%{user_name} ha pubblicato l'elezione %{resource_name}"
           unpublish: "%{user_name} ha rimosso l'elezione %{resource_name}"
+      election_m:
+        footer:
+          vote: Vota
+        start_date: Inizio
       elections:
         count:
           elections_count:
             one: "%{count} elezione"
             other: "%{count} elezioni"
+        election_log:
+          complete: Completa
         results:
           selected: Selezionato
           title: Risultati delle elezioni
@@ -325,9 +345,12 @@ it:
           feedback: Lasciaci un feedback
           header: Voto confermato
           text: 'Puoi controllare che il tuo voto sia stato aggiunto con successo alla scheda elettorale con il seguente identificatore: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+        encrypting:
+          header: Cifrando il voto...
         header:
           confirm: Conferma il tuo voto
           confirmed: Voto confermato
+          failed: Votazione fallita
         messages:
           not_allowed: In questo momento non ti è permesso di votare a queste elezioni.
         modal:
