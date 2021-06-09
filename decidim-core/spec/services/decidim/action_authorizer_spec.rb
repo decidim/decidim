@@ -6,9 +6,9 @@ module Decidim
   describe ActionAuthorizer do
     subject { authorizer }
 
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization, available_authorizations: %w(dummy_authorization_handler another_dummy_authorization_handler)) }
     let(:user) { create(:user, organization: organization) }
-    let(:component) { create(:component, permissions: permissions) }
+    let(:component) { create(:component, permissions: permissions, organization: organization) }
     let(:resource) { nil }
     let(:action) { "vote" }
     let(:permissions) { { action => permission } }
@@ -86,6 +86,21 @@ module Decidim
               expect(response.codes).to include(:unauthorized)
             end
           end
+        end
+      end
+
+      context "when organization doesnt have authorization handler available" do
+        let(:permission) do
+          {
+            "authorization_handlers" => {
+              "disabled_authorization_handler" => {}
+            }
+          }
+        end
+
+        it "doesn't require it" do
+          expect(response).to be_ok
+          expect(response.statuses.count).to eq(0)
         end
       end
 
