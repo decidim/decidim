@@ -382,7 +382,15 @@ pl:
           verifiable_results:
             description:
               not_ready: Sprawdzalne dane wyborcze i suma kontrolna SHA256 nie są jeszcze dostępne. Będziesz mógł sprawdzić wybory zaraz po ogłoszeniu wyników głosowania.
+              ready: 'Możesz tutaj skorzystać z opcji sprawdzenia wyborów. Aby to uczynić, pobierz wpierw plik i upewnij się, że nie został uszkodzony. Użyj następującego polecenia aby sprawdzić czy wynik jest zgodny z sumą kontrolną:'
+            how_to_verify: 'Po pobraniu pliku i upewnieniu się, że plik jest w porządku, możesz przejść do uruchomienia uniwersalnego weryfikatora. Sklonuj <a href=''https://github.com/decidim/decidim-bulletin-board''>to repozytorium</a> i wykonaj następujące polecenie z katalogu root:'
             title: Zweryfikuj wyniki wyborów
+            verifiable_file: 'Sprawdzalne dane wyborcze:'
+          verify: Sprawdź wybory
+          vote_description:
+            finished: Proces głosowania został zakończony.
+            not_started: Proces głosowania jeszcze się nie rozpoczął.
+            started: Proces głosowania rozpoczął się.
           vote_title: Proces głosowania
         filters:
           active: Aktywne
@@ -398,8 +406,10 @@ pl:
           unfold: Rozwiń
         preview:
           available_answers: 'Możliwe odpowiedzi:'
+          description: 'Oto pytania, które zostaną zadane w procesie głosowania:'
           title: Pytania wyborcze
         results:
+          description: 'Takie są wyniki głosowania w odniesieniu do każdego pytania:'
           percentage: "%{count}%"
           selected: Wybrane
           title: Wyniki wyborów
@@ -430,6 +440,7 @@ pl:
             upcoming: Głosowanie rozpoczyna się %{start_time}
       feedback:
         answer:
+          invalid: Wystąpił błąd podczas wysyłania Twojej opinii.
           spam_detected: Wystąpił błąd podczas wypełniania formularza. Być może zostało to zrobione zbyt szybko, czy możesz spróbować ponownie?
           success: Opinia została wysłana.
       models:
@@ -446,6 +457,7 @@ pl:
             start_time: Zaczyna się o
             title: Tytuł
             verifiable_results_file_hash: Suma kontrolna pliku SHA256
+            verifiable_results_file_url: Sprawdzalne dane wyborcze
         question:
           fields:
             answers: Odpowiedzi
@@ -561,8 +573,15 @@ pl:
             success: Twój publiczny klucz identyfikacyjny został zapisany.
       votes:
         ballot_decision:
+          audit: "( Sprawdź kartę z oddanym głosem )"
           back: Rozpocznij proces głosowania ponownie
+          ballot_hash: 'Numer Twojej karty do głosowania to:'
           cast: Oddaj głos
+          description: "Masz tutaj dwie opcje, albo możesz już oddać głos tak aby został poprawnie zliczony, albo możesz sprawdzić czy Twoja karta do głosowania została prawidłowo zaszyfrowania. Ze względów bezpieczeństwa sprawdzenie poprawności szyfrowania karty zepsuje ją. Oznacza to, że musisz ponownie rozpocząć od nowa proces oddawania głosu aby oddać głos.\n\nHere, you have the options to cast your ballot so that it's properly counted or, alternatively, you can audit that your ballot was correctly encrypted. For security reasons, auditing your ballot will spoil it. That means, to cast your vote, you will need to restart the voting process."
+          header: 'Karta do głosowania została zaszyfrowana. Oddaj głos, albo sprawdź poprawność szyfrowania karty'
+        casting:
+          header: Oddawanie głosu...
+          text: Twoja karta do głosowania jest składana do urny wyborczej.
         confirm:
           answer: Odpowiedz
           answer_number: odpowiedź %{number}
@@ -577,20 +596,28 @@ pl:
           experience: Jak oceniasz proces głosowania?
           feedback: Podziel się z nami swoją opinią
           header: Oddanie głosu potwierdzone
+          lead: Twój głos został oddany!
           text: 'Możesz sprawdzić, czy Twój głos został pomyślnie dodany do urny wyborczej z następującym identyfikatorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Aby sprawdzić, skopiuj identyfikator i wklej go na <a href="%{link}">stronie weryfikacji głosowania</a>
+        create:
+          error: Wystąpił błąd w czasie oddawania głosu, Spróbuj ponownie.
         encrypting:
           header: Szyfrowanie głosu...
+          text: Twoja karta do głosowania podlega szyfrowaniu aby zapewnić tajność Twojego głosu.
         failed:
           header: Oddanie głosu nie powiodło się
           lead: Twój głos nie został oddany!
           text: Coś poszło nie tak. Spróbuj ponownie.
           try_again: Spróbuj ponownie
         header:
+          ballot_decision: Oddaj głos, albo sprawdź poprawność szyfrowania Twojego głosu
+          casting: Oddawanie głosu
           confirm: Potwierdź swój głos
           confirmed: Głosowanie potwierdzone
+          encrypting: Szyfrowanie głosu
           failed: Oddanie głosu nie powiodło się
         messages:
+          invalid_token: Twoja sesja w kabinie wyborczej nie jest ważna. Spróbuj zagłosować ponownie.
           not_allowed: W tej chwili nie wolno Ci głosować w tych wyborach.
         modal:
           close: Zamknij
@@ -605,6 +632,8 @@ pl:
         onboarding_modal:
           create_account: Utwórz konto
           no_account: Nie, dziękuję.
+        update:
+          error: Wystąpił błąd z aktualizacją stanu Twojego głosu. Zagłosuj ponownie.
         verify:
           content:
             heading: Zweryfikuj swój głos
@@ -658,6 +687,9 @@ pl:
             email_outro: Otrzymałeś to powiadomienie ponieważ zostałeś wyznaczony na %{role} w %{polling_station_name}.
             email_subject: Posiadasz rolę %{role} w lokalu wyborczym %{polling_station_name}.
             notification_title: Posiadasz rolę %{role} lokalu wyborczego %{polling_station_name} w głosowaniu <a href="%{resource_path}">%{resource_title}</a>.
+        send_access_code:
+          instruction: 'Oto twój kod dostępu, o który prosiłeś: %{access_code}. Dzięki niemu będziesz mógł uczestniczyć w %{voting}.'
+          subject: Twój Kod dostępu do wzięcia udziału w %{voting}
     help:
       participatory_spaces:
         votings:
@@ -761,9 +793,22 @@ pl:
         monitoring_committee_election_results:
           actions:
             view: Widok
+          results:
+            bulletin_board: Tablica danych wyborczych
+            result_types:
+              null_ballots: Puste głosy
+              total_ballots: Suma oddanych głosów
+              valid_ballots: Suma ważnych głosów
+            title: Wyniki głosowania w wyborach <i>%{election_title}</i>
+            totals: Razem
           show:
             change_election: Zmień wybór
             publish_results: Opublikuj wyniki
+            publishing: Ogłaszanie wyników głosowania...
+          update:
+            invalid: Wystąpił błąd przy ogłaszaniu wyników głosowania
+            rejected: Ogłoszenie wyników głosowania zostało odrzucone przez Tablicę danych wyborczych. Spróbuj ponownie, albo skontaktuj się z administratorem systemu.
+            success: Pomyślnie ogłoszono wyniki głosowania
         monitoring_committee_members:
           create:
             invalid: Wystąpił błąd podczas tworzenia członka komisji monitorującej
@@ -786,6 +831,15 @@ pl:
             view: Widok
           closures:
             change_election: Zmień wybór
+          edit:
+            title: Wyniki głosowania <i>%{election_title}</i> w lokalu wyborczym <i>%{polling_station_title}</i>
+          elections:
+            title: Wybierz wybory, które chcesz zatwierdzić
+        monitoring_committee_verify_elections:
+          index:
+            how_to_checksum: 'Aby upewnić się, że pobrany plik nie został uszkodzony lub podmieniony podczas procesu pobierania, uruchom następujące polecenie w konsoli i sprawdź, czy wynik zgadza się z sumą kontrolną powyżej:'
+            how_to_download: Aby sprawdzić wybory pobierz sprawdzalne dane wyborcze z powyższej tabeli.
+            how_to_title: Jak sprawdzić ważność wyborów
         polling_officers:
           create:
             invalid: Przy tworzeniu oficera wyborczego wystąpił błąd
@@ -852,6 +906,7 @@ pl:
             assign_missing_officers: Wciąż są lokale wyborcze bez przewodniczącego i/lub menedżerów. Proszę przydzielić ich w sekcji lokali wyborczych
             update: Aktualizuj
           form:
+            census_contact_information_help: Te dane kontaktowe dotyczą uczestnika, który chce zgłaszać problemy ze listą uprawnionych do głosowania. Może to być adres e-mail, formularz kontaktowy na innej stronie, ankieta Decidim dla odwiedzających itp.
             select_a_voting_type: Wybierz typ głosowania
             slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             title: Tytuł
@@ -877,6 +932,11 @@ pl:
       census:
         admin:
           census:
+            create:
+              invalid: Wystąpił błąd przy przesyłaniu listy uprawnionych do głosowania. Spróbuj ponownie później.
+            delete:
+              button: Usuń wszystkie dane listy uprawnionych do glosowania
+              confirm: Usunięcia wszystkich danych listy uprawnionych do głosowania nie można cofnąć. Chcesz kontynuować mimo to?
             export_access_codes:
               file_not_exists: Ten plik nie istnieje
             new:
