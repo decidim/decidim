@@ -1,11 +1,11 @@
 {
-  "name": "@decidim/essentials",
-  "description": "The essentials for Decidim",
+  "name": "@decidim/core",
+  "description": "The core dependencies for Decidim",
   "version": "0.25.0-dev",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git",
-    "directory": "packages/essentials"
+    "directory": "packages/core"
   },
   "author": "Marc Riera <mrc2407@gmail.com>",
   "license": "AGPL-3.0",
