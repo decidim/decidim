@@ -12,7 +12,7 @@
     "node": "^15.14.0",
     "npm": "^7.7.2"
   },
-  "files": [],
+  "files": ["packages/**/*"],
   "browserslist": [
     "> 0.5%",
     "last 2 versions",
