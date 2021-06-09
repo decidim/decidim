@@ -756,6 +756,7 @@ pl:
             attachment_collections: Foldery
             attachment_files: Pliki
             attachments: Załączniki
+            census: Lista wyborców
             components: Komponenty
             info: Informacje
             landing_page: Strona docelowa
@@ -796,6 +797,7 @@ pl:
           results:
             bulletin_board: Tablica danych wyborczych
             result_types:
+              blank_ballots: Puste głosy
               null_ballots: Puste głosy
               total_ballots: Suma oddanych głosów
               valid_ballots: Suma ważnych głosów
@@ -906,7 +908,7 @@ pl:
             assign_missing_officers: Wciąż są lokale wyborcze bez przewodniczącego i/lub menedżerów. Proszę przydzielić ich w sekcji lokali wyborczych
             update: Aktualizuj
           form:
-            census_contact_information_help: Te dane kontaktowe dotyczą uczestnika, który chce zgłaszać problemy ze listą uprawnionych do głosowania. Może to być adres e-mail, formularz kontaktowy na innej stronie, ankieta Decidim dla odwiedzających itp.
+            census_contact_information_help: Te dane kontaktowe dotyczą uczestnika, który chce zgłaszać problemy ze listą wyborców. Może to być adres e-mail, formularz kontaktowy na innej stronie, ankieta Decidim dla odwiedzających itp.
             select_a_voting_type: Wybierz typ głosowania
             slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             title: Tytuł
@@ -933,23 +935,58 @@ pl:
         admin:
           census:
             create:
-              invalid: Wystąpił błąd przy przesyłaniu listy uprawnionych do głosowania. Spróbuj ponownie później.
+              invalid: Wystąpił błąd przy przesyłaniu listy wyborców. Spróbuj ponownie później.
+              invalid_csv_header: Nagłówek CSV nie ma prawidłowej liczby pól - przeczytaj uważnie instrukcję
+            creating_data:
+              info_message: "<strong>Poczekaj</strong>, przetworzono %{processed_count} z %{raw_count} wierszy z pliku %{file}."
             delete:
-              button: Usuń wszystkie dane listy uprawnionych do glosowania
-              confirm: Usunięcia wszystkich danych listy uprawnionych do głosowania nie można cofnąć. Chcesz kontynuować mimo to?
+              button: Usuń wszystkie dane listy wyborców
+              confirm: Usunięcia wszystkich danych listy wyborców nie można cofnąć. Chcesz kontynuować mimo to?
+            destroy:
+              error: Wystąpił błąd przy usuwaniu listy wyborców. Spróbuj ponownie później.
+              success: Usunięto dane listy wyborców
             export_access_codes:
+              button: Eksportuj kody dostępu do głosowania
+              callout: Możesz teraz przejść do eksportu kodów dostępu. Można to zrobić tylko raz. Po uruchomieniu eksportu, otrzymasz e-mail z instrukcjami na adres <strong>%{email}</strong>
+              confirm: Możesz wyeksportować kody dostępu tylko raz. Upewnij się, że masz dostęp do konta e-mail <strong>%{email}</strong>.
               file_not_exists: Ten plik nie istnieje
+              launch_error: Wystąpił problem z uruchomieniem eksportu kodów dostępu
+              launch_success: Eksport kodów dostępu został uruchomiony. Wkrótce otrzymasz e-mail na adres %{email}
+            exporting_access_codes:
+              info_message: "<strong>Poczekaj</strong>, eksport jest przygotowywany, wkrótce otrzymasz go na adres %{email}"
+            freeze:
+              callout: Lista wyborców została zamknięta i nie może być już zmieniania.
+            generate_access_codes:
+              button: Utwórz kody dostępu do głosowania
+              callout: Teraz możesz utworzyć kody dostępu. Pamiętaj, że po utworzeniu tych kodów nie będziesz mógł już zmieniać listy wyborców.
+              confirm: Jeśli będziesz kontynuować, nie będziesz mógł już zmieniać listy wyborców.
+              info_message_all: "<strong>Wszystkie wiersze zostały pomyślnie zaimportowane</strong> z pliku %{file} (%{raw_count} z %{data_count})."
+              info_message_warn: Sprawdź, czy nie brakuje żadnych danych, ponieważ utworzono %{data_count} rekordów, a przesłany plik %{file} miał %{raw_count} wierszy.
+              launch_error: Wystąpił błąd przy uruchomieniu tworzenia kodów dostępu
+              launch_success: Uruchomiono tworzenie kodów.
+            generating_access_codes:
+              info_message: "<strong>Poczekaj</strong>, kody dostępu do głosowania są tworzone..."
             new:
               file_help:
                 explanation: 'Wytyczne dotyczące pliku:'
                 message_1: Dozwolone są tylko pliki CSV (.csv).
                 message_2: Separatorem kolumn musi być średnik (";").
+              info_message: "<strong>Nie ma jeszcze listy wyborców.</strong> Użyj poniższego formularza, aby utworzyć ją i zaimportować dane z pliku CSV."
               submit: Prześlij csv
+              title: Utwórz listę wyborców
+            show:
+              heading: Lista wyborców w przestrzeni głosowania
+            upload_info:
+              csv_header_before: 'Plik listy wyborców musi być plikiem CSV z następującym nagłówkiem:'
         document_types:
           passport: Paszport
         export_mailer:
           access_codes_export:
+            click_button: 'Kliknij na następny link, aby pobrać dane kodów dostępu.<br/>Plik będzie dostępny do %{date}.<br/>Będziesz potrzebował <a href="https://www.7-zip.org/">7-Zip</a> (dla Windows), <a href="https://www.keka.io/en/">Keka</a> (dla MacOS) lub <a href="https://peazip.github.io">PeaZip</a> (dla Linux) aby je otworzyć. Hasło: %{password}'
             download: Pobierz
+            subject: Eksport kodów dostępu do głosowania dla %{voting_title} jest dostępny
+        vote_flow:
+          already_voted_in_person: Ten użytkownik zagłosował już osobiście i nie ma prawa głosu.
       content_blocks:
         highlighted_votings:
           name: Wyróżnione głosowania
@@ -992,11 +1029,17 @@ pl:
             confirm: Ok, kontynuuj
             error: Wystąpił błąd, spróbuj ponownie.
         in_person_votes:
+          complete_voting:
+            census_verified: Uczestnik jeszcze nie głosował.
           in_person_form:
+            census_not_present: Uczestnik nie jest umieszczony na liście wyborców.
+            census_not_present_description: Wyborca musi złożyć skargę na nieprawidłowości w liście wyborców, albo skontaktować się z pomocą techniczną.
             date_of_birth: Data urodzenia
             day: Dzień
             year: Rok
             year_placeholder: YYYY
+          verify_document:
+            census_present: Uczestnik jest na liście wyborców.
         menu:
           polling_officer_zone: Strefa oficera wyborczego
         polling_officers:
@@ -1030,8 +1073,15 @@ pl:
           title: Uzyskaj kod dostępu
         check_census:
           check_status: Sprawdź status
+          description: Tutaj masz możliwość sprawdzenia danych umieszczonych na liście wyborców, aby wiedzieć, czy masz prawo uczestniczyć w tym głosowaniu. Powinieneś mieć już kod dostępu, ale jeśli go zgubiłeś, możesz ponownie o ten kod poprosić, gdy Twoje dane są poprawne.
+          error:
+            info: 'Spróbuj ponownie. Jeśli uważasz, że dane w systemie są nieprawidłowe, możesz je zgłosić tutaj: %{census_contact_information}.'
+            title: Twoje dane do listy wyborców są nieprawidłowe!
+          form_title: 'Wypełnij formularz, aby sprawdzić Twoje dane na liście wyborców:'
+          invalid: Wystąpił błąd przy sprawdzaniu listy wyborców.
           success:
             access_link: poprzez SMS lub e-mail.
+            title: Twoje dane z listy wyborców nie są prawidłowe!
           title: Mogę głosować?
         check_fields:
           date_of_birth: Data urodzenia
@@ -1071,6 +1121,7 @@ pl:
           dont_have_access_code: Nie masz kodu dostępu?
           start_voting: Rozpocznij głosowanie
           step: Identyfikacja
+          title: Zidentyfikuj mnie z danymi na liście wyborców
         orders:
           label: 'Sortuj głosowania według:'
           random: Losowo
