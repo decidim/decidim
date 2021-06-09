@@ -46,6 +46,9 @@ it:
       decidim/elections/question:
         one: Domanda
         other: Domande
+      decidim/votings/polling_officer:
+        one: Scrutatore/trice
+        other: Scrutatore/trice
       decidim/votings/polling_station:
         one: Seggio elettorale
         other: Seggio elettorale
@@ -59,7 +62,7 @@ it:
           label: Ruolo
           values:
             manager: Responsabile
-            president: Presidente
+            president: Presidente/Presidentessa
     components:
       elections:
         actions:
@@ -374,6 +377,10 @@ it:
         menu:
           votings_submenu:
             monitoring_committee_members: Comitato di Sorveglianza
+        models:
+          polling_station:
+            fields:
+              polling_station_president: Presidente/Presidentessa
       polling_officer_zone:
         polling_officers:
           show:
@@ -388,6 +395,9 @@ it:
                 role: Il tuo ruolo
                 voting: Votazione
               no_polling_stations: Non sei ancora assegnato a nessun seggio elettorale.
+      polling_officers:
+        roles:
+          president: Presidente/Presidentessa
   layouts:
     decidim:
       election_votes_header:
