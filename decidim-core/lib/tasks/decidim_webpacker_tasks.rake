@@ -59,7 +59,9 @@ namespace :decidim do
 
     def decidim_npm_path
       if gem_specs.source.is_a?(Bundler::Source::Path)
-        gem_specs.source.path.to_s
+        system!("cd #{gem_specs.source.path} && npm pack")
+        version = JSON.parse(File.read(gem_specs.source.path.join("package.json")))["version"]
+        gem_specs.source.path.join("decidim-#{version}.tgz")
       else
         repo = "decidim/decidim"
         ref = nil
