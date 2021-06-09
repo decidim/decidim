@@ -256,6 +256,14 @@ module Decidim
       save!
     end
 
+    ransacker :invitation_accepted_at do
+      Arel.sql(%{("decidim_users"."invitation_accepted_at")::text})
+    end
+
+    ransacker :last_sign_in_at do
+      Arel.sql(%{("decidim_users"."last_sign_in_at")::text})
+    end
+
     protected
 
     # Overrides devise email required validation.

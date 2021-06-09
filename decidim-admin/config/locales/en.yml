@@ -356,6 +356,16 @@ en:
         category_id_eq:
           label: Category
         filter_label: Filter
+        invitation_accepted_at_present:
+          label: Invite accepted
+          values:
+            'false': 'No'
+            'true': 'Yes'
+        last_sign_in_at_present:
+          label: Ever logged in
+          values:
+            'false': 'No'
+            'true': 'Yes'
         moderations:
           reportable_type_string_eq:
             label: Type
