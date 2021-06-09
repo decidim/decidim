@@ -219,6 +219,13 @@ it:
           key_ceremony:
             title: Cerimonia chiave
             trustees: Fiduciari
+          results_published:
+            answer: Risposta
+            question: Domanda
+            submit: Invia
+            title: Risultati pubblicati
+          tally_ended:
+            submit: Pubblica i risultati
       admin_log:
         election:
           publish: "%{user_name} ha pubblicato l'elezione %{resource_name}"
