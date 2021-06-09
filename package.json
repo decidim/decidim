@@ -212,8 +212,8 @@
     "testRegex": "\\.(test|spec)\\.js$"
   },
   "dependencies": {
+    "@decidim/core": "github:mainio/decidim#feature/split-npm-packages",
     "@decidim/dev": "github:mainio/decidim#feature/split-npm-packages",
-    "@decidim/essentials": "github:mainio/decidim#feature/split-npm-packages",
     "@decidim/votings": "github:mainio/decidim#feature/split-npm-packages",
     "@decidim/webpacker": "github:mainio/decidim#feature/split-npm-packages"
   },
