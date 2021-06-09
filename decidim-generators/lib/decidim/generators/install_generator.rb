@@ -91,9 +91,6 @@ module Decidim
 
         # Run webpacker installation
         rails "webpacker:install"
-
-        # Run Decidim custom webpacker installation
-        rails "decidim:webpacker:install"
       end
 
       def remove_old_assets
@@ -121,7 +118,7 @@ module Decidim
         gsub_file "config/environments/production.rb", /config\.assets.*$/, ""
       end
 
-      def copy_migrations
+      def decidim_upgrade
         rails "decidim:upgrade"
         recreate_db if options[:recreate_db]
       end
