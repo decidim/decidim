@@ -52,6 +52,9 @@ it:
       decidim/votings/census/datum:
         one: Dato
         other: Dati
+      decidim/votings/polling_officer:
+        one: Scrutatore/trice
+        other: Scrutatore/trice
       decidim/votings/polling_station:
         one: Seggio elettorale
         other: Seggio elettorale
@@ -65,7 +68,7 @@ it:
           label: Ruolo
           values:
             manager: Responsabile
-            president: Presidente
+            president: Presidente/Presidentessa
         signed_eq:
           label: Firmato
           values:
@@ -379,11 +382,18 @@ it:
           votings_submenu:
             monitoring_committee: Comitato di Sorveglianza
             monitoring_committee_election_results: Convalida Risultati
+        models:
+          polling_station:
+            fields:
+              polling_station_president: Presidente/Presidentessa
         monitoring_committee_election_results:
           actions:
             title: Azioni
             view: Visualizza
       polling_officer_zone:
+        in_person_votes:
+          complete_voting:
+            questions_title: 'Ha diritto di voto nelle seguenti domande:'
         polling_officers:
           index:
             polling_officer_role_description: Sei stato designato funzionario del seggio elettorale (Presidente o Gestore) in alcune elezioni svolte su questa piattaforma.
@@ -391,6 +401,9 @@ it:
               no_polling_stations: Non sei ancora assegnato a nessun seggio elettorale.
               role: Il tuo ruolo
               voting: Votazione
+      polling_officers:
+        roles:
+          president: Presidente/Presidentessa
       votings:
         login:
           start_voting: Inizia a votare
