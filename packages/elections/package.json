@@ -1,11 +1,11 @@
 {
-  "name": "@decidim/votings",
-  "description": "The votings dependencies for Decidim",
+  "name": "@decidim/elections",
+  "description": "The elections and votings dependencies for Decidim",
   "version": "0.25.0-dev",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git",
-    "directory": "packages/votings"
+    "directory": "packages/elections"
   },
   "author": "Marc Riera <mrc2407@gmail.com>",
   "license": "AGPL-3.0",
