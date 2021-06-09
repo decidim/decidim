@@ -14,9 +14,9 @@
     "npm": "^7.7.2"
   },
   "dependencies": {
-    "@decidim/core": "^0.25.0-dev",
-    "@decidim/dev": "^0.25.0-dev",
-    "@decidim/votings": "^0.25.0-dev",
-    "@decidim/webpacker": "^0.25.0-dev"
+    "@decidim/core": "github:mainio/decidim#feature/split-npm-packages",
+    "@decidim/dev": "github:mainio/decidim#feature/split-npm-packages",
+    "@decidim/votings": "github:mainio/decidim#feature/split-npm-packages",
+    "@decidim/webpacker": "github:mainio/decidim#feature/split-npm-packages"
   }
 }
