@@ -211,10 +211,7 @@
     "testRegex": "\\.(test|spec)\\.js$"
   },
   "dependencies": {
-    "@decidim/core": "file:packages/core",
-    "@decidim/dev": "file:packages/dev",
-    "@decidim/votings": "file:packages/votings",
-    "@decidim/webpacker": "file:packages/webpacker"
+    "@decidim/all": "https://gitpkg.now.sh/mainio/decidim/packages/all?feature/split-npm-packages"
   },
   "devDependencies": {
     "babel-jest": "^26.6.3",
