@@ -201,7 +201,10 @@ it:
           key_ceremony:
             title: Cerimonia chiave
             trustees: Fiduciari
+          results_published:
+            title: Risultati pubblicati
           tally_ended:
+            submit: Pubblica i risultati
             title: Risultati conteggiati
       admin_log:
         election:
