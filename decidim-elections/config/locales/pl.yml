@@ -361,12 +361,18 @@ pl:
           chained_hash: Cyfrowy odcisk (hasz) tej wiadomości
           creation_description:
             complete: Wybory zostały utworzone i pomyślnie dodano je do Tablicy danych wyborczych.
+            not_created: Wybory nie zostały jeszcze utworzone.
+          creation_title: Utworzono wybory
           description: Oto dziennik zdarzeń wyborczych, w którym możesz sprawdzić status każdy krok procesu wyborczego np. kiedy utworzono wybory, czy ustalono wynik głosowania i czy wybory zostały zamknięte.
           key_ceremony_description:
             complete: '"Ceremonia kluczy" została zakończona. Każdy mąż (osoba) zaufania ma ważne klucze i pobrał niezbędne klucze zapasowe.'
             not_started: '"Ceremonia kluczy" nie została jeszcze rozpoczęta.'
             started: '"Ceremonia kluczy" rozpoczęła się, ale nie została jeszcze zakończona.'
           key_ceremony_title: '"Ceremonia kluczy"'
+          results_description:
+            not_published: Wyniki głosowania nie zostały jeszcze ogłoszone.
+            published: Ogłoszono wyniki głosowania.
+          results_title: Wyniki głosowania
           tally_description:
             finished: Proces ustalania wyniku głosowania został zakończony.
             not_started: Proces ustalania wyniku głosowania jeszcze nie rozpoczął się.
@@ -374,6 +380,8 @@ pl:
           tally_title: Proces ustalania wyniku głosowania
           title: Dziennik zdarzeń wyborczych
           verifiable_results:
+            description:
+              not_ready: Sprawdzalne dane wyborcze i suma kontrolna SHA256 nie są jeszcze dostępne. Będziesz mógł sprawdzić wybory zaraz po ogłoszeniu wyników głosowania.
             title: Zweryfikuj wyniki wyborów
           vote_title: Proces głosowania
         filters:
