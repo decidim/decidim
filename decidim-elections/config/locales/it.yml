@@ -46,6 +46,9 @@ it:
       decidim/elections/question:
         one: Domanda
         other: Domande
+      decidim/votings/polling_station:
+        one: Seggio elettorale
+        other: Seggio elettorale
       decidim/votings/voting:
         one: Votazione
         other: Votazioni
@@ -206,10 +209,21 @@ it:
           tally_ended:
             submit: Pubblica i risultati
             title: Risultati conteggiati
+          vote:
+            title: Periodo di votazione
+          vote_stats:
+            voters: Votanti
+        trustees_participatory_spaces:
+          actions:
+            disable: Disattiva
       admin_log:
         election:
           publish: "%{user_name} ha pubblicato l'elezione %{resource_name}"
           unpublish: "%{user_name} ha rimosso l'elezione %{resource_name}"
+      election_m:
+        footer:
+          vote: Vota
+        start_date: Inizio
       elections:
         count:
           elections_count:
