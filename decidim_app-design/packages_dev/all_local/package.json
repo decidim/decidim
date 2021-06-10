@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "name": "@decidim/all",
+  "description": "All dependencies for Decidim",
+  "version": "0.25.0-dev",
+  "repository": {
+    "url": "git@github.com:decidim/decidim.git",
+    "type": "git",
+    "directory": "packages/all"
+  },
+  "author": "Marc Riera <mrc2407@gmail.com>",
+  "license": "AGPL-3.0",
+  "engines": {
+    "node": "^15.14.0",
+    "npm": "^7.7.2"
+  },
+  "dependencies": {
+    "@decidim/core": "file:../../packages/core",
+    "@decidim/dev": "file:../../packages/dev",
+    "@decidim/elections": "file:../../packages/elections",
+    "@decidim/webpacker": "file:../../packages/webpacker"
+  }
+}
