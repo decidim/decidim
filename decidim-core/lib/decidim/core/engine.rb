@@ -2,7 +2,7 @@
 
 require "rails"
 require "active_support/all"
-require "sprockets/railtie"
+require "action_view/railtie"
 
 require "pg"
 require "redis"
@@ -12,8 +12,6 @@ require "devise"
 require "devise-i18n"
 require "devise_invitable"
 require "jquery-rails"
-require "sassc-rails"
-require "foundation-rails"
 require "foundation_rails_helper"
 require "autoprefixer-rails"
 require "active_link_to"
@@ -21,7 +19,6 @@ require "rectify"
 require "carrierwave"
 require "rails-i18n"
 require "date_validator"
-require "sprockets/es6"
 require "truncato"
 require "file_validators"
 require "omniauth"
@@ -48,6 +45,9 @@ require "social-share-button"
 require "ransack"
 require "searchlight"
 
+# Needed for the assets:precompile task, for configuring webpacker instance
+require "decidim/webpacker"
+
 require "decidim/api"
 require "decidim/middleware/strip_x_forwarded_host"
 require "decidim/middleware/current_organization"
@@ -71,18 +71,6 @@ module Decidim
         app.config.middleware.insert_before Warden::Manager, Decidim::Middleware::CurrentOrganization
         app.config.middleware.insert_before Warden::Manager, Decidim::Middleware::StripXForwardedHost
         app.config.middleware.use BatchLoader::Middleware
-      end
-
-      initializer "decidim.assets" do |app|
-        app.config.assets.paths << File.expand_path("../../../app/assets/stylesheets", __dir__)
-        app.config.assets.precompile += %w(decidim_core_manifest.js
-                                           decidim/identity_selector_dialog)
-
-        Decidim.component_manifests.each do |component|
-          app.config.assets.precompile += [component.icon]
-        end
-
-        app.config.assets.debug = true if Rails.env.test?
       end
 
       initializer "decidim.default_form_builder" do |_app|
@@ -341,6 +329,7 @@ module Decidim
         Decidim.register_resource(:user_group) do |resource|
           resource.model_class_name = "Decidim::UserGroup"
           resource.card = "decidim/user_profile"
+          resource.searchable = true
         end
       end
 

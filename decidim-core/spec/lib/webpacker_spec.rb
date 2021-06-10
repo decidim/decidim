@@ -1,0 +1,56 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+require "decidim/webpacker"
+
+module Decidim
+  describe Webpacker do
+    describe ".configuration" do
+      it "returns the configuration object" do
+        expect(subject.configuration).to be_a(Decidim::Webpacker::Configuration)
+      end
+    end
+
+    describe ".register_path" do
+      after do
+        described_class.configuration.additional_paths.slice!(
+          0,
+          described_class.configuration.additional_paths.length
+        )
+      end
+
+      it "registers additional path for webpacker" do
+        described_class.register_path("test")
+
+        expect(described_class.configuration.additional_paths).to eq(%w(test))
+      end
+
+      context "with prepend" do
+        it "adds the additional path to the beginning" do
+          described_class.register_path("test")
+          described_class.register_path("test2", prepend: true)
+
+          expect(described_class.configuration.additional_paths).to eq(%w(test2 test))
+        end
+      end
+    end
+
+    describe ".register_entrypoints" do
+      after do
+        described_class.configuration.entrypoints.clear
+      end
+
+      it "registers the defined entrypoints" do
+        described_class.register_entrypoints(
+          test_entry: "entrypath",
+          other_entry: "otherpath"
+        )
+
+        expect(described_class.configuration.entrypoints).to eq(
+          "test_entry" => "entrypath",
+          "other_entry" => "otherpath"
+        )
+      end
+    end
+  end
+end

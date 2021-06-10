@@ -65,13 +65,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_initiatives.assets" do |app|
-        app.config.assets.precompile += %w(
-          decidim_initiatives_manifest.js
-          decidim_initiatives_manifest.css
-        )
-      end
-
       initializer "decidim_initiatives.content_blocks" do
         Decidim.content_blocks.register(:homepage, :highlighted_initiatives) do |content_block|
           content_block.cell = "decidim/initiatives/content_blocks/highlighted_initiatives"
