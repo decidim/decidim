@@ -35,7 +35,7 @@ namespace :decidim do
     end
 
     def install_decidim_npm
-      system! "npm i #{decidim_npm_path}"
+      system! "npm install #{decidim_npm_package}"
 
       # Remove the webpacker dependencies as they come through Decidim dependencies.
       # This ensures we can control their versions from Decidim dependencies to avoid version conflicts.
@@ -57,25 +57,25 @@ namespace :decidim do
       @decidim_path ||= Pathname.new(gem_specs.full_gem_path) if Gem.loaded_specs.has_key?("decidim")
     end
 
-    def decidim_npm_path
-      if gem_specs.source.is_a?(Bundler::Source::Path)
+    def decidim_npm_package
+      repo = "decidim/decidim"
+      ref = nil
+
+      case gem_specs.source.class
+      when Bundler::Source::Path
         gem_path = gem_specs.source.path
-        gem_path = Pathname.new(ENV['BUNDLE_GEMFILE']).dirname.join(gem_path) if gem_path.relative?
+        gem_path = Pathname.new(ENV["BUNDLE_GEMFILE"]).dirname.join(gem_path) if gem_path.relative?
 
         system!("cd #{gem_path} && npm pack")
         version = JSON.parse(File.read(gem_path.join("package.json")))["version"]
-        gem_path.join("decidim-#{version}.tgz")
-      else
-        repo = "decidim/decidim"
-        ref = nil
-        if gem_specs.source.is_a?(Bundler::Source::Rubygems)
-          ref = "v#{gem_specs.version}"
-        elsif gem_specs.source.is_a?(Bundler::Source::Git)
-          repo = gem_specs.source.uri.to_s
-          ref = gem_specs.source.branch || gem_specs.source.ref
-        end
-        [repo, ref].compact.join("#")
+        return gem_path.join("decidim-#{version}.tgz")
+      when Bundler::Source::Rubygems
+        ref = "v#{gem_specs.version}"
+      when Bundler::Source::Git
+        repo = gem_specs.source.uri.to_s
+        ref = gem_specs.source.branch || gem_specs.source.ref
       end
+      [repo, ref].compact.join("#")
     end
 
     def gem_specs
