@@ -38,7 +38,7 @@ module Decidim
 
     def authorization_handlers
       available_authorizations = component.organization.available_authorizations
-      if permission&.has_key?("authorization_handler_name")
+      if permission&.has_key?("authorization_handler_name") && available_authorizations.include?(permission["authorization_handler_name"])
         options = permission["options"]
         { permission["authorization_handler_name"] => options.present? ? { "options" => options } : {} }
       else
