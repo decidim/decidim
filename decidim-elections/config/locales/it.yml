@@ -289,12 +289,24 @@ it:
             success: Garante %{trustee} aggiornato con successo
       admin_log:
         election:
+          end_vote: "%{user_name} ha terminato il periodo di votazione per l'elezione di %{resource_name} sul Bulletin Board"
           publish: "%{user_name} ha pubblicato l'elezione %{resource_name}"
+          setup: "%{user_name} ha creato l'elezione %{resource_name} sul Bulletin Board"
           unpublish: "%{user_name} ha rimosso l'elezione %{resource_name}"
       election_m:
+        badge_name:
+          finished: Completata
+          ongoing: Attiva
+          upcoming: Imminente
+        end_date: Fine
         footer:
+          view: Visualizza
           vote: Vota
+        label:
+          date: Date
+        questions: Domande %{count}
         start_date: Inizio
+        unspecified: Non specificato
       elections:
         count:
           elections_count:
@@ -327,6 +339,7 @@ it:
             will-verify: Sarete in grado di verificare il vostro voto una volta che le votazioni saranno iniziate.
           voting_period_status:
             finished: La votazione è iniziata il %{start_time} ed è terminata il %{end_time}
+            ongoing: 'Voto attivo fino a: %{end_time}'
             upcoming: La votazione inizia il %{start_time}
       feedback:
         answer:
@@ -380,6 +393,63 @@ it:
             list:
               status: Stato
               task: Attività
+            process_warning: Una volta avviato il processo, non si dovrebbe uscire da questa pagina fino alla fine dello stesso. Ci vorranno diversi minuti, poiché tutti i Garanti dovrebbero essere collegati per completarlo.
+            start: Avvia
+            start_icon: Icona che indica un pulsante avvia per avviare la generazione delle chiavi elettorali
+            status:
+              completed: Completata
+              pending: In attesa
+              processing: Elaborazione in corso
+            title: Creare chiavi elettorali per %{election}
+          restore_modal:
+            description: Il Bulletin Board ha ricevuto informazioni da parte tua in quanto Garante di queste elezioni. Per continuare il processo, caricare il file di backup generato durante la sessione precedente.
+            title: Ripristina le chiavi elettorali per %{election}
+            upload_election_keys: Carica chiavi elettorali
+            upload_icon: Icona che indica un'azione di download
+          tally_steps:
+            back: Indietro
+            description: I risultati di queste elezioni sono in fase di elaborazione nel Bulletin Board. Per completare questo processo, è necessaria la tua partecipazione come Garante.
+            keys:
+              end_tally: Conteggio terminato
+              tally:
+                cast: Invio del conteggio
+                share: Condivisione del conteggio
+            list:
+              status: Stato
+            process_warning: Una volta avviato il processo, non si dovrebbe uscire da questa pagina fino alla fine dello stesso. Ci vorranno diversi minuti, poiché tutti i Garanti dovrebbero essere collegati per completarlo.
+            start: Avvia
+            start_icon: Icona che indica un pulsante avvia per avviare la generazione delle chiavi elettorali
+            status:
+              completed: Completato
+              pending: In attesa di completamento
+              processing: Elaborazione in corso
+            title: Conteggio di %{election}
+          update:
+            error: Lo stato delle elezioni non è stato aggiornato.
+            success: 'Lo stato delle elezioni è: %{status}'
+        menu:
+          trustee_zone: Zona Garanti
+        no_bulletin_board:
+          body: Per questa sezione è necessario un Bulletin Board configurato. Contattare l'Amministratore per maggiori dettagli.
+          title: Siamo spiacenti, il Bollettin Board non è ancora configurato.
+        trustees:
+          show:
+            elections:
+              list:
+                action_required:
+                  'false': 'No'
+                  name: Azione necessaria?
+                  'true': Esegui azione
+                bb_status: Stato
+                election: Elezione
+                voting_period: Periodo di votazione
+              no_elections: Non ci sono elezioni di cui tu sia Garante.
+              title: Elezioni
+            identification_keys:
+              cancel: Annulla
+              generate: Genera chiavi di identificazione
+              generate_error: Si è verificato un errore durante la generazione delle chiavi di identificazione.
+              generate_legend: Devi generare un paio di chiavi di identificazione per partecipare alle elezioni come Garante.
       votes:
         confirm:
           answer: Risposta
@@ -423,9 +493,20 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento dello stato della voto
           success: Stato del voto aggiornato con successo
+        verify:
+          form:
+            vote_identifier: 'Codice identificativo:'
+          header:
+            title: Verifica il tuo voto
+          success:
+            header: Voto trovato!
+            info: Il tuo voto crittografato è nell'urna %{link}
         voting_step:
           back: Indietro
           continue: Successivo
+      warnings:
+        no_elections_warning: Nessuna elezione corrisponde ai criteri della tua ricerca oppure non sono previste elezioni.
+        no_scheduled_elections_warning: Al momento non sono previste elezioni, ma qui puoi trovare un elenco di tutte quelle passate.
     events:
       elections:
         election_published:
@@ -433,6 +514,9 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: L'elezione di %{resource_title} è ora attiva per %{participatory_space_title}.
           notification_title: L'elezione <a href="%{resource_path}">%{resource_title}</a> è ora attiva per %{participatory_space_title}.
+        trustees:
+          new_election:
+            email_intro: Sei stato aggiunto come Garante per le elezioni %{resource_title}.
     pages:
       home:
         statistics:
