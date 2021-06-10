@@ -39,6 +39,11 @@ it:
           no_data: Nessun partecipante verificato
           title: Revoca delle autorizzazioni
         authorization_workflows: Autorizzazioni
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} configurazione di verifica dei documenti di identità aggiornata"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} ha verificato %{resource_name} utilizzando un sistema di verifica offline dei documenti di identità"
     authorization_handlers:
       admin:
         csv_census:
