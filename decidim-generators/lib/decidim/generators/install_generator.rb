@@ -34,10 +34,6 @@ module Decidim
                                default: false,
                                desc: "Add the necessary gems to profile the app"
 
-      class_option :npm_package, type: :string,
-                                 default: nil,
-                                 desc: "The npm package to install Decidim dependencies from"
-
       def install
         route "mount Decidim::Core::Engine => '/'"
       end
@@ -97,11 +93,7 @@ module Decidim
         rails "webpacker:install"
 
         # Run Decidim custom webpacker installation
-        if options[:npm_package]
-          rails "decidim:webpacker:install[#{options[:npm_package]}]"
-        else
-          rails "decidim:webpacker:install"
-        end
+        rails "decidim:webpacker:install"
       end
 
       def remove_old_assets

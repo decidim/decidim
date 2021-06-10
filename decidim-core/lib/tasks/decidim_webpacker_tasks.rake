@@ -3,7 +3,7 @@
 namespace :decidim do
   namespace :webpacker do
     desc "Installs Decidim webpacker files in Rails instance application"
-    task :install, [:npm_package] => :environment do |_t, args|
+    task install: :environment do
       raise "Decidim gem is not installed" if decidim_path.nil?
 
       # Remove yarn.lock (because bin/rails webpacker:install has been executed)
@@ -23,28 +23,41 @@ namespace :decidim do
       add_binstub_load_path "bin/webpack-dev-server"
 
       # Install JS dependencies
-      if args[:npm_package] && args[:npm_package] =~ %r{^/}
-        # Install locally so that the test environment is not locked into any
-        # specific version of the dependencies.
-        FileUtils.cp_r("#{args[:npm_package]}/packages", rails_app_path)
-        FileUtils.rm_rf("#{rails_app_path}/packages/all")
-        FileUtils.cp_r("#{args[:npm_package]}/packages_dev/all_local", rails_app_path.join("packages"))
-        FileUtils.mv(rails_app_path.join("packages/all_local"), rails_app_path.join("packages/all"))
-        system! "npm i ./packages/all"
-      else
-        decidim_package =
-          if args[:npm_package]
-            args[:npm_package]
-          elsif decidim_path && File.exist?("#{decidim_path}/.git/HEAD")
-            refs = File.read("#{decidim_path}/.git/HEAD")
-            branch = refs[%r{ref: refs/heads/(.*)}, 1] || "develop"
-            "https://gitpkg.now.sh/mainio/decidim/packages_dev/all_git?#{branch}"
-          else
-            "@decidim/all@~#{Decidim::Core.version}"
-          end
+      decidim_gemspec = Gem.loaded_specs["decidim"]
+      npm_package =
+        case decidim_gemspec.source
+        when Bundler::Source::Path
+          gem_path = decidim_gemspec.source.path
+          gem_path = Pathname.new(ENV["BUNDLE_GEMFILE"]).dirname.join(gem_path) if gem_path.relative?
 
-        system! "npm i #{decidim_package}"
-      end
+          # The packages folder needs to be copied to the application folder
+          # because the linked dependencies are not installed when packages
+          # are installed using file references outside the application root
+          # where the `package.json` is located at. For more information, see:
+          # https://github.com/npm/cli/issues/2339
+          FileUtils.cp_r("#{gem_path}/packages", rails_app_path)
+          FileUtils.rm_rf("#{rails_app_path}/packages/all")
+          FileUtils.cp_r("#{gem_path}/packages_dev/all_local", rails_app_path.join("packages"))
+          FileUtils.mv(rails_app_path.join("packages/all_local"), rails_app_path.join("packages/all"))
+
+          "./packages/all"
+        when Bundler::Source::Rubygems
+          if decidim_gemspec.version.to_s =~ /\.dev$/
+            # With the .dev version the package does not exist at NPM yet.
+            "https://gitpkg.now.sh/mainio/decidim/packages_dev/all_git?feature/split-npm-packages"
+          else
+            "@decidim/all@~#{decidim_gemspec.version}"
+          end
+        when Bundler::Source::Git
+          github_repo =
+            decidim_gemspec.source.uri[%r{github\.com/([^/]*/[^.]*)}, 1] ||
+            "decidim/decidim"
+          branch = decidim_gemspec.source.branch
+
+          "https://gitpkg.now.sh/#{github_repo}/packages_dev/all_git?#{branch}"
+        end
+
+      system! "npm i #{npm_package}"
 
       # Remove the webpacker dependencies as they come through Decidim dependencies.
       # This ensures we can control their versions from Decidim dependencies to avoid version conflicts.

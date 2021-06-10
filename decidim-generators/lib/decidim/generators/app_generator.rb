@@ -219,8 +219,7 @@ module Decidim
             "--seed_db=#{options[:seed_db]}",
             "--skip_gemfile=#{options[:skip_gemfile]}",
             "--app_name=#{app_name}",
-            "--profiling=#{options[:profiling]}",
-            "--npm_package=#{npm_package}"
+            "--profiling=#{options[:profiling]}"
           ]
         )
       end
@@ -235,14 +234,6 @@ module Decidim
                           else
                             "\"#{Decidim::Generators.version}\""
                           end
-      end
-
-      def npm_package
-        if options[:path]
-          expanded_path
-        elsif branch.present?
-          "https://gitpkg.now.sh/mainio/decidim/packages_dev/all_git?#{branch}"
-        end
       end
 
       def branch
