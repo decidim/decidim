@@ -3,7 +3,7 @@
 namespace :decidim do
   namespace :webpacker do
     desc "Installs Decidim webpacker files in Rails instance application"
-    task install: :environment do
+    task :install, [:npm_package] => :environment do |_t, args|
       raise "Decidim gem is not installed" if decidim_path.nil?
 
       # Remove yarn.lock (because bin/rails webpacker:install has been executed)
@@ -23,7 +23,28 @@ namespace :decidim do
       add_binstub_load_path "bin/webpack-dev-server"
 
       # Install JS dependencies
-      system! "npm i https://gitpkg.now.sh/mainio/decidim/packages/all?feature/split-npm-packages"
+      if args[:npm_package] && args[:npm_package] =~ %r{^/}
+        # Install locally so that the test environment is not locked into any
+        # specific version of the dependencies.
+        FileUtils.cp_r("#{args[:npm_package]}/packages", rails_app_path)
+        FileUtils.rm_rf("#{rails_app_path}/packages/all")
+        FileUtils.cp_r("#{args[:npm_package]}/packages_dev/all_local", rails_app_path.join("packages"))
+        FileUtils.mv(rails_app_path.join("packages/all_local"), rails_app_path.join("packages/all"))
+        system! "npm i ./packages/all"
+      else
+        decidim_package =
+          if args[:npm_package]
+            args[:npm_package]
+          elsif decidim_path && File.exist?("#{decidim_path}/.git/HEAD")
+            refs = File.read("#{decidim_path}/.git/HEAD")
+            branch = refs[%r{ref: refs/heads/(.*)}, 1] || "develop"
+            "https://gitpkg.now.sh/mainio/decidim/packages_dev/all_git?#{branch}"
+          else
+            "@decidim/all@~#{Decidim::Core.version}"
+          end
+
+        system! "npm i #{decidim_package}"
+      end
 
       # Remove the webpacker dependencies as they come through Decidim dependencies.
       # This ensures we can control their versions from Decidim dependencies to avoid version conflicts.

@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "@decidim/all",
   "description": "All dependencies for Decidim",
   "version": "0.25.0-dev",
@@ -14,9 +15,9 @@
     "npm": "^7.7.2"
   },
   "dependencies": {
-    "@decidim/core": "~0.25.0-dev",
-    "@decidim/dev": "~0.25.0-dev",
-    "@decidim/elections": "~0.25.0-dev",
-    "@decidim/webpacker": "~0.25.0-dev"
+    "@decidim/core": "file:../../packages/core",
+    "@decidim/dev": "file:../../packages/dev",
+    "@decidim/elections": "file:../../packages/elections",
+    "@decidim/webpacker": "file:../../packages/webpacker"
   }
 }
