@@ -211,6 +211,8 @@ nl:
             title: Resultaten gepubliceerd
           tally:
             title: Turfproces
+          tally_ended:
+            title: Resultaten berekend
           vote:
             title: Stemperiode
           vote_stats:
@@ -249,7 +251,11 @@ nl:
           elections_count:
             one: "%{count} verkiezing"
             other: "%{count} verkiezingen"
+        preview:
+          available_answers: Beschikbare antwoorden
+          description: Dit zijn de vragen die je tijdens het stemproces tegenkomt
         results:
+          description: Dit zijn de resultaten van de stemronde, voor elke vraag
           votes:
             one: "%{count} stem"
             other: "%{count} stemmen"
@@ -272,6 +278,9 @@ nl:
             finished: De stemming begon op %{start_time} en eindigde op %{end_time}
             ongoing: 'Actieve stem tot: %{end_time}'
             upcoming: Stemmen begint op %{start_time}
+      feedback:
+        answer:
+          invalid: Er is een fout opgetreden bij het indienen van je feedback.
       models:
         answer:
           fields:
