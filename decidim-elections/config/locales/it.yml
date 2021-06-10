@@ -36,6 +36,12 @@ it:
             public_key:
               cant_be_changed: non modificabile
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            voting:
+              different_organization: La votazione deve essere effettuata nella stessa organizzazione dell'utente
     models:
       decidim/elections/answer:
         one: Risposta
@@ -58,11 +64,21 @@ it:
   decidim:
     admin:
       filters:
+        officers_assigned_eq:
+          label: Responsabili
+          values:
+            assigned: Assegnato
+            unassigned: Non assegnato
         role_eq:
           label: Ruolo
           values:
             manager: Responsabile
             president: Presidente/Presidentessa
+            unassigned: Non assegnato
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Cerca %{collection} per nome/email/nickname o seggio elettorale.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Cerca %{collection} per titolo, indirizzo o nome responsabile/email/nickname.
     components:
       elections:
         actions:
@@ -205,24 +221,72 @@ it:
             title: Imposta elezione
             trustees: Fiduciari Delle Elezioni
           created:
+            invalid: Si è verificato un problema iniziando la cerimonia della chiave
             submit: Iniziare la cerimonia della chiave
+            success: La richiesta di avvio della cerimonia della chiave è stata inviata con successo al Bulletin Board
+            title: Elezione creata
             trustees: Garanti
           key_ceremony:
             title: Cerimonia chiave
             trustees: Fiduciari
+          key_ceremony_ended:
+            errors:
+              time_before: La votazione sta per cominciare. Devi aspettare fino a %{hours} ore prima dell'ora di inizio (%{start_time}) per poter votare.
+            invalid: Si è verificato un problema iniziando il periodo di votazione
+            requirements:
+              time_before: L'elezione inizierà presto. È possibile iniziare il periodo di votazione manualmente, o sarà avviato automaticamente prima dell'ora di inizio, a %{start_time}.
+            submit: Inizio del periodo di votazione
+            success: La richiesta di avvio della votazione é stata inviata con successo al Bulletin Board
+            title: Pronti via
+          processing: Processando...
           results_published:
             title: Risultati pubblicati
+          tally:
+            title: Conteggio
+            trustees: Garanti
           tally_ended:
             submit: Pubblica i risultati
             title: Risultati conteggiati
           vote:
+            errors:
+              time_after: Le elezioni sono ancora in corso. Devi aspettare fino all´ora (%{end_time}) per terminare il periodo di votazione.
+            invalid: Si è verificato un problema nel concludere il periodo di votazione
+            requirements:
+              time_after: Le elezioni sono terminate. Puoi terminare manualmente il periodo di votazione, oppure si concluderà automaticamente tra qualche minuto.
+            submit: Fine del periodo di votazione
+            success: La richiesta di chiusura della votazione é stata inviata con successo al Bulletin Board
             title: Periodo di votazione
+          vote_ended:
+            invalid: Si è verificato un errore nell' inizio del conteggio
+            submit: Inizia conteggio
+            success: La richiesta di avvio del conteggio é stata inviata con successo al Bulletin Board
+            title: Periodo di votazione terminato
           vote_stats:
+            no_vote_statistics_yet: Ancora nessuna statistica di voto
+            title: Statistiche di voto
             voters: Votanti
             votes: Voti
         trustees_participatory_spaces:
           actions:
             disable: Disattiva
+            enable: Considerare
+          create:
+            exists: La persona garante esiste per questo spazio partecipativo
+            invalid: Si è verificato un errore creando la persona garante
+            success: Persona garante creata con successo
+          delete:
+            invalid: Si è verificato un problema durante la rimozione di questa persona garante
+            success: Persona garante rimossa con successo
+          form:
+            select_user: Selezionare utente
+          index:
+            title: Garanti
+          new:
+            create: Crea garante
+            title: Nuovo Garante
+          update:
+            invalid: Si è verificato un problema durante l'aggiornamento del garante %{trustee}
+            success: Garante %{trustee} aggiornato con successo
       admin_log:
         election:
           publish: "%{user_name} ha pubblicato l'elezione %{resource_name}"
