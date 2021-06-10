@@ -259,6 +259,7 @@ it:
             workflow: Flusso di lavoro
             workflow_choices:
               all: 'Vota tutto: permette ai partecipanti di votare in tutti i bilanci.'
+              one: 'Vota per uno solo: consente alle persone partecipanti di esprimere preferenza per una sola opzione di budget fra quelle in votazione.'
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
