@@ -31,8 +31,8 @@ module Decidim
 
               context "when there are authorization handlers" do
                 before do
-                  user.organization.available_authorizations = ["dummy_authorization_handler"]
-                  user.organization.save
+                  allow(user.organization).to receive(:available_authorizations)
+                    .and_return(["dummy_authorization_handler"])
                 end
 
                 it { is_expected.to eq("/authorizations/first_login") }
@@ -71,6 +71,10 @@ module Decidim
               end
 
               context "and otherwise", with_authorization_workflows: [] do
+                before do
+                  allow(user.organization).to receive(:available_authorizations).and_return([])
+                end
+
                 it { is_expected.to eq("/") }
               end
             end
