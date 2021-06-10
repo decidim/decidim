@@ -280,6 +280,7 @@ nl:
             invalid: Er is een probleem opgetreden bij het maken van deze notulen
             success: Notulen met succes gemaakt
           edit:
+            title: Verslag bewerken
             update: Bijwerken
           new:
             create: creëren
