@@ -761,6 +761,7 @@ pl:
             info: Informacje
             landing_page: Strona docelowa
             monitoring_committee: Komisja monitorująca
+            monitoring_committee_verify_elections: Sprawdź wybory
             polling_officers: Oficerzy wyborczy
             polling_stations: Lokale wyborcze
         models:
@@ -979,6 +980,8 @@ pl:
             upload_info:
               csv_header_before: 'Plik listy wyborców musi być plikiem CSV z następującym nagłówkiem:'
         document_types:
+          dni: Numer dokumentu tożsamości
+          nie: PESEL
           passport: Paszport
         export_mailer:
           access_codes_export:
@@ -1021,9 +1024,18 @@ pl:
           edit:
             modal_ballots_results_count_error:
               close_modal: Zamknij
+            total_ballots: Suma oddanych głosów
+            total_blank_ballots: Suma pustych głosów
+            total_null_ballots: Suma głosów nieważnych
+            total_valid_ballots: Suma ważnych głosów
           new:
+            election: 'Wybory:'
+            heading: Przeliczenie głosów
+            info_text: 'Podaj liczbę oddanych głosów ponownie przeliczonych w tym lokalu wyborczym:'
             modal_ballots_count_error:
+              btn_validate_total: Sprawdź sumę przeliczonych głosów
               close_modal: Zamknij
+              info_explanation_text: 'Sprawdź całkowitą liczbę kart. Jeśli całkowita liczba jest poprawna, należy podać wyjaśnienie dla komitetu monitorującego:'
           sign:
             cancel: Anuluj
             confirm: Ok, kontynuuj
@@ -1060,6 +1072,11 @@ pl:
           manager: Kierownik
           president: Przewodniczący
           unassigned: Nie przypisano
+      polling_station_closure_recount:
+        total_ballots: 'Suma oddanych głosów:'
+        total_blank_ballots: 'Suma pustych głosów:'
+        total_null_ballots: 'Suma głosów nieważnych:'
+        total_valid_ballots: 'Suma ważnych głosów:'
       polling_stations:
         actions:
           confirm_destroy: Jesteś pewny?
@@ -1099,6 +1116,9 @@ pl:
             few: "%{count} głosowania"
             many: "%{count} głosowań"
             other: "%{count} głosowania"
+        elections_log:
+          election_log: Dziennik zdarzeń wyborczych
+          title: Dziennik zdarzeń wyborczych
         filters:
           active: Aktywne
           all: Wszystko
