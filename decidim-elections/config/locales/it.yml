@@ -365,16 +365,34 @@ it:
             complete: Le elezioni sono state create e sono state registrate con successo sul Bollettin Board.
             not_created: Le elezioni non sono ancora state create.
           creation_title: Elezioni create
+          description: Questo è il registro elettorale in cui è possibile controllare lo stato di ogni passaggio, ad es. quando le elezioni sono state create, se il processo di conteggio è stato completato, e quando le elezioni sono state chiuse.
           download: Download
           key_ceremony_description:
             complete: La cerimonia delle chiavi è completata. Ogni garante ha chiavi valide e ha scaricato le chiavi di backup necessarie.
+            not_started: La cerimonia delle chiavi non è ancora iniziata.
             started: La cerimonia delle chiavi è iniziata ma non è ancora completata.
           key_ceremony_title: Cerimonia della Chiave
+          not_available: Non ancora disponibili
+          not_created: Non creato
+          not_published: Non pubblicate
+          not_ready: Non pronte
+          not_started: Non iniziate
+          published: Pubblicate
+          results_description:
+            not_published: I risultati non sono ancora stati pubblicati.
+            published: I risultati sono stati pubblicati.
           results_title: Risultati
+          started: Iniziate
           tally_description:
             finished: Il processo di conteggio è terminato.
             not_started: Il processo di conteggio non è ancora iniziato.
             started: Il processo di conteggio è cominciato.
+          tally_title: Conteggio
+          title: Registro delle elezioni
+          verifiable_results:
+            checksum: 'Somma di controllo del file SHA256:'
+            description:
+              not_ready: Il file elettorale verificabile e la somma di controllo del file SHA256 non sono ancora disponibili. Non appena i risultati saranno pubblicati, sarai in grado di verificare queste elezioni.
         results:
           selected: Selezionato
           title: Risultati delle elezioni
