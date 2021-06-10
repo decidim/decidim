@@ -398,7 +398,30 @@ it:
             title: Verifica i risultati delle elezioni
             verifiable_file: 'File elettorale verificabile:'
           verify: Verifica l'elezione
+          vote_description:
+            finished: Il processo di votazione è terminato.
+            not_started: Il processo di votazione non è ancora iniziato.
+            started: Il processo di votazione è iniziato.
+          vote_title: Processo di votazione
+        filters:
+          active: Attiva
+          all: Tutti
+          finished: Completata
+          search: Cerca
+          state: Stato
+          upcoming: Imminente
+        filters_small_view:
+          close_modal: Chiudi finestra
+          filter: Filtra
+          filter_by: Filtra per
+          unfold: Espandi
+        preview:
+          available_answers: 'Risposte disponibili:'
+          description: 'Queste sono le domande che troverete nel processo di votazione:'
+          title: Domande elettorali
         results:
+          description: 'Questi sono i risultati della votazione, per ogni domanda:'
+          percentage: "%{count}%"
           selected: Selezionato
           title: Risultati delle elezioni
           votes:
@@ -503,6 +526,7 @@ it:
                 share: Condivisione del conteggio
             list:
               status: Stato
+              task: Task
             process_warning: Una volta avviato il processo, non si dovrebbe uscire da questa pagina fino alla fine dello stesso. Ci vorranno diversi minuti, poiché tutti i Garanti dovrebbero essere collegati per completarlo.
             start: Avvia
             start_icon: Icona che indica un pulsante avvia per avviare la generazione delle chiavi elettorali
@@ -537,7 +561,35 @@ it:
               generate: Genera chiavi di identificazione
               generate_error: Si è verificato un errore durante la generazione delle chiavi di identificazione.
               generate_legend: Devi generare un paio di chiavi di identificazione per partecipare alle elezioni come Garante.
+              generate_legend_1: Dopo aver premuto il pulsante dovresti scaricare il file con le chiavi di identificazione generate.
+              generate_legend_2: Copia il file scaricato su un dispositivo USB pulito
+              generate_legend_3: Assicurati che sul computer non ci sia una copia del file (controlla anche le cartelle Download e Desktop).
+              generate_legend_4: Fai un'altra copia del file su un altro dispositivo esterno e memorizzarlo in un luogo molto sicuro.
+              submit: Invia
+              submit_legend: Dopo aver seguito tutti i passaggi sopra illustrati, completare il processo inviando il codice di identificazione pubblica al server Decidim.
+              submit_title: Invia la chiave di identificazione pubblica
+              title: Codici di identificazione del Garante
+              upload: Carica i tuoi codici di identificazione
+              upload_error:
+                invalid_format: Il file caricato non contiene alcun codice di identificazione.
+                invalid_key: I codici di identificazione nel file caricato non possono essere caricati.
+                invalid_public_key: I codici di identificazione nel file caricato non corrispondono a quelli pubblici memorizzati da Decidim.
+              upload_legend: Decidim ha i tuoi codici di identificazione pubblici, ma il tuo browser ancora no. È necessario importare il file con i codici di identificazione sul computer dal backup creato dopo averli generati.
+            not_supported_browser_description: Sembra che tu stia usando un browser web che non può essere usato in qualitá di Garante. Assicurati di utilizzare la versione più recente del tuo browser, o prova ad utilizzare uno dei browser più popolari che ti permettano di esercitare il ruolo di Garante.
+            not_supported_browser_title: Aggiorna il browser per fungere da Garante
+            trustee_role_description: Ti è stato assegnato di ruolo di Garante in alcune delle elezioni che si svolgeranno su questa piattaforma.
+          update:
+            success: I tuoi codici di identificazione pubblici sono stati salvati con successo.
       votes:
+        ballot_decision:
+          audit: "( Voto di controllo )"
+          back: Inizia nuovamente il processo di voto
+          ballot_hash: 'Il tuo identificativo elettorale è:'
+          cast: Votare
+          description: Qui, hai l'opzione di votare in modo che il tuo voto sia conteggiato correttamente o, in alternativa, di controllare che il tuo voto sia stato crittografato correttamente. Per motivi di sicurezza, controllare il tuo voto lo cancellerá, il che significa, che per esprimerlo, sarà necessario ripetere il processo di votazione.
+          header: 'Il voto è criptato: confermalo o controllalo'
+        casting:
+          header: Salvo voto...
         confirm:
           answer: Risposta
           answer_number: rispondi %{number}
