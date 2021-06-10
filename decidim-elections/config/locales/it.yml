@@ -160,6 +160,8 @@ it:
         exports:
           elections: Elezioni
           feedback_form_answers: Risposte al modulo di feedback
+        menu:
+          trustees: Garanti
         models:
           answer:
             name: Risposta
@@ -222,6 +224,9 @@ it:
             success: Elezione inviata con successo al Bollettino
             title: Imposta elezione
             trustees: Fiduciari Delle Elezioni
+          created:
+            submit: Iniziare la cerimonia della chiave
+            trustees: Garanti
           key_ceremony:
             title: Cerimonia chiave
             trustees: Fiduciari
@@ -240,6 +245,7 @@ it:
             title: Periodo di votazione
           vote_stats:
             voters: Votanti
+            votes: Voti
         trustees_participatory_spaces:
           actions:
             disable: Disattiva
