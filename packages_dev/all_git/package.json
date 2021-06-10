@@ -15,9 +15,9 @@
     "npm": "^7.7.2"
   },
   "dependencies": {
-    "@decidim/core": "https://gitpkg.now.sh/mainio/decidim/packages/all?feature/split-npm-packages",
-    "@decidim/dev": "https://gitpkg.now.sh/mainio/decidim/packages/all?feature/split-npm-packages",
-    "@decidim/elections": "https://gitpkg.now.sh/mainio/decidim/packages/all?feature/split-npm-packages",
-    "@decidim/webpacker": "https://gitpkg.now.sh/mainio/decidim/packages/all?feature/split-npm-packages"
+    "@decidim/core": "https://gitpkg.now.sh/mainio/decidim/packages_dev/all_git?feature/split-npm-packages",
+    "@decidim/dev": "https://gitpkg.now.sh/mainio/decidim/packages_dev/all_git?feature/split-npm-packages",
+    "@decidim/elections": "https://gitpkg.now.sh/mainio/decidim/packages_dev/all_git?feature/split-npm-packages",
+    "@decidim/webpacker": "https://gitpkg.now.sh/mainio/decidim/packages_dev/all_git?feature/split-npm-packages"
   }
 }
