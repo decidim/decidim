@@ -19,10 +19,6 @@ module Decidim
       create(:authorization, :granted, name: name, metadata: metadata)
     end
 
-    let!(:another_authorization) do
-      create(:authorization, :granted, name: "another_dummy_authorization_handler", metadata: metadata)
-    end
-
     let(:metadata) { { postal_code: "1234", location: "Tomorrowland" } }
 
     let(:response) { subject.authorize }
@@ -46,7 +42,39 @@ module Decidim
         end
       end
 
+      context "when one authorization handler is set" do
+        let(:permission) do
+          {
+            "authorization_handler_name" => name,
+            "options" => options
+          }
+        end
+
+        context "when authorization is granted" do
+          before { authorization.update!(user: user, granted_at: 1.minute.ago) }
+
+          it "returns an authorization status ok" do
+            expect(response).to be_ok
+            expect(response.statuses.count).to eq(1)
+            expect(response.codes).to include(:ok)
+          end
+        end
+
+        context "when authorization is not granted" do
+          before { authorization.update!(user: user, granted_at: nil) }
+
+          it "returns an authorization status not ok" do
+            expect(response).not_to be_ok
+            expect(response.statuses.count).to eq(1)
+            expect(response.codes).to include(:pending)
+          end
+        end
+      end
+
       context "when more than one authorization handlers are set" do
+        let!(:another_authorization) do
+          create(:authorization, :granted, name: "another_dummy_authorization_handler", metadata: metadata)
+        end
         let(:permission) do
           {
             "authorization_handlers" => {
