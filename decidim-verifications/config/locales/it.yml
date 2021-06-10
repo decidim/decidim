@@ -150,6 +150,7 @@ it:
           user_postal_codes:
             one: La partecipazione è limitata alle partecipanti con il codice postale %{postal_codes}, e il tuo codice postale è %{user_postal_code}.
             other: 'La partecipazione è limitata alle partecipanti con il codice postale %{postal_codes}, e il tuo codice postale è %{user_postal_code}.'
+          user_scope: La partecipazione è limitata a partecipanti con ambito %{scope_name} e il tuo ambito è %{user_scope_name}.
       id_documents:
         admin:
           config:
