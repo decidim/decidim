@@ -665,15 +665,15 @@ pl:
           notification_title: Wybór <a href="%{resource_path}">%{resource_title}</a> jest teraz aktywny w %{participatory_space_title}.
         trustees:
           new_election:
-            email_intro: Zostałeś dodany jako powiernik do głosowania %{resource_title}.
-            email_outro: Otrzymujesz to powiadomienie ponieważ zostałeś powołany na powiernika w głosowaniu %{resource_title}”.
-            email_subject: Jesteś powiernikiem w głosowaniu %{resource_title}.
-            notification_title: Jesteś powiernikiem w głosowaniu <a href="%{resource_path}">%{resource_title}</a>.
+            email_intro: Zostałeś powołany do pełnienia funkcji męża (osoby) zaufania do głosowania %{resource_title}.
+            email_outro: Otrzymujesz to powiadomienie ponieważ zostałeś powołany do pełnienia funkcji męża (osoby) zaufania w głosowaniu %{resource_title}”.
+            email_subject: Jesteś mężem (osobą) zaufania w głosowaniu %{resource_title}..
+            notification_title: Jesteś mężem (osobą) zaufania w głosowaniu <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
-            email_intro: Administrator ustanowił Cię powiernikiem w %{resource_name}. Powinieneś utworzyć klucz publiczny <a href='%{trustee_zone_url}'>w strefie powiernika</a>
-            email_outro: Otrzymujesz to powiadomienie ponieważ zostałeś powołany na powiernika w %{resource_name}”.
-            email_subject: Jesteś powiernikiem w %{resource_name}.
-            notification_title: Jesteś powiernikiem w <a href="%{participatory_space_url}">%{resource_name}</a>.
+            email_intro: Administrator ustanowił Cię mężem (osobą) zaufania w %{resource_name}. Powinieneś utworzyć klucz publiczny <a href='%{trustee_zone_url}'>w strefie osób zaufania</a>
+            email_outro: Otrzymujesz to powiadomienie ponieważ zostałeś powołany do pełnienia funkcji męża (osoby) zaufania w %{resource_name}”.
+            email_subject: Jesteś mężem (osobą) zaufania w %{resource_name}.
+            notification_title: Jesteś mężem (osobą) zaufania w <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Twój głos został zaakceptowany! Używając tokenu głosowania: %{encrypted_vote_hash}, możesz zweryfikować swój głos <a href="%{verify_url}">tutaj</a>.'
