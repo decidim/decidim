@@ -152,7 +152,6 @@ nl:
         browse: Browsen
         category:
           new: Nieuwe categorie
-        export: Exporteren
         import: Importeren
         manage: Beheer
         new: Nieuwe %{name}
