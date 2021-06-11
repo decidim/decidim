@@ -626,6 +626,7 @@ it:
           encrypting: Cifratura del voto
           failed: Votazione fallita
         messages:
+          invalid_token: La tua sessione elettorale non è valida. Prova a votare di nuovo.
           not_allowed: In questo momento non ti è permesso di votare a queste elezioni.
         modal:
           close: Chiuso
@@ -637,8 +638,24 @@ it:
           preview_alert: Questa è un'anteprima della cabina di voto.
           question_steps: Domanda %{current_step} di %{total_steps}
           selections: "%{selected} di %{max_selections}<br> selezioni"
+        onboarding_modal:
+          close: Chiudi finestra
+          create_account: Crea Account
+          description: Vuoi creare un nuovo account in Decidim? Potrai partecipare ai processi ed essere parte attiva dell'organizzazione.
+          no_account: No, grazie.
+          title: Nuovo su Decidim?
+        update:
+          error: Si è verificato un errore durante l'aggiornamento del voto. Si prega di votare di nuovo.
         verify:
+          content:
+            heading: Verifica il tuo voto
+            info: Questo verificatore verifica che il tuo voto, identificato con una stringa di testo crittografata, sia stato inviato correttamente e che sia all'interno della scheda elettorale.
+          error:
+            header: Voto non trovato!
+            info: Il codice di voto non è stato trovato nella scheda elettorale %{link}, riprova.
           form:
+            back: Torna su Decidim
+            submit: Controlla
             vote_identifier: 'Codice identificativo:'
           header:
             title: Verifica il tuo voto
@@ -669,6 +686,22 @@ it:
             email_outro: Hai ricevuto questa notifica perché sei stata aggiunta come Garante "%{resource_name}.
             email_subject: Sei Garante di %{resource_name}.
             notification_title: Sei Garante di <a href="%{participatory_space_url}">%{resource_name}</a>.
+        votes:
+          accepted_votes:
+            email_intro: 'Il tuo voto è stato accettato! Usando il tuo token di voto: %{encrypted_vote_hash}, puoi verificare il tuo voto <a href="%{verify_url}">qui</a>.'
+            email_outro: Hai ricevuto questa notifica perché hai votato per l'elezione %{resource_name}.
+            email_subject: Il tuo voto per %{resource_name} è stato accettato.
+            notification_title: 'Il tuo voto è stato accettato. Verifica il tuo voto <a href="%{verify_url}">qui</a> usando il tuo token di voto: %{encrypted_vote_hash}'
+      votings:
+        polling_officers:
+          polling_station_assigned:
+            email_intro: Sei stata assegnata come %{role} del Seggio Elettorale %{polling_station_name} in <a href="%{resource_url}">%{resource_title}</a>. È possibile gestire il Seggio Elettorale dalla zona dedicata <a href="%{polling_officer_zone_url}">Zona Scrutatrice</a>.
+            email_outro: Hai ricevuto questa notifica perché ti è stato assegnato il ruolo di %{role} del %{polling_station_name}.
+            email_subject: Sei %{role} del Seggio Elettorale %{polling_station_name}.
+            notification_title: Sei %{role} del Seggio Elettorale %{polling_station_name} nella votazione <a href="%{resource_path}">%{resource_title}</a>.
+        send_access_code:
+          instruction: 'Ecco il tuo Codice di Accesso che hai chiesto: %{access_code}. Con questo potrai partecipare a %{voting}.'
+          subject: Il tuo Codice di Accesso per partecipare a %{voting}
     votings:
       admin:
         menu:
