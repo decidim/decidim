@@ -280,9 +280,53 @@ ja:
           vote:
             errors:
               time_after: 選挙はまだ進行中です。投票期間を終了するには、終了時間（%{end_time}）まで待つ必要があります。
+            invalid: 投票期間の終了中に問題が発生しました
+            requirements:
+              time_after: 選挙は終了しました。投票期間を手動で終了するか、数分で自動的に終了します。
+            submit: 投票を終了する
+            success: 投票期間の終了リクエストは正常に掲示板に送信されました
+            title: 投票期間
+          vote_ended:
+            invalid: 集計開始中に問題が発生しました
+            submit: 集計を開始
+            success: 集計開始リクエストは正常に掲示板に送信されました
+            text: 投票が終了しました。今すぐ集計を開始できます。
+            title: 投票期間が終了しました
+          vote_stats:
+            no_vote_statistics_yet: まだ投票統計がありません
+            title: 投票統計
+            voters: 投票者
+            votes: 投票
+        trustees_participatory_spaces:
+          actions:
+            disable: 無効
+            enable: 検討する
+          create:
+            exists: この参加スペースに受託者が存在します
+            invalid: 受託者の作成中に問題が発生しました
+            success: 受託者の作成に成功しました
+          delete:
+            invalid: 受託者を削除する際に問題が発生しました
+            success: 受託者を削除しました
+          form:
+            select_user: ユーザーを選択
+          index:
+            title: 受託者
+          new:
+            create: 受託者を作成
+            title: 新しい受託者
+          update:
+            invalid: 受託者 %{trustee} の更新中に問題が発生しました
+            success: 受託者 %{trustee} が正常に更新されました
       admin_log:
         election:
+          end_vote: "%{user_name} が告示板で %{resource_name} 選挙の投票期間を終了しました"
           publish: "%{user_name} が %{resource_name} 選挙を公開しました"
+          publish_results: "%{user_name} が %{resource_name} 選挙の結果を告示板に掲載しました"
+          setup: "%{user_name} が告示板に %{resource_name} 選挙を作成しました"
+          start_key_ceremony: "%{user_name} が告示板で %{resource_name} 選挙の重要なキーセレモニーを開始しました"
+          start_tally: "%{user_name} が告示板で %{resource_name} 選挙の集計を開始しました"
+          start_vote: "%{user_name} が告示板の %{resource_name} 選挙の投票期間を開始しました"
           unpublish: "%{user_name} が %{resource_name} 選挙を非公開にしました"
       election_m:
         badge_name:
@@ -291,6 +335,8 @@ ja:
           upcoming: 今後の予定
         end_date: 終了
         footer:
+          remaining_time:
+            other: "投票期間は残り <strong>%{count} 時間 %{minutes} 分</strong> です。"
           view: 表示
           vote: 投票
         label:
@@ -302,6 +348,23 @@ ja:
         count:
           elections_count:
             other: "%{count} 選挙"
+        election_log:
+          chained_hash: このメッセージの連鎖的ハッシュ
+          complete: 完了
+          creation_description:
+            complete: 選挙は作成され、告示板に正常に設定されています。
+            not_created: 選挙はまだ作成されていません。
+          creation_title: 選挙が作成されました
+          description: これは各ステップの状態、例えば選挙が行われた時、集計が完了した時、選曲が終わった時などを確認できる選挙ログです。
+          download: ダウンロード
+          key_ceremony_description:
+            complete: キーセレモニーが完了しました。すべての受託者は有効なキーを持っており、必要なバックアップキーをダウンロードしました。
+            not_started: キーセレモニーはまだ始まっていません。
+            started: キーセレモニーは開始されましたが、まだ完了していません。
+          key_ceremony_title: キーセレモニー
+          not_available: まだ利用できません
+          not_created: 作成されていません
+          not_published: 公開されていません
         filters:
           active: 有効
           all: 全て
@@ -353,6 +416,30 @@ ja:
         label: 選挙の順序
         older: 古い
         recent: 新しい
+      trustee_zone:
+        elections:
+          backup_modal:
+            download_icon: ダウンロードアクションを示すアイコン
+            title: '%{election} のバックアップ選挙キー'
+          key_ceremony_steps:
+            back: 戻る
+            description: この選挙は、告示板に作成されています。このプロセスを完了するには、受託者としての参加が必要です。
+            keys:
+              create_election: キーの生成
+              key_ceremony:
+                joint_election_key: キーの生成に参加する
+                step_1: キーの発行
+            list:
+              status: ステータス
+              task: タスク
+            process_warning: プロセスが開始された後は、プロセスが終了するまでこのページを終了しないでください。 すべての受託者が連結され完了されるまで、数分かかることがあります。
+            start: 開始
+            start_icon: アイコンは、選挙キーの生成を開始するための開始ボタンを示します
+            status:
+              completed: 完了
+              pending: 保留中
+              processing: 処理中
+            title: '%{election} の選挙用キーを作成'
       votes:
         confirm:
           answer: 回答
