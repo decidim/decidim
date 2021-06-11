@@ -997,6 +997,8 @@ pl:
           description:
             show_less: Zwiń
             show_more: Pokaż więcej
+          metrics:
+            heading: Partycypacja w liczbach
           polling_stations:
             heading: Lokale wyborcze
             no_polling_stations: Nie ma jeszcze żadnych punktów wyborczych.
