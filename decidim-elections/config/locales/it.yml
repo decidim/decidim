@@ -590,6 +590,7 @@ it:
           header: 'Il voto è criptato: confermalo o controllalo'
         casting:
           header: Salvo voto...
+          text: Il tuo voto viene deposto nell'urna.
         confirm:
           answer: Risposta
           answer_number: rispondi %{number}
@@ -604,12 +605,25 @@ it:
           experience: Com'è stata la tua esperienza?
           feedback: Lasciaci un feedback
           header: Voto confermato
+          lead: Il tuo voto è stato inviato!
           text: 'Puoi controllare che il tuo voto sia stato aggiunto con successo alla scheda elettorale con il seguente identificatore: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_link: Per controllarlo, copia l'identificatore e incollalo nella pagina <a href="%{link}">di verifica del voto</a>
+        create:
+          error: Si è verificato un problema durante l'invio del voto. Per favore, riprova.
         encrypting:
           header: Cifrando il voto...
+          text: Il tuo voto viene crittografato per garantirne la segretezza.
+        failed:
+          header: Votazione fallita
+          lead: Il tuo voto non è stato deposto!
+          text: Qualcosa è andato storto. Riprova di nuovo.
+          try_again: Riprova
         header:
+          ballot_decision: Invia o controlla il tuo voto
+          casting: Invio voto
           confirm: Conferma il tuo voto
           confirmed: Voto confermato
+          encrypting: Cifratura del voto
           failed: Votazione fallita
         messages:
           not_allowed: In questo momento non ti è permesso di votare a queste elezioni.
