@@ -618,13 +618,64 @@ it:
               name: Allegati e cartelle della votazione
             description:
               name: Descrizione del voto
+            elections:
+              name: Votazioni elettorali
+            header:
+              name: Intestazione delle votazioni
+            html_block_1:
+              name: Votazioni html blocco 1
+            html_block_2:
+              name: Votazioni html blocco 2
+            html_block_3:
+              name: Votazioni html blocco 3
+            metrics:
+              name: Metriche di voto
+            polling_stations:
+              name: Seggi elettorali
+            stats:
+              name: Statistiche di voto
+            timeline:
+              name: Calendario delle votazioni
+        index:
+          not_published: Non Pubblicato
+          published: Pubblicato
+        landing_page:
+          content_blocks:
+            edit:
+              update: Aggiorna
+          edit:
+            active_content_blocks: Blocchi di contenuti attivi
+            inactive_content_blocks: Blocchi di contenuti inattivi
         menu:
+          votings: Votazioni
           votings_submenu:
+            attachment_collections: Cartelle
+            attachment_files: Files
+            attachments: Allegati
             monitoring_committee_members: Comitato di Sorveglianza
         models:
           polling_station:
             fields:
               polling_station_president: Presidente/Presidentessa
+        monitoring_committee_members:
+          form:
+            select_user: Cerca per nome, email o nickname
+            user_type: Tipo di partecipante
+          index:
+            title: Comitato di sorveglianza
+          new:
+            create: Crea
+            title: Crea membro del comitato di sorveglianza
+        polling_officers:
+          create:
+            invalid: Si è verificato un errore durante la creazione di questa scrutinatrice
+            success: Scrutinatrice creata con successo
+          destroy:
+            invalid: Si è verificato un errore durante l'eliminazione di questa scrutinatrice
+            success: Scrutinatrice eliminata con successo
+          form:
+            existing_user: Partecipante esistente
+            non_user: Invita un nuovo partecipante
       polling_officer_zone:
         polling_officers:
           show:
