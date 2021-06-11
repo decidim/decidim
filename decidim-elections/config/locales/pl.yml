@@ -716,17 +716,36 @@ pl:
     votings:
       admin:
         ballot_styles:
+          create:
+            error: Wystąpił błąd przy tworzeniu tego rodzaju kart wyborczych
+            success: Rodzaj kart wyborczych został pomyślnie utworzony
+          destroy:
+            invalid: Wystąpił błąd przy usuwaniu tego rodzaju kart wyborczych
+            success: Rodzaj kart wyborczych został pomyślnie usunięty
           edit:
+            title: Edytuj rodzaj kart wyborczych
             update: Aktualizuj
+          form:
+            code_help: 'Uwaga: kod jest połączeniem między listą wyborców a rodzajami kart wyborczych. Podczas przesyłania danych listy wyborców, każdemu wpisowi zostanie przypisany rodzaj karty wyborczej poprzez dopasowanie kodu'
+            election: Wybory
+            questions: Pytania dla tego rodzaju kart wyborczych
+            questions_help: 'Uwaga: wybierz pytania z komponentów wyborczych, które mają być przedstawione wyborcom przypisanym do tego rodzaju kart wyborczych'
           index:
             actions:
               confirm_destroy: Czy na pewno?
               destroy: Usuń
               edit: Edytuj
               new: Nowy
+              title: Działania
             associated_census_data: Powiązane wpisy z listy wyborców
+            explanation_callout: Rodzaj karty wyborczej określa, jakie pytania zostaną zaprezentowane danemu wyborcy w kabinie do głosowania. Konfigurując rodzaje kart wyborczych możesz wybrać, jakie pytania z z tego komponentu wyborczego należą do głosowania. Kod rodzaju karty wyborczej jest używany do dopasowania wyborcy z listy wyborców do karty wyborczej, która zostanie przedstawiona mu w kabinie do głosowania. Nie twórz rodzajów kart wyborczych, jeśli zawsze chcesz zadać wszystkie pytania.
+            title: Rodzaje kart wyborczych
           new:
             create: Utwórz
+            title: Utwórz rodzaj kart wyborczych
+          update:
+            invalid: Wystąpił błąd podczas aktualizowania tego rodzaju kart wyborczych
+            success: Pomyślnie zaktualizowano ten rodzaj kart wyborczych
         content_blocks:
           highlighted_votings:
             max_results: Maksymalna ilość elementów do wyświetlenia
@@ -769,6 +788,7 @@ pl:
             attachment_collections: Foldery
             attachment_files: Pliki
             attachments: Załączniki
+            ballot_styles: Rodzaje kart wyborczych
             census: Lista wyborców
             components: Komponenty
             info: Informacje
@@ -781,6 +801,7 @@ pl:
           ballot_style:
             fields:
               code: Kod
+            name: Rodzaj kart wyborczych
           monitoring_committee_member:
             fields:
               email: Adres e-mail
@@ -985,12 +1006,17 @@ pl:
                 explanation: 'Wytyczne dotyczące pliku:'
                 message_1: Dozwolone są tylko pliki CSV (.csv).
                 message_2: Separatorem kolumn musi być średnik (";").
+              has_ballot_styles_message: Ustawiono rodzaje kart wyborczych. Upewnij się, że pole "%{ballot_style_code_header}" w CSV odpowiada żądanemu kodowi rodzaju karty wyborczej.
               info_message: "<strong>Nie ma jeszcze listy wyborców.</strong> Użyj poniższego formularza, aby utworzyć ją i zaimportować dane z pliku CSV."
+              missing_ballot_styles_message: 'Nie skonfigurowano jeszcze rodzajów kart wyborczych w tym głosowaniu. Jeśli chcesz mieć pytania warunkowe (i..: przedstawiać wyborcy różne pytania w zależności od np. okręg/region zamieszkania), musisz skonfigurować <a href=%{ballot_styles_admin_path}>Rodzaje kart wyborczych</a> <strong>przed</strong> zaimportowaniem listy wyborców. Jeśli chcecie przedstawić wszystkim wyborcom te same pytania, możesz kontynuować procedurę importu listy wyborców.'
               submit: Prześlij csv
               title: Utwórz listę wyborców
             show:
               heading: Lista wyborców w przestrzeni głosowania
             upload_info:
+              csv_example_with_ballot_style: 'Przykład pliku <strong>z</strong> rodzajami kart wyborczych:'
+              csv_example_without_ballot_style: 'Przykład pliku <strong>bez</strong> rodzajów kart wyborczych:'
+              csv_header_after: Pozostaw ostatnie pole puste ("%{ballot_style_code_header}") jeśli nie potrzebujesz ustawiać rodzajów kart wyborczych/pytań warunkowych
               csv_header_before: 'Plik listy wyborców musi być plikiem CSV z następującym nagłówkiem:'
         document_types:
           dni: Numer dokumentu tożsamości
@@ -1003,6 +1029,7 @@ pl:
             subject: Eksport kodów dostępu do głosowania dla %{voting_title} jest dostępny
         vote_flow:
           already_voted_in_person: Ten użytkownik zagłosował już osobiście i nie ma prawa głosu.
+          datum_not_found: Podane dane nie pasują do żadnego wyborcy.
       content_blocks:
         highlighted_votings:
           name: Wyróżnione głosowania
@@ -1113,6 +1140,7 @@ pl:
           invalid: Wystąpił błąd przy sprawdzaniu listy wyborców.
           success:
             access_link: poprzez SMS lub e-mail.
+            info: Powinieneś był już otrzymać swój kod dostępu pocztą. Jeśli go nie posiadasz, możesz poprosić o to tutaj
             title: Twoje dane z listy wyborców nie są prawidłowe!
           title: Mogę głosować?
         check_fields:
@@ -1157,6 +1185,7 @@ pl:
           start_voting: Rozpocznij głosowanie
           step: Identyfikacja
           title: Zidentyfikuj mnie z danymi na liście wyborców
+        no_census_contact_information: Nie ma jeszcze żadnych danych kontaktowych
         orders:
           label: 'Sortuj głosowania według:'
           random: Losowo
