@@ -876,6 +876,15 @@ cs:
       index:
         last_activity: Poslední aktivita
         resource_type: Typ
+    links:
+      invalid_url: Neplatná URL
+      warning:
+        body_1: Chystáte se navštívit externí odkaz a chtěli bychom, abyste byli opatrní, pokud jde o obsah na externím webu.
+        body_2: Zkontrolujte prosím odkaz, který se chystáte navštívit, a než budete pokračovat, ujistěte se, že jste jej rozpoznali jako bezpečný web.
+        cancel: Zrušit
+        close_modal: Zavřít modal
+        proceed: Pokračovat
+        title: Otevřít externí odkaz
     log:
       base_presenter:
         create: "%{user_name} vytvořil %{resource_name}"
@@ -1279,6 +1288,8 @@ cs:
         filters:
           areas: Oblasti
           select_an_area: Vyberte oblast
+      public_participation:
+        public_participation: Ukázat svou účast veřejně
       reference:
         reference: 'Odkaz: %{reference}'
       represent_user_group:

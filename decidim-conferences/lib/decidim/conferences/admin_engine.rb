@@ -85,10 +85,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_conferences.admin_assets" do |app|
-        app.config.assets.precompile += %w(admin/decidim_conferences_manifest.js)
-      end
-
       initializer "decidim_conferences.admin_conferences_components_menu" do
         Decidim.menu :admin_conferences_components_menu do |menu|
           current_participatory_space.components.each do |component|

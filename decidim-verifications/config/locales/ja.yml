@@ -34,8 +34,16 @@ ja:
             confirm: 前の日付の権限を取り消すことはできません。続行してもよろしいですか？
             confirm_all: すべての権限を取り消すことはできません。続行してもよろしいですか？
           destroy_nok: 許可の取り消し中に問題が発生しました。
+          destroy_ok: すべての一致した認証が正常に取り消されました。
           info: '%{count} 人の確認済み参加者がいます。'
           no_data: 確認済みの参加者はありません
+          title: 認証の取り消し方法
+        authorization_workflows: 認証
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} は IDドキュメント認証設定を更新しました"
+      user:
+        grant_id_documents_offline_verification: "オフラインIDドキュメント認証を使用して%{user_name} が %{resource_name} を確認しました"
     authorization_handlers:
       admin:
         csv_census:
@@ -67,6 +75,10 @@ ja:
       postal_letter:
         explanation: 住所を確認するために入力する必要があるコードを記載した郵便手紙をお送りします。
         name: 郵便番号によるコード
+    events:
+      verifications:
+        verify_with_managed_user:
+          notification_title: 参加者 <a href="%{resource_path}">%{resource_title}</a> が管理参加者 <a href="%{managed_user_path}">%{managed_user_name}</a> のデータと自分自身を確認しようとしました。
     verifications:
       authorizations:
         authorization_metadata:
@@ -123,6 +135,7 @@ ja:
             title: 現在の国勢調査データ
           instructions:
             body: これを行うには、システム管理を入力し、csv_census の認証を組織に追加する必要があります。
+            title: この組織のCSVセンサス認証を有効にする必要があります
           new:
             file: "電子メールデータを含む.csvファイル"
             info: 'メールアドレスの列が 1 つだけの CSV 形式のファイルである必要があります:'
@@ -137,6 +150,9 @@ ja:
           postal_codes:
             other: '参加者は次の郵便番号のいずれかを持つ参加者に制限されています: %{postal_codes}.'
           scope: 参加者はスコープ %{scope_name} の参加者に限定されています。
+          user_postal_codes:
+            other: '参加者は次の郵便番号のいずれかを持つ参加者に制限されています: %{postal_codes}. あなたの郵便番号は %{user_postal_code} です。'
+          user_scope: 参加者はスコープ %{scope_name} を持つ参加者に限定されます。あなたのスコープは %{user_scope_name} です。
       id_documents:
         admin:
           config:

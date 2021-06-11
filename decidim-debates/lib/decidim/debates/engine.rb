@@ -36,10 +36,6 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Debates::Engine.root}/app/views") # for partials
       end
 
-      initializer "decidim_debates.assets" do |app|
-        app.config.assets.precompile += %w(decidim_debates_manifest.js)
-      end
-
       initializer "decidim.debates.commented_debates_badge" do
         Decidim::Gamification.register_badge(:commented_debates) do |badge|
           badge.levels = [1, 5, 10, 30, 50]

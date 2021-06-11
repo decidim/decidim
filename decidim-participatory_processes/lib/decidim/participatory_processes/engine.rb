@@ -46,10 +46,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_participatory_processes.assets" do |app|
-        app.config.assets.precompile += %w(decidim_participatory_processes_manifest.js)
-      end
-
       initializer "decidim_participatory_processes.query_extensions" do
         Decidim::Api::QueryType.include Decidim::ParticipatoryProcesses::QueryExtensions
       end

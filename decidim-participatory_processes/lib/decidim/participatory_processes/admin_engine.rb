@@ -89,10 +89,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_participatory_processes.admin_assets" do |app|
-        app.config.assets.precompile += %w(admin/decidim_participatory_processes_manifest.js)
-      end
-
       initializer "decidim_participatory_processes.admin_menu" do
         Decidim.menu :admin_menu do |menu|
           menu.add_item :participatory_processes,
