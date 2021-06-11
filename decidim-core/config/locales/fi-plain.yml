@@ -1263,6 +1263,8 @@ fi-pl:
         filters:
           areas: alueet
           select_an_area: Valitse alue
+      public_participation:
+        public_participation: Näytä läsnäoloni julkisesti
       reference:
         reference: 'Viite: %{reference}'
       represent_user_group:

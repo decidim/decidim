@@ -90,6 +90,7 @@ ca:
             creation_enabled_for_participants: Les participants poden crear trobades
             default_registration_terms: Termes de registre per defecte
             enable_pads_creation: Habilitar la creació de pads
+            maps_enabled: Mapes habilitats
             registration_code_enabled: Codi d'inscripció habilitat
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
             scope_id: Àmbit
