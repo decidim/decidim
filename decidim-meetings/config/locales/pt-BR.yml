@@ -97,6 +97,7 @@ pt:
             email_subject: A reunião "%{resource_title}" foi fechada
             notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> foi fechada.
         meeting_created:
+          button_text: Inscrever-se na reunião
           email_intro: A reunião "%{resource_title}" foi adicionado a "%{participatory_space_title}" que você está seguindo.
           email_outro: Você recebeu esta notificação porque está seguindo "%{participatory_space_title}". Você pode ignorá-lo do link anterior.
           email_subject: Nova reunião adicionada a %{participatory_space_title}
