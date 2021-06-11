@@ -158,7 +158,6 @@ cs:
         browse: Procházet
         category:
           new: Nová kategorie
-        export: Exportovat
         import: Importovat
         manage: Spravovat
         new: Nová %{name}
