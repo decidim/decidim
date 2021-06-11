@@ -121,6 +121,7 @@ cs:
             email_subject: Schůzka "%{resource_title}" byla uzavřena
             notification_title: Schůzka <a href="%{resource_path}">%{resource_title}</a> byla uzavřena.
         meeting_created:
+          button_text: Zaregistrovat se na schůzku
           email_intro: Schůzka "%{resource_title}" byla přidána k "%{participatory_space_title}", kterou sledujete.
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{participatory_space_title}". Můžete jej odhlásit od předchozího odkazu.
           email_subject: Nové schůzky byly přidány k %{participatory_space_title}
