@@ -83,13 +83,7 @@ module Decidim
     def profile_holder
       return if params[:nickname].blank?
 
-      @profile_holder ||= Decidim::User.find_by(
-        nickname: params[:nickname],
-        organization: current_organization
-      ) || Decidim::UserGroup.find_by(
-        nickname: params[:nickname],
-        organization: current_organization
-      )
+      @profile_holder ||= Decidim::UserBaseEntity.find_by(nickname: params[:nickname], organization: current_organization)
     end
   end
 end
