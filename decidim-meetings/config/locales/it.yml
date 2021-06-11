@@ -21,17 +21,22 @@ it:
         end_time: Orario fine
         location: Luogo
         location_hints: Informazione sul luogo
+        online_meeting_url: Url riunione online
         organizer_gid: Crea come
         organizer_id: Organizzatore
         private_meeting: Incontro privato
         registration_form_enabled: Modulo di registrazione abilitato
         registration_terms: Termini di registrazione
+        registration_url: URL di iscrizione
         registrations_enabled: Registrazioni abilitate
         start_time: Orario inizio
         title: Titolo
         transparent: Trasparente
+        type_of_meeting: Tipo
       minutes:
+        audio_url: URL Audio
         description: Descrizione
+        video_url: URL Video
         visible: È visibile
     errors:
       models:
@@ -85,7 +90,11 @@ it:
             creation_enabled_for_participants: I partecipanti possono creare riunioni
             default_registration_terms: Termini di registrazione predefiniti
             enable_pads_creation: Abilita la creazione di pad
+            registration_code_enabled: Codice di registrazione abilitato
             resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni riunione
+            scope_id: Ambito
+            scopes_enabled: Ambiti abilitati
+            terms_and_conditions_url_for_meeting_creators: Termini e condizioni URL per i creatori di riunione
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
@@ -198,6 +207,7 @@ it:
             invalid: C'è stato un problema nell'aggiornare questo programma
             success: Agenda aggiornata con successo
         exports:
+          meeting_comments: Commenti
           meetings: Incontri
           registrations: Iscrizioni
         invite_join_meeting_mailer:
@@ -245,10 +255,18 @@ it:
                 other: La riunione non può essere annullata perché ha %{count} proposte associate
             success: OK, il meeting è stato cancellato.
           edit:
+            title: Modifica la riunione
             update: Modifica
           form:
             address_help: 'Indirizzo: usato da Geocoder per trovare la posizione'
+            available_slots_help: Lasciare a 0 se si dispone di posti illimitati disponibili
+            disclaimer: 'Disclaimer: Utilizzando un sistema di registrazione esterno, sei consapevole che gli organizzatori di %{organization} non sono responsabili per i dati forniti dagli utenti al servizio esterno.'
             location_help: 'Posizione: messaggio diretto agli utenti che riporta il luogo dell''incontro'
+            location_hints_help: 'Suggerimenti: informazioni aggiuntive. Esempio: il pavimento dell''edificio se si tratta di una riunione di persona o la password di riunione se si tratta di una riunione online con accesso ristretto.'
+            online_meeting_url_help: 'Link: permette ai partecipanti di connettersi direttamente alla tua riunione'
+            registration_url_help: 'Link: consentire ai partecipanti di accedere al servizio esterno che stai utilizzando per le iscrizioni'
+            select_a_meeting_type: Seleziona un tipo di riunione
+            select_a_registration_type: Seleziona un tipo di registrazione
           index:
             title: Incontri
           new:
@@ -272,6 +290,7 @@ it:
             invalid: Si è verificato un problema durante la creazione di questi minuti
             success: Minuti creati con successo
           edit:
+            title: Modifica il verbale
             update: Aggiornare
           new:
             create: Creare
@@ -342,6 +361,7 @@ it:
             space_type: Spazio partecipativo
             upcoming: Prossime
       last_activity:
+        meeting_updated_at_html: "<span>Dibattito aggiornato su %{link}</span>"
         new_meeting_at_html: "<span>Nuovo incontro al %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
@@ -352,6 +372,11 @@ it:
             subject: La tua registrazione alla riunione è stata confermata
       meeting:
         not_allowed: Non sei autorizzato a visualizzare questo incontro
+      meeting_closes:
+        edit:
+          back: Indietro
+          close: Chiusura meeting
+          title: Chiudi riunione
       meetings:
         count:
           meetings_count:
@@ -365,12 +390,15 @@ it:
           title: Modifica riunione
           update: Aggiorna
         filters:
+          activity: La mia attività
+          all: Tutti
           category: Categoria
           date: Data
           date_values:
             all: Tutte
             past: Passata
             upcoming: Imminente
+          my_meetings: I miei meeting
           origin: Origine
           origin_values:
             all: Tutte
@@ -379,6 +407,12 @@ it:
             user_groups: Gruppi
           scope: Ambito
           search: Cerca
+          type: Tipo
+          type_values:
+            all: Tutti
+            hybrid: Entrambi
+            in_person: Faccia a faccia
+            online: Online
         filters_small_view:
           close_modal: Chiudi modalità
           filter: Filtra
@@ -386,9 +420,16 @@ it:
           unfold: Espandi
         form:
           address_help: 'Indirizzo: usato da Geocoder per trovare la posizione'
+          available_slots_help: Lasciare a 0 se disponi di slot illimitati
           create_as: Crea riunione come
+          disclaimer: 'Disclaimer: Utilizzando un sistema di registrazione esterno, sei consapevole che gli organizzatori di %{organization} non sono responsabili per i dati forniti dagli utenti al servizio esterno.'
           location_help: 'Posizione: messaggio diretto agli utenti che riporta il luogo dell''incontro'
+          location_hints_help: 'Suggerimenti: informazioni aggiuntive. Esempio: il pavimento dell''edificio se si tratta di una riunione di persona o la password di riunione se si tratta di una riunione online con accesso ristretto.'
+          online_meeting_url_help: 'Link: permette ai partecipanti di connettersi direttamente alla tua riunione'
+          registration_url_help: 'Link: consentire ai partecipanti di accedere al servizio esterno che stai utilizzando per le iscrizioni'
           select_a_category: Scegli una categoria
+          select_a_meeting_type: Seleziona un tipo di riunione
+          select_a_registration_type: Seleziona un tipo di registrazione
         index:
           new_meeting: Nuova riunione
         meeting_minutes:
@@ -407,6 +448,7 @@ it:
         show:
           attendees: Conteggio dei partecipanti
           back: Torna alla lista
+          close_meeting: Chiusura meeting
           contributions: Conteggio dei contributi
           date: Data
           edit_meeting: Modifica la riunione
@@ -453,6 +495,10 @@ it:
           confirmed_html: La registrazione per il <a href="%{url}">%{title}</a> di riunione è stata confermata.
           details: Puoi trovare i dettagli della riunione in allegato.
           registration_code: Il tuo codice di registrazione è %{code}.
+      registration_type:
+        on_different_platform: Su una piattaforma diversa
+        on_this_platform: Usa questa piattaforma
+        registration_disabled: Registrazione disattivata
       registrations:
         create:
           invalid: C'è stato un problema a partecipare a questa riunione.
@@ -463,6 +509,10 @@ it:
         destroy:
           invalid: C'è stato un problema lasciare questa riunione.
           success: Hai lasciato l'incontro con successo.
+      type_of_meeting:
+        hybrid: Entrambi
+        in_person: Di persona
+        online: Online
       types:
         private_meeting: Incontro privato
         transparent: Trasparente

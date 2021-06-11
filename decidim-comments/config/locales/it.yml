@@ -79,6 +79,9 @@ it:
         loading: Sto caricando i commenti ...
         single_comment_warning: Puoi controllare il resto dei commenti <a href="%{url}">qui</a>.
         single_comment_warning_title: Stai vedendo un singolo commento
+        title:
+          one: "%{count} commento"
+          other: "%{count} commenti"
       down_vote_button:
         text: Non sono d'accordo con questo commento
       up_vote_button:
@@ -100,6 +103,16 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}" o il suo autore. Puoi smettere di seguirlo dal link precedente.
           email_subject: C'è un nuovo commento da %{author_name} in %{resource_title}
           notification_title: C'è un nuovo commento da <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: Il tuo commento in "%{resource_title}" ha ricevuto un voto negativo. Ora ha un totale di %{upvotes} voti positivi e %{downvotes} voti negativi.
+          email_outro: Hai ricevuto questa notifica perché sei l'autore di questo commento.
+          email_subject: Il tuo commento in "%{resource_title}" ha ricevuto un voto negativo.
+          notification_title: Il tuo <a href="%{resource_path}">commento</a> in "%{resource_title}" ha ricevuto un voto negativo. Ora ha un totale di %{upvotes} voti positivi e %{downvotes} voti negativi.
+        comment_upvoted:
+          email_intro: Il tuo commento in "%{resource_title}" è stato votato. Ora ha un totale di %{upvotes} voti positivi e %{downvotes} voti negativi.
+          email_outro: Ricevi questa notifica perché sei l'autore di questo commento.
+          email_subject: Il tuo commento in "%{resource_title}" è stato votato.
+          notification_title: Il tuo <a href="%{resource_path}">commento</a> in "%{resource_title}" è stato votato. Ora ha un totale di %{upvotes} voti positivi e %{downvotes} voti negativi.
         reply_created:
           email_intro: "%{author_name} ha risposto il tuo commento in %{resource_title}. Puoi leggerlo in questa pagina:"
           email_outro: Hai ricevuto questa notifica perché il tuo commento è stato risposto.

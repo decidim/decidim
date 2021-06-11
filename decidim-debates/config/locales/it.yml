@@ -3,6 +3,8 @@ it:
     attributes:
       debate:
         category_id: Categoria
+        closed_at: Chiuso il
+        conclusions: Conclusioni
         decidim_category_id: Categoria
         description: Descrizione
         end_time: Finisce a
@@ -12,6 +14,7 @@ it:
         title: Titolo
         user_group_id: Crea dibattito come
     models:
+      decidim/debates/close_debate_event: Dibattito chiuso
       decidim/debates/create_debate_event: Discussione
       decidim/debates/creation_disabled_event: Discussioni disabilitate
       decidim/debates/creation_enabled_event: Discussioni abilitate
@@ -25,24 +28,34 @@ it:
       debates:
         actions:
           create: Creare
+          endorse: Sottoscrivi
         name: Dibattiti
         settings:
           global:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
             comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
+            scope_id: Obiettivo
+            scopes_enabled: Obiettivi abilitati
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
             creation_enabled: Creazione di dibattiti da parte degli utenti abilitati
+            endorsements_blocked: Sottoscrizioni bloccate
+            endorsements_enabled: Sottoscrizioni abilitate
     debates:
       actions:
+        close: Chiudi
         confirm_destroy: Sei sicuro?
         destroy: Elimina
         edit: Modifica
         new: Nuovo %{name}
         title: Azioni
       admin:
+        debate_closes:
+          edit:
+            close: Chiudi
+            title: Chiudi dibattito
         debates:
           create:
             invalid: C'è stato un problema durante la creazione del dibattito.
@@ -52,6 +65,10 @@ it:
           edit:
             title: Modifica dibattito
             update: Aggiornamento del dibattito
+          form:
+            debate_type: Tipo di dibattito
+            finite: Chiuso (Con i tempi di inizio e fine)
+            open: Aperto (Nessun ora di inizio o di fine)
           index:
             title: Discussioni
           new:
@@ -60,16 +77,27 @@ it:
           update:
             invalid: C'è stato un problema durante l'aggiornamento di questo dibattito.
             success: Dibattito aggiornato con successo.
+        exports:
+          comments: Commenti
         models:
           debate:
             name: Dibattito
       admin_log:
         debate:
+          close: "%{user_name} ha chiuso il dibattito %{resource_name} sullo spazio %{space_name}"
           create: "%{user_name} ha creato il dibattito %{resource_name} sullo spazio %{space_name}"
           update: "%{user_name} ha aggiornato il dibattito %{resource_name} sullo spazio %{space_name}"
       debate_m:
         commented_time_ago: Commentato %{time} fa
       debates:
+        close:
+          invalid: Si è verificato un errore durante la chiusura del dibattito.
+          success: Dibattito chiuso con successo.
+        close_debate_modal:
+          close: Chiudi
+          description: Qual è la sintesi o la conclusione di questo dibattito?
+          send: Chiudi dibattito
+        closed: Chiuso
         count:
           debates_count:
             one: "%{count} dibattito"
@@ -89,6 +117,7 @@ it:
           category: Categoria
           category_prompt: Seleziona una categoria
           citizens: Cittadini
+          commented: Commentato
           my_debates: I miei dibattiti
           official: Ufficiale
           origin: Origine
@@ -97,6 +126,7 @@ it:
           state: Stato
           state_values:
             closed: Chiuso
+            open: Apri
           user_groups: Gruppi
         filters_small_view:
           close_modal: Chiudi modalità
@@ -119,8 +149,17 @@ it:
           updated: Aggiornato di recente
         show:
           back: Torna alla lista
+          close_debate: Chiudi dibattito
           date: Data
+          debate_closed: Chiuso
+          debate_conclusions_are: 'Il dibattito si è concluso il %{date} con queste conclusioni:'
+          edit_conclusions: Modifica conclusioni
           edit_debate: Modifica dibattito
+          groups_count: Gruppi
+          last_comment_by: Ultimo commento di
+          no_comments_yet: Ancora nessun commento
+          open: Apri il dibattito
+          participants_count: Partecipanti
         update:
           invalid: C'è stato un problema durante l'aggiornamento di questo dibattito.
           success: Dibattito aggiornato con successo.
@@ -132,6 +171,7 @@ it:
         versions_list:
           back_to_resource: Torna al dibattito
       last_activity:
+        debate_updated_at_html: "<span>Dibattito aggiornato su %{link}</span>"
         new_debate_at_html: "<span>Nuovo dibattito al %{link}</span>"
       models:
         debate:
@@ -167,6 +207,17 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: Discussioni ora disponibili in %{participatory_space_title}
           notification_title: Ora puoi iniziare <a href="%{resource_path}">nuovi dibattiti</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          affected_user:
+            email_intro: 'La discussione "%{resource_title}" si è conclusa. Puoi leggere le conclusioni sulla pagina:'
+            email_outro: Hai ricevuto questa notifica perché stai seguendo il dibattito "%{resource_title}". Se non sei più interessato clicca il link sopra.
+            email_subject: Il dibattito "%{resource_title}" si è concluso
+            notification_title: La discussione su <a href="%{resource_path}">%{resource_title}</a> si è conclusa.
+          follower:
+            email_intro: 'La discussione "%{resource_title}" si è conclusa. Puoi leggere le conclusioni sulla pagina:'
+            email_outro: Hai ricevuto questa notifica perché stai seguendo il dibattito "%{resource_title}". Se non sei più interessato clicca il link sopra.
+            email_subject: Il dibattito "%{resource_title}" si è concluso
+            notification_title: La discussione su <a href="%{resource_path}">%{resource_title}</a> si è conclusa.
     gamification:
       badges:
         commented_debates:

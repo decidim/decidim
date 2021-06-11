@@ -37,8 +37,17 @@ it:
         weight: Peso
       participatory_process_group:
         description: Descrizione
+        developer_group: Gruppo promotore
+        group_url: Sito web
+        hashtag: Hashtag
         hero_image: Immagine
+        local_area: Area di organizzazione
+        meta_scope: Ambito metadati
         participatory_process_ids: Processi correlati
+        participatory_scope: Cosa si decide
+        participatory_structure: Come si decide
+        target: A chi è destinato il processo
+        title: Titolo
       participatory_process_step:
         cta_path: Percorso della chiamata all'azione
         cta_text: Testo della chiamata all'azione
@@ -94,6 +103,9 @@ it:
         unpublish: Non pubblicarlo
       menu:
         participatory_process_groups: Gruppo di processi
+        participatory_process_groups_submenu:
+          info: Informazioni
+          landing_page: Pagina di destinazione
         participatory_processes: Processi
         participatory_processes_submenu:
           attachment_collections: Cartelle
@@ -116,6 +128,8 @@ it:
             title: Nome
           name: Processo partecipativo
         participatory_process_group:
+          fields:
+            title: Titolo
           name: Gruppo di processi
         participatory_process_step:
           fields:
@@ -143,6 +157,13 @@ it:
           copy: Copia
           select: Scegli quale dato vuoi duplicare
           title: Duplica il processo partecipativo
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Blocchi di contenuti attivi
+          inactive_content_blocks: Blocchi di contenuti inattivi
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Aggiorna
       participatory_process_groups:
         destroy:
           error: Si è verificato un errore durante la cancellazione del gruppo di processi partecipativi.
@@ -300,8 +321,25 @@ it:
         related_assemblies: Assemblee collegate
     participatory_process_groups:
       content_blocks:
+        html_1:
+          name: Primo blocco HTML
+        html_2:
+          name: Secondo blocco HTML
+        html_3:
+          name: Terzo blocco HTML
+        metadata:
+          developer_group: Promosso da
+          name: Metadati
+          participatory_scope: Che cosa si decide
+          participatory_structure: Come si decide
+          target: A chi è destinato il processo
+        participatory_processes:
+          name: Processi partecipativi
         stats:
           name: Attività
+        title:
+          meta_scope: Ambito
+          name: Titolo, descrizione e hashtag
       show:
         title: Gruppi di processi partecipativi
     participatory_process_steps:
@@ -313,11 +351,16 @@ it:
         content_blocks:
           highlighted_processes:
             max_results: Quantità massima di elementi da mostrare
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
         participatory_process_groups:
           form:
+            metadata: Metadati
+            title: Informazioni generali
             visibility: Visibilità
         participatory_process_imports:
           form:
@@ -390,6 +433,7 @@ it:
           loading: Caricamento risultati...
       show:
         area: Area
+        belongs_to_group: Questo processo appartiene a
         dates: Date
         developer_group: Promotore
         end_date: Data di fine

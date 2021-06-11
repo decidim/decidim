@@ -34,6 +34,7 @@ nl:
         subtitle: Ondertitel
         target: Wie doet mee
         title: Titel
+        weight: Gewicht
       participatory_process_group:
         description: Beschrijving
         developer_group: Promoter groep

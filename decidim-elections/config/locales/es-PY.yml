@@ -479,7 +479,7 @@ es-PY:
               generate_legend_4: Haz otra copia del archivo en un dispositivo externo diferente y guárdalo en un lugar muy seguro.
               submit: Enviar
               submit_legend: Después de seguir todos los pasos explicados anteriormente, completa el proceso enviando la clave de identificación pública al servidor de Decidim.
-              submit_title: Enviar la clave de identificación pública
+              submit_title: Enviar la clave pública de identificación
               title: Claves de identificación del garante
               upload: Sube tus claves de identificación
               upload_error:

@@ -27,6 +27,9 @@ it:
         user_group_id: Crea proposta come
       proposal_answer:
         answer: Risposta
+        cost: Costo
+        cost_report: Relazione sui costi
+        execution_period: Periodo di esecuzione
       proposals_copy:
         copy_proposals: Capisco che questo importerà tutte le proposte dal componente selezionato a quello corrente e che questa azione non può essere annullata.
         origin_component_id: Componente per copiare le proposte da
@@ -80,6 +83,28 @@ it:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Categoria
+          is_emendation_true:
+            label: Tipo
+            values:
+              'false': Proposte
+              'true': Emendamenti
+          scope_id_eq:
+            label: Ambito
+          state_eq:
+            label: Stato
+            values:
+              accepted: Accettato
+              evaluating: Valutato
+              published: Pubblicato
+              rejected: Rifiutato
+              validating: Convalida Tecnica
+              withdrawn: Ritirato
+          state_null:
+            label: Stato
+            values:
+              'true': Senza risposta
           valuator_role_ids_has:
             label: Assegnato al valutatore
         search_placeholder:
@@ -115,6 +140,10 @@ it:
             participatory_texts_enabled_readonly: Non è possibile interagire con questa impostazione se ci sono proposte esistenti. Per favore, crea un nuovo componente `Proposte` se si desidera abilitare questa funzione o elimina tutte le proposte importate nel menu `Testi partecipativi` se si desidera disabilitarla.
             proposal_answering_enabled: Risposta alla proposta abilitata
             proposal_edit_before_minutes: Minuti dall'inserimento dopo i quali le proposte non potranno piùessere modificate dagli autori
+            proposal_edit_time: Modifica proposta
+            proposal_edit_time_choices:
+              infinite: Consenti la modifica delle proposte per un tempo infinito
+              limited: Consenti la modifica delle proposte entro un periodo di tempo specifico
             proposal_length: Lunghezza massima della proposta
             proposal_limit: Numero di proposte che possono essere create da ciascun utente
             proposal_wizard_step_1_help_text: Procedura guidata proposta "Crea" testo guida passo
@@ -122,6 +151,8 @@ it:
             proposal_wizard_step_3_help_text: Procedura guidata "Completa" del testo della guida guidata della proposta
             proposal_wizard_step_4_help_text: Procedura guidata "Pubblica" del testo della guida per la procedura guidata
             resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni proposta
+            scope_id: Ambito
+            scopes_enabled: Ambiti abilitati
             threshold_per_proposal: Voti necessari per l'approvazione della proposta
             vote_limit: Limite di voto per utente
           step:
@@ -328,6 +359,7 @@ it:
         actions:
           preview: Anteprima
         exports:
+          proposal_comments: Commenti
           proposals: Proposte
         models:
           proposal:
@@ -351,7 +383,9 @@ it:
           new_import:
             accepted_mime_types:
               md: .md
+              odt: ODT
             bottom_hint: "(Sarai in grado di visualizzare in anteprima e ordinare le sezioni del documento)"
+            document_legend: 'Aggiungi un documento di dimensione inferiore a 2MB. Ciascuna sezione contenente fino a 3 livelli di profondità sarà suddivisa in proposte. I formati accettati sono i seguenti: %{valid_mime_types}'
             title: AGGIUNGI DOCUMENTO
             upload_document: Carica il documento
           publish:
@@ -392,6 +426,7 @@ it:
           form:
             attachment_legend: "(Opzionale) Aggiungere un allegato"
             created_in_meeting: Questa proposta proviene da una riunione
+            delete_attachment: Elimina allegato
             select_a_category: Scegli una categoria
             select_a_meeting: Seleziona una riunione
           index:
@@ -466,6 +501,7 @@ it:
             no_components: Non ci sono altri componenti di proposta in questo spazio partecipativo per importare le proposte da.
             select_component: Si prega di selezionare un componente
             select_states: Controlla gli stati delle proposte da importare
+            title: Importa proposte
         proposals_merges:
           create:
             invalid: Si è verificato un errore durante l'unione delle proposte selezionate.
@@ -618,6 +654,9 @@ it:
           info: Stai creando una bozza collaborativa <strong></strong>.
         wizard_header:
           title: Crea la tua bozza collaborativa
+      content_blocks:
+        highlighted_proposals:
+          proposals: Proposte
       create:
         error: C'è stato un errore durante il salvataggio di questa proposta.
         success: Proposta creata con successo. Salvato come bozza.
@@ -626,6 +665,7 @@ it:
         success: La bozza della proposta è stata cancellata con successo.
       last_activity:
         new_proposal_at_html: "<span>Nuova proposta al %{link}</span>"
+        proposal_updated_at_html: "<span>Proposta aggiornata a%{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -670,6 +710,8 @@ it:
           proposals_count:
             one: "%{count} proposta"
             other: "%{count} proposte"
+        dynamic_map_instructions:
+          instructions: <h3>Puoi spostare il punto sulla mappa. </h3><p>Non dimenticare di cliccare sul pulsante "Aggiorna posizione" prima di pubblicare la tua proposta.</p>
         edit:
           add_documents: Documenti
           add_images: File
@@ -730,6 +772,8 @@ it:
             document_index: Indice del documento
           view_index:
             see_index: Vedi indice
+        placeholder:
+          address: Homewood Drive 37, Brownsburg, IN 46112
         preview:
           announcement_body: La tua proposta è stata salvata come bozza. Deve essere pubblicata affinché appaia sul sito.
           announcement_title: La tua proposta non è stata ancora pubblicata
@@ -739,6 +783,7 @@ it:
             other: Potrai modificare questa proposta durante i primi %{count} minuti dopo la pubblicazione della proposta. Una volta passato questo periodo, non sarai più in grado di modificare la proposta.
           publish: Pubblica
           title: Pubblica la tua proposta
+          update_position: Aggiorna posizione
         proposal:
           creation_date: 'Creazione: %{date}'
           view_proposal: Visualizza la proposta

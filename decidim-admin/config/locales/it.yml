@@ -379,6 +379,7 @@ it:
         file_help:
           import:
             explanation: 'Guida per il file:'
+            message_1: I file CSV, JSON e Excel (.xls) sono supportati
             message_2: I separatori delle colonne per il formato CSV devono essere punto e virgola (";")
       help_sections:
         error: Si è verificato un errore durante l'aggiornamento delle sezioni della guida
@@ -430,6 +431,7 @@ it:
           accepted_mime_types:
             csv: csv
             json: json
+            xls: xls
           actions:
             back: Indietro
           file_legend: Aggiungi un file da importare che verrà analizzato.
@@ -935,8 +937,12 @@ it:
       reported_users:
         object: utenti segnalati
         title: Utenti segnalati
+      user_reports:
+        object: rapporti utenti
+        title: Rapporti utenti
     moderations:
       actions:
+        expand: Espandi
         hidden: Nascosto
         hide: Nascondi
         not_hidden: Non nascosto
@@ -957,17 +963,28 @@ it:
       models:
         moderation:
           fields:
+            created_at: Data di creazione
             hidden_at: Nascosto a
+            participatory_space: Spazio partecipativo
             report_count: Conteggio
+            reportable_id: Id
+            reportable_type: Tipo
             reported_content_url: URL del contenuto riportato
             reports: Report
             visit_url: Visita URL
+        report:
+          fields:
+            details: Dettagli motivazione
+            locale: Lingua
+            reason: Motivazione
   errors:
     messages:
       invalid_json: Problemi con la trasmissione tramite JSON (JSON non valido)
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Moderazione globale
         newsletters:
           title: Newsletters
         settings:

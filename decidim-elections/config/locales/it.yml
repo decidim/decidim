@@ -16,6 +16,9 @@ it:
         max_selections: Numero massimo di selezioni
         min_selections: Nessuna delle precedenti opzioni
         title: Titolo
+      voting:
+        end_time: La votazione termina il
+        start_time: La votazione inizia il
     errors:
       models:
         answer:
@@ -33,6 +36,18 @@ it:
             public_key:
               cant_be_changed: non modificabile
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: L'ufficiale elettorale è già presidente/gestore di un seggio
+            voting:
+              different_organization: La votazione deve essere effettuata nella stessa organizzazione dell'utente
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: Il funzionario incaricato del voto deve avere la stessa funzione del posto di scrutinio
     models:
       decidim/elections/answer:
         one: Risposta
@@ -43,10 +58,33 @@ it:
       decidim/elections/question:
         one: Domanda
         other: Domande
+      decidim/votings/polling_officer:
+        one: Scrutatore/trice
+        other: Scrutatore/trice
+      decidim/votings/polling_station:
+        one: Seggio elettorale
+        other: Seggio elettorale
       decidim/votings/voting:
         one: Votazione
         other: Votazioni
   decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: Responsabili
+          values:
+            assigned: Assegnato
+            unassigned: Non assegnato
+        role_eq:
+          label: Ruolo
+          values:
+            manager: Responsabile
+            president: Presidente/Presidentessa
+            unassigned: Non assegnato
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Cerca %{collection} per nome/email/nickname o seggio elettorale.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Cerca %{collection} per titolo, indirizzo o nome responsabile/email/nickname.
     components:
       elections:
         actions:
@@ -188,27 +226,142 @@ it:
             success: Elezione inviata con successo al Bollettino
             title: Imposta elezione
             trustees: Fiduciari Delle Elezioni
+          created:
+            invalid: Si è verificato un problema iniziando la cerimonia della chiave
+            submit: Iniziare la cerimonia della chiave
+            success: La richiesta di avvio della cerimonia della chiave è stata inviata con successo al Bulletin Board
+            title: Elezione creata
+            trustees: Garanti
           key_ceremony:
             title: Cerimonia chiave
             trustees: Fiduciari
+          key_ceremony_ended:
+            errors:
+              time_before: La votazione sta per cominciare. Devi aspettare fino a %{hours} ore prima dell'ora di inizio (%{start_time}) per poter votare.
+            invalid: Si è verificato un problema iniziando il periodo di votazione
+            requirements:
+              time_before: L'elezione inizierà presto. È possibile iniziare il periodo di votazione manualmente, o sarà avviato automaticamente prima dell'ora di inizio, a %{start_time}.
+            submit: Inizio del periodo di votazione
+            success: La richiesta di avvio della votazione é stata inviata con successo al Bulletin Board
+            title: Pronti via
+          processing: Processando...
+          results_published:
+            title: Risultati pubblicati
+          tally:
+            title: Conteggio
+            trustees: Garanti
+          tally_ended:
+            submit: Pubblica i risultati
+            title: Risultati conteggiati
+          vote:
+            errors:
+              time_after: Le elezioni sono ancora in corso. Devi aspettare fino all´ora (%{end_time}) per terminare il periodo di votazione.
+            invalid: Si è verificato un problema nel concludere il periodo di votazione
+            requirements:
+              time_after: Le elezioni sono terminate. Puoi terminare manualmente il periodo di votazione, oppure si concluderà automaticamente tra qualche minuto.
+            submit: Fine del periodo di votazione
+            success: La richiesta di chiusura della votazione é stata inviata con successo al Bulletin Board
+            title: Periodo di votazione
+          vote_ended:
+            invalid: Si è verificato un errore nell' inizio del conteggio
+            submit: Inizia conteggio
+            success: La richiesta di avvio del conteggio é stata inviata con successo al Bulletin Board
+            title: Periodo di votazione terminato
+          vote_stats:
+            no_vote_statistics_yet: Ancora nessuna statistica di voto
+            title: Statistiche di voto
+            voters: Votanti
+            votes: Voti
+        trustees_participatory_spaces:
+          actions:
+            disable: Disattiva
+            enable: Considerare
+          create:
+            exists: La persona garante esiste per questo spazio partecipativo
+            invalid: Si è verificato un errore creando la persona garante
+            success: Persona garante creata con successo
+          delete:
+            invalid: Si è verificato un problema durante la rimozione di questa persona garante
+            success: Persona garante rimossa con successo
+          form:
+            select_user: Selezionare utente
+          index:
+            title: Garanti
+          new:
+            create: Crea garante
+            title: Nuovo Garante
+          update:
+            invalid: Si è verificato un problema durante l'aggiornamento del garante %{trustee}
+            success: Garante %{trustee} aggiornato con successo
       admin_log:
         election:
+          end_vote: "%{user_name} ha terminato il periodo di votazione per l'elezione di %{resource_name} sul Bulletin Board"
           publish: "%{user_name} ha pubblicato l'elezione %{resource_name}"
+          setup: "%{user_name} ha creato l'elezione %{resource_name} sul Bulletin Board"
+          start_key_ceremony: "%{user_name} ha iniziato la cerimonia delle chiavi per l'elezione di %{resource_name} sul Bulletin Board"
+          start_tally: "%{user_name} ha terminato il conteggio dell'elezione %{resource_name} sul Bulletin Board"
+          start_vote: "%{user_name} ha terminato il periodo di votazione per l'elezione %{resource_name} sul Bulletin Board"
           unpublish: "%{user_name} ha rimosso l'elezione %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Completata
+          ongoing: Attiva
+          upcoming: Imminente
+        end_date: Fine
+        footer:
+          view: Visualizza
+          vote: Vota
+        label:
+          date: Date
+        questions: Domande %{count}
+        start_date: Inizio
+        unspecified: Non specificato
       elections:
         count:
           elections_count:
             one: "%{count} elezione"
             other: "%{count} elezioni"
+        filters:
+          active: Attiva
+          all: Tutti
+          finished: Completata
+          search: Cerca
+          state: Stato
+          upcoming: Imminente
+        filters_small_view:
+          close_modal: Chiudi finestra
+          filter: Filtra
+          filter_by: Filtra per
+          unfold: Espandi
+        preview:
+          available_answers: Risposte disponibili
+          description: Queste sono le domande che troverete nel processo di voto
+          title: Domande elettorali
         results:
           description: Questi sono i risultati della votazione, per ogni quesito
           selected: Selezionato
           title: Risultati delle elezioni
+          votes:
+            one: "%{count} voto"
+            other: "%{count} voti"
+            zero: "%{count} voti"
         show:
+          action-button:
+            change-vote: Cambia il tuo voto
+            vote: Inizia a votare
+            vote-again: Vota di nuovo
           back: Elezioni disponibili
+          callout:
+            already-voted: Hai già espresso il tuo voto in questa elezione. Puoi cambiare il tuo voto o verificarlo.
+            vote-rejected: Non è stato possibile verificare il tuo voto. Per favore esprimi il tuo voto di nuovo.
           preview: Anteprima
+          verify:
+            already-voted: Hai già votato?
+            verify-here: Verifica il tuo voto qui.
+            will-verify: Sarete in grado di verificare il vostro voto una volta che le votazioni saranno iniziate.
           voting_period_status:
             finished: La votazione è iniziata il %{start_time} ed è terminata il %{end_time}
+            ongoing: 'Voto attivo fino a: %{end_time}'
             upcoming: La votazione inizia il %{start_time}
       feedback:
         answer:
@@ -262,6 +415,83 @@ it:
             list:
               status: Stato
               task: Attività
+            process_warning: Una volta avviato il processo, non si dovrebbe uscire da questa pagina fino alla fine dello stesso. Ci vorranno diversi minuti, poiché tutti i Garanti dovrebbero essere collegati per completarlo.
+            start: Avvia
+            start_icon: Icona che indica un pulsante avvia per avviare la generazione delle chiavi elettorali
+            status:
+              completed: Completata
+              pending: In attesa
+              processing: Elaborazione in corso
+            title: Creare chiavi elettorali per %{election}
+          restore_modal:
+            description: Il Bulletin Board ha ricevuto informazioni da parte tua in quanto Garante di queste elezioni. Per continuare il processo, caricare il file di backup generato durante la sessione precedente.
+            title: Ripristina le chiavi elettorali per %{election}
+            upload_election_keys: Carica chiavi elettorali
+            upload_icon: Icona che indica un'azione di download
+          tally_steps:
+            back: Indietro
+            description: I risultati di queste elezioni sono in fase di elaborazione nel Bulletin Board. Per completare questo processo, è necessaria la tua partecipazione come Garante.
+            keys:
+              end_tally: Conteggio terminato
+              tally:
+                cast: Invio del conteggio
+                share: Condivisione del conteggio
+            list:
+              status: Stato
+              task: Task
+            process_warning: Una volta avviato il processo, non si dovrebbe uscire da questa pagina fino alla fine dello stesso. Ci vorranno diversi minuti, poiché tutti i Garanti dovrebbero essere collegati per completarlo.
+            start: Avvia
+            start_icon: Icona che indica un pulsante avvia per avviare la generazione delle chiavi elettorali
+            status:
+              completed: Completato
+              pending: In attesa di completamento
+              processing: Elaborazione in corso
+            title: Conteggio di %{election}
+          update:
+            error: Lo stato delle elezioni non è stato aggiornato.
+            success: 'Lo stato delle elezioni è: %{status}'
+        menu:
+          trustee_zone: Zona Garanti
+        no_bulletin_board:
+          body: Per questa sezione è necessario un Bulletin Board configurato. Contattare l'Amministratore per maggiori dettagli.
+          title: Siamo spiacenti, il Bollettin Board non è ancora configurato.
+        trustees:
+          show:
+            elections:
+              list:
+                action_required:
+                  'false': 'No'
+                  name: Azione necessaria?
+                  'true': Esegui azione
+                bb_status: Stato
+                election: Elezione
+                voting_period: Periodo di votazione
+              no_elections: Non ci sono elezioni di cui tu sia Garante.
+              title: Elezioni
+            identification_keys:
+              cancel: Annulla
+              generate: Genera chiavi di identificazione
+              generate_error: Si è verificato un errore durante la generazione delle chiavi di identificazione.
+              generate_legend: Devi generare un paio di chiavi di identificazione per partecipare alle elezioni come Garante.
+              generate_legend_1: Dopo aver premuto il pulsante dovresti scaricare il file con le chiavi di identificazione generate.
+              generate_legend_2: Copia il file scaricato su un dispositivo USB pulito
+              generate_legend_3: Assicurati che sul computer non ci sia una copia del file (controlla anche le cartelle Download e Desktop).
+              generate_legend_4: Fai un'altra copia del file su un altro dispositivo esterno e memorizzarlo in un luogo molto sicuro.
+              submit: Invia
+              submit_legend: Dopo aver seguito tutti i passaggi sopra illustrati, completare il processo inviando il codice di identificazione pubblica al server Decidim.
+              submit_title: Invia la chiave di identificazione pubblica
+              title: Codici di identificazione del Garante
+              upload: Carica i tuoi codici di identificazione
+              upload_error:
+                invalid_format: Il file caricato non contiene alcun codice di identificazione.
+                invalid_key: I codici di identificazione nel file caricato non possono essere caricati.
+                invalid_public_key: I codici di identificazione nel file caricato non corrispondono a quelli pubblici memorizzati da Decidim.
+              upload_legend: Decidim ha i tuoi codici di identificazione pubblici, ma il tuo browser ancora no. È necessario importare il file con i codici di identificazione sul computer dal backup creato dopo averli generati.
+            not_supported_browser_description: Sembra che tu stia usando un browser web che non può essere usato in qualitá di Garante. Assicurati di utilizzare la versione più recente del tuo browser, o prova ad utilizzare uno dei browser più popolari che ti permettano di esercitare il ruolo di Garante.
+            not_supported_browser_title: Aggiorna il browser per fungere da Garante
+            trustee_role_description: Ti è stato assegnato di ruolo di Garante in alcune delle elezioni che si svolgeranno su questa piattaforma.
+          update:
+            success: I tuoi codici di identificazione pubblici sono stati salvati con successo.
       votes:
         confirm:
           answer: Risposta
@@ -274,14 +504,20 @@ it:
           question: Domanda %{count}
         confirmed:
           back: Torna alle elezioni
+          error: Siamo spiacenti, si è verificato un errore nella conferma del voto. Si prega di votare di nuovo.
           experience: Com'è stata la tua esperienza?
           feedback: Lasciaci un feedback
           header: Voto confermato
           lead: Il tuo voto è già stato espresso!
           text: 'Puoi controllare che il tuo voto sia stato aggiunto con successo alla scheda elettorale con il seguente identificatore: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_link: Per controllarlo, copia l'identificatore e incollalo nella pagina <a href="%{link}">di verifica del voto</a>
         encrypting:
           header: Codifica del voto...
           text: Il tuo voto viene crittografato per assicurarti di poterlo lanciare in modo anonimo.
+        failed:
+          header: Votazione fallita
+          lead: Il tuo voto non è stato deposto!
+          text: Qualcosa è andato storto. Riprova di nuovo.
         header:
           confirm: Conferma il tuo voto
           confirmed: Voto confermato
@@ -298,9 +534,34 @@ it:
           preview_alert: Questa è un'anteprima della cabina di voto.
           question_steps: Domanda %{current_step} di %{total_steps}
           selections: "%{selected} di %{max_selections}<br> selezioni"
+        processing:
+          header: Elaborazione del voto...
+          text: Il tuo voto è stato ricevuto ed è in fase di elaborazione. Attendere prego.
+        update:
+          error: Si è verificato un errore durante l'aggiornamento dello stato della voto
+          success: Stato del voto aggiornato con successo
+        verify:
+          content:
+            heading: Verifica il tuo voto
+            info: Questo verificatore verifica che il tuo voto, identificato con una stringa di testo crittografata, sia stato inviato correttamente e che sia all'interno della scheda elettorale.
+          error:
+            header: Voto non trovato!
+            info: Il codice di voto non è stato trovato nella scheda elettorale %{link}, riprova.
+          form:
+            back: Torna su Decidim
+            submit: Controlla
+            vote_identifier: 'Codice identificativo:'
+          header:
+            title: Verifica il tuo voto
+          success:
+            header: Voto trovato!
+            info: Il tuo voto crittografato è nell'urna %{link}
         voting_step:
           back: Indietro
           continue: Successivo
+      warnings:
+        no_elections_warning: Nessuna elezione corrisponde ai criteri della tua ricerca oppure non sono previste elezioni.
+        no_scheduled_elections_warning: Al momento non sono previste elezioni, ma qui puoi trovare un elenco di tutte quelle passate.
     events:
       elections:
         election_published:
@@ -308,6 +569,30 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: L'elezione di %{resource_title} è ora attiva per %{participatory_space_title}.
           notification_title: L'elezione <a href="%{resource_path}">%{resource_title}</a> è ora attiva per %{participatory_space_title}.
+        trustees:
+          new_election:
+            email_intro: Sei stato aggiunto come Garante per le elezioni %{resource_title}.
+            email_outro: Hai ricevuto questa notifica perché ti è stato assegnato il ruolo di Garante per le elezioni %{resource_title}.
+            email_subject: Sei Garante delle elezioni %{resource_title}..
+            notification_title: Sei Garante delle elezioni <a href="%{resource_path}">%{resource_title}</a>.
+          new_trustee:
+            email_intro: Un amministratore ti ha aggiunto come Garante di %{resource_name}. Dovresti creare la tua chiave pubblica <a href='%{trustee_zone_url}'>nella tua zona garanti </a>
+            email_outro: Hai ricevuto questa notifica perché sei stata aggiunta come Garante "%{resource_name}.
+            email_subject: Sei Garante di %{resource_name}.
+            notification_title: Sei Garante di <a href="%{participatory_space_url}">%{resource_name}</a>.
+        votes:
+          accepted_votes:
+            email_intro: 'Il tuo voto è stato accettato! Usando il tuo token di voto: %{encrypted_vote_hash}, puoi verificare il tuo voto <a href="%{verify_url}">qui</a>.'
+            email_outro: Hai ricevuto questa notifica perché hai votato per l'elezione %{resource_name}.
+            email_subject: Il tuo voto per %{resource_name} è stato accettato.
+            notification_title: 'Il tuo voto è stato accettato. Verifica il tuo voto <a href="%{verify_url}">qui</a> usando il tuo token di voto: %{encrypted_vote_hash}'
+      votings:
+        polling_officers:
+          polling_station_assigned:
+            email_intro: Sei stata assegnata come %{role} del Seggio Elettorale %{polling_station_name} in <a href="%{resource_url}">%{resource_title}</a>. È possibile gestire il Seggio Elettorale dalla zona dedicata <a href="%{polling_officer_zone_url}">Zona Scrutatrice</a>.
+            email_outro: Hai ricevuto questa notifica perché ti è stato assegnato il ruolo di %{role} del %{polling_station_name}.
+            email_subject: Sei %{role} del Seggio Elettorale %{polling_station_name}.
+            notification_title: Sei %{role} del Seggio Elettorale %{polling_station_name} nella votazione <a href="%{resource_path}">%{resource_title}</a>.
     pages:
       home:
         statistics:
@@ -316,13 +601,31 @@ it:
       statistics:
         elections_count: Elezioni
     votings:
+      admin:
+        menu:
+          votings_submenu:
+            monitoring_committee_members: Comitato di Sorveglianza
+        models:
+          polling_station:
+            fields:
+              polling_station_president: Presidente/Presidentessa
       polling_officer_zone:
         polling_officers:
           show:
+            actions:
+              count_votes: Conteggio dei voti nelle urne
+              identify_person: Identifica e verifica una persona
+            polling_officer_role_description: Sei stato designato funzionario del seggio elettorale (Presidente o Gestore) in alcune elezioni svolte su questa piattaforma.
             polling_stations:
               list:
                 actions: Azioni
                 name: Nome
+                role: Il tuo ruolo
+                voting: Votazione
+              no_polling_stations: Non sei ancora assegnato a nessun seggio elettorale.
+      polling_officers:
+        roles:
+          president: Presidente/Presidentessa
   layouts:
     decidim:
       election_votes_header:

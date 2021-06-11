@@ -16,6 +16,9 @@ ja:
         max_selections: 選択範囲の最大数
         min_selections: 上記のどれでもない
         title: タイトル
+      voting:
+        end_time: 投票終了
+        start_time: 投票開始
     errors:
       models:
         answer:
@@ -26,7 +29,25 @@ ja:
           attributes:
             attachment:
               needs_to_be_reattached: 再接続が必要
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: 変更できません
+            public_key:
+              cant_be_changed: 変更できません
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: 投票委員はすでに投票所の代表者/マネージャーです
+            voting:
+              different_organization: 投票はユーザーと同じ組織内にある必要があります
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: 投票委員は投票所と同じ投票に属さなければなりません
     models:
       decidim/elections/answer:
         other: 回答
@@ -34,7 +55,26 @@ ja:
         other: 選挙
       decidim/elections/question:
         other: 質問
+      decidim/votings/polling_officer:
+        other: 投票委員
+      decidim/votings/polling_station:
+        other: 投票所
+      decidim/votings/voting:
+        other: 投票
   decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: 委員
+          values:
+            assigned: 割り当て済み
+            unassigned: 未割り当て
+        role_eq:
+          label: ロール
+          values:
+            manager: マネージャー
+            president: 責任者
+            unassigned: 未割り当て
     components:
       elections:
         actions:

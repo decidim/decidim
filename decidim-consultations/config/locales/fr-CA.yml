@@ -16,7 +16,7 @@ fr-CA:
       question:
         banner_image: Image de la bannière
         decidim_scope_id: Périmètre d'application
-        hashtag: Hashtag
+        hashtag: Mot-clic
         hero_image: Image de la page d'accueil
         i_frame_url: URL du système de vote externe
         instructions: Instructions supplémentaires pour le vote
