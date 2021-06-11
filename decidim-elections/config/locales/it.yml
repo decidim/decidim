@@ -610,6 +610,14 @@ it:
         elections_count: Elezioni
     votings:
       admin:
+        content_blocks:
+          highlighted_votings:
+            max_results: Quantità massima di elementi da mostrare
+          landing_page:
+            attachments_and_folders:
+              name: Allegati e cartelle della votazione
+            description:
+              name: Descrizione del voto
         menu:
           votings_submenu:
             monitoring_committee_members: Comitato di Sorveglianza
