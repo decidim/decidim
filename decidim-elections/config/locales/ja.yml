@@ -375,6 +375,30 @@ ja:
         label: 選挙の順序
         older: 古い
         recent: 新しい
+      trustee_zone:
+        elections:
+          backup_modal:
+            download_icon: ダウンロードアクションを示すアイコン
+            title: '%{election} のバックアップ選挙キー'
+          key_ceremony_steps:
+            back: 戻る
+            description: この選挙は、告示板に作成されています。このプロセスを完了するには、受託者としての参加が必要です。
+            keys:
+              create_election: キーの生成
+              key_ceremony:
+                joint_election_key: キーの生成に参加する
+                step_1: キーの発行
+            list:
+              status: ステータス
+              task: タスク
+            process_warning: プロセスが開始された後は、プロセスが終了するまでこのページを終了しないでください。 すべての受託者が連結され完了されるまで、数分かかることがあります。
+            start: 開始
+            start_icon: アイコンは、選挙キーの生成を開始するための開始ボタンを示します
+            status:
+              completed: 完了
+              pending: 保留中
+              processing: 処理中
+            title: '%{election} の選挙用キーを作成'
       votes:
         confirm:
           answer: 回答
