@@ -804,10 +804,10 @@ it:
             select_user: Cerca per nome, email o nickname
             user_type: Tipo di partecipante
           index:
-            title: Comitato di controllo
+            title: Comitato di sorveglianza
           new:
             create: Crea
-            title: Crea membro del comitato di controllo
+            title: Crea membro del comitato di sorveglianza
         monitoring_committee_polling_station_closures:
           actions:
             title: Azioni
@@ -822,6 +822,34 @@ it:
             change_polling_station: Torna ai Seggi Elettorali
             monitoring_committee_notes: Commenti
             monitoring_committee_notes_placeholder: Segnala qualsiasi incidenza qui
+            title: Risultati dell'elezione <i>%{election_title}</i> nel seggio elettorale <i>%{polling_station_title}</i>
+          elections:
+            title: Scegli un'elezione che vuoi convalidare
+          show:
+            change_polling_station: Torna ai Seggi Elettorali
+            monitoring_committee_notes: Osservazioni del comitato di sorveglianza
+          validate:
+            error: Si è verificato un errore durante la convalida della chiusura
+            success: La chiusura è stata convalidata correttamente
+        monitoring_committee_verify_elections:
+          index:
+            download: Scarica
+            how_to_checksum: 'Per assicurarsi che il file scaricato non sia stato danneggiato o manomesso durante il processo di download, eseguire il seguente comando nella console e controllare che il risultato corrisponda alla somma di controllo riportata sopra:'
+            how_to_download: Per verificare un'elezione, scarica il suo file verificabile dalla tabella qui sopra.
+            how_to_run_verifier: 'Una volta scaricato il file e assicuratosi che sia ok, è possibile procedere con l''esecuzione del verificatore universale. Clona <a href=''https://github.com/decidim/decidim-bulletin-board''>questo repository</a> e, dalla cartella root, esegui il seguente comando:'
+            how_to_title: Come verificare la validità di un'elezione
+            not_available: Non ancora disponibile
+            title: Elezioni
+        polling_officers:
+          create:
+            invalid: Si è verificato un errore durante la creazione di questa scrutinatrice
+            success: Scrutinatrice creata con successo
+          destroy:
+            invalid: Si è verificato un errore durante l'eliminazione di questa scrutinatrice
+            success: Scrutinatrice eliminata con successo
+          form:
+            existing_user: Partecipante esistente
+            non_user: Invita un nuovo partecipante
       polling_officer_zone:
         in_person_votes:
           complete_voting:
