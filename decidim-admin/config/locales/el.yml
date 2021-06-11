@@ -153,7 +153,6 @@ el:
         browse: Αναζήτηση
         category:
           new: Νέα κατηγορία
-        export: Εξαγωγή
         import: Εισαγωγή
         manage: Διαχείριση
         new: Νέο όνομα %{name}
