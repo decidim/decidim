@@ -738,8 +738,57 @@ it:
               new: Nuovo
               title: Azioni
             associated_census_data: Voci di voto associate
+            explanation_callout: Uno stile di voto specifica quali domande verranno presentate all'elettore nella cabina. In uno stile di voto, puoi scegliere quali domande fra le componenti di questa elezione assegnare alla scheda elettorale. Il codice di stile della scheda elettorale viene utilizzato per abbinare un elettore/elettrice con la scheda elettorale che gli/le verrà presentata in cabina. Non creare uno stile di voto se si vuole sempre presentare tutte le domande.
+            title: Stile di voto
+          new:
+            create: Crea
+            title: Crea stile di voto
+          update:
+            invalid: Si è verificato un errore durante l'aggiornamento di questo stile di voto
+            success: Stile di voto aggiornato con successo
+        content_blocks:
+          highlighted_votings:
+            max_results: Quantità massima di elementi da mostrare
+          landing_page:
+            attachments_and_folders:
+              name: Allegati e cartelle della votazione
+            description:
+              name: Descrizione del voto
+            elections:
+              name: Votazioni elettorali
+            header:
+              name: Intestazione delle votazioni
+            html_block_1:
+              name: Votazioni html blocco 1
+            html_block_2:
+              name: Votazioni html blocco 2
+            html_block_3:
+              name: Votazioni html blocco 3
+            metrics:
+              name: Metriche di voto
+            polling_stations:
+              name: Seggi elettorali
+            stats:
+              name: Statistiche di voto
+            timeline:
+              name: Calendario delle votazioni
+        index:
+          not_published: Non Pubblicato
+          published: Pubblicato
+        landing_page:
+          content_blocks:
+            edit:
+              update: Aggiorna
+          edit:
+            active_content_blocks: Blocchi di contenuti attivi
+            inactive_content_blocks: Blocchi di contenuti inattivi
         menu:
+          votings: Votazioni
           votings_submenu:
+            attachment_collections: Cartelle
+            attachment_files: Files
+            attachments: Allegati
+            ballot_styles: Stili di voto
             monitoring_committee: Comitato di Sorveglianza
             monitoring_committee_election_results: Convalida Risultati
         models:
@@ -750,6 +799,29 @@ it:
           actions:
             title: Azioni
             view: Visualizza
+        monitoring_committee_members:
+          form:
+            select_user: Cerca per nome, email o nickname
+            user_type: Tipo di partecipante
+          index:
+            title: Comitato di controllo
+          new:
+            create: Crea
+            title: Crea membro del comitato di controllo
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: Azioni
+            validate: Convalida
+            view: Visualizza
+          closures:
+            change_election: Cambia elezione
+            signed: Firmato?
+            title: Seggi elettorali per le elezioni <i>%{election_title}</i>
+            validated: Convalidato?
+          edit:
+            change_polling_station: Torna ai Seggi Elettorali
+            monitoring_committee_notes: Commenti
+            monitoring_committee_notes_placeholder: Segnala qualsiasi incidenza qui
       polling_officer_zone:
         in_person_votes:
           complete_voting:
