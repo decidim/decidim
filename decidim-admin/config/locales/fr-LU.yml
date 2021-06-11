@@ -157,7 +157,6 @@ fr-LU:
         browse: Parcourir
         category:
           new: Nouvelle catégorie
-        export: Exporter
         import: Importer
         manage: Gérer
         new: + %{name}
