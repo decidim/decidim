@@ -871,7 +871,7 @@ pl:
         scope_types: Typy zakresów
         scopes: Zakresy
         static_pages: Strony
-        statistics: Działania
+        statistics: Aktywność
         user_groups: Grupy użytkowników
         users: Administratorzy
       user_group:
