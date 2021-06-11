@@ -158,7 +158,6 @@ it:
         browse: Naviga
         category:
           new: Nuova categoria
-        export: Esporta
         import: Importazione
         manage: Gestisci
         new: Nuovo %{name}
