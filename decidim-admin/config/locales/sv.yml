@@ -157,7 +157,6 @@ sv:
         browse: Bläddra
         category:
           new: Ny kategori
-        export: Exportera
         import: Importera
         manage: Hantera
         new: Ny %{name}
