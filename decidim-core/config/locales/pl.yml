@@ -430,7 +430,7 @@ pl:
         title: Ostatnia aktywność
         view_all: Pokaż wszystkie
       metrics:
-        name: Dane organizacji
+        name: Partycypacja w liczbach
       stats:
         name: Statystyki organizacji
       sub_hero:
