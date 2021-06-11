@@ -115,6 +115,7 @@ fi:
             email_subject: Tapaaminen "%{resource_title}" suljettiin
             notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> suljettiin.
         meeting_created:
+          button_text: Ilmoittaudu tapaamiseen
           email_intro: Tapaaminen "%{resource_title}" on lisätty seuraamaasi kohteeseen "%{participatory_space_title}".
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Uusi tapaaminen lisätty kohteeseen %{participatory_space_title}
