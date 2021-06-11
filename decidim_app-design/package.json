@@ -13,7 +13,8 @@
     "npm": "^7.7.2"
   },
   "files": [
-    "packages/**/*"
+    "packages/**/*",
+    "packages_dev/all_local/*"
   ],
   "browserslist": [
     "> 0.5%",
