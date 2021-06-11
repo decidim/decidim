@@ -25,6 +25,9 @@ pt:
         update:
           error: Ocorreu um erro ao atualizar este administrador.
           success: Admin atualizado com sucesso
+      dashboard:
+        show:
+          current_organizations: Organizações atuais
       default_pages:
         placeholders:
           content: Adicione conteúdo significativo à página estática %{page} no painel do administrador.
@@ -49,6 +52,9 @@ pt:
             name: Nome
           name: Organização
       organizations:
+        advanced_settings:
+          hide: Ocultar configurações avançadas
+          show: Exibir configurações avançadas
         create:
           error: Ocorreu um erro ao criar uma nova organização.
           success: Organização criada com sucesso.
