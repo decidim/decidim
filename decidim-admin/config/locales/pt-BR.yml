@@ -115,6 +115,8 @@ pt:
       actions:
         add: Adicionar
         browse: Navegar
+        export: Exportar tudo
+        export-selection: Exportar selecionado
         manage: Gerenciar
         new: Nova %{name}
         permissions: Permissões
