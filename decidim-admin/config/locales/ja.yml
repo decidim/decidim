@@ -158,6 +158,8 @@ ja:
         browse: 検索
         category:
           new: 新しいカテゴリ
+        export: 全てエクスポート
+        export-selection: 選択したものをエクスポート
         import: インポート
         manage: 管理
         new: 新しい %{name}
