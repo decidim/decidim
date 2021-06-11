@@ -83,6 +83,18 @@ module Decidim
           end
         end
 
+        context "when the author is a deleted user" do
+          before do
+            author.nickname = ""
+            author.deleted_at = 1.week.ago
+            author.save!
+          end
+
+          it "includes the name of the author but no link to his profile" do
+            expect(mail).not_to have_link(author.name)
+          end
+        end
+
         context "when the author is a user group" do
           let(:reportable) { create(:proposal, user_groups: create(:user_group)) }
 
