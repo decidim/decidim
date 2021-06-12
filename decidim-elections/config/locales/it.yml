@@ -652,11 +652,37 @@ it:
             attachment_collections: Cartelle
             attachment_files: Files
             attachments: Allegati
+            components: Componenti
+            info: Info
+            landing_page: Pagina iniziale
             monitoring_committee_members: Comitato di Sorveglianza
+            polling_officers: Scrutatrici/tori
+            polling_stations: Seggi elettorali
         models:
+          monitoring_committee_member:
+            fields:
+              email: Email
+              name: Nome
+            name: Membro del Comitato di Sorveglianza
+          polling_officer:
+            fields:
+              email: Email
+              name: Nome
+              polling_station: Seggio elettorale (ruolo)
+            name: Scrutatrice/tore
           polling_station:
             fields:
+              address: Indirizzo
+              polling_station_managers: Gestori
               polling_station_president: Presidente/Presidentessa
+              title: Titolo
+            name: Seggio elettorale
+          voting:
+            fields:
+              created_at: Creato il
+              promoted: Evidenziato
+              published: Pubblicato
+              title: Titolo
         monitoring_committee_members:
           form:
             select_user: Cerca per nome, email o nickname
@@ -686,10 +712,12 @@ it:
             polling_stations:
               list:
                 actions: Azioni
+                address: Indirizzo
                 name: Nome
                 role: Il tuo ruolo
                 voting: Votazione
               no_polling_stations: Non sei ancora assegnato a nessun seggio elettorale.
+              title: Seggi elettorali
       polling_officers:
         roles:
           president: Presidente/Presidentessa
