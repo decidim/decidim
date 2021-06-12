@@ -836,11 +836,36 @@ it:
           index:
             title: Scegli un elezione di cui vuoi vedere i risultati
           results:
-            bulletin_board: Tabellone
+            bulletin_board: Bacheca
             election_totals: Totale delle elezioni
             polling_stations: Seggi elettorali
+            result_types:
+              blank_answers: Risposte vuote
+              blank_ballots: Votazioni in bianco
+              null_ballots: Votazioni nulle
+              total_ballots: Voti totali
+              valid_ballots: Voti validi
+            selected: Selezionato
+            title: Risultati per l'elezione <i>%{election_title}</i>
+            totals: Totali
+          show:
+            change_election: Cambia elezione
+            publish_results: Pubblica i risultati
+            publishing: Pubblicazione risultati...
+          update:
+            invalid: Si è verificato un errore durante la pubblicazione dei risultati
+            rejected: La pubblicazione dei risultati in bacheca è stata rifiutata. Riprova o contatta l'amministratore di sistema.
+            success: I risultati sono stati pubblicati correttamente
         monitoring_committee_members:
+          create:
+            invalid: Si è verificato un errore durante la creazione di questo Membro del Comitato di Sorveglianza
+            success: Membro del Comitato di Sorveglianza creato con successo
+          destroy:
+            invalid: Si è verificato un errore durante l'eliminazione di questo Membro del Comitato di Sorveglianza
+            success: Membro del comitato di sorveglianza eliminato con successo
           form:
+            existing_user: Partecipante esistente
+            non_user: Invita un nuovo partecipante
             select_user: Cerca per nome, email o nickname
             user_type: Tipo di partecipante
           index:
@@ -890,7 +915,111 @@ it:
           form:
             existing_user: Partecipante esistente
             non_user: Invita un nuovo partecipante
+        votings:
+          update:
+            invalid: Si è verificato un errore durante l'aggiornamento di questa votazione
+            success: Votazione aggiornata con successo
+      admin_log:
+        voting:
+          create: "%{user_name} ha creato la votazione %{resource_name}"
+          publish: "%{user_name} ha pubblicato la votazione %{resource_name}"
+          unpublish: "%{user_name} ha rimosso la votazione %{resource_name}"
+      census:
+        admin:
+          census:
+            create:
+              invalid: Si è verificato un errore durante il caricamento del censimento, riprova più tardi.
+              invalid_csv_header: L'intestazione CSV non ha il numero corretto di campi - si prega di leggere attentamente le istruzioni
+            creating_data:
+              info_message: "<strong>Attendere</strong>, elaborato %{processed_count} di %{raw_count} righe dal file %{file}."
+            delete:
+              button: Elimina tutti i dati del censimento
+              confirm: L'azione di eliminazione di tutti i censimenti non può essere annullato. Sei sicuro di voler continuare?
+            destroy:
+              error: Si è verificato un errore durante l'eliminazione del censimento, riprova più tardi.
+              success: Dati censimento eliminati
+            export_access_codes:
+              button: Esporta codici di accesso alle votazioni
+              callout: Ora puoi procedere all'esportazione dei codici di accesso. Questo può essere fatto solo una volta. Una volta avviata l'esportazione, riceverai un'email con le istruzioni all'indirizzo <strong>%{email}</strong>
+              confirm: Puoi esportare i codici di accesso solo una volta. Assicurati di avere accesso all'indirizzo <strong>%{email}</strong>.
+              file_not_exists: Questo file non esiste
+              launch_error: Problema nel lanciare l'esportazione dei codici di accesso
+              launch_success: Esportazione codici di accesso avviata. A breve riceverai un'email all'indirizzo %{email}
+            exporting_access_codes:
+              info_message: "<strong>Attendere</strong>, l'esportazione è in fase di preparazione, lo riceverai tra breve all'indirizzo %{email}"
+            freeze:
+              callout: Il censimento è congelato e non può essere modificato.
+            generate_access_codes:
+              button: Genera codici di accesso alla votazione
+              callout: Ora puoi procedere a generare i codici di accesso. Ricordati che dopo aver generato i codici di accesso non sarai più in grado di modificare il censimento.
+              confirm: Se continui, non sarai in grado di modificare il censimento.
+              info_message_all: "<strong>Tutte le righe importate con successo</strong> dal file %{file} (%{raw_count} di %{data_count})."
+              info_message_warn: Si prega di controllare che non manchino dati, poiché %{data_count} record sono stati creati e il file caricato %{file} aveva %{raw_count} righe.
+              launch_error: Problema nel lanciare la generazione di codici di accesso
+              launch_success: Generazione di codici lanciata.
+            generating_access_codes:
+              info_message: "<strong>Attendere</strong>, vengono generati i codici di accesso alle votazioni..."
+            new:
+              file_help:
+                explanation: 'Guida per il file:'
+                message_1: Sono ammessi solo file CSV (.csv).
+                message_2: Il separatore tra le colonne deve essere un punto e virgola (";").
+              has_ballot_styles_message: Hai impostato la modalità di voto. Assicurati che il campo "%{ballot_style_code_header}" nel CSV corrisponda al codice desiderato della modalità di voto.
+              info_message: "<strong>Non c'è ancora nessun censimento.</strong> Si prega di utilizzare il modulo sottostante per crearlo importando un file CSV."
+              missing_ballot_styles_message: 'Non c''è ancora una modalità di voto per questa votazione. Se desideri avere domande condizionate (i.e.: mostrare agli elettori domande diverse, in base al quartiere/regione di residenza), è necessario impostare lo stile <a href=%{ballot_styles_admin_path}>Modalità di voto</a> <strong>prima</strong> di importare il censimento. Se si desidera mostrare a tutti gli elettori le stesse domande, è possibile procedere con la procedura di importazione del censimento.'
+              submit: Invia csv
+              title: Crea il censimento
+            upload_info:
+              csv_example_with_ballot_style: 'Un esempio del file <strong>con</strong> mdalità di voto:'
+              csv_example_without_ballot_style: 'Un esempio del file <strong>senza</strong> modalità di voto:'
+              csv_header_after: Non includere l'ultimo campo ("%{ballot_style_code_header}") se non hai bisogno di modalità di voto/domande condizionali
+              csv_header_before: 'Il file del censimento deve essere un file CSV con la seguente intestazione:'
+        document_types:
+          dni: Documento di identità
+          nie: Numero del Permesso di Soggiorno
+          passport: Passaporto
+        export_mailer:
+          access_codes_export:
+            click_button: 'Clicca sul link successivo per scaricare i dati dei codici di accesso.<br/>Il file sarà disponibile fino a %{date}.<br/>Avrai bisogno di <a href="https://www.7-zip.org/">7-Zip</a> (per Windows), <a href="https://www.keka.io/en/">Keka</a> (per macOS) o <a href="https://peazip.github.io">PeaZip</a> (per Linux) per aprirlo. Password: %{password}'
+            download: Scarica
+            subject: L'esportazione dei codici di accesso della votazeion per %{voting_title} è disponibile
+        vote_flow:
+          already_voted_in_person: Questo partecipante ha già votato di persona e non ha diritto di voto.
+          datum_not_found: I dati forniti non corrispondono a nessun elettore.
+      content_blocks:
+        highlighted_votings:
+          name: Votazioni evidenziate
+        landing_page:
+          description:
+            show_less: Mostra meno
+            show_more: Continua a leggere
+          metrics:
+            heading: Statistiche
+          polling_stations:
+            heading: Seggi elettorali
+            no_polling_stations: Non ci sono ancora seggi elettorali.
+          timeline:
+            heading: Cronologia
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: Sei sicura?
+          destroy: Elimina
+          new: Nuovo membro
+          title: Azioni
+      pages:
+        home:
+          highlighted_votings:
+            active_votings: Votazioni attive
+            see_all_votings: Vedi tutte le votazioni
+            votings_button_title: Link alla pagina Votazioni che mostra tutte le votazioni
       polling_officer_zone:
+        closures:
+          back_to_polling_stations: Torna ai seggi elettorali
+          certify:
+            add_images: Aggiungi immagini
+            error: Si è verificato un errore nell'allegare il certificato, per favore riprova.
+            form_legend: Carica una foto del certificato di chiusura elettorale
+            heading: Resoconto del voto - Certificato di caricamento
         in_person_votes:
           complete_voting:
             questions_title: 'Ha diritto di voto nelle seguenti domande:'
