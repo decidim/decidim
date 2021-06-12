@@ -7,7 +7,7 @@
       <p><%= t(".alert") %></p>
     </div>
     <p><%= t(".explanation") %></p>
-    <%= decidim_form_for(@form, url: account_path, method: :delete, namespace: "delete_user", html: { class: "user-form delete-account" }) do |f| %>
+    <%= decidim_form_for(@form, url: account_path, method: :delete, html: { class: "user-form delete-account" }) do |f| %>
       <div>
         <label>
           <span class="user-form__label"><%= t("activemodel.attributes.account.delete_reason") %></span>
@@ -17,7 +17,7 @@
       <button class="button open-modal-button"><%= t(".confirm.title") %></button>
     <% end %>
     <div class="tiny reveal" id="deleteConfirm" data-reveal>
-      <%= decidim_form_for(@form, url: account_path, method: :delete, namespace: "delete_user_confirm", html: { class: "user-form delete-account-modal" }) do |f| %>
+      <%= decidim_form_for(@form, url: account_path, method: :delete, html: { class: "user-form delete-account-modal" }) do |f| %>
         <%= f.hidden_field :delete_reason %>
 
         <p><%= t(".confirm.question") %></p>
