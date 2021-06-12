@@ -684,7 +684,15 @@ it:
               published: Pubblicato
               title: Titolo
         monitoring_committee_members:
+          create:
+            invalid: Si è verificato un errore durante la creazione di questo Membro del Comitato di Sorveglianza
+            success: Membro del Comitato di Sorveglianza creato con successo
+          destroy:
+            invalid: Si è verificato un errore durante l'eliminazione di questo Membro del Comitato di Sorveglianza
+            success: Membro del comitato di sorveglianza eliminato con successo
           form:
+            existing_user: Partecipante esistente
+            non_user: Invita un nuovo partecipante
             select_user: Cerca per nome, email o nickname
             user_type: Tipo di partecipante
           index:
@@ -702,6 +710,30 @@ it:
           form:
             existing_user: Partecipante esistente
             non_user: Invita un nuovo partecipante
+        votings:
+          update:
+            invalid: Si è verificato un errore durante l'aggiornamento di questa votazione
+            success: Votazione aggiornata con successo
+      admin_log:
+        voting:
+          create: "%{user_name} ha creato la votazione %{resource_name}"
+          publish: "%{user_name} ha pubblicato la votazione %{resource_name}"
+          unpublish: "%{user_name} ha rimosso la votazione %{resource_name}"
+      content_blocks:
+        highlighted_votings:
+          name: Votazioni evidenziate
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: Sei sicura?
+          destroy: Elimina
+          new: Nuovo membro
+          title: Azioni
+      pages:
+        home:
+          highlighted_votings:
+            active_votings: Votazioni attive
+            see_all_votings: Vedi tutte le votazioni
+            votings_button_title: Link alla pagina Votazioni che mostra tutte le votazioni
       polling_officer_zone:
         polling_officers:
           show:
