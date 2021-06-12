@@ -5,6 +5,15 @@ require "spec_helper"
 describe "Organizations", type: :system do
   let(:admin) { create(:admin) }
 
+  shared_examples "form hiding advanced settings" do
+    it "hides advanced settings" do
+      expect(page).to have_content "Show advanced settings"
+      expect(page).to have_no_content "SMTP settings"
+      expect(page).to have_no_content "Omniauth settings"
+      expect(page).to have_no_content "File upload settings"
+    end
+  end
+
   context "when an admin authenticated" do
     before do
       login_as admin, scope: :admin
@@ -16,6 +25,8 @@ describe "Organizations", type: :system do
         click_link "Organizations"
         click_link "New"
       end
+
+      it_behaves_like "form hiding advanced settings"
 
       it "creates a new organization" do
         fill_in "Name", with: "Citizen Corp"
@@ -72,6 +83,8 @@ describe "Organizations", type: :system do
         end
       end
 
+      it_behaves_like "form hiding advanced settings"
+
       it "edits the data" do
         fill_in "Name", with: "Citizens Rule!"
         fill_in "Host", with: "www.foo.org"
@@ -79,6 +92,7 @@ describe "Organizations", type: :system do
         choose "Don't allow participants to register, but allow existing participants to login"
         check "Example authorization (Direct)"
 
+        click_button "Show advanced settings"
         check "organization_omniauth_settings_facebook_enabled"
         fill_in "organization_omniauth_settings_facebook_app_id", with: "facebook-app-id"
         fill_in "organization_omniauth_settings_facebook_app_secret", with: "facebook-app-secret"
@@ -131,6 +145,8 @@ describe "Organizations", type: :system do
         within "table tbody" do
           first("tr").click_link "Edit"
         end
+
+        click_button "Show advanced settings"
       end
 
       after do

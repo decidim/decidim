@@ -30,10 +30,10 @@ ja:
         organizer_id: オーガナイザー
         private_meeting: プライベートミーティング
         registration_email_custom_content: 登録メールのカスタムコンテンツ
-        registration_form_enabled: 登録フォームは有効です
+        registration_form_enabled: 登録フォームが有効
         registration_terms: 登録条件
         registration_url: 登録URL
-        registrations_enabled: 登録が有効です
+        registrations_enabled: 登録が有効
         start_time: 開始時刻
         title: タイトル
         transparent: 透明度
@@ -52,7 +52,7 @@ ja:
     models:
       decidim/meetings/close_meeting_event: ミーティングは終了しました
       decidim/meetings/create_meeting_event: 会議
-      decidim/meetings/meeting_registrations_enabled_event: 登録が有効です
+      decidim/meetings/meeting_registrations_enabled_event: 登録が有効
       decidim/meetings/meeting_registrations_over_percentage_event: 上限を超える登録
       decidim/meetings/upcoming_meeting_event: 今後のミーティング
       decidim/meetings/update_meeting_event: ミーティングが更新されました
@@ -87,7 +87,8 @@ ja:
             creation_enabled_for_participants: 出席者はミーティングを作成できます
             default_registration_terms: デフォルトの登録条件
             enable_pads_creation: パッドの作成を有効にする
-            registration_code_enabled: 登録コードが有効になりました
+            maps_enabled: 地図が有効
+            registration_code_enabled: 登録コードが有効
             resources_permissions_enabled: アクションの権限はミーティングごとに設定できます
             scope_id: スコープ
             scopes_enabled: スコープが有効

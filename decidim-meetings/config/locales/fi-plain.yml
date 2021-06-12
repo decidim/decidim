@@ -368,6 +368,13 @@ fi-pl:
           close: Sulje tapaaminen
           title: Sulje tapaaminen
       meetings:
+        calendar_modal:
+          add_to_calendar: Lisää kalenteriin
+          apple: Lähetä Apple-kalenteriin
+          close_window: Sulje ikkuna
+          full_details_html: Tapahtuman kaikki tiedot löytyvät osoitteesta %{link}
+          google: Lisää Google-kalenteriin
+          outlook: Lisää Outlook-kalenteriin
         count:
           meetings_count:
             one: "%{count} tapahtuma"
@@ -480,6 +487,11 @@ fi-pl:
             official_meeting: Virallinen tapahtuma
             start_time: Alkamispäivä
             title: Otsikko
+      public_participants_list:
+        attending_participants: Mukana olevat osallistujat
+        hidden_participants_count:
+          one: ja %{count} muu henkilö
+          other: ja %{count} muuta henkilöä
       read_more: "(lue lisää)"
       registration_mailer:
         confirmation:

@@ -10,22 +10,38 @@ pl:
         copy_features: Skopiuj funkcje
         decidim_scope_id: Zakres
         description: Opis
+        end_date: Data zakończenia
         hashtag: Hashtag
         hero_image: Obraz główny
+        main_logo: Główne logo
         participatory_processes_ids: Powiązane procesy partycypacyjne
         promoted: Wyróżniona
         published_at: Opublikowano
+        registration_terms: Warunki rejestracji
+        registrations_enabled: Rejestracja włączona
         scope_id: Zakres
         scopes_enabled: Zakresy dozwolone
         short_description: Krótki opis
         show_statistics: Pokaż statystyki
+        sign_date: Data podpisania
+        signature: Podpis
         slogan: Slogan
         slug: URL slug
+        start_date: Data rozpoczęcia
         title: Tytuł
       conference_media_link:
+        date: Data
+        link: Link
+        title: Tytuł
         weight: Kolejność na stronie
       conference_partner:
+        link: Link
+        logo: Logo
+        partner_type: Typ partnera
         weight: Kolejność na stronie
+      conference_registration_invite:
+        email: Adres e-mail
+        registration_type_id: Typ rejestracji
       conference_registration_type:
         weight: Kolejność na stronie
       conference_speaker:
@@ -33,7 +49,7 @@ pl:
         full_name: Pełne imię i nazwisko
       conference_user_role:
         email: E-mail
-        name: Nazwa
+        name: Imię
         role: Rola
     errors:
       models:

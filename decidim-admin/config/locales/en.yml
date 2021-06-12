@@ -159,7 +159,8 @@ en:
         browse: Browse
         category:
           new: New category
-        export: Export
+        export: Export all
+        export-selection: Export selection
         import: Import
         manage: Manage
         new: New %{name}

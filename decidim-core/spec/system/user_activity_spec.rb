@@ -70,5 +70,15 @@ describe "User activity", type: :system do
         options: resource_types.push("All types")
       )
     end
+
+    context "when accessing a non existing profile" do
+      before do
+        visit decidim.profile_activity_path(nickname: "invalid_nickname")
+      end
+
+      it "displays an error message" do
+        expect(page).to have_text("Participant deleted")
+      end
+    end
   end
 end

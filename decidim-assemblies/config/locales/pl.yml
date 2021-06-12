@@ -65,7 +65,7 @@ pl:
         user_id: Użytkownik
       assembly_user_role:
         email: E-mail
-        name: Nazwa
+        name: Imię
         role: Rola
     errors:
       models:
@@ -219,7 +219,7 @@ pl:
           fields:
             ceased_date: Data zakończenia
             designation_date: Data wyznaczenia
-            full_name: Nazwa
+            full_name: Imię
             position: Pozycja
           name: Członek
           positions:
@@ -267,6 +267,7 @@ pl:
       admin:
         assemblies:
           form:
+            announcement_help: Wprowadzony tutaj tekst zostanie wyświetlony użytkownikowi tuż pod informacjami o zespole.
             duration: Czas trwania
             duration_help: Jeśli czas trwania tego zespołu jest ograniczony, wybierz datę końcową. W przeciwnym razie pojawi się jako nieokreślony.
             filters: Filtry

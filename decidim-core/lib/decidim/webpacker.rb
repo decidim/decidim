@@ -20,5 +20,9 @@ module Decidim
     def self.register_entrypoints(entrypoints)
       configuration.entrypoints.merge!(entrypoints.stringify_keys)
     end
+
+    def self.register_stylesheet_import(import)
+      configuration.stylesheet_imports.push(import)
+    end
   end
 end

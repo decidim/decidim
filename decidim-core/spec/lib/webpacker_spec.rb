@@ -5,6 +5,13 @@ require "decidim/webpacker"
 
 module Decidim
   describe Webpacker do
+    before do
+      # Use a local configuration object for easier testing
+      allow(subject).to receive(:configuration).and_return(
+        Decidim::Webpacker::Configuration.new
+      )
+    end
+
     describe ".configuration" do
       it "returns the configuration object" do
         expect(subject.configuration).to be_a(Decidim::Webpacker::Configuration)
@@ -49,6 +56,23 @@ module Decidim
         expect(described_class.configuration.entrypoints).to eq(
           "test_entry" => "entrypath",
           "other_entry" => "otherpath"
+        )
+      end
+    end
+
+    describe ".register_stylesheet_import" do
+      after do
+        described_class.configuration.stylesheet_imports.slice!(
+          0,
+          described_class.configuration.stylesheet_imports.length
+        )
+      end
+
+      it "registers the defined entrypoints" do
+        described_class.register_stylesheet_import("stylesheets/decidim/test")
+
+        expect(described_class.configuration.stylesheet_imports).to eq(
+          %w(stylesheets/decidim/test)
         )
       end
     end
