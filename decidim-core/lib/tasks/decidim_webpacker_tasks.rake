@@ -39,6 +39,9 @@ namespace :decidim do
         webpack-dev-server
       )
       system! "npm uninstall #{webpacker_packages.join(" ")}"
+
+      # Add the Browserslist configuration to the project
+      add_decidim_browserslist_configuration
     end
 
     desc "Upgrade Decidim dependencies in Rails instance application"
@@ -57,6 +60,14 @@ namespace :decidim do
           system! "npm i #{package}"
         end
       end
+    end
+
+    def add_decidim_browserslist_configuration
+      package = JSON.parse(File.read(rails_app_path.join("package.json")))
+      return if package["browserslist"].is_a?(Array) && package["browserslist"].include?("extends @decidim/browserslist-config")
+
+      package["browserslist"] = ["extends @decidim/browserslist-config"]
+      File.write(rails_app_path.join("package.json"), JSON.pretty_generate(package))
     end
 
     def decidim_path
