@@ -829,13 +829,19 @@ pl:
         monitoring_committee_election_results:
           actions:
             view: Widok
+          index:
+            title: Wybierz wybory, których wyniki chcesz zobaczyć
           results:
             bulletin_board: Tablica danych wyborczych
+            election_totals: Podsumowanie wyborów
+            polling_stations: Lokale wyborcze
             result_types:
+              blank_answers: Puste głosy
               blank_ballots: Puste głosy
               null_ballots: Puste głosy
               total_ballots: Suma oddanych głosów
               valid_ballots: Suma ważnych głosów
+            selected: Wybrane
             title: Wyniki głosowania w wyborach <i>%{election_title}</i>
             totals: Razem
           show:
@@ -865,10 +871,17 @@ pl:
             title: Dodaj członka komisji monitorującej
         monitoring_committee_polling_station_closures:
           actions:
+            title: Działania
+            validate: Zweryfikuj
             view: Widok
           closures:
             change_election: Zmień wybór
+            signed: Podpisane?
+            title: Lokale wyborcze w wyborach <i>%{election_title}</i>
+            validated: Zweryfikowano?
           edit:
+            change_polling_station: Wróć do lokali wyborczych
+            monitoring_committee_notes: Uwagi
             title: Wyniki głosowania <i>%{election_title}</i> w lokalu wyborczym <i>%{polling_station_title}</i>
           elections:
             title: Wybierz wybory, które chcesz zatwierdzić
