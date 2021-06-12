@@ -13,8 +13,7 @@
     "npm": "^7.7.2"
   },
   "files": [
-    "packages/**/*",
-    "packages_dev/all_local/*"
+    "packages/**/*"
   ],
   "browserslist": [
     "extends @decidim/browserslist-config"
