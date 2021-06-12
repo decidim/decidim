@@ -491,6 +491,9 @@ it:
             title: Titolo
       public_participants_list:
         attending_participants: Partecipanti presenti
+        hidden_participants_count:
+          one: e %{count} altra persona
+          other: e altre %{count} persone
       read_more: "(leggi di più)"
       registration_mailer:
         confirmation:
