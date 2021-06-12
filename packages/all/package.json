@@ -14,8 +14,9 @@
     "npm": "^7.7.2"
   },
   "dependencies": {
-    "@decidim/core": "~0.25.0-dev",
-    "@decidim/elections": "~0.25.0-dev",
-    "@decidim/webpacker": "~0.25.0-dev"
+    "@decidim/browserslist-config": "file:../browserslist-config",
+    "@decidim/core": "file:../core",
+    "@decidim/elections": "file:../elections",
+    "@decidim/webpacker": "file:../webpacker"
   }
 }
