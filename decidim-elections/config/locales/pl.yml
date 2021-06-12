@@ -1188,10 +1188,27 @@ pl:
             document_number_placeholder: Numer dokumentu tożsamości
             month: Miesiąc
             month_placeholder: MM
+            select: Wybierz typ dokumentu
+            title: 'Wybierz typ dokumentu i wprowadź numer dokumentu uczestnika:'
+            validate_document: Zweryfikuj dokument
             year: Rok
             year_placeholder: YYYY
+          new:
+            back: Wróć do lokali wyborczych
+            title: Zidentyfikuj i zweryfikuj uczestnika
+          show:
+            back: Wróć do lokali wyborczych
+            title: Oczekiwanie na rejestrację głosowania osobistego
+          update:
+            error: Wystąpił błąd podczas rejestracji głosu. Proszę spróbować ponownie.
+            success:
+              accepted: Głos został zarejestrowany pomyślnie.
+              rejected: Głos nie został zaakceptowany przez Tablicę danych wyborczych. Skontaktuj się z administratorem systemu.
           verify_document:
             census_present: Uczestnik jest na liście wyborców.
+            name: Imię
+            title: 'Sprawdź, czy następujące dane są poprawne:'
+            verify_document: Zweryfikuj dokument
         menu:
           polling_officer_zone: Strefa oficera wyborczego
         polling_officers:
@@ -1199,8 +1216,14 @@ pl:
             polling_officer_role_description: Zostałeś powołany do pełnienia funkcji oficera lokalu wyborczego (przewodniczącego lub kierownika) w niektórych wyborach prowadzonych na tej platformie.
             polling_station:
               address: Adres
+              count_votes: Policz głosy
+              election: Wybory
+              identify_person: Identyfikacja osoby
+              name: Nazwa
               no_polling_stations: Nie jesteś jeszcze przypisany do żadnego lokalu wyborczego.
               role: Twoja rola
+              show_closure: Zobacz zamknięcie
+              title: Lokale wyborcze
               voting: Głosowanie
       polling_officers:
         actions:
@@ -1213,6 +1236,11 @@ pl:
           president: Przewodniczący
           unassigned: Nie przypisano
       polling_station_closure_recount:
+        nota_option: Puste / Żadne z powyższych
+        polling_officer_notes: 'Uwagi oficera wyborczego:'
+        polling_officer_notes_blank: Brak uwag
+        recount_summary: 'Podsumowanie przeliczania:'
+        signed: Podpisane
         total_ballots: 'Suma oddanych głosów:'
         total_blank_ballots: 'Suma pustych głosów:'
         total_null_ballots: 'Suma głosów nieważnych:'
@@ -1226,6 +1254,9 @@ pl:
           title: Działania
       votings:
         access_code_modal:
+          email: Wyślij e-mailem do %{email}
+          info: Potrzebujesz kodu dostępu, aby wziąć udział. Jeśli nie otrzymałeś go pocztą, możemy wysłać Ci nowy.
+          no_email: Brak e-mail
           no_sms: Brak dostępnego numeru telefonu
           sms: Wyślij SMS do %{sms}
           title: Uzyskaj kod dostępu
