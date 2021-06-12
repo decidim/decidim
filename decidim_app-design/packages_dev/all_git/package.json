@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@decidim/core": "https://gitpkg.now.sh/mainio/decidim/packages/core?feature/split-npm-packages",
-    "@decidim/dev": "https://gitpkg.now.sh/mainio/decidim/packages/dev?feature/split-npm-packages",
     "@decidim/elections": "https://gitpkg.now.sh/mainio/decidim/packages/elections?feature/split-npm-packages",
     "@decidim/webpacker": "https://gitpkg.now.sh/mainio/decidim/packages/webpacker?feature/split-npm-packages"
   }

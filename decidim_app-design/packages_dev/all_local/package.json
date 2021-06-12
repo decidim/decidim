@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@decidim/core": "file:../../packages/core",
-    "@decidim/dev": "file:../../packages/dev",
     "@decidim/elections": "file:../../packages/elections",
     "@decidim/webpacker": "file:../../packages/webpacker"
   }

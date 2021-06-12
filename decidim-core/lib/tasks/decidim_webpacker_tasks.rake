@@ -50,7 +50,13 @@ namespace :decidim do
     end
 
     def install_decidim_npm
-      system! "npm i #{decidim_npm_package}"
+      decidim_npm_packages.each do |type, package|
+        if type == :dev
+          system! "npm i -D #{package}"
+        else
+          system! "npm i #{package}"
+        end
+      end
     end
 
     def decidim_path
@@ -61,7 +67,7 @@ namespace :decidim do
       @decidim_gemspec ||= Gem.loaded_specs["decidim"]
     end
 
-    def decidim_npm_package
+    def decidim_npm_packages
       case decidim_gemspec.source
       when Bundler::Source::Path
         gem_path = decidim_gemspec.source.path
@@ -77,13 +83,22 @@ namespace :decidim do
         FileUtils.cp_r("#{gem_path}/packages_dev/all_local", rails_app_path.join("packages"))
         FileUtils.mv(rails_app_path.join("packages/all_local"), rails_app_path.join("packages/all"))
 
-        "./packages/all"
+        {
+          dev: "./packages/dev",
+          prod: "./packages/all"
+        }
       when Bundler::Source::Rubygems
         if decidim_gemspec.version.to_s =~ /\.dev$/
           # With the .dev version the package does not exist at NPM yet.
-          "https://gitpkg.now.sh/mainio/decidim/packages_dev/all_git?feature/split-npm-packages"
+          {
+            dev: "https://gitpkg.now.sh/mainio/decidim/packages/dev?feature/split-npm-packages",
+            prod: "https://gitpkg.now.sh/mainio/decidim/packages_dev/all_git?feature/split-npm-packages"
+          }
         else
-          "@decidim/all@~#{decidim_gemspec.version}"
+          {
+            dev: "@decidim/dev@~#{decidim_gemspec.version}",
+            prod: "@decidim/all@~#{decidim_gemspec.version}"
+          }
         end
       when Bundler::Source::Git
         github_repo =
@@ -91,7 +106,10 @@ namespace :decidim do
           "decidim/decidim"
         branch = decidim_gemspec.source.branch
 
-        "https://gitpkg.now.sh/#{github_repo}/packages_dev/all_git?#{branch}"
+        {
+          dev: "https://gitpkg.now.sh/#{github_repo}/packages/dev?#{branch}",
+          prod: "https://gitpkg.now.sh/#{github_repo}/packages_dev/all_git?#{branch}"
+        }
       end
     end
 

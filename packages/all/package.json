@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@decidim/core": "~0.25.0-dev",
-    "@decidim/dev": "~0.25.0-dev",
     "@decidim/elections": "~0.25.0-dev",
     "@decidim/webpacker": "~0.25.0-dev"
   }

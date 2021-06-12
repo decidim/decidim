@@ -215,6 +215,7 @@
     "@decidim/all": "file:packages_dev/all_local"
   },
   "devDependencies": {
+    "@decidim/dev": "file:packages/dev",
     "babel-jest": "^26.6.3",
     "concat-stream": "^2.0.0",
     "enzyme": "^3.11.0",
