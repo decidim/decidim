@@ -64,6 +64,16 @@ pl:
         few: Pytania
         many: Pytania
         other: Pytania
+      decidim/votings/census/dataset:
+        one: Zestaw danych
+        few: Zestawów danych
+        many: Zestawów danych
+        other: Zestawy danych
+      decidim/votings/census/datum:
+        one: Dane
+        few: Danych
+        many: Danych
+        other: Dane
       decidim/votings/polling_officer:
         one: Oficer wyborczy
         few: Oficerów wyborczych
@@ -101,6 +111,12 @@ pl:
           label: Podpisane
           values:
             'false': Podpisane
+            'true': Nie podpisano
+        validated_eq:
+          label: Zweryfikowano
+          values:
+            'false': Zweryfikowano
+            'true': Nie zweryfikowano
     components:
       elections:
         actions:
@@ -343,6 +359,11 @@ pl:
           upcoming: Nadchodzące
         end_date: Data zakończenia
         footer:
+          remaining_time:
+            one: "<strong>%{count} godzina %{minutes} minut</strong> pozostało do głosowania."
+            few: "<strong>%{count} godzin %{minutes} minut</strong> pozostało do głosowania."
+            many: "<strong>%{count} godzin %{minutes} minut</strong> pozostało do głosowania."
+            other: "<strong>%{count} godziny %{minutes} minuty</strong> pozostały do głosowania."
           view: Zobacz
           vote: Głosuj
         label:
@@ -640,6 +661,7 @@ pl:
           question_steps: Pytanie %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> opcji wyboru"
         onboarding_modal:
+          close: Zamknij okno
           create_account: Utwórz konto
           description: Czy chcesz utworzyć nowe konto w Decydim? Będziesz mógł uczestniczyć w procesach i aktywnie działać w organizacji.
           no_account: Nie, dziękuję.
@@ -794,6 +816,9 @@ pl:
             info: Informacje
             landing_page: Strona docelowa
             monitoring_committee: Komisja monitorująca
+            monitoring_committee_election_results: Zweryfikuj wyniki
+            monitoring_committee_members: Członkowie
+            monitoring_committee_polling_station_closures: Zweryfikuj certyfikaty
             monitoring_committee_verify_elections: Sprawdź wybory
             polling_officers: Oficerzy wyborczy
             polling_stations: Lokale wyborcze
@@ -806,7 +831,7 @@ pl:
             fields:
               email: Adres e-mail
               name: Imię
-            name: Członek komisji monitorującej
+            name: Członek Komisji Wyborczej
           polling_officer:
             fields:
               email: Adres e-mail
@@ -828,6 +853,7 @@ pl:
               title: Tytuł
         monitoring_committee_election_results:
           actions:
+            title: Działania
             view: Widok
           index:
             title: Wybierz wybory, których wyniki chcesz zobaczyć
@@ -854,21 +880,21 @@ pl:
             success: Pomyślnie ogłoszono wyniki głosowania
         monitoring_committee_members:
           create:
-            invalid: Wystąpił błąd podczas tworzenia członka komisji monitorującej
-            success: Utworzono członka komisji monitorującej
+            invalid: Wystąpił błąd podczas tworzenia członka Komisji Wyborczej
+            success: Utworzono członka Komisji Wyborczej
           destroy:
-            invalid: Podczas usuwania członka komisji monitorującej wystąpił błąd
-            success: Usunięto członka komisji monitorującej
+            invalid: Podczas usuwania członka Komisji Wyborczej wystąpił błąd
+            success: Usunięto członka Komisji Wyborczej
           form:
             existing_user: Istniejący użytkownik
             non_user: Zaproś użytkownika
             select_user: Przeszukaj według adresu e-mail, imienia lub nazwy użytkownika
             user_type: Typ użytkownika
           index:
-            title: Komisja monitorująca
+            title: Komisja Wyborcza
           new:
             create: Utwórz
-            title: Dodaj członka komisji monitorującej
+            title: Dodaj członka Komisji Wyborczej
         monitoring_committee_polling_station_closures:
           actions:
             title: Działania
@@ -882,14 +908,25 @@ pl:
           edit:
             change_polling_station: Wróć do lokali wyborczych
             monitoring_committee_notes: Uwagi
+            monitoring_committee_notes_placeholder: Zgłoś tutaj jakiekolwiek incydenty
             title: Wyniki głosowania <i>%{election_title}</i> w lokalu wyborczym <i>%{polling_station_title}</i>
           elections:
             title: Wybierz wybory, które chcesz zatwierdzić
+          show:
+            change_polling_station: Wróć do lokali wyborczych
+            monitoring_committee_notes: Uwagi Komisji Wyborczej
+          validate:
+            error: Wystąpił błąd przy weryfikacji zamknięcia
+            success: Zamknięcie zostało zaweryfikowane poprawnie
         monitoring_committee_verify_elections:
           index:
+            download: Pobierz
             how_to_checksum: 'Aby upewnić się, że pobrany plik nie został uszkodzony lub podmieniony podczas procesu pobierania, uruchom następujące polecenie w konsoli i sprawdź, czy wynik zgadza się z sumą kontrolną powyżej:'
             how_to_download: Aby sprawdzić wybory pobierz sprawdzalne dane wyborcze z powyższej tabeli.
+            how_to_run_verifier: 'Po pobraniu pliku i upewnieniu się, że plik jest w porządku, możesz przejść do uruchomienia uniwersalnego weryfikatora. Sklonuj <a href=''https://github.com/decidim/decidim-bulletin-board''>to repozytorium</a> i wykonaj następujące polecenie z katalogu root:'
             how_to_title: Jak sprawdzić ważność wyborów
+            not_available: Jeszcze nie jest dostępny
+            title: Wybory
         polling_officers:
           create:
             invalid: Przy tworzeniu oficera wyborczego wystąpił błąd
@@ -1071,14 +1108,26 @@ pl:
             votings_button_title: Link do strony Głosowań wyświetla wszystkie głosy
       polling_officer_zone:
         closures:
+          back_to_polling_stations: Wróć do lokali wyborczych
           certify:
             add_images: Dodaj obrazy
             error: Wystąpił błąd podczas dołączania certyfikatu, spróbuj ponownie.
+            form_legend: Prześlij zdjęcie certyfikatu zamknięcia wyborów
+            heading: Przeliczanie głosów - Prześlij certyfikat
+            info_text: Prześlij zdjęcie certyfikatu zamknięcia wyborów.
             submit: Prześlij certyfikat
             success: Certyfikat przesłany pomyślnie.
+          create:
+            error: Wystąpił błąd przy zamykaniu. Spróbuj ponownie później.
+            success: Zamknięto pomyślnie.
           edit:
+            heading: Przeliczanie głosów - Przeliczanie odpowiedzi
+            info_text: Proszę wprowadzić całkowitą liczbę odpowiedzi na każde pytanie.
             modal_ballots_results_count_error:
               close_modal: Zamknij
+              info_text: Całkowita liczba kart wyborczych nie jest zgodna z całkowitą liczbą kopert. Proszę przejrzeć całkowitą liczbę kart wyborczych.
+              title: Suma kart wyborczych nie zgadza się
+            save_recount: Zapisz przeliczenie głosów
             total_ballots: Suma oddanych głosów
             total_blank_ballots: Suma pustych głosów
             total_null_ballots: Suma głosów nieważnych
@@ -1090,19 +1139,55 @@ pl:
             modal_ballots_count_error:
               btn_validate_total: Sprawdź sumę przeliczonych głosów
               close_modal: Zamknij
-              info_explanation_text: 'Sprawdź całkowitą liczbę kart. Jeśli całkowita liczba jest poprawna, należy podać wyjaśnienie dla komitetu monitorującego:'
+              info_explanation_text: 'Sprawdź całkowitą liczbę kart. Jeśli całkowita liczba jest poprawna, należy podać wyjaśnienie dla Komisji Wyborczej:'
+              info_text: Całkowita liczba kart wyborczych (kopert) nie odpowiada liczbie osób, które zagłosowały w tym lokalu wyborczym.
+              message_for_monitoring_committee: Wiadomość dla Komisji Wyborczej
+              review_recount: Zweryfikuje przeliczenie głosów
+              text_area_placeholder: Wpisz wiadomość
+              title: Suma rekordów nie zgadza się
+              total_ballots: 'Suma kart wyborczych:'
+              total_people: 'Suma osób:'
+            polling_station: 'Lokal wyborczy:'
+            submit: Sprawdź całkowitą liczbę
+            total_ballots_count: Liczba kart wyborczych
+          show:
+            heading: Przeliczenie głosów
+            info_text: Zamknięcie lokalu wyborczego.
           sign:
             cancel: Anuluj
+            check_box: Sprawdziłem to. Należy to rozumieć tak samo fizyczny certyfikat zamknięcia wyborów
+            close_modal: Zamknij
             confirm: Ok, kontynuuj
             error: Wystąpił błąd, spróbuj ponownie.
+            heading: Przeliczenie głosów - Podpisz zamknięcie
+            info_text: Jeśli kontynuujesz, nie możesz już modyfikować żadnej z informacji, nie można cofnąć tej akcji.
+            submit: Podpisz zamknięcie
+            success: Zamknięcie podpisane pomyślnie.
+            title: Tej czynności nie można cofnąć
+          update:
+            error: Wystąpił błąd podczas aktualizacji wyników zamknięcia, spróbuj ponownie później.
+            success: Wyniki zamknięcia zostały zaktualizowane.
         in_person_votes:
           complete_voting:
+            available_answers: 'Możliwe odpowiedzi:'
             census_verified: Uczestnik jeszcze nie głosował.
+            complete_voting: Zakończ głosowanie
+            identify_another: Zidentyfikuj innego uczestnika
+            questions_title: 'Ma prawo do głosowania w następujących kwestiach:'
+            questions_title_voted: 'Uczestnik głosował już online i ma prawo głosować w następujących kwestiach:'
+            voted: Uczestnik zagłosował
+          create:
+            error: Głos nie został zarejestrowany. Spróbuj ponownie.
           in_person_form:
             census_not_present: Uczestnik nie jest umieszczony na liście wyborców.
             census_not_present_description: Wyborca musi złożyć skargę na nieprawidłowości w liście wyborców, albo skontaktować się z pomocą techniczną.
             date_of_birth: Data urodzenia
             day: Dzień
+            day_placeholder: DD
+            document_number: Numer dokumentu
+            document_number_placeholder: Numer dokumentu tożsamości
+            month: Miesiąc
+            month_placeholder: MM
             year: Rok
             year_placeholder: YYYY
           verify_document:
@@ -1141,6 +1226,7 @@ pl:
           title: Działania
       votings:
         access_code_modal:
+          no_sms: Brak dostępnego numeru telefonu
           sms: Wyślij SMS do %{sms}
           title: Uzyskaj kod dostępu
         check_census:
@@ -1160,10 +1246,13 @@ pl:
           date_of_birth: Data urodzenia
           day: Dzień
           day_placeholder: DD
+          document_number: Numer dokumentu
           document_number_placeholder: Numer ID
           month: Miesiąc
           month_placeholder: MM
           postal_code: Kod pocztowy
+          postal_code_placeholder: Kod pocztowy
+          select: Wybierz typ dokumentu
           year: Rok
           year_placeholder: RRRR
         count:
@@ -1173,6 +1262,8 @@ pl:
             many: "%{count} głosowań"
             other: "%{count} głosowania"
         elections_log:
+          bb_status: Status wyborów
+          description: Dziennik zdarzeń wyborczych pokaże Ci wszystkie istotne informacje o każdym głosowaniu. Na przykład status ceremonii kluczy lub też, czy wyniki są już publikowane. Kliknij na wybory o którym chcesz uzyskać informacje z dziennika zdarzeń wyborczych.
           election_log: Dziennik zdarzeń wyborczych
           title: Dziennik zdarzeń wyborczych
         filters:
@@ -1194,7 +1285,9 @@ pl:
         login:
           access_code: Kod dostępu
           access_code_placeholder: Kod dostępu
+          ask_for_a_new_one: Poproś o nowe.
           dont_have_access_code: Nie masz kodu dostępu?
+          form_title: 'Wypełnij poniższy formularz, aby uzyskać dostęp do głosowania:'
           start_voting: Rozpocznij głosowanie
           step: Identyfikacja
           title: Zidentyfikuj mnie z danymi na liście wyborców
@@ -1204,6 +1297,7 @@ pl:
           random: Losowo
           recent: Najnowsze
         send_access_code:
+          invalid: Wystąpił błąd podczas wysyłania kodu dostępu
           success: Twój kod dostępu został wysłany pomyślnie
         show:
           dates: Daty
