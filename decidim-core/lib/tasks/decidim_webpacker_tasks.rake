@@ -79,9 +79,6 @@ namespace :decidim do
         # where the `package.json` is located at. For more information, see:
         # https://github.com/npm/cli/issues/2339
         FileUtils.cp_r("#{gem_path}/packages", rails_app_path)
-        FileUtils.rm_rf("#{rails_app_path}/packages/all")
-        FileUtils.cp_r("#{gem_path}/packages_dev/all_local", rails_app_path.join("packages"))
-        FileUtils.mv(rails_app_path.join("packages/all_local"), rails_app_path.join("packages/all"))
 
         {
           dev: "./packages/dev",
@@ -91,8 +88,8 @@ namespace :decidim do
         if decidim_gemspec.version.to_s =~ /\.dev$/
           # With the .dev version the package does not exist at NPM yet.
           {
-            dev: "https://gitpkg.now.sh/mainio/decidim/packages/dev?feature/split-npm-packages",
-            prod: "https://gitpkg.now.sh/mainio/decidim/packages_dev/all_git?feature/split-npm-packages"
+            dev: "https://gitpkg.now.sh/mainio/decidim/packages_dev/dev?feature/split-npm-packages",
+            prod: "https://gitpkg.now.sh/mainio/decidim/packages_dev/all?feature/split-npm-packages"
           }
         else
           {
@@ -107,8 +104,8 @@ namespace :decidim do
         branch = decidim_gemspec.source.branch
 
         {
-          dev: "https://gitpkg.now.sh/#{github_repo}/packages/dev?#{branch}",
-          prod: "https://gitpkg.now.sh/#{github_repo}/packages_dev/all_git?#{branch}"
+          dev: "https://gitpkg.now.sh/#{github_repo}/packages_dev/dev?#{branch}",
+          prod: "https://gitpkg.now.sh/#{github_repo}/packages_dev/all?#{branch}"
         }
       end
     end
