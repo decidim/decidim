@@ -193,7 +193,7 @@ pl:
           unpublish:
             success: Cofnięto publikacje wyborów.
           update:
-            invalid: Wystąpił błąd podczas aktualizowania wyboru
+            invalid: Wystąpił błąd podczas aktualizowania wyborów
             success: Wybory zostały pomyślnie zaktualizowane
         exports:
           elections: Wybory
@@ -260,7 +260,7 @@ pl:
               trustees_number: Przestrzeń partycypacyjna <strong>musi mieć co najmniej %{number} mężów (osób) zaufania z kluczem publicznym</strong>.
             submit: Ustaw wybory
             success: Wybory pomyślnie wysłano do tablicy danych wyborczych
-            title: Ustawienia wyborów
+            title: Skonfiguruj wybory
             trustees: Mężowie (osoby) zaufania
           created:
             invalid: Wystąpił błąd przy rozpoczęciu "ceremonii kluczy"
