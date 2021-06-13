@@ -344,7 +344,7 @@ pl:
             success: Mąż (osoba) zaufania %{trustee} został pomyślnie zaktualizowany
       admin_log:
         election:
-          end_vote: "%{user_name} zamknął(ęła) głosowanie w wyborach %{resource_name} na Tablicy danych wyborczych"
+          end_vote: "%{user_name} zamknął(ła) głosowanie w wyborach %{resource_name} na Tablicy danych wyborczych"
           publish: "%{user_name} opublikował(a) wybory %{resource_name}"
           publish_results: "%{user_name} opublikował wyniki głosowania w wyborach %{resource_name} Tablicy danych wyborczych"
           setup: "%{user_name} utworzył wybory %{resource_name} na Tablicy danych wyborczych"
@@ -446,7 +446,7 @@ pl:
           title: Wyniki wyborów
           votes:
             one: "%{count} głos"
-            few: "%{count} głosy"
+            few: "%{count} głosów"
             many: "%{count} głosów"
             other: "%{count} głosy"
         show:
@@ -496,7 +496,7 @@ pl:
             title: Tytuł
         trustees_participatory_space:
           fields:
-            considered: rozważane
+            considered: uznany
             email: E-mail
             inactive: nieaktywne
             name: Imię
@@ -620,7 +620,7 @@ pl:
           edit: edytuj
           header: Potwierdź swój głos
           intro: Oto podsumowanie głosu, który zamierzasz oddać. <br> Proszę potwierdzić swój głos lub edytuj swoje odpowiedzi.
-          nota_option: Puste
+          nota_option: Pusty
           question: Pytanie %{count}
         confirmed:
           back: Wróć do wyborów
@@ -644,7 +644,7 @@ pl:
           ballot_decision: Oddaj głos, albo sprawdź poprawność szyfrowania Twojego głosu
           casting: Oddawanie głosu
           confirm: Potwierdź swój głos
-          confirmed: Głosowanie potwierdzone
+          confirmed: Głos potwierdzony
           encrypting: Szyfrowanie głosu
           failed: Oddanie głosu nie powiodło się
         messages:
@@ -777,19 +777,19 @@ pl:
             description:
               name: Opis głosowania
             elections:
-              name: Wybory do głosowania
+              name: Wybory
             header:
               name: Nagłówek głosowania
             html_block_1:
-              name: 1 blok html głosowania
+              name: Pierwszy blok html głosowania
             html_block_2:
-              name: 2 blok html głosowania
+              name: Drugi blok html głosowania
             html_block_3:
-              name: 3 blok html głosowania
+              name: Trzeci blok html głosowania
             metrics:
-              name: Metryki głosowania
+              name: Metryka głosowania
             polling_stations:
-              name: Lokal wyborczy głosowania
+              name: Lokale wyborcze
             stats:
               name: Statystyki głosowania
             timeline:
@@ -814,13 +814,13 @@ pl:
             census: Lista wyborców
             components: Komponenty
             info: Informacje
-            landing_page: Strona docelowa
+            landing_page: Strona Startowa
             monitoring_committee: Komisja monitorująca
             monitoring_committee_election_results: Zweryfikuj wyniki
             monitoring_committee_members: Członkowie
             monitoring_committee_polling_station_closures: Zweryfikuj certyfikaty
             monitoring_committee_verify_elections: Sprawdź wybory
-            polling_officers: Oficerzy wyborczy
+            polling_officers: Oficerowie wyborczy
             polling_stations: Lokale wyborcze
         models:
           ballot_style:
@@ -967,7 +967,7 @@ pl:
             location_hints_help: 'Wskazówki dotyczące lokalizacji. Przykład: piętro budynku, w którym znajduje się lokal wyborczy.'
             polling_station_managers_help: 'Kierownicy lokali wyborczych: oficerowie pełniący funkcję kierowników lokali wyborczej. Upewnij się, że oficerowie zostali już powołani na oficerów wyborczych i że nie zostali jeszcze przydzieleni do innego lokalu wyborczego'
             polling_station_president_help: 'Przewodniczący lokalu wyborczego: oficer pełniący funkcję przewodniczącego lokalu wyborczego. Upewnij się, że oficer zostali już powołany na oficera wyborczego i że nie został jeszcze przydzielony do innego lokalu wyborczego'
-            select_president: Wybierz oficera wyborczego na przewodniczącego lokalu wyborczego
+            select_president: Wybierz przewodniczącego lokalu wyborczego spośród oficerów wyborczych
           index:
             title: Lokale wyborcze
           new:
