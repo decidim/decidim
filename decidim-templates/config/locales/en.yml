@@ -1,5 +1,12 @@
 ---
 en:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Title
+      template:
+        description: Description
+        name: Name
   decidim:
     admin:
       menu:
