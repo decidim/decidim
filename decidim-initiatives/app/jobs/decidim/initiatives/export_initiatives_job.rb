@@ -21,7 +21,7 @@ module Decidim
 
         collection = collection.where(id: ids) if ids.present?
 
-        collection
+        collection.order(id: :asc)
       end
 
       def serializer

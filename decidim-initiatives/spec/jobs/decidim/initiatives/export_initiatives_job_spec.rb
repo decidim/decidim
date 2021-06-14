@@ -18,7 +18,7 @@ module Decidim
       it "sends an email with the result of the export" do
         expect(Decidim::Exporters.find_exporter(format)).to receive(:new)
           .with(
-            initiatives,
+            initiatives.sort_by(&:id),
             Decidim::Initiatives::InitiativeSerializer
           ).and_call_original
 
@@ -31,13 +31,13 @@ module Decidim
         expect(email.body.encoded).to match("Please find attached a zipped version of your export.")
       end
 
-      context "when a collection of ids is passed as a parameter" do
-        let(:collection_ids) { [initiatives.first.id] }
+      context "when a collection of ids is passed as a parameter using an odd ordering" do
+        let(:collection_ids) { [initiatives.last.id, initiatives.first.id] }
 
         it "sends an email with the result of the export" do
           expect(Decidim::Exporters.find_exporter(format)).to receive(:new)
             .with(
-              [initiatives.first],
+              [initiatives.first, initiatives.last],
               Decidim::Initiatives::InitiativeSerializer
             ).and_call_original
 
