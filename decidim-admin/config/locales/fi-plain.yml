@@ -158,6 +158,8 @@ fi-pl:
         browse: Selaa
         category:
           new: Uusi aihepiiri
+        export: Vie kaikki
+        export-selection: Vie valitut
         import: Tuo
         manage: Hallitse
         new: Uusi %{name}
