@@ -715,6 +715,9 @@ fi:
           proposals_count:
             one: "%{count} ehdotus"
             other: "%{count} ehdotusta"
+        dynamic_map_instructions:
+          description: Koordinaatit päivitetään, kun painat Esikatsele-painiketta. Osoitetekstiä ei muuteta.
+          instructions: Voit siirtää pistettä kartalla.
         edit:
           add_documents: Asiakirjat
           add_images: Tiedosto
