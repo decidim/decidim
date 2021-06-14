@@ -185,6 +185,8 @@ pt:
           other: Documentos
       documents:
         related_documents: Documentos relacionados
+      geocoding:
+        geocoded_address: Endereço
       photos:
         related_photos: Fotos relacionadas
     author:
