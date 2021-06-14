@@ -711,6 +711,9 @@ fr-CA:
           proposals_count:
             one: "%{count} proposition"
             other: "%{count} propositions"
+        dynamic_map_instructions:
+          description: Les coordonnées seront mises à jour en cliquant sur le bouton 'Aperçu'. Cependant, l'adresse ne change pas.
+          instructions: Vous pouvez déplacer le point sur la carte.
         edit:
           add_documents: Documents
           add_images: Fichier
