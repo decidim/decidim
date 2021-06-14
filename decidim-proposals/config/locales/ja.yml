@@ -707,6 +707,9 @@ ja:
         count:
           proposals_count:
             other: "%{count} の提案"
+        dynamic_map_instructions:
+          description: '「プレビュー」ボタンをクリックすると座標が更新されますが、アドレスは変更されません。'
+          instructions: 地図上のポイントを移動できます。
         edit:
           add_documents: ドキュメント
           add_images: ファイル
