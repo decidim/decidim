@@ -5,8 +5,8 @@ en:
       questionnaire:
         title: Title
       template:
-        name: Name
         description: Description
+        name: Name
   decidim:
     admin:
       menu:
