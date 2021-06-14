@@ -171,7 +171,7 @@ pl:
           unpublish:
             success: Cofnięto publikacje wyborów.
           update:
-            invalid: Wystąpił błąd podczas aktualizowania wyboru
+            invalid: Wystąpił błąd podczas aktualizowania wyborów
             success: Wybory zostały pomyślnie zaktualizowane
         exports:
           elections: Wybory
@@ -236,7 +236,7 @@ pl:
               trustees_number: Przestrzeń partycypacyjna <strong>musi mieć co najmniej %{number} mężów (osób) zaufania z kluczem publicznym</strong>.
             submit: Ustaw wybory
             success: Wybory pomyślnie wysłano do tablicy danych wyborczych
-            title: Ustawienia wyborów
+            title: Skonfiguruj wybory
             trustees: Mężowie (osoby) zaufania
           created:
             invalid: Wystąpił błąd przy rozpoczęciu "ceremonii kluczy"
@@ -307,7 +307,7 @@ pl:
             success: Mąż (osoba) zaufania %{trustee} został pomyślnie zaktualizowany
       admin_log:
         election:
-          end_vote: "%{user_name} zamknął(ęła) głosowanie w wyborach %{resource_name} na Tablicy danych wyborczych"
+          end_vote: "%{user_name} zamknął(ła) głosowanie w wyborach %{resource_name} na Tablicy danych wyborczych"
           publish: "%{user_name} opublikował(a) wybory %{resource_name}"
           setup: "%{user_name} utworzył wybory %{resource_name} na Tablicy danych wyborczych"
           start_key_ceremony: "%{user_name} rozpoczął/rozpoczęła \"ceremonię kluczy\" w wyborach %{resource_name} na Tablicy danych wyborczych"
@@ -400,7 +400,7 @@ pl:
             title: Tytuł
         trustees_participatory_space:
           fields:
-            considered: rozważane
+            considered: uznany
             email: E-mail
             inactive: nieaktywne
             name: Imię
@@ -514,7 +514,7 @@ pl:
           edit: edytuj
           header: Potwierdź swój głos
           intro: Oto podsumowanie głosu, który zamierzasz oddać. <br> Proszę potwierdzić swój głos lub edytuj swoje odpowiedzi.
-          nota_option: Puste
+          nota_option: Pusty
           question: Pytanie %{count}
         confirmed:
           back: Wróć do wyborów
@@ -534,7 +534,7 @@ pl:
           text: Coś poszło nie tak. Spróbuj ponownie.
         header:
           confirm: Potwierdź swój głos
-          confirmed: Głosowanie potwierdzone
+          confirmed: Głos potwierdzony
           encrypting: Potwierdzanie głosu
         messages:
           not_allowed: W tej chwili nie wolno Ci głosować w tych wyborach.
@@ -633,19 +633,19 @@ pl:
             description:
               name: Opis głosowania
             elections:
-              name: Wybory do głosowania
+              name: Wybory
             header:
               name: Nagłówek głosowania
             html_block_1:
-              name: 1 blok html głosowania
+              name: Pierwszy blok html głosowania
             html_block_2:
-              name: 2 blok html głosowania
+              name: Drugi blok html głosowania
             html_block_3:
-              name: 3 blok html głosowania
+              name: Trzeci blok html głosowania
             metrics:
-              name: Metryki głosowania
+              name: Metryka głosowania
             polling_stations:
-              name: Lokal wyborczy głosowania
+              name: Lokale wyborcze
             stats:
               name: Statystyki głosowania
             timeline:
@@ -668,16 +668,16 @@ pl:
             attachments: Załączniki
             components: Komponenty
             info: Informacje
-            landing_page: Strona docelowa
+            landing_page: Strona Startowa
             monitoring_committee_members: Komisja monitorująca
-            polling_officers: Oficerzy wyborczy
+            polling_officers: Oficerowie wyborczy
             polling_stations: Lokale wyborcze
         models:
           monitoring_committee_member:
             fields:
               email: Adres e-mail
               name: Imię
-            name: Członek komisji monitorującej
+            name: Członek Komisji Wyborczej
           polling_officer:
             fields:
               email: Adres e-mail
@@ -699,21 +699,21 @@ pl:
               title: Tytuł
         monitoring_committee_members:
           create:
-            invalid: Wystąpił błąd podczas tworzenia członka komisji monitorującej
-            success: Utworzono członka komisji monitorującej
+            invalid: Wystąpił błąd podczas tworzenia członka Komisji Wyborczej
+            success: Utworzono członka Komisji Wyborczej
           destroy:
-            invalid: Podczas usuwania członka komisji monitorującej wystąpił błąd
-            success: Usunięto członka komisji monitorującej
+            invalid: Podczas usuwania członka Komisji Wyborczej wystąpił błąd
+            success: Usunięto członka Komisji Wyborczej
           form:
             existing_user: Istniejący użytkownik
             non_user: Zaproś użytkownika
             select_user: Przeszukaj według adresu e-mail, imienia lub nazwy użytkownika
             user_type: Typ użytkownika
           index:
-            title: Komisja monitorująca
+            title: Komisja Wyborcza
           new:
             create: Utwórz
-            title: Dodaj członka komisji monitorującej
+            title: Dodaj członka Komisji Wyborczej
         polling_officers:
           create:
             invalid: Przy tworzeniu oficera wyborczego wystąpił błąd
@@ -754,7 +754,7 @@ pl:
             location_hints_help: 'Wskazówki dotyczące lokalizacji. Przykład: piętro budynku, w którym znajduje się lokal wyborczy.'
             polling_station_managers_help: 'Kierownicy lokali wyborczych: oficerowie pełniący funkcję kierowników lokali wyborczej. Upewnij się, że oficerowie zostali już powołani na oficerów wyborczych i że nie zostali jeszcze przydzieleni do innego lokalu wyborczego'
             polling_station_president_help: 'Przewodniczący lokalu wyborczego: oficer pełniący funkcję przewodniczącego lokalu wyborczego. Upewnij się, że oficer zostali już powołany na oficera wyborczego i że nie został jeszcze przydzielony do innego lokalu wyborczego'
-            select_president: Wybierz oficera wyborczego na przewodniczącego lokalu wyborczego
+            select_president: Wybierz przewodniczącego lokalu wyborczego spośród oficerów wyborczych
           index:
             title: Lokale wyborcze
           new:
