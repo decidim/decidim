@@ -2,6 +2,8 @@
 en:
   activemodel:
     attributes:
+      questionnaire:
+        title: Title
       template:
         name: Name
         description: Description
