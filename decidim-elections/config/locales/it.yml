@@ -710,7 +710,20 @@ it:
           form:
             existing_user: Partecipante esistente
             non_user: Invita un nuovo partecipante
+            select_user: Cerca per nome, email o pseudonimo
+          new:
+            create: Crea
+          polling_officers_picker:
+            close: Chiudi
         votings:
+          form:
+            title: Titolo
+            voting_type:
+              hybrid: Ibrido
+              in_person: Di persona
+              online: Online
+          new:
+            create: Crea
           update:
             invalid: Si è verificato un errore durante l'aggiornamento di questa votazione
             success: Votazione aggiornata con successo
