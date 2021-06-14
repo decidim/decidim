@@ -7,7 +7,7 @@
     "type": "git",
     "directory": "packages/all"
   },
-  "author": "Marc Riera <mrc2407@gmail.com>",
+  "author": "Decidim Contributors",
   "license": "AGPL-3.0",
   "engines": {
     "node": "^15.14.0",
