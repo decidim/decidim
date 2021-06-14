@@ -509,7 +509,7 @@ pl:
       votes:
         confirm:
           answer: Odpowiedz
-          answer_number: odpowiedź %{number}
+          answer_number: odpowiedz %{number}
           confirm: Potwierdź
           edit: edytuj
           header: Potwierdź swój głos
@@ -572,17 +572,17 @@ pl:
             info: Twój zaszyfrowany głos jest w urnie wyborczej %{link}
         voting_step:
           back: Wróć
-          continue: Następny
+          continue: Dalej
       warnings:
         no_elections_warning: Brak wyborów spełniających kryteria wyszukiwania lub nie ma żadnych zaplanowanych wyborów.
-        no_scheduled_elections_warning: Obecnie nie ma żadnych zaplanowanych wyborów, ale możesz zobaczyć wszystkie przeszłe.
+        no_scheduled_elections_warning: Obecnie nie ma żadnych zaplanowanych wyborów, ale możesz zobaczyć wszystkie zakończone już wybory.
     events:
       elections:
         election_published:
-          email_intro: 'Wybór %{resource_title} jest teraz aktywny w %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
-          email_subject: Wybór %{resource_title} jest teraz aktywny w %{participatory_space_title}.
-          notification_title: Wybór <a href="%{resource_path}">%{resource_title}</a> jest teraz aktywny w %{participatory_space_title}.
+          email_intro: 'Wybory %{resource_title} są teraz aktywne w %{participatory_space_title}. Możesz je zobaczyć na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz wyłączyć powiadomienia po kliknięciu w powyższy link.
+          email_subject: Wybory %{resource_title} są teraz aktywne dla %{participatory_space_title}.
+          notification_title: Wybory <a href="%{resource_path}">%{resource_title}</a> są teraz aktywne dla %{participatory_space_title}.
         trustees:
           new_election:
             email_intro: Zostałeś powołany do pełnienia funkcji męża (osoby) zaufania do głosowania %{resource_title}.
@@ -610,8 +610,8 @@ pl:
     help:
       participatory_spaces:
         votings:
-          contextual: "<p><strong>Głosowanie</strong> jest przestrzenią, która pozwala na zadawanie pytani wszystkim użytkownikom organizacji, poinformuj o możliwości uczestnictwa w głosowaniu, załóż i poprowadź debatę za lub przeciw odpowiedziom. Gdy data głosowania nadejdzie, możesz oddać głos i opublikować rezultaty głosowania.</p><p>Przykłady: Glosowania mogą dotyczyć niemal każdej rzeczy którą zajmuje się organizacja: przykładami są zmiana nazwy i logo organizacji po przedstawieniu kilku propozycji, decydowanie Tak lub Nie w kwestii dołączenia do większej organizacji, akceptacja lub odrzucenie planów strategicznych lub wyników pracy grup lub określenie, czy stanowiska powinny wynosić maksymalnie 1, 2, czy 3 mandatów.</p>\n"
-          page: "<p><strong>Głosowanie</strong> jest przestrzenią, która pozwala na zadawanie pytani wszystkim użytkownikom organizacji, poinformuj o możliwości uczestnictwa w głosowaniu, załóż i poprowadź debatę za lub przeciw odpowiedziom. Gdy data głosowania nadejdzie, możesz oddać głos i opublikować rezultaty głosowania.</p><p>Przykłady: Glosowania mogą dotyczyć niemal każdej rzeczy którą zajmuje się organizacja: przykładami są zmiana nazwy i logo organizacji po przedstawieniu kilku propozycji, decydowanie Tak lub Nie w kwestii dołączenia do większej organizacji, akceptacja lub odrzucenie planów strategicznych lub wyników pracy grup lub określenie, czy stanowiska powinny wynosić maksymalnie 1, 2, czy 3 mandatów.</p>\n"
+          contextual: "<p><strong>Głosowanie</strong> jest przestrzenią, która pozwala na zadawanie pytań wszystkim użytkownikom organizacji, poinformuj o możliwości uczestnictwa w głosowaniu, rozpocznij i poprowadź debatę za lub przeciw. Gdy data głosowania nadejdzie, możesz oddać głos i opublikować rezultaty głosowania.</p><p>Przykłady: Glosowania mogą dotyczyć niemal każdej rzeczy którą zajmuje się organizacja: przykładami są zmiana nazwy i logo organizacji po przedstawieniu kilku propozycji, decydowanie Tak lub Nie w kwestii dołączenia do większej organizacji, akceptacja lub odrzucenie planów strategicznych lub wyników pracy grup lub określenie, czy stanowiska w organizacji powinny wynosić maksymalnie 1, 2, czy 3 mandaty.</p>\n"
+          page: "<p><strong>Głosowanie</strong> jest przestrzenią, która pozwala na zadawanie pytań wszystkim użytkownikom organizacji, poinformuj o możliwości uczestnictwa w głosowaniu, rozpocznij i poprowadź debatę za lub przeciw. Gdy data głosowania nadejdzie, możesz oddać głos i opublikować rezultaty głosowania.</p><p>Przykłady: Glosowania mogą dotyczyć niemal każdej rzeczy którą zajmuje się organizacja: przykładami są zmiana nazwy i logo organizacji po przedstawieniu kilku propozycji, decydowanie Tak lub Nie w kwestii dołączenia do większej organizacji, akceptacja lub odrzucenie planów strategicznych lub wyników pracy grup lub określenie, czy stanowiska w organizacji powinny wynosić maksymalnie 1, 2, czy 3 mandaty.</p>\n"
           title: Czym są głosowania?
     menu:
       votings: Głosowania
@@ -732,11 +732,11 @@ pl:
             title: Oficerowie wyborczy
           new:
             create: Utwórz
-            title: Utwórz oficer wyborczy
+            title: Utwórz oficera wyborczego
           polling_officers_picker:
             choose_polling_officers: Wybierz oficerów wyborczych
             close: Zamknij
-            more_polling_officers: Jest %{number} oficerów wyborczych. Doprecyzuj kryteria wyszukiwania, aby ich zlokalizować.
+            more_polling_officers: Jest jeszcze %{number} więcej oficerów wyborczych. Doprecyzuj kryteria wyszukiwania, aby ich zlokalizować.
             no_polling_officers: Brak oficerów wyborczych spełniających kryteria wyszukiwania lub nie ma żadnego oficera wyborczego.
         polling_stations:
           create:
@@ -752,8 +752,8 @@ pl:
             address_help: 'Adres: używany przez Geocoder do znalezienia lokalizacji'
             location_help: 'Lokalizacja: wiadomość kierowana do wyborców wskazująca dokładne miejsce lokalu wyborczego'
             location_hints_help: 'Wskazówki dotyczące lokalizacji. Przykład: piętro budynku, w którym znajduje się lokal wyborczy.'
-            polling_station_managers_help: 'Kierownicy lokali wyborczych: oficerowie pełniący funkcję kierowników lokali wyborczej. Upewnij się, że oficerowie zostali już powołani na oficerów wyborczych i że nie zostali jeszcze przydzieleni do innego lokalu wyborczego'
-            polling_station_president_help: 'Przewodniczący lokalu wyborczego: oficer pełniący funkcję przewodniczącego lokalu wyborczego. Upewnij się, że oficer zostali już powołany na oficera wyborczego i że nie został jeszcze przydzielony do innego lokalu wyborczego'
+            polling_station_managers_help: 'Kierownicy lokali wyborczych: oficerowie pełniący funkcję kierowników lokali wyborczej. Upewnij się, że te osoby zostały już powołane na oficerów wyborczych i że nie zostały jeszcze przydzielone do innego lokalu wyborczego'
+            polling_station_president_help: 'Przewodniczący lokalu wyborczego: oficer pełniący funkcję przewodniczącego lokalu wyborczego. Upewnij się, że ta osoba została już powołana na oficera wyborczego i że nie została jeszcze przydzielona do innego lokalu wyborczego'
             select_president: Wybierz przewodniczącego lokalu wyborczego spośród oficerów wyborczych
           index:
             title: Lokale wyborcze
@@ -785,7 +785,7 @@ pl:
             title: Tytuł
             voting_type:
               hybrid: Hybrydowe
-              in_person: Osobiście
+              in_person: Osobiste
               online: Online
           new:
             create: Utwórz
@@ -816,7 +816,7 @@ pl:
           highlighted_votings:
             active_votings: Aktywne głosowania
             see_all_votings: Zobacz wszystkie głosowania
-            votings_button_title: Link do strony Głosowań wyświetla wszystkie głosy
+            votings_button_title: Link do strony Głosowań wyświetla wszystkie głosowania
       polling_officer_zone:
         menu:
           polling_officer_zone: Strefa oficera wyborczego
@@ -873,7 +873,7 @@ pl:
           unfold: Rozwiń
         index:
           no_votings: Brak głosowań spełniających kryteria wyszukiwania.
-          only_finished: Obecnie nie ma żadnych zaplanowanych głosowań, ale możesz zobaczyć wszystkie przeszłe.
+          only_finished: Obecnie nie ma żadnych zaplanowanych głosowań, ale możesz zobaczyć wszystkie zakończone głosowania.
           title: Głosowania
         orders:
           label: 'Sortuj głosowania według:'
@@ -884,7 +884,7 @@ pl:
       votings_m:
         badge_name:
           finished: Zakończone
-          ongoing: Trwające
+          ongoing: W toku
           upcoming: Nadchodzące
         footer_button_text:
           participate: Dołącz
@@ -893,13 +893,13 @@ pl:
         unspecified: Nie określono
         voting_type:
           hybrid: Hybrydowe
-          in_person: Osobiście
+          in_person: Osobiste
           online: Online
         voting_types_label: Typ głosowania
   layouts:
     decidim:
       election_votes_header:
-        exit: Wyjście
+        exit: Zakończ
       votings:
         index:
           promoted_votings: Wyróżnione głosowania
