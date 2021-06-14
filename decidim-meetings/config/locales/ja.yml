@@ -168,6 +168,7 @@ ja:
         invalid_destroy:
           proposals_count:
             other: '%{count} 件の提案が関連付けられているため、ミーティングを削除できません:'
+        manage_poll: アンケートの管理
         new: 新しいミーティング
         preview: プレビュー
         registrations: 登録
@@ -204,6 +205,7 @@ ja:
             invalid: この議題の更新中に問題が発生しました
             success: アジェンダを正常に更新しました
         exports:
+          answers: 回答
           meeting_comments: コメント
           meetings: ミーティング
           registrations: 登録
@@ -288,6 +290,12 @@ ja:
           update:
             invalid: このミーティングの更新中に問題が発生しました
             success: ミーティングを更新しました
+        meetings_poll:
+          form:
+            title: '%{questionnaire_for} のアンケートを編集'
+          update:
+            invalid: このミーティング投票の更新中に問題が発生しました
+            success: ミーティングのアンケートが正常に更新されました
         models:
           meeting:
             name: ミーティング
@@ -349,6 +357,11 @@ ja:
       last_activity:
         meeting_updated_at_html: "<span>ミーティングが %{link} に更新されました</span>"
         new_meeting_at_html: "<span> %{link}に新しいミーティング</span>"
+      layouts:
+        live_event:
+          administrate: 管理
+          close: 閉じる
+          questions: 質問
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -433,6 +446,9 @@ ja:
           back: 戻る
           create: 作成
           title: ミーティングを作成
+        online_meeting_link:
+          join: ミーティングに参加する
+          live_event: このミーティングは現在開催中です
         registration_confirm:
           cancel: キャンセル
           confirm: 確認する
@@ -481,6 +497,26 @@ ja:
             official_meeting: 公式ミーティング
             start_time: 開始日
             title: タイトル
+      polls:
+        questions:
+          closed_question:
+            question_results: 質問の結果
+          index:
+            empty_questions: このミーティングを通じて、いくつかの質問が送信され、回答することができます。質問はここに表示されます。
+          index_admin:
+            admin_dashboard: 管理者ダッシュボード
+            edit: 管理画面で編集
+            question: 質問
+            received_answer: 受理した回答
+            received_answers: 受理した回答
+            results: 結果
+            send: 送信
+            sent: 送信済み
+          published_question:
+            max_choices_alert: 選択された選択肢が多すぎます
+            question: 質問
+            question_replied: 質問に回答しました
+            reply_question: 質問に返信する
       public_participants_list:
         attending_participants: 参加する
         hidden_participants_count:
