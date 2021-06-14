@@ -172,6 +172,7 @@ it:
           proposals_count:
             one: 'La riunione non può essere annullata perché ha %{count} proposta ad essa associata:'
             other: 'La riunione non può essere annullata perché ha %{count} proposte associate:'
+        manage_poll: Gestisci sondaggio
         new: Nuovo incontro
         preview: Anteprima
         registrations: Iscrizioni
@@ -208,6 +209,7 @@ it:
             invalid: C'è stato un problema nell'aggiornare questo programma
             success: Agenda aggiornata con successo
         exports:
+          answers: Risposte
           meeting_comments: Commenti
           meetings: Incontri
           registrations: Iscrizioni
