@@ -254,6 +254,15 @@ pt:
       filters:
         category_id_eq:
           label: Categoria
+        invitation_accepted_at_present:
+          label: Convite aceito
+          values:
+            'false': 'Não'
+        last_sign_in_at_present:
+          label: Já logado
+          values:
+            'false': 'Não'
+            'true': 'Sim'
         officialized_at_null:
           label: Situação
           values:
