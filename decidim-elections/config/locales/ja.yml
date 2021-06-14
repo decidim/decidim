@@ -365,6 +365,22 @@ ja:
           not_available: まだ利用できません
           not_created: 作成されていません
           not_published: 公開されていません
+          not_ready: 準備中
+          not_started: 開始前
+          published: 公開済み
+          results_description:
+            not_published: 結果はまだ公開されていません。
+            published: 結果が公開されます。
+          results_title: 結果
+          started: 開始
+          tally_description:
+            finished: 集計処理は終了します。
+            not_started: 集計処理はまだ始まっていません。
+            started: 集計処理が始まりました。
+          tally_title: 集計処理
+          title: 選挙ログ
+          verifiable_results:
+            checksum: 'ファイルのSHA256 チェックサム:'
         filters:
           active: 有効
           all: 全て
