@@ -916,6 +916,11 @@ it:
             existing_user: Partecipante esistente
             non_user: Invita un nuovo partecipante
             select_user: Cerca per nome, email o pseudonimo
+            user_type: Tipologia di utente
+          index:
+            role_manager: gestori
+            role_president: presidente/presidentessa
+            title: Scrutatore/trice
           new:
             create: Crea
           polling_officers_picker:
