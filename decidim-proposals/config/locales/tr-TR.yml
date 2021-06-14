@@ -706,8 +706,6 @@ tr:
           proposals_count:
             one: "%{count} teklif"
             other: "%{count} teklif"
-        dynamic_map_instructions:
-          instructions: <h3> Noktayı harita üzerinde hareket ettirebilirsiniz. </h3> <p> Teklifinizi yayınlamadan önce "Pozisyonu Güncelle" düğmesini tıklamayı unutmayın. </p>
         edit:
           add_documents: Dokümanlar
           add_images: Dosya
@@ -777,7 +775,6 @@ tr:
             other: Bu teklifi, teklif yayınlandıktan sonraki ilk %{count} dakika içinde düzenleyebileceksiniz. Bu zaman aralığı geçtikten sonra teklifi düzenleyemezsiniz.
           publish: Yayınla
           title: Teklifinizi yayınlayın
-          update_position: Konumu güncelle
         proposal:
           creation_date: 'Oluşturma: %{date}'
           view_proposal: Teklifi görüntüle
