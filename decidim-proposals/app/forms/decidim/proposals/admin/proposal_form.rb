@@ -20,6 +20,11 @@ module Decidim
 
           self.title = presenter.title(all_locales: title.is_a?(Hash))
           self.body = presenter.body(all_locales: body.is_a?(Hash))
+          self.attachment = if model.documents.first.present?
+                              { file: model.documents.first.file, title: translated_attribute(model.documents.first.title) }
+                            else
+                              {}
+                            end
         end
       end
     end

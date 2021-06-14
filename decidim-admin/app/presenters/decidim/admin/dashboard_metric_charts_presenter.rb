@@ -31,7 +31,7 @@ module Decidim
           highlight: false,
           scope: "home"
         ).select do |registry|
-          %w(comments meetings accepted_proposals results).include? registry.metric_name
+          %w(comments meetings accepted_proposals results blocked_users user_reports reported_users).include? registry.metric_name
         end
       end
 

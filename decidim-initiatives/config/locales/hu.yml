@@ -69,6 +69,8 @@ hu:
           type_id_eq:
             label: Típus
       menu:
+        components: Elemek
+        information: Információ
         initiatives: Kezdeményezések
         initiatives_types: Kezdeményezések típusa
       models:
@@ -265,10 +267,8 @@ hu:
         finish:
           back: Vissza
           back_to_initiatives: Vissza a kezdeményezésekhez
-          edit_my_initiative: Kezdeményezéseim szerkesztése
           go_to_my_initiatives: Ugrás a saját kezdeményezéseimhez
           more_information: "(További információk)"
-          send_my_initiative: Kezdeményezésem elküldése
         previous_form:
           back: Vissza
           continue: Tovább
@@ -372,13 +372,6 @@ hu:
         print:
           city: Település
         result:
-          answer_title:
-            accepted: Ezt a javaslatot azért fogadták el, mert
-            created: Ez a javaslat létrejött
-            discarded: Ezt a javaslatot elvetették, mert
-            published: Ezt a javaslatot azért teszik közzé, mert
-            rejected: Ezt a javaslatot elutasították, mert
-            validating: Ezt a javaslatot értékelik
           initiative_rejected_reason: A kezdeményezést a támogatás hiánya miatt elutasították.
         show:
           follow_description: Értesítést kapjon, ha ebben a kezdeményezésben vannak hírek
@@ -428,12 +421,6 @@ hu:
           vote: Szavazás
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Mellékletek
-          committee_members: Bizottsági tagok
-          components: Elemek
-          information: Információ
       initiative_creation_header:
         back: Hát
         fill_data: Létrehozás

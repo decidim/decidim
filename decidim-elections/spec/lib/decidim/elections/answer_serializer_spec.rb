@@ -10,6 +10,7 @@ module Decidim
       end
 
       let!(:answer) { create(:election_answer, :with_votes) }
+      let!(:election) { answer.question.election }
 
       describe "#serialize" do
         let(:serialized) { subject.serialize }
@@ -18,14 +19,21 @@ module Decidim
           expect(serialized).to include(id: answer.id)
         end
 
+        it "serializes the participatory space" do
+          expect(serialized[:participatory_space]).to include(id: election.participatory_space.id)
+          I18n.available_locales.each do |locale|
+            expect(translated(serialized[:participatory_space][:title], locale: locale)).to eq(translated(election.participatory_space.title, locale: locale))
+          end
+        end
+
         it "serializes the title" do
           I18n.available_locales.each do |locale|
             expect(translated(serialized[:answer_title], locale: locale)).to eq(translated(answer.title, locale: locale))
           end
         end
 
-        it "serializes the votes" do
-          expect(serialized[:answer_votes]).to eq(answer.votes_count)
+        it "serializes the results total" do
+          expect(serialized[:answer_votes]).to eq(answer.results_total)
         end
 
         it "serializes the election id" do

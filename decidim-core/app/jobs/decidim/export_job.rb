@@ -2,7 +2,7 @@
 
 module Decidim
   class ExportJob < ApplicationJob
-    queue_as :default
+    queue_as :exports
 
     def perform(user, component, name, format, resource_id = nil)
       export_manifest = component.manifest.export_manifests.find do |manifest|

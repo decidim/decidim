@@ -34,13 +34,6 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{participatory_space_title}". يمكنك إلغاء تتبعه من الرابط السابق.
           email_subject: تمت إضافة تصنيف جديد إلى %{participatory_space_title}
           notification_title: تمت إضافة التصنيف <a href="%{resource_path}">%{resource_title}</a> إلى %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          sortitions_count: Sortitions
-    participatory_processes:
-      statistics:
-        sortitions_count: Sortitions
     sortitions:
       admin:
         actions:

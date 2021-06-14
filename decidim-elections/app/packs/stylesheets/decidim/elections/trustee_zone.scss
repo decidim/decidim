@@ -1,0 +1,24 @@
+#not_supported_browser,
+#submit_identification_keys{
+  display: none;
+
+  &.visible{
+    display: inherit;
+
+    & + div{
+      display: none;
+    }
+  }
+}
+
+.step_status{
+  span{
+    display: none;
+  }
+
+  &[data-step-status="pending"] .pending,
+  &[data-step-status="processing"] .processing,
+  &[data-step-status="completed"] .completed{
+    display: block;
+  }
+}

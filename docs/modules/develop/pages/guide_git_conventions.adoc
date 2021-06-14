@@ -21,6 +21,8 @@ git checkout -b feature/xxx
 
 Implement the feature, and open a Pull Request as normal, but against `develop` branch. As this is the most common operation, `develop` is the default branch instead of `master`.
 
+Please note that Decidim does not use the `master` branch.
+
 == Naming branches
 
 We would like to have all branches following this namings:

@@ -30,13 +30,6 @@ eu:
           email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
           email_subject: Sortze berria %{participatory_space_title}-ra gehitu da
           notification_title: <a href="%{resource_path}">%{resource_title}</a> kokalekua %{participatory_space_title} gehitu da
-    pages:
-      home:
-        statistics:
-          sortitions_count: Sortitions
-    participatory_processes:
-      statistics:
-        sortitions_count: Sortitions
     sortitions:
       admin:
         actions:

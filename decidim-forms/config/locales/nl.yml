@@ -109,7 +109,7 @@ nl:
         answer:
           body: Lichaam mag niet leeg zijn
       files:
-        extension_whitelist: 'Geaccepteerde formaten:'
+        extension_allowlist: 'Geaccepteerde formaten:'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Deze afbeelding zal zijn:'

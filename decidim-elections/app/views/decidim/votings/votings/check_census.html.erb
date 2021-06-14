@@ -1,0 +1,62 @@
+<% add_decidim_meta_tags(title: translated_attribute(current_participatory_space.title)) %>
+
+<%
+edit_link(
+  resource_locator(current_participatory_space).edit,
+  :update,
+  :voting,
+  voting: current_participatory_space
+)
+%>
+
+<%= cell("decidim/votings/content_blocks/landing_page/header", nil) %>
+
+<div class="wrapper">
+  <div class="row section">
+    <div class="columns large-8">
+      <h1 class="heading3"><%= t(".title") %></h1>
+      <p><%= t(".description") %></p>
+      <% if success %>
+        <div class="verify-census-success callout success mt-s">
+          <h5><%= t("decidim.votings.votings.check_census.success.title") %></h5>
+          <p>
+            <%= t("decidim.votings.votings.check_census.success.info") %>
+            <button type="button" class="link" data-open="access-code-modal">
+              <%= t("decidim.votings.votings.check_census.success.access_link") %>
+            </button>
+          </p>
+        </div>
+        <%= render partial: "access_code_modal", locals: { datum: datum, email: datum.email.gsub!(/.{4}(?=@)/,"****"), sms: datum.mobile_phone_number ? datum.mobile_phone_number.gsub!(/.{3}\d$/,"***") : "" } %>
+      <% elsif not_found %>
+        <div class="verify-census-error callout alert mt-s">
+          <h5><%= t("decidim.votings.votings.check_census.error.title") %></h5>
+          <p>
+            <%== t("decidim.votings.votings.check_census.error.info", census_contact_information: census_contact_information ) %>
+          </p>
+        </div>
+      <% end %>
+
+      <% if !success %>
+        <div class="verify-census-form">
+          <%= decidim_form_for(@form, url: voting_check_census_path, html: { class: "form", autocomplete: "off" }) do |f| %>
+            <div class="row mt-sm">
+              <div class="columns medium-7">
+                <p><strong><%= t(".form_title") %></strong></p>
+                <div class="card">
+                  <div class="card__content">
+                    <form>
+                      <div>
+                        <%= render partial: "check_fields", locals: { f: f, form: @form } %>
+                      </div>
+                      <%= f.submit t(".check_status"), class: "button expanded mt-s mb-none" %>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

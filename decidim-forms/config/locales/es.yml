@@ -10,10 +10,15 @@ es:
         question_type: Tipo
       questionnaire_question:
         mandatory: Obligatorio
+        max_characters: Límite de caracteres (dejar a 0 si no hay límite)
     errors:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Es necesario volver a adjuntar el fichero
+            body:
+              too_long: es demasiado largo
             choices:
               missing: no están completos
               too_many: son demasiados
@@ -110,7 +115,7 @@ es:
         answer:
           body: El campo no puede estar en blanco
       files:
-        extension_whitelist: 'Formatos de archivo aceptados:'
+        extension_allowlist: 'Formatos de archivo aceptados:'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Esta imagen medirá:'
@@ -118,6 +123,7 @@ es:
           resize_and_pad: Redimensionada y ajustada a
           resize_to_fit: Redimensionada para ajustarla
       question_types:
+        files: Archivos
         long_answer: Respuesta larga
         matrix_multiple: Matriz (opción múltiple)
         matrix_single: Matriz (opción única)

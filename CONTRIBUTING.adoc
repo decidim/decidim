@@ -45,7 +45,7 @@ You can read in detail about this process in https://docs.decidim.org/en/governa
 
 == Do you want to contribute to Decidim design?
 
-* Go to the https://github.com/decidim/decidim/tree/master/decidim_app-design[Decidim design folder] and propose the changes that you want.
+* Go to the https://github.com/decidim/decidim/tree/develop/decidim_app-design[Decidim design folder] and propose the changes that you want.
 
 == Do you want to improve an existing language in Decidim?
 

@@ -16,12 +16,22 @@ module Decidim
         translatable_attribute :registration_terms, String
 
         validates :registration_terms, translatable_presence: true, if: ->(form) { form.registrations_enabled? }
-        validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, if: ->(form) { form.registrations_enabled? }
+        validates :available_slots, :reserved_slots, presence: true, if: ->(form) { form.registrations_enabled? }
+        validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, if: ->(form) { form.registrations_enabled? && form.available_slots.present? }
         validates :reserved_slots, numericality: { greater_than_or_equal_to: 0 }, if: ->(form) { form.registrations_enabled? }
-        validates :reserved_slots, numericality: { less_than_or_equal_to: :available_slots }, if: ->(form) { form.registrations_enabled? }
+        validates :reserved_slots, numericality: { less_than_or_equal_to: :available_slots }, if: lambda { |form|
+                                                                                                    form.registrations_enabled? &&
+                                                                                                      form.reserved_slots.present? &&
+                                                                                                      form.available_slots.present?
+                                                                                                  }
 
-        validate :available_slots_greater_than_or_equal_to_registrations_count, if: ->(form) { form.registrations_enabled? && form.available_slots.positive? }
-        validate :reserved_slots_lower_than_or_equal_to_rest_available_slots_and_registrations_count, if: ->(form) { form.registrations_enabled? && form.reserved_slots.positive? }
+        validate :available_slots_greater_than_or_equal_to_registrations_count, if: ->(form) { form.registrations_enabled? && form.available_slots.try(:positive?) }
+        validate :reserved_slots_lower_than_or_equal_to_rest_available_slots_and_registrations_count, if: lambda { |form|
+                                                                                                            form.registrations_enabled? &&
+                                                                                                              form.reserved_slots.try(:positive?) &&
+                                                                                                              form.available_slots.present?
+                                                                                                          }
+
         # We need this method to ensure the form object will always have an ID,
         # and thus its `to_param` method will always return a significant value.
         # If we remove this method, get an error onn the `update` action and try

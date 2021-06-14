@@ -40,6 +40,9 @@ module Decidim
         let(:slug) { "slug" }
         let(:attachment) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
         let(:show_statistics) { true }
+        let(:registrations_enabled) { false }
+        let(:available_slots) { 20 }
+        let(:registration_terms) { {} }
         let(:objectives) do
           {
             en: "Objectives",
@@ -72,7 +75,10 @@ module Decidim
               "objectives_es" => objectives[:es],
               "objectives_ca" => objectives[:ca],
               "start_date" => start_date,
-              "end_date" => end_date
+              "end_date" => end_date,
+              "registrations_enabled" => registrations_enabled,
+              "available_slots" => available_slots,
+              "registration_terms" => registration_terms
             }
           }
         end
@@ -186,6 +192,27 @@ module Decidim
               expect(subject).to be_valid
             end
           end
+        end
+
+        context "when registrations are enabled" do
+          let(:registrations_enabled) { true }
+          let(:available_slots) { 20 }
+          let(:registration_terms) do
+            {
+              en: "Some registration terms",
+              es: "Algunos terminos de registro",
+              ca: "Alguns termes de registre"
+            }
+          end
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when available_slots is blank" do
+          let(:registrations_enabled) { true }
+          let(:available_slots) { "" }
+
+          it { is_expected.not_to be_valid }
         end
       end
     end

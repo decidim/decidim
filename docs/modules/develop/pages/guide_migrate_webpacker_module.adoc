@@ -1,0 +1,48 @@
+= Migrate to Webpacker a Decidim module
+
+Decidim modules are included to Decidim apps as gems. Since the introduction of Webpacker to manage and compile assets in Decidim, there are some changes required to make modules compatible with Decidim
+
+== About Webpacker
+
+It's recommended to understand how Webpacker works. More information:
+
+* https://github.com/rails/webpacker#usage
+* https://edgeguides.rubyonrails.org/webpacker.html
+
+== Overview
+
+The recommended way to import assets from a gem in a Rails app using Webpacker is to publish a package in npmjs.org and include it in the package.json via `npm install`. Then the assets are available to Webpack via node_modules/ folder
+
+Once created, you should update the instructions to install the module and add the step to add the assets with npm.
+
+== Folder migration
+
+It's recommend to migrate to the new folders structure:
+
+```
+app/packs:
+  ├── entrypoints
+  └── src
+  └── stylesheets
+  └── images
+```
+
+== Update Rails helpers
+
+`javascript_include_tag` and `stylesheet_link_tag` have been replaced by `javascript_pack_tag` and `stylesheet_pack_tag`
+
+For images, if they are in `app/packs/images` you could use `image_pack_tag`.
+
+== Asset compilation
+
+There's no specific or _Rails way_ to deal with assets compilation in engines, more than providing them as npm packages to be included.
+
+In the community there are great examples of gems that have been adapted to Webpacker, such as https://github.com/activeadmin/activeadmin[ActiveAdmin]
+
+In ActiveAdmin:
+
+- assets are defined in the package.json file, in an entry named `files:`
+- assets are precompiled using Rollup (a lightweigth Js compiler and packer)
+- a generator has been included to copy files to the Rails folder, do a `npm install` and install the npm package. See https://github.com/activeadmin/activeadmin/blob/master/lib/generators/active_admin/webpacker/webpacker_generator.rb[the generator]
+
+It's a good example to follow and get good practices

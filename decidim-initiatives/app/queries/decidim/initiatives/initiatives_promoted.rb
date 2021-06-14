@@ -25,7 +25,7 @@ module Decidim
         Initiative
           .joins(:committee_members)
           .where("decidim_initiatives_committee_members.state = 2")
-          .where("decidim_initiatives_committee_members.decidim_users_id = ?", user.id)
+          .where(decidim_initiatives_committee_members: { decidim_users_id: user.id })
       end
     end
   end

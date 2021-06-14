@@ -257,8 +257,8 @@ describe "Participatory Process Groups", type: :system do
   context "when the meetings block is enabled" do
     let!(:meetings_component) { create(:component, :published, participatory_space: process, manifest_name: :meetings) }
     let!(:other_process_meetings_component) { create(:component, :published, participatory_space: other_process, manifest_name: :meetings) }
-    let!(:meeting_1) { create(:meeting, component: meetings_component, title: { en: "First awesome meeting!" }) }
-    let!(:meeting_2) { create(:meeting, component: other_process_meetings_component, title: { en: "Second fabulous meeting!" }) }
+    let!(:meeting_1) { create(:meeting, :published, component: meetings_component, title: { en: "First awesome meeting!" }) }
+    let!(:meeting_2) { create(:meeting, :published, component: other_process_meetings_component, title: { en: "Second fabulous meeting!" }) }
 
     before do
       create(
@@ -295,7 +295,7 @@ describe "Participatory Process Groups", type: :system do
     it "shows no data if there are no components or followers in depending participatory processes" do
       visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
 
-      within("#participatory_process_group-statistics") do
+      within(".section-statistics") do
         expect(page).to have_content("There are no statistics yet")
       end
     end
@@ -311,7 +311,7 @@ describe "Participatory Process Groups", type: :system do
       before do
         create_list(:proposal, 3, component: proposals_component)
         create_list(:proposal, 7, component: other_process_proposals_component)
-        create_list(:meeting, 4, component: other_process_meetings_component)
+        create_list(:meeting, 4, :published, component: other_process_meetings_component)
 
         # Set same coauthorships for all proposals
         Decidim::Proposals::Proposal.where(component: [proposals_component, other_process_proposals_component]).each do |proposal|
@@ -322,15 +322,20 @@ describe "Participatory Process Groups", type: :system do
       end
 
       it "shows unique participants count from both participatory processes" do
-        within("#participatory_process_group-statistics") do
-          expect(page).to have_content("1\nPARTICIPANTS")
+        within(".section-statistics") do
+          expect(page).to have_css("h3.section-heading", text: "STATISTICS")
+          expect(page).to have_css(".statistic__title", text: "PARTICIPANTS")
+          expect(page).to have_css(".statistic__number", text: "1")
         end
       end
 
       it "shows accumulated resources from components of both participatory processes" do
-        within("#participatory_process_group-statistics") do
-          expect(page).to have_content("10\nPROPOSALS")
-          expect(page).to have_content("4\nMEETINGS")
+        within(".section-statistics") do
+          expect(page).to have_css("h3.section-heading", text: "STATISTICS")
+          expect(page).to have_css(".statistic__title", text: "PROPOSALS")
+          expect(page).to have_css(".statistic__number", text: "10")
+          expect(page).to have_css(".statistic__title", text: "MEETINGS")
+          expect(page).to have_css(".statistic__number", text: "4")
         end
       end
     end

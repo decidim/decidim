@@ -16,6 +16,8 @@ module Decidim
         resources :results, except: [:show] do
           get :proposals_picker, on: :collection
 
+          resources :attachment_collections
+          resources :attachments
           resources :timeline_entries, except: [:show]
         end
         get :import_results, to: "import_results#new"
@@ -25,10 +27,6 @@ module Decidim
 
       def load_seed
         nil
-      end
-
-      initializer "decidim_accountability.assets" do |app|
-        app.config.assets.precompile += %w(decidim_accountability_admin_manifest.js)
       end
     end
   end

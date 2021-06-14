@@ -3,11 +3,27 @@ gl:
     attributes:
       dummy_resource:
         created_at: Creado en
+        decidim_scope_id: Ámbito
         field: O meu campo
         start_date: Data de inicio
         title: Título
+        translatable_text: Texto traducíbel
         updated_at: Actualizado en
   decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            readonly_attribute: Atributo de só lectura
+            test: Unha proba
+            test_choices:
+              a: Opción A
+              b: Opción B
+              c: Opción C
+          step:
+            endorsements_blocked: Adhesións bloqueadas
+            endorsements_enabled: Adhesións habilitadas
+            readonly_step_attribute: Atributo de paso de só lectura
     dummy:
       admin:
         exports:
@@ -24,17 +40,11 @@ gl:
           next_level_in: Crea %{score} probas máis para chegar ao seguinte nivel!
           unearned_another: Este usuario aínda non creou ningunha proba.
           unearned_own: Non creaches probas aínda.
-    pages:
-      home:
-        statistics:
-          bar: Bar
-          dummies_count_high: Maniquís de alta
-          dummies_count_medium: Dummies medio
-          foo: Foo
-    participatory_processes:
-      statistics:
-        dummies_count_high: Maniquís de alta
-        dummies_count_medium: Dummies medio
     resource_links:
       test_link:
         dummy_resource_dummy: Dummy relacionado
+    statistics:
+      bar: Bar
+      dummies_count_high: Maniquís de alta
+      dummies_count_medium: Dummies medio
+      foo: Foo

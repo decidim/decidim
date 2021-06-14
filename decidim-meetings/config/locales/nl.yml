@@ -8,12 +8,16 @@ nl:
       close_meeting:
         attendees_count: Aantal deelnemers
         attending_organizations: Lijst van organisaties die bijwoonden
-        closing_report: Melden
+        audio_url: Audio URL
+        closing_report: Notulen
+        closing_visible: Is zichtbaar
         contributions_count: Aantal bijdragen
         proposal_ids: Voorstellen die in de vergadering zijn gemaakt
+        video_url: Video URL
       meeting:
         address: Adres
         available_slots: Beschikbare plaatsen voor dit event
+        customize_registration_email: Aanpassen registratie e-mail
         decidim_category_id: Categorie
         decidim_scope_id: Scope
         decidim_user_group_id: Gebruikers groep
@@ -21,9 +25,11 @@ nl:
         end_time: Eindtijd
         location: Plaats
         location_hints: Locatie hints
+        online_meeting_url: De URL van de online vergadering
         organizer_gid: Aanmaken als
         organizer_id: Organisator
         private_meeting: Privé vergadering
+        registration_email_custom_content: Registratie e-mail aangepaste inhoud
         registration_form_enabled: Inschrijvingsformulier ingeschakeld
         registration_terms: Registratievoorwaarden
         registration_url: Registratie URL
@@ -31,9 +37,7 @@ nl:
         start_time: Starttijd
         title: Titel
         transparent: Transparant
-      minutes:
-        description: Beschrijving
-        visible: Is zichtbaar
+        type_of_meeting: Type
     errors:
       models:
         meeting_agenda:
@@ -86,9 +90,11 @@ nl:
             creation_enabled_for_participants: Deelnemers kunnen vergaderingen aanmaken
             default_registration_terms: Standaard registratievoorwaarden
             enable_pads_creation: Schakel het maken van pads in
+            maps_enabled: Kaarten ingeschakeld
             resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
             scope_id: Scope
             scopes_enabled: Scopes ingeschakeld
+            terms_and_conditions_url_for_meeting_creators: Algemene voorwaarden URL voor de makers van de vergadering
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
@@ -160,7 +166,6 @@ nl:
         confirm_destroy: Weet u zeker dat u deze vergadering wilt verwijderen?
         destroy: Verwijderen
         edit: Bewerk
-        minutes: Notulen
         new: Nieuwe vergadering
         preview: Voorbeeld
         registrations: registraties
@@ -197,6 +202,7 @@ nl:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze agenda
             success: Agenda succesvol bijgewerkt
         exports:
+          meeting_comments: Reacties
           meetings: vergaderingen
           registrations: registraties
         invite_join_meeting_mailer:
@@ -236,7 +242,7 @@ nl:
             success: Vergadering succesvol afgesloten
           create:
             invalid: Er is een probleem opgetreden met het maken van deze vergadering
-            success: Vergadering succesvol aangemaakt
+            success: Vergadering met succes aangemaakt. Merk op dat deze nog niet gepubliceerd is, je moet deze nog handmatig publiceren.
           destroy:
             success: Vergadering succesvol verwijderd
           edit:
@@ -246,13 +252,20 @@ nl:
             available_slots_help: Laat op 0 staan als je onbeperkt aantal tijdsblokken beschikbaar hebt
             disclaimer: 'Disclaimer: Door gebruik te maken van een extern registratiesysteem, ben je op de hoogte dat de organisatoren van %{organization} niet verantwoordelijk zijn voor de gegevens die door gebruikers aan de externe dienst worden verstrekt.'
             location_help: 'Locatie: bericht gericht aan de gebruikers die de locatie op een vergadering plaatsen'
+            location_hints_help: 'Locatie hints: aanvullende informatie. Bijvoorbeeld: de verdieping van het gebouw als het een fysieke vergadering is, of het vergaderwachtwoord als het een online vergadering is met beperkte toegang.'
+            online_meeting_url_help: 'Link: laat deelnemers direct verbinding maken met je vergadering'
+            registration_email_help: Deze tekst verschijnt in het midden van de registratie bevestigingsmail, net na de registratiecode.
             registration_url_help: 'Link: verleen deelnemers toegang tot de externe dienst die je gebruikt voor registraties'
+            select_a_meeting_type: Selecteer een vergaderingstype
             select_a_registration_type: Selecteer een registratietype
           index:
             title: Events
           new:
             create: Creëren
             title: Creëer vergadering
+          publish:
+            invalid: Er is een fout opgetreden bij het publiceren van deze vergadering
+            success: Vergadering succesvol gepubliceerd
           service:
             description: Beschrijving
             down: Omlaag
@@ -263,21 +276,12 @@ nl:
           services:
             add_service: Dienst toevoegen
             services: Diensten
+          unpublish:
+            invalid: Er is een probleem opgetreden bij het weghalen van deze vergadering
+            success: Vergadering met succes weggehaald
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze vergadering
             success: Vergadering succesvol bijgewerkt
-        minutes:
-          create:
-            invalid: Er is een probleem opgetreden bij het maken van deze notulen
-            success: Notulen met succes gemaakt
-          edit:
-            update: Bijwerken
-          new:
-            create: creëren
-            title: Maak minuten
-          update:
-            invalid: Er is een probleem opgetreden bij het bijwerken van deze notulen
-            success: Notulen met succes bijgewerkt
         models:
           meeting:
             name: Vergadering
@@ -317,9 +321,6 @@ nl:
           value_types:
             organizer_presenter:
               not_found: 'De organisator is niet gevonden in de database (ID: %{id})'
-        minutes:
-          create: "%{user_name} heeft het verslag van de vergadering %{resource_name} gemaakt op de %{space_name} spatie"
-          update: "%{user_name} heeft het verslag van de vergadering %{resource_name} op de %{space_name} -spatie bijgewerkt"
       calendar_modal:
         calendar_url: Agenda-URL
         close_window: Venster sluiten
@@ -341,6 +342,7 @@ nl:
             space_type: Participatieve ruimte
             upcoming: Aankomende
       last_activity:
+        meeting_updated_at_html: "<span>Vergadering bijgewerkt op %{link}</span>"
         new_meeting_at_html: "<span>Nieuwe vergadering op %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
@@ -357,6 +359,13 @@ nl:
           close: Vergadering sluiten
           title: Vergadering sluiten
       meetings:
+        calendar_modal:
+          add_to_calendar: Toevoegen aan agenda
+          apple: Toevoegen aan Apple agenda
+          close_window: Sluit venster
+          full_details_html: Ga naar %{link} voor alle details
+          google: Toevoegen aan Google agenda
+          outlook: Toevoegen aan Outlook agenda
         count:
           meetings_count:
             one: "%{count} vergadering"
@@ -369,12 +378,15 @@ nl:
           title: Bewerk je vergadering
           update: Vernieuwen
         filters:
+          activity: Mijn activiteit
+          all: Alle
           category: Categorie
           date: Datum
           date_values:
             all: Allemaal
             past: Verleden
             upcoming: Aankomende
+          my_meetings: Mijn vergaderingen
           origin: Oorsprong
           origin_values:
             all: Allemaal
@@ -383,6 +395,12 @@ nl:
             user_groups: Groepen
           scope: Bereik
           search: Zoeken
+          type: Type
+          type_values:
+            all: Alle
+            hybrid: Beide
+            in_person: Fysiek
+            online: Online
         filters_small_view:
           close_modal: Sluit modaal
           filter: Filter
@@ -394,13 +412,15 @@ nl:
           create_as: Maak vergadering als
           disclaimer: 'Disclaimer: Door gebruik te maken van een extern registratiesysteem, ben je op de hoogte dat de organisatoren van %{organization} niet verantwoordelijk zijn voor de gegevens die door gebruikers aan de externe dienst worden verstrekt.'
           location_help: 'Locatie: bericht gericht naar de gebruikers die de plek om elkaar te ontmoeten impliceren'
+          location_hints_help: 'Locatie hints: aanvullende informatie. Bijvoorbeeld: de verdieping van het gebouw als het een fysieke vergadering is, of het vergaderwachtwoord als het een online vergadering is met beperkte toegang.'
+          online_meeting_url_help: 'Link: laat deelnemers direct verbinding maken met je vergadering'
           registration_url_help: 'Link: verleen deelnemers toegang tot de externe dienst die je gebruikt voor registraties'
           select_a_category: Selecteer een categorie
+          select_a_meeting_type: Selecteer een vergaderingstype
           select_a_registration_type: Selecteer een registratietype
         index:
           new_meeting: Nieuwe vergadering
         meeting_minutes:
-          meeting_minutes: Verslag van de vergadering
           related_information: Gerelateerde informatie
         meetings:
           no_meetings_warning: Geen afspraken komen overeen met uw zoekcriteria of er is geen vergadering gepland.
@@ -419,9 +439,11 @@ nl:
           contributions: Aantal bijdragen
           date: 'Datum:'
           edit_meeting: Bewerk vergadering
-          going: Gaat
+          going: Je hebt je ingeschreven voor deze vergadering
           join: Deelnemen aan bijeenkomst
-          meeting_report: Bijeenkomst verslag
+          leave: Inschrijving annuleren
+          leave_confirmation: Weet je zeker dat je je inschrijving voor deze vergadering wil annuleren?
+          meeting_minutes: Verslag van de vergadering
           no_slots_available: Geen plaatsen beschikbaar
           organizations: Bijwonen van organisaties
           registration_code_help_text: Uw registratiecode
@@ -476,6 +498,10 @@ nl:
         destroy:
           invalid: Er is een probleem opgetreden bij het verlaten van deze vergadering.
           success: U heeft de vergadering succesvol verlaten.
+      type_of_meeting:
+        hybrid: Beide
+        in_person: Fysiek
+        online: Online
       types:
         private_meeting: Privé vergadering
         transparent: Transparant
@@ -500,6 +526,8 @@ nl:
       proposals_from_meeting:
         meeting_proposal: 'Gerelateerde voorstellen:'
         proposal_meeting: 'Gerelateerde vergaderingen:'
+    statistics:
+      meetings_count: Vergaderingen
   devise:
     mailer:
       join_meeting:

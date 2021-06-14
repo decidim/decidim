@@ -17,6 +17,18 @@ describe "Explore posts", type: :system do
       expect(page).to have_selector(".card--post", text: translated(old_post.title))
     end
 
+    it "shows comment counts" do
+      visit_component
+      expect(page).to have_selector('a[title="comments"]', text: "comment".pluralize(new_post.comments.count))
+      expect(page).to have_selector('a[title="comments"]', text: "comment".pluralize(old_post.comments.count))
+    end
+
+    it "shows endorsement counts" do
+      visit_component
+      expect(page).to have_selector('a[title="endorsements"]', text: "endorsement".pluralize(new_post.endorsements.count))
+      expect(page).to have_selector('a[title="endorsements"]', text: "endorsement".pluralize(old_post.endorsements.count))
+    end
+
     context "when paginating" do
       let(:collection_size) { 10 }
       let!(:collection) { create_list :post, collection_size, component: component }

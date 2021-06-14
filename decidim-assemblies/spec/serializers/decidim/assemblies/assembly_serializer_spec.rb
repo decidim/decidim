@@ -19,6 +19,7 @@ module Decidim::Assemblies
         expect(serialized).to include(decidim_organization_id: resource.decidim_organization_id)
         expect(serialized).to include(title: resource.title)
         expect(serialized).to include(subtitle: resource.subtitle)
+        expect(serialized).to include(weight: resource.weight)
         expect(serialized).to include(short_description: resource.short_description)
         expect(serialized).to include(description: resource.description)
         expect(serialized).to include(remote_hero_image_url: Decidim::Assemblies::AssemblyPresenter.new(resource).hero_image_url)
@@ -54,6 +55,7 @@ module Decidim::Assemblies
         expect(serialized).to include(github_handler: resource.github_handler)
         expect(serialized).to include(created_by_other: resource.created_by_other)
         expect(serialized).to include(decidim_assemblies_type_id: resource.decidim_assemblies_type_id)
+        expect(serialized).to include(announcement: resource.announcement)
       end
 
       context "when assembly has area" do

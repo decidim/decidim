@@ -56,7 +56,7 @@
                   </div>
                 <% end %>
 
-                <%= decidim_form_for(@form, url: update_url, method: :post, html: { class: "form answer-questionnaire" }, data: { "safe-path" => form_path }) do |form| %>
+                <%= decidim_form_for(@form, url: update_url, method: :post, html: { multipart: true, class: "form answer-questionnaire" }, data: { "safe-path" => form_path }) do |form| %>
                   <%= form_required_explanation %>
                   <%= invisible_captcha %>
                   <% answer_idx = 0 %>
@@ -96,6 +96,12 @@
                         <% if show_represent_user_group? %>
                           <div class="row column represent-user-group">
                             <%= cell("decidim/represent_user_group", form) %>
+                          </div>
+                        <% end %>
+
+                        <% if show_public_participation? %>
+                          <div class="row column public-participation">
+                            <%= cell("decidim/public_participation", form) %>
                           </div>
                         <% end %>
 
@@ -144,4 +150,4 @@
   </div>
 </div>
 
-<%= javascript_include_tag "decidim/forms/forms" %>
+<%= javascript_pack_tag "decidim_forms" %>

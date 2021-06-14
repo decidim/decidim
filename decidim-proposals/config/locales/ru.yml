@@ -19,7 +19,9 @@ ru:
       models:
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Необходимо заново прикрепить
+            add_photos:
               needs_to_be_reattached: Необходимо заново прикрепить
     models:
       decidim/proposals/accepted_proposal_event: Предложение принято

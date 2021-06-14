@@ -30,6 +30,8 @@ module Decidim
     private
 
     def destroy_user_account!
+      @user.invalidate_all_sessions!
+
       @user.name = ""
       @user.nickname = ""
       @user.email = ""

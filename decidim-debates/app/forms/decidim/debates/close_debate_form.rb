@@ -6,7 +6,7 @@ module Decidim
     class CloseDebateForm < Decidim::Form
       mimic :debate
 
-      attribute :conclusions, String
+      attribute :conclusions, Decidim::Attributes::CleanString
       attribute :debate, Debate
 
       validates :debate, presence: true

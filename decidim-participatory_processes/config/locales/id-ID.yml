@@ -263,6 +263,9 @@ id:
         object: proses partisipatif
         title: Proses partisipatif
     participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Aktivitas
       show:
         title: Kelompok proses partisipatif
     participatory_process_steps:
@@ -346,23 +349,6 @@ id:
         start_date: Mulai tanggal
         target: Yang berpartisipasi
         unspecified: Tidak ditentukan
-      statistics:
-        answers_count: Jawaban
-        comments_count: Komentar
-        debates_count: Perdebatan
-        endorsements_count: Endorsemen
-        headline: Aktivitas
-        meetings_count: Rapat
-        orders_count: Suara
-        pages_count: Halaman
-        participants_count: Peserta
-        processes_count: Proses
-        projects_count: Proyek
-        proposals_count: Proposal
-        results_count: Hasil
-        supports_count: Suara
-        surveys_count: Survei
-        users_count: Peserta
   layouts:
     decidim:
       participatory_process_groups:

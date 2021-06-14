@@ -36,10 +36,11 @@ module Decidim
       private
 
       attr_reader :participatory_space
+      alias resource participatory_space
 
       def serialize_component_specific_data(component)
         specific_serializer = component.manifest.specific_data_serializer_class.new(component)
-        specific_serializer.serialize
+        specific_serializer.run
       end
     end
   end

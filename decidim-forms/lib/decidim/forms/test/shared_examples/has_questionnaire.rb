@@ -194,6 +194,28 @@ shared_examples_for "has questionnaire" do
       end
     end
 
+    shared_examples_for "question has a character limit" do
+      context "when max_characters value is positive" do
+        let(:max_characters) { 30 }
+
+        it "shows a message indicating number of characters left" do
+          visit questionnaire_public_path
+
+          expect(page).to have_content("30 characters left")
+        end
+      end
+
+      context "when max_characters value is 0" do
+        let(:max_characters) { 0 }
+
+        it "doesn't show message indicating number of characters left" do
+          visit questionnaire_public_path
+
+          expect(page).not_to have_content("characters left")
+        end
+      end
+    end
+
     describe "leaving a blank question (without js)", driver: :rack_test do
       include_context "when a non multiple choice question is mandatory"
 
@@ -268,12 +290,13 @@ shared_examples_for "has questionnaire" do
 
     describe "free text options" do
       let(:answer_option_bodies) { Array.new(3) { Decidim::Faker::Localized.sentence } }
-
+      let(:max_characters) { 0 }
       let!(:question) do
         create(
           :questionnaire_question,
           questionnaire: questionnaire,
           question_type: question_type,
+          max_characters: max_characters,
           position: 1,
           options: [
             { "body" => answer_option_bodies[0] },
@@ -346,6 +369,8 @@ shared_examples_for "has questionnaire" do
 
           expect(page).to have_field("questionnaire_responses_0_choices_2_custom_body", with: "Cacatua")
         end
+
+        it_behaves_like "question has a character limit"
       end
 
       context "when question is multiple_option type" do
@@ -392,27 +417,35 @@ shared_examples_for "has questionnaire" do
 
           expect(page).to have_field("questionnaire_responses_0_choices_2_custom_body", with: "Cacatua")
         end
+
+        it_behaves_like "question has a character limit"
       end
     end
 
     context "when question type is long answer" do
-      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "long_answer") }
+      let(:max_characters) { 0 }
+      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "long_answer", max_characters: max_characters) }
 
       it "renders the answer as a textarea" do
         visit questionnaire_public_path
 
         expect(page).to have_selector("textarea#questionnaire_responses_0")
       end
+
+      it_behaves_like "question has a character limit"
     end
 
     context "when question type is short answer" do
-      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "short_answer") }
+      let(:max_characters) { 0 }
+      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "short_answer", max_characters: max_characters) }
 
       it "renders the answer as a text field" do
         visit questionnaire_public_path
 
         expect(page).to have_selector("input[type=text]#questionnaire_responses_0")
       end
+
+      it_behaves_like "question has a character limit"
     end
 
     context "when question type is single option" do
@@ -888,6 +921,7 @@ shared_examples_for "has questionnaire" do
 
           context "when the condition_question type is long answer" do
             let!(:condition_question_type) { "long_answer" }
+            let!(:conditioned_question_id) { "#questionnaire_responses_0" }
 
             it "shows the question only if the condition is fulfilled" do
               expect_question_to_be_visible(false)
@@ -979,6 +1013,7 @@ shared_examples_for "has questionnaire" do
 
           context "when the condition_question type is long answer" do
             let!(:condition_question_type) { "long_answer" }
+            let!(:conditioned_question_id) { "#questionnaire_responses_0" }
 
             it "shows the question only if the condition is fulfilled" do
               expect_question_to_be_visible(true)

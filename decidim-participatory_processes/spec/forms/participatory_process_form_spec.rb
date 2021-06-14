@@ -23,6 +23,7 @@ module Decidim
             ca: "Subtítol"
           }
         end
+        let(:weight) { 1 }
         let(:description) do
           {
             en: "Description",
@@ -50,6 +51,7 @@ module Decidim
               "subtitle_en" => subtitle[:en],
               "subtitle_es" => subtitle[:es],
               "subtitle_ca" => subtitle[:ca],
+              "weight" => weight,
               "description_en" => description[:en],
               "description_es" => description[:es],
               "description_ca" => description[:ca],

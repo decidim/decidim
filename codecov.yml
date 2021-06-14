@@ -9,3 +9,8 @@ coverage:
     project:
       default:
         threshold: 0.1%
+github_checks:
+  annotations: false
+flag_management:
+  default_rules:
+    carryforward: true

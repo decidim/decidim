@@ -27,7 +27,7 @@ module Decidim
         attr_reader :answer, :selected
 
         def invalid?
-          !answer.question.total_votes.positive?
+          !answer.question.results_total.positive?
         end
 
         def update_answer_selection!

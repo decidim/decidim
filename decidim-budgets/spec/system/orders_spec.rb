@@ -140,7 +140,7 @@ describe "Orders", type: :system do
           expect(page).to have_content "1 project selected"
 
           within ".budget-summary__selected" do
-            expect(page).to have_content project.title[I18n.locale]
+            expect(page).to have_selector(".budget-summary__selected-item", text: project.title[I18n.locale.to_s], visible: :hidden)
           end
 
           within "#order-progress .budget-summary__progressbox" do
@@ -175,7 +175,7 @@ describe "Orders", type: :system do
           expect(page).to have_content "1 project selected"
 
           within ".budget-summary__selected" do
-            expect(page).to have_content project.title[I18n.locale]
+            expect(page).to have_selector(".budget-summary__selected-item", text: project.title[I18n.locale.to_s], visible: :hidden)
           end
 
           within "#order-progress .budget-summary__progressbox" do
@@ -211,7 +211,7 @@ describe "Orders", type: :system do
           expect(page).to have_content "1 project selected"
 
           within ".budget-summary__selected" do
-            expect(page).to have_content project.title[I18n.locale]
+            expect(page).to have_selector(".budget-summary__selected-item", text: project.title[I18n.locale.to_s], visible: :hidden)
           end
 
           within "#order-progress .budget-summary__progressbox" do
@@ -246,7 +246,7 @@ describe "Orders", type: :system do
           expect(page).to have_content "1 project selected"
 
           within ".budget-summary__selected" do
-            expect(page).to have_content project.title[I18n.locale]
+            expect(page).to have_selector(".budget-summary__selected-item", text: project.title[I18n.locale.to_s], visible: :hidden)
           end
 
           within "#order-progress .budget-summary__progressbox" do

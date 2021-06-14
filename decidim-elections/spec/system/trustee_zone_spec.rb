@@ -5,13 +5,33 @@ require "spec_helper"
 describe "Trustee zone", type: :system do
   let(:organization) { create(:organization, :secure_context) }
   let(:user) { create(:user, :confirmed, organization: organization) }
-  let(:trustee) { create(:trustee, user: user, public_key: public_key) }
+  let(:trustee) { create(:trustee, user: user, public_key: public_key, organization: organization) }
   let(:public_key) { nil }
 
   before do
     trustee
     switch_to_secure_context_host
     login_as user, scope: :user
+  end
+
+  context "when the user name exists in this organization", download: true do
+    let!(:other_trustee) { create(:trustee, :with_public_key, name: user.name, organization: user.organization) }
+
+    it "can't generate identification keys" do
+      visit decidim.decidim_elections_trustee_zone_path
+
+      expect(page).to have_content("Generate identification keys")
+
+      click_button "Generate identification keys"
+
+      wait_for_download
+
+      expect(download_content).to have_content('"alg":"RS256"')
+
+      find("label", text: "Submit").click
+
+      expect(page).to have_content("Name has already been taken")
+    end
   end
 
   it "can access to the trustee zone" do
@@ -98,6 +118,24 @@ describe "Trustee zone", type: :system do
       expect(page).to have_content("You are not authorized to perform this action")
 
       expect(page).to have_current_path(decidim.root_path)
+    end
+  end
+
+  context "when the bulletin_board is not configured" do
+    before do
+      allow(Decidim::Elections.bulletin_board).to receive(:configured?).and_return(false)
+      trustee
+      login_as user, scope: :user
+    end
+
+    it "notifies that it is not configured" do
+      visit decidim.account_path
+
+      expect(page).to have_content("Trustee zone")
+
+      visit decidim.decidim_elections_trustee_zone_path
+
+      expect(page).to have_content("Sorry, the Bulletin Board is not configured yet")
     end
   end
 end

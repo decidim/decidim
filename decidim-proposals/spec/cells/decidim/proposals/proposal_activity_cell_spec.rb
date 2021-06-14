@@ -9,9 +9,11 @@ module Decidim
 
       let!(:proposal) { create(:proposal) }
       let(:hashtag) { create(:hashtag, name: "myhashtag") }
+      let(:action) { :publish }
       let(:action_log) do
         create(
           :action_log,
+          action: action,
           resource: proposal,
           organization: proposal.organization,
           component: proposal.component,
@@ -22,8 +24,35 @@ module Decidim
       context "when rendering" do
         it "renders the card" do
           html = cell("decidim/proposals/proposal_activity", action_log).call
-          expect(html).to have_css(".card__content")
-          expect(html).to have_content("New proposal")
+          expect(html).to have_css("#action-#{action_log.id} .card__content")
+        end
+
+        context "when action is update" do
+          let(:action) { :update }
+
+          it "renders the correct title" do
+            html = cell("decidim/proposals/proposal_activity", action_log).call
+            expect(html).to have_css("#action-#{action_log.id} .card__content")
+            expect(html).to have_content("Proposal updated")
+          end
+        end
+
+        context "when action is create" do
+          let(:action) { :create }
+
+          it "renders the correct title" do
+            html = cell("decidim/proposals/proposal_activity", action_log).call
+            expect(html).to have_css("#action-#{action_log.id} .card__content")
+            expect(html).to have_content("New proposal")
+          end
+        end
+
+        context "when action is publish" do
+          it "renders the correct title" do
+            html = cell("decidim/proposals/proposal_activity", action_log).call
+            expect(html).to have_css("#action-#{action_log.id} .card__content")
+            expect(html).to have_content("New proposal")
+          end
         end
 
         context "when the proposal has a hashtags" do

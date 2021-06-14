@@ -6,7 +6,7 @@ describe "Admin manages officializations", type: :system do
   include_context "with filterable context"
 
   let(:model_name) { Decidim::User.model_name }
-  let(:filterable_concern) { Decidim::Admin::Officializations::Filterable }
+  let(:resource_controller) { Decidim::Admin::OfficializationsController }
 
   let(:organization) { create(:organization) }
 

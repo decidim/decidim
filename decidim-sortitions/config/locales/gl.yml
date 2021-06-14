@@ -23,6 +23,7 @@ gl:
         settings:
           global:
             comments_enabled: Comentarios habilitados
+            comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
     events:
       sortitions:
         sortition_created:
@@ -30,13 +31,6 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: Nova xeración engadida a %{participatory_space_title}
           notification_title: A clasificación <a href="%{resource_path}">%{resource_title}</a> engadiuse a %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          sortitions_count: Edicións
-    participatory_processes:
-      statistics:
-        sortitions_count: Edicións
     sortitions:
       admin:
         actions:
@@ -124,6 +118,7 @@ gl:
         show:
           algorithm: Codigo de algoritmo de Sortition
           any_category: de todas as categorías
+          back: Volver á listaxe
           cancelled: Cancelada sortition
           candidate_proposal_ids: Orde de propostas de clasificación e ID
           candidate_proposals_info: 'O sortition levouse a cabo entre as seguintes propostas (%{category_label}), coas seguintes ID (en negra as propostas seleccionadas)  '
@@ -149,3 +144,5 @@ gl:
           count:
             one: 1 sortition
             other: "%{count} sortións"
+    statistics:
+      sortitions_count: Sorteos

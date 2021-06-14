@@ -12,8 +12,9 @@ module Decidim
           let!(:proposal) { proposals.first }
           let(:current_component) do
             create(
-              :component, manifest_name: "budgets",
-                          participatory_space: proposal.component.participatory_space
+              :component,
+              manifest_name: "budgets",
+              participatory_space: proposal.component.participatory_space
             )
           end
           let(:budget) { create :budget, component: current_component }
@@ -114,6 +115,18 @@ module Decidim
               expect(new_project.description).to eq(proposal.body)
               expect(new_project.category).to eq(proposal.category)
               expect(new_project.scope).to eq(proposal.scope)
+              expect(new_project.budget_amount).to eq(proposal.cost)
+            end
+
+            context "when the proposal doesn't have a cost" do
+              let!(:proposals) { create_list(:proposal, 3, :accepted, cost: nil) }
+
+              it "imports the default budget" do
+                command.call
+
+                new_project = Project.where(budget: budget).last
+                expect(new_project.budget_amount).to eq(default_budget)
+              end
             end
           end
         end

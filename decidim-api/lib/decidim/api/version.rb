@@ -4,7 +4,7 @@ module Decidim
   # This holds the decidim-api version.
   module Api
     def self.version
-      "0.24.0.dev"
+      "0.25.0.dev"
     end
   end
 end

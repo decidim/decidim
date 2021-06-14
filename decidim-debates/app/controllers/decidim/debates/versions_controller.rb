@@ -4,7 +4,7 @@ module Decidim
   module Debates
     # Exposes Debates versions so users can see how a Debate has been updated
     # through time.
-    class VersionsController < Decidim::Proposals::ApplicationController
+    class VersionsController < Decidim::Debates::ApplicationController
       include Decidim::ApplicationHelper
       include Decidim::ResourceVersionsConcern
 

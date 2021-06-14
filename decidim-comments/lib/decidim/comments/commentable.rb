@@ -52,6 +52,11 @@ module Decidim
           true
         end
 
+        # Public: Whether the object can have new comment votes or not.
+        def user_allowed_to_vote_comment?(_user)
+          true
+        end
+
         # Public: Updates the comments counter cache. We have to do it these
         # way in order to properly calculate the coutner with hidden
         # comments.

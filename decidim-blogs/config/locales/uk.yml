@@ -70,10 +70,3 @@ uk:
           email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{participatory_space_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
           email_subject: В %{participatory_space_title} оприлюднено новий допис
           notification_title: В %{participatory_space_title} було оприлюднено допис <a href="%{resource_path}">%{resource_title}</a>
-    pages:
-      home:
-        statistics:
-          posts_count: Дописів
-    participatory_processes:
-      statistics:
-        posts_count: Дописів

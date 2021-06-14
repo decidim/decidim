@@ -35,6 +35,7 @@ en:
         subtitle: Subtitle
         target: Who participates
         title: Title
+        weight: Order position
       participatory_process_group:
         description: Description
         developer_group: Promoter group
@@ -403,6 +404,7 @@ en:
             more_information: More information
             participate: Participate
             participate_in: Participate in process %{resource_name}
+            processes_button_title: Link to the Processes page displaying all the processes
             see_all_processes: See all processes
       participatory_process_steps:
         index:
@@ -449,25 +451,8 @@ en:
         start_date: Start date
         target: Who participates
         unspecified: Not specified
-      statistics:
-        answers_count: Answers
-        comments_count: Comments
-        debates_count: Debates
-        endorsements_count: Endorsements
-        followers_count: Followers
-        headline: Statistics
-        meetings_count: Meetings
-        no_stats: There are no statistics yet.
-        orders_count: Supports
-        pages_count: Pages
-        participants_count: Participants
-        processes_count: Processes
-        projects_count: Projects
-        proposals_count: Proposals
-        results_count: Results
-        supports_count: Supports
-        surveys_count: Surveys
-        users_count: Participants
+    statistics:
+      processes_count: Processes
   layouts:
     decidim:
       participatory_process_groups:

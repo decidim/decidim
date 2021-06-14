@@ -187,6 +187,11 @@ shared_examples "proposals wizards" do |options|
         expect(page).to have_selector("a", text: "Modify the proposal")
       end
 
+      it "doesn't show a geocoded address" do
+        expect(page).not_to have_content("ADDRESS")
+        expect(page).not_to have_css(".card__content.address")
+      end
+
       context "when the back button is clicked" do
         before do
           click_link "Back"
@@ -248,6 +253,29 @@ shared_examples "proposals wizards" do |options|
              participatory_space: participatory_process)
     end
 
+    context "when in step_4: edit proposal draft" do
+      let!(:proposal_draft) { create(:proposal, :draft, users: [user], address: address, component: component, title: proposal_title, body: proposal_body) }
+
+      before do
+        proposal_draft.update!(latitude: latitude, longitude: longitude)
+        visit "#{component_path.proposal_path(proposal_draft)}/edit_draft"
+      end
+
+      it "allows filling an empty address and unchecking the has address checkbox" do
+        within "form.edit_proposal" do
+          fill_in :proposal_address, with: ""
+        end
+        uncheck "proposal_has_address"
+        click_button "Preview"
+
+        expect(page).to have_content(proposal_title)
+        expect(page).to have_content(proposal_body)
+        expect(page).not_to have_field("proposal_address")
+        expect(page).not_to have_field("proposal_longitude")
+        expect(page).not_to have_field("proposal_latitude")
+      end
+    end
+
     context "when in step_4: Publish" do
       let!(:proposal_draft) { create(:proposal, :draft, users: [user], address: address, component: component, title: proposal_title, body: proposal_body) }
 
@@ -271,16 +299,8 @@ shared_examples "proposals wizards" do |options|
         expect(page).to have_content(user.name)
         expect(page).to have_content(proposal_body)
 
-        expect(page).to have_css(".dynamic-map-instructions")
-        expect(page).to have_css(".google-map")
-        within "#edit_proposal_#{proposal_draft.id}" do
-          expect(page).to have_field("proposal_title", type: :hidden, with: proposal_title)
-          expect(page).to have_field("proposal_body", type: :hidden, with: proposal_body)
-          expect(page).to have_field("proposal_address", type: :hidden, with: address)
-          expect(page).to have_field("proposal_longitude", type: :hidden, with: longitude)
-          expect(page).to have_field("proposal_latitude", type: :hidden, with: latitude)
-          expect(page).to have_button("Update position")
-        end
+        expect(page).to have_content("ADDRESS")
+        expect(page).to have_css(".card__content.address")
       end
 
       it "shows a publish button" do
@@ -298,6 +318,19 @@ shared_examples "proposals wizards" do |options|
 
         it "redirects to edit the proposal draft" do
           expect(page).to have_content("EDIT PROPOSAL DRAFT")
+        end
+      end
+
+      context "when there is no address" do
+        let!(:proposal_draft) { create(:proposal, :draft, users: [user], address: nil, component: component, title: proposal_title, body: proposal_body) }
+
+        it "doesn't shows a preview" do
+          expect(page).to have_content(proposal_title)
+          expect(page).to have_content(user.name)
+          expect(page).to have_content(proposal_body)
+
+          expect(page).not_to have_content("ADDRESS")
+          expect(page).not_to have_css(".card__content.address")
         end
       end
     end

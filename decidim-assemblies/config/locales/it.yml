@@ -52,6 +52,7 @@ it:
         target: A chi è destinato il processo
         title: Titolo
         twitter: Twitter
+        weight: Ordine di posizionamento
         youtube: Youtube
       assembly_member:
         birthday: Data di nascita
@@ -218,7 +219,7 @@ it:
           name: Membro
           positions:
             other: Altro
-            president: Presidente
+            president: Presidente/Presidentessa
             secretary: Segretario
             vice_president: Vicepresidente
         assembly_user_role:
@@ -249,7 +250,7 @@ it:
         update: "%{user_name} ha aggiornato le impostazioni delle assemblee"
       assembly_type:
         create: "%{user_name} ha creato il tipo di assemblea %{resource_name}"
-        delete: "%{user_name} ha rimosso il %{resource_name} membro dal tipo di assemblea %{space_name}"
+        delete: "%{user_name} ha rimosso il tipo di assemblea %{resource_name}"
         publish: "%{user_name} ha creato il tipo di assemblea %{resource_name}"
         unpublish: "%{user_name} ha rimosso la pubblicazione del tipo di assemblea %{resource_name}"
         update: "%{user_name} ha aggiornato il tipo di assemblea %{resource_name}"
@@ -261,6 +262,7 @@ it:
       admin:
         assemblies:
           form:
+            announcement_help: Il testo che inserisci qui verrà mostrato all'utente proprio sotto le informazioni dell'assemblea.
             duration: Durata
             duration_help: Se la durata di questa assemblea è limitata, selezionare la data di fine. Altrimenti, apparirà come indefinita.
             filters: Filtri
@@ -308,6 +310,9 @@ it:
         content_blocks:
           highlighted_assemblies:
             max_results: Quantità massima di elementi da mostrare
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Utenti
@@ -377,33 +382,11 @@ it:
         social_networks: Social Networks
         social_networks_title: Condividi questa assemblea su
         target: Chi partecipa
-      statistics:
-        answers_count: risposte
-        assemblies_count: Assemblee
-        comments_count: Commenti
-        debates_count: Discussioni
-        endorsements_count: Mi piace
-        headline: Attività
-        meetings_count: Riunioni
-        orders_count: Supporti
-        pages_count: Pagine
-        posts_count: Messaggi
-        projects_count: Progetti
-        proposals_count: Proposte
-        results_count: Risultati
-        surveys_count: Sondaggi
-        users_count: Partecipanti
-        votes_count: Voti
     assembly_members:
       assembly_member:
         designated_on: Designato su
       index:
         title: Utenti
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Link alla pagina delle Conferenze mostrata in tutte le conferenze
     events:
       assemblies:
         create_assembly_member:
@@ -436,19 +419,11 @@ it:
         description: Numero di assemblee create
         object: assemblee
         title: Assemblee
-    pages:
-      home:
-        hero:
-          participate_title: Partecipa ai processi della piattaforma
-        sub_hero:
-          register_title: Iscriviti per creare un account sulla piattaforma
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Link alla pagina dei Processi mostrata in tutti i processi
       show:
         related_assemblies: Assemblee collegate
+    statistics:
+      assemblies_count: Assemblee
   errors:
     messages:
       cannot_be_blank: non può essere vuoto

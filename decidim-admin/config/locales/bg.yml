@@ -24,7 +24,6 @@ bg:
       component:
         name: Име
         published_at: Публикувано на
-        weight: Тегло
       id: ID
       newsletter:
         body: Тяло
@@ -97,12 +96,10 @@ bg:
         show_in_footer: Покажи в долния колонтитул
         slug: Съкратен URL
         title: Заглавие
-        weight: Тегло
       static_page_topic:
         description: Описание
         show_in_footer: Покажи в долния колонтитул
         title: Заглавие
-        weight: Тегло
       user_group_csv_verification:
         file: Файл
     errors:

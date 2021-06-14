@@ -10,6 +10,7 @@ module Decidim
 
         permited_models.include?(model_name)
       end
+      alias show_public_participation? show_represent_user_group?
 
       def permited_models
         %(meeting)

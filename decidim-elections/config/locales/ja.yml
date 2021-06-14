@@ -16,6 +16,9 @@ ja:
         max_selections: 選択範囲の最大数
         min_selections: 上記のどれでもない
         title: タイトル
+      voting:
+        end_time: 投票終了
+        start_time: 投票開始
     errors:
       models:
         answer:
@@ -26,7 +29,25 @@ ja:
           attributes:
             attachment:
               needs_to_be_reattached: 再接続が必要
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: 変更できません
+            public_key:
+              cant_be_changed: 変更できません
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: 投票委員はすでに投票所の代表者/マネージャーです
+            voting:
+              different_organization: 投票はユーザーと同じ組織内にある必要があります
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: 投票委員は投票所と同じ投票に属さなければなりません
     models:
       decidim/elections/answer:
         other: 回答
@@ -34,7 +55,40 @@ ja:
         other: 選挙
       decidim/elections/question:
         other: 質問
+      decidim/votings/census/dataset:
+        other: データセット
+      decidim/votings/census/datum:
+        other: データ
+      decidim/votings/polling_officer:
+        other: 投票委員
+      decidim/votings/polling_station:
+        other: 投票所
+      decidim/votings/voting:
+        other: 投票
   decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: 委員
+          values:
+            assigned: 割り当て済み
+            unassigned: 未割り当て
+        role_eq:
+          label: ロール
+          values:
+            manager: マネージャー
+            president: 責任者
+            unassigned: 未割り当て
+        signed_eq:
+          label: 署名済み
+          values:
+            'false': 署名済み
+            'true': 未署名
+        validated_eq:
+          label: 検証済み
+          values:
+            'false': 検証済み
+            'true': 未検証
     components:
       elections:
         actions:
@@ -135,6 +189,12 @@ ja:
           update:
             invalid: この質問の更新中に問題が発生しました
             success: 問題が正常に更新されました
+        steps:
+          create_election:
+            not_used_trustee: "(未使用)"
+            public_key:
+              'false': <strong>公開鍵</strong>がありません
+              'true': <strong>公開鍵</strong>があります
       admin_log:
         election:
           publish: "%{user_name} が %{resource_name} 選挙を公開しました"
@@ -170,15 +230,23 @@ ja:
           filter_by: 絞り込み条件
           unfold: 展開
         show:
+          action_button:
+            change_vote: 投票の変更
+            vote: 投票の開始
+            vote_again: 再投票
+          callout:
+            already_voted: すでにこの選挙に投票しました。投票の変更と確認ができます。
+            vote_rejected: 投票を確認できませんでした。もう一度お試しください。
           preview: プレビュー
-          vote: 投票
+          verify:
+            already_voted: すでに投票しましたか？
+            verify_here: 投票を確認してください。
+            will_verify: 選挙が開始されると、投票を確認することができます。
           voting_period_status:
             finished: '%{start_time} に投票が開始され、 %{end_time} に終了しました'
-            ongoing: '%{end_time} に投票が終了します'
             upcoming: '%{start_time} に投票が終了します'
       feedback:
         answer:
-          invalid: フィードバックの送信中に問題が発生しました
           spam_detected: フォームに回答する際に問題が発生しました。もう一度お試しください。
           success: フィードバックは正常に送信されました
       models:
@@ -215,16 +283,10 @@ ja:
           experience: ご利用いただき、どう思われますか?
           feedback: フィードバックを送る
           header: 投票が確定されました
-          lead: あなたの票は既に投じられました！
           text: '投票が投票箱に正常に追加されたことを、次の識別子で確認できます: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_text: 確認するには、識別子をコピーして <a href="evote-verify">投票検証ページ</a> に貼り付けてください。
-        encrypting:
-          header: 投票の暗号化...
-          text: 投票は暗号化されており、匿名で投票することができます。
         header:
           confirm: 投票を確定
           confirmed: 投票が確定されました
-          encrypting: 投票を確定
         messages:
           not_allowed: 現在、この選挙に投票することはできません。
         modal:
@@ -250,9 +312,22 @@ ja:
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{resource_title} の選挙は %{participatory_space_title} のために有効になりました。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> の選挙が %{participatory_space_title} に有効になりました。
-    participatory_processes:
-      statistics:
-        elections_count: 選挙
+    votings:
+      admin:
+        menu:
+          votings_submenu:
+            monitoring_committee: 監視委員会
+      polling_officer_zone:
+        polling_officers:
+          index:
+            polling_officer_role_description: あなたは、このプラットフォームで行われるいくつかの選挙で、投票所の責任者(長またはマネージャー) として行動するように割り当てられています。
+            polling_station:
+              no_polling_stations: まだどの投票所にも割り当てられていません。
+              role: あなたの役割
+              voting: 投票
+      votings:
+        login:
+          start_voting: 投票の開始
   layouts:
     decidim:
       election_votes_header:

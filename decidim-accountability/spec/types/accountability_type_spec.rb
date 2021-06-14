@@ -7,10 +7,14 @@ require "decidim/core/test"
 module Decidim
   module Accountability
     describe AccountabilityType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
       let(:model) { create(:accountability_component) }
 
-      it_behaves_like "a component query type"
+      describe "" do
+        subject { described_class }
+
+        it_behaves_like "a component query type"
+      end
 
       describe "results" do
         let!(:component_results) { create_list(:result, 2, component: model) }

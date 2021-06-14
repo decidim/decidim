@@ -57,8 +57,18 @@ module Decidim
             @template.snippets.add(:head, @template.snippets.for(:geocoding))
           end
 
+          options[:value] ||= object.send(attribute) if object.respond_to?(attribute)
+          if object.respond_to?(:latitude) && object.respond_to?(:longitude)
+            point = [object.latitude, object.longitude]
+            options["data-coordinates"] ||= point.join(",")
+          end
+
           field(attribute, options) do |opts|
-            builder.geocoding_field(@object_name, attribute, opts)
+            builder.geocoding_field(
+              @object_name,
+              attribute,
+              opts
+            )
           end
         end
       end

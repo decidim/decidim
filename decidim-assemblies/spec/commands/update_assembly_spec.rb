@@ -31,6 +31,7 @@ module Decidim::Assemblies
             subtitle_en: my_assembly.subtitle,
             subtitle_ca: my_assembly.subtitle,
             subtitle_es: my_assembly.subtitle,
+            weight: my_assembly.weight,
             slug: my_assembly.slug,
             hashtag: my_assembly.hashtag,
             meta_scope: my_assembly.meta_scope,
@@ -67,7 +68,8 @@ module Decidim::Assemblies
             facebook_handler: my_assembly.facebook_handler,
             instagram_handler: my_assembly.instagram_handler,
             youtube_handler: my_assembly.youtube_handler,
-            github_handler: my_assembly.github_handler
+            github_handler: my_assembly.github_handler,
+            announcement: my_assembly.announcement
           }
         }
       end

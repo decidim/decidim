@@ -40,17 +40,11 @@ cs:
           next_level_in: Vytvořte %{score} dalších testů, abyste dosáhli další úrovně!
           unearned_another: Tento uživatel zatím nevytvořil žádné testy.
           unearned_own: Dosud jste nevytvořili žádné testy.
-    pages:
-      home:
-        statistics:
-          bar: Bar
-          dummies_count_high: Figuríny vysoké
-          dummies_count_medium: Dummies střední
-          foo: Foo
-    participatory_processes:
-      statistics:
-        dummies_count_high: Figuríny vysoké
-        dummies_count_medium: Dummies střední
     resource_links:
       test_link:
         dummy_resource_dummy: Související figurína
+    statistics:
+      bar: Bar
+      dummies_count_high: Figuríny vysoké
+      dummies_count_medium: Dummies střední
+      foo: Foo

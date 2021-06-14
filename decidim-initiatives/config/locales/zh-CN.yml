@@ -82,6 +82,8 @@ zh-CN:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: 按标题、描述、ID或作者名称搜索 %{collection}。
       menu:
+        components: 组件
+        information: 信息
         initiatives: 倡议
         initiatives_types: 倡议类型
       models:
@@ -146,10 +148,7 @@ zh-CN:
             email_subject: 新里程碑已完成！
             notification_title: <a href="%{resource_path}">%{resource_title}</a> 倡议已经实现了 %{percentage}%的签名。
         support_threshold_reached:
-          email_intro: '%{resource_title} 倡议已达到支持阈值'
           email_outro: 您收到此通知是因为您是平台的管理员。
-          email_subject: 已达到支持阈值
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 倡议已达到支持阈值
     gamification:
       badges:
         initiatives:
@@ -256,7 +255,6 @@ zh-CN:
             update: 更新
           form:
             authorizations: 授权设置
-            child_scope_threshold_enabled_help: '这个配置标志不支持离线投票，它允许子jauges，并且与一个授权处理程序与用户相关联。 请确保您在授权设置中选择该授权和下拉。 要使其工作范围需要分级配置： 1 家长-N 孩子。 关于此配置如何工作的更多信息，请查看 <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">链接</a>。'
             only_global_scope_enabled_help: 如果您启用了“子范围签名”并将全局范围设置为您的上级范围，请勾选此标记。 通过启用此功能，倡议类型选择将会在创建向导中跳过。 关于此配置如何工作的更多信息，请查看 <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">链接</a>。
             options: 备选方案
             title: 通告周知
@@ -315,10 +313,8 @@ zh-CN:
         finish:
           back: 后退
           back_to_initiatives: 回到倡议
-          edit_my_initiative: 编辑我的倡议
           go_to_my_initiatives: 转到我的倡议
           more_information: "(更多信息)"
-          send_my_initiative: 发送我的倡议
         previous_form:
           back: 后退
           continue: 继续
@@ -427,13 +423,6 @@ zh-CN:
         print:
           city: 城市
         result:
-          answer_title:
-            accepted: 这项建议已被接受，原因是：
-            created: 此建议已创建
-            discarded: 这项建议已经被放弃，原因是：
-            published: 此建议发布原因：
-            rejected: 这项建议已被拒绝，原因是：
-            validating: 这项建议正在评估
           initiative_rejected_reason: 这项倡议由于没有签字而被拒绝。
         show:
           follow_description: 当该倡议有消息时收到通知
@@ -492,12 +481,6 @@ zh-CN:
           vote: 签名
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: 附件
-          committee_members: 委员会成员
-          components: 组件
-          information: 信息
       initiative_creation_header:
         back: 后退
         fill_data: 创建

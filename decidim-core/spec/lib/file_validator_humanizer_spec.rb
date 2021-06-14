@@ -8,7 +8,7 @@ module Decidim
 
     let(:uploader) do
       Class.new(Decidim::ApplicationUploader) do
-        def extension_whitelist
+        def extension_allowlist
           %w(jpeg jpg png)
         end
       end
@@ -70,9 +70,9 @@ module Decidim
       end
     end
 
-    describe "#extension_whitelist" do
+    describe "#extension_allowlist" do
       it "returns the correct extensions" do
-        expect(subject.extension_whitelist).to eq(%w(jpeg jpg png))
+        expect(subject.extension_allowlist).to eq(%w(jpeg jpg png))
       end
     end
   end

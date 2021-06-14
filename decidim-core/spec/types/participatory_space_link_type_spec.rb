@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Core
     describe ParticipatorySpaceLinkType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:organization) { create(:organization) }
       let(:process) { create(:participatory_process, organization: organization) }

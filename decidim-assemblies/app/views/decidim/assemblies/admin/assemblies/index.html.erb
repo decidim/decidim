@@ -65,7 +65,7 @@
                 <% end %>
               </td>
               <td>
-                <%= l(assembly.creation_date, format: :decidim_short) if assembly.creation_date %>
+                <%= l(assembly.created_at, format: :short) %>
               </td>
               <td class="table-list__state">
                 <% if assembly.private_space? %>

@@ -7,7 +7,7 @@ require "decidim/core/test"
 module Decidim
   module Core
     describe UserEntityInputFilter, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
       let(:type_class) { Decidim::Api::QueryType }
 
       let(:user) { create(:user, :confirmed, organization: current_organization) }

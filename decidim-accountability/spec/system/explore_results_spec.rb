@@ -236,7 +236,7 @@ describe "Explore results", versioning: true, type: :system do
       let(:meeting_component) do
         create(:component, manifest_name: :meetings, participatory_space: result.component.participatory_space)
       end
-      let(:meetings) { create_list(:meeting, 3, component: meeting_component) }
+      let(:meetings) { create_list(:meeting, 3, :published, component: meeting_component) }
       let(:meeting) { meetings.first }
 
       before do
@@ -289,6 +289,10 @@ describe "Explore results", versioning: true, type: :system do
           end
         end
       end
+    end
+
+    it_behaves_like "has attachments" do
+      let(:attached_to) { result }
     end
   end
 end

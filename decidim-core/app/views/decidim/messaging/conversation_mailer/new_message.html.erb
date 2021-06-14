@@ -1,6 +1,6 @@
-<p><%= t(".greeting", recipient: @recipient.name) %></p>
+<p class="email-greeting"><%= t(".greeting", recipient: @recipient.name) %></p>
 
-<p><%= t(".intro", sender: @sender.name) %></p>
+<p class="email-instructions"><%= t(".intro", sender: @sender.name) %></p>
 
 <blockquote>
   <p>
@@ -8,8 +8,8 @@
   </p>
 </blockquote>
 
-<p>
+<p class="email-button email-button__cta">
   <%= link_to decidim.conversation_url(@conversation, host: @host), decidim.conversation_url(@conversation, host: @host) %>
 </p>
 
-<p><%= t(".outro") %></p>
+<p class="email-closing"><%= t(".outro") %></p>

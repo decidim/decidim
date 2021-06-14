@@ -10,9 +10,9 @@ module Decidim
       let(:type2) { create :initiatives_type, organization: organization }
       let(:scoped_type1) { create :initiatives_type_scope, type: type1 }
       let(:scoped_type2) { create :initiatives_type_scope, type: type2 }
-      let(:user1) { create(:user, organization: organization, name: "John McDog") }
+      let(:user1) { create(:user, organization: organization, name: "John McDog", nickname: "john_mcdog") }
       let(:user2) { create(:user, organization: organization, nickname: "dogtrainer") }
-      let(:group1) { create(:user_group, organization: organization, name: "The Dog House") }
+      let(:group1) { create(:user_group, organization: organization, name: "The Dog House", nickname: "the_dog_house") }
       let(:group2) { create(:user_group, organization: organization, nickname: "thedogkeeper") }
       let(:area1) { create(:area, organization: organization) }
       let(:area2) { create(:area, organization: organization) }

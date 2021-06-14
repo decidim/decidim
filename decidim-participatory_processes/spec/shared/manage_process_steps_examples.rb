@@ -36,7 +36,7 @@ shared_examples "manage process steps examples" do
     )
 
     page.execute_script("$('#participatory_process_step_start_date').focus()")
-    page.find(".datepicker-dropdown .day", text: "12").click
+    page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
     page.execute_script("$('#participatory_process_step_end_date').focus()")
     page.find(".datepicker-dropdown .day", text: "22").click
 

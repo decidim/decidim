@@ -1,0 +1,122 @@
+.accountability{
+  .categories{
+    a:hover{
+      background-color: var(--secondary);
+      text-decoration: underline;
+    }
+
+    a:focus{
+      outline: $anchor-outline-focus;
+    }
+
+    .categories--header{
+      border-bottom: 1px solid $medium-gray;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+
+      .icon--arrow-bottom{
+        fill: lighten($dark-gray, 50);
+      }
+
+      span{
+        font-size: 1.15rem;
+        color: lighten($dark-gray, 50);
+      }
+    }
+
+    .categories--group{
+      margin-bottom: 2rem;
+
+      @include breakpoint(medium){
+        display: flex;
+        margin-bottom: 4rem;
+      }
+
+      .category--title{
+        background: $white;
+        padding: 1.5rem 2rem;
+        min-height: 9rem;
+
+        @include breakpoint(medium){
+          height: calc(100% - 1.875rem);
+        }
+
+        p{
+          font-weight: 600;
+          margin-bottom: .75rem;
+        }
+
+        .progress{
+          margin-bottom: .5rem;
+        }
+
+        .progress-info{
+          position: relative;
+          margin-bottom: 1.5rem;
+
+          .progress-figure{
+            display: inline-block;
+          }
+
+          .category--count{
+            position: absolute;
+            right: 0;
+            top: .5rem;
+            color: lighten($dark-gray, 50);
+          }
+        }
+      }
+
+      .card__link{
+        .category--line{
+          background-color: var(--secondary);
+          border-radius: 4px;
+          min-height: 9rem;
+          padding: 1rem;
+          margin-bottom: 1.875rem;
+          position: relative;
+
+          strong{
+            font-weight: 600;
+            color: var(--secondary);
+          }
+
+          .progress-figure{
+            position: absolute;
+            bottom: 1rem;
+          }
+
+          .category--count{
+            color: lighten($secondary, 50);
+            position: absolute;
+            right: 1rem;
+            bottom: 1rem;
+            font-size: 80%;
+          }
+        }
+
+        &:hover{
+          .category--count{
+            color: lighten($secondary, 50);
+          }
+
+          strong{
+            color: scale-color($anchor-color, $lightness: -14%);
+          }
+        }
+      }
+    }
+
+    .category--elements.active{
+      display: block !important;
+
+      .medium-4:first-child{
+        margin-top: 1rem;
+      }
+    }
+
+    .progress-figure{
+      color: lighten($dark-gray, 50);
+    }
+  }
+}

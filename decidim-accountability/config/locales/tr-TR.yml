@@ -139,8 +139,12 @@ tr:
       models:
         result:
           fields:
+            category: Kategori
+            created_at: Oluşturuldu
             end_date: Bitiş tarihi
+            id: ID
             progress: İlerleme
+            scope: Kapsam
             start_date: Başlangıç tarihi
             status: durum
             title: Başlık
@@ -187,6 +191,15 @@ tr:
             votes: Destekler
         timeline:
           title: Proje gelişimi
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategori
+          scope_id_eq:
+            label: Kapsam
+          status_id_eq:
+            label: Durum
     components:
       accountability:
         name: Sorumluluk

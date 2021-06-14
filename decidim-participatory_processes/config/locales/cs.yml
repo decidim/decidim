@@ -15,8 +15,8 @@ cs:
         end_date: Datum ukončení
         hashtag: Hashtag
         hero_image: Domácí obrázek
-        local_area: Oblast organizace
-        meta_scope: Rozsah metadat
+        local_area: Oblast působnosti organizace
+        meta_scope: Metadata Oblasti působnosti
         participatory_process_group_id: Skupina procesů
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se to rozhoduje
@@ -25,22 +25,23 @@ cs:
         related_process_ids: Související procesy
         scope_id: Rozsah
         scope_type_max_depth_id: Hloubka filtru rozsahu
-        scopes_enabled: Schopnosti povoleny
+        scopes_enabled: Oblasti působnosti povoleny
         short_description: Stručný popis
         show_metrics: Zobrazit metriku
         show_statistics: Zobrazit statistiky
         slug: URL slug
-        start_date: Počáteční datum
-        subtitle: Titulky
+        start_date: Datum zahájení
+        subtitle: Podtitul
         target: Kdo se účastní
         title: Titul
+        weight: Pozice v řazení
       participatory_process_group:
         description: Popis
         developer_group: Skupina propagátorů
         group_url: Webová stránka
         hashtag: Hashtag
-        hero_image: obraz
-        local_area: Oblast organizace
+        hero_image: Obrázek
+        local_area: Oblast působnosti organizace
         meta_scope: Metadata oblasti působnosti
         participatory_process_ids: Související procesy
         participatory_scope: Co je rozhodnuto
@@ -53,11 +54,11 @@ cs:
         description: Popis
         end_date: Datum ukončení
         short_description: Stručný popis
-        start_date: Počáteční datum
+        start_date: Datum zahájení
         title: Titul
       participatory_process_user_role:
         email: E-mailem
-        name: název
+        name: Název
         role: Role
     errors:
       models:
@@ -88,7 +89,7 @@ cs:
   decidim:
     admin:
       actions:
-        activate: aktivovat
+        activate: Aktivovat
         configure: Konfigurovat
         confirm_destroy: Potvrďte smazání
         destroy: Odstranit
@@ -139,13 +140,13 @@ cs:
         participatory_process_step:
           fields:
             end_date: Datum ukončení
-            start_date: Počáteční datum
+            start_date: Datum zahájení
             title: Titul
           name: Participační krok procesu
         participatory_process_user_role:
           fields:
             email: E-mailem
-            name: název
+            name: Název
             role: Role
           name: Uživatel participativního procesu
           roles:
@@ -159,7 +160,7 @@ cs:
             invitation_sent_at: Pozvánka odeslána na
       participatory_process_copies:
         new:
-          copy: kopírovat
+          copy: Kopírovat
           select: Vyberte, která data chcete duplikovat
           title: Duplicitní participační proces
       participatory_process_group_landing_page:
@@ -244,7 +245,7 @@ cs:
       participatory_processes:
         create:
           error: Při vytváření nového participačního procesu došlo k chybě.
-          success: Účastnící proces byl úspěšně vytvořen. Nakonfigurujte své kroky.
+          success: Participační proces byl úspěšně vytvořen. Nakonfigurujte své kroky.
         edit:
           update: Aktualizace
         index:
@@ -311,8 +312,8 @@ cs:
     help:
       participatory_spaces:
         participatory_processes:
-          contextual: "<p> <strong>Participační proces</strong> je sled aktivit participativního charakteru (např. Nejprve vyplnění průzkumu, následné předkládání návrhů, diskuse o nich v rámci osobních nebo virtuálních schůzek a nakonec jejich prioritizace) s cílem definovat a rozhodnout na konkrétní téma.</p> <p>Příklady participačních procesů jsou: <strong>proces volby členů komise</strong> (kde jsou kandidatury poprvé představeny, pak diskutovány a nakonec je vybrána kandidatura), <strong>participační rozpočty</strong> (kde jsou návrhy předloženy, ekonomicky oceňovány a hlasovány s dostupnými prostředky); <strong>proces strategického plánování</strong>, společné vypracování nařízení nebo normy, návrh městského prostoru nebo vypracování plánu veřejného pořádku.</p>\n"
-          page: "<p> <strong>participační proces</strong> je sled aktivit participativního charakteru (např. Nejprve vyplnění průzkumu, následné předkládání návrhů, diskuse o nich v rámci osobních nebo virtuálních schůzek a nakonec jejich prioritizace) s cílem definovat a rozhodnout na konkrétní téma.</p> <p>Příklady participačních procesů jsou: proces volby členů komise (kde jsou kandidatury poprvé představeny, pak diskutovány a nakonec je vybrána kandidatura), participační rozpočty (kde jsou návrhy předloženy, ekonomicky oceňovány a hlasovány s dostupnými prostředky); proces strategického plánování, společné vypracování nařízení nebo normy, návrh městského prostoru nebo vypracování plánu veřejného pořádku.</p>\n"
+          contextual: "<p> <strong>Participační proces</strong> je sled aktivit participativního charakteru (např. Nejprve vyplnění průzkumu, následné předkládání návrhů, diskuse o nich v rámci osobních nebo virtuálních schůzek a nakonec jejich prioritizace) s cílem definovat a rozhodnout na konkrétní téma.</p> <p>Příklady participačních procesů jsou: <strong>proces volby členů výboru</strong> (kde jsou kandidatury poprvé představeny, pak diskutovány a nakonec je vybrána kandidatura), <strong>participační rozpočty</strong> (kde jsou návrhy předloženy, ekonomicky oceňovány a hlasovány s dostupnými prostředky); <strong>proces strategického plánování</strong>, společné vypracování nařízení nebo normy, návrh městského prostoru nebo vypracování plánu veřejného pořádku.</p>\n"
+          page: "<p> <strong>participační proces</strong> je sled aktivit participativního charakteru (např. Nejprve vyplnění průzkumu, následné předkládání návrhů, diskuse o nich v rámci osobních nebo virtuálních schůzek a nakonec jejich prioritizace) s cílem definovat a rozhodnout na konkrétní téma.</p> <p>Příklady participačních procesů jsou: proces volby členů výboru (kde jsou kandidatury poprvé představeny, pak diskutovány a nakonec je vybrána kandidatura), participační rozpočty (kde jsou návrhy předloženy, ekonomicky oceňovány a hlasovány s dostupnými prostředky); proces strategického plánování, společné vypracování nařízení nebo normy, návrh městského prostoru nebo vypracování plánu veřejného pořádku.</p>\n"
           title: Co je participační proces?
     menu:
       processes: Procesy
@@ -410,6 +411,7 @@ cs:
             more_information: Více informací
             participate: Účastnit se
             participate_in: Zapojte se do procesu %{resource_name}
+            processes_button_title: Odkaz na stránku Procesů zobrazující všechny procesy
             see_all_processes: Zobrazit všechny procesy
       participatory_process_steps:
         index:
@@ -443,8 +445,8 @@ cs:
             no_active_nor_upcoming_callout: Neexistují žádné aktivní ani nadcházející procesy. Zde je seznam minulých.
           names:
             active: Aktivní
-            all: Všechno
-            past: Minulost
+            all: Vše
+            past: Minulé
             upcoming: Nadcházející
           see: Vidět
         index:
@@ -455,34 +457,17 @@ cs:
         dates: Data
         developer_group: Skupina promotérů
         end_date: Datum ukončení
-        local_area: Oblast organizace
+        local_area: Oblast působnosti organizace
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se to rozhoduje
         private_space: Jedná se o soukromý proces
         related_processes: Související procesy
         scope: Rozsah
-        start_date: Počáteční datum
+        start_date: Datum zahájení
         target: Kdo se účastní
         unspecified: Nespecifikováno
-      statistics:
-        answers_count: Odpovědi
-        comments_count: Komentáře
-        debates_count: Debaty
-        endorsements_count: Schválení
-        followers_count: Sledující
-        headline: Aktivita
-        meetings_count: Setkání
-        no_stats: Zatím nejsou žádné statistiky.
-        orders_count: Hlasy
-        pages_count: Stránky
-        participants_count: Účastníci
-        processes_count: Procesy
-        projects_count: Projekty
-        proposals_count: Návrhy
-        results_count: Výsledek
-        supports_count: Hlasy
-        surveys_count: Průzkumy
-        users_count: Účastníci
+    statistics:
+      processes_count: Procesy
   layouts:
     decidim:
       participatory_process_groups:

@@ -30,13 +30,6 @@ zh-CN:
           email_outro: 您收到此通知是因为您正在关注 "%{participatory_space_title}"。您可以从上一个链接取消关注它。
           email_subject: 新的排序添加到 %{participatory_space_title}
           notification_title: 吸附 <a href="%{resource_path}">%{resource_title}</a> 已被添加到 %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          sortitions_count: 联谊会
-    participatory_processes:
-      statistics:
-        sortitions_count: 联谊会
     sortitions:
       admin:
         actions:

@@ -1,7 +1,4 @@
 sr:
-  activemodel:
-    models:
-      decidim/resource_endorsed_event: Resurs podržan
   activerecord:
     models:
       decidim/endorsement:
@@ -47,12 +44,6 @@ sr:
         email_outro: Dobili ste ovo obaveštenje jer pratite %{endorser_nickname}. Možete da prestanete da dobijate obaveštenja, ukoliko pratite prethodni link.
         email_subject: "%{endorser_nickname} je podržao nešto"
         notification_title: <a href="%{endorser_path}">%{endorser_name}%{endorser_nickname}</a> je podržao <a href="%{resource_path}">%{resource_title}</a>%{resource_type}.
-    export_mailer:
-      data_portability_export:
-        click_button: 'Kliknite na sledeće dugme da bi preuzeli svoje podatke u obliku datoteke.<br/> Moći ćete da pristupite ovom linku do %{date}. <br/> Biće vam potreban program kao što je <a href=''https://www.7-zip.org/''>7-zip</a> da bi ga otvorili. Šifra za otpakivanje datoteke:%{password}'
-    follows:
-      create:
-        participatory_space: Već pratite prostor za diskusiju
     messaging:
       conversations:
         add_conversation_users:
@@ -64,8 +55,6 @@ sr:
         index:
           new_conversation: Novi razgovor
           next: Slеdеćе
-        show:
-          not_allowed: Ovaj učesnik više ne prima direktne poruke.
     newsletter_templates:
       basic_only_text:
         body_preview: 'Probni tekst za pasus: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'

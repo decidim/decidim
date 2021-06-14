@@ -95,6 +95,8 @@ eu:
           info: informazioa
           questions: Galderak
         questions_submenu:
+          attachments: eranskinak
+          categories: Kategoriak
           components: Osagaiak
           consultation: Consulta
           info: informazioa
@@ -249,10 +251,6 @@ eu:
           title: Zer dira kontsultak?
     menu:
       consultations: kontsultak
-    pages:
-      home:
-        statistics:
-          consultations_count: kontsultak
     questions:
       results:
         title: Emaitzak
@@ -280,10 +278,6 @@ eu:
         title: 'Kontsulta: berretsi laguntza'
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: eranskinak
-          categories: Kategoriak
       consultation_voting_data:
         start_voting_date: Botoa hasten da
       question_components:

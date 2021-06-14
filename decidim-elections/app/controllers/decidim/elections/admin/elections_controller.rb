@@ -64,7 +64,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("elections.destroy.invalid", scope: "decidim.elections.admin")
+              flash[:alert] = I18n.t("elections.destroy.invalid", scope: "decidim.elections.admin")
             end
           end
 
@@ -96,7 +96,7 @@ module Decidim
         private
 
         def elections
-          @elections ||= Election.where(component: current_component)
+          @elections ||= Election.where(component: current_component).order(start_time: :desc)
         end
 
         def election

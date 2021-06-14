@@ -3,7 +3,7 @@
     <h2 class='card-title'>
       <%= t("categories.index.categories_title", scope: "decidim.admin") %>
       <% if allowed_to? :create, :category %>
-        <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.category.name", scope: "decidim.admin")), new_category_path(current_participatory_space), class: "button tiny button--title new" %>
+        <%= link_to t("actions.category.new", scope: "decidim.admin"), new_category_path(current_participatory_space), class: "button tiny button--title new" %>
       <% end %>
     </h2>
   </div>
@@ -34,7 +34,7 @@
                       <%= icon_link_to "circle-x", category_path(current_participatory_space, category), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
                     <% else %>
                       <span class="action-icon" title="<%= t("categories.index.category_used", scope: "decidim.admin") %>" data-tooltip="true" data-disable-hover="false">
-                        <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
+                        <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", "aria-hidden": true %>
                       </span>
                     <% end %>
                   <% end %>

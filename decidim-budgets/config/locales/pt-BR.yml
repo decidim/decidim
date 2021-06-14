@@ -133,8 +133,5 @@ pt:
       destroy:
         error: Ocorreu um erro ao cancelar o seu voto
         success: Seu voto foi cancelado com sucesso
-    resource_links:
-      included_proposals:
-        project_proposal: 'Propostas incluídas neste projeto:'
   index:
     confirmed_orders_count: Contagem de votos

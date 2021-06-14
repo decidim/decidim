@@ -98,6 +98,8 @@ uk:
           info: Відомості
           questions: Питання
         questions_submenu:
+          attachments: Вкладені файли
+          categories: Категорії
           components: Складові
           consultation: Консультація
           info: Відомості
@@ -243,10 +245,6 @@ uk:
         unspecified: Не вказано
     menu:
       consultations: Консультації
-    pages:
-      home:
-        statistics:
-          consultations_count: Консультацій
     questions:
       results:
         title: Підсумки
@@ -274,10 +272,6 @@ uk:
         title: 'Консультація: підтвердьте підтримку'
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Вкладені файли
-          categories: Категорії
       consultation_voting_data:
         start_voting_date: Голосування починається
       question_components:

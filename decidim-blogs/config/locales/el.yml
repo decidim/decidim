@@ -75,10 +75,3 @@ el:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής «%{participatory_space_title}». Μπορείτε να σταματήσετε να τον ακολουθείτε από τον προηγούμενο σύνδεσμο.
           email_subject: Νέα δημοσίευση δημοσιεύτηκε στον χώρο συμμετοχής %{participatory_space_title}
           notification_title: Η δημοσίευση <a href="%{resource_path}">%{resource_title}</a> δημοσιεύτηκε στον χώρο συμμετοχής %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          posts_count: Δημοσιεύσεις
-    participatory_processes:
-      statistics:
-        posts_count: Δημοσιεύσεις

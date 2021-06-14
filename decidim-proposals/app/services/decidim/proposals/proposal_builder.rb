@@ -63,13 +63,16 @@ module Decidim
           "created_at",
           "updated_at",
           "state",
+          "state_published_at",
           "answer",
           "answered_at",
           "decidim_component_id",
           "reference",
-          "proposal_votes_count",
+          "comments_count",
           "endorsements_count",
-          "proposal_notes_count"
+          "follows_count",
+          "proposal_notes_count",
+          "proposal_votes_count"
         ).merge(
           "category" => original_proposal.category
         ).merge(

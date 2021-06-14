@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/initiatives/admin/application_controller"
-
 module Decidim
   module Initiatives
     module Admin

@@ -5,6 +5,8 @@ require "active_support/all"
 require "decidim/core"
 require "wicked_pdf"
 
+require "decidim/conferences/query_extensions"
+
 module Decidim
   module Conferences
     # Decidim's Conferences Rails Engine.
@@ -48,10 +50,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_conferences.assets" do |app|
-        app.config.assets.precompile += %w(decidim_conferences_manifest.js)
-      end
-
       initializer "decidim_conferences.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Conferences::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Conferences::Engine.root}/app/views") # for partials
@@ -65,11 +63,12 @@ module Decidim
 
       initializer "decidim_conferences.menu" do
         Decidim.menu :menu do |menu|
-          menu.item I18n.t("menu.conferences", scope: "decidim"),
-                    decidim_conferences.conferences_path,
-                    position: 6,
-                    if: Decidim::Conference.where(organization: current_organization).published.any?,
-                    active: :inclusive
+          menu.add_item :conferences,
+                        I18n.t("menu.conferences", scope: "decidim"),
+                        decidim_conferences.conferences_path,
+                        position: 2.8,
+                        if: Decidim::Conference.where(organization: current_organization).published.any?,
+                        active: :inclusive
         end
       end
 
@@ -78,6 +77,10 @@ module Decidim
           content_block.cell = "decidim/conferences/content_blocks/highlighted_conferences"
           content_block.public_name_key = "decidim.conferences.content_blocks.highlighted_conferences.name"
         end
+      end
+
+      initializer "decidim_conferences.query_extensions" do
+        Decidim::Api::QueryType.include Decidim::Conferences::QueryExtensions
       end
     end
   end

@@ -16,6 +16,7 @@ module Decidim::Conferences
       create_list(
         :meeting,
         3,
+        :published,
         component: component
       )
     end
@@ -23,7 +24,8 @@ module Decidim::Conferences
     let(:foreign_meetings) do
       create_list(
         :meeting,
-        3
+        3,
+        :published
       )
     end
 
@@ -47,6 +49,7 @@ module Decidim::Conferences
           create_list(
             :meeting,
             3,
+            :published,
             component: component,
             private_meeting: true
           )

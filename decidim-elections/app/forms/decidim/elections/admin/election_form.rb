@@ -6,14 +6,15 @@ module Decidim
       # This class holds a Form to create/update elections from Decidim's admin panel.
       class ElectionForm < Decidim::Form
         include TranslatableAttributes
+        include AttachmentAttributes
 
         translatable_attribute :title, String
         translatable_attribute :description, String
         attribute :start_time, Decidim::Attributes::TimeWithZone
         attribute :end_time, Decidim::Attributes::TimeWithZone
         attribute :attachment, AttachmentForm
-        attribute :photos, Array[String]
-        attribute :add_photos, Array
+
+        attachments_attribute :photos
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true

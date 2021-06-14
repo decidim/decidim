@@ -22,6 +22,12 @@ ar:
         slogan: شعار
         slug: سبيكة العنوان الشبكي
         title: عنوان
+      conference_media_link:
+        weight: وزن
+      conference_partner:
+        weight: وزن
+      conference_registration_type:
+        weight: وزن
       conference_speaker:
         full_name: الاسم الكامل
       conference_user_role:
@@ -217,7 +223,6 @@ ar:
             price: السعر
             registrations_count: عدد التسجيلات
             title: عنوان
-            weight: وزن
           name: نوع التسجيل
       partners:
         create:
@@ -277,10 +282,6 @@ ar:
       conferences:
         conference_registration:
           confirm: "%{user_name} أكد تسجيل مؤتمر في مؤتمر %{resource_name}"
-        partner:
-          create: "%{user_name} أنشأ %{resource_name} إلى %{space_name} المؤتمر"
-          delete: "%{user_name} أزال المشرف %{resource_name} من المؤتمر %{space_name}"
-          update: "%{user_name} محدث %{resource_name} في المؤتمر %{space_name}"
         registration_type:
           create: "%{user_name} أنشأ نوع التسجيل %{resource_name} في المؤتمر %{space_name}"
           publish: "%{user_name} نشر نوع التسجيل %{resource_name} في المؤتمر %{space_name}"
@@ -502,23 +503,6 @@ ar:
         related_assemblies: الجمعيات ذات الصلة
         related_consultations: المشاورات ذات الصلة
         related_participatory_processes: العمليات التشاركية ذات الصلة
-      statistics:
-        answers_count: الأجوبة
-        comments_count: تعليقات
-        conference_count: المؤتمرات
-        debates_count: المناقشات
-        endorsements_count: موافقات
-        headline: نشاط
-        meetings_count: اجتماعات
-        orders_count: الدعم
-        pages_count: صفحات
-        posts_count: المشاركات
-        projects_count: مشاريع
-        proposals_count: اقتراحات
-        results_count: النتائج
-        surveys_count: الدراسات الاستقصائية
-        users_count: المشاركين
-        votes_count: الدعم
     events:
       conferences:
         conference_registration_confirmed:

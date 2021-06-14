@@ -1,0 +1,31 @@
+<div class="extra__date-container">
+  <% if same_day? %>
+    <div class="extra__date">
+      <%= l start_time, format: "%d" %>
+      <span class="extra__month"><%= l start_time, format: "%B#{ " %Y" if show_year?}" %></span>
+    </div>
+    <div class="extra__time">
+      <%= l start_time, format: "%H:%M" %> - <%= l end_time, format: "%H:%M" %>
+    </div>
+  <% else %>
+    <div>
+      <div class="extra__date">
+        <%= l start_time, format: "%d" %>
+        <span class="extra__month"><%= l start_time, format: "%B#{ " %Y" if show_year?}" %></span>
+      </div>
+      <div class="extra__time">
+        <%= l start_time, format: "%H:%M" %>
+      </div>
+    </div>
+    <%= icon "arrow-thin-right" %>
+    <div>
+      <div class="extra__date">
+        <%= l end_time, format: "%d" %>
+        <span class="extra__month"><%= l end_time, format: "%B#{ " %Y" if show_year?}" %></span>
+      </div>
+      <div class="extra__time">
+        <%= l end_time, format: "%H:%M" %>
+      </div>
+    </div>
+  <% end %>
+</div>

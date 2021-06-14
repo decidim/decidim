@@ -48,6 +48,7 @@ ca:
           form:
             save: Desar
             template_title: Informació de la plantilla
+            title: Plantilla del qüestionari %{questionnaire_for}
           index:
             confirm_delete: Segur que vols eliminar aquesta plantilla?
             title: Plantilles de qüestionari

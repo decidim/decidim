@@ -4,7 +4,7 @@
       <%= cell("decidim/user_profile", raw_model).user_data %>
     </div>
     <div class="card__text card--picture-offset">
-      <%= link_to t("decidim.profiles.show.view_full_profile"), profile_path %>
+      <%= text_link_to_current_or_new_conversation_with(model) %>
     </div>
   </div>
   <div class="ml-s">

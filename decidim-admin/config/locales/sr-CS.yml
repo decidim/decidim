@@ -23,7 +23,6 @@ sr:
       component:
         name: Ime
         published_at: Objavljeno
-        weight: Težina
       id: ID
       newsletter:
         body: Glavni deo teksta
@@ -90,12 +89,10 @@ sr:
         show_in_footer: Prikaži u podnožju
         slug: Zadnji deo URL-a
         title: Naslov
-        weight: Težina
       static_page_topic:
         description: Opis
         show_in_footer: Prikaži u podnožju
         title: Naslov
-        weight: Težina
       user_group_csv_verification:
         file: Fajl
     errors:

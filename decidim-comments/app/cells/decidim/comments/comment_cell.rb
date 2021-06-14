@@ -151,6 +151,20 @@ module Decidim
       def has_replies?
         model.comment_threads.any?
       end
+
+      # action_authorization_button expects current_component to be available
+      def current_component
+        root_commentable.try(:component)
+      end
+
+      def vote_button_to(path, params, &block)
+        # actions are linked to objects belonging to a component
+        # In consultations, a question belong to a participatory_space but it has comments
+        # To apply :comment permission, the modal authorizer should be refactored to allow participatory spaces-level comments
+        return button_to(path, params, &block) unless current_component
+
+        action_authorized_button_to(:vote_comment, path, params.merge(resource: root_commentable), &block)
+      end
     end
   end
 end

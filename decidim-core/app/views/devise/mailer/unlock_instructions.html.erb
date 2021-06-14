@@ -1,7 +1,7 @@
-<p><%= t(".greeting", recipient: @resource.email) %></p>
+<p class="email-greeting"><%= t(".greeting", recipient: @resource.email) %></p>
 
-<p><%= t(".message") %></p>
+<p class="email-instructions"><%= t(".message") %></p>
 
-<p><%= t(".instruction") %></p>
+<p class="email-instructions"><%= t(".instruction") %></p>
 
-<p><%= link_to t(".action"), unlock_url(@resource, unlock_token: @token, host: @resource.organization.host) %></p>
+<p class="email-button email-button__cta"><%= link_to t(".action"), unlock_url(@resource, unlock_token: @token, host: @resource.organization.host) %></p>

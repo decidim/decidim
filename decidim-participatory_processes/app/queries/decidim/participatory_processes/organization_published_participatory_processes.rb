@@ -14,7 +14,7 @@ module Decidim
           OrganizationParticipatoryProcesses.new(@organization),
           VisibleParticipatoryProcesses.new(@user),
           PublishedParticipatoryProcesses.new
-        ).query
+        ).query.order(weight: :asc)
       end
     end
   end

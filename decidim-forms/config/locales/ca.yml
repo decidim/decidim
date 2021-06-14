@@ -10,10 +10,15 @@ ca:
         question_type: Tipus
       questionnaire_question:
         mandatory: Obligatori
+        max_characters: Límit de caràcters (deixa-ho a 0 si no hi ha límit)
     errors:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Ha de ser adjuntat de nou
+            body:
+              too_long: és massa llarg
             choices:
               missing: no estan complets
               too_many: en són masses
@@ -78,6 +83,7 @@ ca:
             collapse: Redueix totes les preguntes
             expand: Expandeix totes les preguntes
             preview: Previsualitzar
+            title: Editar formulari per %{questionnaire_for}
             unpublished_warning: El formulari no està publicat. Pots modificar les preguntes, però al fer-ho s'esborraran les respostes actuals.
           matrix_row:
             matrix_row: Fila
@@ -109,7 +115,7 @@ ca:
         answer:
           body: El camp no pot estar en blanc
       files:
-        extension_whitelist: 'Formats d''arxiu acceptats:'
+        extension_allowlist: 'Formats d''arxiu acceptats:'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Aquesta imatge medirà:'
@@ -117,6 +123,7 @@ ca:
           resize_and_pad: Redimensionat i ajustat a
           resize_to_fit: Redimensionada per ajustar-la
       question_types:
+        files: Arxius
         long_answer: Resposta llarga
         matrix_multiple: Matriu (opció multiple)
         matrix_single: Matriu (opció única)

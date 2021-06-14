@@ -5,7 +5,7 @@ require "decidim/api/test/type_context"
 
 module Decidim::Api
   describe QueryType do
-    include_context "with a graphql type"
+    include_context "with a graphql class type"
 
     describe "session" do
       let(:query) { "{ session { user { name } } }" }

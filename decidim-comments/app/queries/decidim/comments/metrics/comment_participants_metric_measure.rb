@@ -41,8 +41,8 @@ module Decidim
           user_ids = Decidim::User.where(organization: @resource.organization).pluck(:id)
           Decidim::Comments::Comment.includes(:root_commentable).not_hidden
                                     .where("decidim_comments_comments.created_at <= ?", end_time)
-                                    .where("decidim_comments_comments.decidim_author_id IN (?)", user_ids)
-                                    .where("decidim_comments_comments.decidim_author_type IN (?)", "Decidim::UserBaseEntity")
+                                    .where(decidim_comments_comments: { decidim_author_id: user_ids })
+                                    .where(decidim_comments_comments: { decidim_author_type: "Decidim::UserBaseEntity" })
         end
       end
     end

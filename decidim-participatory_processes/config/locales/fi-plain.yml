@@ -34,6 +34,7 @@ fi-pl:
         subtitle: Alaotsikko
         target: Kuka osallistuu
         title: Otsikko
+        weight: Järjestysnumero
       participatory_process_group:
         description: Kuvaus
         developer_group: Edistäjäryhmä
@@ -402,6 +403,7 @@ fi-pl:
             more_information: Lisätietoja
             participate: Osallistu
             participate_in: Osallistu prosessiin %{resource_name}
+            processes_button_title: Linkki Prosessit-sivulle, jossa näkyvät kaikki prosessit
             see_all_processes: Näytä kaikki prosessit
       participatory_process_steps:
         index:
@@ -448,25 +450,8 @@ fi-pl:
         start_date: Alkamispäivä
         target: Kuka osallistuu
         unspecified: Ei määritelty
-      statistics:
-        answers_count: Vastauksia
-        comments_count: Kommentteja
-        debates_count: Keskusteluja
-        endorsements_count: Suosituksia
-        followers_count: Seuraajia
-        headline: Tilastot
-        meetings_count: Tapahtumia
-        no_stats: Tilastoja ei ole vielä saatavilla.
-        orders_count: Ääniä
-        pages_count: Sivuja
-        participants_count: Osallistujia
-        processes_count: Prosesseja
-        projects_count: Suunnitelmia
-        proposals_count: Ehdotuksia
-        results_count: Tuloksia
-        supports_count: Ääniä
-        surveys_count: Kyselyitä
-        users_count: Osallistujia
+    statistics:
+      processes_count: Prosessia
   layouts:
     decidim:
       participatory_process_groups:

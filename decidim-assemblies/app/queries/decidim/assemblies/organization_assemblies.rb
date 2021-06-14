@@ -9,7 +9,7 @@ module Decidim
       end
 
       def query
-        Decidim::Assembly.where(organization: @organization)
+        Decidim::Assembly.where(organization: @organization).order(weight: :asc)
       end
     end
   end

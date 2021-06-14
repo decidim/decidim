@@ -56,6 +56,13 @@ describe "Admin manages organization", type: :system do
           )["innerHTML"]).to eq("<p><br></p>")
         end
 
+        it "deletes paragraph changes pressing backspace" do
+          find('div[contenteditable="true"].ql-editor').send_keys "ef", [:enter], "gh", [:backspace], [:backspace], [:backspace], [:backspace]
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq("<p>e</p>".gsub("\n", ""))
+        end
+
         it "deletes linebreaks when pressing backspace" do
           find('div[contenteditable="true"].ql-editor').send_keys "a", [:left], [:enter], [:shift, :enter], [:backspace], [:backspace]
           expect(find(
@@ -140,6 +147,62 @@ describe "Admin manages organization", type: :system do
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq(terms_content.gsub("\n", ""))
+        end
+      end
+
+      context "when the admin terms of use content has a link" do
+        let(:terms_content) do
+          <<~HTML
+            <p>foo<br><a href="https://www.decidim.org" rel="noopener noreferrer" target="_blank">link</a></p>
+          HTML
+        end
+        let(:organization) do
+          create(
+            :organization,
+            admin_terms_of_use_body: Decidim::Faker::Localized.localized { terms_content }
+          )
+        end
+
+        it "creates single br tag" do
+          find('div[contenteditable="true"].ql-editor').send_keys([:left, :left, :left, :left, :left], [:shift, :enter])
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq('<p>foo<br><br><a href="https://www.decidim.org" rel="noopener noreferrer" target="_blank">link</a></p>')
+        end
+
+        it "doesnt create br tag inside a tag" do
+          find('div[contenteditable="true"].ql-editor').send_keys([:left, :left, :left, :left], [:shift, :enter])
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq('<p>foo<br><br><a href="https://www.decidim.org" rel="noopener noreferrer" target="_blank">link</a></p>')
+        end
+      end
+
+      context "when the admin terms of use content has linebreaks inside different formattings" do
+        let(:terms_content) do
+          <<~HTML
+            <p>foo</p>
+            <h1><br></h1>
+            <p><strong><br></strong></p>
+            <p><u><br></u></p>
+            <p><em><br></em></p>
+          HTML
+        end
+
+        let(:organization) do
+          create(
+            :organization,
+            admin_terms_of_use_body: Decidim::Faker::Localized.localized { terms_content }
+          )
+        end
+
+        it "is still editable" do
+          find('div[contenteditable="true"].ql-editor').send_keys(Array.new(15) { :backspace }, "bar baz")
+          click_button "Update"
+          expect(page).to have_content("Organization updated successfully")
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq("<p>bar baz</p>")
         end
       end
 

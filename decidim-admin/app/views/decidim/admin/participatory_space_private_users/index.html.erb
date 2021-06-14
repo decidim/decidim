@@ -4,13 +4,13 @@
       <%= t(".title") %>
       <% if allowed_to? :create, :space_private_user %>
         <%= link_to t(".import_via_csv"), new_participatory_space_private_users_csv_import_path, class: "button tiny button--title import" %>
-        <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.participatory_space_private_user.name", scope: "decidim.admin")), url_for(action: :new), class: "button tiny button--title new" %>
+        <%= link_to t("actions.participatory_space_private_user.new", scope: "decidim.admin"), url_for(action: :new), class: "button tiny button--title new" %>
       <% end %>
     </h2>
   </div>
-
+  <%= admin_filter_selector(:participatory_space_private_users) %>
   <div class="card-section">
-    <% if collection.any? %>
+    <% if participatory_space_private_users.any? %>
       <div class="table-scroll">
         <table class="stack">
           <thead>
@@ -23,7 +23,7 @@
             </tr>
           </thead>
           <tbody>
-            <% collection.each do |private_user| %>
+            <% participatory_space_private_users.each do |private_user| %>
               <tr>
                 <td>
                   <%= private_user.user.name %><br>
@@ -55,7 +55,7 @@
           </tbody>
         </table>
       </div>
-      <%= decidim_paginate collection %>
+      <%= decidim_paginate participatory_space_private_users %>
     <% end %>
   </div>
 </div>

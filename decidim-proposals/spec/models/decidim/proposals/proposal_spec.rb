@@ -195,6 +195,21 @@ module Decidim
 
           it { is_expected.not_to be_editable_by(author) }
         end
+
+        context "when proposal edit time is infinite" do
+          before do
+            component[:settings]["global"] = { proposal_edit_time: "infinite" }
+            component.save!
+          end
+
+          let(:proposal) { build :proposal, updated_at: 10.years.ago, component: component, users: [author] }
+
+          it do
+            proposal.add_coauthor(author)
+            proposal.save!
+            expect(proposal).to be_editable_by(author)
+          end
+        end
       end
 
       describe "#withdrawn?" do

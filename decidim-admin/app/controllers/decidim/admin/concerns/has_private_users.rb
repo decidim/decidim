@@ -13,8 +13,9 @@ module Decidim
         extend ActiveSupport::Concern
 
         included do
+          include Decidim::ParticipatorySpacePrivateUsers::Admin::Filterable
           helper PaginateHelper
-          helper_method :privatable_to, :collection
+          helper_method :privatable_to, :participatory_space_private_users
 
           def index
             enforce_permission_to :read, :space_private_user
@@ -99,8 +100,10 @@ module Decidim
             @collection ||= privatable_to
                             .participatory_space_private_users
                             .includes(:user).where.not("decidim_users.id" => nil)
-                            .page(params[:page])
-                            .per(20)
+          end
+
+          def participatory_space_private_users
+            filtered_collection
           end
         end
       end

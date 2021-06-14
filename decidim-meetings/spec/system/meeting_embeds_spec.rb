@@ -6,7 +6,7 @@ describe "Meeting embeds", type: :system do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
-  let!(:resource) { create(:meeting, component: component) }
+  let!(:resource) { create(:meeting, :published, component: component) }
 
   it_behaves_like "an embed resource"
 end

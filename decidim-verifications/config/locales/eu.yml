@@ -24,14 +24,6 @@ eu:
         full_address: Helbide osoa
         verification_code: Egiaztapen kodea
   decidim:
-    admin:
-      menu:
-        authorization_workflows: egiaztapen
-    admin_log:
-      organization:
-        update_id_documents_config: "%{user_name} identitate dokumentuen egiaztapen konfigurazioa eguneratu du"
-      user:
-        grant_id_documents_offline_verification: "%{user_name} egiaztatua %{resource_name} Lineako identitate dokumentuen egiaztapena erabiliz"
     authorization_handlers:
       admin:
         csv_census:

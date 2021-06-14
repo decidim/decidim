@@ -21,6 +21,8 @@ describe "Show a Proposal", type: :system do
         visit_proposal
       end
 
+      it_behaves_like "share link"
+
       describe "extra admin link" do
         before do
           login_as user, scope: :user
@@ -44,6 +46,24 @@ describe "Show a Proposal", type: :system do
             within ".topbar" do
               expect(page).not_to have_link("Answer")
             end
+          end
+        end
+      end
+
+      describe "author tooltip" do
+        let(:user) { create(:user, :confirmed, organization: organization) }
+
+        before do
+          login_as user, scope: :user
+          visit current_path
+        end
+
+        context "when author doesn't restrict messaging" do
+          it "includes a link to message the proposal author" do
+            within ".author-data" do
+              find_link.hover
+            end
+            expect(page).to have_link("Send private message")
           end
         end
       end

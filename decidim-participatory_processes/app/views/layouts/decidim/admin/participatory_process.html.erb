@@ -1,78 +1,8 @@
 <% add_decidim_page_title(translated_attribute(current_participatory_space.title)) %>
-
-<% content_for :secondary_nav do %>
-  <div class="secondary-nav secondary-nav--subnav">
-    <ul>
-      <%= public_page_link decidim_participatory_processes.participatory_process_path(current_participatory_space) %>
-      <% if allowed_to? :update, :process, process: current_participatory_space %>
-        <li <% if is_active_link?(decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space)) %> class="is-active" <% end %>>
-          <%= aria_selected_link_to t("info", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin_participatory_processes.edit_participatory_process_path(current_participatory_space) %>
-        </li>
-      <% end %>
-      <% if allowed_to? :read, :process_step %>
-        <li <% if is_active_link?(decidim_admin_participatory_processes.participatory_process_steps_path(current_participatory_space)) %> class="is-active" <% end %>>
-          <%= aria_selected_link_to t("steps", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin_participatory_processes.participatory_process_steps_path(current_participatory_space) %>
-        </li>
-      <% end %>
-      <% if allowed_to? :read, :component %>
-        <li <% if is_active_link?(decidim_admin_participatory_processes.components_path(current_participatory_space)) %> class="is-active" <% end %>>
-          <%= aria_selected_link_to t("components", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin_participatory_processes.components_path(current_participatory_space) %>
-          <ul id="components-list">
-            <% current_participatory_space.components.each do |component| %>
-              <% if component.manifest.admin_engine && user_role_config.component_is_accessible?(component.manifest_name) %>
-                <li <% if is_active_link?(manage_component_path(component)) || is_active_link?(decidim_admin_participatory_processes.edit_component_path(current_participatory_space, component)) || is_active_link?(decidim_admin_participatory_processes.edit_component_permissions_path(current_participatory_space, component)) || participatory_space_active_link?(component) %> class="is-active" <% end %>>
-                  <%= link_to manage_component_path(component) do %>
-                    <%= translated_attribute component.name %>
-                    <% if component.primary_stat.present? %>
-                      <span class="component-counter <%= "component-counter--off" if component.primary_stat.zero? %>"><%= component.primary_stat %></span>
-                    <% end %>
-                  <% end %>
-                </li>
-              <% end %>
-            <% end %>
-          </ul>
-        </li>
-      <% end %>
-      <% if allowed_to? :read, :category %>
-        <li <% if is_active_link?(decidim_admin_participatory_processes.categories_path(current_participatory_space)) %> class="is-active" <% end %>>
-          <%= aria_selected_link_to t("categories", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin_participatory_processes.categories_path(current_participatory_space) %>
-        </li>
-      <% end %>
-      <% if allowed_to?(:read, :attachment_collection) || allowed_to?(:read, :attachment) %>
-        <li>
-          <span class="secondary-nav__subtitle"><%= t("attachments", scope: "decidim.admin.menu.participatory_processes_submenu") %></span>
-          <ul>
-            <% if allowed_to? :read, :attachment_collection %>
-              <li <% if is_active_link?(decidim_admin_participatory_processes.participatory_process_attachment_collections_path(current_participatory_space)) %> class="is-active" <% end %>>
-                <%= aria_selected_link_to t("attachment_collections", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin_participatory_processes.participatory_process_attachment_collections_path(current_participatory_space) %>
-              </li>
-            <% end %>
-            <% if allowed_to? :read, :attachment %>
-              <li <% if is_active_link?(decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space)) %> class="is-active" <% end %>>
-                <%= aria_selected_link_to t("attachment_files", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space) %>
-              </li>
-            <% end %>
-          </ul>
-        </li>
-      <% end %>
-      <% if allowed_to? :read, :process_user_role %>
-        <li <% if is_active_link?(decidim_admin_participatory_processes.participatory_process_user_roles_path(current_participatory_space)) %> class="is-active" <% end %>>
-          <%= aria_selected_link_to t("process_admins", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin_participatory_processes.participatory_process_user_roles_path(current_participatory_space) %>
-        </li>
-      <% end %>
-      <% if allowed_to? :read, :space_private_user %>
-        <li <% if is_active_link?(decidim_admin_participatory_processes.participatory_space_private_users_path(current_participatory_space)) %> class="is-active" <% end %>>
-          <%= aria_selected_link_to t("private_users", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin_participatory_processes.participatory_space_private_users_path(current_participatory_space) %>
-        </li>
-      <% end %>
-      <% if allowed_to? :read, :moderation %>
-        <li <% if is_active_link?(decidim_admin_participatory_processes.moderations_path(current_participatory_space)) %> class="is-active" <% end %>>
-          <%= aria_selected_link_to t("moderations", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin_participatory_processes.moderations_path(current_participatory_space) %>
-        </li>
-      <% end %>
-      <%= Decidim::Admin.view_hooks.render(:admin_secondary_nav, deep_dup) %>
-    </ul>
-  </div>
+<% content_for :sidebar_menu_nav do %>
+  <%= sidebar_menu(:admin_participatory_process_menu).render do
+    public_page_link decidim_participatory_processes.participatory_process_path(current_participatory_space)
+  end %>
 <% end %>
 
 <%= render "layouts/decidim/admin/application" do %>

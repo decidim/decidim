@@ -21,7 +21,8 @@ module Decidim
             invalid?: invalid,
             title: { en: title },
             body: { en: body },
-            current_component: current_component
+            current_component: current_component,
+            author: current_user
           )
         end
 
@@ -95,6 +96,24 @@ module Decidim
             action_log = Decidim::ActionLog.last
             expect(action_log.version).to be_present
             expect(action_log.version.event).to eq "create"
+          end
+
+          context "with a group author" do
+            let(:group) { create(:user_group, :verified, organization: organization) }
+            let(:form) do
+              double(
+                invalid?: invalid,
+                title: { en: title },
+                body: { en: body },
+                current_component: current_component,
+                author: group
+              )
+            end
+
+            it "sets the group as the author" do
+              subject.call
+              expect(post.author).to eq(group)
+            end
           end
         end
       end

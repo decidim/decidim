@@ -36,7 +36,7 @@ module Decidim
 
       def can_vote_comment?
         return disallow! unless user
-        return disallow! unless commentable&.user_allowed_to_comment?(user)
+        return disallow! unless commentable&.user_allowed_to_vote_comment?(user)
 
         allow!
       end

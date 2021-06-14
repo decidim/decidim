@@ -1,17 +1,18 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/components/namer"
+require "decidim/components/namer"
 
 Decidim.register_component(:elections) do |component|
   component.engine = Decidim::Elections::Engine
   component.admin_engine = Decidim::Elections::AdminEngine
-  component.icon = "decidim/elections/icon.svg"
+  component.icon = "media/images/decidim_elections.svg"
   component.stylesheet = "decidim/elections/elections"
   component.permissions_class_name = "Decidim::Elections::Permissions"
   component.query_type = "Decidim::Elections::ElectionsType"
-  # component.on(:before_destroy) do |instance|
-  #   # Code executed before removing the component
-  # end
+
+  component.on(:before_destroy) do |instance|
+    raise StandardError, "Can't remove this component" if Decidim::Elections::Election.where(component: instance).any?
+  end
 
   # These actions permissions can be configured in the admin panel
   component.actions = %w(vote)
@@ -26,7 +27,7 @@ Decidim.register_component(:elections) do |component|
 
   component.register_stat :elections_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
     elections = Decidim::Elections::FilteredElections.for(components, start_at, end_at)
-    elections.count
+    elections.published.count
   end
 
   component.register_resource(:election) do |resource|
@@ -98,7 +99,8 @@ Decidim.register_component(:elections) do |component|
           end,
           start_time: 3.weeks.from_now,
           end_time: 3.weeks.from_now + 4.hours,
-          published_at: Faker::Boolean.boolean(true_ratio: 0.5) ? 1.week.ago : nil
+          published_at: Faker::Boolean.boolean(true_ratio: 0.5) ? 1.week.ago : nil,
+          salt: Decidim::Tokenizer.random_salt
         },
         visibility: "all"
       )
@@ -113,7 +115,7 @@ Decidim.register_component(:elections) do |component|
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
               Decidim::Faker::Localized.paragraph(sentence_count: 3)
             end,
-            max_selections: Faker::Number.between(from: 1, to: 5),
+            max_selections: Faker::Number.between(from: 1, to: 3),
             weight: Faker::Number.number(digits: 1),
             random_answers_order: Faker::Boolean.boolean(true_ratio: 0.5),
             min_selections: Faker::Number.between(from: 0, to: 1)
@@ -121,7 +123,7 @@ Decidim.register_component(:elections) do |component|
           visibility: "all"
         )
 
-        rand(2...5).times do
+        rand(upcoming_question.max_selections...5).times do
           answer = Decidim.traceability.create!(
             Decidim::Elections::Answer,
             admin_user,
@@ -132,8 +134,7 @@ Decidim.register_component(:elections) do |component|
                 Decidim::Faker::Localized.paragraph(sentence_count: 3)
               end,
               weight: Faker::Number.number(digits: 1),
-              selected: Faker::Boolean.boolean(true_ratio: 0.2), # false
-              votes_count: 0
+              selected: Faker::Boolean.boolean(true_ratio: 0.2) # false
             },
             visibility: "all"
           )
@@ -192,7 +193,8 @@ Decidim.register_component(:elections) do |component|
           end,
           start_time: 4.weeks.ago,
           end_time: 3.weeks.ago,
-          published_at: 4.weeks.ago
+          published_at: 4.weeks.ago,
+          salt: Decidim::Tokenizer.random_salt
         },
         visibility: "all"
       )
@@ -226,8 +228,7 @@ Decidim.register_component(:elections) do |component|
                 Decidim::Faker::Localized.paragraph(sentence_count: 3)
               end,
               weight: Faker::Number.number(digits: 1),
-              selected: Faker::Boolean.boolean(true_ratio: 0.2), # false
-              votes_count: 0
+              selected: Faker::Boolean.boolean(true_ratio: 0.2) # false
             },
             visibility: "all"
           )
@@ -287,10 +288,32 @@ Decidim.register_component(:elections) do |component|
           start_time: 4.weeks.ago,
           end_time: 3.weeks.ago,
           published_at: 3.weeks.ago,
-          bb_status: "results_published"
+          bb_status: "results_published",
+          salt: Decidim::Tokenizer.random_salt
 
         },
         visibility: "all"
+      )
+
+      bb_closure = Decidim::Elections::BulletinBoardClosure.create!(
+        election: election_with_results
+      )
+
+      valid_ballots = Faker::Number.number(digits: 3)
+      Decidim::Elections::Result.create!(
+        value: valid_ballots,
+        closurable: bb_closure,
+        question: nil,
+        answer: nil,
+        result_type: :valid_ballots
+      )
+
+      Decidim::Elections::Result.create!(
+        value: valid_ballots,
+        closurable: bb_closure,
+        question: nil,
+        answer: nil,
+        result_type: :total_ballots
       )
 
       rand(1...4).times do
@@ -311,6 +334,7 @@ Decidim.register_component(:elections) do |component|
           visibility: "all"
         )
 
+        question_pending = valid_ballots
         rand(2...5).times do
           answer = Decidim.traceability.create!(
             Decidim::Elections::Answer,
@@ -322,8 +346,7 @@ Decidim.register_component(:elections) do |component|
                 Decidim::Faker::Localized.paragraph(sentence_count: 3)
               end,
               weight: Faker::Number.number(digits: 1),
-              selected: Faker::Boolean.boolean(true_ratio: 0.5),
-              votes_count: Faker::Number.number(digits: 3)
+              selected: Faker::Boolean.boolean(true_ratio: 0.5)
             },
             visibility: "all"
           )
@@ -333,6 +356,26 @@ Decidim.register_component(:elections) do |component|
             description: Decidim::Faker::Localized.sentence(word_count: 5),
             attached_to: answer,
             file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
+          )
+
+          answer_value = Faker::Number.between(from: 0, to: question_pending)
+          Decidim::Elections::Result.create!(
+            value: answer_value,
+            closurable: bb_closure,
+            question: result_question,
+            answer: answer,
+            result_type: :valid_answers
+          )
+          question_pending -= answer_value
+        end
+
+        if result_question.nota_option? && result_question.max_selections == 1
+          Decidim::Elections::Result.create!(
+            value: question_pending,
+            closurable: bb_closure,
+            question: result_question,
+            answer: nil,
+            result_type: :blank_answers
           )
         end
 
@@ -381,7 +424,8 @@ Decidim.register_component(:elections) do |component|
         end,
         start_time: 2.weeks.ago,
         end_time: 2.weeks.from_now + 4.hours,
-        published_at: 3.weeks.ago
+        published_at: 3.weeks.ago,
+        salt: Decidim::Tokenizer.random_salt
       },
       visibility: "all"
     )
@@ -415,8 +459,7 @@ Decidim.register_component(:elections) do |component|
               Decidim::Faker::Localized.paragraph(sentence_count: 3)
             end,
             weight: Faker::Number.number(digits: 1),
-            selected: Faker::Boolean.boolean(true_ratio: 0.2), # false
-            votes_count: 0
+            selected: Faker::Boolean.boolean(true_ratio: 0.2) # false
           },
           visibility: "all"
         )

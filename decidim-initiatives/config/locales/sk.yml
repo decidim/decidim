@@ -60,6 +60,8 @@ sk:
       actions:
         new_initiative_type: Nový typ iniciatívy
       menu:
+        components: Komponenty
+        information: Informácie
         initiatives: Iniciatívy
         initiatives_types: Typy iniciatív
       models:
@@ -234,10 +236,8 @@ sk:
         finish:
           back: Späť
           back_to_initiatives: Späť na iniciatívy
-          edit_my_initiative: Upraviť moje iniciatívy
           go_to_my_initiatives: Ísť na mojej iniciatívy
           more_information: "(Viac informácií)"
-          send_my_initiative: Odoslať moje iniciatívy
         previous_form:
           back: Späť
           continue: Pokračovať
@@ -342,12 +342,6 @@ sk:
         print:
           city: Mesto
         result:
-          answer_title:
-            accepted: Tento návrh bol prijatý, pretože
-            created: Tento návrh bol vytvorený
-            discarded: Tento návrh bol odstránený, pretože
-            published: Tento návrh je zverejnený pretože
-            rejected: Tento návrh bol zamietnutý, pretože
           initiative_rejected_reason: Táto iniciatíva bola zamietnutá z dôvodu nedostatočnej podpory.
         show:
           follow_description: Dostanete oznámenia, ak sú v tejto iniciatíve správy
@@ -401,12 +395,6 @@ sk:
           vote: Hlasovanie
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Prílohy
-          committee_members: členovia komisie
-          components: Komponenty
-          information: Informácie
       initiative_creation_header:
         back: Späť
         fill_data: Vytvoriť

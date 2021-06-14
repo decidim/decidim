@@ -160,6 +160,8 @@ module Decidim
                                     .where(decidim_commentable_id: resources.pluck(:id))
                                     .where(decidim_commentable_type: commentable_type)
                                     .where("decidim_author_type" => "Decidim::UserBaseEntity").pluck(:decidim_author_id)
+        else
+          []
         end
       end
 

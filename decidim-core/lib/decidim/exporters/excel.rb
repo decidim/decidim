@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
-require "spreadsheet"
+require "rubyXL"
+
+require "rubyXL/convenience_methods/cell"
+require "rubyXL/convenience_methods/font"
+require "rubyXL/convenience_methods/workbook"
+require "rubyXL/convenience_methods/worksheet"
 
 module Decidim
   module Exporters
@@ -18,31 +23,30 @@ module Decidim
       #
       # Returns an ExportData instance.
       def export
-        book = Spreadsheet::Workbook.new
-        sheet = book.create_worksheet
-        sheet.name = "Export"
+        workbook = RubyXL::Workbook.new
+        worksheet = workbook[0]
 
-        sheet.row(0).default_format = Spreadsheet::Format.new(
-          weight: :bold,
-          pattern: 1,
-          pattern_fg_color: :xls_color_14,
-          horizontal_align: :center
-        )
-
-        sheet.row(0).replace headers
-
-        headers.length.times.each do |index|
-          sheet.column(index).width = 20
+        headers.each_with_index.map do |header, index|
+          worksheet.change_column_width(index, 20)
+          worksheet.add_cell(0, index, header)
         end
+
+        worksheet.change_row_fill(0, "c0c0c0")
+        worksheet.change_row_bold(0, true)
+        worksheet.change_row_horizontal_alignment(0, "center")
 
         processed_collection.each_with_index do |resource, index|
-          sheet.row(index + 1).replace(headers.map { |header| custom_sanitize(resource[header]) })
+          headers.each_with_index do |header, j|
+            if resource[header].respond_to?(:strftime)
+              cell = worksheet.add_cell(index + 1, j, custom_sanitize(resource[header]))
+              resource[header].is_a?(Date) ? cell.set_number_format("dd.mm.yyyy") : cell.set_number_format("dd.mm.yyyy HH:MM:SS")
+              next
+            end
+            worksheet.add_cell(index + 1, j, custom_sanitize(resource[header]))
+          end
         end
 
-        output = StringIO.new
-        book.write output
-
-        ExportData.new(output.string, "xls")
+        ExportData.new(workbook.stream.string, "xlsx")
       end
     end
   end

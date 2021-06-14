@@ -8,7 +8,7 @@ require "decidim/core/test/shared_examples/input_sort_examples"
 module Decidim
   module Blogs
     describe PostInputSort, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:type_class) { Decidim::Blogs::BlogsType }
 

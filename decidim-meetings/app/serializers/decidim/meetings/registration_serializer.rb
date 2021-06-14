@@ -21,18 +21,9 @@ module Decidim
       private
 
       def serialize_answers
-        questions = resource.meeting.questionnaire.questions
-        answers = resource.meeting.questionnaire.answers.where(user: resource.user)
-        questions.each_with_index.inject({}) do |serialized, (question, idx)|
-          answer = answers.find_by(question: question)
-          serialized.update("#{idx + 1}. #{translated_attribute(question.body)}" => normalize_body(answer))
-        end
-      end
-
-      def normalize_body(answer)
-        return "" unless answer
-
-        answer.body || answer.choices.pluck(:body)
+        Decidim::Forms::UserAnswersSerializer.new(
+          resource.meeting.questionnaire.answers.where(user: resource.user)
+        ).serialize
       end
     end
   end

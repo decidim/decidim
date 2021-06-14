@@ -95,6 +95,18 @@ shared_examples "a proposal form" do |options|
     it { is_expected.to be_invalid }
   end
 
+  context "when the title is the minimum length" do
+    let(:title) do
+      if options[:i18n] == false
+        "Length is right"
+      else
+        { en: "Length is right" }
+      end
+    end
+
+    it { is_expected.to be_valid }
+  end
+
   unless options[:skip_etiquette_validation]
     context "when the body is not etiquette-compliant" do
       let(:body) do
@@ -149,7 +161,7 @@ shared_examples "a proposal form" do |options|
       end
 
       context "when the address is present" do
-        let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+        let(:address) { "Some address" }
 
         before do
           stub_geocoding(address, [latitude, longitude])
@@ -253,10 +265,18 @@ shared_examples "a proposal form" do |options|
   end
 
   context "when the attachment is present" do
-    let(:attachment_params) do
+    let(:params) do
       {
-        title: "My attachment",
-        file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
+        title: title,
+        body: body,
+        author: author,
+        category_id: category_id,
+        scope_id: scope_id,
+        address: address,
+        has_address: has_address,
+        meeting_as_author: meeting_as_author,
+        suggested_hashtags: suggested_hashtags,
+        add_photos: [Decidim::Dev.test_file("city.jpeg", "image/jpeg")]
       }
     end
 
@@ -269,11 +289,11 @@ shared_examples "a proposal form" do |options|
         expect(subject).not_to be_valid
 
         if options[:i18n]
-          expect(subject.errors.full_messages).to match_array(["Title en can't be blank", "Attachment Needs to be reattached"])
-          expect(subject.errors.keys).to match_array([:title_en, :attachment])
+          expect(subject.errors.full_messages).to match_array(["Title en can't be blank", "Add photos Needs to be reattached"])
+          expect(subject.errors.keys).to match_array([:title_en, :add_photos])
         else
-          expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Title is too short (under 15 characters)", "Attachment Needs to be reattached"])
-          expect(subject.errors.keys).to match_array([:title, :attachment])
+          expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Title is too short (under 15 characters)", "Add photos Needs to be reattached"])
+          expect(subject.errors.keys).to match_array([:title, :add_photos])
         end
       end
     end

@@ -48,13 +48,13 @@
                 <% if allowed_to? :update, :budget, budget: budget %>
                   <%= icon_link_to "pencil", edit_budget_path(budget), t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>
                 <% else %>
-                  <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img" %>
+                  <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.budgets") %>
                 <% end %>
 
                 <% if allowed_to? :delete, :budget, budget: budget %>
                   <%= icon_link_to "circle-x", budget_path(budget), t("actions.destroy", scope: "decidim.budgets"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.budgets") } %>
                 <% else %>
-                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
+                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.budgets") %>
                 <% end %>
               </td>
             </tr>
@@ -67,5 +67,9 @@
     <strong><%= t ".finished_orders" %>:&nbsp;</strong><span><%= finished_orders.count %></span>
     <span>&nbsp;|&nbsp;</span>
     <strong><%= t ".pending_orders" %>:&nbsp;</strong><span><%= pending_orders.count %></span>
+    <span>&nbsp;|&nbsp;</span>
+    <strong><%= t ".users_with_finished_orders" %>:&nbsp;</strong><span><%= users_with_finished_orders.count %></span>
+    <span>&nbsp;|&nbsp;</span>
+    <strong><%= t ".users_with_pending_orders" %>:&nbsp;</strong><span><%= users_with_pending_orders.count %></span>
   </div>
 </div>

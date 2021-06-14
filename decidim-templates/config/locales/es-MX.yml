@@ -48,6 +48,7 @@ es-MX:
           form:
             save: Guardar
             template_title: Información de la plantilla
+            title: Plantilla de cuestionario %{questionnaire_for}
           index:
             confirm_delete: '¿Seguro que quieres eliminar esta plantilla?'
             title: Plantillas de cuestionario

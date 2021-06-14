@@ -15,7 +15,7 @@ We have identified only one culprit here: "orphans" records, meaning records who
 
 === Peaks in generated metrics
 
-If somehow the metrics jobs fail to execute for a period of time, big differences can appear in metrics. So first make sure that you have metrics for every day, if not https://github.com/decidim/decidim/blob/master/docs/advanced/metrics.md[generate them].
+If somehow the metrics jobs fail to execute for a period of time, big differences can appear in metrics. So first make sure that you have metrics for every day, if not https://github.com/decidim/decidim/blob/develop/docs/advanced/metrics.md[generate them].
 
 If you have metrics generated for almost everyday and still see drastic changes from day to day, take into account that changing the visibility of a component or participatory space (making them private or unpublishing them) will naturally cause big differences in generated metrics.
 

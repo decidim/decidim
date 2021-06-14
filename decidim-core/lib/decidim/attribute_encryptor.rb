@@ -7,7 +7,15 @@ module Decidim
     end
 
     def self.decrypt(string_encrypted)
-      cryptor.decrypt_and_verify(string_encrypted) if string_encrypted.present?
+      return if string_encrypted.blank?
+
+      # `ActiveSupport::MessageEncryptor` expects all values passed to the
+      # `#decrypt_and_verify` method to be instances of String as the message
+      # verifier calls `#split` on the value objects: https://git.io/JqfOO.
+      # If something else is passed, just return the value as is.
+      return string_encrypted unless string_encrypted.is_a?(String)
+
+      cryptor.decrypt_and_verify(string_encrypted)
     end
 
     def self.cryptor

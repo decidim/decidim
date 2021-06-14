@@ -7,6 +7,7 @@ module Decidim
       helper Decidim::WidgetUrlsHelper
       helper ProposalWizardHelper
       helper ParticipatoryTextsHelper
+      helper UserGroupHelper
       include Decidim::ApplicationHelper
       include Flaggable
       include Withdrawable
@@ -35,11 +36,13 @@ module Decidim
                        .order(position: :asc)
           render "decidim/proposals/proposals/participatory_texts/participatory_text"
         else
-          @proposals = search
-                       .results
-                       .published
-                       .not_hidden
-                       .includes(:component, :coauthorships)
+          @base_query = search
+                        .results
+                        .published
+                        .not_hidden
+
+          @proposals = @base_query.includes(:component, :coauthorships)
+          @all_geocoded_proposals = @base_query.geocoded
 
           @voted_proposals = if current_user
                                ProposalVote.where(
@@ -56,8 +59,6 @@ module Decidim
 
       def show
         raise ActionController::RoutingError, "Not Found" if @proposal.blank? || !can_show_proposal?
-
-        @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
 
       def new

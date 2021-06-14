@@ -15,9 +15,8 @@ module Decidim
         end
 
         # Private: Finds the participatory spaces the current user is admin to.
-        # This is only used for users that are "participatoy space admins", not
-        # organization-wide admins. This method will later be used to find out
-        # what moderations can the current user manage.
+        # This method will later be used to find out what moderations the
+        # current user can manage.
         #
         # Returns an Array.
         def spaces_user_is_admin_to
@@ -27,7 +26,8 @@ module Decidim
                 .find_participatory_space_manifest(manifest.name)
                 .participatory_spaces
                 .call(current_organization)&.select do |space|
-                  space.moderators.exists?(id: current_user.id)
+                  space.moderators.exists?(id: current_user.id) ||
+                    space.admins.exists?(id: current_user.id)
                 end
             end
         end
@@ -39,11 +39,7 @@ module Decidim
         # Returns an `ActiveRecord::Relation`
         def moderations_for_user
           @moderations_for_user ||=
-            if current_user.admin?
-              Decidim::Moderation.all
-            else
-              Decidim::Moderation.where(participatory_space: spaces_user_is_admin_to)
-            end
+            Decidim::Moderation.where(participatory_space: spaces_user_is_admin_to)
         end
       end
     end

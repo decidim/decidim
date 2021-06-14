@@ -31,13 +31,6 @@ lv:
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat "%{participatory_space_title}". Jūs varat atsekot tai no iepriekšējās saites.
           email_subject: Jauna izloze pievienota telpai %{participatory_space_title}
           notification_title: Izloze <a href="%{resource_path}">%{resource_title}</a> ir pievienota telpai%{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          sortitions_count: Izlozes
-    participatory_processes:
-      statistics:
-        sortitions_count: Izlozes
     sortitions:
       admin:
         actions:

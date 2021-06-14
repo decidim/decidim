@@ -81,10 +81,4 @@ describe EtiquetteValidator do
       it { is_expected.to be_valid }
     end
   end
-
-  context "when the body is too short" do
-    let(:body) { "Oh my god" }
-
-    it { is_expected.to be_invalid }
-  end
 end

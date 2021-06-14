@@ -23,7 +23,6 @@ sl:
       component:
         name: Ime
         published_at: Objavljeno
-        weight: Teža
       id: ID
       newsletter:
         body: Telo
@@ -87,12 +86,10 @@ sl:
         show_in_footer: Prikaži v nogi
         slug: URL okrajšava
         title: Naziv
-        weight: Teža
       static_page_topic:
         description: Opis
         show_in_footer: Prikaži v nogi
         title: Naziv
-        weight: Teža
       user_group_csv_verification:
         file: Datoteka
     errors:

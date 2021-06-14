@@ -67,12 +67,16 @@ module Decidim
           )
         end
 
+        def followers
+          form.user.is_a?(Decidim::UserGroup) ? form.user.users : [form.user]
+        end
+
         def notify_assembly_member_about_new_membership
           data = {
             event: "decidim.events.assemblies.create_assembly_member",
             event_class: Decidim::Assemblies::CreateAssemblyMemberEvent,
             resource: assembly,
-            followers: [form.user]
+            followers: followers
           }
           Decidim::EventsManager.publish(data)
         end

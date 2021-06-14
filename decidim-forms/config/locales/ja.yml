@@ -3,15 +3,22 @@ ja:
     attributes:
       answer:
         body: 回答
+        choices: 選択項目
+        selected_choices: 選択した項目
       question:
         max_choices: 選択肢の最大数
         question_type: タイプ
       questionnaire_question:
         mandatory: Mandatory
+        max_characters: 文字数制限 (制限がない場合は0にしてください)
     errors:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: 再添付が必要
+            body:
+              too_long: 長すぎます
             choices:
               missing: は完全ではありません
               too_many: 多すぎます
@@ -108,7 +115,7 @@ ja:
         answer:
           body: 本文は空白にできません
       files:
-        extension_whitelist: '承認されたフォーマット:'
+        extension_allowlist: '承認されたフォーマット:'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'この画像は次のようになります:'
@@ -116,6 +123,7 @@ ja:
           resize_and_pad: リサイズおよびパッド先
           resize_to_fit: フィットするようにリサイズしました
       question_types:
+        files: ファイル
         long_answer: 長い回答
         matrix_multiple: マトリクス (複数オプション)
         matrix_single: マトリクス（シングルオプション）
@@ -132,7 +140,7 @@ ja:
           max_choices: '最大選択肢: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">アカウント</a> でログインするか、 <a href="%{sign_up_link}">ユーザ登録</a> してフォームに回答してください。
+            anonymous_user_message: <a href="%{sign_in_link}">あなたのアカウントでログインする</a> か、 <a href="%{sign_up_link}">ユーザー登録</a> してフォームに回答してください。
             title: フォームに回答
           current_step: ステップ %{step}
           of_total_steps: / %{total_steps}

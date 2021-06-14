@@ -15,6 +15,7 @@ describe "User creates meeting", type: :system do
     create_list(
       :meeting,
       meetings_count,
+      :published,
       component: current_component,
       start_time: 1.day.from_now,
       end_time: start_time + 4.hours
@@ -28,6 +29,13 @@ describe "User creates meeting", type: :system do
   context "when creating a new meeting", :serves_geocoding_autocomplete do
     let(:user) { create :user, :confirmed, organization: organization }
     let!(:category) { create :category, participatory_space: participatory_space }
+
+    context "when the user is not logged in" do
+      it "redirects the user to the sign in page" do
+        page.visit Decidim::EngineRouter.main_proxy(component).new_meeting_path
+        expect(page).to have_current_path("/users/sign_in")
+      end
+    end
 
     context "when the user is logged in" do
       before do
@@ -44,7 +52,7 @@ describe "User creates meeting", type: :system do
         let(:meeting_description) { Faker::Lorem.sentence(word_count: 2) }
         let(:meeting_location) { Faker::Lorem.sentence(word_count: 3) }
         let(:meeting_location_hints) { Faker::Lorem.sentence(word_count: 3) }
-        let(:meeting_address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+        let(:meeting_address) { "Some address" }
         let(:latitude) { 40.1234 }
         let(:longitude) { 2.1234 }
         let!(:meeting_start_time) { Time.current + 2.days }

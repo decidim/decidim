@@ -1,0 +1,13 @@
+<% add_decidim_page_title(t("votings.new.title", scope: "decidim.votings.admin")) %>
+
+<h2 class="voting-title-summary">
+  <%= t("votings.new.title", scope: "decidim.votings.admin") %>
+</h2>
+
+<%= decidim_form_for(@form, html: { class: "form new_voting" }) do |f| %>
+  <%= render partial: "form", object: f %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t("votings.new.create", scope: "decidim.votings.admin") %>
+  </div>
+<% end %>

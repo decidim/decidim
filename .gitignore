@@ -24,4 +24,13 @@ schema.json
 .tags
 # Vim swap files
 *.swp
+# NVM RC (node version manager)
+.nvmrc
+# Decidim webpack packs
+public/decidim-packs
+# tmp folder (used by webpack to deal with cache)
+tmp
+# webpack packs output
+decidim-packs
 
+temporary_changelog.md

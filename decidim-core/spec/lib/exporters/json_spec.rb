@@ -12,6 +12,10 @@ module Decidim
           @resource = resource
         end
 
+        def run
+          serialize
+        end
+
         def serialize
           {
             id: @resource.id,

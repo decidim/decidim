@@ -3,7 +3,7 @@
     <h2 class='card-title'>
       <%= t("attachment_collections.index.attachment_collections_title", scope: "decidim.admin") %>
       <% if allowed_to? :create, :attachment_collection %>
-        <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.attachment_collection.name", scope: "decidim.admin")), url_for(action: :new), class: "button tiny button--title new" %>
+        <%= link_to t("actions.attachment_collection.new", scope: "decidim.admin"), url_for(action: :new), class: "button tiny button--title new" %>
       <% end %>
     </h2>
   </div>
@@ -34,7 +34,7 @@
                       <%= icon_link_to "circle-x", polymorphic_path([collection_for, attachment_collection]), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
                     <% else %>
                       <span class="action-icon" title="<%= t("attachment_collections.index.attachment_collection_used", scope: "decidim.admin") %>" data-tooltip="true" data-disable-hover="false">
-                        <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
+                        <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", "aria-hidden": true %>
                       </span>
                     <% end %>
                   <% end %>

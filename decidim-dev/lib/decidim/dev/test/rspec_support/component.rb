@@ -72,7 +72,6 @@ module Decidim
       include Decidim::HasAttachments
       include Decidim::ShareableWithToken
       include Decidim::TranslatableResource
-      include Decidim::Core::GraphQLApiTransition
 
       translatable_fields :title
       searchable_fields(
@@ -113,6 +112,11 @@ module Decidim
 
       # Public: Whether the object can have new comments or not.
       def user_allowed_to_comment?(user)
+        component.can_participate_in_space?(user)
+      end
+
+      # Public: Whether the object can have new comment votes or not.
+      def user_allowed_to_vote_comment?(user)
         component.can_participate_in_space?(user)
       end
 
@@ -180,6 +184,10 @@ class DummySerializer
     @id = id
   end
 
+  def run
+    serialize
+  end
+
   def serialize
     {
       id: @id
@@ -190,7 +198,7 @@ end
 Decidim.register_component(:dummy) do |component|
   component.engine = Decidim::DummyResources::DummyEngine
   component.admin_engine = Decidim::DummyResources::DummyAdminEngine
-  component.icon = "decidim/dummy.svg"
+  component.icon = "media/images/decidim_dev_dummy.svg"
 
   component.actions = %w(foo bar)
 
@@ -277,6 +285,7 @@ RSpec.configure do |config|
           t.integer :coauthorships_count, null: false, default: 0
           t.integer :endorsements_count, null: false, default: 0
           t.integer :comments_count, null: false, default: 0
+          t.integer :follows_count, null: false, default: 0
 
           t.references :decidim_component, index: false
           t.integer :decidim_author_id, index: false

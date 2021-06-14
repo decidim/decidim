@@ -33,13 +33,6 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Możesz przestać ją obserwować po kliknięciu w poprzedni link.
           email_subject: Dodano nowy wybór losowy do %{participatory_space_title}
           notification_title: Wybór losowy <a href="%{resource_path}">%{resource_title}</a> został dodany do %{participatory_space_title}
-    pages:
-      home:
-        statistics:
-          sortitions_count: Wybór losowy
-    participatory_processes:
-      statistics:
-        sortitions_count: Wybór losowy
     sortitions:
       admin:
         actions:
@@ -114,7 +107,7 @@ pl:
           search: Szukaj
           state: Status
         filters_small_view:
-          close_modal: Zamknij modalne
+          close_modal: Zamknij okno
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwiń

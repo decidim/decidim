@@ -70,6 +70,8 @@
       <%= render partial: "stats_box" %>
 
       <%= render partial: "timeline", locals: { result: result } if result.timeline_entries.any? %>
+
+      <%= attachments_for result %>
     </div>
   </div>
 

@@ -5,7 +5,7 @@ require "nokogiri"
 
 module Decidim
   describe FormBuilder do
-    let(:helper) { Class.new(ActionView::Base).new }
+    let(:helper) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(nil)) }
     let(:available_locales) { %w(ca en de-CH) }
 
     let(:resource) do
@@ -20,6 +20,7 @@ module Decidim
         include TranslatableAttributes
 
         attribute :slug, String
+        attribute :proposal_title, String
         attribute :category_id, Integer
         attribute :number, Integer
         attribute :max_number, Integer
@@ -34,6 +35,10 @@ module Decidim
         translatable_attribute :short_description, String
 
         validates :slug, presence: true
+        validates :proposal_title, proposal_length: {
+          minimum: 15,
+          maximum: ->(_record) { 50 }
+        }
         validates :number, length: { minimum: 10, maximum: 30 }
         validates :max_number, length: { maximum: 50 }
         validates :min_number, length: { minimum: 10 }
@@ -469,6 +474,48 @@ module Decidim
 
           it "injects presence validations" do
             expect(parsed.css("input[required='required']")).not_to be_empty
+          end
+
+          it "injects a span to show an error" do
+            expect(parsed.css("span.form-error")).not_to be_empty
+          end
+
+          context "when the validation has a condition and it is false" do
+            let(:output) do
+              builder.text_field :conditional_presence
+            end
+
+            it "does not inject the presence validations" do
+              expect(parsed.css("input[required='required']")).to be_empty
+            end
+
+            it "does nto inject a span to show an error" do
+              expect(parsed.css("span.form-error")).to be_empty
+            end
+          end
+
+          context "without the proposals module" do
+            before do
+              allow(Object).to receive(:const_defined?).and_call_original
+              allow(Object).to receive(:const_defined?).with(
+                "ProposalLengthValidator"
+              ).and_return(false)
+              allow(builder).to receive(:find_validator).and_call_original
+            end
+
+            it "injects the validations and does not reference ProposalLengthValidator" do
+              expect(builder).not_to receive(:find_validator).with(
+                :number,
+                ProposalLengthValidator
+              )
+              output # Calls the builder
+            end
+          end
+        end
+
+        context "with proposal length validation" do
+          let(:output) do
+            builder.text_field :proposal_title
           end
 
           it "injects a span to show an error" do

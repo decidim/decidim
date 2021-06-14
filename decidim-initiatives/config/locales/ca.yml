@@ -85,8 +85,13 @@ ca:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cercar %{collection} per títol, descripció, ID o autoria.
       menu:
+        attachments: Adjunts
+        committee_members: Membres de la comissió
+        components: Components
+        information: Informació
         initiatives: Iniciatives
         initiatives_types: Tipus d'iniciatives
+        moderations: Moderacions
       models:
         initiatives:
           fields:
@@ -202,13 +207,17 @@ ca:
         content_blocks:
           highlighted_initiatives:
             max_results: Quantitat màxima d'elements per mostrar
+            order:
+              default: Per defecte (menys recents)
+              label: 'Ordenar elements per:'
+              most_recent: Més recents
         exports:
           initiatives: Iniciatives
         initiatives:
           edit:
             accept: Accepta la iniciativa
             confirm: Estàs segur?
-            confirm_send_to_technical_validation: Estàs a punt d'enviar la iniciativa perquè un administrador la revisi i la publiqui. Un cop publicada no la podràs editar. N'estàs segur?
+            confirm_send_to_technical_validation: N'estàs segura?
             discard: Descarta la iniciativa
             export_pdf_signatures: Exporta PDF de signatures
             export_votes: Exportar signatures
@@ -305,9 +314,13 @@ ca:
         filter_type_values:
           all: Tots
       committee_requests:
+        approve:
+          success: S'ha aprovat la sol·licitud.
         new:
           continue: Continua
           help_text: Estàs a punt de sol·licitar formar part del comitè promotor d'aquesta iniciativa
+        revoke:
+          success: S'ha revocat la sol·licitud.
         spawn:
           success: La teva sol·licitud s'ha enviat a l'autor de la iniciativa.
       content_blocks:
@@ -326,14 +339,14 @@ ca:
           back: Torna
           back_to_initiatives: Torna a iniciatives
           callout_text: Enhorabona! La teva iniciativa s'ha creat correctament.
-          confirm: Estàs a punt d'enviar la iniciativa perquè un administrador la revisi i la publiqui. Un cop publicada no la podràs editar. N'estàs segur?
-          edit_my_initiative: Editar les meves iniciatives
+          confirm: Estàs a punt d'enviar la iniciativa perquè una administradora la revisi i la publiqui. Un cop publicada no la podràs editar. N'estàs segura?
+          edit_my_initiative: Editar la meva iniciativa
           go_to_my_initiatives: Ves a les meves iniciatives
           more_information: "(Més informació)"
-          send_my_initiative: Enviar la meva iniciativa
+          send_my_initiative: Enviar la meva iniciativa a validació tècnica
         finish_help:
-          access_reminder: Podeu accedir a les vostres iniciatives a través del filtre %{link} a la pàgina d'iniciatives.
-          publish_helper_text: Recordeu que per publicar la vostra iniciativa heu de completar la informació requerida i <strong>enviar-la a la validació tècnica</strong> perquè una administradora la revisi.
+          access_reminder: Pots accedir a les teves iniciatives a través del filtre %{link} a la pàgina d'iniciatives.
+          publish_helper_text: Recorda que per publicar la teva iniciativa has de completar la informació requerida i <strong>enviar-la a la validació tècnica</strong> perquè una administradora la revisi.
         previous_form:
           back: Torna
           continue: Continua
@@ -368,6 +381,11 @@ ca:
         title: Editar iniciativa
         update: Actualitzar
       events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} ha acceptat la teva sol·licitud per formar part de la comissió promotora de la iniciativa %{resource_title}."
+          email_outro: 'Has rebut aquesta notificació perquè has sol·licitat formar part de la iniciativa %{resource_title}'
+          email_subject: "%{author_nickname} ha acceptat la teva sol·licitud per formar part de la comissió promotora"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> ha acceptat la teva sol·licitud per formar part de la comissió promotora per la següent iniciativa <a href="%{resource_url}">%{resource_title}</a>.
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, a qui segueixes, ha creat una nova iniciativa. Comprova-la i contribueix:"
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
@@ -378,9 +396,19 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Iniciativa adherida per %{author_nickname}
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> va ser adherida per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        revoke_membership_request:
+          email_intro: "%{author_nickname} ha rebutjat la teva sol·licitud per formar part de la comissió promotora per la iniciativa %{resource_title}."
+          email_outro: 'Has rebut aquesta notificació perquè has sol·licitat formar part de la iniciativa %{resource_title}.'
+          email_subject: "%{author_nickname} ha rebutjat la teva sol·licitud per formar part de la comissió promotora"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> ha rebutjat la teva sol·licitud per formar part de la comissió promotora per la següent iniciativa <a href="%{resource_url}">%{resource_title}</a>.
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} ha sol·licitat formar part de la comissió promotora de la teva iniciativa %{resource_title}. Per a acceptar o rebutjar la sol·licitud, vés al formulari d'edició de la teva iniciativa."
+          email_outro: 'Has rebut aquesta notificació perquè ets l''autora de la iniciativa %{resource_title}'
+          email_subject: "%{applicant_nickname} vol unir-se a la teva iniciativa"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha sol·licitat formar part de la comissió promotora de la teva iniciativa <a href="%{resource_url}">%{resource_title}</a>. Per acceptar-ho o rebutjar-ho fes clic <a href="%{resource_url}/edit">aquí</a>.
       form:
         add_attachments: Documents
-        attachment_legend: "(Opcional) Afegiu adjunts"
+        attachment_legend: "(Opcional) Afegir adjunts"
         delete_attachment: Esborrar
       index:
         title: Iniciatives
@@ -421,10 +449,10 @@ ca:
         committee_members:
           approve: Aprova
           confirm_revoke: N'estàs segura?
-          invite_to_committee_help: Comparteix aquest enllaç per convidar altres persones al comitè promotor
-          no_members_yet: No hi ha membres al comitè promotor
+          invite_to_committee_help: Comparteix aquest enllaç per convidar altres persones a la comissió promotora
+          no_members_yet: No hi ha membres a la comissió promotora
           revoke: Revocar
-          title: Membres del comitè
+          title: Membres de la comissió
         count:
           title:
             one: "%{count} iniciativa"
@@ -474,7 +502,7 @@ ca:
           general_title: Sol·licitud d'admissió d'una iniciativa
           id_number: Número d'identificació
           initiative:
-            attachments: Documentació adjunta (escriviu el nom de cada document a continuació)
+            attachments: Documentació adjunta (escriu el nom de cada document a continuació)
             description: 'Descripció:'
             title: 'Títol:'
             type: Tipus d'iniciativa
@@ -487,20 +515,14 @@ ca:
           section: 'Si l''organització ho demana, imprimeix i omple aquest formulari per presentar-lo quan s''indiqui:'
           signature: Signatura
         result:
-          answer_title:
-            accepted: Aquesta proposta s'ha acceptat perquè
-            created: Aquesta proposta s'ha creat
-            discarded: Aquesta proposta s'ha descartat perquè
-            published: Aquesta proposta s'ha publicat perquè
-            rejected: Aquesta proposta ha estat rebutjada perquè
-            validating: Aquesta proposta està essent avaluada
+          answer_title: S'ha respost aquesta iniciativa
           initiative_rejected_reason: Aquesta iniciativa ha estat rebutjada per falta de signatures.
         show:
-          any_vote_method: Aquesta iniciativa ciutadana recull signatures digitals i presencials.
-          confirm: Estàs a punt d'enviar la iniciativa perquè un administrador la revisi i la publiqui. Un cop publicada no la podràs editar. N'estàs segur?
+          any_vote_method: Aquesta iniciativa recull signatures digitals i presencials.
+          confirm: Estàs a punt d'enviar la iniciativa perquè una administradora la revisi i la publiqui. Un cop publicada no la podràs editar. N'estàs segura?
           edit: Editar
           follow_description: Rebre una notificació quan hi hagi novetats sobre aquesta iniciativa
-          offline_method: Aquesta iniciativa ciutadana només recull signatures presencials.
+          offline_method: Aquesta iniciativa només recull signatures presencials.
           print: Imprimir iniciativa
           send_to_technical_validation: Enviar a validació tècnica
         signatures_count:
@@ -550,7 +572,7 @@ ca:
       unavailable_scope: Àmbit no disponible
       update:
         error: S'ha produït un error
-        success: La iniciativa ciutadana s'ha actualitzat correctament
+        success: La iniciativa s'ha actualitzat correctament
       versions:
         shared:
           back_to_resource: Torna a la iniciativa
@@ -563,12 +585,6 @@ ca:
           vote: Signar
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Adjunts
-          committee_members: Membres del comitè
-          components: Components
-          information: Informació
       initiative_creation_header:
         back: Tornar
         fill_data: Crear

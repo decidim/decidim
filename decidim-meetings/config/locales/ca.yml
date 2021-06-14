@@ -8,12 +8,16 @@ ca:
       close_meeting:
         attendees_count: Nombre d'assistents
         attending_organizations: Llista d'organitzacions que han participat
-        closing_report: Informe
+        audio_url: URL d'àudio
+        closing_report: Acta
+        closing_visible: És visible
         contributions_count: Nombre de contribucions
         proposal_ids: Propostes creades en a la trobada
+        video_url: URL de vídeo
       meeting:
         address: Adreça
         available_slots: Espais disponibles per a aquesta trobada
+        customize_registration_email: Personalitzar el correu d'inscripció
         decidim_category_id: Categoria
         decidim_scope_id: Àmbit
         decidim_user_group_id: Grup d'usuàries
@@ -21,19 +25,19 @@ ca:
         end_time: Hora de finalització
         location: Ubicació
         location_hints: Detalls d'ubicació
+        online_meeting_url: URL de trobada en línia
         organizer_gid: Crear com a
         organizer_id: Organitzador
         private_meeting: Trobada privada
+        registration_email_custom_content: Contingut personalitzat del correu d'inscripció
         registration_form_enabled: Formulari d'inscripcions habilitat
         registration_terms: Termes i condicions d'inscripció
-        registration_url: URL de registre
+        registration_url: URL d'inscripció
         registrations_enabled: Inscripcions obertes
         start_time: Hora d'inici
         title: Títol
         transparent: Transparent
-      minutes:
-        description: Descripció
-        visible: És visible
+        type_of_meeting: Tipus
     errors:
       models:
         meeting_agenda:
@@ -86,10 +90,12 @@ ca:
             creation_enabled_for_participants: Les participants poden crear trobades
             default_registration_terms: Termes de registre per defecte
             enable_pads_creation: Habilitar la creació de pads
+            maps_enabled: Mapes habilitats
             registration_code_enabled: Codi d'inscripció habilitat
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
+            terms_and_conditions_url_for_meeting_creators: URL de termes i condicions per creadores de trobades
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
@@ -165,7 +171,6 @@ ca:
           proposals_count:
             one: 'No es pot destruir la trobada perquè té %{count} proposta associades:'
             other: 'No es pot destruir la trobada perquè té %{count} propostes associades:'
-        minutes: Acta
         new: Nova trobada
         preview: Previsualitzar
         registrations: Inscripcions
@@ -202,6 +207,7 @@ ca:
             invalid: S'ha produït un error en actualitzar aquest ordre del dia
             success: Ordre del dia actualitzat correctament
         exports:
+          meeting_comments: Comentaris
           meetings: Trobades
           registrations: Inscripcions
         invite_join_meeting_mailer:
@@ -241,7 +247,7 @@ ca:
             success: Trobada tancada amb èxit
           create:
             invalid: S'ha produït un error en crear aquesta trobada
-            success: Trobada creada amb èxit
+            success: S'ha creat la trobada correctament. Adona-te'n que per a fer-la pública, ho hauràs de fer manualment.
           destroy:
             invalid:
               proposals_count:
@@ -249,16 +255,27 @@ ca:
                 other: No es pot destruir la trobada perquè té %{count} propostes associades
             success: La trobada s'ha eliminat correctament
           edit:
+            title: Editar la trobada
             update: Actualitzar
           form:
             address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
             available_slots_help: Deixeu-ho a 0 si les places disponibles són il·limitades
+            disclaimer: 'Descàrrec de responsabilitat: en utilitzar un sistema d''inscripcions extern, ets conscient que els organitzadors de %{organization} no són responsables de les dades proporcionades per les usuàries al servei extern.'
             location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
+            location_hints_help: 'Detalls d''ubicació: informació addicional. Exemple: la planta de l''edifici si es tracta d''una reunió presencial, o la contrasenya de la reunió si es tracta d''una reunió en línia amb accés restringit.'
+            online_meeting_url_help: 'Enllaç: permetre que les participants es connectin directament a la teva trobada'
+            registration_email_help: Aquest text apareixerà enmig del correu de confirmació de la inscripció. Just a sota del codi d'inscripció.
+            registration_url_help: 'Enllaç: permetre a les participants anar al servei extern que estàs utilitzant per a les inscripcions'
+            select_a_meeting_type: Si us plau selecciona un tipus de trobada
+            select_a_registration_type: Si us plau selecciona un tipus d'inscripció
           index:
             title: Trobades
           new:
             create: Crear
             title: Crear trobada
+          publish:
+            invalid: S'ha produït un error en publicar la trobada
+            success: La trobada ara ja és pública
           service:
             description: Descripció
             down: Baixar
@@ -269,21 +286,12 @@ ca:
           services:
             add_service: Afegeix servei
             services: Serveis
+          unpublish:
+            invalid: Hi ha hagut un problema en en despublicar la trobada
+            success: La trobada ara ja no és pública
           update:
             invalid: S'ha produït un error en actualitzar aquesta trobada
             success: Trobada actualitzada correctament
-        minutes:
-          create:
-            invalid: S'ha produït un error en crear aquesta acta
-            success: S'ha creat l'acta amb èxit
-          edit:
-            update: Actualitza
-          new:
-            create: Crea
-            title: Crea l'acta
-          update:
-            invalid: S'ha produït un error en actualitzar aquesta acta
-            success: L'acta s'ha actualitzat correctament
         models:
           meeting:
             name: Trobada
@@ -323,9 +331,6 @@ ca:
           value_types:
             organizer_presenter:
               not_found: 'L''organitzador no s''ha trobat a la base de dades (identificació: %{id})'
-        minutes:
-          create: "%{user_name} ha creat l'acta de la reunió %{resource_name} a l'espai %{space_name}"
-          update: "%{user_name} ha actualitzat l'acta de la reunió %{resource_name} a l'espai %{space_name}"
       calendar_modal:
         calendar_url: URL del calendari
         close_window: Tanca la finestra
@@ -347,6 +352,7 @@ ca:
             space_type: Espai participatiu
             upcoming: Properes
       last_activity:
+        meeting_updated_at_html: "<span>Trobada actualitzada el %{link}</span>"
         new_meeting_at_html: "<span>Nova trobada a %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
@@ -357,7 +363,19 @@ ca:
             subject: La teva inscripció a la trobada ha estat confirmada
       meeting:
         not_allowed: No tens permís per veure aquesta trobada
+      meeting_closes:
+        edit:
+          back: Tornar
+          close: Tancar trobada
+          title: Tancar trobada
       meetings:
+        calendar_modal:
+          add_to_calendar: Afegeix al calendari
+          apple: Afegeix al calendari d'Apple
+          close_window: Tanca la finestra
+          full_details_html: Per a més informació visiteu %{link}
+          google: Afegeix al calendari de Google
+          outlook: Afegeix al calendari d'Outlook
         count:
           meetings_count:
             one: "%{count} trobada"
@@ -370,12 +388,15 @@ ca:
           title: Editar la trobada
           update: Actualitzar
         filters:
+          activity: La meva activitat
+          all: Totes
           category: Categoria
           date: Data
           date_values:
             all: Totes
             past: Passades
             upcoming: Properes
+          my_meetings: Les meves trobades
           origin: Origen
           origin_values:
             all: Tots
@@ -384,6 +405,12 @@ ca:
             user_groups: Grups
           scope: Àmbit
           search: Cerca
+          type: Tipus
+          type_values:
+            all: Totes
+            hybrid: Ambdues
+            in_person: Presencial
+            online: En línia
         filters_small_view:
           close_modal: Tancar finestra
           filter: Filtra
@@ -391,14 +418,19 @@ ca:
           unfold: Desplegar
         form:
           address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
+          available_slots_help: Deixa-ho a 0 si les places disponibles són il·limitades
           create_as: Crear trobada com a
+          disclaimer: 'Descàrrec de responsabilitat: en utilitzar un sistema d''inscripcions extern, ets conscient que els organitzadors de %{organization} no són responsables de les dades proporcionades per les usuàries al servei extern.'
           location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
+          location_hints_help: 'Detalls d''ubicació: informació addicional. Exemple: la planta de l''edifici si es tracta d''una reunió presencial, o la contrasenya de la reunió si es tracta d''una reunió en línia amb accés restringit.'
+          online_meeting_url_help: 'Enllaç: permetre que les participants es connectin directament a la teva trobada'
+          registration_url_help: 'Enllaç: permetre a les participants anar al servei extern que estàs utilitzant per a les inscripcions'
           select_a_category: Si us plau, selecciona una categoria
           select_a_meeting_type: Si us plau selecciona un tipus de trobada
+          select_a_registration_type: Si us plau selecciona un tipus d'inscripció
         index:
           new_meeting: Nova trobada
         meeting_minutes:
-          meeting_minutes: Acta de la trobada
           related_information: Informació relacionada
         meetings:
           no_meetings_warning: No hi ha trobades que coincideixin amb la teva cerca o no hi ha cap trobada programada.
@@ -413,12 +445,15 @@ ca:
         show:
           attendees: Nombre d'assistents
           back: Torna al llistat
+          close_meeting: Tancar trobada
           contributions: Nombre d'aportacions
           date: Data
           edit_meeting: Editar la trobada
-          going: Inscrit
+          going: T'has inscrit en aquesta trobada
           join: Inscriu-te a la trobada
-          meeting_report: Informe de la trobada
+          leave: Cancel·la la teva inscripció
+          leave_confirmation: Segur que vols cancel·lar la teva inscripció a aquesta trobada?
+          meeting_minutes: Acta de la trobada
           no_slots_available: No hi ha places disponible
           organizations: Organitzacions que han assistit
           registration_code_help_text: El teu codi de registre
@@ -453,12 +488,21 @@ ca:
             official_meeting: Trobada oficial
             start_time: Data d'inici
             title: Títol
+      public_participants_list:
+        attending_participants: Participants que assisteixen
+        hidden_participants_count:
+          one: i %{count} persona més
+          other: i %{count} persones més
       read_more: "(llegeix més)"
       registration_mailer:
         confirmation:
           confirmed_html: La teva inscripció a la trobada <a href="%{url}">%{title}</a> ha estat confirmada.
           details: A l'arxiu adjunt trobaràs els detalls de la reunió.
           registration_code: El teu codi de registre és %{code}.
+      registration_type:
+        on_different_platform: A una altra plataforma
+        on_this_platform: En aquesta plataforma
+        registration_disabled: Inscripcions deshabilitades
       registrations:
         create:
           invalid: S'ha produït un error en inscriure's a aquesta trobada.
@@ -470,6 +514,7 @@ ca:
           invalid: S'ha produït un error en abandonar aquesta trobada.
           success: Has abandonat la trobada amb èxit.
       type_of_meeting:
+        hybrid: Ambdues
         in_person: Presencial
         online: Online
       types:
@@ -496,6 +541,8 @@ ca:
       proposals_from_meeting:
         meeting_proposal: 'Propostes relacionades:'
         proposal_meeting: 'Trobades relacionades:'
+    statistics:
+      meetings_count: Trobades
   devise:
     mailer:
       join_meeting:

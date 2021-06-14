@@ -32,13 +32,6 @@ uk:
           email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{participatory_space_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
           email_subject: До %{participatory_space_title} додано нове жеребкування
           notification_title: До %{participatory_space_title} була додано жеребкування <a href="%{resource_path}">%{resource_title}</a>
-    pages:
-      home:
-        statistics:
-          sortitions_count: Жеребкувань
-    participatory_processes:
-      statistics:
-        sortitions_count: Жеребкувань
     sortitions:
       admin:
         actions:

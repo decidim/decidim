@@ -1,0 +1,114 @@
+//Vars
+$process-title-height: 3rem;
+
+//Styles
+.secondary-nav{
+  width: 220px;
+  min-height: 100%;
+  float: left;
+  background-color: $white;
+  box-shadow: 6px 6px 10px rgba(black, .04);
+
+  ul{
+    list-style: none;
+    margin-left: 0;
+  }
+
+  li > a{
+    display: block;
+    padding: .5rem 1rem;
+    margin: 0 .5rem;
+    color: $body-font-color;
+
+    &:hover,
+    &:focus{
+      color: lighten($body-font-color, 20);
+    }
+  }
+
+  li.is-active > a{
+    background-color: $lighter-gray;
+    border-radius: $global-radius;
+  }
+
+  li > ul{
+    margin-left: 1rem;
+    font-size: 90%;
+
+    a{
+      padding-top: .2rem;
+      padding-bottom: .2rem;
+    }
+
+    li.is-active a{
+      font-weight: 600;
+      background-color: transparent;
+    }
+  }
+}
+
+.secondary-nav--subnav,
+.process-content{
+  padding-top: 1rem;
+
+  & > .card:first-child{
+    margin-top: -2rem;
+  }
+
+  @include breakpoint(large){
+    min-height: calc(100% - #{$process-title-height});
+    margin-top: $process-title-height;
+  }
+}
+
+.secondary-nav__title,
+.process-title-content,
+.voting-title-content{
+  margin-bottom: 1.5rem;
+  font-size: .8rem;
+  letter-spacing: .1em;
+  font-weight: bold;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.secondary-nav__title{
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.secondary-nav__actions{
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.secondary-nav__subtitle{
+  display: block;
+  padding: .5rem 1rem;
+  margin: 0 .5rem;
+  color: $body-font-color;
+}
+
+.process-title,
+.voting-title{
+  @include breakpoint(large){
+    margin-bottom: $process-title-height;
+  }
+}
+
+.process-title-content,
+.voting-title-content{
+  @include breakpoint(large){
+    position: absolute;
+    left: 120px;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    background-color: $white;
+    padding: 1rem 1.5rem;
+    height: $process-title-height;
+    box-shadow: 0 6px 10px rgba(black, .04);
+  }
+}

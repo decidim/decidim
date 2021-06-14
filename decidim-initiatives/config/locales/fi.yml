@@ -85,8 +85,13 @@ fi:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Etsi kohteita %{collection} otsikon, kuvauksen, ID-numeron tai laatijan nimellä.
       menu:
+        attachments: Liitteet
+        committee_members: Komitean jäsenet
+        components: Komponentit
+        information: Tiedot
         initiatives: Aloitteet
         initiatives_types: Aloitetyypit
+        moderations: Moderoinnit
       models:
         initiatives:
           fields:
@@ -154,10 +159,10 @@ fi:
             email_subject: Uusi virstanpylväs saavutettu!
             notification_title: Aloite <a href="%{resource_path}">%{resource_title}</a> on saavuttanut %{percentage}% tarvituista allekirjoituksista.
         support_threshold_reached:
-          email_intro: Aloite %{resource_title} on saavuttanut kannatuskynnyksen
+          email_intro: Aloite %{resource_title} on kerännyt tarpeeksi monta allekirjoitusta
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet palvelun hallintakäyttäjä.
-          email_subject: Kannatuskynnys saavutettu
-          notification_title: Aloite <a href="%{resource_path}">%{resource_title}</a> on saavuttanut kannatuskynnyksensä
+          email_subject: Allekirjoitusten kynnysarvo on saavutettu
+          notification_title: Aloite <a href="%{resource_path}">%{resource_title}</a> on kerännyt tarpeeksi monta allekirjoitusta
     gamification:
       badges:
         initiatives:
@@ -202,13 +207,17 @@ fi:
         content_blocks:
           highlighted_initiatives:
             max_results: Näytettävien elementtien enimmäismäärä
+            order:
+              default: Oletus (vanhin ensin)
+              label: 'Järjestä elementit:'
+              most_recent: Uusimmat
         exports:
           initiatives: Aloitteet
         initiatives:
           edit:
             accept: Hyväksy aloite
             confirm: Oletko varma?
-            confirm_send_to_technical_validation: Aloite lähetetään hallintakäyttäjän tarkastettavaksi ja julkaistavaksi. Julkaisun jälkeen et voi enää muokata aloitetta. Haluatko varmasti jatkaa?
+            confirm_send_to_technical_validation: Oletko varma?
             discard: Hylkää aloite
             export_pdf_signatures: Vie allekirjoitukset PDF-asiakirjaan
             export_votes: Lataa allekirjoitukset
@@ -265,7 +274,7 @@ fi:
             update: Päivitä
           form:
             authorizations: Varmennuksen asetukset
-            child_scope_threshold_enabled_help: 'Tämä asetus ei toimi fyysisesti kerätyille allekirjoituksille. Se mahdollistaa arvioinnit ja toimii sellaisten varmennusten kanssa, jotka määrittävät käyttäjälle tietyn teeman. Valitse kyseinen varmennustapa varmennuksen asetuksista alapuolelta. Toimiakseen, teemat tulee olla määritelty hierarkisesti: 1 yläteema - N alateemaa. Lisätietoja tästä ominaisuudesta löydät <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">hallinnointikäyttäjän ohjeista</a>.'
+            child_scope_threshold_enabled_help: 'Tämä asetus ei tue fyysisiä äänestyksiä, se ottaa käyttöön alateemat ja toimii sellaisten tunnistautumistapojen kanssa, jotka yhdistävät käyttäjän tiettyyn teemaan. Varmista, että valitset tällaisen tunnistautumistavan alla olevista asetuksista. Toimiakseen teemojen on oltava määritetty hierarkisella tavalla: 1 isäntä - N lasta. Jos tarvitset lisätietoja kuinka tämä asetus toimii, tutustu <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">asetuksen dokumentaatioon täältä</a>.'
             only_global_scope_enabled_help: Ota tämä asetus käyttöön, jos otit köyttöön "alateemojen allekirjoitukset" ja asetit järjestelmänlaajuisen yläteeman. Ottamalla tämän asetuksen käyttöön, aloitteen tyypin valinta sivuutetaan aloitteiden luontinäkymässä. Saat <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">lisätietoja tästä ominaisuudesta täältä</a>.
             options: Valinnat
             title: Yleistä tietoa
@@ -305,9 +314,13 @@ fi:
         filter_type_values:
           all: Kaikki
       committee_requests:
+        approve:
+          success: Pyyntö on hyväksytty.
         new:
           continue: Jatka
           help_text: Olet hakemassa jäsenyyttä tämän aloitteen kannatuskomiteasta
+        revoke:
+          success: Pyyntöä ei hyväksytty.
         spawn:
           success: Hakemuksesi on lähetetty aloitteen laatijalle.
       content_blocks:
@@ -327,10 +340,10 @@ fi:
           back_to_initiatives: Takaisin aloitteisiin
           callout_text: Onnittelut! Aloitteesi on luotu onnistuneesti.
           confirm: Aloite lähetetään hallintakäyttäjän tarkastettavaksi ja julkaistavaksi. Julkaisun jälkeen et voi enää muokata aloitetta. Haluatko varmasti jatkaa?
-          edit_my_initiative: Muokkaa omia aloitteita
+          edit_my_initiative: Muokkaa aloitettani
           go_to_my_initiatives: Siirry omiin aloitteisiini
           more_information: "(Lisää tietoa)"
-          send_my_initiative: Lähetä aloitteeni
+          send_my_initiative: Lähetä aloitteeni tekniseen tarkastukseen
         finish_help:
           access_reminder: Pääset käsiksi aloitteisiin suodatuslinkin %{link} kautta aloitteiden sivulla.
           publish_helper_text: Saadaksesi aloitteesi julkaistuksi, sinun tulee viimeistellä vaaditut tiedot ja <strong>lähettää aloite hallintakäyttäjän tekniseen tarkastukseen</strong>.
@@ -368,6 +381,11 @@ fi:
         title: Muokkaa aloitetta
         update: Päivitä
       events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} hyväksyi hakemuksesi kannatuskomitean jäseneksi aloitteelle %{resource_title}."
+          email_outro: 'Tämä ilmoitus on lähetetty sinulle, koska olet tehnyt hakemuksen aloitteelle: %{resource_title}'
+          email_subject: "%{author_nickname} hyväksyi hakemuksesi kannatuskomitean jäseneksi"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> hyväksyi hakemuksesi kannatuskomitean jäseneksi aloitteelle <a href="%{resource_url}">%{resource_title}</a>.
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, jota seuraat, on luonut uuden aloitteen. Tutustu siihen ja osallistu:"
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
@@ -378,6 +396,16 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: '%{author_nickname} on suositellut aloitetta'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on suositellut aloitetta <a href="%{resource_path}">%{resource_title}</a>.
+        revoke_membership_request:
+          email_intro: "%{author_nickname} hylkäsi hakemuksesi kannatuskomitean jäseneksi aloitteelle %{resource_title}."
+          email_outro: 'Tämä ilmoitus on lähetetty sinulle, koska olet tehnyt hakemuksen aloitteelle: %{resource_title}.'
+          email_subject: "%{author_nickname} hylkäsi hakemuksesi kannatuskomitean jäseneksi"
+          notification_title: '<a href="%{author_profile_url}">%{author_nickname}</a> hylkäsi hakemuksesi kannatuskomitean jäseneksi aloitteelle: <a href="%{resource_url}">%{resource_title}</a>.'
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} hakee jäseneksi kannatuskomiteaan aloitteellesi %{resource_title}. Voit hyväksyä tai hylätä hakemuksen aloitteen muokkauslomakkeen kautta."
+          email_outro: 'Tämä ilmoitus on lähetetty sinulle, koska olet luonut aloitteen %{resource_title}'
+          email_subject: "%{applicant_nickname} haluaa liittyä mukaan aloitteeseesi"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> haki jäseneksi aloitteesi <a href="%{resource_url}">%{resource_title}</a> kannatuskomiteaan. Voit hyväksyä tai hylätä pyynnön <a href="%{resource_url}/edit">aloitteen muokkaussivulta</a>.
       form:
         add_attachments: Asiakirjat
         attachment_legend: "(Vapaaehtoinen) Lisää liitteitä"
@@ -487,13 +515,7 @@ fi:
           section: 'Pyydettäessä tulostakaa ja täyttäkää tämä lomake lähettääksenne sen osoitettuun paikkaan:'
           signature: Allekirjoitus
         result:
-          answer_title:
-            accepted: Tämä ehdotus on hyväksytty, koska
-            created: Tämä ehdotus on luotu
-            discarded: Tämä ehdotus jätetään huomiotta, koska
-            published: Tämä ehdotus on julkaistu, koska
-            rejected: Tämä ehdotus on hylätty, koska
-            validating: Tätä ehdotusta arvioidaan
+          answer_title: Tähän aloitteeseen on vastattu
           initiative_rejected_reason: Tämä aloite on hylätty, koska se ei kerännyt tarpeeksi allekirjoituksia.
         show:
           any_vote_method: Tämä aloite kerää allekirjoituksia verkossa ja palvelun ulkopuolella.
@@ -563,12 +585,6 @@ fi:
           vote: Allekirjoita
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Liitteet
-          committee_members: Komitean jäsenet
-          components: Komponentit
-          information: Tiedot
       initiative_creation_header:
         back: Takaisin
         fill_data: Luo

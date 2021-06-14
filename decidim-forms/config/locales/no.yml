@@ -80,7 +80,7 @@
         answer:
           body: Teksten kan ikke være blank
       files:
-        extension_whitelist: 'Aksepterte formater:'
+        extension_allowlist: 'Aksepterte formater:'
       images:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Dette bildet vil være:'

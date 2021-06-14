@@ -104,9 +104,16 @@ Decidim::Core::Engine.routes.draw do
     resources :conversations, except: [:destroy], controller: "user_conversations", as: "profile_conversations"
   end
 
+  scope :timeouts do
+    post "heartbeat", to: "timeouts#heartbeat"
+    get "seconds_until_timeout", to: "timeouts#seconds_until_timeout"
+  end
+
   resources :pages, only: [:index, :show], format: false
 
   get "/search", to: "searches#index", as: :search
+
+  get "/link", to: "links#new", as: :link
 
   get "/scopes/picker", to: "scopes#picker", as: :scopes_picker
 

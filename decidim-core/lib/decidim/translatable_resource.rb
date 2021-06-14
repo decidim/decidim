@@ -54,7 +54,7 @@ module Decidim
         return if organization && !organization.enable_machine_translations
         return if try(:enable_machine_translations) == false
 
-        Decidim::MachineTranslationResourceJob.perform_later(
+        Decidim::MachineTranslationResourceJob.set(wait: Decidim.config.machine_translation_delay).perform_later(
           self,
           translatable_previous_changes,
           I18n.locale.to_s

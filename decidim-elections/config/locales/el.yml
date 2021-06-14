@@ -135,6 +135,3 @@ el:
             answers: Απαντήσεις
             max_selections: Μέγιστες επιλογές
             title: Τίτλος
-    participatory_processes:
-      statistics:
-        elections_count: Εκλογές

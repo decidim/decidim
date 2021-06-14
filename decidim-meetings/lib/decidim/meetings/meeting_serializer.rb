@@ -52,6 +52,7 @@ module Decidim
       private
 
       attr_reader :meeting
+      alias resource meeting
 
       def component
         meeting.component

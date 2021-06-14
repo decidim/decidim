@@ -30,7 +30,13 @@ module Decidim
       private
 
       def normalize_body(resource)
-        resource.body || resource.choices.pluck(:body)
+        attachments_for(resource) || resource.body || resource.choices.pluck(:body)
+      end
+
+      def attachments_for(resource)
+        return if resource.attachments.blank?
+
+        resource.attachments.map(&:url)
       end
     end
   end
