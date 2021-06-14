@@ -1,5 +1,10 @@
 ---
 en:
+  activemodel:
+    attributes:
+      template:
+        name: Name
+        description: Description
   decidim:
     admin:
       menu:
