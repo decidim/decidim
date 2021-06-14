@@ -572,6 +572,9 @@ pt:
           proposals_count:
             one: "%{count} proposta"
             other: "%{count} propostas"
+        dynamic_map_instructions:
+          description: As coordenadas serão atualizadas quando clicar no botão 'visualizar'. No entanto, o endereço não muda.
+          instructions: Você pode mover o ponto no mapa.
         edit:
           attachment_legend: "(Opcional) Adicione um anexo"
           back: Voltar
