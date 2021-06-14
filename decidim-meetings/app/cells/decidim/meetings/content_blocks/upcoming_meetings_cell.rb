@@ -3,7 +3,7 @@
 module Decidim
   module Meetings
     module ContentBlocks
-      class UpcomingMeetingCell < Decidim::ViewModel
+      class UpcomingMeetingsCell < Decidim::ViewModel
         include Decidim::CardHelper
 
         def show
