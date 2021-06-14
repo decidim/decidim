@@ -715,6 +715,8 @@ it:
           proposals_count:
             one: "%{count} proposta"
             other: "%{count} proposte"
+        dynamic_map_instructions:
+          description: Le coordinate verranno aggiornate quando si fa clic sul pulsante 'Anteprima'. Tuttavia, l'indirizzo non cambia.
         edit:
           add_documents: Documenti
           add_images: File
