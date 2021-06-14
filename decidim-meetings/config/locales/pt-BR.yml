@@ -150,6 +150,7 @@ pt:
         confirm_destroy: Deseja mesmo excluir este encontro?
         destroy: Excluir
         edit: Editar
+        manage_poll: Gerenciar enquete
         new: Nova reunião
         preview: Visualização
         registrations: Inscrições
@@ -186,6 +187,7 @@ pt:
             invalid: Houve um problema ao atualizar esta agenda
             success: Agenda atualizada com sucesso
         exports:
+          answers: Respostas
           meetings: Reuniões
           registrations: Inscrições
         invite_join_meeting_mailer:
@@ -247,6 +249,12 @@ pt:
           update:
             invalid: Tem havido um problema ao atualizar esta reunião
             success: Reunião atualizada com sucesso
+        meetings_poll:
+          form:
+            title: Editar questionário da enquete para %{questionnaire_for}
+          update:
+            invalid: Houve um problema ao atualizar essa pesquisa de reunião
+            success: Enquete da reunião atualizada com sucesso
         models:
           meeting:
             name: encontro
@@ -306,6 +314,11 @@ pt:
             upcoming: próximos
       last_activity:
         new_meeting_at_html: "<span>Nova reunião em %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Administrar
+          close: fechar
+          questions: Perguntas
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -337,6 +350,9 @@ pt:
         meetings:
           no_meetings_warning: Nenhuma reunião corresponde aos seus critérios de pesquisa ou não há nenhuma reunião agendada.
           upcoming_meetings_warning: Atualmente, não há reuniões agendadas, mas aqui você pode encontrar todas as reuniões anteriores listadas.
+        online_meeting_link:
+          join: Participe da reunião
+          live_event: Esta reunião está acontecendo agora
         registration_confirm:
           cancel: Cancelar
           confirm: confirme
@@ -375,6 +391,26 @@ pt:
             map: Mapa
             start_time: Data de início
             title: Título
+      polls:
+        questions:
+          closed_question:
+            question_results: Resultados das perguntas
+          index:
+            empty_questions: Durante esta reunião, algumas perguntas serão enviadas e você poderá respondê-las. Elas serão exibidas aqui.
+          index_admin:
+            admin_dashboard: Painel de administração
+            edit: Editar no admin
+            question: Pergunta
+            received_answer: resposta recebida
+            received_answers: respostas recebidas
+            results: Resultados
+            send: Enviar
+            sent: Enviado
+          published_question:
+            max_choices_alert: Há muitas opções selecionadas
+            question: Pergunta
+            question_replied: Pergunta respondida
+            reply_question: Responder pergunta
       public_participants_list:
         attending_participants: Participantes presentes
         hidden_participants_count:
