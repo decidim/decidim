@@ -17,6 +17,7 @@ export default class MapController {
     }, config);
 
     this.map = null;
+    this.eventHandlers = {};
 
     MapControllerRegistry.setController(mapId, this);
   }
