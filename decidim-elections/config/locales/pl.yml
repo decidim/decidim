@@ -693,9 +693,9 @@ pl:
     events:
       elections:
         election_published:
-          email_intro: 'Wybór %{resource_title} jest teraz aktywny w %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
-          email_subject: Wybór %{resource_title} jest teraz aktywny w %{participatory_space_title}.
+          email_intro: 'Wybory %{resource_title} są teraz aktywne w %{participatory_space_title}. Możesz je zobaczyć na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz wyłączyć powiadomienia po kliknięciu w powyższy link.
+          email_subject: Wybory %{resource_title} są teraz aktywne dla %{participatory_space_title}.
           notification_title: Wybór <a href="%{resource_path}">%{resource_title}</a> jest teraz aktywny w %{participatory_space_title}.
         trustees:
           new_election:
