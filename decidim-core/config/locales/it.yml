@@ -258,6 +258,8 @@ it:
         download: Scarica file
       documents:
         related_documents: Documenti Relativi
+      geocoding:
+        geocoded_address: Indirizzo
       photos:
         related_photos: Immagini relative
     author:
