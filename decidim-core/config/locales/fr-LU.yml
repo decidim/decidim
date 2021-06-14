@@ -254,6 +254,8 @@ fr-LU:
         download: Télécharger le fichier
       documents:
         related_documents: Documents à consulter
+      geocoding:
+        geocoded_address: Adresse
       photos:
         related_photos: Photos associées
     author:
