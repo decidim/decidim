@@ -739,7 +739,32 @@ it:
             location_help: 'Posizione: messaggio diretto agli elettori che implica il luogo esatto del seggi elettorali'
             location_hints_help: 'Suggerimenti di posizione: informazioni aggiuntive. Esempio: il piano dell''edificio in cui si trova la stazione elettorale.'
             polling_station_managers_help: 'Dirigenti dei sondaggi: i dirigenti che fungeranno da direttori dei seggi elettorali. Assicurarsi che i dirigenti siano già stati creati negli uffici Elettorali e che non siano già assegnati ad un altro seggi elettorali'
+            polling_station_president_help: 'Dirigente seggio elettorale: il dirigente che agirà come presidente del seggio. Assicurarsi che sia già stato creato in nell''ufficio Elettorale e che non sia già assegnato ad un altro seggio'
+            select_president: Selezionare un funzionario dell'ufficio come presidente del seggio elettorale
+          index:
+            title: Seggio elettorale
+          new:
+            create: Crea
+            title: Crea un seggio per la votazione
+          update:
+            invalid: Si è verificato un problema durante l'aggiornamento di questa votazione
+            success: Stato del voto aggiornato con successo
+        titles:
+          votings: Votazioni
         votings:
+          actions:
+            confirm_destroy: Sei sicuro?
+            destroy: Elimina
+            new_voting: Nuovo Spazio Di Votazione
+            publish: Pubblica
+            unpublish: Annulla la pubblicazione
+          create:
+            invalid: Si è verificato un problema durante la creazione di questa votazione
+            success: Votazione creata con successo
+          edit:
+            add_election_component: Non hai nessuna elezione configurata per questo voto. Si prega di aggiungerla nella sezione Componenti
+            assign_missing_officers: Ci sono stazioni di sondaggio senza Presidente e/o Manager. Si prega di assegnarle dalla sezione Postazioni di sondaggio
+            update: Aggiorna
           form:
             title: Titolo
             voting_type:
