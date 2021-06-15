@@ -939,6 +939,11 @@ it:
           edit:
             title: Modifica la stazione di sondaggio
             update: Aggiorna la stazione di sondaggio
+          form:
+            address_help: 'Indirizzo: usato da Geocoder per trovare la posizione'
+            location_help: 'Posizione: messaggio diretto agli elettori che implica il luogo esatto del seggi elettorali'
+            location_hints_help: 'Suggerimenti di posizione: informazioni aggiuntive. Esempio: il piano dell''edificio in cui si trova la stazione elettorale.'
+            polling_station_managers_help: 'Dirigenti dei sondaggi: i dirigenti che fungeranno da direttori dei seggi elettorali. Assicurarsi che i dirigenti siano già stati creati negli uffici Elettorali e che non siano già assegnati ad un altro seggi elettorali'
         votings:
           form:
             title: Titolo
