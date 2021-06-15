@@ -310,6 +310,8 @@ ca:
           authorize: Autoritzar amb "%{authorization}"
           explanation: Per dur a terme aquesta acció, has de disposar de l'autorització "%{authorization}".
           title: Es requereix autorització
+        ok:
+          title: Heu estat autoritzats mentre éreu en aquesta pàgina. Si us plau, recarregueu la pàgina per a realitzar la vostra acció
         pending:
           explanation: Per realitzar aquesta acció, has d'estar autoritzat/da amb "%{authorization}", però la teva autorització encara està en curs
           resume: Comprova el progrés de l'autorització "%{authorization}"
