@@ -99,8 +99,8 @@ namespace :decidim do
         if decidim_gemspec.version.to_s =~ /\.dev$/
           # With the .dev version the package does not exist at NPM yet.
           {
-            dev: "https://gitpkg.now.sh/mainio/decidim/packages_dev/dev?feature/split-npm-packages",
-            prod: "https://gitpkg.now.sh/mainio/decidim/packages_dev/all?feature/split-npm-packages"
+            dev: "https://gitpkg.now.sh/decidim/decidim/packages_dev/dev",
+            prod: "https://gitpkg.now.sh/decidim/decidim/packages_dev/all"
           }
         else
           {

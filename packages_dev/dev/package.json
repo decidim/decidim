@@ -14,8 +14,8 @@
     "npm": "^7.7.2"
   },
   "dependencies": {
-    "@decidim/eslint-config": "https://gitpkg.now.sh/mainio/decidim/packages/eslint-config?feature/split-npm-packages",
-    "@decidim/stylelint-config": "https://gitpkg.now.sh/mainio/decidim/packages/stylelint-config?feature/split-npm-packages",
+    "@decidim/eslint-config": "https://gitpkg.now.sh/decidim/decidim/packages/eslint-config",
+    "@decidim/stylelint-config": "https://gitpkg.now.sh/decidim/decidim/packages/stylelint-config",
     "axe-core": "^4.1.4"
   }
 }
