@@ -193,6 +193,8 @@ module Decidim
       end
 
       def resource_visible?
+        return false if hidden?
+
         !private_meeting? || transparent?
       end
 

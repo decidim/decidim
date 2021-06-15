@@ -66,6 +66,12 @@ module Decidim
             end.to change(Decidim::Proposals::Proposal, :count).by(1)
           end
 
+          it "doesn't create a searchable resource" do
+            command.call
+
+            expect { command.call }.not_to change(Decidim::SearchableResource, :count)
+          end
+
           it "traces the action", versioning: true do
             expect(Decidim.traceability)
               .to receive(:perform_action!)

@@ -41,6 +41,10 @@ module Decidim::Budgets
     end
     let(:invalid) { false }
 
+    it "creates a searchable resource" do
+      expect { subject.call }.to change(Decidim::SearchableResource, :count).by_at_least(1)
+    end
+
     context "when the form is not valid" do
       let(:invalid) { true }
 

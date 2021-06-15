@@ -93,7 +93,7 @@ module Decidim
       # - the visibility of its participatory space.
       # - the visibility of the resource itself.
       def visible?
-        !component.participatory_space.try(:private_space?) && component.published? && resource_visible?
+        component.participatory_space.try(:visible?) && component.published? && resource_visible?
       end
 
       # Check only the resource visibility not its hierarchy.
@@ -102,11 +102,11 @@ module Decidim
       #
       # @return If the resource is also Publicable checks if the resource is published, otherwise returns true by default.
       def resource_visible?
-        if respond_to?(:published?)
-          published?
-        else
-          true
-        end
+        return !hidden? && published? if respond_to?(:hidden?) && respond_to?(:published?)
+        return published? if respond_to?(:published?)
+        return !hidden? if respond_to?(:hidden?)
+
+        true
       end
 
       # Public: Whether the permissions for this object actions can be set at resource level.

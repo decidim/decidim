@@ -23,6 +23,10 @@ shared_examples_for "reportable" do
 
     describe "#hidden?" do
       context "when the resource has not been hidden" do
+        before do
+          subject.reload
+        end
+
         it { expect(subject).not_to be_hidden }
       end
 
@@ -42,6 +46,10 @@ shared_examples_for "reportable" do
       end
 
       context "when the report count is greater than 0" do
+        before do
+          subject.reload
+        end
+
         it { expect(subject).to be_reported }
       end
     end

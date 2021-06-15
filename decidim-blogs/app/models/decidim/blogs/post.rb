@@ -30,6 +30,10 @@ module Decidim
         datetime: :created_at
       )
 
+      def visible?
+        participatory_space.try(:visible?) && component.try(:published?)
+      end
+
       # Public: Overrides the `commentable?` Commentable concern method.
       def commentable?
         component.settings.comments_enabled?
