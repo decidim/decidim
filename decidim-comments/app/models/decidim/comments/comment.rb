@@ -55,7 +55,6 @@ module Decidim
         participatory_space.try(:visible?) && component.try(:published?)
       end
 
-
       def participatory_space
         return root_commentable if root_commentable.is_a?(Decidim::Participable)
 

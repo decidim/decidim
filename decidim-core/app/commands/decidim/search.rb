@@ -84,9 +84,9 @@ module Decidim
     def filtered_query_for(class_name)
       query = SearchableResource.where(organization: organization, locale: I18n.locale)
       query = SearchableResource.where(
-          organization: organization,
-          locale: I18n.locale,
-          resource_type: class_name
+        organization: organization,
+        locale: I18n.locale,
+        resource_type: class_name
       )
 
       clean_filters.each_pair do |attribute_name, value|
