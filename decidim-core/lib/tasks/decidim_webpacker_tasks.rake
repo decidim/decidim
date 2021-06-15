@@ -94,7 +94,8 @@ namespace :decidim do
       # are installed using file references outside the application root
       # where the `package.json` is located at. For more information, see:
       # https://github.com/npm/cli/issues/2339
-      FileUtils.cp_r("#{gem_path}/packages", rails_app_path)
+      FileUtils.rm_rf(rails_app_path.join("packages"))
+      FileUtils.cp_r(gem_path.join("packages"), rails_app_path)
 
       {
         dev: "./packages/dev",
