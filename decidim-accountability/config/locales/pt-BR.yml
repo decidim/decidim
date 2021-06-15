@@ -32,9 +32,12 @@ pt:
   decidim:
     accountability:
       actions:
+        attachment_collections: Pastas
+        attachments: Anexos
         confirm_destroy: Deseja mesmo excluir %{name}?
         destroy: Excluir
         edit: Editar
+        import_csv: Importar CSV
         new: Novo %{name}
         preview: Pré-visualização
         timeline_entries: Evolução do projeto
