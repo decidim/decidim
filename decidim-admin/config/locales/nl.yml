@@ -326,6 +326,16 @@ nl:
         category_id_eq:
           label: Categorie
         filter_label: Filteren
+        invitation_accepted_at_present:
+          label: Uitnodiging geaccepteerd
+          values:
+            'false': 'Nee'
+            'true': 'Ja'
+        last_sign_in_at_present:
+          label: Ooit ingelogd
+          values:
+            'false': 'Nee'
+            'true': 'Ja'
         moderations:
           reportable_type_string_eq:
             label: Type
