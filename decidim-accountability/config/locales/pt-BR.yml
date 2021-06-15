@@ -44,7 +44,12 @@ pt:
         title: Ações
       admin:
         exports:
+          result_comments: Comentários
           results: Resultados
+        import_results:
+          new:
+            import: Importar
+            link: link
         models:
           result:
             name: Resultado
