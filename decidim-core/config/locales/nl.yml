@@ -304,6 +304,8 @@ nl:
           authorize: Autoriseren met "%{authorization}"
           explanation: Om deze actie uit te voeren, moet u autoriseren met "%{authorization}".
           title: Autorisatie vereist
+        ok:
+          title: Je toegang is toegestaan terwijl je op deze pagina was. Herlaad de pagina om je actie uit te voeren
         pending:
           explanation: Als u deze actie wilt uitvoeren, moet u zijn gemachtigd met '%{authorization}', maar uw autorisatie is nog in uitvoering
           resume: Controleer de voortgang van uw autorisatie bij "%{authorization}"
