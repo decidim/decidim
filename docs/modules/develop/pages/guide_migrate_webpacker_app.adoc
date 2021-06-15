@@ -47,39 +47,7 @@ bundle exec rails decidim:webpacker:install
 
 This task do a few steps to allow the Rails instance to have a webpacker instance sharing the code between itself and Decidim gem.
 
-Steps it does:
-
-* copies babel and postcss configuration to instance application
-* copies config/webpacker.yml configuration to instance application
-* copies config/webpack/* configuration to instance application
-* copies package.json and package-lock.json to instance app
-
-This task should be performed everytime decidim has been updated, to get the latest assets dependencies and Webpack configuration.
-
-== Add Decidim webpacker configuration
-
-(when using Decidim generators this file is created automatically)
-
-Decidim has a specific Webpacker configuration that needs to be manually copied in existing applications.
-
-Copy the file https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/decidim_webpacker.yml[decidim_webpacker.yml] to `config/` folder and edit it:
-
-[source,console]
-----
-# Replace
-APP_PATH
-
-# By the location of the instance Rails app, depending on the environment. For example, for an app called your_decidim_app in /home/ubuntu/your_decidim_app
-/home/ubuntu/dev/your_decidim_app/app/packs
-
-# If your application is in production you might need to adapt this change for each environment
-----
-
-== Add Decidim webpacker initializer
-
-(when using Decidim generators this file is created automatically)
-
-Copy the file https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/webpacker_initializer.rb[webpacker_initializer.rb] to `config/initializers/webpacker.rb`
+This task should be performed everytime decidim has been updated, to get the latest assets dependencies and Webpack configuration, and is run in the `decidim:upgrade` task.
 
 == Copy Decidim custom CSS and Javascript
 
@@ -97,7 +65,8 @@ app/packs:
 If it's not the case you must create it. Then, copy Decidim customizable assets
 
 * Copy the file https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/decidim_application.js[decidim_application.js] to `app/packs/src/decidim/decidim_application.js`
-* Copy the file https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/decidim-settings.scss[decidim-settings.scss] to `app/packs/stylesheets/decidim/decidim-settings.scss`
+* Copy the file https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/decidim_application.scss[decidim_application.scss] to `app/packs/stylesheets/decidim/decidim_application.scss`
+* Copy the file https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/decidim-settings.scss[_decidim-settings.scss] to `app/packs/stylesheets/decidim/_decidim-settings.scss`
 
 These files are hooked into Decidim packs (specifically into decidim-core pack) and will be automatically included inside that pack when compiled.
 
