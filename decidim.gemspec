@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "README.md",
     "package.json",
     "package-lock.json",
+    "packages/**/*",
     "babel.config.json",
     "decidim-core/lib/decidim/webpacker/**/*"
   ]
