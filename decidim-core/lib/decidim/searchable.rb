@@ -87,21 +87,30 @@ module Decidim
         return unless org
 
         searchables_in_org = searchable_resources.by_organization(org.id)
+
         if self.class.search_resource_fields_mapper.index_on_update?(self)
           if searchables_in_org.empty?
             add_to_index_as_search_resource
           else
             fields = self.class.search_resource_fields_mapper.mapped(self)
             searchables_in_org.find_each do |sr|
+              next if sr.blank?
+
               sr.update(contents_to_searchable_resource_attributes(fields, sr.locale))
             end
           end
         elsif searchables_in_org.any?
           searchables_in_org.destroy_all
         end
+
+        find_and_update_descendants
       end
 
       private
+
+      def find_and_update_descendants
+        Decidim::FindAndUpdateDescendantsJob.perform_later(self)
+      end
 
       def contents_to_searchable_resource_attributes(fields, locale)
         contents = fields[:i18n][locale]
