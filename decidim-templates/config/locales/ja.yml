@@ -1,4 +1,11 @@
 ja:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: タイトル
+      template:
+        description: 説明
+        name: 名前
   decidim:
     admin:
       menu:
