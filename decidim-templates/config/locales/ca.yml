@@ -1,4 +1,11 @@
 ca:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Títol
+      template:
+        description: Descripció
+        name: Nom
   decidim:
     admin:
       menu:
