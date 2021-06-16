@@ -70,24 +70,20 @@ namespace :decidim do
       File.write(rails_app_path.join("package.json"), JSON.pretty_generate(package))
     end
 
-    def decidim_path
-      @decidim_path ||= Pathname.new(decidim_gemspec.full_gem_path) if Gem.loaded_specs.has_key?("decidim")
-    end
-
-    def decidim_gemspec
-      @decidim_gemspec ||= Gem.loaded_specs["decidim"]
-    end
-
     def decidim_npm_packages
       if decidim_gemspec.source.is_a?(Bundler::Source::Rubygems)
-        return {
-          dev: "@decidim/dev@~#{decidim_gemspec.version}",
-          prod: "@decidim/all@~#{decidim_gemspec.version}"
-        }
+        if released_version?
+          return {
+            dev: "@decidim/dev@~#{decidim_gemspec.version}",
+            prod: "@decidim/all@~#{decidim_gemspec.version}"
+          }
+        else
+          gem_path = Pathname(decidim_gemspec.full_gem_path)
+        end
+      else
+        gem_path = decidim_gemspec.source.path
+        gem_path = Pathname(ENV["BUNDLE_GEMFILE"]).dirname.join(gem_path) if gem_path.relative?
       end
-
-      gem_path = decidim_gemspec.source.path
-      gem_path = Pathname.new(ENV["BUNDLE_GEMFILE"]).dirname.join(gem_path) if gem_path.relative?
 
       # The packages folder needs to be copied to the application folder
       # because the linked dependencies are not installed when packages
@@ -101,6 +97,18 @@ namespace :decidim do
         dev: "./packages/dev",
         prod: "./packages/all"
       }
+    end
+
+    def decidim_path
+      @decidim_path ||= Pathname.new(decidim_gemspec.full_gem_path) if Gem.loaded_specs.has_key?("decidim")
+    end
+
+    def decidim_gemspec
+      @decidim_gemspec ||= Gem.loaded_specs["decidim"]
+    end
+
+    def released_version?
+      decidim_gemspec.version.segments.last != "dev"
     end
 
     def rails_app_path
