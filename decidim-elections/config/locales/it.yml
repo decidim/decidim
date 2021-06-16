@@ -972,6 +972,7 @@ it:
             update: Aggiorna
           form:
             census_contact_information_help: Questa informazione di contatto è per un partecipante che vuole segnalare problemi con il censimento. Può essere un indirizzo e-mail, un modulo di contatto su un altro sito, un sondaggio Decidim per i visitatori, ecc.
+            select_a_voting_type: Seleziona un tipo di votazione
             title: Titolo
             voting_type:
               hybrid: Ibrido
