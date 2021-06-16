@@ -766,6 +766,7 @@ it:
             assign_missing_officers: Ci sono stazioni di sondaggio senza Presidente e/o Manager. Si prega di assegnarle dalla sezione Postazioni di sondaggio
             update: Aggiorna
           form:
+            select_a_voting_type: Seleziona un tipo di votazione
             title: Titolo
             voting_type:
               hybrid: Ibrido
