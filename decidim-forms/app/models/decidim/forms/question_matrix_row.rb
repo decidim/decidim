@@ -10,6 +10,8 @@ module Decidim
       belongs_to :question, class_name: "Question", foreign_key: "decidim_question_id"
 
       delegate :answer_options, :mandatory, :max_choices, to: :question
+
+      scope :by_position, -> { order(:position) }
     end
   end
 end
