@@ -1228,6 +1228,8 @@ nl:
         filters:
           areas: Onderwerpen
           select_an_area: Selecteer een onderwerp
+      public_participation:
+        public_participation: Maak mijn aanwezigheid openbaar
       reference:
         reference: 'Referentie: %{reference}'
       represent_user_group:
