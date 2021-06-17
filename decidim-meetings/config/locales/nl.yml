@@ -515,6 +515,11 @@ nl:
             question: Vraag
             question_replied: Vraag beantwoord
             reply_question: Vraag beantwoorden
+      public_participants_list:
+        attending_participants: Aanwezige deelnemers
+        hidden_participants_count:
+          one: en nog %{count} persoon
+          other: en nog %{count} personen
       read_more: "(Lees meer)"
       registration_mailer:
         confirmation:
