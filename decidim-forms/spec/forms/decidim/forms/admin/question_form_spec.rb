@@ -160,7 +160,7 @@ module Decidim
             end
           end
 
-          context "when all raws already existed" do
+          context "when all rows already existed" do
             before do
               matrix_rows.each_pair do |key, row|
                 row["id"] = key
