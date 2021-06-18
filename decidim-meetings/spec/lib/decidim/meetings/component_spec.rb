@@ -33,7 +33,7 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
     end
   end
 
-  describe "stats" do
+  describe "statistics" do
     subject { current_stat[2] }
 
     let(:raw_stats) do
@@ -46,10 +46,10 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
       raw_stats.select { |stat| stat[0] == :meetings }
     end
 
-    let!(:meeting) { create :meeting }
+    let!(:meeting) { create :meeting, :published }
     let(:component) { meeting.component }
-    let!(:another_meeting) { create :meeting, component: component }
-    let!(:hidden_meeting) { create :meeting, component: component }
+    let!(:another_meeting) { create :meeting, :published, component: component }
+    let!(:hidden_meeting) { create :meeting, :published, component: component }
     let!(:moderation) { create :moderation, reportable: hidden_meeting, hidden_at: 1.day.ago }
 
     let(:current_stat) { stats.find { |stat| stat[1] == stats_name } }
@@ -107,10 +107,9 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
         .collection
         .call(component, user)
     end
-
-    let!(:first_meeting) { create :meeting }
+    let!(:first_meeting) { create :meeting, :published }
     let(:component) { first_meeting.component }
-    let!(:second_meeting) { create :meeting, component: component }
+    let!(:second_meeting) { create :meeting, :published, component: component }
     let(:participatory_process) { component.participatory_space }
     let(:organization) { participatory_process.organization }
 
@@ -118,7 +117,7 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
       let!(:user) { create :user, admin: true, organization: organization }
 
       it "exports all meetings from the component" do
-        expect(subject).to match_array([second_meeting, first_meeting])
+        expect(subject).to match_array([first_meeting, second_meeting])
       end
     end
   end
