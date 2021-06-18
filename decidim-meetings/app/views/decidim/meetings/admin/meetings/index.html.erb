@@ -26,7 +26,8 @@
             <th>
               <%= sort_link(query, :closed, t("models.meeting.fields.closed", scope: "decidim.meetings"), default_order: :desc ) %>
             </th>
-            <% if Decidim::Map.available?(:static, :geocoding) %>
+            <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>
+
               <th><%= t("models.meeting.fields.map", scope: "decidim.meetings") %></th>
             <% end %>
 
@@ -35,8 +36,6 @@
                 <%= sort_link(query, :scope_name, t("models.proposal.fields.scope", scope: "decidim.proposals") ) %>
               </th>
             <% end %>
-
-            <%#= th_resource_scope_label %>
             <th class="actions"><%= t("actions.title", scope: "decidim.meetings") %></th>
           </tr>
         </thead>
@@ -59,7 +58,7 @@
               <td>
                 <%= humanize_boolean meeting.closed? %>
               </td>
-              <% if Decidim::Map.available?(:static, :geocoding) %>
+              <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>
                 <td>
                   <%= static_map_link(meeting) %>
                 </td>

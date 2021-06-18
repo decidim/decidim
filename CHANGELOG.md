@@ -30,6 +30,8 @@ As the new `Votings` module is being developed and will eventually replace the `
 - **decidim-admin**: Adding possibility of unreporting users [\#6696](https://github.com/decidim/decidim/pull/6696)
 - **decidim-core**: Add support for Visual Code Remote Containers and GitHub Codespaces [\6638](https://github.com/decidim/decidim/pull/6638)
 ### Notes
+#### Webpacker migration
+As per [#7464](https://github.com/decidim/decidim/pull/7464), [#7733](https://github.com/decidim/decidim/pull/7733) Decidim has been upgraded to use Webpacker to manage its assets. It's a huge change that requires some updates in your applications. Please refer to the guide [Migrate to Webpacker an instance app](https://github.com/decidim/decidim/blob/develop/docs/modules/develop/pages/guide_migrate_webpacker_app.adoc) and follow the steps described.
 
 #### Improved menu api
 As per [\#7368](https://github.com/decidim/decidim/pull/7368), [\#7382](https://github.com/decidim/decidim/pull/7382) the entire admin structure has been migrated from menus being rendered in partials, to the existing menu structure. Before, this change adding a new menu item to an admin submenu required partial override.
@@ -67,7 +69,6 @@ Decidim.menu :menu do |menu|
 end
 ```
 
-#### New Job queues
 #### Meetings merge minutes and close actions
 
 With changes introduced in [\#7968](https://github.com/decidim/decidim/pull/7968) the `Decidim::Meetings::Minutes` model and related table are removed and the attributes of the previously existing minutes are migrated to `Decidim::Meetings::Meeting` model in the `closing_report`, `video_url`, `audio_url` and `closing_visible` columns. These are the different results of the merge according to the initial data:
@@ -89,6 +90,16 @@ PR [\#7986](https://github.com/decidim/decidim/pull/7986) splits some jobs from 
 - `:translations`
 
 If your application uses Sidekiq and you set a manual configuration file, you'll need to update it to add these two new queues. Otherwise these queues [will never run](https://github.com/mperham/sidekiq/issues/4897).
+
+#### User groups in global search
+
+PR [\#8061](https://github.com/decidim/decidim/pull/8061) adds user groups to the global search and previously existing groups need to be indexed, otherwise it won't be available as search results. Run in a rails console or create a migration with:
+
+```ruby
+  Decidim::UserGroup.find_each(&:try_update_index_for_search_resource)
+```
+
+Please be aware that it could take a while if your database has a lot of groups.
 
 ### Added
 

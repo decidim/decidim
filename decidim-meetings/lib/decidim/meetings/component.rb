@@ -80,6 +80,7 @@ Decidim.register_component(:meetings) do |component|
     settings.attribute :registration_code_enabled, type: :boolean, default: false
     settings.attribute :enable_pads_creation, type: :boolean, default: false
     settings.attribute :creation_enabled_for_participants, type: :boolean, default: false
+    settings.attribute :maps_enabled, type: :boolean, default: true
   end
 
   component.settings(:step) do |settings|
