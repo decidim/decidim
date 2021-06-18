@@ -75,11 +75,18 @@ module Decidim
 
       if path.split(".").last == "svg"
         attributes = { class: classes.join(" ") }.merge(options)
-        asset = File.read(Rails.root.join("public#{asset_pack_path(path)}"))
+        asset = File.read(application_path(path))
         asset.gsub("<svg ", "<svg#{tag_builder.tag_options(attributes)} ").html_safe
       else
         image_pack_tag(path, class: classes.join(" "), style: "display: none")
       end
+    end
+
+    def application_path(path)
+      asset_host = Rails.application.config.action_controller.asset_host
+      img_path = asset_pack_path(path)
+      img_path.gsub!(asset_host , "") if asset_host.present?
+      Rails.root.join("public#{img_path}")
     end
 
     # Allows to create role attribute according to accessibility rules
