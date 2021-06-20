@@ -23,6 +23,7 @@ pt:
         settings:
           global:
             comments_enabled: Comentários ativados
+            comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
     events:
       sortitions:
         sortition_created:
@@ -117,6 +118,7 @@ pt:
         show:
           algorithm: Código de Algoritmo da Classificação
           any_category: de todas as categorias
+          back: Voltar para a lista
           cancelled: Sortição cancelada
           candidate_proposal_ids: Ordem de propostas de classificação e IDs
           candidate_proposals_info: 'A ordenação foi realizada entre as seguintes propostas (%{category_label}), com os seguintes IDs (em negrito as propostas selecionadas)  '
@@ -142,3 +144,5 @@ pt:
           count:
             one: 1 ordenação
             other: "%{count} ordenações"
+    statistics:
+      sortitions_count: Sorteios
