@@ -52,6 +52,7 @@ pt:
         target: Quem participa
         title: Título
         twitter: Twitter
+        weight: Peso
         youtube: YouTube
       assembly_member:
         birthday: Aniversário
@@ -385,10 +386,14 @@ pt:
         comments_count: Comentários
         debates_count: Debates
         endorsements_count: Endossos
+        followers_count: Seguidores
+        headline: Estatísticas
         meetings_count: Reuniões
+        no_stats: Ainda não há estatísticas.
         orders_count: Votos
         pages_count: Páginas
         participants_count: Participantes
+        processes_count: Processos
         projects_count: Projetos
         proposals_count: Propostas
         results_count: Resultados
@@ -433,6 +438,10 @@ pt:
         description: Número de montagens criadas
         object: assembleias
         title: Assembleias
+    pages:
+      home:
+        sub_hero:
+          register_title: Cadastre-se para criar uma conta
     participatory_processes:
       show:
         related_assemblies: Assembleias Relacionadas
