@@ -393,6 +393,18 @@ pt:
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa foi endossada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} rejeitou sua solicitação para fazer parte do comitê de promotores para a seguinte iniciativa %{resource_title}."
+          email_outro: 'Você recebeu esta notificação porque você aplicou nesta iniciativa: %{resource_title}.'
+          email_subject: "%{author_nickname} rejeitou seu pedido ao comitê de promotores"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> rejeitou seu pedido de adesão por fazer parte do comitê de promotores da seguinte iniciativa <a href="%{resource_url}">%{resource_title}</a>.
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} candidatou-se ao comitê de promotores da sua iniciativa %{resource_title}. Para aceitar ou rejeitar a solicitação, vá ao formulário de edição da sua iniciativa."
+          email_outro: 'Você recebeu esta notificação porque você é o autor desta iniciativa: %{resource_title}'
+          email_subject: "%{applicant_nickname} quer participar de sua iniciativa"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> se candidatou ao comitê de promotores da sua iniciativa <a href="%{resource_url}">%{resource_title}</a>. Para aceitar ou rejeitar, clique <a href="%{resource_url}/edit">aqui</a>.
+      form:
+        add_attachments: Documentos
+        attachment_legend: "(Opcional) Adicionar um anexo"
+        delete_attachment: Excluir
       index:
         title: Iniciativas
       initiative_signatures:
@@ -430,6 +442,9 @@ pt:
             one: e mais 1 pessoa
             other: e mais %{count} pessoas
         committee_members:
+          approve: Aprovar
+          confirm_revoke: Você tem certeza?
+          invite_to_committee_help: Compartilhe este link para convidar outros participantes para o comitê de promotores
           no_members_yet: Não há membros no comitê de promotores
           revoke: Revogar
           title: Membros do Comitê
