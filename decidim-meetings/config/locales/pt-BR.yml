@@ -8,10 +8,12 @@ pt:
       close_meeting:
         attendees_count: Número de Participantes
         attending_organizations: Lista de organizações que participaram
+        audio_url: URL do Áudio
         closing_report: Minutos
         closing_visible: É visível
         contributions_count: Número de contribuições
         proposal_ids: Propostas criadas na reunião
+        video_url: URL do vídeo
       meeting:
         address: Endereço
         available_slots: Slots disponíveis para esta reunião
