@@ -710,6 +710,8 @@ pt:
           proposals_count:
             one: "%{count} proposta"
             other: "%{count} propostas"
+        dynamic_map_instructions:
+          instructions: <h3>Você pode mover o ponto no mapa. </h3><p>Não se esqueça de clicar no botão "Atualizar Posição" antes de publicar sua proposta.</p>
         edit:
           add_documents: Documentos
           add_images: Arquivo
@@ -781,6 +783,7 @@ pt:
             other: Você poderá editar esta proposta durante o primeiro %{count} minutos após a publicação da proposta. Uma vez que esta janela de tempo passa, você não poderá editar a proposta.
           publish: Publicar
           title: Publique sua proposta
+          update_position: Atualizar posição
         proposal:
           creation_date: 'Criação: %{date}'
           view_proposal: Ver proposta
