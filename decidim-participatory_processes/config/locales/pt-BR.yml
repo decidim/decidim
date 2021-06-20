@@ -34,6 +34,7 @@ pt:
         subtitle: Subtítulo
         target: Quem participa
         title: Título
+        weight: Peso
       participatory_process_group:
         description: Descrição
         developer_group: Grupo promotor
