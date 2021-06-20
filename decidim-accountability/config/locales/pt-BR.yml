@@ -50,6 +50,10 @@ pt:
           new:
             import: Importar
             link: link
+            title: Importar resultados de CSV
+        imports:
+          create:
+            success: O arquivo começou a importar. Você receberá um e-mail nos próximos minutos com o resultado da importação
         models:
           result:
             name: Resultado
@@ -119,13 +123,29 @@ pt:
         value_types:
           parent_presenter:
             not_found: 'O pai não foi encontrado no banco de dados (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Datas
+          results: Resultados
+          unspecified: Não especificado
+      import_mailer:
+        import:
+          errors: Erros
+          errors_present: Houve um problema na exportação
+          row_number: Linha
+          subject: Importação bem sucedida de resultados
+          success: Importação bem sucedida de resultados. Você pode revisar os resultados na interface de administração.
       last_activity:
         new_result_at_html: "<span>Novo resultado em %{link}</span>"
       models:
         result:
           fields:
+            category: Categoria
+            created_at: Criado
             end_date: Data final
+            id: ID
             progress: Progresso
+            scope: Escopo
             start_date: Data de início
             status: Status
             title: Título
@@ -139,6 +159,9 @@ pt:
           fields:
             description: Descrição
             entry_date: Data
+      result_m:
+        executed: Executado
+        view: Visualizar
       results:
         count:
           results_count:
@@ -169,6 +192,15 @@ pt:
             votes: Suporta
         timeline:
           title: Evolução do projeto
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Categoria
+          scope_id_eq:
+            label: Escopo
+          status_id_eq:
+            label: Status
     components:
       accountability:
         name: Prestação de contas
@@ -176,10 +208,13 @@ pt:
           global:
             categories_label: Nome para "Categorias"
             comments_enabled: Comentários ativados
+            comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
             display_progress_enabled: Mostrar progresso
             heading_leaf_level_results: Nome para "Projetos"
             heading_parent_level_results: Nome para "Resultados"
             intro: Introdução
+            scope_id: Escopo
+            scopes_enabled: Escopos habilitados
             subcategories_label: Nome para "Subcategorias"
           step:
             comments_blocked: Comentários bloqueados
@@ -200,6 +235,9 @@ pt:
         description: Número de resultados gerados
         object: resultados
         title: Resultados
+    participatory_spaces:
+      highlighted_results:
+        see_all: Ver todos os resultados (%{count})
     resource_links:
       included_projects:
         result_project: Projetos incluídos neste resultado
