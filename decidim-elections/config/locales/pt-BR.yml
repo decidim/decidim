@@ -1,1 +1,44 @@
 pt:
+  activemodel:
+    attributes:
+      answer:
+        description: Descrição
+        image: Imagem
+        proposals: Propostas relacionadas
+        title: Título
+      election:
+        description: Descrição
+        end_time: A votação termina às
+        start_time: Votação começa às
+        title: Título
+      question:
+        description: Descrição
+        max_selections: Número máximo de seleções
+        min_selections: Nenhuma das opções acima
+        title: Título
+      voting:
+        end_time: Votação termina
+        start_time: A votação começa
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Precisa ser reanexado
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Precisa ser reanexado
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: não pode ser alterado
+            public_key:
+              cant_be_changed: não pode ser alterado
+  activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: O oficial de votação já é presidente/gerente da estação de voto
