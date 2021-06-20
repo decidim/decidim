@@ -3,6 +3,7 @@ pt:
     attributes:
       conference:
         assemblies_ids: Assembleias Relacionadas
+        available_slots: Vagas disponíveis
         banner_image: Imagem de banner
         consultations_ids: Consultas Relacionadas
         copy_categories: Copiar categorias
@@ -10,26 +11,59 @@ pt:
         copy_features: Copiar recursos
         decidim_scope_id: Escopo
         description: Descrição
+        end_date: Data final
         hashtag: Palavras-chave
         hero_image: Imagem inicial
+        location: Localização
+        main_logo: Logo principal
+        objectives: Objetivos
         participatory_processes_ids: Processos participativos relacionados
         promoted: Promovido
         published_at: Publicado em
+        registration_terms: Termos de registro
+        registrations_enabled: Inscrições habilitadas
         scope_id: Escopo
         scopes_enabled: Escopos habilitados
         short_description: Pequena descrição
         show_statistics: Mostre estatisticas
+        sign_date: Data de assinatura
+        signature: Assinatura
+        signature_name: nome da assinatura
         slogan: Slogan
         slug: Lesma de URL
+        start_date: Data de início
         title: Título
       conference_media_link:
+        date: Data
+        link: Link
+        title: Título
         weight: Peso
       conference_partner:
+        link: Link
+        logo: Logo
+        name: Nome
+        partner_type: Tipo de parceiro
         weight: Peso
+      conference_registration_invite:
+        email: E-mail
+        name: Nome
+        registration_type_id: Tipo de Registro
+        user_id: Usuário
       conference_registration_type:
+        description: Descrição
+        price: Preço
+        title: Título
         weight: Peso
       conference_speaker:
+        affiliation: Afiliação
+        avatar: Avatar
+        conference_meeting_ids: Reuniões relacionadas
         full_name: Nome completo
+        personal_url: Url pessoal
+        position: Posição
+        short_bio: Pequena biografia
+        twitter_handle: Manipulador do Twitter
+        user_id: Usuário
       conference_user_role:
         email: O email
         name: Nome
@@ -189,6 +223,7 @@ pt:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+            valuator: Avaliador
         media_link:
           fields:
             date: Encontro
@@ -271,6 +306,10 @@ pt:
       conferences:
         conference_registration:
           confirm: "%{user_name} confirmou o registro da conferência em %{resource_name} conferência"
+        partner:
+          create: "%{user_name} criou o parceiro %{resource_name} na conferência %{space_name}"
+          delete: "%{user_name} removeu o parceiro %{resource_name} da conferência de %{space_name}"
+          update: "%{user_name} atualizou o parceiro %{resource_name} na conferência %{space_name}"
         registration_type:
           create: "%{user_name} criou o tipo de registro %{resource_name} na conferência de %{space_name}"
           publish: "%{user_name} publicou o tipo de registro %{resource_name} na conferência %{space_name}"
@@ -403,6 +442,7 @@ pt:
         personal_website: Site pessoal
         show:
           more_info: mais informações
+          speaking_at: Falando em
       conference_speaker_cell:
         personal_url:
           personal_website: Site pessoal
@@ -463,6 +503,9 @@ pt:
             active_conferences: Conferências ativas
             see_all_conferences: Veja todas as conferências
       photo:
+        image:
+          attributes:
+            alt: Imagem da mídia
         show:
           close_modal: Fechar modal
           photo: Foto
@@ -473,6 +516,7 @@ pt:
         index:
           choose_an_option: 'Escolha sua opção de registro:'
           login_as: Você está logado como %{name} <%{email}>
+          no_registrations: Sem inscrições
           register: registo
           title: Tipos de registro
       shared:
@@ -526,11 +570,22 @@ pt:
           email_outro: Você recebeu esta notificação porque está seguindo a conferência "%{resource_title}". Você pode deixar de segui-lo no link anterior.
           email_subject: A conferência "%{resource_title}" habilitou os registros.
           notification_title: A conferência <a href="%{resource_path}">%{resource_title}</a> permitiu registros.
+        role_assigned:
+          email_intro: Você foi designado como %{role} para conferência "%{resource_title}".
+          email_outro: Você recebeu esta notificação porque é %{role} da conferência "%{resource_title}".
+          email_subject: Você foi designado como %{role} para%{resource_title}".
+          notification_title: Você foi designado como %{role} para a conferência <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
           email_intro: 'A conferência "%{resource_title}" está ocorrendo em dois dias. Você pode ler a descrição de sua página:'
           email_outro: Você recebeu esta notificação porque está seguindo a conferência "%{resource_title}". Você pode deixar de segui-lo no link anterior.
           email_subject: A conferência "%{resource_title}" está chegando!
           notification_title: A conferência <a href="%{resource_path}">%{resource_title}</a> está chegando em 2 dias.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p>Uma <strong>conferência</strong> é uma coleção de reuniões organizadas em um programa, com várias pessoas convidadas como palestrantes, e outros campos de informação típicos de grandes congressos ou eventos sociais (registro, lista de organizações que apoiam ou patrocinam o evento, etc.).</p> <p>Exemplos: Uma conferência pode ser um evento relevante para uma organização e seus membros, ou realiza como parte de um processo participativo ou segue uma consulta.</p>\n"
+          page: "<p>Uma <strong>conferência</strong> é uma coleção de reuniões organizadas em um programa, com várias pessoas convidadas como palestrantes, e outros campos de informação típicos de grandes congressos ou eventos sociais (registro, lista de organizações que apoiam ou patrocinam o evento, etc.).</p> <p>Exemplos: Uma conferência pode ser um evento relevante para uma organização e seus membros, ou realiza como parte de um processo participativo ou segue uma consulta.</p>\n"
+          title: O que são conferências?
     log:
       value_types:
         conference_presenter:
