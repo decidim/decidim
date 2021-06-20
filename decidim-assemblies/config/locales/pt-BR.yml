@@ -1,6 +1,8 @@
 pt:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Habilitar gráfico de organização
       assembly:
         area_id: Área
         assembly_type: Tipo de assembleia
@@ -64,6 +66,12 @@ pt:
         email: E-mail
         name: Nome
         role: Cargo
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Tipo de documento inválido. Formatos aceitos são: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -78,6 +86,7 @@ pt:
   decidim:
     admin:
       actions:
+        import_assembly: Importar
         new_assembly: Nova assembleia
       assemblies:
         create:
