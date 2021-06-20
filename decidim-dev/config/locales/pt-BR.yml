@@ -3,11 +3,27 @@ pt:
     attributes:
       dummy_resource:
         created_at: Criado em
+        decidim_scope_id: Escopo
         field: Meu campo
         start_date: Data de início
         title: Título
+        translatable_text: Texto traduzido
         updated_at: Atualizado em
   decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            readonly_attribute: Atributo somente leitura
+            test: Teste A
+            test_choices:
+              a: Escolha A
+              b: Escolha B
+              c: Escolha C
+          step:
+            endorsements_blocked: Endossos bloqueados
+            endorsements_enabled: Endossos habilitados
+            readonly_step_attribute: Atributo passo somente leitura
     dummy:
       admin:
         exports:
