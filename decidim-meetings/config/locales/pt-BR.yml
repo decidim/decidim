@@ -34,7 +34,9 @@ pt:
         transparent: Transparente
         type_of_meeting: Tipo
       minutes:
+        audio_url: URL do Áudio
         description: Descrição
+        video_url: URL do vídeo
         visible: É visível
     errors:
       models:
@@ -288,6 +290,7 @@ pt:
             invalid: Houve um problema ao criar esta ata
             success: Minutos criados com sucesso
           edit:
+            title: Editar minutos
             update: Atualizar
           new:
             create: Crio
