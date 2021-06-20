@@ -1,4 +1,36 @@
 pt:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: Nome do aplicativo OAuth
+        organization_logo: Logotipo da organização (quadrado)
+        organization_name: Organização
+        organization_url: URL da organização
+        redirect_uri: Redirecionar URI
+      organization:
+        address: Nome do host SMTP
+        from_email: Endereço de E-mail
+        from_label: Rótulo
+        password: Senha
+        port: Porta
+        user_name: Nome de usuário
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Tipos MIME do Admin
+          default: Tipos MIME padrão
+        allowed_file_extensions:
+          admin: Extensões de arquivo admin
+          default: Extensões de arquivo padrão
+          image: Extensões de arquivo de imagem
+        maximum_file_size:
+          avatar: Tamanho do arquivo Avatar
+          default: Tamanho do arquivo padrão
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: O URI de redirecionamento deve ser um URI com SSL
   decidim:
     system:
       actions:
@@ -32,6 +64,7 @@ pt:
       menu:
         admins: Administradores
         dashboard: painel de controle
+        oauth_applications: Aplicações OAuth
         organizations: Organizações
       models:
         admin:
@@ -41,25 +74,99 @@ pt:
           name: Administrador
           validations:
             email_uniqueness: outro administrador com o mesmo e-mail já existe
+        oauth_application:
+          fields:
+            created_at: Criado em
+            name: Nome do aplicativo OAuth
+            organization_name: Organização
+          name: Aplicação OAuth
         organization:
           actions:
             save_and_invite: Criar organização e convidar admin
           fields:
             created_at: Criado em
+            file_upload_settings: Configurações de upload de arquivo
             name: Nome
+            omniauth_settings: Configurações Omniauth
+            smtp_settings: Configurações de SMTP
           name: Organização
+      oauth_applications:
+        create:
+          error: Houve um erro ao criar este aplicativo.
+          success: Aplicativo criado com sucesso.
+        destroy:
+          error: Houve um erro ao excluir este aplicativo.
+          success: Aplicativo excluído com sucesso.
+        edit:
+          save: Salvar
+          title: Editar aplicativo
+        form:
+          select_organization: Selecione uma organização
+        index:
+          confirm_delete: Tem certeza de que deseja excluir este aplicativo?
+          title: Aplicações OAuth
+        new:
+          save: Salvar
+          title: Nova aplicação
+        update:
+          error: Houve um erro ao atualizar este aplicativo.
+          success: Aplicativo atualizado com sucesso.
       organizations:
         create:
           error: Ocorreu um erro ao criar uma nova organização.
           success: Organização criada com sucesso.
         edit:
           secondary_hosts_hint: Insira cada um deles em uma nova linha
+        file_upload_settings:
+          content_types:
+            admin_hint: Esses tipos MIME são permitidos para uploads de seções do admin. Os usuários de administração devem estar cientes dos riscos de carregar alguns formatos de documento, então você pode esperar que eles sejam mais cautelosos com o envio de arquivos.
+            default_hint: Estes tipos MIME são permitidos para todos os usuários por padrão.
+            intro_html: Você adiciona caracteres curinga com o caractere asterisco para os tipos MIME, por exemplo, <code>image/*</code>.
+            title: Tipos MIME permitidos
+          file_extensions:
+            admin_hint: Essas extensões de arquivos são permitidas para uploads de seção admin. Os usuários de administração devem estar cientes dos riscos de carregar alguns formatos de documento, então você pode esperar que eles sejam mais cautelosos com o envio de arquivos.
+            default_hint: Essas extensões de arquivo são permitidas para todos os usuários por padrão.
+            image_hint: Estas extensões de arquivo são permitidas para qualquer tipo de upload de imagem.
+            title: Extensões de arquivos permitidas
+          file_sizes:
+            avatar_hint: Megabytes (MB). Este limite de tamanho de arquivo é usado para upload de imagem de avatar.
+            default_hint: Megabytes (MB). Este limite de tamanho de arquivo é o padrão que é usado para todos os uploads de arquivos a menos que especificado.
+            title: Tamanho máximo do arquivo
+          intro: |
+            Por favor, tenha um cuidado extra ao considerar alterar estas configurações. Quanto menos você permitir, melhor.
+            Permitir extensões de arquivo ou tipos MIME específicos pode expor os usuários do sistema a riscos de segurança e também pode afetar a acessibilidade do site.
         index:
           title: Organizações
         new:
           reference_prefix_hint: O prefixo de referência é usado para identificar exclusivamente recursos em todas as organizações
           secondary_hosts_hint: Insira cada um deles em uma nova linha
           title: Nova organização
+        omniauth_settings:
+          decidim:
+            client_id: ID do cliente
+            client_secret: Segredo do Cliente
+            site_url: URL do site
+          enabled: Habilitado
+          enabled_by_default: Este provedor está habilitado por padrão. Ele pode ser editado, mas não desabilitado.
+          facebook:
+            app_id: ID do Aplicativo
+            app_secret: App secret
+          google_oauth2:
+            client_id: ID do cliente
+            client_secret: Segredo do Cliente
+          icon: Ícone
+          icon_path: Caminho do ícone
+          twitter:
+            api_key: Chave da API
+            api_secret: Senha API
+        smtp_settings:
+          fieldsets:
+            sender: Remetente
+          instructions:
+            from_label: 'Remetente do e-mail será: "seu-nome da organização <your-organization@example.org>". Deixe em branco para usar o ''Endereço de e-mail'' como rótulo'
+          placeholder:
+            from_email: sua-organização@exemplo.org
+            from_label: nome-da-organizacao
         update:
           error: Ocorreu um erro ao atualizar essa organização.
           success: Organização atualizada com sucesso.
