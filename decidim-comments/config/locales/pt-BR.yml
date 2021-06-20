@@ -16,8 +16,14 @@ pt:
         other: Votos
   decidim:
     comments:
+      comments:
+        create:
+          error: Houveram erros ao criar o comentário.
+      comments_count: Contagem de Comentários
+      comments_title: Comentários
       last_activity:
         new_comment_at_html: "<span>Novo comentário em %{link}</span>"
+      view: Visualizar
       votes:
         create:
           error: Houve erros ao votar o comentário.
@@ -42,6 +48,7 @@ pt:
           against: Contra
           in_favor: A favor
         deleted_user: Usuário excluído
+        hide_replies: Ocultar respostas
         reply: Resposta
         report:
           action: Relatório
@@ -53,6 +60,9 @@ pt:
             does_not_belong: Contém atividades ilegais, ameaças suicidas, informações pessoais ou qualquer outra coisa que você acha que não pertence ao %{organization_name}.
             offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
             spam: Contém clickbait, publicidade, fraudes ou script bots.
+          title: Reportar conteúdo impróprio
+        show_replies: Mostrar %{replies_count} respostas
+        single_comment_link_title: Obter link para um único comentário
       comment_order_selector:
         order:
           best_rated: Melhores avaliações
@@ -65,7 +75,17 @@ pt:
       comments:
         blocked_comments_for_user_warning: Você não pode comentar neste momento, mas pode ler os anteriores.
         blocked_comments_warning: Os comentários estão desativados neste momento, mas você pode ler os anteriores.
+        comment_details_title: Detalhes do comentário
         loading: Carregando comentários ...
+        single_comment_warning: Você pode verificar o resto dos comentários <a href="%{url}">aqui</a>.
+        single_comment_warning_title: Você está vendo um único comentário
+        title:
+          one: "%{count} comentário"
+          other: "%{count} comentários"
+      down_vote_button:
+        text: Eu discordo deste comentário
+      up_vote_button:
+        text: Eu concordo com este comentário
     events:
       comments:
         comment_by_followed_user:
@@ -74,6 +94,8 @@ pt:
           email_subject: Há um novo comentário por %{author_name} em %{resource_title}
           notification_title: Há um novo comentário por <a href="%{author_path}">%{author_name} %{author_nickname}</a> em <a href="%{resource_path}">%{resource_title}</a>.
         comment_by_followed_user_group:
+          email_intro: 'O grupo %{author_name} deixou um comentário em %{resource_title}. Você pode lê-lo nesta página:'
+          email_outro: Você recebeu esta notificação porque está seguindo %{author_name}. Você pode deixar de seguir este grupo em sua página de perfil.
           email_subject: Há um novo comentário por %{author_name} em %{resource_title}
           notification_title: Há um novo comentário por <a href="%{author_path}">%{author_name} %{author_nickname}</a> em <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
@@ -81,11 +103,26 @@ pt:
           email_outro: Você recebeu esta notificação porque você está seguindo "%{resource_title}" ou seu autor. Você pode ignorá-lo do link anterior.
           email_subject: Há um novo comentário de %{author_name} em %{resource_title}
           notification_title: Há um novo comentário de <a href="%{author_path}">%{author_name} %{author_nickname}</a> em <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: Seu comentário em%{resource_title}" foi negado. Agora tem um total de %{upvotes} votos positivos e %{downvotes} votos negativos.
+          email_outro: Você recebeu esta notificação porque é o autor deste comentário.
+          email_subject: Seu comentário em "%{resource_title}" foi negativado.
+          notification_title: Seu <a href="%{resource_path}">comentário</a> em%{resource_title}" foi negativado. Agora tem um total de %{upvotes} votos positivos e %{downvotes} votos negativos.
+        comment_upvoted:
+          email_intro: Seu comentário em%{resource_title}" foi votado favoravelmente. Agora tem um total de %{upvotes} votos positivos e %{downvotes} votos negativos.
+          email_outro: Você recebeu esta notificação porque é o autor deste comentário.
+          email_subject: Seu comentário em "%{resource_title}" foi votado positivamente.
+          notification_title: Seu <a href="%{resource_path}">comentário</a> em%{resource_title}" foi votado favoravelmente. Agora tem um total de %{upvotes} votos positivos e %{downvotes} votos negativos.
         reply_created:
           email_intro: "%{author_name} respondeu seu comentário em %{resource_title}. Você pode lê-lo nesta página:"
           email_outro: Você recebeu esta notificação porque o seu comentário foi respondido.
           email_subject: "%{author_name} respondeu seu comentário em %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> respondeu seu comentário em <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: Foi mencionado um grupo ao qual você pertence
+          email_outro: Você recebeu esta notificação porque é membro do grupo %{group_name} que foi mencionado em %{resource_title}.
+          email_subject: Você foi mencionado em %{resource_title} como membro de %{group_name}
+          notification_title: Você foi mencionado em <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a> como um membro de <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: Você foi mencionado
           email_outro: Você recebeu esta notificação porque você foi mencionado em %{resource_title}.
