@@ -1225,10 +1225,27 @@ pt:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Exclusões
+      right: Adições
+    dropdown:
+      choose_diff_view_html: 'Modo de visualização HTML:'
+      choose_diff_view_mode: 'Modo de visualização comparado:'
+      option_escaped: Escapou
+      option_split: Lado-por lado
+      option_unescaped: Abandonado
+      option_unified: Unificado
   views:
     pagination:
       first: "&laquo; Primeiro"
+      first_title: Link para a primeira página
       last: Última &raquo;
+      last_title: Link para a última página
       next: Próximo &rsaquo;
+      next_title: Link para a próxima página
+      pagination: Paginação
       previous: "&lsaquo; Anterior"
+      previous_title: Link para a página anterior
+      title: 'Número da página: '
       truncate: "&hellip;"
