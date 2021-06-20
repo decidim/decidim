@@ -3,6 +3,8 @@ pt:
     attributes:
       debate:
         category_id: Categoria
+        closed_at: Fechado em
+        conclusions: Conclusões
         decidim_category_id: Categoria
         description: Descrição
         end_time: Termina em
@@ -12,6 +14,7 @@ pt:
         title: Título
         user_group_id: Criar debate como
     models:
+      decidim/debates/close_debate_event: Debate encerrado
       decidim/debates/create_debate_event: Debate
       decidim/debates/creation_disabled_event: Debates desativados
       decidim/debates/creation_enabled_event: Debates ativados
@@ -25,23 +28,34 @@ pt:
       debates:
         actions:
           create: Criar
+          endorse: Endossar
         name: Debates
         settings:
           global:
             announcement: Anúncio
             comments_enabled: Comentários ativados
+            comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
+            scope_id: Escopo
+            scopes_enabled: Escopos habilitados
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
             creation_enabled: Criação de debate por usuários habilitado
+            endorsements_blocked: Endossos bloqueados
+            endorsements_enabled: Endossos habilitados
     debates:
       actions:
+        close: Fechar
         confirm_destroy: Você tem certeza?
         destroy: Excluir
         edit: Editar
         new: Novo %{name}
         title: Ações
       admin:
+        debate_closes:
+          edit:
+            close: Fechar
+            title: Fechar debate
         debates:
           create:
             invalid: Houve um problema ao criar o debate.
@@ -51,6 +65,10 @@ pt:
           edit:
             title: Editar debate
             update: Atualização do debate
+          form:
+            debate_type: Tipo de debate
+            finite: Finito (com hora de início e fim)
+            open: Abra (Sem horas de início ou fim)
           index:
             title: Debates
           new:
@@ -59,14 +77,27 @@ pt:
           update:
             invalid: Ocorreu um problema ao atualizar esse debate.
             success: Debate atualizado com sucesso.
+        exports:
+          comments: Comentários
         models:
           debate:
             name: Debate
       admin_log:
         debate:
+          close: "%{user_name} fechou o debate %{resource_name} no espaço %{space_name}"
           create: "%{user_name} criou o debate %{resource_name} no espaço %{space_name}"
           update: "%{user_name} atualizou o debate %{resource_name} no espaço %{space_name}"
+      debate_m:
+        commented_time_ago: Comentou há %{time} atrás
       debates:
+        close:
+          invalid: Houve um problema ao encerrar o debate.
+          success: Debate encerrado com sucesso.
+        close_debate_modal:
+          close: Fechar
+          description: Qual é o resumo ou a conclusão deste debate?
+          send: Fechar debate
+        closed: Fechado
         count:
           debates_count:
             one: "%{count} debate"
@@ -76,14 +107,27 @@ pt:
           success: Debate criado com sucesso.
         debate:
           participate: Participar
+        edit:
+          back: Voltar
+          save: Salvar alterações
+          title: Editar debate
         filters:
+          activity: Minha atividade
           all: Todos
           category: Categoria
           category_prompt: Selecione uma categoria
           citizens: Cidadãos
+          commented: Comentado
+          my_debates: Meus debates
           official: Oficial
           origin: Origem
+          scope: Escopo
           search: Procurar
+          state: Status
+          state_values:
+            closed: Fechado
+            open: Aberto
+          user_groups: Grupos
         filters_small_view:
           close_modal: Fechar modal
           filter: Filtro
@@ -97,7 +141,37 @@ pt:
           back: Voltar
           create: Criar
           title: Novo debate
+        orders:
+          commented: Mais comentado
+          label: Ordenar debates por
+          random: Ordem aleatória
+          recent: Mais recente
+          updated: Atualizado recentemente
+        show:
+          back: Voltar para a lista
+          close_debate: Fechar debate
+          date: Data
+          debate_closed: Fechado
+          debate_conclusions_are: 'O debate foi encerrado em %{date} com estas conclusões:'
+          edit_conclusions: Editar conclusões
+          edit_debate: Editar debate
+          groups_count: Grupos
+          last_comment_by: Últimos comentários
+          no_comments_yet: Nenhum comentário ainda
+          open: Debate aberto
+          participants_count: Participantes
+        update:
+          invalid: Ocorreu um problema ao atualizar esse debate.
+          success: Debate atualizado com sucesso.
+        versions:
+          debates:
+            back_to_resource: Voltar ao debate
+          index:
+            title: Versões
+        versions_list:
+          back_to_resource: Voltar ao debate
       last_activity:
+        debate_updated_at_html: "<span>Debate atualizado em %{link}</span>"
         new_debate_at_html: "<span>Novo debate em %{link}</span>"
       models:
         debate:
@@ -148,3 +222,7 @@ pt:
     metrics:
       debates:
         description: Número de debates criados
+        object: debates
+        title: Debates
+    statistics:
+      debates_count: Debates
