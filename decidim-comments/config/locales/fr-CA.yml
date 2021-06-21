@@ -68,7 +68,6 @@ fr-CA:
             spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
           title: Signaler un contenu inapproprié
         show_replies: Afficher %{replies_count} réponses
-        single_comment_link_title: Obtenir un lien vers un seul commentaire
       comment_order_selector:
         order:
           best_rated: Les mieux notés
