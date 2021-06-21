@@ -68,7 +68,6 @@ fi-pl:
             spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
           title: Ilmoita asiatonta sisältöä
         show_replies: Näytä %{replies_count} vastausta
-        single_comment_link_title: Hae linkki yksittäiseen kommenttiin
       comment_order_selector:
         order:
           best_rated: Parhaiksi arvioidut
