@@ -140,6 +140,86 @@ pt:
           index:
             invalid_max_selections: Você precisa de mais %{missing_answers} resposta/s para combinar com a seleção máxima
             title: Respostas
+          new:
+            create: Criar resposta
+            title: Nova resposta
+          not_selected: Não selecionado
+          select:
+            disable: Resposta desmarcada
+            enable: Marcar resposta como selecionada
+            invalid: Houve um problema ao selecionar esta resposta
+            success: Resposta selecionada com sucesso
+          selected: Selecionado
+          unselect:
+            invalid: Houve um problema ao desmarcar esta resposta
+            success: Resposta não selecionada com sucesso
+          update:
+            invalid: Houve um problema ao atualizar esta resposta
+            success: Resposta atualizada com sucesso
+        elections:
+          create:
+            invalid: Houve um problema ao criar essa eleição
+            success: Eleição criada com sucesso
+          destroy:
+            invalid: Houve um problema ao excluir essa eleição
+            success: Eleição excluída com sucesso
+          edit:
+            title: Editar eleição
+            update: Atualizar eleição
+          index:
+            no_bulletin_board: Não há <a href="https://github.com/decidim/decidim-bulletin-board">Servidor de borda de Boletim</a> configurado, que é necessário para utilizar este módulo. Esta tarefa deve ser feita pelo Administrador do Sistema.
+            title: Eleições
+          new:
+            create: Criar uma nova eleição
+            title: Nova eleição
+          publish:
+            success: A eleição foi publicada com sucesso.
+          unpublish:
+            success: A eleição deixou de ser publicada com sucesso.
+          update:
+            invalid: Houve um problema ao atualizar essa eleição
+            success: Eleição atualizada com sucesso
+        exports:
+          elections: Eleições
+          feedback_form_answers: Respostas do formulário de feedback
+        menu:
+          trustees: Curadores
+        models:
+          answer:
+            name: Resposta
+          election:
+            name: Eleição
+          question:
+            name: Questão
+          trustee:
+            name: Curador
+        proposals_imports:
+          create:
+            invalid: Houve um problema ao importar as propostas para respostas
+            success: "%{number} propostas importadas com sucesso para respostas"
+          new:
+            create: Importar propostas para respostas
+            no_components: Não há outros componentes de proposta neste espaço participativo para importar as propostas para respostas.
+            select_component: Por favor, selecione um componente
+            title: Importar propostas
+        questions:
+          create:
+            invalid: Ocorreu um erro ao criar uma nova pergunta
+            success: Questão criada com sucesso
+          destroy:
+            invalid: Houve um problema ao excluir esta pergunta
+            success: Questão criada com sucesso
+          edit:
+            title: Editar pergunta
+            update: Atualizar pergunta
+          index:
+            title: Questões
+          new:
+            create: Criar questão
+            title: Nova questão
+          update:
+            invalid: Ocorreu um erro ao atualizar esta questão
+            success: Questão atualizada com sucesso
         steps:
           create_election:
             errors:
@@ -210,6 +290,66 @@ pt:
           creation_description:
             complete: A eleição foi criada e foi criada com sucesso no Quadro de Notas.
             not_created: A eleição ainda não foi criada.
+          creation_title: Eleição criada
+          description: Este é o log de eleições onde você pode verificar o estado de cada etapa; por exemplo, quando a eleição foi criada, se o processo apuração está concluído e quando as eleições foram encerradas.
+          download: Download
+          key_ceremony_description:
+            complete: A cerimônia de chaves está concluída. Cada curador tem chaves válidas e realizou o download de backup das chaves.
+            not_started: A cerimônia de chaves ainda não começou.
+            started: A cerimônia de chaves começou, mas ainda não está concluída.
+          key_ceremony_title: Cerimônia de chaves
+          not_available: Ainda não está disponível
+          not_created: Não criado
+          not_published: Não publicado
+          not_ready: Não está pronto
+          not_started: Não Iniciado
+          published: Publicado
+          results_description:
+            not_published: Os resultados ainda não foram publicados.
+            published: Os resultados estão publicados.
+          results_title: Resultados
+          started: Iniciado
+          tally_description:
+            finished: O processo de apuração está terminado.
+            not_started: O processo de apuração ainda não foi iniciado.
+            started: O processo de apuração foi iniciado.
+          tally_title: Processo de apuração
+          title: Log de Eleições
+          verifiable_results:
+            checksum: 'Verificação de arquivo SHA256:'
+            description:
+              not_ready: O arquivo eleitoral verificável e o checksum SHA256 ainda não estão disponíveis. Assim que os resultados forem publicados, você poderá verificar esta eleição.
+              ready: 'Aqui, você tem a opção de verificar as eleições. Primeiro, você precisa baixar o arquivo e ter certeza de que ele não foi corrompido. Para fazer isso, execute o seguinte comando e verifique se a saída corresponde ao checksum:'
+            how_to_verify: 'Uma vez que você baixou o arquivo e tenha certeza que tudo está correto, você pode prosseguir para executar o verificador universal. Clonar <a href=''https://github.com/decidim/decidim-bulletin-board''>este repositório</a> e, na pasta raiz, execute o seguinte comando:'
+            title: Verificar resultados da eleição
+            verifiable_file: 'Arquivo de eleição verificável:'
+          verify: Verificar eleição
+          vote_description:
+            finished: O processo de votação está concluído.
+            not_started: O processo de votação ainda não foi iniciado.
+            started: O processo de votação já começou.
+          vote_title: Processo de votação
+        filters:
+          active: Ativo
+          all: Todos
+          finished: Finalizado
+          search: Pesquisa
+          state: Status
+          upcoming: Próximos
+        filters_small_view:
+          close_modal: Fechar modal
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Revelar
+        preview:
+          available_answers: 'Respostas disponíveis:'
+          description: 'Estas são as questões que você encontrará no processo de votação:'
+          title: Perguntas eleitorais
+        results:
+          description: 'Estes são os resultados das votações, para cada pergunta:'
+          percentage: "%{count}%"
+          selected: Selecionado
+          title: Resultados da eleição
         show:
           action_button:
             change_vote: Mude seu voto
