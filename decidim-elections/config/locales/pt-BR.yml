@@ -210,3 +210,31 @@ pt:
           creation_description:
             complete: A eleição foi criada e foi criada com sucesso no Quadro de Notas.
             not_created: A eleição ainda não foi criada.
+        show:
+          action_button:
+            change_vote: Mude seu voto
+            vote: Começar a votar
+            vote_again: Votar novamente
+          callout:
+            already_voted: Você já votou nesta eleição. Você pode alterar seu voto ou verificá-lo.
+            vote_rejected: Não foi possível verificar o seu voto. Por favor, vote novamente.
+          verify:
+            already_voted: Já votou?
+            verify_here: Verifique seu voto aqui.
+            will_verify: Você poderá verificar seu voto quando as eleições forem iniciadas.
+    votings:
+      admin:
+        menu:
+          votings_submenu:
+            monitoring_committee: Comitê de Monitoramento
+      polling_officer_zone:
+        polling_officers:
+          index:
+            polling_officer_role_description: Você foi foi designado como um Agente da Estação de Apuração (Presidente ou Gerente) em alguma das eleições realizadas nesta plataforma.
+            polling_station:
+              no_polling_stations: Você ainda não está atribuído a nenhuma Estação de Apuração no momento.
+              role: Seu papel
+              voting: Votação
+      votings:
+        login:
+          start_voting: Começar a votar
