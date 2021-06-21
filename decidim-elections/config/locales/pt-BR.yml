@@ -176,6 +176,41 @@ pt:
             trustees: Agentes fiduciários
           tally_ended:
             submit: Publicar resultados
+            title: Resultados calculados
+      elections:
+        preview:
+          available_answers: Respostas disponíveis
+          description: Estas são as perguntas que você encontrará no processo de votação
+        results:
+          description: Esses são os resultados da votação, para cada questão
+          votes:
+            one: "%{count} votos"
+            other: "%{count} votos"
+            zero: "%{count} votos"
+        show:
+          action-button:
+            change-vote: Mude seu voto
+            vote: Começar a votar
+            vote-again: Votar novamente
+          callout:
+            already-voted: Você já votou nesta eleição. Você pode alterar seu voto ou verificá-lo.
+            vote-rejected: Não foi possível verificar o seu voto. Por favor, vote novamente.
+          verify:
+            already-voted: Já votou?
+            verify-here: Verifique seu voto aqui.
+            will-verify: Você poderá verificar seu voto quando as eleições forem iniciadas.
+      feedback:
+        answer:
+          invalid: Ocorreu um erro ao enviar seu feedback.
+      votes:
+        confirmed:
+          error: Desculpe, ocorreu um erro ao confirmar seu voto. Por favor, vote novamente.
+        processing:
+          header: Processando o voto...
+          text: Seu voto foi recebido e está sendo processado. Por favor, aguarde.
+        update:
+          error: Houve um problema ao atualizar o do voto
+          success: Status do voto atualizado com sucesso
     pages:
       home:
         statistics:
@@ -184,9 +219,20 @@ pt:
       statistics:
         elections_count: Eleições
     votings:
+      admin:
+        menu:
+          votings_submenu:
+            monitoring_committee_members: Comitê de Monitoramento
       polling_officer_zone:
         polling_officers:
           show:
+            actions:
+              count_votes: Conte os votos na urna
+              identify_person: Identificar e verificar uma pessoa
+            polling_officer_role_description: Você foi foi designado como um Agente da Estação de Apuração (Presidente ou Gerente) em alguma das eleições realizadas nesta plataforma.
             polling_stations:
               list:
                 actions: Ações
+                role: Seu papel
+                voting: Votação
+              no_polling_stations: Você ainda não está atribuído a nenhuma Estação de Apuração no momento.
