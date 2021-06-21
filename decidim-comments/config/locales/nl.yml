@@ -64,7 +64,6 @@ nl:
             spam: Bevat clickbait, reclame, oplichting of script bots.
           title: Meld ongepaste inhoud
         show_replies: Toon %{replies_count} reacties
-        single_comment_link_title: Krijg link naar enkele reactie
       comment_order_selector:
         order:
           best_rated: Best beoordeeld
