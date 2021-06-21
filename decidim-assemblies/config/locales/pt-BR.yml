@@ -1,6 +1,8 @@
 pt:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Habilitar gráfico de organização
       assembly:
         area_id: Área
         assembly_type: Tipo de assembleia
@@ -50,6 +52,7 @@ pt:
         target: Quem participa
         title: Título
         twitter: Twitter
+        weight: Posição do pedido
         youtube: YouTube
       assembly_member:
         birthday: Aniversário
@@ -65,6 +68,12 @@ pt:
         email: E-mail
         name: Nome
         role: Cargo
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Tipo de documento inválido. Formatos aceitos são: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -79,7 +88,9 @@ pt:
   decidim:
     admin:
       actions:
+        import_assembly: Importar
         new_assembly: Nova assembleia
+        new_assembly_type: Novo tipo de assembleia
       assemblies:
         create:
           error: Ocorreu um erro ao criar uma nova assembleia.
@@ -101,14 +112,35 @@ pt:
         create:
           error: Ocorreu um erro ao duplicar esta assembleia.
           success: Assembleia duplicada com sucesso.
+      assemblies_settings:
+        update:
+          error: Houve um problema ao atualizar as configurações.
+          success: Configurações atualizadas com sucesso.
       assemblies_types:
+        create:
+          error: Ocorreu um erro ao criar um novo tipo de assembleia.
+          success: Tipo de assembleia criado com sucesso.
+        destroy:
+          success: Tipo de assembleia excluído com sucesso.
         new:
           create: Criar
+          title: Novo tipo de assembleia
+        update:
+          error: Ocorreu um erro ao atualizar este tipo de assembleia.
+          success: Tipo de assembleia atualizado com sucesso.
       assembly_copies:
         new:
           copy: Cópia
           select: Selecione os dados que você gostaria de duplicar
           title: Duplicar assembleia
+      assembly_imports:
+        create:
+          error: Ocorreu um erro ao importar esta assembleia.
+          success: Assembleia importada com sucesso.
+        new:
+          import: Importar
+          select: Selecione quais dados você gostaria de importar
+          title: Importar assembleia
       assembly_members:
         create:
           error: Ocorreu um erro ao adicionar um membro para esta assembleia.
@@ -152,6 +184,7 @@ pt:
           success: Usuário atualizado com sucesso para esta montagem.
       menu:
         assemblies: Assembleias
+        assemblies_settings: Configurações
         assemblies_submenu:
           assembly_admins: Usuários da assembleia
           assembly_members: Membros
@@ -163,6 +196,7 @@ pt:
           info: Informações
           moderations: Moderação
           private_users: Usuários particulares
+        assemblies_types: Tipos de assembleia
       models:
         assemblies_types:
           fields:
@@ -198,8 +232,10 @@ pt:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+            valuator: Avaliador
       titles:
         assemblies: Assembleias
+        assemblies_types: Tipos de assembleia
     admin_log:
       assembly:
         create: "%{user_name} criou o conjunto %{resource_name}"
@@ -210,6 +246,14 @@ pt:
         create: "%{user_name} criou o membro %{resource_name} na montagem %{space_name}"
         delete: "%{user_name} removeu o membro %{resource_name} do conjunto %{space_name}"
         update: "%{user_name} atualizou o %{resource_name} membro na montagem %{space_name}"
+      assembly_setting:
+        update: "%{user_name} atualizou as configurações da assembleia"
+      assembly_type:
+        create: "%{user_name} criou o tipo de assembleia %{resource_name}"
+        delete: "%{user_name} removeu o tipo de assembleia %{resource_name}"
+        publish: "%{user_name} publicou o tipo de assembleia %{resource_name}"
+        unpublish: "%{user_name} despublicou o tipo de assembleia %{resource_name}"
+        update: "%{user_name} atualizou o tipo de assembleia %{resource_name}"
       assembly_user_role:
         create: "%{user_name} convidou %{resource_name} para o assembly %{space_name}"
         delete: "%{user_name} removeu o usuário %{resource_name} do conjunto %{space_name}"
@@ -218,6 +262,7 @@ pt:
       admin:
         assemblies:
           form:
+            announcement_help: O texto que você inserir aqui será mostrado ao usuário logo abaixo das informações de assembleia.
             duration: Duração
             duration_help: Se a duração desse assembly for limitada, selecione a data final. Caso contrário, aparecerá como indefinido.
             filters: Filtros
@@ -233,12 +278,21 @@ pt:
             social_handlers: Social
             title: Informação geral
             visbility: Visibilidade
+        assemblies_settings:
+          edit:
+            update: Atualizar
+          form:
+            title: Configurações para assembleias
         assemblies_types:
           form:
             title: Título
         assembly_copies:
           form:
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Adicionar um documento
+            slug_help: 'Os slugs de URL são usados para gerar os URLs que apontam para este assembleia. Aceita apenas letras, números e traços, e deve começar com uma letra. Exemplo: %{url}'
         assembly_members:
           form:
             existing_user: Usuário existente
@@ -256,6 +310,9 @@ pt:
         content_blocks:
           highlighted_assemblies:
             max_results: Quantidade máxima de elementos para mostrar
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Membros
@@ -275,6 +332,7 @@ pt:
         others: Outras
         public: Público
       filter:
+        all: Todos os tipos
         commission: Comissão
         consultative_advisory: Consultivo / Consultivo
         executive: Executivo
@@ -291,6 +349,7 @@ pt:
         home:
           highlighted_assemblies:
             active_assemblies: Conjuntos ativos
+            assemblies_button_title: Link para a página de Assembleias exibindo todos as assembleias
             see_all_assemblies: Veja todas as assembleias
         user_profile:
           member_of:
@@ -321,12 +380,26 @@ pt:
         related_participatory_processes: Processos participativos relacionados
         scope: Âmbito
         social_networks: Redes sociais
+        social_networks_title: Compartilhar esta assembleia em
         target: Quem pode participar
     assembly_members:
       assembly_member:
         designated_on: Designado em
       index:
         title: Membros
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Um administrador da assembleia<a href="%{resource_url}">%{resource_name}</a> adicionou você como um de seus membros.
+          email_outro: Você recebeu esta notificação porque foi convidado para um assembleia. Verifique a <a href="%{resource_path}">página de assembleia</a> para contribuir!
+          email_subject: Você foi convidado para ser um membro da assembleia %{resource_name}!
+          notification_title: Você foi registrado como um membro da Assembleia <a href="%{resource_path}">%{resource_name}</a>. Verifique a <a href="%{resource_path}">página do assembleia</a> para contribuir!
+      assembly:
+        role_assigned:
+          email_intro: Você foi atribuído como %{role} para assembleia "%{resource_title}".
+          email_outro: Você recebeu esta notificação porque você é %{role} da assembleia "%{resource_title}".
+          email_subject: Você foi designado como %{role} para "%{resource_title}".
+          notification_title: Você foi atribuído como %{role} para assembleia <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
@@ -337,6 +410,8 @@ pt:
       value_types:
         assembly_presenter:
           not_found: 'O assembly não foi encontrado no banco de dados (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'O tipo de assembleia não foi encontrado no banco de dados (ID: %{id})'
     menu:
       assemblies: Assembleias
     metrics:
@@ -344,6 +419,11 @@ pt:
         description: Número de montagens criadas
         object: assembleias
         title: Assembleias
+    participatory_processes:
+      show:
+        related_assemblies: Assembleias Relacionadas
+    statistics:
+      assemblies_count: Assembleias
   errors:
     messages:
       cannot_be_blank: nao pode estar em branco
@@ -354,6 +434,7 @@ pt:
           more_info: Mais informações
           take_part: Participar
         index:
+          children: 'Assembleias: '
           organizational_chart: Organograma
           promoted_assemblies: Montagens destacadas
           reset_chart: Restabelecer

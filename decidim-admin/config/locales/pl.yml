@@ -154,7 +154,6 @@ pl:
         browse: Przeglądaj
         category:
           new: Nowa kategoria
-        export: Eksport
         import: Importuj
         manage: Zarządzanie
         new: 'Nowy: %{name}'

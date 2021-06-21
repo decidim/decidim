@@ -115,6 +115,7 @@ ca:
             email_subject: S'ha tancat la trobada "%{resource_title}"
             notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
         meeting_created:
+          button_text: Registreu-vos a la trobada
           email_intro: S'ha afegit la trobada "%{resource_title}" a l'espai "%{participatory_space_title}" que estàs seguint.
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
           email_subject: Nova trobada afegida a  %{participatory_space_title}

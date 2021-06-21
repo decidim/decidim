@@ -715,8 +715,6 @@ ca:
           proposals_count:
             one: "%{count} proposta"
             other: "%{count} propostes"
-        dynamic_map_instructions:
-          instructions: <h3>Pots moure el punt al mapa. </h3><p>No oblidis fer clic al botó "Actualitzar posició" abans de publicar la teva proposta.</p>
         edit:
           add_documents: Documents
           add_images: Arxiu
@@ -788,7 +786,6 @@ ca:
             other: Podràs editar aquesta proposta durant els primers %{count} minuts després de la publicació de la proposta. Un cop passada aquesta finestra de temps, no podràs editar la proposta.
           publish: Publica
           title: Publica la teva proposta
-          update_position: Actualitzar posició
         proposal:
           creation_date: 'Data de creació: %{date}'
           view_proposal: Veure proposta

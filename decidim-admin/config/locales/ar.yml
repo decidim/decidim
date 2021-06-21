@@ -122,7 +122,6 @@ ar:
       actions:
         add: إضافة
         browse: تصفح
-        export: تصدير
         manage: تدبير
         new: جديد %{name}
         per_page: في كل صفحة

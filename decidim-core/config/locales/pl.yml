@@ -5,6 +5,8 @@ pl:
         delete_reason: Powód usunięcia konta
       common:
         created_at: Utworzono
+      conversation:
+        body: Treść
       group:
         about: O grupie
         avatar: Awatar
@@ -13,6 +15,8 @@ pl:
         name: Nazwa
         nickname: Pseudonim
         phone: Telefon
+      message:
+        body: Treść
       report:
         details: Dodatkowe uwagi
       user:
@@ -1652,7 +1656,7 @@ pl:
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
-    wechat_footer: Otwórz program WeChat, kliknij przycisk "Odkryj", a następnie kliknij menu "Zeskanuj kod QR Code".
+    wechat_footer: Otwórz program WeChat, kliknij przycisk "Odkryj", a następnie kliknij menu "Skan kodu QR".
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp

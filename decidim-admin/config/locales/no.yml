@@ -141,7 +141,6 @@
       actions:
         add: Legg til
         browse: Bla gjennom
-        export: Eksport
         manage: Administrer
         new: Nytt %{name}
         per_page: Per side

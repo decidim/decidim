@@ -158,7 +158,6 @@ gl:
         browse: Buscar
         category:
           new: Nova categoría
-        export: Exportar
         import: Importar
         manage: Xestionar
         new: Novo %{name}

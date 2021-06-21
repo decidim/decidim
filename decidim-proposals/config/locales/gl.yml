@@ -642,8 +642,6 @@ gl:
           proposals_count:
             one: "%{count} proposta"
             other: "%{count} propostas"
-        dynamic_map_instructions:
-          instructions: <h3>Podes mover o punto no mapa. </h3><p>Non esquezas premer no botón "Actualizar posición" antes de publicar a túa proposta.</p>
         edit:
           add_documents: Documentos
           add_images: Ficheiro
@@ -715,7 +713,6 @@ gl:
             other: Poderás editar esta proposta durante o primeiro %{count} minutos despois da publicación da proposta. Unha vez que pase esta xanela de tempo, non poderás editar a proposta.
           publish: Publicar
           title: Publica a túa proposta
-          update_position: Actualizar posición
         proposal:
           creation_date: 'Creación: %{date}'
           view_proposal: Ver proposta

@@ -93,7 +93,6 @@ uk:
       actions:
         add: Додати
         browse: Переглянути
-        export: Зберегти у вигляді файлу
         manage: Керувати
         new: Додати %{name}
         permissions: Права

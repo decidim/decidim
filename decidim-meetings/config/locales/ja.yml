@@ -12,11 +12,11 @@ ja:
         closing_report: 議事録
         closing_visible: 非表示にする
         contributions_count: 貢献数
-        proposal_ids: 会議で作成された提案
+        proposal_ids: ミーティングで作成された提案
         video_url: 動画URL
       meeting:
         address: 住所
-        available_slots: この会議で利用可能なスロット
+        available_slots: このミーティングで利用可能なスロット
         customize_registration_email: 登録メールのカスタマイズ
         decidim_category_id: カテゴリ
         decidim_scope_id: スコープ
@@ -51,7 +51,7 @@ ja:
               already_invited: このメールアカウントは既に招待されています
     models:
       decidim/meetings/close_meeting_event: ミーティングは終了しました
-      decidim/meetings/create_meeting_event: 会議
+      decidim/meetings/create_meeting_event: ミーティング
       decidim/meetings/meeting_registrations_enabled_event: 登録が有効
       decidim/meetings/meeting_registrations_over_percentage_event: 上限を超える登録
       decidim/meetings/upcoming_meeting_event: 今後のミーティング
@@ -68,8 +68,8 @@ ja:
     admin:
       meeting_copies:
         create:
-          error: この会議を複製する際に問題が発生しました。
-          success: 会議を複製しました。
+          error: このミーティングを複製する際に問題が発生しました。
+          success: ミーティングを複製しました。
         new:
           copy: コピー
           select: 複製したいデータを選択してください
@@ -103,15 +103,16 @@ ja:
         meeting_closed:
           affected_user:
             email_intro: 'あなたのミーティング "%{resource_title}" は終了しました．そのページから結論を読むことができます:'
-            email_outro: '"%{resource_title}"の会議を組織化したため、この通知を受け取りました。'
+            email_outro: '"%{resource_title}" のミーティングを開催したため、この通知を受け取りました。'
             email_subject: '「%{resource_title}」のミーティングは終了しました'
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> の会合は終了しました。
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> のミーティングは終了しました。
           follower:
             email_intro: '"%{resource_title}" ミーティングは終了しました．そのページから結論を読むことができます:'
             email_outro: '「%{resource_title}」ミーティングをフォローしているため、この通知を受け取りました．前のリンクからフォローを解除することができます．'
             email_subject: '「%{resource_title}」のミーティングは終了しました'
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> の会合は終了しました。
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> のミーティングは終了しました。
         meeting_created:
+          button_text: ミーティングに登録する
           email_intro: フォローしているミーティング "%{resource_title}" が "%{participatory_space_title}" に追加されました．
           email_outro: '「%{participatory_space_title}」をフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
           email_subject: '%{participatory_space_title} に新しいミーティングが追加されました'
@@ -119,19 +120,19 @@ ja:
         meeting_registration_confirmed:
           notification_title: ミーティング <a href="%{resource_url}">%{resource_title}</a> の登録が確認されました．登録コードは %{registration_code}です．
         meeting_registrations_over_percentage:
-          email_intro: '"%{resource_title}" 会議に割り当てられたスロットは %{percentage} %以上です。'
+          email_intro: '"%{resource_title}" のミーティングに割り当てられたスロットは %{percentage} %以上です。'
           email_outro: あなたはミーティングの参加スペースの管理者であるため、この通知を受け取りました．
-          email_subject: '「%{resource_title}」会議の割り当てられたスロットは %{percentage} %を超えています'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 会議に割り当てられたスロットは %{percentage}%を超えています。
+          email_subject: '「%{resource_title}」ミーティングに割り当てられたスロットは %{percentage} %を超えています'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> ミーティングに割り当てられたスロットは %{percentage}%を超えています。
         meeting_updated:
           email_intro: '"%{resource_title}" ミーティングが更新されました．新しいバージョンはそのページから読むことができます:'
           email_outro: '「%{resource_title}」ミーティングをフォローしているため、この通知を受け取りました．前のリンクからフォローを解除することができます．'
           email_subject: '"%{resource_title}" のミーティングが更新されました'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> のミーティングを更新しました。
         registration_code_validated:
-          email_intro: '「%{registration_code}」会議の登録コード「%{resource_title}」が確認されました。'
-          email_outro: '"%{resource_title}" 会議の登録コードが検証されたため、この通知を受け取りました。'
-          email_subject: あなたの "%{registration_code}" 会議の登録コード "%{resource_title}" が検証されました
+          email_intro: '「%{registration_code}」ミーティングの登録コード「%{resource_title}」が確認されました。'
+          email_outro: '"%{resource_title}" ミーティングの登録コードが検証されたため、この通知を受け取りました。'
+          email_subject: あなたの "%{registration_code}" ミーティングの登録コード "%{resource_title}" が検証されました
           notification_title: ミーティング <a href="%{resource_path}">%{resource_title} </a> に対するあなたの登録コード "%{registration_code}" が認証されました。
         registrations_enabled:
           email_intro: '"%{resource_title}" ミーティングは登録を有効にしました．あなた自身をそのページに登録することができます:'
@@ -154,7 +155,7 @@ ja:
           name: 出席したミーティング
           next_level_in: さらに %{score} 件のミーティングに参加して、次のレベルに到達しましょう！
           unearned_another: この参加者はまだミーティングに出席していません．
-          unearned_own: まだ会議に出席していません。
+          unearned_own: まだミーティングに出席していません。
     meetings:
       actions:
         agenda: 予定
@@ -166,7 +167,8 @@ ja:
         edit: 編集
         invalid_destroy:
           proposals_count:
-            other: '%{count} 件の提案が関連付けられているため、会議を削除できません:'
+            other: '%{count} 件の提案が関連付けられているため、ミーティングを削除できません:'
+        manage_poll: アンケートの管理
         new: 新しいミーティング
         preview: プレビュー
         registrations: 登録
@@ -203,6 +205,7 @@ ja:
             invalid: この議題の更新中に問題が発生しました
             success: アジェンダを正常に更新しました
         exports:
+          answers: 回答
           meeting_comments: コメント
           meetings: ミーティング
           registrations: 登録
@@ -214,12 +217,12 @@ ja:
         invites:
           create:
             error: 参加者をミーティングに招待する際に問題が発生しました．
-            success: 参加者が会議に参加するように招待されました。
+            success: 参加者がミーティングに参加するように招待されました。
           form:
             attendee_type: 参加者の種類
             existing_user: 既存の参加者
             invite: 招待
-            invite_explanation: 参加者は、会議や団体にも招待されます。
+            invite_explanation: 参加者は、ミーティングや組織にも招待されます。
             non_user: 非既存の参加者
             select_user: 参加者を選択
           index:
@@ -239,7 +242,7 @@ ja:
             title: ミーティングを閉じる
         meetings:
           close:
-            invalid: この会議を終了する際に問題が発生しました
+            invalid: このミーティングを終了する際に問題が発生しました
             success: ミーティングが正常に閉じられました
           create:
             invalid: このミーティングを作成する際に問題が発生しました
@@ -247,7 +250,7 @@ ja:
           destroy:
             invalid:
               proposals_count:
-                other: '%{count} 件の提案が関連付けられているため、会議を削除できません'
+                other: '%{count} 件の提案が関連付けられているため、ミーティングを削除できません'
             success: ミーティングを削除しました
           edit:
             title: ミーティングを編集
@@ -282,18 +285,24 @@ ja:
             add_service: サービスを追加
             services: サービス
           unpublish:
-            invalid: この会議を非公開にする際に問題が発生しました
+            invalid: このミーティングを非公開にする際に問題が発生しました
             success: ミーティングを非公開にしました
           update:
-            invalid: この会議の更新中に問題が発生しました
+            invalid: このミーティングの更新中に問題が発生しました
             success: ミーティングを更新しました
+        meetings_poll:
+          form:
+            title: '%{questionnaire_for} のアンケートを編集'
+          update:
+            invalid: このミーティング投票の更新中に問題が発生しました
+            success: ミーティングのアンケートが正常に更新されました
         models:
           meeting:
-            name: 会議
+            name: ミーティング
         registrations:
           edit:
             save: 保存
-            validate: Validate
+            validate: 検証
             validate_registration_code: 登録コードを検証する
           form:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
@@ -320,7 +329,7 @@ ja:
           close: "%{user_name} が %{resource_name} スペースの %{space_name} ミーティングを閉鎖しました"
           create: "%{user_name} が %{resource_name} スペースで %{space_name} ミーティングを作成しました"
           delete: "%{user_name} が %{resource_name} スペースの %{space_name} ミーティングを削除しました"
-          export_registrations: "%{user_name} は %{resource_name} スペースに %{space_name} 会議の登録をエクスポートしました"
+          export_registrations: "%{user_name} は %{resource_name} スペースに %{space_name} ミーティングの登録をエクスポートしました"
           update: "%{user_name} が %{resource_name} スペースの %{space_name} ミーティングを更新しました"
           value_types:
             organizer_presenter:
@@ -329,7 +338,7 @@ ja:
         calendar_url: カレンダー URL
         close_window: ウィンドウを閉じる
         export_calendar: カレンダーをエクスポート
-      conference_venues: 会議場
+      conference_venues: ミーティング会場
       content_blocks:
         upcoming_events:
           name: 今後の予定
@@ -348,6 +357,11 @@ ja:
       last_activity:
         meeting_updated_at_html: "<span>ミーティングが %{link} に更新されました</span>"
         new_meeting_at_html: "<span> %{link}に新しいミーティング</span>"
+      layouts:
+        live_event:
+          administrate: 管理
+          close: 閉じる
+          questions: 質問
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -432,6 +446,9 @@ ja:
           back: 戻る
           create: 作成
           title: ミーティングを作成
+        online_meeting_link:
+          join: ミーティングに参加する
+          live_event: このミーティングは現在開催中です
         registration_confirm:
           cancel: キャンセル
           confirm: 確認する
@@ -443,7 +460,7 @@ ja:
           date: 日付
           edit_meeting: ミーティングを編集
           going: このミーティングにログインしました
-          join: 会議に参加
+          join: ミーティングに参加
           leave: 登録をキャンセルする
           leave_confirmation: このミーティングの登録をキャンセルしてもよろしいですか？
           meeting_minutes: ミーティング議事録
@@ -457,7 +474,7 @@ ja:
             other: "残り%{count} スロット"
           view: 表示
         update:
-          invalid: 会議の更新に問題がありました。
+          invalid: ミーティングの更新に問題がありました。
           success: ミーティングを更新しました．
       meetings_map:
         view_meeting: ミーティングを表示
@@ -480,6 +497,26 @@ ja:
             official_meeting: 公式ミーティング
             start_time: 開始日
             title: タイトル
+      polls:
+        questions:
+          closed_question:
+            question_results: 質問の結果
+          index:
+            empty_questions: このミーティングを通じて、いくつかの質問が送信され、回答することができます。質問はここに表示されます。
+          index_admin:
+            admin_dashboard: 管理者ダッシュボード
+            edit: 管理画面で編集
+            question: 質問
+            received_answer: 受理した回答
+            received_answers: 受理した回答
+            results: 結果
+            send: 送信
+            sent: 送信済み
+          published_question:
+            max_choices_alert: 選択された選択肢が多すぎます
+            question: 質問
+            question_replied: 質問に回答しました
+            reply_question: 質問に返信する
       public_participants_list:
         attending_participants: 参加する
         hidden_participants_count:
@@ -488,7 +525,7 @@ ja:
       registration_mailer:
         confirmation:
           confirmed_html: ミーティング <a href="%{url}">%{title}</a> の登録が確認されました。
-          details: 会議の詳細は添付ファイルにあります。
+          details: ミーティングの詳細は添付ファイルにあります。
           registration_code: 登録コードは %{code} です。
       registration_type:
         on_different_platform: 異なるプラットフォーム
@@ -496,14 +533,14 @@ ja:
         registration_disabled: 登録不可
       registrations:
         create:
-          invalid: この会議に参加する際に問題がありました。
+          invalid: このミーティングに参加する際に問題がありました。
           success: ミーティングに正常に参加しました．このミーティングに登録したため，更新がある場合は通知されます．
         decline_invitation:
           invalid: 招待を辞退するのに問題があった。
           success: 招待を拒否しました。
         destroy:
-          invalid: この会合から出発する問題があった。
-          success: 会議を正常に退会しました。
+          invalid: このミーティングから出発する問題があった。
+          success: ミーティングを正常に退会しました。
       type_of_meeting:
         hybrid: ハイブリッド
         in_person: 対面
@@ -512,7 +549,7 @@ ja:
         private_meeting: プライベートミーティング
         transparent: 透明度
       versions:
-        back_to_resource: 会議に戻る
+        back_to_resource: ミーティングに戻る
     metrics:
       meetings:
         description: 作成されたミーティング数

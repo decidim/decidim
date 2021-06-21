@@ -258,6 +258,8 @@ it:
         download: Scarica file
       documents:
         related_documents: Documenti Relativi
+      geocoding:
+        geocoded_address: Indirizzo
       photos:
         related_photos: Immagini relative
     author:
@@ -318,6 +320,8 @@ it:
           authorize: Autorizzare con "%{authorization}"
           explanation: Per effettuare questa operazione devi disporre della autorizzazione "%{authorization}".
           title: Autorizzazione richiesta
+        ok:
+          title: Sei stato autorizzato durante la navigazione su questa pagina. Ricarica la pagina per eseguire la tua azione
         pending:
           explanation: Per eseguire questa azione, devi essere autorizzato con "%{authorization}", ma la tua autorizzazione è ancora in corso
           resume: Controlla il tuo avanzamento dell'autorizzazione "%{authorization}"

@@ -158,7 +158,8 @@ it:
         browse: Naviga
         category:
           new: Nuova categoria
-        export: Esporta
+        export: Esporta tutto
+        export-selection: Esporta selezione
         import: Importazione
         manage: Gestisci
         new: Nuovo %{name}
@@ -355,6 +356,16 @@ it:
         category_id_eq:
           label: Categorie
         filter_label: Filtro
+        invitation_accepted_at_present:
+          label: Invito accettato
+          values:
+            'false': 'No'
+            'true': 'Sì'
+        last_sign_in_at_present:
+          label: Accesso mai effettuato
+          values:
+            'false': 'No'
+            'true': 'Sì'
         moderations:
           reportable_type_string_eq:
             label: Tipo

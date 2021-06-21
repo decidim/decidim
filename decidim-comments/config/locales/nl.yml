@@ -76,7 +76,7 @@ nl:
         title: Gesprek met %{authorName}
       comments:
         blocked_comments_for_unauthorized_user_warning: Je kan op dit moment geen opmerkingen toevoegen, maar je kunt de eerdere opmerkingen wel lezen.
-        blocked_comments_for_user_warning: U kunt op dit moment geen opmerkingen maken, maar u kunt de vorige wel lezen.
+        blocked_comments_for_user_warning: Je kunt op dit moment geen opmerkingen toevoegen, maar je kunt eerdere reacties wel lezen.
         blocked_comments_warning: Reacties zijn op dit moment uitgeschakeld, maar je kan de vorige berichten lezen.
         comment_details_title: Reactieonderdelen
         loading: Reacties laden...

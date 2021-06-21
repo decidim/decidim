@@ -120,7 +120,6 @@ ru:
       actions:
         add: Добавить
         browse: Просмотреть
-        export: Сохранить в виде файла
         manage: Управлять
         new: Добавить %{name}
         permissions: Права

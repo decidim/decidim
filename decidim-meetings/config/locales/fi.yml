@@ -115,6 +115,7 @@ fi:
             email_subject: Tapaaminen "%{resource_title}" suljettiin
             notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> suljettiin.
         meeting_created:
+          button_text: Ilmoittaudu tapaamiseen
           email_intro: Tapaaminen "%{resource_title}" on lisätty seuraamaasi kohteeseen "%{participatory_space_title}".
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Uusi tapaaminen lisätty kohteeseen %{participatory_space_title}
@@ -171,6 +172,7 @@ fi:
           proposals_count:
             one: 'Tapaamista ei voi poistaa, koska siihen on liitetty %{count} ehdotus:'
             other: 'Tapaamista ei voi poistaa, koska siihen on liitetty %{count} ehdotusta:'
+        manage_poll: Hallitse mielipidetiedustelua
         new: Uusi tapaaminen
         preview: Esikatsele
         registrations: Ilmoittautumiset
@@ -207,6 +209,7 @@ fi:
             invalid: Esityslistan päivitys epäonnistui
             success: Esityslistan päivitys onnistui
         exports:
+          answers: Vastaukset
           meeting_comments: Kommentit
           meetings: Tapaamiset
           registrations: Ilmoittautumiset
@@ -292,6 +295,12 @@ fi:
           update:
             invalid: Tapaamisen päivitys epäonnistui
             success: Tapaamisen päivitys onnistui
+        meetings_poll:
+          form:
+            title: Muokkaa mielipidetiedustelun kyselylomaketta kohteelle %{questionnaire_for}
+          update:
+            invalid: Tapaamisen mielipidetiedustelun päivittäminen epäonnistui
+            success: Tapaamisen mielipidetiedustelun päivittäminen onnistui
         models:
           meeting:
             name: Tapaaminen
@@ -354,6 +363,11 @@ fi:
       last_activity:
         meeting_updated_at_html: "<span>Tapaaminen päivitetty osoitteessa %{link}</span>"
         new_meeting_at_html: "<span>Uusi tapaaminen osoitteessa %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Hallinnoi
+          close: sulje
+          questions: Kysymykset
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -439,6 +453,9 @@ fi:
           back: Takaisin
           create: Luo
           title: Luo tapaaminen
+        online_meeting_link:
+          join: Ilmoittaudu tapaamiseen
+          live_event: Tämä tapaaminen on käynnissä juuri nyt
         registration_confirm:
           cancel: Peruuta
           confirm: Vahvista
@@ -488,6 +505,26 @@ fi:
             official_meeting: Virallinen tapaaminen
             start_time: Alkamispäivä
             title: Otsikko
+      polls:
+        questions:
+          closed_question:
+            question_results: Kysymyksen tulokset
+          index:
+            empty_questions: Tämän tapaamisen aikana esitetään kysymyksiä, joihin voit vastata. Kysymykset näytetään tässä.
+          index_admin:
+            admin_dashboard: Hallintapaneeli
+            edit: Muokkaa hallintapaneelissa
+            question: Kysymys
+            received_answer: vastaus
+            received_answers: vastaukset
+            results: Tulokset
+            send: Lähetä
+            sent: Lähetetty
+          published_question:
+            max_choices_alert: Liian monta vaihtoehtoa on valittu
+            question: Kysymys
+            question_replied: Kysymykseen on vastattu
+            reply_question: Vastaa kysymykseen
       public_participants_list:
         attending_participants: Mukana olevat osallistujat
         hidden_participants_count:

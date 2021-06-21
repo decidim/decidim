@@ -708,7 +708,8 @@ ja:
           proposals_count:
             other: "%{count} の提案"
         dynamic_map_instructions:
-          instructions: <h3>地図上のポイントを移動することができます。 </h3><p>提案を公開する前に「位置を更新」ボタンをクリックしてください。</p>
+          description: '「プレビュー」ボタンをクリックすると座標が更新されますが、アドレスは変更されません。'
+          instructions: 地図上のポイントを移動できます。
         edit:
           add_documents: ドキュメント
           add_images: ファイル
@@ -778,7 +779,6 @@ ja:
             other: 提案が公開されてから最初の %{count} 分間、この提案を編集することができます。 この時間が経過すると、提案を編集することはできません。
           publish: 公開
           title: 提案を公開
-          update_position: 位置を更新
         proposal:
           creation_date: '作成: %{date}'
           view_proposal: 提案を表示

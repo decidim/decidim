@@ -24,18 +24,30 @@ pt:
         published_at: Publicado em
         related_process_ids: Processos relacionados
         scope_id: Âmbito
+        scope_type_max_depth_id: Profundidade de filtro de escopo
         scopes_enabled: Âmbitos ativados
         short_description: Descrição curta
+        show_metrics: Mostrar métricas
         show_statistics: Mostrar estatísticas
         slug: Slug de URL
         start_date: Data de início
         subtitle: Subtítulo
         target: Quem participa
         title: Título
+        weight: Posição do pedido
       participatory_process_group:
         description: Descrição
+        developer_group: Grupo promotor
+        group_url: Site
+        hashtag: Hashtag
         hero_image: Imagem
+        local_area: Área de organização
+        meta_scope: Metadados do escopo
         participatory_process_ids: Processos relacionados
+        participatory_scope: O que é decidido
+        participatory_structure: Como é decidido
+        target: Quem participa
+        title: Título
       participatory_process_step:
         cta_path: Caminho de chamada para ação
         cta_text: Texto de chamada para ação
@@ -48,6 +60,12 @@ pt:
         email: O email
         name: Nome
         role: Cargo
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Tipo de documento inválido. Formatos aceitos são: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Passo ativado
       decidim/participatory_process_step_changed_event: Passo alterado
@@ -74,6 +92,7 @@ pt:
         filter:
           all_processes: Mostrar todos os processos
           process_groups: Grupos de Processos
+        import_process: Importar
         new_process: Novo processo
         new_process_group: Novo grupo de processos
         new_process_step: Novo passo
@@ -84,6 +103,9 @@ pt:
         unpublish: Unpublish
       menu:
         participatory_process_groups: Grupos de processo
+        participatory_process_groups_submenu:
+          info: Informações
+          landing_page: Página principal
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Pastas
@@ -106,6 +128,8 @@ pt:
             title: Título
           name: Processo participativo
         participatory_process_group:
+          fields:
+            title: Título
           name: Grupo de processo
         participatory_process_step:
           fields:
@@ -123,6 +147,7 @@ pt:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+            valuator: Avaliador
         user:
           fields:
             invitation_accepted_at: Convite aceito em
@@ -132,8 +157,16 @@ pt:
           copy: cópia de
           select: Selecione os dados que você gostaria de duplicar
           title: Duplicar processo participativo
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Blocos de conteúdo ativo
+          inactive_content_blocks: Blocos de conteúdo inativo
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Atualizar
       participatory_process_groups:
         destroy:
+          error: Ocorreu um erro ao destruir o grupo de processos participativos.
           success: Grupo de processos participativo excluído com sucesso.
         edit:
           title: Editar grupo de processos
@@ -144,6 +177,14 @@ pt:
         update:
           error: Ocorreu um erro ao atualizar este grupo de processos participativos.
           success: Grupo de processo participativo atualizado com sucesso.
+      participatory_process_imports:
+        create:
+          error: Ocorreu um erro ao importar este processo participativo.
+          success: Processo participativo importado com sucesso.
+        new:
+          import: Importar
+          select: Selecione quais dados você gostaria de importar
+          title: Importar processo participativo
       participatory_process_publications:
         create:
           error: Ocorreu um erro ao publicar este processo participativo.
@@ -185,11 +226,13 @@ pt:
         destroy:
           success: Usuário removido com sucesso deste processo participativo.
         edit:
+          title: Atualize o administrados do processo participativo
           update: Atualizar
         index:
           process_admins_title: Usuários do processo participativo
         new:
           create: Criar
+          title: Novo administrador do processo participativo
         update:
           error: Ocorreu um erro ao atualizar um usuário para esse processo participativo.
           success: Usuário atualizado com sucesso para este processo participativo.
@@ -231,6 +274,9 @@ pt:
         publish: "%{user_name} publicou o %{resource_name} processo participativo"
         unpublish: "%{user_name} não publicado o %{resource_name} processo participativo"
         update: "%{user_name} atualizou o processo participativo %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} criou o grupo de processo participativo %{resource_name}"
+        update: "%{user_name} atualizou o grupo de processo participativo %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} ativou o passo %{resource_name} no processo participativo %{space_name}"
         create: "%{user_name} criou o passo %{resource_name} no processo participativo %{space_name}"
@@ -242,6 +288,11 @@ pt:
         update: "%{user_name} alterou o papel do usuário %{resource_name} no %{space_name} processo participativo"
     events:
       participatory_process:
+        role_assigned:
+          email_intro: Você foi atribuído como %{role} para o processo participativo "%{resource_title}".
+          email_outro: Você recebeu esta notificação porque você é %{role} do processo participativo "%{resource_title}".
+          email_subject: Você foi designado como %{role} para%{resource_title}".
+          notification_title: Você foi atribuído como %{role} para o processo participativo <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
           email_intro: 'O passo %{resource_title} agora está ativo para %{participatory_space_title}. Você pode vê-lo a partir desta página:'
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
@@ -265,10 +316,33 @@ pt:
         description: Número de processos participativos nesta organização
         object: processos participativos
         title: Processos participativos
+    participatory_process:
+      show:
+        related_assemblies: Assembleias Relacionadas
     participatory_process_groups:
       content_blocks:
+        html_1:
+          name: Primeiro bloco HTML
+        html_2:
+          name: Segundo bloco HTML
+        html_3:
+          name: Terceiro bloco HTML
+        metadata:
+          developer_group: Promovido por
+          name: Metadados
+          participatory_scope: O que é decidido
+          participatory_structure: Como é decidido
+          target: Quem participa
+        participatory_processes:
+          name: Processos participativos
         stats:
           name: Atividade
+        title:
+          meta_scope: Escopo
+          name: Título, descrição e hashtag
+          participatory_processes:
+            one: 1 processo
+            other: "%{count} processos"
       show:
         title: Grupos de processos participativos
     participatory_process_steps:
@@ -280,8 +354,20 @@ pt:
         content_blocks:
           highlighted_processes:
             max_results: Quantidade máxima de elementos para mostrar
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
+            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para esse processo. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metadados
+            title: Informação geral
+            visibility: Visibilidade
+        participatory_process_imports:
+          form:
+            document_legend: Adicionar um documento
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para esse processo. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
         participatory_process_steps:
           form:
@@ -296,6 +382,7 @@ pt:
             metadata: Metadados
             other: De outros
             related_processes: Processos relacionados
+            scope_type_max_depth_help: Restringir a profundidade do filtro de escopo; O filtro será mostrado de modo geral ao tipo de escopo selecionado.
             select_an_area: Selecione uma área
             select_process_group: Selecione um grupo de processos
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para esse processo. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
@@ -315,7 +402,12 @@ pt:
             active_step: Passo ativo
             more_information: Mais Informações
             participate: Participar
+            participate_in: Participe do processo %{resource_name}
+            processes_button_title: Link para a página de processos exibindo todos os processos
             see_all_processes: Ver todos os processos
+      participatory_process_steps:
+        index:
+          back_to_process: Voltar à página do processo
       participatory_processes:
         filters:
           counters:
@@ -345,6 +437,8 @@ pt:
           loading: Carregando os resultados ...
       show:
         area: Área
+        belongs_to_group: Este processo pertence a
+        dates: Datas
         developer_group: Grupo promotor
         end_date: Data final
         local_area: Área de organização
@@ -356,11 +450,14 @@ pt:
         start_date: Data de início
         target: Quem participa
         unspecified: Não especificado
+    statistics:
+      processes_count: Processos
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
           browse: Navegar
+          browse_resource: Buscar grupo de processos %{resource_name}
           processes_count: 'Processos:'
       participatory_process_widgets:
         show:
@@ -372,11 +469,17 @@ pt:
         participatory_process:
           active_step: 'Etapa atual:'
           more_info: Mais informações
+          more_info_about: Mais informações sobre o processo %{resource_name}
           take_part: Participar
+          take_part_in: Participe do processo %{resource_name}
         promoted_process:
           active_step: 'Etapa atual:'
           more_info: Mais informações
+          more_info_about: Mais informações sobre o processo %{resource_name}
           take_part: Participar
+          take_part_in: Participe do processo %{resource_name}
+        promoted_process_group:
+          more_info: Mais informações
       process_header_steps:
         step: Passo %{current} de %{total}
         view_steps: Ver as etapas

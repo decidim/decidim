@@ -114,6 +114,7 @@ nl:
             email_subject: Het event "%{resource_title}" is afgelopen
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is afgelopen.
         meeting_created:
+          button_text: Schrijf in voor de bijeenkomst
           email_intro: Het event "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat je volgt.
           email_outro: Je ontvangt deze melding omdat je "%{participatory_space_title}" volgt. Je kan dit ontvolgen door te klikken op de voorgaande link.
           email_subject: Nieuw event toegevoegd aan %{participatory_space_title}
@@ -166,6 +167,7 @@ nl:
         confirm_destroy: Weet u zeker dat u deze vergadering wilt verwijderen?
         destroy: Verwijderen
         edit: Bewerk
+        manage_poll: Beheer poll
         new: Nieuwe vergadering
         preview: Voorbeeld
         registrations: registraties
@@ -202,6 +204,7 @@ nl:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze agenda
             success: Agenda succesvol bijgewerkt
         exports:
+          answers: Antwoorden
           meeting_comments: Reacties
           meetings: vergaderingen
           registrations: registraties
@@ -282,6 +285,12 @@ nl:
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze vergadering
             success: Vergadering succesvol bijgewerkt
+        meetings_poll:
+          form:
+            title: Bewerk poll vragenlijst voor %{questionnaire_for}
+          update:
+            invalid: Er is een probleem opgetreden bij het bijwerken van deze poll
+            success: Poll vergadering met succes bijgewerkt
         models:
           meeting:
             name: Vergadering
@@ -344,6 +353,11 @@ nl:
       last_activity:
         meeting_updated_at_html: "<span>Vergadering bijgewerkt op %{link}</span>"
         new_meeting_at_html: "<span>Nieuwe vergadering op %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Beheer
+          close: sluit
+          questions: Vragen
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -429,6 +443,9 @@ nl:
           back: Achterzijde
           create: Aanmaken
           title: Maak je vergadering
+        online_meeting_link:
+          join: Deelnemen aan de vergadering
+          live_event: Deze vergadering vindt op dit moment plaats
         registration_confirm:
           cancel: Annuleer
           confirm: Bevestigen
@@ -478,6 +495,31 @@ nl:
             official_meeting: Officiële vergadering
             start_time: Startdatum
             title: Titel
+      polls:
+        questions:
+          closed_question:
+            question_results: Resultaten vraag
+          index:
+            empty_questions: Tijdens deze vergadering worden er enkele vragen verzonden en je kan ze beantwoorden. Ze zullen hier worden weergegeven.
+          index_admin:
+            admin_dashboard: Beheer Dashboard
+            edit: Bewerk in admin
+            question: Vraag
+            received_answer: antwoord ontvangen
+            received_answers: ontvangen antwoorden
+            results: Resultaten
+            send: Verzenden
+            sent: Verzonden
+          published_question:
+            max_choices_alert: Er zijn te veel keuzes geselecteerd
+            question: Vraag
+            question_replied: Vraag beantwoord
+            reply_question: Vraag beantwoorden
+      public_participants_list:
+        attending_participants: Aanwezige deelnemers
+        hidden_participants_count:
+          one: en nog %{count} persoon
+          other: en nog %{count} personen
       read_more: "(Lees meer)"
       registration_mailer:
         confirmation:

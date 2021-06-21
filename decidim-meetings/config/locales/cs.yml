@@ -121,6 +121,7 @@ cs:
             email_subject: Schůzka "%{resource_title}" byla uzavřena
             notification_title: Schůzka <a href="%{resource_path}">%{resource_title}</a> byla uzavřena.
         meeting_created:
+          button_text: Zaregistrovat se na schůzku
           email_intro: Schůzka "%{resource_title}" byla přidána k "%{participatory_space_title}", kterou sledujete.
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{participatory_space_title}". Můžete jej odhlásit od předchozího odkazu.
           email_subject: Nové schůzky byly přidány k %{participatory_space_title}
@@ -179,6 +180,7 @@ cs:
             few: 'Schůzku nelze zničit, protože má k ní přidruženo %{count} návrhů:'
             many: 'Schůzku nelze zničit, protože má k ní přidruženo %{count} návrhů:'
             other: 'Schůzka nemůže být zničena, protože s ní je spojeno %{count} návrhů:'
+        manage_poll: Spravovat anketu
         new: Nové setkání
         preview: Náhled
         registrations: Registrace
@@ -215,6 +217,7 @@ cs:
             invalid: Při aktualizaci této agendy došlo k problému
             success: Agenda byla úspěšně aktualizována
         exports:
+          answers: Odpovědi
           meeting_comments: Komentáře
           meetings: Setkání
           registrations: Registrace
@@ -302,6 +305,12 @@ cs:
           update:
             invalid: Došlo k problému při aktualizaci této schůzky
             success: Schůzka byla úspěšně aktualizována
+        meetings_poll:
+          form:
+            title: Upravit anketní dotazník pro %{questionnaire_for}
+          update:
+            invalid: Při aktualizaci této ankety ke schůzce došlo k chybě
+            success: Anketa ke schůzce byla úspěšně aktualizována
         models:
           meeting:
             name: Setkání
@@ -366,6 +375,11 @@ cs:
       last_activity:
         meeting_updated_at_html: "<span>Schůzka aktualizována na %{link}</span>"
         new_meeting_at_html: "<span>Nové setkání v %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Spravovat
+          close: zavřít
+          questions: Otázky
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -453,6 +467,9 @@ cs:
           back: Zpět
           create: Vytvořit
           title: Vytvořte si schůzku
+        online_meeting_link:
+          join: Připojte se ke schůzce
+          live_event: Tato schůzka se děje právě teď
         registration_confirm:
           cancel: Zrušit
           confirm: Potvrdit
@@ -504,6 +521,26 @@ cs:
             official_meeting: Oficiální schůzka
             start_time: Datum zahájení
             title: Titul
+      polls:
+        questions:
+          closed_question:
+            question_results: Výsledky otázek
+          index:
+            empty_questions: Během této schůzky budou zaslány některé dotazy a vy na ně budete moci odpovědět. Zobrazí se zde.
+          index_admin:
+            admin_dashboard: Řídicí panel administrace
+            edit: Upravit v administraci
+            question: Otázka
+            received_answer: přijatá odpověď
+            received_answers: přijaté odpovědi
+            results: Výsledky
+            send: Odeslat
+            sent: Odesláno
+          published_question:
+            max_choices_alert: Je vybráno příliš mnoho možností
+            question: Otázka
+            question_replied: Odpověď na otázku
+            reply_question: Odpovědět na otázku
       public_participants_list:
         attending_participants: Účast účastníků
         hidden_participants_count:

@@ -1,4 +1,11 @@
 nl:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Titel
+      template:
+        description: Beschrijving
+        name: Naam
   decidim:
     admin:
       menu:

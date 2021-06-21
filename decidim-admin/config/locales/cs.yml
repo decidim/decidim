@@ -158,7 +158,8 @@ cs:
         browse: Procházet
         category:
           new: Nová kategorie
-        export: Exportovat
+        export: Exportovat vše
+        export-selection: Exportovat výběr
         import: Importovat
         manage: Spravovat
         new: Nová %{name}
@@ -355,6 +356,16 @@ cs:
         category_id_eq:
           label: Kategorie
         filter_label: Filtr
+        invitation_accepted_at_present:
+          label: Pozvánka přijata
+          values:
+            'false': 'Ne'
+            'true': 'Ano'
+        last_sign_in_at_present:
+          label: Vždy přihlášen
+          values:
+            'false': 'Ne'
+            'true': 'Ano'
         moderations:
           reportable_type_string_eq:
             label: Typ

@@ -115,6 +115,7 @@ it:
             email_subject: La riunione "%{resource_title}" è stata chiusa
             notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> è stata chiusa.
         meeting_created:
+          button_text: Registrati alla riunione
           email_intro: L'incontro "%{resource_title}" è stato aggiunto a "%{participatory_space_title}" che stai seguendo.
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{participatory_space_title}". È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo.
           email_subject: Nuova riunione aggiunta a %{participatory_space_title}
@@ -171,6 +172,7 @@ it:
           proposals_count:
             one: 'La riunione non può essere annullata perché ha %{count} proposta ad essa associata:'
             other: 'La riunione non può essere annullata perché ha %{count} proposte associate:'
+        manage_poll: Gestisci sondaggio
         new: Nuovo incontro
         preview: Anteprima
         registrations: Iscrizioni
@@ -207,6 +209,7 @@ it:
             invalid: C'è stato un problema nell'aggiornare questo programma
             success: Agenda aggiornata con successo
         exports:
+          answers: Risposte
           meeting_comments: Commenti
           meetings: Incontri
           registrations: Iscrizioni
@@ -490,6 +493,9 @@ it:
             title: Titolo
       public_participants_list:
         attending_participants: Partecipanti presenti
+        hidden_participants_count:
+          one: e %{count} altra persona
+          other: e altre %{count} persone
       read_more: "(leggi di più)"
       registration_mailer:
         confirmation:
