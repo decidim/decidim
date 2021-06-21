@@ -104,7 +104,7 @@ pl:
             label: Stan
             values:
               accepted: Zaakceptowano
-              evaluating: Ewaluacja
+              evaluating: Ocena
               published: Opublikowano
               rejected: Odrzucono
               validating: Walidacja techniczna
@@ -558,7 +558,7 @@ pl:
         filter_state_values:
           accepted: Przyjęto
           all: Wszystko
-          evaluating: Ewaluacja
+          evaluating: Ocena
           not_answered: Bez odpowiedzi
           rejected: Odrzucono
         filter_type_values:
