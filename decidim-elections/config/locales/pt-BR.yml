@@ -124,6 +124,82 @@ pt:
           index:
             invalid_max_selections: Você precisa de mais %{missing_answers} resposta/s para combinar com a seleção máxima
             title: Respostas
+          new:
+            create: Criar resposta
+            title: Nova resposta
+          select:
+            disable: Resposta desmarcada
+            enable: Marcar resposta como selecionada
+            invalid: Houve um problema ao selecionar esta resposta
+            success: Resposta selecionada com sucesso
+          unselect:
+            invalid: Houve um problema ao desmarcar esta resposta
+            success: Resposta não selecionada com sucesso
+          update:
+            invalid: Houve um problema ao atualizar esta resposta
+            success: Resposta atualizada com sucesso
+        elections:
+          create:
+            invalid: Houve um problema ao criar essa eleição
+            success: Eleição criada com sucesso
+          destroy:
+            invalid: Houve um problema ao excluir essa eleição
+            success: Eleição excluída com sucesso
+          edit:
+            title: Editar eleição
+            update: Atualizar eleição
+          index:
+            no_bulletin_board: Não há <a href="https://github.com/decidim/decidim-bulletin-board">Servidor de borda de Boletim</a> configurado, que é necessário para utilizar este módulo. Esta tarefa deve ser feita pelo Administrador do Sistema.
+            title: Eleições
+          new:
+            create: Criar uma nova eleição
+            title: Nova eleição
+          publish:
+            success: A eleição foi publicada com sucesso.
+          unpublish:
+            success: A eleição deixou de ser publicada com sucesso.
+          update:
+            invalid: Houve um problema ao atualizar essa eleição
+            success: Eleição atualizada com sucesso
+        exports:
+          elections: Eleições
+          feedback_form_answers: Respostas do formulário de feedback
+        models:
+          answer:
+            name: Resposta
+          election:
+            name: Eleição
+          question:
+            name: Questão
+          trustee:
+            name: Curador
+        proposals_imports:
+          create:
+            invalid: Houve um problema ao importar as propostas para respostas
+            success: "%{number} propostas importadas com sucesso para respostas"
+          new:
+            create: Importar propostas para respostas
+            no_components: Não há outros componentes de proposta neste espaço participativo para importar as propostas para respostas.
+            select_component: Por favor, selecione um componente
+            title: Importar propostas
+        questions:
+          create:
+            invalid: Ocorreu um erro ao criar uma nova pergunta
+            success: Questão criada com sucesso
+          destroy:
+            invalid: Houve um problema ao excluir esta pergunta
+            success: Questão criada com sucesso
+          edit:
+            title: Editar pergunta
+            update: Atualizar pergunta
+          index:
+            title: Questões
+          new:
+            create: Criar questão
+            title: Nova questão
+          update:
+            invalid: Ocorreu um erro ao atualizar esta questão
+            success: Questão atualizada com sucesso
         steps:
           create_election:
             errors:
@@ -178,11 +254,26 @@ pt:
             submit: Publicar resultados
             title: Resultados calculados
       elections:
+        filters:
+          active: Ativo
+          all: Todos
+          finished: Finalizado
+          search: Pesquisa
+          state: Status
+          upcoming: Próximos
+        filters_small_view:
+          close_modal: Fechar modal
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Revelar
         preview:
           available_answers: Respostas disponíveis
           description: Estas são as perguntas que você encontrará no processo de votação
+          title: Perguntas eleitorais
         results:
           description: Esses são os resultados da votação, para cada questão
+          selected: Selecionado
+          title: Resultados da eleição
           votes:
             one: "%{count} votos"
             other: "%{count} votos"
@@ -205,6 +296,12 @@ pt:
       votes:
         confirmed:
           error: Desculpe, ocorreu um erro ao confirmar seu voto. Por favor, vote novamente.
+          lead: Seu voto já foi recebido!
+        encrypting:
+          header: Codificando voto...
+          text: Seu voto está sendo criptografado para garantir que você pode transmiti-lo anonimamente.
+        header:
+          encrypting: Confirmando voto
         processing:
           header: Processando o voto...
           text: Seu voto foi recebido e está sendo processado. Por favor, aguarde.
