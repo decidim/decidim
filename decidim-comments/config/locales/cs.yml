@@ -72,7 +72,6 @@ cs:
             spam: Obsahuje clickbait, reklamu, podvody nebo škodlivé skripty.
           title: Nahlásit nevhodný obsah
         show_replies: Zobrazit %{replies_count} odpovědí
-        single_comment_link_title: Získat odkaz na jeden komentář
       comment_order_selector:
         order:
           best_rated: Nejlépe hodnocené
