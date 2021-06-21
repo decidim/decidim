@@ -162,7 +162,7 @@ pl:
           groups_count: Grupy
           last_comment_by: Ostatni komentarz autorstwa
           no_comments_yet: Brak komentarzy
-          open: Otwórz
+          open: Otwarta
           participants_count: Użytkownicy
         update:
           invalid: Podczas aktualizowania debaty wystąpił błąd.
