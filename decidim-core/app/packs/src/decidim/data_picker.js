@@ -36,6 +36,8 @@ export default class DataPicker {
 
       if ($(this._targetFromEvent(event)).hasClass("picker-prompt") || !isMultiPicker) {
         this._openPicker($picker, this._targetFromEvent(event));
+      }  else if (this._targetFromEvent(event).tagName === "A") {
+        this._removeValue($picker, this._targetFromEvent(event).parentNode);
       } else {
         this._removeValue($picker, this._targetFromEvent(event));
       }
