@@ -173,6 +173,33 @@ shared_examples "manage projects" do
       end
     end
 
+    it "removes proposals from project" do
+      project.link_resources(proposals, "included_proposals")
+      expect(project.linked_resources(:proposals, "included_proposals").count).to eq(5)
+
+      within find("tr", text: translated(project.title)) do
+        click_link "Edit"
+      end
+
+      within ".edit_project" do
+        fill_in_i18n(
+          :project_title,
+          "#project-title-tabs",
+          en: "My new title",
+          es: "Mi nuevo título",
+          ca: "El meu nou títol"
+        )
+
+        page.execute_script "window.scrollBy(0,10000)"
+        proposals_remove(select_data_picker(:project_proposals, multiple: true), proposals.last(4))
+
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+      expect(project.linked_resources(:proposals, "included_proposals").count).to eq(1)
+    end
+
     it "creates a new project", :slow do
       find(".card-title a.button.new").click
 
