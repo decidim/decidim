@@ -313,6 +313,8 @@ fi-pl:
           authorize: Varmenna varmennustavalla "%{authorization}"
           explanation: Suorittaaksesi tämän toiminnon, sinun tulee varmentaa tilisi varmennustavalla "%{authorization}".
           title: Varmennus vaaditaan
+        ok:
+          title: Sinut on valtuutettu sen aikana, kun olet ollut tällä sivulla. Lataa sivu uudelleen suorittaaksesi toiminnon, jota yritit suorittaa.
         pending:
           explanation: Tämän toiminnon suorittamiseksi sinun varmennettava itsesi palvelulla "%{authorization}", mutta varmennuksesi on edelleen kesken
           resume: Tarkista "%{authorization}" varmennuksen eteneminen
