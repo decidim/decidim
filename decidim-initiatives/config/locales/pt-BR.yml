@@ -5,6 +5,7 @@ pt:
         decidim_user_group_id: Autor
         description: Descrição
         offline_votes: Suporte face a face
+        offline_votes_for_scope: Assinaturas presenciais para %{scope_name}
         scope_id: Escopo
         signature_end_date: Fim do período de coleta de assinaturas
         signature_start_date: Início do período de coleta de assinaturas
@@ -18,13 +19,19 @@ pt:
       initiatives_committee_member:
         user: membro do Comitê
       initiatives_type:
+        area_enabled: Permitir aos autores escolher a área para sua iniciativa
+        attachments_enabled: Ativar anexos
         banner_image: Imagem de banner
+        child_scope_threshold_enabled: Ativar assinaturas de escopo filho
         collect_user_extra_fields: Colete dados pessoais do usuário na assinatura
+        custom_signature_end_date_enabled: Permitir aos autores escolher o fim do período de coleta de assinaturas
         description: Descrição
         document_number_authorization_handler: Autorização para verificar o número do documento nos votos
         extra_fields_legal_information: Informações legais sobre a coleta de dados pessoais
         minimum_committee_members: Mínimo dos membros do comitê
         online_signature_enabled: Assinatura on-line ativada
+        only_global_scope_enabled: Só permitir criação de iniciativas de escopo global
+        promoting_committee_enabled: Ativar comitê de promoção
         title: Título
         undo_online_signatures_enabled: Permitir que os usuários desfizessem suas assinaturas on-line
         validate_sms_code_on_votes: Adicionar etapa de validação do código SMS ao processo de assinatura
@@ -37,6 +44,14 @@ pt:
         address: Endereço
         id_document: Documento de identificação
         name: Nome completo
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: O arquivo é inválido
+              needs_to_be_reattached: Precisa ser reanexado
+              title: O título não pode ficar vazio
   activerecord:
     models:
       decidim/initiative:
@@ -52,6 +67,23 @@ pt:
     admin:
       actions:
         new_initiative_type: Novo tipo de iniciativa
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Área
+          state_eq:
+            label: Estado
+            values:
+              accepted: Assinaturas suficientes
+              created: Criado
+              discarded: Descartado
+              published: Publicado
+              rejected: Não há assinaturas suficientes
+              validating: Validação técnica
+          type_id_eq:
+            label: Tipo
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Pesquisar %{collection} por título, descrição, ID ou nome do autor.
       menu:
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
@@ -60,6 +92,7 @@ pt:
           fields:
             created_at: Criado em
             id: identidade
+            published_at: Publicado em
             state: Estado
             supports_count: Assinaturas
             title: Iniciativas
@@ -85,6 +118,7 @@ pt:
             initiative_title: Título da iniciativa
             name_and_surname: Nome e sobrenome
             postal_code: Código postal
+            scope: Escopo
             time_and_date: Hora e data
             timestamp: Timestamp
       titles:
@@ -92,11 +126,22 @@ pt:
         initiatives_types: Tipos de iniciativa
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: A iniciativa "%{resource_title}" foi enviada para validação técnica. Confira no <a href="%{admin_initiative_url}">painel de administração</a>
+            email_outro: Você recebeu esta notificação porque é um administrador da plataforma.
+            email_subject: Iniciativa "%{resource_title}" foi enviada para validação técnica.
+            notification_title: A iniciativa "%{resource_title}" foi enviada para validação técnica. Confira no <a href="%{admin_initiative_path}">painel de administração</a>
         initiative_extended:
           email_intro: A data final das assinaturas da iniciativa %{resource_title} foi estendida!
           email_outro: Você recebeu esta notificação porque está seguindo %{resource_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: Assinatura da iniciativa data final estendida!
           notification_title: A data final das assinaturas para a iniciativa <a href="%{resource_path}">%{resource_title}</a> foi ampliada.
+        initiative_sent_to_technical_validation:
+          email_intro: A iniciativa "%{resource_title}" foi enviada para validação técnica. Confira no <a href="%{admin_initiative_url}">painel de administração</a>
+          email_outro: Você recebeu esta notificação porque é um administrador da plataforma.
+          email_subject: Iniciativa "%{resource_title}" foi enviada para validação técnica.
+          notification_title: A iniciativa "%{resource_title}" foi enviada para validação técnica. Confira no <a href="%{admin_initiative_path}">painel de administração</a>
         milestone_completed:
           affected_user:
             email_intro: Sua iniciativa %{resource_title} alcançou o %{percentage}% de assinaturas!
@@ -108,6 +153,11 @@ pt:
             email_outro: Você recebeu esta notificação porque está seguindo %{resource_title}. Você pode parar de receber notificações após o link anterior.
             email_subject: Novo marco concluído!
             notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa obteve %{percentage}% de assinaturas.
+        support_threshold_reached:
+          email_intro: A iniciativa %{resource_title} atingiu o limite de assinaturas
+          email_outro: Você recebeu esta notificação porque é um administrador da plataforma.
+          email_subject: Limite de assinaturas atingido
+          notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> atingiu o limite de assinaturas
     gamification:
       badges:
         initiatives:
@@ -152,10 +202,17 @@ pt:
         content_blocks:
           highlighted_initiatives:
             max_results: Quantidade máxima de elementos para mostrar
+            order:
+              default: Padrão (Mínimo Recente)
+              label: 'Ordenar elemento por:'
+              most_recent: Mais recente
+        exports:
+          initiatives: Iniciativas
         initiatives:
           edit:
             accept: Aceitar iniciativa
             confirm: Você tem certeza?
+            confirm_send_to_technical_validation: Você tem certeza?
             discard: Descartar a iniciativa
             export_pdf_signatures: Exportar PDF de assinaturas
             export_votes: Suporta Exportação
@@ -164,11 +221,18 @@ pt:
             success: A iniciativa foi enviada para validação técnica
             update: Atualizar
           form:
+            attachments: Anexos
+            settings: Configurações
             title: Informação geral
           index:
             actions_title: Açao
             preview: Visualizar
             print: Impressão
+          initiative_attachments:
+            documents: Documentos
+            edit: Editar
+            new: Novo
+            photos: Fotos
           show:
             print: Impressão
           update:
@@ -204,6 +268,10 @@ pt:
             destroy: Excluir
             update: Atualizar
           form:
+            authorizations: Opções de autorização
+            child_scope_threshold_enabled_help: 'Esse parâmetro de configuração não suporta votos off-line, permite subescopos e funciona com um manipulador de autorização que associa o escopo ao usuário, certifique-se de selecionar a autorização, abaixo nas configurações de autorização. Para que funcione, os escopos precisam ser configurados de forma hierárquica: 1 Pai - N Criança. Para mais informações sobre como essa configuração funciona, consulte este <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a>.'
+            only_global_scope_enabled_help: Marque este sinalizador se você habilitou "Assinatura de escopo Filho" e configurou o escopo global como seu escopo pai. Habilitando esta possibilidade, a selecção do tipo de iniciativa será ignorada no assistente de criação de iniciativa. Para mais informações sobre como essa configuração funciona, consulte este <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a>.
+            options: Opções
             title: Informação geral
           initiative_type_scopes:
             title: Escopos para o tipo de iniciativa
@@ -220,18 +288,34 @@ pt:
           unpublish: "%{user_name} descartou a iniciativa %{resource_name}"
           update: "%{user_name} atualizou a iniciativa %{resource_name}"
       admin_states:
+        accepted: Assinaturas suficientes
         created: Criada
         discarded: Descartado
         published: Publicados
+        rejected: Não há assinaturas suficientes
         validating: Validação técnica
       application_helper:
+        filter_area_values:
+          all: Tudo
+        filter_scope_values:
+          all: Tudo
         filter_state_values:
+          accepted: Assinaturas suficientes
+          all: Tudo
+          answered: Respondido
           closed: Fechadas
           open: Aberto
+          rejected: Não há assinaturas suficientes
+        filter_type_values:
+          all: Tudo
       committee_requests:
+        approve:
+          success: A Publicação foi aprovada.
         new:
           continue: Continuar
           help_text: Você está prestes a pedir para se tornar membro do comitê de promotores desta iniciativa
+        revoke:
+          success: Pedido foi revogado.
         spawn:
           success: Sua solicitação foi enviada ao autor da iniciativa.
       content_blocks:
@@ -241,14 +325,23 @@ pt:
         fill_data:
           back: Costas
           continue: Continuar
+          fill_data_help: "<ul> <li>Revise o conteúdo de sua iniciativa. Seu título é fácil de entender? O objetivo da sua iniciativa é claro?</li> <li>Você tem que escolher o tipo de assinatura. Pessoalmente, online ou uma combinação de ambos</li> <li>Qual é o âmbito geográfico da iniciativa?</li> </ul>"
           initiative_type: Tipo de iniciativa
           more_information: "(Mais Informações)"
+          select_area: Selecione uma área
           select_scope: Selecione um âmbito
         finish:
           back: Costas
           back_to_initiatives: De volta às iniciativas
+          callout_text: Parabéns! Sua iniciativa cidadã foi criada com sucesso.
+          confirm: Você vai enviar a iniciativa para um administrador revisá-lo e publicá-lo. Uma vez publicado, você não será capaz de editá-lo. Você tem certeza?
+          edit_my_initiative: Editar minha iniciativa
           go_to_my_initiatives: Vá para minhas iniciativas
           more_information: "(Mais Informações)"
+          send_my_initiative: Enviar minha iniciativa para validação técnica
+        finish_help:
+          access_reminder: Você pode acessar suas iniciativas através do filtro %{link} na página de iniciativas.
+          publish_helper_text: Lembre-se de que para que sua iniciativa seja publicada, você precisa preencher as informações necessárias e <strong>enviá-las à validação técnica</strong> para que um administrador as analise.
         previous_form:
           back: Costas
           continue: Continuar
@@ -256,12 +349,14 @@ pt:
           more_information: "(Mais Informações)"
         promotal_committee:
           back: Costas
+          individual_help_text: Este tipo de iniciativa requer uma Comissão Promover composta por pelo menos %{committee_size} pessoas (atestadores). Têm de partilhar o seguinte link com as outras pessoas que fazem parte desta iniciativa. Quando seus contatos receberem este link eles terão que seguir os passos indicados.
           more_information: "(Mais Informações)"
         select_initiative_type:
           back: Costas
           choose_html: Eu quero criar um <strong>%{title}</strong>
           more_information: "(Mais Informações)"
           select: Eu quero promover essa iniciativa
+          select_initiative_type_help: As iniciativas são um meio através do qual os participantes podem intervir para que a organização possa empreender acções em defesa do interesse geral. Qual iniciativa você quer lançar?
         share_committee_link:
           continue: Continuar
           invite_to_committee_help: Link para convidar pessoas que farão parte do comitê de promotores
@@ -270,7 +365,22 @@ pt:
           compare_help: Se alguma das seguintes iniciativas for semelhante à sua, incentivamos você a apoiá-la. Sua proposta terá mais possibilidades de ser feita.
           continue: Minha iniciativa é diferente
           more_information: "(Mais Informações)"
+      edit:
+        accept: Aceitar a iniciativa
+        back: Voltar
+        confirm: Você tem certeza?
+        discard: Descartar a iniciativa
+        export_pdf_signatures: Exportar PDF de assinaturas
+        export_votes: Exportar assinaturas
+        reject: Rejeitar iniciativa
+        title: Editar Iniciativa
+        update: Atualizar
       events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} aceitou seu pedido para fazer parte do comitê de promotores da iniciativa %{resource_title}."
+          email_outro: 'Você recebeu esta notificação porque você aplicou nesta iniciativa: %{resource_title}'
+          email_subject: "%{author_nickname} aceitou seu pedido ao comitê de promotores"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> aceitou seu pedido como parte do comitê de promotores da seguinte iniciativa <a href="%{resource_url}">%{resource_title}</a>.
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, que você está seguindo, criou uma nova iniciativa, confira e contribua:"
           email_outro: Você recebeu esta notificação porque está seguindo %{author_nickname}. Você pode parar de receber notificações após o link anterior.
@@ -281,6 +391,20 @@ pt:
           email_outro: Você recebeu esta notificação porque está seguindo %{author_nickname}. Você pode parar de receber notificações após o link anterior.
           email_subject: Iniciativa endossada por %{author_nickname}
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa foi endossada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        revoke_membership_request:
+          email_intro: "%{author_nickname} rejeitou sua solicitação para fazer parte do comitê de promotores para a seguinte iniciativa %{resource_title}."
+          email_outro: 'Você recebeu esta notificação porque você aplicou nesta iniciativa: %{resource_title}.'
+          email_subject: "%{author_nickname} rejeitou seu pedido ao comitê de promotores"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> rejeitou seu pedido de adesão por fazer parte do comitê de promotores da seguinte iniciativa <a href="%{resource_url}">%{resource_title}</a>.
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} candidatou-se ao comitê de promotores da sua iniciativa %{resource_title}. Para aceitar ou rejeitar a solicitação, vá ao formulário de edição da sua iniciativa."
+          email_outro: 'Você recebeu esta notificação porque você é o autor desta iniciativa: %{resource_title}'
+          email_subject: "%{applicant_nickname} quer participar de sua iniciativa"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> se candidatou ao comitê de promotores da sua iniciativa <a href="%{resource_url}">%{resource_title}</a>. Para aceitar ou rejeitar, clique <a href="%{resource_url}/edit">aqui</a>.
+      form:
+        add_attachments: Documentos
+        attachment_legend: "(Opcional) Adicionar um anexo"
+        delete_attachment: Excluir
       index:
         title: Iniciativas
       initiative_signatures:
@@ -317,14 +441,23 @@ pt:
           hidden_authors_count:
             one: e mais 1 pessoa
             other: e mais %{count} pessoas
+        committee_members:
+          approve: Aprovar
+          confirm_revoke: Você tem certeza?
+          invite_to_committee_help: Compartilhe este link para convidar outros participantes para o comitê de promotores
+          no_members_yet: Não há membros no comitê de promotores
+          revoke: Revogar
+          title: Membros do Comitê
         count:
           title:
             one: "%{count} iniciativa"
             other: "%{count} iniciativas"
         filters:
           any: Qualquer
+          area: Área
           author: Autor
           myself: Minhas iniciativas
+          scope: Escopo
           search: Pesquisa
           state: Estado
           type: Tipo
@@ -335,6 +468,14 @@ pt:
           unfold: Desdobrar
         index_header:
           new_initiative: Nova iniciativa
+          not_authorized:
+            authorizations_page: Ver autorizações
+            close: Fechar
+            explanation: Você precisa ser verificado para criar uma nova iniciativa.
+            title: Autorização necessária
+        initiatives:
+          closed_initiatives_warning: Actualmente, não existem iniciativas abertas, mas aqui pode encontrar todas as iniciativas encerradas na lista de iniciativas.
+          no_initiatives_warning: Nenhuma iniciativa corresponde aos seus critérios de pesquisa.
         interactions:
           comments_count:
             count:
@@ -346,12 +487,39 @@ pt:
           most_voted: Mais assinadas
           random: Aleatória
           recent: Mais recente
+          recently_published: Mais recentemente publicado
         print:
+          address: Endereço
+          author_title: Autor da iniciativa
           city: Cidade
+          email: E-mail
+          full_name: Nome Completo
+          general_title: Pedido de admissão de uma iniciativa
+          id_number: Número do ID
+          initiative:
+            attachments: Documentação anexada (por favor, escreva o nome de cada documento abaixo)
+            description: 'Descrição:'
+            title: 'Título:'
+            type: Tipo de iniciativa
+          legal_text: Os dados pessoais recolhidos serão incorporados e tratados confidencialmente pela organização, de acordo com a legislação em vigor.
+          phone_number: Número de telefone
+          place_date: Local, data
+          postal_code: CEP/CEP
+          print: Imprimir
+          province: Cidade/Estado
+          section: 'Se solicitado pela organização, por favor imprima e preencha este formulário para enviar quando indicado:'
+          signature: Assinatura
         result:
+          answer_title: Esta iniciativa foi respondida
           initiative_rejected_reason: Esta iniciativa foi rejeitada devido à falta de suporte.
         show:
+          any_vote_method: Essa iniciativa coleta assinaturas on-line e presencial.
+          confirm: Você vai enviar a iniciativa para um administrador revisá-lo e publicá-lo. Uma vez publicado, você não será capaz de editá-lo. Você tem certeza?
+          edit: Editar
           follow_description: Receber uma notificação quando houver notícias nesta iniciativa
+          offline_method: Esta iniciativa recolhe apenas assinaturas presenciais.
+          print: Imprimir Iniciativa
+          send_to_technical_validation: Enviar para validação técnica
         signatures_count:
           one: " assinatura"
           other: " assinaturas"
@@ -385,10 +553,24 @@ pt:
           highlighted_initiatives:
             active_initiatives: Iniciativas ativas
             see_all_initiatives: Veja todas as iniciativas
+      show:
+        badge_name:
+          accepted: Assinaturas suficientes
+          created: Criado
+          discarded: Descartado
+          published: Publicados
+          rejected: Não há assinaturas suficientes
+          validating: Validação técnica
       states:
         accepted: Aceitaram
         expired: Expirado
       unavailable_scope: Escopo não disponível
+      update:
+        error: Ocorreu um erro
+        success: A iniciativa foi atualizada com sucesso
+      versions:
+        shared:
+          back_to_resource: Voltar à iniciativa
     menu:
       initiatives: Iniciativas
     resources:
@@ -400,6 +582,7 @@ pt:
     decidim:
       admin:
         initiative:
+          attachments: Anexos
           committee_members: membros do Comitê
           components: Componentes
           information: Em formação

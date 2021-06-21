@@ -327,6 +327,8 @@ cs:
           authorize: Autorizujte s "%{authorization}"
           explanation: Chcete-li provést tuto akci, musíte být autorizováni pomocí "%{authorization}".
           title: Je potřebná autorizace
+        ok:
+          title: Byli jste autorizováni, když jste na této stránce. Prosím obnovte stránku pro provedení vaší akce
         pending:
           explanation: Chcete-li provést tuto akci, musíte být autorizováni "%{authorization}", ale vaše oprávnění stále probíhá
           resume: Zkontrolujte autorizaci "%{authorization}"

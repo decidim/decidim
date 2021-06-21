@@ -75,6 +75,10 @@ ja:
             manager: マネージャー
             president: 責任者
             unassigned: 未割り当て
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: '%{collection} を名前/メールアドレス/ニックネーム/投票所で検索します。'
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : '%{collection} をタイトル、住所、委員名/メールアドレス/ニックネームで検索します。'
     components:
       elections:
         actions:
@@ -92,6 +96,9 @@ ja:
         edit: 編集
         feedback: 投票者からのフィードバック
         import: 提案を回答にインポート
+        manage_answers: 回答の管理
+        manage_questions: 質問の管理
+        manage_steps: ステップの管理
         new: 新しい %{name}
         preview: プレビュー
         publish: 公開
@@ -114,6 +121,14 @@ ja:
           new:
             create: 回答を作成
             title: 新しい回答
+          select:
+            disable: 回答の選択を解除
+            enable: 回答を選択済みとしてマーク
+            invalid: 回答を選択する際に問題が発生しました
+            success: 回答が正常に選択されました
+          unselect:
+            invalid: 回答の選択解除中に問題が発生しました
+            success: 回答が正常に選択されました。
           update:
             invalid: この回答の更新中に問題が発生しました
             success: 回答が更新されました
@@ -141,6 +156,7 @@ ja:
             invalid: 選挙の更新中に問題が発生しました
             success: 選挙が正常に更新されました
         exports:
+          elections: 選挙
           feedback_form_answers: フィードバックフォームの回答
         models:
           answer:
@@ -149,6 +165,8 @@ ja:
             name: 選挙
           question:
             name: 質問
+          trustee:
+            name: 受託者
         proposals_imports:
           create:
             invalid: 提案を回答にインポートする際に問題が発生しました
@@ -157,6 +175,7 @@ ja:
             create: 提案を回答にインポート
             no_components: この参加スペースには、回答に提案をインポートするための他の提案コンポーネントはありません。
             select_component: コンポーネントを選択してください
+            title: 提案のインポート
         questions:
           create:
             invalid: この質問を作成中に問題が発生しました
@@ -177,15 +196,105 @@ ja:
             success: 問題が正常に更新されました
         steps:
           create_election:
+            errors:
+              max_selections: 質問が <strong>回答の数に対して正しく</strong>ありません
+              minimum_answers: 質問には <strong>少なくとも2つの回答</strong>が必要です
+              minimum_questions: 選挙には <strong>少なくとも1つの質問</strong>が必要です。
+              published: 選挙はが <strong>公開されていません</strong> 。
+              time_before: 開始時刻が、選挙開始まで<strong>3時間未満 </strong> しかありません。
+              trustees_number: 参加スペースには <strong>少なくとも %{number} 人の公開鍵を持つ受託者</strong>が必要です。
+            invalid: この選挙の設定中に問題が発生しました
+            no_trustees: この参加スペースに設定された受託者はいません
             not_used_trustee: "(未使用)"
             public_key:
               'false': <strong>公開鍵</strong>がありません
               'true': <strong>公開鍵</strong>があります
+            requirements:
+              max_selections: すべての質問は正しい <strong>回答の最大値</strong> を持っています。
+              minimum_answers: 各質問には <strong>少なくとも2つの回答</strong>を持ちます。
+              minimum_questions: 選挙には <strong>少なくとも1つの質問</strong>があります。
+              published: 選挙を <strong>公開しました</strong> 。
+              time_before: 選挙開始の <strong>少なくとも %{hours} 時間前</strong> までに準備を完了させます。
+              trustees_number: 参加スペースには <strong>少なくとも %{number} 人の公開鍵を持つ受託者</strong>がいます。
+            submit: 選挙を設定
+            success: 選挙は正常に告示板に送信されました
+            title: 選挙を設定する
+            trustees: 選挙受託者
+          created:
+            invalid: キーセレモニーを開始する際に問題が発生しました
+            submit: キーセレモニーを開始
+            success: キーセレモニーの開始リクエストは正常に告示板に送信されました
+            title: 選挙の作成
+            trustees: 受託者
+          key_ceremony:
+            title: キーセレモニー
+            trustees: 受託者
+          key_ceremony_ended:
+            errors:
+              time_before: 選挙を開始する準備ができました。投票期間を開始するには、 開始時刻 ( %{start_time}) の%{hours} 時間前まで待つ必要があります。
+            invalid: 投票期間開始中に問題が発生しました
+            requirements:
+              time_before: 選挙はまもなく開始されます。手動で投票期間を開始するか、開始時刻の %{start_time} より前に自動的に開始されます。
+            submit: 投票期間を開始
+            success: 投票期間の開始リクエストは正常に告示板に送信されました
+            title: 開始準備完了
+          processing: 処理しています...
+          results_published:
+            title: 結果を公開しました
+          tally:
+            title: 集計処理
+            trustees: 受託者
           tally_ended:
+            submit: 結果を公開
             title: 結果を集計しました
+          vote:
+            errors:
+              time_after: 選挙はまだ進行中です。投票期間を終了するには、終了時間（%{end_time}）まで待つ必要があります。
+            invalid: 投票期間の終了中に問題が発生しました
+            requirements:
+              time_after: 選挙は終了しました。投票期間を手動で終了するか、数分で自動的に終了します。
+            submit: 投票を終了する
+            success: 投票期間の終了リクエストは正常に掲示板に送信されました
+            title: 投票期間
+          vote_ended:
+            invalid: 集計開始中に問題が発生しました
+            submit: 集計を開始
+            success: 集計開始リクエストは正常に掲示板に送信されました
+            title: 投票期間が終了しました
+          vote_stats:
+            no_vote_statistics_yet: まだ投票統計がありません
+            title: 投票統計
+            voters: 投票者
+            votes: 投票
+        trustees_participatory_spaces:
+          actions:
+            disable: 無効
+            enable: 検討する
+          create:
+            exists: この参加スペースに受託者が存在します
+            invalid: 受託者の作成中に問題が発生しました
+            success: 受託者の作成に成功しました
+          delete:
+            invalid: 受託者を削除する際に問題が発生しました
+            success: 受託者を削除しました
+          form:
+            select_user: ユーザーを選択
+          index:
+            title: 受託者
+          new:
+            create: 受託者を作成
+            title: 新しい受託者
+          update:
+            invalid: 受託者 %{trustee} の更新中に問題が発生しました
+            success: 受託者 %{trustee} が正常に更新されました
       admin_log:
         election:
+          end_vote: "%{user_name} が告示板で %{resource_name} 選挙の投票期間を終了しました"
           publish: "%{user_name} が %{resource_name} 選挙を公開しました"
+          setup: "%{user_name} が告示板に %{resource_name} 選挙を作成しました"
+          start_key_ceremony: "%{user_name} が告示板で %{resource_name} 選挙の重要なキーセレモニーを開始しました"
+          start_tally: "%{user_name} が告示板で %{resource_name} 選挙の集計を開始しました"
+          start_vote: "%{user_name} が告示板の %{resource_name} 選挙の投票期間を開始しました"
           unpublish: "%{user_name} が %{resource_name} 選挙を非公開にしました"
       election_m:
         badge_name:
@@ -266,6 +375,30 @@ ja:
         label: 選挙の順序
         older: 古い
         recent: 新しい
+      trustee_zone:
+        elections:
+          backup_modal:
+            download_icon: ダウンロードアクションを示すアイコン
+            title: '%{election} のバックアップ選挙キー'
+          key_ceremony_steps:
+            back: 戻る
+            description: この選挙は、告示板に作成されています。このプロセスを完了するには、受託者としての参加が必要です。
+            keys:
+              create_election: キーの生成
+              key_ceremony:
+                joint_election_key: キーの生成に参加する
+                step_1: キーの発行
+            list:
+              status: ステータス
+              task: タスク
+            process_warning: プロセスが開始された後は、プロセスが終了するまでこのページを終了しないでください。 すべての受託者が連結され完了されるまで、数分かかることがあります。
+            start: 開始
+            start_icon: アイコンは、選挙キーの生成を開始するための開始ボタンを示します
+            status:
+              completed: 完了
+              pending: 保留中
+              processing: 処理中
+            title: '%{election} の選挙用キーを作成'
       votes:
         confirm:
           answer: 回答

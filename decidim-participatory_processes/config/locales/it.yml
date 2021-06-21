@@ -340,6 +340,9 @@ it:
         title:
           meta_scope: Ambito
           name: Titolo, descrizione e hashtag
+          participatory_processes:
+            one: 1 processo
+            other: "%{count} processi"
       show:
         title: Gruppi di processi partecipativi
     participatory_process_steps:
