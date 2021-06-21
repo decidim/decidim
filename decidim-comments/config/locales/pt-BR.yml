@@ -68,7 +68,6 @@ pt:
             spam: Contém clickbait, publicidade, fraudes ou script bots.
           title: Reportar conteúdo impróprio
         show_replies: Mostrar %{replies_count} respostas
-        single_comment_link_title: Obter link para um único comentário
       comment_order_selector:
         order:
           best_rated: Melhores avaliações
