@@ -379,6 +379,7 @@ pt:
         file_help:
           import:
             explanation: 'Orientação para o arquivo:'
+            message_1: Arquivos CSV, JSON e Excel (xlsx) são suportados
             message_2: Para arquivos CSV, o separador entre colunas deve ser um ponto e vírgula (";")
       help_sections:
         error: Houve um erro ao atualizar as seções de ajuda
@@ -430,6 +431,7 @@ pt:
           accepted_mime_types:
             csv: csv
             json: json
+            xls: xls
           actions:
             back: Voltar
           file_legend: Adicionar um arquivo de importação que será analisado.
