@@ -68,7 +68,6 @@ gl:
             spam: Contén clic, publicidade, fraudes ou bots de script.
           title: Denunciar contido inapropiado
         show_replies: Amosar %{replies_count} respostas
-        single_comment_link_title: Obter ligazón a un único comentario
       comment_order_selector:
         order:
           best_rated: Mellor valorado
