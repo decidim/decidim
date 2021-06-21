@@ -42,3 +42,96 @@ pt:
           attributes:
             presided_polling_station:
               president_and_manager: O oficial de votação já é presidente/gerente da estação de voto
+            voting:
+              different_organization: A votação deve estar na mesma organização que o usuário
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: O consultor de voto deve estar na mesma votação que a estação de voto
+    models:
+      decidim/elections/answer:
+        one: Responda
+        other: Respostas
+      decidim/elections/election:
+        one: Eleição
+        other: Eleições
+      decidim/elections/question:
+        one: Questão
+        other: Questões
+      decidim/votings/polling_officer:
+        one: Agente de votação
+        other: Agentes de votação
+      decidim/votings/polling_station:
+        one: Estação de voto
+        other: Estação de votos
+      decidim/votings/voting:
+        one: Votação
+        other: Votações
+  decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: Oficiais
+          values:
+            assigned: Atribuído
+            unassigned: Não atribuído
+        role_eq:
+          label: Função
+          values:
+            manager: Gerente
+            president: Presidente
+            unassigned: Não Atribuido
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Pesquisa %{collection} por nome/e-mail/apelido ou estação de voto.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Pesquisar %{collection} por título, endereço ou nome do oficial/e-mail/apelido.
+    components:
+      elections:
+        actions:
+          vote: Voto
+        name: Eleições
+        settings:
+          global:
+            announcement: Anúncio
+          step:
+            announcement: Anúncio
+    elections:
+      actions:
+        confirm_destroy: Você tem certeza?
+        destroy: Destruir
+        edit: Editar
+        feedback: Feedback do eleitor
+        import: Importar propostas para respostas
+        manage_answers: Gerenciar respostas
+        manage_questions: Gerenciar perguntas
+        manage_steps: Gerenciar etapas
+        new: Novo %{name}
+        preview: Pré-visualização
+        publish: Publicar
+        title: Ações
+        unpublish: Despublicar
+      admin:
+        answers:
+          create:
+            invalid: Tem havido um problema ao criar esta resposta
+            success: Resposta criada com sucesso
+          destroy:
+            invalid: Houve um problema ao excluir esta resposta
+            success: Resposta excluída com sucesso
+          edit:
+            title: Editar resposta
+            update: Atualizar resposta
+    pages:
+      home:
+        statistics:
+          elections_count: Eleições
+    participatory_processes:
+      statistics:
+        elections_count: Eleições
+    votings:
+      polling_officer_zone:
+        polling_officers:
+          show:
+            polling_stations:
+              list:
+                actions: Ações
