@@ -452,6 +452,10 @@ pt:
         sub_hero:
           register_title: Cadastre-se para criar uma conta
     participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Link para a página de Processos, a qual exibe todos os processos
       show:
         related_assemblies: Assembleias Relacionadas
   errors:
