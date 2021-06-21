@@ -237,10 +237,8 @@ export default class DataPicker {
   _removeValue($picker, target) {
     if (target) {
       this._setCurrentPicker($picker, target);
-      this.current.target.fadeOut(100, () => {
-        this.current.target.remove();
-        this.current.target = null;
-      });
+      this.current.target.remove();
+      this.current.target = null;
     }
   }
 

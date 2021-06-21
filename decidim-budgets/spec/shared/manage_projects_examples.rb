@@ -182,15 +182,6 @@ shared_examples "manage projects" do
       end
 
       within ".edit_project" do
-        fill_in_i18n(
-          :project_title,
-          "#project-title-tabs",
-          en: "My new title",
-          es: "Mi nuevo título",
-          ca: "El meu nou títol"
-        )
-
-        page.execute_script "window.scrollBy(0,10000)"
         proposals_remove(select_data_picker(:project_proposals, multiple: true), proposals.last(4))
 
         find("*[type=submit]").click
