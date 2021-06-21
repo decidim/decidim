@@ -28,7 +28,7 @@ describe "rake decidim:check_users_newsletter_opt_in", type: :task do
     it "have to create a job for each user" do
       ActiveJob::Base.queue_adapter = :test
       allow($stdin).to receive(:gets).and_return("Y")
-      expect { task.execute }.to have_enqueued_job.exactly(4)
+      expect { task.execute }.to have_enqueued_job.exactly(8)
     end
 
     it "updates users Opt-in fields" do
