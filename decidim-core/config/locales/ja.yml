@@ -306,6 +306,8 @@ ja:
           authorize: '"%{authorization}" で認証'
           explanation: このアクションを実行するには、"%{authorization}" で認証する必要があります。
           title: 認証が必要です
+        ok:
+          title: このページにいる間は許可されています。アクションを実行するにはページを再読み込みしてください。
         pending:
           explanation: このアクションを実行するには、"%{authorization}" で認証される必要がありますが、承認はまだ進行中です
           resume: '「%{authorization}」認証の進行状況を確認してください'
