@@ -117,13 +117,20 @@ module Decidim
       return hash unless hash.is_a?(Hash)
 
       hash.transform_values do |value|
+        # If the value is not a String, it is likely a legacy unencrypted hash
+        # value. Also, `ActiveSupport::JSON.decode` expects the value passed to
+        # it to be a String. Otherwise it would raise a TypeError.
+        next value unless value.is_a?(String)
+
         decrypted_value = decrypt_value(value)
 
-        # When handling legacy non-encrypted hash values, the decrypted values
+        # When handling legacy unencrypted hash values, the decrypted values
         # could not be valid JSON strings. They could be normal strings that
         # cannot be JSON decoded.
         begin
           ActiveSupport::JSON.decode(decrypted_value)
+        rescue TypeError
+          ""
         rescue JSON::ParserError
           decrypted_value
         end

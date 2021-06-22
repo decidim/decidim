@@ -6,7 +6,7 @@ es-MX:
         description: Descripción
         title: Título
         total_budget: Presupuesto total
-        weight: Peso
+        weight: Orden de posición
       project:
         budget_amount: Importe del presupuesto
         decidim_category_id: Categoría
@@ -108,6 +108,9 @@ es-MX:
         close_modal: Cierra el modal
         continue: Continuar
         more_information: Más información
+      budget_list_item:
+        voting_finished: Has votado en este presupuesto
+        voting_started: Has empezado a votar en este presupuesto
       budgets_list:
         cancel_order:
           more_than_one: eliminar tu voto en %{name} y empezar de nuevo
@@ -288,5 +291,11 @@ es-MX:
       destroy:
         error: Ha habido un error al cancelar tu voto
         success: Tu voto ha sido cancelado correctamente
+    resource_links:
+      included_proposals:
+        project_proposal: Propuestas incluidas en este proyecto
+    statistics:
+      orders_count: Apoyos
+      projects_count: Proyectos
   index:
     confirmed_orders_count: Número de votos

@@ -1,36 +1,45 @@
 <%= content_tag :div, id: "comment_#{model.id}", class: comment_classes, data: { comment_id: model.id } do %>
-  <div class="comment__header">
-    <div class="author-data">
-      <div class="author-data__main">
-        <%= render :author %>
-        <span>
-          <%= time_tag created_at, l(created_at, format: :decidim_short) %>
-        </span>
+  <% if model.deleted? %>
+    <%= render :deletion_data %>
+  <% else %>
+    <div class="comment__header">
+      <div class="author-data">
+        <div class="author-data__main">
+          <%= render :author %>
+          <span>
+            <%= time_tag created_at, l(created_at, format: :decidim_short) %>
+          </span>
+          <% if edited? %>
+            <div class="author-data__extra">
+              <span class="comment__edited">
+                <%= t("decidim.components.comment.edited") %>
+              </span>
+            </div>
+          <% end %>
+        </div>
       </div>
-      <div class="author-data__extra">
-        <%= render :utilities %>
-      </div>
+      <%= render :utilities %>
     </div>
-  </div>
-  <div class="comment__content">
-    <%= alignment_badge %>
-    <%= comment_body %>
-  </div>
-  <div class="comment__footer">
-    <%= render :actions %>
-    <%= votes %>
-  </div>
+    <div class="comment__content">
+      <%= alignment_badge %>
+      <%= comment_body %>
+    </div>
+    <div class="comment__footer">
+      <%= render :actions %>
+      <%= votes %>
+    </div>
+  <% end %>
   <div id="comment-<%= model.id %>-replies">
     <% if has_replies? %>
       <% replies.each do |reply| %>
-        <%= cell("decidim/comments/comment", reply, root_depth: root_depth, order: order) %>
+        <%= cell("decidim/comments/comment", reply, root_depth: root_depth, order: order, reloaded: reloaded?) %>
       <% end %>
     <% end %>
   </div>
   <% if can_reply? %>
     <div class="comment__additionalreply<%= " hide" unless has_replies? %>">
       <button class="comment__reply muted-link" aria-controls="<%= reply_id %>" data-toggle="<%= reply_id %>">
-        <%= icon "pencil", class: "icon--small", role: "none presentation" %>&nbsp;<%= t("decidim.components.comment.reply") %>
+        <%= icon "pencil", class: "icon--small", role: "img", "aria-hidden": true %>&nbsp;<%= t("decidim.components.comment.reply") %>
       </button>
     </div>
     <div class="add-comment hide" id="<%= reply_id %>" data-toggler=".hide">

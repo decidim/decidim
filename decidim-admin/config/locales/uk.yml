@@ -23,7 +23,6 @@ uk:
       component:
         name: Ім'я
         published_at: 'Оприлюднено:'
-        weight: Вага
       id: Псевдонім
       newsletter:
         body: Основний текст
@@ -94,7 +93,6 @@ uk:
       actions:
         add: Додати
         browse: Переглянути
-        export: Зберегти у вигляді файлу
         manage: Керувати
         new: Додати %{name}
         permissions: Права

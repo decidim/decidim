@@ -50,6 +50,8 @@ id:
       actions:
         new_initiative_type: Jenis inisiatif baru
       menu:
+        components: Komponen
+        information: Informasi
         initiatives: Inisiatif
         initiatives_types: Jenis inisiatif
       models:
@@ -390,12 +392,6 @@ id:
           vote: Memilih
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Lampiran
-          committee_members: anggota Komite
-          components: Komponen
-          information: Informasi
       initiative_creation_header:
         back: Kembali
         fill_data: Membuat

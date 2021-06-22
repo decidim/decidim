@@ -38,7 +38,8 @@ module Decidim
           @trustee = Decidim.traceability.create!(
             Trustee,
             form.current_user,
-            user: form.user
+            user: form.user,
+            organization: form.user.organization
           )
         end
 

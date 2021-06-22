@@ -180,12 +180,12 @@ module Decidim
     # PUBLIC author_avatar_url
     #
     # Returns the author's avatar URL. In case it is not defined the method
-    # falls back to decidim/default-avatar.svg
+    # falls back to images/default-avatar.svg
     #
     # RETURNS STRING
     def author_avatar_url
       author.avatar&.url ||
-        ActionController::Base.helpers.asset_path("decidim/default-avatar.svg")
+        ActionController::Base.helpers.asset_pack_path("media/images/default-avatar.svg")
     end
 
     def votes_enabled?

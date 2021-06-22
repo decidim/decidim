@@ -39,7 +39,13 @@ fr-CA:
           user_group_id:
             label: Commenter en tant que
         opinion:
+          label: Votre avis sur ce sujet
+          negative: Négatif
+          negative_selected: Votre avis sur ce sujet est négatif
           neutral: Neutre
+          neutral_selected: Votre avis sur ce sujet est neutre
+          positive: Positif
+          positive_selected: Votre avis sur ce sujet est positif
         remaining_characters: "%{count} caractères restants"
         remaining_characters_1: "%{count} caractère restant"
         title: Ajoutez votre commentaire
@@ -73,6 +79,7 @@ fr-CA:
       comment_thread:
         title: Conversation avec %{authorName}
       comments:
+        blocked_comments_for_unauthorized_user_warning: Vous devez valider votre inscription pour commenter maintenant, mais vous pouvez lire les commentaires précédents.
         blocked_comments_for_user_warning: Vous n'êtes pas en mesure de commenter pour le moment, mais vous pouvez lire les précédents.
         blocked_comments_warning: Les commentaires sont actuellement désactivés, mais vous pouvez lire ceux déjà saisis.
         comment_details_title: Détails du commentaire

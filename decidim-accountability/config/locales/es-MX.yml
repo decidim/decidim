@@ -244,3 +244,5 @@ es-MX:
         result_project: Proyectos incluidos en este resultado
       included_proposals:
         result_proposal: Propuestas incluidas en este resultado
+    statistics:
+      results_count: Resultados

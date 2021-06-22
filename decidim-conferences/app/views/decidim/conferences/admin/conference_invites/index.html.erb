@@ -39,7 +39,7 @@
 <div class="card" id="conference-invites">
   <div class="card-divider">
     <h2 class="card-title">
-      <%= title %> - <%= t(".invites") %>
+      <%= t(".invites") %>
       <%= link_to t(".invite_attendee"), conference.registrations_enabled ? new_conference_conference_invite_path(conference) : "#", class: "button tiny button--title #{'disabled' unless conference.registrations_enabled && allowed_to?(:invite_attendee, :conference, conference: conference) }" %>
     </h2>
   </div>

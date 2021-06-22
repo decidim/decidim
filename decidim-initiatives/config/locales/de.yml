@@ -85,8 +85,13 @@ de:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Suche in %{collection} nach Titel, Beschreibung, ID oder Autoren.
       menu:
+        attachments: Anhänge
+        committee_members: Ausschussmitglieder
+        components: Komponenten
+        information: Information
         initiatives: Initiativen
         initiatives_types: Arten von Initiativen
+        moderations: Moderationen
       models:
         initiatives:
           fields:
@@ -578,12 +583,6 @@ de:
           vote: Abstimmung
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Anhänge
-          committee_members: Ausschussmitglieder
-          components: Komponenten
-          information: Information
       initiative_creation_header:
         back: Zurück
         fill_data: Erstellen

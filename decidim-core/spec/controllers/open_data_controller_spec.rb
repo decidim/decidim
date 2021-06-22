@@ -40,7 +40,7 @@ module Decidim
         end
 
         it "schedules a generation" do
-          expect(Decidim::OpenDataJob).to have_been_enqueued.on_queue("default")
+          expect(Decidim::OpenDataJob).to have_been_enqueued.on_queue("exports")
         end
       end
     end

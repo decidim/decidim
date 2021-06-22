@@ -69,6 +69,8 @@ hu:
           type_id_eq:
             label: Típus
       menu:
+        components: Elemek
+        information: Információ
         initiatives: Kezdeményezések
         initiatives_types: Kezdeményezések típusa
       models:
@@ -419,12 +421,6 @@ hu:
           vote: Szavazás
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Mellékletek
-          committee_members: Bizottsági tagok
-          components: Elemek
-          information: Információ
       initiative_creation_header:
         back: Hát
         fill_data: Létrehozás

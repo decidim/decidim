@@ -85,8 +85,13 @@ es:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Buscar %{collection} por título, descripción, ID o autoría.
       menu:
+        attachments: Adjuntos
+        committee_members: Miembros de la comisión
+        components: Componentes
+        information: Información
         initiatives: Iniciativas
         initiatives_types: Tipos de Iniciativa
+        moderations: Moderaciones
       models:
         initiatives:
           fields:
@@ -580,12 +585,6 @@ es:
           vote: Firmar
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Adjuntos
-          committee_members: Miembros de la comisión
-          components: Componentes
-          information: Información
       initiative_creation_header:
         back: Volver
         fill_data: Crear

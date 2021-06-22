@@ -21,7 +21,9 @@ module Decidim
 
       def query
         recipients = Decidim::User.where(organization: @form.current_organization)
-                                  .where.not(newsletter_notifications_at: nil, email: nil, confirmed_at: nil)
+                                  .where.not(newsletter_notifications_at: nil)
+                                  .where.not(email: nil)
+                                  .where.not(confirmed_at: nil)
                                   .not_deleted
 
         recipients = recipients.interested_in_scopes(@form.scope_ids) if @form.scope_ids.present?

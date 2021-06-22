@@ -17,6 +17,7 @@ cs:
         edit: Upravit
         new: Nový příspěvek
         title: Akce
+        user_group_id: Vytvořit příspěvek jako
       admin:
         models:
           components:

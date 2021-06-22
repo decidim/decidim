@@ -71,6 +71,16 @@ module Decidim
           expect(response).to redirect_to("/you-need-permissions")
         end
       end
+
+      context "and the user is not signed in" do
+        let(:user) { nil }
+
+        it "redirects the user to the user_has_no_permissions_path" do
+          get :show
+
+          expect(response).to redirect_to("/you-need-permissions")
+        end
+      end
     end
   end
 end

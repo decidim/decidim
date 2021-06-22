@@ -94,6 +94,7 @@ sv:
         create:
           error: Det gick inte att skapa ett nytt samråd.
           success: Samrådet har skapats.
+        deprecation_warning: Konsultationsmodulen kommer att tas bort inom en nära framtid. Vi arbetar på nästa kryptografiskt säkra version som kallas Omröstningar.
         edit:
           update: Uppdatera
         form:
@@ -119,6 +120,8 @@ sv:
           questions: Frågor
           results: Resultat
         questions_submenu:
+          attachments: Bilagor
+          categories: Kategorier
           components: Komponenter
           configuration: Konfiguration
           consultation: Samråd
@@ -318,6 +321,8 @@ sv:
     help:
       participatory_spaces:
         consultations:
+          contextual: "<p>Ett <strong>samråd</strong> är ett utrymme där du kan ställa en tydlig fråga till alla personer som bildar en organisation, där du kan be att få medverka i samrådet, samt sätta igång och hantera debatten för eller emot ett svar. När samrådsdatumet anländer kan du rösta och publicera resultatet av omröstningarna.</p> <p>Exempel: Samråden kan handla om nästan allting som påverkar en organisation: till exempel att ändra organisationens namn eller logotyp med flera alternativa förslag, rösta ja eller nej om att bli en del av en större organisation, anta eller avvisa en ny strategisk plan eller resultatet från en arbetsgrupp, eller besluta om förtroendevalda ska kunna sitta högst en, två eller tre mandatperioder.</p>\n"
+          page: "<p>Ett <strong>samråd</strong> är ett utrymme där du kan ställa en tydlig fråga till alla personer som bildar en organisation, där du kan be att få medverka i samrådet, samt sätta igång och hantera debatten för eller emot ett svar. När samrådsdatumet anländer kan du rösta och publicera resultatet av omröstningarna.</p> <p>Exempel: Samråden kan handla om nästan allting som påverkar en organisation: till exempel att ändra organisationens namn eller logotyp med flera alternativa förslag, rösta ja eller nej om att bli en del av en större organisation, anta eller avvisa en ny strategisk plan eller resultatet från en arbetsgrupp, eller besluta om förtroendevalda ska kunna sitta högst en, två eller tre mandatperioder.</p>\n"
           title: Vad är samråd?
     menu:
       consultations: Samråd
@@ -355,12 +360,11 @@ sv:
       consultations:
         actions:
           vote: Rösta
+    statistics:
+      consultations_count: Samråd
+      votes_count: Röster
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Bilagor
-          categories: Kategorier
       consultation_voting_data:
         start_voting_date: Omröstningen börjar
       question_components:

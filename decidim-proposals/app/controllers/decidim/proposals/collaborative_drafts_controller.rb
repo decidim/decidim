@@ -7,6 +7,7 @@ module Decidim
       helper Decidim::WidgetUrlsHelper
       helper ProposalWizardHelper
       helper TooltipHelper
+      helper UserGroupHelper
 
       include Decidim::ApplicationHelper
       include FormFactory
@@ -133,7 +134,7 @@ module Decidim
       end
 
       def geocoded_collaborative_draft
-        @geocoded_collaborative_draft ||= search.results.not_hidden.select(&:geocoded?)
+        @geocoded_collaborative_draft ||= search.results.not_hidden.select(&:geocoded_and_valid?)
       end
 
       def search_klass

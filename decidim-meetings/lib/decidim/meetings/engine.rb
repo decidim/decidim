@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
-require "searchlight"
-require "kaminari"
-require "jquery-tmpl-rails"
 require "icalendar"
-require "cells/rails"
-require "cells-erb"
-require "cell/partial"
+
+require "decidim/core"
 
 module Decidim
   module Meetings
@@ -31,9 +27,16 @@ module Decidim
           end
           resources :versions, only: [:show, :index]
           resource :widget, only: :show, path: "embed"
+          resource :live_event, only: :show
+          namespace :polls do
+            resources :questions, only: [:index, :update]
+            resources :answers, only: [:index, :create]
+          end
         end
         root to: "meetings#index"
-        resource :calendar, only: [:show], format: :text
+        resource :calendar, only: [:show], format: :text do
+          resources :meetings, only: [:show], controller: :calendars, action: :meeting_calendar
+        end
       end
 
       initializer "decidim_meetings.view_hooks" do
@@ -102,10 +105,6 @@ module Decidim
         Decidim.metrics_operation.register(:followers, :meetings) do |metric_operation|
           metric_operation.manager_class = "Decidim::Meetings::Metrics::MeetingFollowersMetricMeasure"
         end
-      end
-
-      initializer "decidim_meetings.assets" do |app|
-        app.config.assets.precompile += %w(decidim_meetings_manifest.js)
       end
     end
   end

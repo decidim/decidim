@@ -297,8 +297,13 @@ ignore_unused:
   - decidim.elections.trustee_zone.elections.tally_steps.keys.*
   - decidim.votings.admin_log.*
   - decidim.votings.admin.content_blocks.landing_page.*
+  - decidim.votings.census.admin.census.new.file_help.*
+  - decidim.votings.census.document_types.*
   - decidim.devise.sessions.user.timed_out
   - decidim.admin.forms.file_help.import.*
+  - decidim.admin.menu.questions_submenu.attachments
+  - decidim.admin.menu.questions_submenu.categories
+  - decidim.meetings.public_participants_list.hidden_participants_count.*
 
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:

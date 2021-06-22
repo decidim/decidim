@@ -5,7 +5,7 @@ require "decidim/proposals/test/capybara_proposals_picker"
 
 describe "Admin manages meetings", type: :system, serves_map: true, serves_geocoding_autocomplete: true do
   let(:manifest_name) { "meetings" }
-  let!(:meeting) { create :meeting, scope: scope, services: [], component: current_component }
+  let!(:meeting) { create :meeting, :published, scope: scope, services: [], component: current_component }
   let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
@@ -17,6 +17,40 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
 
   before do
     stub_geocoding(address, [latitude, longitude])
+  end
+
+  describe "listing meetings" do
+    it "lists the meetings by start date" do
+      old_meeting = create :meeting, scope: scope, services: [], component: current_component, start_time: 2.years.ago
+      visit current_path
+
+      expect(page).to have_selector("tbody tr:first-child", text: Decidim::Meetings::MeetingPresenter.new(meeting).title)
+      expect(page).to have_selector("tbody tr:last-child", text: Decidim::Meetings::MeetingPresenter.new(old_meeting).title)
+    end
+
+    it "allows to publish/unpublish meetings" do
+      visit current_path
+
+      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+        accept_confirm { click_link "Unpublish" }
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+        expect(page).to have_css(".action-icon--publish")
+      end
+
+      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+        click_link "Publish"
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+        expect(page).to have_css(".action-icon--unpublish")
+      end
+    end
   end
 
   describe "admin form" do
@@ -206,6 +240,17 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
 
     scope_pick select_data_picker(:meeting_decidim_scope_id), scope
     select translated(category.name), from: :meeting_decidim_category_id
+
+    # the field is not visible by default
+    expect(page).not_to have_field("Custom content in registration email")
+    # make the field visible
+    find("#meeting_customize_registration_email").click
+    expect(help_text_for("div[data-tabs-content*='meeting-registration_email_custom_content-tab']")).to be_present
+    fill_in_i18n_editor(
+      :meeting_registration_email_custom_content,
+      "#meeting-registration_email_custom_content-tabs",
+      en: "We're very happy you registered for this event!"
+    )
 
     within ".new_meeting" do
       find("*[type=submit]").click
@@ -506,6 +551,8 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       end
 
       within ".edit_close_meeting" do
+        expect(page).to have_content "Choose proposals"
+
         fill_in_i18n_editor(
           :close_meeting_closing_report,
           "#close_meeting-closing_report-tabs",
@@ -541,6 +588,24 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
         end
 
         expect(page).to have_admin_callout("Meeting successfully closed")
+      end
+    end
+
+    context "when proposal linking is disabled" do
+      before do
+        allow(Decidim::Meetings).to receive(:enable_proposal_linking).and_return(false)
+      end
+
+      it "does not display the proposal picker" do
+        within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+          page.click_link "Close"
+        end
+
+        expect(page).to have_content "Close meeting"
+
+        within "form.edit_close_meeting" do
+          expect(page).not_to have_content "Choose proposals"
+        end
       end
     end
   end

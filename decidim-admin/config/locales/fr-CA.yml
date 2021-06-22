@@ -24,7 +24,7 @@ fr-CA:
       component:
         name: Titre
         published_at: Publiée à
-        weight: Rang d'affichage
+        weight: Rang
       id: ID
       import:
         user_group_id: Créer des imports en tant que
@@ -42,6 +42,7 @@ fr-CA:
         default_locale: Langue par défaut
         description: Description
         enable_omnipresent_banner: Montrer une bannière d'actualités
+        enable_participatory_space_filters: Activer les filtres d'espace participatif
         facebook_handler: Gestionnaire Facebook
         favicon: Icône
         force_authentication: Forcer l'authentification
@@ -111,12 +112,12 @@ fr-CA:
         show_in_footer: Montrer dans le pied de page
         slug: Identifiant
         title: Titre
-        weight: Poids
+        weight: Rang
       static_page_topic:
         description: La description
         show_in_footer: Montrer dans le pied de page
         title: Titre
-        weight: Poids
+        weight: Rang
       user_group_csv_verification:
         file: Fichier
     errors:
@@ -156,7 +157,6 @@ fr-CA:
         browse: Parcourir
         category:
           new: Nouvelle catégorie
-        export: Exporter
         import: Importer
         manage: Gérer
         new: Nouvelle %{name}
@@ -335,6 +335,12 @@ fr-CA:
         show:
           view_more_logs: Afficher plus
           welcome: Bienvenue dans l'espace d'administration de Decidim.
+      domain_whitelist:
+        form:
+          domain_too_short: Le nom de domaine est trop court
+        update:
+          error: Échec lors de la mise à jour de la liste blanches du domaine
+          success: Liste blanche du domaine mise à jour avec succès
       exports:
         export_as: "%{name} en format %{export_format}"
         formats:
@@ -347,6 +353,16 @@ fr-CA:
         category_id_eq:
           label: Catégorie
         filter_label: Filtre
+        invitation_accepted_at_present:
+          label: Invitation acceptée
+          values:
+            'false': 'Non'
+            'true': 'Oui'
+        last_sign_in_at_present:
+          label: Déjà connecté
+          values:
+            'false': 'Non'
+            'true': 'Oui'
         moderations:
           reportable_type_string_eq:
             label: Type
@@ -355,6 +371,17 @@ fr-CA:
           values:
             'false': Validé
             'true': Non validé
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Invitation acceptée
+            values:
+              'false': Non acceptée
+              'true': Acceptée
+          user_invitation_sent_at_not_null:
+            label: Invitation envoyée
+            values:
+              'false': Non envoyée
+              'true': Envoyée
         private_space_eq:
           label: Privé
           values:
@@ -372,13 +399,14 @@ fr-CA:
           name_or_nickname_or_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo.
           reported_id_string_or_reported_content_cont: Rechercher %{collection} par Id ou par contenu.
           title_cont: Search %{collection} par titre.
+          user_name_or_user_email_cont: Rechercher %{collection} par nom ou par email.
         state_eq:
           label: État
       forms:
         file_help:
           import:
             explanation: 'Instructions concernant le fichier:'
-            message_1: Les fichiers CSV, JSON et Excel (.xls) sont supportés
+            message_1: Les fichiers CSV, JSON et Excel (.xlsx) sont supportés
             message_2: Pour les fichiers CSV, le séparateur entre les colonnes doit être un point-virgule (";")
       help_sections:
         error: Une erreur s'est produite lors de la mise à jour des sections d'aide.
@@ -430,7 +458,7 @@ fr-CA:
           accepted_mime_types:
             csv: csv
             json: json
-            xls: xls
+            xlsx: xlsx
           actions:
             back: Retour
           file_legend: Ajouter un fichier d'import qui sera analysé.
@@ -456,6 +484,7 @@ fr-CA:
         areas: Zones d'application
         configuration: Configuration
         dashboard: Tableau de bord
+        external_domain_whitelist: Liste blanche du domaine externe
         help_sections: Sections d'aide
         homepage: Page d'accueil
         impersonations: Utilisateurs représentés
@@ -727,6 +756,17 @@ fr-CA:
             layout_appearance_title: Modifier l’aspect de la mise en page
             preview: Aperçu
           omnipresent_banner_appearance_title: Modifier la bannière permanente
+      organization_external_domain_whitelist:
+        edit:
+          update: Mettre à jour
+        external_domain:
+          down: Descendre
+          external_domain: Domaine externe
+          remove: Supprimer
+          up: Monter
+        form:
+          add: Ajouter à la liste blanche
+          title: Liste blanche du domaine externe
       organization_homepage:
         edit:
           active_content_blocks: Blocs de contenu actif
@@ -929,6 +969,13 @@ fr-CA:
       errors:
         impersonate_user:
           reason: Vous devez fournir une raison lors de l'emprunt d'identité d'un utilisateur standard
+    metrics:
+      blocked_users:
+        object: utilisateurs bloqués
+        title: Utilisateurs bloqués
+      reported_users:
+        object: utilisateurs signalés
+        title: Utilisateurs signalés
     moderations:
       actions:
         expand: Agrandir

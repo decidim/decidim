@@ -34,7 +34,7 @@ fi-pl:
         subtitle: Alaotsikko
         target: Kuka osallistuu
         title: Otsikko
-        weight: Painoarvo
+        weight: Järjestysnumero
       participatory_process_group:
         description: Kuvaus
         developer_group: Edistäjäryhmä
@@ -403,6 +403,7 @@ fi-pl:
             more_information: Lisätietoja
             participate: Osallistu
             participate_in: Osallistu prosessiin %{resource_name}
+            processes_button_title: Linkki Prosessit-sivulle, jossa näkyvät kaikki prosessit
             see_all_processes: Näytä kaikki prosessit
       participatory_process_steps:
         index:
@@ -449,6 +450,8 @@ fi-pl:
         start_date: Alkamispäivä
         target: Kuka osallistuu
         unspecified: Ei määritelty
+    statistics:
+      processes_count: Prosessia
   layouts:
     decidim:
       participatory_process_groups:

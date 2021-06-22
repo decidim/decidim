@@ -5,7 +5,7 @@ require "decidim/components/namer"
 Decidim.register_component(:meetings) do |component|
   component.engine = Decidim::Meetings::Engine
   component.admin_engine = Decidim::Meetings::AdminEngine
-  component.icon = "decidim/meetings/icon.svg"
+  component.icon = "media/images/decidim_meetings.svg"
   component.permissions_class_name = "Decidim::Meetings::Permissions"
 
   component.query_type = "Decidim::Meetings::MeetingsType"
@@ -34,9 +34,15 @@ Decidim.register_component(:meetings) do |component|
     Decidim::Follow.where(decidim_followable_type: "Decidim::Meetings::Meeting", decidim_followable_id: meetings_ids).count
   end
 
+  component.register_stat :comments_count, tag: :comments do |components, start_at, end_at|
+    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).not_hidden
+    meetings.sum(:comments_count)
+  end
+
   component.exports :meetings do |exports|
     exports.collection do |component_instance|
       Decidim::Meetings::Meeting
+        .published
         .not_hidden
         .visible
         .where(component: component_instance)
@@ -60,6 +66,16 @@ Decidim.register_component(:meetings) do |component|
     exports.serializer Decidim::Comments::CommentSerializer
   end
 
+  component.exports :answers do |exports|
+    exports.collection do |_component, _user, resource_id|
+      Decidim::Meetings::QuestionnaireUserAnswers.for(resource_id)
+    end
+
+    exports.formats %w(CSV JSON Excel FormPDF)
+
+    exports.serializer Decidim::Meetings::UserAnswersSerializer
+  end
+
   component.actions = %w(join)
 
   component.settings(:global) do |settings|
@@ -73,6 +89,7 @@ Decidim.register_component(:meetings) do |component|
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :enable_pads_creation, type: :boolean, default: false
     settings.attribute :creation_enabled_for_participants, type: :boolean, default: false
+    settings.attribute :maps_enabled, type: :boolean, default: true
   end
 
   component.settings(:step) do |settings|

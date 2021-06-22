@@ -150,3 +150,5 @@ ro:
             one: O sortare
             few: "%{count} sortări"
             other: "%{count} sortări"
+    statistics:
+      sortitions_count: Trageri la sorți

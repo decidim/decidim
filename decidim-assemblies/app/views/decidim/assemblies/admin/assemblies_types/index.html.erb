@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= t "decidim.admin.titles.assemblies_types" %>
       <%= link_to t("actions.new_assembly_type", scope: "decidim.admin"),
-                  ["new", "assemblies_type"],
+                  [:new, :assemblies_type],
                   class: "button tiny button--title" if allowed_to? :create, :assembly_type %>
     </h2>
   </div>

@@ -70,7 +70,7 @@ module Decidim
               end.to change(User, :count).by(0)
                                          .and broadcast(:invalid)
                 .and change(user.reload, :invitation_token)
-              expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
+              expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.on_queue("mailers")
             end
           end
         end

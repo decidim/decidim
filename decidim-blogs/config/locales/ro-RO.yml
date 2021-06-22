@@ -16,6 +16,7 @@ ro:
         edit: Editare
         new: Postare nouă
         title: Acțiuni
+        user_group_id: Creează postare ca
       admin:
         models:
           components:
@@ -77,3 +78,5 @@ ro:
           email_outro: Ați primit această notificare deoarece urmăriți „%{participatory_space_title}”. O puteți anula de la link-ul anterior.
           email_subject: Postare nouă publicată în %{participatory_space_title}
           notification_title: Postarea <a href="%{resource_path}">%{resource_title}</a> a fost publicată în %{participatory_space_title}
+    statistics:
+      posts_count: Postări

@@ -43,7 +43,7 @@ In detail each one of these steps are:
 # 1. Clone the repository
 git clone https://github.com/decidim/documentation
 # 2. Install dependencies
-npm install
+npm
 # 3. Change the antora-playbook.yml url key in source
 # 4. Build the antora playbook
 npm run build

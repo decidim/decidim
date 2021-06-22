@@ -38,7 +38,9 @@ eu:
               invalid_document_type: 'Dokumentu mota baliogabea. Onartutako formatuak hauek dira: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Berriro uzteko beharra
+            add_photos:
               needs_to_be_reattached: Berriro uzteko beharra
             body:
               identical: ETA izenburua ezin da berdinak izan

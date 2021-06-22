@@ -240,7 +240,6 @@ lv:
       photos:
         related_photos: Saistītie attēli
     author:
-      avatar: Avatārs
       comments:
         zero: komentāri
         one: komentēt

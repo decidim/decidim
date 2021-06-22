@@ -34,6 +34,50 @@ module Decidim::Comments
         expect(subject).not_to have_css(".label.alignment")
       end
 
+      context "when deleted" do
+        let(:comment) { create(:comment, commentable: commentable, deleted_at: 1.hour.ago, created_at: 1.day.ago) }
+
+        it "renders the card with a deletion message and replies" do
+          expect(subject).to have_css("#comment_#{comment.id}")
+          expect(subject).to have_css("#comment-#{comment.id}-replies", text: "")
+          expect(subject).to have_css(".comment__deleted")
+          expect(subject).to have_no_css("button[data-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.title")}']")
+          expect(subject).to have_no_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
+          expect(subject).to have_no_content(comment.body.values.first)
+          expect(subject).to have_no_content(I18n.l(comment.created_at, format: :decidim_short))
+          expect(subject).to have_content(I18n.l(comment.deleted_at, format: :decidim_short))
+          expect(subject).to have_no_content(comment.author.name)
+
+          expect(subject).to have_no_css(".comment__additionalreply")
+          expect(subject).to have_no_css(".add-comment")
+          expect(subject).to have_no_css(".comment__reply")
+          expect(subject).to have_no_css("#flagModalComment#{comment.id}")
+        end
+      end
+
+      context "when edited" do
+        before do
+          allow(comment).to receive(:edited?).and_return(true)
+        end
+
+        it "renders the card with an Edited message" do
+          expect(subject).to have_css("#comment_#{comment.id}")
+          expect(subject).to have_css("#comment-#{comment.id}-replies", text: "")
+          expect(subject).to have_css(".comment__content")
+          expect(subject).to have_css("button[data-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.title")}']")
+          expect(subject).to have_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
+          expect(subject).to have_content("Edited")
+          expect(subject).to have_content(comment.body.values.first)
+          expect(subject).to have_content(I18n.l(comment.created_at, format: :decidim_short))
+          expect(subject).to have_content(comment.author.name)
+
+          expect(subject).not_to have_css(".comment__additionalreply")
+          expect(subject).not_to have_css(".add-comment")
+          expect(subject).not_to have_css(".comment__reply")
+          expect(subject).not_to have_css(".label.alignment")
+        end
+      end
+
       context "with votes" do
         let(:comment) { create(:comment, commentable: commentable) }
 
@@ -121,6 +165,40 @@ module Decidim::Comments
             expect(subject).to have_css("form.button_to[action='/comments/#{comment.id}/votes?weight=-1']")
             expect(subject).to have_css("form.button_to[action='/comments/#{comment.id}/votes?weight=1']")
           end
+        end
+      end
+    end
+
+    describe "#vote_button_to" do
+      context "when commentable has permissions set for the vote_comment action" do
+        let(:permissions) do
+          {
+            vote_comment: {
+              authorization_handlers: {
+                "dummy_authorization_handler" => { "options" => {} }
+              }
+            }
+          }
+        end
+
+        let(:user) { create(:user, :confirmed, organization: organization) }
+
+        before do
+          organization.available_authorizations = ["dummy_authorization_handler"]
+          organization.save!
+          commentable.create_resource_permission(permissions: permissions)
+          allow(commentable).to receive(:comments_have_votes?).and_return(true)
+          allow(subject).to receive(:current_user).and_return(user)
+        end
+
+        it "renders an action_authorized button" do
+          expect(subject).to have_css("[data-open=\"authorizationModal\"]")
+        end
+      end
+
+      context "when commentable has no permissions set for the vote_comment action" do
+        it "renders a plain button" do
+          expect(subject).to have_no_css("[data-open=\"authorizationModal\"]")
         end
       end
     end

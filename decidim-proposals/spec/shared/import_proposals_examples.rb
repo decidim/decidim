@@ -58,7 +58,7 @@ shared_examples "import proposals" do
     find(".imports.dropdown").click
     click_link "Import from a file"
 
-    attach_file("import_file", Decidim::Dev.asset("import_proposals.xls"))
+    attach_file("import_file", Decidim::Dev.asset("import_proposals.xlsx"))
 
     click_button "Import"
 

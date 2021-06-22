@@ -24,7 +24,8 @@ module Decidim
               end_time: voting.end_time,
               introductory_image: voting.introductory_image,
               promoted: voting.promoted,
-              voting_type: voting.voting_type
+              voting_type: voting.voting_type,
+              census_contact_information: voting.census_contact_information
             }
           }
         end

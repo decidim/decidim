@@ -1,1 +1,24 @@
 sv:
+  decidim:
+    admin:
+      menu:
+        templates: Mallar
+      titles:
+        templates: Mallar
+    models:
+      template:
+        fields:
+          created_at: Skapad den
+        name: Mall
+    templates:
+      admin:
+        questionnaire_templates:
+          choose:
+            skip_template: Hoppa över
+          edit:
+            edit: Redigera
+            questionnaire: Enkät
+          form:
+            save: Spara
+          preview:
+            current_step: Steg %{step} av

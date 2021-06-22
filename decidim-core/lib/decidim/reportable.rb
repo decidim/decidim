@@ -26,14 +26,14 @@ module Decidim
       #
       # Returns Boolean.
       def hidden?
-        moderation&.hidden_at&.present?
+        moderation&.hidden_at&.present? || false
       end
 
       # Public: Checks if the reportable has been reported or not.
       #
       # Returns Boolean.
       def reported?
-        moderation&.report_count&.positive?
+        moderation&.report_count&.positive? || false
       end
 
       # Public: The reported content url

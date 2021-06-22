@@ -23,6 +23,12 @@ ro:
           global:
             announcement: Anunţ
             clean_after_publish: Ștergeți răspunsurile la publicarea sondajului
+            ends_at: Răspunsuri acceptate până la
+            ends_at_help: Lăsați necompletat pentru nicio dată specifică
+            scope_id: Domeniu de interes
+            scopes_enabled: Domenii de interes activate
+            starts_at: Răspunsuri acceptate de la
+            starts_at_help: Lăsați necompletat pentru nicio dată specifică
           step:
             allow_answers: Permite răspunsuri
             allow_unregistered: Permite utilizatorilor neînregistrați să răspundă la chestionar
@@ -45,6 +51,8 @@ ro:
         description: Numărul de sondaje la care au răspuns participanții
         object: răspunsuri la sondaje
         title: Răspunsuri la chestionare
+    statistics:
+      answers_count: Răspunsuri
     surveys:
       admin:
         exports:

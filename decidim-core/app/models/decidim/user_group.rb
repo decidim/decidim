@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_dependency "devise/models/decidim_validatable"
+require "devise/models/decidim_validatable"
 require "valid_email2"
 
 module Decidim
@@ -10,6 +10,7 @@ module Decidim
     include Decidim::DataPortability
     include Decidim::ActsAsAuthor
     include Decidim::UserReportable
+    include Decidim::Searchable
 
     has_many :memberships, class_name: "Decidim::UserGroupMembership", foreign_key: :decidim_user_group_id, dependent: :destroy
     has_many :users, through: :memberships, class_name: "Decidim::User", foreign_key: :decidim_user_id
@@ -32,9 +33,23 @@ module Decidim
     scope :rejected, -> { where.not("extended_data->>'rejected_at' IS ?", nil) }
     scope :pending, -> { where("extended_data->>'rejected_at' IS ? AND extended_data->>'verified_at' IS ?", nil, nil) }
 
+    searchable_fields(
+      {
+        organization_id: :decidim_organization_id,
+        A: :name,
+        datetime: :created_at
+      },
+      index_on_create: ->(user_group) { !user_group.deleted? },
+      index_on_update: ->(user_group) { !user_group.deleted? }
+    )
+
     def self.with_document_number(organization, number)
       where(decidim_organization_id: organization.id)
         .where("extended_data->>'document_number' = ?", number)
+    end
+
+    def non_deleted_memberships
+      memberships.where(decidim_users: { deleted_at: nil })
     end
 
     # Returns the presenter for this author, to be used in the views.
@@ -60,6 +75,11 @@ module Decidim
     # Public: Checks if the user group is pending.
     def pending?
       verified_at.blank? && rejected_at.blank?
+    end
+
+    # Check if the group has been deleted or not
+    def deleted?
+      deleted_at.present?
     end
 
     def self.user_collection(user)

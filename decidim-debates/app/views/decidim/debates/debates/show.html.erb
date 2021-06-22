@@ -45,7 +45,7 @@ edit_link(
     <% end %>
     <div class="card extra">
       <div class="card__content">
-        <%= cell("decidim/date", { start: debate.start_time, end: debate.end_time }) %>
+        <%= cell("decidim/date_range", { start: debate.start_time, end: debate.end_time }) %>
 
         <% if endorsements_enabled? && allowed_to?(:endorse, :debate, debate: debate) %>
           <div class="row collapse buttons__row">

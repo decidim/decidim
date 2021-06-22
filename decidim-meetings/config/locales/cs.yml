@@ -8,12 +8,16 @@ cs:
       close_meeting:
         attendees_count: Počet účastníků
         attending_organizations: Seznam organizací, které se zúčastnily
-        closing_report: Zpráva
+        audio_url: Audio URL
+        closing_report: Minut
+        closing_visible: Viditelný
         contributions_count: Počet příspěvků
         proposal_ids: Návrhy vytvořené na schůzi
+        video_url: Video URL
       meeting:
         address: Adresa
         available_slots: Dostupné sloty pro toto schůzku
+        customize_registration_email: Přizpůsobit registrační e-mail
         decidim_category_id: Kategorie
         decidim_scope_id: Rozsah
         decidim_user_group_id: Uživatelská skupina
@@ -25,6 +29,7 @@ cs:
         organizer_gid: Vytvořit jako
         organizer_id: Organizátor
         private_meeting: Soukromá schůzka
+        registration_email_custom_content: Přizpůsobený obsah registračního e-mailu
         registration_form_enabled: Registrační formulář je povolen
         registration_terms: Podmínky registrace
         registration_url: URL registrace
@@ -33,11 +38,6 @@ cs:
         title: Název
         transparent: Transparentní
         type_of_meeting: Typ
-      minutes:
-        audio_url: Audio URL
-        description: Popis
-        video_url: Video URL
-        visible: Viditelný
     errors:
       models:
         meeting_agenda:
@@ -96,6 +96,7 @@ cs:
             creation_enabled_for_participants: Účastníci mohou vytvářet schůzky
             default_registration_terms: Výchozí podmínky registrace
             enable_pads_creation: Povolit vytvoření sdíleného textu
+            maps_enabled: Mapy povoleny
             registration_code_enabled: Registrační kód povolen
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
             scope_id: Oblast působnosti
@@ -120,6 +121,7 @@ cs:
             email_subject: Schůzka "%{resource_title}" byla uzavřena
             notification_title: Schůzka <a href="%{resource_path}">%{resource_title}</a> byla uzavřena.
         meeting_created:
+          button_text: Zaregistrovat se na schůzku
           email_intro: Schůzka "%{resource_title}" byla přidána k "%{participatory_space_title}", kterou sledujete.
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{participatory_space_title}". Můžete jej odhlásit od předchozího odkazu.
           email_subject: Nové schůzky byly přidány k %{participatory_space_title}
@@ -178,7 +180,7 @@ cs:
             few: 'Schůzku nelze zničit, protože má k ní přidruženo %{count} návrhů:'
             many: 'Schůzku nelze zničit, protože má k ní přidruženo %{count} návrhů:'
             other: 'Schůzka nemůže být zničena, protože s ní je spojeno %{count} návrhů:'
-        minutes: Minut
+        manage_poll: Spravovat anketu
         new: Nové setkání
         preview: Náhled
         registrations: Registrace
@@ -207,7 +209,7 @@ cs:
             add_agenda_item: Přidat položku agendy
             agenda_items: Položky agendy
             end_date: Datum ukončení
-            start_date: Počáteční datum
+            start_date: Datum zahájení
           new:
             create: Vytvořit
             title: Nová agenda
@@ -215,6 +217,7 @@ cs:
             invalid: Při aktualizaci této agendy došlo k problému
             success: Agenda byla úspěšně aktualizována
         exports:
+          answers: Odpovědi
           meeting_comments: Komentáře
           meetings: Setkání
           registrations: Registrace
@@ -237,7 +240,7 @@ cs:
           index:
             filter:
               accepted: Přijato
-              all: Všechno
+              all: Vše
               rejected: Odmítnuto
               sent: Odeslaná
             filter_by: Filtrovat podle
@@ -255,7 +258,7 @@ cs:
             success: Setkání bylo úspěšně uzavřeno
           create:
             invalid: Při vytváření této schůzky došlo k problému
-            success: Setkání bylo úspěšně vytvořeno
+            success: Schůze byla úspěšně vytvořena. Všimněte si, že není publikována, musíte ji publikovat ručně.
           destroy:
             invalid:
               proposals_count:
@@ -274,6 +277,7 @@ cs:
             location_help: 'Poloha: zpráva určená uživatelům, kteří předávají místo, aby se setkali'
             location_hints_help: 'Upřesnění k místu: dodatečné informace. Příklad: patro budovy, pokud se jedná o osobní schůzku, nebo vstupní heslo pro schůzku, pokud se jedná o schůzku s omezeným přístupem.'
             online_meeting_url_help: 'Odkaz: Umožnit účastníkům připojení přímo k vaší schůzce'
+            registration_email_help: Tento text se zobrazí uprostřed potvrzení registračním e-mailem. Hned za registračním kódem.
             registration_url_help: 'Odkaz: umožnit účastníkům jít na externí službu, kterou používáte pro registrace'
             select_a_meeting_type: Vyberte prosím typ schůzky
             select_a_registration_type: Vyberte prosím typ registrace
@@ -282,6 +286,9 @@ cs:
           new:
             create: Vytvořit
             title: Vytvořte schůzku
+          publish:
+            invalid: Při publikování této schůzky došlo k chybě
+            success: Schůze byla úspěšně publikována
           service:
             description: Popis
             down: Dolů
@@ -292,22 +299,18 @@ cs:
           services:
             add_service: Přidat službu
             services: Služby
+          unpublish:
+            invalid: Při rušení publikování této schůzky došlo k chybě
+            success: Schůzka byla úspěšně zrušena
           update:
             invalid: Došlo k problému při aktualizaci této schůzky
             success: Schůzka byla úspěšně aktualizována
-        minutes:
-          create:
-            invalid: Při vytváření těchto minut došlo k problému
-            success: Minuty úspěšně vytvořeny
-          edit:
-            title: Upravit minuty
-            update: Aktualizace
-          new:
-            create: Vytvořit
-            title: Vytvořte minuty
+        meetings_poll:
+          form:
+            title: Upravit anketní dotazník pro %{questionnaire_for}
           update:
-            invalid: Při aktualizaci těchto minut došlo k problému
-            success: Minuty úspěšně aktualizovány
+            invalid: Při aktualizaci této ankety ke schůzce došlo k chybě
+            success: Anketa ke schůzce byla úspěšně aktualizována
         models:
           meeting:
             name: Setkání
@@ -349,9 +352,6 @@ cs:
           value_types:
             organizer_presenter:
               not_found: 'Organizátor nebyl nalezen v databázi (ID: %{id})'
-        minutes:
-          create: "%{user_name} vytvořilo zápisy ze schůzky %{resource_name} v prostoru %{space_name}"
-          update: "%{user_name} aktualizoval zápisy ze schůzky %{resource_name} na %{space_name} místa"
       calendar_modal:
         calendar_url: Adresa URL kalendáře
         close_window: Zavřete okno
@@ -365,15 +365,21 @@ cs:
       directory:
         meetings:
           index:
-            all: Všechno
+            all: Vše
             date: Datum
             meetings: Setkání
-            past: Minulost
+            past: Minulé
             search: Vyhledávání
             space_type: Účastní prostor
             upcoming: Nadcházející
       last_activity:
+        meeting_updated_at_html: "<span>Schůzka aktualizována na %{link}</span>"
         new_meeting_at_html: "<span>Nové setkání v %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Spravovat
+          close: zavřít
+          questions: Otázky
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -389,6 +395,13 @@ cs:
           close: Ukončit schůzku
           title: Ukončit schůzku
       meetings:
+        calendar_modal:
+          add_to_calendar: Přidat do kalendáře
+          apple: Přidat do Apple kalendáře
+          close_window: Zavřít okno
+          full_details_html: Pro úplné podrobnosti přejděte na %{link}
+          google: Přidat do Google kalendáře
+          outlook: Přidat do kalendáře aplikace Outlook
         count:
           meetings_count:
             one: "%{count} schůzka"
@@ -446,7 +459,6 @@ cs:
         index:
           new_meeting: Nová schůzka
         meeting_minutes:
-          meeting_minutes: Zápis z porady
           related_information: Související informace
         meetings:
           no_meetings_warning: Žádné schůzky neodpovídají vašim kritériím vyhledávání nebo nejsou plánovány žádné schůzky.
@@ -455,6 +467,9 @@ cs:
           back: Zpět
           create: Vytvořit
           title: Vytvořte si schůzku
+        online_meeting_link:
+          join: Připojte se ke schůzce
+          live_event: Tato schůzka se děje právě teď
         registration_confirm:
           cancel: Zrušit
           confirm: Potvrdit
@@ -465,9 +480,11 @@ cs:
           contributions: Počet příspěvků
           date: Datum
           edit_meeting: Upravit schůzku
-          going: Chystáte se
+          going: Přihlásili jste se k této schůzce
           join: Připojte se k setkání
-          meeting_report: Zpráva o schůzce
+          leave: Zrušit registraci
+          leave_confirmation: Opravdu chcete zrušit registraci na tuto schůzku?
+          meeting_minutes: Zápis z porady
           no_slots_available: Žádné sloty nejsou k dispozici
           organizations: Účastnické organizace
           registration_code_help_text: Váš registrační kód
@@ -479,7 +496,7 @@ cs:
             few: "%{count} zbývajících bloků"
             many: "%{count} zbývajících bloků"
             other: "%{count} zbývajících bloků"
-          view: Zobrazení
+          view: Zobrazit
         update:
           invalid: Při aktualizaci schůzky došlo k chybě.
           success: Úspěšně jste aktualizovali schůzku.
@@ -502,8 +519,35 @@ cs:
             end_time: Datum ukončení
             map: Mapa
             official_meeting: Oficiální schůzka
-            start_time: Počáteční datum
+            start_time: Datum zahájení
             title: Titul
+      polls:
+        questions:
+          closed_question:
+            question_results: Výsledky otázek
+          index:
+            empty_questions: Během této schůzky budou zaslány některé dotazy a vy na ně budete moci odpovědět. Zobrazí se zde.
+          index_admin:
+            admin_dashboard: Řídicí panel administrace
+            edit: Upravit v administraci
+            question: Otázka
+            received_answer: přijatá odpověď
+            received_answers: přijaté odpovědi
+            results: Výsledky
+            send: Odeslat
+            sent: Odesláno
+          published_question:
+            max_choices_alert: Je vybráno příliš mnoho možností
+            question: Otázka
+            question_replied: Odpověď na otázku
+            reply_question: Odpovědět na otázku
+      public_participants_list:
+        attending_participants: Účast účastníků
+        hidden_participants_count:
+          one: a %{count} další osoba
+          few: a %{count} další osoby
+          many: a %{count} dalších osob
+          other: a %{count} další osoby
       read_more: "(Přečtěte si více)"
       registration_mailer:
         confirmation:

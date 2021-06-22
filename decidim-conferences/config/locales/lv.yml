@@ -22,6 +22,12 @@ lv:
         slogan: Sauklis
         slug: URL sadaļas adrese (slug)
         title: Nosaukums
+      conference_media_link:
+        weight: Svarīgums
+      conference_partner:
+        weight: Svarīgums
+      conference_registration_type:
+        weight: Svarīgums
       conference_speaker:
         full_name: Vārds, uzvārds
       conference_user_role:
@@ -209,7 +215,6 @@ lv:
             price: Cena
             registrations_count: Reģistrāciju skaits
             title: Nosaukums
-            weight: Svarīgums
           name: Reģistrācijas veids
       partners:
         create:

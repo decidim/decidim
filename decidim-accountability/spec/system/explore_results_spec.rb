@@ -236,7 +236,7 @@ describe "Explore results", versioning: true, type: :system do
       let(:meeting_component) do
         create(:component, manifest_name: :meetings, participatory_space: result.component.participatory_space)
       end
-      let(:meetings) { create_list(:meeting, 3, component: meeting_component) }
+      let(:meetings) { create_list(:meeting, 3, :published, component: meeting_component) }
       let(:meeting) { meetings.first }
 
       before do

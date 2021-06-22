@@ -243,3 +243,5 @@ nl:
         result_project: Projecten opgenomen in dit resultaat
       included_proposals:
         result_proposal: Voorstellen opgenomen in dit resultaat
+    statistics:
+      results_count: Resultaten

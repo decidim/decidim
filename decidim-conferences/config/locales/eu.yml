@@ -22,6 +22,12 @@ eu:
         slogan: leloa
         slug: URL slug
         title: Izenburua
+      conference_media_link:
+        weight: pisu
+      conference_partner:
+        weight: pisu
+      conference_registration_type:
+        weight: pisu
       conference_speaker:
         full_name: Izen osoa
       conference_user_role:
@@ -205,7 +211,6 @@ eu:
             price: Prezioa
             registrations_count: Erregistroak zenbatzea
             title: Izenburua
-            weight: pisu
           name: Izen-emate mota
       partners:
         create:

@@ -36,7 +36,7 @@ module Decidim
         end
 
         def edit
-          enforce_permission_to :update, :voting, voting: current_voting
+          enforce_permission_to :edit, :voting, voting: current_voting
           @form = form(VotingForm).from_model(current_voting)
           render layout: "decidim/admin/voting"
         end

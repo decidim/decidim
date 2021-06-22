@@ -31,6 +31,18 @@ describe "Registration", type: :system do
         expect(page).to have_field("registration_user_newsletter", checked: false)
       end
     end
+
+    describe "on cached sight with a different language", :caching do
+      it "shows the omniauth buttons in correct locale" do
+        expect(page).to have_content("Sign in with Facebook")
+
+        within_language_menu do
+          click_link "Català"
+        end
+
+        expect(page).to have_content("Inicia sessió amb Facebook")
+      end
+    end
   end
 
   context "when newsletter checkbox is unchecked" do

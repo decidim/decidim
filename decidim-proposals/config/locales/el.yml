@@ -44,7 +44,9 @@ el:
               invalid_document_type: 'Μη έγκυρος τύπος εγγράφου. Οι αποδεκτές μορφές είναι: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Πρέπει να επισυναφθεί ξανά
+            add_photos:
               needs_to_be_reattached: Πρέπει να επισυναφθεί ξανά
             body:
               cant_be_equal_to_template: δεν μπορεί να είναι ίσο με το πρότυπο

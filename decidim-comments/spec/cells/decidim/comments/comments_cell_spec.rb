@@ -92,11 +92,37 @@ module Decidim::Comments
         context "when user comments are blocked" do
           before do
             allow(commentable).to receive(:user_allowed_to_comment?).with(current_user).and_return(false)
+            allow(commentable).to receive(:user_authorized_to_comment?).with(current_user).and_return(true)
           end
 
           it "renders the user comments blocked warning" do
-            expect(subject).not_to have_css(".callout.warning", text: I18n.t("decidim.components.comments.blocked_comments_warning"))
+            expect(subject).not_to have_css(".callout.warning", text: I18n.t("decidim.components.comments.blocked_comments_for_unauthorized_user_warning"))
             expect(subject).to have_css(".callout.warning", text: I18n.t("decidim.components.comments.blocked_comments_for_user_warning"))
+          end
+        end
+
+        context "when user is not authorized to comment" do
+          let(:permissions) do
+            {
+              comment: {
+                authorization_handlers: {
+                  "dummy_authorization_handler" => { "options" => {} }
+                }
+              }
+            }
+          end
+
+          before do
+            organization.available_authorizations = ["dummy_authorization_handler"]
+            organization.save!
+            commentable.create_resource_permission(permissions: permissions)
+            allow(commentable).to receive(:user_allowed_to_comment?).with(current_user).and_return(false)
+            allow(commentable).to receive(:user_authorized_to_comment?).with(current_user).and_return(false)
+          end
+
+          it "renders the user not authorized to comment warning" do
+            expect(subject).to have_css(".callout.warning", text: I18n.t("decidim.components.comments.blocked_comments_for_unauthorized_user_warning"))
+            expect(subject).not_to have_css(".callout.warning", text: I18n.t("decidim.components.comments.blocked_comments_for_user_warning"))
           end
         end
       end

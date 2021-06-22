@@ -95,7 +95,8 @@ module Decidim
             instagram_handler: form.instagram_handler,
             youtube_handler: form.youtube_handler,
             github_handler: form.github_handler,
-            weight: form.weight
+            weight: form.weight,
+            announcement: form.announcement
           }.merge(uploader_attributes)
         end
 

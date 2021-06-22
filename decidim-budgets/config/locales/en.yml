@@ -7,7 +7,7 @@ en:
         description: Description
         title: Title
         total_budget: Total budget
-        weight: Weight
+        weight: Order position
       project:
         budget_amount: Budget amount
         decidim_category_id: Category
@@ -109,6 +109,9 @@ en:
         close_modal: Close modal
         continue: Continue
         more_information: More information
+      budget_list_item:
+        voting_finished: You have voted in this budget
+        voting_started: You have started to vote in this budget
       budgets_list:
         cancel_order:
           more_than_one: delete your vote on %{name} and start over

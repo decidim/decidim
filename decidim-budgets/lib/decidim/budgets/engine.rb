@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require "searchlight"
-require "kaminari"
+require "decidim/core"
 
 module Decidim
   module Budgets
@@ -23,10 +22,6 @@ module Decidim
         end
 
         root to: "budgets#index"
-      end
-
-      initializer "decidim_budgets.assets" do |app|
-        app.config.assets.precompile += %w(decidim_budgets_manifest.js)
       end
 
       initializer "decidim_budgets.add_cells_view_paths" do

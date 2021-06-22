@@ -60,6 +60,8 @@ sk:
       actions:
         new_initiative_type: Nový typ iniciatívy
       menu:
+        components: Komponenty
+        information: Informácie
         initiatives: Iniciatívy
         initiatives_types: Typy iniciatív
       models:
@@ -393,12 +395,6 @@ sk:
           vote: Hlasovanie
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Prílohy
-          committee_members: členovia komisie
-          components: Komponenty
-          information: Informácie
       initiative_creation_header:
         back: Späť
         fill_data: Vytvoriť

@@ -11,14 +11,15 @@ module Decidim::Meetings
     let(:default_params) { { component: component, organization: component.organization, user: user } }
     let(:params) { default_params }
 
-    it_behaves_like "a resource search", :meeting
-    it_behaves_like "a resource search with scopes", :meeting
-    it_behaves_like "a resource search with categories", :meeting
+    it_behaves_like "a resource search", :published_meeting
+    it_behaves_like "a resource search with scopes", :published_meeting
+    it_behaves_like "a resource search with categories", :published_meeting
 
     describe "filters" do
       let!(:meeting1) do
         create(
           :meeting,
+          :published,
           author: user,
           component: component,
           start_time: 1.day.from_now,
@@ -28,17 +29,28 @@ module Decidim::Meetings
       let!(:meeting2) do
         create(
           :meeting,
+          :published,
           component: component,
           start_time: 1.day.ago,
           end_time: 2.days.from_now,
           description: Decidim::Faker::Localized.literal("Curabitur arcu erat, accumsan id imperdiet et.")
         )
       end
+      # Meeting not published, shouldn't appear
+      let!(:meeting3) do
+        create(
+          :meeting,
+          author: user,
+          component: component,
+          start_time: 1.day.from_now,
+          description: Decidim::Faker::Localized.literal("Nulla TestCheck accumsan tincidunt.")
+        )
+      end
 
       context "with date" do
         let(:params) { default_params.merge(date: date) }
         let!(:past_meeting) do
-          create(:meeting, component: component, start_time: 10.days.ago, end_time: 1.day.ago)
+          create(:meeting, :published, component: component, start_time: 10.days.ago, end_time: 1.day.ago)
         end
 
         context "when upcoming" do
@@ -69,10 +81,10 @@ module Decidim::Meetings
 
       context "when filtering by type" do
         let!(:in_person_meeting) do
-          create(:meeting, component: component)
+          create(:meeting, :published, component: component)
         end
         let!(:online_meeting) do
-          create(:meeting, :online, component: component)
+          create(:meeting, :published, :online, component: component)
         end
 
         context "when online" do

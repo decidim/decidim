@@ -43,7 +43,7 @@ In theory, that would be all. However, you need to be careful in certain situati
 
 == From git repositories
 
-For managing the gems we use the standard Rails gem called Bundler, where you can also point to https://bundler.io/v2.1/guides/git.html[git repositories and branches]. This is specially useful if you want to try an unreleased version, then you can do so by pointing to the release branch.
+For managing the gems we use the standard Rails gem called Bundler, where you can also point to https://bundler.io/v2.2/guides/git.html[git repositories and branches]. This is specially useful if you want to try an unreleased version, then you can do so by pointing to the release branch.
 
 [source,ruby]
 ----

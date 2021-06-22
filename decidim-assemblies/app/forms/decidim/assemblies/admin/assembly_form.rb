@@ -30,6 +30,7 @@ module Decidim
         translatable_attribute :subtitle, String
         translatable_attribute :target, String
         translatable_attribute :title, String
+        translatable_attribute :announcement, String
 
         attribute :created_by, String
         attribute :facebook_handler, String

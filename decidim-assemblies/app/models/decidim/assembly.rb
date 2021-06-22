@@ -40,7 +40,7 @@ module Decidim
 
     translatable_fields :title, :subtitle, :short_description, :description, :developer_group, :meta_scope, :local_area,
                         :target, :participatory_scope, :participatory_structure, :purpose_of_action, :composition, :created_by_other,
-                        :closing_date_reason, :internal_organisation, :special_features
+                        :closing_date_reason, :internal_organisation, :special_features, :announcement
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",

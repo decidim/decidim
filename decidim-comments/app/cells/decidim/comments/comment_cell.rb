@@ -7,15 +7,18 @@ module Decidim
       include ActionView::Helpers::DateHelper
       include Decidim::IconHelper
       include Decidim::ResourceHelper
+      include Cell::ViewModel::Partial
 
       delegate :current_user, :user_signed_in?, to: :controller
 
       property :root_commentable
       property :created_at
+      property :deleted_at
       property :alignment
       property :translated_body
       property :comment_threads
       property :accepts_new_comments?
+      property :edited?
 
       def alignment_badge
         return unless [-1, 1].include?(alignment)
@@ -49,6 +52,10 @@ module Decidim
 
       def reply_id
         "comment#{model.id}-reply"
+      end
+
+      def context_menu_id
+        "toggle-context-menu-#{model.id}"
       end
 
       def can_reply?
@@ -116,6 +123,10 @@ module Decidim
         end
       end
 
+      def comment_path
+        decidim_comments.comment_path(model)
+      end
+
       def up_votes_count
         model.up_votes.count
       end
@@ -130,6 +141,10 @@ module Decidim
 
       def depth
         model.depth - root_depth
+      end
+
+      def reloaded?
+        options[:reloaded]
       end
 
       def voted_up?
@@ -150,6 +165,20 @@ module Decidim
 
       def has_replies?
         model.comment_threads.any?
+      end
+
+      # action_authorization_button expects current_component to be available
+      def current_component
+        root_commentable.try(:component)
+      end
+
+      def vote_button_to(path, params, &block)
+        # actions are linked to objects belonging to a component
+        # In consultations, a question belong to a participatory_space but it has comments
+        # To apply :comment permission, the modal authorizer should be refactored to allow participatory spaces-level comments
+        return button_to(path, params, &block) unless current_component
+
+        action_authorized_button_to(:vote_comment, path, params.merge(resource: root_commentable), &block)
       end
     end
   end

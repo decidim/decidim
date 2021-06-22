@@ -22,6 +22,12 @@ el:
         slogan: Σύνθημα
         slug: Slug διεύθυνσης URL
         title: Τίτλος
+      conference_media_link:
+        weight: Βάρος
+      conference_partner:
+        weight: Βάρος
+      conference_registration_type:
+        weight: Βάρος
       conference_speaker:
         full_name: Ονοματεπώνυμο
       conference_user_role:
@@ -206,7 +212,6 @@ el:
             price: Τιμή
             registrations_count: Αριθμός εγγραφών
             title: Τίτλος
-            weight: Βάρος
           name: Τύπος εγγραφής
       partners:
         create:

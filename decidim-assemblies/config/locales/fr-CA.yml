@@ -26,7 +26,7 @@ fr-CA:
         duration: Durée
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
+        hashtag: Mot-clic
         hero_image: Image de la page d'accueil
         included_at: Intégrée à cette plateforme le
         instagram: Instagram
@@ -52,7 +52,6 @@ fr-CA:
         target: Participants
         title: Titre
         twitter: Twitter
-        weight: Rang d'affichage
         youtube: Youtube
       assembly_member:
         birthday: Date de naissance
@@ -386,11 +385,6 @@ fr-CA:
         designated_on: Désigné le
       index:
         title: Membres
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Lien vers la page Conférences où toutes les conférences sont affichées
     events:
       assemblies:
         create_assembly_member:
@@ -423,17 +417,7 @@ fr-CA:
         description: Nombre d'assemblées créées
         object: assemblées
         title: Assemblées
-    pages:
-      home:
-        hero:
-          participate_title: Participer aux processus de la plateforme
-        sub_hero:
-          register_title: Inscrivez-vous pour créer un compte
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Lien vers la page Concertation où toutes les concertations sont affichées
       show:
         related_assemblies: Assemblées associées
   errors:

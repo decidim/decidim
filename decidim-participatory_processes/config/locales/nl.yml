@@ -34,6 +34,7 @@ nl:
         subtitle: Ondertitel
         target: Wie doet mee
         title: Titel
+        weight: Bestelpositie
       participatory_process_group:
         description: Beschrijving
         developer_group: Promoter groep
@@ -400,6 +401,7 @@ nl:
             more_information: Meer informatie
             participate: Deelnemen
             participate_in: Deelnemen aan proces %{resource_name}
+            processes_button_title: Link naar de pagina Processen waarop alle processen worden weergegeven
             see_all_processes: Bekijk alle thema's
       participatory_process_steps:
         index:
@@ -446,6 +448,8 @@ nl:
         start_date: Startdatum
         target: Wie neemt deel
         unspecified: Niet gespecificeerd
+    statistics:
+      processes_count: Inspraakprocessen
   layouts:
     decidim:
       participatory_process_groups:

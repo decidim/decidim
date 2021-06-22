@@ -29,7 +29,7 @@ module Decidim
 
         expect(Decidim::MachineTranslationFieldsJob)
           .to have_been_enqueued
-          .on_queue("default")
+          .on_queue("translations")
           .exactly(2).times
           .with(
             process,
@@ -58,7 +58,7 @@ module Decidim
         )
         expect(Decidim::MachineTranslationFieldsJob)
           .to have_been_enqueued
-          .on_queue("default")
+          .on_queue("translations")
           .exactly(2).times
           .with(
             process,
@@ -85,7 +85,7 @@ module Decidim
         )
         expect(Decidim::MachineTranslationFieldsJob)
           .not_to have_been_enqueued
-          .on_queue("default")
+          .on_queue("translations")
       end
     end
 
@@ -104,7 +104,7 @@ module Decidim
         )
         expect(Decidim::MachineTranslationFieldsJob)
           .to have_been_enqueued
-          .on_queue("default")
+          .on_queue("translations")
           .exactly(1).times
           .with(
             process,

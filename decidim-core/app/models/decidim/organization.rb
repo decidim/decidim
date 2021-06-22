@@ -29,6 +29,7 @@ module Decidim
     has_many :admins, -> { where(admin: true) }, foreign_key: "decidim_organization_id", class_name: "Decidim::User"
     has_many :users_with_any_role, -> { where.not(roles: []) }, foreign_key: "decidim_organization_id", class_name: "Decidim::User"
     has_many :users, foreign_key: "decidim_organization_id", class_name: "Decidim::User", dependent: :destroy
+    has_many :user_entities, foreign_key: "decidim_organization_id", class_name: "Decidim::UserBaseEntity", dependent: :destroy
     has_many :oauth_applications, foreign_key: "decidim_organization_id", class_name: "Decidim::OAuthApplication", inverse_of: :organization, dependent: :destroy
     has_many :hashtags, foreign_key: "decidim_organization_id", class_name: "Decidim::Hashtag", dependent: :destroy
 
@@ -174,9 +175,9 @@ module Decidim
         Decidim::OmniauthProvider.extract_provider_key(key)
       end.compact.uniq
 
-      Hash[tenant_enabled_providers_keys.map do |key|
-        [key, omniauth_provider_settings(key)]
-      end]
+      tenant_enabled_providers_keys.index_with do |key|
+        omniauth_provider_settings(key)
+      end
     end
 
     def omniauth_provider_settings(provider)

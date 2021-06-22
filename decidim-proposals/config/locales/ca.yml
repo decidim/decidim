@@ -35,6 +35,7 @@ ca:
         origin_component_id: Component des d'on importar les propostes
       proposals_import:
         import_proposals: Importar propostes
+        keep_answers: Manté l'estat i les respostes
         keep_authors: Mantenir l'autoria original
       valuation_assignment:
         admin_log:
@@ -47,7 +48,9 @@ ca:
               invalid_document_type: 'Tipus de document no vàlid. Els formats acceptats són: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
+            add_photos:
               needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
             body:
               cant_be_equal_to_template: No pot ser igual a la plantilla
@@ -113,9 +116,11 @@ ca:
       proposals:
         actions:
           amend: Esmena
+          comment: Comentar
           create: Crear
           endorse: Adherir-se
           vote: Donar suport
+          vote_comment: Votar el comentari
           withdraw: Retirar
         name: Propostes
         settings:
@@ -139,7 +144,7 @@ ca:
             participatory_texts_enabled: Texts participatius habilitats
             participatory_texts_enabled_readonly: No es pot interactuar amb aquesta configuració si hi ha propostes existents. Si us plau, crea un nou 'component de propostes' si vols habilitar aquesta característica o descarta totes les propostes importades al menú "textos participatius" si vols deshabilitar-lo.
             proposal_answering_enabled: Resposta a propostes habilitada
-            proposal_edit_before_minutes: Les propostes poden ser editades per les autorrs abans que passin aquests minuts
+            proposal_edit_before_minutes: Les propostes poden ser editades per les autores abans que passin aquests minuts
             proposal_edit_time: Edició de propostes
             proposal_edit_time_choices:
               infinite: Permet l'edició de propostes durant un període infinit
@@ -665,6 +670,7 @@ ca:
         success: L'esborrany de proposta s'ha eliminat correctament.
       last_activity:
         new_proposal_at_html: "<span>Nova proposta a %{link}</span>"
+        proposal_updated_at_html: "<span>Proposta actualitzada el %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -709,8 +715,6 @@ ca:
           proposals_count:
             one: "%{count} proposta"
             other: "%{count} propostes"
-        dynamic_map_instructions:
-          instructions: <h3>Pots moure el punt al mapa. </h3><p>No oblidis fer clic al botó "Actualitzar posició" abans de publicar la teva proposta.</p>
         edit:
           add_documents: Documents
           add_images: Arxiu
@@ -782,7 +786,6 @@ ca:
             other: Podràs editar aquesta proposta durant els primers %{count} minuts després de la publicació de la proposta. Un cop passada aquesta finestra de temps, no podràs editar la proposta.
           publish: Publica
           title: Publica la teva proposta
-          update_position: Actualitzar posició
         proposal:
           creation_date: 'Data de creació: %{date}'
           view_proposal: Veure proposta
@@ -899,3 +902,7 @@ ca:
       included_proposals:
         proposal_project: 'Proposta vinculada a aquests projectes:'
         proposal_result: 'Proposta vinculada a aquests resultats:'
+    statistics:
+      proposals_accepted: Propostes acceptades
+      proposals_count: Propostes
+      supports_count: Suports

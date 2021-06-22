@@ -67,7 +67,8 @@ module Decidim
             end_time: form.end_time,
             scope: form.scope,
             promoted: form.promoted,
-            voting_type: form.voting_type
+            voting_type: form.voting_type,
+            census_contact_information: form.census_contact_information
           }.merge(uploader_attributes)
         end
 

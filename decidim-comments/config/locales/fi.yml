@@ -39,7 +39,13 @@ fi:
           user_group_id:
             label: Kommentoi käyttäjänä
         opinion:
+          label: Mielipiteesi tästä aiheesta
+          negative: Negatiivinen
+          negative_selected: Mielipiteesi tästä aiheesta on negatiivinen
           neutral: Neutraali
+          neutral_selected: Mielipiteesi tästä aiheesta on neutraali
+          positive: Positiivinen
+          positive_selected: Mielipiteesi tästä aiheesta on positiivinen
         remaining_characters: "%{count} merkkiä jäljellä"
         remaining_characters_1: "%{count} merkki jäljellä"
         title: Lisää oma kommenttisi
@@ -73,6 +79,7 @@ fi:
       comment_thread:
         title: Keskustelu henkilön %{authorName} kanssa
       comments:
+        blocked_comments_for_unauthorized_user_warning: Tilisi tulee olla varmennettu, jotta voit kommentoida tällä hetkellä. Voit kuitenkin lukea muiden jättämiä kommentteja.
         blocked_comments_for_user_warning: Et voi kommentoida tällä hetkellä, mutta voit lukea aikaisempia kommentteja.
         blocked_comments_warning: Kommentit on poistettu käytöstä tällä hetkellä, mutta voit lukea aikaisempia kommentteja.
         comment_details_title: Kommentin yksityiskohdat

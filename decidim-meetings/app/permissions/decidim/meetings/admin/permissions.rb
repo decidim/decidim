@@ -11,7 +11,8 @@ module Decidim
           allowed_registration_form_action?
           allowed_meeting_action?
           allowed_agenda_action?
-          allowed_minutes_action?
+          allowed_poll_action?
+          allowed_export_answers?
 
           permission_action
         end
@@ -26,8 +27,8 @@ module Decidim
           @agenda ||= context.fetch(:agenda, nil)
         end
 
-        def minutes
-          @minutes ||= context.fetch(:minutes, nil)
+        def poll
+          @poll ||= context.fetch(:poll, nil)
         end
 
         def registration_form
@@ -69,14 +70,21 @@ module Decidim
           end
         end
 
-        def allowed_minutes_action?
-          return unless permission_action.subject == :minutes
+        def allowed_poll_action?
+          return unless permission_action.subject == :poll
 
           case permission_action.action
-          when :create
-            toggle_allow(meeting.present?)
           when :update
-            toggle_allow(minutes.present? && meeting.present?)
+            toggle_allow(poll.present? && meeting.present?)
+          end
+        end
+
+        def allowed_export_answers?
+          return unless permission_action.subject == :questionnaire
+
+          case permission_action.action
+          when :export_answers
+            permission_action.allow!
           end
         end
       end

@@ -246,7 +246,6 @@ sk:
       photos:
         related_photos: Súvisiace fotografie
     author:
-      avatar: Avatar
       comments:
         one: komentár
         few: komentáre

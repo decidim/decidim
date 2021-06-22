@@ -42,7 +42,9 @@ ar:
               invalid_document_type: 'نوع المستند غير صالح. التنسيقات المقبولة هي: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: يحتاج إلى إعادة ربط
+            add_photos:
               needs_to_be_reattached: يحتاج إلى إعادة ربط
             body:
               identical: لا يمكن أن يكون العنوان متطابقًا

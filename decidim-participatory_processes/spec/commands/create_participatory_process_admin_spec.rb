@@ -139,7 +139,7 @@ module Decidim::ParticipatoryProcesses
         end
 
         it "gets the invitation resent" do
-          expect { subject.call }.to have_enqueued_job(ActionMailer::DeliveryJob)
+          expect { subject.call }.to have_enqueued_job(ActionMailer::MailDeliveryJob)
         end
       end
     end

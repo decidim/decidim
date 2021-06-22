@@ -33,7 +33,11 @@ module Decidim
             start_date: :date,
             title: "Decidim::Meetings::AdminLog::ValueTypes::MeetingTitleDescriptionPresenter",
             private_meeting: :boolean,
-            transparent: :boolean
+            transparent: :boolean,
+            published_at: :date,
+            video_url: :string,
+            audio_url: :string,
+            closing_visible: :boolean
           }
         end
 

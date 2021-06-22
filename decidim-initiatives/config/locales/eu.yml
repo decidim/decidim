@@ -53,6 +53,8 @@ eu:
       actions:
         new_initiative_type: Ekimen mota berria
       menu:
+        components: Osagaiak
+        information: informazioa
         initiatives: Ekimenak
         initiatives_types: Ekimen motak
       models:
@@ -398,12 +400,6 @@ eu:
           vote: Bozkatu
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: eranskinak
-          committee_members: Batzorde kideak
-          components: Osagaiak
-          information: informazioa
       initiative_creation_header:
         back: Back
         fill_data: Sortu

@@ -30,7 +30,6 @@
   </div>
 </div>
 
-<%= javascript_include_tag "decidim/consultations/show_more" %>
 <%= comments_for current_question if current_question.published? %>
 
 <%= content_for :question_header_details do %>
@@ -56,3 +55,5 @@
     </div>
   </div>
 <% end %>
+
+<%= javascript_pack_tag "decidim_consultations" %>

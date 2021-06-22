@@ -2,13 +2,21 @@
 
 module Decidim
   module Proposals
-    # A cell to display when a proposal has been published.
+    # A cell to display when actions happen on a proposal.
     class ProposalActivityCell < ActivityCell
       def title
-        I18n.t(
-          "decidim.proposals.last_activity.new_proposal_at_html",
-          link: participatory_space_link
-        )
+        case action
+        when "update"
+          I18n.t(
+            "decidim.proposals.last_activity.proposal_updated_at_html",
+            link: participatory_space_link
+          )
+        else
+          I18n.t(
+            "decidim.proposals.last_activity.new_proposal_at_html",
+            link: participatory_space_link
+          )
+        end
       end
 
       def resource_link_text

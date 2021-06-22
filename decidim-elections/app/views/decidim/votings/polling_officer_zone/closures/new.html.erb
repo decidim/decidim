@@ -1,0 +1,62 @@
+<div class="m-bottom">
+  <%= link_to polling_officers_path, class: "small hollow" do %>
+    <%= icon "chevron-left", class: "icon--small", role: "presentation", "aria-hidden": true %>
+    <%= t("back_to_polling_stations", scope: "decidim.votings.polling_officer_zone.closures") %>
+  <% end %>
+</div>
+
+<%= content_tag :h2, t(".heading") %>
+
+<p>
+  <%= content_tag :strong, t(".polling_station") %>
+  <br>
+  <%= present(polling_officer.polling_station).title %>
+  <br>
+  <%= present(polling_officer.polling_station).address %>
+</p>
+<p>
+  <%= content_tag :strong, t(".election") %> <%= present(election).title %>
+</p>
+
+<div class="row section">
+  <div class="columns">
+    <div class="row mt-sm">
+      <div class="columns large-7">
+        <p>
+          <%= content_tag :strong, t(".info_text") %>
+        </p>
+
+        <div class="card--secondary">
+          <div class="card__content">
+            <%= decidim_form_for(@form, url: polling_officer_election_closure_path(polling_officer, election),
+                                  html: { class: "form new_closure" }) do |form| %>
+
+              <%= form.hidden_field :election_id %>
+              <%= form.hidden_field :polling_station_id %>
+              <%= form.hidden_field :election_votes_count %>
+
+              <%= content_tag :div,
+                              form.number_field(
+                                :total_ballots_count,
+                                label: t(".total_ballots_count"),
+                                min: 0
+                              ) %>
+
+              <%= form.submit t(".submit"),
+                              id: "submit-verify-votes",
+                              class: "button button--sc expanded mt-sm mb-none" %>
+
+              <%= render "modal_ballots_count_error", form: form %>
+
+              <button id="btn-modal-closure-count-error" class="button button--sc expanded mt-sm mb-none hide" data-open="modal-closure-count-error" aria-controls="modal-closure-count-error" aria-haspopup="true" tabindex="0">
+                <%= t(".submit") %>
+              </button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_pack_tag "decidim_votings_voting_polling_officer_zone_new_closure" %>

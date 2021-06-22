@@ -6,7 +6,6 @@ zh-CN:
         description: 描述
         title: 标题
         total_budget: 预算总额
-        weight: 权重
       project:
         budget_amount: 预算金额
         decidim_category_id: 类别

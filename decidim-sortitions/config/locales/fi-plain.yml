@@ -144,3 +144,5 @@ fi-pl:
           count:
             one: 1 satunnaisvalinta
             other: "%{count} satunnaisvalintaa"
+    statistics:
+      sortitions_count: Satunnaistamista

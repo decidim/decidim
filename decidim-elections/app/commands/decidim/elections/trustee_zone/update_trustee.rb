@@ -21,6 +21,9 @@ module Decidim
           update_trustee!
 
           broadcast(:ok, trustee)
+        rescue ActiveRecord::RecordNotUnique
+          form.errors.add(:name, :taken)
+          broadcast(:invalid)
         end
 
         private

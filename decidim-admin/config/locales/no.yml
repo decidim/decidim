@@ -24,7 +24,7 @@
       component:
         name: Navn
         published_at: Publisert den
-        weight: Vekt
+        weight: Plassering av sortering
       id: ID
       import:
         user_group_id: Opprett importer som
@@ -32,6 +32,7 @@
         body: Tekst
         subject: Emne
       organization:
+        admin_terms_of_use_body: Innholdet i de administrative vilkårene for bruk av plattformen
         alert_color: Varsel
         available_authorizations: Tilgjengelige autorisasjoner
         badges_enabled: Aktiver utmerkelse
@@ -42,9 +43,11 @@
         default_locale: Standardspråk
         description: Beskrivelse
         enable_omnipresent_banner: Vis overstyrende banner
+        enable_participatory_space_filters: Aktive filtere for bruk av medvirkningsrommene
         facebook_handler: Facebook brukernavn
         favicon: Ikon
         force_authentication: Tving godkjenning
+        force_users_to_authenticate_before_access_organization: Pålegg brukere å godkjenne før tilgang til organisasjonen
         from: Fra e-postadresse
         github_handler: GitHub brukernavn
         header_snippets: Utdrag topptekst
@@ -70,6 +73,8 @@
         omnipresent_banner_short_description: Kort beskrivelse
         omnipresent_banner_title: Tittel
         omnipresent_banner_url: URL
+        organization_admin_email: Epost for organisasjonsadministrator
+        organization_admin_name: Navn på organisasjonen
         primary_color: Primært
         reference_prefix: Referanse prefiks
         rich_text_editor_in_public_views: Aktiver rik-tekst-redigering for deltakere
@@ -78,7 +83,7 @@
         send_welcome_notification: Send velkomst varsel
         success_color: Vellykket
         time_zone: Tidssone
-        tos_version: Vilkår for tjenester versjon
+        tos_version: Vilkår for tjenesten
         twitter_handler: Twitter brukernavn
         user_groups_enabled: Aktiver grupper
         warning_color: Advarsel
@@ -103,12 +108,10 @@
         show_in_footer: Vis i bunnteksten
         slug: URL slug
         title: Tittel
-        weight: Vekt
       static_page_topic:
         description: Beskrivelse
         show_in_footer: Vis i bunnteksten
         title: Tittel
-        weight: Vekt
       user_group_csv_verification:
         file: Fil
     errors:
@@ -138,7 +141,6 @@
       actions:
         add: Legg til
         browse: Bla gjennom
-        export: Eksport
         manage: Administrer
         new: Nytt %{name}
         per_page: Per side
@@ -156,7 +158,7 @@
           title: Godta vilkårene for bruk
         required_review:
           alert: 'Påkrevd: Gå gjennom administrasjons vilkårene våre'
-          callout: Vennligst ta deg tid til å se gjennom administrator Vilkår for Bruk. Ellers vil du ikke kunne administrere plattformen.
+          callout: Vennligst ta deg tid til å se gjennom administrator Vilkår for bruk. Ellers vil du ikke kunne administrere plattformen.
           cta: Se over dem nå.
         title: Administrator vilkår for bruk
       area_types:

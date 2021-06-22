@@ -24,7 +24,7 @@ module Decidim
           transaction do
             update_meeting!
             send_notification if should_notify_followers?
-            schedule_upcoming_meeting_notification if start_time_changed?
+            schedule_upcoming_meeting_notification if meeting.published? && start_time_changed?
             update_services!
           end
 
@@ -59,7 +59,9 @@ module Decidim
             location: form.location,
             location_hints: form.location_hints,
             private_meeting: form.private_meeting,
-            transparent: form.transparent
+            transparent: form.transparent,
+            customize_registration_email: form.customize_registration_email,
+            registration_email_custom_content: form.registration_email_custom_content
           )
         end
 
@@ -80,7 +82,7 @@ module Decidim
         end
 
         def should_notify_followers?
-          important_attributes.any? { |attr| meeting.previous_changes[attr].present? }
+          meeting.published? && important_attributes.any? { |attr| meeting.previous_changes[attr].present? }
         end
 
         def important_attributes

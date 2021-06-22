@@ -73,7 +73,7 @@ decidim decidim_application
 ----
 
 We've set up a guide on how to install, set up and upgrade Decidim.
-See the https://github.com/decidim/decidim/blob/develop/docs/getting_started.md[Getting started guide].
+See the https://docs.decidim.org/en/install/[Getting started guide].
 
 == How to contribute
 
@@ -133,6 +133,7 @@ Here's a partial list with some of the projects that have used Decidim:
 - https://participa.terrassa.cat[Decidim Terrassa] - https://github.com/AjuntamentDeTerrassa/decidim-terrassa[View code]
 - https://decidim.sabadell.cat[Decidim Sabadell] - https://github.com/AjuntamentDeSabadell/decidim-sabadell[View code]
 - https://participa.gavaciutat.cat[Decidim Gavà] - https://github.com/AjuntamentDeGava/decidim-gava[View code]
+- https://dialogluzern.ch[Dialog Luzern] - https://github.com/stadtluzern/decidim-ocl[View code]
 - https://decidim.santcugat.cat/[Decidim Sant Cugat] - https://github.com/AjuntamentdeSantCugat/decidim-sant_cugat[View code]
 - http://participa.vilanova.cat[Vilanova Participa] - https://github.com/vilanovailageltru/decidim-vilanova[View code]
 - https://erabaki.pamplona.es[Erabaki Pamplona] - https://github.com/ErabakiPamplona/erabaki[View code]

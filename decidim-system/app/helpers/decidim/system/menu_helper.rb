@@ -6,7 +6,11 @@ module Decidim
     module MenuHelper
       # Public: Returns the main menu presenter object
       def main_menu
-        @main_menu ||= ::Decidim::MenuPresenter.new(:system_menu, self)
+        @main_menu ||= ::Decidim::MenuPresenter.new(
+          :system_menu,
+          self,
+          label: t("layouts.decidim.header.main_menu")
+        )
       end
     end
   end

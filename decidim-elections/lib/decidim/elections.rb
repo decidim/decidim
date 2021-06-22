@@ -10,6 +10,10 @@ require "decidim/elections/component"
 require "decidim/bulletin_board"
 require "decidim/votings"
 
+# Note: these gems will be moved to the application in the next release
+require "voting_schemes/electionguard"
+require "voting_schemes/dummy"
+
 module Decidim
   # This namespace holds the logic of the `Elections` component. This component
   # allows users to create elections in a participatory space.
@@ -30,6 +34,10 @@ module Decidim
     # Public Setting that defines how many hours the ballot box can be opened before the election starts
     config_accessor :start_vote_maximum_hours_before_start do
       6
+    end
+
+    config_accessor :voter_token_expiration_minutes do
+      120
     end
   end
 end

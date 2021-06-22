@@ -1,4 +1,11 @@
 fi:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Otsikko
+      template:
+        description: Kuvaus
+        name: Nimi
   decidim:
     admin:
       menu:

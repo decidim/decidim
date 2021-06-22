@@ -16,6 +16,7 @@ describe Decidim::Votings::Admin::VotingForm do
   let(:promoted) { true }
   let(:banner_image) { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
   let(:voting_type) { "online" }
+  let(:census_contact_information) { nil }
 
   let(:attributes) do
     {
@@ -28,7 +29,8 @@ describe Decidim::Votings::Admin::VotingForm do
         scope_id: scope&.id,
         banner_image: banner_image,
         promoted: promoted,
-        voting_type: voting_type
+        voting_type: voting_type,
+        census_contact_information: census_contact_information
       }
     }
   end

@@ -98,6 +98,8 @@ ru:
           info: Сведения
           questions: Вопросы
         questions_submenu:
+          attachments: Прикрепленные файлы
+          categories: Категории
           components: Составляющие
           consultation: Консультация
           info: Сведения
@@ -270,10 +272,6 @@ ru:
         title: 'Консультация: подтвердите поддержку'
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Прикрепленные файлы
-          categories: Категории
       consultation_voting_data:
         start_voting_date: Голосование начинается
       question_components:

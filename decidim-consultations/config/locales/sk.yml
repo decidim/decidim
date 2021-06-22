@@ -127,6 +127,8 @@ sk:
           questions: Otázky
           results: Výsledky
         questions_submenu:
+          attachments: Prílohy
+          categories: Kategórie
           components: Súčasti
           configuration: Konfigurácia
           consultation: Konzultácia
@@ -373,10 +375,6 @@ sk:
           vote: Hlasovať
   layouts:
     decidim:
-      admin:
-        question:
-          attachments: Prílohy
-          categories: Kategórie
       consultation_voting_data:
         start_voting_date: Hlasovanie začína
       question_components:

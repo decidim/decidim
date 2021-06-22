@@ -29,5 +29,38 @@ describe Decidim::ContentBlocks::SubHeroCell, type: :cell do
       expect(subject).to have_css(".subhero")
       expect(subject.find("h2 strong")).to have_text("Bold titled text")
     end
+
+    context "with a paragraph of text" do
+      let(:description) do
+        {
+          "en" => "<p><strong>Bold titled text</strong></p>"
+        }
+      end
+
+      it "shows the custom welcome text with formating" do
+        expect(
+          subject.find(".heading2").native.inner_html.strip
+        ).to eq("<strong>Bold titled text</strong>")
+      end
+    end
+
+    context "with two paragraphs of text" do
+      let(:description) do
+        {
+          "en" => <<~HTML
+            <p><strong>First row of text</strong></p>
+            <p>Second row of text</p>
+          HTML
+        }
+      end
+
+      it "shows the custom welcome text with formating" do
+        expect(
+          subject.find(".heading2").native.inner_html.strip
+        ).to eq(
+          "<strong>First row of text</strong><br><br>Second row of text"
+        )
+      end
+    end
   end
 end

@@ -49,6 +49,8 @@ nl:
         description: Aantal enquêtes beantwoord door deelnemers
         object: antwoorden op enquêtes
         title: Antwoorden op enquêtes
+    statistics:
+      answers_count: Antwoorden
     surveys:
       admin:
         exports:

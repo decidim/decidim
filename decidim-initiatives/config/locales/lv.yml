@@ -71,6 +71,8 @@ lv:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Meklēt %{collection} pēc nosaukuma, apraksta, ID vai autora vārda.
       menu:
+        components: Komponenti
+        information: Informācija
         initiatives: Iniciatīvas
         initiatives_types: Iniciatīvu veidi
       models:
@@ -458,12 +460,6 @@ lv:
           vote: Parakstīt
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Pielikumi
-          committee_members: Komitejas locekļi
-          components: Komponenti
-          information: Informācija
       initiative_creation_header:
         back: Atpakaļ
         fill_data: Izveidot

@@ -144,3 +144,5 @@ nl:
           count:
             one: 1 loting
             other: "%{count} lotingen"
+    statistics:
+      sortitions_count: Lotingen

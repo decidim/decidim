@@ -50,7 +50,6 @@ module Decidim
   autoload :Menu, "decidim/menu"
   autoload :MenuItem, "decidim/menu_item"
   autoload :MenuRegistry, "decidim/menu_registry"
-  autoload :Messaging, "decidim/messaging"
   autoload :ManifestRegistry, "decidim/manifest_registry"
   autoload :EngineRouter, "decidim/engine_router"
   autoload :Events, "decidim/events"

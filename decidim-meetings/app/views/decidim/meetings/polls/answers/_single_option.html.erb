@@ -1,0 +1,19 @@
+<% choice = answer.choices.first if answer %>
+
+<% question.answer_options.each_with_index do |answer_option, idx| %>
+  <% choice_id = "#{field_id}_choices_#{idx}" %>
+
+  <%= label_tag "#{choice_id}_body" do %>
+    <%= radio_button_tag "answer[choices][#{idx}][body]",
+                        translated_attribute(answer_option.body),
+                        answer_option.id == choice.try(:decidim_answer_option_id),
+                        id: "#{choice_id}_body", disabled: disabled %>
+
+    <%= translated_attribute(answer_option.body) %>
+
+    <%= hidden_field_tag "answer[choices][#{idx}][answer_option_id]",
+                        answer_option.id,
+                        id: "#{choice_id}_answer_option",
+                        disabled: disabled %>
+  <% end %>
+<% end %>

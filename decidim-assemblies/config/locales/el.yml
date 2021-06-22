@@ -378,11 +378,6 @@ el:
         designated_on: Διορίστηκε στις
       index:
         title: Μέλη
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Σύνδεσμος προς τη σελίδα «Διασκέψεις» που εμφανίζει όλες τις διασκέψεις
     events:
       assemblies:
         create_assembly_member:
@@ -415,15 +410,7 @@ el:
         description: Αριθμός συνελεύσεων που δημιουργήθηκαν
         object: συνελεύσεις
         title: Συνελεύσεις
-    pages:
-      home:
-        hero:
-          participate_title: Συμμετάσχετε στις διαδικασίες της πλατφόρμας
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Σύνδεσμος προς τη σελίδα «Διαδικασίες» που εμφανίζει όλες τις διαδικασίες
       show:
         related_assemblies: Σχετικές συνελεύσεις
   errors:

@@ -14,6 +14,7 @@ ja:
         edit: 編集
         new: 新規投稿
         title: アクション
+        user_group_id: 次のように投稿を作成
       admin:
         models:
           components:
@@ -75,3 +76,5 @@ ja:
           email_outro: '「%{participatory_space_title}」をフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
           email_subject: '%{participatory_space_title} に新しい投稿が公開されました'
           notification_title: The post <a href="%{resource_path}">%{resource_title}</a> has been published in %{participatory_space_title}
+    statistics:
+      posts_count: 投稿

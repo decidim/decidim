@@ -24,6 +24,7 @@ module Decidim
       private
 
       attr_reader :order
+      alias resource order
 
       def all_projects
         order.projects.map do |project|

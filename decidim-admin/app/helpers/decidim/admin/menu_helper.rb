@@ -4,23 +4,23 @@ module Decidim
   module Admin
     # This module includes helpers to manage menus in admin layout
     module MenuHelper
-      include Decidim::Admin::SidebarMenuHelper
-
       # Public: Returns the main menu presenter object
       def main_menu
         @main_menu ||= ::Decidim::MenuPresenter.new(
           :admin_menu,
           self,
-          active_class: "is-active"
+          active_class: "is-active",
+          label: t("layouts.decidim.header.main_menu")
         )
       end
 
-      def global_moderation_menu
-        @global_moderation_menu ||= sidebar_menu(:admin_global_moderation_menu)
+      def sidebar_menu(target_menu)
+        ::Decidim::Admin::SecondaryMenuPresenter.new(target_menu, self, active_class: "is-active")
       end
 
-      def organization_settings_menu
-        @organization_settings_menu ||= sidebar_menu(:admin_settings_menu)
+      def simple_menu(target_menu:, options: {})
+        options = { active_class: "is-active" }.merge(options)
+        ::Decidim::Admin::SimpleMenuPresenter.new(target_menu, self, options)
       end
     end
   end

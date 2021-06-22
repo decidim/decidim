@@ -1,0 +1,92 @@
+//Basic modules
+@import "stylesheets/decidim/modules/margins";
+@import "stylesheets/decidim/modules/typography";
+@import "stylesheets/decidim/modules/title-action";
+@import "stylesheets/decidim/modules/buttons";
+@import "stylesheets/decidim/modules/forms";
+@import "stylesheets/decidim/modules/icons";
+@import "stylesheets/decidim/modules/video";
+
+//Foundation overrides
+@import "stylesheets/decidim/modules/reveal";
+
+//Layout
+@import "stylesheets/decidim/modules/layout";
+@import "stylesheets/decidim/modules/navbar";
+@import "stylesheets/decidim/modules/main-container";
+@import "stylesheets/decidim/modules/footer";
+@import "stylesheets/decidim/modules/static-pages";
+
+//Cards and containers
+@import "stylesheets/decidim/modules/card-grid";
+@import "stylesheets/decidim/modules/cards";
+@import "stylesheets/decidim/modules/extra";
+@import "stylesheets/decidim/modules/definition-data";
+@import "stylesheets/decidim/modules/callout";
+
+//Shared modules
+@import "stylesheets/decidim/modules/confirm";
+@import "stylesheets/decidim/modules/comments";
+@import "stylesheets/decidim/modules/messages";
+@import "stylesheets/decidim/modules/opinion-toggle";
+@import "stylesheets/decidim/modules/flag";
+@import "stylesheets/decidim/modules/author-avatar";
+@import "stylesheets/decidim/modules/address";
+@import "stylesheets/decidim/modules/order-by";
+@import "stylesheets/decidim/modules/tags";
+@import "stylesheets/decidim/modules/input-tags";
+@import "stylesheets/decidim/modules/input-mentions";
+@import "stylesheets/decidim/modules/input-multiple-mentions";
+@import "stylesheets/decidim/modules/list-docs";
+@import "stylesheets/decidim/modules/datepicker";
+@import "stylesheets/decidim/modules/pagination";
+@import "stylesheets/decidim/modules/data-picker";
+@import "stylesheets/decidim/modules/progress-bar";
+@import "stylesheets/decidim/modules/docs-manager";
+@import "stylesheets/decidim/modules/horizontal-tabs";
+@import "stylesheets/decidim/modules/conversation";
+@import "stylesheets/decidim/modules/badges";
+@import "stylesheets/decidim/modules/hover-section";
+@import "stylesheets/decidim/modules/list-request";
+@import "stylesheets/decidim/modules/floating-helper";
+@import "stylesheets/decidim/modules/versions";
+@import "stylesheets/decidim/modules/sticky";
+@import "stylesheets/decidim/modules/notification";
+@import "stylesheets/decidim/modules/statistics";
+
+//Process elements
+@import "stylesheets/decidim/modules/process-header";
+@import "stylesheets/decidim/modules/process-info";
+@import "stylesheets/decidim/modules/process-nav";
+@import "stylesheets/decidim/modules/process-phase";
+@import "stylesheets/decidim/modules/timeline";
+@import "stylesheets/decidim/modules/filter-tags";
+@import "stylesheets/decidim/modules/filters";
+@import "stylesheets/decidim/modules/inline-filters";
+@import "stylesheets/decidim/modules/reference";
+@import "stylesheets/decidim/modules/status-labels";
+
+//Conference elements
+@import "stylesheets/decidim/modules/conference-nav";
+@import "stylesheets/decidim/modules/conference-speaker";
+@import "stylesheets/decidim/modules/conference-programme";
+@import "stylesheets/decidim/modules/conference-registration";
+@import "stylesheets/decidim/modules/conference-diploma";
+@import "stylesheets/decidim/modules/conference-media";
+
+//User interface
+@import "stylesheets/decidim/modules/user-form";
+@import "stylesheets/decidim/modules/signup";
+
+//Additional elements
+@import "stylesheets/decidim/modules/share";
+@import "stylesheets/decidim/modules/help";
+@import "stylesheets/decidim/modules/cookie-bar";
+@import "stylesheets/decidim/modules/map";
+@import "stylesheets/decidim/modules/omnipresent_banner";
+@import "stylesheets/decidim/modules/wizard-steps";
+@import "stylesheets/decidim/modules/collapsible-list";
+@import "stylesheets/decidim/modules/block-banner";
+@import "stylesheets/decidim/modules/fingerprint";
+@import "stylesheets/decidim/modules/toggle";
+@import "stylesheets/decidim/modules/loading-spinner";

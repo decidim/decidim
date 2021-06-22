@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::ParticipatoryProcesses
-  describe Statistics, type: :cell do
+  describe Decidim::Statistics, type: :cell do
     controller Decidim::ApplicationController
 
     subject { cell("decidim/statistics", model).call }
@@ -11,12 +11,14 @@ module Decidim::ParticipatoryProcesses
     let(:model) do
       [
         { stat_title: :participants_count, stat_number: 123 },
-        { stat_title: :proposals_count, stat_number: 456 }
+        { stat_title: :proposals_count, stat_number: 456 },
+        { stat_title: :comments_count, stat_number: 50 }
       ]
     end
 
     context "when rendering" do
       it "renders the statistics wrapper" do
+        puts subject
         expect(subject).to have_css(".section-statistics")
       end
 
@@ -25,7 +27,7 @@ module Decidim::ParticipatoryProcesses
       end
 
       it "renders each stat" do
-        expect(subject).to have_css(".statistic__data", count: 2)
+        expect(subject).to have_css(".statistic__data", count: 3)
       end
     end
   end

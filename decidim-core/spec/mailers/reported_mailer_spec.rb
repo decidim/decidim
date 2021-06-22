@@ -83,6 +83,18 @@ module Decidim
           end
         end
 
+        context "when the author is a deleted user" do
+          before do
+            author.nickname = ""
+            author.deleted_at = 1.week.ago
+            author.save!
+          end
+
+          it "includes the name of the author but no link to his profile" do
+            expect(mail).not_to have_link(author.name)
+          end
+        end
+
         context "when the author is a user group" do
           let(:reportable) { create(:proposal, user_groups: create(:user_group)) }
 
@@ -96,6 +108,18 @@ module Decidim
 
           it "includes the name of the organization" do
             expect(email_body(mail)).to match(author.name)
+          end
+        end
+
+        context "when the author is a meeting" do
+          let(:meetings_component) { create :component, manifest_name: :meetings, organization: reportable.organization }
+          let!(:meeting) { create :meeting, component: meetings_component }
+
+          it "includes the title of the meeting" do
+            reportable.coauthorships.destroy_all
+            create :coauthorship, coauthorable: reportable, author: meeting
+
+            expect(email_body(mail)).to match(translated(meeting.title))
           end
         end
       end

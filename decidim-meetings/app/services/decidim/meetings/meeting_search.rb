@@ -11,9 +11,9 @@ module Decidim
       # Public: Initializes the service.
       # component     - A Decidim::Component to get the meetings from.
       # page        - The page number to paginate the results.
-      # per_page    - The number of proposals to return per page.
+      # per_page    - The number of meetings to return per page.
       def initialize(options = {})
-        scope = options.fetch(:scope, Meeting.all)
+        scope = options.fetch(:scope, Meeting.published)
         super(scope, options)
       end
 

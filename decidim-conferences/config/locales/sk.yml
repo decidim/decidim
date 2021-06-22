@@ -22,6 +22,12 @@ sk:
         slogan: Slogan
         slug: URL krátky odkaz
         title: Názov
+      conference_media_link:
+        weight: Váha
+      conference_partner:
+        weight: Váha
+      conference_registration_type:
+        weight: Váha
       conference_speaker:
         full_name: Meno a priezvisko
       conference_user_role:
@@ -212,7 +218,6 @@ sk:
             price: Cena
             registrations_count: Počet registrácií
             title: Názov
-            weight: Váha
           name: Typ registrácie
       partners:
         create:

@@ -47,7 +47,9 @@ nl:
               invalid_document_type: 'Ongeldig documenttype. Aanvaarde formaten zijn: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Moet opnieuw worden gekoppeld
+            add_photos:
               needs_to_be_reattached: Moet opnieuw worden gekoppeld
             body:
               cant_be_equal_to_template: mag niet gelijk zijn aan het template
@@ -91,9 +93,11 @@ nl:
       proposals:
         actions:
           amend: Pas aan
+          comment: Reactie
           create: creëren
           endorse: Aanbevelen
           vote: Stem
+          vote_comment: Stem op de reactie
           withdraw: Intrekken
         name: Voorstellen
         settings:
@@ -240,7 +244,7 @@ nl:
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> voorstel werd gepubliceerd door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Het voorstel "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat je volgt.
-          email_outro: U heeft deze melding ontvangen omdat u "%{participatory_space_title}" volgt. Schakel de meldingen uit door op de voorgaande link te klikken.
+          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Schakel de meldingen uit door op bovenstaande link te klikken en te stoppen met volgen.
           email_subject: Nieuw voorstel "%{resource_title}" toegevoegd aan %{participatory_space_title}
           notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
         proposal_rejected:
@@ -642,6 +646,7 @@ nl:
         success: Voorstel concept is succesvol verwijderd.
       last_activity:
         new_proposal_at_html: "<span>Nieuw voorstel op %{link}</span>"
+        proposal_updated_at_html: "<span>Voorstel bijgewerkt op %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -686,6 +691,9 @@ nl:
           proposals_count:
             one: "%{count} voorstel"
             other: "%{count} voorstellen"
+        dynamic_map_instructions:
+          description: De coördinaten worden bijgewerkt bij het klikken op de 'preview' knop. Het adres verandert echter niet.
+          instructions: Je kunt het punt op de kaart verplaatsen.
         edit:
           add_documents: Documenten
           add_images: Bestand
@@ -871,3 +879,7 @@ nl:
       included_proposals:
         proposal_project: 'Voorstel in deze projecten:'
         proposal_result: 'Voorstel dat in deze resultaten voorkomt:'
+    statistics:
+      proposals_accepted: Aanvaarde voorstellen
+      proposals_count: Voorstellen
+      supports_count: Aantal keer gesteund

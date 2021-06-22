@@ -1,3 +1,18 @@
+<% if meeting.live? %>
+<div class="card card--secondary">
+  <div class="card__content text-center">
+    <div class="heading1 text-primary">
+      <%= icon "audio", class: "heading4" %>
+    </div>
+    <div>
+      <strong class="heading5"><%= t(".live_event") %></strong>
+    </div>
+    <div class="margin-top-3">
+      <%= link_to t(".join"), meeting_live_event_path(meeting), target: "_blank", class: "button button--sc" %>
+    </div>
+  </div>
+</div>
+<% else %>
 <div class="card card--secondary">
   <div class="card__content address">
     <div class="address__info">
@@ -9,3 +24,4 @@
     </div>
   </div>
 </div>
+<% end %>

@@ -8,7 +8,8 @@ uk:
       close_meeting:
         attendees_count: Кількість учасників
         attending_organizations: Перелік організацій, які брали участь
-        closing_report: Звіт
+        closing_report: Протокол
+        closing_visible: Видимий
         contributions_count: Кількість внесених пропозицій
         proposal_ids: Пропозиції, вироблені під час зустрічі
       meeting:
@@ -27,9 +28,6 @@ uk:
         start_time: Час початку
         title: Назва
         transparent: Прозора
-      minutes:
-        description: Опис
-        visible: Видимий
     errors:
       models:
         meeting_agenda:
@@ -136,7 +134,6 @@ uk:
         confirm_destroy: Ви впевнені, що хочете видалити цю зустріч?
         destroy: Видалити
         edit: Редагувати
-        minutes: Протокол
         new: Додати зустріч
         preview: Попередній перегляд
         registrations: Реєстрації
@@ -211,7 +208,6 @@ uk:
             success: Зустріч успішно завершено
           create:
             invalid: При спробі додати цю зустріч сталася помилка
-            success: Зустріч успішно додано
           destroy:
             success: Зустріч успішно видалено
           edit:
@@ -234,18 +230,6 @@ uk:
           update:
             invalid: При спробі оновити цю зустріч сталася помилка
             success: Зустріч успішно оновлено
-        minutes:
-          create:
-            invalid: При спробі створити цей протокол сталася помилка
-            success: Протокол успішно створено
-          edit:
-            update: Оновити
-          new:
-            create: Додати
-            title: Додати протокол
-          update:
-            invalid: При спробі оновити цей протокол сталася помилка
-            success: Протокол успішно оновлено
         models:
           meeting:
             name: Зустріч
@@ -279,9 +263,6 @@ uk:
           value_types:
             organizer_presenter:
               not_found: 'Цього організатора не знайдено в базі даних (ID: %{id})'
-        minutes:
-          create: "%{user_name} створив протокол зустрічі %{resource_name} у просторі %{space_name}"
-          update: "%{user_name} оновив протокол зустрічі %{resource_name} у просторі %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -302,7 +283,6 @@ uk:
           filter_by: 'Відібрати за ознакою:'
           unfold: Розгорнути
         meeting_minutes:
-          meeting_minutes: Протокол зустрічі
           related_information: Супутні відомості
         meetings:
           no_meetings_warning: Жодна зустріч не відповідає вашим критеріям пошуку, або жодних зустрічей не заплановано.
@@ -313,9 +293,8 @@ uk:
         show:
           attendees: Кількість учасників
           contributions: Кількість внесених пропозицій
-          going: Збираєтесь відвідати
           join: Долучитись до зустрічі
-          meeting_report: Звіт про зустріч
+          meeting_minutes: Протокол зустрічі
           no_slots_available: Не залишилось місць
           organizations: Організації, що приймають участь
           view: Переглянути

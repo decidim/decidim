@@ -68,6 +68,8 @@ el:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Αναζήτηση συλλογής %{collection} με βάση τον τίτλο, την περιγραφή, το αναγνωριστικό ή το όνομα συντάκτη.
       menu:
+        components: Στοιχεία
+        information: Πληροφορίες
         initiatives: Πρωτοβουλίες
         initiatives_types: Τύποι πρωτοβουλίας
       models:
@@ -456,12 +458,6 @@ el:
           vote: Υπογραφή
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Συνημμένα
-          committee_members: Μέλη επιτροπής
-          components: Στοιχεία
-          information: Πληροφορίες
       initiative_creation_header:
         back: Πίσω
         fill_data: Δημιουργία

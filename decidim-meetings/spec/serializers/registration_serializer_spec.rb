@@ -51,13 +51,34 @@ module Decidim::Meetings
         end
 
         let!(:singlechoice_question) { create :questionnaire_question, questionnaire: meeting.questionnaire, question_type: "single_option" }
-        let!(:singlechoice_answer_options) { create_list :answer_option, 2, question: multichoice_question }
+        let!(:singlechoice_answer_options) { create_list :answer_option, 2, question: singlechoice_question }
         let!(:singlechoice_answer) do
           create :answer, questionnaire: meeting.questionnaire, question: singlechoice_question, user: user, body: nil
         end
         let!(:singlechoice_answer_choice) do
           answer_option = singlechoice_answer_options.first
           create :answer_choice, answer: singlechoice_answer, answer_option: answer_option, body: answer_option.body[I18n.locale.to_s]
+        end
+
+        let!(:singlechoice_free_question) { create :questionnaire_question, questionnaire: meeting.questionnaire, question_type: "single_option" }
+        let!(:singlechoice_free_answer_options) do
+          options = create_list :answer_option, 2, question: singlechoice_free_question
+          options << create(:answer_option, question: singlechoice_free_question, free_text: true)
+
+          options
+        end
+        let!(:singlechoice_free_answer) do
+          create :answer, questionnaire: meeting.questionnaire, question: singlechoice_free_question, user: user, body: nil
+        end
+        let!(:singlechoice_free_answer_choice) do
+          answer_option = singlechoice_free_answer_options.find(&:free_text)
+          create(
+            :answer_choice,
+            answer: singlechoice_free_answer,
+            answer_option: answer_option,
+            body: answer_option.body[I18n.locale.to_s],
+            custom_body: "Free text answer"
+          )
         end
 
         let!(:subject) { described_class.new(registration) }
@@ -73,9 +94,11 @@ module Decidim::Meetings
           expect(serialized[:registration_form_answers]).to include(
             "4. #{translated(multichoice_question.body, locale: I18n.locale)}" => multichoice_answer_choices.map(&:body)
           )
-
           expect(serialized[:registration_form_answers]).to include(
             "5. #{translated(singlechoice_question.body, locale: I18n.locale)}" => [singlechoice_answer_choice.body]
+          )
+          expect(serialized[:registration_form_answers]).to include(
+            "6. #{translated(singlechoice_free_question.body, locale: I18n.locale)}" => ["Free text answer"]
           )
         end
       end

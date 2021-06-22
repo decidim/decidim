@@ -82,6 +82,8 @@
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Søk i %{collection} etter tittel, beskrivelse, ID eller forfatternavn.
       menu:
+        components: Komponenter
+        information: Informasjon
         initiatives: Initiativer
         initiatives_types: Initiativtyper
       models:
@@ -462,12 +464,6 @@
           vote: Signer
   layouts:
     decidim:
-      admin:
-        initiative:
-          attachments: Vedlegg
-          committee_members: Komité medlemer
-          components: Komponenter
-          information: Informasjon
       initiative_creation_header:
         back: Tilbake
         fill_data: Opprett

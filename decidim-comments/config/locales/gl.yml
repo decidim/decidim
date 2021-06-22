@@ -39,7 +39,13 @@ gl:
           user_group_id:
             label: Comentar como
         opinion:
+          label: A túa opinión canto a este tema
+          negative: Negativa
+          negative_selected: A túa opinión canto a este tema é negativa
           neutral: Neutro
+          neutral_selected: A túa opinión canto a este tema é neutral
+          positive: Positiva
+          positive_selected: A túa opinión canto a este tema é positiva
         remaining_characters: "Faltan %{count} caracteres"
         remaining_characters_1: "Faltou o personaxe %{count}"
         title: Engade o teu comentario
@@ -73,6 +79,7 @@ gl:
       comment_thread:
         title: Conversa con %{authorName}
       comments:
+        blocked_comments_for_unauthorized_user_warning: Tes de estar verificado para poder comentar neste intre, porén podes ler os comentarios anteriores.
         blocked_comments_for_user_warning: Non podes comentar neste momento, pero podes ler os anteriores.
         blocked_comments_warning: Os comentarios están desactivados neste momento, pero podes ler os anteriores.
         comment_details_title: Detalles do comentario
