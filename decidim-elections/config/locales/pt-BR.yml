@@ -819,6 +819,7 @@ pt:
             how_to_checksum: 'Para certificar-se de que o arquivo que você baixou não foi corrompido ou adulterado durante o processo de download, execute o seguinte comando em seu console e verifique se a saída corresponde ao checksum reportado acima:'
             how_to_download: Para verificar a eleição, baixe o arquivo verificável da tabela acima.
             how_to_run_verifier: 'Uma vez que você baixou o arquivo e tenha certeza que tudo está correto, você pode prosseguir para executar o verificador universal. Clonar <a href=''https://github.com/decidim/decidim-bulletin-board''>este repositório</a> e, na pasta raiz, execute o seguinte comando:'
+            how_to_title: Como verificar a validade de uma eleição
             not_available: Não disponível ainda
             title: Eleições
         polling_officers:
@@ -934,6 +935,7 @@ pt:
           certify:
             add_images: Adicionar imagens
             submit: Carregar o certificado
+            success: Upload do certificado efetuado com sucesso.
           edit:
             modal_ballots_results_count_error:
               close_modal: Fechar
