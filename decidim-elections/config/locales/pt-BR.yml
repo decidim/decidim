@@ -576,6 +576,7 @@ pt:
           back: Iniciar o processo de votação novamente
           ballot_hash: 'Seu identificador de voto é:'
           cast: Transmitir cédula
+          description: Aqui, você tem as opções para transmitir a sua cédula de voto para que ela seja devidamente contado ou, em alternativa, poderá auditar, que sua cédula de voto foi corretamente criptografado. Por razões de segurança, a auditoria do seu voto irá estragá-lo. O que significa que, para dar o seu voto, terá de reiniciar o processo de votação.
           header: 'A cédula está criptografada: transmita-a ou auditá-la'
         casting:
           header: Transmitindo a cédula...
@@ -595,6 +596,10 @@ pt:
           feedback: Deixe sua opinião
           header: Voto confirmado
           lead: Seu voto foi transmitido!
+          text: 'Você pode verificar se o seu voto foi adicionado com sucesso à urna com o seguinte identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_link: Para verificá-lo, copie o identificador e cole-o na <a href="%{link}">página de verificação do voto</a>
+        create:
+          error: Houve um problema ao submeter a votação. Por favor, tente novamente.
         encrypting:
           header: Criptografando o voto...
           text: O seu voto está sendo criptografado para garantir o segredo do seu voto.
@@ -637,6 +642,7 @@ pt:
             info: Este verificador verifica se seu voto, identificado com uma string de texto criptografada, foi transmitido corretamente e está dentro das urnas.
           error:
             header: Voto não encontrado!
+            info: O código de voto não foi encontrado na urna %{link}. Tente novamente.
           form:
             back: Voltar ao Decidim
             submit: Check
@@ -645,12 +651,17 @@ pt:
             title: Verifique seu voto
           success:
             header: Voto localizado!
+            info: Seu voto criptografado está na urna %{link}
         voting_step:
           back: Voltar
           continue: Próxima
+      warnings:
+        no_elections_warning: Nenhuma eleição corresponde aos seus critérios de pesquisa ou não há nenhuma eleição agendada.
+        no_scheduled_elections_warning: Atualmente, não há eleições agendadas, mas aqui podem encontrar uma lista de todas as últimas eleições.
     events:
       elections:
         election_published:
+          email_intro: 'A eleição %{resource_title} agora está ativa para %{participatory_space_title}. Você pode vê-lo a partir desta página:'
           email_subject: A eleição %{resource_title} agora está ativa para %{participatory_space_title}.
           notification_title: A eleição <a href="%{resource_path}">%{resource_title}</a> agora está ativa para %{participatory_space_title}.
         trustees:
@@ -744,6 +755,8 @@ pt:
             monitoring_committee_members: Membros
             monitoring_committee_polling_station_closures: Validar certificados
             monitoring_committee_verify_elections: Verificar Eleições
+            polling_officers: Agentes de votação
+            polling_stations: Estação de votos
         models:
           ballot_style:
             fields:
@@ -813,6 +826,8 @@ pt:
             change_election: Alterar eleição
             signed: Assinado?
             validated: Validado?
+          edit:
+            monitoring_committee_notes: Observações
         monitoring_committee_verify_elections:
           index:
             download: Download
