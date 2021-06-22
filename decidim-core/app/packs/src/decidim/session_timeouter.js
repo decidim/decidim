@@ -2,6 +2,7 @@ import moment from "moment"
 import Foundation from "foundation-sites"
 
 $(() => {
+  let sessionTimeOutEnabled = true;
   const $timeoutModal = $("#timeoutModal");
   const timeoutInSeconds = parseInt($timeoutModal.data("session-timeout"), 10);
   const secondsUntilTimeoutPath = $timeoutModal.data("seconds-until-timeout-path");
@@ -12,7 +13,8 @@ $(() => {
   const popup = new Foundation.Reveal($timeoutModal);
   const $continueSessionButton = $("#continueSession");
   let lastActivityCheck = moment();
-  const activityCheckInterval = 5*60; // 5 * 60 seconds = 5 Minutes
+  // 5 * 60 seconds = 5 Minutes
+  const activityCheckInterval = 5 * 60;
 
   // Ajax request is made at timeout_modal.html.erb
   $continueSessionButton.on("click", () => {
@@ -27,6 +29,16 @@ $(() => {
   }
   if (!timeoutInSeconds) {
     return;
+  }
+
+  const disableSessionTimeout = () => {
+    console.log("disable session timeout")
+    sessionTimeOutEnabled = false;
+  }
+
+  const enableSessionTimeout = () => {
+    console.log("enable session timeout")
+    sessionTimeOutEnabled = true;
   }
 
   const setTimer = (secondsUntilExpiration) => {
@@ -80,7 +92,9 @@ $(() => {
       const secondsUntilSessionExpires = result.seconds_remaining;
       setTimer(secondsUntilSessionExpires);
 
-      if (secondsUntilSessionExpires <= 90) {
+      if (!sessionTimeOutEnabled) {
+        heartbeat();
+      } else if (secondsUntilSessionExpires <= 90) {
         $timeoutModal.find("#reveal-hidden-sign-out")[0].click();
       } else if (secondsUntilSessionExpires <= 150) {
         popup.open();
@@ -88,13 +102,13 @@ $(() => {
     });
   }, interval);
 
-  $(document).mousemove((_event) => {
+  $(document).mousemove(() => {
     lastAction = moment();
   })
-  $(document).scroll((_event) => {
+  $(document).scroll(() => {
     lastAction = moment();
   })
-  $(document).keypress((_event) => {
+  $(document).keypress(() => {
     lastAction = moment();
   })
 
@@ -115,4 +129,7 @@ $(() => {
     clearInterval(exitInterval);
     return;
   });
+
+  window.Decidim.enableSessionTimeout = enableSessionTimeout
+  window.Decidim.disableSessionTimeout = disableSessionTimeout
 });
