@@ -62,6 +62,7 @@ it:
         deleted_at: Commento eliminato il %{date}
         deleted_user: Utente cancellato
         edit: Modifica
+        edited: Modificato
         hide_replies: Nascondi risposte
         reply: Rispondi
         report:
@@ -100,8 +101,10 @@ it:
       down_vote_button:
         text: Non sono d'accordo con questo commento
       edit_comment_modal_form:
+        close: Chiudi
         form:
           body:
+            label: Commento
             placeholder: Cosa ne pensi?
           submit: Invia
         title: Modifica il tuo commento
