@@ -52,8 +52,7 @@ module Decidim
       scope :published, -> { where.not(published_at: nil) }
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
       scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }
-      scope :closed, -> { where.not(closed_at: nil) }
-
+      
       scope :visible_meeting_for, lambda { |user|
         (all.published.distinct if user&.admin?) ||
           if user.present?
@@ -294,7 +293,7 @@ module Decidim
       def has_attendees?
         !!attendees_count && attendees_count.positive?
       end
-      
+
       def minutes_data?
         [video_url, audio_url].any?(&:present?)
       end

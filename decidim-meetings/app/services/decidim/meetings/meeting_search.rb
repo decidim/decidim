@@ -22,12 +22,6 @@ module Decidim
         apply_scopes(%w(upcoming past), date)
       end
 
-      def search_meeting_report
-        return query if options[:meeting_report] == "all"
-
-        query.closed.where(%((closing_report->'#{I18n.locale}')::text != ''))
-      end
-
       def search_space
         return query if options[:space].blank? || options[:space] == "all"
 

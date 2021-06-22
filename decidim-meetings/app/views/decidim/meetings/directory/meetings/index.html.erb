@@ -26,7 +26,6 @@
           </div>
 
           <%= form.collection_radio_buttons :date, [["upcoming", t(".upcoming")], ["past", t(".past")]], :first, :last, legend_title: t(".date") %>
-          <%= form.collection_radio_buttons :meeting_report, [["all", t(".all")], ["closed", t(".closed")]], :first, :last, legend_title: t(".meeting_report") %>
           <%= form.collection_radio_buttons :space, @meeting_spaces, :first, :last, legend_title: t(".space_type") %>
         <% end %>
       </div>

@@ -113,8 +113,7 @@ module Decidim
           scope_id: default_filter_scope_params,
           category_id: default_filter_category_params,
           origin: default_filter_origin_params,
-          type: default_filter_type_params,
-          meeting_report: %w(all closed)
+          type: default_filter_type_params
         }
       end
 
