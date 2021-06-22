@@ -714,6 +714,7 @@ pt:
           highlighted_votings:
             active_votings: Votações Ativas
             see_all_votings: Ver todos os votações
+            votings_button_title: Link para a Página de Votação exibindo todos os votos
       polling_officer_zone:
         polling_officers:
           show:
@@ -760,6 +761,8 @@ pt:
           filter_by: Filtrar por
           unfold: Revelar
         index:
+          no_votings: Nenhuma votação corresponde ao seu critério de pesquisa.
+          only_finished: Neste momento, não há votações agendadas, mas aqui podem encontrar as votações já finalizadas.
           title: Votações
         orders:
           label: 'Classificar votos por:'
