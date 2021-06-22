@@ -10,7 +10,19 @@ module Decidim
       private
 
       def resource_icon
-        icon "video", class: "icon--big", role: "img", "aria-hidden": true
+        icon icon_name, class: "icon--big", role: "img", "aria-hidden": true
+      end
+
+      def icon_name
+        if has_meeting_url?
+          "video"
+        else
+          "timer"
+        end
+      end
+
+      def has_meeting_url?
+        @has_meeting_url ||= model.online_meeting_url.present?
       end
     end
   end
