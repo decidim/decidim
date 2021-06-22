@@ -295,6 +295,11 @@ it:
           update:
             invalid: C'è stato un problema durante l'aggiornamento di questo meeting.
             success: OK, il meeting è stato aggiornato.
+        meetings_poll:
+          form:
+            title: Modifica questionario per %{questionnaire_for}
+          update:
+            invalid: Si è verificato un errore durante l'aggiornamento di questo sondaggio della riunione
         models:
           meeting:
             name: Reunione
@@ -359,6 +364,7 @@ it:
         new_meeting_at_html: "<span>Nuovo incontro al %{link}</span>"
       layouts:
         live_event:
+          administrate: Amministra
           close: chiudi
           questions: Domande
       mailer:
@@ -446,6 +452,9 @@ it:
           back: Indietro
           create: Crea
           title: Crea una riunione
+        online_meeting_link:
+          join: Partecipa alla riunione
+          live_event: Questa riunione sta avvenendo in questo momento
         registration_confirm:
           cancel: Annulla
           confirm: Conferma
@@ -498,9 +507,16 @@ it:
       polls:
         questions:
           index_admin:
+            admin_dashboard: Pannello di amministrazione
             question: Domanda
+            received_answer: risposta ricevuta
+            received_answers: risposte ricevute
             results: Risultati
             send: Invia
+            sent: Inviato
+          published_question:
+            max_choices_alert: Sono state selezionate troppe opzioni
+            question: Domanda
       public_participants_list:
         attending_participants: Partecipanti presenti
         hidden_participants_count:
