@@ -2,7 +2,6 @@ import moment from "moment"
 import Foundation from "foundation-sites"
 
 $(() => {
-  let popupOpen = false;
   const $timeoutModal = $("#timeoutModal");
   const timeoutInSeconds = parseInt($timeoutModal.data("session-timeout"), 10);
   const secondsUntilTimeoutPath = $timeoutModal.data("seconds-until-timeout-path");
@@ -20,7 +19,6 @@ $(() => {
     $("#timeoutModal").foundation("close");
     // In admin panel we have to hide all overlays
     $(".reveal-overlay").css("display", "none");
-    popupOpen = false;
     lastActivityCheck = moment();
   })
 
@@ -64,6 +62,7 @@ $(() => {
   const exitInterval = setInterval(() => {
     const timeSinceLastActivityCheckInSeconds = Math.round((moment() - lastActivityCheck) / 1000);
 
+    const popupOpen = $("#timeoutModal").parent().css("display") === "block";
     if (!popupOpen && timeSinceLastActivityCheckInSeconds >= activityCheckInterval) {
       lastActivityCheck = moment();
       if (userBeenActiveSince(activityCheckInterval)) {
@@ -84,7 +83,6 @@ $(() => {
       if (secondsUntilSessionExpires <= 90) {
         $timeoutModal.find("#reveal-hidden-sign-out")[0].click();
       } else if (secondsUntilSessionExpires <= 150) {
-        popupOpen = true;
         popup.open();
       }
     });
