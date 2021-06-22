@@ -490,15 +490,44 @@ pt:
             success: Sua chave pública de identificação foi armazenada com sucesso.
       votes:
         confirm:
+          answer: Resposta
+          answer_number: responder %{number}
+          confirm: Confirmar
           edit: editar
+          header: Confirme seu voto
+          intro: Aqui está um resumo do voto que você está prestes a transmitir. <br> Por favor, confirme seu voto ou edite suas respostas.
+          nota_option: Em Branco
+          question: Questão %{count}
         confirmed:
+          back: Voltar para as eleições
           error: Desculpe, ocorreu um erro ao confirmar seu voto. Por favor, vote novamente.
+          experience: Como foi sua experiência?
+          feedback: Deixe sua opinião
+          header: Voto confirmado
           lead: Seu voto já foi recebido!
         encrypting:
           header: Codificando voto...
           text: Seu voto está sendo criptografado para garantir que você pode transmiti-lo anonimamente.
+        failed:
+          header: Votação falhou
+          lead: Seu voto não foi transmitido!
+          text: Algo deu errado, por favor, tente novamente.
         header:
+          confirm: Confirme seu voto
+          confirmed: Voto confirmado
           encrypting: Confirmando voto
+        messages:
+          not_allowed: Não está autorizado a votar nesta eleição neste momento.
+        modal:
+          close: Fechado
+          proposal_header: 'Propostas:'
+        new:
+          answer_choices: Você pode selecionar até %{choices} respostas
+          more_information: Mais informações
+          nota_option: Branco/ Nenhuma das alternativas acima
+          preview_alert: Esta é uma prévia da cabina de votação.
+          question_steps: Questão %{current_step} de %{total_steps}
+          selections: "%{selected} de %{max_selections}<br> seleções"
         processing:
           header: Processando o voto...
           text: Seu voto foi recebido e está sendo processado. Por favor, aguarde.
@@ -506,8 +535,22 @@ pt:
           error: Houve um problema ao atualizar o do voto
           success: Status do voto atualizado com sucesso
         verify:
+          content:
+            heading: Verifique seu voto
+            info: Este verificador verifica se seu voto, identificado com uma string de texto criptografada, foi transmitido corretamente e está dentro das urnas.
+          error:
+            header: Voto não encontrado!
           form:
+            back: Voltar ao Decidim
             submit: Check
+            vote_identifier: 'Código de identificador:'
+          header:
+            title: Verifique seu voto
+          success:
+            header: Voto localizado!
+        voting_step:
+          back: Voltar
+          continue: Próxima
     events:
       elections:
         election_published:
@@ -520,6 +563,8 @@ pt:
       participatory_spaces:
         votings:
           title: O que são votações?
+    menu:
+      votings: Votações
     pages:
       home:
         statistics:
@@ -529,11 +574,44 @@ pt:
         elections_count: Eleições
     votings:
       admin:
+        content_blocks:
+          highlighted_votings:
+            max_results: Quantidade máxima de elementos para mostrar
+          landing_page:
+            attachments_and_folders:
+              name: Anexos e pastas de votação
+            description:
+              name: Descrição da votação
+            elections:
+              name: Eleição
+            header:
+              name: Cabeçalho do voto
+            html_block_1:
+              name: Bloco de votação html 1
+            html_block_2:
+              name: Bloco de votação html 2
+            html_block_3:
+              name: Bloco de votação html 3
+            metrics:
+              name: Métricas de votação
+            polling_stations:
+              name: Estações de votação
+            stats:
+              name: Estatísticas de votação
+            timeline:
+              name: Linha do tempo da votação
+        index:
+          not_published: Despublicado
+          published: Publicado
         landing_page:
           content_blocks:
             edit:
               update: Atualizar
+          edit:
+            active_content_blocks: Blocos de conteúdo ativo
+            inactive_content_blocks: Blocos de conteúdo inativo
         menu:
+          votings: Votações
           votings_submenu:
             attachment_collections: Pastas
             attachment_files: Arquivos
@@ -542,21 +620,84 @@ pt:
             info: Informação
             landing_page: Página inicial
             monitoring_committee_members: Comitê de Monitoramento
+        models:
+          monitoring_committee_member:
+            fields:
+              email: E-mail
+              name: Nome
+            name: Monitoramento de Membros de Comitê
+          polling_officer:
+            fields:
+              email: E-mail
+              name: Nome
+              polling_station: Estação de votação (regra)
+            name: Oficial de Enquete
+          polling_station:
+            fields:
+              address: Endereço
+              polling_station_managers: Gerentes
+              polling_station_president: Presidente
+              title: Título
+            name: Estação de enquete
+          voting:
+            fields:
+              created_at: Criado em
+              promoted: Destaque
+              published: Publicado
+              title: Título
         monitoring_committee_members:
           form:
             existing_user: Usuário existente
             non_user: Convidar novo usuário
             select_user: Pesquisar por nome, e-mail ou apelido
             user_type: Tipo de usuário
+          new:
+            create: Criar
         polling_officers:
           form:
             existing_user: Usuário existente
             non_user: Convidar novo usuário
             select_user: Pesquisar por nome, e-mail ou apelido
             user_type: Tipo de usuário
+          index:
+            role_manager: gerente
+            role_president: presidente
+          new:
+            create: Criar
+          polling_officers_picker:
+            close: Fechado
+        polling_stations:
+          new:
+            create: Criar
+        titles:
+          votings: Votações
         votings:
+          actions:
+            confirm_destroy: Você tem certeza?
+            destroy: Destruir
+            publish: Publicar
+            unpublish: Despublicar
+          create:
+            success: Votação criada com sucesso
           edit:
             update: Atualizar
+          form:
+            select_a_voting_type: Por favor, selecione um tipo de votação
+            title: Título
+            voting_type:
+              hybrid: Híbrido
+              in_person: Pessoalmente
+              online: On-line
+          new:
+            create: Criar
+            title: Nova votação
+          publish:
+            success: Votação publicada com sucesso
+          unpublish:
+            success: Votação despublicada com sucesso
+          update:
+            invalid: Houve um problema ao atualizar esta votação
+            success: Votação atualizada com sucesso
       admin_log:
         voting:
           create: "%{user_name} criou a votação %{resource_name}"
@@ -564,7 +705,15 @@ pt:
           unpublish: "%{user_name} despublicizou a votação %{resource_name}"
       monitoring_committee_members:
         actions:
+          confirm_destroy: Você tem certeza?
           destroy: Excluir
+          new: Novo membro
+          title: Ações
+      pages:
+        home:
+          highlighted_votings:
+            active_votings: Votações Ativas
+            see_all_votings: Ver todos os votações
       polling_officer_zone:
         polling_officers:
           show:
@@ -575,17 +724,71 @@ pt:
             polling_stations:
               list:
                 actions: Ações
+                address: Endereço
                 name: Nome
                 role: Seu papel
                 voting: Votação
               no_polling_stations: Você ainda não está atribuído a nenhuma Estação de Apuração no momento.
       polling_officers:
         actions:
+          confirm_destroy: Você tem certeza?
           destroy: Excluir
+          new: Novo
+          title: Ações
+        roles:
+          manager: Gerente
+          president: Presidente
+          unassigned: Não Atribuido
       polling_stations:
         actions:
+          confirm_destroy: Você tem certeza?
           destroy: Excluir
           edit: Editar
+          new: Novo
+          title: Ações
+      votings:
+        filters:
+          active: Ativo
+          all: Todos
+          finished: Finalizado
+          search: Pesquisar
+          state: Status
+          upcoming: Próximos
+        filters_small_view:
+          close_modal: Fechar modal
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Revelar
+        index:
+          title: Votações
+        orders:
+          label: 'Classificar votos por:'
+          random: Aleatório
+          recent: Mais recente
+        show:
+          dates: Datas
       votings_m:
+        badge_name:
+          finished: Finalizado
+          ongoing: Em andamento
+          upcoming: Próximos
         footer_button_text:
           participate: Participar
+          view: Visualizar
+          vote: Votar
+        unspecified: Não especificado
+        voting_type:
+          hybrid: Híbrido
+          in_person: Pessoalmente
+          online: On-line
+        voting_types_label: Tipo de votação
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Sair
+      votings:
+        index:
+          promoted_votings: Destaque da votação
+        promoted_voting:
+          more_info: Mais informações
+          vote: Votar
