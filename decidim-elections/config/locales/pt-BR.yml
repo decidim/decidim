@@ -884,7 +884,18 @@ pt:
               file_not_exists: Este arquivo não existe
             generate_access_codes:
               button: Gerar códigos de acesso a votação
+              info_message_all: "<strong>Todas as linhas importadas com sucesso</strong> de %{file} arquivo (%{raw_count} de %{data_count})."
+              info_message_warn: Por favor, verifique se nenhum dado está faltando, porque %{data_count} registros foram criados e o arquivo enviado %{file} possui %{raw_count} linhas.
+              launch_error: Problema ao lançar a geração de códigos de acesso
+              launch_success: Geração de códigos iniciada.
+            generating_access_codes:
+              info_message: "<strong>Aguarde</strong>, os códigos de acesso a votação estão sendo gerados..."
             new:
+              file_help:
+                explanation: 'Orientação para o arquivo:'
+                message_1: Somente arquivos CSV (.csv) são permitidos.
+                message_2: O separador entre colunas deve ser um ponto e vírgula (";").
+              info_message: "<strong>Ainda não há censo.</strong> Por favor, use o formulário abaixo para criá-lo importando um arquivo CSV."
               submit: Enviar csv
               title: Criar o censo
         document_types:
@@ -917,6 +928,7 @@ pt:
           highlighted_votings:
             active_votings: Votações Ativas
             see_all_votings: Ver todos os votações
+            votings_button_title: Link para a Página de Votação exibindo todos os votos
       polling_officer_zone:
         closures:
           certify:
@@ -1038,8 +1050,14 @@ pt:
         check_census:
           check_status: Conferir status
           description: Aqui, você tem a opção de verificar os dados do censo para saber se tem o direito de participar nesta votação. Você já deve ter um código de acesso, mas se você o perdeu, você pode pedi-lo novamente, quando seus dados estiverem corretos.
+          error:
+            info: 'Por favor, tente novamente. Se você acha que os dados no sistema estão incorretos, você pode reportá-los aqui: %{census_contact_information}.'
+            title: Os dados do censo estão incorretos!
+          form_title: 'Preencha o seguinte formulário para verificar os dados do censo:'
           success:
             access_link: por SMS ou e-mail.
+            info: Você já deve ter recebido seu código de acesso por e-mail. Caso você não o tenha, você pode solicitá-lo aqui
+            title: Seus dados do censo estão corretos!
           title: Posso votar?
         check_fields:
           date_of_birth: Data de Nascimento
@@ -1071,6 +1089,8 @@ pt:
           filter_by: Filtrar por
           unfold: Revelar
         index:
+          no_votings: Nenhuma votação corresponde ao seu critério de pesquisa.
+          only_finished: Neste momento, não há votações agendadas, mas aqui podem encontrar as votações já finalizadas.
           title: Votações
         login:
           access_code: Código de Acesso
