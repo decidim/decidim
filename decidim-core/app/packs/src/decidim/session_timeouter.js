@@ -32,12 +32,10 @@ $(() => {
   }
 
   const disableSessionTimeout = () => {
-    console.log("disable session timeout")
     sessionTimeOutEnabled = false;
   }
 
   const enableSessionTimeout = () => {
-    console.log("enable session timeout")
     sessionTimeOutEnabled = true;
   }
 
