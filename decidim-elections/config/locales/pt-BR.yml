@@ -924,6 +924,14 @@ pt:
             success: Estação de voto criada com sucesso
           destroy:
             invalid: Houve um problema ao excluir esta estação de voto
+            success: Estação de voto excluída com sucesso
+          edit:
+            title: Editar estação de voto
+            update: Atualizar estação de voto
+          form:
+            address_help: 'Endereço: usado pelo Geocodificador para encontrar a localização'
+            location_help: 'Local: mensagem direcionada aos eleitores implicando o local exato da estação de voto'
+            location_hints_help: 'Dicas de localização: informações adicionais. Exemplo: o piso do edifício onde a estação de voto está localizada.'
           new:
             create: Criar
         titles:
