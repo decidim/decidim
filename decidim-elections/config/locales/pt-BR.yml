@@ -505,6 +505,8 @@ pt:
           feedback: Deixe sua opinião
           header: Voto confirmado
           lead: Seu voto já foi recebido!
+          text: 'Você pode verificar se o seu voto foi adicionado com sucesso à urna com o seguinte identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_link: Para verificá-lo, copie o identificador e cole-o na <a href="%{link}">página de verificação do voto</a>
         encrypting:
           header: Codificando voto...
           text: Seu voto está sendo criptografado para garantir que você pode transmiti-lo anonimamente.
@@ -540,6 +542,7 @@ pt:
             info: Este verificador verifica se seu voto, identificado com uma string de texto criptografada, foi transmitido corretamente e está dentro das urnas.
           error:
             header: Voto não encontrado!
+            info: O código de voto não foi encontrado na urna %{link}. Tente novamente.
           form:
             back: Voltar ao Decidim
             submit: Check
@@ -548,12 +551,17 @@ pt:
             title: Verifique seu voto
           success:
             header: Voto localizado!
+            info: Seu voto criptografado está na urna %{link}
         voting_step:
           back: Voltar
           continue: Próxima
+      warnings:
+        no_elections_warning: Nenhuma eleição corresponde aos seus critérios de pesquisa ou não há nenhuma eleição agendada.
+        no_scheduled_elections_warning: Atualmente, não há eleições agendadas, mas aqui podem encontrar uma lista de todas as últimas eleições.
     events:
       elections:
         election_published:
+          email_intro: 'A eleição %{resource_title} agora está ativa para %{participatory_space_title}. Você pode vê-lo a partir desta página:'
           email_subject: A eleição %{resource_title} agora está ativa para %{participatory_space_title}.
           notification_title: A eleição <a href="%{resource_path}">%{resource_title}</a> agora está ativa para %{participatory_space_title}.
         trustees:
@@ -620,6 +628,8 @@ pt:
             info: Informação
             landing_page: Página inicial
             monitoring_committee_members: Comitê de Monitoramento
+            polling_officers: Agentes de votação
+            polling_stations: Estação de votos
         models:
           monitoring_committee_member:
             fields:
@@ -730,6 +740,7 @@ pt:
                 role: Seu papel
                 voting: Votação
               no_polling_stations: Você ainda não está atribuído a nenhuma Estação de Apuração no momento.
+              title: Estação de votos
       polling_officers:
         actions:
           confirm_destroy: Você tem certeza?
