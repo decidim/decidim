@@ -32,7 +32,6 @@ module Decidim
 
         it "returns seconds until timeout" do
           expect(controller).not_to receive(:store_current_location)
-          expect(controller).not_to receive(:ensure_authenticated!)
 
           get :seconds_until_timeout, format: :json, params: params
 
