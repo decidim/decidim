@@ -86,7 +86,7 @@ module Decidim
       asset_host = Rails.application.config.action_controller.asset_host
       img_path = asset_pack_path(path)
       img_path.gsub!(asset_host , "") if asset_host.present?
-      Rails.root.join("public#{img_path}")
+      Rails.root.join("public/#{img_path}")
     end
 
     # Allows to create role attribute according to accessibility rules
