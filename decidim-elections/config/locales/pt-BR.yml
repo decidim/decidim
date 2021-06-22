@@ -149,7 +149,7 @@ pt:
             title: Editar eleição
             update: Atualizar eleição
           index:
-            no_bulletin_board: Não há <a href="https://github.com/decidim/decidim-bulletin-board">Servidor de borda de Boletim</a> configurado, que é necessário para utilizar este módulo. Esta tarefa deve ser feita pelo Administrador do Sistema.
+            no_bulletin_board: Não há <a href="https://github.com/decidim/decidim-bulletin-board"> Quadro de Notas</a> configurado, que é necessário para utilizar este módulo. Esta tarefa deve ser feita pelo Administrador do Sistema.
             title: Eleições
           new:
             create: Criar uma nova eleição
@@ -223,13 +223,13 @@ pt:
               time_before: A instalação está sendo feita <strong>pelo menos %{hours} horas</strong> antes do início da eleição.
               trustees_number: O espaço participativo tem <strong> pelo menos %{number} agentes fiduciários com chave pública</strong>.
             submit: Configurar eleição
-            success: Eleição enviada com sucesso para o Quadro de avisos
+            success: Eleição enviada com sucesso para o Quadro de Notas
             title: Configurar eleição
             trustees: Agentes fiduciários da Eleição
           created:
             invalid: Houve um problema ao iniciar a cerimônia de chave
             submit: Inicie a cerimônia de chaves
-            success: Pedido de cerimônia inicial foi enviado com sucesso para o Quadro de avisos
+            success: Pedido de cerimônia inicial foi enviado com sucesso para o Quadro de Notas
             title: Eleição criada
             trustees: Agentes fiduciários
           key_ceremony:
@@ -242,7 +242,7 @@ pt:
             requirements:
               time_before: A eleição começará em breve. Você pode iniciar o período de votação manualmente ou ele será iniciado automaticamente antes da hora inicial, às %{start_time}.
             submit: Iniciar período de votação
-            success: O pedido de período de votação foi enviado com sucesso para o Conselho Boletim
+            success: O pedido de período de votação foi enviado com sucesso para o Quadro de Notas
             title: Preparado para começar
           processing: Processando...
           results_published:
@@ -253,6 +253,66 @@ pt:
           tally_ended:
             submit: Publicar resultados
             title: Resultados calculados
+          vote:
+            errors:
+              time_after: A eleição ainda está em curso. Você tem que esperar até o fim do período de votação (%{end_time}).
+            invalid: Houve um problema ao terminar o período de votação
+            requirements:
+              time_after: A eleição terminou. Você pode terminar o período de votação manualmente ou terminará automaticamente em alguns minutos.
+            submit: Fim período de votação
+            success: Período de votação final foi enviado com sucesso para o Quadro de Notas
+            title: Período de votação
+          vote_ended:
+            invalid: Houve um problema ao iniciar a apuração
+            submit: Iniciar a apuração
+            success: O início da apuração foi enviado com sucesso para o Quadro de Notas
+            title: O período de votação terminou
+          vote_stats:
+            no_vote_statistics_yet: Nenhuma estatística de voto ainda
+            title: Estatísticas de Voto
+            voters: Votantes
+            votes: Votos
+        trustees_participatory_spaces:
+          actions:
+            disable: Desabilitado
+            enable: Considere
+          create:
+            exists: Curador existente para este espaço participativo
+            invalid: Houve um problema ao criar um curador
+            success: Curador criado com sucesso
+          delete:
+            invalid: Houve um erro ao remover o curador
+            success: Curador removido com sucesso
+          form:
+            select_user: Selecionar usuário
+          index:
+            title: Curadores
+          new:
+            create: Criar curador
+            title: Novo curador
+          update:
+            invalid: Ocorreu um erro ao atualizar %{trustee} como curador
+            success: Curador %{trustee} atualizado com sucesso
+      admin_log:
+        election:
+          end_vote: "%{user_name} terminou o período de votação para a eleição %{resource_name} no Quadro de Notas"
+          publish: "%{user_name} publicou a eleição %{resource_name}"
+          setup: "%{user_name} criou a eleição %{resource_name} no Quadro de Notas"
+          start_key_ceremony: "%{user_name} iniciou a cerimônia chave para a eleição %{resource_name} no Quadro de Notas"
+      election_m:
+        badge_name:
+          finished: Finalizado
+          ongoing: Ativo
+          upcoming: Próximos
+        end_date: Finaliza
+        footer:
+          view: Visualizar
+          vote: Votar
+        label:
+          date: Datas
+        questions: Questões %{count}
+        start_date: Começar
+        unspecified: Não especificado
       elections:
         filters:
           active: Ativo
@@ -283,17 +343,132 @@ pt:
             change-vote: Mude seu voto
             vote: Começar a votar
             vote-again: Votar novamente
+          back: Eleições disponíveis
           callout:
             already-voted: Você já votou nesta eleição. Você pode alterar seu voto ou verificá-lo.
             vote-rejected: Não foi possível verificar o seu voto. Por favor, vote novamente.
+          preview: Pré-visualização
           verify:
             already-voted: Já votou?
             verify-here: Verifique seu voto aqui.
             will-verify: Você poderá verificar seu voto quando as eleições forem iniciadas.
+          voting_period_status:
+            finished: A votação começou em %{start_time} e terminou em %{end_time}
+            ongoing: 'Votação ativa até: %{end_time}'
+            upcoming: A votação começa em %{start_time}
       feedback:
         answer:
           invalid: Ocorreu um erro ao enviar seu feedback.
+          spam_detected: Houve algum problema ao responder ao formulário. Talvez você tenha sido rápido demais, pode tentar novamente?
+          success: Feedback enviado com sucesso.
+      models:
+        answer:
+          fields:
+            proposals: Proposta
+            title: Título
+        election:
+          fields:
+            bb_status: Satus do Bulletin Board
+            end_time: Termina às
+            start_time: Começa às
+            title: Título
+        question:
+          fields:
+            answers: Respostas
+            max_selections: Máx. seleções
+            title: Título
+        trustees_participatory_space:
+          fields:
+            considered: considerado
+            email: E-mail
+            inactive: inativo
+            name: Nome
+            notification: Notificação enviada em
+            public_key: Chave Pública
+            status: Status
+      orders:
+        label: Ordenar eleições por
+        older: Mais antigo
+        recent: Recente
+      trustee_zone:
+        elections:
+          backup_modal:
+            description: Esta eleição está a ser criada no Quadro de Notas. É muito importante que cada curador que participe crie uma cópia de segurança dessas chaves e as armazene em um lugar seguro. Depois disso, o processo prossegue.
+            download_election_keys: Baixar chaves
+            download_icon: Ícone que indica uma ação de download
+          key_ceremony_steps:
+            back: Voltar
+            keys:
+              create_election: Geração de chaves
+              key_ceremony:
+                joint_election_key: Geração de chave comum
+                step_1: Publicação de chaves
+            list:
+              status: Status
+              task: Tarefa
+            process_warning: Depois que o processo for iniciado, você não deverá sair desta página até que o processo termine. Levará vários minutos, pois todos os curadores deverão estar conectados para completá-lo.
+            start: Iniciar
+            status:
+              completed: Concluído
+              pending: Pendente
+              processing: Processando
+            title: Criar chaves eleitorais para %{election}
+          restore_modal:
+            description: O Quadro de Notas tem informações suas, na sua qualidade de membro da Presidência, sobre esta eleição. Para continuar o processo, primeiro carregue o arquivo de backup gerado durante a sessão anterior.
+            title: Restaurar chaves eleitorais para %{election}
+            upload_election_keys: Upload das chaves eleitorais
+            upload_icon: Ícone que indica uma ação de download
+          tally_steps:
+            back: Voltar
+            description: Os resultados para esta eleição estão sendo calculados no Quadro de Notas. Para completar este processo, é necessário a sua participação como um curador.
+            keys:
+              end_tally: Apuração encerrada
+              tally:
+                cast: Transmissão de apuração
+                share: Compartilhar apuração
+            list:
+              status: Status
+              task: Tarefa
+            process_warning: Depois que o processo for iniciado, você não deverá sair desta página até que o processo termine. Levará vários minutos, pois todos os curadores deverão estar conectados para completá-lo.
+            start: Iniciar
+            start_icon: Ícone que indica um botão iniciar para começar a geração de chaves eleitorais
+            status:
+              completed: Concluído
+              pending: Pendente
+              processing: Processando
+            title: Apuração para %{election}
+          update:
+            error: O status da eleição não foi atualizado.
+            success: 'O status da eleição é: %{status}'
+        menu:
+          trustee_zone: Zona dos curadores
+        no_bulletin_board:
+          body: Um Quadro de Notas é necessário para esta seção. Entre em contato com o Administrador para obter mais detalhes.
+          title: Desculpe, o Quadro de Notas ainda não está configurado.
+        trustees:
+          show:
+            elections:
+              list:
+                action_required:
+                  'false': 'Não'
+                  name: Ação necessária?
+                  'true': Executar ação
+                bb_status: Status
+                election: Eleição
+                voting_period: Período de votação
+              no_elections: Não há eleições em que você esteja como um curador.
+              title: Eleições
+            identification_keys:
+              cancel: Cancelar
+              generate_legend_1: Depois de pressionar o botão, você deve baixar o arquivo com as chaves de identificação geradas.
+              generate_legend_2: Copie o arquivo baixado para um dispositivo USB limpo
+              generate_legend_3: Certifique-se de que seu computador não tenha uma cópia do arquivo (por exemplo, verifique as pastas Downloads e Desktop).
+              submit: Enviar
+              submit_legend: Depois de seguir todos os passos explicados acima, complete o processo de envio da chave de identificação pública para o servidor Decidim.
+              submit_title: Enviar a chave de identificação pública
       votes:
+        confirm:
+          edit: editar
         confirmed:
           error: Desculpe, ocorreu um erro ao confirmar seu voto. Por favor, vote novamente.
           lead: Seu voto já foi recebido!
@@ -308,6 +483,9 @@ pt:
         update:
           error: Houve um problema ao atualizar o do voto
           success: Status do voto atualizado com sucesso
+        verify:
+          form:
+            submit: Check
     pages:
       home:
         statistics:
@@ -317,9 +495,25 @@ pt:
         elections_count: Eleições
     votings:
       admin:
+        landing_page:
+          content_blocks:
+            edit:
+              update: Atualizar
         menu:
           votings_submenu:
+            attachment_collections: Pastas
+            attachment_files: Arquivos
+            attachments: Anexos
+            components: Componentes
+            info: Informação
+            landing_page: Página inicial
             monitoring_committee_members: Comitê de Monitoramento
+        votings:
+          edit:
+            update: Atualizar
+      monitoring_committee_members:
+        actions:
+          destroy: Excluir
       polling_officer_zone:
         polling_officers:
           show:
@@ -330,6 +524,14 @@ pt:
             polling_stations:
               list:
                 actions: Ações
+                name: Nome
                 role: Seu papel
                 voting: Votação
               no_polling_stations: Você ainda não está atribuído a nenhuma Estação de Apuração no momento.
+      polling_officers:
+        actions:
+          destroy: Excluir
+      polling_stations:
+        actions:
+          destroy: Excluir
+          edit: Editar
