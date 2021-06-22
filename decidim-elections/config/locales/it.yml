@@ -674,7 +674,7 @@ it:
             fields:
               address: Indirizzo
               polling_station_managers: Gestori
-              polling_station_president: Presidente/Presidentessa
+              polling_station_president: Presidentessa/Presidente
               title: Titolo
             name: Seggio elettorale
           voting:
@@ -816,7 +816,35 @@ it:
       polling_officers:
         roles:
           president: Presidente/Presidentessa
+      votings:
+        orders:
+          label: 'Ordina le votazioni per:'
+          random: Casuale
+          recent: Più recente
+        show:
+          dates: Date
+      votings_m:
+        badge_name:
+          finished: Completata
+          ongoing: In corso
+          upcoming: In arrivo
+        footer_button_text:
+          participate: Partecipa
+          view: Visualizza
+          vote: Vota
+        unspecified: Non specificato
+        voting_type:
+          hybrid: Ibrido
+          in_person: Di persona
+          online: Online
+        voting_types_label: Tipo di votazione
   layouts:
     decidim:
       election_votes_header:
         exit: Esci
+      votings:
+        index:
+          promoted_votings: Votazioni in evidenza
+        promoted_voting:
+          more_info: Ulteriori informazioni
+          vote: Vota
