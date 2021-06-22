@@ -357,6 +357,10 @@ it:
       last_activity:
         meeting_updated_at_html: "<span>Dibattito aggiornato su %{link}</span>"
         new_meeting_at_html: "<span>Nuovo incontro al %{link}</span>"
+      layouts:
+        live_event:
+          close: chiudi
+          questions: Domande
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -491,6 +495,12 @@ it:
             official_meeting: Riunione ufficiale
             start_time: Data di inizio
             title: Titolo
+      polls:
+        questions:
+          index_admin:
+            question: Domanda
+            results: Risultati
+            send: Invia
       public_participants_list:
         attending_participants: Partecipanti presenti
         hidden_participants_count:
