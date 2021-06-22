@@ -820,7 +820,7 @@ it:
             fields:
               address: Indirizzo
               polling_station_managers: Gestori
-              polling_station_president: Presidente/Presidentessa
+              polling_station_president: Presidentessa/Presidente
               title: Titolo
             name: Seggio elettorale
           voting:
@@ -1084,6 +1084,7 @@ it:
             error: Si è verificato un errore nell'allegare il certificato, per favore riprova.
             form_legend: Carica una foto del certificato di chiusura elettorale
             heading: Resoconto del voto - Certificato di caricamento
+            submit: Carica il certificato
           edit:
             info_text: Si prega di introdurre il numero totale di risposte per ogni domanda.
             modal_ballots_results_count_error:
@@ -1094,6 +1095,8 @@ it:
             heading: Riconteggio voti
             modal_ballots_count_error:
               close_modal: Chiudi
+              total_people: 'Persone totali:'
+            polling_station: 'Seggio elettorale:'
           sign:
             cancel: Annulla
             close_modal: Chiudi
@@ -1114,9 +1117,50 @@ it:
         roles:
           president: Presidente/Presidentessa
       votings:
+        check_fields:
+          day: Giorno
+          month: Mese
         login:
+          form_title: 'Compila il seguente modulo per accedere alla votazione:'
           start_voting: Inizia a votare
+          step: Identificazione
+          title: Identificarmi con i miei dati di censimento di voto
+        no_census_contact_information: Non ci sono ancora informazioni di contatto
+        orders:
+          label: 'Ordina le votazioni per:'
+          random: Casuale
+          recent: Più recente
+        send_access_code:
+          invalid: Si è verificato un problema durante l'invio del Codice di Accesso
+          success: Il tuo Codice di Accesso è stato inviato con successo
+        show:
+          dates: Date
+      votings_m:
+        badge_name:
+          finished: Completata
+          ongoing: In corso
+          upcoming: In arrivo
+        footer_button_text:
+          participate: Partecipa
+          view: Visualizza
+          vote: Vota
+        unspecified: Non specificato
+        voting_type:
+          hybrid: Ibrido
+          in_person: Di persona
+          online: Online
+        voting_types_label: Tipo di votazione
   layouts:
     decidim:
       election_votes_header:
         exit: Esci
+      voting_navigation:
+        check_census: Posso votare?
+        election_log: Registro elettorale
+        voting_menu_item: La votazione
+      votings:
+        index:
+          promoted_votings: Votazioni in evidenza
+        promoted_voting:
+          more_info: Ulteriori informazioni
+          vote: Vota
