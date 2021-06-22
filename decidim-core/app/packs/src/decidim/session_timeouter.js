@@ -2,19 +2,26 @@ import moment from "moment"
 import Foundation from "foundation-sites"
 
 $(() => {
+  let popupOpen = false;
   const $timeoutModal = $("#timeoutModal");
   const timeoutInSeconds = parseInt($timeoutModal.data("session-timeout"), 10);
   const secondsUntilTimeoutPath = $timeoutModal.data("seconds-until-timeout-path");
+  const heartbeatPath = $timeoutModal.data("heartbeat-path");
   const interval = parseInt($timeoutModal.data("session-timeout-interval"), 10);
   let endsAt = moment().add(timeoutInSeconds, "seconds");
+  let lastAction = moment();
   const popup = new Foundation.Reveal($timeoutModal);
   const $continueSessionButton = $("#continueSession");
+  let lastActivityCheck = moment();
+  const activityCheckInterval = 5*60; // 5 * 60 seconds = 5 Minutes
 
   // Ajax request is made at timeout_modal.html.erb
   $continueSessionButton.on("click", () => {
     $("#timeoutModal").foundation("close");
     // In admin panel we have to hide all overlays
     $(".reveal-overlay").css("display", "none");
+    popupOpen = false;
+    lastActivityCheck = moment();
   })
 
   if (isNaN(interval)) {
@@ -42,11 +49,31 @@ $(() => {
     });
   }
 
+  const heartbeat = () => {
+    return $.ajax({
+      method: "POST",
+      url: heartbeatPath,
+      contentType: "application/javascript"
+    });
+  }
+
+  const userBeenActiveSince = (seconds) => {
+    return (moment() - lastAction) / 1000 < seconds;
+  }
+
   const exitInterval = setInterval(() => {
-    const diff = endsAt - moment();
-    const diffInSeconds = Math.round(diff / 1000);
-    console.log("diffInSeconds", diffInSeconds);
-    if (diffInSeconds > 150) {
+    const timeSinceLastActivityCheckInSeconds = Math.round((moment() - lastActivityCheck) / 1000);
+
+    if (!popupOpen && timeSinceLastActivityCheckInSeconds >= activityCheckInterval) {
+      lastActivityCheck = moment();
+      if (userBeenActiveSince(activityCheckInterval)) {
+        heartbeat();
+        return;
+      }
+    }
+
+    const timeRemaining = Math.round((endsAt - moment()) / 1000);
+    if (timeRemaining > 150) {
       return;
     }
 
@@ -57,10 +84,21 @@ $(() => {
       if (secondsUntilSessionExpires <= 90) {
         $timeoutModal.find("#reveal-hidden-sign-out")[0].click();
       } else if (secondsUntilSessionExpires <= 150) {
+        popupOpen = true;
         popup.open();
       }
     });
   }, interval);
+
+  $(document).mousemove((_event) => {
+    lastAction = moment();
+  })
+  $(document).scroll((_event) => {
+    lastAction = moment();
+  })
+  $(document).keypress((_event) => {
+    lastAction = moment();
+  })
 
   // Devise restarts its own timer on ajax requests,
   // so here we restart our.
