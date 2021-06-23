@@ -300,6 +300,7 @@ it:
             title: Modifica questionario per %{questionnaire_for}
           update:
             invalid: Si è verificato un errore durante l'aggiornamento di questo sondaggio della riunione
+            success: Riunione sondaggio aggiornata con successo
         models:
           meeting:
             name: Reunione
@@ -506,8 +507,13 @@ it:
             title: Titolo
       polls:
         questions:
+          closed_question:
+            question_results: Risultati della domanda
+          index:
+            empty_questions: Durante questa riunione, alcune domande saranno inviate e sarete in grado di rispondere. Verranno visualizzate qui.
           index_admin:
             admin_dashboard: Pannello di amministrazione
+            edit: Modifica nell'amministratore
             question: Domanda
             received_answer: risposta ricevuta
             received_answers: risposte ricevute
@@ -517,6 +523,8 @@ it:
           published_question:
             max_choices_alert: Sono state selezionate troppe opzioni
             question: Domanda
+            question_replied: Domanda risposta
+            reply_question: Rispondi alla domanda
       public_participants_list:
         attending_participants: Partecipanti presenti
         hidden_participants_count:
