@@ -354,6 +354,10 @@ pt:
         start_date: Começar
         unspecified: Não especificado
       elections:
+        count:
+          elections_count:
+            one: "%{count} eleição"
+            other: "%{count} eleições"
         election_log:
           chained_hash: A Hash encadeada desta mensagem
           complete: Completo
@@ -420,6 +424,9 @@ pt:
           percentage: "%{count}%"
           selected: Selecionado
           title: Resultados da eleição
+          votes:
+            one: "%{count} voto"
+            other: "%{count} votos"
         show:
           action_button:
             change_vote: Mude seu voto
@@ -699,6 +706,7 @@ pt:
       participatory_spaces:
         votings:
           contextual: "<p>Uma <strong>votação</strong> é um espaço que permite que você faça uma pergunta clara para todas as pessoas que formam uma organização, faça uma chamada para participar na votação, incitar e ordenar o debate a favor ou contra uma resposta. Quando chegar a data da consulta, podem votar e publicar os resultados das votações.</p> <p>Exemplos: As consultas podem ser sobre quase qualquer aspecto que afete uma organização: alguns exemplos estão mudando o nome ou o logotipo da organização oferecendo várias alternativas, decidir Sim ou Não para fazer parte de uma organização maior, validar ou rejeitar um novo plano estratégico ou o resultado de um grupo de trabalho. ou definir se as posições devem permanecer um máximo de 1, 2 ou 3 mandatos.</p>\n"
+          page: "<p>Uma <strong>votação</strong> é um espaço que permite que você faça uma pergunta clara para todas as pessoas que formam uma organização, faça uma chamada para participar na votação, incitar e ordenar o debate a favor ou contra uma resposta. Quando chegar a data da consulta, podem votar e publicar os resultados das votações.</p> <p>Exemplos: As consultas podem ser sobre quase qualquer aspecto que afete uma organização: alguns exemplos estão mudando o nome ou o logotipo da organização oferecendo várias alternativas, decidir Sim ou Não para fazer parte de uma organização maior, validar ou rejeitar um novo plano estratégico ou o resultado de um grupo de trabalho. ou definir se as posições devem permanecer um máximo de 1, 2 ou 3 mandatos.</p>\n"
           title: O que são votações?
     menu:
       votings: Votações
@@ -992,15 +1000,29 @@ pt:
             create:
               invalid: Ocorreu um erro ao atualizar o censo, por favor tente novamente mais tarde.
               invalid_csv_header: O cabeçalho CSV não possui o número correto de campos - por favor, leia as instruções cuidadosamente
+            creating_data:
+              info_message: "<strong>Aguarde</strong>, processado %{processed_count} de %{raw_count} linhas de %{file} arquivo."
             delete:
               button: Excluir todos os dados do censo
+              confirm: Excluir todo o censo não pode ser desfeito. Você tem certeza que quer continuar?
             destroy:
+              error: Ocorreu um erro ao deletando o censo, por favor tente novamente mais tarde.
               success: Dados Census excluídos
             export_access_codes:
               button: Exportar códigos de acesso a votos
+              callout: Agora você pode exportar os códigos de acesso. Isso só pode ser feito uma vez. Ao iniciar a exportação, você receberá um e-mail com as instruções para <strong>%{email}</strong>
+              confirm: Você só pode exportar os códigos de acesso uma vez. Certifique-se de que você tem acesso à conta de e-mail <strong>%{email}</strong>.
               file_not_exists: Este arquivo não existe
+              launch_error: Problema ao lançar a exportação de códigos de acesso
+              launch_success: Códigos de acesso lançado. Em breve, você receberá um e-mail em %{email}
+            exporting_access_codes:
+              info_message: "<strong>Por favor, aguarde</strong>, a exportação está sendo preparada, você o receberá em breve para %{email}"
+            freeze:
+              callout: O censo está congelado e não pode ser modificado.
             generate_access_codes:
               button: Gerar códigos de acesso a votação
+              callout: Agora você pode gerar os códigos de acesso. Lembre-se de que após gerar os códigos de acesso, você não será capaz de modificar mais o censo.
+              confirm: Se você continuar, você não poderá modificar o censo.
               info_message_all: "<strong>Todas as linhas importadas com sucesso</strong> de %{file} arquivo (%{raw_count} de %{data_count})."
               info_message_warn: Por favor, verifique se nenhum dado está faltando, porque %{data_count} registros foram criados e o arquivo enviado %{file} possui %{raw_count} linhas.
               launch_error: Problema ao lançar a geração de códigos de acesso
@@ -1012,9 +1034,18 @@ pt:
                 explanation: 'Orientação para o arquivo:'
                 message_1: Somente arquivos CSV (.csv) são permitidos.
                 message_2: O separador entre colunas deve ser um ponto e vírgula (";").
+              has_ballot_styles_message: Você configurou estilos de cédulas. Por favor, certifique-se de que o campo "%{ballot_style_code_header}" no CSV corresponde ao código de estilo de cédula desejada.
               info_message: "<strong>Ainda não há censo.</strong> Por favor, use o formulário abaixo para criá-lo importando um arquivo CSV."
+              missing_ballot_styles_message: 'Não existe estilo de cédula para esta votação ainda.. Se você deseja ter quetões condicionais (ex.: apresentar ao votante diferentes questões dependendo de, por exemplo, o distrito/região da reidência), e precisa ser adicionado no <a href=%{ballot_styles_admin_path}>Estilo de Cédula</a> <strong>antes</strong> importando o censo. Se você gostaria de apresentar a todos os votantes as mesmas questões, você pode prosseguir com o processo de importação do censo.'
               submit: Enviar csv
               title: Criar o censo
+            show:
+              heading: Censo do espaço de votação
+            upload_info:
+              csv_example_with_ballot_style: 'Um exemplo do arquivo <strong>com</strong> estilos de voto:'
+              csv_example_without_ballot_style: 'Um exemplo do arquivo <strong>sem</strong> estilos de voto:'
+              csv_header_after: Não incluir o último campo ("%{ballot_style_code_header}") se você não precisa de estilos de voto/questões condicionais
+              csv_header_before: 'O arquivo do censo deve ser um arquivo CSV com o seguinte cabeçalho:'
         document_types:
           dni: Documento de identidade
           nie: CPF
@@ -1023,15 +1054,22 @@ pt:
           access_codes_export:
             click_button: 'Clique no próximo link para baixar os dados dos códigos de acesso.<br/>O arquivo estará disponível até %{date}.<br/>Você vai precisar de <a href="https://www.7-zip.org/">7-Zip</a> (para Windows), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) ou <a href="https://peazip.github.io">PeaZip</a> (para Linux) para abri-lo. Senha: %{password}'
             download: Download
+            subject: A exportação dos códigos de acesso à votação de %{voting_title} está disponível
         vote_flow:
           already_voted_in_person: Este usuário já votou e não tem direito a votar novamente.
+          datum_not_found: Os dados fornecidos não correspondem a nenhum eleitor.
       content_blocks:
+        highlighted_votings:
+          name: Destaque da votação
         landing_page:
           description:
             show_less: Leia menos
             show_more: Leia mais
           metrics:
             heading: Métricas
+          polling_stations:
+            heading: Estações de votação
+            no_polling_stations: Ainda não há nenhuma Estação de voto.
           timeline:
             heading: Linha do tempo
       monitoring_committee_members:
@@ -1048,14 +1086,25 @@ pt:
             votings_button_title: Link para a Página de Votação exibindo todos os votos
       polling_officer_zone:
         closures:
+          back_to_polling_stations: Voltar para estações de votação
           certify:
             add_images: Adicionar imagens
+            error: Ocorreu um erro ao anexar o certificado, por favor tente novamente.
+            form_legend: Envie uma foto do Certificado de Encerramento Eleitoral
+            heading: Recontagem de voto - Upload de certificado
+            info_text: Por favor envie uma foto do Certificado de Encerramento Eleitoral.
             submit: Carregar o certificado
             success: Upload do certificado efetuado com sucesso.
+          create:
+            error: Ocorreu um erro ao criar o encerramento, por favor tente novamente mais tarde.
+            success: Encerramento criado com sucesso.
           edit:
+            heading: Recontagem de votos - Recontagem de respostas
+            info_text: Por favor, introduza o número total de respostas para cada questão.
             modal_ballots_results_count_error:
               close_modal: Fechar
               info_text: O número total de votos não corresponde ao número total de envelopes. Revise o total de votos.
+              title: Total de cédulas não somados
             save_recount: Salvar recontagem
             total_ballots: Total de cédulas
             total_blank_ballots: Total de cédulas em branco
@@ -1064,35 +1113,52 @@ pt:
           new:
             election: 'Eleição:'
             heading: Recontagem de votos
+            info_text: 'Por favor, introduza o número total de votos (envelopes) recontados nesta Estação de Enquete:'
             modal_ballots_count_error:
               btn_validate_total: Validar a recontagem total de votos
               close_modal: Fechar
               info_explanation_text: 'Por favor, reveja o número total de votos. Se o número total estiver incorreto, você deve fornecer uma explicação para o Comitê de Monitoramento:'
+              info_text: O número total de votos (envelopes) introduzidos não corresponde ao registro de pessoas que votaram nesta Estação.
               message_for_monitoring_committee: Mensagem para o Comitê de Monitoramento
               review_recount: Revisar a recontagem
               text_area_placeholder: Por favor, digite sua mensagem
+              title: Total de cédulas não somados
               total_ballots: 'Total de cédulas:'
               total_people: 'Total de pessoas:'
+            polling_station: 'Estação de voto:'
             submit: Verificar número total
             total_ballots_count: Número de cédulas
           show:
             heading: Recontagem de votos
+            info_text: Encerramento eleitoral da estação de voto.
           sign:
             cancel: Cancelar
             check_box: Eu revisei isso e é o mesmo que o certificado de fechamento eleitoral físico
             close_modal: Fechar
             confirm: Ok, continuar
+            error: Ocorreu um erro. Por favor, tente novamente.
+            heading: Recontagem de votos - Assinatura de encerramento
+            info_text: Se você continuar, você não poderá mais modificar nenhuma das informações, esta ação não poderá ser desfeita.
             submit: Assine o fechamento
+            success: Encerramento assinado com sucesso.
+            title: A ação não pode ser desfeita
+          update:
+            error: Ocorreu um erro ao atualizar o encerramento dos resultados, por favor tente novamente mais tarde.
+            success: Fechamento de resultados atualizado com sucesso.
         in_person_votes:
           complete_voting:
             available_answers: 'Respostas disponíveis:'
             census_verified: O usuário ainda não votou.
             complete_voting: Votação concluída
             identify_another: Identificar outro usuário
+            questions_title: 'Ela tem o direito de votar nas seguintes perguntas:'
             questions_title_voted: 'O usuário já votou on-line e tem direito a votar nas seguintes perguntas:'
             voted: O usuário votou
+          create:
+            error: A votação não foi registrada. Por favor, tente novamente.
           in_person_form:
             census_not_present: Este usuário não está listado no censo.
+            census_not_present_description: Ela deve ir ao escritório de reclamações do censo ou entrar em contato com o suporte.
             date_of_birth: Data de nascimento
             day: Dia
             day_placeholder: DD
@@ -1110,6 +1176,7 @@ pt:
             title: Identificar e verificar um usuário
           show:
             back: Voltar para estações de votação
+            title: Aguardando que o voto seja registrado
           update:
             error: Ocorreu um erro ao registrar a votação. Por favor, tente novamente.
             success:
