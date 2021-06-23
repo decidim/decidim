@@ -17,6 +17,6 @@
     <%= submit_tag t(".import"), class: "button" %>
   </div>
   <div class="import-process-info">
-    <%= t(".info", link_new_status: new_status_path, link_new_result: new_result_path, link_export_csv: link_to(t(".link"), exports_path(@current_component, id: "results", format: "CSV"), method: :post)).try("html_safe") %>
+    <%= t(".info", link_new_status: new_status_path, link_new_result: new_result_path, link_export_csv: link_to(t(".link"), exports_path(current_component, id: "results", format: "CSV"), method: :post)).try("html_safe") %>
   </div>
 <% end %>
