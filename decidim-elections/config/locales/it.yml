@@ -973,6 +973,7 @@ it:
           form:
             census_contact_information_help: Questa informazione di contatto è per un partecipante che vuole segnalare problemi con il censimento. Può essere un indirizzo e-mail, un modulo di contatto su un altro sito, un sondaggio Decidim per i visitatori, ecc.
             select_a_voting_type: Seleziona un tipo di votazione
+            slug_help: 'Gli URL slugs sono usati per generare gli URL che puntano a questo voto. Accetta solo lettere, numeri e trattini e deve iniziare con una lettera. Esempio: %{url}'
             title: Titolo
             voting_type:
               hybrid: Ibrido
@@ -980,6 +981,11 @@ it:
               online: Online
           new:
             create: Crea
+            title: Nuova Votazione
+          publish:
+            success: Votazione pubblicata con successo
+          unpublish:
+            success: Votazione annullata con successo
           update:
             invalid: Si è verificato un errore durante l'aggiornamento di questa votazione
             success: Votazione aggiornata con successo
@@ -1033,6 +1039,8 @@ it:
               missing_ballot_styles_message: 'Non c''è ancora una modalità di voto per questa votazione. Se desideri avere domande condizionate (i.e.: mostrare agli elettori domande diverse, in base al quartiere/regione di residenza), è necessario impostare lo stile <a href=%{ballot_styles_admin_path}>Modalità di voto</a> <strong>prima</strong> di importare il censimento. Se si desidera mostrare a tutti gli elettori le stesse domande, è possibile procedere con la procedura di importazione del censimento.'
               submit: Invia csv
               title: Crea il censimento
+            show:
+              heading: Censimento dello spazio vuoto
             upload_info:
               csv_example_with_ballot_style: 'Un esempio del file <strong>con</strong> mdalità di voto:'
               csv_example_without_ballot_style: 'Un esempio del file <strong>senza</strong> modalità di voto:'
@@ -1084,27 +1092,72 @@ it:
             error: Si è verificato un errore nell'allegare il certificato, per favore riprova.
             form_legend: Carica una foto del certificato di chiusura elettorale
             heading: Resoconto del voto - Certificato di caricamento
+            info_text: Carica una foto del certificato di chiusura elettorale.
             submit: Carica il certificato
+            success: Certificato caricato con successo.
+          create:
+            error: Si è verificato un errore durante la creazione della chiusura, riprova più tardi.
+            success: Chiusura creata con successo.
           edit:
+            heading: Resoconto dei voti - Risposte
             info_text: Si prega di introdurre il numero totale di risposte per ogni domanda.
             modal_ballots_results_count_error:
               close_modal: Chiudi
+              info_text: Il numero totale di votazioni non corrisponde al numero totale di buste. Controlla il totale delle votazioni.
+              title: Il totale delle urne non si sommano
             save_recount: Salva riconteggio
+            total_ballots: Votazioni totali
+            total_blank_ballots: Totale delle schede vuote
+            total_null_ballots: Totale delle schede annullate
+            total_valid_ballots: Votazioni totali valide
           new:
             election: 'Elezioni:'
             heading: Riconteggio voti
+            info_text: 'Si prega di introdurre il numero totale di schede (buste) contate in questa stazione di sondaggio:'
             modal_ballots_count_error:
+              btn_validate_total: Convalida il totale delle votazioni
               close_modal: Chiudi
+              info_explanation_text: 'Si prega di rivedere il numero totale di voti. Se il numero totale è corretto, è necessario fornire una spiegazione per il comitato di sorveglianza:'
+              info_text: Il numero totale di schede (buste) introdotte non corrisponde al record di persone che hanno votato in questa Polling Station.
+              message_for_monitoring_committee: Messaggio per il comitato di sorveglianza
+              review_recount: Rivedi il conto
+              text_area_placeholder: Digita il tuo messaggio
+              title: I record totali non si aggiungono
+              total_ballots: 'Totale delle urne:'
               total_people: 'Persone totali:'
             polling_station: 'Seggio elettorale:'
+            submit: Verifica numero totale
+            total_ballots_count: Numero di schede
+          show:
+            heading: Resoconto del voto
+            info_text: Chiusura elettorale del sondaggio.
           sign:
             cancel: Annulla
+            check_box: Ho recensito questo ed è lo stesso del certificato di chiusura elettorale fisico
             close_modal: Chiudi
             confirm: Ok, continua
+            error: Si è verificato un errore, riprova.
+            heading: Resoconto dei voti - Chiusura dei segni
+            info_text: Se si continua non è più possibile modificare nessuna delle informazioni, questa azione non può essere annullata.
+            submit: Firma la chiusura
+            success: Chiusura firmata con successo.
+            title: L'azione non può essere annullata
+          update:
+            error: Si è verificato un errore durante l'aggiornamento dei risultati della chiusura, riprova più tardi.
+            success: Risultati di chiusura aggiornati con successo.
         in_person_votes:
           complete_voting:
+            available_answers: 'Risposte disponibili:'
+            census_verified: L'utente non ha ancora votato.
+            complete_voting: Completa la votazione
+            identify_another: Identificare un altro utente
             questions_title: 'Ha diritto di voto nelle seguenti domande:'
+            questions_title_voted: 'Il partecipante ha già votato online e ha diritto a votare nelle seguenti domande:'
+            voted: L'utente ha votato
+          create:
+            error: La votazione non è stata registrata. Per favore riprova.
           in_person_form:
+            census_not_present: Questo partecipante non è elencato nel censimento.
             day: Giorno
         polling_officers:
           index:
