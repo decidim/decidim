@@ -317,6 +317,10 @@ pt:
         start_date: Começar
         unspecified: Não especificado
       elections:
+        count:
+          elections_count:
+            one: "%{count} eleição"
+            other: "%{count} eleições"
         filters:
           active: Ativo
           all: Todos
@@ -593,6 +597,7 @@ pt:
       participatory_spaces:
         votings:
           contextual: "<p>Uma <strong>votação</strong> é um espaço que permite que você faça uma pergunta clara para todas as pessoas que formam uma organização, faça uma chamada para participar na votação, incitar e ordenar o debate a favor ou contra uma resposta. Quando chegar a data da consulta, podem votar e publicar os resultados das votações.</p> <p>Exemplos: As consultas podem ser sobre quase qualquer aspecto que afete uma organização: alguns exemplos estão mudando o nome ou o logotipo da organização oferecendo várias alternativas, decidir Sim ou Não para fazer parte de uma organização maior, validar ou rejeitar um novo plano estratégico ou o resultado de um grupo de trabalho. ou definir se as posições devem permanecer um máximo de 1, 2 ou 3 mandatos.</p>\n"
+          page: "<p>Uma <strong>votação</strong> é um espaço que permite que você faça uma pergunta clara para todas as pessoas que formam uma organização, faça uma chamada para participar na votação, incitar e ordenar o debate a favor ou contra uma resposta. Quando chegar a data da consulta, podem votar e publicar os resultados das votações.</p> <p>Exemplos: As consultas podem ser sobre quase qualquer aspecto que afete uma organização: alguns exemplos estão mudando o nome ou o logotipo da organização oferecendo várias alternativas, decidir Sim ou Não para fazer parte de uma organização maior, validar ou rejeitar um novo plano estratégico ou o resultado de um grupo de trabalho. ou definir se as posições devem permanecer um máximo de 1, 2 ou 3 mandatos.</p>\n"
           title: O que são votações?
     menu:
       votings: Votações
@@ -783,6 +788,9 @@ pt:
           create: "%{user_name} criou a votação %{resource_name}"
           publish: "%{user_name} publicou a votação %{resource_name}"
           unpublish: "%{user_name} despublicizou a votação %{resource_name}"
+      content_blocks:
+        highlighted_votings:
+          name: Destaque da votação
       monitoring_committee_members:
         actions:
           confirm_destroy: Você tem certeza?
