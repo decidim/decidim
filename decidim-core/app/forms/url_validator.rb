@@ -12,7 +12,7 @@ class UrlValidator < ActiveModel::EachValidator
   # a URL may be technically well-formed but may
   # not actually be valid, so this checks for both.
   def url_valid?(url)
-    return true unless url.present?
+    return true if url.blank?
 
     url = URI.parse(url)
     (url.is_a?(URI::HTTP) || url.is_a?(URI::HTTPS)) && url.host.present?
