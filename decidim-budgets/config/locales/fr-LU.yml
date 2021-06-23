@@ -206,7 +206,7 @@ fr-LU:
           highest_cost: Prix décroissant
           label: Trier les projets par
           lowest_cost: Prix croissant
-          most_voted: Le plus populaire
+          most_voted: Les plus votés
           random: Ordre aléatoire
           selected: Sélectionné
         project:
