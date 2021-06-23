@@ -92,8 +92,18 @@ module Decidim
 
     describe "POST create" do
       context "when invalid" do
+        render_views
+
+        let(:max_length) { Decidim.config.maximum_conversation_message_length }
+
         it "redirects the user back" do
-          post :create, params: { recipient_id: 999, body: "" }
+          post :create, format: :js, params: { recipient_id: 999, body: "" }
+
+          expect(response.body).to include("Conversation not started. Try again later")
+        end
+
+        it "renders an error message" do
+          post :create, format: :js, params: { recipient_id: user1.id, body: "A" * (max_length + 1) }
 
           expect(response.body).to include("Conversation not started. Try again later")
         end

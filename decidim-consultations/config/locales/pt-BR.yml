@@ -19,6 +19,9 @@ pt:
         hashtag: Hashtag
         hero_image: Imagem inicial
         i_frame_url: URL do sistema de votação externa
+        instructions: Instruções adicionais para votação
+        max_votes: Número máximo de votos
+        min_votes: Número mínimo de votos
         origin_scope: Âmbito
         origin_title: Origem
         origin_url: URL de origem
@@ -31,11 +34,24 @@ pt:
         subtitle: Legenda
         vote: Sistema de voto externo
         what_is_decided: O que é decidido
+      response:
+        decidim_consultations_response_group_id: Grupo
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: O número máximo de votos deve ser maior ou igual ao mínimo.
       vote:
         decidim_consultations_response_id:
           not_found: Resposta não encontrada.
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Número de votos é inválido
     models:
       decidim/consultation:
         one: Consulta
@@ -52,10 +68,13 @@ pt:
   decidim:
     admin:
       actions:
+        back_to_responses: Voltar para respostas
         new_consultation: Nova consulta
         new_question: Nova pergunta
         new_response: Nova resposta
+        new_response_group: Novo grupo
         publish_results: Publicar resultados
+        response_groups: Gerenciar grupos de resposta
         unpublish_results: Cancelar publicação dos resultados
       consultation_publications:
         create:
@@ -75,6 +94,7 @@ pt:
         create:
           error: Ocorreu um erro ao criar uma nova consulta.
           success: Consulta criada com sucesso.
+        deprecation_warning: O módulo de consultas será obsoleto em breve. Estamos trabalhando na próxima versão criptográficamente segura chamada Votações.
         edit:
           update: Atualizar
         form:
@@ -86,6 +106,10 @@ pt:
         new:
           create: Criar
           title: Nova consulta
+        results:
+          not_visible: Os resultados estarão disponíveis quando a consulta for fechada
+          participants: "%{count} participantes"
+          total_votes: 'Total: %{count} votos'
         update:
           error: Ocorreu um erro ao atualizar esta consulta.
           success: Consulta atualizada com sucesso.
@@ -94,10 +118,12 @@ pt:
         consultations_submenu:
           info: Em formação
           questions: Questões
+          results: Resultados
         questions_submenu:
           attachments: Anexos
           categories: Categorias
           components: Componentes
+          configuration: Configuração
           consultation: Consulta
           info: Em formação
           responses: Respostas
@@ -121,10 +147,16 @@ pt:
         response:
           fields:
             created_at: Criado em
+            response_group: Grupo
             title: Título
           name:
             one: Resposta
             other: Respostas
+      question_configuration:
+        disable_external_voting: Por favor, desative a votação externa para configurações avançadas
+        form:
+          help: Configure várias escolhas e aumente o número máximo de respostas que um participante pode escolher. O valor máximo padrão é 1, o que significa que apenas uma resposta pode ser votada.
+          title: Configuração avançada
       question_publications:
         create:
           error: Ocorreu um erro ao publicar esta questão.
@@ -151,6 +183,24 @@ pt:
         update:
           error: Ocorreu um erro ao atualizar esta questão.
           success: Pergunta atualizada com sucesso.
+      response_groups:
+        create:
+          error: Ocorreu um erro ao criar um novo grupo de resposta.
+          success: Grupo de resposta criado com sucesso.
+        destroy:
+          error: Houve um problema ao remover o grupo de resposta. Verifique se nenhuma resposta depende dele.
+          success: Grupo de respostas excluído com sucesso.
+        edit:
+          update: Atualização
+        form:
+          title: Informação geral
+        help: Use grupos para organizar várias escolhas de questões em pacotes.
+        new:
+          create: Criar
+          title: Novo grupo de resposta
+        update:
+          error: Houve um erro ao atualizar essa resposta.
+          success: Resposta atualizada com sucesso.
       responses:
         create:
           error: Ocorreu um erro ao criar uma nova resposta.
@@ -171,7 +221,9 @@ pt:
       titles:
         consultations: Consultas
         questions: Questões
+        response_groups: Grupos de Respostas
         responses: Respostas
+        results: Resultados
     consultations:
       admin:
         content_blocks:
@@ -187,6 +239,8 @@ pt:
           label: 'Ordenar consultas por:'
           random: Aleatório
           recent: Mais recente
+        show:
+          dates: Datas
       content_blocks:
         highlighted_consultations:
           name: Consultas destacadas
@@ -228,9 +282,28 @@ pt:
         votes_out_of:
           one: votar fora
           other: votos de
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Os participantes poderiam distribuir um mínimo de %{votes} votos entre diferentes opções.
+          title: Nesta questão múltipla escolha quando permitido
+          total_participants: Um total de %{count} pessoas participaram da votação.
+          vote_limit:
+            description: Os participantes podem votar até %{limit} opções.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Você deve distribuir um mínimo de %{votes} votos entre diferentes opções.
+          title: 'Os votos estão sujeitos às seguintes regras:'
+          vote_limit:
+            description: Você pode votar até %{limit} opções.
+            left: Restantes
+            votes: Votações
       question_votes:
         create:
           error: Houve erros ao votar a questão
+          success: Pode alterá-lo até ao final da consulta. Apenas a última votação será aceita.
+          title_error: Erro ao votar!
+          title_success: Voto registrado com sucesso
       regular_questions:
         title: Perguntas para esta consulta
       show:
@@ -248,10 +321,14 @@ pt:
     help:
       participatory_spaces:
         consultations:
+          contextual: "<p>Uma <strong>consulta</strong> é um espaço que permite que você faça uma pergunta clara para todas as pessoas que formam uma organização, faça uma chamada para participar na consulta, incitar e ordenar o debate a favor ou contra uma resposta. Quando chegar a data da consulta, podem votar e publicar os resultados das votações.</p> <p>Exemplos: As consultas podem ser sobre quase qualquer aspecto que afete uma organização: alguns exemplos estão mudando o nome ou o logotipo da organização oferecendo várias alternativas, decidir Sim ou Não para fazer parte de uma organização maior, validar ou rejeitar um novo plano estratégico ou o resultado de um grupo de trabalho. ou definir se as posições devem permanecer um máximo de 1, 2 ou 3 mandatos.</p>\n"
+          page: "<p>Uma <strong>consulta</strong> é um espaço que permite que você faça uma pergunta clara para todas as pessoas que formam uma organização, faça uma chamada para participar na consulta, incitar e ordenar o debate a favor ou contra uma resposta. Quando chegar a data da consulta, podem votar e publicar os resultados das votações.</p> <p>Exemplos: As consultas podem ser sobre quase qualquer aspecto que afete uma organização: alguns exemplos estão mudando o nome ou o logotipo da organização oferecendo várias alternativas, decidir Sim ou Não para fazer parte de uma organização maior, validar ou rejeitar um novo plano estratégico ou o resultado de um grupo de trabalho. ou definir se as posições devem permanecer um máximo de 1, 2 ou 3 mandatos na organização.</p>\n"
           title: O que são consultas?
     menu:
       consultations: Consultas
     questions:
+      next_button: Próxima pergunta
+      previous_button: Pergunta anterior
       results:
         title: Resultados
       show:
@@ -267,15 +344,25 @@ pt:
         already_voted: Já votei
         already_voted_hover: Revogar suporte
         starting_from: A partir de %{date}
+        verification_required: Verifique sua conta para votar
         vote: Voto
       vote_modal:
+        close_modal: Fechar modal
         contextual_help: Selecione uma opção.
         title: 'Consulta: suporte a perguntas'
       vote_modal_confirm:
         change: mudança
+        close_modal: Fechar modal
         confirm: confirme
         contextual_help: Por favor, confirme a opção selecionada.
         title: 'Consulta: confirme o suporte'
+    resources:
+      consultations:
+        actions:
+          vote: Votar
+    statistics:
+      consultations_count: Consultas
+      votes_count: Votos
   layouts:
     decidim:
       consultation_voting_data:
@@ -285,3 +372,4 @@ pt:
         unfold: Desdobrar
       question_header:
         back_to_consultation: Veja todas as consultas
+        back_to_question: Voltar à pergunta

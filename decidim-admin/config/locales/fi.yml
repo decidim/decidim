@@ -158,7 +158,8 @@ fi:
         browse: Selaa
         category:
           new: Uusi aihepiiri
-        export: Vie
+        export: Vie kaikki
+        export-selection: Vie valitut
         import: Tuo
         manage: Hallitse
         new: Uusi %{name}
@@ -337,6 +338,12 @@ fi:
         show:
           view_more_logs: Näytä lisää lokitietoja
           welcome: Tervetuloa Decidimin hallintapaneeliin.
+      domain_whitelist:
+        form:
+          domain_too_short: Verkkotunnus on liian lyhyt
+        update:
+          error: Sallittujen verkkotunnusten listan päivitys epäonnistui
+          success: Sallittujen verkkotunnusten listan päivitys onnistui
       exports:
         export_as: "%{name} muodossa %{export_format}"
         formats:
@@ -349,6 +356,16 @@ fi:
         category_id_eq:
           label: Aihepiiri
         filter_label: Suodata
+        invitation_accepted_at_present:
+          label: Kutsu hyväksytty
+          values:
+            'false': 'Ei'
+            'true': 'Kyllä'
+        last_sign_in_at_present:
+          label: Kirjautunut sisään koskaan
+          values:
+            'false': 'Ei'
+            'true': 'Kyllä'
         moderations:
           reportable_type_string_eq:
             label: Tyyppi
@@ -470,6 +487,7 @@ fi:
         areas: Alueet
         configuration: Asetukset
         dashboard: Hallintapaneeli
+        external_domain_whitelist: Sallittujen ulkoisten verkkotunnusten lista
         help_sections: Ohjeosiot
         homepage: Kotisivu
         impersonations: Esiintymiset toisena käyttäjänä
@@ -741,6 +759,17 @@ fi:
             layout_appearance_title: Muokkaa sivupohjan ulkoasua
             preview: Esikatsele
           omnipresent_banner_appearance_title: Muokkaa kaikkialla näkyvää banneria
+      organization_external_domain_whitelist:
+        edit:
+          update: Päivitä
+        external_domain:
+          down: Alas
+          external_domain: Ulkoinen verkkotunnus
+          remove: Poista
+          up: Ylös
+        form:
+          add: Lisää sallittujen listalle
+          title: Sallittujen ulkoisten verkkotunnusten lista
       organization_homepage:
         edit:
           active_content_blocks: Aktiiviset sisältöblokit

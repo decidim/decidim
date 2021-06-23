@@ -8,8 +8,8 @@ module Decidim
       include Decidim::ResourceHelper
 
       before_action :authenticate_user!, only: [:create]
-      before_action :set_commentable
-      before_action :ensure_commentable!
+      before_action :set_commentable, except: [:destroy, :update]
+      before_action :ensure_commentable!, except: [:destroy, :update]
 
       helper_method :root_depth, :commentable, :order, :reply?, :reload?
 
@@ -34,6 +34,31 @@ module Decidim
 
           # This makes sure bots are not causing unnecessary log entries.
           format.html { redirect_to commentable_path }
+        end
+      end
+
+      def update
+        set_comment
+        enforce_permission_to :update, :comment, comment: comment
+
+        form = Decidim::Comments::CommentForm.from_params(
+          params.merge(commentable: comment.commentable)
+        ).with_context(
+          current_organization: current_organization
+        )
+
+        Decidim::Comments::UpdateComment.call(comment, current_user, form) do
+          on(:ok) do
+            respond_to do |format|
+              format.js { render :update }
+            end
+          end
+
+          on(:invalid) do
+            respond_to do |format|
+              format.js { render :update_error }
+            end
+          end
         end
       end
 
@@ -63,12 +88,38 @@ module Decidim
         end
       end
 
+      def destroy
+        set_comment
+        @commentable = @comment.commentable
+
+        enforce_permission_to :destroy, :comment, comment: comment
+
+        Decidim::Comments::DeleteComment.call(comment, current_user) do
+          on(:ok) do
+            @comments_count = @comment.root_commentable.comments_count
+            respond_to do |format|
+              format.js { render :delete }
+            end
+          end
+
+          on(:invalid) do
+            respond_to do |format|
+              format.js { render :deletion_error }
+            end
+          end
+        end
+      end
+
       private
 
       attr_reader :commentable, :comment
 
       def set_commentable
         @commentable = GlobalID::Locator.locate_signed(commentable_gid)
+      end
+
+      def set_comment
+        @comment = Decidim::Comments::Comment.find_by(id: params[:id])
       end
 
       def ensure_commentable!

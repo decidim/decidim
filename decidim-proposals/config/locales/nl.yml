@@ -244,7 +244,7 @@ nl:
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> voorstel werd gepubliceerd door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Het voorstel "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat je volgt.
-          email_outro: U heeft deze melding ontvangen omdat u "%{participatory_space_title}" volgt. Schakel de meldingen uit door op de voorgaande link te klikken.
+          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Schakel de meldingen uit door op bovenstaande link te klikken en te stoppen met volgen.
           email_subject: Nieuw voorstel "%{resource_title}" toegevoegd aan %{participatory_space_title}
           notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
         proposal_rejected:
@@ -691,6 +691,9 @@ nl:
           proposals_count:
             one: "%{count} voorstel"
             other: "%{count} voorstellen"
+        dynamic_map_instructions:
+          description: De coördinaten worden bijgewerkt bij het klikken op de 'preview' knop. Het adres verandert echter niet.
+          instructions: Je kunt het punt op de kaart verplaatsen.
         edit:
           add_documents: Documenten
           add_images: Bestand

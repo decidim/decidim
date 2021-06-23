@@ -3,15 +3,22 @@ ja:
     attributes:
       answer:
         body: 回答
+        choices: 選択項目
+        selected_choices: 選択した項目
       question:
         max_choices: 選択肢の最大数
         question_type: タイプ
       questionnaire_question:
         mandatory: Mandatory
+        max_characters: 文字数制限 (制限がない場合は0にしてください)
     errors:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: 再添付が必要
+            body:
+              too_long: 長すぎます
             choices:
               missing: は完全ではありません
               too_many: 多すぎます
@@ -116,6 +123,7 @@ ja:
           resize_and_pad: リサイズおよびパッド先
           resize_to_fit: フィットするようにリサイズしました
       question_types:
+        files: ファイル
         long_answer: 長い回答
         matrix_multiple: マトリクス (複数オプション)
         matrix_single: マトリクス（シングルオプション）

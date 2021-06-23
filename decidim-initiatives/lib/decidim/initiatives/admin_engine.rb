@@ -79,12 +79,6 @@ module Decidim
         end
       end
 
-      initializer "admin_decidim_initiatives.assets" do |app|
-        app.config.assets.precompile += %w(
-          admin_decidim_initiatives_manifest.js
-        )
-      end
-
       initializer "decidim_initiaves.admin_menu" do
         Decidim.menu :admin_menu do |menu|
           menu.add_item :initiatives,

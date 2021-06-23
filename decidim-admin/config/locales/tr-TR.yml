@@ -132,7 +132,6 @@ tr:
       actions:
         add: Eklemek
         browse: Araştır
-        export: ihracat
         manage: yönetme
         new: Yeni %{name}
         per_page: Sayfa başına

@@ -157,7 +157,8 @@ sv:
         browse: Bläddra
         category:
           new: Ny kategori
-        export: Exportera
+        export: Exportera alla
+        export-selection: Exportera markering
         import: Importera
         manage: Hantera
         new: Ny %{name}

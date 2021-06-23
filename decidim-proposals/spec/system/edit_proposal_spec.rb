@@ -30,6 +30,7 @@ describe "Edit proposals", type: :system do
       click_link "Edit proposal"
 
       expect(page).to have_content "EDIT PROPOSAL"
+      expect(page).not_to have_content("You can move the point on the map.")
 
       within "form.edit_proposal" do
         fill_in :proposal_title, with: new_title
@@ -90,8 +91,10 @@ describe "Edit proposals", type: :system do
         expect(page).to have_field("Title", with: translated(proposal.title))
         expect(page).to have_field("Body", with: translated(proposal.body))
         expect(page).to have_field("Address", with: proposal.address)
+        expect(page).to have_css("[data-decidim-map]")
 
         fill_in_geocoding :proposal_address, with: new_address
+        expect(page).to have_content("You can move the point on the map.")
 
         click_button "Send"
         expect(page).to have_content(new_address)

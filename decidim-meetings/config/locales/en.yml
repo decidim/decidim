@@ -92,6 +92,7 @@ en:
             creation_enabled_for_participants: Participants can create meetings
             default_registration_terms: Default registration terms
             enable_pads_creation: Enable pads creation
+            maps_enabled: Maps enabled
             registration_code_enabled: Registration code enabled
             resources_permissions_enabled: Actions permissions can be set for each meeting
             scope_id: Scope
@@ -116,6 +117,7 @@ en:
             email_subject: The "%{resource_title}" meeting was closed
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
         meeting_created:
+          button_text: Register to the meeting
           email_intro: The meeting "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
           email_subject: New meeting added to %{participatory_space_title}
@@ -455,6 +457,9 @@ en:
           back: Back
           create: Create
           title: Create Your Meeting
+        online_meeting_link:
+          join: Join the meeting
+          live_event: This meeting is happening right now
         registration_confirm:
           cancel: Cancel
           confirm: Confirm

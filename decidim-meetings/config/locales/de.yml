@@ -8,9 +8,12 @@ de:
       close_meeting:
         attendees_count: Anzahl der Teilnehmer
         attending_organizations: Liste der Organisationen, die teilgenommen haben
-        closing_report: Bericht
+        audio_url: Audio-URL
+        closing_report: Protokoll
+        closing_visible: Ist sichtbar
         contributions_count: Anzahl der Beiträge
         proposal_ids: An der Sitzung entstandene Vorschläge
+        video_url: Video-URL
       meeting:
         address: Adresse
         available_slots: Verfügbare Slots für dieses Meeting
@@ -35,11 +38,6 @@ de:
         title: Titel
         transparent: Transparent
         type_of_meeting: Art
-      minutes:
-        audio_url: Audio-URL
-        description: Beschreibung
-        video_url: Video-URL
-        visible: Ist sichtbar
     errors:
       models:
         meeting_agenda:
@@ -172,7 +170,6 @@ de:
           proposals_count:
             one: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschlag mit dieser verbunden ist:'
             other: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschläge mit dieser verbunden sind:'
-        minutes: Protokoll
         new: Neue Sitzung
         preview: Vorschau
         registrations: Anmeldungen
@@ -249,6 +246,7 @@ de:
             success: Sitzung erfolgreich abgeschlossen
           create:
             invalid: Beim Erstellen dieses Meetings ist ein Problem aufgetreten
+            success: Sitzung erfolgreich erstellt. Beachten Sie, dass dies noch nicht veröffentlicht wurde. Sie müssen es manuell veröffentlichen.
           destroy:
             invalid:
               proposals_count:
@@ -274,6 +272,9 @@ de:
           new:
             create: Erstellen
             title: Besprechung erstellen
+          publish:
+            invalid: Beim Veröffentlichen dieser Sitzung ist ein Fehler aufgetreten
+            success: Sitzung erfolgreich veröffentlicht
           service:
             description: Beschreibung
             down: Nieder
@@ -284,22 +285,12 @@ de:
           services:
             add_service: Dienst hinzufügen
             services: Dienstleistungen
+          unpublish:
+            invalid: Beim Aufheben der Veröffentlichung dieser Sitzung ist ein Fehler aufgetreten
+            success: Veröffentlichung der Sitzung erfolgreich rückgängig gemacht
           update:
             invalid: Beim Aktualisieren dieses Meetings ist ein Problem aufgetreten
             success: Sitzung erfolgreich aktualisiert
-        minutes:
-          create:
-            invalid: Beim Erstellen dieser Minuten ist ein Problem aufgetreten
-            success: Minuten erfolgreich erstellt
-          edit:
-            title: Minuten bearbeiten
-            update: Aktualisieren
-          new:
-            create: Erstellen
-            title: Erstellen Sie Minuten
-          update:
-            invalid: Beim Aktualisieren dieser Minuten ist ein Problem aufgetreten
-            success: Minuten erfolgreich aktualisiert
         models:
           meeting:
             name: Treffen
@@ -339,9 +330,6 @@ de:
           value_types:
             organizer_presenter:
               not_found: 'Der Organisator wurde nicht in der Datenbank gefunden (ID: %{id})'
-        minutes:
-          create: "%{user_name} hat das Protokoll der Sitzung %{resource_name} in %{space_name} erstellt"
-          update: "%{user_name} hat das Protokoll der Sitzung %{resource_name} in %{space_name} aktualisiert"
       calendar_modal:
         calendar_url: Kalender-URL
         close_window: Fenster schließen
@@ -435,7 +423,6 @@ de:
         index:
           new_meeting: Neue Besprechung
         meeting_minutes:
-          meeting_minutes: Sitzungsprotokolle
           related_information: Zugehörige Informationen
         meetings:
           no_meetings_warning: Keine Besprechung entspricht Ihren Suchkriterien oder es ist keine Besprechung geplant.
@@ -458,7 +445,7 @@ de:
           join: Tritt dem Treffen bei
           leave: Registrierung stornieren
           leave_confirmation: Sind Sie sicher dass Sie Ihre Registrierung für diese Sitzung stornieren möchten?
-          meeting_report: Gesprächsprotokoll
+          meeting_minutes: Sitzungsprotokolle
           no_slots_available: Keine Steckplätze verfügbar
           organizations: Teilnahme an Organisationen
           registration_code_help_text: Ihr Registrierungscode

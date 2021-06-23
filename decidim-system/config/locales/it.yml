@@ -57,6 +57,9 @@ it:
         update:
           error: E' successo un errore durante la modifica di questo utente Admin.
           success: Admin modificato con successo
+      dashboard:
+        show:
+          current_organizations: Organizzazioni attuali
       default_pages:
         placeholders:
           content: Si prega di aggiungere contenuto significativo alla pagina statica %{page} il pannello di amministrazione.
@@ -112,6 +115,9 @@ it:
           error: Si è verificato un errore durante l'aggiornamento di questa applicazione.
           success: Applicazione aggiornata correttamente.
       organizations:
+        advanced_settings:
+          hide: Nascondi impostazioni avanzate
+          show: Mostra impostazioni avanzate
         create:
           error: C'è stato un errore durante la creazione di una nuova organizzazione.
           success: OK, è stata aggiunta la nuova organizzazione.

@@ -258,6 +258,8 @@ fi:
         download: Lataa tiedosto
       documents:
         related_documents: Liittyvät dokumentit
+      geocoding:
+        geocoded_address: Osoite
       photos:
         related_photos: Liittyvät kuvat
     author:
@@ -318,6 +320,8 @@ fi:
           authorize: Vahvista palvelulla "%{authorization}"
           explanation: Suorittaaksesi tämän toiminnon, sinun tulee vahvistaa tilisi palvelulla "%{authorization}".
           title: Vahvistus vaaditaan
+        ok:
+          title: Sinut on valtuutettu sen aikana, kun olet ollut tällä sivulla. Lataa sivu uudelleen suorittaaksesi toiminnon, jota yritit suorittaa.
         pending:
           explanation: Tämän toiminnon suorittamiseksi sinun vahvistettava käyttäjätilisi palvelulla "%{authorization}", mutta vahvistuksesi on edelleen kesken
           resume: Tarkista "%{authorization}" vahvistuksen eteneminen
@@ -853,6 +857,15 @@ fi:
       index:
         last_activity: Viimeisin tapahtuma
         resource_type: Tyyppi
+    links:
+      invalid_url: Virheellinen URL-osoite
+      warning:
+        body_1: Olet siirtymässä ulkoiseen osoitteeseen ja haluaisimme varoittaa sinua ulkoisilla sivustoilla olevasta sisällöstä.
+        body_2: Tarkasta osoite, jonne olet siirtymässä ja varmista, että tunnistat sen turvalliseksi sivustoksi ennen kuin jatkat eteenpäin.
+        cancel: Peruuta
+        close_modal: Sulje ikkuna
+        proceed: Jatka
+        title: Avaa ulkoinen linkki
     log:
       base_presenter:
         create: "%{user_name} loi %{resource_name}"
@@ -1254,6 +1267,8 @@ fi:
         filters:
           areas: Alueet
           select_an_area: Valitse alue
+      public_participation:
+        public_participation: Näytä läsnäoloni julkisesti
       reference:
         reference: 'Viite: %{reference}'
       represent_user_group:

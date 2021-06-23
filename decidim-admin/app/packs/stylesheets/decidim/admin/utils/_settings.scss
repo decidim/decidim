@@ -60,7 +60,7 @@
 //  55. Top Bar
 //  56. Xy Grid
 
-@import "~foundation-sites/scss/util/util";
+@import "foundation-sites/scss/util/util";
 
 // 1. Global
 // ---------
@@ -177,6 +177,8 @@ $code-border: 1px solid $medium-gray;
 $code-padding: rem-calc(2 5 1);
 $anchor-color: $primary-color;
 $anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
+$anchor-outline-focus: 1px dotted rgba(black, .5);
+$anchor-outline-offset: 2px;
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 $hr-width: $global-width;
@@ -305,6 +307,8 @@ $button-opacity-disabled: .25;
 $button-background-hover-lightness: -20%;
 $button-hollow-hover-lightness: -50%;
 $button-transition: background-color .25s ease-out, color .25s ease-out;
+$button-outline-focus: $anchor-outline-focus;
+$button-outline-offset: 2px;
 
 // 12. Button Group
 // ----------------

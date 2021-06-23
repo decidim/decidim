@@ -32,6 +32,18 @@ gl:
         one: Votación
         other: Votacións
   decidim:
+    admin:
+      filters:
+        signed_eq:
+          label: Asinado
+          values:
+            'false': Asinado
+            'true': Sen asinar
+        validated_eq:
+          label: Validado
+          values:
+            'false': Validado
+            'true': Sen validar
     components:
       elections:
         actions:
@@ -170,6 +182,7 @@ gl:
         election:
           fields:
             title: Título
+            verifiable_results_file_hash: Suma de verificación SHA256 do ficheiro
         question:
           fields:
             answers: Respostas
@@ -282,12 +295,71 @@ gl:
             census: Censo
             components: Compoñentes
             monitoring_committee: Comité de seguimento
+            monitoring_committee_election_results: Validar resultados
             monitoring_committee_members: Membros
+            monitoring_committee_polling_station_closures: Validar certificados
+            monitoring_committee_verify_elections: Verificar eleccións
         models:
           ballot_style:
             fields:
               code: Código
             name: Estilo de papeleta
+        monitoring_committee_election_results:
+          actions:
+            title: Accións
+            view: Ver
+          index:
+            title: Escolle a elección da que desexes ver os resultados
+          results:
+            bulletin_board: Boletín de Información
+            election_totals: Totais da elección
+            polling_stations: Puntos de votación
+            result_types:
+              blank_answers: Respostas en branco
+              blank_ballots: Papeletas en branco
+              null_ballots: Papeletas nulas
+              total_ballots: Total de papeletas
+              valid_ballots: Votos válidos
+            selected: Seleccionado
+            title: Resultados da elección <i>%{election_title}</i>
+            totals: Totais
+          show:
+            change_election: Trocar de elección
+            publish_results: Publicar resultados
+            publishing: Publicando resultados...
+          update:
+            invalid: Produciuse un problema ao publicar os resultados
+            rejected: A publicación dos resultados foi rexeitada polo Boletín de Información. Téntao de novo ou contacta co administrador do sistema.
+            success: Resultados publicados con éxito
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: Accións
+            validate: Validar
+            view: Ver
+          closures:
+            change_election: Trocar de elección
+            signed: Asinado?
+            title: Puntos de votación da elección <i>%{election_title}</i>
+            validated: Validado?
+          edit:
+            change_polling_station: Volver aos puntos de votación
+            monitoring_committee_notes: Observacións
+            monitoring_committee_notes_placeholder: Informa de calquera incidencia aquí
+            title: Os resultados da elección <i>%{election_title}</i> no punto de votación <i>%{polling_station_title}</i>
+          elections:
+            title: Escolle unha elección que desexes validar
+          show:
+            change_polling_station: Volver aos puntos de votación
+            monitoring_committee_notes: Obervacións do Comité de seguimento
+        monitoring_committee_verify_elections:
+          index:
+            download: Descargar
+            how_to_checksum: 'Para asegurarte que o ficheiro que descargaches non foi manipulado ou corrompido durante a descarga, executa a seguinte orde na túa consola e verifica que a saída coincide coa suma de verificación informada arriba:'
+            how_to_download: Para verificar a elección, descarga o seu ficheiro verificábel da táboa de arriba.
+            how_to_run_verifier: 'Unha vez descargades o ficheiro e verifiques que é correcto, podes executar o verficador universal. Clona <a href=''https://github.com/decidim/decidim-bulletin-board''>este repositorio</a> e, dende o cartafol raiz, executa a seguinte orde:'
+            how_to_title: Como verificar a validez dunha elección
+            not_available: Aínda non dispoñíbel
+            title: Eleccións
         votings:
           form:
             census_contact_information_help: A información de contacto é para o participante que desexe informar de problemas co censo. Pode ser un enderezo de correo electrónico, un formulario de contacto noutro sitio web, unha enquisa do Decidim para visitantes, etc.

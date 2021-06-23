@@ -158,7 +158,6 @@ ro:
         browse: Caută
         category:
           new: Categorie nouă
-        export: Exportă
         import: Importă
         manage: Gestionează
         new: '%{name} nou'

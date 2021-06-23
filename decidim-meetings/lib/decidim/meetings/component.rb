@@ -34,6 +34,11 @@ Decidim.register_component(:meetings) do |component|
     Decidim::Follow.where(decidim_followable_type: "Decidim::Meetings::Meeting", decidim_followable_id: meetings_ids).count
   end
 
+  component.register_stat :comments_count, tag: :comments do |components, start_at, end_at|
+    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).not_hidden
+    meetings.sum(:comments_count)
+  end
+
   component.exports :meetings do |exports|
     exports.collection do |component_instance|
       Decidim::Meetings::Meeting
@@ -84,6 +89,7 @@ Decidim.register_component(:meetings) do |component|
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :enable_pads_creation, type: :boolean, default: false
     settings.attribute :creation_enabled_for_participants, type: :boolean, default: false
+    settings.attribute :maps_enabled, type: :boolean, default: true
   end
 
   component.settings(:step) do |settings|

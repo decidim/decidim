@@ -1,7 +1,7 @@
 pt:
   activemodel:
     models:
-      decidim/blogs/create_post_event: Novo post de blog
+      decidim/blogs/create_post_event: Nova postagem no blog
   activerecord:
     models:
       decidim/blogs/post:
@@ -15,6 +15,7 @@ pt:
         edit: Editar
         new: Nova postagem
         title: Ações
+        user_group_id: Criar publicação como
       admin:
         models:
           components:
@@ -29,6 +30,7 @@ pt:
             success: Postagem excluída com sucesso
           edit:
             save: Atualizar
+            title: Editar publicação
           index:
             title: Postagens
           new:
@@ -48,6 +50,8 @@ pt:
             title: título
       posts:
         show:
+          back: Voltar para a lista
+          comments: Comentários
           view: Visualizar
         sidebar_blog:
           comments: comentários
@@ -60,9 +64,12 @@ pt:
           global:
             announcement: Anúncio
             comments_enabled: Comentários ativados
+            comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
+            endorsements_blocked: Endossos bloqueados
+            endorsements_enabled: Endossos ativados
     events:
       blogs:
         post_created:
@@ -70,3 +77,5 @@ pt:
           email_outro: Você recebeu esta notificação porque está seguindo "%{participatory_space_title}". Você pode deixar de segui-lo no link anterior.
           email_subject: Nova postagem publicada em %{participatory_space_title}
           notification_title: A postagem <a href="%{resource_path}">%{resource_title}</a> foi publicada em %{participatory_space_title}
+    statistics:
+      posts_count: Postagens

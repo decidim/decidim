@@ -158,7 +158,8 @@ cs:
         browse: Procházet
         category:
           new: Nová kategorie
-        export: Exportovat
+        export: Exportovat vše
+        export-selection: Exportovat výběr
         import: Importovat
         manage: Spravovat
         new: Nová %{name}
@@ -337,6 +338,12 @@ cs:
         show:
           view_more_logs: Zobrazit další protokoly
           welcome: Vítejte v administrátorském panelu Decidim.
+      domain_whitelist:
+        form:
+          domain_too_short: Doména je příliš krátká
+        update:
+          error: Nepodařilo se aktualizovat seznam povolených domén
+          success: Seznam povolených domén byl úspěšně aktualizován
       exports:
         export_as: "%{name} jako %{export_format}"
         formats:
@@ -349,6 +356,16 @@ cs:
         category_id_eq:
           label: Kategorie
         filter_label: Filtr
+        invitation_accepted_at_present:
+          label: Pozvánka přijata
+          values:
+            'false': 'Ne'
+            'true': 'Ano'
+        last_sign_in_at_present:
+          label: Vždy přihlášen
+          values:
+            'false': 'Ne'
+            'true': 'Ano'
         moderations:
           reportable_type_string_eq:
             label: Typ
@@ -470,6 +487,7 @@ cs:
         areas: Oblasti
         configuration: Konfigurace
         dashboard: Ovládací panel
+        external_domain_whitelist: Seznam externích povolených domén
         help_sections: Sekce nápovědy
         homepage: Domovská stránka
         impersonations: V zastoupení
@@ -741,6 +759,17 @@ cs:
             layout_appearance_title: Upravit vzhled zobrazení
             preview: Náhled
           omnipresent_banner_appearance_title: Upravit všudypřítomný banner
+      organization_external_domain_whitelist:
+        edit:
+          update: Aktualizovat
+        external_domain:
+          down: Dolů
+          external_domain: Externí doména
+          remove: Odebrat
+          up: Nahoru
+        form:
+          add: Přidat do seznamu povolených
+          title: Seznam externích povolených domén
       organization_homepage:
         edit:
           active_content_blocks: Bloky aktivního obsahu

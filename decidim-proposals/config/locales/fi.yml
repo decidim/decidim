@@ -716,7 +716,8 @@ fi:
             one: "%{count} ehdotus"
             other: "%{count} ehdotusta"
         dynamic_map_instructions:
-          instructions: <h3>Voit siirtää karttapistettä</h3><p>Muistathan painaa "Päivitä sijainti" -painiketta ennen kuin julkaiset ehdotuksen.</p>
+          description: Koordinaatit päivitetään, kun painat Esikatsele-painiketta. Osoitetekstiä ei muuteta.
+          instructions: Voit siirtää pistettä kartalla.
         edit:
           add_documents: Asiakirjat
           add_images: Tiedosto
@@ -788,7 +789,6 @@ fi:
             other: Voit muokata tätä ehdotusta ensimmäisten %{count} minuutin aikana ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.
           publish: Julkaise
           title: Julkaise ehdotuksesi
-          update_position: Päivitä sijainti
         proposal:
           creation_date: 'Luontiaika: %{date}'
           view_proposal: Näytä ehdotus

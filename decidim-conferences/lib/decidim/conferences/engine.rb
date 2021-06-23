@@ -50,10 +50,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_conferences.assets" do |app|
-        app.config.assets.precompile += %w(decidim_conferences_manifest.js)
-      end
-
       initializer "decidim_conferences.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Conferences::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Conferences::Engine.root}/app/views") # for partials

@@ -1,17 +1,5 @@
-const getCoordinateInputName = (coordinate, $input, options) => {
-  const key = `${coordinate}Name`;
-  if (options[key]) {
-    return options[key];
-  }
-
-  const inputName = $input.attr("name");
-  const subNameMatch = /\[[^\]]+\]$/;
-  if (inputName.match(subNameMatch)) {
-    return inputName.replace(subNameMatch, `[${coordinate}]`);
-  }
-
-  return coordinate;
-}
+/* eslint-disable require-jsdoc */
+import getCoordinateInputName from "./coordinate_input"
 
 /**
  * You can use this method to "attach" front-end geocoding to any forms in the
@@ -66,9 +54,11 @@ const getCoordinateInputName = (coordinate, $input, options) => {
  *   field.
  * @param {Object} options (optional) Extra options if you want to customize
  *   the latitude and longitude element IDs or names from the default.
+ * @param {function} callback (optional) Callback to run when updating the coordinates values
  * @returns {void}
  */
-export default function attachGeocoding($input, options) {
+
+export default function attachGeocoding($input, options, callback) {
   const attachOptions = $.extend({}, options);
   const inputIdParts = $input.attr("id").split("_");
   inputIdParts.pop();
@@ -126,6 +116,7 @@ export default function attachGeocoding($input, options) {
   $input.on("geocoder-suggest-coordinates.decidim", (_ev, coordinates) => {
     setCoordinates(coordinates);
     geocoded = true;
+    callback(coordinates)
   });
 
   // Set the initial values if the field defines the coordinates

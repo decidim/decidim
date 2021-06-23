@@ -119,7 +119,6 @@ sl:
       actions:
         add: Dodaj
         browse: Brskaj
-        export: Izvozi
         manage: Uredi
         new: Novo %{name}
         per_page: Na stran

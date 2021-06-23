@@ -24,6 +24,26 @@ pt:
         full_address: Endereço completo
         verification_code: Código de verificação
   decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: Útil se o processo já começou e você deseja revogar as permissões do processo anterior.
+          button: Revogar todos
+          button_before: Revogar antes da data
+          destroy:
+            confirm: Revogar antes da data as autorizações não podem ser desfeitas. Tem certeza que deseja continuar?
+            confirm_all: Revogar todas as autorizações não pode ser desfeito. Tem certeza que deseja continuar?
+          destroy_nok: Houve um problema ao revogar as autorizações.
+          destroy_ok: Todas as autorizações correspondentes foram revogadas com sucesso.
+          info: Há um total de %{count} participantes verificados.
+          no_data: Nenhum participante verificado
+          title: Revogação de Autorizações
+        authorization_workflows: Autorizações
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} atualizou a configuração de autorização de Documentos de Identidade"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} verificado %{resource_name} usando a autorização dos Documentos de Identidade offline"
     authorization_handlers:
       admin:
         csv_census:
@@ -55,12 +75,22 @@ pt:
       postal_letter:
         explanation: Nós lhe enviaremos uma carta postal com um código que você terá que inserir para que possamos verificar seu endereço
         name: Código por carta postal
+    events:
+      verifications:
+        verify_with_managed_user:
+          notification_title: O usuário <a href="%{resource_path}">%{resource_title}</a> tentou se verificar com os dados do usuário gerenciado <a href="%{managed_user_path}">%{managed_user_name}</a>
     verifications:
       authorizations:
+        authorization_metadata:
+          info: 'Estes são os dados da verificação atual:'
+          no_data_stored: Nenhum dado armazenado.
         create:
           error: Ocorreu um erro ao criar a autorização.
           success: Você foi autorizado com sucesso.
           unconfirmed: Você precisa confirmar seu e-mail para se autorizar.
+        destroy:
+          error: Ocorreu um erro ao excluir a autorização.
+          success: Você excluiu a autorização com sucesso.
         first_login:
           actions:
             another_dummy_authorization_handler: Verificar contra outro exemplo de manipulador de autorização
@@ -69,13 +99,23 @@ pt:
             dummy_authorization_workflow: Verifique o exemplo de fluxo de trabalho de autorização
             id_documents: Seja verificado ao fazer o upload do documento de identidade
             postal_letter: Seja verificado ao receber um código de verificação por correio postal
+            sms: Seja verificado ao receber um código de verificação por SMS
           title: Verifique sua identidade
           verify_with_these_options: 'Estas são as opções disponíveis para verificar sua identidade:'
+        index:
+          expired_verification: O código de verificação expirou
+          pending_verification: Verificação pendente
+          show_renew_info: Clique para renovar a verificação
+          unauthorized_verification: Nova verificação
         new:
           authorize: Enviar
           authorize_with: Verifique com %{authorizer}
         renew_modal:
           cancel: Cancelar
+          close: fechar
+          continue: Continuar
+          info_renew: Se você quiser atualizar os dados, continue com a renovação
+          title: Renovar Verificação
         skip_verification: Você pode ignorar isso por enquanto e %{link}
         start_exploring: comece a explorar
       csv_census:
@@ -95,8 +135,10 @@ pt:
             title: Dados do censo atual
           instructions:
             body: Para fazer isso, você deve entrar na administração do sistema e adicionar as autorizações csv_census à organização
+            title: Você precisa ativar o censo CSV para esta organização
           new:
             file: "arquivo .csv com dados de e-mails"
+            info: 'Deve ser um arquivo no formato CSV com apenas uma coluna com o endereço de e-mail:'
             submit: Subir arquivo
             title: Carregar um novo censo
         authorizations:
@@ -108,6 +150,11 @@ pt:
           postal_codes:
             one: A participação é restrita aos usuários com o código postal %{postal_codes}.
             other: 'A participação é restrita aos usuários com qualquer um dos seguintes códigos postais: %{postal_codes}.'
+          scope: A participação é restrita aos participantes com o escopo %{scope_name}.
+          user_postal_codes:
+            one: A participação é restrita aos usuários com o código postal %{postal_codes} e seu código postal é %{user_postal_code}.
+            other: 'A participação é restrita aos usuários com qualquer um dos seguintes códigos postais: %{postal_codes}. Seu código postal é %{user_postal_code}.'
+          user_scope: A participação é restrita aos participantes com o escopo %{scope_name}, e seu escopo é %{user_scope_name}.
       id_documents:
         admin:
           config:

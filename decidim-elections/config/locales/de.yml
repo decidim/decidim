@@ -91,6 +91,16 @@ de:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: In %{collection} nach Name/E-Mail/Nickname oder Wahllokal suchen.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
           : In %{collection} suchen nach Titel, Adresse oder Wahllokal-Mitarbeiter.
+        signed_eq:
+          label: Signiert
+          values:
+            'false': Signiert
+            'true': Nicht signiert
+        validated_eq:
+          label: Überprüft
+          values:
+            'false': Überprüft
+            'true': Nicht überprüft
     components:
       elections:
         actions:
@@ -454,6 +464,8 @@ de:
             end_time: Endet um
             start_time: Beginnt um
             title: Titel
+            verifiable_results_file_hash: SHA256-Prüfsumme der Datei
+            verifiable_results_file_url: Überprüfbare Wahldatei
         question:
           fields:
             answers: Antworten
@@ -591,6 +603,8 @@ de:
           lead: Ihre Stimme wurde abgegeben!
           text: 'Sie können überprüfen, ob Ihre Stimme erfolgreich zur Wahlurne mit folgendem Identifikator hinzugefügt wurde: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Um dies zu überprüfen, kopieren Sie die Kennung und fügen Sie sie auf der <a href="%{link}">Bestätigungsseite</a> ein
+        create:
+          error: Beim Abgeben dieser Stimme ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
         failed:
           header: Abstimmung fehlgeschlagen
           lead: Ihre Stimme wurde nicht abgegeben!
@@ -760,7 +774,10 @@ de:
             info: Information
             landing_page: Landing-Page
             monitoring_committee: Überwachungskomitee
+            monitoring_committee_election_results: Ergebnisse überprüfen
             monitoring_committee_members: Mitglieder
+            monitoring_committee_polling_station_closures: Zertifikate überprüfen
+            monitoring_committee_verify_elections: Wahlen überprüfen
             polling_officers: Wahllokal-Mitarbeitende
             polling_stations: Wahllokale
         models:
@@ -792,6 +809,33 @@ de:
               promoted: Hervorgehoben
               published: Veröffentlicht
               title: Titel
+        monitoring_committee_election_results:
+          actions:
+            title: Aktionen
+            view: Anzeigen
+          index:
+            title: Wählen Sie eine Wahl aus, für die die Ergebnisse angezeigt werden sollen
+          results:
+            bulletin_board: Bulletin Board
+            election_totals: Wahltotale
+            polling_stations: Wahllokale
+            result_types:
+              blank_answers: Leere Antworten
+              blank_ballots: Leere Stimmzettel
+              null_ballots: Ungültige Stimmzettel
+              total_ballots: Total Stimmzettel
+              valid_ballots: Gültige Stimmzettel
+            selected: Ausgewählt
+            title: Ergebnisse der Wahl <i>%{election_title}</i>
+            totals: Gesamt
+          show:
+            change_election: Wahl ändern
+            publish_results: Ergebnisse veröffentlichen
+            publishing: Ergebnisse werden veröffentlicht...
+          update:
+            invalid: Beim Veröffentlichen der Ergebnisse ist ein Fehler aufgetreten
+            rejected: Die Veröffentlichung der Ergebnisse wurde vom Bulletin Board abgelehnt. Versuchen Sie es erneut oder kontaktieren Sie den Systemadministrator.
+            success: Die Ergebnisse wurden erfolgreich veröffentlicht
         monitoring_committee_members:
           create:
             invalid: Beim Erfassen dieses Überwachungskomitee-Mitglieds ist ein Fehler aufgetreten
@@ -809,6 +853,38 @@ de:
           new:
             create: Hinzufügen
             title: Überwachungskomitee-Mitglied erfassen
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: Aktionen
+            validate: Überprüfen
+            view: Anzeigen
+          closures:
+            change_election: Wahl ändern
+            signed: Signiert?
+            title: Wahlbüros für die Wahl <i>%{election_title}</i>
+            validated: Überprüft?
+          edit:
+            change_polling_station: Zurück zu den Wahllokalen
+            monitoring_committee_notes: Bemerkungen
+            monitoring_committee_notes_placeholder: Melde jegliche Inzidenz hier
+            title: Ergebnisse für die Wahl <i>%{election_title}</i> im Wahllokal <i>%{polling_station_title}</i>
+          elections:
+            title: Wählen Sie eine Wahl aus, die Sie überprüfen möchten
+          show:
+            change_polling_station: Zurück zu den Wahllokalen
+            monitoring_committee_notes: Anmerkungen vom Überwachungsausschuss
+          validate:
+            error: Beim Überprüfen der Schliessung ist ein Problem aufgetreten
+            success: Die Schliessung wurde korrekt überprüft
+        monitoring_committee_verify_elections:
+          index:
+            download: Download
+            how_to_checksum: 'Um sicherzustellen, dass die heruntergeladene Datei während des Downloadprozesses nicht beschädigt oder manipuliert wurde, führen Sie den folgenden Befehl in Ihrer Konsole aus und überprüfen Sie, ob die Ausgabe der oben genannten Prüfsumme entspricht:'
+            how_to_download: Um eine Wahl zu überprüfen, laden Sie die überprüfbare Datei aus der obigen Tabelle herunter.
+            how_to_run_verifier: 'Wenn Sie die Datei heruntergeladen haben und sicher gestellt haben, dass sie in Ordnung ist, können Sie den universellen Überprüfer ausführen. Klonen Sie <a href=''https://github.com/decidim/decidim-bulletin-board''>dieses Repository</a> und führen Sie den folgenden Befehl im Root-Verzeichnis aus:'
+            how_to_title: Wie überprüfe ich die Gültigkeit einer Wahl
+            not_available: Noch nicht verfügbar
+            title: Wahlen
         polling_officers:
           create:
             invalid: Beim Erfassen dieses Wahllokal-Mitarbeiters ist ein Fehler aufgetreten
@@ -958,6 +1034,7 @@ de:
             download: Herunterladen
             subject: Der Export der Zugangscodes für die Abstimmung %{voting_title} ist verfügbar
         vote_flow:
+          already_voted_in_person: Dieser Teilnehmer hat bereits persönlich abgestimmt und hat kein Stimmrecht mehr.
           datum_not_found: Zu den eingegebenen Daten wurde kein Wähler gefunden.
       content_blocks:
         highlighted_votings:
@@ -988,6 +1065,14 @@ de:
       polling_officer_zone:
         closures:
           back_to_polling_stations: Zurück zu den Wahllokalen
+          certify:
+            add_images: Bilder hinzufügen
+            error: Beim Anhängen des Zertifikats ist ein Fehler aufgetreten, bitte versuchen Sie es erneut.
+            form_legend: Ein Bild des Wahlabschlusszertifikats hochladen
+            heading: Stimmen-Neuzählung - Zertifikat hochladen
+            info_text: Bitte laden Sie ein Bild des Wahlabschlusszertifikats hoch.
+            submit: Zertifikat hochladen
+            success: Zertifikat erfolgreich hochgeladen.
           create:
             error: Beim Abschliessen ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
             success: Erfolgreich abgeschlossen.
@@ -1021,9 +1106,65 @@ de:
             polling_station: 'Wahllokal:'
             submit: Gesamtzahl überprüfen
             total_ballots_count: Anzahl Stimmen
+          show:
+            heading: Neuzählung
+            info_text: Wahlabschluss des Wahlbüros.
+          sign:
+            cancel: Abbrechen
+            check_box: Ich habe dies geprüft und es ist dasselbe wie das physische Abschlusszertifikat
+            close_modal: Schliessen
+            confirm: OK, fortfahren
+            error: Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
+            heading: Neuzählung - Schliessung signieren
+            info_text: Wenn Sie fortfahren, können Sie keine der Informationen mehr ändern. Diese Aktion kann nicht rückgängig gemacht werden.
+            submit: Schliessung signieren
+            success: Schliessung erfolgreich signiert.
+            title: Aktion kann nicht rückgängig gemacht werden
           update:
             error: Beim Aktualisieren der Abschluss-Resultate ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
             success: Abschluss-Resultate erfolgreich aktualisiert.
+        in_person_votes:
+          complete_voting:
+            available_answers: 'Verfügbare Antworten:'
+            census_verified: Der Teilnehmer hat noch nicht abgestimmt.
+            complete_voting: Abstimmung abschliessen
+            identify_another: Einen anderen Teilnehmer identifizieren
+            questions_title: 'Er hat das Recht, bei folgenden Anfragen abzustimmen:'
+            questions_title_voted: 'Der Teilnehmer hat bereits online abgestimmt und kann bei folgenden Fragen abstimmen:'
+            voted: Der Teilnehmer hat abgestimmt
+          create:
+            error: Die Stimme wurde nicht registriert. Bitte versuchen Sie es erneut.
+          in_person_form:
+            census_not_present: Dieser Teilnehmer ist nicht in den Zensusdaten aufgeführt.
+            census_not_present_description: Er/Sie muss zum Beschwerdenbüro gehen oder den Support kontaktieren.
+            date_of_birth: Geburtsdatum
+            day: Tag
+            day_placeholder: TT
+            document_number: Dokumentnummer
+            document_number_placeholder: ID-Nummer
+            month: Monat
+            month_placeholder: MM
+            select: Wählen Sie die Art des Dokuments aus
+            title: 'Wählen Sie den Dokumententyp und geben Sie die Dokumentennummer des Teilnehmers ein:'
+            validate_document: Dokument validieren
+            year: Jahr
+            year_placeholder: JJJJ
+          new:
+            back: Zurück zu den Wahllokalen
+            title: Einen Teilnehmer identifizieren und verifizieren
+          show:
+            back: Zurück zu den Wahllokalen
+            title: Warte auf die Registrierung der persönlichen Stimme
+          update:
+            error: Beim Registrieren dieser Stimme ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
+            success:
+              accepted: Die Stimme wurde erfolgreich registriert.
+              rejected: Die Abstimmung wurde vom Bulletin Board nicht akzeptiert. Bitte kontaktieren Sie den Systemadministrator.
+          verify_document:
+            census_present: Dieser Teilnehmer ist in den Zensusdaten aufgeführt.
+            name: Name
+            title: 'Überprüfen Sie, dass die folgenden Daten korrekt sind:'
+            verify_document: Dokument verifizieren
         menu:
           polling_officer_zone: Wahllokal-Mitarbeiter-Bereich
         polling_officers:
@@ -1050,6 +1191,16 @@ de:
           manager: Manager
           president: Präsident
           unassigned: Nicht zugewiesen
+      polling_station_closure_recount:
+        nota_option: Leer / Keine der oben genannten
+        polling_officer_notes: 'Notizen der Wahllokal-Mitarbeitenden:'
+        polling_officer_notes_blank: Es gibt keine Notizen
+        recount_summary: 'Zusammenfassung der Neuzählung:'
+        signed: Signiert
+        total_ballots: 'Gesamtzahl der Stimmzettel:'
+        total_blank_ballots: 'Anzahl leere Stimmzettel:'
+        total_null_ballots: 'Anzahl ungültige Stimmzettel:'
+        total_valid_ballots: 'Anzahl gültige Stimmzettel:'
       polling_stations:
         actions:
           confirm_destroy: Sind Sie sicher?

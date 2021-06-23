@@ -8,9 +8,12 @@ nl:
       close_meeting:
         attendees_count: Aantal deelnemers
         attending_organizations: Lijst van organisaties die bijwoonden
-        closing_report: Melden
+        audio_url: Audio URL
+        closing_report: Notulen
+        closing_visible: Is zichtbaar
         contributions_count: Aantal bijdragen
         proposal_ids: Voorstellen die in de vergadering zijn gemaakt
+        video_url: Video URL
       meeting:
         address: Adres
         available_slots: Beschikbare plaatsen voor dit event
@@ -35,11 +38,6 @@ nl:
         title: Titel
         transparent: Transparant
         type_of_meeting: Type
-      minutes:
-        audio_url: Audio URL
-        description: Beschrijving
-        video_url: Video URL
-        visible: Is zichtbaar
     errors:
       models:
         meeting_agenda:
@@ -92,6 +90,7 @@ nl:
             creation_enabled_for_participants: Deelnemers kunnen vergaderingen aanmaken
             default_registration_terms: Standaard registratievoorwaarden
             enable_pads_creation: Schakel het maken van pads in
+            maps_enabled: Kaarten ingeschakeld
             resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
             scope_id: Scope
             scopes_enabled: Scopes ingeschakeld
@@ -115,6 +114,7 @@ nl:
             email_subject: Het event "%{resource_title}" is afgelopen
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event is afgelopen.
         meeting_created:
+          button_text: Schrijf in voor de bijeenkomst
           email_intro: Het event "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat je volgt.
           email_outro: Je ontvangt deze melding omdat je "%{participatory_space_title}" volgt. Je kan dit ontvolgen door te klikken op de voorgaande link.
           email_subject: Nieuw event toegevoegd aan %{participatory_space_title}
@@ -167,7 +167,7 @@ nl:
         confirm_destroy: Weet u zeker dat u deze vergadering wilt verwijderen?
         destroy: Verwijderen
         edit: Bewerk
-        minutes: Notulen
+        manage_poll: Beheer poll
         new: Nieuwe vergadering
         preview: Voorbeeld
         registrations: registraties
@@ -204,6 +204,7 @@ nl:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze agenda
             success: Agenda succesvol bijgewerkt
         exports:
+          answers: Antwoorden
           meeting_comments: Reacties
           meetings: vergaderingen
           registrations: registraties
@@ -244,6 +245,7 @@ nl:
             success: Vergadering succesvol afgesloten
           create:
             invalid: Er is een probleem opgetreden met het maken van deze vergadering
+            success: Vergadering met succes aangemaakt. Merk op dat deze nog niet gepubliceerd is, je moet deze nog handmatig publiceren.
           destroy:
             success: Vergadering succesvol verwijderd
           edit:
@@ -264,6 +266,9 @@ nl:
           new:
             create: Creëren
             title: Creëer vergadering
+          publish:
+            invalid: Er is een fout opgetreden bij het publiceren van deze vergadering
+            success: Vergadering succesvol gepubliceerd
           service:
             description: Beschrijving
             down: Omlaag
@@ -274,21 +279,18 @@ nl:
           services:
             add_service: Dienst toevoegen
             services: Diensten
+          unpublish:
+            invalid: Er is een probleem opgetreden bij het weghalen van deze vergadering
+            success: Vergadering met succes weggehaald
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze vergadering
             success: Vergadering succesvol bijgewerkt
-        minutes:
-          create:
-            invalid: Er is een probleem opgetreden bij het maken van deze notulen
-            success: Notulen met succes gemaakt
-          edit:
-            update: Bijwerken
-          new:
-            create: creëren
-            title: Maak minuten
+        meetings_poll:
+          form:
+            title: Bewerk poll vragenlijst voor %{questionnaire_for}
           update:
-            invalid: Er is een probleem opgetreden bij het bijwerken van deze notulen
-            success: Notulen met succes bijgewerkt
+            invalid: Er is een probleem opgetreden bij het bijwerken van deze poll
+            success: Poll vergadering met succes bijgewerkt
         models:
           meeting:
             name: Vergadering
@@ -328,9 +330,6 @@ nl:
           value_types:
             organizer_presenter:
               not_found: 'De organisator is niet gevonden in de database (ID: %{id})'
-        minutes:
-          create: "%{user_name} heeft het verslag van de vergadering %{resource_name} gemaakt op de %{space_name} spatie"
-          update: "%{user_name} heeft het verslag van de vergadering %{resource_name} op de %{space_name} -spatie bijgewerkt"
       calendar_modal:
         calendar_url: Agenda-URL
         close_window: Venster sluiten
@@ -354,6 +353,11 @@ nl:
       last_activity:
         meeting_updated_at_html: "<span>Vergadering bijgewerkt op %{link}</span>"
         new_meeting_at_html: "<span>Nieuwe vergadering op %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Beheer
+          close: sluit
+          questions: Vragen
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -369,6 +373,13 @@ nl:
           close: Vergadering sluiten
           title: Vergadering sluiten
       meetings:
+        calendar_modal:
+          add_to_calendar: Toevoegen aan agenda
+          apple: Toevoegen aan Apple agenda
+          close_window: Sluit venster
+          full_details_html: Ga naar %{link} voor alle details
+          google: Toevoegen aan Google agenda
+          outlook: Toevoegen aan Outlook agenda
         count:
           meetings_count:
             one: "%{count} vergadering"
@@ -424,7 +435,6 @@ nl:
         index:
           new_meeting: Nieuwe vergadering
         meeting_minutes:
-          meeting_minutes: Verslag van de vergadering
           related_information: Gerelateerde informatie
         meetings:
           no_meetings_warning: Geen afspraken komen overeen met uw zoekcriteria of er is geen vergadering gepland.
@@ -433,6 +443,9 @@ nl:
           back: Achterzijde
           create: Aanmaken
           title: Maak je vergadering
+        online_meeting_link:
+          join: Deelnemen aan de vergadering
+          live_event: Deze vergadering vindt op dit moment plaats
         registration_confirm:
           cancel: Annuleer
           confirm: Bevestigen
@@ -447,7 +460,7 @@ nl:
           join: Deelnemen aan bijeenkomst
           leave: Inschrijving annuleren
           leave_confirmation: Weet je zeker dat je je inschrijving voor deze vergadering wil annuleren?
-          meeting_report: Bijeenkomst verslag
+          meeting_minutes: Verslag van de vergadering
           no_slots_available: Geen plaatsen beschikbaar
           organizations: Bijwonen van organisaties
           registration_code_help_text: Uw registratiecode
@@ -482,6 +495,31 @@ nl:
             official_meeting: Officiële vergadering
             start_time: Startdatum
             title: Titel
+      polls:
+        questions:
+          closed_question:
+            question_results: Resultaten vraag
+          index:
+            empty_questions: Tijdens deze vergadering worden er enkele vragen verzonden en je kan ze beantwoorden. Ze zullen hier worden weergegeven.
+          index_admin:
+            admin_dashboard: Beheer Dashboard
+            edit: Bewerk in admin
+            question: Vraag
+            received_answer: antwoord ontvangen
+            received_answers: ontvangen antwoorden
+            results: Resultaten
+            send: Verzenden
+            sent: Verzonden
+          published_question:
+            max_choices_alert: Er zijn te veel keuzes geselecteerd
+            question: Vraag
+            question_replied: Vraag beantwoord
+            reply_question: Vraag beantwoorden
+      public_participants_list:
+        attending_participants: Aanwezige deelnemers
+        hidden_participants_count:
+          one: en nog %{count} persoon
+          other: en nog %{count} personen
       read_more: "(Lees meer)"
       registration_mailer:
         confirmation:

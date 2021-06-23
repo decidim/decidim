@@ -11,11 +11,10 @@ module Decidim
     delegate :current_organization, :current_user, :user_groups_enabled?, to: :controller
 
     def show
-      if profile_holder.blocked? && current_user_logged_in?
-        render :inaccessible
-      else
-        render :show
-      end
+      return render :invalid if profile_holder.blank?
+      return render :inaccessible if profile_holder.blocked? && current_user_logged_in?
+
+      render :show
     end
 
     def profile_holder

@@ -158,7 +158,6 @@ ca:
         browse: Explorar
         category:
           new: Nova categoria
-        export: Exporta
         import: Importar
         manage: Gestionar
         new: Nou %{name}
@@ -337,6 +336,12 @@ ca:
         show:
           view_more_logs: Veure més registres
           welcome: Benvinguda al tauler d'administració de Decidim.
+      domain_whitelist:
+        form:
+          domain_too_short: El domini és massa curt
+        update:
+          error: Hi ha hagut un error en incloure el domini en la llista blanca
+          success: Hem actualitzat correctament la llista blanca de dominis
       exports:
         export_as: "%{name} com a %{export_format}"
         formats:
@@ -470,6 +475,7 @@ ca:
         areas: Àrees
         configuration: Configuració
         dashboard: Tauler de control
+        external_domain_whitelist: Llista blanca de dominis externs
         help_sections: Seccions d'ajuda
         homepage: Pàgina d'inici
         impersonations: Impersonacions
@@ -741,6 +747,17 @@ ca:
             layout_appearance_title: Edita l'aparença del disseny global
             preview: Previsualitzar
           omnipresent_banner_appearance_title: Edita banner omnipresent
+      organization_external_domain_whitelist:
+        edit:
+          update: Actualitza
+        external_domain:
+          down: Avall
+          external_domain: Domini extern
+          remove: Lleva
+          up: Amunt
+        form:
+          add: Afegeix a llista blanca
+          title: Llista blanca de dominis externs
       organization_homepage:
         edit:
           active_content_blocks: Blocs de contingut actiu

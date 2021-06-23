@@ -157,7 +157,6 @@ de:
         browse: Durchsuchen
         category:
           new: Neue Kategorie
-        export: Export
         import: Importieren
         manage: Verwalten
         new: Neu %{name}

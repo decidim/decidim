@@ -4,7 +4,7 @@
 @import "stylesheets/decidim/admin/utils/keyframes";
 @import "stylesheets/decidim/admin/utils/settings";
 @import "stylesheets/decidim/admin/utils/toggle-expand";
-@import "~foundation-sites/scss/foundation";
+@import "foundation-sites/scss/foundation";
 @import "stylesheets/foundation-overrides/components/button-group";
 
 @include foundation-everything();
@@ -13,6 +13,7 @@
 @import "stylesheets/decidim/admin/utils/flex";
 @import "stylesheets/decidim/admin/plugins/foundation-datepicker";
 @import "stylesheets/decidim/modules/data-picker";
+@import "stylesheets/decidim/modules/map";
 @import "stylesheets/decidim/admin/modules/modules";
 @import "stylesheets/decidim/admin/plugins/jquery.auto-complete";
 @import "stylesheets/decidim/admin/components/accordion";

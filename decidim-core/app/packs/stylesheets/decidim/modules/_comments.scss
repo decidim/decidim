@@ -29,6 +29,52 @@ $comment-form-bg: $light-gray;
 .comment__header{
   padding: $comment-padding;
   display: flex;
+
+  .comment__edited,
+  .comment__deleted{
+    font-style: italic;
+    color: $muted;
+  }
+
+  &__context-menu{
+    position: relative;
+    margin-left: auto;
+
+    label{
+      transform: rotate(90deg);
+      cursor: pointer;
+    }
+
+    &__content{
+      list-style-type: none;
+      width: max-content;
+      min-width: 180px;
+      padding: 0;
+      margin: 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+      overflow: hidden;
+
+      &-item{
+        padding: $comment-padding / 2 $comment-padding;
+        display: flex;
+        align-items: baseline;
+        gap: $comment-padding;
+        cursor: pointer;
+
+        span{
+          line-height: $paragraph-lineheight;
+        }
+      }
+    }
+
+    &__content li:hover{
+      background-color: $light-gray-dark;
+    }
+
+    &__content li:not(:first-child){
+      border-top: 1px solid $medium-gray;
+    }
+  }
 }
 
 .comment__content{
