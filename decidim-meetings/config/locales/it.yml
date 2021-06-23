@@ -455,6 +455,7 @@ it:
           title: Crea una riunione
         online_meeting_link:
           join: Partecipa alla riunione
+          link_available_soon: Link disponibile a breve
           live_event: Questa riunione sta avvenendo in questo momento
         registration_confirm:
           cancel: Annulla
