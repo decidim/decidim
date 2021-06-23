@@ -12,7 +12,8 @@ describe Decidim::Meetings::Admin::Permissions do
       current_component: meeting_component,
       meeting: meeting,
       agenda: agenda,
-      questionnaire: questionnaire
+      questionnaire: questionnaire,
+      poll: poll
     }
   end
   let(:meeting_component) { create :meeting_component }
@@ -24,6 +25,8 @@ describe Decidim::Meetings::Admin::Permissions do
   let(:action) do
     { scope: :admin, action: action_name, subject: action_subject }
   end
+  let(:poll) { create :poll }
+  let(:poll_questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
   let(:action_name) { :foo }
   let(:action_subject) { :foo }
 
@@ -177,6 +180,24 @@ describe Decidim::Meetings::Admin::Permissions do
       let(:action_name) { :update }
 
       it_behaves_like "action requiring a questionnaire"
+    end
+  end
+
+  context "when subject is a poll" do
+    let(:action_subject) { :poll }
+
+    context "when updating a poll" do
+      let(:action_name) { :update }
+
+      context "when meeting is present and poll is present" do
+        it_behaves_like "action requiring a meeting"
+      end
+
+      context "when poll is missing" do
+        let(:poll) { nil }
+
+        it { is_expected.to eq false }
+      end
     end
   end
 end

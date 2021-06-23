@@ -59,7 +59,7 @@ module Decidim
         def retrieve_comments
           user_ids = Decidim::User.select(:id).where(organization: @organization).collect(&:id)
           user_group_ids = Decidim::UserGroup.select(:id).where(organization: @organization).collect(&:id)
-          Decidim::Comments::Comment.includes(:root_commentable).not_hidden
+          Decidim::Comments::Comment.includes(:root_commentable).not_hidden.not_deleted
                                     .where("decidim_comments_comments.created_at <= ?", end_time)
                                     .where("decidim_comments_comments.decidim_author_id IN (?) OR
                                            decidim_comments_comments.decidim_user_group_id IN (?)", user_ids, user_group_ids)

@@ -258,6 +258,8 @@ fi-pl:
         download: Lataa tiedosto
       documents:
         related_documents: Liittyvät dokumentit
+      geocoding:
+        geocoded_address: Osoite
       photos:
         related_photos: Liittyvät kuvat
     author:
@@ -1263,6 +1265,8 @@ fi-pl:
         filters:
           areas: alueet
           select_an_area: Valitse alue
+      public_participation:
+        public_participation: Näytä läsnäoloni julkisesti
       reference:
         reference: 'Viite: %{reference}'
       represent_user_group:

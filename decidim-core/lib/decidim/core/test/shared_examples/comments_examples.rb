@@ -48,6 +48,45 @@ shared_examples "comments" do
     expect(page).to have_css(".comments > div:nth-child(2)", text: "Most Rated Comment")
   end
 
+  context "when there are deleted comments" do
+    let(:deleted_comment) { comments[0] }
+
+    before do
+      deleted_comment.delete!
+      visit resource_path
+    end
+
+    it "shows only a deletion message for deleted comments" do
+      expect(page).to have_selector("#comment_#{deleted_comment.id}")
+
+      expect(page).to have_no_content(deleted_comment.author.name)
+      expect(page).to have_no_content(deleted_comment.body.values.first)
+      within "#comment_#{deleted_comment.id}" do
+        expect(page).to have_content("Comment deleted on")
+        expect(page).to have_no_selector("comment__header")
+        expect(page).to have_no_selector("comment__footer")
+      end
+    end
+
+    it "counts only not deleted comments" do
+      expect(page).to have_selector("span.comments-count", text: "#{comments.length - 1} COMMENTS")
+    end
+
+    context "when deleted comment has replies, they are shown" do
+      let!(:reply) { create(:comment, commentable: deleted_comment, root_commentable: commentable, body: "Please, delete your comment") }
+
+      it "shows replies of deleted comments" do
+        visit resource_path
+
+        within "#comment_#{deleted_comment.id}" do
+          expect(page).to have_selector("#comment-#{deleted_comment.id}-replies")
+          expect(page).to have_content(reply.author.name)
+          expect(page).to have_content(reply.body.values.first)
+        end
+      end
+    end
+  end
+
   context "when not authenticated" do
     it "does not show form to add comments to user" do
       visit resource_path
@@ -144,6 +183,127 @@ shared_examples "comments" do
         end
 
         expect(page).to have_comment_from(user_group, "This is a new comment", wait: 20)
+      end
+    end
+
+    context "when a user deletes a comment" do
+      let(:comment_body) { "This comment is a mistake" }
+      let!(:comment) { create(:comment, body: comment_body, commentable: commentable, author: comment_author) }
+
+      before do
+        visit resource_path
+      end
+
+      context "when the comment is not authored by user" do
+        let!(:comment_author) { create(:user, :confirmed, organization: organization) }
+
+        it "the context menu of the comment doesn't show a delete link" do
+          within "#comment_#{comment.id}" do
+            within ".comment__header__context-menu" do
+              page.find(".icon--ellipses").click
+              expect(page).to have_no_link("Delete")
+            end
+          end
+        end
+      end
+
+      context "when the comment is authored by user" do
+        let(:comment_author) { user }
+
+        it "the context menu of the comment shows a delete link" do
+          within "#comment_#{comment.id}" do
+            within ".comment__header__context-menu" do
+              page.find(".icon--ellipses").click
+              expect(page).to have_link("Delete")
+            end
+          end
+        end
+
+        it "the user can delete the comment and updates the comments counter" do
+          expect(Decidim::Comments::Comment.not_deleted.count).to eq(4)
+
+          within "#comment_#{comment.id}" do
+            within ".comment__header__context-menu" do
+              page.find(".icon--ellipses").click
+              click_link "Delete"
+            end
+          end
+
+          within "div.confirm-reveal" do
+            click_link "OK"
+          end
+
+          expect(page).to have_selector("#comment_#{comment.id}")
+          expect(page).to have_no_content(comment_body)
+          within "#comment_#{comment.id}" do
+            expect(page).to have_content("Comment deleted on")
+            expect(page).to have_no_content comment_author.name
+            expect(page).to have_no_selector("comment__header")
+            expect(page).to have_no_selector("comment__footer")
+          end
+          expect(page).to have_selector("span.comments-count", text: "3 COMMENTS")
+
+          expect(Decidim::Comments::Comment.not_deleted.count).to eq(3)
+        end
+      end
+    end
+
+    context "when a user edits a comment" do
+      let(:comment_body) { "This coment has a typo" }
+      let!(:comment) { create(:comment, body: comment_body, commentable: commentable, author: comment_author) }
+
+      before do
+        visit resource_path
+      end
+
+      context "when the comment is not authored by user" do
+        let!(:comment_author) { create(:user, :confirmed, organization: organization) }
+
+        it "the context menu of the comment doesn't show an edit button" do
+          within "#comment_#{comment.id}" do
+            within ".comment__header__context-menu" do
+              page.find(".icon--ellipses").click
+              expect(page).to have_no_button("Edit")
+            end
+          end
+        end
+      end
+
+      context "when the comment is authored by user" do
+        let!(:comment_author) { user }
+
+        it "the context menu of the comment show an edit button" do
+          within "#comment_#{comment.id}" do
+            within ".comment__header__context-menu" do
+              page.find(".icon--ellipses").click
+              expect(page).to have_button("Edit")
+            end
+          end
+        end
+
+        context "when the user edits a comment" do
+          before do
+            within "#comment_#{comment.id} .comment__header__context-menu" do
+              page.find(".icon--ellipses").click
+              click_button "Edit"
+            end
+            fill_in "edit_comment_#{comment.id}", with: "This comment has been fixed"
+            click_button "Send"
+          end
+
+          it "the comment body changes" do
+            within "#comment_#{comment.id}" do
+              expect(page).to have_content("This comment has been fixed")
+              expect(page).to have_no_content(comment_body)
+            end
+          end
+
+          it "the header of the comment displays an edited message" do
+            within "#comment_#{comment.id} .comment__header" do
+              expect(page).to have_content("Edited")
+            end
+          end
+        end
       end
     end
 

@@ -126,7 +126,6 @@ pt:
       actions:
         add: Adicionar
         browse: Explorar
-        export: Exportar
         manage: Gerir
         new: Novo %{name}
         per_page: Por página

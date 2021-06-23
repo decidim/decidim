@@ -715,8 +715,6 @@ es-PY:
           proposals_count:
             one: "%{count} propuesta"
             other: "%{count} propuestas"
-        dynamic_map_instructions:
-          instructions: <h3>Puedes mover el punto en el mapa. </h3><p>No olvides hacer clic en el botón "Actualizar posición" antes de publicar tu propuesta.</p>
         edit:
           add_documents: Documentos
           add_images: Archivo
@@ -788,7 +786,6 @@ es-PY:
             other: Podrás editar esta propuesta durante los primeros %{count} minutos después de que se publique. Una vez que pase este tiempo, no podrás editar la propuesta.
           publish: Publicar
           title: Publica tu propuesta
-          update_position: Actualizar posición
         proposal:
           creation_date: 'Creación: %{date}'
           view_proposal: Ver propuesta

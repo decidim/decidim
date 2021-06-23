@@ -717,7 +717,8 @@ en:
             one: "%{count} proposal"
             other: "%{count} proposals"
         dynamic_map_instructions:
-          instructions: <h3>You can move the point on the map. </h3><p>Don't forget to click on the "Update Position" button before publishing your proposal.</p>
+          description: The coordinates will be updated when clicking on 'preview' button. However, the address does not change.
+          instructions: You can move the point on the map.
         edit:
           add_documents: Documents
           add_images: File
@@ -789,7 +790,6 @@ en:
             other: You will be able to edit this proposal during the first %{count} minutes after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
           publish: Publish
           title: Publish your proposal
-          update_position: Update position
         proposal:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal

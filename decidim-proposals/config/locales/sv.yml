@@ -712,8 +712,6 @@ sv:
           proposals_count:
             one: "%{count} förslag"
             other: "%{count} förslag"
-        dynamic_map_instructions:
-          instructions: <h3>Nu kan du dra markören och flytta den på kartan. </h3><p>Glöm inte att klicka på knappen "Uppdatera position" innan du publicerar ditt förslag.</p>
         edit:
           add_documents: Dokument
           add_images: Bild
@@ -785,7 +783,6 @@ sv:
             other: Du kommer att kunna redigera förslaget upp till %{count} minuter efter att förslaget har publicerats. När det tidsfönstret passerat kommer du inte att kunna redigera förslaget.
           publish: Publicera
           title: Publicera ditt förslag
-          update_position: Uppdatera position
         proposal:
           creation_date: 'Skapat: %{date}'
           view_proposal: Visa förslag

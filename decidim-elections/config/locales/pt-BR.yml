@@ -1,1 +1,212 @@
 pt:
+  activemodel:
+    attributes:
+      answer:
+        description: Descrição
+        image: Imagem
+        proposals: Propostas relacionadas
+        title: Título
+      election:
+        description: Descrição
+        end_time: A votação termina às
+        start_time: Votação começa às
+        title: Título
+      question:
+        description: Descrição
+        max_selections: Número máximo de seleções
+        min_selections: Nenhuma das opções acima
+        title: Título
+      voting:
+        end_time: Votação termina
+        start_time: A votação começa
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Precisa ser reanexado
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Precisa ser reanexado
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: não pode ser alterado
+            public_key:
+              cant_be_changed: não pode ser alterado
+  activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: O oficial de votação já é presidente/gerente da estação de voto
+            voting:
+              different_organization: A votação deve estar na mesma organização que o usuário
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: O consultor de voto deve estar na mesma votação que a estação de voto
+    models:
+      decidim/elections/answer:
+        one: Responda
+        other: Respostas
+      decidim/elections/election:
+        one: Eleição
+        other: Eleições
+      decidim/elections/question:
+        one: Questão
+        other: Questões
+      decidim/votings/census/dataset:
+        one: Conjunto de dados
+        other: Conjuntos de dados
+      decidim/votings/census/datum:
+        one: Dado
+        other: Dados
+      decidim/votings/polling_officer:
+        one: Agente de votação
+        other: Agentes de votação
+      decidim/votings/polling_station:
+        one: Estação de voto
+        other: Estação de votos
+      decidim/votings/voting:
+        one: Votação
+        other: Votações
+  decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: Oficiais
+          values:
+            assigned: Atribuído
+            unassigned: Não atribuído
+        role_eq:
+          label: Função
+          values:
+            manager: Gerente
+            president: Presidente
+            unassigned: Não Atribuido
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Pesquisa %{collection} por nome/e-mail/apelido ou estação de voto.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Pesquisar %{collection} por título, endereço ou nome do oficial/e-mail/apelido.
+        signed_eq:
+          label: Assinado
+          values:
+            'false': Assinado
+            'true': Não assinado
+        validated_eq:
+          label: Validado
+          values:
+            'false': Validado
+            'true': Não validado
+    components:
+      elections:
+        actions:
+          vote: Voto
+        name: Eleições
+        settings:
+          global:
+            announcement: Anúncio
+          step:
+            announcement: Anúncio
+    elections:
+      actions:
+        confirm_destroy: Você tem certeza?
+        destroy: Destruir
+        edit: Editar
+        feedback: Feedback do eleitor
+        import: Importar propostas para respostas
+        manage_answers: Gerenciar respostas
+        manage_questions: Gerenciar perguntas
+        manage_steps: Gerenciar etapas
+        new: Novo %{name}
+        preview: Pré-visualização
+        publish: Publicar
+        title: Ações
+        unpublish: Despublicar
+      admin:
+        answers:
+          create:
+            invalid: Tem havido um problema ao criar esta resposta
+            success: Resposta criada com sucesso
+          destroy:
+            invalid: Houve um problema ao excluir esta resposta
+            success: Resposta excluída com sucesso
+          edit:
+            title: Editar resposta
+            update: Atualizar resposta
+          index:
+            invalid_max_selections: Você precisa de mais %{missing_answers} resposta/s para combinar com a seleção máxima
+            title: Respostas
+        steps:
+          create_election:
+            errors:
+              max_selections: As perguntas não têm um <strong>valor correto para a quantidade de respostas</strong>
+              minimum_answers: As perguntas devem ter <strong>pelo menos duas respostas</strong>.
+              minimum_questions: A eleição <strong>deve ter pelo menos uma questão</strong>.
+              published: A eleição <strong>não está publicada</strong>.
+              time_before: O horário de início é em <strong>menos de 3 horas</strong> antes do início da eleição.
+              trustees_number: O espaço participativo <strong>deve ter pelo menos %{number} administradores com chave pública</strong>.
+            invalid: Houve um problema ao configurar essa eleição
+            no_trustees: Não há Agentes fiduciários configurados para este espaço participativo
+            not_used_trustee: "(não usado)"
+            public_key:
+              'false': não tem uma <strong>chave pública</strong>
+              'true': tem uma <strong>chave pública</strong>
+            requirements:
+              max_selections: Todas as questões têm um valor correto para <strong>o máximo de respostas</strong>.
+              minimum_answers: Cada questão tem <strong>pelo menos 2 respostas</strong>.
+              minimum_questions: A eleição tem <strong>pelo menos 1 pergunta</strong>.
+              published: A eleição está <strong>publicada</strong>.
+              time_before: A instalação está sendo feita <strong>pelo menos %{hours} horas</strong> antes do início da eleição.
+              trustees_number: O espaço participativo tem <strong> pelo menos %{number} agentes fiduciários com chave pública</strong>.
+            submit: Configurar eleição
+            success: Eleição enviada com sucesso para o Quadro de avisos
+            title: Configurar eleição
+            trustees: Agentes fiduciários da Eleição
+          created:
+            invalid: Houve um problema ao iniciar a cerimônia de chave
+            submit: Inicie a cerimônia de chaves
+            success: Pedido de cerimônia inicial foi enviado com sucesso para o Quadro de avisos
+            title: Eleição criada
+            trustees: Agentes fiduciários
+          key_ceremony:
+            title: Cerimônia de chave
+            trustees: Agentes fiduciários
+          key_ceremony_ended:
+            errors:
+              time_before: A eleição está pronta para começar. Você tem que esperar até %{hours} horas antes da hora de início (%{start_time}) para iniciar o período de votação.
+            invalid: Houve um problema ao iniciar o período de votação
+            requirements:
+              time_before: A eleição começará em breve. Você pode iniciar o período de votação manualmente ou ele será iniciado automaticamente antes da hora inicial, às %{start_time}.
+            submit: Iniciar período de votação
+            success: O pedido de período de votação foi enviado com sucesso para o Conselho Boletim
+            title: Preparado para começar
+          processing: Processando...
+          results_published:
+            answer: Resposta
+            not_selected: Não selecionado
+            question: Questão
+            result: Resultado
+            selected: Selecionado
+            submit: Enviar
+            title: Resultados publicados
+          tally:
+            title: Processo de registro
+            trustees: Agentes fiduciários
+          tally_ended:
+            answer: Resposta
+            not_selected: Não selecionado
+            question: Questão
+            result: Resultado
+            selected: Selecionado
+            submit: Publicar resultados
+      elections:
+        election_log:
+          chained_hash: A Hash encadeada desta mensagem
+          complete: Completo
+          creation_description:
+            complete: A eleição foi criada e foi criada com sucesso no Quadro de Notas.
+            not_created: A eleição ainda não foi criada.

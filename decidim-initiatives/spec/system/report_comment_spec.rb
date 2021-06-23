@@ -14,5 +14,5 @@ describe "Report Comment", type: :system do
     switch_to_host(organization.host)
   end
 
-  include_examples "reports"
+  include_examples "comments_reports"
 end

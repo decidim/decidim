@@ -122,7 +122,6 @@ sk:
       actions:
         add: Pridať
         browse: Prechádzať
-        export: Exportovať
         manage: Správa
         new: Nový %{name}
         per_page: Na stranu

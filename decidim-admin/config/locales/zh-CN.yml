@@ -129,7 +129,6 @@ zh-CN:
       actions:
         add: 添加
         browse: 浏览
-        export: 导出
         manage: 管理
         new: 新建 %{name}
         per_page: 每页

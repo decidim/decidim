@@ -154,14 +154,13 @@ pl:
         browse: Przeglądaj
         category:
           new: Nowa kategoria
-        export: Eksport
         import: Importuj
         manage: Zarządzanie
         new: 'Nowy: %{name}'
         newsletter:
           new: Nowy newsletter
         participatory_space_private_user:
-          new: Nowy prywatny użytkownik przestrzeni partycypacyjnej
+          new: Nowy użytkownik prywatny
         per_page: Na stronę
         permissions: Uprawnienia
         reject: Odrzuć
@@ -333,6 +332,9 @@ pl:
         show:
           view_more_logs: Zobacz więcej logów
           welcome: Witamy w panelu administracyjnym Decidim.
+      domain_whitelist:
+        form:
+          domain_too_short: Domena jest zbyt krótka
       exports:
         export_as: "%{name} jako %{export_format}"
         formats:
@@ -353,6 +355,17 @@ pl:
           values:
             'false': Oficjalny
             'true': Nieoficjalny
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Zaakceptowano zaproszenie
+            values:
+              'false': Nie zaakceptowano
+              'true': Zaakceptowano
+          user_invitation_sent_at_not_null:
+            label: Wysłano zaproszenie
+            values:
+              'false': Nie wysłano
+              'true': Wysłano
         private_space_eq:
           label: Prywatny
           values:
@@ -725,6 +738,14 @@ pl:
             layout_appearance_title: Edytuj wygląd layoutu
             preview: Podgląd
           omnipresent_banner_appearance_title: Edytuj stały baner
+      organization_external_domain_whitelist:
+        edit:
+          update: Aktualizuj
+        external_domain:
+          remove: Usuń
+        form:
+          add: Dodaj do białej listy
+          title: Biała lista domen zewnętrznych
       organization_homepage:
         edit:
           active_content_blocks: Aktywne bloki treści
@@ -868,7 +889,7 @@ pl:
         scope_types: Typy zakresów
         scopes: Zakresy
         static_pages: Strony
-        statistics: Działania
+        statistics: Aktywność
         user_groups: Grupy użytkowników
         users: Administratorzy
       user_group:
@@ -909,7 +930,7 @@ pl:
           success: Użytkownik nie jest już administratorem.
         form:
           email: E-mail
-          name: Nazwa
+          name: Imię
           role: Rola
         new:
           create: Zaproś

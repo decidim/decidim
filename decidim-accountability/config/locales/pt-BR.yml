@@ -32,16 +32,29 @@ pt:
   decidim:
     accountability:
       actions:
+        attachment_collections: Pastas
+        attachments: Anexos
         confirm_destroy: Deseja mesmo excluir %{name}?
         destroy: Excluir
         edit: Editar
+        import_csv: Importar CSV
         new: Novo %{name}
         preview: Pré-visualização
         timeline_entries: Evolução do projeto
         title: Ações
       admin:
         exports:
+          result_comments: Comentários
           results: Resultados
+        import_results:
+          new:
+            import: Importar
+            info: "<p>Nós recomendamos que vosê siga os seguintes passos:</p><ol><li>Crie os Status para os Resultados que você gostaria de adicionar(<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Crie o último Resultado manualmente através do Painel de Administração(<a href='%{link_new_result}' target='_blank'>link</a>) antes de usar Importação, para ter um melhor entendimento do formato e o que você precisa preencher.</li><li>Baixe a Exportação em formato CSV (%{link_export_csv})</li><li>Faça as mudanças localmente. Você só pode fazer mudanças nas seguintes colunas do CSV:</li></ol><ul><li><b>categoria/id:</b> ID da Categoria</li><li><b>escopo/id:</b> ID do Escopo</li><li><b>pai/id:</b> ID do pai(para resultados Relacionados). Opcional</li><li><b>Título/I18N:</b> Título na liinguagem X</li><li><b>Descrição/I18N:</b> Descrição na linguagem X</li><li><b>data_inicial:</b> data em que os resultados começaram a ser executados (formato YYYY-MM-DD)</li><li><b>data_final:</b> em que os resultados pararam de ser executados (formato YYYY-MM-DD)</li><li><b>status/id:</b> ID do Status para este resultado</li><li><b>progresso:</b> Percentual (De 0 a 100) de execução</li><li><b>id_propostas:</b> ID interno relacionado às propostas (separados por vírgula). Ele é convertido automaticamente para<span class='attribute-name'>url_proposta</span></li></ul>"
+            link: link
+            title: Importar resultados de CSV
+        imports:
+          create:
+            success: O arquivo começou a importar. Você receberá um e-mail nos próximos minutos com o resultado da importação
         models:
           result:
             name: Resultado
@@ -111,13 +124,29 @@ pt:
         value_types:
           parent_presenter:
             not_found: 'O pai não foi encontrado no banco de dados (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Datas
+          results: Resultados
+          unspecified: Não especificado
+      import_mailer:
+        import:
+          errors: Erros
+          errors_present: Houve um problema na exportação
+          row_number: Linha
+          subject: Importação bem sucedida de resultados
+          success: Importação bem sucedida de resultados. Você pode revisar os resultados na interface de administração.
       last_activity:
         new_result_at_html: "<span>Novo resultado em %{link}</span>"
       models:
         result:
           fields:
+            category: Categoria
+            created_at: Criado
             end_date: Data final
+            id: ID
             progress: Progresso
+            scope: Escopo
             start_date: Data de início
             status: Status
             title: Título
@@ -131,6 +160,9 @@ pt:
           fields:
             description: Descrição
             entry_date: Data
+      result_m:
+        executed: Executado
+        view: Visualizar
       results:
         count:
           results_count:
@@ -161,6 +193,15 @@ pt:
             votes: Suporta
         timeline:
           title: Evolução do projeto
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Categoria
+          scope_id_eq:
+            label: Escopo
+          status_id_eq:
+            label: Status
     components:
       accountability:
         name: Prestação de contas
@@ -168,10 +209,13 @@ pt:
           global:
             categories_label: Nome para "Categorias"
             comments_enabled: Comentários ativados
+            comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
             display_progress_enabled: Mostrar progresso
             heading_leaf_level_results: Nome para "Projetos"
             heading_parent_level_results: Nome para "Resultados"
             intro: Introdução
+            scope_id: Escopo
+            scopes_enabled: Escopos habilitados
             subcategories_label: Nome para "Subcategorias"
           step:
             comments_blocked: Comentários bloqueados
@@ -192,8 +236,13 @@ pt:
         description: Número de resultados gerados
         object: resultados
         title: Resultados
+    participatory_spaces:
+      highlighted_results:
+        see_all: Ver todos os resultados (%{count})
     resource_links:
       included_projects:
         result_project: Projetos incluídos neste resultado
       included_proposals:
         result_proposal: Propostas incluídas neste resultado
+    statistics:
+      results_count: Resultados

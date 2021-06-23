@@ -129,7 +129,6 @@ hu:
       actions:
         add: Hozzáad
         browse: Böngészés
-        export: Exportálás
         manage: Kezelés
         new: Új %{name}
         per_page: Oldalanként

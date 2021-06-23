@@ -57,6 +57,9 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquesta administradora.
           success: L'administradora s'ha actualitzat correctament
+      dashboard:
+        show:
+          current_organizations: Organitzacions actuals
       default_pages:
         placeholders:
           content: Si us plau, afegeix contingut significatiu a la pàgina estàtica de %{page} dins el panell d'administració.
@@ -112,6 +115,9 @@ ca:
           error: S'ha produït un error en actualitzar aquesta aplicació.
           success: S'ha actualitzat l'aplicació correctament.
       organizations:
+        advanced_settings:
+          hide: Amaga la configuració avançada
+          show: Mostra la configuració avançada
         create:
           error: S'ha produït un error en crear una nova organització.
           success: L'organització s'ha creat correctament.

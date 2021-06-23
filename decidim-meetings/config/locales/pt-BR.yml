@@ -8,27 +8,36 @@ pt:
       close_meeting:
         attendees_count: Número de Participantes
         attending_organizations: Lista de organizações que participaram
+        audio_url: URL do Áudio
         closing_report: Minutos
         closing_visible: É visível
         contributions_count: Número de contribuições
         proposal_ids: Propostas criadas na reunião
+        video_url: URL do vídeo
       meeting:
         address: Endereço
         available_slots: Slots disponíveis para esta reunião
+        customize_registration_email: Personalizar e-mail de registro
         decidim_category_id: Categoria
         decidim_scope_id: Âmbito
+        decidim_user_group_id: Grupo de usuários
         description: Descrição
         end_time: Fim do tempo
         location: Localização
         location_hints: Dicas de localização
+        online_meeting_url: URL da reunião on-line
+        organizer_gid: Criar como
         organizer_id: Organizador
         private_meeting: Reunião privada
+        registration_email_custom_content: Registro de conteúdo personalizado do e-mail
         registration_form_enabled: Formulário de inscrição ativado
         registration_terms: Termos de registro
+        registration_url: URL de Registro
         registrations_enabled: Registos habilitados
         start_time: Hora de início
         title: Título
         transparent: Transparente
+        type_of_meeting: Tipo
     errors:
       models:
         meeting_agenda:
@@ -77,12 +86,21 @@ pt:
           global:
             announcement: Anúncio
             comments_enabled: Comentários ativados
+            comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
+            creation_enabled_for_participants: Os participantes podem criar reuniões
             default_registration_terms: Termos de registro padrão
             enable_pads_creation: Ativar criação de blocos
+            maps_enabled: Mapas ativados
+            registration_code_enabled: Código de registro habilitado
             resources_permissions_enabled: Permissões de ações podem ser definidas para cada encontro
+            scope_id: Escopo
+            scopes_enabled: Escopos habilitados
+            terms_and_conditions_url_for_meeting_creators: URL de Termos e condições para criadores da reunião
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
+            creation_enabled_for_participants: Criação de reunião por participantes habilitada
+            creation_enabled_for_user_groups: Criação de reunião por grupos de usuários habilitados
     events:
       meetings:
         meeting_closed:
@@ -97,6 +115,7 @@ pt:
             email_subject: A reunião "%{resource_title}" foi fechada
             notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> foi fechada.
         meeting_created:
+          button_text: Inscrever-se na reunião
           email_intro: A reunião "%{resource_title}" foi adicionado a "%{participatory_space_title}" que você está seguindo.
           email_outro: Você recebeu esta notificação porque está seguindo "%{participatory_space_title}". Você pode ignorá-lo do link anterior.
           email_subject: Nova reunião adicionada a %{participatory_space_title}
@@ -149,6 +168,11 @@ pt:
         confirm_destroy: Deseja mesmo excluir este encontro?
         destroy: Excluir
         edit: Editar
+        invalid_destroy:
+          proposals_count:
+            one: 'A reunião não pode ser destruída porque tem %{count} proposta associada a ela:'
+            other: 'A reunião não pode ser destruída porque tem %{count} propostas associadas a ela:'
+        manage_poll: Gerenciar enquete
         new: Nova reunião
         preview: Visualização
         registrations: Inscrições
@@ -185,6 +209,8 @@ pt:
             invalid: Houve um problema ao atualizar esta agenda
             success: Agenda atualizada com sucesso
         exports:
+          answers: Respostas
+          meeting_comments: Comentários
           meetings: Reuniões
           registrations: Inscrições
         invite_join_meeting_mailer:
@@ -224,15 +250,35 @@ pt:
             success: Reunião fechada com sucesso
           create:
             invalid: Tem havido um problema ao criar esta reunião
+            success: Reunião criada com sucesso. Note que ainda não foi publicada, você precisa publicá-la manualmente.
           destroy:
+            invalid:
+              proposals_count:
+                one: A reunião não pode ser destruída porque tem %{count} proposta associada a ela
+                other: A reunião não pode ser destruída porque tem %{count} propostas associadas a ela
             success: Reunião excluída com sucesso
           edit:
+            title: Editar reuniões
             update: Atualizar
+          form:
+            address_help: 'Endereço: usado pelo Geocodificador para encontrar a localização'
+            available_slots_help: Deixe-o em 0 se você tiver slots ilimitados disponíveis
+            disclaimer: 'Aviso: ao usar um sistema de registro externo, você está ciente de que os organizadores do %{organization} não são responsáveis pelos dados fornecidos pelos usuários ao serviço externo.'
+            location_help: 'Localização: mensagem direcionada aos usuários que imprimem o local para'
+            location_hints_help: 'Dicas de localização: informações adicionais Exemplo: o piso do edifício se é uma reunião presencial, ou a senha da reunião, se é uma reunião online com acesso restrito.'
+            online_meeting_url_help: 'Link: permitir que os participantes se conectem diretamente à sua reunião'
+            registration_email_help: Este texto aparecerá no meio do e-mail de confirmação de registro. Logo após o código de registro.
+            registration_url_help: 'Link: permitir que os participantes possam acessar o serviço externo que você está usando para inscrições'
+            select_a_meeting_type: Por favor, selecione um tipo de reunião
+            select_a_registration_type: Por favor, selecione um tipo de registro
           index:
             title: Reuniões
           new:
             create: Criar
             title: Criar reunião
+          publish:
+            invalid: Ocorreu um erro ao publicar esta reunião
+            success: Reunião publicada com sucesso
           service:
             description: Descrição
             down: Baixa
@@ -243,9 +289,18 @@ pt:
           services:
             add_service: Adicionar serviço
             services: Serviços
+          unpublish:
+            invalid: Ocorreu um erro ao cancelar a publicação desta reunião
+            success: Reunião despublicada com sucesso
           update:
             invalid: Tem havido um problema ao atualizar esta reunião
             success: Reunião atualizada com sucesso
+        meetings_poll:
+          form:
+            title: Editar questionário da enquete para %{questionnaire_for}
+          update:
+            invalid: Houve um problema ao atualizar essa pesquisa de reunião
+            success: Enquete da reunião atualizada com sucesso
         models:
           meeting:
             name: encontro
@@ -257,12 +312,14 @@ pt:
           form:
             available_slots_help: Deixe-o para 0 se você tiver slots ilimitados disponíveis.
             invites: Convites
+            recommendation_message: Por razões de privacidade, recomendamos que você exclua esse formulário de inscrição quando não precisar mais dele. Por padrão, isso será daqui a 3 meses após o fim da reunião.
             registration_form: Formulário de registro
             registrations_count:
               one: Houve %{count} registro.
               other: Houve %{count} inscrições.
             reserved_slots_help: Deixe para 0 se você não tiver slots reservados
             reserved_slots_less_than: Deve ser menor ou igual a %{count}
+            title: Registros
           update:
             invalid: Ocorreu um problema ao salvar as configurações de registro.
             success: Configurações de registro de reunião salvas com sucesso.
@@ -304,7 +361,13 @@ pt:
             space_type: Espaço participativo
             upcoming: próximos
       last_activity:
+        meeting_updated_at_html: "<span>Novo debate em %{link}</span>"
         new_meeting_at_html: "<span>Nova reunião em %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Administrar
+          close: fechar
+          questions: Perguntas
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -314,6 +377,11 @@ pt:
             subject: O registro da sua reunião foi confirmado
       meeting:
         not_allowed: Você não tem permissão para ver esta reunião
+      meeting_closes:
+        edit:
+          back: Voltar
+          close: Reunião próxima
+          title: Reunião próxima
       meetings:
         calendar_modal:
           add_to_calendar: Adicionar à agenda
@@ -322,27 +390,86 @@ pt:
           full_details_html: Para todos os detalhes, visite %{link}
           google: Adicionar à agenda do Google
           outlook: Adicionar à agenda do Outlook
+        count:
+          meetings_count:
+            one: "%{count} reunião"
+            other: "%{count} reuniões"
+        create:
+          invalid: Houve um problema ao criar esta reunião.
+          success: Você criou a reunião com sucesso.
+        edit:
+          back: Voltar
+          title: Editar sua reunião
+          update: Atualizar
         filters:
+          activity: Minha atividade
+          all: Todos
           category: Categoria
           date: Data
+          date_values:
+            all: Tudo
+            past: Passado
+            upcoming: Próximos
+          my_meetings: Minhas reuniões
+          origin: Origem
+          origin_values:
+            all: Tudo
+            citizens: Cidadãos
+            official: Oficial
+            user_groups: Grupos
+          scope: Escopo
           search: Pesquisa
+          type: Tipo
+          type_values:
+            all: Tudo
+            hybrid: Ambos
+            in_person: Pessoalmente
+            online: On-line
         filters_small_view:
           close_modal: Fechar modal
           filter: Filtro
           filter_by: Filtrar por
           unfold: Desdobrar
+        form:
+          address_help: 'Endereço: usado pelo Geocodificador para encontrar a localização'
+          available_slots_help: Deixe-o em 0 se você tiver slots ilimitados disponíveis
+          create_as: Criar reunião como
+          disclaimer: 'Aviso: ao usar um sistema de registro externo, você está ciente de que os organizadores do %{organization} não são responsáveis pelos dados fornecidos pelos usuários ao serviço externo.'
+          location_help: 'Localização: mensagem direcionada aos usuários que imprimem o local para'
+          location_hints_help: 'Dicas de localização: informações adicionais Exemplo: o piso do edifício se é uma reunião presencial, ou a senha da reunião, se é uma reunião online com acesso restrito.'
+          online_meeting_url_help: 'Link: permitir que os participantes se conectem diretamente à sua reunião'
+          registration_url_help: 'Link: permitir que os participantes possam acessar um serviço externo que você está usando para inscrições'
+          select_a_category: Por favor, selecione uma categoria
+          select_a_meeting_type: Por favor, selecione um tipo de reunião
+          select_a_registration_type: Por favor, selecione um tipo de registro
+        index:
+          new_meeting: Nova reunião
         meeting_minutes:
           related_information: Informação relacionada
         meetings:
           no_meetings_warning: Nenhuma reunião corresponde aos seus critérios de pesquisa ou não há nenhuma reunião agendada.
           upcoming_meetings_warning: Atualmente, não há reuniões agendadas, mas aqui você pode encontrar todas as reuniões anteriores listadas.
+        new:
+          back: Voltar
+          create: Criar
+          title: Criar uma reunião
+        online_meeting_link:
+          join: Participe da reunião
+          live_event: Esta reunião está acontecendo agora
         registration_confirm:
           cancel: Cancelar
           confirm: confirme
         show:
           attendees: Contagem de participantes
+          back: Voltar para a lista
+          close_meeting: Reunião próxima
           contributions: Contagem de Contribuições
+          date: Encontro
+          edit_meeting: Editar Reunião
+          going: Você se inscreveu para esta reunião
           join: Participe da reunião
+          leave: Cancelar registro
+          leave_confirmation: Tem certeza de que deseja cancelar seu cadastro para esta reunião?
           meeting_minutes: Atas de Reunião
           no_slots_available: Não há slots disponíveis
           organizations: Organizações participantes
@@ -354,6 +481,9 @@ pt:
             one: "%{count} slot restante"
             other: "%{count} slots restantes"
           view: Visualizar
+        update:
+          invalid: Houve um problema ao atualizar a reunião.
+          success: Você atualizou a reunião com sucesso.
       meetings_map:
         view_meeting: Ver reunião
       models:
@@ -372,8 +502,29 @@ pt:
             closed: Fechadas
             end_time: Data final
             map: Mapa
+            official_meeting: Reunião oficial
             start_time: Data de início
             title: Título
+      polls:
+        questions:
+          closed_question:
+            question_results: Resultados das perguntas
+          index:
+            empty_questions: Durante esta reunião, algumas perguntas serão enviadas e você poderá respondê-las. Elas serão exibidas aqui.
+          index_admin:
+            admin_dashboard: Painel de administração
+            edit: Editar no admin
+            question: Pergunta
+            received_answer: resposta recebida
+            received_answers: respostas recebidas
+            results: Resultados
+            send: Enviar
+            sent: Enviado
+          published_question:
+            max_choices_alert: Há muitas opções selecionadas
+            question: Pergunta
+            question_replied: Pergunta respondida
+            reply_question: Responder pergunta
       public_participants_list:
         attending_participants: Participantes presentes
         hidden_participants_count:
@@ -385,6 +536,10 @@ pt:
           confirmed_html: Seu registro para a reunião <a href="%{url}">%{title}</a> foi confirmado.
           details: Você encontrará os detalhes da reunião no anexo.
           registration_code: Seu código de registro é %{code}.
+      registration_type:
+        on_different_platform: Em uma plataforma diferente
+        on_this_platform: Nesta plataforma
+        registration_disabled: Registro desabilitado
       registrations:
         create:
           invalid: Houve um problema ao se juntar a essa reunião.
@@ -395,9 +550,15 @@ pt:
         destroy:
           invalid: Tem havido um problema ao sair desta reunião.
           success: Você saiu da reunião com sucesso.
+      type_of_meeting:
+        hybrid: Ambos
+        in_person: Pessoalmente
+        online: On-line
       types:
         private_meeting: Reunião privada
         transparent: Transparente
+      versions:
+        back_to_resource: Voltar à reunião
     metrics:
       meetings:
         description: Número de reuniões criadas
@@ -417,6 +578,8 @@ pt:
       proposals_from_meeting:
         meeting_proposal: 'Propostas relacionadas:'
         proposal_meeting: 'Reuniões relacionadas:'
+    statistics:
+      meetings_count: Reuniões
   devise:
     mailer:
       join_meeting:

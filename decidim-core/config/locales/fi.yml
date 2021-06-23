@@ -258,6 +258,8 @@ fi:
         download: Lataa tiedosto
       documents:
         related_documents: Liittyvät dokumentit
+      geocoding:
+        geocoded_address: Osoite
       photos:
         related_photos: Liittyvät kuvat
     author:
@@ -318,6 +320,8 @@ fi:
           authorize: Vahvista palvelulla "%{authorization}"
           explanation: Suorittaaksesi tämän toiminnon, sinun tulee vahvistaa tilisi palvelulla "%{authorization}".
           title: Vahvistus vaaditaan
+        ok:
+          title: Sinut on valtuutettu sen aikana, kun olet ollut tällä sivulla. Lataa sivu uudelleen suorittaaksesi toiminnon, jota yritit suorittaa.
         pending:
           explanation: Tämän toiminnon suorittamiseksi sinun vahvistettava käyttäjätilisi palvelulla "%{authorization}", mutta vahvistuksesi on edelleen kesken
           resume: Tarkista "%{authorization}" vahvistuksen eteneminen

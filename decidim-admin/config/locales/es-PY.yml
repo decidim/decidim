@@ -158,7 +158,6 @@ es-PY:
         browse: Explorar
         category:
           new: Nueva categoría
-        export: Exportar
         import: Importar
         manage: Gestionar
         new: Nuevo %{name}

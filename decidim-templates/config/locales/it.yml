@@ -1,4 +1,11 @@
 it:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Titolo
+      template:
+        description: Descrizione
+        name: Nome
   decidim:
     admin:
       menu:

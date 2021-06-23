@@ -253,6 +253,8 @@ ja:
         download: ファイルをダウンロード
       documents:
         related_documents: 関連ドキュメント
+      geocoding:
+        geocoded_address: 住所
       photos:
         related_photos: 関連画像
     author:

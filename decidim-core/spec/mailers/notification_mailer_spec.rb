@@ -54,6 +54,26 @@ module Decidim
       end
 
       include_examples "email with logo"
+
+      context "when the event defines buttons" do
+        class Decidim::ProfileUpdatedEvent
+          def button_text
+            "BUTTON TEXT"
+          end
+
+          def button_url
+            "http://button.link"
+          end
+        end
+
+        it "includes the button text" do
+          expect(mail.body).to include(event_instance.button_text)
+        end
+
+        it "includes the button url" do
+          expect(mail.body).to include(event_instance.button_url)
+        end
+      end
     end
   end
 end

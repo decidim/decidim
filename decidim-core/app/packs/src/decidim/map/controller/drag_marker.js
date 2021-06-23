@@ -12,6 +12,10 @@ export default class MapDragMarkerController extends MapController {
   }
 
   addMarker(markerData) {
+    if (markerData.latitude === null || markerData.longitude === null) {
+      return;
+    }
+
     const coordinates = {
       lat: markerData.latitude,
       lng: markerData.longitude
