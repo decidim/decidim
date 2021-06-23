@@ -804,6 +804,8 @@ it:
             see_all_votings: Vedi tutte le votazioni
             votings_button_title: Link alla pagina Votazioni che mostra tutte le votazioni
       polling_officer_zone:
+        menu:
+          polling_officer_zone: Zona di sondaggio ufficiale
         polling_officers:
           show:
             actions:
@@ -820,9 +822,43 @@ it:
               no_polling_stations: Non sei ancora assegnato a nessun seggio elettorale.
               title: Seggi elettorali
       polling_officers:
+        actions:
+          confirm_destroy: Sei sicuro?
+          destroy: Cancella
+          new: Nuovo
+          title: Azioni
         roles:
+          manager: Gestore
           president: Presidente/Presidentessa
+          unassigned: Non Assegnato
+      polling_stations:
+        actions:
+          confirm_destroy: Sei sicuro?
+          destroy: Cancella
+          edit: Modifica
+          new: Nuovo
+          title: Azioni
       votings:
+        count:
+          title:
+            one: "%{count} votazioni"
+            other: "%{count} votazioni"
+        filters:
+          active: Attivo
+          all: Tutti
+          finished: Finito
+          search: Ricerca
+          state: Stato
+          upcoming: Prossimi
+        filters_small_view:
+          close_modal: Chiudi modalità
+          filter: Filtro
+          filter_by: Filtra per
+          unfold: Dispiega
+        index:
+          no_votings: Nessun voto corrisponde ai criteri di ricerca.
+          only_finished: Al momento non sono previste elezioni, ma qui puoi trovare un elenco di tutte quelle passate.
+          title: Votazioni
         orders:
           label: 'Ordina le votazioni per:'
           random: Casuale
