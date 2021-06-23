@@ -52,7 +52,7 @@ module Decidim
                 :logo,
                 passthru: { to: Decidim::Organization }
 
-      validates :highlighted_content_banner_action_url, presence: true, if: :highlighted_content_banner_enabled?
+      validates :highlighted_content_banner_action_url, url: true, presence: true, if: :highlighted_content_banner_enabled?
       validates :highlighted_content_banner_image,
                 presence: true,
                 passthru: { to: Decidim::Organization },
@@ -70,7 +70,7 @@ module Decidim
                 translatable_presence: true,
                 if: :highlighted_content_banner_enabled?
 
-      validates :omnipresent_banner_url, presence: true, if: :enable_omnipresent_banner?
+      validates :omnipresent_banner_url, url: true, presence: true, if: :enable_omnipresent_banner?
       validates :omnipresent_banner_title, translatable_presence: true, if: :enable_omnipresent_banner?
       validates :omnipresent_banner_short_description, translatable_presence: true, if: :enable_omnipresent_banner?
 

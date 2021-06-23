@@ -189,9 +189,16 @@ module Decidim::Meetings
       it { is_expected.to eq(services.size) }
     end
 
-    describe "when online meeting link is missing and type of meeting is online" do
+    describe "when type of meeting is online and online meeting link is missing" do
       let(:type_of_meeting) { "online" }
       let(:online_meeting_url) { nil }
+
+      it { is_expected.to be_valid }
+    end
+
+    describe "when type of meeting is online and online meeting link is not a URL" do
+      let(:type_of_meeting) { "online" }
+      let(:online_meeting_url) { "potato" }
 
       it { is_expected.not_to be_valid }
     end
