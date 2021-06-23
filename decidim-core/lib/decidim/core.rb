@@ -149,7 +149,7 @@ module Decidim
     true
   end
 
-  # Setting that
+  # Having this on true will change the way the svg assets are being served.
   config_accessor :cors_enabled do
     false
   end
