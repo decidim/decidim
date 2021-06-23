@@ -15,7 +15,7 @@ const overrideSassRule = (modifyConfig) => {
   }
 
   const imports = config.stylesheet_imports
-  if (!Array.isArray(imports)) {
+  if (!imports) {
     return modifyConfig
   }
 
@@ -23,11 +23,20 @@ const overrideSassRule = (modifyConfig) => {
   // Decidim modules.
   sassLoader.options.sassOptions.importer = [
     (url, _prev) => {
-      if (url !== "!decidim-style-imports") {
+      const matches = url.match(/^\!decidim-style-imports\[([^\]]+)\]$/);
+      if (!matches) {
         return null
       }
 
-      const statements = imports.map((style) => `@import "${style}";`)
+      const group = matches[1]
+      if (!imports[group]) {
+        // If the group is not defined, return an empty configuration because
+        // otherwise the importer would continue finding the asset through
+        // paths which obviously fails.
+        return { contents: "" }
+      }
+
+      const statements = imports[group].map((style) => `@import "${style}";`)
 
       return { contents: statements.join("\n") }
     }
