@@ -85,7 +85,7 @@ module Decidim
     def application_path(path)
       asset_host = Rails.application.config.action_controller.asset_host
       img_path = asset_pack_path(path)
-      img_path.gsub!(asset_host , "") if asset_host.present?
+      img_path = img_path.gsub(asset_host , "") if asset_host.present?
       Rails.root.join("public/#{img_path}")
     end
 
