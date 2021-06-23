@@ -8,7 +8,7 @@ module Decidim
       def initialize
         @additional_paths = []
         @entrypoints = {}
-        @stylesheet_imports = []
+        @stylesheet_imports = {}
       end
 
       def configuration_file
@@ -24,8 +24,8 @@ module Decidim
         default = config["default"] || {}
         all_additional_paths = default["additional_paths"] || []
         all_additional_paths += additional_paths
-        all_stylesheet_imports = default["stylesheet_imports"] || []
-        all_stylesheet_imports += stylesheet_imports
+        all_stylesheet_imports = default["stylesheet_imports"] || {}
+        all_stylesheet_imports.merge!(stylesheet_imports)
         all_entrypoints = default["entrypoints"] || {}
         all_entrypoints.merge!(entrypoints)
         config.each do |environment, env_config|
