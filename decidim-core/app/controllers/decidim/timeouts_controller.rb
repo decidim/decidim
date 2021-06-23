@@ -5,11 +5,10 @@ require "active_support/concern"
 module Decidim
   # Tells/Extends time before inactivity warning or automatic logout.
   class TimeoutsController < Decidim::ApplicationController
-    prepend_before_action :skip_timeout, only: :seconds_until_timeout
+    # Skip these methods because they can call Devise's store_location_for, which can save timeouts path to session.
+    skip_before_action :store_current_location
 
-    def skip_timeout
-      request.env["devise.skip_timeoutable"] = true
-    end
+    prepend_before_action :skip_timeout, only: :seconds_until_timeout
 
     def seconds_until_timeout
       time_remaining = current_user ? ::Devise.timeout_in - (Time.current - Time.zone.at(user_session["last_request_at"])) : 0
@@ -23,6 +22,12 @@ module Decidim
       respond_to do |format|
         format.js
       end
+    end
+
+    private
+
+    def skip_timeout
+      request.env["devise.skip_timeoutable"] = true
     end
   end
 end
