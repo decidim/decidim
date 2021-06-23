@@ -1158,22 +1158,142 @@ it:
             error: La votazione non è stata registrata. Per favore riprova.
           in_person_form:
             census_not_present: Questo partecipante non è elencato nel censimento.
+            census_not_present_description: Deve andare all'ufficio reclami del censimento o contattare l'assistenza.
+            date_of_birth: Data di nascita
             day: Giorno
+            day_placeholder: DD
+            document_number: Numero del documento
+            document_number_placeholder: Numero identificativo
+            month: Mese
+            month_placeholder: MM
+            select: Seleziona il tipo di documento
+            title: 'Selezionare il tipo di documento e inserire il numero del documento del partecipante:'
+            validate_document: Convalida documento
+            year: Anno
+            year_placeholder: YYYY
+          new:
+            back: Torna ai seggi elettorali
+            title: Identificare e verificare un partecipante
+          show:
+            back: Torna ai seggi elettorali
+            title: In attesa che il voto in persona sia registrato
+          update:
+            error: Si è verificato un errore durante la registrazione della votazione. Riprova.
+            success:
+              accepted: La votazione è stata registrata con successo.
+              rejected: La votazione non è stata accettata dal Bulletin Board. Si prega di contattare l'amministratore di sistema.
+          verify_document:
+            census_present: Questo partecipante è elencato nel censimento.
+            name: Nome
+            title: 'Verificare che i seguenti dati siano corretti:'
+            verify_document: Verifica documento
+        menu:
+          polling_officer_zone: Zona di sondaggio ufficiale
         polling_officers:
           index:
             polling_officer_role_description: Sei stato designato funzionario del seggio elettorale (Presidente o Gestore) in alcune elezioni svolte su questa piattaforma.
             polling_station:
+              address: '&Indirizzo'
+              count_votes: Conteggio voti
+              election: Elezioni
+              identify_person: Identificare una persona
+              name: Nome
               no_polling_stations: Non sei ancora assegnato a nessun seggio elettorale.
               role: Il tuo ruolo
+              show_closure: Visualizza chiusura
+              title: Seggi elettorali
               voting: Votazione
       polling_officers:
+        actions:
+          confirm_destroy: Sei sicuro?
+          destroy: Cancella
+          new: Nuovo
+          title: Azioni
         roles:
+          manager: Gestore
           president: Presidente/Presidentessa
+          unassigned: Non Assegnato
+      polling_station_closure_recount:
+        nota_option: Vuoto/ Nessuno dei precedenti
+        polling_officer_notes: 'Osservazioni del funzionario incaricato del sondaggio:'
+        polling_officer_notes_blank: Non ci sono note
+        recount_summary: 'Riepilogo riepilogo:'
+        signed: Firmato
+        total_ballots: 'Votazioni totali:'
+        total_blank_ballots: 'Totale delle schede vuote:'
+        total_null_ballots: 'Totale delle schede annullate:'
+        total_valid_ballots: 'Votazioni totali valide:'
+      polling_stations:
+        actions:
+          confirm_destroy: Sei sicuro?
+          destroy: Cancella
+          edit: Modifica
+          new: Nuovo
+          title: Azioni
       votings:
+        access_code_modal:
+          email: Invia per email a %{email}
+          info: Hai bisogno di un Codice di Accesso per partecipare. Se non ne hai ottenuto uno per posta postale, possiamo inviarne uno nuovo.
+          no_email: Nessuna email disponibile
+          no_sms: Nessun numero di telefono disponibile
+          sms: Invia tramite SMS a %{sms}
+          title: Ottieni Codice Accesso
+        check_census:
+          check_status: Verifica stato
+          description: Qui, hai la possibilità di controllare i tuoi dati di censimento per sapere se hai il diritto di partecipare a questa votazione. Dovresti avere già un codice di accesso, ma se lo hai perso, puoi chiederlo di nuovo, quando i tuoi dati sono corretti.
+          error:
+            info: 'Per favore riprova. Se pensi che i dati nel sistema non siano corretti, puoi segnalarli qui: %{census_contact_information}.'
+            title: I dati del censimento non sono corretti!
+          form_title: 'Compila il seguente modulo per controllare i dati del censimento:'
+          invalid: Si è verificato un errore nel controllare il censimento.
+          success:
+            access_link: via SMS o e-mail.
+            info: Avresti già dovuto ricevere il tuo Codice di Accesso per posta postale. Nel caso in cui non lo avessi puoi richiederlo qui
+            title: I tuoi dati di censimento sono corretti!
+          title: Posso votare?
         check_fields:
+          date_of_birth: Data di nascita
           day: Giorno
+          day_placeholder: DD
+          document_number: Numero del documento
+          document_number_placeholder: Numero ID
           month: Mese
+          month_placeholder: MM
+          postal_code: Codice postale
+          postal_code_placeholder: Cap
+          select: Seleziona il tipo di documento
+          year: Anno
+          year_placeholder: YYYY
+        count:
+          title:
+            one: "%{count} votazioni"
+            other: "%{count} votazioni"
+        elections_log:
+          bb_status: Stato elettorale
+          description: Il registro elettorale vi mostrerà tutte le informazioni pertinenti su ogni voto. Per esempio, lo stato della cerimonia chiave o tally o se i risultati sono già stati pubblicati. Fare clic sull'elezione in cui si desidera le informazioni di registro.
+          election_log: Registro Delle Elezioni
+          title: Registro elettorale
+        filters:
+          active: Attivo
+          all: Tutti
+          finished: Finito
+          search: Ricerca
+          state: Stato
+          upcoming: Prossimi
+        filters_small_view:
+          close_modal: Chiudi modalità
+          filter: Filtro
+          filter_by: Filtra per
+          unfold: Dispiega
+        index:
+          no_votings: Nessun voto corrisponde ai criteri di ricerca.
+          only_finished: Al momento non sono previste elezioni, ma qui puoi trovare un elenco di tutte quelle passate.
+          title: Votazioni
         login:
+          access_code: Codice di accesso
+          access_code_placeholder: Codice Accesso
+          ask_for_a_new_one: Chiedi uno nuovo.
+          dont_have_access_code: Non hai un codice di accesso?
           form_title: 'Compila il seguente modulo per accedere alla votazione:'
           start_voting: Inizia a votare
           step: Identificazione
