@@ -11,7 +11,7 @@ module Decidim
     prepend_before_action :skip_timeout, only: :seconds_until_timeout
 
     def seconds_until_timeout
-      time_remaining = current_user ? ::Devise.timeout_in - (Time.current - Time.zone.at(user_session["last_request_at"])) : 0
+      time_remaining = current_user ? Decidim.config.expire_session_after - (Time.current - Time.zone.at(user_session["last_request_at"])) : 0
       respond_to do |format|
         format.json { render json: { seconds_remaining: time_remaining.to_i }, status: :ok }
       end
