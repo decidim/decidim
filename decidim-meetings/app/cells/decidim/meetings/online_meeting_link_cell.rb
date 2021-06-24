@@ -11,12 +11,17 @@ module Decidim
         render
       end
 
-      delegate :live?, to: :model
+      delegate :live?, :show_iframe?, to: :model
+      delegate :embed_code, :embeddable?, to: :embedder
 
       private
 
+      def embedder
+        @embedder ||= MeetingIframeEmbedder.new(model.online_meeting_url)
+      end
+
       def live_event_url
-        if model.show_iframe?
+        if model.show_iframe? && embeddable?
           Decidim::EngineRouter.main_proxy(model.component).meeting_live_event_path(meeting_id: model.id)
         else
           model.online_meeting_url

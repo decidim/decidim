@@ -8,8 +8,15 @@
       <strong class="heading5"><%= t("live_event", scope: "decidim.meetings.meetings.show") %></strong>
       <p><small><%= t("micro_camera_permissions_warning", scope: "decidim.meetings.meetings.show") %></small></p>
     </div>
-    <div class="margin-top-3">
-      <%= link_to t("join", scope: "decidim.meetings.meetings.show"), live_event_url, target: "_blank", class: "button button--sc" %>
+      <% if !show_iframe? && embeddable? %>
+        <div class="margin-top-3 absolutes aspect-ratio-16-9">
+          <%== embed_code(request.host) %>
+        </div>
+      <% else %>
+        <div class="margin-top-3">
+          <%= link_to t("join", scope: "decidim.meetings.meetings.show"), live_event_url, target: "_blank", class: "button button--sc" %>
+        </div>
+      <% end %>
     </div>
   </div>
 <% else %>

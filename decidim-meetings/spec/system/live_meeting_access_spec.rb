@@ -28,24 +28,24 @@ describe "Meeting live event access", type: :system do
       expect(page).to have_content("This meeting is happening right now")
     end
 
-    context "when the meeting is configured to show the iframe" do
-      let(:meeting) { create :meeting, :published, :show_iframe, :online, :live, component: component }
+    context "when the meeting is configured to show the iframe and is embeddable " do
+      let(:meeting) { create :meeting, :published, :show_iframe, :online, :live, :embeddable, component: component }
 
       it "shows the link to the live meeting streaming" do
         visit_meeting
 
-        # Join the meeting opens in a new window
         new_window = window_opened_by { click_link "Join meeting" }
+
         within_window new_window do
-          expect(page).to have_current_path meeting_live_event_path
+          expect(page).to have_current_path(meeting_live_event_path)
         end
       end
     end
 
-    context "when the meeting is configured to show the iframe" do
-      let(:meeting) { create :meeting, :published, :online, :live, component: component }
+    context "when the meeting is configured to show the iframe and is not embeddable" do
+      let(:meeting) { create :meeting, :published, :show_iframe, :online, :live, component: component }
 
-      it "shows the link to the live meeting streaming" do
+      it "shows the link to the external streaming service" do
         visit_meeting
 
         # Join the meeting displays a warning to users because
@@ -53,6 +53,16 @@ describe "Meeting live event access", type: :system do
         click_link "Join meeting"
 
         expect(page).to have_content("Open external link")
+      end
+    end
+
+    context "when the meeting is configured to don't show the iframe and is embeddable" do
+      let(:meeting) { create :meeting, :published, :online, :embeddable, :live, component: component }
+
+      it "shows the meeting link embedded" do
+        visit_meeting
+
+        expect(page).to have_css("iframe")
       end
     end
   end

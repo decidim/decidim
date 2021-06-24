@@ -8,7 +8,7 @@ module Decidim
 
       include Decidim::Meetings::PollsResources
 
-      helper_method :meeting_iframe_src
+      helper_method :live_meeting_embed_code
 
       def show
         raise ActionController::RoutingError, "Not Found" unless meeting
@@ -21,8 +21,8 @@ module Decidim
 
       private
 
-      def meeting_iframe_src
-        IframeUrlTransformer.new(meeting.online_meeting_url, request).transformed_url
+      def live_meeting_embed_code
+        MeetingIframeEmbedder.new(meeting.online_meeting_url).embed_code(request.host)
       end
     end
   end
