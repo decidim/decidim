@@ -23,6 +23,19 @@ module Decidim
         end
       end
 
+      def resource_presenter
+        @resource_presenter ||=
+          if action == "block" && action_log.resource.respond_to?(:user_name)
+            # Show the blocked user's name in the action log entry instead of
+            # "Blocked user"
+            Decidim::Log::ResourcePresenter.new(action_log.resource, h, action_log.extra["resource"].merge(
+              "title" => action_log.resource.user_name.presence || action_log.extra["resource"]["title"]
+            ))
+          else
+            super
+          end
+      end
+
       def i18n_params
         super.merge(
           role: I18n.t("models.user.fields.roles.#{user_role}", scope: "decidim.admin")
