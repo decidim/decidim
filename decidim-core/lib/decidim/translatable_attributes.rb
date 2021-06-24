@@ -95,7 +95,7 @@ module Decidim
       def machine_translation_value(attribute, organization)
         return unless organization
         return unless organization.enable_machine_translations?
-
+        
         attribute.dig("machine_translations", I18n.locale.to_s).presence if must_render_translation?(organization)
       end
 

@@ -2,18 +2,39 @@
 
 <p class="email-instructions"><%= @event_instance.email_intro %></p>
 
+<% if @organization.enable_machine_translations %>
+  <p style="font-weight: bold"><%= t(".original_text") %></p>
+<% end %>
+
 <% if @event_instance.resource_path.present? && @event_instance.resource_title.present? %>
   <p class="email-button email-button__cta">
     <%= link_to @event_instance.resource_title, @event_instance.resource_url %>
   </p>
 <% end %>
 
-<% if @event_instance.try(:safe_resource_text).present? %>
+<% if @event_instance.try(:safe_original_resource_text).present? %>
   <blockquote>
     <p>
-      <%= @event_instance.safe_resource_text %>
+      <%= @event_instance.safe_original_resource_text %>
     </p>
   </blockquote>
+<% end %>
+
+<% if @event_instance.machine_translations_enabled %>
+  <% if @event_instance.content_in_same_language? %>
+    The content has been posted in your preferred language (%{language}), this is why no automated translation is displayed in this email.
+  <% elsif @event_instance.translation_available? %>
+    Sorry, the automated translation could not be retrieved when the email has been sent. You can check the translation of the original text on the following %{link}.
+  <% else %>
+    <p style="font-weight: bold"><%= t(".translated_text") %></p>
+    <% if @event_instance.try(:safe_resource_text).present? %>
+      <blockquote>
+        <p>
+          <%= @event_instance.safe_resource_text %>
+        </p>
+      </blockquote>
+    <% end %>
+  <% end %>
 <% end %>
 
 <% if @event_instance.has_button? %>

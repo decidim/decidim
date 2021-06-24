@@ -36,4 +36,15 @@ describe Decidim::Comments::CommentCreatedEvent do
         .to include(" in <a href=\"#{resource_path}#comment_#{comment.id}\">#{resource_title}</a>")
     end
   end
+
+  context "when is machine machine translated" do
+    context "when priority is original" do
+      let(:organization) { create(:organization, name: "O'Connor", enable_machine_translations: true, machine_translation_display_priority: "original") }
+    end
+
+    context "when priority is translation" do
+      let(:organization) { create(:organization, name: "O'Connor", enable_machine_translations: true, machine_translation_display_priority: "translation") }
+    end
+  end
+
 end

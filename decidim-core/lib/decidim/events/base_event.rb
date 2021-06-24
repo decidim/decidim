@@ -81,6 +81,30 @@ module Decidim
 
       def resource_text; end
 
+      def organization
+        resource.try(:organization)
+      end
+
+      def content_in_same_language?
+        resource.content_original_language.try(:to_s) == I18n.locale.to_s
+      end
+
+      def translation_available?
+        safe_original_resource_text != safe_resource_text
+      end
+
+      def machine_translations_enabled
+        organization&.enable_machine_translations || false
+      end
+
+      def safe_original_resource_text
+        if resource.respond_to?(:content_original_language)
+          I18n.with_locale(resource.content_original_language) { resource_text.to_s.html_safe }
+        else
+          resource_text.to_s.html_safe
+        end
+      end
+
       def safe_resource_text
         translated_attribute(resource_text).to_s.html_safe
       end

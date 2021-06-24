@@ -1,5 +1,6 @@
 ---
 en:
+
   activemodel:
     attributes:
       account:
@@ -997,7 +998,10 @@ en:
         description: Number of participants in organization
         object: participants
         title: Participants
-    newsletter_mailer:
+    notification_mailer:
+      event_received:
+        original_text: "Original text"
+        translated_text: "Translated text"
       newsletter:
         note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
         see_on_website: Can’t see this email correctly? View it on the <a href="%{link}" target="_blank">website</a>.
