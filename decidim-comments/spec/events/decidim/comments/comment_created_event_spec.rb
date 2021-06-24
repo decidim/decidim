@@ -7,6 +7,9 @@ describe Decidim::Comments::CommentCreatedEvent do
   let(:event_name) { "decidim.events.comments.comment_created" }
 
   it_behaves_like "a comment event"
+  it_behaves_like "a translated comment event" do
+    let(:translatable) { true }
+  end
 
   describe "email_subject" do
     it "is generated correctly" do
