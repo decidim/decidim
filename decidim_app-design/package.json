@@ -50,10 +50,11 @@
     "testRegex": "\\.(test|spec)\\.js$"
   },
   "dependencies": {
-    "@decidim/all": "file:packages/all"
+    "@decidim/all": "file:tmp/npmbuild/decidim-all-0.25.0-dev.tgz",
+    "decidim-local-installer": "github:mainio/decidim-npm-local"
   },
   "devDependencies": {
-    "@decidim/dev": "file:packages/dev",
+    "@decidim/dev": "file:tmp/npmbuild/decidim-dev-0.25.0-dev.tgz",
     "babel-jest": "^26.6.3",
     "concat-stream": "^2.0.0",
     "enzyme": "^3.11.0",
