@@ -146,5 +146,12 @@
 }
 
 .aspect-ratio-16-9{
+  @extend .absolutes;
   padding-bottom: 56.25%;
+  > *{
+    @extend .left;
+    @extend .top;
+    @extend .bottom;
+    @extend .right;
+  }
 }

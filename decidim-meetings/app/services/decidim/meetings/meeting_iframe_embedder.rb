@@ -41,7 +41,6 @@ module Decidim
   allow="camera; microphone; fullscreen; display-capture; autoplay"
   loading="lazy"
   src="#{embed_transformed_url(request_host)}"
-  class="left right top bottom"
   style="height: 100%; width: 100%; border: 0px;"
 />
         )
