@@ -445,6 +445,7 @@ nl:
           title: Maak je vergadering
         online_meeting_link:
           join: Deelnemen aan de vergadering
+          link_available_soon: Link binnenkort beschikbaar
           live_event: Deze vergadering vindt op dit moment plaats
         registration_confirm:
           cancel: Annuleer
