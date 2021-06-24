@@ -57,7 +57,6 @@ namespace :decidim do
         system! "npm i -D @decidim/dev@~#{decidim_gemspec.version}"
         system! "npm i @decidim/all@~#{decidim_gemspec.version}"
       else
-        # Move the Decidim local installer to the Decidim organization
         system! "npm i https://github.com/decidim/decidim-npm-local"
         system! "npx decidiminstall ."
       end
