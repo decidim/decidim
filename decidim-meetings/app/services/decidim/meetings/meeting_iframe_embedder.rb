@@ -15,6 +15,8 @@ module Decidim
       end
 
       def embed_transformed_url(request_host)
+        return nil if parsed_online_meeting_uri.nil?
+
         case parsed_online_meeting_uri.host
         when "www.youtube.com"
           transform_youtube_url(parsed_online_meeting_uri)
@@ -26,10 +28,14 @@ module Decidim
       end
 
       def embeddable?
+        return nil if parsed_online_meeting_uri.nil?
+
         EMBEDDABLE_SERVICES.include?(parsed_online_meeting_uri.host)
       end
 
       def embed_code(request_host)
+        return nil if parsed_online_meeting_uri.nil?
+
         %(
 <iframe
   allow="camera; microphone; fullscreen; display-capture; autoplay"
@@ -74,7 +80,7 @@ module Decidim
       end
 
       def parsed_online_meeting_uri
-        @parsed_online_meeting_uri ||= URI.parse(online_meeting_service_url)
+        @parsed_online_meeting_uri ||= URI.parse(online_meeting_service_url) if online_meeting_service_url.present?
       end
     end
   end

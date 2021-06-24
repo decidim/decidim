@@ -42,7 +42,8 @@ module Webpacker
           "decidim_map_provider_here" => "#{core_path}/app/packs/entrypoints/decidim_map_provider_here.js",
           "decidim_widget" => "#{core_path}/app/packs/entrypoints/decidim_widget.js"
         )
-        expect(runtime_config["default"]["stylesheet_imports"]).to include(
+        expect(runtime_config["default"]["stylesheet_imports"].keys).to include("app")
+        expect(runtime_config["default"]["stylesheet_imports"]["app"]).to include(
           "stylesheets/decidim/accountability/accountability",
           "stylesheets/decidim/budgets/budgets",
           "stylesheets/decidim/proposals/proposals",

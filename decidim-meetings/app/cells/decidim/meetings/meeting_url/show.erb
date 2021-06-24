@@ -6,8 +6,12 @@
     <li class="card-data__item">
       <div class="text-left">
         <div class="card__icondata--address">
-          <span><%= link_to(model.online_meeting_url, model.online_meeting_url, target: "_blank") %></span><br>
-          <span><%= translated_attribute model.location_hints %></span>
+          <% if has_meeting_url? %>
+            <span><%= link_to(live_event_url, live_event_url, target: "_blank") %></span><br>
+            <span><%= translated_attribute model.location_hints %></span>
+          <% else %>
+            <span><%= t("link_available_soon", scope: "decidim.meetings.meetings.show") %></span>
+          <% end %>
         </div>
       </div>
     </li>

@@ -48,7 +48,8 @@ module Decidim
         end
 
         it "adds the stylesheet imports to the webpacker runtime configuration" do
-          expect(runtime_config["default"]["stylesheet_imports"]).to include(
+          expect(runtime_config["default"]["stylesheet_imports"].keys).to include("app")
+          expect(runtime_config["default"]["stylesheet_imports"]["app"]).to include(
             "stylesheets/decidim/accountability/accountability",
             "stylesheets/decidim/budgets/budgets",
             "stylesheets/decidim/proposals/proposals",
