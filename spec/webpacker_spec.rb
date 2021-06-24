@@ -17,7 +17,7 @@ describe "Webpacker sanity" do
         <<~DIFF
           -    "@decidim/all": "file:packages/all"
           +    "@decidim/all": "file:tmp/npmbuild/decidim-all-#{version}.tgz",
-          +    "decidim-local-installer": "github:mainio/decidim-npm-local"
+          +    "decidim-local-installer": "github:decidim/decidim-npm-local"
           -    "@decidim/dev": "file:packages/dev",
           +    "@decidim/dev": "file:tmp/npmbuild/decidim-dev-#{version}.tgz",
         DIFF
@@ -38,7 +38,7 @@ describe "Webpacker sanity" do
         <<~DIFF
           -  "@decidim/all": "file:packages/all"
           +  "@decidim/all": "file:tmp/npmbuild/decidim-all-#{version}.tgz",
-          +  "decidim-local-installer": "github:mainio/decidim-npm-local"
+          +  "decidim-local-installer": "github:decidim/decidim-npm-local"
         DIFF
       )
 

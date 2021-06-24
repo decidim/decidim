@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "@decidim/all": "file:tmp/npmbuild/decidim-all-0.25.0-dev.tgz",
-    "decidim-local-installer": "github:mainio/decidim-npm-local"
+    "decidim-local-installer": "github:decidim/decidim-npm-local"
   },
   "devDependencies": {
     "@decidim/dev": "file:tmp/npmbuild/decidim-dev-0.25.0-dev.tgz",
