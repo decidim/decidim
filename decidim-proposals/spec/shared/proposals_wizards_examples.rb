@@ -299,6 +299,7 @@ shared_examples "proposals wizards" do |options|
         within "#edit_proposal_#{proposal_draft.id}" do
           expect(page).to have_field("proposal_title", type: :hidden, with: proposal_title)
           expect(page).to have_field("proposal_body", type: :hidden, with: proposal_body)
+          expect(page).to have_field("proposal_has_address", type: :hidden, with: true)
           expect(page).to have_field("proposal_address", type: :hidden, with: address)
           expect(page).to have_field("proposal_longitude", type: :hidden, with: longitude)
           expect(page).to have_field("proposal_latitude", type: :hidden, with: latitude)
