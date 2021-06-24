@@ -53,12 +53,13 @@ namespace :decidim do
     end
 
     def install_decidim_npm
-      decidim_npm_packages.each do |type, package|
-        if type == :dev
-          system! "npm i -D #{package}"
-        else
-          system! "npm i #{package}"
-        end
+      if decidim_gemspec.source.is_a?(Bundler::Source::Rubygems) && released_version?
+        system! "npm i -D @decidim/dev@~#{decidim_gemspec.version}"
+        system! "npm i @decidim/all@~#{decidim_gemspec.version}"
+      else
+        # Move the Decidim local installer to the Decidim organization
+        system! "npm i https://github.com/mainio/decidim-npm-local"
+        system! "npx decidiminstall ."
       end
     end
 
@@ -68,35 +69,6 @@ namespace :decidim do
 
       package["browserslist"] = ["extends @decidim/browserslist-config"]
       File.write(rails_app_path.join("package.json"), JSON.pretty_generate(package))
-    end
-
-    def decidim_npm_packages
-      if decidim_gemspec.source.is_a?(Bundler::Source::Rubygems)
-        if released_version?
-          return {
-            dev: "@decidim/dev@~#{decidim_gemspec.version}",
-            prod: "@decidim/all@~#{decidim_gemspec.version}"
-          }
-        else
-          gem_path = Pathname(decidim_gemspec.full_gem_path)
-        end
-      else
-        gem_path = decidim_gemspec.source.path
-        gem_path = Pathname(ENV["BUNDLE_GEMFILE"]).dirname.join(gem_path) if gem_path.relative?
-      end
-
-      # The packages folder needs to be copied to the application folder
-      # because the linked dependencies are not installed when packages
-      # are installed using file references outside the application root
-      # where the `package.json` is located at. For more information, see:
-      # https://github.com/npm/cli/issues/2339
-      FileUtils.rm_rf(rails_app_path.join("packages"))
-      FileUtils.cp_r(gem_path.join("packages"), rails_app_path)
-
-      {
-        dev: "./packages/dev",
-        prod: "./packages/all"
-      }
     end
 
     def decidim_path
