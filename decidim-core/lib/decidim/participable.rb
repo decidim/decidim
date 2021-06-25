@@ -65,7 +65,7 @@ module Decidim
 
     class_methods do
       def demodulized_name
-        @demodulized_name ||= self.name.demodulize
+        @demodulized_name ||= name.demodulize
       end
 
       delegate :foreign_key, to: :demodulized_name
