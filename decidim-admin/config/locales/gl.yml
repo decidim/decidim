@@ -359,6 +359,7 @@ gl:
             'false': 'Non'
             'true': 'Si'
         last_sign_in_at_present:
+          label: Sesión xa iniciada
           values:
             'false': 'Non'
             'true': 'Si'
