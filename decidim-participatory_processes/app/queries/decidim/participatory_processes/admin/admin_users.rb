@@ -26,7 +26,7 @@ module Decidim
         # organization - an organization that needs to find its process admins
         def initialize(process, organization = nil)
           @process = process
-          @organization = assembly&.organization || organization
+          @organization = process&.organization || organization
         end
 
         # Finds organization admins and the users with role admin for the given process.
