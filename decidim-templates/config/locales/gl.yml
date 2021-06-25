@@ -1,4 +1,11 @@
 gl:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Título
+      template:
+        description: Descrición
+        name: Nome
   decidim:
     admin:
       menu:
