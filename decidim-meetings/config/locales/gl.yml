@@ -396,11 +396,14 @@ gl:
         questions:
           index_admin:
             question: Pregunta
+            received_answer: resposta recibida
+            received_answers: respostas recibidas
             results: Resultados
             send: Enviar
             sent: Enviada
           published_question:
             question: Pregunta
+            reply_question: Responder pregunta
       public_participants_list:
         attending_participants: Participantes presentes
         hidden_participants_count:
