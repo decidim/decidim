@@ -83,9 +83,8 @@ module Decidim
     end
 
     def application_path(path)
-      asset_host = Rails.application.config.action_controller.asset_host
       img_path = asset_pack_path(path)
-      img_path = img_path.gsub(asset_host , "") if asset_host.present?
+      img_path = URI(img_path).path if Decidim.cors_enabled
       Rails.root.join("public/#{img_path}")
     end
 
