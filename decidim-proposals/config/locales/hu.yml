@@ -682,6 +682,8 @@ hu:
           proposals_count:
             one: "%{count} javaslat"
             other: "%{count} javaslatot"
+        dynamic_map_instructions:
+          instructions: <h3>Áthelyezheti a pontot a térképen. </h3> <p>A javaslat közzététele előtt ne felejtsen el rákattintani a "Pozíció frissítése" gombra.</p>
         edit:
           attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
           back: Vissza
@@ -744,6 +746,7 @@ hu:
             other: Ezt a javaslatot a közzétételt követő %{count}. percben már szerkesztheted. Miután azonban ez az ablak bezárult, többé nem fogod tudni szerkeszteni a javaslatot.
           publish: Közzétesz
           title: Javaslatod közzététele
+          update_position: Pozíció frissítése
         proposal:
           creation_date: 'Létrehozás: %{date}'
           view_proposal: Javaslat megtekintése
