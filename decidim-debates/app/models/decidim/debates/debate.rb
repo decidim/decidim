@@ -179,9 +179,15 @@ module Decidim
         comments_count = comments.not_hidden.not_deleted.count
         last_comment = comments.not_hidden.not_deleted.order("created_at DESC").first
 
+        if last_comment&.decidim_user_group_id
+          author_id = last_comment&.decidim_user_group_id
+        else 
+          author_id = last_comment&.decidim_author_id
+        end
+
         update_columns(
           last_comment_at: last_comment&.created_at,
-          last_comment_by_id: last_comment&.decidim_author_id,
+          last_comment_by_id: author_id,
           last_comment_by_type: last_comment&.decidim_author_type,
           comments_count: comments_count,
           updated_at: Time.current
