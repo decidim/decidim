@@ -50,6 +50,7 @@ hu:
         target: Ki vesz részt
         title: Cím
         twitter: Twitter
+        weight: Súly
         youtube: Youtube
       assembly_member:
         birthday: Születésnap
@@ -60,6 +61,7 @@ hu:
         full_name: Teljes név
         gender: Neme
         position: Pozíció
+        user_id: Felhasználó
       assembly_user_role:
         email: Email
         name: Név
@@ -378,11 +380,15 @@ hu:
         comments_count: Hozzászólások
         debates_count: Viták
         endorsements_count: Jóváhagyások
+        followers_count: Követők
+        headline: Statisztikák
         meetings_count: Találkozók
+        no_stats: Még nincsenek statisztikák.
         orders_count: Támogatja
         pages_count: Oldalak
         participants_count: Résztvevők
         posts_count: Bejegyzések
+        processes_count: Folyamatok
         projects_count: Projektek
         proposals_count: Javaslatok
         results_count: Eredmények
@@ -423,6 +429,8 @@ hu:
       home:
         hero:
           participate_title: Részvétel a platform folyamataiban
+        sub_hero:
+          register_title: Jelentkezz be vagy hozz létre fiókot
     participatory_processes:
       pages:
         home:
