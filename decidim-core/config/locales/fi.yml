@@ -135,7 +135,7 @@ fi:
       organization:
         update: "%{user_name} päivitti organisaation asetuksia"
       participatory_space_private_user:
-        create: "%{user_name} kutsui %{resource_name} yksityiseksi käyttäjaksi"
+        create: "%{user_name} kutsui käyttäjän %{resource_name} yksityiseksi käyttäjäksi"
         create_via_csv: "%{user_name} kutsui yksityisen osallistujan %{resource_name} CSV-tuonnin kautta"
         delete: "%{user_name} poisti yksityisen käyttäjän %{resource_name}"
       scope:

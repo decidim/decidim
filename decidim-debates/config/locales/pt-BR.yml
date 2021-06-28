@@ -207,6 +207,17 @@ pt:
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: Debates agora disponíveis em %{participatory_space_title}
           notification_title: Agora você pode começar <a href="%{resource_path}">novos debates</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          affected_user:
+            email_intro: 'O debate "%{resource_title}" foi encerrado. Você pode ler as conclusões em sua página:'
+            email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode deixar de segui-lo no link anterior.
+            email_subject: O debate "%{resource_title}" foi encerrado
+            notification_title: O debate <a href="%{resource_path}">%{resource_title}</a> foi encerrado.
+          follower:
+            email_intro: 'O debate "%{resource_title}" foi encerrado. Você pode ler as conclusões em sua página:'
+            email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode deixar de segui-lo no link anterior.
+            email_subject: O debate "%{resource_title}" foi encerrado
+            notification_title: O debate <a href="%{resource_path}">%{resource_title}</a> foi encerrado.
     gamification:
       badges:
         commented_debates:

@@ -185,6 +185,8 @@ gl:
           other: Documentos
       documents:
         related_documents: Documentos relacionados
+      geocoding:
+        geocoded_address: Enderezo
       photos:
         related_photos: Fotos relacionadas
     author:

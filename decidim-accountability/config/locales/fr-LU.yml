@@ -3,8 +3,8 @@ fr-LU:
     attributes:
       result:
         decidim_accountability_status_id: Progression
-        decidim_category_id: Catégorie
-        decidim_scope_id: Périmètre d'application
+        decidim_category_id: Kategorie
+        decidim_scope_id: Uwennungsberäich
         description: Description
         end_date: Date de fin
         progress: Avancement
