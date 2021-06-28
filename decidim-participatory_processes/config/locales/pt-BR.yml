@@ -454,8 +454,10 @@ pt:
         comments_count: Comentários
         debates_count: Debates
         endorsements_count: Endossos
+        followers_count: Seguidores
         headline: Atividade
         meetings_count: Reuniões
+        no_stats: Ainda não há estatísticas ainda.
         orders_count: Votos
         pages_count: Páginas
         participants_count: Participantes

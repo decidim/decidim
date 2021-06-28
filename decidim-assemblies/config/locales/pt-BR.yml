@@ -63,6 +63,7 @@ pt:
         full_name: Nome completo
         gender: Gênero
         position: Posição
+        user_id: Usuário
       assembly_user_role:
         email: E-mail
         name: Nome
@@ -393,6 +394,7 @@ pt:
         orders_count: Votos
         pages_count: Páginas
         participants_count: Participantes
+        posts_count: Postagens
         processes_count: Processos
         projects_count: Projetos
         proposals_count: Propostas
@@ -406,6 +408,11 @@ pt:
         designated_on: Designado em
       index:
         title: Membros
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Link para a página de Conferências exibindo todas as conferências
     events:
       assemblies:
         create_assembly_member:
@@ -440,9 +447,15 @@ pt:
         title: Assembleias
     pages:
       home:
+        hero:
+          participate_title: Participar dos processos da plataforma
         sub_hero:
           register_title: Cadastre-se para criar uma conta
     participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Link para a página de Processos, a qual exibe todos os processos
       show:
         related_assemblies: Assembleias Relacionadas
   errors:

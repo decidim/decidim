@@ -124,6 +124,82 @@ pt:
           index:
             invalid_max_selections: Você precisa de mais %{missing_answers} resposta/s para combinar com a seleção máxima
             title: Respostas
+          new:
+            create: Criar resposta
+            title: Nova resposta
+          select:
+            disable: Resposta desmarcada
+            enable: Marcar resposta como selecionada
+            invalid: Houve um problema ao selecionar esta resposta
+            success: Resposta selecionada com sucesso
+          unselect:
+            invalid: Houve um problema ao desmarcar esta resposta
+            success: Resposta não selecionada com sucesso
+          update:
+            invalid: Houve um problema ao atualizar esta resposta
+            success: Resposta atualizada com sucesso
+        elections:
+          create:
+            invalid: Houve um problema ao criar essa eleição
+            success: Eleição criada com sucesso
+          destroy:
+            invalid: Houve um problema ao excluir essa eleição
+            success: Eleição excluída com sucesso
+          edit:
+            title: Editar eleição
+            update: Atualizar eleição
+          index:
+            no_bulletin_board: Não há <a href="https://github.com/decidim/decidim-bulletin-board"> Quadro de Notas</a> configurado, que é necessário para utilizar este módulo. Esta tarefa deve ser feita pelo Administrador do Sistema.
+            title: Eleições
+          new:
+            create: Criar uma nova eleição
+            title: Nova eleição
+          publish:
+            success: A eleição foi publicada com sucesso.
+          unpublish:
+            success: A eleição deixou de ser publicada com sucesso.
+          update:
+            invalid: Houve um problema ao atualizar essa eleição
+            success: Eleição atualizada com sucesso
+        exports:
+          elections: Eleições
+          feedback_form_answers: Respostas do formulário de feedback
+        models:
+          answer:
+            name: Resposta
+          election:
+            name: Eleição
+          question:
+            name: Questão
+          trustee:
+            name: Curador
+        proposals_imports:
+          create:
+            invalid: Houve um problema ao importar as propostas para respostas
+            success: "%{number} propostas importadas com sucesso para respostas"
+          new:
+            create: Importar propostas para respostas
+            no_components: Não há outros componentes de proposta neste espaço participativo para importar as propostas para respostas.
+            select_component: Por favor, selecione um componente
+            title: Importar propostas
+        questions:
+          create:
+            invalid: Ocorreu um erro ao criar uma nova pergunta
+            success: Questão criada com sucesso
+          destroy:
+            invalid: Houve um problema ao excluir esta pergunta
+            success: Questão criada com sucesso
+          edit:
+            title: Editar pergunta
+            update: Atualizar pergunta
+          index:
+            title: Questões
+          new:
+            create: Criar questão
+            title: Nova questão
+          update:
+            invalid: Ocorreu um erro ao atualizar esta questão
+            success: Questão atualizada com sucesso
         steps:
           create_election:
             errors:
@@ -147,13 +223,13 @@ pt:
               time_before: A instalação está sendo feita <strong>pelo menos %{hours} horas</strong> antes do início da eleição.
               trustees_number: O espaço participativo tem <strong> pelo menos %{number} agentes fiduciários com chave pública</strong>.
             submit: Configurar eleição
-            success: Eleição enviada com sucesso para o Quadro de avisos
+            success: Eleição enviada com sucesso para o Quadro de Notas
             title: Configurar eleição
             trustees: Agentes fiduciários da Eleição
           created:
             invalid: Houve um problema ao iniciar a cerimônia de chave
             submit: Inicie a cerimônia de chaves
-            success: Pedido de cerimônia inicial foi enviado com sucesso para o Quadro de avisos
+            success: Pedido de cerimônia inicial foi enviado com sucesso para o Quadro de Notas
             title: Eleição criada
             trustees: Agentes fiduciários
           key_ceremony:
@@ -166,7 +242,7 @@ pt:
             requirements:
               time_before: A eleição começará em breve. Você pode iniciar o período de votação manualmente ou ele será iniciado automaticamente antes da hora inicial, às %{start_time}.
             submit: Iniciar período de votação
-            success: O pedido de período de votação foi enviado com sucesso para o Conselho Boletim
+            success: O pedido de período de votação foi enviado com sucesso para o Quadro de Notas
             title: Preparado para começar
           processing: Processando...
           results_published:
@@ -176,6 +252,355 @@ pt:
             trustees: Agentes fiduciários
           tally_ended:
             submit: Publicar resultados
+            title: Resultados calculados
+          vote:
+            errors:
+              time_after: A eleição ainda está em curso. Você tem que esperar até o fim do período de votação (%{end_time}).
+            invalid: Houve um problema ao terminar o período de votação
+            requirements:
+              time_after: A eleição terminou. Você pode terminar o período de votação manualmente ou terminará automaticamente em alguns minutos.
+            submit: Fim período de votação
+            success: Período de votação final foi enviado com sucesso para o Quadro de Notas
+            title: Período de votação
+          vote_ended:
+            invalid: Houve um problema ao iniciar a apuração
+            submit: Iniciar a apuração
+            success: O início da apuração foi enviado com sucesso para o Quadro de Notas
+            title: O período de votação terminou
+          vote_stats:
+            no_vote_statistics_yet: Nenhuma estatística de voto ainda
+            title: Estatísticas de Voto
+            voters: Votantes
+            votes: Votos
+        trustees_participatory_spaces:
+          actions:
+            disable: Desabilitado
+            enable: Considere
+          create:
+            exists: Curador existente para este espaço participativo
+            invalid: Houve um problema ao criar um curador
+            success: Curador criado com sucesso
+          delete:
+            invalid: Houve um erro ao remover o curador
+            success: Curador removido com sucesso
+          form:
+            select_user: Selecionar usuário
+          index:
+            title: Curadores
+          new:
+            create: Criar curador
+            title: Novo curador
+          update:
+            invalid: Ocorreu um erro ao atualizar %{trustee} como curador
+            success: Curador %{trustee} atualizado com sucesso
+      admin_log:
+        election:
+          end_vote: "%{user_name} terminou o período de votação para a eleição %{resource_name} no Quadro de Notas"
+          publish: "%{user_name} publicou a eleição %{resource_name}"
+          setup: "%{user_name} criou a eleição %{resource_name} no Quadro de Notas"
+          start_key_ceremony: "%{user_name} iniciou a cerimônia chave para a eleição %{resource_name} no Quadro de Notas"
+          start_tally: "%{user_name} começou a apuração para a eleição %{resource_name} no Quadro de Notas"
+          start_vote: "%{user_name} começou o período de votação para a eleição %{resource_name} no Quadro de Notas"
+          unpublish: "%{user_name} despublicizou a eleição %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Finalizado
+          ongoing: Ativo
+          upcoming: Próximos
+        end_date: Finaliza
+        footer:
+          view: Visualizar
+          vote: Votar
+        label:
+          date: Datas
+        questions: Questões %{count}
+        start_date: Começar
+        unspecified: Não especificado
+      elections:
+        count:
+          elections_count:
+            one: "%{count} eleição"
+            other: "%{count} eleições"
+        filters:
+          active: Ativo
+          all: Todos
+          finished: Finalizado
+          search: Pesquisa
+          state: Status
+          upcoming: Próximos
+        filters_small_view:
+          close_modal: Fechar modal
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Revelar
+        preview:
+          available_answers: Respostas disponíveis
+          description: Estas são as perguntas que você encontrará no processo de votação
+          title: Perguntas eleitorais
+        results:
+          description: Esses são os resultados da votação, para cada questão
+          selected: Selecionado
+          title: Resultados da eleição
+          votes:
+            one: "%{count} votos"
+            other: "%{count} votos"
+            zero: "%{count} votos"
+        show:
+          action-button:
+            change-vote: Mude seu voto
+            vote: Começar a votar
+            vote-again: Votar novamente
+          back: Eleições disponíveis
+          callout:
+            already-voted: Você já votou nesta eleição. Você pode alterar seu voto ou verificá-lo.
+            vote-rejected: Não foi possível verificar o seu voto. Por favor, vote novamente.
+          preview: Pré-visualização
+          verify:
+            already-voted: Já votou?
+            verify-here: Verifique seu voto aqui.
+            will-verify: Você poderá verificar seu voto quando as eleições forem iniciadas.
+          voting_period_status:
+            finished: A votação começou em %{start_time} e terminou em %{end_time}
+            ongoing: 'Votação ativa até: %{end_time}'
+            upcoming: A votação começa em %{start_time}
+      feedback:
+        answer:
+          invalid: Ocorreu um erro ao enviar seu feedback.
+          spam_detected: Houve algum problema ao responder ao formulário. Talvez você tenha sido rápido demais, pode tentar novamente?
+          success: Feedback enviado com sucesso.
+      models:
+        answer:
+          fields:
+            proposals: Proposta
+            title: Título
+        election:
+          fields:
+            bb_status: Satus do Bulletin Board
+            end_time: Termina às
+            start_time: Começa às
+            title: Título
+        question:
+          fields:
+            answers: Respostas
+            max_selections: Máx. seleções
+            title: Título
+        trustees_participatory_space:
+          fields:
+            considered: considerado
+            email: E-mail
+            inactive: inativo
+            name: Nome
+            notification: Notificação enviada em
+            public_key: Chave Pública
+            status: Status
+      orders:
+        label: Ordenar eleições por
+        older: Mais antigo
+        recent: Recente
+      trustee_zone:
+        elections:
+          backup_modal:
+            description: Esta eleição está a ser criada no Quadro de Notas. É muito importante que cada curador que participe crie uma cópia de segurança dessas chaves e as armazene em um lugar seguro. Depois disso, o processo prossegue.
+            download_election_keys: Baixar chaves
+            download_icon: Ícone que indica uma ação de download
+            title: Backup das chaves eleitorais para %{election}
+          key_ceremony_steps:
+            back: Voltar
+            description: Esta eleição está sendo criada no Quadro de Notas. Para completar este processo, é necessária a sua participação como Curador.
+            keys:
+              create_election: Geração de chaves
+              key_ceremony:
+                joint_election_key: Geração de chave comum
+                step_1: Publicação de chaves
+            list:
+              status: Status
+              task: Tarefa
+            process_warning: Depois que o processo for iniciado, você não deverá sair desta página até que o processo termine. Levará vários minutos, pois todos os curadores deverão estar conectados para completá-lo.
+            start: Iniciar
+            start_icon: Ícone que indica um botão iniciar para começar a geração de chaves eleitorais
+            status:
+              completed: Concluído
+              pending: Pendente
+              processing: Processando
+            title: Criar chaves eleitorais para %{election}
+          restore_modal:
+            description: O Quadro de Notas tem informações suas, na sua qualidade de membro da Presidência, sobre esta eleição. Para continuar o processo, primeiro carregue o arquivo de backup gerado durante a sessão anterior.
+            title: Restaurar chaves eleitorais para %{election}
+            upload_election_keys: Upload das chaves eleitorais
+            upload_icon: Ícone que indica uma ação de download
+          tally_steps:
+            back: Voltar
+            description: Os resultados para esta eleição estão sendo calculados no Quadro de Notas. Para completar este processo, é necessário a sua participação como um curador.
+            keys:
+              end_tally: Apuração encerrada
+              tally:
+                cast: Transmissão de apuração
+                share: Compartilhar apuração
+            list:
+              status: Status
+              task: Tarefa
+            process_warning: Depois que o processo for iniciado, você não deverá sair desta página até que o processo termine. Levará vários minutos, pois todos os curadores deverão estar conectados para completá-lo.
+            start: Iniciar
+            start_icon: Ícone que indica um botão iniciar para começar a geração de chaves eleitorais
+            status:
+              completed: Concluído
+              pending: Pendente
+              processing: Processando
+            title: Apuração para %{election}
+          update:
+            error: O status da eleição não foi atualizado.
+            success: 'O status da eleição é: %{status}'
+        menu:
+          trustee_zone: Zona dos curadores
+        no_bulletin_board:
+          body: Um Quadro de Notas é necessário para esta seção. Entre em contato com o Administrador para obter mais detalhes.
+          title: Desculpe, o Quadro de Notas ainda não está configurado.
+        trustees:
+          show:
+            elections:
+              list:
+                action_required:
+                  'false': 'Não'
+                  name: Ação necessária?
+                  'true': Executar ação
+                bb_status: Status
+                election: Eleição
+                voting_period: Período de votação
+              no_elections: Não há eleições em que você esteja como um curador.
+              title: Eleições
+            identification_keys:
+              cancel: Cancelar
+              generate: Gerar chaves de identificação
+              generate_error: Ocorreu um erro ao gerar as chaves de identificação.
+              generate_legend: Você precisa gerar um par de chaves de identificação para participar das eleições como um Trustee.
+              generate_legend_1: Depois de pressionar o botão, você deve baixar o arquivo com as chaves de identificação geradas.
+              generate_legend_2: Copie o arquivo baixado para um dispositivo USB limpo
+              generate_legend_3: Certifique-se de que seu computador não tenha uma cópia do arquivo (por exemplo, verifique as pastas Downloads e Desktop).
+              generate_legend_4: Faça outra cópia do arquivo em um dispositivo externo diferente e armazene-o em um lugar muito seguro.
+              submit: Enviar
+              submit_legend: Depois de seguir todos os passos explicados acima, complete o processo de envio da chave de identificação pública para o servidor Decidim.
+              submit_title: Enviar a chave de identificação pública
+              title: Chaves de identificação de curadores
+              upload: Envie suas chaves de identificação
+              upload_error:
+                invalid_format: O arquivo enviado não contém nenhuma chave de identificação.
+                invalid_key: As chaves de identificação no arquivo enviado não podem ser carregadas.
+                invalid_public_key: As chaves de identificação no arquivo enviado não correspondem à chave de identificação pública armazenada pelo Decidim.
+              upload_legend: O Decidim tem suas chaves públicas de identificação, mas seu navegador ainda não tem. Você precisa importar o arquivo com as suas chaves de identificação para o seu computador a partir do backup que você criou após gerá-las.
+            not_supported_browser_description: Parece que você está usando um navegador da web que não pode ser usado para atuar como um curador. Certifique-se de estar usando a versão mais recente do seu navegador, ou tente usar qualquer um dos navegadores mais populares para conseguir completar suas tarefas de confiança.
+            not_supported_browser_title: Atualize o navegador para agir como um curador
+            trustee_role_description: Você foi designado para agir como um curador em algumas das eleições realizadas nesta plataforma.
+          update:
+            success: Sua chave pública de identificação foi armazenada com sucesso.
+      votes:
+        confirm:
+          answer: Resposta
+          answer_number: responder %{number}
+          confirm: Confirmar
+          edit: editar
+          header: Confirme seu voto
+          intro: Aqui está um resumo do voto que você está prestes a transmitir. <br> Por favor, confirme seu voto ou edite suas respostas.
+          nota_option: Em Branco
+          question: Questão %{count}
+        confirmed:
+          back: Voltar para as eleições
+          error: Desculpe, ocorreu um erro ao confirmar seu voto. Por favor, vote novamente.
+          experience: Como foi sua experiência?
+          feedback: Deixe sua opinião
+          header: Voto confirmado
+          lead: Seu voto já foi recebido!
+          text: 'Você pode verificar se o seu voto foi adicionado com sucesso à urna com o seguinte identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_link: Para verificá-lo, copie o identificador e cole-o na <a href="%{link}">página de verificação do voto</a>
+        encrypting:
+          header: Codificando voto...
+          text: Seu voto está sendo criptografado para garantir que você pode transmiti-lo anonimamente.
+        failed:
+          header: Votação falhou
+          lead: Seu voto não foi transmitido!
+          text: Algo deu errado, por favor, tente novamente.
+        header:
+          confirm: Confirme seu voto
+          confirmed: Voto confirmado
+          encrypting: Confirmando voto
+        messages:
+          not_allowed: Não está autorizado a votar nesta eleição neste momento.
+        modal:
+          close: Fechado
+          proposal_header: 'Propostas:'
+        new:
+          answer_choices: Você pode selecionar até %{choices} respostas
+          more_information: Mais informações
+          nota_option: Branco/ Nenhuma das alternativas acima
+          preview_alert: Esta é uma prévia da cabina de votação.
+          question_steps: Questão %{current_step} de %{total_steps}
+          selections: "%{selected} de %{max_selections}<br> seleções"
+        processing:
+          header: Processando o voto...
+          text: Seu voto foi recebido e está sendo processado. Por favor, aguarde.
+        update:
+          error: Houve um problema ao atualizar o do voto
+          success: Status do voto atualizado com sucesso
+        verify:
+          content:
+            heading: Verifique seu voto
+            info: Este verificador verifica se seu voto, identificado com uma string de texto criptografada, foi transmitido corretamente e está dentro das urnas.
+          error:
+            header: Voto não encontrado!
+            info: O código de voto não foi encontrado na urna %{link}. Tente novamente.
+          form:
+            back: Voltar ao Decidim
+            submit: Check
+            vote_identifier: 'Código de identificador:'
+          header:
+            title: Verifique seu voto
+          success:
+            header: Voto localizado!
+            info: Seu voto criptografado está na urna %{link}
+        voting_step:
+          back: Voltar
+          continue: Próxima
+      warnings:
+        no_elections_warning: Nenhuma eleição corresponde aos seus critérios de pesquisa ou não há nenhuma eleição agendada.
+        no_scheduled_elections_warning: Atualmente, não há eleições agendadas, mas aqui podem encontrar uma lista de todas as últimas eleições.
+    events:
+      elections:
+        election_published:
+          email_intro: 'A eleição %{resource_title} agora está ativa para %{participatory_space_title}. Você pode vê-lo a partir desta página:'
+          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações através o link anterior.
+          email_subject: A eleição %{resource_title} agora está ativa para %{participatory_space_title}.
+          notification_title: A eleição <a href="%{resource_path}">%{resource_title}</a> agora está ativa para %{participatory_space_title}.
+        trustees:
+          new_election:
+            email_intro: Você foi adicionado como curador para a eleição %{resource_title}.
+            email_outro: Você recebeu esta notificação porque foi adicionado como curador da eleição %{resource_title}.
+            email_subject: Você é um curador às eleições %{resource_title}..
+            notification_title: Você é um curador pela eleição de <a href="%{resource_path}">%{resource_title}</a>.
+          new_trustee:
+            email_intro: Um administrador adicionou você como curador em %{resource_name}. Você deve criar sua chave pública <a href='%{trustee_zone_url}'>na sua zona de curador</a>
+            email_outro: Você recebeu esta notificação porque foi adicionado como curador por %{resource_name}.
+            email_subject: Você é um curador por %{resource_name}.
+            notification_title: Você é um curador de <a href="%{participatory_space_url}">%{resource_name}</a>.
+        votes:
+          accepted_votes:
+            email_intro: 'Seu voto foi aceito! Usando o seu token de voto: %{encrypted_vote_hash}, você pode verificar seu voto <a href="%{verify_url}">aqui</a>.'
+            email_outro: Você recebeu esta notificação porque votou na eleição %{resource_name}.
+            email_subject: Seu voto para %{resource_name} foi aceito.
+            notification_title: 'Seu voto foi aceito. Verifique o seu voto <a href="%{verify_url}">aqui</a> usando o seu token de voto: %{encrypted_vote_hash}'
+      votings:
+        polling_officers:
+          polling_station_assigned:
+            email_intro: Você foi designado como %{role} da Estação de votos %{polling_station_name} em <a href="%{resource_url}">%{resource_title}</a>. Você pode gerenciar a Estação de Votos na <a href="%{polling_officer_zone_url}">Zona de Agente de Votação dedicada</a>.
+            email_outro: Você recebeu esta notificação porque foi designado como %{role} de %{polling_station_name}.
+            email_subject: Você é %{role} da Estação de voto %{polling_station_name}.
+            notification_title: Você está em %{role} da Estação de Voto %{polling_station_name} em <a href="%{resource_path}">%{resource_title}</a>.
+    help:
+      participatory_spaces:
+        votings:
+          contextual: "<p>Uma <strong>votação</strong> é um espaço que permite que você faça uma pergunta clara para todas as pessoas que formam uma organização, faça uma chamada para participar na votação, incitar e ordenar o debate a favor ou contra uma resposta. Quando chegar a data da consulta, podem votar e publicar os resultados das votações.</p> <p>Exemplos: As consultas podem ser sobre quase qualquer aspecto que afete uma organização: alguns exemplos estão mudando o nome ou o logotipo da organização oferecendo várias alternativas, decidir Sim ou Não para fazer parte de uma organização maior, validar ou rejeitar um novo plano estratégico ou o resultado de um grupo de trabalho. ou definir se as posições devem permanecer um máximo de 1, 2 ou 3 mandatos.</p>\n"
+          page: "<p>Uma <strong>votação</strong> é um espaço que permite que você faça uma pergunta clara para todas as pessoas que formam uma organização, faça uma chamada para participar na votação, incitar e ordenar o debate a favor ou contra uma resposta. Quando chegar a data da consulta, podem votar e publicar os resultados das votações.</p> <p>Exemplos: As consultas podem ser sobre quase qualquer aspecto que afete uma organização: alguns exemplos estão mudando o nome ou o logotipo da organização oferecendo várias alternativas, decidir Sim ou Não para fazer parte de uma organização maior, validar ou rejeitar um novo plano estratégico ou o resultado de um grupo de trabalho. ou definir se as posições devem permanecer um máximo de 1, 2 ou 3 mandatos.</p>\n"
+          title: O que são votações?
+    menu:
+      votings: Votações
     pages:
       home:
         statistics:
@@ -184,9 +609,284 @@ pt:
       statistics:
         elections_count: Eleições
     votings:
+      admin:
+        content_blocks:
+          highlighted_votings:
+            max_results: Quantidade máxima de elementos para mostrar
+          landing_page:
+            attachments_and_folders:
+              name: Anexos e pastas de votação
+            description:
+              name: Descrição da votação
+            elections:
+              name: Eleição
+            header:
+              name: Cabeçalho do voto
+            html_block_1:
+              name: Bloco de votação html 1
+            html_block_2:
+              name: Bloco de votação html 2
+            html_block_3:
+              name: Bloco de votação html 3
+            metrics:
+              name: Métricas de votação
+            polling_stations:
+              name: Estações de votação
+            stats:
+              name: Estatísticas de votação
+            timeline:
+              name: Linha do tempo da votação
+        index:
+          not_published: Despublicado
+          published: Publicado
+        landing_page:
+          content_blocks:
+            edit:
+              update: Atualizar
+          edit:
+            active_content_blocks: Blocos de conteúdo ativo
+            inactive_content_blocks: Blocos de conteúdo inativo
+        menu:
+          votings: Votações
+          votings_submenu:
+            attachment_collections: Pastas
+            attachment_files: Arquivos
+            attachments: Anexos
+            components: Componentes
+            info: Informação
+            landing_page: Página inicial
+            monitoring_committee_members: Comitê de Monitoramento
+            polling_officers: Agentes de votação
+            polling_stations: Estação de votos
+        models:
+          monitoring_committee_member:
+            fields:
+              email: E-mail
+              name: Nome
+            name: Monitoramento de Membros de Comitê
+          polling_officer:
+            fields:
+              email: E-mail
+              name: Nome
+              polling_station: Estação de votação (regra)
+            name: Oficial de Enquete
+          polling_station:
+            fields:
+              address: Endereço
+              polling_station_managers: Gerentes
+              polling_station_president: Presidente
+              title: Título
+            name: Estação de enquete
+          voting:
+            fields:
+              created_at: Criado em
+              promoted: Destaque
+              published: Publicado
+              title: Título
+        monitoring_committee_members:
+          create:
+            invalid: Houve um problema ao criar este membro do comitê de monitoramento
+            success: Membro do comitê de monitoramento criado com sucesso
+          destroy:
+            invalid: Houve um problema ao excluir este membro do comitê de monitoramento
+            success: Membro do comitê de monitoramento excluído com sucesso
+          form:
+            existing_user: Usuário existente
+            non_user: Convidar novo usuário
+            select_user: Pesquisar por nome, e-mail ou apelido
+            user_type: Tipo de usuário
+          index:
+            title: Comitê de Monitoramento
+          new:
+            create: Criar
+            title: Criar membro do comitê de monitoramento
+        polling_officers:
+          create:
+            invalid: Houve um problema ao criar este Agente de Enquete
+            success: Agente de Enquete criado com sucesso
+          destroy:
+            invalid: Houve um problema ao excluir este oficial de enquete
+            success: Agente de enquete excluído com sucesso
+          form:
+            existing_user: Usuário existente
+            non_user: Convidar novo usuário
+            select_user: Pesquisar por nome, e-mail ou apelido
+            user_type: Tipo de usuário
+          index:
+            role_manager: gerente
+            role_president: presidente
+            title: Agente de Enquete
+          new:
+            create: Criar
+            title: Criar agente de enquete
+          polling_officers_picker:
+            choose_polling_officers: Escolher agentes de enquete
+            close: Fechado
+            more_polling_officers: Existem mais %{number} agentes de enquete. Refine sua pesquisa para localizá-los.
+            no_polling_officers: Nenhum agente de enquete corresponde aos seus critérios de pesquisa ou não há nenhum agente de enquete.
+        polling_stations:
+          create:
+            invalid: Houve um problema ao criar esta estação de voto
+            success: Estação de voto criada com sucesso
+          destroy:
+            invalid: Houve um problema ao excluir esta estação de voto
+            success: Estação de voto excluída com sucesso
+          edit:
+            title: Editar estação de voto
+            update: Atualizar estação de voto
+          form:
+            address_help: 'Endereço: usado pelo Geocodificador para encontrar a localização'
+            location_help: 'Local: mensagem direcionada aos eleitores implicando o local exato da estação de voto'
+            location_hints_help: 'Dicas de localização: informações adicionais. Exemplo: o piso do edifício onde a estação de voto está localizada.'
+            polling_station_managers_help: 'Gerentes das estações de voto: os oficiais que atuarão como gestores das estações de voto. Assegure-se de que os oficiais já foram criados nos Agentes de Enquete e de que eles ainda não estão atribuídos a outra estação de voto'
+            polling_station_president_help: 'Oficial da estação de voto: o oficial que atuará como presidente da estação de voto. Verifique se o oficial já foi criado em Agentes de enquete e que ele(a) ainda não está atribuído a outra estação de voto'
+            select_president: Selecione um Agente de Enquete como presidente da estação de voto
+          index:
+            title: Estações de votação
+          new:
+            create: Criar
+            title: Criar estação de votação
+          update:
+            invalid: Houve um problema ao atualizar esta estação de voto
+            success: Estação de voto atualizada com sucesso
+        titles:
+          votings: Votações
+        votings:
+          actions:
+            confirm_destroy: Você tem certeza?
+            destroy: Destruir
+            new_voting: Novo espaço de votação
+            publish: Publicar
+            unpublish: Despublicar
+          create:
+            invalid: Tem havido um problema ao criar esta votação
+            success: Votação criada com sucesso
+          edit:
+            add_election_component: Você não tem nenhuma eleição configurada para este voto. Por favor adicione-a na seção Componentes
+            assign_missing_officers: Existem estações de votação sem Presidente e/ou gerentes. Por favor atribua-as a partir da seção estações de enquete
+            update: Atualizar
+          form:
+            select_a_voting_type: Por favor, selecione um tipo de votação
+            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para esse processo. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
+            title: Título
+            voting_type:
+              hybrid: Híbrido
+              in_person: Pessoalmente
+              online: On-line
+          new:
+            create: Criar
+            title: Nova votação
+          publish:
+            success: Votação publicada com sucesso
+          unpublish:
+            success: Votação despublicada com sucesso
+          update:
+            invalid: Houve um problema ao atualizar esta votação
+            success: Votação atualizada com sucesso
+      admin_log:
+        voting:
+          create: "%{user_name} criou a votação %{resource_name}"
+          publish: "%{user_name} publicou a votação %{resource_name}"
+          unpublish: "%{user_name} despublicizou a votação %{resource_name}"
+      content_blocks:
+        highlighted_votings:
+          name: Destaque da votação
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: Você tem certeza?
+          destroy: Excluir
+          new: Novo membro
+          title: Ações
+      pages:
+        home:
+          highlighted_votings:
+            active_votings: Votações Ativas
+            see_all_votings: Ver todos os votações
+            votings_button_title: Link para a Página de Votação exibindo todos os votos
       polling_officer_zone:
+        menu:
+          polling_officer_zone: Zona de Agente de Enquete
         polling_officers:
           show:
+            actions:
+              count_votes: Conte os votos na urna
+              identify_person: Identificar e verificar uma pessoa
+            polling_officer_role_description: Você foi foi designado como um Agente da Estação de Apuração (Presidente ou Gerente) em alguma das eleições realizadas nesta plataforma.
             polling_stations:
               list:
                 actions: Ações
+                address: Endereço
+                name: Nome
+                role: Seu papel
+                voting: Votação
+              no_polling_stations: Você ainda não está atribuído a nenhuma Estação de Apuração no momento.
+              title: Estação de votos
+      polling_officers:
+        actions:
+          confirm_destroy: Você tem certeza?
+          destroy: Excluir
+          new: Novo
+          title: Ações
+        roles:
+          manager: Gerente
+          president: Presidente
+          unassigned: Não Atribuido
+      polling_stations:
+        actions:
+          confirm_destroy: Você tem certeza?
+          destroy: Excluir
+          edit: Editar
+          new: Novo
+          title: Ações
+      votings:
+        count:
+          title:
+            one: "%{count} votação"
+            other: "%{count} votações"
+        filters:
+          active: Ativo
+          all: Todos
+          finished: Finalizado
+          search: Pesquisar
+          state: Status
+          upcoming: Próximos
+        filters_small_view:
+          close_modal: Fechar modal
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Revelar
+        index:
+          no_votings: Nenhuma votação corresponde ao seu critério de pesquisa.
+          only_finished: Neste momento, não há votações agendadas, mas aqui podem encontrar as votações já finalizadas.
+          title: Votações
+        orders:
+          label: 'Classificar votos por:'
+          random: Aleatório
+          recent: Mais recente
+        show:
+          dates: Datas
+      votings_m:
+        badge_name:
+          finished: Finalizado
+          ongoing: Em andamento
+          upcoming: Próximos
+        footer_button_text:
+          participate: Participar
+          view: Visualizar
+          vote: Votar
+        unspecified: Não especificado
+        voting_type:
+          hybrid: Híbrido
+          in_person: Pessoalmente
+          online: On-line
+        voting_types_label: Tipo de votação
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Sair
+      votings:
+        index:
+          promoted_votings: Destaque da votação
+        promoted_voting:
+          more_info: Mais informações
+          vote: Votar

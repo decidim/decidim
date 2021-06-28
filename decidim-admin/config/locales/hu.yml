@@ -305,6 +305,9 @@ hu:
         category_id_eq:
           label: Kategória
         filter_label: Szűrés
+        moderations:
+          reportable_type_string_eq:
+            label: Típus
         officialized_at_null:
           label: Állapot
           values:
@@ -328,6 +331,10 @@ hu:
           title_cont: Keresés %{collection} cím alapján.
         state_eq:
           label: Állapot
+      forms:
+        file_help:
+          import:
+            message_1: A CSV, JSON és Excel (.xls) fájlok támogatottak
       help_sections:
         error: Hiba történt a súgószakaszok frissítésekor
         form:
@@ -366,6 +373,17 @@ hu:
           impersonate_existing_managed_user: '"%{name}" felhasználó kezelése'
           impersonate_existing_user: '"%{name}" felhasználó kezelése'
           impersonate_new_managed_user: Új résztvevő kezelése
+      imports:
+        import_from_file: Importálás fájlból
+        invalid_lines: Hiba található a(z) erőforrásban %{invalid_lines}
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xls: xls
+          actions:
+            back: Vissza
+          import: Import
       logs:
         logs_list:
           no_logs_yet: Még nincsenek naplók
@@ -478,6 +496,21 @@ hu:
             does_not_belong: Nem tartozik hozzá
             offensive: Offenzív
             spam: Spam
+        reports:
+          index:
+            author: Szerző(k)
+            callout_html: A tartalom akkor jelenik meg a moderációs panelen, amikor a felhasználó (regisztrált fiókkal rendelkező) jelezte az elem melletti %{icon} zászlóra kattintva.
+            content_original_language: Tartalom eredeti nyelve
+            participatory_space: Részvételi tér
+            reported_content: Jelentett tartalom
+            see_current: Jelenlegi megtekintése
+            see_original: Eredeti megtekintése
+            title: Moderálási jelentések
+          show:
+            report_details: Ok részletei
+            report_language: Jelentés nyelve
+            report_reason: Ok
+            title: Jelentés részletei
       newsletter_templates:
         index:
           preview_template: Előnézet
@@ -543,6 +576,9 @@ hu:
           error: Hiba történt a hírlevél frissítése során.
           success: Hírlevél frissítse sikeres volt. Ellenőrizd le, mielőtt elküldenéd.
       officializations:
+        block:
+          error: Hiba történt a résztvevő blokkolásakor
+          success: A résztvevő sikeresen blokkolva lett
         create:
           success: A felhasználó hivatalos lett
         destroy:
@@ -550,6 +586,7 @@ hu:
         index:
           actions: Műveletek
           badge: Jelvény
+          block: Felhasználó tiltása
           created_at: 'Létrehozva:'
           name: Név
           nickname: Becenév
@@ -557,8 +594,10 @@ hu:
           officialize: Hivatalossá tétel
           officialized: Hivatalos
           reofficialize: Újbóli hivatalossá tétel
+          reports: Jelentések
           show_email: E-mail cím megjelenítése
           status: Állapot
+          unblock: Felhasználó tiltásának törlése
           unofficialize: Hivatalossá tétel visszavonása
         new:
           badge: A hitelesítés jelvénye
@@ -572,6 +611,8 @@ hu:
           hidden: rejtett
           show: Megjelenítés
           title: A résztvevő e-mail címének megjelenítése
+        unblock:
+          error: Hiba történt a résztvevő feloldásának feloldása során
       organization:
         edit:
           title: Szervezet szerkesztése
@@ -785,8 +826,13 @@ hu:
       errors:
         impersonate_user:
           reason: Indokolnod kell a nem menedzselt résztvevők felhatalmazását
+    metrics:
+      user_reports:
+        object: felhasználói jelentések
+        title: Felhasználói jelentések
     moderations:
       actions:
+        expand: Kibont
         hidden: Rejtett
         hide: Elrejt
         not_hidden: Nem rejtett
@@ -807,17 +853,28 @@ hu:
       models:
         moderation:
           fields:
+            created_at: Létrehozás dátuma
             hidden_at: 'Rejtett itt:'
+            participatory_space: Részvételi tér
             report_count: Számol
+            reportable_id: Id
+            reportable_type: Típus
             reported_content_url: Jelentett URL tartalom
             reports: Jelentések
             visit_url: URL meglátogatása
+        report:
+          fields:
+            details: Ok részletei
+            locale: Nyelv
+            reason: Ok
   errors:
     messages:
       invalid_json: Érvénytelen JSON
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Globális moderációk
         newsletters:
           title: Hírlevelek
         settings:

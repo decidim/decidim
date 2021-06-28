@@ -674,7 +674,7 @@ it:
             fields:
               address: Indirizzo
               polling_station_managers: Gestori
-              polling_station_president: Presidente/Presidentessa
+              polling_station_president: Presidentessa/Presidente
               title: Titolo
             name: Seggio elettorale
           voting:
@@ -767,6 +767,7 @@ it:
             update: Aggiorna
           form:
             select_a_voting_type: Seleziona un tipo di votazione
+            slug_help: 'Gli URL slugs sono usati per generare gli URL che puntano a questo voto. Accetta solo lettere, numeri e trattini e deve iniziare con una lettera. Esempio: %{url}'
             title: Titolo
             voting_type:
               hybrid: Ibrido
@@ -774,6 +775,11 @@ it:
               online: Online
           new:
             create: Crea
+            title: Nuova Votazione
+          publish:
+            success: Votazione pubblicata con successo
+          unpublish:
+            success: Votazione annullata con successo
           update:
             invalid: Si è verificato un errore durante l'aggiornamento di questa votazione
             success: Votazione aggiornata con successo
@@ -798,6 +804,8 @@ it:
             see_all_votings: Vedi tutte le votazioni
             votings_button_title: Link alla pagina Votazioni che mostra tutte le votazioni
       polling_officer_zone:
+        menu:
+          polling_officer_zone: Zona di sondaggio ufficiale
         polling_officers:
           show:
             actions:
@@ -814,9 +822,71 @@ it:
               no_polling_stations: Non sei ancora assegnato a nessun seggio elettorale.
               title: Seggi elettorali
       polling_officers:
+        actions:
+          confirm_destroy: Sei sicuro?
+          destroy: Cancella
+          new: Nuovo
+          title: Azioni
         roles:
+          manager: Gestore
           president: Presidente/Presidentessa
+          unassigned: Non Assegnato
+      polling_stations:
+        actions:
+          confirm_destroy: Sei sicuro?
+          destroy: Cancella
+          edit: Modifica
+          new: Nuovo
+          title: Azioni
+      votings:
+        count:
+          title:
+            one: "%{count} votazioni"
+            other: "%{count} votazioni"
+        filters:
+          active: Attivo
+          all: Tutti
+          finished: Finito
+          search: Ricerca
+          state: Stato
+          upcoming: Prossimi
+        filters_small_view:
+          close_modal: Chiudi modalità
+          filter: Filtro
+          filter_by: Filtra per
+          unfold: Dispiega
+        index:
+          no_votings: Nessun voto corrisponde ai criteri di ricerca.
+          only_finished: Al momento non sono previste elezioni, ma qui puoi trovare un elenco di tutte quelle passate.
+          title: Votazioni
+        orders:
+          label: 'Ordina le votazioni per:'
+          random: Casuale
+          recent: Più recente
+        show:
+          dates: Date
+      votings_m:
+        badge_name:
+          finished: Completata
+          ongoing: In corso
+          upcoming: In arrivo
+        footer_button_text:
+          participate: Partecipa
+          view: Visualizza
+          vote: Vota
+        unspecified: Non specificato
+        voting_type:
+          hybrid: Ibrido
+          in_person: Di persona
+          online: Online
+        voting_types_label: Tipo di votazione
   layouts:
     decidim:
       election_votes_header:
         exit: Esci
+      votings:
+        index:
+          promoted_votings: Votazioni in evidenza
+        promoted_voting:
+          more_info: Ulteriori informazioni
+          vote: Vota

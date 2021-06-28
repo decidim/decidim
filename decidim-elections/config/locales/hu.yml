@@ -10,6 +10,43 @@ hu:
             success: A választás sikeresen publikálásra került.
           unpublish:
             success: A választás publikálását sikeresen visszavonta.
+        steps:
+          tally_ended:
+            title: Eredmények kiszámítva
+      elections:
+        preview:
+          available_answers: Rendelkezésre álló válaszok
+          description: Ezeket a kérdéseket a szavazás folyamán találod meg
+        results:
+          description: Ezek az egyes kérdésekre vonatkozó szavazás eredményei
+          votes:
+            one: "%{count} szavazat"
+            other: "%{count} szavazat"
+            zero: "%{count} szavazat"
+        show:
+          action-button:
+            change-vote: Szavazatának megváltoztatása
+            vote: Szavazás kezdete
+            vote-again: Újraszavaz
+          callout:
+            already-voted: Már szavaztál ezen a választáson. Megváltoztathatod szavazatod, vagy ellenőrizheted.
+            vote-rejected: Nem volt lehetséges szavazatod ellenőrzése. Kérjük, dobd be újra.
+          verify:
+            already-voted: Már szavaztál?
+            verify-here: Itt ellenőrizheted szavazatod.
+            will-verify: A választás megkezdését követően ellenőrizheted szavazatod.
+      feedback:
+        answer:
+          invalid: Hiba történt a visszajelzésed elküldése során.
+      votes:
+        confirmed:
+          error: Sajnos hiba történt a szavazat megerősítésekor. Kérjük, szavazz újra.
+        processing:
+          header: A szavazat feldolgozás alatt...
+          text: A szavazata megérkezett, és feldolgozása folyamatban van. Kérlek várj.
+        update:
+          error: Hiba történt a szavazat állapotának frissítése során
+          success: Szavazat állapota sikeresen frissítve
     events:
       elections:
         election_published:
@@ -17,3 +54,20 @@ hu:
           email_outro: Azért kapta ezt az értesítést, mert a %{participatory_space_title}-t követi. Az értesítések küldését leállíthatja az előző linkkel.
           email_subject: 'A %{resource_title} választás aktív itt: %{participatory_space_title}.'
           notification_title: 'A <a href="%{resource_path}">%{resource_title} </a>választás aktív itt: %{participatory_space_title}.'
+    votings:
+      admin:
+        menu:
+          votings_submenu:
+            monitoring_committee_members: Ellenőrző Bizottság
+      polling_officer_zone:
+        polling_officers:
+          show:
+            actions:
+              count_votes: Az urnában lévő szavazatok megszámolálása
+              identify_person: Azonosít és ellenőriz egy személyt
+            polling_officer_role_description: Szavazóhelyiségi Tisztnek jelöltek (Elnökként vagy Ügyvezetőként) azért, hogy ezen platformon megtartott választásokon intézkedj.
+            polling_stations:
+              list:
+                role: A te szereped
+                voting: Szavazás
+              no_polling_stations: Még nem vagy kijelölve egyetlen szavazóhelyiséghez sem.

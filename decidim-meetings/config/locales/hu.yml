@@ -29,7 +29,9 @@ hu:
         title: Cím
         transparent: Átlátszó
       minutes:
+        audio_url: Hang URL
         description: Leírás
+        video_url: Videó URL
         visible: Látható
     errors:
       models:
@@ -266,6 +268,7 @@ hu:
             invalid: Probléma történt a jegyzőkönyv létrehozásakor
             success: Jegyzőkönyv létrehozása sikeres
           edit:
+            title: Jegyzőkönyv szerkesztése
             update: Frissítés
           new:
             create: Létrehozás
