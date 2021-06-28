@@ -238,7 +238,10 @@ export default class DataPicker {
     if (target) {
       this._setCurrentPicker($picker, target);
       // Fadeout (with time) doesn't work in system tests
-      const fadeoutTime = navigator?.webdriver ? 0 : 500;
+      let fadeoutTime = 500;
+      if (navigator && navigator.webdriver) {
+        fadeoutTime = 0;
+      }
       this.current.target.fadeOut(fadeoutTime, () => {
         this.current.target.remove();
         this.current.target = null;
