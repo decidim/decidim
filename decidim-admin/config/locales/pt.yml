@@ -26,6 +26,8 @@ pt:
         published_at: Publicado em
         weight: Peso
       id: ID
+      import:
+        user_group_id: Criar importações como
       newsletter:
         body: Corpo
         subject: Assunto
@@ -41,6 +43,8 @@ pt:
         enable_omnipresent_banner: Mostrar faixa omnipresente
         facebook_handler: Manipulador do Facebook
         favicon: Ícone
+        force_authentication: Forçar autenticação
+        force_users_to_authenticate_before_access_organization: Forçar usuários a autenticar antes de aceder à organização
         from: Endereço de e-mail do remetente
         github_handler: GitHub handler
         header_snippets: Snippets de cabeçalho
@@ -53,6 +57,7 @@ pt:
         highlighted_content_banner_image: Imagem
         highlighted_content_banner_short_description: Pequena descrição
         highlighted_content_banner_title: Título
+        host: Anfitrião
         instagram_handler: Instagram handler
         logo: Logótipo
         name: Nome
