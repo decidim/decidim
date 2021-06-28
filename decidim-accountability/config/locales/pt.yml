@@ -197,6 +197,10 @@ pt:
         results:
           category_id_eq:
             label: Categoria
+          scope_id_eq:
+            label: Âmbito
+          status_id_eq:
+            label: Estado
     components:
       accountability:
         name: Prestação de contas
@@ -209,6 +213,7 @@ pt:
             heading_leaf_level_results: Nome para "Projetos"
             heading_parent_level_results: Nome para "Resultados"
             intro: Introdução
+            scope_id: Âmbito
             subcategories_label: Nome para "Subcategorias"
           step:
             comments_blocked: Comentários bloqueados
@@ -237,3 +242,5 @@ pt:
         result_project: Projetos incluídos neste resultado
       included_proposals:
         result_proposal: Propostas incluídas neste resultado
+    statistics:
+      results_count: Resultados
