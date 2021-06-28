@@ -12,6 +12,7 @@ module Decidim
       delegate :answer_options, :mandatory, :max_choices, to: :question
 
       scope :by_position, -> { order(:position) }
+      default_scope { by_position }
     end
   end
 end
