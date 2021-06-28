@@ -237,8 +237,12 @@ export default class DataPicker {
   _removeValue($picker, target) {
     if (target) {
       this._setCurrentPicker($picker, target);
-      this.current.target.remove();
-      this.current.target = null;
+      // Fadeout (with time) doesn't work in system tests
+      const fadeoutTime = navigator?.webdriver ? 0 : 500;
+      this.current.target.fadeOut(fadeoutTime, () => {
+        this.current.target.remove();
+        this.current.target = null;
+      });
     }
   }
 

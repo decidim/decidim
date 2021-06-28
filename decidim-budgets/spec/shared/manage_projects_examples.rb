@@ -173,7 +173,7 @@ shared_examples "manage projects" do
       end
     end
 
-    it "removes proposals from project" do
+    it "removes proposals from project", :slow do
       project.link_resources(proposals, "included_proposals")
       expect(project.linked_resources(:proposals, "included_proposals").count).to eq(5)
 
