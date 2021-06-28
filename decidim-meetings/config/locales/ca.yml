@@ -440,6 +440,8 @@ ca:
           back: Enrere
           create: Crear
           title: Crea la teva trobada
+        online_meeting_link:
+          link_available_soon: L'enllaç estarà disponible aviat
         registration_confirm:
           cancel: Cancel·lar
           confirm: Confirmar

@@ -10,6 +10,19 @@ hu:
             success: A választás sikeresen publikálásra került.
           unpublish:
             success: A választás publikálását sikeresen visszavonta.
+      elections:
+        show:
+          action_button:
+            change_vote: Szavazatának megváltoztatása
+            vote: Szavazás kezdete
+            vote_again: Újraszavaz
+          callout:
+            already_voted: Már szavaztál ezen a választáson. Megváltoztathatod szavazatod, vagy ellenőrizheted.
+            vote_rejected: Nem volt lehetséges szavazatod ellenőrzése. Kérjük, dobd be újra.
+          verify:
+            already_voted: Már szavaztál?
+            verify_here: Itt ellenőrizheted szavazatod.
+            will_verify: A választás megkezdését követően ellenőrizheted szavazatod.
     events:
       elections:
         election_published:
@@ -17,3 +30,19 @@ hu:
           email_outro: Azért kapta ezt az értesítést, mert a %{participatory_space_title}-t követi. Az értesítések küldését leállíthatja az előző linkkel.
           email_subject: 'A %{resource_title} választás aktív itt: %{participatory_space_title}.'
           notification_title: 'A <a href="%{resource_path}">%{resource_title} </a>választás aktív itt: %{participatory_space_title}.'
+    votings:
+      admin:
+        menu:
+          votings_submenu:
+            monitoring_committee: Ellenőrző Bizottság
+      polling_officer_zone:
+        polling_officers:
+          index:
+            polling_officer_role_description: Szavazóhelyiségi Tisztnek jelöltek (Elnökként vagy Ügyvezetőként) azért, hogy ezen platformon megtartott választásokon intézkedj.
+            polling_station:
+              no_polling_stations: Még nem vagy kijelölve egyetlen szavazóhelyiséghez sem.
+              role: A te szereped
+              voting: Szavazás
+      votings:
+        login:
+          start_voting: Szavazás kezdete

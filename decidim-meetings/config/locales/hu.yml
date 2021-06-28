@@ -8,10 +8,12 @@ hu:
       close_meeting:
         attendees_count: Résztvevők száma
         attending_organizations: Résztvevő szervezetek listája
+        audio_url: Hang URL
         closing_report: Jegyzőkönyvek
         closing_visible: Látható
         contributions_count: Hozzájárulások száma
         proposal_ids: A találkozón született javaslatok
+        video_url: Videó URL
       meeting:
         address: Lakcím
         available_slots: A találkozóhoz rendelkezésre álló helyek

@@ -70,7 +70,6 @@ ro:
             spam: Conține clickbait, publicitate, escrocherii sau roboți script.
           title: Raportează conținut nepotrivit
         show_replies: Arată %{replies_count} răspunsuri
-        single_comment_link_title: Obțineți link-ul către un singur comentariu
       comment_order_selector:
         order:
           best_rated: Cele mai apreciate

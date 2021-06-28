@@ -158,6 +158,8 @@ gl:
         browse: Buscar
         category:
           new: Nova categoría
+        export: Exportar todo
+        export-selection: Exportar selección
         import: Importar
         manage: Xestionar
         new: Novo %{name}
@@ -351,6 +353,16 @@ gl:
         category_id_eq:
           label: Categoría
         filter_label: Filtrar
+        invitation_accepted_at_present:
+          label: Convite aceptado
+          values:
+            'false': 'Non'
+            'true': 'Si'
+        last_sign_in_at_present:
+          label: Sesión xa iniciada
+          values:
+            'false': 'Non'
+            'true': 'Si'
         moderations:
           reportable_type_string_eq:
             label: Tipo

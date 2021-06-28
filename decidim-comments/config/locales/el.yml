@@ -57,7 +57,6 @@ el:
             spam: Περιέχει clickbait, διαφημίσεις, απάτες ή script bot.
           title: Αναφορά ακατάλληλου περιεχομένου
         show_replies: Εμφάνιση %{replies_count} απαντήσεων
-        single_comment_link_title: Λήψη συνδέσμου για ένα μόνο σχόλιο
       comment_order_selector:
         order:
           best_rated: Με την καλύτερη βαθμολογία

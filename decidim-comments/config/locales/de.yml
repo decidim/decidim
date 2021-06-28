@@ -68,7 +68,6 @@ de:
             spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
           title: Ungeeigneten Inhalt melden
         show_replies: '%{replies_count} Antworten anzeigen'
-        single_comment_link_title: Verknüpfung zu einzelnem Kommentar erhalten
       comment_order_selector:
         order:
           best_rated: Am besten bewertet

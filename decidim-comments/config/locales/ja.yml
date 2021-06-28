@@ -17,6 +17,10 @@ ja:
       comments:
         create:
           error: コメントの登録に問題がありました。
+        delete:
+          error: コメントを削除できませんでした。
+        update:
+          error: コメントの更新中に問題が発生しました。
       comments_count: コメント数
       comments_title: コメント
       last_activity:
@@ -51,7 +55,12 @@ ja:
         alignment:
           against: 反対
           in_favor: 賛成
+        confirm_destroy: コメントを削除してもよろしいですか？
+        delete: 削除
+        deleted_at: '%{date} にコメントが削除されました'
         deleted_user: 退会者
+        edit: 編集
+        edited: 編集済み
         hide_replies: 返信を非表示
         reply: 返信
         report:
@@ -66,7 +75,7 @@ ja:
             spam: 本来の内容に関係が無い広告、詐欺や悪意のある処理などが含まれています。
           title: 不適切なコンテンツを報告する
         show_replies: '%{replies_count} 件の返信を表示'
-        single_comment_link_title: シングルコメントへのリンクを取得
+        single_comment_link_title: リンク取得
       comment_order_selector:
         order:
           best_rated: 最高評価
@@ -88,6 +97,14 @@ ja:
           other: "%{count} 件のコメント"
       down_vote_button:
         text: このコメントに同意しません
+      edit_comment_modal_form:
+        close: 閉じる
+        form:
+          body:
+            label: コメント
+            placeholder: これについてどう思いますか?
+          submit: 送信
+        title: コメントを編集
       up_vote_button:
         text: このコメントに同意します
     events:
