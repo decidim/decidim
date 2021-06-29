@@ -60,7 +60,10 @@
       return $.ajax({
         method: "POST",
         url: heartbeatPath,
-        contentType: "application/javascript"
+        contentType: "application/javascript",
+        headers: {
+          "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
+        }
       });
     }
 
