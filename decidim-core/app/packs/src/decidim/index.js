@@ -21,6 +21,7 @@ window.Decidim.InputCharacterCounter = InputCharacterCounter;
 window.Decidim.FormValidator = FormValidator;
 window.Decidim.DataPicker = DataPicker;
 window.Decidim.CommentsComponent = CommentsComponent;
+window.Decidim.addInputEmoji = addInputEmoji;
 
 $(() => {
   window.theDataPicker = new DataPicker($(".data-picker"));

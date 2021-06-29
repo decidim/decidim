@@ -2,13 +2,14 @@ import { EmojiButton } from "@joeattardi/emoji-button";
 
 // eslint-disable-next-line require-jsdoc
 export default function addInputEmoji() {
-  const picker = new EmojiButton({
-    position: "bottom-end"
-  });
   const containers = document.querySelectorAll("[data-input-emoji]");
 
   if (containers.length) {
     containers.forEach((elem) => {
+      const picker = new EmojiButton({
+        position: "bottom-end"
+      });
+
       const wrapper = document.createElement("div");
       wrapper.className = "emoji__container"
       const btnContainer = document.createElement("div");
@@ -23,6 +24,9 @@ export default function addInputEmoji() {
 
       picker.on("emoji", ({ emoji }) => {
         elem.value += ` ${emoji} `
+
+        const event = new Event("emoji.added");
+        elem.dispatchEvent(event);
       });
     })
   }

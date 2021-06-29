@@ -69,6 +69,9 @@ export default class InputCharacterCounter {
     this.$input.on("keyup", () => {
       this.updateStatus();
     });
+    this.$input.get(0).addEventListener("emoji.added", () => {
+      this.updateStatus();
+    });
     this.updateStatus();
   }
 
