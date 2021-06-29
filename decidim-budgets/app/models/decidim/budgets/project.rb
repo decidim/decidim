@@ -41,7 +41,7 @@ module Decidim
         # delimiter. Otherwise e.g. ID 2 would match ID "26" in the original
         # array. This is why we search for match ",2," instead to get the actual
         # position for ID 2.
-        order(Arel.sql("position(concat(',', id::text, ',') in ',#{ids.join(",")},')"))
+        order(Arel.sql("position(concat(',', id::text, ',') in #{connection.quote(','+ids.join(",")+',')})"))
       end
 
       def self.log_presenter_class_for(_log)
