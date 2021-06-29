@@ -72,7 +72,7 @@
     }
 
     const exitInterval = setInterval(() => {
-      const timeSinceLastActivityCheckInSeconds = Math.round((moment() - lastActivityCheck) / 1000);
+      const timeSinceLastActivityCheckInSeconds = Math.round((exports.moment() - lastActivityCheck) / 1000);
 
       const popupOpen = $("#timeoutModal").parent().css("display") === "block";
       if (!popupOpen && timeSinceLastActivityCheckInSeconds >= activityCheckInterval) {
