@@ -12,6 +12,11 @@ describe Decidim::AdminLog::UserPresenter, type: :helper do
 
   context "when action is block" do
     include_examples "present admin log entry" do
+      let(:admin_log_resource) { organization }
+      let(:action) { "block" }
+    end
+
+    include_examples "present admin log entry" do
       let(:admin_log_resource) { create(:user, :blocked, organization: organization) }
       let(:admin_log_extra_data) { { resource: { title: "John Doe" } } }
       let(:action) { "block" }
