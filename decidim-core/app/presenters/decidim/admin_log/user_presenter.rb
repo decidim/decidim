@@ -23,10 +23,6 @@ module Decidim
         end
       end
 
-      def resource_presenter
-        @resource_presenter ||= Decidim::Log::UserResourcePresenter.new(action_log.resource, h, action_log.extra["resource"])
-      end
-
       def i18n_params
         super.merge(
           role: I18n.t("models.user.fields.roles.#{user_role}", scope: "decidim.admin")
