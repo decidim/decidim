@@ -23,7 +23,7 @@ module Decidim
                            end
 
           bypass_sign_in(current_user)
-          redirect_to account_path
+          redirect_to account_path(locale: current_user.reload.locale)
         end
 
         on(:invalid) do
