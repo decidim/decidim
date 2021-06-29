@@ -1,16 +1,17 @@
 ((exports) => {
   exports.$(() => {
+    const Foundation = exports.Foundation;
     let sessionTimeOutEnabled = true;
     const $timeoutModal = $("#timeoutModal");
     const timeoutInSeconds = parseInt($timeoutModal.data("session-timeout"), 10);
     const secondsUntilTimeoutPath = $timeoutModal.data("seconds-until-timeout-path");
     const heartbeatPath = $timeoutModal.data("heartbeat-path");
     const interval = parseInt($timeoutModal.data("session-timeout-interval"), 10);
-    let endsAt = moment().add(timeoutInSeconds, "seconds");
-    let lastAction = moment();
+    let endsAt = exports.moment().add(timeoutInSeconds, "seconds");
+    let lastAction = exports.moment();
     const popup = new Foundation.Reveal($timeoutModal);
     const $continueSessionButton = $("#continueSession");
-    let lastActivityCheck = moment();
+    let lastActivityCheck = exports.moment();
     // 5 * 60 seconds = 5 Minutes
     const activityCheckInterval = 5 * 60;
 
@@ -19,7 +20,7 @@
       $("#timeoutModal").foundation("close");
       // In admin panel we have to hide all overlays
       $(".reveal-overlay").css("display", "none");
-      lastActivityCheck = moment();
+      lastActivityCheck = exports.moment();
     })
 
     if (isNaN(interval)) {
@@ -41,7 +42,7 @@
       if (!secondsUntilExpiration) {
         return;
       }
-      endsAt = moment().add(secondsUntilExpiration, "seconds");
+      endsAt = exports.moment().add(secondsUntilExpiration, "seconds");
     }
 
     const sessionTimeLeft = () => {
@@ -64,7 +65,7 @@
     }
 
     const userBeenActiveSince = (seconds) => {
-      return (moment() - lastAction) / 1000 < seconds;
+      return (exports.moment() - lastAction) / 1000 < seconds;
     }
 
     const exitInterval = setInterval(() => {
@@ -72,14 +73,14 @@
 
       const popupOpen = $("#timeoutModal").parent().css("display") === "block";
       if (!popupOpen && timeSinceLastActivityCheckInSeconds >= activityCheckInterval) {
-        lastActivityCheck = moment();
+        lastActivityCheck = exports.moment();
         if (userBeenActiveSince(activityCheckInterval)) {
           heartbeat();
           return;
         }
       }
 
-      const timeRemaining = Math.round((endsAt - moment()) / 1000);
+      const timeRemaining = Math.round((endsAt - exports.moment()) / 1000);
       if (timeRemaining > 150) {
         return;
       }
@@ -99,13 +100,13 @@
     }, interval);
 
     $(document).mousemove(() => {
-      lastAction = moment();
+      lastAction = exports.moment();
     })
     $(document).scroll(() => {
-      lastAction = moment();
+      lastAction = exports.moment();
     })
     $(document).keypress(() => {
-      lastAction = moment();
+      lastAction = exports.moment();
     })
 
     // Devise restarts its own timer on ajax requests,
