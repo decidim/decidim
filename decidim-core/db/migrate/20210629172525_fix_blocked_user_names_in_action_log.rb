@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class FixBlockedUserNamesInActionLog < ActiveRecord::Migration[6.0]
+class FixBlockedUserNamesInActionLog < ActiveRecord::Migration[5.2]
   def change
     reversible do |dir|
       dir.up do
