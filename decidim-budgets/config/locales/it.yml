@@ -234,7 +234,7 @@ it:
       budgets:
         actions:
           vote: Votazione
-        name: i bilanci
+        name: Budget
         settings:
           global:
             announcement: Annuncio
