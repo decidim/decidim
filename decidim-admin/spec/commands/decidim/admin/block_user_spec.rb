@@ -38,6 +38,13 @@ module Decidim::Admin
         expect(form.user.name).to eq("Blocked user")
       end
 
+      it "original username is stored in the action log entry's resource title" do
+        subject.call
+        log = Decidim::ActionLog.last
+        expect(log.resource).to eq(form.user)
+        expect(log.extra["resource"]["title"]).to eq("Testingname")
+      end
+
       it "tracks the changes" do
         expect(Decidim.traceability).to receive(:perform_action!).with("block",
                                                                        user_to_block,
@@ -45,6 +52,9 @@ module Decidim::Admin
                                                                        extra: {
                                                                          reportable_type: form.user.class.name,
                                                                          current_justification: form.justification
+                                                                       },
+                                                                       resource: {
+                                                                         title: form.user.name
                                                                        })
         subject.call
       end
