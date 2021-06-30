@@ -38,8 +38,7 @@ module Decidim
 
     def migrations
       ActiveRecord::MigrationContext.new(
-        [Rails.root.join("db/migrate")],
-        ActiveRecord::SchemaMigration
+        [Rails.root.join("db/migrate")]
       ).migrations
     end
   end
