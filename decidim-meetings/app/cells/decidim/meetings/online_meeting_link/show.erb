@@ -16,10 +16,12 @@
       </div>
       <div>
         <strong class="heading5"><%= t("live_event", scope: "decidim.meetings.meetings.show") %></strong>
-        <p><small><%= t("micro_camera_permissions_warning", scope: "decidim.meetings.meetings.show") %></small></p>
+        <% if !show_embedded_iframe? || !embeddable? %>
+          <p><small><%= t("micro_camera_permissions_warning", scope: "decidim.meetings.meetings.show") %></small></p>
+        <% end %>
       </div>
       <% # When the meeting url is embeddable but show iframe is disabled, it's embedded here %>
-      <% if !show_iframe? && embeddable? %>
+      <% if show_embedded_iframe? && embeddable? %>
         <div class="margin-top-3 absolutes aspect-ratio-16-9">
           <%== embed_code(request.host) %>
         </div>

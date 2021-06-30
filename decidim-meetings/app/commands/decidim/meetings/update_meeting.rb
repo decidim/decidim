@@ -63,7 +63,7 @@ module Decidim
             registrations_enabled: form.registrations_enabled,
             type_of_meeting: form.clean_type_of_meeting,
             online_meeting_url: form.online_meeting_url,
-            show_iframe: form.show_iframe
+            show_embedded_iframe: form.show_embedded_iframe
           },
           visibility: "public-only"
         )

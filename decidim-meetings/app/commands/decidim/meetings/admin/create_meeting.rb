@@ -56,7 +56,7 @@ module Decidim
             questionnaire: Decidim::Forms::Questionnaire.new,
             customize_registration_email: form.customize_registration_email,
             registration_email_custom_content: form.registration_email_custom_content,
-            show_iframe: form.show_iframe
+            show_embedded_iframe: form.show_embedded_iframe
           }
 
           @meeting = Decidim.traceability.create!(

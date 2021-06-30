@@ -35,7 +35,7 @@ en:
         registration_terms: Registration terms
         registration_url: Registration URL
         registrations_enabled: Registrations enabled
-        show_iframe: Show iframe for this URL
+        show_embedded_iframe: Show embedded iframe for this URL
         start_time: Start Time
         title: Title
         transparent: Transparent
@@ -273,7 +273,7 @@ en:
             registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
             select_a_meeting_type: Please select a meeting type
             select_a_registration_type: Please select a registration type
-            show_iframe_help: Whether or not show the iframe for this videoconference URL
+            show_embedded_iframe_help: Whether or not embed the iframe for this videoconference URL
           index:
             title: Meetings
           new:
@@ -445,7 +445,7 @@ en:
           select_a_category: Please select a category
           select_a_meeting_type: Please select a meeting type
           select_a_registration_type: Please select a registration type
-          show_iframe_help: Whether or not show the iframe for this videoconference URL
+          show_embedded_iframe_help: Whether or not embed the iframe for this videoconference URL
         index:
           new_meeting: New meeting
         meeting_minutes:

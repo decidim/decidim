@@ -54,7 +54,7 @@ module Decidim
           type_of_meeting: form.clean_type_of_meeting,
           component: form.current_component,
           published_at: Time.current,
-          show_iframe: form.show_iframe
+          show_embedded_iframe: form.show_embedded_iframe
         }
 
         @meeting = Decidim.traceability.create!(

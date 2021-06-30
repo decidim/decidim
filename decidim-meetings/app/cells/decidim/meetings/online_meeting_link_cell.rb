@@ -15,7 +15,7 @@ module Decidim
         model.online_meeting_url.present?
       end
 
-      delegate :live?, :show_iframe?, to: :model
+      delegate :live?, :show_embedded_iframe?, to: :model
       delegate :embed_code, :embeddable?, to: :embedder
     end
   end

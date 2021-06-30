@@ -37,7 +37,7 @@ FactoryBot.define do
     registration_type { :on_this_platform }
     type_of_meeting { :in_person }
     component { build(:component, manifest_name: "meetings") }
-    show_iframe { false }
+    show_embedded_iframe { false }
 
     author do
       component.try(:organization)
@@ -131,8 +131,8 @@ FactoryBot.define do
       published_at { Time.current }
     end
 
-    trait :show_iframe do
-      show_iframe { true }
+    trait :show_embedded_iframe do
+      show_embedded_iframe { true }
     end
   end
 
