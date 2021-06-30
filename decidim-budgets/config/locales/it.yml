@@ -60,7 +60,7 @@ it:
           projects: Progetti
         models:
           budget:
-            name: Bilancio
+            name: Budget
           project:
             name: Progetto
         projects:
