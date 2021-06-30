@@ -40,6 +40,8 @@
 
         if ($(this._targetFromEvent(event)).hasClass("picker-prompt") || !isMultiPicker) {
           this._openPicker($picker, this._targetFromEvent(event));
+        }  else if (this._targetFromEvent(event).tagName === "A") {
+          this._removeValue($picker, this._targetFromEvent(event).parentNode);
         } else {
           this._removeValue($picker, this._targetFromEvent(event));
         }
@@ -239,7 +241,12 @@
     _removeValue($picker, target) {
       if (target) {
         this._setCurrentPicker($picker, target);
-        this.current.target.fadeOut(500, () => {
+        // Fadeout (with time) doesn't work in system tests
+        let fadeoutTime = 500;
+        if (navigator && navigator.webdriver) {
+          fadeoutTime = 0;
+        }
+        this.current.target.fadeOut(fadeoutTime, () => {
           this.current.target.remove();
           this.current.target = null;
         });
