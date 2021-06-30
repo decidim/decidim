@@ -456,6 +456,7 @@ en:
           title: Create Your Meeting
         online_meeting_link:
           join: Join the meeting
+          link_available_soon: Link available soon
           live_event: This meeting is happening right now
         registration_confirm:
           cancel: Cancel

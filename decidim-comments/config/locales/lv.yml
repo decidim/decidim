@@ -57,7 +57,6 @@ lv:
             offensive: Satur rasismu, seksismu, lamuvārdus, personiskus uzbrukumus, nāves draudus, ierosinājumus veikt pašnāvību vai jebkāda veida naida runu.
             spam: Satur klikšķu ēsmu (clickbait), reklāmu, krāpšanu vai skriptu robotprogrammatūru.
         show_replies: Rādīt %{replies_count} atbildes
-        single_comment_link_title: Iegūt saiti uz atsevišķu komentāru
       comment_order_selector:
         order:
           best_rated: Vislabāk novērtētie

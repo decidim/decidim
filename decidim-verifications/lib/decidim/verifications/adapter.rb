@@ -14,6 +14,29 @@ module Decidim
       end
     end
 
+    class MissingVerificationRoute < StandardError
+      def new(handler:, route:, action:)
+        msg = <<~MSG
+          The authorization handler `#{handler}` does not define the route
+          `#{route}`. If you want to enable `#{action}` for `#{handler}`, change
+          your workflow to define an engine with a `#{route}` route.
+        MSG
+
+        super(msg)
+      end
+    end
+
+    class MissingEngine < StandardError
+      def new(handler:, engine:)
+        msg = <<~MSG
+          The authorization handler `#{handler}` does not define the `#{engine}`
+          engine. Please define the engine in the workflow configuration.
+        MSG
+
+        super(msg)
+      end
+    end
+
     class UnregisteredVerificationManifest < StandardError
     end
 
@@ -58,7 +81,8 @@ module Decidim
       # process. Otherwise it rises
       #
       def resume_authorization_path(redirect_url: nil)
-        raise InvalidDirectVerificationRoute.new(route: "edit_authorization_path") if manifest.type == "direct"
+        raise InvalidVerificationRoute.new(route: "edit_authorization_path") if manifest.type == "direct"
+        raise MissingVerificationRoute.new(handler: name, route: "edit_authorization_path", action: "resume") unless main_engine.respond_to?(:edit_authorization_path)
 
         main_engine.send(:edit_authorization_path, redirect_params(redirect_url: redirect_url))
       end
@@ -71,6 +95,8 @@ module Decidim
         if manifest.type == "direct"
           decidim_verifications.renew_authorizations_path(redirect_params(handler: name, redirect_url: redirect_url))
         else
+          raise MissingVerificationRoute.new(handler: name, route: "renew_authorization_path", action: "renew") unless main_engine.respond_to?(:renew_authorization_path)
+
           main_engine.send(:renew_authorization_path, redirect_params(redirect_url: redirect_url))
         end
       end
@@ -79,9 +105,9 @@ module Decidim
       # Administrational entry point for the verification engine
       #
       def admin_root_path
-        raise InvalidDirectVerificationRoute.new(route: "admin_route_path") if manifest.type == "direct"
+        raise InvalidVerificationRoute.new(route: "admin_route_path") if manifest.type == "direct"
 
-        public_send(:"decidim_admin_#{name}").send(:root_path, redirect_params)
+        admin_engine.send(:root_path, redirect_params)
       end
 
       #
@@ -105,7 +131,15 @@ module Decidim
       attr_reader :manifest
 
       def main_engine
-        send("decidim_#{manifest.name}")
+        raise MissingEngine.new(handler: name, engine: "main") unless respond_to?("decidim_#{name}")
+
+        send("decidim_#{name}")
+      end
+
+      def admin_engine
+        raise MissingEngine.new(handler: name, engine: "admin") unless respond_to?("decidim_admin_#{name}")
+
+        send("decidim_admin_#{name}")
       end
 
       def redirect_params(params = {})

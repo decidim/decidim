@@ -62,7 +62,6 @@ tr:
             spam: Clickbait, reklam, dolandırıcılık veya script botları içerir.
           title: Uygunsuz içerik bildir
         show_replies: '%{replies_count} yanıtı göster'
-        single_comment_link_title: Tek yorumun bağlantısını al
       comment_order_selector:
         order:
           best_rated: En çok oy alan

@@ -129,8 +129,10 @@ export default class CommentsComponent {
         this._stopPolling();
       });
 
-      // Attach event to the DOM node, instead of the jQuery object
-      $text.get(0).addEventListener("emoji.added", this._onTextInput);
+      if ($text.length && $text.get(0) !== null) {
+        // Attach event to the DOM node, instead of the jQuery object
+        $text.get(0).addEventListener("emoji.added", this._onTextInput);
+      }
     });
 
     this._pollComments();

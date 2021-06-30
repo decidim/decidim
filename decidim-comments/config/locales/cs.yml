@@ -23,6 +23,10 @@ cs:
       comments:
         create:
           error: Při vytváření komentáře došlo k chybě.
+        delete:
+          error: Komentář nemohl být odstraněn.
+        update:
+          error: Při aktualizaci komentáře došlo k chybě.
       comments_count: Počet komentářů
       comments_title: Komentáře
       last_activity:
@@ -57,7 +61,12 @@ cs:
         alignment:
           against: Proti
           in_favor: Ve prospěch
+        confirm_destroy: Opravdu chcete odstranit tento komentář?
+        delete: Smazat
+        deleted_at: Komentář byl smazán dne %{date}
         deleted_user: Vymazaný účastník
+        edit: Upravit
+        edited: Upraveno
         hide_replies: Skrýt odpovědi
         reply: Odpověď
         report:
@@ -72,7 +81,7 @@ cs:
             spam: Obsahuje clickbait, reklamu, podvody nebo škodlivé skripty.
           title: Nahlásit nevhodný obsah
         show_replies: Zobrazit %{replies_count} odpovědí
-        single_comment_link_title: Získat odkaz na jeden komentář
+        single_comment_link_title: Získat odkaz
       comment_order_selector:
         order:
           best_rated: Nejlépe hodnocené
@@ -97,6 +106,14 @@ cs:
           other: "%{count} komentářů"
       down_vote_button:
         text: Nesouhlasím s tímto komentářem
+      edit_comment_modal_form:
+        close: Zavřít
+        form:
+          body:
+            label: Komentář
+            placeholder: Co si o tom myslíte?
+          submit: Odeslat
+        title: Upravit komentář
       up_vote_button:
         text: Souhlasím s tímto komentářem
     events:

@@ -37,7 +37,7 @@ module Decidim
         validates :banner_image, passthru: { to: Decidim::Consultations::Question }
         validate :slug_uniqueness
         validates :origin_scope, :origin_title, translatable_presence: true, if: :has_origin_data?
-        validates :i_frame_url, presence: true, if: :external_voting
+        validates :i_frame_url, url: true, presence: true, if: :external_voting
         validates :order, numericality: { only_integer: true, allow_nil: true, allow_blank: true }
 
         alias organization current_organization
