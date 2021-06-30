@@ -19,6 +19,10 @@ fi-pl:
       comments:
         create:
           error: Kommentin luotaessa tapahtui virhe.
+        delete:
+          error: Kommenttia ei voitu poistaa.
+        update:
+          error: Kommentin päivittäminen epäonnistui.
       comments_count: Kommenttien määrä
       comments_title: Kommentit
       last_activity:
@@ -53,7 +57,12 @@ fi-pl:
         alignment:
           against: Vastaan
           in_favor: Puolesta
+        confirm_destroy: Haluatko varmasti poistaa tämän kommentin?
+        delete: Poista
+        deleted_at: Kommentti poistettu %{date}
         deleted_user: Poistettu käyttäjä
+        edit: Muokkaa
+        edited: Muokattu
         hide_replies: Piilota vastaukset
         reply: Vastaa
         report:
@@ -68,7 +77,7 @@ fi-pl:
             spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
           title: Ilmoita asiatonta sisältöä
         show_replies: Näytä %{replies_count} vastausta
-        single_comment_link_title: Hae linkki yksittäiseen kommenttiin
+        single_comment_link_title: Linkki kommenttiin
       comment_order_selector:
         order:
           best_rated: Parhaiksi arvioidut
@@ -91,6 +100,14 @@ fi-pl:
           other: "%{count} kommenttia"
       down_vote_button:
         text: Olen eri mieltä tämän kommentin kanssa
+      edit_comment_modal_form:
+        close: Sulje
+        form:
+          body:
+            label: Kommentti
+            placeholder: Mitä mieltä olet tästä?
+          submit: Lähetä
+        title: Muokkaa kommenttiasi
       up_vote_button:
         text: Olen samaa mieltä tämän kommentin kanssa
     events:

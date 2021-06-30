@@ -219,7 +219,7 @@ it:
           name: Membro
           positions:
             other: Altro
-            president: Presidente/Presidentessa
+            president: Presidentessa/Presidente
             secretary: Segretario
             vice_president: Vicepresidente
         assembly_user_role:

@@ -431,6 +431,8 @@ de:
           back: Zurück
           create: Erstellen
           title: Ihre Besprechung erstellen
+        online_meeting_link:
+          link_available_soon: Link bald verfügbar
         registration_confirm:
           cancel: Stornieren
           confirm: Bestätigen

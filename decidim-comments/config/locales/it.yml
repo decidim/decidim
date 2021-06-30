@@ -19,6 +19,10 @@ it:
       comments:
         create:
           error: Ci sono stati problemi durante la creazione del commento.
+        delete:
+          error: Il commento non può essere eliminato.
+        update:
+          error: Si è verificato un errore durante l'aggiornamento del commento.
       comments_count: Conteggio dei Commenti
       comments_title: Commenti
       last_activity:
@@ -53,7 +57,12 @@ it:
         alignment:
           against: Contro
           in_favor: A favore
+        confirm_destroy: Sei sicura di voler eliminare questo commento?
+        delete: Cancella
+        deleted_at: Commento eliminato il %{date}
         deleted_user: Utente cancellato
+        edit: Modifica
+        edited: Modificato
         hide_replies: Nascondi risposte
         reply: Rispondi
         report:
@@ -68,7 +77,7 @@ it:
             spam: Contiene pubblicità, truffe, clickbait ("esca da click") o altro contenuto mirato ad attrarre traffico internet.
           title: Segnala contenuti inappropriati
         show_replies: Mostra %{replies_count} risposte
-        single_comment_link_title: Ottieni link a singolo commento
+        single_comment_link_title: Ottieni il link
       comment_order_selector:
         order:
           best_rated: Favoriti
@@ -91,6 +100,14 @@ it:
           other: "%{count} commenti"
       down_vote_button:
         text: Non sono d'accordo con questo commento
+      edit_comment_modal_form:
+        close: Chiudi
+        form:
+          body:
+            label: Commento
+            placeholder: Cosa ne pensi?
+          submit: Invia
+        title: Modifica il tuo commento
       up_vote_button:
         text: Sono d'accordo con questo commento
     events:
