@@ -92,7 +92,7 @@ end
 
 These were automatically included in the main application's stylesheet file and also in the admin panel's stylesheet file. These no longer work with Webpacker as the Decidim environment is not loaded when Webpacker compiles the assets.
 
-What you should do instead is to follow the asset compilation migration guide above and migrate these definitions into your application's `config/assets.rb` file as follows:
+What you should do instead is to follow the asset compilation migration guide above and migrate these definitions into your module's `config/assets.rb` file as follows:
 
 [source,ruby]
 ----
