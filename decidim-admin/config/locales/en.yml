@@ -49,7 +49,7 @@ en:
         favicon: Icon
         force_authentication: Force authentication
         force_users_to_authenticate_before_access_organization: Force users to authenticate before access organization
-        from: From email address
+        from: Sender's email address
         github_handler: GitHub handler
         header_snippets: Header snippets
         highlight_alternative_color: Highlight, alternative
@@ -181,12 +181,12 @@ en:
           success: Great! You've accepted the admin terms of use.
         actions:
           accept: I agree with the following terms
-          are_you_sure: Are you sure to refuse the admin terms?
+          are_you_sure: Are you sure you want to refuse the admin terms of use?
           refuse: Refuse the admin terms
           title: Agree to the terms and conditions of use
         required_review:
           alert: 'Required: Review our admin terms of use'
-          callout: Please take a moment to review Admin Terms of Use. Otherwise you won't be able to admin the platform.
+          callout: Please take a moment to review Admin Terms of Use. Otherwise you won't be able to manage the platform.
           cta: Review them now.
         title: Admin Terms of Use
       area_types:
@@ -209,7 +209,7 @@ en:
           error: There was a problem creating a new area.
           success: Area created successfully.
         destroy:
-          has_spaces: Area has dependent spaces, it must not have dependencies in order to be deleted.
+          has_spaces: This area has dependent spaces. Please make sure no Participatory Space references this area before deleting it.
           success: Area successfully destroyed
         edit:
           title: Edit area
@@ -262,7 +262,7 @@ en:
       block_user:
         new:
           action: Block account and send justification
-          description: Blocking an user will render its account unusable, you may provide in your justification and guidelines on ways you deem you would consider unblocking the user.
+          description: Blocking a user will render their account unusable. You may provide in your justification any guidelines on ways you would consider unblocking the user.
           justification: Justification
           title: Block User %{name}
       categories:
@@ -325,7 +325,7 @@ en:
         'false': 'No'
         managed_user_name: Managed User
         solved: Solved
-        title: Verifications's conflicts
+        title: Verification conflicts
         transfer:
           email: Email
           error: There was a problem transfering the current participant to managed participant.
@@ -488,7 +488,7 @@ en:
         areas: Areas
         configuration: Configuration
         dashboard: Dashboard
-        external_domain_whitelist: External domain whitelist
+        external_domain_whitelist: Allowed external domains
         help_sections: Help sections
         homepage: Homepage
         impersonations: Impersonations
@@ -637,7 +637,7 @@ en:
       newsletters:
         create:
           error: There was a problem creating this newsletter.
-          success: Newsletter created successfully. Please, review it before sending.
+          success: Newsletter created successfully. Please review it before sending.
         deliver:
           error: There was a problem delivering this newsletter.
           success: Newsletter delivered successfully.
@@ -720,12 +720,12 @@ en:
           title: Officialize participant "%{name}"
         show_email_modal:
           close_modal: Close modal
-          description: If you need to contact a participant directly you can click on the Show button to see the email address. This action will be logged.
+          description: If you need to contact a participant directly, you can click on the Show button to see their email address. This action will be logged.
           email_address: Email address
           full_name: Full name
           hidden: hidden
           show: Show
-          title: Show participant email address
+          title: Show participant's email address
         unblock:
           error: There was an error unblocking the participant
           success: Participant successfully unblocked
@@ -972,7 +972,7 @@ en:
     forms:
       errors:
         impersonate_user:
-          reason: You need to provide a reason when managing a non managed participant
+          reason: You need to provide a reason when managing a non-managed participant
     metrics:
       blocked_users:
         object: blocked users
