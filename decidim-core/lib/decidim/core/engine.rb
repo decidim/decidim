@@ -44,6 +44,7 @@ require "anchored"
 require "social-share-button"
 require "ransack"
 require "searchlight"
+require "webpacker"
 
 # Needed for the assets:precompile task, for configuring webpacker instance
 require "decidim/webpacker"
