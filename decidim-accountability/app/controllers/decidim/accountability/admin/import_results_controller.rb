@@ -16,17 +16,7 @@ module Decidim
           Decidim::Accountability::Admin::ImportResultsCSVJob.perform_later(current_user, current_component, @csv_file.read.force_encoding("utf-8").encode("utf-8"))
 
           flash[:notice] = I18n.t("imports.create.success", scope: "decidim.accountability.admin")
-          redirect_to import_results_path(current_participatory_process, current_component)
-        end
-
-        private
-
-        def current_component
-          @current_component ||= current_participatory_process.components.find(params[:component_id])
-        end
-
-        def current_participatory_process
-          @current_participatory_process ||= ParticipatoryProcess.find_by(slug: params[:participatory_process_slug])
+          redirect_to import_results_path(current_participatory_space, current_component)
         end
       end
     end
