@@ -104,16 +104,7 @@ module Decidim
 
       def remove_sprockets_requirement
         gsub_file "config/application.rb", %r{require 'rails/all'}, <<~RUBY
-          require "rails"
-          # Pick the frameworks you want:
-          require "active_model/railtie"
-          require "active_job/railtie"
-          require "active_record/railtie"
-          require "active_storage/engine"
-          require "action_controller/railtie"
-          require "action_mailer/railtie"
-          require "action_view/railtie"
-          require "rails/test_unit/railtie"
+          require "decidim/rails"
         RUBY
 
         gsub_file "config/environments/development.rb", /config\.assets.*$/, ""
