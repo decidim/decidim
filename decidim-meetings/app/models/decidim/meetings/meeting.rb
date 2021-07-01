@@ -320,7 +320,7 @@ module Decidim
         Arel.sql(%{cast("decidim_meetings_meetings"."id" as text)})
       end
 
-      ransacker :is_upcomming do
+      ransacker :is_upcoming do
         query = <<-SQL.squish
         (
           SELECT EXISTS (

@@ -15,6 +15,9 @@
         <thead>
           <tr>
             <th>
+              <%= sort_link(query, :translated_title, t("models.meeting.fields.id", scope: "decidim.meetings"), default_order: :desc ) %>
+            </th>
+            <th>
               <%= sort_link(query, :translated_title, t("models.meeting.fields.title", scope: "decidim.meetings"), default_order: :desc ) %>
             </th>
             <th>
@@ -36,13 +39,15 @@
               </th>
             <% end %>
 
-            <%#= th_resource_scope_label %>
             <th class="actions"><%= t("actions.title", scope: "decidim.meetings") %></th>
           </tr>
         </thead>
         <tbody>
           <% meetings.each do |meeting| %>
             <tr data-id="<%= meeting.id %>">
+              <td>
+                <%= meeting.id %><br>
+              </td>
               <td>
                 <%= present(meeting).title %><br>
               </td>

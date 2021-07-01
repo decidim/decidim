@@ -79,11 +79,11 @@ en:
             values:
               'false': Open
               'true': Closed
-          is_upcomming_true:
+          is_upcoming_true:
             label: Date
             values:
               'false': Past
-              'true': Upcomming
+              'true': Upcoming
           origin_eq:
             label: Origin
             values:
@@ -514,6 +514,7 @@ en:
           fields:
             closed: Closed
             end_time: End date
+            id: ID
             map: Map
             official_meeting: Official meeting
             start_time: Start date
