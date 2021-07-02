@@ -109,6 +109,7 @@ PATH
       social-share-button (~> 1.2, >= 1.2.1)
       truncato (~> 0.7)
       valid_email2 (~> 2.1)
+      webpacker (~> 6.0.0.beta.7)
       wisper (~> 2.0)
     decidim-debates (0.25.0.dev)
       decidim-comments (= 0.25.0.dev)
@@ -844,7 +845,6 @@ DEPENDENCIES
   spring (~> 2.0)
   spring-watcher-listen (~> 2.0)
   web-console (~> 4.0)
-  webpacker (= 6.0.0.beta.7)
   wicked_pdf (~> 2.1)
 
 RUBY VERSION

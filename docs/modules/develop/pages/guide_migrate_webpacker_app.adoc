@@ -20,21 +20,12 @@ Before starting the migration, please check you have the following dependencies 
 
 == Add Webpacker to the application
 
-Follow the steps descibed https://github.com/rails/webpacker#installation[here]
-
-* Add it to your Gemfile
-
-[source, console]
-----
-# Gemfile
-gem "webpacker", "6.0.0.beta.7"
-----
+Follow the steps described https://github.com/rails/webpacker#installation[here]
 
 - Install it
 
 [source,console]
 ----
-bundle install
 bundle exec rails webpacker:install
 ----
 
@@ -47,7 +38,7 @@ bundle exec rails decidim:webpacker:install
 
 This task do a few steps to allow the Rails instance to have a webpacker instance sharing the code between itself and Decidim gem.
 
-This task should be performed everytime decidim has been updated, to get the latest assets dependencies and Webpack configuration, and is run in the `decidim:upgrade` task.
+This task is automatically performed every time decidim is updated, to get the latest Webpack configuration. This happens when you run the `decidim:upgrade` task.
 
 == Copy Decidim custom CSS and Javascript
 
@@ -66,7 +57,7 @@ If it's not the case you must create it. Then, copy Decidim customizable assets
 
 * Copy the file https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/decidim_application.js[decidim_application.js] to `app/packs/src/decidim/decidim_application.js`
 * Copy the file https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/decidim_application.scss[decidim_application.scss] to `app/packs/stylesheets/decidim/decidim_application.scss`
-* Copy the file https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/decidim-settings.scss[_decidim-settings.scss] to `app/packs/stylesheets/decidim/_decidim-settings.scss`
+* Copy the file https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/_decidim-settings.scss[_decidim-settings.scss] to `app/packs/stylesheets/decidim/_decidim-settings.scss`
 
 These files are hooked into Decidim packs (specifically into decidim-core pack) and will be automatically included inside that pack when compiled.
 
@@ -80,7 +71,7 @@ Existing stylesheets should be moved from `app/assets/stylesheets` to `app/packs
 
 If that CSS file is replacing a Decidim file, there's no need to add it to `decidim_application.scss`.
 
-If any of the CSS is re-defining CSS vars should be renamed to `_decidim-settings.scss`.
+If any of the CSS is re-defining CSS vars add them to `_decidim-settings.scss`.
 
 == Migrate javascripts
 
@@ -99,7 +90,32 @@ For images, if they are in `app/packs/images` you could use `image_pack_tag`.
 Sometimes assets are included in `vendor/assets/` folder or imported from gems. For each specific one you should check:
 
 1. if the asset is a javascript that is available as npm package the recommendation is to add it to package.json with `npm install`. If it's not available you might want to copy it to `app/packs/src` and import it.
-2. if the asset is a stylesheet it should be copied to `app/packs/stylesheets` and imported with `@import...` from `decidim-settings.scss`
+2. if the asset is a stylesheet it should be copied to `app/packs/stylesheets` and imported with `@import...` from `_decidim-settings.scss`. Alternatively you can use the optional asset includes as described below to include these in the Decidim main SCSS files.
+
+== Optional asset includes
+
+Decidim Webpacker provides a new configuration convention that allows you to add extra configurations for webpacker using a configuration file named `config/assets.rb`. Within this file, you have the following API methods available:
+
+[source,ruby]
+----
+# frozen_string_literal: true
+# This file is located at `config/assets.rb` of your module.
+
+# Define the base path of your module. Please note that `Rails.root` may not be
+# used because we are not inside the Rails environment when this file is loaded.
+base_path = File.expand_path("..", __dir__)
+
+# If you want to import some extra SCSS files in the Decidim main SCSS file
+# without adding any extra stylesheet inclusion tags, you can use the following
+# method to register the stylesheet import for the main application. This would
+# include an SCSS file at `app/packs/stylesheets/your_app_extensions.scss` into
+# the Decidim's main SCSS file.
+Decidim::Webpacker.register_stylesheet_import("stylesheets/your_app_extensions")
+
+# If you want to do the same but include the SCSS file for the admin panel's
+# main SCSS file, you can use the following method.
+Decidim::Webpacker.register_stylesheet_import("stylesheets/your_app_admin_extensions", group: :admin)
+----
 
 == Remove Sprockets references
 
@@ -110,14 +126,14 @@ The completely remove Sprockets references from your application:
 * Remove `app/assets` folder
 * In `config/application.rb` replace:
 
-[source,console]
+[source,ruby]
 ----
 require 'rails/all'
 ----
 
 with:
 
-[source,console]
+[source,ruby]
 ----
 require "rails"
 # Pick the frameworks you want:
@@ -143,7 +159,7 @@ The deployment needs to be updated to manually run `npm install` before assets a
 
 In the case of Capistrano this can be done with a before hook:
 
-[source,console]
+[source,ruby]
 ----
 namespace :deploy do
   desc "Decidim webpacker configuration"
