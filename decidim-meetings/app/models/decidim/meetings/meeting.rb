@@ -331,7 +331,6 @@ module Decidim
         Arel.sql(query)
       end
 
-
       ransacker :origin do
         Arel.sql("CASE
             WHEN decidim_author_type = 'Decidim::Organization' THEN 'official'
