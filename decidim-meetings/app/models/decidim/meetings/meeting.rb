@@ -332,21 +332,14 @@ module Decidim
         Arel.sql(query)
       end
 
+
       ransacker :origin do
-        query = <<-SQL.squish
-        (
-        SELECT
-          CASE
-              WHEN decidim_author_type = 'Decidim::Organization' THEN 'official'
-              WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NOT NULL THEN 'user_group'
-              WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NULL THEN 'citizen'
-              ELSE 'unknown'
-          END
-        FROM decidim_meetings_meetings as dmm
-        WHERE dmm.id = decidim_meetings_meetings.id
-        )
-        SQL
-        Arel.sql(query)
+        Arel.sql("CASE
+            WHEN decidim_author_type = 'Decidim::Organization' THEN 'official'
+            WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NOT NULL THEN 'user_group'
+            WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NULL THEN 'citizen'
+            ELSE 'unknown' END
+        ")
       end
 
       private
