@@ -255,7 +255,10 @@ module Decidim
 
             expect(questionnaire.questions[4].question_type).to eq("matrix_single")
             expect(questionnaire.questions[4].answer_options[0].free_text).to eq(true)
-            expect(questionnaire.questions[4].matrix_rows[0].body["en"]).to eq(form_params["questions"]["4"]["matrix_rows"]["0"]["body"]["en"])
+            (0..1).each do |idx|
+              expect(questionnaire.questions[4].matrix_rows[idx].body["en"]).to eq(form_params["questions"]["4"]["matrix_rows"][idx.to_s]["body"]["en"])
+              expect(questionnaire.questions[4].matrix_rows[idx].position).to eq(idx)
+            end
 
             expect(questionnaire.questions[5].question_type).to eq("matrix_multiple")
             expect(questionnaire.questions[5].answer_options[0].free_text).to eq(true)
