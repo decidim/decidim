@@ -104,7 +104,7 @@
 
     <div class="questionnaire-question-matrix-rows" data-template="<%= matrix_row_template_selector %>">
       <div class="questionnaire-question-matrix-rows-list">
-        <% question.matrix_rows.each do |matrix_row| %>
+        <% question.matrix_rows_by_position.each do |matrix_row| %>
           <%= fields_for "questionnaire[questions][#{question.to_param}][matrix_rows][]", matrix_row do |matrix_row_form| %>
             <%= render "decidim/forms/admin/questionnaires/matrix_row", form: matrix_row_form, question: question, editable: editable %>
           <% end %>

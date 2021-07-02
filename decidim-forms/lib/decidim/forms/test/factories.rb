@@ -63,9 +63,10 @@ FactoryBot.define do
       end
 
       if question.matrix_rows.empty?
-        evaluator.rows.each do |row|
+        evaluator.rows.each_with_index do |row, idx|
           question.matrix_rows.build(
-            body: row["body"]
+            body: row["body"],
+            position: idx
           )
         end
       end

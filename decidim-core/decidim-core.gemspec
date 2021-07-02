@@ -22,7 +22,6 @@ Gem::Specification.new do |s|
   s.add_dependency "active_link_to", "~> 1.0"
   s.add_dependency "acts_as_list", "~> 0.9"
   s.add_dependency "anchored", "~> 1.1"
-  s.add_dependency "autoprefixer-rails", "~> 8.0"
   s.add_dependency "batch-loader", "~> 1.2"
   s.add_dependency "browser", "~> 2.7"
   s.add_dependency "carrierwave", "~> 2.2.1"
@@ -42,7 +41,6 @@ Gem::Specification.new do |s|
   s.add_dependency "geocoder", "~> 1.5"
   s.add_dependency "hashdiff", ">= 0.4.0", "< 2.0.0"
   s.add_dependency "invisible_captcha", "~> 0.12"
-  s.add_dependency "jquery-rails", "~> 4.4"
   s.add_dependency "kaminari", "~> 1.2", ">= 1.2.1"
   s.add_dependency "loofah", "~> 2.3.1"
   s.add_dependency "mini_magick", "~> 4.9"
@@ -71,8 +69,8 @@ Gem::Specification.new do |s|
   s.add_dependency "seven_zip_ruby", "~> 1.3"
   s.add_dependency "social-share-button", "~> 1.2", ">= 1.2.1"
   s.add_dependency "truncato", "~> 0.7"
-  s.add_dependency "uglifier", "~> 4.1"
   s.add_dependency "valid_email2", "~> 2.1"
+  s.add_dependency "webpacker", "~> 6.0.0.beta.7"
   s.add_dependency "wisper", "~> 2.0"
 
   s.add_dependency "decidim-api", Decidim::Core.version
