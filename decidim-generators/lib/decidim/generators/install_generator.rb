@@ -105,6 +105,7 @@ module Decidim
       def remove_sprockets_requirement
         gsub_file "config/application.rb", %r{require ['"]rails/all['"]\R}, <<~RUBY
           require "decidim/rails"
+          # Add the frameworks used by your app that are not loaded by Decidim.
         RUBY
 
         gsub_file "config/environments/development.rb", /config\.assets.*$/, ""
