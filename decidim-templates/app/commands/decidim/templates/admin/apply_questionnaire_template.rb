@@ -21,7 +21,7 @@ module Decidim
         #
         # Returns nothing.
         def call
-          return broadcast(:invalid) unless @template.valid?
+          return broadcast(:invalid) unless @template && @template.valid?
 
           Template.transaction do
             apply_template
