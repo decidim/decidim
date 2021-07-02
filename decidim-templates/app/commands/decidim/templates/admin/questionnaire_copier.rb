@@ -41,13 +41,23 @@ module Decidim
           original_question.display_conditions.each do |original_display_condition|
             new_display_condition = original_display_condition.dup
             new_display_condition.question = destination_question
-            destination_question_to_be_checked = destination_question.questionnaire.questions.find_by(position: original_display_condition.condition_question.position)
+
+            destination_question_to_be_checked = find_question_by_position(destination_question.questionnaire.questions, original_display_condition.condition_question.position)
             new_display_condition.condition_question = destination_question_to_be_checked
+
             if original_display_condition.answer_option
-              new_display_condition.answer_option = destination_question_to_be_checked.answer_options.find_by(body: original_display_condition.answer_option.body)
+              new_display_condition.answer_option = find_answer_option_by_body(destination_question_to_be_checked.answer_options, original_display_condition.answer_option.body)
             end
             new_display_condition.save!
           end
+        end
+
+        def find_question_by_position(questions, position)
+          questions.to_a.find { |q| q.position == position }
+        end
+
+        def find_answer_option_by_body(answer_options, body)
+          answer_options.to_a.find { |ao| ao.body == body }
         end
       end
     end
