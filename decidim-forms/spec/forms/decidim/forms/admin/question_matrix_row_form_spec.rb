@@ -35,7 +35,7 @@ module Decidim
         context "when the position is not present" do
           let!(:position) { nil }
 
-          it { is_expected.not_to be_valid }
+          it { is_expected.to be_valid }
         end
 
         context "when the body is missing a locale translation" do
