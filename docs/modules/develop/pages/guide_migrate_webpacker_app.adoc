@@ -57,7 +57,7 @@ If it's not the case you must create it. Then, copy Decidim customizable assets
 
 * Copy the file https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/decidim_application.js[decidim_application.js] to `app/packs/src/decidim/decidim_application.js`
 * Copy the file https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/decidim_application.scss[decidim_application.scss] to `app/packs/stylesheets/decidim/decidim_application.scss`
-* Copy the file https://github.com/decidim/decidim/blob/develop/decidim-core/app/packs/stylesheets/decidim/_decidim-settings.scss[_decidim-settings.scss] to `app/packs/stylesheets/decidim/_decidim-settings.scss`
+* Copy the file https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/_decidim-settings.scss[_decidim-settings.scss] to `app/packs/stylesheets/decidim/_decidim-settings.scss`
 
 These files are hooked into Decidim packs (specifically into decidim-core pack) and will be automatically included inside that pack when compiled.
 
