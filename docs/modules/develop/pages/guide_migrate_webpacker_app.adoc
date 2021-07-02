@@ -120,6 +120,10 @@ with:
 [source,ruby]
 ----
 require "decidim/rails"
+# Add the frameworks used by your app that are not loaded by Decidim.
+# require "action_cable/engine"
+# require "action_mailbox/engine"
+# require "action_text/engine"
 ----
 
 * In `config/environments/*.rb` remove any line containing `config.assets.*` (i.e `config.assets.debug = true`)
