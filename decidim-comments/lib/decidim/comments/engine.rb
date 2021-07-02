@@ -6,7 +6,6 @@ require "active_support/all"
 require "decidim/core"
 require "jquery-rails"
 require "foundation_rails_helper"
-require "autoprefixer-rails"
 
 require "decidim/comments/query_extensions"
 require "decidim/comments/mutation_extensions"
