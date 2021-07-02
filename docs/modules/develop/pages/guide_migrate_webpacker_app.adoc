@@ -20,7 +20,7 @@ Before starting the migration, please check you have the following dependencies 
 
 == Add Webpacker to the application
 
-Follow the steps descibed https://github.com/rails/webpacker#installation[here]
+Follow the steps described https://github.com/rails/webpacker#installation[here]
 
 - Install it
 
