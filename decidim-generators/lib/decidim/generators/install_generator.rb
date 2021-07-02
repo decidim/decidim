@@ -103,7 +103,7 @@ module Decidim
       end
 
       def remove_sprockets_requirement
-        gsub_file "config/application.rb", %r{require 'rails/all'}, <<~RUBY
+        gsub_file "config/application.rb", %r{require ['"]rails/all['"]\R}, <<~RUBY
           require "decidim/rails"
         RUBY
 
