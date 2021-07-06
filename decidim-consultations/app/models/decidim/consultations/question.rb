@@ -201,6 +201,14 @@ module Decidim
         true
       end
 
+      def user_allowed_to_comment?(user)
+        ActionAuthorizer.new(user, "comment", self, nil).authorize.ok?
+      end
+
+      def component
+        nil
+      end
+
       def attachment_context
         :admin
       end
