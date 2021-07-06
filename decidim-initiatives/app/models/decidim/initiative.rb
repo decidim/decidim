@@ -21,6 +21,7 @@ module Decidim
     include Decidim::Searchable
     include Decidim::Initiatives::HasArea
     include Decidim::TranslatableResource
+    include Decidim::HasResourcePermission
 
     translatable_fields :title, :description, :answer
 
@@ -426,6 +427,11 @@ module Decidim
     # implement this interface.
     def user_role_config_for(_user, _role_name)
       Decidim::ParticipatorySpaceRoleConfig::Base.new(:empty_role_name)
+    end
+
+    # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
+    def allow_resource_permissions?
+      true
     end
 
     private
