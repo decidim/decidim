@@ -6,6 +6,7 @@ module Decidim
   describe ActionAuthorizationHelper do
     let(:component) { create(:component) }
     let(:resource) { nil }
+    let(:permissions_holder) { nil }
     let(:user) { create(:user) }
     let(:action) { "foo" }
     let(:status) { double(ok?: authorized) }
@@ -17,7 +18,7 @@ module Decidim
     before do
       allow(helper).to receive(:current_component).and_return(component)
       allow(helper).to receive(:current_user).and_return(user)
-      allow(helper).to receive(:action_authorized_to).with(action, resource: resource).and_return(status)
+      allow(helper).to receive(:action_authorized_to).with(action, resource: resource, permissions_holder: permissions_holder).and_return(status)
     end
 
     shared_examples "an action authorization widget helper" do |params|

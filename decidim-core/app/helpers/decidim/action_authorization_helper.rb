@@ -64,13 +64,14 @@ module Decidim
 
       html_options ||= {}
       resource = html_options.delete(:resource)
+      permissions_holder = html_options.delete(:permissions_holder)
 
       if !current_user
         html_options = clean_authorized_to_data_open(html_options)
 
         html_options["data-open"] = "loginModal"
         url = "#"
-      elsif action && !action_authorized_to(action, resource: resource).ok?
+      elsif action && !action_authorized_to(action, resource: resource, permissions_holder: permissions_holder).ok?
         html_options = clean_authorized_to_data_open(html_options)
 
         html_options["data-open"] = "authorizationModal"
