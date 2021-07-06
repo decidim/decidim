@@ -42,6 +42,10 @@ en:
         type_of_meeting: Type
     errors:
       models:
+        meeting:
+          attributes:
+            show_embedded_iframe:
+              not_embeddable: This URL can't be embedded
         meeting_agenda:
           attributes:
             base:
@@ -273,7 +277,7 @@ en:
             registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
             select_a_meeting_type: Please select a meeting type
             select_a_registration_type: Please select a registration type
-            show_embedded_iframe_help: Whether or not embed the iframe for this videoconference URL
+            show_embedded_iframe_help: Whether or not embed the iframe for this videoconference URL. Only a few services allow embedding (i.e. Youtube, Twitch...)
           index:
             title: Meetings
           new:
@@ -445,7 +449,7 @@ en:
           select_a_category: Please select a category
           select_a_meeting_type: Please select a meeting type
           select_a_registration_type: Please select a registration type
-          show_embedded_iframe_help: Whether or not embed the iframe for this videoconference URL
+          show_embedded_iframe_help: Whether or not embed the iframe for this videoconference URL. Only a few services allow embedding (i.e. Youtube, Twitch...)
         index:
           new_meeting: New meeting
         meeting_minutes:
