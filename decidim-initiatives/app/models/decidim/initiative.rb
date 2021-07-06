@@ -434,6 +434,14 @@ module Decidim
       true
     end
 
+    def user_allowed_to_comment?(user)
+      ActionAuthorizer.new(user, "comment", self, nil).authorize.ok?
+    end
+
+    def component
+      nil
+    end
+
     private
 
     # Private: This is just an alias because the naming on InitiativeTypeScope
