@@ -476,6 +476,7 @@ en:
           leave: Cancel your registration
           leave_confirmation: Are you sure you want to cancel your registration for this meeting?
           link_available_soon: Link available soon
+          link_closed: The link to join the meeting will be available a few minutes before it starts
           live_event: This meeting is happening right now
           meeting_minutes: Meeting Minutes
           micro_camera_permissions_warning: When you click on the button below, you will be asked for microphone and/or camera permissions, and you will join the videoconference

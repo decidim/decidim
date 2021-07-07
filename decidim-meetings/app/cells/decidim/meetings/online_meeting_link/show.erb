@@ -1,15 +1,16 @@
-<div class="card card--secondary">
 <% if !online_meeting_url? %>
-  <div class="card__content address">
-    <div class="address__info">
-      <%= icon "timer", role: "img", "aria-hidden": true, remove_icon_class: true, width: 40, height: 70 %>
-      <div class="address__details">
-        <span><%= t("link_available_soon", scope: "decidim.meetings.meetings.show") %></span>
+  <div class="card card--secondary">
+    <div class="card__content address">
+      <div class="address__info">
+        <%= icon "timer", role: "img", "aria-hidden": true, remove_icon_class: true, width: 40, height: 70 %>
+        <div class="address__details">
+          <span><%= t("link_available_soon", scope: "decidim.meetings.meetings.show") %></span>
+        </div>
       </div>
     </div>
   </div>
-<% else %>
-  <% if live? %>
+<% elsif live? %>
+  <div class="card card--secondary">
     <div class="card__content text-center">
       <div class="heading1 text-primary">
         <%= icon "audio", class: "heading4" %>
@@ -20,28 +21,29 @@
           <p><small><%= t("micro_camera_permissions_warning", scope: "decidim.meetings.meetings.show") %></small></p>
         <% end %>
       </div>
-      <% # When the meeting url is embeddable but show iframe is disabled, it's embedded here %>
-      <% if show_embedded_iframe? && embeddable? %>
-        <div class="margin-top-3 absolutes aspect-ratio-16-9">
+      <div class="margin-top-3 absolutes aspect-ratio-16-9">
+        <% if show_embedded_iframe? && embeddable? %>
           <%== embed_code(request.host) %>
-        </div>
-      <% else %>
-        <div class="margin-top-3">
-          <% # Links to the meeting, which can be to Decidim live event page or to the remote service %>
+        <% else %>
           <%= link_to t("join", scope: "decidim.meetings.meetings.show"), live_event_url, target: "_blank", class: "button button--sc" %>
-        </div>
-      <% end %>
-    </div>
-  <% else %>
-    <div class="card__content address">
-      <div class="address__info">
-        <%= icon "video", role: "img", "aria-hidden": true, remove_icon_class: true, width: 40, height: 70 %>
-        <div class="address__details">
-          <span><%= link_to(live_event_url, live_event_url, target: "_blank") %></span><br>
-          <span><%= translated_attribute model.location_hints %></span>
-        </div>
+        <% end %>
       </div>
     </div>
-  <% end %>
+  </div>
+<% elsif show_embedded_iframe? && embeddable? %>
+  <div class="card card--secondary">
+    <div class="card__content text-center">
+      <div class="margin-top-3 absolutes aspect-ratio-16-9">
+        <%== embed_code(request.host) %>
+      </div>
+    </div>
+  </div>
+<% elsif past? %>
+  <div class="card card--secondary">
+    <div class="card__content text-center">
+      <div>
+        <span><%= t("link_closed", scope: "decidim.meetings.meetings.show") %></span>
+      </div>
+    </div>
+  </div>
 <% end %>
-</div>

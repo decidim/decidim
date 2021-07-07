@@ -17,6 +17,12 @@ module Decidim
 
       delegate :live?, :show_embedded_iframe?, to: :model
       delegate :embed_code, :embeddable?, to: :embedder
+
+      private
+
+      def past?
+        Time.current <= model.start_time && !live?
+      end
     end
   end
 end
