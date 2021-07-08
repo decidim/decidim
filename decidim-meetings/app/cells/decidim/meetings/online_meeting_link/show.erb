@@ -1,4 +1,36 @@
-<% if !online_meeting_url? %>
+<% if online_meeting_url? %>
+  <% if show_embed? || live? || future? %>
+    <div class="card card--secondary">
+      <div class="card__content text-center">
+        <% if live? %>
+          <div class="heading1 text-primary">
+            <%= icon "audio", class: "heading4" %>
+          </div>
+          <div>
+            <strong class="heading5"><%= t("live_event", scope: "decidim.meetings.meetings.show") %></strong>
+            <% unless show_embed? %>
+              <p><small><%= t("micro_camera_permissions_warning", scope: "decidim.meetings.meetings.show") %></small></p>
+            <% end %>
+          </div>
+        <% end %>
+
+        <% if show_embed? %>
+          <div class="margin-top-3 absolutes aspect-ratio-16-9">
+            <%== embed_code(request.host) %>
+          </div>
+        <% elsif live? || future? %>
+          <div class="margin-top-3 absolutes">
+            <% if live? %>
+              <%= link_to t("join", scope: "decidim.meetings.meetings.show"), live_event_url, target: "_blank", class: "button button--sc" %>
+            <% elsif future? %>
+              <span><%= t("link_closed", scope: "decidim.meetings.meetings.show") %></span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% else %>
   <div class="card card--secondary">
     <div class="card__content address">
       <div class="address__info">
@@ -6,43 +38,6 @@
         <div class="address__details">
           <span><%= t("link_available_soon", scope: "decidim.meetings.meetings.show") %></span>
         </div>
-      </div>
-    </div>
-  </div>
-<% elsif live? %>
-  <div class="card card--secondary">
-    <div class="card__content text-center">
-      <div class="heading1 text-primary">
-        <%= icon "audio", class: "heading4" %>
-      </div>
-      <div>
-        <strong class="heading5"><%= t("live_event", scope: "decidim.meetings.meetings.show") %></strong>
-        <% if !show_embedded_iframe? || !embeddable? %>
-          <p><small><%= t("micro_camera_permissions_warning", scope: "decidim.meetings.meetings.show") %></small></p>
-        <% end %>
-      </div>
-      <div class="margin-top-3 absolutes aspect-ratio-16-9">
-        <% if show_embedded_iframe? && embeddable? %>
-          <%== embed_code(request.host) %>
-        <% else %>
-          <%= link_to t("join", scope: "decidim.meetings.meetings.show"), live_event_url, target: "_blank", class: "button button--sc" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-<% elsif show_embedded_iframe? && embeddable? %>
-  <div class="card card--secondary">
-    <div class="card__content text-center">
-      <div class="margin-top-3 absolutes aspect-ratio-16-9">
-        <%== embed_code(request.host) %>
-      </div>
-    </div>
-  </div>
-<% elsif past? %>
-  <div class="card card--secondary">
-    <div class="card__content text-center">
-      <div>
-        <span><%= t("link_closed", scope: "decidim.meetings.meetings.show") %></span>
       </div>
     </div>
   </div>
