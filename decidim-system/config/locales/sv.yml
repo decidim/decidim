@@ -14,6 +14,12 @@ sv:
         password: Lösenord
         port: Port
         user_name: Användarnamn
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Admin MIME-typer
+          default: Förvalda MIME-typer
+        allowed_file_extensions:
+          admin: "Admin \nfiltillägg"
     errors:
       models:
         oauth_application:
@@ -135,6 +141,8 @@ sv:
         smtp_settings:
           fieldsets:
             sender: Avsändare
+          instructions:
+            from_label: 'E-postavsändare är: "your-organization-name <your-organization@your-provider.org>". Om du lämnar tomt kommer e-postadressen användas'
           placeholder:
             from_label: din-organisation-namn
         update:
