@@ -76,6 +76,11 @@ module Decidim
         true
       end
 
+      # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
+      def allow_resource_permissions?
+        true
+      end
+
       ransacker :id_string do
         Arel.sql(%{cast("decidim_accountability_results"."id" as text)})
       end
