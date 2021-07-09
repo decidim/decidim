@@ -217,6 +217,7 @@ ro:
             public_key:
               'false': nu are <strong>o cheie publică</strong>
               'true': are o <strong>cheie publică</strong>
+            title: Configurarea alegerilor
           tally_ended:
             title: Rezultate calculate
           vote_ended:
