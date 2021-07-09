@@ -589,6 +589,7 @@ ro:
             title: Rapoarte de moderare
           show:
             report_details: Detalii motiv
+            report_reason: Motiv
       newsletter_templates:
         index:
           preview_template: Previzualizare
