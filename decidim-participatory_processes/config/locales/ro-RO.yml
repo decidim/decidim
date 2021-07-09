@@ -34,6 +34,7 @@ ro:
         subtitle: Subtitrare
         target: Cine participă
         title: Titlu
+        weight: Pondere
       participatory_process_group:
         description: Descriere
         developer_group: Grup promotor
