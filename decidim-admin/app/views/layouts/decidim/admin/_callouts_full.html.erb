@@ -1,5 +1,9 @@
 <div class="callout-wrapper">
   <% flash.each do |key, value| %>
+    <% if /_html\Z/.match?(key)
+         key = key.gsub(/_html\Z/, "")
+         value = decidim_sanitize(value)
+    end %>
     <div class="callout <%= FoundationRailsHelper::FlashHelper::DEFAULT_KEY_MATCHING[key.to_sym] %> callout--full" data-closable>
       <%= value %>
       <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
