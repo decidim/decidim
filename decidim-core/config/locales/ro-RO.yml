@@ -327,6 +327,8 @@ ro:
           authorize: Autorizează cu "%{authorization}"
           explanation: Pentru a efectua această acțiune, trebuie să fii autorizat cu "%{authorization}".
           title: Autorizare necesară
+        ok:
+          title: Ați fost autorizat în timp ce vizitați această pagină. Vă rugăm să reîncărcați pagina pentru a efectua acțiunea
         pending:
           explanation: Pentru a efectua această acțiune, trebuie să fii autorizat cu "%{authorization}", dar autorizația ta este încă în desfășurare
           resume: Verifică progresul autorizării tale ”%{authorization}"
@@ -872,6 +874,8 @@ ro:
     links:
       invalid_url: URL invalid
       warning:
+        body_1: Sunteți pe cale să vizitați un link extern și am dori să fiți precauți în ceea ce privește conținutul de pe site-ul extern.
+        body_2: Vă rugăm să verificați link-ul pe care urmează să îl vizitați și să vă asigurați că îl recunoașteți ca un site sigur înainte de a continua.
         cancel: Anulare
         close_modal: Închidere
         proceed: Continuă
