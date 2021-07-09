@@ -338,6 +338,11 @@ ro:
         show:
           view_more_logs: Afișați mai multe jurnale
           welcome: Bine ați venit în Panoul de administrare Decidem.
+      domain_whitelist:
+        form:
+          domain_too_short: Domeniu prea scurt
+        update:
+          error: Actualizarea whitelist-ului domeniului a eșuat
       exports:
         export_as: "%{name} ca %{export_format}"
         formats:
@@ -615,6 +620,7 @@ ro:
           show:
             report_details: Detalii motiv
             report_reason: Motiv
+            title: Detalii raportare
       newsletter_templates:
         index:
           preview_template: Previzualizare
@@ -749,6 +755,16 @@ ro:
             layout_appearance_title: Editarea aspectului formatului
             preview: Previzualizare
           omnipresent_banner_appearance_title: Editare banner omniprezent
+      organization_external_domain_whitelist:
+        edit:
+          update: Actualizare
+        external_domain:
+          down: Jos
+          external_domain: Domeniu extern
+          remove: Elimină
+          up: Sus
+        form:
+          add: Adaugă la lista albă
       organization_homepage:
         edit:
           active_content_blocks: Blocuri de conținut active
