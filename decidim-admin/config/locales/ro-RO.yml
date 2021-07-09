@@ -158,6 +158,8 @@ ro:
         browse: Caută
         category:
           new: Categorie nouă
+        export: Exportaţi tot
+        export-selection: Exportă selecția
         import: Importă
         manage: Gestionează
         new: '%{name} nou'
@@ -348,6 +350,15 @@ ro:
         category_id_eq:
           label: Categorie
         filter_label: Filtrare
+        invitation_accepted_at_present:
+          label: Invitaţie acceptată
+          values:
+            'false': 'Nu'
+            'true': 'Da'
+        last_sign_in_at_present:
+          values:
+            'false': 'Nu'
+            'true': 'Da'
         moderations:
           reportable_type_string_eq:
             label: Tip
@@ -384,6 +395,7 @@ ro:
           name_or_nickname_or_email_cont: Căutare %{collection} după e-mail, nume sau poreclă.
           reported_id_string_or_reported_content_cont: Căutare %{collection} după id sau conținut raportabil.
           title_cont: Căutați %{collection} după titlu.
+          user_name_or_user_email_cont: Caută %{collection} după nume sau e-mail.
         state_eq:
           label: Stare
       forms:
@@ -602,6 +614,7 @@ ro:
             title: Rapoarte de moderare
           show:
             report_details: Detalii motiv
+            report_reason: Motiv
       newsletter_templates:
         index:
           preview_template: Previzualizare
