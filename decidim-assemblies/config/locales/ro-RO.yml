@@ -390,7 +390,10 @@ ro:
         comments_count: Comentarii
         debates_count: Dezbateri
         endorsements_count: Susținători
+        followers_count: Urmăritori
+        headline: Statistici
         meetings_count: Întâlniri
+        no_stats: Încă nu există statistici.
         orders_count: Suportă
         pages_count: Pagini
         participants_count: Participanți
