@@ -263,6 +263,8 @@ ro:
         download: Descarcă fișier
       documents:
         related_documents: Documente conexe
+      geocoding:
+        geocoded_address: Adresă
       photos:
         related_photos: Imagini asemănătoare
     author:
@@ -867,6 +869,13 @@ ro:
       index:
         last_activity: Ultima activitate
         resource_type: Tip
+    links:
+      invalid_url: URL invalid
+      warning:
+        cancel: Anulare
+        close_modal: Închidere
+        proceed: Continuă
+        title: Deschide link-ul extern
     log:
       base_presenter:
         create: "%{user_name} a creat %{resource_name}"
