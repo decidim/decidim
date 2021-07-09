@@ -50,6 +50,19 @@ shared_examples "split proposals" do
           expect(page).to have_content("Successfully splitted the proposals into new ones")
           expect(page).to have_css(".table-list tbody tr", count: 2)
         end
+
+        context "when splitting to the same component" do
+          let!(:target_component) { current_component }
+
+          context "and the proposals can't be splitted" do
+            let!(:proposals) { create_list :proposal, 3, :with_endorsements, :with_votes, component: current_component }
+
+            it "doesn't create a new proposal and displays a validation fail message" do
+              expect(page).to have_content("There was a problem splitting the selected proposals")
+              expect(page).to have_content("Any of the proposals is public")
+            end
+          end
+        end
       end
     end
   end

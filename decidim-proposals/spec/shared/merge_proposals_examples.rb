@@ -68,6 +68,16 @@ shared_examples "merge proposals" do
           let!(:target_component) { current_component }
           let!(:proposal_ids) { proposals.map(&:id) }
 
+          context "when the proposals can't be merged" do
+            let!(:proposals) { create_list :proposal, 3, :with_endorsements, :with_votes, component: current_component }
+
+            it "doesn't create a new proposal and displays a validation fail message" do
+              expect(page).to have_css(".table-list tbody tr", count: 3)
+              expect(page).to have_content("There was a problem merging the selected proposals")
+              expect(page).to have_content("Any of the proposals is public")
+            end
+          end
+
           it "creates a new proposal and deletes the other ones" do
             expect(page).to have_content("Successfully merged the proposals into a new one")
             expect(page).to have_css(".table-list tbody tr", count: 1)
