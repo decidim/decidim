@@ -522,7 +522,7 @@ en:
             success: Successfully merged the proposals into a new one.
         proposals_splits:
           create:
-            invalid: There was a problem spliting the selected proposals.
+            invalid: There was a problem splitting the selected proposals.
             success: Successfully splitted the proposals into new ones.
         valuation_assignments:
           create:
