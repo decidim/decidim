@@ -6,6 +6,7 @@ ro:
         description: Descriere
         title: Titlu
         total_budget: Total budget
+        weight: Pondere
       project:
         budget_amount: Sumă bugetară
         decidim_category_id: Categorie
@@ -154,6 +155,8 @@ ro:
             description: Ai votat deja pentru buget. Dacă te-ai răzgândit, poți %{cancel_link}.
             title: Votul pentru buget finalizat
           title: Dumneavoastră decideţi bugetul
+          total_budget: Buget total
+          total_projects: Total voturi
         count:
           projects_count:
             one: 1 proiect
@@ -215,10 +218,12 @@ ro:
             vote_rule_minimum_budget_projects_enabled: 'Permite regula: numărul minim de proiecte care urmează să fie votate pe'
             vote_rule_threshold_percent_enabled: 'Activare regulă: Procentaj minim buget'
             vote_threshold_percent: Pragul de vot procentual
+            workflow: Mod de lucru
           step:
             announcement: Anunţ
             comments_blocked: Comentarii blocate
             show_votes: Arată voturile
+            title: Titlu
             votes_choices:
               enabled: Votare activată
     orders:
