@@ -109,6 +109,8 @@ module Decidim
       end
 
       def follow_meeting
+        return if already_following?
+        
         Decidim::CreateFollow.call(follow_form, user)
       end
 
@@ -124,6 +126,10 @@ module Decidim
 
       def questionnaire?
         registration_form.model_name == "Questionnaire"
+      end
+      
+      def already_following?
+        @meeting.follower_ids.include? @user.id
       end
     end
   end
