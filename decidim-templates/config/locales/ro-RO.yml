@@ -1,4 +1,11 @@
 ro:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Titlu
+      template:
+        description: Descriere
+        name: Nume
   decidim:
     admin:
       menu:
