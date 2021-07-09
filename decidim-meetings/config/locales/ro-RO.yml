@@ -488,6 +488,18 @@ ro:
             official_meeting: Ședința oficială
             start_time: Data de început
             title: Titlu
+      polls:
+        questions:
+          index_admin:
+            edit: Editează în admin
+            question: Întrebare
+            received_answer: răspuns primit
+            received_answers: raspunsuri primite
+            results: Rezultate
+          published_question:
+            max_choices_alert: Există prea multe alegeri selectate
+            question: Întrebare
+            reply_question: Răspunde la întrebare
       public_participants_list:
         attending_participants: Participanți la eveniment
         hidden_participants_count:
