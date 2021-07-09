@@ -250,6 +250,7 @@ ro:
             success: Ședință închisă cu succes
           create:
             invalid: A apărut o problemă la crearea acestei întâlniri
+            success: Întâlnirea a fost creată. Observați că acest lucru nu a fost publicat încă, trebuie să îl publicați manual.
           destroy:
             invalid:
               proposals_count:
