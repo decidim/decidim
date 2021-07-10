@@ -158,7 +158,8 @@ fi:
         browse: Selaa
         category:
           new: Uusi aihepiiri
-        export: Vie
+        export: Vie kaikki
+        export-selection: Vie valitut
         import: Tuo
         manage: Hallitse
         new: Uusi %{name}
@@ -355,6 +356,16 @@ fi:
         category_id_eq:
           label: Aihepiiri
         filter_label: Suodata
+        invitation_accepted_at_present:
+          label: Kutsu hyväksytty
+          values:
+            'false': 'Ei'
+            'true': 'Kyllä'
+        last_sign_in_at_present:
+          label: Kirjautunut sisään koskaan
+          values:
+            'false': 'Ei'
+            'true': 'Kyllä'
         moderations:
           reportable_type_string_eq:
             label: Tyyppi

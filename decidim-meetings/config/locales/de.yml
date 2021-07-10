@@ -246,6 +246,7 @@ de:
             success: Sitzung erfolgreich abgeschlossen
           create:
             invalid: Beim Erstellen dieses Meetings ist ein Problem aufgetreten
+            success: Sitzung erfolgreich erstellt. Beachten Sie, dass dies noch nicht veröffentlicht wurde. Sie müssen es manuell veröffentlichen.
           destroy:
             invalid:
               proposals_count:
@@ -271,6 +272,9 @@ de:
           new:
             create: Erstellen
             title: Besprechung erstellen
+          publish:
+            invalid: Beim Veröffentlichen dieser Sitzung ist ein Fehler aufgetreten
+            success: Sitzung erfolgreich veröffentlicht
           service:
             description: Beschreibung
             down: Nieder
@@ -281,6 +285,9 @@ de:
           services:
             add_service: Dienst hinzufügen
             services: Dienstleistungen
+          unpublish:
+            invalid: Beim Aufheben der Veröffentlichung dieser Sitzung ist ein Fehler aufgetreten
+            success: Veröffentlichung der Sitzung erfolgreich rückgängig gemacht
           update:
             invalid: Beim Aktualisieren dieses Meetings ist ein Problem aufgetreten
             success: Sitzung erfolgreich aktualisiert
@@ -424,6 +431,8 @@ de:
           back: Zurück
           create: Erstellen
           title: Ihre Besprechung erstellen
+        online_meeting_link:
+          link_available_soon: Link bald verfügbar
         registration_confirm:
           cancel: Stornieren
           confirm: Bestätigen

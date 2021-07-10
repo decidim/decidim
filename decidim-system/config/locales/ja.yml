@@ -57,6 +57,9 @@ ja:
         update:
           error: 管理者の更新中に問題が発生しました。
           success: 管理者が正常に更新されました
+      dashboard:
+        show:
+          current_organizations: 現在の組織
       default_pages:
         placeholders:
           content: 管理ダッシュボードの %{page} 静的ページに意味のあるコンテンツを追加してください。
@@ -112,6 +115,9 @@ ja:
           error: このアプリケーションの更新に問題がありました。
           success: アプリケーションが更新されました。
       organizations:
+        advanced_settings:
+          hide: 詳細設定を隠す
+          show: 詳細設定を表示
         create:
           error: 新しい組織を作成する際に問題が発生しました。
           success: 組織が正常に作成されました。

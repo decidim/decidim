@@ -120,7 +120,6 @@ lv:
       actions:
         add: Pievienot
         browse: Pārlūkot
-        export: Eksportēt
         manage: Pārvaldīt
         new: Jauns %{name}
         per_page: Lapā

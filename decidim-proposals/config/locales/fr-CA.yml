@@ -712,7 +712,8 @@ fr-CA:
             one: "%{count} proposition"
             other: "%{count} propositions"
         dynamic_map_instructions:
-          instructions: <h3>Vous pouvez déplacer le point sur la carte. </h3><p>N'oubliez pas de cliquer sur le bouton "Mettre à jour la position" avant de publier votre proposition.</p>
+          description: Les coordonnées seront mises à jour en cliquant sur le bouton 'Aperçu'. Cependant, l'adresse ne change pas.
+          instructions: Vous pouvez déplacer le point sur la carte.
         edit:
           add_documents: Documents
           add_images: Fichier
@@ -784,7 +785,6 @@ fr-CA:
             other: Vous avez la possibilité de modifier cette proposition dans les %{count} minutes suivant sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
           publish: Publier
           title: Publier la proposition
-          update_position: Mettre à jour la position
         proposal:
           creation_date: 'Création : %{date}'
           view_proposal: Voir la proposition

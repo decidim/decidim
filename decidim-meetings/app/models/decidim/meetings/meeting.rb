@@ -34,6 +34,7 @@ module Decidim
       has_many :invites, class_name: "Decidim::Meetings::Invite", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_many :services, class_name: "Decidim::Meetings::Service", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :agenda, class_name: "Decidim::Meetings::Agenda", foreign_key: "decidim_meeting_id", dependent: :destroy
+      has_one :poll, class_name: "Decidim::Meetings::Poll", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_many(
         :public_participants,
         -> { merge(Registration.public_participant) },
@@ -294,8 +295,8 @@ module Decidim
         !!attendees_count && attendees_count.positive?
       end
 
-      def minutes_data?
-        [video_url, audio_url].any?(&:present?)
+      def live?
+        start_time && end_time && Time.current >= start_time && Time.current <= end_time
       end
 
       def self.sort_by_translated_title_asc

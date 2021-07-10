@@ -94,6 +94,7 @@ pl:
             creation_enabled_for_participants: Uczestnicy mogą tworzyć spotkania
             default_registration_terms: Domyślne warunki rejestracji
             enable_pads_creation: Włącz tworzenie padów
+            maps_enabled: Mapy włączone
             registration_code_enabled: Włączono kod rejestracyjny
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdego spotkania
             scope_id: Zakres
@@ -270,6 +271,7 @@ pl:
             location_help: 'Lokalizacja: informacja dla użytkowników dotycząca miejsca spotkania'
             location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku, jeśli jest to spotkanie fizyczne, lub hasło do spotkania, jeśli odbywa się ono online i ma ograniczony dostęp.'
             online_meeting_url_help: 'Link: zezwól uczestnikom na bezpośredni dostęp do Twojego spotkania'
+            registration_email_help: Ten tekst pojawi się w środku wiadomości e-mail z potwierdzeniem rejestracji. Tuż po kodzie rejestracyjnym.
             registration_url_help: 'Link: zezwól użytkownikom na korzystanie z usługi zewnętrznej, której używasz do rejestracji'
             select_a_meeting_type: Wybierz typ spotkania
             select_a_registration_type: Wybierz typ rejestracji
@@ -370,6 +372,12 @@ pl:
           close: Zakończ spotkanie
           title: Zakończ spotkanie
       meetings:
+        calendar_modal:
+          add_to_calendar: Dodaj do kalendarza
+          apple: Dodaj do kalendarza Apple
+          close_window: Zamknij okno
+          google: Dodaj do kalendarza Google
+          outlook: Dodaj do kalendarza Outlook
         count:
           meetings_count:
             one: "%{count} spotkanie"
@@ -446,6 +454,7 @@ pl:
           date: Data
           edit_meeting: Edytuj spotkanie
           join: Dołącz do spotkania
+          leave: Anuluj swoją rejestrację
           meeting_minutes: Protokół ze spotkania
           no_slots_available: Brak dostępnych miejsc
           organizations: Organizacje biorące udział

@@ -13,7 +13,7 @@ module Decidim
         highlighted_stats.concat(assembly_followers_stats(priority: StatsRegistry::HIGH_PRIORITY))
         highlighted_stats.concat(component_stats(priority: StatsRegistry::HIGH_PRIORITY))
         highlighted_stats.concat(component_stats(priority: StatsRegistry::MEDIUM_PRIORITY))
-        highlighted_stats.concat(comments_stats(:assemblies, tag: :comments))
+        highlighted_stats.concat(comments_stats(:assemblies))
         highlighted_stats = highlighted_stats.reject(&:empty?)
         highlighted_stats = highlighted_stats.reject { |_stat_manifest, _stat_title, stat_number| stat_number.zero? }
         grouped_highlighted_stats = highlighted_stats.group_by(&:first)

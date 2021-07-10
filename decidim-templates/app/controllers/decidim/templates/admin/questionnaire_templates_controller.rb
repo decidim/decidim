@@ -103,7 +103,7 @@ module Decidim
 
         def apply
           questionnaire = Decidim::Forms::Questionnaire.find_by(id: params[:questionnaire_id])
-          template = Decidim::Templates::Template.find_by(id: params[:questionnaire][:questionnaire_template_id])
+          template = Decidim::Templates::Template.find_by(id: params.dig(:questionnaire, :questionnaire_template_id))
 
           ApplyQuestionnaireTemplate.call(questionnaire, template) do
             on(:ok) do
@@ -111,7 +111,8 @@ module Decidim
               redirect_to params[:url]
             end
             on(:invalid) do
-              flash.now[:error] = I18n.t("templates.apply.error", scope: "decidim.admin")
+              flash[:error] = I18n.t("templates.apply.error", scope: "decidim.admin")
+              redirect_to EngineRouter.admin_proxy(questionnaire.questionnaire_for.component).survey_path
             end
           end
         end

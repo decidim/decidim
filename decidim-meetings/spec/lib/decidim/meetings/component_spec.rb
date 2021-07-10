@@ -107,6 +107,7 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
         .collection
         .call(component, user)
     end
+
     let!(:first_meeting) { create :meeting, :published }
     let(:component) { first_meeting.component }
     let!(:second_meeting) { create :meeting, :published, component: component }

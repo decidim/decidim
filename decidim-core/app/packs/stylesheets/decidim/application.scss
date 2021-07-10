@@ -1,14 +1,8 @@
 @import "stylesheets/decidim/editor";
 @import "stylesheets/decidim/decidim";
 
-@import "stylesheets/decidim/accountability/accountability";
-@import "stylesheets/decidim/budgets/budgets";
-@import "stylesheets/decidim/conferences/conferences";
-@import "stylesheets/decidim/consultations/consultations";
-@import "stylesheets/decidim/initiatives/initiatives";
-@import "stylesheets/decidim/elections/elections";
-@import "stylesheets/decidim/votings/votings";
-@import "stylesheets/decidim/proposals/proposals";
-@import "stylesheets/decidim/surveys/surveys";
+// This imports all the Decidim module stylesheet imports registered at
+// `config/assets.rb` of the module for the "app" group.
+@import "!decidim-style-imports[app]";
 
 @import "stylesheets/decidim/decidim_application";

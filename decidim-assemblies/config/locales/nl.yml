@@ -63,7 +63,7 @@ nl:
         full_name: Volledige naam
         gender: Geslacht
         position: Positie
-        user_id: Gebruiker
+        user_id: Gebruiker of gebruikersgroep
       assembly_user_role:
         email: E-mail
         name: Naam

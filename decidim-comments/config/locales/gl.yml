@@ -19,6 +19,10 @@ gl:
       comments:
         create:
           error: Produciuse un problema ao crear o comentario.
+        delete:
+          error: Non foi posíbel eliminar o comentario.
+        update:
+          error: Produciuse un problema ao actualizar o comentario.
       comments_count: Número de comentarios
       comments_title: Comentarios
       last_activity:
@@ -53,7 +57,12 @@ gl:
         alignment:
           against: Contra
           in_favor: A favor
+        confirm_destroy: Estás certo/a de querer eliminar este comentario?
+        delete: Eliminar
+        deleted_at: Comentario eliminado o %{date}
         deleted_user: Usuario eliminado
+        edit: Editar
+        edited: Editado
         hide_replies: Ocultar respostas
         reply: Responder
         report:
@@ -68,7 +77,7 @@ gl:
             spam: Contén clic, publicidade, fraudes ou bots de script.
           title: Denunciar contido inapropiado
         show_replies: Amosar %{replies_count} respostas
-        single_comment_link_title: Obter ligazón a un único comentario
+        single_comment_link_title: Obter ligazón
       comment_order_selector:
         order:
           best_rated: Mellor valorado
@@ -91,6 +100,14 @@ gl:
           other: "%{count} comentarios"
       down_vote_button:
         text: Non estou de acordo con este comentario
+      edit_comment_modal_form:
+        close: Pechar
+        form:
+          body:
+            label: Comentario
+            placeholder: Que pensas sobre isto?
+          submit: Enviar
+        title: Editar o teu comentario
       up_vote_button:
         text: Estou de acordo con este comentario
     events:

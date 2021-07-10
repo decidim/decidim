@@ -3,10 +3,10 @@
 module Decidim
   # A general presenter to render statistics in participatory spaces.
   class StatsPresenter < Rectify::Presenter
-    def comments_stats(name, conditions)
+    def comments_stats(name)
       comments = Decidim.component_manifests.map do |component_manifest|
         component_manifest.stats.only([:comments_count])
-                          .filter(conditions)
+                          .filter({ tag: :comments })
                           .with_context(published_components)
                           .map { |_name, value| value }.sum
       end

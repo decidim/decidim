@@ -1,0 +1,9 @@
+<%= decidim_form_for(@form, url: update_url, method: :put, html: { class: "form edit_questionnaire" }) do |form| %>
+  <%= render partial: "decidim/meetings/admin/poll/form", object: form %>
+
+  <% if questionnaire.questions_editable? %>
+    <div class="button--double form-general-submit">
+      <%= form.submit t("save", scope: "decidim.forms.admin.questionnaires.edit"), class: "button" %>
+    </div>
+  <% end %>
+<% end %>

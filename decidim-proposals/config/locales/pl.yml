@@ -106,7 +106,7 @@ pl:
             label: Stan
             values:
               accepted: Zaakceptowano
-              evaluating: Ewaluacja
+              evaluating: Ocena
               published: Opublikowano
               rejected: Odrzucono
               validating: Walidacja techniczna
@@ -562,7 +562,7 @@ pl:
         filter_state_values:
           accepted: Przyjęto
           all: Wszystko
-          evaluating: Ewaluacja
+          evaluating: Ocena
           not_answered: Bez odpowiedzi
           rejected: Odrzucono
         filter_type_values:
@@ -730,8 +730,6 @@ pl:
             few: "%{count} propozycji"
             many: "%{count} propozycji"
             other: "%{count} propozycji"
-        dynamic_map_instructions:
-          instructions: <h3>Możesz przesunąć punkt na mapie. </h3><p>Nie zapomnij kliknąć na przycisk "Aktualizuj pozycję" przed opublikowaniem propozycji.</p>
         edit:
           add_documents: Dokumenty
           add_images: Plik
@@ -807,7 +805,6 @@ pl:
             other: Będziesz mógł edytować tę propozycję w ciągu %{count} minut po jej opublikowaniu. Gdy ten czas minie nie będzie można edytować propozycji.
           publish: Publikuj
           title: Opublikuj swoją propozycję
-          update_position: Aktualizuj pozycję
         proposal:
           creation_date: 'Utworzono: %{date}'
           view_proposal: Zobacz propozycję

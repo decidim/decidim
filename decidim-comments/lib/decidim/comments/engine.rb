@@ -4,9 +4,7 @@ require "rails"
 require "active_support/all"
 
 require "decidim/core"
-require "jquery-rails"
 require "foundation_rails_helper"
-require "autoprefixer-rails"
 
 require "decidim/comments/query_extensions"
 require "decidim/comments/mutation_extensions"
@@ -18,7 +16,7 @@ module Decidim
       isolate_namespace Decidim::Comments
 
       routes do
-        resources :comments, only: [:index, :create] do
+        resources :comments, except: [:new, :edit] do
           resources :votes, only: [:create]
         end
       end

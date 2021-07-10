@@ -7,15 +7,18 @@ module Decidim
       include ActionView::Helpers::DateHelper
       include Decidim::IconHelper
       include Decidim::ResourceHelper
+      include Cell::ViewModel::Partial
 
       delegate :current_user, :user_signed_in?, to: :controller
 
       property :root_commentable
       property :created_at
+      property :deleted_at
       property :alignment
       property :translated_body
       property :comment_threads
       property :accepts_new_comments?
+      property :edited?
 
       def alignment_badge
         return unless [-1, 1].include?(alignment)
@@ -49,6 +52,10 @@ module Decidim
 
       def reply_id
         "comment#{model.id}-reply"
+      end
+
+      def context_menu_id
+        "toggle-context-menu-#{model.id}"
       end
 
       def can_reply?
@@ -116,6 +123,10 @@ module Decidim
         end
       end
 
+      def comment_path
+        decidim_comments.comment_path(model)
+      end
+
       def up_votes_count
         model.up_votes.count
       end
@@ -130,6 +141,10 @@ module Decidim
 
       def depth
         model.depth - root_depth
+      end
+
+      def reloaded?
+        options[:reloaded]
       end
 
       def voted_up?

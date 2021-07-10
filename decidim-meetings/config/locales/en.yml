@@ -144,6 +144,7 @@ en:
             email_subject: The "%{resource_title}" meeting was closed
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
         meeting_created:
+          button_text: Register to the meeting
           email_intro: The meeting "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
           email_subject: New meeting added to %{participatory_space_title}
@@ -200,6 +201,7 @@ en:
           proposals_count:
             one: 'The meeting cannot be destroyed because it has %{count} proposal associated to it:'
             other: 'The meeting cannot be destroyed because it has %{count} proposals associated to it:'
+        manage_poll: Manage poll
         new: New meeting
         preview: Preview
         registrations: Registrations
@@ -236,6 +238,7 @@ en:
             invalid: There was a problem updating this agenda
             success: Agenda successfully updated
         exports:
+          answers: Answers
           meeting_comments: Comments
           meetings: Meetings
           registrations: Registrations
@@ -321,6 +324,12 @@ en:
           update:
             invalid: There was a problem updating this meeting
             success: Meeting successfully updated
+        meetings_poll:
+          form:
+            title: Edit poll questionnaire for %{questionnaire_for}
+          update:
+            invalid: There was a problem updating this meeting poll
+            success: Meeting poll successfully updated
         models:
           meeting:
             name: Meeting
@@ -383,6 +392,11 @@ en:
       last_activity:
         meeting_updated_at_html: "<span>Meeting updated at %{link}</span>"
         new_meeting_at_html: "<span>New meeting at %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Administrate
+          close: close
+          questions: Questions
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -468,6 +482,10 @@ en:
           back: Back
           create: Create
           title: Create Your Meeting
+        online_meeting_link:
+          join: Join the meeting
+          link_available_soon: Link available soon
+          live_event: This meeting is happening right now
         registration_confirm:
           cancel: Cancel
           confirm: Confirm
@@ -517,6 +535,26 @@ en:
             official_meeting: Official meeting
             start_time: Start date
             title: Title
+      polls:
+        questions:
+          closed_question:
+            question_results: Question results
+          index:
+            empty_questions: Throughout this meeting, some questions will be sent and you will be able to answer them. They will be displayed here.
+          index_admin:
+            admin_dashboard: Administrator dashboard
+            edit: Edit in the admin
+            question: Question
+            received_answer: received answer
+            received_answers: received answers
+            results: Results
+            send: Send
+            sent: Sent
+          published_question:
+            max_choices_alert: There are too many choices selected
+            question: Question
+            question_replied: Question replied
+            reply_question: Reply question
       public_participants_list:
         attending_participants: Attending participants
         hidden_participants_count:

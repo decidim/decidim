@@ -68,7 +68,6 @@ sv:
             spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
           title: Rapportera olämpligt innehåll
         show_replies: Visa %{replies_count} svar
-        single_comment_link_title: Få länk till enstaka kommentar
       comment_order_selector:
         order:
           best_rated: Bästa betyg

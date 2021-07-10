@@ -1,0 +1,8 @@
+$(() => {
+  const commentHtml = '<%== j(render partial: "edited_comment", locals: { comment: @comment }).strip %>';
+  const commentId = <%= @comment.id.to_json %>;
+  const $comment = $("#comment_<%= @comment.id %>");
+  const $editCommentModal = $("#editCommentModal<%= @comment.id %>");
+
+  $comment.replaceWith(commentHtml);
+});
