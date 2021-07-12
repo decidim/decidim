@@ -523,6 +523,7 @@ en:
             one: "%{count} slot remaining"
             other: "%{count} slots remaining"
           view: View
+          visit_finished: View past meeting
         update:
           invalid: There was a problem updating the meeting.
           success: You have updated the meeting successfully.
