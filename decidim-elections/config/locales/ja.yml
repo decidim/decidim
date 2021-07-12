@@ -470,6 +470,7 @@ ja:
       trustee_zone:
         elections:
           backup_modal:
+            download_election_keys: ダウンロードキー
             download_icon: ダウンロードアクションを示すアイコン
             title: '%{election} のバックアップ選挙キー'
           key_ceremony_steps:
@@ -491,7 +492,26 @@ ja:
               pending: 保留中
               processing: 処理中
             title: '%{election} の選挙用キーを作成'
+          restore_modal:
+            title: '%{election} の選挙用キーを復元'
+            upload_election_keys: 選挙用キーをアップロード
+            upload_icon: ダウンロードアクションを示すアイコン
+          tally_steps:
+            back: 戻る
+            keys:
+              end_tally: 終了しました
+              tally:
+                cast: 集計キャスト
+                share: 集計を共有
+            list:
+              status: ステータス
+              task: タスク
+            process_warning: プロセスが開始されると、プロセスが終了するまでこのページを閉じないでください。 すべての受託者が接続し完了するまで、しばらくかかることがあります。
+            start: 開始
       votes:
+        ballot_decision:
+          ballot_hash: '投票用紙の識別子:'
+          cast: 投票用紙のキャスト
         confirm:
           answer: 回答
           answer_number: 回答 %{number}
