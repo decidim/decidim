@@ -15,7 +15,6 @@ module Decidim
 
           private
 
-          # # Comment about participatory_texts_enabled.
           def base_query
             Meeting.not_hidden.where(component: current_component).order(start_time: :desc).page(params[:page]).per(15)
           end
@@ -23,7 +22,7 @@ module Decidim
           def filters
             [
               :type_eq,
-              :is_upcomming_true,
+              :is_upcoming_true,
               :scope_id_eq,
               :category_id_eq,
               :origin_eq,
@@ -37,7 +36,7 @@ module Decidim
               scope_id_eq: scope_ids_hash(scopes.top_level),
               category_id_eq: category_ids_hash(categories.first_class),
               closed_at_present: %w(true false),
-              is_upcomming_true: %w(true false),
+              is_upcoming_true: %w(true false),
               origin_eq: %w(citizen official user_group)
             }
           end

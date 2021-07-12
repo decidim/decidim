@@ -53,7 +53,7 @@ module Decidim
       scope :published, -> { where.not(published_at: nil) }
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
       scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }
-      
+
       scope :visible_meeting_for, lambda { |user|
         (all.published.distinct if user&.admin?) ||
           if user.present?
@@ -333,20 +333,12 @@ module Decidim
       end
 
       ransacker :origin do
-        query = <<-SQL.squish
-        (
-        SELECT
-          CASE
-              WHEN decidim_author_type = 'Decidim::Organization' THEN 'official'
-              WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NOT NULL THEN 'user_group'
-              WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NULL THEN 'citizen'
-              ELSE 'unknown'
-          END
-        FROM decidim_meetings_meetings as dmm
-        WHERE dmm.id = decidim_meetings_meetings.id
-        )
-        SQL
-        Arel.sql(query)
+        Arel.sql("CASE
+            WHEN decidim_author_type = 'Decidim::Organization' THEN 'official'
+            WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NOT NULL THEN 'user_group'
+            WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NULL THEN 'citizen'
+            ELSE 'unknown' END
+        ")
       end
 
       def self.sort_by_translated_title_asc
@@ -371,7 +363,7 @@ module Decidim
         Arel.sql(%{cast("decidim_meetings_meetings"."id" as text)})
       end
 
-      ransacker :is_upcomming do
+      ransacker :is_upcoming do
         query = <<-SQL.squish
         (
           SELECT EXISTS (
@@ -383,20 +375,12 @@ module Decidim
       end
 
       ransacker :origin do
-        query = <<-SQL.squish
-        (
-        SELECT
-          CASE
-              WHEN decidim_author_type = 'Decidim::Organization' THEN 'official'
-              WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NOT NULL THEN 'user_group'
-              WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NULL THEN 'citizen'
-              ELSE 'unknown'
-          END
-        FROM decidim_meetings_meetings as dmm
-        WHERE dmm.id = decidim_meetings_meetings.id
-        )
-        SQL
-        Arel.sql(query)
+        Arel.sql("CASE
+            WHEN decidim_author_type = 'Decidim::Organization' THEN 'official'
+            WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NOT NULL THEN 'user_group'
+            WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NULL THEN 'citizen'
+            ELSE 'unknown' END
+        ")
       end
 
       private
