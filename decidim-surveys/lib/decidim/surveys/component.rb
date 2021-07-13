@@ -161,9 +161,9 @@ Decidim.register_component(:surveys) do |component|
         position: index
       )
 
-      3.times do
+      3.times do |position|
         question.answer_options.create!(body: Decidim::Faker::Localized.sentence)
-        question.matrix_rows.create!(body: Decidim::Faker::Localized.sentence)
+        question.matrix_rows.create!(body: Decidim::Faker::Localized.sentence, position: position)
       end
     end
   end

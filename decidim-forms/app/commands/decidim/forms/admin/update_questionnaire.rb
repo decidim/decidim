@@ -78,9 +78,10 @@ module Decidim
               update_nested_model(form_display_condition, display_condition_attributes, question.display_conditions)
             end
 
-            form_question.matrix_rows.each do |form_matrix_row|
+            form_question.matrix_rows_by_position.each_with_index do |form_matrix_row, idx|
               matrix_row_attributes = {
-                body: form_matrix_row.body
+                body: form_matrix_row.body,
+                position: form_matrix_row.position || idx
               }
 
               update_nested_model(form_matrix_row, matrix_row_attributes, question.matrix_rows)
