@@ -60,6 +60,7 @@ export default class CommentsComponent {
       $(".add-comment textarea", this.$element).off("input.decidim-comments");
       $(".order-by__dropdown .is-submenu-item a", this.$element).off("click.decidim-comments");
       $(".add-comment form", this.$element).off("submit.decidim-comments");
+      $(".add-comment textarea", this.$element).each((_i, el) => el.removeEventListener("emoji.added", this._onTextInput));
     }
   }
 
@@ -127,6 +128,11 @@ export default class CommentsComponent {
         $submit.attr("disabled", "disabled");
         this._stopPolling();
       });
+
+      if ($text.length && $text.get(0) !== null) {
+        // Attach event to the DOM node, instead of the jQuery object
+        $text.get(0).addEventListener("emoji.added", this._onTextInput);
+      }
     });
 
     this._pollComments();

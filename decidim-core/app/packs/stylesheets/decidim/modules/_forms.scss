@@ -128,3 +128,20 @@ input[type="radio"]{
     outline-offset: $input-outline-offset;
   }
 }
+
+.emoji{
+  &__container{
+    position: relative;
+  }
+
+  &__trigger{
+    position: absolute;
+    bottom: $global-margin / 2;
+    right: $global-margin;
+    cursor: pointer;
+  }
+
+  &__trigger svg{
+    width: 1em;
+  }
+}
