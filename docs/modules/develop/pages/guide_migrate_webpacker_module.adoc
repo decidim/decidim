@@ -75,6 +75,14 @@ Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/foo/app")
 # If you want to do the same but include the SCSS file for the admin panel's
 # main SCSS file, you can use the following method.
 Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/foo/admin", group: :admin)
+
+# If you want to override some SCSS variables/settings for Foundation from the
+# module, you can add the following registered import.
+Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/foo/settings", type: :settings)
+
+# If you want to do the same but override the SCSS variables of the admin
+# panel's styles, you can use the following method.
+Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/foo/admin_settings", type: :settings, group: :admin)
 ----
 
 == Component stylesheet migration
