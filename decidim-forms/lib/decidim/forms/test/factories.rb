@@ -28,6 +28,42 @@ FactoryBot.define do
       end
     end
 
+    trait :with_all_questions do
+      questions do
+        position = 0
+        qs = %w(short_answer long_answer).collect do |text_question_type|
+          q = build(:questionnaire_question, question_type: text_question_type, position: position)
+          position += 1
+          q
+        end
+
+        %w(single_option multiple_option).each do |option_question_type|
+          q = build(:questionnaire_question, :with_answer_options, question_type: option_question_type, position: position)
+          position += 1
+          qs << q
+          q.display_conditions.build(
+            condition_question: qs[q.position - 2],
+            question: q,
+            condition_type: :answered,
+            mandatory: true
+          )
+        end
+
+        %w(matrix_single matrix_multiple).collect do |matrix_question_type|
+          q = build(:questionnaire_question, :with_answer_options, question_type: matrix_question_type, position: position, body: generate_localized_title)
+          position += 1
+          qs << q
+          q.display_conditions.build(
+            condition_question: qs[q.position - 2],
+            question: q,
+            condition_type: :answered,
+            mandatory: true
+          )
+        end
+        qs
+      end
+    end
+
     trait :empty do
       title { {} }
       description { {} }
