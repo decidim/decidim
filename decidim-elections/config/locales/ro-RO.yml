@@ -217,6 +217,9 @@ ro:
             public_key:
               'false': nu are <strong>o cheie publică</strong>
               'true': are o <strong>cheie publică</strong>
+            title: Configurarea alegerilor
+          tally_ended:
+            title: Rezultate calculate
           vote_ended:
             submit: Începeți să numărați
             success: Solicitarea de începere a fost trimisă cu succes la Panoul de Buletin
@@ -289,6 +292,8 @@ ro:
           filter_by: Filtrează după
           unfold: Desfășurat
         preview:
+          available_answers: Răspunsuri disponibile
+          description: Acestea sunt întrebările pe care le veți găsi în procesul de votare
           title: Întrebări electorale
         show:
           preview: Previzualizare

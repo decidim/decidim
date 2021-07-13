@@ -394,6 +394,16 @@ ro:
           email_outro: Ați primit această notificare deoarece urmăriți %{author_nickname}. Puteți înceta să primiți notificări urmând linkul anterior.
           email_subject: Inițiativă aprobată de %{author_nickname}
           notification_title: Inițiativa <a href="%{resource_path}">%{resource_title}</a> a fost aprobată de <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        revoke_membership_request:
+          email_intro: "%{author_nickname} a respins cererea dvs. pentru a face parte din comitetul promotorilor pentru inițiativa următoare %{resource_title}."
+          email_outro: 'Ați primit această notificare deoarece ați aplicat la această inițiativă: %{resource_title}.'
+          email_subject: "%{author_nickname} a respins cererea ta la comitetul promotorilor"
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} a aplicat pentru comitetul promotor al inițiativei dumneavoastră %{resource_title}. Pentru a accepta sau respinge cererea, accesați forma de editare a inițiativei dvs."
+      form:
+        add_attachments: Documente
+        attachment_legend: "(Opțional) Adăugați atașamente"
+        delete_attachment: Șterge
       index:
         title: Inițiative
       initiative_signatures:
@@ -431,6 +441,12 @@ ro:
             one: și încă o persoană
             few: și încă %{count} persoane
             other: și încă %{count} persoane
+        committee_members:
+          approve: Aprobă
+          confirm_revoke: Ești sigur?
+          invite_to_committee_help: Distribuie acest link pentru a invita alți participanți la comitetul promotorilor
+          no_members_yet: Nu există membri în comitetul promotorilor
+          title: Membrii comitetului
         count:
           title:
             one: "Inițiativă %{count}"
@@ -471,11 +487,29 @@ ro:
           recent: Cele mai recente
           recently_published: Cel mai recent publicat
         print:
+          address: Adresă
+          author_title: Autorul inițiativei
           city: Localitate
+          email: Email
+          full_name: Numele complet
+          initiative:
+            description: 'Descriere:'
+            title: 'Titlu:'
+            type: Tipul de inițiativă
+          phone_number: Număr de telefon
+          place_date: Locul, data
+          postal_code: Cod poștal/ZIP
+          print: Tipărește
+          province: Județ/stat
+          signature: Semnătură
         result:
+          answer_title: S-a răspuns la această inițiativă
           initiative_rejected_reason: Această inițiativă a fost respinsă din cauza lipsei de semnături.
         show:
+          any_vote_method: Această inițiativă adună semnături online și personale.
+          edit: Editează
           follow_description: Primiți o notificare atunci când există știri în această inițiativă
+          send_to_technical_validation: Trimite la validarea tehnică
         signatures_count:
           one: " semnătură"
           few: " semnături"
@@ -523,6 +557,9 @@ ro:
         accepted: Acceptat
         expired: Expirat
       unavailable_scope: Domeniul de aplicare indisponibil
+      update:
+        error: A apărut o eroare
+        success: Inițiativa a fost actualizată
       versions:
         shared:
           back_to_resource: Întoarce-te la inițiativă

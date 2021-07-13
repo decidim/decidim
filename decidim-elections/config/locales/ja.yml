@@ -329,8 +329,11 @@ ja:
         preview:
           available_answers: 利用可能な回答
           description: これらは投票プロセスで見つける質問です
+          title: 選挙の質問
         results:
           description: これらは、各質問に対する投票の結果です
+          selected: 選択済
+          title: 選挙結果
           votes:
             one: "%{count} 票"
             other: "%{count} 票"
@@ -340,6 +343,7 @@ ja:
             change-vote: 投票の変更
             vote: 投票の開始
             vote-again: 再投票
+          back: 利用可能な選挙
           callout:
             already-voted: すでにこの選挙に投票しました。投票の変更と確認ができます。
             vote-rejected: 投票を確認できませんでした。もう一度お試しください。
@@ -363,6 +367,7 @@ ja:
             title: タイトル
         election:
           fields:
+            bb_status: 掲示板の状態
             end_time: 終了時刻
             start_time: 開始
             title: タイトル
@@ -371,6 +376,14 @@ ja:
             answers: 回答
             max_selections: 最大選挙数
             title: タイトル
+        trustees_participatory_space:
+          fields:
+            email: Eメールアドレス
+            inactive: 非アクティブ
+            name: 名前
+            notification: 通知送信日時
+            public_key: 公開鍵
+            status: ステータス：
       orders:
         label: 選挙の順序
         older: 古い
@@ -378,6 +391,7 @@ ja:
       trustee_zone:
         elections:
           backup_modal:
+            download_election_keys: ダウンロードキー
             download_icon: ダウンロードアクションを示すアイコン
             title: '%{election} のバックアップ選挙キー'
           key_ceremony_steps:
@@ -399,6 +413,22 @@ ja:
               pending: 保留中
               processing: 処理中
             title: '%{election} の選挙用キーを作成'
+          restore_modal:
+            title: '%{election} の選挙用キーを復元'
+            upload_election_keys: 選挙用キーをアップロード
+            upload_icon: ダウンロードアクションを示すアイコン
+          tally_steps:
+            back: 戻る
+            keys:
+              end_tally: 終了しました
+              tally:
+                cast: 集計キャスト
+                share: 集計を共有
+            list:
+              status: ステータス
+              task: タスク
+            process_warning: プロセスが開始されると、プロセスが終了するまでこのページを閉じないでください。 すべての受託者が接続し完了するまで、しばらくかかることがあります。
+            start: 開始
       votes:
         confirm:
           answer: 回答
@@ -477,6 +507,7 @@ ja:
             polling_stations:
               list:
                 actions: アクション
+                name: 名前
                 role: あなたの役割
                 voting: 投票
               no_polling_stations: まだどの投票所にも割り当てられていません。

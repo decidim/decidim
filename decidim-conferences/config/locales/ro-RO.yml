@@ -3,6 +3,7 @@ ro:
     attributes:
       conference:
         assemblies_ids: Organizații asemănătoare
+        available_slots: Locuri disponibile
         banner_image: Imagine pentru banner
         consultations_ids: Consultări conexe
         copy_categories: Copiază categoriile
@@ -10,26 +11,45 @@ ro:
         copy_features: Copiază caracteristici
         decidim_scope_id: Domeniu de interes
         description: Descriere
+        end_date: Data de sfârșit
         hashtag: Hashtag
         hero_image: Imagine pagina principală
+        location: Locație
+        main_logo: Logo principal
+        objectives: Obiective
         participatory_processes_ids: Procese participative conexe
         promoted: Evidenţiat
         published_at: Publicat la
+        registration_terms: Condiții de înscriere
+        registrations_enabled: Înregistrare activată
         scope_id: Domeniu de interes
         scopes_enabled: Domenii de interes activate
         short_description: Descriere scurtă
         show_statistics: Arată statistici
+        signature: Semnătură
+        signature_name: numele semnăturii
         slogan: Slogan
         slug: Adresă URL
+        start_date: Data de început
         title: Titlu
       conference_media_link:
+        date: Dată
+        link: Link
+        title: Titlu
         weight: Greutate
       conference_partner:
+        logo: Logo
+        name: Nume
         weight: Greutate
+      conference_registration_invite:
+        email: E-mail
       conference_registration_type:
         weight: Greutate
       conference_speaker:
+        avatar: Avatar
         full_name: Numele complet
+        position: Poziție
+        user_id: Utilizator
       conference_user_role:
         email: E-mail
         name: Nume

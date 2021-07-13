@@ -484,7 +484,9 @@ sv:
           details: Du hittar mötesuppgifterna i bilagan.
           registration_code: Din registreringskod är %{code}.
       registration_type:
+        on_different_platform: På en annan plattform
         on_this_platform: På den plattform
+        registration_disabled: Registrering inaktiverad
       registrations:
         create:
           invalid: Det gick inte att ansluta till mötet.

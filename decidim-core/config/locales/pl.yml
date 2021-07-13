@@ -1560,6 +1560,12 @@ pl:
       too_short: jest za krótki (poniżej 15 znaków)
   forms:
     correct_errors: Wystąpiły błędy w formularzu, popraw je, aby kontynuować.
+    length_validator:
+      minimum:
+        one: Co najmniej %{count} znak
+        few: Co najmniej %{count} znaki
+        many: Co najmniej %{count} znaków
+        other: Co najmniej %{count} znaków
     required: Wymagane
     required_explanation: "* Wymagane pola są oznaczone gwiazdką"
   invisible_captcha:

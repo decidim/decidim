@@ -379,6 +379,7 @@ ro:
         file_help:
           import:
             explanation: 'Orientări pentru fișier:'
+            message_1: Sunt suportate fișierele CSV, JSON și Excel (.xls)
             message_2: Pentru fişierele CSV, separatorul dintre coloane trebuie să fie punct şi virgulă (";")
       help_sections:
         error: A apărut o eroare la actualizarea secțiunilor de ajutor
@@ -430,6 +431,7 @@ ro:
           accepted_mime_types:
             csv: csv
             json: json
+            xls: xls
           actions:
             back: Înapoi
           file_legend: Adăugați un fișier de import care va fi analizat.
@@ -589,6 +591,8 @@ ro:
             title: Rapoarte de moderare
           show:
             report_details: Detalii motiv
+            report_reason: Motiv
+            title: Detalii raportare
       newsletter_templates:
         index:
           preview_template: Previzualizare

@@ -704,6 +704,8 @@ ro:
             one: "%{count} propunere"
             few: "%{count} propuneri"
             other: "%{count} propuneri"
+        dynamic_map_instructions:
+          instructions: <h3>Puteți muta punctul de pe hartă. </h3><p>Nu uitați să faceți clic pe butonul "Actualizare poziție" înainte de a publica propunerea dvs.</p>
         edit:
           attachment_legend: "(Opțional) Adăugați un atașament"
           back: Înapoi
@@ -768,6 +770,7 @@ ro:
             other: Veți putea edita această propunere în primele %{count} minute după publicarea propunerii. După trecerea acestei ferestre temporale, nu veți putea edita propunerea.
           publish: Publică
           title: Publică propunerea ta
+          update_position: Actualizați poziția
         proposal:
           creation_date: 'Creare: %{date}'
           view_proposal: Vizualizați propunerea

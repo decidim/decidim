@@ -10,7 +10,7 @@ sv:
         scope_id: Omfattning
         state: Status
         title: Titel
-        user_group_id: Skapa gemensamt utkast som
+        user_group_id: Skapa samarbetsutkast som
       proposal:
         address: Adress
         answer: Svar
