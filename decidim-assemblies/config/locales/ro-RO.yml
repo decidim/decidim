@@ -265,6 +265,7 @@ ro:
       admin:
         assemblies:
           form:
+            announcement_help: Textul pe care îl introduceți aici va fi prezentat utilizatorului sub informațiile despre adunare.
             duration: Durată
             duration_help: În cazul în care durata acestei adunări este limitată, selectaţi data de încheiere. În caz contrar, va apărea ca indefinită.
             filters: Filtre

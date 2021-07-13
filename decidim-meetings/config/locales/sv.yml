@@ -421,6 +421,7 @@ sv:
           date: Datum
           edit_meeting: Redigera möte
           join: Gå med i mötet
+          leave_confirmation: Är du säker på att du vill avboka från detta möte?
           meeting_minutes: Mötesprotokoll
           no_slots_available: Inga platser kvar
           organizations: Delta i organisationer
@@ -456,6 +457,31 @@ sv:
             official_meeting: Officiellt möte
             start_time: Startdatum
             title: Titel
+      polls:
+        questions:
+          closed_question:
+            question_results: Resultat
+          index:
+            empty_questions: Under hela mötet kommer några frågor att skickas och du kommer kunna svara på dem. De kommer att visas här.
+          index_admin:
+            admin_dashboard: Adminpanel
+            edit: Redigera i adminpanelen
+            question: Fråga
+            received_answer: mottaget svar
+            received_answers: mottagna svar
+            results: Resultat
+            send: Skicka
+            sent: Skickat
+          published_question:
+            max_choices_alert: För många alternativ har valts
+            question: Fråga
+            question_replied: Besvarad fråga
+            reply_question: Svara på fråga
+      public_participants_list:
+        attending_participants: Deltagare
+        hidden_participants_count:
+          one: och %{count} person till
+          other: och %{count} personer till
       read_more: "(läs mer)"
       registration_mailer:
         confirmation:
@@ -463,7 +489,9 @@ sv:
           details: Du hittar mötesuppgifterna i bilagan.
           registration_code: Din registreringskod är %{code}.
       registration_type:
+        on_different_platform: På en annan plattform
         on_this_platform: På den plattform
+        registration_disabled: Registrering inaktiverad
       registrations:
         create:
           invalid: Det gick inte att ansluta till mötet.
