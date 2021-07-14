@@ -53,10 +53,11 @@ module Decidim::Comments
 
         context "with the single comment being moderated" do
           before do
-            Decidim::Moderation.create!(
+            create(
+              :moderation,
+              :hidden,
               reportable: comment,
-              participatory_space: commentable.participatory_space,
-              hidden_at: 1.day.ago
+              participatory_space: commentable.participatory_space
             )
           end
 
