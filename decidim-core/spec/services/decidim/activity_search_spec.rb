@@ -16,15 +16,16 @@ module Decidim
     subject { search.results }
 
     let(:search) do
-      described_class.new(organization: organization, resource_type: resource_type)
+      described_class.new(organization: organization, resource_type: resource_type, current_user: current_user)
     end
+    let(:current_user) { nil }
     let(:organization) { create(:organization) }
     let(:resource_type) { "all" }
 
     context "with admin logs" do
       let!(:admin_log) { create(:action_log, visibility: "admin-only", organization: organization) }
 
-      it { is_expected.not_to eq(admin_log) }
+      it { is_expected.not_to include(admin_log) }
     end
 
     context "when a resource is not publicable" do
@@ -65,6 +66,51 @@ module Decidim
         let(:action) { "publish" }
         let(:resource) do
           create(:dummy_resource, component: component, published_at: Time.current)
+        end
+
+        it { is_expected.to include(action_log) }
+      end
+    end
+
+    context "when a resource is hidden through moderation" do
+      let(:comment) { create(:comment) }
+      let!(:action_log) do
+        create(:action_log, action: "create", visibility: "public-only", resource: comment, organization: organization)
+      end
+      let!(:moderation) do
+        create(
+          :moderation,
+          :hidden,
+          reportable: comment,
+          participatory_space: comment.commentable.participatory_space
+        )
+      end
+
+      it { is_expected.not_to include(action_log) }
+    end
+
+    context "when a resource is hidden through a private space" do
+      let(:current_user) { create(:user, :confirmed, organization: organization) }
+      let(:participatory_process) { create(:participatory_process, :private, organization: organization) }
+      let(:component) { create(:component, participatory_space: participatory_process) }
+      let(:commentable) { create(:dummy_resource, component: component) }
+      let(:comment) { create(:comment, commentable: commentable) }
+      let!(:action_log) do
+        create(
+          :action_log,
+          action: "create",
+          visibility: "public-only",
+          resource: comment,
+          participatory_space: participatory_process,
+          organization: organization
+        )
+      end
+
+      it { is_expected.not_to include(action_log) }
+
+      context "and the user is in the private space users" do
+        before do
+          create(:participatory_space_private_user, user: current_user, privatable_to: participatory_process)
         end
 
         it { is_expected.to include(action_log) }
