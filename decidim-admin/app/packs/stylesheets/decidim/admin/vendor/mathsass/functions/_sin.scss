@@ -5,5 +5,5 @@
 //     sin(60deg)  // 0.86603
 @function sin ($x) {
     $x: unitless-rad($x);
-    @return cos($x - $PI / 2);
+    @return cos($x - $PI * 0.5);
 }

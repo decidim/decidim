@@ -8,5 +8,5 @@
         @warn "Argument for `acos()` must be a number between -1 and 1";
         @return null;
     }
-    @return $PI / 2 - asin($x);
+    @return $PI * 0.5 - asin($x);
 }

@@ -2,7 +2,7 @@
 // @param {Number} $x
 // @param {Number} $exp
 @function ldexp ($x, $exp) {
-    $b: if($exp >= 0, 2, 1 / 2);
+    $b: if($exp >= 0, 2, 1 * 0.5);
     @if $exp < 0 {
         $exp: $exp * -1;
     }

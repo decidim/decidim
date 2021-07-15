@@ -3,26 +3,28 @@
 // @example
 //     atan(0.1) // 0.09967
 //     atan(-1)  // -0.7854
+@use "sass:math";
+
 @function atan ($x) {
     $i:  24;
     $sgn: 0;
     $a:   0;
     @if $x > 1 {
         $sgn:  1;
-        $x:    1 / $x;
+        $x:    math.div(1, $x);
     } @else if $x < -1 {
         $sgn: -1;
-        $x:    1 / $x;
+        $x:    math.div(1, $x);
     }
     @while $i > 0 {
-        $a: ($i * $i * $x * $x) / (2 * $i + 1 + $a);
+        $a: math.div($i * $i * $x * $x, 2 * $i + 1 + $a);
         $i: $i - 1;
     }
     @if $sgn > 0 {
-        @return  $PI / 2 - $x / (1 + $a);
+        @return  $PI * 0.5 - math.div($x, 1 + $a);
     } @else if $sgn < 0 {
-        @return -$PI / 2 - $x / (1 + $a);
+        @return -$PI * 0.5 - math.div($x, 1 + $a);
     } @else {
-        @return            $x / (1 + $a);
+        @return            math.div($x, 1 + $a);
     }
 }
