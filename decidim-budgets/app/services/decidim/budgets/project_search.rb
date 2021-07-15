@@ -27,6 +27,12 @@ module Decidim
         Project.where(id: super.pluck(:id)).includes([:scope, :component, :attachments, :category])
       end
 
+      def search_status
+        return query if status.member?("all")
+
+        apply_scopes(%w(selected not_selected), status)
+      end
+
       private
 
       # Private: Since budget is not used by a search method we need

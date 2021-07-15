@@ -28,6 +28,9 @@ module Decidim
 
       delegate :organization, :participatory_space, to: :component
 
+      scope :selected, -> { where.not(selected_at: nil) }
+      scope :not_selected, -> { where(selected_at: nil) }
+
       searchable_fields(
         scope_id: :decidim_scope_id,
         participatory_space: { component: :participatory_space },
