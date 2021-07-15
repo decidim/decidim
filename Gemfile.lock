@@ -119,7 +119,7 @@ PATH
       social-share-button (~> 1.2, >= 1.2.1)
       truncato (~> 0.7)
       valid_email2 (~> 2.1)
-      webpacker (~> 6.0.0.beta.7)
+      webpacker (~> 6.0.0.beta.7, < 6.0.0.c)
       wisper (~> 2.0)
     decidim-debates (0.25.0.dev)
       decidim-comments (= 0.25.0.dev)
