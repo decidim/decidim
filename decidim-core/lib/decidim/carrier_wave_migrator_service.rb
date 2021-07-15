@@ -4,36 +4,50 @@ require "English"
 
 module Decidim
   module CarrierWaveMigratorService
-    MIGRATION_ATTRIBUTES = [
-      [Decidim::Attachment, "file", Decidim::Cw::AttachmentUploader, "file"],
-      [Decidim::User, "avatar", Decidim::Cw::AvatarUploader, "avatar"],
-      [Decidim::UserGroup, "avatar", Decidim::Cw::AvatarUploader, "avatar"],
-      [Decidim::OAuthApplication, "organization_logo", Decidim::Cw::OAuthApplicationLogoUploader, "organization_logo"],
-      [Decidim::Authorization, "verification_attachment", Decidim::Cw::Verifications::AttachmentUploader, "verification_attachment"],
-      [Decidim::Organization, "official_img_header", Decidim::Cw::OfficialImageHeaderUploader, "official_img_header"],
-      [Decidim::Organization, "official_img_footer", Decidim::Cw::OfficialImageFooterUploader, "official_img_footer"],
-      [Decidim::Organization, "logo", Decidim::Cw::OrganizationLogoUploader, "logo"],
-      [Decidim::Organization, "favicon", Decidim::Cw::OrganizationFaviconUploader, "favicon"],
-      [Decidim::Organization, "highlighted_content_banner_image", Decidim::Cw::ImageUploader, "highlighted_content_banner_image"],
-      [Decidim::Conference, "hero_image", Decidim::Cw::HeroImageUploader, "hero_image"],
-      [Decidim::Conference, "banner_image", Decidim::Cw::HomepageImageUploader, "banner_image"],
-      [Decidim::Conference, "main_logo", Decidim::Cw::Conferences::DiplomaUploader, "main_logo"],
-      [Decidim::Conference, "signature", Decidim::Cw::Conferences::DiplomaUploader, "signature"],
-      [Decidim::ConferenceSpeaker, "avatar", Decidim::Cw::AvatarUploader, "avatar"],
-      [Decidim::Conferences::Partner, "logo", Decidim::Cw::Conferences::PartnerLogoUploader, "logo"],
-      [Decidim::Consultations::Question, "hero_image", Decidim::Cw::HeroImageUploader, "hero_image"],
-      [Decidim::Consultations::Question, "banner_image", Decidim::Cw::BannerImageUploader, "banner_image"],
-      [Decidim::Consultation, "banner_image", Decidim::Cw::BannerImageUploader, "banner_image"],
-      [Decidim::Consultation, "introductory_image", Decidim::Cw::BannerImageUploader, "introductory_image"],
-      [Decidim::Votings::Voting, "banner_image", Decidim::Cw::BannerImageUploader, "banner_image"],
-      [Decidim::Votings::Voting, "introductory_image", Decidim::Cw::BannerImageUploader, "introductory_image"],
-      [Decidim::ParticipatoryProcess, "hero_image", Decidim::Cw::HeroImageUploader, "hero_image"],
-      [Decidim::ParticipatoryProcess, "banner_image", Decidim::Cw::BannerImageUploader, "banner_image"],
-      [Decidim::ParticipatoryProcessGroup, "hero_image", Decidim::Cw::HeroImageUploader, "hero_image"],
-      [Decidim::Assembly, "hero_image", Decidim::Cw::HeroImageUploader, "hero_image"],
-      [Decidim::Assembly, "banner_image", Decidim::Cw::BannerImageUploader, "banner_image"],
-      [Decidim::InitiativesType, "banner_image", Decidim::Cw::BannerImageUploader, "banner_image"]
-    ].freeze
+    MIGRATION_ATTRIBUTES = {
+      "Decidim::Organization" => ->{[
+        [Decidim::Attachment, "file", Decidim::Cw::AttachmentUploader, "file"],
+        [Decidim::User, "avatar", Decidim::Cw::AvatarUploader, "avatar"],
+        [Decidim::UserGroup, "avatar", Decidim::Cw::AvatarUploader, "avatar"],
+        [Decidim::OAuthApplication, "organization_logo", Decidim::Cw::OAuthApplicationLogoUploader, "organization_logo"],
+        [Decidim::Authorization, "verification_attachment", Decidim::Cw::Verifications::AttachmentUploader, "verification_attachment"],
+        [Decidim::Organization, "official_img_header", Decidim::Cw::OfficialImageHeaderUploader, "official_img_header"],
+        [Decidim::Organization, "official_img_footer", Decidim::Cw::OfficialImageFooterUploader, "official_img_footer"],
+        [Decidim::Organization, "logo", Decidim::Cw::OrganizationLogoUploader, "logo"],
+        [Decidim::Organization, "favicon", Decidim::Cw::OrganizationFaviconUploader, "favicon"],
+        [Decidim::Organization, "highlighted_content_banner_image", Decidim::Cw::ImageUploader, "highlighted_content_banner_image"]
+      ]},
+      "Decidim::Conference" => ->{[
+        [Decidim::Conference, "hero_image", Decidim::Cw::HeroImageUploader, "hero_image"],
+        [Decidim::Conference, "banner_image", Decidim::Cw::HomepageImageUploader, "banner_image"],
+        [Decidim::Conference, "main_logo", Decidim::Cw::Conferences::DiplomaUploader, "main_logo"],
+        [Decidim::Conference, "signature", Decidim::Cw::Conferences::DiplomaUploader, "signature"],
+        [Decidim::ConferenceSpeaker, "avatar", Decidim::Cw::AvatarUploader, "avatar"],
+        [Decidim::Conferences::Partner, "logo", Decidim::Cw::Conferences::PartnerLogoUploader, "logo"]
+      ]},
+      "Decidim::Consultation" => ->{[
+        [Decidim::Consultations::Question, "hero_image", Decidim::Cw::HeroImageUploader, "hero_image"],
+        [Decidim::Consultations::Question, "banner_image", Decidim::Cw::BannerImageUploader, "banner_image"],
+        [Decidim::Consultation, "banner_image", Decidim::Cw::BannerImageUploader, "banner_image"],
+        [Decidim::Consultation, "introductory_image", Decidim::Cw::BannerImageUploader, "introductory_image"]
+      ]},
+      "Decidim::Votings::Voting" => ->{[
+        [Decidim::Votings::Voting, "banner_image", Decidim::Cw::BannerImageUploader, "banner_image"],
+        [Decidim::Votings::Voting, "introductory_image", Decidim::Cw::BannerImageUploader, "introductory_image"]
+      ]},
+      "Decidim::ParticipatoryProcess" => ->{[
+        [Decidim::ParticipatoryProcess, "hero_image", Decidim::Cw::HeroImageUploader, "hero_image"],
+        [Decidim::ParticipatoryProcess, "banner_image", Decidim::Cw::BannerImageUploader, "banner_image"],
+        [Decidim::ParticipatoryProcessGroup, "hero_image", Decidim::Cw::HeroImageUploader, "hero_image"]
+      ]},
+      "Decidim::Assembly" => ->{[
+        [Decidim::Assembly, "hero_image", Decidim::Cw::HeroImageUploader, "hero_image"],
+        [Decidim::Assembly, "banner_image", Decidim::Cw::BannerImageUploader, "banner_image"]
+      ]},
+      "Decidim::Initiative" => ->{[
+        [Decidim::InitiativesType, "banner_image", Decidim::Cw::BannerImageUploader, "banner_image"]
+      ]}
+    }.sum {|main_model, attributes| Object.const_defined?(main_model) ? attributes.call : [] }.freeze
 
     def self.check_content_blocks_attachments(logger:)
       Decidim::ContentBlock.find_each do |block|
