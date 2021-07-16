@@ -79,9 +79,9 @@ describe "Explore projects", :slow, type: :system do
       context "and votes are finished" do
         let!(:component) do
           create(:budgets_component,
-                :with_voting_finished,
-                manifest: manifest,
-                participatory_space: participatory_process)
+                 :with_voting_finished,
+                 manifest: manifest,
+                 participatory_space: participatory_process)
         end
 
         it "allows filtering by status" do
