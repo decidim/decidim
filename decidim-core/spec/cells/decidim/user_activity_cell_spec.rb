@@ -45,8 +45,9 @@ describe Decidim::UserActivityCell, type: :cell do
       current_user: current_user,
       resource_type: "all",
       resource_name: filter.resource_type
-    ).run.page(0).per(10)
+    ).run.page(current_page).per(10)
   end
+  let(:current_page) { 1 }
   let!(:logs) do
     comments.map do |comment|
       create(
@@ -91,6 +92,25 @@ describe Decidim::UserActivityCell, type: :cell do
       expect(page).to have_selector("li.page.current", text: "1")
       expect(page).to have_selector("li.page a", text: "2")
       expect(page).not_to have_selector("li.page a", text: "3")
+    end
+  end
+
+  context "when on the second page" do
+    let(:current_page) { 2 }
+
+    it "displays the oldest items and a pagination" do
+      logs.first(5).each do |log|
+        root_link = Decidim::ResourceLocatorPresenter.new(log.resource.root_commentable).path
+        comment_link = "#{root_link}?commentId=#{log.resource.id}"
+        title = html_truncate(translated_attribute(log.resource.root_commentable.title), length: 80)
+
+        expect(subject).to have_link(title, href: comment_link)
+      end
+
+      within "#decidim-paginate-container .pagination" do
+        expect(page).to have_selector("li.page a", text: "1")
+        expect(page).to have_selector("li.page.current", text: "2")
+      end
     end
   end
 
