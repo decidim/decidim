@@ -28,7 +28,7 @@
     flex-shrink: 0;
     margin-top: $card-padding-small * .7;
     margin-bottom: $card-padding-small * .7;
-    margin-left: $card-padding-small * 0.5;
+    margin-left: $card-padding-small * .5;
 
     @include breakpoint(medium){
       width: 6rem;
@@ -47,7 +47,7 @@
   }
 
   &__text{
-    padding: $card-padding-small * 0.5;
+    padding: $card-padding-small * .5;
     flex-grow: 1;
 
     @include breakpoint(medium){
@@ -72,7 +72,7 @@
     font-size: 85%;
     line-height: 1;
     color: $muted;
-    padding: $card-padding-small * 0.5;
+    padding: $card-padding-small * .5;
     background: $card-secondary-bg;
 
     @include breakpoint(medium){
