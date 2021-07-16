@@ -5,4 +5,5 @@
 // `config/assets.rb` of the module for the "app" group.
 @import "!decidim-style-imports[app]";
 
+// Application specific styles
 @import "stylesheets/decidim/decidim_application";
