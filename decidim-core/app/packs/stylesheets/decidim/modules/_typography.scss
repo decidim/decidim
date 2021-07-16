@@ -1,7 +1,6 @@
 /* Variables */
 
 /* Typography - Foundation overrides */
-@use "sass:math";
 
 button,
 input{
@@ -33,17 +32,17 @@ button{
 @mixin heading($heading){
   line-height: 1.2;
   font-size:
-    math.div(map-get(
+    (map-get(
       map-get(map-get($header-styles, small), $heading),
       "font-size"
-    ), 16) + em;
+    ) * .0625) + em;
 
   @include breakpoint(medium){
     font-size:
-      math.div(map-get(
+      (map-get(
         map-get(map-get($header-styles, medium), $heading),
         "font-size"
-      ), 16) + em;
+      ) * .0625) + em;
   }
 }
 
