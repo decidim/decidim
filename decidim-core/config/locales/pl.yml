@@ -909,35 +909,35 @@ pl:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{manager} rozpoczął/rozpoczęła nową konwersację w imieniu %{group}. Kliknij tutaj, aby ją zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: "%{manager} rozpoczął/rozpoczęła nową konwersację jako %{group}"
         comanagers_new_message:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{manager} opublikował(a) nowe wiadomości w konwersacji w imieniu %{group}. Kliknij tutaj, aby je zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: "%{manager} wysłał(a) nowe wiadomości jako %{group}"
         new_conversation:
           greeting: Cześć, %{recipient}!
           intro: "%{sender} rozpoczął/rozpoczęła z tobą nową rozmowę. Kliknij tutaj, aby zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: "%{sender} rozpoczął/rozpoczęła z Tobą rozmowę"
         new_group_conversation:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{sender} rozpoczął/rozpoczęła nową konwersację z grupą %{group}. Kliknij tutaj, aby ją zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: "%{sender} rozpoczął/rozpoczęła konwersację z %{group}"
         new_group_message:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{sender} opublikował(a) nowe wiadomości w konwersacji z grupą %{group}. Kliknij tutaj, aby je zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: "%{group} ma nowe wiadomości od %{sender}"
         new_message:
           greeting: Cześć, %{recipient}!
           intro: "%{sender} opublikował(a) nowe wiadomości w twojej rozmowie. Kliknij tutaj, aby je zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: Masz nowe wiadomości od %{sender}
       conversations:
         add_conversation_users:
