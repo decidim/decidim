@@ -596,7 +596,7 @@ pl:
       email_event:
         email_greeting: Witaj %{user_name},
         email_intro: 'Zaktualizowano "%{resource_title}". Możesz zobaczyć zmiany na tej stronie:'
-        email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać obserwować ten zasób klikając w poprzedni link.
+        email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz przestrzeń "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie kliknij w przycisk obserwowania.
         email_subject: Aktualizacja %{resource_title}
       gamification:
         badge_earned:
