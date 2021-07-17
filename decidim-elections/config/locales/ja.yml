@@ -430,9 +430,11 @@ ja:
             will_verify: 選挙が開始されると、投票を確認することができます。
           voting_period_status:
             finished: '%{start_time} に投票が開始され、 %{end_time} に終了しました'
+            ongoing: '有効な投票まで: %{end_time}'
             upcoming: '%{start_time} に投票が終了します'
       feedback:
         answer:
+          invalid: フィードバックの送信中に問題が発生しました。
           spam_detected: フォームに回答する際に問題が発生しました。もう一度お試しください。
           success: フィードバックは正常に送信されました
       models:
@@ -457,6 +459,7 @@ ja:
             title: タイトル
         trustees_participatory_space:
           fields:
+            considered: 考慮された
             email: Eメールアドレス
             inactive: 非アクティブ
             name: 名前
@@ -508,6 +511,8 @@ ja:
               task: タスク
             process_warning: プロセスが開始されると、プロセスが終了するまでこのページを閉じないでください。 すべての受託者が接続し完了するまで、しばらくかかることがあります。
             start: 開始
+            status:
+              completed: 完了
       votes:
         ballot_decision:
           ballot_hash: '投票用紙の識別子:'
