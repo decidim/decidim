@@ -354,6 +354,7 @@ ja:
             will-verify: 選挙が開始されると、投票を確認することができます。
           voting_period_status:
             finished: '%{start_time} に投票が開始され、 %{end_time} に終了しました'
+            ongoing: '有効な投票まで: %{end_time}'
             upcoming: '%{start_time} に投票が終了します'
       feedback:
         answer:
@@ -378,6 +379,7 @@ ja:
             title: タイトル
         trustees_participatory_space:
           fields:
+            considered: 考慮された
             email: Eメールアドレス
             inactive: 非アクティブ
             name: 名前
@@ -429,6 +431,10 @@ ja:
               task: タスク
             process_warning: プロセスが開始されると、プロセスが終了するまでこのページを閉じないでください。 すべての受託者が接続し完了するまで、しばらくかかることがあります。
             start: 開始
+            status:
+              completed: 完了
+              pending: 保留中
+              processing: 処理中
       votes:
         confirm:
           answer: 回答
