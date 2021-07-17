@@ -72,14 +72,6 @@ describe Decidim::UserActivityCell, type: :cell do
   end
 
   it "displays the latest items on the first page and a pagination" do
-    # The first five items should be on the second page
-    logs.first(5).each do |log|
-      root_link = Decidim::ResourceLocatorPresenter.new(log.resource.root_commentable).path
-      comment_link = "#{root_link}?commentId=#{log.resource.id}"
-      title = html_truncate(translated_attribute(log.resource.root_commentable.title), length: 80)
-
-      expect(subject).not_to have_link(title, href: comment_link)
-    end
     logs.last(10).each do |log|
       root_link = Decidim::ResourceLocatorPresenter.new(log.resource.root_commentable).path
       comment_link = "#{root_link}?commentId=#{log.resource.id}"
