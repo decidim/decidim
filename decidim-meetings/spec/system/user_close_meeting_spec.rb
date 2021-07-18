@@ -68,6 +68,8 @@ describe "User edit meeting", type: :system do
                title: { en: "Meeting title with #hashtag" },
                description: { en: "Meeting description" },
                author: user,
+               attendees_count: nil,
+               attending_organizations: nil,
                component: component)
       end
 
