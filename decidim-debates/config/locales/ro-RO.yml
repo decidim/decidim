@@ -212,10 +212,12 @@ ro:
         debate_closed:
           affected_user:
             email_intro: 'Dezbaterea pentru "%{resource_title}” a fost închisă. Puteți citi concluziile pe pagina sa:'
+            email_outro: Ați primit această notificare deoarece urmăriți dezbaterea "%{resource_title}". Puteți opri urmărirea de la linkul anterior.
             email_subject: Dezbaterea pentru "%{resource_title}” a fost închisă
             notification_title: Dezbaterea pentru <a href="%{resource_path}">%{resource_title}</a> a fost închisă.
           follower:
             email_intro: 'Dezbaterea pentru "%{resource_title}” a fost închisă. Puteți citi concluziile pe pagina sa:'
+            email_outro: Ați primit această notificare deoarece urmăriți dezbaterea "%{resource_title}". Puteți opri urmărirea de la linkul anterior.
             email_subject: Dezbaterea pentru "%{resource_title}” a fost închisă
             notification_title: Dezbaterea pentru <a href="%{resource_path}">%{resource_title}</a> a fost închisă.
     gamification:

@@ -57,6 +57,9 @@ ro:
         update:
           error: A apărut o eroare la actualizarea administratorului.
           success: Administrator actualizat cu succes
+      dashboard:
+        show:
+          current_organizations: Organizații curente
       default_pages:
         placeholders:
           content: Vă rugăm să adăugaţi conţinut semnificativ paginii statice %{page} de pe tabloul de bord al administratorului.
@@ -112,6 +115,9 @@ ro:
           error: A apărut o eroare la actualizarea acestei aplicații.
           success: Aplicație actualizată cu succes.
       organizations:
+        advanced_settings:
+          hide: Ascunde setările avansate
+          show: Arată setările avansate
         create:
           error: A apărut o problemă la crearea unei noi organizații.
           success: Organizație creată cu succes.

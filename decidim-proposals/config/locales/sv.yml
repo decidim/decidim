@@ -10,7 +10,7 @@ sv:
         scope_id: Omfattning
         state: Status
         title: Titel
-        user_group_id: Skapa gemensamt utkast som
+        user_group_id: Skapa samarbetsutkast som
       proposal:
         address: Adress
         answer: Svar
@@ -35,6 +35,7 @@ sv:
         origin_component_id: Komponent att kopiera förslagen från
       proposals_import:
         import_proposals: Importera förslag
+        keep_answers: Behåll status och svar
         keep_authors: Behåll originalförfattare
       valuation_assignment:
         admin_log:
@@ -115,9 +116,11 @@ sv:
       proposals:
         actions:
           amend: Ändra
+          comment: Kommentera
           create: Skapa
           endorse: Instäm
           vote: Stötta
+          vote_comment: Rösta på en kommentar
           withdraw: Dra tillbaka
         name: Förslag
         settings:
@@ -712,6 +715,9 @@ sv:
           proposals_count:
             one: "%{count} förslag"
             other: "%{count} förslag"
+        dynamic_map_instructions:
+          description: Koordinaterna uppdateras när du klickar på knappen 'Förhandsgranska'. Adressen ändras dock inte.
+          instructions: Nu kan du flytta markören på kartan.
         edit:
           add_documents: Dokument
           add_images: Bild

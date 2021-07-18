@@ -381,6 +381,14 @@ ja:
           title: 選挙ログ
           verifiable_results:
             checksum: 'ファイルのSHA256 チェックサム:'
+            title: 選挙結果を検証
+            verifiable_file: '検証可能な選挙ファイル:'
+          verify: 選挙を検証
+          vote_description:
+            finished: 投票プロセスは終了しました。
+            not_started: 投票プロセスはまだ開始されていません。
+            started: 投票プロセスが開始されました。
+          vote_title: 投票プロセス
         filters:
           active: 有効
           all: 全て
@@ -393,14 +401,28 @@ ja:
           filter: 絞り込み
           filter_by: 絞り込み条件
           unfold: 展開
+        preview:
+          available_answers: '利用可能な回答:'
+          description: 'これらは投票プロセスでの質問内容です。'
+          title: 選挙の質問
+        results:
+          description: 'これらは、各質問に対する投票結果です:'
+          percentage: "%{count}%"
+          selected: 選択済
+          title: 選挙結果
+          votes:
+            other: "%{count} 票"
         show:
           action_button:
             change_vote: 投票の変更
             vote: 投票の開始
             vote_again: 再投票
+          back: 利用可能な選挙
           callout:
             already_voted: すでにこの選挙に投票しました。投票の変更と確認ができます。
+            pending_vote: あなたの投票はサーバー上で行われています。
             vote_rejected: 投票を確認できませんでした。もう一度お試しください。
+          election_log: 選挙ログ
           preview: プレビュー
           verify:
             already_voted: すでに投票しましたか？
@@ -417,17 +439,30 @@ ja:
         answer:
           fields:
             proposals: 提案
+            selected: 選択済み
             title: タイトル
+            votes: 投票
         election:
           fields:
+            bb_status: 掲示板の状態
             end_time: 終了時刻
             start_time: 開始
             title: タイトル
+            verifiable_results_file_hash: ファイルのSHA256 チェックサム
+            verifiable_results_file_url: 検証可能な選挙ファイル
         question:
           fields:
             answers: 回答
             max_selections: 最大選挙数
             title: タイトル
+        trustees_participatory_space:
+          fields:
+            email: Eメールアドレス
+            inactive: 非アクティブ
+            name: 名前
+            notification: 通知送信日時
+            public_key: 公開鍵
+            status: ステータス：
       orders:
         label: 選挙の順序
         older: 古い
@@ -435,6 +470,7 @@ ja:
       trustee_zone:
         elections:
           backup_modal:
+            download_election_keys: ダウンロードキー
             download_icon: ダウンロードアクションを示すアイコン
             title: '%{election} のバックアップ選挙キー'
           key_ceremony_steps:
@@ -456,7 +492,26 @@ ja:
               pending: 保留中
               processing: 処理中
             title: '%{election} の選挙用キーを作成'
+          restore_modal:
+            title: '%{election} の選挙用キーを復元'
+            upload_election_keys: 選挙用キーをアップロード
+            upload_icon: ダウンロードアクションを示すアイコン
+          tally_steps:
+            back: 戻る
+            keys:
+              end_tally: 終了しました
+              tally:
+                cast: 集計キャスト
+                share: 集計を共有
+            list:
+              status: ステータス
+              task: タスク
+            process_warning: プロセスが開始されると、プロセスが終了するまでこのページを閉じないでください。 すべての受託者が接続し完了するまで、しばらくかかることがあります。
+            start: 開始
       votes:
+        ballot_decision:
+          ballot_hash: '投票用紙の識別子:'
+          cast: 投票用紙のキャスト
         confirm:
           answer: 回答
           answer_number: 回答 %{number}
