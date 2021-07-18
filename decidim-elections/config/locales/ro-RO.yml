@@ -87,6 +87,16 @@ ro:
             manager: Administrator
             president: Președinte
             unassigned: Neatribuit
+        signed_eq:
+          label: Semnat
+          values:
+            'false': Semnat
+            'true': Nu este semnat
+        validated_eq:
+          label: Validat
+          values:
+            'false': Validat
+            'true': Nevalidat
     components:
       elections:
         actions:
@@ -221,6 +231,7 @@ ro:
             public_key:
               'false': nu are <strong>o cheie publică</strong>
               'true': are o <strong>cheie publică</strong>
+            title: Configurarea alegerilor
           tally_ended:
             success: Cererea de publicare a rezultatelor a fost trimisă cu succes la Bulletin Board
           vote_ended:
