@@ -48,7 +48,6 @@ ja:
         favicon: アイコン
         force_authentication: 認証の強制
         force_users_to_authenticate_before_access_organization: 組織にアクセスする前にユーザーの認証を強制する
-        from: メールアドレスから
         github_handler: GitHub handler
         header_snippets: ヘッダスニペットを表示
         highlight_alternative_color: 代替のハイライト
@@ -180,12 +179,10 @@ ja:
           success: 素晴らしい！管理者の利用規約に同意しました。
         actions:
           accept: 次の規約に同意します
-          are_you_sure: 管理者の条件を拒否してもよろしいですか？
           refuse: 同意しない
           title: 利用規約に同意する
         required_review:
           alert: '必須：管理者の利用規約を確認してください'
-          callout: 管理者の利用規約を確認してください。そうでなければ、プラットフォームを管理することはできません。
           cta: 今すぐレビューしましょう。
         title: 管理者の利用条件
       area_types:
@@ -208,7 +205,6 @@ ja:
           error: 新しいエリアの作成中に問題が発生しました。
           success: エリアの作成に成功しました。
         destroy:
-          has_spaces: 領域には依存スペースがあり、削除するために依存関係を持っていてはなりません。
           success: エリアの削除に成功しました
         edit:
           title: エリアを編集
@@ -261,7 +257,6 @@ ja:
       block_user:
         new:
           action: アカウントをブロックして理由を送信
-          description: ユーザーをブロックすると、そのユーザーのアカウントは使用できなくなりますが、ブロック解除を検討する方法については、正当な理由とガイドラインを提示することができます。
           justification: 判定理由
           title: ユーザー %{name} をブロックする
       categories:
@@ -324,7 +319,6 @@ ja:
         'false': 'いいえ'
         managed_user_name: 管理ユーザー
         solved: 解決済み
-        title: 確認の競合
         transfer:
           email: Eメールアドレス
           error: 参加者から管理参加者への移転中に問題が発生しました。
@@ -487,7 +481,6 @@ ja:
         areas: エリア
         configuration: 設定
         dashboard: ダッシュボード
-        external_domain_whitelist: 外部ドメインのホワイトリスト設定
         help_sections: ヘルプセクション
         homepage: ホームページ
         impersonations: なりすまし
@@ -636,7 +629,6 @@ ja:
       newsletters:
         create:
           error: このニュースレターの作成中に問題が発生しました。
-          success: ニュースレターが正常に作成されました。送信する前に確認してください。
         deliver:
           error: このニュースレターを配信する際に問題が発生しました。
           success: ニュースレターが配信されました。
@@ -719,12 +711,10 @@ ja:
           title: 参加者 "%{name} " を正規化
         show_email_modal:
           close_modal: モーダルを閉じる
-          description: 直接参加者に連絡する必要がある場合は，表示ボタンをクリックしてメールアドレスを見ることができます．このアクションは記録されます．
           email_address: メールアドレス
           full_name: フルネーム
           hidden: hidden
           show: 表示
-          title: 参加者のメールアドレスを表示
         unblock:
           error: 参加者のブロック解除中にエラーが発生しました
           success: 参加者のブロックを解除しました
@@ -968,10 +958,6 @@ ja:
           no_users_count_statistics_yet: まだユーザー数の統計がありません
           participants: 参加者
       view_public_page: 公開ページを表示
-    forms:
-      errors:
-        impersonate_user:
-          reason: 管理対象外の参加者を管理する場合は理由を入力する必要があります
     metrics:
       blocked_users:
         object: ブロックされたユーザー
