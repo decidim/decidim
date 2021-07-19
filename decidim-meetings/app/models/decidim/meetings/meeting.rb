@@ -300,13 +300,13 @@ module Decidim
       end
 
       def self.sort_by_translated_title_asc
-        order(Arel::Nodes::InfixOperation.new("",
-                                              Arel::Nodes::InfixOperation.new("->>", arel_table[:title], Arel::Nodes.build_quoted(I18n.locale)), Arel.sql("ASC")))
+        field = Arel::Nodes::InfixOperation.new("->>", arel_table[:title], Arel::Nodes.build_quoted(I18n.locale))
+        order(Arel::Nodes::InfixOperation.new("", field, Arel.sql("ASC")))
       end
 
       def self.sort_by_translated_title_desc
-        order(Arel::Nodes::InfixOperation.new("",
-                                              Arel::Nodes::InfixOperation.new("->>", arel_table[:title], Arel::Nodes.build_quoted(I18n.locale)), Arel.sql("ASC")))
+        field = Arel::Nodes::InfixOperation.new("->>", arel_table[:title], Arel::Nodes.build_quoted(I18n.locale))
+        order(Arel::Nodes::InfixOperation.new("", field, Arel.sql("DESC")))
       end
 
       ransacker :type do
@@ -322,14 +322,7 @@ module Decidim
       end
 
       ransacker :is_upcoming do
-        query = <<-SQL.squish
-        (
-          SELECT EXISTS (
-            SELECT 1 FROM decidim_meetings_meetings as dmm WHERE dmm.id = decidim_meetings_meetings.id AND dmm.start_time > NOW()
-          )
-        )
-        SQL
-        Arel.sql(query)
+        Arel.sql("(start_time > NOW())")
       end
 
       ransacker :origin do

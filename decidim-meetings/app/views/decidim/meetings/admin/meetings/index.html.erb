@@ -8,6 +8,7 @@
       </div>
     </h2>
   </div>
+
   <%= admin_filter_selector(:meetings) %>
   <div class="card-section">
     <div class="table-scroll">
@@ -15,7 +16,7 @@
         <thead>
           <tr>
             <th>
-              <%= sort_link(query, :translated_title, t("models.meeting.fields.id", scope: "decidim.meetings"), default_order: :desc ) %>
+              <%= sort_link(query, :id, t("models.meeting.fields.id", scope: "decidim.meetings"), default_order: :desc ) %>
             </th>
             <th>
               <%= sort_link(query, :translated_title, t("models.meeting.fields.title", scope: "decidim.meetings"), default_order: :desc ) %>
@@ -33,13 +34,11 @@
 
               <th><%= t("models.meeting.fields.map", scope: "decidim.meetings") %></th>
             <% end %>
-
             <% if resource_with_scopes_enabled? %>
               <th>
                 <%= sort_link(query, :scope_name, t("models.proposal.fields.scope", scope: "decidim.proposals") ) %>
               </th>
             <% end %>
-
             <th class="actions"><%= t("actions.title", scope: "decidim.meetings") %></th>
           </tr>
         </thead>

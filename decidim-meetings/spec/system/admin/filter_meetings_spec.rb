@@ -65,6 +65,79 @@ describe "Admin filters meetings", type: :system do
     end
   end
 
+  context "when filtering by origin" do
+    let!(:official_meeting) { create(:meeting, :official, component: component) }
+    let!(:citizen_meeting) { create(:meeting, :not_official, component: component) }
+    let!(:user_group_meeting) { create(:meeting, :user_group_author, component: component) }
+
+    before { visit_component_admin }
+
+    context "when filtering citizens " do
+      context "when no official event is present" do
+        it_behaves_like "a filtered collection", options: "Origin", filter: "Citizen" do
+          let(:in_filter) { translated(citizen_meeting.title) }
+          let(:not_in_filter) { translated(official_meeting.title) }
+        end
+      end
+
+      context "when no user group is present" do
+        it_behaves_like "a filtered collection", options: "Origin", filter: "Citizen" do
+          let(:in_filter) { translated(citizen_meeting.title) }
+          let(:not_in_filter) { translated(user_group_meeting.title) }
+        end
+      end
+    end
+
+    context "when filtering official " do
+      context "when no citizen event is present" do
+        it_behaves_like "a filtered collection", options: "Origin", filter: "Official" do
+          let(:in_filter) { translated(official_meeting.title) }
+          let(:not_in_filter) { translated(citizen_meeting.title) }
+        end
+      end
+
+      context "when no user group is present" do
+        it_behaves_like "a filtered collection", options: "Origin", filter: "Official" do
+          let(:in_filter) { translated(official_meeting.title) }
+          let(:not_in_filter) { translated(user_group_meeting.title) }
+        end
+      end
+    end
+
+    context "when filtering official " do
+      context "when no citizen event is present" do
+        it_behaves_like "a filtered collection", options: "Origin", filter: "User Groups" do
+          let(:in_filter) { translated(user_group_meeting.title) }
+          let(:not_in_filter) { translated(citizen_meeting.title) }
+        end
+      end
+
+      context "when no official event is present" do
+        it_behaves_like "a filtered collection", options: "Origin", filter: "User Groups" do
+          let(:in_filter) { translated(user_group_meeting.title) }
+          let(:not_in_filter) { translated(official_meeting.title) }
+        end
+      end
+    end
+  end
+
+  context "when filtering by Date" do
+    let!(:past_event) { create(:meeting, :past, component: component) }
+    let!(:future_event) { create(:meeting, :upcoming, component: component) }
+
+    before { visit_component_admin }
+
+    it_behaves_like "a filtered collection", options: "Date", filter: "Upcoming" do
+      let(:in_filter) { translated(future_event.title) }
+      let(:not_in_filter) { translated(past_event.title) }
+    end
+
+    it_behaves_like "a filtered collection", options: "Date", filter: "Past" do
+      let(:in_filter) { translated(past_event.title) }
+      let(:not_in_filter) { translated(future_event.title) }
+    end
+  end
+
   context "when searching by ID or title" do
     let!(:meeting1) { create(:meeting, component: component) }
     let!(:meeting2) { create(:meeting, component: component) }
