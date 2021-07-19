@@ -2,6 +2,9 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+#### Statistics change 
+As per [\#8147](https://github.com/decidim/decidim/pull/8147), the participants stats will not take into account deleted and blocked users.   
+
 #### Webpacker migration
 As per [#7464](https://github.com/decidim/decidim/pull/7464), [#7733](https://github.com/decidim/decidim/pull/7733) Decidim has been upgraded to use Webpacker to manage its assets. It's a huge change that requires some updates in your applications. Please refer to the guide [Migrate to Webpacker an instance app](https://github.com/decidim/decidim/blob/develop/docs/modules/develop/pages/guide_migrate_webpacker_app.adoc) and follow the steps described.
 
