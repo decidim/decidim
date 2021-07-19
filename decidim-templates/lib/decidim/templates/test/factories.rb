@@ -18,6 +18,13 @@ FactoryBot.define do
         end
       end
 
+      trait :with_all_questions do
+        after(:create) do |template|
+          template.templatable = create(:questionnaire, :with_all_questions, questionnaire_for: template)
+          template.save!
+        end
+      end
+
       after(:create) do |template|
         template.templatable = create(:questionnaire, questionnaire_for: template)
         template.save!
