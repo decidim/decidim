@@ -11,7 +11,6 @@ module Decidim
       include Decidim::AriaSelectedLinkToHelper
       include Decidim::MetaTagsHelper
       include Decidim::MapHelper
-      include Decidim::MainAppMissingRoutesHelper
       include Decidim::Admin::LogRenderHelper
       include Decidim::Admin::UserRolesHelper
       include Decidim::Admin::ResourceScopeHelper
