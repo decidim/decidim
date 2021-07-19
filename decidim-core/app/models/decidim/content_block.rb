@@ -92,9 +92,7 @@ module Decidim
         end
 
         attachments.each do |name, attachment|
-          validates_upload name do |config|
-            config.uploader = attachment.uploader
-          end
+          validates_upload name, uploader: attachment.uploader
 
           define_method(name) do
             attachment.file

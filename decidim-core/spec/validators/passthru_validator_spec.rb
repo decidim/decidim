@@ -28,9 +28,7 @@ describe PassthruValidator do
 
       attr_accessor :organization, :file
 
-      validates_upload(:file) do |config|
-        config.uploader = mount_class
-      end
+      validates_upload(:file, uploader: mount_class)
     end
   end
 

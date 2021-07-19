@@ -27,9 +27,7 @@ module Decidim
     validate :unique_document_number, if: :has_document_number?
 
     has_one_attached :avatar
-    validates_upload :avatar do |config|
-      config.uploader = Decidim::AvatarUploader
-    end
+    validates_upload :avatar, uploader: Decidim::AvatarUploader
 
     devise :confirmable, :decidim_validatable, confirmation_keys: [:decidim_organization_id, :email]
 

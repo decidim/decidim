@@ -21,9 +21,7 @@ module Decidim
                class_name: "Decidim::Organization"
 
     has_one_attached :hero_image
-    validates_upload :hero_image do |config|
-      config.uploader = Decidim::HeroImageUploader
-    end
+    validates_upload :hero_image, uploader: Decidim::HeroImageUploader
 
     # Scope to return only the promoted groups.
     #

@@ -13,9 +13,7 @@ module Decidim
     belongs_to :attached_to, polymorphic: true
 
     has_one_attached :file
-    validates_upload :file do |config|
-      config.uploader = Decidim::AttachmentUploader
-    end
+    validates_upload :file, uploader: Decidim::AttachmentUploader
     validates :content_type, presence: true
 
     delegate :attached?, to: :file

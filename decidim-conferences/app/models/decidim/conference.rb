@@ -56,24 +56,16 @@ module Decidim
     validates :slug, presence: true, format: { with: Decidim::Conference.slug_format }
 
     has_one_attached :hero_image
-    validates_upload :hero_image do |config|
-      config.uploader = Decidim::HeroImageUploader
-    end
+    validates_upload :hero_image, uploader: Decidim::HeroImageUploader
 
     has_one_attached :banner_image
-    validates_upload :banner_image do |config|
-      config.uploader = Decidim::HomepageImageUploader
-    end
+    validates_upload :banner_image, uploader: Decidim::HomepageImageUploader
 
     has_one_attached :main_logo
-    validates_upload :main_logo do |config|
-      config.uploader = Decidim::Conferences::DiplomaUploader
-    end
+    validates_upload :main_logo, uploader: Decidim::Conferences::DiplomaUploader
 
     has_one_attached :signature
-    validates_upload :signature do |config|
-      config.uploader = Decidim::Conferences::DiplomaUploader
-    end
+    validates_upload :signature, uploader: Decidim::Conferences::DiplomaUploader
 
     searchable_fields({
                         scope_id: :decidim_scope_id,

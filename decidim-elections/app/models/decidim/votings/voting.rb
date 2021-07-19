@@ -47,14 +47,10 @@ module Decidim
       validates :slug, presence: true, format: { with: Decidim::Votings::Voting.slug_format }
 
       has_one_attached :banner_image
-      validates_upload :banner_image do |config|
-        config.uploader = Decidim::BannerImageUploader
-      end
+      validates_upload :banner_image, uploader: Decidim::BannerImageUploader
 
       has_one_attached :introductory_image
-      validates_upload :introductory_image do |config|
-        config.uploader = Decidim::BannerImageUploader
-      end
+      validates_upload :introductory_image, uploader: Decidim::BannerImageUploader
 
       scope :upcoming, -> { published.where("start_time > ?", Time.now.utc) }
       scope :active, lambda {

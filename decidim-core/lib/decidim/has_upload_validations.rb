@@ -18,20 +18,14 @@ module Decidim
           uploader_image_dimensions: true
         )
 
-        if block_given?
-          attached_config[attribute] = OpenStruct.new(options)
-
-          yield(attached_config[attribute])
-
-          validate_config(attached_config[attribute], attribute)
-        end
+        attached_config[attribute] = OpenStruct.new(options)
+        validate_config(attached_config[attribute], attribute)
       end
 
-      def validates_avatar(attribute = :avatar, &block)
+      def validates_avatar(attribute = :avatar, options = {})
         validates_upload(
           attribute,
-          max_size: ->(record) { record.maximum_avatar_size },
-          &block
+          **options.merge(max_size: ->(record) { record.maximum_avatar_size })
         )
       end
 

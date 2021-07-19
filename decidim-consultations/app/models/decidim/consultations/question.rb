@@ -56,14 +56,10 @@ module Decidim
                as: :participatory_space
 
       has_one_attached :hero_image
-      validates_upload :hero_image do |config|
-        config.uploader = Decidim::HeroImageUploader
-      end
+      validates_upload :hero_image, uploader: Decidim::HeroImageUploader
 
       has_one_attached :banner_image
-      validates_upload :banner_image do |config|
-        config.uploader = Decidim::BannerImageUploader
-      end
+      validates_upload :banner_image, uploader: Decidim::BannerImageUploader
 
       default_scope { order(order: :asc) }
 

@@ -47,29 +47,19 @@ module Decidim
     validates :default_locale, inclusion: { in: :available_locales }
 
     has_one_attached :official_img_header
-    validates_upload :official_img_header do |config|
-      config.uploader = Decidim::OfficialImageHeaderUploader
-    end
+    validates_upload :official_img_header, uploader: Decidim::OfficialImageHeaderUploader
 
     has_one_attached :official_img_footer
-    validates_upload :official_img_footer do |config|
-      config.uploader = Decidim::OfficialImageFooterUploader
-    end
+    validates_upload :official_img_footer, uploader: Decidim::OfficialImageFooterUploader
 
     has_one_attached :logo
-    validates_upload :logo do |config|
-      config.uploader = Decidim::OrganizationLogoUploader
-    end
+    validates_upload :logo, uploader: Decidim::OrganizationLogoUploader
 
     has_one_attached :favicon
-    validates_upload :favicon do |config|
-      config.uploader = Decidim::OrganizationFaviconUploader
-    end
+    validates_upload :favicon, uploader: Decidim::OrganizationFaviconUploader
 
     has_one_attached :highlighted_content_banner_image
-    validates_upload :highlighted_content_banner_image do |config|
-      config.uploader = Decidim::ImageUploader
-    end
+    validates_upload :highlighted_content_banner_image, uploader: Decidim::ImageUploader
 
     has_one_attached :open_data_file
 
