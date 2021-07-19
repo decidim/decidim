@@ -75,6 +75,31 @@ describe "Explore projects", :slow, type: :system do
           expect(page).to have_content(translated(project.title))
         end
       end
+
+      context "and votes are finished" do
+        let!(:component) do
+          create(:budgets_component,
+                 :with_voting_finished,
+                 manifest: manifest,
+                 participatory_space: participatory_process)
+        end
+
+        it "allows filtering by status" do
+          project.selected_at = Time.current
+          project.save
+
+          visit_budget
+
+          within ".status_check_boxes_tree_filter" do
+            uncheck "Selected"
+          end
+
+          within "#projects" do
+            expect(page).to have_css(".budget-list__item", count: 1)
+            expect(page).to have_content(translated(project.title))
+          end
+        end
+      end
     end
 
     context "when directly accessing from URL with an invalid budget id" do
