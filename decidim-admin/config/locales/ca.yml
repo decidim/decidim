@@ -48,7 +48,6 @@ ca:
         favicon: Icona
         force_authentication: Forçar autenticació
         force_users_to_authenticate_before_access_organization: Forçar les usuàries a autenticar-se abans d'accedir a l'organització
-        from: Adreça des d'on s'enviaran els correus electrònics
         github_handler: Nom d'usuari de GitHub
         header_snippets: Codi personalitzat a la capçalera
         highlight_alternative_color: Destacat, alternatiu
@@ -178,12 +177,10 @@ ca:
           success: Genial! Has acceptat els Termes i Condicions del panell d'administració.
         actions:
           accept: Estic d'acord amb els termes següents
-          are_you_sure: Segur que vols rebutjar els Termes i Condicions del panell d'administració?
           refuse: Rebutjar els termes
           title: Accepto els Termes i Condicions d'Administració
         required_review:
           alert: 'Requerit: Revisa els nostres Termes i Condicions del panell d''administració'
-          callout: Si us plau dedica un moment a revisar l'actualització dels nostres Termes i Condicions del panell d'administració. En cas contrari, no podràs utilitzar la plataforma.
           cta: Revisa-les ara.
         title: Termes i Condicions del panell d'administració
       area_types:
@@ -206,7 +203,6 @@ ca:
           error: S'ha produït un error en crear una nova àrea.
           success: Àrea creada correctament.
         destroy:
-          has_spaces: L'àrea té espais dependents, no ha de tenir dependències per a ser esborrada.
           success: Àrea eliminada correctament
         edit:
           title: Editar àrea
@@ -259,7 +255,6 @@ ca:
       block_user:
         new:
           action: Bloquejar compte i enviar justificació
-          description: El bloqueig d'una usuària deixarà el seu compte inservible, pots facilitar a la teva justificació i directrius les maneres que consideris per tal de desbloquejar a la usuària.
           justification: Justificació
           title: Bloquejar a la usuària %{name}
       categories:
@@ -322,7 +317,6 @@ ca:
         'false': 'No'
         managed_user_name: Usuari gestionat
         solved: Resolt
-        title: Conflictes de verificacions
         transfer:
           email: Correu electrònic
           error: S¡ha produït un error en transferir la participant actual a la participant gestionada.
@@ -475,7 +469,6 @@ ca:
         areas: Àrees
         configuration: Configuració
         dashboard: Tauler de control
-        external_domain_whitelist: Llista blanca de dominis externs
         help_sections: Seccions d'ajuda
         homepage: Pàgina d'inici
         impersonations: Impersonacions
@@ -624,7 +617,6 @@ ca:
       newsletters:
         create:
           error: S'ha produït un error en crear aquest butlletí.
-          success: Butlletí creat correctament. Si us plau, revisa'l abans d'enviar-lo.
         deliver:
           error: S'ha produït un error en enviar aquest butlletí.
           success: Butlletí enviat correctament.
@@ -707,12 +699,10 @@ ca:
           title: Oficialitza la participant "%{name}"
         show_email_modal:
           close_modal: Tanca el modal
-          description: Si necessites contactar a una participant directament pots clicar al botó Mostra per veure la seva adreça de correu electrònic. Aquesta acció s'auditarà.
           email_address: Adreça de correu electrònic
           full_name: Nom complet
           hidden: ocult
           show: Mostra
-          title: Mostra l'adreça de correu electrònic de la participant
         unblock:
           error: S'ha produït un error al desbloquejar a la participant
           success: Participant desbloquejada correctament
@@ -956,10 +946,6 @@ ca:
           no_users_count_statistics_yet: Encara no hi ha estadístiques de recompte d’usuàries
           participants: Participants
       view_public_page: Mostra la pàgina pública
-    forms:
-      errors:
-        impersonate_user:
-          reason: Has d'indicar un motiu per a la gestió d'una participant no gestionada
     metrics:
       blocked_users:
         object: usuàries bloquejades
