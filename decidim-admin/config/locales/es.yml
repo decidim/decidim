@@ -48,7 +48,6 @@ es:
         favicon: Icono
         force_authentication: Forzar autenticación
         force_users_to_authenticate_before_access_organization: Forzar a las usuarias a autenticarse antes de acceder a la organización
-        from: Correo electrónico del remitente
         github_handler: Nombre en GitHub
         header_snippets: Snippets de encabezado
         highlight_alternative_color: Destacado, alternativo
@@ -178,12 +177,10 @@ es:
           success: '¡Genial! Has aceptado los Términos y Condiciones de Administración.'
         actions:
           accept: Estoy de acuerdo con los siguientes términos
-          are_you_sure: '¿Estás seguro de rechazar los Términos y Condiciones de Administración?'
           refuse: Rechazar los Términos y Condiciones de Administración
           title: Acepto los Términos y Condiciones de Administración
         required_review:
           alert: 'Requerido: revisa nuestros Términos y Condiciones de Administración'
-          callout: Por favor dedica un momento a revisar la actualización de nuestros Términos y Condiciones de Administración. De lo contrario, no podrás usar la plataforma.
           cta: Revísalos ahora.
         title: Términos y Condiciones de Administración
       area_types:
@@ -206,7 +203,6 @@ es:
           error: Se ha producido un error al crear una nueva área.
           success: Área creada correctamente.
         destroy:
-          has_spaces: El área tiene espacios dependientes, no debe tener dependencias para ser eliminada.
           success: Área eliminada correctamente
         edit:
           title: Editar área
@@ -259,7 +255,6 @@ es:
       block_user:
         new:
           action: Bloquear cuenta y enviar justificación
-          description: El bloqueo de una usuaria dejará su cuenta inservible, puedes proporcionar en tu justificación y directrices sobre las formas que consideres para desbloquear a la usuaria.
           justification: Justificación
           title: Bloquear a la usuaria %{name}
       categories:
@@ -322,7 +317,6 @@ es:
         'false': 'No'
         managed_user_name: Usuario gestionado
         solved: Resuelto
-        title: Conflictos de verificaciones
         transfer:
           email: Correo electrónico
           error: Hubo un problema al transferir el participante actual a un participante gestionado.
@@ -617,7 +611,6 @@ es:
       newsletters:
         create:
           error: Se ha producido un error al crear este boletín.
-          success: Boletín creado correctamente. Por favor, revísalo antes de enviarlo.
         deliver:
           error: Se ha producido un error al enviar este boletín.
           success: Boletín enviado correctamente.
@@ -700,12 +693,10 @@ es:
           title: Oficializar participante "%{name}"
         show_email_modal:
           close_modal: Cierra el modal
-          description: Si necesitas contactar directamente con una participante, puedes hacer clic en el botón Mostrar para ver la dirección de correo electrónico. Esta acción se registrará.
           email_address: Dirección de correo electrónico
           full_name: Nombre completo
           hidden: oculto
           show: Mostrar
-          title: Mostrar dirección de correo del participante
         unblock:
           error: Se ha producido un error al desbloquear a la participante
           success: Participante desbloqueada correctamente
@@ -938,10 +929,6 @@ es:
           no_users_count_statistics_yet: Aún no hay estadísticas de recuento de usuarias
           participants: Participantes
       view_public_page: Ver página pública
-    forms:
-      errors:
-        impersonate_user:
-          reason: Debes indicar un motivo para la gestión de una participante no gestionada
     metrics:
       blocked_users:
         object: usuarias bloqueadas
