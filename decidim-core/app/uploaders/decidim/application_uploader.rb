@@ -76,10 +76,9 @@ module Decidim
 
     class << self
       # Each class inherits variants from parents and can define their own
-      # variants with the set_variants class method which calss the version
-      # CarrierWave macro to define versions from variants
+      # variants with the set_variants class method
       def variants
-        @variants ||= superclass.respond_to?(:variants) ? superclass.variants.dup : {}
+        @variants ||= {}
       end
 
       def set_variants
