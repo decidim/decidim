@@ -47,7 +47,7 @@ nl:
         favicon: Pictogram
         force_authentication: Verplicht aanmelden
         force_users_to_authenticate_before_access_organization: Verplicht gebruikers om zich aan te melden voor toegang tot de organisatie
-        from: Afzender van de e-mail
+        from: E-mailadres afzender
         github_handler: GitHub gebruikersnaam
         header_snippets: Elementen om toe te voegen tussen HTML-tags
         highlight_alternative_color: In de kijker, alternatief
@@ -173,12 +173,12 @@ nl:
           success: Geweldig! Je hebt de admin gebruiksvoorwaarden geaccepteerd.
         actions:
           accept: Ik ga akkoord met de volgende voorwaarden
-          are_you_sure: Weet u zeker dat u de admin gebruiksvoorwaarden wilt weigeren?
+          are_you_sure: Weet je zeker dat je de Admin gebruiksvoorwaarden wil resetten?
           refuse: Weiger de admin gebruiksvoorwaarden
           title: Ga akkoord met de gebruiksvoorwaarden
         required_review:
           alert: 'Vereist: neem onze admin gebruiksvoorwaarden door'
-          callout: Neem even de tijd om Admin Gebruiksvoorwaarden door te nemen. Anders kunt u het platform niet beheren.
+          callout: Neem even de tijd om de Admin Gebruiksvoorwaarden door te nemen. Anders kan je het platform niet beheren.
           cta: Bekijk ze nu.
         title: Admin gebruiksvoorwaarden
       area_types:
@@ -201,7 +201,6 @@ nl:
           error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
           success: Pagina succesvol aangemaakt.
         destroy:
-          has_spaces: Gebied heeft afhankelijke ruimten, het mag geen afhankelijkheden hebben om te worden verwijderd.
           success: Pagina succesvol verwijderd
         edit:
           title: Pagina bewerken
@@ -254,7 +253,6 @@ nl:
       block_user:
         new:
           action: Blokkeer account en verzend reden
-          description: Een gebruiker blokkeren zal zijn account onbruikbaar maken, je kan in de toelichting en de criteria aangeven wanneer deblokkeren van de gebruiker wordt overwogen.
           justification: Toelichting
           title: Gebruiker %{name} blokkeren
       categories:
@@ -568,7 +566,6 @@ nl:
       newsletters:
         create:
           error: Er is een fout opgetreden bij het maken van deze nieuwsbrief.
-          success: Nieuwsbrief is succesvol gemaakt. Controleer het alvorens te verzenden.
         deliver:
           error: Er is een fout opgetreden bij het leveren van deze nieuwsbrief.
           success: Nieuwsbrief is succesvol geleverd.
@@ -650,12 +647,10 @@ nl:
           title: Deelnemer "%{name}" officieel maken
         show_email_modal:
           close_modal: Sluit venster
-          description: Als u rechtstreeks contact wilt opnemen met een deelnemer, kunt u klikken op de Toon knop om het e-mailadres te zien. Deze actie wordt geregistreerd.
           email_address: E-mail adres
           full_name: Volledige naam
           hidden: hidden
           show: Weergeven
-          title: Toon e-mailadres van gebruiker
         unblock:
           error: Er was een probleem bij het deblokkeren van de deelnemer
           success: Deelnemer met succes gedeblokkeerd
@@ -881,10 +876,6 @@ nl:
           no_users_count_statistics_yet: Er zijn nog geen gebruikers teller statistieken
           participants: Deelnemers
       view_public_page: Bekijk openbare pagina
-    forms:
-      errors:
-        impersonate_user:
-          reason: U moet een reden opgeven voor het beheer van een niet-beheerde deelnemer
     metrics:
       blocked_users:
         object: geblokkeerde gebruikers
