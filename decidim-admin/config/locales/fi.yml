@@ -48,6 +48,7 @@ fi:
         favicon: ikoni
         force_authentication: Kirjautuminen vaaditaan
         force_users_to_authenticate_before_access_organization: Pakota käyttäjät kirjautumaan ennen organisaatioon pääsyä
+        from: Lähettäjän sähköpostiosoite
         github_handler: GitHub-käsittelijä
         header_snippets: Yläosion koodipätkät
         highlight_alternative_color: Korostusväri, vaihtoehtoinen
@@ -179,10 +180,12 @@ fi:
           success: Hienoa! Olet hyväksynyt hallintakäyttäjän ehdot.
         actions:
           accept: Hyväksyn seuraavat ehdot
+          are_you_sure: Oletko varma, että haluat kieltäytyä hyväksymästä hallintakäyttäjien käyttöehtoja?
           refuse: Kieltäydy hyväksymästä hallintakäyttäjän ehtoja
           title: Hyväksy käyttöehdot
         required_review:
           alert: 'Vaadittu: tutustu hallintakäyttäjän ehtoihimme'
+          callout: Ole hyvä ja tutustu hallintakäyttäjän käyttöehtoihin. Ehtojen hyväksyminen vaaditaan, jotta saat oikeudet järjestelmän hallintatoimintoihin.
           cta: Tutustu nyt.
         title: Hallintakäyttäjän käyttöehdot
       area_types:
@@ -205,6 +208,7 @@ fi:
           error: Uuden alueen luonti epäonnistui.
           success: Alueen luonti onnistui.
         destroy:
+          has_spaces: Tällä alueella on riippuvia osallistumistiloja. Tarkasta huolellisesti, että alueella ei ole yhtään riippuuvuuksia osallistumistiloihin ennen sen poistoa.
           success: Aluen tuhoaminen onnistui
         edit:
           title: Muokkaa aluetta
@@ -257,6 +261,7 @@ fi:
       block_user:
         new:
           action: Estä tili ja lähetä perustelut
+          description: Estämällä käyttäjän estät kyseisen käyttäjän pääsyn hänen omalle tililleen. Voit antaa perusteluissasi ja ohjeistuksissasi tietoa siitä, mitä kyseinen käyttäjä voi tehdä palauttaakseen pääsyn tililleen.
           justification: Perustelut
           title: Estä käyttäjä %{name}
       categories:
@@ -319,6 +324,7 @@ fi:
         'false': 'Ei'
         managed_user_name: Hallittu käyttäjä
         solved: Ratkaistu
+        title: Vahvistusten ristiriidat
         transfer:
           email: Sähköposti
           error: Nykyisen käyttäjän siirto hallituksi käyttäjäksi epäonnistui.
@@ -481,6 +487,7 @@ fi:
         areas: Alueet
         configuration: Asetukset
         dashboard: Hallintapaneeli
+        external_domain_whitelist: Sallitut ulkoiset verkko-osoitteet
         help_sections: Ohjeosiot
         homepage: Kotisivu
         impersonations: Esiintymiset toisena käyttäjänä
@@ -629,6 +636,7 @@ fi:
       newsletters:
         create:
           error: Uutiskirjeen luonti epäonnistui.
+          success: Uutiskirje luotu onnistuneesti. Tarkasta se ennen lähetystä.
         deliver:
           error: Uutiskirjeen toimitus epäonnistui.
           success: Uutiskirjeen toimitus onnistui.
@@ -711,10 +719,12 @@ fi:
           title: Virallista käyttäjä "%{name}"
         show_email_modal:
           close_modal: Sulje ikkuna
+          description: Jos haluat ottaa suoraan yhteyttä osallistujaan, voit klikata Näytä-painiketta nähdäksesi hänen sähköpostiosoitteensa. Tästä toiminnosta jää jälki lokiin.
           email_address: Sähköpostiosoite
           full_name: Koko nimi
           hidden: piilotettu
           show: Näytä
+          title: Näytä osallistujan sähköpostiosoite
         unblock:
           error: Käyttäjän eston poistaminen epäonnistui
           success: Käyttäjän eston poistaminen onnistui
@@ -958,6 +968,10 @@ fi:
           no_users_count_statistics_yet: Käyttäjämäärän tilastoja ei vielä ole olemassa
           participants: Osallistujat
       view_public_page: Näytä julkinen sivu
+    forms:
+      errors:
+        impersonate_user:
+          reason: Sinun on annettava syy, kun esiinnyt hallinnoimattomana osallistujana
     metrics:
       blocked_users:
         object: estetyt käyttäjät
