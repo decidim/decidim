@@ -113,7 +113,7 @@ module Decidim
       def single_comment
         return if options[:single_comment].blank?
 
-        @single_comment ||= model.comments.find_by(id: options[:single_comment])
+        @single_comment ||= SortedComments.for(model, id: options[:single_comment], order_by: order).first
       end
 
       def machine_translations_toggled?

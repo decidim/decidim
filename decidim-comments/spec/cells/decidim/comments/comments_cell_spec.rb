@@ -35,7 +35,7 @@ module Decidim::Comments
 
       context "with the single comment defined" do
         let(:my_cell) { cell("decidim/comments/comments", comment.commentable, single_comment: comment.id) }
-        let(:other_comments) { create_list(:comment, 10, commentable: commentable) }
+        let!(:other_comments) { create_list(:comment, 10, commentable: commentable) }
 
         it "renders only the single comment" do
           expect(subject).to have_css(".section-heading", text: "Comment details")
@@ -49,6 +49,30 @@ module Decidim::Comments
         it "renders the single comment warning" do
           expect(subject).to have_css(".callout.secondary", text: "You are seeing a single comment")
           expect(subject).to have_css(".callout.secondary", text: "You can check the rest of the comments here.")
+        end
+
+        context "with the single comment being moderated" do
+          before do
+            create(
+              :moderation,
+              :hidden,
+              reportable: comment,
+              participatory_space: commentable.participatory_space
+            )
+          end
+
+          it "renders the thread" do
+            expect(subject).to have_css(".section-heading", text: "10 comments")
+            expect(subject).to have_css(".callout.primary.loading-comments p", text: "Loading comments ...")
+            expect(subject).not_to have_content(comment.body.values.first)
+            expect(subject).to have_css(".add-comment")
+            expect(subject).to have_content("Sign in with your account or sign up to add your comment.")
+          end
+
+          it "does not render the single comment warning" do
+            expect(subject).not_to have_css(".callout.secondary", text: "You are seeing a single comment")
+            expect(subject).not_to have_css(".callout.secondary", text: "You can check the rest of the comments here.")
+          end
         end
       end
 
