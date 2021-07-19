@@ -21,7 +21,7 @@ module Decidim
           order_by: order,
           after: params.fetch(:after, 0).to_i
         )
-        @comments_count = commentable.comments.count
+        @comments_count = commentable.comments_count
 
         respond_to do |format|
           format.js do
@@ -80,9 +80,9 @@ module Decidim
         @comments_count = begin
           case commentable
           when Decidim::Comments::Comment
-            commentable.root_commentable.comments.count
+            commentable.root_commentable.comments_count
           else
-            commentable.comments.count
+            commentable.comments_count
           end
         end
       end
