@@ -880,4 +880,10 @@ $grid-container-padding: $grid-padding-gutters;
 $grid-container-max: $global-width;
 $xy-block-grid-max: 8;
 
+// This imports all the Decidim module stylesheet configs registered at
+// `config/assets.rb` of the module for the "app" group.
+@import "!decidim-style-settings[app]";
+
+// Import the application specific settings which will overrule the registered
+// imports.
 @import "stylesheets/decidim/decidim-settings";
