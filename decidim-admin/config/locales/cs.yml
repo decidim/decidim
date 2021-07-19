@@ -48,6 +48,7 @@ cs:
         favicon: Ikona
         force_authentication: Vynutit ověření
         force_users_to_authenticate_before_access_organization: Vynutit uživateli autentizaci před přístupem do organizace
+        from: E-mailová adresa odesílatele
         github_handler: GitHub handler
         header_snippets: Úryvky záhlaví
         highlight_alternative_color: Jiné zvýraznění
@@ -179,10 +180,12 @@ cs:
           success: Skvělé! Přijali jste administrátorské podmínky použití.
         actions:
           accept: Souhlasím s následujícími podmínkami
+          are_you_sure: Oravdu chcete odmítnout podmínky používání správce?
           refuse: Odmítnout administrátorské podmínky
           title: Souhlasit s podmínkami používání
         required_review:
           alert: 'Vyžadováno: Zkontrolujte naše administrátorské podmínky použití'
+          callout: Věnujte prosím chvíli a přečtěte si podmínky použití správce. V opačném případě nebudete moci platformu spravovat.
           cta: Zkontrolovat je nyní.
         title: Administrátorské podmínky použití
       area_types:
@@ -205,6 +208,7 @@ cs:
           error: Při vytváření nové oblasti došlo k chybě.
           success: Oblast byla úspěšně vytvořena.
         destroy:
+          has_spaces: Tato oblast má závislé prostory. Před smazáním se prosím ujistěte, že žádný účatnický prostor neodkazuje na tuto oblast.
           success: Oblast úspěšně zničena
         edit:
           title: Upravit oblast
@@ -257,6 +261,7 @@ cs:
       block_user:
         new:
           action: Blokovat účet a odeslat odůvodnění
+          description: Blokováním uživatele bude jejich účet nepoužitelný. Ve svém zdůvodnění můžete uvést veškerá pravidla pro způsob, jakým byste uvažovali o odblokování uživatele.
           justification: Odůvodnění
           title: Blokovat uživatele %{name}
       categories:
@@ -319,6 +324,7 @@ cs:
         'false': 'Ne'
         managed_user_name: Spravovaný uživatel
         solved: Vyřešeno
+        title: Konflikty ověření
         transfer:
           email: E-mail
           error: Při převodu aktuálního účastníka na spravovaného účastníka došlo k chybě.
@@ -481,6 +487,7 @@ cs:
         areas: Oblasti
         configuration: Konfigurace
         dashboard: Ovládací panel
+        external_domain_whitelist: Povolené externí domény
         help_sections: Sekce nápovědy
         homepage: Domovská stránka
         impersonations: V zastoupení
@@ -629,6 +636,7 @@ cs:
       newsletters:
         create:
           error: Při vytváření tohoto zpravodaje došlo k chybě.
+          success: Zpravodaj byl úspěšně vytvořen. Před odesláním si jej zkontrolujte.
         deliver:
           error: Došlo k chybě při zasílání tohoto zpravodaje.
           success: Zpravodaj byl úspěšně doručen.
@@ -711,10 +719,12 @@ cs:
           title: Oficializovat účastníka "%{name}"
         show_email_modal:
           close_modal: Zavřít okno
+          description: Pokud potřebujete kontaktovat účastníka, můžete kliknout na tlačítko Zobrazit pro zobrazení e-mailové adresy. Tato akce bude zaznamenána.
           email_address: E-mailová adresa
           full_name: Celé jméno
           hidden: skrytý
           show: Zobrazit
+          title: Zobrazit e-mailovou adresu účastníka
         unblock:
           error: Při odblokování uživatele došlo k chybě
           success: Uživatel byl úspěšně odblokován
@@ -958,6 +968,10 @@ cs:
           no_users_count_statistics_yet: Zatím nejsou žádné statistiky počtu uživatelů
           participants: Účastníci
       view_public_page: Zobrazit veřejnou stránku
+    forms:
+      errors:
+        impersonate_user:
+          reason: Při správě nespravovaného účastníka musíte uvést důvod
     metrics:
       blocked_users:
         object: blokovaní uživatelé
