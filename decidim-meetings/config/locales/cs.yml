@@ -98,6 +98,12 @@ cs:
               user_group: Skupiny uživatelů
           scope_id_eq:
             label: Oblast působnosti
+          type_eq:
+            label: Typ schůzky
+            values:
+              hybrid: Obojí
+              in_person: Osobně
+              online: Online
       meeting_copies:
         create:
           error: Bylo zde chyba, že se tato schůzka zdvojnásobila.
@@ -176,6 +182,9 @@ cs:
           email_outro: Toto upozornění jste obdrželi, protože postupujete po schůzce "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
           email_subject: Schůzka "%{resource_title}" začne za méně než 48 hodin.
           notification_title: Setkání <a href="%{resource_path}">%{resource_title}</a> bude zahájeno za méně než 48 hodin.
+    forms:
+      meetings:
+        attendees_count_help_text: Nezapomeňte uvést celkový počet účastníků vaší akce. Ať už jde o osobní, kombinovanou nebo on-line, je důležité, abychom věděli, kolik lidí je zapojeno.
     gamification:
       badges:
         attended_meetings:
@@ -541,6 +550,7 @@ cs:
           fields:
             closed: Zavřeno
             end_time: Datum ukončení
+            id: Id
             map: Mapa
             official_meeting: Oficiální schůzka
             start_time: Datum zahájení
