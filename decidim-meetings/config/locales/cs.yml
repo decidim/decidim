@@ -23,6 +23,7 @@ cs:
         decidim_user_group_id: Uživatelská skupina
         description: Popis
         end_time: Čas ukončení
+        id: ID
         location: Umístění
         location_hints: Nápověda k poloze
         online_meeting_url: URL online schůzky
@@ -75,6 +76,28 @@ cs:
         other: Registrace
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Kategorie
+          closed_at_present:
+            label: Stav
+            values:
+              'false': Otevřeno
+              'true': Uzavřeno
+          is_upcoming_true:
+            label: Datum
+            values:
+              'false': Minulé
+              'true': Nadcházející
+          origin_eq:
+            label: Původ
+            values:
+              citizen: Občané
+              official: Úředník
+              user_group: Skupiny uživatelů
+          scope_id_eq:
+            label: Oblast působnosti
       meeting_copies:
         create:
           error: Bylo zde chyba, že se tato schůzka zdvojnásobila.
