@@ -23,6 +23,7 @@ ja:
         decidim_user_group_id: ユーザーグループ
         description: 説明
         end_time: 終了時刻
+        id: ID
         location: 場所
         location_hints: 位置情報のヒント
         online_meeting_url: オンラインミーティングURL
@@ -66,6 +67,34 @@ ja:
         other: 登録
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: カテゴリ
+          closed_at_present:
+            label: 状態
+            values:
+              'false': 開く
+              'true': 終了済
+          is_upcoming_true:
+            label: 日付
+            values:
+              'false': 過去
+              'true': 近日公開
+          origin_eq:
+            label: 起案者
+            values:
+              citizen: 市民
+              official: 公式
+              user_group: ユーザーグループ
+          scope_id_eq:
+            label: スコープ
+          type_eq:
+            label: ミーティングの種類
+            values:
+              hybrid: ハイブリッド
+              in_person: 対面
+              online: オンライン
       meeting_copies:
         create:
           error: このミーティングを複製する際に問題が発生しました。
@@ -494,6 +523,7 @@ ja:
           fields:
             closed: クローズ済み
             end_time: 終了日
+            id: ID
             map: 地図
             official_meeting: 公式ミーティング
             start_time: 開始日
