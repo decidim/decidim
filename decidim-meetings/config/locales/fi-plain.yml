@@ -23,6 +23,7 @@ fi-pl:
         decidim_user_group_id: Käyttäjäryhmä
         description: Kuvaus
         end_time: Lopetusaika
+        id: ID
         location: Paikka
         location_hints: Paikan tarkemmat tiedot
         online_meeting_url: Verkkotapaamisen osoite (URL)
@@ -69,6 +70,34 @@ fi-pl:
         other: Ilmoittautumiset
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Aihepiiri
+          closed_at_present:
+            label: Tila
+            values:
+              'false': Avoin
+              'true': Suljettu
+          is_upcoming_true:
+            label: Päivämäärä
+            values:
+              'false': Menneet
+              'true': Tulevat
+          origin_eq:
+            label: Alkuperä
+            values:
+              citizen: Kansalaiset
+              official: Viralliset
+              user_group: Käyttäjäryhmät
+          scope_id_eq:
+            label: Teema
+          type_eq:
+            label: Tapaamisen tyyppi
+            values:
+              hybrid: Molemmat
+              in_person: Fyysinen
+              online: Verkossa
       meeting_copies:
         create:
           error: Tämän tapahtuman monistamisessa tapahtui virhe.
@@ -147,6 +176,9 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
           notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> alkaa alle 48 tuntin kuluttua.
+    forms:
+      meetings:
+        attendees_count_help_text: Älä unohda ilmoittaa tapahtuman osallistujamäärää. Tapahtuman tyypistä riippumatta, meille on tärkeä tietää, kuinka moni osallistui tapahtumaan.
     gamification:
       badges:
         attended_meetings:
@@ -502,6 +534,7 @@ fi-pl:
           fields:
             closed: Suljettu
             end_time: Päättymispäivä
+            id: Id
             map: Kartta
             official_meeting: Virallinen tapahtuma
             start_time: Alkamispäivä
