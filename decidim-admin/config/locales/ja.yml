@@ -32,7 +32,7 @@ ja:
         body: 本文
         subject: 件名
       organization:
-        admin_terms_of_use_body: 管理者の利用規約の本文
+        admin_terms_of_use_body: 管理者向け利用規約の本文
         alert_color: アラート
         available_authorizations: 利用可能な認証方式
         badges_enabled: バッジを有効にする
@@ -48,6 +48,7 @@ ja:
         favicon: アイコン
         force_authentication: 認証の強制
         force_users_to_authenticate_before_access_organization: 組織にアクセスする前にユーザーの認証を強制する
+        from: 送信者メールアドレス
         github_handler: GitHub handler
         header_snippets: ヘッダスニペットを表示
         highlight_alternative_color: 代替のハイライト
@@ -175,16 +176,18 @@ ja:
         verify: 確認する
       admin_terms_of_use:
         accept:
-          error: 管理者の利用規約に同意中にエラーが発生しました。
-          success: 素晴らしい！管理者の利用規約に同意しました。
+          error: 管理者向け利用規約に同意中にエラーが発生しました。
+          success: ありがとうございます、管理者向け利用規約に同意しました。
         actions:
           accept: 次の規約に同意します
+          are_you_sure: 管理者向け利用規約を削除してもよろしいですか？
           refuse: 同意しない
           title: 利用規約に同意する
         required_review:
-          alert: '必須：管理者の利用規約を確認してください'
+          alert: '必須：管理者向け利用規約を確認してください'
+          callout: 管理者向け利用規約を確認してください。そうでなければ、プラットフォームを管理することはできません。
           cta: 今すぐレビューしましょう。
-        title: 管理者の利用条件
+        title: 管理者向け利用規約
       area_types:
         create:
           error: 新しいエリアタイプの作成中に問題が発生しました。
@@ -205,6 +208,7 @@ ja:
           error: 新しいエリアの作成中に問題が発生しました。
           success: エリアの作成に成功しました。
         destroy:
+          has_spaces: このエリアには依存スペースがあります。削除する前に参加スペースがこのエリアを参照していないことを確認してください。
           success: エリアの削除に成功しました
         edit:
           title: エリアを編集
@@ -257,6 +261,7 @@ ja:
       block_user:
         new:
           action: アカウントをブロックして理由を送信
+          description: ユーザーをブロックすると、そのアカウントは利用できなくなります。ユーザーのブロックを解除することを検討する方法に関するガイドラインを判定通知に含めることができます。
           justification: 判定理由
           title: ユーザー %{name} をブロックする
       categories:
@@ -319,6 +324,7 @@ ja:
         'false': 'いいえ'
         managed_user_name: 管理ユーザー
         solved: 解決済み
+        title: 確認の競合
         transfer:
           email: Eメールアドレス
           error: 参加者から管理参加者への移転中に問題が発生しました。
@@ -481,6 +487,7 @@ ja:
         areas: エリア
         configuration: 設定
         dashboard: ダッシュボード
+        external_domain_whitelist: 許可された外部ドメイン
         help_sections: ヘルプセクション
         homepage: ホームページ
         impersonations: なりすまし
@@ -629,6 +636,7 @@ ja:
       newsletters:
         create:
           error: このニュースレターの作成中に問題が発生しました。
+          success: ニュースレターが正常に作成されました。送信する前に確認してください。
         deliver:
           error: このニュースレターを配信する際に問題が発生しました。
           success: ニュースレターが配信されました。
@@ -711,10 +719,12 @@ ja:
           title: 参加者 "%{name} " を正規化
         show_email_modal:
           close_modal: モーダルを閉じる
+          description: 直接参加者に連絡する必要がある場合、彼らの電子メールアドレスを見るために表示ボタンをクリックしてください。このアクションは記録されます。
           email_address: メールアドレス
           full_name: フルネーム
           hidden: hidden
           show: 表示
+          title: 参加者のメールアドレスを表示
         unblock:
           error: 参加者のブロック解除中にエラーが発生しました
           success: 参加者のブロックを解除しました
@@ -958,6 +968,10 @@ ja:
           no_users_count_statistics_yet: まだユーザー数の統計がありません
           participants: 参加者
       view_public_page: 公開ページを表示
+    forms:
+      errors:
+        impersonate_user:
+          reason: 管理されていない参加者を管理する場合、その理由を入力する必要があります
     metrics:
       blocked_users:
         object: ブロックされたユーザー
