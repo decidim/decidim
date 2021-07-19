@@ -13,6 +13,7 @@ const DEFAULT_ATTRIBUTES = {
  */
 export default function icon(iconKey, attributes = {}) {
   const iconAttributes = $.extend(DEFAULT_ATTRIBUTES, attributes);
+  const corsMode = window.Decidim.config.get("cors_enabled");
   const title = iconAttributes.title || iconAttributes.ariaLabel;
   Reflect.deleteProperty(iconAttributes, "title");
 
@@ -29,7 +30,11 @@ export default function icon(iconKey, attributes = {}) {
     }
   });
 
-  const iconsPath = window.Decidim.config.get("icons_path");
+  let iconsPath =  ""
+  if (corsMode === true) {
+    iconsPath = window.Decidim.config.get("icons_path");
+  }
+
   const elHtml = `<svg><use href="${iconsPath}#icon-${iconKey}"></use></svg>`;
   const $el = $(elHtml);
   if (title) {

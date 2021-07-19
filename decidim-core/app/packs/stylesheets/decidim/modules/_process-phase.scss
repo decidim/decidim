@@ -40,7 +40,7 @@
 }
 
 .process-header__progress{
-  margin-bottom: $global-margin / 2;
+  margin-bottom: $global-margin * .5;
 
   ol{
     list-style: none;
