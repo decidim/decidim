@@ -42,13 +42,13 @@
   font-weight: $global-weight-bold;
   border-bottom-left-radius: 100px;
   border-top-left-radius: 100px;
-  padding: $global-padding / 8 $global-padding / 2 $global-padding / 8 $global-padding;
+  padding: $global-padding * .125 $global-padding * .5 $global-padding * .125 $global-padding;
 }
 
 .floating-helper__icon{
   color: $white;
   background-color: var(--secondary);
-  padding: $global-padding / 8 $global-padding / 2;
+  padding: $global-padding * .125 $global-padding * .5;
 }
 
 .floating-helper__wrapper{

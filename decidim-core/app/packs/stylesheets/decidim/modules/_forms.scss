@@ -51,7 +51,7 @@ label,
 }
 
 .form-input-extra-before{
-  margin-bottom: $form-spacing / 2;
+  margin-bottom: $form-spacing * .5;
 }
 
 .form-input-extra-after{
@@ -136,7 +136,7 @@ input[type="radio"]{
 
   &__trigger{
     position: absolute;
-    bottom: $global-margin / 2;
+    bottom: $global-margin * .5;
     right: $global-margin;
     cursor: pointer;
   }
