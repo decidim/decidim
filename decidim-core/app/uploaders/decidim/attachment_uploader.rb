@@ -38,7 +38,6 @@ module Decidim
 
     protected
 
-    # Strips out all embedded information from the image
     def upload_context
       return :participant unless model.respond_to?(:context)
 
