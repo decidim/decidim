@@ -7,8 +7,6 @@ module Decidim
       true
     end
 
-    # CarrierWave automatically calls this method and validates the content
-    # type fo the temp file to match against any of these options.
     def content_type_allowlist
       extension_allowlist.map { |ext| "image/#{ext}" }
     end

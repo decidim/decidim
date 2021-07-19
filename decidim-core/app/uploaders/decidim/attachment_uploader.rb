@@ -23,8 +23,6 @@ module Decidim
       end
     end
 
-    # CarrierWave automatically calls this method and validates the content
-    # type fo the temp file to match against any of these options.
     def content_type_allowlist
       case upload_context
       when :admin
