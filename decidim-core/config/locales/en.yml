@@ -1000,8 +1000,10 @@ en:
         title: Participants
     notification_mailer:
       event_received:
-        original_text: "Original text"
-        translated_text: "Translated text"
+        original_text: Original text
+        translated_text: Translated text
+        no_translation_available: Sorry, the automated translation could not be retrieved when the email has been sent. You can check the translation of the original text on the following %{link}.
+        same_language:  The content has been posted in your preferred language (%{language}), this is why no automated translation is displayed in this email.
       newsletter:
         note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
         see_on_website: Can’t see this email correctly? View it on the <a href="%{link}" target="_blank">website</a>.

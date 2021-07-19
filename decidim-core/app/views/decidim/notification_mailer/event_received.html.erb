@@ -20,21 +20,17 @@
   </blockquote>
 <% end %>
 
-<% if @event_instance.machine_translations_enabled %>
-  <% if @event_instance.content_in_same_language? %>
-    The content has been posted in your preferred language (%{language}), this is why no automated translation is displayed in this email.
-  <% elsif @event_instance.translation_available? %>
-    Sorry, the automated translation could not be retrieved when the email has been sent. You can check the translation of the original text on the following %{link}.
-  <% else %>
-    <p style="font-weight: bold"><%= t(".translated_text") %></p>
-    <% if @event_instance.try(:safe_resource_text).present? %>
-      <blockquote>
-        <p>
-          <%= @event_instance.safe_resource_text %>
-        </p>
-      </blockquote>
-    <% end %>
-  <% end %>
+<% if @event_instance.content_in_same_language? %>
+  <%= t(".same_language", language: I18n.locale.to_s ) %>
+<% elsif @event_instance.translation_available? %>
+  <%= t(".no_translation_available", link: @event_instance.resource_url ) %>
+<% elsif @event_instance.safe_resource_text.present? %>
+  <p style="font-weight: bold"><%= t(".translated_text") %></p>
+  <blockquote>
+    <p>
+      <%= @event_instance.safe_resource_text %>
+    </p>
+  </blockquote>
 <% end %>
 
 <% if @event_instance.has_button? %>
