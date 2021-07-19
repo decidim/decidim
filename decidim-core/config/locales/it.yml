@@ -1655,7 +1655,7 @@ it:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
-      long: "%B %d, % %Y %H:%M"
+      long: "%B %d %Y %H:%M"
       long_dashed: "%d/%m/%Y %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"

@@ -508,7 +508,7 @@ ja:
         try_later: 後でもう一度お試しください。
       not_found:
         back_home: ホームに戻る
-        content_doesnt_exist: この住所は正しくないか削除されています。
+        content_doesnt_exist: このアドレスは正しくないか削除されています。
         title: お探しのページが見つかりません。
     events:
       amendments:

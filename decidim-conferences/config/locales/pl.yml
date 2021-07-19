@@ -553,12 +553,12 @@ pl:
           notification_title: Liczba zarezerwowanych miejsc na konferencję <a href="%{resource_path}">%{resource_title}</a> wynosi ponad %{percentage}%.
         conference_updated:
           email_intro: 'Konferencja "%{resource_title}" została zaktualizowana. Możesz znaleźć nową wersję na tej stornie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Możesz przestać ją obserwować klikając w poprzedni link.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie konferencji kliknij w przycisk obserwowania.
           email_subject: Konferencja "%{resource_title}" została zaktualizowana
           notification_title: Konferencja <a href="%{resource_path}">%{resource_title}</a> została zaktualizowana.
         registrations_enabled:
           email_intro: 'Konferencja "%{resource_title}" otworzyła rejestrację. Możesz zarejestrować się na stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Możesz przestać ją obserwować klikając w poprzedni link.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie konferencji kliknij w przycisk obserwowania.
           email_subject: Konferencja "%{resource_title}" otworzyła rejestracje.
           notification_title: Konferencja <a href="%{resource_path}">%{resource_title}</a> otworzyła rejestrację.
         role_assigned:
@@ -568,7 +568,7 @@ pl:
           notification_title: Przypisano Ci rolę %{role} w konferencji <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
           email_intro: 'Konferencja "%{resource_title}" odbywa się za 2 dni. Możesz przeczytać opis na jej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Możesz przestać ją obserwować klikając poprzedni link.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie konferencji kliknij w przycisk obserwowania.
           email_subject: Konferencja „%{resource_title}” już wkrótce!
           notification_title: Konferencja <a href="%{resource_path}">%{resource_title}</a> odbędzie się za 2 dni.
     help:
