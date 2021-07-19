@@ -119,7 +119,7 @@ describe Decidim::UserActivityCell, type: :cell do
     end
 
     it "displays only the non-moderated items on the first page without a pagination" do
-      # The first five items should be on the second page
+      # The first five items should be hidden through moderation
       logs.first(5).each do |log|
         root_link = Decidim::ResourceLocatorPresenter.new(log.resource.root_commentable).path
         comment_link = "#{root_link}?commentId=#{log.resource.id}"
