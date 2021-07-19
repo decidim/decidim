@@ -21,9 +21,7 @@ module Decidim
     REGEXP_NAME = /\A(?!.*[<>?%&\^*#@()\[\]=+:;"{}\\|])/.freeze
 
     has_one_attached :avatar
-    validates_avatar :avatar do |config|
-      config.uploader = Decidim::AvatarUploader
-    end
+    validates_avatar :avatar, uploader: Decidim::AvatarUploader
 
     validates :name, format: { with: REGEXP_NAME }
 

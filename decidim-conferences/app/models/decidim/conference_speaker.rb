@@ -19,9 +19,7 @@ module Decidim
     default_scope { order(full_name: :asc, created_at: :asc) }
 
     has_one_attached :avatar
-    validates_avatar do |config|
-      config.uploader = Decidim::AvatarUploader
-    end
+    validates_avatar :avatar, uploader: Decidim::AvatarUploader
 
     delegate :organization, to: :conference
 
