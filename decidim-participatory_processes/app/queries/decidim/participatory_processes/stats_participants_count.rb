@@ -60,22 +60,10 @@ module Decidim
       end
 
       def meetings_query
-        meetings = Decidim::Meetings::Meeting
-                   .where(component: space_components)
-                   .not_hidden
-                   .pluck(:id)
+        meetings = Decidim::Meetings::Meeting.where(component: space_components).not_hidden
+        registrations = Decidim::Meetings::Registration.where(decidim_meeting_id: meetings).distinct.pluck(:decidim_user_id)
+        organizers = meetings.where(decidim_author_type: Decidim::UserBaseEntity.name).distinct.pluck(:decidim_author_id)
 
-        registrations = Decidim::Meetings::Registration
-                        .where(decidim_meeting_id: meetings)
-                        .pluck(:decidim_user_id)
-                        .uniq
-        organizers = Decidim::Meetings::Meeting
-                     .where(
-                       decidim_author_type: Decidim::UserBaseEntity.name,
-                       id: meetings
-                     )
-                     .pluck(:decidim_author_id)
-                     .uniq
         [registrations, organizers].flatten.uniq
       end
 

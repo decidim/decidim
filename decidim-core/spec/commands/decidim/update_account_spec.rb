@@ -17,7 +17,8 @@ module Decidim
         avatar: nil,
         remove_avatar: nil,
         personal_url: "https://example.org",
-        about: "This is a description of me"
+        about: "This is a description of me",
+        locale: "es"
       }
     end
 
@@ -32,7 +33,8 @@ module Decidim
         avatar: data[:avatar],
         remove_avatar: data[:remove_avatar],
         personal_url: data[:personal_url],
-        about: data[:about]
+        about: data[:about],
+        locale: data[:locale]
       ).with_context(current_organization: user.organization, current_user: user)
     end
 
@@ -70,6 +72,11 @@ module Decidim
       it "updates the about text" do
         expect { command.call }.to broadcast(:ok)
         expect(user.reload.about).to eq("This is a description of me")
+      end
+
+      it "updates the language preference" do
+        expect { command.call }.to broadcast(:ok)
+        expect(user.reload.locale).to eq("es")
       end
 
       it "updates the language preference" do

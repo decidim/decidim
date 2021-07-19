@@ -3,11 +3,15 @@
 // @example
 //     cos(0.7854) // 0.70711
 //     cos(45deg)  // 0.70711
-@function cos ($x) {
-    $x: unitless-rad($x) % ($PI * 2);
-    $ret: 0;
-    @for $n from 0 to 24 {
-        $ret: $ret + pow(-1, $n) * pow($x, 2 * $n) / fact(2 * $n);
-    }
-    @return $ret;
+@use "sass:math";
+
+@function cos ($x){
+  $x: unitless-rad($x) % ($PI * 2);
+  $ret: 0;
+
+  @for $n from 0 to 24{
+    $ret: $ret + math.div(pow(-1, $n) * pow($x, 2 * $n), fact(2 * $n));
+  }
+
+  @return $ret;
 }

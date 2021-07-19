@@ -21,7 +21,7 @@
 
       a{
         color: $anchor-color;
-        padding: $global-padding * 3/4;
+        padding: $global-padding * 3*.25;
         position: relative;
 
         &:focus,

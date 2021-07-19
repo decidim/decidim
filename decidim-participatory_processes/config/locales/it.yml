@@ -116,7 +116,7 @@ it:
           info: Informazioni
           moderations: Moderazione
           private_users: Utenti privati
-          process_admins: Utenti
+          process_admins: Amministratrici/tori di processo
           steps: Fasi (Steps)
       models:
         participatory_process:

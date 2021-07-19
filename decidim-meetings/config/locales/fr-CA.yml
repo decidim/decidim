@@ -426,6 +426,8 @@ fr-CA:
           back: Précédent
           create: Créer
           title: Créez votre réunion
+        online_meeting_link:
+          link_available_soon: Lien bientôt disponible
         registration_confirm:
           cancel: Annuler
           confirm: Confirmer
