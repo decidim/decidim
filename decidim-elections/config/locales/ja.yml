@@ -503,9 +503,14 @@ ja:
           header: 投票が確定されました
           lead: あなたの票は既に投じられました！
           text: '投票が投票箱に正常に追加されたことを、次の識別子で確認できます: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_link: 確認するには、識別子をコピーして <a href="%{link}">投票検証ページ</a> に貼り付けます
         encrypting:
           header: 投票の暗号化...
           text: 投票は暗号化されており、匿名で投票することができます。
+        failed:
+          header: 投票に失敗しました
+          lead: 投票は行われませんでした！
+          text: 問題が発生しました。もう一度やり直してください。
         header:
           confirm: 投票を確定
           confirmed: 投票が確定されました
