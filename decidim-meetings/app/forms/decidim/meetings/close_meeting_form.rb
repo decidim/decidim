@@ -8,8 +8,12 @@ module Decidim
       attribute :proposal_ids, Array[Integer]
       attribute :proposals
       attribute :closed_at, Decidim::Attributes::TimeWithZone, default: ->(_form, _attribute) { Time.current }
+      attribute :attendees_count, Integer, default: 0
 
       validates :closing_report, presence: true
+      validates :attendees_count,
+                presence: true,
+                numericality: { greater_than_or_equal_to: 0, only_integer: true }
 
       # Private: Gets the proposals from the meeting and injects them to the form.
       #
