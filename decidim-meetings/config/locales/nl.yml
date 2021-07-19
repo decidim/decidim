@@ -23,6 +23,7 @@ nl:
         decidim_user_group_id: Gebruikers groep
         description: Beschrijving
         end_time: Eindtijd
+        id: ID
         location: Plaats
         location_hints: Locatie hints
         online_meeting_url: De URL van de online vergadering
@@ -69,6 +70,34 @@ nl:
         other: registraties
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Categorie
+          closed_at_present:
+            label: Status
+            values:
+              'false': Open
+              'true': Gesloten
+          is_upcoming_true:
+            label: Datum
+            values:
+              'false': Verleden
+              'true': Toekomstige
+          origin_eq:
+            label: Herkomst
+            values:
+              citizen: Inwoners
+              official: Officieel
+              user_group: Gebruikersgroepen
+          scope_id_eq:
+            label: Scope
+          type_eq:
+            label: Type vergadering
+            values:
+              hybrid: Beide
+              in_person: Fysiek
+              online: Online
       meeting_copies:
         create:
           error: Er is een fout opgetreden tijdens het dupliceren van deze vergadering.
@@ -492,6 +521,7 @@ nl:
           fields:
             closed: Gesloten
             end_time: Einddatum
+            id: Id
             map: Kaart
             official_meeting: Officiële vergadering
             start_time: Startdatum
