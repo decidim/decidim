@@ -337,8 +337,18 @@ module Decidim
         ")
       end
 
+      def self.sort_by_translated_title_asc
+        field = Arel::Nodes::InfixOperation.new("->>", arel_table[:title], Arel::Nodes.build_quoted(I18n.locale))
+        order(Arel::Nodes::InfixOperation.new("", field, Arel.sql("ASC")))
+      end
+
+      def self.sort_by_translated_title_desc
+        field = Arel::Nodes::InfixOperation.new("->>", arel_table[:title], Arel::Nodes.build_quoted(I18n.locale))
+        order(Arel::Nodes::InfixOperation.new("", field, Arel.sql("DESC")))
+      end
+
       ransacker :title do
-        Arel.sql(%{("decidim_proposals_proposals"."title")::text})
+        Arel.sql(%{cast("decidim_proposals_proposals"."title" as text)})
       end
 
       ransacker :id_string do

@@ -299,6 +299,41 @@ module Decidim
         start_time && end_time && Time.current >= start_time && Time.current <= end_time
       end
 
+      def self.sort_by_translated_title_asc
+        field = Arel::Nodes::InfixOperation.new("->>", arel_table[:title], Arel::Nodes.build_quoted(I18n.locale))
+        order(Arel::Nodes::InfixOperation.new("", field, Arel.sql("ASC")))
+      end
+
+      def self.sort_by_translated_title_desc
+        field = Arel::Nodes::InfixOperation.new("->>", arel_table[:title], Arel::Nodes.build_quoted(I18n.locale))
+        order(Arel::Nodes::InfixOperation.new("", field, Arel.sql("DESC")))
+      end
+
+      ransacker :type do
+        Arel.sql(%("decidim_meetings_meetings"."type_of_meeting"))
+      end
+
+      ransacker :title do
+        Arel.sql(%{cast("decidim_meetings_meetings"."title" as text)})
+      end
+
+      ransacker :id_string do
+        Arel.sql(%{cast("decidim_meetings_meetings"."id" as text)})
+      end
+
+      ransacker :is_upcoming do
+        Arel.sql("(start_time > NOW())")
+      end
+
+      ransacker :origin do
+        Arel.sql("CASE
+            WHEN decidim_author_type = 'Decidim::Organization' THEN 'official'
+            WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NOT NULL THEN 'user_group'
+            WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NULL THEN 'citizen'
+            ELSE 'unknown' END
+        ")
+      end
+
       private
 
       def can_participate_in_meeting?(user)
