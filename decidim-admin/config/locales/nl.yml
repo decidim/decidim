@@ -201,6 +201,7 @@ nl:
           error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
           success: Pagina succesvol aangemaakt.
         destroy:
+          has_spaces: Dit gebied heeft nog onderliggende ruimtes. Zorg ervoor dat er geen participatieve ruimte meer naar dit gebied verwijst om het te verwijderen.
           success: Pagina succesvol verwijderd
         edit:
           title: Pagina bewerken
@@ -253,6 +254,7 @@ nl:
       block_user:
         new:
           action: Blokkeer account en verzend reden
+          description: Een gebruiker blokkeren zal zijn account onbruikbaar maken, je kan in de toelichting en de criteria aangeven wanneer deblokkeren van de gebruiker wordt overwogen.
           justification: Toelichting
           title: Gebruiker %{name} blokkeren
       categories:
@@ -310,6 +312,8 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit onderdeel.
           success: Het onderdeel is met succes bijgewerkt.
+      conflicts:
+        title: Controle conflicten
       dashboard:
         show:
           view_more_logs: Bekijk meer logs
@@ -445,6 +449,7 @@ nl:
         areas: Thema's
         configuration: Configuratie
         dashboard: Dashboard
+        external_domain_whitelist: Toegelaten externe domeinen
         help_sections: Helpsecties
         homepage: Startpagina
         impersonations: Zich voordoen als
@@ -566,6 +571,7 @@ nl:
       newsletters:
         create:
           error: Er is een fout opgetreden bij het maken van deze nieuwsbrief.
+          success: Nieuwsbrief is succesvol gemaakt. Gelieve te controleren voor verzenden.
         deliver:
           error: Er is een fout opgetreden bij het leveren van deze nieuwsbrief.
           success: Nieuwsbrief is succesvol geleverd.
@@ -647,10 +653,12 @@ nl:
           title: Deelnemer "%{name}" officieel maken
         show_email_modal:
           close_modal: Sluit venster
+          description: Als je rechtstreeks contact wil opnemen met een deelnemer, kun je op de knop Weergeven klikken om het e-mailadres te zien. Voor deze actie worden logbestanden bewaard.
           email_address: E-mail adres
           full_name: Volledige naam
           hidden: hidden
           show: Weergeven
+          title: E-mailadres deelnemer weergeven
         unblock:
           error: Er was een probleem bij het deblokkeren van de deelnemer
           success: Deelnemer met succes gedeblokkeerd
@@ -876,6 +884,10 @@ nl:
           no_users_count_statistics_yet: Er zijn nog geen gebruikers teller statistieken
           participants: Deelnemers
       view_public_page: Bekijk openbare pagina
+    forms:
+      errors:
+        impersonate_user:
+          reason: Je moet een reden opgeven voor het beheer van een niet-beheerde deelnemer
     metrics:
       blocked_users:
         object: geblokkeerde gebruikers
