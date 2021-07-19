@@ -591,7 +591,7 @@ pl:
       email_event:
         email_greeting: Witaj %{user_name},
         email_intro: 'Zaktualizowano "%{resource_title}". Możesz zobaczyć zmiany na tej stronie:'
-        email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać obserwować ten zasób klikając w poprzedni link.
+        email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz przestrzeń "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie kliknij w przycisk obserwowania.
         email_subject: Aktualizacja %{resource_title}
       gamification:
         badge_earned:
@@ -904,35 +904,35 @@ pl:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{manager} rozpoczął/rozpoczęła nową konwersację w imieniu %{group}. Kliknij tutaj, aby ją zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: "%{manager} rozpoczął/rozpoczęła nową konwersację jako %{group}"
         comanagers_new_message:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{manager} opublikował(a) nowe wiadomości w konwersacji w imieniu %{group}. Kliknij tutaj, aby je zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: "%{manager} wysłał(a) nowe wiadomości jako %{group}"
         new_conversation:
           greeting: Cześć, %{recipient}!
           intro: "%{sender} rozpoczął/rozpoczęła z tobą nową rozmowę. Kliknij tutaj, aby zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: "%{sender} rozpoczął/rozpoczęła z Tobą rozmowę"
         new_group_conversation:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{sender} rozpoczął/rozpoczęła nową konwersację z grupą %{group}. Kliknij tutaj, aby ją zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: "%{sender} rozpoczął/rozpoczęła konwersację z %{group}"
         new_group_message:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{sender} opublikował(a) nowe wiadomości w konwersacji z grupą %{group}. Kliknij tutaj, aby je zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: "%{group} ma nowe wiadomości od %{sender}"
         new_message:
           greeting: Cześć, %{recipient}!
           intro: "%{sender} opublikował(a) nowe wiadomości w twojej rozmowie. Kliknij tutaj, aby je zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: Masz nowe wiadomości od %{sender}
       conversations:
         add_conversation_users:
@@ -1538,7 +1538,7 @@ pl:
       public: Twoje informacje publiczne.
   errors:
     messages:
-      already_confirmed: zostało już potwierdzone, spróbuj się zalogować
+      already_confirmed: zostało już potwierdzone
       confirmation_period_expired: musi być potwierdzone w ciągu %{period}, proszę poprosić o nowy
       content_type_allowlist_error: typ pliku jest nieprawidłowy
       cycle_detected: zakres podrzędny nie może być jednocześnie zakresem nadrzędnym
