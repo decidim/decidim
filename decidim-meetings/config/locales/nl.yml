@@ -175,6 +175,9 @@ nl:
           email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
           email_subject: Het "%{resource_title}" event start in minder dan 48 uur.
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event begint over minder dan 48 uur.
+    forms:
+      meetings:
+        attendees_count_help_text: Vergeet niet het totale aantal deelnemers op je evenement toe te voegen. Of het nu een fysieke, hybride of online bijeenkomst is, het is handig om het aantal mensen te kennen.
     gamification:
       badges:
         attended_meetings:
