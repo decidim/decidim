@@ -15,6 +15,40 @@ You can have multiple modules types:
 * For xref:develop:components.adoc[Components]
 * For Verifications
 
+== Recommendations
+
+* To be programmed in English (variables, method and class names, comments, etc)
+* To have tests and continuous integration with good test coverage
+* To have documentation in English, explaining:
+  . all the available commands (rake tasks and such)
+  . screenshots of the admin and participant UI
+  . steps to install it
+  . feel free to add in the README if you want who's developing/sponsoring it:
+    - The gem has been developed by $Your_Employer
+    - Development of this gem has been sponsored by $Your_Customer
+  . steps to run the tests locally
+  . how do you want to accept contributions
+* To follow our same rules regarding https://github.com/decidim/decidim/blob/develop/.rubocop.yml[code styling]
+* To have a license file that's compatible with Decidim license (GPL Affero 3)
+* To have a valid .gemspec file
+* To follow the Decidim Social Contract
+* To have a description and other metadata (ie tags) on GitHub or another platform, so it's more discoverable
+* Has good i18 support (all the strings that could be translated are in config/locales/en.yml)
+* If you upload it to GitHub, do it with the naming *decidim-module-<engine_name>*, so it's easier to find on
+the https://github.com/decidim/decidim/network/dependents[dependency graph]. See discussion at https://github.com/decidim/decidim/issues/2396[GitHub].
+* To use Decidim features and APIs when relevant:
+  . Using the Admin panel
+  . Generate logs on Admin panel if admins can operate on it
+  . GraphQL API
+  . Data Portability
+  . Endorsable
+  . Followable
+  . Embeddable
+  . Notifications
+  . If it's a new space, then it should be compatible with the "Context help"
+* Upload the Gem to Rubygems.org so it's easier to deploy to other apps
+* To https://decidim.org/contact/[contact us] so we can publish it at https://decidim.org/modules/[Modules page]
+
 == Example
 
 A typical engine looks like the following:
