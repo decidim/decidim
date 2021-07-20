@@ -156,9 +156,13 @@ module Decidim
       slug
     end
 
-    # Overrides the method from `Participable`.
+    # Overrides the moderators methods from `Participable`.
     def moderators
       "#{admin_module_name}::Moderators".constantize.for(self)
+    end
+
+    def self.moderators(organization)
+      "#{admin_module_name}::Moderators".constantize.for_organization(organization)
     end
 
     def user_roles(role_name = nil)
