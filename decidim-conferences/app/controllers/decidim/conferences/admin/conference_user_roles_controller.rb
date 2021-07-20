@@ -7,11 +7,11 @@ module Decidim
       #
       class ConferenceUserRolesController < Decidim::Conferences::Admin::ApplicationController
         include Concerns::ConferenceAdmin
-        include Decidim::Paginable
+        include Decidim::Admin::Officializations::Filterable
 
         def index
           enforce_permission_to :index, :conference_user_role
-          @conference_user_roles = paginate(collection)
+          @conference_user_roles = filtered_collection
         end
 
         def new
@@ -90,11 +90,18 @@ module Decidim
 
         private
 
+        def search_field_predicate
+          :name_or_nickname_or_email_cont
+        end
+
+        def filters
+          [:invitation_accepted_at_present, :last_sign_in_at_present]
+        end
+
         def collection
           @collection ||= Decidim::ConferenceUserRole
-                          .includes(:user)
+                          .joins(:user)
                           .where(conference: current_conference)
-                          .order(:role, "decidim_users.name")
         end
       end
     end
