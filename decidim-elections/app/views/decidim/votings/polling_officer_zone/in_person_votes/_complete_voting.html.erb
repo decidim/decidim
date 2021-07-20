@@ -33,8 +33,8 @@
             <%= decidim_form_for(in_person_vote_form, url: polling_officer_election_in_person_votes_path(polling_officer, election)) do |f| %>
               <%= f.hidden_field :voter_token %>
               <%= f.hidden_field :voter_id %>
-              <%= f.check_box :voted, label: t(".voted") %>
-              <%= f.submit t(".complete_voting"), class: "button button--sc expanded mt-sm mb-none" %>
+              <%= f.check_box :voted, label: t(".voted"), id: "person_voted_checkbox", label_options: { for: nil } %>
+              <%= f.submit t(".complete_voting"), class: "button button--sc expanded mt-sm mb-none disabled", id: "submit_complete_voting" %>
             <% end %>
           </div>
         </div>
@@ -55,3 +55,5 @@
     <% end %>
   </div>
 </div>
+
+<%= javascript_pack_tag "decidim_votings_voting_polling_officer_zone_in_person_vote" %>
