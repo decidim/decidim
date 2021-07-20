@@ -67,7 +67,6 @@ es:
     'true': 'Sí'
   carrierwave:
     errors:
-      general: Error procesando imagen
       image_too_big: La imagen es demasiado grande
       not_inside_organization: El archivo no está relacionado con ninguna organización
   date:
