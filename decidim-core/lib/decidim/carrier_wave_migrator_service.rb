@@ -270,7 +270,7 @@ module Decidim
       if attachment.file.is_a?(CarrierWave::Storage::Fog::File)
         URI.open(URI.parse(attachment.url))
       else
-        attachment.file.file
+        File.open(attachment.file.file)
       end
     end
   end
