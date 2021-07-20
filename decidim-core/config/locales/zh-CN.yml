@@ -58,7 +58,6 @@ zh-CN:
     'true': '否'
   carrierwave:
     errors:
-      general: 处理图像出错
       image_too_big: 图片过大
       not_inside_organization: 该文件没有附加到任何组织
   date:
