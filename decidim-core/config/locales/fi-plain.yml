@@ -67,7 +67,6 @@ fi-pl:
     'true': 'Kyllä'
   carrierwave:
     errors:
-      general: Kuvan käsittely epäonnistui
       image_too_big: Kuva on liian suuri
       not_inside_organization: Tiedostoa ei ole liitetty mihinkään organisaatioon
   date:
