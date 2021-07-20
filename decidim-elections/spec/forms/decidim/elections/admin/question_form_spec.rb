@@ -56,4 +56,10 @@ describe Decidim::Elections::Admin::QuestionForm do
 
     it { is_expected.not_to be_valid }
   end
+
+  describe "when max_selections is zero" do
+    let(:max_selections) { 0 }
+
+    it { is_expected.not_to be_valid }
+  end
 end
