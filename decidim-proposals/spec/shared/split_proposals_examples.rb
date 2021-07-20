@@ -58,8 +58,10 @@ shared_examples "split proposals" do
             let!(:proposals) { create_list :proposal, 3, :with_endorsements, :with_votes, component: current_component }
 
             it "doesn't create a new proposal and displays a validation fail message" do
-              expect(page).to have_content("There was a problem splitting the selected proposals")
-              expect(page).to have_content("Any of the proposals is public")
+              expect(page).to have_content("There has been a problem splitting the selected proposals")
+              expect(page).to have_content("They are published")
+              expect(page).to have_content("They are official proposals")
+              expect(page).to have_content("They have received support or endorsements")
             end
           end
         end

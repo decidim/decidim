@@ -37,7 +37,11 @@ module Decidim
             !proposal.official? || proposal.votes.any? || proposal.endorsements.any?
           end
 
-          errors.add(:proposal_ids, :public_proposals) if public_proposals
+          if public_proposals
+            errors.add(:base, :published)
+            errors.add(:base, :official)
+            errors.add(:base, :supported)
+          end
         end
 
         def same_participatory_space

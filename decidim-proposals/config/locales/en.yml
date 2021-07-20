@@ -60,12 +60,16 @@ en:
               identical: AND body cannot be identical
         proposals_merge:
           attributes:
-            proposal_ids:
-              public_proposals: Any of the proposals is public (is not official or has been already voted or endorsed)
+            base:
+              official: They are official proposals
+              published: They are published
+              supported: They have received support or endorsements
         proposals_split:
           attributes:
-            proposal_ids:
-              public_proposals: Any of the proposals is public (is not official or has been already voted or endorsed)
+            base:
+              official: They are official proposals
+              published: They are published
+              supported: They have received support or endorsements
     models:
       decidim/proposals/accepted_proposal_event: Proposal accepted
       decidim/proposals/admin/update_proposal_category_event: Proposal category changed
@@ -518,11 +522,11 @@ en:
             title: Import proposals
         proposals_merges:
           create:
-            invalid: There was a problem merging the selected proposals.
+            invalid: 'There has been a problem merging the selected proposals for any of these reasons:'
             success: Successfully merged the proposals into a new one.
         proposals_splits:
           create:
-            invalid: There was a problem splitting the selected proposals.
+            invalid: 'There has been a problem splitting the selected proposals for any of these reasons:'
             success: Successfully splitted the proposals into new ones.
         valuation_assignments:
           create:
