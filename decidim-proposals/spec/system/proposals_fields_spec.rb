@@ -291,7 +291,7 @@ describe "Proposals", type: :system do
           end
         end
 
-        context "when attachments are allowed", processing_uploads_for: Decidim::AttachmentUploader do
+        context "when attachments are allowed" do
           let!(:component) do
             create(:proposal_component,
                    :with_creation_enabled,

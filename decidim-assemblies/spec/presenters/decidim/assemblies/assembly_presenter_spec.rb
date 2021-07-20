@@ -11,7 +11,8 @@ module Decidim
 
     describe "when no images were uploaded" do
       before do
-        assembly.update!(hero_image: nil, banner_image: nil)
+        assembly.hero_image.purge
+        assembly.banner_image.purge
       end
 
       it "return nil for hero_image_url" do
@@ -23,30 +24,13 @@ module Decidim
       end
     end
 
-    describe "when images are stored in the local filesystem" do
+    describe "when images are attached" do
       it "resolves hero_image_url" do
-        expect(subject.hero_image_url).to eq("http://#{organization_host}#{assembly.hero_image_url}")
+        expect(subject.hero_image_url).to eq("http://#{organization_host}#{assembly.attached_uploader(:hero_image).path}")
       end
 
       it "resolves banner_image_url" do
-        expect(subject.banner_image_url).to eq("http://#{organization_host}#{assembly.banner_image_url}")
-      end
-    end
-
-    describe "when images are stored in a cloud service" do
-      it "resolves hero_image_url" do
-        avoid_the_use_of_file_storage_specific_methods(:hero_image)
-        expect(subject.hero_image_url).to eq("http://#{organization_host}#{assembly.hero_image_url}")
-      end
-
-      it "resolves banner_image_url" do
-        avoid_the_use_of_file_storage_specific_methods(:banner_image)
-        expect(subject.banner_image_url).to eq("http://#{organization_host}#{assembly.banner_image_url}")
-      end
-
-      def avoid_the_use_of_file_storage_specific_methods(uploader_name)
-        # we're avoiding the use of `assembly.hero_image.file.file` in
-        expect(assembly.send(uploader_name).file).not_to receive(:file)
+        expect(subject.banner_image_url).to eq("http://#{organization_host}#{assembly.attached_uploader(:banner_image).path}")
       end
     end
   end

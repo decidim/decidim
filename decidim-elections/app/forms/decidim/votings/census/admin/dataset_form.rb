@@ -6,11 +6,18 @@ module Decidim
       module Admin
         # A form to temporaly upload csv census data
         class DatasetForm < Form
+          include Decidim::HasUploadValidations
+
           mimic :dataset
 
           attribute :file
 
+          validates_upload :file
           validates :file, presence: true
+
+          def organization
+            context.current_participatory_space&.organization
+          end
         end
       end
     end

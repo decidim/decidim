@@ -76,6 +76,10 @@ PR [\#8061](https://github.com/decidim/decidim/pull/8061) adds user groups to th
 
 Please be aware that it could take a while if your database has a lot of groups.
 
+#### ActiveStorage migration
+
+PR [\#7598](https://github.com/decidim/decidim/pull/7598) migrates attachments from CarrierWave to ActiveStorage. There was a migration to move some organization fields to a content block (decidim-core/db/migrate/20180810092428_move_organization_fields_to_hero_content_block.rb) including the use of CarrierWave to migrate an image. This part has been removed. Please, if your application has the old migration replace its content with the changed file to avoid errors in the future because CarrierWave dependency will be eliminated.
+
 ### Added
 
 ### Changed

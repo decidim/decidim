@@ -41,9 +41,9 @@ module Decidim
         end
 
         def edit
-          @conference_speaker = collection.find(params[:id])
-          enforce_permission_to :update, :conference_speaker, speaker: @conference_speaker
-          @form = form(ConferenceSpeakerForm).from_model(@conference_speaker)
+          @item = collection.find(params[:id])
+          enforce_permission_to :update, :conference_speaker, speaker: @item
+          @form = form(ConferenceSpeakerForm).from_model(@item)
         end
 
         def update

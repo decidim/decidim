@@ -30,7 +30,7 @@ module Decidim
           let(:command) { described_class.new(form) }
 
           it "broadcasts invalid" do
-            expect(InitiativesType).to receive(:new).and_return(initiative_type)
+            expect(InitiativesType).to receive(:new).at_least(:once).and_return(initiative_type)
             expect(initiative_type).to receive(:persisted?)
               .at_least(:once)
               .and_return(false)

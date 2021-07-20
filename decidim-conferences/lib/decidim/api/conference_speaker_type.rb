@@ -18,6 +18,10 @@ module Decidim
 
       field :created_at, Decidim::Core::DateTimeType, "The time this member was created ", null: true
       field :updated_at, Decidim::Core::DateTimeType, "The time this member was updated", null: true
+
+      def avatar
+        object.attached_uploader(:avatar).path
+      end
     end
   end
 end

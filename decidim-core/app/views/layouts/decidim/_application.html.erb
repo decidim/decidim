@@ -7,7 +7,7 @@
     organization: current_organization,
     scope_name: :homepage,
     manifest_name: :hero
-  ).try(:images_container).try(:background_image).try(:url)
+  ).try(:images_container).try(:attached_uploader, :background_image).try(:path)
 }) %>
 
 <!DOCTYPE html>

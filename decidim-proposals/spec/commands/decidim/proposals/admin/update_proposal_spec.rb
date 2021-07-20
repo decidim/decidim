@@ -110,7 +110,7 @@ describe Decidim::Proposals::Admin::UpdateProposal do
         end
       end
 
-      context "when attachments are allowed", processing_uploads_for: Decidim::AttachmentUploader do
+      context "when attachments are allowed" do
         let(:component) { create(:proposal_component, :with_attachments_allowed) }
         let(:attachment_params) do
           {
