@@ -759,6 +759,17 @@ es:
             layout_appearance_title: Editar apariencia de diseño global
             preview: Previsualizar
           omnipresent_banner_appearance_title: Editar banner omnipresente
+      organization_external_domain_whitelist:
+        edit:
+          update: Actualizar
+        external_domain:
+          down: Bajar
+          external_domain: Dominio externo
+          remove: Eliminar
+          up: Subir
+        form:
+          add: Añadir a la lista blanca
+          title: Lista blanca de dominios externos
       organization_homepage:
         edit:
           active_content_blocks: Bloques de contenido activos
@@ -957,6 +968,10 @@ es:
           no_users_count_statistics_yet: Aún no hay estadísticas de recuento de usuarias
           participants: Participantes
       view_public_page: Ver página pública
+    forms:
+      errors:
+        impersonate_user:
+          reason: Debes indicar un motivo para la gestión de una participante no gestionada
     metrics:
       blocked_users:
         object: usuarias bloqueadas
