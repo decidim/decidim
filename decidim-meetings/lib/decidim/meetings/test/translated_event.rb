@@ -48,7 +48,14 @@ shared_examples_for "a translated meeting event" do
       end
 
       context "when priority is original" do
+        let(:resource) do
+          create :meeting,
+                 title: { "en": "A nice event", "machine_translations": { "ca": "Une belle event" } },
+                 description: { "en": "A nice event", "machine_translations": { "ca": "Une belle event" } }
+        end
         before do
+          organization = resource.organization
+          organization.update enable_machine_translations: true
           organization.update machine_translation_display_priority: "original"
         end
 

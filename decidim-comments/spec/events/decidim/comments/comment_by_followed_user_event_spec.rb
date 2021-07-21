@@ -52,19 +52,19 @@ module Decidim
             organization.update enable_machine_translations: false
           end
 
-          it "does not have machine translations" do
+          it "does not perform translation" do
             expect(subject.perform_translation?).to eq(false)
           end
 
-          it "does not have machine translations" do
+          it "does not have a missing translation" do
             expect(subject.translation_missing?).to eq(false)
           end
 
-          it "does not have machine translations" do
+          it "does have content available in multiple languages" do
             expect(subject.content_in_same_language?).to eq(false)
           end
 
-          it "does not offer an alternate translation" do
+          it "does return the original language" do
             expect(subject.safe_resource_text).to eq(subject.resource_text)
           end
 
@@ -94,19 +94,19 @@ module Decidim
               organization.update machine_translation_display_priority: "original"
             end
 
-            it "does not have machine translations" do
+            it "does perform translation" do
               expect(subject.perform_translation?).to eq(true)
             end
 
-            it "does not have machine translations" do
+            it "does not have a missing translation" do
               expect(subject.translation_missing?).to eq(false)
             end
 
-            it "does not have machine translations" do
+            it "does have content available in multiple languages" do
               expect(subject.content_in_same_language?).to eq(false)
             end
 
-            it "does not offer an alternate translation" do
+            it "does return the original language" do
               expect(subject.safe_resource_text).to eq("<div><p>#{comment.body["en"]}</p></div>")
             end
 
@@ -119,19 +119,19 @@ module Decidim
                 create :comment, body: { "en": "This is Sparta!" }
               end
 
-              it "does not have machine translations" do
+              it "does perform translation" do
                 expect(subject.perform_translation?).to eq(true)
               end
 
-              it "does not have machine translations" do
+              it "does have a missing translation" do
                 expect(subject.translation_missing?).to eq(true)
               end
 
-              it "does not have machine translations" do
+              it "does have content available in multiple languages" do
                 expect(subject.content_in_same_language?).to eq(false)
               end
 
-              it "does not offer an alternate translation" do
+              it "does return the original language" do
                 expect(subject.safe_resource_text).to eq("<div><p>#{comment.body["en"]}</p></div>")
               end
 
@@ -150,19 +150,19 @@ module Decidim
               organization.update machine_translation_display_priority: "translation"
             end
 
-            it "does not have machine translations" do
+            it "does perform translation" do
               expect(subject.perform_translation?).to eq(true)
             end
 
-            it "does not have machine translations" do
+            it "does not have a missing translation" do
               expect(subject.translation_missing?).to eq(false)
             end
 
-            it "does not have machine translations" do
+            it "does have content available in multiple languages" do
               expect(subject.content_in_same_language?).to eq(false)
             end
 
-            it "does not offer an alternate translation" do
+            it "does return the original language" do
               expect(subject.safe_resource_text).to eq("<div><p>#{comment.body["en"]}</p></div>")
             end
 
@@ -175,19 +175,19 @@ module Decidim
                 create :comment, body: { "en": "This is Sparta!" }
               end
 
-              it "does not have machine translations" do
+              it "does perform translation" do
                 expect(subject.perform_translation?).to eq(true)
               end
 
-              it "does not have machine translations" do
+              it "does have a missing translation" do
                 expect(subject.translation_missing?).to eq(true)
               end
 
-              it "does not have machine translations" do
+              it "does have content available in multiple languages" do
                 expect(subject.content_in_same_language?).to eq(false)
               end
 
-              it "does not offer an alternate translation" do
+              it "does return the original language" do
                 expect(subject.safe_resource_text).to eq("<div><p>#{comment.body["en"]}</p></div>")
               end
 

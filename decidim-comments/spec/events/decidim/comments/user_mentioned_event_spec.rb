@@ -4,17 +4,14 @@ require "spec_helper"
 
 describe Decidim::Comments::UserMentionedEvent do
   let(:event_name) { "decidim.events.comments.user_mentioned" }
-  let(:ca_comment_content) { "<div><p>Un commentaire pour #{author_link}</p></div>"}
-  let(:en_comment_content) { "<div><p>Comment mentioning some user, #{author_link}</p></div>"}
-  let(:author_link) { "<a class=\"user-mention\" href=\"http://#{organization.host}/profiles/#{comment_author.nickname}\">@#{comment_author.nickname}</a>"}
+  let(:ca_comment_content) { "<div><p>Un commentaire pour #{author_link}</p></div>" }
+  let(:en_comment_content) { "<div><p>Comment mentioning some user, #{author_link}</p></div>" }
+  let(:author_link) { "<a class=\"user-mention\" href=\"http://#{organization.host}/profiles/#{comment_author.nickname}\">@#{comment_author.nickname}</a>" }
   let(:body) { "Comment mentioning some user, @#{comment.author.nickname}" }
   let(:ca_body) { "Un commentaire pour @#{comment.author.nickname}" }
-  let(:parsed_body) { Decidim::ContentProcessor.parse(body, current_organization: comment.organization)}
+  let(:parsed_body) { Decidim::ContentProcessor.parse(body, current_organization: comment.organization) }
   let(:parsed_ca_body) { Decidim::ContentProcessor.parse(ca_body, current_organization: comment.organization) }
   let(:comment_body) { { en: parsed_body.rewrite, "machine_translations": { "ca": parsed_ca_body.rewrite } } }
-  let(:author_link) { "<a class=\"user-mention\" href=\"http://#{organization.host}/profiles/#{comment_author.nickname}\">@#{comment_author.nickname}</a>"}
-  let(:en_comment_content) { "<div><p>Comment mentioning some user, #{author_link}</p></div>"}
-  let(:ca_comment_content) { "<div><p>Un commentaire pour #{author_link}</p></div>"}
 
   include_context "when it's a comment event"
 
@@ -72,19 +69,19 @@ describe Decidim::Comments::UserMentionedEvent do
         organization.update enable_machine_translations: false
       end
 
-      it "does not have machine translations" do
+      it "does not perform translation" do
         expect(subject.perform_translation?).to eq(false)
       end
 
-      it "does not have machine translations" do
+      it "does not have a missing translation" do
         expect(subject.translation_missing?).to eq(false)
       end
 
-      it "does not have machine translations" do
+      it "does have content available in multiple languages" do
         expect(subject.content_in_same_language?).to eq(false)
       end
 
-      it "does not offer an alternate translation" do
+      it "does return the original language" do
         expect(subject.safe_resource_text).to eq(subject.resource_text)
       end
 
@@ -114,19 +111,19 @@ describe Decidim::Comments::UserMentionedEvent do
           organization.update machine_translation_display_priority: "original"
         end
 
-        it "does not have machine translations" do
+        it "does perform translation" do
           expect(subject.perform_translation?).to eq(true)
         end
 
-        it "does not have machine translations" do
+        it "does not have a missing translation" do
           expect(subject.translation_missing?).to eq(false)
         end
 
-        it "does not have machine translations" do
+        it "does have content available in multiple languages" do
           expect(subject.content_in_same_language?).to eq(false)
         end
 
-        it "does not offer an alternate translation" do
+        it "does return the original language" do
           expect(subject.safe_resource_text).to eq(en_comment_content)
         end
 
@@ -140,19 +137,19 @@ describe Decidim::Comments::UserMentionedEvent do
             create :comment, body: { "en": "This is Sparta!" }
           end
 
-          it "does not have machine translations" do
+          it "does perform translation" do
             expect(subject.perform_translation?).to eq(true)
           end
 
-          it "does not have machine translations" do
+          it "does have a missing translation" do
             expect(subject.translation_missing?).to eq(true)
           end
 
-          it "does not have machine translations" do
+          it "does have content available in multiple languages" do
             expect(subject.content_in_same_language?).to eq(false)
           end
 
-          it "does not offer an alternate translation" do
+          it "does return the original language" do
             expect(subject.safe_resource_text).to eq(en_comment_content)
           end
 
@@ -170,19 +167,19 @@ describe Decidim::Comments::UserMentionedEvent do
           organization.update machine_translation_display_priority: "translation"
         end
 
-        it "does not have machine translations" do
+        it "does perform translation" do
           expect(subject.perform_translation?).to eq(true)
         end
 
-        it "does not have machine translations" do
+        it "does not have a missing translation" do
           expect(subject.translation_missing?).to eq(false)
         end
 
-        it "does not have machine translations" do
+        it "does have content available in multiple languages" do
           expect(subject.content_in_same_language?).to eq(false)
         end
 
-        it "does not offer an alternate translation" do
+        it "does return the original language" do
           expect(subject.safe_resource_text).to eq(en_comment_content)
         end
 
@@ -194,19 +191,19 @@ describe Decidim::Comments::UserMentionedEvent do
           let(:comment_body) { { en: parsed_body.rewrite } }
           let(:comment) { create :comment }
 
-          it "does not have machine translations" do
+          it "does perform translation" do
             expect(subject.perform_translation?).to eq(true)
           end
 
-          it "does not have machine translations" do
+          it "does have a missing translation" do
             expect(subject.translation_missing?).to eq(true)
           end
 
-          it "does not have machine translations" do
+          it "does have content available in multiple languages" do
             expect(subject.content_in_same_language?).to eq(false)
           end
 
-          it "does not offer an alternate translation" do
+          it "does return the original language" do
             expect(subject.safe_resource_text).to eq(en_comment_content)
           end
 

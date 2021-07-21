@@ -1,6 +1,5 @@
 ---
 en:
-
   activemodel:
     attributes:
       account:
@@ -998,12 +997,7 @@ en:
         description: Number of participants in organization
         object: participants
         title: Participants
-    notification_mailer:
-      event_received:
-        original_text: Original text
-        translated_text: Translated text
-        no_translation_available: Sorry, the automated translation could not be retrieved when the email has been sent. You can check the translation of the original text on the following %{link}.
-        same_language:  The content has been posted in your preferred language (%{language}), this is why no automated translation is displayed in this email.
+    newsletter_mailer:
       newsletter:
         note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
         see_on_website: Can’t see this email correctly? View it on the <a href="%{link}" target="_blank">website</a>.
@@ -1048,6 +1042,12 @@ en:
         greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hello,
         subject: Do you want to keep receiving relevant information about %{organization_name}?
+    notification_mailer:
+      event_received:
+        no_translation_available: Sorry, the automated translation could not be retrieved when the email has been sent. You can check the translation of the original text on the following %{link}.
+        original_text: Original text
+        same_language: The content has been posted in your preferred language (%{language}), this is why no automated translation is displayed in this email.
+        translated_text: Translated text
     notifications:
       no_notifications: No notifications yet.
     notifications_settings:
