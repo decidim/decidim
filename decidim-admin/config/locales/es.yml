@@ -48,6 +48,7 @@ es:
         favicon: Icono
         force_authentication: Forzar autenticación
         force_users_to_authenticate_before_access_organization: Forzar a las usuarias a autenticarse antes de acceder a la organización
+        from: Correo electrónico del remitente
         github_handler: Nombre en GitHub
         header_snippets: Snippets de encabezado
         highlight_alternative_color: Destacado, alternativo
@@ -157,6 +158,8 @@ es:
         browse: Explorar
         category:
           new: Nueva categoría
+        export: Exportar todo
+        export-selection: Exportar selección
         import: Importar
         manage: Gestionar
         new: Nuevo %{name}
@@ -177,10 +180,12 @@ es:
           success: '¡Genial! Has aceptado los Términos y Condiciones de Administración.'
         actions:
           accept: Estoy de acuerdo con los siguientes términos
+          are_you_sure: '¿Seguro que deseas rechazar los términos de uso para administradoras?'
           refuse: Rechazar los Términos y Condiciones de Administración
           title: Acepto los Términos y Condiciones de Administración
         required_review:
           alert: 'Requerido: revisa nuestros Términos y Condiciones de Administración'
+          callout: Por favor dedica un momento a familiarizarte con los términos de uso para administradoras. En caso contrario, no podrás administrar la plataforma.
           cta: Revísalos ahora.
         title: Términos y Condiciones de Administración
       area_types:
