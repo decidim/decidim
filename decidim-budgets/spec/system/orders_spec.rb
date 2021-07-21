@@ -6,7 +6,7 @@ describe "Orders", type: :system do
   include_context "with a component"
   let(:manifest_name) { "budgets" }
 
-  let(:organization) { create :organization }
+  let(:organization) { create :organization, available_authorizations: %w(dummy_authorization_handler) }
   let!(:user) { create :user, :confirmed, organization: organization }
   let(:project) { projects.first }
 
