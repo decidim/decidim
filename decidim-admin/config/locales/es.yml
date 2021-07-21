@@ -356,6 +356,16 @@ es:
         category_id_eq:
           label: Categoría
         filter_label: Filtro
+        invitation_accepted_at_present:
+          label: Invitación aceptada
+          values:
+            'false': 'No'
+            'true': 'Sí'
+        last_sign_in_at_present:
+          label: Alguna vez se ha conectado
+          values:
+            'false': 'No'
+            'true': 'Sí'
         moderations:
           reportable_type_string_eq:
             label: Tipo
@@ -477,6 +487,7 @@ es:
         areas: Áreas
         configuration: Configuración
         dashboard: Panel de control
+        external_domain_whitelist: Dominios externos permitidos
         help_sections: Secciones de ayuda
         homepage: Página principal
         impersonations: Impersonaciones
@@ -625,6 +636,7 @@ es:
       newsletters:
         create:
           error: Se ha producido un error al crear este boletín.
+          success: Boletín creado correctamente. Por favor, revísalo antes de enviarlo.
         deliver:
           error: Se ha producido un error al enviar este boletín.
           success: Boletín enviado correctamente.
@@ -707,10 +719,12 @@ es:
           title: Oficializar participante "%{name}"
         show_email_modal:
           close_modal: Cierra el modal
+          description: Si necesitas contactar directamente con una participante, puedes hacer clic en el botón Mostrar para ver la dirección de correo electrónico. Esta acción se registrará.
           email_address: Dirección de correo electrónico
           full_name: Nombre completo
           hidden: oculto
           show: Mostrar
+          title: Mostrar dirección de correo de la participante
         unblock:
           error: Se ha producido un error al desbloquear a la participante
           success: Participante desbloqueada correctamente
