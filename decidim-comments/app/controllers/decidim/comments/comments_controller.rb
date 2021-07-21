@@ -44,7 +44,7 @@ module Decidim
           params.merge(commentable: commentable)
         ).with_context(
           current_organization: current_organization,
-          current_component: commentable.try(:component) || commentable.participatory_space
+          current_component: current_component
         )
         Decidim::Comments::CreateComment.call(form, current_user) do
           on(:ok) do |comment|
@@ -61,6 +61,12 @@ module Decidim
             end
           end
         end
+      end
+
+      def current_component
+        return commentable.component if commentable.respond_to?(:component)
+        return commentable.participatory_space if commentable.respond_to?(:participatory_space)
+        return commentable if Decidim.participatory_space_manifests.find { |manifest| manifest.model_class_name == commentable.class.name }
       end
 
       private
