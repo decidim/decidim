@@ -127,7 +127,7 @@ ro:
           notification_title: Există un comentariu nou al <a href="%{author_path}">%{author_name} %{author_nickname}</a> în <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} a fost comentat. Poți citi comentariul din această pagină:"
-          email_outro: Ați primit această notificare deoarece urmați ""%{resource_title}" sau autorul său. O puteți anula de la link-ul anterior.
+          email_outro: Ați primit această notificare deoarece urmați "%{resource_title}" sau autorul său. O puteți anula de la link-ul anterior.
           email_subject: Există un nou comentariu de la %{author_name} în %{resource_title}
           notification_title: Există un nou comentariu de la <a href="%{author_path}">%{author_name} %{author_nickname}</a> în <a href="%{resource_path}">%{resource_title}</a>
         comment_downvoted:

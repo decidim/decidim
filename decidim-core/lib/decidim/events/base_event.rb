@@ -79,43 +79,17 @@ module Decidim
         end
       end
 
-      def has_translated_content?
-        false
-      end
-
       def resource_text; end
 
       def organization
         resource.try(:organization)
       end
 
-      def content_in_same_language?
-        return false unless perform_translation?
-
-        resource.content_original_language.try(:to_s) == I18n.locale.to_s
-      end
-
-      def translation_available?
-        return false unless perform_translation?
-
-        safe_original_resource_text != safe_resource_text
-      end
-
-      def machine_translations_enabled?
-        organization&.enable_machine_translations || false
-      end
-
-      def safe_original_resource_text
-        if resource.respond_to?(:content_original_language)
-          I18n.with_locale(resource.content_original_language) { resource_text.to_s.html_safe }
-        else
-          resource_text.to_s.html_safe
-        end
+      def perform_translation?
+        organization.enable_machine_translations
       end
 
       def safe_resource_text
-        return false unless perform_translation?
-
         translated_attribute(resource_text).to_s.html_safe
       end
 
@@ -132,12 +106,6 @@ module Decidim
       end
 
       private
-
-      def perform_translation?
-        machine_translations_enabled? &&
-          has_translated_content? &&
-          organization.machine_translation_display_priority == "translation"
-      end
 
       def component
         return resource if resource.is_a?(Decidim::Component)
