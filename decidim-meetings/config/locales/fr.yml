@@ -80,6 +80,7 @@ fr:
     components:
       meetings:
         actions:
+          comment: Commenter
           join: Rejoindre
         name: Rencontres
         settings:
