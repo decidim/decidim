@@ -57,7 +57,10 @@ module Decidim::Meetings
         clean_type_of_meeting: type_of_meeting,
         online_meeting_url: online_meeting_url,
         customize_registration_email: customize_registration_email,
-        registration_email_custom_content: registration_email_custom_content
+        registration_email_custom_content: registration_email_custom_content,
+        comments_enabled: true,
+        comments_start_time: nil,
+        comments_end_time: nil
       )
     end
 
@@ -153,7 +156,10 @@ module Decidim::Meetings
             clean_type_of_meeting: type_of_meeting,
             online_meeting_url: online_meeting_url,
             customize_registration_email: customize_registration_email,
-            registration_email_custom_content: registration_email_custom_content
+            registration_email_custom_content: registration_email_custom_content,
+            comments_enabled: true,
+            comments_start_time: nil,
+            comments_end_time: nil
           )
         end
 
