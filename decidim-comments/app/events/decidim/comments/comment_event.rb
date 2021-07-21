@@ -9,7 +9,6 @@ module Decidim
       include Decidim::Events::AuthorEvent
 
       included do
-
         def safe_resource_text
           resource_text
         end

@@ -67,9 +67,7 @@ module Decidim
       return if resource.respond_to?(:can_participate?) && !resource.can_participate?(recipient)
 
       wait_time = 0
-      if recipient.organization.enable_machine_translations
-        wait_time = Decidim.machine_translation_delay.to_i + 1.minute
-      end
+      wait_time = Decidim.machine_translation_delay.to_i + 1.minute if recipient.organization.enable_machine_translations
 
       NotificationMailer
         .event_received(

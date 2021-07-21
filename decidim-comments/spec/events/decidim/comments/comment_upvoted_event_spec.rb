@@ -23,7 +23,6 @@ describe Decidim::Comments::CommentUpvotedEvent do
 
       describe "translated notifications" do
         context "when it is not machine machine translated" do
-
           let(:comment) do
             create :comment, body: { "en": "This is Sparta!", "machine_translations": { "ca": "C'est Sparta!" } }
           end
@@ -46,7 +45,7 @@ describe Decidim::Comments::CommentUpvotedEvent do
           end
 
           it "does not offer an alternate translation" do
-            expect(subject.safe_resource_text).to eq(subject.resource_text )
+            expect(subject.safe_resource_text).to eq(subject.resource_text)
           end
 
           it "does not offer an alternate translation" do
@@ -66,7 +65,7 @@ describe Decidim::Comments::CommentUpvotedEvent do
             organization.update enable_machine_translations: true
           end
 
-          around(:each) do |example|
+          around do |example|
             I18n.with_locale(user.locale) { example.run }
           end
 
@@ -96,10 +95,10 @@ describe Decidim::Comments::CommentUpvotedEvent do
             end
 
             context "when translation is not available" do
-
               let(:comment) do
                 create :comment, body: { "en": "This is Sparta!" }
               end
+
               it "does not have machine translations" do
                 expect(subject.perform_translation?).to eq(false)
               end
@@ -123,7 +122,6 @@ describe Decidim::Comments::CommentUpvotedEvent do
           end
 
           context "when priority is translation" do
-
             let(:comment) do
               create :comment, body: { "en": "This is Sparta!", "machine_translations": { "ca": "C'est Sparta!" } }
             end
@@ -153,7 +151,6 @@ describe Decidim::Comments::CommentUpvotedEvent do
             end
 
             context "when translation is not available" do
-
               let(:comment) do
                 create :comment, body: { "en": "This is Sparta!" }
               end
@@ -177,13 +174,10 @@ describe Decidim::Comments::CommentUpvotedEvent do
               it "does not offer an alternate translation" do
                 expect(subject.safe_resource_translated_text).to eq("<div><p>#{comment.body["en"]}</p></div>")
               end
-
             end
           end
         end
       end
-
     end
   end
-
 end

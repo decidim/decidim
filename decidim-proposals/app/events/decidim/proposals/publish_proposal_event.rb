@@ -15,7 +15,7 @@ module Decidim
 
       def content_in_same_language?
         return false unless perform_translation?
-        return false unless resource_text.respond_to?(:content_original_language)
+        return false unless resource.respond_to?(:content_original_language)
 
         resource.content_original_language == I18n.locale.to_s
       end

@@ -43,7 +43,6 @@ module Decidim
 
       describe "translated notifications" do
         context "when it is not machine machine translated" do
-
           let(:comment) do
             create :comment, body: { "en": "This is Sparta!", "machine_translations": { "ca": "C'est Sparta!" } }
           end
@@ -66,7 +65,7 @@ module Decidim
           end
 
           it "does not offer an alternate translation" do
-            expect(subject.safe_resource_text).to eq(subject.resource_text )
+            expect(subject.safe_resource_text).to eq(subject.resource_text)
           end
 
           it "does not offer an alternate translation" do
@@ -86,7 +85,7 @@ module Decidim
             organization.update enable_machine_translations: true
           end
 
-          around(:each) do |example|
+          around do |example|
             I18n.with_locale(user.locale) { example.run }
           end
 
@@ -116,10 +115,10 @@ module Decidim
             end
 
             context "when translation is not available" do
-
               let(:comment) do
                 create :comment, body: { "en": "This is Sparta!" }
               end
+
               it "does not have machine translations" do
                 expect(subject.perform_translation?).to eq(true)
               end
@@ -143,7 +142,6 @@ module Decidim
           end
 
           context "when priority is translation" do
-
             let(:comment) do
               create :comment, body: { "en": "This is Sparta!", "machine_translations": { "ca": "C'est Sparta!" } }
             end
@@ -173,7 +171,6 @@ module Decidim
             end
 
             context "when translation is not available" do
-
               let(:comment) do
                 create :comment, body: { "en": "This is Sparta!" }
               end
@@ -197,12 +194,10 @@ module Decidim
               it "does not offer an alternate translation" do
                 expect(subject.safe_resource_translated_text).to eq("<div><p>#{comment.body["en"]}</p></div>")
               end
-
             end
           end
         end
       end
-
     end
   end
 end

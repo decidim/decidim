@@ -6,6 +6,12 @@ describe Decidim::Comments::UserGroupMentionedEvent do
   include_context "when it's a comment event"
 
   let(:event_name) { "decidim.events.comments.user_group_mentioned" }
+  let(:ca_comment_content) { "<div><p>Un commentaire pour #{author_link}</p></div>"}
+  let(:en_comment_content) { "<div><p>Comment mentioning some user group, #{author_link}</p></div>"}
+  let(:author_link) { "<a class=\"user-mention\" href=\"http://#{organization.host}/profiles/#{group.nickname}\">@#{group.nickname}</a>" }
+  let(:author_link) { "<a class=\"user-mention\" href=\"http://#{organization.host}/profiles/#{group.nickname}\">@#{group.nickname}</a>" }
+  let(:en_comment_content) { "<div><p>Comment mentioning some user group, #{author_link}</p></div>"}
+  let(:ca_comment_content) { "<div><p>Un commentaire pour #{author_link}</p></div>"}
 
   let(:extra) do
     {
@@ -69,13 +75,8 @@ describe Decidim::Comments::UserGroupMentionedEvent do
     end
   end
 
-  let(:author_link) { "<a class=\"user-mention\" href=\"http://#{organization.host}/profiles/#{group.nickname}\">@#{group.nickname}</a>"}
-  let(:en_comment_content) { "<div><p>Comment mentioning some user group, #{author_link}</p></div>"}
-  let(:ca_comment_content) { "<div><p>Un commentaire pour #{author_link}</p></div>"}
-
   describe "translated notifications" do
     context "when it is not machine machine translated" do
-
       let(:comment) do
         create :comment, body: { "en": "This is Sparta!", "machine_translations": { "ca": "C'est Sparta!" } }
       end
@@ -98,7 +99,7 @@ describe Decidim::Comments::UserGroupMentionedEvent do
       end
 
       it "does not offer an alternate translation" do
-        expect(subject.safe_resource_text).to eq(subject.resource_text )
+        expect(subject.safe_resource_text).to eq(subject.resource_text)
       end
 
       it "does not offer an alternate translation" do
@@ -118,7 +119,7 @@ describe Decidim::Comments::UserGroupMentionedEvent do
         organization.update enable_machine_translations: true
       end
 
-      around(:each) do |example|
+      around do |example|
         I18n.with_locale(user.locale) { example.run }
       end
 
@@ -148,10 +149,11 @@ describe Decidim::Comments::UserGroupMentionedEvent do
         end
 
         context "when translation is not available" do
-          let(:comment_body) {  { en: parsed_body.rewrite } }
+          let(:comment_body) { { en: parsed_body.rewrite } }
           let(:comment) do
             create :comment, body: { "en": "This is Sparta!" }
           end
+
           it "does not have machine translations" do
             expect(subject.perform_translation?).to eq(true)
           end
@@ -176,7 +178,7 @@ describe Decidim::Comments::UserGroupMentionedEvent do
 
       context "when priority is translation" do
         let(:comment) { create :comment, body: { "en": "This is Sparta!", "machine_translations": { "ca": "C'est Sparta!" } } }
-        let(:comment_body) {  { en: parsed_body.rewrite, "machine_translations": { "ca": parsed_ca_body.rewrite } } }
+        let(:comment_body) { { en: parsed_body.rewrite, "machine_translations": { "ca": parsed_ca_body.rewrite } } }
 
         before do
           organization.update machine_translation_display_priority: "translation"
@@ -225,7 +227,6 @@ describe Decidim::Comments::UserGroupMentionedEvent do
           it "does not offer an alternate translation" do
             expect(subject.safe_resource_translated_text).to eq(en_comment_content)
           end
-
         end
       end
     end

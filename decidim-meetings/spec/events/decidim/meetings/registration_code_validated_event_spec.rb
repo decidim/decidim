@@ -12,6 +12,7 @@ describe Decidim::Meetings::RegistrationCodeValidatedEvent do
   let(:extra) { { registration: registration } }
 
   it_behaves_like "a simple event"
+  it_behaves_like "a translated meeting event"
 
   describe "resource_text" do
     it "returns the meeting description" do

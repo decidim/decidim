@@ -4,15 +4,20 @@ require "spec_helper"
 
 describe Decidim::Comments::UserMentionedEvent do
   let(:event_name) { "decidim.events.comments.user_mentioned" }
-
-
-  include_context "when it's a comment event"
-
+  let(:ca_comment_content) { "<div><p>Un commentaire pour #{author_link}</p></div>"}
+  let(:en_comment_content) { "<div><p>Comment mentioning some user, #{author_link}</p></div>"}
+  let(:author_link) { "<a class=\"user-mention\" href=\"http://#{organization.host}/profiles/#{comment_author.nickname}\">@#{comment_author.nickname}</a>"}
   let(:body) { "Comment mentioning some user, @#{comment.author.nickname}" }
   let(:ca_body) { "Un commentaire pour @#{comment.author.nickname}" }
   let(:parsed_body) { Decidim::ContentProcessor.parse(body, current_organization: comment.organization)}
   let(:parsed_ca_body) { Decidim::ContentProcessor.parse(ca_body, current_organization: comment.organization) }
-  let(:comment_body) {  { en: parsed_body.rewrite, "machine_translations": { "ca": parsed_ca_body.rewrite } } }
+  let(:comment_body) { { en: parsed_body.rewrite, "machine_translations": { "ca": parsed_ca_body.rewrite } } }
+  let(:author_link) { "<a class=\"user-mention\" href=\"http://#{organization.host}/profiles/#{comment_author.nickname}\">@#{comment_author.nickname}</a>"}
+  let(:en_comment_content) { "<div><p>Comment mentioning some user, #{author_link}</p></div>"}
+  let(:ca_comment_content) { "<div><p>Un commentaire pour #{author_link}</p></div>"}
+
+  include_context "when it's a comment event"
+
   before do
     comment.body = comment_body
     comment.save
@@ -56,13 +61,8 @@ describe Decidim::Comments::UserMentionedEvent do
     end
   end
 
-  let(:author_link) { "<a class=\"user-mention\" href=\"http://#{organization.host}/profiles/#{comment_author.nickname}\">@#{comment_author.nickname}</a>"}
-  let(:en_comment_content) { "<div><p>Comment mentioning some user, #{author_link}</p></div>"}
-  let(:ca_comment_content) { "<div><p>Un commentaire pour #{author_link}</p></div>"}
-
   describe "translated notifications" do
     context "when it is not machine machine translated" do
-
       let(:comment) do
         create :comment, body: { "en": "This is Sparta!", "machine_translations": { "ca": "C'est Sparta!" } }
       end
@@ -85,7 +85,7 @@ describe Decidim::Comments::UserMentionedEvent do
       end
 
       it "does not offer an alternate translation" do
-        expect(subject.safe_resource_text).to eq(subject.resource_text )
+        expect(subject.safe_resource_text).to eq(subject.resource_text)
       end
 
       it "does not offer an alternate translation" do
@@ -105,7 +105,7 @@ describe Decidim::Comments::UserMentionedEvent do
         organization.update enable_machine_translations: true
       end
 
-      around(:each) do |example|
+      around do |example|
         I18n.with_locale(user.locale) { example.run }
       end
 
@@ -135,10 +135,11 @@ describe Decidim::Comments::UserMentionedEvent do
         end
 
         context "when translation is not available" do
-          let(:comment_body) {  { en: parsed_body.rewrite } }
+          let(:comment_body) { { en: parsed_body.rewrite } }
           let(:comment) do
             create :comment, body: { "en": "This is Sparta!" }
           end
+
           it "does not have machine translations" do
             expect(subject.perform_translation?).to eq(true)
           end
@@ -163,7 +164,7 @@ describe Decidim::Comments::UserMentionedEvent do
 
       context "when priority is translation" do
         let(:comment) { create :comment, body: { "en": "This is Sparta!", "machine_translations": { "ca": "C'est Sparta!" } } }
-        let(:comment_body) {  { en: parsed_body.rewrite, "machine_translations": { "ca": parsed_ca_body.rewrite } } }
+        let(:comment_body) { { en: parsed_body.rewrite, "machine_translations": { "ca": parsed_ca_body.rewrite } } }
 
         before do
           organization.update machine_translation_display_priority: "translation"
@@ -212,7 +213,6 @@ describe Decidim::Comments::UserMentionedEvent do
           it "does not offer an alternate translation" do
             expect(subject.safe_resource_translated_text).to eq(en_comment_content)
           end
-
         end
       end
     end

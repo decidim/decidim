@@ -10,6 +10,7 @@ describe Decidim::Meetings::CreateMeetingEvent do
 
   include_context "when a simple event"
   it_behaves_like "a simple event"
+  it_behaves_like "a translated meeting event"
 
   describe "email_subject" do
     it "is generated correctly" do
