@@ -181,17 +181,6 @@ module Decidim
       user_group&.name || author.name
     end
 
-    # PUBLIC author_avatar_url
-    #
-    # Returns the author's avatar URL. In case it is not defined the method
-    # falls back to images/default-avatar.svg
-    #
-    # RETURNS STRING
-    def author_avatar_url
-      author.attached_uploader(:avatar).url(host: organization.host) ||
-        ActionController::Base.helpers.asset_pack_path("decidim/default-avatar.svg")
-    end
-
     def votes_enabled?
       published? &&
         signature_start_date <= Date.current &&
@@ -443,10 +432,6 @@ module Decidim
 
     def user_allowed_to_comment?(user)
       ActionAuthorizer.new(user, "comment", self, nil).authorize.ok?
-    end
-
-    def component
-      nil
     end
 
     private
