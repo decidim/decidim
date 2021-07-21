@@ -16,7 +16,10 @@ module Decidim
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("proposals_splits.create.invalid", scope: "decidim.proposals.admin")
+              flash[:alert_html] = Decidim::ValidationErrorsPresenter.new(
+                I18n.t("proposals_splits.create.invalid", scope: "decidim.proposals.admin"),
+                @form
+              ).message
               redirect_to EngineRouter.admin_proxy(current_component).root_path
             end
           end
