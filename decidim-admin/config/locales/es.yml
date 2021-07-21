@@ -208,6 +208,7 @@ es:
           error: Se ha producido un error al crear una nueva área.
           success: Área creada correctamente.
         destroy:
+          has_spaces: Esta área tiene espacios dependientes. Asegúrate de que no hace referencia a ningún espacio de participación antes de eliminarla.
           success: Área eliminada correctamente
         edit:
           title: Editar área
@@ -260,6 +261,7 @@ es:
       block_user:
         new:
           action: Bloquear cuenta y enviar justificación
+          description: El bloqueo de una usuaria dejará su cuenta inutilizable. Puedes proporcionar en tu justificación los criterios bajo los cuales considerarías desbloquearla.
           justification: Justificación
           title: Bloquear a la usuaria %{name}
       categories:
@@ -322,6 +324,7 @@ es:
         'false': 'No'
         managed_user_name: Usuario gestionado
         solved: Resuelto
+        title: Conflictos de verificación
         transfer:
           email: Correo electrónico
           error: Hubo un problema al transferir el participante actual a un participante gestionado.
@@ -335,6 +338,12 @@ es:
         show:
           view_more_logs: Ver más registros
           welcome: Bienvenida al panel de administración de Decidim.
+      domain_whitelist:
+        form:
+          domain_too_short: Dominio demasiado corto
+        update:
+          error: Error al actualizar la lista blanca del dominio
+          success: Lista blanca de dominio actualizada correctamente
       exports:
         export_as: "%{name} como %{export_format}"
         formats:
