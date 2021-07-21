@@ -81,6 +81,174 @@ module Decidim
           end
         end
       end
+
+      describe "translated notifications" do
+        context "when it is not machine machine translated" do
+          let(:resource) do
+            create :proposal,
+                   title: { "en": "A nice proposal", "machine_translations": { "ca": "Une belle idee" } },
+                   body: { "en": "A nice proposal", "machine_translations": { "ca": "Une belle idee" } }
+          end
+
+          before do
+            organization = resource.organization
+            organization.update enable_machine_translations: false
+          end
+
+          it "does not perform translation" do
+            expect(subject.perform_translation?).to eq(false)
+          end
+
+          it "does not have a missing translation" do
+            expect(subject.translation_missing?).to eq(false)
+          end
+
+          it "does have content available in multiple languages" do
+            expect(subject.content_in_same_language?).to eq(false)
+          end
+
+          it "does return the original language" do
+            expect(subject.safe_resource_text).to eq(resource.body["en"])
+          end
+
+          it "does not offer an alternate translation" do
+            expect(subject.safe_resource_translated_text).to eq(resource.body["machine_translations"]["ca"])
+          end
+        end
+
+        context "when is machine machine translated" do
+          let(:user) { create :user, organization: organization, locale: "ca" }
+
+          let(:resource) do
+            create :proposal,
+                   title: { "en": "A nice proposal", "machine_translations": { "ca": "Une belle idee" } },
+                   body: { "en": "A nice proposal", "machine_translations": { "ca": "Une belle idee" } }
+          end
+
+          before do
+            organization = resource.organization
+            organization.update enable_machine_translations: true
+          end
+
+          around do |example|
+            I18n.with_locale(user.locale) { example.run }
+          end
+
+          context "when priority is original" do
+            before do
+              organization.update machine_translation_display_priority: "original"
+            end
+
+            it "does perform translation" do
+              expect(subject.perform_translation?).to eq(true)
+            end
+
+            it "does not have a missing translation" do
+              expect(subject.translation_missing?).to eq(false)
+            end
+
+            it "does have content available in multiple languages" do
+              expect(subject.content_in_same_language?).to eq(false)
+            end
+
+            it "does return the original language" do
+              expect(subject.safe_resource_text).to eq(subject.resource_text["en"])
+            end
+
+            it "does not offer an alternate translation" do
+              expect(subject.safe_resource_translated_text).to eq(subject.resource_text["machine_translations"]["ca"])
+            end
+
+            context "when translation is not available" do
+              let(:resource) do
+                create :proposal,
+                       title: { "en": "A nice proposal" },
+                       body: { "en": "A nice proposal" }
+              end
+
+              it "does perform translation" do
+                expect(subject.perform_translation?).to eq(true)
+              end
+
+              it "does have a missing translation" do
+                expect(subject.translation_missing?).to eq(true)
+              end
+
+              it "does have content available in multiple languages" do
+                expect(subject.content_in_same_language?).to eq(false)
+              end
+
+              it "does return the original language" do
+                expect(subject.safe_resource_text).to eq(subject.resource_text["en"])
+              end
+
+              it "does not offer an alternate translation" do
+                expect(subject.safe_resource_translated_text).to eq(subject.resource_text["en"])
+              end
+            end
+          end
+
+          context "when priority is translation" do
+            let(:resource) do
+              create :proposal,
+                     title: { "en": "A nice proposal", "machine_translations": { "ca": "Une belle idee" } },
+                     body: { "en": "A nice proposal", "machine_translations": { "ca": "Une belle idee" } }
+            end
+
+            before do
+              organization.update machine_translation_display_priority: "translation"
+            end
+
+            it "does perform translation" do
+              expect(subject.perform_translation?).to eq(true)
+            end
+
+            it "does not have a missing translation" do
+              expect(subject.translation_missing?).to eq(false)
+            end
+
+            it "does have content available in multiple languages" do
+              expect(subject.content_in_same_language?).to eq(false)
+            end
+
+            it "does return the original language" do
+              expect(subject.safe_resource_text).to eq(subject.resource_text["en"])
+            end
+
+            it "does not offer an alternate translation" do
+              expect(subject.safe_resource_translated_text).to eq(subject.resource_text["machine_translations"]["ca"])
+            end
+
+            context "when translation is not available" do
+              let(:resource) do
+                create :proposal,
+                       title: { "en": "A nice proposal" },
+                       body: { "en": "A nice proposal" }
+              end
+
+              it "does perform translation" do
+                expect(subject.perform_translation?).to eq(true)
+              end
+
+              it "does have a missing translation" do
+                expect(subject.translation_missing?).to eq(true)
+              end
+
+              it "does have content available in multiple languages" do
+                expect(subject.content_in_same_language?).to eq(false)
+              end
+
+              it "does return the original language" do
+                expect(subject.safe_resource_text).to eq(subject.resource_text["en"])
+              end
+
+              it "does not offer an alternate translation" do
+                expect(subject.safe_resource_translated_text).to eq(subject.resource_text["en"])
+              end
+            end
+          end
+        end
+      end
     end
   end
 end

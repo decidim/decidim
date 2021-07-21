@@ -3,11 +3,9 @@
 module Decidim
   module Meetings
     class CreateMeetingEvent < Decidim::Events::SimpleEvent
-      delegate :organization, to: :user, prefix: false
+      include Decidim::Meetings::MeetingEvent
 
-      def resource_text
-        translated_attribute(resource.description)
-      end
+      delegate :organization, to: :user, prefix: false
 
       def button_text
         I18n.t("meeting_created.button_text", scope: "decidim.events.meetings") if resource.can_be_joined_by?(user)

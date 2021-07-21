@@ -9,6 +9,10 @@ module Decidim
       include Decidim::Events::AuthorEvent
 
       included do
+        def safe_resource_text
+          resource_text
+        end
+
         def resource_text
           comment.formatted_body
         end
@@ -26,6 +30,31 @@ module Decidim
                                 when Decidim::UserGroup
                                   Decidim::UserGroupPresenter.new(author)
                                 end
+        end
+
+        def perform_translation?
+          organization.enable_machine_translations
+        end
+
+        def content_in_same_language?
+          return false unless perform_translation?
+          return false unless resource_text.respond_to?(:content_original_language)
+
+          comment.content_original_language == I18n.locale.to_s
+        end
+
+        def translation_missing?
+          return false unless perform_translation?
+
+          comment.body.dig("machine_translations", I18n.locale.to_s).blank?
+        end
+
+        def safe_resource_text
+          I18n.with_locale(comment.content_original_language) { resource_text }
+        end
+
+        def safe_resource_translated_text
+          I18n.with_locale(I18n.locale) { resource_text }
         end
 
         private

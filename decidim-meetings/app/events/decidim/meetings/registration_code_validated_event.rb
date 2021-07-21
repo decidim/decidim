@@ -3,11 +3,9 @@
 module Decidim
   module Meetings
     class RegistrationCodeValidatedEvent < Decidim::Events::SimpleEvent
-      i18n_attributes :registration_code
+      include Decidim::Meetings::MeetingEvent
 
-      def resource_text
-        translated_attribute(resource.description)
-      end
+      i18n_attributes :registration_code
 
       private
 

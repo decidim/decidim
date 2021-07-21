@@ -271,7 +271,7 @@ ro:
           notification_title: Propunerea <a href="%{resource_path}">%{resource_title}</a> a fost publicată de <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Propunerea "%{resource_title}" a fost adăugată la "%{participatory_space_title}" pe care o urmărești.
-          email_outro: Ați primit această notificare deoarece urmați ""%{participatory_space_title}". Puteți înceta să primiți notificări urmând linkul anterior.
+          email_outro: Ați primit această notificare deoarece urmați "%{participatory_space_title}". Puteți înceta să primiți notificări urmând linkul anterior.
           email_subject: Noua propunere "%{resource_title}" a fost adăugată la %{participatory_space_title}
           notification_title: Propunerea <a href="%{resource_path}">%{resource_title}</a> a fost adăugată la %{participatory_space_title}
         proposal_rejected:
