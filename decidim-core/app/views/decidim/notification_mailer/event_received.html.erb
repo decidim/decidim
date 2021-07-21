@@ -8,11 +8,11 @@
   </p>
 <% end %>
 
-<% if @event_instance.perform_translation? %>
-  <p style="font-weight: bold"><%= t(".original_text") %></p>
-<% end %>
-
 <% if @event_instance.try(:safe_resource_text).present? %>
+  <% if @event_instance.perform_translation? %>
+    <p style="font-weight: bold"><%= t(".original_text") %></p>
+  <% end %>
+
   <blockquote>
     <p>
       <%= @event_instance.safe_resource_text %>

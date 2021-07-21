@@ -33,8 +33,14 @@ module Decidim
                                 end
         end
 
+        def perform_translation?
+          organization.enable_machine_translations
+        end
+
         def content_in_same_language?
           return false unless perform_translation?
+          return false unless resource_text.respond_to?(:content_original_language)
+
           comment.content_original_language == I18n.locale.to_s
         end
 
