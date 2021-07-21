@@ -20,7 +20,7 @@ Decidim.register_component(:meetings) do |component|
     resource.template = "decidim/meetings/meetings/linked_meetings"
     resource.card = "decidim/meetings/meeting"
     resource.reported_content_cell = "decidim/meetings/reported_content"
-    resource.actions = %w(join)
+    resource.actions = %w(join comment)
     resource.searchable = true
   end
 
@@ -76,7 +76,7 @@ Decidim.register_component(:meetings) do |component|
     exports.serializer Decidim::Meetings::UserAnswersSerializer
   end
 
-  component.actions = %w(join)
+  component.actions = %w(join comment)
 
   component.settings(:global) do |settings|
     settings.attribute :scopes_enabled, type: :boolean, default: false

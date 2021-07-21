@@ -142,7 +142,12 @@ module Decidim
       end
 
       def blocked_comments_for_unauthorized_user_warning_link
-        action_authorized_link_to(:comment, commentable_path, { resource: model }) do
+        options = if current_component.present?
+                    { resource: model }
+                  else
+                    { resource: model, permissions_holder: model }
+                  end
+        action_authorized_link_to(:comment, commentable_path, options) do
           t("decidim.components.comments.blocked_comments_for_unauthorized_user_warning")
         end
       end
