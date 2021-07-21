@@ -109,6 +109,7 @@ fi:
     components:
       meetings:
         actions:
+          comment: Kommentoi
           join: Liity mukaan
         name: Tapaamiset
         settings:
