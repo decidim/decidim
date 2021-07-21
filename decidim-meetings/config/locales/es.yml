@@ -361,6 +361,9 @@ es:
           close: Crear encuentro
           title: Cerrar el encuentro
       meetings:
+        calendar_modal:
+          google: Añadir al calendario de Google
+          outlook: Abrir el calendario de Outlook
         count:
           meetings_count:
             one: "%{count} encuentro"
@@ -424,6 +427,10 @@ es:
           back: Atrás
           create: Crear
           title: Crea tu encuentro
+        online_meeting_link:
+          join: Inscríbete al encuentro
+          link_available_soon: Enlace disponible próximamente
+          live_event: Este encuentro está sucediendo ahora mismo
         registration_confirm:
           cancel: Cancelar
           confirm: Confirmar
@@ -469,10 +476,36 @@ es:
           fields:
             closed: Cerrado
             end_time: Fecha de finalización
+            id: Id
             map: Mapa
             official_meeting: Encuentro oficial
             start_time: Fecha de inicio
             title: Título
+      polls:
+        questions:
+          closed_question:
+            question_results: Resultados de la pregunta
+          index:
+            empty_questions: A lo largo de este encuentro, se enviarán algunas preguntas y podrás responderlas. Se mostrarán aquí.
+          index_admin:
+            admin_dashboard: Panel de administración
+            edit: Editar en el panel de administración
+            question: Pregunta
+            received_answer: respuesta recibida
+            received_answers: respuestas recibidas
+            results: Resultados
+            send: Enviar
+            sent: Enviada
+          published_question:
+            max_choices_alert: Hay demasiadas opciones seleccionadas
+            question: Pregunta
+            question_replied: Pregunta respondida
+            reply_question: Responder pregunta
+      public_participants_list:
+        attending_participants: Participantes asistentes
+        hidden_participants_count:
+          one: y %{count} persona más
+          other: y %{count} personas más
       read_more: "(leer más)"
       registration_mailer:
         confirmation:
