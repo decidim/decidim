@@ -410,6 +410,10 @@ module Decidim
       committee_members.approved.count >= minimum_committee_members
     end
 
+    def component
+      nil
+    end
+
     # PUBLIC
     #
     # Checks if the type the initiative belongs to enables SMS code
