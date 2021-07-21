@@ -225,7 +225,7 @@ ro:
       accountability:
         proposal_linked:
           email_intro: 'Propunerea "%{proposal_title}" a fost inclusă într-un rezultat. O puteţi vedea de pe această pagină:'
-          email_outro: Ați primit această notificare deoarece urmați ""%{proposal_title}". Puteți înceta să primiți notificări urmând linkul anterior.
+          email_outro: Ați primit această notificare deoarece urmați "%{proposal_title}". Puteți înceta să primiți notificări urmând linkul anterior.
           email_subject: O actualizare la %{proposal_title}
           notification_title: Propunerea <a href="%{proposal_path}">%{proposal_title}</a> a fost inclusă în rezultatul <a href="%{resource_path}">%{resource_title}</a>.
         result_progress_updated:
