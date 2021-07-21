@@ -14,11 +14,15 @@ Decidim.register_component(:accountability) do |component|
     raise StandardError, "Can't remove this component" if Decidim::Accountability::Result.where(component: instance).any?
   end
 
+  # These actions permissions can be configured in the admin panel
+  component.actions = %w(comment)
+
   component.register_resource(:result) do |resource|
     resource.model_class_name = "Decidim::Accountability::Result"
     resource.template = "decidim/accountability/results/linked_results"
     resource.card = "decidim/accountability/result"
     resource.searchable = false
+    resource.actions = %w(comment)
   end
 
   component.settings(:global) do |settings|

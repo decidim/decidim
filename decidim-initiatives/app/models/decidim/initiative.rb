@@ -21,6 +21,7 @@ module Decidim
     include Decidim::Searchable
     include Decidim::Initiatives::HasArea
     include Decidim::TranslatableResource
+    include Decidim::HasResourcePermission
 
     translatable_fields :title, :description, :answer
 
@@ -178,17 +179,6 @@ module Decidim
     # RETURN string
     def author_name
       user_group&.name || author.name
-    end
-
-    # PUBLIC author_avatar_url
-    #
-    # Returns the author's avatar URL. In case it is not defined the method
-    # falls back to images/default-avatar.svg
-    #
-    # RETURNS STRING
-    def author_avatar_url
-      author.attached_uploader(:avatar).url(host: organization.host) ||
-        ActionController::Base.helpers.asset_pack_path("decidim/default-avatar.svg")
     end
 
     def votes_enabled?
@@ -413,6 +403,10 @@ module Decidim
       committee_members.approved.count >= minimum_committee_members
     end
 
+    def component
+      nil
+    end
+
     # PUBLIC
     #
     # Checks if the type the initiative belongs to enables SMS code
@@ -429,6 +423,15 @@ module Decidim
     # implement this interface.
     def user_role_config_for(_user, _role_name)
       Decidim::ParticipatorySpaceRoleConfig::Base.new(:empty_role_name)
+    end
+
+    # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
+    def allow_resource_permissions?
+      true
+    end
+
+    def user_allowed_to_comment?(user)
+      ActionAuthorizer.new(user, "comment", self, nil).authorize.ok?
     end
 
     private

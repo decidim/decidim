@@ -110,6 +110,7 @@ en:
     components:
       meetings:
         actions:
+          comment: Comment
           join: Join
         name: Meetings
         settings:

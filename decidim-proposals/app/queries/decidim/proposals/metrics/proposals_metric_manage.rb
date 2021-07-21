@@ -30,7 +30,7 @@ module Decidim
           spaces = Decidim.participatory_space_manifests.flat_map do |manifest|
             manifest.participatory_spaces.call(@organization)
           end
-          @query = Decidim::Proposals::Proposal.where(component: visible_component_ids_from_spaces(spaces)).joins(:component)
+          @query = Decidim::Proposals::Proposal.where(component: visible_components_from_spaces(spaces)).joins(:component)
                                                .left_outer_joins(:category)
           @query = @query.where("decidim_proposals_proposals.published_at <= ?", end_time).except_withdrawn.not_hidden
           @query = @query.group("decidim_categorizations.decidim_category_id",

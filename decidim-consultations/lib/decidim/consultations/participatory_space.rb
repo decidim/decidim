@@ -31,7 +31,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
 
   participatory_space.register_resource(:question) do |resource|
     resource.model_class_name = "Decidim::Consultations::Question"
-    resource.actions = %w(vote)
+    resource.actions = %w(vote comment)
   end
 
   participatory_space.seeds do
