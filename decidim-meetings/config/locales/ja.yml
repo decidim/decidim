@@ -106,6 +106,7 @@ ja:
     components:
       meetings:
         actions:
+          comment: コメント
           join: 参加する
         name: ミーティング
         settings:
