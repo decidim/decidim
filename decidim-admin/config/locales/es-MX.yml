@@ -48,6 +48,7 @@ es-MX:
         favicon: Icono
         force_authentication: Forzar autenticación
         force_users_to_authenticate_before_access_organization: Forzar a las usuarias a autenticarse antes de acceder a la organización
+        from: Correo electrónico del remitente
         github_handler: Nombre en GitHub
         header_snippets: Snippets de encabezado
         highlight_alternative_color: Destacado, alternativo
@@ -157,6 +158,8 @@ es-MX:
         browse: Explorar
         category:
           new: Nueva categoría
+        export: Exportar todo
+        export-selection: Exportar selección
         import: Importar
         manage: Gestionar
         new: Nuevo %{name}
@@ -177,10 +180,12 @@ es-MX:
           success: '¡Genial! Has aceptado los Términos y Condiciones de Administración.'
         actions:
           accept: Estoy de acuerdo con los siguientes términos
+          are_you_sure: '¿Seguro que deseas rechazar los términos de uso para administradoras?'
           refuse: Rechazar los Términos y Condiciones de Administración
           title: Acepto los Términos y Condiciones de Administración
         required_review:
           alert: 'Requerido: revisa nuestros Términos y Condiciones de Administración'
+          callout: Por favor dedica un momento a familiarizarte con los términos de uso para administradoras. En caso contrario, no podrás administrar la plataforma.
           cta: Revísalos ahora.
         title: Términos y Condiciones de Administración
       area_types:
@@ -203,6 +208,7 @@ es-MX:
           error: Hubo un error al crear una nueva área.
           success: Área creada correctamente.
         destroy:
+          has_spaces: Esta área tiene espacios dependientes. Asegúrate de que no hace referencia a ningún espacio de participación antes de eliminarla.
           success: Área destruida correctamente
         edit:
           title: Editar área
@@ -255,6 +261,7 @@ es-MX:
       block_user:
         new:
           action: Bloquear cuenta y enviar justificación
+          description: El bloqueo de una usuaria dejará su cuenta inutilizable. Puedes proporcionar en tu justificación los criterios bajo los cuales considerarías desbloquearla.
           justification: Justificación
           title: Bloquear a la usuaria %{name}
       categories:
@@ -317,6 +324,7 @@ es-MX:
         'false': 'No'
         managed_user_name: Usuario gestionado
         solved: Resuelto
+        title: Conflictos de verificación
         transfer:
           email: Correo electrónico
           error: Hubo un problema al transferir el participante actual a un participante gestionado.
@@ -330,6 +338,12 @@ es-MX:
         show:
           view_more_logs: Ver más registros
           welcome: Bienvenido al panel de administración de Decidim.
+      domain_whitelist:
+        form:
+          domain_too_short: Dominio demasiado corto
+        update:
+          error: Error al actualizar la lista blanca del dominio
+          success: Lista blanca de dominio actualizada correctamente
       exports:
         export_as: "%{name} como %{export_format}"
         formats:
