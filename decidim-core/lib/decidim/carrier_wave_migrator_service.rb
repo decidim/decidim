@@ -61,7 +61,11 @@ module Decidim
           [Decidim::InitiativesType, "banner_image", Decidim::Cw::BannerImageUploader, "banner_image"]
         ]
       end
-    }.sum { |main_model, attributes| Object.const_defined?(main_model) ? attributes.call : [] }.freeze
+    }.sum do |main_model, attributes|
+      main_model.constantize.is_a?(Class) ? attributes.call : []
+    rescue NameError
+      []
+    end.freeze
 
     def self.check_content_blocks_attachments(logger:)
       Decidim::ContentBlock.find_each do |block|
