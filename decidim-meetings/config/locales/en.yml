@@ -36,12 +36,17 @@ en:
         registration_terms: Registration terms
         registration_url: Registration URL
         registrations_enabled: Registrations enabled
+        show_embedded_iframe: Show embedded iframe for this URL
         start_time: Start Time
         title: Title
         transparent: Transparent
         type_of_meeting: Type
     errors:
       models:
+        meeting:
+          attributes:
+            show_embedded_iframe:
+              not_embeddable: This URL can't be embedded
         meeting_agenda:
           attributes:
             base:
@@ -305,6 +310,7 @@ en:
             registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
             select_a_meeting_type: Please select a meeting type
             select_a_registration_type: Please select a registration type
+            show_embedded_iframe_help: Whether or not embed the iframe for this videoconference URL. Only a few services allow embedding (i.e. Youtube, Twitch...)
           index:
             title: Meetings
           new:
@@ -476,6 +482,7 @@ en:
           select_a_category: Please select a category
           select_a_meeting_type: Please select a meeting type
           select_a_registration_type: Please select a registration type
+          show_embedded_iframe_help: Whether or not embed the iframe for this videoconference URL. Only a few services allow embedding (i.e. Youtube, Twitch...)
         index:
           new_meeting: New meeting
         meeting_minutes:
@@ -487,10 +494,6 @@ en:
           back: Back
           create: Create
           title: Create Your Meeting
-        online_meeting_link:
-          join: Join the meeting
-          link_available_soon: Link available soon
-          live_event: This meeting is happening right now
         registration_confirm:
           cancel: Cancel
           confirm: Confirm
@@ -505,7 +508,11 @@ en:
           join: Join meeting
           leave: Cancel your registration
           leave_confirmation: Are you sure you want to cancel your registration for this meeting?
+          link_available_soon: Link available soon
+          link_closed: The link to join the meeting will be available a few minutes before it starts
+          live_event: This meeting is happening right now
           meeting_minutes: Meeting Minutes
+          micro_camera_permissions_warning: When you click on the button below, you will be asked for microphone and/or camera permissions, and you will join the videoconference
           no_slots_available: No slots available
           organizations: Attending organizations
           registration_code_help_text: Your registration code

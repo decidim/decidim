@@ -26,22 +26,64 @@ describe "Meeting live event access", type: :system do
       visit_meeting
 
       expect(page).to have_content("This meeting is happening right now")
+    end
 
-      # Join the meeting opens in a new window
-      new_window = window_opened_by { click_link "Join the meeting" }
-      within_window new_window do
-        expect(page).to have_current_path meeting_live_event_path
+    context "when the meeting is configured to not embed the iframe" do
+      let(:meeting) { create :meeting, :published, :online, :live, :embeddable, component: component }
+
+      it "shows the link to the live meeting streaming" do
+        visit_meeting
+
+        new_window = window_opened_by { click_link "Join meeting" }
+
+        within_window new_window do
+          expect(page).to have_current_path(meeting_live_event_path)
+        end
+      end
+    end
+
+    context "when the meeting is configured to not embed the iframe and is not embeddable" do
+      let(:meeting) { create :meeting, :published, :online, :live, component: component }
+
+      it "shows the link to the external streaming service" do
+        visit_meeting
+
+        # Join the meeting displays a warning to users because
+        # is redirecting to a different domain
+        click_link "Join meeting"
+
+        expect(page).to have_content("Open external link")
+      end
+    end
+
+    context "when the meeting is configured to show the iframe embedded" do
+      let(:meeting) { create :meeting, :published, :show_embedded_iframe, :online, :embeddable, :live, component: component }
+
+      it "shows the meeting link embedded" do
+        visit_meeting
+
+        expect(page).to have_css("iframe")
       end
     end
   end
 
-  context "when online meeting is not live" do
+  context "when online meeting is not live and is not embedded" do
     let(:meeting) { create :meeting, :published, :online, :past, component: component }
 
     it "doesn't show the link to the live meeting streaming" do
       visit_meeting
 
       expect(page).to have_no_content("This meeting is happening right now")
+    end
+  end
+
+  context "when online meeting is not live and is not embedded" do
+    let(:meeting) { create :meeting, :published, :show_embedded_iframe, :online, :embeddable, component: component }
+
+    it "shows the meeting link embedded" do
+      visit_meeting
+
+      expect(page).to have_css("iframe")
     end
   end
 end

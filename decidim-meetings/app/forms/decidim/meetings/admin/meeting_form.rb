@@ -23,6 +23,7 @@ module Decidim
         attribute :registration_url, String
         attribute :available_slots, Integer, default: 0
         attribute :customize_registration_email, Boolean
+        attribute :show_embedded_iframe, Boolean, default: false
 
         translatable_attribute :title, String
         translatable_attribute :description, String
@@ -49,6 +50,7 @@ module Decidim
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :clean_type_of_meeting, presence: true
+        validate :embeddable_meeting_url
 
         delegate :categories, to: :current_component
 
@@ -150,6 +152,13 @@ module Decidim
               I18n.t("registration_type.#{type}", scope: "decidim.meetings"),
               type
             ]
+          end
+        end
+
+        def embeddable_meeting_url
+          if online_meeting_url.present? && show_embedded_iframe
+            embedder_service = Decidim::Meetings::MeetingIframeEmbedder.new(online_meeting_url)
+            errors.add(:show_embedded_iframe, :not_embeddable) unless embedder_service.embeddable?
           end
         end
       end
