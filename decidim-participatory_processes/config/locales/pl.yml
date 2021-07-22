@@ -296,7 +296,7 @@ pl:
       participatory_process:
         role_assigned:
           email_intro: Przypisano Ci rolę %{role} w procesie partycypacyjnym „%{resource_title}”.
-          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś %{role} procesu partycypacyjnego „%{resource_title}”.
+          email_outro: 'Otrzymujesz to powiadomienie, ponieważ otrzymałeś rolę: %{role} w procesie partycypacyjnym „%{resource_title}”.'
           email_subject: Przypisano Ci rolę %{role} w „%{resource_title}”.
           notification_title: Przypisano Ci rolę %{role} w procesie partycypacyjnym <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
