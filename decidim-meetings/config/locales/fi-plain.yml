@@ -109,6 +109,7 @@ fi-pl:
     components:
       meetings:
         actions:
+          comment: Kommentoi
           join: Liity mukaan
         name: Tapahtumat
         settings:
@@ -485,10 +486,6 @@ fi-pl:
           back: Takaisin
           create: Luo
           title: Luo tapahtuma
-        online_meeting_link:
-          join: Ilmoittaudu tapaamiseen
-          link_available_soon: Linkki julkaistaan pian
-          live_event: Tämä tapaaminen on käynnissä juuri nyt
         registration_confirm:
           cancel: Peruuta
           confirm: Vahvista
