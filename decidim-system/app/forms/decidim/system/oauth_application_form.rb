@@ -16,6 +16,7 @@ module Decidim
       attribute :redirect_uri, String
 
       validates :name, :redirect_uri, :decidim_organization_id, :organization_name, :organization_url, :organization_logo, presence: true
+      validates :redirect_uri, :organization_url, url: true
       validates :organization_logo, passthru: { to: Decidim::OAuthApplication }
       validate :redirect_uri_is_ssl
 

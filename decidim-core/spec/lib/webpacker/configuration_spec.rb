@@ -46,6 +46,21 @@ module Decidim
             "decidim_widget" => "#{core_path}/app/packs/entrypoints/decidim_widget.js"
           )
         end
+
+        it "adds the stylesheet imports to the webpacker runtime configuration" do
+          expect(runtime_config["default"]["stylesheet_imports"].keys).to include("app")
+          expect(runtime_config["default"]["stylesheet_imports"]["app"]).to include(
+            "stylesheets/decidim/accountability/accountability",
+            "stylesheets/decidim/budgets/budgets",
+            "stylesheets/decidim/proposals/proposals",
+            "stylesheets/decidim/surveys/surveys",
+            "stylesheets/decidim/conferences/conferences",
+            "stylesheets/decidim/consultations/consultations",
+            "stylesheets/decidim/elections/elections",
+            "stylesheets/decidim/votings/votings",
+            "stylesheets/decidim/initiatives/initiatives"
+          )
+        end
       end
     end
   end

@@ -68,7 +68,6 @@ ca:
             spam: Conté "clickbait", publicitat o estafes.
           title: Notificar contingut inapropiat
         show_replies: Mostra %{replies_count} respostes
-        single_comment_link_title: Aconsegueix l'enllaç al comentari
       comment_order_selector:
         order:
           best_rated: Més ben valorats

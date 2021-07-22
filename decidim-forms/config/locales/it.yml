@@ -10,10 +10,15 @@ it:
         question_type: Tipo
       questionnaire_question:
         mandatory: Obbligatorio
+        max_characters: Limite di caratteri (lasciare a 0 se nessum limite)
     errors:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Deve essere allegato nuovamente
+            body:
+              too_long: è troppo lungo
             choices:
               missing: non sono completi
               too_many: sono troppi
@@ -78,6 +83,7 @@ it:
             collapse: Comprimi tutte le domande
             expand: Espandi tutte le domande
             preview: Anteprima
+            title: Modifica formulario per %{questionnaire_for}
             unpublished_warning: Il modulo non è pubblicato. Puoi modificare le sue domande, ma in questo modo cancellerai le risposte correnti.
           matrix_row:
             matrix_row: Riga
@@ -117,6 +123,7 @@ it:
           resize_and_pad: Ridimensionato e spaziato a
           resize_to_fit: Ridimensionato per adattarsi
       question_types:
+        files: I file
         long_answer: Risposta lunga
         matrix_multiple: Matrice (opzione multipla)
         matrix_single: Matrice (opzione singola)

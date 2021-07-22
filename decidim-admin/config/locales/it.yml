@@ -158,7 +158,8 @@ it:
         browse: Naviga
         category:
           new: Nuova categoria
-        export: Esporta
+        export: Esporta tutto
+        export-selection: Esporta selezione
         import: Importazione
         manage: Gestisci
         new: Nuovo %{name}
@@ -176,14 +177,14 @@ it:
       admin_terms_of_use:
         accept:
           error: Si è verificato un errore durante l'accettazione dei termini di utilizzo da parte dell'amministratore.
-          success: Ottimo! Hai accettato i termini d'uso dell'amministratore.
+          success: Ottimo! Hai accettato i termini d'uso dell'amministratrice/tore.
         actions:
           accept: Sono d'accordo con i seguenti termini
           are_you_sure: Sei sicuro di voler rifiutare i termini di amministrazione?
           refuse: Rifiuta i termini di amministrazione
           title: Accetta i termini e le condizioni di utilizzo
         required_review:
-          alert: 'Richiesto: Rivedi i nostri termini di utilizzo da amministratore'
+          alert: 'Richiesto: Rivedi i nostri termini di utilizzo dell''amministratrice/tore'
           callout: Prenditi un momento per leggere i Termini di utilizzo dell'amministratore. Altrimenti non sarai in grado di amministrare la piattaforma.
           cta: Rivedili ora.
         title: Termini di utilizzo dell'amministratore
@@ -355,6 +356,16 @@ it:
         category_id_eq:
           label: Categorie
         filter_label: Filtro
+        invitation_accepted_at_present:
+          label: Invito accettato
+          values:
+            'false': 'No'
+            'true': 'Sì'
+        last_sign_in_at_present:
+          label: Accesso mai effettuato
+          values:
+            'false': 'No'
+            'true': 'Sì'
         moderations:
           reportable_type_string_eq:
             label: Tipo
@@ -515,7 +526,7 @@ it:
           name: Categorie
         impersonation_log:
           fields:
-            admin: Amministratore
+            admin: Amministratrice/tore
             ended_at: Terminato il
             expired_at: Scaduto il
             reason: Ragionare
@@ -559,7 +570,7 @@ it:
             name: Nome
             role: Ruolo
             roles:
-              admin: Amministratore
+              admin: Amministratrice/tore
               user_manager: Responsabile del partecipante
           name: Utente
         user_group:
@@ -897,7 +908,7 @@ it:
         impersonatable_users: Partecipanti gestibili
         impersonations: Gestione dei partecipanti
         metrics: Partecipazione in cifre
-        panel: Amministratore
+        panel: Amministratrice/tore
         participants: Partecipanti
         scope_types: Tipi di ambito
         scopes: Ambiti
@@ -940,14 +951,14 @@ it:
           success: OK, utente invitato.
         destroy:
           error: Si è verificato un problema durante il tentativo di eliminare questo amministratore.
-          success: Questo utente non è più un amministratore.
+          success: Questo utente non è più una/un amministratrice/tore.
         form:
           email: E-mail
           name: Nome
           role: Ruolo
         new:
           create: Invita
-          title: Invita l'utente in qualità di amministratore
+          title: Invita l'utente in qualità di amministratrice/tore
       users_statistics:
         users_count:
           admins: Amministratori
@@ -968,8 +979,12 @@ it:
       reported_users:
         object: utenti segnalati
         title: Utenti segnalati
+      user_reports:
+        object: rapporti utenti
+        title: Rapporti utenti
     moderations:
       actions:
+        expand: Espandi
         hidden: Nascosto
         hide: Nascondi
         not_hidden: Non nascosto
@@ -990,17 +1005,28 @@ it:
       models:
         moderation:
           fields:
+            created_at: Data di creazione
             hidden_at: Nascosto a
+            participatory_space: Spazio partecipativo
             report_count: Conteggio
+            reportable_id: Id
+            reportable_type: Tipo
             reported_content_url: URL del contenuto riportato
             reports: Report
             visit_url: Visita URL
+        report:
+          fields:
+            details: Dettagli motivazione
+            locale: Lingua
+            reason: Motivazione
   errors:
     messages:
       invalid_json: Problemi con la trasmissione tramite JSON (JSON non valido)
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Moderazione globale
         newsletters:
           title: Newsletters
         settings:

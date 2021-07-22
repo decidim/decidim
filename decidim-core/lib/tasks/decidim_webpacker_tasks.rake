@@ -23,7 +23,7 @@ namespace :decidim do
       add_binstub_load_path "bin/webpack-dev-server"
 
       # Install JS dependencies
-      system! "npm i decidim/decidim#develop"
+      install_decidim_npm
 
       # Remove the webpacker dependencies as they come through Decidim dependencies.
       # This ensures we can control their versions from Decidim dependencies to avoid version conflicts.
@@ -39,10 +39,76 @@ namespace :decidim do
         webpack-dev-server
       )
       system! "npm uninstall #{webpacker_packages.join(" ")}"
+
+      # Add the Browserslist configuration to the project
+      add_decidim_browserslist_configuration
+    end
+
+    desc "Upgrade Decidim dependencies in Rails instance application"
+    task upgrade: :environment do
+      raise "Decidim gem is not installed" if decidim_path.nil?
+
+      # Update JS dependencies
+      install_decidim_npm
+    end
+
+    def install_decidim_npm
+      decidim_npm_packages.each do |type, package|
+        if type == :dev
+          system! "npm i -D #{package}"
+        else
+          system! "npm i #{package}"
+        end
+      end
+    end
+
+    def add_decidim_browserslist_configuration
+      package = JSON.parse(File.read(rails_app_path.join("package.json")))
+      return if package["browserslist"].is_a?(Array) && package["browserslist"].include?("extends @decidim/browserslist-config")
+
+      package["browserslist"] = ["extends @decidim/browserslist-config"]
+      File.write(rails_app_path.join("package.json"), JSON.pretty_generate(package))
+    end
+
+    def decidim_npm_packages
+      if decidim_gemspec.source.is_a?(Bundler::Source::Rubygems)
+        if released_version?
+          return {
+            dev: "@decidim/dev@~#{decidim_gemspec.version}",
+            prod: "@decidim/all@~#{decidim_gemspec.version}"
+          }
+        else
+          gem_path = Pathname(decidim_gemspec.full_gem_path)
+        end
+      else
+        gem_path = decidim_gemspec.source.path
+        gem_path = Pathname(ENV["BUNDLE_GEMFILE"]).dirname.join(gem_path) if gem_path.relative?
+      end
+
+      # The packages folder needs to be copied to the application folder
+      # because the linked dependencies are not installed when packages
+      # are installed using file references outside the application root
+      # where the `package.json` is located at. For more information, see:
+      # https://github.com/npm/cli/issues/2339
+      FileUtils.rm_rf(rails_app_path.join("packages"))
+      FileUtils.cp_r(gem_path.join("packages"), rails_app_path)
+
+      {
+        dev: "./packages/dev",
+        prod: "./packages/all"
+      }
     end
 
     def decidim_path
-      @decidim_path ||= Pathname.new(Gem.loaded_specs["decidim"].full_gem_path) if Gem.loaded_specs.has_key?("decidim")
+      @decidim_path ||= Pathname.new(decidim_gemspec.full_gem_path) if Gem.loaded_specs.has_key?("decidim")
+    end
+
+    def decidim_gemspec
+      @decidim_gemspec ||= Gem.loaded_specs["decidim"]
+    end
+
+    def released_version?
+      decidim_gemspec.version.segments.last != "dev"
     end
 
     def rails_app_path

@@ -56,6 +56,8 @@ hu:
       errors:
         answer:
           body: A szövegtörzs nem lehet üres
+      files:
+        extension_allowlist: 'Elfogadott formátumok:'
       question_types:
         long_answer: Hosszú válasz
         multiple_option: Több választási lehetőség

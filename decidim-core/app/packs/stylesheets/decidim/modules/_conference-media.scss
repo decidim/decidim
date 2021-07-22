@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .conference-media{
   .media-links{
     li{
@@ -29,7 +31,7 @@
         margin-bottom: $global-margin;
         object-fit: cover;
 
-        @include size(100%, 100% / (4/3));
+        @include size(100%, math.div(100%, math.div(4, 3)));
       }
     }
   }

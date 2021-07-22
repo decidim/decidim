@@ -122,7 +122,6 @@ sr:
       actions:
         add: Dodaj
         browse: Prеglеdaj
-        export: Izvezi
         manage: Upravljaj
         new: Novo %{name}
         per_page: Po stranici

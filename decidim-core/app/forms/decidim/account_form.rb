@@ -8,6 +8,7 @@ module Decidim
 
     mimic :user
 
+    attribute :locale
     attribute :name
     attribute :nickname
     attribute :email

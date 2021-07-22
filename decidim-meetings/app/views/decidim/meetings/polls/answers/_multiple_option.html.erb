@@ -1,0 +1,13 @@
+<% question.answer_options.each_with_index do |answer_option, idx| %>
+  <% choice = answer.choices.find { |choice| choice.decidim_answer_option_id == answer_option.id } if answer %>
+
+  <%= label_tag do %>
+    <%= check_box_tag "answer[choices][#{idx}][body]",
+                      translated_attribute(answer_option.body),
+                      choice.present?, disabled: disabled %>
+
+    <%= translated_attribute(answer_option.body) %>
+
+    <%= hidden_field_tag "answer[choices][#{idx}][answer_option_id]", answer_option.id, disabled: disabled %>
+  <% end %>
+<% end %>

@@ -258,6 +258,8 @@ it:
         download: Scarica file
       documents:
         related_documents: Documenti Relativi
+      geocoding:
+        geocoded_address: Indirizzo
       photos:
         related_photos: Immagini relative
     author:
@@ -318,6 +320,8 @@ it:
           authorize: Autorizzare con "%{authorization}"
           explanation: Per effettuare questa operazione devi disporre della autorizzazione "%{authorization}".
           title: Autorizzazione richiesta
+        ok:
+          title: Sei stato autorizzato durante la navigazione su questa pagina. Ricarica la pagina per eseguire la tua azione
         pending:
           explanation: Per eseguire questa azione, devi essere autorizzato con "%{authorization}", ma la tua autorizzazione è ancora in corso
           resume: Controlla il tuo avanzamento dell'autorizzazione "%{authorization}"
@@ -854,6 +858,15 @@ it:
       index:
         last_activity: L'ultima attività
         resource_type: genere
+    links:
+      invalid_url: URL non valido
+      warning:
+        body_1: Stai per visitare un collegamento esterno e vorremmo che tu sia cauto riguardo al contenuto del sito esterno.
+        body_2: Per favore controlla il link che stai per visitare e assicurati di riconoscerlo come un sito sicuro prima di procedere.
+        cancel: Annulla
+        close_modal: Chiudi finestra
+        proceed: Procedi
+        title: Apri collegamento esterno
     log:
       base_presenter:
         create: "%{user_name} creato %{resource_name}"
@@ -1255,6 +1268,8 @@ it:
         filters:
           areas: Ambiti territoriali
           select_an_area: Seleziona un'area
+      public_participation:
+        public_participation: Mostra pubblicamente la mia presenza
       reference:
         reference: 'Riferimento: %{reference}'
       represent_user_group:
@@ -1660,7 +1675,7 @@ it:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
-      long: "%B %d, % %Y %H:%M"
+      long: "%B %d %Y %H:%M"
       long_dashed: "%d/%m/%Y %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"

@@ -34,6 +34,11 @@ Decidim.register_component(:meetings) do |component|
     Decidim::Follow.where(decidim_followable_type: "Decidim::Meetings::Meeting", decidim_followable_id: meetings_ids).count
   end
 
+  component.register_stat :comments_count, tag: :comments do |components, start_at, end_at|
+    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).not_hidden
+    meetings.sum(:comments_count)
+  end
+
   component.exports :meetings do |exports|
     exports.collection do |component_instance|
       Decidim::Meetings::Meeting
@@ -59,6 +64,16 @@ Decidim.register_component(:meetings) do |component|
     exports.include_in_open_data = true
 
     exports.serializer Decidim::Comments::CommentSerializer
+  end
+
+  component.exports :answers do |exports|
+    exports.collection do |_component, _user, resource_id|
+      Decidim::Meetings::QuestionnaireUserAnswers.for(resource_id)
+    end
+
+    exports.formats %w(CSV JSON Excel FormPDF)
+
+    exports.serializer Decidim::Meetings::UserAnswersSerializer
   end
 
   component.actions = %w(join)

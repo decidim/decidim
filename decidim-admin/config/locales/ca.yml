@@ -158,7 +158,6 @@ ca:
         browse: Explorar
         category:
           new: Nova categoria
-        export: Exporta
         import: Importar
         manage: Gestionar
         new: Nou %{name}

@@ -732,7 +732,8 @@ cs:
             many: "%{count} návrhů"
             other: "%{count} návrhů"
         dynamic_map_instructions:
-          instructions: <h3>Můžete přesunout bod na mapě. </h3><p>Nezapomeňte kliknout na tlačítko "Aktualizovat pozici" před zveřejněním vašeho návrhu.</p>
+          description: Souřadnice budou aktualizovány po kliknutí na tlačítko 'náhled'. Adresa se však nemění.
+          instructions: Můžete přesunout bod na mapě.
         edit:
           add_documents: Dokumenty
           add_images: Soubor
@@ -808,7 +809,6 @@ cs:
             other: Budete mít možnost upravit tento návrh během prvních %{count} minut po návrh zveřejněn. Po uplynutí tohoto časového okna nebudete moci návrh upravit.
           publish: Publikovat
           title: Publikujte svůj návrh
-          update_position: Aktualizovat pozici
         proposal:
           creation_date: 'Tvorba: %{date}'
           view_proposal: Zobrazit návrh

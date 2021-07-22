@@ -54,6 +54,8 @@ module Decidim
 
       delegate :organization, to: :commentable
 
+      scope :not_deleted, -> { where(deleted_at: nil) }
+
       translatable_fields :body
       searchable_fields({
                           participatory_space: :itself,
@@ -91,6 +93,8 @@ module Decidim
 
       # Public: Override Commentable concern method `accepts_new_comments?`
       def accepts_new_comments?
+        return if deleted?
+
         root_commentable.accepts_new_comments? && depth < MAX_DEPTH
       end
 
@@ -156,7 +160,7 @@ module Decidim
       def self.user_commentators_ids_in(resources)
         if resources.first&.kind_of?(Decidim::Comments::Commentable)
           commentable_type = resources.first.class.name
-          Decidim::Comments::Comment.select("DISTINCT decidim_author_id").not_hidden
+          Decidim::Comments::Comment.select("DISTINCT decidim_author_id").not_hidden.not_deleted
                                     .where(decidim_commentable_id: resources.pluck(:id))
                                     .where(decidim_commentable_type: commentable_type)
                                     .where("decidim_author_type" => "Decidim::UserBaseEntity").pluck(:decidim_author_id)
@@ -177,6 +181,22 @@ module Decidim
 
       def translated_body
         @translated_body ||= translated_attribute(body, organization)
+      end
+
+      def delete!
+        return if deleted?
+
+        update(deleted_at: Time.current)
+
+        update_counter
+      end
+
+      def deleted?
+        deleted_at.present?
+      end
+
+      def edited?
+        Decidim::ActionLog.where(resource: self).exists?(["extra @> ?", Arel.sql("{\"edit\":true}")])
       end
 
       private

@@ -132,7 +132,6 @@ is-IS:
         browse: Skoða
         category:
           new: Nýr flokkur
-        export: Útflutningur
         import: Flytja inn
         manage: Stjórna
         new: Nýtt %{name}

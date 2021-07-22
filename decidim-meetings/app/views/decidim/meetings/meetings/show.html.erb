@@ -167,10 +167,6 @@ edit_link(
       </div>
     <% end %>
 
-    <% if meeting.closing_visible? && meeting.minutes_data? %>
-      <%= render "meeting_minutes" %>
-    <% end %>
-
     <%= linked_resources_for meeting, :proposals, "proposals_from_meeting" %>
     <%= linked_resources_for meeting, :results, "meetings_through_proposals" %>
   </div>

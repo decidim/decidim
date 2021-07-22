@@ -158,7 +158,8 @@ ja:
         browse: 検索
         category:
           new: 新しいカテゴリ
-        export: エクスポート
+        export: 全てエクスポート
+        export-selection: 選択したものをエクスポート
         import: インポート
         manage: 管理
         new: 新しい %{name}
@@ -355,6 +356,16 @@ ja:
         category_id_eq:
           label: カテゴリ
         filter_label: フィルター
+        invitation_accepted_at_present:
+          label: 招待が承認されました
+          values:
+            'false': 'いいえ'
+            'true': 'はい'
+        last_sign_in_at_present:
+          label: ログイン済み
+          values:
+            'false': 'いいえ'
+            'true': 'はい'
         moderations:
           reportable_type_string_eq:
             label: タイプ

@@ -57,6 +57,9 @@ fr-CA:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cet administrateur.
           success: Administrateur mis à jour avec succès
+      dashboard:
+        show:
+          current_organizations: Organisations actuelles
       default_pages:
         placeholders:
           content: Ajoutez un contenu pertinent à la page %{page} en allant sur l'interface d'administration.
@@ -112,6 +115,9 @@ fr-CA:
           error: Une erreur s'est produite lors de la mise à jour de cette application.
           success: Application mise à jour avec succès.
       organizations:
+        advanced_settings:
+          hide: Masquer les paramètres avancés
+          show: Afficher les paramètres avancés
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle organisation.
           success: Organisation créée avec succès.

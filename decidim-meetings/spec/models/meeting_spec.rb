@@ -399,23 +399,5 @@ module Decidim::Meetings
         end
       end
     end
-
-    describe "#minutes_data?" do
-      context "when minutes data is missing" do
-        let(:meeting) { create(:meeting, :closed, address: address) }
-
-        it "returns false" do
-          expect(meeting.minutes_data?).to be false
-        end
-      end
-
-      context "when minutes data is present" do
-        let(:meeting) { create(:meeting, :closed_with_minutes, address: address) }
-
-        it "returns true" do
-          expect(meeting.minutes_data?).to be true
-        end
-      end
-    end
   end
 end

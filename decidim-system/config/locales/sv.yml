@@ -14,6 +14,17 @@ sv:
         password: Lösenord
         port: Port
         user_name: Användarnamn
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Admin MIME-typer
+          default: Förvalda MIME-typer
+        allowed_file_extensions:
+          admin: Admin filändelser
+          default: Förvalda filändelser
+          image: Bild filändelser
+        maximum_file_size:
+          avatar: Avatarens filstorlek
+          default: Standardstorlek för filer
     errors:
       models:
         oauth_application:
@@ -46,6 +57,9 @@ sv:
         update:
           error: Det gick inte att uppdatera administratören.
           success: Administratören har uppdaterats
+      dashboard:
+        show:
+          current_organizations: Nuvarande organisationer
       default_pages:
         placeholders:
           content: Lägg till relevant innehåll på den statiska sidan %{page} på administratörspanelen.
@@ -74,6 +88,7 @@ sv:
             save_and_invite: Skapa organisation och bjud in administratör
           fields:
             created_at: Skapad
+            file_upload_settings: Inställningar för filuppladdning
             name: Namn
             omniauth_settings: Omniauth-inställningar
             smtp_settings: SMTP-inställningar
@@ -100,12 +115,19 @@ sv:
           error: Det gick inte att uppdatera appen.
           success: Appen har uppdaterats.
       organizations:
+        advanced_settings:
+          hide: Dölj avancerade inställningar
+          show: Visa avancerade inställningar
         create:
           error: Det gick inte att skapa en ny organisation.
           success: Organisationen har skapats.
         edit:
           secondary_hosts_hint: Ange var och en av dem på en ny rad
         file_upload_settings:
+          content_types:
+            title: Tillåtna MIME-typer
+          file_extensions:
+            title: Tillåtna filändelser
           file_sizes:
             title: Max filstorlekar
         index:
@@ -135,7 +157,10 @@ sv:
         smtp_settings:
           fieldsets:
             sender: Avsändare
+          instructions:
+            from_label: 'E-postavsändare är: "your-organization-name <your-organization@your-provider.org>". Om du lämnar tomt kommer e-postadressen användas'
           placeholder:
+            from_email: your-organization@example.org
             from_label: din-organisation-namn
         update:
           error: Det gick inte att uppdatera organisationen.

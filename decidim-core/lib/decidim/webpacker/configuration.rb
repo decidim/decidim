@@ -3,11 +3,12 @@
 module Decidim
   module Webpacker
     class Configuration
-      attr_reader :additional_paths, :entrypoints
+      attr_reader :additional_paths, :entrypoints, :stylesheet_imports
 
       def initialize
         @additional_paths = []
         @entrypoints = {}
+        @stylesheet_imports = {}
       end
 
       def configuration_file
@@ -23,12 +24,15 @@ module Decidim
         default = config["default"] || {}
         all_additional_paths = default["additional_paths"] || []
         all_additional_paths += additional_paths
+        all_stylesheet_imports = default["stylesheet_imports"] || {}
+        all_stylesheet_imports.merge!(stylesheet_imports)
         all_entrypoints = default["entrypoints"] || {}
         all_entrypoints.merge!(entrypoints)
         config.each do |environment, env_config|
           config[environment] = env_config.merge(
             "additional_paths" => all_additional_paths,
-            "entrypoints" => all_entrypoints
+            "entrypoints" => all_entrypoints,
+            "stylesheet_imports" => all_stylesheet_imports
           )
         end
 

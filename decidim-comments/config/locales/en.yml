@@ -20,6 +20,10 @@ en:
       comments:
         create:
           error: There was a problem creating the comment.
+        delete:
+          error: The comment couldn't be deleted.
+        update:
+          error: There was a problem updating the comment.
       comments_count: Comments count
       comments_title: Comments
       last_activity:
@@ -54,7 +58,12 @@ en:
         alignment:
           against: Against
           in_favor: In favor
+        confirm_destroy: Are you sure you want to delete this comment?
+        delete: Delete
+        deleted_at: Comment deleted on %{date}
         deleted_user: Deleted participant
+        edit: Edit
+        edited: Edited
         hide_replies: Hide replies
         reply: Reply
         report:
@@ -69,7 +78,7 @@ en:
             spam: Contains clickbait, advertising, scams or script bots.
           title: Report inappropriate content
         show_replies: Show %{replies_count} replies
-        single_comment_link_title: Get link to single comment
+        single_comment_link_title: Get link
       comment_order_selector:
         order:
           best_rated: Best rated
@@ -92,6 +101,14 @@ en:
           other: "%{count} comments"
       down_vote_button:
         text: I disagree with this comment
+      edit_comment_modal_form:
+        close: Close
+        form:
+          body:
+            label: Comment
+            placeholder: What do you think about this?
+          submit: Send
+        title: Edit your comment
       up_vote_button:
         text: I agree with this comment
     events:

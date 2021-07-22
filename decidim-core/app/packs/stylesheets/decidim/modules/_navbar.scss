@@ -251,7 +251,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
     }
 
     li{
-      padding: $global-padding / 2;
+      padding: $global-padding * .5;
 
       a{
         padding: .5rem;
@@ -339,7 +339,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   padding-right: 2.5rem;
   margin-left: 2rem;
 
-  @media (min-width: (1300 / 16) + em){
+  @media (min-width: (1300 * .0625) + em){
     padding-right: 0;
   }
 }
@@ -367,7 +367,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
     }
   }
 
-  @media (min-width: (1300 / 16) + em){
+  @media (min-width: (1300 * .0625) + em){
     padding-right: 0;
   }
 }

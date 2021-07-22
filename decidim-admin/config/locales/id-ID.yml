@@ -115,7 +115,6 @@ id:
       actions:
         add: Menambahkan
         browse: Jelajahi
-        export: Ekspor
         manage: Mengelola
         new: Baru %{name}
         permissions: Izin

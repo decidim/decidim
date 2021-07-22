@@ -262,6 +262,7 @@ sv:
       admin:
         assemblies:
           form:
+            announcement_help: Texten du skriver här visas för användaren direkt under gruppinformationen.
             duration: Varaktighet
             duration_help: Om varaktigheten för gruppen är begränsad, välj ett slutdatum. Annars kommer den att visas som permanent.
             filters: Filter

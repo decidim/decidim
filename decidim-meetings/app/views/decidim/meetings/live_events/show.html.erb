@@ -1,0 +1,10 @@
+<% provide(:title, present(meeting).title) %>
+
+<% add_decidim_meta_tags({
+  title: present(meeting).title,
+  description: present(meeting).description,
+  url: meeting_url(meeting.id)
+}) %>
+
+<aside class="meeting-polls__aside"><!-- empty content --></aside>
+<div class="meeting-polls__iframe"><!-- iframe --></div>

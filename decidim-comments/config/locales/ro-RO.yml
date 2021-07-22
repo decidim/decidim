@@ -21,6 +21,10 @@ ro:
       comments:
         create:
           error: A apărut o problemă la crearea comentariului.
+        delete:
+          error: Comentariul nu a putut fi șters.
+        update:
+          error: A apărut o eroare la actualizarea comentariului.
       comments_count: Numărul de comentarii
       comments_title: Comentarii
       last_activity:
@@ -55,7 +59,12 @@ ro:
         alignment:
           against: Împotriva
           in_favor: În favoarea
+        confirm_destroy: Sunteţi sigur că doriţi să ştergeţi acest comentariu?
+        delete: Șterge
+        deleted_at: Comentariu șters pe %{date}
         deleted_user: Participant șters
+        edit: Editează
+        edited: Editat
         hide_replies: Ascunde răspunsurile
         reply: Răspuns
         report:
@@ -70,7 +79,7 @@ ro:
             spam: Conține clickbait, publicitate, escrocherii sau roboți script.
           title: Raportează conținut nepotrivit
         show_replies: Arată %{replies_count} răspunsuri
-        single_comment_link_title: Obțineți link-ul către un singur comentariu
+        single_comment_link_title: Obţine linkul
       comment_order_selector:
         order:
           best_rated: Cele mai apreciate
@@ -94,6 +103,14 @@ ro:
           other: "%{count} comentarii"
       down_vote_button:
         text: Nu sunt de acord cu acest comentariu
+      edit_comment_modal_form:
+        close: Închide
+        form:
+          body:
+            label: Comentariu
+            placeholder: Ce părere aveţi despre asta?
+          submit: Trimite
+        title: Editează comentariul tău
       up_vote_button:
         text: Sunt de acord cu acest comentariu
     events:

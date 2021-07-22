@@ -157,7 +157,6 @@ fr-LU:
         browse: Parcourir
         category:
           new: Nouvelle catégorie
-        export: Exporter
         import: Importer
         manage: Gérer
         new: + %{name}
@@ -354,6 +353,16 @@ fr-LU:
         category_id_eq:
           label: Catégorie
         filter_label: Filtre
+        invitation_accepted_at_present:
+          label: Invitation acceptée
+          values:
+            'false': 'Non'
+            'true': 'Oui'
+        last_sign_in_at_present:
+          label: Déjà connecté
+          values:
+            'false': 'Non'
+            'true': 'Oui'
         moderations:
           reportable_type_string_eq:
             label: Type

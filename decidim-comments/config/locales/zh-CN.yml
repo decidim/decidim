@@ -56,7 +56,6 @@ zh-CN:
             spam: 包含点击、广告、骗子或脚本机器人。
           title: 报告不恰当的内容
         show_replies: 显示 %{replies_count} 个回复
-        single_comment_link_title: 获取单个评论的链接
       comment_order_selector:
         order:
           best_rated: 最佳评分
