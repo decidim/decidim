@@ -15,11 +15,11 @@
         <% end %>
 
         <% if show_embed? %>
-          <div class="margin-top-3 absolutes aspect-ratio-16-9">
+          <div class="<%= "margin-top-3" if live? %> absolutes aspect-ratio-16-9">
             <%== embed_code(request.host) %>
           </div>
         <% elsif live? || future? %>
-          <div class="margin-top-3 absolutes">
+          <div class="absolutes">
             <% if live? %>
               <%= link_to t("join", scope: "decidim.meetings.meetings.show"), live_event_url, target: "_blank", class: "button button--sc" %>
             <% elsif future? %>
