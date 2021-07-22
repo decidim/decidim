@@ -35,12 +35,17 @@ fi:
         registration_terms: Ilmoittautumisehdot
         registration_url: Ilmoittautumisosoite (URL)
         registrations_enabled: Ilmoittautumiset ovat käytössä
+        show_embedded_iframe: Näytä upotettu iframe tälle osoitteelle
         start_time: Aloitusaika
         title: Otsikko
         transparent: Läpinäkyvä
         type_of_meeting: Tyyppi
     errors:
       models:
+        meeting:
+          attributes:
+            show_embedded_iframe:
+              not_embeddable: Tätä URL-osoitetta ei voi upottaa
         meeting_agenda:
           attributes:
             base:
@@ -304,6 +309,7 @@ fi:
             registration_url_help: 'Linkki: salli käyttäjien siirtyminen käytettyyn ulkoiseen ilmoittautumispalveluun'
             select_a_meeting_type: Valitse tapaamisen tyyppi
             select_a_registration_type: Valitse ilmoittautumisten tyyppi
+            show_embedded_iframe_help: Määrittää, upotetaanko tämän videotapaamisen URL tapaamisen sivulle. Ainoastaan muutamat palvelut sallivat upotuksen ulkopuolisiin palveluihin (esim. YouTube, Twitch...)
           index:
             title: Tapaamiset
           new:
@@ -475,6 +481,7 @@ fi:
           select_a_category: Valitse aihepiiri
           select_a_meeting_type: Valitse tapaamisen tyyppi
           select_a_registration_type: Valitse ilmoittautumisten tyyppi
+          show_embedded_iframe_help: Määrittää, upotetaanko tämän videotapaamisen URL tapaamisen sivulle. Ainoastaan muutamat palvelut sallivat upotuksen ulkopuolisiin palveluihin (esim. YouTube, Twitch...)
         index:
           new_meeting: Uusi tapaaminen
         meeting_minutes:
@@ -500,7 +507,11 @@ fi:
           join: Ilmoittaudu tapaamiseen
           leave: Peruuta ilmoittautumisesi
           leave_confirmation: Haluatko varmasti peruuttaa ilmoittautumisesi tähän tapaamiseen?
+          link_available_soon: Linkki julkaistaan pian
+          link_closed: Linkki tähän tapaamiseen liittymiseksi julkaistaan muutama minuutti ennen tapaamisen alkamista
+          live_event: Tämä tapaaminen on parhaillaan käynnissä
           meeting_minutes: Tapaamisen pöytäkirja
+          micro_camera_permissions_warning: Painaessasi alla olevaa painiketta, sinua pyydetään antamaan palvelulle oikeudet käyttää mikrofoniasi ja/tai kameraasi, minkä jälkeen voit liittyä tapaamiseen
           no_slots_available: Ei paikkoja vapaana
           organizations: Osallistuvat järjestöt
           registration_code_help_text: Ilmoittautumiskoodisi
@@ -511,6 +522,7 @@ fi:
             one: "%{count} paikka jäljellä"
             other: "%{count} paikkaa jäljellä"
           view: Näytä
+          visit_finished: Näytä mennyt tapaaminen
         update:
           invalid: Tapaamisen luonti epäonnistui.
           success: Tapaamisen luonti onnistui.
