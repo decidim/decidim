@@ -500,10 +500,6 @@ cs:
           back: Zpět
           create: Vytvořit
           title: Vytvořte si schůzku
-        online_meeting_link:
-          join: Připojte se ke schůzce
-          link_available_soon: Odkaz bude brzy k dispozici
-          live_event: Tato schůzka se děje právě teď
         registration_confirm:
           cancel: Zrušit
           confirm: Potvrdit
