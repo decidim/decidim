@@ -22,6 +22,7 @@ pl:
         decidim_user_group_id: Grupa użytkowników
         description: Opis
         end_time: Czas zakończenia
+        id: Numer ID
         location: Miejsce
         location_hints: Wskazówki co do miejsca
         online_meeting_url: Adres URL spotkania online
@@ -73,6 +74,16 @@ pl:
         other: Rejestracje
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Kategoria
+          closed_at_present:
+            label: Państwo
+            values:
+              'true': Zamknięte
+          is_upcoming_true:
+            label: Data
       meeting_copies:
         create:
           error: Wystąpił błąd podczas duplikowania tego spotkania.
