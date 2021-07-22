@@ -486,10 +486,6 @@ es:
           back: Atrás
           create: Crear
           title: Crea tu encuentro
-        online_meeting_link:
-          join: Inscríbete al encuentro
-          link_available_soon: Enlace disponible próximamente
-          live_event: Este encuentro está sucediendo ahora mismo
         registration_confirm:
           cancel: Cancelar
           confirm: Confirmar
