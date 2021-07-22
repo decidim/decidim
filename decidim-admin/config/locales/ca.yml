@@ -48,6 +48,7 @@ ca:
         favicon: Icona
         force_authentication: Forçar autenticació
         force_users_to_authenticate_before_access_organization: Forçar les usuàries a autenticar-se abans d'accedir a l'organització
+        from: Adreça de correu electrònic del remitent
         github_handler: Nom d'usuari de GitHub
         header_snippets: Codi personalitzat a la capçalera
         highlight_alternative_color: Destacat, alternatiu
@@ -157,6 +158,8 @@ ca:
         browse: Explorar
         category:
           new: Nova categoria
+        export: Exportar tot
+        export-selection: Exportar selecció
         import: Importar
         manage: Gestionar
         new: Nou %{name}
@@ -177,10 +180,12 @@ ca:
           success: Genial! Has acceptat els Termes i Condicions del panell d'administració.
         actions:
           accept: Estic d'acord amb els termes següents
+          are_you_sure: Segur que vols rebutjar els termes i condicions del panell d'administració?
           refuse: Rebutjar els termes
           title: Accepto els Termes i Condicions d'Administració
         required_review:
           alert: 'Requerit: Revisa els nostres Termes i Condicions del panell d''administració'
+          callout: Si us plau dedica un moment a revisar l'actualització dels nostres termes i condicions del panell d'administració. En cas contrari, no podràs utilitzar la plataforma.
           cta: Revisa-les ara.
         title: Termes i Condicions del panell d'administració
       area_types:
@@ -203,6 +208,7 @@ ca:
           error: S'ha produït un error en crear una nova àrea.
           success: Àrea creada correctament.
         destroy:
+          has_spaces: Aquesta àrea té espais dependents. Assegura't que no fa referència a cap espai de participació abans d'eliminar-la.
           success: Àrea eliminada correctament
         edit:
           title: Editar àrea
@@ -255,6 +261,7 @@ ca:
       block_user:
         new:
           action: Bloquejar compte i enviar justificació
+          description: El bloqueig d'una usuària deixarà el seu compte inutilitzable. Pots proporcionar en la teva justificació els criteris sota els quals consideraries desbloquejar-la.
           justification: Justificació
           title: Bloquejar a la usuària %{name}
       categories:
@@ -317,6 +324,7 @@ ca:
         'false': 'No'
         managed_user_name: Usuari gestionat
         solved: Resolt
+        title: Conflictes de verificació
         transfer:
           email: Correu electrònic
           error: S¡ha produït un error en transferir la participant actual a la participant gestionada.
@@ -348,6 +356,16 @@ ca:
         category_id_eq:
           label: Categoria
         filter_label: Filtre
+        invitation_accepted_at_present:
+          label: 'Invitació: acceptada'
+          values:
+            'false': 'No'
+            'true': 'Sí'
+        last_sign_in_at_present:
+          label: Alguna vegada s'ha connectat
+          values:
+            'false': 'No'
+            'true': 'Sí'
         moderations:
           reportable_type_string_eq:
             label: Tipus
@@ -469,6 +487,7 @@ ca:
         areas: Àrees
         configuration: Configuració
         dashboard: Tauler de control
+        external_domain_whitelist: Dominis externs permesos
         help_sections: Seccions d'ajuda
         homepage: Pàgina d'inici
         impersonations: Impersonacions
@@ -617,6 +636,7 @@ ca:
       newsletters:
         create:
           error: S'ha produït un error en crear aquest butlletí.
+          success: Butlletí creat correctament. Si us plau, revisa'l abans d'enviar-lo.
         deliver:
           error: S'ha produït un error en enviar aquest butlletí.
           success: Butlletí enviat correctament.
@@ -699,10 +719,12 @@ ca:
           title: Oficialitza la participant "%{name}"
         show_email_modal:
           close_modal: Tanca el modal
+          description: Si necessites contactar a una participant directament pots clicar al botó Mostra per veure la seva adreça de correu electrònic. Aquesta acció es registrarà.
           email_address: Adreça de correu electrònic
           full_name: Nom complet
           hidden: ocult
           show: Mostra
+          title: Mostra l'adreça de correu electrònic de la participant
         unblock:
           error: S'ha produït un error al desbloquejar a la participant
           success: Participant desbloquejada correctament
@@ -946,6 +968,10 @@ ca:
           no_users_count_statistics_yet: Encara no hi ha estadístiques de recompte d’usuàries
           participants: Participants
       view_public_page: Mostra la pàgina pública
+    forms:
+      errors:
+        impersonate_user:
+          reason: Has d'indicar un motiu per a la gestió d'una participant no gestionada
     metrics:
       blocked_users:
         object: usuàries bloquejades
