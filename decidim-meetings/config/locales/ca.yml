@@ -23,6 +23,7 @@ ca:
         decidim_user_group_id: Grup d'usuàries
         description: Descripció
         end_time: Hora de finalització
+        id: ID
         location: Ubicació
         location_hints: Detalls d'ubicació
         online_meeting_url: URL de trobada en línia
@@ -69,6 +70,34 @@ ca:
         other: Inscripcions
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Categoria
+          closed_at_present:
+            label: Estat
+            values:
+              'false': Oberta
+              'true': Tancada
+          is_upcoming_true:
+            label: Data
+            values:
+              'false': Passades
+              'true': Properes
+          origin_eq:
+            label: Origen
+            values:
+              citizen: Ciutadania
+              official: Oficial
+              user_group: Grups
+          scope_id_eq:
+            label: Àmbit
+          type_eq:
+            label: Tipus de trobada
+            values:
+              hybrid: Ambdós
+              in_person: Presencial
+              online: En línia
       meeting_copies:
         create:
           error: S'ha produït un error en duplicar aquesta trobada.
@@ -80,6 +109,7 @@ ca:
     components:
       meetings:
         actions:
+          comment: Comentar
           join: Inscriu-t'hi
         name: Trobades
         settings:
@@ -147,6 +177,9 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
           email_subject: En menys de 48 hores s'iniciarà la trobada "%{resource_title}".
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
+    forms:
+      meetings:
+        attendees_count_help_text: No oblidis incloure el nombre total d'assistents a la teva trobada, ja sigui presencial, en línia o híbrida.
     gamification:
       badges:
         attended_meetings:
