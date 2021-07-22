@@ -12,14 +12,13 @@ class FixProposalsData < ActiveRecord::Migration[5.2]
 
         locale = author.try(:locale).presence || author.try(:default_locale).presence || author.try(:organization).try(:default_locale).presence
 
-        proposal.title = {
-          locale => proposal.title
-        }
-        proposal.body = {
-          locale => proposal.body
-        }
+        # rubocop:disable Rails/SkipsModelValidations
+        values = {}
+        values[:title] = { locale => proposal.title } unless proposal.title.is_a?(Hash)
+        values[:body] = { locale => proposal.body } unless proposal.body.is_a?(Hash)
 
-        proposal.save!
+        proposal.update_columns(values)
+        # rubocop:enable Rails/SkipsModelValidations
       end
     end
 
