@@ -900,7 +900,11 @@ es:
           index:
             download: Descargar
             how_to_checksum: 'Para asegurarse de que el archivo descargado no ha sido dañado o manipulado durante el proceso de descarga, ejecuta el siguiente comando en tu consola y comprueba que la salida coincida con la suma de verificación reportada arriba:'
-            how_to_download: Para verificar una elección, descarga tu archivo verificable de la tabla anterior.
+            how_to_download: Para verificar una elección, descarga tu archivo verificable de la tabla de arriba.
+            how_to_run_verifier: 'Una vez que hayas descargado el archivo y te hayas asegurado de que está bien, puedes proceder a ejecutar el verificador universal. Clona <a href=''https://github.com/decidim/decidim-bulletin-board''>este repositorio</a> y, desde la carpeta raíz, ejecuta el siguiente comando:'
+            how_to_title: Cómo verificar la validez de una elección
+            not_available: No disponible todavía
+            title: Elecciones
         polling_officers:
           create:
             invalid: Hubo un problema al crear este gestor de mesa
@@ -1052,6 +1056,7 @@ es:
             download: Descargar
             subject: La exportación de los códigos de acceso de votación para %{voting_title} está disponible
         vote_flow:
+          already_voted_in_person: Esta participante ya ha votado presencialmente y no tiene derecho a voto.
           datum_not_found: Los datos introducidos no coinciden con ningún votante.
       content_blocks:
         highlighted_votings:
@@ -1082,6 +1087,14 @@ es:
       polling_officer_zone:
         closures:
           back_to_polling_stations: Volver a los puntos de votación
+          certify:
+            add_images: Añadir imágenes
+            error: Se ha producido un error al adjuntar el certificado, por favor inténtalo de nuevo.
+            form_legend: Sube una foto del certificado de cierre electoral
+            heading: Recuento de votos - Subir certificado
+            info_text: Por favor, sube una foto del certificado de cierre electoral.
+            submit: Subir el certificado
+            success: Certificado subido correctamente.
           create:
             error: Se ha producido un error al crear el cierre, por favor inténtalo de nuevo más tarde.
             success: Cierre creado correctamente.
@@ -1115,7 +1128,17 @@ es:
             polling_station: 'Punto de votación:'
             submit: Verificar número total
             total_ballots_count: Número de papeletas
+          show:
+            heading: Recuento de votos
+            info_text: Cierre electoral del punto de votación.
           sign:
+            cancel: Cancelar
+            check_box: Lo he revisado y es idéntico al certificado físico de cierre electoral
+            close_modal: Cerrar
+            confirm: Ok, continuar
+            error: Se ha producido un error, por favor inténtalo de nuevo.
+            heading: Recuento de votos - Firmar cierre
+            info_text: Si continúas ya no podrás modificar ninguna información, esta acción no se puede deshacer.
             submit: Firmar el cierre
             success: Cierre firmado con éxito.
             title: Esta acción no se puede deshacer
@@ -1127,6 +1150,43 @@ es:
             available_answers: 'Respuestas disponibles:'
             census_verified: La participante aún no ha votado.
             complete_voting: Completar votación
+            identify_another: Identificar a otra participante
+            questions_title: 'Tiene derecho a votar en las siguientes preguntas:'
+            questions_title_voted: 'La participante ya ha votado en línea y tiene derecho a votar en las siguientes preguntas:'
+            voted: La participante ha votado
+          create:
+            error: El voto no ha sido registrado. Por favor, inténtalo de nuevo.
+          in_person_form:
+            census_not_present: Esta participante no aparece en el censo.
+            census_not_present_description: Debe acudir a la oficina de reclamaciones del censo o al servicio de asistencia técnica.
+            date_of_birth: Fecha de nacimiento
+            day: Día
+            day_placeholder: DD
+            document_number: Número de documento
+            document_number_placeholder: Número de ID
+            month: Mes
+            month_placeholder: MM
+            select: Selecciona el tipo de documento
+            title: 'Selecciona el tipo de documento e introduce el número de documento de la participante:'
+            validate_document: Validar documento
+            year: Año
+            year_placeholder: AAAA
+          new:
+            back: Volver a los puntos de votación
+            title: Identificar y verificar a una participante
+          show:
+            back: Volver a los puntos de votación
+            title: Esperando a que se registre el voto presencial
+          update:
+            error: Se ha producido un error al registrar el voto. Por favor, inténtalo de nuevo.
+            success:
+              accepted: El voto se ha registrado correctamente.
+              rejected: El Bulletin Board no ha aceptado el voto. Por favor, ponte en contacto con el administrador del sistema.
+          verify_document:
+            census_present: Esta participante aparece en el censo.
+            name: Nombre
+            title: 'Comprueba que los siguientes datos son correctos:'
+            verify_document: Verificar documento
         menu:
           polling_officer_zone: Zona del gestor de mesa
         polling_officers:
@@ -1153,6 +1213,16 @@ es:
           manager: Administrador
           president: Presidente
           unassigned: No Asignado
+      polling_station_closure_recount:
+        nota_option: En blanco / Ninguna de las anteriores
+        polling_officer_notes: 'Notas del gestor de mesa:'
+        polling_officer_notes_blank: No hay notas
+        recount_summary: 'Resumen del recuento:'
+        signed: Firmado
+        total_ballots: 'Total de papeletas:'
+        total_blank_ballots: 'Total de papeletas en blanco:'
+        total_null_ballots: 'Total de papeletas nulas:'
+        total_valid_ballots: 'Total de papeletas válidas:'
       polling_stations:
         actions:
           confirm_destroy: '¿Estás segura?'
