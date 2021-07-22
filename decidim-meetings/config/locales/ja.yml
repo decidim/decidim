@@ -476,10 +476,6 @@ ja:
           back: 戻る
           create: 作成
           title: ミーティングを作成
-        online_meeting_link:
-          join: ミーティングに参加する
-          link_available_soon: 間もなくリンクが利用可能です
-          live_event: このミーティングは現在開催中です
         registration_confirm:
           cancel: キャンセル
           confirm: 確認する
