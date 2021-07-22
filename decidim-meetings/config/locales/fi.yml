@@ -486,10 +486,6 @@ fi:
           back: Takaisin
           create: Luo
           title: Luo tapaaminen
-        online_meeting_link:
-          join: Ilmoittaudu tapaamiseen
-          link_available_soon: Linkki julkaistaan pian
-          live_event: Tämä tapaaminen on käynnissä juuri nyt
         registration_confirm:
           cancel: Peruuta
           confirm: Vahvista
