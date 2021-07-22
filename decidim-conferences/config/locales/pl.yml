@@ -545,7 +545,7 @@ pl:
           notification_title: Konferencja <a href="%{resource_path}">%{resource_title}</a> otworzyła rejestrację.
         role_assigned:
           email_intro: Przypisano Ci rolę %{role} w konferencji „%{resource_title}”.
-          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś %{role} konferencji „%{resource_title}”.
+          email_outro: 'Otrzymujesz to powiadomienie, ponieważ otrzymałeś rolę: %{role} w konferencji „%{resource_title}”.'
           email_subject: Przypisano Ci rolę %{role} w „%{resource_title}”.
           notification_title: Przypisano Ci rolę %{role} w konferencji <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
