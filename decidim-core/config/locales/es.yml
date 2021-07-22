@@ -862,6 +862,8 @@ es:
         body_2: Por favor, antes de seguir, comprueba que el enlace que estás a punto de visitar pertenece a un sitio seguro.
         cancel: Cancelar
         close_modal: Cerrar ventana
+        proceed: Continuar
+        title: Abrir enlace externo
     log:
       base_presenter:
         create: "%{user_name} creó %{resource_name}"
@@ -1263,6 +1265,8 @@ es:
         filters:
           areas: Áreas
           select_an_area: Selecciona una area
+      public_participation:
+        public_participation: Mostrar mi asistencia públicamente
       reference:
         reference: 'Referencia: %{reference}'
       represent_user_group:
