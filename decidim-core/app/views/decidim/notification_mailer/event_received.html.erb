@@ -9,9 +9,26 @@
 <% end %>
 
 <% if @event_instance.try(:safe_resource_text).present? %>
+  <% if @event_instance.perform_translation? %>
+    <p style="font-weight: bold"><%= t(".original_text") %></p>
+  <% end %>
+
   <blockquote>
     <p>
       <%= @event_instance.safe_resource_text %>
+    </p>
+  </blockquote>
+<% end %>
+
+<% if @event_instance.content_in_same_language? %>
+  <p><%= t(".same_language", language: I18n.locale.to_s ) %></p>
+<% elsif @event_instance.translation_missing? %>
+  <p><%= t(".no_translation_available", link: @event_instance.resource_url ) %></p>
+<% elsif @event_instance.perform_translation? %>
+  <p style="font-weight: bold"><%= t(".translated_text") %></p>
+  <blockquote>
+    <p>
+      <%= @event_instance.safe_resource_translated_text %>
     </p>
   </blockquote>
 <% end %>

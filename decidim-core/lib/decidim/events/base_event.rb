@@ -81,9 +81,27 @@ module Decidim
 
       def resource_text; end
 
+      def organization
+        resource.try(:organization)
+      end
+
+      def perform_translation?
+        false
+      end
+
+      def content_in_same_language?
+        false
+      end
+
+      def translation_missing?
+        false
+      end
+
       def safe_resource_text
         translated_attribute(resource_text).to_s.html_safe
       end
+
+      def safe_resource_translated_text; end
 
       def resource_title
         return unless resource

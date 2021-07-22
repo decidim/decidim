@@ -181,7 +181,7 @@ module Decidim
       end
 
       def translated_body
-        @translated_body ||= translated_attribute(body, organization)
+        translated_attribute(body, organization)
       end
 
       def delete!

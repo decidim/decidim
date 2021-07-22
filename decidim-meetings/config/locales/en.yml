@@ -177,6 +177,9 @@ en:
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting will start in less than 48h.
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
+    forms:
+      meetings:
+        attendees_count_help_text: Don’t forget to include the total number of participants at your event. Whether in person, hybrid, or online, it’s important that we know how many people are involved.
     gamification:
       badges:
         attended_meetings:
