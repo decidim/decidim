@@ -13,7 +13,7 @@ module Decidim
     end
 
     def avatar_url
-      Decidim::AvatarUploader.new.default_url
+      Decidim::AvatarUploader.new(Decidim::User.new, :avatar).default_url
     end
 
     def respond_to_missing?

@@ -17,10 +17,10 @@
           </div>
           <% if participants.count == 1 %>
             <%= link_to profile_path(participants.first.nickname) do %>
-              <%= image_tag participants.first.avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(participants.first.name)) %>
+              <%= image_tag present(participants.first).avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(participants.first.name)) %>
             <% end %>
           <% else %>
-            <%= image_tag current_user.avatar.default_multiuser_url, alt: t("decidim.author.avatar_multiuser") %>
+            <%= image_tag present(current_user).avatar.default_multiuser_url, alt: t("decidim.author.avatar_multiuser") %>
           <% end %>
 
           <div class="ml-s">

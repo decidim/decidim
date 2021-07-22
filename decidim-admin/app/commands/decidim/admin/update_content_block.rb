@@ -70,7 +70,7 @@ module Decidim
           if form.images[image_name]
             content_block.images_container.send("#{image_name}=", form.images[image_name])
           elsif form.images["remove_#{image_name}".to_sym] == "1"
-            content_block.images_container.send("remove_#{image_name}=", true)
+            content_block.images_container.send("#{image_name}=", nil)
           end
         end
       end

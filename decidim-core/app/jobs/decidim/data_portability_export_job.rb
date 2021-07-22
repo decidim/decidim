@@ -21,9 +21,8 @@ module Decidim
       DataPortabilityExporter.new(user, path, password, export_format).export
     end
 
-    # Saves to file system or uploads to storage service depending on the configuration.
     def save_or_upload_file(user, path)
-      DataPortabilityUploader.new(user).store!(File.open(path, "rb"))
+      user.data_portability_file.attach(io: File.open(path, "rb"), filename: File.basename(path))
     end
   end
 end

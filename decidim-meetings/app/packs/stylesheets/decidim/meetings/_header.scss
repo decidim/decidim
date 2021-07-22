@@ -23,7 +23,7 @@
     }
 
     & + &{
-      margin-left: $global-margin / 4;
+      margin-left: $global-margin * .25;
     }
   }
 
@@ -41,7 +41,7 @@
 
     span{
       font-size: 2em;
-      margin-left: $global-margin / 2;
+      margin-left: $global-margin * .5;
       line-height: .5;
     }
 

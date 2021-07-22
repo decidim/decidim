@@ -5,6 +5,7 @@ module Decidim
   class InitiativesType < ApplicationRecord
     include Decidim::HasResourcePermission
     include Decidim::TranslatableResource
+    include Decidim::HasUploadValidations
 
     translatable_fields :title, :description, :extra_fields_legal_information
 
@@ -27,7 +28,8 @@ module Decidim
     validates :title, :description, :signature_type, presence: true
     validates :document_number_authorization_handler, presence: true, if: ->(form) { form.collect_user_extra_fields? }
 
-    mount_uploader :banner_image, Decidim::BannerImageUploader
+    has_one_attached :banner_image
+    validates_upload :banner_image, uploader: Decidim::BannerImageUploader
 
     def allowed_signature_types_for_initiatives
       return %w(online offline any) if any_signature_type?

@@ -12,6 +12,7 @@ import FormValidator from "src/decidim/form_validator"
 import CommentsComponent from "src/decidim/comments/comments.component"
 import DataPicker from "src/decidim/data_picker"
 import FormFilterComponent from "src/decidim/form_filter"
+import addInputEmoji from "src/decidim/input_emoji"
 
 window.Decidim = window.Decidim || {};
 window.Decidim.config = new Configuration()
@@ -20,6 +21,7 @@ window.Decidim.InputCharacterCounter = InputCharacterCounter;
 window.Decidim.FormValidator = FormValidator;
 window.Decidim.DataPicker = DataPicker;
 window.Decidim.CommentsComponent = CommentsComponent;
+window.Decidim.addInputEmoji = addInputEmoji;
 
 $(() => {
   window.theDataPicker = new DataPicker($(".data-picker"));
@@ -62,4 +64,6 @@ $(() => {
   })
 
   updateExternalDomainLinks($("body"))
+
+  addInputEmoji()
 });

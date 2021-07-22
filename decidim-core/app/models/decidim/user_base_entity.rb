@@ -20,8 +20,8 @@ module Decidim
     # Regex for name & nickname format validations
     REGEXP_NAME = /\A(?!.*[<>?%&\^*#@()\[\]=+:;"{}\\|])/.freeze
 
-    validates_avatar
-    mount_uploader :avatar, Decidim::AvatarUploader
+    has_one_attached :avatar
+    validates_avatar :avatar, uploader: Decidim::AvatarUploader
 
     validates :name, format: { with: REGEXP_NAME }
 

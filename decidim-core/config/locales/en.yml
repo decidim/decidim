@@ -68,7 +68,6 @@ en:
     'true': 'Yes'
   carrierwave:
     errors:
-      general: Error processing image
       image_too_big: The image is too big
       not_inside_organization: The file is not attached to any organization
   date:
@@ -100,6 +99,7 @@ en:
         error: There was a problem deleting your account.
         success: Your account was successfully deleted.
       show:
+        available_locales_helper: Choose the language you want to use to browse and receive notifications in Decidim
         change_password: Change password
         update_account: Update account
       update:

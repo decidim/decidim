@@ -118,7 +118,7 @@ $card-padding-small: 1rem;
 
 .card-divider--reduced{
   // height adjust
-  padding: (($global-padding / 2) + rem-calc(.7)) $global-padding;
+  padding: (($global-padding * .5) + rem-calc(.7)) $global-padding;
 }
 
 .card.with-overflow{

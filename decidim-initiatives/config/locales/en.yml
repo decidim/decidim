@@ -580,6 +580,9 @@ en:
     menu:
       initiatives: Initiatives
     resources:
+      initiative:
+        actions:
+          comment: Comment
       initiatives_type:
         actions:
           title: Actions

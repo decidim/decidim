@@ -35,9 +35,9 @@ end
           <!-- Topbar -->
           <div class="title-bar">
             <%= link_to t("skip_button", scope: "decidim.accessibility"), url_for(anchor: "content"), class: "skip" %>
-            <% if current_organization.official_img_header? %>
+            <% if current_organization.official_img_header.attached? %>
               <%= link_to  current_organization.official_url, class: "logo-cityhall" do %>
-                <%= image_tag current_organization.official_img_header.url.to_s , alt: current_organization.name %>
+                <%= image_tag current_organization.attached_uploader(:official_img_header).path, alt: current_organization.name %>
               <% end %>
             <% end %>
             <div class="row column topbar">

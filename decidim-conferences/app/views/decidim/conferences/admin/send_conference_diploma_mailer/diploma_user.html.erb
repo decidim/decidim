@@ -3,7 +3,7 @@
     <div class="diploma__content">
       <div class="small-11 small-centered">
         <div class="diploma__logo small-4 small-centered">
-          <%= wicked_pdf_image_tag @conference.main_logo.thumb.url %>
+          <%= wicked_pdf_image_tag @conference.attached_uploader(:main_logo).url(variant: :thumb, host: @conference.organization.host) %>
         </div>
         <div class="diploma__name small-10 small-centered">
           <h2><strong><%= translated_attribute(@conference.title) %></strong></h2>
@@ -14,7 +14,7 @@
         <div class="diploma__attendance">
           <strong><%= t("decidim.conferences.admin.send_conference_diploma_mailer.diploma_user.attendance_verified_by") %></strong>
           <div>
-            <%= wicked_pdf_image_tag @conference.signature.thumb.url %>
+            <%= wicked_pdf_image_tag @conference.attached_uploader(:signature).url(variant: :thumb, host: @conference.organization.host) %>
           </div>
           <%= l(@conference.sign_date, format: :decidim_short) %>, <%= @conference.signature_name %>
         </div>

@@ -70,7 +70,7 @@
     <% if @form.photos.any? %>
       <% @form.photos.each do |photo| %>
         <div class="callout gallery__item" data-closable>
-          <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: photo.file.file.filename %>
+          <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: photo.file.filename %>
           <%= form.hidden_field :photos, multiple: true, value: photo.id, id: "photo-#{photo.id}" %>
           <button class="close-button"
                   aria-label="<%= t("delete_attachment", scope: "decidim.initiatives.form") %>"

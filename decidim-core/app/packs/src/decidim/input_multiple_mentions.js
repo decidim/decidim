@@ -121,8 +121,9 @@ $(() => {
       let enabled = item.original.directMessagesEnabled === "true";
       if (window.Decidim && item.original.__typename === "UserGroup") {
         enabled = true;
-        let icons = window.Decidim.assets["icons.svg"];
-        svg = `<span class="is-group">${item.original.membersCount}x <svg class="icon--members icon"><use xlink:href="${icons}#icon-members"/></svg></span>`;
+        let corsMode = window.Decidim.config.get("cors_enabled");
+        let iconsPath = corsMode ? "" : window.Decidim.config.get("icons_path");
+        svg = `<span class="is-group">${item.original.membersCount}x <svg class="icon--members icon"><use href="${iconsPath}#icon-members"/></svg></span>`;
       }
       let disabledElementClass = enabled ? "" : "disabled-tribute-element";
       let disabledElementMessage = enabled ? "" : `&nbsp;<span class="disabled-tribute-element-info">${directMessageDisabled}</span>`;

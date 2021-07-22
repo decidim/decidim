@@ -9,9 +9,9 @@ module Decidim
       small: 32
     }.freeze
 
-    SIZES.each do |name, size|
-      version name do
-        process resize_and_pad: [size, size]
+    set_variants do
+      SIZES.transform_values do |value|
+        { resize_and_pad: [value, value] }
       end
     end
   end

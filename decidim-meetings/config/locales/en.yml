@@ -24,6 +24,7 @@ en:
         decidim_user_group_id: User group
         description: Description
         end_time: End Time
+        id: ID
         location: Location
         location_hints: Location hints
         online_meeting_url: Online meeting URL
@@ -75,6 +76,34 @@ en:
         other: Registrations
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Category
+          closed_at_present:
+            label: State
+            values:
+              'false': Open
+              'true': Closed
+          is_upcoming_true:
+            label: Date
+            values:
+              'false': Past
+              'true': Upcoming
+          origin_eq:
+            label: Origin
+            values:
+              citizen: Citizen
+              official: Official
+              user_group: User Groups
+          scope_id_eq:
+            label: Scope
+          type_eq:
+            label: Type of meeting
+            values:
+              hybrid: Both
+              in_person: In Person
+              online: Online
       meeting_copies:
         create:
           error: There was a problem duplicating this meeting.
@@ -86,6 +115,7 @@ en:
     components:
       meetings:
         actions:
+          comment: Comment
           join: Join
         name: Meetings
         settings:
@@ -153,6 +183,9 @@ en:
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting will start in less than 48h.
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
+    forms:
+      meetings:
+        attendees_count_help_text: Don’t forget to include the total number of participants at your event. Whether in person, hybrid, or online, it’s important that we know how many people are involved.
     gamification:
       badges:
         attended_meetings:
@@ -510,6 +543,7 @@ en:
           fields:
             closed: Closed
             end_time: End date
+            id: Id
             map: Map
             official_meeting: Official meeting
             start_time: Start date

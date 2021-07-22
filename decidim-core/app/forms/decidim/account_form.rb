@@ -8,13 +8,14 @@ module Decidim
 
     mimic :user
 
+    attribute :locale
     attribute :name
     attribute :nickname
     attribute :email
     attribute :password
     attribute :password_confirmation
     attribute :avatar
-    attribute :remove_avatar
+    attribute :remove_avatar, Boolean, default: false
     attribute :personal_url
     attribute :about
 
