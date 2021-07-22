@@ -486,10 +486,6 @@ ca:
           back: Enrere
           create: Crear
           title: Crea la teva trobada
-        online_meeting_link:
-          join: Inscriu-te a la trobada
-          link_available_soon: Enllaç disponible pròximament
-          live_event: Aquesta trobada està succeint ara mateix
         registration_confirm:
           cancel: Cancel·lar
           confirm: Confirmar
