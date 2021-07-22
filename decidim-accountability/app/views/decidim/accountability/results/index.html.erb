@@ -1,6 +1,11 @@
 <div class="row accountability">
   <div class="small-12 columns">
-    <%= render partial: "scope_filters", locals: { url_method: :results_path } %>
+    <div class="hide-for-mediumlarge">
+      <%= render partial: "scope_filters_small" %>
+    </div>
+    <div class="show-for-mediumlarge">
+      <%= render partial: "scope_filters", locals: { url_method: :results_path } %>
+    </div>
   </div>
 
   <div class="small-12 columns">

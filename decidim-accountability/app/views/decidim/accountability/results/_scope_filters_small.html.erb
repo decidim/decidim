@@ -1,0 +1,33 @@
+<div class="scope-filters section">
+  <% if current_component.has_subscopes? %>
+    <div><%= t("results.filters.scopes", scope: "decidim.accountability") %></div>
+
+    <ul class="tags tags--action">
+      <div>
+        <button data-open="filter-box" class="filters-controls__trigger">
+          filter
+          <%= icon "caret-bottom", class: "icon--small float-right", aria_label: "unfold", role: "img" %>
+        </button>
+      </div>
+
+      <div class="reveal" id="filter-box" data-reveal>
+        <div class="reveal__header">
+          <h3 class="reveal__title">Filtrer par:</h3>
+          <button class="close-button" data-close aria-label="close" type="button">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="filters">
+          <% current_participatory_space.subscopes.each do |scope| %>
+            <li <%= active_class_if_current(scope.id) %>>
+              <%= link_to url_for(filter: { scope_id: scope.id, category_id: category.try(:id) }) do %>
+                <span class="show-for-sr"><%= Decidim::Scope.model_name.human(count: 1) %></span>
+                <%= translated_attribute(scope.name) %>
+              <% end %>
+            </li>
+          <% end %>
+        </div>
+      </div>
+    </ul>
+  <% end %>
+</div>
