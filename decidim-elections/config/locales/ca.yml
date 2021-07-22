@@ -797,7 +797,7 @@ ca:
             monitoring_committee_election_results: Valida els resultats
             monitoring_committee_members: Membres
             monitoring_committee_polling_station_closures: Valida els certificats
-            monitoring_committee_verify_elections: Valida les eleccions
+            monitoring_committee_verify_elections: Verificar eleccions
             polling_officers: Gestors de mesa
             polling_stations: Punts de votació
         models:
@@ -832,30 +832,30 @@ ca:
         monitoring_committee_election_results:
           actions:
             title: Accions
-            view: Mostra
+            view: Mostrar
           index:
             title: Escull l'elecció per veure-hi els resultats
           results:
-            bulletin_board: Butlletí d'informació
+            bulletin_board: Bulletin Board
             election_totals: Totals de l'elecció
             polling_stations: Punts de votació
             result_types:
               blank_answers: Respostes en blanc
-              blank_ballots: Vots en blanc
-              null_ballots: Vots nuls
-              total_ballots: Vots totals
-              valid_ballots: Vots vàlids
+              blank_ballots: Paperetes en blanc
+              null_ballots: Paperetes nul·les
+              total_ballots: Total de paperetes
+              valid_ballots: Paperetes vàlides
             selected: Seleccionat
             title: Resultats de l'elecció <i>%{election_title}</i>
             totals: Totals
           show:
-            change_election: Canvia d'elecció
-            publish_results: Publica els resultats
-            publishing: Estem publicant els resultats...
+            change_election: Canviar elecció
+            publish_results: Publicar resultats
+            publishing: Publicant resultats...
           update:
             invalid: Hi ha hagut un problema en publicar els resultats
-            rejected: El Butlletí d'Informació ha rebutjat la publicació dels resultats. Prova-ho de nou, o contacta amb l'administració del sistema.
-            success: Hem publicat correctament els resultats
+            rejected: El Bulletin Board ha rebutjat la publicació dels resultats. Prova-ho de nou, o contacta amb l'administrador del sistema.
+            success: Resultats publicats correctament
         monitoring_committee_members:
           create:
             invalid: Hi ha hagut un problema en crear aquest membre del comitè de seguiment
@@ -876,33 +876,33 @@ ca:
         monitoring_committee_polling_station_closures:
           actions:
             title: Accions
-            validate: Valida
-            view: Mostra
+            validate: Validar
+            view: Mostrar
           closures:
-            change_election: Canvia d'elecció
+            change_election: Canviar elecció
             signed: Signat?
             title: Punts de votació de l'elecció <i>%{election_title}</i>
             validated: Validat?
           edit:
-            change_polling_station: Torna als punts de votació
+            change_polling_station: Tornar als punts de votació
             monitoring_committee_notes: Observacions
             monitoring_committee_notes_placeholder: Informa de qualsevol incidència aquí
             title: Els resultats de l'elecció <i>%{election_title}</i> en el punt de votació <i>%{polling_station_title}</i>
           elections:
             title: Escull una elecció per validar
           show:
-            change_polling_station: Torna als punts de votació
+            change_polling_station: Tornar als punts de votació
             monitoring_committee_notes: Annotacions del Comitè de Seguiment
           validate:
-            error: Hi ha hagut un problema en validar la cloenda
-            success: Hem validat correctament la cloenda
+            error: Hi ha hagut un problema en validar el tancament
+            success: El tancament s'ha validat correctament
         monitoring_committee_verify_elections:
           index:
-            download: Baixa
-            how_to_checksum: 'Per assegurar-nos que el fitxer descarregat no estigui corromput o compromè durant el procès de baixada, executa el següent ordre en la consola i comprova que la resposta de sortida coincideixi amb la comprovació de suma que s''informa a dalt:'
-            how_to_download: Per verificar l'elecció, baixa el fitxer verificable de la taula de dalt.
+            download: Descarregar
+            how_to_checksum: 'Per a assegurar-se que l''arxiu descarregat no ha estat danyat o manipulat durant el procés de descàrrega, executa el següent comando en la teva consola i comprova que la sortida coincideixi amb la suma de verificació reportada a dalt:'
+            how_to_download: Per verificar l'elecció, descarrega el fitxer verificable de la taula de dalt.
             how_to_run_verifier: 'Una vegada que has descarregat el fitxer i te''n has assegurat que és correcte, pots executar-hi el verificador universal. Clona <a href=''https://github.com/decidim/decidim-bulletin-board''>el repositori</a> i, des de la carpeta d''arrel, executa la següent ordre:'
-            how_to_title: Com es verifica la validesa d'una elecció
+            how_to_title: Com verificar la validesa d'una elecció
             not_available: Encara no està disponible
             title: Eleccions
         polling_officers:
@@ -1056,7 +1056,7 @@ ca:
             download: Descarregar
             subject: L'exportació dels codis d'accés a la votació de %{voting_title} està disponible
         vote_flow:
-          already_voted_in_person: La participant ja ha votat de forma presencial i no se l'insta a votar.
+          already_voted_in_person: La participant ja ha votat de forma presencial i no té dret a vot.
           datum_not_found: No hi ha cap votant amb aquestes dades.
       content_blocks:
         highlighted_votings:
@@ -1088,8 +1088,8 @@ ca:
         closures:
           back_to_polling_stations: Tornar als punts de votació
           certify:
-            add_images: Afegeix imatges
-            error: S'ha produït un error en annexar el certificat. Torneu a provar-ho.
+            add_images: Afegir imatges
+            error: S'ha produït un error en adjuntar el certificat. Si us plau, prova de nou.
             form_legend: Puja una imatge del Certificat de Cloenda Electoral
             heading: Recompte de vots - Puja certificat
             info_text: Puja una imatge del Certificat de Cloenda Electoral.
