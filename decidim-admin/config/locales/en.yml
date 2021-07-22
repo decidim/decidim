@@ -406,6 +406,11 @@ en:
           user_name_or_user_email_cont: Search %{collection} by name or email.
         state_eq:
           label: State
+          values:
+            all: All
+            pending: Pending
+            rejected: Rejected
+            verified: Verified
       forms:
         file_help:
           import:
@@ -929,13 +934,6 @@ en:
           success: Group successfully verified
       user_groups:
         index:
-          filter:
-            all: All
-            pending: Pending
-            rejected: Rejected
-            verified: Verified
-          filter_by: Filter by
-          search: Search
           state:
             pending: Pending
             rejected: Rejected
