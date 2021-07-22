@@ -5,7 +5,8 @@ require "spec_helper"
 describe Decidim::Elections::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, organization: elections_component.organization }
+  let(:organization) { elections_component.organization }
+  let(:user) { create :user, organization: organization }
   let(:context) do
     {
       current_component: elections_component,
@@ -132,6 +133,7 @@ describe Decidim::Elections::Permissions do
 
       context "when the user is not authorized to vote" do
         before do
+          organization.update!(available_authorizations: %w(dummy_authorization_handler))
           elections_component.update!(permissions: {
                                         vote: {
                                           authorization_handlers: {
