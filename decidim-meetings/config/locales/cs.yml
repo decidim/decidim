@@ -115,6 +115,7 @@ cs:
     components:
       meetings:
         actions:
+          comment: Komentář
           join: Přidat se
         name: Setkání
         settings:
