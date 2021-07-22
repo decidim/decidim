@@ -183,6 +183,9 @@ en:
         update:
           error: There was a problem updating an admin for this assembly.
           success: Admin updated successfully for this assembly.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Assembly type
       menu:
         assemblies: Assemblies
         assemblies_settings: Settings
