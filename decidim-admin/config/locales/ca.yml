@@ -343,7 +343,7 @@ ca:
           domain_too_short: El domini és massa curt
         update:
           error: Hi ha hagut un error en incloure el domini en la llista blanca
-          success: Hem actualitzat correctament la llista blanca de dominis
+          success: Llista blanca de dominis actualitzada correctament
       exports:
         export_as: "%{name} com a %{export_format}"
         formats:
@@ -761,14 +761,14 @@ ca:
           omnipresent_banner_appearance_title: Edita banner omnipresent
       organization_external_domain_whitelist:
         edit:
-          update: Actualitza
+          update: Actualitzar
         external_domain:
-          down: Avall
+          down: Baixar
           external_domain: Domini extern
-          remove: Lleva
-          up: Amunt
+          remove: Eliminar
+          up: Pujar
         form:
-          add: Afegeix a llista blanca
+          add: Afegir a la llista blanca
           title: Llista blanca de dominis externs
       organization_homepage:
         edit:
