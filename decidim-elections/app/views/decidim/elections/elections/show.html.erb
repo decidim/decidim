@@ -35,7 +35,7 @@ edit_link(
   </div>
 </div>
 <div class="row section">
-  <% if election.attachments.first.present? && election.attachments.first.file.content_type.start_with?("image") %>
+  <% if election.attachments.first.present? && election.attachments.first.image? %>
     <div class="columns medium-4 mediumlarge-5">
       <img src="<%= election.attachments.first.url %>" alt="">
     </div>
