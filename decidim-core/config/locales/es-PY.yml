@@ -313,6 +313,8 @@ es-PY:
           authorize: Autorizar con "%{authorization}"
           explanation: Para llevar a cabo esta acción, tiene que disponer de la autorización "%{authorization}".
           title: Autorización requerida
+        ok:
+          title: Has sido autorizado mientras estás en esta página. Por favor, vuelve a cargar la página para realizar tu acción
         pending:
           explanation: Para realizar esta acción, debes estar autorizado con "%{authorization}", pero tu autorización todavía está en progreso
           resume: Verifica el progreso de la autorización "%{authorization}"
