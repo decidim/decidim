@@ -13,7 +13,7 @@ module Decidim
       validates :closing_report, presence: true
       validates :attendees_count,
                 presence: true,
-                numericality: { greater_than_or_equal_to: 0, only_integer: true }
+                numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 999, only_integer: true }
 
       # Private: Gets the proposals from the meeting and injects them to the form.
       #
