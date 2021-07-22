@@ -115,6 +115,17 @@ describe "Explore projects", :slow, type: :system do
     end
   end
 
+  describe "show" do
+    before do
+      visit_project
+    end
+
+    it "shows all resources for the given component" do
+      expect(page).to have_css("h2", text: translated(project.title))
+      expect(page).to have_css("#project")
+    end
+  end
+
   private
 
   def decidim_budgets
@@ -123,5 +134,9 @@ describe "Explore projects", :slow, type: :system do
 
   def visit_budget
     page.visit decidim_budgets.budget_projects_path(budget)
+  end
+
+  def visit_project
+    page.visit ::Decidim::ResourceLocatorPresenter.new([budget, project]).path
   end
 end
