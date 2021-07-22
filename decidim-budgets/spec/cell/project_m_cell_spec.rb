@@ -8,7 +8,6 @@ module Decidim::Budgets
 
     subject { cell_html }
 
-
     let(:component) { create(:budgets_component) }
     let!(:project) { create(:project, component: budgets_component) }
     let(:model) { project }

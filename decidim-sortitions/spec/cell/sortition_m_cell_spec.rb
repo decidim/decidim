@@ -12,7 +12,6 @@ module Decidim::Sortitions
     let(:the_cell) { cell("decidim/sortitions/sortition_m", sortition, context: { show_space: show_space }) }
     let(:cell_html) { the_cell.call }
 
-
     it_behaves_like "has space in m-cell"
 
     context "when rendering" do
