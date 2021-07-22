@@ -844,6 +844,18 @@ es:
               blank_ballots: Papeletas en blanco
               null_ballots: Papeletas nulas
               total_ballots: Total de papeletas
+              valid_ballots: Papeletas válidas
+            selected: Seleccionado
+            title: Resultados para la elección <i>%{election_title}</i>
+            totals: Totales
+          show:
+            change_election: Cambiar elección
+            publish_results: Publicar resultados
+            publishing: Publicando resultados...
+          update:
+            invalid: Se ha producido un error al publicar los resultados
+            rejected: La publicación de los resultados fue rechazada por el Bulletin Board. Inténtalo de nuevo o ponte en contacto con el administrador del sistema.
+            success: Los resultados se han publicado correctamente
         monitoring_committee_members:
           create:
             invalid: Hubo un problema al crear este miembro del comité de seguimiento
@@ -861,6 +873,34 @@ es:
           new:
             create: Crear
             title: Crear miembro del comité de seguimiento
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: Acciones
+            validate: Validar
+            view: Ver
+          closures:
+            change_election: Cambiar elección
+            signed: '¿Firmado?'
+            title: Puntos de votación para la elección <i>%{election_title}</i>
+            validated: '¿Validado?'
+          edit:
+            change_polling_station: Volver a los puntos de votación
+            monitoring_committee_notes: Observaciones
+            monitoring_committee_notes_placeholder: Reporta cualquier incidencia aquí
+            title: Resultados para la elección <i>%{election_title}</i> en el punto de votación <i>%{polling_station_title}</i>
+          elections:
+            title: Elige una elección para validar
+          show:
+            change_polling_station: Volver a los puntos de votación
+            monitoring_committee_notes: Observaciones del Comité de Seguimiento
+          validate:
+            error: Se ha producido un error al validar el cierre
+            success: El cierre se ha validado correctamente
+        monitoring_committee_verify_elections:
+          index:
+            download: Descargar
+            how_to_checksum: 'Para asegurarse de que el archivo descargado no ha sido dañado o manipulado durante el proceso de descarga, ejecuta el siguiente comando en tu consola y comprueba que la salida coincida con la suma de verificación reportada arriba:'
+            how_to_download: Para verificar una elección, descarga tu archivo verificable de la tabla anterior.
         polling_officers:
           create:
             invalid: Hubo un problema al crear este gestor de mesa
