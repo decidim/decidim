@@ -453,10 +453,6 @@ pt:
           back: Voltar
           create: Criar
           title: Criar uma reunião
-        online_meeting_link:
-          join: Participe da reunião
-          link_available_soon: Link disponível em breve
-          live_event: Esta reunião está acontecendo agora
         registration_confirm:
           cancel: Cancelar
           confirm: confirme
