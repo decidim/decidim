@@ -57,7 +57,7 @@ task :uninstall_all do
 end
 
 desc "Pushes a new build for each gem."
-task release_all: [:update_versions, :check_locale_completeness, :webpack] do
+task release_all: [:update_versions, :check_locale_completeness] do
   Decidim::GemManager.run_all("rake release")
 end
 
@@ -73,11 +73,6 @@ task test_app: "decidim:generate_external_test_app"
 
 desc "Generates a development app."
 task development_app: "decidim:generate_external_development_app"
-
-desc "Build webpack bundle files"
-task :webpack do
-  sh "npm install && npm run build:prod"
-end
 
 desc "Bundle all Gemfiles"
 task :bundle do
