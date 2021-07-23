@@ -1090,11 +1090,11 @@ ca:
           certify:
             add_images: Afegir imatges
             error: S'ha produït un error en adjuntar el certificat. Si us plau, prova de nou.
-            form_legend: Puja una imatge del Certificat de Cloenda Electoral
-            heading: Recompte de vots - Puja certificat
-            info_text: Puja una imatge del Certificat de Cloenda Electoral.
-            submit: Puja el certificat
-            success: Hem pujat el certificat correctament.
+            form_legend: Puja una imatge del certificat de tancament electoral
+            heading: Recompte de vots - Pujar certificat
+            info_text: Si us plau, puja una imatge del certificat de tancament electoral.
+            submit: Pujar el certificat
+            success: El certificat s'ha pujat correctament.
           create:
             error: S'ha produït un error en crear el tancament. Si us plau, intenta-ho més tard.
             success: Tancament creat correctament.
@@ -1130,14 +1130,14 @@ ca:
             total_ballots_count: Nombre de paperetes
           show:
             heading: Recompte de vots
-            info_text: Cloenda electoral del punt de votació.
+            info_text: Tancament electoral del punt de votació.
           sign:
-            cancel: Cancel·la
-            check_box: Ho he revisat i és idèntic que el certificat físic de cloenda electoral
-            close_modal: Clou
-            confirm: D'acord, continua
-            error: Ha occorregut un error. Torna a provar-ho.
-            heading: Recompte de vots - Signa la cloenda
+            cancel: Cancel·lar
+            check_box: Ho he revisat i és idèntic al certificat físic de tancament electoral
+            close_modal: Tancar
+            confirm: D'acord, continuar
+            error: Hi ha hagut un error. Si us plau, torna-ho a provar.
+            heading: Recompte de vots - Signar el tancament
             info_text: D'ara en endavant ja no podríeu modificar cap informació perquè l'acció no es pot desfer.
             submit: Signa la cloenda
             success: Has signat correctament la cloenda.
