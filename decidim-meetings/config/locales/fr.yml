@@ -449,7 +449,10 @@ fr:
           leave: Annuler votre inscription
           leave_confirmation: Êtes-vous sûr de vouloir annuler votre inscription à cette rencontre ?
           link_available_soon: Lien bientôt disponible
+          link_closed: Le lien pour rejoindre la réunion sera disponible quelques minutes avant le début de la réunion
+          live_event: Cette réunion se déroule en ce moment
           meeting_minutes: Comptes rendus des rencontres
+          micro_camera_permissions_warning: Lorsque vous cliquez sur le bouton ci-dessous, on vous demandera des autorisations de microphone et/ou de caméra, et vous rejoindrez la vidéoconférence
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
           registration_code_help_text: Votre code d'inscription
