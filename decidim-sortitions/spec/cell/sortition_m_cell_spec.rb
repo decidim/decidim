@@ -20,6 +20,14 @@ module Decidim::Sortitions
       it "renders the card" do
         expect(cell_html).to have_css(".card--sortition")
       end
+
+      context "when comments are blocked" do
+        let(:component) { create(:sortition_component, :with_comments_disabled) }
+
+        it "doesn't renders comments" do
+          expect(subject).not_to have_css(".comments-icon")
+        end
+      end
     end
   end
 end

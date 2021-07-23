@@ -61,6 +61,14 @@ FactoryBot.define do
       }
     end
 
+    trait :with_comments_disabled do
+      settings do
+        {
+            comments_enabled: false
+        }
+      end
+    end
+
     trait :with_comments_blocked do
       step_settings do
         {

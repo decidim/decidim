@@ -9,6 +9,14 @@ FactoryBot.define do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :sortitions).i18n_name }
     manifest_name { :sortitions }
     participatory_space { create(:participatory_process, :with_steps, organization: organization) }
+
+    trait :with_comments_disabled do
+      settings do
+        {
+            comments_enabled: false
+        }
+      end
+    end
   end
 
   factory :sortition, class: "Decidim::Sortitions::Sortition" do

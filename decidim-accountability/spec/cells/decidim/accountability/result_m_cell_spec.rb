@@ -11,7 +11,8 @@ module Decidim::Accountability
     let(:start_date) { 3.days.ago }
     let(:end_date) { 3.days.from_now }
     let(:progress) { 67.0 }
-    let!(:result) { create(:result, start_date: start_date, end_date: end_date, progress: progress) }
+    let(:component){create(:accountability_component)}
+    let!(:result) { create(:result,component: component, start_date: start_date, end_date: end_date, progress: progress) }
     let(:model) { result }
     let(:cell_html) { cell("decidim/accountability/result_m", result, context: { show_space: show_space }).call }
 
@@ -22,6 +23,14 @@ module Decidim::Accountability
 
       it "renders the card" do
         expect(subject).to have_css(".card--result")
+      end
+
+      context "when comments are blocked" do
+        let(:component) { create(:accountability_component, :with_comments_disabled) }
+
+        it "doesn't renders comments" do
+          expect(subject).not_to have_css(".comments-icon")
+        end
       end
 
       it "renders the start and end time " do

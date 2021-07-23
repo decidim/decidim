@@ -9,7 +9,7 @@ module Decidim::Budgets
     subject { cell_html }
 
     let(:component) { create(:budgets_component) }
-    let!(:project) { create(:project, component: budgets_component) }
+    let!(:project) { create(:project, component: component) }
     let(:model) { project }
     let(:cell_html) { cell("decidim/budgets/project_m", project, context: { show_space: show_space }).call }
 
@@ -20,6 +20,14 @@ module Decidim::Budgets
 
       it "renders the card" do
         expect(subject).to have_css(".card--project")
+      end
+
+      context "when comments are blocked" do
+        let(:component) { create(:budgets_component, :with_comments_disabled) }
+
+        it "doesn't renders comments" do
+          expect(subject).not_to have_css(".comments-icon")
+        end
       end
     end
   end

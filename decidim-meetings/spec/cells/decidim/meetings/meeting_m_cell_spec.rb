@@ -6,7 +6,8 @@ module Decidim::Meetings
   describe MeetingMCell, type: :cell do
     controller Decidim::Meetings::MeetingsController
 
-    let!(:meeting) { create(:meeting, :published, created_at: "2001-01-01") }
+    let(:component) { create(:meeting_component) }
+    let!(:meeting) { create(:meeting, :published, component: component, created_at: "2001-01-01") }
     let(:model) { meeting }
     let(:the_cell) { cell("decidim/meetings/meeting_m", meeting, context: { show_space: show_space }) }
     let(:cell_html) { the_cell.call }
@@ -23,6 +24,14 @@ module Decidim::Meetings
       it "doesn't show creation date" do
         expect(cell_html).to have_no_content("Created at")
         expect(cell_html).to have_no_content(I18n.l(meeting.created_at.to_date, format: :decidim_short))
+      end
+
+      context "when comments are blocked" do
+        let(:component) { create(:meeting_component, :with_comments_disabled) }
+
+        it "doesn't renders comments" do
+          expect(subject).not_to have_css(".comments-icon")
+        end
       end
     end
 
