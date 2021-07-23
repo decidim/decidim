@@ -1708,3 +1708,6 @@ en:
       previous_title: Link to the previous page
       title: 'Page number: '
       truncate: "&hellip;"
+  from:
+    colors:
+      warning_colors: Warning! Changing these colors can break the accessibility contrasts. You can check the contrast of your choosing with WebAIM Contrast Checker or other similar tools.
