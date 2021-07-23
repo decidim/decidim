@@ -17,26 +17,6 @@ module Decidim::Cw
       }
     end
 
-    def extension_allowlist
-      case upload_context
-      when :admin
-        Decidim.organization_settings(model).upload_allowed_file_extensions_admin
-      else
-        Decidim.organization_settings(model).upload_allowed_file_extensions
-      end
-    end
-
-    # CarrierWave automatically calls this method and validates the content
-    # type fo the temp file to match against any of these options.
-    def content_type_allowlist
-      case upload_context
-      when :admin
-        Decidim.organization_settings(model).upload_allowed_content_types_admin
-      else
-        Decidim.organization_settings(model).upload_allowed_content_types
-      end
-    end
-
     def max_image_height_or_width
       8000
     end
