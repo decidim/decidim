@@ -500,6 +500,7 @@ ja:
           remaining_slots:
             other: "残り%{count} スロット"
           view: 表示
+          visit_finished: 過去のミーティングを表示
         update:
           invalid: ミーティングの更新に問題がありました。
           success: ミーティングを更新しました．
