@@ -5,8 +5,12 @@
     <% url = decidim.root_url(host: organization.host) %>
   <% end %>
   <%= link_to url do %>
-    <% if organization.logo.present? %>
-      <%= image_tag organization.logo.medium.url, style: "max-height: 50px", alt: "#{organization.name}" %>
+    <% if organization.logo.attached? %>
+      <%= image_tag(
+            organization.attached_uploader(:logo).variant_url(:medium, host: organization.host),
+            style: "max-height: 50px",
+            alt: "#{organization.name}"
+          ) %>
     <% else %>
       <span><%= organization.name %></span>
     <% end %>

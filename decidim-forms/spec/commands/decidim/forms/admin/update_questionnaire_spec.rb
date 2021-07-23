@@ -255,7 +255,10 @@ module Decidim
 
             expect(questionnaire.questions[4].question_type).to eq("matrix_single")
             expect(questionnaire.questions[4].answer_options[0].free_text).to eq(true)
-            expect(questionnaire.questions[4].matrix_rows[0].body["en"]).to eq(form_params["questions"]["4"]["matrix_rows"]["0"]["body"]["en"])
+            (0..1).each do |idx|
+              expect(questionnaire.questions[4].matrix_rows[idx].body["en"]).to eq(form_params["questions"]["4"]["matrix_rows"][idx.to_s]["body"]["en"])
+              expect(questionnaire.questions[4].matrix_rows[idx].position).to eq(idx)
+            end
 
             expect(questionnaire.questions[5].question_type).to eq("matrix_multiple")
             expect(questionnaire.questions[5].answer_options[0].free_text).to eq(true)
@@ -307,6 +310,7 @@ module Decidim
 
         describe "when the questionnaire has existing questions" do
           let!(:questions) { 0.upto(3).to_a.map { |x| create(:questionnaire_question, questionnaire: questionnaire, position: x) } }
+          let!(:question_2_answer_options) { create_list(:answer_option, 3, question: questions.second) }
 
           context "and display conditions are to be created" do
             let(:form_params) do
@@ -337,7 +341,10 @@ module Decidim
                     "id" => questions[1].id,
                     "body" => questions[1].body,
                     "position" => 1,
-                    "question_type" => "short_answer"
+                    "question_type" => "single_option",
+                    "answer_options" => Hash[question_2_answer_options.map do |answer_option|
+                      [answer_option.id.to_s, { "id" => answer_option.id, "body" => answer_option.body, "free_text" => answer_option.free_text, "deleted" => false }]
+                    end]
                   },
                   "3" => {
                     "id" => questions[2].id,
@@ -350,6 +357,12 @@ module Decidim
                         "decidim_condition_question_id" => questions[0].id,
                         "decidim_question_id" => questions[2].id,
                         "condition_type" => "answered"
+                      },
+                      "2" => {
+                        "decidim_condition_question_id" => questions[1].id,
+                        "decidim_question_id" => questions[2].id,
+                        "condition_type" => "equal",
+                        "decidim_answer_option_id" => question_2_answer_options.first.id
                       }
                     }
                   }
@@ -363,6 +376,8 @@ module Decidim
 
               expect(questionnaire.questions[2].display_conditions).not_to be_empty
               expect(questionnaire.questions[2].display_conditions.first.condition_type).to eq("answered")
+              expect(questionnaire.questions[2].display_conditions.second.condition_type).to eq("equal")
+              expect(questionnaire.questions[2].display_conditions.second.decidim_answer_option_id).to eq(question_2_answer_options.first.id)
             end
           end
         end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "admin creates resource gallery" do
-  context "when uploading images", processing_uploads_for: Decidim::AttachmentUploader do
+  context "when uploading images" do
     let(:uploaded_photos) do
       [
         Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
@@ -30,7 +30,7 @@ shared_examples "admin creates resource gallery" do
 end
 
 shared_examples "admin manages resource gallery" do
-  context "when managing images", processing_uploads_for: Decidim::AttachmentUploader do
+  context "when managing images" do
     let(:uploaded_photos) do
       [
         Decidim::Dev.test_file("city.jpeg", "image/jpeg"),

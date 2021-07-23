@@ -34,10 +34,6 @@ module Decidim
         end
         let(:invalid) { false }
 
-        before do
-          Decidim::AttachmentUploader.enable_processing = true
-        end
-
         context "when the form is not valid" do
           let(:invalid) { true }
 

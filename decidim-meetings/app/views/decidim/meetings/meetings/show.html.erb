@@ -132,7 +132,7 @@ edit_link(
       <% end %>
 
       <% unless meeting.in_person_meeting? %>
-        <%= render partial: "online_meeting_link", locals: { meeting: meeting } %>
+        <%= cell "decidim/meetings/online_meeting_link", meeting %>
       <% end %>
 
       <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>

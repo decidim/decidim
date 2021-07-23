@@ -28,7 +28,7 @@ module Decidim
       end
 
       def avatar_url
-        avatar_url = current_resource_owner.avatar_url
+        avatar_url = current_resource_owner.attached_uploader(:avatar).url(host: current_resource_owner.organization.host)
         return unless avatar_url
 
         unless %r{^https?://}.match? avatar_url

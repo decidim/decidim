@@ -93,11 +93,7 @@ module Decidim
         alias current_participatory_space current_participatory_process
 
         def participatory_process_params
-          {
-            id: params[:slug],
-            hero_image: current_participatory_process.hero_image,
-            banner_image: current_participatory_process.banner_image
-          }.merge(params[:participatory_process].to_unsafe_h)
+          { id: params[:slug] }.merge(params[:participatory_process].to_unsafe_h)
         end
       end
     end

@@ -64,7 +64,7 @@ module Decidim
         expect { subject.call }.to broadcast(:ok)
       end
 
-      context "when uploading images", processing_uploads_for: Decidim::AttachmentUploader do
+      context "when uploading images" do
         let(:uploaded_images) do
           [
             Decidim::Dev.test_file("city.jpeg", "image/jpeg"),

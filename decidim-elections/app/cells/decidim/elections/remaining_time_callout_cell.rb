@@ -8,7 +8,7 @@ module Decidim
       private
 
       def needs_to_show_remaining_time?
-        model.end_time > Time.current && model.end_time < 12.hours.from_now
+        model.ongoing? && model.end_time < 12.hours.from_now
       end
 
       def remaining_time

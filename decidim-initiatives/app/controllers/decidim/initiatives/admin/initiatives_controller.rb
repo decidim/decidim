@@ -12,6 +12,7 @@ module Decidim
         include Decidim::Initiatives::TypeSelectorOptions
         include Decidim::Initiatives::Admin::Filterable
 
+        helper ::Decidim::Admin::ResourcePermissionsHelper
         helper Decidim::Initiatives::InitiativeHelper
         helper Decidim::Initiatives::CreateInitiativeHelper
 

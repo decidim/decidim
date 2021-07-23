@@ -7,9 +7,13 @@ module Decidim
   describe FormBuilder do
     let(:helper) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(nil)) }
     let(:available_locales) { %w(ca en de-CH) }
+    let(:uploader) { Decidim::ApplicationUploader }
+    let(:organization) { create(:organization) }
 
     let(:resource) do
-      Class.new do
+      klass = Class.new do
+        cattr_accessor :current_organization
+
         def self.model_name
           ActiveModel::Name.new(self, nil, "dummy")
         end
@@ -18,6 +22,7 @@ module Decidim
         include ActiveModel::Model
         include Virtus.model
         include TranslatableAttributes
+        include Decidim::HasUploadValidations
 
         attribute :slug, String
         attribute :proposal_title, String
@@ -49,7 +54,13 @@ module Decidim
         def validate_presence
           false
         end
-      end.new
+
+        def organization
+          current_organization
+        end
+      end
+      klass.current_organization = organization
+      klass.new
     end
 
     let(:builder) { FormBuilder.new(:resource, resource, helper, {}) }
@@ -575,16 +586,23 @@ module Decidim
 
     describe "upload" do
       let(:present?) { false }
-      let(:content_type) { nil }
       let(:filename) { "my_image.jpg" }
-      let(:url) { "/some/file/path/#{filename}" }
+      let(:image?) { false }
+      let(:blob) do
+        ActiveStorage::Blob.create_after_upload!(
+          io: File.open(Decidim::Dev.asset("city.jpeg")),
+          filename: filename
+        )
+      end
+      let(:url) { Rails.application.routes.url_helpers.rails_blob_url(blob, only_path: true) }
       let(:file) do
         double(
-          url: url,
-          present?: present?,
-          content_type: content_type,
-          file: double(
-            filename: filename
+          blob: blob,
+          filename: filename,
+          attached?: present?,
+          attachment: double(
+            blob: blob,
+            "image?" => image?
           )
         )
       end
@@ -600,6 +618,7 @@ module Decidim
 
       before do
         allow(resource).to receive(:image).and_return(file)
+        allow(resource).to receive(:attached_uploader).and_return(uploader.new(resource, :image))
       end
 
       it "sets the form as multipart" do
@@ -612,7 +631,12 @@ module Decidim
       end
 
       context "when it is an image" do
-        context "and it is not present" do
+        let(:uploader) { Decidim::ImageUploader }
+        let(:image?) { true }
+
+        context "and it is not present but uploader has default url" do
+          let(:uploader) { Decidim::AvatarUploader }
+
           it "renders the 'Default image' label" do
             expect(output).to include("Default image")
           end
@@ -685,8 +709,6 @@ module Decidim
         let(:output) { builder.upload :image, attributes }
 
         it "renders calls I18n.t() with the correct scope" do
-          # Upload messages
-          expect(I18n).to receive(:t).with("default_image", scope: "decidim.forms")
           # Upload help messages
           expect(I18n).to receive(:t).with("explanation", scope: "custom.scope")
           expect(I18n).to receive(:t).with("message_1", scope: "custom.scope")
@@ -700,8 +722,6 @@ module Decidim
         let(:output) { builder.upload :image, attributes }
 
         it "renders calls I18n.t() with the correct messages" do
-          # Upload messages
-          expect(I18n).to receive(:t).with("default_image", scope: "decidim.forms")
           # Upload help messages
           expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.file_help.file")
           expect(I18n).to receive(:t).with("message_1", scope: "decidim.forms.file_help.file")
@@ -715,8 +735,6 @@ module Decidim
           let(:output) { builder.upload :image, attributes }
 
           it "renders calls I18n.t() with the correct messages" do
-            # Upload messages
-            expect(I18n).to receive(:t).with("default_image", scope: "decidim.forms")
             # Upload help messages
             expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.file_help.file")
             expect(I18n).to receive(:t).with("message_1", scope: "decidim.forms.file_help.file")

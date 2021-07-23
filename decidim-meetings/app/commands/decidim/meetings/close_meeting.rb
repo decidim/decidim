@@ -41,7 +41,9 @@ module Decidim
           form.current_user
         ) do
           meeting.update!(
+            attendees_count: form.attendees_count,
             closed_at: form.closed_at,
+            closing_visible: true,
             closing_report: { I18n.locale => parsed_closing_report }
           )
         end

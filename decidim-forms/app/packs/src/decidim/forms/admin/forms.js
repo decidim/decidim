@@ -63,7 +63,7 @@ export default function createEditableForm() {
     listSelector: ".questionnaire-question:not(.hidden)",
     labelSelector: ".card-title span:first",
     onPositionComputed: (el, idx) => {
-      $(el).find("input[name$=\\[position\\]]").val(idx);
+      $(el).find("input[name$=\\[position\\]]:not([name*=\\[matrix_rows\\]])").val(idx);
 
       autoButtonsByPosition.run();
 

@@ -7,6 +7,8 @@ module Decidim
     # A form object used to upload CSV to batch participatory space private users.
     #
     class ParticipatorySpacePrivateUserCsvImportForm < Form
+      include Decidim::HasUploadValidations
+
       attribute :file
       attribute :user_name, String
       attribute :email, String

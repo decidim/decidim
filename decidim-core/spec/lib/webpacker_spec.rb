@@ -68,7 +68,7 @@ module Decidim
       it "registers the defined entrypoints for the 'app' group by default" do
         described_class.register_stylesheet_import("stylesheets/decidim/test")
 
-        expect(described_class.configuration.stylesheet_imports["app"]).to eq(
+        expect(described_class.configuration.stylesheet_imports["imports"]["app"]).to eq(
           %w(stylesheets/decidim/test)
         )
       end
@@ -77,7 +77,27 @@ module Decidim
         it "registers the defined entrypoints for the defined group" do
           described_class.register_stylesheet_import("stylesheets/decidim/test", group: :admin)
 
-          expect(described_class.configuration.stylesheet_imports["admin"]).to eq(
+          expect(described_class.configuration.stylesheet_imports["imports"]["admin"]).to eq(
+            %w(stylesheets/decidim/test)
+          )
+        end
+      end
+
+      context "with a type provided" do
+        it "registers the defined entrypoints for the defined type and 'app' group by default" do
+          described_class.register_stylesheet_import("stylesheets/decidim/test", type: :settings)
+
+          expect(described_class.configuration.stylesheet_imports["settings"]["app"]).to eq(
+            %w(stylesheets/decidim/test)
+          )
+        end
+      end
+
+      context "with a type and a group provided" do
+        it "registers the defined entrypoints for the defined type and group" do
+          described_class.register_stylesheet_import("stylesheets/decidim/test", type: :settings, group: :admin)
+
+          expect(described_class.configuration.stylesheet_imports["settings"]["admin"]).to eq(
             %w(stylesheets/decidim/test)
           )
         end

@@ -8,7 +8,7 @@ module Decidim
       private
 
       def has_image?
-        model.hero_image.url.present?
+        model.hero_image.attached?
       end
 
       def resource_path
@@ -16,7 +16,7 @@ module Decidim
       end
 
       def resource_image_path
-        model.hero_image.url
+        model.attached_uploader(:hero_image).path
       end
     end
   end

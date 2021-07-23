@@ -14,6 +14,7 @@
     "npm": "^7.7.2"
   },
   "dependencies": {
+    "@joeattardi/emoji-button": "^4.6.0",
     "@zeitiger/appendaround": "^1.0.0",
     "axios": "^0.21.1",
     "bootstrap-tagsinput": "^0.7.1",

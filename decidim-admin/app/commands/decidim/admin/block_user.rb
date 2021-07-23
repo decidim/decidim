@@ -55,6 +55,12 @@ module Decidim
           extra: {
             reportable_type: form.user.class.name,
             current_justification: form.justification
+          },
+          resource: {
+            # Make sure the action log entry gets the original user name instead
+            # of "Blocked user". Otherwise the log entries would show funny
+            # messages such as "Mr. Admin blocked user Blocked user"-
+            title: form.user.name
           }
         ) do
           form.user.blocked = true

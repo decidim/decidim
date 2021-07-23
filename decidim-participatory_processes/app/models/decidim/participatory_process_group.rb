@@ -20,8 +20,8 @@ module Decidim
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
 
-    validates_upload :hero_image
-    mount_uploader :hero_image, Decidim::HeroImageUploader
+    has_one_attached :hero_image
+    validates_upload :hero_image, uploader: Decidim::HeroImageUploader
 
     # Scope to return only the promoted groups.
     #

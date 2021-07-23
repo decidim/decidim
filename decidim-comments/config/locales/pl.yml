@@ -57,6 +57,7 @@ pl:
         alignment:
           against: Negatywny
           in_favor: Pozytywny
+        confirm_destroy: Czy na pewno chcesz usunąć ten komentarz?
         deleted_user: Usunięty użytkownik
         hide_replies: Ukryj odpowiedzi
         reply: Odpowiedz
@@ -72,7 +73,6 @@ pl:
             spam: Zawiera clickbaity, reklamy, oszustwa lub skrypty botów.
           title: Zgłoś niewłaściwą treść
         show_replies: Pokaż %{replies_count} odpowiedzi
-        single_comment_link_title: Pobierz link do pojedynczego komentarza
       comment_order_selector:
         order:
           best_rated: Najlepiej oceniane

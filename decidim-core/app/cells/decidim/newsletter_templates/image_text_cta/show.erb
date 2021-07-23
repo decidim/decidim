@@ -34,9 +34,9 @@ table.button table td {
             <table>
               <tr>
                 <th>
-                  <% if organization.official_img_header? %>
+                  <% if organization.official_img_header.attached? %>
                     <%= link_to organization.official_url do %>
-                      <%= image_tag organization.official_img_header.url.to_s , alt: "", style: "max-height: 50px", class: "float-right" %>
+                      <%= image_tag organization.attached_uploader(:official_img_header).url(host: organization.host), alt: "", style: "max-height: 50px", class: "float-right" %>
                     <% end %>
                   <% end %>
                 </th>

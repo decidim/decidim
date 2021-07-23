@@ -13,7 +13,7 @@ module Decidim
       include Decidim::ScopableResource
       include Decidim::HasCategory
       include Decidim::Followable
-      include Decidim::Comments::Commentable
+      include Decidim::Comments::CommentableWithComponent
       include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::Loggable
@@ -171,16 +171,6 @@ module Decidim
         component.settings.maps_enabled?
       end
 
-      # Public: Overrides the `commentable?` Commentable concern method.
-      def commentable?
-        component.settings.comments_enabled?
-      end
-
-      # Public: Overrides the `accepts_new_comments?` Commentable concern method.
-      def accepts_new_comments?
-        commentable? && !component.current_settings.comments_blocked
-      end
-
       # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
       def allow_resource_permissions?
         component.settings.resources_permissions_enabled
@@ -199,11 +189,6 @@ module Decidim
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`
       def users_to_notify_on_comment_created
         followers
-      end
-
-      # Public: Whether the object can have new comments or not.
-      def user_allowed_to_comment?(user)
-        can_participate?(user)
       end
 
       def can_participate?(user)
@@ -295,8 +280,39 @@ module Decidim
         !!attendees_count && attendees_count.positive?
       end
 
-      def live?
-        start_time && end_time && Time.current >= start_time && Time.current <= end_time
+      def self.sort_by_translated_title_asc
+        field = Arel::Nodes::InfixOperation.new("->>", arel_table[:title], Arel::Nodes.build_quoted(I18n.locale))
+        order(Arel::Nodes::InfixOperation.new("", field, Arel.sql("ASC")))
+      end
+
+      def self.sort_by_translated_title_desc
+        field = Arel::Nodes::InfixOperation.new("->>", arel_table[:title], Arel::Nodes.build_quoted(I18n.locale))
+        order(Arel::Nodes::InfixOperation.new("", field, Arel.sql("DESC")))
+      end
+
+      ransacker :type do
+        Arel.sql(%("decidim_meetings_meetings"."type_of_meeting"))
+      end
+
+      ransacker :title do
+        Arel.sql(%{cast("decidim_meetings_meetings"."title" as text)})
+      end
+
+      ransacker :id_string do
+        Arel.sql(%{cast("decidim_meetings_meetings"."id" as text)})
+      end
+
+      ransacker :is_upcoming do
+        Arel.sql("(start_time > NOW())")
+      end
+
+      ransacker :origin do
+        Arel.sql("CASE
+            WHEN decidim_author_type = 'Decidim::Organization' THEN 'official'
+            WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NOT NULL THEN 'user_group'
+            WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NULL THEN 'citizen'
+            ELSE 'unknown' END
+        ")
       end
 
       private

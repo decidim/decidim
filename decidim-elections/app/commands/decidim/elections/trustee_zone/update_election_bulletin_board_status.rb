@@ -78,9 +78,13 @@ module Decidim
 
         def store_verifiable_results
           election.update!(
-            verifiable_results_file_url: verifiable_results[:url],
+            verifiable_results_file_url: verifiable_results_file_url,
             verifiable_results_file_hash: verifiable_results[:hash]
           )
+        end
+
+        def verifiable_results_file_url
+          URI.join(Decidim::Elections.bulletin_board.bulletin_board_server, verifiable_results[:url])
         end
 
         def update_election_status!

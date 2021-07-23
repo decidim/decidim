@@ -820,7 +820,7 @@ it:
             fields:
               address: Indirizzo
               polling_station_managers: Gestori
-              polling_station_president: Presidente/Presidentessa
+              polling_station_president: Presidentessa/Presidente
               title: Titolo
             name: Seggio elettorale
           voting:
@@ -973,6 +973,7 @@ it:
           form:
             census_contact_information_help: Questa informazione di contatto è per un partecipante che vuole segnalare problemi con il censimento. Può essere un indirizzo e-mail, un modulo di contatto su un altro sito, un sondaggio Decidim per i visitatori, ecc.
             select_a_voting_type: Seleziona un tipo di votazione
+            slug_help: 'Gli URL slugs sono usati per generare gli URL che puntano a questo voto. Accetta solo lettere, numeri e trattini e deve iniziare con una lettera. Esempio: %{url}'
             title: Titolo
             voting_type:
               hybrid: Ibrido
@@ -980,6 +981,11 @@ it:
               online: Online
           new:
             create: Crea
+            title: Nuova Votazione
+          publish:
+            success: Votazione pubblicata con successo
+          unpublish:
+            success: Votazione annullata con successo
           update:
             invalid: Si è verificato un errore durante l'aggiornamento di questa votazione
             success: Votazione aggiornata con successo
@@ -1033,6 +1039,8 @@ it:
               missing_ballot_styles_message: 'Non c''è ancora una modalità di voto per questa votazione. Se desideri avere domande condizionate (i.e.: mostrare agli elettori domande diverse, in base al quartiere/regione di residenza), è necessario impostare lo stile <a href=%{ballot_styles_admin_path}>Modalità di voto</a> <strong>prima</strong> di importare il censimento. Se si desidera mostrare a tutti gli elettori le stesse domande, è possibile procedere con la procedura di importazione del censimento.'
               submit: Invia csv
               title: Crea il censimento
+            show:
+              heading: Censimento dello spazio vuoto
             upload_info:
               csv_example_with_ballot_style: 'Un esempio del file <strong>con</strong> mdalità di voto:'
               csv_example_without_ballot_style: 'Un esempio del file <strong>senza</strong> modalità di voto:'
@@ -1084,39 +1092,248 @@ it:
             error: Si è verificato un errore nell'allegare il certificato, per favore riprova.
             form_legend: Carica una foto del certificato di chiusura elettorale
             heading: Resoconto del voto - Certificato di caricamento
+            info_text: Carica una foto del certificato di chiusura elettorale.
+            submit: Carica il certificato
+            success: Certificato caricato con successo.
+          create:
+            error: Si è verificato un errore durante la creazione della chiusura, riprova più tardi.
+            success: Chiusura creata con successo.
           edit:
+            heading: Resoconto dei voti - Risposte
             info_text: Si prega di introdurre il numero totale di risposte per ogni domanda.
             modal_ballots_results_count_error:
               close_modal: Chiudi
+              info_text: Il numero totale di votazioni non corrisponde al numero totale di buste. Controlla il totale delle votazioni.
+              title: Il totale delle urne non si sommano
             save_recount: Salva riconteggio
+            total_ballots: Votazioni totali
+            total_blank_ballots: Totale delle schede vuote
+            total_null_ballots: Totale delle schede annullate
+            total_valid_ballots: Votazioni totali valide
           new:
             election: 'Elezioni:'
             heading: Riconteggio voti
+            info_text: 'Si prega di introdurre il numero totale di schede (buste) contate in questa stazione di sondaggio:'
             modal_ballots_count_error:
+              btn_validate_total: Convalida il totale delle votazioni
               close_modal: Chiudi
+              info_explanation_text: 'Si prega di rivedere il numero totale di voti. Se il numero totale è corretto, è necessario fornire una spiegazione per il comitato di sorveglianza:'
+              info_text: Il numero totale di schede (buste) introdotte non corrisponde al record di persone che hanno votato in questa Polling Station.
+              message_for_monitoring_committee: Messaggio per il comitato di sorveglianza
+              review_recount: Rivedi il conto
+              text_area_placeholder: Digita il tuo messaggio
+              title: I record totali non si aggiungono
+              total_ballots: 'Totale delle urne:'
+              total_people: 'Persone totali:'
+            polling_station: 'Seggio elettorale:'
+            submit: Verifica numero totale
+            total_ballots_count: Numero di schede
+          show:
+            heading: Resoconto del voto
+            info_text: Chiusura elettorale del sondaggio.
           sign:
             cancel: Annulla
+            check_box: Ho recensito questo ed è lo stesso del certificato di chiusura elettorale fisico
             close_modal: Chiudi
             confirm: Ok, continua
+            error: Si è verificato un errore, riprova.
+            heading: Resoconto dei voti - Chiusura dei segni
+            info_text: Se si continua non è più possibile modificare nessuna delle informazioni, questa azione non può essere annullata.
+            submit: Firma la chiusura
+            success: Chiusura firmata con successo.
+            title: L'azione non può essere annullata
+          update:
+            error: Si è verificato un errore durante l'aggiornamento dei risultati della chiusura, riprova più tardi.
+            success: Risultati di chiusura aggiornati con successo.
         in_person_votes:
           complete_voting:
+            available_answers: 'Risposte disponibili:'
+            census_verified: L'utente non ha ancora votato.
+            complete_voting: Completa la votazione
+            identify_another: Identificare un altro utente
             questions_title: 'Ha diritto di voto nelle seguenti domande:'
+            questions_title_voted: 'Il partecipante ha già votato online e ha diritto a votare nelle seguenti domande:'
+            voted: L'utente ha votato
+          create:
+            error: La votazione non è stata registrata. Per favore riprova.
           in_person_form:
+            census_not_present: Questo partecipante non è elencato nel censimento.
+            census_not_present_description: Deve andare all'ufficio reclami del censimento o contattare l'assistenza.
+            date_of_birth: Data di nascita
             day: Giorno
+            day_placeholder: DD
+            document_number: Numero del documento
+            document_number_placeholder: Numero identificativo
+            month: Mese
+            month_placeholder: MM
+            select: Seleziona il tipo di documento
+            title: 'Selezionare il tipo di documento e inserire il numero del documento del partecipante:'
+            validate_document: Convalida documento
+            year: Anno
+            year_placeholder: YYYY
+          new:
+            back: Torna ai seggi elettorali
+            title: Identificare e verificare un partecipante
+          show:
+            back: Torna ai seggi elettorali
+            title: In attesa che il voto in persona sia registrato
+          update:
+            error: Si è verificato un errore durante la registrazione della votazione. Riprova.
+            success:
+              accepted: La votazione è stata registrata con successo.
+              rejected: La votazione non è stata accettata dal Bulletin Board. Si prega di contattare l'amministratore di sistema.
+          verify_document:
+            census_present: Questo partecipante è elencato nel censimento.
+            name: Nome
+            title: 'Verificare che i seguenti dati siano corretti:'
+            verify_document: Verifica documento
+        menu:
+          polling_officer_zone: Zona di sondaggio ufficiale
         polling_officers:
           index:
             polling_officer_role_description: Sei stato designato funzionario del seggio elettorale (Presidente o Gestore) in alcune elezioni svolte su questa piattaforma.
             polling_station:
+              address: '&Indirizzo'
+              count_votes: Conteggio voti
+              election: Elezioni
+              identify_person: Identificare una persona
+              name: Nome
               no_polling_stations: Non sei ancora assegnato a nessun seggio elettorale.
               role: Il tuo ruolo
+              show_closure: Visualizza chiusura
+              title: Seggi elettorali
               voting: Votazione
       polling_officers:
+        actions:
+          confirm_destroy: Sei sicuro?
+          destroy: Cancella
+          new: Nuovo
+          title: Azioni
         roles:
+          manager: Gestore
           president: Presidente/Presidentessa
+          unassigned: Non Assegnato
+      polling_station_closure_recount:
+        nota_option: Vuoto/ Nessuno dei precedenti
+        polling_officer_notes: 'Osservazioni del funzionario incaricato del sondaggio:'
+        polling_officer_notes_blank: Non ci sono note
+        recount_summary: 'Riepilogo riepilogo:'
+        signed: Firmato
+        total_ballots: 'Votazioni totali:'
+        total_blank_ballots: 'Totale delle schede vuote:'
+        total_null_ballots: 'Totale delle schede annullate:'
+        total_valid_ballots: 'Votazioni totali valide:'
+      polling_stations:
+        actions:
+          confirm_destroy: Sei sicuro?
+          destroy: Cancella
+          edit: Modifica
+          new: Nuovo
+          title: Azioni
       votings:
+        access_code_modal:
+          email: Invia per email a %{email}
+          info: Hai bisogno di un Codice di Accesso per partecipare. Se non ne hai ottenuto uno per posta postale, possiamo inviarne uno nuovo.
+          no_email: Nessuna email disponibile
+          no_sms: Nessun numero di telefono disponibile
+          sms: Invia tramite SMS a %{sms}
+          title: Ottieni Codice Accesso
+        check_census:
+          check_status: Verifica stato
+          description: Qui, hai la possibilità di controllare i tuoi dati di censimento per sapere se hai il diritto di partecipare a questa votazione. Dovresti avere già un codice di accesso, ma se lo hai perso, puoi chiederlo di nuovo, quando i tuoi dati sono corretti.
+          error:
+            info: 'Per favore riprova. Se pensi che i dati nel sistema non siano corretti, puoi segnalarli qui: %{census_contact_information}.'
+            title: I dati del censimento non sono corretti!
+          form_title: 'Compila il seguente modulo per controllare i dati del censimento:'
+          invalid: Si è verificato un errore nel controllare il censimento.
+          success:
+            access_link: via SMS o e-mail.
+            info: Avresti già dovuto ricevere il tuo Codice di Accesso per posta postale. Nel caso in cui non lo avessi puoi richiederlo qui
+            title: I tuoi dati di censimento sono corretti!
+          title: Posso votare?
+        check_fields:
+          date_of_birth: Data di nascita
+          day: Giorno
+          day_placeholder: DD
+          document_number: Numero del documento
+          document_number_placeholder: Numero ID
+          month: Mese
+          month_placeholder: MM
+          postal_code: Codice postale
+          postal_code_placeholder: Cap
+          select: Seleziona il tipo di documento
+          year: Anno
+          year_placeholder: YYYY
+        count:
+          title:
+            one: "%{count} votazioni"
+            other: "%{count} votazioni"
+        elections_log:
+          bb_status: Stato elettorale
+          description: Il registro elettorale vi mostrerà tutte le informazioni pertinenti su ogni voto. Per esempio, lo stato della cerimonia chiave o tally o se i risultati sono già stati pubblicati. Fare clic sull'elezione in cui si desidera le informazioni di registro.
+          election_log: Registro Delle Elezioni
+          title: Registro elettorale
+        filters:
+          active: Attivo
+          all: Tutti
+          finished: Finito
+          search: Ricerca
+          state: Stato
+          upcoming: Prossimi
+        filters_small_view:
+          close_modal: Chiudi modalità
+          filter: Filtro
+          filter_by: Filtra per
+          unfold: Dispiega
+        index:
+          no_votings: Nessun voto corrisponde ai criteri di ricerca.
+          only_finished: Al momento non sono previste elezioni, ma qui puoi trovare un elenco di tutte quelle passate.
+          title: Votazioni
         login:
+          access_code: Codice di accesso
+          access_code_placeholder: Codice Accesso
+          ask_for_a_new_one: Chiedi uno nuovo.
+          dont_have_access_code: Non hai un codice di accesso?
+          form_title: 'Compila il seguente modulo per accedere alla votazione:'
           start_voting: Inizia a votare
+          step: Identificazione
+          title: Identificarmi con i miei dati di censimento di voto
+        no_census_contact_information: Non ci sono ancora informazioni di contatto
+        orders:
+          label: 'Ordina le votazioni per:'
+          random: Casuale
+          recent: Più recente
+        send_access_code:
+          invalid: Si è verificato un problema durante l'invio del Codice di Accesso
+          success: Il tuo Codice di Accesso è stato inviato con successo
+        show:
+          dates: Date
+      votings_m:
+        badge_name:
+          finished: Completata
+          ongoing: In corso
+          upcoming: In arrivo
+        footer_button_text:
+          participate: Partecipa
+          view: Visualizza
+          vote: Vota
+        unspecified: Non specificato
+        voting_type:
+          hybrid: Ibrido
+          in_person: Di persona
+          online: Online
+        voting_types_label: Tipo di votazione
   layouts:
     decidim:
       election_votes_header:
         exit: Esci
+      voting_navigation:
+        check_census: Posso votare?
+        election_log: Registro elettorale
+        voting_menu_item: La votazione
+      votings:
+        index:
+          promoted_votings: Votazioni in evidenza
+        promoted_voting:
+          more_info: Ulteriori informazioni
+          vote: Vota

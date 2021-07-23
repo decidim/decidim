@@ -9,13 +9,14 @@ module Decidim
     attr_accessor :in_preview
 
     belongs_to :organization, foreign_key: :decidim_organization_id, class_name: "Decidim::Organization"
+    has_many :attachments, foreign_key: "decidim_content_block_id", class_name: "Decidim::ContentBlockAttachment", inverse_of: :content_block, dependent: :destroy
 
     delegate :public_name_key, :has_settings?, :settings_form_cell, :cell, to: :manifest
 
     before_save :save_images
     after_save :reload_images
 
-    validate :images_container_valid
+    validates_associated :images_container
 
     # Public: finds the published content blocks for the given scope and
     # organization. Returns them ordered by ascending weight (lowest first).
@@ -39,6 +40,7 @@ module Decidim
     end
 
     def reload(*)
+      @manifest_attachments = nil
       @images_container = nil
       super
     end
@@ -57,10 +59,9 @@ module Decidim
     #     content_block.save!
     #
     #     # This is how you can access the image data, just like with any other
-    #     # uploader field. You can use the uploader versions too.
-    #     content_block.images_container.my_image.url
-    #     content_block.images_container.my_image.big.url
-    #     content_block.save!
+    #     # uploader field. You can use the uploader variants too.
+    #     content_block.images_container.attached_uploader(:my_image).path
+    #     content_block.images_container.attached_uploader(:my_image).path(variant: :big)
     #
     #     # This will delete the attached image
     #     content_block.images_container.my_image = nil
@@ -71,75 +72,60 @@ module Decidim
     def images_container
       return @images_container if @images_container
 
-      manifest = self.manifest
+      attachments = manifest_attachments
 
       @images_container = Class.new do
-        extend ::CarrierWave::Mount
         include ActiveModel::Validations
+        include Decidim::HasUploadValidations
 
-        cattr_accessor :manifest, :manifest_scope
+        cattr_accessor :manifest_attachments
         attr_reader :content_block
 
-        # Needed to calculate uploads URLs
-        delegate :id, :organization, to: :content_block
-
-        # Needed to customize the upload URL
         def self.name
           to_s.camelize
         end
 
-        # Needed to customize the upload URL
-        def self.to_s
-          "decidim/#{manifest.name.to_s.underscore}_#{manifest_scope.to_s.underscore}_content_block"
-        end
+        delegate :id, :organization, to: :content_block
 
         def initialize(content_block)
           @content_block = content_block
         end
 
-        def manifest
-          self.class.manifest
-        end
+        attachments.each do |name, attachment|
+          validates_upload name, uploader: attachment.uploader
 
-        manifest.images.each do |image_config|
-          mount_uploader image_config[:name], image_config[:uploader].constantize
-        end
-
-        # This is used to access the upload file name from the container, given
-        # an image name.
-        def read_uploader(column)
-          content_block.images[column.to_s]
-        end
-
-        # This is used to set the upload file name from the container, given
-        # an image name.
-        def write_uploader(column, value)
-          content_block.images[column.to_s] = value
-        end
-
-        # When we save the content block, we force the container to save itself
-        # too, so images can be processed, uploaded and stored in the DB.
-        def save
-          manifest.images.each do |image_config|
-            send(:"write_#{image_config[:name]}_identifier")
-            send(:"store_#{image_config[:name]}!")
+          define_method(name) do
+            attachment.file
           end
+
+          define_method("#{name}=") do |file|
+            attachment.file = file
+          end
+        end
+
+        def attached_uploader(name)
+          return if manifest_attachments[name].blank?
+
+          manifest_attachments[name].attached_uploader(:file)
+        end
+
+        def save
+          return unless content_block.persisted?
+
+          manifest_attachments.values.map(&:save).all?
         end
       end
 
-      @images_container.manifest = manifest
-      @images_container.manifest_scope = scope_name
+      @images_container.manifest_attachments = manifest_attachments
       @images_container = @images_container.new(self)
     end
 
     private
 
-    def images_container_valid
-      # Note that we cannot call .valid? because it's not an ActiveRecord
-      # object. It's ActiveModel and in that case, CarrierWave will not work
-      # "normally" with the validators. It adds the errors directly after the
-      # uploader was tried to set.
-      errors.add(:images_container, :invalid) if images_container.errors.any?
+    def manifest_attachments
+      @manifest_attachments ||= manifest.images.each_with_object({}) do |attachment_config, list|
+        list[attachment_config[:name]] = attachments.find_or_initialize_by(name: attachment_config[:name])
+      end
     end
 
     # Internal: Since we're using the `images_container` hack to hold the
