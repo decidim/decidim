@@ -4,9 +4,9 @@
       <div class="card__link text-center">
         <div class="user-header__avatar">
           <% if conversation.interlocutors(current_user).count == 1 %>
-            <%= image_tag conversation.interlocutors(current_user).first.avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(current_user.name)) %>
+            <%= image_tag present(conversation.interlocutors(current_user).first).avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(current_user.name)) %>
           <% else %>
-            <%= image_tag current_user.avatar.default_multiuser_url, alt: t("decidim.author.avatar_multiuser") %>
+            <%= image_tag present(current_user).avatar.default_multiuser_url, alt: t("decidim.author.avatar_multiuser") %>
           <% end %>
         </div>
         <span class="text-medium mt-xs"><%= Date::ABBR_DAYNAMES[conversation.created_at.wday] %> <%= conversation.created_at.wday %></span>

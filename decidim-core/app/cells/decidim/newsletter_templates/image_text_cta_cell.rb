@@ -42,7 +42,7 @@ module Decidim
       end
 
       def has_main_image?
-        main_image_url.present?
+        newsletter.template.images_container.main_image.attached?
       end
 
       def main_image
@@ -50,7 +50,7 @@ module Decidim
       end
 
       def main_image_url
-        newsletter.template.images_container.main_image.url
+        newsletter.template.images_container.attached_uploader(:main_image).url(host: organization.host)
       end
 
       def organization_primary_color

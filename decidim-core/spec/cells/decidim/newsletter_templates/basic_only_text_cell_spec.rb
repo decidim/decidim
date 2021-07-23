@@ -18,6 +18,7 @@ describe Decidim::NewsletterTemplates::BasicOnlyTextCell, type: :cell do
   let(:newsletter) { create :newsletter, organization: organization }
   let(:body) { ::Faker::Lorem.sentences.join("\n") }
   let(:settings) { { body_en: body } }
+  let(:logo_url) { Rails.application.routes.url_helpers.rails_representation_path(organization.logo.variant(resize_to_fit: [600, 160]), host: organization.host) }
 
   controller Decidim::PagesController
 
@@ -41,7 +42,7 @@ describe Decidim::NewsletterTemplates::BasicOnlyTextCell, type: :cell do
     end
 
     it "renders the organization logo" do
-      expect(subject.to_s).to include(organization.logo.medium.url)
+      expect(subject.to_s).to include(logo_url)
     end
   end
 end

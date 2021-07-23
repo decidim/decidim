@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Decidim
+module Decidim::Cw
   # This class deals with uploading open data.
   class OpenDataUploader < ApplicationUploader
     protected

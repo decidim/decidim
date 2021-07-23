@@ -59,7 +59,7 @@ module Decidim
     private
 
     def account_params
-      { avatar: current_user.avatar }.merge(params[:user].to_unsafe_h)
+      params[:user].to_unsafe_h
     end
   end
 end

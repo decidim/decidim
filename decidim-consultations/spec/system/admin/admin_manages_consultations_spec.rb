@@ -184,7 +184,7 @@ describe "Admin manages consultations", type: :system do
       end
 
       expect(page).to have_admin_callout("successfully")
-      expect(page).to have_css("img[src*='#{consultation3.banner_image.url}']")
+      expect(page).to have_css("img[src*='#{consultation3.attached_uploader(:banner_image).path}']")
     end
   end
 

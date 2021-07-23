@@ -6,7 +6,7 @@
           <div class="card__content">
             <div class="row">
               <div class="columns medium-2 text-center">
-                <img src="<%= oauth_application.organization_logo.url %>" alt="<%= oauth_application.organization_name %>" width="75" height="75">
+                <img src="<%= oauth_application.attached_uploader(:organization_logo).path %>" alt="<%= oauth_application.organization_name %>" width="75" height="75">
               </div>
               <div class="columns medium-10">
                 <h3 class="heading3"><%= t(".wants_to_use_your_account_html", application_name: oauth_application.name) %>

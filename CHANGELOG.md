@@ -76,6 +76,40 @@ PR [\#8061](https://github.com/decidim/decidim/pull/8061) adds user groups to th
 
 Please be aware that it could take a while if your database has a lot of groups.
 
+#### ActiveStorage migration
+
+PR [\#7598](https://github.com/decidim/decidim/pull/7598) migrates attachments from `CarrierWave` to `ActiveStorage`. There was a migration to move some organization fields to a content block (decidim-core/db/migrate/20180810092428_move_organization_fields_to_hero_content_block.rb) including the use of `CarrierWave` to migrate an image. This part has been removed. Please, if your application has the old migration replace its content with the changed file to avoid errors in the future because `CarrierWave` dependency will be eliminated.
+
+PR[\#7902](https://github.com/decidim/decidim/pull/7902) provides a task to migrate existing `CarrierWave` attachment files to `ActiveStorage`. Keep in mind that the `ActiveStorage` migration PRs don't delete `CarrierWave` attachments and preserve the columns used by it. To guarantee the access to `CarrierWave` files the gem must be installed (the current core engine maintains that dependency) and configured as it was before the migration to `ActiveStorage`. The task downloads each file using `CarrierWave` uploaders and uploads it again using `ActiveStorage`. This PR provides 2 tasks:
+
+* The task to copy files to `ActiveStorage`. The task generates a log file in `log/` with a line with the result of each migration. The result can be:
+  * `[OK] Migrated - [OK] Checksum identical` if the file was copied successfully and the checksums of the origin and copied files are identical. This should be the expected result.
+  * `[KO] Migrated - [KO] Checksum different` if the file was copied successfully but the checksums are different.
+  * `[SKIP] Migrated` The migration was skipped because the task detected that there was already an existing file attached with `ActiveStorage` (the other task allows us to check if `CarrierWave` and `ActiveStorage` files are identical.
+  * `[ERROR] Exception` if any error prevents the migration of the file. The error message is included in the result.
+
+The task also creates a mapping of paths in `tmp/attachment_mappings.csv` with the id of the instance, the name of the `CarrierWave` attribute and its origin path and the destination path in `ActiveStorage`. To run this task execute:
+
+```
+rails decidim:active_storage_migrations:migrate_from_carrierwave_to_active_storage
+```
+
+Note that the migration generates instances of `ActiveStorage::Attachment` in case they are not yet created. To repeat the migration from scratch it would be enough to delete all `ActiveStorage::Attachment` items (be careful not to delete attachments that were created earlier with `ActiveStorage`)
+
+
+* The task to check migration and compare files. This task finds each `CarrierWave` attachment file and looks for corresponding `ActiveStorage` attachment and compares them if possible. The result for each attachment can be:
+  * `[OK] Checksum identical` if both files exist and checkums are identical.
+  * `[KO] Checksum different` if both files exist but checkums are different.
+  * `[SKIP] Pending migration` if the `ActiveStorage` file is not present.
+  * `[ERROR] Exception` if there is any error in the checking process. The error message is included in the result.
+
+
+To run this task execute:
+
+```
+rails decidim:active_storage_migrations:check_migration_from_carrierwave_to_active_storage
+```
+
 ### Added
 
 ### Changed

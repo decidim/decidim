@@ -113,7 +113,7 @@ module Decidim
       def single_comment
         return if options[:single_comment].blank?
 
-        @single_comment ||= model.comments.find_by(id: options[:single_comment])
+        @single_comment ||= SortedComments.for(model, id: options[:single_comment], order_by: order).first
       end
 
       def machine_translations_toggled?
@@ -142,7 +142,12 @@ module Decidim
       end
 
       def blocked_comments_for_unauthorized_user_warning_link
-        action_authorized_link_to(:comment, commentable_path, { resource: model }) do
+        options = if current_component.present?
+                    { resource: model }
+                  else
+                    { resource: model, permissions_holder: model }
+                  end
+        action_authorized_link_to(:comment, commentable_path, options) do
           t("decidim.components.comments.blocked_comments_for_unauthorized_user_warning")
         end
       end

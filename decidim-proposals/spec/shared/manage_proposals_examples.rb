@@ -206,7 +206,7 @@ shared_examples "manage proposals" do
           end
         end
 
-        context "when attachments are allowed", processing_uploads_for: Decidim::AttachmentUploader do
+        context "when attachments are allowed" do
           before do
             current_component.update!(settings: { attachments_allowed: true })
           end

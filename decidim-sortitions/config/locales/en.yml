@@ -20,6 +20,8 @@ en:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Comment
         name: Sortitions
         settings:
           global:

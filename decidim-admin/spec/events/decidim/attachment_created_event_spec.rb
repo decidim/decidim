@@ -12,10 +12,6 @@ describe Decidim::AttachmentCreatedEvent do
   let(:resource_path) { resource.url }
   let(:attached_to) { resource.attached_to }
 
-  before do
-    resource.file.class.configure { |config| config.asset_host = "http://example.org" }
-  end
-
   it_behaves_like "a simple event", true
 
   describe "email_subject" do

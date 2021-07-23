@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-module Decidim
+module Decidim::Cw
   module Votings
     module Census
       # This class deals with saving voting cenusus access codes export Zip Files to App
-      class VotingCensusUploader < Decidim::ApplicationUploader
+      class VotingCensusUploader < Decidim::Cw::ApplicationUploader
         # Override the directory where uploaded files will be stored.
         def store_dir
           default_path = "uploads/voting-census/"

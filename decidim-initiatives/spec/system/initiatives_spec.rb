@@ -101,6 +101,29 @@ describe "Initiatives", type: :system do
       end
     end
 
+    context "when requesting the initiatives path and initiatives have attachments but the file is not present" do
+      let!(:base_initiative) { create(:initiative, :with_photos, organization: organization) }
+
+      before do
+        initiative.attachments.each do |attachment|
+          attachment.file.purge
+        end
+        visit decidim_initiatives.initiatives_path
+      end
+
+      it "lists all the initiatives without errors" do
+        within "#initiatives-count" do
+          expect(page).to have_content("1")
+        end
+
+        within "#initiatives" do
+          expect(page).to have_content(translated(initiative.title, locale: :en))
+          expect(page).to have_content(initiative.author_name, count: 1)
+          expect(page).not_to have_content(translated(unpublished_initiative.title, locale: :en))
+        end
+      end
+    end
+
     context "when it is an initiative with card image enabled" do
       before do
         initiative.type.attachments_enabled = true

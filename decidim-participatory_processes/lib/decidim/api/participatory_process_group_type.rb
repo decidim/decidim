@@ -12,6 +12,10 @@ module Decidim
       field :participatory_processes, [Decidim::ParticipatoryProcesses::ParticipatoryProcessType, { null: true }],
             description: "Lists all the participatory processes belonging to this group", null: false
       field :hero_image, GraphQL::Types::String, "The hero image for this participatory process group", null: true
+
+      def hero_image
+        object.attached_uploader(:hero_image).path
+      end
     end
   end
 end
