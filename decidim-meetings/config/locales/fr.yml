@@ -34,12 +34,17 @@ fr:
         registration_terms: Conditions d'inscription
         registration_url: URL d'inscription
         registrations_enabled: Inscriptions ouvertes
+        show_embedded_iframe: Montrer l'iframe intégrée pour cette URL
         start_time: Heure de début
         title: Titre
         transparent: Visible par les non-membres
         type_of_meeting: Type
     errors:
       models:
+        meeting:
+          attributes:
+            show_embedded_iframe:
+              not_embeddable: Cette URL ne peut pas être intégrée
         meeting_agenda:
           attributes:
             base:
@@ -269,6 +274,7 @@ fr:
             registration_url_help: 'Lien : permet aux participants de partir sur le service externe que vous utilisez pour les inscriptions'
             select_a_meeting_type: Veuillez sélectionner un type de rencontre
             select_a_registration_type: Veuillez sélectionner un type d'inscription
+            show_embedded_iframe_help: Intégrer ou non l'iframe correspondant à cette URL de vidéoconférence. Seuls quelques services permettent l'intégration (c.-à-d. Youtube, Twitch...)
           index:
             title: Rencontres
           new:
@@ -416,6 +422,7 @@ fr:
           select_a_category: Veuillez sélectionner une catégorie
           select_a_meeting_type: Veuillez sélectionner un type de rencontre
           select_a_registration_type: Veuillez sélectionner un type d'inscription
+          show_embedded_iframe_help: Intégrer ou non l'iframe correspondant à cette URL de vidéoconférence. Seuls quelques services permettent l'intégration (c.-à-d. Youtube, Twitch...)
         index:
           new_meeting: Nouvelle rencontre
         meeting_minutes:
@@ -441,6 +448,7 @@ fr:
           join: Participer à la rencontre
           leave: Annuler votre inscription
           leave_confirmation: Êtes-vous sûr de vouloir annuler votre inscription à cette rencontre ?
+          link_available_soon: Lien bientôt disponible
           meeting_minutes: Comptes rendus des rencontres
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
