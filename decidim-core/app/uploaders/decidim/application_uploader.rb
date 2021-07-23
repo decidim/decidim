@@ -48,9 +48,9 @@ module Decidim
 
       representable = variant(key)
       if representable.is_a? ActiveStorage::Attached
-        Rails.application.routes.url_helpers.rails_blob_url(representable.blob, **options)
+        Rails.application.routes.url_helpers.rails_blob_url(representable.blob, **protocol_option.merge(options))
       else
-        Rails.application.routes.url_helpers.rails_representation_url(representable, **options)
+        Rails.application.routes.url_helpers.rails_representation_url(representable, **protocol_option.merge(options))
       end
     end
 
@@ -72,6 +72,12 @@ module Decidim
       model.send(mounted_as).attach(io: file, filename: filename)
     rescue URI::InvalidURIError
       model.errors.add(mounted_as, :invalid)
+    end
+
+    def protocol_option
+      return {} unless Rails.application.config.force_ssl
+
+      { protocol: "https" }
     end
 
     class << self
