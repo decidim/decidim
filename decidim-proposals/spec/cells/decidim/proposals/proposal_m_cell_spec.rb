@@ -32,6 +32,14 @@ module Decidim::Proposals
         expect(subject).to have_css(".card--proposal")
       end
 
+      context "when comments are blocked" do
+        let(:component) { create(:proposal_component, :with_comments_disabled, :with_attachments_allowed, :with_card_image_allowed) }
+
+        it "doesn't renders comments" do
+          expect(subject).not_to have_css(".comments-icon")
+        end
+      end
+
       it "renders the published_at date" do
         published_date = I18n.l(published_at.to_date, format: :decidim_short)
         creation_date = I18n.l(created_at.to_date, format: :decidim_short)
@@ -236,9 +244,9 @@ module Decidim::Proposals
           create(:proposal_component,
                  participatory_space: participatory_process,
                  step_settings: {
-                   step_1.id => { votes_enabled: false },
-                   step_2.id => { votes_enabled: true },
-                   step_3.id => { votes_enabled: false }
+                     step_1.id => { votes_enabled: false },
+                     step_2.id => { votes_enabled: true },
+                     step_3.id => { votes_enabled: false }
                  })
         end
         let(:participatory_process) { create(:participatory_process) }

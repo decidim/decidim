@@ -22,6 +22,21 @@ FactoryBot.define do
         scope_id: participatory_space.scope&.id
       }
     end
+
+    trait :with_comments_disabled do
+      settings do
+        {
+            intro: Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
+            categories_label: Decidim::Faker::Localized.word,
+            subcategories_label: Decidim::Faker::Localized.word,
+            heading_parent_level_results: Decidim::Faker::Localized.word,
+            heading_leaf_level_results: Decidim::Faker::Localized.word,
+            scopes_enabled: true,
+            scope_id: participatory_space.scope&.id,
+            comments_enabled: false
+        }
+      end
+    end
   end
 
   factory :status, class: "Decidim::Accountability::Status" do
