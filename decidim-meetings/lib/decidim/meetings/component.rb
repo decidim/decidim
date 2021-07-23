@@ -20,7 +20,7 @@ Decidim.register_component(:meetings) do |component|
     resource.template = "decidim/meetings/meetings/linked_meetings"
     resource.card = "decidim/meetings/meeting"
     resource.reported_content_cell = "decidim/meetings/reported_content"
-    resource.actions = %w(join)
+    resource.actions = %w(join comment)
     resource.searchable = true
   end
 
@@ -76,7 +76,7 @@ Decidim.register_component(:meetings) do |component|
     exports.serializer Decidim::Meetings::UserAnswersSerializer
   end
 
-  component.actions = %w(join)
+  component.actions = %w(join comment)
 
   component.settings(:global) do |settings|
     settings.attribute :scopes_enabled, type: :boolean, default: false
@@ -227,19 +227,37 @@ Decidim.register_component(:meetings) do |component|
         description: Decidim::Faker::Localized.sentence(word_count: 5),
         attachment_collection: attachment_collection,
         attached_to: meeting,
-        file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")) # Keep after attached_to
+        content_type: "application/pdf",
+        file: ActiveStorage::Blob.create_after_upload!(
+          io: File.open(File.join(__dir__, "seeds", "Exampledocument.pdf")),
+          filename: "Exampledocument.pdf",
+          content_type: "application/pdf",
+          metadata: nil
+        ) # Keep after attached_to
       )
       Decidim::Attachment.create!(
         title: Decidim::Faker::Localized.sentence(word_count: 2),
         description: Decidim::Faker::Localized.sentence(word_count: 5),
         attached_to: meeting,
-        file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
+        content_type: "image/jpeg",
+        file: ActiveStorage::Blob.create_after_upload!(
+          io: File.open(File.join(__dir__, "seeds", "city.jpeg")),
+          filename: "city.jpeg",
+          content_type: "image/jpeg",
+          metadata: nil
+        ) # Keep after attached_to
       )
       Decidim::Attachment.create!(
         title: Decidim::Faker::Localized.sentence(word_count: 2),
         description: Decidim::Faker::Localized.sentence(word_count: 5),
         attached_to: meeting,
-        file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")) # Keep after attached_to
+        content_type: "application/pdf",
+        file: ActiveStorage::Blob.create_after_upload!(
+          io: File.open(File.join(__dir__, "seeds", "Exampledocument.pdf")),
+          filename: "Exampledocument.pdf",
+          content_type: "application/pdf",
+          metadata: nil
+        ) # Keep after attached_to
       )
     end
 

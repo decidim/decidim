@@ -38,7 +38,8 @@ module Decidim
           }
         end
         let(:slug) { "slug" }
-        let(:attachment) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+        let(:fixture_file) { File.open(Decidim::Dev.asset("city.jpeg")) }
+        let(:attachment) { fixture_file_upload(fixture_file, "image/jpeg") }
         let(:show_statistics) { true }
         let(:registrations_enabled) { false }
         let(:available_slots) { 20 }
@@ -81,10 +82,6 @@ module Decidim
               "registration_terms" => registration_terms
             }
           }
-        end
-
-        before do
-          Decidim::AttachmentUploader.enable_processing = true
         end
 
         context "when everything is OK" do

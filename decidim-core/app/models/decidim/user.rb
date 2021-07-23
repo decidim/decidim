@@ -51,7 +51,10 @@ module Decidim
 
     validate :all_roles_are_valid
 
-    mount_uploader :avatar, Decidim::AvatarUploader
+    has_one_attached :avatar
+    validates_upload :avatar, uploader: Decidim::AvatarUploader
+
+    has_one_attached :data_portability_file
 
     scope :not_deleted, -> { where(deleted_at: nil) }
 
@@ -229,14 +232,6 @@ module Decidim
 
     def user_name
       extended_data["user_name"] || name
-    end
-
-    # Caches a Decidim::DataPortabilityUploader with the retrieved file.
-    def data_portability_file(filename)
-      @data_portability_file ||= DataPortabilityUploader.new(self).tap do |uploader|
-        uploader.retrieve_from_store!(filename)
-        uploader.cache!(filename)
-      end
     end
 
     # return the groups where this user has been accepted

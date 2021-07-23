@@ -11,10 +11,6 @@ module Decidim::Votings
 
     let(:form) { ClosureCertifyForm.from_params(add_photos: add_photos).with_context(closure: closure) }
 
-    before do
-      Decidim::AttachmentUploader.enable_processing = true
-    end
-
     it "saves the attachment" do
       expect { subject.call }.to change(Decidim::Attachment, :count).by(1)
       expect(closure.photos.first).to be_present

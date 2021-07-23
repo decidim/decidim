@@ -30,7 +30,7 @@ describe "Decidim::Api::QueryType" do
       "hashtag" => initiative.hashtag,
       "id" => initiative.id.to_s,
       "initiativeType" => {
-        "bannerImage" => initiative.type.banner_image.url,
+        "bannerImage" => initiative.type.attached_uploader(:banner_image).path,
         "collectUserExtraFields" => initiative.type.collect_user_extra_fields?,
         "createdAt" => initiative.type.created_at.iso8601.to_s.gsub("Z", "+00:00"),
         "description" => { "translation" => initiative.type.description[locale] },

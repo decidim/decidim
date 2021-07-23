@@ -44,6 +44,8 @@ module Decidim
             end
           end
 
+          resource :permissions, controller: "initiatives_permissions"
+
           resource :answer, only: [:edit, :update]
         end
 

@@ -44,7 +44,7 @@ module Decidim
       end
 
       def resource_image_path
-        model.banner_image.url
+        model.attached_uploader(:banner_image).path
       end
 
       def has_image?

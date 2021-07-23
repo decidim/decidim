@@ -1,8 +1,8 @@
 <div class="author-data__main">
   <div class="author author--inline">
-    <% if author.respond_to?(:avatar_url) %>
+    <% if author.respond_to?(:avatar) %>
       <span class="author__avatar author__avatar--small">
-        <%= image_tag author.avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(author_name)) %>
+        <%= image_tag present(author).avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(author_name)) %>
       </span>
     <% end %>
     <span class="author__name">

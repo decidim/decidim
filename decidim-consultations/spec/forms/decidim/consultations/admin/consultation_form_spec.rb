@@ -57,10 +57,6 @@ module Decidim
           }
         end
 
-        before do
-          Decidim::AttachmentUploader.enable_processing = true
-        end
-
         context "when everything is OK" do
           it { is_expected.to be_valid }
         end

@@ -39,10 +39,10 @@ module Decidim
         speakers.map { |speaker| present(speaker) }
       end
 
-      def avatar
-        return model.user.avatar if model.user.present?
+      def avatar_path
+        return Decidim::UserPresenter.new(model.user).avatar_url if model.user.present?
 
-        model.avatar
+        model.attached_uploader(:avatar).path
       end
 
       def has_profile?

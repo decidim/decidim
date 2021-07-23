@@ -7,11 +7,11 @@ module Decidim
     routes { Decidim::Core::Engine.routes }
 
     let!(:organization) { create(:organization) }
-    let(:uploader) { organization.open_data_file }
+    let(:open_data_file_path) { Rails.application.routes.url_helpers.rails_blob_url(organization.open_data_file.blob, only_path: true) }
 
     before do
       request.env["decidim.current_organization"] = organization
-      FileUtils.rm(organization.open_data_file.file.path) if organization.open_data_file.file.exists?
+      FileUtils.rm(organization.open_data_file.file.path) if organization.open_data_file.attached?
     end
 
     describe "GET download" do
@@ -24,7 +24,7 @@ module Decidim
         let(:generate_file) { true }
 
         it "redirects to download it" do
-          expect(controller).to redirect_to(uploader.url)
+          expect(controller).to redirect_to(open_data_file_path)
         end
       end
 

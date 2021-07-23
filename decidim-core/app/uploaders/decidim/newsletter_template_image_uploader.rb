@@ -3,7 +3,9 @@
 module Decidim
   # This class deals with uploading images to newsletters.
   class NewsletterTemplateImageUploader < ImageUploader
-    process resize_to_fit: [550, 300]
+    set_variants do
+      { default: { resize_to_fit: [550, 300] } }
+    end
 
     def max_image_height_or_width
       8000

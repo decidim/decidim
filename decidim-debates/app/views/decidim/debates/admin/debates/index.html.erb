@@ -51,6 +51,8 @@
                   <span class="action-space icon"></span>
                 <% end %>
 
+                <%= resource_permissions_link(debate) %>
+
                 <% if allowed_to? :delete, :debate, debate: debate %>
                   <%= icon_link_to "circle-x", debate_path(debate), t("actions.destroy", scope: "decidim.debates"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.debates") } %>
                 <% else %>

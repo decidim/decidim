@@ -66,7 +66,7 @@ shared_examples "update an initiative" do
         expect(initiative.hashtag).to eq(form_params[:hashtag])
       end
 
-      context "when attachment is present", processing_uploads_for: Decidim::AttachmentUploader do
+      context "when attachment is present" do
         let(:attachment_params) do
           {
             title: "My attachment",
