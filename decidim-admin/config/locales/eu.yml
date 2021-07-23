@@ -410,7 +410,6 @@ eu:
       newsletters:
         create:
           error: ' Errorea gertatu da buletin hau sortzean.'
-          success: Buletina ongi sortu da. Mesedez, berrikusi bidali baino lehen.
         deliver:
           error: Errorea gertatu da buletin hau entregatzean.
           success: Buletina ongi bidali da.
@@ -644,10 +643,6 @@ eu:
           admins: Administratzaileak
           participants: Parte-hartzaileak
       view_public_page: Ikusi orri publikoa
-    forms:
-      errors:
-        impersonate_user:
-          reason: Arrazoi bat eman behar duzu erabiltzaile ez kudeatzaile bat ordezkatuz
     moderations:
       actions:
         hidden: ' Ezkutatuta'

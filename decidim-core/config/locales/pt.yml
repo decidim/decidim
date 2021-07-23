@@ -62,7 +62,6 @@ pt:
     'true': 'Sim'
   carrierwave:
     errors:
-      general: Erro ao processar a imagem
       image_too_big: A imagem é demasiado grande
   date:
     formats:

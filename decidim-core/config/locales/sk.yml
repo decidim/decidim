@@ -68,7 +68,6 @@ sk:
     'true': 'Áno'
   carrierwave:
     errors:
-      general: Chyba spracovania obrázku
       image_too_big: Obrázok je príliš veľký
   date:
     formats:

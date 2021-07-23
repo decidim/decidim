@@ -595,6 +595,9 @@ cs:
     menu:
       initiatives: Iniciativy
     resources:
+      initiative:
+        actions:
+          comment: Komentář
       initiatives_type:
         actions:
           title: Akce

@@ -576,6 +576,9 @@ fr-CA:
     menu:
       initiatives: Initiatives
     resources:
+      initiative:
+        actions:
+          comment: Commenter
       initiatives_type:
         actions:
           title: Actions

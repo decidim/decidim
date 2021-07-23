@@ -359,6 +359,7 @@ fr:
     resources:
       consultations:
         actions:
+          comment: Commenter
           vote: Voter
   layouts:
     decidim:

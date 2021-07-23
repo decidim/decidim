@@ -204,6 +204,8 @@ ca:
             label: Estat
     components:
       accountability:
+        actions:
+          comment: Comentar
         name: Seguiment
         settings:
           global:

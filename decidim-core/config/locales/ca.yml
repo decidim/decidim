@@ -67,7 +67,6 @@ ca:
     'true': 'Sí'
   carrierwave:
     errors:
-      general: Error en processar la imatge
       image_too_big: La imatge és massa gran
       not_inside_organization: L'arxiu no està relacionat amb cap organització
   date:
@@ -99,6 +98,7 @@ ca:
         error: S'ha produït un error en eliminar el teu compte.
         success: El teu compte s'ha eliminat correctament.
       show:
+        available_locales_helper: Tria l'idioma que vols utilitzar per a navegar i rebre notificacions a Decidim
         change_password: Canvia la contrasenya
         update_account: Actualitzar compte
       update:
@@ -255,6 +255,8 @@ ca:
         download: Descarregar fitxer
       documents:
         related_documents: Documents relacionats
+      geocoding:
+        geocoded_address: Adreça
       photos:
         related_photos: Imatges relacionades
     author:
@@ -316,7 +318,7 @@ ca:
           explanation: Per dur a terme aquesta acció, has de disposar de l'autorització "%{authorization}".
           title: Es requereix autorització
         ok:
-          title: Heu estat autoritzats mentre éreu en aquesta pàgina. Si us plau, recarregueu la pàgina per a realitzar la vostra acció
+          title: Has estat autoritzat mentre estàs en aquesta pàgina. Si us plau, torna a carregar la pàgina per a realitzar la teva acció
         pending:
           explanation: Per realitzar aquesta acció, has d'estar autoritzat/da amb "%{authorization}", però la teva autorització encara està en curs
           resume: Comprova el progrés de l'autorització "%{authorization}"
@@ -856,12 +858,12 @@ ca:
     links:
       invalid_url: URL no vàlida
       warning:
-        body_1: Ara visitaràs un enllaç exterior i et recomanem que siguis prudent pel que fa als continguts en pàgines externes.
+        body_1: Estàs a punt de visitar un enllaç extern i et recomanem que siguis prudent pel que fa als continguts en pàgines externes.
         body_2: Assegura't que l'enllaç que visitaràs és d'un lloc segur abans de seguir.
-        cancel: Anuŀla
-        close_modal: Tanca el modal
-        proceed: Continua
-        title: Obre l'enllaç extern
+        cancel: Cancel·lar
+        close_modal: Tancar finestra
+        proceed: Continuar
+        title: Obrir enllaç extern
     log:
       base_presenter:
         create: "%{user_name} ha creat %{resource_name}"
@@ -1264,7 +1266,7 @@ ca:
           areas: Àrees
           select_an_area: Selecciona una àrea
       public_participation:
-        public_participation: Mostra públicament l'assistència
+        public_participation: Mostra públicament la meva assistència
       reference:
         reference: 'Referència: %{reference}'
       represent_user_group:

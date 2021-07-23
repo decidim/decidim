@@ -40,7 +40,6 @@ bg:
         enable_omnipresent_banner: Показвай всепоказван банер
         facebook_handler: Манипулатор на Facebook
         favicon: Икона
-        from: От адрес ел.поща
         github_handler: Манипулатор на GitHub
         header_snippets: Части на HTML заглавката
         highlight_alternative_color: Подчертаване, алтернативен

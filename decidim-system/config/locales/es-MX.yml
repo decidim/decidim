@@ -57,6 +57,9 @@ es-MX:
         update:
           error: Se ha producido un error al actualizar este administrador.
           success: Administrador actualizado correctamente
+      dashboard:
+        show:
+          current_organizations: Organizaciones actuales
       default_pages:
         placeholders:
           content: Agrega contenido significativo a la página estática de %{page} en el panel de admin.
@@ -112,6 +115,9 @@ es-MX:
           error: Se ha producido un error al actualizar esta aplicación.
           success: Aplicación actualizada correctamente.
       organizations:
+        advanced_settings:
+          hide: Ocultar configuración avanzada
+          show: Mostrar configuración avanzada
         create:
           error: Se ha producido un error al crear una nueva organización.
           success: Organización creada correctamente.

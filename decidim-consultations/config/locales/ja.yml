@@ -349,6 +349,7 @@ ja:
     resources:
       consultations:
         actions:
+          comment: コメント
           vote: 投票
     statistics:
       consultations_count: コンサルテーション

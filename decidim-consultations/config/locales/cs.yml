@@ -379,6 +379,7 @@ cs:
     resources:
       consultations:
         actions:
+          comment: Komentář
           vote: Hlasovat
     statistics:
       consultations_count: Konzultace

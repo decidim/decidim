@@ -1,4 +1,11 @@
 es-MX:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Título
+      template:
+        description: Descripción
+        name: Nombre
   decidim:
     admin:
       menu:

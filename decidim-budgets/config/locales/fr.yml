@@ -229,6 +229,7 @@ fr:
     components:
       budgets:
         actions:
+          comment: Commenter
           vote: Voter
         name: Budgets
         settings:

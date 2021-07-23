@@ -439,8 +439,6 @@ ro:
           back: Înapoi
           create: Crează
           title: Creează-ți o întâlnire
-        online_meeting_link:
-          link_available_soon: Link disponibil în curând
         registration_confirm:
           cancel: Anulează
           confirm: Confirmare

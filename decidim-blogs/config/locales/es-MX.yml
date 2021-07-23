@@ -59,6 +59,11 @@ es-MX:
       read_more: Leer más
     components:
       blogs:
+        actions:
+          amend: Enmendar
+          comment: Comentar
+          endorse: Adherirse
+          vote: Apoyar
         name: Blog
         settings:
           global:

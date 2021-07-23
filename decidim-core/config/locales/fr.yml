@@ -63,7 +63,6 @@ fr:
     'true': 'Oui'
   carrierwave:
     errors:
-      general: Erreur de traitement de l'image
       image_too_big: L'image est trop grande
       not_inside_organization: Le fichier n'est relié à aucune organisation
   date:
@@ -95,6 +94,7 @@ fr:
         error: Une erreur s'est produite lors de la suppression de votre compte.
         success: Votre compte a été supprimé avec succès.
       show:
+        available_locales_helper: Choisissez la langue que vous souhaitez utiliser pour naviguer et recevoir des notifications dans Decidim
         change_password: Changer de mot de passe
         update_account: Mettre à jour votre compte
       update:

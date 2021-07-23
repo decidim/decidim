@@ -75,7 +75,6 @@ cs:
     'true': 'Ano'
   carrierwave:
     errors:
-      general: Chyba při zpracování obrázku
       image_too_big: Obraz je příliš velký
       not_inside_organization: Soubor není připojen k žádné organizaci
   date:
@@ -107,6 +106,7 @@ cs:
         error: Při mazání účtu došlo k chybě.
         success: Účet byl úspěšně smazán.
       show:
+        available_locales_helper: Vyberte jazyk, který chcete použít k procházení a přijímání oznámení v Decidim
         change_password: Změnit heslo
         update_account: Aktualizovat účet
       update:

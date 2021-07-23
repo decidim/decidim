@@ -229,6 +229,7 @@ ja:
     components:
       budgets:
         actions:
+          comment: コメント
           vote: 投票
         name: 予算
         settings:

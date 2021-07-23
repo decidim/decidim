@@ -595,6 +595,9 @@ pl:
     menu:
       initiatives: Inicjatywy
     resources:
+      initiative:
+        actions:
+          comment: Skomentuj
       initiatives_type:
         actions:
           title: Działania

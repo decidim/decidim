@@ -715,6 +715,9 @@ ca:
           proposals_count:
             one: "%{count} proposta"
             other: "%{count} propostes"
+        dynamic_map_instructions:
+          description: Les coordenades s'actualitzaran quan facis clic en el botó 'previsualitzar'. No obstant això, la direcció no canvia.
+          instructions: Pots moure la ubicació en el mapa.
         edit:
           add_documents: Documents
           add_images: Arxiu

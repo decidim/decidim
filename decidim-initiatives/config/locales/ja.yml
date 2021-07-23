@@ -571,6 +571,9 @@ ja:
     menu:
       initiatives: イニシアチブ
     resources:
+      initiative:
+        actions:
+          comment: コメント
       initiatives_type:
         actions:
           title: アクション

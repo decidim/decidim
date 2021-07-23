@@ -61,6 +61,11 @@ cs:
       read_more: Přečtěte si více
     components:
       blogs:
+        actions:
+          amend: Pozměnit
+          comment: Komentář
+          endorse: Schválit
+          vote: Hlasovat
         name: Blog
         settings:
           global:

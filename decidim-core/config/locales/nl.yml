@@ -67,7 +67,6 @@ nl:
     'true': 'Ja'
   carrierwave:
     errors:
-      general: Fout bij verwerken afbeelding
       image_too_big: De afbeelding is te groot
   date:
     formats:

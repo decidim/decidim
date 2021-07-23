@@ -59,6 +59,11 @@ fi-pl:
       read_more: Lue lisää
     components:
       blogs:
+        actions:
+          amend: Muokkaa
+          comment: Kommentoi
+          endorse: Suosittele
+          vote: Äänestä
         name: Blogi
         settings:
           global:

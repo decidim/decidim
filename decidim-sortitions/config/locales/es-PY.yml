@@ -19,6 +19,8 @@ es-PY:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Comentar
         name: Sorteos
         settings:
           global:
