@@ -625,6 +625,12 @@ ja:
           preview_alert: これは投票ブースのプレビューです。
           question_steps: '%{current_step} / %{total_steps} の質問'
           selections: "%{selected} / %{max_selections}<br> の選択"
+        onboarding_modal:
+          close: 閉じる
+          create_account: アカウントの作成
+          description: Decidimで新しいアカウントを作成しますか？ プロセスに参加し、組織の積極的な一員になることができます。
+          no_account: いいえ結構です。
+          title: Decidimは初めてですか？
         verify:
           form:
             submit: チェック
