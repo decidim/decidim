@@ -109,6 +109,10 @@ types = {
     label: "type: fix",
     skip_modules: false
   },
+  "Improved" => {
+    label: "type: enhancement",
+    skip_modules: false
+  },
   "Removed" => {
     label: "type: removal",
     skip_modules: false
