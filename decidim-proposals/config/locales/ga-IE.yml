@@ -2,7 +2,12 @@ ga:
   activemodel:
     attributes:
       collaborative_draft:
+        body: Corp
         category_id: Catagóir
+        decidim_scope_id: Scóip
+        scope_id: Scóip
+        state: Staid
+        title: Teideal
       proposal:
         address: Seoladh
         answer: Freagra
