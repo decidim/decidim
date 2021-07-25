@@ -6,10 +6,13 @@ ga:
         copy_categories: Cóipeáil catagóirí
         decidim_area_id: Ceantar
         domain: Fearann
+        end_date: Dáta deiridh
         hashtag: Haischlib
         participatory_process_group_id: Grúpa próisis
         related_process_ids: Próisis Ceangailte
         scope_id: Scóip
+        slug: Píosa URL
+        subtitle: Fotheideal
         title: Teideal
         weight: Meáchan
       participatory_process_group:
@@ -19,6 +22,7 @@ ga:
         participatory_process_ids: Próisis Ceangailte
         title: Teideal
       participatory_process_step:
+        end_date: Dáta deiridh
         title: Teideal
       participatory_process_user_role:
         email: Seoladh ríomhphoist
@@ -45,6 +49,7 @@ ga:
         participatory_processes_submenu:
           attachment_collections: Fillteáin
           attachment_files: Comhaid
+          attachments: Ceangaltáin
           categories: Catagóirí
           info: Eolas
           process_admins: Riaracháin próiseas
@@ -61,6 +66,7 @@ ga:
           name: Grúpa próisis
         participatory_process_step:
           fields:
+            end_date: Dáta deiridh
             title: Teideal
           name: Céim próisis rannpháirtíochta
         participatory_process_user_role:
@@ -117,6 +123,7 @@ ga:
             json: JSON
         participatory_processes:
           form:
+            duration: Fad
             filters: Scagairí
             images: Íomhánna
             other: Eile
@@ -130,6 +137,7 @@ ga:
       show:
         area: Ceantar
         dates: Dátaí
+        end_date: Dáta deiridh
         scope: Scóip
       statistics:
         answers_count: Freagraí
@@ -137,10 +145,12 @@ ga:
         debates_count: Díospóireachtaí
         endorsements_count: Formhuinithe
         meetings_count: Cruinnithe
+        orders_count: Tacaíochtaí
         pages_count: Leathanaigh
         processes_count: Próisis
         projects_count: Tionscadail
         results_count: Torthaí
+        supports_count: Tacaíochtaí
         surveys_count: Suirbhéanna
   layouts:
     decidim:
