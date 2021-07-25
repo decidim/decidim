@@ -1,1 +1,35 @@
 ga:
+  activemodel:
+    attributes:
+      organization:
+        port: Port
+  decidim:
+    system:
+      actions:
+        destroy: Scrios
+        edit: Eagar
+        new: Nua
+        save: Sábháil
+      admins:
+        index:
+          title: Riaracháin
+        new:
+          create: Cruthaigh
+      menu:
+        admins: Riaracháin
+      models:
+        admin:
+          fields:
+            email: Seoladh ríomhphoist
+          name: Riarachán
+        organization:
+          fields:
+            name: Ainm
+      oauth_applications:
+        edit:
+          save: Sábháil
+        new:
+          save: Sábháil
+      organizations:
+        omniauth_settings:
+          icon: Deilbhín
