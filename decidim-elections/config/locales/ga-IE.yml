@@ -13,6 +13,10 @@ ga:
       filters:
         role_eq:
           label: Ról
+        signed_eq:
+          label: Sínithe
+          values:
+            'false': Sínithe
     components:
       elections:
         actions:
@@ -20,69 +24,128 @@ ga:
     elections:
       actions:
         edit: Eagar
+        preview: Réamhamharc
+        title: Gníomhartha
+      admin:
+        answers:
+          index:
+            title: Freagraí
+        models:
+          answer:
+            name: Freagra
+        steps:
+          results_published:
+            answer: Freagra
+            result: Toradh
+            submit: Deimhnigh
+          tally_ended:
+            answer: Freagra
+            result: Toradh
+          vote_stats:
+            voters: Vótálaithe
+            votes: Vótaí
       election_m:
+        badge_name:
+          ongoing: Gníomhach
         end_date: Deireadh
         footer:
           view: Amharc
           vote: Vótáil
         label:
           date: Dátaí
+        start_date: Ag Tosú
       elections:
+        election_log:
+          results_title: Torthaí
         filters:
+          active: Gníomhach
           all: Uile
+          search: Cuardaigh
+          state: Stádas
+        filters_small_view:
+          filter: Scag
+          unfold: Oscail
+        show:
+          preview: Réamhamharc
       models:
         answer:
           fields:
             title: Teideal
+            votes: Vótaí
         election:
           fields:
+            end_time: Deireadh ag
             title: Teideal
         question:
           fields:
+            answers: Freagraí
             title: Teideal
         trustees_participatory_space:
           fields:
             email: Seoladh ríomhphoist
             name: Ainm
+            status: Stádas
       orders:
         older: Níos Sine
+        recent: Is Déanaí
       trustee_zone:
         elections:
           key_ceremony_steps:
             back: Ar Ais
             list:
+              status: Stádas
               task: Tasc
+            start: Tosaigh
           tally_steps:
             back: Ar Ais
             list:
+              status: Stádas
               task: Tasc
+            start: Tosaigh
         trustees:
           show:
             elections:
               list:
                 action_required:
                   'false': 'Níl'
+                bb_status: Stádas
+            identification_keys:
+              cancel: Cealaigh
+              submit: Deimhnigh
       votes:
         confirm:
+          answer: Freagra
           edit: eagar
+          nota_option: Bán
         modal:
           close: Dún
+        verify:
+          form:
+            submit: Seiceáil
         voting_step:
           back: Ar Ais
           continue: I ndiaidh
     votings:
       admin:
         ballot_styles:
+          edit:
+            update: Nuashonraigh
           index:
             actions:
               destroy: Scrios
               edit: Eagar
               new: Nua
+              title: Gníomhartha
           new:
             create: Cruthaigh
+        landing_page:
+          content_blocks:
+            edit:
+              update: Nuashonraigh
         menu:
           votings_submenu:
             attachment_files: Comhaid
+            census: Móráireamh
         models:
           ballot_style:
             fields:
@@ -103,12 +166,16 @@ ga:
               title: Teideal
         monitoring_committee_election_results:
           actions:
+            title: Gníomhartha
             view: Amharc
+          results:
+            totals: Iomlána
         monitoring_committee_members:
           new:
             create: Cruthaigh
         monitoring_committee_polling_station_closures:
           actions:
+            title: Gníomhartha
             view: Amharc
         polling_officers:
           new:
@@ -119,8 +186,13 @@ ga:
           new:
             create: Cruthaigh
         votings:
+          edit:
+            update: Nuashonraigh
           form:
             title: Teideal
+            voting_type:
+              hybrid: Hibrid
+              online: Ar líne
           new:
             create: Cruthaigh
       census:
@@ -130,6 +202,7 @@ ga:
       monitoring_committee_members:
         actions:
           destroy: Scrios
+          title: Gníomhartha
       polling_officer_zone:
         closures:
           edit:
@@ -139,11 +212,13 @@ ga:
             modal_ballots_count_error:
               close_modal: Dún
           sign:
+            cancel: Cealaigh
             close_modal: Dún
         in_person_votes:
           in_person_form:
             day: Lá
             day_placeholder: LL
+            month: Mí
             month_placeholder: MM
             year: Bliain
             year_placeholder: BBBB
@@ -153,30 +228,47 @@ ga:
           index:
             polling_station:
               name: Ainm
+              voting: Vótáil
       polling_officers:
         actions:
           destroy: Scrios
           new: Nua
+          title: Gníomhartha
+      polling_station_closure_recount:
+        signed: Sínithe
       polling_stations:
         actions:
           destroy: Scrios
           edit: Eagar
           new: Nua
+          title: Gníomhartha
       votings:
         check_fields:
           day: Lá
           day_placeholder: LL
+          month: Mí
           month_placeholder: MM
           year: Bliain
           year_placeholder: BBBB
         filters:
+          active: Gníomhach
           all: Uile
+          search: Cuardaigh
+          state: Stádas
+        filters_small_view:
+          filter: Scag
+          unfold: Oscail
+        orders:
+          random: Randamach
         show:
           dates: Dátaí
       votings_m:
         footer_button_text:
           view: Amharc
           vote: Vóta
+        voting_type:
+          hybrid: Hibrid
+          online: Ar líne
   layouts:
     decidim:
       election_votes_header:
