@@ -13,6 +13,7 @@ ga:
     budgets:
       actions:
         attachment_collections: Fillteáin
+        attachments: Ceangaltáin
         destroy: Scrios
         edit: Eagar
         preview: Réamhamharc
@@ -35,6 +36,8 @@ ga:
             title: Tionscadail
           new:
             create: Cruthaigh
+      budget_information_modal:
+        continue: Lean ar aghaidh
       models:
         budget:
           fields:
@@ -48,6 +51,7 @@ ga:
           confirm: Deimhnigh
         budget_excess:
           close: Dún
+          ok: Togha
         filters:
           category: Catagóir
           scope: Scóip
