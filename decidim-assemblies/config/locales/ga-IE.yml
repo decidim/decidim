@@ -2,13 +2,87 @@ ga:
   activemodel:
     attributes:
       assembly:
+        area_id: Ceantar
         copy_categories: Cóipeáil catagóirí
+        decidim_area_id: Ceantar
+        decidim_scope_id: Scóip
         participatory_processes_ids: Próisis Rannpháirteacha Ceangailte
+        scope_id: Scóip
+        title: Teideal
+      assembly_user_role:
+        email: Seoladh ríomhphoist
+        name: Ainm
+        role: Ról
   decidim:
     admin:
+      assemblies:
+        new:
+          create: Cruthaigh
+      assemblies_types:
+        new:
+          create: Cruthaigh
+      assembly_copies:
+        new:
+          copy: Cóipeáil
+      assembly_members:
+        new:
+          create: Cruthaigh
+      assembly_user_roles:
+        new:
+          create: Cruthaigh
       menu:
         assemblies_submenu:
+          attachment_files: Comhaid
           categories: Catagóirí
+          info: Eolas
+      models:
+        assemblies_types:
+          fields:
+            title: Teideal
+        assembly:
+          fields:
+            title: Teideal
+        assembly_member:
+          fields:
+            full_name: Ainm
+          positions:
+            other: Eile
+        assembly_user_role:
+          fields:
+            email: Seoladh ríomhphoist
+            name: Ainm
+            role: Ról
+          roles:
+            admin: Riarthóir
     assemblies:
+      admin:
+        assemblies:
+          form:
+            images: Íomhanna
+            other: Eile
+        assemblies_types:
+          form:
+            title: Teideal
+        assembly_members:
+          index:
+            filter:
+              all: Uile
+        new_import:
+          accepted_types:
+            json: JSON
+      assembly_types:
+        others: Eile
+      created_by:
+        others: Eile
+      filter:
+        help: 'Taispeáin:'
+        others: Eile
       show:
+        area: Ceantar
         related_participatory_processes: Próisis Rannpháirteacha Ceangailte
+        scope: Scóip
+  layouts:
+    decidim:
+      assemblies:
+        index:
+          reset_chart: Athshocraigh
