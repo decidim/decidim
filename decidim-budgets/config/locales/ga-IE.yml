@@ -1,1 +1,10 @@
 ga:
+  activemodel:
+    attributes:
+      project:
+        decidim_category_id: Catagóir
+  decidim:
+    budgets:
+      projects:
+        filters:
+          category: Catagóir
