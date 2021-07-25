@@ -5,6 +5,7 @@ ga:
         area_id: Ceantar
         copy_categories: Cóipeáil catagóirí
         decidim_area_id: Ceantar
+        domain: Fearann
         participatory_process_group_id: Grúpa próisis
         related_process_ids: Próisis Ceangailte
         scope_id: Scóip
@@ -26,9 +27,11 @@ ga:
         edit: Eagar
         filter:
           process_groups: Grúpaí próiseas
+        import_process: Iompórtáil
         new_process: Próiseas nua
         new_process_group: Grúpa próisis nua
         new_process_user_role: Riarachán próisis nua
+        preview: Réamhamharc
       menu:
         participatory_process_groups: Grúpaí próiseas
         participatory_process_groups_submenu:
@@ -39,6 +42,7 @@ ga:
           categories: Catagóirí
           info: Eolas
           process_admins: Riaracháin próiseas
+          steps: Céimeanna
       models:
         participatory_process:
           fields:
@@ -63,17 +67,35 @@ ga:
       participatory_process_copies:
         new:
           copy: Cóipeáil
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Nuashonraigh
       participatory_process_groups:
+        edit:
+          update: Nuashonraigh
         new:
           create: Cruthaigh
+      participatory_process_imports:
+        new:
+          import: Iompórtáil
       participatory_process_steps:
         default_title: Réamhrá
+        edit:
+          update: Nuashonraigh
+        index:
+          steps_title: Céimeanna
         new:
           create: Cruthaigh
       participatory_process_user_roles:
+        edit:
+          update: Nuashonraigh
         new:
           create: Cruthaigh
       participatory_processes:
+        edit:
+          update: Nuashonraigh
+        index:
+          public: Poblach
         new:
           create: Cruthaigh
     participatory_process_groups:
@@ -87,11 +109,12 @@ ga:
             json: JSON
         participatory_processes:
           form:
-            images: Íomhanna
+            images: Íomhánna
             other: Eile
       participatory_processes:
         filters:
           names:
+            active: Gníomhach
             all: Uile
             past: Roimhe
           see: Feic
@@ -99,3 +122,8 @@ ga:
         area: Ceantar
         dates: Dátaí
         scope: Scóip
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Brabhsáil
