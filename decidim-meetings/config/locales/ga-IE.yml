@@ -2,6 +2,7 @@ ga:
   activemodel:
     attributes:
       agenda:
+        duration: Fad
         title: Teideal
       close_meeting:
         audio_url: URL Fuaime
@@ -33,6 +34,8 @@ ga:
               'false': Roimhe
           origin_eq:
             label: Bunús
+            values:
+              citizen: Saoránach
           scope_id_eq:
             label: Scóip
           type_eq:
@@ -55,6 +58,7 @@ ga:
       actions:
         agenda: Clár
         attachment_collections: Fillteáin
+        attachments: Ceangaltáin
         close: Dún
         destroy: Scrios
         edit: Eagar
@@ -72,6 +76,8 @@ ga:
             up: Ardaigh
           edit:
             update: Nuashonraigh
+          form:
+            end_date: Dáta deiridh
           new:
             create: Cruthaigh
         exports:
@@ -84,6 +90,7 @@ ga:
           index:
             filter:
               all: Uile
+              rejected: Diúltaithe
               sent: Seolta
             invites: Cuirí
             search: Cuardaigh
@@ -173,6 +180,7 @@ ga:
         meeting:
           fields:
             closed: Dúnta
+            end_time: Dáta deiridh
             id: Id
             map: Léarscáil
             title: Teideal
