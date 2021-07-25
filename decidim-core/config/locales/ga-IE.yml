@@ -1,11 +1,170 @@
 ga:
+  activemodel:
+    attributes:
+      group:
+        about: Faoi
+        email: Seoladh ríomhphoist
+        name: Ainm
+        phone: Fón
+      user:
+        about: Faoi
+  activerecord:
+    attributes:
+      decidim/user:
+        email: Seoladh ríomhphoist
+  booleans:
+    'false': 'Níl'
+    'true': 'Is ea'
+  date:
+    formats:
+      decidim_with_month_name_short: "%d %b"
   decidim:
+    amendments:
+      new:
+        send: Cruthaigh
+      review:
+        back: Ar Ais
+    authorization_handlers:
+      dummy_authorization_handler:
+        fields:
+          scope_id: Scóip
+      foo_authorization:
+        fields:
+          bar: Bar
+          foo: Foo
+    components:
+      component_order_selector:
+        order:
+          post: Postáil
+        title: 'Taispeáin:'
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        settings:
+          global:
+            scope_id: Scóip
+    data_portability:
+      export:
+        ready: Réidh
+    devise:
+      shared:
+        omniauth_buttons:
+          or: Nó
     endorsable:
       endorsements: Formhuinithe
     endorsement_buttons_cell:
       already_endorsed: Formhuinithe
       endorse: Formhuinigh
+    endorsements:
+      identities:
+        done: Críochnaithe
+    filters:
+      linked_classes:
+        all: Uile
+    gamification:
+      badges:
+        index:
+          title: Suaitheantais
+    groups:
+      roles:
+        admin: Riarthóir
+    last_activities:
+      index:
+        resource_type: Cineál
+    menu:
+      help: Cabhair
+      home: Baile
+    messaging:
+      conversations:
+        index:
+          ago: ó shin
+          from: Ó
+          next: I ndiaidh
+        reply:
+          send: Seol
+          title: Freagra
+        start:
+          send: Seol
+    newsletter_templates:
+      basic_only_text_settings_form:
+        body: Corp
+      image_text_cta_settings_form:
+        body: Corp
+        introduction: Réamhrá
+    notifications_settings:
+      show:
+        administrators: Riarthóirí
+    pad_iframe:
+      pad: Ceap
     pages:
       home:
         statistics:
           endorsements_count: Formhuinithe
+          orders_count: Vótaí
+          pages_count: Leathanaigh
+          votes_count: Vótaí
+      index:
+        standalone_pages: Leathanaigh
+        title: Cabhair
+    profile:
+      view: Amharc
+    profiles:
+      show:
+        badges: Suaitheantais
+        groups: Grúpaí
+      sidebar:
+        badges:
+          title: Suaitheantais
+    reported_mailer:
+      report:
+        id: ID
+    scopes:
+      scopes: Scóip
+    searches:
+      filters:
+        state:
+          all: Uile
+          past: Roimhe
+    shared:
+      extended_navigation_bar:
+        more: Níos mó
+      flag_modal:
+        close: Dún
+      flag_user_modal:
+        close: Dún
+      floating_help:
+        help: Cabhair
+      participatory_space_filters:
+        filters:
+          areas: Ceantair
+    user_conversations:
+      index:
+        close: Dún
+        from: Ó
+        next: I ndiaidh
+      reply:
+        send: Seol
+        title_reply: Freagair
+    wizard_step_form:
+      wizard_aside:
+        back: Ar Ais
+  devise:
+    invitations:
+      edit:
+        submit_button: Sábháil
+    shared:
+      links:
+        back: Ar Ais
+  layouts:
+    decidim:
+      edit_link:
+        edit: Eagar
+      user_profile:
+        user_groups: Grúpaí
+  social_share_button:
+    email: Seoladh ríomhphoist
+    xing: Xing
+  time:
+    formats:
+      day_of_week: "%a"
