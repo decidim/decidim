@@ -1,1 +1,9 @@
 ga:
+  decidim:
+    endorsable:
+      endorsements: Formhuinithe
+    endorsement_buttons_cell:
+      already_endorsed: Formhuinithe
+      endorse: Formhuinigh
+    statistics:
+      endorsements_count: Formhuinithe
