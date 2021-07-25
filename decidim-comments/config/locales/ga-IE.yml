@@ -1,12 +1,25 @@
 ga:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Trácht
+      decidim/comments/comment_created_event: Trácht
+      decidim/comments/user_group_mentioned_event: Luaigh
+      decidim/comments/user_mentioned_event: Luaigh
   decidim:
     comments:
+      comments_title: Tráchtanna
       view: Amharc
     components:
       add_comment_form:
         form:
+          body:
+            label: Trácht
           submit: Seol
+        opinion:
+          neutral: Neodrach
       comment:
+        alignment:
+          against: In Aghaidh
         reply: Freagra
         report:
           action: Tuairiscigh
@@ -15,3 +28,7 @@ ga:
         order:
           older: Níos Sine
           recent: Is Déanaí
+    metrics:
+      comments:
+        object: tráchtanna
+        title: Tráchtanna
