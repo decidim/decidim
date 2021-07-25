@@ -36,9 +36,12 @@ ga:
           save: Sábháil
       organizations:
         omniauth_settings:
+          enabled: Cumasaithe
           facebook:
             app_id: ID Aipe
           icon: Deilbhín
+          twitter:
+            api_key: Eochair API
         smtp_settings:
           fieldsets:
             sender: Seoltóir
