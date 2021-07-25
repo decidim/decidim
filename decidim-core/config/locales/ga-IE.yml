@@ -34,6 +34,7 @@ ga:
         send: Cruthaigh
       preview_draft:
         modify: Athraigh
+        publish: Foilsigh
       review:
         back: Ar Ais
     author:
@@ -56,7 +57,9 @@ ga:
     components:
       component_order_selector:
         order:
+          comment: Trácht
           debate: Díospóireacht
+          meeting: Cruinniú
           post: Postáil
         title: 'Taispeáin:'
       dummy:
@@ -66,6 +69,7 @@ ga:
         settings:
           global:
             scope_id: Scóip
+    contact: Teagmháil
     content_blocks:
       highlighted_elements_settings_form:
         orders:
@@ -77,6 +81,7 @@ ga:
       registrations:
         new:
           sign_in: Logáil isteach
+          sign_up: Cláraigh
       shared:
         omniauth_buttons:
           or: Nó
@@ -95,6 +100,8 @@ ga:
     filters:
       linked_classes:
         all: Uile
+        meeting: Cruinnithe
+        project: Tionscadail
         result: Torthaí
     fingerprint:
       source: Foinse
@@ -106,6 +113,8 @@ ga:
       badges:
         index:
           title: Suaitheantais
+        invitations:
+          name: Cuirí
     group_invites:
       accept_invitation: Glac
       index:
@@ -117,6 +126,7 @@ ga:
         reject_request: Diúltaigh
       roles:
         admin: Riarthóir
+        creator: Cruthaitheoir
         member: Ball
     last_activities:
       index:
@@ -147,17 +157,26 @@ ga:
     notifications_settings:
       show:
         administrators: Riarthóirí
+    own_user_groups:
+      index:
+        pending: Ar feitheamh
     pad_iframe:
       pad: Ceap
     pages:
       home:
         extended:
           debates: Díospóireachtaí
+          meetings: Cruinnithe
+        metrics:
+          headline: Méadrachtaí
         statistics:
+          comments_count: Tráchtanna
           debates_count: Díospóireachtaí
           endorsements_count: Formhuinithe
+          meetings_count: Cruinnithe
           orders_count: Vótaí
           pages_count: Leathanaigh
+          projects_count: Tionscadail
           results_count: Torthaí
           surveys_count: Suirbhéanna
           votes_count: Vótaí
@@ -165,18 +184,24 @@ ga:
         standalone_pages: Leathanaigh
         title: Cabhair
         topics: Ábhair
+      participatory_space:
+        metrics:
+          headline: Méadrachtaí
     profile:
       view: Amharc
     profiles:
       show:
         badges: Suaitheantais
+        following: Leantach
         groups: Grúpaí
+        members: Baill
       sidebar:
         badges:
           title: Suaitheantais
     reported_mailer:
       report:
         authors: Údair
+        details: Sonraí
         id: ID
         reason: Cúis
     scopes:
@@ -202,6 +227,7 @@ ga:
     shared:
       confirm_modal:
         cancel: Cealaigh
+        title: Deimhnigh
       embed_modal:
         embed_link: Leabaigh
       extended_navigation_bar:
@@ -215,6 +241,8 @@ ga:
         report: Tuairiscigh
       floating_help:
         help: Cabhair
+      login_modal:
+        sign_up: Cláraigh
       participatory_space_filters:
         filters:
           areas: Ceantair
@@ -238,6 +266,8 @@ ga:
     registrations:
       edit:
         update: Nuashonraigh
+      new:
+        sign_up: Cláraigh
     sessions:
       new:
         sign_in: Logáil isteach
@@ -245,18 +275,31 @@ ga:
       links:
         back: Ar Ais
         sign_in: Logáil isteach
+        sign_up: Cláraigh
   layouts:
     decidim:
+      cookie_warning:
+        ok: Aontaím
       edit_link:
         edit: Eagar
+      header:
+        sign_in: Sínigh Isteach
+        sign_up: Cláraigh
       user_profile:
+        account: Cuntas
+        my_data: Mo chuid sonraí
         user_groups: Grúpaí
+  locale:
+    name: Gaeilge
   social_share_button:
     douban: Douban
     email: Seoladh ríomhphoist
+    google_plus: Google+
+    linkedin: Linkedin
     qq: Qzone
     reddit: Reddit
     tumblr: Tumblr
+    twitter: Twitter
     wechat: WeChat
     xing: Xing
   time:
@@ -265,3 +308,7 @@ ga:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       time_of_day: "%H:%M"
+  versions:
+    dropdown:
+      option_escaped: Éalaithe
+      option_unified: Aontaithe
