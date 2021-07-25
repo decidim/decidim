@@ -11,17 +11,27 @@ ga:
   decidim:
     budgets:
       actions:
+        attachment_collections: Fillteáin
         destroy: Scrios
         edit: Eagar
         preview: Réamhamharc
         title: Gníomhartha
       admin:
+        budgets:
+          index:
+            title: Buiséid
+        exports:
+          projects: Tionscadail
         models:
           budget:
             name: Buiséad
+          project:
+            name: Tionscadal
         projects:
           edit:
             update: Nuashonraigh
+          index:
+            title: Tionscadail
           new:
             create: Cruthaigh
       models:
@@ -34,6 +44,7 @@ ga:
       projects:
         budget_confirm:
           cancel: Cealaigh
+          confirm: Deimhnigh
         budget_excess:
           close: Dún
         filters:
@@ -58,7 +69,9 @@ ga:
     components:
       budgets:
         actions:
+          comment: Tabhair Trácht
           vote: Vótáil
+        name: Buiséid
         settings:
           global:
             scope_id: Scóip
@@ -66,3 +79,5 @@ ga:
           step:
             title: Teideal
             votes: Vótáil
+    statistics:
+      projects_count: Tionscadail
