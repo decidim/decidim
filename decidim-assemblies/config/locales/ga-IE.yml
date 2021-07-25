@@ -1,1 +1,10 @@
 ga:
+  activemodel:
+    attributes:
+      assembly:
+        copy_categories: Cóipeáil catagóirí
+  decidim:
+    admin:
+      menu:
+        assemblies_submenu:
+          categories: Catagóirí
