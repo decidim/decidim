@@ -4,6 +4,7 @@ ga:
       debate:
         category_id: Catagóir
         decidim_category_id: Catagóir
+        end_time: Deireadh ag
         title: Teideal
     models:
       decidim/debates/create_debate_event: Díospóireacht
@@ -29,6 +30,8 @@ ga:
         debates:
           index:
             title: Díospóireachtaí
+        exports:
+          comments: Tráchtanna
         models:
           debate:
             name: Díospóireacht
