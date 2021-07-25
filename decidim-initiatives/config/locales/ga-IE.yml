@@ -1,1 +1,112 @@
 ga:
+  activemodel:
+    attributes:
+      initiative:
+        scope_id: Scóip
+        title: Teideal
+      initiatives_type:
+        title: Teideal
+  decidim:
+    admin:
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Ceantar
+          state_eq:
+            label: Staid
+          type_id_eq:
+            label: Cineál
+      models:
+        initiatives:
+          fields:
+            id: ID
+        initiatives_type_scope:
+          fields:
+            scope: Scóip
+        initiatives_votes:
+          fields:
+            hash: Hais
+            scope: Scóip
+    initiatives:
+      admin:
+        answers:
+          info_initiative:
+            state: Staid
+        initiatives:
+          initiative_attachments:
+            edit: Eagar
+            new: Nua
+        initiatives_type_scopes:
+          edit:
+            back: Ar Ais
+            destroy: Scrios
+          new:
+            back: Ar Ais
+            create: Cruthaigh
+        initiatives_types:
+          edit:
+            destroy: Scrios
+          new:
+            create: Cruthaigh
+      application_helper:
+        filter_area_values:
+          all: Uile
+        filter_scope_values:
+          all: Uile
+        filter_state_values:
+          all: Uile
+          open: Oscail
+        filter_type_values:
+          all: Uile
+      create_initiative:
+        fill_data:
+          back: Ar Ais
+        finish:
+          back: Ar Ais
+        previous_form:
+          back: Ar Ais
+        promotal_committee:
+          back: Ar Ais
+        select_initiative_type:
+          back: Ar Ais
+        show_similar_initiatives:
+          back: Ar Ais
+      edit:
+        back: Ar Ais
+      form:
+        delete_attachment: Scrios
+      initiative_signatures:
+        fill_personal_data:
+          date_select:
+            day: Lá
+            year: Bliain
+      initiatives:
+        filters:
+          any: Ar Bith
+          area: Ceantar
+          scope: Scóip
+          type: Cineál
+        index_header:
+          not_authorized:
+            close: Dún
+        print:
+          city: Cathair
+          email: Seoladh ríomhphoist
+        show:
+          edit: Eagar
+        vote_cabin:
+          vote: Sínigh
+      initiatives_mailer:
+        initiative_link:
+          here: anseo
+    resources:
+      initiatives_type:
+        actions:
+          vote: Sínigh
+  layouts:
+    decidim:
+      initiative_creation_header:
+        back: Ar Ais
+        fill_data: Cruthaigh
+      initiative_signature_creation_header:
+        back: Ar Ais
