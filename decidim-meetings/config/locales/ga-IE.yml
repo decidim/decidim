@@ -6,6 +6,7 @@ ga:
       close_meeting:
         closing_report: Tuairisc
       meeting:
+        address: Seoladh
         decidim_category_id: Catagóir
         decidim_scope_id: Scóip
         title: Teideal
@@ -13,6 +14,8 @@ ga:
       minutes:
         audio_url: URL Fuaime
         video_url: URL Físeáin
+    models:
+      decidim/meetings/create_meeting_event: Cruinniú
   decidim:
     admin:
       meeting_copies:
@@ -22,15 +25,18 @@ ga:
       meetings:
         actions:
           join: Téigh leis
+        name: Cruinnithe
         settings:
           global:
             scope_id: Scóip
     meetings:
       actions:
         agenda: Clár
+        attachment_collections: Fillteáin
         close: Dún
         destroy: Scrios
         edit: Eagar
+        minutes: Miontuairiscí
         preview: Réamhamharc
         title: Gníomhartha
       admin:
@@ -47,6 +53,9 @@ ga:
             update: Nuashonraigh
           new:
             create: Cruthaigh
+        exports:
+          meeting_comments: Tráchtanna
+          meetings: Cruinnithe
         invites:
           form:
             invite: Tabhair Cuireadh
@@ -54,6 +63,7 @@ ga:
             filter:
               all: Uile
               sent: Seolta
+            invites: Cuirí
             search: Cuardaigh
         meeting_closes:
           edit:
@@ -61,26 +71,36 @@ ga:
         meetings:
           edit:
             update: Nuashonraigh
+          index:
+            title: Cruinnithe
           new:
             create: Cruthaigh
           service:
             down: Síos
             remove: Bain as
+            service: Seirbhís
             title: Teideal
             up: Thuas
         minutes:
           edit:
+            title: Cuir in eagar miontuairiscí
             update: Nuashonraigh
           new:
             create: Cruthaigh
+        models:
+          meeting:
+            name: Cruinniú
         registrations:
           edit:
             save: Sábháil
+          form:
+            invites: Cuirí
       directory:
         meetings:
           index:
             all: Uile
             date: Dáta
+            meetings: Cruinnithe
             past: Roimhe
             search: Cuardaigh
       meeting_closes:
@@ -118,6 +138,7 @@ ga:
           create: Cruthaigh
         registration_confirm:
           cancel: Cealaigh
+          confirm: Deimhnigh
         show:
           date: Dáta
           going: Ag Dul
@@ -127,6 +148,7 @@ ga:
           fields:
             email: Seoladh ríomhphoist
             name: Ainm
+            sent_at: Seolta ag
             status: Stádas
           status:
             sent: Seolta
@@ -138,3 +160,7 @@ ga:
       type_of_meeting:
         hybrid: Araon
         online: Ar líne
+    metrics:
+      meetings:
+        object: cruinnithe
+        title: Cruinnithe
