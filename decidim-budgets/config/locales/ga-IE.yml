@@ -1,10 +1,50 @@
 ga:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Scóip
+        title: Teideal
       project:
         decidim_category_id: Catagóir
+        decidim_scope_id: Scóip
+        title: Teideal
   decidim:
     budgets:
+      actions:
+        destroy: Scrios
+        edit: Eagar
+      admin:
+        projects:
+          new:
+            create: Cruthaigh
+      models:
+        budget:
+          fields:
+            name: Ainm
+        project:
+          fields:
+            title: Teideal
       projects:
+        budget_excess:
+          close: Dún
         filters:
           category: Catagóir
+          scope: Scóip
+          status_values:
+            all: Uile
+        order_progress:
+          vote: Vóta
+        order_selected_projects:
+          view: Amharc
+        project:
+          view: Amharc
+    components:
+      budgets:
+        actions:
+          vote: Vótáil
+        settings:
+          global:
+            scope_id: Scóip
+            title: Teideal
+          step:
+            title: Teideal
