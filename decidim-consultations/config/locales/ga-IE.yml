@@ -2,12 +2,16 @@ ga:
   activemodel:
     attributes:
       consultation:
+        slug: Píosa URL
+        subtitle: Fotheideal
         title: Teideal
       question:
         hashtag: Haischlib
         origin_scope: Scóip
         origin_title: Bunús
         question_context: Comhthéacs
+        slug: Píosa URL
+        subtitle: Fotheideal
       response:
         decidim_consultations_response_group_id: Grúpa
   decidim:
@@ -91,5 +95,8 @@ ga:
           vote: Vótáil
   layouts:
     decidim:
+      admin:
+        question:
+          attachments: Ceangaltáin
       question_components:
         unfold: Oscail
