@@ -6,16 +6,26 @@ ga:
         copy_categories: Cóipeáil catagóirí
         decidim_area_id: Ceantar
         decidim_scope_id: Scóip
+        domain: Fearann
+        github: GitHub
         participatory_processes_ids: Próisis Rannpháirteacha Ceangailte
         scope_id: Scóip
         title: Teideal
+      assembly_member:
+        gender: Inscne
       assembly_user_role:
         email: Seoladh ríomhphoist
         name: Ainm
         role: Ról
   decidim:
     admin:
+      actions:
+        import_assembly: Iompórtáil
       assemblies:
+        edit:
+          update: Nuashonraigh
+        index:
+          public: Poblach
         new:
           create: Cruthaigh
       assemblies_types:
@@ -24,10 +34,17 @@ ga:
       assembly_copies:
         new:
           copy: Cóipeáil
+      assembly_imports:
+        new:
+          import: Iompórtáil
       assembly_members:
+        edit:
+          update: Nuashonraigh
         new:
           create: Cruthaigh
       assembly_user_roles:
+        edit:
+          update: Nuashonraigh
         new:
           create: Cruthaigh
       menu:
@@ -45,6 +62,7 @@ ga:
         assembly_member:
           fields:
             full_name: Ainm
+          name: Ball
           positions:
             other: Eile
         assembly_user_role:
@@ -58,8 +76,12 @@ ga:
       admin:
         assemblies:
           form:
-            images: Íomhanna
+            images: Íomhánna
             other: Eile
+            social_handlers: Sóisialta
+        assemblies_settings:
+          edit:
+            update: Nuashonraigh
         assemblies_types:
           form:
             title: Teideal
@@ -67,6 +89,8 @@ ga:
           index:
             filter:
               all: Uile
+              ceased: Stadta
+            search: Cuardaigh
         new_import:
           accepted_types:
             json: JSON
@@ -74,11 +98,14 @@ ga:
         others: Eile
       created_by:
         others: Eile
+        public: Poblach
       filter:
         help: 'Taispeáin:'
         others: Eile
       show:
         area: Ceantar
+        is_transparent:
+          'false': doiléir
         related_participatory_processes: Próisis Rannpháirteacha Ceangailte
         scope: Scóip
   layouts:
