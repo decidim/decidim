@@ -1,1 +1,24 @@
 ga:
+  activemodel:
+    attributes:
+      sortition:
+        title: Teideal
+  decidim:
+    sortitions:
+      admin:
+        actions:
+          edit: Eagar
+        models:
+          sortition:
+            fields:
+              dice: Dísle
+              seed: Síol
+              title: Teideal
+        sortitions:
+          new:
+            create: Cruthaigh
+      sortitions:
+        filters:
+          all: Uile
+        sortition:
+          view: Amharc
