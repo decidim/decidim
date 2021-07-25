@@ -1,1 +1,14 @@
 ga:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Catagóir
+        decidim_category_id: Catagóir
+  decidim:
+    debates:
+      debates:
+        filters:
+          category: Catagóir
+          category_prompt: Roghnaigh catagóir
+        form:
+          select_a_category: Roghnaigh catagóir le do thoil
