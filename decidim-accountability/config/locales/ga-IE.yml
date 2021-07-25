@@ -2,6 +2,7 @@ ga:
   activemodel:
     attributes:
       result:
+        decidim_accountability_status_id: Stádas
         decidim_category_id: Catagóir
         decidim_scope_id: Scóip
         title: Teideal
@@ -15,15 +16,30 @@ ga:
       actions:
         destroy: Scrios
         edit: Eagar
+        preview: Réamhamharc
+        title: Gníomhartha
       admin:
+        exports:
+          results: Torthaí
         import_results:
           new:
+            import: Iompórtáil
             link: nasc
+        models:
+          result:
+            name: Toradh
+          status:
+            name: Stádas
+        results:
+          index:
+            title: Torthaí
       content_blocks:
         highlighted_results:
           dates: Dátaí
+          results: Torthaí
       import_mailer:
         import:
+          errors: Earráidí
           row_number: Ró
       models:
         result:
@@ -31,6 +47,7 @@ ga:
             category: Catagóir
             id: ID
             scope: Scóip
+            status: Stádas
             title: Teideal
         status:
           fields:
@@ -58,6 +75,8 @@ ga:
             label: Catagóir
           scope_id_eq:
             label: Scóip
+          status_id_eq:
+            label: Stádas
     components:
       accountability:
         settings:
@@ -66,3 +85,7 @@ ga:
             intro: Réamhrá
             scope_id: Scóip
             subcategories_label: Ainm do "Fochatagóirí"
+    metrics:
+      results:
+        object: torthaí
+        title: Torthaí
