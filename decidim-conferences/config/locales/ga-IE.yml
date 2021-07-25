@@ -4,6 +4,7 @@ ga:
       conference:
         copy_categories: Cóipeáil catagóirí
         decidim_scope_id: Scóip
+        hashtag: Haischlib
         participatory_processes_ids: Próisis Rannpháirteacha Ceangailte
         scope_id: Scóip
         slogan: Mana
@@ -35,6 +36,8 @@ ga:
         role: Ról
   decidim:
     admin:
+      actions:
+        confirm: Deimhnigh
       conference_copies:
         new:
           copy: Cóipeáil
@@ -60,8 +63,10 @@ ga:
           create: Cruthaigh
       menu:
         conferences_submenu:
+          attachment_collections: Fillteáin
           attachment_files: Comhaid
           categories: Catagóirí
+          conference_invites: Cuirí
           info: Eolas
       models:
         conference:
@@ -85,6 +90,7 @@ ga:
             logo: Lógó
             name: Ainm
             partner_type: Cineál
+          name: Comhpháirtí
         registration_type:
           fields:
             price: Praghas
@@ -99,6 +105,9 @@ ga:
           update: Nuashonraigh
         new:
           create: Cruthaigh
+    conference_program:
+      index:
+        title: Clár
     conferences:
       admin:
         conference_invites:
@@ -106,6 +115,7 @@ ga:
             filter:
               all: Uile
               sent: Seolta
+            invites: Cuirí
             search: Cuardaigh
           new:
             invite: Tabhair Cuireadh
@@ -118,16 +128,21 @@ ga:
       conference:
         registration_confirm:
           cancel: Cealaigh
+          confirm: Deimhnigh
         show:
           free: Saor in aisce
       conference_program:
+        program_meeting:
+          content: Inneachar
         show:
           day: Lá
+          program: Clár
       models:
         conference_invite:
           fields:
             email: Seoladh ríomhphoist
             name: Ainm
+            sent_at: Seolta ag
             status: Stádas
           status:
             sent: Seolta
@@ -136,6 +151,8 @@ ga:
             email: Seoladh ríomhphoist
             name: Ainm
             state: Stádas
+            states:
+              pending: Ar feitheamh
       photo:
         show:
           photo: Íomhá
@@ -143,6 +160,7 @@ ga:
         show:
           related_photos: Íomhánna
       show:
+        details: Sonraí
         introduction: Réamhrá
         related_participatory_processes: Próisis Rannpháirteacha Ceangailte
   layouts:
