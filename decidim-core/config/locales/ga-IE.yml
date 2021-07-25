@@ -15,6 +15,7 @@ ga:
       user:
         about: Faoi
         nickname: Leasainm
+        password: Pasfhocal
     models:
       decidim/attachment_created_event: Ceangaltán
   activerecord:
@@ -22,6 +23,7 @@ ga:
       decidim/user:
         email: Seoladh ríomhphoist
         name: Leasainm
+        password: Pasfhocal
   booleans:
     'false': 'Níl'
     'true': 'Is ea'
