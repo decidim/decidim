@@ -4,6 +4,7 @@ ga:
       actions:
         destroy: Scrios
         edit: Eagar
+        new: Postáil nua
         title: Gníomhartha
       admin:
         models:
