@@ -1,1 +1,38 @@
 ga:
+  activemodel:
+    attributes:
+      category:
+        description: Cur Síos
+        name: Ainm
+        parent_id: Tuismitheoir
+      user_group_csv_verification:
+        file: Comhad
+  decidim:
+    admin:
+      actions:
+        category:
+          new: Catagóir nua
+      categories:
+        edit:
+          title: Cuir catagóir
+          update: Nuashonraigh
+        index:
+          categories_title: Catagóirí
+        new:
+          create: Cruthaigh catagóir
+          title: Catagóir nua
+        update:
+          success: Catagóir nuashonraithe go rathúil.
+      conflicts:
+        title: Coimhlintí deimhnithe
+      filters:
+        category_id_eq:
+          label: Catagóir
+      models:
+        category:
+          name: Catagóir
+      titles:
+        authorization_workflows: Modhanna deimhnithe
+      user_groups_csv_verifications:
+        new:
+          upload: Uaslódáil
