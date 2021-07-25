@@ -1,1 +1,7 @@
 ga:
+  activemodel:
+    attributes:
+      postal_letter_confirmation:
+        verification_code: Cód deimhnithe
+      postal_letter_postage:
+        verification_code: Cód deimhnithe
