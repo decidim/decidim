@@ -2,6 +2,7 @@ ga:
   activemodel:
     attributes:
       agenda:
+        duration: Fad
         title: Teideal
       close_meeting:
         closing_report: Tuairisc
@@ -33,6 +34,7 @@ ga:
       actions:
         agenda: Clár
         attachment_collections: Fillteáin
+        attachments: Ceangaltáin
         close: Dún
         destroy: Scrios
         edit: Eagar
@@ -51,6 +53,8 @@ ga:
             up: Ardaigh
           edit:
             update: Nuashonraigh
+          form:
+            end_date: Dáta deiridh
           new:
             create: Cruthaigh
         exports:
@@ -62,6 +66,7 @@ ga:
           index:
             filter:
               all: Uile
+              rejected: Diúltaithe
               sent: Seolta
             invites: Cuirí
             search: Cuardaigh
@@ -155,6 +160,7 @@ ga:
         meeting:
           fields:
             closed: Dúnta
+            end_time: Dáta deiridh
             map: Léarscáil
             title: Teideal
       type_of_meeting:
