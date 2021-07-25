@@ -1,1 +1,146 @@
 ga:
+  activemodel:
+    attributes:
+      answer:
+        image: Íomhá
+        title: Teideal
+      election:
+        title: Teideal
+      question:
+        title: Teideal
+  decidim:
+    admin:
+      filters:
+        role_eq:
+          label: Ról
+    components:
+      elections:
+        actions:
+          vote: Vótáil
+    elections:
+      actions:
+        edit: Eagar
+      admin:
+        steps:
+          vote_stats:
+            votes: Vótaí
+      election_m:
+        end_date: Deireadh
+        footer:
+          view: Amharc
+          vote: Vótáil
+        label:
+          date: Dátaí
+      elections:
+        filters:
+          all: Uile
+      models:
+        answer:
+          fields:
+            title: Teideal
+        election:
+          fields:
+            title: Teideal
+        question:
+          fields:
+            title: Teideal
+        trustees_participatory_space:
+          fields:
+            email: Seoladh ríomhphoist
+            name: Ainm
+      orders:
+        older: Níos Sine
+      trustee_zone:
+        elections:
+          key_ceremony_steps:
+            back: Ar Ais
+            list:
+              task: Tasc
+          tally_steps:
+            back: Ar Ais
+            list:
+              task: Tasc
+        trustees:
+          show:
+            elections:
+              list:
+                action_required:
+                  'false': 'Níl'
+      votes:
+        confirm:
+          edit: eagar
+        modal:
+          close: Dún
+        voting_step:
+          back: Ar Ais
+          continue: I ndiaidh
+    votings:
+      admin:
+        menu:
+          votings_submenu:
+            attachment_files: Comhaid
+        models:
+          monitoring_committee_member:
+            fields:
+              email: Seoladh ríomhphoist
+              name: Ainm
+          polling_officer:
+            fields:
+              email: Seoladh ríomhphoist
+              name: Ainm
+          polling_station:
+            fields:
+              title: Teideal
+          voting:
+            fields:
+              title: Teideal
+        monitoring_committee_members:
+          new:
+            create: Cruthaigh
+        polling_officers:
+          new:
+            create: Cruthaigh
+          polling_officers_picker:
+            close: Dún
+        polling_stations:
+          new:
+            create: Cruthaigh
+        votings:
+          form:
+            title: Teideal
+          new:
+            create: Cruthaigh
+      monitoring_committee_members:
+        actions:
+          destroy: Scrios
+      polling_officer_zone:
+        polling_officers:
+          show:
+            polling_stations:
+              list:
+                name: Ainm
+      polling_officers:
+        actions:
+          destroy: Scrios
+          new: Nua
+      polling_stations:
+        actions:
+          destroy: Scrios
+          edit: Eagar
+          new: Nua
+      votings:
+        filters:
+          all: Uile
+        show:
+          dates: Dátaí
+      votings_m:
+        footer_button_text:
+          view: Amharc
+          vote: Vóta
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Imigh
+      votings:
+        promoted_voting:
+          vote: Vótáil
