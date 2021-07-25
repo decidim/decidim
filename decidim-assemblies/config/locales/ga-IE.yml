@@ -8,9 +8,12 @@ ga:
         decidim_scope_id: Scóip
         domain: Fearann
         github: GitHub
+        hashtag: Haischlib
         participatory_processes_ids: Próisis Rannpháirteacha Ceangailte
         scope_id: Scóip
         title: Teideal
+        twitter: Twitter
+        youtube: YouTube
       assembly_member:
         gender: Inscne
       assembly_user_role:
@@ -25,6 +28,7 @@ ga:
         edit:
           update: Nuashonraigh
         index:
+          private: Príobháideach
           public: Poblach
         new:
           create: Cruthaigh
@@ -49,6 +53,8 @@ ga:
           create: Cruthaigh
       menu:
         assemblies_submenu:
+          assembly_members: Baill
+          attachment_collections: Fillteáin
           attachment_files: Comhaid
           categories: Catagóirí
           info: Eolas
@@ -58,6 +64,7 @@ ga:
             title: Teideal
         assembly:
           fields:
+            private: Príobháideach
             title: Teideal
         assembly_member:
           fields:
@@ -76,6 +83,7 @@ ga:
       admin:
         assemblies:
           form:
+            filters: Scagairí
             images: Íomhánna
             other: Eile
             social_handlers: Sóisialta
@@ -94,6 +102,9 @@ ga:
         new_import:
           accepted_types:
             json: JSON
+      assembly_members:
+        index:
+          members: Baill
       assembly_types:
         others: Eile
       created_by:
@@ -108,8 +119,13 @@ ga:
           'false': doiléir
         related_participatory_processes: Próisis Rannpháirteacha Ceangailte
         scope: Scóip
+    assembly_members:
+      index:
+        title: Baill
   layouts:
     decidim:
       assemblies:
         index:
           reset_chart: Athshocraigh
+      assembly_navigation:
+        assembly_member_menu_item: Baill
