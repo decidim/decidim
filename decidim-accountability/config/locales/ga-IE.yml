@@ -3,13 +3,48 @@ ga:
     attributes:
       result:
         decidim_category_id: Catagóir
+        decidim_scope_id: Scóip
+        title: Teideal
+      status:
+        key: Eochair
+        name: Ainm
+      timeline_entry:
+        entry_date: Dáta
   decidim:
     accountability:
+      actions:
+        destroy: Scrios
+        edit: Eagar
+      admin:
+        import_results:
+          new:
+            link: nasc
+      content_blocks:
+        highlighted_results:
+          dates: Dátaí
+      import_mailer:
+        import:
+          row_number: Ró
       models:
         result:
           fields:
             category: Catagóir
+            id: ID
+            scope: Scóip
+            title: Teideal
+        status:
+          fields:
+            key: Eochair
+            name: Ainm
+        timeline_entry:
+          fields:
+            entry_date: Dáta
+      result_m:
+        view: Amharc
       results:
+        filters:
+          all: Uile
+          scopes: Scóip
         home:
           categories_label: Catagóirí
           subcategories_label: Fochatagóirí
@@ -21,9 +56,13 @@ ga:
         results:
           category_id_eq:
             label: Catagóir
+          scope_id_eq:
+            label: Scóip
     components:
       accountability:
         settings:
           global:
             categories_label: Ainm do "Catagóirí"
+            intro: Réamhrá
+            scope_id: Scóip
             subcategories_label: Ainm do "Fochatagóirí"
