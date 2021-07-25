@@ -2,6 +2,7 @@ ga:
   activemodel:
     attributes:
       organization:
+        from_label: Lipéad
         port: Port
   decidim:
     system:
@@ -10,7 +11,10 @@ ga:
         edit: Eagar
         new: Nua
         save: Sábháil
+        title: Gníomhartha
       admins:
+        edit:
+          update: Nuashonraigh
         index:
           title: Riaracháin
         new:
@@ -32,4 +36,9 @@ ga:
           save: Sábháil
       organizations:
         omniauth_settings:
+          facebook:
+            app_id: ID Aipe
           icon: Deilbhín
+        smtp_settings:
+          fieldsets:
+            sender: Seoltóir
