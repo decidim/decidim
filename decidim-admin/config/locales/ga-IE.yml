@@ -32,6 +32,9 @@ ga:
         name: Ainm
         omnipresent_banner_title: Teideal
         omnipresent_banner_url: URL
+        primary_color: Bundath
+        success_color: Rathúil
+        warning_color: Rabhadh
       scope:
         code: Cód
         name: Ainm
@@ -42,6 +45,7 @@ ga:
       settings:
         scope_id: Scóip
       static_page:
+        content: Inneachar
         title: Teideal
         weight: Meáchan
       static_page_topic:
@@ -52,7 +56,10 @@ ga:
   activerecord:
     attributes:
       decidim/static_page:
+        content: Inneachar
         title: Teideal
+      doorkeeper/application:
+        site: Suíomh Gréasáin
   decidim:
     admin:
       actions:
@@ -100,6 +107,7 @@ ga:
       conflicts:
         'false': 'Níl'
         solved: Réitithe
+        title: Coimhlintí deimhnithe
         transfer:
           email: Seoladh ríomhphoist
           name: Ainm
@@ -122,13 +130,19 @@ ga:
         officialized_at_null:
           label: Staid
         private_space_eq:
+          label: Príobháideach
           values:
             'false': Poblach
+            'true': Príobháideach
         scope_id_eq:
           label: Scóip
         search_label: Cuardaigh
         state_eq:
           label: Staid
+      forms:
+        file_help:
+          import:
+            message_1: Tugtar tacaíocht do chomhaid CSV, JSON agus Excel (.xls)
       help_sections:
         form:
           save: Sábháil
@@ -136,7 +150,10 @@ ga:
         index:
           filter:
             all: Uile
+            managed: Bhainistithe
+          managed: Bhainistithe
           name: Ainm
+          promote: Cuir chun cinn
           search: Cuardaigh
           status: Stádas
       impersonations:
@@ -152,6 +169,10 @@ ga:
           actions:
             back: Ar Ais
           import: Iompórtáil
+      managed_users:
+        promotions:
+          new:
+            promote: Cuir chun cinn
       menu:
         admins: Riaracháin
         areas: Ceantair
@@ -182,6 +203,8 @@ ga:
             reason: Cúis
         newsletter:
           fields:
+            sent_at: Seolta ag
+            sent_to: Seolta go
             subject: Ábhar
         scope:
           fields:
@@ -245,6 +268,7 @@ ga:
           actions: Gníomhartha
           badge: Suaitheantas
           name: Ainm
+          reports: Tuairiscí
           status: Stádas
         show_email_modal:
           hidden: ceilte
@@ -255,7 +279,9 @@ ga:
         form:
           github: GitHub
           social_handlers: Sóisialta
+          twitter: Twitter
           url: URL
+          youtube: YouTube
       organization_appearance:
         edit:
           update: Nuashonraigh
@@ -296,6 +322,7 @@ ga:
       titles:
         areas: Ceantair
         authorization_workflows: Modhanna deimhnithe
+        metrics: Méadrachtaí
         panel: Riarachán
         scopes: Scóip
         static_pages: Leathanaigh
@@ -304,7 +331,10 @@ ga:
         index:
           filter:
             all: Uile
+            pending: Ar feitheamh
           search: Cuardaigh
+          state:
+            pending: Ar feitheamh
       user_groups_csv_verifications:
         new:
           upload: Uaslódáil
@@ -331,6 +361,7 @@ ga:
             report_count: Líon
             reportable_id: Id
             reportable_type: Cineál
+            reports: Tuairiscí
         report:
           fields:
             reason: Cúis
