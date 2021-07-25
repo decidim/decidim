@@ -6,12 +6,15 @@ ga:
         copy_categories: Cóipeáil catagóirí
         decidim_area_id: Ceantar
         domain: Fearann
+        hashtag: Haischlib
         participatory_process_group_id: Grúpa próisis
         related_process_ids: Próisis Ceangailte
         scope_id: Scóip
         title: Teideal
         weight: Meáchan
       participatory_process_group:
+        group_url: Suíomh Gréasáin
+        hashtag: Haischlib
         hero_image: Íomhá
         participatory_process_ids: Próisis Ceangailte
         title: Teideal
@@ -33,12 +36,14 @@ ga:
         new_process_group: Grúpa próisis nua
         new_process_user_role: Riarachán próisis nua
         preview: Réamhamharc
+        publish: Foilsigh
       menu:
         participatory_process_groups: Grúpaí próiseas
         participatory_process_groups_submenu:
           info: Eolas
         participatory_processes: Próisis
         participatory_processes_submenu:
+          attachment_collections: Fillteáin
           attachment_files: Comhaid
           categories: Catagóirí
           info: Eolas
@@ -47,6 +52,7 @@ ga:
       models:
         participatory_process:
           fields:
+            private: Príobháideach
             title: Teideal
           name: Próiseas Rannpháirtíochta
         participatory_process_group:
@@ -96,6 +102,7 @@ ga:
         edit:
           update: Nuashonraigh
         index:
+          private: Príobháideach
           public: Poblach
         new:
           create: Cruthaigh
@@ -110,6 +117,7 @@ ga:
             json: JSON
         participatory_processes:
           form:
+            filters: Scagairí
             images: Íomhánna
             other: Eile
       participatory_processes:
@@ -125,10 +133,13 @@ ga:
         scope: Scóip
       statistics:
         answers_count: Freagraí
+        comments_count: Tráchtanna
         debates_count: Díospóireachtaí
         endorsements_count: Formhuinithe
+        meetings_count: Cruinnithe
         pages_count: Leathanaigh
         processes_count: Próisis
+        projects_count: Tionscadail
         results_count: Torthaí
         surveys_count: Suirbhéanna
   layouts:
