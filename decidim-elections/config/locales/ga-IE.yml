@@ -13,6 +13,8 @@ ga:
       filters:
         role_eq:
           label: Ról
+          values:
+            manager: Bainisteoir
         signed_eq:
           label: Sínithe
           values:
@@ -23,6 +25,7 @@ ga:
           vote: Vótáil
     elections:
       actions:
+        destroy: Scrios
         edit: Eagar
         preview: Réamhamharc
         publish: Foilsigh
@@ -31,20 +34,35 @@ ga:
         answers:
           index:
             title: Freagraí
+        menu:
+          trustees: Iontaobhaithe
         models:
           answer:
             name: Freagra
+          trustee:
+            name: Iontaobhaí
         steps:
+          created:
+            trustees: Iontaobhaithe
+          key_ceremony:
+            trustees: Iontaobhaithe
           results_published:
             answer: Freagra
             result: Toradh
             submit: Deimhnigh
+          tally:
+            trustees: Iontaobhaithe
           tally_ended:
             answer: Freagra
             result: Toradh
           vote_stats:
             voters: Vótálaithe
             votes: Vótaí
+        trustees_participatory_spaces:
+          actions:
+            disable: Dhíchumasaigh
+          index:
+            title: Iontaobhaithe
       election_m:
         badge_name:
           ongoing: Gníomhach
@@ -58,6 +76,7 @@ ga:
       elections:
         election_log:
           results_title: Torthaí
+          started: Tosaithe
         filters:
           active: Gníomhach
           all: Uile
@@ -131,6 +150,10 @@ ga:
         voting_step:
           back: Ar Ais
           continue: I ndiaidh
+    menu:
+      votings: Vótála
+    statistics:
+      votings_count: Vótála
     votings:
       admin:
         ballot_styles:
@@ -149,9 +172,11 @@ ga:
             edit:
               update: Nuashonraigh
         menu:
+          votings: Vótála
           votings_submenu:
             attachment_collections: Fillteáin
             attachment_files: Comhaid
+            attachments: Ceangaltáin
             census: Móráireamh
             monitoring_committee_members: Baill
         models:
@@ -186,7 +211,13 @@ ga:
           actions:
             title: Gníomhartha
             view: Amharc
+          closures:
+            signed: Sínithe?
+          edit:
+            monitoring_committee_notes: Ráitis
         polling_officers:
+          index:
+            role_manager: bainisteoir
           new:
             create: Cruthaigh
           polling_officers_picker:
@@ -194,8 +225,11 @@ ga:
         polling_stations:
           new:
             create: Cruthaigh
+        titles:
+          votings: Vótála
         votings:
           actions:
+            destroy: Scrios
             publish: Foilsigh
           edit:
             update: Nuashonraigh
@@ -250,6 +284,8 @@ ga:
           destroy: Scrios
           new: Nua
           title: Gníomhartha
+        roles:
+          manager: Bainisteoir
       polling_station_closure_recount:
         signed: Sínithe
       polling_stations:
@@ -274,11 +310,15 @@ ga:
         filters_small_view:
           filter: Scag
           unfold: Oscail
+        index:
+          title: Vótála
         orders:
           random: Randamach
         show:
           dates: Dátaí
       votings_m:
+        badge_name:
+          ongoing: Leanúnach
         footer_button_text:
           view: Amharc
           vote: Vóta
