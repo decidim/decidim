@@ -1,1 +1,10 @@
 ga:
+  activemodel:
+    attributes:
+      conference:
+        copy_categories: Cóipeáil catagóirí
+  decidim:
+    admin:
+      menu:
+        conferences_submenu:
+          categories: Catagóirí
