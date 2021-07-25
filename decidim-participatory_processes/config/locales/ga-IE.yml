@@ -1,1 +1,10 @@
 ga:
+  activemodel:
+    attributes:
+      participatory_process:
+        copy_categories: Cóipeáil catagóirí
+  decidim:
+    admin:
+      menu:
+        participatory_processes_submenu:
+          categories: Catagóirí
