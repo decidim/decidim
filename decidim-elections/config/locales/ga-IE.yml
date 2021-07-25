@@ -20,62 +20,103 @@ ga:
     elections:
       actions:
         edit: Eagar
+        preview: Réamhamharc
+        title: Gníomhartha
       admin:
+        answers:
+          index:
+            title: Freagraí
+        models:
+          answer:
+            name: Freagra
         steps:
           vote_stats:
+            voters: Vótálaithe
             votes: Vótaí
       election_m:
+        badge_name:
+          ongoing: Gníomhach
         end_date: Deireadh
         footer:
           view: Amharc
           vote: Vótáil
         label:
           date: Dátaí
+        start_date: Ag Tosú
       elections:
         filters:
+          active: Gníomhach
           all: Uile
+          search: Cuardaigh
+          state: Stádas
+        filters_small_view:
+          filter: Scag
+          unfold: Oscail
+        show:
+          preview: Réamhamharc
       models:
         answer:
           fields:
             title: Teideal
         election:
           fields:
+            end_time: Deireadh ag
             title: Teideal
         question:
           fields:
+            answers: Freagraí
             title: Teideal
         trustees_participatory_space:
           fields:
             email: Seoladh ríomhphoist
             name: Ainm
+            status: Stádas
       orders:
         older: Níos Sine
+        recent: Is Déanaí
       trustee_zone:
         elections:
           key_ceremony_steps:
             back: Ar Ais
             list:
+              status: Stádas
               task: Tasc
+            start: Tosaigh
           tally_steps:
             back: Ar Ais
             list:
+              status: Stádas
               task: Tasc
+            start: Tosaigh
         trustees:
           show:
             elections:
               list:
                 action_required:
                   'false': 'Níl'
+                bb_status: Stádas
+            identification_keys:
+              cancel: Cealaigh
+              submit: Deimhnigh
       votes:
         confirm:
+          answer: Freagra
           edit: eagar
+          nota_option: Bán
         modal:
           close: Dún
+        verify:
+          form:
+            submit: Seiceáil
         voting_step:
           back: Ar Ais
           continue: I ndiaidh
     votings:
       admin:
+        landing_page:
+          content_blocks:
+            edit:
+              update: Nuashonraigh
         menu:
           votings_submenu:
             attachment_files: Comhaid
@@ -106,37 +147,58 @@ ga:
           new:
             create: Cruthaigh
         votings:
+          edit:
+            update: Nuashonraigh
           form:
             title: Teideal
+            voting_type:
+              hybrid: Hibrid
+              online: Ar líne
           new:
             create: Cruthaigh
       monitoring_committee_members:
         actions:
           destroy: Scrios
+          title: Gníomhartha
       polling_officer_zone:
         polling_officers:
           show:
             polling_stations:
               list:
+                actions: Gníomhartha
                 name: Ainm
+                voting: Vótáil
       polling_officers:
         actions:
           destroy: Scrios
           new: Nua
+          title: Gníomhartha
       polling_stations:
         actions:
           destroy: Scrios
           edit: Eagar
           new: Nua
+          title: Gníomhartha
       votings:
         filters:
+          active: Gníomhach
           all: Uile
+          search: Cuardaigh
+          state: Stádas
+        filters_small_view:
+          filter: Scag
+          unfold: Oscail
+        orders:
+          random: Randamach
         show:
           dates: Dátaí
       votings_m:
         footer_button_text:
           view: Amharc
           vote: Vóta
+        voting_type:
+          hybrid: Hibrid
+          online: Ar líne
   layouts:
     decidim:
       election_votes_header:
