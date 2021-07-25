@@ -21,6 +21,7 @@ ga:
       actions:
         edit: Eagar
         preview: Réamhamharc
+        publish: Foilsigh
         title: Gníomhartha
       admin:
         answers:
@@ -52,6 +53,11 @@ ga:
         filters_small_view:
           filter: Scag
           unfold: Oscail
+        results:
+          votes:
+            one: "%{count} vóta"
+            other: "%{count} vótaí"
+            zero: "%{count} vótaí"
         show:
           preview: Réamhamharc
       models:
@@ -82,12 +88,16 @@ ga:
               status: Stádas
               task: Tasc
             start: Tosaigh
+            status:
+              pending: Ar feitheamh
           tally_steps:
             back: Ar Ais
             list:
               status: Stádas
               task: Tasc
             start: Tosaigh
+            status:
+              pending: Ar feitheamh
         trustees:
           show:
             elections:
@@ -101,6 +111,7 @@ ga:
       votes:
         confirm:
           answer: Freagra
+          confirm: Deimhnigh
           edit: eagar
           nota_option: Bán
         modal:
@@ -119,6 +130,7 @@ ga:
               update: Nuashonraigh
         menu:
           votings_submenu:
+            attachment_collections: Fillteáin
             attachment_files: Comhaid
         models:
           monitoring_committee_member:
@@ -131,6 +143,7 @@ ga:
               name: Ainm
           polling_station:
             fields:
+              address: Seoladh
               title: Teideal
           voting:
             fields:
@@ -147,6 +160,8 @@ ga:
           new:
             create: Cruthaigh
         votings:
+          actions:
+            publish: Foilsigh
           edit:
             update: Nuashonraigh
           form:
@@ -166,6 +181,7 @@ ga:
             polling_stations:
               list:
                 actions: Gníomhartha
+                address: Seoladh
                 name: Ainm
                 voting: Vótáil
       polling_officers:
