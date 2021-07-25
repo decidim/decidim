@@ -9,12 +9,15 @@ ga:
       comment:
         delete: Scrios
         edit: Eagar
+        edited: Curtha in eagar
         reply: Freagra
         report:
+          action: Tuairiscigh
           close: Dún
       comment_order_selector:
         order:
           older: Níos Sine
+          recent: Is Déanaí
       edit_comment_modal_form:
         close: Dún
         form:
