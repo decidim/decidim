@@ -6,15 +6,18 @@ ga:
         decidim_scope_id: Scóip
         participatory_processes_ids: Próisis Rannpháirteacha Ceangailte
         scope_id: Scóip
+        slogan: Mana
         title: Teideal
       conference_media_link:
         date: Dáta
         link: Nasc
         title: Teideal
+        weight: Meáchan
       conference_partner:
         link: Nasc
         logo: Lógó
         name: Ainm
+        weight: Meáchan
       conference_registration_invite:
         email: Seoladh ríomhphoist
         name: Ainm
@@ -22,7 +25,9 @@ ga:
       conference_registration_type:
         price: Praghas
         title: Teideal
+        weight: Meáchan
       conference_speaker:
+        avatar: Abhatár
         user_id: Úsáideoir
       conference_user_role:
         email: Seoladh ríomhphoist
@@ -34,15 +39,23 @@ ga:
         new:
           copy: Cóipeáil
       conference_speakers:
+        edit:
+          update: Nuashonraigh
         new:
           create: Cruthaigh
       conference_user_roles:
+        edit:
+          update: Nuashonraigh
         new:
           create: Cruthaigh
       conferences:
+        edit:
+          update: Nuashonraigh
         new:
           create: Cruthaigh
       media_links:
+        edit:
+          update: Nuashonraigh
         new:
           create: Cruthaigh
       menu:
@@ -76,10 +89,15 @@ ga:
           fields:
             price: Praghas
             title: Teideal
+            weight: Meáchan
       partners:
+        edit:
+          update: Nuashonraigh
         new:
           create: Cruthaigh
       registration_types:
+        edit:
+          update: Nuashonraigh
         new:
           create: Cruthaigh
     conferences:
@@ -89,10 +107,18 @@ ga:
             filter:
               all: Uile
               sent: Seolta
+            search: Cuardaigh
+          new:
+            invite: Tabhair Cuireadh
+        conference_speakers:
+          index:
+            search: Cuardaigh
         diplomas:
           edit:
             save: Sábháil
       conference:
+        registration_confirm:
+          cancel: Cealaigh
         show:
           free: Saor in aisce
       conference_program:
@@ -103,26 +129,33 @@ ga:
           fields:
             email: Seoladh ríomhphoist
             name: Ainm
+            status: Stádas
           status:
             sent: Seolta
         conference_registration:
           fields:
             email: Seoladh ríomhphoist
             name: Ainm
+            state: Stádas
       photo:
         show:
           photo: Íomhá
       photos_list:
         show:
-          related_photos: Íomhanna
+          related_photos: Íomhánna
       show:
         introduction: Réamhrá
         related_participatory_processes: Próisis Rannpháirteacha Ceangailte
       statistics:
+        answers_count: Freagraí
+        debates_count: Díospóireachtaí
         endorsements_count: Formhuinithe
         pages_count: Leathanaigh
         posts_count: Postálacha
+        results_count: Torthaí
+        surveys_count: Suirbhéanna
   layouts:
     decidim:
       conferences_nav:
         media: Meán
+        venues: Ionaid
