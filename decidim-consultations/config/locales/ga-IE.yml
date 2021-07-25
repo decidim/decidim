@@ -1,1 +1,59 @@
 ga:
+  activemodel:
+    attributes:
+      consultation:
+        title: Teideal
+      question:
+        origin_scope: Scóip
+      response:
+        decidim_consultations_response_group_id: Grúpa
+  decidim:
+    admin:
+      consultations:
+        new:
+          create: Cruthaigh
+      models:
+        consultation:
+          fields:
+            title: Teideal
+        question:
+          fields:
+            title: Teideal
+        response:
+          fields:
+            response_group: Grúpa
+            title: Teideal
+      questions:
+        new:
+          create: Cruthaigh
+      response_groups:
+        new:
+          create: Cruthaigh
+      responses:
+        new:
+          create: Cruthaigh
+    consultations:
+      consultations:
+        show:
+          dates: Dátaí
+      filters:
+        all: Uile
+      question_multiple_votes:
+        voting_rules:
+          vote_limit:
+            votes: Vótaí
+      show:
+        badge_name:
+          open: Oscail
+        footer_button_text:
+          view: Amharc
+          vote: Vótáil
+    questions:
+      statistics:
+        supports_count_title: Vótaí
+      vote_button:
+        vote: Vótáil
+    resources:
+      consultations:
+        actions:
+          vote: Vótáil
