@@ -1,1 +1,21 @@
 ga:
+  decidim:
+    comments:
+      view: Amharc
+    components:
+      add_comment_form:
+        form:
+          submit: Seol
+      comment:
+        delete: Scrios
+        edit: Eagar
+        reply: Freagra
+        report:
+          close: Dún
+      comment_order_selector:
+        order:
+          older: Níos Sine
+      edit_comment_modal_form:
+        close: Dún
+        form:
+          submit: Seol
