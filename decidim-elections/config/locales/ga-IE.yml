@@ -13,12 +13,15 @@ ga:
       filters:
         role_eq:
           label: Ról
+          values:
+            manager: Bainisteoir
     components:
       elections:
         actions:
           vote: Vótáil
     elections:
       actions:
+        destroy: Scrios
         edit: Eagar
         preview: Réamhamharc
         publish: Foilsigh
@@ -30,10 +33,23 @@ ga:
         models:
           answer:
             name: Freagra
+          trustee:
+            name: Iontaobhaí
         steps:
+          created:
+            trustees: Iontaobhaithe
+          key_ceremony:
+            trustees: Iontaobhaithe
+          tally:
+            trustees: Iontaobhaithe
           vote_stats:
             voters: Vótálaithe
             votes: Vótaí
+        trustees_participatory_spaces:
+          actions:
+            disable: Dhíchumasaigh
+          index:
+            title: Iontaobhaithe
       election_m:
         badge_name:
           ongoing: Gníomhach
@@ -122,6 +138,8 @@ ga:
         voting_step:
           back: Ar Ais
           continue: I ndiaidh
+    menu:
+      votings: Vótála
     votings:
       admin:
         landing_page:
@@ -129,9 +147,11 @@ ga:
             edit:
               update: Nuashonraigh
         menu:
+          votings: Vótála
           votings_submenu:
             attachment_collections: Fillteáin
             attachment_files: Comhaid
+            attachments: Ceangaltáin
         models:
           monitoring_committee_member:
             fields:
@@ -152,6 +172,8 @@ ga:
           new:
             create: Cruthaigh
         polling_officers:
+          index:
+            role_manager: bainisteoir
           new:
             create: Cruthaigh
           polling_officers_picker:
@@ -159,8 +181,11 @@ ga:
         polling_stations:
           new:
             create: Cruthaigh
+        titles:
+          votings: Vótála
         votings:
           actions:
+            destroy: Scrios
             publish: Foilsigh
           edit:
             update: Nuashonraigh
@@ -189,6 +214,8 @@ ga:
           destroy: Scrios
           new: Nua
           title: Gníomhartha
+        roles:
+          manager: Bainisteoir
       polling_stations:
         actions:
           destroy: Scrios
@@ -204,11 +231,15 @@ ga:
         filters_small_view:
           filter: Scag
           unfold: Oscail
+        index:
+          title: Vótála
         orders:
           random: Randamach
         show:
           dates: Dátaí
       votings_m:
+        badge_name:
+          ongoing: Leanúnach
         footer_button_text:
           view: Amharc
           vote: Vóta
