@@ -1,1 +1,29 @@
 ga:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Catagóir
+  decidim:
+    accountability:
+      models:
+        result:
+          fields:
+            category: Catagóir
+      results:
+        home:
+          categories_label: Catagóirí
+          subcategories_label: Fochatagóirí
+        show:
+          stats:
+            proposals: Moltaí
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Catagóir
+    components:
+      accountability:
+        settings:
+          global:
+            categories_label: Ainm do "Catagóirí"
+            subcategories_label: Ainm do "Fochatagóirí"
