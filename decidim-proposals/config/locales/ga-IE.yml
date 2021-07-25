@@ -51,7 +51,11 @@ ga:
         object: formhuinithe
         title: Formhuinithe
     proposals:
+      actions:
+        title: Gníomhartha
       admin:
+        actions:
+          preview: Réamhamharc
         participatory_texts:
           new_import:
             accepted_mime_types:
@@ -69,6 +73,7 @@ ga:
           form:
             select_a_category: Roghnaigh catagóir
           index:
+            actions: Gníomhartha
             assign_to_valuator_button: Ceap
             cancel: Cealaigh
             change_category: Athraigh catagóir
@@ -78,6 +83,7 @@ ga:
           new:
             create: Cruthaigh
           show:
+            authors: Údair
             body: Corp
             comments_positive_count: I Bhfabhar
             endorsements_count: Líon formhuinithe
@@ -132,6 +138,9 @@ ga:
         states:
           open: Oscail
       models:
+        collaborative_draft:
+          fields:
+            authors: Údair
         proposal:
           fields:
             category: Catagóir
@@ -152,6 +161,8 @@ ga:
           back: Ar Ais
           select_a_category: Roghnaigh catagóir le do thoil
           send: Seol
+        edit_draft:
+          send: Réamhamharc
         filters:
           all: Uile
           amendment_type: Cineál
