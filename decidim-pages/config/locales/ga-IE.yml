@@ -8,3 +8,6 @@ ga:
         models:
           components:
             body: Corp
+        pages:
+          edit:
+            save: Nuashonraigh
