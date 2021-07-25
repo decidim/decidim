@@ -3,8 +3,14 @@ ga:
     attributes:
       conference:
         copy_categories: Cóipeáil catagóirí
+        participatory_processes_ids: Próisis Rannpháirteacha Ceangailte
   decidim:
     admin:
       menu:
         conferences_submenu:
           categories: Catagóirí
+    conferences:
+      show:
+        related_participatory_processes: Próisis Rannpháirteacha Ceangailte
+      statistics:
+        endorsements_count: Formhuinithe
