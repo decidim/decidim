@@ -4,10 +4,12 @@ ga:
       conference:
         copy_categories: Cóipeáil catagóirí
         decidim_scope_id: Scóip
+        end_date: Dáta deiridh
         hashtag: Haischlib
         participatory_processes_ids: Próisis Rannpháirteacha Ceangailte
         scope_id: Scóip
         slogan: Mana
+        slug: Píosa URL
         title: Teideal
       conference_media_link:
         date: Dáta
@@ -65,13 +67,19 @@ ga:
         conferences_submenu:
           attachment_collections: Fillteáin
           attachment_files: Comhaid
+          attachments: Ceangaltáin
           categories: Catagóirí
           conference_invites: Cuirí
+          conference_speakers: Cainteoirí
           info: Eolas
+          partners: Comhpháirtithe
       models:
         conference:
           fields:
             title: Teideal
+        conference_speaker:
+          fields:
+            position: Céim
         conference_user_role:
           fields:
             email: Seoladh ríomhphoist
@@ -108,12 +116,17 @@ ga:
     conference_program:
       index:
         title: Clár
+    conference_speakers:
+      index:
+        title: Cainteoirí
     conferences:
       admin:
         conference_invites:
           index:
             filter:
+              accepted: Glactha
               all: Uile
+              rejected: Diúltaithe
               sent: Seolta
             invites: Cuirí
             search: Cuardaigh
@@ -125,6 +138,9 @@ ga:
         diplomas:
           edit:
             save: Sábháil
+        partners:
+          index:
+            title: Comhpháirtithe
       conference:
         registration_confirm:
           cancel: Cealaigh
@@ -134,9 +150,18 @@ ga:
       conference_program:
         program_meeting:
           content: Inneachar
+          speakers: Cainteoirí
         show:
           day: Lá
           program: Clár
+      conference_speakers:
+        index:
+          speakers: Cainteoirí
+      conferences:
+        partners:
+          collaborators: Comhpháirtithe
+        show:
+          register: Cláraigh
       models:
         conference_invite:
           fields:
@@ -159,12 +184,19 @@ ga:
       photos_list:
         show:
           related_photos: Íomhánna
+      registration_types:
+        index:
+          register: Cláraigh
       show:
         details: Sonraí
         introduction: Réamhrá
         related_participatory_processes: Próisis Rannpháirteacha Ceangailte
   layouts:
     decidim:
+      conference_hero:
+        register: Cláraigh
       conferences_nav:
+        conference_partners_menu_item: Comhpháirtithe
+        conference_speaker_menu_item: Cainteoirí
         media: Meán
         venues: Ionaid
