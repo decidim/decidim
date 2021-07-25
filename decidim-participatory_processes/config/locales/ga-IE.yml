@@ -3,8 +3,15 @@ ga:
     attributes:
       participatory_process:
         copy_categories: Cóipeáil catagóirí
+        participatory_process_group_id: Grúpa próisis
+        related_process_ids: Próisis Ceangailte
+      participatory_process_group:
+        participatory_process_ids: Próisis Ceangailte
   decidim:
     admin:
       menu:
         participatory_processes_submenu:
           categories: Catagóirí
+    participatory_processes:
+      statistics:
+        endorsements_count: Formhuinithe
