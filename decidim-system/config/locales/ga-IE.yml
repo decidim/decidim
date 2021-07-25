@@ -3,6 +3,7 @@ ga:
     attributes:
       organization:
         from_label: Lipéad
+        password: Pasfhocal
         port: Port
   decidim:
     system:
