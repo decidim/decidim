@@ -14,12 +14,14 @@ ga:
   decidim:
     accountability:
       actions:
+        attachment_collections: Fillteáin
         destroy: Scrios
         edit: Eagar
         preview: Réamhamharc
         title: Gníomhartha
       admin:
         exports:
+          result_comments: Tráchtanna
           results: Torthaí
         import_results:
           new:
@@ -45,6 +47,7 @@ ga:
         result:
           fields:
             category: Catagóir
+            created_at: Cruthaithe
             id: ID
             scope: Scóip
             status: Stádas
@@ -67,6 +70,8 @@ ga:
           subcategories_label: Fochatagóirí
         show:
           stats:
+            comments: Tráchtanna
+            meetings: Cruinnithe
             proposals: Moltaí
     admin:
       filters:
@@ -79,6 +84,8 @@ ga:
             label: Stádas
     components:
       accountability:
+        actions:
+          comment: Tabhair Trácht
         settings:
           global:
             categories_label: Ainm do "Catagóirí"
