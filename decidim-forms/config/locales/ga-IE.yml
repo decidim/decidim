@@ -3,6 +3,7 @@ ga:
     attributes:
       answer:
         body: Freagra
+        choices: Roghanna
       question:
         question_type: Cineál
   decidim:
@@ -26,6 +27,7 @@ ga:
             matrix_row: Ró
             remove: Bain as
           question:
+            add_matrix_row: Suimigh ró
             any: Ar Bith
             down: Síos
             expand: Méadaigh
@@ -41,6 +43,8 @@ ga:
       step_navigation:
         show:
           back: Ar Ais
+          continue: Lean ar aghaidh
           submit: Deimhnigh
       user_answers_serializer:
         body: Freagra
+        ip_hash: Hais IP
