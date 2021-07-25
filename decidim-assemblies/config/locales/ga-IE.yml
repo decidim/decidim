@@ -3,8 +3,19 @@ ga:
     attributes:
       assembly:
         copy_categories: Cóipeáil catagóirí
+        participatory_processes_ids: Próisis Rannpháirteacha Ceangailte
+        weight: Meáchan
   decidim:
     admin:
       menu:
         assemblies_submenu:
           categories: Catagóirí
+    assemblies:
+      show:
+        related_participatory_processes: Próisis Rannpháirteacha Ceangailte
+      statistics:
+        endorsements_count: Formhuinithe
+        followers_count: Leantóirí
+        headline: Staitisticí
+        no_stats: Níl aon staitisticí ann fós.
+        processes_count: Próisis
