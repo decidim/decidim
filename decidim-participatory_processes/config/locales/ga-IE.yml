@@ -2,13 +2,100 @@ ga:
   activemodel:
     attributes:
       participatory_process:
+        area_id: Ceantar
         copy_categories: Cóipeáil catagóirí
+        decidim_area_id: Ceantar
         participatory_process_group_id: Grúpa próisis
         related_process_ids: Próisis Ceangailte
+        scope_id: Scóip
+        title: Teideal
       participatory_process_group:
+        hero_image: Íomhá
         participatory_process_ids: Próisis Ceangailte
+        title: Teideal
+      participatory_process_step:
+        title: Teideal
+      participatory_process_user_role:
+        email: Seoladh ríomhphoist
+        name: Ainm
+        role: Ról
   decidim:
     admin:
+      actions:
+        destroy: Scrios
+        edit: Eagar
+        filter:
+          process_groups: Grúpaí próiseas
+        new_process: Próiseas nua
+        new_process_group: Grúpa próisis nua
+        new_process_user_role: Riarachán próisis nua
       menu:
+        participatory_process_groups: Grúpaí próiseas
+        participatory_process_groups_submenu:
+          info: Eolas
+        participatory_processes: Próisis
         participatory_processes_submenu:
+          attachment_files: Comhaid
           categories: Catagóirí
+          info: Eolas
+          process_admins: Riaracháin próiseas
+      models:
+        participatory_process:
+          fields:
+            title: Teideal
+          name: Próiseas Rannpháirtíochta
+        participatory_process_group:
+          fields:
+            title: Teideal
+          name: Grúpa próisis
+        participatory_process_step:
+          fields:
+            title: Teideal
+          name: Céim próisis rannpháirtíochta
+        participatory_process_user_role:
+          fields:
+            email: Seoladh ríomhphoist
+            name: Ainm
+            role: Ról
+          name: Riarachán próisis rannpháirtíochta
+          roles:
+            admin: Riarthóir
+      participatory_process_copies:
+        new:
+          copy: Cóipeáil
+      participatory_process_groups:
+        new:
+          create: Cruthaigh
+      participatory_process_steps:
+        default_title: Réamhrá
+        new:
+          create: Cruthaigh
+      participatory_process_user_roles:
+        new:
+          create: Cruthaigh
+      participatory_processes:
+        new:
+          create: Cruthaigh
+    participatory_process_groups:
+      content_blocks:
+        title:
+          meta_scope: Scóip
+    participatory_processes:
+      admin:
+        new_import:
+          accepted_types:
+            json: JSON
+        participatory_processes:
+          form:
+            images: Íomhanna
+            other: Eile
+      participatory_processes:
+        filters:
+          names:
+            all: Uile
+            past: Roimhe
+          see: Feic
+      show:
+        area: Ceantar
+        dates: Dátaí
+        scope: Scóip
