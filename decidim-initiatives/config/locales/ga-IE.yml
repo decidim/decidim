@@ -2,7 +2,12 @@ ga:
   activemodel:
     attributes:
       initiative:
+        decidim_user_group_id: Údar
         scope_id: Scóip
+        signature_type_values:
+          any: Measctha
+          online: Ar líne
+        state: Stádas
         title: Teideal
       initiatives_type:
         title: Teideal
@@ -20,6 +25,7 @@ ga:
         initiatives:
           fields:
             id: ID
+            state: Stádas
         initiatives_type_scope:
           fields:
             scope: Scóip
@@ -28,24 +34,42 @@ ga:
             hash: Hais
             scope: Scóip
     initiatives:
+      actions:
+        answer: Freagair
       admin:
         answers:
+          edit:
+            answer: Freagair
           info_initiative:
             state: Staid
+        committee_requests:
+          index:
+            revoke: Cúlghairm
         initiatives:
+          edit:
+            update: Nuashonraigh
+          index:
+            actions_title: Gníomh
+            preview: Réamhamharc
+            print: Clóbhuail
           initiative_attachments:
             edit: Eagar
             new: Nua
+            photos: Grianghraif
+          show:
+            print: Clóbhuail
         initiatives_type_scopes:
           edit:
             back: Ar Ais
             destroy: Scrios
+            update: Nuashonraigh
           new:
             back: Ar Ais
             create: Cruthaigh
         initiatives_types:
           edit:
             destroy: Scrios
+            update: Nuashonraigh
           new:
             create: Cruthaigh
       application_helper:
@@ -55,6 +79,7 @@ ga:
           all: Uile
         filter_state_values:
           all: Uile
+          closed: Dúnta
           open: Oscail
         filter_type_values:
           all: Uile
@@ -73,25 +98,40 @@ ga:
           back: Ar Ais
       edit:
         back: Ar Ais
+        update: Nuashonraigh
       form:
         delete_attachment: Scrios
       initiative_signatures:
         fill_personal_data:
           date_select:
             day: Lá
+            month: Mí
             year: Bliain
       initiatives:
+        committee_members:
+          revoke: Cúlghairm
         filters:
           any: Ar Bith
           area: Ceantar
+          author: Údar
           scope: Scóip
+          search: Cuardaigh
+          state: Stádas
           type: Cineál
+        filters_small_view:
+          filter: Scag
+          unfold: Oscail
         index_header:
           not_authorized:
             close: Dún
+        orders:
+          random: Randamach
         print:
           city: Cathair
           email: Seoladh ríomhphoist
+          initiative:
+            title: 'Teideal:'
+          print: Clóbhuail
         show:
           edit: Eagar
         vote_cabin:
@@ -102,11 +142,16 @@ ga:
     resources:
       initiatives_type:
         actions:
+          title: Gníomhartha
           vote: Sínigh
   layouts:
     decidim:
       initiative_creation_header:
         back: Ar Ais
         fill_data: Cruthaigh
+        finish: Críochnaigh
+        previous_form: Tosaigh
+        select_initiative_type: Roghnaigh
       initiative_signature_creation_header:
         back: Ar Ais
+        finish: Críochnaigh
