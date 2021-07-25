@@ -4,6 +4,10 @@ ga:
       sortition:
         title: Teideal
   decidim:
+    components:
+      sortitions:
+        actions:
+          comment: Tabhair Trácht
     sortitions:
       admin:
         actions:
