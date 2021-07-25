@@ -4,11 +4,15 @@ ga:
       conversation:
         body: Corp
       group:
+        about: Faoi
+        avatar: Abhatár
         email: Seoladh ríomhphoist
         name: Ainm
         phone: Fón
       message:
         body: Corp
+      user:
+        about: Faoi
   activerecord:
     attributes:
       decidim/user:
@@ -16,10 +20,24 @@ ga:
   booleans:
     'false': 'Níl'
     'true': 'Is ea'
+  date:
+    formats:
+      decidim_with_month_name_short: "%d %b"
   decidim:
+    admin:
+      actions:
+        cancel: Cealaigh
     amendments:
+      edit_draft:
+        send: Réamhamharc
+      emendation:
+        actions:
+          button_accept: Glac
+          button_reject: Diúltaigh
       new:
         send: Cruthaigh
+      preview_draft:
+        modify: Athraigh
       review:
         back: Ar Ais
     authorization_handlers:
@@ -30,9 +48,17 @@ ga:
         fields:
           bar: Bar
           foo: Foo
+    authorization_modals:
+      content:
+        incomplete:
+          cancel: Cealaigh
+    block_user_mailer:
+      notify:
+        hello: Dia duit,
     components:
       component_order_selector:
         order:
+          debate: Díospóireacht
           post: Postáil
         title: 'Taispeáin:'
       dummy:
@@ -42,10 +68,24 @@ ga:
         settings:
           global:
             scope_id: Scóip
+    content_blocks:
+      highlighted_elements_settings_form:
+        orders:
+          random: Randamach
+    data_portability:
+      export:
+        ready: Réidh
     devise:
+      registrations:
+        new:
+          sign_in: Logáil isteach
       shared:
         omniauth_buttons:
           or: Nó
+    doorkeeper:
+      authorizations:
+        new:
+          cancel: Cealaigh
     endorsable:
       endorsements: Formhuinithe
     endorsement_buttons_cell:
@@ -57,16 +97,35 @@ ga:
     filters:
       linked_classes:
         all: Uile
+        result: Torthaí
+    fingerprint:
+      source: Foinse
+      value: Luach
+    follows:
+      create:
+        button: Lean
     gamification:
       badges:
         index:
           title: Suaitheantais
+    group_invites:
+      accept_invitation: Glac
+      index:
+        invite: Tabhair Cuireadh
+      reject_invitation: Diúltaigh
     groups:
+      members:
+        accept_request: Glac
+        reject_request: Diúltaigh
       roles:
         admin: Riarthóir
+        member: Ball
     last_activities:
       index:
         resource_type: Cineál
+    links:
+      warning:
+        cancel: Cealaigh
     menu:
       help: Cabhair
       home: Baile
@@ -87,15 +146,22 @@ ga:
       image_text_cta_settings_form:
         body: Corp
         introduction: Réamhrá
+    newsletters_opt_in_mailer:
+      notify:
+        hello: Dia duit,
     notifications_settings:
       show:
         administrators: Riarthóirí
     pad_iframe:
       pad: Ceap
     pages:
+      home:
+        extended:
+          debates: Díospóireachtaí
       index:
         standalone_pages: Leathanaigh
         title: Cabhair
+        topics: Ábhair
     profile:
       view: Amharc
     profiles:
@@ -107,21 +173,44 @@ ga:
           title: Suaitheantais
     reported_mailer:
       report:
+        authors: Údair
         id: ID
+        reason: Cúis
     scopes:
+      picker:
+        cancel: Cealaigh
+        choose: Roghnaigh
       scopes: Scóip
+    search:
+      term_input_placeholder: Cuardaigh
     searches:
       filters:
         state:
+          active: Gníomhach
           all: Uile
+          future: Todhchaí
           past: Roimhe
+      filters_small_view:
+        filter: Scagaire
+        unfold: Oscail
+    security:
+      selfxss_warning:
+        title: Stad!
     shared:
+      confirm_modal:
+        cancel: Cealaigh
+      embed_modal:
+        embed_link: Leabaigh
       extended_navigation_bar:
         more: Níos mó
+        unfold: Oscail
       flag_modal:
         close: Dún
+        reason: Cúis
+        report: Tuairiscigh
       flag_user_modal:
         close: Dún
+        report: Tuairiscigh
       floating_help:
         help: Cabhair
       participatory_space_filters:
@@ -129,6 +218,7 @@ ga:
           areas: Ceantair
       share_modal:
         copy_share_link: Cóipeáil
+        share: Roinn
     statistics:
       endorsements_count: Formhuinithe
       pages_count: Leathanaigh
@@ -147,9 +237,16 @@ ga:
     invitations:
       edit:
         submit_button: Sábháil
+    registrations:
+      edit:
+        update: Nuashonraigh
+    sessions:
+      new:
+        sign_in: Logáil isteach
     shared:
       links:
         back: Ar Ais
+        sign_in: Logáil isteach
   layouts:
     decidim:
       edit_link:
@@ -157,8 +254,16 @@ ga:
       user_profile:
         user_groups: Grúpaí
   social_share_button:
+    douban: Douban
     email: Seoladh ríomhphoist
+    qq: Qzone
+    reddit: Reddit
+    tumblr: Tumblr
+    wechat: WeChat
     xing: Xing
   time:
     formats:
+      day_of_month: "%b %d"
       day_of_week: "%a"
+      day_of_week_long: "%a %e"
+      time_of_day: "%H:%M"
