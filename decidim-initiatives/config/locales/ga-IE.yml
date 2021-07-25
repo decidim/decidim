@@ -11,6 +11,8 @@ ga:
         title: Teideal
       initiatives_type:
         title: Teideal
+      organization_data:
+        address: Seoladh
   decidim:
     admin:
       filters:
@@ -19,6 +21,8 @@ ga:
             label: Ceantar
           state_eq:
             label: Staid
+            values:
+              created: Cruthaithe
           type_id_eq:
             label: Cineál
       models:
@@ -44,6 +48,7 @@ ga:
             state: Staid
         committee_requests:
           index:
+            approve: Ceadaigh
             revoke: Cúlghairm
         initiatives:
           edit:
@@ -72,6 +77,8 @@ ga:
             update: Nuashonraigh
           new:
             create: Cruthaigh
+      admin_states:
+        created: Cruthaithe
       application_helper:
         filter_area_values:
           all: Uile
@@ -108,7 +115,10 @@ ga:
             month: Mí
             year: Bliain
       initiatives:
+        author:
+          deleted: Scriosta
         committee_members:
+          approve: Ceadaigh
           revoke: Cúlghairm
         filters:
           any: Ar Bith
@@ -127,6 +137,7 @@ ga:
         orders:
           random: Randamach
         print:
+          address: Seoladh
           city: Cathair
           email: Seoladh ríomhphoist
           initiative:
@@ -139,6 +150,11 @@ ga:
       initiatives_mailer:
         initiative_link:
           here: anseo
+      show:
+        badge_name:
+          created: Cruthaithe
+      states:
+        expired: Éagtha
     resources:
       initiatives_type:
         actions:
@@ -152,6 +168,7 @@ ga:
         finish: Críochnaigh
         previous_form: Tosaigh
         select_initiative_type: Roghnaigh
+        show_similar_initiatives: Cuir i gcomparáid
       initiative_signature_creation_header:
         back: Ar Ais
         finish: Críochnaigh
