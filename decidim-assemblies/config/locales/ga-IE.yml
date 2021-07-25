@@ -7,21 +7,35 @@ ga:
         decidim_area_id: Ceantar
         decidim_scope_id: Scóip
         domain: Fearann
+        duration: Fad
+        facebook: Facebook
         github: GitHub
         hashtag: Haischlib
         participatory_processes_ids: Próisis Rannpháirteacha Ceangailte
         scope_id: Scóip
+        slug: Píosa URL
+        subtitle: Fotheideal
         title: Teideal
         twitter: Twitter
         weight: Meáchan
         youtube: YouTube
       assembly_member:
+        birthday: Breithlá
         gender: Inscne
+        position: Céim
         user_id: Úsáideoir
       assembly_user_role:
         email: Seoladh ríomhphoist
         name: Ainm
         role: Ról
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Tionól
+        two: Tionóil
+        few: Tionóil
+        many: Tionóil
+        other: Tionóil
   decidim:
     admin:
       actions:
@@ -54,10 +68,12 @@ ga:
         new:
           create: Cruthaigh
       menu:
+        assemblies_settings: Socruithe
         assemblies_submenu:
           assembly_members: Baill
           attachment_collections: Fillteáin
           attachment_files: Comhaid
+          attachments: Ceangaltáin
           categories: Catagóirí
           info: Eolas
       models:
@@ -68,9 +84,11 @@ ga:
           fields:
             private: Príobháideach
             title: Teideal
+          name: Tionól
         assembly_member:
           fields:
             full_name: Ainm
+            position: Céim
           name: Ball
           positions:
             other: Eile
@@ -85,8 +103,10 @@ ga:
       admin:
         assemblies:
           form:
+            duration: Fad
             filters: Scagairí
             images: Íomhánna
+            metadata: Meiteashonraí
             other: Eile
             social_handlers: Sóisialta
         assemblies_settings:
@@ -117,6 +137,7 @@ ga:
         others: Eile
       show:
         area: Ceantar
+        duration: Fad
         is_transparent:
           'false': doiléir
         related_participatory_processes: Próisis Rannpháirteacha Ceangailte
@@ -130,12 +151,15 @@ ga:
         headline: Staitisticí
         meetings_count: Cruinnithe
         no_stats: Níl aon staitisticí ann fós.
+        orders_count: Tacaíochtaí
         pages_count: Leathanaigh
         posts_count: Postálacha
         processes_count: Próisis
         projects_count: Tionscadail
         results_count: Torthaí
+        supports_count: Tacaíochtaí
         surveys_count: Suirbhéanna
+        votes_count: Tacaíochtaí
     assembly_members:
       index:
         title: Baill
