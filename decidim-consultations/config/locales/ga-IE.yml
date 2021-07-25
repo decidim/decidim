@@ -4,8 +4,10 @@ ga:
       consultation:
         title: Teideal
       question:
+        hashtag: Haischlib
         origin_scope: Scóip
         origin_title: Bunús
+        question_context: Comhthéacs
       response:
         decidim_consultations_response_group_id: Grúpa
   decidim:
@@ -75,14 +77,18 @@ ga:
       results:
         title: Torthaí
       statistics:
+        comments_count_title: Tráchtanna
+        meetings_count_title: Cruinnithe
         supports_count_title: Vótaí
       vote_button:
         vote: Vótáil
       vote_modal_confirm:
         change: Athrú
+        confirm: Deimhnigh
     resources:
       consultations:
         actions:
+          comment: Tabhair Trácht
           vote: Vótáil
     statistics:
       votes_count: Vótaí
