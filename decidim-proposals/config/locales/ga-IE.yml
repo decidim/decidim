@@ -2,6 +2,7 @@ ga:
   activemodel:
     attributes:
       collaborative_draft:
+        address: Seoladh
         body: Corp
         category_id: Catagóir
         decidim_scope_id: Scóip
@@ -56,6 +57,8 @@ ga:
       admin:
         actions:
           preview: Réamhamharc
+        exports:
+          proposal_comments: Tráchtanna
         participatory_texts:
           new_import:
             accepted_mime_types:
@@ -78,6 +81,7 @@ ga:
             cancel: Cealaigh
             change_category: Athraigh catagóir
             merge_button: Cumaisc
+            publish: Foilsigh
             split_button: Scoilt
             update: Nuashonraigh
           new:
@@ -85,6 +89,8 @@ ga:
           show:
             authors: Údair
             body: Corp
+            comments_negative_count: In Aghaidh
+            comments_neutral_count: Neodrach
             comments_positive_count: I Bhfabhar
             endorsements_count: Líon formhuinithe
             endorsers: Formhuinitheoirí
@@ -97,6 +103,7 @@ ga:
           all: Uile
         filter_origin_values:
           all: Uile
+          meetings: Cruinnithe
           user_groups: Grúpaí
         filter_scope_values:
           all: Uile
@@ -135,15 +142,18 @@ ga:
             reject_request: Diúltaigh
         show:
           back: Ar Ais
+          publish: Foilsigh
         states:
           open: Oscail
       models:
         collaborative_draft:
           fields:
             authors: Údair
+            comments: Tráchtanna
         proposal:
           fields:
             category: Catagóir
+            comments: Tráchtanna
             id: ID
             notes: Nótaí
             scope: Scóip
@@ -153,6 +163,8 @@ ga:
       participatory_text_proposal:
         buttons:
           amend: Leasaigh
+          comment: Trácht
+          comments: Tráchtanna
       proposals:
         complete:
           send: Seol
@@ -179,8 +191,12 @@ ga:
           most_endorsed: Formhuinithe is mó
           random: Randamach
           recent: Is Déanaí
+        preview:
+          publish: Foilsigh
+          update_position: Uasdátaigh seasamh
         show:
           answer: Freagra
+          comments: Tráchtanna
           endorsements_list: Liosta Formhuinithe
           report: Tuairiscigh
         wizard_aside:
