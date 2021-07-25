@@ -19,15 +19,19 @@ ga:
             label: Staid
             values:
               'false': Oscail
+              'true': Dúnta
           is_upcoming_true:
             label: Dáta
             values:
               'false': Roimhe
+          origin_eq:
+            label: Bunús
           scope_id_eq:
             label: Scóip
           type_eq:
             values:
               hybrid: Araon
+              online: Ar líne
       meeting_copies:
         new:
           copy: Cóipeáil
@@ -40,32 +44,47 @@ ga:
             scope_id: Scóip
     meetings:
       actions:
+        agenda: Clár
         close: Dún
         destroy: Scrios
         edit: Eagar
+        preview: Réamhamharc
+        title: Gníomhartha
       admin:
         agenda:
           agenda_item:
             down: Ísligh
+            remove: Bain as
             up: Ardaigh
           agenda_item_child:
             down: Ísligh
+            remove: Bain as
             up: Ardaigh
+          edit:
+            update: Nuashonraigh
           new:
             create: Cruthaigh
+        exports:
+          answers: Freagraí
         invites:
+          form:
+            invite: Tabhair Cuireadh
           index:
             filter:
               all: Uile
               sent: Seolta
+            search: Cuardaigh
         meeting_closes:
           edit:
             close: Dún
         meetings:
+          edit:
+            update: Nuashonraigh
           new:
             create: Cruthaigh
           service:
             down: Síos
+            remove: Bain as
             title: Teideal
             up: Thuas
         registrations:
@@ -77,6 +96,7 @@ ga:
             all: Uile
             date: Dáta
             past: Roimhe
+            search: Cuardaigh
       layouts:
         live_event:
           close: dún
@@ -86,6 +106,7 @@ ga:
       meetings:
         edit:
           back: Ar Ais
+          update: Nuashonraigh
         filters:
           all: Uile
           category: Catagóir
@@ -93,19 +114,27 @@ ga:
           date_values:
             all: Uile
             past: Roimhe
+          origin: Bunús
           origin_values:
             all: Uile
             user_groups: Grúpaí
           scope: Scóip
+          search: Cuardaigh
           type: Cineál
           type_values:
             all: Uile
             hybrid: Araon
+            online: Ar líne
+        filters_small_view:
+          filter: Scag
+          unfold: Oscail
         form:
           select_a_category: Roghnaigh catagóir le do thoil
         new:
           back: Ar Ais
           create: Cruthaigh
+        registration_confirm:
+          cancel: Cealaigh
         show:
           date: Dáta
           view: Amharc
@@ -114,17 +143,21 @@ ga:
           fields:
             email: Seoladh ríomhphoist
             name: Ainm
+            status: Stádas
           status:
             sent: Seolta
         meeting:
           fields:
+            closed: Dúnta
             id: Id
             map: Léarscáil
             title: Teideal
       polls:
         questions:
           index_admin:
+            results: Torthaí
             send: Seol
             sent: Seolta
       type_of_meeting:
         hybrid: Araon
+        online: Ar líne
