@@ -4,11 +4,46 @@ ga:
       debate:
         category_id: Catagóir
         decidim_category_id: Catagóir
+        title: Teideal
   decidim:
-    debates:
+    components:
       debates:
+        actions:
+          create: Cruthaigh
+        settings:
+          global:
+            scope_id: Scóip
+    debates:
+      actions:
+        close: Dún
+        destroy: Scrios
+        edit: Eagar
+      admin:
+        debate_closes:
+          edit:
+            close: Dún
+      debates:
+        close_debate_modal:
+          close: Dún
+        edit:
+          back: Ar Ais
         filters:
+          all: Uile
           category: Catagóir
           category_prompt: Roghnaigh catagóir
+          scope: Scóip
+          state_values:
+            open: Oscail
+          user_groups: Grúpaí
         form:
           select_a_category: Roghnaigh catagóir le do thoil
+        new:
+          back: Ar Ais
+          create: Cruthaigh
+        show:
+          date: Dáta
+          groups_count: Grúpaí
+      models:
+        debate:
+          fields:
+            title: Teideal
