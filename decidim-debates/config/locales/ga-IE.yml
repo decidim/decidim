@@ -14,6 +14,7 @@ ga:
         actions:
           comment: Tabhair Trácht
           create: Cruthaigh
+          endorse: Formhuinigh
         name: Díospóireachtaí
         settings:
           global:
@@ -69,6 +70,7 @@ ga:
       models:
         debate:
           fields:
+            end_time: Dáta deiridh
             title: Teideal
     gamification:
       badges:
