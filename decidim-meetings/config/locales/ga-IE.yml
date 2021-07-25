@@ -1,1 +1,17 @@
 ga:
+  activemodel:
+    attributes:
+      meeting:
+        decidim_category_id: Catagóir
+  decidim:
+    admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Catagóir
+    meetings:
+      meetings:
+        filters:
+          category: Catagóir
+        form:
+          select_a_category: Roghnaigh catagóir le do thoil
