@@ -10,6 +10,10 @@ ga:
         settings:
           global:
             test: Teist
+    dummy:
+      admin:
+        exports:
+          dummies: Dummies
     gamification:
       badges:
         test:
