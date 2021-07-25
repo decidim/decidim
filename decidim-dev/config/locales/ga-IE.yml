@@ -5,6 +5,15 @@ ga:
         decidim_scope_id: Scóip
         title: Teideal
   decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            test: Teist
+    gamification:
+      badges:
+        test:
+          name: Scrúduithe
     pages:
       home:
         statistics:
