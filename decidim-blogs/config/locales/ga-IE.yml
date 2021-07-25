@@ -1,8 +1,39 @@
 ga:
   decidim:
+    blogs:
+      actions:
+        destroy: Scrios
+        edit: Eagar
+      admin:
+        models:
+          components:
+            body: Corp
+          post:
+            name: Postáil
+        posts:
+          index:
+            title: Postálacha
+          new:
+            create: Cruthaigh
+      models:
+        post:
+          fields:
+            body: Corp
+            title: teideal
+      posts:
+        show:
+          view: Amharc
     components:
       blogs:
+        name: Blag
         settings:
           step:
             endorsements_blocked: Formhuinithe blocáilte
             endorsements_enabled: Formhuinithe cumasaithe
+    pages:
+      home:
+        statistics:
+          posts_count: Postálacha
+    participatory_processes:
+      statistics:
+        posts_count: Postálacha
