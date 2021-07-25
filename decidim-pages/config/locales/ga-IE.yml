@@ -1,1 +1,10 @@
 ga:
+  decidim:
+    components:
+      pages:
+        name: Leathanach
+    pages:
+      admin:
+        models:
+          components:
+            body: Corp
