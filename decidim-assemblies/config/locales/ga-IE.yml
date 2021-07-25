@@ -3,8 +3,12 @@ ga:
     attributes:
       assembly:
         copy_categories: Cóipeáil catagóirí
+        participatory_processes_ids: Próisis Rannpháirteacha Ceangailte
   decidim:
     admin:
       menu:
         assemblies_submenu:
           categories: Catagóirí
+    assemblies:
+      show:
+        related_participatory_processes: Próisis Rannpháirteacha Ceangailte
