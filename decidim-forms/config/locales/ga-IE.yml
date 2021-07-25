@@ -1,25 +1,45 @@
 ga:
   activemodel:
     attributes:
+      answer:
+        body: Freagra
       question:
         question_type: Cineál
   decidim:
     forms:
       admin:
         questionnaires:
+          answer_option:
+            remove: Bain as
+          answers:
+            actions:
+              export: Easpórtáil
+          display_condition:
+            condition_types:
+              equal: Céanna
+            remove: Bain as
           edit:
             save: Sábháil
+          form:
+            preview: Réamhamharc
           matrix_row:
             matrix_row: Ró
+            remove: Bain as
           question:
             any: Ar Bith
             down: Síos
+            expand: Méadaigh
+            remove: Bain as
             up: Thuas
           separator:
             down: Ísligh
+            remove: Bain as
             up: Ardaigh
       question_types:
         files: Comhaid
       step_navigation:
         show:
           back: Ar Ais
+          submit: Deimhnigh
+      user_answers_serializer:
+        body: Freagra
