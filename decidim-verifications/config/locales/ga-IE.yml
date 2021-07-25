@@ -2,6 +2,7 @@ ga:
   activemodel:
     attributes:
       config:
+        offline: As líne
         online: Ar líne
       postal_letter_confirmation:
         verification_code: Cód deimhnithe
@@ -19,6 +20,7 @@ ga:
         renew_modal:
           cancel: Cealaigh
           close: dún
+          continue: Lean ar aghaidh
       id_documents:
         admin:
           config:
@@ -37,6 +39,7 @@ ga:
               config: Cumraíocht
         authorizations:
           choose:
+            offline: As líne
             online: Ar líne
         dni: Cárta ID
         nie: Cárta ID Eachtrannaigh
@@ -45,6 +48,7 @@ ga:
           pending_authorizations:
             index:
               address: Seoladh
+              username: Leasainm
         authorizations:
           edit:
             send: Deimhnigh
