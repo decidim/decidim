@@ -37,6 +37,7 @@ ga:
             up: Ardaigh
       question_types:
         files: Comhaid
+        sorting: Sórtáil
       step_navigation:
         show:
           back: Ar Ais
