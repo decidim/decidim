@@ -13,8 +13,15 @@ ga:
       actions:
         destroy: Scrios
         edit: Eagar
+        preview: Réamhamharc
+        title: Gníomhartha
       admin:
+        models:
+          budget:
+            name: Buiséad
         projects:
+          edit:
+            update: Nuashonraigh
           new:
             create: Cruthaigh
       models:
@@ -25,19 +32,29 @@ ga:
           fields:
             title: Teideal
       projects:
+        budget_confirm:
+          cancel: Cealaigh
         budget_excess:
           close: Dún
         filters:
           category: Catagóir
           scope: Scóip
+          search: Cuardaigh
+          status: Stádas
           status_values:
             all: Uile
+        filters_small_view:
+          filter: Scag
+          unfold: Oscail
         order_progress:
           vote: Vóta
         order_selected_projects:
+          remove: Bain as
           view: Amharc
         project:
           view: Amharc
+        show:
+          budget: Buiséad
     components:
       budgets:
         actions:
@@ -48,3 +65,4 @@ ga:
             title: Teideal
           step:
             title: Teideal
+            votes: Vótáil
