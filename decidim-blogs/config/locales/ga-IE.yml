@@ -26,7 +26,10 @@ ga:
             title: teideal
       posts:
         show:
+          comments: Tráchtanna
           view: Amharc
+        sidebar_blog:
+          comments: tráchtanna
     components:
       blogs:
         name: Blag
