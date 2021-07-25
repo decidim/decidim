@@ -1,1 +1,25 @@
 ga:
+  activemodel:
+    attributes:
+      question:
+        question_type: Cineál
+  decidim:
+    forms:
+      admin:
+        questionnaires:
+          edit:
+            save: Sábháil
+          matrix_row:
+            matrix_row: Ró
+          question:
+            any: Ar Bith
+            down: Síos
+            up: Thuas
+          separator:
+            down: Ísligh
+            up: Ardaigh
+      question_types:
+        files: Comhaid
+      step_navigation:
+        show:
+          back: Ar Ais
