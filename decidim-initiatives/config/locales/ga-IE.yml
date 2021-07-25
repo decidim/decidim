@@ -36,6 +36,7 @@ ga:
         initiatives_votes:
           fields:
             hash: Hais
+            initiative_end_date: Dáta deiridh
             scope: Scóip
     initiatives:
       actions:
@@ -53,6 +54,9 @@ ga:
         initiatives:
           edit:
             update: Nuashonraigh
+          form:
+            attachments: Ceangaltáin
+            settings: Socruithe
           index:
             actions_title: Gníomh
             preview: Réamhamharc
@@ -75,6 +79,8 @@ ga:
           edit:
             destroy: Scrios
             update: Nuashonraigh
+          form:
+            options: Roghanna
           new:
             create: Cruthaigh
       admin_states:
@@ -90,17 +96,24 @@ ga:
           open: Oscail
         filter_type_values:
           all: Uile
+      committee_requests:
+        new:
+          continue: Lean ar aghaidh
       create_initiative:
         fill_data:
           back: Ar Ais
+          continue: Lean ar aghaidh
         finish:
           back: Ar Ais
         previous_form:
           back: Ar Ais
+          continue: Lean ar aghaidh
         promotal_committee:
           back: Ar Ais
         select_initiative_type:
           back: Ar Ais
+        share_committee_link:
+          continue: Lean ar aghaidh
         show_similar_initiatives:
           back: Ar Ais
       edit:
@@ -110,6 +123,7 @@ ga:
         delete_attachment: Scrios
       initiative_signatures:
         fill_personal_data:
+          continue: Lean ar aghaidh
           date_select:
             day: Lá
             month: Mí
@@ -162,6 +176,9 @@ ga:
           vote: Sínigh
   layouts:
     decidim:
+      admin:
+        initiative:
+          attachments: Ceangaltáin
       initiative_creation_header:
         back: Ar Ais
         fill_data: Cruthaigh
