@@ -1,12 +1,15 @@
 ga:
   activemodel:
     attributes:
+      config:
+        online: Ar líne
       postal_letter_confirmation:
         verification_code: Cód deimhnithe
       postal_letter_postage:
         verification_code: Cód deimhnithe
   decidim:
     authorization_handlers:
+      direct: Díreach
       help: Cabhair
       name: Ainm
     verifications:
@@ -14,7 +17,26 @@ ga:
         new:
           authorize: Seol
         renew_modal:
+          cancel: Cealaigh
           close: dún
       id_documents:
+        admin:
+          config:
+            edit:
+              update: Nuashonraigh
+          confirmations:
+            new:
+              reject: Diúltaigh
+              verify: Deimhnigh
+          offline_confirmations:
+            new:
+              cancel: Cealaigh
+              verify: Deimhnigh
+          pending_authorizations:
+            index:
+              config: Cumraíocht
+        authorizations:
+          choose:
+            online: Ar líne
         dni: Cárta ID
         nie: Cárta ID Eachtrannaigh
