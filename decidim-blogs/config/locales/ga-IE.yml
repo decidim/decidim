@@ -4,6 +4,7 @@ ga:
       actions:
         destroy: Scrios
         edit: Eagar
+        title: Gníomhartha
       admin:
         models:
           components:
@@ -11,6 +12,8 @@ ga:
           post:
             name: Postáil
         posts:
+          edit:
+            save: Nuashonraigh
           index:
             title: Postálacha
           new:
@@ -18,6 +21,7 @@ ga:
       models:
         post:
           fields:
+            author: Údar
             body: Corp
             title: teideal
       posts:
@@ -26,6 +30,7 @@ ga:
     components:
       blogs:
         actions:
+          amend: Leasaigh
           endorse: Formhuinigh
           vote: Vótáil
         name: Blag
