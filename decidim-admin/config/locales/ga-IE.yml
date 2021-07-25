@@ -5,7 +5,9 @@ ga:
         name: Ainm
       area_type:
         name: Ainm
+        plural: Iolra
       attachment:
+        attachment_collection_id: Fillteán
         file: Comhad
       attachment_collection:
         name: Ainm
@@ -15,9 +17,11 @@ ga:
         parent_id: Tuismitheoir
       component:
         name: Ainm
+        weight: Meáchan
       id: ID
       newsletter:
         body: Corp
+        subject: Ábhar
       organization:
         alert_color: Foláireamh
         favicon: Deilbhín
@@ -31,14 +35,18 @@ ga:
       scope:
         code: Cód
         name: Ainm
+        parent_id: Tuismitheoir
       scope_type:
         name: Ainm
+        plural: Iolra
       settings:
         scope_id: Scóip
       static_page:
         title: Teideal
+        weight: Meáchan
       static_page_topic:
         title: Teideal
+        weight: Meáchan
       user_group_csv_verification:
         file: Comhad
   activerecord:
@@ -49,11 +57,29 @@ ga:
     admin:
       actions:
         add: Cuir leis
+        browse: Brabhsáil
         category:
           new: Catagóir nua
+        export: Easpórtáil
+        import: Iompórtáil
+        manage: Bainistigh
+        reject: Diúltaigh
+        share: Roinn
+        verify: Deimhnigh
+      area_types:
+        edit:
+          update: Nuashonraigh
+      areas:
+        edit:
+          update: Nuashonraigh
       attachment_collections:
+        edit:
+          update: Nuashonraigh
         new:
           create: Cruthaigh
+      attachments:
+        edit:
+          update: Nuashonraigh
       categories:
         edit:
           title: Cuir catagóir
@@ -65,28 +91,42 @@ ga:
           title: Catagóir nua
         update:
           success: Catagóir nuashonraithe go rathúil.
+      components:
+        edit:
+          update: Nuashonraigh
+        index:
+          headers:
+            actions: Gníomhartha
       conflicts:
         'false': 'Níl'
+        solved: Réitithe
         transfer:
           email: Seoladh ríomhphoist
           name: Ainm
+          reason: Cúis
         'true': 'Is ea'
         user_name: Úsáideoir
       exports:
         formats:
           CSV: CSV
+          Excel: Excel
           FormPDF: PDF
           JSON: JSON
       filters:
         category_id_eq:
           label: Catagóir
+        filter_label: Scagaire
         moderations:
           reportable_type_string_eq:
             label: Cineál
         officialized_at_null:
           label: Staid
+        private_space_eq:
+          values:
+            'false': Poblach
         scope_id_eq:
           label: Scóip
+        search_label: Cuardaigh
         state_eq:
           label: Staid
       help_sections:
@@ -97,9 +137,12 @@ ga:
           filter:
             all: Uile
           name: Ainm
+          search: Cuardaigh
+          status: Stádas
       impersonations:
         form:
           name: Ainm
+          reason: Cúis
       imports:
         new:
           accepted_mime_types:
@@ -108,6 +151,7 @@ ga:
             xls: xls
           actions:
             back: Ar Ais
+          import: Iompórtáil
       menu:
         admins: Riaracháin
         areas: Ceantair
@@ -121,22 +165,34 @@ ga:
         area_type:
           fields:
             name: Ainm
+            plural: Iolra
         attachment:
           fields:
+            collection: Fillteán
             content_type: Cineál
             file_size: Méid
             title: Teideal
+        attachment_collection:
+          name: Fillteán
         category:
           name: Catagóir
         impersonation_log:
           fields:
             admin: Riarachán
+            reason: Cúis
+        newsletter:
+          fields:
+            subject: Ábhar
         scope:
           fields:
             name: Ainm
         scope_type:
           fields:
             name: Ainm
+            plural: Iolra
+        share_token:
+          fields:
+            token: Licín
         static_page:
           fields:
             title: Teideal
@@ -149,12 +205,16 @@ ga:
               admin: Riarachán
         user_group:
           fields:
+            actions: Gníomhartha
             name: Ainm
             phone: Fón
             state: Staid
       moderated_users:
         index:
+          actions:
+            title: Gníomhartha
           name: Ainm
+          reason: Cúis
         report:
           reasons:
             spam: Turscar
@@ -162,6 +222,12 @@ ga:
         report:
           reasons:
             spam: Turscar
+        reports:
+          show:
+            report_reason: Cúis
+      newsletter_templates:
+        index:
+          preview_template: Réamhamharc
       newsletters:
         index:
           all: uile
@@ -171,26 +237,60 @@ ga:
         select_recipients_to_deliver:
           all_spaces: Uile
           none: Ceann ar Bith
+        show:
+          preview: Réamhamharc
+          subject: Ábhar
       officializations:
         index:
+          actions: Gníomhartha
           badge: Suaitheantas
           name: Ainm
+          status: Stádas
         show_email_modal:
+          hidden: ceilte
           show: Taispeáin
       organization:
+        edit:
+          update: Nuashonraigh
         form:
+          github: GitHub
+          social_handlers: Sóisialta
           url: URL
+      organization_appearance:
+        edit:
+          update: Nuashonraigh
+        form:
+          images:
+            preview: Réamhamharc
+      organization_homepage_content_blocks:
+        edit:
+          update: Nuashonraigh
       participatory_space_private_users:
         new:
           create: Cruthaigh
+      participatory_space_private_users_csv_imports:
+        new:
+          upload: Uaslódáil
+      resource_permissions:
+        edit:
+          submit: Deimhnigh
       resources:
         index:
           headers:
             scope: Scóip
+      scope_types:
+        edit:
+          update: Nuashonraigh
+      scopes:
+        edit:
+          update: Nuashonraigh
       share_tokens:
         actions:
           destroy: Scrios
+          share: Roinn
       static_pages:
+        edit:
+          update: Nuashonraigh
         form:
           none: Ceann ar Bith
       titles:
@@ -204,6 +304,7 @@ ga:
         index:
           filter:
             all: Uile
+          search: Cuardaigh
       user_groups_csv_verifications:
         new:
           upload: Uaslódáil
@@ -212,15 +313,24 @@ ga:
           email: Seoladh ríomhphoist
           name: Ainm
           role: Ról
+        new:
+          create: Tabhair Cuireadh
       users_statistics:
         users_count:
           admins: Riaracháin
     moderations:
       actions:
+        expand: Méadaigh
+        hidden: Ceilte
         hide: Cuir i bhfolach
+        title: Gníomhartha
+        unhide: Nocht
       models:
         moderation:
           fields:
             report_count: Líon
             reportable_id: Id
             reportable_type: Cineál
+        report:
+          fields:
+            reason: Cúis
