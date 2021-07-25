@@ -4,6 +4,7 @@ ga:
       collaborative_draft:
         category_id: Catagóir
       proposal:
+        address: Seoladh
         answer: Freagra
         body: Corp
         category_id: Catagóir
@@ -33,9 +34,17 @@ ga:
         actions:
           amend: Leasaigh
           create: Cruthaigh
+          endorse: Formhuinigh
         settings:
           global:
             scope_id: Scóip
+          step:
+            endorsements_blocked: Formhuinithe blocáilte
+            endorsements_enabled: Formhuinithe cumasaithe
+    metrics:
+      endorsements:
+        object: formhuinithe
+        title: Formhuinithe
     proposals:
       admin:
         participatory_texts:
@@ -55,6 +64,7 @@ ga:
           form:
             select_a_category: Roghnaigh catagóir
           index:
+            assign_to_valuator_button: Ceap
             cancel: Cealaigh
             change_category: Athraigh catagóir
             merge_button: Cumaisc
@@ -65,6 +75,8 @@ ga:
           show:
             body: Corp
             comments_positive_count: I Bhfabhar
+            endorsements_count: Líon formhuinithe
+            endorsers: Formhuinitheoirí
             link: Nasc
             photos: Grianghraif
           update_category:
@@ -98,6 +110,18 @@ ga:
           category: Catagóir
           open: Oscail
           scope: Scóip
+          search: Cuardaigh
+          state: Stádas
+        filters_small_view:
+          filter: Scag
+          unfold: Oscail
+        orders:
+          random: Randamach
+          recent: Is Déanaí
+        requests:
+          collaboration_requests:
+            accept_request: Glac
+            reject_request: Diúltaigh
         show:
           back: Ar Ais
         states:
@@ -109,6 +133,7 @@ ga:
             id: ID
             notes: Nótaí
             scope: Scóip
+            state: Stádas
             title: Teideal
             votes: Vótaí
       participatory_text_proposal:
@@ -126,8 +151,22 @@ ga:
           all: Uile
           amendment_type: Cineál
           category: Catagóir
+          origin: Bunús
           scope: Scóip
+          search: Cuardaigh
+          state: Stádas
           type: Cineál
+        filters_small_view:
+          filter: Scag
+          unfold: Oscail
+        orders:
+          most_endorsed: Formhuinithe is mó
+          random: Randamach
+          recent: Is Déanaí
+        show:
+          answer: Freagra
+          endorsements_list: Liosta Formhuinithe
+          report: Tuairiscigh
         wizard_aside:
           back: Ar Ais
       proposals_picker:
