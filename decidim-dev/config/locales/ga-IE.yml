@@ -1,1 +1,10 @@
 ga:
+  activemodel:
+    attributes:
+      dummy_resource:
+        decidim_scope_id: Scóip
+        title: Teideal
+  decidim:
+    statistics:
+      bar: Bar
+      foo: Foo
