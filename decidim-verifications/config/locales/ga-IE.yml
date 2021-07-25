@@ -5,3 +5,16 @@ ga:
         verification_code: Cód deimhnithe
       postal_letter_postage:
         verification_code: Cód deimhnithe
+  decidim:
+    authorization_handlers:
+      help: Cabhair
+      name: Ainm
+    verifications:
+      authorizations:
+        new:
+          authorize: Seol
+        renew_modal:
+          close: dún
+      id_documents:
+        dni: Cárta ID
+        nie: Cárta ID Eachtrannaigh
