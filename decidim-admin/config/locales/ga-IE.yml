@@ -1,17 +1,59 @@
 ga:
   activemodel:
     attributes:
+      area:
+        name: Ainm
+      area_type:
+        name: Ainm
+      attachment:
+        file: Comhad
+      attachment_collection:
+        name: Ainm
       category:
         description: Cur Síos
         name: Ainm
         parent_id: Tuismitheoir
+      component:
+        name: Ainm
+      id: ID
+      newsletter:
+        body: Corp
+      organization:
+        alert_color: Foláireamh
+        favicon: Deilbhín
+        highlighted_content_banner_image: Íomhá
+        highlighted_content_banner_title: Teideal
+        host: Óstach
+        logo: Lógó
+        name: Ainm
+        omnipresent_banner_title: Teideal
+        omnipresent_banner_url: URL
+      scope:
+        code: Cód
+        name: Ainm
+      scope_type:
+        name: Ainm
+      settings:
+        scope_id: Scóip
+      static_page:
+        title: Teideal
+      static_page_topic:
+        title: Teideal
       user_group_csv_verification:
         file: Comhad
+  activerecord:
+    attributes:
+      decidim/static_page:
+        title: Teideal
   decidim:
     admin:
       actions:
+        add: Cuir leis
         category:
           new: Catagóir nua
+      attachment_collections:
+        new:
+          create: Cruthaigh
       categories:
         edit:
           title: Cuir catagóir
@@ -23,14 +65,162 @@ ga:
           title: Catagóir nua
         update:
           success: Catagóir nuashonraithe go rathúil.
+      conflicts:
+        'false': 'Níl'
+        transfer:
+          email: Seoladh ríomhphoist
+          name: Ainm
+        'true': 'Is ea'
+        user_name: Úsáideoir
+      exports:
+        formats:
+          CSV: CSV
+          FormPDF: PDF
+          JSON: JSON
       filters:
         category_id_eq:
           label: Catagóir
+        moderations:
+          reportable_type_string_eq:
+            label: Cineál
+        officialized_at_null:
+          label: Staid
+        scope_id_eq:
+          label: Scóip
+        state_eq:
+          label: Staid
+      help_sections:
+        form:
+          save: Sábháil
+      impersonatable_users:
+        index:
+          filter:
+            all: Uile
+          name: Ainm
+      impersonations:
+        form:
+          name: Ainm
+      imports:
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xls: xls
+          actions:
+            back: Ar Ais
+      menu:
+        admins: Riaracháin
+        areas: Ceantair
+        scopes: Scóip
+        static_pages: Leathanaigh
+        user_groups: Grúpaí
       models:
+        area:
+          fields:
+            name: Ainm
+        area_type:
+          fields:
+            name: Ainm
+        attachment:
+          fields:
+            content_type: Cineál
+            file_size: Méid
+            title: Teideal
         category:
           name: Catagóir
+        impersonation_log:
+          fields:
+            admin: Riarachán
+        scope:
+          fields:
+            name: Ainm
+        scope_type:
+          fields:
+            name: Ainm
+        static_page:
+          fields:
+            title: Teideal
+        user:
+          fields:
+            email: Seoladh ríomhphoist
+            name: Ainm
+            role: Ról
+            roles:
+              admin: Riarachán
+        user_group:
+          fields:
+            name: Ainm
+            phone: Fón
+            state: Staid
+      moderated_users:
+        index:
+          name: Ainm
+        report:
+          reasons:
+            spam: Turscar
+      moderations:
+        report:
+          reasons:
+            spam: Turscar
+      newsletters:
+        index:
+          all: uile
+          and: 'agus '
+        new:
+          save: Sábháil
+        select_recipients_to_deliver:
+          all_spaces: Uile
+          none: Ceann ar Bith
+      officializations:
+        index:
+          badge: Suaitheantas
+          name: Ainm
+        show_email_modal:
+          show: Taispeáin
+      organization:
+        form:
+          url: URL
+      participatory_space_private_users:
+        new:
+          create: Cruthaigh
+      resources:
+        index:
+          headers:
+            scope: Scóip
+      share_tokens:
+        actions:
+          destroy: Scrios
+      static_pages:
+        form:
+          none: Ceann ar Bith
       titles:
+        areas: Ceantair
         authorization_workflows: Modhanna deimhnithe
+        panel: Riarachán
+        scopes: Scóip
+        static_pages: Leathanaigh
+        user_groups: Grúpaí
+      user_groups:
+        index:
+          filter:
+            all: Uile
       user_groups_csv_verifications:
         new:
           upload: Uaslódáil
+      users:
+        form:
+          email: Seoladh ríomhphoist
+          name: Ainm
+          role: Ról
+      users_statistics:
+        users_count:
+          admins: Riaracháin
+    moderations:
+      actions:
+        hide: Cuir i bhfolach
+      models:
+        moderation:
+          fields:
+            report_count: Líon
+            reportable_id: Id
+            reportable_type: Cineál
