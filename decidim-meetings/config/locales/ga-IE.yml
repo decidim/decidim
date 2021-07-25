@@ -1,12 +1,106 @@
 ga:
   activemodel:
     attributes:
+      agenda:
+        title: Teideal
       meeting:
         decidim_category_id: Catagóir
+        decidim_scope_id: Scóip
+        title: Teideal
+        type_of_meeting: Cineál
   decidim:
-    meetings:
+    admin:
+      meeting_copies:
+        new:
+          copy: Cóipeáil
+    components:
       meetings:
+        actions:
+          join: Téigh leis
+        settings:
+          global:
+            scope_id: Scóip
+    meetings:
+      actions:
+        close: Dún
+        destroy: Scrios
+        edit: Eagar
+      admin:
+        agenda:
+          agenda_item:
+            down: Ísligh
+            up: Ardaigh
+          agenda_item_child:
+            down: Ísligh
+            up: Ardaigh
+          new:
+            create: Cruthaigh
+        invites:
+          index:
+            filter:
+              all: Uile
+              sent: Seolta
+        meeting_closes:
+          edit:
+            close: Dún
+        meetings:
+          new:
+            create: Cruthaigh
+          service:
+            down: Síos
+            title: Teideal
+            up: Thuas
+        minutes:
+          new:
+            create: Cruthaigh
+        registrations:
+          edit:
+            save: Sábháil
+      directory:
+        meetings:
+          index:
+            all: Uile
+            date: Dáta
+            past: Roimhe
+      meeting_closes:
+        edit:
+          back: Ar Ais
+      meetings:
+        edit:
+          back: Ar Ais
         filters:
+          all: Uile
           category: Catagóir
+          date: Dáta
+          date_values:
+            all: Uile
+            past: Roimhe
+          origin_values:
+            all: Uile
+            user_groups: Grúpaí
+          scope: Scóip
+          type: Cineál
+          type_values:
+            all: Uile
+            hybrid: Araon
         form:
           select_a_category: Roghnaigh catagóir le do thoil
+        new:
+          back: Ar Ais
+          create: Cruthaigh
+        show:
+          date: Dáta
+          view: Amharc
+      models:
+        invite:
+          fields:
+            email: Seoladh ríomhphoist
+            name: Ainm
+          status:
+            sent: Seolta
+        meeting:
+          fields:
+            map: Léarscáil
+            title: Teideal
+      type_of_meeting:
+        hybrid: Araon
