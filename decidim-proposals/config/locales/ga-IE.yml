@@ -1,1 +1,134 @@
 ga:
+  activemodel:
+    attributes:
+      collaborative_draft:
+        category_id: Catagóir
+      proposal:
+        answer: Freagra
+        body: Corp
+        category_id: Catagóir
+        decidim_scope_id: Scóip
+        scope_id: Scóip
+        state: Staid
+        title: Teideal
+      proposal_answer:
+        answer: Freagra
+        cost: Costas
+  decidim:
+    admin:
+      filters:
+        proposals:
+          category_id_eq:
+            label: Catagóir
+          is_emendation_true:
+            label: Cineál
+          scope_id_eq:
+            label: Scóip
+          state_eq:
+            label: Staid
+          state_null:
+            label: Staid
+    components:
+      proposals:
+        actions:
+          amend: Leasaigh
+          create: Cruthaigh
+        settings:
+          global:
+            scope_id: Scóip
+    proposals:
+      admin:
+        participatory_texts:
+          new_import:
+            accepted_mime_types:
+              odt: ODT
+        proposal_answers:
+          form:
+            answer_proposal: Freagra
+        proposal_notes:
+          form:
+            note: Nóta
+            submit: Deimhnigh
+        proposals:
+          edit:
+            update: Nuashonraigh
+          form:
+            select_a_category: Roghnaigh catagóir
+          index:
+            cancel: Cealaigh
+            change_category: Athraigh catagóir
+            merge_button: Cumaisc
+            split_button: Scoilt
+            update: Nuashonraigh
+          new:
+            create: Cruthaigh
+          show:
+            body: Corp
+            comments_positive_count: I Bhfabhar
+            link: Nasc
+            photos: Grianghraif
+          update_category:
+            select_a_category: Roghnaigh catagóir le do thoil
+      application_helper:
+        filter_category_values:
+          all: Uile
+        filter_origin_values:
+          all: Uile
+          user_groups: Grúpaí
+        filter_scope_values:
+          all: Uile
+        filter_state_values:
+          all: Uile
+        filter_type_values:
+          all: Uile
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            irreversible_action_modal:
+              cancel: Cealaigh
+          withdraw:
+            irreversible_action_modal:
+              cancel: Cealaigh
+        edit:
+          back: Ar Ais
+          select_a_category: Roghnaigh catagóir le do thoil
+          send: Seol
+        filters:
+          all: Uile
+          category: Catagóir
+          open: Oscail
+          scope: Scóip
+        show:
+          back: Ar Ais
+        states:
+          open: Oscail
+      models:
+        proposal:
+          fields:
+            category: Catagóir
+            id: ID
+            notes: Nótaí
+            scope: Scóip
+            title: Teideal
+            votes: Vótaí
+      participatory_text_proposal:
+        buttons:
+          amend: Leasaigh
+      proposals:
+        complete:
+          send: Seol
+        edit:
+          add_images: Comhad
+          back: Ar Ais
+          select_a_category: Roghnaigh catagóir le do thoil
+          send: Seol
+        filters:
+          all: Uile
+          amendment_type: Cineál
+          category: Catagóir
+          scope: Scóip
+          type: Cineál
+        wizard_aside:
+          back: Ar Ais
+      proposals_picker:
+        close: Dún
