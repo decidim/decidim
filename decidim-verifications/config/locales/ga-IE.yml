@@ -40,3 +40,15 @@ ga:
             online: Ar líne
         dni: Cárta ID
         nie: Cárta ID Eachtrannaigh
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Seoladh
+        authorizations:
+          edit:
+            send: Deimhnigh
+      sms:
+        authorizations:
+          edit:
+            send: Deimhnigh
