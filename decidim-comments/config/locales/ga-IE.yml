@@ -9,7 +9,9 @@ ga:
       comment:
         reply: Freagra
         report:
+          action: Tuairiscigh
           close: Dún
       comment_order_selector:
         order:
           older: Níos Sine
+          recent: Is Déanaí
