@@ -46,6 +46,7 @@ ga:
         scope_id: Scóip
       static_page:
         content: Inneachar
+        slug: Píosa URL
         title: Teideal
         weight: Meáchan
       static_page_topic:
@@ -57,6 +58,7 @@ ga:
     attributes:
       decidim/static_page:
         content: Inneachar
+        slug: Píosa URL
         title: Teideal
       doorkeeper/application:
         site: Suíomh Gréasáin
@@ -70,6 +72,7 @@ ga:
         export: Easpórtáil
         import: Iompórtáil
         manage: Bainistigh
+        per_page: In aghaidh an leathanach
         reject: Diúltaigh
         share: Roinn
         verify: Deimhnigh
@@ -79,6 +82,9 @@ ga:
       areas:
         edit:
           update: Nuashonraigh
+        new:
+          title: Ceantar nua
+        no_areas: Aon ceantair
       attachment_collections:
         edit:
           update: Nuashonraigh
@@ -87,6 +93,8 @@ ga:
       attachments:
         edit:
           update: Nuashonraigh
+        index:
+          attachments_title: Ceangaltáin
       categories:
         edit:
           title: Cuir catagóir
@@ -176,7 +184,9 @@ ga:
       menu:
         admins: Riaracháin
         areas: Ceantair
+        homepage: Leathanach baile
         scopes: Scóip
+        settings: Socruithe
         static_pages: Leathanaigh
         user_groups: Grúpaí
       models:
@@ -193,6 +203,7 @@ ga:
             content_type: Cineál
             file_size: Méid
             title: Teideal
+          name: Ceangaltán
         attachment_collection:
           name: Fillteán
         category:
@@ -200,9 +211,11 @@ ga:
         impersonation_log:
           fields:
             admin: Riarachán
+            ended_at: Críochnaithe ag
             reason: Cúis
         newsletter:
           fields:
+            progress: Forás
             sent_at: Seolta ag
             sent_to: Seolta go
             subject: Ábhar
@@ -236,11 +249,15 @@ ga:
         index:
           actions:
             title: Gníomhartha
+            unreport: Cuir ar ceal tuairisc
           name: Ainm
+          nickname: Leasainm
           reason: Cúis
         report:
           reasons:
             spam: Turscar
+        tabs:
+          blocked: Blocáilte
       moderations:
         report:
           reasons:
@@ -268,6 +285,7 @@ ga:
           actions: Gníomhartha
           badge: Suaitheantas
           name: Ainm
+          nickname: Leasainm
           reports: Tuairiscí
           status: Stádas
         show_email_modal:
@@ -277,6 +295,7 @@ ga:
         edit:
           update: Nuashonraigh
         form:
+          facebook: Facebook
           github: GitHub
           social_handlers: Sóisialta
           twitter: Twitter
@@ -319,6 +338,8 @@ ga:
           update: Nuashonraigh
         form:
           none: Ceann ar Bith
+        new:
+          title: Leathanach nua
       titles:
         areas: Ceantair
         authorization_workflows: Modhanna deimhnithe
@@ -332,9 +353,13 @@ ga:
           filter:
             all: Uile
             pending: Ar feitheamh
+            rejected: Diúltaithe
+            verified: Fíoraithe
           search: Cuardaigh
           state:
             pending: Ar feitheamh
+            rejected: Diúltaithe
+            verified: Fíoraithe
       user_groups_csv_verifications:
         new:
           upload: Uaslódáil
@@ -355,6 +380,7 @@ ga:
         hide: Cuir i bhfolach
         title: Gníomhartha
         unhide: Nocht
+        unreport: Cuir ar ceal tuairisc
       models:
         moderation:
           fields:
@@ -365,3 +391,8 @@ ga:
         report:
           fields:
             reason: Cúis
+  layouts:
+    decidim:
+      admin:
+        settings:
+          title: Socruithe
