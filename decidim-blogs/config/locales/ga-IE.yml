@@ -1,1 +1,10 @@
 ga:
+  decidim:
+    components:
+      blogs:
+        actions:
+          endorse: Formhuinigh
+        settings:
+          step:
+            endorsements_blocked: Formhuinithe blocáilte
+            endorsements_enabled: Formhuinithe cumasaithe
