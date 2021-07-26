@@ -23,7 +23,7 @@ module Decidim
       end
 
       def description
-        decidim_sanitize(present(model).body.truncate(100, separator: /\s/))
+        decidim_sanitize_editor(present(model).body.truncate(100, separator: /\s/))
       end
 
       def has_badge?

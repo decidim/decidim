@@ -36,7 +36,7 @@ module Decidim
       end
 
       def body
-        decidim_sanitize(present(model).description)
+        decidim_sanitize_editor(present(model).description)
       end
 
       def description

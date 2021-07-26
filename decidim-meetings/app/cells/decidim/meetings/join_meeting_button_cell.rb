@@ -50,7 +50,7 @@ module Decidim
       end
 
       def registration_terms_text
-        decidim_sanitize translated_attribute(model.registration_terms)
+        decidim_sanitize_editor translated_attribute(model.registration_terms)
       end
 
       def registration_form

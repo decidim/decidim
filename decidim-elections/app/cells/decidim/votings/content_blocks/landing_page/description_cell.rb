@@ -16,7 +16,7 @@ module Decidim
           end
 
           def description_text
-            decidim_sanitize(translated_attribute(current_participatory_space.description))
+            decidim_sanitize_editor(translated_attribute(current_participatory_space.description))
           end
 
           def button_show_more_text

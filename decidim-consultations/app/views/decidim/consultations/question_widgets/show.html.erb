@@ -1,2 +1,2 @@
 <% content_for(:title, translated_attribute(model.title)) %>
-<%= decidim_sanitize html_truncate(translated_attribute(model.question_context), length: 100, separator: "...") %>
+<%= decidim_sanitize_editor html_truncate(translated_attribute(model.question_context), length: 100, separator: "...") %>
