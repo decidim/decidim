@@ -35,6 +35,7 @@ ja:
         registration_terms: 登録条件
         registration_url: 登録URL
         registrations_enabled: 登録が有効
+        show_embedded_iframe: この URL の埋め込まれた iframe を表示
         start_time: 開始時刻
         title: タイトル
         transparent: 透明度
@@ -499,7 +500,11 @@ ja:
           join: ミーティングに参加
           leave: 登録をキャンセルする
           leave_confirmation: このミーティングの登録をキャンセルしてもよろしいですか？
+          link_available_soon: 間もなくリンクが利用可能です
+          link_closed: ミーティングに参加するリンクは開始数分前に利用可能になります
+          live_event: このミーティングは現在開催中です
           meeting_minutes: ミーティング議事録
+          micro_camera_permissions_warning: 下のボタンをクリックすると、マイクおよび/またはカメラの権限を求められ、ビデオ会議に参加できます
           no_slots_available: 利用可能なスロットがありません
           organizations: 組織に参加
           registration_code_help_text: 登録コード
