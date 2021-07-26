@@ -5,6 +5,7 @@ module Decidim
   module SanitizeHelper
     def self.included(base)
       base.include ActionView::Helpers::SanitizeHelper
+      base.include ActionView::Helpers::TagHelper
     end
 
     # Public: It sanitizes a user-inputted string with the
