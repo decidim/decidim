@@ -30,6 +30,10 @@ module Decidim
       end
     end
 
+    def decidim_sanitize_editor(html, options = {})
+      content_tag(:div, decidim_sanitize(html, options), class: %w(ql-editor ql-reset-decidim))
+    end
+
     def decidim_html_escape(text)
       ERB::Util.unwrapped_html_escape(text.to_str)
     end
