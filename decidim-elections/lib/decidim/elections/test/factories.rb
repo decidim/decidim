@@ -315,7 +315,7 @@ FactoryBot.define do
     end
 
     public_key { nil }
-    user { build(:user, organization: organization) }
+    user { build(:user, :confirmed, organization: organization) }
     organization { create(:organization) }
 
     trait :considered do
