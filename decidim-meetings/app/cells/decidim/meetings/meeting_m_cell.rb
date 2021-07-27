@@ -27,6 +27,18 @@ module Decidim
         present(model).title
       end
 
+      def badge
+        render if has_badge?
+      end
+
+      def has_badge?
+        withdrawn?
+      end
+
+      def state_classes
+        ["alert"]
+      end
+
       delegate :online_meeting?, to: :model
 
       private

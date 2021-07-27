@@ -1,6 +1,14 @@
 <% if withdrawable? %>
-  <%= action_authorized_link_to :withdraw, withdraw_path, method: :put, class: "title-action__action button small hollow", title: t("withdraw_btn_hint", scope: "decidim.proposals.proposals.show"), data: { confirm: t("withdraw_confirmation_html", scope: "decidim.proposals.proposals.show") } do %>
-    <%= t("withdraw_proposal", scope: "decidim.proposals.proposals.show") %>
+  <% if from_context.is_a?(Decidim::Meetings::Meeting) %>
+    <% scope = "decidim.meetings.meetings.show" %>
+    <% key = "withdraw_meeting" %>
+  <% else %>
+    <% scope = "decidim.proposals.proposals.show" %>
+    <% key = "withdraw_proposal" %>
+  <% end %>
+
+  <%= action_authorized_link_to :withdraw, withdraw_path, method: :put, class: "title-action__action button small hollow", title: t("withdraw_btn_hint", scope: scope), data: { confirm: t("withdraw_confirmation_html", scope: scope) } do %>
+      <%= t(key, scope: scope) %>
     <%= icon "x", role: "img", "aria-hidden": true %>
   <% end %>
 <% end %>

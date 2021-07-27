@@ -47,6 +47,13 @@ module Decidim
           query
         end
       end
+
+      # Handle the state filter
+      def search_state
+        return query.withdrawn if state.member? "withdrawn"
+
+        query.except_withdrawn
+      end
     end
   end
 end

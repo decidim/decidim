@@ -335,6 +335,9 @@ en:
           update:
             invalid: There was a problem updating this meeting
             success: Meeting successfully updated
+          withdraw:
+            error: An error ocurred while withdrawing the meeting
+            success: The meeting has been withdrawn successfully
         meetings_poll:
           form:
             title: Edit poll questionnaire for %{questionnaire_for}
@@ -485,6 +488,7 @@ en:
           show_embedded_iframe_help: Whether or not embed the iframe for this videoconference URL. Only a few services allow embedding (i.e. Youtube, Twitch...)
         index:
           new_meeting: New meeting
+          see_all_withdrawn: See all withdrawn meetings
         meeting_minutes:
           related_information: Related Information
         meetings:
@@ -524,9 +528,14 @@ en:
             other: "%{count} slots remaining"
           view: View
           visit_finished: View past meeting
+          withdraw_btn_hint: You can withdraw your meeting if you change your mind. The meeting is not deleted, it will appear in the list of withdrawn meetings.
+          withdraw_confirmation_html: Are you sure you want to withdraw this meeting?<br><br><strong>This action cannot be cancelled!</strong>
+          withdraw_meeting: Withdraw meeting
         update:
           invalid: There was a problem updating the meeting.
           success: You have updated the meeting successfully.
+        withdraw:
+          success: Meeting successfully updated. -- no need of this
       meetings_map:
         view_meeting: View meeting
       models:
@@ -601,6 +610,7 @@ en:
       types:
         private_meeting: Private meeting
         transparent: Transparent
+        withdraw: Withdrawn
       versions:
         back_to_resource: Go back to meeting
     metrics:

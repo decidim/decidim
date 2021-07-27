@@ -6,6 +6,7 @@ module Decidim
     class MeetingsController < Decidim::Meetings::ApplicationController
       include FilterResource
       include Flaggable
+      include Withdrawable
       include FormFactory
       include Paginable
       helper Decidim::WidgetUrlsHelper
@@ -79,6 +80,21 @@ module Decidim
           on(:invalid) do
             flash.now[:alert] = I18n.t("meetings.update.invalid", scope: "decidim.meetings")
             render :edit
+          end
+        end
+      end
+
+      def withdraw
+        enforce_permission_to :withdraw, :meeting, meeting: meeting
+
+        WithdrawMeeting.call(@meeting, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("meetings.withdraw.success", scope: "decidim")
+            redirect_to Decidim::ResourceLocatorPresenter.new(@meeting).path
+          end
+          on(:invalid) do
+            flash[:alert] = I18n.t("meetings.withdraw.error", scope: "decidim")
+            redirect_to Decidim::ResourceLocatorPresenter.new(@meeting).path
           end
         end
       end

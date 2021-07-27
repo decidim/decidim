@@ -30,3 +30,9 @@
     <%= render partial: "meetings" %>
   </div>
 </div>
+
+<div class="row">
+  <div class="text-right">
+    <%= link_to t(".see_all_withdrawn"), meetings_path("filter[state][]" => "withdrawn") %>
+  </div>
+</div>

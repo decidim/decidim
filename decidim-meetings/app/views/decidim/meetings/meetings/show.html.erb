@@ -125,6 +125,11 @@ edit_link(
           <%= t("transparent", scope: "decidim.meetings.types") %>
         </span>
       <% end %>
+      <% if meeting.withdrawn? %>
+        <span class="<%= meeting_type_badge_css_class("withdraw") %> label proposal-status">
+          <%= t("withdraw", scope: "decidim.meetings.types") %>
+        </span>
+      <% end %>
       <%= decidim_sanitize(present(meeting).description(links: true)) %>
 
       <% if meeting.maps_enabled? && !meeting.online_meeting? %>
