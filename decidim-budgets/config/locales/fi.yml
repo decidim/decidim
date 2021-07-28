@@ -233,6 +233,7 @@ fi:
     components:
       budgets:
         actions:
+          comment: Kommentoi
           vote: Äänestä
         name: Budjetit
         settings:

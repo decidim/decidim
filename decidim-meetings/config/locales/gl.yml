@@ -349,8 +349,6 @@ gl:
         meetings:
           no_meetings_warning: Non hai encontros que coincidan cos seus criterios de busca ou non hai ningunha reunión programada.
           upcoming_meetings_warning: Actualmente, non hai reunións programadas, pero aquí podes atopar todas as reunións anteriores.
-        online_meeting_link:
-          link_available_soon: Ligazón dispoñíbel en breve
         registration_confirm:
           cancel: Cancelar
           confirm: Confirmar

@@ -27,6 +27,7 @@ fi-pl:
     components:
       debates:
         actions:
+          comment: Kommentoi
           create: Luo
           endorse: Suosittele
         name: Keskustelut

@@ -359,6 +359,7 @@ fi-pl:
     resources:
       consultations:
         actions:
+          comment: Kommentoi
           vote: Äänestä
     statistics:
       consultations_count: Kuulemista

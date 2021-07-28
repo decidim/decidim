@@ -410,7 +410,6 @@ id:
       newsletters:
         create:
           error: Terjadi kesalahan saat membuat buletin ini.
-          success: Newsletter berhasil dibuat. Silakan, tinjau sebelum mengirim.
         deliver:
           error: Terjadi kesalahan saat mengirim buletin ini.
           success: Nawala berhasil dikirim.
@@ -644,10 +643,6 @@ id:
           admins: Admin
           participants: Peserta
       view_public_page: Lihat halaman publik
-    forms:
-      errors:
-        impersonate_user:
-          reason: Anda perlu memberikan alasan ketika meniru pengguna yang tidak dikelola
     moderations:
       actions:
         hidden: Tersembunyi
