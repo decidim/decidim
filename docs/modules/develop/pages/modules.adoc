@@ -74,6 +74,10 @@ In the case of dealing with more advanced overrides, we recommend implementing s
 
 == Recommendations
 
+First and foremost, don't be afraid to try and start hacking. Once you feel confident enough, read the recommendations
+and best practices below. Remember also that this is free software, so you can do whatever you want in the end.
+These are some opinions on how to improve the quality of the software, but they are not hard rules.
+
 * To be programmed in English (variables, method and class names, comments, etc)
 * To have tests and continuous integration with good test coverage
 * To have documentation in English, explaining:
