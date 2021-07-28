@@ -13,7 +13,6 @@ module Decidim
           attribute :file
 
           validates_upload :file
-          validates :file, presence: true
 
           def organization
             context.current_participatory_space&.organization

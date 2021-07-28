@@ -13,7 +13,7 @@ module Decidim
           def show
             enforce_permission_to :manage, :census, voting: current_participatory_space
 
-            flash[:notice] = "Finished processing #{current_census.file}" if current_census.data_created?
+            flash[:notice] = "Finished processing #{current_census&.file}" if current_census&.data_created?
 
             @form = form(DatasetForm).instance
           end
@@ -95,11 +95,61 @@ module Decidim
           def download_access_codes_file
             enforce_permission_to :manage, :census, voting: current_participatory_space
 
-            if current_census.access_codes_file.attached?
-              redirect_to Rails.application.routes.url_helpers.rails_blob_url(current_census.access_codes_file.blob, only_path: true)
+            if current_census&.access_codes_file.attached?
+              redirect_to Rails.application.routes.url_helpers.rails_blob_url(current_census&.access_codes_file.blob, only_path: true)
             else
               flash[:error] = t("export_access_codes.file_not_exists", scope: "decidim.votings.census.admin.census")
               redirect_to admin_voting_census_path
+            end
+          end
+
+          def create_bulk_data
+            enforce_permission_to :manage, :census, voting: current_participatory_space
+            p "@$%#^%@^*&(#&^@($*^@)$(&@)$(*@&$)(*@)($U&()@$*)($#"
+            p current_census
+            CreateBulkData.call(params[:data], current_census, current_user) do
+              on(:ok) do |errors|
+                respond_to do |format|
+                  format.json do
+                    render json: { errors: errors, processed: current_census&.reload.csv_row_processed_count }
+                  end
+                end
+              end
+            end
+          end
+
+          def end_bulk_import
+            enforce_permission_to :manage, :census, voting: current_participatory_space
+
+            current_census&.update!(csv_row_raw_count: params[:row_count])
+
+            respond_to do |format|
+              format.json do
+                render json: { closed: true, processed: current_census&.reload.csv_row_processed_count }
+              end
+            end
+          end
+
+          def start_bulk_import
+            enforce_permission_to :manage, :census, voting: current_participatory_space
+            @form = form(DatasetForm).instance.with_context(
+              current_participatory_space: current_participatory_space
+            )
+
+            CreateDataset.call(@form, current_user) do
+              on(:invalid_csv_header) do
+                flash[:alert] = t("create.invalid_csv_header", scope: "decidim.votings.census.admin.census")
+              end
+
+              on(:invalid) do
+                flash[:alert] = t("create.invalid", scope: "decidim.votings.census.admin.census")
+              end
+            end
+
+            respond_to do |format|
+              format.json do
+                render json: { created: true }
+              end
             end
           end
 
@@ -116,9 +166,7 @@ module Decidim
           end
 
           def current_census
-            @current_census ||= Dataset.find_by(
-              voting: current_participatory_space
-            ) || Dataset.new(status: :init_data)
+            @current_census ||= Dataset.find_by(voting: current_participatory_space)
           end
 
           def admin_voting_census_path
@@ -138,19 +186,19 @@ module Decidim
           end
 
           def current_census_action_view
-            if current_census.init_data?
+            if current_census.blank?
               "new_census"
-            elsif current_census.creating_data?
+            elsif current_census&.creating_data?
               "creating_data"
-            elsif current_census.data_created?
+            elsif current_census&.data_created?
               "generate_codes"
-            elsif current_census.generating_codes?
+            elsif current_census&.generating_codes?
               "generating_codes"
-            elsif current_census.codes_generated?
+            elsif current_census&.codes_generated?
               "export_codes"
-            elsif current_census.exporting_codes?
+            elsif current_census&.exporting_codes?
               "exporting_codes"
-            elsif current_census.freeze?
+            elsif current_census&.freeze?
               "freeze"
             else
               raise "no view for this status"
@@ -182,7 +230,7 @@ module Decidim
           end
 
           def ballot_style_code_header
-            "Ballot Style Code"
+            "ballot_style_code"
           end
         end
       end

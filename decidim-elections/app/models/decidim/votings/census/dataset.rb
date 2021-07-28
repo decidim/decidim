@@ -21,8 +21,6 @@ module Decidim
 
         enum status: [:init_data, :creating_data, :data_created, :generating_codes, :codes_generated, :exporting_codes, :freeze]
 
-        validates :file, presence: true
-
         def self.log_presenter_class_for(_log)
           Decidim::Votings::Census::AdminLog::DatasetPresenter
         end

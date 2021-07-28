@@ -40,6 +40,9 @@ module Decidim
               get :generate_access_codes
               get :export_access_codes
               get :download_access_codes_file
+              post :create_bulk_data
+              post :end_bulk_import
+              post :start_bulk_import
             end
           end
         end

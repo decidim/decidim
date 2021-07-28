@@ -15,8 +15,12 @@
           <%= form.upload :file, optional: false, help_i18n_scope: "decidim.votings.census.admin.census.new.file_help" %>
         </div>
 
-        <%= submit_tag t("submit", scope: "decidim.votings.census.admin.census.new"), class: "button" %>
+        <button id="process_census" class="button">Process</button>
+        <div id="processed_records"></div>
+        <%= submit_tag t("submit", scope: "decidim.votings.census.admin.census.new"), class: "button", id: "submit_complete_voting" %>
       <% end %>
     </div>
   </div>
 </div>
+
+<%= javascript_pack_tag "decidim_votings_admin_process_census_file" %>
