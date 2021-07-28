@@ -1,1 +1,172 @@
 ga:
+  activemodel:
+    attributes:
+      agenda:
+        duration: Fad
+        title: Teideal
+      close_meeting:
+        closing_report: Tuairisc
+      meeting:
+        address: Seoladh
+        decidim_category_id: Catagóir
+        decidim_scope_id: Scóip
+        title: Teideal
+        type_of_meeting: Cineál
+      minutes:
+        audio_url: URL Fuaime
+        video_url: URL Físeáin
+    models:
+      decidim/meetings/create_meeting_event: Cruinniú
+  decidim:
+    admin:
+      meeting_copies:
+        new:
+          copy: Cóipeáil
+    components:
+      meetings:
+        actions:
+          join: Téigh leis
+        name: Cruinnithe
+        settings:
+          global:
+            scope_id: Scóip
+    meetings:
+      actions:
+        agenda: Clár
+        attachment_collections: Fillteáin
+        attachments: Ceangaltáin
+        close: Dún
+        destroy: Scrios
+        edit: Eagar
+        minutes: Miontuairiscí
+        preview: Réamhamharc
+        title: Gníomhartha
+      admin:
+        agenda:
+          agenda_item:
+            down: Ísligh
+            remove: Bain as
+            up: Ardaigh
+          agenda_item_child:
+            down: Ísligh
+            remove: Bain as
+            up: Ardaigh
+          edit:
+            update: Nuashonraigh
+          form:
+            end_date: Dáta deiridh
+          new:
+            create: Cruthaigh
+        exports:
+          meeting_comments: Tráchtanna
+          meetings: Cruinnithe
+        invites:
+          form:
+            invite: Tabhair Cuireadh
+          index:
+            filter:
+              all: Uile
+              rejected: Diúltaithe
+              sent: Seolta
+            invites: Cuirí
+            search: Cuardaigh
+        meeting_closes:
+          edit:
+            close: Dún
+        meetings:
+          edit:
+            update: Nuashonraigh
+          index:
+            title: Cruinnithe
+          new:
+            create: Cruthaigh
+          service:
+            down: Síos
+            remove: Bain as
+            service: Seirbhís
+            title: Teideal
+            up: Thuas
+        minutes:
+          edit:
+            title: Cuir in eagar miontuairiscí
+            update: Nuashonraigh
+          new:
+            create: Cruthaigh
+        models:
+          meeting:
+            name: Cruinniú
+        registrations:
+          edit:
+            save: Sábháil
+          form:
+            invites: Cuirí
+      directory:
+        meetings:
+          index:
+            all: Uile
+            date: Dáta
+            meetings: Cruinnithe
+            past: Roimhe
+            search: Cuardaigh
+      meeting_closes:
+        edit:
+          back: Ar Ais
+      meetings:
+        edit:
+          back: Ar Ais
+          update: Nuashonraigh
+        filters:
+          all: Uile
+          category: Catagóir
+          date: Dáta
+          date_values:
+            all: Uile
+            past: Roimhe
+          origin: Bunús
+          origin_values:
+            all: Uile
+            user_groups: Grúpaí
+          scope: Scóip
+          search: Cuardaigh
+          type: Cineál
+          type_values:
+            all: Uile
+            hybrid: Araon
+            online: Ar líne
+        filters_small_view:
+          filter: Scag
+          unfold: Oscail
+        form:
+          select_a_category: Roghnaigh catagóir le do thoil
+        new:
+          back: Ar Ais
+          create: Cruthaigh
+        registration_confirm:
+          cancel: Cealaigh
+          confirm: Deimhnigh
+        show:
+          date: Dáta
+          going: Ag Dul
+          view: Amharc
+      models:
+        invite:
+          fields:
+            email: Seoladh ríomhphoist
+            name: Ainm
+            sent_at: Seolta ag
+            status: Stádas
+          status:
+            sent: Seolta
+        meeting:
+          fields:
+            closed: Dúnta
+            end_time: Dáta deiridh
+            map: Léarscáil
+            title: Teideal
+      type_of_meeting:
+        hybrid: Araon
+        online: Ar líne
+    metrics:
+      meetings:
+        object: cruinnithe
+        title: Cruinnithe

@@ -1,1 +1,35 @@
 ga:
+  activemodel:
+    attributes:
+      sortition:
+        title: Teideal
+  decidim:
+    sortitions:
+      admin:
+        actions:
+          edit: Eagar
+        models:
+          sortition:
+            fields:
+              dice: Dísle
+              seed: Síol
+              title: Teideal
+        sortitions:
+          edit:
+            update: Nuashonraigh
+          new:
+            create: Cruthaigh
+      sortitions:
+        filters:
+          active: Gníomhach
+          all: Uile
+          search: Cuardaigh
+          state: Stádas
+        filters_small_view:
+          filter: Scagaire
+          unfold: Oscail
+        orders:
+          random: Randamach
+          recent: Is Déanaí
+        sortition:
+          view: Amharc
