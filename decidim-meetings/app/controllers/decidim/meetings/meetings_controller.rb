@@ -128,6 +128,7 @@ module Decidim
           activity: "all",
           scope_id: default_filter_scope_params,
           category_id: default_filter_category_params,
+          state: nil,
           origin: default_filter_origin_params,
           type: default_filter_type_params
         }
@@ -146,7 +147,7 @@ module Decidim
 
       def default_search_params
         {
-          scope: Meeting.not_hidden.except_withdrawn.visible_meeting_for(current_user)
+          scope: Meeting.not_hidden.visible_meeting_for(current_user)
         }
       end
     end
