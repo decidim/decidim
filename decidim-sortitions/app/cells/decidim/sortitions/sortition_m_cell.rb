@@ -47,7 +47,7 @@ module Decidim
       # makes the layout look good.
       def description
         text = decidim_sanitize_editor(translated_attribute(model.additional_info))
-        text.gsub!(/^<p>/, "<p>#{render :badge}")
+        text.sub!(/<p>/, "<p>#{render :badge}")
         html_truncate(text, length: 100)
       end
     end
