@@ -34,3 +34,5 @@ gem "decidim-consultations", git: "https://github.com/decidim/decidim-module-con
 ----
 
 * Publishing it on rubygems.org
+
+You can learn more about xref:develop:modules.adoc[Modules] in the development guide.
