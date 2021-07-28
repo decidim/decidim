@@ -110,6 +110,14 @@ the https://github.com/decidim/decidim/network/dependents[dependency graph]. See
 * Upload the Gem to Rubygems.org so it's easier to deploy to other apps
 * To https://decidim.org/contact/[contact us] so we can publish it at https://decidim.org/modules/[Modules page]
 
+== Types
+
+You can have multiple modules types:
+
+* For Spaces
+* For xref:develop:components.adoc[Components]
+* For Verifications
+
 == Example
 
 A typical engine looks like the following:
