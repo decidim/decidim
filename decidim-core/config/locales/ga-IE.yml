@@ -57,8 +57,12 @@ ga:
       geocoding:
         geocoded_address: Seoladh
     authorization_handlers:
+      another_dummy_authorization_handler:
+        fields:
+          postal_code: Cód poist
       dummy_authorization_handler:
         fields:
+          postal_code: Cód poist
           scope_id: Scóip
       foo_authorization:
         fields:
@@ -81,6 +85,7 @@ ga:
           debate: Díospóireacht
           meeting: Cruinniú
           post: Postáil
+          question: Ceist
         title: 'Taispeáin:'
       dummy:
         actions:
