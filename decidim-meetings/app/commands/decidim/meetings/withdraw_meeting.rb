@@ -20,7 +20,7 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) unless @meeting.author == @current_user
+        return broadcast(:invalid) unless @meeting.authored_by?(@current_user)
 
         transaction do
           change_meeting_state_to_withdrawn
@@ -32,7 +32,7 @@ module Decidim
       private
 
       def change_meeting_state_to_withdrawn
-        meeting.update!(state: "withdrawn")
+        @meeting.update state: "withdrawn"
       end
     end
   end
