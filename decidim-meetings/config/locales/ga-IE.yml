@@ -12,6 +12,7 @@ ga:
         address: Seoladh
         decidim_category_id: Catagóir
         decidim_scope_id: Scóip
+        end_time: Am Críochnaithe
         id: ID
         location: Suíomh
         title: Teideal
@@ -33,10 +34,12 @@ ga:
             label: Dáta
             values:
               'false': Roimhe
+              'true': Le teacht
           origin_eq:
             label: Bunús
             values:
               citizen: Saoránach
+              official: Oifigiúil
           scope_id_eq:
             label: Scóip
           type_eq:
@@ -90,6 +93,7 @@ ga:
             invite: Tabhair Cuireadh
           index:
             filter:
+              accepted: Glactha
               all: Uile
               rejected: Diúltaithe
               sent: Seolta
@@ -111,6 +115,8 @@ ga:
             service: Seirbhís
             title: Teideal
             up: Thuas
+          services:
+            services: Seirbhísí
         models:
           meeting:
             name: Cruinniú
@@ -119,6 +125,9 @@ ga:
             save: Sábháil
           form:
             invites: Cuirí
+      content_blocks:
+        upcoming_events:
+          view_all_events: Amharc ar uile
       directory:
         meetings:
           index:
@@ -127,6 +136,7 @@ ga:
             meetings: Cruinnithe
             past: Roimhe
             search: Cuardaigh
+            upcoming: Le teacht
       layouts:
         live_event:
           close: dún
@@ -145,9 +155,12 @@ ga:
           date_values:
             all: Uile
             past: Roimhe
+            upcoming: Le teacht
           origin: Bunús
           origin_values:
             all: Uile
+            citizens: Saoránaigh
+            official: Oifigiúil
             user_groups: Grúpaí
           scope: Scóip
           search: Cuardaigh
