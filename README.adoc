@@ -102,21 +102,7 @@ If you have any trouble you can contact us on https://gitter.im/decidim/decidim[
 
 == Example applications
 
-Since Decidim is a ruby gem, you can check out the https://github.com/decidim/decidim/network/dependents?type=application[dependent repositories] to see how many applications are on the wild or tests that other developers have made.
-Here's a partial list with some of the projects that have used Decidim:
-
-- http://staging.decidim.codegram.com[Demo]
-- https://decidim.barcelona[Decidim Barcelona] - https://github.com/AjuntamentdeBarcelona/decidim-barcelona[View code]
-- https://www.lhon-participa.cat[L'H ON Participa] - https://github.com/HospitaletDeLlobregat/decidim-hospitalet[View code]
-- https://participa.terrassa.cat[Decidim Terrassa] - https://github.com/AjuntamentDeTerrassa/decidim-terrassa[View code]
-- https://decidim.sabadell.cat[Decidim Sabadell] - https://github.com/AjuntamentDeSabadell/decidim-sabadell[View code]
-- https://participa.gavaciutat.cat[Decidim Gavà] - https://github.com/AjuntamentDeGava/decidim-gava[View code]
-- https://dialogluzern.ch[Dialog Luzern] - https://github.com/stadtluzern/decidim-ocl[View code]
-- https://decidim.santcugat.cat/[Decidim Sant Cugat] - https://github.com/AjuntamentdeSantCugat/decidim-sant_cugat[View code]
-- http://participa.vilanova.cat[Vilanova Participa] - https://github.com/vilanovailageltru/decidim-vilanova[View code]
-- https://erabaki.pamplona.es[Erabaki Pamplona] - https://github.com/ErabakiPamplona/erabaki[View code]
-- https://www.decidimmataro.cat[Decidim Mataró] - https://github.com/AjuntamentDeMataro/decidim-mataro[View code]
-- https://meta.decidim.barcelona/[MetaDecidim] - https://github.com/decidim/metadecidim[View Code]
+Since Decidim is a ruby gem, you can check out the https://github.com/decidim/decidim/network/dependents?type=application[dependent repositories] to see how many applications are on the wild or tests that other developers have made. You can see a highlight of https://docs.decidim.org/en/develop/guide_example_apps/[example applications] in our documentation.
 
 == Security
 
