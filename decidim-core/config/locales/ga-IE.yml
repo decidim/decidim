@@ -54,6 +54,13 @@ ga:
       review:
         back: Ar Ais
     application:
+      collection:
+        documents:
+          one: Cáipéis
+          two: Cáipéisí
+          few: Cáipéisí
+          many: Cáipéisí
+          other: Cáipéisí
       geocoding:
         geocoded_address: Seoladh
     authorization_handlers:
@@ -85,6 +92,7 @@ ga:
           debate: Díospóireacht
           meeting: Cruinniú
           post: Postáil
+          proposal: Moladh
           question: Ceist
         title: 'Taispeáin:'
       dummy:
@@ -99,6 +107,8 @@ ga:
       highlighted_elements_settings_form:
         orders:
           random: Randamach
+      last_activity:
+        view_all: Amharc ar uile
     data_portability:
       export:
         ready: Réidh
@@ -122,11 +132,15 @@ ga:
     endorsements:
       identities:
         done: Críochnaithe
+    export_mailer:
+      data_portability_export:
+        download: Íoslódáil
     filters:
       linked_classes:
         all: Uile
         meeting: Cruinnithe
         project: Tionscadail
+        proposal: Moltaí
         result: Torthaí
     fingerprint:
       source: Foinse
@@ -200,6 +214,7 @@ ga:
         extended:
           debates: Díospóireachtaí
           meetings: Cruinnithe
+          proposals: Moltaí
         footer_sub_hero:
           register: Cláraigh
         metrics:
@@ -217,6 +232,7 @@ ga:
       view: Amharc
     profiles:
       show:
+        activity: Gníomhaíocht
         badges: Suaitheantais
         following: Leantach
         groups: Grúpaí
@@ -293,9 +309,12 @@ ga:
     version:
       show:
         back_to_resource: Dul ar ais
+        number_of_versions: Leaganacha
     versions_list:
       show:
         back_to_resource: Dul ar ais
+        number_of_versions: Leaganacha
+        title: Leaganacha
     wizard_step_form:
       wizard_aside:
         back: Ar Ais
@@ -325,10 +344,16 @@ ga:
       header:
         sign_in: Sínigh Isteach
         sign_up: Cláraigh
+      timeout_modal:
+        sign_out: Sínigh amach
+      user_menu:
+        sign_out: Sínigh amach
       user_profile:
         account: Cuntas
         my_data: Mo chuid sonraí
         user_groups: Grúpaí
+      widget:
+        see_more: Feic níos mó
   locale:
     name: Gaeilge
   social_share_button:
@@ -352,8 +377,12 @@ ga:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
       time_of_day: "%H:%M"
   versions:
     dropdown:
       option_escaped: Éalaithe
       option_unified: Aontaithe
+  views:
+    pagination:
+      truncate: "&hellip;"
