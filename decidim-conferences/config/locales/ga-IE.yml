@@ -88,6 +88,7 @@ ga:
             role: Ról
           roles:
             admin: Riarthóir
+            valuator: Luachálaí
         media_link:
           fields:
             date: Dáta
@@ -204,6 +205,7 @@ ga:
         pages_count: Leathanaigh
         posts_count: Postálacha
         projects_count: Tionscadail
+        proposals_count: Moltaí
         results_count: Torthaí
         surveys_count: Suirbhéanna
         votes_count: Tacaíochtaí
