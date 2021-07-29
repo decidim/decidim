@@ -88,6 +88,7 @@ ga:
             role: Ról
           roles:
             admin: Riarthóir
+            valuator: Luachálaí
         media_link:
           fields:
             date: Dáta
