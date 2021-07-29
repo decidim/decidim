@@ -21,6 +21,7 @@ ga:
       admin:
         budgets:
           index:
+            finished_orders: Vótaí críochnaithe
             title: Buiséid
         exports:
           projects: Tionscadail
@@ -33,6 +34,7 @@ ga:
           edit:
             update: Nuashonraigh
           index:
+            finished_orders: Vótaí críochnaithe
             title: Tionscadail
           new:
             create: Cruthaigh
@@ -83,3 +85,5 @@ ga:
           step:
             title: Teideal
             votes: Vótáil
+            votes_choices:
+              finished: Vótáil críochnaithe
