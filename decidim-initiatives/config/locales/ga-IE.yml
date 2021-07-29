@@ -11,6 +11,8 @@ ga:
         title: Teideal
       initiatives_type:
         title: Teideal
+      initiatives_vote:
+        postal_code: Cód poist
       organization_data:
         address: Seoladh
   decidim:
@@ -39,6 +41,7 @@ ga:
           fields:
             hash: Hais
             initiative_end_date: Dáta deiridh
+            postal_code: Cód poist
             scope: Scóip
     initiatives:
       actions:
@@ -158,6 +161,7 @@ ga:
           email: Seoladh ríomhphoist
           initiative:
             title: 'Teideal:'
+          postal_code: Cód poist
           print: Clóbhuail
         show:
           edit: Eagar
