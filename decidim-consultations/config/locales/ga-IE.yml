@@ -2,6 +2,7 @@ ga:
   activemodel:
     attributes:
       consultation:
+        questions: Ceisteanna
         slug: Píosa URL
         subtitle: Fotheideal
         title: Teideal
@@ -14,6 +15,20 @@ ga:
         subtitle: Fotheideal
       response:
         decidim_consultations_response_group_id: Grúpa
+  activerecord:
+    models:
+      decidim/consultations/question:
+        one: Ceist
+        two: Ceisteanna
+        few: Ceisteanna
+        many: Ceisteanna
+        other: Ceisteanna
+      decidim/consultations/vote:
+        one: Vóta
+        two: Vótaí
+        few: Vótaí
+        many: Vótaí
+        other: Vótaí
   decidim:
     admin:
       consultations:
@@ -23,6 +38,7 @@ ga:
           create: Cruthaigh
       menu:
         consultations_submenu:
+          questions: Ceisteanna
           results: Torthaí
       models:
         consultation:
@@ -31,10 +47,22 @@ ga:
         question:
           fields:
             title: Teideal
+          name:
+            one: Ceist
+            two: Ceisteanna
+            few: Ceisteanna
+            many: Ceisteanna
+            other: Ceisteanna
         response:
           fields:
             response_group: Grúpa
             title: Teideal
+          name:
+            one: Freagra
+            two: Freagraí
+            few: Freagraí
+            many: Freagraí
+            other: Freagraí
       questions:
         edit:
           update: Nuashonraigh
@@ -51,6 +79,7 @@ ga:
         new:
           create: Cruthaigh
       titles:
+        questions: Ceisteanna
         results: Torthaí
     consultations:
       consultations:
