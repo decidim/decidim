@@ -531,8 +531,6 @@ en:
         update:
           invalid: There was a problem updating the meeting.
           success: You have updated the meeting successfully.
-        withdraw:
-          success: Meeting successfully updated. -- no need of this
       meetings_map:
         view_meeting: View meeting
       models:
