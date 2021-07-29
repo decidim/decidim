@@ -42,6 +42,7 @@ ga:
           results: Torthaí
         questions_submenu:
           attachments: Ceangaltáin
+          categories: Catagóirí
       models:
         consultation:
           fields:
@@ -92,8 +93,10 @@ ga:
       filters:
         active: Gníomhach
         all: Uile
+        finished: Críochnaithe
         search: Cuardaigh
         state: Stádas
+        upcoming: Le teacht
       filters_small_view:
         filter: Scag
         unfold: Oscail
@@ -103,6 +106,7 @@ ga:
             votes: Vótaí
       show:
         badge_name:
+          finished: Críochnaithe
           open: Oscail
         footer_button_text:
           debate: Díospóireacht
