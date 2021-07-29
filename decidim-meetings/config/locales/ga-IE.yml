@@ -10,6 +10,7 @@ ga:
         address: Seoladh
         decidim_category_id: Catagóir
         decidim_scope_id: Scóip
+        end_time: Am Críochnaithe
         location: Suíomh
         title: Teideal
         type_of_meeting: Cineál
@@ -66,6 +67,7 @@ ga:
             invite: Tabhair Cuireadh
           index:
             filter:
+              accepted: Glactha
               all: Uile
               rejected: Diúltaithe
               sent: Seolta
@@ -87,6 +89,8 @@ ga:
             service: Seirbhís
             title: Teideal
             up: Thuas
+          services:
+            services: Seirbhísí
         minutes:
           edit:
             title: Cuir in eagar miontuairiscí
@@ -101,6 +105,9 @@ ga:
             save: Sábháil
           form:
             invites: Cuirí
+      content_blocks:
+        upcoming_events:
+          view_all_events: Amharc ar uile
       directory:
         meetings:
           index:
@@ -109,6 +116,7 @@ ga:
             meetings: Cruinnithe
             past: Roimhe
             search: Cuardaigh
+            upcoming: Le teacht
       meeting_closes:
         edit:
           back: Ar Ais
@@ -123,9 +131,12 @@ ga:
           date_values:
             all: Uile
             past: Roimhe
+            upcoming: Le teacht
           origin: Bunús
           origin_values:
             all: Uile
+            citizens: Saoránaigh
+            official: Oifigiúil
             user_groups: Grúpaí
           scope: Scóip
           search: Cuardaigh
