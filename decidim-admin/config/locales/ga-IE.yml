@@ -142,6 +142,9 @@ ga:
         officialized_at_null:
           label: Staid
         participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            values:
+              'true': Glactha
           user_invitation_sent_at_not_null:
             values:
               'true': Seolta
