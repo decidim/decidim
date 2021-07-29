@@ -1,4 +1,12 @@
 ga:
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Postáil
+        two: Postálacha
+        few: Postálacha
+        many: Postálacha
+        other: Postálacha
   decidim:
     blogs:
       actions:
@@ -15,10 +23,12 @@ ga:
         posts:
           edit:
             save: Nuashonraigh
+            title: Cuir in eagar postáil
           index:
             title: Postálacha
           new:
             create: Cruthaigh
+            title: Cruthaigh postáil
       models:
         post:
           fields:
