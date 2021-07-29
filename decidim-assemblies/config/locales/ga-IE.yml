@@ -99,6 +99,7 @@ ga:
             role: Ról
           roles:
             admin: Riarthóir
+            valuator: Luachálaí
     assemblies:
       admin:
         assemblies:
@@ -156,6 +157,7 @@ ga:
         posts_count: Postálacha
         processes_count: Próisis
         projects_count: Tionscadail
+        proposals_count: Moltaí
         results_count: Torthaí
         supports_count: Tacaíochtaí
         surveys_count: Suirbhéanna
