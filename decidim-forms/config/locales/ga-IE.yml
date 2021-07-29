@@ -16,6 +16,7 @@ ga:
             actions:
               export: Easpórtáil
           display_condition:
+            condition_question: Ceist
             condition_types:
               equal: Céanna
             remove: Bain as
@@ -31,6 +32,7 @@ ga:
             any: Ar Bith
             down: Síos
             expand: Méadaigh
+            question: Ceist
             remove: Bain as
             up: Thuas
           separator:
@@ -48,3 +50,4 @@ ga:
       user_answers_serializer:
         body: Freagra
         ip_hash: Hais IP
+        question: Ceist
