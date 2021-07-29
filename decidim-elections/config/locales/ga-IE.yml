@@ -8,6 +8,14 @@ ga:
         title: Teideal
       question:
         title: Teideal
+  activerecord:
+    models:
+      decidim/elections/question:
+        one: Ceist
+        two: Ceisteanna
+        few: Ceisteanna
+        many: Ceisteanna
+        other: Ceisteanna
   decidim:
     admin:
       filters:
@@ -33,8 +41,13 @@ ga:
         models:
           answer:
             name: Freagra
+          question:
+            name: Ceist
           trustee:
             name: Iontaobhaí
+        questions:
+          index:
+            title: Ceisteanna
         steps:
           created:
             trustees: Iontaobhaithe
