@@ -10,6 +10,7 @@ ga:
         address: Seoladh
         decidim_category_id: Catagóir
         decidim_scope_id: Scóip
+        location: Suíomh
         title: Teideal
         type_of_meeting: Cineál
       minutes:
