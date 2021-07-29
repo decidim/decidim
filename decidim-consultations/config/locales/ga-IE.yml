@@ -90,8 +90,10 @@ ga:
       filters:
         active: Gníomhach
         all: Uile
+        finished: Críochnaithe
         search: Cuardaigh
         state: Stádas
+        upcoming: Le teacht
       filters_small_view:
         filter: Scag
         unfold: Oscail
@@ -101,6 +103,7 @@ ga:
             votes: Vótaí
       show:
         badge_name:
+          finished: Críochnaithe
           open: Oscail
         footer_button_text:
           debate: Díospóireacht
@@ -127,5 +130,6 @@ ga:
       admin:
         question:
           attachments: Ceangaltáin
+          categories: Catagóirí
       question_components:
         unfold: Oscail
