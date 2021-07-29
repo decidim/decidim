@@ -8,6 +8,14 @@ ga:
         title: Teideal
       question:
         title: Teideal
+  activerecord:
+    models:
+      decidim/elections/question:
+        one: Ceist
+        two: Ceisteanna
+        few: Ceisteanna
+        many: Ceisteanna
+        other: Ceisteanna
   decidim:
     admin:
       filters:
@@ -39,8 +47,13 @@ ga:
         models:
           answer:
             name: Freagra
+          question:
+            name: Ceist
           trustee:
             name: Iontaobhaí
+        questions:
+          index:
+            title: Ceisteanna
         steps:
           created:
             trustees: Iontaobhaithe
@@ -48,12 +61,14 @@ ga:
             trustees: Iontaobhaithe
           results_published:
             answer: Freagra
+            question: Ceist
             result: Toradh
             submit: Deimhnigh
           tally:
             trustees: Iontaobhaithe
           tally_ended:
             answer: Freagra
+            question: Ceist
             result: Toradh
           vote_stats:
             voters: Vótálaithe
@@ -300,6 +315,8 @@ ga:
           day_placeholder: LL
           month: Mí
           month_placeholder: MM
+          postal_code: Cód poist
+          postal_code_placeholder: Cód poist
           year: Bliain
           year_placeholder: BBBB
         filters:
