@@ -48,7 +48,7 @@ FactoryBot.define do
     end
 
     trait :withdrawn do
-      state "withdrawn"
+      state { "withdrawn" }
     end
 
     trait :in_person do

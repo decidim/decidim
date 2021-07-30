@@ -24,7 +24,6 @@ module Decidim
       include Decidim::Authorable
       include Decidim::TranslatableResource
       include Decidim::Publicable
-      include Decidim::Amendable
 
       TYPE_OF_MEETING = %w(in_person online hybrid).freeze
       REGISTRATION_TYPE = %w(registration_disabled on_this_platform on_different_platform).freeze
@@ -154,6 +153,10 @@ module Decidim
 
       def past?
         end_time < Time.current
+      end
+
+      def emendation?
+        false
       end
 
       def has_available_slots?

@@ -74,6 +74,7 @@ module Decidim
 
       describe "isWithdrawn" do
         let(:query) { "{ isWithdrawn }" }
+
         context "when meetings is withdrawn" do
           let(:model) { create(:meeting, :withdrawn, component: component) }
 

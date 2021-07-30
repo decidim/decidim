@@ -94,9 +94,9 @@ module Decidim
         ""
       end
 
-      # def badge
-      #   ""
-      # end
+      def badge
+        ""
+      end
 
       def profile_path
         resource_locator(meeting).path
