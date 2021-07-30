@@ -8,7 +8,6 @@ module Decidim
     # form - A form object with the params.
     # user_group - The user group to update
     def initialize(form, user_group)
-      form.avatar = user_group.avatar if form.avatar.blank?
       @form = form
       @user_group = user_group
     end
@@ -35,7 +34,7 @@ module Decidim
 
     def update_user_group
       user_group_attributes = attributes
-      user_group_attributes[:avatar] = form.avatar if form.avatar.present?
+      user_group_attributes.delete(:avatar) if form.avatar.blank?
       user_group.update(user_group_attributes)
     end
 

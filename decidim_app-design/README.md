@@ -22,6 +22,8 @@ This approach has several benefits:
 $ bundle install
 [Installs all dependencies]
 Bundle complete!
+$ bundle exec rails decidim:webpacker:install
+[Installs webpacker dependencies]
 $ bundle exec rails s
 => Booting Puma
 => Rails 5.1.4 application starting in development
@@ -33,6 +35,8 @@ Puma starting in single mode...
 * Listening on tcp://0.0.0.0:3000
 Use Ctrl-C to stop
 ```
+
+As Decidim uses webpacker, optionally you can run `bin/webpack-dev-server` too for fast asset re-compilation.
 
 Navigate to `http://localhost:3000`. You should see a navigable website with examples.
 

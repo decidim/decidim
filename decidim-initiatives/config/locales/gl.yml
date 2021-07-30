@@ -53,10 +53,13 @@ gl:
       actions:
         new_initiative_type: Novo tipo de iniciativa
       menu:
+        attachments: Anexos
+        committee_members: Membros da comisión
         components: Compoñentes
         information: Información
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
+        moderations: Moderacións
       models:
         initiatives:
           fields:

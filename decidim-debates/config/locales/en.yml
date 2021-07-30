@@ -28,6 +28,7 @@ en:
     components:
       debates:
         actions:
+          comment: Comment
           create: Create
           endorse: Endorse
         name: Debates

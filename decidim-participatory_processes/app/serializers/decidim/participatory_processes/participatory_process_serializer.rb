@@ -67,6 +67,7 @@ module Decidim
       private
 
       attr_reader :participatory_process
+      alias resource participatory_process
 
       def serialize_participatory_process_steps
         return unless participatory_process.steps.any?
@@ -147,7 +148,7 @@ module Decidim
 
       def serialize_components
         serializer = Decidim::Exporters::ParticipatorySpaceComponentsSerializer.new(@participatory_process)
-        serializer.serialize
+        serializer.run
       end
     end
   end

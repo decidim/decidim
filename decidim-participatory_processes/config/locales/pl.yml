@@ -34,7 +34,6 @@ pl:
         subtitle: Podtytuł
         target: Kto uczestniczy
         title: Tytuł
-        weight: Kolejność na stronie
       participatory_process_group:
         description: Opis
         developer_group: Grupa inicjatorów
@@ -58,7 +57,7 @@ pl:
         title: Tytuł
       participatory_process_user_role:
         email: Adres e-mail
-        name: Nazwa
+        name: Imię
         role: Rola
     errors:
       models:
@@ -146,14 +145,14 @@ pl:
         participatory_process_user_role:
           fields:
             email: Adres e-mail
-            name: Nazwa
+            name: Imię
             role: Rola
           name: Administrator procesu partycypacyjnego
           roles:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
-            valuator: Taksator
+            valuator: Weryfikator
         user:
           fields:
             invitation_accepted_at: Zaproszenie przyjęli w
@@ -296,7 +295,7 @@ pl:
       participatory_process:
         role_assigned:
           email_intro: Przypisano Ci rolę %{role} w procesie partycypacyjnym „%{resource_title}”.
-          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś %{role} procesu partycypacyjnego „%{resource_title}”.
+          email_outro: 'Otrzymujesz to powiadomienie, ponieważ otrzymałeś rolę: %{role} w procesie partycypacyjnym „%{resource_title}”.'
           email_subject: Przypisano Ci rolę %{role} w „%{resource_title}”.
           notification_title: Przypisano Ci rolę %{role} w procesie partycypacyjnym <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
@@ -457,7 +456,7 @@ pl:
         developer_group: Grupa inicjatorów
         end_date: Data zakończenia
         local_area: Obszar Organizacji
-        participatory_scope: Co zostało postanowione
+        participatory_scope: Zaproponowano
         participatory_structure: Jak decydowano
         private_space: To jest prywatny proces
         related_processes: Powiązane procesy
@@ -465,6 +464,8 @@ pl:
         start_date: Data rozpoczęcia
         target: Kto uczestniczy
         unspecified: Nieokreślony
+    statistics:
+      processes_count: Procesy
   layouts:
     decidim:
       participatory_process_groups:

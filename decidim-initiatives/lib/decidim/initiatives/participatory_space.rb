@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Decidim.register_participatory_space(:initiatives) do |participatory_space|
-  participatory_space.icon = "decidim/initiatives/icon.svg"
+  participatory_space.icon = "media/images/decidim_initiatives.svg"
   participatory_space.stylesheet = "decidim/initiatives/initiatives"
 
   participatory_space.context(:public) do |context|
@@ -21,6 +21,8 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
   participatory_space.query_type = "Decidim::Initiatives::InitiativeType"
 
   participatory_space.register_resource(:initiative) do |resource|
+    resource.actions = %w(comment)
+    resource.permissions_class_name = "Decidim::Initiatives::Permissions"
     resource.model_class_name = "Decidim::Initiative"
     resource.card = "decidim/initiatives/initiative"
     resource.searchable = true
@@ -59,7 +61,12 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
         title: Decidim::Faker::Localized.sentence(word_count: 5),
         description: Decidim::Faker::Localized.sentence(word_count: 25),
         organization: organization,
-        banner_image: File.new(File.join(seeds_root, "city2.jpeg"))
+        banner_image: ActiveStorage::Blob.create_after_upload!(
+          io: File.open(File.join(seeds_root, "city2.jpeg")),
+          filename: "banner_image.jpeg",
+          content_type: "image/jpeg",
+          metadata: nil
+        )
       )
 
       organization.top_scopes.each do |scope|
@@ -104,7 +111,13 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
         title: Decidim::Faker::Localized.sentence(word_count: 2),
         description: Decidim::Faker::Localized.sentence(word_count: 5),
         attached_to: initiative,
-        file: File.new(File.join(seeds_root, "city.jpeg"))
+        content_type: "image/jpeg",
+        file: ActiveStorage::Blob.create_after_upload!(
+          io: File.open(File.join(seeds_root, "city.jpeg")),
+          filename: "city.jpeg",
+          content_type: "image/jpeg",
+          metadata: nil
+        )
       )
 
       Decidim::Initiatives.default_components.each do |component_name|

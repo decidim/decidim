@@ -379,7 +379,11 @@ pl:
     resources:
       consultations:
         actions:
-          vote: Głosuj
+          comment: Skomentuj
+          vote: Wspieranie
+    statistics:
+      consultations_count: Konsultacje
+      votes_count: Głosy
   layouts:
     decidim:
       consultation_voting_data:

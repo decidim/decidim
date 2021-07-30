@@ -7,7 +7,7 @@
     organization: current_organization,
     scope_name: :homepage,
     manifest_name: :hero
-  ).try(:images_container).try(:background_image).try(:url)
+  ).try(:images_container).try(:attached_uploader, :background_image).try(:path)
 }) %>
 
 <!DOCTYPE html>
@@ -15,6 +15,7 @@
   <head>
     <title><%= decidim_page_title %></title>
     <%= render partial: "layouts/decidim/head" %>
+    <%= render partial: "layouts/decidim/js_configuration" %>
   </head>
 
   <body>
@@ -30,6 +31,6 @@
     <%= render partial: "decidim/shared/confirm_modal" %>
     <%= render partial: "decidim/shared/login_modal" unless current_user %>
     <%= render partial: "decidim/shared/authorization_modal" %>
-    <%= render partial: "layouts/decidim/js_configuration" %>
+    <%= render partial: "layouts/decidim/cors" if Decidim.cors_enabled %>
   </body>
 </html>

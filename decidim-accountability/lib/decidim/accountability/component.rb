@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/components/namer"
+require "decidim/components/namer"
 
 Decidim.register_component(:accountability) do |component|
   component.engine = Decidim::Accountability::Engine
   component.admin_engine = Decidim::Accountability::AdminEngine
-  component.icon = "decidim/accountability/icon.svg"
+  component.icon = "media/images/decidim_accountability.svg"
   component.stylesheet = "decidim/accountability/accountability"
   component.permissions_class_name = "Decidim::Accountability::Permissions"
   component.query_type = "Decidim::Accountability::AccountabilityType"
@@ -14,11 +14,15 @@ Decidim.register_component(:accountability) do |component|
     raise StandardError, "Can't remove this component" if Decidim::Accountability::Result.where(component: instance).any?
   end
 
+  # These actions permissions can be configured in the admin panel
+  component.actions = %w(comment)
+
   component.register_resource(:result) do |resource|
     resource.model_class_name = "Decidim::Accountability::Result"
     resource.template = "decidim/accountability/results/linked_results"
     resource.card = "decidim/accountability/result"
     resource.searchable = false
+    resource.actions = %w(comment)
   end
 
   component.settings(:global) do |settings|

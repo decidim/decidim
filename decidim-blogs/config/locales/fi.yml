@@ -15,6 +15,7 @@ fi:
         edit: Muokkaa
         new: Uusi artikkeli
         title: Toiminnot
+        user_group_id: Luo artikkeli käyttäjänä
       admin:
         models:
           components:
@@ -58,6 +59,11 @@ fi:
       read_more: Lue lisää
     components:
       blogs:
+        actions:
+          amend: Muokkaa
+          comment: Kommentoi
+          endorse: Suosittele
+          vote: Äänestä
         name: Blogi
         settings:
           global:

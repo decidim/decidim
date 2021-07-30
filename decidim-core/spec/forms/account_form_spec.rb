@@ -14,7 +14,8 @@ module Decidim
         avatar: avatar,
         remove_avatar: remove_avatar,
         personal_url: personal_url,
-        about: about
+        about: about,
+        locale: "es"
       ).with_context(
         current_organization: organization,
         current_user: user

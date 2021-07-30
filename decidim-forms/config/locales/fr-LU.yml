@@ -1,0 +1,178 @@
+fr-LU:
+  activemodel:
+    attributes:
+      answer:
+        body: Répondre
+        choices: Choix
+        selected_choices: Choix sélectionnés
+      question:
+        max_choices: Nombre maximum de choix
+        question_type: Type
+      questionnaire_question:
+        mandatory: Obligatoire
+        max_characters: Limite de caractères (laisser à 0 si aucune limite)
+    errors:
+      models:
+        answer:
+          attributes:
+            add_documents:
+              needs_to_be_reattached: Doit être téléchargé de nouveau
+            body:
+              too_long: est trop long
+            choices:
+              missing: ne sont pas complets
+              too_many: sont trop nombreux
+        questionnaire:
+          request_invalid: Il y a eu une erreur lors du traitement de la demande. Veuillez réessayer
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: La description
+            tos: Conditions d'utilisation
+        questionnaires:
+          actions:
+            back: Retour aux questions
+            show: Afficher les réponses
+          answer_option:
+            answer_option: Option de réponse
+            free_text: Texte libre
+            remove: Retirer
+            statement: Déclaration
+          answers:
+            actions:
+              back: Retour aux réponses
+              export: Exporter
+              show: Afficher les réponses
+            empty: Pas encore de réponses
+            export:
+              answer:
+                title: 'Réponse n°%{number}'
+            export_response:
+              title: réponses_utilisateur_sondage_%{token}
+            index:
+              title: "%{total} réponses totales"
+            show:
+              title: 'Réponse n°%{number}'
+          display_condition:
+            answer_option: Option de réponse
+            condition_question: Question
+            condition_type: Condition
+            condition_types:
+              answered: Répondu
+              equal: Égale
+              match: Inclus le texte
+              not_answered: Non répondu
+              not_equal: Différent de
+            condition_value: Texte comprenant
+            display_condition: Condition d'affichage
+            mandatory: Cette condition doit toujours être satisfaite indépendamment du statut des autres conditions
+            remove: Retirer
+            save_warning: N'oubliez pas d'enregistrer le formulaire avant de configurer les conditions d'affichage
+            select_answer_option: Sélectionnez l'option de réponse
+            select_condition_question: Sélectionnez une question
+            select_condition_type: Sélectionnez un type de condition
+          edit:
+            save: sauvegarder
+            title: Modifier le questionnaire
+          form:
+            add_question: Ajouter une question
+            add_separator: Ajouter un séparateur
+            already_answered_warning: Certains utilisateurs ont déjà répondu au questionnaire, vous ne pouvez donc pas modifier ses questions.
+            collapse: Réduire toutes les questions
+            expand: Développer toutes les questions
+            preview: Aperçu
+            title: Modifier le questionnaire pour %{questionnaire_for}
+            unpublished_warning: Le formulaire n'est pas publié. Vous pouvez modifier ses questions, mais cela supprimera les réponses actuelles.
+          matrix_row:
+            matrix_row: Ligne
+            remove: Retirer
+            statement: Déclaration
+          question:
+            add_answer_option: Ajouter une option de réponse
+            add_display_condition: Ajouter une condition d'affichage
+            add_display_condition_info: Enregistrer le formulaire pour configurer les conditions d'affichage
+            add_matrix_row: Ajouter une ligne
+            any: Tout
+            collapse: Réduire
+            description: Description
+            down: Descendre
+            expand: Déveloper
+            question: Question
+            remove: Retirer
+            statement: Déclaration
+            up: Monter
+          separator:
+            down: Bas
+            remove: Retirer
+            separator: Séparateur
+            up: Haut
+          update:
+            invalid: Il y a eu des erreurs lors de la sauvegarde du questionnaire.
+            success: Le questionnaire a bien été sauvegardé.
+      errors:
+        answer:
+          body: Le corps ne peut pas être vide
+      files:
+        extension_allowlist: 'Formats acceptés :'
+      images:
+        dimensions: "%{width} x %{height} px"
+        dimensions_info: 'Cette image sera :'
+        processors:
+          resize_and_pad: Redimensionné et ajustée à
+          resize_to_fit: Redimensionnée pour s'adapter
+      question_types:
+        files: Fichiers
+        long_answer: Longue réponse
+        matrix_multiple: Matrice (choix multiples)
+        matrix_single: Matrice (choix unique)
+        multiple_option: Option multiple
+        short_answer: Réponse courte
+        single_option: Option unique
+        sorting: Tri
+      questionnaires:
+        answer:
+          invalid: Il y a eu des erreurs en répondant au questionnaire.
+          max_choices_alert: Il y a trop de choix sélectionnés
+          success: Questionnaire répondu avec succès.
+        question:
+          max_choices: 'Choix maximum: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Connectez-vous avec votre compte</a> ou <a href="%{sign_up_link}">inscrivez-vous</a> pour répondre au questionnaire.
+            title: Répondez au questionnaire
+          current_step: Étape %{step}
+          of_total_steps: de %{total_steps}
+          questionnaire_answered:
+            body: Vous avez déjà répondu à ce questionnaire.
+            title: Déjà répondu
+          questionnaire_closed:
+            body: Le questionnaire est fermé et vous ne pouvez pas y répondre.
+            title: Questionnaire fermé
+          questionnaire_for_private_users:
+            body: Le questionnaire est disponible uniquement pour les utilisateurs privés
+            title: Questionnaire fermé
+          questionnaire_js_disabled:
+            body: Certaines des fonctionnalités de ce formulaire seront désactivées. Pour améliorer votre expérience, veuillez activer JavaScript dans votre navigateur.
+            title: JavaScript est désactivé
+          questionnaire_not_published:
+            body: Ce formulaire n'est pas encore publié.
+          tos_agreement: En participant, vous acceptez ces conditions d'utilisation
+      step_navigation:
+        show:
+          are_you_sure: Cette action ne peut pas être annulée et vous ne pourrez pas modifier vos réponses. Êtes-vous sûr?
+          back: Revenir en arrière
+          continue: Continuer
+          submit: Soumettre
+      user_answers_serializer:
+        body: Répondre
+        completion: Fin
+        created_at: Répondu le
+        id: ID de réponse
+        ip_hash: Hachage IP
+        question: Question
+        registered: Enregistré
+        session_token: Identifiant de l'utilisateur
+        unregistered: Non enregistré
+        user_status: Statut de l'utilisateur

@@ -66,7 +66,7 @@ module Decidim
       end
     end
 
-    describe "validations", processing_uploads_for: Decidim::AvatarUploader do
+    describe "validations" do
       context "when the nickname is empty" do
         before do
           user.nickname = ""
@@ -74,7 +74,7 @@ module Decidim
 
         it "is not valid" do
           expect(user).not_to be_valid
-          expect(user.errors[:nickname].length).to eq(1)
+          expect(user.errors[:nickname]).to include("can't be blank")
         end
 
         it "can't be empty backed by an index" do
@@ -151,7 +151,7 @@ module Decidim
 
       context "when the file is too big" do
         before do
-          expect(subject.avatar).to receive(:size).and_return(11.megabytes)
+          expect(subject.avatar.blob).to receive(:byte_size).at_least(:once).and_return(11.megabytes)
         end
 
         it { is_expected.not_to be_valid }
@@ -162,7 +162,11 @@ module Decidim
         let(:user) do
           build(
             :user,
-            avatar: Rack::Test::UploadedFile.new(avatar_path, "image/jpeg")
+            avatar: ActiveStorage::Blob.create_after_upload!(
+              io: File.open(avatar_path),
+              filename: "malicious.jpeg",
+              content_type: "image/jpeg"
+            )
           )
         end
 
@@ -204,7 +208,7 @@ module Decidim
     describe "devise emails" do
       it "sends them asynchronously" do
         create(:user)
-        expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
+        expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.on_queue("mailers")
       end
     end
 

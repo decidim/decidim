@@ -53,7 +53,7 @@ module Decidim
                       permission_action.action == :read
 
         return allow! if initiative.published? || initiative.rejected? || initiative.accepted?
-        return allow! if user && (initiative.has_authorship?(user) || user.admin?)
+        return allow! if user && authorship_or_admin?
 
         disallow!
       end
@@ -73,23 +73,25 @@ module Decidim
       end
 
       def edit_public_initiative?
-        allow! if permission_action.subject == :initiative &&
-                  permission_action.action == :edit
+        return unless permission_action.subject == :initiative &&
+                      permission_action.action == :edit
+
+        toggle_allow(initiative&.created? && authorship_or_admin?)
       end
 
       def update_public_initiative?
         return unless permission_action.subject == :initiative &&
                       permission_action.action == :update
 
-        toggle_allow(initiative.created?)
+        toggle_allow(initiative&.created? && authorship_or_admin?)
       end
 
       def creation_enabled?
         Decidim::Initiatives.creation_enabled && (
-          Decidim::Initiatives.do_not_require_authorization ||
+        Decidim::Initiatives.do_not_require_authorization ||
             UserAuthorizations.for(user).any? ||
             Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?
-        )
+      )
       end
 
       def request_membership?
@@ -114,10 +116,10 @@ module Decidim
           initiative.promoting_committee_enabled? &&
           !initiative.has_authorship?(user) &&
           (
-            Decidim::Initiatives.do_not_require_authorization ||
-            UserAuthorizations.for(user).any? ||
-            Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?
-          )
+          Decidim::Initiatives.do_not_require_authorization ||
+              UserAuthorizations.for(user).any? ||
+              Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?
+        )
       end
 
       def vote_initiative?
@@ -182,9 +184,9 @@ module Decidim
 
       def can_user_support?(initiative)
         !initiative.offline_signature_type? && (
-          Decidim::Initiatives.do_not_require_authorization ||
-          UserAuthorizations.for(user).any?
-        )
+        Decidim::Initiatives.do_not_require_authorization ||
+            UserAuthorizations.for(user).any?
+      )
       end
 
       def initiative_committee_action?
@@ -212,9 +214,13 @@ module Decidim
 
       def allowed_to_send_to_technical_validation?
         initiative.created? && (
-          !initiative.created_by_individual? ||
-          initiative.enough_committee_members?
-        )
+        !initiative.created_by_individual? ||
+            initiative.enough_committee_members?
+      )
+      end
+
+      def authorship_or_admin?
+        initiative&.has_authorship?(user) || user.admin?
       end
     end
   end

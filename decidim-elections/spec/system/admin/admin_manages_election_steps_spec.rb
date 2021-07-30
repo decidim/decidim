@@ -2,10 +2,8 @@
 
 require "spec_helper"
 
-describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
+describe "Admin manages election steps", :slow, type: :system do
   let(:manifest_name) { "elections" }
-
-  include_context "when mocking the bulletin board in the browser"
 
   include_context "when managing a component as an admin" do
     let(:admin_component_organization_traits) { [:secure_context] }
@@ -18,7 +16,7 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
   end
 
   describe "setup an election" do
-    let!(:election) { create :election, :ready_for_setup, component: current_component }
+    let!(:election) { create :election, :ready_for_setup, component: current_component, title: { en: "English title", es: "" } }
 
     it "performs the action successfully" do
       within find("tr", text: translated(election.title)) do
@@ -47,6 +45,8 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
   end
 
   describe "start the key ceremony" do
+    include_context "with test bulletin board"
+
     let!(:election) { create :election, :bb_test, :created, component: current_component }
 
     it "performs the action successfully" do
@@ -87,6 +87,8 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
   end
 
   describe "start the voting period" do
+    include_context "with test bulletin board"
+
     let!(:election) { create :election, :bb_test, :key_ceremony_ended, component: current_component }
 
     it "performs the action successfully" do
@@ -113,6 +115,8 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
   end
 
   describe "voting period" do
+    include_context "with test bulletin board"
+
     let!(:election) { create :election, :bb_test, :vote, component: current_component }
 
     context "with no vote statistics" do
@@ -154,6 +158,8 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
   end
 
   describe "end the voting period" do
+    include_context "with test bulletin board"
+
     let!(:election) { create :election, :bb_test, :vote, :finished, component: current_component }
 
     it "performs the action successfully" do
@@ -180,6 +186,8 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
   end
 
   describe "start the tally" do
+    include_context "with test bulletin board"
+
     let!(:election) { create :election, :bb_test, :vote_ended, component: current_component }
 
     it "performs the action successfully" do
@@ -206,7 +214,7 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
   end
 
   describe "tally ended" do
-    let!(:election) { create :election, :bb_test, :tally_ended, component: current_component }
+    let!(:election) { create :election, :tally_ended, component: current_component }
     let!(:question) { election.questions.first }
     let!(:answer) { question.answers.first }
 
@@ -219,12 +227,14 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
         expect(page).to have_content("Calculated results")
         expect(page).to have_content(translated(question.title))
         expect(page).to have_content(translated(answer.title))
-        expect(page).to have_content(answer.votes_count)
+        expect(page).to have_content(answer.results_total)
       end
     end
   end
 
   describe "publishing results" do
+    include_context "with test bulletin board"
+
     let!(:election) { create :election, :bb_test, :tally_ended, component: current_component }
     let!(:question) { election.questions.first }
     let!(:answer) { question.answers.first }
@@ -242,7 +252,11 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".form.results_published" do
+      within ".form.tally_ended" do
+        expect(page).to have_content("Processing...")
+      end
+
+      within ".content.results_published" do
         expect(page).to have_content("Results published")
       end
     end

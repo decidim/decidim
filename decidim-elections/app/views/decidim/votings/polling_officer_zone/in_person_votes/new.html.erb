@@ -1,0 +1,21 @@
+<div class="polling_officer_zone">
+  <div>
+    <%= link_to polling_officers_path do %>
+      <%= icon "caret-left", class: "icon--small", role: "img" %> <%= t(".back") %>
+    <% end %>
+  </div>
+  <h2><%= t(".title") %></h2>
+
+  <% if has_voter? %>
+    <div id="verify-document">
+      <%= render partial: "verify_document" %>
+    </div>
+    <div id="complete-voting" class="hide">
+      <%= render partial: "complete_voting" %>
+    </div>
+  <% else %>
+    <%= render partial: "in_person_form" %>
+  <% end %>
+</div>
+
+<%= javascript_pack_tag "decidim_votings_in_person_vote", integrity: true %>

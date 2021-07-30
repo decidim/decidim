@@ -144,3 +144,5 @@ it:
           count:
             one: 1 sorteggio
             other: "%{count} sorteggi"
+    statistics:
+      sortitions_count: Sorteggi

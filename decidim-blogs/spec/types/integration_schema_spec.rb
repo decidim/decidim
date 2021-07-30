@@ -23,7 +23,7 @@ describe "Decidim::Api::QueryType" do
       "endorsements" => post.endorsements.map do |endo|
         {
           "__typename" => "User",
-          "avatarUrl" => "/uploads/decidim/user/avatar/#{endo.author.id}/thumb_avatar.jpg",
+          "avatarUrl" => endo.author.attached_uploader(:avatar).path(variant: :thumb),
           "badge" => "",
           "deleted" => false,
           "id" => endo.author.id.to_s,

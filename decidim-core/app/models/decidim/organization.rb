@@ -29,6 +29,7 @@ module Decidim
     has_many :admins, -> { where(admin: true) }, foreign_key: "decidim_organization_id", class_name: "Decidim::User"
     has_many :users_with_any_role, -> { where.not(roles: []) }, foreign_key: "decidim_organization_id", class_name: "Decidim::User"
     has_many :users, foreign_key: "decidim_organization_id", class_name: "Decidim::User", dependent: :destroy
+    has_many :user_entities, foreign_key: "decidim_organization_id", class_name: "Decidim::UserBaseEntity", dependent: :destroy
     has_many :oauth_applications, foreign_key: "decidim_organization_id", class_name: "Decidim::OAuthApplication", inverse_of: :organization, dependent: :destroy
     has_many :hashtags, foreign_key: "decidim_organization_id", class_name: "Decidim::Hashtag", dependent: :destroy
 
@@ -45,20 +46,22 @@ module Decidim
     validates :time_zone, presence: true, time_zone: true
     validates :default_locale, inclusion: { in: :available_locales }
 
-    validates_upload :official_img_header
-    mount_uploader :official_img_header, Decidim::OfficialImageHeaderUploader
+    has_one_attached :official_img_header
+    validates_upload :official_img_header, uploader: Decidim::OfficialImageHeaderUploader
 
-    validates_upload :official_img_footer
-    mount_uploader :official_img_footer, Decidim::OfficialImageFooterUploader
+    has_one_attached :official_img_footer
+    validates_upload :official_img_footer, uploader: Decidim::OfficialImageFooterUploader
 
-    validates_upload :logo
-    mount_uploader :logo, Decidim::OrganizationLogoUploader
+    has_one_attached :logo
+    validates_upload :logo, uploader: Decidim::OrganizationLogoUploader
 
-    validates_upload :favicon
-    mount_uploader :favicon, Decidim::OrganizationFaviconUploader
+    has_one_attached :favicon
+    validates_upload :favicon, uploader: Decidim::OrganizationFaviconUploader
 
-    validates_upload :highlighted_content_banner_image
-    mount_uploader :highlighted_content_banner_image, ImageUploader
+    has_one_attached :highlighted_content_banner_image
+    validates_upload :highlighted_content_banner_image, uploader: Decidim::ImageUploader
+
+    has_one_attached :open_data_file
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::OrganizationPresenter
@@ -121,13 +124,6 @@ module Decidim
       !users_registration_mode_disabled?
     end
 
-    def open_data_file
-      @open_data_file ||= OpenDataUploader.new(self).tap do |uploader|
-        uploader.retrieve_from_store! open_data_file_path
-        uploader.cache! open_data_file_path
-      end
-    end
-
     def open_data_file_path
       "#{host}-open-data.zip"
     end
@@ -174,9 +170,9 @@ module Decidim
         Decidim::OmniauthProvider.extract_provider_key(key)
       end.compact.uniq
 
-      Hash[tenant_enabled_providers_keys.map do |key|
-        [key, omniauth_provider_settings(key)]
-      end]
+      tenant_enabled_providers_keys.index_with do |key|
+        omniauth_provider_settings(key)
+      end
     end
 
     def omniauth_provider_settings(provider)

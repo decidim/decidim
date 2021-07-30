@@ -116,10 +116,7 @@ module Decidim
           private
 
           def attachment_params
-            {
-              id: params[:id],
-              file: @attachment.file
-            }.merge(params[:attachment].to_unsafe_h)
+            { id: params[:id] }.merge(params[:attachment].to_unsafe_h)
           end
         end
       end

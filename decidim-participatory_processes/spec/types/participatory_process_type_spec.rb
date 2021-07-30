@@ -13,6 +13,7 @@ module Decidim
       let(:model) { create(:participatory_process, :with_scope) }
 
       include_examples "attachable interface"
+      include_examples "categories container interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -114,7 +115,7 @@ module Decidim
         let(:query) { "{ bannerImage }" }
 
         it "returns the banner image of the process" do
-          expect(response["bannerImage"]).to eq(model.banner_image.url)
+          expect(response["bannerImage"]).to eq(model.attached_uploader(:banner_image).path)
         end
       end
 
@@ -122,7 +123,7 @@ module Decidim
         let(:query) { "{ heroImage }" }
 
         it "returns the hero image of the process" do
-          expect(response["heroImage"]).to eq(model.hero_image.url)
+          expect(response["heroImage"]).to eq(model.attached_uploader(:hero_image).path)
         end
       end
 
@@ -242,19 +243,6 @@ module Decidim
         it "returns all the required steps" do
           step_response = response["steps"].first
           expect(step_response["id"]).to eq(step.id.to_s)
-        end
-      end
-
-      describe "categories" do
-        let(:category) { create(:category) }
-        let(:query) { "{ categories { id } }" }
-
-        before do
-          model.categories << category
-        end
-
-        it "returns its categories" do
-          expect(response["categories"].first["id"]).to eq(model.categories.first.id.to_s)
         end
       end
 

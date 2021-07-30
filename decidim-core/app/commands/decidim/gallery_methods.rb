@@ -14,7 +14,8 @@ module Decidim
         @gallery << Attachment.new(
           title: { I18n.locale => photo.original_filename },
           attached_to: attached_to || gallery_attached_to,
-          file: photo # Define attached_to before this
+          file: photo, # Define attached_to before this
+          content_type: photo.content_type
         )
       end
     end

@@ -87,6 +87,10 @@ module Decidim
       def has_attachments?
         question_type.to_s == "files"
       end
+
+      def answers_count
+        questionnaire.answers.where(question: self).count
+      end
     end
   end
 end

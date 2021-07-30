@@ -208,6 +208,8 @@ pl:
             label: Status
     components:
       accountability:
+        actions:
+          comment: Skomentuj
         name: Rozliczenie
         settings:
           global:
@@ -226,7 +228,7 @@ pl:
     events:
       accountability:
         proposal_linked:
-          email_intro: 'Propozycja "%{proposal_title}" została uwzględniony w wyniku. Możesz go zobaczyć na tej stronie:'
+          email_intro: 'Propozycja "%{proposal_title}" została uwzględniona w wyniku. Możesz go zobaczyć na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{proposal_title}". Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
           email_subject: Aktualizacja w %{proposal_title}
           notification_title: Propozycja <a href="%{proposal_path}">%{proposal_title}</a> została uwzględniona w wyniku <a href="%{resource_path}">%{resource_title}</a>.
@@ -248,3 +250,5 @@ pl:
         result_project: Projekty uwzględnione w tym wyniku
       included_proposals:
         result_proposal: Propozycje uwzględnione w tym wyniku
+    statistics:
+      results_count: Wyniki

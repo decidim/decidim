@@ -37,6 +37,8 @@ describe "Homepage", type: :system do
         visit decidim.root_path
       end
 
+      it_behaves_like "accessible page"
+
       it "includes the official organization links and images" do
         expect(page).to have_selector("a.logo-cityhall[href='#{official_url}']")
         expect(page).to have_selector("a.main-footer__badge[href='#{official_url}']")
@@ -234,6 +236,8 @@ describe "Homepage", type: :system do
 
           context "when authenticated" do
             let(:user) { create :user, :confirmed, organization: organization }
+
+            it_behaves_like "accessible page"
 
             it "displays all pages and topics in footer that are configured to display in footer" do
               expect(page).to have_content(static_page_1.title["en"])

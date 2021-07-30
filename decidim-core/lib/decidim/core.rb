@@ -50,7 +50,6 @@ module Decidim
   autoload :Menu, "decidim/menu"
   autoload :MenuItem, "decidim/menu_item"
   autoload :MenuRegistry, "decidim/menu_registry"
-  autoload :Messaging, "decidim/messaging"
   autoload :ManifestRegistry, "decidim/manifest_registry"
   autoload :EngineRouter, "decidim/engine_router"
   autoload :Events, "decidim/events"
@@ -95,6 +94,7 @@ module Decidim
   autoload :ShareableWithToken, "decidim/shareable_with_token"
   autoload :RecordEncryptor, "decidim/record_encryptor"
   autoload :AttachmentAttributes, "decidim/attachment_attributes"
+  autoload :CarrierWaveMigratorService, "decidim/carrier_wave_migrator_service"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -148,6 +148,11 @@ module Decidim
   # Whether SSL should be enabled or not.
   config_accessor :force_ssl do
     true
+  end
+
+  # Having this on true will change the way the svg assets are being served.
+  config_accessor :cors_enabled do
+    false
   end
 
   # Exposes a configuration option: The application available locales.
@@ -270,9 +275,21 @@ module Decidim
     false
   end
 
-  # How long can a user remained logged in before the session expires
+  # How long can a user remained logged in before the session expires. Notice that
+  # this is also maximum time that user can idle before getting automatically signed out.
   config_accessor :expire_session_after do
-    1.day
+    30.minutes
+  end
+
+  # If set to true, users have option to "remember me". Notice that expire_session_after won't take
+  # effect when the user wants to be remembered.
+  config_accessor :enable_remember_me do
+    true
+  end
+
+  # Defines how often session_timeouter.js checks time between current moment and last request
+  config_accessor :session_timeout_interval do
+    10.seconds
   end
 
   # Exposes a configuration option: an object to configure Etherpad
@@ -358,11 +375,6 @@ module Decidim
   # set cookies.
   config_accessor :consent_cookie_name do
     "decidim-cc"
-  end
-
-  # Defines how often session_timeouter.js checks time between current moment and last request
-  config_accessor :session_timeouter_interval do
-    10_000
   end
 
   # Public: Registers a global engine. This method is intended to be used

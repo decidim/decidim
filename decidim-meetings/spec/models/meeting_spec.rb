@@ -367,5 +367,37 @@ module Decidim::Meetings
         end
       end
     end
+
+    describe "#authored_proposals" do
+      let(:meeting) { create(:meeting, address: address, component: meeting_component) }
+      let(:meeting_component) { create(:meeting_component) }
+      let(:proposal_component) { create(:proposal_component, participatory_space: meeting_component.participatory_space) }
+      let!(:proposals) do
+        proposals = build_list(:proposal, 5, component: proposal_component)
+        proposals.each do |proposal|
+          proposal.coauthorships.clear
+          proposal.coauthorships.build(author: meeting)
+          proposal.save!
+        end
+        proposals
+      end
+      let!(:proposals_outside_meeting) { create_list(:proposal, 5, component: proposal_component) }
+
+      it "returns the proposals authored in the meeting" do
+        expect(subject.authored_proposals.count).to eq(5)
+        expect(subject.authored_proposals.map(&:id)).to match_array(proposals.map(&:id))
+      end
+
+      context "when proposal linking is disabled" do
+        before do
+          allow(Decidim::Meetings).to receive(:enable_proposal_linking).and_return(false)
+        end
+
+        it "returns an empty array and does not call authored_proposals" do
+          expect(Decidim::Proposals::Proposal).not_to receive(:where)
+          expect(subject.authored_proposals).to eq([])
+        end
+      end
+    end
   end
 end

@@ -26,11 +26,15 @@ sv:
         published_at: Publicerad
         weight: Vikt
       id: ID
+      import:
+        user_group_id: Skapa import som
       newsletter:
         body: Innehåll
         subject: Ämne
       organization:
+        admin_terms_of_use_body: Innehåll för administratörsvillkoren
         alert_color: Larm
+        available_authorizations: Tillgängliga auktoriseringar
         badges_enabled: Aktivera märken
         comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
         cta_button_path: Uppmaningens knappsökväg
@@ -39,9 +43,11 @@ sv:
         default_locale: Förvalt språk och region
         description: Beskrivning
         enable_omnipresent_banner: Visa banner på alla sidor
+        enable_participatory_space_filters: Aktivera filter för dialoger
         facebook_handler: Facebook-hanterare
         favicon: Ikon
-        from: Från e-postadress
+        force_authentication: Tvinga autentisering
+        force_users_to_authenticate_before_access_organization: Tvinga användare att autentisera sig innan att komma in organisationen
         github_handler: GitHub-hanterare
         header_snippets: Rubriksnuttar
         highlight_alternative_color: Markera alternativ
@@ -53,6 +59,7 @@ sv:
         highlighted_content_banner_image: Bild
         highlighted_content_banner_short_description: Kort beskrivning
         highlighted_content_banner_title: Titel
+        host: Värd
         instagram_handler: Instagram-hanterare
         logo: Logo
         machine_translation_display_priority: Maskinöversättnings visnings prioritet
@@ -65,16 +72,21 @@ sv:
         omnipresent_banner_short_description: Kort beskrivning
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
+        organization_admin_email: Organisationsadministratörens e-postadress
+        organization_admin_name: Organisationsadministratörens namn
+        organization_locales: Organisationsspråk
         primary_color: Primär
         reference_prefix: Referensprefix
         rich_text_editor_in_public_views: Aktivera rik textredigering för deltagare
         secondary_color: Sekundär
+        secondary_hosts: Sekundära hosts
         send_welcome_notification: Skicka välkomstmeddelande
         success_color: Färdigt
         time_zone: Tidszon
         tos_version: Version på användarvillkor
         twitter_handler: Twitter-hanterare
         user_groups_enabled: Aktivera grupper
+        users_registration_mode: Registreringsmode
         warning_color: Varning
         welcome_notification_body: Välkomstmeddelandets brödtext
         welcome_notification_subject: Välkomstmeddelandets ämnesrad
@@ -93,6 +105,7 @@ sv:
       settings:
         scope_id: Omfång
       static_page:
+        allow_public_access: Tillåt tillgång utan autentisering
         changed_notably: Det har skett större förändringar.
         content: Innehåll
         organization: Organisation
@@ -115,6 +128,10 @@ sv:
               allowed_file_content_types: Ogiltig bildfil
             official_img_header:
               allowed_file_content_types: Ogiltig bildfil
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Ogiltig MIME type
   activerecord:
     attributes:
       decidim/static_page:
@@ -140,13 +157,21 @@ sv:
         browse: Bläddra
         category:
           new: Ny kategori
-        export: Exportera
+        export: Exportera alla
+        export-selection: Exportera markering
+        import: Importera
         manage: Hantera
         new: Ny %{name}
+        newsletter:
+          new: Nytt nyhetsbrev
+        participatory_space_private_user:
+          new: Ny privat deltagare i deltagarutrymme
         per_page: Per sida
         permissions: Behörigheter
         reject: Avvisa
         share: Dela
+        user:
+          new: Ny användare
         verify: Kontrollera
       admin_terms_of_use:
         accept:
@@ -154,12 +179,10 @@ sv:
           success: Du har godkänt användarvillkoren för administratörer.
         actions:
           accept: Jag godkänner villkoren
-          are_you_sure: Vill du avvisa villkoren för administratörer?
           refuse: Avvisa villkoren för administratörer
           title: Godkänn användarvillkoren
         required_review:
           alert: 'Krav: granska villkoren för administratörer'
-          callout: Granska användarvillkoren för administratörer. Annars kan du inte administrera plattformen.
           cta: Granska dem nu.
         title: Användarvillkor för administratörer
       area_types:
@@ -182,7 +205,6 @@ sv:
           error: Det gick inte att skapa ett nytt område.
           success: Området har har skapats.
         destroy:
-          has_spaces: Området har beroende utrymmen och får inte ha beroenden när det ska raderas.
           success: Området har tagits bort
         edit:
           title: Redigera område
@@ -234,6 +256,7 @@ sv:
         search_prompt: Sök genom att skriva minst tre tecken
       block_user:
         new:
+          action: Blockera konto och skicka motivering
           justification: Motivering
           title: Blockera användare %{name}
       categories:
@@ -294,17 +317,27 @@ sv:
       conflicts:
         attempts: Försök
         'false': 'Nej'
+        managed_user_name: Hanterad användare
         solved: Löst
         transfer:
           email: E-post
+          error: Det gick inte att konvertera användaren till hanterad användare.
           name: Namn
           reason: Anledning
+          success: Flytten slutfördes problemfritt.
+          title: Överföring
         'true': 'Ja'
         user_name: Användare
       dashboard:
         show:
           view_more_logs: Visa fler loggar
           welcome: Välkommen till Decidims administratörspanel.
+      domain_whitelist:
+        form:
+          domain_too_short: Domänen är för kort
+        update:
+          error: Vitlistans uppdatering misslyckades
+          success: Domäns vitlista har uppdaterats
       exports:
         export_as: "%{name} som %{export_format}"
         formats:
@@ -317,6 +350,16 @@ sv:
         category_id_eq:
           label: Kategori
         filter_label: Filtrera
+        invitation_accepted_at_present:
+          label: Inbjudan accepterad
+          values:
+            'false': 'Nej'
+            'true': 'Ja'
+        last_sign_in_at_present:
+          label: Inloggad senast
+          values:
+            'false': 'Nej'
+            'true': 'Ja'
         moderations:
           reportable_type_string_eq:
             label: Typ
@@ -325,6 +368,17 @@ sv:
           values:
             'false': Gjord officiell
             'true': Ej gjord officiell
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Inbjudan godtagen
+            values:
+              'false': Ej godkänd
+              'true': Godkänd
+          user_invitation_sent_at_not_null:
+            label: Inbjudan skickad
+            values:
+              'false': Ej skickad
+              'true': Skickad
         private_space_eq:
           label: Privat
           values:
@@ -342,8 +396,15 @@ sv:
           name_or_nickname_or_email_cont: Sök i %{collection} efter e-post, namn eller smeknamn.
           reported_id_string_or_reported_content_cont: Sök %{collection} efter anmälningsID eller innehåll.
           title_cont: Sök %{collection} efter titel.
+          user_name_or_user_email_cont: Sök %{collection} efter namn eller e-post.
         state_eq:
           label: Län
+      forms:
+        file_help:
+          import:
+            explanation: 'Vägledning för fil:'
+            message_1: CSV, JSON och Excel (.xlsx) filer stöds
+            message_2: För CSV-filer måste separatorn mellan kolumner vara en semikolon (";")
       help_sections:
         error: Det gick inte att uppdatera hjälpavsnitten
         form:
@@ -382,6 +443,24 @@ sv:
           impersonate_existing_managed_user: Hantera deltagaren "%{name}"
           impersonate_existing_user: Hantera deltagaren "%{name}"
           impersonate_new_managed_user: Hantera ny deltagare
+      imports:
+        creators:
+          proposalcreator: Förslagsförfattare
+        error: Ett fel uppstod under importeringsprocessen
+        help:
+          proposalcreator: Filen måste ha kolumnnamn title/sv och body/sv (eller ett annat språk som du föredrar t. ex.. title/ca och body/ca). Även scope/id och category/id kolumner stöds.
+        import_from_file: Importera från fil
+        invalid_lines: Hittade fel i resursnumret %{invalid_lines}
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
+          actions:
+            back: Tillbaka
+          file_legend: Lägg till en fil som kommer importeras.
+          import: Importera
+        notice: "%{number} %{resource_name} har importerats"
       logs:
         logs_list:
           no_logs_yet: Det finns inga loggar än
@@ -405,8 +484,10 @@ sv:
         help_sections: Hjälpavsnitt
         homepage: Hemsida
         impersonations: Uppträd som
+        moderation: Global moderering
         newsletters: Nyhetsbrev
         participants: Deltagare
+        reported_users: Rapporterade användare
         scope_types: Omfattningstyper
         scopes: Omfattningar
         settings: inställningar
@@ -494,6 +575,26 @@ sv:
             phone: Telefon
             state: Status
             users_count: Antal användare
+      moderated_users:
+        index:
+          actions:
+            block: Blockera användare
+            title: Åtgärder
+            unblock: Avblockera användare
+            unreport: Ta bort rapport
+          name: Namn
+          nickname: Användarnamn
+          reason: Anledning
+          reports: Antal anmälningar
+          title: Rapporterade användare
+        report:
+          reasons:
+            does_not_belong: Tillhör inte
+            offensive: Offensivt
+            spam: Skräp
+        tabs:
+          blocked: Blockerad
+          unblocked: Icke blockerade
       moderations:
         index:
           title: Moderering
@@ -528,7 +629,6 @@ sv:
       newsletters:
         create:
           error: Det gick inte att skapa nyhetsbrevet.
-          success: Nyhetsbrevet har skapats. Granska det gärna innan du skickar det.
         deliver:
           error: Det gick inte att skicka nyhetsbrevet.
           success: Nyhetsbrevet har skickats.
@@ -582,6 +682,9 @@ sv:
           error: Det gick inte att uppdatera nyhetsbrevet.
           success: Nyhetsbrevet har uppdaterats. Granska det gärna innan du skickar det.
       officializations:
+        block:
+          error: Det gick inte att blockera användaren
+          success: Deltagaren har blockerats
         create:
           success: Deltagaren har gjorts officiell
         destroy:
@@ -589,6 +692,7 @@ sv:
         index:
           actions: Åtgärder
           badge: Märke
+          block: Blockera användare
           created_at: Skapad
           name: Namn
           nickname: Användarnamn
@@ -596,8 +700,10 @@ sv:
           officialize: Gör officiell
           officialized: Gjord officiell
           reofficialize: Gör officiell igen
+          reports: Rapporter
           show_email: Visa e-postadress
           status: Status
+          unblock: Avblockera användare
           unofficialize: Sluta gör officiell
         new:
           badge: Officiellt märke
@@ -605,12 +711,13 @@ sv:
           title: Gör deltagaren "%{name}" officiell
         show_email_modal:
           close_modal: Stäng modal
-          description: Om du behöver kontakta en deltagare direkt kan du klicka på Visa för att se e-postadressen. Denna åtgärd kommer att loggas.
           email_address: E-postadress
           full_name: Fullständigt namn
           hidden: dold
           show: Visa
-          title: Visa deltagarens e-postadress
+        unblock:
+          error: Det gick inte att avblockera användaren
+          success: Deltagaren har avblockerats
       organization:
         edit:
           title: Redigera organisation
@@ -642,6 +749,17 @@ sv:
             layout_appearance_title: Redigera layoutens utseende
             preview: Förhandsgranska
           omnipresent_banner_appearance_title: Redigera banner på alla sidor
+      organization_external_domain_whitelist:
+        edit:
+          update: Uppdatera
+        external_domain:
+          down: Ner
+          external_domain: Externt domän
+          remove: Ta bort
+          up: Upp
+        form:
+          add: Lägg till i vitlistan
+          title: Vitlista för externa domäner
       organization_homepage:
         edit:
           active_content_blocks: Block med aktivt innehåll
@@ -727,7 +845,7 @@ sv:
         gallery:
           add_images: Lägg till bilder
           delete_image: Ta bort bild
-          gallery_legend: Lägg till ett bildgalleri (valfritt)
+          gallery_legend: Lägg till ett bildgalleri (Frivilligt)
       static_page_topics:
         create:
           error: Det gick inte att skapa ett nytt ämne.
@@ -780,6 +898,7 @@ sv:
         impersonatable_users: Hanterbara deltagare
         impersonations: Deltagarhantering
         metrics: Metrik
+        panel: Administratör
         participants: Deltagare
         scope_types: Omfattningstyper
         scopes: Omfattningar
@@ -839,10 +958,16 @@ sv:
           no_users_count_statistics_yet: Det finns ingen statistik för användare än
           participants: Deltagare
       view_public_page: Visa offentlig sida
-    forms:
-      errors:
-        impersonate_user:
-          reason: Du måste ange en anledning vid hantering av en icke-hanterad användare
+    metrics:
+      blocked_users:
+        object: blockerade användare
+        title: Blockerade användare
+      reported_users:
+        object: rapporterade användare
+        title: Rapporterade användare
+      user_reports:
+        object: användarrapporter
+        title: Användarrapporter
     moderations:
       actions:
         expand: Expandera
@@ -868,6 +993,7 @@ sv:
           fields:
             created_at: Skapandedatum
             hidden_at: Dold
+            participatory_space: Deltagarutrymme
             report_count: Antal
             reportable_id: Id
             reportable_type: Typ
@@ -885,6 +1011,8 @@ sv:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Global moderering
         newsletters:
           title: Nyhetsbrev
         settings:

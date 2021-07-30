@@ -52,7 +52,7 @@ fi-pl:
         target: Kuka osallistuu
         title: Otsikko
         twitter: Twitter
-        weight: Painoarvo
+        weight: Järjestysnumero
         youtube: YouTube
       assembly_member:
         birthday: Syntymäpäivä
@@ -63,7 +63,7 @@ fi-pl:
         full_name: Koko nimi
         gender: Sukupuoli
         position: Asema
-        user_id: Käyttäjä
+        user_id: Käyttäjä tai ryhmä
       assembly_user_role:
         email: Sähköposti
         name: Nimi
@@ -190,6 +190,7 @@ fi-pl:
           assembly_members: Jäsenet
           attachment_collections: Kansiot
           attachment_files: Tiedostot
+          attachments: Liitteet
           categories: Aihepiirit
           components: Komponentit
           info: Tiedot
@@ -261,6 +262,7 @@ fi-pl:
       admin:
         assemblies:
           form:
+            announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti ryhmän tietojen alapuolella.
             duration: Kesto
             duration_help: Jos ryhmän kesto on rajoitettu, valitse päättymispäivä. Muussa tapauksessa se näkyy määrittelemättömänä.
             filters: Suodattimet
@@ -385,11 +387,6 @@ fi-pl:
         designated_on: Nimetty
       index:
         title: Jäsenet
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Linkki kaikkien konferenssien sivulle
     events:
       assemblies:
         create_assembly_member:
@@ -422,17 +419,7 @@ fi-pl:
         description: Ryhmien määrä
         object: ryhmät
         title: Ryhmät
-    pages:
-      home:
-        hero:
-          participate_title: Osallistu palvelun prosesseihin
-        sub_hero:
-          register_title: Rekisteröidy luodaksesi itsellesi oman tilin
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Linkki kaikkien prosessien sivulle
       show:
         related_assemblies: Liittyvät ryhmät
     statistics:

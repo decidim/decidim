@@ -15,6 +15,7 @@ fr:
         edit: Modifier
         new: Nouvel article
         title: Actions
+        user_group_id: Créer un article comme
       admin:
         models:
           components:
@@ -58,6 +59,11 @@ fr:
       read_more: Voir la suite
     components:
       blogs:
+        actions:
+          amend: Amender
+          comment: Commenter
+          endorse: Soutenir
+          vote: Voter
         name: Actualités
         settings:
           global:

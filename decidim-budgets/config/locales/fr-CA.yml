@@ -6,7 +6,6 @@ fr-CA:
         description: Description
         title: Titre
         total_budget: Budget total
-        weight: Rang d'affichage
       project:
         budget_amount: Montant du budget
         decidim_category_id: Catégorie
@@ -230,6 +229,7 @@ fr-CA:
     components:
       budgets:
         actions:
+          comment: Commenter
           vote: Voter
         name: Budgets
         settings:

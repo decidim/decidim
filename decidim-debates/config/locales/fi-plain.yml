@@ -27,6 +27,7 @@ fi-pl:
     components:
       debates:
         actions:
+          comment: Kommentoi
           create: Luo
           endorse: Suosittele
         name: Keskustelut
@@ -171,6 +172,7 @@ fi-pl:
         versions_list:
           back_to_resource: Takaisin keskusteluun
       last_activity:
+        debate_updated_at_html: "<span>Keskustelu päivitetty osoitteessa %{link}</span>"
         new_debate_at_html: "<span>Uusi keskustelu osoitteessa %{link}</span>"
       models:
         debate:

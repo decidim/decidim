@@ -6,7 +6,7 @@ module Decidim::Meetings
   describe ReportedContentCell, type: :cell do
     controller Decidim::Meetings::MeetingsController
 
-    let!(:meeting) { create(:meeting, description: { "en" => "the meeting's description" }) }
+    let!(:meeting) { create(:meeting, :published, description: { "en" => "the meeting's description" }) }
 
     context "when rendering" do
       it "renders the meeting's description" do

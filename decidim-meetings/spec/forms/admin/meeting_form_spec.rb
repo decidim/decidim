@@ -54,6 +54,7 @@ module Decidim::Meetings
     let(:registration_url) { "http://decidim.org" }
     let(:registration_type) { "on_this_platform" }
     let(:available_slots) { 0 }
+    let(:show_embedded_iframe) { false }
     let(:attributes) do
       {
         decidim_scope_id: scope_id,
@@ -73,7 +74,8 @@ module Decidim::Meetings
         available_slots: available_slots,
         registration_url: registration_url,
         type_of_meeting: type_of_meeting,
-        online_meeting_url: online_meeting_url
+        online_meeting_url: online_meeting_url,
+        show_embedded_iframe: show_embedded_iframe
       }
     end
 
@@ -189,9 +191,16 @@ module Decidim::Meetings
       it { is_expected.to eq(services.size) }
     end
 
-    describe "when online meeting link is missing and type of meeting is online" do
+    describe "when type of meeting is online and online meeting link is missing" do
       let(:type_of_meeting) { "online" }
       let(:online_meeting_url) { nil }
+
+      it { is_expected.to be_valid }
+    end
+
+    describe "when type of meeting is online and online meeting link is not a URL" do
+      let(:type_of_meeting) { "online" }
+      let(:online_meeting_url) { "potato" }
 
       it { is_expected.not_to be_valid }
     end
@@ -218,6 +227,13 @@ module Decidim::Meetings
     describe "when registration url is missing and registration type of meeting is on different platform" do
       let(:registration_type) { "on_different_platform" }
       let(:registration_url) { nil }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    describe "when online meeting url is present and the meeting is embedded and the url can't be embedded" do
+      let(:online_meeting_url) { "https://meet.jit.si/decidim" }
+      let(:show_embedded_iframe) { true }
 
       it { is_expected.not_to be_valid }
     end

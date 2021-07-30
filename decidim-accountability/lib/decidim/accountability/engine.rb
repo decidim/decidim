@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require "searchlight"
-require "kaminari"
+require "decidim/core"
 
 module Decidim
   module Accountability
@@ -16,10 +15,6 @@ module Decidim
           resources :versions, only: [:show, :index]
         end
         root to: "results#home"
-      end
-
-      initializer "decidim_accountability.assets" do |app|
-        app.config.assets.precompile += %w(decidim_accountability_manifest.js)
       end
 
       initializer "decidim_accountability.view_hooks" do

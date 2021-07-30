@@ -23,7 +23,6 @@ ru:
       component:
         name: Название
         published_at: 'Обнародовано:'
-        weight: Вес
       id: Псевдоним
       newsletter:
         body: Основной текст
@@ -39,7 +38,6 @@ ru:
         enable_omnipresent_banner: Показывать вездесущий баннер
         facebook_handler: Обработчик Facebook
         favicon: Значок
-        from: Отправитель сообщения
         github_handler: Обработчик GitHub
         header_snippets: Сниппеты для гипертекстовых заголовков страниц сайта
         highlighted_content_banner_action_subtitle: Подзаголовок кнопки действия
@@ -88,12 +86,10 @@ ru:
         show_in_footer: Показать в подвале
         slug: Сокращенный веб-адрес
         title: Название
-        weight: Вес
       static_page_topic:
         description: Описание
         show_in_footer: Показать в подвале
         title: Заголовок
-        weight: Вес
       user_group_csv_verification:
         file: Файл
     errors:
@@ -123,7 +119,6 @@ ru:
       actions:
         add: Добавить
         browse: Просмотреть
-        export: Сохранить в виде файла
         manage: Управлять
         new: Добавить %{name}
         permissions: Права
@@ -418,7 +413,6 @@ ru:
       newsletters:
         create:
           error: При попытке создать эту рассылку новостей произошла ошибка.
-          success: Рассылка новостей успешно создана. Пожалуйста, просмотрите её перед отправкой.
         deliver:
           error: При доставке этой рассылки новостей произошла ошибка.
           success: Рассылка новостей успешно доставлена.
@@ -625,10 +619,6 @@ ru:
           admins: Администраторы
           participants: Участники
       view_public_page: Просмотреть общедоступную страницу
-    forms:
-      errors:
-        impersonate_user:
-          reason: Необходимо указать причину выступления в роли участника, не являющегося управляемым
     moderations:
       actions:
         hidden: Скрыт

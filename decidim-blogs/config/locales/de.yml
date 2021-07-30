@@ -15,10 +15,11 @@ de:
         edit: Bearbeiten
         new: Neuer Beitrag
         title: Aktionen
+        user_group_id: Beitrag erstellen als
       admin:
         models:
           components:
-            body: Karosserie
+            body: Haupttext
           post:
             name: Post
         posts:
@@ -44,7 +45,7 @@ de:
         post:
           fields:
             author: Autor
-            body: Karosserie
+            body: Haupttext
             created_at: Hergestellt in
             title: Titel
       posts:

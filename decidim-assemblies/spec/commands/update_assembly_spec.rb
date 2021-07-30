@@ -35,8 +35,6 @@ module Decidim::Assemblies
             slug: my_assembly.slug,
             hashtag: my_assembly.hashtag,
             meta_scope: my_assembly.meta_scope,
-            hero_image: hero_image,
-            banner_image: banner_image,
             promoted: my_assembly.promoted,
             description_en: my_assembly.description,
             description_ca: my_assembly.description,
@@ -68,8 +66,15 @@ module Decidim::Assemblies
             facebook_handler: my_assembly.facebook_handler,
             instagram_handler: my_assembly.instagram_handler,
             youtube_handler: my_assembly.youtube_handler,
-            github_handler: my_assembly.github_handler
-          }
+            github_handler: my_assembly.github_handler,
+            announcement: my_assembly.announcement
+          }.merge(attachment_params)
+        }
+      end
+      let(:attachment_params) do
+        {
+          hero_image: hero_image.blob,
+          banner_image: banner_image.blob
         }
       end
       let(:context) do
@@ -102,15 +107,15 @@ module Decidim::Assemblies
       end
 
       context "when the uploaded hero image has too large dimensions" do
-        let(:hero_image) { Decidim::Dev.test_file("5000x5000.png", "image/png") }
-
-        before do
-          # Enable processing for the test in order to catch validation errors
-          Decidim::HeroImageUploader.enable_processing = true
-        end
-
-        after do
-          Decidim::HeroImageUploader.enable_processing = false
+        let(:attachment_params) do
+          {
+            banner_image: banner_image.blob,
+            hero_image: ActiveStorage::Blob.create_after_upload!(
+              io: File.open(Decidim::Dev.asset("5000x5000.png")),
+              filename: "5000x5000.png",
+              content_type: "image/png"
+            )
+          }
         end
 
         it "broadcasts invalid" do
@@ -186,6 +191,12 @@ module Decidim::Assemblies
         end
 
         context "when homepage image is not updated" do
+          let(:attachment_params) do
+            {
+              banner_image: banner_image.blob
+            }
+          end
+
           it "does not replace the homepage image" do
             expect(my_assembly).not_to receive(:hero_image=)
 
@@ -197,6 +208,12 @@ module Decidim::Assemblies
         end
 
         context "when banner image is not updated" do
+          let(:attachment_params) do
+            {
+              hero_image: hero_image.blob
+            }
+          end
+
           it "does not replace the banner image" do
             expect(my_assembly).not_to receive(:banner_image=)
 

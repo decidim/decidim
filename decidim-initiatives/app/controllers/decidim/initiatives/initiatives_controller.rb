@@ -114,6 +114,10 @@ module Decidim
         @current_participatory_space ||= Initiative.find_by(id: id_from_slug(params[:slug]))
       end
 
+      def current_participatory_space_manifest
+        @current_participatory_space_manifest ||= Decidim.find_participatory_space_manifest(:initiatives)
+      end
+
       def initiatives
         @initiatives = search.results.includes(:scoped_type)
         @initiatives = reorder(@initiatives)

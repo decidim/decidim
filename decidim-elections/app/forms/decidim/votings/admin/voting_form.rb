@@ -14,11 +14,12 @@ module Decidim
         attribute :end_time, Decidim::Attributes::TimeWithZone
         attribute :scope_id, Integer
         attribute :promoted, Boolean
-        attribute :remove_banner_image
+        attribute :remove_banner_image, Boolean, default: false
         attribute :banner_image, String
-        attribute :remove_introductory_image
+        attribute :remove_introductory_image, Boolean, default: false
         attribute :introductory_image, String
         attribute :voting_type, String
+        attribute :census_contact_information, String
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true

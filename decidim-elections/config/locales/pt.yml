@@ -171,15 +171,10 @@ pt:
           experience: Como foi a sua experiência?
           feedback: Dê-nos algum feedback
           header: Voto confirmado
-          lead: O seu voto já foi transmitido!
           text: 'Pode verificar que o seu voto foi adicionado corretamente à caixa de voto com o seguinte identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-        encrypting:
-          header: A codificar voto...
-          text: O seu voto está a ser encriptado para garantir que pode transmiti-lo anonimamente.
         header:
           confirm: Confirmar o seu voto
           confirmed: Voto confirmado
-          encrypting: A confirmar voto
         messages:
           not_allowed: Não está autorizado a votar nesta eleição neste momento.
         modal:

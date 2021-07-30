@@ -144,3 +144,5 @@ sv:
           count:
             one: 1 tilldelning
             other: "%{count} tilldelningar"
+    statistics:
+      sortitions_count: Lottdragningar

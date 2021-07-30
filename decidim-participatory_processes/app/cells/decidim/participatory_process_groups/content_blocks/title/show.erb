@@ -5,7 +5,7 @@
       <%= decidim_sanitize translated_attribute(participatory_process_group.description) %>
       <div class="row">
         <div class="column medium-2 text-muted">
-          <%= icon "grid-three-up", role: "img", class: "mr-xs" %>
+          <%= icon "grid-three-up", role: "img", "aria-hidden": true, class: "mr-xs" %>
           <%= t("decidim.participatory_process_groups.content_blocks.title.participatory_processes", count: participatory_processes_count) %>
         </div>
         <% if has_meta_scope? %>

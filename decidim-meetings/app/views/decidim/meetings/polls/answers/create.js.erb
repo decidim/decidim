@@ -1,0 +1,5 @@
+var $question = $("[data-question=\"<%= question.id %>\"]");
+
+if($question.length){
+  $question.replaceWith('<%= j(render partial: "decidim/meetings/polls/questions/question", locals: { form: @form, question: question, open_question: question }).strip.html_safe %>');
+}

@@ -57,6 +57,9 @@ gl:
         update:
           error: Produciuse un problema ao actualizar este administrador.
           success: Administrador actualizado con éxito
+      dashboard:
+        show:
+          current_organizations: Organizacións actuais
       default_pages:
         placeholders:
           content: Por favor, engade contido signification á páxina estática %{page} no panel do administrador.
@@ -112,6 +115,9 @@ gl:
           error: Produciuse un erro ao actualizar esta aplicación.
           success: Aplicación actualizada con éxito.
       organizations:
+        advanced_settings:
+          hide: Ocultar axustes avanzados
+          show: Amosar axustes avanzados
         create:
           error: Produciuse un erro ao crear unha nova organización.
           success: Organización creada con éxito.

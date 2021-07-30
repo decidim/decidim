@@ -3,15 +3,22 @@ sv:
     attributes:
       answer:
         body: Svar
+        choices: Val
+        selected_choices: Utvalda val
       question:
         max_choices: Högst antal val
         question_type: Typ
       questionnaire_question:
         mandatory: Obligatorisk
+        max_characters: Teckengräns (lämna till 0 om ingen gräns)
     errors:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Måste bifogas igen
+            body:
+              too_long: är för långt
             choices:
               missing: är inte fullständiga
               too_many: är för många
@@ -76,6 +83,7 @@ sv:
             collapse: Komprimera alla frågor
             expand: Expandera alla frågor
             preview: Förhandsgranska
+            title: Redigera formulär för %{questionnaire_for}
             unpublished_warning: Formuläret är inte publicerat. Du kan ändra dess frågor, men det kommer att ta bort aktuella svar.
           matrix_row:
             matrix_row: Rad
@@ -114,6 +122,7 @@ sv:
           resize_and_pad: Anpassad och vadderad till
           resize_to_fit: Anpassad för att passa
       question_types:
+        files: Filer
         long_answer: Långt svar
         matrix_multiple: Matris (flera alternativ)
         matrix_single: Matris (Single alternativ)

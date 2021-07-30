@@ -24,7 +24,6 @@ bg:
       component:
         name: Име
         published_at: Публикувано на
-        weight: Тегло
       id: ID
       newsletter:
         body: Тяло
@@ -41,7 +40,6 @@ bg:
         enable_omnipresent_banner: Показвай всепоказван банер
         facebook_handler: Манипулатор на Facebook
         favicon: Икона
-        from: От адрес ел.поща
         github_handler: Манипулатор на GitHub
         header_snippets: Части на HTML заглавката
         highlight_alternative_color: Подчертаване, алтернативен
@@ -97,12 +95,10 @@ bg:
         show_in_footer: Покажи в долния колонтитул
         slug: Съкратен URL
         title: Заглавие
-        weight: Тегло
       static_page_topic:
         description: Описание
         show_in_footer: Покажи в долния колонтитул
         title: Заглавие
-        weight: Тегло
       user_group_csv_verification:
         file: Файл
     errors:

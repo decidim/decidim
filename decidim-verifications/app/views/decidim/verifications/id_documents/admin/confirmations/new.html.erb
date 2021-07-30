@@ -10,7 +10,7 @@
 
     <div class="card-section">
       <div class="row column">
-        <%= image_tag @pending_authorization.verification_attachment.url(:big), class: "thumbnail" %>
+        <%= image_tag @pending_authorization.attached_uploader(:verification_attachment).variant_path(:big), class: "thumbnail" %>
       </div>
 
       <div class="row column">

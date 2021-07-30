@@ -5,19 +5,9 @@ module Decidim
     # The data store for a Proposal in the Decidim::Proposals component.
     module CommentableProposal
       extend ActiveSupport::Concern
-      include Decidim::Comments::Commentable
+      include Decidim::Comments::CommentableWithComponent
 
       included do
-        # Public: Overrides the `commentable?` Commentable concern method.
-        def commentable?
-          component.settings.comments_enabled?
-        end
-
-        # Public: Overrides the `accepts_new_comments?` Commentable concern method.
-        def accepts_new_comments?
-          commentable? && !component.current_settings.comments_blocked
-        end
-
         # Public: Overrides the `comments_have_alignment?` Commentable concern method.
         def comments_have_alignment?
           true
@@ -35,8 +25,10 @@ module Decidim
           followers
         end
 
-        def user_allowed_to_comment?(user)
-          can_participate_in_space?(user)
+        def user_allowed_to_vote_comment?(user)
+          return unless can_participate_in_space?(user)
+
+          ActionAuthorizer.new(user, "vote_comment", component, self).authorize.ok?
         end
       end
     end

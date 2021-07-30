@@ -42,9 +42,9 @@ module Decidim
         end
 
         def edit
-          @participatory_process_group = collection.find(params[:id])
-          enforce_permission_to :update, :process_group, process_group: @participatory_process_group
-          @form = form(ParticipatoryProcessGroupForm).from_model(@participatory_process_group)
+          @item = collection.find(params[:id])
+          enforce_permission_to :update, :process_group, process_group: @item
+          @form = form(ParticipatoryProcessGroupForm).from_model(@item)
           render layout: "decidim/admin/participatory_process_group"
         end
 

@@ -79,6 +79,22 @@ Whether SSL should be enabled or not. Recommended for extra security.
   config.force_ssl = true
 ....
 
+== CORS enabled
+
+The SVG do not support CORS. When using custom asset host different than root url, set this value to `true`, in order to activate the available workaround.
+
+Please refer to:
+
+- https://github.com/w3c/svgwg/issues/707
+- https://stackoverflow.com/questions/65811142/how-to-allow-external-images-referenced-within-embedded-svg
+- https://groups.google.com/a/chromium.org/g/blink-dev/c/qemQwRpe2so/m/THi81oodSDgJ.
+- https://www.w3.org/Graphics/SVG/WG/track/actions/3781
+
+[source,ruby]
+....
+  config.cors_enabled = true
+....
+
 == Geocoder configuration
 
 Allows to make geographical mapping in some components, like Proposals or Meetings. It must be configured against a OpenStreetMap provider. See xref:services:geocoder.adoc[Geocoder service documentation].
@@ -374,3 +390,18 @@ step setting :amendments_visibility.
 ....
   config.amendments_visibility_options = %w(all participants)
 ....
+
+== Export fields
+
+To customize export fields, you can subscribe to any serialize event. Every serializer event has unique event name in format: decidim.serialize.module_here.class_here
+
+[source,ruby]
+....
+  initializer "decidim_budgets.serializer_listener" do
+    ActiveSupport::Notifications.subscribe("decidim.serialize.budgets.project_serializer") do |_event_name, data|
+      # Implement your custom code for new or existing fields.
+      data[:serialized_data][:column_title] = "Row data #{data[:resource].class}"
+    end
+  end
+....
+

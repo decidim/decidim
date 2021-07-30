@@ -16,7 +16,7 @@ module Decidim
       end
 
       def background_image
-        model.images_container.background_image.big.url
+        model.images_container.attached_uploader(:background_image).path(variant: :big)
       end
 
       private

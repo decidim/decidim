@@ -29,6 +29,11 @@ module Decidim
             when :publish
               allow_if_valid_and_not_blocked
             end
+          when :trustees
+            case permission_action.action
+            when :manage
+              toggle_allow(user.admin?)
+            end
           when :trustee_participatory_space
             case permission_action.action
             when :create, :update

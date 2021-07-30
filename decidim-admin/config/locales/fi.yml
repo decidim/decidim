@@ -24,7 +24,7 @@ fi:
       component:
         name: Nimi
         published_at: Julkaistu osoitteessa
-        weight: Painoarvo
+        weight: Järjestysnumero
       id: ID
       import:
         user_group_id: Tuo käyttäjänä
@@ -32,6 +32,7 @@ fi:
         body: Runko
         subject: Otsikko
       organization:
+        admin_terms_of_use_body: Hallintakäyttäjien käyttöehtojen sisältöteksti
         alert_color: Ilmoitus
         available_authorizations: Käytettävissä olevat tunnistautumistavat
         badges_enabled: Ota kunniamerkit käyttöön
@@ -42,6 +43,7 @@ fi:
         default_locale: Oletuskieli
         description: Kuvaus
         enable_omnipresent_banner: Näytä kaikkialla näkyvä banneri
+        enable_participatory_space_filters: Ota käyttöön osallistumistilan suodattimet
         facebook_handler: Facebook-käsittelijä
         favicon: ikoni
         force_authentication: Kirjautuminen vaaditaan
@@ -111,12 +113,12 @@ fi:
         show_in_footer: Näytä alatunnisteessa
         slug: URL-tunniste
         title: Otsikko
-        weight: Paino
+        weight: Järjestysnumero
       static_page_topic:
         description: Kuvaus
         show_in_footer: Näytä alatunnisteessa
         title: Otsikko
-        weight: Paino
+        weight: Järjestysnumero
       user_group_csv_verification:
         file: Tiedosto
     errors:
@@ -156,7 +158,8 @@ fi:
         browse: Selaa
         category:
           new: Uusi aihepiiri
-        export: Vie
+        export: Vie kaikki
+        export-selection: Vie valitut
         import: Tuo
         manage: Hallitse
         new: Uusi %{name}
@@ -177,7 +180,7 @@ fi:
           success: Hienoa! Olet hyväksynyt hallintakäyttäjän ehdot.
         actions:
           accept: Hyväksyn seuraavat ehdot
-          are_you_sure: Haluatko varmasti olla hyväksymättä hallintakäyttäjän ehtoja?
+          are_you_sure: Oletko varma, että haluat kieltäytyä hyväksymästä hallintakäyttäjien käyttöehtoja?
           refuse: Kieltäydy hyväksymästä hallintakäyttäjän ehtoja
           title: Hyväksy käyttöehdot
         required_review:
@@ -205,7 +208,7 @@ fi:
           error: Uuden alueen luonti epäonnistui.
           success: Alueen luonti onnistui.
         destroy:
-          has_spaces: Alueella on siitä riippuvia osallistumistiloja. Sillä ei saa olla riippuvuuksia, jotta se voidaan poistaa.
+          has_spaces: Tällä alueella on riippuvia osallistumistiloja. Tarkasta huolellisesti, että alueella ei ole yhtään riippuuvuuksia osallistumistiloihin ennen sen poistoa.
           success: Aluen tuhoaminen onnistui
         edit:
           title: Muokkaa aluetta
@@ -321,7 +324,7 @@ fi:
         'false': 'Ei'
         managed_user_name: Hallittu käyttäjä
         solved: Ratkaistu
-        title: Tarkistusten ristiriidat
+        title: Vahvistusten ristiriidat
         transfer:
           email: Sähköposti
           error: Nykyisen käyttäjän siirto hallituksi käyttäjäksi epäonnistui.
@@ -335,6 +338,12 @@ fi:
         show:
           view_more_logs: Näytä lisää lokitietoja
           welcome: Tervetuloa Decidimin hallintapaneeliin.
+      domain_whitelist:
+        form:
+          domain_too_short: Verkkotunnus on liian lyhyt
+        update:
+          error: Sallittujen verkkotunnusten listan päivitys epäonnistui
+          success: Sallittujen verkkotunnusten listan päivitys onnistui
       exports:
         export_as: "%{name} muodossa %{export_format}"
         formats:
@@ -347,6 +356,16 @@ fi:
         category_id_eq:
           label: Aihepiiri
         filter_label: Suodata
+        invitation_accepted_at_present:
+          label: Kutsu hyväksytty
+          values:
+            'false': 'Ei'
+            'true': 'Kyllä'
+        last_sign_in_at_present:
+          label: Kirjautunut sisään koskaan
+          values:
+            'false': 'Ei'
+            'true': 'Kyllä'
         moderations:
           reportable_type_string_eq:
             label: Tyyppi
@@ -355,6 +374,17 @@ fi:
           values:
             'false': Virallistettu
             'true': Ei virallistettu
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Kutsu hyväksytty
+            values:
+              'false': Ei hyäksytty
+              'true': Hyväksytty
+          user_invitation_sent_at_not_null:
+            label: Kutsu lähetetty
+            values:
+              'false': Ei lähetetty
+              'true': Lähetetty
         private_space_eq:
           label: Yksityinen
           values:
@@ -372,6 +402,7 @@ fi:
           name_or_nickname_or_email_cont: '%{collection}: Hae sähköpostilla, nimellä tai nimimerkillä'
           reported_id_string_or_reported_content_cont: Etsi kohteista %{collection} raportoitavan kohteen ID:n tai sisällön perusteella.
           title_cont: '%{collection}: Hae otsikon perusteella'
+          user_name_or_user_email_cont: Hae kohteesta %{collection} nimen tai sähköpostiosoitteen perusteella.
         state_eq:
           label: Tila
       forms:
@@ -456,6 +487,7 @@ fi:
         areas: Alueet
         configuration: Asetukset
         dashboard: Hallintapaneeli
+        external_domain_whitelist: Sallitut ulkoiset verkko-osoitteet
         help_sections: Ohjeosiot
         homepage: Kotisivu
         impersonations: Esiintymiset toisena käyttäjänä
@@ -604,7 +636,7 @@ fi:
       newsletters:
         create:
           error: Uutiskirjeen luonti epäonnistui.
-          success: Uutiskirjeen luonti onnistui. Tarkasta se ennen lähetystä.
+          success: Uutiskirje luotu onnistuneesti. Tarkasta se ennen lähetystä.
         deliver:
           error: Uutiskirjeen toimitus epäonnistui.
           success: Uutiskirjeen toimitus onnistui.
@@ -727,6 +759,17 @@ fi:
             layout_appearance_title: Muokkaa sivupohjan ulkoasua
             preview: Esikatsele
           omnipresent_banner_appearance_title: Muokkaa kaikkialla näkyvää banneria
+      organization_external_domain_whitelist:
+        edit:
+          update: Päivitä
+        external_domain:
+          down: Alas
+          external_domain: Ulkoinen verkkotunnus
+          remove: Poista
+          up: Ylös
+        form:
+          add: Lisää sallittujen listalle
+          title: Sallittujen ulkoisten verkkotunnusten lista
       organization_homepage:
         edit:
           active_content_blocks: Aktiiviset sisältöblokit
@@ -928,7 +971,7 @@ fi:
     forms:
       errors:
         impersonate_user:
-          reason: Sinun on annettava syy esittäessäsi käyttäjää, joka ei ole hallittu
+          reason: Sinun on annettava syy, kun esiinnyt hallinnoimattomana osallistujana
     metrics:
       blocked_users:
         object: estetyt käyttäjät

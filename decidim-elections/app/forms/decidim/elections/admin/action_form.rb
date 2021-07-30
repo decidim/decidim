@@ -19,14 +19,6 @@ module Decidim
           @election ||= context[:election]
         end
 
-        def questions
-          @questions ||= election.questions
-        end
-
-        def answers
-          @answers ||= Decidim::Elections::Answer.where(question: questions)
-        end
-
         def pending_action
           return @pending_action if defined?(@pending_action)
 
@@ -35,6 +27,11 @@ module Decidim
 
         def bulletin_board
           @bulletin_board ||= context[:bulletin_board] || Decidim::Elections.bulletin_board
+        end
+
+        def refresh
+          remove_instance_variable(:@pending_action)
+          remove_instance_variable(:@current_step)
         end
       end
     end

@@ -22,7 +22,12 @@ Gem::Specification.new do |s|
     "{docs,lib}/**/*",
     "LICENSE-AGPLv3.txt",
     "Rakefile",
-    "README.md"
+    "README.md",
+    "package.json",
+    "package-lock.json",
+    "packages/**/*",
+    "babel.config.json",
+    "decidim-core/lib/decidim/webpacker/**/*"
   ]
 
   s.require_paths = ["lib"]
@@ -48,7 +53,7 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-templates", Decidim.version
   s.add_dependency "decidim-verifications", Decidim.version
 
-  s.add_development_dependency "bundler", "~> 2.1.2"
+  s.add_development_dependency "bundler", "~> 2.2", ">= 2.2.18"
   s.add_development_dependency "rake", "~> 12.0"
   s.add_development_dependency "rspec", "~> 3.0"
 end

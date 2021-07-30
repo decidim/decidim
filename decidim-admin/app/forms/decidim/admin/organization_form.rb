@@ -25,6 +25,7 @@ module Decidim
       attribute :rich_text_editor_in_public_views, Boolean
       attribute :enable_machine_translations, Boolean
       attribute :machine_translation_display_priority, String
+      attribute :enable_participatory_space_filters, Boolean
 
       attribute :send_welcome_notification, Boolean
       attribute :customize_welcome_notification, Boolean

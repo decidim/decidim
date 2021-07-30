@@ -15,6 +15,7 @@ module Decidim::Meetings
         closed_at: Time.current,
         proposal_ids: proposal_ids,
         current_user: user,
+        attendees_count: 10,
         current_organization: meeting.organization
       )
     end

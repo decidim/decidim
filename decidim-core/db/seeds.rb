@@ -37,6 +37,7 @@ if !Rails.env.production? || ENV["SEED"]
       port: ENV["SMTP_PORT"] || ENV["DECIDIM_SMTP_PORT"] || "25"
     },
     host: ENV["DECIDIM_HOST"] || "localhost",
+    external_domain_whitelist: ["decidim.org", "github.com"],
     description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
       Decidim::Faker::Localized.sentence(word_count: 15)
     end,
@@ -194,20 +195,26 @@ if !Rails.env.production? || ENV["SEED"]
     end
   end
 
-  Decidim::OAuthApplication.create!(
+  oauth_application = Decidim::OAuthApplication.create!(
     organization: organization,
     name: "Test OAuth application",
     organization_name: "Example organization",
     organization_url: "http://www.example.org",
-    organization_logo: File.new(File.join(seeds_root, "homepage_image.jpg")), # Keep after organization
     redirect_uri: "https://www.example.org/oauth/decidim",
     scopes: "public"
   )
 
+  oauth_application.organization_logo.attach(io: File.open(File.join(seeds_root, "homepage_image.jpg")), filename: "organization_logo.jpg", content_type: "image/jpeg")
+
   Decidim::System::CreateDefaultContentBlocks.call(organization)
 
   hero_content_block = Decidim::ContentBlock.find_by(organization: organization, manifest_name: :hero, scope_name: :homepage)
-  hero_content_block.images_container.background_image = File.new(File.join(seeds_root, "homepage_image.jpg"))
+  hero_content_block.images_container.background_image = ActiveStorage::Blob.create_after_upload!(
+    io: File.open(File.join(seeds_root, "homepage_image.jpg")),
+    filename: "homepage_image.jpg",
+    content_type: "image/jpeg",
+    metadata: nil
+  )
   settings = {}
   welcome_text = Decidim::Faker::Localized.sentence(word_count: 5)
   settings = welcome_text.inject(settings) { |acc, (k, v)| acc.update("welcome_text_#{k}" => v) }

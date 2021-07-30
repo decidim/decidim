@@ -24,7 +24,7 @@ cs:
       component:
         name: Název
         published_at: Publikováno v
-        weight: Váha
+        weight: Pozice v řazení
       id: ID
       import:
         user_group_id: Vytvořit importy jako
@@ -32,6 +32,7 @@ cs:
         body: Tělo
         subject: Předmět
       organization:
+        admin_terms_of_use_body: Tělo zprávy správcovských podmínek použití
         alert_color: Upozornění
         available_authorizations: Dostupná oprávnění
         badges_enabled: Povolit odznaky
@@ -42,11 +43,12 @@ cs:
         default_locale: Výchozí jazyk
         description: Popis
         enable_omnipresent_banner: Zobrazit všudypřítomný banner
+        enable_participatory_space_filters: Povolit filtry participačního prostoru
         facebook_handler: Facebook handler
         favicon: Ikona
         force_authentication: Vynutit ověření
         force_users_to_authenticate_before_access_organization: Vynutit uživateli autentizaci před přístupem do organizace
-        from: Z e-mailové adresy
+        from: E-mailová adresa odesílatele
         github_handler: GitHub handler
         header_snippets: Úryvky záhlaví
         highlight_alternative_color: Jiné zvýraznění
@@ -111,12 +113,12 @@ cs:
         show_in_footer: Zobrazit v zápatí
         slug: URL slug
         title: Titul
-        weight: Váha
+        weight: Pozice v řazení
       static_page_topic:
         description: Popis
         show_in_footer: Zobrazit v zápatí
         title: Titul
-        weight: Váha
+        weight: Pozice v řazení
       user_group_csv_verification:
         file: Soubor
     errors:
@@ -156,7 +158,8 @@ cs:
         browse: Procházet
         category:
           new: Nová kategorie
-        export: Exportovat
+        export: Exportovat vše
+        export-selection: Exportovat výběr
         import: Importovat
         manage: Spravovat
         new: Nová %{name}
@@ -177,12 +180,12 @@ cs:
           success: Skvělé! Přijali jste administrátorské podmínky použití.
         actions:
           accept: Souhlasím s následujícími podmínkami
-          are_you_sure: Opravdu chcete odmítnout administrátorské podmínky?
+          are_you_sure: Oravdu chcete odmítnout podmínky používání správce?
           refuse: Odmítnout administrátorské podmínky
           title: Souhlasit s podmínkami používání
         required_review:
           alert: 'Vyžadováno: Zkontrolujte naše administrátorské podmínky použití'
-          callout: Věnujte prosím chvilku a přečtěte si administrátorské podmínky použití. V opačném případě nebudete moci platformu spravovat. MUSÍTE KLIKNOUT NA ZELENÉ TLAČÍTKO.
+          callout: Věnujte prosím chvíli a přečtěte si podmínky použití správce. V opačném případě nebudete moci platformu spravovat.
           cta: Zkontrolovat je nyní.
         title: Administrátorské podmínky použití
       area_types:
@@ -205,7 +208,7 @@ cs:
           error: Při vytváření nové oblasti došlo k chybě.
           success: Oblast byla úspěšně vytvořena.
         destroy:
-          has_spaces: Oblast má závislá místa, nesmí mít závislosti, aby mohla být odstraněna.
+          has_spaces: Tato oblast má závislé prostory. Před smazáním se prosím ujistěte, že žádný účatnický prostor neodkazuje na tuto oblast.
           success: Oblast úspěšně zničena
         edit:
           title: Upravit oblast
@@ -258,7 +261,7 @@ cs:
       block_user:
         new:
           action: Blokovat účet a odeslat odůvodnění
-          description: Blokováním uživatele bude jeho účet nepoužitelný, ve svém odůvodnění a pokynech můžete uvést způsob, jaký považujete za vhodný k odblokování uživatele.
+          description: Blokováním uživatele bude jejich účet nepoužitelný. Ve svém zdůvodnění můžete uvést veškerá pravidla pro způsob, jakým byste uvažovali o odblokování uživatele.
           justification: Odůvodnění
           title: Blokovat uživatele %{name}
       categories:
@@ -335,6 +338,12 @@ cs:
         show:
           view_more_logs: Zobrazit další protokoly
           welcome: Vítejte v administrátorském panelu Decidim.
+      domain_whitelist:
+        form:
+          domain_too_short: Doména je příliš krátká
+        update:
+          error: Nepodařilo se aktualizovat seznam povolených domén
+          success: Seznam povolených domén byl úspěšně aktualizován
       exports:
         export_as: "%{name} jako %{export_format}"
         formats:
@@ -347,6 +356,16 @@ cs:
         category_id_eq:
           label: Kategorie
         filter_label: Filtr
+        invitation_accepted_at_present:
+          label: Pozvánka přijata
+          values:
+            'false': 'Ne'
+            'true': 'Ano'
+        last_sign_in_at_present:
+          label: Vždy přihlášen
+          values:
+            'false': 'Ne'
+            'true': 'Ano'
         moderations:
           reportable_type_string_eq:
             label: Typ
@@ -355,6 +374,17 @@ cs:
           values:
             'false': Ověřeno
             'true': Neověřeno
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Pozvánka přijata
+            values:
+              'false': Nepřijato
+              'true': Přijato
+          user_invitation_sent_at_not_null:
+            label: Pozvánka odeslána
+            values:
+              'false': Neodesláno
+              'true': Odesláno
         private_space_eq:
           label: Soukromé
           values:
@@ -372,6 +402,7 @@ cs:
           name_or_nickname_or_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky.
           reported_id_string_or_reported_content_cont: Hledat %{collection} podle nahlášeného Id nebo obsahu.
           title_cont: Hledat %{collection} podle názvu.
+          user_name_or_user_email_cont: Hledat %{collection} podle jména nebo e-mailu.
         state_eq:
           label: Stav
       forms:
@@ -456,6 +487,7 @@ cs:
         areas: Oblasti
         configuration: Konfigurace
         dashboard: Ovládací panel
+        external_domain_whitelist: Povolené externí domény
         help_sections: Sekce nápovědy
         homepage: Domovská stránka
         impersonations: V zastoupení
@@ -719,14 +751,25 @@ cs:
           colors:
             colors_title: Organizační barvy
             header_snippets_help: Toto pole použijte k přidání věcí do hlavičky HTML. Nejběžnějším používáním je integrace služeb třetích stran, které vyžadují nějaký extra JavaScript nebo CSS. Můžete také použít k přidání dalších metaznaček do HTML. Všimněte si, že to bude vykresleno pouze na veřejných stránkách, nikoliv v sekci admin.
-          cta_button_path_help: 'Můžete přepisovat, kde se na domovské stránce odkazuje tlačítko Volat na akci. Použijte zde částečné cesty, ne úplné adresy URL. Přijme písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Tlačítko Volat na akci se na domovské stránce zobrazí mezi vítaným textem a popisem. Příklad: %{url}'
-          cta_button_text_help: Přepínání textu tlačítka volání na akci můžete na domovské stránce přepisovat pro každý dostupný jazyk ve vaší organizaci. Pokud není nastavena, bude použita výchozí hodnota. Tlačítko Volat na akci se na domovské stránce zobrazí mezi vítaným textem a popisem.
+          cta_button_path_help: 'Můžete přepsat, kde se na domovské stránce odkazuje tlačítko Výzvy k akci. Použijte zde částečné cesty, ne úplné adresy URL. Přijme písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Tlačítko Výzvy k akci se na domovské stránce zobrazí mezi uvítacím textem a popisem. Příklad: %{url}'
+          cta_button_text_help: Text tlačítka výzvy k akci můžete na domovské stránce přepsat pro každý dostupný jazyk ve vaší organizaci. Pokud není nastaveno, bude použita výchozí hodnota. Tlačítko Výzvy k akci se na domovské stránce zobrazí mezi uvítacím textem a popisem.
           homepage_appearance_title: Upravit vzhled stránky
           homepage_highlighted_content_banner_title: Zvýrazněný obsahový banner
           images:
             layout_appearance_title: Upravit vzhled zobrazení
             preview: Náhled
           omnipresent_banner_appearance_title: Upravit všudypřítomný banner
+      organization_external_domain_whitelist:
+        edit:
+          update: Aktualizovat
+        external_domain:
+          down: Dolů
+          external_domain: Externí doména
+          remove: Odebrat
+          up: Nahoru
+        form:
+          add: Přidat do seznamu povolených
+          title: Seznam externích povolených domén
       organization_homepage:
         edit:
           active_content_blocks: Bloky aktivního obsahu
@@ -782,7 +825,7 @@ cs:
           success: Typ oblasti působnosti byl úspěšně aktualizován
       scopes:
         create:
-          error: Při vytváření nového oboru došlo k chybě.
+          error: Při vytváření nové oblasti působnosti došlo k chybě.
           success: Oblast působnosti byla úspěšně vytvořena.
         destroy:
           success: Oblast působnosti úspěšně zničena

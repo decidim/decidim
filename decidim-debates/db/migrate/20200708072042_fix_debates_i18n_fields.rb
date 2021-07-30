@@ -17,7 +17,7 @@ class FixDebatesI18nFields < ActiveRecord::Migration[5.2]
     reset_column_information
 
     debates.find_each do |debate|
-      locale, org_id = User.where(id: debate.decidim_author_id).pluck(:locale, :decidim_organization_id).first
+      locale, org_id = User.where(id: debate.decidim_author_id).pick(:locale, :decidim_organization_id)
       locale = locale.presence || Organization.find(org_id).default_locale
       locale = locale.to_s
 

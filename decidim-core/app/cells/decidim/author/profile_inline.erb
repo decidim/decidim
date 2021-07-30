@@ -1,5 +1,5 @@
 <span class="author__avatar">
-  <%= image_tag model.avatar_url, alt: t("decidim.author.avatar") %>
+  <%= image_tag model.avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(author_name)) %>
 </span>
 
 <% if model.deleted? %>
@@ -18,7 +18,7 @@
     data-allow-html="true"
     data-template-classes="light expanded"
     data-tip-text='<%= h render(:profile_minicard) %>'>
-    <%= author_name %>
+    <%= decidim_sanitize author_name %>
   </span>
 
   <% if model.badge.present? %>
@@ -28,7 +28,7 @@
   <% end %>
 <% else %>
   <span class="author__name">
-    <%= author_name %>
+    <%= decidim_sanitize author_name %>
   </span>
 
   <% if model.badge.present? %>

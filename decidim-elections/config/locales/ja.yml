@@ -16,6 +16,9 @@ ja:
         max_selections: 選択範囲の最大数
         min_selections: 上記のどれでもない
         title: タイトル
+      voting:
+        end_time: 投票終了
+        start_time: 投票開始
     errors:
       models:
         answer:
@@ -26,7 +29,25 @@ ja:
           attributes:
             attachment:
               needs_to_be_reattached: 再接続が必要
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: 変更できません
+            public_key:
+              cant_be_changed: 変更できません
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: 投票委員はすでに投票所の代表者/マネージャーです
+            voting:
+              different_organization: 投票はユーザーと同じ組織内にある必要があります
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: 投票委員は投票所と同じ投票に属さなければなりません
     models:
       decidim/elections/answer:
         other: 回答
@@ -34,7 +55,44 @@ ja:
         other: 選挙
       decidim/elections/question:
         other: 質問
+      decidim/votings/census/dataset:
+        other: データセット
+      decidim/votings/census/datum:
+        other: データ
+      decidim/votings/polling_officer:
+        other: 投票委員
+      decidim/votings/polling_station:
+        other: 投票所
+      decidim/votings/voting:
+        other: 投票
   decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: 委員
+          values:
+            assigned: 割り当て済み
+            unassigned: 未割り当て
+        role_eq:
+          label: ロール
+          values:
+            manager: マネージャー
+            president: 責任者
+            unassigned: 未割り当て
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: '%{collection} を名前/メールアドレス/ニックネーム/投票所で検索します。'
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : '%{collection} をタイトル、住所、委員名/メールアドレス/ニックネームで検索します。'
+        signed_eq:
+          label: 署名済み
+          values:
+            'false': 署名済み
+            'true': 未署名
+        validated_eq:
+          label: 検証済み
+          values:
+            'false': 検証済み
+            'true': 未検証
     components:
       elections:
         actions:
@@ -52,6 +110,9 @@ ja:
         edit: 編集
         feedback: 投票者からのフィードバック
         import: 提案を回答にインポート
+        manage_answers: 回答の管理
+        manage_questions: 質問の管理
+        manage_steps: ステップの管理
         new: 新しい %{name}
         preview: プレビュー
         publish: 公開
@@ -74,6 +135,16 @@ ja:
           new:
             create: 回答を作成
             title: 新しい回答
+          not_selected: 未選択
+          select:
+            disable: 回答の選択を解除
+            enable: 回答を選択済みとしてマーク
+            invalid: 回答を選択する際に問題が発生しました
+            success: 回答が正常に選択されました
+          selected: 選択済み
+          unselect:
+            invalid: 回答の選択解除中に問題が発生しました
+            success: 回答が正常に選択されました。
           update:
             invalid: この回答の更新中に問題が発生しました
             success: 回答が更新されました
@@ -101,7 +172,10 @@ ja:
             invalid: 選挙の更新中に問題が発生しました
             success: 選挙が正常に更新されました
         exports:
+          elections: 選挙
           feedback_form_answers: フィードバックフォームの回答
+        menu:
+          trustees: 受託者
         models:
           answer:
             name: 回答
@@ -109,6 +183,8 @@ ja:
             name: 選挙
           question:
             name: 質問
+          trustee:
+            name: 受託者
         proposals_imports:
           create:
             invalid: 提案を回答にインポートする際に問題が発生しました
@@ -117,6 +193,7 @@ ja:
             create: 提案を回答にインポート
             no_components: この参加スペースには、回答に提案をインポートするための他の提案コンポーネントはありません。
             select_component: コンポーネントを選択してください
+            title: 提案のインポート
         questions:
           create:
             invalid: この質問を作成中に問題が発生しました
@@ -135,9 +212,121 @@ ja:
           update:
             invalid: この質問の更新中に問題が発生しました
             success: 問題が正常に更新されました
+        steps:
+          create_election:
+            errors:
+              max_selections: 質問が <strong>回答の数に対して正しく</strong>ありません
+              minimum_answers: 質問には <strong>少なくとも2つの回答</strong>が必要です
+              minimum_questions: 選挙には <strong>少なくとも1つの質問</strong>が必要です。
+              published: 選挙はが <strong>公開されていません</strong> 。
+              time_before: 開始時刻が、選挙開始まで<strong>3時間未満 </strong> しかありません。
+              trustees_number: 参加スペースには <strong>少なくとも %{number} 人の公開鍵を持つ受託者</strong>が必要です。
+            invalid: この選挙の設定中に問題が発生しました
+            no_trustees: この参加スペースに設定された受託者はいません
+            not_used_trustee: "(未使用)"
+            public_key:
+              'false': <strong>公開鍵</strong>がありません
+              'true': <strong>公開鍵</strong>があります
+            requirements:
+              max_selections: すべての質問は正しい <strong>回答の最大値</strong> を持っています。
+              minimum_answers: 各質問には <strong>少なくとも2つの回答</strong>を持ちます。
+              minimum_questions: 選挙には <strong>少なくとも1つの質問</strong>があります。
+              published: 選挙を <strong>公開しました</strong> 。
+              time_before: 選挙開始の <strong>少なくとも %{hours} 時間前</strong> までに準備を完了させます。
+              trustees_number: 参加スペースには <strong>少なくとも %{number} 人の公開鍵を持つ受託者</strong>がいます。
+            submit: 選挙を設定
+            success: 選挙は正常に掲示板に送信されました
+            title: 選挙を設定する
+            trustees: 選挙受託者
+          created:
+            invalid: キーセレモニーを開始する際に問題が発生しました
+            submit: キーセレモニーを開始
+            success: キーセレモニーの開始リクエストは正常に掲示板に送信されました
+            title: 選挙の作成
+            trustees: 受託者
+          key_ceremony:
+            title: キーセレモニー
+            trustees: 受託者
+          key_ceremony_ended:
+            errors:
+              time_before: 選挙を開始する準備ができました。投票期間を開始するには、 開始時刻 ( %{start_time}) の%{hours} 時間前まで待つ必要があります。
+            invalid: 投票期間開始中に問題が発生しました
+            requirements:
+              time_before: 選挙はまもなく開始されます。手動で投票期間を開始するか、開始時刻の %{start_time} より前に自動的に開始されます。
+            submit: 投票期間を開始
+            success: 投票期間の開始リクエストは正常に掲示板に送信されました
+            title: 開始準備完了
+          processing: 処理しています...
+          results_published:
+            answer: 回答
+            not_selected: 未選択
+            question: 質問
+            result: 結果
+            selected: 選択済み
+            submit: 送信
+            title: 結果を公開しました
+          tally:
+            title: 集計処理
+            trustees: 受託者
+          tally_ended:
+            answer: 回答
+            not_selected: 未選択
+            question: 質問
+            result: 結果
+            selected: 選択済み
+            submit: 結果を公開
+            success: 結果公開のリクエストは正常に掲示板に送信されました
+            title: 計算結果
+          vote:
+            errors:
+              time_after: 選挙はまだ進行中です。投票期間を終了するには、終了時間（%{end_time}）まで待つ必要があります。
+            invalid: 投票期間の終了中に問題が発生しました
+            requirements:
+              time_after: 選挙は終了しました。投票期間を手動で終了するか、数分で自動的に終了します。
+            submit: 投票を終了する
+            success: 投票期間の終了リクエストは正常に掲示板に送信されました
+            title: 投票期間
+          vote_ended:
+            invalid: 集計開始中に問題が発生しました
+            submit: 集計を開始
+            success: 集計開始リクエストは正常に掲示板に送信されました
+            text: 投票が終了しました。今すぐ集計を開始できます。
+            title: 投票期間が終了しました
+          vote_stats:
+            no_vote_statistics_yet: まだ投票統計がありません
+            title: 投票統計
+            voters: 投票者
+            votes: 投票
+        trustees_participatory_spaces:
+          actions:
+            disable: 無効
+            enable: 検討する
+          create:
+            exists: この参加スペースに受託者が存在します
+            invalid: 受託者の作成中に問題が発生しました
+            success: 受託者の作成に成功しました
+          delete:
+            invalid: 受託者を削除する際に問題が発生しました
+            success: 受託者を削除しました
+          form:
+            select_user: ユーザーを選択
+          index:
+            title: 受託者
+          new:
+            create: 受託者を作成
+            title: 新しい受託者
+          update:
+            invalid: 受託者 %{trustee} の更新中に問題が発生しました
+            success: 受託者 %{trustee} が正常に更新されました
       admin_log:
         election:
+          end_vote: "%{user_name} が掲示板で %{resource_name} 選挙の投票期間を終了しました"
           publish: "%{user_name} が %{resource_name} 選挙を公開しました"
+          publish_results: "%{user_name} が %{resource_name} 選挙の結果を掲示板に掲載しました"
+          setup: "%{user_name} が掲示板に %{resource_name} 選挙を作成しました"
+          start_key_ceremony: "%{user_name} が掲示板で %{resource_name} 選挙の重要なキーセレモニーを開始しました"
+          start_tally: "%{user_name} が掲示板で %{resource_name} 選挙の集計を開始しました"
+          start_vote: "%{user_name} が掲示板の %{resource_name} 選挙の投票期間を開始しました"
           unpublish: "%{user_name} が %{resource_name} 選挙を非公開にしました"
       election_m:
         badge_name:
@@ -146,6 +335,8 @@ ja:
           upcoming: 今後の予定
         end_date: 終了
         footer:
+          remaining_time:
+            other: "投票期間は残り <strong>%{count} 時間 %{minutes} 分</strong> です。"
           view: 表示
           vote: 投票
         label:
@@ -157,6 +348,51 @@ ja:
         count:
           elections_count:
             other: "%{count} 選挙"
+        election_log:
+          chained_hash: このメッセージの連鎖的ハッシュ
+          complete: 完了
+          creation_description:
+            complete: 選挙は作成され、掲示板に正常に設定されています。
+            not_created: 選挙はまだ作成されていません。
+          creation_title: 選挙が作成されました
+          description: これは各ステップの状態、例えば選挙が行われた時、集計が完了した時、選曲が終わった時などを確認できる選挙ログです。
+          download: ダウンロード
+          key_ceremony_description:
+            complete: キーセレモニーが完了しました。すべての受託者は有効なキーを持っており、必要なバックアップキーをダウンロードしました。
+            not_started: キーセレモニーはまだ始まっていません。
+            started: キーセレモニーは開始されましたが、まだ完了していません。
+          key_ceremony_title: キーセレモニー
+          not_available: まだ利用できません
+          not_created: 作成されていません
+          not_published: 公開されていません
+          not_ready: 準備中
+          not_started: 開始前
+          published: 公開済み
+          results_description:
+            not_published: 結果はまだ公開されていません。
+            published: 結果が公開されます。
+          results_title: 結果
+          started: 開始
+          tally_description:
+            finished: 集計処理は終了します。
+            not_started: 集計処理はまだ始まっていません。
+            started: 集計処理が始まりました。
+          tally_title: 集計処理
+          title: 選挙ログ
+          verifiable_results:
+            checksum: 'ファイルのSHA256 チェックサム:'
+            description:
+              not_ready: 検証可能な選挙ファイルとSHA256チェックサムはまだ利用できません。結果が公表され次第、この選挙を検証できるようになります。
+              ready: 'ここでは、選挙を検証するためのオプションが用意されています。まず、ファイルをダウンロードし、破損していないことを確認する必要があります。そのためには、次のコマンドを実行し、outputがチェックサムと一致することを確認します。'
+            how_to_verify: 'いったんファイルをダウンロードし問題のないことが確認できたら、ユニバーサルベリファイアの実行に進めます。 <a href=''https://github.com/decidim/decidim-bulletin-board''>このリポジトリ</a> をクローンして、ルートのフォルダにて次のコマンドを実行します:'
+            title: 選挙結果を検証
+            verifiable_file: '検証可能な選挙ファイル:'
+          verify: 選挙を検証
+          vote_description:
+            finished: 投票プロセスは終了しました。
+            not_started: 投票プロセスはまだ開始されていません。
+            started: 投票プロセスが開始されました。
+          vote_title: 投票プロセス
         filters:
           active: 有効
           all: 全て
@@ -169,36 +405,180 @@ ja:
           filter: 絞り込み
           filter_by: 絞り込み条件
           unfold: 展開
+        preview:
+          available_answers: '利用可能な回答:'
+          description: 'これらは投票プロセスでの質問内容です。'
+          title: 選挙の質問
+        results:
+          description: 'これらは、各質問に対する投票結果です:'
+          percentage: "%{count}%"
+          selected: 選択済
+          title: 選挙結果
+          votes:
+            other: "%{count} 票"
         show:
+          action_button:
+            change_vote: 投票の変更
+            vote: 投票の開始
+            vote_again: 再投票
+          back: 利用可能な選挙
+          callout:
+            already_voted: すでにこの選挙に投票しました。投票の変更と確認ができます。
+            pending_vote: あなたの投票はサーバー上で行われています。
+            vote_rejected: 投票を確認できませんでした。もう一度お試しください。
+          election_log: 選挙ログ
           preview: プレビュー
+          verify:
+            already_voted: すでに投票しましたか？
+            verify_here: 投票を確認してください。
+            will_verify: 選挙が開始されると、投票を確認することができます。
           voting_period_status:
             finished: '%{start_time} に投票が開始され、 %{end_time} に終了しました'
+            ongoing: '有効な投票まで: %{end_time}'
             upcoming: '%{start_time} に投票が終了します'
       feedback:
         answer:
-          invalid: フィードバックの送信中に問題が発生しました
+          invalid: フィードバックの送信中に問題が発生しました。
           spam_detected: フォームに回答する際に問題が発生しました。もう一度お試しください。
           success: フィードバックは正常に送信されました
       models:
         answer:
           fields:
             proposals: 提案
+            selected: 選択済み
             title: タイトル
+            votes: 投票
         election:
           fields:
+            bb_status: 掲示板の状態
             end_time: 終了時刻
             start_time: 開始
             title: タイトル
+            verifiable_results_file_hash: ファイルのSHA256 チェックサム
+            verifiable_results_file_url: 検証可能な選挙ファイル
         question:
           fields:
             answers: 回答
             max_selections: 最大選挙数
             title: タイトル
+        trustees_participatory_space:
+          fields:
+            considered: 考慮された
+            email: Eメールアドレス
+            inactive: 非アクティブ
+            name: 名前
+            notification: 通知送信日時
+            public_key: 公開鍵
+            status: ステータス：
       orders:
         label: 選挙の順序
         older: 古い
         recent: 新しい
+      trustee_zone:
+        elections:
+          backup_modal:
+            description: この選挙は、掲示板で作成されています。 それに参加しているすべての受託者がこれらのキーのバックアップコピーを作成し、安全な場所に保存することが非常に重要です。 その後、処理が続行されます。
+            download_election_keys: ダウンロードキー
+            download_icon: ダウンロードアクションを示すアイコン
+            title: '%{election} のバックアップ選挙キー'
+          key_ceremony_steps:
+            back: 戻る
+            description: この選挙は、掲示板に作成されています。このプロセスを完了するには、受託者としての参加が必要です。
+            keys:
+              create_election: キーの生成
+              key_ceremony:
+                joint_election_key: キーの生成に参加する
+                step_1: キーの発行
+            list:
+              status: ステータス
+              task: タスク
+            process_warning: プロセスが開始された後は、プロセスが終了するまでこのページを終了しないでください。 すべての受託者が連結され完了されるまで、数分かかることがあります。
+            start: 開始
+            start_icon: アイコンは、選挙キーの生成を開始するための開始ボタンを示します
+            status:
+              completed: 完了
+              pending: 保留中
+              processing: 処理中
+            title: '%{election} の選挙用キーを作成'
+          restore_modal:
+            description: 掲示板には、今回の選挙の受託者としての情報が掲載されます。 処理を続行するには、最初に前回のセッションで生成されたバックアップファイルをアップロードします。
+            title: '%{election} の選挙用キーを復元'
+            upload_election_keys: 選挙用キーをアップロード
+            upload_icon: ダウンロードアクションを示すアイコン
+          tally_steps:
+            back: 戻る
+            description: この選挙の結果は、掲示板上で計算されます。この処理を完了するには、受託者として参加すること必要があります。
+            keys:
+              end_tally: 終了しました
+              tally:
+                cast: 集計キャスト
+                share: 集計を共有
+            list:
+              status: ステータス
+              task: タスク
+            process_warning: プロセスが開始されると、プロセスが終了するまでこのページを閉じないでください。 すべての受託者が接続し完了するまで、しばらくかかることがあります。
+            start: 開始
+            start_icon: アイコンは、選挙キーの生成を開始するためのスタートボタンを示します
+            status:
+              completed: 完了
+              pending: 保留中
+              processing: 処理中
+            title: '%{election} の合計'
+          update:
+            error: 選挙状況は更新されませんでした。
+            success: '選挙の状態: %{status}'
+        menu:
+          trustee_zone: Trusteeゾーン
+        no_bulletin_board:
+          body: このセクションでは、設定された掲示板が必要です。詳細については管理者にお問い合わせください。
+          title: 申し訳ありませんが、掲示板はまだ設定されていません。
+        trustees:
+          show:
+            elections:
+              list:
+                action_required:
+                  'false': 'いいえ'
+                  name: 操作が必要ですか？
+                  'true': アクションを実行
+                bb_status: ステータス
+                election: 選挙
+                voting_period: 投票期間
+              no_elections: あなたが受託者として行動する選挙はありません。
+              title: 選挙
+            identification_keys:
+              cancel: キャンセル
+              generate: 識別キーを生成
+              generate_error: 識別キーの生成中にエラーが発生しました。
+              generate_legend: あなたは、受託者として選挙に参加するために識別キーのペアを生成する必要があります。
+              generate_legend_1: ボタンを押すと、生成された識別キーを含むファイルがダウンロードされます。
+              generate_legend_2: ダウンロードしたファイルをクリーンなUSBデバイスにコピーします
+              generate_legend_3: コンピュータにファイルのコピーがないことを確認してください(例:ダウンロードフォルダとデスクトップフォルダを確認してください)。
+              generate_legend_4: 異なる外部デバイスにファイルの別のコピーを作成し、非常に安全な場所に保存します。
+              submit: 送信
+              submit_legend: 上記のすべての手順に従った後、公開識別キーを Decidim サーバーに送信するプロセスを完了します。
+              submit_title: 公開識別キーを送信
+              title: 受託者の識別キー
+              upload: 識別キーをアップロード
+              upload_error:
+                invalid_format: アップロードされたファイルには識別キーが含まれていません。
+                invalid_key: アップロードされたファイルの識別キーは読み込めません。
+                invalid_public_key: アップロードされたファイルの識別キーは、Decidim が保存した公開識別キーと一致しません。
+              upload_legend: Decidimはあなたの公開識別キーを持っていますが、お使いのブラウザにはまだありません。識別キーを生成した後に作成したバックアップから、識別キーの入ったファイルをコンピュータにインポートする必要があります。
+            not_supported_browser_description: 受託者としての活動に使用できないWebブラウザを使用しているようです。最新バージョンのブラウザを使用するか、または一般的なブラウザを使用して、受託者のタスクを完了できるようにしてください。
+            not_supported_browser_title: ブラウザをアップグレードして受託者として行動する
+            trustee_role_description: あなたは、このプラットフォームで行われる選挙のいくつかで受託者を務めることになっています。
+          update:
+            success: 公開識別キーが正常に保存されました。
       votes:
+        ballot_decision:
+          audit: "(監査投票)"
+          back: 投票プロセスを再度開始
+          ballot_hash: '投票用紙の識別子:'
+          cast: 投票用紙のキャスト
+          header: '投票は暗号化されています：キャストまたは監査されます'
+        casting:
+          header: 投票中…
+          text: あなたの投票は投票箱に投じられています。
         confirm:
           answer: 回答
           answer_number: 回答 %{number}
@@ -213,15 +593,26 @@ ja:
           experience: ご利用いただき、どう思われますか?
           feedback: フィードバックを送る
           header: 投票が確定されました
-          lead: あなたの票は既に投じられました！
+          lead: あなたの投票が行われました!
           text: '投票が投票箱に正常に追加されたことを、次の識別子で確認できます: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_link: 確認するには、識別子をコピーして <a href="%{link}">投票検証ページ</a> に貼り付けます
+        create:
+          error: 投票を行う際に問題が発生しました。もう一度やり直してください。
         encrypting:
-          header: 投票の暗号化...
-          text: 投票は暗号化されており、匿名で投票することができます。
+          header: 投票を暗号化しています...
+          text: 投票の秘密を確保するために、投票は暗号化されています。
+        failed:
+          header: 投票に失敗しました
+          lead: 投票は行われませんでした！
+          text: 問題が発生しました。もう一度やり直してください。
+          try_again: 再実行
         header:
+          ballot_decision: 投票を行うか監査する
+          casting: 投票の実行中
           confirm: 投票を確定
           confirmed: 投票が確定されました
-          encrypting: 投票を確定
+          encrypting: 投票の暗号化
+          failed: 投票に失敗しました
         messages:
           not_allowed: 現在、この選挙に投票することはできません。
         modal:
@@ -234,6 +625,21 @@ ja:
           preview_alert: これは投票ブースのプレビューです。
           question_steps: '%{current_step} / %{total_steps} の質問'
           selections: "%{selected} / %{max_selections}<br> の選択"
+        onboarding_modal:
+          close: 閉じる
+          create_account: アカウントの作成
+          description: Decidimで新しいアカウントを作成しますか？ プロセスに参加し、組織の積極的な一員になることができます。
+          no_account: いいえ結構です。
+          title: Decidimは初めてですか？
+        verify:
+          form:
+            submit: チェック
+            vote_identifier: '識別コード:'
+          header:
+            title: 投票を確認
+          success:
+            header: 投票しました！
+            info: 暗号化されたあなたの投票は %{link} 投票箱にあります
         voting_step:
           back: 戻る
           continue: 次へ
@@ -247,7 +653,214 @@ ja:
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{resource_title} の選挙は %{participatory_space_title} のために有効になりました。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> の選挙が %{participatory_space_title} に有効になりました。
+        trustees:
+          new_election:
+            email_intro: '%{resource_title} 選挙の受託者として追加されました。'
+    help:
+      participatory_spaces:
+        votings:
+          title: 投票とは何ですか？
+    menu:
+      votings: 投票
+    statistics:
+      elections_count: 選挙
+      votings_count: 投票
+    votings:
+      admin:
+        ballot_styles:
+          create:
+            error: 投票スタイルの作成中に問題が発生しました
+            success: 投票スタイルを作成しました
+          destroy:
+            invalid: 投票スタイルを削除する際に問題が発生しました
+            success: 投票スタイルが正常に削除されました
+          edit:
+            title: 投票スタイルを編集
+            update: 更新
+          form:
+            code_help: 'ヒント: コードは、センサスと投票スタイルをリンクさせるものです。 センサスデータをアップロードするとき、コードに一致する投票スタイルが割り当てられます。'
+            election: 選挙
+            questions: この投票スタイルに関する質問
+        content_blocks:
+          highlighted_votings:
+            max_results: 表示する要素の最大量
+          landing_page:
+            html_block_1:
+              name: 投票htmlブロック1
+            html_block_2:
+              name: 投票htmlブロック2
+            html_block_3:
+              name: 投票htmlブロック3
+            metrics:
+              name: 投票メトリック
+            polling_stations:
+              name: 投票ステーション
+            stats:
+              name: 投票の統計
+            timeline:
+              name: 投票のタイムライン
+        index:
+          not_published: 未公開
+          published: 公開済み
+        landing_page:
+          content_blocks:
+            edit:
+              update: 更新
+          edit:
+            active_content_blocks: アクティブコンテンツブロック
+            inactive_content_blocks: 非アクティブコンテンツブロック
+        menu:
+          votings: 投票
+          votings_submenu:
+            attachment_collections: フォルダ
+            attachment_files: ファイル
+            attachments: 添付ファイル
+            ballot_styles: 投票スタイル
+            census: センサス
+            components: コンポーネント
+            info: インフォメーション
+            landing_page: ランディングページ
+            monitoring_committee: 監視委員会
+            monitoring_committee_election_results: 結果を検証する
+            monitoring_committee_members: メンバー
+            monitoring_committee_polling_station_closures: 証明書の検証
+            monitoring_committee_verify_elections: 選挙の検証
+            polling_officers: 投票委員
+            polling_stations: 投票所
+        models:
+          ballot_style:
+            fields:
+              code: コード
+            name: 投票スタイル
+          monitoring_committee_member:
+            fields:
+              email: Eメールアドレス
+              name: 名前
+            name: 監視委員会のメンバー
+          polling_officer:
+            fields:
+              email: Eメールアドレス
+              name: 名前
+              polling_station: 投票所 (role)
+            name: 投票委員
+          polling_station:
+            fields:
+              address: 住所
+              polling_station_managers: マネージャー
+              polling_station_president: 責任者
+              title: タイトル
+            name: 投票所
+          voting:
+            fields:
+              created_at: 作成日時
+              promoted: ハイライト
+              published: 公開済み
+              title: タイトル
+        monitoring_committee_election_results:
+          results:
+            bulletin_board: 掲示板
+          update:
+            rejected: 結果の公開が掲示板によって拒否されました。もう一度試すか、システム管理者に連絡してください。
+        monitoring_committee_verify_elections:
+          index:
+            how_to_run_verifier: 'いったんファイルをダウンロードし問題のないことが確認できたら、ユニバーサルベリファイアの実行に進めます。 <a href=''https://github.com/decidim/decidim-bulletin-board''>このリポジトリ</a> をクローンして、ルートのフォルダにて次のコマンドを実行します:'
+      polling_officer_zone:
+        in_person_votes:
+          update:
+            success:
+              rejected: 投票は掲示板に受理されませんでした。システム管理者にご連絡ください。
+        polling_officers:
+          index:
+            polling_officer_role_description: あなたは、このプラットフォームで行われるいくつかの選挙で、投票所の責任者(長またはマネージャー) として行動するように割り当てられています。
+            polling_station:
+              no_polling_stations: まだどの投票所にも割り当てられていません。
+              role: あなたの役割
+              voting: 投票
+      votings:
+        check_census:
+          title: 投票できますか？
+        check_fields:
+          date_of_birth: 生年月日
+          day: 日
+          day_placeholder: DD
+          document_number: ドキュメント番号
+          document_number_placeholder: ID 番号
+          month: 月
+          month_placeholder: MM
+          postal_code: 郵便番号
+          postal_code_placeholder: 郵便番号
+          select: ドキュメントの種類の選択
+          year: 年
+          year_placeholder: YYYY
+        count:
+          title:
+            other: "%{count} 票"
+        elections_log:
+          bb_status: 選挙状況
+          description: 選挙ログには、各投票に関するすべての関連情報が表示されます。 例えば、キーセレモニーや集計の状態、または結果がすでに公開されているがどうかなどです。 ログ情報を表示する選挙をクリックしてください。
+          election_log: 選挙ログ
+          title: 選挙ログ
+        filters:
+          active: 有効
+          all: 全て
+          finished: 完了
+          search: 検索
+          state: ステータス
+          upcoming: 今後の予定
+        filters_small_view:
+          close_modal: 閉じる
+          filter: フィルター
+          filter_by: 絞り込み条件
+          unfold: 展開する
+        index:
+          no_votings: 検索条件に一致する投票はありません。
+          only_finished: 現在、予定された投票はありませんが、ここでは記載されている完了した投票を探すことができます。
+          title: 投票
+        login:
+          access_code: アクセスコード
+          access_code_placeholder: アクセスコード：
+          ask_for_a_new_one: 新しいものを要求します。
+          dont_have_access_code: アクセスコードがありませんか？
+          form_title: '投票にアクセスするには、次のフォームに入力してください:'
+          start_voting: 投票の開始
+          step: 識別
+          title: 自分の投票センサスのデータで自分を特定する
+        no_census_contact_information: 連絡先情報はまだありません
+        orders:
+          label: '投票の並べ替え:'
+          random: ランダム
+          recent: 新着順
+        send_access_code:
+          invalid: アクセスコードの送信中に問題が発生しました
+          success: アクセスコードが正常に送信されました
+        show:
+          dates: 日付
+      votings_m:
+        badge_name:
+          finished: 完了
+          ongoing: 進行中
+          upcoming: 今後の予定
+        footer_button_text:
+          participate: 参加
+          view: 表示
+          vote: 投票
+        unspecified: 指定されていません
+        voting_type:
+          hybrid: ハイブリッド
+          in_person: 対面
+          online: オンライン
+        voting_types_label: 投票タイプ
   layouts:
     decidim:
       election_votes_header:
         exit: 終了
+      voting_navigation:
+        check_census: 投票できますか？
+        election_log: 選挙ログ
+        voting_menu_item: 投票
+      votings:
+        index:
+          promoted_votings: 強調された投票
+        promoted_voting:
+          more_info: 詳細情報
+          vote: 投票

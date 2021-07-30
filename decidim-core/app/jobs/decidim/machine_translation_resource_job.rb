@@ -6,7 +6,7 @@ module Decidim
   # attributes defines as translatable is modified, then for each of those
   # attributes this job will schedule a `Decidim::MachineTranslationFieldsJob`.
   class MachineTranslationResourceJob < ApplicationJob
-    queue_as :default
+    queue_as :translations
 
     # rubocop: disable Metrics/CyclomaticComplexity
 

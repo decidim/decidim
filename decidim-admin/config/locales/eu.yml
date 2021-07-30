@@ -23,7 +23,6 @@ eu:
       component:
         name: Izena
         published_at: Argitaratu at
-        weight: Pisu
       id: NAN
       newsletter:
         body: Testua
@@ -83,12 +82,10 @@ eu:
         show_in_footer: Erakutsi orri-oinean
         slug: URL laburra
         title: Titulua
-        weight: Pisu
       static_page_topic:
         description: Deskribapena
         show_in_footer: Erakutsi orri-oinean
         title: Izenburua
-        weight: Pisu
       user_group_csv_verification:
         file: file
     errors:
@@ -118,7 +115,6 @@ eu:
       actions:
         add: Gehitu
         browse: Arakatu
-        export: Esportatu
         manage: Kudeatu
         new: '%{name}berria'
         permissions: Baimenak
@@ -414,7 +410,6 @@ eu:
       newsletters:
         create:
           error: ' Errorea gertatu da buletin hau sortzean.'
-          success: Buletina ongi sortu da. Mesedez, berrikusi bidali baino lehen.
         deliver:
           error: Errorea gertatu da buletin hau entregatzean.
           success: Buletina ongi bidali da.
@@ -648,10 +643,6 @@ eu:
           admins: Administratzaileak
           participants: Parte-hartzaileak
       view_public_page: Ikusi orri publikoa
-    forms:
-      errors:
-        impersonate_user:
-          reason: Arrazoi bat eman behar duzu erabiltzaile ez kudeatzaile bat ordezkatuz
     moderations:
       actions:
         hidden: ' Ezkutatuta'

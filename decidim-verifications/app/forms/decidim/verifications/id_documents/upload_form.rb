@@ -14,6 +14,7 @@ module Decidim
                   passthru: { to: Decidim::Authorization },
                   presence: true,
                   if: :uses_online_method?
+        alias organization current_organization
       end
     end
   end

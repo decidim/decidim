@@ -204,6 +204,8 @@ fr-CA:
             label: Statut
     components:
       accountability:
+        actions:
+          comment: Commenter
         name: Suivi
         settings:
           global:
@@ -244,3 +246,5 @@ fr-CA:
         result_project: Projets inclus dans cette réalisation
       included_proposals:
         result_proposal: Propositions incluses dans cette réalisation
+    statistics:
+      results_count: Résultats

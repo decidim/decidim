@@ -24,13 +24,17 @@ ja:
       component:
         name: 名前
         published_at: 公開日時
-        weight: 重みづけ
+        weight: 順番の位置
       id: ID
+      import:
+        user_group_id: インポートを作成
       newsletter:
         body: 本文
         subject: 件名
       organization:
+        admin_terms_of_use_body: 管理者向け利用規約の本文
         alert_color: アラート
+        available_authorizations: 利用可能な認証方式
         badges_enabled: バッジを有効にする
         comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
         cta_button_path: Call To Action ボタンのパス
@@ -39,9 +43,12 @@ ja:
         default_locale: 既定のロケール：
         description: 説明
         enable_omnipresent_banner: Show omnipresent banner
+        enable_participatory_space_filters: 参加スペースフィルタを有効にする
         facebook_handler: Facebook handler
         favicon: アイコン
-        from: メールアドレスから
+        force_authentication: 認証の強制
+        force_users_to_authenticate_before_access_organization: 組織にアクセスする前にユーザーの認証を強制する
+        from: 送信者メールアドレス
         github_handler: GitHub handler
         header_snippets: ヘッダスニペットを表示
         highlight_alternative_color: 代替のハイライト
@@ -53,6 +60,7 @@ ja:
         highlighted_content_banner_image: 画像
         highlighted_content_banner_short_description: 短い説明
         highlighted_content_banner_title: タイトル
+        host: ホスト
         instagram_handler: Instagram handler
         logo: ロゴ
         machine_translation_display_priority: 機械翻訳表示の優先度
@@ -65,16 +73,21 @@ ja:
         omnipresent_banner_short_description: 短い説明
         omnipresent_banner_title: タイトル
         omnipresent_banner_url: URL
+        organization_admin_email: 組織管理者メールアドレス
+        organization_admin_name: 組織管理者名
+        organization_locales: 組織のロケール
         primary_color: プライマリ（プライマリ）
         reference_prefix: 参照の接頭辞：
         rich_text_editor_in_public_views: 参加者にリッチテキストエディタを有効にする
         secondary_color: Secondary
+        secondary_hosts: セカンダリホスト
         send_welcome_notification: ウェルカム通知を送信
         success_color: 成功
         time_zone: タイムゾーン
         tos_version: Terms of service version
         twitter_handler: Twitter handler
         user_groups_enabled: グループを有効にする
+        users_registration_mode: ユーザー登録モード
         warning_color: 警告
         welcome_notification_body: Welcome通知本文
         welcome_notification_subject: ウェルカム通知の件名
@@ -93,18 +106,19 @@ ja:
       settings:
         scope_id: スコープ
       static_page:
+        allow_public_access: 認証なしでのアクセスを許可
         changed_notably: 目立つ変更がありました。
         content: コンテンツ
         organization: 組織
         show_in_footer: フッターに表示
         slug: URL スラグ
         title: タイトル
-        weight: 重量
+        weight: 順番の位置
       static_page_topic:
         description: 説明
         show_in_footer: フッターに表示
         title: タイトル
-        weight: 重量
+        weight: 順番の位置
       user_group_csv_verification:
         file: ファイル
     errors:
@@ -137,10 +151,15 @@ ja:
     admin:
       actions:
         add: 追加
+        attachment:
+          new: 新しい添付ファイル
+        attachment_collection:
+          new: 新しい添付ファイルのコレクション
         browse: 検索
         category:
           new: 新しいカテゴリ
-        export: エクスポート
+        export: 全てエクスポート
+        export-selection: 選択したものをエクスポート
         import: インポート
         manage: 管理
         new: 新しい %{name}
@@ -157,18 +176,18 @@ ja:
         verify: 確認する
       admin_terms_of_use:
         accept:
-          error: 管理者の利用規約に同意中にエラーが発生しました。
-          success: 素晴らしい！管理者の利用規約に同意しました。
+          error: 管理者向け利用規約に同意中にエラーが発生しました。
+          success: ありがとうございます、管理者向け利用規約に同意しました。
         actions:
           accept: 次の規約に同意します
-          are_you_sure: 管理者の条件を拒否してもよろしいですか？
+          are_you_sure: 管理者向け利用規約を削除してもよろしいですか？
           refuse: 同意しない
           title: 利用規約に同意する
         required_review:
-          alert: '必須：管理者の利用規約を確認してください'
-          callout: 管理者の利用規約を確認してください。そうでなければ、プラットフォームを管理することはできません。
+          alert: '必須：管理者向け利用規約を確認してください'
+          callout: 管理者向け利用規約を確認してください。そうでなければ、プラットフォームを管理することはできません。
           cta: 今すぐレビューしましょう。
-        title: 管理者の利用条件
+        title: 管理者向け利用規約
       area_types:
         create:
           error: 新しいエリアタイプの作成中に問題が発生しました。
@@ -189,7 +208,7 @@ ja:
           error: 新しいエリアの作成中に問題が発生しました。
           success: エリアの作成に成功しました。
         destroy:
-          has_spaces: 領域には依存スペースがあり、削除するために依存関係を持っていてはなりません。
+          has_spaces: このエリアには依存スペースがあります。削除する前に参加スペースがこのエリアを参照していないことを確認してください。
           success: エリアの削除に成功しました
         edit:
           title: エリアを編集
@@ -241,6 +260,8 @@ ja:
         search_prompt: 検索するには少なくとも3文字を入力してください
       block_user:
         new:
+          action: アカウントをブロックして理由を送信
+          description: ユーザーをブロックすると、そのアカウントは利用できなくなります。ユーザーのブロックを解除することを検討する方法に関するガイドラインを判定通知に含めることができます。
           justification: 判定理由
           title: ユーザー %{name} をブロックする
       categories:
@@ -299,11 +320,30 @@ ja:
           error: このコンポーネントの更新中に問題が発生しました。
           success: コンポーネントは正常に更新されました。
       conflicts:
+        attempts: 試行回数
         'false': 'いいえ'
+        managed_user_name: 管理ユーザー
+        solved: 解決済み
+        title: 確認の競合
+        transfer:
+          email: Eメールアドレス
+          error: 参加者から管理参加者への移転中に問題が発生しました。
+          name: 名前
+          reason: 理由
+          success: 現在の移転が正常に完了しました。
+          title: 移行
+        'true': 'はい'
+        user_name: ユーザー
       dashboard:
         show:
           view_more_logs: もっとログを見る
           welcome: Decidim Admin Panelへようこそ。
+      domain_whitelist:
+        form:
+          domain_too_short: ドメインが短すぎます
+        update:
+          error: ドメインのホワイトリストを更新できませんでした
+          success: ドメインのホワイトリストが更新されました
       exports:
         export_as: "%{name} を %{export_format} 形式で取得"
         formats:
@@ -316,11 +356,35 @@ ja:
         category_id_eq:
           label: カテゴリ
         filter_label: フィルター
+        invitation_accepted_at_present:
+          label: 招待が承認されました
+          values:
+            'false': 'いいえ'
+            'true': 'はい'
+        last_sign_in_at_present:
+          label: ログイン済み
+          values:
+            'false': 'いいえ'
+            'true': 'はい'
+        moderations:
+          reportable_type_string_eq:
+            label: タイプ
         officialized_at_null:
           label: 都道府県：
           values:
             'false': 公式化済み
             'true': 公式化されていない
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: 招待が承認されました
+            values:
+              'false': 未承認
+              'true': 承認済み
+          user_invitation_sent_at_not_null:
+            label: 招待状の送信
+            values:
+              'false': 未送信
+              'true': 送信済み
         private_space_eq:
           label: 非公開
           values:
@@ -336,9 +400,17 @@ ja:
         search_label: 検索
         search_placeholder:
           name_or_nickname_or_email_cont: '%{collection} をメール、表示名、アカウントIDで検索します。'
+          reported_id_string_or_reported_content_cont: 報告可能なIDまたはコンテンツで %{collection} を検索します。
           title_cont: '%{collection} をタイトルで検索します。'
+          user_name_or_user_email_cont: '%{collection} を名前またはメールアドレスで検索します。'
         state_eq:
           label: 都道府県：
+      forms:
+        file_help:
+          import:
+            explanation: 'ファイルのガイダンス:'
+            message_1: CSV、JSON、Excel (.xlsx) ファイルがサポートされています
+            message_2: CSV ファイルの場合、列間の区切り文字はセミコロン(";") でなければなりません。
       help_sections:
         error: ヘルプセクションの更新中に問題が発生しました
         form:
@@ -378,12 +450,21 @@ ja:
           impersonate_existing_user: 参加者を管理 "%{name}"
           impersonate_new_managed_user: 新規参加者の管理
       imports:
+        creators:
+          proposalcreator: 提案クリエイター
+        error: インポート中に問題が発生しました
+        help:
+          proposalcreator: 'ファイルには、カラム名「title/en」と「body/en」(または、あなたが好む別のロケール、例: 「title/ja」と「body/ja」) が必要です。また、カラム名「scope/id」と「category/id」にも対応しています。'
+        import_from_file: ファイルからインポート
+        invalid_lines: リソース番号 %{invalid_lines} にエラーが見つかりました
         new:
           accepted_mime_types:
             csv: csv
             json: json
+            xlsx: xlsx
           actions:
             back: 戻る
+          file_legend: 解析されるインポート ファイルを追加します。
           import: インポート
         notice: "%{number} %{resource_name} を正常にインポートしました"
       logs:
@@ -406,6 +487,7 @@ ja:
         areas: エリア
         configuration: 設定
         dashboard: ダッシュボード
+        external_domain_whitelist: 許可された外部ドメイン
         help_sections: ヘルプセクション
         homepage: ホームページ
         impersonations: なりすまし
@@ -503,9 +585,23 @@ ja:
       moderated_users:
         index:
           actions:
+            block: ユーザーをブロック
             title: アクション
+            unblock: ユーザーのブロックを解除
             unreport: 報告解除
+          name: 名前
           nickname: ニックネーム
+          reason: 理由
+          reports: レポート数
+          title: 報告されたユーザー一覧
+        report:
+          reasons:
+            does_not_belong: 所属していない
+            offensive: 攻撃的
+            spam: スパム
+        tabs:
+          blocked: ブロック済
+          unblocked: 未ブロック
       moderations:
         index:
           title: モデレーション
@@ -514,6 +610,21 @@ ja:
             does_not_belong: 属していません
             offensive: 攻撃
             spam: スパム
+        reports:
+          index:
+            author: 投稿者
+            callout_html: コンテンツは、そのアイテムの横にある %{icon} フラグをクリックすることによって、ユーザー（登録済みアカウントを持っている人であれば誰でも）によって通知されたときに、モデレーションパネルに表示されます。
+            content_original_language: コンテンツのオリジナル言語
+            participatory_space: 参加型スペース
+            reported_content: 報告されたコンテンツ
+            see_current: 現状を見る
+            see_original: オリジナルを見る
+            title: モデレーションレポート
+          show:
+            report_details: 理由の詳細
+            report_language: 報告の言語
+            report_reason: '理由:'
+            title: 報告の詳細
       newsletter_templates:
         index:
           preview_template: プレビュー
@@ -579,6 +690,9 @@ ja:
           error: このニュースレターの更新中に問題が発生しました。
           success: ニュースレターは正常に更新されました。送信する前に確認してください。
       officializations:
+        block:
+          error: 参加者のブロック中にエラーが発生しました
+          success: 参加者が正常にブロックされました
         create:
           success: 参加者が正常に公式化されました
         destroy:
@@ -586,6 +700,7 @@ ja:
         index:
           actions: アクション
           badge: バッジ
+          block: ユーザーをブロック
           created_at: 作成日時
           name: 名前
           nickname: アカウントID
@@ -593,8 +708,10 @@ ja:
           officialize: 公式化
           officialized: 公式化済み
           reofficialize: Reofficize
+          reports: 報告
           show_email: メールアドレスを表示
           status: ステータス
+          unblock: ユーザーのブロックを解除
           unofficialize: 非公式化
         new:
           badge: 公式バッジ
@@ -602,12 +719,15 @@ ja:
           title: 参加者 "%{name} " を正規化
         show_email_modal:
           close_modal: モーダルを閉じる
-          description: 直接参加者に連絡する必要がある場合は，表示ボタンをクリックしてメールアドレスを見ることができます．このアクションは記録されます．
+          description: 直接参加者に連絡する必要がある場合、彼らの電子メールアドレスを見るために表示ボタンをクリックしてください。このアクションは記録されます。
           email_address: メールアドレス
           full_name: フルネーム
           hidden: hidden
           show: 表示
           title: 参加者のメールアドレスを表示
+        unblock:
+          error: 参加者のブロック解除中にエラーが発生しました
+          success: 参加者のブロックを解除しました
       organization:
         edit:
           title: 組織を編集
@@ -619,6 +739,7 @@ ja:
           rich_text_editor_in_public_views_help: 一部のテキストエリアでは、参加者はリッチテキストエディタを使用してHTMLタグを挿入することができます。
           social_handlers: ソーシャル
           twitter: Twitter
+          url: URL
           youtube: YouTube
         update:
           error: この組織の更新に問題がありました。
@@ -638,6 +759,17 @@ ja:
             layout_appearance_title: レイアウトを編集
             preview: プレビュー
           omnipresent_banner_appearance_title: Edit omnipresent banner
+      organization_external_domain_whitelist:
+        edit:
+          update: 更新
+        external_domain:
+          down: 下げる
+          external_domain: 外部ドメイン
+          remove: 削除
+          up: 上げる
+        form:
+          add: ホワイトリストに追加
+          title: 外部ドメインのホワイトリスト
       organization_homepage:
         edit:
           active_content_blocks: アクティブなコンテンツブロック
@@ -653,6 +785,7 @@ ja:
           error: この参加スペースのプライベート参加者を削除する際に問題が発生しました。
           success: 参加スペースのプライベート参加者アクセスが正常に破棄されました。
         index:
+          import_via_csv: CSV形式でインポート
           title: 参加スペースプライベート参加者
         new:
           create: 作成
@@ -775,6 +908,7 @@ ja:
         impersonatable_users: 管理可能な参加者
         impersonations: 参加者管理
         metrics: 指標
+        panel: 管理者
         participants: 参加者
         scope_types: スコープの種類
         scopes: スコープ
@@ -837,9 +971,20 @@ ja:
     forms:
       errors:
         impersonate_user:
-          reason: 管理対象外の参加者を管理する場合は理由を入力する必要があります
+          reason: 管理されていない参加者を管理する場合、その理由を入力する必要があります
+    metrics:
+      blocked_users:
+        object: ブロックされたユーザー
+        title: ブロックされたユーザー
+      reported_users:
+        object: 報告されたユーザー
+        title: 報告したユーザー
+      user_reports:
+        object: ユーザーの報告
+        title: ユーザーの報告
     moderations:
       actions:
+        expand: 展開
         hidden: Hidden
         hide: 非表示
         not_hidden: 非表示にしない
@@ -860,17 +1005,28 @@ ja:
       models:
         moderation:
           fields:
+            created_at: 作成日
             hidden_at: '非表示:'
+            participatory_space: 参加型スペース
             report_count: カウント
+            reportable_id: Id
+            reportable_type: 種別
             reported_content_url: 報告されたコンテンツ URL
             reports: レポート
             visit_url: URL を参照
+        report:
+          fields:
+            details: 理由の詳細
+            locale: 言語
+            reason: 理由
   errors:
     messages:
       invalid_json: 無効なJSON
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: グローバルモデレーション
         newsletters:
           title: ニュースレター
         settings:

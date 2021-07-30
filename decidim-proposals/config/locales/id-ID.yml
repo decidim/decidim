@@ -38,7 +38,9 @@ id:
               invalid_document_type: 'Jenis dokumen tidak valid. Format yang diterima adalah: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Perlu disambungkan kembali
+            add_photos:
               needs_to_be_reattached: Perlu disambungkan kembali
             body:
               identical: DAN judul tidak bisa sama

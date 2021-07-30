@@ -12,20 +12,21 @@ describe Decidim::Meetings::Admin::Permissions do
       current_component: meeting_component,
       meeting: meeting,
       agenda: agenda,
-      minutes: minutes,
-      questionnaire: questionnaire
+      questionnaire: questionnaire,
+      poll: poll
     }
   end
   let(:meeting_component) { create :meeting_component }
   let(:meeting) { create :meeting, :official, component: meeting_component }
   let(:agenda) { create :agenda }
-  let(:minutes) { create :minutes }
   let(:questionnaire) { create :questionnaire }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
   let(:registrations_enabled) { true }
   let(:action) do
     { scope: :admin, action: action_name, subject: action_subject }
   end
+  let(:poll) { create :poll }
+  let(:poll_questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
   let(:action_name) { :foo }
   let(:action_subject) { :foo }
 
@@ -48,18 +49,6 @@ describe Decidim::Meetings::Admin::Permissions do
 
     context "when agenda is missing" do
       let(:agenda) { nil }
-
-      it { is_expected.to eq false }
-    end
-  end
-
-  shared_examples "action requiring a minutes" do
-    context "when minutes is present" do
-      it { is_expected.to eq true }
-    end
-
-    context "when minutes is missing" do
-      let(:minutes) { nil }
 
       it { is_expected.to eq false }
     end
@@ -184,23 +173,6 @@ describe Decidim::Meetings::Admin::Permissions do
     end
   end
 
-  context "when subject is a minutes" do
-    let(:action_subject) { :minutes }
-
-    context "when creating a minutes" do
-      let(:action_name) { :create }
-
-      it_behaves_like "action requiring a meeting"
-    end
-
-    context "when updating a minutes" do
-      let(:action_name) { :update }
-
-      it_behaves_like "action requiring a meeting"
-      it_behaves_like "action requiring a minutes"
-    end
-  end
-
   context "when subject is a questionnaire" do
     let(:action_subject) { :questionnaire }
 
@@ -208,6 +180,24 @@ describe Decidim::Meetings::Admin::Permissions do
       let(:action_name) { :update }
 
       it_behaves_like "action requiring a questionnaire"
+    end
+  end
+
+  context "when subject is a poll" do
+    let(:action_subject) { :poll }
+
+    context "when updating a poll" do
+      let(:action_name) { :update }
+
+      context "when meeting is present and poll is present" do
+        it_behaves_like "action requiring a meeting"
+      end
+
+      context "when poll is missing" do
+        let(:poll) { nil }
+
+        it { is_expected.to eq false }
+      end
     end
   end
 end

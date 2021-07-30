@@ -24,7 +24,6 @@ is-IS:
       component:
         name: Nafn
         published_at: Birt á
-        weight: Þyngd
       id: Auðkenni
       newsletter:
         body: Líkami
@@ -42,7 +41,6 @@ is-IS:
         favicon: Táknmynd
         force_authentication: Þvinga auðkenningu
         force_users_to_authenticate_before_access_organization: Þvinga notendur í að auðkenna, áður en þeir komast í samtök
-        from: Netfang sendanda
         github_handler: GitHub handler
         header_snippets: Header brot
         highlighted_content_banner_action_subtitle: Aðgerðshnappur texti
@@ -90,12 +88,10 @@ is-IS:
         show_in_footer: Sýna í fæti
         slug: URL slug
         title: Titill
-        weight: Þyngd
       static_page_topic:
         description: Lýsing
         show_in_footer: Sýna í fæti
         title: Titill
-        weight: Þyngd
       user_group_csv_verification:
         file: Skrá
     errors:
@@ -135,7 +131,6 @@ is-IS:
         browse: Skoða
         category:
           new: Nýr flokkur
-        export: Útflutningur
         import: Flytja inn
         manage: Stjórna
         new: Nýtt %{name}
@@ -387,8 +382,6 @@ is-IS:
         index:
           preview_template: Preview
       newsletters:
-        create:
-          success: Fréttabréf búin til með góðum árangri. Vinsamlegast skoðaðu það áður en þú sendir það.
         deliver:
           success: Fréttabréf skilað með góðum árangri.
         destroy:

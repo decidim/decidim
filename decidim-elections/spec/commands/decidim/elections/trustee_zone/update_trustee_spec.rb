@@ -11,16 +11,28 @@ describe Decidim::Elections::TrusteeZone::UpdateTrustee do
       invalid?: invalid,
       public_key: public_key,
       trustee: trustee,
-      name: trustee_name
+      name: trustee_name,
+      errors: errors
     )
   end
   let(:public_key) { "asadasfdafadssda" }
   let(:trustee_name) { "Sheldon" }
   let(:invalid) { false }
+  let(:errors) { double.as_null_object }
 
   it "updates the trustee" do
     subject.call
     expect(trustee.public_key).to eq "asadasfdafadssda"
+  end
+
+  context "when trustee with same name and organization exists" do
+    let!(:other_trustee) { create :trustee, name: "Sheldon", organization: trustee.organization }
+
+    it "adds errors to the form" do
+      expect(errors).to receive(:add).with(:name, :taken)
+      subject.call
+      expect(subject).to broadcast(:invalid)
+    end
   end
 
   context "when the form is not valid" do

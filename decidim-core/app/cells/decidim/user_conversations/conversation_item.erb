@@ -3,7 +3,7 @@
     <li class="card-data__item">
       <div class="card__link text-center">
         <div class="user-header__avatar">
-          <%= image_tag conversation_avatar(conversation), alt: t("decidim.author.avatar") %>
+          <%= image_tag conversation_avatar(conversation), alt: conversation_avatar_alt(conversation) %>
         </div>
         <span class="text-medium mt-xs"><%= Date::ABBR_DAYNAMES[conversation.created_at.wday] %> <%= conversation.created_at.wday %></span>
       </div>

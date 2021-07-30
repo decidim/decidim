@@ -6,7 +6,7 @@ module Decidim
       # This controller allows to manage the steps of an election.
       class StepsController < Admin::ApplicationController
         helper StepsHelper
-        helper_method :elections, :election, :current_step, :vote_stats
+        helper_method :elections, :election, :current_step, :vote_stats, :bulletin_board_server
 
         def index
           enforce_permission_to :read, :steps, election: election
@@ -22,7 +22,6 @@ module Decidim
           redirect_to election_steps_path(election) && return unless params[:id] == current_step
 
           @form = form(current_step_form_class).from_params(params, election: election)
-
           if @form.pending_action
             Decidim::Elections::Admin::UpdateActionStatus.call(@form.pending_action)
             return redirect_to election_steps_path(election)
@@ -46,6 +45,10 @@ module Decidim
 
         private
 
+        def bulletin_board_server
+          Decidim::Elections.bulletin_board.bulletin_board_server
+        end
+
         def current_step_form_class
           @current_step_form_class ||= {
             "create_election" => SetupForm,
@@ -53,8 +56,7 @@ module Decidim
             "key_ceremony_ended" => VotePeriodForm,
             "vote" => VotePeriodForm,
             "vote_ended" => ActionForm,
-            "tally_ended" => ActionForm,
-            "results_published" => ActionForm
+            "tally_ended" => ActionForm
           }[current_step]
         end
 

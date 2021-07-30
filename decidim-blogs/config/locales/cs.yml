@@ -17,6 +17,7 @@ cs:
         edit: Upravit
         new: Nový příspěvek
         title: Akce
+        user_group_id: Vytvořit příspěvek jako
       admin:
         models:
           components:
@@ -60,6 +61,11 @@ cs:
       read_more: Přečtěte si více
     components:
       blogs:
+        actions:
+          amend: Pozměnit
+          comment: Komentář
+          endorse: Schválit
+          vote: Hlasovat
         name: Blog
         settings:
           global:

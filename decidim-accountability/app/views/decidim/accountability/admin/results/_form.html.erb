@@ -52,9 +52,11 @@
       </div>
     </div>
 
-    <div class="row column">
-      <%= proposals_picker(form, :proposals, proposals_picker_results_path) %>
-    </div>
+    <% if Decidim::Accountability.enable_proposal_linking %>
+      <div class="row column">
+        <%= proposals_picker(form, :proposals, proposals_picker_results_path) %>
+      </div>
+    <% end %>
 
     <div class="row column">
       <% if @form.projects %>

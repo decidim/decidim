@@ -23,7 +23,6 @@ sl:
       component:
         name: Ime
         published_at: Objavljeno
-        weight: Teža
       id: ID
       newsletter:
         body: Telo
@@ -37,7 +36,6 @@ sl:
         description: Opis
         facebook_handler: Facebook krmilnik
         favicon: Ikona
-        from: Iz elektronskega naslova
         github_handler: GitHub krmilnik
         header_snippets: Deli glave
         highlight_alternative_color: Poudarek, alternativno
@@ -87,12 +85,10 @@ sl:
         show_in_footer: Prikaži v nogi
         slug: URL okrajšava
         title: Naziv
-        weight: Teža
       static_page_topic:
         description: Opis
         show_in_footer: Prikaži v nogi
         title: Naziv
-        weight: Teža
       user_group_csv_verification:
         file: Datoteka
     errors:
@@ -122,7 +118,6 @@ sl:
       actions:
         add: Dodaj
         browse: Brskaj
-        export: Izvozi
         manage: Uredi
         new: Novo %{name}
         per_page: Na stran

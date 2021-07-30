@@ -11,7 +11,7 @@ module Decidim
       return if current_organization.favicon.blank?
 
       safe_join(Decidim::OrganizationFaviconUploader::SIZES.map do |version, size|
-        favicon_link_tag(current_organization.favicon.send(version).url, sizes: "#{size}x#{size}")
+        favicon_link_tag(current_organization.attached_uploader(:favicon).variant_url(version, host: current_organization.host), sizes: "#{size}x#{size}")
       end)
     end
 
@@ -29,19 +29,35 @@ module Decidim
     #
     # Returns a String.
     def icon(name, options = {})
+      options = options.with_indifferent_access
       html_properties = {}
 
       html_properties["width"] = options[:width]
       html_properties["height"] = options[:height]
-      html_properties["aria-label"] = options[:aria_label] || options[:"aria-label"] || options["aria-label"]
+      html_properties["aria-label"] = options[:aria_label] || options[:"aria-label"]
       html_properties["role"] = options[:role] || "img"
-      html_properties["aria-hidden"] = options[:aria_hidden] || options[:"aria-hidden"] || options["aria-hidden"]
+      html_properties["aria-hidden"] = options[:aria_hidden] || options[:"aria-hidden"]
 
       html_properties["class"] = (["icon--#{name}"] + _icon_classes(options)).join(" ")
 
+      title = options["title"] || html_properties["aria-label"]
+      if title.blank? && html_properties["role"] == "img"
+        # This will make the accessibility audit tools happy as with the "img"
+        # role, the alternative text (aria-label) and title are required for the
+        # element. This will also force the SVG to be hidden because otherwise
+        # the screen reader would announce the icon name which can be in
+        # different language (English) than the page language which is not
+        # allowed.
+        title = name
+        html_properties["aria-label"] = title
+        html_properties["aria-hidden"] = true
+      end
+
+      href = Decidim.cors_enabled ? "" : asset_pack_path("media/images/icons.svg")
+
       content_tag :svg, html_properties do
-        inner = content_tag :title, options["title"] || html_properties["aria-label"]
-        inner += content_tag :use, nil, role: options[:role], "href" => "#{asset_path("decidim/icons.svg")}#icon-#{name}"
+        inner = content_tag :title, title
+        inner += content_tag :use, nil, "href" => "#{href}#icon-#{name}"
 
         inner
       end
@@ -59,11 +75,17 @@ module Decidim
 
       if path.split(".").last == "svg"
         attributes = { class: classes.join(" ") }.merge(options)
-        asset = Rails.application.assets_manifest.find_sources(path).first
+        asset = File.read(application_path(path))
         asset.gsub("<svg ", "<svg#{tag_builder.tag_options(attributes)} ").html_safe
       else
-        image_tag(path, class: classes.join(" "), style: "display: none")
+        image_pack_tag(path, class: classes.join(" "), style: "display: none")
       end
+    end
+
+    def application_path(path)
+      img_path = asset_pack_path(path)
+      img_path = URI(img_path).path if Decidim.cors_enabled
+      Rails.root.join("public/#{img_path}")
     end
 
     # Allows to create role attribute according to accessibility rules

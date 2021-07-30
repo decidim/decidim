@@ -36,6 +36,7 @@ sv:
           destroy_nok: Det gick inte att återkalla auktoriseringar.
           info: Det finns totalt %{count} verifierade deltagare.
           no_data: Inga verifierade deltagare
+        authorization_workflows: Auktoriseringar
     authorization_handlers:
       admin:
         csv_census:

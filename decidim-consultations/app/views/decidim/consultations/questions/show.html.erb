@@ -30,13 +30,12 @@
   </div>
 </div>
 
-<%= javascript_include_tag "decidim/consultations/show_more" %>
 <%= comments_for current_question if current_question.published? %>
 
 <%= content_for :question_header_details do %>
   <div id="question-header-details" class="row consultations-home-intro">
     <div class="columns medium-5">
-      <%= image_tag current_question.hero_image&.url, alt: t("question.hero_image", scope: "activemodel.attributes") if current_question.hero_image&.url %>
+      <%= image_tag current_question.attached_uploader(:hero_image).path, alt: t("question.hero_image", scope: "activemodel.attributes") if current_question.hero_image.attached? %>
     </div>
 
     <div class="columns medium-5">
@@ -56,3 +55,5 @@
     </div>
   </div>
 <% end %>
+
+<%= javascript_pack_tag "decidim_consultations" %>

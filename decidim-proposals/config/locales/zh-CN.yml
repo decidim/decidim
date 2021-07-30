@@ -44,7 +44,9 @@ zh-CN:
               invalid_document_type: '无效的文档类型。接受的格式为： %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: 需要重新连接
+            add_photos:
               needs_to_be_reattached: 需要重新连接
             body:
               cant_be_equal_to_template: 不能等于模板
