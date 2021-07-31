@@ -20,20 +20,20 @@
       border-bottom: $border;
     }
 
-    &-cell {
+    &-cell{
       display: grid;
       grid-template-columns: 1fr 40px;
-      
-      .budget-list__data {
+
+      .budget-list__data{
         grid-column: span 2;
         background: none;
       }
-      
+
       @include breakpoint(medium){
         grid-template-columns: 1fr 40px 15em;
         grid-template-rows: 1fr;
-        
-        .budget-list__data {
+
+        .budget-list__data{
           background: $card-secondary-bg;
           grid-column: 3;
         }
@@ -74,8 +74,8 @@
       padding: $card-padding;
       display: flex;
       align-items: center;
-      
-      &.flex-horizontal {
+
+      &.flex-horizontal{
         flex-direction: column;
         align-items: flex-start;
       }
@@ -108,10 +108,11 @@
       padding: 1rem $card-padding;
     }
 
-    .loading-spinner {
+    .loading-spinner{
       margin: 0 !important;
       position: relative;
-      &:before {
+
+      &::before{
         position: absolute;
       }
     }
