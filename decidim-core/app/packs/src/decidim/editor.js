@@ -1,6 +1,8 @@
 /* eslint-disable require-jsdoc */
 
 import lineBreakButtonHandler from "src/decidim/editor/linebreak_module"
+import "src/decidim/vendor/image-resize.min"
+import "src/decidim/vendor/image-upload.min"
 
 const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "video", "image", "alt", "break"];
 
@@ -13,6 +15,8 @@ export default function createQuillEditor(container) {
     [{ list: "ordered" }, { list: "bullet" }],
     ["link", "clean"]
   ];
+
+  let addImage = $(container).data("editorImages");
 
   if (toolbar === "full") {
     quillToolbar = [
@@ -27,19 +31,52 @@ export default function createQuillEditor(container) {
     ];
   }
 
+  if (addImage) {
+    quillToolbar.push(["image"]);
+  }
+
+  let modules = {
+    linebreak: {},
+    toolbar: {
+      container: quillToolbar,
+      handlers: {
+        "linebreak": lineBreakButtonHandler
+      }
+    }
+  };
   const $input = $(container).siblings('input[type="hidden"]');
   container.innerHTML = $input.val() || "";
+  const token = $('meta[name="csrf-token"]').attr("content");
+
+  if(addImage) {
+    modules.imageResize = {
+      modules: ["Resize", "DisplaySize"]
+    }
+    modules.imageUpload = {
+      url: $(container).data("uploadImagesPath"), // server url. If the url is empty then the base64 returns
+      method: "POST", // change query method, default "POST"
+      name: "image", // custom form name
+      withCredentials: false, // withCredentials
+      headers: { "X-CSRF-Token": token }, // add custom headers, example { token: "your-token"}
+      // personalize successful callback and call next function to insert new url to the editor
+      callbackOK: (serverResponse, next) => {
+        $(quill.getModule("toolbar").container).last().removeClass("editor-loading")
+        next(serverResponse.url);
+      },
+      // personalize failed callback
+      callbackKO: serverError => {
+        $(quill.getModule("toolbar").container).last().removeClass("editor-loading")
+        alert(serverError.message);
+      },
+      checkBeforeSend: (file, next) => {
+        $(quill.getModule("toolbar").container).last().addClass("editor-loading")
+        next(file); // go back to component and send to the server
+      }
+    }
+  }
 
   const quill = new Quill(container, {
-    modules: {
-      linebreak: {},
-      toolbar: {
-        container: quillToolbar,
-        handlers: {
-          "linebreak": lineBreakButtonHandler
-        }
-      }
-    },
+    modules: modules,
     formats: quillFormats,
     theme: "snow"
   });
@@ -67,6 +104,13 @@ export default function createQuillEditor(container) {
   // After editor is ready, linebreak_module deletes two extraneous new lines
   quill.emitter.emit("editor-ready");
 
+  if(addImage) {
+    const t = $(container).data("dragAndDropHelpText");
+    $(container).after(`<p class="help-text" style="margin-top:-1.5rem;">${t}</p>`);
+  }
+
+  // After editor is ready, linebreak_module deletes two extraneous new lines
+  quill.emitter.emit("editor-ready");
+
   return quill;
 }
-
