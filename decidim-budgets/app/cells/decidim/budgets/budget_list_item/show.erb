@@ -19,11 +19,11 @@
     <div class="budget-list__icon mr-s">
       <% if voted? %>
         <span class="button tiny success card--list__check card--list__check--disabled card--list__check--inline">
-          <%= icon "check", class: "icon--small", role: "img" %>
+          <%= icon "check", class: "icon--small", role: "img", aria_label: t("decidim.budgets.budget_list_item.voting_finished") %>
         </span>
       <% elsif progress? %>
         <span class="button tiny warning card--list__check card--list__check--disabled card--list__check--inline">
-          <%= icon "bookmark", class: "icon--small", role: "img" %>
+          <%= icon "bookmark", class: "icon--small", role: "img", aria_label: t("decidim.budgets.budget_list_item.voting_started") %>
         </span>
       <% end %>
     </div>

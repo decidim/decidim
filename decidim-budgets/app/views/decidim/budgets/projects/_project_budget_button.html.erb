@@ -1,11 +1,15 @@
 <% if current_user.blank? %>
   <div id="project-<%= project.id %>-budget-button">
-    <button class="button expanded primary button--sc" data-toggle="loginModal">
+    <button class="button expanded primary button--sc"
+            data-toggle="loginModal"
+            aria-label="<%= t(".added_descriptive", resource_name: translated_attribute(project.title)) %>">
       <%= t(".add") %>
     </button>
   </div>
 <% else %>
-  <div id="project-<%= project.id %>-budget-button" class="<%= "added" if voted_for?(project) %> button expanded primary button--sc budget-vote-button budget-list__data">
+  <div id="project-<%= project.id %>-budget-button"
+       class="<%= "added" if voted_for?(project) %> button expanded primary button--sc budget-vote-button budget-list__data"
+       aria-label="<%= t(".#{voted_for?(project) ? ".added" : ".add"}_descriptive", resource_name: translated_attribute(project.title)) %>">
     <span>
       <%= t(voted_for?(project) ? ".added" : ".add") %>
     </span>
