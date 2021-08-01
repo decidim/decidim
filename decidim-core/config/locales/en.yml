@@ -512,6 +512,10 @@ en:
           this_application_will_not_be_able_to: 'This application will not be able to:'
           update_profile: Update your profile
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> wants to use your account"
+    editor_images:
+      create:
+        error: Error uploading image
+        success: Image uploaded successfully
     endorsable:
       endorsements: Endorsements
       endorsements_count: Endorsements count

@@ -156,6 +156,8 @@ Decidim::Core::Engine.routes.draw do
     end
   end
 
+  resources :editor_images, only: [:create]
+
   namespace :gamification do
     resources :badges, only: [:index]
   end
