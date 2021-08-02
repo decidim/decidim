@@ -14,6 +14,8 @@
     </div>
   </div>
 
+  <%= form.hidden_field "state_withdraw", value: params.dig("filter", "state_withdraw") %>
+
   <% if component_settings.proposal_answering_enabled && current_settings.proposal_answering_enabled %>
     <%= form.check_boxes_tree :state, filter_proposals_state_values, legend_title: t(".state"), "aria-controls": "proposals" %>
   <% end %>
