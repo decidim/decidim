@@ -484,8 +484,11 @@ en:
           select_a_registration_type: Please select a registration type
           show_embedded_iframe_help: Whether or not embed the iframe for this videoconference URL. Only a few services allow embedding (i.e. Youtube, Twitch...)
         index:
+          click_here: Click here
           new_meeting: New meeting
+          see_all: See all meetings
           see_all_withdrawn: See all withdrawn meetings
+          text_banner: You are viewing the list of meetings withdrawn by their authors. %{go_back_link} to go back to the meeting index.
         meeting_minutes:
           related_information: Related Information
         meetings:

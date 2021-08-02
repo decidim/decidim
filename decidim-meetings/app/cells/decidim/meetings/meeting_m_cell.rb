@@ -43,6 +43,10 @@ module Decidim
 
       private
 
+      def has_state?
+        withdrawn?
+      end
+
       def spans_multiple_dates?
         start_date != end_date
       end
