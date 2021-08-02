@@ -82,7 +82,7 @@ describe "Explore Budgets", :slow, type: :system do
           visit_component
 
           expect(item).to have_selector(".budget-list__icon .icon--check")
-          expect(item).to have_link("Show", href: budget_path(budget))
+          expect(item).to have_link("See projects", href: budget_path(budget))
         end
       end
     end
