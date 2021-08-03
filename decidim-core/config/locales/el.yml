@@ -62,7 +62,6 @@ el:
     'true': 'Ναι'
   carrierwave:
     errors:
-      general: Σφάλμα κατά την επεξεργασία της εικόνας
       image_too_big: Η εικόνα είναι πολύ μεγάλη
   date:
     formats:

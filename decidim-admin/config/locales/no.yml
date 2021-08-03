@@ -48,7 +48,6 @@
         favicon: Ikon
         force_authentication: Tving godkjenning
         force_users_to_authenticate_before_access_organization: Pålegg brukere å godkjenne før tilgang til organisasjonen
-        from: Fra e-postadresse
         github_handler: GitHub brukernavn
         header_snippets: Utdrag topptekst
         highlight_alternative_color: Fremhev, alternativ
@@ -153,12 +152,10 @@
           error: Det oppstod et problem med å godkjenne administrator vilkårene.
           success: Flott! Du har godtatt administratorenes vilkår for bruk.
         actions:
-          are_you_sure: Er du sikker på å nekte administrasjons vilkårene?
           refuse: Avslå administratorvilkårene
           title: Godta vilkårene for bruk
         required_review:
           alert: 'Påkrevd: Gå gjennom administrasjons vilkårene våre'
-          callout: Vennligst ta deg tid til å se gjennom administrator Vilkår for bruk. Ellers vil du ikke kunne administrere plattformen.
           cta: Se over dem nå.
         title: Administrator vilkår for bruk
       area_types:
@@ -181,7 +178,6 @@
           error: Det oppstod et problem med å opprette et nytt område.
           success: Området ble opprettet.
         destroy:
-          has_spaces: Område har avhengige rom, den må ikke ha avhengigheter for å bli slettet.
           success: Området ble ødelagt
         edit:
           title: Endre området
@@ -495,7 +491,6 @@
       newsletters:
         create:
           error: Det oppstod et problem med å opprette dette nyhetsbrevet.
-          success: Nyhetsbrev opprettet. Vennligst se gjennom det før du sender.
         deliver:
           error: Det oppstod et problem med å levere dette nyhetsbrevet.
           success: Nyhetsbrevet ble levert.
@@ -572,12 +567,10 @@
           title: Offisialiser deltaker "%{name}"
         show_email_modal:
           close_modal: Lukk modal
-          description: Hvis du trenger å kontakte en deltaker direkte, kan du klikke på Vis for å se e-postadressen. Denne handlingen vil bli logget.
           email_address: E-postadresser
           full_name: Fullt navn
           hidden: skjult
           show: Vis
-          title: Vis deltakerens e-postadresse
       organization:
         edit:
           title: Rediger organisasjon
@@ -796,10 +789,6 @@
           no_users_count_statistics_yet: Det er ingen statistikk på antall brukere enda
           participants: Deltakere
       view_public_page: Vis offentlig side
-    forms:
-      errors:
-        impersonate_user:
-          reason: Du må oppgi en grunn når du administrerer en ikke administrert deltaker
     moderations:
       actions:
         hidden: Skjult

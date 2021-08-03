@@ -142,12 +142,10 @@ rails decidim:active_storage_migrations:check_migration_from_carrierwave_to_acti
 
 ### Changed
 
-* Meetings merge minutes and close actions - [\#7968](https://github.com/decidim/decidim/pull/7968)
-
 ### Fixed
 
 ### Removed
 
 ## Previous versions
 
-Please check [release/0.24-stable](https://github.com/decidim/decidim/blob/release/0.24-stable/CHANGELOG.md) for previous changes.
+Please check [release/0.25-stable](https://github.com/decidim/decidim/blob/release/0.25-stable/CHANGELOG.md) for previous changes.
