@@ -41,7 +41,7 @@ ja:
         decidim/votings/polling_officer:
           attributes:
             presided_polling_station:
-              president_and_manager: 投票委員はすでに投票所の代表者/マネージャーです
+              president_and_manager: 投票委員はすでに投票所の投票管理者/マネージャーです
             voting:
               different_organization: 投票はユーザーと同じ組織内にある必要があります
         decidim/votings/polling_station:
@@ -77,7 +77,7 @@ ja:
           label: ロール
           values:
             manager: マネージャー
-            president: 責任者
+            president: 投票管理者
             unassigned: 未割り当て
         search_placeholder:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: '%{collection} を名前/メールアドレス/ニックネーム/投票所で検索します。'
@@ -747,7 +747,7 @@ ja:
             fields:
               address: 住所
               polling_station_managers: マネージャー
-              polling_station_president: 責任者
+              polling_station_president: 投票管理者
               title: タイトル
             name: 投票所
           voting:
@@ -764,6 +764,9 @@ ja:
         monitoring_committee_verify_elections:
           index:
             how_to_run_verifier: 'いったんファイルをダウンロードし問題のないことが確認できたら、ユニバーサルベリファイアの実行に進めます。 <a href=''https://github.com/decidim/decidim-bulletin-board''>このリポジトリ</a> をクローンして、ルートのフォルダにて次のコマンドを実行します:'
+        polling_officers:
+          index:
+            role_president: 投票管理者
       polling_officer_zone:
         in_person_votes:
           update:
