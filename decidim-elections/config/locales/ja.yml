@@ -631,8 +631,17 @@ ja:
           description: Decidimで新しいアカウントを作成しますか？ プロセスに参加し、組織の積極的な一員になることができます。
           no_account: いいえ結構です。
           title: Decidimは初めてですか？
+        update:
+          error: 投票ステータスの更新中に問題が発生しました。もう一度投票してください。
         verify:
+          content:
+            heading: 投票を確認
+            info: この検証器は、暗号化されたテキスト文字列で識別された投票が正しく変換され、投票箱内にあることを確認します。
+          error:
+            header: 投票が見つかりません！
+            info: 投票コードが %{link} 投票箱に見つかりませんでした。もう一度やり直してください。
           form:
+            back: Decidimに戻る
             submit: チェック
             vote_identifier: '識別コード:'
           header:
@@ -656,6 +665,25 @@ ja:
         trustees:
           new_election:
             email_intro: '%{resource_title} 選挙の受託者として追加されました。'
+            email_outro: '%{resource_title} 選挙の受託者に追加されたため、この通知が届きました。'
+            email_subject: あなたは %{resource_title} 選挙の受託者です..
+            notification_title: あなたは <a href="%{resource_path}">%{resource_title}</a> 選挙の受託者です。
+          new_trustee:
+            email_intro: 管理者が %{resource_name} の受託者としてあなたを追加しました。受託者ゾーンで <a href='%{trustee_zone_url}'>公開鍵を作成する必要があります。</a>
+            email_outro: '%{resource_name} の受信者として追加されたため、この通知を受信しました。'
+            email_subject: あなたは %{resource_name} の受託者です。
+            notification_title: あなたは <a href="%{participatory_space_url}">%{resource_name}</a> の受託者です。
+        votes:
+          accepted_votes:
+            email_intro: '投票が承認されました！投票トークン: %{encrypted_vote_hash} を使用して、投票を <a href="%{verify_url}">ここ</a> で確認できます。'
+            email_outro: '%{resource_name} 選挙に投票したため、この通知を受け取りました。'
+            email_subject: '%{resource_name} への投票が承認されました。'
+            notification_title: 'あなたの投票が承認されました。 <a href="%{verify_url}">ここ</a>であなたの投票トークン: %{encrypted_vote_hash} を使って投票を確認してください。'
+      votings:
+        polling_officers:
+          polling_station_assigned:
+            email_outro: '%{polling_station_name} の%{role} として割り当てられているため、この通知を受け取りました。'
+            email_subject: あなたは投票所%{polling_station_name} の %{role} です。
     help:
       participatory_spaces:
         votings:
@@ -767,6 +795,13 @@ ja:
         polling_officers:
           index:
             role_president: 投票管理者
+        polling_stations:
+          form:
+            polling_station_president_help: '投票管理者:投票所の代表を務める担当者。 投票委員がすでに投票所に設置されていること、および他の投票所に割り当てられていないことを確認してください'
+            select_president: 投票所の投票管理者として投票委員を選択してください
+        votings:
+          edit:
+            assign_missing_officers: 投票管理者またはマネージャーがいない投票所があります。投票所セクションからアサインしてください
       polling_officer_zone:
         in_person_votes:
           update:
@@ -779,6 +814,9 @@ ja:
               no_polling_stations: まだどの投票所にも割り当てられていません。
               role: あなたの役割
               voting: 投票
+      polling_officers:
+        roles:
+          president: 投票管理者
       votings:
         check_census:
           title: 投票できますか？
