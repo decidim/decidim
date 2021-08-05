@@ -27,6 +27,7 @@ fr:
     components:
       debates:
         actions:
+          comment: Commenter
           create: Créer
           endorse: Soutenir
         name: Débats

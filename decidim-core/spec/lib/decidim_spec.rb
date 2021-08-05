@@ -7,7 +7,7 @@ describe Decidim do
     expect(described_class.version).not_to be nil
   end
 
-  describe ".seed!", processing_uploads_for: Decidim::AttachmentUploader do
+  describe ".seed!" do
     it "actually seeds" do
       expect { described_class.seed! }.not_to raise_error
     end

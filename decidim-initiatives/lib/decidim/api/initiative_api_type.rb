@@ -21,6 +21,10 @@ module Decidim
       field :signature_type, GraphQL::Types::String, "Signature type of the initiative", null: true
 
       field :initiatives, [Decidim::Initiatives::InitiativeType, { null: true }], "The initiatives that have this type", null: false
+
+      def banner_image
+        object.attached_uploader(:banner_image).path
+      end
     end
   end
 end

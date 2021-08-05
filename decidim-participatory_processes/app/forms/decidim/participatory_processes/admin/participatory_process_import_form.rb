@@ -8,6 +8,7 @@ module Decidim
       #
       class ParticipatoryProcessImportForm < Form
         include TranslatableAttributes
+        include Decidim::HasUploadValidations
 
         JSON_MIME_TYPE = "application/json"
         # Accepted mime types

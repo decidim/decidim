@@ -241,6 +241,7 @@ cs:
     components:
       budgets:
         actions:
+          comment: Komentář
           vote: Hlasovat
         name: Rozpočty
         settings:

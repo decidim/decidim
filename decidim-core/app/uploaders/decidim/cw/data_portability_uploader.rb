@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Decidim
+module Decidim::Cw
   # This class deals with saving data portability Zip Files to App
   class DataPortabilityUploader < ApplicationUploader
     # Override the directory where uploaded files will be stored.

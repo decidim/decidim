@@ -74,8 +74,8 @@ module Decidim
     end
 
     # Returns the ids for all the published components in the given +spaces+.
-    def visible_component_ids_from_spaces(spaces)
-      Decidim::Component.where(participatory_space: spaces).published.pluck(:id)
+    def visible_components_from_spaces(spaces)
+      Decidim::Component.where(participatory_space: spaces).published
     end
   end
 end

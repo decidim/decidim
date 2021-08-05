@@ -1,1 +1,17 @@
 ga:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Teideal
+      template:
+        name: Ainm
+  decidim:
+    templates:
+      admin:
+        questionnaire_templates:
+          choose:
+            skip_template: Scipeáil
+          edit:
+            edit: Eagar
+          form:
+            save: Sábháil

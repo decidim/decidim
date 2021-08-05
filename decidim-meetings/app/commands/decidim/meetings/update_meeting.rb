@@ -62,7 +62,8 @@ module Decidim
             registration_terms: { I18n.locale => form.registration_terms },
             registrations_enabled: form.registrations_enabled,
             type_of_meeting: form.clean_type_of_meeting,
-            online_meeting_url: form.online_meeting_url
+            online_meeting_url: form.online_meeting_url,
+            show_embedded_iframe: form.show_embedded_iframe
           },
           visibility: "public-only"
         )

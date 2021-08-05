@@ -62,7 +62,6 @@
     'true': 'Ja'
   carrierwave:
     errors:
-      general: Feil ved prosessering av bilde
       image_too_big: Dette bilde er for stort
   date:
     formats:

@@ -95,8 +95,8 @@ module Decidim
           def download_access_codes_file
             enforce_permission_to :manage, :census, voting: current_participatory_space
 
-            if access_codes_file_exists?
-              redirect_to uploader.url
+            if current_census.access_codes_file.attached?
+              redirect_to Rails.application.routes.url_helpers.rails_blob_url(current_census.access_codes_file.blob, only_path: true)
             else
               flash[:error] = t("export_access_codes.file_not_exists", scope: "decidim.votings.census.admin.census")
               redirect_to admin_voting_census_path
@@ -155,16 +155,6 @@ module Decidim
             else
               raise "no view for this status"
             end
-          end
-
-          def access_codes_file_exists?
-            uploader.file.exists?
-          rescue StandardError
-            false
-          end
-
-          def uploader
-            current_census.access_codes_file(params[:filename])
           end
 
           def user_email

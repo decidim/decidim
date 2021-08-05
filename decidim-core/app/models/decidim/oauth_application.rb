@@ -8,8 +8,8 @@ module Decidim
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization", inverse_of: :oauth_applications
 
-    validates_upload :organization_logo
-    mount_uploader :organization_logo, OAuthApplicationLogoUploader
+    has_one_attached :organization_logo
+    validates_upload :organization_logo, uploader: OAuthApplicationLogoUploader
 
     def owner
       organization

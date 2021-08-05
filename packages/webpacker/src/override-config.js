@@ -8,7 +8,7 @@ const overrideSassRule = (modifyConfig) => {
     return modifyConfig;
   }
 
-  const sassLoader = sassRule.use.find(use => use.loader.match(/sass-loader/));
+  const sassLoader = sassRule.use.find((use) => use.loader.match(/sass-loader/));
   if (!sassLoader) {
     return modifyConfig;
   }
@@ -21,21 +21,22 @@ const overrideSassRule = (modifyConfig) => {
   // Add the extra importer to the sass-loader to load the import statements for
   // Decidim modules.
   sassLoader.options.sassOptions.importer = [
-    (url, _prev) => {
-      const matches = url.match(/^\!decidim-style-imports\[([^\]]+)\]$/);
+    (url) => {
+      const matches = url.match(/^!decidim-style-([^[]+)\[([^\]]+)\]$/);
       if (!matches) {
         return null;
       }
 
-      const group = matches[1];
-      if (!imports[group]) {
+      const type = matches[1];
+      const group = matches[2];
+      if (!imports[type] || !imports[type][group]) {
         // If the group is not defined, return an empty configuration because
         // otherwise the importer would continue finding the asset through
         // paths which obviously fails.
         return { contents: "" };
       }
 
-      const statements = imports[group].map((style) => `@import "${style}";`);
+      const statements = imports[type][group].map((style) => `@import "${style}";`);
 
       return { contents: statements.join("\n") };
     }
@@ -44,6 +45,6 @@ const overrideSassRule = (modifyConfig) => {
   return modifyConfig;
 }
 
-module.exports = (originalConfig) => {
+module.exports = (originalConfig) => { // eslint-disable-line
   return overrideSassRule(originalConfig);
 };

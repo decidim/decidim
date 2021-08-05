@@ -234,6 +234,7 @@ en:
     components:
       budgets:
         actions:
+          comment: Comment
           vote: Vote
         name: Budgets
         settings:

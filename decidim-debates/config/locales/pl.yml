@@ -29,6 +29,7 @@ pl:
     components:
       debates:
         actions:
+          comment: Skomentuj
           create: Tworzenie
           endorse: Rekomendacje
         name: Debaty
