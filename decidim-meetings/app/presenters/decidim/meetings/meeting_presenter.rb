@@ -14,11 +14,13 @@ module Decidim
         __getobj__
       end
 
-      def title(links: false, all_locales: false)
+      def title(links: false, all_locales: false, html_escape: false)
         return unless meeting
 
         handle_locales(meeting.title, all_locales) do |content|
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_html_escape(content))
+          content = decidim_html_escape(content) if html_escape
+
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
           renderer.render(links: links).html_safe
         end
       end
