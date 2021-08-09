@@ -611,6 +611,7 @@ fr:
             attachments: Pièces jointes
             census: Recensement
             info: Information
+            monitoring_committee: Comité de suivi
             monitoring_committee_members: Membres
             polling_stations: Bureaux de vote
         models:
@@ -787,6 +788,13 @@ fr:
             name: Nom
             title: 'Vérifiez que les données suivantes sont correctes:'
             verify_document: Document requis
+        polling_officers:
+          index:
+            polling_officer_role_description: Vous avez été assigné à agir en tant qu’officier du Bureau de vote (Président ou Gestionnaire) sur certaines des élections ayant lieu sur cette plateforme.
+            polling_station:
+              no_polling_stations: Vous n'êtes pas encore assigné à un Bureau de vote.
+              role: Votre rôle
+              voting: Élection
       polling_station_closure_recount:
         nota_option: Vide / Aucune des options ci-dessus
         polling_officer_notes: 'Notes de l''accesseur :'
