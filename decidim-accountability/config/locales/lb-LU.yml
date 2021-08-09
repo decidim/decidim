@@ -10,3 +10,23 @@ lb:
       status:
         description: Beschreiwung
         key: Schlëssel
+        name: Numm
+        progress: Progrès
+      timeline_entry:
+        description: Beschreiwung
+        entry_date: Datum
+  decidim:
+    accountability:
+      admin:
+        exports:
+          results: Resultater
+        import_results:
+          new:
+            import: Import
+            title: Resultater aus engem CSV-Fichier importéieren
+        imports:
+          create:
+            success: Den Import vum Fichier huet ugefaang. Dir kritt eng Email an den nächste puer Minutte mam Resultat vum Import
+        models:
+          result:
+            name: Resultat
