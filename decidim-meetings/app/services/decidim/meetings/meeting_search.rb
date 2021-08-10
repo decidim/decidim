@@ -13,9 +13,9 @@ module Decidim
       # page        - The page number to paginate the results.
       # per_page    - The number of meetings to return per page.
       def initialize(options = {})
-        results = options.fetch(:scope, Meeting.published)
-        scope = options[:state]&.member?("withdrawn") ? results.withdrawn : results.except_withdrawn
-        super(scope, options)
+        options[:scope] = options.fetch(:scope, Meeting.published)
+        options[:scope] = options[:state] == "withdrawn" ? options[:scope].withdrawn : options[:scope].except_withdrawn
+        super(options[:scope], options)
       end
 
       # Handle the date filter
@@ -51,7 +51,7 @@ module Decidim
 
       # Handle the state filter
       def search_state
-        return query.withdrawn if state.member? "withdrawn"
+        return query.withdrawn if state == "withdrawn"
 
         query.except_withdrawn
       end
