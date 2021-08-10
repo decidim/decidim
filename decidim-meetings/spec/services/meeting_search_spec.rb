@@ -88,9 +88,9 @@ module Decidim::Meetings
         let(:params) { default_params.merge(state: state) }
 
         context "when withdrawn" do
-          let(:state) { ["withdrawn"] }
+          let(:state) { "withdrawn" }
 
-          it "only returns that are withdrawn" do
+          it "only returns meetings that are withdrawn" do
             expect(subject).to match_array [meeting4]
           end
         end
