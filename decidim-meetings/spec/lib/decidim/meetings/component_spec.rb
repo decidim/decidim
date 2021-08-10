@@ -61,6 +61,15 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
         expect(Decidim::Meetings::Meeting.where(component: component).count).to eq 3
         expect(subject).to eq 2
       end
+
+      context "when having withdrawn meeting" do
+        let!(:withdrawn_meeting) { create :meeting, :withdrawn, component: component }
+
+        it "will exclude the withdrawn one" do
+          expect(Decidim::Meetings::Meeting.where(component: component).count).to eq 4
+          expect(subject).to eq 2
+        end
+      end
     end
 
     describe "endorsements_count" do

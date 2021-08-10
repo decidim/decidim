@@ -484,7 +484,11 @@ en:
           select_a_registration_type: Please select a registration type
           show_embedded_iframe_help: Whether or not embed the iframe for this videoconference URL. Only a few services allow embedding (i.e. Youtube, Twitch...)
         index:
+          click_here: Click here
           new_meeting: New meeting
+          see_all: See all meetings
+          see_all_withdrawn: See all withdrawn meetings
+          text_banner: You are viewing the list of meetings withdrawn by their authors. %{go_back_link} to go back to the meeting index.
         meeting_minutes:
           related_information: Related Information
         meetings:
@@ -525,6 +529,9 @@ en:
             other: "%{count} slots remaining"
           view: View
           visit_finished: View past meeting
+          withdraw_btn_hint: You can withdraw your meeting if you change your mind. The meeting is not deleted, it will appear in the list of withdrawn meetings.
+          withdraw_confirmation_html: Are you sure you want to withdraw this meeting?<br><br><strong>This action cannot be cancelled!</strong>
+          withdraw_meeting: Withdraw meeting
         update:
           invalid: There was a problem updating the meeting.
           success: You have updated the meeting successfully.
@@ -602,8 +609,12 @@ en:
       types:
         private_meeting: Private meeting
         transparent: Transparent
+        withdraw: Withdrawn
       versions:
         back_to_resource: Go back to meeting
+      withdraw:
+        error: An error ocurred while withdrawing the meeting
+        success: The meeting has been withdrawn successfully
     metrics:
       meetings:
         description: Number of meetings created
