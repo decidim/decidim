@@ -42,6 +42,12 @@ si:
         results:
           index:
             title: ප්‍රතිඵල
+        shared:
+          subnav:
+            statuses: තත්වයන්
+        statuses:
+          edit:
+            title: තත්වය සංස්කරණය
       content_blocks:
         highlighted_results:
           dates: දින
