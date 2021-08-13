@@ -151,10 +151,6 @@ module Decidim
         closed_at.present?
       end
 
-      def live?
-        true
-      end
-
       def past?
         end_time < Time.current
       end
