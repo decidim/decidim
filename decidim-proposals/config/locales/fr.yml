@@ -795,7 +795,7 @@ fr:
           answer: Répondre
           back_to: Retour à
           back_to_list: Retour à la liste
-          changes_at_title: Amendement de (%{title}"
+          changes_at_title: Amendement de "%{title}"
           comments: Commentaires
           edit_proposal: Modifier la proposition
           endorsements_list: Liste des soutiens
