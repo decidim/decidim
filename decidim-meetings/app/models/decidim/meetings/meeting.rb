@@ -53,6 +53,8 @@ module Decidim
       scope :published, -> { where.not(published_at: nil) }
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
       scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }
+      scope :withdrawn, -> { where(state: "withdrawn") }
+      scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
 
       scope :visible_meeting_for, lambda { |user|
         (all.published.distinct if user&.admin?) ||
@@ -153,6 +155,10 @@ module Decidim
         end_time < Time.current
       end
 
+      def emendation?
+        false
+      end
+
       def has_available_slots?
         return true if available_slots.zero?
 
@@ -208,6 +214,20 @@ module Decidim
         return false if hidden?
 
         !private_meeting? || transparent?
+      end
+
+      # Public: Checks if the author has withdrawn the meeting.
+      #
+      # Returns Boolean.
+      def withdrawn?
+        state == "withdrawn"
+      end
+
+      # Checks whether the user can withdraw the given meeting.
+      #
+      # user - the user to check for withdrawability.
+      def withdrawable_by?(user)
+        user && !withdrawn? && authored_by?(user)
       end
 
       # Overwrites method from Paddable to add custom rules in order to know

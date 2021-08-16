@@ -132,6 +132,24 @@ describe Decidim::Meetings::Permissions do
     end
   end
 
+  context "when withdrawing a meeting" do
+    let(:action) do
+      { scope: :public, action: :withdraw, subject: :meeting }
+    end
+
+    context "when meeting author is the user trying to withdraw" do
+      let(:meeting) { create :meeting, author: user, component: meeting_component }
+
+      it { is_expected.to eq true }
+    end
+
+    context "when trying by another user" do
+      let(:user) { build :user }
+
+      it { is_expected.to eq false }
+    end
+  end
+
   context "when leaving a meeting" do
     let(:action) do
       { scope: :public, action: :leave, subject: :meeting }

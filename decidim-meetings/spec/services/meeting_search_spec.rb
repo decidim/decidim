@@ -47,6 +47,20 @@ module Decidim::Meetings
         )
       end
 
+      # Meeting withdrawn, shouldn't appear
+      let!(:meeting4) do
+        create(
+          :meeting,
+          :published,
+          :withdrawn,
+          author: user,
+          component: component,
+          start_time: 1.day.ago,
+          end_time: 2.days.from_now,
+          description: Decidim::Faker::Localized.literal("Nulla TestCheck accumsan tincidunt.")
+        )
+      end
+
       context "with date" do
         let(:params) { default_params.merge(date: date) }
         let!(:past_meeting) do
@@ -66,6 +80,26 @@ module Decidim::Meetings
 
           it "only returns meetings that were scheduled in the past" do
             expect(subject).to match_array [past_meeting]
+          end
+        end
+      end
+
+      context "with state" do
+        let(:params) { default_params.merge(state: state) }
+
+        context "when withdrawn" do
+          let(:state) { "withdrawn" }
+
+          it "only returns meetings that are withdrawn" do
+            expect(subject).to match_array [meeting4]
+          end
+        end
+
+        context "when except withdrawn" do
+          let(:state) { nil }
+
+          it "only returns meetings that are not withdrawn" do
+            expect(subject).to match_array [meeting1, meeting2]
           end
         end
       end
