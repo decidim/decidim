@@ -342,6 +342,20 @@ describe "Orders", type: :system do
         end
       end
 
+      context "and in project show page cant exceed the budget" do
+        let!(:expensive_project) { create(:project, budget: budget, budget_amount: 250_000_000) }
+
+        it "cannot add the project" do
+          page.visit Decidim::EngineRouter.main_proxy(component).budget_project_path(budget, expensive_project)
+
+          within "#project-#{expensive_project.id}-budget-button" do
+            page.find("button").click
+          end
+
+          expect(page).to have_css("#budget-excess", visible: :visible)
+        end
+      end
+
       context "and add another project exceeding vote threshold" do
         let!(:other_project) { create(:project, budget: budget, budget_amount: 50_000_000) }
 

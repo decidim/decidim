@@ -161,4 +161,8 @@
       pointer-events: none;
     }
   }
+
+  &__nocircle{
+    border-radius: 4px;
+  }
 }
