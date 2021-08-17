@@ -226,8 +226,9 @@ module Decidim
       # Checks whether the user can withdraw the given meeting.
       #
       # user - the user to check for withdrawability.
+      # past meetings cannot be withdrawn
       def withdrawable_by?(user)
-        user && !withdrawn? && authored_by?(user)
+        user && !withdrawn? && !past? && authored_by?(user)
       end
 
       # Overwrites method from Paddable to add custom rules in order to know

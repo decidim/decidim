@@ -84,7 +84,8 @@ module Decidim
       def can_withdraw_meeting?
         component_settings&.creation_enabled_for_participants? &&
           meeting.authored_by?(user) &&
-          !meeting.withdrawn?
+          !meeting.withdrawn? &&
+          !meeting.past?
       end
 
       def can_close_meeting?
