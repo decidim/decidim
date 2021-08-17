@@ -51,23 +51,6 @@
     </div>
   </div>
   <div id="proposals" class="columns mediumlarge-8 large-9" aria-live="polite">
-    <% if params.dig("filter", "state_withdraw").present? && params["filter"]["state_withdraw"] == "withdrawn" %>
-      <div class="callout warning">
-        <%= t(".text_banner",
-              go_back_link: link_to(t(".click_here"), proposals_path("filter[state_withdraw]" => nil)),
-            ).html_safe %>
-      </div>
-    <% end %>
     <%= render partial: "proposals" %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="text-right">
-    <% if params.dig("filter", "state_withdraw").present? && params["filter"]["state_withdraw"] == "withdrawn" %>
-      <%= link_to t(".see_all"), proposals_path("filter[state_withdraw]" => nil) %>
-    <% else %>
-      <%= link_to t(".see_all_withdrawn"), proposals_path(filter: { state_withdraw: "withdrawn", state: [""] }) %>
-    <% end %>
   </div>
 </div>
