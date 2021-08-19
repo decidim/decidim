@@ -32,15 +32,13 @@ module Decidim::Votings::Census::Admin
       expect(subject.call).to broadcast(:ok)
     end
 
-    # rubocop:disable Lint/AmbiguousBlockAssociation, RSpec/IteratedExpectation
     it "enqueues a job for processing the dataset and strips the data from whitespaces" do
-      expect { subject.call }.to have_enqueued_job(CreateDatumJob).at_least(4).times.with { |_user, _dataset, row|
-        row.each do |field|
+      expect { subject.call }.to(have_enqueued_job(CreateDatumJob).at_least(4).times.with do |_user, _dataset, row|
+        row.last do |field|
           expect(field).to eq(field&.strip)
         end
-      }
+      end)
     end
-    # rubocop:enable Lint/AmbiguousBlockAssociation, RSpec/IteratedExpectation
 
     it "enqueues a job for processing the dataset" do
       expect { subject.call }.to enqueue_job(CreateDatumJob).at_least(4).times
