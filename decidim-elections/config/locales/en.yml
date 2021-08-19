@@ -337,6 +337,8 @@ en:
           start_tally: "%{user_name} started the tally for the %{resource_name} election on the Bulletin Board"
           start_vote: "%{user_name} started the voting period for the %{resource_name} election on the Bulletin Board"
           unpublish: "%{user_name} unpublished the %{resource_name} election"
+        trustee:
+          create: "%{user_name} assigned the user %{trustee_user} as Trustee"
       election_m:
         badge_name:
           finished: Finished

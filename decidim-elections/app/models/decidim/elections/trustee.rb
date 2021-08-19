@@ -15,6 +15,10 @@ module Decidim
         exists?(user: user)
       end
 
+      def self.log_presenter_class_for(_log)
+        Decidim::Elections::AdminLog::TrusteePresenter
+      end
+
       def self.for(user)
         find_by(user: user)
       end
