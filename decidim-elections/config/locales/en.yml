@@ -996,6 +996,10 @@ en:
         polling_officer:
           create: "%{user_name} assigned the user %{polling_officer_user} as polling officer in the space %{space_name}"
           delete: "%{user_name} unassigned the user %{polling_officer_user} as polling officer in the space %{space_name}"
+        polling_station:
+          create: "%{user_name} created the polling station %{resource_name} in the space %{space_name}"
+          delete: "%{user_name} deleted the polling station %{resource_name} in the space %{space_name}"
+          update: "%{user_name} updated the polling station %{resource_name} in the space %{space_name}"
         voting:
           create: "%{user_name} created the %{resource_name} voting"
           publish: "%{user_name} published the %{resource_name} voting"
