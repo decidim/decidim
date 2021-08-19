@@ -90,18 +90,17 @@ en:
             unassigned: Unassigned
         search_placeholder:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Search %{collection} by name/email/nickname or polling station.
-          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
-          : Search %{collection} by title, address or officer name/email/nickname.
+          title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont: Search %{collection} by title, address or officer name/email/nickname.
         signed_eq:
           label: Signed
           values:
-            'false': Signed
-            'true': Not signed
+            "false": Signed
+            "true": Not signed
         validated_eq:
           label: Validated
           values:
-            'false': Validated
-            'true': Not validated
+            "false": Validated
+            "true": Not validated
     components:
       elections:
         actions:
@@ -234,8 +233,8 @@ en:
             no_trustees: There are no Trustees configured for this participatory space
             not_used_trustee: "(not used)"
             public_key:
-              'false': does not have a <strong>public key</strong>
-              'true': has a <strong>public key</strong>
+              "false": does not have a <strong>public key</strong>
+              "true": has a <strong>public key</strong>
             requirements:
               max_selections: All the questions have a correct value for <strong>maximum of answers</strong>.
               minimum_answers: Each question has <strong>at least 2 answers</strong>.
@@ -392,13 +391,13 @@ en:
           tally_title: Tally process
           title: Election Log
           verifiable_results:
-            checksum: 'File SHA256 checksum:'
+            checksum: "File SHA256 checksum:"
             description:
               not_ready: The verifiable election file and SHA256 checksum aren't available yet. As soon as the results are published, you'll be able to verify this election.
-              ready: 'Here, you have the option to verify the election. First, you have to download the file and make sure it has not been corrupted. To do so, run the following command and check that the ouput matches the checksum:'
-            how_to_verify: 'Once you downloaded the file and made sure it is ok, you can proceed to run the universal verifier. Clone <a href=''https://github.com/decidim/decidim-bulletin-board''>this repository</a> and, from the root folder, run the following command:'
+              ready: "Here, you have the option to verify the election. First, you have to download the file and make sure it has not been corrupted. To do so, run the following command and check that the ouput matches the checksum:"
+            how_to_verify: "Once you downloaded the file and made sure it is ok, you can proceed to run the universal verifier. Clone <a href='https://github.com/decidim/decidim-bulletin-board'>this repository</a> and, from the root folder, run the following command:"
             title: Verify Election results
-            verifiable_file: 'Verifiable election file:'
+            verifiable_file: "Verifiable election file:"
           verify: Verify election
           vote_description:
             finished: The voting process is finished.
@@ -418,11 +417,11 @@ en:
           filter_by: Filter by
           unfold: Unfold
         preview:
-          available_answers: 'Available answers:'
-          description: 'These are the questions you will find in the voting process:'
+          available_answers: "Available answers:"
+          description: "These are the questions you will find in the voting process:"
           title: Election questions
         results:
-          description: 'These are the results of the voting, for each question:'
+          description: "These are the results of the voting, for each question:"
           percentage: "%{count}%"
           selected: Selected
           title: Election results
@@ -448,7 +447,7 @@ en:
             will_verify: You will be able to verify your vote once the election is started.
           voting_period_status:
             finished: Voting began on %{start_time} and ended on %{end_time}
-            ongoing: 'Active voting until: %{end_time}'
+            ongoing: "Active voting until: %{end_time}"
             upcoming: Voting begins on %{start_time}
       feedback:
         answer:
@@ -540,7 +539,7 @@ en:
             title: Tally for %{election}
           update:
             error: The election status wasn't updated.
-            success: 'The election status is: %{status}'
+            success: "The election status is: %{status}"
         menu:
           trustee_zone: Trustee zone
         no_bulletin_board:
@@ -551,9 +550,9 @@ en:
             elections:
               list:
                 action_required:
-                  'false': 'No'
+                  "false": "No"
                   name: Action required?
-                  'true': Perform action
+                  "true": Perform action
                 bb_status: Status
                 election: Election
                 voting_period: Voting period
@@ -587,10 +586,10 @@ en:
         ballot_decision:
           audit: "( Audit ballot )"
           back: Start voting process again
-          ballot_hash: 'Your ballot identifier is:'
+          ballot_hash: "Your ballot identifier is:"
           cast: Cast ballot
           description: Here, you have the options to cast your ballot so that it's properly counted or, alternatively, you can audit that your ballot was correctly encrypted. For security reasons, auditing your ballot will spoil it. That means, to cast your vote, you will need to restart the voting process.
-          header: 'Ballot is encrypted: cast it or audit it'
+          header: "Ballot is encrypted: cast it or audit it"
         casting:
           header: Casting the vote...
           text: Your ballot is being casted on the ballot box.
@@ -633,7 +632,7 @@ en:
           not_allowed: You are not allowed to vote on this election at this moment.
         modal:
           close: Close
-          proposal_header: 'Proposals:'
+          proposal_header: "Proposals:"
         new:
           answer_choices: You can select up to %{choices} answers
           more_information: More information
@@ -659,7 +658,7 @@ en:
           form:
             back: Back to Decidim
             submit: Check
-            vote_identifier: 'Identifier code:'
+            vote_identifier: "Identifier code:"
           header:
             title: Verify your vote
           success:
@@ -674,7 +673,7 @@ en:
     events:
       elections:
         election_published:
-          email_intro: 'The %{resource_title} election is now active for %{participatory_space_title}. You can see it from this page:'
+          email_intro: "The %{resource_title} election is now active for %{participatory_space_title}. You can see it from this page:"
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: The %{resource_title} election is now active for %{participatory_space_title}.
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> election is now active for %{participatory_space_title}.
@@ -703,7 +702,7 @@ en:
             email_subject: You are %{role} of the Polling Station %{polling_station_name}.
             notification_title: You are %{role} of the Polling Station %{polling_station_name} in the voting <a href="%{resource_path}">%{resource_title}</a>.
         send_access_code:
-          instruction: 'Here is your Access Code that you asked for: %{access_code}. With this you will be able to participate in %{voting}.'
+          instruction: "Here is your Access Code that you asked for: %{access_code}. With this you will be able to participate in %{voting}."
           subject: Your Access Code to participate in %{voting}
     help:
       participatory_spaces:
@@ -729,10 +728,10 @@ en:
             title: Edit ballot style
             update: Update
           form:
-            code_help: 'Hint: the code is the link between the census and a ballot style. When uploading the census data, every entry will be assigned a ballot style by matching the code'
+            code_help: "Hint: the code is the link between the census and a ballot style. When uploading the census data, every entry will be assigned a ballot style by matching the code"
             election: Election
             questions: Questions for this ballot style
-            questions_help: 'Hint: select the questions from the election components to be presented to the voters assigned to this ballot style'
+            questions_help: "Hint: select the questions from the election components to be presented to the voters assigned to this ballot style"
           index:
             actions:
               confirm_destroy: Are you sure?
@@ -902,9 +901,9 @@ en:
         monitoring_committee_verify_elections:
           index:
             download: Download
-            how_to_checksum: 'To make sure the file you downloaded has not been corrupted or tampered with during the download process, run the following command in your console and check that the output matches the checksum reported above:'
+            how_to_checksum: "To make sure the file you downloaded has not been corrupted or tampered with during the download process, run the following command in your console and check that the output matches the checksum reported above:"
             how_to_download: To verify an election, download its verifiable file from the table above.
-            how_to_run_verifier: 'Once you downloaded the file and made sure it is ok, you can proceed to run the universal verifier. Clone <a href=''https://github.com/decidim/decidim-bulletin-board''>this repository</a> and, from the root folder, run the following command:'
+            how_to_run_verifier: "Once you downloaded the file and made sure it is ok, you can proceed to run the universal verifier. Clone <a href='https://github.com/decidim/decidim-bulletin-board'>this repository</a> and, from the root folder, run the following command:"
             how_to_title: How to verify the validity of an election
             not_available: Not yet avaliable
             title: Elections
@@ -943,11 +942,11 @@ en:
             title: Edit polling station
             update: Update polling station
           form:
-            address_help: 'Address: used by Geocoder to find the location'
-            location_help: 'Location: message directed to the voters implying the exact place of the polling station'
-            location_hints_help: 'Location hints: additional info. Example: the floor of the building where the polling station is located.'
-            polling_station_managers_help: 'Polling station managers: the officers that will act as polling station managers. Make sure the officers have already been created in Polling Officers and that they are not already assigned to another polling station'
-            polling_station_president_help: 'Polling station officer: the officer that will act as polling station president. Make sure the officer has already been created in Polling Officers and that (s)he is not already assigned to another polling station'
+            address_help: "Address: used by Geocoder to find the location"
+            location_help: "Location: message directed to the voters implying the exact place of the polling station"
+            location_hints_help: "Location hints: additional info. Example: the floor of the building where the polling station is located."
+            polling_station_managers_help: "Polling station managers: the officers that will act as polling station managers. Make sure the officers have already been created in Polling Officers and that they are not already assigned to another polling station"
+            polling_station_president_help: "Polling station officer: the officer that will act as polling station president. Make sure the officer has already been created in Polling Officers and that (s)he is not already assigned to another polling station"
             select_president: Select a polling officer as president of the polling station
           index:
             title: Polling stations
@@ -976,7 +975,7 @@ en:
           form:
             census_contact_information_help: This contact information is for a participant who wants to report issues with the census. It can be an email address, a contact form on another site, a Decidim survey for visitors, etc.
             select_a_voting_type: Please select a voting type
-            slug_help: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help: "URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}"
             title: Title
             voting_type:
               hybrid: Hybrid
@@ -1002,7 +1001,7 @@ en:
           census:
             create:
               invalid: An error occurred uploading the census, please try again later.
-              invalid_csv_header: The CSV header does not have the correct number of fields - please read the instructions carefully
+              invalid_csv_header: The CSV headers are missing or not correct - please read the instructions carefully
             creating_data:
               info_message: "<strong>Please wait</strong>, processed %{processed_count} of %{raw_count} rows from %{file} file."
             delete:
@@ -1034,21 +1033,21 @@ en:
               info_message: "<strong>Please wait</strong>, the voting access codes are being generated..."
             new:
               file_help:
-                explanation: 'Guidance for file:'
+                explanation: "Guidance for file:"
                 message_1: Only CSV (.csv) files are allowed.
                 message_2: The separator between columns must be a semicolon (";").
               has_ballot_styles_message: You set up Ballot Styles. Please make sure that the "%{ballot_style_code_header}" field in the CSV corresponds to the desired Ballot Style's code.
               info_message: "<strong>There is no census yet.</strong> Please use the form below to create it importing a CSV file."
-              missing_ballot_styles_message: 'There is no Ballot Style for this voting yet. If you wish to have conditional questions (i.e.: present the voter with different questions depending on, e.g., the district/region of residence), you need to set up the <a href=%{ballot_styles_admin_path}>Ballot Styles</a> <strong>before</strong> importing the census. If you want to present all voters with the same questions, you can proceed with the census import procedure.'
+              missing_ballot_styles_message: "There is no Ballot Style for this voting yet. If you wish to have conditional questions (i.e.: present the voter with different questions depending on, e.g., the district/region of residence), you need to set up the <a href=%{ballot_styles_admin_path}>Ballot Styles</a> <strong>before</strong> importing the census. If you want to present all voters with the same questions, you can proceed with the census import procedure."
               submit: Submit csv
               title: Create the census
             show:
               heading: Voting space census
             upload_info:
-              csv_example_with_ballot_style: 'An example of the file <strong>with</strong> ballot styles:'
-              csv_example_without_ballot_style: 'An example of the file <strong>without</strong> ballot styles:'
+              csv_example_with_ballot_style: "An example of the file <strong>with</strong> ballot styles:"
+              csv_example_without_ballot_style: "An example of the file <strong>without</strong> ballot styles:"
               csv_header_after: Do not include the last field ("%{ballot_style_code_header}") if you do not need ballot styles/conditional questions
-              csv_header_before: 'The census file must be a CSV file with the following header:'
+              csv_header_before: "The census file must be a CSV file with the following header:"
         document_types:
           dni: DNI
           nie: NIE
@@ -1114,21 +1113,21 @@ en:
             total_null_ballots: Total null ballots
             total_valid_ballots: Total valid ballots
           new:
-            election: 'Election:'
+            election: "Election:"
             heading: Vote recount
-            info_text: 'Please introduce the total number of ballots (envelopes) recounted in this Polling Station:'
+            info_text: "Please introduce the total number of ballots (envelopes) recounted in this Polling Station:"
             modal_ballots_count_error:
               btn_validate_total: Validate total recount of ballots
               close_modal: Close
-              info_explanation_text: 'Please review the total number of ballots. If the total number is correct, you must provide an explanation for the Monitoring Committee:'
+              info_explanation_text: "Please review the total number of ballots. If the total number is correct, you must provide an explanation for the Monitoring Committee:"
               info_text: The total number of ballots (envelopes) introduced doesn't match the record of people that has voted in this Polling Station.
               message_for_monitoring_committee: Message for the Monitoring Committee
               review_recount: Review the recount
               text_area_placeholder: Please type your message
               title: Total records do not add up
-              total_ballots: 'Total of ballots:'
-              total_people: 'Total people:'
-            polling_station: 'Polling station:'
+              total_ballots: "Total of ballots:"
+              total_people: "Total people:"
+            polling_station: "Polling station:"
             submit: Verify total number
             total_ballots_count: Number of ballots
           show:
@@ -1150,12 +1149,12 @@ en:
             success: Closure results successfully updated.
         in_person_votes:
           complete_voting:
-            available_answers: 'Available answers:'
+            available_answers: "Available answers:"
             census_verified: The participant has not voted yet.
             complete_voting: Complete voting
             identify_another: Identify another participant
-            questions_title: 'She is entitled to vote in the following questions:'
-            questions_title_voted: 'The participant has already voted online and is entitled to vote in the following questions:'
+            questions_title: "She is entitled to vote in the following questions:"
+            questions_title_voted: "The participant has already voted online and is entitled to vote in the following questions:"
             voted: The participant has voted
           create:
             error: The vote was not registered. Please try again.
@@ -1170,7 +1169,7 @@ en:
             month: Month
             month_placeholder: MM
             select: Select the type of the document
-            title: 'Select the document type and enter the participant''s document number:'
+            title: "Select the document type and enter the participant's document number:"
             validate_document: Validate document
             year: Year
             year_placeholder: YYYY
@@ -1188,7 +1187,7 @@ en:
           verify_document:
             census_present: This participant is listed in the census.
             name: Name
-            title: 'Check that the following data is correct:'
+            title: "Check that the following data is correct:"
             verify_document: Verify document
         menu:
           polling_officer_zone: Polling Officer zone
@@ -1218,14 +1217,14 @@ en:
           unassigned: Unassigned
       polling_station_closure_recount:
         nota_option: Blank/ None of the above
-        polling_officer_notes: 'Polling officer notes:'
+        polling_officer_notes: "Polling officer notes:"
         polling_officer_notes_blank: There are no notes
-        recount_summary: 'Recount summary:'
+        recount_summary: "Recount summary:"
         signed: Signed
-        total_ballots: 'Total ballots:'
-        total_blank_ballots: 'Total blank ballots:'
-        total_null_ballots: 'Total null ballots:'
-        total_valid_ballots: 'Total valid ballots:'
+        total_ballots: "Total ballots:"
+        total_blank_ballots: "Total blank ballots:"
+        total_null_ballots: "Total null ballots:"
+        total_valid_ballots: "Total valid ballots:"
       polling_stations:
         actions:
           confirm_destroy: Are you sure?
@@ -1245,9 +1244,9 @@ en:
           check_status: Check status
           description: Here, you have the option to check your census data to know if you have the right to participate in this voting. You should have an access code already but if you lost it, you can ask for it again, when your data is correct.
           error:
-            info: 'Please try again. If you think the data in the system is incorrect, you can report it here: %{census_contact_information}.'
+            info: "Please try again. If you think the data in the system is incorrect, you can report it here: %{census_contact_information}."
             title: Your census data is incorrect!
-          form_title: 'Fill the following form to check your census data:'
+          form_title: "Fill the following form to check your census data:"
           invalid: There was a problem checking the census.
           success:
             access_link: via SMS or email.
@@ -1297,13 +1296,13 @@ en:
           access_code_placeholder: Access code
           ask_for_a_new_one: Ask for a new one.
           dont_have_access_code: Don't have an access code?
-          form_title: 'Fill the following form to access the voting:'
+          form_title: "Fill the following form to access the voting:"
           start_voting: Start voting
           step: Identification
           title: Identify myself with my voting census data
         no_census_contact_information: There's no contact information yet
         orders:
-          label: 'Sort votings by:'
+          label: "Sort votings by:"
           random: Random
           recent: Most recent
         send_access_code:
