@@ -7,6 +7,7 @@ module Decidim
     module Admin
       describe UpdateBallotStyle do
         let(:voting) { create(:voting) }
+        let(:user) { create(:user) }
         let(:ballot_style) { create :ballot_style, voting: voting }
         let!(:other_ballot_style) { create :ballot_style, voting: voting, code: taken_code.upcase }
         let(:election) { create :election, :complete, component: elections_component }
@@ -30,7 +31,8 @@ module Decidim
         let(:form) do
           BallotStyleForm.from_params(params).with_context(
             voting: voting,
-            ballot_style_id: ballot_style.id
+            ballot_style_id: ballot_style.id,
+            current_user: user
           )
         end
         let(:subject) { described_class.new(form, ballot_style) }
@@ -66,6 +68,17 @@ module Decidim
 
             ballot_style.reload
             expect(ballot_style.questions.map(&:id)).to match_array(updated_question_ids)
+          end
+
+          it "traces the action", versioning: true do
+            expect(Decidim.traceability)
+              .to receive(:update!)
+              .with(ballot_style, user, hash_including(:code), visibility: "all")
+              .and_call_original
+
+            expect { subject.call }.to change(Decidim::ActionLog, :count)
+            action_log = Decidim::ActionLog.last
+            expect(action_log.action).to eq "update"
           end
         end
       end

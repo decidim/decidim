@@ -42,7 +42,17 @@ module Decidim
             code: form.code
           }
 
-          ballot_style.update!(attributes)
+          Decidim.traceability.update!(
+            ballot_style,
+            form.current_user,
+            attributes,
+            {
+              visibility: "all",
+              resource: {
+                title: form.code
+              }
+            }
+          )
         end
 
         def destroy_removed_ballot_style_questions!
