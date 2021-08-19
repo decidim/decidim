@@ -993,6 +993,9 @@ en:
             invalid: There was a problem updating this voting
             success: Voting successfully updated
       admin_log:
+        polling_officer:
+          create: "%{user_name} assigned the user %{polling_officer_user} as polling officer in the space %{space_name}"
+          delete: "%{user_name} unassigned the user %{polling_officer_user} as polling officer in the space %{space_name}"
         voting:
           create: "%{user_name} created the %{resource_name} voting"
           publish: "%{user_name} published the %{resource_name} voting"
