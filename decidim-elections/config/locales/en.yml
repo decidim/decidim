@@ -1002,6 +1002,10 @@ en:
           create: "%{user_name} created a ballot style with code %{resource_name} in the space %{space_name}"
           delete: "%{user_name} deleted the ballot style with code %{resource_name} in the space %{space_name}"
           update: "%{user_name} updated the ballot style with code %{resource_name} in the space %{space_name}"
+        census:
+          create: "%{user_name} created the census for the space %{space_name}"
+          delete: "%{user_name} deleted the census for the space %{space_name}"
+          update: "%{user_name} updated the census for the space %{space_name}"
         monitoring_committee_member:
           create: "%{user_name} assigned the user %{monitoring_committee_member_user} as monitoring committee member in the space %{space_name}"
           delete: "%{user_name} unassigned the user %{monitoring_committee_member_user} as monitoring committee member in the space %{space_name}"
