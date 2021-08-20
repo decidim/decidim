@@ -305,6 +305,9 @@ pl:
           update:
             invalid: Podczas aktualizowania tego spotkania wystąpił błąd
             success: Spotkanie zostało zaktualizowane
+        meetings_poll:
+          form:
+            title: Edytuj kartę do głosowania dla %{questionnaire_for}
         models:
           meeting:
             name: Spotkanie
@@ -504,6 +507,10 @@ pl:
             official_meeting: Spotkanie oficjalne
             start_time: Data rozpoczęcia
             title: Tytuł
+      polls:
+        questions:
+          closed_question:
+            question_results: Wyniki wyborów
       read_more: "(zobacz więcej)"
       registration_mailer:
         confirmation:
