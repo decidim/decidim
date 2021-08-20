@@ -188,6 +188,7 @@ pl:
             few: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązane propozycje:'
             many: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji:'
             other: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji:'
+        manage_poll: Zarządzaj głosowaniem
         new: Nowe spotkanie
         preview: Podgląd
         registrations: Rejestracje
