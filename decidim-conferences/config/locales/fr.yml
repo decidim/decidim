@@ -12,9 +12,13 @@ fr:
         description: Description
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
+        main_logo: Logo principal
+        objectives: Objectifs
         participatory_processes_ids: Concertations associées
         promoted: Mise en avant
         published_at: Publié à
+        registration_terms: Conditions d’inscription
+        registrations_enabled: Inscriptions ouvertes
         scope_id: Périmètre
         scopes_enabled: Périmètres d'application activés
         short_description: Brève description
@@ -23,12 +27,27 @@ fr:
         slug: Slug URL
         title: Titre
       conference_media_link:
+        date: Date
+        link: Lien
+        title: Titre
         weight: Rang d'affichage
       conference_partner:
+        link: Lien
+        logo: Logo
+        name: Nom
         weight: Rang d'affichage
+      conference_registration_invite:
+        email: Courriel
+        name: Nom
+        user_id: Utilisateur·rice
       conference_registration_type:
+        description: Description
+        price: Prix
+        title: Titre
         weight: Rang d'affichage
       conference_speaker:
+        avatar: Image de profil
+        conference_meeting_ids: Réunions connexes
         full_name: Nom complet
       conference_user_role:
         email: Email
