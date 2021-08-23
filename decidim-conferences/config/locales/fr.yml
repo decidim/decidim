@@ -49,6 +49,7 @@ fr:
         avatar: Image de profil
         conference_meeting_ids: Réunions connexes
         full_name: Nom complet
+        personal_url: URL personnelle
       conference_user_role:
         email: Email
         name: Nom
