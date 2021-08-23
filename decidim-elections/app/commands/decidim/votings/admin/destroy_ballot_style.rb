@@ -30,12 +30,7 @@ module Decidim
             :delete,
             ballot_style,
             current_user,
-            {
-              visibility: "all",
-              resource: {
-                title: ballot_style.code
-              }
-            }
+            visibility: "all"
           ) do
             ballot_style.destroy!
           end

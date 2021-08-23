@@ -999,9 +999,9 @@ en:
             success: Voting successfully updated
       admin_log:
         ballot_style:
-          create: "%{user_name} created a ballot style with code %{resource_name} in the space %{space_name}"
-          delete: "%{user_name} deleted the ballot style with code %{resource_name} in the space %{space_name}"
-          update: "%{user_name} updated the ballot style with code %{resource_name} in the space %{space_name}"
+          create: "%{user_name} created a ballot style with code %{ballot_style_code} in the space %{space_name}"
+          delete: "%{user_name} deleted the ballot style with code %{ballot_style_code} in the space %{space_name}"
+          update: "%{user_name} updated the ballot style with code %{ballot_style_code} in the space %{space_name}"
         census:
           create: "%{user_name} created the census for the space %{space_name}"
           delete: "%{user_name} deleted the census for the space %{space_name}"

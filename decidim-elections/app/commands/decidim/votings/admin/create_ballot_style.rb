@@ -43,12 +43,7 @@ module Decidim
             Decidim::Votings::BallotStyle,
             form.current_user,
             params,
-            {
-              visibility: "all",
-              resource: {
-                title: form.code
-              }
-            }
+            visibility: "all"
           )
         end
 

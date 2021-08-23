@@ -46,12 +46,7 @@ module Decidim
             ballot_style,
             form.current_user,
             attributes,
-            {
-              visibility: "all",
-              resource: {
-                title: form.code
-              }
-            }
+            visibility: "all"
           )
         end
 

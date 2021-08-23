@@ -15,6 +15,12 @@ module Decidim
       class BallotStylePresenter < Decidim::Log::BasePresenter
         private
 
+        def i18n_params
+          super.merge(
+            ballot_style_code: action_log.resource.code
+          )
+        end
+
         def action_string
           case action
           when "create", "delete", "update"

@@ -6,12 +6,11 @@ module Decidim
   module Votings
     module Admin
       describe UpdateBallotStyle do
-        let(:voting) { create(:voting) }
-        let(:user) { create(:user) }
-        let(:ballot_style) { create :ballot_style, voting: voting }
-        let!(:other_ballot_style) { create :ballot_style, voting: voting, code: taken_code.upcase }
+        let(:ballot_style) { create :ballot_style }
+        let(:user) { create(:user, organization: ballot_style.voting.organization) }
+        let!(:other_ballot_style) { create :ballot_style, voting: ballot_style.voting, code: taken_code.upcase }
         let(:election) { create :election, :complete, component: elections_component }
-        let(:elections_component) { create :elections_component, participatory_space: voting }
+        let(:elections_component) { create :elections_component, participatory_space: ballot_style.voting }
         let(:ballot_style_questions) do
           election.questions.first(2).map { |question| create(:ballot_style_question, question: question, ballot_style: ballot_style) }
         end
@@ -30,7 +29,7 @@ module Decidim
         let(:updated_question_ids) { election.questions.last(3).map(&:id) }
         let(:form) do
           BallotStyleForm.from_params(params).with_context(
-            voting: voting,
+            voting: ballot_style.voting,
             ballot_style_id: ballot_style.id,
             current_user: user
           )
