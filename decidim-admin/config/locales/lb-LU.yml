@@ -526,3 +526,12 @@ lb:
   errors:
     messages:
       invalid_json: Ungültiger JSON
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Newsletter
+        settings:
+          title: die Einstellungen
+        users:
+          title: Benutzer
