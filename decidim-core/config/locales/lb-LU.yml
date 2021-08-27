@@ -1,4 +1,502 @@
 lb:
+  activemodel:
+    attributes:
+      account:
+        delete_reason: Grund, Ihr Konto zu löschen
+      common:
+        created_at: Erstellt am
+      group:
+        about: Über
+        avatar: Profilbild
+        document_number: Dokumentennummer
+        email: E-Mail
+        name: Name
+        nickname: Spitzname
+        phone: Telefonnummer
+      report:
+        details: Zusätzliche Kommentare
+      user:
+        about: Über
+        email: Ihre E-Mail
+        name: Ihr Name
+        nickname: Spitzname
+        password: Passwort
+        password_confirmation: Bestätigen Sie Ihr Passwort
+        personal_url: Persönliche URL
+        remove_avatar: Avatar entfernen
+    models:
+      decidim/attachment_created_event: Anhang
+      decidim/component_published_event: Aktive Komponente
+      decidim/demoted_membership: Kein Gruppenadministrator mehr
+      decidim/gamification/badge_earned_event: Abzeichen verdient
+      decidim/gamification/level_up_event: Sie sind um ein Level aufgestiegen
+      decidim/join_request_accepted_event: Beitrittsanfrage akzeptiert
+      decidim/join_request_rejected_event: Beitrittsanfrage abgelehnt
+      decidim/profile_updated_event: Profil aktualisiert
+      decidim/promote_to_admin: Zum Gruppenadministrator hochgestuft
+      decidim/removed_from_group: Aus der Gruppe entfernt
+      decidim/resource_endorsed_event: Ressource befürwortet
+  decidim:
+    admin_log:
+      newsletter:
+        create: "%{user_name} hat den Newsletter %{resource_name} erstellt"
+        delete: "%{user_name} hat den Newsletter %{resource_name} gelöscht"
+        deliver: "%{user_name} hat den Newsletter %{resource_name} abgesendet"
+        update: "%{user_name} hat den Newsletter %{resource_name} aktualisiert"
+      oauth_application:
+        create: "%{user_name} hat die OAuth-Applikation %{resource_name} erstellt"
+        delete: "%{user_name} hat die OAuth-Applikation %{resource_name} gelöscht"
+        update: "%{user_name} hat die OAuth-Applikation %{resource_name} aktualisiert"
+      organization:
+        update: "%{user_name} hat die Organisationseinstellungen aktualisiert"
+      participatory_space_private_user:
+        create: "%{user_name} hat %{resource_name} als privaten Benutzer eingeladen"
+        create_via_csv: "%{user_name} hat %{resource_name} per CSV als privaten Teilnehmer eingeladen"
+        delete: "%{user_name} hat den Benutzer %{resource_name} als privaten Benutzer entfernt"
+      scope:
+        create: "%{user_name} hat den Bereich %{resource_name} erstellt"
+        create_with_parent: "%{user_name} hat den Bereich %{resource_name} im übergeordneten Bereich %{parent_scope} erstellt"
+        delete: "%{user_name} hat den Bereich %{resource_name} gelöscht"
+        delete_with_parent: "%{user_name} hat den Bereich %{resource_name} aus dem übergeordneten Bereich %{parent_scope} gelöscht"
+        update: "%{user_name} hat den Bereich %{resource_name} aktualisiert"
+        update_with_parent: "%{user_name} hat den Bereich %{resource_name} im übergeordneten Bereich %{parent_scope} aktualisiert"
+      static_page:
+        create: "%{user_name} hat die statische Seite %{resource_name} erstellt"
+        delete: "%{user_name} hat die statische Seite %{resource_name} gelöscht"
+        update: "%{user_name} hat die statische Seite %{resource_name} aktualisiert"
+      user:
+        block: "%{user_name} hat %{resource_name} blockiert"
+        invite: "%{user_name} hat den Benutzer %{resource_name} mit der Rolle %{role} eingeladen"
+        officialize: "%{user_name} den Benutzer %{resource_name} offiziell anerkannt"
+        promote: "%{user_name} hat %{resource_name} befördert"
+        remove_from_admin: "%{user_name} hat den Benutzer %{resource_name} mit der Rolle %{role} entfernt"
+        show_email: "%{user_name} hat die E-Mail des Teilnehmers %{resource_name} abgerufen"
+        transfer: "%{user_name} hat den Teilnehmer %{resource_name} verschoben"
+        unblock: "%{user_name} hat die Blockierung von %{resource_name} aufgehoben"
+        unofficialize: "%{user_name} hat die offizielle Anerkennung des Benutzers %{resource_name} widerrufen"
+      user_group:
+        reject: "%{user_name} hat die Gruppen-Verifikation %{resource_name} abgelehnt"
+        verify: "%{user_name} hat die Gruppe %{resource_name} verifiziert"
+        verify_via_csv: "%{user_name} hat die Gruppe %{resource_name} über eine CSV-Datei verifiziert"
+      user_moderation:
+        unreport: "%{user_name} hat die Meldung auf %{resource_type} - %{unreported_user_name} aufgehoben"
+    admin_terms_of_use:
+      default_body: "<h2>ADMIN-NUTZUNGSBEDINGUNGEN</h2><p>Wahrscheinlich haben Sie bereits vom lokalen Systemadministrator gehört. Meist lässt das sich auf die folgenden drei Punkte konzentrieren:</p><ol><li>Respektieren Sie die Privatsphäre anderer.</li><li>Denken Sie nach, bevor Sie klicken.</li><li>Große Macht erfordert große Verantwortung.</li></ol>"
+    alert:
+      dismiss: Benachrichtigung schließen
+    amendments:
+      accepted:
+        error: Beim Akzeptieren der Änderung ist ein Fehler aufgetreten.
+        success: Die Änderung wurde erfolgreich angenommen.
+      amendable:
+        amended_by: Geändert durch
+        button: '%{model_name} ändern'
+        error: Bei der Änderung dieser Ressource ist ein Fehler aufgetreten.
+        help_text: Verbessern Sie diese %{model_name} indem Sie ihre %{amendable_fields}ändern
+        promote_button: Zu %{model_name} befördern
+        promote_confirm_text: Möchten Sie diese Erweiterung wirklich fördern?
+        promote_help_text: Sie können diese Erweiterung fördern und als unabhängige %{model_name}
+        section_heading: Änderungen (%{count})
+      compare_draft:
+        continue: Fortfahren
+        no_similars_found: Keine ähnlichen Entwürfe gefunden.
+        title: Ähnliche Entwürfe
+      created:
+        error: Beim Erstellen des Änderungsvorschlags ist ein Fehler aufgetreten.
+        success: Der Änderungsvorschlag wurde erfolgreich erstellt.
+    author:
+      avatar: Profilbild
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        fields:
+          postal_code: Postleitzahl
+        name: Ein weiteres Beispiel für eine Berechtigung
+      dummy_authorization_handler:
+        explanation: Lassen Sie sich verifizieren, indem Sie eine Dokumentennummer eingeben, die mit "X" endet
+        fields:
+          allowed_postal_codes: Erlaubte Postleitzahlen (durch Komma getrennt)
+          allowed_scope_id: Erlaubter Umfang
+          document_number: Dokumentnummer
+          postal_code: Postleitzahl
+          scope_id: Umfang
+        name: Beispiel Berechtigung
+      dummy_authorization_workflow:
+        name: Arbeitsablauf Dummy Berechtigung
+      errors:
+        duplicate_authorization: Ein Teilnehmer mit den gleichen Daten ist bereits autorisiert. Ein Administrator wird Sie kontaktieren, um Ihre Daten zu überprüfen.
+      expired_at: Abgelaufen am %{timestamp}
+      expires_at: Läuft am %{timestamp} ab
+      foo_authorization:
+        fields:
+          bar: Bar
+          foo: Foo
+        name: Foo Berechtigung
+      granted_at: Zugelassen am %{timestamp}
+      renew: Verifizierung erneuern
+      sms:
+        explanation: Geben Sie Ihre Handynummer ein, damit wir Ihre Identität überprüfen können.
+        name: Code per SMS
+      started_at: Begann am %{timestamp}
+    authorization_modals:
+      content:
+        expired:
+          authorize: Erneute Autorisierung mit "%{authorization}"
+          explanation: Ihre Autorisierung ist abgelaufen. Um diese Aktion auszuführen, müssen Sie mit "%{authorization}" erneut autorisiert werden.
+          title: Die Autorisierung ist abgelaufen
+        incomplete:
+          cancel: Stornieren
+          explanation: 'Obwohl Sie derzeit mit "%{authorization}" autorisiert sind, müssen Sie erneut autorisieren, da uns folgende Daten fehlen:'
+          invalid_field: "%{field}"
+          reauthorize: Erneut autorisieren
+          title: Bitte erneut autorisieren
+        missing:
+          authorize: Autorisieren mit "%{authorization}"
+          explanation: Um diese Aktion durchzuführen, müssen Sie mit "%{authorization}" autorisiert sein.
+          title: Autorisierung erforderlich
+        pending:
+          explanation: Um diese Aktion auszuführen, müssen Sie mit "%{authorization}" autorisiert sein, aber Ihre Autorisierung ist noch in Bearbeitung
+          resume: Überprüfen Sie Ihren Autorisierungsfortschritt "%{authorization}"
+          title: Die Autorisierung läuft noch
+        unauthorized:
+          explanation: Leider können Sie diese Aktion nicht ausführen, da einige Ihrer Autorisierungsdaten nicht übereinstimmen.
+          invalid_field: "%{field} Wert %{value} ist nicht gültig."
+          ok: Ok
+          title: Nicht berechtigt
+        unconfirmed:
+          confirmation_instructions: 'Wenn Sie die Bestätigungsanweisungen nicht erhalten haben, können Sie sie erneut anfordern:'
+          explanation_html: Um diese Aktion auszuführen, müssen Sie autorisiert sein, bevor Sie dies tun müssen, müssen Sie Ihre E-Mail bestätigen <strong>%{email}</strong>.
+          request_confirmation_instructions: Bestätigungsanleitungen anfordern
+          title: Bestätige deine E-Mail
+      show:
+        close_modal: Modal schließen
+    block_user_mailer:
+      notify:
+        body_1: Ihr Account wurde gesperrt.
+        body_2: 'Grund: %{justification}'
+        greetings: Guten Tag <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>,
+        hello: Hallo,
+        subject: Ihr Konto wurde von %{organization_name} gesperrt
+    content_blocks:
+      how_to_participate:
+        name: Wie kann ich mich beteiligen
+      html:
+        html_content: HTML-Inhalt
+        name: HTML-Block
+      last_activity:
+        name: Letzte Aktivität
+        title: Letzte Aktivität
+        view_all: Alle ansehen
+      metrics:
+        name: Organisationsmetriken
+      stats:
+        name: Organisationsstatistiken
+      sub_hero:
+        name: Sub hero Banner
+    core:
+      actions:
+        login_before_access: Bitte melden Sie sich mit Ihrem Konto an, um auf diese Seite zuzugreifen
+        unauthorized: Sie sind nicht berechtigt, diese Aktion auszuführen
+    data_portability:
+      export:
+        ready: Bereit
+      show:
+        download_data: Daten herunterladen
+        download_data_description: Eine Datei, die alle mit Ihrem Konto verknüpften Informationen enthält, wird an <strong>%{user_email}</strong> gesendet. Diese E-Mail enthält eine .zip-Datei und ein Passwort, um sie zu öffnen.<br/><br/>Um die Datei zu entpacken, benötigen Sie <a href="https://www.7-zip.org/">7-Zip</a> (für Windows) oder <a href="https://www.keka.io/">Keka</a> (für MacOS). Wenn Sie Linux verwenden, wird es meistens standardmäßig installiert. Wenn nicht, können Sie <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> oder <a href="https://peazip.github.io">PeaZip</a> verwenden.
+        request_data: Daten anfordern
+    datepicker:
+      help_text: 'Erwartetes Format: %{datepicker_format}'
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: Ein anderes Konto verwendet dieselbe E-Mail-Adresse
+        new:
+          complete_profile: Profil vervollständingen
+          nickname_help: Ihr Pseudonym in %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
+          sign_up: Bitte vervollständigen Sie Ihr Profil
+          subtitle: Bitte füllen Sie das folgende Formular aus, um die Anmeldung abzuschließen
+          username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
+      registrations:
+        new:
+          already_have_an_account?: Haben Sie bereits ein Konto?
+          newsletter: Gelegentlich einen Newsletter mit relevanten Informationen erhalten
+          newsletter_title: Kontakterlaubnis
+          nickname_help: Ihr Pseudonym in %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
+          password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu gewöhnlich (z.B. 123456) und darf nicht Ihr Benutzername oder Ihre E-Mail-Adresse sein."
+          sign_in: Anmelden
+          sign_up: Registrieren
+          sign_up_as:
+            legend: Registrieren als
+          subtitle: Registrieren Sie sich, um an Diskussionen teilzunehmen und Vorschläge zu unterstützen.
+          terms: Nutzungsbedingungen
+          tos_agreement: Mit der Anmeldung stimmen Sie %{link} zu.
+          tos_title: Nutzungsbedingungen
+          username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
+      sessions:
+        new:
+          are_you_new?: Neu auf der Plattform?
+          register: Konto erstellen
+          sign_in_disabled: Sie können mit einem externen Konto darauf zugreifen
+          sign_up_disabled: Die Anmeldung ist deaktiviert. Sie können einen vorhandenen Benutzer für den Zugriff verwenden
+        user:
+          timed_out: Sie waren zu lange inaktiv und wurden automatisch abgemeldet. Wenn Sie den Dienst weiterhin nutzen möchten, melden Sie sich bitte erneut an.
+      shared:
+        newsletter_modal:
+          buttons:
+            check: Überprüfen und fortfahren
+            close_modal: Modal schließen
+            uncheck: Ohne Kontakterlaubnis fortfahren
+          notice: |-
+            <p>Hey, sind Sie sicher, dass Sie keinen Newsletter erhalten möchten?<br>
+            Bitte überlegen Sie sich noch einmal das Kontrollkästchen für den Newsletter doch anzukreuzen.<br>
+            Für uns ist es sehr wichtig, die Möglichkeit zu haben Ihnen gelegentlich E-Mails mit wichtigen Ankündigungen schicken zu können. Sie können dies jederzeit in den Benachrichtigungseinstellungen ändern.</p>
+            <p>Wenn Sie das Kontrollkästchen nicht ankreuzen, verpassen Sie möglicherweise relevante Informationen zu neuen Beteiligungsmöglichkeiten auf der Plattform.<br>
+            Wenn Sie nach wie vor keinen Newsletter erhalten möchten, verstehen wir natürlich Ihre Entscheidung.</p>
+            <p>Danke fürs Lesen!</p>
+          title: Newsletter Benachrichtigungen
+        omniauth_buttons:
+          or: Oder
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: App zulassen
+          by_organization_link_html: <small class="heading-small">von %{link}</small>
+          cancel: Abbrechen
+          connect_your_account_html: Verbinden Sie Ihr Konto, indem Sie sich bei <strong>%{organization}</strong> anmelden
+    events:
+      amendments:
+        amendment_rejected:
+          follower:
+            notification_title: Die <a href="%{emendation_path}">Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> wurde abgelehnt.
+      attachments:
+        attachment_created:
+          email_intro: 'Ein neues Dokument wurde zu %{resource_title} hinzugefügt. Sie können es auf dieser Seite sehen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Eine Aktualisierung auf %{resource_title}
+          notification_title: Ein <a href="%{resource_path}">neues Dokument</a> wurde zu <a href="%{attached_to_url}">%{resource_title}</a>hinzugefügt
+      components:
+        component_published:
+          email_intro: 'Die Komponente %{resource_title} ist jetzt für %{participatory_space_title} aktiv. Sie können das auf dieser Seite sehen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Eine Aktualisierung auf %{participatory_space_title}
+          notification_title: Die Komponente %{resource_title} ist jetzt für <a href="%{resource_path}">%{participatory_space_title}</a> aktiv
+      email_event:
+        email_greeting: Hallo %{user_name},
+        email_intro: 'Es wurde ein Update auf "%{resource_title}" vorgenommen. Sie können das auf dieser Seite sehen:'
+        email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+        email_subject: Eine Aktualisierung auf %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Gratulation! Sie haben das Abzeichen <a href="%{resource_url}">%{badge_name}</a> (Level %{current_level}) verdient.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie auf unserer Website aktiv waren.
+          email_subject: 'Sie haben ein neues Abzeichen erhalten: %{badge_name}!'
+          notification_title: Gratulation! Sie haben das Abzeichen <a href="%{resource_path}">%{badge_name}</a> (Level %{current_level}) verdient.
+        level_up:
+          email_intro: Gratulation! Sie haben Level %{current_level} auf dem Abzeichen <a href="%{resource_url}">%{badge_name}</a> erreicht!
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie auf unserer Website aktiv waren.
+          email_subject: Sie haben Level %{current_level} auf dem Abzeichen %{badge_name} erreicht!
+          notification_title: Gratulation! Sie haben Level %{current_level} auf dem Abzeichen <a href="%{resource_path}">%{badge_name}</a> erreicht!
+      groups:
+        demoted_membership:
+          email_intro: Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Ihre Administratorrechte für diese Gruppe entfernt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Mitglied dieser Gruppe sind.
+          email_subject: Du bist kein Administrator der Gruppe %{user_group_name} mehr!
+          notification_title: Sie sind nicht mehr Administrator in der Gruppe <a href="%{resource_path}">%{user_group_name}</a>.
+        invited_to_group:
+          email_intro: Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Sie in die Gruppe eingeladen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie zu einer Gruppe eingeladen wurden. Überprüfen Sie das Tab "Gruppen" in Ihrem Profil, um die Einladung zu akzeptieren.
+          email_subject: Sie wurden eingeladen, der Gruppe %{user_group_name} beizutreten!
+          notification_title: Sie wurden eingeladen, der Gruppe <a href="%{resource_path}">%{user_group_name}</a> beizutreten. Besuchen Sie die <a href="%{groups_profile_tab_path}">Gruppen-Seite</a> in Ihrem Profil, um die Einladung zu akzeptieren!
+        join_request_accepted:
+          email_intro: Herzlichen Glückwunsch! Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Ihre Anfrage akzeptiert, der Gruppe beizutreten.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihre Beitrittsanfrage aktualisiert wurde.
+          email_subject: Sie wurden in die Gruppe %{user_group_name} aufgenommen!
+          notification_title: Sie wurden in die Gruppe <a href="%{resource_path}">%{user_group_name}</a> aufgenommen.
+        join_request_created:
+          email_intro: Jemand hat darum gebeten, der Gruppe %{user_group_name} beizutreten. Sie können die Anfrage auf der <a href="%{resource_url}">Gruppenmitglieder-Seite</a> akzeptieren oder ablehnen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Gruppe %{user_group_name} verwalten können.
+          email_subject: Jemand hat darum gebeten, der Gruppe %{user_group_name} beizutreten!
+          notification_title: Jemand hat darum gebeten, der Gruppe %{user_group_name} beizutreten. Sie können die Anfrage auf der <a href="%{resource_path}">Gruppenmitglieder-Seite</a> akzeptieren oder ablehnen.
+        join_request_rejected:
+          email_intro: Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Ihre Anfrage abgelehnt, der Gruppe beizutreten.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihre Beitrittsanfrage aktualisiert wurde.
+          email_subject: Ihre Anfrage, der Gruppe %{user_group_name} beizutreten, wurde abgelehnt!
+          notification_title: Ihre Anfrage, der Gruppe <a href="%{resource_path}">%{user_group_name}</a> beizutreten, wurde abgelehnt.
+        promoted_to_admin:
+          email_intro: Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Ihnen Administratorrechte für diese Gruppe erteilt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Mitglied dieser Gruppe sind.
+          email_subject: Du bist jetzt ein Admin der Gruppe %{user_group_name}!
+          notification_title: Sie sind jetzt ein Administrator in der Gruppe <a href="%{resource_path}">%{user_group_name}</a>.
+        removed_from_group:
+          email_intro: Ein Admin der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Sie aus der Gruppe entfernt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Mitglied dieser Gruppe waren.
+          email_subject: Du wurdest aus der Gruppe %{user_group_name} entfernt!
+          notification_title: Elimineches do grupo <a href="%{resource_path}">%{user_group_name}</a>.
+        user_group_created:
+          email_intro: Eine neue Benutzergruppe mit dem Namen %{user_group_name} wurde erstellt. Sie können sie über das <a href="%{groups_admin_url}">Admin-Panel</a> verifizieren.
+    forms:
+      errors:
+        decidim/user:
+          password_confirmation: Die Bestätigung muss mit dem Passwort übereinstimmen.
+        error: In diesem Feld ist ein Fehler aufgetreten.
+      file_help:
+        file:
+          explanation: 'Anleitung für Datei:'
+          message_1: Muss ein Bild oder ein Dokument sein.
+          message_2: Für Bilder, verwenden Sie vorzugsweise Landschaftsbilder, der Dienst erzeugt das Bild. Für CSV-Dateien muss der Trenner zwischen Spalten ein Komma (",") sein
+        image:
+          explanation: 'Anleitung für Bild:'
+          message_1: Vorzugsweise ein Querformat ohne Text.
+          message_2: Der Dienst schneidet die Datei zu.
+      file_validation:
+        allowed_file_extensions: 'Erlaubte Dateiendungen: %{extensions}'
+        max_file_size: 'Maximale Dateigröße: %{megabytes}MB'
+      remove_this_file: Diese Datei entfernen
+    gamification:
+      all_badges_link: Sieh dir alle verfügbaren Abzeichen an.
+      badges:
+        followers:
+          conditions:
+            - Aktiv zu sein und anderen Menschen zu folgen, wird sicherlich andere Menschen dazu bringen, dir zu folgen.
+          description: Dieses Abzeichen wird gewährt, wenn Sie eine bestimmte Anzahl von Followern erreichen. %{organization_name} ist ein soziales und politisches Netzwerk, weben Sie Ihr Web, um mit anderen Menschen auf der Plattform zu kommunizieren.
+          description_another: Diese*r Benutzer*in hat %{score} Follower.
+          description_own: "%{score} Benutzer*innen folgen dir."
+          name: Follower
+          next_level_in: Erhalten Sie %{score} weitere Nutzer, die Ihnen folgen, um das nächste Level zu erreichen!
+          unearned_another: Dieser Benutzer hat noch keine Follower.
+          unearned_own: Sie haben noch keine Follower.
+        index:
+          badge_title: "%{name} Abzeichen"
+          how: Wie kannst du es verdienen?
+          page_description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen. Hier ist die Liste der Abzeichen und einige Möglichkeiten, wie Sie sie verdienen können.
+          title: Abzeichen
+        invitations:
+          conditions:
+            - Verwenden Sie den Link "Freunde einladen" auf Ihrer Nutzerseite, um Ihre Freunde einzuladen
+            - Passen Sie, wenn Sie möchten, die gesendete Nachricht an
+            - Sie werden auf den neuesten Stand gebracht, indem Sie Einladungen senden und sie registrieren lassen.
+          description: Dieses Abzeichen wird gewährt, wenn Sie einige Personen eingeladen haben und sie sich ein wenig Zeit genommen haben, um sich in %{organization_name} zu registrieren und Teilnehmer zu werden. Vielen Dank für die Herstellung von %{organization_name} anderen bekannt und helfen , die Gemeinschaft zu erweitern!
+          description_another: Diese*r Benutzer*in hat %{score} Benutzer*innen eingeladen.
+          description_own: Sie haben %{score} Benutzer*innen eingeladen.
+          name: Einladungen
+          next_level_in: Laden Sie %{score} weitere Benutzer*innen ein, um das nächste Level zu erreichen!
+          unearned_another: Diese*r Benutzer*in hat noch niemanden eingeladen.
+          unearned_own: Sie haben noch keine Benutzer*innen eingeladen.
+      description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen.
+      level: Level %{level}
+      reached_top: Du hast die höchste Stufe für dieses Abzeichen erreicht.
+    group_admins:
+      actions:
+        are_you_sure: Bist du sicher? Dies wird den Benutzer nicht aus der Gruppe entfernen.
+        demote_admin: Entferne Admin
+      demote:
+        error: Beim Entfernen dieses Benutzers aus der Administratorliste ist ein Fehler aufgetreten
+        success: Benutzer wurde vom Administrator erfolgreich entfernt
+      index:
+        current_admins: 'Aktuelle Admins:'
+        manage_admins: Admins verwalten
+    group_invites:
+      accept:
+        error: Bei der Annahme dieser Einladung ist ein Fehler aufgetreten
+        success: Einladung wurde erfolgreich angenommen
+      accept_invitation: Akzeptieren
+      accept_or_reject_group_invitations: 'Die folgenden Gruppen haben Sie eingeladen, sich ihnen anzuschließen. Akzeptieren oder ablehnen ihrer Anfragen:'
+      index:
+        invite: Einladen
+        invite_user: Laden Sie einen Benutzer ein
+      invite:
+        error: Beim Laden dieses Nutzers ist ein Fehler aufgetreten
+    last_activities:
+      index:
+        last_activity: Letzte Aktivität
+        resource_type: Art
+    messaging:
+      conversation_mailer:
+        new_group_message:
+          subject: "%{group} hat neue Nachrichten von %{sender}"
+        new_message:
+          greeting: Hallo, %{recipient}!
+          intro: "%{sender} hat neue Nachrichten in Ihrer Konversation gepostet. Klicken Sie hier, um sie zu sehen:"
+          outro: Viel Spaß mit Decidim!
+          subject: Sie haben neue Nachrichten von %{sender}
+      conversations:
+        add_conversation_users:
+          add_max_users: 'Fügen Sie der Unterhaltung Benutzer hinzu: max. 9 Benutzer'
+          add_users_placeholder: Suche...
+          modal_title: Neue Unterhaltung
+          no_results: Keine Ergebnisse
+          participant_with_disabled_message_reception: Dieser Teilnehmer hat Nachrichten deaktiviert
+        conversation:
+          show: Gespräch mit %{sender} anzeigen
+        create:
+          error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal
+        error_modal:
+          close: Dialog schließen
+          correct_errors: Bitte korrigiere diese Fehler und versuche es erneut.
+          intro: 'Es gab folgende Fehler bei Ihrer Nachricht:'
+          ok: OK
+        index:
+          ago: vor
+          close: Modal schließen
+          from: Von
+          groups: Meine Gruppen
+          last_message: Letzte Nachricht
+          new_conversation: Neue Unterhaltung
+          next: Weiter
+          no_conversations: Du hast noch keine Unterhaltungen
+          title: Gespräche
+        reply:
+          placeholder: Ihre Antwort...
+          send: Senden
+          title: Antworten
+        show:
+          back: Zurück zu allen Unterhaltungen
+          chat_with: Unterhaltung mit
+          not_allowed: Dieser Teilnehmer akzeptiert keine direkten Nachrichten.
+          title: Gespräch mit %{usernames}
+        start:
+          send: Senden
+          title: Ein Gespräch beginnen
+        update:
+          error: Nachricht wurde aufgrund eines Fehlers nicht gesendet
+    metrics:
+      download:
+        csv: Daten herunterladen (CSV)
+      followers:
+        description: Anzahl der Benutzer, die dieser Teilnahme folgen
+        object: Anhänger
+        title: Anhänger
+      participants:
+        description: Anzahl der aktiven Benutzer in der Organisation
+        object: Teilnehmer
+        title: Teilnehmer
+      users:
+        description: Anzahl der Benutzer in der Organisation
+        object: Benutzer
+        title: Benutzer
+    newsletter_mailer:
+      newsletter:
+        note: Sie haben diese E-Mail erhalten, weil Sie Newsletter auf %{organization_name}abonniert haben. Sie können Ihre Einstellungen auf Ihrer ändern <a href="%{link}">Benachrichtigungen Seite</a>.
+        see_on_website: Kann diese E-Mail nicht korrekt angezeigt werden? Klicken Sie bitte hier <a href="%{link}" target="_blank">website</a>.
+        unsubscribe: Um den Empfang dieser Art von E-Mail zu deaktivieren, <a href="%{link}" target="_blank" class="unsubscribe">Abbestellen</a>.
+    newsletter_templates:
+      basic_only_text:
+        body_preview: 'Blindtext für Haupttext: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Grundlage (nur Text)
+      basic_only_text_settings_form:
+        body: Haupttext
+        interpolations_hint: 'Tipp: Sie können „%{name}“ an beliebiger Stelle im Hauptteil oder Betreff verwenden und es wird durch den Namen des Empfängers ersetzt.'
+      image_text_cta:
+        body_preview: 'Blindtext für Haupttext: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
+        cta_text_preview: Text Aktionsaufruf
+        introduction_preview: 'Blindtext für Einführung: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Bild, Text und Aktionsaufruf-Schaltfläche
+      image_text_cta_settings_form:
+        body: Haupttext
+        cta_text: Text der Aktionsaufruf-Schaltfläche
+    pages:
+      home:
+        statistics:
+          users_count: Teilnehmer
   locale:
     name: Lëtzebuergesch
     name_with_error: Lëtzebuergesch (Fehler!)
