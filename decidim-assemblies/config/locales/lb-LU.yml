@@ -1,1 +1,221 @@
 lb:
+  activemodel:
+    attributes:
+      assemblies_setting:
+        enable_organization_chart: Organisationsdiagramm aktivieren
+      assembly:
+        area_id: Bereich
+        assembly_type: Versammlungstyp
+        assembly_type_other: Sonstiger Versammlungstyp
+        banner_image: Banner-Bild
+        closing_date: Einsendeschluss
+        closing_date_reason: Schlussdatums Grund
+        composition: Zusammensetzung
+        copy_categories: Kategorien kopieren
+        copy_components: Komponenten kopieren
+        copy_features: Funktionen kopieren
+        created_by: Erstellt von
+        created_by_other: Erstellt von anderen
+        creation_date: Datum erstellt
+        decidim_area_id: Bereich
+        decidim_assemblies_type_id: Versammlungstyp
+        decidim_scope_id: Umfang
+        description: Beschreibung
+        developer_group: Promoter-Gruppe
+        domain: Domain
+        duration: Dauer
+        facebook: Facebook
+        github: GitHub
+        hashtag: Hashtag
+        hero_image: Hauptbild
+        included_at: Inbegriffen bei
+        instagram: Instagram
+        internal_organisation: Interne Organisation
+        is_transparent: Ist transparent
+        local_area: Organisationsbereich
+        meta_scope: Bereichs-Metadaten
+        parent_id: Haupt Versammlung
+        participatory_processes_ids: Ähnliche Beteiligungsprozesse
+        participatory_scope: Was wird entschieden?
+        participatory_structure: Wie wird es entschieden?
+        private_space: Privatsphäre
+        promoted: Hervorgehoben
+        published_at: Veröffentlicht am
+        purpose_of_action: Zweck der Aktion
+        scope_id: Umfang
+        scopes_enabled: Bereiche aktiviert
+        short_description: Kurze Beschreibung
+        show_statistics: Zeige Statistiken
+        slug: URL-Block
+        special_features: Besondere Merkmale
+        subtitle: Untertitel
+        target: Wer nimmt teil?
+  decidim:
+    admin:
+      assembly_imports:
+        new:
+          import: Importieren
+          select: Wählen Sie aus, welche Daten Sie importieren möchten
+          title: Gremium importieren
+      assembly_members:
+        create:
+          error: Beim Hinzufügen eines Mitglieds zu diesem Gremium ist ein Fehler aufgetreten.
+          success: Mitglied wurde diesem Gremium erfolgreich hinzugefügt.
+        destroy:
+          success: Mitglied wurde erfolgreich aus diesem Gremium entfernt.
+        edit:
+          title: Aktualisieren Sie die Versammlungsmitglieder.
+          update: Aktualisieren
+        index:
+          assembly_members_title: Gremienmitglieder
+        new:
+          create: Erstellen
+          title: Neues Gremienmitglied.
+        update:
+          error: Beim Aktualisieren des Mitglieds dieses Gremiums ist ein Fehler aufgetreten.
+          success: Mitglied dieses Gremiums erfolgreich aktualisiert.
+      assembly_publications:
+        create:
+          error: Beim Veröffentlichen dieses Gremiums ist ein Fehler aufgetreten.
+          success: Gremium erfolgreich veröffentlicht.
+        destroy:
+          error: Beim Aufheben der Veröffentlichung dieser Assembly ist ein Fehler aufgetreten.
+          success: Die Assembly wurde nicht veröffentlicht.
+      assembly_user_roles:
+        create:
+          error: Beim Hinzufügen eines Benutzers für diese Assembly ist ein Fehler aufgetreten.
+          success: Der Administrator wurde dieser Versammlung erfolgreich hinzugefügt.
+        destroy:
+          success: Benutzer wurde erfolgreich von dieser Assembly entfernt.
+        edit:
+          title: Aktualisiere den Benutzer der Baugruppe
+          update: Aktualisieren
+        index:
+          assembly_admins_title: Assembly Benutzer
+        new:
+          create: Erstellen
+          title: Neuer Assembly-Benutzer
+        update:
+          error: Bei einem Fehler ist ein Benutzer für diese Assembly aktualisiert worden.
+          success: Der Benutzer wurde für diese Assembly erfolgreich aktualisiert.
+      menu:
+        assemblies: Gremien
+        assemblies_settings: Einstellungen
+        assemblies_submenu:
+          assembly_admins: Assembly Benutzer
+          assembly_members: Mitglieder
+          attachment_collections: Ordner
+          attachment_files: Dateien
+          categories: Kategorien
+          components: Komponenten
+          info: Info
+          moderations: Moderationen
+          private_users: Private Benutzer
+        assemblies_types: Versammlungstypen
+      models:
+        assemblies_types:
+          fields:
+            created_at: Hergestellt in
+            title: Titel
+        assembly:
+          fields:
+            created_at: Hergestellt in
+            private: Privat
+            promoted: Hervorgehoben
+            published: Veröffentlicht
+            title: Titel
+          name: Gremium
+        assembly_member:
+          fields:
+            ceased_date: Aufgegebenes Datum
+            designation_date: Datum der Benennung
+            full_name: Name
+    assemblies:
+      admin:
+        assemblies_types:
+          form:
+            title: Titel
+        assembly_copies:
+          form:
+            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Assembly verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Dokument hinzufügen
+            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Versammlung verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+        assembly_members:
+          form:
+            existing_user: Existierender Benutzer
+            non_user: Nichtbenutzer
+            select_a_position: Wählen Sie eine Position
+            select_user: Wählen Sie einen Benutzer aus
+            user_type: Benutzertyp
+          index:
+            filter:
+              all: Alle
+              ceased: Aufgegeben
+              not_ceased: Nicht aufgehört
+            filter_by: Filtern nach
+            search: Suche
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
+        new_import:
+          accepted_types:
+            json: JSON
+      assembly_members:
+        index:
+          members: Mitglieder
+      assembly_types:
+        commission: Kommission
+        consultative_advisory: Beratende / Beratende
+        executive: Exekutive
+        government: Regierung
+        others: Andere
+        participatory: Teilnehmend
+        working_group: Arbeitsgruppe
+      content_blocks:
+        highlighted_assemblies:
+          name: Hervorgehobene Gremien
+      created_by:
+        city_council: Stadtrat
+        others: Andere
+        public: Öffentlich
+      filter:
+        all: Alle Typen
+        commission: Kommission
+        consultative_advisory: Beratung / Beratung
+        executive: Executive
+        government: Regierung
+        help: 'Anzeigen:'
+        others: Andere
+        participatory: Partizipativ
+        working_group: Arbeitsgruppe
+      index:
+        title: Gremien
+      last_activity:
+        new_assembly: Neues Gremium
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Aktive Gremien
+            assemblies_button_title: Verknüpfung zu der Versammlungsseite mit einem Überblick aller Versammlungen
+            see_all_assemblies: Alle Gremien anzeigen
+        user_profile:
+          member_of:
+            member_of: Mitglied von
+      show:
+        area: Bereich
+        assembly_type: Montageart
+        children: Gremien
+        closing_date: Einsendeschluss
+        composition: Zusammensetzung
+        created_by: Erstellt von
+        creation_date: Datum erstellt
+  layouts:
+    decidim:
+      assembly_navigation:
+        assembly_member_menu_item: Mitglieder
+        assembly_menu_item: Das Gremium
+      assembly_widgets:
+        show:
+          take_part: Teilnehmen
