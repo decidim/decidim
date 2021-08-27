@@ -5,6 +5,8 @@ lb:
         decidim_accountability_status_id: Status
         decidim_category_id: Kategorie
         description: Beschreiwung
+        end_date: Schlussdatum
+        progress: Progrès
         project_ids: Bedeelegt Projeten
         proposals: Bedeelegt Proposen
         start_date: Ufanksdatum
@@ -110,6 +112,18 @@ lb:
           new:
             create: Eintrag erstellen
             title: Neuer Eintrag
+      results:
+        show:
+          stats:
+            comments: Bemerkungen
+            contributions: Beiträge
+            last_edited_by: Zuletzt bearbeitet von
+            last_updated_at: Zuletzt aktualisiert am
+            meetings: Meetings
+            proposals: Vorschläge
+            votes: Unterstützt
+        timeline:
+          title: Projektentwicklung
     admin:
       filters:
         results:
@@ -148,3 +162,16 @@ lb:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{proposal_title}" folgen und dieser Vorschlag in das Ergebnis "%{resource_title}" aufgenommen wurde. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Fortschritt von %{resource_title} aktualisiert
           notification_title: Das Ergebnis <a href="%{resource_path}">%{resource_title}</a>, das den Vorschlag <a href="%{proposal_path}">%{proposal_title}</a> enthält, ist jetzt zu %{progress}% abgeschlossen.
+    metrics:
+      results:
+        description: Anzahl der generierten Ergebnisse
+        object: Ergebnisse
+        title: Ergebnisse
+    participatory_spaces:
+      highlighted_results:
+        see_all: Alle Ergebnisse ansehen (%{count})
+    resource_links:
+      included_projects:
+        result_project: Projekte in diesem Ergebnis enthalten
+      included_proposals:
+        result_proposal: Vorschläge in diesem Ergebnis enthalten
