@@ -1,1 +1,4 @@
 lb:
+  locale:
+    name: Lëtzebuergesch
+    name_with_error: Lëtzebuergesch (Fehler!)
