@@ -4,6 +4,7 @@ lb:
       result:
         decidim_accountability_status_id: Status
         decidim_category_id: Kategorie
+        decidim_scope_id: Umfang
         description: Beschreiwung
         end_date: Schlussdatum
         progress: Progrès
@@ -112,6 +113,49 @@ lb:
           new:
             create: Eintrag erstellen
             title: Neuer Eintrag
+          update:
+            invalid: Beim Aktualisieren dieses Eintrags ist ein Problem aufgetreten
+            success: Eintrag erfolgreich aktualisiert
+      admin_log:
+        result:
+          create: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} erstellt"
+          delete: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} gelöscht"
+          update: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} aktualisiert"
+        value_types:
+          parent_presenter:
+            not_found: 'Das übergeordnete Objekt wurde nicht in der Datenbank gefunden (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Daten
+          results: Ergebnisse
+          unspecified: Keine Angabe
+      import_mailer:
+        import:
+          errors: Fehler
+          errors_present: Beim Importieren der Ergebnisse ist ein Fehler aufgetreten
+          row_number: Zeile
+          subject: Ergebnisse wurden erfolgreich importiert
+          success: Ergebnisse wurden erfolgreich importiert. Sie können die Ergebnisse über die Administrationsoberfläche aufrufen.
+      last_activity:
+        new_result_at_html: "<span>Neues Ergebnis bei %{link}</span>"
+      models:
+        result:
+          fields:
+            category: Kategorie
+            created_at: Erstellt am
+            end_date: Enddatum
+            id: ID
+            progress: Fortschritt
+            scope: Themenbereich
+            start_date: Startdatum
+            status: Status
+            title: Titel
+        status:
+          fields:
+            description: Beschreibung
+            key: Schlüssel
+            name: Name
+            progress: Fortschritt
       results:
         show:
           stats:
