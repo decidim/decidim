@@ -1,1 +1,112 @@
 lb:
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: Autor
+        description: Beschreibung
+        offline_votes: Face-to-Face-Unterstützung
+        offline_votes_for_scope: Persönliche Unterschriften für %{scope_name}
+        scope_id: Umfang
+        signature_end_date: Ende der Unterschriftensammlung
+        signature_start_date: Beginn der Unterschriftensammlung
+        signature_type: Signatursammeltyp
+        signature_type_values:
+          any: Gemischt
+          offline: Angesicht zu Angesicht
+          online: Online
+        state: Zustand
+        title: Titel
+      initiatives_committee_member:
+        user: Ausschussmitglied
+      initiatives_type:
+        area_enabled: Die Auswahl des Bereichs von Initiativen für Autoren freigeben
+        attachments_enabled: Anhänge freigeben
+        banner_image: Banner-Bild
+        child_scope_threshold_enabled: Unterschriften von Unterbereichen aktivieren
+        collect_user_extra_fields: Sammeln Sie persönliche Daten des Benutzers bei der Unterschrift
+        custom_signature_end_date_enabled: Die Auswahl des Enddatums der Unterschriftensammlung für Autoren freigeben
+        description: Beschreibung
+        document_number_authorization_handler: Berechtigung zur Überprüfung der Belegnummer bei Abstimmungen
+        extra_fields_legal_information: Rechtliche Informationen zur Erhebung personenbezogener Daten
+        minimum_committee_members: Minimum der Ausschussmitglieder
+        online_signature_enabled: Online-Signatur aktiviert
+        only_global_scope_enabled: Nur die Erstellung globaler Initiativen zulassen
+        promoting_committee_enabled: Förderkomitee freigeben
+        title: Titel
+        undo_online_signatures_enabled: Ermöglichen Sie Benutzern, ihre Online-Signaturen rückgängig zu machen
+        validate_sms_code_on_votes: Fügen Sie dem Signaturprozess einen SMS-Validierungsschritt hinzu
+      initiatives_vote:
+        date_of_birth: Geburtsdatum
+        document_number: Dokumentnummer
+        name_and_surname: Name und Nachname
+        postal_code: Postleitzahl
+  decidim:
+    admin:
+      titles:
+        initiatives: Initiativen
+        initiatives_types: Arten von Initiativen
+    events:
+      initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: Die Initiative "%{resource_title}" wurde zur technischen Validierung gesendet. Über das <a href="%{admin_initiative_url}">Admin-Panel</a> können Sie sie aufrufen
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Plattform sind.
+            email_subject: Die Initiative "%{resource_title}" wurde zur technischen Validierung gesendet.
+            notification_title: Die Initiative "%{resource_title}" wurde zur technischen Validierung gesendet. Über das <a href="%{admin_initiative_path}">Admin-Panel</a> können Sie sie aufrufen
+        initiative_extended:
+          email_intro: Das Enddatum der Unterschriftensammlung für die Initiative %{resource_title} wurde verlängert!
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Enddatum der Unterschriftensammlung verlängert!
+          notification_title: Das Enddatum der Unterschriftensammlung für die Initiative <a href="%{resource_path}">%{resource_title}</a> wurde verlängert.
+        initiative_sent_to_technical_validation:
+          email_intro: Die Initiative „%{resource_title}“ wurde zur technischen Validierung gesendet. Über das <a href="%{admin_initiative_url}">Admin-Panel</a> können Sie sie aufrufen
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Plattform sind.
+          email_subject: Die Initiative "%{resource_title}" wurde zur technischen Validierung gesendet.
+          notification_title: Die Initiative "%{resource_title}" wurde zur technischen Validierung gesendet. Über das <a href="%{admin_initiative_path}">Admin-Panel</a> können Sie sie aufrufen
+        milestone_completed:
+          affected_user:
+            email_intro: Ihre Initiative %{resource_title} hat %{percentage}% der Unterschriften erreicht!
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor der Initiative %{resource_title} sind.
+            email_subject: Neuer Meilenstein abgeschlossen!
+            notification_title: Ihre Initiative <a href="%{resource_path}">%{resource_title}</a> hat %{percentage}% der Unterschriften erreicht.
+          follower:
+            email_intro: Die Initiative %{resource_title} hat %{percentage}% der Unterschriften erreicht!
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+            email_subject: Neuer Meilenstein abgeschlossen!
+            notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> hat %{percentage}% der Unterschriften erreicht.
+        support_threshold_reached:
+          email_intro: Die Initiative %{resource_title} hat die Mindestanzahl an Unterschriften erreicht
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Plattform sind.
+          email_subject: Mindestanzahl an Unterschriften erreicht
+          notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> hat die Mindestanzahl an Unterschriften erreicht
+    gamification:
+      badges:
+        initiatives:
+          conditions:
+            - Gehe zum Teilnehmerbereich von Intiativen
+            - Befolgen Sie die Schritte, um eine neue Initiative zu erstellen
+          description: Dieses Abzeichen wird gewährt, wenn Sie neue Initiativen starten und mit anderen zusammenarbeiten, um sie durchzuführen.
+          description_another: Dieser Benutzer hat %{score} Initiativen veröffentlicht.
+          description_own: Du hast %{score} Initiativen veröffentlicht.
+          name: Veröffentlichte Initiativen
+          next_level_in: Holen Sie sich %{score} weitere Initiativen veröffentlicht, um das nächste Level zu erreichen!
+          unearned_another: Dieser Benutzer hat noch keine Initiativen veröffentlicht.
+          unearned_own: Sie haben noch keine Initiativen veröffentlicht.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>Eine Initiative ist ein Vorschlag, der von jedermann aus eigener Initiative (unabhängig von anderen Kanälen oder Beteiligungsräumen) durch die Sammlung von (digitalen) Unterschriften für die Organisation zur Durchführung einer bestimmten Aktion (Änderung einer Verordnung, Initiierung eines Projekts) gefördert werden kann , ändern Sie den Namen einer Abteilung oder einer Straße usw.).</p> <p>Die Initiatoren einer Initiative können ihre Ziele festlegen, Unterstützung sammeln, diskutieren, verbreiten und Treffpunkte definieren, an denen Unterschriften der Teilnehmer oder Debatten gesammelt werden können, die für andere Teilnehmer offen sind.</p> <p>Beispiele: Eine Initiative kann Unterschriften sammeln, um eine Konsultation unter allen Mitarbeitern einer Organisation einzuberufen, eine Versammlung zu gründen oder einzuberufen oder einen Prozess zur Aufstockung des Budgets für ein Gebiet oder einen Bereich der Organisation einzuleiten. Während des Sammelns von Unterschriften können mehr Personen zu diesem Bedarf beitragen und ihn in der Organisation vorantreiben.</p>\n"
+          page: "<p>Eine Initiative ist ein Vorschlag, der von jedermann aus eigener Initiative (unabhängig von anderen Kanälen oder Beteiligungsräumen) durch die Sammlung von (digitalen) Unterschriften für die Organisation zur Durchführung einer bestimmten Aktion (Änderung einer Verordnung, Initiierung eines Projekts) gefördert werden kann , ändern Sie den Namen einer Abteilung oder einer Straße usw.).</p> <p>Die Initiatoren einer Initiative können ihre Ziele festlegen, Unterstützung sammeln, diskutieren, verbreiten und Treffpunkte definieren, an denen Unterschriften der Teilnehmer oder Debatten gesammelt werden können, die für andere Teilnehmer offen sind.</p> <p>Beispiele: Eine Initiative kann Unterschriften sammeln, um eine Konsultation unter allen Mitarbeitern einer Organisation einzuberufen, eine Versammlung zu gründen oder einzuberufen oder einen Prozess zur Aufstockung des Budgets für ein Gebiet oder einen Bereich der Organisation einzuleiten. Während des Sammelns von Unterschriften können mehr Personen zu diesem Bedarf beitragen und ihn in der Organisation vorantreiben.</p>\n"
+          title: Was sind Initiativen?
+    initiatives:
+      actions:
+        answer: Antworten
+      admin:
+        answers:
+          edit:
+            answer: Antworten
+            title: Antwort für %{title}
+          info_initiative:
+            created_at: Hergestellt in
+            description: Beschreibung
+            initiative_votes_count: Stimmen zählen
