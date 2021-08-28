@@ -1,1 +1,19 @@
 lb:
+  activemodel:
+    attributes:
+      participatory_process:
+        weight: Gewicht
+  decidim:
+    participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Aktivität
+    participatory_processes:
+      statistics:
+        answers_count: Antworten
+        comments_count: Bemerkungen
+        debates_count: Debatten
+        endorsements_count: Empfehlungen
+        followers_count: Follower
+        headline: Aktivität
+        meetings_count: Meetings
