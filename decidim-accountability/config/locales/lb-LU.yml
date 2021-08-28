@@ -153,9 +153,37 @@ lb:
         status:
           fields:
             description: Beschreibung
+            key: Schlüssel
+            name: Name
+            progress: Fortschritt
+        timeline_entry:
+          fields:
+            description: Beschreibung
+            entry_date: Datum
+      result_m:
+        executed: Ausgeführt
+        view: Ansicht
       results:
+        count:
+          results_count:
+            one: 1 Ergebnis
+            other: "%{count} Ergebnisse"
+        filters:
+          all: Alle
+          scopes: Bereiche
+        home:
+          categories_label: Kategorien
+          subcategories_label: Unterkategorien
+        home_header:
+          global_status: Globaler Umsetzungsstatus
+        nav_breadcrumb:
+          global: Globale Ausführung
+        search:
+          search: Suche nach Aktionen
         show:
           stats:
+            attendees: Teilnehmer
+            back_to_resource: Gehe zurück zum Ergebnis
             comments: Bemerkungen
             contributions: Beiträge
             last_edited_by: Zuletzt bearbeitet von
