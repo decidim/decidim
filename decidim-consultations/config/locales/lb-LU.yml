@@ -238,8 +238,27 @@ lb:
         consultations:
           contextual: "<p>Eine <strong>Konsultation</strong> ist ein Raum, in dem Sie allen Personen, die eine Organisation gründen, eine klare Frage stellen, zur Teilnahme an der Konsultation anrufen, die Debatte für oder gegen eine Antwort. Wenn der Konsultationstermin erreicht ist, können Sie abstimmen und die Ergebnisse der Abstimmungen veröffentlichen.</p> <p>Beispiele: Die Konsultationen können sich auf fast jeden Aspekt beziehen, der eine Organisation betrifft: Einige Beispiele sind die Änderung des Namens oder des Logos der Organisation mehrere Alternativen anbieten, Ja oder Nein entscheiden, Teil einer größeren Organisation zu werden, einen neuen strategischen Plan oder das Ergebnis einer Arbeitsgruppe validieren oder ablehnen oder festlegen, ob die Positionen maximal 1, 2 oder 3 Mandate bleiben sollen.</ p>"
           page: "<p>Eine <strong>Konsultation</strong> ist ein Raum, in dem Sie allen Personen, die eine Organisation bilden, eine klare Frage stellen, anrufen, um an der Konsultation teilzunehmen, die Debatte für oder gegen eine Antwort anzuordnen. Wenn das Konsultationsdatum erreicht ist, können Sie abstimmen und die Abstimmungsergebnisse veröffentlichen.</p> <p>Beispiele: Bei den Konsultationen kann es sich um fast jeden Aspekt handeln, der eine Organisation betrifft: Bei einigen Beispielen wird der Name oder das Logo der Organisation geändert, die verschiedene Alternativen bietet. Sie entscheiden sich für Ja oder Nein, um Teil einer größeren Organisation zu werden, eine neue Strategie zu bestätigen oder abzulehnen Plan oder das Ergebnis einer Arbeitsgruppe oder die Festlegung, ob die Positionen maximal 1, 2 oder 3 Mandate in der Organisation bleiben sollen.</p>\n"
+          title: Was sind Konsultationen?
+    menu:
+      consultations: Konsultationen
     questions:
+      next_button: Nächste Frage
+      previous_button: Vorherige Frage
+      results:
+        title: Resultater
+      show:
+        read_more: Weiterlesen
+      statistics:
+        assistants_count_title: Assistenten
+        comments_count_title: Bemerkungen
+        meetings_count_title: Meetings
+        supports_count_title: Unterstützt
+      technical_info:
+        technical_data: Technische Daten
       vote_button:
+        already_voted: Schon gewählt
+        already_voted_hover: Support entziehen
+        starting_from: Beginnend von %{date}
         verification_required: Verifizieren Sie Ihr Konto, um abstimmen zu können
         vote: Abstimmung
       vote_modal:
