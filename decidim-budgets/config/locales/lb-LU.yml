@@ -1,9 +1,73 @@
 lb:
+  activemodel:
+    attributes:
+      project:
+        budget_amount: Höhe des Budgets
+        decidim_category_id: Kategorie
+        decidim_scope_id: Umfang
+        description: Beschreibung
+        proposal_ids: Ähnliche Vorschläge
+        selected: Zur Implementierung ausgewählt
+        title: Titel
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Projekt
+        other: Projekte
   decidim:
     budgets:
+      actions:
+        attachment_collections: Ordner
+        attachments: Anhänge
+        confirm_destroy: Möchten Sie dieses Projekt wirklich löschen?
+        destroy: Löschen
+        edit: Bearbeiten
+        edit_projects: Projekte verwalten
+        import: Vorschläge in Projekte importieren
+        new: Neue(r/s) %{name}
+        preview: Vorschau
+        title: Aktionen
       admin:
-        projects:
+        budgets:
+          create:
+            invalid: Beim Erstellen dieses Budgets ist ein Problem aufgetreten
+            success: Budget erfolgreich erstellt
+          destroy:
+            invalid: Es gab ein Problem beim Löschen dieses Budgets
+            success: Budget erfolgreich gelöscht
+          edit:
+            title: Budget bearbeiten
+            update: Budget aktualisieren
           index:
+            finished_orders: Abgeschlossene Stimmen
+            pending_orders: Ausstehende Stimmen
+            title: Budgets
+            users_with_finished_orders: Benutzer mit abgeschlossenen Stimmen
+            users_with_pending_orders: Benutzer mit ausstehenden Stimmen
+          new:
+            create: Budget erstellen
+            title: Neues Budget
+          update:
+            invalid: Es gab ein Problem beim Aktualisieren dieses Budgets
+            success: Budget erfolgreich aktualisiert
+        exports:
+          projects: Projekte
+        models:
+          budget:
+            name: Bugdet
+          project:
+            name: Projekt
+        projects:
+          create:
+            invalid: Beim Erstellen dieses Projekts ist ein Problem aufgetreten
+            success: Projekt erfolgreich erstellt
+          destroy:
+            success: Projekt erfolgreich gelöscht
+          edit:
+            title: Projekt bearbeiten
+            update: Aktualisieren
+          index:
+            finished_orders: Abgeschlossene Stimmen
             pending_orders: Ausstehende Stimmen
             selected: Ausgewählt
             title: Projekte
@@ -146,7 +210,12 @@ lb:
           remove: Projekt %{resource_name} aus deiner Stimme entfernen
           selected: Ausgewählt
           view: Anzeigen
+          votes:
+            one: Abstimmung
+            other: Abstimmungen
+          you_voted: Du hast für dieses gestimmt
         project_budget_button:
+          add: Zur Abstimmung hinzufügen
           add_descriptive: Projekt %{resource_name} Ihrer Stimme hinzufügen
           added: Zu deiner Abstimmung hinzugefügt
           added_descriptive: Projekt %{resource_name} wurde zu deiner Abstimmung hinzugefügt
@@ -213,3 +282,12 @@ lb:
       checkout:
         error: Während der Bearbeitung Ihrer Abstimmung ist ein Fehler aufgetreten
         success: Ihre Stimme wurde erfolgreich angenommen
+      destroy:
+        error: Bei der Absage der Abstimmung ist ein Fehler aufgetreten
+        success: Ihre Abstimmung wurde erfolgreich abgebrochen
+    resource_links:
+      included_proposals:
+        project_proposal: Vorschläge in diesem Projekt
+    statistics:
+      orders_count: Projektauswahlen
+      projects_count: Projekte
