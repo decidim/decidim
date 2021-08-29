@@ -354,8 +354,33 @@ lb:
           by_organization_link_html: <small class="heading-small">von %{link}</small>
           cancel: Abbrechen
           connect_your_account_html: Verbinden Sie Ihr Konto, indem Sie sich bei <strong>%{organization}</strong> anmelden
+          this_application_will_not_be_able_to: 'Diese Anwendung kann nicht:'
+          update_profile: Profil aktualisieren
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> möchte Ihr Konto verwenden"
+    endorsable:
+      endorsements: Empfehlungen
+      endorsements_count: Anzahl Befürworter
+    endorsement_buttons_cell:
+      already_endorsed: Befürwortet
+      endorse: Befürworten
+    endorsements:
+      identities:
+        done: Erledigt
+        select_identity: Identität auswählen
+    errors:
+      internal_server_error:
+        title: Auf unserem Server ist ein Problem aufgetreten
+        try_later: Bitte versuchen Sie es später nochmal.
+      not_found:
+        back_home: Zurück zur Startseite
+        content_doesnt_exist: Diese Adresse ist falsch oder wurde entfernt.
+        title: Die von Ihnen gesuchte Seite kann nicht gefunden werden
     events:
       amendments:
+        amendment_accepted:
+          affected_user:
+            email_intro: 'Eine Änderung an %{amendable_title} wurde akzeptiert. Sie können das auf dieser Seite sehen:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
         amendment_rejected:
           follower:
             notification_title: Die <a href="%{emendation_path}">Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> wurde abgelehnt.
@@ -643,6 +668,7 @@ lb:
     pages:
       home:
         statistics:
+          endorsements_count: Empfehlungen
           users_count: Teilnehmer
     profiles:
       show:
