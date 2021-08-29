@@ -291,3 +291,5 @@ lb:
     statistics:
       orders_count: Projektauswahlen
       projects_count: Projekte
+  index:
+    confirmed_orders_count: Stimmen zählen
