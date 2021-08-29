@@ -2,6 +2,11 @@ lb:
   activemodel:
     attributes:
       consultation:
+        banner_image: Banner-Bild
+        decidim_highlighted_scope_id: Hervorgehobener Umfang
+        description: Beschreibung
+        end_voting_date: Die Abstimmung endet
+        introductory_image: Einführungsbild
         introductory_video_url: Einleitende Video-URL
         questions: Fragen
         slug: URL-Block
@@ -85,6 +90,15 @@ lb:
         destroy:
           error: Es ist ein Fehler aufgetreten, die Ergebnisse dieser Konsultation nicht zu veröffentlichen.
           success: Konsultationsergebnisse wurden nicht veröffentlicht.
+      consultations:
+        create:
+          error: Beim Erstellen einer neuen Konsultation ist ein Fehler aufgetreten.
+          success: Beratung erfolgreich erstellt.
+        deprecation_warning: Das Beratungsmodul wird in naher Zukunft veraltet sein. Wir arbeiten an der nächsten, kryptographisch sicheren Version namens Votings.
+        edit:
+          update: Aktualisieren
+        form:
+          slug_help: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Abfrage verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
       questions:
         new:
           create: Erstellen
@@ -169,6 +183,61 @@ lb:
         filter: Filter
         filter_by: Filtern nach
         unfold: Entfalten
+      pages:
+        home:
+          highlighted_consultations:
+            see_all_consultations: Sehen Sie alle Konsultationen
+            voting_ends_in:
+              one: Die Abstimmung endet <strong>morgen</strong>
+              other: Die Abstimmung endet in <strong>%{count} Tagen</strong>
+            voting_ends_today: Die Abstimmung endet <strong>heute</strong>
+      question:
+        take_part: Teilnehmen
+        view_results: Ergebnisse anzeigen
+        votes_out_of:
+          one: abstimmen
+          other: Stimmen aus
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Teilnehmer konnten mindestens %{votes} Stimmen für verschiedene Optionen abgeben.
+          title: In dieser Frage sind Multiple-Choice-Fragen erlaubt
+          total_participants: Es haben insgesamt %{count} Personen an der Abstimmung teilgenommen.
+          vote_limit:
+            description: Teilnehmer konnten bis zu über %{limit} Optionen abstimmen.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Sie müssen mindestens %{votes} Stimmen für verschiedene Optionen abgeben.
+          title: 'Die Abstimmung unterliegt folgenden Regeln:'
+          vote_limit:
+            description: Sie können bis zu über %{limit} Optionen abstimmen.
+            left: Verbleibend
+            votes: Stimmen
+      question_votes:
+        create:
+          error: Es gab Fehler bei der Abstimmung der Frage
+          success: Sie können dies bis zum Ende der Konsultation ändern. Nur die letzte Stimme wird akzeptiert.
+          title_error: Abstimmungsfehler!
+          title_success: Stimme erfolgreich registriert
+      regular_questions:
+        title: Fragen für diese Konsultation
+      show:
+        badge_name:
+          finished: Abgeschlossen
+          open: Öffnen
+          open_votes: Stimmen öffnen
+          published_results: Ergebnisse veröffentlicht
+        footer_button_text:
+          debate: Debatte
+          view: Anzeigen
+          view_results: Ergebnisse anzeigen
+          vote: Abstimmen
+        unspecified: Keine Angabe
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p>Eine <strong>Konsultation</strong> ist ein Raum, in dem Sie allen Personen, die eine Organisation gründen, eine klare Frage stellen, zur Teilnahme an der Konsultation anrufen, die Debatte für oder gegen eine Antwort. Wenn der Konsultationstermin erreicht ist, können Sie abstimmen und die Ergebnisse der Abstimmungen veröffentlichen.</p> <p>Beispiele: Die Konsultationen können sich auf fast jeden Aspekt beziehen, der eine Organisation betrifft: Einige Beispiele sind die Änderung des Namens oder des Logos der Organisation mehrere Alternativen anbieten, Ja oder Nein entscheiden, Teil einer größeren Organisation zu werden, einen neuen strategischen Plan oder das Ergebnis einer Arbeitsgruppe validieren oder ablehnen oder festlegen, ob die Positionen maximal 1, 2 oder 3 Mandate bleiben sollen.</ p>"
+          page: "<p>Eine <strong>Konsultation</strong> ist ein Raum, in dem Sie allen Personen, die eine Organisation bilden, eine klare Frage stellen, anrufen, um an der Konsultation teilzunehmen, die Debatte für oder gegen eine Antwort anzuordnen. Wenn das Konsultationsdatum erreicht ist, können Sie abstimmen und die Abstimmungsergebnisse veröffentlichen.</p> <p>Beispiele: Bei den Konsultationen kann es sich um fast jeden Aspekt handeln, der eine Organisation betrifft: Bei einigen Beispielen wird der Name oder das Logo der Organisation geändert, die verschiedene Alternativen bietet. Sie entscheiden sich für Ja oder Nein, um Teil einer größeren Organisation zu werden, eine neue Strategie zu bestätigen oder abzulehnen Plan oder das Ergebnis einer Arbeitsgruppe oder die Festlegung, ob die Positionen maximal 1, 2 oder 3 Mandate in der Organisation bleiben sollen.</p>\n"
     questions:
       vote_button:
         verification_required: Verifizieren Sie Ihr Konto, um abstimmen zu können
