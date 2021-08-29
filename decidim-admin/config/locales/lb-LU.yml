@@ -315,7 +315,29 @@ lb:
         solved: Gelöst
         transfer:
           email: E-Mail
+          error: Es gab ein Problem bei der Übertragung des aktuellen Teilnehmers zu den verwalteten Teilnehmern.
+          name: Name
+          reason: Grund
+          success: Übertragung erfolgreich.
+          title: Übertragung
+        'true': 'Ja'
+        user_name: Nutzer
+      dashboard:
+        show:
+          view_more_logs: Weitere Protokolle anzeigen
+          welcome: Willkommen im Decidim Admin Panel.
+      exports:
+        export_as: "%{name} als %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
+        notice: Ihr Export wird gerade ausgeführt. Sie erhalten nach Fertigstellung eine E-Mail.
       filters:
+        category_id_eq:
+          label: Kategorie
+        filter_label: Filtern
         state_eq:
           label: Bundesland
       forms:
