@@ -281,3 +281,5 @@ lb:
       destroy:
         error: Bei der Absage der Abstimmung ist ein Fehler aufgetreten
         success: Ihre Abstimmung wurde erfolgreich abgebrochen
+  index:
+    confirmed_orders_count: Stimmen zählen
