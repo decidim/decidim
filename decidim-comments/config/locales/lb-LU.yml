@@ -74,3 +74,20 @@ lb:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihr Kommentar beantwortet wurde.
           email_subject: "%{author_name} hat auf Ihren Kommentar zu %{resource_title} geantwortet"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat auf Ihren Kommentar in <a href="%{resource_path}">%{resource_title}</a> geantwortet
+        user_group_mentioned:
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Mitglied der Gruppe %{group_name} sind, die in %{resource_title} erwähnt wurde.
+          email_subject: Sie wurden in %{resource_title} als Mitglied von %{group_name} erwähnt
+          notification_title: Sie wurden in <a href="%{resource_path}">%{resource_title}</a> von <a href="%{author_path}">%{author_name} %{author_nickname}</a> als ein Mitglied von <a href="%{group_path}">%{group_name} %{group_nickname}</a> erwähnt
+        user_mentioned:
+          email_intro: Sie wurden erwähnt
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie in %{resource_title} erwähnt wurden.
+          email_subject: Sie wurden in %{resource_title} erwähnt
+          notification_title: Sie wurden in <a href="%{resource_path}">%{resource_title}</a> von <a href="%{author_path}">%{author_name} %{author_nickname}</a> erwähnt
+    metrics:
+      comments:
+        description: Anzahl der von Benutzern generierten Kommentare
+        object: Bemerkungen
+        title: Bemerkungen
+  errors:
+    messages:
+      cannot_have_comments: kann keine Kommentare haben
