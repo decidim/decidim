@@ -310,8 +310,54 @@ lb:
             diploma_html: Die Teilnahmebescheinigung für die Konferenz <a href="%{url}">%{title}</a> finden Sie in den Anhängen.
           diploma_user:
             attendance_verified_by: Anwesenheit überprüft durch
-      conference_speaker:
+            certificate_of_attendance: Teilnahmebestätigung
+            certificate_of_attendance_description: Hiermit wird bestätigt, dass <strong>%{user}</strong> an den <strong>%{title}</strong> teilgenommen hat, die am <strong>%{location}</strong> am <strong>%{start} - %{end}</strong>abgehalten wurden
+        send_diploma:
+          error: Beim Senden der Teilnahmebestätigung der Konferenz ist ein Problem aufgetreten.
+          success: Konferenz-Teilnahmebestätigung korrekt gesendet
+      conference:
+        registration_confirm:
+          cancel: Stornieren
+          confirm: Bestätigen
         show:
+          free: Kostenlos
+          going: Gehen
+          no_slots_available: Keine Steckplätze verfügbar
+          registration: Anmeldung
+      conference_program:
+        program_meeting:
+          content: Inhalt
+          location: Ort
+          speakers: Lautsprecher
+          streaming: Streaming
+        show:
+          day: Tag
+          program: Programm
+      conference_registration_mailer:
+        confirmation:
+          confirmed_html: Ihre Anmeldung zur Konferenz <a href="%{url}">%{title}</a> wurde bestätigt.
+          details_1: 'Sie sind mit dem Typ %{registration_type} zur Konferenz angemeldet. Es kostet %{price} und Sie können an folgenden Veranstaltungen teilnehmen:'
+          details_2: Sie finden die Details der Konferenz im Anhang.
+        pending_validation:
+          confirmation_pending: Sie erhalten in Kürze eine Bestätigung
+          details: 'Sie haben sich für %{registration_type} Typ mit einem Preis von %{price} angemeldet und können an den folgenden Veranstaltungen teilnehmen:'
+          pending_html: Ihre Anmeldung zur Konferenz <a href="%{url}">%{title}</a> steht noch aus.
+      conference_registrations:
+        create:
+          invalid: Bei dieser Konferenz ist ein Problem aufgetreten.
+          success: Sie sind der Konferenz erfolgreich beigetreten.
+        decline_invitation:
+          invalid: Es ist ein Problem aufgetreten, dass die Einladung abgelehnt wurde.
+          success: Sie haben die Einladung erfolgreich abgelehnt.
+        destroy:
+          invalid: Beim Verlassen dieser Konferenz ist ein Problem aufgetreten.
+          success: Sie haben die Konferenz erfolgreich verlassen.
+      conference_speaker:
+        go_to_twitter: Gehe zu Twitter
+        more_info: Mehr Informationen
+        personal_website: Persönliche Webseite
+        show:
+          more_info: Mehr Informationen
           speaking_at: Sprecher bei
       conference_speaker_cell:
         personal_url:
@@ -402,9 +448,16 @@ lb:
         objectives: Ziele
         related_assemblies: Ähnliche Gremien
         related_consultations: Verwandte Konsultationen
+        related_participatory_processes: Ähnliche Beteiligungsprozesse
     events:
       conferences:
+        conference_registration_confirmed:
+          notification_title: Ihre Anmeldung für die Konferenz <a href="%{resource_url}">%{resource_title}</a> wurde bestätigt.
+        conference_registration_validation_pending:
+          notification_title: Ihre Anmeldung für die Konferenz <a href="%{resource_url}">%{resource_title}</a> steht noch aus.
         conference_registrations_over_percentage:
+          email_intro: Die Slots der Konferenz "%{resource_title}" sind zu über %{percentage}% belegt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator des Teilnahmebereichs der Konferenz sind.
           email_subject: Die Slots in der Konferenz "%{resource_title}" sind zu über %{percentage}% belegt
           notification_title: Die Slots der Konferenz <a href="%{resource_path}">%{resource_title}</a> sind zu über %{percentage}% belegt.
         conference_updated:
