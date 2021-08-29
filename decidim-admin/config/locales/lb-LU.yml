@@ -261,6 +261,7 @@ lb:
       block_user:
         new:
           action: Konto sperren und Begründung senden
+          description: Das Sperren eines Benutzers macht sein Konto unbrauchbar. Sie können in Ihrer Begründung alle Richtlinien zur Entsperrung des Benutzers angeben.
           justification: Begründung
           title: Benutzer %{name} blockieren
       categories:
@@ -323,9 +324,43 @@ lb:
         'false': 'Nein'
         managed_user_name: Verwalteter Benutzer
         solved: Gelöst
+        title: "Überprüfungskonflikte\n\n"
         transfer:
           email: E-Mail
+          error: Es gab ein Problem bei der Übertragung des aktuellen Teilnehmers zu den verwalteten Teilnehmern.
+          name: Name
+          reason: Grund
+          success: Übertragung erfolgreich.
+          title: Übertragung
+        'true': 'Ja'
+        user_name: Nutzer
+      dashboard:
+        show:
+          view_more_logs: Weitere Protokolle anzeigen
+          welcome: Willkommen im Decidim Admin Panel.
+      domain_whitelist:
+        form:
+          domain_too_short: Domain zu kurz
+        update:
+          error: Domain-Whitelist konnte nicht aktualisiert werden
+          success: Domain-Whitelist erfolgreich aktualisiert
+      exports:
+        export_as: "%{name} als %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
+        notice: Ihr Export wird gerade ausgeführt. Sie erhalten nach Fertigstellung eine E-Mail.
       filters:
+        category_id_eq:
+          label: Kategorie
+        filter_label: Filtern
+        invitation_accepted_at_present:
+          label: Einladung angenommen
+          values:
+            'false': 'Nein'
+            'true': 'ja'
         state_eq:
           label: Bundesland
       forms:
