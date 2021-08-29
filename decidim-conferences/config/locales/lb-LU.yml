@@ -1,4 +1,49 @@
 lb:
+  activemodel:
+    attributes:
+      conference:
+        assemblies_ids: Ähnliche Assemblies
+        available_slots: Verfügbare Plätze
+        banner_image: Banner-Bild
+        consultations_ids: Verwandte Konsultationen
+        copy_categories: Kategorien kopieren
+        copy_components: Kopieren Sie Komponenten
+        copy_features: Funktionen kopieren
+        decidim_scope_id: Umfang
+        description: Beschreibung
+        end_date: Endtermin
+        hashtag: Hashtag
+        hero_image: Hauptbild
+        location: Standort
+        main_logo: Hauptlogo
+        objectives: Ziele
+        participatory_processes_ids: Ähnliche Beteiligungsprozesse
+        promoted: Gefördert
+        published_at: Veröffentlicht unter
+        registration_terms: Registrierungsbedingungen
+        registrations_enabled: Registrierungen aktiviert
+        scope_id: Umfang
+        scopes_enabled: Bereiche aktiviert
+        short_description: Kurze Beschreibung
+        show_statistics: Zeige Statistiken
+        sign_date: Datum der Unterschrift
+        signature: Unterschrift
+        signature_name: Signaturname
+        slogan: Slogan
+        slug: URL-Block
+        start_date: Startdatum
+        title: Titel
+      conference_media_link:
+        date: Datum
+        link: Verknüpfung
+        title: Titel
+      conference_partner:
+        link: Verknüpfung
+        logo: Logo
+        name: Numm
+        partner_type: Partnertyp
+      conference_registration_invite:
+        email: E-Mail
   decidim:
     admin:
       conference_user_roles:
@@ -80,7 +125,75 @@ lb:
         conference:
           fields:
             created_at: Hergestellt in
+        conference_speaker:
+          fields:
+            position: Positioun
+          name: Konferenzsprecher
+        conference_user_role:
+          fields:
+            email: Email
+            name: Name
+            role: Rolle
+          name: Konferenzbenutzer
+          roles:
+            admin: Administrator
+            collaborator: Mitarbeiter
+            moderator: Moderator
+            valuator: Schätzer
+        media_link:
+          fields:
+            date: Datum
+            link: Verknüpfung
+            title: Titel
+          name: Medienlink
+        partner:
+          fields:
+            link: Verknüpfung
+            logo: Logo
+            name: Name
+            partner_type: Art
+          name: Partner
+          types:
+            collaborator: Mitarbeiter
+            main_promotor: Hauptförderer
+        registration_type:
+          fields:
+            conference_meetings: Konferenzsitzungen
+            price: Preis
+            registrations_count: Registrierungen zählen
+            title: Titel
+          name: Registrierungstyp
+      partners:
+        create:
+          error: Beim Hinzufügen eines Partners für diese Konferenz ist ein Fehler aufgetreten.
+          success: Der Partner wurde erfolgreich zu dieser Konferenz hinzugefügt.
+        destroy:
+          success: Der Partner wurde erfolgreich von dieser Konferenz entfernt.
+        edit:
+          title: Partner aktualisieren
+          update: Aktualisieren
+        new:
+          create: Erstellen
+          title: Neuer Partner
+        update:
+          error: Bei einem Fehler ist ein Partner für diese Konferenz aktualisiert worden.
+          success: Der Partner wurde für diese Konferenz erfolgreich aktualisiert.
+      registration_type_publications:
+        create:
+          error: Beim Veröffentlichen dieses Registrierungstyps ist ein Fehler aufgetreten.
+          success: Die Registrierung wurde erfolgreich veröffentlicht.
+        destroy:
+          error: Beim Aufheben der Veröffentlichung dieses Registrierungstyps ist ein Fehler aufgetreten.
+          success: Registrierungstyp nicht erfolgreich veröffentlicht.
       registration_types:
+        create:
+          error: Beim Hinzufügen eines Registrierungstyps für diese Konferenz ist ein Fehler aufgetreten.
+          success: Die Registrierung wurde erfolgreich zu dieser Konferenz hinzugefügt.
+        destroy:
+          success: Der Registrierungstyp wurde erfolgreich von dieser Konferenz entfernt.
+        edit:
+          title: Registrierungsart aktualisieren
+          update: Aktualisieren
         new:
           create: Erstellen
           title: Neuer Registrierungstyp
@@ -159,6 +272,14 @@ lb:
         conference_registrations:
           index:
             registrations: Anmeldungen
+        conference_speakers:
+          form:
+            existing_user: Existierender Benutzer
+            non_user: Nichtbenutzer
+            select_user: Nutzer wählen
+            user_type: Benutzertyp
+          index:
+            search: Suche
       conference_speaker:
         show:
           speaking_at: Sprecher bei
@@ -252,3 +373,74 @@ lb:
         related_consultations: Verwandte Konsultationen
       statistics:
         conference_count: Konferenzen
+    events:
+      conferences:
+        conference_registrations_over_percentage:
+          email_subject: Die Slots in der Konferenz "%{resource_title}" sind zu über %{percentage}% belegt
+          notification_title: Die Slots der Konferenz <a href="%{resource_path}">%{resource_title}</a> sind zu über %{percentage}% belegt.
+        conference_updated:
+          email_intro: 'Die Konferenz "%{resource_title}" wurde aktualisiert. Sie können die neue Version auf der Konferenz-Seite lesen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Konferenz "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Die Konferenz "%{resource_title}" wurde aktualisiert
+          notification_title: Die Konferenz <a href="%{resource_path}">%{resource_title}</a> wurde aktualisiert.
+        registrations_enabled:
+          email_intro: 'Die Konferenz "%{resource_title}" hat Registrierungen aktiviert. Sie können sich auf der Konferenz-Seite registrieren:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Konferenz "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Die Konferenz "%{resource_title}" hat Registrierungen aktiviert.
+          notification_title: Die Konferenz <a href="%{resource_path}">%{resource_title}</a> hat Registrierungen aktiviert.
+        role_assigned:
+          email_intro: Sie wurden als %{role} für die Konferenz "%{resource_title}" ausgewählt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein %{role} der Konferenz "%{resource_title}" sind.
+          email_subject: Sie wurden als %{role} für "%{resource_title}" ausgewählt.
+          notification_title: Sie wurden als %{role} für die Konferenz <a href="%{resource_url}">%{resource_title}</a> ausgewählt.
+        upcoming_conference:
+          email_intro: 'Die Konferenz "%{resource_title}" findet in 2 Tagen statt. Sie können die Beschreibung auf der Konferenz-Seite lesen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Konferenz "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Die Konferenz "%{resource_title}" kommt!
+          notification_title: Die Konferenz <a href="%{resource_path}">%{resource_title}</a> beginnt in 2 Tagen.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p>Eine <strong>Konferenz</strong> ist eine Sammlung von Meetings, die in einem Programm organisiert werden, mit einer Anzahl von Personen, die als Referenten eingeladen werden und andere Informationsfelder, die für große Kongresse oder gesellschaftliche Veranstaltungen typisch sind (Registrierung, Liste der Organisationen, die die Veranstaltung unterstützen oder sponsern, usw.)..</p> <p>Beispiele: Eine Konferenz kann ein relevantes Ereignis für eine Organisation und ihre Mitglieder sein oder im Rahmen eines partizipatorischen Prozesses oder einer Beratung folgen.</p>\n"
+          page: "<p>Eine <strong>Konferenz</strong> ist eine Sammlung von Meetings, die in einem Programm organisiert werden, mit einer Anzahl von Personen, die als Referenten eingeladen werden und andere Informationsfelder, die für große Kongresse oder gesellschaftliche Veranstaltungen typisch sind (Registrierung, Liste der Organisationen, die die Veranstaltung unterstützen oder sponsern, usw.)..</p> <p>Beispiele: Eine Konferenz kann ein relevantes Ereignis für eine Organisation und ihre Mitglieder sein oder im Rahmen eines partizipatorischen Prozesses oder einer Beratung folgen.</p>\n"
+          title: Was sind Konferenzen?
+    log:
+      value_types:
+        conference_presenter:
+          not_found: 'Die Konferenz wurde nicht in der Datenbank gefunden (ID: %{id})'
+    media:
+      index:
+        description: Links zu dieser Konferenz
+        title: Medien und Links
+    menu:
+      conferences: Konferenzen
+  devise:
+    mailer:
+      join_conference:
+        subject: Einladung zur Teilnahme an einer Konferenz
+  layouts:
+    decidim:
+      conference_hero:
+        register: Registrieren
+      conference_widgets:
+        show:
+          take_part: Teilnehmen
+      conferences:
+        conference:
+          more_info: Mehr Informationen
+          take_part: Teilnehmen
+        index:
+          promoted_conferences: Geförderte Konferenzen
+        order_by_conferences:
+          conferences:
+            one: "%{count} Konferenz"
+            other: "%{count} Konferenzen"
+        promoted_conference:
+          more_info: Mehr Informationen
+          take_part: Teilnehmen
+      conferences_nav:
+        conference_menu_item: Information
+        conference_partners_menu_item: Partner
+        conference_speaker_menu_item: Lautsprecher
+        media: Medien
+        venues: Veranstaltungsorte
