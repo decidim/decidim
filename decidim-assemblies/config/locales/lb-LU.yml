@@ -214,6 +214,17 @@ lb:
             ceased_date: Aufgegebenes Datum
             designation_date: Datum der Benennung
             full_name: Name
+            position: Position
+          name: Mitglied
+          positions:
+            other: Andere
+            president: Präsident
+            secretary: Sekretär
+            vice_president: Vizepräsident
+        assembly_user_role:
+          fields:
+            email: Email
+            name: Name
     assemblies:
       admin:
         assemblies_types:
