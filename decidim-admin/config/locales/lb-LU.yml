@@ -338,6 +338,31 @@ lb:
         category_id_eq:
           label: Kategorie
         filter_label: Filtern
+        moderations:
+          reportable_type_string_eq:
+            label: Art
+        officialized_at_null:
+          label: Zustand
+          values:
+            'false': Offizialisiert
+            'true': Nicht offiziell
+        private_space_eq:
+          label: Privat
+          values:
+            'false': Öffentlich
+            'true': Privat
+        published_at_null:
+          label: Veröffentlicht
+          values:
+            'false': Veröffentlicht
+            'true': Unveröffentlicht
+        scope_id_eq:
+          label: Themenbereich
+        search_label: Suche
+        search_placeholder:
+          name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Benutzername.
+          reported_id_string_or_reported_content_cont: Suche %{collection} nach meldbarer Id oder Inhalt.
+          title_cont: In %{collection} nach Titel suchen.
         state_eq:
           label: Bundesland
       forms:
@@ -778,6 +803,67 @@ lb:
         impersonations: Benutzerverwaltung
         metrics: Kriterien
         panel: Admin
+      user_group:
+        csv_verify:
+          success: CSV-Datei wurde erfolgreich hochgeladen. Wir überprüfen, ob die Benutzergruppen den Kriterien entsprechen. Das kann eine Weile dauern.
+        reject:
+          invalid: Beim Ablehnen dieser Benutzergruppe ist ein Fehler aufgetreten.
+          success: Benutzergruppe wurde erfolgreich abgelehnt
+        verify:
+          invalid: Beim Überprüfen dieser Benutzergruppe ist ein Fehler aufgetreten.
+          success: Benutzergruppe erfolgreich verifiziert
+      user_groups:
+        index:
+          filter:
+            all: Alle
+            pending: steht aus
+            rejected: Abgelehnt
+            verified: Überprüft
+          filter_by: Filtern nach
+          search: Suche
+          state:
+            pending: steht aus
+            rejected: Abgelehnt
+            verified: Überprüft
+          verify_via_csv: Überprüfen Sie über CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Laden Sie Ihre CSV-Datei hoch. In der ersten Spalte der Datei müssen die offiziellen E-Mails der Benutzergruppen in Ihrer Organisation enthalten sein, ohne Kopfzeilen. Nur Benutzergruppen, die ihre E-Mail bestätigt haben und deren E-Mail in der CSV-Datei enthalten ist, werden überprüft.
+          title: Laden Sie Ihre CSV-Datei hoch
+          upload: Hochladen
+      users:
+        create:
+          error: Beim Einladen dieses Benutzers ist ein Fehler aufgetreten.
+          success: Benutzer wurde erfolgreich eingeladen.
+        destroy:
+          error: Beim Versuch, diesen Benutzer zu löschen, ist ein Fehler aufgetreten.
+          success: Der Benutzer ist kein Administrator mehr.
+        form:
+          email: Email
+          name: Name
+          role: Rolle
+        new:
+          create: Einladen
+          title: Benutzer als Administrator einladen
+      users_statistics:
+        users_count:
+          admins: Admins
+          last_day: Letzter Tag
+          last_month: Letzter Monat
+          last_week: Letzte Woche
+          no_users_count_statistics_yet: Es gibt noch keine Nutzerstatistiken
+          participants: Teilnehmer
+      view_public_page: Öffentliche Seite anzeigen
+    metrics:
+      blocked_users:
+        object: blockierte Benutzer
+        title: Blockierte Benutzer
+      reported_users:
+        object: gemeldete Benutzer
+        title: Gemeldete Benutzer
+      user_reports:
+        object: Benutzer-Meldungen
+        title: Benutzer-Meldungen
     moderations:
       actions:
         expand: Ausklappen
@@ -821,6 +907,8 @@ lb:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Globale Moderationen
         newsletters:
           title: Newsletter
         settings:
