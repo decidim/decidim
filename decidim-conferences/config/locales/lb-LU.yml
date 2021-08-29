@@ -281,6 +281,35 @@ lb:
             user_type: Benutzertyp
           index:
             search: Suche
+        conferences:
+          form:
+            available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
+            registrations_count:
+              one: Es gab 1 Registrierung.
+              other: Es gab %{count} Registrierungen.
+            slug_help: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+        diplomas:
+          edit:
+            save: Speichern
+            title: Teilnahmebestätigung
+        invite_join_conference_mailer:
+          invite:
+            decline: Einladung '%{conference_title}' ablehnen
+            invited_you_to_join_a_conference: "%{invited_by} hat Sie eingeladen, an einer Konferenz um %{application}teilzunehmen. Sie können dies über die unten stehenden Links ablehnen oder akzeptieren."
+            registration: Registrierung für '%{conference_title}'
+        partners:
+          index:
+            title: Partner
+        registration_types:
+          form:
+            select_conference_meetings: Konferenzmeetings auswählen
+          index:
+            title: Registrierungsarten
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Die Teilnahmebescheinigung für die Konferenz <a href="%{url}">%{title}</a> finden Sie in den Anhängen.
+          diploma_user:
+            attendance_verified_by: Anwesenheit überprüft durch
       conference_speaker:
         show:
           speaking_at: Sprecher bei
