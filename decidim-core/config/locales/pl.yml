@@ -1620,7 +1620,7 @@ pl:
         public_profile: Mój profil publiczny
         sign_out: Wyloguj się
       user_profile:
-        account: Konto
+        account: Moje konto
         authorizations: Autoryzacje
         delete_my_account: Usuń moje konto
         my_data: Moje dane
