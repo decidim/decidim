@@ -17,13 +17,13 @@ module Decidim
       def title(links: false, html_escape: false, all_locales: false)
         return unless meeting
 
-        Decidim::ResourcePresenter.new.title(meeting.title, links, html_escape, all_locales)
+        resource_presenter.title(meeting.title, links, html_escape, all_locales)
       end
 
       def description(links: false, all_locales: false)
         return unless meeting
 
-        Decidim::ResourcePresenter.new.handle_locales(meeting.description, all_locales) do |content|
+        resource_presenter.handle_locales(meeting.description, all_locales) do |content|
           renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize(content))
           renderer.render(links: links).html_safe
         end
@@ -32,7 +32,7 @@ module Decidim
       def location(all_locales: false)
         return unless meeting
 
-        Decidim::ResourcePresenter.new.handle_locales(meeting.location, all_locales) do |content|
+        resource_presenter.handle_locales(meeting.location, all_locales) do |content|
           content
         end
       end
@@ -40,7 +40,7 @@ module Decidim
       def location_hints(all_locales: false)
         return unless meeting
 
-        Decidim::ResourcePresenter.new.handle_locales(meeting.location_hints, all_locales) do |content|
+        resource_presenter.handle_locales(meeting.location_hints, all_locales) do |content|
           content
         end
       end
@@ -48,7 +48,7 @@ module Decidim
       def registration_terms(all_locales: false)
         return unless meeting
 
-        Decidim::ResourcePresenter.new.handle_locales(meeting.registration_terms, all_locales) do |content|
+        resource_presenter.handle_locales(meeting.registration_terms, all_locales) do |content|
           content
         end
       end
@@ -56,7 +56,7 @@ module Decidim
       def closing_report(links: false, all_locales: false)
         return unless meeting
 
-        Decidim::ResourcePresenter.new.handle_locales(meeting.closing_report, all_locales) do |content|
+        resource_presenter.handle_locales(meeting.closing_report, all_locales) do |content|
           renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize(content))
           renderer.render(links: links).html_safe
         end
@@ -65,7 +65,7 @@ module Decidim
       def registration_email_custom_content(links: false, all_locales: false)
         return unless meeting
 
-        Decidim::ResourcePresenter.new.handle_locales(meeting.registration_email_custom_content, all_locales) do |content|
+        resource_presenter.handle_locales(meeting.registration_email_custom_content, all_locales) do |content|
           renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize(content))
           renderer.render(links: links).html_safe
         end
@@ -126,6 +126,12 @@ module Decidim
         return unless meeting
 
         proposals.map.with_index { |proposal, index| "#{index + 1}) #{proposal.title}\n" }
+      end
+
+      private
+
+      def resource_presenter
+        @resource_presenter ||= Decidim::ResourcePresenter.new(organization)
       end
     end
   end

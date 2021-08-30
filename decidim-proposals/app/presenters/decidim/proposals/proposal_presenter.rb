@@ -41,7 +41,7 @@ module Decidim
       def title(links: false, extras: true, html_escape: false, all_locales: false)
         return unless proposal
 
-        Decidim::ResourcePresenter.new.title(proposal.title, links, html_escape, all_locales, extras: extras)
+        resource_presenter.title(proposal.title, links, html_escape, all_locales, extras: extras)
       end
 
       def id_and_title(links: false, extras: true, html_escape: false)
@@ -51,7 +51,7 @@ module Decidim
       def body(links: false, extras: true, strip_tags: false, all_locales: false)
         return unless proposal
 
-        Decidim::ResourcePresenter.new.handle_locales(proposal.body, all_locales) do |content|
+        resource_presenter.handle_locales(proposal.body, all_locales) do |content|
           content = strip_tags(sanitize_text(content)) if strip_tags
 
           renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
@@ -93,6 +93,10 @@ module Decidim
       end
 
       private
+
+      def resource_presenter
+        @resource_presenter ||= Decidim::ResourcePresenter.new(organization)
+      end
 
       def sanitize_unordered_lists(text)
         text.gsub(%r{(?=.*</ul>)(?!.*?<li>.*?</ol>.*?</ul>)<li>}) { |li| "#{li}• " }

@@ -6,6 +6,12 @@ module Decidim
     include Decidim::TranslatableAttributes
     include Decidim::SanitizeHelper
 
+    def initialize(organization)
+      @organization = organization
+    end
+
+    private attr_reader :organization
+
     def title(resource_title, links, html_escape, all_locales, extras: true)
       handle_locales(resource_title, all_locales) do |content|
         content = decidim_html_escape(content) if html_escape
