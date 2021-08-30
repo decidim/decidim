@@ -12,10 +12,9 @@ module Decidim
       # resource_id - The resource id that is passed to route.
       #
       # Returns a rendered dropdown.
-      def import_dropdown(component = current_component, resource_id = nil, link_text = nil)
-        locals = { component: component, resource_id: resource_id }
+      def import_dropdown(component = current_component, options = {})
+        locals = { component: component, resource_id: options[:resource_id] }
         locals[:block] = yield if block_given?
-        locals[:link_text] = link_text || t("decidim.admin.imports.import_from_file")
         render partial: "decidim/admin/imports/dropdown", locals: locals
       end
 

@@ -11,6 +11,7 @@ module Decidim
   # allows users to create proposals in a participatory process.
   module Proposals
     autoload :ProposalSerializer, "decidim/proposals/proposal_serializer"
+    autoload :ProposalAnswerCreator, "decidim/proposals/proposal_answer_creator"
     autoload :ProposalCreator, "decidim/proposals/proposal_creator"
     autoload :CommentableProposal, "decidim/proposals/commentable_proposal"
     autoload :CommentableCollaborativeDraft, "decidim/proposals/commentable_collaborative_draft"

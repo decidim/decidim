@@ -452,9 +452,11 @@ en:
           impersonate_new_managed_user: Manage new participant
       imports:
         creators:
+          proposalanswercreator: Proposal answer creator
           proposalcreator: Proposal creator
         error: There was a problem during the import
         help:
+          proposalanswercreator: "The import document should contain the following columns: id, state (accepted, evaluating, rejected), answer/en (and other languages enabled for the organization)."
           proposalcreator: The file must have column names title/en and body/en (or another locale which you prefer eg. title/ca and body/ca). Also scope/id and category/id columns are supported.
         import_from_file: Import from a file
         invalid_lines: Found error in resource number %{invalid_lines}
@@ -467,6 +469,8 @@ en:
             back: Back
           file_legend: Add an import file that will be parsed.
           import: Import
+          proposalanswercreator: Import proposal answers
+          proposalcreator: Import proposals
         notice: "%{number} %{resource_name} successfully imported"
       logs:
         logs_list:

@@ -154,6 +154,10 @@ Decidim.register_component(:proposals) do |component|
     exports.serializer Decidim::Comments::CommentSerializer
   end
 
+  component.imports :answers do |imports|
+    imports.creator Decidim::Proposals::ProposalAnswerCreator
+  end
+
   component.imports :proposals do |imports|
     imports.creator Decidim::Proposals::ProposalCreator
   end

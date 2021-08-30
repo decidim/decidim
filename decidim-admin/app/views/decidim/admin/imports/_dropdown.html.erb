@@ -1,9 +1,12 @@
 <span class="imports dropdown tiny button button--simple" data-toggle="import-dropdown"><%= t "actions.import", scope: "decidim.admin" %></span>
 <div class="dropdown-pane" id="import-dropdown" data-dropdown data-position=bottom data-alignment=right data-auto-focus="true" data-close-on-click="true">
   <ul class="vertical menu add-components">
-    <li class="imports--file imports--<%= component.manifest.name %>">
-      <%= link_to link_text, admin_imports_path(component, resource_id: resource_id) %>
-    </li>
-    <%= block if defined?(block) %>
+    <% if defined?(block) %>
+      <%= block %>
+    <% else %>
+      <li class="imports--file imports--<%= component.manifest.name %>">
+        <%= link_to t("decidim.admin.imports.import_from_file"), admin_imports_path(component, resource_id: resource_id) %>
+      </li>
+    <% end %>
   </ul>
 </div>

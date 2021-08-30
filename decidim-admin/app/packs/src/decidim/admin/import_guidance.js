@@ -1,28 +1,59 @@
 $(() => {
+  const $creatorDropdownWrapper = $("label[for='import_creator']");
   const $creatorSelect = $("#import_creator");
   const $creatorGuidances = $(".creator-guidances").find(".guidance");
 
-  const showGuidance = (text) => {
-    const formatted = text.replace(/\s/g, "").toLocaleLowerCase();
-    $.each($creatorGuidances, (_index, currentValue) => {
-      if (currentValue.className.includes(formatted)) {
-        const elem = $(currentValue)
-        elem.show();
-      }
-    })
+  const classSuffix = (rubyClass) => {
+    return rubyClass.split("::").slice(-1)[0].toLowerCase();
   }
 
-  $creatorSelect.on("change", function() {
-    const text = $("#import_creator option:selected").text()
-    $creatorGuidances.hide();
-    if (text) {
-      showGuidance(text)
+  const showTitle = (suffix) => {
+    $(`#${suffix}`).show()
+    $(`#${suffix}`).siblings().hide()
+  }
+
+  const showGuidance = (suffix) => {
+    const $elem = $(`.guidance.creator-${suffix}`)
+    $elem.show()
+    $elem.siblings().hide()
+  }
+
+  const detectCreator = (queryString) => {
+    const urlParams = new URLSearchParams(queryString);
+    const creatorParam = urlParams.get("creator");
+    let found = false;
+
+    $creatorSelect.find("option").each((_i, option) => {
+      const suffix = classSuffix(option.value)
+      if (suffix === creatorParam.toLocaleLowerCase()) {
+        $creatorSelect.val(option.value);
+        found = true
+      } else {
+        $(`#${suffix}`).hide();
+      }
+    })
+
+    if (found) {
+      $creatorDropdownWrapper.hide();
+    }
+  }
+
+  $creatorSelect.on("change", () => {
+    const val = $("#import_creator option:selected").val();
+    const suffix = classSuffix(val)
+    if (suffix) {
+      showGuidance(suffix);
+      showTitle(suffix);
     }
   })
 
   if ($creatorSelect.children("option").length < 2) {
-    $("label[for='import_creator']").hide();
+    $creatorDropdownWrapper.hide();
+  } else if (window.location.search) {
+    detectCreator(window.location.search);
   }
+
   $creatorGuidances.hide();
-  $creatorGuidances.first().show();
+  showGuidance(classSuffix($creatorSelect.val()))
+  showTitle(classSuffix($creatorSelect.val()));
 })
