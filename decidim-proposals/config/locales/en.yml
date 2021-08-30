@@ -113,6 +113,9 @@ en:
             label: Assigned to valuator
         search_placeholder:
           id_string_or_title_cont: Search %{collection} by ID or title.
+      imports:
+        proposals: Import proposals from a file
+        proposal_answers: Import proposal answers from a file
     components:
       proposals:
         actions:

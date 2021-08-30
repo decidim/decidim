@@ -11,8 +11,11 @@
     <% end %>
 
     <% if allowed_to? :import, :proposals %>
-      <%= import_dropdown do %>
-        <% content_tag :li do %>
+      <%= import_dropdown(current_component, nil, t("proposals", scope: "decidim.admin.imports")) do %>
+        <% items = content_tag :li, class: "imports--file imports--proposals" do %>
+          <% link_to t("proposal_answers", scope: "decidim.admin.imports"), new_proposals_import_path %>
+        <% end %>
+        <% items += content_tag :li, class: "imports--component imports--proposals" do %>
           <% link_to t("actions.import", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposals_import_path %>
         <% end %>
       <% end %>
