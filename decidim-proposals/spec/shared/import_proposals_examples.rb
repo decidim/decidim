@@ -34,7 +34,6 @@ shared_examples "import proposals" do
     before do
       find(".imports.dropdown").click
       click_link "Import proposals from a file"
-      select "Proposal creator", from: "import_creator"
     end
 
     it "imports from a csv file" do

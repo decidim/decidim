@@ -13,7 +13,8 @@ module Decidim
           {
             # We need to set "default" creator because form-class doesn't have context / current_component
             # when it sets it's default values.
-            creator: current_component.manifest.import_manifests.first.creator
+            creator: current_component.manifest.import_manifests.first.creator,
+            creator_param: params["creator"]
           },
           current_component: current_component
         )

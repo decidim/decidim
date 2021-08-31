@@ -5,6 +5,11 @@ module Decidim
     # This class is responsible for creating the imported proposals
     # and must be included in proposals component's import manifest.
     class ProposalCreator < Decidim::Admin::Import::Creator
+      def initialize(data, context = nil)
+        @data = data.except(:id, "id")
+        @context = context
+      end
+
       # Retuns the resource class to be created with the provided data.
       def self.resource_klass
         Decidim::Proposals::Proposal
@@ -26,8 +31,8 @@ module Decidim
         publish(resource)
       end
 
-      def notification_resource
-        I18n.t("decidim.admin.imports.resources.proposal")
+      def self.notification_resource
+        I18n.t("decidim.admin.imports.resources.proposals")
       end
 
       private

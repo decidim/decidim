@@ -16,10 +16,10 @@
           <% link_to t("actions.import", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposals_import_path %>
         <% end %>
         <% items += content_tag :li, class: "imports--file imports--proposals" do %>
-          <% link_to t("proposals", scope: "decidim.admin.imports.dropdown"), admin_imports_path(current_component, {creator: "proposalcreator"}) %>
+          <% link_to t("proposals", scope: "decidim.admin.imports.dropdown"), admin_imports_path(current_component, { creator: "proposalcreator" }) %>
         <% end %>
         <% items += content_tag :li, class: "imports--file imports--proposals" do %>
-          <% link_to t("proposal_answers", scope: "decidim.admin.imports.dropdown"), admin_imports_path(current_component, {creator: "proposalanswercreator"}) %>
+          <% link_to t("proposal_answers", scope: "decidim.admin.imports.dropdown"), admin_imports_path(current_component, { creator: "proposalanswercreator" }) %>
         <% end %>
       <% end %>
     <% end %>

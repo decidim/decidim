@@ -9,6 +9,7 @@ module Decidim
       attribute :creator, String, default: ->(form, _attribute) { form.creators.first[:creator].to_s }
       attribute :file
       attribute :user_group_id, Integer
+      attribute :creator_param, String
 
       validates :file, presence: true
       validates :creator, presence: true
@@ -52,8 +53,16 @@ module Decidim
       end
 
       def creators
-        @creators ||= current_component.manifest.import_manifests.map do |manifest|
-          { creator: manifest.creator, name: manifest.creator.to_s.split("::").last.downcase }
+        @creators ||= begin
+          array = current_component.manifest.import_manifests.map do |manifest|
+            { creator: manifest.creator, name: manifest.creator.to_s.split("::").last.downcase }
+          end
+
+          if creator_param
+            filtered = array.select { |c| c[:name] == creator_param }
+            return filtered if filtered.present?
+          end
+          array
         end
       end
 

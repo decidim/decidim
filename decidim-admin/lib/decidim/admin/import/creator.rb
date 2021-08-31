@@ -18,7 +18,7 @@ module Decidim
         # data - The data hash to parse.
         # context - The context needed by the producer
         def initialize(data, context = nil)
-          @data = data.except(:id, "id")
+          @data = data
           @context = context
         end
 
