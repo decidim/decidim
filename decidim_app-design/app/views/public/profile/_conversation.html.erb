@@ -6,7 +6,7 @@
       </a>
     </div>
     <%= link_to page_path("user-profile") do %>
-      <%= image_pack_tag "demo-avatar.jpg" %>
+      <%= image_pack_tag "media/images/demo-avatar.jpg" %>
     <% end %>
     <div class="ml-s">
       Conversación con <strong><%= Faker::Name.name %></strong>
@@ -19,7 +19,7 @@
   <% chats.times do |i| %>
   <div class="conversation-chat<%= " conversation-chat--offset" if i.odd? %>">
     <%= link_to page_path("user-profile") do %>
-    <%= image_pack_tag "demo-avatar.jpg" %>
+    <%= image_pack_tag "media/images/demo-avatar.jpg" %>
     <% end %>
     <div>
       <% Faker::Number.between(from: 1, to: 3).times do %>
