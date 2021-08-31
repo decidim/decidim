@@ -57,6 +57,11 @@ module Decidim
                                   default: false,
                                   desc: "Don't generate a Gemfile for the application"
 
+      class_option :skip_webpack_install, type: :boolean,
+                                          default: false,
+                                          desc: "Don't install webpacker before setting up all the application",
+                                          hide: true
+
       class_option :demo, type: :boolean,
                           default: false,
                           desc: "Generate demo authorization handlers"
