@@ -230,6 +230,7 @@ describe "Admin views proposal details from admin", type: :system do
   context "with attached photos" do
     it "lists the documents" do
       image = create :attachment, :with_image, attached_to: proposal
+      image.reload
       go_to_admin_proposal_page(proposal)
 
       within "#photos" do

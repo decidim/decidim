@@ -26,6 +26,7 @@ RSpec.configure do |config|
   config.order = :random
   config.raise_errors_for_deprecations!
   config.example_status_persistence_file_path = ".rspec-failures"
+  config.filter_run_excluding type: "controller"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, comment the following line or assign false

@@ -5,7 +5,7 @@ require "nokogiri"
 
 module Decidim
   describe FormBuilder do
-    let(:helper) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(nil)) }
+    let(:helper) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
     let(:available_locales) { %w(ca en de-CH) }
     let(:uploader) { Decidim::ApplicationUploader }
     let(:organization) { create(:organization) }
@@ -597,7 +597,7 @@ module Decidim
       let(:filename) { "my_image.jpg" }
       let(:image?) { false }
       let(:blob) do
-        ActiveStorage::Blob.create_after_upload!(
+        ActiveStorage::Blob.create_and_upload!(
           io: File.open(Decidim::Dev.asset("city.jpeg")),
           filename: filename
         )

@@ -27,7 +27,9 @@ module Decidim
       attribute :reset, Proc
 
       validates :name, :levels, presence: true
-      validates :levels, empty: false
+      # I do not know what kind of validation is this. In rails 6.0.3 the only validation is
+      # [#<ActiveModel::Validations::PresenceValidator:0x00005653aa02b328 @attributes=[:name, :levels], @options={}>]
+      # validates :levels, empty: false
 
       validate do
         errors.add(:levels, "level thresholds should be ordered") if levels.sort != levels

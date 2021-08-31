@@ -17,8 +17,8 @@ module Decidim
       #
       # Returns nothing.
       def participatory_space_layout(options = {})
-        layout :layout, options
-        before_action :authorize_participatory_space, options
+        layout :layout, **options
+        before_action :authorize_participatory_space, **options
       end
     end
 
