@@ -118,8 +118,8 @@ en:
           proposal_answers: Import proposal answers from a file
           proposals: Import proposals from a file
         resources:
-          proposals: proposals
           proposal_answers: proposal answers
+          proposals: proposals
     components:
       proposals:
         actions:
