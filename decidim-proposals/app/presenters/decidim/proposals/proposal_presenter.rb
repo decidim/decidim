@@ -101,7 +101,7 @@ module Decidim
       private
 
       def resource_presenter
-        @resource_presenter ||= Decidim::ResourcePresenter.new(organization)
+        @resource_presenter ||= Decidim::ResourcePresenter.new(proposal.try(:organization))
       end
 
       def sanitize_unordered_lists(text)

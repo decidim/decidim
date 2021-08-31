@@ -69,7 +69,7 @@ module Decidim
       private
 
       def resource_presenter
-        @resource_presenter ||= Decidim::ResourcePresenter.new(organization)
+        @resource_presenter ||= Decidim::ResourcePresenter.new(debate.try(:organization))
       end
 
       def comments_authors
