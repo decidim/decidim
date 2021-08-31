@@ -14,7 +14,7 @@ module Decidim
         #
         # file   - A file with the data to be imported.
         # reader - A Reader to be used to read the data from the file.
-        # creator - A Creator to be used during the import.
+        # creator - A Creator class to be used during the import.
         # context - A hash including component specific data.
         def initialize(file:, reader: Readers::Base, creator: Creator, context: nil)
           @file = file
@@ -72,7 +72,7 @@ module Decidim
         def check_invalid_lines(imported_data)
           invalid_lines = []
           imported_data.each_with_index do |record, index|
-            invalid_lines << index + 1 unless creator.valid?(record)
+            invalid_lines << index + 1 unless creator.record_valid?(record)
           end
           invalid_lines
         end

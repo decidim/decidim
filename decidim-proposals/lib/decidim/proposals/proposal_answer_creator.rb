@@ -27,11 +27,16 @@ module Decidim
         notify(resource)
       end
 
-      def self.valid?(resource)
-        return false if resource.nil?
-        return false if resource.errors.count.positive?
+      # Check if prepared resource is valid
+      #
+      # record - Decidim::Proposals::Proposal
+      #
+      # Returns true if record is valid
+      def self.resource_valid?(record)
+        return false if record.nil?
+        return false if record.errors.record.positive?
 
-        resource.valid?
+        record.valid?
       end
 
       private

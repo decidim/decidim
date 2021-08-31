@@ -53,7 +53,9 @@ $(() => {
     detectCreator(window.location.search);
   }
 
-  $creatorGuidances.hide();
-  showGuidance(classSuffix($creatorSelect.val()))
-  showTitle(classSuffix($creatorSelect.val()));
+  if ($creatorSelect.length > 0) {
+    $creatorGuidances.hide();
+    showGuidance(classSuffix($creatorSelect.val()))
+    showTitle(classSuffix($creatorSelect.val()));
+  }
 })

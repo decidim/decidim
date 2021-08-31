@@ -50,10 +50,15 @@ module Decidim
           resource.save!
         end
 
-        def self.valid?(resource)
-          return false if resource.nil?
+        # Check if prepared resource is valid
+        #
+        # record - Instance of model created by creator.
+        #
+        # Returns true if record is valid
+        def self.record_valid?(record)
+          return false if record.nil?
 
-          resource.valid?
+          record.valid?
         end
 
         private
