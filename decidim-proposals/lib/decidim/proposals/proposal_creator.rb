@@ -26,6 +26,10 @@ module Decidim
         publish(resource)
       end
 
+      def notification_resource
+        I18n.t("decidim.admin.imports.resources.proposal")
+      end
+
       private
 
       attr_reader :context

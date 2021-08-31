@@ -28,11 +28,13 @@ module Decidim
           current_organization: current_organization
         )
 
+        notification_resource = @form&.notification_resource || "resource"
+
         CreateImport.call(@form) do
           on(:ok) do |imported_data|
             flash[:notice] = t("decidim.admin.imports.notice",
                                number: imported_data.length,
-                               resource_name: imported_data.first.resource_manifest.name.pluralize)
+                               resource_name: notification_resource)
             redirect_to manage_component_path(current_component)
           end
 

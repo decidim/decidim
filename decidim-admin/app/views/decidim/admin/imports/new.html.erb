@@ -13,7 +13,7 @@
       <div class="row column">
         <div id="creator-titles">
           <% @form.creators.each do |creator| %>
-            <div id="<%= creator[:name] %>" class="h1 creator-title">
+            <div id="<%= creator[:name] %>" class="h1 creator-title" style="display: none;">
               <%= t(".#{creator[:name]}") %>
             </div>
           <% end %>

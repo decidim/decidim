@@ -114,8 +114,12 @@ en:
         search_placeholder:
           id_string_or_title_cont: Search %{collection} by ID or title.
       imports:
-        proposal_answers: Import proposal answers from a file
-        proposals: Import proposals from a file
+        dropdown:
+          proposal_answers: Import proposal answers from a file
+          proposals: Import proposals from a file
+        resources:
+          proposal: proposals
+          proposal_answer: proposal answers
     components:
       proposals:
         actions:

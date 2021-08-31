@@ -39,6 +39,10 @@ module Decidim
         record.valid?
       end
 
+      def self.notification_resource
+        I18n.t("decidim.admin.imports.resources.proposal_answer")
+      end
+
       private
 
       attr_reader :context
