@@ -29,13 +29,13 @@ module Decidim
       def title(links: false, html_escape: false, all_locales: false)
         return unless debate
 
-        Decidim::ResourcePresenter.new.title(debate.title, links, html_escape, all_locales)
+        resource_presenter.title(debate.title, links, html_escape, all_locales)
       end
 
       def description(strip_tags: false, links: false, all_locales: false)
         return unless debate
 
-        Decidim::ResourcePresenter.new.handle_locales(debate.description, all_locales) do |content|
+        resource_presenter.handle_locales(debate.description, all_locales) do |content|
           content = strip_tags(content) if strip_tags
           renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
           content = renderer.render(links: links).html_safe
@@ -67,6 +67,10 @@ module Decidim
       end
 
       private
+
+      def resource_presenter
+        @resource_presenter ||= Decidim::ResourcePresenter.new(organization)
+      end
 
       def comments_authors
         @comments_authors ||= debate.comments.includes(:author, :user_group).map(&:normalized_author).uniq
