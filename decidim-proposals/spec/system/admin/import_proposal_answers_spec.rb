@@ -58,6 +58,8 @@ describe "Import proposal answers", type: :system do
     end
   end
 
+  private
+
   def generate_json
     File.open(Decidim::Dev.asset(filename), "w") do |f|
       f.write(JSON.pretty_generate(answers))
