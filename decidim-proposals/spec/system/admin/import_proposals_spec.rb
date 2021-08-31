@@ -15,7 +15,6 @@ describe "Import proposals", type: :system do
   before do
     page.find(".imports").click
     click_link "Import proposals from a file"
-    select "Proposal creator", from: "import_creator"
   end
 
   describe "import from a file page" do
