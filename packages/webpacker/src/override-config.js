@@ -8,7 +8,9 @@ const overrideSassRule = (modifyConfig) => {
     return modifyConfig;
   }
 
-  const sassLoader = sassRule.use.find((use) => use.loader.match(/sass-loader/));
+  const sassLoader = sassRule.use.find((use) => {
+    return (typeof use === "object") && use.loader.match(/sass-loader/);
+  });
   if (!sassLoader) {
     return modifyConfig;
   }
