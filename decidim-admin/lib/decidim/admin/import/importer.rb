@@ -72,7 +72,7 @@ module Decidim
         def check_invalid_lines(imported_data)
           invalid_lines = []
           imported_data.each_with_index do |record, index|
-            invalid_lines << index + 1 unless record.valid?
+            invalid_lines << index + 1 unless creator.valid?(record)
           end
           invalid_lines
         end

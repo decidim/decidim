@@ -14,7 +14,8 @@ describe "Import proposals", type: :system do
 
   before do
     page.find(".imports").click
-    click_link "Import from a file"
+    click_link "Import proposals from a file"
+    select "Proposal creator", from: "import_creator"
   end
 
   describe "import from a file page" do
@@ -46,14 +47,17 @@ describe "Import proposals", type: :system do
     let(:user_group) { create :user_group, :confirmed, :verified, organization: organization }
     let!(:membership) { create(:user_group_membership, user: user, user_group: user_group) }
 
-    it "has create import as dropdown" do
+    before do
       visit current_path
+      select "Proposal creator", from: "import_creator"
+    end
+
+    it "has create import as dropdown" do
       page.find("#import_user_group_id").click
       expect(page).to have_content(user_group.name)
     end
 
     it "links proposal to user group during the import" do
-      visit current_path
       page.find("#import_user_group_id").click
       select user_group.name, from: "import_user_group_id"
       attach_file :import_file, Decidim::Dev.asset("import_proposals.csv")

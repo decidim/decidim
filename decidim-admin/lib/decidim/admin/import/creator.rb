@@ -50,6 +50,12 @@ module Decidim
           resource.save!
         end
 
+        def self.valid?(resource)
+          return false if resource.nil?
+
+          resource.valid?
+        end
+
         private
 
         def resource

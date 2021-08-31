@@ -27,22 +27,40 @@ module Decidim
         notify(resource)
       end
 
+      def self.valid?(resource)
+        return false if resource.nil?
+        return false if resource.errors.count.positive?
+
+        resource.valid?
+      end
+
       private
 
       attr_reader :context
 
       def resource
         @resource ||= begin
-          p = Decidim::Proposals::Proposal.find(id)
-          p.answer = answer
-          p.state = state
-          p.answered_at = Time.current
-          p
+          return nil if Decidim::Proposals::Proposal.where(id: id).empty?
+
+          proposal = Decidim::Proposals::Proposal.find(id)
+          if proposal.component != component
+            proposal.errors.add(:component, :invalid)
+            return proposal
+          end
+
+          proposal.answer = answer
+          proposal.answered_at = Time.current
+          if Decidim::Proposals::Proposal::POSSIBLE_STATES.include?(state)
+            proposal.state = state
+          else
+            proposal.errors.add(:state, :invalid)
+          end
+          proposal
         end
       end
 
       def id
-        data[:id]
+        data[:id].to_i
       end
 
       def state
