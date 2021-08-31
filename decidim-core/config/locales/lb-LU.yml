@@ -346,7 +346,35 @@ lb:
     components:
       component_order_selector:
         no_content: Wir haben keine Inhalte anhand dieser Kriterien gefunden
+        order:
+          all_types: All Typen
+          collaborative_draft: Gemeinsame Brouillon
+          comment: Kommentar
+          debate: Debatt
+          initiative: Initiativ
+          meeting: Versammlung
+          post: Bäitrag
+          proposal: Virschlag
+          question: Fro
+        title: 'Uweisen:'
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        settings:
+          global:
+            comments_enabled: Kommentarer aktiv
+            comments_max_length: Maximal Längt vun de Kommentären
+            scope_id: Ëmfank
+    contact: Kontakt
     content_blocks:
+      cta_settings_form:
+        background_image: Hannergrondbild
+        description: Beschreiwung
+      highlighted_elements_settings_form:
+        orders:
+          random: Zoufälleg
+          recent: Neist als éischt
       how_to_participate:
         name: Wie kann ich mich beteiligen
       html:
@@ -597,6 +625,11 @@ lb:
     export_mailer:
       data_portability_export:
         click_button: 'Klicken Sie auf den Link, um Ihre Daten herunterzuladen.<br/>Die Datei steht bis zum %{date} zur Verfügung.<br/>Sie benötigen <a href="https://www.7-zip.org/">7-Zip</a> (für Windows), <a href="https://www.keka.io/en/">Keka</a> (für MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (für Linux) um die Datei zu öffnen. Passwort: %{password}'
+        download: Eroflueden
+    filters:
+      linked_classes:
+        all: All
+        meeting: Versammlung
     forms:
       errors:
         decidim/user:
@@ -882,6 +915,7 @@ lb:
       home:
         statistics:
           endorsements_count: Empfehlungen
+          meetings_count: Versammlung
           users_count: Teilnehmer
       participatory_space:
         metrics:
