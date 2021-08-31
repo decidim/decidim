@@ -10,7 +10,8 @@ module Decidim
       @organization = organization
     end
 
-    private attr_reader :organization
+    attr_reader :organization
+    private :organization
 
     def title(resource_title, links, html_escape, all_locales, extras: true)
       handle_locales(resource_title, all_locales) do |content|
