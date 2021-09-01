@@ -61,10 +61,6 @@ module Decidim
           record.valid?
         end
 
-        def self.notification_resource
-          "resource"
-        end
-
         private
 
         def resource
