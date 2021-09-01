@@ -26,7 +26,7 @@ module Decidim
             file: file,
             component_id: component.id,
             participatory_process_slug: participatory_process.slug,
-            creator: "Decidim::Admin::Import::Creator"
+            name: "participatory_processes"
           }
         end
 
@@ -36,10 +36,10 @@ module Decidim
         end
 
         describe "POST create with abstract creator" do
-          it "raises NotImplementedError" do
+          it "raises ActionController::RoutingError" do
             expect do
               post(:create, params: params)
-            end.to raise_error(NotImplementedError)
+            end.to raise_error(ActionController::RoutingError)
           end
         end
       end

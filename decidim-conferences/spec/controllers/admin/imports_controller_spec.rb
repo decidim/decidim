@@ -26,7 +26,7 @@ module Decidim
             file: file,
             component_id: component.id,
             conference_slug: conference.slug,
-            creator: "Decidim::Admin::Import::Creator"
+            name: "conferences"
           }
         end
 
@@ -36,10 +36,10 @@ module Decidim
         end
 
         describe "POST create with abstract creator" do
-          it "raises NotImplementedError" do
+          it "raises ActionController::RoutingError" do
             expect do
               post(:create, params: params)
-            end.to raise_error(NotImplementedError)
+            end.to raise_error(ActionController::RoutingError)
           end
         end
       end
