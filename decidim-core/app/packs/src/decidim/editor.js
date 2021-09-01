@@ -47,34 +47,30 @@ export default function createQuillEditor(container) {
   const $input = $(container).siblings('input[type="hidden"]');
   container.innerHTML = $input.val() || "";
   const token = $('meta[name="csrf-token"]').attr("content");
-
-  if(addImage) {
+  if (addImage) {
     modules.imageResize = {
       modules: ["Resize", "DisplaySize"]
     }
     modules.imageUpload = {
-      url: $(container).data("uploadImagesPath"), // server url. If the url is empty then the base64 returns
-      method: "POST", // change query method, default "POST"
-      name: "image", // custom form name
-      withCredentials: false, // withCredentials
-      headers: { "X-CSRF-Token": token }, // add custom headers, example { token: "your-token"}
-      // personalize successful callback and call next function to insert new url to the editor
+      url: $(container).data("uploadImagesPath"),
+      method: "POST",
+      name: "image",
+      withCredentials: false,
+      headers: { "X-CSRF-Token": token },
       callbackOK: (serverResponse, next) => {
-        $(quill.getModule("toolbar").container).last().removeClass("editor-loading")
+        $("div.ql-toolbar").last().removeClass("editor-loading")
         next(serverResponse.url);
       },
-      // personalize failed callback
-      callbackKO: serverError => {
-        $(quill.getModule("toolbar").container).last().removeClass("editor-loading")
-        alert(serverError.message);
+      callbackKO: (serverError) => {
+        $("div.ql-toolbar").last().removeClass("editor-loading")
+        console.log(`Image upload error: ${serverError.message}`);
       },
       checkBeforeSend: (file, next) => {
-        $(quill.getModule("toolbar").container).last().addClass("editor-loading")
-        next(file); // go back to component and send to the server
+        $("div.ql-toolbar").last().addClass("editor-loading")
+        next(file);
       }
     }
   }
-
   const quill = new Quill(container, {
     modules: modules,
     formats: quillFormats,
@@ -104,9 +100,9 @@ export default function createQuillEditor(container) {
   // After editor is ready, linebreak_module deletes two extraneous new lines
   quill.emitter.emit("editor-ready");
 
-  if(addImage) {
-    const t = $(container).data("dragAndDropHelpText");
-    $(container).after(`<p class="help-text" style="margin-top:-1.5rem;">${t}</p>`);
+  if (addImage) {
+    const text = $(container).data("dragAndDropHelpText");
+    $(container).after(`<p class="help-text" style="margin-top:-1.5rem;">${text}</p>`);
   }
 
   // After editor is ready, linebreak_module deletes two extraneous new lines
