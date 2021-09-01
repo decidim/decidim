@@ -17,12 +17,18 @@ module Decidim
                inverse_of: :ballot_style,
                dependent: :nullify
 
+      alias participatory_space voting
+
       def slug
         "#{voting.slug}_#{code.parameterize}-#{id}"
       end
 
       def questions_for(election)
         questions.where(election: election)
+      end
+
+      def self.log_presenter_class_for(_log)
+        Decidim::Votings::AdminLog::BallotStylePresenter
       end
     end
   end

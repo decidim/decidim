@@ -4,7 +4,8 @@ require "spec_helper"
 
 describe Decidim::Votings::Census::Admin::GenerateAccessCodesJob do
   let(:dataset) { create(:dataset, status: :generating_codes) }
-  let(:user) { create(:user, :admin) }
+  let(:user) { create(:user, :admin, organization: organization) }
+  let(:organization) { dataset&.organization || create(:organization) }
 
   describe "queue" do
     it "is queued to events" do

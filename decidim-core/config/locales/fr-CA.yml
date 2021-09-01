@@ -1272,6 +1272,8 @@ fr-CA:
         share_link: Lien de partage
     statistics:
       comments_count: Commentaires
+      participants_count: Participant·e·s
+      users_count: Participant·e·s
     tags:
       filter_results_for_category: 'Filtrer les résultats de la catégorie : %{resource}'
       filter_results_for_scope: 'Filtrer les résultats pour la portée : %{resource}'
@@ -1309,6 +1311,7 @@ fr-CA:
         send: Envoyer
         title_reply: Répondre
       show:
+        back: Afficher toutes les conversations
         not_allowed: Cet utilisateur n'accepte plus de messages directs.
         title: Conversation avec %{usernames}
       update:
@@ -1354,6 +1357,7 @@ fr-CA:
         number_of_versions: Versions
         title: Versions
     versions_list_item:
+      back: Afficher toutes les versions
       show:
         version_index: Version %{index}
     welcome_notification:

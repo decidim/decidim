@@ -92,6 +92,7 @@ pl:
       comment_thread:
         title: Rozmowa z %{authorName}
       comments:
+        blocked_comments_for_unauthorized_user_warning: Musisz być zweryfikowany żeby teraz komentować, ale możesz przeczytać poprzednie komentarze.
         blocked_comments_for_user_warning: Nie możesz teraz komentować, ale możesz przeczytać poprzednie komentarze.
         blocked_comments_warning: Komentarze są w tej chwili wyłączone, ale możesz przeczytać poprzednie.
         comment_details_title: Szczegóły komentarza

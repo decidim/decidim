@@ -4,7 +4,7 @@
     <title><%= decidim_page_title %></title>
     <%= csrf_meta_tags %>
     <%= stylesheet_pack_tag "decidim_core" %>
-    <%= javascript_pack_tag "decidim_core" %>
+    <%= javascript_pack_tag "decidim_core", defer: false %>
   </head>
 
   <body class="widget">

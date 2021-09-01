@@ -16,12 +16,13 @@ module Decidim
         class DatasetPresenter < Decidim::Log::BasePresenter
           private
 
-          def i18n_params
-            {
-              user_name: user_presenter.present,
-              resource_name: Dataset.model_name.human,
-              space_name: space_presenter.present
-            }
+          def action_string
+            case action
+            when "create", "delete", "update"
+              "decidim.votings.admin_log.census.#{action}"
+            else
+              super
+            end
           end
         end
       end

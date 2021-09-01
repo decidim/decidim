@@ -5,11 +5,9 @@ module Decidim
     #
     # Decorator for debates
     #
-    class DebatePresenter < SimpleDelegator
+    class DebatePresenter < Decidim::ResourcePresenter
       include Decidim::TranslationsHelper
       include Decidim::ResourceHelper
-      include Decidim::SanitizeHelper
-      include Decidim::TranslatableAttributes
       include ActionView::Helpers::DateHelper
 
       def debate
@@ -26,16 +24,16 @@ module Decidim
                     end
       end
 
-      def title(links: false, html_escape: false, all_locales: false)
+      def title(links: false, all_locales: false, html_escape: false)
         return unless debate
 
-        resource_presenter.title(debate.title, links, html_escape, all_locales)
+        super debate.title, links, html_escape, all_locales
       end
 
       def description(strip_tags: false, links: false, all_locales: false)
         return unless debate
 
-        resource_presenter.handle_locales(debate.description, all_locales) do |content|
+        handle_locales(debate.description, all_locales) do |content|
           content = strip_tags(content) if strip_tags
           renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
           content = renderer.render(links: links).html_safe
@@ -67,10 +65,6 @@ module Decidim
       end
 
       private
-
-      def resource_presenter
-        @resource_presenter ||= Decidim::ResourcePresenter.new(debate.try(:organization))
-      end
 
       def comments_authors
         @comments_authors ||= debate.comments.includes(:author, :user_group).map(&:normalized_author).uniq

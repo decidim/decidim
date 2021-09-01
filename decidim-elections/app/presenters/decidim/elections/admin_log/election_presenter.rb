@@ -15,21 +15,13 @@ module Decidim
       class ElectionPresenter < Decidim::Log::BasePresenter
         private
 
-        def diff_fields_mapping
-          {
-            name: :i18n,
-            published_at: :date,
-            weight: :integer
-          }
-        end
-
         def i18n_labels_scope
           "activemodel.attributes.election"
         end
 
         def action_string
           case action
-          when "publish", "unpublish", "setup", "start_key_ceremony", "start_vote", "end_vote", "start_tally", "publish_results"
+          when "publish", "unpublish", "setup", "start_key_ceremony", "start_vote", "end_vote", "start_tally", "publish_results", "create", "delete", "update"
             "decidim.elections.admin_log.election.#{action}"
           else
             super

@@ -22,6 +22,7 @@ module Decidim
       validate :either_president_or_manager
 
       delegate :name, :nickname, :email, to: :user
+      alias participatory_space voting
 
       # Allow ransacker to search by presided/managed polling station title
       %w(managed_station presided_station).each do |table|
@@ -54,6 +55,10 @@ module Decidim
 
       def polling_station
         presided_polling_station || managed_polling_station
+      end
+
+      def self.log_presenter_class_for(_log)
+        Decidim::Votings::AdminLog::PollingOfficerPresenter
       end
 
       private

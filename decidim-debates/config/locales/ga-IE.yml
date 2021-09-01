@@ -47,6 +47,8 @@ ga:
           all: Uile
           category: Catagóir
           category_prompt: Roghnaigh catagóir
+          citizens: Saoránaigh
+          official: Oifigiúil
           origin: Bunús
           scope: Scóip
           search: Cuardaigh
@@ -67,6 +69,9 @@ ga:
           date: Dáta
           debate_closed: Dúnta
           groups_count: Grúpaí
+        versions:
+          index:
+            title: Leaganacha
       models:
         debate:
           fields:
