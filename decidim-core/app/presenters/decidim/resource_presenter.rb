@@ -2,18 +2,11 @@
 
 module Decidim
   # A presenter to render attributes for resources
-  class ResourcePresenter
+  class ResourcePresenter < SimpleDelegator
     include Decidim::TranslatableAttributes
     include Decidim::SanitizeHelper
 
-    def initialize(organization)
-      @organization = organization
-    end
-
-    attr_reader :organization
-    private :organization
-
-    def title(resource_title, links, html_escape, all_locales, extras: true)
+    def title(resource_title, links, html_escape, all_locales, extras = true)
       handle_locales(resource_title, all_locales) do |content|
         content = decidim_html_escape(content) if html_escape
 
