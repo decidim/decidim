@@ -97,7 +97,7 @@ module Decidim
           @store[key] = block
         end
 
-        def render(key, context, extra = {})
+        def render(key, context = nil, extra = {})
           context.instance_exec(extra, &@store[key]) if @store[key]
         end
       end
