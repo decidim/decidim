@@ -271,11 +271,6 @@ fr:
           update:
             invalid: Une erreur s'est produite lors de la mise à jour du garant %{trustee}
             success: Le garant %{trustee} a été mis à jour avec succès
-      admin_log:
-        election:
-          publish: "%{user_name} a publié l'élection %{resource_name}"
-          publish_results: "%{user_name} a publié les résultats de l'élection %{resource_name} sur le Tableau d'affichage"
-          unpublish: "%{user_name} a dépublié l'élection %{resource_name}"
       election_m:
         badge_name:
           finished: Terminées
