@@ -43,17 +43,17 @@ describe Decidim::Admin::Import::Importer do
       end
     end
 
-    describe "#invalid_lines" do
+    describe "#invalid_indexes" do
       it "returns empty array when everything is ok" do
         subject.prepare
-        expect(subject.invalid_lines).to be_empty
+        expect(subject.invalid_indexes).to be_empty
       end
 
       it "returns index+1 of erroneous resource when validations faild" do
         proposal = subject.prepare.first
         proposal.title = ""
         subject.instance_variable_set(:@prepare, [proposal])
-        expect(subject.invalid_lines).to eq([1])
+        expect(subject.invalid_indexes).to eq([0])
       end
     end
   end
