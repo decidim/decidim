@@ -15,8 +15,6 @@ module Decidim
       validate :accepted_mime_type
       validate :check_invalid_lines
 
-      delegate :notification_resource, to: :creator_class
-
       def check_invalid_lines
         return if file.blank? || !accepted_mime_type
 
