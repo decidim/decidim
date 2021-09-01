@@ -177,10 +177,6 @@ tr:
           update:
             invalid: '%{trustee} vekili güncellenirken bir sorun oluştu'
             success: Vekil %{trustee} başarıyla güncellendi
-      admin_log:
-        election:
-          publish: "%{user_name}, %{resource_name} seçimini yayınladı"
-          unpublish: "%{user_name}, %{resource_name} seçimini yayından kaldırdı"
       election_m:
         badge_name:
           finished: Bitti
