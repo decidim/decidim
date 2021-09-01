@@ -342,6 +342,21 @@ cs:
           update:
             invalid: Při aktualizaci důvěrníka %{trustee} došlo k chybě
             success: Důvěrník %{trustee} úspěšně aktualizován
+      admin_log:
+        election:
+          create: "%{user_name} vytvořil volby %{resource_name} z %{space_name}"
+          delete: "%{user_name} odstranil volby %{resource_name} ze %{space_name}"
+          end_vote: "%{user_name} ukončil hlasovací období pro zvolení %{resource_name} ve %{space_name} na Vývěsce"
+          publish: "%{user_name} publikoval volbu %{resource_name} z %{space_name}"
+          publish_results: "%{user_name} zveřejnil výsledky voleb %{resource_name} v %{space_name} na Vývěsce"
+          setup: "%{user_name} vytvořil volbu %{resource_name} z %{space_name} na Vývěsce"
+          start_key_ceremony: "%{user_name} zahájil klíčový ceremoniál pro volby %{resource_name} z %{space_name} na Vývěsce"
+          start_tally: "%{user_name} zahájil volební přepočítání pro volby %{resource_name} %{space_name} na Vývěsce"
+          start_vote: "%{user_name} zahájil hlasovací období pro volby %{resource_name} z %{space_name} na Vývěsce"
+          unpublish: "%{user_name} zrušil publikaci %{resource_name} z volby %{space_name}"
+          update: "%{user_name} aktualizoval volbu %{resource_name} z %{space_name}"
+        trustee:
+          create: "%{user_name} přiřadil uživatele %{trustee_user} jako důvěrníka"
       election_m:
         badge_name:
           finished: Dokončeno
@@ -1002,6 +1017,24 @@ cs:
             invalid: Při aktualizaci tohoto hlasování došlo k chybě
             success: Hlasování bylo úspěšně aktualizováno
       admin_log:
+        ballot_style:
+          create: "%{user_name} vytvořil styl voleb s kódem %{ballot_style_code} ve %{space_name}"
+          delete: "%{user_name} odstranil styl voleb s kódem %{ballot_style_code} ve %{space_name}"
+          update: "%{user_name} aktualizoval styl voleb s kódem %{ballot_style_code} ve %{space_name}"
+        census:
+          create: "%{user_name} vytvořil sčítání pro %{space_name}"
+          delete: "%{user_name} odstranil sčítání pro %{space_name}"
+          update: "%{user_name} aktualizoval sčítání pro %{space_name}"
+        monitoring_committee_member:
+          create: "%{user_name} přiřadil uživatele %{monitoring_committee_member_user} jako člena monitorovacího výboru ve %{space_name}"
+          delete: "%{user_name} odebral uživatele %{monitoring_committee_member_user} jako člena monitorovacího výboru ve %{space_name}"
+        polling_officer:
+          create: "%{user_name} přiřadil uživatele %{polling_officer_user} jako volebního úředníka ve %{space_name}"
+          delete: "%{user_name} zrušil přiřazení uživatele %{polling_officer_user} jako volebního úředníka ve %{space_name}"
+        polling_station:
+          create: "%{user_name} vytvořil hlasovací místo %{resource_name} ve %{space_name}"
+          delete: "%{user_name} odstranil hlasovací místo %{resource_name} ve %{space_name}"
+          update: "%{user_name} aktualizoval hlasovací místo %{resource_name} ve %{space_name}"
         voting:
           create: "%{user_name} vytvořil %{resource_name} hlasování"
           publish: "%{user_name} zveřejnil %{resource_name} hlasování"
@@ -1011,6 +1044,7 @@ cs:
           census:
             create:
               invalid: Při nahrávání seznamu osob došlo k chybě, opakujte akci později.
+              invalid_csv_header: Hlavičky CSV chybí nebo nejsou správné - přečtěte si prosím pečlivě pokyny
             creating_data:
               info_message: "<strong>Počkejte prosím</strong>, zpracováno %{processed_count} z %{raw_count} řádků ze souboru %{file}."
             delete:
