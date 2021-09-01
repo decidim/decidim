@@ -33,6 +33,16 @@ module Decidim
       I18n.t(__getobj__.position, scope: "decidim.admin.models.assembly_member.positions", default: "")
     end
 
+    def not_user_avatar_path
+      return not_user_avatar.default_url unless not_user_avatar.attached?
+
+      not_user_avatar.path
+    end
+
+    def not_user_avatar
+      attached_uploader(:not_user_avatar)
+    end
+
     private
 
     def user
