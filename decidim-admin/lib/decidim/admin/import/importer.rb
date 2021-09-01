@@ -41,8 +41,14 @@ module Decidim
         end
 
         # Returns array of all resource indexes where validations fail.
-        def invalid_lines
-          @invalid_lines ||= check_invalid_lines(prepare)
+        def invalid_indexes
+          @invalid_indexes ||= check_invalid_indexes(prepare)
+        end
+
+        def invalid_indexes_message
+          return unless invalid_indexes.any?
+
+          reader.invalid_indexes_message_for(invalid_indexes)
         end
 
         private
@@ -69,12 +75,12 @@ module Decidim
           @collection_data
         end
 
-        def check_invalid_lines(imported_data)
-          invalid_lines = []
+        def check_invalid_indexes(imported_data)
+          invalid_indexes = []
           imported_data.each_with_index do |record, index|
-            invalid_lines << index + 1 unless creator.record_valid?(record)
+            invalid_indexes << index unless creator.resource_valid?(record)
           end
-          invalid_lines
+          invalid_indexes
         end
       end
     end

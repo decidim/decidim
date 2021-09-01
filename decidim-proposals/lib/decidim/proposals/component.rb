@@ -154,12 +154,28 @@ Decidim.register_component(:proposals) do |component|
     exports.serializer Decidim::Comments::CommentSerializer
   end
 
-  component.imports :answers do |imports|
-    imports.creator Decidim::Proposals::ProposalAnswerCreator
+  component.imports :proposals do |imports|
+    imports.form = "decidim/proposals/admin/imports/proposals_fields"
+
+    imports.messages do |msg|
+      msg.set(:resource_name) { |count: 1| I18n.t("decidim.proposals.admin.imports.resources.proposals", count: count) }
+      msg.set(:title) { I18n.t("decidim.proposals.admin.imports.title.proposals") }
+      msg.set(:label) { I18n.t("decidim.proposals.admin.imports.label.proposals") }
+      msg.set(:help) { I18n.t("decidim.proposals.admin.imports.help.proposals") }
+    end
+
+    imports.creator Decidim::Proposals::ProposalCreator
   end
 
-  component.imports :proposals do |imports|
-    imports.creator Decidim::Proposals::ProposalCreator
+  component.imports :answers do |imports|
+    imports.messages do |msg|
+      msg.set(:resource_name) { |count: 1| I18n.t("decidim.proposals.admin.imports.resources.answers", count: count) }
+      msg.set(:title) { I18n.t("decidim.proposals.admin.imports.title.answers") }
+      msg.set(:label) { I18n.t("decidim.proposals.admin.imports.label.answers") }
+      msg.set(:help) { I18n.t("decidim.proposals.admin.imports.help.answers") }
+    end
+
+    imports.creator Decidim::Proposals::ProposalAnswerCreator
   end
 
   component.seeds do |participatory_space|

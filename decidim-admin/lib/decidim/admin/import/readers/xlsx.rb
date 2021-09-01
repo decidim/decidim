@@ -11,6 +11,10 @@ module Decidim
         class XLSX < Base
           MIME_TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 
+          def self.first_data_index
+            1
+          end
+
           def read_rows
             workbook = RubyXL::Parser.parse(file)
             sheet = workbook.worksheets[0]

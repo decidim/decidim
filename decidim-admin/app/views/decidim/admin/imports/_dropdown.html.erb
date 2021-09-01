@@ -1,12 +1,14 @@
 <span class="imports dropdown tiny button button--simple" data-toggle="import-dropdown"><%= t "actions.import", scope: "decidim.admin" %></span>
 <div class="dropdown-pane" id="import-dropdown" data-dropdown data-position=bottom data-alignment=right data-auto-focus="true" data-close-on-click="true">
   <ul class="vertical menu add-components">
-    <% if defined?(block) %>
-      <%= block %>
+    <% if block_given? %>
+      <%= yield %>
     <% else %>
-      <li class="imports--file imports--<%= component.manifest.name %>">
-        <%= link_to t("decidim.admin.imports.import_from_file"), admin_imports_path(component, resource_id: resource_id) %>
-      </li>
+      <% current_component.manifest.import_manifests.each do |import_manifest| %>
+        <li class="imports--file imports--<%= import_manifest.name %>">
+          <%= link_to import_manifest.message(:label, self), admin_imports_path(current_component, resource_id: resource_id, name: import_manifest.name) %>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 </div>

@@ -6,13 +6,12 @@ module Decidim
       ACCEPTED_MIME_TYPES = Decidim::Admin::Import::Readers::ACCEPTED_MIME_TYPES
       include Decidim::HasUploadValidations
 
-      attribute :creator, String, default: ->(form, _attribute) { form.creators.first[:creator].to_s }
+      attribute :name, String
       attribute :file
       attribute :user_group_id, Integer
-      attribute :creator_param, String
 
       validates :file, presence: true
-      validates :creator, presence: true
+      validates :name, presence: true
       validate :accepted_mime_type
       validate :check_invalid_lines
 
@@ -21,9 +20,8 @@ module Decidim
       def check_invalid_lines
         return if file.blank? || !accepted_mime_type
 
-        importer.prepare
-        invalid_lines = importer.invalid_lines
-        errors.add(:file, I18n.t("decidim.admin.imports.invalid_lines", invalid_lines: invalid_lines.join(","))) unless invalid_lines.empty?
+        message = importer.invalid_indexes_message
+        errors.add(:file, message) if message
       end
 
       def file_path
@@ -52,24 +50,8 @@ module Decidim
         false
       end
 
-      def creators
-        @creators ||= begin
-          array = current_component.manifest.import_manifests.map do |manifest|
-            { creator: manifest.creator, name: manifest.creator.to_s.split("::").last.downcase }
-          end
-
-          if creator_param
-            filtered = array.select { |c| c[:name] == creator_param }
-            return filtered if filtered.present?
-          end
-          array
-        end
-      end
-
       def creator_class
-        return creator.constantize if creator.is_a?(String)
-
-        creator
+        manifest.creator
       end
 
       def user_group
@@ -91,6 +73,14 @@ module Decidim
           context: context,
           creator: creator_class
         )
+      end
+
+      private
+
+      def manifest
+        @manifest ||= current_component.manifest.import_manifests.find do |import_manifest|
+          import_manifest.name.to_s == name
+        end
       end
     end
   end

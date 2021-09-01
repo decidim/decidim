@@ -12,14 +12,13 @@
 
     <% if allowed_to? :import, :proposals %>
       <%= import_dropdown do %>
-        <% items = content_tag :li, class: "imports--component imports--proposals" do %>
-          <% link_to t("actions.import", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposals_import_path %>
-        <% end %>
-        <% items += content_tag :li, class: "imports--file imports--proposals" do %>
-          <% link_to t("proposals", scope: "decidim.admin.imports.dropdown"), admin_imports_path(current_component, { creator: "proposalcreator" }) %>
-        <% end %>
-        <% items += content_tag :li, class: "imports--file imports--proposals" do %>
-          <% link_to t("proposal_answers", scope: "decidim.admin.imports.dropdown"), admin_imports_path(current_component, { creator: "proposalanswercreator" }) %>
+        <li class="imports--component imports--proposals">
+          <%= link_to t("actions.import", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposals_import_path %>
+        </li>
+        <% current_component.manifest.import_manifests.each do |import_manifest| %>
+          <li class="imports--file imports--<%= import_manifest.name %>">
+            <%= link_to import_manifest.message(:label, self), admin_imports_path(current_component, name: import_manifest.name) %>
+          </li>
         <% end %>
       <% end %>
     <% end %>

@@ -14,8 +14,9 @@ module Decidim
       # Returns a rendered dropdown.
       def import_dropdown(component = current_component, resource_id: nil)
         locals = { component: component, resource_id: resource_id }
-        locals[:block] = yield if block_given?
-        render partial: "decidim/admin/imports/dropdown", locals: locals
+        render "decidim/admin/imports/dropdown", locals: locals do
+          yield if block_given?
+        end
       end
 
       # Routes to the correct importer for a component.

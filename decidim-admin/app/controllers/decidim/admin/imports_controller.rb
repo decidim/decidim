@@ -7,21 +7,21 @@ module Decidim
       include Decidim::ComponentPathHelper
       helper UserGroupHelper
 
+      helper_method :import_manifest
+
       def new
         enforce_permission_to :import, :component_data, component: current_component
+        raise ActionController::RoutingError, "Not Found" unless import_manifest
+
         @form = form(Admin::ImportForm).from_params(
-          {
-            # We need to set "default" creator because form-class doesn't have context / current_component
-            # when it sets it's default values.
-            creator: current_component.manifest.import_manifests.first.creator,
-            creator_param: params["creator"]
-          },
+          { name: import_manifest.name },
           current_component: current_component
         )
       end
 
       def create
         enforce_permission_to :import, :component_data, component: current_component
+        raise ActionController::RoutingError, "Not Found" unless import_manifest
 
         @form = form(Admin::ImportForm).from_params(
           params,
@@ -29,13 +29,11 @@ module Decidim
           current_organization: current_organization
         )
 
-        notification_resource = @form&.notification_resource || "resource"
-
         CreateImport.call(@form) do
           on(:ok) do |imported_data|
             flash[:notice] = t("decidim.admin.imports.notice",
-                               number: imported_data.length,
-                               resource_name: notification_resource)
+                               count: imported_data.length,
+                               resource_name: import_manifest.message(:resource_name, count: imported_data.length))
             redirect_to manage_component_path(current_component)
           end
 
@@ -47,6 +45,16 @@ module Decidim
       end
 
       private
+
+      def import_manifest
+        @import_manifest ||= current_component.manifest.import_manifests.find do |import_manifest|
+          import_manifest.name.to_s == import_name
+        end
+      end
+
+      def import_name
+        params[:name] || params.fetch(:import, {})[:name]
+      end
 
       def current_component
         @current_component ||= current_participatory_space.components.find(params[:component_id])

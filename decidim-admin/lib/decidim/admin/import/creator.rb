@@ -55,7 +55,7 @@ module Decidim
         # record - Instance of model created by creator.
         #
         # Returns true if record is valid
-        def self.record_valid?(record)
+        def self.resource_valid?(record)
           return false if record.nil?
 
           record.valid?

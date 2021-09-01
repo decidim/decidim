@@ -11,6 +11,10 @@ module Decidim
         class CSV < Base
           MIME_TYPE = "text/csv"
 
+          def self.first_data_index
+            1
+          end
+
           def read_rows
             ::CSV.read(file, col_sep: ";").each_with_index do |row, index|
               yield row, index
