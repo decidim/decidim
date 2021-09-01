@@ -119,6 +119,9 @@ ca:
         highlighted_cta: Votar a %{name}
         if_change_opinion: Si has canviat d'opinió, pots
         my_budgets: Els meus pressupostos
+        progress: Acaba la votació
+        show: Mostra els projectes
+        vote: Vota
         voted_on: Has votat a %{links}
       limit_announcement:
         cant_vote: No pots votar a aquests pressupostos. <a href="%{landing_path}"> Prova amb un altre pressupost </a>.
