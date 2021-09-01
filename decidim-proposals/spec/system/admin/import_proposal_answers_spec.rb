@@ -46,6 +46,9 @@ describe "Import proposal answers", type: :system do
     it "adds proposal answers after succesfully import" do
       generate_json
       attach_file :import_file, Decidim::Dev.asset(filename)
+
+      expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).exactly(amount).times
+
       click_button "Import"
       expect(page).to have_content("#{amount} proposal answers successfully imported")
       answers.each do |answer|
