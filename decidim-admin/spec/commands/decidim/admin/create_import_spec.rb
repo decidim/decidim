@@ -16,7 +16,7 @@ module Decidim::Admin
       Decidim::Admin::ImportForm.from_params(
         component: component,
         file: file,
-        creator: Decidim::Admin::Import::Creator
+        name: "dummies"
       ).with_context(
         current_organization: organization,
         current_component: component,
