@@ -304,6 +304,9 @@ pt:
         content_blocks:
           highlighted_assemblies:
             max_results: Quantidade máxima de elementos a mostrar
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Membros
