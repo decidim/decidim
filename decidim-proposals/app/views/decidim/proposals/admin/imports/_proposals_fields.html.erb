@@ -1,5 +1,11 @@
 <% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
   <div class="field">
-    <%= user_group_select_field form, :user_group_id %>
+    <%= form.select(
+        :user_group_id,
+        form.object.user_groups.map { |g| [g.name, g.id] },
+        selected: form.object.user_group_id.presence,
+        include_blank: current_user.name,
+        label: true
+    ) %>
   </div>
 <% end %>

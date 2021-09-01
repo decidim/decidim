@@ -155,7 +155,8 @@ Decidim.register_component(:proposals) do |component|
   end
 
   component.imports :proposals do |imports|
-    imports.form = "decidim/proposals/admin/imports/proposals_fields"
+    imports.form_view = "decidim/proposals/admin/imports/proposals_fields"
+    imports.form_class_name = "Decidim::Proposals::Admin::ProposalsFileImportForm"
 
     imports.messages do |msg|
       msg.set(:resource_name) { |count: 1| I18n.t("decidim.proposals.admin.imports.resources.proposals", count: count) }

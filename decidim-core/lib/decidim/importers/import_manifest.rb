@@ -10,7 +10,8 @@ module Decidim
 
       attr_reader :name, :manifest
 
-      attribute :form, String, default: nil
+      attribute :form_view, String, default: nil
+      attribute :form_class_name, String, default: "Decidim::Admin::ImportForm"
 
       # Initializes the manifest.
       #
@@ -20,6 +21,7 @@ module Decidim
       # manifest - The parent manifest where this import manifest belongs to.
       #
       def initialize(name, manifest)
+        super()
         @name = name.to_sym
         @manifest = manifest
         @messages = Messages.new
@@ -29,6 +31,10 @@ module Decidim
       # stored creator otherwise.
       def creator(creator = nil)
         @creator ||= creator || Decidim::Admin::Import::Creator
+      end
+
+      def form_class
+        form_class_name.constantize
       end
 
       DEFAULT_FORMATS = %w(CSV JSON Excel).freeze

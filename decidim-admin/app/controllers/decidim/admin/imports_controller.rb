@@ -5,7 +5,6 @@ module Decidim
     # This controller allows admins to import resources from a file.
     class ImportsController < Decidim::Admin::ApplicationController
       include Decidim::ComponentPathHelper
-      helper UserGroupHelper
 
       helper_method :import_manifest
 
@@ -13,7 +12,7 @@ module Decidim
         enforce_permission_to :import, :component_data, component: current_component
         raise ActionController::RoutingError, "Not Found" unless import_manifest
 
-        @form = form(Admin::ImportForm).from_params(
+        @form = form(import_manifest.form_class).from_params(
           { name: import_manifest.name },
           current_component: current_component
         )
@@ -23,7 +22,7 @@ module Decidim
         enforce_permission_to :import, :component_data, component: current_component
         raise ActionController::RoutingError, "Not Found" unless import_manifest
 
-        @form = form(Admin::ImportForm).from_params(
+        @form = form(import_manifest.form_class).from_params(
           params,
           current_component: current_component,
           current_organization: current_organization
@@ -53,7 +52,7 @@ module Decidim
       end
 
       def import_name
-        params[:name] || params.fetch(:import, {})[:name]
+        params[:name]
       end
 
       def current_component

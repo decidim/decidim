@@ -8,7 +8,6 @@ module Decidim
 
       attribute :name, String
       attribute :file
-      attribute :user_group_id, Integer
 
       validates :file, presence: true
       validates :name, presence: true
@@ -52,28 +51,24 @@ module Decidim
         manifest.creator
       end
 
-      def user_group
-        @user_group ||= Decidim::UserGroup.find_by(
-          organization: current_organization,
-          id: user_group_id.to_i
-        )
-      end
-
       def importer
         @importer ||= importer_for(file_path, mime_type)
       end
 
       def importer_for(filepath, mime_type)
-        context[:user_group] = user_group
         Import::ImporterFactory.build(
           filepath,
           mime_type,
-          context: context,
+          context: importer_context,
           creator: creator_class
         )
       end
 
-      private
+      protected
+
+      def importer_context
+        context
+      end
 
       def manifest
         @manifest ||= current_component.manifest.import_manifests.find do |import_manifest|
