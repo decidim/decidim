@@ -159,6 +159,12 @@ en:
             resources_permissions_enabled: Actions permissions can be set for each proposal
             scope_id: Scope
             scopes_enabled: Scopes enabled
+            sort_order: Sort order
+            sort_order_help: By default it means that if the supports are enabled, the proposals will be shown sorted by random, and if the supports are blocked, then they will be sorted by the most supported.
+            sort_order_options:
+              by_default: By default
+              random: Random
+              recent: Recent
             threshold_per_proposal: Threshold per proposal
             vote_limit: Support limit per participant
           step:
@@ -182,6 +188,12 @@ en:
             endorsements_enabled: Endorsements enabled
             proposal_answering_enabled: Proposal answering enabled
             publish_answers_immediately: Publish proposal answers immediately
+            sort_order: Sort order
+            sort_order_help: By default it means that if the supports are enabled, the proposals will be shown sorted by random, and if the supports are blocked, then they will be sorted by the most supported.
+            sort_order_options:
+              by_default: By default
+              random: Random
+              recent: Recent
             suggested_hashtags: Hashtags suggested to participants for new proposals
             votes_blocked: Supports blocked
             votes_enabled: Supports enabled

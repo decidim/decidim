@@ -12,6 +12,7 @@ module Decidim
         integer: :number_field,
         string: :text_field,
         text: :text_area,
+        select: :select_field,
         scope: :scope_field,
         enum: :collection_radio_buttons,
         time: :datetime_field
@@ -49,6 +50,8 @@ module Decidim
             form.send(:translated, form_method, name, options)
           elsif form_method == :collection_radio_buttons
             render_enum_form_field(form, attribute, name, i18n_scope, options)
+          elsif form_method == :select_field
+            render_select_form_field(form, attribute, name, i18n_scope, options)
           elsif form_method == :scope_field
             scopes_picker_field(form, name)
           else
@@ -58,6 +61,12 @@ module Decidim
       end
 
       private
+
+      def render_select_form_field(form, attribute, name, i18n_scope, options)
+        html = form.select(name, attribute.build_choices.map { |a| [t("#{name}_options.#{a}", scope: i18n_scope), a] }, include_blank: attribute.include_blank)
+        html << content_tag(:p, options[:help_text], class: "help-text") if options[:help_text]
+        html
+      end
 
       # Returns a radio buttons collection input for the given attribute
       def render_enum_form_field(form, attribute, name, i18n_scope, options)
