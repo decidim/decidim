@@ -318,16 +318,6 @@ ja:
           update:
             invalid: 受託者 %{trustee} の更新中に問題が発生しました
             success: 受託者 %{trustee} が正常に更新されました
-      admin_log:
-        election:
-          end_vote: "%{user_name} が掲示板で %{resource_name} 選挙の投票期間を終了しました"
-          publish: "%{user_name} が %{resource_name} 選挙を公開しました"
-          publish_results: "%{user_name} が %{resource_name} 選挙の結果を掲示板に掲載しました"
-          setup: "%{user_name} が掲示板に %{resource_name} 選挙を作成しました"
-          start_key_ceremony: "%{user_name} が掲示板で %{resource_name} 選挙の重要なキーセレモニーを開始しました"
-          start_tally: "%{user_name} が掲示板で %{resource_name} 選挙の集計を開始しました"
-          start_vote: "%{user_name} が掲示板の %{resource_name} 選挙の投票期間を開始しました"
-          unpublish: "%{user_name} が %{resource_name} 選挙を非公開にしました"
       election_m:
         badge_name:
           finished: 完了
@@ -709,10 +699,31 @@ ja:
             code_help: 'ヒント: コードは、センサスと投票スタイルをリンクさせるものです。 センサスデータをアップロードするとき、コードに一致する投票スタイルが割り当てられます。'
             election: 選挙
             questions: この投票スタイルに関する質問
+          index:
+            actions:
+              destroy: 削除
+              edit: 編集
+              new: 新規作成
+              title: アクション
+            title: 投票スタイル
+          new:
+            create: 作成
+            title: 投票スタイルを作成
+          update:
+            invalid: 投票スタイルの更新中に問題が発生しました
+            success: 投票スタイルが正常に更新されました
         content_blocks:
           highlighted_votings:
             max_results: 表示する要素の最大量
           landing_page:
+            attachments_and_folders:
+              name: 投票の添付ファイルとフォルダ
+            description:
+              name: 投票の説明
+            elections:
+              name: 投票する選挙
+            header:
+              name: 投票のヘッダー
             html_block_1:
               name: 投票htmlブロック1
             html_block_2:
@@ -720,7 +731,7 @@ ja:
             html_block_3:
               name: 投票htmlブロック3
             metrics:
-              name: 投票メトリック
+              name: 投票メトリクス
             polling_stations:
               name: 投票ステーション
             stats:
@@ -785,16 +796,51 @@ ja:
               published: 公開済み
               title: タイトル
         monitoring_committee_election_results:
+          actions:
+            title: アクション
+            view: 表示
+          index:
+            title: 結果を表示したい選挙を選択してください
           results:
             bulletin_board: 掲示板
+            election_totals: 総選挙数
+            polling_stations: 投票所
+            result_types:
+              blank_answers: 空白の回答
+              blank_ballots: 空白の投票数
+              null_ballots: 空の投票数
+              total_ballots: 総投票数
+              valid_ballots: 有効な投票数
+            selected: 選択済
+            title: <i>%{election_title}</i> 選挙の結果
+            totals: 合計
+          show:
+            change_election: 選択を変更
+            publish_results: 結果を公開
+            publishing: 結果を公開中...
           update:
+            invalid: 結果の公開中に問題が発生しました
             rejected: 結果の公開が掲示板によって拒否されました。もう一度試すか、システム管理者に連絡してください。
+            success: 結果は正常に公開されました
+        monitoring_committee_members:
+          create:
+            invalid: この監視委員会メンバーの作成中に問題が発生しました
+            success: 監視委員会のメンバーが正常に作成されました
+          destroy:
+            invalid: この監視委員会メンバーの削除中に問題が発生しました
+            success: 監視委員会のメンバーが正常に削除されました
+          form:
+            existing_user: 既存の参加者
+            non_user: 新しい参加者を招待
+            select_user: 名前、メールアドレス、ニックネームで検索
         monitoring_committee_verify_elections:
           index:
             how_to_run_verifier: 'いったんファイルをダウンロードし問題のないことが確認できたら、ユニバーサルベリファイアの実行に進めます。 <a href=''https://github.com/decidim/decidim-bulletin-board''>このリポジトリ</a> をクローンして、ルートのフォルダにて次のコマンドを実行します:'
         polling_officers:
           index:
             role_president: 投票管理者
+          polling_officers_picker:
+            close: 閉じる
         polling_stations:
           form:
             polling_station_president_help: '投票管理者:投票所の代表を務める担当者。 投票委員がすでに投票所に設置されていること、および他の投票所に割り当てられていないことを確認してください'
@@ -802,6 +848,13 @@ ja:
         votings:
           edit:
             assign_missing_officers: 投票管理者またはマネージャーがいない投票所があります。投票所セクションからアサインしてください
+      content_blocks:
+        landing_page:
+          description:
+            show_less: 詳細を閉じる
+            show_more: 続きを読む
+          metrics:
+            heading: メトリクス
       polling_officer_zone:
         in_person_votes:
           update:
