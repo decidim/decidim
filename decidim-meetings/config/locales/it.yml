@@ -510,6 +510,7 @@ it:
           link_closed: Il link per partecipare alla riunione sarà disponibile alcuni minuti prima dell'inizio
           live_event: Questa riunione è in corso
           meeting_minutes: Riunione dei verbali
+          micro_camera_permissions_warning: Quando fai clic sul pulsante qui sotto, ti verrà chiesto il permesso del microfono e/o della fotocamera, per unirti alla videoconferenza
           no_slots_available: Nessuna slot disponibile
           organizations: Organizzazioni partecipanti.
           registration_code_help_text: Il tuo codice di registrazione
@@ -541,6 +542,7 @@ it:
           fields:
             closed: Chiuso
             end_time: Data di fine
+            id: Id
             map: Mappa
             official_meeting: Riunione ufficiale
             start_time: Data di inizio
