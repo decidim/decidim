@@ -451,9 +451,6 @@ en:
           impersonate_existing_user: Manage participant "%{name}"
           impersonate_new_managed_user: Manage new participant
       imports:
-        creators:
-          proposalanswercreator: Proposal answer creator
-          proposalcreator: Proposal creator
         error: There was a problem during the import
         invalid_indexes:
           base:
