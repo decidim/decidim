@@ -15,7 +15,7 @@ module Decidim
             workbook = RubyXL::Parser.parse(file)
             sheet = workbook.worksheets[0]
             sheet.each_with_index do |row, index|
-              yield row.cells.map(&:value), index
+              yield row.cells.map { |c| c && c.value }, index
             end
           end
         end
