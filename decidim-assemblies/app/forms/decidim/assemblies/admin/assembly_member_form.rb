@@ -10,6 +10,8 @@ module Decidim
 
         attribute :weight, Integer, default: 0
         attribute :full_name, String
+        attribute :not_user_avatar
+        attribute :remove_not_user_avatar, Boolean, default: false
         attribute :gender, String
         attribute :birthday, Decidim::Attributes::TimeWithZone
         attribute :birthplace, String
