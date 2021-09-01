@@ -6,12 +6,16 @@ module Decidim
   class AssemblyMember < ApplicationRecord
     include Decidim::Traceable
     include Decidim::Loggable
+    include Decidim::HasUploadValidations
 
     POSITIONS = %w(president vice_president secretary other).freeze
 
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::UserBaseEntity", optional: true
     belongs_to :assembly, foreign_key: "decidim_assembly_id", class_name: "Decidim::Assembly"
     alias participatory_space assembly
+
+    has_one_attached :not_user_avatar
+    validates_avatar :not_user_avatar, uploader: Decidim::AvatarUploader
 
     default_scope { order(weight: :asc, created_at: :asc) }
 
