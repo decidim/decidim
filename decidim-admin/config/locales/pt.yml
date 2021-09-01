@@ -32,7 +32,9 @@ pt:
         body: Corpo
         subject: Assunto
       organization:
+        admin_terms_of_use_body: Corpo para os termos de utilização do administrador
         alert_color: Alerta
+        available_authorizations: Autorizações disponíveis
         badges_enabled: Ativar distintivos
         comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
         cta_button_path: Caminho do botão Chamar para Ação
@@ -60,6 +62,9 @@ pt:
         host: Anfitrião
         instagram_handler: Instagram handler
         logo: Logótipo
+        machine_translation_display_priority: Prioridade de apresentação de tradução automática
+        machine_translation_display_priority_original: Texto original primeiro
+        machine_translation_display_priority_translation: Texto traduzido primeiro
         name: Nome
         official_img_footer: Logótipo oficial do rodapé
         official_img_header: Logótipo oficial do cabeçalho
@@ -67,16 +72,21 @@ pt:
         omnipresent_banner_short_description: Pequena descrição
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
+        organization_admin_email: E-mail do administrador da organização
+        organization_admin_name: Nome do administrador da organização
+        organization_locales: Localidades da organização
         primary_color: Primário
         reference_prefix: Prefixo de referência
         rich_text_editor_in_public_views: Ativar o editor de texto avançado para os participantes
         secondary_color: Secundário
+        secondary_hosts: Anfitriões secundários
         send_welcome_notification: Enviar notificação de boas-vindas
         success_color: Sucesso
         time_zone: Fuso Horário
         tos_version: Versão dos termos de serviço
         twitter_handler: Manipulador do Twitter
         user_groups_enabled: Ativar grupos
+        users_registration_mode: Modo de registo dos utilizadores
         warning_color: Aviso
         welcome_notification_body: Corpo da notificação de boas-vindas
         welcome_notification_subject: Assunto da notificação de boas-vindas
@@ -92,7 +102,10 @@ pt:
         name: Nome
         organization: Organização
         plural: Plural
+      settings:
+        scope_id: Âmbito
       static_page:
+        allow_public_access: Permitir acesso sem autenticação
         changed_notably: Ocorreram mudanças notáveis.
         content: Conteúdo
         organization: Organização
@@ -115,6 +128,10 @@ pt:
               allowed_file_content_types: Ficheiro de imagem inválido
             official_img_header:
               allowed_file_content_types: Ficheiro de imagem inválido
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Tipo MIME inválido
   activerecord:
     attributes:
       decidim/static_page:
@@ -133,19 +150,34 @@ pt:
     admin:
       actions:
         add: Adicionar
+        attachment:
+          new: Novo anexo
+        attachment_collection:
+          new: Nova colecção de anexos
         browse: Explorar
+        category:
+          new: Nova categoria
         export: Exportar
+        import: Importar
         manage: Gerir
         new: Novo %{name}
+        newsletter:
+          new: Novo boletim informativo
+        participatory_space_private_user:
+          new: Novo utilizador privado do espaço participativo
         per_page: Por página
         permissions: Permissões
         reject: Rejeitar
+        share: Partilhar
+        user:
+          new: Novo utilizador
         verify: Verificar
       admin_terms_of_use:
         accept:
           error: Ocorreu um erro ao aceitar os termos de utilização de administrador.
           success: Excelente! Aceitou os termos de utilização de administrador.
         actions:
+          accept: Concordo com os seguintes termos
           are_you_sure: Tem a certeza de que pretende recusar os termos de administrador?
           refuse: Recusar os termos de administrador
           title: Concordar com os termos e condições de utilização
@@ -224,6 +256,11 @@ pt:
       autocomplete:
         no_results: Nenhum resultado encontrado
         search_prompt: Digite pelo menos três caracteres para pesquisar
+      block_user:
+        new:
+          action: Bloquear conta e enviar justificação
+          justification: Justificação
+          title: Bloquear utilizador %{name}
       categories:
         create:
           error: Ocorreu um problema ao criar esta categoria.
@@ -278,6 +315,13 @@ pt:
         update:
           error: Ocorreu um problema ao atualizar este componente.
           success: O componente foi atualizado corretamente.
+      conflicts:
+        attempts: Tentativas
+        'false': 'Não'
+        managed_user_name: Utilizador gerido
+        solved: Resolvido
+        transfer:
+          email: e-Mail
       dashboard:
         show:
           view_more_logs: Ver mais registos
