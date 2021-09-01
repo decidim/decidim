@@ -200,10 +200,6 @@ sv:
             select_user: Välj användare
           index:
             title: Förvaltare
-      admin_log:
-        election:
-          publish: "%{user_name} publicerade valet %{resource_name}"
-          unpublish: "%{user_name} avpublicerade valet %{resource_name}"
       election_m:
         badge_name:
           finished: Avslutad
