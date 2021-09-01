@@ -37,7 +37,7 @@ module Decidim
       # Returns true if record is valid
       def self.resource_valid?(record)
         return false if record.nil?
-        return false if record.errors.record.positive?
+        return false if record.errors.any?
 
         record.valid?
       end
@@ -52,9 +52,8 @@ module Decidim
 
       def resource
         @resource ||= begin
-          return nil if Decidim::Proposals::Proposal.where(id: id).empty?
-
-          proposal = Decidim::Proposals::Proposal.find(id)
+          proposal = Decidim::Proposals::Proposal.find_by(id: id)
+          return nil unless proposal
           return nil if proposal.emendation?
 
           if proposal.component != component
