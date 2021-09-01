@@ -342,16 +342,6 @@ pl:
           update:
             invalid: Podczas aktualizacji męża (osoby) zaufania %{trustee} wystąpił błąd
             success: Mąż (osoba) zaufania %{trustee} został pomyślnie zaktualizowany
-      admin_log:
-        election:
-          end_vote: "%{user_name} zamknął(ła) głosowanie w wyborach %{resource_name} na Tablicy danych wyborczych"
-          publish: "%{user_name} opublikował(a) wybory %{resource_name}"
-          publish_results: "%{user_name} opublikował wyniki głosowania w wyborach %{resource_name} Tablicy danych wyborczych"
-          setup: "%{user_name} utworzył wybory %{resource_name} na Tablicy danych wyborczych"
-          start_key_ceremony: "%{user_name} rozpoczął/rozpoczęła \"ceremonię kluczy\" w wyborach %{resource_name} na Tablicy danych wyborczych"
-          start_tally: "%{user_name} rozpoczął proces liczenia głosów %{resource_name} na Tablicy danych wyborczych"
-          start_vote: "%{user_name} otworzył/otwarła głosowanie w wyborach %{resource_name} na Tablicy danych wyborczych"
-          unpublish: "%{user_name} cofnął/cofnęła publikację wyborów %{resource_name}"
       election_m:
         badge_name:
           finished: Zakończone
@@ -1021,7 +1011,6 @@ pl:
           census:
             create:
               invalid: Wystąpił błąd przy przesyłaniu listy wyborców. Spróbuj ponownie później.
-              invalid_csv_header: Nagłówek CSV nie ma prawidłowej liczby pól - przeczytaj uważnie instrukcję
             creating_data:
               info_message: "<strong>Poczekaj</strong>, przetworzono %{processed_count} z %{raw_count} wierszy z pliku %{file}."
             delete:
