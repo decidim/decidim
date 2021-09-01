@@ -25,6 +25,18 @@ module Decidim
 
         validates :designation_date, presence: true
         validates :full_name, presence: true, unless: proc { |object| object.existing_user }
+        validates :not_user_avatar, passthru: {
+          to: Decidim::AssemblyMember,
+          with: {
+            # The member gets its organization context through the assembly
+            # object which is why we need to create a dummy assembly in order
+            # to pass the correct organization context to the file upload
+            # validators.
+            assembly: lambda do |form|
+              Decidim::Assembly.new(organization: form.current_organization)
+            end
+          }
+        }
         validates :position, presence: true, inclusion: { in: Decidim::AssemblyMember::POSITIONS }
         validates :position_other, presence: true, if: ->(form) { form.position == "other" }
         validates :ceased_date, date: { after: :designation_date, allow_blank: true }

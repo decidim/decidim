@@ -17,6 +17,8 @@ module Decidim
     has_one_attached :not_user_avatar
     validates_avatar :not_user_avatar, uploader: Decidim::AvatarUploader
 
+    delegate :organization, to: :assembly
+
     default_scope { order(weight: :asc, created_at: :asc) }
 
     scope :not_ceased, -> { where("ceased_date >= ? OR ceased_date IS NULL", Time.zone.today) }
