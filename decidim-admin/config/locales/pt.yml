@@ -543,6 +543,25 @@ pt:
             phone: Telefone
             state: Estado
             users_count: Contagem de participantes
+      moderated_users:
+        index:
+          actions:
+            block: Bloquear utilizador
+            title: Acções
+            unblock: Desbloquear utilizador
+            unreport: Remover denúncia
+          name: Nome
+          nickname: Alcunha
+          reason: Motivo
+          reports: Contagem de denúncias
+          title: A listar utilizadores denunciados
+        report:
+          reasons:
+            does_not_belong: Não pertence
+            offensive: Ofensivo
+        tabs:
+          blocked: Bloqueado
+          unblocked: Não bloqueado
       moderations:
         index:
           title: Moderações
@@ -551,6 +570,20 @@ pt:
             does_not_belong: Não pertence
             offensive: Ofensiva
             spam: Spam
+        reports:
+          index:
+            author: Autor(es)
+            content_original_language: Língua original do conteúdo
+            participatory_space: Espaço participativo
+            reported_content: Conteúdo denunciado
+            see_current: Ver actual
+            see_original: Ver original
+            title: Moderar denúncias
+          show:
+            report_details: Detalhes do motivo
+            report_language: Denunciar linguagem
+            report_reason: Motivo
+            title: Detalhes da denúncia
       newsletter_templates:
         index:
           preview_template: Pré-visualização
@@ -616,6 +649,9 @@ pt:
           error: Ocorreu um problema ao atualizar este boletim informativo.
           success: Boletim informativo atualizado corretamente. Por favor, reveja-o antes de enviar.
       officializations:
+        block:
+          error: Houve um erro ao bloquear o participante
+          success: Participante bloqueado com sucesso
         create:
           success: Participante oficializado corretamente
         destroy:
@@ -623,6 +659,7 @@ pt:
         index:
           actions: Ações
           badge: Distintivo
+          block: Bloquear utilizador
           created_at: Criado em
           name: Nome
           nickname: Alcunha
@@ -632,6 +669,7 @@ pt:
           reofficialize: Reoficializar
           show_email: Mostrar endereço de e-mail
           status: Estado
+          unblock: Desbloquear utilizador
           unofficialize: Desoficializar
         new:
           badge: Distintivo de oficialização
