@@ -21,6 +21,14 @@ ga:
       proposal_answer:
         answer: Freagra
         cost: Costas
+  activerecord:
+    models:
+      decidim/proposals/proposal:
+        one: Moladh
+        two: Moltaí
+        few: Moltaí
+        many: Moltaí
+        other: Moltaí
   decidim:
     admin:
       filters:
@@ -29,11 +37,14 @@ ga:
             label: Catagóir
           is_emendation_true:
             label: Cineál
+            values:
+              'false': Moltaí
           scope_id_eq:
             label: Scóip
           state_eq:
             label: Staid
             values:
+              accepted: Glactha
               rejected: Diúltaithe
           state_null:
             label: Staid
@@ -45,16 +56,26 @@ ga:
           create: Cruthaigh
           endorse: Formhuinigh
           vote: Tacaigh le
+        name: Moltaí
         settings:
           global:
             scope_id: Scóip
           step:
             endorsements_blocked: Formhuinithe blocáilte
             endorsements_enabled: Formhuinithe cumasaithe
+    gamification:
+      badges:
+        proposals:
+          name: Moltaí
     metrics:
+      accepted_proposals:
+        object: moltaí
       endorsements:
         object: formhuinithe
         title: Formhuinithe
+      proposals:
+        object: moltaí
+        title: Moltaí
       votes:
         object: tacaíochtaí
         title: Tacaíochtaí
@@ -66,12 +87,18 @@ ga:
           preview: Réamhamharc
         exports:
           proposal_comments: Tráchtanna
+          proposals: Moltaí
+        models:
+          proposal:
+            name: Moladh
         participatory_texts:
           new_import:
             accepted_mime_types:
+              md: Markdown
               odt: ODT
         proposal_answers:
           form:
+            accepted: Glactha
             answer_proposal: Freagra
             rejected: Diúltaithe
         proposal_notes:
@@ -90,7 +117,9 @@ ga:
             change_category: Athraigh catagóir
             merge_button: Cumaisc
             publish: Foilsigh
+            selected: roghnaithe
             split_button: Scoilt
+            title: Moltaí
             update: Nuashonraigh
           new:
             create: Cruthaigh
@@ -104,24 +133,30 @@ ga:
             endorsers: Formhuinitheoirí
             link: Nasc
             photos: Grianghraif
+            proposals: Moltaí
           update_category:
             select_a_category: Roghnaigh catagóir le do thoil
       answers:
+        accepted: Glactha
         rejected: Diúltaithe
       application_helper:
         filter_category_values:
           all: Uile
         filter_origin_values:
           all: Uile
+          citizens: Saoránaigh
           meetings: Cruinnithe
+          official: Oifigiúil
           user_groups: Grúpaí
         filter_scope_values:
           all: Uile
         filter_state_values:
+          accepted: Glactha
           all: Uile
           rejected: Diúltaithe
         filter_type_values:
           all: Uile
+          proposals: Moltaí
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -158,6 +193,9 @@ ga:
           publish: Foilsigh
         states:
           open: Oscail
+      content_blocks:
+        highlighted_proposals:
+          proposals: Moltaí
       models:
         collaborative_draft:
           fields:
@@ -172,6 +210,7 @@ ga:
             scope: Scóip
             state: Stádas
             title: Teideal
+            valuator: Luachálaí
             votes: Vótaí
       participatory_text_proposal:
         buttons:
@@ -225,7 +264,12 @@ ga:
           back: Ar Ais
         wizard_steps:
           step_2: Cuir i gcomparáid
+          step_3: Críochnaithe
       proposals_picker:
         close: Dún
+      versions:
+        index:
+          title: Leaganacha
     statistics:
+      proposals_count: Moltaí
       supports_count: Tacaíochtaí

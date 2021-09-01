@@ -9,6 +9,7 @@ ga:
         end_date: Dáta deiridh
         hashtag: Haischlib
         participatory_process_group_id: Grúpa próisis
+        promoted: Curtha chun cinn
         related_process_ids: Próisis Ceangailte
         scope_id: Scóip
         slug: Píosa URL
@@ -76,6 +77,7 @@ ga:
           name: Riarachán próisis rannpháirtíochta
           roles:
             admin: Riarthóir
+            valuator: Luachálaí
       participatory_process_copies:
         new:
           copy: Cóipeáil
@@ -125,6 +127,7 @@ ga:
             duration: Fad
             filters: Scagairí
             images: Íomhánna
+            metadata: Meiteashonraí
             other: Eile
       participatory_processes:
         filters:
@@ -132,6 +135,7 @@ ga:
             active: Gníomhach
             all: Uile
             past: Roimhe
+            upcoming: Le teacht
           see: Feic
       show:
         area: Ceantar
