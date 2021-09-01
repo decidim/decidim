@@ -203,6 +203,8 @@ pt:
             label: Estado
     components:
       accountability:
+        actions:
+          comment: Comentário
         name: Prestação de contas
         settings:
           global:
