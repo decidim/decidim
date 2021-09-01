@@ -35,12 +35,17 @@ es-MX:
         registration_terms: Términos y condiciones de inscripción
         registration_url: URL de inscripción
         registrations_enabled: Inscripciones abiertas
+        show_embedded_iframe: Mostrar iframe incrustado para esta URL
         start_time: Hora de inicio
         title: Título
         transparent: Transparente
         type_of_meeting: Tipo
     errors:
       models:
+        meeting:
+          attributes:
+            show_embedded_iframe:
+              not_embeddable: Esta URL no puede ser incrustada
         meeting_agenda:
           attributes:
             base:
@@ -304,6 +309,7 @@ es-MX:
             registration_url_help: 'Enlace: permitir a las participantes ir al servicio externo que estás utilizando para las inscripciones'
             select_a_meeting_type: Por favor, selecciona un tipo de encuentro
             select_a_registration_type: Por favor, seleccione un tipo de inscripción
+            show_embedded_iframe_help: Incrustar o no el iframe para esta URL de videoconferencia. Sólo algunos servicios permiten incrustar (por ejemplo, Youtube, Twitch, etc.)
           index:
             title: Encuentros
           new:
@@ -475,6 +481,7 @@ es-MX:
           select_a_category: Por favor, selecciona una categoría
           select_a_meeting_type: Por favor, selecciona un tipo de encuentro
           select_a_registration_type: Por favor, selecciona un tipo de inscripción
+          show_embedded_iframe_help: Incrustar o no el iframe para esta URL de videoconferencia. Sólo algunos servicios permiten incrustar (por ejemplo, Youtube, Twitch, etc.)
         index:
           new_meeting: Nuevo encuentro
         meeting_minutes:
@@ -500,7 +507,11 @@ es-MX:
           join: Inscribirse al encuentro
           leave: Cancela tu inscripción
           leave_confirmation: '¿Seguro que quieres cancelar tu inscripción para este encuentro?'
+          link_available_soon: Enlace disponible próximamente
+          link_closed: El enlace para unirte a la reunión estará disponible unos minutos antes de que comience
+          live_event: Este encuentro está sucediendo ahora mismo
           meeting_minutes: Acta del encuentro
+          micro_camera_permissions_warning: Cuando hagas clic en el botón de abajo, se te pedirán permisos de micrófono y/o cámara y te unirás a la videoconferencia
           no_slots_available: No hay espacio disponible
           organizations: Organizaciones que han asistido
           registration_code_help_text: Tu codigo de registro
@@ -511,6 +522,7 @@ es-MX:
             one: "Queda %{count} plaza"
             other: "%{count} plazas restantes"
           view: Ver
+          visit_finished: Ver encuentro pasado
         update:
           invalid: Se ha producido un error al actualizar este encuentro.
           success: Has actualizado el encuentro con éxito.
