@@ -11,30 +11,20 @@ module Decidim
       #
       #    action_log = Decidim::ActionLog.last
       #    view_helpers # => this comes from the views
-      #    VotingPresenter.new(action_log, view_helpers).present
-      class VotingPresenter < Decidim::Log::BasePresenter
+      #    BallotStylePresenter.new(action_log, view_helpers).present
+      class BallotStylePresenter < Decidim::Log::BasePresenter
         private
 
-        def diff_fields_mapping
-          {
-            title: :i18n,
-            description: :i18n,
-            slug: :string,
-            start_time: :date,
-            end_time: :date,
-            decidim_scope_id: :scope,
-            published_at: :date
-          }
-        end
-
-        def i18n_labels_scope
-          "activemodel.attributes.voting"
+        def i18n_params
+          super.merge(
+            ballot_style_code: action_log.resource.code
+          )
         end
 
         def action_string
           case action
-          when "create", "publish", "unpublish"
-            "decidim.votings.admin_log.voting.#{action}"
+          when "create", "delete", "update"
+            "decidim.votings.admin_log.ballot_style.#{action}"
           else
             super
           end

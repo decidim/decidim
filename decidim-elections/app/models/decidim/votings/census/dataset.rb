@@ -23,6 +23,8 @@ module Decidim
 
         validates :file, presence: true
 
+        alias participatory_space voting
+
         def self.log_presenter_class_for(_log)
           Decidim::Votings::Census::AdminLog::DatasetPresenter
         end
