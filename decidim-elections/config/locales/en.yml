@@ -1002,7 +1002,7 @@ en:
           census:
             create:
               invalid: An error occurred uploading the census, please try again later.
-              invalid_csv_header: The CSV header does not have the correct number of fields - please read the instructions carefully
+              invalid_csv_header: The CSV headers are missing or not correct - please read the instructions carefully
             creating_data:
               info_message: "<strong>Please wait</strong>, processed %{processed_count} of %{raw_count} rows from %{file} file."
             delete:

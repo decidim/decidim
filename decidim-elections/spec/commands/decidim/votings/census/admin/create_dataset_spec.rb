@@ -28,6 +28,20 @@ module Decidim::Votings::Census::Admin
       end
     end
 
+    context "when headers are invalid" do
+      let(:file) { Decidim::Dev.test_file("import_voting_census_without_headers.csv", "text/csv") }
+
+      it "broadcasts invalid_csv_file" do
+        expect(subject.call).to broadcast(:invalid_csv_header)
+      end
+
+      it "does not enqueue any job" do
+        expect(CreateDatumJob).not_to receive(:perform_later)
+
+        subject.call
+      end
+    end
+
     it "broadcasts ok" do
       expect(subject.call).to broadcast(:ok)
     end
