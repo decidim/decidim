@@ -128,10 +128,6 @@ pt:
           update:
             invalid: Ocorreu um problema ao atualizar esta pergunta
             success: Pergunta atualizada corretamente
-      admin_log:
-        election:
-          publish: "%{user_name} publicou a eleição %{resource_name}"
-          unpublish: "%{user_name} removeu a publicação da eleição %{resource_name}"
       elections:
         count:
           elections_count:
