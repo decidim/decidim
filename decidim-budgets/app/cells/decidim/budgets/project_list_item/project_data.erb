@@ -14,6 +14,6 @@
       <%= cell("decidim/budgets/project_voted_hint", model, class: "display-block margin-top-1") if current_order_checked_out? && resource_added? %>
     </span>
 
-    <%= render :project_data_vote_button if !current_order_checked_out? && voting_open? %>
+    <%= cell("decidim/budgets/project_vote_button", model) if !current_order_checked_out? && voting_open? %>
   <% end %>
 </div>

@@ -1,0 +1,22 @@
+.budget-vote-button.expanded{
+  display: flex;
+  text-align: left;
+  justify-content: space-between;
+  align-items: center;
+
+  span{
+    font-size: 1rem;
+  }
+
+  &.added{
+    background-color: tint($success, 80%);
+    color: $body-font-color;
+  }
+
+  &:not(.added){
+    .budget-list__action{
+      border-color: white;
+      color: white;
+    }
+  }
+}
