@@ -26,5 +26,9 @@ module Decidim
     def self.log_presenter_class_for(_log)
       Decidim::Assemblies::AdminLog::AssemblyMemberPresenter
     end
+
+    def remove_not_user_avatar
+      false
+    end
   end
 end
