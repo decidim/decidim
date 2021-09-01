@@ -20,7 +20,13 @@ module Decidim
       end
 
       def finish!
-        super
+        Decidim.traceability.perform_action!(
+          "answer",
+          resource,
+          current_user
+        ) do
+          resource.save!
+        end
         notify(resource)
       end
 
@@ -49,6 +55,7 @@ module Decidim
           return nil if Decidim::Proposals::Proposal.where(id: id).empty?
 
           proposal = Decidim::Proposals::Proposal.find(id)
+
           if proposal.component != component
             proposal.errors.add(:component, :invalid)
             return proposal
@@ -84,6 +91,10 @@ module Decidim
 
       def component
         context[:current_component]
+      end
+
+      def current_user
+        context[:current_user]
       end
 
       def notify(proposal)

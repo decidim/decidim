@@ -62,5 +62,14 @@ describe Decidim::Proposals::ProposalAnswerCreator do
       subject.finish!
       expect(record.new_record?).to be(false)
     end
+
+    it "creates an admin log record" do
+      record = subject.produce
+      subject.finish!
+
+      log = Decidim::ActionLog.last
+      expect(log.resource).to eq(record)
+      expect(log.action).to eq("answer")
+    end
   end
 end
