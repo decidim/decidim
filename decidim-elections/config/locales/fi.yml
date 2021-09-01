@@ -328,14 +328,19 @@ fi:
             success: Luottamushenkilön %{trustee} päivittäminen onnistui
       admin_log:
         election:
-          end_vote: "%{user_name} päätti äänestysajan vaalille %{resource_name} sähköisellä ääniuurnalla"
-          publish: "%{user_name} julkaisi vaalin %{resource_name}"
-          publish_results: "%{user_name} julkaisi vaalien %{resource_name} tulokset sähköisessä ääniuurnassa"
-          setup: "%{user_name} loi vaalin %{resource_name} sähköiselle ääniuurnalle"
-          start_key_ceremony: "%{user_name} aloitti avainseremonian vaalille %{resource_name} sähköisellä ääniuurnalla"
-          start_tally: "%{user_name} aloitti ääntenlaskennan vaalille %{resource_name} sähköisellä ääniuurnalla"
-          start_vote: "%{user_name} aloitti äänestysajan vaalille %{resource_name} sähköisellä ääniuurnalla"
-          unpublish: "%{user_name} lopetti vaalin %{resource_name} julkaisun"
+          create: "%{user_name} loi vaalin %{resource_name} osallistumistilassa %{space_name}"
+          delete: "%{user_name} poisti vaalin %{resource_name} osallistumistilassa %{space_name}"
+          end_vote: "%{user_name} päätti äänestysajan vaalille %{resource_name} osallistumistilan %{space_name} sähköisellä ääniuurnalla"
+          publish: "%{user_name} julkaisi vaalin %{resource_name} osallistumistilassa %{space_name}"
+          publish_results: "%{user_name} julkaisi tulokset vaalille %{resource_name} osallistumistilan %{space_name} sähköisellä ääniuurnalla"
+          setup: "%{user_name} loi vaalin %{resource_name} osallistumistilan %{space_name} sähköiselle ääniuurnalle"
+          start_key_ceremony: "%{user_name} aloitti avainseremonian vaalille %{resource_name} osallistumistilan %{space_name} sähköisellä ääniuurnalla"
+          start_tally: "%{user_name} aloitti ääntenlaskennan vaalille %{resource_name} osallistumistilan %{space_name} sähköisellä ääniuurnalla"
+          start_vote: "%{user_name} aloitti äänestysajan vaalille %{resource_name} osallistumistilan %{space_name} sähköisellä ääniuurnalla"
+          unpublish: "%{user_name} lopetti vaalin %{resource_name} julkaisemisen osallistumistilassa %{space_name}"
+          update: "%{user_name} päivitti vaalia %{resource_name} osallistumistilassa %{space_name}"
+        trustee:
+          create: "%{user_name} määritti käyttäjän %{trustee_user} luottamushenkilöksi"
       election_m:
         badge_name:
           finished: Valmis
@@ -990,6 +995,24 @@ fi:
             invalid: Äänestyksen päivitys epäonnistui
             success: Äänestyksen päivitys onnistui
       admin_log:
+        ballot_style:
+          create: "%{user_name} loi äänestystyylin koodilla %{ballot_style_code} osallistumistilassa %{space_name}"
+          delete: "%{user_name} poisti äänestystyylin koodilla %{ballot_style_code} osallistumistilasta %{space_name}"
+          update: "%{user_name} päivitti äänestystyyliä koodilla %{ballot_style_code} osallistumistilassa %{space_name}"
+        census:
+          create: "%{user_name} loi henkilötietorekisterin osallistumistilalle %{space_name}"
+          delete: "%{user_name} poisti henkilötietorekisterin osallistumistilasta %{space_name}"
+          update: "%{user_name} päivitti henkilötietorekisteriä osallistumistilassa %{space_name}"
+        monitoring_committee_member:
+          create: "%{user_name} määritti käyttäjän %{monitoring_committee_member_user} tarkkailukomitean jäseneksi osallistumistilassa %{space_name}"
+          delete: "%{user_name} poisti käyttäjän %{monitoring_committee_member_user} tarkkailukomitean jäsenyyden osallistumistilassa %{space_name}"
+        polling_officer:
+          create: "%{user_name} määritti käyttäjän %{polling_officer_user} äänestysvirkailijaksi osallistumistilassa %{space_name}"
+          delete: "%{user_name} poisti käyttäjän %{polling_officer_user} äänestysvirkailijan roolin osallistumistilasta %{space_name}"
+        polling_station:
+          create: "%{user_name} loi äänestyspaikan %{resource_name} osallistumistilaan %{space_name}"
+          delete: "%{user_name} poisti äänestyspaikan %{resource_name} osallistumistilasta %{space_name}"
+          update: "%{user_name} päivitti äänestyspaikkaa %{resource_name} osallistumistilassa %{space_name}"
         voting:
           create: "%{user_name} loi äänestyksen %{resource_name}"
           publish: "%{user_name} julkaisi äänestyksen %{resource_name}"
@@ -999,7 +1022,7 @@ fi:
           census:
             create:
               invalid: Henkilötietorekisterin lataaminen epäonnistui, yritä uudestaan myöhemmin.
-              invalid_csv_header: CSV-tiedoston otsakerivillä ei ole oikeaa määrää kenttiä - lue ohjeet huolellisesti
+              invalid_csv_header: CSV-otsakkeet puuttuvat puuttuvat tai ovat virheellisiä - lue ohjeet huolellisesti
             creating_data:
               info_message: "<strong>Odota hetki</strong>, käsitelty %{processed_count} / %{raw_count} riviä tiedostosta %{file}."
             delete:
