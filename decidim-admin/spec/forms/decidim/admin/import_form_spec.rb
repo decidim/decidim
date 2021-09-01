@@ -8,16 +8,17 @@ module Decidim
       subject { form }
 
       let(:organization) { create(:organization) }
+      let!(:component) { create(:dummy_component, organization: organization) }
       let(:user) { create(:user, :confirmed, :admin, organization: organization) }
       let(:file) { Decidim::Dev.test_file("import_proposals.csv", "text/csv") }
-      let(:another_file) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
-      let(:creator) { Decidim::Admin::Import::Creator }
+      let(:name) { "dummies" }
 
-      let(:params) { { file: file, creator: creator } }
+      let(:params) { { file: file, name: name } }
 
       let(:form) do
         described_class.from_params(params).with_context(
-          current_organization: organization
+          current_organization: organization,
+          current_component: component
         )
       end
 
@@ -29,14 +30,14 @@ module Decidim
       end
 
       context "when content type is not accepted" do
-        let(:params) { { file: another_file, creator: creator } }
+        let(:file) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
 
         it { is_expected.not_to be_valid }
       end
 
       describe "#creator_class" do
         it "returns creators class" do
-          expect(subject.creator_class).to eq(creator)
+          expect(subject.creator_class).to eq(DummyCreator)
         end
       end
     end
