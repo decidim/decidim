@@ -30,10 +30,10 @@ describe "Import proposal answers", type: :system do
 
   before do
     page.find(".imports").click
-    click_link "Import proposal answers from a file"
+    click_link "Import answers from a file"
   end
 
-  describe "import proposal answers from a file" do
+  describe "import answers from a file" do
     it "has start import button" do
       expect(page).to have_content("Import")
     end
