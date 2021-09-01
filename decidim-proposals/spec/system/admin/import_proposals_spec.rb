@@ -30,7 +30,7 @@ describe "Import proposals", type: :system do
     it "doesnt change proposal amount if one imported row fails" do
       attach_file :import_file, Decidim::Dev.asset("import_proposals_broken.csv")
       click_button "Import"
-      expect(page).to have_content("Found error in resource number 3")
+      expect(page).to have_content("Found error in the import file on line 4")
       expect(Decidim::Proposals::Proposal.count).to eq(0)
     end
 
@@ -47,8 +47,7 @@ describe "Import proposals", type: :system do
     let!(:membership) { create(:user_group_membership, user: user, user_group: user_group) }
 
     before do
-      visit current_path
-      select "Proposal creator", from: "import_creator"
+      visit "#{current_path}?name=proposals"
     end
 
     it "has create import as dropdown" do
