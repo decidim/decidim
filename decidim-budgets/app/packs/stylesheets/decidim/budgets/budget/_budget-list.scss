@@ -19,6 +19,26 @@
       border-bottom-right-radius: $card-border-radius;
       border-bottom: $border;
     }
+
+    &-cell{
+      display: grid;
+      grid-template-columns: 1fr 40px;
+
+      .budget-list__data{
+        grid-column: span 2;
+        background: none;
+      }
+
+      @include breakpoint(medium){
+        grid-template-columns: 1fr 40px 15em;
+        grid-template-rows: 1fr;
+
+        .budget-list__data{
+          background: $card-secondary-bg;
+          grid-column: 3;
+        }
+      }
+    }
   }
 
   &__image{
@@ -54,6 +74,11 @@
       padding: $card-padding;
       display: flex;
       align-items: center;
+
+      &.flex-horizontal{
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
 
     .card__text--status{
@@ -79,8 +104,17 @@
       min-width: 7rem;
       flex-direction: row;
       justify-content: flex-end;
-      flex-basis: 12rem;
+      flex-basis: 14rem;
       padding: 1rem $card-padding;
+    }
+
+    .loading-spinner{
+      margin: 0 !important;
+      position: relative;
+
+      &::before{
+        position: absolute;
+      }
     }
 
     &:last-child{

@@ -1,11 +1,114 @@
 = Modules
 
-Modules are subapplications that are run as application plugins.
-They're used to define pieces of functionality that are pluggable to Decidim.
+Decidim provides plenty of features, but sometimes you will want to customize or change the default behavior of some
+of them. Usually, there are two ways to do that:
 
-Decidim's modules are no more than Ruby on Rails engines that should be required in the application's `Gemfile`.
+. Creating overrides in your application
+. Creating a new module
 
-You can see some of our more popular modules at https://decidim.org/modules[Decidim's Modules].
+The first option is ideal to start hacking with your Decidim implementation but, if you want to create something that others
+can benefit, the best is to create a module in a gem of its own that can be installed anywhere.
+
+NOTE: There's also a third possibility and create a module that is in a sub-folder of the application itself. This approach
+simplifies a little the integration with your app and facilitates a future extraction to a proper external gem. You can
+see some examples of this in the https://github.com/AjuntamentdeBarcelona/decidim-barcelona/tree/master/decidim-census_sms?rgh-link-date=2021-07-23T09%3A19%3A08Z[Ajuntament of Barcelona]
+in the folders `decidim-census_sms`, `decidim-dataviz`, `decidim-ephemeral_participation`, or `decidim-stats`.
+However, we don't recommend this unless you are more in a testing phase and not sure if your work is going to be released
+more generically (most of the times this is the first approach for isolating the features). See more details about the sub-folder approach
+at xref:customize:code.adoc[Code customization].
+
+By creating a new module, you can override almost anything or provide new functionalities.
+The best way to proceed is to first decide what you need, then take a look at how similar things have been done previously in:
+
+- Other external modules
+- Other Decidim instances, and from there extract the feature to a module
+- Decidim source code itself: take into account that Decidim is a bunch of separated modules, so there's much to be learned by looking at the code).
+- Other Rails applications or documentation, because yes, this is Ruby on Rails in the end.
+
+Regarding the type of features you want to develop, these are some typical cases:
+
+- Create a new component or a new participatory space: For this task, Decidim is well prepared already, and when creating a new module by default (running decidim --component my-new-module), it creates a scaffolding for it.
+- Add new routes without many relations to existing features. Then just follow standard guides for creating engines for Ruby on Rails.
+- Creating a verification handler: very typical scenario. Some verification methods are worth extracting to a module as can be very standard.
+- Add content blocks. Content blocks are used currently in the homepage and processes groups, they can transform the user experience quite a lot!
+- xref:customize:views.adoc[Override existing view]: This is quite common but more delicate, it consists of creating the same app/view/some-decidim-view-file file in your module to replace the original one. It's easy but you need to define a strategy for updating your overridden file every time the original in Decidim source code is changed. Some people use the gem Deface for that too.
+- xref:customize:code.adoc[Override other classes or modules in Decidim]: Similar as before, but instead of just overriding files you usually take advantage of the technique of "monkey patching", something that the Ruby language is especially well suited for. Again, you need to be careful between Decidim upgrades if the original files change.
+
+Note also that the two last ones might have conflicts with other modules, so it is worth having a nice suite of tests, both in modules and specific Decidim implementations.
+
+There's a https://decidim.org/modules/[list of modules] that it is updated from time to time, but if you are looking for technology implementations, take a look at these (please contribute to this list if you are implementing something new!):
+
+. Payment gateways: https://github.com/decidiamo/decidim-module-donations[decidiamo/decidim-module-donations]
+. Generic verification handlers:
+.. https://github.com/mainio/decidim-module-access_requests[mainio/decidim-module-access_requests]
+.. https://github.com/Platoniq/decidim-verifications-direct_verifications[Platoniq/decidim-verifications-direct_verifications]
+.. https://github.com/CodiTramuntana/decidim-verifications-custom_csv_census[CodiTramuntana/decidim-verifications-custom_csv_census]
+.. https://github.com/belighted/decidim-module-verifications_omniauth[belighted/decidim-module-verifications_omniauth]
+. New components:
+.. https://github.com/Platoniq/decidim-module-time_tracker[Platoniq/decidim-module-time_tracker]
+.. https://github.com/alabs/decidim-module-calendar[alabs/decidim-module-calendar]
+.. https://github.com/AjuntamentdeBarcelona/decidim-barcelona/tree/master/decidim-dataviz[AjuntamentdeBarcelona/decidim-barcelona]
+. New participatory spaces: None yet! be the first!
+. Using ActionCable (WebSockets): https://github.com/Platoniq/decidim-module-notify[Platoniq/decidim-module-notify]
+. Overriding some core Rails features (i18n locale processing) and make use of advanced strategies like cache: https://github.com/mainio/decidim-module-term_customizer[mainio/decidim-module-term_customizer]
+. Simple hacks to add/improve generic functionalities:
+.. https://github.com/PopulateTools/decidim-module-anonymous_proposals[PopulateTools/decidim-module-anonymous_proposals]
+.. https://github.com/PopulateTools/decidim-module-extra_user_fields[PopulateTools/decidim-module-extra_user_fields]
+.. https://github.com/OpenSourcePolitics/decidim-module-question_captcha[OpenSourcePolitics/decidim-module-question_captcha]
+. Content blocks:
+.. https://github.com/Platoniq/decidim-module-navigation_maps[Platoniq/decidim-module-navigation_maps]
+.. https://github.com/Platoniq/decidim-module-alternative_landing[Platoniq/decidim-module-alternative_landing]
+.. https://github.com/mainio/decidim-module-process_groups_content_block[mainio/decidim-module-process_groups_content_block]
+. New admin zones:
+.. https://github.com/Platoniq/decidim-module-comparative_stats[Platoniq/decidim-module-comparative_stats]
+.. https://github.com/digidemlab/decidim-module-analytics[digidemlab/decidim-module-analytics]
+. Technical hacks (are intended to be used by a developer while customizing a Decidim instance):
+.. https://github.com/mainio/decidim-module-tags[mainio/decidim-module-tags]
+.. https://github.com/mainio/decidim-module-feedback[mainio/decidim-module-feedback]
+. Wild hacks (the implement a variety of techniques to change Decidim existing features):
+.. https://github.com/mainio/decidim-module-simple_proposal[mainio/decidim-module-simple_proposal]
+.. https://github.com/coopdevs/decidim-module-action_delegator[coopdevs/decidim-module-action_delegator]
+.. https://github.com/Platoniq/decidim-module-decidim_awesome[Platoniq/decidim-module-decidim_awesome]
+
+In the case of dealing with more advanced overrides, we recommend implementing some tests that take into account the original files from which the override was created and run it every time a Decidim version is upgraded. Take this https://github.com/coopdevs/decidim-module-action_delegator/blob/master/spec/lib/overrides_spec.rb[checksum checker] as an example.
+
+== Recommendations
+
+First and foremost, don't be afraid to try and start hacking. Once you feel confident enough, read the recommendations
+and best practices below. Remember also that this is free software, so you can do whatever you want in the end.
+These are some opinions on how to improve the quality of the software, but they are not hard rules.
+
+* To be programmed in English (variables, method and class names, comments, etc)
+* To have tests and continuous integration with good test coverage
+* To have documentation in English, explaining:
+  . all the available commands (rake tasks and such)
+  . screenshots of the admin and participant UI
+  . steps to install it
+  . feel free to add in the README if you want who's developing/sponsoring it:
+    - The gem has been developed by $Your_Employer
+    - Development of this gem has been sponsored by $Your_Customer
+  . steps to run the tests locally
+  . how do you want to accept contributions
+* To follow our same rules regarding https://github.com/decidim/decidim/blob/develop/.rubocop.yml[code styling]
+* To have a license file that's compatible with Decidim license (GPL Affero 3)
+* To have a valid .gemspec file
+* To follow the Decidim Social Contract
+* To have a description and other metadata (ie tags) on GitHub or another platform, so it's more discoverable
+* Has good i18 support (all the strings that could be translated are in config/locales/en.yml)
+* If you upload it to GitHub, do it with the naming *decidim-module-<engine_name>*, so it's easier to find on
+the https://github.com/decidim/decidim/network/dependents[dependency graph]. See discussion at https://github.com/decidim/decidim/issues/2396[GitHub].
+* To use Decidim features and APIs when relevant:
+  . Using the Admin panel
+  . Generate logs on Admin panel if admins can operate on it
+  . GraphQL API
+  . Data Portability
+  . Endorsable
+  . Followable
+  . Embeddable
+  . Notifications
+  . If it's a new space, then it should be compatible with the "Context help"
+* Upload the Gem to Rubygems.org so it's easier to deploy to other apps
+* To https://decidim.org/contact/[contact us] so we can publish it at https://decidim.org/modules/[Modules page]
 
 == Types
 
