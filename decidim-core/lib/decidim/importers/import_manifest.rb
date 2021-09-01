@@ -73,13 +73,13 @@ module Decidim
       #
       # Returns either the set value (the block) when defining the message or
       # the message String when rendering the message.
-      def message(key, context = nil, extra = {}, &block)
+      def message(key, context = nil, **extra, &block)
         extra = context if extra.empty? && context.is_a?(Hash)
 
         if block_given?
           messages.set(key, &block)
         else
-          messages.render(key, context, extra)
+          messages.render(key, context, **extra)
         end
       end
 
@@ -103,8 +103,8 @@ module Decidim
           @store[key] = block
         end
 
-        def render(key, context = nil, extra = {})
-          context.instance_exec(extra, &@store[key]) if @store[key]
+        def render(key, context = nil, **extra)
+          context.instance_exec(**extra, &@store[key]) if @store[key]
         end
       end
     end
