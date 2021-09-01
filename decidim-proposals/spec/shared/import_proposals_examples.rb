@@ -65,7 +65,7 @@ shared_examples "import proposals" do
 
   def fill_form(keep_authors: false)
     find(".imports.dropdown").click
-    click_link "Import from another component"
+    click_link "Import proposals from another component"
 
     within ".import_proposals" do
       select origin_component.name["en"], from: "Origin component"
