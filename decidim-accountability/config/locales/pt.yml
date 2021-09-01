@@ -162,6 +162,7 @@ pt:
             entry_date: Data
       result_m:
         executed: Executado
+        view: Visualizar
       results:
         count:
           results_count:
@@ -214,6 +215,7 @@ pt:
             heading_parent_level_results: Nome para "Resultados"
             intro: Introdução
             scope_id: Âmbito
+            scopes_enabled: Âmbitos activados
             subcategories_label: Nome para "Subcategorias"
           step:
             comments_blocked: Comentários bloqueados
