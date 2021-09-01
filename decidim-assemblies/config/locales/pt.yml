@@ -60,6 +60,7 @@ pt:
         full_name: Nome completo
         gender: Género
         position: Posição
+        user_id: Utilizador ou grupo
       assembly_user_role:
         email: E-mail
         name: Nome
@@ -304,6 +305,9 @@ pt:
         content_blocks:
           highlighted_assemblies:
             max_results: Quantidade máxima de elementos a mostrar
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Membros
