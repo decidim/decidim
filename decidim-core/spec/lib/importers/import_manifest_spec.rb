@@ -21,11 +21,26 @@ module Decidim
       end
     end
 
-    context "when a creator is set" do
-      it "returns the creator" do
-        klass = Class.new
-        subject.creator klass
-        expect(subject.creator).to eq(klass)
+    describe "#creator" do
+      context "when a creator is set" do
+        it "returns the creator" do
+          klass = Class.new
+          subject.creator klass
+          expect(subject.creator).to eq(klass)
+        end
+      end
+    end
+
+    describe "#form_class" do
+      it "returns the default form class when not configured" do
+        expect(subject.form_class).to be(Decidim::Admin::ImportForm)
+      end
+
+      context "when the form class has been defined" do
+        it "returns the defined form class" do
+          subject.form_class_name = "Class"
+          expect(subject.form_class).to be(Class)
+        end
       end
     end
 
