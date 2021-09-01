@@ -326,16 +326,6 @@ it:
           update:
             invalid: Si è verificato un problema durante l'aggiornamento del garante %{trustee}
             success: Garante %{trustee} aggiornato con successo
-      admin_log:
-        election:
-          end_vote: "%{user_name} ha terminato il periodo di votazione per l'elezione di %{resource_name} sul Bulletin Board"
-          publish: "%{user_name} ha pubblicato l'elezione %{resource_name}"
-          publish_results: "%{user_name} ha pubblicato i risultati per l'elezione %{resource_name} sul Bulletin Board"
-          setup: "%{user_name} ha creato l'elezione %{resource_name} sul Bulletin Board"
-          start_key_ceremony: "%{user_name} ha iniziato la cerimonia delle chiavi per l'elezione di %{resource_name} sul Bulletin Board"
-          start_tally: "%{user_name} ha terminato il conteggio dell'elezione %{resource_name} sul Bulletin Board"
-          start_vote: "%{user_name} ha terminato il periodo di votazione per l'elezione %{resource_name} sul Bulletin Board"
-          unpublish: "%{user_name} ha rimosso l'elezione %{resource_name}"
       election_m:
         badge_name:
           finished: Completata
@@ -999,7 +989,6 @@ it:
           census:
             create:
               invalid: Si è verificato un errore durante il caricamento del censimento, riprova più tardi.
-              invalid_csv_header: L'intestazione CSV non ha il numero corretto di campi - si prega di leggere attentamente le istruzioni
             creating_data:
               info_message: "<strong>Attendere</strong>, elaborato %{processed_count} di %{raw_count} righe dal file %{file}."
             delete:
