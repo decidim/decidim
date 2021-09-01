@@ -55,6 +55,7 @@ module Decidim
           return nil if Decidim::Proposals::Proposal.where(id: id).empty?
 
           proposal = Decidim::Proposals::Proposal.find(id)
+          return nil if proposal.emendation?
 
           if proposal.component != component
             proposal.errors.add(:component, :invalid)

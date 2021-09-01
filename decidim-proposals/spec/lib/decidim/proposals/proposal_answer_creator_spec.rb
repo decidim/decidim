@@ -54,6 +54,17 @@ describe Decidim::Proposals::ProposalAnswerCreator do
       expect(record[:state]).to eq(data[:state])
       expect(record.answered_at).to be >= (moment)
     end
+
+    context "with an emendation" do
+      let!(:amendable) { create(:proposal, component: component) }
+      let!(:amendment) { create(:amendment, amendable: amendable, emendation: proposal, state: "evaluating") }
+
+      it "does not produce a record" do
+        record = subject.produce
+
+        expect(record).to be(nil)
+      end
+    end
   end
 
   describe "#finish!" do
