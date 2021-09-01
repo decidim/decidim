@@ -17,8 +17,8 @@ module Decidim
         end
 
         it "creates a link" do
-          link = subject.css("li.imports--dummy").css("a")[0].attributes["href"]
-          expect(link.value).to eq("/admin/participatory_processes/#{component.participatory_space.slug}/components/#{component.id}/imports/new")
+          link = subject.css("li.imports--dummies").css("a")[0].attributes["href"]
+          expect(link.value).to eq("/admin/participatory_processes/#{component.participatory_space.slug}/components/#{component.id}/imports/new?name=dummies")
         end
       end
 

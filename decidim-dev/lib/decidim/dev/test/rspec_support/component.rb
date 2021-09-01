@@ -45,6 +45,26 @@ module Decidim
 
         root to: proc { [200, {}, ["DUMMY ADMIN ENGINE"]] }
       end
+
+      initializer "imports.dummy_admin" do
+        class ::DummyCreator < Decidim::Admin::Import::Creator
+          def self.resource_klass
+            Decidim::DummyResources::DummyResource
+          end
+
+          def produce
+            resource
+          end
+
+          private
+
+          def resource
+            @resource ||= Decidim::DummyResources::DummyResource.new(
+              title: { en: "Dummy" }
+            )
+          end
+        end
+      end
     end
 
     class ApplicationRecord < ActiveRecord::Base
@@ -267,6 +287,16 @@ Decidim.register_component(:dummy) do |component|
     end
 
     exports.serializer DummySerializer
+  end
+
+  component.imports :dummies do |imports|
+    imports.messages do |msg|
+      msg.set(:resource_name) { |count: 1| count == 1 ? "Dummy" : "Dummies" }
+      msg.set(:title) { "Import dummies" }
+      msg.set(:label) { "Import dummies from a file" }
+    end
+
+    imports.creator DummyCreator
   end
 end
 
