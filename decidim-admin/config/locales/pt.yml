@@ -306,6 +306,7 @@ pt:
           headers:
             actions: Ações
             name: Nome do componente
+            scope: Âmbito do componente
             type: Tipo de componente
         new:
           add: Adicionar componente
@@ -326,10 +327,23 @@ pt:
         title: Conflitos de verificação
         transfer:
           email: e-Mail
+          error: Houve um problema ao transferir o utilizador actual para utilizador gerido.
+          name: Nome
+          reason: Motivo
+          success: A transferência actual foi completada com êxito.
+          title: Transferência
+        'true': 'Sim'
+        user_name: Utilizador
       dashboard:
         show:
           view_more_logs: Ver mais registos
           welcome: Bem-vindo ao Painel de Administração de Decidim.
+      domain_whitelist:
+        form:
+          domain_too_short: Domínio demasiado curto
+        update:
+          error: Falha ao carregar a lista branca de domínios
+          success: Lista branca de domínios carregada com êxito
       exports:
         export_as: "%{name} como %{export_format}"
         formats:
@@ -342,11 +356,34 @@ pt:
         category_id_eq:
           label: Categoria
         filter_label: Filtro
+        invitation_accepted_at_present:
+          label: Convite aceite
+          values:
+            'false': 'Não'
+            'true': 'Sim'
+        last_sign_in_at_present:
+          values:
+            'false': 'Não'
+            'true': 'Sim'
+        moderations:
+          reportable_type_string_eq:
+            label: Tipo
         officialized_at_null:
           label: Estado
           values:
             'false': Oficializado
             'true': Não oficializado
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Convite aceite
+            values:
+              'false': Não aceite
+              'true': Aceite
+          user_invitation_sent_at_not_null:
+            label: Convite enviado
+            values:
+              'false': Não enviado
+              'true': Enviado
         private_space_eq:
           label: Privado
           values:
@@ -365,6 +402,12 @@ pt:
           title_cont: Pesquisar %{collection} por título.
         state_eq:
           label: Estado
+      forms:
+        file_help:
+          import:
+            explanation: 'Orientação para ficheiro:'
+            message_1: Ficheiros CSV, JSON e Excel (.xlsx) não são suportados
+            message_2: Para ficheiros CSV o separador entre coludas deve ser um ponto e vírgula (";")
       help_sections:
         error: Ocorreu um problema ao atualizar as secções de ajuda
         form:
@@ -403,6 +446,22 @@ pt:
           impersonate_existing_managed_user: Gerir participante "%{name}"
           impersonate_existing_user: Gerir participante "%{name}"
           impersonate_new_managed_user: Gerir novo participante
+      imports:
+        creators:
+          proposalcreator: Criador de proposta
+        error: Houve um problema durante a importação
+        import_from_file: Importar dum ficheiro
+        invalid_lines: Encontrado erro no recurso número %{invalid_lines}
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
+          actions:
+            back: Voltar
+          file_legend: Adicionar ficheiro para importar a analisar.
+          import: Importar
+        notice: "%{number} %{resource_name} importado(s) com êxito"
       logs:
         logs_list:
           no_logs_yet: Ainda não há registos
@@ -423,11 +482,13 @@ pt:
         areas: Áreas
         configuration: Configuração
         dashboard: Painel de controlo
+        external_domain_whitelist: Domínios externos autorizados
         help_sections: Secções de ajuda
         homepage: Página inicial
         impersonations: Personificações
         newsletters: Boletins informativos
         participants: Participantes
+        reported_users: Utilizadores denunciados
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         settings: Configurações
@@ -483,6 +544,14 @@ pt:
           fields:
             name: Nome
             plural: Plural
+        share_token:
+          fields:
+            created_at: Criado em
+            expires_at: Expira em
+            last_used_at: Ultima utilização
+            times_used: Total de utilizações
+            token: Identificador
+            user: Criado por
         static_page:
           fields:
             created_at: Criado em
@@ -651,6 +720,7 @@ pt:
           error: Houve um problema ao eliminar um participante privado deste espaço participativo.
           success: Espaço participativo acesso de usuário privado destruído com sucesso.
         index:
+          import_via_csv: Importar via CSV
           title: Espaço participativo de participante privado
         new:
           create: Criar
