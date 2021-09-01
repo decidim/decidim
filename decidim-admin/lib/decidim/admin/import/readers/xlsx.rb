@@ -19,7 +19,11 @@ module Decidim
             workbook = RubyXL::Parser.parse(file)
             sheet = workbook.worksheets[0]
             sheet.each_with_index do |row, index|
-              yield row.cells.map { |c| c && c.value }, index
+              if row
+                yield row.cells.map { |c| c && c.value }, index
+              else
+                yield [], index
+              end
             end
           end
         end

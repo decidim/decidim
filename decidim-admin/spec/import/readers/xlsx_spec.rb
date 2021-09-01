@@ -8,7 +8,7 @@ module Decidim::Admin::Import::Readers
     let(:file) { Decidim::Dev.test_file("test_excel.xlsx", Decidim::Admin::Import::Readers::XLSX::MIME_TYPE) }
 
     describe "#read_rows" do
-      it "reads the non-empty cells and provides nil values for empty cells" do
+      it "reads the non-empty cells and provides nil values for empty cells and empty arrays for empty rows" do
         data = []
         subject.read_rows do |rowdata|
           data << rowdata
@@ -19,7 +19,10 @@ module Decidim::Admin::Import::Readers
             %w(id title detail),
             [1, "Donec eget bibendum libero", "dapibus"],
             [2, nil, "diam"],
-            [3, "Quisque non lacus ultrices"]
+            [3, "Quisque non lacus ultrices"],
+            [],
+            [],
+            [10]
           ]
         )
       end
