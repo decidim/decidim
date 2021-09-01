@@ -6,6 +6,7 @@ ga:
         decidim_scope_id: Scóip
         end_date: Dáta deiridh
         hashtag: Haischlib
+        location: Suíomh
         participatory_processes_ids: Próisis Rannpháirteacha Ceangailte
         scope_id: Scóip
         slogan: Mana
@@ -87,6 +88,7 @@ ga:
             role: Ról
           roles:
             admin: Riarthóir
+            valuator: Luachálaí
         media_link:
           fields:
             date: Dáta
@@ -151,6 +153,7 @@ ga:
       conference_program:
         program_meeting:
           content: Inneachar
+          location: Suíomh
           speakers: Cainteoirí
         show:
           day: Lá
@@ -202,6 +205,7 @@ ga:
         pages_count: Leathanaigh
         posts_count: Postálacha
         projects_count: Tionscadail
+        proposals_count: Moltaí
         results_count: Torthaí
         surveys_count: Suirbhéanna
         votes_count: Tacaíochtaí

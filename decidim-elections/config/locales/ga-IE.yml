@@ -8,6 +8,14 @@ ga:
         title: Teideal
       question:
         title: Teideal
+  activerecord:
+    models:
+      decidim/elections/question:
+        one: Ceist
+        two: Ceisteanna
+        few: Ceisteanna
+        many: Ceisteanna
+        other: Ceisteanna
   decidim:
     admin:
       filters:
@@ -33,8 +41,13 @@ ga:
         models:
           answer:
             name: Freagra
+          question:
+            name: Ceist
           trustee:
             name: Iontaobhaí
+        questions:
+          index:
+            title: Ceisteanna
         steps:
           created:
             trustees: Iontaobhaithe
@@ -52,7 +65,9 @@ ga:
             title: Iontaobhaithe
       election_m:
         badge_name:
+          finished: Críochnaithe
           ongoing: Gníomhach
+          upcoming: Le teacht
         end_date: Deireadh
         footer:
           view: Amharc
@@ -64,8 +79,10 @@ ga:
         filters:
           active: Gníomhach
           all: Uile
+          finished: Críochnaithe
           search: Cuardaigh
           state: Stádas
+          upcoming: Le teacht
         filters_small_view:
           filter: Scag
           unfold: Oscail
@@ -75,10 +92,17 @@ ga:
             other: "%{count} vótaí"
             zero: "%{count} vótaí"
         show:
+          action-button:
+            change-vote: Athraigh do vóta
+            vote: Tosaigh ag vótáil
+            vote-again: Vótáil arís
           preview: Réamhamharc
+          verify:
+            already-voted: Ar vótáil tú cheana?
       models:
         answer:
           fields:
+            proposals: Moltaí
             title: Teideal
         election:
           fields:
@@ -208,6 +232,7 @@ ga:
                 actions: Gníomhartha
                 address: Seoladh
                 name: Ainm
+                role: Do ról
                 voting: Vótáil
       polling_officers:
         actions:
@@ -226,8 +251,10 @@ ga:
         filters:
           active: Gníomhach
           all: Uile
+          finished: Críochnaithe
           search: Cuardaigh
           state: Stádas
+          upcoming: Le teacht
         filters_small_view:
           filter: Scag
           unfold: Oscail
@@ -239,7 +266,9 @@ ga:
           dates: Dátaí
       votings_m:
         badge_name:
+          finished: Críochnaithe
           ongoing: Leanúnach
+          upcoming: Le teacht
         footer_button_text:
           view: Amharc
           vote: Vóta
