@@ -342,16 +342,6 @@ cs:
           update:
             invalid: Při aktualizaci důvěrníka %{trustee} došlo k chybě
             success: Důvěrník %{trustee} úspěšně aktualizován
-      admin_log:
-        election:
-          end_vote: "%{user_name} ukončil hlasovací období pro volby v %{resource_name} na Vývěsce"
-          publish: "%{user_name} zveřejnil volby %{resource_name}"
-          publish_results: "%{user_name} zveřejnil výsledky voleb %{resource_name} na volební vývěsce"
-          setup: "%{user_name} vytvořil %{resource_name} volby na Vývěsce"
-          start_key_ceremony: "%{user_name} zahájil Úvodní volební ceremoniál na Vývěsce %{resource_name}"
-          start_tally: "%{user_name} zahájil Volební přepočítání pro volby v %{resource_name} na Vývěsce"
-          start_vote: "%{user_name} zahájil hlasovací období pro volby %{resource_name} na Vývěsce"
-          unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
       election_m:
         badge_name:
           finished: Dokončeno
@@ -1021,7 +1011,6 @@ cs:
           census:
             create:
               invalid: Při nahrávání seznamu osob došlo k chybě, opakujte akci později.
-              invalid_csv_header: Záhlaví CSV nemá správný počet polí - přečtěte si prosím pečlivě pokyny
             creating_data:
               info_message: "<strong>Počkejte prosím</strong>, zpracováno %{processed_count} z %{raw_count} řádků ze souboru %{file}."
             delete:
