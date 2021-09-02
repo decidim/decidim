@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/gem_manager"
+
 namespace :decidim do
   namespace :webpacker do
     desc "Installs Decidim webpacker files in Rails instance application"
@@ -74,8 +76,8 @@ namespace :decidim do
       if decidim_gemspec.source.is_a?(Bundler::Source::Rubygems)
         if released_version?
           return {
-            dev: "@decidim/dev@~#{decidim_gemspec.version}",
-            prod: "@decidim/all@~#{decidim_gemspec.version}"
+            dev: "@decidim/dev@~#{Decidim::GemManager.semver_friendly_version(decidim_gemspec.version.to_s)}",
+            prod: "@decidim/all@~#{Decidim::GemManager.semver_friendly_version(decidim_gemspec.version.to_s)}"
           }
         else
           gem_path = Pathname(decidim_gemspec.full_gem_path)
