@@ -420,6 +420,8 @@ fr-CA:
     participatory_processes:
       show:
         related_assemblies: Assemblées associées
+    statistics:
+      assemblies_count: Assemblées
   errors:
     messages:
       cannot_be_blank: ne peut être vide

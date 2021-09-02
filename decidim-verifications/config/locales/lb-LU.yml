@@ -1,1 +1,5 @@
 lb:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Verfügbar Methoden

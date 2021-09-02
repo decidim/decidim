@@ -11,6 +11,12 @@ module Decidim
 
       validate :user_and_voting_same_organization
 
+      alias participatory_space voting
+
+      def self.log_presenter_class_for(_log)
+        Decidim::Votings::AdminLog::MonitoringCommitteeMemberPresenter
+      end
+
       private
 
       # Private: check if the voting and the user have the same organization

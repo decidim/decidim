@@ -56,9 +56,10 @@ task :uninstall_all do
   Decidim::GemManager.uninstall_all
 end
 
-desc "Pushes a new build for each gem."
+desc "Pushes a new build for each gem and package."
 task release_all: [:update_versions, :check_locale_completeness] do
   Decidim::GemManager.run_all("rake release")
+  Decidim::GemManager.run_packages("npm publish --access public")
 end
 
 desc "Makes sure all official locales are complete and clean."
