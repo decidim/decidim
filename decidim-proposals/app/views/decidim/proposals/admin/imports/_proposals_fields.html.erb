@@ -1,4 +1,4 @@
-<% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
+<% if current_organization.user_groups_enabled? && form.object.user_groups.any? %>
   <div class="field">
     <%= form.select(
         :user_group_id,
