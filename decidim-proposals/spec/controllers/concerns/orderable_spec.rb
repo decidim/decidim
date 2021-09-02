@@ -33,14 +33,16 @@ module Decidim
                  votes_enabled?: votes_enabled,
                  votes_blocked?: votes_blocked,
                  votes_hidden?: votes_hidden,
-                 endorsements_enabled?: endorsements_enabled)
+                 endorsements_enabled?: endorsements_enabled,
+                 comments_enabled?: comments_enabled)
         end
 
         let(:participatory_process) { create(:participatory_process, :with_steps) }
         let(:active_step_id) { participatory_process.active_step.id }
         let(:component) { create(:component, :with_one_step, participatory_space: participatory_process, manifest_name: "proposals") }
         let(:votes_blocked) { nil }
-        let(:all_orders) { %w(random recent most_endorsed most_voted most_commented most_followed with_more_authors) }
+        let(:all_sort_orders) { %w(random recent most_endorsed most_voted most_commented most_followed with_more_authors) }
+        let(:comments_enabled) { true }
 
         before do
           allow(controller).to receive(:current_participatory_space).and_return(participatory_process)
@@ -64,6 +66,9 @@ module Decidim
         end
 
         context "when step has default_default_sort_order setting" do
+          let(:endorsements_enabled) { true }
+          let(:votes_enabled) { true }
+
           it "default_order is step setting" do
             all_sort_orders.each do |sort_order|
               component[:settings]["steps"][active_step_id.to_s]["default_sort_order"] = sort_order
@@ -81,8 +86,8 @@ module Decidim
           end
           let(:default_sort_order) { nil }
 
-          describe "by_default" do
-            let(:default_sort_order) { "by_default" }
+          describe "by default" do
+            let(:default_sort_order) { "default" }
 
             it "default_order is random" do
               expect(controller.send(:default_order)).to eq("random")
@@ -99,6 +104,7 @@ module Decidim
 
           describe "most_endorsed" do
             let(:default_sort_order) { "most_endorsed" }
+            let(:endorsements_enabled) { true }
 
             it "default_order is random" do
               expect(controller.send(:default_order)).to eq(default_sort_order)
@@ -107,6 +113,7 @@ module Decidim
 
           describe "most_commented" do
             let(:default_sort_order) { "most_commented" }
+            let(:comments_enabled) { true }
 
             it "default_order is random" do
               expect(controller.send(:default_order)).to eq(default_sort_order)
