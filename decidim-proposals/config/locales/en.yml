@@ -61,15 +61,13 @@ en:
         proposals_merge:
           attributes:
             base:
-              official: They are official proposals
-              published: They are published
-              supported: They have received support or endorsements
+              not_official: Are not official
+              supported: Have received support or endorsements
         proposals_split:
           attributes:
             base:
-              official: They are official proposals
-              published: They are published
-              supported: They have received support or endorsements
+              not_official: Are not official
+              supported: Have received support or endorsements
     models:
       decidim/proposals/accepted_proposal_event: Proposal accepted
       decidim/proposals/admin/update_proposal_category_event: Proposal category changed
@@ -522,11 +520,11 @@ en:
             title: Import proposals
         proposals_merges:
           create:
-            invalid: 'There has been a problem merging the selected proposals for any of these reasons:'
+            invalid: 'There has been a problem merging the selected proposals because some of them:'
             success: Successfully merged the proposals into a new one.
         proposals_splits:
           create:
-            invalid: 'There has been a problem splitting the selected proposals for any of these reasons:'
+            invalid: 'There has been a problem splitting the selected proposals because some of them:'
             success: Successfully splitted the proposals into new ones.
         valuation_assignments:
           create:
