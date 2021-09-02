@@ -24,7 +24,7 @@ describe "Import proposal answers", type: :system do
   end
 
   let(:amount) { rand(1..5) }
-  let(:filename) { "import_proposal_answers.json" }
+  let(:json_file) { Rails.root.join("tmp/import_proposal_answers.json") }
 
   include_context "when managing a component as an admin"
 
@@ -44,8 +44,10 @@ describe "Import proposal answers", type: :system do
     end
 
     it "adds proposal answers after succesfully import" do
-      generate_json
-      attach_file :import_file, Decidim::Dev.asset(filename)
+      File.open(json_file, "w") do |f|
+        f.write(JSON.pretty_generate(answers))
+      end
+      attach_file :import_file, json_file
 
       expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).exactly(amount).times
 
@@ -58,14 +60,6 @@ describe "Import proposal answers", type: :system do
         expect(proposal.answer["ca"]).to eq(answer[:"answer/ca"])
         expect(proposal.answer["es"]).to eq(answer[:"answer/es"])
       end
-    end
-  end
-
-  private
-
-  def generate_json
-    File.open(Decidim::Dev.asset(filename), "w") do |f|
-      f.write(JSON.pretty_generate(answers))
     end
   end
 end
