@@ -12,7 +12,7 @@ module Decidim::Proposals
     let(:cell_html) { my_cell.call }
     let(:created_at) { Time.current - 1.month }
     let(:published_at) { Time.current }
-    let(:component) { create(:proposal_component, :with_attachments_allowed, :with_card_image_allowed) }
+    let(:component) { create(:proposal_component, :with_attachments_allowed) }
     let!(:proposal) { create(:proposal, component: component, created_at: created_at, published_at: published_at) }
     let(:model) { proposal }
     let(:user) { create :user, organization: proposal.participatory_space.organization }
