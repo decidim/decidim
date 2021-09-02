@@ -33,12 +33,13 @@ module Decidim
               if step_default_sort_order.present?
                 return order_by_default if step_default_sort_order == "by_default"
 
-                return step_default_sort_order
+                return step_default_sort_order if available_orders.include?(step_default_sort_order)
               end
             end
 
             return component_settings.default_sort_order if component_settings.respond_to?(:default_sort_order) &&
-                                                            component_settings.default_sort_order != "by_default"
+                                                            component_settings.default_sort_order != "by_default" &&
+                                                            available_orders.include?(step_default_sort_order)
 
             order_by_default
           end
