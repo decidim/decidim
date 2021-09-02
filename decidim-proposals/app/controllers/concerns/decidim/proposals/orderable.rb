@@ -39,7 +39,7 @@ module Decidim
 
             return component_settings.default_sort_order if component_settings.respond_to?(:default_sort_order) &&
                                                             component_settings.default_sort_order != "by_default" &&
-                                                            available_orders.include?(step_default_sort_order)
+                                                            available_orders.include?(component_settings.default_sort_order)
 
             order_by_default
           end
