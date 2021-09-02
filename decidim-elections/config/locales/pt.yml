@@ -128,6 +128,10 @@ pt:
           update:
             invalid: Ocorreu um problema ao atualizar esta pergunta
             success: Pergunta atualizada corretamente
+      admin_log:
+        election:
+          create: "%{user_name} criou a eleição %{resource_name} para o/a %{space_name}"
+          delete: "%{user_name} apagou a eleição %{resource_name} para o/a %{space_name}"
       elections:
         count:
           elections_count:
