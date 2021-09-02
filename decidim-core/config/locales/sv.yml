@@ -845,6 +845,10 @@ sv:
       index:
         last_activity: Senaste aktivitet
         resource_type: Typ
+    links:
+      invalid_url: Ogiltig URL
+      warning:
+        close_modal: Stäng fönster
     log:
       base_presenter:
         create: "%{user_name} skapade %{resource_name}"
