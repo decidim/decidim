@@ -34,7 +34,8 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :threshold_per_proposal, type: :integer, default: 0
     settings.attribute :can_accumulate_supports_beyond_threshold, type: :boolean, default: false
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
-    settings.attribute :sort_order, type: :select, default: "by_default", choices: -> { %w(by_default random recent) }
+    settings.attribute :sort_order, type: :select, default: "by_default",
+                                    choices: -> { %w(by_default random recent most_endorsed most_voted most_commented most_followed with_more_authors) }
     settings.attribute :official_proposals_enabled, type: :boolean, default: true
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: false

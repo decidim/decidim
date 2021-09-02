@@ -32,6 +32,27 @@ module Decidim
         helper.settings_attribute_input(form, attribute, name, i18n_scope, options)
       end
 
+      describe "select" do
+        let(:type) { :select }
+        let(:choices) { %w(foo bar baz) }
+        let(:full_choices) do
+          [
+            %w(Foo foo),
+            %w(Bar bar),
+            %w(Baz baz)
+          ]
+        end
+
+        it "is supported" do
+          expect(form).to receive(:select).with(
+            :test,
+            full_choices,
+            include_blank: false
+          )
+          render_input
+        end
+      end
+
       describe "booleans" do
         let(:type) { :boolean }
 
@@ -124,6 +145,7 @@ module Decidim
 
       describe "scopes" do
         let(:type) { :scope }
+        let(:options) { { include_blank: true } }
 
         it "is supported" do
           expect(form).to receive(:scopes_picker).with(:test, checkboxes_on_top: true)

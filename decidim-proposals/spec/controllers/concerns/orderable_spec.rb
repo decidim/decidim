@@ -27,6 +27,14 @@ module Decidim
         allow(controller).to receive(:current_settings).and_return(current_settings)
       end
 
+      describe "#default_order" do
+        context "when foo" do
+          it "does something" do
+            expect(controller.send(:default_order)).to eq("random")
+          end
+        end
+      end
+
       describe "#available_orders" do
         context "with votes enabled" do
           let(:votes_enabled) { true }
