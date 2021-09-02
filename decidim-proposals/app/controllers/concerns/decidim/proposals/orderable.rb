@@ -29,16 +29,16 @@ module Decidim
           @default_order ||= begin
             active_step = current_participatory_space.active_step
             if active_step
-              step_sort_order = current_component[:settings].dig("steps", active_step.id.to_s, "sort_order")
-              if step_sort_order.present?
-                return order_by_default if step_sort_order == "by_default"
+              step_default_sort_order = current_component[:settings].dig("steps", active_step.id.to_s, "default_sort_order")
+              if step_default_sort_order.present?
+                return order_by_default if step_default_sort_order == "by_default"
 
-                return step_sort_order
+                return step_default_sort_order
               end
             end
 
-            return component_settings.sort_order if component_settings.respond_to?(:sort_order) &&
-                                                    component_settings.sort_order != "by_default"
+            return component_settings.default_sort_order if component_settings.respond_to?(:default_sort_order) &&
+                                                            component_settings.default_sort_order != "by_default"
 
             order_by_default
           end

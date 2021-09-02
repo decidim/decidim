@@ -28,9 +28,105 @@ module Decidim
       end
 
       describe "#default_order" do
-        context "when foo" do
-          it "does something" do
+        let(:current_settings) do
+          double(:current_settings,
+                 votes_enabled?: votes_enabled,
+                 votes_blocked?: votes_blocked,
+                 votes_hidden?: votes_hidden,
+                 endorsements_enabled?: endorsements_enabled)
+        end
+
+        let(:participatory_process) { create(:participatory_process, :with_steps) }
+        let(:active_step_id) { participatory_process.active_step.id }
+        let(:component) { create(:component, :with_one_step, participatory_space: participatory_process, manifest_name: "proposals") }
+        let(:votes_blocked) { nil }
+        let(:all_orders) { %w(random recent most_endorsed most_voted most_commented most_followed with_more_authors) }
+
+        before do
+          allow(controller).to receive(:current_participatory_space).and_return(participatory_process)
+          allow(controller).to receive(:current_component).and_return(component)
+        end
+
+        context "with default settings" do
+          it "default_order is random" do
             expect(controller.send(:default_order)).to eq("random")
+          end
+        end
+
+        context "when votes are enabled but blocked" do
+          let(:votes_enabled) { true }
+          let(:votes_blocked) { true }
+          let(:votes_hidden) { false }
+
+          it "default_order is most voted" do
+            expect(controller.send(:default_order)).to eq("most_voted")
+          end
+        end
+
+        context "when step has default_default_sort_order setting" do
+          it "default_order is step setting" do
+            all_sort_orders.each do |sort_order|
+              component[:settings]["steps"][active_step_id.to_s]["default_sort_order"] = sort_order
+              expect(controller.send(:default_order)).to eq(sort_order)
+            end
+          end
+        end
+
+        context "when component has default_sort_order setting" do
+          let(:component_settings) do
+            double(
+              comments_enabled?: comments_enabled,
+              default_sort_order: default_sort_order
+            )
+          end
+          let(:default_sort_order) { nil }
+
+          describe "by_default" do
+            let(:default_sort_order) { "by_default" }
+
+            it "default_order is random" do
+              expect(controller.send(:default_order)).to eq("random")
+            end
+          end
+
+          describe "recent" do
+            let(:default_sort_order) { "recent" }
+
+            it "default_order is random" do
+              expect(controller.send(:default_order)).to eq(default_sort_order)
+            end
+          end
+
+          describe "most_endorsed" do
+            let(:default_sort_order) { "most_endorsed" }
+
+            it "default_order is random" do
+              expect(controller.send(:default_order)).to eq(default_sort_order)
+            end
+          end
+
+          describe "most_commented" do
+            let(:default_sort_order) { "most_commented" }
+
+            it "default_order is random" do
+              expect(controller.send(:default_order)).to eq(default_sort_order)
+            end
+          end
+
+          describe "most_followed" do
+            let(:default_sort_order) { "most_followed" }
+
+            it "default_order is random" do
+              expect(controller.send(:default_order)).to eq(default_sort_order)
+            end
+          end
+
+          describe "with_more_authors" do
+            let(:default_sort_order) { "with_more_authors" }
+
+            it "default_order is random" do
+              expect(controller.send(:default_order)).to eq(default_sort_order)
+            end
           end
         end
       end

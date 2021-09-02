@@ -145,7 +145,6 @@ module Decidim
 
       describe "scopes" do
         let(:type) { :scope }
-        let(:options) { { include_blank: true } }
 
         it "is supported" do
           expect(form).to receive(:scopes_picker).with(:test, checkboxes_on_top: true)
