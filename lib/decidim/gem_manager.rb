@@ -44,13 +44,13 @@ module Decidim
 
     def run(command, out: $stdout)
       interpolated_in_folder(command) do |cmd|
-        run(cmd, out: out)
+        self.class.run(cmd, out: out)
       end
     end
 
     def capture(command)
       interpolated_in_folder(command) do |cmd|
-        capture(cmd)
+        self.class.capture(cmd)
       end
     end
 
@@ -163,7 +163,7 @@ module Decidim
         dirs.each { |dir| yield(dir) }
       end
 
-      def package_dirs()
+      def package_dirs
         dirs = Dir.glob("#{root}/packages/*")
         dirs << "./"
 
@@ -191,7 +191,7 @@ module Decidim
 
     private
 
-    delegate :capture, :plugins, :replace_file, :run, :semver_friendly_version, :version, to: :class
+    delegate :plugins, :replace_file, :semver_friendly_version, :version, to: :class
 
     def interpolated_in_folder(command)
       Dir.chdir(@dir) do
