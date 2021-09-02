@@ -36,8 +36,8 @@ module Decidim::Meetings
       end
 
       it "escapes them correclty" do
-        expect(the_cell.title).to eq("#{@original_title} &amp;&#39;&lt;")
-        # as the `cell` test helper wraps conent in a Capybara artifact that already converts html entities
+        expect(the_cell.title).not_to eq("#{@original_title} &amp;&#39;&lt;")
+        # as the `cell` test helper wraps content in a Capybara artifact that already converts html entities
         # we should compare with the expected visual result, as we were checking the DOM instead of the html
         expect(cell_html).to have_content("#{@original_title} &'<")
       end
