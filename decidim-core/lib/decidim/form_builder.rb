@@ -780,7 +780,6 @@ module Decidim
           visible_title + screenreader_title,
           title: I18n.t("required", scope: "forms"),
           data: { tooltip: true, disable_hover: false, keep_on_hover: true },
-          "aria-haspopup": true,
           class: "label-required"
         ).html_safe
       end

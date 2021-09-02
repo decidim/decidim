@@ -66,7 +66,7 @@ end
                     data-close-on-click="true"
                     role="menubar">
                     <li class="is-dropdown-submenu-parent show-for-medium" role="presentation">
-                      <%= link_to current_user.name, decidim.account_path, id: "user-menu-control", "aria-controls": "user-menu", "aria-haspopup": "true", "aria-label": t("layouts.decidim.user_menu.account", name: current_user.name), "role": "menuitem" %>
+                      <%= link_to current_user.name, decidim.account_path, id: "user-menu-control", "aria-controls": "user-menu", "aria-haspopup": "menu", "aria-label": t("layouts.decidim.user_menu.account", name: current_user.name), "role": "menuitem" %>
                       <ul class="menu is-dropdown-submenu" id="user-menu" role="menu" aria-labelledby="user-menu-control">
                         <%= render partial: "layouts/decidim/user_menu" %>
                       </ul>

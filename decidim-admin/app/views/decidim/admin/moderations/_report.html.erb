@@ -3,7 +3,6 @@
 <% else %>
   <span
     data-tooltip
-    aria-haspopup="true"
     title="<%= report.details&.truncate(250) %>">
       <%= t(".reasons.#{report.reason}") %>
   </span>

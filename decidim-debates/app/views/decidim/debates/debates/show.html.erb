@@ -37,7 +37,7 @@ edit_link(
     <% end %>
     <% close_debate_action_text = (debate.closed? ? ".edit_conclusions" : ".close_debate" ) %>
     <% if allowed_to?(:close, :debate, debate: debate) %>
-      <button type="button" data-open="closeDebateModal" title="<%= t(close_debate_action_text) %>" aria-controls="closeDebateModal" aria-haspopup="true" tabindex="0" class="button hollow expanded button-sc button--icon follow-button">
+      <button type="button" data-open="closeDebateModal" title="<%= t(close_debate_action_text) %>" aria-controls="closeDebateModal" aria-haspopup="dialog" tabindex="0" class="button hollow expanded button-sc button--icon follow-button">
         <%= t(close_debate_action_text) %>
       </button>
     <% elsif admin_allowed_to?(:close, :debate, debate: debate) %>
