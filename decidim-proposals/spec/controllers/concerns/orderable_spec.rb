@@ -53,12 +53,22 @@ module Decidim
           end
         end
 
-        context "when step has default sort order" do
+        context "when step has default_sort_order" do
           let(:component_default_sort_order) { "random" }
           let(:step_default_sort_order) { "with_more_authors" }
 
           it "use it instead of component's" do
             expect(controller.send(:default_order)).to eq("with_more_authors")
+          end
+        end
+
+        context "when step has default default_sort_order" do
+          let(:component_default_sort_order) { "most_followed" }
+          let(:step_default_sort_order) { "default" }
+          let(:votes_blocked) { false }
+
+          it "use it instead of component's" do
+            expect(controller.send(:default_order)).to eq("random")
           end
         end
 
