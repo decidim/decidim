@@ -15,11 +15,7 @@ module Decidim
 
         # Available orders based on enabled settings
         def available_orders
-          @available_orders ||= begin
-            available_orders = [default_order]
-            available_orders.concat(possible_orders.reject { |order| order == default_order })
-            available_orders
-          end
+          @available_orders ||= [default_order] + possible_orders.excluding(default_order)
         end
 
         def possible_orders
@@ -35,26 +31,10 @@ module Decidim
 
         def default_order
           @default_order ||= begin
-            if active_step
-              step_default_sort_order = current_component[:settings].dig("steps", active_step.id.to_s, "default_sort_order")
-              if step_default_sort_order.present?
-                return order_by_default if step_default_sort_order == "default"
+            default_order = current_settings.default_sort_order.presence || component_settings.default_sort_order
+            return order_by_default if default_order == "default"
 
-                return step_default_sort_order if possible_orders.include?(step_default_sort_order)
-              end
-            end
-
-            return component_settings.default_sort_order if component_settings.respond_to?(:default_sort_order) &&
-                                                            component_settings.default_sort_order != "default" &&
-                                                            possible_orders.include?(component_settings.default_sort_order)
-
-            order_by_default
-          end
-        end
-
-        def active_step
-          @active_step ||= begin
-            current_participatory_space.respond_to?(:active_step) ? current_participatory_space.active_step : nil
+            possible_orders.include?(default_order) ? default_order : order_by_default
           end
         end
 
