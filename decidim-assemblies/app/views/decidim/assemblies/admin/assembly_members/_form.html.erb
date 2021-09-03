@@ -16,8 +16,11 @@
       </div>
 
       <div class="row column user-fields--not-user-avatar">
-        <%= form.upload :not_user_avatar %>
+        <%= form.upload :not_user_avatar, help_i18n_messages: ["non_user_avatar_help", "image_guide"], help_i18n_scope: "decidim.assemblies.admin.assembly_members.form" %>
       </div>
+        <p class="help-text">
+          <%= t(".non_user_avatar_help") %>
+        </p>
 
       <div class="row column user-fields--user-picker">
         <% prompt_options = { url: decidim_admin.user_entities_organization_url, placeholder: t(".select_user") } %>

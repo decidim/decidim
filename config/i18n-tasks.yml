@@ -306,6 +306,8 @@ ignore_unused:
   - decidim.meetings.public_participants_list.hidden_participants_count.*
   - decidim.budgets.budgets_list.*
   - decidim.budgets.projects.project_budget_button.*
+  - decidim.assemblies.admin.assembly_members.form.explanation
+  - decidim.assemblies.admin.assembly_members.form.image_guide
 
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
