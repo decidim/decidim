@@ -9,45 +9,35 @@ module Decidim
     end
 
     describe OrderableFakeController, type: :controller do
+      let(:participatory_process) { create(:participatory_process, :with_steps) }
+      let(:active_step_id) { participatory_process.active_step.id }
+      let(:component) { create(:component, :with_one_step, participatory_space: participatory_process, manifest_name: "proposals") }
       let(:component_settings) { double(comments_enabled?: comments_enabled) }
-      let(:comments_enabled) { nil }
       let(:current_settings) do
         double(:current_settings,
                votes_enabled?: votes_enabled,
+               votes_blocked?: votes_blocked,
                votes_hidden?: votes_hidden,
-               endorsements_enabled?: endorsements_enabled)
+               endorsements_enabled?: endorsements_enabled,
+               comments_enabled?: comments_enabled)
       end
       let(:votes_enabled) { nil }
+      let(:votes_blocked) { nil }
       let(:votes_hidden) { nil }
       let(:endorsements_enabled) { nil }
+      let(:comments_enabled) { nil }
       let(:view) { controller.view_context }
 
       before do
         allow(controller).to receive(:component_settings).and_return(component_settings)
         allow(controller).to receive(:current_settings).and_return(current_settings)
+        allow(controller).to receive(:current_participatory_space).and_return(participatory_process)
+        allow(controller).to receive(:current_component).and_return(component)
       end
 
       describe "#default_order" do
-        let(:current_settings) do
-          double(:current_settings,
-                 votes_enabled?: votes_enabled,
-                 votes_blocked?: votes_blocked,
-                 votes_hidden?: votes_hidden,
-                 endorsements_enabled?: endorsements_enabled,
-                 comments_enabled?: comments_enabled)
-        end
-
-        let(:participatory_process) { create(:participatory_process, :with_steps) }
-        let(:active_step_id) { participatory_process.active_step.id }
-        let(:component) { create(:component, :with_one_step, participatory_space: participatory_process, manifest_name: "proposals") }
-        let(:votes_blocked) { nil }
         let(:all_sort_orders) { %w(random recent most_endorsed most_voted most_commented most_followed with_more_authors) }
         let(:comments_enabled) { true }
-
-        before do
-          allow(controller).to receive(:current_participatory_space).and_return(participatory_process)
-          allow(controller).to receive(:current_component).and_return(component)
-        end
 
         context "with default settings" do
           it "default_order is random" do
