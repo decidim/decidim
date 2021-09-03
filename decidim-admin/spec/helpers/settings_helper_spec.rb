@@ -42,12 +42,13 @@ module Decidim
             %w(Baz baz)
           ]
         end
+        let(:options) { { include_blank: false, label: "A test" } }
 
         it "is supported" do
           expect(form).to receive(:select).with(
             :test,
             full_choices,
-            include_blank: false
+            options
           )
           render_input
         end

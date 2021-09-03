@@ -35,7 +35,6 @@ module Decidim
 
         def default_order
           @default_order ||= begin
-            active_step = current_participatory_space.active_step
             if active_step
               step_default_sort_order = current_component[:settings].dig("steps", active_step.id.to_s, "default_sort_order")
               if step_default_sort_order.present?
@@ -50,6 +49,12 @@ module Decidim
                                                             possible_orders.include?(component_settings.default_sort_order)
 
             order_by_default
+          end
+        end
+
+        def active_step
+          @active_step ||= begin
+            current_participatory_space.respond_to?(:active_step) ? current_participatory_space.active_step : nil
           end
         end
 
