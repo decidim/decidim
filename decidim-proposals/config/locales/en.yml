@@ -162,7 +162,7 @@ en:
             default_sort_order: Default proposal sorting
             default_sort_order_help: Default means that if the supports are enabled, the proposals will be shown sorted by random, and if the supports are blocked, then they will be sorted by the most supported.
             default_sort_order_options:
-              default: By default
+              default: Default
               most_commented: Most commented
               most_endorsed: Most endorsed
               most_followed: Most followed
@@ -194,9 +194,9 @@ en:
             proposal_answering_enabled: Proposal answering enabled
             publish_answers_immediately: Publish proposal answers immediately
             default_sort_order: Default proposal sorting
-            default_sort_order_help: By default it means that if the supports are enabled, the proposals will be shown sorted by random, and if the supports are blocked, then they will be sorted by the most supported.
+            default_sort_order_help: Default it means that if the supports are enabled, the proposals will be shown sorted by random, and if the supports are blocked, then they will be sorted by the most supported.
             default_sort_order_options:
-              default: By default
+              default: Default
               most_commented: Most commented
               most_endorsed: Most endorsed
               most_followed: Most followed
