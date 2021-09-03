@@ -33,10 +33,10 @@ module Decidim
 
             broadcast(:ok)
           else
-            if assembly_member_with_attributes.errors.include? :not_user_avatar
+            if assembly_member_with_attributes.errors.include? :non_user_avatar
               form.errors.add(
-                :not_user_avatar,
-                assembly_member_with_attributes.errors[:not_user_avatar]
+                :non_user_avatar,
+                assembly_member_with_attributes.errors[:non_user_avatar]
               )
             end
             broadcast(:invalid)
@@ -67,7 +67,7 @@ module Decidim
             assembly: assembly,
             user: form.user
           ).merge(
-            attachment_attributes(:not_user_avatar)
+            attachment_attributes(:non_user_avatar)
           )
         end
 

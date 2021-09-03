@@ -10,8 +10,8 @@ module Decidim
 
         attribute :weight, Integer, default: 0
         attribute :full_name, String
-        attribute :not_user_avatar
-        attribute :remove_not_user_avatar, Boolean, default: false
+        attribute :non_user_avatar
+        attribute :remove_non_user_avatar, Boolean, default: false
         attribute :gender, String
         attribute :birthday, Decidim::Attributes::TimeWithZone
         attribute :birthplace, String
@@ -25,7 +25,7 @@ module Decidim
 
         validates :designation_date, presence: true
         validates :full_name, presence: true, unless: proc { |object| object.existing_user }
-        validates :not_user_avatar, passthru: {
+        validates :non_user_avatar, passthru: {
           to: Decidim::AssemblyMember,
           with: {
             # The member gets its organization context through the assembly

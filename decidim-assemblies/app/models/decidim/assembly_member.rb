@@ -14,8 +14,8 @@ module Decidim
     belongs_to :assembly, foreign_key: "decidim_assembly_id", class_name: "Decidim::Assembly"
     alias participatory_space assembly
 
-    has_one_attached :not_user_avatar
-    validates_avatar :not_user_avatar, uploader: Decidim::AvatarUploader
+    has_one_attached :non_user_avatar
+    validates_avatar :non_user_avatar, uploader: Decidim::AvatarUploader
 
     delegate :organization, to: :assembly
 
@@ -27,7 +27,7 @@ module Decidim
       Decidim::Assemblies::AdminLog::AssemblyMemberPresenter
     end
 
-    def remove_not_user_avatar
+    def remove_non_user_avatar
       false
     end
   end

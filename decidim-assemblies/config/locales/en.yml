@@ -63,7 +63,7 @@ en:
         designation_mode: Designation mode
         full_name: Full name
         gender: Gender
-        not_user_avatar: Avatar
+        non_user_avatar: Avatar
         position: Position
         user_id: User or group
       assembly_user_role:

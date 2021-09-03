@@ -15,8 +15,8 @@
         <%= form.text_field :full_name, autofocus: true %>
       </div>
 
-      <div class="row column user-fields--not-user-avatar">
-        <%= form.upload :not_user_avatar, help_i18n_messages: ["non_user_avatar_help", "image_guide"], help_i18n_scope: "decidim.assemblies.admin.assembly_members.form" %>
+      <div class="row column user-fields--non-user-avatar">
+        <%= form.upload :non_user_avatar, help_i18n_messages: ["non_user_avatar_help", "image_guide"], help_i18n_scope: "decidim.assemblies.admin.assembly_members.form" %>
       </div>
         <p class="help-text">
           <%= t(".non_user_avatar_help") %>

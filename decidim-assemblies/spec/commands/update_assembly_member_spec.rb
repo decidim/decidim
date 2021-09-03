@@ -11,7 +11,7 @@ module Decidim::Assemblies
     let!(:current_user) { create :user, :confirmed, organization: assembly.organization }
     let(:user) { nil }
     let(:existing_user) { false }
-    let(:not_user_avatar) do
+    let(:non_user_avatar) do
       ActiveStorage::Blob.create_after_upload!(
         io: File.open(Decidim::Dev.asset("avatar.jpg")),
         filename: "avatar.jpeg",
@@ -33,7 +33,7 @@ module Decidim::Assemblies
           position: Decidim::AssemblyMember::POSITIONS.sample,
           position_other: "",
           existing_user: existing_user,
-          not_user_avatar: not_user_avatar,
+          non_user_avatar: non_user_avatar,
           user_id: user&.id
         }
       }
@@ -56,7 +56,7 @@ module Decidim::Assemblies
 
       context "when image is invalid" do
         let(:existing_user) { false }
-        let(:not_user_avatar) do
+        let(:non_user_avatar) do
           ActiveStorage::Blob.create_after_upload!(
             io: File.open(Decidim::Dev.asset("invalid.jpeg")),
             filename: "avatar.jpeg",
