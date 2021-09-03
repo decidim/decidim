@@ -65,7 +65,7 @@ module Decidim
       def render_select_form_field(form, attribute, name, i18n_scope, options)
         html = form.select(
           name,
-          attribute.build_choices.map { |a| [t("#{name}_options.#{a}", scope: i18n_scope), a] },
+          attribute.build_choices.map { |o| [t("#{name}_options.#{o}", scope: i18n_scope), o] },
           { include_blank: attribute.include_blank, label: options[:label] }
         )
         html << content_tag(:p, options[:help_text], class: "help-text") if options[:help_text]
