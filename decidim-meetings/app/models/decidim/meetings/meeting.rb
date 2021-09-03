@@ -45,6 +45,8 @@ module Decidim
         source: :user
       )
 
+      enum iframe_access_level: [:all, :signed_in, :registered], _prefix: true
+
       component_manifest_name "meetings"
 
       validates :title, presence: true
