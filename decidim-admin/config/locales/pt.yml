@@ -362,6 +362,7 @@ pt:
             'false': 'Não'
             'true': 'Sim'
         last_sign_in_at_present:
+          label: Já se ligou alguma vez?
           values:
             'false': 'Não'
             'true': 'Sim'
@@ -399,7 +400,9 @@ pt:
         search_label: Pesquisa
         search_placeholder:
           name_or_nickname_or_email_cont: Pesquisar %{collection} por e-mail, nome ou alcunha.
+          reported_id_string_or_reported_content_cont: Pesquisar %{coleção} por identificador de denúncia ou conteúdo.
           title_cont: Pesquisar %{collection} por título.
+          user_name_or_user_email_cont: Pesquisar %{coleção} por nome ou e-mail.
         state_eq:
           label: Estado
       forms:
@@ -440,7 +443,7 @@ pt:
         form:
           authorization_method: Método de autorização
           name: Nome
-          reason: Razão
+          reason: Motivo
         new:
           impersonate: Personificar
           impersonate_existing_managed_user: Gerir participante "%{name}"
@@ -486,6 +489,7 @@ pt:
         help_sections: Secções de ajuda
         homepage: Página inicial
         impersonations: Personificações
+        moderation: Moderações globais
         newsletters: Boletins informativos
         participants: Participantes
         reported_users: Utilizadores denunciados
@@ -523,7 +527,7 @@ pt:
             admin: Administrador(a)
             ended_at: Terminou em
             expired_at: Expirou em
-            reason: Razão
+            reason: Motivo
             started_at: Começou em
             user: Do utilizador
         newsletter:
@@ -606,6 +610,7 @@ pt:
         reports:
           index:
             author: Autor(es)
+            callout_html: Um conteúdo aparece no painel de moderação quando ele foi sinalizado por um utilizador (pode ser qualquer pessoa com uma conta registrada) clicando no sinalizador %{icon} ao lado do item.
             content_original_language: Língua original do conteúdo
             participatory_space: Espaço participativo
             reported_content: Conteúdo denunciado
@@ -700,6 +705,7 @@ pt:
           officialize: Oficializar
           officialized: Oficializado
           reofficialize: Reoficializar
+          reports: Relatórios
           show_email: Mostrar endereço de e-mail
           status: Estado
           unblock: Desbloquear utilizador
@@ -710,10 +716,15 @@ pt:
           title: Oficializar participante "%{name}"
         show_email_modal:
           close_modal: Fechar modal
+          description: Se precisar de contactar directamente um, pode clicar no botão Mostrar para ver seu endereço de e-mail.
           email_address: Endereço de e-mail
           full_name: Nome completo
           hidden: oculto
           show: Mostrar
+          title: Mostrar o endereço de e-mail do participante
+        unblock:
+          error: Houve um erro ao desbloquear o participante
+          success: Participante desbloqueado com sucesso
       organization:
         edit:
           title: Editar organização
@@ -744,10 +755,21 @@ pt:
             layout_appearance_title: Editar aparência do layout
             preview: Pré-visualização
           omnipresent_banner_appearance_title: Editar faixa omnipresente
+      organization_external_domain_whitelist:
+        edit:
+          update: Actualização
+        external_domain:
+          down: Para baixo
+          external_domain: Domínio externo
+          remove: Remover
+          up: Para cima
+        form:
+          add: Adicionar à lista branca
+          title: Lista branca de domínio externo
       organization_homepage:
         edit:
-          active_content_blocks: Blocos de conteúdo ativos
-          inactive_content_blocks: Blocos de conteúdo inativos
+          active_content_blocks: Blocos de conteúdo activos
+          inactive_content_blocks: Blocos de conteúdo inactivos
       organization_homepage_content_blocks:
         edit:
           update: Atualizar
@@ -769,6 +791,7 @@ pt:
           invalid: Ocorreu um problema ao ler o ficheiro CSV.
           success: Ficheiro CSV carregado com sucesso, estamos a enviar um e-mail de convite aos participantes. Isto poderá demorar algum tempo.
         new:
+          explanation: 'Carrege o seu ficheiro CSV. Deve ter duas colunas com o e-mail na primeira coluna do ficheiro e  o nome na última coluna do ficheiro (e-mail, nome) dos utilizadores que quer adicionar ao espaço participativo, sem cabeçalhos. Evite utilizar charactéres inválidos como “<>?%&^*#@=+:"{}\|” no nome de utente.'
           title: Carregar o seu ficheiro CSV
           upload: Carregar
       resource_permissions:
@@ -777,6 +800,10 @@ pt:
           title: Editar permissões
         update:
           success: Permissões atualizadas corretamente.
+      resources:
+        index:
+          headers:
+            scope: Âmbito
       scope_types:
         create:
           error: Ocorreu um problema ao criar um novo tipo de âmbito.
@@ -808,6 +835,18 @@ pt:
         update:
           error: Ocorreu um problema ao atualizar este âmbito.
           success: Âmbito atualizado com sucesso
+      share_tokens:
+        actions:
+          confirm_destroy: Tem a certeza que quer eliminar este identificador?
+          destroy: Eliminar
+          share: Partilhar
+        destroy:
+          error: Houve um problema ao destruir o identificador
+          success: Identificador destruído com sucesso.
+        share_tokens:
+          empty: Não existem identificadores activos
+          help: Estes identificadores são usados para partilhar publicamente para qualquer utilizador este recurso não publicado. Estarão escondidos quando o recurso estiver publicado. Clique no icone de partilha do identificador para visitar o URL parltilhável.
+          title: Compartilhar identificadores
       shared:
         gallery:
           add_images: Adicionar imagens
@@ -865,6 +904,7 @@ pt:
         impersonatable_users: Participantes geríveis
         impersonations: Gestão de participantes
         metrics: Métricas
+        panel: Administrador
         participants: Participantes
         scope_types: Tipos de âmbito
         scopes: Âmbitos
@@ -924,8 +964,23 @@ pt:
           no_users_count_statistics_yet: Ainda não existem estatísticas de contagem de utilizadores
           participants: Participantes
       view_public_page: Ver página pública
+    forms:
+      errors:
+        impersonate_user:
+          reason: Precisa de fornecer um motivo para gerir um participante não gerido
+    metrics:
+      blocked_users:
+        object: utilizadores bloqueados
+        title: Utilizadores bloqueados
+      reported_users:
+        object: utilizadores denunciados
+        title: Utilizadores denunciados
+      user_reports:
+        object: relatórios de utilizador
+        title: Relatórios de utilizador
     moderations:
       actions:
+        expand: Expandir
         hidden: Ocultado
         hide: Ocultar
         not_hidden: Não oculto
@@ -946,17 +1001,28 @@ pt:
       models:
         moderation:
           fields:
+            created_at: Data de criação
             hidden_at: Escondido em
+            participatory_space: Espaço participativo
             report_count: Contagem
+            reportable_id: Identificação
+            reportable_type: Tipo
             reported_content_url: URL de conteúdo reportado
             reports: Relatórios
             visit_url: URL de visita
+        report:
+          fields:
+            details: Dados relativos ao motivo
+            locale: Língua
+            reason: Motivo
   errors:
     messages:
       invalid_json: JSON inválido
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Moderações globais
         newsletters:
           title: Boletins Informativos
         settings:
