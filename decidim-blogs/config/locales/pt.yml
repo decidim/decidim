@@ -29,6 +29,7 @@ pt:
             success: Publicação eliminada corretamente
           edit:
             save: Atualizar
+            title: Editar publicação
           index:
             title: Publicações
           new:
