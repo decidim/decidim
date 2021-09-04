@@ -52,6 +52,7 @@ pt:
         target: Quem participa
         title: Título
         twitter: Twitter
+        weight: Posição de ordenamento
         youtube: Youtube
       assembly_member:
         birthday: Aniversário
