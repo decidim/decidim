@@ -1,4 +1,10 @@
 pt:
+  activemodel:
+    attributes:
+      oauth_application:
+        organization_name: Organização
+      organization:
+        from_email: Endereço de e-mail
   decidim:
     system:
       actions:
@@ -41,6 +47,10 @@ pt:
           name: Administrador
           validations:
             email_uniqueness: já existe outro administrador com o mesmo e-mail
+        oauth_application:
+          fields:
+            created_at: Criado em
+            organization_name: Organização
         organization:
           actions:
             save_and_invite: Criar organização e convidar administrador
@@ -50,6 +60,13 @@ pt:
             omniauth_settings: Configurações Omniauth
             smtp_settings: Configurações SMTP
           name: Organização
+      oauth_applications:
+        create:
+          error: Houve um problema ao criar este modelo.
+        index:
+          confirm_delete: Tem a certeza que quer eliminar este identificador?
+        update:
+          error: Houve um problema ao actualizar esta votação
       organizations:
         create:
           error: Ocorreu um problema ao criar uma nova organização.
