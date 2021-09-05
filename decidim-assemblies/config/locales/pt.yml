@@ -62,6 +62,7 @@ pt:
         full_name: Nome completo
         gender: Género
         position: Posição
+        user_id: Utilizador
       assembly_user_role:
         email: E-mail
         name: Nome
