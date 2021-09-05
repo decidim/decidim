@@ -20,6 +20,7 @@ pt:
         decidim_user_group_id: Grupo de utilizadores
         description: Descrição
         end_time: Hora de fim
+        id: IDENTIFICAÇÃO
         location: Localização
         location_hints: Dicas de localização
         organizer_gid: Criar como
@@ -31,6 +32,7 @@ pt:
         start_time: Hora de início
         title: Título
         transparent: Transparente
+        type_of_meeting: Tipo
     errors:
       models:
         meeting_agenda:
@@ -62,6 +64,25 @@ pt:
         other: Registos
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Categoria
+          closed_at_present:
+            label: Estado
+          is_upcoming_true:
+            label: Datas
+            values:
+              'false': Passado
+          origin_eq:
+            label: Origem
+            values:
+              official: Oficial
+          scope_id_eq:
+            label: Âmbito
+          type_eq:
+            values:
+              online: On-line
       meeting_copies:
         create:
           error: Ocorreu um problema ao duplicar esta reunião.
@@ -73,6 +94,7 @@ pt:
     components:
       meetings:
         actions:
+          comment: Comentários
           join: Adira
         name: Reuniões
         settings:
@@ -84,6 +106,7 @@ pt:
             default_registration_terms: Termos de registo predefinidos
             enable_pads_creation: Ativar criação de blocos
             resources_permissions_enabled: As permissões de ações podem ser definidas para cada reunião
+            scope_id: Âmbito
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
@@ -195,6 +218,8 @@ pt:
             invalid: Ocorreu um problema ao atualizar esta agenda
             success: Agenda atualizada corretamente
         exports:
+          answers: Respostas
+          meeting_comments: Comentários
           meetings: Reuniões
           registrations: Registos
         invite_join_meeting_mailer:
@@ -241,6 +266,7 @@ pt:
                 other: A reunião não pode ser destruída porque tem %{count} propostas associadas
             success: Reunião eliminada corretamente
           edit:
+            title: Editar reunião
             update: Atualizar
           form:
             address_help: 'Endereço: utilizado por Geocoder para encontrar a localização'
@@ -323,7 +349,13 @@ pt:
             space_type: Espaço participativo
             upcoming: Próximas
       last_activity:
+        meeting_updated_at_html: "<span>Proposta actualizada em %{link}</span>"
         new_meeting_at_html: "<span>Nova reunião em %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Administradores
+          close: Fechar
+          questions: Pergunta
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -333,7 +365,14 @@ pt:
             subject: O seu registo da reunião foi confirmado
       meeting:
         not_allowed: Não tem permissão para ver esta reunião
+      meeting_closes:
+        edit:
+          back: Recuar
+          close: Encerrar reunião
+          title: Encerrar reunião
       meetings:
+        calendar_modal:
+          close_window: Fechar janela
         count:
           meetings_count:
             one: "%{count} reunião"
@@ -346,6 +385,8 @@ pt:
           title: Editar a Sua Reunião
           update: Atualizar
         filters:
+          activity: A minha atividade
+          all: Todos
           category: Categoria
           date: Data
           date_values:
@@ -360,6 +401,11 @@ pt:
             user_groups: Grupos
           scope: Âmbito
           search: Pesquisar
+          type: Tipo
+          type_values:
+            all: Todos
+            in_person: Presencial
+            online: On-line
         filters_small_view:
           close_modal: Fechar modal
           filter: Filtrar
@@ -387,6 +433,7 @@ pt:
         show:
           attendees: Contagem de participantes
           back: Retroceder à lista
+          close_meeting: Encerrar reunião
           contributions: Contagem de contribuições
           date: Data
           edit_meeting: Editar reunião
@@ -422,10 +469,19 @@ pt:
           fields:
             closed: Encerradas
             end_time: Data final
+            id: Identificação
             map: Mapa
             official_meeting: Reunião oficial
             start_time: Data de início
             title: Título
+      polls:
+        questions:
+          published_question:
+            max_choices_alert: Estão selecionadas demasiadas opções
+      public_participants_list:
+        hidden_participants_count:
+          one: e mais %{count} pessoa
+          other: e mais %{count} pessoas
       read_more: "(ler mais)"
       registration_mailer:
         confirmation:
@@ -442,6 +498,8 @@ pt:
         destroy:
           invalid: Ocorreu um problema ao sair desta reunião.
           success: Saiu da reunião corretamente.
+      type_of_meeting:
+        online: On-line
       types:
         private_meeting: Reunião privada
         transparent: Transparente
@@ -466,6 +524,8 @@ pt:
       proposals_from_meeting:
         meeting_proposal: 'Propostas relacionadas:'
         proposal_meeting: 'Reuniões relacionadas:'
+    statistics:
+      meetings_count: Reuniões
   devise:
     mailer:
       join_meeting:
