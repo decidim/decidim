@@ -27,6 +27,9 @@ pt:
         user_group_id: Criar proposta como
       proposal_answer:
         answer: Responder
+        cost: Custo
+        cost_report: Relatório de custo
+        execution_period: Período de execução
       proposals_copy:
         copy_proposals: Eu entendo que isto irá importar todas as propostas do componente selecionado para o atual e que esta ação não pode ser revertida.
         origin_component_id: Componente para copiar as propostas de
@@ -80,6 +83,28 @@ pt:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Categoria
+          is_emendation_true:
+            label: Tipo
+            values:
+              'false': Propostas
+              'true': Revisões
+          scope_id_eq:
+            label: Âmbito
+          state_eq:
+            label: Estado
+            values:
+              accepted: Aceite
+              evaluating: Em avaliação
+              published: Publicado
+              rejected: Rejeitado
+              validating: Validação técnica
+              withdrawn: Retirado
+          state_null:
+            label: Estado
+            values:
+              'true': Não respondido
           valuator_role_ids_has:
             label: Atribuído a avaliador
         search_placeholder:
@@ -115,6 +140,10 @@ pt:
             participatory_texts_enabled_readonly: Não é possível interagir com esta configuração caso existam propostas. Crie um novo "Componente de propostas" caso pretenda ativar esta característica ou elimine todas as propostas importadas no menu "Textos Participativos" caso pretenda desativá-la.
             proposal_answering_enabled: Respostas à proposta ativadas
             proposal_edit_before_minutes: As propostas podem ser editadas pelos autores antes que estes minutos passem
+            proposal_edit_time: Edição de proposta
+            proposal_edit_time_choices:
+              infinite: Permitir editar propostas por um limite de tempo infinito
+              limited: Permitir edição de propostas dentro dum horizonte temporal
             proposal_length: Comprimento máximo do corpo da proposta
             proposal_limit: Limite de propostas por utilizador
             proposal_wizard_step_1_help_text: Texto de ajuda do passo "Criar" do Assistente de Propostas
@@ -122,6 +151,7 @@ pt:
             proposal_wizard_step_3_help_text: Texto de ajuda do passo "Concluir" do Assistente de Propostas
             proposal_wizard_step_4_help_text: Texto de ajuda do passo "Publicar" do Assistente de Propostas
             resources_permissions_enabled: As permissões de ações podem ser definidas para cada proposta
+            scope_id: Âmbito
             threshold_per_proposal: Limiar por proposta
             vote_limit: Limite de voto por participante
           step:
@@ -328,6 +358,7 @@ pt:
         actions:
           preview: Pré-visualizar
         exports:
+          proposal_comments: Comentários
           proposals: Propostas
         models:
           proposal:
@@ -352,6 +383,7 @@ pt:
             accepted_mime_types:
               md: Anotação
             bottom_hint: "(Será capaz de pré-visualizar e classificar as secções do documento)"
+            document_legend: 'Adicionar um documento menor que 2MB, cada secção até 3 níveis de profundidade será introduzida nas propostas. Os formatos suportados são: %{valid_mime_types}'
             title: ADICIONAR DOCUMENTO
             upload_document: Enviar documento
           publish:
@@ -392,6 +424,7 @@ pt:
           form:
             attachment_legend: "(Opcional) Adicionar um anexo"
             created_in_meeting: Esta proposta vem de uma reunião
+            delete_attachment: Apagar anexo
             select_a_category: Selecione uma categoria
             select_a_meeting: Selecione uma reunião
           index:
@@ -466,6 +499,7 @@ pt:
             no_components: Não há outros componentes da proposta neste espaço participativo de onde importar as propostas.
             select_component: Selecione um componente
             select_states: Verifique os estados das propostas a importar
+            title: Importar propostas
         proposals_merges:
           create:
             invalid: Ocorreu um problema ao fundir as propostas selecionadas.
@@ -618,6 +652,9 @@ pt:
           info: Está a criar um <strong>projeto colaborativo</strong>.
         wizard_header:
           title: Criar o seu rascunho colaborativo
+      content_blocks:
+        highlighted_proposals:
+          proposals: Propostas
       create:
         error: Ocorreu um problema ao guardar a proposta.
         success: Proposta criada corretamente. Guardado como Rascunho.
@@ -626,6 +663,7 @@ pt:
         success: O rascunho da proposta foi eliminado corretamente.
       last_activity:
         new_proposal_at_html: "<span>Nova proposta em %{link}</span>"
+        proposal_updated_at_html: "<span>Proposta actualizada em %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -671,8 +709,13 @@ pt:
             one: "%{count} proposta"
             other: "%{count} propostas"
         edit:
+          add_documents: Documentos
+          add_images: Ficheiro
           attachment_legend: "(Opcional) Adicione um anexo"
           back: Voltar
+          delete_document: Apagar Documento
+          delete_image: Apagar Imagem
+          gallery_legend: "(Opcional) Adicionar uma imagem ao cartão da proposta"
           select_a_category: Por favor selecione uma categoria
           send: Enviar
           title: Editar proposta
@@ -726,6 +769,8 @@ pt:
           view_index:
             see_index: Ver o índice
         preview:
+          announcement_body: A sua porposta foi guardada como rascunho. Precisa de ser publicada para aparecer no site.
+          announcement_title: A sua proposta ainda não foi publicada
           modify: Modificar a proposta
           proposal_edit_before_minutes:
             one: Poderá editar esta proposta durante o primeiro minuto após a publicação da mesma. Assim que esta janela de tempo passe, não poderá editar a proposta.
