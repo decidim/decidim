@@ -40,7 +40,7 @@ module Decidim
           body: { I18n.locale => parsed.rewrite },
           alignment: form.alignment,
           decidim_user_group_id: form.user_group_id,
-          participatory_process: form.current_component.try(:participatory_space)
+          participatory_space: form.current_component.try(:participatory_space)
         }
 
         @comment = Decidim.traceability.create!(

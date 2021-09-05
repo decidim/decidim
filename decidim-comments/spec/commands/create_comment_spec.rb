@@ -55,7 +55,7 @@ module Decidim
               body: { en: body },
               alignment: alignment,
               decidim_user_group_id: user_group_id,
-              participatory_process: form.current_component.try(:participatory_space)
+              participatory_space: form.current_component.try(:participatory_space)
             ).and_call_original
 
             expect do
@@ -127,7 +127,7 @@ module Decidim
                 body: { en: Decidim::ContentProcessor.parse(body, parser_context).rewrite },
                 alignment: alignment,
                 decidim_user_group_id: user_group_id,
-                participatory_process: form.current_component.try(:participatory_space)
+                participatory_space: form.current_component.try(:participatory_space)
               ).and_call_original
 
               expect do
@@ -163,7 +163,7 @@ module Decidim
                 body: { en: Decidim::ContentProcessor.parse(body, parser_context).rewrite },
                 alignment: alignment,
                 decidim_user_group_id: user_group_id,
-                participatory_process: form.current_component.try(:participatory_space)
+                participatory_space: form.current_component.try(:participatory_space)
               ).and_call_original
 
               expect do
