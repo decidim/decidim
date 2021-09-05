@@ -356,7 +356,11 @@ pt:
     resources:
       consultations:
         actions:
+          comment: Comentários
           vote: Voto
+    statistics:
+      consultations_count: Consultas
+      votes_count: Votos
   layouts:
     decidim:
       consultation_voting_data:
