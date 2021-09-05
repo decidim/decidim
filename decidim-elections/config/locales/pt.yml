@@ -14,14 +14,36 @@ pt:
       question:
         description: Descrição
         max_selections: Número máximo de seleções
+        min_selections: Nenhuma das opções acima
         title: Título
+      voting:
+        end_time: A votação termina
+        start_time: A votação inicia
     errors:
       models:
         answer:
           attributes:
             attachment:
               needs_to_be_reattached: Necessita de ser recolocado
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: não pode ser alterado
+            public_key:
+              cant_be_changed: não pode ser alterado
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: O oficial de votação já é um presidente/gestor da secção de voto
+            voting:
+              different_organization: A votação deve estar na mesma organização que o utilizador
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: O oficial de voto deve estar na mesma votação que a secção de voto
     models:
       decidim/elections/answer:
         one: Resposta
@@ -32,7 +54,49 @@ pt:
       decidim/elections/question:
         one: Pergunta
         other: Perguntas
+      decidim/votings/census/dataset:
+        one: Conjunto de dados
+        other: Conjuntos de dados
+      decidim/votings/census/datum:
+        one: Dado
+        other: Dados
+      decidim/votings/polling_officer:
+        one: Oficial de votação
+        other: Oficiais de votação
+      decidim/votings/polling_station:
+        one: Secção de voto
+        other: Secções de voto
+      decidim/votings/voting:
+        one: Votação
+        other: Votações
   decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: Oficiais
+          values:
+            assigned: Atribuído
+            unassigned: Não atribuído
+        role_eq:
+          label: Papel
+          values:
+            manager: Gestor
+            president: Presidente
+            unassigned: Não atribuído
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Pesquisar %{coleção} pelo nome/email/alcunha ou posto de votação.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Pesquisar %{coleção} por título, endereço ou nome do oficial/email/alcunha.
+        signed_eq:
+          label: Assinado
+          values:
+            'false': Assinado
+            'true': Não assinado
+        validated_eq:
+          label: Validado
+          values:
+            'false': Validado
+            'true': Não validado
     components:
       elections:
         actions:
@@ -48,7 +112,11 @@ pt:
         confirm_destroy: Tem a certeza?
         destroy: Destruir
         edit: Editar
+        feedback: Retorno dos eleitores
         import: Importar propostas para perguntas
+        manage_answers: Gerir as respostas
+        manage_questions: Gerir as perguntas
+        manage_steps: Gerir as etapas
         new: Novo %{name}
         preview: Pré-visualizar
         publish: Publicar
@@ -66,10 +134,21 @@ pt:
             title: Editar resposta
             update: Atualizar resposta
           index:
+            invalid_max_selections: Você precisa de %{missing_answers} mais resposta/s para corresponder às selecções máximas
             title: Respostas
           new:
             create: Criar resposta
             title: Nova resposta
+          not_selected: Não seleccionado
+          select:
+            disable: Resposta não seleccionada
+            enable: Marcar resposta como seleccionada
+            invalid: Houve um problema ao seleccionar esta resposta
+            success: Resposta seleccionada com êxito
+          selected: Seleccionado
+          unselect:
+            invalid: Houve um problema ao desseleccionar esta resposta
+            success: Resposta desseleccionada com êxito
           update:
             invalid: Ocorreu um problema ao atualizar esta resposta
             success: Resposta atualizada corretamente
@@ -84,6 +163,7 @@ pt:
             title: Editar eleição
             update: Atualizar eleição
           index:
+            no_bulletin_board: Não há nenhum <a href=»https://github.com/decidim/decidim-bulletin-board">servidor do Quadro Informativo</a> configurado, o que é necessário para usar este módulo.
             title: Eleições
           new:
             create: Criar eleição
@@ -95,6 +175,11 @@ pt:
           update:
             invalid: Ocorreu um problema ao atualizar esta eleição
             success: Eleição atualizada corretamente
+        exports:
+          elections: Eleições
+          feedback_form_answers: Respostas do formulário de retroacção
+        menu:
+          trustees: Curadores
         models:
           answer:
             name: Resposta
@@ -102,6 +187,8 @@ pt:
             name: Eleição
           question:
             name: Pergunta
+          trustee:
+            name: Curador
         proposals_imports:
           create:
             invalid: Ocorreu um problema ao importar as propostas em respostas
@@ -110,6 +197,7 @@ pt:
             create: Importar propostas para perguntas
             no_components: Não há outros componentes de propostas neste espaço participativo para importar as propostas em respostas.
             select_component: Selecione um componente
+            title: Importar propostas
         questions:
           create:
             invalid: Ocorreu um problema ao criar esta pergunta
@@ -128,36 +216,310 @@ pt:
           update:
             invalid: Ocorreu um problema ao atualizar esta pergunta
             success: Pergunta atualizada corretamente
+        steps:
+          create_election:
+            errors:
+              max_selections: As perguntas não têm um <strong>valor correcto para quantidade de respostas</strong>
+              minimum_answers: As perguntas devem ter <strong>pelo menos duas respostas</strong>.
+              minimum_questions: A eleição <strong>deve ter pelo menos uma pergunta</strong>.
+              published: A eleição <strong>não está publicada</strong>.
+              time_before: A hora de início é <strong>menos de 3 horas</strong> antes do início da eleição.
+              trustees_number: O espaço participativo <strong>deve ter pelo menos %{número} curadores com chave pública</strong>.
+            invalid: Houve um problema ao configurar esta eleição.
+            no_trustees: Não há curadores configurados para este espaço participativo
+            not_used_trustee: "(não utilizado)"
+            public_key:
+              'false': não tem uma <strong>chave pública</strong>
+              'true': tem uma <strong>chave pública</strong>
+            requirements:
+              max_selections: Todas as perguntas têm um valor correcto para <strong>máximo de respostas</strong>.
+              minimum_answers: As perguntas devem ter <strong>pelo menos duas respostas</strong>.
+              minimum_questions: A eleição tem <strong>pelo menos 1 pergunta</strong>.
+              published: A eleição <strong>está publicada</strong>.
+              time_before: A configuração está a ser feita <strong>pelo menos %{hours} horas</strong> antes do início da eleição.
+              trustees_number: O espaço participativo tem <strong>pelo menos %{número} curadores com chave pública</strong>.
+            submit: Configurar eleição
+            success: Eleição enviada com sucesso para o Quadro Informativo
+            title: Configurar eleição
+            trustees: Curadores da eleição
+          created:
+            invalid: Houve um problema ao iniciar a cerimónia principal
+            submit: Iniciar a cerimónia principal
+            success: Cerimónia-chave inicial foi enviada com êxito para o Quadro Informativo
+            title: Eleição criada
+            trustees: Curadores
+          key_ceremony:
+            title: Cerimónia-chave
+            trustees: Curadores
+          key_ceremony_ended:
+            errors:
+              time_before: A eleição está pronta para começar. Tem de esperar até %{hours} horas antes da hora de início (%{start_time}) para abrir o período de votação.
+            invalid: Houve um problema ao abrir o período da votação
+            requirements:
+              time_before: A eleição começa em breve. Pode abrir o período de votação manualmante, ou será aberto automaticamente antes da hora de início, às %{start_time}.
+            submit: Abrir período de votação
+            success: Pedido para abertura do período de votação enviado com êxito para o Quadro Informativo
+            title: Pronto para começar
+          processing: A processar...
+          results_published:
+            answer: Responder
+            not_selected: Não seleccionado
+            question: Pergunta
+            result: Resultado
+            selected: Seleccionado
+            submit: Enviar
+            title: Resultados publicados
+          tally:
+            title: Processo de contagem
+            trustees: Curadores
+          tally_ended:
+            not_selected: Não seleccionado
+            question: Pergunta
+            result: Resultado
+            selected: Seleccionado
+            submit: Publicar resultados
+            success: Pedido publicação de resultados enviado com êxito para o Quadro Informativo
+            title: Resultados calculados
+          vote:
+            errors:
+              time_after: A eleição ainda está a decorrer. Tem que esperar até à hora de fecho (%{end_time}) para poder fechar o período de votação.
+            invalid: Houve um problema ao fechar o período da votação
+            requirements:
+              time_after: A eleição terminou. Pode fechar manualmente o período de votação ou este terminará automaticamente em alguns minutos.
+            submit: Fechar período de votação
+            success: Pedido para fecho do período de votação enviado com êxito para o Quadro Informativo
+            title: Período de votação
+          vote_ended:
+            invalid: Houve um problema ao começar a contagem
+            submit: Começar a contagem
+            success: Pedido começar a contagem enviado com êxito para o Quadro Informativo
+            text: A votação terminou. Pode comoçar a contagem agora.
+            title: Período de votação terminou
+          vote_stats:
+            no_vote_statistics_yet: Ainda não há estatísticas da votação
+            title: Estatísticas da votação
+            voters: Eleitores
+            votes: Votos
+        trustees_participatory_spaces:
+          actions:
+            disable: Desativar
+            enable: Considerar
+          create:
+            exists: Existe curador para este espaço participativo
+            invalid: Houve um problema ao criar um curador
+            success: Curador criado com êxito
+          delete:
+            invalid: Houve um problema ao remover este curador
+            success: Curador removido com êxito
+          form:
+            select_user: Seleccionar o utilizador
+          index:
+            title: Curadores
+          new:
+            create: Criar curador
+            title: Novo curador
+          update:
+            invalid: Houve um problema ao actualizar o curador %{trustee}
+            success: Curador %{trustee} actualizado com êxito
       admin_log:
         election:
           create: "%{user_name} criou a eleição %{resource_name} para o/a %{space_name}"
           delete: "%{user_name} apagou a eleição %{resource_name} para o/a %{space_name}"
+          end_vote: "%{user_name} terminou o período de votação para a eleição %{resource_name} de %{space_name} no Quadro Informativo"
           publish: "%{user_name} publicou a eleição %{resource_name} para a/o %{space_name}"
+          publish_results: "%{user_name} publicou os resultados para a eleição %{resource_name} de %{space_name} no Quadro Informativo"
+          setup: "%{user_name} criou a eleição %{resource_name} de %{space_name} no Quadro Informativo"
+          start_key_ceremony: "%{user_name} iniciou a cerimónia chave para  a eleição %{resource_name} de %{space_name} no Quadro Informativo"
+          start_tally: "%{user_name} começou a contagem para a eleição %{resource_name} de %{space_name} no Quadro Informativo"
+          start_vote: "%{user_name} abriu o período de votação para a eleição %{resource_name} de %{space_name} no Quadro Informativo"
+          unpublish: "%{user_name} removeu a publicação de %{resource_name} de %{space_name}"
+          update: "%{user_name} actualizou a eleição %{resource_name} de %{space_name}"
+        trustee:
+          create: "%{user_name} atribuiu ao utente %{trustee_user} como curador"
+      election_m:
+        badge_name:
+          finished: Terminado
+          ongoing: Activo
+          upcoming: Seguinte
+        end_date: Termina
+        footer:
+          remaining_time:
+            one: "<strong>%{count} hora %{minutos} minutos </strong> restante para votar."
+            other: "<strong>%{count} horas %{minutos} minutos </strong> restantes para votar."
+          view: Visualizar
+          vote: Votar
+        label:
+          date: Datas
+        questions: Perguntas %{contagem}
+        start_date: Inicia
+        unspecified: Não especificado
       elections:
         count:
           elections_count:
             one: "%{count} eleição"
             other: "%{count} eleições"
+        election_log:
+          creation_description:
+            complete: A eleição foi criada e foi configurada com êxito no Quadro Informativo.
+            not_created: A eleição ainda não foi criada.
+          creation_title: Eleição criada
+          description: Este é o registo de eleição onde pode verificar o estado de cada etapa, por exemplo, quando a eleição foi criada, se o processo de contagem está concluído e quando a eleição está fechada.
+          download: Descarregar
+          key_ceremony_description:
+            complete: A cerimónia principal está concluída. Cada curador tem chaves válidas e descarregou as chaves de reserva necessárias.
+            not_started: A cerimónia principal  ainda não começou.
+            started: A cerimónia principal começou, mas ainda não está concluída.
+          key_ceremony_title: Cerimónia principal
+          not_available: Ainda não disponível
+          not_created: Não criado
+          not_published: Não publicado
+          not_ready: Não está pronto
+          not_started: Não iniciado
+          published: Publicado
+          results_description:
+            not_published: Os resultados ainda não foram publicados.
+            published: Os resultados estão publicados.
+          results_title: Resultado
+          started: Início
+          tally_description:
+            finished: O processo de contagem está terminado.
+            not_started: O processo de contagem ainda não começou.
+            started: O processo de contagem começou.
+          tally_title: Processo de contagem
+          title: Registo de Eleições
+          verifiable_results:
+            checksum: 'Soma de verificação SHA256 do ficheiro:'
+            description:
+              not_ready: O ficheiro verificável da eleição e a soma de verificação SHA256 ainda não estão disponíveis. Assim que os resultados forem publicados, poderá verificar esta eleição.
+              ready: 'Aqui é possível verificar a eleição. Primeiro, descarregue o ficheiro e certifique-se que não foi corrompido. Para isso, execute o seguinte comando e verifique se o resultado corresponde à soma de controlo:'
+            title: Verifique o resultado da eleição
+            verifiable_file: 'Ficheiro da eleição verificável:'
+          verify: Verificar a eleição
+          vote_description:
+            finished: O processo de votação está concluído.
+            not_started: O processo de votação ainda não começou.
+            started: O processo de votação já começou.
+          vote_title: Processo de votação
+        filters:
+          active: Activo
+          all: Todos
+          search: Pesquisar
+          state: Estado
+        filters_small_view:
+          close_modal: Fechar o modal
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Desdobrar
+        preview:
+          available_answers: 'Respostas disponíveis:'
+          description: 'Estas são as perguntas que encontrará no processo de votação:'
+          title: Questões da eleição
+        results:
+          description: 'Estes são os resultados da votação, para cada pergunta:'
+          selected: Seleccionado
+          title: Resultados da eleição
+          votes:
+            one: "%{count} voto"
+            other: "%{count} votos"
         show:
+          back: Eleições disponíveis
+          callout:
+            pending_vote: O seu voto está a ser registado no servidor.
+          election_log: Registo de eleições
           preview: Pré-visualizar
           voting_period_status:
             finished: A votação começou em %{start_time} e terminou em %{end_time}
+            ongoing: 'Votação ativa até: %{end_time}'
             upcoming: A votação começa em %{start_time}
+      feedback:
+        answer:
+          invalid: Houve um problema ao enviar o seu retorno.
+          spam_detected: Houve um problema ao responder ao formulário. Talvez tenha sido rápido demais, pode tentar outra vez?
+          success: Retorno enviado com sucesso.
       models:
         answer:
           fields:
             proposals: Propostas
+            selected: Seleccionado
             title: Título
+            votes: Votos
         election:
           fields:
+            bb_status: Estado do Quadro Informativo
             end_time: Termina às
             start_time: Inicia às
             title: Título
+            verifiable_results_file_hash: Soma de controlo SHA256 do ficheiro
+            verifiable_results_file_url: Processo eleitoral verificável
         question:
           fields:
             answers: Respostas
             max_selections: Máx. de seleções
             title: Título
+        trustees_participatory_space:
+          fields:
+            considered: considerado
+            inactive: inactivo
+            name: Nome
+            notification: Notificação enviada às
+            public_key: Chave pública
+            status: Estado
+      orders:
+        label: Ordenar eleições por
+        older: Menos recentes
+        recent: Mais recentes
+      trustee_zone:
+        elections:
+          backup_modal:
+            description: Esta eleição está a ser criada no Quadro Informativo. É muito importante que todos os seus Curadores criem uma cópia de segurança destas chaves e as guardem num lugar seguro. Após isso o processo continua.
+            download_election_keys: Descarregar chaves
+            download_icon: Ícone que indica uma acção de descarregar
+            title: Chaves %{eleição} em cópia de segurança
+          key_ceremony_steps:
+            back: Recuar
+            description: Esta eleição está a ser criada no Quadro Informativo. Para completar este precesso a sua participação com Curador é necessária.
+            keys:
+              create_election: Geração de chaves
+              key_ceremony:
+                joint_election_key: Geração de chaves conjunta
+                step_1: Publicação de chaves
+            list:
+              status: Estado
+              task: Tarefa
+            process_warning: Uma vez o processo é iniciado, você não deve sair desta página até que o processo termine. Pode demorar vários minutos, visto que os Curadores todos os curadores devem estar ligados para completá-lo.
+            start: Início
+            start_icon: Ícone que indica um botão de início para iniciar a geração de chaves eleitorais
+            status:
+              completed: Completo
+              pending: Pendente
+              processing: A processar
+            title: Criar chaves de eleição para %{election}
+          restore_modal:
+            upload_icon: Ícone que indica uma acção de descarregar
+          tally_steps:
+            back: Recuar
+            list:
+              status: Estado
+              task: Tarefa
+            process_warning: Uma vez o processo é iniciado, você não deve sair desta página até que o processo termine. Pode demorar vários minutos, visto que os Curadores todos os curadores devem estar ligados para completá-lo.
+            start: Início
+            start_icon: Ícone que indica um botão de início para iniciar a geração de chaves eleitorais
+            status:
+              completed: Completo
+              pending: Pendente
+              processing: A processar
+        trustees:
+          show:
+            elections:
+              list:
+                action_required:
+                  'false': 'Não'
+                bb_status: Estado
+                election: Eleição
+                voting_period: Período de votação
+              title: Eleições
+            identification_keys:
+              cancel: Cancelar
       votes:
         confirm:
           answer: Responder
@@ -183,9 +545,12 @@ pt:
           proposal_header: 'Propostas:'
         new:
           more_information: Mais informações
+          nota_option: Branco / Nenhum dos itens acima
           preview_alert: Isto é uma pré-visualização da cabina de voto.
           question_steps: Questão %{current_step} de %{total_steps}
           selections: "%{selected} de %{max_selections}<br> seleções"
+        onboarding_modal:
+          close: Fechar o modal
         voting_step:
           back: Retroceder
           continue: Seguinte
@@ -196,7 +561,280 @@ pt:
           email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
           email_subject: A eleição %{resource_title} está agora ativa em %{participatory_space_title}.
           notification_title: A eleição <a href="%{resource_path}">%{resource_title}</a> está agora ativa em %{participatory_space_title}.
+    menu:
+      votings: Votações
+    statistics:
+      elections_count: Eleições
+      votings_count: Votações
+    votings:
+      admin:
+        ballot_styles:
+          form:
+            election: Eleição
+          index:
+            actions:
+              confirm_destroy: Tem a certeza?
+              destroy: Eliminar
+              edit: Editar
+              new: Novo
+              title: Acções
+          new:
+            create: Criar
+        content_blocks:
+          landing_page:
+            stats:
+              name: Estatísticas da votação
+        landing_page:
+          content_blocks:
+            edit:
+              update: Actualizar
+          edit:
+            active_content_blocks: Blocos de conteúdo activos
+            inactive_content_blocks: Blocos de conteúdo inactivos
+        menu:
+          votings: Votações
+          votings_submenu:
+            attachment_collections: Pastas
+            attachment_files: Ficheiros
+            attachments: Anexos
+            components: Componentes
+            info: Informação
+            landing_page: Página de entrada
+            monitoring_committee_members: Membros
+            monitoring_committee_verify_elections: Verificar a eleição
+            polling_officers: Oficiais de votação
+            polling_stations: Secções de voto
+        models:
+          monitoring_committee_member:
+            fields:
+              name: Nome
+          polling_officer:
+            fields:
+              name: Nome
+            name: Oficiais de votação
+          polling_station:
+            fields:
+              address: Endereço
+              polling_station_managers: Gestor
+              polling_station_president: Presidente
+              title: Título
+            name: Secções de voto
+          voting:
+            fields:
+              created_at: Criado em
+              promoted: Realçado
+              published: Publicado
+              title: Título
+        monitoring_committee_election_results:
+          actions:
+            title: Acções
+            view: Visualizar
+          results:
+            polling_stations: Secções de voto
+            selected: Seleccionado
+          show:
+            publish_results: Publicar resultados
+            publishing: Publicar resultados
+        monitoring_committee_members:
+          form:
+            existing_user: Participante existente
+            user_type: Tipo de participante
+          new:
+            create: Criar
+        monitoring_committee_polling_station_closures:
+          actions:
+            validate: Validado
+            view: Visualizar
+          closures:
+            signed: Assinado
+            validated: Validado
+        monitoring_committee_verify_elections:
+          index:
+            title: Eleições
+        polling_officers:
+          form:
+            existing_user: Participante existente
+            user_type: Tipo de participante
+          index:
+            role_manager: Gestor
+            role_president: Presidente
+            title: Oficiais de votação
+          new:
+            create: Criar
+        polling_stations:
+          index:
+            title: Secções de voto
+          new:
+            create: Criar
+        titles:
+          votings: Votações
+        votings:
+          actions:
+            confirm_destroy: Tem a certeza?
+            destroy: Destruir
+            unpublish: Remover publicação
+          create:
+            invalid: Houve um problema ao actualizar esta votação
+          form:
+            title: Título
+            voting_type:
+              online: On-line
+          new:
+            create: Criar
+          publish:
+            success: Publicação da votação retirada com êxito
+          unpublish:
+            success: Publicação da votação retirada com êxito
+          update:
+            invalid: Houve um problema ao actualizar esta votação
+      admin_log:
+        voting:
+          create: "%{user_name} publicou a votação%{resource_name}"
+          publish: "%{user_name} publicou a votação%{resource_name}"
+          unpublish: "%{user_name} publicou a votação%{resource_name}"
+      census:
+        admin:
+          census:
+            delete:
+              button: Eliminar todos os dados do censo
+              confirm: Eliminar todo o censo não pode ser desfeito. Tem a certeza que quer continuar?
+            new:
+              file_help:
+                explanation: 'Orientação para o ficheiro:'
+        document_types:
+          passport: Passaporte
+      content_blocks:
+        landing_page:
+          description:
+            show_less: Ler menos
+            show_more: Ler mais
+          metrics:
+            heading: Métricas
+          polling_stations:
+            heading: Secções de voto
+          timeline:
+            heading: Cronograma
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: Tem a certeza?
+          destroy: Eliminar
+      polling_officer_zone:
+        closures:
+          certify:
+            add_images: Adicionar imagens
+          edit:
+            total_valid_ballots: 'Total dos boletins de voto válidos:'
+          new:
+            election: 'Eleição'
+            polling_station: 'Secção de voto'
+          sign:
+            cancel: Cancelar
+        in_person_votes:
+          complete_voting:
+            available_answers: 'Respostas disponíveis:'
+          in_person_form:
+            census_not_present: Este participante está listado no recenseamento.
+            date_of_birth: Data de nascimento
+            day: Dia
+            document_number: Número do documento
+            month: Mês
+            year: Ano
+          update:
+            error: Houve um erro ao registrar o seu voto. Por favor, tente de novo.
+            success:
+              accepted: A votação foi registada com êxito.
+              rejected: O voto não foi aceite pelo Quadro Informativo. Por favor contacte o administrador do sistema.
+          verify_document:
+            census_present: Este participante está listado no recenseamento.
+            name: Nome
+            title: 'Verifique se os seguintes dados estão correctos:'
+            verify_document: Verificar o documento
+        menu:
+          polling_officer_zone: Zona do Oficial de Votação
+        polling_officers:
+          index:
+            polling_station:
+              address: Endereço
+              count_votes: Contagem de votos
+              election: Eleição
+              identify_person: Identificar uma pessoa
+              name: Nome
+              show_closure: Ver encerramento
+              title: Secções de voto
+      polling_officers:
+        actions:
+          confirm_destroy: Tem a certeza?
+          destroy: Eliminar
+          new: Novo
+          title: Acções
+        roles:
+          manager: Gestor
+          president: Presidente
+          unassigned: Não atribuído
+      polling_station_closure_recount:
+        nota_option: Branco / Nenhum dos itens acima
+        polling_officer_notes: 'Notas do Oficial de Votação:'
+        polling_officer_notes_blank: Não há notas
+        recount_summary: 'Resumo da recontagem:'
+        signed: Assinado
+        total_valid_ballots: 'Total dos boletins de voto válidos:'
+      polling_stations:
+        actions:
+          confirm_destroy: Tem a certeza?
+          destroy: Eliminar
+          edit: Editar
+          new: Novo
+          title: Acções
+      votings:
+        check_fields:
+          date_of_birth: Data de nascimento
+          day: Dia
+          document_number: Número do documento
+          month: Mês
+          postal_code: Código postal
+          year: Ano
+        count:
+          title:
+            one: "%{count} votos"
+            other: "%{count} votos"
+        elections_log:
+          election_log: Registo de Eleições
+          title: Registo de eleições
+        filters:
+          active: Activo
+          all: Todos
+          search: Pesquisar
+          state: Estado
+        filters_small_view:
+          close_modal: Fechar o modal
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Desdobrar
+        index:
+          title: Votações
+        login:
+          title: Identificar-me com os meus dados de recenseamento para votação
+        orders:
+          recent: Mais recente
+        show:
+          dates: Datas
+      votings_m:
+        badge_name:
+          finished: Terminado
+        footer_button_text:
+          participate: Participantes
+          view: Visualizar
+          vote: Votar
+        unspecified: Não especificado
+        voting_type:
+          online: On-line
   layouts:
     decidim:
       election_votes_header:
         exit: Sair
+      voting_navigation:
+        election_log: Registo de eleições
+      votings:
+        promoted_voting:
+          more_info: Mais informações
+          vote: Votar
