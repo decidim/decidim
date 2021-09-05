@@ -65,9 +65,23 @@ pt:
       actions:
         new_initiative_type: Novo tipo de iniciativa
       filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Área
+          state_eq:
+            label: Estado
+            values:
+              accepted: Assinaturas suficientes
+              created: Criado
+              published: Publicado
+              rejected: Assinaturas insuficientes
+          type_id_eq:
+            label: Tipo
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Pesquisar %{collection} por título, descrição, ID ou nome do autor.
       menu:
+        attachments: Anexos
+        committee_members: Membros do Comité
         components: Componentes
         information: Informação
         initiatives: Iniciativas
@@ -103,6 +117,7 @@ pt:
             initiative_title: Título da iniciativa
             name_and_surname: Nome e apelido
             postal_code: Código postal
+            scope: Âmbito
             time_and_date: Hora e data
             timestamp: Data e hora
       titles:
@@ -121,6 +136,11 @@ pt:
           email_outro: Recebeu esta notificação porque segue %{resource_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
           email_subject: Data final das assinaturas da iniciativa foi estendida!
           notification_title: A data final das assinaturas da iniciativa <a href="%{resource_path}">%{resource_title}</a> foi estendida.
+        initiative_sent_to_technical_validation:
+          email_intro: A iniciativa "%{resource_title}" foi enviada para validação técnica. Consulte-a no <a href="%{admin_initiative_url}">painel de administrador</a>
+          email_outro: Recebeu esta notificação porque é administrador da plataforma.
+          email_subject: A iniciativa "%{resource_title}" foi enviada para validação técnica.
+          notification_title: A iniciativa "%{resource_title}" foi enviada para validação técnica. Consulte-a no <a href="%{admin_initiative_path}">painel de administrador</a>
         milestone_completed:
           affected_user:
             email_intro: A sua iniciativa %{resource_title} alcançou os %{percentage}% de assinaturas!
@@ -184,6 +204,7 @@ pt:
           edit:
             accept: Aceitar iniciativa
             confirm: Tem a certeza?
+            confirm_send_to_technical_validation: Tem a certeza?
             discard: Descartar a iniciativa
             export_pdf_signatures: Exportar PDF de assinaturas
             export_votes: Exportar assinaturas
@@ -192,6 +213,7 @@ pt:
             success: A iniciativa foi enviada para validação técnica
             update: Atualizar
           form:
+            attachments: Anexos
             title: Informação geral
           index:
             actions_title: Ação
@@ -316,6 +338,12 @@ pt:
           compare_help: Se alguma das seguintes iniciativas for semelhante à sua, incentivamos-o(a) a apoiá-la. A sua proposta terá mais possibilidades de ser feita.
           continue: A minha iniciativa é diferente
           more_information: "(Mais informações)"
+      edit:
+        confirm: Tem a certeza?
+        discard: Descartar a iniciativa
+        export_pdf_signatures: Exportar PDF de assinaturas
+        export_votes: Exportar assinaturas
+        reject: Rejeitar iniciativa
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, que você segue, criou uma nova iniciativa, confira e contribua:"
@@ -327,6 +355,9 @@ pt:
           email_outro: Recebeu esta notificação porque segue %{author_nickname}. Pode parar de receber notificações seguindo a hiperligação anterior.
           email_subject: Iniciativa endossada por %{author_nickname}
           notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> foi endossada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      form:
+        add_attachments: Documentos
+        delete_attachment: Eliminar
       index:
         title: Iniciativas
       initiative_signatures:
@@ -363,6 +394,13 @@ pt:
           hidden_authors_count:
             one: e mais 1 pessoa
             other: e mais %{count} pessoas
+        committee_members:
+          approve: Aprovar
+          confirm_revoke: Tem a certeza?
+          invite_to_committee_help: Partilhe esta hiperligação para convidar outros participantes para o comité promotor
+          no_members_yet: Não há membros no comité promotor
+          revoke: Revogar
+          title: Membros do Comité
         count:
           title:
             one: "%{count} iniciativa"
@@ -401,11 +439,18 @@ pt:
           recent: Mais recente
           recently_published: Publicado mais recentemente
         print:
+          address: Endereço
           city: Cidade
+          initiative:
+            description: 'Descrição'
+            title: 'Título'
+          print: Impressão
         result:
           initiative_rejected_reason: Esta iniciativa foi rejeitada devido à falta de assinaturas.
         show:
+          edit: Editar
           follow_description: Receber uma notificação quando houverem notícias nesta iniciativa
+          send_to_technical_validation: Enviar para validação técnica
         signatures_count:
           one: " assinatura"
           other: " assinaturas"
@@ -451,12 +496,18 @@ pt:
         accepted: Aceite
         expired: Expirado
       unavailable_scope: Âmbito não disponível
+      update:
+        error: Ocorreu um erro
+        success: A iniciativa foi atualizada corretamente
       versions:
         shared:
           back_to_resource: Retroceder para a iniciativa
     menu:
       initiatives: Iniciativas
     resources:
+      initiative:
+        actions:
+          comment: Comentários
       initiatives_type:
         actions:
           title: Ações
