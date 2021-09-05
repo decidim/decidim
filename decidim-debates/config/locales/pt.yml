@@ -31,18 +31,24 @@ pt:
             announcement: Anúncio
             comments_enabled: Comentários ativados
             comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
+            scope_id: Âmbito
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
             creation_enabled: Criação de debate por participantes ativado
+            endorsements_enabled: Endossamentos ativados
     debates:
       actions:
+        close: Fechar
         confirm_destroy: Tem a certeza?
         destroy: Eliminar
         edit: Editar
         new: Novo %{name}
         title: Ações
       admin:
+        debate_closes:
+          edit:
+            close: Fechar
         debates:
           create:
             invalid: Ocorreu um problema ao criar o debate.
@@ -60,6 +66,8 @@ pt:
           update:
             invalid: Ocorreu um problema ao atualizar este debate.
             success: Debate atualizado corretamente.
+        exports:
+          comments: Comentários
         models:
           debate:
             name: Debate
@@ -82,13 +90,21 @@ pt:
           save: Guardar alterações
           title: Editar debate
         filters:
+          activity: A minha atividade
           all: Todos
           category: Categoria
           category_prompt: Selecione uma categoria
           citizens: Cidadãos
+          commented: Comentários
           official: Oficial
           origin: Origem
+          scope: Âmbito
           search: Pesquisar
+          state: Estado
+          state_values:
+            closed: Fechar
+            open: Abertas
+          user_groups: Grupos
         filters_small_view:
           close_modal: Fechar modal
           filter: Filtrar
@@ -102,10 +118,15 @@ pt:
           back: Retroceder
           create: Criar
           title: Novo debate
+        orders:
+          random: Ordem aleatória
         show:
           back: Retroceder à lista
           date: Data
+          debate_closed: Fechar
           edit_debate: Editar debate
+          groups_count: Grupos
+          participants_count: Participantes
         update:
           invalid: Ocorreu um problema ao atualizar o debate.
           success: Debate atualizado corretamente.
@@ -117,6 +138,7 @@ pt:
         versions_list:
           back_to_resource: Retroceder para debate
       last_activity:
+        debate_updated_at_html: "<span>Proposta actualizada em %{link}</span>"
         new_debate_at_html: "<span>Novo debate em %{link}</span>"
       models:
         debate:
