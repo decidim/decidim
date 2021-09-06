@@ -25,6 +25,8 @@ module Decidim
                 yield [], index
               end
             end
+          rescue Zip::Error
+            raise Decidim::Admin::Import::InvalidFileError, "The provided XLSX file is not valid"
           end
         end
       end

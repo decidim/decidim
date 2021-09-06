@@ -133,6 +133,7 @@ en:
       new_import:
         attributes:
           file:
+            invalid_file: Invalid file provided, please check that the file is correctly formatted
             invalid_mime_type: Invalid mime type
   activerecord:
     attributes:

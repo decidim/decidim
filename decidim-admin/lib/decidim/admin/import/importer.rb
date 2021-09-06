@@ -41,6 +41,12 @@ module Decidim
           @collection ||= collection_data.map { |item| creator.new(item, context) }
         end
 
+        def invalid_file?
+          collection.blank?
+        rescue Decidim::Admin::Import::InvalidFileError
+          true
+        end
+
         def invalid_columns
           @invalid_columns ||= begin
             prepare

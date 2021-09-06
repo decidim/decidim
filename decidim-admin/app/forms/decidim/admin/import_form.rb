@@ -11,37 +11,16 @@ module Decidim
 
       validates :file, presence: true
       validates :name, presence: true
-      validate :accepted_mime_type
-      validate :check_invalid_columns
-      validate :check_invalid_lines
+      validate :check_accepted_mime_type
+      validate :check_invalid_file, if: -> { file.present? && accepted_mime_type? }
 
-      def check_invalid_columns
-        return if file.blank? || !accepted_mime_type
-
-        message = importer.invalid_columns_message
-        errors.add(:file, message) if message
+      with_options if: -> { file.present? && accepted_mime_type? && !importer.invalid_file? } do
+        validate :check_invalid_columns
+        validate :check_invalid_lines
       end
 
-      def check_invalid_lines
-        return if file.blank? || !accepted_mime_type
-
-        message = importer.invalid_indexes_message
-        errors.add(:file, message) if message
-      end
-
-      def file_path
-        file&.path
-      end
-
-      def mime_type
-        file&.content_type
-      end
-
-      def accepted_mime_type
-        accepted_mime_types = ACCEPTED_MIME_TYPES.values
-        return true if accepted_mime_types.include?(mime_type)
-        # Avoid duplicating error messages
-        return false if errors[:file].present?
+      def check_accepted_mime_type
+        return if accepted_mime_type?
 
         errors.add(
           :file,
@@ -52,7 +31,30 @@ module Decidim
             end.join(", ")
           )
         )
-        false
+      end
+
+      def check_invalid_file
+        return unless importer.invalid_file?
+
+        errors.add(:file, I18n.t("activemodel.errors.new_import.attributes.file.invalid_file"))
+      end
+
+      def check_invalid_columns
+        message = importer.invalid_columns_message
+        errors.add(:file, message) if message
+      end
+
+      def check_invalid_lines
+        message = importer.invalid_indexes_message
+        errors.add(:file, message) if message
+      end
+
+      def file_path
+        file&.path
+      end
+
+      def mime_type
+        file&.content_type
       end
 
       def creator_class
@@ -73,6 +75,12 @@ module Decidim
       end
 
       protected
+
+      def accepted_mime_type?
+        return true if ACCEPTED_MIME_TYPES.values.include?(mime_type)
+
+        false
+      end
 
       def importer_context
         context

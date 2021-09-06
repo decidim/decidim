@@ -31,7 +31,7 @@ module Decidim::Admin::Import::Readers
         let(:file) { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
 
         it "raises an error" do
-          expect { subject.read_rows }.to raise_error(Zip::Error)
+          expect { subject.read_rows }.to raise_error(Decidim::Admin::Import::InvalidFileError)
         end
       end
     end
