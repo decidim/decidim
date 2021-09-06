@@ -24,7 +24,7 @@ shared_examples "split proposals" do
     context "when split into a new one is selected from the actions dropdown" do
       before do
         page.find("#proposals_bulk.js-check-all").set(false)
-        page.first(".js-proposal-list-check").set(true)
+        page.find(".js-proposal-id-#{proposals.first.id}").set(true)
 
         click_button "Actions"
         click_button "Split proposals"
