@@ -892,7 +892,7 @@ fi:
             rejected: Hylätty
             verified: Vahvistettu
           filter_by: Suodata
-          search: Etsi
+          search: Hae
           state:
             pending: Odottaa
             rejected: Hylätty

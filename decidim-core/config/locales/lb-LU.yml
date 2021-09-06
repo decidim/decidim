@@ -63,6 +63,7 @@ lb:
     'true': 'Ja'
   carrierwave:
     errors:
+      general: Fehler bei der Bildverarbeitung
       image_too_big: Das Bild ist zu groß
       not_inside_organization: Die Datei ist keiner Organisation hinzugefügt
   date:
@@ -914,9 +915,18 @@ lb:
     pages:
       home:
         statistics:
+          answers_count: Abgeschlossene Umfragen
+          assemblies_count: Versammlungen
+          comments_count: Kommentare
+          conferences_count: Konferenzen
           endorsements_count: Empfehlungen
           meetings_count: Versammlung
+          orders_count: Stimmen
+          processes_count: Beteiligungsprozesse
+          proposals_accepted: Akzeptierte Vorschläge
+          surveys_count: Umfragen
           users_count: Teilnehmer
+          votes_count: Stimmen
       participatory_space:
         metrics:
           headline: Teilnahme an Zahlen
@@ -1229,6 +1239,7 @@ lb:
       updated_not_active: Ihr Passwort wurde erfolgreich geändert.
   errors:
     messages:
+      content_type_allowlist_error: Der Dateityp ist nicht gültig
       not_locked: war nicht gesperrt
       not_saved:
         one: 'Bei der Bearbeitung Ihrer Anfrage ist ein Fehler aufgetreten:'

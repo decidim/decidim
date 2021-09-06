@@ -1335,7 +1335,7 @@ fr:
     version:
       show:
         back_to_resource: Revenir en arrière
-        changes_at_title: Changements à%{title}"
+        changes_at_title: Changements sur "%{title}"
         number_of_versions: Versions
         show_all_versions: Afficher toutes les versions
         version_author: Auteur de la version
@@ -1353,7 +1353,7 @@ fr:
     versions_list:
       show:
         back_to_resource: Revenir en arrière
-        changes_at_title: Changements à%{title}"
+        changes_at_title: Changements sur "%{title}"
         number_of_versions: Versions
         title: Versions
     versions_list_item:

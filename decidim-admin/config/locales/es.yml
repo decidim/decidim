@@ -887,11 +887,11 @@ es:
       user_groups:
         index:
           filter:
-            all: Todos
+            all: Todas
             pending: Pendiente
-            rejected: Rechazados
-            verified: Verificados
-          filter_by: Filtrar por
+            rejected: Rechazado
+            verified: Verificado
+          filter_by: Filtrado por
           search: Buscar
           state:
             pending: Pendiente

@@ -887,7 +887,7 @@ pl:
       user_groups:
         index:
           filter:
-            all: Wszystkie
+            all: Wszystko
             pending: Oczekujące
             rejected: Odrzucone
             verified: Zweryfikowane

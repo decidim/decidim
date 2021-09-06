@@ -1,6 +1,8 @@
 pt:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Activar o diagrama da organização
       assembly:
         area_id: Área
         assembly_type: Tipo de reunião
@@ -60,6 +62,7 @@ pt:
         full_name: Nome completo
         gender: Género
         position: Posição
+        user_id: Utilizador
       assembly_user_role:
         email: E-mail
         name: Nome
@@ -246,6 +249,7 @@ pt:
         update: "%{user_name} atualizou as definições de reuniões"
       assembly_type:
         create: "%{user_name} criou o tipo de reunião %{resource_name}"
+        delete: "%{user_name} removeu o tipo de reunião %{resource_name}"
         publish: "%{user_name} publicou o tipo de reunião %{resource_name}"
         unpublish: "%{user_name} removeu a publicação do tipo de reunião %{resource_name}"
         update: "%{user_name} atualizou o tipo de reunião %{resource_name}"
@@ -304,6 +308,9 @@ pt:
         content_blocks:
           highlighted_assemblies:
             max_results: Quantidade máxima de elementos a mostrar
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Membros

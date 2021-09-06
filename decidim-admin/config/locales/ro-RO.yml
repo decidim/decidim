@@ -891,7 +891,7 @@ ro:
             rejected: Respins
             verified: Verificat
           filter_by: Filtrare după
-          search: Căutare
+          search: Caută
           state:
             pending: In asteptare
             rejected: Respins

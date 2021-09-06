@@ -17,8 +17,10 @@ pt:
   decidim:
     comments:
       comments_count: Contagem de comentários
+      comments_title: Comentários
       last_activity:
         new_comment_at_html: "<span>Novo comentário em %{link}</span>"
+      view: Visualizar
       votes:
         create:
           error: Houve erros ao votar o comentário.

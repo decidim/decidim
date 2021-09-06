@@ -888,11 +888,11 @@ cs:
         index:
           filter:
             all: Vše
-            pending: Čekající
+            pending: čekající
             rejected: Odmítnuto
             verified: Ověřeno
           filter_by: Filtrovat podle
-          search: Vyhledávání
+          search: Hledat
           state:
             pending: čekající
             rejected: Odmítnuto

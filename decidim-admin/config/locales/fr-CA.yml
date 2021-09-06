@@ -32,6 +32,7 @@ fr-CA:
         body: Corps de texte
         subject: Objet
       organization:
+        admin_terms_of_use_body: Corps du texte pour les conditions d'utilisation de l'admin
         alert_color: Alerte
         available_authorizations: Autorisations disponibles
         badges_enabled: Activer les badges
@@ -886,7 +887,7 @@ fr-CA:
       user_groups:
         index:
           filter:
-            all: Tous
+            all: Tout
             pending: En attente
             rejected: Non validés
             verified: Vérifié

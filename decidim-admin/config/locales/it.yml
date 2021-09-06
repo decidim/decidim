@@ -887,12 +887,12 @@ it:
       user_groups:
         index:
           filter:
-            all: Tutto
+            all: Tutti
             pending: in attesa di
             rejected: Rifiutata
             verified: Verificato
           filter_by: Filtra per
-          search: Cerca
+          search: Ricerca
           state:
             pending: in attesa di
             rejected: Rifiutata

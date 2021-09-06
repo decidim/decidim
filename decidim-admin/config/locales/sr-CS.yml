@@ -575,6 +575,12 @@ sr:
       titles:
         metrics: Metrika
         statistics: Aktivnost
+      user_groups:
+        index:
+          filter:
+            all: Sve
+          filter_by: Izaberi po
+          search: Pretraži
       users_statistics:
         users_count:
           last_day: Poslednji dan

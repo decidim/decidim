@@ -603,6 +603,14 @@ ja:
           highlighted_votings:
             max_results: 表示する要素の最大量
           landing_page:
+            attachments_and_folders:
+              name: 投票の添付ファイルとフォルダ
+            description:
+              name: 投票の説明
+            elections:
+              name: 投票する選挙
+            header:
+              name: 投票のヘッダー
             html_block_1:
               name: 投票htmlブロック1
             html_block_2:
@@ -610,7 +618,7 @@ ja:
             html_block_3:
               name: 投票htmlブロック3
             metrics:
-              name: 投票メトリック
+              name: 投票メトリクス
             polling_stations:
               name: 投票ステーション
             stats:
@@ -664,9 +672,22 @@ ja:
               promoted: ハイライト
               published: 公開済み
               title: タイトル
+        monitoring_committee_members:
+          create:
+            invalid: この監視委員会メンバーの作成中に問題が発生しました
+            success: 監視委員会のメンバーが正常に作成されました
+          destroy:
+            invalid: この監視委員会メンバーの削除中に問題が発生しました
+            success: 監視委員会のメンバーが正常に削除されました
+          form:
+            existing_user: 既存の参加者
+            non_user: 新しい参加者を招待
+            select_user: 名前、メールアドレス、ニックネームで検索
         polling_officers:
           index:
             role_president: 投票管理者
+          polling_officers_picker:
+            close: 閉じる
         polling_stations:
           form:
             polling_station_president_help: '投票管理者:投票所の代表を務める担当者。 投票委員がすでに投票所に設置されていること、および他の投票所に割り当てられていないことを確認してください'

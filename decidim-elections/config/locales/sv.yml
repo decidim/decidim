@@ -76,6 +76,7 @@ sv:
         destroy: Förstör
         edit: Redigera
         import: Importera förslag till svar
+        manage_steps: Hanterade steg
         new: Ny %{name}
         preview: Förhandsgranska
         publish: Publicera
@@ -317,6 +318,8 @@ sv:
         encrypting:
           header: Kodar omröstning...
           text: Din röst krypteras så att du kan skicka den anonymt.
+        failed:
+          header: Röst ej framgångsrik
         header:
           confirm: Bekräfta din röst
           confirmed: Rösta bekräftad
@@ -498,6 +501,7 @@ sv:
           hybrid: Hybrid
           in_person: Fysisk
           online: Online
+        voting_types_label: Rösttyp
   layouts:
     decidim:
       election_votes_header:
