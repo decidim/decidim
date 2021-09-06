@@ -428,11 +428,9 @@
             select_states: Sjekk statusen til forslagene som skal importeres
         proposals_merges:
           create:
-            invalid: Det oppstod et problem med å slå sammen de valgte forslagene.
             success: Slo sammen forslagene til et nytt ett.
         proposals_splits:
           create:
-            invalid: Det oppstod et problem med å splitte de valgte forslagene.
             success: Delte forslagene vellykket til nye.
       admin_log:
         proposal:
