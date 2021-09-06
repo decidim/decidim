@@ -20,10 +20,23 @@ module Decidim
 
           def read_rows
             json_string = File.read(file)
+            columns = []
             ::JSON.parse(json_string).each_with_index do |row, index|
-              yield row.keys, index if index.zero?
-              yield row.values, index + 1
+              if index.zero?
+                columns = row.keys
+                yield columns, index
+              end
+
+              values = columns.map { |c| row[c] }
+              last_present = values.rindex { |v| !v.nil? }
+              if last_present
+                yield values[0..last_present], index + 1
+              else
+                yield [], index + 1
+              end
             end
+          rescue ::JSON::ParserError
+            raise Decidim::Admin::Import::InvalidFileError, "The provided JSON file is not valid"
           end
         end
       end
