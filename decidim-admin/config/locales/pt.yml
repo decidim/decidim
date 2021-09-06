@@ -884,7 +884,7 @@ pt:
             rejected: Rejeitado
             verified: Verificado
           filter_by: Filtrar por
-          search: Pesquisar
+          search: Pesquisa
           state:
             pending: Pendente
             rejected: Rejeitado
