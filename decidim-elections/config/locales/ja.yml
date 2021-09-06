@@ -835,12 +835,30 @@ ja:
             select_user: 名前、メールアドレス、ニックネームで検索
         monitoring_committee_verify_elections:
           index:
+            download: ダウンロード
             how_to_run_verifier: 'いったんファイルをダウンロードし問題のないことが確認できたら、ユニバーサルベリファイアの実行に進めます。 <a href=''https://github.com/decidim/decidim-bulletin-board''>このリポジトリ</a> をクローンして、ルートのフォルダにて次のコマンドを実行します:'
+            title: 選挙
         polling_officers:
+          destroy:
+            invalid: この投票担当者を削除する際に問題が発生しました
+            success: 投票委員を削除しました
+          form:
+            existing_user: 既存の参加者
+            non_user: 新しい参加者を招待
+            select_user: 名前、メールアドレス、ニックネームで検索
+            user_type: 参加者の種類
           index:
+            role_manager: マネージャー
             role_president: 投票管理者
+            title: 投票委員
+          new:
+            create: 作成
+            title: 投票委員を作成
           polling_officers_picker:
+            choose_polling_officers: 投票委員を選択してください
             close: 閉じる
+            more_polling_officers: あと %{number} 人の投票委員がいます。検索を絞り込んで探しましょう。
+            no_polling_officers: 検索条件に一致する投票委員がいないか、または投票委員が存在しません。
         polling_stations:
           form:
             polling_station_president_help: '投票管理者:投票所の代表を務める担当者。 投票委員がすでに投票所に設置されていること、および他の投票所に割り当てられていないことを確認してください'
