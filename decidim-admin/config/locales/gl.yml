@@ -910,13 +910,6 @@ gl:
           success: Grupo de usuarios verificado con éxito
       user_groups:
         index:
-          filter:
-            all: Todo
-            pending: Pendente
-            rejected: Rexeitado
-            verified: Verificado
-          filter_by: Filtrar por
-          search: Busca
           state:
             pending: Pendente
             rejected: Rexeitado
