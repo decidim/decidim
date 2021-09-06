@@ -467,11 +467,9 @@ lv:
             select_states: Pārbaudiet importējamo priekšlikumu statusu
         proposals_merges:
           create:
-            invalid: Apvienojot atlasītos priekšlikumus, radās problēma.
             success: Visi priekšlikumi ir veiksmīgi apvienoti vienā jaunā priekšlikumā.
         proposals_splits:
           create:
-            invalid: Sadalot atlasītos priekšlikumus, radās problēma.
             success: Priekšlikumi ir veiksmīgi sadalīti jaunos priekšlikumos.
         valuation_assignments:
           create:
