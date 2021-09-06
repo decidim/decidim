@@ -928,13 +928,6 @@ fi:
           success: Käyttäjäryhmän vahvistaminen onnistui
       user_groups:
         index:
-          filter:
-            all: Kaikki
-            pending: Odottaa
-            rejected: Hylätty
-            verified: Vahvistettu
-          filter_by: Suodata
-          search: Etsi
           state:
             pending: Odottaa
             rejected: Hylätty
