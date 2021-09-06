@@ -957,7 +957,7 @@ pl:
           groups: Moje grupy
           last_message: Ostatnia wiadomość
           new_conversation: Nowa konwersacja
-          next: Następna
+          next: Dalej
           no_conversations: Nie masz jeszcze żadnych konwersacji
           title: Konwersacje
         reply:
@@ -1321,7 +1321,7 @@ pl:
         last_message: Ostatnia wiadomość
         modal_title: Nowa konwersacja
         new_conversation: Nowa konwersacja
-        next: Następna
+        next: Dalej
         no_conversations_warning: Brak konwersacji.
         no_results: Brak wyników
         participant_with_disabled_message_reception: Ten użytkownik wyłączył odbiór wiadomości
