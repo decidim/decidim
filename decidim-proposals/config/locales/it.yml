@@ -509,11 +509,9 @@ it:
             title: Importa proposte
         proposals_merges:
           create:
-            invalid: Si è verificato un errore durante l'unione delle proposte selezionate.
             success: Fuse con successo le proposte in una nuova.
         proposals_splits:
           create:
-            invalid: Si è verificato un errore durante la divisione delle proposte selezionate.
             success: Suddiviso con successo le proposte in nuove.
         valuation_assignments:
           create:
