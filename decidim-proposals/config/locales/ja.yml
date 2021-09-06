@@ -57,6 +57,16 @@ ja:
               identical: ANDタイトルは同一にすることはできません
             title:
               identical: AND本体は同一にすることはできません
+        proposals_merge:
+          attributes:
+            base:
+              not_official: 公式ではありません
+              supported: 支持または承認を受けました
+        proposals_split:
+          attributes:
+            base:
+              not_official: 公式ではありません
+              supported: サポートまたは承認を受けました
     models:
       decidim/proposals/accepted_proposal_event: 提案が承認されました
       decidim/proposals/admin/update_proposal_category_event: 提案カテゴリが変更されました
@@ -504,9 +514,11 @@ ja:
             title: 提案をインポート
         proposals_merges:
           create:
+            invalid: '選択した提案をマージする際に問題が発生しました:'
             success: 提案を正常に新しいものにマージしました。
         proposals_splits:
           create:
+            invalid: '選択した提案を分割する際に問題が発生しました:'
             success: 提案を新しいものに分割しました。
         valuation_assignments:
           create:
