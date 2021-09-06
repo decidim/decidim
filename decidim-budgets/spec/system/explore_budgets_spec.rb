@@ -25,7 +25,7 @@ describe "Explore Budgets", :slow, type: :system do
 
   context "with many budgets" do
     let!(:budgets) do
-      1.upto(6).to_a.map { |x| create(:budget, component: component, total_budget: x * 10_000_000, description: { en: "This is budget #{x}" }) }
+      1.upto(6).to_a.map { |x| create(:budget, component: component, weight: x, total_budget: x * 10_000_000, description: { en: "This is budget #{x}" }) }
     end
 
     before do
@@ -37,8 +37,9 @@ describe "Explore Budgets", :slow, type: :system do
 
       budgets.each do |budget|
         expect(page).to have_content(translated(budget.title))
-        expect(page).to have_content("This is budget 1")
-        expect(page).to have_content("€10,000,000")
+        1.upto(6).each do |x|
+          expect(page).to have_content("€#{x * 10},000,000")
+        end
       end
     end
 
