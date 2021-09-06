@@ -455,10 +455,10 @@ en:
         invalid_columns:
           base:
             and: and
-            detail: Please check that these columns are formatted correctly and contain valid headers.
+            detail: Please check that these columns contain valid headers.
             message:
-              one: Found error in import file in column header %{columns}.
-              other: Found error in import file in column headers %{columns}.
+              one: Found invalid column header %{columns}.
+              other: Found invalid column headers %{columns}.
         invalid_indexes:
           base:
             and: and

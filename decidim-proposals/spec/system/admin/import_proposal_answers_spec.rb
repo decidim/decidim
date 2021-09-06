@@ -79,7 +79,7 @@ describe "Import proposal answers", type: :system do
       end
       attach_file :import_file, json_file
       click_button "Import"
-      expect(page).to have_content("Found error in import file in column headers answer/fi and hello. Please check that these columns are formatted correctly and contain valid headers.")
+      expect(page).to have_content("Found invalid column headers answer/fi and hello. Please check that these columns contain valid headers.")
     end
   end
 end
