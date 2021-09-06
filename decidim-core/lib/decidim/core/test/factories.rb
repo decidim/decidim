@@ -749,4 +749,10 @@ FactoryBot.define do
       last_used_at { 1.hour.ago }
     end
   end
+
+  factory :editor_image, class: "Decidim::EditorImage" do
+    organization
+    author { create(:user, :admin, :confirmed, organization: organization) }
+    file { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+  end
 end
