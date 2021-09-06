@@ -254,7 +254,12 @@ fr-CA:
             success: Le garant %{trustee} a été mis à jour avec succès
       admin_log:
         election:
+          end_vote: "%{user_name} a terminé la période de vote pour l'élection %{resource_name} sur le Tableau des Bulletins"
           publish: "%{user_name} a publié l'élection %{resource_name}"
+          setup: "%{user_name} a créé l'élection %{resource_name} sur le Tableau des Bulletins"
+          start_key_ceremony: "%{user_name} a commencé la cérémonie des clés pour l'élection %{resource_name} sur le Tableau des Bulletins"
+          start_tally: "%{user_name} a commencé le dépouillement pour l'élection %{resource_name} sur le Tableau des Bulletins"
+          start_vote: "%{user_name} a commencé la période de vote pour l'élection %{resource_name} sur le Tableau des Bulletins"
           unpublish: "%{user_name} a dépublié l'élection %{resource_name}"
       election_m:
         badge_name:
