@@ -509,11 +509,9 @@ de:
             title: Vorschläge importieren
         proposals_merges:
           create:
-            invalid: Beim Zusammenführen der ausgewählten Vorschläge ist ein Fehler aufgetreten.
             success: Erfolgreich die Vorschläge in eine neue zusammengeführt.
         proposals_splits:
           create:
-            invalid: Beim Teilen der ausgewählten Vorschläge ist ein Fehler aufgetreten.
             success: Die Vorschläge wurden erfolgreich in neue aufgeteilt.
         valuation_assignments:
           create:
