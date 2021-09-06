@@ -887,12 +887,12 @@ ca:
       user_groups:
         index:
           filter:
-            all: Tots
-            pending: Pendents
-            rejected: Rebutjats
-            verified: Verificats
+            all: Totes
+            pending: Pendent
+            rejected: Rebutjat
+            verified: Verificat
           filter_by: Filtra per
-          search: Cerca
+          search: Cercar
           state:
             pending: Pendent
             rejected: Rebutjat
