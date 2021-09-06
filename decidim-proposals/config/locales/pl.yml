@@ -518,11 +518,9 @@ pl:
             title: Importuj propozycje
         proposals_merges:
           create:
-            invalid: Podczas łączenia wybranych propozycji wystąpił błąd.
             success: Pomyślnie połączono propozycje.
         proposals_splits:
           create:
-            invalid: Wystąpił błąd podczas podziału wybranych propozycji.
             success: Pomyślnie podzielono propozycje.
         valuation_assignments:
           create:
