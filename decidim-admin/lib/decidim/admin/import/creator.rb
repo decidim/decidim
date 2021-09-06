@@ -53,9 +53,10 @@ module Decidim
         # Check if prepared header is valid
         #
         # _header - Header / column title of the imported file (e.g. cell in the first row in excel)
+        # _available_locales - The locales to check for with translatable headers
         #
         # Returns true if header is valid
-        def self.header_valid?(_header)
+        def self.header_valid?(_header, _available_locales)
           true
         end
 
