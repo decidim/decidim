@@ -928,13 +928,6 @@ es:
           success: Grupo verificado correctamente
       user_groups:
         index:
-          filter:
-            all: Todos
-            pending: Pendiente
-            rejected: Rechazados
-            verified: Verificados
-          filter_by: Filtrar por
-          search: Buscar
           state:
             pending: Pendiente
             rejected: Rechazado
