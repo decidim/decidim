@@ -926,13 +926,6 @@ el:
           success: Η ομάδα επαληθεύτηκε με επιτυχία
       user_groups:
         index:
-          filter:
-            all: Όλα
-            pending: Σε εκκρεμότητα
-            rejected: Απορρίφθηκε
-            verified: Επαληθεύτηκε
-          filter_by: Φιλτράρισμα κατά
-          search: Αναζήτηση
           state:
             pending: Σε εκκρεμότητα
             rejected: Απορρίφθηκε
