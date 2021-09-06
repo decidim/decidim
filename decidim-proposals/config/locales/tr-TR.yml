@@ -501,11 +501,9 @@ tr:
             title: Teklifleri içe aktar
         proposals_merges:
           create:
-            invalid: Seçilen teklifler birleştirilirken bir hata oluştu.
             success: Teklifler, yeni bir taneyle başarılı bir şekilde birleştirildi.
         proposals_splits:
           create:
-            invalid: Seçilen teklifleri bölerken bir sorun vardı.
             success: Teklifleri başarılı bir şekilde yenilere ayırdı.
         valuation_assignments:
           create:
