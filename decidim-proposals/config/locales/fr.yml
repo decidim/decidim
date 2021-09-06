@@ -57,6 +57,16 @@ fr:
               identical: ET le titre ne peut pas être identique
             title:
               identical: ET le corps ne peut pas être identique
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Non officiels
+              supported: Avoir reçu des soutiens ou des approbations
+        proposals_split:
+          attributes:
+            base:
+              not_official: Non officiels
+              supported: A reçu des soutiens ou des approbations
     models:
       decidim/proposals/accepted_proposal_event: Proposition acceptée
       decidim/proposals/admin/update_proposal_category_event: Catégorie de proposition modifiée
@@ -507,9 +517,11 @@ fr:
             title: Importer des propositions
         proposals_merges:
           create:
+            invalid: 'Une erreur est survenue lors de la fusion des propositions à cause de certaines d''entre elles:'
             success: A fusionné avec succès les propositions dans un nouveau.
         proposals_splits:
           create:
+            invalid: 'Une erreur est survenue lors de la division des propositions sélectionnées à cause de certaines d''entre elles:'
             success: Divisé avec succès les propositions en nouvelles.
         valuation_assignments:
           create:
