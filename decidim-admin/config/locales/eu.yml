@@ -617,8 +617,8 @@ eu:
             pending: Zain
             rejected: Ukatua
             verified: Egiaztatuta
-          filter_by: 'Iragazi honen arabera:'
-          search: Bilatu
+          filter_by: Iragazi arabera
+          search: Search
           state:
             pending: Zain
             rejected: Ukatua
