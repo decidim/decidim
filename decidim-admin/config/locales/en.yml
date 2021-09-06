@@ -453,13 +453,20 @@ en:
           impersonate_new_managed_user: Manage new participant
       imports:
         error: There was a problem during the import
-        invalid_columns:
+        duplicate_columns:
           base:
             and: and
-            detail: Please check that these columns contain valid headers.
+            detail: Please check that file contains required columns or headers only once.
             message:
-              one: Found invalid column header %{columns}.
-              other: Found invalid column headers %{columns}.
+              one: Duplicate column %{columns}.
+              other: Duplicate columns %{columns}.
+        missing_columns:
+          base:
+            and: and
+            detail: Please check that the file contains required columns.
+            message:
+              one: Missing column %{columns}.
+              other: Missing columns %{columns}.
         invalid_indexes:
           base:
             and: and

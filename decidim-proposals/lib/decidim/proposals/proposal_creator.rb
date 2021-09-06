@@ -31,6 +31,10 @@ module Decidim
         publish(resource)
       end
 
+      def self.required_dynamic_headers
+        %w(title body)
+      end
+
       private
 
       attr_reader :context

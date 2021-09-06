@@ -15,7 +15,8 @@ module Decidim
       validate :check_invalid_file, if: -> { file.present? && accepted_mime_type? }
 
       with_options if: -> { file.present? && accepted_mime_type? && !importer.invalid_file? } do
-        validate :check_invalid_columns
+        validate :check_duplicate_columns
+        validate :check_missing_columns
         validate :check_invalid_lines
       end
 
@@ -39,8 +40,13 @@ module Decidim
         errors.add(:file, I18n.t("activemodel.errors.new_import.attributes.file.invalid_file"))
       end
 
-      def check_invalid_columns
-        message = importer.invalid_columns_message
+      def check_duplicate_columns
+        message = importer.duplicate_columns_message
+        errors.add(:file, message) if message
+      end
+
+      def check_missing_columns
+        message = importer.missing_columns_message
         errors.add(:file, message) if message
       end
 

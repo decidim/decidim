@@ -23,7 +23,7 @@ describe "Import proposal answers", type: :system do
     end
   end
 
-  let(:invalid_answers) do
+  let(:missing_answers) do
     proposals.map do |proposal|
       {
         id: proposal.id,
@@ -73,13 +73,13 @@ describe "Import proposal answers", type: :system do
       end
     end
 
-    it "doesnt accept file containing invalid headers" do
+    it "doesnt accept file without required headers" do
       File.open(json_file, "w") do |f|
-        f.write(JSON.pretty_generate(invalid_answers))
+        f.write(JSON.pretty_generate(missing_answers))
       end
       attach_file :import_file, json_file
       click_button "Import"
-      expect(page).to have_content("Found invalid column headers answer/fi and hello. Please check that these columns contain valid headers.")
+      expect(page).to have_content("Missing column answer. Please check that the file contains required columns.")
     end
   end
 end

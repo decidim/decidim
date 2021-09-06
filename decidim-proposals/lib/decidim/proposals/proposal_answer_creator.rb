@@ -42,31 +42,11 @@ module Decidim
         record.valid?
       end
 
-      def self.header_valid?(header, available_locales)
-        allowed_headers(available_locales).include?(header)
-      end
-
-      # Allowed headers to import (e.g. what we allow in the first row in excel)
-      #
-      # available_locales - Locales for localized fields
-      #
-      # Returns allowed headers array
-      def self.allowed_headers(available_locales)
-        @allowed_headers ||= begin
-          allowed_headers = [].push(*allowed_static_headers)
-          allowed_localized_headers.each do |localized_header|
-            localized_headers = localize_headers(localized_header, available_locales)
-            allowed_headers.push(*localized_headers)
-          end
-          allowed_headers
-        end
-      end
-
-      def self.allowed_static_headers
+      def self.required_static_headers
         %w(id state).map(&:to_sym).freeze
       end
 
-      def self.allowed_localized_headers
+      def self.required_dynamic_headers
         %w(answer).freeze
       end
 
