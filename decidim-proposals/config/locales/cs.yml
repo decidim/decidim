@@ -519,11 +519,9 @@ cs:
             title: Importovat návrhy
         proposals_merges:
           create:
-            invalid: Při propojení vybraných návrhů došlo k chybě.
             success: Projekty byly úspěšně sloučeny do nové.
         proposals_splits:
           create:
-            invalid: Při výběru vybraných návrhů došlo k chybě.
             success: Úspěšně rozdělil návrhy na nové.
         valuation_assignments:
           create:
