@@ -835,7 +835,7 @@ nl:
             pending: In afwachting
             rejected: Geweigerd
             verified: Geverifieerd
-          filter_by: Filteren op
+          filter_by: Sorteren op
           search: Zoeken
           state:
             pending: In afwachting
