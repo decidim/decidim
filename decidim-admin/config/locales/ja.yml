@@ -405,6 +405,11 @@ ja:
           user_name_or_user_email_cont: '%{collection} を名前またはメールアドレスで検索します。'
         state_eq:
           label: 都道府県：
+          values:
+            all: すべて
+            pending: 保留中
+            rejected: 拒否
+            verified: 確認済み
       forms:
         file_help:
           import:
