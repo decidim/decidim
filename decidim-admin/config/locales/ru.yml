@@ -585,13 +585,6 @@ ru:
           success: Группа участников успешно подтверждена
       user_groups:
         index:
-          filter:
-            all: Все
-            pending: В ожидании
-            rejected: Отклонено
-            verified: Проверено
-          filter_by: 'Отобрать по признаку:'
-          search: Поиск
           state:
             pending: В ожидании
             rejected: Отклонено
