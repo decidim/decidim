@@ -661,13 +661,6 @@ ar:
           success: تم التحقق من المجموعة بنجاح
       user_groups:
         index:
-          filter:
-            all: الكل
-            pending: قيد الانتظار
-            rejected: مرفوض
-            verified: التحقق
-          filter_by: مصنف بواسطة
-          search: بحث
           state:
             pending: قيد الانتظار
             rejected: مرفوض
