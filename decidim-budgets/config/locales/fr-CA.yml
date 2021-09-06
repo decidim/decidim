@@ -117,6 +117,7 @@ fr-CA:
         my_budgets: Mes Budgets
         progress: Terminer le vote
         show: Voir les projets
+        vote: Voter
         voted_on: Vous avez voté sur %{links}
       limit_announcement:
         cant_vote: Vous ne pouvez pas voter sur ce budget. <a href="%{landing_path}">Essayez sur un autre budget</a>.
