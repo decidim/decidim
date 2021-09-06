@@ -90,7 +90,7 @@ module Decidim
 
         def check_invalid_column_headers
           invalid_column_headers = []
-          @data_headers.each_with_index do |header, _index|
+          @data_headers.each do |header|
             invalid_column_headers << header unless creator.header_valid?(header, available_locales)
           end
           invalid_column_headers

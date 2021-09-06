@@ -34,8 +34,8 @@ module Decidim
 
             protected
 
+            # Add 'and' before last column name if there is more than one column.
             def humanize_columns(columns)
-              return "" if columns.count.zero?
               return columns.first if columns.count == 1
 
               columns.slice(0, columns.count - 1).push(I18n.t("decidim.admin.imports.invalid_columns.base.and")).push(columns.last).join(" ")
@@ -64,10 +64,6 @@ module Decidim
 
           def initialize(file)
             @file = file
-          end
-
-          def read_headers
-            raise NotImplementedError
           end
 
           # The read_rows method should iterate over each row of the data and
