@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe "Explore Budgets", :slow, type: :system do
+  include ActionView::Helpers::NumberHelper
+
   include_context "with a component"
   let(:manifest_name) { "budgets" }
 
@@ -37,9 +39,7 @@ describe "Explore Budgets", :slow, type: :system do
 
       budgets.each do |budget|
         expect(page).to have_content(translated(budget.title))
-        1.upto(6).each do |x|
-          expect(page).to have_content("€#{x * 10},000,000")
-        end
+        expect(page).to have_content(number_to_currency(budget.total_budget, unit: Decidim.currency_unit, precision: 0))
       end
     end
 
