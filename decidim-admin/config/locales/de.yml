@@ -888,13 +888,6 @@ de:
           success: Benutzergruppe erfolgreich verifiziert
       user_groups:
         index:
-          filter:
-            all: Alle
-            pending: steht aus
-            rejected: Abgelehnt
-            verified: Überprüft
-          filter_by: Filtern nach
-          search: Suche
           state:
             pending: steht aus
             rejected: Abgelehnt
