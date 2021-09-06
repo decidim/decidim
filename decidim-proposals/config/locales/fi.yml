@@ -509,11 +509,9 @@ fi:
             title: Tuo ehdotuksia
         proposals_merges:
           create:
-            invalid: Valittujen ehdotusten yhdistäminen epäonnistui.
             success: Ehdotukset yhdistettiin onnistuneesti uudeksi ehdotukseksi.
         proposals_splits:
           create:
-            invalid: Valittujen ehdotusten jakaminen epäonnistui.
             success: Ehdotukset jaettiin onnistuneesti uusiksi ehdotuksiksi.
         valuation_assignments:
           create:
