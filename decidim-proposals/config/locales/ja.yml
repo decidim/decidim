@@ -504,11 +504,9 @@ ja:
             title: 提案をインポート
         proposals_merges:
           create:
-            invalid: 選択した提案をマージする際に問題が発生しました。
             success: 提案を正常に新しいものにマージしました。
         proposals_splits:
           create:
-            invalid: 選択した提案を分割する際に問題が発生しました。
             success: 提案を新しいものに分割しました。
         valuation_assignments:
           create:
