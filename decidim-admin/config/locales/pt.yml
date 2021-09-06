@@ -924,13 +924,6 @@ pt:
           success: Grupo verificado corretamente
       user_groups:
         index:
-          filter:
-            all: Todos
-            pending: Pendente
-            rejected: Rejeitado
-            verified: Verificado
-          filter_by: Filtrar por
-          search: Pesquisar
           state:
             pending: Pendente
             rejected: Rejeitado
