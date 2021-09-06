@@ -57,6 +57,16 @@ cs:
               identical: A název nemůže být totožný
             title:
               identical: Tělo A nemůže být totožné
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Nejsou oficiální
+              supported: Obdrželi podporu nebo potvrzení
+        proposals_split:
+          attributes:
+            base:
+              not_official: Nejsou oficiální
+              supported: Obdrželi podporu nebo potvrzení
     models:
       decidim/proposals/accepted_proposal_event: Návrh byl akceptován
       decidim/proposals/admin/update_proposal_category_event: Kategorie nabídky se změnila
@@ -519,9 +529,11 @@ cs:
             title: Importovat návrhy
         proposals_merges:
           create:
+            invalid: 'Při slučování vybraných návrhů došlo k chybě, protože některé z nich:'
             success: Projekty byly úspěšně sloučeny do nové.
         proposals_splits:
           create:
+            invalid: 'Vyskytl se problém s rozdělením vybraných návrhů, protože některé z nich:'
             success: Úspěšně rozdělil návrhy na nové.
         valuation_assignments:
           create:
