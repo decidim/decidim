@@ -907,13 +907,6 @@ pl:
           success: Grupa użytkowników została zweryfikowana
       user_groups:
         index:
-          filter:
-            all: Wszystkie
-            pending: Oczekujące
-            rejected: Odrzucone
-            verified: Zweryfikowane
-          filter_by: Filtruj według
-          search: Szukaj
           state:
             pending: Oczekujące
             rejected: Odrzucone
