@@ -914,13 +914,6 @@ ro:
           success: Grupul a fost verificat
       user_groups:
         index:
-          filter:
-            all: Toate
-            pending: In asteptare
-            rejected: Respins
-            verified: Verificat
-          filter_by: Filtrare după
-          search: Căutare
           state:
             pending: In asteptare
             rejected: Respins
