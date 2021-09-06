@@ -483,11 +483,9 @@ hu:
             select_states: Ellenőrizd az importálandó javaslatok állapotát
         proposals_merges:
           create:
-            invalid: Hiba történt a kiválasztott javaslatok egyesítésével.
             success: A javaslatokat sikeresen egy újba egyesítettük.
         proposals_splits:
           create:
-            invalid: Hiba történt a kiválasztott javaslatok szétválasztása során.
             success: A javaslatokat sikeresen újakra osztottuk.
         valuation_assignments:
           create:
