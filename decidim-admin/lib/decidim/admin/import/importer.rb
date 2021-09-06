@@ -21,6 +21,7 @@ module Decidim
           @reader = reader
           @creator = creator
           @context = context
+          @data_headers = []
         end
 
         # Import data and create resources
@@ -40,9 +41,22 @@ module Decidim
           @collection ||= collection_data.map { |item| creator.new(item, context) }
         end
 
+        def invalid_columns
+          @invalid_columns ||= begin
+            prepare
+            check_invalid_column_headers
+          end
+        end
+
         # Returns array of all resource indexes where validations fail.
         def invalid_indexes
           @invalid_indexes ||= check_invalid_indexes(prepare)
+        end
+
+        def invalid_columns_message
+          return unless invalid_columns.any?
+
+          reader.invalid_columns_message_for(invalid_columns)
         end
 
         def invalid_indexes_message
@@ -59,14 +73,13 @@ module Decidim
           return @collection_data if @collection_data
 
           @collection_data = []
-          data_headers = []
           reader.new(file).read_rows do |rowdata, index|
             if index.zero?
-              data_headers = rowdata.map(&:to_sym)
+              @data_headers = rowdata.map { |d| d.to_s.to_sym }
             else
               @collection_data << Hash[
                 rowdata.each_with_index.map do |val, ind|
-                  [data_headers[ind], val]
+                  [@data_headers[ind], val]
                 end
               ]
             end
@@ -75,12 +88,28 @@ module Decidim
           @collection_data
         end
 
+        def check_invalid_column_headers
+          invalid_column_headers = []
+          @data_headers.each_with_index do |header, _index|
+            invalid_column_headers << header unless creator.header_valid?(header, available_locales)
+          end
+          invalid_column_headers
+        end
+
         def check_invalid_indexes(imported_data)
           invalid_indexes = []
           imported_data.each_with_index do |record, index|
             invalid_indexes << index unless creator.resource_valid?(record)
           end
           invalid_indexes
+        end
+
+        def component
+          context[:current_component]
+        end
+
+        def available_locales
+          @available_locales ||= component.participatory_space.organization.available_locales
         end
       end
     end

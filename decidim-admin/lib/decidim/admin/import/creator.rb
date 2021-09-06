@@ -50,6 +50,15 @@ module Decidim
           resource.save!
         end
 
+        # Check if prepared header is valid
+        #
+        # _header - Header / column title of the imported file (e.g. cell in the first row in excel)
+        #
+        # Returns true if header is valid
+        def self.header_valid?(_header)
+          true
+        end
+
         # Check if prepared resource is valid
         #
         # record - Instance of model created by creator.
@@ -59,6 +68,16 @@ module Decidim
           return false if record.nil?
 
           record.valid?
+        end
+
+        def self.localize_headers(header, locales)
+          @localize_headers ||= begin
+            localize_headers = []
+            locales.each do |locale|
+              localize_headers << "#{header}/#{locale}".to_sym
+            end
+            localize_headers
+          end
         end
 
         private
@@ -76,14 +95,10 @@ module Decidim
         # Returns the hash including locale-imported_data pairs. eg. {en: "Heading", ca: "Cap", es: "Bóveda"}
         #
         def locale_hasher(field, locales)
-          return data[field.to_sym] if data.has_key?(field.to_sym)
-
           hash = {}
           locales.each do |locale|
             parsed = data[:"#{field}/#{locale}"]
-            next if parsed.nil?
-
-            hash[locale] = parsed
+            hash[locale] = parsed.nil? ? "" : parsed
           end
           hash
         end

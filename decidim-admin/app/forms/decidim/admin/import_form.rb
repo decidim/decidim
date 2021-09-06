@@ -12,7 +12,15 @@ module Decidim
       validates :file, presence: true
       validates :name, presence: true
       validate :accepted_mime_type
+      validate :check_invalid_columns
       validate :check_invalid_lines
+
+      def check_invalid_columns
+        return if file.blank? || !accepted_mime_type
+
+        message = importer.invalid_columns_message
+        errors.add(:file, message) if message
+      end
 
       def check_invalid_lines
         return if file.blank? || !accepted_mime_type

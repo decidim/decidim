@@ -23,6 +23,17 @@ describe "Import proposal answers", type: :system do
     end
   end
 
+  let(:invalid_answers) do
+    proposals.map do |proposal|
+      {
+        id: proposal.id,
+        state: %w(accepted rejected evaluating).sample,
+        "answer/fi": Faker::Lorem.sentence,
+        "hello": "world"
+      }
+    end
+  end
+
   let(:amount) { rand(1..5) }
   let(:json_file) { Rails.root.join("tmp/import_proposal_answers.json") }
 
@@ -52,7 +63,7 @@ describe "Import proposal answers", type: :system do
       expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).exactly(amount).times
 
       click_button "Import"
-      expect(page).to have_content("#{amount} proposal answers successfully imported")
+      expect(page).to have_content("#{amount} proposal #{amount == 1 ? "answer" : "answers"} successfully imported")
       answers.each do |answer|
         proposal = Decidim::Proposals::Proposal.find(answer[:id])
         expect(proposal[:state]).to eq(answer[:state])
@@ -60,6 +71,15 @@ describe "Import proposal answers", type: :system do
         expect(proposal.answer["ca"]).to eq(answer[:"answer/ca"])
         expect(proposal.answer["es"]).to eq(answer[:"answer/es"])
       end
+    end
+
+    it "doesnt accept file containing invalid headers" do
+      File.open(json_file, "w") do |f|
+        f.write(JSON.pretty_generate(invalid_answers))
+      end
+      attach_file :import_file, json_file
+      click_button "Import"
+      expect(page).to have_content("Found error in import file in column headers answer/fi and hello. Please check that these columns are formatted correctly and contain valid headers.")
     end
   end
 end

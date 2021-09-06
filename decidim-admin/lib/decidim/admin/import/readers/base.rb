@@ -15,6 +15,13 @@ module Decidim
               0
             end
 
+            def invalid_columns_message_for(columns)
+              [
+                I18n.t("decidim.admin.imports.invalid_columns.base.message", count: columns.count, columns: humanize_columns(columns)),
+                I18n.t("decidim.admin.imports.invalid_columns.base.detail")
+              ].join(" ")
+            end
+
             # Creates a message for the provided invalid indexes.
             #
             # Returns a String
@@ -26,6 +33,13 @@ module Decidim
             end
 
             protected
+
+            def humanize_columns(columns)
+              return "" if columns.count.zero?
+              return columns.first if columns.count == 1
+
+              columns.slice(0, columns.count - 1).push(I18n.t("decidim.admin.imports.invalid_columns.base.and")).push(columns.last).join(" ")
+            end
 
             # Humanizes the index numbers so that it is understandable for humans.
             # Index zero becomes one and the indexes are included in a single
@@ -50,6 +64,10 @@ module Decidim
 
           def initialize(file)
             @file = file
+          end
+
+          def read_headers
+            raise NotImplementedError
           end
 
           # The read_rows method should iterate over each row of the data and

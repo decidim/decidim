@@ -12,12 +12,8 @@ describe Decidim::Proposals::ProposalCreator do
       "id" => "101",
       category: category,
       scope: scope,
-      title: {
-        "en" => Faker::Lorem.sentence
-      },
-      body: {
-        "en" => Faker::Lorem.paragraph(sentence_count: 3)
-      },
+      :"title/en" => Faker::Lorem.sentence,
+      :"body/en" => Faker::Lorem.paragraph(sentence_count: 3),
       component: component,
       published_at: moment
     }
@@ -68,8 +64,8 @@ describe Decidim::Proposals::ProposalCreator do
       expect(record).to be_a(Decidim::Proposals::Proposal)
       expect(record.category).to eq(category)
       expect(record.scope).to eq(scope)
-      expect(record.title).to eq(data[:title])
-      expect(record.body).to eq(data[:body])
+      expect(record.title["en"]).to eq(data[:"title/en"])
+      expect(record.body["en"]).to eq(data[:"body/en"])
       expect(record.published_at).to be >= (moment)
     end
   end

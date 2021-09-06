@@ -7,11 +7,12 @@ describe Decidim::Proposals::ProposalAnswerCreator do
 
   let(:proposal) { create(:proposal, state: state, component: component) }
   let!(:moment) { Time.current }
+  # rubocop:disable Style/HashSyntax
   let(:data) do
     {
       id: proposal.id,
       state: state,
-      answer: Faker::Lorem.paragraph
+      :"answer/en" => Faker::Lorem.paragraph
     }
   end
   let(:organization) { create(:organization, available_locales: [:en]) }
@@ -38,7 +39,7 @@ describe Decidim::Proposals::ProposalAnswerCreator do
     it "returns the attributes hash" do
       expect(subject.resource_attributes).to eq(
         id: data[:id],
-        answer: data[:answer],
+        :"answer/en" => data[:"answer/en"],
         state: data[:state]
       )
     end
@@ -50,7 +51,7 @@ describe Decidim::Proposals::ProposalAnswerCreator do
 
       expect(record).to be_a(Decidim::Proposals::Proposal)
       expect(record.id).to eq(data[:id])
-      expect(record.answer).to eq(data[:answer])
+      expect(record.answer["en"]).to eq(data[:"answer/en"])
       expect(record[:state]).to eq(data[:state])
       expect(record.answered_at).to be >= (moment)
     end
@@ -83,4 +84,5 @@ describe Decidim::Proposals::ProposalAnswerCreator do
       expect(log.action).to eq("answer")
     end
   end
+  # rubocop:enable Style/HashSyntax
 end

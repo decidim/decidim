@@ -25,6 +25,7 @@ module Decidim
       context "when everything is OK" do
         it do
           allow(form).to receive(:check_invalid_lines).and_return([])
+          allow(form).to receive(:check_invalid_column_titles).and_return([])
           expect(subject).to be_valid
         end
       end

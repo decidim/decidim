@@ -43,6 +43,13 @@ describe Decidim::Admin::Import::Importer do
       end
     end
 
+    describe "#invalid_columns" do
+      it "returns empty array when everything is ok" do
+        subject.prepare
+        expect(subject.invalid_columns).to be_empty
+      end
+    end
+
     describe "#invalid_indexes" do
       it "returns empty array when everything is ok" do
         subject.prepare
