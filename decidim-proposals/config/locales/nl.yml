@@ -485,11 +485,9 @@ nl:
             select_states: Controleer de status van de voorstellen om te importeren
         proposals_merges:
           create:
-            invalid: Er is een fout opgetreden bij het samenvoegen van de geselecteerde voorstellen.
             success: De voorstellen zijn succesvol samengevoegd tot een nieuwe.
         proposals_splits:
           create:
-            invalid: Er is een fout opgetreden bij het splitsen van de geselecteerde voorstellen.
             success: De voorstellen succesvol gesplitst in nieuwe.
         valuation_assignments:
           create:
