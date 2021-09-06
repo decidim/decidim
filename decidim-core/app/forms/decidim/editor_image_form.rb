@@ -9,6 +9,7 @@ module Decidim
 
     validates :author_id, presence: true
     validates :file, presence: true
+    validates :file, passthru: { to: Decidim::EditorImage }
 
     alias organization current_organization
   end
