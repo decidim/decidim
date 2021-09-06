@@ -844,13 +844,6 @@ nl:
           success: Groep succesvol geverifieerd
       user_groups:
         index:
-          filter:
-            all: Alle
-            pending: In afwachting
-            rejected: Geweigerd
-            verified: Geverifieerd
-          filter_by: Filteren op
-          search: Zoeken
           state:
             pending: In afwachting
             rejected: Geweigerd
