@@ -887,7 +887,7 @@ fr:
       user_groups:
         index:
           filter:
-            all: Tous
+            all: Tout
             pending: En attente
             rejected: Non validés
             verified: Vérifié
