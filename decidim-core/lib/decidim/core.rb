@@ -165,6 +165,13 @@ module Decidim
     :en
   end
 
+  # Disable the redirection to the external host when performing redirect back
+  # For more details https://github.com/rails/rails/issues/39643
+  # Additional context: This has been revealed as an issue during a security audit on Future of Europe installation
+  config_accessor :allow_open_redirects do
+    false
+  end
+
   # Exposes a configuration option: an array of symbols representing processors
   # that will be automatically executed when a content is parsed or rendered.
   #
