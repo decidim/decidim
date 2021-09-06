@@ -928,13 +928,6 @@ cs:
           success: Skupina byla úspěšně ověřena
       user_groups:
         index:
-          filter:
-            all: Vše
-            pending: Čekající
-            rejected: Odmítnuto
-            verified: Ověřeno
-          filter_by: Filtrovat podle
-          search: Vyhledávání
           state:
             pending: čekající
             rejected: Odmítnuto
