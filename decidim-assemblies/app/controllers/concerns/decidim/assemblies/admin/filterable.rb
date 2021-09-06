@@ -41,7 +41,7 @@ module Decidim
           end
 
           def translated_decidim_assemblies_type_id_eq(id)
-            translated_attribute(Decidim::AssembliesType.find_by(id: id).title[I18n.locale.to_s])
+            translated_attribute(Decidim::AssembliesType.find(id).title)
           end
         end
       end
