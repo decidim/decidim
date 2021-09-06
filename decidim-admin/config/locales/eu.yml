@@ -607,13 +607,6 @@ eu:
           success: Erabiltzaile-taldea ongi egiaztatu da
       user_groups:
         index:
-          filter:
-            all: Guztiak
-            pending: Zain
-            rejected: Ukatua
-            verified: Egiaztatuta
-          filter_by: 'Iragazi honen arabera:'
-          search: Bilatu
           state:
             pending: Zain
             rejected: Ukatua
