@@ -308,6 +308,7 @@ ignore_unused:
   - decidim.budgets.projects.project_budget_button.*
   - decidim.assemblies.admin.assembly_members.form.explanation
   - decidim.assemblies.admin.assembly_members.form.image_guide
+  - decidim.assemblies.admin.assembly_members.form.non_user_avatar_help
 
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
