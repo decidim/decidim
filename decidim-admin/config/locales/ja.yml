@@ -928,13 +928,6 @@ ja:
           success: グループが正常に検証されました
       user_groups:
         index:
-          filter:
-            all: すべて
-            pending: 保留中
-            rejected: 拒否
-            verified: 確認済み
-          filter_by: フィルター
-          search: 検索
           state:
             pending: 保留中
             rejected: 拒否
