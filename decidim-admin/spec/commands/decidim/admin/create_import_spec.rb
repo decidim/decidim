@@ -28,10 +28,8 @@ module Decidim::Admin
       it "returns broadcast ok" do
         record = double("record", save!: double("record"))
         importer = instance_double("importer", prepare: [record], invalid_indexes: [], import!: record.save!)
-        allow(importer).to receive(:invalid_indexes_message).and_return(nil)
-        allow(importer).to receive(:missing_columns_message).and_return(nil)
-        allow(importer).to receive(:duplicate_columns_message).and_return(nil)
         allow(importer).to receive(:invalid_file?).and_return(false)
+        allow(importer).to receive(:verify).and_return(true)
         allow(subject).to receive(:importer).and_return(importer)
         allow(form).to receive(:importer).and_return(importer)
         expect do

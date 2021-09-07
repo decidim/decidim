@@ -79,7 +79,7 @@ describe "Import proposal answers", type: :system do
       end
       attach_file :import_file, json_file
       click_button "Import"
-      expect(page).to have_content("Missing column answer. Please check that the file contains required columns.")
+      expect(page).to have_content("Missing column answer/en. Please check that the file contains required columns.")
     end
   end
 

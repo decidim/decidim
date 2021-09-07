@@ -18,16 +18,13 @@ module Decidim
       let(:form) do
         described_class.from_params(params).with_context(
           current_organization: organization,
-          current_component: component
+          current_component: component,
+          current_user: user
         )
       end
 
       context "when everything is OK" do
-        it do
-          allow(form).to receive(:check_invalid_lines).and_return([])
-          allow(form).to receive(:check_invalid_column_titles).and_return([])
-          expect(subject).to be_valid
-        end
+        it { is_expected.to be_valid }
       end
 
       context "when content type is not accepted" do
@@ -42,12 +39,6 @@ module Decidim
         it "reports invalid and adds the correct error for the file field" do
           expect(subject).not_to be_valid
           expect(subject.errors[:file]).to include("Invalid file provided, please check that the file is correctly formatted")
-        end
-      end
-
-      describe "#creator_class" do
-        it "returns creators class" do
-          expect(subject.creator_class).to eq(DummyCreator)
         end
       end
     end

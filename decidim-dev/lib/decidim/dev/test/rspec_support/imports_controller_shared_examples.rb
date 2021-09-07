@@ -109,6 +109,16 @@ shared_examples "admin imports controller" do
         expect(actual).to eq(expected)
       end
     end
+
+    context "with unknown format" do
+      let(:format) { "foo" }
+
+      it "raises ActionController::UnknownFormat" do
+        expect { get(:example, params: params) }.to raise_error(
+          ActionController::UnknownFormat
+        )
+      end
+    end
   end
 
   context "with abstract creator" do
@@ -119,17 +129,17 @@ shared_examples "admin imports controller" do
 
     describe "POST create" do
       it "raises ActionController::RoutingError" do
-        expect do
-          post(:create, params: params)
-        end.to raise_error(ActionController::RoutingError)
+        expect { post(:create, params: params) }.to raise_error(
+          ActionController::RoutingError
+        )
       end
     end
 
     describe "GET example" do
       it "raises ActionController::RoutingError" do
-        expect do
-          get(:example, params: params)
-        end.to raise_error(ActionController::RoutingError)
+        expect { get(:example, params: params) }.to raise_error(
+          ActionController::RoutingError
+        )
       end
     end
   end
