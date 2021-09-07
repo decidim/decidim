@@ -47,21 +47,21 @@ lb:
         email: Email
         name: Spëtznumm
         password: Passwuert
-        password_confirmation: Bestätegung Passwuert
+        password_confirmation: Passwuert Bestätegung
         remember_me: Ugemellt bleiwen
     models:
       decidim/amendment:
-        one: Ännerungen
+        one: Ännerung
         other: Ännerungen
       decidim/endorsement:
         one: Akzeptéiert
-        other: Akzeptéiert
+        other: Ennerstëtzungen
       decidim/user:
         one: Teilnehmer
         other: Teilnehmer
       decidim/user_group:
         one: Grupp
-        other: Grupp
+        other: Gruppen
   booleans:
     'false': 'Nee'
     'true': 'Jo'
@@ -91,7 +91,6 @@ lb:
         confirm:
           close: Fënster zou maachen
           ok: Jo ech well mäin Kont läschen
-          question: Sind Sie sicher, dass Sie Ihr Konto löschen möchten?
           title: Mäin Kont läschen
         explanation: Gëff w. e. g. de Grond un, woufir s'du de Kont läsche wëlls (optinal).
       destroy:
@@ -107,14 +106,14 @@ lb:
         success_with_email_confirmation: Däin Kont gouf aktualiséiert. Du kriss en Email fir déi nei Email-Adress. ze bestätegen.
     admin:
       actions:
-        cancel: Stornéieren
+        cancel: Ofbriechen
     admin_log:
       area:
         create: "%{user_name} huet den Beräich %{resource_name} erstellt"
         delete: "%{user_name} huet den Beräich %{resource_name} geläscht"
         update: "%{user_name} huet den Beräich %{resource_name} aktualiséiert"
       component:
-        create: "%{user_name} huet d'Komponent %{resource_name} bei %{space_name} dobäi gemaach"
+        create: "%{user_name} huet d'Komponent %{resource_name} bei %{space_name} dobäi gesat"
         delete: "%{user_name} huet d'Komponent %{resource_name} aus %{space_name} eweg gemaach"
         publish: "%{user_name} huet d'Komponent %{resource_name} an %{space_name} verëffentlecht"
         unpublish: "%{user_name} huet d'Komponent %{resource_name} an %{space_name} onverëffentlecht"
@@ -150,18 +149,18 @@ lb:
         delete: "%{user_name} huet déi statesch Säit %{resource_name} geläscht"
         update: "%{user_name} huet déi statesch Säit %{resource_name} aktualiséiert"
       user:
-        block: "%{user_name} hat %{resource_name} blockiert"
-        invite: "%{user_name} hat den Benutzer %{resource_name} mit der Rolle %{role} eingeladen"
-        officialize: "%{user_name} den Benutzer %{resource_name} offiziell anerkannt"
-        promote: "%{user_name} hat %{resource_name} befördert"
-        remove_from_admin: "%{user_name} hat den Benutzer %{resource_name} mit der Rolle %{role} entfernt"
-        show_email: "%{user_name} hat die E-Mail des Teilnehmers %{resource_name} abgerufen"
-        transfer: "%{user_name} hat den Teilnehmer %{resource_name} verschoben"
-        unblock: "%{user_name} hat die Blockierung von %{resource_name} aufgehoben"
-        unofficialize: "%{user_name} hat die offizielle Anerkennung des Benutzers %{resource_name} widerrufen"
+        block: "%{user_name} huet %{resource_name} blockéiert"
+        invite: "%{user_name} huet den Benotzer %{resource_name} mat der Roll %{role} agelueden"
+        officialize: "%{user_name} huet den Benotzer %{resource_name} offiziell unerkannt"
+        promote: "%{user_name} huet %{resource_name} befërdert"
+        remove_from_admin: "%{user_name} huet den Benotzer %{resource_name} mat der Roll %{role} geläscht"
+        show_email: "%{user_name} huet d'Email vum Teilnehmer %{resource_name} ofgeruff"
+        transfer: "%{user_name} huet den Benotzer %{resource_name} geréckelt"
+        unblock: "%{user_name} huet d'Blockéierung %{resource_name} opgehuewen"
+        unofficialize: "%{user_name} huet déi offiziell Unerkennung vum Benotzer %{resource_name} widderruff"
       user_group:
-        reject: "%{user_name} hat die Gruppen-Verifikation %{resource_name} abgelehnt"
-        verify: "%{user_name} hat die Gruppe %{resource_name} verifiziert"
+        reject: "%{user_name} huet d'Gruppen-Iwwerpréiwung %{resource_name} refuséiert"
+        verify: "%{user_name} huet den Grupp %{resource_name} iwwerpréiwt"
         verify_via_csv: "%{user_name} hat die Gruppe %{resource_name} über eine CSV-Datei verifiziert"
       user_moderation:
         unreport: "%{user_name} hat die Meldung auf %{resource_type} - %{unreported_user_name} aufgehoben"
