@@ -165,7 +165,7 @@ Decidim.register_component(:proposals) do |component|
       msg.set(:help) { I18n.t("decidim.proposals.admin.imports.help.proposals") }
     end
 
-    imports.creator Decidim::Proposals::ProposalCreator
+    imports.creator Decidim::Proposals::Import::ProposalCreator
   end
 
   component.imports :answers do |imports|
@@ -176,7 +176,7 @@ Decidim.register_component(:proposals) do |component|
       msg.set(:help) { I18n.t("decidim.proposals.admin.imports.help.answers") }
     end
 
-    imports.creator Decidim::Proposals::ProposalAnswerCreator
+    imports.creator Decidim::Proposals::Import::ProposalAnswerCreator
     imports.example do |import_component|
       organization = import_component.organization
       [
