@@ -5,14 +5,20 @@ module Decidim
     # This class is responsible for creating the imported proposals
     # and must be included in proposals component's import manifest.
     class ProposalCreator < Decidim::Admin::Import::Creator
+      class << self
+        # Retuns the resource class to be created with the provided data.
+        def resource_klass
+          Decidim::Proposals::Proposal
+        end
+
+        def required_dynamic_headers
+          %w(title body)
+        end
+      end
+
       def initialize(data, context = nil)
         @data = data.except(:id, "id")
         @context = context
-      end
-
-      # Retuns the resource class to be created with the provided data.
-      def self.resource_klass
-        Decidim::Proposals::Proposal
       end
 
       # Produces a proposal from parsed data
@@ -29,10 +35,6 @@ module Decidim
         super # resource.save!
         notify(resource)
         publish(resource)
-      end
-
-      def self.required_dynamic_headers
-        %w(title body)
       end
 
       private

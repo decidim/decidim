@@ -7,9 +7,31 @@ module Decidim
     class ProposalAnswerCreator < Decidim::Admin::Import::Creator
       POSSIBLE_ANSWER_STATES = %w(evaluating accepted rejected).freeze
 
-      # Retuns the resource class to be created with the provided data.
-      def self.resource_klass
-        Decidim::Proposals::Proposal
+      class << self
+        # Retuns the resource class to be created with the provided data.
+        def resource_klass
+          Decidim::Proposals::Proposal
+        end
+
+        # Check if prepared resource is valid
+        #
+        # record - Decidim::Proposals::Proposal
+        #
+        # Returns true if record is valid
+        def resource_valid?(record)
+          return false if record.nil?
+          return false if record.errors.any?
+
+          record.valid?
+        end
+
+        def required_static_headers
+          %w(id state).map(&:to_sym).freeze
+        end
+
+        def required_dynamic_headers
+          %w(answer).freeze
+        end
       end
 
       # Add answer to proposal
@@ -30,29 +52,7 @@ module Decidim
         notify(resource)
       end
 
-      # Check if prepared resource is valid
-      #
-      # record - Decidim::Proposals::Proposal
-      #
-      # Returns true if record is valid
-      def self.resource_valid?(record)
-        return false if record.nil?
-        return false if record.errors.any?
-
-        record.valid?
-      end
-
-      def self.required_static_headers
-        %w(id state).map(&:to_sym).freeze
-      end
-
-      def self.required_dynamic_headers
-        %w(answer).freeze
-      end
-
       private
-
-      attr_reader :context
 
       def resource
         @resource ||= begin
