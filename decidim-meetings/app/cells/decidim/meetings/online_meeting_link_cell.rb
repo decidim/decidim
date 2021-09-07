@@ -27,8 +27,6 @@ module Decidim
       end
 
       def iframe_access_level_allowed?
-        return unless model.show_embedded_iframe?
-
         case model.iframe_access_level
         when "all"
           true
