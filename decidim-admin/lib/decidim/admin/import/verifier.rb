@@ -27,17 +27,14 @@ module Decidim
         attr_reader :headers, :data, :reader, :context
 
         def validate_headers
-          i18n_scope = "decidim.admin.imports.data_errors"
-
           if missing_headers.any?
             message = [
               I18n.t(
-                "missing_headers.message",
-                scope: i18n_scope,
+                "decidim.admin.imports.data_errors.missing_headers.message",
                 count: missing_headers.count,
                 columns: humanize_list(missing_headers)
               ),
-              I18n.t("missing_headers.detail", scope: i18n_scope)
+              I18n.t("decidim.admin.imports.data_errors.missing_headers.detail")
             ].join(" ")
 
             errors.add(:headers, message)
@@ -47,12 +44,11 @@ module Decidim
 
           message = [
             I18n.t(
-              "duplicate_headers.message",
-              scope: i18n_scope,
+              "decidim.admin.imports.data_errors.duplicate_headers.message",
               count: duplicate_headers.count,
               columns: humanize_list(duplicate_headers)
             ),
-            I18n.t("duplicate_headers.detail", scope: i18n_scope)
+            I18n.t("decidim.admin.imports.data_errors.duplicate_headers.detail")
           ].join(" ")
 
           errors.add(:headers, message)
@@ -61,21 +57,30 @@ module Decidim
         def validate_data
           return if invalid_indexes.empty?
 
-          i18n_scope =
+          indexes = humanize_indexes(invalid_indexes, reader.first_data_index)
+          message =
             if reader.first_data_index.zero?
               # If the data starts from index zero we don't want to say to the
               # user that there are errors on "rows". We want to refer to record
               # numbers instead. This is the case e.g. with JSON data format.
-              "decidim.admin.imports.data_errors.invalid_indexes.records"
+              [
+                I18n.t(
+                  "decidim.admin.imports.data_errors.invalid_indexes.records.message",
+                  count: invalid_indexes.count,
+                  indexes: indexes
+                ),
+                I18n.t("decidim.admin.imports.data_errors.invalid_indexes.records.detail")
+              ].join(" ")
             else
-              "decidim.admin.imports.data_errors.invalid_indexes.lines"
+              [
+                I18n.t(
+                  "decidim.admin.imports.data_errors.invalid_indexes.lines.message",
+                  count: invalid_indexes.count,
+                  indexes: indexes
+                ),
+                I18n.t("decidim.admin.imports.data_errors.invalid_indexes.lines.detail")
+              ].join(" ")
             end
-
-          indexes = humanize_indexes(invalid_indexes, reader.first_data_index)
-          message = [
-            I18n.t("message", scope: i18n_scope, count: invalid_indexes.count, indexes: indexes),
-            I18n.t("detail", scope: i18n_scope)
-          ].join(" ")
 
           errors.add(:data, message)
         end
