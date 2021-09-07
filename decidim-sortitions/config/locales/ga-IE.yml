@@ -15,6 +15,7 @@ ga:
         models:
           sortition:
             fields:
+              category: Catagóir
               dice: Dísle
               seed: Síol
               title: Teideal
@@ -27,6 +28,7 @@ ga:
         filters:
           active: Gníomhach
           all: Uile
+          category: Catagóir
           search: Cuardaigh
           state: Stádas
         filters_small_view:

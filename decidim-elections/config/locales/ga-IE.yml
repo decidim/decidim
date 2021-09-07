@@ -8,6 +8,14 @@ ga:
         title: Teideal
       question:
         title: Teideal
+  activerecord:
+    models:
+      decidim/elections/question:
+        one: Ceist
+        two: Ceisteanna
+        few: Ceisteanna
+        many: Ceisteanna
+        other: Ceisteanna
   decidim:
     admin:
       filters:
@@ -39,8 +47,13 @@ ga:
         models:
           answer:
             name: Freagra
+          question:
+            name: Ceist
           trustee:
             name: Iontaobhaí
+        questions:
+          index:
+            title: Ceisteanna
         steps:
           created:
             trustees: Iontaobhaithe
@@ -48,12 +61,14 @@ ga:
             trustees: Iontaobhaithe
           results_published:
             answer: Freagra
+            question: Ceist
             result: Toradh
             submit: Deimhnigh
           tally:
             trustees: Iontaobhaithe
           tally_ended:
             answer: Freagra
+            question: Ceist
             result: Toradh
           vote_stats:
             voters: Vótálaithe
@@ -65,7 +80,9 @@ ga:
             title: Iontaobhaithe
       election_m:
         badge_name:
+          finished: Críochnaithe
           ongoing: Gníomhach
+          upcoming: Le teacht
         end_date: Deireadh
         footer:
           view: Amharc
@@ -75,21 +92,31 @@ ga:
         start_date: Ag Tosú
       elections:
         election_log:
+          download: Íoslódáil
           results_title: Torthaí
           started: Tosaithe
         filters:
           active: Gníomhach
           all: Uile
+          finished: Críochnaithe
           search: Cuardaigh
           state: Stádas
+          upcoming: Le teacht
         filters_small_view:
           filter: Scag
           unfold: Oscail
         show:
+          action_button:
+            change_vote: Athraigh do vóta
+            vote: Tosaigh ag vótáil
+            vote_again: Vótáil arís
           preview: Réamhamharc
+          verify:
+            already_voted: Ar vótáil tú cheana?
       models:
         answer:
           fields:
+            proposals: Moltaí
             title: Teideal
             votes: Vótaí
         election:
@@ -215,6 +242,9 @@ ga:
             signed: Sínithe?
           edit:
             monitoring_committee_notes: Ráitis
+        monitoring_committee_verify_elections:
+          index:
+            download: Íoslódáil
         polling_officers:
           index:
             role_manager: bainisteoir
@@ -244,6 +274,9 @@ ga:
         document_types:
           dni: Cárta ID
           nie: Cárta ID Eachtrannaigh
+        export_mailer:
+          access_codes_export:
+            download: Íoslódáil
       content_blocks:
         landing_page:
           metrics:
@@ -278,6 +311,7 @@ ga:
             polling_station:
               address: Seoladh
               name: Ainm
+              role: Do ról
               voting: Vótáil
       polling_officers:
         actions:
@@ -300,25 +334,33 @@ ga:
           day_placeholder: LL
           month: Mí
           month_placeholder: MM
+          postal_code: Cód poist
+          postal_code_placeholder: Cód poist
           year: Bliain
           year_placeholder: BBBB
         filters:
           active: Gníomhach
           all: Uile
+          finished: Críochnaithe
           search: Cuardaigh
           state: Stádas
+          upcoming: Le teacht
         filters_small_view:
           filter: Scag
           unfold: Oscail
         index:
           title: Vótála
+        login:
+          start_voting: Tosaigh ag vótáil
         orders:
           random: Randamach
         show:
           dates: Dátaí
       votings_m:
         badge_name:
+          finished: Críochnaithe
           ongoing: Leanúnach
+          upcoming: Le teacht
         footer_button_text:
           view: Amharc
           vote: Vóta

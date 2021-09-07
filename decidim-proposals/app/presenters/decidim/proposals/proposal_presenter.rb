@@ -5,11 +5,9 @@ module Decidim
     #
     # Decorator for proposals
     #
-    class ProposalPresenter < SimpleDelegator
+    class ProposalPresenter < Decidim::ResourcePresenter
       include Rails.application.routes.mounted_helpers
       include ActionView::Helpers::UrlHelper
-      include Decidim::SanitizeHelper
-      include Decidim::TranslatableAttributes
 
       def author
         @author ||= if official?
@@ -41,12 +39,7 @@ module Decidim
       def title(links: false, extras: true, html_escape: false, all_locales: false)
         return unless proposal
 
-        handle_locales(proposal.title, all_locales) do |content|
-          content = decidim_html_escape(content) if html_escape
-
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
-          renderer.render(links: links, extras: extras).html_safe
-        end
+        super proposal.title, links, html_escape, all_locales, extras: extras
       end
 
       def id_and_title(links: false, extras: true, html_escape: false)
@@ -134,20 +127,6 @@ module Decidim
       # Returns a String.
       def sanitize_text(text)
         add_line_feeds(sanitize_ordered_lists(sanitize_unordered_lists(text)))
-      end
-
-      def handle_locales(content, all_locales, &block)
-        if all_locales
-          content.each_with_object({}) do |(key, value), parsed_content|
-            parsed_content[key] = if key == "machine_translations"
-                                    handle_locales(value, all_locales, &block)
-                                  else
-                                    block.call(value)
-                                  end
-          end
-        else
-          yield(translated_attribute(content))
-        end
       end
     end
   end

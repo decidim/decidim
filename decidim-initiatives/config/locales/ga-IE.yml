@@ -11,8 +11,18 @@ ga:
         title: Teideal
       initiatives_type:
         title: Teideal
+      initiatives_vote:
+        postal_code: Cód poist
       organization_data:
         address: Seoladh
+  activerecord:
+    models:
+      decidim/initiative_comittee:
+        one: Coiste
+        two: Coistí
+        few: Coistí
+        many: Coistí
+        other: Coistí
   decidim:
     admin:
       filters:
@@ -39,6 +49,7 @@ ga:
           fields:
             hash: Hais
             initiative_end_date: Dáta deiridh
+            postal_code: Cód poist
             scope: Scóip
     initiatives:
       actions:
@@ -158,6 +169,7 @@ ga:
           email: Seoladh ríomhphoist
           initiative:
             title: 'Teideal:'
+          postal_code: Cód poist
           print: Clóbhuail
         show:
           edit: Eagar
@@ -170,6 +182,7 @@ ga:
         badge_name:
           created: Cruthaithe
       states:
+        accepted: Glactha
         expired: Éagtha
     resources:
       initiative:

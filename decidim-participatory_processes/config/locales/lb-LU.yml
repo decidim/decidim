@@ -1,1 +1,6 @@
 lb:
+  decidim:
+    participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Aktivität

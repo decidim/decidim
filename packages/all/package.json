@@ -1,7 +1,7 @@
 {
   "name": "@decidim/all",
   "description": "All dependencies for Decidim",
-  "version": "0.25.0-dev",
+  "version": "0.26.0-dev",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git",
