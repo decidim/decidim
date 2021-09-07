@@ -479,104 +479,104 @@ lb:
       shared:
         newsletter_modal:
           buttons:
-            check: Überprüfen und fortfahren
-            close_modal: Modal schließen
-            uncheck: Ohne Kontakterlaubnis fortfahren
+            check: Iwwerpréiwen an weider maachen
+            close_modal: Modal zou maachen
+            uncheck: Ouni Kontakt-Erlabnis weidermaachen
           notice: |-
-            <p>Hey, sind Sie sicher, dass Sie keinen Newsletter erhalten möchten?<br>
-            Bitte überlegen Sie sich noch einmal das Kontrollkästchen für den Newsletter doch anzukreuzen.<br>
-            Für uns ist es sehr wichtig, die Möglichkeit zu haben Ihnen gelegentlich E-Mails mit wichtigen Ankündigungen schicken zu können. Sie können dies jederzeit in den Benachrichtigungseinstellungen ändern.</p>
-            <p>Wenn Sie das Kontrollkästchen nicht ankreuzen, verpassen Sie möglicherweise relevante Informationen zu neuen Beteiligungsmöglichkeiten auf der Plattform.<br>
-            Wenn Sie nach wie vor keinen Newsletter erhalten möchten, verstehen wir natürlich Ihre Entscheidung.</p>
-            <p>Danke fürs Lesen!</p>
-          title: Newsletter Benachrichtigungen
+            <p>Hey, bass de sécher, dass de keen Newsletter wëlls?<br>
+            Iwwerlee der et nach emol, ob s'de den Newsletter net awer un-ticken wëlls.<br>
+            Fir ons ass et wichteg, d'Méiglechkeet ze hunn dir vun Zäit zu Zäit kënnen en Email ze schécken an dem mir dir all déi wichteg Annoncen matdeelen. Du kanns dat zu all Moment an dengen Astellungen fir Noriichten änneren.</p>
+            <p>Wann d'Kontroll-Këscht net aktivéiert ass, verpass du relevant Informatiounen iwwert Méiglechkeeten sech op der Plattform ze bedeelegen.<br>
+            Wann s'du trotz all dem keen Newsletter wëlls, respektéieren mir selbstverständlech deng Entscheedung.</p>
+            <p>Merci fri d'Liesen!</p>
+          title: Newsletter Matdeelungen
         omniauth_buttons:
           or: Oder
     doorkeeper:
       authorizations:
         new:
-          authorize: App zulassen
-          by_organization_link_html: <small class="heading-small">von %{link}</small>
-          cancel: Abbrechen
-          connect_your_account_html: Verbinden Sie Ihr Konto, indem Sie sich bei <strong>%{organization}</strong> anmelden
+          authorize: Applikatioun zouloossen
+          by_organization_link_html: <small class="heading-small">vun %{link}</small>
+          cancel: Ofbriechen
+          connect_your_account_html: Verbann däin Kont, andeem s'de dech bei <strong>%{organization}</strong> umells
           publish_content: Inhalt fir Iech verëffentlechen
           see_email: Kuck deng Email
           see_name: Kuck däin Numm
-          see_username: Kuck däin Nickname
+          see_username: Kuck däin Spëtznumm
           this_application_will_be_able_to: 'Dës Applikatioun mécht:'
-          this_application_will_not_be_able_to: 'Diese Anwendung kann nicht:'
-          update_profile: Profil aktualisieren
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> möchte Ihr Konto verwenden"
+          this_application_will_not_be_able_to: 'Diese Applikatioun kann net:'
+          update_profile: Profil aktualiséieren
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> well däin Kont benotzen"
     endorsable:
-      endorsements: Empfehlungen
-      endorsements_count: Anzahl Befürworter
+      endorsements: Ennerstëtzungen
+      endorsements_count: Zuel vun den Ënnerstëtzer
     endorsement_buttons_cell:
-      already_endorsed: Befürwortet
-      endorse: Befürworten
+      already_endorsed: Ënnerstëtzt
+      endorse: Ënnerstëtzen
     endorsements:
       identities:
         done: Erledigt
-        select_identity: Identität auswählen
+        select_identity: Identitéit wielen
     errors:
       internal_server_error:
-        title: Auf unserem Server ist ein Problem aufgetreten
+        title: Op eisem Server ass e Problem opgetrueden
         try_later: Bitte versuchen Sie es später nochmal.
       not_found:
-        back_home: Zurück zur Startseite
-        content_doesnt_exist: Diese Adresse ist falsch oder wurde entfernt.
-        title: Die von Ihnen gesuchte Seite kann nicht gefunden werden
+        back_home: Zréck op d'Startsäit
+        content_doesnt_exist: Dës Adress ass falsch oder gouf geläscht.
+        title: Déi Säit déi s'du sichs kann net fonnt ginn
     events:
       amendments:
         amendment_accepted:
           affected_user:
-            email_intro: 'Eine Änderung an %{amendable_title} wurde akzeptiert. Sie können das auf dieser Seite sehen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
-            email_subject: Akzeptierte Änderung für %{amendable_title} von %{emendation_author_nickname}
-            notification_title: Die <a href="%{emendation_path}">Änderung</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde angenommen.
+            email_intro: 'Eng Ännerung gouf %{amendable_title} akzeptéiert. Du kanns dat op dëser Säit gesinn:'
+            email_outro: Du hues dës Noriicht kritt well s'du en Auteur vum%{amendable_title} bass.
+            email_subject: Akzeptéiert Ännerung %{amendable_title} vum %{emendation_author_nickname}
+            notification_title: D' <a href="%{emendation_path}">Ännerung</a> erstallt vun <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf ugeholl.
           follower:
-            email_intro: 'Eine Änderung für %{amendable_title} wurde akzeptiert. Sie können das auf dieser Seite sehen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-            email_subject: Akzeptierte Änderung für %{amendable_title} von %{emendation_author_nickname}
-            notification_title: Die <a href="%{emendation_path}">Änderung</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde akzeptiert.
+            email_intro: 'Eng Ännerung gouf %{amendable_title} akzeptéiert. Du kanns dat op dëser Säit gesinn:'
+            email_outro: Du hues dës Noriicht kritt, well s'du dem %{amendable_title} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
+            email_subject: Akzeptéiert Ännerung fir %{amendable_title} vum %{emendation_author_nickname}
+            notification_title: D' <a href="%{emendation_path}">Ännerung</a> erstallt vun <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf ugeholl.
         amendment_created:
           affected_user:
-            email_intro: 'Eine neue Änderung wurde für %{amendable_title} vorgeschlagen. Sie können das auf dieser Seite sehen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
-            email_subject: Neuer Änderungsantrag für %{amendable_title}
-            notification_title: Neue Änderung für <a href="%{amendable_path}">%{amendable_title}</a> erstellt.
+            email_intro: 'Eng Ännerung fir %{amendable_title} gouf erstallt. Du kanns dat op dëser Säit gesinn:'
+            email_outro: Du hues dës Noriicht kritt well s'du en Auteur vum %{amendable_title} bass.
+            email_subject: Nei ännerung fir %{amendable_title}
+            notification_title: Nei Ännerung fir <a href="%{amendable_path}">%{amendable_title}</a> gouf erstallt.
           follower:
-            email_intro: 'Eine neue Änderung für %{amendable_title} wurde erstellt. Sie können das auf dieser Seite sehen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-            email_subject: Neuer Änderungsantrag für %{amendable_title}
-            notification_title: Eine neue Änderung für <a href="%{amendable_path}">%{amendable_title}</a> wurde erstellt.
+            email_intro: 'Eng nei Ännerung fir %{amendable_title} gouf erstallt. Du kanns dat op dëser Säit gesinn:'
+            email_outro: Du hues dës Noriicht kritt, well s'du dem %{amendable_title} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
+            email_subject: Nei Ännerung fir %{amendable_title}
+            notification_title: Nei Ännerung fir <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
-            email_intro: 'Eine abgelehnte Änderung an %{amendable_title} wurde als neue/n %{amendable_type} veröffentlicht. Sie können das auf dieser Seite sehen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
-            email_subject: Eine Änderung von %{emendation_author_nickname} wurde als neue/n %{amendable_type} veröffentlicht
-            notification_title: Die <a href="%{emendation_path}">abgelehnte Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> als neue/n %{amendable_type} veröffentlicht.
+            email_intro: 'Eng refuséiert Ännerung am %{amendable_title} gouf als eng nei ënner %{amendable_type} verëffentlecht. Du kanns dat op dëser Säit gesinn:'
+            email_outro: Du hues dës Noriicht kritt well s'du en Auteur vum %{amendable_title} bass.
+            email_subject: Eng Ännerung vun %{emendation_author_nickname} gouf als nei /n %{amendable_type} verëffentlecht
+            notification_title: D' <a href="%{emendation_path}">refuséiert Ännerung </a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf als nei verëffentlecht %{amendable_type} duerch <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
-            email_intro: 'Eine abgelehnte Änderung für %{amendable_title} wurde als neue/n %{amendable_type} veröffentlicht. Sie können das auf dieser Seite sehen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-            email_subject: Eine Änderung von %{emendation_author_nickname} wurde als neue/n/s %{amendable_type} veröffentlicht
-            notification_title: Eine <a href="%{emendation_path}">abgelehnte Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> als neue/n/s %{amendable_type} veröffentlicht.
+            email_intro: 'Eng refuséiert Ännerung am %{amendable_title} gouf als eng nei ënner %{amendable_type} verëffentlecht. Du kanns dat op dëser Säit gesinn:'
+            email_outro: Du hues dës Noriicht kritt, well s'du dem %{amendable_title} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
+            email_subject: Eng Ännerung vun %{emendation_author_nickname} gouf als nei /n %{amendable_type} verëffentlecht
+            notification_title: D' <a href="%{emendation_path}">refuséiert Ännerung </a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf als nei verëffentlecht %{amendable_type} duerch <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
-            email_intro: 'Eine Änderung an %{amendable_title} wurde abgelehnt. Sie können das auf dieser Seite sehen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
-            email_subject: Abgelehnter Änderungsantrag für %{amendable_title} von %{emendation_author_nickname}
-            notification_title: Die <a href="%{emendation_path}">Änderung</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde abgelehnt.
+            email_intro: 'Eng Ännerung fir %{amendable_title} gouf refuséiert. Du kanns dat op dëser Säit gesinn:'
+            email_outro: Du hues dës Noriicht kritt well s'du en Auteur vum%{amendable_title} bass.
+            email_subject: Refuséiert Ännerung fir %{amendable_title} vum %{emendation_author_nickname}
+            notification_title: D' <a href="%{emendation_path}">Ännerung</a> erstallt vun <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf refuséiert.
           follower:
-            email_intro: 'Eine Änderung für %{amendable_title} wurde abgelehnt. Sie können das auf dieser Seite sehen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title}. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-            email_subject: Abgelehnte Änderung für %{amendable_title} von %{emendation_author_nickname}
-            notification_title: Die <a href="%{emendation_path}">Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> wurde abgelehnt.
+            email_intro: 'Eng Ännerung fir %{amendable_title} gouf refuséiert. Du kanns dat op dëser Säit gesinn:'
+            email_outro: Du hues dës Noriicht kritt, well s'du dem %{amendable_title} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
+            email_subject: Refuséiert Ännerung fir %{amendable_title} vum %{emendation_author_nickname}
+            notification_title: D' <a href="%{emendation_path}">Ännerung</a> erstallt vun <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf refuséiert.
       attachments:
         attachment_created:
-          email_intro: 'Ein neues Dokument wurde zu %{resource_title} hinzugefügt. Sie können es auf dieser Seite sehen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: Eine Aktualisierung auf %{resource_title}
-          notification_title: Ein <a href="%{resource_path}">neues Dokument</a> wurde zu <a href="%{attached_to_url}">%{resource_title}</a>hinzugefügt
+          email_intro: 'En neit Dokument fir %{resource_title} gouf dru gehaange. Du kanns dat op dëser Säit gesinn:'
+          email_outro: Du hues dës Noriicht kritt, well s'du dem %{resource_title} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
+          email_subject: Eng Aktualiséierung op %{resource_title}
+          notification_title: En <a href="%{resource_path}">neit Dokument</a> gouf bei <a href="%{attached_to_url}">%{resource_title}</a>drugehaange
       components:
         component_published:
           email_intro: 'Die Komponente %{resource_title} ist jetzt für %{participatory_space_title} aktiv. Sie können das auf dieser Seite sehen:'
