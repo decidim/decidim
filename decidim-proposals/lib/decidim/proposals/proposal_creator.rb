@@ -1,19 +1,21 @@
 # frozen_string_literal: true
 
+require "decidim/proposals/import/proposals_verifier"
+
 module Decidim
   module Proposals
     # This class is responsible for creating the imported proposals
     # and must be included in proposals component's import manifest.
     class ProposalCreator < Decidim::Admin::Import::Creator
-      class << self
-        # Retuns the resource class to be created with the provided data.
-        def resource_klass
-          Decidim::Proposals::Proposal
-        end
+      # Retuns the resource class to be created with the provided data.
+      def self.resource_klass
+        Decidim::Proposals::Proposal
+      end
 
-        def required_dynamic_headers
-          %w(title body)
-        end
+      # Returns a verifier class to be used to verify the correctness of the
+      # import data.
+      def self.verifier_klass
+        Decidim::Proposals::Import::ProposalsVerifier
       end
 
       def initialize(data, context = nil)

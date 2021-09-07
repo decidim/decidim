@@ -11,13 +11,6 @@ module Decidim
         class JSON < Base
           MIME_TYPE = "application/json"
 
-          def self.invalid_indexes_message_for(indexes)
-            [
-              I18n.t("decidim.admin.imports.invalid_indexes.json.message", count: indexes.count, indexes: humanize_indexes(indexes)),
-              I18n.t("decidim.admin.imports.invalid_indexes.json.detail")
-            ].join(" ")
-          end
-
           def read_rows
             json_string = File.read(file)
             columns = []

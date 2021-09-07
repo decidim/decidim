@@ -13,12 +13,13 @@ module Decidim
       validates :name, presence: true
       validate :check_accepted_mime_type
       validate :check_invalid_file, if: -> { file.present? && accepted_mime_type? }
+      validate :verify_import, if: -> { file.present? && accepted_mime_type? && !importer.invalid_file? }
 
-      with_options if: -> { file.present? && accepted_mime_type? && !importer.invalid_file? } do
-        validate :check_duplicate_columns
-        validate :check_missing_columns
-        validate :check_invalid_lines
+      def importer
+        @importer ||= importer_for(file_path, mime_type)
       end
+
+      private
 
       def check_accepted_mime_type
         return if accepted_mime_type?
@@ -40,19 +41,12 @@ module Decidim
         errors.add(:file, I18n.t("activemodel.errors.new_import.attributes.file.invalid_file"))
       end
 
-      def check_duplicate_columns
-        message = importer.duplicate_columns_message
-        errors.add(:file, message) if message
-      end
+      def verify_import
+        return if importer.verify
 
-      def check_missing_columns
-        message = importer.missing_columns_message
-        errors.add(:file, message) if message
-      end
-
-      def check_invalid_lines
-        message = importer.invalid_indexes_message
-        errors.add(:file, message) if message
+        importer.errors.each do |_col, message|
+          errors.add(:file, message)
+        end
       end
 
       def file_path
@@ -65,10 +59,6 @@ module Decidim
 
       def creator_class
         manifest.creator
-      end
-
-      def importer
-        @importer ||= importer_for(file_path, mime_type)
       end
 
       def importer_for(filepath, mime_type)

@@ -452,34 +452,31 @@ en:
           impersonate_existing_user: Manage participant "%{name}"
           impersonate_new_managed_user: Manage new participant
       imports:
-        duplicate_columns:
-          base:
-            and: and
+        and: and
+        data_errors:
+          duplicate_headers:
             detail: Please check that file contains required columns or headers only once.
             message:
               one: Duplicate column %{columns}.
               other: Duplicate columns %{columns}.
-        error: There was a problem during the import
-        example_error: Could not create an example for the given type
-        invalid_indexes:
-          base:
-            and: and
-            detail: Please check that these lines are formatted correctly and contain valid records.
-            message:
-              one: Found error in the import file on line %{indexes}.
-              other: Found error in the import file on lines %{indexes}.
-          json:
-            detail: Please check that these records are formatted correctly and contain valid records.
-            message:
-              one: Found error in the import file for records with order numbers %{indexes}.
-              other: Found error in the import file for records with order numbers %{indexes}.
-        missing_columns:
-          base:
-            and: and
+          invalid_indexes:
+            lines:
+              detail: Please check that these lines are formatted correctly and contain valid records.
+              message:
+                one: Found error in the import file on line %{indexes}.
+                other: Found error in the import file on lines %{indexes}.
+            records:
+              detail: Please check that these records are formatted correctly and contain valid records.
+              message:
+                one: Found error in the import file for records with order numbers %{indexes}.
+                other: Found error in the import file for records with order numbers %{indexes}.
+          missing_headers:
             detail: Please check that the file contains required columns.
             message:
               one: Missing column %{columns}.
               other: Missing columns %{columns}.
+        error: There was a problem during the import
+        example_error: Could not create an example for the given type
         new:
           accepted_mime_types:
             csv: CSV

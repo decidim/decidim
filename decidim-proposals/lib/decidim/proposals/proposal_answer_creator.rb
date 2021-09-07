@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/proposals/import/proposals_answers_verifier"
+
 module Decidim
   module Proposals
     # This class is responsible for creating the imported proposal answers
@@ -7,31 +9,15 @@ module Decidim
     class ProposalAnswerCreator < Decidim::Admin::Import::Creator
       POSSIBLE_ANSWER_STATES = %w(evaluating accepted rejected).freeze
 
-      class << self
-        # Retuns the resource class to be created with the provided data.
-        def resource_klass
-          Decidim::Proposals::Proposal
-        end
+      # Retuns the resource class to be created with the provided data.
+      def self.resource_klass
+        Decidim::Proposals::Proposal
+      end
 
-        # Check if prepared resource is valid
-        #
-        # record - Decidim::Proposals::Proposal
-        #
-        # Returns true if record is valid
-        def resource_valid?(record)
-          return false if record.nil?
-          return false if record.errors.any?
-
-          record.valid?
-        end
-
-        def required_static_headers
-          %w(id state).map(&:to_sym).freeze
-        end
-
-        def required_dynamic_headers
-          %w(answer).freeze
-        end
+      # Returns a verifier class to be used to verify the correctness of the
+      # import data.
+      def self.verifier_klass
+        Decidim::Proposals::Import::ProposalsAnswersVerifier
       end
 
       # Add answer to proposal

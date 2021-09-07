@@ -17,43 +17,14 @@ module Decidim
             raise NotImplementedError, "#{self.class.name} does not define resource class"
           end
 
-          def missing_headers(headers, available_locales)
-            missing_headers = []
-            required_static_headers.each do |required|
-              missing_headers << required unless headers.include?(required)
-            end
-
-            required_dynamic_headers.each do |required|
-              missing_headers << required unless has_localized_header?(required, headers, available_locales)
-            end
-            missing_headers
+          # Returns the verifier class to be used to ensure the data is valid
+          # for the import.
+          def verifier_klass
+            Decidim::Admin::Import::Verifier
           end
 
-          def has_localized_header?(required_header, headers, available_locales)
-            localized_headers = localize_headers(required_header, available_locales)
-            headers.each do |header|
-              return true if localized_headers.include?(header)
-            end
-            false
-          end
-
-          def required_static_headers
+          def required_headers
             []
-          end
-
-          def required_dynamic_headers
-            []
-          end
-
-          # Check if prepared resource is valid
-          #
-          # record - Instance of model created by creator.
-          #
-          # Returns true if record is valid
-          def resource_valid?(record)
-            return false if record.nil?
-
-            record.valid?
           end
 
           def localize_headers(header, locales)

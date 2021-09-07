@@ -10,6 +10,8 @@ module Decidim
       # You can also use the ImporterFactory class to create an Importer
       # instance.
       class Importer
+        delegate :errors, to: :verifier
+
         # Public: Initializes an Importer.
         #
         # file   - A file with the data to be imported.
@@ -22,6 +24,10 @@ module Decidim
           @creator = creator
           @context = context
           @data_headers = []
+        end
+
+        def verify
+          verifier.valid?
         end
 
         # Import data and create resources
@@ -47,50 +53,18 @@ module Decidim
           true
         end
 
-        def duplicate_columns
-          @duplicate_columns ||= begin
-            prepare
-            duplicate_columns = []
-            @data_headers.each do |header|
-              duplicate_columns << header if @data_headers.count(header) > 1
-            end
-            duplicate_columns.uniq
-          end
-        end
-
-        def missing_columns
-          @missing_columns ||= begin
-            prepare
-            check_required_column_headers
-          end
-        end
-
-        # Returns array of all resource indexes where validations fail.
-        def invalid_indexes
-          @invalid_indexes ||= check_invalid_indexes(prepare)
-        end
-
-        def duplicate_columns_message
-          return if duplicate_columns.blank?
-
-          reader.duplicate_columns_message_for(duplicate_columns)
-        end
-
-        def missing_columns_message
-          return unless missing_columns.any?
-
-          reader.missing_columns_message_for(missing_columns)
-        end
-
-        def invalid_indexes_message
-          return unless invalid_indexes.any?
-
-          reader.invalid_indexes_message_for(invalid_indexes)
-        end
-
         private
 
-        attr_reader :file, :reader, :creator, :context
+        attr_reader :file, :reader, :creator, :context, :data_headers
+
+        def verifier
+          @verifier ||= creator.verifier_klass.new(
+            headers: data_headers.map(&:to_s),
+            data: prepare,
+            reader: reader,
+            context: context
+          )
+        end
 
         def collection_data
           return @collection_data if @collection_data
@@ -109,18 +83,6 @@ module Decidim
           end
 
           @collection_data
-        end
-
-        def check_required_column_headers
-          creator.missing_headers(@data_headers, available_locales)
-        end
-
-        def check_invalid_indexes(imported_data)
-          invalid_indexes = []
-          imported_data.each_with_index do |record, index|
-            invalid_indexes << index unless creator.resource_valid?(record)
-          end
-          invalid_indexes
         end
 
         def component
