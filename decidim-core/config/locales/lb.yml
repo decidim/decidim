@@ -20,16 +20,16 @@ lb:
         email: Ihre E-Mail
         name: Ihr Name
         nickname: Spitzname
-        password: Passwort
-        password_confirmation: Bestätigen Sie Ihr Passwort
-        personal_url: Persönliche URL
-        remove_avatar: Avatar entfernen
+        password: Passwuert
+        password_confirmation: Bestäteg däi Passwuert
+        personal_url: Perséinlech URL
+        remove_avatar: Avatar läschen
     models:
-      decidim/attachment_created_event: Anhang
-      decidim/component_published_event: Aktive Komponente
-      decidim/demoted_membership: Kein Gruppenadministrator mehr
-      decidim/gamification/badge_earned_event: Abzeichen verdient
-      decidim/gamification/level_up_event: Sie sind um ein Level aufgestiegen
+      decidim/attachment_created_event: Unhang
+      decidim/component_published_event: Aktiv Komponent
+      decidim/demoted_membership: Keen Gruppen-Admin méi
+      decidim/gamification/badge_earned_event: Ofzeechen verdengt
+      decidim/gamification/level_up_event: Du bass e Level geklomme
       decidim/join_request_accepted_event: Beitrittsanfrage akzeptiert
       decidim/join_request_rejected_event: Beitrittsanfrage abgelehnt
       decidim/profile_updated_event: Profil aktualiséiert
@@ -84,10 +84,11 @@ lb:
         file_no_exists: Datei existéiert net
         notice: D'Eroflueden ass am Gaang. Du kriss en Email wann et vollstänneg ass.
       delete:
-        alert: Dës Aktioun kann réckgängeg gemaach ginn. Wann däin Kont geläscht ass, kanns du dech net méi mat de selwechten Donnéeën aloggen. Zukünfteg Beiträg sinn dann anonymiséiert. Du kanns nach ëmmer en neien Kont erstellen, mee anonym Beiträg sinn net mat engem Kont verknäppt.
+        alert: Dës Aktioun kann net réckgängeg gemaach ginn. Wann däin Kont geläscht ass, kanns du dech net méi mat de selwechten Donnéeën aloggen. Zukünfteg Beiträg sinn dann anonymiséiert. Du kanns nach ëmmer en neien Kont erstellen, mee anonym Beiträg sinn net mat engem Kont verknäppt.
         confirm:
           close: Fënster zou maachen
           ok: Jo ech well mäin Kont läschen
+          question: Bass du sécher dass du däin Kont läsche wëlls?
           title: Mäin Kont läschen
         explanation: Gëff w. e. g. de Grond un, woufir s'du de Kont läsche wëlls (optinal).
       destroy:
@@ -1258,7 +1259,16 @@ lb:
         sign_in_before_follow: Mell dech w. e. g. un, éier s'du dës Aktioun ausféiers
       login_modal:
         close_modal: Dialog-Fënster zoumaachen
+        please_sign_in: W. e. g. umellen
+        sign_up: Registréieren
+      participatory_space_filters:
+        filters:
+          areas: Beräicher
+          select_an_area: Wiel e Beräich
+      reference:
+        reference: 'Referenz: %{reference}'
       represent_user_group:
+        represent_user_group: Ech vertrieden e Grupp
         select_user_group: Wählen Sie eine Gruppe aus
       results_per_page:
         label: 'Ergebnisse pro Seite:'
@@ -1312,6 +1322,10 @@ lb:
       show:
         my_interests: Meine Interessen
         no_scopes: Diese Organisation hat noch keinen Spielraum!
+        select_your_interests: Wiel Themen, déi dech interesséieren fir entspriechend Evenementer op denger Profil-Timeline ze kréien.
+        update_my_interests: Interessen aktualiséieren
+      update:
+        error: Et gouf e Problem beim Aktualiséieren vun den Interessen.
     versions_list:
       show:
         back_to_resource: Zurück
