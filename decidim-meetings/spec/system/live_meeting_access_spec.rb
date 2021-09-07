@@ -64,6 +64,101 @@ describe "Meeting live event access", type: :system do
 
         expect(page).to have_css("iframe")
       end
+
+      context "and the iframe access level is for all visitors" do
+        let(:meeting) { create :meeting, :published, :show_embedded_iframe, :online, :embeddable, :live, component: component }
+
+        context "and user is signed in" do
+          before do
+            login_as user, scope: :user
+          end
+
+          it "shows the meeting link embedded" do
+            visit_meeting
+
+            expect(page).to have_css("iframe")
+          end
+        end
+      end
+
+      context "and the iframe access level is for signed in visitors" do
+        let(:meeting) { create :meeting, :published, :show_embedded_iframe, :online, :embeddable, :live, :signed_in_iframe_access_level, component: component }
+
+        context "and user is not signed in" do
+          it "doesn't show the meeting link embedded" do
+            visit_meeting
+
+            expect(page).to have_no_content("This meeting is happening right now")
+            expect(page).to have_no_css("iframe")
+          end
+        end
+
+        context "and user is signed in" do
+          before do
+            login_as user, scope: :user
+          end
+
+          it "shows the meeting link embedded" do
+            visit_meeting
+
+            expect(page).to have_content("This meeting is happening right now")
+            expect(page).to have_css("iframe")
+          end
+        end
+      end
+
+      context "and the iframe access level is for registered visitors" do
+        let(:meeting) do
+          create(
+            :meeting,
+            :published,
+            :show_embedded_iframe,
+            :online,
+            :embeddable,
+            :live,
+            :with_registrations_enabled,
+            :registered_iframe_access_level,
+            component: component
+          )
+        end
+        let!(:registered_user) { create :user, :confirmed, organization: organization }
+        let!(:registration) { create :registration, meeting: meeting, user: registered_user }
+
+        context "and user is not signed in" do
+          it "doesn't show the meeting link embedded" do
+            visit_meeting
+
+            expect(page).to have_no_content("This meeting is happening right now")
+            expect(page).to have_no_css("iframe")
+          end
+        end
+
+        context "and not registered user is signed in" do
+          before do
+            login_as user, scope: :user
+          end
+
+          it "doesn't show the meeting link embedded" do
+            visit_meeting
+
+            expect(page).to have_no_content("This meeting is happening right now")
+            expect(page).to have_no_css("iframe")
+          end
+        end
+
+        context "and registered user is signed in" do
+          before do
+            login_as registered_user, scope: :user
+          end
+
+          it "shows the meeting link embedded" do
+            visit_meeting
+
+            expect(page).to have_content("This meeting is happening right now")
+            expect(page).to have_css("iframe")
+          end
+        end
+      end
     end
   end
 
