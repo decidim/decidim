@@ -159,6 +159,62 @@ describe "Meeting live event access", type: :system do
           end
         end
       end
+
+      context "and the meeting belongs to an assembly which is a transparent private space" do
+        let(:assembly) { create(:assembly, :private, :transparent, organization: organization) }
+        let(:participatory_space) { assembly }
+        let(:admin) { create :user, :confirmed, :admin, organization: organization }
+        let(:private_user) { create :user, :confirmed, organization: organization }
+        let!(:assembly_private_user) { create :assembly_private_user, user: private_user, privatable_to: assembly }
+
+        context "and user is not signed in" do
+          it "doesn't show the meeting link embedded" do
+            visit_meeting
+
+            expect(page).to have_no_content("This meeting is happening right now")
+            expect(page).to have_no_css("iframe")
+          end
+        end
+
+        context "and user is signed in" do
+          before do
+            login_as user, scope: :user
+          end
+
+          it "doesn't show the meeting link embedded" do
+            visit_meeting
+
+            expect(page).to have_no_content("This meeting is happening right now")
+            expect(page).to have_no_css("iframe")
+          end
+        end
+
+        context "and private user is signed in" do
+          before do
+            login_as private_user, scope: :user
+          end
+
+          it "shows the meeting link embedded" do
+            visit_meeting
+
+            expect(page).to have_content("This meeting is happening right now")
+            expect(page).to have_css("iframe")
+          end
+        end
+
+        context "and admin user is signed in" do
+          before do
+            login_as admin, scope: :user
+          end
+
+          it "shows the meeting link embedded" do
+            visit_meeting
+
+            expect(page).to have_content("This meeting is happening right now")
+            expect(page).to have_css("iframe")
+          end
+        end
+      end
     end
   end
 
