@@ -334,17 +334,17 @@ lb:
         unconfirmed:
           confirmation_instructions: 'Wann s''du Uweisungen fir d''Bestätegung nach kritt hues, kanns du se hei nei ufroen:'
           explanation_html: Fir dës Aktioun duerch ze féieren muss du eng Berechtegung hunn, fir dass déi gülteg ass muss du fir d'éischt deng Email-Adress bestätegen <strong>%{email}</strong>.
-          request_confirmation_instructions: Bestätigungsanleitungen anfordern
-          title: Bestätige deine E-Mail
+          request_confirmation_instructions: Instruktiounen fir d'Bestätegung ufroen
+          title: Email bestätegen
       show:
-        close_modal: Modal schließen
+        close_modal: Modal zou maachen
     block_user_mailer:
       notify:
-        body_1: Ihr Account wurde gesperrt.
-        body_2: 'Grund: %{justification}'
-        greetings: Guten Tag <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>,
-        hello: Hallo,
-        subject: Ihr Konto wurde von %{organization_name} gesperrt
+        body_1: Däin Kont ass gespaart.
+        body_2: 'Grond: %{justification}'
+        greetings: Gréiss <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>,
+        hello: Moien,
+        subject: Däin Kont gouf duerch %{organization_name} gespaart
     collapsible_list:
       hidden_elements_count:
         one: und %{count} mehr
