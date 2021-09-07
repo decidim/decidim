@@ -6,7 +6,7 @@ module Decidim::Admin::Import::Readers
   describe CSV do
     let(:subject) { described_class.new(file) }
     let(:csv_data) do
-      <<~JSON
+      <<~CSV
         id;title;detail
         1;Donec eget bibendum libero;dapibus
         2;;diam
@@ -14,10 +14,10 @@ module Decidim::Admin::Import::Readers
 
 
         10
-      JSON
+      CSV
     end
     let(:file) do
-      path = Rails.application.root.join("tmp/test_csv.json")
+      path = Rails.application.root.join("tmp/test_csv.csv")
       File.open(path, "w") do |f|
         f.write(csv_data)
       end
@@ -55,7 +55,7 @@ module Decidim::Admin::Import::Readers
       end
       let(:example) { subject.example_file(data) }
 
-      it "returns an example JSON file from the data" do
+      it "returns an example CSV file from the data" do
         expect(example).to be_a(StringIO)
         expect(example.read).to eq(
           <<~CSV
