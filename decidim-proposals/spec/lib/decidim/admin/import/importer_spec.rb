@@ -43,10 +43,17 @@ describe Decidim::Admin::Import::Importer do
       end
     end
 
-    describe "#invalid_columns" do
+    describe "#duplicate_columns" do
       it "returns empty array when everything is ok" do
         subject.prepare
-        expect(subject.invalid_columns).to be_empty
+        expect(subject.duplicate_columns).to be_empty
+      end
+    end
+
+    describe "#missing_columns" do
+      it "returns empty array when everything is ok" do
+        subject.prepare
+        expect(subject.missing_columns).to be_empty
       end
     end
 
