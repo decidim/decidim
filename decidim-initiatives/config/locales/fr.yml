@@ -89,6 +89,7 @@ fr:
         information: Informations
         initiatives: Initiatives
         initiatives_types: Types d'initiatives
+        moderations: Modérations
       models:
         initiatives:
           fields:
