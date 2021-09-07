@@ -372,6 +372,7 @@ lb:
         name: Dummy Komponent
         settings:
           global:
+            amendments_enabled: Ännerungen aktivéiert
             comments_enabled: Kommentarer aktiv
             comments_max_length: Maximal Längt vun de Kommentären
             dummy_global_attribute_1: Dummy Attribut 1
@@ -698,9 +699,16 @@ lb:
         button: Follow
         error: Et gouf e Problem beim Followen vun dëser Ressource.
         participatory_space: Du follows <span class="show-for-sr">%{resource_name}</span>
+      destroy:
+        button: Net méi followen
+        error: Et gouf e Problem beim Un-Followen vun dëser Ressource.
     forms:
+      current_file: Aktuell Datei
+      current_image: Aktuellt Bild
+      default_image: Standard-Bild
       errors:
         decidim/user:
+          password: D'Passwuert ass ze kuerz.
           password_confirmation: Die Bestätigung muss mit dem Passwort übereinstimmen.
         error: In diesem Feld ist ein Fehler aufgetreten.
       file_help:
@@ -770,8 +778,39 @@ lb:
         invite_user: Laden Sie einen Benutzer ein
       invite:
         error: Beim Laden dieses Nutzers ist ein Fehler aufgetreten
+        success: Benotzer gouf agelueden
+      reject:
+        error: Et gouf e Problem beim Refuséieren vun dëser Invitatioun
+        success: Invitatioun gouf refuséiert
+      reject_invitation: Refuséieren
+    group_members:
+      accept:
+        error: Et gouf e Problem beim Unhuelen vun dëser Invitatioun bäi ze trieden
+        success: D'Ufro bäi ze trieden gouf acceptéiert
+      actions:
+        are_you_sure: Bass du sécher?
+        promote_to_admin: Admin maachen
+        remove_from_group: Teilnehmer läschen
+      index:
+        current_members_without_admins: 'Aktuell Memberen (ouni Admins):'
+        manage_members: Memberen verwalten
+      promote:
+        error: Et gouf e Problem beim Fërderen vun dësem Teilnehmer
+        success: Teilnehmer gouf gefërdert
+      reject:
+        error: Et gouf e Problem dës Bäitrëtts-Ufro ze refuséieren
+        success: Bäitrëtts-Ufro gouf refuséiert
+      remove:
+        error: Et gouf e Problem dësen Teilnehmer aus dem Grupp ze läschen
+        success: Dësen Teilnehmer gouf aus dem Grupp geläscht
     groups:
+      actions:
+        are_you_sure: Bass de sécher?
+      create:
+        error: Et gouf e Problem beim Erstellen vum Grupp
+        success: De Grupp gouf erstellt
       edit:
+        edit_user_group: Grupp beaarbechten
         update_user_group: Gruppe aktualisieren
       form:
         document_number_help: Verwenden Sie keine Bindestriche oder Leerzeichen
@@ -849,9 +888,37 @@ lb:
     map:
       dynamic:
         screen_reader_explanation: Das folgende Element ist eine Karte, die die Elemente auf dieser Seite als Kartenpunkte darstellt. Das Element kann mit einem Screenreader verwendet werden, aber es ist möglicherweise schwer zu verstehen.
+        skip_button: Kaart iwwersprangen
+      static:
+        latlng_text: 'Breedegrad:%{latitude}, Längegrad:%{longitude}'
+        map_service_brand: Stroosse-Kaart opmaachen
+    members:
+      no_members: Dëse Grupp huet nach keng Memberen.
+    menu:
+      help: Hëllef
+      home: Startsäit
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: Du kriss dat hei, wells du en Admin am Grupp %{group} bass.
+          greeting: Moien %{recipient}!
+          intro: "%{manager} huet eng nei Konversatioun am Numm vum Grupp %{group} ugefaangen. Klick hei fir et ze gesinn:"
+          outro: Vill Spaass mat decidim!
+          subject: "%{manager} huet eng Konversatioun mam %{group} ugefaangen"
+        comanagers_new_message:
+          admin_in_group: Du kriss dat hei, wells du en Admin am Grupp %{group} bass.
+          greeting: Moien %{recipient}!
+          intro: "%{manager} huet nei Noriichten gepost an der Konversatioun mam Grupp %{group}. Klick hei fir se ze gesinn:"
+          outro: Vill Spaass mat decidim!
+          subject: "%{manager} huet eng nei Noriicht an de %{group} geschéckt"
+        new_conversation:
+          greeting: Moien %{recipient}!
+          intro: "%{sender} huet eng nei Konversatioun mat dir ugefaange. Klick hei fir se ze gesinn:"
+          outro: Vill Spaass mat decidim!
+          subject: "%{sender} huet eng Konversatioun mat dir ugefaangen"
         new_group_conversation:
+          admin_in_group: Du kriss dat hei, wells du en Admin am Grupp %{group} bass.
+          greeting: Moien %{recipient}!
           intro: "%{sender} huet eng nei Konversatioun am Grupp ugefaange %{group}. Klick hei fir se ze gesinn:"
           outro: Vill Spaass mat decidim!
           subject: "%{sender} huet eng Konversatioun mam %{group} ugefaangen"
@@ -1169,11 +1236,29 @@ lb:
       flag_modal:
         already_reported: Dësen Inhalt gouf scho gemellt an gëtt duerch en Admin nogekuckt.
         close: Zoumaachen
-        description: Ass dësen Inhalt net ugemiess?
+        description: Ass dësen Inhalt net zoulässeg?
         does_not_belong: Enthält illegal Aktivitéit, Selbstmord-Dreeung, perséinlech Informatiounen oder soss Inhalter déi net an Verbindung zu %{organization_name} stinn.
         offensive: Enthält Rassismus, Sexismus, Verleumdung, perséinlechen Ugrëff, Doudesdreeung, Opfuerderung zu Selbstmord oder aner Formen vun Haassrieden.
         reason: Grond
         report: Bericht
+        spam: Enthält Klickbait, Reklamm, Bedruch oder Script-Bots.
+        title: Inhalt mellen den net zoulässeg ass
+      flag_user_modal:
+        already_reported: Dësen Inhalt gouf scho gemellt an gëtt duerch en Admin nogekuckt.
+        close: Zoumaachen
+        description: Wat huet dësen Benotzer gemaach, wat net zoulässeg ass?
+        does_not_belong: Enthält illegal Aktivitéit, Selbstmord-Dreeung, perséinlech Informatiounen oder soss Inhalter déi net an Verbindung zu %{organization_name} stinn.
+        offensive: Enthält Rassismus, Sexismus, Verleumdung, perséinlechen Ugrëff, Doudesdreeung, Opfuerderung zu Selbstmord oder aner Formen vun Haassrieden.
+        report: Bericht
+        spam: Enthält Klickbait, Reklamm, Bedruch oder Script-Bots.
+        title: Notzer mellen den net zoulässegen Inhalt verbreet
+      floating_help:
+        close: Den Hëllefs-Tab zoumaachen
+        help: Hëllef
+      follow_button:
+        sign_in_before_follow: Mell dech w. e. g. un, éier s'du dës Aktioun ausféiers
+      login_modal:
+        close_modal: Dialog-Fënster zoumaachen
       represent_user_group:
         select_user_group: Wählen Sie eine Gruppe aus
       results_per_page:
@@ -1360,6 +1445,11 @@ lb:
       send_paranoid_instructions: Wenn Ihre E-Mail-Adresse in unserer Datenbank vorhanden ist, erhalten Sie innerhalb weniger Minuten einen Link zur Passwortwiederherstellung unter Ihrer E-Mail-Adresse.
       updated: Ihr Passwort wurde erfolgreich geändert. Sie sind jetzt angemeldet.
       updated_not_active: Ihr Passwort wurde erfolgreich geändert.
+    shared:
+      links:
+        didn_t_receive_unlock_instructions: Du hues keng Instruktiounen kritt fir ze entspären?
+        forgot_your_password: Passwuert vergiess?
+        sign_in: Umellen
   errors:
     messages:
       content_type_allowlist_error: Der Dateityp ist nicht gültig
