@@ -390,9 +390,20 @@ lb:
       cta_settings_form:
         background_image: Hannergrondbild
         button_text: Call to Action-Text
+        button_url: Call To Action-URL
         description: Beschreiwung
+      footer_sub_hero:
+        name: Fouss-Text Sub-Hero-Banner
+      hero:
+        name: Hero Bild
+      hero_settings_form:
+        background_image: Hannergrond Bild
+        welcome_text: Begréissungstext
+      highlighted_content_banner:
+        name: Inhalt-Banner ervirgehuewen
       highlighted_elements_settings_form:
         orders:
+          label: 'Elementer zortéiert no:'
           random: Zoufälleg
           recent: Neist als éischt
       how_to_participate:
@@ -480,6 +491,11 @@ lb:
           by_organization_link_html: <small class="heading-small">von %{link}</small>
           cancel: Abbrechen
           connect_your_account_html: Verbinden Sie Ihr Konto, indem Sie sich bei <strong>%{organization}</strong> anmelden
+          publish_content: Inhalt fir Iech verëffentlechen
+          see_email: Kuck deng Email
+          see_name: Kuck däin Numm
+          see_username: Kuck däin Nickname
+          this_application_will_be_able_to: 'Dës Applikatioun mécht:'
           this_application_will_not_be_able_to: 'Diese Anwendung kann nicht:'
           update_profile: Profil aktualisieren
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> möchte Ihr Konto verwenden"
@@ -646,10 +662,35 @@ lb:
       data_portability_export:
         click_button: 'Klicken Sie auf den Link, um Ihre Daten herunterzuladen.<br/>Die Datei steht bis zum %{date} zur Verfügung.<br/>Sie benötigen <a href="https://www.7-zip.org/">7-Zip</a> (für Windows), <a href="https://www.keka.io/en/">Keka</a> (für MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (für Linux) um die Datei zu öffnen. Passwort: %{password}'
         download: Eroflueden
+      export:
+        ready: Am Anhang fënns de eng kompriméiert Versioun vun dengem exportéierten Element.
+      subject: Däin Export- %{name} ass prett
     filters:
       linked_classes:
         all: All
+        collaborative_draft: Kollaborativen Entworf
+        dummy_resource: Dummy-Ressourcen
         meeting: Versammlung
+        project: Projeten
+        proposal: Virschléi
+        result: Resultater
+    fingerprint:
+      check: Fangerofdrock iwwerpréiwen
+      explanation: Den folgenden Text ass eng verkierzten a markéiert Duerstellung vun dësem Inhalt. Dat ass néideg fir sécherzestellen, dass den Inhalt net manipuléiert gouf, well och kleng Ännerungen doran de Wäert dovun vëlleg veränneren géifen.
+      online_calculator_name: Online MD5-Rechner
+      replicate_help: Dësen Fangerofdrock gëtt mat engem SHA256-Hashing-Algorithmus berechent. Fir den selwer ze generéieren, kanns du en %{online_calculator_link} verwennen andeems de d'Quelldaten kopéiers an asetz.
+      source: Quell
+      title: Fangerofdrock
+      value: Wäert
+    followers:
+      no_followers: Bis elo keng Follower.
+    following:
+      no_followings: Followed bis elo kenger Ressource.
+    follows:
+      create:
+        button: Follow
+        error: Et gouf e Problem beim Followen vun dëser Ressource.
+        participatory_space: Du follows <span class="show-for-sr">%{resource_name}</span>
     forms:
       errors:
         decidim/user:
@@ -794,7 +835,15 @@ lb:
         screen_reader_explanation: Das folgende Element ist eine Karte, die die Elemente auf dieser Seite als Kartenpunkte darstellt. Das Element kann mit einem Screenreader verwendet werden, aber es ist möglicherweise schwer zu verstehen.
     messaging:
       conversation_mailer:
+        new_group_conversation:
+          intro: "%{sender} huet eng nei Konversatioun am Grupp ugefaange %{group}. Klick hei fir se ze gesinn:"
+          outro: Vill Spaass mat decidim!
+          subject: "%{sender} huet eng Konversatioun mam %{group} ugefaangen"
         new_group_message:
+          admin_in_group: Du kriss dat heiten, well du bass Administrateur am %{group}.
+          greeting: Moien, %{recipient}!
+          intro: "%{sender} huet nei Noriichten gepost an der Konversatioun mam Grupp %{group}. Klick hei fir se ze gesinn:"
+          outro: Vill Spaass mat decidim!
           subject: "%{group} hat neue Nachrichten von %{sender}"
         new_message:
           greeting: Hallo, %{recipient}!
@@ -933,19 +982,51 @@ lb:
       pad: Pad
     pages:
       home:
+        extended:
+          debates: Diskussiounen
+          debates_explanation: Debattéier an diskutéier, deel deng Usiichten an dro zu den wichtegen Themen bäi.
+          how_to_participate: Wéi kann ech bei engem Prozess matmaachen?
+          meetings: Versammlungen
+          meetings_explanation: Fann eraus wou an wéini ëffentlech Versammlungen sinn an wéi s'du kanns matmaachen.
+          more_info: Méi Informatiounen zu %{resource_name}
+          proposals: Virschléi
+          proposals_explanation: Maach Virschléi, ënnerstëtz Virschléi an fërder Verännerungen déi dir wichteg sinn.
+        footer_sub_hero:
+          footer_sub_hero_body: Looss eis un enger méi oppener, transparenter an kollaborativer Gesellschaft schaffen. <br /> Komm mat, maach mat an entscheet mat.
+          footer_sub_hero_headline: Wëllkomm %{organization} op der Participatiouns-Plattform.
+          register: Registréieren
+        hero:
+          participate: Matmaachen
+          welcome: Wëllkomm %{organization}!
+        metrics:
+          headline: Statistiken
         statistics:
           answers_count: Abgeschlossene Umfragen
           assemblies_count: Versammlungen
           comments_count: Kommentare
           conferences_count: Konferenzen
+          debates_count: Diskussiounen
           endorsements_count: Empfehlungen
+          headline: Aktuellen Stand vun %{organization}
           meetings_count: Versammlung
           orders_count: Stimmen
+          pages_count: Säiten
           processes_count: Beteiligungsprozesse
+          projects_count: Projeten
           proposals_accepted: Akzeptierte Vorschläge
+          proposals_count: Virschléi
+          results_count: Resultater
           surveys_count: Umfragen
           users_count: Teilnehmer
           votes_count: Stimmen
+        sub_hero:
+          register: Umellen
+      index:
+        read_more: Weideres liesen
+        standalone_pages: Säiten
+        subheading: Duerch d'Hëllefssäiten vun %{name} navigéieren
+        title: Hëllef
+        topics: Themen
       participatory_space:
         metrics:
           headline: Teilnahme an Zahlen
@@ -1085,6 +1166,14 @@ lb:
         unfold: Entfalten
       filter_form_help:
         help: Das untenstehende Formular filtert die Suchergebnisse dynamisch, wenn die Suchbedingungen geändert werden.
+        skip: Weider bis bei d'Resultater
+      flag_modal:
+        already_reported: Dësen Inhalt gouf scho gemellt an gëtt duerch en Admin nogekuckt.
+        close: Zoumaachen
+        description: Ass dësen Inhalt net ugemiess?
+        does_not_belong: Enthält illegal Aktivitéit, Selbstmord-Dreeung, perséinlech Informatiounen oder soss Inhalter déi net an Verbindung zu %{organization_name} stinn.
+        offensive: Enthält Rassismus, Sexismus, Verleumdung, perséinlechen Ugrëff, Doudesdreeung, Opfuerderung zu Selbstmord oder aner Formen vun Haassrieden.
+        report: Bericht
       represent_user_group:
         select_user_group: Wählen Sie eine Gruppe aus
       results_per_page:
