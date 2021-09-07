@@ -44,12 +44,6 @@ module Decidim
       end
     end
 
-    describe "#formats" do
-      it "returns the default formats array" do
-        expect(subject.formats).to eq(described_class::DEFAULT_FORMATS)
-      end
-    end
-
     describe "#messages" do
       it "allows defining and fetching the messages" do
         subject.messages do |msg|
@@ -164,6 +158,50 @@ module Decidim
         expect(subject.has_message?(:foo)).to be(true)
         expect(subject.has_message?(:baz)).to be(true)
         expect(subject.has_message?(:biz)).to be(false)
+      end
+    end
+
+    describe "#example" do
+      context "when given the definition block" do
+        let(:data) do
+          [
+            %w(id title detail),
+            [1, "foo", "bar"],
+            [2, "baz", "biz"]
+          ]
+        end
+
+        it "defines an example" do
+          example_data = data
+          subject.example do |_component|
+            example_data
+          end
+
+          expect(subject.example).to be(data)
+        end
+      end
+
+      context "when given a context and a component" do
+        let(:component) { create(:component) }
+
+        before do
+          subject.example do |comp|
+            org = comp.organization
+            [
+              %w(id) + org.available_locales.map { |l| "name/#{l}" },
+              [comp.id] + org.available_locales.map { |l| comp.name[l] }
+            ]
+          end
+        end
+
+        it "returns the example data" do
+          expect(subject.example(nil, component)).to eq(
+            [
+              %w(id name/en name/ca name/es),
+              [component.id, component.name["en"], component.name["ca"], component.name["es"]]
+            ]
+          )
+        end
       end
     end
   end

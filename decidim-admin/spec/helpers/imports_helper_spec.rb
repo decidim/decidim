@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Admin
     describe ImportsHelper do
-      describe "#render" do
+      describe "#import_dropdown" do
         subject do
           Nokogiri::HTML(helper.import_dropdown(component))
         end
@@ -23,20 +23,28 @@ module Decidim
       end
 
       describe "#mime_types" do
-        before do
-          allow(helper).to receive(:t).with(
-            "decidim.admin.imports.new.accepted_mime_types.json"
-          ).and_return("JSON")
-          allow(helper).to receive(:t).with(
-            "decidim.admin.imports.new.accepted_mime_types.csv"
-          ).and_return("CSV")
-          allow(helper).to receive(:t).with(
-            "decidim.admin.imports.new.accepted_mime_types.xlsx"
-          ).and_return("XLSX")
-        end
-
         it "returns the expected mime types" do
-          expect(helper.mime_types).to eq("JSON, CSV, XLSX")
+          expect(helper.mime_types).to eq(
+            csv: "CSV",
+            json: "JSON",
+            xlsx: "Excel (.xlsx)"
+          )
+        end
+      end
+
+      describe "#admin_imports_path" do
+        let(:component) { create(:dummy_component) }
+
+        it "returns the correct link" do
+          expect(helper.admin_imports_path(component, name: "dummies")).to eq("/admin/participatory_processes/#{component.participatory_space.slug}/components/#{component.id}/imports/new?name=dummies")
+        end
+      end
+
+      describe "#admin_imports_example_path" do
+        let(:component) { create(:dummy_component) }
+
+        it "returns the correct link" do
+          expect(helper.admin_imports_example_path(component, name: "dummies", format: "json")).to eq("/admin/participatory_processes/#{component.participatory_space.slug}/components/#{component.id}/imports/example.json?name=dummies")
         end
       end
 

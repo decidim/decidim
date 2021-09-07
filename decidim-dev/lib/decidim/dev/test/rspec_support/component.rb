@@ -46,7 +46,7 @@ module Decidim
         root to: proc { [200, {}, ["DUMMY ADMIN ENGINE"]] }
       end
 
-      initializer "imports.dummy_admin" do
+      initializer "dummy_admin.imports" do
         class ::DummyCreator < Decidim::Admin::Import::Creator
           def self.resource_klass
             Decidim::DummyResources::DummyResource
@@ -60,8 +60,14 @@ module Decidim
 
           def resource
             @resource ||= Decidim::DummyResources::DummyResource.new(
-              title: { en: "Dummy" }
+              title: { en: "Dummy" },
+              author: context[:current_user],
+              component: component
             )
+          end
+
+          def component
+            context[:current_component]
           end
         end
       end
@@ -297,6 +303,14 @@ Decidim.register_component(:dummy) do |component|
     end
 
     imports.creator DummyCreator
+    imports.example do |import_component|
+      locales = import_component.organization.available_locales
+      translated = ->(name) { locales.map { |l| "#{name}/#{l}" } }
+      [
+        translated.call("title") + %w(body) + translated.call("translatable_text") + %w(address latitude longitude),
+        locales.map { "Title text" } + ["Body text"] + locales.map { "Translatable text" } + ["Fake street 1", 1.0, 1.0]
+      ]
+    end
   end
 end
 
