@@ -36,39 +36,39 @@ lb:
       decidim/gamification/level_up_event: Sie sind um ein Level aufgestiegen
       decidim/join_request_accepted_event: Beitrittsanfrage akzeptiert
       decidim/join_request_rejected_event: Beitrittsanfrage abgelehnt
-      decidim/profile_updated_event: Profil aktualisiert
-      decidim/promote_to_admin: Zum Gruppenadministrator hochgestuft
-      decidim/removed_from_group: Aus der Gruppe entfernt
-      decidim/resource_endorsed_event: Ressource befürwortet
+      decidim/profile_updated_event: Profil aktualiséiert
+      decidim/promote_to_admin: Als Grupp-Admin fräigeschalt
+      decidim/removed_from_group: Aus dem Gruppe geläscht
+      decidim/resource_endorsed_event: Ressource akzeptéiert
   activerecord:
     attributes:
       decidim/user:
-        current_password: Aktuelles Passwort
-        email: E-Mail
-        name: Spitzname
-        password: Passwort
-        password_confirmation: Bestätigung des Passworts
-        remember_me: Angemeldet bleiben
+        current_password: Aktuellt Passwuert
+        email: Email
+        name: Spëtznumm
+        password: Passwuert
+        password_confirmation: Bestätegung Passwuert
+        remember_me: Ugemellt bleiwen
     models:
       decidim/amendment:
-        one: Änderungsantrag
-        other: Änderungsanträge
+        one: Ännerungen
+        other: Ännerungen
       decidim/endorsement:
-        one: Befürwortung
-        other: Befürwortungen
+        one: Akzeptéiert
+        other: Akzeptéiert
       decidim/user:
-        one: Benutzer
-        other: Benutzer
+        one: Teilnehmer
+        other: Teilnehmer
       decidim/user_group:
-        one: Benutzergruppe
-        other: Benutzergruppen
+        one: Grupp
+        other: Grupp
   booleans:
-    'false': 'Nein'
-    'true': 'Ja'
+    'false': 'Nee'
+    'true': 'Jo'
   carrierwave:
     errors:
-      image_too_big: Das Bild ist zu groß
-      not_inside_organization: Die Datei ist keiner Organisation hinzugefügt
+      image_too_big: Bild ass ze grouss
+      not_inside_organization: D'Datei ass net mat enger Organisatioun verbonnen
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -78,9 +78,9 @@ lb:
       decidim_with_month_name_short: "%d. %b"
   decidim:
     accessibility:
-      external_link: Externer Link
-      logo: "Offizielles Logo von %{organization}"
-      skip_button: Zu Hauptinhalten überspringen
+      external_link: Externe Link
+      logo: "Offiziellen Logo vun %{organization}"
+      skip_button: Zum Haapt-Inhalt eriwwergoen
     account:
       blocked: Dieses Konto wurde wegen Verletzung der Allgemeinen Geschäftsbedingungen gesperrt
       data_portability_export:
@@ -1450,9 +1450,33 @@ lb:
         didn_t_receive_unlock_instructions: Du hues keng Instruktiounen kritt fir ze entspären?
         forgot_your_password: Passwuert vergiess?
         sign_in: Umellen
+        sign_in_with_provider: Registréier dech iwwer %{provider}
+        sign_up: Registréieren
+      minimum_password_length:
+        one: "(%{count} Minimum Zeechen)"
+        other: "(%{count} Minimum Zeechen)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Instruktiounen fir ze entspären nach eng Kéier schécken
+      send_instructions: Du kriss bannent e puer Minutten en Email mat den Instruktiounen fir ze entspären.
+      send_paranoid_instructions: Mat engem valabelen Benotzer-Kont kriss du bannent Minutten en Email mat Instruktiounen fir ze entspären.
+      unlocked: Däin Kont ass entspärt ginn. Mell dech w. e. g. un fir weider ze fueren.
+  doorkeeper:
+    scopes:
+      public: Deng ëffentlech Informatiounen.
   errors:
     messages:
+      already_confirmed: Gouf bestätegt, w.e.g. probéier dech ze registréieren
+      confirmation_period_expired: muss bannent %{period} bestätegt ginn, fro w. e. g. en neit un
       content_type_allowlist_error: Der Dateityp ist nicht gültig
+      cycle_detected: en iwwergeuerdente Beräich kann net ënnergeuerdent sinn
+      expired: ass ofgelaf, w. e. g. eng nei Ufro maachen
+      file_size_is_less_than_or_equal_to: d'Gréisst vun enger Datei muss méi kleng oder gläich %{count} sinn
+      invalid_time_zone: keng gülteg Zäitzon
+      long_words: enthält Wieder déi ze laang sinn (méi wéi 35 Zeechen)
+      must_start_with_caps: muss mat engem Groussbuschtaf ufänken
+      nesting_too_deep: kann net bannent enger Ënnerkategorie sinn
+      not_found: net fonnt. Bass du schonn registréiert?
       not_locked: war nicht gesperrt
       not_saved:
         one: 'Bei der Bearbeitung Ihrer Anfrage ist ein Fehler aufgetreten:'
@@ -1462,6 +1486,10 @@ lb:
       too_short: ist zu kurz (unter 15 Zeichen)
   forms:
     correct_errors: Es gibt Fehler auf dem Formular, bitte korrigieren Sie sie, um fortzufahren.
+    length_validator:
+      minimum:
+        one: Op mannst %{count} Zeechen
+        other: Op mannst %{count} Zeechen
     required: Erforderlich
     required_explanation: "* Pflichtfelder sind mit einem Stern gekennzeichnet"
   invisible_captcha:
@@ -1519,9 +1547,39 @@ lb:
       user_profile:
         account: Konto
         authorizations: Berechtigungen
+        delete_my_account: Mäin Kont läschen
+        my_data: Meng Donnéeën
+        my_interests: Meng Interessen
+        notifications_settings: Astellung fir Noriichten
+        title: Astellung fir Teilnehmer
+        user_groups: Gruppen
+      widget:
+        see_more: Méi uweisen
   locale:
     name: Lëtzebuergesch
     name_with_error: Lëtzebuergesch (Fehler!)
+  password_validator:
+    domain_included_in_password: ze vill Ähnlechkeet mam Domain-Numm
+    email_included_in_password: ze vill Ähnlechkeet mat denger Email
+    fallback: ongülteg
+    name_included_in_password: ze vill Ähnlechkeet mat dengem Numm
+    not_enough_unique_characters: huet net genuch eemoleg Zeechen
+    password_not_allowed: ass net erlaabt
+    password_too_common: ze allgemeng
+    password_too_long: ze laang
+    password_too_short: ze kuerz
+  social_share_button:
+    delicious: Lecker
+    email: Email
+    facebook: Facebook
+    google_bookmark: Google Lieszeechen
+    google_plus: Google+
+    hacker_news: Hacker-Noriichten
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    share_to: Deelen mat %{name}
   time:
     formats:
       time_of_day: "%H:%M"
