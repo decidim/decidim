@@ -79,6 +79,7 @@ Decidim.register_component(:my_component) do |component|
     # Define a custom form class name if you want to customize the form object
     # imports.form_class_name = "MyComponent::Admin::CustomImportForm"
 
+    # Define UI messages for the import functionality
     imports.messages do |msg|
       # The resource name is used in the success message:
       # "X your resources successfully imported" (the "your resources" part)
@@ -92,7 +93,20 @@ Decidim.register_component(:my_component) do |component|
       # msg.set(:help) { I18n.t("decidim.my_component.admin.imports.help.component_resources") }
     end
 
+    # Define the creator that is used to create resources from the import data
     imports.creator MyComponent::ResourceCreator
+
+    # Define an example data set to guide the user how to format the import
+    # file. This will be available for download in the import view for each
+    # supported import format.
+    imports.example do |import_component|
+      organization = import_component.organization
+      [
+        organization.available_locales.map { |l| "title/#{l}" } + organization.available_locales.map { |l| "body/#{l}" },
+        organization.available_locales.map { "Example title" } + organization.available_locales.map { "Example body" },
+        organization.available_locales.map { "Example title 2" } + organization.available_locales.map { "Example body 2" },
+      ]
+    end
   end
 end
 ----
