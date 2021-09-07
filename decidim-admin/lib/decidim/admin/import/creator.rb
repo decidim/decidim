@@ -50,14 +50,32 @@ module Decidim
           resource.save!
         end
 
-        # Check if prepared header is valid
-        #
-        # _header - Header / column title of the imported file (e.g. cell in the first row in excel)
-        # _available_locales - The locales to check for with translatable headers
-        #
-        # Returns true if header is valid
-        def self.header_valid?(_header, _available_locales)
-          true
+        def self.missing_headers(headers, available_locales)
+          missing_headers = []
+          required_static_headers.each do |required|
+            missing_headers << required unless headers.include?(required)
+          end
+
+          required_dynamic_headers.each do |required|
+            missing_headers << required unless has_localized_header?(required, headers, available_locales)
+          end
+          missing_headers
+        end
+
+        def self.has_localized_header?(required_header, headers, available_locales)
+          localized_headers = localize_headers(required_header, available_locales)
+          headers.each do |header|
+            return true if localized_headers.include?(header)
+          end
+          false
+        end
+
+        def self.required_static_headers
+          []
+        end
+
+        def self.required_dynamic_headers
+          []
         end
 
         # Check if prepared resource is valid
@@ -101,7 +119,7 @@ module Decidim
           hash = {}
           locales.each do |locale|
             parsed = data[:"#{field}/#{locale}"]
-            hash[locale] = parsed.nil? ? "" : parsed
+            hash[locale] = parsed unless parsed.nil?
           end
           hash
         end

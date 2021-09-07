@@ -47,10 +47,21 @@ module Decidim
           true
         end
 
-        def invalid_columns
-          @invalid_columns ||= begin
+        def duplicate_columns
+          @duplicate_columns ||= begin
             prepare
-            check_invalid_column_headers
+            duplicate_columns = []
+            @data_headers.each do |header|
+              duplicate_columns << header if @data_headers.count(header) > 1
+            end
+            duplicate_columns.uniq
+          end
+        end
+
+        def missing_columns
+          @missing_columns ||= begin
+            prepare
+            check_required_column_headers
           end
         end
 
@@ -59,10 +70,16 @@ module Decidim
           @invalid_indexes ||= check_invalid_indexes(prepare)
         end
 
-        def invalid_columns_message
-          return unless invalid_columns.any?
+        def duplicate_columns_message
+          return if duplicate_columns.blank?
 
-          reader.invalid_columns_message_for(invalid_columns)
+          reader.duplicate_columns_message_for(duplicate_columns)
+        end
+
+        def missing_columns_message
+          return unless missing_columns.any?
+
+          reader.missing_columns_message_for(missing_columns)
         end
 
         def invalid_indexes_message
@@ -94,12 +111,8 @@ module Decidim
           @collection_data
         end
 
-        def check_invalid_column_headers
-          invalid_column_headers = []
-          @data_headers.each do |header|
-            invalid_column_headers << header unless creator.header_valid?(header, available_locales)
-          end
-          invalid_column_headers
+        def check_required_column_headers
+          creator.missing_headers(@data_headers, available_locales)
         end
 
         def check_invalid_indexes(imported_data)
