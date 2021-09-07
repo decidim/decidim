@@ -8,7 +8,7 @@ lb:
       conversation:
         body: Haapt-Text
       group:
-        about: Iwwert eis Grupp
+        about: Iwwert eisen Grupp
         avatar: Profil-Bild
         document_number: Nummer vum Dokument
         email: Email
@@ -100,7 +100,7 @@ lb:
       show:
         available_locales_helper: Wiel eng Sprooch fir deng Sichfunktioun an deng Noriichten op der Decidim-Plattform
         change_password: Passwuert änneren
-        update_account: Kont aktualisiéieren
+        update_account: Kont aktualiséieren
       update:
         error: Beim Aktualiséieren vum Kont ass e Feeler entstane.
         success: Däin Kont gouf aktualiséiert.
@@ -1514,6 +1514,7 @@ lb:
     shared:
       links:
         back: Zréck
+        didn_t_receive_confirmation_instructions: Du hues keng Instruktiounen kritt fir d'Bestätegung?
         didn_t_receive_unlock_instructions: Du hues keng Instruktiounen kritt fir ze entspären?
         forgot_your_password: Passwuert vergiess?
         sign_in: Umellen
@@ -1647,8 +1648,32 @@ lb:
     qq: Qzone
     reddit: Reddit
     share_to: Deelen mat %{name}
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
+    wechat_footer: Maach den WeChat op, klick den "Entdecken"-Knäppchen an dann klick an den "Scan QR Code" -Menü.
+    weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing
   time:
     formats:
+      day_of_month: "%b%b"
+      day_of_week: "%a"
+      day_of_week_long: "%a%e"
+      day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
+      decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S%z"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B, %d %Y %I %M %p"
+      long: "%B, %d. %Y %H:%M"
+      long_dashed: "%Y-%m-%d %H:%M:%S"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:
