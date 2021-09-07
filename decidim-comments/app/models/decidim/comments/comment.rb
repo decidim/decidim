@@ -29,7 +29,7 @@ module Decidim
 
       belongs_to :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", polymorphic: true
       belongs_to :root_commentable, foreign_key: "decidim_root_commentable_id", foreign_type: "decidim_root_commentable_type", polymorphic: true, touch: true
-      belongs_to :participatory_space, foreign_key: "decidim_participatory_space_id", foreign_type: "decidim_participatory_space_type", polymorphic: true
+      belongs_to :participatory_space, foreign_key: "decidim_participatory_space_id", foreign_type: "decidim_participatory_space_type", polymorphic: true, optional: true
       has_many :up_votes, -> { where(weight: 1) }, foreign_key: "decidim_comment_id", class_name: "CommentVote", dependent: :destroy
       has_many :down_votes, -> { where(weight: -1) }, foreign_key: "decidim_comment_id", class_name: "CommentVote", dependent: :destroy
 
@@ -82,7 +82,9 @@ module Decidim
         participatory_space.try(:visible?) && component.try(:published?)
       end
 
+      alias original_participatory_space participatory_space
       def participatory_space
+        return original_participatory_space if original_participatory_space.present?
         return root_commentable if root_commentable.is_a?(Decidim::Participable)
 
         root_commentable.participatory_space
