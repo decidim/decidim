@@ -81,6 +81,41 @@ describe "Import proposal answers", type: :system do
       click_button "Import"
       expect(page).to have_content("Missing column answer/en. Please check that the file contains required columns.")
     end
+
+    context "with nested JSON" do
+      let(:answers) do
+        proposals.map do |proposal|
+          {
+            id: proposal.id,
+            state: %w(accepted rejected evaluating).sample,
+            answer: {
+              en: Faker::Lorem.sentence,
+              ca: Faker::Lorem.sentence,
+              es: Faker::Lorem.sentence
+            }
+          }
+        end
+      end
+
+      it "adds proposal answers after succesfully import" do
+        File.open(json_file, "w") do |f|
+          f.write(JSON.pretty_generate(answers))
+        end
+        attach_file :import_file, json_file
+
+        expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).exactly(amount).times
+
+        click_button "Import"
+        expect(page).to have_content("#{amount} proposal #{amount == 1 ? "answer" : "answers"} successfully imported")
+        answers.each do |answer|
+          proposal = Decidim::Proposals::Proposal.find(answer[:id])
+          expect(proposal[:state]).to eq(answer[:state])
+          expect(proposal.answer["en"]).to eq(answer[:answer][:en])
+          expect(proposal.answer["ca"]).to eq(answer[:answer][:ca])
+          expect(proposal.answer["es"]).to eq(answer[:answer][:es])
+        end
+      end
+    end
   end
 
   describe "download examples", download: true do
@@ -122,23 +157,29 @@ describe "Import proposal answers", type: :system do
               {
                 "id": 1,
                 "state": "accepted",
-                "answer/en": "Example answer",
-                "answer/ca": "Example answer",
-                "answer/es": "Example answer"
+                "answer": {
+                  "en": "Example answer",
+                  "ca": "Example answer",
+                  "es": "Example answer"
+                }
               },
               {
                 "id": 2,
                 "state": "rejected",
-                "answer/en": "Example answer",
-                "answer/ca": "Example answer",
-                "answer/es": "Example answer"
+                "answer": {
+                  "en": "Example answer",
+                  "ca": "Example answer",
+                  "es": "Example answer"
+                }
               },
               {
                 "id": 3,
                 "state": "evaluating",
-                "answer/en": "Example answer",
-                "answer/ca": "Example answer",
-                "answer/es": "Example answer"
+                "answer": {
+                  "en": "Example answer",
+                  "ca": "Example answer",
+                  "es": "Example answer"
+                }
               }
             ]
           JSON
