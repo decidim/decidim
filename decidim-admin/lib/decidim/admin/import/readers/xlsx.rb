@@ -29,7 +29,7 @@ module Decidim
             raise Decidim::Admin::Import::InvalidFileError, "The provided XLSX file is not valid"
           end
 
-          # Returns a Zip::OutputStream
+          # Returns a StringIO
           def example_file(data)
             workbook = RubyXL::Workbook.new
             sheet = workbook.worksheets[0]
