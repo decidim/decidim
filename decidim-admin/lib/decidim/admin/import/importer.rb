@@ -58,9 +58,11 @@ module Decidim
         attr_reader :file, :reader, :creator, :context, :data_headers
 
         def verifier
+          # Prepare needs to be called so that data headers become available.
+          data = prepare
           @verifier ||= creator.verifier_klass.new(
             headers: data_headers.map(&:to_s),
-            data: prepare,
+            data: data,
             reader: reader,
             context: context
           )
