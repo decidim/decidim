@@ -72,7 +72,23 @@ module Decidim
           # which can be later used to map the data to correct attributes.
           #
           # This needs to be implemented by the extending classes.
+          #
+          # Returns an array of the import data where the first row should
+          # contain the columns.
           def read_rows
+            raise NotImplementedError
+          end
+
+          # The example_file should produce an example data file for the user to
+          # download and take example from to produce their import files. The
+          # data provided for the example file generation should be the same as
+          # what is returned by the read_rows method.
+          #
+          # _data - An array of data to produce the file from
+          #
+          # Returns an IO stream that can be saved to a file or sent to the
+          # browser to produce the import file.
+          def example_file(_data)
             raise NotImplementedError
           end
 

@@ -177,6 +177,15 @@ Decidim.register_component(:proposals) do |component|
     end
 
     imports.creator Decidim::Proposals::ProposalAnswerCreator
+    imports.example do |import_component|
+      organization = import_component.organization
+      [
+        %w(id state) + organization.available_locales.map { |l| "answer/#{l}" },
+        [1, "accepted"] + organization.available_locales.map { "Example answer" },
+        [2, "rejected"] + organization.available_locales.map { "Example answer" },
+        [3, "evaluating"] + organization.available_locales.map { "Example answer" }
+      ]
+    end
   end
 
   component.seeds do |participatory_space|

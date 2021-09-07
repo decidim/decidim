@@ -7,6 +7,20 @@
         </div>
         <div class="flex--cc flex-gap--1">
           <div id="js-other-actions-wrapper">
+            <% if import_manifest.has_example? %>
+              <span class="imports-example dropdown tiny button button--simple" data-toggle="example-dropdown"><%= t(".download_example") %></span>
+              <div class="dropdown-pane" id="example-dropdown" data-dropdown data-position=bottom data-alignment=right data-auto-focus="true" data-close-on-click="true">
+                <ul class="vertical menu add-components">
+                  <% mime_types.each do |format, name| %>
+                    <li class="examples--format--<%= format.downcase %> examples--<%= import_manifest.name %>">
+                      <%= link_to t(".download_example_format", name: name),
+                        admin_imports_example_path(@current_component, name: import_manifest.name, format: format) %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
             <%= link_to t(".actions.back"), manage_component_path(@current_component), class: "button hollow tiny button--simple" %>
           </div>
         </div>
@@ -18,7 +32,7 @@
         <div class="cell">
           <fieldset>
             <legend>
-              <%= t(".file_legend", valid_mime_types: mime_types).html_safe %>
+              <%= t(".file_legend", valid_mime_types: mime_types.values.join(", ")).html_safe %>
               <div class="guidance">
                 <%= import_manifest.message(:help, self) %>
               </div>

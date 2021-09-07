@@ -37,12 +37,6 @@ module Decidim
         form_class_name.constantize
       end
 
-      DEFAULT_FORMATS = %w(CSV JSON Excel).freeze
-
-      def formats
-        DEFAULT_FORMATS
-      end
-
       # Fetch the messages object or yield it for the block when a block is
       # given.
       def messages
@@ -86,6 +80,36 @@ module Decidim
       # Returns a boolean indicating whether the message exists with the given key.
       def has_message?(key)
         messages.has?(key)
+      end
+
+      # Either define example import data when providing a block or fetch the
+      # example data for the given context and component.
+      #
+      # When defining example data:
+      #   manifest.example do |component|
+      #     organization = component.organization
+      #     [
+      #       %w(id name") + organization.available_locales.map { |l| "title/#{l}" },
+      #       [1, "John Doe"] + organization.available_locales.map { "Manager" },
+      #       [2, "Joanna Doe"] + organization.available_locales.map { "Manager" },
+      #     ]
+      #   end
+      #
+      # When fetching example data:
+      #   data = manifest.example(self, current_component)
+      #
+      # Returns either the example data or nothing when defining the example.
+      def example(context = nil, component = nil, &block)
+        if block_given?
+          @example = block
+        elsif has_example?
+          context.instance_exec(component, &@example)
+        end
+      end
+
+      # Returns a boolean indicating whether the example is available or not.
+      def has_example?
+        @example.present?
       end
 
       class Messages

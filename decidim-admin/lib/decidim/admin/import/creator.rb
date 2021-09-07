@@ -81,7 +81,9 @@ module Decidim
           end
         end
 
-        private
+        protected
+
+        attr_reader :context
 
         def resource
           raise NotImplementedError, "#{self.class.name} does not define resource"

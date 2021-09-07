@@ -28,6 +28,20 @@ module Decidim
           rescue Zip::Error
             raise Decidim::Admin::Import::InvalidFileError, "The provided XLSX file is not valid"
           end
+
+          # Returns a Zip::OutputStream
+          def example_file(data)
+            workbook = RubyXL::Workbook.new
+            sheet = workbook.worksheets[0]
+
+            data.each_with_index do |row, rowi|
+              row.each_with_index do |col, coli|
+                sheet.add_cell(rowi, coli, col)
+              end
+            end
+
+            workbook.stream
+          end
         end
       end
     end

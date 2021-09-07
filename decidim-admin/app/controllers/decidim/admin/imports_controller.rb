@@ -43,6 +43,34 @@ module Decidim
         end
       end
 
+      def example
+        enforce_permission_to :import, :component_data, component: current_component
+        raise ActionController::RoutingError, "Not Found" unless import_manifest
+
+        @form = form(Decidim::Admin::ImportExampleForm).from_params(params).with_context(
+          current_component: current_component,
+          current_organization: current_organization
+        )
+
+        respond_to do |format|
+          @form.available_formats.each do |key, mime|
+            format.public_send(key) do
+              CreateImportExample.call(@form) do
+                on(:ok) do |data|
+                  filename = "#{current_component.manifest_name}-#{import_manifest.name}-example.#{key}"
+                  send_data data.read, disposition: :attachment, filename: filename, type: mime
+                end
+
+                on(:invalid) do
+                  flash[:alert] = t("decidim.admin.imports.example_error")
+                  redirect_to admin_imports_path(current_component, name: import_name)
+                end
+              end
+            end
+          end
+        end
+      end
+
       private
 
       def import_manifest

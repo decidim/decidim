@@ -38,6 +38,16 @@ module Decidim
           rescue ::JSON::ParserError
             raise Decidim::Admin::Import::InvalidFileError, "The provided JSON file is not valid"
           end
+
+          # Returns a StringIO
+          def example_file(data)
+            columns = data.shift
+            json_data = data.map do |row|
+              columns.each_with_index.map { |col, ind| [col, row[ind]] }.to_h
+            end
+
+            ::StringIO.new(::JSON.pretty_generate(json_data))
+          end
         end
       end
     end

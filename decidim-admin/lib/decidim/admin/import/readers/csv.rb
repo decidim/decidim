@@ -20,6 +20,17 @@ module Decidim
               yield row, index
             end
           end
+
+          # Returns a StringIO
+          def example_file(data)
+            csv_data = ::CSV.generate(col_sep: ";") do |csv|
+              data.each do |row|
+                csv << row
+              end
+            end
+
+            ::StringIO.new(csv_data)
+          end
         end
       end
     end

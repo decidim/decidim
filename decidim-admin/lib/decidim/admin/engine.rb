@@ -24,6 +24,11 @@ module Decidim
         end
       end
 
+      initializer "decidim_admin.mime_types" do |_app|
+        # Required for importer example downloads
+        Mime::Type.register Decidim::Admin::Import::Readers::XLSX::MIME_TYPE, :xlsx
+      end
+
       initializer "decidim_admin.global_moderation_menu" do
         Decidim.menu :admin_global_moderation_menu do |menu|
           menu.add_item :moderations,

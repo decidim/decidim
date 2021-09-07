@@ -33,8 +33,6 @@ module Decidim
 
       private
 
-      attr_reader :context
-
       def resource
         @resource ||= Decidim::Proposals::Proposal.new(
           category: category,
