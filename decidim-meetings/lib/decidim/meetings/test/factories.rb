@@ -38,6 +38,7 @@ FactoryBot.define do
     type_of_meeting { :in_person }
     component { build(:component, manifest_name: "meetings") }
     show_embedded_iframe { false }
+    iframe_access_level { :all }
 
     author do
       component.try(:organization)
@@ -141,6 +142,14 @@ FactoryBot.define do
 
     trait :show_embedded_iframe do
       show_embedded_iframe { true }
+    end
+
+    trait :signed_in_iframe_access_level do
+      iframe_access_level { :signed_in }
+    end
+
+    trait :registered_iframe_access_level do
+      iframe_access_level { :registered }
     end
   end
 
