@@ -82,4 +82,88 @@ describe "Import proposal answers", type: :system do
       expect(page).to have_content("Missing column answer. Please check that the file contains required columns.")
     end
   end
+
+  describe "download examples", download: true do
+    it "provides example downloads" do
+      expect(page).to have_content("Download example")
+
+      page.find(".imports-example").click
+      expect(page).to have_content("Example as CSV")
+      expect(page).to have_content("Example as JSON")
+      expect(page).to have_content("Example as Excel (.xlsx)")
+    end
+
+    context "when downloading the examples" do
+      before do
+        page.find(".imports-example").click
+      end
+
+      it "downloads a correct CSV example" do
+        click_link "Example as CSV"
+
+        expect(File.basename(download_path)).to eq("proposals-answers-example.csv")
+        expect(File.read(download_path)).to eq(
+          <<~CSV
+            id;state;answer/en;answer/ca;answer/es
+            1;accepted;Example answer;Example answer;Example answer
+            2;rejected;Example answer;Example answer;Example answer
+            3;evaluating;Example answer;Example answer;Example answer
+          CSV
+        )
+      end
+
+      it "downloads a correct JSON example" do
+        click_link "Example as JSON"
+
+        expect(File.basename(download_path)).to eq("proposals-answers-example.json")
+        expect(File.read(download_path)).to eq(
+          <<~JSON.strip
+            [
+              {
+                "id": 1,
+                "state": "accepted",
+                "answer/en": "Example answer",
+                "answer/ca": "Example answer",
+                "answer/es": "Example answer"
+              },
+              {
+                "id": 2,
+                "state": "rejected",
+                "answer/en": "Example answer",
+                "answer/ca": "Example answer",
+                "answer/es": "Example answer"
+              },
+              {
+                "id": 3,
+                "state": "evaluating",
+                "answer/en": "Example answer",
+                "answer/ca": "Example answer",
+                "answer/es": "Example answer"
+              }
+            ]
+          JSON
+        )
+      end
+
+      it "downloads a correct XLSX example" do
+        click_link "Example as Excel (.xlsx)"
+
+        expect(File.basename(download_path)).to eq("proposals-answers-example.xlsx")
+
+        # The generated XLSX can have some byte differences which is why we need
+        # to read the values from both files and compare them instead.
+        workbook = RubyXL::Parser.parse(download_path)
+        actual = workbook.worksheets[0].map { |row| row.cells.map(&:value) }
+
+        expect(actual).to eq(
+          [
+            %w(id state answer/en answer/ca answer/es),
+            [1, "accepted", "Example answer", "Example answer", "Example answer"],
+            [2, "rejected", "Example answer", "Example answer", "Example answer"],
+            [3, "evaluating", "Example answer", "Example answer", "Example answer"]
+          ]
+        )
+      end
+    end
+  end
 end
