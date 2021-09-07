@@ -15,6 +15,12 @@ module Decidim
         validate :validate_headers
         validate :validate_data, if: -> { errors.blank? }
 
+        # Public: Initializes an Importer.
+        #
+        # headers - An array of the data headers for the import.
+        # data - An array of the generated data records to be imported.
+        # reader - A Reader class that was used to read the raw data.
+        # context - A hash including component specific data.
         def initialize(headers:, data:, reader:, context: nil)
           @headers = headers
           @data = data
