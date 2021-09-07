@@ -667,7 +667,7 @@ lb:
           notification_title: D' <a href="%{resource_path}">Profil-Säit</a> vum </a>%{name} (%{nickname}), där s'du nogees, gouf aktualiséiert.
     export_mailer:
       data_portability_export:
-        click_button: 'Klicken Sie auf den Link, um Ihre Daten herunterzuladen.<br/>Die Datei steht bis zum %{date} zur Verfügung.<br/>Sie benötigen <a href="https://www.7-zip.org/">7-Zip</a> (für Windows), <a href="https://www.keka.io/en/">Keka</a> (für MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (für Linux) um die Datei zu öffnen. Passwort: %{password}'
+        click_button: 'Klick op den Link, fir den Daten erofzelueden.<br/>D''Datei steet bis den %{date} zur Verfügung.<br/>du brauchs <a href="https://www.7-zip.org/">7-Zip</a> (fir Windows), <a href="https://www.keka.io/en/">Keka</a> (fir MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (fir Linux) fir d''Datei opzemaachen. Passwuert: %{password}'
         download: Eroflueden
       export:
         ready: Am Anhang fënns de eng kompriméiert Versioun vun dengem exportéierten Element.
@@ -692,14 +692,14 @@ lb:
     followers:
       no_followers: Bis elo keng Follower.
     following:
-      no_followings: Followed bis elo kenger Ressource.
+      no_followings: Geet bis elo kenger Ressource no.
     follows:
       create:
-        button: Follow
+        button: Nogoen
         error: Et gouf e Problem beim Followen vun dëser Ressource.
-        participatory_space: Du follows <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Du gees der <span class="show-for-sr">%{resource_name}</span>no
       destroy:
-        button: Net méi followen
+        button: Net méi nogoen
         error: Et gouf e Problem beim Un-Followen vun dëser Ressource.
     forms:
       current_file: Aktuell Datei
@@ -708,39 +708,39 @@ lb:
       errors:
         decidim/user:
           password: D'Passwuert ass ze kuerz.
-          password_confirmation: Die Bestätigung muss mit dem Passwort übereinstimmen.
+          password_confirmation: D'Bestätegung vum Passwuert muss mam Passwuert iwwerteneestëmmen.
         error: In diesem Feld ist ein Fehler aufgetreten.
       file_help:
         file:
-          explanation: 'Anleitung für Datei:'
-          message_1: Muss ein Bild oder ein Dokument sein.
-          message_2: Für Bilder, verwenden Sie vorzugsweise Landschaftsbilder, der Dienst erzeugt das Bild. Für CSV-Dateien muss der Trenner zwischen Spalten ein Komma (",") sein
+          explanation: 'Uleedung fir dës Datei:'
+          message_1: Soll eBild oder en Dokument sinn.
+          message_2: Biller sollen am beschten Landschaftsbiller sinn, den Programm passt d'Bild vum selwen un. Fir CSV-Dateien muss d'Trennung tëscht de Spalten e Komma (",") sinn
         image:
-          explanation: 'Anleitung für Bild:'
-          message_1: Vorzugsweise ein Querformat ohne Text.
-          message_2: Der Dienst schneidet die Datei zu.
+          explanation: 'Uleedung fir d''Bild:'
+          message_1: Am beschten queesch Format ouni Text.
+          message_2: Den Programm passt d'Bild un.
       file_validation:
-        allowed_file_extensions: 'Erlaubte Dateiendungen: %{extensions}'
-        max_file_size: 'Maximale Dateigröße: %{megabytes}MB'
-      remove_this_file: Diese Datei entfernen
+        allowed_file_extensions: 'Erlaabten Datei-Endungen %{extensions}'
+        max_file_size: 'Maximal Datei-Gréisst: %{megabytes}MB'
+      remove_this_file: Dës Datei läschen
     gamification:
-      all_badges_link: Sieh dir alle verfügbaren Abzeichen an.
+      all_badges_link: Kuck der all méiglech Ofzeechen un.
       badges:
         followers:
           conditions:
-            - Aktiv zu sein und anderen Menschen zu folgen, wird sicherlich andere Menschen dazu bringen, dir zu folgen.
-          description: Dieses Abzeichen wird gewährt, wenn Sie eine bestimmte Anzahl von Followern erreichen. %{organization_name} ist ein soziales und politisches Netzwerk, weben Sie Ihr Web, um mit anderen Menschen auf der Plattform zu kommunizieren.
-          description_another: Diese*r Benutzer*in hat %{score} Follower.
-          description_own: "%{score} Benutzer*innen folgen dir."
-          name: Follower
-          next_level_in: Erhalten Sie %{score} weitere Nutzer, die Ihnen folgen, um das nächste Level zu erreichen!
-          unearned_another: Dieser Benutzer hat noch keine Follower.
-          unearned_own: Sie haben noch keine Follower.
+            - Aktiv sinn an aneren Persounen nogoen dréit dozou bäi, dass aner Persounen dir och noginn.
+          description: Dëst Ofzeechen kritt een, wann eng bestëmmten Zuel vun Leit engem noginn. %{organization_name} ass en sozialt politescht Netzwierk. Spann däin Netz, fir dech mat aneren Mënschen op der der Plattform ze kommunizéieren.
+          description_another: Dësen Benotzer huet %{score} Unhänger.
+          description_own: "%{score} Benotzer ginn dir no."
+          name: Unhänger
+          next_level_in: Kréi méi %{score} Benotzer dozou dir nozegoen, fir den nächsten Level ze erreechen!
+          unearned_another: Dësen Benotzer huet bis elo nach keng Unhänger.
+          unearned_own: Du hues bis elo nach keng Follower.
         index:
-          badge_title: "%{name} Abzeichen"
-          how: Wie kannst du es verdienen?
-          page_description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen. Hier ist die Liste der Abzeichen und einige Möglichkeiten, wie Sie sie verdienen können.
-          title: Abzeichen
+          badge_title: "%{name} Ofzeechen"
+          how: Wéi kanns de der et verdéngen
+          page_description: Ofzeechen sinn Unerkennungen fir d'Aktiounen an d'Fortschrëtter vun Teilnehmer op der Plattform. Wann se op der Plattform entdecken, matmaachen an interagéieren, verdéngen se verschidden Ofzeechen. Hei ass eng Lëscht vun den Ofzeechen an e puer Méiglechkeeten, wéi een sech déi verdéngen kann.
+          title: Ofzeechen
         invitations:
           conditions:
             - Verwenden Sie den Link "Freunde einladen" auf Ihrer Nutzerseite, um Ihre Freunde einzuladen
