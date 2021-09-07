@@ -43,21 +43,21 @@ lb:
         email: Email
         name: Spëtznumm
         password: Passwuert
-        password_confirmation: Bestätegung Passwuert
+        password_confirmation: Passwuert Bestätegung
         remember_me: Ugemellt bleiwen
     models:
       decidim/amendment:
-        one: Ännerungen
+        one: Ännerung
         other: Ännerungen
       decidim/endorsement:
         one: Akzeptéiert
-        other: Akzeptéiert
+        other: Ennerstëtzungen
       decidim/user:
         one: Teilnehmer
         other: Teilnehmer
       decidim/user_group:
         one: Grupp
-        other: Grupp
+        other: Gruppen
   booleans:
     'false': 'Nee'
     'true': 'Jo'
@@ -79,85 +79,84 @@ lb:
       logo: "Offiziellen Logo vun %{organization}"
       skip_button: Zum Haapt-Inhalt eriwwergoen
     account:
-      blocked: Dieses Konto wurde wegen Verletzung der Allgemeinen Geschäftsbedingungen gesperrt
+      blocked: Dësen Kont gouf gespaart wéinst dem Net-Respekt vun den allgemengen Bestëmmungen
       data_portability_export:
-        file_no_exists: Diese Datei existiert nicht
-        notice: Ihre Daten werden gerade bereitgestellt. Sie erhalten nach Fertigstellung eine E-Mail.
+        file_no_exists: Datei existéiert net
+        notice: D'Eroflueden ass am Gaang. Du kriss en Email wann et vollstänneg ass.
       delete:
-        alert: Diese Aktion kann nicht rückgängig gemacht werden. Wenn Sie Ihr Konto löschen, können Sie sich nicht mehr einloggen. Mit der Löschung ihres Accounts werden all Ihre Beiträge anonymisiert. Sie können später wieder ein neues Konto erstellen, aber diese Beiträge werden nicht mehr mit dem neuen Konto verknüpft sein.
+        alert: Dës Aktioun kann réckgängeg gemaach ginn. Wann däin Kont geläscht ass, kanns du dech net méi mat de selwechten Donnéeën aloggen. Zukünfteg Beiträg sinn dann anonymiséiert. Du kanns nach ëmmer en neien Kont erstellen, mee anonym Beiträg sinn net mat engem Kont verknäppt.
         confirm:
-          close: Fenster schließen
-          ok: Ja, ich möchte mein Konto löschen
-          question: Sind Sie sicher, dass Sie Ihr Konto löschen möchten?
-          title: Mein Konto löschen
-        explanation: Bitte geben Sie den Grund an, warum Sie Ihr Konto löschen möchten (optional).
+          close: Fënster zou maachen
+          ok: Jo ech well mäin Kont läschen
+          title: Mäin Kont läschen
+        explanation: Gëff w. e. g. de Grond un, woufir s'du de Kont läsche wëlls (optinal).
       destroy:
-        error: Beim Löschen Ihres Kontos ist ein Fehler aufgetreten.
-        success: Ihr Konto wurde erfolgreich gelöscht.
+        error: Et gouf e Problem beim Läschen vum Kont.
+        success: De Kont gouf geläscht.
       show:
-        change_password: Passwort ändern
-        update_account: Konto aktualisieren
+        change_password: Passwuert änneren
+        update_account: Kont aktualisiéieren
       update:
-        error: Beim Aktualisieren Ihres Kontos ist ein Fehler aufgetreten.
-        success: Ihr Konto wurde erfolgreich aktualisiert.
-        success_with_email_confirmation: Ihr Konto wurde erfolgreich aktualisiert. Sie erhalten eine E-Mail zur Bestätigung Ihrer neuen E-Mail-Adresse.
+        error: Beim Aktualiséieren vum Kont ass e Feeler entstane.
+        success: Däin Kont gouf aktualiséiert.
+        success_with_email_confirmation: Däin Kont gouf aktualiséiert. Du kriss en Email fir déi nei Email-Adress. ze bestätegen.
     admin:
       actions:
-        cancel: Stornieren
+        cancel: Ofbriechen
     admin_log:
       area:
-        create: "%{user_name} hat den Bereich %{resource_name} erstellt"
-        delete: "%{user_name} hat den Bereich %{resource_name} gelöscht"
-        update: "%{user_name} hat den Bereich %{resource_name} aktualisiert"
+        create: "%{user_name} huet den Beräich %{resource_name} erstellt"
+        delete: "%{user_name} huet den Beräich %{resource_name} geläscht"
+        update: "%{user_name} huet den Beräich %{resource_name} aktualiséiert"
       component:
-        create: "%{user_name} hat die Komponente %{resource_name} zu %{space_name} hinzugefügt"
-        delete: "%{user_name} hat die Komponente %{resource_name} aus %{space_name} entfernt"
-        publish: "%{user_name} hat die Komponente %{resource_name} in %{space_name} veröffentlicht"
-        unpublish: "%{user_name} hat die Komponente %{resource_name} in %{space_name} auf \"unveröffentlicht\" gesetzt"
+        create: "%{user_name} huet d'Komponent %{resource_name} bei %{space_name} dobäi gesat"
+        delete: "%{user_name} huet d'Komponent %{resource_name} aus %{space_name} eweg gemaach"
+        publish: "%{user_name} huet d'Komponent %{resource_name} an %{space_name} verëffentlecht"
+        unpublish: "%{user_name} huet d'Komponent %{resource_name} an %{space_name} onverëffentlecht"
       impersonation_log:
-        manage: "%{user_name} hat %{resource_name} verwaltet, weil %{reason}"
+        manage: "%{user_name} huet %{resource_name} verwalt, well %{reason}"
       moderation:
-        hide: "%{user_name} hat eine Ressource vom Typ %{resource_type} in %{space_name} versteckt"
-        unreport: "%{user_name} hat die Meldung einer Ressource vom Typ %{resource_type} in %{space_name} aufgehoben"
+        hide: "%{user_name} huet eng Ressource vum Typ %{resource_type} an %{space_name} verstoppt"
+        unreport: "%{user_name} huet eng Ressource vum Typ %{resource_type} an %{space_name} opgehuewen"
       newsletter:
-        create: "%{user_name} hat den Newsletter %{resource_name} erstellt"
-        delete: "%{user_name} hat den Newsletter %{resource_name} gelöscht"
-        deliver: "%{user_name} hat den Newsletter %{resource_name} abgesendet"
-        update: "%{user_name} hat den Newsletter %{resource_name} aktualisiert"
+        create: "%{user_name} huet en Newsletter %{resource_name} erstallt"
+        delete: "%{user_name} huet en Newsletter %{resource_name} geläscht"
+        deliver: "%{user_name} huet en Newsletter %{resource_name} fortgeschéckt"
+        update: "%{user_name} huet en Newsletter %{resource_name} aktualiséiert"
       oauth_application:
-        create: "%{user_name} hat die OAuth-Applikation %{resource_name} erstellt"
-        delete: "%{user_name} hat die OAuth-Applikation %{resource_name} gelöscht"
-        update: "%{user_name} hat die OAuth-Applikation %{resource_name} aktualisiert"
+        create: "%{user_name} huet d'OAuth-Applikation %{resource_name} erstallt"
+        delete: "%{user_name} huet d'OAuth-Applikation %{resource_name} geläscht"
+        update: "%{user_name} huet d'OAuth-Applikation %{resource_name} aktualiséiert"
       organization:
-        update: "%{user_name} hat die Organisationseinstellungen aktualisiert"
+        update: "%{user_name} huet d'Organisatiouns-Astellungen aktualiséiert"
       participatory_space_private_user:
-        create: "%{user_name} hat %{resource_name} als privaten Benutzer eingeladen"
-        create_via_csv: "%{user_name} hat %{resource_name} per CSV als privaten Teilnehmer eingeladen"
-        delete: "%{user_name} hat den Benutzer %{resource_name} als privaten Benutzer entfernt"
+        create: "%{user_name} huet d' %{resource_name} als privaten Benotzer agelueden"
+        create_via_csv: "%{user_name} huet d'%{resource_name} per CSV als privaten Teilnehmer agelueden"
+        delete: "%{user_name} huet den Benotzer %{resource_name} als privaten Benotzer geläscht"
       scope:
-        create: "%{user_name} hat den Bereich %{resource_name} erstellt"
-        create_with_parent: "%{user_name} hat den Bereich %{resource_name} im übergeordneten Bereich %{parent_scope} erstellt"
-        delete: "%{user_name} hat den Bereich %{resource_name} gelöscht"
-        delete_with_parent: "%{user_name} hat den Bereich %{resource_name} aus dem übergeordneten Bereich %{parent_scope} gelöscht"
-        update: "%{user_name} hat den Bereich %{resource_name} aktualisiert"
-        update_with_parent: "%{user_name} hat den Bereich %{resource_name} im übergeordneten Bereich %{parent_scope} aktualisiert"
+        create: "%{user_name} huet den Beräich %{resource_name} erstallt"
+        create_with_parent: "%{user_name} huet den Beräich %{resource_name} am iwwergeuerdenten Beräich %{parent_scope} erstallt"
+        delete: "%{user_name} huet den Beräich %{resource_name} geläscht"
+        delete_with_parent: "%{user_name} huet den Beräich %{resource_name} am iwwergeuerdenten Beräich %{parent_scope} geläscht"
+        update: "%{user_name} huet den Beräich %{resource_name} aktualiséiert"
+        update_with_parent: "%{user_name} huet den Beräich %{resource_name} am iwwergeuerdenten Beräich %{parent_scope} aktualiséiert"
       static_page:
-        create: "%{user_name} hat die statische Seite %{resource_name} erstellt"
-        delete: "%{user_name} hat die statische Seite %{resource_name} gelöscht"
-        update: "%{user_name} hat die statische Seite %{resource_name} aktualisiert"
+        create: "%{user_name} huet eng statesch Säit %{resource_name} erstallt"
+        delete: "%{user_name} huet déi statesch Säit %{resource_name} geläscht"
+        update: "%{user_name} huet déi statesch Säit %{resource_name} aktualiséiert"
       user:
-        block: "%{user_name} hat %{resource_name} blockiert"
-        invite: "%{user_name} hat den Benutzer %{resource_name} mit der Rolle %{role} eingeladen"
-        officialize: "%{user_name} den Benutzer %{resource_name} offiziell anerkannt"
-        promote: "%{user_name} hat %{resource_name} befördert"
-        remove_from_admin: "%{user_name} hat den Benutzer %{resource_name} mit der Rolle %{role} entfernt"
-        show_email: "%{user_name} hat die E-Mail des Teilnehmers %{resource_name} abgerufen"
-        transfer: "%{user_name} hat den Teilnehmer %{resource_name} verschoben"
-        unblock: "%{user_name} hat die Blockierung von %{resource_name} aufgehoben"
-        unofficialize: "%{user_name} hat die offizielle Anerkennung des Benutzers %{resource_name} widerrufen"
+        block: "%{user_name} huet %{resource_name} blockéiert"
+        invite: "%{user_name} huet den Benotzer %{resource_name} mat der Roll %{role} agelueden"
+        officialize: "%{user_name} huet den Benotzer %{resource_name} offiziell unerkannt"
+        promote: "%{user_name} huet %{resource_name} befërdert"
+        remove_from_admin: "%{user_name} huet den Benotzer %{resource_name} mat der Roll %{role} geläscht"
+        show_email: "%{user_name} huet d'Email vum Teilnehmer %{resource_name} ofgeruff"
+        transfer: "%{user_name} huet den Benotzer %{resource_name} geréckelt"
+        unblock: "%{user_name} huet d'Blockéierung %{resource_name} opgehuewen"
+        unofficialize: "%{user_name} huet déi offiziell Unerkennung vum Benotzer %{resource_name} widderruff"
       user_group:
-        reject: "%{user_name} hat die Gruppen-Verifikation %{resource_name} abgelehnt"
-        verify: "%{user_name} hat die Gruppe %{resource_name} verifiziert"
+        reject: "%{user_name} huet d'Gruppen-Iwwerpréiwung %{resource_name} refuséiert"
+        verify: "%{user_name} huet den Grupp %{resource_name} iwwerpréiwt"
         verify_via_csv: "%{user_name} hat die Gruppe %{resource_name} über eine CSV-Datei verifiziert"
       user_moderation:
         unreport: "%{user_name} hat die Meldung auf %{resource_type} - %{unreported_user_name} aufgehoben"
