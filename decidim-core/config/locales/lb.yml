@@ -2,24 +2,24 @@ lb:
   activemodel:
     attributes:
       account:
-        delete_reason: Grund, Ihr Konto zu löschen
+        delete_reason: Grond fir d'Läschen vum Kont
       common:
-        created_at: Erstellt am
+        created_at: Erstallt den
       group:
-        about: Über
-        avatar: Profilbild
-        document_number: Dokumentennummer
-        email: E-Mail
-        name: Name
-        nickname: Spitzname
-        phone: Telefonnummer
+        about: Iwwert eis Grupp
+        avatar: Profil-Bild
+        document_number: Nummer vum Dokument
+        email: Email
+        name: Numm
+        nickname: Spëtznumm
+        phone: Telefon
       report:
-        details: Zusätzliche Kommentare
+        details: Zousätzleche Kommentar
       user:
-        about: Über
-        email: Ihre E-Mail
-        name: Ihr Name
-        nickname: Spitzname
+        about: Iwwert mech
+        email: Deng Email
+        name: Däin Numm
+        nickname: Spëtznumm
         password: Passwuert
         password_confirmation: Bestäteg däi Passwuert
         personal_url: Perséinlech URL
@@ -118,7 +118,7 @@ lb:
         manage: "%{user_name} huet %{resource_name} verwalt, well %{reason}"
       moderation:
         hide: "%{user_name} huet eng Ressource vum Typ %{resource_type} an %{space_name} verstoppt"
-        unreport: "%{user_name} huet eng Ressource vum Typ %{resource_type} an %{space_name} opgehuewen"
+        unreport: "%{user_name} huet eng Ressource vum Typ %{resource_type} an %{space_name} net gemellt"
       newsletter:
         create: "%{user_name} huet en Newsletter %{resource_name} erstallt"
         delete: "%{user_name} huet en Newsletter %{resource_name} geläscht"
@@ -151,60 +151,60 @@ lb:
         officialize: "%{user_name} huet den Benotzer %{resource_name} offiziell unerkannt"
         promote: "%{user_name} huet %{resource_name} befërdert"
         remove_from_admin: "%{user_name} huet den Benotzer %{resource_name} mat der Roll %{role} geläscht"
-        show_email: "%{user_name} huet d'Email vum Teilnehmer %{resource_name} ofgeruff"
+        show_email: "%{user_name} huet d'Email vum Teilnehmer %{resource_name} opgeruff"
         transfer: "%{user_name} huet den Benotzer %{resource_name} geréckelt"
-        unblock: "%{user_name} huet d'Blockéierung %{resource_name} opgehuewen"
+        unblock: "%{user_name} huet d'Blockéierung vun %{resource_name} opgehuewen"
         unofficialize: "%{user_name} huet déi offiziell Unerkennung vum Benotzer %{resource_name} widderruff"
       user_group:
-        reject: "%{user_name} huet d'Gruppen-Iwwerpréiwung %{resource_name} refuséiert"
-        verify: "%{user_name} huet den Grupp %{resource_name} iwwerpréiwt"
-        verify_via_csv: "%{user_name} hat die Gruppe %{resource_name} über eine CSV-Datei verifiziert"
+        reject: "%{user_name} huet Iwwerpréiwung duerch de Grupp %{resource_name} refuséiert"
+        verify: "%{user_name} huet den Grupp %{resource_name} iwwerpréift"
+        verify_via_csv: "%{user_name} huet de Grupp %{resource_name} via eng CSV-Datei iwwerpréift"
       user_moderation:
-        unreport: "%{user_name} hat die Meldung auf %{resource_type} - %{unreported_user_name} aufgehoben"
+        unreport: "%{user_name} huet de Meldung vun %{resource_type} - %{unreported_user_name} opgehuewen"
     admin_terms_of_use:
-      default_body: "<h2>ADMIN-NUTZUNGSBEDINGUNGEN</h2><p>Wahrscheinlich haben Sie bereits vom lokalen Systemadministrator gehört. Meist lässt das sich auf die folgenden drei Punkte konzentrieren:</p><ol><li>Respektieren Sie die Privatsphäre anderer.</li><li>Denken Sie nach, bevor Sie klicken.</li><li>Große Macht erfordert große Verantwortung.</li></ol>"
+      default_body: "<h2>ADMIN-KONDITIOUNEN VUM BENOTZEN </h2><p>Du hues bestëmmt schonn eng Aféierung duerch den lokalen Admin kritt. 3 Punkten sinn wichteg:</p><ol><li>respektéier den aneren hir Privatsphär </li><li>Denk no éiers de klicks.</li><li>Vill Muecht ass och vill Verantwortung.</li></ol>"
     alert:
-      dismiss: Benachrichtigung schließen
+      dismiss: Noriicht zou maachen
     amendments:
       accepted:
-        error: Beim Akzeptieren der Änderung ist ein Fehler aufgetreten.
-        success: Die Änderung wurde erfolgreich angenommen.
+        error: Beim Akzeptéieren vun der Ännerung ass e Feeler opgetrueden.
+        success: D'Ännerung gouf ugeholl.
       amendable:
-        amended_by: Geändert durch
-        button: '%{model_name} ändern'
-        error: Bei der Änderung dieser Ressource ist ein Fehler aufgetreten.
-        help_text: Verbessern Sie diese %{model_name} indem Sie ihre %{amendable_fields}ändern
-        promote_button: Zu %{model_name} befördern
+        amended_by: Geännert duerch
+        button: '%{model_name} änneren'
+        error: Beim Änneren vun dëser Ressource ass e Feeler opgetrueden.
+        help_text: Verbesser dësen %{model_name} andeems de %{amendable_fields} änners
+        promote_button: Zu engem %{model_name} befërderen
         promote_confirm_text: Möchten Sie diese Erweiterung wirklich fördern?
-        promote_help_text: Sie können diese Erweiterung fördern und als unabhängige %{model_name}
-        section_heading: Änderungen (%{count})
+        promote_help_text: Du kanns dës Erweiderung befërderen an als onofhängegen Modell verëffentlechen %{model_name}
+        section_heading: Ännerungen (%{count})
       compare_draft:
-        continue: Fortfahren
+        continue: Weider
         no_similars_found: Keine ähnlichen Entwürfe gefunden.
-        title: Ähnliche Entwürfe
+        title: Änlech Entwërf
       created:
         error: Beim Erstellen des Änderungsvorschlags ist ein Fehler aufgetreten.
-        success: Der Änderungsvorschlag wurde erfolgreich erstellt.
+        success: D'Ännerung gouf ugeholl.
       destroy_draft:
-        error: Es gab einen Fehler beim Löschen des Änderungsvorschlags.
-        success: Der Änderungsvorschlag wurde erfolgreich gelöscht.
+        error: Beim Läschen vun der Virbereedung zur Ännerung ass e Feeler opgetrueden.
+        success: D'Virbereedung fir d'Ännerung gouf geläscht.
       edit_draft:
-        discard: Änderungsvorschlag verwerfen
-        discard_confirmation: Sind Sie sicher, dass Sie diesen Änderungsvorschlag verwerfen möchten?
-        send: Vorschau
-        title: Änderungsvorschlag bearbeiten
+        discard: Virschlag fir Ännerung verwerfen
+        discard_confirmation: Bass du sécher, dass du dësen Ännerungs-Virschlag läsche wëlls?
+        send: Virausbléck
+        title: Ännerungs-Virschlag beaarbechten
       emendation:
         actions:
-          button_accept: Akzeptieren
-          button_reject: Ablehnen
-          help_text: Überprüfen Sie die Änderungen und akzeptieren Sie diese Änderung oder lehnen Sie diese ab. Eine Benachrichtigung wird an den / die Verfasser gesendet.
+          button_accept: Acceptéieren
+          button_reject: Refuséieren
+          help_text: Ännerungen iwwerpréiwen an unhuelen oder refuséieren. D'Auteuren kréien eng Noriicht geschéckt.
         announcement:
           accepted: |-
-            Diese Änderung für %{amendable_type} %{proposal_link}
-            wurde am <strong>%{date}</strong> akzeptiert.
+            D'Ännerung fir %{amendable_type} %{proposal_link}
+            gouf am <strong>%{date}</strong> akzeptéiert.
           evaluating: |-
-            Diese Änderung für %{amendable_type} %{proposal_link}
-            wird derzeit bewertet.
+            D'Ännerung fir %{amendable_type} %{proposal_link}
+            gëtt zur Zäit bewäert.
           promoted: Befördert zu %{amendable_type}.
           rejected: Diese Änderung für %{amendable_type} %{proposal_link} wurde am <strong>%{date}</strong> abgelehnt.
           withdrawn: |-
@@ -257,7 +257,7 @@ lb:
       photos:
         related_photos: Zugehörige Bilder
     author:
-      avatar: Profilbild
+      avatar: Profil-Bild
       comments:
         one: Kommentar
         other: Kommentare
@@ -1326,6 +1326,32 @@ lb:
         update_my_interests: Interessen aktualiséieren
       update:
         error: Et gouf e Problem beim Aktualiséieren vun den Interessen.
+        success: D'Interessen goufen aktualiséiert.
+    user_report_mailer:
+      notify:
+        body_1: Den Benotzer %{user} gouf gemellt vun %{token}
+        body_2: 'Grond: %{reason}'
+        greetings: Gréiss, <br/>%{organization_name}<br/><a href="%{organization_url}"><a href="%{organization_url}"></a>
+        hello: Moien %{admin}
+        subject: Et gouf en neien Benotzer gemellt bei %{organization_name}
+    version:
+      show:
+        back_to_resource: Zréck goen
+        changes_at_title: Ännerungen beim %{title}
+        number_of_versions: Versiounen
+        show_all_versions: All Versiounen uweisen
+        version_author: Auteur vun der Versioun
+        version_created_at: Versioun gouf erstallt
+        version_number: Versioun Nummer
+        version_number_out_of_total: "%{current_version} vun %{total_count}"
+    version_author:
+      show:
+        deleted: Teilnehmer geläscht
+    versions:
+      resource_version:
+        of_versions: "(vun %{number})"
+        see_other_versions: aner Versiounen kucken
+        version: Versioun Nummer %{number}
     versions_list:
       show:
         back_to_resource: Zurück
@@ -1443,8 +1469,34 @@ lb:
       send_paranoid_instructions: Wenn Ihre E-Mail-Adresse in unserer Datenbank vorhanden ist, erhalten Sie innerhalb weniger Minuten einen Link zur Passwortwiederherstellung unter Ihrer E-Mail-Adresse.
       updated: Ihr Passwort wurde erfolgreich geändert. Sie sind jetzt angemeldet.
       updated_not_active: Ihr Passwort wurde erfolgreich geändert.
+    registrations:
+      destroyed: Däin Kont gouf zou gemaach. Mir hoffen dech geschwënn erëm ze gesinn.
+      edit:
+        are_you_sure: Bass de sécher?
+        cancel_my_account: Kont erstellen ofbriechen
+        currently_waiting_confirmation_for_email: 'Op Bestätegung waarden fir: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: net ausfëllen wann s'de keng Ännerung wëlls
+        title: Änneren %{resource}
+        unhappy: Net zefridden?
+        update: Aktualiséierung
+        we_need_your_current_password_to_confirm_your_changes: mir brauchen en aktuellt Passwuert fir deng Ännerungen ze bestätegen
+      new:
+        sign_up: Registréieren
+      signed_up: Wëllkomm, du bass elo registréiert.
+      signed_up_but_inactive: Du bass elo registréiert. Du kanns dech nach net aloggen, well mir hunn däin Kont nach net aktivéiert.
+      signed_up_but_locked: Du bass elo registréiert. Du kanns dech nach net aloggen, well mir hunn däin Kont nach gespaart.
+      signed_up_but_unconfirmed: Du krus eng Noriicht op den Email-Adress geschéckt. Klick do op de Link, fir däin Kont ze aktivéieren.
+      update_needs_confirmation: Du hues däin Kont aktivéiert, mir kontrolléieren deng Email-Adress. W. e. g. iwwerpréif deng Email-Agäng an klick do op de Link fir deng nei Adress ze bestätegen.
+      updated: Däin Kont gouf aktualiséiert.
+    sessions:
+      already_signed_out: Du bass elo ausgeloggt.
+      new:
+        sign_in: Aloggen
+      signed_in: Du bass elo ageloggt.
+      signed_out: Du bass elo ausgeloggt.
     shared:
       links:
+        back: Zréck
         didn_t_receive_unlock_instructions: Du hues keng Instruktiounen kritt fir ze entspären?
         forgot_your_password: Passwuert vergiess?
         sign_in: Umellen
