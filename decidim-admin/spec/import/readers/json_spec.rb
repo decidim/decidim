@@ -75,5 +75,36 @@ module Decidim::Admin::Import::Readers
         end
       end
     end
+
+    describe "#example_file" do
+      let(:data) do
+        [
+          %w(id title detail),
+          [1, "Foo", "bar"],
+          [2, "Baz", "biz"]
+        ]
+      end
+      let(:example) { subject.example_file(data) }
+
+      it "returns an example JSON file from the data" do
+        expect(example).to be_a(StringIO)
+        expect(example.read).to eq(
+          <<~JSON.strip
+            [
+              {
+                "id": 1,
+                "title": "Foo",
+                "detail": "bar"
+              },
+              {
+                "id": 2,
+                "title": "Baz",
+                "detail": "biz"
+              }
+            ]
+          JSON
+        )
+      end
+    end
   end
 end
