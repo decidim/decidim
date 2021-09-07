@@ -452,8 +452,6 @@ en:
           impersonate_existing_user: Manage participant "%{name}"
           impersonate_new_managed_user: Manage new participant
       imports:
-        error: There was a problem during the import
-        example_error: Could not create an example for the given type
         duplicate_columns:
           base:
             and: and
@@ -461,13 +459,8 @@ en:
             message:
               one: Duplicate column %{columns}.
               other: Duplicate columns %{columns}.
-        missing_columns:
-          base:
-            and: and
-            detail: Please check that the file contains required columns.
-            message:
-              one: Missing column %{columns}.
-              other: Missing columns %{columns}.
+        error: There was a problem during the import
+        example_error: Could not create an example for the given type
         invalid_indexes:
           base:
             and: and
@@ -480,6 +473,13 @@ en:
             message:
               one: Found error in the import file for records with order numbers %{indexes}.
               other: Found error in the import file for records with order numbers %{indexes}.
+        missing_columns:
+          base:
+            and: and
+            detail: Please check that the file contains required columns.
+            message:
+              one: Missing column %{columns}.
+              other: Missing columns %{columns}.
         new:
           accepted_mime_types:
             csv: CSV
