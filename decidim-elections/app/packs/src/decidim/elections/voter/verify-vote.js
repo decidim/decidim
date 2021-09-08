@@ -1,7 +1,7 @@
 /* eslint-disable require-jsdoc, prefer-template, func-style, id-length, no-use-before-define, init-declarations, no-invalid-this */
 /* eslint no-unused-vars: ["error", { "args": "none" }] */
 
-import { Client } from "@codegram/decidim-bulletin_board";
+import { Client } from "@decidim/decidim-bulletin_board";
 
 $(() => {
   const $voteVerifyWrapper = $(".verify-vote-wrapper");
@@ -50,12 +50,12 @@ $(() => {
       apiEndpointUrl: $voteVerifyWrapper.data("apiEndpointUrl")
     });
 
-    bulletinBoardClient.
-      getLogEntry({
+    bulletinBoardClient
+      .getLogEntry({
         electionUniqueId: $voteVerifyWrapper.data("electionUniqueId"),
         contentHash: $formData.val()
-      }).
-      then((result) => {
+      })
+      .then((result) => {
         if (result) {
           hideErrorCallout();
           $voteVerifyWrapper.find(".verify-vote-success").removeClass("hide");
