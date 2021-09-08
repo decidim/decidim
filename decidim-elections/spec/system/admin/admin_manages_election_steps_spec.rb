@@ -29,7 +29,7 @@ describe "Admin manages election steps", :slow, type: :system do
         expect(page).to have_content("All the questions have a correct value for maximum of answers.")
         expect(page).to have_content("The election is published.")
         expect(page).to have_content("The setup is being done at least 3 hours before the election starts.")
-        expect(page).to have_content("The participatory space has at least 2 trustees with public key.")
+        expect(page).to have_content("The participatory space has at least 3 trustees with public key.")
         expect(page).to have_content("has a public key", minimum: 2)
 
         click_button "Setup election"
@@ -207,8 +207,28 @@ describe "Admin manages election steps", :slow, type: :system do
         expect(page).to have_content("Processing...")
       end
 
-      within ".content.tally" do
-        expect(page).to have_content("Tally")
+      within ".form.tally" do
+        expect(page).to have_content("Tally process")
+      end
+    end
+  end
+
+  describe "report missing trustee" do
+    let!(:election) { create :election, :tally, component: current_component }
+    let(:trustee) { election.trustees.first }
+
+    it "marks the trustee as missing" do
+      within find("tr", text: translated(election.title)) do
+        page.find(".action-icon--manage-steps").click
+      end
+
+      within find("tr", text: trustee.name) do
+        click_button "Mark as missing"
+      end
+
+      within "#trustees_process" do
+        expect(page).to have_css("svg.icon--task")
+        expect(page).not_to have_content("Mark as missing")
       end
     end
   end

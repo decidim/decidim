@@ -9,13 +9,15 @@ describe "Key ceremony", type: :system do
   let(:trustee_keys) do
     {
       "Trustee 1" => File.read(Decidim::Dev.asset("public_key.jwk")),
-      "Trustee 2" => File.read(Decidim::Dev.asset("public_key2.jwk"))
+      "Trustee 2" => File.read(Decidim::Dev.asset("public_key2.jwk")),
+      "Trustee 3" => File.read(Decidim::Dev.asset("public_key3.jwk"))
     }
   end
   let(:private_keys) do
     [
       Decidim::Dev.asset("private_key.jwk"),
-      Decidim::Dev.asset("private_key2.jwk")
+      Decidim::Dev.asset("private_key2.jwk"),
+      Decidim::Dev.asset("private_key3.jwk")
     ]
   end
 
@@ -32,9 +34,11 @@ describe "Key ceremony", type: :system do
 
         download_election_keys(0)
         download_election_keys(1)
+        download_election_keys(2)
 
         complete_key_ceremony(0)
         check_key_ceremony_completed(1)
+        check_key_ceremony_completed(2)
       end
     end
 
