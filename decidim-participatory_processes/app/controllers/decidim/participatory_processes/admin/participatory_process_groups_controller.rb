@@ -31,7 +31,7 @@ module Decidim
           CreateParticipatoryProcessGroup.call(@form) do
             on(:ok) do |participatory_process_group|
               flash[:notice] = I18n.t("participatory_processes_group.create.success", scope: "decidim.admin")
-              redirect_to participatory_process_group_path(participatory_process_group)
+              redirect_to edit_participatory_process_group_path(participatory_process_group)
             end
 
             on(:invalid) do
@@ -56,7 +56,7 @@ module Decidim
           UpdateParticipatoryProcessGroup.call(@participatory_process_group, @form) do
             on(:ok) do |participatory_process_group|
               flash[:notice] = I18n.t("participatory_process_groups.update.success", scope: "decidim.admin")
-              redirect_to participatory_process_group_path(participatory_process_group)
+              redirect_to edit_participatory_process_group_path(participatory_process_group)
             end
 
             on(:invalid) do
