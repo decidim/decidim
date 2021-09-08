@@ -17,8 +17,10 @@
   <%= decidim_form_for(@form, url: election_step_path(election, current_step), method: :patch, html: { class: "form step #{current_step}" }) do |f| %>
     <%= render partial: current_step.to_s, locals: { form: @form, f: f } %>
 
+    <%= f.hidden_field :current_step %>
+
+    <% if @form.main_button? %>
     <div class="button--double form-general-submit">
-      <%= f.hidden_field :current_step %>
       <%= f.button type: :submit, class: "button", disabled: @form.invalid? do %>
         <% if @form.pending_action %>
           <span class='loading-spinner'></span> <%= t("steps.processing", scope: "decidim.elections.admin") %>
@@ -27,6 +29,7 @@
         <% end %>
       <% end %>
     </div>
+    <% end %>
 
     <% if @form.pending_action %>
       <div id="pending_action"

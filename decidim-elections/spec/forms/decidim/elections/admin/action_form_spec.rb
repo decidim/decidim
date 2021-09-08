@@ -29,4 +29,10 @@ describe Decidim::Elections::Admin::ActionForm do
       it { is_expected.to eq(pending_action) }
     end
   end
+
+  describe "#main_button?" do
+    subject { form.main_button? }
+
+    it { is_expected.to be_truthy }
+  end
 end

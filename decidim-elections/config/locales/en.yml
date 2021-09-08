@@ -275,6 +275,8 @@ en:
             submit: Submit
             title: Results published
           tally:
+            confirm_missing_trustee: Are you sure you want to mark this trustee as missing?
+            mark_as_missing: Mark as missing
             title: Tally process
             trustees: Trustees
           tally_ended:
