@@ -248,7 +248,6 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
             birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
             birthplace: Faker::Demographic.demonym,
             designation_date: Faker::Date.between(from: 1.year.ago, to: 1.month.ago),
-            designation_mode: Faker::Lorem.word,
             position: position,
             position_other: position == "other" ? Faker::Job.position : nil,
             assembly: current_assembly
@@ -261,7 +260,6 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
           birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
           birthplace: Faker::Demographic.demonym,
           designation_date: Faker::Date.between(from: 1.year.ago, to: 1.month.ago),
-          designation_mode: Faker::Lorem.word,
           position: "other",
           position_other: Faker::Job.position,
           assembly: current_assembly

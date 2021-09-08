@@ -15,7 +15,6 @@ module Decidim
         attribute :birthplace, String
         attribute :ceased_date, Decidim::Attributes::LocalizedDate
         attribute :designation_date, Decidim::Attributes::LocalizedDate
-        attribute :designation_mode, String
         attribute :position, String
         attribute :position_other, String
         attribute :user_id, Integer
