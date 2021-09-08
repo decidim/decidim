@@ -14,11 +14,6 @@ module Decidim
           enforce_permission_to :read, :process_group
         end
 
-        def show
-          enforce_permission_to :read, :process_group, process_group: participatory_process_group
-          render layout: "decidim/admin/participatory_process_group"
-        end
-
         def new
           enforce_permission_to :create, :process_group
           @form = form(ParticipatoryProcessGroupForm).instance
