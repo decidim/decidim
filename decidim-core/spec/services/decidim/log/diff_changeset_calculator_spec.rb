@@ -129,6 +129,72 @@ describe Decidim::Log::DiffChangesetCalculator do
           ]
         end
       end
+
+      context "when the i18n values are strings" do
+        let(:changeset) do
+          {
+            field: %w(Foo Bar)
+          }
+        end
+
+        it "calculates the changeset for the default locale" do
+          expect(subject).to eq [
+            {
+              attribute_name: :field,
+              label: "My field (English)",
+              previous_value: "Foo",
+              new_value: "Bar",
+              type: :i18n
+            }
+          ]
+        end
+      end
+
+      context "when the i18n values are JSON formatted strings" do
+        let(:changeset) do
+          {
+            field: [
+              '"Foo"',
+              '"Bar"'
+            ]
+          }
+        end
+
+        it "calculates the changeset for the default locale" do
+          expect(subject).to eq [
+            {
+              attribute_name: :field,
+              label: "My field (English)",
+              previous_value: "Foo",
+              new_value: "Bar",
+              type: :i18n
+            }
+          ]
+        end
+      end
+
+      context "when the i18n values are symbols" do
+        let(:changeset) do
+          {
+            field: [
+              :foo,
+              :bar
+            ]
+          }
+        end
+
+        it "calculates the changeset for the default locale" do
+          expect(subject).to eq [
+            {
+              attribute_name: :field,
+              label: "My field (English)",
+              previous_value: :foo,
+              new_value: :bar,
+              type: :i18n
+            }
+          ]
+        end
+      end
     end
 
     context "when fields mapping is empty" do
