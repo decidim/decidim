@@ -7,6 +7,7 @@ module Decidim
       #
       class AssemblyMembersController < Decidim::Assemblies::Admin::ApplicationController
         include Concerns::AssemblyAdmin
+        layout "decidim/admin/assembly_members"
 
         def index
           enforce_permission_to :index, :assembly_member
