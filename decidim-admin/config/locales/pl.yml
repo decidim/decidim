@@ -24,6 +24,7 @@ pl:
       component:
         name: Nazwa
         published_at: Opublikowano
+        weight: Kolejność na stronie
       id: ID
       import:
         user_group_id: Utwórz import jako
@@ -390,6 +391,8 @@ pl:
           title_cont: Przeszukaj %{collection} według tytułu.
         state_eq:
           label: Stan
+          values:
+            pending: Oczekujące
       forms:
         file_help:
           import:
