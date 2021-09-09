@@ -380,7 +380,7 @@ lb:
             amendment_promotion_enabled: Fërderung vun Ännerungen aktivéiert
             amendment_reaction_enabled: Reaktioun op Ännerungen aktivéiert
             amendments_visibility: Siichtbarkeet vun Ännerungen
-            comments_blocked: Kommentarer blockéiert
+            comments_blocked: Kommentare blockéiert
             dummy_step_attribute_1: Dummy Schrëtt Attributer 1
             dummy_step_attribute_2: Dummy Schrëtt Attributer 2
             dummy_step_translatable_text: Dummy Schrëtt ze iwwersetzenden Text
@@ -408,260 +408,259 @@ lb:
           random: Zoufälleg
           recent: Neist als éischt
       how_to_participate:
-        name: Wie kann ich mich beteiligen
+        name: Wéi kann ech mat maachen
       html:
         html_content: HTML-Inhalt
         name: HTML-Block
       last_activity:
-        name: Letzte Aktivität
-        title: Letzte Aktivität
-        view_all: Alle ansehen
+        name: Lescht Aktivitéit
+        title: Lescht Aktivitéit
+        view_all: Alles gesinn
       metrics:
-        name: Organisationsmetriken
+        name: Organisations-Metriken
       stats:
-        name: Organisationsstatistiken
+        name: Organisations-Statistiken
       sub_hero:
         name: Sub hero Banner
     core:
       actions:
         login_before_access: Bitte melden Sie sich mit Ihrem Konto an, um auf diese Seite zuzugreifen
-        unauthorized: Sie sind nicht berechtigt, diese Aktion auszuführen
+        unauthorized: Du hues keng Berechtegung fir dës Aktioun
     data_portability:
       export:
-        ready: Bereit
+        ready: Fäerdeg
       show:
-        download_data: Daten herunterladen
-        download_data_description: Eine Datei, die alle mit Ihrem Konto verknüpften Informationen enthält, wird an <strong>%{user_email}</strong> gesendet. Diese E-Mail enthält eine .zip-Datei und ein Passwort, um sie zu öffnen.<br/><br/>Um die Datei zu entpacken, benötigen Sie <a href="https://www.7-zip.org/">7-Zip</a> (für Windows) oder <a href="https://www.keka.io/">Keka</a> (für MacOS). Wenn Sie Linux verwenden, wird es meistens standardmäßig installiert. Wenn nicht, können Sie <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> oder <a href="https://peazip.github.io">PeaZip</a> verwenden.
-        request_data: Daten anfordern
+        download_data: Daten eroflueden
+        download_data_description: Eng Datei, déi all Informatiounen enthält, déi mat dengem Konto verknäppt sinn, gëtt an den <strong>%{user_email}</strong> geschéckt. Dës Mail enthält eng .zip-Datei an e Passwuert fir se opzemaachen .<br/><br/>Fir d'Datei auszepaken, brauchs du <a href="https://www.7-zip.org/">7-Zip</a> (fir Windows) oder <a href="https://www.keka.io/">Keka</a> (fir MacOS). Wann s'du mat Linux schaffs, gëtt ass et meeschtens als Standard mat installéiert. Wann net, kanns du <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> oder <a href="https://peazip.github.io">PeaZip</a> benotzen.
+        request_data: Daten ufroen
     datepicker:
-      help_text: 'Erwartetes Format: %{datepicker_format}'
+      help_text: 'Format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
-          email_already_exists: Ein anderes Konto verwendet dieselbe E-Mail-Adresse
+          email_already_exists: En aneren Kont benotzt déi selwecht Email-Adress
         new:
-          complete_profile: Profil vervollständingen
-          nickname_help: Ihr Pseudonym in %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
+          complete_profile: Profil vervollstännegen
+          nickname_help: Däin Pseudonym an %{organization}. Dierf nëmmen aus Buschtawen, Zuelen, _ an - bestoen.
           sign_up: Bitte vervollständigen Sie Ihr Profil
-          subtitle: Bitte füllen Sie das folgende Formular aus, um die Anmeldung abzuschließen
-          username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
+          subtitle: Fëll w. e. g. folgend Formular aus, fir deng Registréierung ofzeschléissen
+          username_help: Den ëffentlechen Numm gëtt an dengen Beiträg ugewisen. Fir d'Anonymat ze garantéieren, kann s'de der och en belibegen Numm eraussichen.
       registrations:
         new:
-          already_have_an_account?: Haben Sie bereits ein Konto?
-          newsletter: Gelegentlich einen Newsletter mit relevanten Informationen erhalten
-          newsletter_title: Kontakterlaubnis
-          nickname_help: Ihr Pseudonym in %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
-          password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu gewöhnlich (z.B. 123456) und darf nicht Ihr Benutzername oder Ihre E-Mail-Adresse sein."
-          sign_in: Anmelden
-          sign_up: Registrieren
+          already_have_an_account?: Hues du schonn en Kont?
+          newsletter: Heiansdo en Newsletter mat relevanten Informatiounen zougeschéckt kréien
+          newsletter_title: Erlabnis Kontakt opzehuelen
+          nickname_help: Däin Pseudonym an %{organization}. Dierf nëmmen aus Buschtawen, Zuelen, _ an - bestoen.
+          password_help: "Muss op mannst aus %{minimun_characters} Zeechen bestoen, keng ze banal (z.B. 123456) an et dierf net däin Benotzernumm oder deng Email-Adress enthalen."
+          sign_in: Umelden
+          sign_up: Registréieren
           sign_up_as:
-            legend: Registrieren als
-          subtitle: Registrieren Sie sich, um an Diskussionen teilzunehmen und Vorschläge zu unterstützen.
-          terms: Nutzungsbedingungen
-          tos_agreement: Mit der Anmeldung stimmen Sie %{link} zu.
-          tos_title: Nutzungsbedingungen
-          username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
+            legend: Registréieren als
+          subtitle: Registréier dech fir bei Diskussiounen mat ze maachen an Virschléi ze ënnerstëtzen.
+          terms: Konditiounen vum Benotzen
+          tos_agreement: Mat der Umeldung erkläers du dech mat %{link} averstane.
+          tos_title: Konditiounen vum Service
+          username_help: Den ëffentlechen Numm gëtt an dengen Beiträg ugewisen. Fir d'Anonymat ze garantéieren, kann s'de der och en belibegen Numm eraussichen.
       sessions:
         new:
-          are_you_new?: Neu auf der Plattform?
-          register: Konto erstellen
-          sign_in_disabled: Sie können mit einem externen Konto darauf zugreifen
-          sign_up_disabled: Die Anmeldung ist deaktiviert. Sie können einen vorhandenen Benutzer für den Zugriff verwenden
+          are_you_new?: Nei op dëser Plattform?
+          register: Kont uleeën
+          sign_in_disabled: Du kënns mat engem externen Kont eran
+          sign_up_disabled: D'Umeldung ass desaktivéiert. Du kanns mat engem bestoenden Benotzer-Kont erakommen
         user:
           timed_out: Sie waren zu lange inaktiv und wurden automatisch abgemeldet. Wenn Sie den Dienst weiterhin nutzen möchten, melden Sie sich bitte erneut an.
       shared:
         newsletter_modal:
           buttons:
-            check: Überprüfen und fortfahren
-            close_modal: Modal schließen
-            uncheck: Ohne Kontakterlaubnis fortfahren
+            check: Iwwerpréiwen an weider maachen
+            close_modal: Modal zou maachen
+            uncheck: Ouni Kontakt-Erlabnis weidermaachen
           notice: |-
-            <p>Hey, sind Sie sicher, dass Sie keinen Newsletter erhalten möchten?<br>
-            Bitte überlegen Sie sich noch einmal das Kontrollkästchen für den Newsletter doch anzukreuzen.<br>
-            Für uns ist es sehr wichtig, die Möglichkeit zu haben Ihnen gelegentlich E-Mails mit wichtigen Ankündigungen schicken zu können. Sie können dies jederzeit in den Benachrichtigungseinstellungen ändern.</p>
-            <p>Wenn Sie das Kontrollkästchen nicht ankreuzen, verpassen Sie möglicherweise relevante Informationen zu neuen Beteiligungsmöglichkeiten auf der Plattform.<br>
-            Wenn Sie nach wie vor keinen Newsletter erhalten möchten, verstehen wir natürlich Ihre Entscheidung.</p>
-            <p>Danke fürs Lesen!</p>
-          title: Newsletter Benachrichtigungen
+            <p>Hey, bass de sécher, dass de keen Newsletter wëlls?<br>
+            Iwwerlee der et nach emol, ob s'de den Newsletter net awer un-ticken wëlls.<br>
+            Fir ons ass et wichteg, d'Méiglechkeet ze hunn dir vun Zäit zu Zäit kënnen en Email ze schécken an dem mir dir all déi wichteg Annoncen matdeelen. Du kanns dat zu all Moment an dengen Astellungen fir Noriichten änneren.</p>
+            <p>Wann d'Kontroll-Këscht net aktivéiert ass, verpass du relevant Informatiounen iwwert Méiglechkeeten sech op der Plattform ze bedeelegen.<br>
+            Wann s'du trotz all dem keen Newsletter wëlls, respektéieren mir selbstverständlech deng Entscheedung.</p>
+            <p>Merci fri d'Liesen!</p>
+          title: Newsletter Matdeelungen
         omniauth_buttons:
           or: Oder
     doorkeeper:
       authorizations:
         new:
-          authorize: App zulassen
-          by_organization_link_html: <small class="heading-small">von %{link}</small>
-          cancel: Abbrechen
-          connect_your_account_html: Verbinden Sie Ihr Konto, indem Sie sich bei <strong>%{organization}</strong> anmelden
+          authorize: Applikatioun zouloossen
+          by_organization_link_html: <small class="heading-small">vun %{link}</small>
+          cancel: Ofbriechen
+          connect_your_account_html: Verbann däin Kont, andeem s'de dech bei <strong>%{organization}</strong> umells
           publish_content: Inhalt fir Iech verëffentlechen
           see_email: Kuck deng Email
           see_name: Kuck däin Numm
-          see_username: Kuck däin Nickname
+          see_username: Kuck däin Spëtznumm
           this_application_will_be_able_to: 'Dës Applikatioun mécht:'
-          this_application_will_not_be_able_to: 'Diese Anwendung kann nicht:'
-          update_profile: Profil aktualisieren
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> möchte Ihr Konto verwenden"
+          this_application_will_not_be_able_to: 'Diese Applikatioun kann net:'
+          update_profile: Profil aktualiséieren
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> well däin Kont benotzen"
     endorsable:
-      endorsements: Empfehlungen
-      endorsements_count: Anzahl Befürworter
+      endorsements: Ennerstëtzungen
+      endorsements_count: Zuel vun den Ënnerstëtzer
     endorsement_buttons_cell:
-      already_endorsed: Befürwortet
-      endorse: Befürworten
+      already_endorsed: Ënnerstëtzt
+      endorse: Ënnerstëtzen
     endorsements:
       identities:
         done: Erledigt
-        select_identity: Identität auswählen
+        select_identity: Identitéit wielen
     errors:
       internal_server_error:
-        title: Auf unserem Server ist ein Problem aufgetreten
+        title: Op eisem Server ass e Problem opgetrueden
         try_later: Bitte versuchen Sie es später nochmal.
       not_found:
-        back_home: Zurück zur Startseite
-        content_doesnt_exist: Diese Adresse ist falsch oder wurde entfernt.
-        title: Die von Ihnen gesuchte Seite kann nicht gefunden werden
+        back_home: Zréck op d'Startsäit
+        content_doesnt_exist: Dës Adress ass falsch oder gouf geläscht.
+        title: Déi Säit déi s'du sichs kann net fonnt ginn
     events:
       amendments:
         amendment_accepted:
           affected_user:
-            email_intro: 'Eine Änderung an %{amendable_title} wurde akzeptiert. Sie können das auf dieser Seite sehen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
-            email_subject: Akzeptierte Änderung für %{amendable_title} von %{emendation_author_nickname}
-            notification_title: Die <a href="%{emendation_path}">Änderung</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde angenommen.
+            email_intro: 'Eng Ännerung gouf %{amendable_title} akzeptéiert. Du kanns dat op dëser Säit gesinn:'
+            email_outro: Du hues dës Noriicht kritt well s'du en Auteur vum%{amendable_title} bass.
+            email_subject: Akzeptéiert Ännerung %{amendable_title} vum %{emendation_author_nickname}
+            notification_title: D' <a href="%{emendation_path}">Ännerung</a> erstallt vun <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf ugeholl.
           follower:
-            email_intro: 'Eine Änderung für %{amendable_title} wurde akzeptiert. Sie können das auf dieser Seite sehen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-            email_subject: Akzeptierte Änderung für %{amendable_title} von %{emendation_author_nickname}
-            notification_title: Die <a href="%{emendation_path}">Änderung</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde akzeptiert.
+            email_intro: 'Eng Ännerung gouf %{amendable_title} akzeptéiert. Du kanns dat op dëser Säit gesinn:'
+            email_outro: Du hues dës Noriicht kritt, well s'du dem %{amendable_title} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
+            email_subject: Akzeptéiert Ännerung fir %{amendable_title} vum %{emendation_author_nickname}
+            notification_title: D' <a href="%{emendation_path}">Ännerung</a> erstallt vun <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf ugeholl.
         amendment_created:
           affected_user:
-            email_intro: 'Eine neue Änderung wurde für %{amendable_title} vorgeschlagen. Sie können das auf dieser Seite sehen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
-            email_subject: Neuer Änderungsantrag für %{amendable_title}
-            notification_title: Neue Änderung für <a href="%{amendable_path}">%{amendable_title}</a> erstellt.
+            email_intro: 'Eng Ännerung fir %{amendable_title} gouf erstallt. Du kanns dat op dëser Säit gesinn:'
+            email_outro: Du hues dës Noriicht kritt well s'du en Auteur vum %{amendable_title} bass.
+            email_subject: Nei ännerung fir %{amendable_title}
+            notification_title: Nei Ännerung fir <a href="%{amendable_path}">%{amendable_title}</a> gouf erstallt.
           follower:
-            email_intro: 'Eine neue Änderung für %{amendable_title} wurde erstellt. Sie können das auf dieser Seite sehen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-            email_subject: Neuer Änderungsantrag für %{amendable_title}
-            notification_title: Eine neue Änderung für <a href="%{amendable_path}">%{amendable_title}</a> wurde erstellt.
+            email_intro: 'Eng nei Ännerung fir %{amendable_title} gouf erstallt. Du kanns dat op dëser Säit gesinn:'
+            email_outro: Du hues dës Noriicht kritt, well s'du dem %{amendable_title} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
+            email_subject: Nei Ännerung fir %{amendable_title}
+            notification_title: Nei Ännerung fir <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
-            email_intro: 'Eine abgelehnte Änderung an %{amendable_title} wurde als neue/n %{amendable_type} veröffentlicht. Sie können das auf dieser Seite sehen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
-            email_subject: Eine Änderung von %{emendation_author_nickname} wurde als neue/n %{amendable_type} veröffentlicht
-            notification_title: Die <a href="%{emendation_path}">abgelehnte Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> als neue/n %{amendable_type} veröffentlicht.
+            email_intro: 'Eng refuséiert Ännerung am %{amendable_title} gouf als eng nei ënner %{amendable_type} verëffentlecht. Du kanns dat op dëser Säit gesinn:'
+            email_outro: Du hues dës Noriicht kritt well s'du en Auteur vum %{amendable_title} bass.
+            email_subject: Eng Ännerung vun %{emendation_author_nickname} gouf als nei /n %{amendable_type} verëffentlecht
+            notification_title: D' <a href="%{emendation_path}">refuséiert Ännerung </a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf als nei verëffentlecht %{amendable_type} duerch <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
-            email_intro: 'Eine abgelehnte Änderung für %{amendable_title} wurde als neue/n %{amendable_type} veröffentlicht. Sie können das auf dieser Seite sehen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-            email_subject: Eine Änderung von %{emendation_author_nickname} wurde als neue/n/s %{amendable_type} veröffentlicht
-            notification_title: Eine <a href="%{emendation_path}">abgelehnte Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> als neue/n/s %{amendable_type} veröffentlicht.
+            email_intro: 'Eng refuséiert Ännerung am %{amendable_title} gouf als eng nei ënner %{amendable_type} verëffentlecht. Du kanns dat op dëser Säit gesinn:'
+            email_outro: Du hues dës Noriicht kritt, well s'du dem %{amendable_title} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
+            email_subject: Eng Ännerung vun %{emendation_author_nickname} gouf als nei /n %{amendable_type} verëffentlecht
+            notification_title: D' <a href="%{emendation_path}">refuséiert Ännerung </a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf als nei verëffentlecht %{amendable_type} duerch <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
-            email_intro: 'Eine Änderung an %{amendable_title} wurde abgelehnt. Sie können das auf dieser Seite sehen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
-            email_subject: Abgelehnter Änderungsantrag für %{amendable_title} von %{emendation_author_nickname}
-            notification_title: Die <a href="%{emendation_path}">Änderung</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde abgelehnt.
+            email_intro: 'Eng Ännerung fir %{amendable_title} gouf refuséiert. Du kanns dat op dëser Säit gesinn:'
+            email_outro: Du hues dës Noriicht kritt well s'du en Auteur vum%{amendable_title} bass.
+            email_subject: Refuséiert Ännerung fir %{amendable_title} vum %{emendation_author_nickname}
+            notification_title: D' <a href="%{emendation_path}">Ännerung</a> erstallt vun <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf refuséiert.
           follower:
-            email_intro: 'Eine Änderung für %{amendable_title} wurde abgelehnt. Sie können das auf dieser Seite sehen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title}. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-            email_subject: Abgelehnte Änderung für %{amendable_title} von %{emendation_author_nickname}
-            notification_title: Die <a href="%{emendation_path}">Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> wurde abgelehnt.
+            email_intro: 'Eng Ännerung fir %{amendable_title} gouf refuséiert. Du kanns dat op dëser Säit gesinn:'
+            email_outro: Du hues dës Noriicht kritt, well s'du dem %{amendable_title} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
+            email_subject: Refuséiert Ännerung fir %{amendable_title} vum %{emendation_author_nickname}
+            notification_title: D' <a href="%{emendation_path}">Ännerung</a> erstallt vun <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> fir <a href="%{amendable_path}">%{amendable_title}</a> gouf refuséiert.
       attachments:
         attachment_created:
-          email_intro: 'Ein neues Dokument wurde zu %{resource_title} hinzugefügt. Sie können es auf dieser Seite sehen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: Eine Aktualisierung auf %{resource_title}
-          notification_title: Ein <a href="%{resource_path}">neues Dokument</a> wurde zu <a href="%{attached_to_url}">%{resource_title}</a>hinzugefügt
+          email_intro: 'En neit Dokument fir %{resource_title} gouf dru gehaange. Du kanns dat op dëser Säit gesinn:'
+          email_outro: Du hues dës Noriicht kritt, well s'du dem %{resource_title} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
+          email_subject: Eng Aktualiséierung op %{resource_title}
+          notification_title: En <a href="%{resource_path}">neit Dokument</a> gouf bei <a href="%{attached_to_url}">%{resource_title}</a>drugehaange
       components:
         component_published:
-          email_intro: 'Die Komponente %{resource_title} ist jetzt für %{participatory_space_title} aktiv. Sie können das auf dieser Seite sehen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: Eine Aktualisierung auf %{participatory_space_title}
-          notification_title: Die Komponente %{resource_title} ist jetzt für <a href="%{resource_path}">%{participatory_space_title}</a> aktiv
+          email_intro: 'D''Partie %{resource_title} ass elo fir %{participatory_space_title} aktiv. Du kanns dat op dëser Säit gesinn:'
+          email_outro: Du hues dës Noriicht kritt, well s'du dem %{participatory_space_title} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
+          email_subject: Eng Aktualiséierung op %{participatory_space_title}
+          notification_title: D'Partie %{resource_title} ass elo fir <a href="%{resource_path}">%{participatory_space_title}</a> aktiv
       email_event:
-        email_greeting: Hallo %{user_name},
-        email_intro: 'Es wurde ein Update auf "%{resource_title}" vorgenommen. Sie können das auf dieser Seite sehen:'
-        email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-        email_subject: Eine Aktualisierung auf %{resource_title}
+        email_greeting: Moien %{user_name}
+        email_intro: 'Et gouf en Update fir %{resource_title}. Du kanns dat op dëser Säit gesinn:'
+        email_outro: Du hues dës Noriicht kritt, well s'du "%{resource_title}" nogees. Falls du keng esou Noriichten méi wëlls kréien, géi op den Link uewen.
+        email_subject: Eng Aktualiséierung op %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Gratulation! Sie haben das Abzeichen <a href="%{resource_url}">%{badge_name}</a> (Level %{current_level}) verdient.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie auf unserer Website aktiv waren.
-          email_subject: 'Sie haben ein neues Abzeichen erhalten: %{badge_name}!'
-          notification_title: Gratulation! Sie haben das Abzeichen <a href="%{resource_path}">%{badge_name}</a> (Level %{current_level}) verdient.
+          email_intro: Gratulatioun! Du hues dir <a href="%{resource_url}">%{badge_name} Ofzeechen</a> (Level %{current_level}) verdéngt.
+          email_outro: Du hues dës Noriicht kritt well s'du op eiser Websäit aktiv wos.
+          email_subject: 'Du hues en neit Ofzeechen kritt: %{badge_name}!'
+          notification_title: Gratulatioun! Du hues dir <a href="%{resource_path}">%{badge_name} Ofzeechen</a> (Level %{current_level}) verdéngt.
         level_up:
-          email_intro: Gratulation! Sie haben Level %{current_level} auf dem Abzeichen <a href="%{resource_url}">%{badge_name}</a> erreicht!
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie auf unserer Website aktiv waren.
-          email_subject: Sie haben Level %{current_level} auf dem Abzeichen %{badge_name} erreicht!
-          notification_title: Gratulation! Sie haben Level %{current_level} auf dem Abzeichen <a href="%{resource_path}">%{badge_name}</a> erreicht!
+          email_intro: Gratulatioun! Du hues den Level %{current_level} am <a href="%{resource_url}">%{badge_name} Ofzeechen</a> erreecht!
+          email_outro: Du hues dës Noriicht kritt well s'du op eiser Websäit aktiv wos.
+          email_subject: Du hues den Level %{current_level} um %{badge_name} Ofzeechen erreecht!
+          notification_title: Gratulatioun! Du hues den Level %{current_level} am <a href="%{resource_path}">%{badge_name} Ofzeechen</a> erreecht!
       groups:
         demoted_membership:
-          email_intro: Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Ihre Administratorrechte für diese Gruppe entfernt.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Mitglied dieser Gruppe sind.
-          email_subject: Du bist kein Administrator der Gruppe %{user_group_name} mehr!
-          notification_title: Sie sind nicht mehr Administrator in der Gruppe <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: En Admin vum Grupp <a href="%{resource_url}">%{user_group_name}</a> huet dir d'Rechter fir d'Administratioun vum Grupp entzunn.
+          email_outro: Du hues dës Noriicht kritt well s'du en Member vum Grupp bass.
+          email_subject: Du bass keen Admin vum Grupp %{user_group_name} méi!
+          notification_title: Du bass elo net méi en Admin vum Grupp <a href="%{resource_path}">%{user_group_name}</a>.
         invited_to_group:
-          email_intro: Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Sie in die Gruppe eingeladen.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie zu einer Gruppe eingeladen wurden. Überprüfen Sie das Tab "Gruppen" in Ihrem Profil, um die Einladung zu akzeptieren.
-          email_subject: Sie wurden eingeladen, der Gruppe %{user_group_name} beizutreten!
-          notification_title: Sie wurden eingeladen, der Gruppe <a href="%{resource_path}">%{user_group_name}</a> beizutreten. Besuchen Sie die <a href="%{groups_profile_tab_path}">Gruppen-Seite</a> in Ihrem Profil, um die Einladung zu akzeptieren!
+          email_intro: En Admin vum Grupp <a href="%{resource_url}">%{user_group_name}</a> huet dech an de Grupp agelueden.
+          email_outro: Du hues dës Noriicht kritt well s'du an de Grupp agelueden goufs. Iwwerpréif den Tab "Gruppen" an dengem Profil, fir d'Aluedung unzehuelen.
+          email_subject: Du goufs agelueden dem Grupp %{user_group_name} bäizetrieden!
+          notification_title: Du goufs agelueden dem Grupp <a href="%{resource_path}">%{user_group_name}</a> bäizetrieden. Besich <a href="%{groups_profile_tab_path}">d'Gruppe-Säit</a> an dengem Profil fir d'Aluedung unzehuelen!
         join_request_accepted:
-          email_intro: Herzlichen Glückwunsch! Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Ihre Anfrage akzeptiert, der Gruppe beizutreten.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihre Beitrittsanfrage aktualisiert wurde.
-          email_subject: Sie wurden in die Gruppe %{user_group_name} aufgenommen!
-          notification_title: Sie wurden in die Gruppe <a href="%{resource_path}">%{user_group_name}</a> aufgenommen.
+          email_intro: Gléckwonsch! Ein Admin vum Grupp <a href="%{resource_url}">%{user_group_name}</a> huet deng Ufro do bäizetrieden ugeholl.
+          email_outro: Du hues dës Noriicht kritt, well deng Ufro fir bäizetrieden aktualiséiert gouf.
+          email_subject: Du goufs am Grupp %{user_group_name} ugeholl!
+          notification_title: Du goufs an der Grupp <a href="%{resource_path}">%{user_group_name}</a> opgeholl.
         join_request_created:
-          email_intro: Jemand hat darum gebeten, der Gruppe %{user_group_name} beizutreten. Sie können die Anfrage auf der <a href="%{resource_url}">Gruppenmitglieder-Seite</a> akzeptieren oder ablehnen.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Gruppe %{user_group_name} verwalten können.
-          email_subject: Jemand hat darum gebeten, der Gruppe %{user_group_name} beizutreten!
-          notification_title: Jemand hat darum gebeten, der Gruppe %{user_group_name} beizutreten. Sie können die Anfrage auf der <a href="%{resource_path}">Gruppenmitglieder-Seite</a> akzeptieren oder ablehnen.
+          email_intro: Et huet eng Persoun gefrot dem Grupp %{user_group_name} bäizetrieden. Du kanns déi Ufro vun der <a href="%{resource_url}">Säit fir Gruppememberen </a> unhuelen oder refuséieren.
+          email_outro: Du hues dës Noriicht kritt, well s'du den Grupp %{user_group_name} verwalten kanns.
+          email_subject: Eng Persoun huet ugefrot dem Grupp %{user_group_name} bäizetrieden!
+          notification_title: Et huet eng Persoun gefrot dem Grupp %{user_group_name} bäizetrieden. Du kanns déi Ufro vun der <a href="%{resource_path}">Säit fir Gruppememberen </a> unhuelen oder refuséieren.
         join_request_rejected:
-          email_intro: Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Ihre Anfrage abgelehnt, der Gruppe beizutreten.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihre Beitrittsanfrage aktualisiert wurde.
-          email_subject: Ihre Anfrage, der Gruppe %{user_group_name} beizutreten, wurde abgelehnt!
-          notification_title: Ihre Anfrage, der Gruppe <a href="%{resource_path}">%{user_group_name}</a> beizutreten, wurde abgelehnt.
+          email_intro: En Admin vum Grupp <a href="%{resource_url}">%{user_group_name}</a> huet deng Ufro bäizetrieden refuséiert.
+          email_outro: Du hues dës Noriicht kritt, well deng Ufro fir bäizetrieden aktualiséiert gouf.
+          email_subject: Deng Ufro dem Grupp %{user_group_name} bäizetrieden gouf refuséiert!
+          notification_title: Deng Ufro dem Grupp <a href="%{resource_path}">%{user_group_name}</a> bäizetrieden gouf refuséiert.
         promoted_to_admin:
-          email_intro: Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Ihnen Administratorrechte für diese Gruppe erteilt.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Mitglied dieser Gruppe sind.
-          email_subject: Du bist jetzt ein Admin der Gruppe %{user_group_name}!
-          notification_title: Sie sind jetzt ein Administrator in der Gruppe <a href="%{resource_path}">%{user_group_name}</a>.
+          email_intro: En Admin vum Grupp <a href="%{resource_url}">%{user_group_name}</a> huet dir d'Rechter fir d'Administratioun vum Grupp ginn.
+          email_outro: Du hues dës Noriicht kritt well s'du en Member vum Grupp bass.
+          email_subject: Du bass elo en Admin vum Grupp %{user_group_name}!
+          notification_title: Du bass elo en Admin vum Grupp <a href="%{resource_path}">%{user_group_name}</a>.
         removed_from_group:
-          email_intro: Ein Admin der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Sie aus der Gruppe entfernt.
+          email_intro: En Admin vum Grupp <a href="%{resource_url}">%{user_group_name}</a> huet dech aus dem Grupp geläscht.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Mitglied dieser Gruppe waren.
-          email_subject: Du wurdest aus der Gruppe %{user_group_name} entfernt!
-          notification_title: Elimineches do grupo <a href="%{resource_path}">%{user_group_name}</a>.
+          email_subject: Du goufs aus dem Grupp %{user_group_name} geläscht!
+          notification_title: Du goufs aus dem Grupp <a href="%{resource_path}">%{user_group_name}</a> geläscht.
         user_group_created:
-          email_intro: Eine neue Benutzergruppe mit dem Namen %{user_group_name} wurde erstellt. Sie können sie über das <a href="%{groups_admin_url}">Admin-Panel</a> verifizieren.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Plattform sind.
+          email_intro: En neien Benotzer-Grupp mam Numm %{user_group_name} gouf erstallt. Du kanns dat iwwer den <a href="%{groups_admin_url}">Admin-Schaltfläch</a> iwwerpréiwen.
+          email_outro: Du hues dës Noriicht kritt well s'du en Admin vun der Plattform bass.
           email_subject: Eine neue Benutzergruppe wurde erstellt
-          notification_title: Die Benutzergruppe %{user_group_name} wurde erstellt. Sie können sie über das <a href="%{groups_admin_path}">Admin-Panel</a> verifizieren.
+          notification_title: Den Benotzer-Grupp %{user_group_name} gouf erstallt. Du kanns dat iwwer d'<a href="%{groups_admin_path}">Admin-Schaltfläch</a> iwwerpréiwen.
         user_group_updated:
-          email_intro: Die Benutzergruppe mit dem Namen %{user_group_name} hat ihr Profil aktualisiert, wodurch diese erneut verifiziert werden muss. Sie können sie über das <a href="%{groups_admin_url}">Admin-Panel</a> verifizieren.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Plattform sind.
-          email_subject: Eine Benutzergruppe hat ihr Profil aktualisiert
-          notification_title: Die Benutzergruppe %{user_group_name} hat ihr Profil aktualisiert, wodurch diese erneut verifiziert werden muss. Sie können sie über das <a href="%{groups_admin_path}">Admin-Panel</a> verifizieren.
+          email_intro: Den Benotzer-Grupp %{user_group_name} huet säin Profil aktualiséiert, dat muss op en Neits iwwerpréiwt ginn. Du kanns dat iwwert <a href="%{groups_admin_url}">Admin-Schaltfläch </a> iwwerpréiwen.
+          email_outro: Du hues dës Noriicht kritt well s'du en Admin vun der Plattform bass.
+          email_subject: En Benotzer-Grupp huet säin Profil aktualiséiert
+          notification_title: Den Benotzer-Grupp %{user_group_name} huet säin Profil net iwwerpréiwt aktualiséiert. Du kanns dat iwwert <a href="%{groups_admin_path}">Admin-Schaltfläch </a> iwwerpréiwen.
       notification_event:
-        notification_title: Ein Ereignis trat auf <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: Bei <a href="%{resource_path}">%{resource_title}</a> ass eppes geschitt.
       reports:
         resource_hidden:
-          email_intro: Ein Administrator hat Ihr/e/n %{resource_type} entfernt, weil diese/r/s als %{report_reasons} gemeldet wurde.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Autor des entfernten Inhalts sind.
-          email_subject: Ihr/e %{resource_type} wurde entfernt
+          email_intro: En aAdmin huet den %{resource_type} geläscht, well en als %{report_reasons} gemellt gouf.
+          email_outro: Du hues dës Noriicht kritt well s'du en Auteur vum geläschten Inhalt bass.
+          email_subject: Deng %{resource_type} gouf geläscht
           notification_title: |-
-            Ein Administrator hat Ihr/e %{resource_type} entfernt, weil es als %{report_reasons} gemeldet wurde.</br>
-            <i>%{resource_content}</i>
+            En Admin huet däin %{resource_type} geläscht, well en als %{report_reasons}.</br><i>%{resource_content}</i> gemellt gouf
       resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, dem Sie folgen, hat gerade "%{resource_title}" unterstützt, und wir denken, das könnte interessant für Sie sein. Schauen Sie es sich an und reden Sie mit:'
-        email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{endorser_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-        email_subject: "%{endorser_nickname} hat eine neue Befürwortung ausgesprochen"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} wurde von <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> befürwortet.
+        email_intro: '%{endorser_name} %{endorser_nickname}, dem s''du nogees, huet grad "%{resource_title}" ënnerstëtzt an mir mengen dat kéint dech interesséieren. Kuck der et mol un an diskutéier mat:'
+        email_outro: Du hues dës Noriicht kritt, well s'du dem %{endorser_nickname} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
+        email_subject: "%{endorser_nickname} huet eng nei Ënnerstëtzung ausgeschwat"
+        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} gouf vum <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> ënnerstëtzt.
       users:
         profile_updated:
-          email_intro: Die <a href="%{resource_url}">Profilseite</a> von %{name} (%{nickname}), der Sie folgen, wurde aktualisiert.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: "%{nickname} hat ihr Profil aktualisiert"
-          notification_title: Die <a href="%{resource_path}">Profilseite</a> von %{name} (%{nickname}), der Sie folgen, wurde aktualisiert.
+          email_intro: D' <a href="%{resource_url}">Profil-Säit</a> vum </a>%{name} (%{nickname}), där s'du nogees, gouf aktualiséiert.
+          email_outro: Du hues dës Noriicht kritt, well s'du dem %{nickname} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
+          email_subject: "%{nickname} huet säin Profil aktualiséiert"
+          notification_title: D' <a href="%{resource_path}">Profil-Säit</a> vum </a>%{name} (%{nickname}), där s'du nogees, gouf aktualiséiert.
     export_mailer:
       data_portability_export:
-        click_button: 'Klicken Sie auf den Link, um Ihre Daten herunterzuladen.<br/>Die Datei steht bis zum %{date} zur Verfügung.<br/>Sie benötigen <a href="https://www.7-zip.org/">7-Zip</a> (für Windows), <a href="https://www.keka.io/en/">Keka</a> (für MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (für Linux) um die Datei zu öffnen. Passwort: %{password}'
+        click_button: 'Klick op den Link, fir den Daten erofzelueden.<br/>D''Datei steet bis den %{date} zur Verfügung.<br/>du brauchs <a href="https://www.7-zip.org/">7-Zip</a> (fir Windows), <a href="https://www.keka.io/en/">Keka</a> (fir MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (fir Linux) fir d''Datei opzemaachen. Passwuert: %{password}'
         download: Eroflueden
       export:
         ready: Am Anhang fënns de eng kompriméiert Versioun vun dengem exportéierten Element.
@@ -686,14 +685,14 @@ lb:
     followers:
       no_followers: Bis elo keng Follower.
     following:
-      no_followings: Followed bis elo kenger Ressource.
+      no_followings: Geet bis elo kenger Ressource no.
     follows:
       create:
-        button: Follow
+        button: Nogoen
         error: Et gouf e Problem beim Followen vun dëser Ressource.
-        participatory_space: Du follows <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Du gees der <span class="show-for-sr">%{resource_name}</span>no
       destroy:
-        button: Net méi followen
+        button: Net méi nogoen
         error: Et gouf e Problem beim Un-Followen vun dëser Ressource.
     forms:
       current_file: Aktuell Datei
@@ -702,39 +701,39 @@ lb:
       errors:
         decidim/user:
           password: D'Passwuert ass ze kuerz.
-          password_confirmation: Die Bestätigung muss mit dem Passwort übereinstimmen.
+          password_confirmation: D'Bestätegung vum Passwuert muss mam Passwuert iwwerteneestëmmen.
         error: In diesem Feld ist ein Fehler aufgetreten.
       file_help:
         file:
-          explanation: 'Anleitung für Datei:'
-          message_1: Muss ein Bild oder ein Dokument sein.
-          message_2: Für Bilder, verwenden Sie vorzugsweise Landschaftsbilder, der Dienst erzeugt das Bild. Für CSV-Dateien muss der Trenner zwischen Spalten ein Komma (",") sein
+          explanation: 'Uleedung fir dës Datei:'
+          message_1: Soll eBild oder en Dokument sinn.
+          message_2: Biller sollen am beschten Landschaftsbiller sinn, den Programm passt d'Bild vum selwen un. Fir CSV-Dateien muss d'Trennung tëscht de Spalten e Komma (",") sinn
         image:
-          explanation: 'Anleitung für Bild:'
-          message_1: Vorzugsweise ein Querformat ohne Text.
-          message_2: Der Dienst schneidet die Datei zu.
+          explanation: 'Uleedung fir d''Bild:'
+          message_1: Am beschten queesch Format ouni Text.
+          message_2: Den Programm passt d'Bild un.
       file_validation:
-        allowed_file_extensions: 'Erlaubte Dateiendungen: %{extensions}'
-        max_file_size: 'Maximale Dateigröße: %{megabytes}MB'
-      remove_this_file: Diese Datei entfernen
+        allowed_file_extensions: 'Erlaabten Datei-Endungen %{extensions}'
+        max_file_size: 'Maximal Datei-Gréisst: %{megabytes}MB'
+      remove_this_file: Dës Datei läschen
     gamification:
-      all_badges_link: Sieh dir alle verfügbaren Abzeichen an.
+      all_badges_link: Kuck der all méiglech Ofzeechen un.
       badges:
         followers:
           conditions:
-            - Aktiv zu sein und anderen Menschen zu folgen, wird sicherlich andere Menschen dazu bringen, dir zu folgen.
-          description: Dieses Abzeichen wird gewährt, wenn Sie eine bestimmte Anzahl von Followern erreichen. %{organization_name} ist ein soziales und politisches Netzwerk, weben Sie Ihr Web, um mit anderen Menschen auf der Plattform zu kommunizieren.
-          description_another: Diese*r Benutzer*in hat %{score} Follower.
-          description_own: "%{score} Benutzer*innen folgen dir."
-          name: Follower
-          next_level_in: Erhalten Sie %{score} weitere Nutzer, die Ihnen folgen, um das nächste Level zu erreichen!
-          unearned_another: Dieser Benutzer hat noch keine Follower.
-          unearned_own: Sie haben noch keine Follower.
+            - Aktiv sinn an aneren Persounen nogoen dréit dozou bäi, dass aner Persounen dir och noginn.
+          description: Dëst Ofzeechen kritt een, wann eng bestëmmten Zuel vun Leit engem noginn. %{organization_name} ass en sozialt politescht Netzwierk. Spann däin Netz, fir dech mat aneren Mënschen op der der Plattform ze kommunizéieren.
+          description_another: Dësen Benotzer huet %{score} Unhänger.
+          description_own: "%{score} Benotzer ginn dir no."
+          name: Unhänger
+          next_level_in: Kréi méi %{score} Benotzer dozou dir nozegoen, fir den nächsten Level ze erreechen!
+          unearned_another: Dësen Benotzer huet bis elo nach keng Unhänger.
+          unearned_own: Du hues bis elo nach keng Follower.
         index:
-          badge_title: "%{name} Abzeichen"
-          how: Wie kannst du es verdienen?
-          page_description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen. Hier ist die Liste der Abzeichen und einige Möglichkeiten, wie Sie sie verdienen können.
-          title: Abzeichen
+          badge_title: "%{name} Ofzeechen"
+          how: Wéi kanns de der et verdéngen
+          page_description: Ofzeechen sinn Unerkennungen fir d'Aktiounen an d'Fortschrëtter vun Teilnehmer op der Plattform. Wann se op der Plattform entdecken, matmaachen an interagéieren, verdéngen se verschidden Ofzeechen. Hei ass eng Lëscht vun den Ofzeechen an e puer Méiglechkeeten, wéi een sech déi verdéngen kann.
+          title: Ofzeechen
         invitations:
           conditions:
             - Verwenden Sie den Link "Freunde einladen" auf Ihrer Nutzerseite, um Ihre Freunde einzuladen
@@ -1073,7 +1072,7 @@ lb:
           comments_count: Kommentare
           conferences_count: Konferenzen
           debates_count: Diskussiounen
-          endorsements_count: Empfehlungen
+          endorsements_count: Ennerstëtzungen
           headline: Aktuellen Stand vun %{organization}
           meetings_count: Versammlung
           orders_count: Stimmen
@@ -1618,6 +1617,7 @@ lb:
     password_too_short: ze kuerz
   social_share_button:
     delicious: Lecker
+    douban: Douban
     email: Email
     facebook: Facebook
     google_bookmark: Google Lieszeechen
