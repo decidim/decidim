@@ -1637,6 +1637,7 @@ lb:
     password_too_short: ze kuerz
   social_share_button:
     delicious: Lecker
+    douban: Douban
     email: Email
     facebook: Facebook
     google_bookmark: Google Lieszeechen
