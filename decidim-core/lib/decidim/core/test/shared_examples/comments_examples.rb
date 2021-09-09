@@ -143,9 +143,10 @@ shared_examples "comments" do
         end
       end
 
-      it "shows comment to the user and updates the comments counter" do
+      it "shows comment to the user, updates the comments counter and clears the comment textarea" do
         expect(page).to have_comment_from(user, "This is a new comment", wait: 20)
         expect(page).to have_selector("span.comments-count", text: "#{commentable.comments.count} COMMENTS")
+        expect(page).to have_field("add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "")
       end
     end
 
@@ -163,6 +164,55 @@ shared_examples "comments" do
 
       it "changes link to point to /link" do
         expect(page).to have_link("http://www.debian.org", href: "/link?external_url=http%3A%2F%2Fwww.debian.org")
+      end
+    end
+
+    context "when the user is writing a new comment while someone else comments" do
+      let(:new_comment_body) { "Hey, I just jumped in the conversation!" }
+      let(:new_comment) { build(:comment, commentable: commentable, body: new_comment_body) }
+
+      before do
+        within ".add-comment form" do
+          fill_in "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "This is a new comment"
+        end
+        new_comment.save!
+      end
+
+      it "does not clear the current user's comment" do
+        expect(page).to have_content(new_comment.body.values.first, wait: 20)
+        expect(page).to have_field(
+          "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}",
+          with: "This is a new comment"
+        )
+      end
+
+      context "when inside a thread reply form" do
+        let(:thread) { comments.first }
+        let(:new_reply_body) { "Hey, I just jumped inside the thread!" }
+        let(:new_reply) { build(:comment, commentable: thread, root_commentable: commentable, body: new_reply_body) }
+
+        before do
+          within "#comment_#{thread.id}" do
+            click_button "Reply"
+
+            within ".add-comment form" do
+              fill_in "add-comment-#{thread.commentable_type.demodulize}-#{thread.id}", with: "This is a new reply"
+            end
+          end
+          new_reply.save!
+        end
+
+        it "does not clear the current user's comment" do
+          expect(page).to have_content(new_reply.body.values.first, wait: 20)
+          expect(page).to have_field(
+            "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}",
+            with: "This is a new comment"
+          )
+          expect(page).to have_field(
+            "add-comment-#{thread.commentable_type.demodulize}-#{thread.id}",
+            with: "This is a new reply"
+          )
+        end
       end
     end
 
