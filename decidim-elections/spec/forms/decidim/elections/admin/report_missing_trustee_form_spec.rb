@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Elections::Admin::ReportMissingTrusteeForm do
-  subject { described_class.from_params(attributes).with_context(context) }
+  subject(:form) { described_class.from_params(attributes).with_context(context) }
 
   let(:context) do
     {
@@ -17,7 +17,8 @@ describe Decidim::Elections::Admin::ReportMissingTrusteeForm do
   let(:current_step) { election.bb_status }
   let(:attributes) { { trustee_id: trustee_id } }
   let(:election) { create :election, :tally }
-  let(:trustee_id) { election.trustees.first.id }
+  let(:trustee) { election.trustees.first }
+  let(:trustee_id) { trustee.id }
 
   it { is_expected.to be_valid }
 

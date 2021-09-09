@@ -51,8 +51,8 @@ $(async () => {
             method: "PATCH",
             contentType: "application/json",
             data: JSON.stringify({
-              trustee_id: trusteeId
-            }), // eslint-disable-line camelcase
+              trustee_id: trusteeId // eslint-disable-line camelcase
+            }),
             headers: {
               "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
             }
@@ -114,10 +114,8 @@ $(async () => {
         } else {
           $trustee.find(".missing").removeClass("hide");
         }
-      } else {
-        if (allowReportMissing) {
-          $trustee.find(".js-report-missing-trustee").removeClass("hide");
-        }
+      } else if (allowReportMissing) {
+        $trustee.find(".js-report-missing-trustee").removeClass("hide");
       }
     });
   };

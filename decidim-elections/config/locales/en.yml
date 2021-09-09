@@ -255,7 +255,6 @@ en:
             trustees: Trustees
           key_ceremony:
             title: Key ceremony
-            trustees: Trustees
           key_ceremony_ended:
             errors:
               time_before: The election is ready to start. You have to wait until %{hours} hours before the starting time (%{start_time}) to start the voting period.
@@ -278,7 +277,6 @@ en:
             confirm_missing_trustee: Are you sure you want to mark this trustee as missing?
             mark_as_missing: Mark as missing
             title: Tally process
-            trustees: Trustees
           tally_ended:
             answer: Answer
             not_selected: Not selected

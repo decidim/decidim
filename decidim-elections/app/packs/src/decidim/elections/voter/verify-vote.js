@@ -50,12 +50,12 @@ $(() => {
       apiEndpointUrl: $voteVerifyWrapper.data("apiEndpointUrl")
     });
 
-    bulletinBoardClient
-      .getLogEntry({
+    bulletinBoardClient.
+      getLogEntry({
         electionUniqueId: $voteVerifyWrapper.data("electionUniqueId"),
         contentHash: $formData.val()
-      })
-      .then((result) => {
+      }).
+      then((result) => {
         if (result) {
           hideErrorCallout();
           $voteVerifyWrapper.find(".verify-vote-success").removeClass("hide");

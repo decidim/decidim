@@ -21,16 +21,16 @@ $(() => {
     const $generate = $("#generate_identification_keys");
     const $upload = $("#upload_identification_keys");
 
-    $("button", $generate).click(() => {
-      window.trusteeIdentificationKeys
-        .generate()
-        .then(() => {
+    $("button", $generate).on("click", () => {
+      window.trusteeIdentificationKeys.
+        generate().
+        then(() => {
           $trusteePublicKey.val(
             JSON.stringify(window.trusteeIdentificationKeys.publicKey)
           );
           $submit.addClass("visible");
-        })
-        .catch(() => {
+        }).
+        catch(() => {
           alert($generate.data("error"));
         });
     });
@@ -41,12 +41,12 @@ $(() => {
     });
 
     $("button", $upload).click(() => {
-      window.trusteeIdentificationKeys
-        .upload()
-        .then(() => {
+      window.trusteeIdentificationKeys.
+        upload().
+        then(() => {
           $upload.addClass("hide");
-        })
-        .catch((errorMessage) => {
+        }).
+        catch((errorMessage) => {
           alert($upload.data(errorMessage));
         });
     });
