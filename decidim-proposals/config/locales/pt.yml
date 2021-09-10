@@ -116,6 +116,7 @@ pt:
       proposals:
         actions:
           amend: Modificar
+          comment: Comentar
           create: Criar
           endorse: Endossar
           vote: Voto
@@ -146,8 +147,8 @@ pt:
             proposal_edit_before_minutes: As propostas podem ser editadas pelos autores antes que estes minutos passem
             proposal_edit_time: Edição de proposta
             proposal_edit_time_choices:
-              infinite: Permitir editar propostas por um limite de tempo infinito
-              limited: Permitir edição de propostas dentro dum horizonte temporal
+              infinite: Permitir editar propostas por um limite de tempo indeterminado
+              limited: Permitir edição de propostas dentro dum espaço de tempo
             proposal_length: Comprimento máximo do corpo da proposta
             proposal_limit: Limite de propostas por utilizador
             proposal_wizard_step_1_help_text: Texto de ajuda do passo "Criar" do Assistente de Propostas
@@ -156,6 +157,7 @@ pt:
             proposal_wizard_step_4_help_text: Texto de ajuda do passo "Publicar" do Assistente de Propostas
             resources_permissions_enabled: As permissões de ações podem ser definidas para cada proposta
             scope_id: Âmbito
+            scopes_enabled: Âmbitos activados
             threshold_per_proposal: Limiar por proposta
             vote_limit: Limite de voto por participante
           step:
@@ -387,7 +389,7 @@ pt:
             accepted_mime_types:
               md: Anotação
             bottom_hint: "(Será capaz de pré-visualizar e classificar as secções do documento)"
-            document_legend: 'Adicionar um documento menor que 2MB, cada secção até 3 níveis de profundidade será introduzida nas propostas. Os formatos suportados são: %{valid_mime_types}'
+            document_legend: 'Adicionar um documento com menos de 2MB, cada secção até 3 níveis de profundidade será introduzida nas propostas. Os formatos suportados são: %{valid_mime_types}'
             title: ADICIONAR DOCUMENTO
             upload_document: Enviar documento
           publish:
@@ -774,8 +776,8 @@ pt:
           view_index:
             see_index: Ver o índice
         preview:
-          announcement_body: A sua porposta foi guardada como rascunho. Precisa de ser publicada para aparecer no site.
-          announcement_title: A sua proposta ainda não foi publicada
+          announcement_body: A sua proposta foi guardada como rascunho. Precisa de ser publicada para aparecer no site.
+          announcement_title: A sua proposta não foi ainda publicada
           modify: Modificar a proposta
           proposal_edit_before_minutes:
             one: Poderá editar esta proposta durante o primeiro minuto após a publicação da mesma. Assim que esta janela de tempo passe, não poderá editar a proposta.
@@ -899,6 +901,6 @@ pt:
         proposal_project: 'Propostas que aparecem nestes projetos:'
         proposal_result: 'Propostas que aparecem nestes resultados:'
     statistics:
-      proposals_accepted: Propostas Aceitas
+      proposals_accepted: Propostas aceites
       proposals_count: Propostas
       supports_count: Suportes
