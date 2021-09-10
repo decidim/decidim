@@ -1097,7 +1097,7 @@ ro:
           participate: Participă
           welcome: Bine ai venit la %{organization}!
         metrics:
-          headline: Valori
+          headline: Indicatori
         statistics:
           headline: Starea curentă a %{organization}
         sub_hero:
@@ -1110,7 +1110,7 @@ ro:
         topics: Subiecte
       participatory_space:
         metrics:
-          headline: Valori
+          headline: Indicatori
           link: Arată toate măsurătorile
       terms_and_conditions:
         accept:
