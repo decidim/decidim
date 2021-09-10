@@ -24,6 +24,7 @@ pt:
             ends_at: Respostas aceites até
             ends_at_help: Deixar em branco se sem data específica
             scope_id: Âmbito
+            scopes_enabled: Âmbitos activados
             starts_at: Respostas aceites a partir de
             starts_at_help: Deixar em branco se sem data específica
           step:
