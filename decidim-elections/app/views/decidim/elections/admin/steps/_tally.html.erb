@@ -9,7 +9,15 @@
         data-process-type="tally"
         data-election-unique-id="<%= election_unique_id %>"
         data-missing-trustees-allowed="<%= missing_trustees_allowed %>"
-        data-missing-trustee-url="<%= election_step_path(election, current_step) %>">
+        data-check-pending-action-path="<%= election_step_path(election, current_step, check_pending_action: 1) %>">
+
+    <% if missing_trustees_allowed > 0 %>
+      <ul>
+        <%= content_tag :li, t(".mark_as_missing_description") %>
+        <%= content_tag :li, t(".tally_completion", quorum: quorum) %>
+        <%= content_tag :li, t(".undo_mark_as_missing") %>
+      </ul>
+    <% end %>
     <div class="table-scroll">
       <table class="table-list">
         <thead>
@@ -39,9 +47,10 @@
                 <%= present(trustee).public_key_thumbprint %>
               </td>
               <td class="table-list__actions">
-                <button class="button tiny alert hollow hide js-report-missing-trustee" data-confirm="<%= t(".confirm_missing_trustee") %>">
+                <%= f.button type: :button, formaction: election_step_path(election, current_step, trustee_id: trustee.id),
+                             class: "button tiny alert hollow hide js-report-missing-trustee" do %>
                   <%= icon "circle-x" %> <%= t(".mark_as_missing") %>
-                </button>
+                <% end %>
               </td>
             </tr>
           <% end %>
@@ -49,6 +58,10 @@
       </table>
     </div>
   </div>
+</div>
+
+<div class="button--double form-general-submit">
+  <%= link_to t("steps.tally.continue", scope: "decidim.elections.admin"), {}, class: "button disabled js-continue-link" %>
 </div>
 
 <%= javascript_pack_tag "decidim_elections_admin_trustees_process" %>

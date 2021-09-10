@@ -7,7 +7,7 @@ module Decidim
       class StepsController < Admin::ApplicationController
         helper Decidim::ApplicationHelper
         helper StepsHelper
-        helper_method :elections, :election, :current_step, :vote_stats, :bulletin_board_server, :authority_public_key, :election_unique_id, :missing_trustees_allowed
+        helper_method :elections, :election, :current_step, :vote_stats, :bulletin_board_server, :authority_public_key, :election_unique_id, :quorum, :missing_trustees_allowed
 
         def index
           enforce_permission_to :read, :steps, election: election
@@ -23,10 +23,12 @@ module Decidim
           redirect_to election_steps_path(election) && return unless params[:id] == current_step
 
           @form = form(current_step_form_class).from_params(params, election: election)
-          if @form.pending_action
-            Decidim::Elections::Admin::UpdateActionStatus.call(@form.pending_action)
-            return redirect_to election_steps_path(election)
-          end
+          Decidim::Elections::Admin::UpdateActionStatus.call(@form.pending_action) if @form.pending_action
+
+          # check pending action status mode
+          return render json: { status: @form.pending_action&.status } if params[:check_pending_action]
+
+          return redirect_to election_steps_path(election) if @form.pending_action
 
           current_step_command_class.call(@form) do
             on(:ok) do
@@ -46,7 +48,7 @@ module Decidim
 
         private
 
-        delegate :bulletin_board_server, :authority_slug, to: :bulletin_board_client
+        delegate :bulletin_board_server, :authority_slug, :quorum, to: :bulletin_board_client
 
         def bulletin_board_client
           Decidim::Elections.bulletin_board

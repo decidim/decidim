@@ -27,42 +27,17 @@ $(async () => {
   const trusteesStatuses = {};
   let lastMessageIndex = 0;
 
-  const missingTrusteesAllowed =
-    $trusteesProcess.data("missingTrusteesAllowed") || 0;
-  const missingTrusteeUrl = $trusteesProcess.data("missingTrusteeUrl");
+  const missingTrusteesAllowed = $trusteesProcess.data("missingTrusteesAllowed") || 0;
+  const checkPendingActionPath = $trusteesProcess.data("checkPendingActionPath");
 
-  let missingTrustees = 0;
-  let allowReportMissing = false;
+  // Fix buttons formaction, that is not working properly
+  const $form = $("form.step");
+  $form.find("button").on("click", (event) => {
+    $form.attr("action", $(event.currentTarget).attr("formaction"));
+    $form.trigger("submit");
+  });
 
-  if (missingTrusteesAllowed > 0) {
-    $checkingTrustees.each((_index, trustee) => {
-      const $trustee = $(trustee);
-      const trusteeId = $trustee.data("trusteeId");
-      const trusteeSlug = $trustee.data("trusteeSlug");
-
-      const $reportMissingTrustee = $trustee.find(".js-report-missing-trustee");
-      $reportMissingTrustee.on("click", (event) => {
-        event.preventDefault();
-        if (allowReportMissing && !(trusteeSlug in trusteesStatuses)) {
-          trusteesStatuses[trusteeSlug] = false;
-          $(".js-report-missing-trustee").addClass("hide");
-          $.ajax({
-            url: missingTrusteeUrl,
-            method: "PATCH",
-            contentType: "application/json",
-            data: JSON.stringify({
-              trustee_id: trusteeId // eslint-disable-line camelcase
-            }),
-            headers: {
-              "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
-            }
-          });
-        }
-      });
-    });
-  }
-
-  const checkTrusteesActivity = async () => {
+  const updateTrusteesStatuses = async () => {
     await election.getLogEntries();
 
     for (
@@ -84,19 +59,33 @@ $(async () => {
         trusteesStatuses[decodedData.trustee_id] = false;
       }
     }
+  }
 
-    missingTrustees = Object.values(trusteesStatuses).filter(
+  const checkPendingAction = async () => {
+    if (!checkPendingActionPath) {
+      return false
+    }
+
+    const response = await $.ajax({
+      url: checkPendingActionPath,
+      method: "PATCH",
+      contentType: "application/json",
+      headers: {
+        "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
+      }
+    })
+
+    return response && response.status === "pending";
+  }
+
+  const checkTrusteesActivity = async () => {
+    await updateTrusteesStatuses();
+    const pendingAction = await checkPendingAction();
+
+    const missingTrustees = Object.values(trusteesStatuses).filter(
       (present) => !present
     ).length;
-    allowReportMissing = missingTrustees < missingTrusteesAllowed;
-
-    if (
-      Object.keys(trusteesStatuses).length === $checkingTrustees.length &&
-      missingTrustees <= missingTrusteesAllowed
-    ) {
-      window.location.reload();
-      return;
-    }
+    const allowReportMissing = missingTrustees < missingTrusteesAllowed;
 
     $checkingTrustees.each((_index, trustee) => {
       const $trustee = $(trustee);
@@ -114,12 +103,20 @@ $(async () => {
         } else {
           $trustee.find(".missing").removeClass("hide");
         }
-      } else if (allowReportMissing) {
+      } else if (allowReportMissing && !pendingAction) {
         $trustee.find(".js-report-missing-trustee").removeClass("hide");
       }
     });
+
+    if (
+      Object.keys(trusteesStatuses).length === $checkingTrustees.length &&
+      missingTrustees <= missingTrusteesAllowed && !pendingAction
+    ) {
+      $(".js-continue-link").removeClass("disabled");
+    } else {
+      setTimeout(checkTrusteesActivity, WAIT_TIME_MS);
+    }
   };
 
   await checkTrusteesActivity();
-  setInterval(checkTrusteesActivity, WAIT_TIME_MS);
 });

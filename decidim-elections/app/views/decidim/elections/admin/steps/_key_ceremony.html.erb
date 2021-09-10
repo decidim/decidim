@@ -16,6 +16,7 @@
             <th><%= t("models.trustees_participatory_space.fields.status", scope: "decidim.elections") %></th>
             <th><%= t("models.trustees_participatory_space.fields.email", scope: "decidim.elections") %></th>
             <th><%= t("models.trustees_participatory_space.fields.public_key", scope: "decidim.elections") %></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -34,12 +35,17 @@
               <td>
                 <%= present(trustee).public_key_thumbprint %>
               </td>
+              <td></td>
             </tr>
           <% end %>
         </tbody>
       </table>
     </div>
   </div>
+</div>
+
+<div class="button--double form-general-submit">
+  <%= link_to t("steps.key_ceremony.continue", scope: "decidim.elections.admin"), {}, class: "button disabled js-continue-link" %>
 </div>
 
 <%= javascript_pack_tag "decidim_elections_admin_trustees_process" %>

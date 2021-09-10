@@ -7,6 +7,8 @@ module Decidim
       class ReportMissingTrusteeForm < ActionForm
         attribute :trustee_id, Integer
 
+        validates :trustee_id, presence: true
+
         def trustee
           @trustee ||= Decidim::Elections::Trustee.find(trustee_id)
         end
