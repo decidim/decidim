@@ -206,6 +206,8 @@ ro:
             label: Stare
     components:
       accountability:
+        actions:
+          comment: Comentariu
         name: Responsabilitate
         settings:
           global:
