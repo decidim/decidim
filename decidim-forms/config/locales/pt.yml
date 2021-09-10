@@ -10,7 +10,7 @@ pt:
         question_type: Tipo
       questionnaire_question:
         mandatory: Obrigatório
-        max_characters: Limite de caracteres (deixar para 0 se não houver limite)
+        max_characters: Limite de caracteres (deixar 0 se não houver limite)
     errors:
       models:
         answer:
