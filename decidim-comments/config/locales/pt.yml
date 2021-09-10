@@ -16,6 +16,9 @@ pt:
         other: Votos
   decidim:
     comments:
+      comments:
+        create:
+          error: Ocorreu um problema ao criar o comentário
       comments_count: Contagem de comentários
       comments_title: Comentários
       last_activity:
@@ -23,10 +26,10 @@ pt:
       view: Visualizar
       votes:
         create:
-          error: Houve erros ao votar o comentário.
+          error: Houve erros na votação do comentário.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Inscreva-se com sua conta</a> ou <a href="%{sign_up_url}">sign up</a> para adicionar seu comentário.
+        account_message: <a href="%{sign_in_url}">Ligue-se com sua conta</a> ou <a href="%{sign_up_url}">sign up</a> para adicionar seu comentário.
         form:
           body:
             label: Comente
@@ -76,6 +79,9 @@ pt:
         loading: A carregar comentários ...
         single_comment_warning: Pode consultar os restantes comentários <a href="%{url}">aqui</a>.
         single_comment_warning_title: Está a ver um único comentário
+        title:
+          one: "%{count} comentário"
+          other: "%{count} comentários"
       down_vote_button:
         text: Eu discordo deste comentário
       up_vote_button:
@@ -94,9 +100,19 @@ pt:
           notification_title: Há um novo comentário por <a href="%{author_path}">%{author_name} %{author_nickname}</a> em <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} foi comentado. Você pode ler o comentário nesta página:"
-          email_outro: Recebeu esta notificação porque segue "%{resource_title}" ou o seu autor. Pode deixar de segui-lo a partir da hiperligação anterior.
+          email_outro: Recebeu esta notificação porque segue "%{resource_title}" ou o seu autor. Pode deixar de segui-lo a partir da ligação anterior.
           email_subject: Há um novo comentário de %{author_name} em %{resource_title}
           notification_title: Há um novo comentário de <a href="%{author_path}">%{author_name} %{author_nickname}</a> em <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: O seu comentário em "%{resource_title}” foi desvalorizado. Tem agora um total de %{upvotes} valorizações e %{downvotes} desvalorizações.
+          email_outro: Recebeu esta notificação porque é o autor deste comentário.
+          email_subject: O seu comentário em "%{resource_title}” foi desvalorizado.
+          notification_title: O seu <a href="%{resource_path}">comentário</a> in "%{resource_title}" foi desvalorizado. Tem agora um total de %{upvotes} valorizações e %{downvotes} desvalorizações.
+        comment_upvoted:
+          email_intro: O seu comentário em "%{resource_title}” foi valorizado. Tem agora um total de %{upvotes} valorizações e %{downvotes} desvalorizações.
+          email_outro: Recebeu esta notificação porque é o autor deste comentário.
+          email_subject: O seu comentário em "%{resource_title}” foi valorizado.
+          notification_title: O seu <a href="%{resource_path}">comentário</a> in "%{resource_title}" foi valorizado. Tem agora um total de %{upvotes} valorizações e %{downvotes} desvalorizações.
         reply_created:
           email_intro: "%{author_name} respondeu ao seu comentário em %{resource_title}. Pode lê-lo nesta página:"
           email_outro: Recebeu esta notificação porque responderam ao seu comentário.
