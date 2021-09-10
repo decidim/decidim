@@ -387,6 +387,27 @@ describe "Homepage", type: :system do
         end
       end
 
+      describe "decidim link with external icon" do
+        before { visit current_path }
+
+        let(:webpacker_helper) do
+          Class.new do
+            include ActionView::Helpers::AssetUrlHelper
+            include Webpacker::Helper
+          end.new
+        end
+
+        it "displays the decidim link with external link indicator" do
+          within ".footer .mini-footer" do
+            expect(page).to have_selector("a[target='_blank'][href='https://github.com/decidim/decidim']")
+
+            within "a[target='_blank'][href='https://github.com/decidim/decidim']" do
+              expect(page).to have_selector("svg.icon use[href='#{webpacker_helper.asset_pack_path("media/images/icons.svg")}#icon-external-link']")
+            end
+          end
+        end
+      end
+
       context "and has highlighted content banner enabled" do
         let(:organization) do
           create(:organization,
