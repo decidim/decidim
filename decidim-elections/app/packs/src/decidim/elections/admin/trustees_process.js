@@ -66,22 +66,25 @@ $(async () => {
       return false
     }
 
-    const response = await $.ajax({
-      url: checkPendingActionPath,
-      method: "PATCH",
-      contentType: "application/json",
-      headers: {
-        "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
-      }
-    })
+    try {
+      const response = await $.ajax({
+        url: checkPendingActionPath,
+        method: "PATCH",
+        contentType: "application/json",
+        headers: {
+          "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
+        }
+      })
 
-    return response && response.status === "pending";
+      return response && response.status === "pending";
+    } catch (err) {
+      return true;
+    }
   }
 
   const checkTrusteesActivity = async () => {
     await updateTrusteesStatuses();
     const pendingAction = await checkPendingAction();
-
     const missingTrustees = Object.values(trusteesStatuses).filter(
       (present) => !present
     ).length;
