@@ -48,7 +48,7 @@ pt:
       admin:
         csv_census:
           help:
-            - Administradores enviam um CSV com os e-mails dos participantes aceites
+            - Os administradores enviam um CSV com os e-mails dos participantes aceites
             - Apenas participantes com um e-mail nesse ficheiro CSV podem ser verificados
         id_documents:
           help:
@@ -86,11 +86,11 @@ pt:
           no_data_stored: Não há dados armazenados.
         create:
           error: Ocorreu um problema ao criar a autorização.
-          success: Foi autorizado corretamente.
+          success: Foi autorizado com êxito.
           unconfirmed: Precisa de confirmar o seu e-mail para se poder autorizar.
         destroy:
           error: Ocorreu um problema ao eliminar a autorização.
-          success: Eliminou a autorização corretamente.
+          success: Eliminou a autorização com êxito.
         first_login:
           actions:
             another_dummy_authorization_handler: Verificar contra outro exemplo de manipulador de autorização
@@ -114,7 +114,7 @@ pt:
           cancel: Cancelar
           close: fechar
           continue: Continuar
-          info_renew: Caso pretenda atualizar os dados, prossiga com a renovação
+          info_renew: Caso pretenda actualize os dados, prossiga com a renovaçãoo
           title: Renovar Verificação
         skip_verification: Pode ignorar isto por agora e %{link}
         start_exploring: comece a explorar
@@ -123,7 +123,7 @@ pt:
           census:
             create:
               error: Ocorreu um erro ao importar o censo.
-              success: '%{count} Itens (%{errors} erros) importados corretamente'
+              success: '%{count} Itens (%{errors} erros) importados com êxito'
             destroy_all:
               success: Todos os dados do censo foram eliminados
           destroy:
@@ -144,7 +144,7 @@ pt:
         authorizations:
           new:
             error: Não foi possível verificar a sua conta ou não está no censo da organização.
-            success: A sua conta foi verificada corretamente.
+            success: A sua conta foi verificada com êxito.
       dummy_authorization:
         extra_explanation:
           postal_codes:
@@ -160,14 +160,14 @@ pt:
           config:
             edit:
               title: Configuração de documentos de identidade
-              update: Atualizar
+              update: Actualizar
             update:
               error: Ocorreu um problema ao atualizar a configuração.
-              success: Configuração atualizada corretamente
+              success: Configuração actualizada com êxito
           confirmations:
             create:
               error: A verificação não corresponde. Por favor tente novamente ou rejeite a verificação para que o participante possa corrigi-la
-              success: Participante verificado corretamente
+              success: Participante verificado com êxito
             new:
               introduce_user_data: Introduza os dados na fotografia
               reject: Rejeitar
@@ -175,10 +175,10 @@ pt:
           offline_confirmations:
             create:
               error: A verificação não corresponde. Por favor tente novamente ou diga ao participante para alterá-lo
-              success: Participante verificado corretamente
+              success: Participante verificado com êxito
             new:
               cancel: Cancelar
-              introduce_user_data: Introduzir o email do participante e os dados do documento
+              introduce_user_data: Introduzir o e-mail do participante e os dados do documento
               verify: Verificar
           pending_authorizations:
             index:
@@ -197,7 +197,7 @@ pt:
             title: Verifique-se a si próprio utilizando o seu documento de identidade
           create:
             error: Ocorreu um problema ao enviar o seu documento
-            success: Documento enviado corretamente
+            success: Documento enviado com êxito
           edit:
             being_reviewed: Estamos a rever os seus documentos. Será verificado em breve
             offline: Use a verificação off-line
@@ -211,7 +211,7 @@ pt:
             title: Envie o seu documento de identidade
           update:
             error: Ocorreu um problema ao reenviar o seu documento
-            success: Documento reenviado corretamente
+            success: Documento reenviado com êxito
         dni: DNI
         nie: NIE
         passport: Passaporte
@@ -229,7 +229,7 @@ pt:
           postages:
             create:
               error: Erro ao marcar carta como enviada
-              success: Carta marcada como enviada corretamente
+              success: Carta marcada como enviada com êxito
         authorizations:
           create:
             error: Ocorreu um problema com o seu pedido
@@ -243,7 +243,7 @@ pt:
             title: Solicitar o seu código de verificação
           update:
             error: O seu código de verificação não corresponde ao nosso. Por favor, verifique novamente a carta que lhe enviámos
-            success: Parabéns. Foi verificado corretamente
+            success: Parabéns. Foi verificado com êxito
       sms:
         authorizations:
           create:
@@ -262,7 +262,7 @@ pt:
             title: Solicite o seu código de verificação
           update:
             error: O seu código de verificação não corresponde ao nosso. Por favor, verifique novamente o SMS que lhe enviámos.
-            success: Parabéns. Foi verificado corretamente.
+            success: Parabéns. Foi verificado com êxito.
   errors:
     messages:
       uppercase_only_letters_numbers: devem ser todas maiúsculas e conter apenas letras e / ou números
