@@ -15,7 +15,7 @@ describe "Key ceremony", type: :system do
       download_election_keys(2)
 
       complete_key_ceremony(0)
-      complete_key_ceremony(1)
+      check_key_ceremony_completed(1)
       check_key_ceremony_completed(2)
     end
   end
