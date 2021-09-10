@@ -61,7 +61,7 @@ pt:
             title: Modelos de questionário
           preview:
             current_step: Passo %{step}
-            of_total_steps: De %{total_steps}
+            of_total_steps: de %{total_steps}
             tos_agreement: Ao participar aceita as Condições de Serviço
       template_types:
         questionnaires: Questionários
