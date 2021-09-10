@@ -7,8 +7,4 @@ shared_context "with test bulletin board" do
       test.metadata[:bulletin_board_reset] = true
     end
   end
-
-  include_context "when managing a component as an admin" do
-    let(:admin_component_organization_traits) { [:secure_context] }
-  end
 end
