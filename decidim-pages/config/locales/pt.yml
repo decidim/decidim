@@ -7,7 +7,7 @@ pt:
   decidim:
     admin_log:
       page:
-        update: "%{user_name} atualizou a página %{resource_name} em %{space_name}"
+        update: "%{user_name} actualizou a página %{resource_name} em %{space_name}"
     components:
       pages:
         name: Página
@@ -27,4 +27,9 @@ pt:
             title: Editar página
           update:
             invalid: Ocorreu um problema ao guardar a página.
-            success: Página guardada corretamente.
+            success: Pagina guardada com êxito.
+      home:
+        hero:
+          participate_title: Participe nos processos da plataforma
+        sub_hero:
+          register_title: Registre para criar conta
