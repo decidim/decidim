@@ -94,7 +94,7 @@ module Decidim
       end
 
       initializer "decidim.i18n_exceptions" do |app|
-        app.config.action_view.raise_on_missing_translations  = true unless Rails.env.production?
+        app.config.action_view.raise_on_missing_translations = true unless Rails.env.production?
       end
 
       initializer "decidim.test_mode" do |app|

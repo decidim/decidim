@@ -33,7 +33,7 @@ module Decidim
       protected
 
       def allowed_params
-        [:participatory_process_slug, :component_id, :resource_id, :resource_name, :_method, {component_permissions: {}} , :commit]
+        [:participatory_process_slug, :component_id, :resource_id, :resource_name, :_method, { component_permissions: {} }, :commit]
       end
 
       private

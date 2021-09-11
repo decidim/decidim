@@ -18,6 +18,7 @@ module Decidim
         end
 
         protected
+
         def allowed_params
           [:assembly_slug, :page]
         end

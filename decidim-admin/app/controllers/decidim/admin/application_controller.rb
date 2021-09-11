@@ -56,7 +56,6 @@ module Decidim
       def allowed_params
         []
       end
-
     end
   end
 end

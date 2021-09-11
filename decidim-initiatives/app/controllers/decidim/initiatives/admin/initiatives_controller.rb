@@ -173,6 +173,7 @@ module Decidim
             end
           end
         end
+
         protected
 
         def allowed_params

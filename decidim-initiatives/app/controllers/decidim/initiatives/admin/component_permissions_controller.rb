@@ -9,6 +9,7 @@ module Decidim
         include InitiativeAdmin
 
         protected
+
         def allowed_params
           super.push(:initiative_slug)
         end
