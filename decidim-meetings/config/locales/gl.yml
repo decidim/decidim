@@ -29,7 +29,9 @@ gl:
         title: Título
         transparent: Transparente
       minutes:
+        audio_url: URL de son
         description: Descrición
+        video_url: URL do vídeo
         visible: É visible
     errors:
       models:
@@ -255,6 +257,7 @@ gl:
             invalid: Produciuse un problema ao crear estes minutos
             success: Minutos creados con éxito
           edit:
+            title: Editar minutos
             update: Actualización
           new:
             create: Crear
