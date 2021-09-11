@@ -67,7 +67,7 @@ module Decidim
 
       protected
       def allowed_params
-        [:participatory_process_slug, :hidden]
+        super.push(:hidden)
       end
 
       private

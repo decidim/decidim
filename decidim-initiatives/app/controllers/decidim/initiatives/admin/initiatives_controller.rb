@@ -173,6 +173,11 @@ module Decidim
             end
           end
         end
+        protected
+
+        def allowed_params
+          super.push(:initiative_slug)
+        end
 
         private
 

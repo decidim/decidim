@@ -15,6 +15,12 @@ module Decidim
         def permission_class_chain
           ::Decidim.permissions_registry.chain_for(::Decidim::Initiatives::Admin::InitiativesTypesPermissionsController)
         end
+
+        protected
+
+        def allowed_params
+          super.push(:initiatives_type_id)
+        end
       end
     end
   end

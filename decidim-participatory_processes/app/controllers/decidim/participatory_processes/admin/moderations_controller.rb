@@ -10,6 +10,12 @@ module Decidim
         def permissions_context
           super.merge(current_participatory_space: current_participatory_space)
         end
+
+        protected
+
+        def allowed_params
+          super.push(:participatory_process_slug)
+        end
       end
     end
   end
