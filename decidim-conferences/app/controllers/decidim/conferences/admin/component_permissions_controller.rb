@@ -8,6 +8,12 @@ module Decidim
       #
       class ComponentPermissionsController < Decidim::Admin::ComponentPermissionsController
         include Concerns::ConferenceAdmin
+
+        protected
+
+        def allowed_params
+          super.push(:conference_slug)
+        end
       end
     end
   end

@@ -6,6 +6,12 @@ module Decidim
       # This controller allows admins to manage moderations in an conference.
       class ModerationsController < Decidim::Admin::ModerationsController
         include Concerns::ConferenceAdmin
+
+        protected
+
+        def allowed_params
+          super.push(:conference_slug)
+        end
       end
     end
   end
