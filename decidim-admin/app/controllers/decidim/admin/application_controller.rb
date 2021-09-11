@@ -50,6 +50,13 @@ module Decidim
       def permission_scope
         :admin
       end
+
+      protected
+
+      def allowed_params
+        []
+      end
+
     end
   end
 end

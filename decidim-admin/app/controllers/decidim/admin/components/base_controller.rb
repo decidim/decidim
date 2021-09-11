@@ -64,6 +64,12 @@ module Decidim
         def skip_manage_component_permission
           false
         end
+
+        protected
+
+        def allowed_params
+          [:participatory_process_slug, :component_id]
+        end
       end
     end
   end

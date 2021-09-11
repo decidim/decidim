@@ -56,7 +56,7 @@ module Decidim
         # Also, used in FilterableHelper#applied_filters_hidden_field_tags
         # to ensure that these params are kept in the search_form_for.
         def extra_allowed_params
-          [:per_page]
+          allowed_params.push(:per_page)
         end
 
         def ransack_params

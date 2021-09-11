@@ -78,6 +78,12 @@ module Decidim
           end
         end
 
+        protected
+
+        def allowed_params
+          super.push(:parent_id)
+        end
+
         private
 
         def results

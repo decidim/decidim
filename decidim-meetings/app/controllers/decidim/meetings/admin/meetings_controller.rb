@@ -112,6 +112,10 @@ module Decidim
 
         private
 
+        def allowed_params
+          super.push(:id)
+        end
+
         def meetings
           @meetings ||= filtered_collection
         end

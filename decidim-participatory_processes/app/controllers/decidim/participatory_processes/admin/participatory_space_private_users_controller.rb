@@ -15,6 +15,12 @@ module Decidim
         def privatable_to
           current_participatory_process
         end
+
+        protected
+
+        def allowed_params
+          [:participatory_process_slug]
+        end
       end
     end
   end
