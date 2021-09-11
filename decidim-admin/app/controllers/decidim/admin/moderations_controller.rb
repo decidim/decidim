@@ -65,6 +65,11 @@ module Decidim
         end
       end
 
+      protected
+      def allowed_params
+        [:participatory_process_slug]
+      end
+
       private
 
       # Private: This method is used by the `Filterable` concern as the base query

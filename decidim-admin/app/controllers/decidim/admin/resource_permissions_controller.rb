@@ -30,6 +30,12 @@ module Decidim
         end
       end
 
+      protected
+
+      def allowed_params
+        [:participatory_process_slug, :component_id, :resource_id, :resource_name]
+      end
+
       private
 
       def return_path
@@ -37,7 +43,7 @@ module Decidim
       end
 
       def resource_params
-        params.permit(:resource_id, :resource_name).to_h.symbolize_keys
+        params.permit(allowed_params).to_h.symbolize_keys
       end
 
       def resource_symbol
