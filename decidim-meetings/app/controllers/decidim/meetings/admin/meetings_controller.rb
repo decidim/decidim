@@ -113,7 +113,7 @@ module Decidim
         private
 
         def allowed_params
-          super.push(:id)
+          super.push(*[:id, :_method, { meeting: {} } ])
         end
 
         def meetings
