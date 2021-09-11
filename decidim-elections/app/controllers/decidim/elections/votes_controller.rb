@@ -23,7 +23,7 @@ module Decidim
       end
 
       def create
-        vote_flow.voter_from_token(params.require(:vote).permit(:voter_token, :voter_id))
+        vote_flow.voter_from_token(params.require(:vote).permit(:voter_token, :voter_id, :encrypted_data, :encrypted_data_hash))
         return unless valid_voter_token?
         return unless vote_allowed?
 

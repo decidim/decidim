@@ -9,6 +9,12 @@ module Decidim
                              Decidim::Votings::Admin::Permissions,
                              Decidim::Admin::Permissions)
 
+        protected
+
+        def allowed_params
+          super.push(:voting_slug)
+        end
+
         private
 
         def permissions_context
