@@ -7,6 +7,12 @@ module Decidim
       # permissions in the admin panel.
       class ComponentPermissionsController < Decidim::Admin::ComponentPermissionsController
         include QuestionAdmin
+
+        protected
+
+        def allowed_params
+          super.push(:question_slug)
+        end
       end
     end
   end
