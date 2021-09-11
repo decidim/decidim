@@ -16,6 +16,11 @@ module Decidim
         def privatable_to
           current_assembly
         end
+
+        protected
+        def allowed_params
+          [:assembly_slug, :page]
+        end
       end
     end
   end

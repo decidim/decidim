@@ -99,7 +99,7 @@ module Decidim
       end
 
       def recipients_count
-        data = params.permit(data: {}).to_h[:data]
+        data = params.permit(:id, data: {}).to_h[:data]
         @form = form(SelectiveNewsletterForm).from_params(data)
         render plain: recipients_count_query
       end
