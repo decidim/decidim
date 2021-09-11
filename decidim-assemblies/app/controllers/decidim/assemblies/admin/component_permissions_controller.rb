@@ -8,6 +8,12 @@ module Decidim
       #
       class ComponentPermissionsController < Decidim::Admin::ComponentPermissionsController
         include Concerns::AssemblyAdmin
+
+        protected
+
+        def allowed_params
+          super.push(:assembly_slug)
+        end
       end
     end
   end
