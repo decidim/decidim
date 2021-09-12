@@ -252,6 +252,7 @@ pt:
             trustees: Curadores
           tally_ended:
             submit: Publicar resultados
+            title: Resultados recalculados
           vote:
             errors:
               time_after: A eleição ainda está a decorrer. Tem que esperar até à hora de fecho (%{end_time}) para poder fechar o período de votação.
@@ -294,7 +295,12 @@ pt:
             success: Curador %{trustee} actualizado com êxito
       admin_log:
         election:
+          end_vote: "%{user_name} terminou o período de votação para a eleição de %{resource_name} no Eleição no Quadro Informativo"
           publish: "%{user_name} publicou a eleição %{resource_name}"
+          setup: "%{user_name} criou a eleição de %{resource_name} no Quadro Informativo"
+          start_key_ceremony: "%{user_name} iniciou a cerimónia-chave para a eleição de %{resource_name} no Quadro Informativo"
+          start_tally: "%{user_name} Iniciou o período de contangem para a eleição de %{resource_name} no Eleição no Quadro Informativo"
+          start_vote: "%{user_name} Iniciou o período de votação para a eleição de %{resource_name} no Eleição no Quadro Informativo"
           unpublish: "%{user_name} removeu a publicação da eleição %{resource_name}"
       election_m:
         badge_name:
@@ -328,19 +334,38 @@ pt:
           filter_by: Filtrar por
           unfold: Desdobrar
         preview:
+          available_answers: Respostas disponíveis
+          description: Estas são as questões que encontrará no processo de votação
           title: Questões da eleição
         results:
+          description: Estes são os resultados da votação, para cada questão
           selected: Seleccionado
           title: Resultados da eleição
+          votes:
+            one: "%{count} voto"
+            other: "%{count} votos"
+            zero: "%{count} votos"
         show:
+          action-button:
+            change-vote: Mudar o seu voto
+            vote: Começar votação
+            vote-again: Votar de novo
           back: Eleições disponíveis
+          callout:
+            already-voted: Já votou nesta eleição. Pode alterar o seu voto ou verificá-lo.
+            vote-rejected: Não foi possível certificar o seu voto. Por favor registe-o de novo.
           preview: Pré-visualizar
+          verify:
+            already-voted: Já votou?
+            verify-here: Verifique o seu voto aqui.
+            will-verify: Poderá verificar o seu voto assim que a eleição tenha começado.
           voting_period_status:
             finished: A votação começou em %{start_time} e terminou em %{end_time}
             ongoing: 'Votação ativa até: %{end_time}'
             upcoming: A votação começa em %{start_time}
       feedback:
         answer:
+          invalid: Houve um problema ao enviar o seu retorno.
           spam_detected: Houve um problema ao responder ao formulário. Talvez tenha sido rápido demais, pode tentar outra vez?
           success: Retorno enviado com sucesso.
       models:
@@ -479,6 +504,7 @@ pt:
           question: Questão %{count}
         confirmed:
           back: Retroceder às eleições
+          error: Deculpe, houve um erro ao confirmar o voto. Por favor tente de novo.
           experience: Como foi a sua experiência?
           feedback: Dê-nos algum feedback
           header: Voto confirmado
@@ -508,6 +534,12 @@ pt:
           preview_alert: Isto é uma pré-visualização da cabina de voto.
           question_steps: Questão %{current_step} de %{total_steps}
           selections: "%{selected} de %{max_selections}<br> seleções"
+        processing:
+          header: A processar o voto...
+          text: O seu voto foi recebido e está a ser processado. Por favor aguarde.
+        update:
+          error: Ocorreu um problema ao actualizar o estado do seu voto
+          success: Estado do voto actualizado com êxito
         verify:
           content:
             heading: Verificar o seu voto
@@ -623,6 +655,7 @@ pt:
             components: Componentes
             info: Informação
             landing_page: Página de entrada
+            monitoring_committee_members: Comissão de controlo
             polling_officers: Oficiais de votação
             polling_stations: Secções de voto
         models:
@@ -775,11 +808,18 @@ pt:
           polling_officer_zone: Zona do Oficial de Votação
         polling_officers:
           show:
+            actions:
+              count_votes: Conte os votos na urna de votos
+              identify_person: Identificar e verificar uma pessoa
+            polling_officer_role_description: Foi designado para agir como Oficial de Secção de Voto (presidente ou gestor) em algumas eleições celebradas nesta plataforma.
             polling_stations:
               list:
                 actions: Ações
                 address: Endereço
                 name: Nome
+                role: O seu papel
+                voting: Votação
+              no_polling_stations: Não está ainda designado a nenhuma Secção de Voto.
               title: Secções de voto
       polling_officers:
         actions:
