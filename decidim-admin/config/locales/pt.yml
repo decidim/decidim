@@ -420,6 +420,8 @@ pt:
         creators:
           proposalcreator: Criador de proposta
         error: Houve um problema durante a importação
+        help:
+          proposalcreator: O ficheiro deve ter nomes de coluna title/pt e body/pt (ou qualquer outro idioma que prefira exemplo title/en e body/en). Também são suportadas colunas âmbito/id e categoria/id.
         import_from_file: Importar dum ficheiro
         invalid_lines: Encontrado erro no recurso número %{invalid_lines}
         new:
