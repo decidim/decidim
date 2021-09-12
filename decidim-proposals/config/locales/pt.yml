@@ -57,6 +57,16 @@ pt:
               identical: E o título não pode ser idêntico
             title:
               identical: E o corpo não pode ser idêntico
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Não são oficiais
+              supported: Receberam suporte ou apoios
+        proposals_split:
+          attributes:
+            base:
+              not_official: Não são oficiais
+              supported: Receberam suporte ou apoios
     models:
       decidim/proposals/accepted_proposal_event: Proposta aceite
       decidim/proposals/admin/update_proposal_category_event: Categoria da proposta modificada
@@ -508,9 +518,11 @@ pt:
             title: Importar propostas
         proposals_merges:
           create:
+            invalid: 'Houve um problema ao fundir as propostas seleccionadas porque algumas delas:'
             success: Fundiu corretamente as propostas em uma nova.
         proposals_splits:
           create:
+            invalid: 'Houve um problema ao dividir as propostas seleccionadas porque algumas delas:'
             success: Dividiu corretamente as propostas em novas.
         valuation_assignments:
           create:
