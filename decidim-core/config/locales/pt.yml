@@ -262,6 +262,7 @@ pt:
       photos:
         related_photos: Imagens relacionadas
     author:
+      avatar: 'Avatar: %{name}'
       avatar_multiuser: Avatar para múltiplos utilizadores
       comments:
         one: comentário
@@ -949,6 +950,7 @@ pt:
           close: Fechar modal
           correct_errors: Por favor corrija os erros e tente de novo
           intro: 'Há os seguintes erros com a sua mensagem:'
+          ok: OK
         index:
           ago: atrás
           close: Fechar modal
