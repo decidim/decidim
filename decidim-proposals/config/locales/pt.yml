@@ -398,6 +398,7 @@ pt:
           new_import:
             accepted_mime_types:
               md: Anotação
+              odt: ODT
             bottom_hint: "(Será capaz de pré-visualizar e classificar as secções do documento)"
             document_legend: 'Adicionar um documento com menos de 2MB, cada secção até 3 níveis de profundidade será introduzida nas propostas. Os formatos suportados são: %{valid_mime_types}'
             title: ADICIONAR DOCUMENTO
@@ -787,6 +788,8 @@ pt:
             document_index: Índice de documentos
           view_index:
             see_index: Ver o índice
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
           announcement_body: A sua proposta foi guardada como rascunho. Precisa de ser publicada para aparecer no site.
           announcement_title: A sua proposta não foi ainda publicada
