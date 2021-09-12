@@ -433,11 +433,21 @@ pt:
             one: "%{count} voto"
             other: "%{count} votos"
         show:
+          action_button:
+            change_vote: Mudar o seu voto
+            vote: Começar votação
+            vote_again: Votar de novo
           back: Eleições disponíveis
           callout:
+            already_voted: Já votou nesta eleição. Pode alterar o seu voto ou verificá-lo.
             pending_vote: O seu voto está a ser registado no servidor.
+            vote_rejected: Não foi possível certificar o seu voto. Por favor registe-o de novo.
           election_log: Registo de eleições
           preview: Pré-visualizar
+          verify:
+            already_voted: Já votou?
+            verify_here: Verifique o seu voto aqui.
+            will_verify: Poderá verificar o seu voto assim que a eleição tenha começado.
           voting_period_status:
             finished: A votação começou em %{start_time} e terminou em %{end_time}
             ongoing: 'Votação ativa até: %{end_time}'
@@ -788,6 +798,7 @@ pt:
             components: Componentes
             info: Informação
             landing_page: Página de entrada
+            monitoring_committee: Comissão de controlo
             monitoring_committee_election_results: Valide Resultados
             monitoring_committee_members: Membros
             monitoring_committee_polling_station_closures: Certificados válidos
@@ -1203,14 +1214,18 @@ pt:
           polling_officer_zone: Zona do Oficial de Votação
         polling_officers:
           index:
+            polling_officer_role_description: Foi designado para agir como Oficial de Secção de Voto (presidente ou gestor) em algumas eleições celebradas nesta plataforma.
             polling_station:
               address: Endereço
               count_votes: Contagem de votos
               election: Eleição
               identify_person: Identificar uma pessoa
               name: Nome
+              no_polling_stations: Não está ainda designado a nenhuma Secção de Voto.
+              role: O seu papel
               show_closure: Ver encerramento
               title: Secções de voto
+              voting: Votação
       polling_officers:
         actions:
           confirm_destroy: Tem a certeza?
@@ -1303,6 +1318,7 @@ pt:
           ask_for_a_new_one: Pedir um novo.
           dont_have_access_code: Não tem um código de acesso?
           form_title: 'Preencha o formulário seguinte para aceder à votação:'
+          start_voting: Começar votação
           step: Identificação
           title: Identificar-me com os meus dados de recenseamento para votação
         no_census_contact_information: Não há ainda informação de contacto
