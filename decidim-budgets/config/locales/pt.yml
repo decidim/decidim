@@ -253,6 +253,7 @@ pt:
             projects_per_page: Projetos por página
             resources_permissions_enabled: Permissões de acções podem ser definidas para cada projecto
             scope_id: Âmbito
+            scopes_enabled: Âmbitos activados
             title: Título
             total_budget: Orçamento total
             vote_minimum_budget_projects_number: Número mínimo de projetos a votar
@@ -283,7 +284,10 @@ pt:
     events:
       budgets:
         budget_published:
+          email_intro: 'A Orçamento %{resource_title} está agora activo para %{participatory_space_title}. Pode vê-lo a partir desta página:'
           email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
+          email_subject: A orçamento %{resource_title} está agora activo para %{participatory_space_title}.
+          notification_title: O orçamento <a href="%{resource_path}”>%%{resource_title}</a> está agora activo para %{participatory_space_title}.
     orders:
       checkout:
         error: Ocorreu um problema ao processar o seu voto
@@ -291,7 +295,11 @@ pt:
       destroy:
         error: Ocorreu um problema ao cancelar o seu voto
         success: O seu voto foi cancelado corretamente
+    resource_links:
+      included_proposals:
+        project_proposal: Propostas incluídas neste projecto
     statistics:
+      orders_count: Suportes
       projects_count: Projectos
   index:
     confirmed_orders_count: Contagem de votos
