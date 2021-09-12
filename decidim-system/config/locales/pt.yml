@@ -8,6 +8,7 @@ pt:
         organization_url: URL da organização
         redirect_uri: URI de redireccionamento
       organization:
+        address: SMTP hostname
         from_email: Endereço de e-mail
         from_label: Rótulo
         password: Palavra-chave
