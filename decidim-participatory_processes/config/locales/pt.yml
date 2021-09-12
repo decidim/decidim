@@ -39,6 +39,7 @@ pt:
         description: Descrição
         developer_group: Grupo promotor
         group_url: Sítio web
+        hashtag: Hashtag
         hero_image: Imagem
         local_area: Área de organização
         meta_scope: Meta dados do âmbito
@@ -353,6 +354,9 @@ pt:
         content_blocks:
           highlighted_processes:
             max_results: Quantidade máxima de elementos a mostrar
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'Os campos de dados dinâmicos de URL são utilizados para gerar os URL que direcionam para este processo. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
