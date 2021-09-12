@@ -426,6 +426,7 @@ pt:
           title: Questões da eleição
         results:
           description: 'Estes são os resultados da votação, para cada pergunta:'
+          percentage: "%{count}%"
           selected: Seleccionado
           title: Resultados da eleição
           votes:
@@ -1058,6 +1059,8 @@ pt:
               csv_header_after: Não inclua o último campo ("%{ballot_style_code_header}") se não precisar de estilos de boletim de voto/questões condicionais
               csv_header_before: 'O recenseamento deve ser um ficheiro CSV com o seguinte cabeçalho:'
         document_types:
+          dni: DNI
+          nie: NIE
           passport: Passaporte
         export_mailer:
           access_codes_export:
@@ -1170,13 +1173,16 @@ pt:
             census_not_present_description: Ela deve ir gabinete de queixas do recenseamento ou contactar o apoio.
             date_of_birth: Data de nascimento
             day: Dia
+            day_placeholder: DD
             document_number: Número do documento
             document_number_placeholder: Número de identificação
             month: Mês
+            month_placeholder: MM
             select: Seleccione o tipo de documento
             title: 'Seleccione o tipo de documento e introduza o número do documento do participante:'
             validate_document: Validar documento
             year: Ano
+            year_placeholder: YYYY
           new:
             back: Retroceder para as secções de voto
             title: Identificar e verificar um participante
@@ -1256,13 +1262,16 @@ pt:
         check_fields:
           date_of_birth: Data de nascimento
           day: Dia
+          day_placeholder: DD
           document_number: Número do documento
           document_number_placeholder: Número de identificação
           month: Mês
+          month_placeholder: MM
           postal_code: Código postal
           postal_code_placeholder: Código postal número
           select: Seleccione o tipo de documento
           year: Ano
+          year_placeholder: YYYY
         count:
           title:
             one: "%{count} votos"
