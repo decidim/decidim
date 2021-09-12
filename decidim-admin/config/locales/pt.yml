@@ -563,6 +563,7 @@ pt:
           reasons:
             does_not_belong: Não pertence
             offensive: Ofensivo
+            spam: Spam
         tabs:
           blocked: Bloqueado
           unblocked: Não bloqueado
@@ -703,6 +704,7 @@ pt:
           rich_text_editor_in_public_views_help: Em algumas áreas de texto, os participantes serão capazes de inserir algumas etiquetas HTML utilizando o editor de texto avançado.
           social_handlers: Social
           twitter: Twitter
+          url: URL
           youtube: Youtube
         update:
           error: Ocorreu um problema ao atualizar esta organização.
