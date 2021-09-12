@@ -259,6 +259,7 @@ pt:
       block_user:
         new:
           action: Bloquear conta e enviar justificação
+          description: Bloquear um utilizador torna a sua conta inutilizada, pode fornecer na sua justificação e orientações na forma que pondera poder considerar para desbloquear o utilizador.
           justification: Justificação
           title: Bloquear utilizador %{name}
       categories:
@@ -321,6 +322,7 @@ pt:
         'false': 'Não'
         managed_user_name: Utilizador gerido
         solved: Resolvido
+        title: Conflitos de verificações
         transfer:
           email: e-Mail
           error: Houve um problema ao transferir o utilizador actual para utilizador gerido.
@@ -377,6 +379,7 @@ pt:
         file_help:
           import:
             explanation: 'Orientação para ficheiro:'
+            message_1: São suportados os ficheiros CSV,JSON, e Excel (.xls)
             message_2: Para ficheiros CSV o separador entre coludas deve ser um ponto e vírgula (";")
       help_sections:
         error: Ocorreu um problema ao atualizar as secções de ajuda
@@ -428,6 +431,7 @@ pt:
           accepted_mime_types:
             csv: csv
             json: json
+            xls: xls
           actions:
             back: Voltar
           file_legend: Adicionar ficheiro para importar a analisar.
