@@ -236,3 +236,5 @@ pt:
         description: Número de debates criados
         object: debates
         title: Debates
+    statistics:
+      debates_count: Debates
