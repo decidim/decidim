@@ -56,6 +56,7 @@ pt:
         weight: Peso
       conference_speaker:
         affiliation: Afiliação
+        avatar: Avatar
         conference_meeting_ids: Reuniões relacionadas
         full_name: Nome completo
         personal_url: URL pessoal
