@@ -246,7 +246,6 @@ ja:
             trustees: 受託者
           key_ceremony:
             title: キーセレモニー
-            trustees: 受託者
           key_ceremony_ended:
             errors:
               time_before: 選挙を開始する準備ができました。投票期間を開始するには、 開始時刻 ( %{start_time}) の%{hours} 時間前まで待つ必要があります。
@@ -267,7 +266,6 @@ ja:
             title: 結果を公開しました
           tally:
             title: 集計処理
-            trustees: 受託者
           tally_ended:
             answer: 回答
             not_selected: 未選択
