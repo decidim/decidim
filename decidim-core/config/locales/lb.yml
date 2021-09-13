@@ -1001,31 +1001,31 @@ lb:
         interpolations_hint: 'Tipp: Sie können „%{name}“ an beliebiger Stelle im Hauptteil oder Betreff verwenden und es wird durch den Namen des Empfängers ersetzt.'
       image_text_cta:
         body_preview: 'Blindtext für Haupttext: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
-        cta_text_preview: Text Aktionsaufruf
+        cta_text_preview: Text Opruff zur Aktioun
         introduction_preview: 'Blindtext für Einführung: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
-        name: Bild, Text und Aktionsaufruf-Schaltfläche
+        name: Bild-, Text- an Opruff zur Aktioun-Schaltfläch
       image_text_cta_settings_form:
-        body: Haupttext
-        cta_text: Text der Aktionsaufruf-Schaltfläche
-        cta_url: URL der Aktionsaufruf-Schaltfläche
-        interpolations_hint: 'Tipp: Sie können „%{name}“ an beliebiger Stelle in der Einführung, im Hauptteil, CTA-Text oder Betreff verwenden und es wird durch den Namen des Empfängers ersetzt.'
-        introduction: Einführung
-        main_image: Hauptbild
+        body: Haapttext
+        cta_text: Text Schaltfläch-Opruff zur Aktioun
+        cta_url: URL Schaltfläch- Opruff zur Aktioun
+        interpolations_hint: 'Tipp: Du kanns „%{name}“ gläich wou an der Aféierung, dem Haaptdeel, dem CTA-Text oder dem Betreff verwennen, et gëtt duerch den Numm vum Empfänger ersat.'
+        introduction: Aféierung
+        main_image: Haapt-Bild
     newsletters:
       unsubscribe:
-        check_subscription: Wenn Sie Ihre Einstellungen ändern möchten, können Sie dies in der <a href="%{link}" target="_blank">- Konfiguration Seite</a>
-        error: Beim Abbestellen ist ein Fehler aufgetreten
-        success: Sie haben sich erfolgreich abgemeldet.
-        token_error: Der Link ist abgelaufen.
-        unsubscribe: Abmelden
+        check_subscription: Du kanns deng Astellungen hei <a href="%{link}" target="_blank">- Konfiguration Seite</a> änneren
+        error: Et gouf e Problem beim Ofbestellen
+        success: Du bass ofgemellt.
+        token_error: De Link ass ofgelaf.
+        unsubscribe: Ofbestellen
     newsletters_opt_in:
-      unathorized: Entschuldigung, dieser Link ist nicht mehr verfügbar
+      unathorized: Pardon, dësen Link ass net méi verfügbar
       update:
-        error: Etwas ist schiefgelaufen
-        success: Newslettereinstellungen wurden erfolgreich aktualisiert
+        error: Et ass eppes schif gelaf
+        success: D'Astellungen fir den Newsletter goufen aktualiséiert
     newsletters_opt_in_mailer:
       notify:
-        body_1: Die Verarbeitung personenbezogener Daten und deren Schutz wird für uns alle immer wichtiger. Mit der neuen Datenschutz-Grundverordnung (DSGV) vom 25. Mai 2018 haben Einzelpersonen eine bessere Kontrolle über ihre personenbezogenen Daten. Aus diesem Grund benötigen wir Ihr "OK" um weiterhin relevante Informationen über die Aktivitäten der %{organization_name}zu senden.
+        body_1: D'Verschaffen vun perséinlechen Daten an hire Schutz, ginn fir ons all ëmmer méi wichteg. Mat der neier RGPD Reglementatioun hunn Eenzelpersounen eng besser Kontroll iwwer hir perséinlech Daten. Aus dem Grond brauchen mir däin "OK" fir dir weiderhin relevant Informatiounen vun %{organization_name} zoukommen ze loossen.
         body_2: 'Wie können Sie uns Ihre Zustimmung geben? Klicken Sie einfach auf den folgenden Knopf:'
         body_3: Mit dieser Zustimmung können Sie weiterhin Informationen über die Dienste der Plattform erhalten. Wenn wir im Gegenteil keine positive Bestätigung von Ihnen erhalten, werden wir Ihnen keine Nachrichten mehr senden. Wenn Sie bestätigen, dass Sie weiterhin informiert werden möchten, haben Sie jederzeit die Möglichkeit, den Vorgang abzubrechen.
         button: Ja, ich möchte weiterhin relevante Informationen erhalten
