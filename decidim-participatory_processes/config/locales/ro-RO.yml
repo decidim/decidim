@@ -27,7 +27,7 @@ ro:
         scope_type_max_depth_id: Adâncimea filtrului de aplicare
         scopes_enabled: Domeniu de aplicare activat
         short_description: Descriere scurtă
-        show_metrics: Arată măsurători
+        show_metrics: Arată indicatori
         show_statistics: Arată statistici
         slug: URL slug
         start_date: Data de început
@@ -68,7 +68,7 @@ ro:
               invalid_document_type: 'Tip de document invalid. Formatele acceptate sunt: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Faza activată
-      decidim/participatory_process_step_changed_event: Faza schimbată
+      decidim/participatory_process_step_changed_event: Etapă modificată
   activerecord:
     models:
       decidim/participatory_process:
@@ -80,7 +80,7 @@ ro:
         few: Grupuri participante
         other: Grupuri participante
       decidim/participatory_process_step:
-        one: Faza
+        one: Etapă
         few: Faze
         other: Faze
   decidim:
@@ -98,7 +98,7 @@ ro:
         import_process: Importă
         new_process: Proces nou
         new_process_group: Proces nou de grup
-        new_process_step: Faza nouă
+        new_process_step: Etapă nouă
         new_process_user_role: Administrator nou al procesului
         preview: Previzualizare
         publish: Publică
@@ -120,7 +120,7 @@ ro:
           moderations: Moderări
           private_users: Participanți privați
           process_admins: Procesează administratori
-          steps: Faze
+          steps: Etape
       models:
         participatory_process:
           fields:
