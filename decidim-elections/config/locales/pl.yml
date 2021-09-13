@@ -270,7 +270,6 @@ pl:
             trustees: Mężowie (osoby) zaufania
           key_ceremony:
             title: '"Ceremonia kluczy"'
-            trustees: Mężowie (osoby) zaufania
           key_ceremony_ended:
             errors:
               time_before: Wybory są gotowe do otwarcia. Aby rozpocząć głosowanie musisz poczekać do %{hours} godzin(y) przed czasem rozpoczęcia (%{start_time}).
@@ -291,7 +290,6 @@ pl:
             title: Opublikowano wyniki
           tally:
             title: Ustalenie wyniku głosowania
-            trustees: Mężowie (osoby) zaufania
           tally_ended:
             answer: Odpowiedź
             not_selected: Nie wybrano
