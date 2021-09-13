@@ -989,15 +989,15 @@ lb:
         title: Teilnehmer
     newsletter_mailer:
       newsletter:
-        note: Sie haben diese E-Mail erhalten, weil Sie Newsletter auf %{organization_name}abonniert haben. Sie können Ihre Einstellungen auf Ihrer ändern <a href="%{link}">Benachrichtigungen Seite</a>.
-        see_on_website: Kann diese E-Mail nicht korrekt angezeigt werden? Klicken Sie bitte hier <a href="%{link}" target="_blank">website</a>.
-        unsubscribe: Um den Empfang dieser Art von E-Mail zu deaktivieren, <a href="%{link}" target="_blank" class="unsubscribe">Abbestellen</a>.
+        note: Du hues dës email kritt, well s'du den Newsletter vun %{organization_name} abonnéiert hues. Du kanns d'Astellungen op denger <a href="%{link}">Benachrichtigungen Seite</a> änneren.
+        see_on_website: Dës Email gëtt dir net richteg ugewisen? Klick w. e. g. hei dran <a href="%{link}" target="_blank">website</a>.
+        unsubscribe: Fir dës Zort Email ofzebestellen, <a href="%{link}" target="_blank" class="unsubscribe">Abbestellen</a>.
     newsletter_templates:
       basic_only_text:
         body_preview: 'Blindtext für Haupttext: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
-        name: Grundlage (nur Text)
+        name: Grondlagen (nëmmenText)
       basic_only_text_settings_form:
-        body: Haupttext
+        body: Haapt-Text
         interpolations_hint: 'Tipp: Sie können „%{name}“ an beliebiger Stelle im Hauptteil oder Betreff verwenden und es wird durch den Namen des Empfängers ersetzt.'
       image_text_cta:
         body_preview: 'Blindtext für Haupttext: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
