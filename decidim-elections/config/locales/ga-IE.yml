@@ -57,15 +57,11 @@ ga:
         steps:
           created:
             trustees: Iontaobhaithe
-          key_ceremony:
-            trustees: Iontaobhaithe
           results_published:
             answer: Freagra
             question: Ceist
             result: Toradh
             submit: Deimhnigh
-          tally:
-            trustees: Iontaobhaithe
           tally_ended:
             answer: Freagra
             question: Ceist
