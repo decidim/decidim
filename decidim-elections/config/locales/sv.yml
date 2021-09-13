@@ -175,8 +175,6 @@ sv:
             not_used_trustee: "(används inte)"
           created:
             trustees: Förvaltare
-          key_ceremony:
-            trustees: Förvaltare
           processing: Bearbetar...
           results_published:
             answer: Svar
@@ -185,8 +183,6 @@ sv:
             result: Resultat
             selected: Valda
             submit: Skicka in
-          tally:
-            trustees: Förvaltare
           tally_ended:
             answer: Svar
             not_selected: Inte vald
