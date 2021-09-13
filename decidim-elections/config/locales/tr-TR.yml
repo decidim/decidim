@@ -156,6 +156,11 @@ tr:
           update:
             invalid: Bu soru güncellenirken bir hata oluştu
             success: Soru başarıyla güncellendi
+        steps:
+          key_ceremony:
+            trustees: Vekiller
+          tally:
+            trustees: Vekiller
         trustees_participatory_spaces:
           actions:
             disable: Devre dışı
