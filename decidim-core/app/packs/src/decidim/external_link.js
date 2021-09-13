@@ -37,7 +37,12 @@ export default class ExternalLink {
     }
 
     this.$link.addClass("external-link-container");
-    this.$link.append(`&nbsp;${this.generateElement()}`);
+    let spacer = "&nbsp;";
+    if (this.$link.text().trim().length < 1) {
+      // Fixes image links extra space
+      spacer = "";
+    }
+    this.$link.append(`${spacer}${this.generateElement()}`);
   }
 
   generateElement() {
