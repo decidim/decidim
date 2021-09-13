@@ -205,7 +205,6 @@ fr:
             trustees: Garants
           key_ceremony:
             title: Cérémonie des clés
-            trustees: Garants
           key_ceremony_ended:
             errors:
               time_before: L'élection est prête à commencer. Vous devez attendre %{hours} heures avant le lancement (%{start_time}) pour démarrer la période de vote.
@@ -223,8 +222,6 @@ fr:
             selected: Sélectionné
             submit: Envoyer
             title: Résultats publiés
-          tally:
-            trustees: Garants
           tally_ended:
             answer: Répondre
             not_selected: Non sélectionné
