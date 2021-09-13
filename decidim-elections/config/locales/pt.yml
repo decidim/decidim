@@ -254,7 +254,6 @@ pt:
             trustees: Curadores
           key_ceremony:
             title: Cerimónia-chave
-            trustees: Curadores
           key_ceremony_ended:
             errors:
               time_before: A eleição está pronta para começar. Tem de esperar até %{hours} horas antes da hora de início (%{start_time}) para abrir o período de votação.
@@ -275,7 +274,6 @@ pt:
             title: Resultados publicados
           tally:
             title: Processo de contagem
-            trustees: Curadores
           tally_ended:
             answer: Resposta
             not_selected: Não seleccionado
