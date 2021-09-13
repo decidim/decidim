@@ -211,6 +211,7 @@ nl:
             title: Resultaten gepubliceerd
           tally:
             title: Turfproces
+            trustees: Trustees
           tally_ended:
             title: Resultaten berekend
           vote:
