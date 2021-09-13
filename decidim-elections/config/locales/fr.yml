@@ -204,6 +204,7 @@ fr:
             title: Élection créée
             trustees: Garants
           key_ceremony:
+            continue: Continuer
             title: Cérémonie des clés
           key_ceremony_ended:
             errors:
@@ -222,6 +223,14 @@ fr:
             selected: Sélectionné
             submit: Envoyer
             title: Résultats publiés
+          tally:
+            continue: Continuer
+            invalid: Une erreur est survenue lors du signalement du garant absent
+            mark_as_missing: Marquer comme absent
+            mark_as_missing_description: Tout les garants doivent participer au processus, mais si un garant ne peut y prendre part, vous pouvez le marquer comme absent.
+            success: Le signalement du garant absent a été envoyé avec succès sur le Tableau d'Affichage
+            tally_completion: Le processus sera terminé lorsque tout les garants seront marqués comme actif ou absent. Au moins %{quorum} garants sont requis pour compléter le processus.
+            undo_mark_as_missing: Un garant marqué comme absent par erreur sera capable de participer avant l'achèvement du processus. Ils peuvent procéder comme d'habitude et le signalement d'absence sera ignoré.
           tally_ended:
             answer: Répondre
             not_selected: Non sélectionné
