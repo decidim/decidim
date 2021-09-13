@@ -34,6 +34,8 @@ module Decidim
       validate :polling_station_managers_same_voting
       validate :polling_station_president_same_voting
 
+      alias participatory_space voting
+
       # Allow ransacker to search for a key in a hstore column (`title`.`en`)
       ransacker :title do |parent|
         Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
@@ -59,6 +61,10 @@ module Decidim
 
       def closure_for(election)
         closures.find_by(election: election)
+      end
+
+      def self.log_presenter_class_for(_log)
+        Decidim::Votings::AdminLog::PollingStationPresenter
       end
 
       private

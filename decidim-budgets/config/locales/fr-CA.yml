@@ -291,5 +291,7 @@ fr-CA:
     resource_links:
       included_proposals:
         project_proposal: Propositions incluses dans ce projet
+    statistics:
+      projects_count: Projets
   index:
     confirmed_orders_count: Nombre de votes

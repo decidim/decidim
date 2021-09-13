@@ -5,6 +5,14 @@ ga:
       decidim/comments/comment_created_event: Trácht
       decidim/comments/user_group_mentioned_event: Luaigh
       decidim/comments/user_mentioned_event: Luaigh
+  activerecord:
+    models:
+      decidim/comments/comment_vote:
+        one: Vóta
+        two: Vótaí
+        few: Vótaí
+        many: Vótaí
+        other: Vótaí
   decidim:
     comments:
       comments_title: Tráchtanna

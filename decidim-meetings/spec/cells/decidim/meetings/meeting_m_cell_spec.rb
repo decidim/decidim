@@ -24,6 +24,14 @@ module Decidim::Meetings
         expect(cell_html).to have_no_content("Created at")
         expect(cell_html).to have_no_content(I18n.l(meeting.created_at.to_date, format: :decidim_short))
       end
+
+      context "when an image is attached to the meeting" do
+        let!(:attachment) { create(:attachment, attached_to: meeting) }
+
+        it "renders the picture" do
+          expect(cell_html).to have_css(".card__image")
+        end
+      end
     end
 
     context "when title contains special html entities" do
@@ -36,8 +44,8 @@ module Decidim::Meetings
       end
 
       it "escapes them correclty" do
-        expect(the_cell.title).to eq("#{@original_title} &amp;&#39;&lt;")
-        # as the `cell` test helper wraps conent in a Capybara artifact that already converts html entities
+        expect(the_cell.title).not_to eq("#{@original_title} &amp;&#39;&lt;")
+        # as the `cell` test helper wraps content in a Capybara artifact that already converts html entities
         # we should compare with the expected visual result, as we were checking the DOM instead of the html
         expect(cell_html).to have_content("#{@original_title} &'<")
       end

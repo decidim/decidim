@@ -576,7 +576,7 @@ describe "Orders", type: :system do
 
       visit_budget
 
-      expect(page).to have_selector("[id^=project-]", count: 1)
+      expect(page).to have_selector("div[id^=project-]", count: 1)
     end
 
     it "respects the projects_per_page setting when it matches total projects" do
@@ -586,7 +586,7 @@ describe "Orders", type: :system do
 
       visit_budget
 
-      expect(page).to have_selector("[id^=project-]", count: 2)
+      expect(page).to have_selector("div[id^=project-]", count: 2)
     end
 
     it "respects the projects_per_page setting when over total projects" do
@@ -596,7 +596,7 @@ describe "Orders", type: :system do
 
       visit_budget
 
-      expect(page).to have_selector("[id^=project-]", count: 2)
+      expect(page).to have_selector("div[id^=project-]", count: 2)
     end
   end
 

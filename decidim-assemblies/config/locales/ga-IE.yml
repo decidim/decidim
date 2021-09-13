@@ -97,6 +97,7 @@ ga:
             role: Ról
           roles:
             admin: Riarthóir
+            valuator: Luachálaí
     assemblies:
       admin:
         assemblies:

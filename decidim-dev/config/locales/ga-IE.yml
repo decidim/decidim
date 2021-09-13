@@ -3,6 +3,7 @@ ga:
     attributes:
       dummy_resource:
         decidim_scope_id: Scóip
+        field: Mo réimse
         title: Teideal
   decidim:
     components:

@@ -10,7 +10,8 @@ describe "User closes a debate", type: :system do
     create(
       :debate,
       author: user,
-      component: component
+      component: component,
+      skip_injection: true
     )
   end
 
@@ -41,7 +42,8 @@ describe "User closes a debate", type: :system do
         :debate,
         :closed,
         author: user,
-        component: component
+        component: component,
+        skip_injection: true
       )
     end
 

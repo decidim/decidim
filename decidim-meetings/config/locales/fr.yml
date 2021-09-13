@@ -74,6 +74,11 @@ fr:
         other: Inscriptions
   decidim:
     admin:
+      filters:
+        meetings:
+          origin_eq:
+            values:
+              citizen: Citoyen
       meeting_copies:
         create:
           error: Une erreur s'est produite lors de la duplication de cette rencontre.

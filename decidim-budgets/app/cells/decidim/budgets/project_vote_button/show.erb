@@ -3,6 +3,7 @@
       method: vote_button_method,
       remote: true,
       class: "button tiny budget-list__action #{vote_button_class}",
+      id: "project-vote-button-#{model.id}",
       data: {
         add: !resource_added?,
         disable: true,
