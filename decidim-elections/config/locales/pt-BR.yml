@@ -234,7 +234,7 @@ pt:
             trustees: Agentes fiduciários
           key_ceremony:
             title: Cerimônia de chave
-            trustees: Agentes fiduciários
+            trustees: Curadores
           key_ceremony_ended:
             errors:
               time_before: A eleição está pronta para começar. Você tem que esperar até %{hours} horas antes da hora de início (%{start_time}) para iniciar o período de votação.
@@ -249,7 +249,7 @@ pt:
             title: Resultados publicados
           tally:
             title: Processo de registro
-            trustees: Agentes fiduciários
+            trustees: Curadores
           tally_ended:
             submit: Publicar resultados
             title: Resultados calculados
