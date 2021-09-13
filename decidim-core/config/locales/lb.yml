@@ -746,37 +746,37 @@ lb:
             - Benotz den "Frënn alueden" -Link op denger Profil-Säit, fir Frënn anzelueden
             - Du kanns, wann s'de dat wëlls, d'Noriicht déi s'de schécke wëlls upassen
             - Du verbessers dech andeem s'de Aluedungen erausschécks an registréieren léiss.
-          description: Dieses Abzeichen wird gewährt, wenn Sie einige Personen eingeladen haben und sie sich ein wenig Zeit genommen haben, um sich in %{organization_name} zu registrieren und Teilnehmer zu werden. Vielen Dank für die Herstellung von %{organization_name} anderen bekannt und helfen , die Gemeinschaft zu erweitern!
-          description_another: Diese*r Benutzer*in hat %{score} Benutzer*innen eingeladen.
-          description_own: Sie haben %{score} Benutzer*innen eingeladen.
-          name: Einladungen
-          next_level_in: Laden Sie %{score} weitere Benutzer*innen ein, um das nächste Level zu erreichen!
-          unearned_another: Diese*r Benutzer*in hat noch niemanden eingeladen.
-          unearned_own: Sie haben noch keine Benutzer*innen eingeladen.
-      description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen.
+          description: Dëst Ofzeechen kritt een, wann een e puer Persounen agelueden huet déi sech d'Zäit geholl hunn sech bei %{organization_name} ze registréieren. Merci, dass du hëllefs d'%{organization_name} bekannt ze maachen an dozou bäidréis d'Communautéit ze vergréisseren!
+          description_another: Dësen Teilnehmer huet %{score} Teilnehmer agelueden.
+          description_own: Du hues %{score} Teilnehmer agelueden.
+          name: Aluedungen
+          next_level_in: Lued %{score} méi Teilnehmer an, fir op den nächsten Level ze kommen!
+          unearned_another: Dësen Teilnehmer huet nach keen agelueden.
+          unearned_own: Du hues nach keen Teilnehmer agelueden.
+      description: Ofzeechen sinn Unerkennungen fir d'Aktiounen an d'Fortschrëtter vun Teilnehmer op der Plattform. Wann se op der Plattform entdecken, matmaachen an interagéieren, verdéngen se verschidden Ofzeechen.
       level: Level %{level}
-      reached_top: Du hast die höchste Stufe für dieses Abzeichen erreicht.
+      reached_top: Du hues den héchsten Level bei dësem Ofzeechen erreecht.
     group_admins:
       actions:
-        are_you_sure: Bist du sicher? Dies wird den Benutzer nicht aus der Gruppe entfernen.
-        demote_admin: Entferne Admin
+        are_you_sure: Bass du der sécher? Dëst läscht den Teilnehmer net aus dem Grupp.
+        demote_admin: Admin läschen
       demote:
-        error: Beim Entfernen dieses Benutzers aus der Administratorliste ist ein Fehler aufgetreten
-        success: Benutzer wurde vom Administrator erfolgreich entfernt
+        error: Et gouf e Problem beim Läschen vun engem Teilnehmer aus der Lëscht vun den Administrateuren
+        success: Den Teilnehmer gouf aus der Lëscht vun den Administrateuren geläscht
       index:
-        current_admins: 'Aktuelle Admins:'
+        current_admins: 'Aktuell Admins:'
         manage_admins: Admins verwalten
     group_invites:
       accept:
-        error: Bei der Annahme dieser Einladung ist ein Fehler aufgetreten
-        success: Einladung wurde erfolgreich angenommen
-      accept_invitation: Akzeptieren
-      accept_or_reject_group_invitations: 'Die folgenden Gruppen haben Sie eingeladen, sich ihnen anzuschließen. Akzeptieren oder ablehnen ihrer Anfragen:'
+        error: Et gouf e Problem beim Unhuelen vun dëser Aluedung
+        success: D'Aluedung gouf ugeholl
+      accept_invitation: Unhuelen
+      accept_or_reject_group_invitations: 'Dës Gruppen hunn dech agelueden dech hinnen unzeschléissen. Hir Ufroen unhuelen oder refuséieren:'
       index:
-        invite: Einladen
-        invite_user: Laden Sie einen Benutzer ein
+        invite: Alueden
+        invite_user: En Teilnehmer alueden
       invite:
-        error: Beim Laden dieses Nutzers ist ein Fehler aufgetreten
+        error: Beim Eroplueden vun dësem Teilnehmer ass e Problem opgetrueden
         success: Benotzer gouf agelueden
       reject:
         error: Et gouf e Problem beim Refuséieren vun dëser Invitatioun
@@ -784,11 +784,11 @@ lb:
       reject_invitation: Refuséieren
     group_members:
       accept:
-        error: Et gouf e Problem beim Unhuelen vun dëser Invitatioun bäi ze trieden
+        error: Et gouf e Problem beim Unhuelen vun dëser Ufro bäi ze trieden
         success: D'Ufro bäi ze trieden gouf acceptéiert
       actions:
         are_you_sure: Bass du sécher?
-        promote_to_admin: Admin maachen
+        promote_to_admin: Zum Admin maachen
         remove_from_group: Teilnehmer läschen
       index:
         current_members_without_admins: 'Aktuell Memberen (ouni Admins):'
@@ -807,79 +807,79 @@ lb:
         are_you_sure: Bass de sécher?
       create:
         error: Et gouf e Problem beim Erstellen vum Grupp
-        success: De Grupp gouf erstellt
+        success: De Grupp gouf erstallt
       edit:
         edit_user_group: Grupp beaarbechten
-        update_user_group: Gruppe aktualisieren
+        update_user_group: Grupp aktualiséieren
       form:
-        document_number_help: Verwenden Sie keine Bindestriche oder Leerzeichen
-        email_help: E-Mail Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw.
-        fill_in_for_verification: 'Füllen Sie diese Felder aus, wenn Ihre Gruppe überprüft werden soll:'
-        name_help: Name Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw.
-        nickname_help: Benutzername Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw. Verwenden Sie keine Leerzeichen oder Akzente.
-        phone_help: Verwenden Sie keine Bindestriche oder Leerzeichen
+        document_number_help: Verwenn keng Bindestrécher oder Espace-Zeechen
+        email_help: Email-Adress vun denger Organisatioun, Associatioun, Kollektiv, Grupp, etc.
+        fill_in_for_verification: 'Fëll dës Felder aus, wann däin Grupp soll iwwerpréift ginn:'
+        name_help: Numm vun denger Organisatioun, Associatioun, Kollektiv, Grupp, etc.
+        nickname_help: Benotzer-Numm vun denger Organisatioun, Associatioun, Kollektiv, Grupp, etc. Verwenn weder Espace-Zeechen nach Akzenter.
+        phone_help: Verwenn keng Bindestrécher oder Espace-Zeechen
       join:
-        error: Es ist ein Problem aufgetreten, der Gruppe beizutreten
-        success: Join-Anforderung wurde erfolgreich erstellt. Ein Administrator überprüft Ihre Anfrage, bevor er Sie für die Gruppe akzeptiert.
+        error: Et gouf e Problem beim Bäitrieden an de Grupp
+        success: Bäitrëtts-Ufro gouf erstallt. En Administrateur iwwerpréift deng Ufro, éier s'du an de Grupp ugeholl gëss.
       leave:
-        error: Es gab ein Problem, die Gruppe zu verlassen
-        success: Gruppe erfolgreich verlassen.
+        error: Et gouf e Problem beim Austrieden aus dem Grupp
+        success: Aus dem Grupp ausgetrueden.
       members:
-        accept_or_reject_join_requests: 'Die folgenden Benutzer haben sich angemeldet, um dieser Gruppe beizutreten. Akzeptieren oder ablehnen ihrer Anfragen:'
-        accept_request: Akzeptieren
-        reject_request: Ablehnen
+        accept_or_reject_join_requests: 'Dës Benotzer hunn ugefrot dësem Grupp bäizetrieden. Hir Ufroen unhuelen oder refuséieren:'
+        accept_request: Akzeptéieren
+        reject_request: Refuséieren
       new:
-        create_user_group: Gruppe erstellen
-        new_user_group: Neue Gruppe
-        subtitle: Erstellen Sie eine Gruppe und laden Sie andere Benutzer ein, an einer kollektiven Ebene teilzunehmen.
-      no_user_groups: Gehört noch keiner Gruppe an.
+        create_user_group: Grupp erstellen
+        new_user_group: Neien Grupp
+        subtitle: Erstell e Grupp a luet aner Benotzer an, op engem kollektiven Level matzemaachen.
+      no_user_groups: Gehéiert nach kengem Grupp un.
       roles:
-        admin: Administrator
-        creator: Schöpfer
-        member: Mitglied
+        admin: Administrateur
+        creator: Ersteller
+        member: Member
       update:
-        error: Beim Aktualisieren der Gruppe ist ein Problem aufgetreten
-        success: Gruppe wurde erfolgreich aktualisiert
+        error: Et gouf e Problem beim Aktualiséieren vum Grupp
+        success: De Grupp gouf aktualiséiert
     help:
       main_topic:
         default_page:
-          content: "<p>In %{organization} können Sie durch die Felder, die Sie im oberen Menü sehen, an verschiedenen Themen teilnehmen: Prozesse, Gremien, Initiativen, Beratungen.</p> <p>In jedem Bereich finden Sie verschiedene Optionen für die Teilnahme: Vorschläge machen - einzeln oder mit anderen -, an Debatten teilnehmen, Prioritäten für umzusetzende Projekte setzen, persönliche Treffen und andere Aktionen besuchen.</p>\n"
-          title: Was kann ich in %{organization} tun?
-        description: Lesen Sie mehr über %{organization}
-        title: Allgemeine Hilfe
+          content: "<p>An der %{organization} kanns de, mëttels de Felder aus dem ieweschten Menü déi Themen-Beräicher entscheeden an erauswielen bei deenen s'de wëlls matmaachen: Prozesser, Gremien, Initiativen, Berodungen.</p> <p>An all Beräich fënns de verschidden Optiounen fir d'Matmaachen: Virschléi maachen - eleng oder mat aneren -, bei Debatten matmaachen, Prioritéiten setzen fir Projeten ëmzesetzen, un perséinlechen Treffen an aneren Aktiounen deelhuelen.</p>\n"
+          title: Wat kann ech an der %{organization} maachen?
+        description: Méi liesen iwwer %{organization}
+        title: Allgemeng Hëllef
     last_activities:
       activities:
-        no_activities_warning: Keine Aktivität
-      all: Alle Aktivitätstypen
+        no_activities_warning: Keng Aktivitéit
+      all: All Zorten vun Aktivitéit
       index:
-        last_activity: Letzte Aktivität
-        resource_type: Art
+        last_activity: Lescht Aktivitéit
+        resource_type: Zort
     links:
-      invalid_url: Ungültige URL
+      invalid_url: Ongülteg URL
       warning:
-        body_1: Sie sind dabei, einen externen Link zu besuchen und wir bitten Sie, mit den Inhalten dieser externen Seiten vorsichtig zu sein.
-        body_2: "Bitte überprüfen Sie den Link, den Sie besuchen möchten, und stellen Sie sicher, dass Sie ihn als sichere Site erkennen, bevor Sie fortfahren.\n\n"
-        cancel: Abbrechen
-        close_modal: Schließen
-        proceed: Fortfahren
-        title: Externen Link öffnen
+        body_1: Du kënns elo op en externen Link an mir bieden dech, virsiichteg mam Inhalt vun externen Säiten ëmzegoen.
+        body_2: W. e. g. iwwerpréif de Link den s'de besiche wëlls an iwwerpréif ob et eng sécher Säit ass, éier s'de weider méchs.
+        cancel: Ofbriechen
+        close_modal: Modal zou maachen
+        proceed: Weidermaachen
+        title: Externen Link op maachen
     log:
       base_presenter:
-        create: "%{user_name} hat %{resource_name} erstellt"
-        create_with_space: "%{user_name} hat %{resource_name} in %{space_name} erstellt"
-        delete: "%{user_name} hat %{resource_name} gelöscht"
-        delete_with_space: "%{user_name} hat %{resource_name} in %{space_name} gelöscht"
-        unknown_action: "%{user_name} hat eine Aktion an %{resource_name} ausgeführt"
-        unknown_action_with_space: "%{user_name} hat eine Aktion an %{resource_name} in %{space_name} ausgeführt"
-        update: "%{user_name} hat %{resource_name} aktualisiert"
-        update_with_space: "%{user_name} hat %{resource_name} in %{space_name} aktualisiert"
+        create: "%{user_name} huet %{resource_name} erstallt"
+        create_with_space: "%{user_name} huet %{resource_name} an %{space_name} erstallt"
+        delete: "%{user_name} huet %{resource_name} geläscht"
+        delete_with_space: "%{user_name} huet %{resource_name} an %{space_name} geläscht"
+        unknown_action: "%{user_name} huet eng Aktion an %{resource_name} ausgeféiert"
+        unknown_action_with_space: "%{user_name} huet eng Aktion an %{resource_name} an %{space_name} ausgeféiert"
+        update: "%{user_name} huet %{resource_name} aktualiséiert"
+        update_with_space: "%{user_name} huet %{resource_name} an %{space_name} aktualiséiert"
       value_types:
         area_presenter:
-          not_found: 'Der Bereich wurde nicht in der Datenbank gefunden (ID: %{id})'
+          not_found: 'Dëse Beräich gouf net an der Date-Bank (ID: %{id}) fonnt'
         area_type_presenter:
-          not_found: 'Der Bereichstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
+          not_found: 'Dës Zort Beräich gouf net an der Datte-Bank (ID: %{id}) fonnt'
         scope_presenter:
-          not_found: 'Der Bereich wurde nicht in der Datenbank gefunden (ID: %{id})'
+          not_found: 'Dësen Uwennungs-Beräich gouf net an der Date-Bank (ID: %{id}) fonnt'
         scope_type_presenter:
           not_found: 'Der Bereichstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
     managed_users:
