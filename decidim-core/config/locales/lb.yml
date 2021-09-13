@@ -1098,139 +1098,139 @@ lb:
           link: All Statistiken uweisen
       terms_and_conditions:
         accept:
-          error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
-          success: Groß! Sie haben die Allgemeinen Geschäftsbedingungen akzeptiert.
+          error: Et gouf e Problem beim Unhuelen vun den Konditiounen vum Benotzen.
+          success: Wonnerbar! Du hues d'Konditiounen vum Benotzen akzeptéiert.
         form:
-          agreement: Ich stimme diesen Bedingungen zu
-          legend: Stimme den Nutzungsbedingungen zu
+          agreement: Ech sinn mat dësen Konditiounen averstane
+          legend: Akzeptéier d'Konditiounen vum Benotzen
         refuse:
-          modal_body: Wenn Sie sich weigern, werden Sie nicht in der Lage sein , die Plattform zu nutzen, können Sie <a href="%{data_portability_path}">laden Sie Ihre Daten</a> und / oder <a href="%{delete_path}">Ihr Konto löschen</a>.
-          modal_btn_continue: Bedingungen akzeptieren und fortfahren
-          modal_btn_exit: Ich werde es später überprüfen
-          modal_button: Verweiße die Bedingungen
-          modal_close: Modal schließen
-          modal_title: Lehnen Sie die aktualisierten Geschäftsbedingungen wirklich ab?
+          modal_body: Wann s'du refuséiers, wàert et dir net méiglech sinn dës Plattform ze benotzen, du kanns <a href="%{data_portability_path}">lDaten eroflueden</a> an / oder <a href="%{delete_path}">Konto läschen</a>.
+          modal_btn_continue: Konditiounen akzeptéieren an weiderfueren
+          modal_btn_exit: Ech iwwerpréiwen dat méi spéit
+          modal_button: Konditiounen net unhuelen
+          modal_close: Modal zou maachen
+          modal_title: Bass du wierklech wëlles d'Konditiounen vum Benotzen net unzehuelen?
         required_review:
-          alert: Wir haben unsere Nutzungsbedingungen aktualisiert. Bitte überprüfen Sie sie.
-          body: Bitte nehmen Sie sich einen Moment Zeit, um sich über die Aktualisierungen unserer Nutzungsbedingungen zu informieren. Andernfalls können Sie die Plattform nicht nutzen.
-          title: 'Erforderlich: Überprüfen Sie die Aktualisierungen unserer Nutzungsbedingungen'
+          alert: Mir hunn eis Konditiounen vum Benotzen aktualiséiert, iwwerpréif se w. e. g.
+          body: Huel dir e Moment Zäit fir d' Konditiounen vum Benotzen ze iwwerpréiwen. Soss kanns du d'Plattform net benotzen.
+          title: 'Erfuerderlech: Iwwerpréif Aktualiséierungen vun eisen Konditiounen vum Benotzen'
     participatory_space_private_users:
-      not_allowed: Sie dürfen diesen Inhalt nicht sehen
+      not_allowed: Dir ass et net erlaabt dësen Inhalt ze gesinn
     profile:
-      deleted: Teilnehmer gelöscht
-      inaccessible_message: Dieses Profil ist wegen Verletzung der Nutzungsbedingungen nicht zugänglich!
-      view: Anzeigen
+      deleted: Teilnehmer geläscht
+      inaccessible_message: Dësen Profil ass wéinst der Verletzung vun den Konditiounen vum Benotzen net zougänglech!
+      view: Uweisen
     profiles:
-      default_officialization_text_for_user_groups: Diese Benutzergruppe wurde öffentlich überprüft, ihr Name wurde mit dem tatsächlichen Namen verifiziert
-      default_officialization_text_for_users: Dieser Teilnehmer wird öffentlich überprüft, sein Name oder seine Rolle wurde nachweislich seinem tatsächlichen Namen und seiner Rolle zugeordnet
+      default_officialization_text_for_user_groups: Dësen Grupp gouf ëffentlech iwwerpréift, säin Numm stëmmt mat sengem richtegen Numm iwwerteneen
+      default_officialization_text_for_users: Dësen Teilnehmer gouf ëffentlech iwwerpréift, säin Numm an seng Roll stëmmen mat sengem tatsächlechen Numm an senger Roll iwwerteneen
       show:
-        activity: Aktivität
-        badges: Abzeichen
-        conversations: Unterhaltungen
-        followers: Follower
-        following: Folgt
+        activity: Aktivitéit
+        badges: Ofzeechen
+        conversations: Konversatiounen
+        followers: Unhänger
+        following: Geet no
         groups: Gruppen
-        members: Mitglieder
-        officialized: Offizieller Teilnehmer
-        send_private_message: Private Nachricht senden
-        timeline: Zeitleiste
-        view_full_profile: Sehen Sie sich Vollständiges Profil anzeigen
+        members: Memberen
+        officialized: Offiziellen Teilnehmer
+        send_private_message: Privat Noriicht schécken
+        timeline: Verlaf
+        view_full_profile: Kuck den vollstännegen Profil
       sidebar:
         badges:
-          info: Abzeichen werden verdient, indem bestimmte Aktivitäten in der Plattform ausgeführt werden.
-          title: Abzeichen
+          info: Ofzeechen kann een sech verdéngen, andeems een bestëmmten Aktivitéiten op der Plattform duerchféiert.
+          title: Ofzeechen
       user:
-        confirmation_instructions_sent: E-Mail-Bestätigungsanweisungen gesendet
-        create_user_group: Gruppe erstellen
-        edit_profile: Profil bearbeiten
-        edit_user_group: Gruppenprofil bearbeiten
-        fill_in_email_to_confirm_it: Bitte geben Sie die E-Mail-Adresse Ihrer Gruppe zur Bestätigung ein
-        invite_user: Nutzer einladen
-        join_user_group: Anfrage zur Teilnahme an der Gruppe
-        leave_user_group: Gruppe verlassen
-        manage_user_group_admins: Admins verwalten
-        manage_user_group_users: Mitglieder verwalten
-        resend_email_confirmation_instructions: Senden Sie die E-Mail-Bestätigungsanweisungen erneut
+        confirmation_instructions_sent: Et gouf en Email mat Instruktiounen geschéckt
+        create_user_group: Grupp erstellen
+        edit_profile: Profil beaarbechten
+        edit_user_group: Profil vum Grupp beaarbechten
+        fill_in_email_to_confirm_it: Gëff w. e. g. d'Email-Adress vun dengem Grupp an fir se ze bestätegen
+        invite_user: En Teilnehmer alueden
+        join_user_group: Ufro engem Grupp bäitrieden ze dierfen
+        leave_user_group: Grupp verloossen
+        manage_user_group_admins: Administrateuren verwalten
+        manage_user_group_users: Memberen verwalten
+        resend_email_confirmation_instructions: Den Email mat der Confirmatioun vun den Instruktiounen op en Neits schécken
     reported_mailer:
       hide:
-        hello: Hallo %{name},
-        manage_moderations: Moderationen verwalten
-        report_html: <p>Der folgende <a href="%{url}">Inhalt</a> wurde automatisch ausgeblendet.</p>
-        subject: Eine Ressource wurde automatisch ausgeblendet
+        hello: Moien %{name}
+        manage_moderations: Moderatiounen verwalten
+        report_html: <p>Den folgenden Inhalt <a href="%{url}">Inhalt</a> gouf automatesch ausgeblent.</p>
+        subject: Eng Ressource gouf automatesch ausgeblent
       report:
-        authors: Autoren
-        content: Gemeldeter Inhalt
-        content_original_language: Originalsprache des Inhalts
-        date: Gemeldet am
-        details: Einzelheiten
-        hello: Hallo %{name},
+        authors: Auteuren
+        content: Inhalt gouf gemellt
+        content_original_language: Originalsprooch vum Inhalt
+        date: Gemellt den
+        details: Detailer
+        hello: Moien %{name}
         id: ID
-        participatory_space: Beteiligungsbereich
-        reason: Grund
-        report_html: <p>Der folgende <a href="%{url}">Inhalt</a> wurde gemeldet.</p>
-        see_report: Den Bericht ansehen
-        subject: Eine Ressource wurde gemeldet
+        participatory_space: Espace fir d'Bedeelegung
+        reason: Grond
+        report_html: <p>Den folgenden Inhalt <a href="%{url}">Inhalt</a> gouf gemellt.</p>
+        see_report: Den Bericht ukucken
+        subject: Eng Ressource gouf gemellt
     reports:
       create:
-        error: Beim Erstellen des Berichts ist ein Fehler aufgetreten. Bitte, versuche es noch einmal.
-        success: Der Bericht wurde erfolgreich erstellt und wird von einem Administrator überprüft.
+        error: Beim Erstellen vum Bericht ass e Feeler opgetrueden. W. e. g. probéier op en Neits.
+        success: De Bericht gouf erstallt a gëtt vun engem Admin iwwerpréift.
     resource_endorsements:
       create:
-        error: Bei der Befürwortung ist ein Fehler aufgetreten.
+        error: Bei der Fërderung ass e Problem opgetaucht.
     scopes:
-      global: Globaler Umfang
+      global: Global Themeberäicher
       picker:
-        cancel: Stornieren
-        change: Ausgewählten Bereich ändern
-        choose: Wählen
-        currently_selected: Aktuell ausgewählter Bereich
-        title: Wählen Sie %{field}
-      prompt: Wählen Sie einen Bereich aus
-      scopes: Bereiche
+        cancel: Ofbriechen
+        change: Ausgewielten Themeberäich änneren
+        choose: Wiel
+        currently_selected: Aktuell ausgewielten Themeberäich
+        title: Wiel %{field}
+      prompt: Wiel en Themeberäich
+      scopes: Themeberäicher
       scopes_picker_input:
-        select_scope: 'Wählen Sie einen Bereich (aktuell: %{current})'
+        select_scope: 'Wiel en Themeberäich (aktuell: %{current})'
     search:
-      results: Suchergebnisse
-      results_found_for_term: '%{count} Ergebnisse für die Suche: "%{term}"'
-      term_input_placeholder: Suche
+      results: Resultater vun der Sich
+      results_found_for_term: '%{count} Resultater vun der Sich: "%{term}"'
+      term_input_placeholder: Sich
     searches:
       filters:
-        back: Zurück zu den Ergebnissen
-        jump_to: 'Springen zu:'
+        back: Zréck zu den Resultater
+        jump_to: 'Weidergoen op:'
         state:
           active: Aktiv
           all: Alles
           future: Zukunft
-          past: Vergangenheit
+          past: Vergaangenes
       filters_small_view:
         close_modal: Modal schließen
         filter: Filter
         filter_by: Filtern nach
-        unfold: Entfalten
+        unfold: Opklappen
       results:
         results:
-          one: "%{count} Ergebnis"
-          other: "%{count} Ergebnisse"
-        view_all: Alle anzeigen (%{count})
+          one: "%{count} Resultat"
+          other: "%{count} Resultater"
+        view_all: Alles uweisen (%{count})
     security:
       selfxss_warning:
-        description: Diese Browser-Funktion ist nur für Entwickler gedacht und Sie sollten hier keine Daten einfügen, wenn Sie darum gebeten wurden. Das Einfügen von Inhalten in dieses Fenster kann Ihre Privatsphäre beeinträchtigen und Hackern Zugriff auf Ihr Konto ermöglichen.
+        description: Dës Sich-Funktioun ass nëmmen fir Entwéckler geduecht an du solls hei keng Daten asetzen nodeems de dozou opgefuerdert goufs. D'Asetzen vun Inhalter an dëser Fënster kann deng Privatsphäre affektéieren an Hacker den Zougrëff op däin Kont erméiglechen.
         title: Stop!
     shared:
       confirm_modal:
-        cancel: Abbrechen
-        close_modal: Modal schließen
+        cancel: Ofbriechen
+        close_modal: Modal zou maachen
         ok: Ok
-        title: Bestätigen
+        title: Bestätegen
       embed_modal:
-        close_window: Fenster schließen
-        embed: Bitte fügen Sie diesen Code in Ihre Seite ein
-        embed_link: Einbetten
+        close_window: Fënster zou maachen
+        embed: Dëse Code w. e. g. an deng Säit asetzen
+        embed_link: Abannen
       extended_navigation_bar:
-        more: Mehr
-        unfold: Entfalten
+        more: Méi
+        unfold: Opklappen
       filter_form_help:
-        help: Das untenstehende Formular filtert die Suchergebnisse dynamisch, wenn die Suchbedingungen geändert werden.
+        help: D'Formular ënnen filtert d'Resultater vun der Sich dynamesch, wann Konditiounen fir d' Sich änneren.
         skip: Weider bis bei d'Resultater
       flag_modal:
         already_reported: Dësen Inhalt gouf scho gemellt an gëtt duerch en Admin nogekuckt.
@@ -1250,14 +1250,14 @@ lb:
         offensive: Enthält Rassismus, Sexismus, Verleumdung, perséinlechen Ugrëff, Doudesdreeung, Opfuerderung zu Selbstmord oder aner Formen vun Haassrieden.
         report: Bericht
         spam: Enthält Klickbait, Reklamm, Bedruch oder Script-Bots.
-        title: Notzer mellen den net zoulässegen Inhalt verbreet
+        title: Notzer mellen den net zoulässeg ass
       floating_help:
         close: Den Hëllefs-Tab zoumaachen
         help: Hëllef
       follow_button:
         sign_in_before_follow: Mell dech w. e. g. un, éier s'du dës Aktioun ausféiers
       login_modal:
-        close_modal: Dialog-Fënster zoumaachen
+        close_modal: Modal zou maachen
         please_sign_in: W. e. g. umellen
         sign_up: Registréieren
       participatory_space_filters:
@@ -1270,9 +1270,9 @@ lb:
         reference: 'Referenz: %{reference}'
       represent_user_group:
         represent_user_group: Ech vertrieden e Grupp
-        select_user_group: Wählen Sie eine Gruppe aus
+        select_user_group: Wiel e Grupp
       results_per_page:
-        label: 'Ergebnisse pro Seite:'
+        label: 'Ergebnisser pro Säit:'
         title: Anzahl der Ergebnisse pro Seite auswählen
       share_modal:
         close_window: Fenster schließen
