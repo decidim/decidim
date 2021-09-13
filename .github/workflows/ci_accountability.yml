@@ -51,6 +51,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 1
-      - uses: ./.githun/actions/module-rspec
+      - uses: ./.github/actions/module-rspec
         with:
           name: decidim-accountability
