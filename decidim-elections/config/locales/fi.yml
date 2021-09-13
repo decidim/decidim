@@ -254,7 +254,6 @@ fi:
             trustees: Luottamushenkilöt
           key_ceremony:
             title: Avainseremonia
-            trustees: Luottamushenkilöt
           key_ceremony_ended:
             errors:
               time_before: Vaali on valmis alkamaan. Vaalin äänestysaika voidaan käynnistää aikaisintaan %{hours} tuntia ennen alkamisaikaa (%{start_time}).
@@ -275,7 +274,6 @@ fi:
             title: Tulokset julkaistu
           tally:
             title: Ääntenlaskun prosessi
-            trustees: Luottamushenkilöt
           tally_ended:
             answer: Vastaus
             not_selected: Ei valittu
