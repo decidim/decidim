@@ -261,7 +261,7 @@ cs:
             title: Výsledky publikovány
           tally:
             title: Proces volebního přepočítání
-            trustees: Volební důvěrníci
+            trustees: Důvěrníci
           tally_ended:
             submit: Publikovat výsledky
             title: Výsledky spočítány
