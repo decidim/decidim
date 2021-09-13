@@ -3,24 +3,24 @@
 module Decidim
   module Elections
     module Admin
-      # This command gets called to start the tally in the Bulletin Board.
-      class StartTally < Rectify::Command
+      # This command gets called to report a missing trustee during the tally process.
+      class ReportMissingTrustee < Rectify::Command
         # Public: Initializes the command.
         #
-        # form - An ActionForm object with the information needed to perform an action
+        # form - A ReportMissingTrusteeForm object with the information needed to report the missing trustee.
         def initialize(form)
           @form = form
         end
 
-        # Public: Starts the tally for the Election.
+        # Public: Reports the missing trustee for the Election tally process.
         #
-        # Broadcasts :ok if setup, :invalid otherwise.
+        # Broadcasts :ok if it worked, :invalid otherwise.
         def call
           return broadcast(:invalid) if form.invalid?
 
           transaction do
             log_action
-            start_tally
+            report_missing_trustee
           end
 
           broadcast(:ok)
@@ -36,15 +36,18 @@ module Decidim
 
         def log_action
           Decidim.traceability.perform_action!(
-            :start_tally,
+            :report_missing_trustee,
             election,
             form.current_user,
+            extra: {
+              trustee_id: form.trustee_id
+            },
             visibility: "all"
           )
         end
 
-        def start_tally
-          bulletin_board.start_tally(election.id) do |message_id|
+        def report_missing_trustee
+          bulletin_board.report_missing_trustee(election.id, form.trustee.slug) do |message_id|
             create_election_action(message_id)
           end
         end
@@ -52,7 +55,7 @@ module Decidim
         def create_election_action(message_id)
           Decidim::Elections::Action.create!(
             election: election,
-            action: :start_tally,
+            action: :report_missing_trustee,
             message_id: message_id,
             status: :pending
           )

@@ -34,7 +34,7 @@ describe Decidim::Elections::Admin::SetupForm do
                                      minimum_questions: "The election has <strong>at least 1 question</strong>.",
                                      published: "The election is <strong>published</strong>.",
                                      time_before: "The setup is being done <strong>at least 3 hours</strong> before the election starts.",
-                                     trustees_number: "The participatory space has <strong>at least 2 trustees with public key</strong>."
+                                     trustees_number: "The participatory space has <strong>at least 3 trustees with public key</strong>."
                                    })
   end
 
@@ -60,7 +60,7 @@ describe Decidim::Elections::Admin::SetupForm do
     it "shows errors" do
       subject.valid?
       expect(subject.errors.messages).to eq({
-                                              trustees_number: ["The participatory space <strong>must have at least 2 trustees with public key</strong>."]
+                                              trustees_number: ["The participatory space <strong>must have at least 3 trustees with public key</strong>."]
                                             })
     end
   end

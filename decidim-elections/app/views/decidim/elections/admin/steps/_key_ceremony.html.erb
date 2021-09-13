@@ -3,14 +3,49 @@
     <h2 class="card-title"><%= t(".title") %></h2>
   </div>
 
-  <div class="card-section">
-    <h4><%= t(".trustees") %></h4>
-    <ul>
-      <% election.trustees.each do |trustee| %>
-        <li>
-          <%= trustee.name %>
-        </li>
-      <% end %>
-    </ul>
+  <div id="trustees_process" class="card-section"
+        data-api-endpoint-url="<%= bulletin_board_server %>"
+        data-authority-public-key="<%= authority_public_key %>"
+        data-process-type="key_ceremony"
+        data-election-unique-id="<%= election_unique_id %>">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.trustees_participatory_space.fields.name", scope: "decidim.elections") %></th>
+            <th><%= t("models.trustees_participatory_space.fields.status", scope: "decidim.elections") %></th>
+            <th><%= t("models.trustees_participatory_space.fields.email", scope: "decidim.elections") %></th>
+            <th><%= t("models.trustees_participatory_space.fields.public_key", scope: "decidim.elections") %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% election.trustees.each do |trustee| %>
+            <tr class="trustee loading" data-trustee-id="<%= trustee.id %>" data-trustee-slug="<%= trustee.slug %>">
+              <td>
+                <%= trustee.name %>
+              </td>
+              <td>
+                <div class="loading"><span class="loading-spinner"></span></div>
+                <div class="active hide"><%= icon "task", class: "text-success" %></div>
+              </td>
+              <td>
+                <%= trustee.user.email %>
+              </td>
+              <td>
+                <%= present(trustee).public_key_thumbprint %>
+              </td>
+              <td></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
+
+<div class="button--double form-general-submit">
+  <%= link_to t("steps.key_ceremony.continue", scope: "decidim.elections.admin"), election_steps_path(election), class: "button disabled js-continue-link" %>
+</div>
+
+<%= javascript_pack_tag "decidim_elections_admin_trustees_process" %>

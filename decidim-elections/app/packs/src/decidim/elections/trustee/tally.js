@@ -3,10 +3,10 @@ import {
   IdentificationKeys,
   MessageIdentifier,
   MESSAGE_RECEIVED
-} from "@codegram/decidim-bulletin_board";
+} from "@decidim/decidim-bulletin_board";
 
-import { TrusteeWrapperAdapter as DummyTrusteeWrapperAdapter } from "@codegram/voting_schemes-dummy";
-import { TrusteeWrapperAdapter as ElectionGuardTrusteeWrapperAdapter } from "@codegram/voting_schemes-electionguard";
+import { TrusteeWrapperAdapter as DummyTrusteeWrapperAdapter } from "@decidim/voting_schemes-dummy";
+import { TrusteeWrapperAdapter as ElectionGuardTrusteeWrapperAdapter } from "@decidim/voting_schemes-electionguard";
 
 $(() => {
   // UI Elements
