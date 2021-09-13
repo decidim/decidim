@@ -226,7 +226,6 @@ nl:
             trustees: Verkiezing Trustees
           key_ceremony:
             title: Sleutelceremonie
-            trustees: Trustees
           results_published:
             answer: Antwoord
             not_selected: Niet geselecteerd
