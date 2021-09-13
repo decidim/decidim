@@ -269,8 +269,8 @@ cs:
             title: Volba vytvořena
             trustees: Důvěrníci
           key_ceremony:
+            continue: Pokračovat
             title: Slavnostní ceremoniál
-            trustees: Důvěrníci
           key_ceremony_ended:
             errors:
               time_before: Volby jsou připraveny k zahájení. Musíte počkat %{hours} hodin před začátkem období hlasování (%{start_time}).
@@ -290,8 +290,14 @@ cs:
             submit: Odeslat
             title: Výsledky publikovány
           tally:
+            continue: Pokračovat
+            invalid: Došlo k problému s nahlášením chybějícího důvěrníka
+            mark_as_missing: Označit jako chybějící
+            mark_as_missing_description: Tohoto procesu by se měli účastnit všichni důvěrníci, ale pokud se některý důvěrník nemůže procesu účastnit, můžete ho označit jako chybějícího.
+            success: Zpráva o chybějícím důvěrníkovi byla úspěšně odeslána na vývěsku
+            tally_completion: Proces bude dokončen, jakmile budou všichni důvěrníci aktivní nebo budou označeni jako chybějící. K dokončení procesu je zapotřebí alespoň %{quorum} důvěrníků.
             title: Proces volebního přepočítání
-            trustees: Volební důvěrníci
+            undo_mark_as_missing: Správce, který byl omylem označen jako chybějící, se bude moci zúčastnit před dokončením procesu. Může postupovat jako obvykle a chybějící označení bude ignorováno.
           tally_ended:
             answer: Odpověď
             not_selected: Nevybráno
