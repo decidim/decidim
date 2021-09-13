@@ -1026,46 +1026,46 @@ lb:
     newsletters_opt_in_mailer:
       notify:
         body_1: D'Verschaffen vun perséinlechen Daten an hire Schutz, ginn fir ons all ëmmer méi wichteg. Mat der neier RGPD Reglementatioun hunn Eenzelpersounen eng besser Kontroll iwwer hir perséinlech Daten. Aus dem Grond brauchen mir däin "OK" fir dir weiderhin relevant Informatiounen vun %{organization_name} zoukommen ze loossen.
-        body_2: 'Wie können Sie uns Ihre Zustimmung geben? Klicken Sie einfach auf den folgenden Knopf:'
-        body_3: Mit dieser Zustimmung können Sie weiterhin Informationen über die Dienste der Plattform erhalten. Wenn wir im Gegenteil keine positive Bestätigung von Ihnen erhalten, werden wir Ihnen keine Nachrichten mehr senden. Wenn Sie bestätigen, dass Sie weiterhin informiert werden möchten, haben Sie jederzeit die Möglichkeit, den Vorgang abzubrechen.
+        body_2: 'Wéi kanns du zoustëmmen? Klick einfach op den Knäppchen hei:'
+        body_3: Mat denger Zoustëmmung erhëls du weiderhin Informatiounen iwwert Déngschter vun dëser Plattform. Sollten mir, am Géigenzuch, keng Zoustëmmung vun dir erhalen, wäerten mir dir och keng Noriichten méi schécken. Och am Fall vun enger Zoustëmmung, kanns du zu all Moment dës Optioun ofzewielen.
         button: Ja, ich möchte weiterhin relevante Informationen erhalten
-        greetings: Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
-        hello: Hallo,
-        subject: Möchten Sie weiterhin relevante Informationen über %{organization_name} erhalten?
+        greetings: Gréiss,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Moien,
+        subject: Well s'du weiderhin relevant Informatioune zu %{organization_name} zougeschéckt kréien?
     notifications:
-      no_notifications: Noch keine Benachrichtigungen
+      no_notifications: Nach keng Notifikatiounen.
     notifications_settings:
       show:
-        administrators: Administratoren
-        allow_public_contact: Allen erlauben, mir Direktnachrichten zu senden, selbst wenn ich ihnen nicht folge.
-        direct_messages: Direktnachrichten von allen erhalten
-        email_on_moderations: Ich möchte eine E-Mail erhalten, wenn etwas zur Moderation gemeldet wird.
-        email_on_notification: Ich möchte jedes Mal eine E-Mail erhalten, wenn ich eine Benachrichtigung erhalte.
-        everything_followed: Alles was ich folge
-        newsletter_notifications: Ich möchte Newsletter erhalten
+        administrators: Administrateuren
+        allow_public_contact: Allen erlaben, mir Direkt-Noriichten ze schécken, och vun deenen, deenen ech net nofollegen.
+        direct_messages: Direkt-Noriichten vun jidderengem zougeschéckt kréien
+        email_on_moderations: Ech well en Email zougeschéckt kréien wann eppes gemellt gouf wat moderéiert soll ginn.
+        email_on_notification: Ech well all Kéiers enEmail zougeschéckt kréien, wann ech eng Noriicht kritt hunn.
+        everything_followed: Vun jidderengem dem ech nofollegen
+        newsletter_notifications: Ech well den Newsletter
         newsletters: Newsletter
-        own_activity: Meine eigene Tätigkeit, etwa wenn sich jemand in meinem Vorschlag äußert oder mich erwähnt
-        receive_notifications_about: Ich möchte Benachrichtigungen erhalten über
-        send_notifications_by_email: Senden Sie Benachrichtigungen per E-Mail
-        update_notifications_settings: Änderungen speichern
+        own_activity: Meng eegen Aktivitéit, sou wann een mäin Virschlag kommentéiert oder mech ernimmt
+        receive_notifications_about: Ech well Noriichten zu
+        send_notifications_by_email: Noriichten via Email schécken
+        update_notifications_settings: Ännerungen späicheren
       update:
-        error: Beim Aktualisieren der Benachrichtigungseinstellungen ist ein Fehler aufgetreten.
-        success: Ihre Benachrichtigungseinstellungen wurden erfolgreich aktualisiert.
+        error: Et gouf e Problem beim Aktualiséieren vun Astellungen fir Noriichten.
+        success: Deng Astellungen fir Noriichten goufen aktualiséiert.
     open_data:
-      not_available_yet: Die Open Data-Dateien sind noch nicht verfügbar. Bitte versuchen Sie es in einigen Minuten erneut.
+      not_available_yet: Open Data-Dateien sinn nach net verfügbar. Probéier w. e. g. an e puer Minutten op en Néits.
     own_user_groups:
       index:
-        pending: Ausstehend
-        rejected: Abgelehnt
-        verified: Überprüft
+        pending: Ausstoend
+        rejected: Verworf
+        verified: Iwwerpréift
     pad_iframe:
-      disclaimer: Der Inhalt dieses Blocks wird von registrierten Benutzern verfasst und gibt deren Meinung wieder. %{organization} kann nicht für den Inhalt verantwortlich gemacht werden.
-      explanation: Verwenden Sie dieses Pad, um während des Meetings gemeinsam Notizen zu machen.
+      disclaimer: Den Inhalt vun dësem Pad, gouf vun registréierten Benotzer verfaasst an gëtten Auteuren hir Meenung erëm. D'%{organization} kann net fir den Inhalt verantwortlech gemaach ginn.
+      explanation: Verwänn dësen Pad, fir iwwert engem Meeting zesummen un Notizzen ze schaffen Pad, dat vereinfacht d'Ofschrëft vum Versammlungs-Bericht herno.
       pad: Pad
     pages:
       home:
         extended:
-          debates: Diskussiounen
+          debates: Debatten
           debates_explanation: Debattéier an diskutéier, deel deng Usiichten an dro zu den wichtegen Themen bäi.
           how_to_participate: Wéi kann ech bei engem Prozess matmaachen?
           meetings: Versammlungen
@@ -1085,17 +1085,17 @@ lb:
         statistics:
           headline: Aktuellen Stand vun %{organization}
         sub_hero:
-          register: Umellen
+          register: Registréieren
       index:
         read_more: Weideres liesen
         standalone_pages: Säiten
-        subheading: Duerch d'Hëllefssäiten vun %{name} navigéieren
+        subheading: Duerch d'Hëllefs-Säiten vun %{name} navigéieren
         title: Hëllef
         topics: Themen
       participatory_space:
         metrics:
-          headline: Teilnahme an Zahlen
-          link: Alle Statistiken anzeigen
+          headline: Statistiken
+          link: All Statistiken uweisen
       terms_and_conditions:
         accept:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
