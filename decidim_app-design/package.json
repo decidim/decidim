@@ -1,7 +1,7 @@
 {
-  "name": "decidim",
+  "name": "a-decidim-app",
   "description": "The participatory democracy framework",
-  "version": "0.25.0-rc1",
+  "version": "0.25.0-rc2",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git"

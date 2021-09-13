@@ -1,16 +1,51 @@
 # Change Log
-
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
 ### Added
-* [#8012](https://github.com/decidim/decidim/pull/8012) Participatory space to comments, to fix the statistics. Use 
-`rake decidim_comments:update_participatory_process_in_comments` to migrate existing comments to the new structure.    
 
 ### Changed
 
 ### Fixed
 
 ### Removed
+
+## [0.25.0.rc2](https://github.com/decidim/decidim/tree/v0.25.0.rc2)
+
+### Upgrade Notes
+
+#### Comments statistics change
+
+* [#8012](https://github.com/decidim/decidim/pull/8012) Participatory space to comments, to fix the statistics. Use
+`rake decidim_comments:update_participatory_process_in_comments` to migrate existing comments to the new structure.
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- Backport "Fix webpacker dependency lock" to v0.25 [\#8289](https://github.com/decidim/decidim/pull/8289)
+- Backport "Fix NPM packages versioning during release process" [\#8284](https://github.com/decidim/decidim/pull/8284)
+- **decidim-accountability**: Backport "Fix accountability notifications proposal title" to v0.25 [\#8287](https://github.com/decidim/decidim/pull/8287)
+- Backport "Fix Luxembourgish locale" to v0.25 [\#8282](https://github.com/decidim/decidim/pull/8282)
+- **decidim-debates**, **decidim-meetings**, **decidim-proposals**: Backport - Fix characters not encoded in title to 0.25 [\#8292](https://github.com/decidim/decidim/pull/8292)
+- **decidim-core**: Backport "Fix invalid i18n values for diff changeset" to v0.25 [\#8305](https://github.com/decidim/decidim/pull/8305)
+- **decidim-meetings**: Backport "Fix live? missing method delegation in online_meeting cell" to v0.25 [\#8309](https://github.com/decidim/decidim/pull/8309)
+- **decidim-comments**: Backport: Fix statistics in Comments (#8012) [\#8316](https://github.com/decidim/decidim/pull/8316)
+- **decidim-core**: Backport: [CVE-2021-22942] Possible Open Redirect in Host Authorization Middleware [\#8320](https://github.com/decidim/decidim/pull/8320)
+- **decidim-core**: Backport "Remove unnecessary spacer from external link indicator" to v0.25 [\#8319](https://github.com/decidim/decidim/pull/8319)
+- Backport "Fix CSS validation tests caused by a bug on the validation service" [\#8325](https://github.com/decidim/decidim/pull/8325)
+- **decidim-core**: Backport "Fix missing icons after CORS" to v0.25 [\#8318](https://github.com/decidim/decidim/pull/8318)
+- Backport "Update foundation-sites to 6.7.0 for better Dart Sass compatibility" to v0.25 [\#8300](https://github.com/decidim/decidim/pull/8300)
+
+
+### Removed
+
+Nothing.
 
 ## [0.25.0.rc1](https://github.com/decidim/decidim/tree/v0.25.0.rc1)
 
