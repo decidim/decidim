@@ -881,12 +881,12 @@ lb:
         scope_presenter:
           not_found: 'Dësen Uwennungs-Beräich gouf net an der Date-Bank (ID: %{id}) fonnt'
         scope_type_presenter:
-          not_found: 'Der Bereichstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
+          not_found: 'Dës Zort Uwennungs-Beräich gouf net an der Date-Bank (ID: %{id}) fonnt'
     managed_users:
-      expired_session: Die aktuelle Identitätswechselsitzung ist abgelaufen.
+      expired_session: Déi aktuell Admin-Sessioun ass ofgelaf.
     map:
       dynamic:
-        screen_reader_explanation: Das folgende Element ist eine Karte, die die Elemente auf dieser Seite als Kartenpunkte darstellt. Das Element kann mit einem Screenreader verwendet werden, aber es ist möglicherweise schwer zu verstehen.
+        screen_reader_explanation: Dat nächst Element ass eng Kaart, déi d'Artikel op dëser Säit a Form vun Kaarten-Punkten duerstellt. Dëst Element kann mat engem Screen-Reader benotzt ginn, mee kann schwéier verständlech sinn.
         skip_button: Kaart iwwersprangen
       static:
         latlng_text: 'Breedegrad:%{latitude}, Längegrad:%{longitude}'
@@ -899,13 +899,13 @@ lb:
     messaging:
       conversation_mailer:
         comanagers_new_conversation:
-          admin_in_group: Du kriss dat hei, wells du en Admin am Grupp %{group} bass.
+          admin_in_group: Du kriss dat hei, well s'du en Admin am Grupp %{group} bass.
           greeting: Moien %{recipient}!
           intro: "%{manager} huet eng nei Konversatioun am Numm vum Grupp %{group} ugefaangen. Klick hei fir et ze gesinn:"
           outro: Vill Spaass mat decidim!
           subject: "%{manager} huet eng Konversatioun mam %{group} ugefaangen"
         comanagers_new_message:
-          admin_in_group: Du kriss dat hei, wells du en Admin am Grupp %{group} bass.
+          admin_in_group: Du kriss dat hei, well s'du en Admin am Grupp %{group} bass.
           greeting: Moien %{recipient}!
           intro: "%{manager} huet nei Noriichten gepost an der Konversatioun mam Grupp %{group}. Klick hei fir se ze gesinn:"
           outro: Vill Spaass mat decidim!
@@ -916,7 +916,7 @@ lb:
           outro: Vill Spaass mat decidim!
           subject: "%{sender} huet eng Konversatioun mat dir ugefaangen"
         new_group_conversation:
-          admin_in_group: Du kriss dat hei, wells du en Admin am Grupp %{group} bass.
+          admin_in_group: Du kriss dat hei, well s'du en Admin am Grupp %{group} bass.
           greeting: Moien %{recipient}!
           intro: "%{sender} huet eng nei Konversatioun am Grupp ugefaange %{group}. Klick hei fir se ze gesinn:"
           outro: Vill Spaass mat decidim!
@@ -928,34 +928,34 @@ lb:
           outro: Vill Spaass mat decidim!
           subject: "%{group} hat neue Nachrichten von %{sender}"
         new_message:
-          greeting: Hallo, %{recipient}!
-          intro: "%{sender} hat neue Nachrichten in Ihrer Konversation gepostet. Klicken Sie hier, um sie zu sehen:"
-          outro: Viel Spaß mit Decidim!
-          subject: Sie haben neue Nachrichten von %{sender}
+          greeting: Moien, %{recipient}!
+          intro: "%{sender} huet nei Noriichten an denger Konversatioun gepost. Klick hei fir se ze gesinn:"
+          outro: Vill Spaass mat decidim!
+          subject: Du hues nei Noriichten vum %{sender}
       conversations:
         add_conversation_users:
-          add_max_users: 'Fügen Sie der Unterhaltung Benutzer hinzu: max. 9 Benutzer'
-          add_users_placeholder: Suche...
-          modal_title: Neue Unterhaltung
-          no_results: Keine Ergebnisse
-          participant_with_disabled_message_reception: Dieser Teilnehmer hat Nachrichten deaktiviert
+          add_max_users: 'Setz denger Konversatioun nei Benotzer bäi: max. 9 Benotzer'
+          add_users_placeholder: Sich...
+          modal_title: Nei Konversatioun
+          no_results: Keen Resultat
+          participant_with_disabled_message_reception: Dësen Teilnehmer huet Noriichten desaktivéiert
         conversation:
-          show: Gespräch mit %{sender} anzeigen
+          show: Konversatioun mam %{sender} uweisen
         create:
-          error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal
+          error: D'Konversatioun gouf net gestart. Probéier méi spéit nach emol
         error_modal:
-          close: Dialog schließen
-          correct_errors: Bitte korrigiere diese Fehler und versuche es erneut.
-          intro: 'Es gab folgende Fehler bei Ihrer Nachricht:'
+          close: Dialog zou maachen
+          correct_errors: Korrigéier w. e. g. dëse Feeler a probéier op en Neits.
+          intro: 'Bei denger Noriicht ass dësen Feeler opgetrueden:'
           ok: OK
         index:
-          ago: vor
-          close: Modal schließen
-          from: Von
-          groups: Meine Gruppen
-          last_message: Letzte Nachricht
-          new_conversation: Neue Unterhaltung
-          next: Weiter
+          ago: virun
+          close: Modal zou maachen
+          from: Vum
+          groups: Meng Gruppen
+          last_message: Lescht Noriicht
+          new_conversation: Nei Konversatioun
+          next: Weider
           no_conversations: Du hast noch keine Unterhaltungen
           title: Gespräche
         reply:
