@@ -743,9 +743,9 @@ lb:
           title: Ofzeechen
         invitations:
           conditions:
-            - Verwenden Sie den Link "Freunde einladen" auf Ihrer Nutzerseite, um Ihre Freunde einzuladen
-            - Passen Sie, wenn Sie möchten, die gesendete Nachricht an
-            - Sie werden auf den neuesten Stand gebracht, indem Sie Einladungen senden und sie registrieren lassen.
+            - Benotz den "Frënn alueden" -Link op denger Profil-Säit, fir Frënn anzelueden
+            - Du kanns, wann s'de dat wëlls, d'Noriicht déi s'de schécke wëlls upassen
+            - Du verbessers dech andeem s'de Aluedungen erausschécks an registréieren léiss.
           description: Dieses Abzeichen wird gewährt, wenn Sie einige Personen eingeladen haben und sie sich ein wenig Zeit genommen haben, um sich in %{organization_name} zu registrieren und Teilnehmer zu werden. Vielen Dank für die Herstellung von %{organization_name} anderen bekannt und helfen , die Gemeinschaft zu erweitern!
           description_another: Diese*r Benutzer*in hat %{score} Benutzer*innen eingeladen.
           description_own: Sie haben %{score} Benutzer*innen eingeladen.
