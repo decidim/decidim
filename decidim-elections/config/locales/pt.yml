@@ -253,6 +253,7 @@ pt:
             title: Eleição criada
             trustees: Curadores
           key_ceremony:
+            continue: Continuar
             title: Cerimónia-chave
           key_ceremony_ended:
             errors:
@@ -273,7 +274,14 @@ pt:
             submit: Enviar
             title: Resultados publicados
           tally:
+            continue: Continuar
+            invalid: Ouve um problema ao denunciar o curador ausente
+            mark_as_missing: Assinalar como ausente
+            mark_as_missing_description: Todos os curadores devem participar neste processo, mas se um curador não pode tomar parte no processo pode ser assinalado como ausente.
+            success: O curador ausente foi denunciado com êxito e enviado para o Quadro Informativo
+            tally_completion: O processo será completo quando todos os curadores estiverem activos ou assinalados como ausentes. São necessários pelo menos %{quorum} curadores para completar o processo.
             title: Processo de contagem
+            undo_mark_as_missing: Um curador assinalado como ausente poderá participar antes do processo estar completo. Pode proceder como usualmente e o assinalar da ausência será ignorado.
           tally_ended:
             answer: Resposta
             not_selected: Não seleccionado
