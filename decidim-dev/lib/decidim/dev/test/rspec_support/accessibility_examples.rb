@@ -11,8 +11,8 @@ shared_examples_for "accessible page" do
     html = page.source
     html = "<!DOCTYPE html>\n#{html}" unless html.strip.match?(/^<!DOCTYPE/i)
 
-    # This would cause a validation error (added by Foundation JS).
-    html = html.gsub(/<meta class="foundation-mq">/, "")
+    # This would cause a CSS validation error (added by EmojiPicker). Bug reported in https://github.com/validator/validator/issues/1223.
+    html = html.gsub("outline: 1px dotted var(--focus-indicator-color)", "outline: 1px dotted red")
 
     expect(html).to be_valid_html
   end
