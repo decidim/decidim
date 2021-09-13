@@ -245,6 +245,7 @@ ja:
             title: 選挙の作成
             trustees: 受託者
           key_ceremony:
+            continue: 続ける
             title: キーセレモニー
           key_ceremony_ended:
             errors:
@@ -265,6 +266,8 @@ ja:
             submit: 送信
             title: 結果を公開しました
           tally:
+            continue: 続ける
+            invalid: 受託者が見つからない報告する際に問題が発生しました
             title: 集計処理
           tally_ended:
             answer: 回答
