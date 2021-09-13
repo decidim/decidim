@@ -1,0 +1,395 @@
+lb:
+  activemodel:
+    attributes:
+      assemblies_setting:
+        enable_organization_chart: Organisationsdiagramm aktivieren
+      assembly:
+        area_id: Bereich
+        assembly_type: Versammlungstyp
+        assembly_type_other: Sonstiger Versammlungstyp
+        banner_image: Banner-Bild
+        closing_date: Einsendeschluss
+        closing_date_reason: Schlussdatums Grund
+        composition: Zusammensetzung
+        copy_categories: Kategorien kopieren
+        copy_components: Komponenten kopieren
+        copy_features: Funktionen kopieren
+        created_by: Erstellt von
+        created_by_other: Erstellt von anderen
+        creation_date: Datum erstellt
+        decidim_area_id: Bereich
+        decidim_assemblies_type_id: Versammlungstyp
+        decidim_scope_id: Umfang
+        description: Beschreibung
+        developer_group: Promoter-Gruppe
+        domain: Domain
+        duration: Dauer
+        facebook: Facebook
+        github: GitHub
+        hashtag: Hashtag
+        hero_image: Hauptbild
+        included_at: Inbegriffen bei
+        instagram: Instagram
+        internal_organisation: Interne Organisation
+        is_transparent: Ist transparent
+        local_area: Organisationsbereich
+        meta_scope: Bereichs-Metadaten
+        parent_id: Haupt Versammlung
+        participatory_processes_ids: Ähnliche Beteiligungsprozesse
+        participatory_scope: Was wird entschieden?
+        participatory_structure: Wie wird es entschieden?
+        private_space: Privatsphäre
+        promoted: Hervorgehoben
+        published_at: Veröffentlicht am
+        purpose_of_action: Zweck der Aktion
+        scope_id: Umfang
+        scopes_enabled: Bereiche aktiviert
+        short_description: Kurze Beschreibung
+        show_statistics: Zeige Statistiken
+        slug: URL-Block
+        special_features: Besondere Merkmale
+        subtitle: Untertitel
+        target: Wer nimmt teil?
+        title: Titel
+        twitter: Twitter
+        youtube: Youtube
+      assembly_member:
+        birthday: Geburtstag
+        birthplace: Geburtsort
+        ceased_date: Aufgegebenes Datum
+        designation_date: Datum der Benennung
+        designation_mode: Bezeichnungsmodus
+        full_name: Vollständiger Name
+        gender: Geschlecht
+        position: Position
+      assembly_user_role:
+        email: Email
+        name: Name
+        role: Rolle
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Ungültiger Dokumenttyp. Zulässige Formate sind: %{valid_mime_types}'
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Gre­mi­um
+        other: Gremien
+      decidim/assembly_member:
+        one: Gremienmitglieder
+        other: Mitglieder der Versammlung
+      decidim/assembly_user_role:
+        one: Assembly-Benutzerrolle
+        other: Zusammenbau von Benutzerrollen
+  decidim:
+    admin:
+      actions:
+        import_assembly: Importieren
+        new_assembly: Neues Gremium
+        new_assembly_type: Neuer Gremiumtyp
+      assemblies:
+        create:
+          error: Beim Erstellen eines neuen Gremiums ist ein Fehler aufgetreten.
+          success: Das Gremium wurde erfolgreich erstellt.
+        edit:
+          update: Aktualisieren
+        index:
+          not_published: Nicht veröffentlicht
+          private: Privat
+          public: Öffentlich
+          published: Veröffentlicht
+        new:
+          create: Erstellen
+          title: Neues Gremium
+        update:
+          error: Beim Aktualisieren dieses Gremiums ist ein Fehler aufgetreten.
+          success: Das Gremium wurde erfolgreich aktualisiert.
+      assemblies_copies:
+        create:
+          error: Beim Duplizieren dieses Gremiums ist ein Fehler aufgetreten.
+          success: Das Gremium wurde erfolgreich dupliziert.
+      assemblies_settings:
+        update:
+          error: Beim Aktualisieren der Einstellungen ist ein Fehler aufgetreten.
+          success: Einstellungen wurden erfolgreich aktualisiert.
+      assemblies_types:
+        create:
+          error: Beim Erstellen eines neuen Gremiumtyps ist ein Fehler aufgetreten.
+          success: Gremiumtyp wurde erfolgreich erstellt.
+        destroy:
+          success: Gremiumtyp wurde erfolgreich gelöscht.
+        new:
+          create: Erstellen
+          title: Neuer Gremiumtyp
+        update:
+          error: Beim Aktualisieren dieses Gremiumtyps ist ein Fehler aufgetreten.
+          success: Gremiumtyp wurde erfolgreich aktualisiert.
+      assembly_copies:
+        new:
+          copy: Kopieren
+          select: Wählen Sie die Daten aus, die Sie duplizieren möchten
+          title: Doppelte Montage
+      assembly_imports:
+        create:
+          error: Beim Importieren dieses Gremiums ist ein Fehler aufgetreten.
+          success: Gremium wurde erfolgreich importiert.
+        new:
+          import: Importieren
+          select: Wählen Sie aus, welche Daten Sie importieren möchten
+          title: Gremium importieren
+      assembly_members:
+        create:
+          error: Beim Hinzufügen eines Mitglieds zu diesem Gremium ist ein Fehler aufgetreten.
+          success: Mitglied wurde diesem Gremium erfolgreich hinzugefügt.
+        destroy:
+          success: Mitglied wurde erfolgreich aus diesem Gremium entfernt.
+        edit:
+          title: Aktualisieren Sie die Versammlungsmitglieder.
+          update: Aktualisieren
+        index:
+          assembly_members_title: Gremienmitglieder
+        new:
+          create: Erstellen
+          title: Neues Gremienmitglied.
+        update:
+          error: Beim Aktualisieren des Mitglieds dieses Gremiums ist ein Fehler aufgetreten.
+          success: Mitglied dieses Gremiums erfolgreich aktualisiert.
+      assembly_publications:
+        create:
+          error: Beim Veröffentlichen dieses Gremiums ist ein Fehler aufgetreten.
+          success: Gremium erfolgreich veröffentlicht.
+        destroy:
+          error: Beim Aufheben der Veröffentlichung dieser Assembly ist ein Fehler aufgetreten.
+          success: Die Assembly wurde nicht veröffentlicht.
+      assembly_user_roles:
+        create:
+          error: Beim Hinzufügen eines Benutzers für diese Assembly ist ein Fehler aufgetreten.
+          success: Der Administrator wurde dieser Versammlung erfolgreich hinzugefügt.
+        destroy:
+          success: Benutzer wurde erfolgreich von dieser Assembly entfernt.
+        edit:
+          title: Aktualisiere den Benutzer der Baugruppe
+          update: Aktualisieren
+        index:
+          assembly_admins_title: Assembly Benutzer
+        new:
+          create: Erstellen
+          title: Neuer Assembly-Benutzer
+        update:
+          error: Bei einem Fehler ist ein Benutzer für diese Assembly aktualisiert worden.
+          success: Der Benutzer wurde für diese Assembly erfolgreich aktualisiert.
+      menu:
+        assemblies: Gremien
+        assemblies_settings: Einstellungen
+        assemblies_submenu:
+          assembly_admins: Assembly Benutzer
+          assembly_members: Mitglieder
+          attachment_collections: Ordner
+          attachment_files: Dateien
+          categories: Kategorien
+          components: Komponenten
+          info: Info
+          moderations: Moderationen
+          private_users: Private Benutzer
+        assemblies_types: Versammlungstypen
+      models:
+        assemblies_types:
+          fields:
+            created_at: Hergestellt in
+            title: Titel
+        assembly:
+          fields:
+            created_at: Hergestellt in
+            private: Privat
+            promoted: Hervorgehoben
+            published: Veröffentlicht
+            title: Titel
+          name: Gremium
+        assembly_member:
+          fields:
+            ceased_date: Aufgegebenes Datum
+            designation_date: Datum der Benennung
+            full_name: Name
+            position: Position
+          name: Mitglied
+          positions:
+            other: Andere
+            president: Präsident
+            secretary: Sekretär
+            vice_president: Vizepräsident
+        assembly_user_role:
+          fields:
+            email: Email
+            name: Name
+    assemblies:
+      admin:
+        assemblies_types:
+          form:
+            title: Titel
+        assembly_copies:
+          form:
+            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Assembly verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Dokument hinzufügen
+            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Versammlung verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+        assembly_members:
+          form:
+            existing_user: Existierender Benutzer
+            non_user: Nichtbenutzer
+            select_a_position: Wählen Sie eine Position
+            select_user: Wählen Sie einen Benutzer aus
+            user_type: Benutzertyp
+          index:
+            filter:
+              all: Alle
+              ceased: Aufgegeben
+              not_ceased: Nicht aufgehört
+            filter_by: Filtern nach
+            search: Suche
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
+        new_import:
+          accepted_types:
+            json: JSON
+      assembly_members:
+        index:
+          members: Mitglieder
+      assembly_types:
+        commission: Kommission
+        consultative_advisory: Beratende / Beratende
+        executive: Exekutive
+        government: Regierung
+        others: Andere
+        participatory: Teilnehmend
+        working_group: Arbeitsgruppe
+      content_blocks:
+        highlighted_assemblies:
+          name: Hervorgehobene Gremien
+      created_by:
+        city_council: Stadtrat
+        others: Andere
+        public: Öffentlich
+      filter:
+        all: Alle Typen
+        commission: Kommission
+        consultative_advisory: Beratung / Beratung
+        executive: Executive
+        government: Regierung
+        help: 'Anzeigen:'
+        others: Andere
+        participatory: Partizipativ
+        working_group: Arbeitsgruppe
+      index:
+        title: Gremien
+      last_activity:
+        new_assembly: Neues Gremium
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Aktive Gremien
+            assemblies_button_title: Verknüpfung zu der Versammlungsseite mit einem Überblick aller Versammlungen
+            see_all_assemblies: Alle Gremien anzeigen
+        user_profile:
+          member_of:
+            member_of: Mitglied von
+      show:
+        area: Bereich
+        assembly_type: Montageart
+        children: Gremien
+        closing_date: Einsendeschluss
+        composition: Zusammensetzung
+        created_by: Erstellt von
+        creation_date: Datum erstellt
+        developer_group: Promoter-Gruppe
+        duration: Dauer
+        included_at: Inbegriffen bei
+        indefinite_duration: Unbestimmt
+        internal_organisation: Interne Organisation
+        is_transparent:
+          'false': undurchsichtig
+          'true': transparent
+        local_area: Organisationsbereich
+        participatory_scope: Was ist entschieden?
+        participatory_structure: Wie ist es entschieden?
+        private_space: Dies ist eine private Versammlung
+        purpose_of_action: Zweck der Aktion
+        read_less: Lese weniger
+        read_more: Weiterlesen
+        related_participatory_processes: Procesos participativos relacionados
+        scope: Umfang
+        social_networks: Soziale Netzwerke
+        social_networks_title: Diese Versammlung auf teilen
+        target: Wer nimmt teil?
+      statistics:
+        assemblies_count: Gremien
+    assembly_members:
+      assembly_member:
+        designated_on: Bezeichnet am
+      index:
+        title: Mitglieder
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Ein Administrator des Gremiums <a href="%{resource_url}">%{resource_name}</a> hat Sie als Mitglied eingeladen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie zu einer Versammlung eingeladen wurden. Gehen Sie zur <a href="%{resource_path}">Versammlungsseite</a>, um daran teilzunehmen!
+          email_subject: Sie wurden als Mitglied des Gremiums %{resource_name} eingeladen!
+          notification_title: Sie wurden als Mitglied des Gremiums <a href="%{resource_path}">%{resource_name}</a> registriert. Gehen Sie zur <a href="%{resource_path}">Gremiumsseite</a>, um mitzuwirken!
+      assembly:
+        role_assigned:
+          email_intro: Sie wurden als %{role} für die Versammlung "%{resource_title}" ausgewählt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein %{role} der Versammlung "%{resource_title}" sind.
+          email_subject: Sie wurden als %{role} für "%{resource_title}" ausgewählt.
+          notification_title: Sie wurden als %{role} für die Versammlung <a href="%{resource_url}">%{resource_title}</a> ausgewählt.
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>Eine Versammlung ist eine Gruppe von Mitgliedern einer Organisation, die sich regelmäßig treffen, um Entscheidungen über einen bestimmten Bereich oder einen bestimmten Bereich der Organisation zu treffen.</p> <p>Versammlungen halten Meetings ab, einige sind privat und andere sind offen. Wenn sie offen sind, ist es möglich, an ihnen teilzunehmen (z. B. Teilnahme, wenn die Kapazität es erlaubt, Punkte auf die Tagesordnung setzen oder Vorschläge und Entscheidungen dieses Organs kommentieren).</p> <p>Beispiele: Eine Generalversammlung (die einmal im Jahr zusammentritt, um die wichtigsten Aktionslinien der Organisation sowie ihre Exekutivorgane per Abstimmung festzulegen), ein Gleichstellungsbeirat (der alle zwei Monate zusammentritt, um Vorschläge zur Verbesserung der Geschlechterbeziehungen vorzulegen In der Organisation sind eine Evaluierungskommission (die sich jeden Monat zur Überwachung eines Prozesses trifft) oder eine Garantieeinrichtung (die Vorfälle, Missbräuche oder Vorschläge zur Verbesserung der Entscheidungsverfahren sammelt) Beispiele für Versammlungen.</p>\n"
+          page: "<p>Eine Versammlung ist eine Gruppe von Mitgliedern einer Organisation, die sich regelmäßig treffen, um Entscheidungen über einen bestimmten Bereich oder einen bestimmten Bereich der Organisation zu treffen.</p> <p>Versammlungen halten Meetings ab, einige sind privat und andere sind offen. Wenn sie offen sind, ist es möglich, an ihnen teilzunehmen (z. B. Teilnahme, wenn die Kapazität es erlaubt, Punkte auf die Tagesordnung setzen oder Vorschläge und Entscheidungen dieses Organs kommentieren).</p> <p>Beispiele: Eine Generalversammlung (die einmal im Jahr zusammentritt, um die wichtigsten Aktionslinien der Organisation sowie ihre Exekutivorgane per Abstimmung festzulegen), ein Gleichstellungsbeirat (der alle zwei Monate zusammentritt, um Vorschläge zur Verbesserung der Geschlechterbeziehungen vorzulegen In der Organisation sind eine Evaluierungskommission (die sich jeden Monat zur Überwachung eines Prozesses trifft) oder eine Garantieeinrichtung (die Vorfälle, Missbräuche oder Vorschläge zur Verbesserung der Entscheidungsverfahren sammelt) Beispiele für Versammlungen.</p>\n"
+          title: Was sind Gremien?
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Die Assembly wurde nicht in der Datenbank gefunden (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'Der Versammlungstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
+    menu:
+      assemblies: Gremien
+    metrics:
+      assemblies:
+        description: Anzahl der erstellten Gremien
+        object: Gremien
+        title: Gremien
+    participatory_processes:
+      show:
+        related_assemblies: Ähnliche Versammlungen
+  errors:
+    messages:
+      cannot_be_blank: darf nicht leer sein
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          more_info: Mehr Informationen
+          take_part: Teilnehmen
+        index:
+          children: 'Versammlungen:'
+          organizational_chart: Organigramm
+          promoted_assemblies: Hervorgehobene Gremien
+          reset_chart: Zurücksetzen
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} Gremien"
+            other: "%{count} Gremien"
+        promoted_assembly:
+          more_info: Mehr Informationen
+          take_part: Teilnehmen
+      assembly_navigation:
+        assembly_member_menu_item: Mitglieder
+        assembly_menu_item: Das Gremium
+      assembly_widgets:
+        show:
+          take_part: Teilnehmen
