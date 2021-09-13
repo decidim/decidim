@@ -1,0 +1,118 @@
+lb:
+  activemodel:
+    attributes:
+      participatory_process:
+        announcement: Ukënnegung
+        area_id: Bereich
+        banner_image: Banner-Bild
+        copy_categories: Kategorien kopieren
+        copy_components: Komponenten kopieren
+        copy_steps: Phasen kopieren
+        decidim_area_id: Bereich
+        description: Beschreibung
+        developer_group: Promoter-Gruppe
+        domain: Domäne
+        end_date: Enddatum
+        hashtag: Hashtag
+        hero_image: Hauptbild
+        local_area: Organisationsbereich
+        meta_scope: Bereichs-Metadaten
+        participatory_process_group_id: Prozessgruppe
+        participatory_scope: Was wird entschieden
+        participatory_structure: Wie wird es entschieden
+        promoted: Hervorgehoben
+        published_at: Veröffentlicht unter
+        related_process_ids: Ähnliche Beteiligungsprozesse
+        scope_id: Themenbereich
+        scope_type_max_depth_id: Umfang-Filtertiefe
+        scopes_enabled: Themenbereiche aktiviert
+        short_description: Kurzbeschreibung
+        show_metrics: Metriken anzeigen
+        show_statistics: Statistiken anzeigen
+        slug: URL-Slug
+        start_date: Ufanksdatum
+        subtitle: Ënnertitel
+        target: Wer nimmt teil
+        title: Titel
+        weight: Gewicht
+      participatory_process_group:
+        description: Beschreibung
+        developer_group: Gruppe der Unterstützer
+        group_url: Website
+        hashtag: Hashtag
+        hero_image: Bild
+        local_area: Organisationsbereich
+        meta_scope: Informationen zum Bereich
+        participatory_process_ids: Ähnliche Beteiligungsprozesse
+        participatory_scope: Was wird entschieden
+        participatory_structure: Wie wird es entschieden
+        target: Wer nimmt teil
+        title: Titel
+      participatory_process_step:
+        cta_path: '"Call to Action"-Pfad'
+        cta_text: Call to Action-Text
+        description: Beschreibung
+        end_date: Enddatum
+        short_description: Kurzbeschreibung
+  decidim:
+    admin:
+      models:
+        participatory_process_step:
+          fields:
+            end_date: Enddatum
+            start_date: Ufanksdatum
+            title: Titel
+          name: Beteiligungsprozess Phase
+        participatory_process_user_role:
+          fields:
+            email: E-Mail
+            name: Numm
+            role: Rolle
+          name: Partizipativer Prozessbenutzer
+          roles:
+            admin: Administrator
+            collaborator: Mitarbeiter
+            moderator: Moderator
+            valuator: Schätzer
+        user:
+          fields:
+            invitation_accepted_at: Einladung akzeptiert am
+            invitation_sent_at: Einladung gesendet am
+      participatory_process_copies:
+        new:
+          copy: Kopieren
+          select: Wählen Sie aus, welche Daten Sie duplizieren möchten
+          title: Beteiligungsprozess duplizieren
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Aktive Inhaltsblöcke
+          inactive_content_blocks: Inaktive Inhaltsblöcke
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Aktualisieren
+      participatory_process_groups:
+        destroy:
+          error: Beim Löschen der Beteiligungsprozessgruppe ist ein Fehler aufgetreten.
+          success: Beteiligungsprozess erfolgreich gelöscht.
+        edit:
+          title: Prozessgruppe bearbeiten
+          update: Aktualisieren
+        new:
+          create: Erstellen
+          title: Neue Prozessgruppe
+        update:
+          error: Beim Aktualisieren dieser partizipativen Prozessgruppe ist ein Fehler aufgetreten.
+          success: Partizipative Prozessgruppe wurde erfolgreich aktualisiert.
+    participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Aktivität
+    participatory_processes:
+      statistics:
+        answers_count: Antworten
+        comments_count: Bemerkungen
+        debates_count: Debatten
+        endorsements_count: Empfehlungen
+        followers_count: Follower
+        headline: Aktivität
+        meetings_count: Meetings
