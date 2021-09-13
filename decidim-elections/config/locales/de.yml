@@ -254,7 +254,6 @@ de:
             trustees: Wahlhelfer
           key_ceremony:
             title: Schlüsselzeremonie
-            trustees: Wahlhelfer
           key_ceremony_ended:
             errors:
               time_before: Die Wahl ist startbereit. Sie können die Abstimmungsperiode frühestens %{hours} Stunden vor der Startzeit (%{start_time}) eröffnen.
@@ -275,7 +274,6 @@ de:
             title: Ergebnisse veröffentlicht
           tally:
             title: Stimmenzähl-Prozess
-            trustees: Wahlhelfer
           tally_ended:
             answer: Antwort
             not_selected: Nicht ausgewählt
