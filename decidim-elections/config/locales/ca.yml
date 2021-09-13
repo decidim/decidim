@@ -254,7 +254,6 @@ ca:
             trustees: Garants
           key_ceremony:
             title: Cerimònia de claus
-            trustees: Garants
           key_ceremony_ended:
             errors:
               time_before: L'elecció està llesta per començar. Has d'esperar fins a %{hours} hores abans de l'hora d'inici (%{start_time}) per iniciar el període de votació.
@@ -275,7 +274,6 @@ ca:
             title: Resultats publicats
           tally:
             title: Procés de recompte
-            trustees: Garants
           tally_ended:
             answer: Resposta
             not_selected: No seleccionat
