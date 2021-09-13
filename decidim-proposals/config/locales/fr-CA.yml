@@ -57,6 +57,16 @@ fr-CA:
               identical: ET le titre ne peut pas être identique
             title:
               identical: ET le corps ne peut pas être identique
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Non officiels
+              supported: Avoir reçu des soutiens ou des approbations
+        proposals_split:
+          attributes:
+            base:
+              not_official: Non officiels
+              supported: A reçu des soutiens ou des approbations
     models:
       decidim/proposals/accepted_proposal_event: Proposition acceptée
       decidim/proposals/admin/update_proposal_category_event: Catégorie de proposition modifiée
@@ -145,7 +155,9 @@ fr-CA:
             participatory_texts_enabled_readonly: Impossible d'interagir avec ce paramètre s'il y a des propositions existantes. Veuillez créer une nouvelle fonctionnalité `Propositions` si vous voulez activer cette fonctionnalité ou supprimer toutes les propositions importées dans 'Textes participatifs` si vous voulez la désactiver.
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             proposal_edit_before_minutes: Délai (en minutes) après lequel les auteurs ne peuvent plus modifier leurs propositions
+            proposal_edit_time: Durée d'édition des propositions
             proposal_edit_time_choices:
+              infinite: Autoriser l'édition des propositions pour une durée infinie
               limited: Autoriser l'édition des propositions durant un délai spécifique
             proposal_length: Nombre maximum de caractères du corps de la proposition
             proposal_limit: Limite de proposition par utilisateur
@@ -507,9 +519,11 @@ fr-CA:
             title: Importer des propositions
         proposals_merges:
           create:
+            invalid: 'Une erreur est survenue lors de la fusion des propositions à cause de certaines d''entre elles:'
             success: A fusionné avec succès les propositions dans un nouveau.
         proposals_splits:
           create:
+            invalid: 'Une erreur est survenue lors de la division des propositions sélectionnées à cause de certaines d''entre elles:'
             success: Divisé avec succès les propositions en nouvelles.
         valuation_assignments:
           create:
