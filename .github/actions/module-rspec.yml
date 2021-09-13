@@ -1,0 +1,55 @@
+name: '[CI] Module rspec'
+description: 'Test module with RSpec'
+inputs:
+  name:
+    description: 'Module name'
+    required: true
+  ruby-version:
+    description: 'Ruby version'
+    default: '2.7.1'
+  node-version:
+    description: 'Node version'
+    default: '15.14.0'
+runs:
+  using: "composite"
+  steps:
+    - uses: rokroskar/workflow-run-cleanup-action@v0.3.0
+      if: "github.ref != 'refs/heads/develop'"
+      env:
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ inputs.ruby-version }}
+        bundler-cache: true
+    - uses: actions/setup-node@v1
+      with:
+        node-version: ${{ inputs.node-version }}
+    - name: Get npm cache directory path
+      id: npm-cache-dir-path
+      run: echo "::set-output name=dir::$(npm get cache)-${{ inputs.name }}"
+    - uses: actions/cache@v2
+      id: npm-cache
+      with:
+        path: ${{ steps.npm-cache-dir-path.outputs.dir }}
+        key: npm-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          npm-
+    - run: bundle exec rake test_app
+      name: Create test app
+    - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
+      name: Create the screenshots folder
+    - uses: nanasess/setup-chromedriver@v1.0.1
+    - run: RAILS_ENV=test bundle exec rails assets:precompile
+      name: Precompile assets
+      working-directory: ./spec/decidim_dummy_app/
+    - run: bundle exec rspec
+      name: RSpec
+      working-directory: ${{ inputs.name }}
+    - run: ./.github/upload_coverage.sh ${{ inputs.name }} $GITHUB_EVENT_PATH
+      name: Upload coverage
+    - uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: screenshots
+        path: ./spec/decidim_dummy_app/tmp/screenshots
+        if-no-files-found: ignore
