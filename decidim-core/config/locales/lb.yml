@@ -956,37 +956,37 @@ lb:
           last_message: Lescht Noriicht
           new_conversation: Nei Konversatioun
           next: Weider
-          no_conversations: Du hast noch keine Unterhaltungen
-          title: Gespräche
+          no_conversations: Du hues nach keng Konversatiounen
+          title: Konversatiounen
         reply:
-          placeholder: Ihre Antwort...
+          placeholder: Deng Äntwert...
           send: Senden
-          title: Antworten
+          title: Äntweren
         show:
-          back: Zurück zu allen Unterhaltungen
-          chat_with: Unterhaltung mit
-          not_allowed: Dieser Teilnehmer akzeptiert keine direkten Nachrichten.
-          title: Gespräch mit %{usernames}
+          back: Zeréck bei all d'Konversatiounen
+          chat_with: Konversatioun mat
+          not_allowed: Dësen Teilnehmer refuséiert direkt Noriichten.
+          title: Konversatioun mam %{usernames}
         start:
           send: Senden
-          title: Ein Gespräch beginnen
+          title: Eng Konversatioun ufänken
         update:
-          error: Nachricht wurde aufgrund eines Fehlers nicht gesendet
+          error: Wéinst engem Feeler konnt d'Noriicht net geschéckt ginn
     metrics:
       download:
-        csv: Daten herunterladen (CSV)
+        csv: Daten am (CSV) eroflueden
       followers:
-        description: Anzahl der Benutzer, die dieser Teilnahme folgen
-        object: Anhänger
-        title: Anhänger
+        description: Zuel vun den Teilnehmer, déi dësem Konversatiouns-Espace nofollegen
+        object: Follower
+        title: Follower
       participants:
-        description: Anzahl der aktiven Benutzer in der Organisation
+        description: Zuel vun den aktiven Teilnehmer an dëser Organisatioun
         object: Teilnehmer
         title: Teilnehmer
       users:
-        description: Anzahl der Benutzer in der Organisation
-        object: Benutzer
-        title: Benutzer
+        description: Zuel vun den Teilnehmer an dëser Organisatioun
+        object: Teilnehmer
+        title: Teilnehmer
     newsletter_mailer:
       newsletter:
         note: Sie haben diese E-Mail erhalten, weil Sie Newsletter auf %{organization_name}abonniert haben. Sie können Ihre Einstellungen auf Ihrer ändern <a href="%{link}">Benachrichtigungen Seite</a>.
