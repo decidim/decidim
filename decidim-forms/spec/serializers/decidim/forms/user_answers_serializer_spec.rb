@@ -66,7 +66,7 @@ module Decidim
         it "includes the answer for each question" do
           questions.each_with_index do |question, idx|
             expect(serialized).to include(
-              "#{idx + 1}. #{translated(question.body, locale: I18n.locale)}" => answers[idx].body
+              translated(question.body, locale: I18n.locale) => answers[idx].body
             )
           end
 
@@ -82,19 +82,19 @@ module Decidim
           serialized_files_answer = files_answer.attachments.map(&:url)
 
           expect(serialized).to include(
-            "4. #{translated(multichoice_question.body, locale: I18n.locale)}" => multichoice_answer_choices.map(&:body)
+            translated(multichoice_question.body, locale: I18n.locale) => multichoice_answer_choices.map(&:body)
           )
 
           expect(serialized).to include(
-            "5. #{translated(singlechoice_question.body, locale: I18n.locale)}" => ["Free text"]
+            translated(singlechoice_question.body, locale: I18n.locale) => ["Free text"]
           )
 
           expect(serialized).to include(
-            "6. #{translated(matrixmultiple_question.body, locale: I18n.locale)}" => serialized_matrix_answer
+            translated(matrixmultiple_question.body, locale: I18n.locale) => serialized_matrix_answer
           )
 
           expect(serialized).to include(
-            "7. #{translated(files_question.body, locale: I18n.locale)}" => serialized_files_answer
+            translated(files_question.body, locale: I18n.locale) => serialized_files_answer
           )
         end
 
