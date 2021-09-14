@@ -1,11 +1,12 @@
 /* eslint-disable require-jsdoc */
 
-import { VoteComponent } from "@codegram/decidim-bulletin_board";
+import { VoteComponent } from "@decidim/decidim-bulletin_board";
 
-import * as VotingSchemesDummy from "@codegram/voting_schemes-dummy";
+import * as VotingSchemesDummy from "@decidim/voting_schemes-dummy";
 const DummyVoterWrapperAdapter = VotingSchemesDummy.VoterWrapperAdapter;
-import * as VotingSchemesElectionGuard from "@codegram/voting_schemes-electionguard";
-const ElectionGuardVoterWrapperAdapter = VotingSchemesElectionGuard.VoterWrapperAdapter;
+import * as VotingSchemesElectionGuard from "@decidim/voting_schemes-electionguard";
+const ElectionGuardVoterWrapperAdapter =
+  VotingSchemesElectionGuard.VoterWrapperAdapter;
 
 export default function setupVoteComponent($voteWrapper) {
   // Data
@@ -47,4 +48,3 @@ export default function setupVoteComponent($voteWrapper) {
 
 window.Decidim = window.Decidim || {};
 window.Decidim.setupVoteComponent = setupVoteComponent;
-

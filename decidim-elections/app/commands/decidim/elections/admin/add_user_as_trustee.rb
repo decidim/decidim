@@ -74,7 +74,7 @@ module Decidim
             resource: form.current_participatory_space,
             affected_users: [form.user]
           }
-          Decidim::EventsManager.publish(data)
+          Decidim::EventsManager.publish(**data)
         end
       end
     end

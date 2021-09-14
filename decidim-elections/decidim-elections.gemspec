@@ -18,11 +18,9 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-bulletin_board", "0.21.2"
-
-  # Note: these gems will be moved to the application in the next release
-  s.add_dependency "voting_schemes-dummy", "0.21.2"
-  s.add_dependency "voting_schemes-electionguard", "0.21.2"
+  s.add_dependency "decidim-bulletin_board", "0.22.3"
+  s.add_dependency "voting_schemes-dummy", "0.22.3"
+  s.add_dependency "voting_schemes-electionguard", "0.22.3"
 
   s.add_dependency "decidim-core", Decidim::Elections.version
   s.add_dependency "decidim-forms", Decidim::Elections.version

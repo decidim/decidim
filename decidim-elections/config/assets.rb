@@ -8,6 +8,7 @@ Decidim::Webpacker.register_entrypoints(
   decidim_elections_election_log: "#{base_path}/app/packs/entrypoints/decidim_elections_election_log.js",
   decidim_elections_onboarding: "#{base_path}/app/packs/entrypoints/decidim_elections_onboarding.js",
   decidim_elections_admin_pending_action: "#{base_path}/app/packs/entrypoints/decidim_elections_admin_pending_action.js",
+  decidim_elections_admin_trustees_process: "#{base_path}/app/packs/entrypoints/decidim_elections_admin_trustees_process.js",
   decidim_elections_admin_vote_statistics: "#{base_path}/app/packs/entrypoints/decidim_elections_admin_vote_statistics.js",
   decidim_elections_trustee_key_ceremony: "#{base_path}/app/packs/entrypoints/decidim_elections_trustee_key_ceremony.js",
   decidim_elections_trustee_tally: "#{base_path}/app/packs/entrypoints/decidim_elections_trustee_tally.js",

@@ -7,6 +7,10 @@ module Decidim
       class ActionForm < Decidim::Form
         validates :pending_action, absence: true
 
+        def main_button?
+          true
+        end
+
         def messages
           @messages ||= {}
         end
