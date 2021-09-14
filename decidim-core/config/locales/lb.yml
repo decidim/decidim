@@ -515,7 +515,7 @@ lb:
       endorse: Ënnerstëtzen
     endorsements:
       identities:
-        done: Erledigt
+        done: Erleedegt
         select_identity: Identitéit wielen
     errors:
       internal_server_error:
