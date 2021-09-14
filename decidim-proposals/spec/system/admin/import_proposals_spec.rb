@@ -30,7 +30,7 @@ describe "Import proposals", type: :system do
     it "doesnt change proposal amount if one imported row fails" do
       attach_file :proposals_file_import_file, Decidim::Dev.asset("import_proposals_broken.csv")
       click_button "Import"
-      expect(page).to have_content("Found error in the import file on line 4")
+      expect(page).to have_content("Found an error in the import file on line 4")
       expect(Decidim::Proposals::Proposal.count).to eq(0)
     end
 
