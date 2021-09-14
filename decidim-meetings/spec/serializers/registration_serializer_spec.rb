@@ -86,19 +86,19 @@ module Decidim::Meetings
 
         it "includes the answer for each question" do
           expect(serialized[:registration_form_answers]).to include(
-            "1. #{translated(questions.first.body, locale: I18n.locale)}" => answers.first.body
+            translated(questions.first.body, locale: I18n.locale) => answers.first.body
           )
           expect(serialized[:registration_form_answers]).to include(
-            "3. #{translated(questions.last.body, locale: I18n.locale)}" => answers.last.body
+            translated(questions.last.body, locale: I18n.locale) => answers.last.body
           )
           expect(serialized[:registration_form_answers]).to include(
-            "4. #{translated(multichoice_question.body, locale: I18n.locale)}" => multichoice_answer_choices.map(&:body)
+            translated(multichoice_question.body, locale: I18n.locale) => multichoice_answer_choices.map(&:body)
           )
           expect(serialized[:registration_form_answers]).to include(
-            "5. #{translated(singlechoice_question.body, locale: I18n.locale)}" => [singlechoice_answer_choice.body]
+            translated(singlechoice_question.body, locale: I18n.locale) => [singlechoice_answer_choice.body]
           )
           expect(serialized[:registration_form_answers]).to include(
-            "6. #{translated(singlechoice_free_question.body, locale: I18n.locale)}" => ["Free text answer"]
+            translated(singlechoice_free_question.body, locale: I18n.locale) => ["Free text answer"]
           )
         end
       end
