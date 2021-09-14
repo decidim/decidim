@@ -55,11 +55,9 @@ namespace :decidim do
     end
 
     def install_decidim_npm
-      decidim_npm_packages.each do |type, package|
-        if type == :dev
-          system! "npm i -D #{package}"
-        else
-          system! "npm i #{package}"
+      decidim_npm_packages.each do |type, packages|
+        packages.each do |package|
+          system! "npm i #{type == :dev ? "-D" : ""} #{package}"
         end
       end
     end
@@ -72,33 +70,42 @@ namespace :decidim do
       File.write(rails_app_path.join("package.json"), JSON.pretty_generate(package))
     end
 
+    NPM_PACKAGES = {
+      dev: %w(dev eslint-config stylelint-config),
+      prod: %w(browserslist-config core elections webpacker)
+    }.freeze
+
     def decidim_npm_packages
+      gem_path = unreleased_gem_path
+
+      if gem_path
+        package_spec = "./packages/%s"
+
+        # The packages folder needs to be copied to the application folder
+        # because the linked dependencies are not installed when packages
+        # are installed using file references outside the application root
+        # where the `package.json` is located at. For more information, see:
+        # https://github.com/npm/cli/issues/2339
+        FileUtils.rm_rf(rails_app_path.join("packages"))
+        FileUtils.cp_r(gem_path.join("packages"), rails_app_path)
+      else
+        package_spec = "@decidim/%s@~#{Decidim::GemManager.semver_friendly_version(decidim_gemspec.version.to_s)}"
+      end
+
+      NPM_PACKAGES.transform_values {|names| names.map {|name| package_spec % [name]}}
+    end
+
+    def unreleased_gem_path
       if decidim_gemspec.source.is_a?(Bundler::Source::Rubygems)
-        if released_version?
-          return {
-            dev: "@decidim/dev@~#{Decidim::GemManager.semver_friendly_version(decidim_gemspec.version.to_s)}",
-            prod: "@decidim/all@~#{Decidim::GemManager.semver_friendly_version(decidim_gemspec.version.to_s)}"
-          }
-        else
-          gem_path = Pathname(decidim_gemspec.full_gem_path)
-        end
+        return if released_version?
+
+        gem_path = Pathname(decidim_gemspec.full_gem_path)
       else
         gem_path = decidim_gemspec.source.path
         gem_path = Pathname(ENV["BUNDLE_GEMFILE"]).dirname.join(gem_path) if gem_path.relative?
       end
 
-      # The packages folder needs to be copied to the application folder
-      # because the linked dependencies are not installed when packages
-      # are installed using file references outside the application root
-      # where the `package.json` is located at. For more information, see:
-      # https://github.com/npm/cli/issues/2339
-      FileUtils.rm_rf(rails_app_path.join("packages"))
-      FileUtils.cp_r(gem_path.join("packages"), rails_app_path)
-
-      {
-        dev: "./packages/dev",
-        prod: "./packages/all"
-      }
+      gem_path
     end
 
     def decidim_path
