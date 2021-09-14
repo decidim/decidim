@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Edit initiative", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, organization: organization) }
+  let(:user) { create(:user, :confirmed, organization: organization) }
   let(:initiative_title) { translated(initiative.title) }
   let(:new_title) { "This is my initiative new title" }
 
@@ -70,7 +70,7 @@ describe "Edit initiative", type: :system do
   end
 
   describe "when user is admin" do
-    let(:user) { create(:user, :admin, organization: organization) }
+    let(:user) { create(:user, :confirmed, :admin, organization: organization) }
     let(:initiative) { create(:initiative, :created, scoped_type: scoped_type, organization: organization) }
 
     it_behaves_like "manage update"
