@@ -1,6 +1,13 @@
 lb:
   activemodel:
     attributes:
+      answer:
+        body: Äntwert
+        choices: Choixen
+        selected_choices: Ausgewählte Auswahl
+      question:
+        max_choices: Maximale Anzahl von Auswahlmöglichkeiten
+        question_type: Zort
       questionnaire_question:
         mandatory: Verpflichtend
         max_characters: Maximale Anzahl Zeichen (0 bedeutet kein Limit)
