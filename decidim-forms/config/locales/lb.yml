@@ -80,6 +80,8 @@ lb:
             unpublished_warning: Das Formular ist nicht öffentlich. Sie können die Fragen ändern, dabei werden allerdings die aktuellen Antworten gelöscht.
           matrix_row:
             matrix_row: Zeile
+      files:
+        extension_allowlist: 'Gültige Formate:'
       questionnaires:
         show:
           questionnaire_not_published:
