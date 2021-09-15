@@ -85,7 +85,7 @@ namespace :decidim do
         package_spec = "@decidim/%s@~#{Decidim::GemManager.semver_friendly_version(decidim_gemspec.version.to_s)}"
       end
 
-      npm_dependencies.transform_values { |names| names.map { |name| package_spec % [name] } }
+      local_npm_dependencies.transform_values { |names| names.map { |name| format(package_spec, name) } }
     end
 
     def unreleased_gem_path
@@ -101,23 +101,25 @@ namespace :decidim do
       gem_path
     end
 
-    def npm_dependencies
-      @npm_dependencies ||= begin
+    def local_npm_dependencies
+      @local_npm_dependencies ||= begin
         package_json = JSON.parse(File.read(decidim_path.join("package.json")))
 
         {
-          prod: npm_dependencies_list(package_json["dependencies"]),
-          dev: npm_dependencies_list(package_json["devDependencies"]),
-          peer: npm_dependencies_list(package_json["peerDependencies"]),
-          optional: npm_dependencies_list(package_json["optionalDependencies"]),
+          prod: local_npm_dependencies_list(package_json["dependencies"]),
+          dev: local_npm_dependencies_list(package_json["devDependencies"]),
+          peer: local_npm_dependencies_list(package_json["peerDependencies"]),
+          optional: local_npm_dependencies_list(package_json["optionalDependencies"])
         }.freeze
       end
     end
 
-    def npm_dependencies_list(deps)
+    def local_npm_dependencies_list(deps)
       return [] unless deps
 
-      deps.keys.map {|l| l.scan /@decidim\/([^\"]+)/i }.flatten
+      deps.values
+          .select { |ref| ref.starts_with?("file:packages/") }
+          .map { |ref| ref.delete_prefix("file:packages/") }
     end
 
     def decidim_path
