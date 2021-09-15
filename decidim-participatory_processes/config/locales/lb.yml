@@ -278,7 +278,17 @@ lb:
         followers_count: Follower
         headline: Aktivität
         meetings_count: Meetings
+        no_stats: Es gibt noch keine Statistiken.
+        orders_count: Votten
+        pages_count: Säiten
+        participants_count: Benotzer
         processes_count: Beteiligungsprozesse
+        projects_count: Projeten
+        proposals_count: Virschléi
+        results_count: Resultater
+        supports_count: Votten
+        surveys_count: Emfroen
+        users_count: Benotzer
   layouts:
     decidim:
       participatory_process_groups:
