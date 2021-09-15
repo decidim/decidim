@@ -4,7 +4,7 @@ module Decidim
   module Meetings
     module Directory
       # Exposes the meeting resource so users can view them
-      class MeetingsController < Decidim::ApplicationController
+      class MeetingsController < Decidim::Meetings::Directory::ApplicationController
         layout "layouts/decidim/application"
 
         include FilterResource
@@ -46,15 +46,30 @@ module Decidim
           {
             date: "upcoming",
             search_text: "",
-            scope_id: "",
-            space: "all"
+            activity: "all",
+            scope_id: default_filter_scope_params,
+            space: "all",
+            type: ["all"],
+            origin: default_filter_origin_params,
+            category_id: ["all"] + current_organization.public_participatory_spaces.pluck(:id).map(&:to_s)
           }
+        end
+
+        def default_filter_scope_params
+          %w(all global) + current_organization.scopes.pluck(:id).map(&:to_s)
         end
 
         def default_search_params
           {
             scope: Meeting.not_hidden.visible_meeting_for(current_user)
           }
+        end
+
+        def default_filter_origin_params
+          filter_origin_params = %w(citizens)
+          filter_origin_params << "official"
+          filter_origin_params << "user_group" if current_organization.user_groups_enabled?
+          filter_origin_params
         end
 
         def context_params
