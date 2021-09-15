@@ -207,6 +207,7 @@ fr:
           proposals_count:
             one: 'La rencontre ne peut être supprimée car %{count} proposition y est rattachée:'
             other: 'La rencontre ne peut être supprimée car %{count} propositions y sont rattachées:'
+        manage_poll: Gérer le sondage
         new: Nouvelle réunion
         preview: Aperçu
         registrations: Inscriptions
@@ -243,6 +244,7 @@ fr:
             invalid: Un problème est survenu lors de la mise à jour de cet ordre du jour
             success: Ordre du jour mis à jour avec succès
         exports:
+          answers: Réponses
           meeting_comments: Commentaires
           meetings: Rencontres
           registrations: Inscriptions
@@ -283,6 +285,7 @@ fr:
             success: Rencontre close avec succès
           create:
             invalid: Il y a eu un problème lors de la création de cette rencontre
+            success: Réunion créée avec succès. Notez que celle-ci n'est pas encore publiée, vous devez la publier manuellement.
           destroy:
             invalid:
               proposals_count:
@@ -309,6 +312,9 @@ fr:
           new:
             create: Créer
             title: Créer une rencontre
+          publish:
+            invalid: Une erreur s'est produite lors de la publication de cette rencontre
+            success: Rencontre publiée avec succès
           service:
             description: Description
             down: Vers le bas
@@ -319,9 +325,15 @@ fr:
           services:
             add_service: Ajouter un service
             services: Services
+          unpublish:
+            invalid: Une erreur s'est produite lors de la dépublication de cette rencontre
+            success: Rencontre dépubliée avec succès
           update:
             invalid: Il y a eu un problème lors de la mise à jour de cette rencontre
             success: Rencontre mise à jour avec succès
+        meetings_poll:
+          form:
+            title: Modifier le questionnaire de sondage pour %{questionnaire_for}
         models:
           meeting:
             name: Rencontre
