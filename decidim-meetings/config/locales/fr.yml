@@ -334,6 +334,9 @@ fr:
         meetings_poll:
           form:
             title: Modifier le questionnaire de sondage pour %{questionnaire_for}
+          update:
+            invalid: Une erreur est survenue lors de la mise à jour du sondage de la rencontre
+            success: Sondage de rencontre mis à jour avec succès
         models:
           meeting:
             name: Rencontre
@@ -396,6 +399,11 @@ fr:
       last_activity:
         meeting_updated_at_html: "<span>Débat mis à jour à %{link}</span>"
         new_meeting_at_html: "<span>Nouvelle réunion à %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Administrer
+          close: fermer
+          questions: Questions
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -411,6 +419,13 @@ fr:
           close: Clore la rencontre
           title: Clore la rencontre
       meetings:
+        calendar_modal:
+          add_to_calendar: Ajouter au calendrier
+          apple: Envoyer vers le Calendrier Apple
+          close_window: Fermer la fenêtre
+          full_details_html: Pour plus de détails, allez sur %{link}
+          google: Ajouter au calendrier Google
+          outlook: Ajouter au calendrier Outlook
         count:
           meetings_count:
             one: "%{count} rencontre"
@@ -504,6 +519,7 @@ fr:
             one: "Il reste %{count} place"
             other: "Il reste %{count} places"
           view: Voir
+          visit_finished: Consulter l’historique des rencontres
         update:
           invalid: Une erreur s'est produite lors de la mise à jour de la rencontre.
           success: La rencontre a été mise à jour avec succès.
@@ -524,10 +540,29 @@ fr:
           fields:
             closed: Fermée
             end_time: Date de fin
+            id: Id
             map: Carte
             official_meeting: Rencontre officielle
             start_time: Date de début
             title: Titre
+      polls:
+        questions:
+          closed_question:
+            question_results: Résultats de l'élection
+          index:
+            empty_questions: Tout au long de cette rencontre, certaines questions seront envoyées et vous pourrez y répondre. Elles seront affichées ici.
+          index_admin:
+            admin_dashboard: Tableau de bord d'administration
+            edit: Modifier dans le panneau Admin
+            question: Question
+            received_answer: réponse reçue
+            received_answers: réponses reçues
+            results: Résultats
+            send: Envoyer
+            sent: Envoyée
+          published_question:
+            max_choices_alert: Il y a trop de choix sélectionnés
+            question: Question
       public_participants_list:
         attending_participants: Participants présents
         hidden_participants_count:
