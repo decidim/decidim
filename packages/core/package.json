@@ -14,6 +14,7 @@
     "npm": "^7.7.2"
   },
   "dependencies": {
+    "@decidim/leaflet-svgicon": "1.0.0",
     "@joeattardi/emoji-button": "^4.6.0",
     "@zeitiger/appendaround": "^1.0.0",
     "axios": "^0.21.1",
@@ -30,7 +31,6 @@
     "jquery-serializejson": "2.9.0",
     "jquery.autocomplete": "1.2.0",
     "leaflet": "1.3.1",
-    "leaflet-svgicon-scalable": "^0.0.3",
     "leaflet-tilelayer-here": "1.0.2",
     "leaflet.markercluster": "1.4.1",
     "moment": "2.29.1",
