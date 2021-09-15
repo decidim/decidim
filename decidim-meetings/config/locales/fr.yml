@@ -23,6 +23,7 @@ fr:
         decidim_user_group_id: Groupe d'utilisateurs
         description: Description
         end_time: Date de fin
+        id: ID
         location: Lieu
         location_hints: Indicateurs d’emplacement
         online_meeting_url: URL de la rencontre
@@ -76,9 +77,32 @@ fr:
     admin:
       filters:
         meetings:
+          category_id_eq:
+            label: Catégorie
+          closed_at_present:
+            label: État
+            values:
+              'false': Ouvert
+              'true': Fermé
+          is_upcoming_true:
+            label: Date
+            values:
+              'false': Passés
+              'true': À venir
           origin_eq:
+            label: Origine
             values:
               citizen: Citoyen
+              official: Officiel
+              user_group: Groupes d’utilisateurs
+          scope_id_eq:
+            label: Périmètre
+          type_eq:
+            label: Type de rencontre
+            values:
+              hybrid: Hybride
+              in_person: En présentiel
+              online: En ligne
       meeting_copies:
         create:
           error: Une erreur s'est produite lors de la duplication de cette rencontre.
