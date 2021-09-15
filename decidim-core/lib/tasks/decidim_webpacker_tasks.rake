@@ -107,9 +107,7 @@ namespace :decidim do
 
         {
           prod: local_npm_dependencies_list(package_json["dependencies"]),
-          dev: local_npm_dependencies_list(package_json["devDependencies"]),
-          peer: local_npm_dependencies_list(package_json["peerDependencies"]),
-          optional: local_npm_dependencies_list(package_json["optionalDependencies"])
+          dev: local_npm_dependencies_list(package_json["devDependencies"])
         }.freeze
       end
     end
