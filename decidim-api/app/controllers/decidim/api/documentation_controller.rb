@@ -9,14 +9,16 @@ module Decidim
 
       helper_method :static_api_docs_content
 
-      def show
-        @page = params[:path] || ""
-      end
-
       private
 
       def static_api_docs_content
-        "public/static/api/docs/#{@page}/index"
+        render_to_string(File.join("static", "api", "docs", *safe_content_path, "index"))
+      end
+
+      def safe_content_path
+        return "" unless params[:path]
+
+        params[:path].split("/").excluding("..", ".")
       end
     end
   end

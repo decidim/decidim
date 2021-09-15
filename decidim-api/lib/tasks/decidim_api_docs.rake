@@ -5,7 +5,7 @@ require "graphql-docs"
 namespace :decidim_api do
   desc "Generates the API docs files"
   task generate_docs: :environment do
-    output_dir = Rails.application.root.join("public", "static", "api", "docs")
+    output_dir = Rails.application.root.join("app", "views", "static", "api", "docs")
     FileUtils.rm_rf(output_dir)
 
     GraphQLDocs.build(
