@@ -3,32 +3,33 @@ lb:
     attributes:
       area:
         area_type: Bereichstyp
-        name: Name
-        organization: Organisation
+        name: Numm
+        organization: Organisatioun
       area_type:
-        name: Name
-        organization: Organisation
+        name: Numm
+        organization: Organisatioun
         plural: Plural
       attachment:
-        attachment_collection_id: Verzeichnis
-        description: Beschreibung
+        attachment_collection_id: Dossier
+        description: Beschreiwung
         file: Datei
         title: Anhang oder Bildname
       attachment_collection:
-        description: Beschreibung
-        name: Name
+        description: Beschreiwung
+        name: Numm
       category:
-        description: Beschreibung
-        name: Name
+        description: Beschreiwung
+        name: Numm
         parent_id: Übergeordnete Kategorie
       component:
-        name: Name
+        name: Numm
         published_at: Veröffentlicht unter
+        weight: Reihenfolge
       id: ID
       import:
         user_group_id: Importierte Inhalte erstellen als
       newsletter:
-        body: Haupttext
+        body: Haapttext
         subject: Betreff
       organization:
         admin_terms_of_use_body: Körper für die Admin-Nutzungsbedingungen
@@ -40,12 +41,13 @@ lb:
         cta_button_text: Call To Action Schaltfläche Text
         customize_welcome_notification: Willkommens-Benachrichtigung anpassen
         default_locale: Standardgebietsschema
-        description: Beschreibung
+        description: Beschreiwung
         enable_omnipresent_banner: Zeige allgegenwärtiges Banner
         facebook_handler: Facebook-Handler
         favicon: Icon
         force_authentication: Authentifizierung erzwingen
         force_users_to_authenticate_before_access_organization: Benutzer müssen sich authentifizieren bevor sie auf die Organisation zugreifen können
+        from: Absender E-Mail
         github_handler: GitHub-Handler
         header_snippets: Header-Snippets
         highlight_alternative_color: Hervorhebung, Alternative
@@ -63,7 +65,7 @@ lb:
         machine_translation_display_priority: Priorität der maschinellen Übersetzung
         machine_translation_display_priority_original: Originaltext zuerst
         machine_translation_display_priority_translation: Übersetzter Text zuerst
-        name: Name
+        name: Numm
         official_img_footer: Offizielles Logo Fußzeile
         official_img_header: Offizieller Logo-Header
         official_url: Offizielle Organisations-URL
@@ -110,10 +112,12 @@ lb:
         show_in_footer: In der Fußzeile anzeigen
         slug: URL-Block
         title: Titel
+        weight: Gewicht
       static_page_topic:
         description: Beschreibung
         show_in_footer: In der Fußzeile anzeigen
         title: Titel
+        weight: Reihenfolge
       user_group_csv_verification:
         file: Datei
     errors:
@@ -153,6 +157,7 @@ lb:
         browse: Durchsuchen
         category:
           new: Neue Kategorie
+        export: Exportéieren
         import: Importieren
         manage: Verwalten
         new: Neu %{name}
@@ -173,10 +178,12 @@ lb:
           success: Super! Sie haben die Admin-Nutzungsbedingungen akzeptiert.
         actions:
           accept: Ich stimme den folgenden Bedingungen zu
+          are_you_sure: Sind Sie sicher, dass Sie die Admin-Nutzungsbedingungen ablehnen möchten?
           refuse: Die Admin-Nutzungsbedingungen ablehnen
           title: Den Admin-Nutzungsbedingungen zustimmen
         required_review:
           alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
+          callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Ansonsten können Sie die Plattform nicht administrieren.
           cta: Lesen Sie sie jetzt.
         title: Admin-Nutzungsbedingungen
       area_types:
@@ -199,6 +206,7 @@ lb:
           error: Beim Erstellen eines neuen Bereichs ist ein Fehler aufgetreten.
           success: Bereich wurde erfolgreich erstellt.
         destroy:
+          has_spaces: Dieser Bereich hat abhängige Abschnitte. Es darf keine Abhängigkeiten geben, um gelöscht zu werden.
           success: Bereich wurde erfolgreich zerstört
         edit:
           title: Bereich bearbeiten
@@ -251,6 +259,7 @@ lb:
       block_user:
         new:
           action: Konto sperren und Begründung senden
+          description: Das Blockieren eines Benutzers wird sein Konto unbrauchbar machen. Sie können begründen und Richtlinien dafür bieten, wie der Benutzer vorgehen könnte, damit Sie in Betracht ziehen, die Blockierung wieder aufzuheben.
           justification: Begründung
           title: Benutzer %{name} blockieren
       categories:
@@ -313,6 +322,7 @@ lb:
         'false': 'Nein'
         managed_user_name: Verwalteter Benutzer
         solved: Gelöst
+        title: Konflikte von Überprüfungen
         transfer:
           email: E-Mail
           error: Es gab ein Problem bei der Übertragung des aktuellen Teilnehmers zu den verwalteten Teilnehmern.
@@ -369,6 +379,7 @@ lb:
         file_help:
           import:
             explanation: 'Hinweise für die Datei:'
+            message_1: CSV, JSON und Excel (.xls) Dateien werden unterstützt
             message_2: Bei CSV-Dateien muss das Trennzeichen zwischen den Spalten ein Semikolon sein (";")
       help_sections:
         error: Beim Aktualisieren der Hilfeabschnitte ist ein Fehler aufgetreten
@@ -420,6 +431,7 @@ lb:
           accepted_mime_types:
             csv: CSV
             json: JSON
+            xls: xls
           actions:
             back: Zurück
           file_legend: Datei zum Importieren hinzufügen.
@@ -593,6 +605,7 @@ lb:
       newsletters:
         create:
           error: Beim Erstellen dieses Newsletters ist ein Fehler aufgetreten.
+          success: Newsletter erfolgreich erstellt Bitte, überprüfen Sie es vor dem Senden.
         deliver:
           error: Beim Versand dieses Newsletters ist ein Fehler aufgetreten.
           success: Newsletter erfolgreich geliefert
@@ -675,10 +688,12 @@ lb:
           title: Benutzer "%{name}" offiziellisieren
         show_email_modal:
           close_modal: Modal schließen
+          description: Wenn Sie einen Teilnehmer direkt kontaktieren möchten, können Sie auf die Schaltfläche "Anzeigen" klicken, um die E-Mail-Adresse zu sehen. Diese Aktion wird protokolliert.
           email_address: E-Mail-Adresse
           full_name: Voller Name
           hidden: versteckt
           show: Anzeigen
+          title: Teilnehmer E-Mail-Adresse anzeigen
         unblock:
           error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten
           success: Blockierung des Teilnehmers wurde erfolgreich aufgehoben
@@ -911,6 +926,10 @@ lb:
           no_users_count_statistics_yet: Es gibt noch keine Nutzerstatistiken
           participants: Teilnehmer
       view_public_page: Öffentliche Seite anzeigen
+    forms:
+      errors:
+        impersonate_user:
+          reason: Sie müssen einen Grund angeben, wenn Sie sich als nicht verwalteter Benutzer ausgeben
     metrics:
       blocked_users:
         object: blockierte Benutzer
