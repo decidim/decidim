@@ -966,6 +966,10 @@ fr:
           no_users_count_statistics_yet: Il n'y a pas encore de statistiques du nombre d'utilisateurs
           participants: Participants
       view_public_page: Voir la page publique
+    forms:
+      errors:
+        impersonate_user:
+          reason: Vous devez fournir une raison si vous modérer un participant actuellement non-modéré
     metrics:
       blocked_users:
         object: utilisateurs bloqués
@@ -973,6 +977,9 @@ fr:
       reported_users:
         object: utilisateurs signalés
         title: Utilisateurs signalés
+      user_reports:
+        object: signalements d'utilisateurs
+        title: Signalements d'utilisateurs
     moderations:
       actions:
         expand: Agrandir
