@@ -16,6 +16,12 @@ fr-CA:
         other: Votes
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Commentaires activés
+            end_time: Commentaires activés jusqu'à
+            start_time: Commentaires activés depuis
       comments:
         create:
           error: Une erreur s'est produite lors de la création du commentaire.
