@@ -170,8 +170,8 @@ namespace :decidim do
       File.write(file, contents)
     end
 
-    def system!(*args)
-      system(*args) || abort("\n== Command #{args} failed ==")
+    def system!(command)
+      system("cd #{rails_app_path} && #{command}") || abort("\n== Command #{args} failed ==")
     end
   end
 end
