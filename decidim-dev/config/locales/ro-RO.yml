@@ -20,10 +20,16 @@ ro:
               a: O alegere
               b: Alegere B
               c: Alegere C
+            test_options:
+              bar: Bară
+              foo: Foo
           step:
             endorsements_blocked: Aprobări blocate
             endorsements_enabled: Aprobări activate
             readonly_step_attribute: Atribut pas Readonly
+            test_options:
+              bar: Bară
+              foo: Foo
     dummy:
       admin:
         exports:
