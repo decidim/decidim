@@ -138,6 +138,7 @@ lb:
       admin:
         agenda:
           edit:
+            title: Agenda bearbeiten
             update: Aktualiséieren
           form:
             add_agenda_item: Tagesordnungspunkt hinzufügen
@@ -208,6 +209,27 @@ lb:
             location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
             location_hints_help: 'Hinweise zum Standort: Zusätzliche Informationen. Beispiel: das Stockwerk im Gebäude wenn es eine Sitzung vor Ort ist, oder das Passwort wenn es eine Online-Sitzung mit eingeschränktem Zugriff ist.'
             online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
+            registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
+            select_a_meeting_type: Bitte eine Meeting-Typ auswählen
+            select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
+          index:
+            title: Versammlungen
+          new:
+            create: Erstellen
+            title: Versammlung erstellen
+          service:
+            description: Beschreibung
+            down: Nieder
+            remove: Löschen
+            service: Bedienung
+            title: Titel
+            up: Hoch
+          services:
+            add_service: Service dobäisetzen
+            services: Dienstleistungen
+          update:
+            invalid: Beim Aktualisieren dieses Meetings ist ein Problem aufgetreten
+            success: Sitzung erfolgreich aktualisiert
         minutes:
           create:
             invalid: Beim Erstellen dieser Minuten ist ein Problem aufgetreten
@@ -221,7 +243,42 @@ lb:
           update:
             invalid: Beim Aktualisieren dieser Minuten ist ein Problem aufgetreten
             success: Minuten erfolgreich aktualisiert
+        models:
+          meeting:
+            name: Versammlung
+        registrations:
+          edit:
+            save: Späicheren
+            validate: Bestätigen
+            validate_registration_code: Validiere den Registrierungscode
+          form:
+            available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
+            invites: Aluedungen
+            recommendation_message: Aus Datenschutzgründen empfehlen wir, dass Sie dieses Einschreibeformular löschen, wenn es nicht länger benötigt wird. Standardmäßig ist das 3 Monate nachdem die Besprechung durchgeführt wurde.
+            registration_form: Anmeldeformular
+            registrations_count:
+              one: Es wurde %{count} registriert.
+              other: Es gab %{count} Registrierungen.
+            reserved_slots_help: Belassen Sie es auf 0, wenn Sie keine reservierten Slots haben
+            reserved_slots_less_than: Muss kleiner oder gleich %{count}
+            title: Anmeldungen
+          update:
+            invalid: Beim Speichern der Registrierungseinstellungen ist ein Problem aufgetreten.
+            success: Die Registrierungseinstellungen wurden erfolgreich gespeichert.
+          validate_registration_code:
+            invalid: Dieser Registrierungscode ist ungültig.
+            success: Registrierungscode erfolgreich validiert.
       admin_log:
+        invite:
+          create: "%{user_name} hat %{attendee_name} eingeladen, an der Sitzung %{resource_name} in %{space_name} teilzunehmen"
+          deleted: "%{user_name} hat die Einladung von %{attendee_name} zur Sitzung %{resource_name} in %{space_name} entfernt"
+          update: "%{user_name} hat %{attendee_name} eingeladen, an der Sitzung %{resource_name} in %{space_name} teilzunehmen"
+        meeting:
+          close: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} geschlossen"
+          create: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} erstellt"
+          delete: "%{user_name} hat die Sitzung %{resource_name} aus %{space_name} gelöscht"
+          export_registrations: "%{user_name} hat die Anmeldungen der Sitzung %{resource_name} in %{space_name} exportiert"
+          update: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} aktualisiert"
         minutes:
           create: "%{user_name} hat das Protokoll der Sitzung %{resource_name} in %{space_name} erstellt"
           update: "%{user_name} hat das Protokoll der Sitzung %{resource_name} in %{space_name} aktualisiert"
@@ -263,8 +320,65 @@ lb:
           close: Sitzung beenden
           title: Sitzung beenden
       meetings:
+        form:
+          select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
+        index:
+          new_meeting: Nei Versammlung
         meeting_minutes:
           meeting_minutes: Sitzungsprotokolle
+          related_information: Zugehörige Informationen
+        meetings:
+          no_meetings_warning: Keine Besprechung entspricht Ihren Suchkriterien oder es ist keine Besprechung geplant.
+          upcoming_meetings_warning: Momentan gibt es keine geplanten Besprechungen, aber hier finden Sie alle aufgelisteten Besprechungen.
+        new:
+          back: Zréck
+          create: Erstellen
+          title: Ihre Besprechung erstellen
+        registration_confirm:
+          cancel: Stornieren
+          confirm: Bestätegen
         show:
+          attendees: Teilnehmer zählen
+          back: Zurück zur Liste
+          close_meeting: Meeting beenden
+          contributions: Beiträge zählen
+          date: Datum
+          edit_meeting: Versammlung bearbeiten
           going: Gehen
+          join: Tritt dem Treffen bei
           meeting_report: Gesprächsprotokoll
+          no_slots_available: Keine Steckplätze verfügbar
+          organizations: Teilnahme an Organisationen
+          registration_code_help_text: Ihr Registrierungscode
+          registration_state:
+            validated: GÜLTIG
+            validation_pending: Validierung ausstehend
+          view: Uweisen
+        update:
+          invalid: Beim Aktualisieren der Besprechung ist ein Fehler aufgetreten.
+          success: Sie haben die Sitzung erfolgreich aktualisiert.
+      meetings_map:
+        view_meeting: Besprechung anzeigen
+      models:
+        invite:
+          fields:
+            email: Email
+            name: Numm
+            sent_at: Gesendet um
+            status: Status
+          status:
+            accepted: Akzeptiert (%{at})
+            rejected: Zurückgewiesen (%{at})
+            sent: Geschéckt
+        meeting:
+          fields:
+            closed: Geschlossen
+            end_time: Schlussdatum
+            map: Kaart
+            official_meeting: Offizielle Besprechung
+            start_time: Ufanksdatum
+            title: Titel
+    resource_links:
+      proposals_from_meeting:
+        meeting_proposal: 'Ähnliche Vorschläge:'
+        proposal_meeting: 'Ähnlech Versammlungen:'
