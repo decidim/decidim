@@ -146,6 +146,17 @@ en:
             collaborative_drafts_enabled: Collaborative drafts enabled
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
+            default_sort_order: Default proposal sorting
+            default_sort_order_help: Default means that if the supports are enabled, the proposals will be shown sorted by random, and if the supports are blocked, then they will be sorted by the most supported.
+            default_sort_order_options:
+              default: Default
+              most_commented: Most commented
+              most_endorsed: Most endorsed
+              most_followed: Most followed
+              most_voted: Most supported
+              random: Random
+              recent: Recent
+              with_more_authors: With more authors
             geocoding_enabled: Geocoding enabled
             minimum_votes_per_user: Minimum supports per user
             new_proposal_body_template: New proposal body template
@@ -188,6 +199,17 @@ en:
             automatic_hashtags: Hashtags added to all proposals
             comments_blocked: Comments blocked
             creation_enabled: Proposal creation enabled
+            default_sort_order: Default proposal sorting
+            default_sort_order_help: Default it means that if the supports are enabled, the proposals will be shown sorted by random, and if the supports are blocked, then they will be sorted by the most supported.
+            default_sort_order_options:
+              default: Default
+              most_commented: Most commented
+              most_endorsed: Most endorsed
+              most_followed: Most followed
+              most_voted: Most supported
+              random: Random
+              recent: Recent
+              with_more_authors: With more authors
             endorsements_blocked: Endorsements blocked
             endorsements_enabled: Endorsements enabled
             proposal_answering_enabled: Proposal answering enabled
