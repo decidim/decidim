@@ -16,6 +16,12 @@ fi:
         other: Äänet
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Kommentointi sallittu
+            end_time: Kommentointi sallittu aikarajaan saakka
+            start_time: Kommentointi sallittu alkaen
       comments:
         create:
           error: Kommentin luotaessa tapahtui virhe.
