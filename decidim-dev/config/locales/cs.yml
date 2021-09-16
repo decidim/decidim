@@ -22,6 +22,7 @@ cs:
               c: Volba C
             test_options:
               bar: Bar
+              baz: Baz
               foo: Foo
           step:
             endorsements_blocked: Schvalování blokováno
@@ -29,6 +30,7 @@ cs:
             readonly_step_attribute: Atribut krok čtení
             test_options:
               bar: Bar
+              baz: Baz
               foo: Foo
     dummy:
       admin:
