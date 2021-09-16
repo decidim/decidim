@@ -20,10 +20,16 @@ de:
               a: Wahl A
               b: Wahl B
               c: Wahl C
+            test_options:
+              bar: Bar
+              foo: Foo
           step:
             endorsements_blocked: Befürwortungen blockiert
             endorsements_enabled: Befürwortungen aktiviert
             readonly_step_attribute: Schritt-Attribut schreibgeschützt
+            test_options:
+              bar: Bar
+              foo: Foo
     dummy:
       admin:
         exports:
