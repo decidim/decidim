@@ -82,11 +82,11 @@ jobs:
         working-directory: ./spec/decidim_dummy_app/
       - run: npm run test
         name: Test JS files
-      - run: bundle exec rspec
-        name: RSpec
-        working-directory: ${{ env.DECIDIM_MODULE }}
       - run: bundle exec brakeman --rails6 --force-scan .
         name: Scanning Security issues on module
+        working-directory: ${{ env.DECIDIM_MODULE }}
+      - run: bundle exec rspec
+        name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
       - run: ./.github/upload_coverage.sh $DECIDIM_MODULE $GITHUB_EVENT_PATH
         name: Upload coverage
