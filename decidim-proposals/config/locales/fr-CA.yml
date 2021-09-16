@@ -135,7 +135,6 @@ fr-CA:
         name: Propositions
         settings:
           global:
-            allow_card_image: Afficher les images sur les cartes de l'index de proposition
             amendments_enabled: Modifications activées
             amendments_enabled_help: Si actif, configurez les fonctionnalités d'amendement pour chaque étape.
             amendments_wizard_help_text: Texte d'aide de l'assistant
@@ -145,6 +144,17 @@ fr-CA:
             collaborative_drafts_enabled: Brouillons collaboratifs activés
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur maximum (en caractères) des commentaires (laisser 0 pour la valeur par défaut)
+            default_sort_order: Tri des propositions par défaut
+            default_sort_order_help: Par défaut, si l’es aides sont activés, les propositions seront affichées par ordre aléatoire, et si les aides sont bloqués, alors ils seront triés par l’aide le plus soutenu.
+            default_sort_order_options:
+              default: Défaut
+              most_commented: Les plus commentées
+              most_endorsed: Les plus approuvées
+              most_followed: Les plus suivies
+              most_voted: Les plus soutenues
+              random: Aléatoire
+              recent: Les plus récents
+              with_more_authors: Avec le plus d'auteurs
             geocoding_enabled: Géocodage activé
             minimum_votes_per_user: Nombre minimum de votes par utilisateur
             new_proposal_body_template: Modèle de corps d'une nouvelle proposition
@@ -187,6 +197,8 @@ fr-CA:
             automatic_hashtags: Hashtags ajoutés à toutes les propositions
             comments_blocked: Bloquer la création de nouveaux commentaires
             creation_enabled: Autoriser la création de nouvelles propositions
+            default_sort_order: Tri des propositions par défaut
+            default_sort_order_help: Par défaut, si les aides sont activés, les propositions seront affichées par ordre aléatoire, et si les aides sont bloqués, alors ils seront triés par l’aide le plus soutenu.
             endorsements_blocked: Bloquer les soutiens
             endorsements_enabled: Activer le module de soutiens
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
@@ -763,9 +775,12 @@ fr-CA:
           filter_by: Filtrer par
           unfold: Voir plus
         index:
+          click_here: Voir toutes les propositions
           collaborative_drafts_list: Accéder aux brouillons collaboratifs
           new_proposal: Nouvelle proposition
+          see_all: Voir toutes les propositions
           see_all_withdrawn: Voir toutes les propositions retirées
+          text_banner: Vous voyez actuellemnent la liste des propositions retirées par leurs auteurs. %{go_back_link}.
           view_proposal: Voir la proposition
         linked_proposals:
           proposal_votes:
