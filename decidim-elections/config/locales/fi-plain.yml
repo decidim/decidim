@@ -253,6 +253,7 @@ fi-pl:
             title: Vaali luotu
             trustees: Luottamushenkilöt
           key_ceremony:
+            continue: Jatka
             title: Avainseremonia
           key_ceremony_ended:
             errors:
@@ -273,7 +274,14 @@ fi-pl:
             submit: Lähetä
             title: Tulokset julkaistu
           tally:
+            continue: Jatka
+            invalid: Poissaolevan luottamushenkilön ilmoittaminen epäonnistui
+            mark_as_missing: Merkitse poissaolevaksi
+            mark_as_missing_description: Kaikkien luottamushenkilöiden pitäisi osallistua tähän prosessiin, mutta jos luottamushenkilö ei voi osallistua prosessiin, voit merkitä kyseisen henkilön poissaolevaksi.
+            success: Poissaolevan luottamushenkilön merkitseminen sähköiselle ääniuurnalle onnistui
+            tally_completion: Prosessi valmistuu, kun kaikki luottamushenkilöt ovat aktiivisia tai merkitty poissaoleviksi. Vähintään %{quorum} luottamushenkilöä tarvitaan prosessin loppuun saattamiseksi.
             title: Ääntenlaskun prosessi
+            undo_mark_as_missing: Poissaoleva luottamushenkilö voi osallistua prosessiin ennen sen päättymistä. He voivat jatkaa normaalisti ja heidän poissaolonsa jätetään huomioimatta.
           tally_ended:
             answer: Vastaus
             not_selected: Ei valittu
