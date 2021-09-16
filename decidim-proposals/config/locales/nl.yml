@@ -102,7 +102,6 @@ nl:
         name: Voorstellen
         settings:
           global:
-            allow_card_image: Kaart afbeelding toestaan
             amendments_enabled: Wijzigingen ingeschakeld
             amendments_enabled_help: 'Indien actief: stel de amendementsfunctionaliteiten in voor elke stap.'
             amendments_wizard_help_text: Hulptekst van de amendementen wizard
