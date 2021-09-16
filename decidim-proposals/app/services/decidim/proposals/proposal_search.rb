@@ -12,8 +12,9 @@ module Decidim
       # page        - The page number to paginate the results.
       # per_page    - The number of proposals to return per page.
       def initialize(options = {})
-        base = options[:state]&.member?("withdrawn") ? Proposal.withdrawn : Proposal.except_withdrawn
-        super(base, options)
+        options[:scope] = options.fetch(:scope, Proposal)
+        options[:scope] = options[:state_withdraw] == "withdrawn" ? options[:scope].withdrawn : options[:scope].except_withdrawn
+        super(options[:scope], options)
       end
 
       # Handle the activity filter
@@ -34,10 +35,14 @@ module Decidim
         end
       end
 
+      def search_state_withdraw
+        return query if state_withdraw == "withdrawn"
+
+        query.except_withdrawn
+      end
+
       # Handle the state filter
       def search_state
-        return query if state.member? "withdrawn"
-
         apply_scopes(%w(accepted rejected evaluating state_not_published), state)
       end
 

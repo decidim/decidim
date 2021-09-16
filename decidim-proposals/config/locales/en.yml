@@ -764,9 +764,12 @@ en:
           filter_by: Filter by
           unfold: Unfold
         index:
+          click_here: See all proposals
           collaborative_drafts_list: Access collaborative drafts
           new_proposal: New proposal
+          see_all: See all proposals
           see_all_withdrawn: See all withdrawn proposals
+          text_banner: You are viewing the list of proposals withdrawn by their authors. %{go_back_link}.
           view_proposal: View proposal
         linked_proposals:
           proposal_votes:
