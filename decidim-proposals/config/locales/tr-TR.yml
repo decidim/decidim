@@ -122,7 +122,6 @@ tr:
         name: Teklifler
         settings:
           global:
-            allow_card_image: Kart resmine izin ver
             amendments_enabled: Değişiklikler etkinleştirildi
             amendments_enabled_help: Etkinse, her adım için Değişiklik özelliklerini yapılandırın.
             amendments_wizard_help_text: Değişiklik Sihirbazı yardım metni
