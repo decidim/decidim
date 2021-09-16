@@ -99,7 +99,6 @@ lv:
         name: Priekšlikumi
         settings:
           global:
-            allow_card_image: Atļaut kartītes attēlu
             amendments_enabled: Grozījumi ir iespējoti
             amendments_enabled_help: Ja aktīvs, tad konfigurējiet grozījumu iespējas katram solim.
             amendments_wizard_help_text: Grozījumu vedņa palīdzības teksts
