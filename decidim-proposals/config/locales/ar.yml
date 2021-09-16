@@ -107,7 +107,6 @@ ar:
         name: اقتراحات
         settings:
           global:
-            allow_card_image: السماح بالبطاقة الصورية
             amendments_enabled: تم تمكين التعديلات
             announcement: إعلان
             attachments_allowed: السماح للمرفقات
