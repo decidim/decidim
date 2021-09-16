@@ -188,6 +188,9 @@ cs:
         update:
           error: Při aktualizaci administrátora pro toto shromáždění došlo k chybě.
           success: Administrátor úspěšně aktualizován pro toto shromáždění.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Typ shromáždění
       menu:
         assemblies: Shromáždění
         assemblies_settings: Nastavení
