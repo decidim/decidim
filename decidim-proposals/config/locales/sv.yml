@@ -125,7 +125,6 @@ sv:
         name: Förslag
         settings:
           global:
-            allow_card_image: Tillåt kortbild
             amendments_enabled: Ändringar möjliga
             amendments_enabled_help: Om aktivt, konfigurera ändringsfunktioner till varje steg.
             amendments_wizard_help_text: Hjälptext för guiden för ändringsförslag
