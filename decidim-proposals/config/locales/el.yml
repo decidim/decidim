@@ -97,7 +97,6 @@ el:
         name: Προτάσεις
         settings:
           global:
-            allow_card_image: Να επιτρέπεται η εικόνα κάρτας
             amendments_enabled: Οι τροποποιήσεις ενεργοποιήθηκαν
             amendments_enabled_help: Εάν είναι ενεργό, διαμορφώστε τα χαρακτηριστικά Τροποποίησης για κάθε βήμα.
             amendments_wizard_help_text: Κείμενο βοήθειας για τον Οδηγό τροποποιήσεων
