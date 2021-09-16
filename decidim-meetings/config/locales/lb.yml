@@ -382,3 +382,7 @@ lb:
       proposals_from_meeting:
         meeting_proposal: 'Ähnliche Vorschläge:'
         proposal_meeting: 'Ähnlech Versammlungen:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Einladung, an einem Meeting teilzunehmen
