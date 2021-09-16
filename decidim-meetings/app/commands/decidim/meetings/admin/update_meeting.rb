@@ -62,7 +62,10 @@ module Decidim
             transparent: form.transparent,
             customize_registration_email: form.customize_registration_email,
             registration_email_custom_content: form.registration_email_custom_content,
-            show_embedded_iframe: form.show_embedded_iframe
+            show_embedded_iframe: form.show_embedded_iframe,
+            comments_enabled: form.comments_enabled,
+            comments_start_time: form.comments_start_time,
+            comments_end_time: form.comments_end_time
           )
         end
 
