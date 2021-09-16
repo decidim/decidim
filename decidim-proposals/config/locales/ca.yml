@@ -125,7 +125,6 @@ ca:
         name: Propostes
         settings:
           global:
-            allow_card_image: Permetre targeta amb imatge
             amendments_enabled: Esmenes habilitades
             amendments_enabled_help: Si l'actives, configura les funcionalitats de l'esmena per cada fase.
             amendments_wizard_help_text: Text d'ajuda al crear una nova esmena
