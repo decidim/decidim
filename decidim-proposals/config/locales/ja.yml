@@ -131,7 +131,6 @@ ja:
         name: 提案
         settings:
           global:
-            allow_card_image: カードの画像を許可
             amendments_enabled: 修正が有効
             amendments_enabled_help: アクティブな場合、各ステップに修正機能を設定します。
             amendments_wizard_help_text: 修正ウィザードのヘルプテキスト
@@ -755,9 +754,12 @@ ja:
           filter_by: フィルター
           unfold: 展開する
         index:
+          click_here: すべての提案を見る
           collaborative_drafts_list: 共同作業の下書きにアクセスする
           new_proposal: 新しい提案
+          see_all: すべての提案を見る
           see_all_withdrawn: すべての撤回された提案を見る
+          text_banner: 提案者が撤回した提案の一覧を表示しています。 %{go_back_link}.
           view_proposal: 提案を表示
         linked_proposals:
           proposal_votes:
