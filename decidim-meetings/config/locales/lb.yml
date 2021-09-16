@@ -14,11 +14,59 @@ lb:
       meeting:
         address: Adresse
         available_slots: Verfügbare Slots für dieses Meeting
+        decidim_category_id: Kategorie
+        decidim_scope_id: Ëmfang
+        decidim_user_group_id: Benutzergruppe
+        description: Beschreiwung
+        end_time: Endzeit
+        location: Standuert
+        location_hints: Standorthinweise
+        online_meeting_url: Online Meeting URL
+        organizer_gid: Erstellt als
+        organizer_id: Veranstalter
+        private_meeting: Private Sitzung
+        registration_form_enabled: Anmeldeformular aktiviert
+        registration_terms: Registrierungsbedingungen
+        registration_url: Registrierungs-URL
+        registrations_enabled: Registrierungen aktiviert
+        start_time: Startzeit
+        title: Titel
+        transparent: Transparent
+        type_of_meeting: Zort
       minutes:
         audio_url: Audio-URL
         description: Beschreibung
         video_url: Video-URL
         visible: Ist sichtbar
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Die Dauer der Elemente überschreitet die Besprechungsdauer um %{count} Minuten
+              too_many_minutes_child: Die Dauer der Item-Childs überschreitet den Tagesordnungspunkt "%{parent_title}" Elternzeit um %{count} Minute
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Diese E-Mail wurde bereits eingeladen
+    models:
+      decidim/meetings/close_meeting_event: Sitzung geschlossen
+      decidim/meetings/create_meeting_event: Versammlung
+      decidim/meetings/meeting_registrations_enabled_event: Registrierungen aktiviert
+      decidim/meetings/meeting_registrations_over_percentage_event: Anmeldungen über Limit
+      decidim/meetings/upcoming_meeting_event: Kommende Sitzung
+      decidim/meetings/update_meeting_event: Besprechung aktualisiert
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Versammlung
+        other: Versammlungen
+      decidim/meetings/minutes:
+        one: Rapport
+        other: Rapporten
+      decidim/meetings/registration:
+        one: Registréierung
+        other: Anmeldungen
   decidim:
     admin:
       meeting_copies:
