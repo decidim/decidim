@@ -125,7 +125,6 @@ pt:
         name: Propostas
         settings:
           global:
-            allow_card_image: Permitir imagem do cartão
             amendments_enabled: Alterações ativadas
             amendments_enabled_help: Se estiver ativo, configure as características da alteração em cada passo.
             amendments_wizard_help_text: Texto de ajuda do Assistente
