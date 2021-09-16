@@ -42,7 +42,6 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :comments_max_length, type: :integer, required: false
     settings.attribute :geocoding_enabled, type: :boolean, default: false
     settings.attribute :attachments_allowed, type: :boolean, default: false
-    settings.attribute :allow_card_image, type: :boolean, default: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :collaborative_drafts_enabled, type: :boolean, default: false
     settings.attribute :participatory_texts_enabled,
