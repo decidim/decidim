@@ -129,7 +129,6 @@ ro:
         name: Propuneri
         settings:
           global:
-            allow_card_image: Permite imaginea cardului
             amendments_enabled: Amendamente activate
             amendments_enabled_help: Dacă este activ, configurați caracteristicile amendamentului pentru fiecare pas.
             amendments_wizard_help_text: Asistent pentru amendamente text
