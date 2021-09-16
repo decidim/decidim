@@ -132,7 +132,6 @@ pl:
         name: Propozycje
         settings:
           global:
-            allow_card_image: Zezwalaj na obraz
             amendments_enabled: Można dodawać poprawki
             amendments_enabled_help: Jeśli aktywne, skonfiguruj funkcje poprawek dla każdego kroku.
             amendments_wizard_help_text: Tekst pomocy Kreatora poprawek
