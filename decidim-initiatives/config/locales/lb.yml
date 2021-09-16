@@ -40,8 +40,87 @@ lb:
         document_number: Dokumentnummer
         name_and_surname: Name und Nachname
         postal_code: Postleitzahl
+      organization_data:
+        address: Adress
+        id_document: ID-Dokument
+        name: Vollständiger Name
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Datei ist ungültig
+              needs_to_be_reattached: Der Anhang muss erneut angehängt werden
+              title: Der Titel sollte nicht leer sein
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Initativ
+        other: Initiativen
+      decidim/initiative_comittee:
+        one: Komitee
+        other: Ausschüsse
+      decidim/initiative_vote:
+        one: Ënnerschrëft
+        other: Unterschriften
   decidim:
     admin:
+      actions:
+        new_initiative_type: Neuer Initiativentyp
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Gebitt
+          state_eq:
+            label: Zustand
+            values:
+              accepted: Ausreichend Unterschriften
+              created: Erstellt
+              discarded: Verworfen
+              published: Verëffentlecht
+              rejected: Zu wenige Unterschriften
+              validating: Technische Validierung
+          type_id_eq:
+            label: Typ
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Suche in %{collection} nach Titel, Beschreibung, ID oder Autoren.
+      menu:
+        initiatives: Initiativen
+        initiatives_types: Arten von Initiativen
+      models:
+        initiatives:
+          fields:
+            created_at: Erstellt am
+            id: ID
+            published_at: Veröffentlicht am
+            state: Status
+            supports_count: Unterschriften
+            title: Initiativen
+        initiatives_type_scope:
+          fields:
+            scope: Ëmfang
+            supports_required: Unterstützungen erforderlich
+          name: Typ der Initiative
+        initiatives_types:
+          fields:
+            created_at: Erstallt den
+            title: Arten von Initiativen
+          name: Art der Initiative
+        initiatives_votes:
+          fields:
+            date_of_birth: Geburtsdatum
+            document_number: Nummer vum Dokument
+            hash: Hash
+            initiative_end_date: Enddatum
+            initiative_id: Initiativ-ID
+            initiative_signatures_count: Anzahl der Unterschriften
+            initiative_start_date: Ufanksdatum
+            initiative_title: Initiativentitel
+            name_and_surname: Name und Nachname
+            postal_code: Postleitzuel
+            scope: Ëmfang
+            time_and_date: Zeit und Datum
+            timestamp: Zeitstempel
       titles:
         initiatives: Initiativen
         initiatives_types: Arten von Initiativen
@@ -120,6 +199,8 @@ lb:
             no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
         initiatives_types:
           form:
+            child_scope_threshold_enabled_help: 'Cette option de configuration ne gère pas les votes hors-ligne, elle permet d''activer des sous-secteurs et fonctionne avec un gestionnaire d''autorisation qui associe un secteur à l''utilisateur. Assurez-vous de sélectionner une telle autorisation dans les paramètres d''autorisation ci-dessous. Pour que cela fonctionne, les secteurs doivent être configurées de manière hiérarchique : 1 Parent - N Enfants. Pour plus d''informations sur le fonctionnement de cette configuration, cliquez <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">ici</a>.'
+            only_global_scope_enabled_help: Cochez cette case si vous avez activé "Autoriser les signatures par sous-secteur" et configuré la portée globale comme votre portée parente. En activant cette option, la sélection du type d'initiative sera ignorée dans l'assistant de création d'initiative. Pour plus d'informations sur le fonctionnement de cette configuration, voir ce <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">lien</a>.
             options: Optionen
             title: Allgemeine Information
           initiative_type_scopes:
@@ -190,6 +271,66 @@ lb:
           send_my_initiative: Meine Initiative zur technischen Validierung senden
         finish_help:
           access_reminder: Sie können auf Ihre Initiativen über den Filter %{link} auf der Seite Initiativen zugreifen.
+          publish_helper_text: Denken Sie daran, dass Sie für die Veröffentlichung Ihrer Initiative die erforderlichen Informationen ausfüllen müssen und <strong>diese an die technische Validierung</strong> senden müssen, damit ein Administrator sie prüfen kann.
+        previous_form:
+          back: Zréck
+          continue: Weider
+          help: Woraus besteht die Initiative? Schreiben Sie den Titel und die Beschreibung auf. Wir empfehlen einen kurzen und prägnanten Titel und eine Beschreibung der vorgeschlagenen Lösung.
+          more_information: "(Weitere Informationen)"
+        promotal_committee:
+          back: Zréck
+          individual_help_text: Diese Art der Bürgerinitiative erfordert einen Ausschuss der Initiatoren, der aus mindestens %{committee_size} Personen (Zeugen) besteht. Sie müssen den folgenden Link mit den anderen Personen teilen, die an dieser Initiative beteiligt sind. Wenn Ihre Kontakte diesen Link erhalten, müssen sie die angegebenen Schritte befolgen.
+          more_information: "(Weitere Informationen)"
+        select_initiative_type:
+          back: Zréck
+          choose_html: Ich möchte eine <strong>%{title}</strong> erstellen
+          more_information: "(Weitere Informationen)"
+          select: Ich möchte diese Initiative fördern
+          select_initiative_type_help: Bürgerinitiativen sind ein Mittel, mit dem die Bürger eingreifen können, damit die Organisation Maßnahmen zur Verteidigung des Allgemeininteresses ergreifen kann, die in den Zuständigkeitsbereich der Stadtverwaltung fallen. Welche Initiative möchten Sie starten?
+        share_committee_link:
+          continue: Weider
+          invite_to_committee_help: Link, um Leute einzuladen, die Teil des Promoter-Komitees sein werden
+        show_similar_initiatives:
+          back: Zréck
+          compare_help: Wenn eine der folgenden Initiativen Ihrer ähnelt, empfehlen wir Ihnen, sie zu unterstützen. Ihr Vorschlag wird mehr Möglichkeiten haben, erledigt zu werden.
+          continue: Meine Initiative ist anders
+          more_information: "(Weitere Informationen)"
+      edit:
+        accept: Initiative akzeptieren
+        back: Zréck
+        confirm: Bass du sécher?
+        discard: Initiative verwerfen
+        export_pdf_signatures: PDF der Unterschriften exportieren
+        export_votes: Unterschriften exportieren
+        reject: Initiative ablehnen
+        title: Initiativen bearbeiten
+        update: Aktualiséieren
+      events:
+        approve_membership_request:
+          email_intro: "%{author_nickname} hat Ihre Anfrage fürs Promoter-Komittee der Initiative %{resource_title} akzeptiert."
+          email_outro: 'Sie haben diese Benachrichtigung erhalten, weil Sie sich bei dieser Initiative beworben haben: %{resource_title}'
+          email_subject: "%{author_nickname} hat Ihre Anfrage fürs Promoter-Komittee akzeptiert"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> hat Ihre Anfrage fürs Promoter-Komittee der Initiative <a href="%{resource_url}">%{resource_title}</a> akzeptiert.
+        create_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, dem du folgst, hat eine neue Initiative erstellt, sehen Sie es sich an und reden Sie mit:"
+          email_outro: Du hues dës Noriicht kritt, well s'du dem %{author_nickname} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
+          email_subject: Neue Initiative von %{author_nickname}
+          notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a> erstellt.
+        endorse_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, dem Sie folgen, hat die folgende Initiative unterstützt, vielleicht möchten Sie mitreden:"
+          email_outro: Du hues dës Noriicht kritt, well s'du dem %{author_nickname} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
+          email_subject: Initiative wurde von %{author_nickname} unterstützt
+          notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a> unterstützt.
+        revoke_membership_request:
+          email_intro: "%{author_nickname} hat Ihre Anfrage fürs Promoter-Komittee der Initiative %{resource_title} abgelehnt."
+          email_outro: 'Sie haben diese Benachrichtigung erhalten, weil Sie sich bei dieser Initiative beworben haben: %{resource_title}.'
+          email_subject: "%{author_nickname} hat Ihre Anfrage fürs Promoter-Komittee abgelehnt"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> hat Ihre Anfrage für das Promoter-Komittee der Initiative <a href="%{resource_url}">%{resource_title}</a> abgelehnt.
+        spawn_committee_request_event:
+          email_intro: "%{applicant_nickname} hat sich fürs Promoter-Komittee Ihrer Initiative %{resource_title} beworben. Um die Anfrage zu akzeptieren oder abzulehnen, besuchen Sie das Bearbeitungsformular Ihrer Initiative."
+          email_outro: 'Sie haben diese Benachrichtigung erhalten, weil Sie der Autor der Initiative %{resource_title} sind'
+          email_subject: "%{applicant_nickname} möchte Ihrer Initiative beitreten"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> hat sich für das Promoter-Komittee Ihrer Initiative <a href="%{resource_url}">%{resource_title}</a> beworben. Um anzunehmen oder abzulehnen, klicken Sie <a href="%{resource_url}/edit">hier</a>.
       form:
         add_attachments: Dokumente
         attachment_legend: "(Optional) Anhang hinzufügen"
