@@ -87,6 +87,16 @@ lb:
             unpublished_warning: Das Formular ist nicht öffentlich. Sie können die Fragen ändern, dabei werden allerdings die aktuellen Antworten gelöscht.
           matrix_row:
             matrix_row: Zeile
+            remove: Löschen
+            statement: Aussage
+          question:
+            add_answer_option: Antwortoption hinzufügen
+            add_display_condition: Anzeigebedingung hinzufügen
+            add_display_condition_info: Speichern Sie das Formular, um die Anzeigebedingungen zu konfigurieren
+            add_matrix_row: Zeile hinzufügen
+            any: Irgendein
+            collapse: Zouklappen
+            description: Beschreiwung
       files:
         extension_allowlist: 'Gültige Formate:'
       questionnaires:
