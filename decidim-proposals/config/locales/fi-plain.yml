@@ -135,7 +135,6 @@ fi-pl:
         name: Ehdotukset
         settings:
           global:
-            allow_card_image: Salli kuva ehdotuskortilla
             amendments_enabled: Muutokset käytössä
             amendments_enabled_help: Jos käytössä, määritä asetukset kullekin vaiheelle.
             amendments_wizard_help_text: Muutoksen luonnin ohjeteksti
