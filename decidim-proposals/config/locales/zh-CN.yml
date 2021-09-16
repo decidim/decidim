@@ -115,7 +115,6 @@ zh-CN:
         name: 建议
         settings:
           global:
-            allow_card_image: 允许卡片图像
             amendments_enabled: 修改已启用
             amendments_enabled_help: 如果激活，配置每一步的修正功能。
             amendments_wizard_help_text: 修正向导帮助文本
