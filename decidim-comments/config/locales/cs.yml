@@ -20,6 +20,12 @@ cs:
         other: Hlasy
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Komentáře povoleny
+            end_time: Komentáře povoleny do
+            start_time: Komentáře povoleny od
       comments:
         create:
           error: Při vytváření komentáře došlo k chybě.
