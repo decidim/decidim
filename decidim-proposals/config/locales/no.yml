@@ -88,7 +88,6 @@
         name: Forslag
         settings:
           global:
-            allow_card_image: Tillat kortbilde
             amendments_enabled: Endringer aktivert
             amendments_enabled_help: Hvis aktiv, konfigurer du endringsfunksjoner for hvert trinn.
             amendments_wizard_help_text: Endrings Veiviser hjelpetekst
