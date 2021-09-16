@@ -16,6 +16,12 @@ pt:
         other: Votos
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Comentários activados
+            end_time: Comentários activados até
+            start_time: Comentários activados desde
       comments:
         create:
           error: Ocorreu um problema ao criar o comentário
