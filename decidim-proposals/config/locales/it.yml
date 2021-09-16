@@ -125,7 +125,6 @@ it:
         name: Proposte
         settings:
           global:
-            allow_card_image: Consenti l'immagine della scheda
             amendments_enabled: Emendamenti abilitati
             amendments_enabled_help: Se attivo, configura le caratteristiche di emendamento per ogni passo.
             amendments_wizard_help_text: Creazione guidata emendamenti
