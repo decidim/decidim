@@ -106,7 +106,6 @@ sk:
         name: Návrhy
         settings:
           global:
-            allow_card_image: Povoliť kartové obrázky
             amendments_enabled: Pozmeňujúce návrhy povolené
             amendments_enabled_help: Ak je aktívne, nastavte funkcie Pozmeňujúcich návrhov pre každý krok.
             amendments_wizard_help_text: Sprievodca Pozmeňujúcimi návrhmi
