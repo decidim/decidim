@@ -78,6 +78,11 @@ lb:
             label: Zustand
             values:
               'false': Öffnen
+              'true': Geschlossen
+          is_upcoming_true:
+            label: Datum
+            values:
+              'false': Vergaangenes
           type_eq:
             values:
               online: Online
