@@ -47,6 +47,17 @@ describe "show", type: :system do
         end
       end
 
+      it "shows the last comment author when it's a user group" do
+        group = create(:user_group, organization: debate.organization)
+        create(:comment, commentable: debate, author: group)
+
+        visit current_url
+
+        within ".definition-data" do
+          expect(page).to have_content(group.name)
+        end
+      end
+
       it "shows the number of participants" do
         within ".definition-data" do
           expect(page).to have_content("PARTICIPANTS\n1")
