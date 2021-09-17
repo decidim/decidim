@@ -93,7 +93,6 @@ es:
         blocked_comments_warning: Los comentarios están deshabilitados en este momento, pero puedes leer los anteriores.
         comment_details_title: Detalles del comentario
         loading: Cargando los comentarios ...
-        single_comment_warning: Puedes revisar el resto de los comentarios <a href="%{url}">aquí</a>.
         single_comment_warning_title: Estás viendo un solo comentario
         title:
           one: "%{count} comentario"
