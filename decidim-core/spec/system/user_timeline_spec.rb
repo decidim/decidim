@@ -14,7 +14,7 @@ describe "User timeline", type: :system do
 
   let(:organization) { create(:organization) }
   let(:comment) { create(:comment) }
-  let(:user) { create(:user, organization: organization) }
+  let(:user) { create(:user, :confirmed, organization: organization) }
   let(:user2) { create(:user, organization: organization) }
 
   let(:component) do

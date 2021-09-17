@@ -37,12 +37,7 @@ export default class CommentsComponent {
       this.mounted = true;
       this._initializeComments(this.$element);
 
-      $(".order-by__dropdown .is-submenu-item a", this.$element).on(
-        "click.decidim-comments",
-        () => {
-          this._onInitOrder();
-        }
-      );
+      $(".order-by__dropdown .is-submenu-item a", this.$element).on("click.decidim-comments", () => this._onInitOrder());
     }
   }
 
@@ -68,14 +63,16 @@ export default class CommentsComponent {
    * Adds a new thread to the comments section.
    * @public
    * @param {String} threadHtml - The HTML content for the thread.
+   * @param {Boolean} fromCurrentUser - A boolean indicating whether the user
+   *   herself was the author of the new thread. Defaults to false.
    * @returns {Void} - Returns nothing
    */
-  addThread(threadHtml) {
+  addThread(threadHtml, fromCurrentUser = false) {
     const $parent = $(".comments:first", this.$element);
     const $comment = $(threadHtml);
     const $threads = $(".comment-threads", this.$element);
     this._addComment($threads, $comment);
-    this._finalizeCommentCreation($parent);
+    this._finalizeCommentCreation($parent, fromCurrentUser);
   }
 
   /**
@@ -84,15 +81,17 @@ export default class CommentsComponent {
    * @param {Number} commentId - The ID of the comment for which to add the
    *   reply to.
    * @param {String} replyHtml - The HTML content for the reply.
+   * @param {Boolean} fromCurrentUser - A boolean indicating whether the user
+   *   herself was the author of the new reply. Defaults to false.
    * @returns {Void} - Returns nothing
    */
-  addReply(commentId, replyHtml) {
+  addReply(commentId, replyHtml, fromCurrentUser = false) {
     const $parent = $(`#comment_${commentId}`);
     const $comment = $(replyHtml);
     const $replies = $(`#comment-${commentId}-replies`);
     this._addComment($replies, $comment);
     $replies.siblings(".comment__additionalreply").removeClass("hide");
-    this._finalizeCommentCreation($parent);
+    this._finalizeCommentCreation($parent, fromCurrentUser);
   }
 
   /**
@@ -170,18 +169,22 @@ export default class CommentsComponent {
    * successfully.
    * @private
    * @param {jQuery} $parent - The parent comment element to finalize.
+   * @param {Boolean} fromCurrentUser - A boolean indicating whether the user
+   *   herself was the author of the new comment.
    * @returns {Void} - Returns nothing
    */
-  _finalizeCommentCreation($parent) {
-    const $add = $("> .add-comment", $parent);
-    const $text = $("textarea", $add);
-    const characterCounter = $text.data("remaining-characters-counter");
-    $text.val("");
-    if (characterCounter) {
-      characterCounter.updateStatus();
-    }
-    if (!$add.parent().is(".comments")) {
-      $add.addClass("hide");
+  _finalizeCommentCreation($parent, fromCurrentUser) {
+    if (fromCurrentUser) {
+      const $add = $("> .add-comment", $parent);
+      const $text = $("textarea", $add);
+      const characterCounter = $text.data("remaining-characters-counter");
+      $text.val("");
+      if (characterCounter) {
+        characterCounter.updateStatus();
+      }
+      if (!$add.parent().is(".comments")) {
+        $add.addClass("hide");
+      }
     }
 
     // Restart the polling
@@ -207,9 +210,7 @@ export default class CommentsComponent {
           order: this.order,
           after: this.lastCommentId
         }
-      }).done(() => {
-        this._pollComments();
-      });
+      }).done(() => this._pollComments());
     }, this.pollingInterval);
   }
 

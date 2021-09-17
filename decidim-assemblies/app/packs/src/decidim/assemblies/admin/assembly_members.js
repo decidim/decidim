@@ -16,6 +16,16 @@ $(() => {
   createFieldDependentInputs({
     controllerField: $assemblyMemberType,
     wrapperSelector: ".user-fields",
+    dependentFieldsSelector: ".user-fields--non-user-avatar",
+    dependentInputSelector: "input",
+    enablingCondition: ($field) => {
+      return $field.val() === "false"
+    }
+  });
+
+  createFieldDependentInputs({
+    controllerField: $assemblyMemberType,
+    wrapperSelector: ".user-fields",
     dependentFieldsSelector: ".user-fields--user-picker",
     dependentInputSelector: "input",
     enablingCondition: ($field) => {

@@ -19,7 +19,7 @@ module Decidim
         attribute :closed_at, Decidim::Attributes::TimeWithZone, default: ->(_form, _attribute) { Time.current }
 
         validates :closing_report, translatable_presence: true
-        validates :attendees_count, presence: true, numericality: { greater_than_or_equal_to: 0 }
+        validates :attendees_count, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 999, only_integer: true }
         validates :contributions_count, numericality: true, allow_blank: true
 
         # Private: Gets the proposals from the meeting and injects them to the form.

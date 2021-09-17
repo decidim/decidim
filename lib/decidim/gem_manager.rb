@@ -165,7 +165,6 @@ module Decidim
 
       def package_dirs
         dirs = Dir.glob("#{root}/packages/*")
-        dirs << "./"
 
         dirs.each { |dir| yield(dir) }
       end

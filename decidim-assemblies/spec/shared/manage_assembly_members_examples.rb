@@ -18,10 +18,14 @@ shared_examples "manage assembly members examples" do
       find(".datepicker-days .active").click
 
       within ".new_assembly_member" do
+        expect(page).to have_content("You should get the consent of the persons before publishing them as a member")
+
         fill_in(
           :assembly_member_full_name,
           with: "Daisy O'connor"
         )
+
+        attach_file "Avatar", Decidim::Dev.asset("avatar.jpg")
 
         select "President", from: :assembly_member_position
 

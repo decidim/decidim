@@ -7,7 +7,7 @@ module Decidim
       belongs_to :election, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Election"
 
       enum status: [:pending, :accepted, :rejected]
-      enum action: [:start_key_ceremony, :start_vote, :end_vote, :start_tally, :publish_results]
+      enum action: [:start_key_ceremony, :start_vote, :end_vote, :start_tally, :report_missing_trustee, :publish_results]
     end
   end
 end

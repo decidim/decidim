@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
   let!(:component) { create(:proposal_component) }
   let(:organization) { component.organization }
-  let!(:current_user) { create(:user, :admin, organization: organization) }
+  let!(:current_user) { create(:user, :confirmed, :admin, organization: organization) }
 
   describe "on destroy" do
     context "when there are no proposals for the component" do
