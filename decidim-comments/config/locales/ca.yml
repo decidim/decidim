@@ -93,6 +93,7 @@ ca:
         blocked_comments_warning: Els comentaris estan desactivats en aquest moment, però pots llegir els anteriors.
         comment_details_title: Detalls del comentari
         loading: Carregant els comentaris ...
+        single_comment_warning: <a href="%{url}">Mostra tots els comentaris</a>
         single_comment_warning_title: Estàs veient un sol comentari
         title:
           one: "%{count} comentari"
