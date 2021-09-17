@@ -19,7 +19,7 @@ module Decidim
       describe "#stylesheet_snippets" do
         it "returns the expected stylesheet assets" do
           expect(subject.stylesheet_snippets).to match(
-            %r{<link rel="stylesheet" media="screen" href="/packs-test/css/decidim_map-[^.]*\.css" />}
+            %r{<link rel="stylesheet" media="screen" href="/packs-test/css/decidim_map(-[^.]*)?\.css" />}
           )
         end
       end
@@ -27,7 +27,7 @@ module Decidim
       describe "#javascript_snippets" do
         it "returns the expected JavaScript assets" do
           expect(subject.javascript_snippets).to match(
-            %r{<script src="/packs-test/js/decidim_map_provider_default-[^.]*\.js"></script>}
+            %r{<script src="/packs-test/js/decidim_map_provider_default(-[^.]*)?\.js"></script>}
           )
         end
       end

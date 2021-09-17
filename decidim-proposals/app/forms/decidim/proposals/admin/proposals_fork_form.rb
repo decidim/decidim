@@ -30,14 +30,19 @@ module Decidim
 
         private
 
+        def errors_set
+          @errors_set ||= Set[]
+        end
+
         def mergeable_to_same_component
           return true unless same_component?
 
-          public_proposals = proposals.any? do |proposal|
-            !proposal.official? || proposal.votes.any? || proposal.endorsements.any?
+          proposals.each do |proposal|
+            errors_set << :not_official unless proposal.official?
+            errors_set << :supported if proposal.votes.any? || proposal.endorsements.any?
           end
 
-          errors.add(:proposal_ids, :invalid) if public_proposals
+          errors_set.each { |error| errors.add(:base, error) } if errors_set.any?
         end
 
         def same_participatory_space

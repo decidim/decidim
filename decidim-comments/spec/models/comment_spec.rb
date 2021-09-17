@@ -54,7 +54,7 @@ module Decidim
       end
 
       it "has an associated participatory_process" do
-        expect(comment.participatory_process).to eq(component.participatory_space)
+        expect(comment.participatory_space).to eq(component.participatory_space)
       end
 
       it "is not valid if its parent is a comment and cannot accept new comments" do

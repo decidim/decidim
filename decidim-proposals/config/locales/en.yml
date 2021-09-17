@@ -58,6 +58,16 @@ en:
               identical: AND title cannot be identical
             title:
               identical: AND body cannot be identical
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Are not official
+              supported: Have received support or endorsements
+        proposals_split:
+          attributes:
+            base:
+              not_official: Are not official
+              supported: Have received support or endorsements
     models:
       decidim/proposals/accepted_proposal_event: Proposal accepted
       decidim/proposals/admin/update_proposal_category_event: Proposal category changed
@@ -126,7 +136,6 @@ en:
         name: Proposals
         settings:
           global:
-            allow_card_image: Allow card image
             amendments_enabled: Amendments enabled
             amendments_enabled_help: If active, configure Amendment features for each step.
             amendments_wizard_help_text: Amendments Wizard help text
@@ -136,6 +145,17 @@ en:
             collaborative_drafts_enabled: Collaborative drafts enabled
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
+            default_sort_order: Default proposal sorting
+            default_sort_order_help: Default means that if the supports are enabled, the proposals will be shown sorted by random, and if the supports are blocked, then they will be sorted by the most supported.
+            default_sort_order_options:
+              default: Default
+              most_commented: Most commented
+              most_endorsed: Most endorsed
+              most_followed: Most followed
+              most_voted: Most supported
+              random: Random
+              recent: Recent
+              with_more_authors: With more authors
             geocoding_enabled: Geocoding enabled
             minimum_votes_per_user: Minimum supports per user
             new_proposal_body_template: New proposal body template
@@ -178,6 +198,17 @@ en:
             automatic_hashtags: Hashtags added to all proposals
             comments_blocked: Comments blocked
             creation_enabled: Proposal creation enabled
+            default_sort_order: Default proposal sorting
+            default_sort_order_help: Default it means that if the supports are enabled, the proposals will be shown sorted by random, and if the supports are blocked, then they will be sorted by the most supported.
+            default_sort_order_options:
+              default: Default
+              most_commented: Most commented
+              most_endorsed: Most endorsed
+              most_followed: Most followed
+              most_voted: Most supported
+              random: Random
+              recent: Recent
+              with_more_authors: With more authors
             endorsements_blocked: Endorsements blocked
             endorsements_enabled: Endorsements enabled
             proposal_answering_enabled: Proposal answering enabled
@@ -510,11 +541,11 @@ en:
             title: Import proposals
         proposals_merges:
           create:
-            invalid: There was a problem merging the selected proposals.
+            invalid: 'There has been a problem merging the selected proposals because some of them:'
             success: Successfully merged the proposals into a new one.
         proposals_splits:
           create:
-            invalid: There was a problem spliting the selected proposals.
+            invalid: 'There has been a problem splitting the selected proposals because some of them:'
             success: Successfully splitted the proposals into new ones.
         valuation_assignments:
           create:
@@ -754,12 +785,12 @@ en:
           filter_by: Filter by
           unfold: Unfold
         index:
-          click_here: Click here
+          click_here: See all proposals
           collaborative_drafts_list: Access collaborative drafts
           new_proposal: New proposal
           see_all: See all proposals
           see_all_withdrawn: See all withdrawn proposals
-          text_banner: You are viewing the list of proposals withdrawn by their authors. %{go_back_link} to go back to the proposal index.
+          text_banner: You are viewing the list of proposals withdrawn by their authors. %{go_back_link}.
           view_proposal: View proposal
         linked_proposals:
           proposal_votes:

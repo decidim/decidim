@@ -24,6 +24,9 @@ module Decidim
         attribute :available_slots, Integer, default: 0
         attribute :customize_registration_email, Boolean
         attribute :show_embedded_iframe, Boolean, default: false
+        attribute :comments_enabled, Boolean, default: true
+        attribute :comments_start_time, Decidim::Attributes::TimeWithZone
+        attribute :comments_end_time, Decidim::Attributes::TimeWithZone
 
         translatable_attribute :title, String
         translatable_attribute :description, String
@@ -44,6 +47,8 @@ module Decidim
         validates :online_meeting_url, url: true, if: ->(form) { form.online_meeting? || form.hybrid_meeting? }
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }
+        validates :comments_start_time, date: { before: :comments_end_time, allow_blank: true, if: proc { |obj| obj.comments_end_time.present? } }
+        validates :comments_end_time, date: { after: :comments_start_time, allow_blank: true, if: proc { |obj| obj.comments_start_time.present? } }
 
         validates :current_component, presence: true
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }

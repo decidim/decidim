@@ -89,8 +89,9 @@ module Decidim
         # Create empty directory for images
         empty_directory "app/packs/images"
 
-        # Run webpacker installation
-        rails "webpacker:install"
+        # Regenerate webpacker binstubs
+        remove_file "bin/yarn"
+        rails "webpacker:binstubs"
 
         # Run Decidim custom webpacker installation
         rails "decidim:webpacker:install"

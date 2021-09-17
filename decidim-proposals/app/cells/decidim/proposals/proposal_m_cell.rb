@@ -118,7 +118,7 @@ module Decidim
       end
 
       def has_image?
-        @has_image ||= model.component.settings.allow_card_image && model.attachments.find_by("content_type like '%image%'").present?
+        @has_image ||= model.attachments.find_by("content_type like '%image%'").present?
       end
 
       def resource_image_path

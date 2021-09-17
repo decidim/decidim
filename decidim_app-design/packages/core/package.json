@@ -1,7 +1,7 @@
 {
   "name": "@decidim/core",
   "description": "The core dependencies for Decidim",
-  "version": "0.25.0-dev",
+  "version": "0.26.0-dev",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git",
@@ -22,7 +22,7 @@
     "d3": "5.4.0",
     "diff": "^5.0.0",
     "foundation-datepicker": "1.5.6",
-    "foundation-sites": "^6.6.3",
+    "foundation-sites": "^6.7.0",
     "graphiql": "^1.4.2",
     "graphql-docs": "https://github.com/decidim/graphql-docs/raw/master/graphql-docs-0.2.1.tgz",
     "html5sortable": "0.10.0",

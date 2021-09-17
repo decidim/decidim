@@ -43,7 +43,8 @@ module Decidim
 
       def comments_query
         Decidim::Comments::Comment
-          .where(decidim_participatory_process_id: participatory_space_ids)
+          .where(decidim_participatory_space_type: Decidim::ParticipatoryProcess.class.name)
+          .where(decidim_participatory_space_id: participatory_space_ids)
           .pluck(:decidim_author_id)
           .uniq
       end

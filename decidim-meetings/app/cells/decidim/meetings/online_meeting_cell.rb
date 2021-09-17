@@ -11,7 +11,6 @@ module Decidim
         @embedder ||= MeetingIframeEmbedder.new(model.online_meeting_url)
       end
 
-      delegate :live?, to: :model
       delegate :embeddable?, to: :embedder
 
       def live_event_url
@@ -20,6 +19,13 @@ module Decidim
         else
           model.online_meeting_url
         end
+      end
+
+      def live?
+        model.start_time &&
+          model.end_time &&
+          Time.current >= (model.start_time - 10.minutes) &&
+          Time.current <= model.end_time
       end
 
       def future?

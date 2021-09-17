@@ -27,7 +27,7 @@ describe "Authentication", type: :system do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("You have signed up successfully")
+        expect(page).to have_content("confirmation link")
       end
     end
 
@@ -52,7 +52,7 @@ describe "Authentication", type: :system do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("¡Bienvenida! Te has registrado con éxito.")
+        expect(page).to have_content("Se ha enviado un mensaje con un enlace de confirmación")
         expect(last_user.locale).to eq("es")
       end
     end
@@ -73,7 +73,7 @@ describe "Authentication", type: :system do
           find("*[type=submit]").click
         end
 
-        expect(page).not_to have_content("You have signed up successfully")
+        expect(page).not_to have_content("confirmation link")
       end
     end
 
@@ -539,7 +539,7 @@ describe "Authentication", type: :system do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("You have signed up successfully")
+          expect(page).to have_content("confirmation link")
         end
       end
     end

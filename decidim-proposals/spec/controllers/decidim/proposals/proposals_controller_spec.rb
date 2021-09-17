@@ -219,7 +219,7 @@ module Decidim
         end
 
         describe "when current user is NOT the author of the proposal" do
-          let(:current_user) { create(:user, organization: component.organization) }
+          let(:current_user) { create(:user, :confirmed, organization: component.organization) }
           let(:proposal) { create(:proposal, component: component, users: [current_user]) }
 
           context "and the proposal has no supports" do
