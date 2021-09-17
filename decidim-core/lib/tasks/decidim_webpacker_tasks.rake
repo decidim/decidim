@@ -171,7 +171,7 @@ namespace :decidim do
     end
 
     def system!(command)
-      system("cd #{rails_app_path} && #{command}") || abort("\n== Command #{args} failed ==")
+      system("cd #{rails_app_path} && #{command}") || abort("\n== Command #{command} failed ==")
     end
   end
 end
