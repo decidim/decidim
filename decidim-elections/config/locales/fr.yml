@@ -36,6 +36,14 @@ fr:
             public_key:
               cant_be_changed: ne peut être modifiée
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: L'agent de vote est déjà président/responsable d'un bureau de vote
+            voting:
+              different_organization: Le vote doit être dans le même organization que l'utilisateur
     models:
       decidim/elections/answer:
         one: Réponse
@@ -50,6 +58,18 @@ fr:
         one: Vote
         other: Votes
   decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          values:
+            assigned: Assigné
+            unassigned: Non affecté
+        role_eq:
+          label: Rôle
+          values:
+            manager: Responsable
+            president: Président
+            unassigned: Non assigné(e)
     components:
       elections:
         actions:
