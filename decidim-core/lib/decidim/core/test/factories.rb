@@ -248,7 +248,7 @@ FactoryBot.define do
   end
 
   factory :user_group_membership, class: "Decidim::UserGroupMembership" do
-    user
+    user { create(:user, :confirmed, organization: user_group.organization) }
     role { :creator }
     user_group
   end

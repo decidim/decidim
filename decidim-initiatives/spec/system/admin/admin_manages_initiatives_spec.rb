@@ -6,7 +6,7 @@ describe "Admin manages initiatives", type: :system do
   STATES = Decidim::Initiative.states.keys.map(&:to_sym)
 
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :admin, organization: organization) }
+  let(:user) { create(:user, :confirmed, :admin, organization: organization) }
   let(:model_name) { Decidim::Initiative.model_name }
   let(:resource_controller) { Decidim::Initiatives::Admin::InitiativesController }
   let(:type1) { create :initiatives_type, organization: organization }
