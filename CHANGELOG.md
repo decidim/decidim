@@ -9,6 +9,35 @@
 
 ### Removed
 
+## [0.25.0.rc3](https://github.com/decidim/decidim/tree/v0.25.0.rc3)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-debates**: Backport "Fix "last comment by" when commenter is a user group" [\#8337](https://github.com/decidim/decidim/pull/8337)
+- **decidim-comments**: Backport "Fix issues with dynamic comments polling" to v0.25 [\#8340](https://github.com/decidim/decidim/pull/8340)
+- **decidim-core**: Backport "Remove npm decidim packages with dependencies from other decidim packages" [\#8339](https://github.com/decidim/decidim/pull/8339)
+
+### Improved
+
+Nothing.
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+- Backport "Fix CSS validation tests caused by a bug on the validation service" [\#8325](https://github.com/decidim/decidim/pull/8325)
+- Backport "Remove npm decidim packages with dependencies from other decidim packages" [\#8339](https://github.com/decidim/decidim/pull/8339)
+
 ## [0.25.0.rc2](https://github.com/decidim/decidim/tree/v0.25.0.rc2)
 
 ### Upgrade Notes
