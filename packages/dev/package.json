@@ -14,8 +14,6 @@
     "npm": "^7.7.2"
   },
   "dependencies": {
-    "@decidim/eslint-config": "file:../eslint-config",
-    "@decidim/stylelint-config": "file:../stylelint-config",
     "axe-core": "^4.1.4"
   }
 }
