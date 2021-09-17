@@ -99,7 +99,6 @@ fr-CA:
         blocked_comments_warning: Les commentaires sont actuellement désactivés, mais vous pouvez lire ceux déjà saisis.
         comment_details_title: Détails du commentaire
         loading: Chargement des commentaires ...
-        single_comment_warning: Vous pouvez accéder au reste des commentaires <a href="%{url}">ici</a>.
         single_comment_warning_title: Vous ne voyez qu'un seul commentaire
         title:
           one: "%{count} commentaire"
