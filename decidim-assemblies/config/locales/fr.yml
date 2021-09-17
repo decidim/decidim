@@ -62,6 +62,7 @@ fr:
         designation_mode: Mode de désignation
         full_name: Nom et prénom
         gender: Genre
+        non_user_avatar: Avatar
         position: Statut
         user_id: Utilisateur
       assembly_user_role:
@@ -299,7 +300,10 @@ fr:
         assembly_members:
           form:
             existing_user: Utilisateur existant
+            explanation: 'Instruction concernant l’image:'
+            image_guide: De préférence une image en format portrait sans texte.
             non_user: Utilisateur inconnu
+            non_user_avatar_help: Vous devriez obtenir le consentement des personnes avant de les publier en tant que membre.
             select_a_position: Sélectionnez un statut
             select_user: Sélectionnez un utilisateur
             user_type: Type d'utilisateur
