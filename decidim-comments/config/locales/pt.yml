@@ -99,7 +99,6 @@ pt:
         blocked_comments_warning: Os comentários estão desativados neste momento, mas pode ler os anteriores.
         comment_details_title: Detalhes do comentário
         loading: A carregar comentários ...
-        single_comment_warning: Pode consultar os restantes comentários <a href="%{url}">aqui</a>.
         single_comment_warning_title: Está a ver um único comentário
         title:
           one: "%{count} comentário"
