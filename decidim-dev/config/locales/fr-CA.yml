@@ -22,6 +22,7 @@ fr-CA:
               c: Choix C
             test_options:
               bar: Seuil
+              baz: Baz
               foo: Foo
           step:
             endorsements_blocked: Bloquer les soutiens
@@ -29,6 +30,7 @@ fr-CA:
             readonly_step_attribute: Attribut étape en lecture seule
             test_options:
               bar: Seuil
+              baz: Baz
               foo: Foo
     dummy:
       admin:
