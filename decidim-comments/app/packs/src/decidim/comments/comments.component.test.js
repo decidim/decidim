@@ -558,16 +558,81 @@ describe("CommentsComponent", () => {
           "This is a dynamically added comment"
         ));
       });
+
+      it("does not clear the comment form text area", () => {
+        const commentSection = addComment[addComment.length - 1];
+        const textArea = $("textarea", commentSection);
+        textArea.val("I am writing a new comment...");
+
+        const newThread = generateCommentThread(999, "This is a dynamically added comment");
+        subject.addThread(newThread);
+
+        expect(textArea.val()).toEqual("I am writing a new comment...");
+      });
+
+      describe("as the current user", () => {
+        it("clears the comment form text area", () => {
+          const commentSection = addComment[addComment.length - 1];
+          const textArea = $("textarea", commentSection);
+          textArea.val("I am writing a new comment...");
+
+          const newThread = generateCommentThread(999, "This is a dynamically added comment");
+          subject.addThread(newThread, true);
+
+          expect(textArea.val()).toEqual("");
+        });
+      });
     });
 
     describe("addReply", () => {
+      const newReply = generateSingleComment(999, "This is a dynamically added reply");
+
       it("adds a new reply to an existing thread", () => {
-        const newThread = generateSingleComment(999, "This is a dynamically added reply");
-        subject.addReply(450, newThread);
+        subject.addReply(450, newReply);
 
         expect(subject.$element.html()).toEqual(expect.stringContaining(
           "This is a dynamically added reply"
         ));
+      });
+
+      it("does not clear the reply comment form text area", () => {
+        const commentSection = $("#comment450-reply", subject.$element);
+        const textArea = $("textarea", commentSection);
+        textArea.val("I am writing a new comment...");
+
+        subject.addReply(450, newReply);
+
+        expect(textArea.val()).toEqual("I am writing a new comment...");
+      });
+
+      it("does not hide the reply form", () => {
+        const commentSection = $("#comment450-reply", subject.$element);
+        commentSection.removeClass("hide");
+
+        subject.addReply(450, newReply);
+
+        expect(commentSection.hasClass("hide")).toBeFalsy();
+      });
+
+      describe("as the current user", () => {
+        it("clears the comment form text area", () => {
+          const commentSection = $("#comment450-reply", subject.$element);
+          const textArea = $("textarea", commentSection);
+          textArea.val("I am writing a new comment...");
+
+          subject.addReply(450, newReply, true);
+
+          expect(textArea.val()).toEqual("");
+        });
+
+        it("hides the reply form", () => {
+          const commentSection = $("#comment450-reply", subject.$element);
+          commentSection.removeClass("hide");
+
+          subject.addReply(450, newReply, true);
+
+          expect(commentSection.hasClass("hide")).toBeTruthy();
+        });
       });
     });
   });
