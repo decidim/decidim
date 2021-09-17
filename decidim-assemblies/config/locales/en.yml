@@ -63,6 +63,7 @@ en:
         designation_mode: Designation mode
         full_name: Full name
         gender: Gender
+        non_user_avatar: Avatar
         position: Position
         user_id: User or group
       assembly_user_role:
@@ -300,7 +301,10 @@ en:
         assembly_members:
           form:
             existing_user: Existing participant
+            explanation: 'Guidance for image:'
+            image_guide: Preferrably a portrait image that does not have any text.
             non_user: Non participant
+            non_user_avatar_help: You should get the consent of the persons before publishing them as a member.
             select_a_position: Select a position
             select_user: Select a participant
             user_type: Participant type
