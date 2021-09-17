@@ -182,6 +182,9 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette assemblée.
           success: Utilisateur mis à jour avec succès pour cette assemblée.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Type d'assemblée
       menu:
         assemblies: Assemblées
         assemblies_settings: Paramètres
