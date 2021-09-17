@@ -6,9 +6,9 @@
   var $comments = $("#" + rootCommentableId);
   var component = $comments.data("comments");
   if (inReplyTo) {
-    component.addReply(inReplyTo, commentHtml);
+    component.addReply(inReplyTo, commentHtml, true);
   } else {
-    component.addThread(commentHtml);
+    component.addThread(commentHtml, true);
   }
 
   // Update the comments count
