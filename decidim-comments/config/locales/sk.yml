@@ -73,7 +73,6 @@ sk:
         blocked_comments_warning: Komentáre nie sú v súčasnosti povolené, ale môžete si prečítať predchádzajúce komentáre.
         comment_details_title: Podrobnosti komentára
         loading: Nahrávanie komentárov...
-        single_comment_warning: Zvyšné komentáre zobrazíte  <a href="%{url}">tu</a>.
         single_comment_warning_title: Zobrazujete jeden komentár
     events:
       comments:
