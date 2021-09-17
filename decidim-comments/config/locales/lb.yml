@@ -93,7 +93,6 @@ lb:
         blocked_comments_warning: Kommentare sind zu diesem Zeitpunkt deaktiviert, aber Sie können die vorherigen lesen.
         comment_details_title: Kommentarinformationen
         loading: Kommentare werden geladen ...
-        single_comment_warning: Sie können die restlichen Kommentare <a href="%{url}">hier</a> prüfen.
         single_comment_warning_title: Ihnen wird ein einzelner Kommentar angezeigt
         title:
           one: "%{count} Kommentar"
