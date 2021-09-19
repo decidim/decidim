@@ -144,6 +144,17 @@ pt:
             collaborative_drafts_enabled: Rascunhos colaborativos ativados
             comments_enabled: Comentários ativados
             comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
+            default_sort_order: Ordenamento por defeitos das propostas
+            default_sort_order_help: Por defeito significa que se os apoios estiverem activos as propostas serão ordenadas ao acaso, e se os apoios estiverem bloqueados serão ordenadas do maior para o menor número de apoios.
+            default_sort_order_options:
+              default: Por defeito
+              most_commented: Mais comentada
+              most_endorsed: Mais apoiada
+              most_followed: Mais seguida
+              most_voted: Mais apoiada
+              random: Aleatório
+              recent: Mais recentes
+              with_more_authors: Com mais autores
             geocoding_enabled: Geocoding ativado
             minimum_votes_per_user: Votos mínimos por utilizador
             new_proposal_body_template: Novo modelo de corpo de proposta
@@ -186,6 +197,17 @@ pt:
             automatic_hashtags: Hashtags adicionados a todas as propostas
             comments_blocked: Comentários bloqueados
             creation_enabled: Criação de proposta ativada
+            default_sort_order: Ordenamento por defeitos das propostas
+            default_sort_order_help: Por defeito significa que se os apoios estiverem activos as propostas serão ordenadas ao acaso, e se os apoios estiverem bloqueados serão ordenadas do maior para o menor número de apoios.
+            default_sort_order_options:
+              default: Por defeito
+              most_commented: Mais comentada
+              most_endorsed: Mais apoiada
+              most_followed: Mais seguida
+              most_voted: Mais apoiada
+              random: Aleatório
+              recent: Mais recentes
+              with_more_authors: Com mais autores
             endorsements_blocked: Endossos bloqueados
             endorsements_enabled: Endossamentos ativados
             proposal_answering_enabled: Resposta de proposta ativada
@@ -762,9 +784,12 @@ pt:
           filter_by: Filtrar por
           unfold: Desdobrar
         index:
+          click_here: Ver todas as propostas
           collaborative_drafts_list: Aceder a rascunhos colaborativos
           new_proposal: Nova proposta
+          see_all: Ver todas as propostas
           see_all_withdrawn: Ver todas as propostas retiradas
+          text_banner: Está a ver a lista de propostas retiradas pelos seus próprios autores. %{go_back_link}
           view_proposal: Ver proposta
         linked_proposals:
           proposal_votes:
