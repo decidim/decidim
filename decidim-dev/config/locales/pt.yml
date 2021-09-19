@@ -22,6 +22,7 @@ pt:
               c: Escolha C
             test_options:
               bar: Barra
+              baz: Bar
               foo: Foo
           step:
             endorsements_blocked: Endossamentos bloqueados
@@ -29,6 +30,7 @@ pt:
             readonly_step_attribute: Atributo de passo só de leitura
             test_options:
               bar: Barra
+              baz: Bar
               foo: Foo
     dummy:
       admin:
