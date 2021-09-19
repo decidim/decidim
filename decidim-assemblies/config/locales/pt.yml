@@ -62,6 +62,7 @@ pt:
         designation_mode: Modo de designação
         full_name: Nome completo
         gender: Género
+        non_user_avatar: Avatar
         position: Posição
         user_id: Utilizador ou grupo
       assembly_user_role:
@@ -182,6 +183,9 @@ pt:
         update:
           error: Ocorreu um problema ao atualizar um administrador para esta reunião.
           success: Administrador atualizador corretamente para esta reunião.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Tipo de assembleia
       menu:
         assemblies: Reuniões
         assemblies_settings: Definições
@@ -296,7 +300,10 @@ pt:
         assembly_members:
           form:
             existing_user: Participante existente
+            explanation: 'Orientações para imagem:'
+            image_guide: De preferência uma imagem em formato paisagem sem texto algum.
             non_user: Não participante
+            non_user_avatar_help: Deve obter o consentimento das pessoas antes de as publicar como membros.
             select_a_position: Selecione uma posição
             select_user: Selecione um participante
             user_type: Tipo de participante
