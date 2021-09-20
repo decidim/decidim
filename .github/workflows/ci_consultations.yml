@@ -21,7 +21,7 @@ env:
   CI: "true"
   SIMPLECOV: "true"
   RUBY_VERSION: 2.7.1
-  NODE_VERSION: 15.14.0
+  NODE_VERSION: 16.9.1
   DECIDIM_MODULE: decidim-consultations
 
 jobs:
