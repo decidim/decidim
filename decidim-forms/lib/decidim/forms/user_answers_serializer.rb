@@ -14,21 +14,45 @@ module Decidim
 
       # Public: Exports a hash with the serialized data for the user answers.
       def serialize
-        @answers.each.inject({}) do |serialized, answer|
-          serialized.update(
-            answer_translated_attribute_name(:id) => answer.session_token,
-            answer_translated_attribute_name(:created_at) => answer.created_at.to_s(:db),
-            answer_translated_attribute_name(:ip_hash) => answer.ip_hash,
-            answer_translated_attribute_name(:user_status) => answer_translated_attribute_name(answer.decidim_user_id.present? ? "registered" : "unregistered"),
-            translated_attribute(answer.question.body) => normalize_body(answer)
-          )
+        answers_hash = hash_for(@answers.first)
+        answers_hash.merge!(questions_hash)
+
+        @answers.each do |answer|
+          answers_hash[question_key_for(answer.question.position, answer.question.body)] = normalize_body(answer)
         end
+
+        answers_hash
       end
 
       private
 
       attr_reader :answers
       alias resource answers
+
+      def hash_for(answer)
+        {
+          answer_translated_attribute_name(:id) => answer&.session_token,
+          answer_translated_attribute_name(:created_at) => answer&.created_at.to_s(:db),
+          answer_translated_attribute_name(:ip_hash) => answer&.ip_hash,
+          answer_translated_attribute_name(:user_status) => answer_translated_attribute_name(answer&.decidim_user_id.present? ? "registered" : "unregistered")
+        }
+      end
+
+      def questions_hash
+        questionnaire.questions.each.inject({}) do |serialized, question|
+          serialized.update(
+            question_key_for(question.position, question.body) => ""
+          )
+        end
+      end
+
+      def questionnaire
+        @answers.first&.questionnaire
+      end
+
+      def question_key_for(idx, body)
+        "#{idx + 1}. #{translated_attribute(body)}"
+      end
 
       def normalize_body(answer)
         answer.body ||
