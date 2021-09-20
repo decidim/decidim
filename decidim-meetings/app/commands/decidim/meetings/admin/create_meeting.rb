@@ -60,7 +60,8 @@ module Decidim
             show_embedded_iframe: form.show_embedded_iframe,
             comments_enabled: form.comments_enabled,
             comments_start_time: form.comments_start_time,
-            comments_end_time: form.comments_end_time
+            comments_end_time: form.comments_end_time,
+            iframe_access_level: form.iframe_access_level
           }
 
           @meeting = Decidim.traceability.create!(

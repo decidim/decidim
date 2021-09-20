@@ -27,6 +27,7 @@ module Decidim
         attribute :comments_enabled, Boolean, default: true
         attribute :comments_start_time, Decidim::Attributes::TimeWithZone
         attribute :comments_end_time, Decidim::Attributes::TimeWithZone
+        attribute :iframe_access_level, String
 
         translatable_attribute :title, String
         translatable_attribute :description, String
@@ -55,6 +56,7 @@ module Decidim
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :clean_type_of_meeting, presence: true
+        validates :iframe_access_level, inclusion: { in: Decidim::Meetings::Meeting.iframe_access_levels }, if: ->(form) { form.show_embedded_iframe }
         validate :embeddable_meeting_url
 
         delegate :categories, to: :current_component
@@ -139,6 +141,15 @@ module Decidim
             [
               I18n.t("type_of_meeting.#{type}", scope: "decidim.meetings"),
               type
+            ]
+          end
+        end
+
+        def iframe_access_level_select
+          Decidim::Meetings::Meeting.iframe_access_levels.map do |level, _value|
+            [
+              I18n.t("iframe_access_level.#{level}", scope: "decidim.meetings"),
+              level
             ]
           end
         end

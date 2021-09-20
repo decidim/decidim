@@ -310,6 +310,7 @@ en:
             registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
             select_a_meeting_type: Please select a meeting type
             select_a_registration_type: Please select a registration type
+            select_an_iframe_access_level: Please select an iframe access level
             show_embedded_iframe_help: Whether or not embed the iframe for this videoconference URL. Only a few services allow embedding (i.e. Youtube, Twitch...)
           index:
             title: Meetings
@@ -402,6 +403,10 @@ en:
           index:
             meetings: Meetings
             space_type: Participatory space
+      iframe_access_level:
+        all: All visitors
+        registered: Registered participants to this meeting
+        signed_in: Only signed-in participants
       last_activity:
         meeting_updated_at_html: "<span>Meeting updated at %{link}</span>"
         new_meeting_at_html: "<span>New meeting at %{link}</span>"
