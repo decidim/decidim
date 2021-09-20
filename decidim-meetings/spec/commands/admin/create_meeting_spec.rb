@@ -26,6 +26,7 @@ module Decidim::Meetings
     let(:registration_type) { "on_this_platform" }
     let(:available_slots) { 0 }
     let(:show_embedded_iframe) { true }
+    let(:iframe_access_level) { "all" }
     let(:services) do
       [
         {
@@ -74,7 +75,8 @@ module Decidim::Meetings
         show_embedded_iframe: show_embedded_iframe,
         comments_enabled: true,
         comments_start_time: nil,
-        comments_end_time: nil
+        comments_end_time: nil,
+        iframe_access_level: iframe_access_level
       )
     end
 
@@ -156,6 +158,12 @@ module Decidim::Meetings
         subject.call
 
         expect(meeting).to be_show_embedded_iframe
+      end
+
+      it "sets iframe_access_level" do
+        subject.call
+
+        expect(meeting.iframe_access_level).to eq(iframe_access_level)
       end
 
       it "traces the action", versioning: true do
