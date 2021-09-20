@@ -62,6 +62,7 @@ ca:
         designation_mode: Mode de designació
         full_name: Nom complet
         gender: Gènere
+        non_user_avatar: Avatar
         position: Posició
         user_id: Participant o grup
       assembly_user_role:
@@ -182,6 +183,9 @@ ca:
         update:
           error: S'ha produït un error en actualitzar una administradora per a aquesta assemblea.
           success: L'administradora s'ha actualitzat correctament per a aquesta assemblea.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Tipus d'assemblea
       menu:
         assemblies: Assemblees
         assemblies_settings: Configuració
@@ -296,6 +300,7 @@ ca:
         assembly_members:
           form:
             existing_user: Participant existent
+            explanation: 'Instruccions per a la imatge:'
             non_user: No participant
             select_a_position: Selecciona una posició
             select_user: Selecciona una participant
