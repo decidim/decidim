@@ -1,7 +1,7 @@
 {
   "name": "@decidim/browserslist-config",
   "description": "The Browserslist configuration for Decidim",
-  "version": "0.25.0-rc3",
+  "version": "0.25.0-dev",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git",
@@ -9,9 +9,5 @@
   },
   "author": "Decidim Contributors",
   "license": "AGPL-3.0",
-  "engines": {
-    "node": "^15.14.0",
-    "npm": "^7.24.0"
-  },
   "main": "index.js"
 }
