@@ -143,7 +143,7 @@ module Decidim
           let!(:conditional_question) { create(:questionnaire_question, :conditioned, questionnaire: questionnaire, position: 4) }
 
           it "includes conditional question as empty" do
-            expect(serialized).to include("#{conditional_question.position + 1}. #{translated(conditional_question.body, locale: I18n.locale)}" => "")
+            expect(serialized).to include("5. #{translated(conditional_question.body, locale: I18n.locale)}" => "")
           end
         end
       end
