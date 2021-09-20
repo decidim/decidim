@@ -9,6 +9,32 @@
 
 ### Removed
 
+## [0.25.0.rc4](https://github.com/decidim/decidim/tree/v0.25.0.rc4)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+Nothing.
+
+### Improved
+
+Nothing.
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+- Backport "Update NPM version" [\#8344](https://github.com/decidim/decidim/pull/8344)
+
 ## [0.25.0.rc3](https://github.com/decidim/decidim/tree/v0.25.0.rc3)
 
 ### Added

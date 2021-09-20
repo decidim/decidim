@@ -4,7 +4,7 @@ module Decidim
   # This holds the decidim-templates version.
   module Templates
     def self.version
-      "0.25.0.dev"
+      "0.25.0.rc4"
     end
   end
 end
