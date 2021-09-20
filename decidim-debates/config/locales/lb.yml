@@ -44,6 +44,10 @@ lb:
             endorsements_blocked: Bestätigungen blockiert
             endorsements_enabled: Bestätigungen aktiviert
     debates:
+      admin:
+        debates:
+          index:
+            title: Debatten
       debates:
         filters:
           search: Suche
@@ -121,3 +125,10 @@ lb:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Neue Debatte "%{resource_title}" von %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat die Debatte <a href="%{resource_path}">%{resource_title}</a> erstellt.
+    gamification:
+      badges:
+        commented_debates:
+          name: Debatten
+    metrics:
+      debates:
+        title: Debatten
