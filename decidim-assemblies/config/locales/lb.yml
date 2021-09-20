@@ -62,6 +62,7 @@ lb:
         designation_mode: Bezeichnungsmodus
         full_name: Vollständiger Name
         gender: Geschlecht
+        non_user_avatar: Profil-Bild
         position: Position
         user_id: User
       assembly_user_role:
