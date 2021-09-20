@@ -44,6 +44,8 @@ lb:
         partner_type: Partnertyp
       conference_registration_invite:
         email: E-Mail
+      conference_speaker:
+        conference_meeting_ids: Ähnlech Versammlungen
   decidim:
     admin:
       conference_user_roles:
