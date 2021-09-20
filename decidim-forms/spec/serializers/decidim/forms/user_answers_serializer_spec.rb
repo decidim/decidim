@@ -116,6 +116,35 @@ module Decidim
             key = I18n.t(:created_at, scope: "decidim.forms.user_answers_serializer")
             expect(serialized[key]).to eq an_answer.created_at.to_s(:db)
           end
+
+          it "the IP hash of the user" do
+            key = I18n.t(:ip_hash, scope: "decidim.forms.user_answers_serializer")
+            expect(serialized[key]).to eq an_answer.ip_hash
+          end
+
+          it "the user status" do
+            key = I18n.t(:user_status, scope: "decidim.forms.user_answers_serializer")
+            expect(serialized[key]).to eq "Registered"
+          end
+
+          context "when user is not registered" do
+            before do
+              questionnaire.answers.first.update!(decidim_user_id: nil)
+            end
+
+            it "the user status is unregistered" do
+              key = I18n.t(:user_status, scope: "decidim.forms.user_answers_serializer")
+              expect(serialized[key]).to eq "Unregistered"
+            end
+          end
+        end
+
+        context "when conditional question is not answered by user" do
+          let!(:conditional_question) { create(:questionnaire_question, :conditioned, questionnaire: questionnaire, position: 4) }
+
+          it "includes conditional question as empty" do
+            expect(serialized).to include("#{conditional_question.position + 1}. #{translated(conditional_question.body, locale: I18n.locale)}" => "")
+          end
         end
       end
     end

@@ -18,7 +18,7 @@ module Decidim
         answers_hash.merge!(questions_hash)
 
         @answers.each do |answer|
-          answers_hash[question_key_for(answer.question.position, answer.question.body)] = normalize_body(answer)
+          answers_hash[translated_question_key(answer.question.position, answer.question.body)] = normalize_body(answer)
         end
 
         answers_hash
@@ -41,7 +41,7 @@ module Decidim
       def questions_hash
         questionnaire.questions.each.inject({}) do |serialized, question|
           serialized.update(
-            question_key_for(question.position, question.body) => ""
+            translated_question_key(question.position, question.body) => ""
           )
         end
       end
@@ -50,7 +50,7 @@ module Decidim
         @answers.first&.questionnaire
       end
 
-      def question_key_for(idx, body)
+      def translated_question_key(idx, body)
         "#{idx + 1}. #{translated_attribute(body)}"
       end
 
