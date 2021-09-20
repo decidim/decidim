@@ -9,10 +9,6 @@
   },
   "author": "Decidim Contributors",
   "license": "AGPL-3.0",
-  "engines": {
-    "node": "^15.14.0",
-    "npm": "^7.24.0"
-  },
   "main": "index.js",
   "peerDependencies": {
     "eslint": "^7.25.0",
