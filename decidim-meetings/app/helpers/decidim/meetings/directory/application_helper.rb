@@ -91,6 +91,8 @@ module Decidim
 
             next if categories_values.empty?
 
+            next if categories_values.empty?
+
             key_point = current_participatory_space.class.name.gsub("::", "__") + current_participatory_space.id.to_s
 
             TreeNode.new(
