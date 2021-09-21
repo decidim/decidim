@@ -68,8 +68,8 @@ module Decidim
         def directory_filter_categories_values
           participatory_spaces = current_organization.public_participatory_spaces
           list_of_ps = participatory_spaces.flat_map do |current_participatory_space|
-            next if current_participatory_space.is_a?(Decidim::Consultation)
-            next if current_participatory_space.is_a?(Decidim::Votings::Voting)
+            next if defined?(Decidim::Consultation) && current_participatory_space.is_a?(Decidim::Consultation)
+            next if defined?(Decidim::Votings::Voting) && current_participatory_space.is_a?(Decidim::Votings::Voting)
 
             sorted_main_categories = current_participatory_space.categories.first_class.includes(:subcategories).sort_by do |category|
               [category.weight, translated_attribute(category.name, current_organization)]
@@ -90,6 +90,8 @@ module Decidim
               )
             end
 
+            next if categories_values.empty?
+
             key_point = current_participatory_space.class.name.gsub("::", "__") + current_participatory_space.id.to_s
 
             TreeNode.new(
@@ -98,9 +100,10 @@ module Decidim
             )
           end
 
+          list_of_ps.compact!
           TreeNode.new(
             TreePoint.new("", t("decidim.proposals.application_helper.filter_category_values.all")),
-            list_of_ps.compact!
+            list_of_ps
           )
         end
 
