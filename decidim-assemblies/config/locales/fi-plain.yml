@@ -59,7 +59,6 @@ fi-pl:
         birthplace: Syntymäpaikka
         ceased_date: Päättymispäivä
         designation_date: Nimityspäivä
-        designation_mode: Nimitystila
         full_name: Koko nimi
         gender: Sukupuoli
         position: Asema
