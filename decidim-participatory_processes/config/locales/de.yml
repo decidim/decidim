@@ -336,7 +336,7 @@ de:
         participatory_processes:
           name: Beteiligungsprozesse
         stats:
-          name: Aktivität
+          name: Statistiken
         title:
           meta_scope: Umfang
           name: Titel, Beschreibung und Hashtag
@@ -455,7 +455,7 @@ de:
         debates_count: Debatten
         endorsements_count: Empfehlungen
         followers_count: Follower
-        headline: Aktivität
+        headline: Statistiken
         meetings_count: Meetings
         no_stats: Es gibt noch keine Statistiken.
         orders_count: Stimmen
