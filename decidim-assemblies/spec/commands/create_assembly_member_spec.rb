@@ -28,7 +28,6 @@ module Decidim::Assemblies
           birthplace: Faker::Demographic.demonym,
           ceased_date: nil,
           designation_date: Time.current,
-          designation_mode: "designation mode",
           position: Decidim::AssemblyMember::POSITIONS.sample,
           position_other: "other",
           existing_user: existing_user,

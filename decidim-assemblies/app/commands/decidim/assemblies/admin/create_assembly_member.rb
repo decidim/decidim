@@ -59,7 +59,6 @@ module Decidim
             :birthplace,
             :ceased_date,
             :designation_date,
-            :designation_mode,
             :position,
             :position_other,
             :weight
