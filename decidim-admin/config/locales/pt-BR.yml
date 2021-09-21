@@ -918,13 +918,6 @@ pt:
           success: Grupo de usuários verificado com sucesso
       user_groups:
         index:
-          filter:
-            all: Tudo
-            pending: Pendente
-            rejected: Rejeitado
-            verified: Verificado
-          filter_by: Filtrar por
-          search: Buscar
           state:
             pending: Pendente
             rejected: Rejeitado

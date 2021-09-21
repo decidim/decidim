@@ -59,6 +59,9 @@ sv:
       read_more: Läs mer
     components:
       blogs:
+        actions:
+          amend: Redigera
+          vote: Rösta
         name: Blogg
         settings:
           global:

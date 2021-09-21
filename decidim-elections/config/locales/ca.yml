@@ -254,7 +254,6 @@ ca:
             trustees: Garants
           key_ceremony:
             title: Cerimònia de claus
-            trustees: Garants
           key_ceremony_ended:
             errors:
               time_before: L'elecció està llesta per començar. Has d'esperar fins a %{hours} hores abans de l'hora d'inici (%{start_time}) per iniciar el període de votació.
@@ -275,7 +274,6 @@ ca:
             title: Resultats publicats
           tally:
             title: Procés de recompte
-            trustees: Garants
           tally_ended:
             answer: Resposta
             not_selected: No seleccionat
@@ -326,16 +324,6 @@ ca:
           update:
             invalid: S'ha produït un error en actualitzar el garant %{trustee}
             success: El garant %{trustee} s'ha actualitzat correctament
-      admin_log:
-        election:
-          end_vote: "%{user_name} ha finalittzat el període de votació per l'elecció %{resource_name} al Bulletin Board"
-          publish: "%{user_name} ha publicat la votació %{resource_name}"
-          publish_results: "%{user_name} ha publicat els resultats de l'elecció %{resource_name} al Bulletin Board"
-          setup: "%{user_name} ha creat l'elecció %{resource_name} al Bulletin Board"
-          start_key_ceremony: "%{user_name} va començar la cerimònia de claus per l'elecció %{resource_name} al Bulletin Board"
-          start_tally: "%{user_name} ha iniciat el recompte per a l'elecció %{resource_name} al Bulletin Board"
-          start_vote: "%{user_name} ha iniciat el període de votació per a l'elecció %{resource_name} al Bulletin Board"
-          unpublish: "%{user_name} ha despublicat la votació %{resource_name}"
       election_m:
         badge_name:
           finished: Acabada
@@ -999,7 +987,6 @@ ca:
           census:
             create:
               invalid: Hi ha hagut un error en pujar el cens, prova-ho de nou més tard.
-              invalid_csv_header: La capçalera CSV no té el nombre correcte de camps. Consulta les instruccions amb atenció
             creating_data:
               info_message: "<strong>Si us plau espera</strong>, processades %{processed_count} de %{raw_count} fileres al fitxer de %{file}."
             delete:

@@ -9,10 +9,6 @@
   },
   "author": "Decidim Contributors",
   "license": "AGPL-3.0",
-  "engines": {
-    "node": "^15.14.0",
-    "npm": "^7.7.2"
-  },
   "dependencies": {
     "@decidim/decidim-bulletin_board": "0.22.3",
     "@decidim/voting_schemes-dummy": "0.22.3",

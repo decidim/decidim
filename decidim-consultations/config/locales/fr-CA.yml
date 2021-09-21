@@ -361,6 +361,9 @@ fr-CA:
         actions:
           comment: Commenter
           vote: Voter
+    statistics:
+      consultations_count: Consultations
+      votes_count: Votes
   layouts:
     decidim:
       consultation_voting_data:

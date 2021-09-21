@@ -52,6 +52,7 @@ pl:
         target: Do kogo kierowane
         title: Tytuł
         twitter: Twitter
+        weight: Kolejność na stronie
         youtube: YouTube
       assembly_member:
         birthday: Urodziny
@@ -427,6 +428,8 @@ pl:
     participatory_processes:
       show:
         related_assemblies: Powiązane zespoły
+    statistics:
+      assemblies_count: Zespoły
   errors:
     messages:
       cannot_be_blank: nie może być puste

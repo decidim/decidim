@@ -102,7 +102,6 @@ nl:
         name: Voorstellen
         settings:
           global:
-            allow_card_image: Kaart afbeelding toestaan
             amendments_enabled: Wijzigingen ingeschakeld
             amendments_enabled_help: 'Indien actief: stel de amendementsfunctionaliteiten in voor elke stap.'
             amendments_wizard_help_text: Hulptekst van de amendementen wizard
@@ -485,11 +484,9 @@ nl:
             select_states: Controleer de status van de voorstellen om te importeren
         proposals_merges:
           create:
-            invalid: Er is een fout opgetreden bij het samenvoegen van de geselecteerde voorstellen.
             success: De voorstellen zijn succesvol samengevoegd tot een nieuwe.
         proposals_splits:
           create:
-            invalid: Er is een fout opgetreden bij het splitsen van de geselecteerde voorstellen.
             success: De voorstellen succesvol gesplitst in nieuwe.
         valuation_assignments:
           create:

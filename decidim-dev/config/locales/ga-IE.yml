@@ -11,6 +11,13 @@ ga:
         settings:
           global:
             test: Teist
+            test_options:
+              bar: Bar
+              foo: Foo
+          step:
+            test_options:
+              bar: Bar
+              foo: Foo
     dummy:
       admin:
         exports:

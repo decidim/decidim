@@ -701,13 +701,6 @@ sk:
           success: Skupina úspešne verifikovaná
       user_groups:
         index:
-          filter:
-            all: Všetko
-            pending: Čakajúce
-            rejected: Odmietnuté
-            verified: Overené
-          filter_by: Filtrovať podľa
-          search: Hľadať
           state:
             pending: Čakajúce
             rejected: Odmietnuté

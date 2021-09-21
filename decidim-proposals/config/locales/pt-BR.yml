@@ -125,7 +125,6 @@ pt:
         name: Propostas
         settings:
           global:
-            allow_card_image: Permitir imagem do cartão
             amendments_enabled: Alterações ativadas
             amendments_enabled_help: Se estiver ativo, configure as características da alteração em cada passo.
             amendments_wizard_help_text: Texto de ajuda do Assistente
@@ -509,11 +508,9 @@ pt:
             title: Importar propostas
         proposals_merges:
           create:
-            invalid: Ocorreu um erro ao mesclar as propostas selecionadas.
             success: Fundiu com sucesso as propostas em uma nova.
         proposals_splits:
           create:
-            invalid: Ocorreu um erro ao dividir as propostas selecionadas.
             success: Dividiu com sucesso as propostas em novas.
         valuation_assignments:
           create:

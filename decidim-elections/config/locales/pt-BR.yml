@@ -254,7 +254,6 @@ pt:
             trustees: Agentes fiduciários
           key_ceremony:
             title: Cerimônia de chave
-            trustees: Agentes fiduciários
           key_ceremony_ended:
             errors:
               time_before: A eleição está pronta para começar. Você tem que esperar até %{hours} horas antes da hora de início (%{start_time}) para iniciar o período de votação.
@@ -275,7 +274,6 @@ pt:
             title: Resultados publicados
           tally:
             title: Processo de registro
-            trustees: Agentes fiduciários
           tally_ended:
             answer: Resposta
             not_selected: Não selecionado
@@ -326,16 +324,6 @@ pt:
           update:
             invalid: Ocorreu um erro ao atualizar %{trustee} como curador
             success: Curador %{trustee} atualizado com sucesso
-      admin_log:
-        election:
-          end_vote: "%{user_name} terminou o período de votação para a eleição %{resource_name} no Quadro de Notas"
-          publish: "%{user_name} publicou a eleição %{resource_name}"
-          publish_results: "%{user_name} publicou os resultados para a eleição %{resource_name} no Quadro de Notas"
-          setup: "%{user_name} criou a eleição %{resource_name} no Quadro de Notas"
-          start_key_ceremony: "%{user_name} iniciou a cerimônia chave para a eleição %{resource_name} no Quadro de Notas"
-          start_tally: "%{user_name} começou a apuração para a eleição %{resource_name} no Quadro de Notas"
-          start_vote: "%{user_name} começou o período de votação para a eleição %{resource_name} no Quadro de Notas"
-          unpublish: "%{user_name} despublicizou a eleição %{resource_name}"
       election_m:
         badge_name:
           finished: Finalizado
@@ -999,7 +987,6 @@ pt:
           census:
             create:
               invalid: Ocorreu um erro ao atualizar o censo, por favor tente novamente mais tarde.
-              invalid_csv_header: O cabeçalho CSV não possui o número correto de campos - por favor, leia as instruções cuidadosamente
             creating_data:
               info_message: "<strong>Aguarde</strong>, processado %{processed_count} de %{raw_count} linhas de %{file} arquivo."
             delete:

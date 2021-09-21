@@ -9,7 +9,7 @@
       data-close-on-click="true"
       role="menubar">
       <li class="is-dropdown-submenu-parent" role="presentation">
-        <a href="#" id="<%= menu_id %>-control" aria-controls="<%= menu_id %>" aria-haspopup="true" title="<%= t("decidim.shared.results_per_page.title") %>" role="menuitem"><%= per_page %></a>
+        <a href="#" id="<%= menu_id %>-control" aria-controls="<%= menu_id %>" aria-haspopup="menu" title="<%= t("decidim.shared.results_per_page.title") %>" role="menuitem"><%= per_page %></a>
         <ul id="<%= menu_id %>" class="menu" role="menu" aria-labelledby="<%= menu_id %>-control">
           <% Decidim::Paginable::OPTIONS.each do |per_page_option| %>
             <li role="presentation">

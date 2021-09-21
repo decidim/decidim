@@ -125,7 +125,6 @@ sv:
         name: Förslag
         settings:
           global:
-            allow_card_image: Tillåt kortbild
             amendments_enabled: Ändringar möjliga
             amendments_enabled_help: Om aktivt, konfigurera ändringsfunktioner till varje steg.
             amendments_wizard_help_text: Hjälptext för guiden för ändringsförslag
@@ -509,11 +508,9 @@ sv:
             title: Importera förslag
         proposals_merges:
           create:
-            invalid: Det gick inte att slå samman de valda förslagen.
             success: Förslagen har sammanfogats till ett nytt förslag.
         proposals_splits:
           create:
-            invalid: Det gick inte att dela upp de valda förslagen.
             success: Förslagen har delats upp till nya förslag.
         valuation_assignments:
           create:

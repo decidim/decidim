@@ -1,6 +1,6 @@
-<div class="reveal flag-modal" id="<%= modal_id %>" data-reveal>
+<div class="reveal flag-modal" id="<%= modal_id %>" data-reveal role="dialog" aria-modal="true" aria-labelledby="<%= modal_id %>-label">
   <div class="reveal__header">
-    <h3 class="reveal__title"><%= t("decidim.shared.flag_modal.title") %></h3>
+    <h3 id="<%= modal_id %>-label" class="reveal__title"><%= t("decidim.shared.flag_modal.title") %></h3>
     <button class="close-button" data-close aria-label="<%= t("decidim.shared.flag_modal.close") %>" type="button">
       <span aria-hidden="true">&times;</span>
     </button>

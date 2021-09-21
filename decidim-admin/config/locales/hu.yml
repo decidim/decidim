@@ -784,13 +784,6 @@ hu:
           success: A csoport sikeresen ellenőrzött
       user_groups:
         index:
-          filter:
-            all: Összes
-            pending: Függőben
-            rejected: Elutasítva
-            verified: Megerősítve
-          filter_by: 'Szűrés ez alapján:'
-          search: Keresés
           state:
             pending: Függőben
             rejected: Elutasítva

@@ -541,13 +541,6 @@ uk:
           success: Гурт учасників успішно підтверджено
       user_groups:
         index:
-          filter:
-            all: Усі
-            pending: Очікує на розгляд
-            rejected: Відхилено
-            verified: Перевірено
-          filter_by: 'Відібрати за ознакою:'
-          search: Шукати
           state:
             pending: Очікує на розгляд
             rejected: Відхилено

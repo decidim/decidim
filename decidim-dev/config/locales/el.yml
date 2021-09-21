@@ -20,10 +20,16 @@ el:
               a: A επιλογή
               b: B επιλογή
               c: C επιλογή
+            test_options:
+              bar: Bar
+              foo: Foo
           step:
             endorsements_blocked: Επιδοκιμασίες αποκλεισμένες
             endorsements_enabled: Επιδοκιμασίες ενεργοποιημένες
             readonly_step_attribute: Χαρακτηριστικό βήματος μόνο για ανάγνωση
+            test_options:
+              bar: Bar
+              foo: Foo
     dummy:
       admin:
         exports:

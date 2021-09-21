@@ -928,13 +928,6 @@ ca:
           success: Grup verificat correctament
       user_groups:
         index:
-          filter:
-            all: Tots
-            pending: Pendents
-            rejected: Rebutjats
-            verified: Verificats
-          filter_by: Filtra per
-          search: Cerca
           state:
             pending: Pendent
             rejected: Rebutjat

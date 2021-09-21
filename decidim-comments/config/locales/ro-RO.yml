@@ -95,7 +95,6 @@ ro:
         blocked_comments_warning: Comentariile sunt dezactivate în acest moment, dar le puteți citi pe cele anterioare.
         comment_details_title: Detalii comentariu
         loading: Se încarcă comentariile...
-        single_comment_warning: Puteţi verifica restul comentariilor <a href="%{url}">aici</a>.
         single_comment_warning_title: Vedeți un singur comentariu
         title:
           one: "%{count} comentariu"

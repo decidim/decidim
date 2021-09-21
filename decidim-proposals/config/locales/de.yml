@@ -125,7 +125,6 @@ de:
         name: Vorschläge
         settings:
           global:
-            allow_card_image: Kartenbild zulassen
             amendments_enabled: Änderungsvorschläge aktiviert
             amendments_enabled_help: Wenn aktiviert, konfigurieren Sie Änderungsmerkmale für jeden Schritt.
             amendments_wizard_help_text: Hilfetext für Änderungsassistent
@@ -509,11 +508,9 @@ de:
             title: Vorschläge importieren
         proposals_merges:
           create:
-            invalid: Beim Zusammenführen der ausgewählten Vorschläge ist ein Fehler aufgetreten.
             success: Erfolgreich die Vorschläge in eine neue zusammengeführt.
         proposals_splits:
           create:
-            invalid: Beim Teilen der ausgewählten Vorschläge ist ein Fehler aufgetreten.
             success: Die Vorschläge wurden erfolgreich in neue aufgeteilt.
         valuation_assignments:
           create:

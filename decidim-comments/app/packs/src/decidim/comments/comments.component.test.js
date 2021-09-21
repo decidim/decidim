@@ -114,7 +114,6 @@ describe("CommentsComponent", () => {
                   data-tooltip="true"
                   data-disable-hover="false"
                   data-keep-on-hover="true"
-                  aria-haspopup="true"
                   class="label-required has-tip"
               >
                 <span aria-hidden="true">*</span><span class="show-for-sr">Required field</span>
@@ -170,7 +169,7 @@ describe("CommentsComponent", () => {
               </span>
             </div>
             <div class="author-data__extra">
-                <button type="button" class="link-alt" data-open="flagModalComment${commentId}" title="Report inappropriate content" aria-controls="flagModalComment${commentId}" aria-haspopup="true" tabindex="0">
+                <button type="button" class="link-alt" data-open="flagModalComment${commentId}" title="Report inappropriate content" aria-controls="flagModalComment${commentId}" aria-haspopup="dialog" tabindex="0">
                   <svg role="img" aria-hidden="true" class="icon--flag icon icon--small">
                     <title></title>
                     <use href="/assets/decidim/icons-123.svg#icon-flag"></use>
@@ -261,7 +260,7 @@ describe("CommentsComponent", () => {
     let orderSelector = `
       <ul id="comments-order-menu" class="dropdown menu" data-dropdown-menu="data-dropdown-menu" data-autoclose="false" data-disable-hover="true" data-click-open="true" data-close-on-click="true" tabindex="-1" role="menubar">
         <li class="is-dropdown-submenu-parent opens-right" tabindex="-1" role="none">
-          <a href="#" id="comments-order-menu-control" aria-label="Order by:" aria-controls="comments-order-menu" aria-haspopup="true" role="menuitem">Older</a>
+          <a href="#" id="comments-order-menu-control" aria-label="Order by:" aria-controls="comments-order-menu" aria-haspopup="menu" role="menuitem">Older</a>
           <ul class="menu is-dropdown-submenu submenu first-sub vertical" id="comments-order-chooser-menu" role="menu" aria-labelledby="comments-order-menu-control" tabindex="-1" data-submenu="">
             <li role="none" class="is-submenu-item is-dropdown-submenu-item">
               <a tabindex="-1" role="menuitem" data-remote="true" href="/comments?commentable_gid=commentable-gid&amp;order=best_rated&amp;reload=1">

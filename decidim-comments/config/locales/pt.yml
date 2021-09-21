@@ -16,15 +16,30 @@ pt:
         other: Votos
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Comentários activados
+            end_time: Comentários activados até
+            start_time: Comentários activados desde
+      comments:
+        create:
+          error: Ocorreu um problema ao criar o comentário
+        delete:
+          error: O comentário não pode ser eliminado.
+        update:
+          error: Ocorreu um problema ao actualizar a comentário.
       comments_count: Contagem de comentários
+      comments_title: Comentários
       last_activity:
         new_comment_at_html: "<span>Novo comentário em %{link}</span>"
+      view: Visualizar
       votes:
         create:
-          error: Houve erros ao votar o comentário.
+          error: Houve erros na votação do comentário.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Inscreva-se com sua conta</a> ou <a href="%{sign_up_url}">sign up</a> para adicionar seu comentário.
+        account_message: <a href="%{sign_in_url}">Ligue-se com sua conta</a> ou <a href="%{sign_up_url}">sign up</a> para adicionar seu comentário.
         form:
           body:
             label: Comente
@@ -34,7 +49,13 @@ pt:
           user_group_id:
             label: Comente como
         opinion:
+          label: A sua opinião sobre este tópico
+          negative: Negativa
+          negative_selected: A sua opinião sobre este tópico é negativa
           neutral: Neutro
+          neutral_selected: A sua opinião sobre este tópico é neutra
+          positive: Positiva
+          positive_selected: A sua opinião sobre este tópico é positiva
         remaining_characters: "%{count} caracteres restantes"
         remaining_characters_1: "%{count} caracteres restantes"
         title: Adicione o seu comentário
@@ -42,7 +63,12 @@ pt:
         alignment:
           against: Contra
           in_favor: A favor
+        confirm_destroy: Tem a certeza que quer eliminar este comentário?
+        delete: Eliminar
+        deleted_at: Comentário eliminado em %{date}
         deleted_user: Participante eliminado
+        edit: Editar
+        edited: Editado
         hide_replies: Ocultar respostas
         reply: Responder
         report:
@@ -57,6 +83,7 @@ pt:
             spam: Contém clickbait, publicidade, fraudes ou robots de scripts.
           title: Reportar conteúdo impróprio
         show_replies: Mostrar %{replies_count} respostas
+        single_comment_link_title: Obter ligação
       comment_order_selector:
         order:
           best_rated: Melhores avaliações
@@ -67,14 +94,26 @@ pt:
       comment_thread:
         title: Conversa com %{authorName}
       comments:
+        blocked_comments_for_unauthorized_user_warning: Precisa de estar verificado para comentar neste momento, mas pode ler os precedentes.
         blocked_comments_for_user_warning: Não pode comentar neste momento, mas pode ler os anteriores.
         blocked_comments_warning: Os comentários estão desativados neste momento, mas pode ler os anteriores.
         comment_details_title: Detalhes do comentário
         loading: A carregar comentários ...
-        single_comment_warning: Pode consultar os restantes comentários <a href="%{url}">aqui</a>.
+        single_comment_warning: <a href="%{url}">Ver todos os comentários</a>
         single_comment_warning_title: Está a ver um único comentário
+        title:
+          one: "%{count} comentário"
+          other: "%{count} comentários"
       down_vote_button:
         text: Eu discordo deste comentário
+      edit_comment_modal_form:
+        close: Fechar
+        form:
+          body:
+            label: Comentário
+            placeholder: O que pensa sobre isso?
+          submit: Enviar
+        title: Editar o seu comentário
       up_vote_button:
         text: Eu concordo com este comentário
     events:
@@ -91,9 +130,19 @@ pt:
           notification_title: Há um novo comentário por <a href="%{author_path}">%{author_name} %{author_nickname}</a> em <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} foi comentado. Você pode ler o comentário nesta página:"
-          email_outro: Recebeu esta notificação porque segue "%{resource_title}" ou o seu autor. Pode deixar de segui-lo a partir da hiperligação anterior.
+          email_outro: Recebeu esta notificação porque segue "%{resource_title}" ou o seu autor. Pode deixar de segui-lo a partir da ligação anterior.
           email_subject: Há um novo comentário de %{author_name} em %{resource_title}
           notification_title: Há um novo comentário de <a href="%{author_path}">%{author_name} %{author_nickname}</a> em <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: O seu comentário em "%{resource_title}” foi desvalorizado. Tem agora um total de %{upvotes} valorizações e %{downvotes} desvalorizações.
+          email_outro: Recebeu esta notificação porque é o autor deste comentário.
+          email_subject: O seu comentário em "%{resource_title}” foi desvalorizado.
+          notification_title: O seu <a href="%{resource_path}">comentário</a> in "%{resource_title}" foi desvalorizado. Tem agora um total de %{upvotes} valorizações e %{downvotes} desvalorizações.
+        comment_upvoted:
+          email_intro: O seu comentário em "%{resource_title}” foi valorizado. Tem agora um total de %{upvotes} valorizações e %{downvotes} desvalorizações.
+          email_outro: Recebeu esta notificação porque é o autor deste comentário.
+          email_subject: O seu comentário em "%{resource_title}” foi valorizado.
+          notification_title: O seu <a href="%{resource_path}">comentário</a> in "%{resource_title}" foi valorizado. Tem agora um total de %{upvotes} valorizações e %{downvotes} desvalorizações.
         reply_created:
           email_intro: "%{author_name} respondeu ao seu comentário em %{resource_title}. Pode lê-lo nesta página:"
           email_outro: Recebeu esta notificação porque responderam ao seu comentário.

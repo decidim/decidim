@@ -117,7 +117,6 @@ hu:
         name: Javaslatok
         settings:
           global:
-            allow_card_image: Kártyakép engedélyezése
             amendments_enabled: A módosítások engedélyezve vannak
             amendments_enabled_help: Ha aktív, minden lépéshez konfigurálja a Módosítás funkciókat.
             amendments_wizard_help_text: Módosítások Varázsló súgószöveg
@@ -483,11 +482,9 @@ hu:
             select_states: Ellenőrizd az importálandó javaslatok állapotát
         proposals_merges:
           create:
-            invalid: Hiba történt a kiválasztott javaslatok egyesítésével.
             success: A javaslatokat sikeresen egy újba egyesítettük.
         proposals_splits:
           create:
-            invalid: Hiba történt a kiválasztott javaslatok szétválasztása során.
             success: A javaslatokat sikeresen újakra osztottuk.
         valuation_assignments:
           create:

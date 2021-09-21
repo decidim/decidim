@@ -9,6 +9,17 @@ ru:
         translatable_text: Переводимый текст
         updated_at: 'Обновлено:'
   decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            test_options:
+              bar: Пример переменной 1
+              foo: Пример переменной 2
+          step:
+            test_options:
+              bar: Пример переменной 1
+              foo: Пример переменной 2
     dummy:
       admin:
         exports:
