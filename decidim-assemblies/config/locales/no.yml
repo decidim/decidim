@@ -56,7 +56,6 @@
         birthplace: Fødested
         ceased_date: Opphørt dato
         designation_date: Valgdato
-        designation_mode: Valgform
         full_name: Fullt navn
         gender: Kjønn
         position: Stilling
