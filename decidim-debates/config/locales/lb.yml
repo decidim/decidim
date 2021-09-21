@@ -1,0 +1,134 @@
+lb:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Kategorie
+        closed_at: Geschlossen am
+        conclusions: Zusammenfassung
+        decidim_category_id: Kategorie
+        description: Beschreibung
+        end_time: Endet am
+        information_updates: Informationsaktualisierungen
+        instructions: Anweisungen zur Teilnahme
+        start_time: Startet um
+        title: Titel
+        user_group_id: Debatte erstellen als
+    models:
+      decidim/debates/close_debate_event: Debatte beendet
+      decidim/debates/create_debate_event: Debatte
+      decidim/debates/creation_disabled_event: Debatten deaktiviert
+      decidim/debates/creation_enabled_event: Debatten aktiviert
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debatte
+        other: Debatten
+  decidim:
+    components:
+      debates:
+        actions:
+          create: Erstellen
+          endorse: Bestätigen
+        name: Debatten
+        settings:
+          global:
+            announcement: Ankündigung
+            comments_enabled: Kommentare aktiviert
+            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
+            scope_id: Bereich
+            scopes_enabled: Bereiche aktiviert
+          step:
+            announcement: Ankündigung
+            comments_blocked: Kommentare blockiert
+            creation_enabled: Debate-Erstellung durch Benutzer aktiviert
+            endorsements_blocked: Bestätigungen blockiert
+            endorsements_enabled: Bestätigungen aktiviert
+    debates:
+      admin:
+        debates:
+          index:
+            title: Debatten
+      debates:
+        filters:
+          search: Suche
+          state: Status
+          state_values:
+            closed: Geschlossen
+            open: Offen
+          user_groups: Gruppen
+        filters_small_view:
+          close_modal: Modal schließen
+          filter: Filter
+          filter_by: Filtern nach
+          unfold: Entfalten
+        form:
+          select_a_category: Bitte wählen sie eine Kategorie
+        index:
+          new_debate: Neue Debatte
+        new:
+          back: Zurück
+          create: Erstellen
+          title: Neue Debatte
+        orders:
+          commented: Am meisten kommentiert
+          label: Debatten sortieren nach
+          random: Zufällige Reihenfolge
+          recent: Neueste zuerst
+          updated: Kürzlich aktualisiert
+        show:
+          back: Zurück zur Liste
+          close_debate: Debatte schließen
+          date: Datum
+          debate_closed: Geschlossen
+          debate_conclusions_are: 'Die Debatte wurde am %{date} mit diesen Ergebnissen geschlossen:'
+          edit_conclusions: Schlussfolgerungen bearbeiten
+          edit_debate: Debatte bearbeiten
+          groups_count: Gruppen
+          last_comment_by: Letzter Kommentar von
+          no_comments_yet: Noch keine Kommentare
+          open: Offene Debatte
+          participants_count: Teilnehmer
+        update:
+          invalid: Es gab ein Problem bei der Aktualisierung der Aussprache.
+          success: Debatte erfolgreich aktualisiert.
+        versions:
+          debates:
+            back_to_resource: Zurück zur Debatte
+          index:
+            title: Versionen
+        versions_list:
+          back_to_resource: Zurück zur Debatte
+      last_activity:
+        debate_updated_at_html: "<span>Debatte aktualisiert unter %{link}</span>"
+        new_debate_at_html: "<span>Neue Debatte bei %{link}</span>"
+      models:
+        debate:
+          fields:
+            end_time: Endtermin
+            official_debate: Offizielle Debatte
+            start_time: Anfangsdatum
+            title: Titel
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Hallo,
+              Eine neue Debatte "%{resource_title}" wurde in %{space_title} erstellt, sehen Sie es sich an und reden Sie mit:
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+            email_subject: Neue Debatte "%{resource_title}" in %{space_title}
+            notification_title: Die Debatte <a href="%{resource_path}">%{resource_title}</a> wurde in <a href="%{space_path}">%{space_title}</a> erstellt.
+          user_followers:
+            email_intro: |-
+              Hallo,
+              %{author_name} %{author_nickname}, dem Sie folgen, hat eine neue Debatte "%{resource_title}" erstellt. Sehen Sie es sich an und reden Sie mit:
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+            email_subject: Neue Debatte "%{resource_title}" von %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat die Debatte <a href="%{resource_path}">%{resource_title}</a> erstellt.
+    gamification:
+      badges:
+        commented_debates:
+          name: Debatten
+    metrics:
+      debates:
+        title: Debatten

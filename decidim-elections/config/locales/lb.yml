@@ -1,0 +1,41 @@
+lb:
+  decidim:
+    elections:
+      elections:
+        show:
+          callout:
+            already-voted: Sie haben bei dieser Wahl bereits abgestimmt. Sie können Ihre Stimme ändern oder sie verifizieren.
+            vote-rejected: Es war nicht möglich, Ihre Stimme zu verifizieren. Bitte geben Sie ihre Stimme erneut ab.
+          verify:
+            already-voted: Bereits abgestimmt?
+            verify-here: Stimme hier verifizieren.
+            will-verify: Sie können ihre Stimme nach dem Start der Wahl verifizieren.
+      feedback:
+        answer:
+          invalid: Beim Senden Ihrer Meldung ist ein Fehler aufgetreten.
+      votes:
+        confirmed:
+          error: Leider ist ein Fehler bei der Bestätigung der Abstimmung aufgetreten. Bitte erneut abstimmen.
+        processing:
+          header: Stimme wird verarbeitet...
+          text: Ihre Stimme wurde empfangen und wird verarbeitet. Bitte warten.
+        update:
+          error: Beim Aktualisieren dieses Status ist ein Problem aufgetreten
+          success: Abstimmung erfolgreich aktualisiert
+    votings:
+      admin:
+        menu:
+          votings_submenu:
+            monitoring_committee_members: Überwachungskomitee
+      polling_officer_zone:
+        polling_officers:
+          show:
+            actions:
+              count_votes: Stimmen in der Wahlurne zählen
+              identify_person: Eine Person identifizieren und verifizieren
+            polling_officer_role_description: Ihnen wurde eine Rolle als Wahlhelfer (Präsident oder Manager) in Wahlen dieser Plattform zugewiesen.
+            polling_stations:
+              list:
+                role: Ihre Rolle
+                voting: Abstimmung
+              no_polling_stations: Sie sind noch zu keinem Wahllokal zugewiesen.

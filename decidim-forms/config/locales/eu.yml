@@ -50,6 +50,8 @@ eu:
       errors:
         answer:
           body: Gorputza ezin da hutsik egon
+      files:
+        extension_allowlist: 'Onartutako formatuak:'
       question_types:
         long_answer: Erantzun luzea
         multiple_option: Hainbat aukera

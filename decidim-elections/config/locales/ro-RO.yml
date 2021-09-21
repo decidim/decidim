@@ -218,6 +218,10 @@ ro:
               'false': nu are <strong>o cheie publică</strong>
               'true': are o <strong>cheie publică</strong>
             title: Configurarea alegerilor
+          key_ceremony:
+            trustees: Administrator
+          tally:
+            trustees: Administrator
           tally_ended:
             title: Rezultate calculate
           vote_ended:

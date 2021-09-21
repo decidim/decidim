@@ -234,7 +234,7 @@ it:
             trustees: Garanti
           key_ceremony:
             title: Cerimonia chiave
-            trustees: Fiduciari
+            trustees: Garanti
           key_ceremony_ended:
             errors:
               time_before: La votazione sta per cominciare. Devi aspettare fino a %{hours} ore prima dell'ora di inizio (%{start_time}) per poter votare.

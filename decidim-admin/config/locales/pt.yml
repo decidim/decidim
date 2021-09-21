@@ -259,6 +259,7 @@ pt:
       block_user:
         new:
           action: Bloquear conta e enviar justificação
+          description: Bloquear um utilizador torna a sua conta inutilizada, pode fornecer na sua justificação e orientações na forma que pondera poder considerar para desbloquear o utilizador.
           justification: Justificação
           title: Bloquear utilizador %{name}
       categories:
@@ -321,6 +322,7 @@ pt:
         'false': 'Não'
         managed_user_name: Utilizador gerido
         solved: Resolvido
+        title: Conflitos de verificações
         transfer:
           email: e-Mail
           error: Houve um problema ao transferir o utilizador actual para utilizador gerido.
@@ -377,6 +379,7 @@ pt:
         file_help:
           import:
             explanation: 'Orientação para ficheiro:'
+            message_1: São suportados os ficheiros CSV,JSON, e Excel (.xls)
             message_2: Para ficheiros CSV o separador entre coludas deve ser um ponto e vírgula (";")
       help_sections:
         error: Ocorreu um problema ao atualizar as secções de ajuda
@@ -420,12 +423,15 @@ pt:
         creators:
           proposalcreator: Criador de proposta
         error: Houve um problema durante a importação
+        help:
+          proposalcreator: O ficheiro deve ter nomes de coluna title/pt e body/pt (ou qualquer outro idioma que prefira exemplo title/en e body/en). Também são suportadas colunas âmbito/id e categoria/id.
         import_from_file: Importar dum ficheiro
         invalid_lines: Encontrado erro no recurso número %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv
             json: json
+            xls: xls
           actions:
             back: Voltar
           file_legend: Adicionar ficheiro para importar a analisar.
@@ -561,6 +567,7 @@ pt:
           reasons:
             does_not_belong: Não pertence
             offensive: Ofensivo
+            spam: Spam
         tabs:
           blocked: Bloqueado
           unblocked: Não bloqueado
@@ -701,6 +708,7 @@ pt:
           rich_text_editor_in_public_views_help: Em algumas áreas de texto, os participantes serão capazes de inserir algumas etiquetas HTML utilizando o editor de texto avançado.
           social_handlers: Social
           twitter: Twitter
+          url: URL
           youtube: Youtube
         update:
           error: Ocorreu um problema ao atualizar esta organização.

@@ -52,6 +52,7 @@ pt:
         target: Quem participa
         title: Título
         twitter: Twitter
+        weight: Peso
         youtube: Youtube
       assembly_member:
         birthday: Aniversário
@@ -386,11 +387,15 @@ pt:
         comments_count: Comentários
         debates_count: Debates
         endorsements_count: Endossos
+        followers_count: Seguidores
+        headline: Estatísticas
         meetings_count: Reuniões
+        no_stats: Ainda não há estatísticas.
         orders_count: Votos
         pages_count: Páginas
         participants_count: Participantes
         posts_count: Publicações
+        processes_count: Processos
         projects_count: Projetos
         proposals_count: Propostas
         results_count: Resultados
@@ -444,6 +449,8 @@ pt:
       home:
         hero:
           participate_title: Participar nos processos da plataforma
+        sub_hero:
+          register_title: Registe-se para criar conta
     participatory_processes:
       pages:
         home:

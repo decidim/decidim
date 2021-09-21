@@ -937,6 +937,9 @@ fr:
       reported_users:
         object: utilisateurs signalés
         title: Utilisateurs signalés
+      user_reports:
+        object: signalements d'utilisateurs
+        title: Signalements d'utilisateurs
     moderations:
       actions:
         expand: Agrandir

@@ -21,18 +21,22 @@ pt:
         end_time: Hora de fim
         location: Localização
         location_hints: Dicas de localização
+        online_meeting_url: URL de reunião on-line
         organizer_gid: Criar como
         organizer_id: Organizador
         private_meeting: Reunião privada
         registration_form_enabled: Formulário de registo ativado
         registration_terms: Termos de registo
+        registration_url: URL de registo
         registrations_enabled: Registos ativados
         start_time: Hora de início
         title: Título
         transparent: Transparente
         type_of_meeting: Tipo
       minutes:
+        audio_url: URL do áudio
         description: Descrição
+        video_url: URL do vídeo
         visible: Está visível
     errors:
       models:
@@ -86,8 +90,11 @@ pt:
             creation_enabled_for_participants: Os participantes podem criar reuniões
             default_registration_terms: Termos de registo predefinidos
             enable_pads_creation: Ativar criação de blocos
+            registration_code_enabled: Código de registo activado
             resources_permissions_enabled: As permissões de ações podem ser definidas para cada reunião
             scope_id: Âmbito
+            scopes_enabled: Âmbitos activados
+            terms_and_conditions_url_for_meeting_creators: URL dos termos e condições para criadores de reuniões
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
@@ -252,7 +259,14 @@ pt:
             update: Atualizar
           form:
             address_help: 'Endereço: utilizado por Geocoder para encontrar a localização'
+            available_slots_help: Deixar em 0 se tiver número ilimitado de intervalos de tempo disponíveis
+            disclaimer: 'Declinação de responsabilidade: Ao usar um registo externo ao sistema fica ao corrente que os organizadores de %{organization} não são responsáveis pelos dados fornecidos pelo utilizador ao serviço externo.'
             location_help: 'Localização: mensagem direcionada para os utilizadores indicando o local de encontro'
+            location_hints_help: 'Sugestões de localização: informação adicional. Exemplo: o piso do edifício se for uma reunião presencial, ou a palavra-chave se for uma reunião on-line de acesso restrito.'
+            online_meeting_url_help: 'Ligação: permitir aos participantes ligarem-se directamente à sua reunião'
+            registration_url_help: 'Ligação: permitir aos participantes dirigirem-se ao serviço externo que está a usar para os registos'
+            select_a_meeting_type: Por favor seleccione um tipo de reunião
+            select_a_registration_type: Por favor seleccione um tipo de registo
           index:
             title: Reuniões
           new:
@@ -276,6 +290,7 @@ pt:
             invalid: Ocorreu um problema ao criar esta ata
             success: Ata criada corretamente
           edit:
+            title: Editar acta
             update: Atualizar
           new:
             create: Criar
@@ -383,6 +398,7 @@ pt:
             all: Todos
             past: Passado
             upcoming: Próximas
+          my_meetings: As minhas reuniões
           origin: Origem
           origin_values:
             all: Todos
@@ -394,6 +410,7 @@ pt:
           type: Tipo
           type_values:
             all: Todos
+            hybrid: Ambos
             in_person: Presencial
             online: On-line
         filters_small_view:
@@ -403,9 +420,16 @@ pt:
           unfold: Desdobrar
         form:
           address_help: 'Endereço: utilizado pelo Geocoder para encontrar a localização'
+          available_slots_help: Deixar em 0 se tiver número ilimitado de intervalos de tempo disponíveis
           create_as: Criar reunião como
+          disclaimer: 'Declinação de responsabilidade: Ao usar um registo externo ao sistema fica ao corrente que os organizadores de %{organization} não são responsáveis pelos dados fornecidos pelo utilizador ao serviço externo.'
           location_help: 'Localização: mensagem direcionada aos utilizadores sugerindo o local onde se encontrarem'
+          location_hints_help: 'Sugestões de localização: informação adicional. Exemplo: o piso do edifício se for uma reunião presencial, ou a palavra-chave se for uma reunião on-line de acesso restrito.'
+          online_meeting_url_help: 'Ligação: permitir aos participantes ligarem-se directamente à sua reunião'
+          registration_url_help: 'Ligação: permitir aos participantes dirigirem-se ao serviço externo que está a usar para os registos'
           select_a_category: Por favor selecione uma categoria
+          select_a_meeting_type: Por favor seleccione um tipo de reunião
+          select_a_registration_type: Por favor seleccione um tipo de registo
         index:
           new_meeting: Nova reunião
         meeting_minutes:
@@ -471,6 +495,10 @@ pt:
           confirmed_html: O seu registo para a reunião <a href="%{url}">%{title}</a> foi confirmado.
           details: Encontrará os detalhes da reunião no anexo.
           registration_code: O seu código de registo é %{code}.
+      registration_type:
+        on_different_platform: Numa plataforma diferente
+        on_this_platform: Nesta plataforma
+        registration_disabled: Registo desactivado
       registrations:
         create:
           invalid: Ocorreu um problema ao aderir a esta reunião.
@@ -482,6 +510,8 @@ pt:
           invalid: Ocorreu um problema ao sair desta reunião.
           success: Saiu da reunião corretamente.
       type_of_meeting:
+        hybrid: Ambos
+        in_person: Presencial
         online: On-line
       types:
         private_meeting: Reunião privada

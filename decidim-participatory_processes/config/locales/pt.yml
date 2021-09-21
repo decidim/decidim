@@ -34,11 +34,15 @@ pt:
         subtitle: Subtítulo
         target: Quem participa
         title: Título
+        weight: Peso
       participatory_process_group:
         description: Descrição
-        group_url: Sítio Web
+        developer_group: Grupo promotor
+        group_url: Sítio web
+        hashtag: Hashtag
         hero_image: Imagem
         local_area: Área de organização
+        meta_scope: Meta dados do âmbito
         participatory_process_ids: Processos relacionados
         participatory_scope: O que é decidido
         participatory_structure: Como é decidido
@@ -157,6 +161,9 @@ pt:
         edit:
           active_content_blocks: Blocos de conteúdo activos
           inactive_content_blocks: Blocos de conteúdo inactivos
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Actualizar
       participatory_process_groups:
         destroy:
           error: Ocorreu um erro ao destruir o grupo do processo Participativo.
@@ -322,7 +329,7 @@ pt:
           name: Terceiro bloco HTML
         metadata:
           developer_group: Promovido por
-          name: Metadados
+          name: Meta dados
           participatory_scope: O que é decidido
           participatory_structure: Como é decidido
           target: Quem participa
@@ -333,6 +340,9 @@ pt:
         title:
           meta_scope: Âmbito
           name: Título, descrição e hashtag
+          participatory_processes:
+            one: 1 processo
+            other: "%{count} processos"
       show:
         title: Grupos do processo participativo
     participatory_process_steps:
@@ -344,13 +354,16 @@ pt:
         content_blocks:
           highlighted_processes:
             max_results: Quantidade máxima de elementos a mostrar
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'Os campos de dados dinâmicos de URL são utilizados para gerar os URL que direcionam para este processo. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
         participatory_process_groups:
           form:
-            metadata: Metadados
-            title: Informações gerais
+            metadata: Meta dados
+            title: Informação geral
             visibility: Visibilidade
         participatory_process_imports:
           form:

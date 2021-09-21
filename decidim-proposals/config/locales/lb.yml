@@ -1,0 +1,43 @@
+lb:
+  activerecord:
+    models:
+      decidim/proposals/proposal:
+        one: Virschlag
+        other: Virschléi
+  decidim:
+    admin:
+      filters:
+        proposals:
+          is_emendation_true:
+            values:
+              'false': Virschléi
+    components:
+      proposals:
+        name: Virschléi
+    gamification:
+      badges:
+        proposals:
+          name: Virschléi
+    metrics:
+      proposals:
+        title: Virschléi
+    proposals:
+      admin:
+        exports:
+          proposals: Virschléi
+        proposals:
+          index:
+            title: Virschléi
+          show:
+            proposals: Virschléi
+      application_helper:
+        filter_type_values:
+          proposals: Virschléi
+      content_blocks:
+        highlighted_proposals:
+          proposals: Virschléi
+      proposals:
+        dynamic_map_instructions:
+          instructions: <h3>Sie können den Punkt auf der Karte verschieben.</h3><p>Vergessen Sie nicht, vor der Veröffentlichung Ihres Vorschlags auf die Schaltfläche "Position aktualisieren" zu klicken.</p>
+        preview:
+          update_position: Position aktualisieren
