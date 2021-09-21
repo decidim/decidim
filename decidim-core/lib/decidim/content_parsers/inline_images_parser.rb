@@ -8,44 +8,6 @@ module Decidim
     #
     # @see BaseParser Examples of how to use a content parser
     class InlineImagesParser < BaseParser
-      AVAILABLE_ATTRIBUTES = {
-        "Decidim::Accountability::Result" => %w(description),
-        "Decidim::Proposals::Proposal" => %w(body answer cost_report execution_period),
-        "Decidim::Votings::Voting" => %w(description),
-        "Decidim::Elections::Question" => %w(description),
-        "Decidim::Elections::Answer" => %w(description),
-        "Decidim::Elections::Election" => %w(description),
-        "Decidim::Initiative" => %w(description answer),
-        "Decidim::InitiativesType" => %w(description extra_fields_legal_information),
-        "Decidim::Assembly" => %w(short_description description purpose_of_action composition internal_organisation announcement closing_date_reason special_features),
-        "Decidim::Forms::Questionnaire" => %w(description tos),
-        "Decidim::Forms::Question" => %w(description),
-        "Decidim::Organization" => %w(welcome_notification_body admin_terms_of_use_body description highlighted_content_banner_short_description id_documents_explanation_text),
-        "Decidim::StaticPage" => %w(content),
-        "Decidim::ContextualHelpSection" => %w(content),
-        "Decidim::Category" => %w(description),
-        "Decidim::Blogs::Post" => %w(body),
-        "Decidim::Pages::Page" => %w(body),
-        "Decidim::Sortitions::Sortition" => %w(additional_info witnesses cancel_reason),
-        "Decidim::Consultations::Question" => %w(title question_context what_is_decided instructions),
-        "Decidim::Consultation" => %w(description),
-        "Decidim::Debates::Debate" => %w(description instructions information_updates conclusions),
-        "Decidim::Budgets::Budget" => %w(description),
-        "Decidim::Budgets::Project" => %w(description),
-        "Decidim::ConferenceSpeaker" => %w(short_bio),
-        "Decidim::Conferences::RegistrationType" => %w(description),
-        "Decidim::Conference" => %w(short_description description objectives registration_terms),
-        "Decidim::ParticipatoryProcessGroup" => %w(description),
-        "Decidim::ParticipatoryProcess" => %w(short_description description announcement),
-        "Decidim::ParticipatoryProcessStep" => %w(description),
-        "Decidim::Meetings::AgendaItem" => %w(description),
-        "Decidim::Meetings::Meeting" => %w(registration_terms description registration_email_custom_content closing_report)
-      }.each_with_object({}) do |(main_model, attributes), hash|
-        hash[main_model.constantize] = attributes
-      rescue NameError
-        hash
-      end.freeze
-
       # @return [String] the content with the inline images replaced.
       def rewrite
         return content unless inline_images?
