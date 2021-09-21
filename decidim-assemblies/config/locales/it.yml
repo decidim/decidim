@@ -59,7 +59,6 @@ it:
         birthplace: Luogo di nascita
         ceased_date: Data di termine
         designation_date: Data di designazione
-        designation_mode: Modalità di designazione
         full_name: Nome e cognome
         gender: Genere
         position: Posizione
