@@ -13,6 +13,7 @@ eu:
         attachment_collection_id: Karpeta
         description: Descripción
         file: Fitxategia
+        title: Erantsitakoaren edo irudiaren izena
       attachment_collection:
         description: Deskribapena
         name: Izena
@@ -23,7 +24,10 @@ eu:
       component:
         name: Izena
         published_at: Argitaratu at
+        weight: Kokapenaren hurrenkera
       id: NAN
+      import:
+        user_group_id: Inportatu hau bezala
       newsletter:
         body: Testua
         subject: Gaia
