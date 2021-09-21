@@ -25,16 +25,17 @@ module Decidim
         def fetch_category_ids
           cat_ids = category_ids.without("without")
 
-          additional_ids = cat_ids.keep_if { |a| a =~ /Decidim__/ }
+          additional_ids = cat_ids.select { |a| a =~ /Decidim__/ }
+
           additional_ids = parse_category_ids(additional_ids)
-          cat_ids.map(&:to_i).without(0).push(*additional_ids)
+          cat_ids.collect(&:to_i).without(0).push(*additional_ids)
         end
 
         # this function expects an array of the following format : [ "Decidim__Assembly4", "Decidim__Assembly2"]
         # It will transform each parameter into an array of class_name and id [["Decidim::Assembly", "4"], ["Decidim::Assembly", "2"]]
         # After we rebuild the find query and retrun the category_ids for each participatory space
         def parse_category_ids(additional_ids)
-          additional_ids = additional_ids.map { |a| a.gsub("__", "::").gsub(/(\d)/, '.\1').split(".") }
+          additional_ids = additional_ids.map { |a| a.gsub("__", "::").gsub(/(\d+)/, '.\1').split(".") }
           additional_ids = additional_ids.map { |v| v.first.safe_constantize.send(:find, v.last.to_i).category_ids }
           additional_ids.flatten
         end
