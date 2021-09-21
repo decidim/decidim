@@ -749,13 +749,6 @@
           success: Gruppen ble verifisert
       user_groups:
         index:
-          filter:
-            all: Alle
-            pending: Venter
-            rejected: Avvist
-            verified: Verifisert
-          filter_by: Filtrer etter
-          search: Søk
           state:
             pending: Venter
             rejected: Avvist

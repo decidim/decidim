@@ -364,12 +364,6 @@ ga:
         user_groups: Grúpaí
       user_groups:
         index:
-          filter:
-            all: Uile
-            pending: Ar feitheamh
-            rejected: Diúltaithe
-            verified: Fíoraithe
-          search: Cuardaigh
           state:
             pending: Ar feitheamh
             rejected: Diúltaithe

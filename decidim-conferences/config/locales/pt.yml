@@ -3,6 +3,7 @@ pt:
     attributes:
       conference:
         assemblies_ids: Reuniões Relacionadas
+        available_slots: Espaços disponíveis
         banner_image: Imagem da faixa
         consultations_ids: Consultas Relacionadas
         copy_categories: Copiar categorias
@@ -10,26 +11,59 @@ pt:
         copy_features: Copiar características
         decidim_scope_id: Âmbito
         description: Descrição
+        end_date: Data final
         hashtag: Hashtag
         hero_image: Imagem inicial
+        location: Localização
+        main_logo: Logo principal
+        objectives: Objetivos
         participatory_processes_ids: Processos participativos relacionados
         promoted: Realçado
         published_at: Publicado em
+        registration_terms: Termos de registo
+        registrations_enabled: Registos ativados
         scope_id: Âmbito
         scopes_enabled: Âmbitos ativados
         short_description: Breve descrição
         show_statistics: Mostrar estatísticas
+        sign_date: Data de assinatura
+        signature: Assinatura
+        signature_name: nome da assinatura
         slogan: Slogan
         slug: Campo de dados dinâmicos de URL
+        start_date: Data de início
         title: Título
       conference_media_link:
+        date: Datas
+        link: Hiperligação
+        title: Título
         weight: Peso
       conference_partner:
+        link: Hiperligação
+        logo: Logótipo
+        name: Nome
+        partner_type: Tipo de parceiro
         weight: Peso
+      conference_registration_invite:
+        email: E-Mail
+        name: Nome
+        registration_type_id: Tipo de registo
+        user_id: Utilizador
       conference_registration_type:
+        description: Descrição
+        price: Preço
+        title: Título
         weight: Peso
       conference_speaker:
+        affiliation: Afiliação
+        avatar: Avatar
+        conference_meeting_ids: Reuniões relacionadas
         full_name: Nome completo
+        personal_url: URL pessoal
+        position: Posição
+        short_bio: Curta biografia
+        twitter_handle: Identificador do Twitter
+        user_id: Utilizador
       conference_user_role:
         email: E-mail
         name: Nome
@@ -212,6 +246,7 @@ pt:
             price: Preço
             registrations_count: Contagem de registos
             title: Título
+            weight: Posição de ordenamento
           name: Tipo de registo
       partners:
         create:
@@ -271,6 +306,10 @@ pt:
       conferences:
         conference_registration:
           confirm: "%{user_name} confirmou um registo da conferência na conferência %{resource_name}"
+        partner:
+          create: "%{user_name} criou o parceiro %{resource_name} na conferência %{space_name}"
+          delete: "%{user_name} removeu o parceiro %{resource_name} na conferência %{space_name}"
+          update: "%{user_name} actualizou o parceiro %{resource_name} na conferência %{space_name}"
         registration_type:
           create: "%{user_name} criou o tipo de registo %{resource_name} na conferência %{space_name}"
           publish: "%{user_name} publicou o tipo de registo %{resource_name} na conferência %{space_name}"
@@ -403,6 +442,7 @@ pt:
         personal_website: Sítio pessoal
         show:
           more_info: mais informações
+          speaking_at: A falar em
       conference_speaker_cell:
         personal_url:
           personal_website: Sítio pessoal
@@ -461,6 +501,7 @@ pt:
         home:
           highlighted_conferences:
             active_conferences: Conferências ativas
+            conferences_button_title: Ligação para a página de Conferências que mostra todas as conferências
             see_all_conferences: Ver todas as conferências
       photo:
         image:
@@ -476,6 +517,7 @@ pt:
         index:
           choose_an_option: 'Escolha a sua opção de registo:'
           login_as: Iniciou sessão como %{name} <%{email}>
+          no_registrations: Sem registos
           register: Registar
           title: Tipos de registo
       shared:
@@ -522,6 +564,12 @@ pt:
           email_outro: Recebeu esta notificação porque segue a conferência "%{resource_title}". Pode deixar de segui-la a partir da hiperligação anterior.
           email_subject: A conferência "%{resource_title}" está a chegar!
           notification_title: A conferência <a href="%{resource_path}">%{resource_title}</a> irá ocorrer em 2 dias.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p>Uma <strong>conferência</strong> é uma colecção de reuniões organizadas num programa, com um número de pessoas convidadas como oradores, e outras áreas de informação típicas a congressos ou eventos sociais de grande dimensão (registo, lista de organizações que apoiam ou patrocinam o evento, etc.).</p><p>Exemplos: A conferência pode ser um evento relevante para uma organização e para os seus membros, ou ter lugar como parte dum processo participativo ou seguir uma consultação.</p>"
+          page: "<p>Uma <strong>conferência</strong> é uma colecção de reuniões organizadas num programa, com um número de pessoas convidadas como oradores, e outras áreas de informação típicas a congressos ou eventos sociais de grande dimensão (registo, lista de organizações que apoiam ou patrocinam o evento, etc.).</p><p>Exemplos: A conferência pode ser um evento relevante para uma organização e para os seus membros, ou ter lugar como parte dum processo participativo ou seguir uma consultação.</p>"
+          title: O que são as conferências?
     log:
       value_types:
         conference_presenter:
@@ -532,6 +580,8 @@ pt:
         title: Multimédia e Hiperligações
     menu:
       conferences: Conferências
+    statistics:
+      conferences_count: Conferências
   devise:
     mailer:
       join_conference:

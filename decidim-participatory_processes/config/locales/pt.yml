@@ -34,10 +34,20 @@ pt:
         subtitle: Subtítulo
         target: Quem participa
         title: Título
+        weight: Posição de ordenamento
       participatory_process_group:
         description: Descrição
+        developer_group: Grupo promotor
+        group_url: Sítio web
+        hashtag: Hashtag
         hero_image: Imagem
+        local_area: Área de organização
+        meta_scope: Meta dados do âmbito
         participatory_process_ids: Processos relacionados
+        participatory_scope: O que é decidido
+        participatory_structure: Como é decidido
+        target: Quem participa
+        title: Título
       participatory_process_step:
         cta_path: Caminho de Chamada para Ação
         cta_text: Texto de Call to Action
@@ -93,6 +103,9 @@ pt:
         unpublish: Remover publicação
       menu:
         participatory_process_groups: Grupos do processo
+        participatory_process_groups_submenu:
+          info: Informação
+          landing_page: Página de entrada
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Pastas
@@ -115,6 +128,8 @@ pt:
             title: Título
           name: Processo participativo
         participatory_process_group:
+          fields:
+            title: Título
           name: Grupo de processo
         participatory_process_step:
           fields:
@@ -142,6 +157,13 @@ pt:
           copy: Copiar
           select: Selecione os dados que pretende duplicar
           title: Duplicar processo participativo
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Blocos de conteúdo activos
+          inactive_content_blocks: Blocos de conteúdo inactivos
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Actualizar
       participatory_process_groups:
         destroy:
           error: Ocorreu um erro ao destruir o grupo do processo Participativo.
@@ -299,8 +321,28 @@ pt:
         related_assemblies: Reuniões relacionadas
     participatory_process_groups:
       content_blocks:
+        html_1:
+          name: Primeiro bloco HTML
+        html_2:
+          name: Segundo bloco HTML
+        html_3:
+          name: Terceiro bloco HTML
+        metadata:
+          developer_group: Promovido por
+          name: Meta dados
+          participatory_scope: O que é decidido
+          participatory_structure: Como é decidido
+          target: Quem participa
+        participatory_processes:
+          name: Processos participativos
         stats:
           name: Estatísticas
+        title:
+          meta_scope: Âmbito
+          name: Título, descrição e hashtag
+          participatory_processes:
+            one: 1 processo
+            other: "%{count} processos"
       show:
         title: Grupos do processo participativo
     participatory_process_steps:
@@ -312,9 +354,17 @@ pt:
         content_blocks:
           highlighted_processes:
             max_results: Quantidade máxima de elementos a mostrar
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'Os campos de dados dinâmicos de URL são utilizados para gerar os URL que direcionam para este processo. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Meta dados
+            title: Informação geral
+            visibility: Visibilidade
         participatory_process_imports:
           form:
             document_legend: Adicionar um documento
@@ -353,6 +403,7 @@ pt:
             more_information: Mais informações
             participate: Participar
             participate_in: Participar no processo %{resource_name}
+            processes_button_title: Ligação para a página Processos exibindo todos os processos
             see_all_processes: Ver todos os processos
       participatory_process_steps:
         index:
@@ -386,6 +437,7 @@ pt:
           loading: Carregando os resultados...
       show:
         area: Área
+        belongs_to_group: Este processo pertence a
         dates: Datas
         developer_group: Grupo promotor
         end_date: Data final
@@ -398,6 +450,8 @@ pt:
         start_date: Data de início
         target: Quem participa
         unspecified: Não especificado
+    statistics:
+      processes_count: Processos
   layouts:
     decidim:
       participatory_process_groups:
@@ -424,6 +478,8 @@ pt:
           more_info_about: Mais informações sobre o processo %{resource_name}
           take_part: Participar
           take_part_in: Fazer parte do processo %{resource_name}
+        promoted_process_group:
+          more_info: Mais informações
       process_header_steps:
         step: Fase %{current} de %{total}
         view_steps: Visualizar fases

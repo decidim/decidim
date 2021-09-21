@@ -814,13 +814,6 @@ tr:
           success: Kullanıcı grubu başarıyla doğrulandı
       user_groups:
         index:
-          filter:
-            all: Herşey
-            pending: kadar
-            rejected: Reddedilen
-            verified: Doğrulanmış
-          filter_by: Tarafından filtre
-          search: Arama
           state:
             pending: kadar
             rejected: Reddedilen

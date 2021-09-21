@@ -129,7 +129,6 @@ ro:
         name: Propuneri
         settings:
           global:
-            allow_card_image: Permite imaginea cardului
             amendments_enabled: Amendamente activate
             amendments_enabled_help: Dacă este activ, configurați caracteristicile amendamentului pentru fiecare pas.
             amendments_wizard_help_text: Asistent pentru amendamente text
@@ -514,11 +513,9 @@ ro:
             title: Importă propuneri
         proposals_merges:
           create:
-            invalid: A apărut o problemă la fuzionarea propunerilor selectate.
             success: Am fuzionat cu succes propunerile într-una nouă.
         proposals_splits:
           create:
-            invalid: A apărut o problemă de separare a propunerilor selectate.
             success: Propunerile au fost împărțite cu succes în altele noi.
         valuation_assignments:
           create:

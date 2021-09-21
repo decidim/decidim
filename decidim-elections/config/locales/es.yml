@@ -254,7 +254,6 @@ es:
             trustees: Garantes
           key_ceremony:
             title: Ceremonia de claves
-            trustees: Garantes
           key_ceremony_ended:
             errors:
               time_before: La elección está lista para comenzar. Tienes que esperar hasta %{hours} horas antes de la hora de inicio (%{start_time}) para comenzar el periodo de votación.
@@ -275,7 +274,6 @@ es:
             title: Resultados publicados
           tally:
             title: Proceso de recuento
-            trustees: Garantes
           tally_ended:
             answer: Respuesta
             not_selected: No seleccionado
@@ -326,16 +324,6 @@ es:
           update:
             invalid: Se ha producido un error al actualizar el garante %{trustee}
             success: El garante %{trustee} se ha actualizado correctamente
-      admin_log:
-        election:
-          end_vote: "%{user_name} terminó el período de votación para la elección %{resource_name} en el Bulletin Board"
-          publish: "%{user_name} ha publicado la votación %{resource_name}"
-          publish_results: "%{user_name} publicó los resultados de la elección %{resource_name} en el Bulletin Board"
-          setup: "%{user_name} creó la elección %{resource_name} en el Bulletin Board"
-          start_key_ceremony: "%{user_name} comenzó la ceremonia de claves para las elecciones %{resource_name} en el Bulletin Board"
-          start_tally: "%{user_name} comenzó el recuento para la elección %{resource_name} en el Bulletin Board"
-          start_vote: "%{user_name} comenzó el período de votación para la elección %{resource_name} en el Bulletin Board"
-          unpublish: "%{user_name} ha despublicado la votación %{resource_name}"
       election_m:
         badge_name:
           finished: Finalizada
@@ -999,7 +987,6 @@ es:
           census:
             create:
               invalid: Se ha producido un error al subir el censo, por favor inténtalo de nuevo más tarde.
-              invalid_csv_header: La cabecera CSV no tiene el número correcto de campos - por favor lee las instrucciones cuidadosamente
             creating_data:
               info_message: "<strong>Por favor espera</strong>, procesadas %{processed_count} de %{raw_count} filas del fichero %{file}."
             delete:

@@ -254,7 +254,6 @@ it:
             trustees: Garanti
           key_ceremony:
             title: Cerimonia chiave
-            trustees: Fiduciari
           key_ceremony_ended:
             errors:
               time_before: La votazione sta per cominciare. Devi aspettare fino a %{hours} ore prima dell'ora di inizio (%{start_time}) per poter votare.
@@ -275,7 +274,6 @@ it:
             title: Risultati pubblicati
           tally:
             title: Conteggio
-            trustees: Garanti
           tally_ended:
             answer: Risposta
             not_selected: Non selezionato
@@ -328,14 +326,19 @@ it:
             success: Garante %{trustee} aggiornato con successo
       admin_log:
         election:
-          end_vote: "%{user_name} ha terminato il periodo di votazione per l'elezione di %{resource_name} sul Bulletin Board"
-          publish: "%{user_name} ha pubblicato l'elezione %{resource_name}"
-          publish_results: "%{user_name} ha pubblicato i risultati per l'elezione %{resource_name} sul Bulletin Board"
-          setup: "%{user_name} ha creato l'elezione %{resource_name} sul Bulletin Board"
-          start_key_ceremony: "%{user_name} ha iniziato la cerimonia delle chiavi per l'elezione di %{resource_name} sul Bulletin Board"
-          start_tally: "%{user_name} ha terminato il conteggio dell'elezione %{resource_name} sul Bulletin Board"
-          start_vote: "%{user_name} ha terminato il periodo di votazione per l'elezione %{resource_name} sul Bulletin Board"
-          unpublish: "%{user_name} ha rimosso l'elezione %{resource_name}"
+          create: "%{user_name} ha creato l'elezione %{resource_name} di %{space_name}"
+          delete: "%{user_name} ha eliminato l'elezione %{resource_name} di %{space_name}"
+          end_vote: "%{user_name} ha terminato il periodo di votazione per l'elezione %{resource_name} di %{space_name} sul Bollettino"
+          publish: "%{user_name} ha pubblicato l'elezione %{resource_name} di %{space_name}"
+          publish_results: "%{user_name} ha pubblicato i risultati per l'elezione %{resource_name} di %{space_name} sul Bollettino"
+          setup: "%{user_name} ha creato l'elezione %{resource_name} di %{space_name} sul Bollettino"
+          start_key_ceremony: "%{user_name} ha iniziato la cerimonia chiave per l'elezione %{resource_name} di %{space_name} sul Bollettino"
+          start_tally: "%{user_name} ha iniziato lo spoglio per l'elezione %{resource_name} di %{space_name} sul Bollettino"
+          start_vote: "%{user_name} ha iniziato il periodo di votazione per l'elezione %{resource_name} di %{space_name} sul Bollettino"
+          unpublish: "%{user_name} ha annullato la %{resource_name} di %{space_name} elezione"
+          update: "%{user_name} ha aggiornato l'elezione %{resource_name} di %{space_name}"
+        trustee:
+          create: "%{user_name} ha assegnato l'utente %{trustee_user} come fiduciario"
       election_m:
         badge_name:
           finished: Completata
@@ -990,6 +993,24 @@ it:
             invalid: Si è verificato un errore durante l'aggiornamento di questa votazione
             success: Votazione aggiornata con successo
       admin_log:
+        ballot_style:
+          create: "%{user_name} ha creato uno stile di voto con il codice %{ballot_style_code} nello spazio %{space_name}"
+          delete: "%{user_name} ha eliminato lo stile di voto con il codice %{ballot_style_code} nello spazio %{space_name}"
+          update: "%{user_name} ha aggiornato lo stile dello scrutinio con il codice %{ballot_style_code} nello spazio %{space_name}"
+        census:
+          create: "%{user_name} ha creato il censimento per lo spazio %{space_name}"
+          delete: "%{user_name} ha eliminato il censimento per lo spazio %{space_name}"
+          update: "%{user_name} ha aggiornato il censimento per lo spazio %{space_name}"
+        monitoring_committee_member:
+          create: "%{user_name} ha assegnato l'utente %{monitoring_committee_member_user} come membro del comitato di monitoraggio nello spazio %{space_name}"
+          delete: "%{user_name} non ha assegnato l'utente %{monitoring_committee_member_user} come membro del comitato di monitoraggio nello spazio %{space_name}"
+        polling_officer:
+          create: "%{user_name} ha assegnato l'utente %{polling_officer_user} come funzionario di sondaggio nello spazio %{space_name}"
+          delete: "%{user_name} non ha assegnato l'utente %{polling_officer_user} come funzionario di sondaggio nello spazio %{space_name}"
+        polling_station:
+          create: "%{user_name} ha creato il seggio elettorale %{resource_name} nello spazio %{space_name}"
+          delete: "%{user_name} ha eliminato il seggio elettorale %{resource_name} nello spazio %{space_name}"
+          update: "%{user_name} ha aggiornato il seggio elettorale %{resource_name} nello spazio %{space_name}"
         voting:
           create: "%{user_name} ha creato la votazione %{resource_name}"
           publish: "%{user_name} ha pubblicato la votazione %{resource_name}"
@@ -999,7 +1020,7 @@ it:
           census:
             create:
               invalid: Si è verificato un errore durante il caricamento del censimento, riprova più tardi.
-              invalid_csv_header: L'intestazione CSV non ha il numero corretto di campi - si prega di leggere attentamente le istruzioni
+              invalid_csv_header: Le intestazioni CSV sono mancanti o non corrette - si prega di leggere attentamente le istruzioni
             creating_data:
               info_message: "<strong>Attendere</strong>, elaborato %{processed_count} di %{raw_count} righe dal file %{file}."
             delete:

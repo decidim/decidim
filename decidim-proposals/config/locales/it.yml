@@ -125,7 +125,6 @@ it:
         name: Proposte
         settings:
           global:
-            allow_card_image: Consenti l'immagine della scheda
             amendments_enabled: Emendamenti abilitati
             amendments_enabled_help: Se attivo, configura le caratteristiche di emendamento per ogni passo.
             amendments_wizard_help_text: Creazione guidata emendamenti
@@ -509,11 +508,9 @@ it:
             title: Importa proposte
         proposals_merges:
           create:
-            invalid: Si è verificato un errore durante l'unione delle proposte selezionate.
             success: Fuse con successo le proposte in una nuova.
         proposals_splits:
           create:
-            invalid: Si è verificato un errore durante la divisione delle proposte selezionate.
             success: Suddiviso con successo le proposte in nuove.
         valuation_assignments:
           create:

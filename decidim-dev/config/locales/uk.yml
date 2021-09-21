@@ -8,6 +8,17 @@ uk:
         title: Назва
         updated_at: 'Оновлено:'
   decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            test_options:
+              bar: Приклад змінної 1
+              foo: Приклад змінної 2
+          step:
+            test_options:
+              bar: Приклад змінної 1
+              foo: Приклад змінної 2
     dummy:
       admin:
         exports:

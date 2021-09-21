@@ -14,6 +14,12 @@ ja:
         other: 投票
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: コメントを有効にする
+            end_time: 次の時点までのコメントを有効にする
+            start_time: 次の時点からコメントを有効にする
       comments:
         create:
           error: コメントの登録に問題がありました。
@@ -91,7 +97,7 @@ ja:
         blocked_comments_warning: コメントは現時点で無効になっていますが、以前のコメントを読むことができます。
         comment_details_title: コメントの詳細
         loading: コメントを読み込んでいます...
-        single_comment_warning: コメントの残りは <a href="%{url}">こちら</a>で確認できます。
+        single_comment_warning: <a href="%{url}">すべてのコメントを表示</a>
         single_comment_warning_title: コメントを1件のみ表示しています
         title:
           other: "%{count} 件のコメント"

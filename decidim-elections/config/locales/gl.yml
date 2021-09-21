@@ -106,9 +106,6 @@ gl:
             title: Resultados calculados
           vote_ended:
             text: Rematou a votación. Podes comezar o reconto agora.
-      admin_log:
-        election:
-          publish_results: "%{user_name} publicou os resultados da elección %{resource_name} no Bulletin Board"
       election_m:
         badge_name:
           finished: Finalizada

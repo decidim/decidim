@@ -57,6 +57,16 @@ fi-pl:
               identical: JA otsikko ei voi olla täysin sama
             title:
               identical: JA kuvaus ei voi olla täysin sama
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Ehdotukset eivät ole virallisia ehdotuksia
+              supported: Ehdotukset eivät ole saaneet kannatuksia tai suosituksia
+        proposals_split:
+          attributes:
+            base:
+              not_official: Ehdotukset eivät ole virallisia ehdotuksia
+              supported: Ehdotukset eivät ole saaneet kannatuksia tai suosituksia
     models:
       decidim/proposals/accepted_proposal_event: Ehdotus hyväksytty
       decidim/proposals/admin/update_proposal_category_event: Ehdotuksen aihepiiri muutettu
@@ -125,7 +135,6 @@ fi-pl:
         name: Ehdotukset
         settings:
           global:
-            allow_card_image: Salli kuva ehdotuskortilla
             amendments_enabled: Muutokset käytössä
             amendments_enabled_help: Jos käytössä, määritä asetukset kullekin vaiheelle.
             amendments_wizard_help_text: Muutoksen luonnin ohjeteksti
@@ -509,11 +518,11 @@ fi-pl:
             title: Tuo ehdotuksia
         proposals_merges:
           create:
-            invalid: Yhdistettäessä ehdotuksia tapahtui virhe.
+            invalid: 'Valittujen ehdotusten yhdistäminen epäonnistui, koska:'
             success: Ehdotukset yhdistettiin onnistuneesti uudeksi ehdotukseksi.
         proposals_splits:
           create:
-            invalid: Jaettaessa ehdotuksia esiintyi virhe.
+            invalid: 'Valittujen ehdotusten jakaminen epäonnistui, koska:'
             success: Ehdotukset jaettiin onnistuneesti uusiksi ehdotuksiksi.
         valuation_assignments:
           create:

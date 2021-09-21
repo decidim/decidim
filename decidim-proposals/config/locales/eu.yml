@@ -389,11 +389,9 @@ eu:
             select_states: Egiaztatu inportatzeko proposamenen egoera
         proposals_merges:
           create:
-            invalid: Errore bat gertatu da hautatutako proposamenekin bat egitea.
             success: Proposamen berri batean sartu dira ondo.
         proposals_splits:
           create:
-            invalid: Errore bat gertatu da hautatutako proposamenen banaketa.
             success: Proposamen berrietara egokitu dira.
       admin_log:
         proposal:

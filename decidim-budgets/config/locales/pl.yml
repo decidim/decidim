@@ -6,6 +6,7 @@ pl:
         description: Opis
         title: Tytuł
         total_budget: Całkowity budżet
+        weight: Kolejność na stronie
       project:
         budget_amount: Kwota budżetu
         decidim_category_id: Kategoria
@@ -109,6 +110,8 @@ pl:
         close_modal: Zamknij okno
         continue: Dalej
         more_information: Więcej informacji
+      budget_list_item:
+        voting_finished: Głosowałeś w tym budżecie
       budgets_list:
         cancel_order:
           more_than_one: usuń swój głos na %{name} i zacznij od nowa
@@ -117,6 +120,8 @@ pl:
         highlighted_cta: Głosuj na %{name}
         if_change_opinion: Jeśli zmieniłeś zdanie, możesz
         my_budgets: Moje budżety
+        progress: Zakończ głosowanie
+        show: Zobacz projekty
         voted_on: Zagłosowałeś na %{links}
       limit_announcement:
         cant_vote: Nie możesz głosować na ten budżet. <a href="%{landing_path}">Spróbuj zagłosować na inny</a>.
@@ -237,6 +242,7 @@ pl:
     components:
       budgets:
         actions:
+          comment: Skomentuj
           vote: Wspieranie
         name: Budżety
         settings:
@@ -299,6 +305,7 @@ pl:
       included_proposals:
         project_proposal: Propozycje zawarte w tym projekcie
     statistics:
+      orders_count: Wsparcia
       projects_count: Projekty
   index:
     confirmed_orders_count: Liczba głosów

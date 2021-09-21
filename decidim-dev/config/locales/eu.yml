@@ -8,6 +8,17 @@ eu:
         title: Izenburua
         updated_at: Eguneratuta
   decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            test_options:
+              bar: Bar
+              foo: foo
+          step:
+            test_options:
+              bar: Bar
+              foo: foo
     dummy:
       admin:
         exports:

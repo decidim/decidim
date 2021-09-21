@@ -20,10 +20,16 @@ pl:
               a: Opcja A
               b: Opcja B
               c: Opcja C
+            test_options:
+              bar: Bar
+              foo: Foo
           step:
             endorsements_blocked: Możliwość rekomendacji zablokowana
             endorsements_enabled: Rekomendacje włączone
             readonly_step_attribute: Atrybut kroku tylko do odczytu
+            test_options:
+              bar: Bar
+              foo: Foo
     dummy:
       admin:
         exports:

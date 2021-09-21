@@ -744,13 +744,6 @@ zh-CN:
           success: 组验证成功
       user_groups:
         index:
-          filter:
-            all: 所有的
-            pending: 待定
-            rejected: 已拒绝
-            verified: 已验证
-          filter_by: 筛选方式
-          search: 搜索
           state:
             pending: 待定
             rejected: 已拒绝
