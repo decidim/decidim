@@ -59,7 +59,6 @@ ca:
         birthplace: Lloc de naixement
         ceased_date: Data de cessament
         designation_date: Data de designació
-        designation_mode: Mode de designació
         full_name: Nom complet
         gender: Gènere
         non_user_avatar: Avatar
