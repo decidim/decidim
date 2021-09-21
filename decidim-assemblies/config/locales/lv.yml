@@ -51,7 +51,6 @@ lv:
         birthplace: Dzimšanas vieta
         ceased_date: Beigu datums
         designation_date: Iecelšanas datums
-        designation_mode: Iecelšanas veids
         full_name: Vārds, uzvārds
         gender: Dzimums
         position: Pozīcija
