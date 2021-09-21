@@ -89,6 +89,8 @@ eu:
         user_groups_enabled: Gaitu erabiltzaileen taldeak
         users_registration_mode: Erabiltzaileak erregistratzeko modua
         warning_color: Abisua
+        welcome_notification_body: Ongietorri-jakinarazpenaren mezuaren atala
+        welcome_notification_subject: Ongietorri-jakinarazpenaren mezuaren gaia
         youtube_handler: YouTube kudeatzailea
       scope:
         code: Kodea
@@ -101,17 +103,22 @@ eu:
         name: Izena
         organization: Erakundea
         plural: Anitza
+      settings:
+        scope_id: Esparrua
       static_page:
+        allow_public_access: Baimendu sarbidea balidatu gabe
         changed_notably: Aldaketa nabarmenak izan dira.
         content: Edukia
         organization: Erakundea
         show_in_footer: Erakutsi orri-oinean
         slug: URL laburra
         title: Titulua
+        weight: Kokapenaren hurrenkera
       static_page_topic:
         description: Deskribapena
         show_in_footer: Erakutsi orri-oinean
         title: Izenburua
+        weight: Kokapenaren hurrenkera
       user_group_csv_verification:
         file: file
     errors:
@@ -122,6 +129,10 @@ eu:
               allowed_file_content_types: Irudi fitxategi baliogabea
             official_img_header:
               allowed_file_content_types: Irudi fitxategi baliogabea
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Baliogabeko mime mota
   activerecord:
     attributes:
       decidim/static_page:
@@ -140,12 +151,35 @@ eu:
     admin:
       actions:
         add: Gehitu
+        attachment:
+          new: Beste artxibo bat
+        attachment_collection:
+          new: Erantsitako beste artxibo-blduma bat
         browse: Arakatu
+        category:
+          new: Kategoria berria
+        export: Esportatu dena
+        export-selection: Esportatu hautatua
+        import: Inportatu
         manage: Kudeatu
         new: '%{name}berria'
+        newsletter:
+          new: Beste buletin bat
+        participatory_space_private_user:
+          new: Eremu parte-hartzaileko beste erabiltzaile pribatu bat
+        per_page: Orrialdeko
         permissions: Baimenak
         reject: Ukatu
+        share: Partekatu
+        user:
+          new: Beste erabiltzaile bat
         verify: Egiaztatu
+      admin_terms_of_use:
+        accept:
+          error: Errorea gertatu da Administrazioaren Gaiak eta Baldintzak onartzean.
+          success: Ederto! Onartu dituzu Administrazioaren Gaiak eta Baldintzak.
+        actions:
+          accept: Ados nago ondoko gai hauekin
       area_types:
         create:
           error: Errorea eremu mota berri bat sortzean.
