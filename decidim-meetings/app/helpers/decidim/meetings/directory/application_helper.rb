@@ -90,6 +90,8 @@ module Decidim
               )
             end
 
+            next if categories_values.empty?
+
             key_point = current_participatory_space.class.name.gsub("::", "__") + current_participatory_space.id.to_s
 
             TreeNode.new(
@@ -98,9 +100,10 @@ module Decidim
             )
           end
 
+          list_of_ps.compact!
           TreeNode.new(
             TreePoint.new("", t("decidim.proposals.application_helper.filter_category_values.all")),
-            list_of_ps.compact!
+            list_of_ps
           )
         end
 
