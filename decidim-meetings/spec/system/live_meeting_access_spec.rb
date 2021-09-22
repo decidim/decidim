@@ -57,7 +57,7 @@ describe "Meeting live event access", type: :system do
     end
 
     context "when the meeting is configured to show the iframe embedded" do
-      let(:meeting) { create :meeting, :published, :show_embedded_iframe, :online, :embeddable, :live, component: component }
+      let(:meeting) { create :meeting, :published, :embed_in_meeting_page_iframe_embed_type, :online, :embeddable, :live, component: component }
 
       it "shows the meeting link embedded" do
         visit_meeting
@@ -66,7 +66,7 @@ describe "Meeting live event access", type: :system do
       end
 
       context "and the iframe access level is for all visitors" do
-        let(:meeting) { create :meeting, :published, :show_embedded_iframe, :online, :embeddable, :live, component: component }
+        let(:meeting) { create :meeting, :published, :embed_in_meeting_page_iframe_embed_type, :online, :embeddable, :live, component: component }
 
         context "and user is signed in" do
           before do
@@ -82,7 +82,7 @@ describe "Meeting live event access", type: :system do
       end
 
       context "and the iframe access level is for signed in visitors" do
-        let(:meeting) { create :meeting, :published, :show_embedded_iframe, :online, :embeddable, :live, :signed_in_iframe_access_level, component: component }
+        let(:meeting) { create :meeting, :published, :embed_in_meeting_page_iframe_embed_type, :online, :embeddable, :live, :signed_in_iframe_access_level, component: component }
 
         context "and user is not signed in" do
           it "doesn't show the meeting link embedded" do
@@ -112,7 +112,7 @@ describe "Meeting live event access", type: :system do
           create(
             :meeting,
             :published,
-            :show_embedded_iframe,
+            :embed_in_meeting_page_iframe_embed_type,
             :online,
             :embeddable,
             :live,
@@ -229,7 +229,7 @@ describe "Meeting live event access", type: :system do
   end
 
   context "when online meeting is not live and is not embedded" do
-    let(:meeting) { create :meeting, :published, :show_embedded_iframe, :online, :embeddable, component: component }
+    let(:meeting) { create :meeting, :published, :embed_in_meeting_page_iframe_embed_type, :online, :embeddable, component: component }
 
     it "shows the meeting link embedded" do
       visit_meeting
