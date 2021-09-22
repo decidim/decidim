@@ -342,12 +342,29 @@ eu:
         category_id_eq:
           label: Kategoria
         filter_label: Iragazkia
+        moderations:
+          reportable_type_string_eq:
+            label: Mota
         officialized_at_null:
           label: Egoera
           values:
             'false': Officialized
             'true': Ez ofiziala
+        private_space_eq:
+          label: Pribatua
+          values:
+            'false': Publikoa
+            'true': Pribatua
+        published_at_null:
+          label: Argitaratu da
+          values:
+            'false': Argitaratu da
+            'true': Ez da argitaratu
+        scope_id_eq:
+          label: Eremua
         search_label: Search
+        search_placeholder:
+          name_or_nickname_or_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
       help_sections:
         error: Errore bat gertatu da laguntza-atalak eguneratuz
         form:
