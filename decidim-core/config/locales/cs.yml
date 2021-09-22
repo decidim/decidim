@@ -527,6 +527,11 @@ cs:
           this_application_will_not_be_able_to: 'Tato aplikace nebude moci:'
           update_profile: Aktualizujte svůj profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> chce používat váš účet"
+    editor_images:
+      create:
+        error: Chyba při nahrávání obrázku
+        success: Obrázek byl úspěšně nahrán
+      drag_and_drop_help: Přidejte obrázky přetažením nebo vložením.
     endorsable:
       endorsements: Schválení
       endorsements_count: Počet schvalování
