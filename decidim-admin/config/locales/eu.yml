@@ -180,6 +180,14 @@ eu:
           success: Ederto! Onartu dituzu Administrazioaren Gaiak eta Baldintzak.
         actions:
           accept: Ados nago ondoko gai hauekin
+          are_you_sure: Ziur zaude ez dituzula onartu nahi administratzaileentzako erabilera-irizpideak?
+          refuse: Ez onartu Administrazio-irizpideak eta baldintzak
+          title: Onartzen ditut Administrazio-irizpideak eta baldintzak
+        required_review:
+          alert: 'Eskatuta: berrikusi gure Administrazio-irizpideak eta baldintzak'
+          callout: Mesedez, hartu tarte bat administratzaileentzako erabilera-irizpideak erabiltzeko. Bestela, ezin izango duzu plataforma administratu.
+          cta: Berrikusi orain.
+        title: Administrazioaren Irizpideak eta Baldintzak
       area_types:
         create:
           error: Errorea eremu mota berri bat sortzean.
@@ -200,6 +208,7 @@ eu:
           error: Errore bat gertatu da area berri bat sortzean.
           success: Area sortu da behar bezala.
         destroy:
+          has_spaces: Eremu honek mendekotasuna duten espazioak ditu. Kendu aurretik, ziurtatu ez duela parte hartzeko gunerik aipatzen.
           success: Area behar bezala suntsitu da
         edit:
           title: Editatu eremua
