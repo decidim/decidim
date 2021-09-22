@@ -23,7 +23,7 @@ module Decidim
       private
 
       def show_embed?
-        model.show_embedded_iframe? && embedder.embeddable?
+        model.iframe_embed_type_embed_in_meeting_page? && embedder.embeddable?
       end
 
       def iframe_access_level_allowed?
