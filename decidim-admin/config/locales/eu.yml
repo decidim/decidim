@@ -706,7 +706,19 @@ eu:
           homepage_highlighted_content_banner_title: Highligted edukien banner
           images:
             layout_appearance_title: Editatu itxura diseinua
+            preview: Aurrebistaratu
           omnipresent_banner_appearance_title: Editatu omnipresent banner
+      organization_external_domain_whitelist:
+        edit:
+          update: Eguneratu
+        external_domain:
+          down: Jaitsi
+          external_domain: Kanpoko domeinua
+          remove: Kendu
+          up: Igo
+        form:
+          add: Gehitu zerrenda zuzrian
+          title: Kanpoko domeinuen zerrenda zuria
       organization_homepage:
         edit:
           active_content_blocks: Eduki bloke aktiboak
@@ -722,16 +734,26 @@ eu:
           error: Errore bat gertatu da erabiltzaile pribatu bat ezabatzen parte hartzaileentzako.
           success: Partekatze espazioa erabiltzaileen sarbide pribatuan arrakastaz suntsitu da.
         index:
+          import_via_csv: Inportatu CSV bidetik
           title: Partaidetza espazioa erabiltzaile pribatua
         new:
           create: Sortu
           title: Erabiltzaile pribatuaren parte hartzailea.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Errorea gertatu da CSV artxiboa irakurtzean.
+        new:
+          upload: Kargatu
       resource_permissions:
         edit:
           submit: Bidali
           title: Editatu baimenak
         update:
           success: Baimenak behar bezala eguneratu dira.
+      resources:
+        index:
+          headers:
+            scope: Eremua
       scope_types:
         create:
           error: Errore bat gertatu da esparru mota berri bat sortzean.
@@ -763,6 +785,10 @@ eu:
         update:
           error: Errorea gertatu da esparru hau eguneratzean.
           success: Esparrua zuzen eguneratu da
+      share_tokens:
+        actions:
+          destroy: Ezabatu
+          share: Partekatu
       static_page_topics:
         create:
           error: Errore bat gertatu da gai berri bat sortzean.
