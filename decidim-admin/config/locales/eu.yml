@@ -177,6 +177,12 @@ eu:
           success: Ederto! Onartu dituzu Administrazioaren Gaiak eta Baldintzak.
         actions:
           accept: Ados nago ondoko gai hauekin
+          refuse: Ez onartu Administrazio-irizpideak eta baldintzak
+          title: Onartzen ditut Administrazio-irizpideak eta baldintzak
+        required_review:
+          alert: 'Eskatuta: berrikusi gure Administrazio-irizpideak eta baldintzak'
+          cta: Berrikusi orain.
+        title: Administrazioaren Irizpideak eta Baldintzak
       area_types:
         create:
           error: Errorea eremu mota berri bat sortzean.
