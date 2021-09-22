@@ -149,15 +149,15 @@ $(() => {
     toggleDependsOnSelect($meetingTypeOfMeeting, $meetingInPersonFields, "in_person");
   }
 
-  const $meetingShowEmbeddedIframe = $("#meeting_show_embedded_iframe");
+  const $meetingIframeEmbedType = $("#meeting_iframe_embed_type");
 
   createFieldDependentInputs({
-    controllerField: $meetingShowEmbeddedIframe,
+    controllerField: $meetingIframeEmbedType,
     wrapperSelector: ".iframe-fields",
     dependentFieldsSelector: ".iframe-fields--access-level",
     dependentInputSelector: "input",
-    enablingCondition: () => {
-      return $("#meeting_show_embedded_iframe").is(":checked")
+    enablingCondition: ($field) => {
+      return $field.val() === "embed_in_meeting_page" || $field.val() === "open_in_live_event_page";
     }
   });
 })
