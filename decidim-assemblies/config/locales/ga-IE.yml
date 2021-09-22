@@ -1,1 +1,153 @@
 ga:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: Ceantar
+        copy_categories: Cóipeáil catagóirí
+        decidim_area_id: Ceantar
+        decidim_scope_id: Scóip
+        domain: Fearann
+        duration: Fad
+        facebook: Facebook
+        github: GitHub
+        hashtag: Haischlib
+        participatory_processes_ids: Próisis Rannpháirteacha Ceangailte
+        scope_id: Scóip
+        slug: Píosa URL
+        subtitle: Fotheideal
+        title: Teideal
+        twitter: Twitter
+        youtube: YouTube
+      assembly_member:
+        birthday: Breithlá
+        gender: Inscne
+        position: Céim
+      assembly_user_role:
+        email: Seoladh ríomhphoist
+        name: Ainm
+        role: Ról
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Tionól
+        two: Tionóil
+        few: Tionóil
+        many: Tionóil
+        other: Tionóil
+  decidim:
+    admin:
+      actions:
+        import_assembly: Iompórtáil
+      assemblies:
+        edit:
+          update: Nuashonraigh
+        index:
+          private: Príobháideach
+          public: Poblach
+        new:
+          create: Cruthaigh
+      assemblies_types:
+        new:
+          create: Cruthaigh
+      assembly_copies:
+        new:
+          copy: Cóipeáil
+      assembly_imports:
+        new:
+          import: Iompórtáil
+      assembly_members:
+        edit:
+          update: Nuashonraigh
+        new:
+          create: Cruthaigh
+      assembly_user_roles:
+        edit:
+          update: Nuashonraigh
+        new:
+          create: Cruthaigh
+      menu:
+        assemblies_settings: Socruithe
+        assemblies_submenu:
+          assembly_members: Baill
+          attachment_collections: Fillteáin
+          attachment_files: Comhaid
+          attachments: Ceangaltáin
+          categories: Catagóirí
+          info: Eolas
+      models:
+        assemblies_types:
+          fields:
+            title: Teideal
+        assembly:
+          fields:
+            private: Príobháideach
+            title: Teideal
+          name: Tionól
+        assembly_member:
+          fields:
+            full_name: Ainm
+            position: Céim
+          name: Ball
+          positions:
+            other: Eile
+        assembly_user_role:
+          fields:
+            email: Seoladh ríomhphoist
+            name: Ainm
+            role: Ról
+          roles:
+            admin: Riarthóir
+            valuator: Luachálaí
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            duration: Fad
+            filters: Scagairí
+            images: Íomhánna
+            metadata: Meiteashonraí
+            other: Eile
+            social_handlers: Sóisialta
+        assemblies_settings:
+          edit:
+            update: Nuashonraigh
+        assemblies_types:
+          form:
+            title: Teideal
+        assembly_members:
+          index:
+            filter:
+              all: Uile
+              ceased: Stadta
+            search: Cuardaigh
+        new_import:
+          accepted_types:
+            json: JSON
+      assembly_members:
+        index:
+          members: Baill
+      assembly_types:
+        others: Eile
+      created_by:
+        others: Eile
+        public: Poblach
+      filter:
+        help: 'Taispeáin:'
+        others: Eile
+      show:
+        area: Ceantar
+        duration: Fad
+        is_transparent:
+          'false': doiléir
+        related_participatory_processes: Próisis Rannpháirteacha Ceangailte
+        scope: Scóip
+    assembly_members:
+      index:
+        title: Baill
+  layouts:
+    decidim:
+      assemblies:
+        index:
+          reset_chart: Athshocraigh
+      assembly_navigation:
+        assembly_member_menu_item: Baill

@@ -3,3 +3,4 @@ Document ID;Document Type;Date of Birth;Full name;Full address;Postal Code;Mobil
 87654321X;DNI;19800215;Alice Doe;The full address 2;08002;987654321;user2@example.org
 88854321X;DNI;20000815;Bob Doe;The full address 2;08002;111111111;
 87654321X;DNI;20101111;Alice Doe;The full address 2;08002;;user4@example.org
+55566677B;DNI;19780101; Hugo Doe ;The full address 2;08001;123456789;hugo@example.org

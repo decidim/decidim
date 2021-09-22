@@ -48,7 +48,6 @@ ro:
         favicon: Iconiță
         force_authentication: Forțează autentificarea
         force_users_to_authenticate_before_access_organization: Forțează utilizatorii să se autentifice înainte de a accesa organizația
-        from: De la adresa de e-mail
         github_handler: GitHub handler
         header_snippets: Snippet-uri antet
         highlight_alternative_color: Evidențiază, alternativă
@@ -180,12 +179,10 @@ ro:
           success: Super! Ai acceptat termenii de utilizare.
         actions:
           accept: Sunt de acord cu următorii termeni
-          are_you_sure: Sigur doriți să refuzați termenii de utilizare?
           refuse: Refuz termenii
           title: Sunt de acord cu termenii și condițiile de utilizare
         required_review:
           alert: 'Necesar: Examinați termenii de utilizare'
-          callout: Vă rugăm să acordați un moment pentru a revizui Termenii de utilizare. În caz contrar, nu veți putea administra platforma.
           cta: Revizuiți termenii, acum.
         title: Termeni de Utilizare
       area_types:
@@ -208,7 +205,6 @@ ro:
           error: A apărut o problemă la crearea unei zone noi.
           success: Zonă creată cu succes.
         destroy:
-          has_spaces: Zona are spaţii dependente, nu trebuie să aibă dependenţe pentru a fi ştersă.
           success: Zonă eliminată cu succes
         edit:
           title: Editare zonă
@@ -261,7 +257,6 @@ ro:
       block_user:
         new:
           action: Blochează contul și trimite justificarea
-          description: Blocarea unui utilizator va face contul inutilizabil, puteți oferi justificări și îndrumări cu privire la modul în care considerați că ați putea debloca utilizatorul.
           justification: Justificare
           title: Blochează utilizator %{name}
       categories:
@@ -324,7 +319,6 @@ ro:
         'false': 'Nu'
         managed_user_name: Gestionare utilizatori
         solved: Rezolvat
-        title: Verificare conflicte
         transfer:
           email: E-mail
           error: A apărut o problemă la transferul participantului curent către participantul gestionat.
@@ -632,7 +626,6 @@ ro:
       newsletters:
         create:
           error: A apărut o eroare la crearea acestui buletin informativ.
-          success: Buletinul informativ a fost creat. Vă rugăm să îl revedeți înainte de trimitere.
         deliver:
           error: A apărut o eroare la livrarea acestui buletin informativ.
           success: Buletinul informativ a fost livrat.
@@ -715,12 +708,10 @@ ro:
           title: Verificați participantul "%{name}"
         show_email_modal:
           close_modal: Închide fereastra
-          description: Dacă trebuie să contactați direct un participant, puteți face clic pe butonul Arată pentru a vedea adresa de e-mail. Această acțiune va fi înregistrată.
           email_address: Adresa de e-mail
           full_name: Numele complet
           hidden: ascuns
           show: Arată
-          title: Arată adresa de e-mail a participantului
         unblock:
           error: A intervenit o eroare în încărcarea istoricului activității
           success: Participantul a fost deblocat
@@ -963,10 +954,6 @@ ro:
           no_users_count_statistics_yet: Încă nu există niciun număr de statistici pentru utilizatori
           participants: Participanți
       view_public_page: Vezi pagina publică
-    forms:
-      errors:
-        impersonate_user:
-          reason: Trebuie să furnizați un motiv atunci când gestionați un participant negestionat
     metrics:
       blocked_users:
         object: utilizatori blocați

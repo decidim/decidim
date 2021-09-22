@@ -45,7 +45,6 @@ pt:
         favicon: Ícone
         force_authentication: Forçar autenticação
         force_users_to_authenticate_before_access_organization: Forçar usuários a autenticar antes de aceder à organização
-        from: Endereço de e-mail do remetente
         github_handler: GitHub handler
         header_snippets: Snippets de cabeçalho
         highlight_alternative_color: Realçar, alternativo
@@ -143,12 +142,10 @@ pt:
           error: Ocorreu um erro ao aceitar os termos de utilização de administrador.
           success: Excelente! Aceitou os termos de utilização de administrador.
         actions:
-          are_you_sure: Tem a certeza de que pretende recusar os termos de administrador?
           refuse: Recusar os termos de administrador
           title: Concordar com os termos e condições de utilização
         required_review:
           alert: 'Necessário: Rever os nossos termos de utilização de administrador'
-          callout: Por favor, despenda algum tempo para rever os Termos de Utilização de Administrador. Caso contrário, não poderá administrar a plataforma.
           cta: Reveja-os agora.
         title: Termos de Utilização de Administrador
       area_types:
@@ -171,7 +168,6 @@ pt:
           error: Ocorreu um problema ao criar uma nova área.
           success: Área criada corretamente.
         destroy:
-          has_spaces: A área possui espaços dependentes, não poderá ter dependências para poder ser eliminada.
           success: Área destruída corretamente
         edit:
           title: Editar área
@@ -475,7 +471,6 @@ pt:
       newsletters:
         create:
           error: Ocorreu um problema ao criar este boletim informativo.
-          success: Boletim Informativo criado corretamente. Por favor, reveja-o antes de enviar.
         deliver:
           error: Ocorreu um problema na entrega deste boletim informativo.
           success: Boletim Informativo entregue corretamente.
@@ -552,12 +547,10 @@ pt:
           title: Oficializar participante "%{name}"
         show_email_modal:
           close_modal: Fechar modal
-          description: Caso necessite de contactar um participante diretamente, poderá clicar no botão Mostrar para ver o endereço de e-mail. Esta ação será registada.
           email_address: Endereço de e-mail
           full_name: Nome completo
           hidden: oculto
           show: Mostrar
-          title: Mostrar endereço de e-mail do participante
       organization:
         edit:
           title: Editar organização
@@ -767,10 +760,6 @@ pt:
           no_users_count_statistics_yet: Ainda não existem estatísticas de contagem de utilizadores
           participants: Participantes
       view_public_page: Ver página pública
-    forms:
-      errors:
-        impersonate_user:
-          reason: Precisa de fornecer um motivo ao gerir um participante que não é gerido
     moderations:
       actions:
         hidden: Ocultado

@@ -1,6 +1,6 @@
 <% add_decidim_meta_tags({
   description: translated_attribute(debate.description),
-  title: present(debate).title,
+  title: present(debate).title(html_escape: true ),
   url: debate_url(debate.id)
 }) %>
 
@@ -22,7 +22,7 @@ edit_link(
   </div>
 
   <h2 class="heading3">
-    <%== present(debate).title(links: true) %>
+    <%== present(debate).title(links: true, html_escape: true) %>
   </h2>
 
   <% debate_presenter = Decidim::Debates::DebatePresenter.new(debate) %>

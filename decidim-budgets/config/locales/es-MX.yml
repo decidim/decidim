@@ -233,6 +233,7 @@ es-MX:
     components:
       budgets:
         actions:
+          comment: Comentar
           vote: Votar
         name: Presupuestos
         settings:

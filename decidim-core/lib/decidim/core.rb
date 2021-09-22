@@ -94,6 +94,7 @@ module Decidim
   autoload :ShareableWithToken, "decidim/shareable_with_token"
   autoload :RecordEncryptor, "decidim/record_encryptor"
   autoload :AttachmentAttributes, "decidim/attachment_attributes"
+  autoload :CarrierWaveMigratorService, "decidim/carrier_wave_migrator_service"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -156,7 +157,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fi-pl fi fr fr-CA ga gl hr hu id is it ja ko lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW)
+    %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fi-pl fi fr fr-CA ga gl hr hu id is it ja ko lb lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW)
   end
 
   # Exposes a configuration option: The application default locale.

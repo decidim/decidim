@@ -44,6 +44,18 @@ module Decidim::Meetings
       it { is_expected.not_to be_valid }
     end
 
+    describe "when attendees_count is greater than 999" do
+      let(:attendees_count) { 10_000 }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    describe "when attendees_count is less than 0" do
+      let(:attendees_count) { -10 }
+
+      it { is_expected.not_to be_valid }
+    end
+
     describe "when attendees_count is invalid" do
       let(:attendees_count) { "a" }
 

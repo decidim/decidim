@@ -22,6 +22,7 @@ pl:
         decidim_user_group_id: Grupa użytkowników
         description: Opis
         end_time: Czas zakończenia
+        id: Numer ID
         location: Miejsce
         location_hints: Wskazówki co do miejsca
         online_meeting_url: Adres URL spotkania online
@@ -73,6 +74,16 @@ pl:
         other: Rejestracje
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Kategoria
+          closed_at_present:
+            label: Państwo
+            values:
+              'true': Zamknięte
+          is_upcoming_true:
+            label: Data
       meeting_copies:
         create:
           error: Wystąpił błąd podczas duplikowania tego spotkania.
@@ -177,6 +188,7 @@ pl:
             few: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązane propozycje:'
             many: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji:'
             other: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji:'
+        manage_poll: Zarządzaj głosowaniem
         new: Nowe spotkanie
         preview: Podgląd
         registrations: Rejestracje
@@ -293,6 +305,9 @@ pl:
           update:
             invalid: Podczas aktualizowania tego spotkania wystąpił błąd
             success: Spotkanie zostało zaktualizowane
+        meetings_poll:
+          form:
+            title: Edytuj kartę do głosowania dla %{questionnaire_for}
         models:
           meeting:
             name: Spotkanie
@@ -492,6 +507,10 @@ pl:
             official_meeting: Spotkanie oficjalne
             start_time: Data rozpoczęcia
             title: Tytuł
+      polls:
+        questions:
+          closed_question:
+            question_results: Wyniki wyborów
       read_more: "(zobacz więcej)"
       registration_mailer:
         confirmation:

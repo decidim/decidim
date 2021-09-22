@@ -120,6 +120,9 @@ en:
         highlighted_cta: Vote on %{name}
         if_change_opinion: If you've changed your mind, you can
         my_budgets: My budgets
+        progress: Finish voting
+        show: See projects
+        vote: Vote
         voted_on: You've voted on %{links}
       limit_announcement:
         cant_vote: You can't vote on this budget. <a href="%{landing_path}">Try on another budget</a>.

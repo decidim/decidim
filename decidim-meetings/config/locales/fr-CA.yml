@@ -34,12 +34,17 @@ fr-CA:
         registration_terms: Conditions d'inscription
         registration_url: URL d'inscription
         registrations_enabled: Inscriptions ouvertes
+        show_embedded_iframe: Montrer l'iframe intégrée pour cette URL
         start_time: Heure de début
         title: Titre
         transparent: Visible par les non-membres
         type_of_meeting: Type
     errors:
       models:
+        meeting:
+          attributes:
+            show_embedded_iframe:
+              not_embeddable: Cette URL ne peut pas être intégrée
         meeting_agenda:
           attributes:
             base:
@@ -69,6 +74,11 @@ fr-CA:
         other: Inscriptions
   decidim:
     admin:
+      filters:
+        meetings:
+          origin_eq:
+            values:
+              citizen: Citoyen
       meeting_copies:
         create:
           error: Une erreur s'est produite lors de la duplication de cette rencontre.
@@ -80,6 +90,7 @@ fr-CA:
     components:
       meetings:
         actions:
+          comment: Commenter
           join: Rejoindre
         name: Rencontres
         settings:
@@ -268,6 +279,7 @@ fr-CA:
             registration_url_help: 'Lien : permet aux participants de partir sur le service externe que vous utilisez pour les inscriptions'
             select_a_meeting_type: Veuillez sélectionner un type de rencontre
             select_a_registration_type: Veuillez sélectionner un type d'inscription
+            show_embedded_iframe_help: Intégrer ou non l'iframe correspondant à cette URL de vidéoconférence. Seuls quelques services permettent l'intégration (c.-à-d. Youtube, Twitch...)
           index:
             title: Rencontres
           new:
@@ -415,6 +427,7 @@ fr-CA:
           select_a_category: Veuillez sélectionner une catégorie
           select_a_meeting_type: Veuillez sélectionner un type de rencontre
           select_a_registration_type: Veuillez sélectionner un type d'inscription
+          show_embedded_iframe_help: Intégrer ou non l'iframe correspondant à cette URL de vidéoconférence. Seuls quelques services permettent l'intégration (c.-à-d. Youtube, Twitch...)
         index:
           new_meeting: Nouvelle réunion
         meeting_minutes:
@@ -426,8 +439,6 @@ fr-CA:
           back: Précédent
           create: Créer
           title: Créez votre réunion
-        online_meeting_link:
-          link_available_soon: Lien bientôt disponible
         registration_confirm:
           cancel: Annuler
           confirm: Confirmer
@@ -442,7 +453,11 @@ fr-CA:
           join: Participer à la rencontre
           leave: Annuler votre inscription
           leave_confirmation: Êtes-vous sûr de vouloir annuler votre inscription à cette rencontre ?
+          link_available_soon: Lien bientôt disponible
+          link_closed: Le lien pour rejoindre la réunion sera disponible quelques minutes avant le début de la réunion
+          live_event: Cette réunion se déroule en ce moment
           meeting_minutes: Comptes rendus des rencontres
+          micro_camera_permissions_warning: Lorsque vous cliquez sur le bouton ci-dessous, on vous demandera des autorisations de microphone et/ou de caméra, et vous rejoindrez la vidéoconférence
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
           registration_code_help_text: Votre code d'inscription

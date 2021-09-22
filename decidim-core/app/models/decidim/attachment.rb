@@ -50,6 +50,7 @@ module Decidim
     def photo?
       @photo ||= file.attached? && file.image?
     end
+    alias image? photo?
 
     # Whether this attachment is a document or not.
     #

@@ -5,22 +5,17 @@ module Decidim
     #
     # Decorator for meetings
     #
-    class MeetingPresenter < SimpleDelegator
-      include Decidim::TranslationsHelper
+    class MeetingPresenter < Decidim::ResourcePresenter
       include Decidim::ResourceHelper
-      include Decidim::SanitizeHelper
 
       def meeting
         __getobj__
       end
 
-      def title(links: false, all_locales: false)
+      def title(links: false, html_escape: false, all_locales: false)
         return unless meeting
 
-        handle_locales(meeting.title, all_locales) do |content|
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_html_escape(content))
-          renderer.render(links: links).html_safe
-        end
+        super meeting.title, links, html_escape, all_locales
       end
 
       def description(links: false, all_locales: false)
@@ -129,22 +124,6 @@ module Decidim
         return unless meeting
 
         proposals.map.with_index { |proposal, index| "#{index + 1}) #{proposal.title}\n" }
-      end
-
-      private
-
-      def handle_locales(content, all_locales, &block)
-        if all_locales
-          content.each_with_object({}) do |(key, value), parsed_content|
-            parsed_content[key] = if key == "machine_translations"
-                                    handle_locales(value, all_locales, &block)
-                                  else
-                                    block.call(value)
-                                  end
-          end
-        else
-          yield(translated_attribute(content))
-        end
       end
     end
   end

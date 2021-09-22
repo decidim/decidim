@@ -31,7 +31,7 @@ module Decidim
             end
 
             if dataset
-              CSV.foreach(form.file.tempfile.path, col_sep: ";", headers: true) do |row|
+              CSV.foreach(form.file.tempfile.path, col_sep: ";", headers: true, converters: ->(f) { f&.strip }) do |row|
                 CreateDatumJob.perform_later(current_user, dataset, row.fields)
               end
             end
@@ -57,11 +57,19 @@ module Decidim
           end
 
           def csv_header_invalid?
-            CSV.parse_line(File.open(form.file.tempfile.path, &:readline), col_sep: ";").size != expected_header_size
+            CSV.parse_line(File.open(form.file.tempfile.path), col_sep: ";", headers: true, header_converters: :symbol).headers != expected_headers
           end
 
-          def expected_header_size
-            @expected_header_size ||= form.current_participatory_space.has_ballot_styles? ? 9 : 8
+          def headers
+            [:document_id, :document_type, :date_of_birth, :full_name, :full_address, :postal_code, :mobile_phone_number, :email_address]
+          end
+
+          def ballot_style_headers
+            headers.push(:ballot_style_code)
+          end
+
+          def expected_headers
+            @expected_headers ||= form.current_participatory_space.has_ballot_styles? ? ballot_style_headers : headers
           end
 
           def csv_rows
