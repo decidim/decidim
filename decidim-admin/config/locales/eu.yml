@@ -258,6 +258,12 @@ eu:
       autocomplete:
         no_results: Ez da emaitzarik aurkitu
         search_prompt: Idatzi bilaketak gutxienez hiru karaktere
+      block_user:
+        new:
+          action: Blokeatu kontua eta bidali justifikazioa
+          description: Erabiltzaile baten blokeoak kontu erabilezina utziko du. Zure justifikazioan zein irizpideren arabera desblokeatuko zenukeen azaldu dezakezu.
+          justification: Justifikazioa
+          title: Blokeatu erabiltzaile hau %{name}
       categories:
         create:
           error: Errorea gertatu da kategoria hau sortzean.
@@ -279,6 +285,7 @@ eu:
           success: Kategoria zuzen eguneratu da.
       component_permissions:
         update:
+          error: Arazo bat izan da osagai honen baimenak eguneratzean.
           success: Baimenak behar bezala eguneratu dira.
       components:
         create:
@@ -299,6 +306,7 @@ eu:
           headers:
             actions: Ekintzak
             name: Osagaiaren izena
+            scope: Osagaiaren eremua
             type: Osagai mota
         new:
           add: Gehitu osagaia
@@ -311,16 +319,43 @@ eu:
         update:
           error: Errore bat gertatu da osagaia eguneratzean.
           success: Osagaia behar bezala eguneratu da.
+      conflicts:
+        attempts: Saiakerak
+        'false': 'Ez'
+        managed_user_name: Erabiltzaile kudeatua
+        solved: Ebatzita
+        title: Egiaztapen-arazoak
+        transfer:
+          email: Helbide elektronikoa
+          error: Errore bat gertatu da egungo parte-hartzailea transferitzean parte-hartzaile kudeatu bati.
+          name: Izena
+          reason: Arrazoia
+          success: Egungo transferentzia zuzen egin da.
+          title: Transferentzia
+        'true': 'Bai'
+        user_name: Erabiltzailea
       dashboard:
         show:
           view_more_logs: Ikusi gehiago erregistroak
           welcome: Ongi etorri Decidim Admin Panelera.
+      domain_whitelist:
+        form:
+          domain_too_short: Domeinu laburregia
+        update:
+          error: Errorea gertatu da domeinuaren zerrenda zuria eguneratzean
+          success: Domeinuaren zerrenda zuria zuzen eguneratu da
       exports:
         export_as: "%{name} honako hau gisa: %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: Zure esportazioa bidean da. Mezu elektroniko bat jasoko duzu bukatutakoan.
       filters:
         category_id_eq:
           label: Kategoria
+        filter_label: Iragazkia
         officialized_at_null:
           label: Egoera
           values:
