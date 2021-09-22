@@ -400,6 +400,21 @@ eu:
         search_label: Search
         search_placeholder:
           name_or_nickname_or_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
+          reported_id_string_or_reported_content_cont: Bilatu %{collection} eduki edo Id erreportablearen arabera.
+          title_cont: Bilatu %{collection} tituluaren arabera.
+          user_name_or_user_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
+        state_eq:
+          label: Egoera
+          values:
+            all: Guztiak
+            pending: Zain
+            rejected: Ukatua
+            verified: Egiaztatuta
+      forms:
+        file_help:
+          import:
+            explanation: 'Jarraibideak artxiborako:'
+            message_2: CSV artxiboetarako, zutabeen arteko banatzailea puntu eta koma (";") izan behar da
       help_sections:
         error: Errore bat gertatu da laguntza-atalak eguneratuz
         form:
@@ -438,6 +453,22 @@ eu:
           impersonate_existing_managed_user: Ordezkatu "%{name}" erabiltzaile kudeatua
           impersonate_existing_user: '"%{name}" erabiltzailea ordezkatzen du'
           impersonate_new_managed_user: Ordezkatu erabiltzaile kudeatu berria
+      imports:
+        creators:
+          proposalcreator: Proposamen-sortzailea
+        error: Errorea gertatu da inportatzean
+        import_from_file: Inportatu artxibo batetik
+        invalid_lines: Errorea aurkitu da %{invalid_lines} errekurtso zenbakian
+        new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
+          actions:
+            back: Atzera
+          file_legend: Gehitu prozesatuko den inportazio-artxibo bat.
+          import: Inportatu
+        notice: "%{number} %{resource_name} zuzen inportatu da"
       logs:
         logs_list:
           no_logs_yet: Ez dago oraindik erregistroik
@@ -458,17 +489,23 @@ eu:
         areas: Arloak
         configuration: konfigurazioa
         dashboard: Kontrol-panela
+        external_domain_whitelist: Kanpoko domeinuak baimenduta
         help_sections: Laguntza atalak
         homepage: Hasiera
         impersonations: impersonations
+        moderation: Moderazio globalak
         newsletters: Buletinak
         participants: Parte-hartzaileak
+        reported_users: Erabiltzaile erreportatuak
         scope_types: Esparru motak
         scopes: Esparruak
         settings: Ezarpenak
         static_pages: Orriak
         user_groups: Erabiltzaile-taldeak
         users: Erabiltzaileak
+      metrics:
+        metrics:
+          see_more_metrics: Ikusi metrika gehiago
       models:
         area:
           fields:
@@ -502,6 +539,7 @@ eu:
             created_at: Sortze-data
             progress: ' Aurrerapena '
             sent_at: ' Bidalketa-data: '
+            sent_to: Hona bidalia
             subject: Gaia
           name: Buletina
         participatory_space_private_user:
@@ -514,6 +552,14 @@ eu:
           fields:
             name: Izena
             plural: Anitza
+        share_token:
+          fields:
+            created_at: Noiz sortua
+            expires_at: Noiz iraungia
+            last_used_at: Noiz erabilia azkenik
+            times_used: Erabilitako denbora
+            token: Sinboloak
+            user: Nork sortua
         static_page:
           fields:
             created_at: Tan sortua
@@ -538,6 +584,26 @@ eu:
             phone: Telefonoa
             state: Egoera
             users_count: Erabiltzaile kopurua
+      moderated_users:
+        index:
+          actions:
+            block: Blokeatutako erabiltzailea
+            title: Ekintzak
+            unblock: Desblokeatu erabiltzailea
+            unreport: Desegin salaketa
+          name: Izena
+          nickname: Ezizena
+          reason: Arrazoia
+          reports: Salaketa kopurua
+          title: Erreportatutako erabiltzaileen zerrenda
+        report:
+          reasons:
+            does_not_belong: Ez da bidezkoa
+            offensive: Iraingarria
+            spam: Spam
+        tabs:
+          blocked: Blokeatuta
+          unblocked: Ez blokeatuta
       moderations:
         index:
           title: ' Salaketak'
@@ -546,6 +612,15 @@ eu:
             does_not_belong: Ez du zer ikusirik
             offensive: Iraingarria
             spam: Spam
+        reports:
+          index:
+            author: Egilea(k)
+            content_original_language: Jatorrizko edukiaren hizkuntza
+            participatory_space: Parte hartzeko esparrua
+            reported_content: Erreportatutako edukia
+            see_current: Ikusi egungoa
+            see_original: Ikusi jatorrizkoa
+            title: Moderazio-txostenak
       newsletter_templates:
         index:
           preview_template: Aurreikusi
@@ -597,6 +672,12 @@ eu:
           badge: Ofizializazio xafla
           officialize: Officialize
           title: Erabiltzaile ofiziala "%{name}"
+        show_email_modal:
+          show: Erakutsi
+          title: Erakutsi parte-hartzailearen helbide elektronikoa
+        unblock:
+          error: Errorea gertatu da parte-hartzailea desblokeatzean
+          success: Parte-hartzailea zuzen desblokeatu da
       organization:
         edit:
           title: Editatu erakundea
@@ -607,6 +688,7 @@ eu:
           instagram: Instagram
           social_handlers: Gizarte
           twitter: Twitter
+          url: URL
           youtube: YouTube
         update:
           error: Errorea gertatu da erakunde hau eguneratzean.
