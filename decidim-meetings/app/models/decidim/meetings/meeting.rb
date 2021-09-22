@@ -46,6 +46,7 @@ module Decidim
       )
 
       enum iframe_access_level: [:all, :signed_in, :registered], _prefix: true
+      enum iframe_embed_type: [:none, :embed_in_meeting_page, :open_in_live_event_page, :open_in_new_tab], _prefix: true
 
       component_manifest_name "meetings"
 
