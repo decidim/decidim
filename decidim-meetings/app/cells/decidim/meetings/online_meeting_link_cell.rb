@@ -8,6 +8,7 @@ module Decidim
       include Decidim::LayoutHelper
 
       def show
+        return if model.iframe_embed_type_none?
         return unless iframe_access_level_allowed?
         return unless assembly_privacy_allowed?
 

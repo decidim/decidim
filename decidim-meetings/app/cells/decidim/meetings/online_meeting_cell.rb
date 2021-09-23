@@ -14,7 +14,7 @@ module Decidim
       delegate :embeddable?, to: :embedder
 
       def live_event_url
-        if embeddable?
+        if embeddable? && !model.iframe_embed_type_open_in_new_tab?
           Decidim::EngineRouter.main_proxy(model.component).meeting_live_event_path(meeting_id: model.id)
         else
           model.online_meeting_url
