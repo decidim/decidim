@@ -405,6 +405,11 @@ it:
           user_name_or_user_email_cont: Cerca %{collection} per nome o email.
         state_eq:
           label: Stato
+          values:
+            all: Tutte
+            pending: In Sospeso
+            rejected: Respinto
+            verified: Verificato
       forms:
         file_help:
           import:
