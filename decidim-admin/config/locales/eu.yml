@@ -684,6 +684,7 @@ eu:
           send_to_followers: Bidali jarraitzaileei
           send_to_participants: Bidali parte-hartzaileei
           title: Hautatu hartzaileak
+          warning: "<strong>Adi:</strong> Jakinarazpen-doikuntzetan “Albiste-buletinak jaso nahi ditut” aktibatu duten parte-hartzaileei baino ez zaie bidaliko buletin hau."
         send:
           no_recipients: Ez dago hartzailerik hautaketa honetarako
         show:
@@ -696,6 +697,7 @@ eu:
       officializations:
         block:
           error: Errorea gertatu da parte-hartzailea blokeatzean
+          success: Parte-hartzailea zuzen blokeatu da
         create:
           success: Erabiltzailea arrakastatsua izan da
         destroy:
@@ -703,6 +705,7 @@ eu:
         index:
           actions: Ekintzak
           badge: Badge
+          block: Blokeatu Erabiltzailea
           created_at: Sortua
           name: izena
           nickname: Ezizena
@@ -710,13 +713,21 @@ eu:
           officialize: Officialize
           officialized: Officialized
           reofficialize: Reofficialize
+          reports: Txostenak
+          show_email: Erakutsi korreo elektronikoaren helbidea
           status: Egoera
+          unblock: Desblokeatu erabiltzailea
           unofficialize: Unofficialize
         new:
           badge: Ofizializazio xafla
           officialize: Officialize
           title: Erabiltzaile ofiziala "%{name}"
         show_email_modal:
+          close_modal: Itxi leihoa
+          description: Parte-hartzaile batekin zuzenean harremanetan jarri behar baduzu, Erakutsi botoian klik egin dezakezu helbide elektronikoa ikusteko. Ekintza hori erregistratu egingo da.
+          email_address: Korreo elektronikoaren helbidea
+          full_name: Izen osoa
+          hidden: ezkutua
           show: Erakutsi
           title: Erakutsi parte-hartzailearen helbide elektronikoa
         unblock:
@@ -730,6 +741,7 @@ eu:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: Testu-eremu batzuetan, parte-hartzaileek HTML etiketa batzuk txertatu ahal izango dituzte testu-editore aberastua erabiliz.
           social_handlers: Gizarte
           twitter: Twitter
           url: URL
@@ -786,7 +798,9 @@ eu:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Errorea gertatu da CSV artxiboa irakurtzean.
+          success: CSV fitxategia zuzen igo da, eta parte-hartzaileei gonbidapen-mezu elektroniko bat bidaltzen ari gara. Horrek denbora behar du.
         new:
+          explanation: 'Igo zure CSV fitxategia. Bi zutabe izan behar ditu, artxiboaren lehen zutabean eremu parte-hartzailera gehitu nahi dituzun erabiltzaileen posta elektronikoa, eta izena azken zutabean (posta elektronikoa, izena), goibururik gabe. Ez erabili balio ez duten karaktererik erabiltzaile-izenean, hala nola: `<>?%&^*#@()[]=+:;"{}\|`.'
           upload: Kargatu
       resource_permissions:
         edit:
