@@ -22,6 +22,7 @@ fi-pl:
               c: C-valinta
             test_options:
               bar: Palkki
+              baz: Baz
               foo: Foo
           step:
             endorsements_blocked: Suositukset estetty
@@ -29,6 +30,7 @@ fi-pl:
             readonly_step_attribute: Vain luku -attribuutti vaiheelle
             test_options:
               bar: Palkki
+              baz: Baz
               foo: Foo
     dummy:
       admin:
