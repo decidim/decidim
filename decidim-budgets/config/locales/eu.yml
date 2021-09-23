@@ -61,6 +61,12 @@ eu:
           create: "%{user_name} %{resource_name} proiektua %{space_name} espazioan sortu zen"
           delete: "%{user_name} %{resource_name} proiektua %{space_name} espazioan ezabatu da"
           update: "%{user_name} %{resource_name} proiektuaren %{space_name} espazio eguneratu du"
+      budget_information_modal:
+        continue: Jarraitu
+        more_information: Informazio gehiago
+      budget_list_item:
+        voting_finished: Eman duzu botoa proiektu honetan
+        voting_started: Hasi zara botoa ematen proiektu honetan
       models:
         project:
           fields:
