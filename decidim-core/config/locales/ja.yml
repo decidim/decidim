@@ -499,6 +499,10 @@ ja:
           this_application_will_not_be_able_to: 'このアプリケーションは次のことができません：'
           update_profile: プロフィールを更新
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> があなたのアカウントを使用しようとしています"
+    editor_images:
+      create:
+        error: アップロード画像のエラー
+        success: 画像が正常にアップロードされました
     endorsable:
       endorsements: 支持
       endorsements_count: 支持数
