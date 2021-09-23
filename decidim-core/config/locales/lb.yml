@@ -1273,70 +1273,70 @@ lb:
         select_user_group: Wiel e Grupp
       results_per_page:
         label: 'Ergebnisser pro Säit:'
-        title: Anzahl der Ergebnisse pro Seite auswählen
+        title: Wiel d'Unzuel vun de Resultater pro Säit
       share_modal:
         close_window: Fenster schließen
         copy_share_link: Kopieren
-        copy_share_link_clarification: Öffentlichen Link in die Zwischenablage kopieren
-        copy_share_link_copied: Kopiert!
-        copy_share_link_message: Der Link wurde erfolgreich in die Zwischenablage kopiert.
-        share: Teilen
-        share_link: Link teilen
+        copy_share_link_clarification: Ëffentlechen Link an d'Tëschenoflag kopéieren
+        copy_share_link_copied: Kopéiert!
+        copy_share_link_message: De Link gouf an d'Tëschenoflag kopéiert.
+        share: Deelen
+        share_link: Link deelen
     statistics:
       comments_count: Kommentare
-      endorsements_count: Befürworungen
+      endorsements_count: Ënnerstëtzungen
       followers_count: Follower
-      headline: Statistik
-      no_stats: Es gibt noch keine Statistiken.
-      pages_count: Seiten
-      participants_count: Teilnehmer
-      users_count: Benutzer
+      headline: Statistiken
+      no_stats: Et gëtt nach keng Statistiken.
+      pages_count: Säiten
+      participants_count: Benotzer
+      users_count: Benotzer
     tags:
-      filter_results_for_category: 'Ergebnisse nach Kategorie filtern: %{resource}'
-      filter_results_for_scope: 'Ergebnisse nach Anwendungsbereich filtern: %{resource}'
+      filter_results_for_category: 'Resultater no Kategorie filteren: %{resource}'
+      filter_results_for_scope: 'Resultater no Uwendungsberäich filteren: %{resource}'
     translation_bar:
-      help_text: "<strong>Warnung:</strong> Inhalt könnte automatisch übersetzt werden und nicht 100% korrekt sein."
-      show_original: Originaltext anzeigen
-      show_translated: Automatisch übersetzter Text anzeigen
+      help_text: "<strong>Warnung:</strong> Inhalt kéint automatesch iwwersetzt sinn an net 100% korrekt sinn."
+      show_original: Originaltext weisen
+      show_translated: Automatesch iwwersaten Text uweisen
     user_activity:
       index:
-        no_activities_warning: Dieser Benutzer hat noch keine Aktivität gehabt.
-    user_contact_disabled: Dieser Teilnehmer akzeptiert keine Direktnachrichten.
+        no_activities_warning: Dësen Benotzer huet bis elo nach keng Aktivitéit.
+    user_contact_disabled: Dësen Teilnehmer refuséiert direkt Noriichten.
     user_conversations:
       create:
-        error: Die Nachricht konnte nicht erstellt werden. Versuchen Sie es später nochmal
-        existing_error: Die Nachricht konnte nicht erstellt werden. Die Unterhaltung besteht bereits, versuchen Sie es noch einmal.
-        success: Unterhaltung erfolgreich gestartet!
+        error: Dës Noriicht konnt net erstallt ginn. Probéier mi spéit nach eng Kéier
+        existing_error: Dës Noriicht konnt net erstallt ginn. D'Konversatioun besteet schon, probéier elo nach eng Kéier.
+        success: Konversatioun gestart!
       index:
-        add_max_users: 'Fügen Sie der Unterhaltung Benutzer hinzu: max. 9 Benutzer'
-        add_users_placeholder: Suche...
-        close: Schließen
-        conversations_info: Unterhaltungen sind privat, niemand sonst kann sie anzeigen. Eine Unterhaltung kann von jedem auf der Plattform registrierten Teilnehmer oder jeder Gruppe gestartet werden.
-        from: Von
-        last_message: Letzte Nachricht
-        modal_title: Neue Unterhaltung
-        new_conversation: Neue Unterhaltung
-        next: Weiter
-        no_conversations_warning: Es gibt noch keine Unterhaltungen.
-        no_results: Keine Ergebnisse
-        participant_with_disabled_message_reception: Dieser Teilnehmer hat Nachrichten deaktiviert
-        time_ago: "Vor %{time}"
+        add_max_users: 'Setz denger Konversatioun nei Teilnehmer bäi: max. 9 Teilnehmer'
+        add_users_placeholder: Sich...
+        close: Zoumaachen
+        conversations_info: Konversatiounen sinn privat, keen aneren kann se gesinn. Eng Konversatioun kann vun all registréierten Benotzer op der Plattform oder all Grupp ugefaange ginn.
+        from: Vum
+        last_message: Lescht Noriicht
+        modal_title: Nei Konversatioun
+        new_conversation: Nei Konversatioun
+        next: Weider
+        no_conversations_warning: Et gëtt nach keng Konversatiounen.
+        no_results: Keng Resultater
+        participant_with_disabled_message_reception: Dësen Teilnehmer huet Noriichten desaktivéiert
+        time_ago: "Virun %{time}"
       new:
-        title: Eine Unterhaltung beginnen
+        title: Eng Konversatioun ufänken
       reply:
-        placeholder: Ihre Antwort...
+        placeholder: Deng Äntwert...
         send: Senden
-        title_reply: Antworten
+        title_reply: Äntweren
       show:
-        back: Alle Unterhaltungen anzeigen
-        not_allowed: Dieser Benutzer akzeptiert keine Direktnachrichten mehr.
-        title: Unterhaltung mit %{usernames}
+        back: All d'Konversatiounen uweisen
+        not_allowed: Dësen Benotzer akzeptéiert keng direkt Noriichten méi.
+        title: Konversatioun mat %{usernames}
       update:
-        error: Nachricht wurde nicht gesendet. Versuchen Sie es später noch einmal
+        error: Noriicht gouf net geschéckt. Probéier méi spéit nach eng Kéier
     user_interests:
       show:
-        my_interests: Meine Interessen
-        no_scopes: Diese Organisation hat noch keinen Spielraum!
+        my_interests: Meng Interessen
+        no_scopes: Dës Organisatioun huet nach keen Beräich!
         select_your_interests: Wiel Themen, déi dech interesséieren fir entspriechend Evenementer op denger Profil-Timeline ze kréien.
         update_my_interests: Interessen aktualiséieren
       update:
@@ -1378,7 +1378,7 @@ lb:
       show:
         version_index: Version %{index}
     welcome_notification:
-      default_body: <p>Hallo {{name}}, Dank für die Verbindung {{organization}} und willkommen!</p><ul><li>Wenn Sie sich schnell ein Bild machen möchten, was Sie hier tun können, sehen Sie sich den Abschnitt <a href="{{help_url}}">Hilfe</a> .</li><li>Sobald Sie es gelesen haben, erhalten Sie Ihr erstes Abzeichen. Hier ist eine <a href="{{badges_url}}">Liste aller Abzeichen</a> Sie erhalten können, wenn Sie an {{organization}}</li><li>teilnehmen. Schließen Sie sich anderen Personen an, und teilen Sie mit ihnen die Erfahrung, an {{organization}}teilzunehmen. Machen Sie Vorschläge, kommentieren Sie, diskutieren Sie, wie Sie einen Beitrag zum Gemeinwohl leisten können, geben Sie Argumente an, die überzeugen, zuhören und lesen, um überzeugt zu sein, drücken Sie Ihre Ideen konkret und direkt aus, reagieren Sie mit Geduld und Entscheidung, verteidigen Sie Ihre Ideen und halten Sie sie Offenheit, um zusammenzuarbeiten und sich den Ideen anderer anzuschließen.</li></ul>
+      default_body: <p>Moien {{name}}, Merci fir d'Bäitrieden {{organization}} wëllkomm!</p><ul><li>Fir der séier en Androck ze verschafen wat mir hei maachen, kuck den Abschnitt <a href="{{help_url}}">Hilfe</a>.</li><li>Wann s'de dat gelies hues, kriss de däin 1. Ofzeechen. Hei ass eng Lëscht vun all den Ofzeechen<a href="{{badges_url}}">Liste aller Abzeichen</a> déi s'du beim Matmaachen bei {{organization}}</li><li>kanns kréien. Schléiss dech den aneren Persounen un, an deel mat hinnen deng Erfahrung, wéi et ass bei {{organization}} mat ze maachen. Maach Virschléi, kommentéier, diskutéier, wéi een en Beitrag zum Wuel vun en All kann leeschten. Gëff Argumenter un, déi iwwerzeegen, lauschter no an lies, fir der eng Iwwerzeegung ze ginn, dréck deng Iddien konkret an direkt aus, reagéier mat Gedold an Determinatioun, verdeedeg deng Iddien an bleif oppen, fir Zesummenaarbecht an den Zesummeschloss mat den anren an hiren Iddien vun aneren. </li></ul>
       default_subject: Danke, dass du {{organization}}beigetreten {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1397,40 +1397,40 @@ lb:
       already_authenticated: Sie sind bereits angemeldet.
       inactive: Dein Benutzerkonto ist noch nicht aktiviert.
       invalid: Ungültige %{authentication_keys} oder Passwort.
-      invited: Sie haben eine ausstehende Einladung, akzeptieren Sie sie, um die Erstellung Ihres Kontos abzuschließen.
-      last_attempt: Sie haben noch einen Versuch, bevor Ihr Konto gesperrt ist.
-      locked: Dein Konto ist gesperrt.
-      not_found_in_database: Ungültige %{authentication_keys} oder Passwort.
-      timeout: Ihre Sitzung ist abgelaufen. Bitte logge dich erneut ein, um fortzufahren.
-      unauthenticated: Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren.
+      invited: Du hues eng Invitatioun ustoen, huel déi un fir d'Erstellen vun deng Kont ofzeschléissen.
+      last_attempt: Du hues nach een Essai, éier däin Kont gespaart gëtt.
+      locked: Däin Kont ass gespaart.
+      not_found_in_database: Ongülteg %{authentication_keys} oder Passwuert.
+      timeout: Deng Sëtzung ass ofgelaf. Mell dech w. e. g. op en Neits un, fir weider ze maachen.
+      unauthenticated: Du muss dech umellen oder registréieren, éier s'de weider kanns maachen.
     invitations:
       edit:
-        header: Beenden Sie die Erstellung Ihres Kontos
-        nickname_help: Ihre eindeutige Id in %{organization}.
-        submit_button: Speichern
-        subtitle: Wenn Sie die Einladung annehmen, geben Sie bitte Ihren Benutzernamen und Ihr Passwort ein.
-      invitation_removed: Ihre Einladung wurde entfernt.
-      invitation_token_invalid: Das angegebene Einladungstoken ist nicht gültig!
+        header: D'Erstellen vun dengem Kont ass fäerdeg
+        nickname_help: Däin Pseudonym %{organization}.
+        submit_button: Späicheren
+        subtitle: Gëff w. e. g. däin Pseudonym an däin Passwuert an, fir dës Invitatioun unzehuelen.
+      invitation_removed: Deng Invitatioun gouf geläscht.
+      invitation_token_invalid: Den Token fir Invitatioun ass ongülteg!
       new:
-        header: Einladung senden
-        submit_button: Eine Einladung schicken
-      no_invitations_remaining: Keine Einladungen übrig
-      send_instructions: Eine Einladungs-E-Mail wurde an %{email}gesendet.
-      updated: Ihr Passwort wurde erfolgreich vergeben. Sie sind jetzt angemeldet.
-      updated_not_active: Ihr Passwort wurde erfolgreich vergeben.
+        header: Invitatioun verschécken
+        submit_button: Eng Invitatioun verschécken
+      no_invitations_remaining: Keng Invitatiounen iwwreg
+      send_instructions: Eng Invitatiouns-Email gouf un %{email} geschéckt.
+      updated: Däin Passwuert gouf dir attribuéiert. Du bass elo registréiert.
+      updated_not_active: Däin Passwuert gouf dir attribuéiert.
     mailer:
       confirmation_instructions:
-        action: Bestätige mein Konto
-        greeting: Willkommen %{recipient}!
-        instruction: 'Sie können Ihre Konto-E-Mail über den folgenden Link bestätigen:'
-        subject: Bestätigungsanweisungen
+        action: Kont bestätegen
+        greeting: Wëllkomm %{recipient}!
+        instruction: 'Du kanns deng Mail-Adress iwwer dëse Link bestätegen:'
+        subject: Instruktiounen fir d'Bestätegung ufroen
       email_changed:
-        greeting: Hallo %{recipient}!
-        message: Wir setzen uns mit Ihnen in Verbindung, um Sie darüber zu informieren, dass Ihre E-Mail-Adresse auf %{email}geändert wird.
-        subject: E-Mail geändert
+        greeting: Moien %{recipient}!
+        message: Mir soen der heimat Bescheed, dass deng Email-Adress op %{email} geännert gëtt.
+        subject: Email geännert
       invitation_instructions:
-        accept: Die Einladung annehmen
-        accept_until: Diese Einladung wird in %{due_date}fällig.
+        accept: Invitatioun unhuelen
+        accept_until: Dës Invitatioun gëtt %{due_date} fälleg.
         decline: Einladung ablehnen
         hello: Hallo %{email},
         ignore: |-
