@@ -108,6 +108,13 @@ eu:
           copy: Kopiatu
           select: Aukeratu itzazu kopiatu nahi dituzun datuak
           title: Kopiatu batzarra
+      assembly_imports:
+        create:
+          success: Batzarra zuzen inportatu da.
+        new:
+          import: Inportatu
+          select: Hautatu zein datu inportatu nahi dituzun
+          title: Inportatu batzarra
       assembly_members:
         create:
           error: Errore bat gertatu da kide bat gehitzea muntaia honetarako.
@@ -151,6 +158,7 @@ eu:
           success: Erabiltzaileari behar bezala eguneratu da muntaia honetarako.
       menu:
         assemblies: Biltzarrak
+        assemblies_settings: Ezarpenak
         assemblies_submenu:
           assembly_admins: Batzar erabiltzaileak
           assembly_members: Bazkideek
@@ -162,6 +170,7 @@ eu:
           info: Informazioa
           moderations: Moderazioak
           private_users: Erabiltzaile pribatuak
+        assemblies_types: Batzar motak
       models:
         assemblies_types:
           fields:
@@ -197,8 +206,10 @@ eu:
             admin: Administrator
             collaborator: Kolaboratzaile
             moderator: Moderatzaile
+            valuator: Ebaluatzailea
       titles:
         assemblies: Biltzarrak
+        assemblies_types: Batzar mota
     admin_log:
       assembly:
         create: "%{user_name} %{resource_name} muntaia sortu zuen"
@@ -209,6 +220,10 @@ eu:
         create: "%{user_name} sortutako %{resource_name} kidea ere %{space_name} muntaia"
         delete: "%{user_name} kendu %{resource_name} kideetako %{space_name} muntaia"
         update: "%{user_name} eguneratu %{resource_name} kide %{space_name} muntaia"
+      assembly_setting:
+        update: "%{user_name} k batzarren konfigurazioa eguneratu du"
+      assembly_type:
+        create: "%{user_name} k %{resource_name} batzar mota sortu zuen"
       assembly_user_role:
         create: "%{user_name} %{resource_name} gonbidatu %{space_name} muntaira"
         delete: "%{user_name} erabiltzaileak %{resource_name} %{space_name} muntaia ezabatu du"
@@ -232,6 +247,9 @@ eu:
             social_handlers: Gizarte
             title: Informazio orokorra
             visbility: ikusgarritasuna
+        assemblies_settings:
+          edit:
+            update: Eguneratu
         assemblies_types:
           form:
             title: Prozesu partizipatiboen multzoak
@@ -255,6 +273,9 @@ eu:
         content_blocks:
           highlighted_assemblies:
             max_results: Erakusteko elementu gehienen kopurua
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Bazkideek
@@ -274,6 +295,7 @@ eu:
         others: Beste batzuk
         public: Publiko
       filter:
+        all: Mota guztiak
         commission: Batzorde
         consultative_advisory: Aholku / Aholku
         executive: exekutiboa
