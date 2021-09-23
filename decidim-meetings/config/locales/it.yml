@@ -90,6 +90,7 @@ it:
               'false': Conclusi
               'true': Prossimi
           origin_eq:
+            label: Origine
             values:
               citizen: Cittadina
               official: Ufficiale
@@ -501,6 +502,7 @@ it:
           close_meeting: Chiusura meeting
           contributions: Conteggio dei contributi
           date: Data
+          edit_close_meeting: Modifica rapporto riunione
           edit_meeting: Modifica la riunione
           going: Ti sei iscritto a questa riunione
           join: Partecipa alla riunione
