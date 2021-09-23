@@ -414,6 +414,7 @@ eu:
         file_help:
           import:
             explanation: 'Jarraibideak artxiborako:'
+            message_1: CSV, JSON eta Excel (.xlsx) artxiboak eutsita daude
             message_2: CSV artxiboetarako, zutabeen arteko banatzailea puntu eta koma (";") izan behar da
       help_sections:
         error: Errore bat gertatu da laguntza-atalak eguneratuz
