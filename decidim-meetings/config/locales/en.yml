@@ -46,7 +46,7 @@ en:
         meeting:
           attributes:
             iframe_embed_type:
-              not_embeddable: This URL can't be embedded
+              not_embeddable: This URL can't be embedded in meeting or live event page
         meeting_agenda:
           attributes:
             base:

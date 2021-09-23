@@ -186,7 +186,7 @@ module Decidim
         end
 
         def embeddable_meeting_url
-          if online_meeting_url.present? && iframe_embed_type == "embed_in_meeting_page"
+          if online_meeting_url.present? && %w(embed_in_meeting_page open_in_live_event_page).include?(iframe_embed_type)
             embedder_service = Decidim::Meetings::MeetingIframeEmbedder.new(online_meeting_url)
             errors.add(:iframe_embed_type, :not_embeddable) unless embedder_service.embeddable?
           end
