@@ -458,6 +458,8 @@ eu:
         creators:
           proposalcreator: Proposamen-sortzailea
         error: Errorea gertatu da inportatzean
+        help:
+          proposalcreator: Fitxategiak title/en eta body/en (edo zuk nahiago duzun beste hizkuntza bat, adibidez, title/es eta body/es) zutabe-izenak izan behar ditu. Scope/id eta category/id zutabeak ere onartzen dira.
         import_from_file: Inportatu artxibo batetik
         invalid_lines: Errorea aurkitu da %{invalid_lines} errekurtso zenbakian
         new:
@@ -616,6 +618,7 @@ eu:
         reports:
           index:
             author: Egilea(k)
+            callout_html: Eduki bat moderazio-panelean agertzen da erabiltzaile batek (erregistratutako kontu bat duen edozein pertsona izan daiteke) txostena bidaltzen duenean, edukiaren ondoan dagoen %{icon} ikonoan klik eginez.
             content_original_language: Jatorrizko edukiaren hizkuntza
             participatory_space: Parte hartzeko esparrua
             reported_content: Erreportatutako edukia
