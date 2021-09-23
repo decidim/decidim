@@ -107,6 +107,13 @@ eu:
           copy: Kopiatu
           select: Aukeratu itzazu kopiatu nahi dituzun datuak
           title: Kopiatu batzarra
+      assembly_imports:
+        create:
+          success: Batzarra zuzen inportatu da.
+        new:
+          import: Inportatu
+          select: Hautatu zein datu inportatu nahi dituzun
+          title: Inportatu batzarra
       assembly_members:
         create:
           error: Errore bat gertatu da kide bat gehitzea muntaia honetarako.
@@ -148,8 +155,12 @@ eu:
         update:
           error: Errore bat gertatu da muntaketa honetarako erabiltzailea.
           success: Erabiltzaileari behar bezala eguneratu da muntaia honetarako.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Batzar mota
       menu:
         assemblies: Biltzarrak
+        assemblies_settings: Ezarpenak
         assemblies_submenu:
           assembly_admins: Batzar erabiltzaileak
           assembly_members: Bazkideek
@@ -161,6 +172,7 @@ eu:
           info: Informazioa
           moderations: Moderazioak
           private_users: Erabiltzaile pribatuak
+        assemblies_types: Batzar motak
       models:
         assemblies_types:
           fields:
@@ -196,8 +208,10 @@ eu:
             admin: Administrator
             collaborator: Kolaboratzaile
             moderator: Moderatzaile
+            valuator: Ebaluatzailea
       titles:
         assemblies: Biltzarrak
+        assemblies_types: Batzar mota
     admin_log:
       assembly:
         create: "%{user_name} %{resource_name} muntaia sortu zuen"
@@ -208,6 +222,14 @@ eu:
         create: "%{user_name} sortutako %{resource_name} kidea ere %{space_name} muntaia"
         delete: "%{user_name} kendu %{resource_name} kideetako %{space_name} muntaia"
         update: "%{user_name} eguneratu %{resource_name} kide %{space_name} muntaia"
+      assembly_setting:
+        update: "%{user_name} k batzarren konfigurazioa eguneratu du"
+      assembly_type:
+        create: "%{user_name} k %{resource_name} batzar mota sortu zuen"
+        delete: "%{user_name} k %{resource_name} batzar mota ezabatu zuen"
+        publish: "%{user_name} k %{resource_name} batzar mota argitaratu zuen"
+        unpublish: "%{user_name} k %{resource_name} batzar mota desargitaratu zuen"
+        update: "%{user_name} k %{resource_name} batzar mota eguneratu zuen"
       assembly_user_role:
         create: "%{user_name} %{resource_name} gonbidatu %{space_name} muntaira"
         delete: "%{user_name} erabiltzaileak %{resource_name} %{space_name} muntaia ezabatu du"
@@ -216,6 +238,7 @@ eu:
       admin:
         assemblies:
           form:
+            announcement_help: Hemen sartzen duzun testua batzarreko informazioaren azpian agertuko zaio parte-hartzaileari.
             duration: Iraupena
             duration_help: Muntaia honen iraupena mugatua bada, hautatu amaiera-data. Bestela, mugagabea izango da.
             filters: iragazkiak
@@ -231,12 +254,20 @@ eu:
             social_handlers: Gizarte
             title: Informazio orokorra
             visbility: ikusgarritasuna
+        assemblies_settings:
+          edit:
+            update: Eguneratu
+          form:
+            title: Batzarren konfigurazioa
         assemblies_types:
           form:
             title: Prozesu partizipatiboen multzoak
         assembly_copies:
           form:
             slug_help: 'URL slugs erabiltzen dira muntatze hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Gehitu dokumentu bat
         assembly_members:
           form:
             existing_user: Erabiltzaile existentea
@@ -254,6 +285,9 @@ eu:
         content_blocks:
           highlighted_assemblies:
             max_results: Erakusteko elementu gehienen kopurua
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Bazkideek
@@ -273,6 +307,7 @@ eu:
         others: Beste batzuk
         public: Publiko
       filter:
+        all: Mota guztiak
         commission: Batzorde
         consultative_advisory: Aholku / Aholku
         executive: exekutiboa
@@ -342,6 +377,8 @@ eu:
         description: Sortutako multzo kopurua
         object: batzarrak
         title: Batzar
+    statistics:
+      assemblies_count: Batzarrak
   errors:
     messages:
       cannot_be_blank: ezin da hutsik egon
@@ -352,6 +389,7 @@ eu:
           more_info: Informazio gehiago
           take_part: Parte hartu
         index:
+          children: 'Batzarrak: '
           organizational_chart: Organigrama
           promoted_assemblies: Batzar nabarmenduak
           reset_chart: Berrezarri
