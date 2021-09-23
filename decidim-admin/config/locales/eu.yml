@@ -625,12 +625,23 @@ eu:
             see_current: Ikusi egungoa
             see_original: Ikusi jatorrizkoa
             title: Moderazio-txostenak
+          show:
+            report_details: Arrazoiaren xehetasunak
+            report_language: Txostenaren hizkuntza
+            report_reason: Arrazoia
+            title: Txostenaren xehetasunak
       newsletter_templates:
         index:
           preview_template: Aurreikusi
+          title: Buletinerako txantiloiak
+          use_template: Erabili txantiloi hau
+        show:
+          preview: 'Aurrebistaratu txantiloia: %{template_name}'
+          use_template: Erabili txantiloi hau
       newsletters:
         create:
           error: ' Errorea gertatu da buletin hau sortzean.'
+          success: Buletina zuzen sortu da. Mesedez, berrikusi bidali baino lehen.
         deliver:
           error: Errorea gertatu da buletin hau entregatzean.
           success: Buletina ongi bidali da.
@@ -641,21 +652,50 @@ eu:
           save_and_preview: Gorde eta aurreikusi
           title: Editatu buletina
         index:
+          all: denak
+          all_users: 'Erabiltzaile guztiak '
+          and: 'eta '
           confirm_delete: Ziur zaude buletin hau deuseztatu nahi duzula?
+          followers: 'jarraitzaileak '
+          has_been_sent_to: 'Honi bidalia: '
+          no_scopes: Eremurik gabe
+          not_sent: Ez bidalita
+          participants: 'parte-hartzaileak '
+          segmented_to: 'Honentzat zatitua %{subject}: '
+          subscribed_count: 'Harpidetuak:'
           title: Buletinak
         new:
           save: Gorde
           title: Buletin berria
         select_recipients_to_deliver:
+          all_spaces: Denak
+          all_users_help: Bidali albisteen buletina baieztatu duten parte-hartzaile guztiei.
           confirm_deliver: Ziur zaude buletin hau bidali nahi duzula? Ekintza hau ezin da desegin.
           deliver: Bidali buletina
+          followers_help: Bidali albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu jarraitzen duten parte-hartzaile guztiei.
+          none: Bat ere ez
+          participants_help: Bidali albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu parte-hartzailetan esku hartu duten parte-hartzaile guztiei.
+          recipients_count: 'Buletin hau erabiltzaile hauei bidaliko zaie: <strong id=''recipients_count''>%{count}</strong>.'
+          scopes_help: Bidali albisteen buletina "Nire interesekoak" konfigurazioan edozein eremu aktibatuta duten parte-hartzaileei.
+          select_scopes: Iragazi "Nire interesekoak" konfigurazioan edozein eremu aktibatu duten parte-hartzaileentzat.
+          select_spaces: Hautatu espazioak buletina zatitzeko
+          select_users: Hautatu zein erabiltzaileri bidali nahi diezun buletina
+          send_to_all_users: Bidali erabiltzaile guztiei
+          send_to_followers: Bidali jarraitzaileei
+          send_to_participants: Bidali parte-hartzaileei
+          title: Hautatu hartzaileak
+        send:
+          no_recipients: Ez dago hartzailerik hautaketa honetarako
         show:
           preview: Aurreikusi
+          select_recipients_to_deliver: Hautatu hartzaileak
           subject: Gaia
         update:
           error: Errorea gertatu da buletin hau eguneratzean.
           success: Buletina zuzen eguneratu da. Mesedez, berrikusi bidali baino lehen.
       officializations:
+        block:
+          error: Errorea gertatu da parte-hartzailea blokeatzean
         create:
           success: Erabiltzailea arrakastatsua izan da
         destroy:
