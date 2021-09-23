@@ -253,6 +253,7 @@ it:
             title: Elezione creata
             trustees: Garanti
           key_ceremony:
+            continue: Continua
             title: Cerimonia chiave
           key_ceremony_ended:
             errors:
