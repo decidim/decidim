@@ -13,6 +13,7 @@ import CommentsComponent from "src/decidim/comments/comments.component"
 import DataPicker from "src/decidim/data_picker"
 import FormFilterComponent from "src/decidim/form_filter"
 import addInputEmoji from "src/decidim/input_emoji"
+import dialogMode from "src/decidim/dialog_mode"
 
 window.Decidim = window.Decidim || {};
 window.Decidim.config = new Configuration()
@@ -27,6 +28,9 @@ $(() => {
   window.theDataPicker = new DataPicker($(".data-picker"));
 
   $(document).foundation();
+  $(document).on("open.zf.reveal", (ev) => {
+    dialogMode($(ev.target));
+  });
 
   fixDropdownMenus();
 
