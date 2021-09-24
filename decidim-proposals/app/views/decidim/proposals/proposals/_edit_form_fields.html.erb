@@ -65,7 +65,7 @@
 <% end %>
 
 <% if component_settings.attachments_allowed? && @proposal %>
-  <fieldset class="gallery__container">
+  <fieldset class="gallery__container photos_container">
     <legend><%= t("gallery_legend", scope: "decidim.proposals.proposals.edit") %></legend>
 
     <% if @form.photos.any? %>
@@ -89,7 +89,7 @@
     </div>
   </fieldset>
 
-  <fieldset class="gallery__container">
+  <fieldset class="gallery__container documents_container">
     <legend><%= t("attachment_legend", scope: "decidim.proposals.proposals.edit") %></legend>
 
     <% if @form.documents.any? %>
