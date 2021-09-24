@@ -83,7 +83,7 @@ describe "User edit meeting", type: :system do
 
         within "form.edit_close_meeting" do
           expect(page).to have_content "Choose proposals"
-
+          fill_in :close_meeting_attendees_count, with: 10
           fill_in :close_meeting_closing_report, with: edit_closing_report
 
           click_button "Close meeting"
@@ -91,7 +91,6 @@ describe "User edit meeting", type: :system do
 
         expect(page).to have_content(edit_closing_report)
         expect(page).not_to have_content "Close meeting"
-        expect(page).not_to have_content "ATTENDEES COUNT"
         expect(page).not_to have_content "ATTENDING ORGANIZATIONS"
         expect(meeting.reload.closed_at).not_to be nil
       end

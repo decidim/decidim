@@ -8,5 +8,6 @@ module Decidim
     autoload :HashtagParser, "decidim/content_parsers/hashtag_parser"
     autoload :NewlineParser, "decidim/content_parsers/newline_parser"
     autoload :LinkParser, "decidim/content_parsers/link_parser"
+    autoload :InlineImagesParser, "decidim/content_parsers/inline_images_parser"
   end
 end
