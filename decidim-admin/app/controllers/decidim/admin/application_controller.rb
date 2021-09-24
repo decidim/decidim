@@ -12,6 +12,7 @@ module Decidim
       include UseOrganizationTimeZone
       include PayloadInfo
       include HttpCachingDisabler
+      include DisableRedirectionToExternalHost
 
       helper Decidim::Admin::ApplicationHelper
       helper Decidim::Admin::AttributesDisplayHelper
