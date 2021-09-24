@@ -1283,7 +1283,7 @@ lb:
         share: Deelen
         share_link: Link deelen
     statistics:
-      comments_count: Kommentare
+      comments_count: Kommentarer
       endorsements_count: Ënnerstëtzungen
       followers_count: Follower
       headline: Statistiken
@@ -1369,34 +1369,34 @@ lb:
         version: Versioun Nummer %{number}
     versions_list:
       show:
-        back_to_resource: Zurück
-        changes_at_title: Änderungen an „%{title}“
-        number_of_versions: Versionen
-        title: Versionen
+        back_to_resource: Zréck goen
+        changes_at_title: Ännerungen beim %{title}
+        number_of_versions: Versiounen
+        title: Versiounen
     versions_list_item:
-      back: Alle Versionen anzeigen
+      back: All Versiounen uweisen
       show:
-        version_index: Version %{index}
+        version_index: Versioun %{index}
     welcome_notification:
       default_body: <p>Moien {{name}}, Merci fir d'Bäitrieden {{organization}} wëllkomm!</p><ul><li>Fir der séier en Androck ze verschafen wat mir hei maachen, kuck den Abschnitt <a href="{{help_url}}">Hilfe</a>.</li><li>Wann s'de dat gelies hues, kriss de däin 1. Ofzeechen. Hei ass eng Lëscht vun all den Ofzeechen<a href="{{badges_url}}">Liste aller Abzeichen</a> déi s'du beim Matmaachen bei {{organization}}</li><li>kanns kréien. Schléiss dech den aneren Persounen un, an deel mat hinnen deng Erfahrung, wéi et ass bei {{organization}} mat ze maachen. Maach Virschléi, kommentéier, diskutéier, wéi een en Beitrag zum Wuel vun en All kann leeschten. Gëff Argumenter un, déi iwwerzeegen, lauschter no an lies, fir der eng Iwwerzeegung ze ginn, dréck deng Iddien konkret an direkt aus, reagéier mat Gedold an Determinatioun, verdeedeg deng Iddien an bleif oppen, fir Zesummenaarbecht an den Zesummeschloss mat den anren an hiren Iddien vun aneren. </li></ul>
-      default_subject: Danke, dass du {{organization}}beigetreten {{organization}}!
+      default_subject: Merci, dass du {{organization}} bäigetrueden bass {{organization}}!
     wizard_step_form:
       wizard_aside:
-        back: Zurück
+        back: Zréck
       wizard_header:
-        see_steps: siehe Schritte
-        step_of: Schritt %{current_step} von %{total_steps}
+        see_steps: Schrëtter ukucken
+        step_of: Schrëtt %{current_step} vun %{total_steps}
   devise:
     confirmations:
-      confirmed: Ihre E-Mail-Adresse wurde erfolgreich bestätigt.
+      confirmed: Deng Email-Adress gouf confirméiert.
       new:
-        resend_confirmation_instructions: Bestätigungsanweisungen erneut senden
-      send_instructions: Sie erhalten eine E-Mail mit Anweisungen zur Bestätigung Ihrer E-Mail-Adresse in wenigen Minuten.
-      send_paranoid_instructions: Wenn Ihre E-Mail-Adresse in unserer Datenbank vorhanden ist, erhalten Sie innerhalb weniger Minuten eine E-Mail mit Anweisungen zur Bestätigung Ihrer E-Mail-Adresse.
+        resend_confirmation_instructions: Instruktiounen fir d'Bestätegung op en Neits ufroen
+      send_instructions: Du kriss bannent e puer Minutten en Email mat den Instruktiounen fir deng Email-Adress ze confirméieren.
+      send_paranoid_instructions: Wann deng Email-Adresse an eisen Donnéeën gespäichert ass, kriss du bannent e puer Minutten en Email mat Instruktiounen fir deng Email-Adress ze confirméieren.
     failure:
-      already_authenticated: Sie sind bereits angemeldet.
-      inactive: Dein Benutzerkonto ist noch nicht aktiviert.
-      invalid: Ungültige %{authentication_keys} oder Passwort.
+      already_authenticated: Du bass schonn ageloggt.
+      inactive: Däin Konto ass nach net aktivéiert.
+      invalid: Ongülteg %{authentication_keys} oder Passwuert.
       invited: Du hues eng Invitatioun ustoen, huel déi un fir d'Erstellen vun deng Kont ofzeschléissen.
       last_attempt: Du hues nach een Essai, éier däin Kont gespaart gëtt.
       locked: Däin Kont ass gespaart.
@@ -1431,60 +1431,60 @@ lb:
       invitation_instructions:
         accept: Invitatioun unhuelen
         accept_until: Dës Invitatioun gëtt %{due_date} fälleg.
-        decline: Einladung ablehnen
-        hello: Hallo %{email},
+        decline: Invitatioun refuséieren
+        hello: Moien %{email},
         ignore: |-
-          Wenn Sie die Einladung nicht annehmen möchten, ignorieren Sie diese E-Mail.<br />
-          Ihr Konto wird erst erstellt, wenn Sie auf den obigen Link zugreifen und Ihren Benutzernamen und Ihr Passwort festlegen.
-        invited_you_as_admin: "%{invited_by} hat dich als Admin von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
-        invited_you_as_private_user: "%{invited_by} hat dich als privaten Benutzer von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
-        someone_invited_you: Jemand hat dich zu %{application}eingeladen. Sie können es über den folgenden Link akzeptieren.
-        someone_invited_you_as_admin: Jemand hat dich als Admin von %{application}eingeladen, du kannst es über den untenstehenden Link akzeptieren.
+          Ignoréier dësen Email, wann s'du d'Invitatioun net unhuelen wëlls.<br />
+          De Kont gëtt réischt erstallt, wann s'du op de Link uewen gees an en Pseudonym an Passwuert festgeluecht hues.
+        invited_you_as_admin: "%{invited_by} huet dech als Admin vun %{application} aglueden. Du kanns se unhuelen andeems op den Link ënnen gees."
+        invited_you_as_private_user: "%{invited_by} huet dech als privaten Teilnehmer vun %{application} agelueden. Du déi kanns iwwer den folgenden Link unhuelen."
+        someone_invited_you: Et huet een dech fir d' %{application} agelueden. Du kanns dat unhuelen andeems du op op den Link ënnen gees.
+        someone_invited_you_as_admin: Et huet een dech als Admin op %{application} agelueden, du kanns dat iwwer den Link ënnen unhuelen.
         someone_invited_you_as_private_user: Jemand hat dich als private_user von %{application}eingeladen, du kannst es über den folgenden Link akzeptieren.
-        subject: Anweisungen zur Einladung
+        subject: Instruktiounen fir d'Invitatioun
       invite_admin:
-        subject: Du wurdest eingeladen, %{organization} zu verwalten
+        subject: Du gouf s'agelueden, %{organization} ze verwalten
       invite_collaborator:
-        subject: Du wurdest eingeladen, an %{organization}
+        subject: Du goufs agelueden, bei %{organization} matzeschaffen
       invite_private_user:
-        subject: Du wurdest zu einem privaten Partizipationsprozess auf %{organization} eingeladen
+        subject: Du goufs agelueden un engem privaten Participatiouns-Prozess op %{organization} deelzehuelen
       organization_admin_invitation_instructions:
-        subject: Du wurdest eingeladen, %{organization} zu verwalten
+        subject: Du goufs agelueden, %{organization} ze verwalten
       password_change:
-        greeting: Hallo %{recipient}!
-        message: Wir kontaktieren Sie, um Sie darüber zu informieren, dass Ihr Passwort geändert wurde.
-        subject: Passwort geändert
+        greeting: Moien %{recipient}!
+        message: Mir soen der heimat Bescheed, dass dPasswuert geännert gouf.
+        subject: Passwuert geännert
       reset_password_instructions:
-        action: Ändere mein Passwort
-        greeting: Hallo %{recipient}!
-        instruction: Jemand hat einen Link angefordert, um Ihr Passwort zu ändern, und Sie können dies über den folgenden Link tun.
-        instruction_2: Wenn Sie dies nicht angefordert haben, ignorieren Sie diese E-Mail.
-        instruction_3: Ihr Passwort ändert sich erst, wenn Sie auf den obigen Link zugreifen und einen neuen erstellen.
-        subject: Passwort-Anweisungen zurücksetzen
+        action: Mäin Passwuert änneren
+        greeting: Moien %{recipient}!
+        instruction: Et huet een e Link ugefrot fir däin Passwuert ze änneren, du kanns dat iwwer den Link ënnen maachen.
+        instruction_2: Ignoréier dësen Mail, wann s'du dëst net ugefrot hues.
+        instruction_3: Däin Passwuert ännert eréischt, wann s'du op den Link uewen gees fir en neit ze erstellen.
+        subject: Passwuert-Instruktiounen zeréck setzen
       unlock_instructions:
-        action: Entsperren Sie mein Konto
-        greeting: Hallo %{recipient}!
-        instruction: 'Klicken Sie auf den folgenden Link, um Ihr Konto zu entsperren:'
-        message: Ihr Konto wurde aufgrund einer übermäßigen Anzahl fehlgeschlagener Anmeldeversuche gesperrt.
-        subject: Entsperren Anweisungen
+        action: Entspäert mäin Kont
+        greeting: Moien %{recipient}!
+        instruction: 'Klickt op de Link hei ënnen fir Äre Kont z''entspären:'
+        message: Däin Kont gouf gespaart wéinst enger exzessiver Zuel vun net erfollegräichen Versich dech unzemellen.
+        subject: Instruktiounen fir ze entspären
     omniauth_callbacks:
-      failure: 'Sie konnten nicht mit Ihrem %{kind}-Account angemeldet werden. Grund: "%{reason}".'
-      success: Sie haben sich erfolgreich mit Ihrem %{kind}-Account angemeldet.
+      failure: 'Du konnts net mam %{kind}-Account ugemellt ginn. Grond: "%{reason}".'
+      success: Du hues dech richteg mam %{kind}-Account ugemellt.
     passwords:
       edit:
-        change_my_password: Ändere mein Passwort
-        change_your_password: Ändern Sie Ihr Passwort
-        confirm_new_password: Bestätige neues Passwort
-        new_password: Neues Passwort
-        password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu gewöhnlich (z. B. 123456) und darf nicht Ihr Benutzername oder Ihre E-Mail-Adresse sein."
+        change_my_password: Mäin Passwuert änneren
+        change_your_password: Ännert Äert Passwuert
+        confirm_new_password: Neit Passwuert bestätegen
+        new_password: Neit Passwuert
+        password_help: "Muss op mannst aus %{minimun_characters} Zeechen bestoen, keng ze banal Zeechen (z.B. 123456) an et dierf weder däin Pseudonym nach deng Email-Adress enthalen."
       new:
-        forgot_your_password: Haben Sie Ihr Passwort vergessen?
-        send_me_reset_password_instructions: Senden Sie mir das Passwort zurück
-      no_token: Sie können nicht auf diese Seite zugreifen, ohne von einer E-Mail zum Zurücksetzen des Kennworts zu stammen. Wenn Sie eine E-Mail zum Zurücksetzen des Passworts erhalten, vergewissern Sie sich bitte, dass Sie die vollständige URL verwendet haben.
-      send_instructions: Sie erhalten eine E-Mail mit Anweisungen zum Zurücksetzen Ihres Passworts in wenigen Minuten.
-      send_paranoid_instructions: Wenn Ihre E-Mail-Adresse in unserer Datenbank vorhanden ist, erhalten Sie innerhalb weniger Minuten einen Link zur Passwortwiederherstellung unter Ihrer E-Mail-Adresse.
-      updated: Ihr Passwort wurde erfolgreich geändert. Sie sind jetzt angemeldet.
-      updated_not_active: Ihr Passwort wurde erfolgreich geändert.
+        forgot_your_password: Passwuert vergiess?
+        send_me_reset_password_instructions: Schéckt mir d'Instruktiounen fir d'Passwuert ze ersetzen
+      no_token: Du kenns net op dës Säit, ausser vun enger Reset-E-Mail. Am Fall wou s'du vun enger Passwuert-Reset-E-Mail aus kenns, versécher dech, dass du den vollstännegen URL aus der Mail benotzt hues.
+      send_instructions: Du kriss bannent e puer Minutten en Email mat den Instruktiounen fir däin Passwuert zréck ze setzen.
+      send_paranoid_instructions: Wann deng Email-Adress an eisen Donnéeën ass, kriss du bannent e puer Minutten e Passwuert Link fir deng Email-Adress nees hierzestellen.
+      updated: Däin Passwuert gouf gewiesselt. Du bass elo ugemellt.
+      updated_not_active: Däin Passwuert ass geännert.
     registrations:
       destroyed: Däin Kont gouf zou gemaach. Mir hoffen dech geschwënn erëm ze gesinn.
       edit:
@@ -1535,7 +1535,7 @@ lb:
     messages:
       already_confirmed: Gouf bestätegt, w.e.g. probéier dech ze registréieren
       confirmation_period_expired: muss bannent %{period} bestätegt ginn, fro w. e. g. en neit un
-      content_type_allowlist_error: Der Dateityp ist nicht gültig
+      content_type_allowlist_error: dësen Typ Datei ass net gülteg
       cycle_detected: en iwwergeuerdente Beräich kann net ënnergeuerdent sinn
       expired: ass ofgelaf, w. e. g. eng nei Ufro maachen
       file_size_is_less_than_or_equal_to: d'Gréisst vun enger Datei muss méi kleng oder gläich %{count} sinn
@@ -1544,81 +1544,81 @@ lb:
       must_start_with_caps: muss mat engem Groussbuschtaf ufänken
       nesting_too_deep: kann net bannent enger Ënnerkategorie sinn
       not_found: net fonnt. Bass du schonn registréiert?
-      not_locked: war nicht gesperrt
+      not_locked: wo net gespaart
       not_saved:
-        one: 'Bei der Bearbeitung Ihrer Anfrage ist ein Fehler aufgetreten:'
-        other: 'Bei der Bearbeitung Ihrer Anfrage sind mehrere Fehler aufgetreten:'
-      too_many_marks: benutzt zu viele aufeinanderfolgende Satzzeichen (zB! und?)
-      too_much_caps: verwendet zu viele Großbuchstaben (über 25% des Textes)
-      too_short: ist zu kurz (unter 15 Zeichen)
+        one: 'Bei denger Ufro ass en Feeler opgetrueden:'
+        other: 'Bei denger Ufro sin e puer Feeler opgetrueden:'
+      too_many_marks: benotzt ze vill Sazzeechen (zB! und?)
+      too_much_caps: benotzt ze vill Groussbuschtawen (über 25% des Textes)
+      too_short: ze kuerz (ënner 15 Zeechen)
   forms:
-    correct_errors: Es gibt Fehler auf dem Formular, bitte korrigieren Sie sie, um fortzufahren.
+    correct_errors: Et sinn Feeler um Formular, w. e. g. virum weiderfueren verbesseren.
     length_validator:
       minimum:
         one: Op mannst %{count} Zeechen
         other: Op mannst %{count} Zeechen
-    required: Erforderlich
-    required_explanation: "* Pflichtfelder sind mit einem Stern gekennzeichnet"
+    required: Feld ausfëllen
+    required_explanation: "* Pflicht-Felder sinn mat engem Stär gezeechent"
   invisible_captcha:
-    sentence_for_humans: Wenn Sie ein Mensch sind, ignorieren Sie dieses Feld
-    timestamp_error_message: Entschuldigung, das war zu schnell! Bitte erneut einreichen
+    sentence_for_humans: Wann s'du e Mënsch bass, kanns du dëst Feld ausloossen
+    timestamp_error_message: Pardon dat wo ze séier! W. e. g. op en Neits areechen.
   layouts:
     decidim:
       cookie_warning:
-        description_html: Diese Seite verwendet Cookies. Indem Sie die Seite weiter durchsuchen, stimmen Sie der Verwendung von Cookies zu. Erfahren Sie mehr darüber %{link}.
-        link_label: Hier
-        ok: Ich stimme zu
+        description_html: Dës Säit benotzt Cookies. Wann s'du hei weider sichs, stëmms du dem Benotzen vun Cookies zou. Méi heiriwwer %{link}.
+        link_label: Gëff méi gewuer iwwer Cookies
+        ok: Ech sinn averstanen
       edit_link:
-        edit: Bearbeiten
+        edit: Editéieren
       footer:
         cc_by_license: Creative Commons Lizenz
         decidim_logo: Decidim-Logo
-        download_open_data: Open Data Dateien herunterladen
-        made_with_open_source: Website mit <a target="_blank" href="https://github.com/decidim/decidim">freier Software erstellt</a>.
+        download_open_data: Open Data Dateien eroflueden
+        made_with_open_source: Website mat <a target="_blank" href="https://github.com/decidim/decidim">fräi Software erstallt</a>.
       header:
-        close_menu: Menü schließen
+        close_menu: Menü zoumaachen
         main_menu: Hauptmenü
         navigation: Navigation
-        sign_in: Anmelden
-        sign_up: Registrieren
-        user_menu: Benutzer-Menü
+        sign_in: Umellen
+        sign_up: Registréieren
+        user_menu: Benotzer-Menü
       impersonation_warning:
-        close_session: Sitzung schließen
-        description_html: Sie geben sich als Benutzer <b>%{user_name}</b>.
-        expire_time_html: Ihre Sitzung wird in <b><span class="minutes">%{minutes}</span> Minuten</b>ablaufen.
+        close_session: Sëtzung zoumaachen
+        description_html: Du verwalts den Benotzer <b>%{user_name}</b>.
+        expire_time_html: Deng Sëtzung wäert an <b><span class="minutes">%{minutes}</span> Minuten</b>oflafen.
       language_chooser:
-        choose_language: Sprache wählen
+        choose_language: Sprooch wielen
       notifications_dashboard:
-        mark_all_as_read: Alles als gelesen markieren
-        mark_as_read: Als gelesen markieren
+        mark_all_as_read: Alles als gelies markéieren
+        mark_as_read: Als gelies markéieren
       social_media_links:
-        facebook: "%{organization} auf Facebook"
-        github: "%{organization} auf GitHub"
-        instagram: "%{organization} auf Instagram"
-        twitter: "%{organization} bei Twitter"
-        youtube: "%{organization} auf YouTube"
+        facebook: "%{organization} op Facebook"
+        github: "%{organization} op GitHub"
+        instagram: "%{organization} op Instagram"
+        twitter: "%{organization} opTwitter"
+        youtube: "%{organization} op YouTube"
       timeout_modal:
-        body: Sie sind seit %{minutes} Minuten inaktiv. Wenn Sie weiterhin inaktiv sind, werden Sie aus Sicherheitsgründen automatisch abgemeldet.
-        continue_session: Sitzung fortsetzen
-        sign_out: Ausloggen
-        title: Möchten Sie ihre Sitzung fortsetzen?
+        body: Du wos säit %{minutes} Minutten inaktiv. Wann s'du weider inaktiv bleifs, gëss de aus Sécherheetsgrënn ofgemellt.
+        continue_session: Sëtzung fortsetzen
+        sign_out: Ofmellen
+        title: Wëlls du deng Sëtzung weiderféieren?
       user_menu:
-        account: 'Benutzerkonto: %{name}'
+        account: 'Benotzer-Kont: %{name}'
         admin_dashboard: Admin-Dashboard
-        conversations: Gespräche
-        notifications: Benachrichtigungen
-        profile: Mein Konto
-        public_profile: Mein öffentliches Profil
-        sign_out: Ausloggen
+        conversations: Konversatiounen
+        notifications: Noriichten
+        profile: Mäin Kont
+        public_profile: Mäin ëffentlechen Profil
+        sign_out: Ofmellen
         title: Profil-Links
       user_profile:
-        account: Konto
-        authorizations: Berechtigungen
+        account: Kont
+        authorizations: Berechtegungen
         delete_my_account: Mäin Kont läschen
         my_data: Meng Donnéeën
         my_interests: Meng Interessen
         notifications_settings: Astellung fir Noriichten
-        title: Astellung fir Teilnehmer
+        title: Astellung fir Benotzer
         user_groups: Gruppen
       widget:
         see_more: Méi uweisen
@@ -1677,25 +1677,25 @@ lb:
       time_of_day: "%H:%M"
   versions:
     directions:
-      left: Löschungen
+      left: Wat geläscht gouf
       right: Ergänzungen
     dropdown:
-      choose_diff_view_html: 'HTML-Ansicht:'
-      choose_diff_view_mode: 'Vergleichsansicht:'
-      option_escaped: aus der Seite herausgekommen
-      option_split: Nebeneinander
-      option_unescaped: aus der Seite nicht herausgekommen
-      option_unified: Zusammengefasst
+      choose_diff_view_html: 'HTML-Vue:'
+      choose_diff_view_mode: 'Vergläichs-Vue:'
+      option_escaped: Aus der Säit eraus
+      option_split: Niewenteneen
+      option_unescaped: Net aus der Säit erauskomm
+      option_unified: Eenheetlech
   views:
     pagination:
-      first: "&laquo; zuerst"
-      first_title: Verknüpfung zur ersten Seite
-      last: Letzte &raquo;
-      last_title: Verknüpfung zur letzten Seite
-      next: Nächste &rsaquo;
-      next_title: Verknüpfung zur nächsten Seite
-      pagination: Paginierung
-      previous: "&lsaquo; Zurück"
-      previous_title: Verknüpfung zur vorherigen Seite
-      title: 'Seitenzahl:'
+      first: "&laquo; fir d'éischt"
+      first_title: Link op d'éischt Säit
+      last: Lescht &raquo;
+      last_title: Link op di lescht Säit
+      next: Nächst &rsaquo;
+      next_title: Link op déi nächst Säit
+      pagination: Säitenzuelen
+      previous: "&lsaquo; virdrun"
+      previous_title: Link op déi nächst Säit
+      title: 'Säit Nummer: '
       truncate: "&hellip;"
