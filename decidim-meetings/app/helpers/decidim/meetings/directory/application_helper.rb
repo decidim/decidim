@@ -75,20 +75,7 @@ module Decidim
               [category.weight, translated_attribute(category.name, current_organization)]
             end
 
-            categories_values = sorted_main_categories.flat_map do |category|
-              sorted_descendant_categories = category.descendants.includes(:subcategories).sort_by do |subcategory|
-                [subcategory.weight, translated_attribute(subcategory.name, current_organization)]
-              end
-
-              subcategories = sorted_descendant_categories.flat_map do |subcategory|
-                TreePoint.new(subcategory.id.to_s, translated_attribute(subcategory.name, current_organization))
-              end
-
-              TreeNode.new(
-                TreePoint.new(category.id.to_s, translated_attribute(category.name, current_organization)),
-                subcategories
-              )
-            end
+            categories_values = categories_values(sorted_main_categories)
 
             next if categories_values.empty?
 
@@ -125,6 +112,25 @@ module Decidim
             ["all", t("decidim.meetings.meetings.filters.all")],
             ["my_meetings", t("decidim.meetings.meetings.filters.my_meetings")]
           ]
+        end
+
+        protected
+
+        def categories_values(sorted_main_categories)
+          sorted_main_categories.flat_map do |category|
+            sorted_descendant_categories = category.descendants.includes(:subcategories).sort_by do |subcategory|
+              [subcategory.weight, translated_attribute(subcategory.name, current_organization)]
+            end
+
+            subcategories = sorted_descendant_categories.flat_map do |subcategory|
+              TreePoint.new(subcategory.id.to_s, translated_attribute(subcategory.name, current_organization))
+            end
+
+            TreeNode.new(
+              TreePoint.new(category.id.to_s, translated_attribute(category.name, current_organization)),
+              subcategories
+            )
+          end
         end
       end
     end
