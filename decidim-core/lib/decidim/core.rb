@@ -145,9 +145,9 @@ module Decidim
   # the mails.
   config_accessor :mailer_sender
 
-  # Whether SSL should be enabled or not.
+  # Whether SSL should be forced or not.
   config_accessor :force_ssl do
-    true
+    Rails.env.starts_with?("production") || Rails.env.starts_with?("staging")
   end
 
   # Having this on true will change the way the svg assets are being served.
