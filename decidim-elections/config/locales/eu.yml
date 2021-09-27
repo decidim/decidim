@@ -153,6 +153,12 @@ eu:
             invalid: Errorea izan da aukera hau eguneratzean
             success: Aukera ondo eguneratu da
         steps:
+          key_ceremony:
+            title: Gakoen zeremonia
+          results_published:
+            title: Argitaratutako emaitzak
+          tally:
+            title: Zenbatzeko prozesua
           vote:
             title: Bozketa-aldia
           vote_ended:
