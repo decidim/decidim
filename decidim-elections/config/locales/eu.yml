@@ -76,7 +76,25 @@ eu:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Bilatu %{collection} izena/posta elektronikoa/goitizena edo bozketa-puntuaren arabera.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
           : Bilatu %{collection} izenburuaren, helbidearen edo arduradunaren izen/email/goitizenaren arabera.
+    components:
+      elections:
+        actions:
+          vote: Eman botoa
     elections:
+      admin:
+        steps:
+          vote:
+            title: Bozketa-aldia
+          vote_ended:
+            title: Bozketa-aldia amaituta
+          vote_stats:
+            no_vote_statistics_yet: Oraindik ez dago boto-estatistikarik
+            title: Boto-estatistikak
+            voters: Boto-emaileak
+            votes: Botoak
+      election_m:
+        footer:
+          vote: Eman botoa
       elections:
         filters:
           state: Egoera
@@ -86,3 +104,9 @@ eu:
           filter: Iragazi
           filter_by: Iragazi honen arabera
           unfold: Zabaldu
+      votes:
+        confirm:
+          header: Baieztatu botoa
+          intro: Hemen duzu emango duzun botoaren laburpena. < br> Mesedez, berretsi zure botoa edo editatu zure erantzunak.
+        confirmed:
+          header: Baieztatutako botoa
