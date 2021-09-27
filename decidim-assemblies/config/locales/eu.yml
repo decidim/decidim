@@ -386,12 +386,26 @@ eu:
         related_participatory_processes: Partaidetza prozesu erlazionatuak
         scope: Esparrua
         social_networks: Sare sozialak
+        social_networks_title: Partekatu batzar hau hemen
         target: Nor parte hartzen du
     assembly_members:
       assembly_member:
         designated_on: Izendatuta
       index:
         title: Bazkideek
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: <a href="%{resource_url}">%{resource_name}</a> batzarraren administratzaile batek bere kide bezala gehitu zaitu.
+          email_outro: Jakinarazpen hau jaso duzu batzar batera gonbidatu zaituztelako. Sartu hemen <a href="%{resource_path}">assembly page</a> laguntza emateko!
+          email_subject: Gonbidatu zaituzte %{resource_name} batzarraren kidea izatera!
+          notification_title: Erregistratu zaituzte <a href="%{resource_path}">%{resource_name}</a> batzarraren kide bezala. Sartu hemen <a href="%{resource_path}">batzarraren orrian </a> laguntza emateko!
+      assembly:
+        role_assigned:
+          email_intro: '%{role} rola esleitu dizute "%{resource_title}" batzarrean.'
+          email_outro: Jakinarazpen hau jaso duzu %{role} rola esleitu dizutelako "%{resource_title}" batzarrean.
+          email_subject: '%{role} rola esleitu dizute "%{resource_title}" batzarrean.'
+          notification_title: '%{role} rola esleitu zaizu <a href="%{resource_url}">%{resource_title}</a> batzarrean.'
     help:
       participatory_spaces:
         assemblies:
@@ -402,6 +416,8 @@ eu:
       value_types:
         assembly_presenter:
           not_found: 'Ez da muntaia aurkitu datu-basean (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'Batzar mota ez zen aurkitu (ID: %{id}) datu-basean'
     menu:
       assemblies: Biltzarrak
     metrics:
@@ -409,6 +425,9 @@ eu:
         description: Sortutako multzo kopurua
         object: batzarrak
         title: Batzar
+    participatory_processes:
+      show:
+        related_assemblies: Erlazionatutako batzarrak
     statistics:
       assemblies_count: Batzarrak
   errors:
