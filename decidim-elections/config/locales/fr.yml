@@ -44,6 +44,10 @@ fr:
               president_and_manager: L'agent de vote est déjà président/responsable d'un bureau de vote
             voting:
               different_organization: Le vote doit être dans le même organization que l'utilisateur
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: L'agent de vote doit être dans la même votation que le bureau de vote
     models:
       decidim/elections/answer:
         one: Réponse
@@ -54,6 +58,9 @@ fr:
       decidim/elections/question:
         one: Question
         other: Questions
+      decidim/votings/polling_station:
+        one: Bureau de vote
+        other: Bureaux de vote
       decidim/votings/voting:
         one: Vote
         other: Votes
@@ -61,6 +68,7 @@ fr:
     admin:
       filters:
         officers_assigned_eq:
+          label: Officier
           values:
             assigned: Assigné
             unassigned: Non affecté
@@ -70,6 +78,10 @@ fr:
             manager: Responsable
             president: Président
             unassigned: Non assigné(e)
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Rechercher %{collection} par nom/email/pseudo ou par bureau de vote.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Recherchez %{collection} par titre, adresse ou nom d'officier/email/pseudo de l'officier.
     components:
       elections:
         actions:
@@ -214,6 +226,7 @@ fr:
           created:
             invalid: Il y a eu un problème lors du démarrage de la cérémonie des clés
             submit: Démarrer la cérémonie des clés
+            success: La demande de lancement de cérémonie des clés a bien été envoyée au Panneau d'Affichage
             title: Élection créée
             trustees: Garants
           key_ceremony:
@@ -226,11 +239,13 @@ fr:
             requirements:
               time_before: L'élection va bientôt commencer. Vous pouvez démarrer la période de vote manuellement, ou elle sera démarrée automatiquement avant l'heure de départ, à %{start_time}.
             submit: Commencer la période de vote
+            success: La demande de lancement de la période de vote a bien été envoyée au Panneau d'Affichage
             title: Prêt à commencer
           processing: Traitement en cours...
           results_published:
             title: Résultats publiés
           tally:
+            title: Dépouillement
             trustees: Garants
           tally_ended:
             submit: Publier les résultats
@@ -245,6 +260,9 @@ fr:
             success: La demande de fin de la période de vote a été envoyée avec succès au Panneau d'Affichage
             title: Période de vote
           vote_ended:
+            invalid: Une erreur s'est produite au lancement du dépouillement
+            submit: Démarrer le dépouillement
+            success: La demande de lancement du dépouillement a bien été envoyée au Panneau d'Affichage
             title: Période de vote terminée
           vote_stats:
             no_vote_statistics_yet: Pas encore de statistiques sur le vote

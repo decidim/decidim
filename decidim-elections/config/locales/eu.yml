@@ -1,6 +1,170 @@
 eu:
+  activemodel:
+    attributes:
+      answer:
+        description: Deskribapena
+        image: Irudia
+        proposals: Lotutako proposamenak
+        title: Izenburua
+      election:
+        description: Deskribapena
+        end_time: Bozketaren amaiera-data
+        start_time: Bozketaren hasiera-data
+        title: Izenburua
+      question:
+        description: Deskribapena
+        max_selections: Gehieneko aukera kopurua
+        min_selections: Aurreko bat ere ez
+        title: Izenburua
+      voting:
+        end_time: Bozketaren amaiera-data
+        start_time: Bozketaren hasiera-data
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Artxiboa berriro erantsi behar da
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Artxiboa berriro erantsi behar da
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: ezin da aldatu
+            public_key:
+              cant_be_changed: ezin da aldatu
+  activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: Hauteskunde-kudeatzailea dagoeneko bozketa-puntuaren presidentea/kudeatzailea da
+            voting:
+              different_organization: Bozketak erabiltzailearen antolaketa berean egon behar du
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: Mahaiko kudeatzaileak bozketa-puntuaren bozketa berean egon behar du
+    models:
+      decidim/votings/polling_officer:
+        one: Mahaiko kudeatzailea
+        other: Mahaiko kudeatzailea(k)
+      decidim/votings/polling_station:
+        one: Bozketa-gunea
+        other: Bozketa gunea(k)
+      decidim/votings/voting:
+        one: Bozketa
+        other: Bozketa(k)
   decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: Arduradunak
+          values:
+            assigned: Esleituta
+            unassigned: Ez esleituta
+        role_eq:
+          label: Rola
+          values:
+            manager: Kudeatzailea
+            president: Presidentea
+            unassigned: Esleitu gabe
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Bilatu %{collection} izena/posta elektronikoa/goitizena edo bozketa-puntuaren arabera.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Bilatu %{collection} izenburuaren, helbidearen edo arduradunaren izen/email/goitizenaren arabera.
+    components:
+      elections:
+        actions:
+          vote: Eman botoa
+        name: Bozketak
+        settings:
+          global:
+            announcement: Iragarpena
+          step:
+            announcement: Iragarpena
     elections:
+      actions:
+        confirm_destroy: Ziur zaude?
+        destroy: Suntsitu
+        edit: Editatu
+        feedback: Boto-emailearen feedback-a
+        import: Sartu proposamenak erantzun gisa
+        manage_answers: Kudeatu erantzunak
+        manage_questions: Kudeatu galderak
+        manage_steps: Kudeatu urratsak
+        new: '%{name} berria'
+        preview: Aurrebistaratu
+        publish: Argitaratu
+        title: Ekintzak
+        unpublish: Desargitaratu
+      admin:
+        answers:
+          create:
+            invalid: Arazo bat izan da erantzun hau sortzean.
+            success: Erantzuna ongi sortu da
+          destroy:
+            invalid: Errorea izan da erantzun hau ezabatzean
+            success: Erantzuna ondo ezabatu da
+          edit:
+            title: Editatu erantzuna
+            update: Eguneratu erantzuna
+          index:
+            invalid_max_selections: "%{missing_answers} erantzun gehiago behar duzu gehieneko hautapenarekin bat etortzeko\n"
+            title: Erantzunak
+          new:
+            create: Sortu erantzuna
+            title: Erantzun berria
+          select:
+            disable: Desautatu erantzuna
+            enable: Markatu erantzuna hautatu gisa
+            invalid: Errorea izan da erantzun hau hautatzean
+            success: Erantzuna ondo aukeratu da
+          unselect:
+            invalid: Errorea izan da erantzun hau desautatzean
+            success: Erantzuna ondo desautatu da
+          update:
+            invalid: Arazo bat izan da erantzun hau eguneratzean
+            success: Erantzuna ongi eguneratu da
+        elections:
+          create:
+            invalid: Errore bat izan da aukera hau sortzean
+            success: Aukera ongi sortu da
+          destroy:
+            invalid: Errorea izan da aukera hau ezabatzean
+            success: Aukera ongi ezabatu da
+          edit:
+            title: Editatu aukera
+            update: Eguneratu aukera
+          index:
+            no_bulletin_board: Ez dago <a href = "https://github.com/decidim/decidim-bulletin-board" >Bulletin Board </a> zerbitzari konfiguraturik, modulu hau erabiltzeko beharrezkoa dena. Ataza hori sistemaren administratzaileak egin behar du.
+            title: Aukerak
+          new:
+            create: Sortu aukera
+            title: Aukera berria
+          publish:
+            success: Aukera zuzen argitaratu da.
+          unpublish:
+            success: Aukera zuzen desargitaratu da.
+          update:
+            invalid: Errorea izan da aukera hau eguneratzean
+            success: Aukera ondo eguneratu da
+        steps:
+          vote:
+            title: Bozketa-aldia
+          vote_ended:
+            title: Bozketa-aldia amaituta
+          vote_stats:
+            no_vote_statistics_yet: Oraindik ez dago boto-estatistikarik
+            title: Boto-estatistikak
+            voters: Boto-emaileak
+            votes: Botoak
+      election_m:
+        footer:
+          vote: Eman botoa
       elections:
         filters:
           state: Egoera
@@ -10,3 +174,23 @@ eu:
           filter: Iragazi
           filter_by: Iragazi honen arabera
           unfold: Zabaldu
+      votes:
+        confirm:
+          header: Baieztatu botoa
+          intro: Hemen duzu emango duzun botoaren laburpena. < br> Mesedez, berretsi zure botoa edo editatu zure erantzunak.
+        confirmed:
+          header: Baieztatutako botoa
+    pages:
+      home:
+        statistics:
+          elections_count: Bozketak
+    participatory_processes:
+      statistics:
+        elections_count: Bozketak
+    votings:
+      polling_officer_zone:
+        polling_officers:
+          show:
+            polling_stations:
+              list:
+                actions: Ekintzak

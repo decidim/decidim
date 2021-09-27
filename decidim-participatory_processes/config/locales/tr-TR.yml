@@ -335,7 +335,7 @@ tr:
         participatory_processes:
           name: Katılımcı süreçleri
         stats:
-          name: Aktivite
+          name: İstatistikler
         title:
           meta_scope: Kapsam
           name: Başlık, açıklama ve etiket
@@ -454,7 +454,7 @@ tr:
         debates_count: Tartışmalar
         endorsements_count: Cirolar
         followers_count: Takipçiler
-        headline: Aktivite
+        headline: İstatistikler
         meetings_count: Toplantılar
         no_stats: Henüz canlı istatistikler yok.
         orders_count: oy

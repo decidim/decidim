@@ -342,7 +342,7 @@ cs:
         participatory_processes:
           name: Participativní procesy
         stats:
-          name: Aktivita
+          name: Statistiky
         title:
           meta_scope: Oblast působnosti
           name: Název, popis a hashtag
@@ -471,7 +471,7 @@ cs:
         debates_count: Debaty
         endorsements_count: Schválení
         followers_count: Sledující
-        headline: Aktivita
+        headline: Statistiky
         meetings_count: Setkání
         no_stats: Zatím nejsou žádné statistiky.
         orders_count: Hlasy

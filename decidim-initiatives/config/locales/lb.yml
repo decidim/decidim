@@ -413,6 +413,8 @@ lb:
               other: Bemerkungen
         orders:
           label: 'Initiativen sortieren nach:'
+        print:
+          city: Uertschaft
       last_activity:
         new_initiative: Neue Initiative
       pages:
