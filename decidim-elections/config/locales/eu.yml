@@ -78,7 +78,40 @@ eu:
             manager: Kudeatzailea
             president: Presidentea
             unassigned: Esleitu gabe
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Bilatu %{collection} izena/posta elektronikoa/goitizena edo bozketa-puntuaren arabera.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Bilatu %{collection} izenburuaren, helbidearen edo arduradunaren izen/email/goitizenaren arabera.
+        signed_eq:
+          label: Sinatua
+          values:
+            'false': Sinatua
+            'true': Sinatu gabe
+        validated_eq:
+          label: Baliozkotuta
+          values:
+            'false': Baliozkotuta
+            'true': Baliozkotu gabe
+    components:
+      elections:
+        actions:
+          vote: Eman botoa
     elections:
+      admin:
+        steps:
+          vote:
+            title: Bozketa-aldia
+          vote_ended:
+            text: Bozketa amaitu da. Orain has zaitezke zenbaketa egiten.
+            title: Bozketa-aldia amaituta
+          vote_stats:
+            no_vote_statistics_yet: Oraindik ez dago boto-estatistikarik
+            title: Boto-estatistikak
+            voters: Boto-emaileak
+            votes: Botoak
+      election_m:
+        footer:
+          vote: Eman botoa
       elections:
         filters:
           state: Egoera
@@ -90,3 +123,32 @@ eu:
           unfold: Zabaldu
         preview:
           available_answers: 'Aukerako erantzunak:'
+        results:
+          votes:
+            one: "Boto %{count}"
+            other: "%{count} boto"
+        show:
+          callout:
+            pending_vote: Zure botoa ematen ari da zerbitzarian.
+      models:
+        answer:
+          fields:
+            votes: Botoak
+      votes:
+        ballot_decision:
+          description: Hemen dituzu zure boto-papera emateko aukerak, behar bezala zenbatzeko edo, bestela, zure boto-papera behar bezala zifratu zela auditatu dezakezu. Segurtasun-arrazoiak direla eta, boto-txartelaren ikuskaritzak hondatu egingo du, eta horrek esan nahi du bozketa-prozesua berriz hasi beharko duzula botoa emateko.
+        casting:
+          header: Botoa ematen ari da...
+        confirm:
+          header: Baieztatu botoa
+          intro: Hemen duzu emango duzun botoaren laburpena. < br> Mesedez, berretsi zure botoa edo editatu zure erantzunak.
+        confirmed:
+          header: Baieztatutako botoa
+          lead: Zure botoa eman da!
+    votings:
+      admin:
+        monitoring_committee_polling_station_closures:
+          closures:
+            validated: Baliozkotuta?
+          validate:
+            success: Gailua zuzen baliozkotu da
