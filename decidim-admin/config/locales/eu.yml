@@ -797,6 +797,13 @@ eu:
           success: Identifikatzailea zuzen ezabatu da.
         share_tokens:
           empty: Ez dago identifikatzaile aktiborik
+          help: Identifikatzaile hauek argitaratu gabeko baliabide hori edozein erabiltzaileri publikoki partekatzeko erabiltzen dira. Errekurtsoa argitaratzean ezkutatuko dira. Egin klik identifikatzailea partekatzeko ikonoan, URL partekagarria bisitatzeko.
+          title: Partekatu identifikatzaileak
+      shared:
+        gallery:
+          add_images: Gehiru irudiak
+          delete_image: Ezabatu irudia
+          gallery_legend: Gehitu irudi-galeria bat (aukerakoa)
       static_page_topics:
         create:
           error: Errore bat gertatu da gai berri bat sortzean.
@@ -826,6 +833,7 @@ eu:
           update: Eguneratu
         form:
           none: Bat ere ez
+          slug_help: 'Erabili ibilbide partzialak, ez URL helbide osoak hemen. Letrak, zenbakiak, gidoiak eta barra diagonalak onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
         index:
           last_notable_change: Azken aldaketa nabaria
         new:
@@ -847,10 +855,13 @@ eu:
         dashboard: Kontrol-panela
         impersonatable_users: Erabiltzaile erabilgarriak
         impersonations: Erabiltzaileen kudeaketa
+        metrics: Metrikak
+        panel: Administratzailea
         participants: erabiltzaileak
         scope_types: Esparru motak
         scopes: Esparruak
         static_pages: Orriak
+        statistics: Jarduera
         user_groups: Erabiltzaile-taldeak
         users: Erabiltzaileak
       user_group:
@@ -899,14 +910,29 @@ eu:
       users_statistics:
         users_count:
           admins: Administratzaileak
+          last_day: Azken eguna
+          last_month: Azken hila
+          last_week: Azken astea
+          no_users_count_statistics_yet: Oraindik ez dago erabiltzaileen zenbaketa-estatistikarik
           participants: Parte-hartzaileak
       view_public_page: Ikusi orri publikoa
     forms:
       errors:
         impersonate_user:
           reason: Arrazoi bat eman behar duzu erabiltzaile ez kudeatzaile bat ordezkatuz
+    metrics:
+      blocked_users:
+        object: erabiltzaileak blokeatuta
+        title: Erabiltzaileak blokeatuta
+      reported_users:
+        object: erabiltzaile erreportatuak
+        title: Erabiltzaile erreportatuak
+      user_reports:
+        object: erabiltzailearen txostenak
+        title: Erabiltzailearen txostenak
     moderations:
       actions:
+        expand: Zabaldu
         hidden: ' Ezkutatuta'
         hide: Ezkutatu
         not_hidden: Ezkutatu gabe
@@ -927,17 +953,28 @@ eu:
       models:
         moderation:
           fields:
+            created_at: Sortze-data
             hidden_at: Ezkutatze-data
+            participatory_space: Parte hartzeko esparrua
             report_count: Zenbaketa
+            reportable_id: Id
+            reportable_type: Mota
             reported_content_url: Emandako edukiaren URLa
             reports: Salaketak
             visit_url: Bisitatu URLa
+        report:
+          fields:
+            details: Arrazoiaren xehetasunak
+            locale: Hizkuntza
+            reason: Arrazoia
   errors:
     messages:
       invalid_json: JSON baliogabea
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Moderazio globalak
         newsletters:
           title: Buletinak
         settings:
