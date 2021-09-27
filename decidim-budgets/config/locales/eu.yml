@@ -64,21 +64,50 @@ eu:
       budget_information_modal:
         continue: Jarraitu
         more_information: Informazio gehiago
+      budgets_list:
+        cancel_order:
+          more_than_one: ezabatu zure botoa hemen %{name} eta hasi berriro
+          only_one: ezabatu zure botoa eta hasi berriro.
+        finished_message: Amaitu duzu bozkatzeko prozesua. Eskerrik asko parte hartzeagatik!
+        highlighted_cta: Botoa eman hemen %{name}
+        if_change_opinion: Iritzia aldatu baduzu, ahal duzu
+        my_budgets: Nire aurrekontuak
+        voted_on: Botoa eman duzu hemen %{links}
+      limit_announcement:
+        cant_vote: Ezin duzu botoa eman aurrekontu honetan. <a href="%{landing_path}"> Saiatu beste aurrekontu batekin</a>.
+        limit_reached: Badituzu botoak aktibo hemen %{links}. Aurrekontu honetan botoa emateko <a href="%{landing_path}">ezabatu behar duzu zure botoa eta berriro hasi</a>.
       models:
+        budget:
+          fields:
+            name: Izena
+            projects_count: Proiektu kopurua
+            total_budget: Aurrekontua guztira
         project:
           fields:
             title: Titulua
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Hautatu dituzun proiektuak hauek dira:'
+          subject: Botoa eman duzu parte hartzeko esparru honetan %{space_name}
+          voted_on_space: Botoa eman duzu %{budget_name} aurrekontuan %{space_name} parte hartzeko esparrurako.
+          voted_on_space_with_scope: Botoa eman duzu %{budget_name} aurrekontuan %{space_name} de %{scope_name} (%{scope_type}) parte hartzeko esparruan.
       projects:
         budget_confirm:
+          are_you_sure: Iritzia aldatzen baduzu, zure botoa alda dezakezu geroago.
           cancel: Utzi
           confirm: Baieztatu
           description: Proiektu hauek hautatu dituzu aurrekontuan sartzeko.
           title: Baieztatu botoa
         budget_excess:
           budget_excess:
+            description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu edo botoa eman zure lehenespenekin bat.
             title: Aurrekontua gainditu da
           close: Itxi
+          description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu edo botoa eman zure lehenespenekin bat.
           ok: Ados
+          projects_excess:
+            description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu edo botoa eman zure lehenespenekin bat.
+            title: Gehieneko proiektu kopurua gainditu egin da
         budget_summary:
           are_you_sure: Ziur zaude zure botoa ezeztatu nahi duzula?
           assigned: 'Esleituta:'
