@@ -1,6 +1,8 @@
 eu:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Gaitu organigrama
       assembly:
         area_id: Area
         assembly_type: Muntatze-mota
@@ -64,6 +66,12 @@ eu:
         email: Emaila
         name: izena
         role: Role
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Dokumentu-mota baliogabea da. Formatu hauek onartzen dira: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -78,7 +86,9 @@ eu:
   decidim:
     admin:
       actions:
+        import_assembly: Inportatu
         new_assembly: Batzar berria
+        new_assembly_type: Batzar mota berria
       assemblies:
         create:
           error: Errorea gertatu da batzar berri bat sortzean.
@@ -100,9 +110,22 @@ eu:
         create:
           error: Errorea gertatu da batzar hau kopiatzean.
           success: Batzarra zuzen bikoiztu da.
+      assemblies_settings:
+        update:
+          error: Arazo bat gertatu da konfigurazioa eguneratzean.
+          success: Konfigurazioa zuzen eguneratu da.
       assemblies_types:
+        create:
+          error: Errorea gertatu da batzar mota berri bat sortzean.
+          success: Batzar mota zuzen sortu da.
+        destroy:
+          success: Batzar mota zuzen ezabatu da.
         new:
           create: Sortu
+          title: Batzar mota berria
+        update:
+          error: Errore bat gertatu da batzar mota hau eguneratzean.
+          success: Batzar mota zuzen eguneratu da.
       assembly_copies:
         new:
           copy: Kopiatu
@@ -110,6 +133,7 @@ eu:
           title: Kopiatu batzarra
       assembly_imports:
         create:
+          error: Errorea gertatu da batzar hau inportatzean.
           success: Batzarra zuzen inportatu da.
         new:
           import: Inportatu
