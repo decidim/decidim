@@ -289,6 +289,7 @@ eu:
         assembly_imports:
           form:
             document_legend: Gehitu dokumentu bat
+            slug_help: 'URL testu laburrak erabiltzen dira batzar hau aipatzen duten URLak sortzeko. Hizkiak, zenbakiak eta gidoiak onartzen ditu soilik eta hizki batez hasi behar da. Adibidea: %{url}'
         assembly_members:
           form:
             existing_user: Erabiltzaile existentea
@@ -345,6 +346,7 @@ eu:
         home:
           highlighted_assemblies:
             active_assemblies: Batzar aktiboak
+            assemblies_button_title: Lotura batzar guztiak erakusten dituen Batzarren orrialdera
             see_all_assemblies: Ikusi muntaia guztiak
         user_profile:
           member_of:
@@ -375,6 +377,7 @@ eu:
         related_participatory_processes: Partaidetza prozesu erlazionatuak
         scope: Esparrua
         social_networks: Sare sozialak
+        social_networks_title: Partekatu batzar hau hemen
         target: Nor parte hartzen du
       statistics:
         answers_count: Erantzunak
