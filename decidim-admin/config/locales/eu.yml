@@ -744,6 +744,7 @@ eu:
           success: CSV fitxategia zuzen igo da, eta parte-hartzaileei gonbidapen-mezu elektroniko bat bidaltzen ari gara. Horrek denbora behar du.
         new:
           explanation: 'Igo zure CSV fitxategia. Bi zutabe izan behar ditu, artxiboaren lehen zutabean eremu parte-hartzailera gehitu nahi dituzun erabiltzaileen posta elektronikoa, eta izena azken zutabean (posta elektronikoa, izena), goibururik gabe. Ez erabili balio ez duten karaktererik erabiltzaile-izenean, hala nola: `<>?%&^*#@()[]=+:;"{}\|`.'
+          title: Igo zure CSV artxiboa
           upload: Kargatu
       resource_permissions:
         edit:
@@ -788,8 +789,14 @@ eu:
           success: Esparrua zuzen eguneratu da
       share_tokens:
         actions:
+          confirm_destroy: Ziur zaude identifikatzaile hau ezabatu nahi duzula?
           destroy: Ezabatu
           share: Partekatu
+        destroy:
+          error: Errore bat gertatu da identifikatzailea ezabatzean.
+          success: Identifikatzailea zuzen ezabatu da.
+        share_tokens:
+          empty: Ez dago identifikatzaile aktiborik
       static_page_topics:
         create:
           error: Errore bat gertatu da gai berri bat sortzean.
