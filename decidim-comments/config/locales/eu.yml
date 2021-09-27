@@ -16,8 +16,14 @@ eu:
         other: Botoak
   decidim:
     comments:
+      comments:
+        create:
+          error: Arazoa gertatu da iruzkina sortzean.
+      comments_count: Iruzkin kopurua
+      comments_title: Iruzkinak
       last_activity:
         new_comment_at_html: "<span>Iruzkin berria %{link}</span>"
+      view: Bistaratu
       votes:
         create:
           error: Erroreak gertatu dira iruzkina bozkatzean.
@@ -42,6 +48,7 @@ eu:
           against: Aurka
           in_favor: Alde
         deleted_user: Erabiltzaile ezabatua
+        hide_replies: Ezkutatu erantzunak
         reply: Erantzuna
         report:
           action: Salatu
@@ -53,6 +60,8 @@ eu:
             does_not_belong: Bertan badago legez kontrako jardunik, suizidio-mehatxurik, informazio pertsonalik edo beste zernahi, zure ustez %{organization_name}-ri ez dagokionik.
             offensive: Ertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
             spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
+          title: Jakinarazi eduki desegokia
+        show_replies: Erakutsi %{replies_count} erantzun
       comment_order_selector:
         order:
           best_rated: Balorazio hoberenak
