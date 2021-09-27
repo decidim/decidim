@@ -13,7 +13,10 @@ module Decidim
       isolate_namespace Decidim::Meetings
 
       routes do
-        resources :meetings, only: [:index, :show, :new, :create, :edit, :update] do
+        resources :meetings, only: [:index, :show, :new, :create, :edit, :update, :withdraw] do
+          member do
+            put :withdraw
+          end
           resources :meeting_closes, only: [:edit, :update] do
             get :proposals_picker, on: :collection
           end

@@ -9,7 +9,7 @@ describe "Decidim::Api::QueryType" do
   let(:component_type) { "Meetings" }
 
   let!(:current_component) { create :meeting_component, participatory_space: participatory_process }
-  let!(:meeting) { create(:meeting, :published, :not_official, :with_services, :closed_with_minutes, closing_visible: closing_visible, component: current_component, category: category) }
+  let!(:meeting) { create(:meeting, :published, :withdrawn, :not_official, :with_services, :closed_with_minutes, closing_visible: closing_visible, component: current_component, category: category) }
   let!(:agenda) { create(:agenda, :with_agenda_items, meeting: meeting) }
   let!(:invite) { create(:invite, :accepted, meeting: meeting) }
   let(:closing_visible) { true }
@@ -26,6 +26,7 @@ describe "Decidim::Api::QueryType" do
       "category" => { "id" => meeting.category.id.to_s },
       "closed" => true,
       "closingReport" => closing_visible ? { "translation" => meeting.closing_report[locale] } : nil,
+      "isWithdrawn" => true,
       "videoUrl" => closing_visible ? meeting.video_url : nil,
       "audioUrl" => closing_visible ? meeting.audio_url : nil,
       "comments" => [],
@@ -107,6 +108,7 @@ describe "Decidim::Api::QueryType" do
               closingReport {
                 translation(locale: "#{locale}")
               }
+              isWithdrawn
               videoUrl
               audioUrl
               comments {
@@ -202,6 +204,7 @@ describe "Decidim::Api::QueryType" do
           closingReport {
             translation(locale: "#{locale}")
           }
+          isWithdrawn
           videoUrl
           audioUrl
           comments {

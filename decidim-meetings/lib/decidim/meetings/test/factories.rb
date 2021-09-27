@@ -47,6 +47,10 @@ FactoryBot.define do
       published_at { Time.current }
     end
 
+    trait :withdrawn do
+      state { "withdrawn" }
+    end
+
     trait :in_person do
       type_of_meeting { :in_person }
     end

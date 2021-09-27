@@ -33,6 +33,8 @@ module Decidim
           "alert"
         when "transparent"
           "secondary"
+        when "withdraw"
+          "alert"
         end
       end
 

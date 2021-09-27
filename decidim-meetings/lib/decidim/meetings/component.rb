@@ -25,7 +25,7 @@ Decidim.register_component(:meetings) do |component|
   end
 
   component.register_stat :meetings_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
-    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at)
+    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).except_withdrawn
     meetings.count
   end
 
