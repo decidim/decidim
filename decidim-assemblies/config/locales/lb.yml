@@ -59,7 +59,6 @@ lb:
         birthplace: Geburtsort
         ceased_date: Aufgegebenes Datum
         designation_date: Datum der Benennung
-        designation_mode: Bezeichnungsmodus
         full_name: Vollständiger Name
         gender: Geschlecht
         non_user_avatar: Profil-Bild

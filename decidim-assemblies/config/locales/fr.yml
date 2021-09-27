@@ -59,7 +59,6 @@ fr:
         birthplace: Lieu de naissance
         ceased_date: Date de radiation
         designation_date: Date de désignation
-        designation_mode: Mode de désignation
         full_name: Nom et prénom
         gender: Genre
         non_user_avatar: Avatar

@@ -59,9 +59,9 @@ it:
         birthplace: Luogo di nascita
         ceased_date: Data di termine
         designation_date: Data di designazione
-        designation_mode: Modalità di designazione
         full_name: Nome e cognome
         gender: Genere
+        non_user_avatar: Avatar
         position: Posizione
         user_id: Utente
       assembly_user_role:
@@ -182,6 +182,9 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di un amministratore per questa assemblea.
           success: Admin aggiornato correttamente per questa assemblea.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Tipo di assemblea
       menu:
         assemblies: Assemblee
         assemblies_settings: Impostazioni
@@ -296,6 +299,8 @@ it:
         assembly_members:
           form:
             existing_user: Utente esistente
+            explanation: 'Guida per l''immagine:'
+            image_guide: È preferibile un'immagine verticale priva di testo.
             non_user: Non utente
             select_a_position: Seleziona una posizione
             select_user: Seleziona un utente

@@ -44,6 +44,10 @@ fr:
               president_and_manager: L'agent de vote est déjà président/responsable d'un bureau de vote
             voting:
               different_organization: Le vote doit être dans le même organization que l'utilisateur
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: L'agent de vote doit être dans la même votation que le bureau de vote
     models:
       decidim/elections/answer:
         one: Réponse
@@ -57,6 +61,9 @@ fr:
       decidim/votings/census/dataset:
         one: Jeu de données
         other: Jeux de données
+      decidim/votings/polling_station:
+        one: Bureau de vote
+        other: Bureaux de vote
       decidim/votings/voting:
         one: Vote
         other: Votes
@@ -64,6 +71,7 @@ fr:
     admin:
       filters:
         officers_assigned_eq:
+          label: Officier
           values:
             assigned: Assigné
             unassigned: Non affecté
@@ -73,6 +81,20 @@ fr:
             manager: Responsable
             president: Président
             unassigned: Non assigné(e)
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Rechercher %{collection} par nom/email/pseudo ou par bureau de vote.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Recherchez %{collection} par titre, adresse ou nom d'officier/email/pseudo de l'officier.
+        signed_eq:
+          label: Signé
+          values:
+            'false': Signé
+            'true': Non signé
+        validated_eq:
+          label: Validé
+          values:
+            'false': Validé
+            'true': Non validé
     components:
       elections:
         actions:
@@ -221,6 +243,7 @@ fr:
           created:
             invalid: Il y a eu un problème lors du démarrage de la cérémonie des clés
             submit: Démarrer la cérémonie des clés
+            success: La demande de lancement de cérémonie des clés a bien été envoyée au Panneau d'Affichage
             title: Élection créée
             trustees: Garants
           key_ceremony:
@@ -233,6 +256,7 @@ fr:
             requirements:
               time_before: L'élection va bientôt commencer. Vous pouvez démarrer la période de vote manuellement, ou elle sera démarrée automatiquement avant l'heure de départ, à %{start_time}.
             submit: Commencer la période de vote
+            success: La demande de lancement de la période de vote a bien été envoyée au Panneau d'Affichage
             title: Prêt à commencer
           processing: Traitement en cours...
           results_published:
@@ -250,6 +274,7 @@ fr:
             mark_as_missing_description: Tout les garants doivent participer au processus, mais si un garant ne peut y prendre part, vous pouvez le marquer comme absent.
             success: Le signalement du garant absent a été envoyé avec succès sur le Tableau d'Affichage
             tally_completion: Le processus sera terminé lorsque tout les garants seront marqués comme actif ou absent. Au moins %{quorum} garants sont requis pour compléter le processus.
+            title: Dépouillement
             undo_mark_as_missing: Un garant marqué comme absent par erreur sera capable de participer avant l'achèvement du processus. Ils peuvent procéder comme d'habitude et le signalement d'absence sera ignoré.
           tally_ended:
             answer: Répondre
@@ -258,6 +283,7 @@ fr:
             result: Réalisation
             selected: Sélectionné
             submit: Publier les résultats
+            success: La demande de publication des résultats a bien été envoyée au Panneau d'Affichage
             title: Résultat du calcul
           vote:
             errors:
@@ -269,6 +295,9 @@ fr:
             success: La demande de fin de la période de vote a été envoyée avec succès au Panneau d'Affichage
             title: Période de vote
           vote_ended:
+            invalid: Une erreur s'est produite au lancement du dépouillement
+            submit: Démarrer le dépouillement
+            success: La demande de lancement du dépouillement a bien été envoyée au Panneau d'Affichage
             text: Le vote est terminé. Vous pouvez commencer le comptage.
             title: Période de vote terminée
           vote_stats:
@@ -297,6 +326,11 @@ fr:
           update:
             invalid: Une erreur s'est produite lors de la mise à jour du garant %{trustee}
             success: Le garant %{trustee} a été mis à jour avec succès
+      admin_log:
+        election:
+          create: "%{user_name} a créé l'élection %{resource_name} dans %{space_name}"
+          delete: "%{user_name} a supprimé l'élection %{resource_name} dans %{space_name}"
+          end_vote: "%{user_name} a terminé la période de vote pour l'élection %{resource_name} de l'espace %{space_name} sur le Tableau des Bulletins"
       election_m:
         badge_name:
           finished: Terminées

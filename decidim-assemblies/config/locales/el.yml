@@ -59,7 +59,6 @@ el:
         birthplace: Τόπος γέννησης
         ceased_date: Ημερομηνία παύσης
         designation_date: Ημερομηνία διορισμού
-        designation_mode: Λειτουργία διορισμού
         full_name: Ονοματεπώνυμο
         gender: Φύλο
         position: Θέση
