@@ -295,10 +295,14 @@ eu:
         assembly_imports:
           form:
             document_legend: Gehitu dokumentu bat
+            slug_help: 'URL testu laburrak erabiltzen dira batzar hau aipatzen duten URLak sortzeko. Hizkiak, zenbakiak eta gidoiak onartzen ditu soilik eta hizki batez hasi behar da. Adibidea: %{url}'
         assembly_members:
           form:
             existing_user: Erabiltzaile existentea
+            explanation: 'Jarraibideak irudirako:'
+            image_guide: Ahal izanez gero, irudi bertikal bat testurik gabe.
             non_user: Erabiltzailea ez
+            non_user_avatar_help: Pertsonen baimena lortu beharko zenuke, kide gisa argitaratubaino lehen.
             select_a_position: Aukeratu posizio bat
             select_user: Aukeratu erabiltzaile bat
             user_type: Erabiltzaile mota
@@ -351,6 +355,7 @@ eu:
         home:
           highlighted_assemblies:
             active_assemblies: Batzar aktiboak
+            assemblies_button_title: Lotura batzar guztiak erakusten dituen Batzarren orrialdera
             see_all_assemblies: Ikusi muntaia guztiak
         user_profile:
           member_of:
