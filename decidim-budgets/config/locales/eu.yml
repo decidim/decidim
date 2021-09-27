@@ -115,7 +115,14 @@ eu:
           checked_out:
             description: 'Jada bozkatu duzu aurrekonturako. Iritziz aldatu baduzu, ezeztatu hemen: %{cancel_link}.'
             title: Botoa zuzen bidali da
+          minimum_projects_rule:
+            description: Zure aburuz, proiektuetako zeinei esleitu behar diegu aurrekontua? Hautatu gutxienez %{minimum_number} eta bozkatu zure lehentasunen arabera proiektua zehazteko.
+            instruction: "<li>Hautatu gutxienez nahi dituzun %{minimum_number} proiektu eta bozkatu zure lehentasunen arabera </li> proiektua zehazteko"
+          rules:
+            title: Aurrekontuaren arauak
           title: Zure esku dago aurrekontua erabakitzea
+          total_budget: Aurrekontua guztira
+          total_projects: Botoak guztira
         count:
           projects_count:
             one: Proiektu bat
@@ -124,6 +131,11 @@ eu:
           category: Kategoria
           scope: Esparrua
           search: Bilatu
+          status: Egoera
+          status_values:
+            all: Denak
+            not_selected: Ez hautatua
+            selected: Hautatua
         filters_small_view:
           close_modal: Itxi leihoa
           filter: Iragazi
@@ -137,8 +149,21 @@ eu:
             one: hautatutako proiektua
             other: hautatutako proiektuak
           view: Ikusi
+        orders:
+          highest_cost: Kostu handiena
+          label: Antolatu proiektuak honen arabera
+          lowest_cost: Kostu txikiena
+          most_voted: Bozkatuenak
+          random: Ausazko ordena
+          selected: Hautatua
         project:
+          add: Gehitu %{resource_name} proiektua zure botoari
+          remove: Ezabatu %{resource_name} proiektua zure bototik
+          selected: Hautatua
           view: ikusi
+          you_voted: Hau bozkatu duzu
+        project_budget_button:
+          add: Gehitu zure botoari
         show:
           budget: Aurrekontua
           view_all_projects: Ikusi proiektu guztiak
