@@ -110,6 +110,11 @@ module Decidim
         Decidim.find_participatory_space_manifest(name.demodulize.underscore.pluralize)
       end
 
+      # Public: Is the class a participatory space?
+      def participatory_space?
+        true
+      end
+
       # Public: Adds a sane default way to retrieve public spaces. Please, overwrite
       # this from your model class in case this is not correct for your model.
       #
