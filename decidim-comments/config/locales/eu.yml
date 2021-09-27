@@ -115,6 +115,9 @@ eu:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> -k zure iruzkinari erantzun dio <a href="%{resource_path}">%{resource_title}</a>
         user_group_mentioned:
           email_intro: Zu barne zauden talde bat aipatu da
+          email_outro: Jakinarazpen hau jaso duzu hemen %{resource_title} aipatu den %{group_name} taldearen kidea zarelako.
+          email_subject: Hemen %{resource_title} aipatu zaituzte %{group_name} taldearen kide gisa
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> k aipatu zaitu hemen <a href="%{resource_path}">%{resource_title}</a> <a href="%{group_path}">%{group_name} %{group_nickname}</a> taldearen kide gisa
         user_mentioned:
           email_intro: Esan zaizu
           email_outro: Jakinarazpena jaso duzu %{resource_title} delakoan aipatu duzulako.
