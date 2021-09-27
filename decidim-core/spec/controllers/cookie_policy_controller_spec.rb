@@ -24,7 +24,7 @@ module Decidim
         get :accept
 
         expect(response.cookies[Decidim.config.consent_cookie_name]).to eq("true")
-        expect(response["Set-Cookie"]).to match(%r{^decidim-cc=true; path=/; expires=[^;]+$})
+        expect(response["Set-Cookie"]).to match(%r{^decidim-cc=true; path=/; expires=[^;]+; HttpOnly$})
       end
 
       context "when the session options define the secure flag" do
@@ -34,7 +34,7 @@ module Decidim
           get :accept
 
           expect(response.cookies[Decidim.config.consent_cookie_name]).to eq("true")
-          expect(response["Set-Cookie"]).to match(%r{^decidim-cc=true; path=/; expires=[^;]+; secure$})
+          expect(response["Set-Cookie"]).to match(%r{^decidim-cc=true; path=/; expires=[^;]+; secure; HttpOnly$})
         end
       end
     end
