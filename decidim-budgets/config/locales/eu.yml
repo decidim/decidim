@@ -164,11 +164,17 @@ eu:
           projects_rule:
             description: Zure ustez, zein proiekturi esleitu beharko genieke aurrekontua? Hautatu %{minimum_number} eta %{maximum_number} arteko proiektuak, eta eman botoa zure lehentasunen arabera aurrekontua zehazteko.
             instruction: "<li>Hautatu gutxienez nahi dituzun %{minimum_number} eta %{maximum_number} arteko proiektu eta bozkatu zure lehentasunen arabera </li> proiektua zehazteko"
+          projects_rule_maximum_only:
+            description: Zure ustez, zein proiekturi eman beharko genieke aurrekontua? Hautatu %{maximum_number} arte eta eman botoa zure lehentasunen arabera aurrekontua zehazteko.
+            instruction: "<li>Hautatu %{maximum_number} arte nahi beste proiektu eta eman botoa zure lehentasunen arabera aurrekontua zehazteko </li>"
           rules:
             title: Aurrekontuaren arauak
           title: Zure esku dago aurrekontua erabakitzea
           total_budget: Aurrekontua guztira
           total_projects: Botoak guztira
+          vote_threshold_percent_rule:
+            description: Zure ustez, zein proiekturi eman beharko genieke aurrekontua? Hautatu %{minimum_budget} arte eta eman botoa zure lehentasunen arabera aurrekontua zehazteko.
+            instruction: "<li>Hautatu %{minimum_budget} arte nahi beste proiektu eta eman botoa zure lehentasunen arabera aurrekontua zehazteko </li>"
         count:
           projects_count:
             one: Proiektu bat
@@ -210,6 +216,7 @@ eu:
           you_voted: Hau bozkatu duzu
         project_budget_button:
           add: Gehitu zure botoari
+          add_descriptive: Gehitu %{resource_name} proiektua zure botoari
           added: Gehituta zure botoari
           added_descriptive: '%{resource_name} proiektua zure botoari gehitu zaio'
         projects_for: '%{name} ren prozesuak'
@@ -225,11 +232,22 @@ eu:
           global:
             announcement: Anuntzio
             comments_enabled: Iruzkinak gaituta
+            comments_max_length: Iruzkinen gehieneko luzera (uzti 0 defektuz konfigurazioa mantendu nahi baduzu)
+            form:
+              errors:
+                budget_voting_rule_only_one: Gutxienez arau bat aktibatu behar da bozketarako
+                budget_voting_rule_required: Arau bat behar da bozketarako
+            landing_page_content: Aurrekontuen hasierako orria
+            more_information_modal: '"Informazio gehiago"ren modala'
             projects_per_page: Orrialde bakoitzeko proiektuak
+            resources_permissions_enabled: Ekintza-baimenak ezarri ahal dira proiektu bakoitzerako
             scope_id: Eremua
             scopes_enabled: Eremuak gaituta
             title: Izenburua
             total_budget: Aurrekontu osoa
+            vote_minimum_budget_projects_number: Bozkatzeko gutxieneko proiektu kopurua
+            vote_rule_minimum_budget_projects_enabled: 'Aktibatu araua: Bozkatzeko gutxieneko proiektu kopurua'
+            vote_rule_selected_projects_enabled: 'Gaitu araua: hautatutako proiektuak gutxieneko eta gehieneko proiektu kopurua bozkatzeko'
             vote_threshold_percent: Votuen ehuneko atalasea
           step:
             announcement: Anuntzio
