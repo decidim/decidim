@@ -80,8 +80,78 @@ eu:
       elections:
         actions:
           vote: Eman botoa
+        name: Bozketak
+        settings:
+          global:
+            announcement: Iragarpena
+          step:
+            announcement: Iragarpena
     elections:
+      actions:
+        confirm_destroy: Ziur zaude?
+        destroy: Suntsitu
+        edit: Editatu
+        feedback: Boto-emailearen feedback-a
+        import: Sartu proposamenak erantzun gisa
+        manage_answers: Kudeatu erantzunak
+        manage_questions: Kudeatu galderak
+        manage_steps: Kudeatu urratsak
+        new: '%{name} berria'
+        preview: Aurrebistaratu
+        publish: Argitaratu
+        title: Ekintzak
+        unpublish: Desargitaratu
       admin:
+        answers:
+          create:
+            invalid: Arazo bat izan da erantzun hau sortzean.
+            success: Erantzuna ongi sortu da
+          destroy:
+            invalid: Errorea izan da erantzun hau ezabatzean
+            success: Erantzuna ondo ezabatu da
+          edit:
+            title: Editatu erantzuna
+            update: Eguneratu erantzuna
+          index:
+            invalid_max_selections: "%{missing_answers} erantzun gehiago behar duzu gehieneko hautapenarekin bat etortzeko\n"
+            title: Erantzunak
+          new:
+            create: Sortu erantzuna
+            title: Erantzun berria
+          select:
+            disable: Desautatu erantzuna
+            enable: Markatu erantzuna hautatu gisa
+            invalid: Errorea izan da erantzun hau hautatzean
+            success: Erantzuna ondo aukeratu da
+          unselect:
+            invalid: Errorea izan da erantzun hau desautatzean
+            success: Erantzuna ondo desautatu da
+          update:
+            invalid: Arazo bat izan da erantzun hau eguneratzean
+            success: Erantzuna ongi eguneratu da
+        elections:
+          create:
+            invalid: Errore bat izan da aukera hau sortzean
+            success: Aukera ongi sortu da
+          destroy:
+            invalid: Errorea izan da aukera hau ezabatzean
+            success: Aukera ongi ezabatu da
+          edit:
+            title: Editatu aukera
+            update: Eguneratu aukera
+          index:
+            no_bulletin_board: Ez dago <a href = "https://github.com/decidim/decidim-bulletin-board" >Bulletin Board </a> zerbitzari konfiguraturik, modulu hau erabiltzeko beharrezkoa dena. Ataza hori sistemaren administratzaileak egin behar du.
+            title: Aukerak
+          new:
+            create: Sortu aukera
+            title: Aukera berria
+          publish:
+            success: Aukera zuzen argitaratu da.
+          unpublish:
+            success: Aukera zuzen desargitaratu da.
+          update:
+            invalid: Errorea izan da aukera hau eguneratzean
+            success: Aukera ondo eguneratu da
         steps:
           vote:
             title: Bozketa-aldia
@@ -110,3 +180,17 @@ eu:
           intro: Hemen duzu emango duzun botoaren laburpena. < br> Mesedez, berretsi zure botoa edo editatu zure erantzunak.
         confirmed:
           header: Baieztatutako botoa
+    pages:
+      home:
+        statistics:
+          elections_count: Bozketak
+    participatory_processes:
+      statistics:
+        elections_count: Bozketak
+    votings:
+      polling_officer_zone:
+        polling_officers:
+          show:
+            polling_stations:
+              list:
+                actions: Ekintzak
