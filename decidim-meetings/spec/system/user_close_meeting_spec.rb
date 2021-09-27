@@ -30,6 +30,7 @@ describe "User edit meeting", type: :system do
 
   describe "closing my own meeting" do
     let(:closing_report) { "The meeting went pretty well, yep." }
+    let(:edit_closing_report) { "The meeting went pretty well, yep." }
 
     before do
       login_as user, scope: :user
@@ -56,6 +57,43 @@ describe "User edit meeting", type: :system do
       expect(page).not_to have_content "Close meeting"
       expect(page).not_to have_content "ATTENDING ORGANIZATIONS"
       expect(meeting.reload.closed_at).not_to be nil
+    end
+
+    context "when updates the meeting report" do
+      let!(:meeting) do
+        create(:meeting,
+               :published,
+               :past,
+               :closed,
+               title: { en: "Meeting title with #hashtag" },
+               description: { en: "Meeting description" },
+               author: user,
+               attendees_count: nil,
+               attending_organizations: nil,
+               component: component)
+      end
+
+      it "updates the meeting report" do
+        visit_component
+
+        click_link translated(meeting.title)
+        click_link "Edit meeting report"
+
+        expect(page).to have_content "CLOSE MEETING"
+
+        within "form.edit_close_meeting" do
+          expect(page).to have_content "Choose proposals"
+          fill_in :close_meeting_attendees_count, with: 10
+          fill_in :close_meeting_closing_report, with: edit_closing_report
+
+          click_button "Close meeting"
+        end
+
+        expect(page).to have_content(edit_closing_report)
+        expect(page).not_to have_content "Close meeting"
+        expect(page).not_to have_content "ATTENDING ORGANIZATIONS"
+        expect(meeting.reload.closed_at).not_to be nil
+      end
     end
 
     context "when proposal linking is disabled" do

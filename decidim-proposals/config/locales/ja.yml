@@ -57,6 +57,16 @@ ja:
               identical: ANDタイトルは同一にすることはできません
             title:
               identical: AND本体は同一にすることはできません
+        proposals_merge:
+          attributes:
+            base:
+              not_official: 公式ではありません
+              supported: 支持または承認を受けました
+        proposals_split:
+          attributes:
+            base:
+              not_official: 公式ではありません
+              supported: サポートまたは承認を受けました
     models:
       decidim/proposals/accepted_proposal_event: 提案が承認されました
       decidim/proposals/admin/update_proposal_category_event: 提案カテゴリが変更されました
@@ -121,7 +131,6 @@ ja:
         name: 提案
         settings:
           global:
-            allow_card_image: カードの画像を許可
             amendments_enabled: 修正が有効
             amendments_enabled_help: アクティブな場合、各ステップに修正機能を設定します。
             amendments_wizard_help_text: 修正ウィザードのヘルプテキスト
@@ -131,6 +140,16 @@ ja:
             collaborative_drafts_enabled: 共同草稿を有効にする
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
+            default_sort_order: デフォルトの提案の並べ替え
+            default_sort_order_options:
+              default: デフォルト
+              most_commented: コメントが多い順
+              most_endorsed: 最も支持された順
+              most_followed: 最もフォローされている順
+              most_voted: 最もサポートされている順
+              random: ランダム
+              recent: 最近のもの
+              with_more_authors: より多くの著者と一緒に
             geocoding_enabled: ジオコーディングが有効
             minimum_votes_per_user: 参加者一人あたりの最低サポート数
             new_proposal_body_template: 新しい提案本文テンプレート
@@ -173,6 +192,7 @@ ja:
             automatic_hashtags: すべての提案に下記のハッシュタグを追加する
             comments_blocked: コメントをブロック
             creation_enabled: 提案の作成を有効にする
+            default_sort_order: デフォルトの提案の並べ替え
             endorsements_blocked: 支持をブロック
             endorsements_enabled: 支持を有効にする
             proposal_answering_enabled: 提案への回答を有効にする
@@ -504,11 +524,11 @@ ja:
             title: 提案をインポート
         proposals_merges:
           create:
-            invalid: 選択した提案をマージする際に問題が発生しました。
+            invalid: '選択した提案をマージする際に問題が発生しました:'
             success: 提案を正常に新しいものにマージしました。
         proposals_splits:
           create:
-            invalid: 選択した提案を分割する際に問題が発生しました。
+            invalid: '選択した提案を分割する際に問題が発生しました:'
             success: 提案を新しいものに分割しました。
         valuation_assignments:
           create:
@@ -745,9 +765,12 @@ ja:
           filter_by: フィルター
           unfold: 展開する
         index:
+          click_here: すべての提案を見る
           collaborative_drafts_list: 共同作業の下書きにアクセスする
           new_proposal: 新しい提案
+          see_all: すべての提案を見る
           see_all_withdrawn: すべての撤回された提案を見る
+          text_banner: 提案者が撤回した提案の一覧を表示しています。 %{go_back_link}.
           view_proposal: 提案を表示
         linked_proposals:
           proposal_votes:

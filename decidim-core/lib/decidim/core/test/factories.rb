@@ -248,7 +248,7 @@ FactoryBot.define do
   end
 
   factory :user_group_membership, class: "Decidim::UserGroupMembership" do
-    user
+    user { create(:user, :confirmed, organization: user_group.organization) }
     role { :creator }
     user_group
   end
@@ -748,5 +748,11 @@ FactoryBot.define do
       times_used { 3 }
       last_used_at { 1.hour.ago }
     end
+  end
+
+  factory :editor_image, class: "Decidim::EditorImage" do
+    organization
+    author { create(:user, :admin, :confirmed, organization: organization) }
+    file { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
   end
 end

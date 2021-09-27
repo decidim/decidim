@@ -24,6 +24,7 @@ pl:
       component:
         name: Nazwa
         published_at: Opublikowano
+        weight: Kolejność na stronie
       id: ID
       import:
         user_group_id: Utwórz import jako
@@ -46,6 +47,7 @@ pl:
         favicon: Ikona
         force_authentication: Wymuś uwierzytelnianie
         force_users_to_authenticate_before_access_organization: Wymuś uwierzytelnianie użytkowników przed dołączeniem do organizacji
+        from: Adres e-mail nadawcy
         github_handler: Handler GitHuba
         header_snippets: Fragmenty nagłówków
         highlight_alternative_color: Wyróżnij (alternatywny kolor)
@@ -155,6 +157,8 @@ pl:
         browse: Przeglądaj
         category:
           new: Nowa kategoria
+        export: Eksportuj wszystko
+        export-selection: Eksportuj wybrane
         import: Importuj
         manage: Zarządzanie
         new: 'Nowy: %{name}'
@@ -390,6 +394,11 @@ pl:
           title_cont: Przeszukaj %{collection} według tytułu.
         state_eq:
           label: Stan
+          values:
+            all: Wszystkie
+            pending: Oczekujące
+            rejected: Odrzucono
+            verified: Zweryfikowano
       forms:
         file_help:
           import:
@@ -472,6 +481,7 @@ pl:
         areas: Kategorie
         configuration: Konfiguracja
         dashboard: Panel
+        external_domain_whitelist: Dozwolone domeny zewnętrzne
         help_sections: Sekcje pomocy
         homepage: Strona główna
         impersonations: Podszywanie się pod inne osoby
@@ -744,8 +754,10 @@ pl:
         edit:
           update: Aktualizuj
         external_domain:
+          down: W dół
           external_domain: Domena zewnętrzna
           remove: Usuń
+          up: W górę
         form:
           add: Dodaj do białej listy
           title: Biała lista domen zewnętrznych
@@ -907,13 +919,6 @@ pl:
           success: Grupa użytkowników została zweryfikowana
       user_groups:
         index:
-          filter:
-            all: Wszystkie
-            pending: Oczekujące
-            rejected: Odrzucone
-            verified: Zweryfikowane
-          filter_by: Filtruj według
-          search: Szukaj
           state:
             pending: Oczekujące
             rejected: Odrzucone

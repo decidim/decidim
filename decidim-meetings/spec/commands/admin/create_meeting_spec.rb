@@ -71,7 +71,10 @@ module Decidim::Meetings
         online_meeting_url: online_meeting_url,
         customize_registration_email: customize_registration_email,
         registration_email_custom_content: registration_email_custom_content,
-        show_embedded_iframe: show_embedded_iframe
+        show_embedded_iframe: show_embedded_iframe,
+        comments_enabled: true,
+        comments_start_time: nil,
+        comments_end_time: nil
       )
     end
 

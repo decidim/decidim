@@ -607,13 +607,6 @@ id:
           success: Kelompok pengguna berhasil diverifikasi
       user_groups:
         index:
-          filter:
-            all: Semua
-            pending: Menunggu keputusan
-            rejected: Ditolak
-            verified: Diverifikasi
-          filter_by: Filter berdasarkan
-          search: Pencarian
           state:
             pending: Menunggu keputusan
             rejected: Ditolak

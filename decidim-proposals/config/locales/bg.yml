@@ -95,7 +95,6 @@ bg:
         name: Предложения
         settings:
           global:
-            allow_card_image: Позволи изображение на карта
             amendments_enabled: Поправките са разрешени
             amendments_enabled_help: Ако е активно, конфигурирайте свойствата на измененията за всяка стъпка.
             amendments_wizard_help_text: Помощен текст на съветника за изменения

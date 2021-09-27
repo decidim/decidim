@@ -23,7 +23,7 @@ env:
   CI: "true"
   SIMPLECOV: "true"
   RUBY_VERSION: 2.7.1
-  NODE_VERSION: 15.14.0
+  NODE_VERSION: 16.9.1
   DECIDIM_MODULE: decidim-elections
 
 jobs:
@@ -44,7 +44,7 @@ jobs:
         env:
           POSTGRES_PASSWORD: postgres
       bulletin_board:
-        image: codegram/decidim-bulletin-board:0.21.1
+        image: codegram/decidim-bulletin-board:0.22.3
         ports: ["8000:8000"]
         env:
           DATABASE_URL: postgresql://postgres:postgres@postgres/bb

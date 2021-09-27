@@ -54,7 +54,9 @@ pl:
         title: Tytuł
         weight: Kolejność na stronie
       conference_speaker:
+        affiliation: Przynależność
         avatar: Awatar
+        conference_meeting_ids: Powiązane spotkania
         full_name: Pełne imię i nazwisko
         position: Pozycja
         short_bio: Notka biograficzna
@@ -247,6 +249,7 @@ pl:
             price: Cena
             registrations_count: Liczba rejestracji
             title: Tytuł
+            weight: Kolejność na stronie
           name: Typ rejestracji
       partners:
         create:

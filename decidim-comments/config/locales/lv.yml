@@ -71,7 +71,6 @@ lv:
         blocked_comments_warning: Komentāri šobrīd ir atspējoti, bet jūs varat lasīt iepriekšējos komentārus.
         comment_details_title: Komentāra informācija
         loading: Notiek komentāru ielāde ...
-        single_comment_warning: Pārējos komentārus varat aplūkot <a href="%{url}">šeit</a>.
         single_comment_warning_title: Jūs redzat vienu komentāru
     events:
       comments:

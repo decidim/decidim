@@ -445,11 +445,9 @@ gl:
             title: Importar propostas
         proposals_merges:
           create:
-            invalid: Produciuse un erro ao fusionar as propostas seleccionadas.
             success: Fusionou con éxito as propostas nun novo.
         proposals_splits:
           create:
-            invalid: Produciuse un erro dividindo as propostas seleccionadas.
             success: Reaccionou con éxito as propostas en novas.
         valuation_assignments:
           create:

@@ -62,6 +62,7 @@ ja:
         designation_mode: 指定方法
         full_name: フルネーム
         gender: 性別
+        non_user_avatar: アバター
         position: ポジション
         user_id: ユーザー
       assembly_user_role:
@@ -179,6 +180,9 @@ ja:
         update:
           error: この参加スペースの管理者を更新中に問題が発生しました。
           success: 管理者はこの参加スペースの更新に成功しました。
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: 参加スペース種別
       menu:
         assemblies: 参加スペース
         assemblies_settings: 設定
@@ -293,7 +297,10 @@ ja:
         assembly_members:
           form:
             existing_user: 既存の参加者
+            explanation: '画像のガイダンス:'
+            image_guide: テキストを持たない人物の画像を使用する必要があります。
             non_user: 参加者がいません
+            non_user_avatar_help: メンバーとして公開する前に同意を得る必要があります。
             select_a_position: ポジションを選択
             select_user: 参加者を選択
             user_type: 参加者の種類

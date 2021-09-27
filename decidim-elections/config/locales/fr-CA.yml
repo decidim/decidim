@@ -36,6 +36,14 @@ fr-CA:
             public_key:
               cant_be_changed: ne peut être modifiée
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: L'agent de vote est déjà président/responsable d'un bureau de vote
+            voting:
+              different_organization: Le vote doit être dans le même organization que l'utilisateur
     models:
       decidim/elections/answer:
         one: Réponse
@@ -53,6 +61,18 @@ fr-CA:
         one: Vote
         other: Votes
   decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          values:
+            assigned: Assigné
+            unassigned: Non affecté
+        role_eq:
+          label: Rôle
+          values:
+            manager: Responsable
+            president: Président
+            unassigned: Non assigné(e)
     components:
       elections:
         actions:
@@ -204,8 +224,8 @@ fr-CA:
             title: Élection créée
             trustees: Garants
           key_ceremony:
+            continue: Continuer
             title: Cérémonie des clés
-            trustees: Garants
           key_ceremony_ended:
             errors:
               time_before: L'élection est prête à commencer. Vous devez attendre %{hours} heures avant le lancement (%{start_time}) pour démarrer la période de vote.
@@ -224,7 +244,13 @@ fr-CA:
             submit: Envoyer
             title: Résultats publiés
           tally:
-            trustees: Garants
+            continue: Continuer
+            invalid: Une erreur est survenue lors du signalement du garant absent
+            mark_as_missing: Marquer comme absent
+            mark_as_missing_description: Tout les garants doivent participer au processus, mais si un garant ne peut y prendre part, vous pouvez le marquer comme absent.
+            success: Le signalement du garant absent a été envoyé avec succès sur le Tableau d'Affichage
+            tally_completion: Le processus sera terminé lorsque tout les garants seront marqués comme actif ou absent. Au moins %{quorum} garants sont requis pour compléter le processus.
+            undo_mark_as_missing: Un garant marqué comme absent par erreur sera capable de participer avant l'achèvement du processus. Ils peuvent procéder comme d'habitude et le signalement d'absence sera ignoré.
           tally_ended:
             answer: Répondre
             not_selected: Non sélectionné
@@ -271,11 +297,6 @@ fr-CA:
           update:
             invalid: Une erreur s'est produite lors de la mise à jour du garant %{trustee}
             success: Le garant %{trustee} a été mis à jour avec succès
-      admin_log:
-        election:
-          publish: "%{user_name} a publié l'élection %{resource_name}"
-          publish_results: "%{user_name} a publié les résultats de l'élection %{resource_name} sur le Tableau d'affichage"
-          unpublish: "%{user_name} a dépublié l'élection %{resource_name}"
       election_m:
         badge_name:
           finished: Terminées

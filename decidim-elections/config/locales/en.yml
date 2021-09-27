@@ -254,8 +254,8 @@ en:
             title: Election created
             trustees: Trustees
           key_ceremony:
+            continue: Continue
             title: Key ceremony
-            trustees: Trustees
           key_ceremony_ended:
             errors:
               time_before: The election is ready to start. You have to wait until %{hours} hours before the starting time (%{start_time}) to start the voting period.
@@ -275,8 +275,14 @@ en:
             submit: Submit
             title: Results published
           tally:
+            continue: Continue
+            invalid: There was a problem reporting the missing trustee
+            mark_as_missing: Mark as missing
+            mark_as_missing_description: All the trustees should participate in this process, but if a trustee can't take part in the process, you can mark it as missing.
+            success: Missing trustee report was successfully sent to the Bulletin Board
+            tally_completion: The process will be completed when all the trustees are active or marked as missing. At least %{quorum} trustees are required to complete the process.
             title: Tally process
-            trustees: Trustees
+            undo_mark_as_missing: A trustee marked as missing by mistake will be able to participate before the completion of the process. They can proceed as usual and the missing mark will be ignored.
           tally_ended:
             answer: Answer
             not_selected: Not selected

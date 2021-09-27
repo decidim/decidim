@@ -10,8 +10,8 @@
   "author": "Decidim Contributors",
   "license": "AGPL-3.0",
   "engines": {
-    "node": "^15.14.0",
-    "npm": "^7.7.2"
+    "node": "^16.9.1",
+    "npm": "^7.21.1"
   },
   "dependencies": {
     "@joeattardi/emoji-button": "^4.6.0",

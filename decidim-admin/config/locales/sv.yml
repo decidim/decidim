@@ -918,13 +918,6 @@ sv:
           success: Gruppen har verifierats
       user_groups:
         index:
-          filter:
-            all: Alla
-            pending: Väntande
-            rejected: Avvisad
-            verified: Verifierat
-          filter_by: Filtrera efter
-          search: Sök
           state:
             pending: Väntande
             rejected: Avvisad

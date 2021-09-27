@@ -22,6 +22,22 @@ module Decidim
       Decidim::AdminLog::ParticipatorySpacePrivateUserPresenter
     end
 
+    ransacker :name do
+      Arel.sql(%{("decidim_users"."name")::text})
+    end
+
+    ransacker :email do
+      Arel.sql(%{("decidim_users"."email")::text})
+    end
+
+    ransacker :invitation_sent_at do
+      Arel.sql(%{("invitation_sent_at")::text})
+    end
+
+    ransacker :invitation_accepted_at do
+      Arel.sql(%{("invitation_accepted_at")::text})
+    end
+
     private
 
     # Private: check if the participatory space and the user have the same organization

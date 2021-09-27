@@ -121,6 +121,9 @@ cs:
         highlighted_cta: Hlasovat na %{name}
         if_change_opinion: Pokud jste změnili názor, můžete
         my_budgets: Mé rozpočty
+        progress: Dokončit hlasování
+        show: Zobrazit projekty
+        vote: Hlasovat
         voted_on: Hlasovali jste pro %{links}
       limit_announcement:
         cant_vote: O tomto rozpočtu nelze hlasovat. <a href="%{landing_path}">Zkuste jiný rozpočet</a>.

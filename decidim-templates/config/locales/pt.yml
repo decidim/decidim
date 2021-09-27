@@ -1,1 +1,67 @@
 pt:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Título
+      template:
+        description: Descrição
+        name: Nome
+  decidim:
+    admin:
+      menu:
+        templates: Modelos
+      templates:
+        apply:
+          error: Houve um problema ao aplicar este modelo
+          success: Modelo aplicado com êxito
+        copy:
+          error: Houve um problema ao copiar este modelo
+          success: Modelo copiado com êxito
+        create:
+          error: Houve um problema ao criar este modelo.
+          success: Modelo criado com êxito
+        destroy:
+          success: Modelo eliminado com êxito
+        empty: Ainda não há modelos.
+        update:
+          error: Houve um problema ao actualizar este modelo.
+          success: Modelo actualizado com êxito
+      titles:
+        template_types:
+          questionnaires: Modelos de questionário
+        templates: Modelos
+    models:
+      questionnaire_template:
+        fields:
+          questions: Número de questões
+          title: Título do questionário
+      template:
+        fields:
+          created_at: Criado em
+        name: Modelo
+    templates:
+      admin:
+        questionnaire_templates:
+          choose:
+            create_from_template: Criar a partir do modelo
+            description: Está prestes a criar um novo questionário. Pode escolher um modelo predefinido e modificá-lo posteriormente.
+            label: Escolher modelo
+            placeholder: Escolher modelo
+            skip_template: Saltar
+          edit:
+            edit: Editar
+            empty: Ainda não há questões
+            questionnaire: Questionário
+          form:
+            save: Guardar
+            template_title: Informação do modelo
+            title: Modelo de questionário %{questionnaire_for}
+          index:
+            confirm_delete: Tem a certeza que quer apagar este modelo?
+            title: Modelos de questionário
+          preview:
+            current_step: Passo %{step}
+            of_total_steps: de %{total_steps}
+            tos_agreement: Ao participar aceita as Condições de Serviço
+      template_types:
+        questionnaires: Questionários

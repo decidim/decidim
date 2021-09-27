@@ -119,6 +119,9 @@ sv:
         highlighted_cta: Rösta på %{name}
         if_change_opinion: Om du ångrar dig kan du
         my_budgets: Mina budgetar
+        progress: Avsluta röstning
+        show: Visa projekt
+        vote: Rösta
         voted_on: Du har röstat på %{links}
       limit_announcement:
         cant_vote: Du kan inte rösta på denna budget. <a href="%{landing_path}">Pröva en annan budget</a>.

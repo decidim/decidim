@@ -118,6 +118,9 @@ ja:
         highlighted_cta: '%{name} に投票'
         if_change_opinion: 気が変わった場合は、
         my_budgets: 私の予算
+        progress: 投票を終了
+        show: プロジェクトを表示
+        vote: 投票
         voted_on: '%{links} に投票しました'
       limit_announcement:
         cant_vote: この予算に投票することはできません。 <a href="%{landing_path}">別の予算を試してみてください</a>。

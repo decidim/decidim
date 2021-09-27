@@ -97,7 +97,6 @@ pl:
         blocked_comments_warning: Komentarze są w tej chwili wyłączone, ale możesz przeczytać poprzednie.
         comment_details_title: Szczegóły komentarza
         loading: Ładowanie komentarzy ...
-        single_comment_warning: Resztę komentarzy możesz sprawdzić <a href="%{url}">tutaj</a>.
         single_comment_warning_title: Wyświetlasz teraz pojedynczy komentarz
         title:
           one: "%{count} komentarz"

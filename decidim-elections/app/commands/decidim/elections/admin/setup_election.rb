@@ -142,7 +142,7 @@ module Decidim
             affected_users: trustee
           }
 
-          Decidim::EventsManager.publish(data)
+          Decidim::EventsManager.publish(**data)
         end
 
         # Since machine_translations return a nested hash but Electionguard and other

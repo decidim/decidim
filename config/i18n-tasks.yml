@@ -312,6 +312,9 @@ ignore_unused:
   - decidim.proposals.proposals.show.withdraw_btn_hint
   - decidim.proposals.proposals.show.withdraw_confirmation_html
   - decidim.proposals.proposals.show.withdraw_proposal
+  - decidim.assemblies.admin.assembly_members.form.explanation
+  - decidim.assemblies.admin.assembly_members.form.image_guide
+  - decidim.assemblies.admin.assembly_members.form.non_user_avatar_help
 
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:

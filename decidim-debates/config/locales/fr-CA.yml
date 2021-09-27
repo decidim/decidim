@@ -236,3 +236,5 @@ fr-CA:
         description: Nombre de débats créés
         object: débats
         title: Débats
+    statistics:
+      debates_count: Débats

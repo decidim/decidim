@@ -1,1 +1,14 @@
 eu:
+  decidim:
+    elections:
+      elections:
+        filters:
+          state: Egoera
+          upcoming: Hurrengoak
+        filters_small_view:
+          close_modal: Itxi leihoa
+          filter: Iragazi
+          filter_by: Iragazi honen arabera
+          unfold: Zabaldu
+        preview:
+          available_answers: 'Aukerako erantzunak:'

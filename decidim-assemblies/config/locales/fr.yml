@@ -52,6 +52,7 @@ fr:
         target: Participants
         title: Titre
         twitter: Twitter
+        weight: Rang
         youtube: Youtube
       assembly_member:
         birthday: Date de naissance
@@ -61,6 +62,7 @@ fr:
         designation_mode: Mode de désignation
         full_name: Nom et prénom
         gender: Genre
+        non_user_avatar: Avatar
         position: Statut
         user_id: Utilisateur
       assembly_user_role:
@@ -181,6 +183,9 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette assemblée.
           success: Utilisateur mis à jour avec succès pour cette assemblée.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Type d'assemblée
       menu:
         assemblies: Assemblées
         assemblies_settings: Paramètres
@@ -261,6 +266,7 @@ fr:
       admin:
         assemblies:
           form:
+            announcement_help: Le texte que vous saisissez ici sera affiché aux utilisateurs juste en dessous des informations de l'assemblée.
             duration: Durée
             duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
             filters: Filtres
@@ -294,7 +300,10 @@ fr:
         assembly_members:
           form:
             existing_user: Utilisateur existant
+            explanation: 'Instruction concernant l’image:'
+            image_guide: De préférence une image en format portrait sans texte.
             non_user: Utilisateur inconnu
+            non_user_avatar_help: Vous devriez obtenir le consentement des personnes avant de les publier en tant que membre.
             select_a_position: Sélectionnez un statut
             select_user: Sélectionnez un utilisateur
             user_type: Type d'utilisateur

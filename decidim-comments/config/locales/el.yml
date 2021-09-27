@@ -93,7 +93,6 @@ el:
         blocked_comments_warning: Τα σχόλια είναι απενεργοποιημένα αυτήν τη στιγμή, αλλά μπορείτε να διαβάσετε τα προηγούμενα σχόλια.
         comment_details_title: Λεπτομέρειες σχολίων
         loading: Φόρτωση σχολίων...
-        single_comment_warning: Μπορείτε να δείτε τα υπόλοιπα σχόλια <a href="%{url}">εδώ</a>.
         single_comment_warning_title: Βλέπετε ένα μόνο σχόλιο
         title:
           one: "%{count} σχόλιο"

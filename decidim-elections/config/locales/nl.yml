@@ -226,7 +226,6 @@ nl:
             trustees: Verkiezing Trustees
           key_ceremony:
             title: Sleutelceremonie
-            trustees: Trustees
           results_published:
             answer: Antwoord
             not_selected: Niet geselecteerd
@@ -275,11 +274,6 @@ nl:
           update:
             invalid: Er is een fout opgetreden bij het bijwerken van trustee %{trustee}
             success: Trustee %{trustee} succesvol bijgewerkt
-      admin_log:
-        election:
-          publish: "%{user_name} publiceerde de %{resource_name} verkiezing"
-          setup: "%{user_name} heeft de %{resource_name} stemronde op het Bulletin Bord aangemaakt"
-          unpublish: "%{user_name} heeft de verkiezing van %{resource_name} gedepubliceerd"
       elections:
         count:
           elections_count:

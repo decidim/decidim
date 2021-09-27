@@ -11,9 +11,6 @@ shared_examples_for "accessible page" do
     html = page.source
     html = "<!DOCTYPE html>\n#{html}" unless html.strip.match?(/^<!DOCTYPE/i)
 
-    # This would cause a validation error (added by Foundation JS).
-    html = html.gsub(/<meta class="foundation-mq">/, "")
-
     expect(html).to be_valid_html
   end
 end

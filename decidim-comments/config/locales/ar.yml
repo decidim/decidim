@@ -77,7 +77,6 @@ ar:
         blocked_comments_warning: التعليقات معطلة في هذا الوقت ، لكن يمكنك قراءة التعليقات السابقة.
         comment_details_title: تفاصيل التعليق
         loading: جارٍ تحميل التعليقات ...
-        single_comment_warning: يمكنك الإطلاع على التعليقات المتبقية الأخرى <a href="%{url}">هنا</a>.
         single_comment_warning_title: إنك ترى تعليقا واحدا
     events:
       comments:

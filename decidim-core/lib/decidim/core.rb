@@ -267,7 +267,7 @@ module Decidim
 
   # Time window were users can access the website even if their email is not confirmed.
   config_accessor :unconfirmed_access_for do
-    2.days
+    0.days
   end
 
   # Allow machine translations

@@ -503,13 +503,6 @@ is-IS:
         static_pages: Síður
       user_groups:
         index:
-          filter:
-            all: Allt
-            pending: Í bið
-            rejected: Hafnað
-            verified: Staðfest
-          filter_by: Sía eftir
-          search: Leita
           state:
             pending: Í bið
             rejected: Hafnað

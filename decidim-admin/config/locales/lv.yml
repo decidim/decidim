@@ -694,13 +694,6 @@ lv:
           success: Grupa ir veiksmīgi pārbaudīta
       user_groups:
         index:
-          filter:
-            all: Visi
-            pending: Nepabeigts
-            rejected: Noraidīts
-            verified: Pārbaudīts
-          filter_by: Filtrēt pēc
-          search: Meklēt
           state:
             pending: Nepabeigts
             rejected: Noraidīts

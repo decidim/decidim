@@ -1,4 +1,4 @@
-import { Client } from "@codegram/decidim-bulletin_board";
+import { Client } from "@decidim/decidim-bulletin_board";
 
 $(async () => {
   const $inPersonVoteWrapper = $(".in-person-vote-wrapper");

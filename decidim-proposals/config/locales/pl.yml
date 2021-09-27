@@ -132,7 +132,6 @@ pl:
         name: Propozycje
         settings:
           global:
-            allow_card_image: Zezwalaj na obraz
             amendments_enabled: Można dodawać poprawki
             amendments_enabled_help: Jeśli aktywne, skonfiguruj funkcje poprawek dla każdego kroku.
             amendments_wizard_help_text: Tekst pomocy Kreatora poprawek
@@ -518,11 +517,9 @@ pl:
             title: Importuj propozycje
         proposals_merges:
           create:
-            invalid: Podczas łączenia wybranych propozycji wystąpił błąd.
             success: Pomyślnie połączono propozycje.
         proposals_splits:
           create:
-            invalid: Wystąpił błąd podczas podziału wybranych propozycji.
             success: Pomyślnie podzielono propozycje.
         valuation_assignments:
           create:

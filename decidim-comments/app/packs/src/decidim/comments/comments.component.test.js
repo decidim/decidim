@@ -114,7 +114,6 @@ describe("CommentsComponent", () => {
                   data-tooltip="true"
                   data-disable-hover="false"
                   data-keep-on-hover="true"
-                  aria-haspopup="true"
                   class="label-required has-tip"
               >
                 <span aria-hidden="true">*</span><span class="show-for-sr">Required field</span>
@@ -170,7 +169,7 @@ describe("CommentsComponent", () => {
               </span>
             </div>
             <div class="author-data__extra">
-                <button type="button" class="link-alt" data-open="flagModalComment${commentId}" title="Report inappropriate content" aria-controls="flagModalComment${commentId}" aria-haspopup="true" tabindex="0">
+                <button type="button" class="link-alt" data-open="flagModalComment${commentId}" title="Report inappropriate content" aria-controls="flagModalComment${commentId}" aria-haspopup="dialog" tabindex="0">
                   <svg role="img" aria-hidden="true" class="icon--flag icon icon--small">
                     <title></title>
                     <use href="/assets/decidim/icons-123.svg#icon-flag"></use>
@@ -261,7 +260,7 @@ describe("CommentsComponent", () => {
     let orderSelector = `
       <ul id="comments-order-menu" class="dropdown menu" data-dropdown-menu="data-dropdown-menu" data-autoclose="false" data-disable-hover="true" data-click-open="true" data-close-on-click="true" tabindex="-1" role="menubar">
         <li class="is-dropdown-submenu-parent opens-right" tabindex="-1" role="none">
-          <a href="#" id="comments-order-menu-control" aria-label="Order by:" aria-controls="comments-order-menu" aria-haspopup="true" role="menuitem">Older</a>
+          <a href="#" id="comments-order-menu-control" aria-label="Order by:" aria-controls="comments-order-menu" aria-haspopup="menu" role="menuitem">Older</a>
           <ul class="menu is-dropdown-submenu submenu first-sub vertical" id="comments-order-chooser-menu" role="menu" aria-labelledby="comments-order-menu-control" tabindex="-1" data-submenu="">
             <li role="none" class="is-submenu-item is-dropdown-submenu-item">
               <a tabindex="-1" role="menuitem" data-remote="true" href="/comments?commentable_gid=commentable-gid&amp;order=best_rated&amp;reload=1">
@@ -558,16 +557,81 @@ describe("CommentsComponent", () => {
           "This is a dynamically added comment"
         ));
       });
+
+      it("does not clear the comment form text area", () => {
+        const commentSection = addComment[addComment.length - 1];
+        const textArea = $("textarea", commentSection);
+        textArea.val("I am writing a new comment...");
+
+        const newThread = generateCommentThread(999, "This is a dynamically added comment");
+        subject.addThread(newThread);
+
+        expect(textArea.val()).toEqual("I am writing a new comment...");
+      });
+
+      describe("as the current user", () => {
+        it("clears the comment form text area", () => {
+          const commentSection = addComment[addComment.length - 1];
+          const textArea = $("textarea", commentSection);
+          textArea.val("I am writing a new comment...");
+
+          const newThread = generateCommentThread(999, "This is a dynamically added comment");
+          subject.addThread(newThread, true);
+
+          expect(textArea.val()).toEqual("");
+        });
+      });
     });
 
     describe("addReply", () => {
+      const newReply = generateSingleComment(999, "This is a dynamically added reply");
+
       it("adds a new reply to an existing thread", () => {
-        const newThread = generateSingleComment(999, "This is a dynamically added reply");
-        subject.addReply(450, newThread);
+        subject.addReply(450, newReply);
 
         expect(subject.$element.html()).toEqual(expect.stringContaining(
           "This is a dynamically added reply"
         ));
+      });
+
+      it("does not clear the reply comment form text area", () => {
+        const commentSection = $("#comment450-reply", subject.$element);
+        const textArea = $("textarea", commentSection);
+        textArea.val("I am writing a new comment...");
+
+        subject.addReply(450, newReply);
+
+        expect(textArea.val()).toEqual("I am writing a new comment...");
+      });
+
+      it("does not hide the reply form", () => {
+        const commentSection = $("#comment450-reply", subject.$element);
+        commentSection.removeClass("hide");
+
+        subject.addReply(450, newReply);
+
+        expect(commentSection.hasClass("hide")).toBeFalsy();
+      });
+
+      describe("as the current user", () => {
+        it("clears the comment form text area", () => {
+          const commentSection = $("#comment450-reply", subject.$element);
+          const textArea = $("textarea", commentSection);
+          textArea.val("I am writing a new comment...");
+
+          subject.addReply(450, newReply, true);
+
+          expect(textArea.val()).toEqual("");
+        });
+
+        it("hides the reply form", () => {
+          const commentSection = $("#comment450-reply", subject.$element);
+          commentSection.removeClass("hide");
+
+          subject.addReply(450, newReply, true);
+
+          expect(commentSection.hasClass("hide")).toBeTruthy();
+        });
       });
     });
   });
