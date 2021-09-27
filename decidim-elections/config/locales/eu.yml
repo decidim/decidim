@@ -1,4 +1,18 @@
 eu:
+  activemodel:
+    attributes:
+      answer:
+        description: Deskribapena
+        image: Irudia
+        proposals: Lotutako proposamenak
+        title: Izenburua
+      election:
+        description: Deskribapena
+        end_time: Bozketaren amaiera-data
+        start_time: Bozketaren hasiera-data
+        title: Izenburua
+      question:
+        description: Deskribapena
   decidim:
     elections:
       elections:
