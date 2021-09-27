@@ -171,11 +171,17 @@ eu:
           projects_rule:
             description: Zure ustez, zein proiekturi esleitu beharko genieke aurrekontua? Hautatu %{minimum_number} eta %{maximum_number} arteko proiektuak, eta eman botoa zure lehentasunen arabera aurrekontua zehazteko.
             instruction: "<li>Hautatu gutxienez nahi dituzun %{minimum_number} eta %{maximum_number} arteko proiektu eta bozkatu zure lehentasunen arabera </li> proiektua zehazteko"
+          projects_rule_maximum_only:
+            description: Zure ustez, zein proiekturi eman beharko genieke aurrekontua? Hautatu %{maximum_number} arte eta eman botoa zure lehentasunen arabera aurrekontua zehazteko.
+            instruction: "<li>Hautatu %{maximum_number} arte nahi beste proiektu eta eman botoa zure lehentasunen arabera aurrekontua zehazteko </li>"
           rules:
             title: Aurrekontuaren arauak
           title: Zure esku dago aurrekontua erabakitzea
           total_budget: Aurrekontua guztira
           total_projects: Botoak guztira
+          vote_threshold_percent_rule:
+            description: Zure ustez, zein proiekturi eman beharko genieke aurrekontua? Hautatu %{minimum_budget} arte eta eman botoa zure lehentasunen arabera aurrekontua zehazteko.
+            instruction: "<li>Hautatu %{minimum_budget} arte nahi beste proiektu eta eman botoa zure lehentasunen arabera aurrekontua zehazteko </li>"
         count:
           projects_count:
             one: Proiektu bat
@@ -217,6 +223,7 @@ eu:
           you_voted: Hau bozkatu duzu
         project_budget_button:
           add: Gehitu zure botoari
+          add_descriptive: Gehitu %{resource_name} proiektua zure botoari
           added: Gehituta zure botoari
           added_descriptive: '%{resource_name} proiektua zure botoari gehitu zaio'
         projects_for: '%{name} ren prozesuak'
