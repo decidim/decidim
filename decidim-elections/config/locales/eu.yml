@@ -96,7 +96,27 @@ eu:
       elections:
         actions:
           vote: Eman botoa
+        name: Bozketak
+        settings:
+          global:
+            announcement: Iragarpena
+          step:
+            announcement: Iragarpena
     elections:
+      actions:
+        confirm_destroy: Ziur zaude?
+        destroy: Suntsitu
+        edit: Editatu
+        feedback: Boto-emailearen feedback-a
+        import: Sartu proposamenak erantzun gisa
+        manage_answers: Kudeatu erantzunak
+        manage_questions: Kudeatu galderak
+        manage_steps: Kudeatu urratsak
+        new: '%{name} berria'
+        preview: Aurrebistaratu
+        publish: Argitaratu
+        title: Ekintzak
+        unpublish: Desargitaratu
       admin:
         steps:
           vote:
