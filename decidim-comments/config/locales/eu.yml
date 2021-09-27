@@ -16,6 +16,19 @@ eu:
         other: Botoak
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Iruzkinak gaituta
+            end_time: Iruzkinak noiz arte aktibatuta
+            start_time: Iruzkinak noiztik aktibatuta
+      comments:
+        create:
+          error: Arazoa gertatu da iruzkina sortzean.
+        delete:
+          error: Iruzkina ezin izan da ezabatu.
+        update:
+          error: Arazoa gertatu da iruzkina eguneratzean.
       last_activity:
         new_comment_at_html: "<span>Iruzkin berria %{link}</span>"
       votes:
