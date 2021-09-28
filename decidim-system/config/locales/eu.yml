@@ -120,12 +120,53 @@ eu:
         file_upload_settings:
           content_types:
             admin_hint: MIME mota horiek baimenduta daude administrazio-paneletik igotzeko. Administratzaileek dokumentuen formatu batzuk igotzean dauden arriskuez jabetu behar dute, eta, beraz, artxiboen igoeretan zuhurragoak izatea espero daiteke.
+            default_hint: MIME mota hauek, lehenetsiz, baimenduta daude erabiltzaile guztientzat.
+            intro_html: 'Gehitu izartxoa duten komodinak MIME motetarako, adibidez: <code>image/*</code>.'
+            title: Baimendutako MIME motak
+          file_extensions:
+            admin_hint: Artxibo-luzapen hauek baimenduta daude administrazio-paneletik igotzeko. Administratzaileek dokumentuen formatu batzuk igotzean dauden arriskuez jabetu behar dute, eta, beraz, artxiboen igoeretan zuhurragoak izatea espero daiteke.
+            default_hint: Artxibo-luzapen hauek, lehenetsiz, baimenduta daude erabiltzaile guztientzat.
+            image_hint: Artxibo-luzapen hauek baimenduta daude edozein motatako irudi-igoeratarako.
+            title: Baimendutako fitxategi-luzapenak
+          file_sizes:
+            avatar_hint: Megabytes (MB). Fitxategiaren tamainaren muga hori erabiltzen da avatar-irudiak igotzeko.
+            default_hint: Megabytes (MB). Fitxategiaren tamainaren muga hori fitxategien igoera guztietarako erabiltzen den lehenetsia da, kontrakoa zehaztu ezean.
+            title: Gehieneko fitxategi tamaina
+          intro: |
+            Mesedez, kontuz ibili doikuntza horiek aldatzean. 
+            Zenbat eta aukera gutxiago, hobe.
+            Fitxategi espezifikoen luzapenak edo MIME motakoak baimentzeak segurtasun-arriskuen eraginpean jar ditzake sistemaren erabiltzaileak, eta webgunearen irisgarritasunari ere eragin diezaioke.
         index:
           title: Erakundeak
         new:
           reference_prefix_hint: Erreferentzia-aurrizkia erabiltzen da erakunde guztien baliabideak modu bakarrean identifikatzeko
           secondary_hosts_hint: Sartu haietako bakoitza lerro batean
           title: Erakunde berria
+        omniauth_settings:
+          decidim:
+            client_id: Bezeroaren IDa
+            client_secret: Bezeroaren sekretua
+            site_url: Guneko URLa
+          enabled: Gaituta
+          facebook:
+            app_id: Apparen IDa
+            app_secret: Aplikazio-sekretua
+          google_oauth2:
+            client_id: Bezeroaren IDa
+            client_secret: Bezeroaren sekretua
+          icon: Ikonoa
+          icon_path: Ikonoaren bidea
+          twitter:
+            api_key: API giltza
+            api_secret: API sekretua
+        smtp_settings:
+          fieldsets:
+            sender: Bidaltzailea
+          instructions:
+            from_label: 'Posta elektronikoaren bidaltzailea honako hau izango da: "Erakundearen izena < your-organization@example.org>". Utzi hutsik ''Helbide elektronikoa'' eremua etiketa gisa erabiltzeko'
+          placeholder:
+            from_email: zure-erakundea@example.org
+            from_label: erakundearen izena
         update:
           error: Errorea gertatu da erakunde hau eguneratzean.
           success: Erakundea zuzen eguneratu da.
