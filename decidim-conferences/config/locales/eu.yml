@@ -25,13 +25,20 @@ eu:
         scopes_enabled: Scopes gaituta
         short_description: Deskribapen laburra
         show_statistics: Erakutsi estatistikak
-        slogan: leloa
-        slug: URL slug
+        signature: Sinadura
+        signature_name: sinaduraren izena
+        slogan: Leloa
+        slug: URL laburra
         title: Izenburua
       conference_media_link:
+        date: Data
+        link: Lotura
         title: Izenburua
         weight: pisu
       conference_partner:
+        link: Lotura
+        logo: Logoa
+        name: Izena
         weight: pisu
       conference_registration_type:
         title: Izenburua
