@@ -21,14 +21,17 @@ eu:
         promoted: sustatuta
         published_at: Argitaratu at
         registration_terms: Izen-ematearen irizpideak eta baldintzak
+        registrations_enabled: Gaitu izen-emateak
         scope_id: esparrua
         scopes_enabled: Scopes gaituta
         short_description: Deskribapen laburra
         show_statistics: Erakutsi estatistikak
+        sign_date: Sinatze-data
         signature: Sinadura
         signature_name: sinaduraren izena
         slogan: Leloa
         slug: URL laburra
+        start_date: Hasiera-data
         title: Izenburua
       conference_media_link:
         date: Data
