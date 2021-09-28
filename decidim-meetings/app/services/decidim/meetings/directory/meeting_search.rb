@@ -4,6 +4,14 @@ module Decidim
   module Meetings
     module Directory
       class MeetingSearch < Decidim::Meetings::MeetingSearch
+        text_search_fields :title, :description
+
+        def search_space
+          return query if options[:space].blank? || options[:space] == "all"
+
+          query.joins(:component).where(decidim_components: { participatory_space_type: options[:space].collect(&:classify) })
+        end
+
         private
 
         # Private: Creates an array of category ids.
