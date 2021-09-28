@@ -19,6 +19,9 @@ eu:
         hashtag: hashtag
         hero_image: Hasiera irudia
         i_frame_url: Kanpoko boto-sistemaren URLa
+        instructions: Jarraibide osagarriak botoa emateko
+        max_votes: Gehieneko boto kopurua
+        min_votes: Gutxieneko boto kopurua
         origin_scope: esparrua
         origin_title: Origin
         origin_url: Jatorria URLa
@@ -31,11 +34,24 @@ eu:
         subtitle: azpititulua
         vote: Kanpoko boto sistema
         what_is_decided: Zer erabaki
+      response:
+        decidim_consultations_response_group_id: Taldea
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Gehieneko boto kopurua gutxienekoa baino handiagoa edo berdina izan behar da.
       vote:
         decidim_consultations_response_id:
           not_found: Erantzuna ez da aurkitu.
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Boto kopurua ez da baliozkoa
     models:
       decidim/consultation:
         one: Consulta
@@ -52,10 +68,13 @@ eu:
   decidim:
     admin:
       actions:
+        back_to_responses: Itzuli erantzunetara
         new_consultation: Kontsulta berria
         new_question: Galdera berria
         new_response: Erantzun berria
+        new_response_group: Talde berri bat
         publish_results: Argitaratu emaitzak
+        response_groups: Kudeatu erantzun-multzoak
         unpublish_results: Argitaratu emaitzak
       consultation_publications:
         create:
@@ -75,6 +94,7 @@ eu:
         create:
           error: Errore bat gertatu da kontsulta berri bat sortzean.
           success: Kontsulta sortu da.
+        deprecation_warning: Kontsulten modulua laster zaharkituta egongo da. Lantzen ari gara kriptografikoki segurua izango den hurrengo bertsioa, Bozketak izenekoa.
         edit:
           update: eguneratzearen
         form:
@@ -94,8 +114,10 @@ eu:
         consultations_submenu:
           info: informazioa
           questions: Galderak
+          results: Emaitzak
         questions_submenu:
           components: Osagaiak
+          configuration: Konfigurazioa
           consultation: Consulta
           info: informazioa
           responses: Erantzunak
@@ -119,10 +141,16 @@ eu:
         response:
           fields:
             created_at: Sortutako at
+            response_group: Taldea
             title: Izenburua
           name:
             one: Erantzun
             other: Erantzunak
+      question_configuration:
+        disable_external_voting: Mesedez, desaktibatu kanpoko bozketa konfigurazio aurreratuetarako
+        form:
+          help: Erantzun anitzeko aukerak dituzten galderak konfiguratzen ditu, parte-hartzaile batek aukera ditzakeen erantzun kopurua handituz. Aurrez zehaztutako gehieneko balioa 1 da, eta horrek esan nahi du erantzun bakarra aukera daitekeela.
+          title: Konfigurazio aurreratua
       question_publications:
         create:
           error: Errore bat gertatu da galdera hau argitaratzean.
