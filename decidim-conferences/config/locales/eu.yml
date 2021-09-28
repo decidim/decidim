@@ -243,6 +243,7 @@ eu:
             price: Prezioa
             registrations_count: Erregistroak zenbatzea
             title: Izenburua
+            weight: Kokapenaren hurrenkera
           name: Izen-emate mota
       partners:
         create:
@@ -556,6 +557,12 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu delako "%{resource_title}" konferentzia jarraituz. Aurreko esteka estekan jarrai dezakezu.
           email_subject: Biltzarra "%{resource_title}" dator!
           notification_title: <a href="%{resource_path}">%{resource_title}</a> konferentzia 2 egunetan egongo da.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "</p>Programa batean antolatutako bileren bilduma bat da. Bertan, hizlari gisa gonbidatutako pertsonak daude, baita biltzar handietako edo gizarte-ekitaldietako ohiko informazio-eremuak ere (erregistroa, ekitaldia babesten edo laguntzen duten erakundeen zerrenda, etab.).</p> <p>Adibideak: Hitzaldi bat garrantzitsua izan daiteke erakunde batentzat eta haren kideentzat, edo parte hartzeko prozesu baten zati gisa edo kontsulta baten ondoren egin daiteke.</p>\n"
+          page: "</p>Programa batean antolatutako bileren bilduma bat da. Bertan, hizlari gisa gonbidatutako pertsonak daude, baita biltzar handietako edo gizarte-ekitaldietako ohiko informazio-eremuak ere (erregistroa, ekitaldia babesten edo laguntzen duten erakundeen zerrenda, etab.).</p> <p>Adibideak: Hitzaldi bat garrantzitsua izan daiteke erakunde batentzat eta haren kideentzat, edo parte hartzeko prozesu baten zati gisa edo kontsulta baten ondoren egin daiteke.</p>\n"
+          title: Zer dira hitzaldiak?
     log:
       value_types:
         conference_presenter:
@@ -566,6 +573,8 @@ eu:
         title: Media eta estekak
     menu:
       conferences: Jardunaldiak
+    statistics:
+      conferences_count: Hitzaldiak
   devise:
     mailer:
       join_conference:
