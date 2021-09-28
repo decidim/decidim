@@ -3,17 +3,17 @@
 module Decidim
   module Meetings
     module ContentBlocks
-      class UpcomingEventsCell < Decidim::ViewModel
+      class UpcomingMeetingsCell < Decidim::ViewModel
         include Decidim::CardHelper
 
         def show
-          return if upcoming_events.blank?
+          return if upcoming_meetings.blank?
 
           render
         end
 
-        def upcoming_events
-          @upcoming_events ||= Decidim::Meetings::Meeting
+        def upcoming_meetings
+          @upcoming_meetings ||= Decidim::Meetings::Meeting
                                .includes(component: :participatory_space)
                                .where(component: meeting_components)
                                .visible_meeting_for(current_user)
