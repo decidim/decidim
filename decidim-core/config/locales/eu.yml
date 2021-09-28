@@ -3,6 +3,20 @@ eu:
     attributes:
       account:
         delete_reason: Zure kontua ezabatzeko arrazoia
+      common:
+        created_at: Sortze-data
+      conversation:
+        body: Gorputza
+      group:
+        about: Honi buruz
+        avatar: Avatar
+        document_number: Dokumentuaren zenbakia
+        email: E-maila
+        name: Izena
+        nickname: Goitizena
+        phone: Telefonoa
+      message:
+        body: Gorputza
       report:
         details: Iruzkin gehigarriak
       user:
@@ -25,6 +39,7 @@ eu:
       decidim/profile_updated_event: Profila eguneratu da
       decidim/promote_to_admin: Talde kudeatzaileari sustatua
       decidim/removed_from_group: Taldea kendu da
+      decidim/resource_endorsed_event: Baliabideari atxiki zaio
   activerecord:
     attributes:
       decidim/user:
@@ -50,6 +65,7 @@ eu:
   carrierwave:
     errors:
       image_too_big: Irudia pisuegia da
+      not_inside_organization: Artxiboa ez dago antolatzaile batekin erlazionatuta
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -58,11 +74,17 @@ eu:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    accessibility:
+      external_link: Kanpoko lotura
+      logo: "%{organization} aren logo ofiziala"
+      skip_button: Joan eduki nagusira
     account:
+      blocked: Kontu hau blokeatu da erabilera-irizpideak eta baldintzak urratzeagatik
       data_portability_export:
         file_no_exists: Fitxategia ez dago
         notice: Zure datuak une honetan egiten ari dira. Mezu elektroniko bat jasoko duzu beteta dagoenean.
       delete:
+        alert: Ekintza hori ezin da desegin. Zure kontua ezabatzen baduzu, ezin izango duzu saioa hasi zure kredentzialekin. Zure kontua ezabatzeak zure ekarpenen anonimotasuna ekarriko du. Oraindik kontu berri bat sortu ahal izango duzu, baina ekarpen horiek ez dira kontu horrekin lotuko.
         confirm:
           close: Itxi leihoa
           ok: Bai, nire kontua ezabatu nahi dut
@@ -73,6 +95,7 @@ eu:
         error: Errore bat gertatu da zure kontua ezabatzean.
         success: Zure kontua ezabatu egin da.
       show:
+        available_locales_helper: Aukeratu zein hizkuntza erabili nahi duzun Decidimen nabigatzeko eta jakinarazpenak jasotzeko
         change_password: Aldatu pasahitza
         update_account: Eguneratu kontua
       update:
@@ -92,6 +115,8 @@ eu:
         delete: "%{user_name} %{resource_name} osagai %{space_name} espaziotik kendu da"
         publish: "%{user_name} %{resource_name} osagaia %{space_name} espazioan argitaratu zen"
         unpublish: "%{user_name} %{resource_name} osagaia %{space_name} espaziotik argitaratu gabe"
+      impersonation_log:
+        manage: "%{user_name} k %{resource_name} kudeatu du arrazoi honengatik %{reason}"
       moderation:
         hide: "%{user_name} ezkutatu motako baliabide bat %{resource_type} en %{space_name} espazioa"
         unreport: "%{user_name} %{resource_type} motako baliabide bat ez da %{space_name} espazioan"
@@ -108,6 +133,7 @@ eu:
         update: "%{user_name} Eguneratu antolazioaren ezarpenak"
       participatory_space_private_user:
         create: "%{user_name} gonbidatu %{resource_name} erabiltzaileari pribatua izateko"
+        create_via_csv: "%{user_name} k %{resource_name} gonbidatu du CSV bidez parte-hartzaile pribatua izatera"
         delete: "%{user_name} erabiltzaileari erabiltzaile pribatu gisa kendu %{resource_name}"
       scope:
         create: "%{user_name} %{resource_name} esparrua sortu zen"
@@ -121,14 +147,21 @@ eu:
         delete: "%{user_name} ezabatu %{resource_name} orri estatikoa"
         update: "%{user_name} eguneratu %{resource_name} orri estatikoa"
       user:
+        block: "%{user_name} k %{resource_name} erabiltzailea blokeatu du"
         invite: "%{user_name} erabiltzaileak %{resource_name} erabiltzaile gonbidatu rola: %{role}"
         officialize: "%{user_name} Erabiltzaile ofiziala %{resource_name}"
+        promote: "%{user_name} k %{resource_name} sustatu du"
         remove_from_admin: "%{user_name} erabiltzaileak kendu %{resource_name} rolarekin: %{role}"
+        show_email: "%{user_name} k %{resource_name} parte-hartzailearen korreo elektronikoa berreskuratu du"
+        transfer: "%{user_name} k %{resource_name} parte-hartzailea transferitu du"
+        unblock: "%{user_name} k desofizializatu zuen %{resource_name} erabiltzailea"
         unofficialize: "%{user_name} erabiltzaile ez ofiziala %{resource_name}"
       user_group:
         reject: "%{user_name} baztertu %{resource_name} erabiltzaile taldeen egiaztapena"
         verify: "%{user_name} egiaztatu %{resource_name} erabiltzaile taldea"
         verify_via_csv: "%{user_name} egiaztatu du %{resource_name} erabiltzaile talde CSV fitxategi baten bidez"
+    alert:
+      dismiss: Baztertu jakinarazpena
     amendments:
       accepted:
         error: Errore bat gertatu da aldaketa onartuz.
@@ -142,6 +175,21 @@ eu:
         promote_confirm_text: Ziur al zaude zuzenketa hau sustatu nahi duzula?
         promote_help_text: Aldaketa hori sustatzeko eta argitaratzeko %{model_name}independente gisa
         section_heading: Aldaketak (%{count})
+      compare_draft:
+        continue: Jarraitu
+        no_similars_found: Ez da aurkitu antzeko zuzenketarik.
+        title: Antzeko zuzenketak
+      created:
+        error: Arazoa gertatu da zuzenketa-zirriborroa sortzean.
+        success: Zuzenketa-zirriborroa zuzen sortu da.
+      destroy_draft:
+        error: Arazoa gertatu da zuzenketa-zirriborroa ezabatzean.
+        success: Zuzenketa-zirriborroa zuzen ezabatu da.
+      edit_draft:
+        discard: Baztertu zirriborro hau
+        discard_confirmation: Ziur zaude zuzenketa-zirriborro hau baztertu nahi duzula?
+        send: Aurrebista
+        title: Editatu zuzenketa-zirriborroa
       emendation:
         actions:
           button_accept: Onartu
@@ -154,15 +202,25 @@ eu:
           evaluating: |-
             For the Aldaketa hori %{amendable_type} %{amendable_link}
             ebaluatu dago.
+          promoted: Sustatu hau %{amendable_type}.
           rejected: "%{amendable_type} %{amendable_link}\naldatze hau <strong>%{announcement_date}</strong>baztertu egin zen."
           withdrawn: |-
             %{amendable_type} %{amendable_link}
             ren aldaketa hori egilearen arabera kendu da.
       new:
         amendment_author: Egile aldaketa
+        send: Sortu
+        title: Sortu zuzenketa-zirriborroa
+      preview_draft:
+        modify: Aldatu
+        publish: Argitaratu
+        title: Argitaratu zuzenketa-zirriborroa
       promoted:
         error: Akatsak izan dira emendifikazioa sustatzen denean
         success: Emendazioa arrakastaz sustatu da
+      publish_draft:
+        error: Arazoa gertatu da zuzenketa argitaratzean.
+        success: Zuzenketa zuzen argitaratu da.
       rejected:
         error: Errore bat gertatu da aldaketa hori arbuiatzearekin. Saiatu berriro geroago
         success: Aldaketa ongi baztertu da
@@ -171,26 +229,41 @@ eu:
         heading: Aldaketa berrikustea
         help_text: '%{model_name}zuzenketa bat berrikusten ari zara'
         send: Onartu aldaketa
+      update_draft:
+        error: Arazoa gertatu da zuzenketa-zirriborroa eguneratzean.
+        success: Zuzenketa-zirriborroa zuzen eguneratu da.
+      withdraw:
+        error: Arazoa gertatu da zuzenketa kentzean
+        success: Zuzenketa zuzen kendu da
       wizard_step_form:
         steps:
           '1': Sortu zure aldaketa
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': Alderatu zure zuzenketa
+          '3': Osatu zure zuzenketa
+          '4': Argitaratu zure zuzenketa
     anonymous_user: Anonimoa
     application:
       collection:
         documents:
           one: Dokumentuaren
           other: Dokumentuak
+      document:
+        download: Deskargatu fitxategia
       documents:
         related_documents: Honekin lotutako agiriak
+      geocoding:
+        geocoded_address: Helbidea
       photos:
         related_photos: Honekin lotutako argazkiak
     author:
+      avatar: 'Avatarra: %{name}'
+      avatar_multiuser: Avatarra erabiltzaile batzuentzat
       comments:
         one: iruzkin
         other: iruzkinak
+      endorsements:
+        one: atxikimendua
+        other: atxikimenduak
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Egiaztatu pasaportearen zenbakia "A"
@@ -201,11 +274,16 @@ eu:
       dummy_authorization_handler:
         explanation: Egiaztatu "X" ren bukaerako dokumentu-zenbaki batekin sartuz.
         fields:
+          allowed_postal_codes: Onartutako posta-kodeak (komaz bereizita)
+          allowed_scope_id: Onartutako eremua
           document_number: Dokumentuaren zenbakia
           postal_code: Posta kodea
+          scope_id: Eremua
         name: Adibidez baimena
       dummy_authorization_workflow:
         name: Dummy baimena eragiketa
+      errors:
+        duplicate_authorization: Badago datu berak dituen parte-hartzaile baimendu bat. Administratzaile bat zurekin harremanetan jarriko da zure datuak egiaztatzeko.
       expired_at: '%{timestamp} iraungita dago'
       expires_at: '%{timestamp} iraungitzen da'
       foo_authorization:
@@ -214,6 +292,7 @@ eu:
           foo: foo
         name: foo baimena
       granted_at: Onartua %{timestamp}
+      renew: Berritu egiaztapena
       sms:
         explanation: Bidali zure telefono mugikorraren zenbakia zure identitatea egiaztatzeko.
         name: Kodea SMS bidez
@@ -234,6 +313,8 @@ eu:
           authorize: 'Baimena eskuratu honen bidez: "%{authorization}"'
           explanation: 'Ekintza hau egiteko, baimen hau behar duzu: "%{authorization}".'
           title: Baimena behar da
+        ok:
+          title: Baimena duzu orrialde honetan zauden bitartean. Mesedez, kargatu berriro orrialdea zure ekintza egiteko
         pending:
           explanation: Ekintza hau burutzeko, "%{authorization}" baimena eduki behar duzu, baina zure baimena oraindik ere badago
           resume: Egiaztatu "%{authorization}" baimenaren aurrerapena
@@ -248,6 +329,15 @@ eu:
           explanation_html: Ekintza hau burutzeko baimena behar da, egiten zure email berretsi behar duzula aurretik behar duzu <strong>%{email}</strong>.
           request_confirmation_instructions: Eska ezazu berrespen-argibideak
           title: Berretsi zure posta elektronikoa
+      show:
+        close_modal: Itxi leihoa
+    block_user_mailer:
+      notify:
+        body_1: Zure kontua blokeatu egin da.
+        body_2: 'Arrazoia: %{justification}'
+        greetings: Agur, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Kaixo,
+        subject: Zure kontua %{organization_name} k blokeatu du
     collapsible_list:
       hidden_elements_count:
         one: eta %{count} gehiago
@@ -255,6 +345,11 @@ eu:
       see_less: "(ikusi gutxiago)"
       see_more: "(gehiago ikusi)"
     components:
+      component_order_selector:
+        order:
+          all_types: Mota guztiak
+          collaborative_draft: Zirriborro kolaboratiboa
+          comment: Iruzkina
       dummy:
         actions:
           bar: Bar
