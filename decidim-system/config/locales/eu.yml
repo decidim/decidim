@@ -1,9 +1,41 @@
 eu:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: OAuth Aplikazioaren izena
+        organization_logo: Antolatzailearen logoa (karratua)
+        organization_name: Antolatzailea
+        organization_url: Antolatzailearen URLa
+        redirect_uri: Berbideratu URI
+      organization:
+        address: SMTP host-aren izena
+        from_email: Korreo elektronikoaren helbidea
+        from_label: Etiketa
+        password: Pasahitza
+        port: Ataka
+        user_name: Erabiltzaile-izena
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Administrazio-panelaren MIME motak
+          default: MIME motak, lehenetsita
+        allowed_file_extensions:
+          admin: "\nAdministrazio-panelaren artxibo-luzapenak"
+          default: Artxibo-luzapenak, erantsita
+          image: Irudien artxibo-luzapenak
+        maximum_file_size:
+          avatar: Avatar-artxiboaren tamaina
+          default: Artxibo-tamaina, lehenetsita
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Berbideratzeko URIa URI SSL izan behar da
   decidim:
     system:
       actions:
         confirm_destroy: '‘Ziur zaude ezabatu nahi duzula?’'
-        destroy: ezabatu
+        destroy: Ezabatu
         edit: Editatu
         new: Berria
         save: Gorde
@@ -25,6 +57,9 @@ eu:
         update:
           error: Errorea gertatu da administratzaile hau eguneratzean.
           success: Administratzailea zuzen eguneratu da
+      dashboard:
+        show:
+          current_organizations: Uneko antolatzaileak
       default_pages:
         placeholders:
           content: Gehitu eduki adierazgarria %{page} (a)ren orri estatikoaren administrazio-panelean.
@@ -32,6 +67,7 @@ eu:
       menu:
         admins: Administratzaileak
         dashboard: Kontrol-panela
+        oauth_applications: OAuth Aplikazioak
         organizations: Erakundeak
       models:
         admin:
@@ -41,19 +77,55 @@ eu:
           name: Administratzailea
           validations:
             email_uniqueness: beste administratzaile bat dago, helbide elektroniko hauxe bera duena
+        oauth_application:
+          fields:
+            created_at: Sortze-data
+            name: OAuth Aplikazioaren izena
+            organization_name: Antolatzailea
+          name: OAuth Aplikazioa
         organization:
           actions:
             save_and_invite: Sortu erakundea eta gonbit egin administratzaileari
           fields:
             created_at: Tan sortua
+            file_upload_settings: Fitxategiak igotzearen doikuntzak
             name: Izena
+            omniauth_settings: Omniauth doikuntzak
+            smtp_settings: SMTP konfigurazioa
           name: Erakundea
-      organizations:
+      oauth_applications:
         create:
-          error: Errorea gertatu da erakunde berri bat sortzean.
-          success: Erakundea zuzen sortu da.
+          error: Errore bat gertatu da aplikazio hau sortzean.
+          success: Aplikazioa ondo sortu da.
+        destroy:
+          error: Errorea izan da aukera hau ezabatzean.
+          success: Aplikazioa ondo ezabatu da.
+        edit:
+          save: Gorde
+          title: Aplikazioa editatu
+        form:
+          select_organization: Aukeratu antolatzaile bat
+        index:
+          confirm_delete: Ziur zaude aplikazio hau ezabatu nahi duzula?
+          title: OAuth Aplikazioak
+        new:
+          save: Gorde
+          title: Aplikazio berria
+        update:
+          error: Errorea izan da aplikazio hau eguneratzean.
+          success: Aplikazioa ondo eguneratu da.
+      organizations:
+        advanced_settings:
+          hide: Ezkutatu ezarpen aurreratua
+          show: Erakutsi aukera aurreratua
+        create:
+          error: Errorea izan da antolatzaile berri bat sortzean.
+          success: Antolatzailea zuzen sortu da.
         edit:
           secondary_hosts_hint: Sartu haietako bakoitza lerro batean
+        file_upload_settings:
+          content_types:
+            admin_hint: MIME mota horiek baimenduta daude administrazio-paneletik igotzeko. Administratzaileek dokumentuen formatu batzuk igotzean dauden arriskuez jabetu behar dute, eta, beraz, artxiboen igoeretan zuhurragoak izatea espero daiteke.
         index:
           title: Erakundeak
         new:
