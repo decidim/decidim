@@ -40,7 +40,7 @@ describe Decidim::ContentBlocks::SubHeroCell, type: :cell do
       it "shows the custom welcome text with formating" do
         expect(
           subject.find(".heading2").native.inner_html.strip
-        ).to eq("<div class=\"ql-editor ql-reset-decidim\"><strong>Bold titled text</strong></div>")
+        ).to eq("<strong>Bold titled text</strong>")
       end
     end
 
