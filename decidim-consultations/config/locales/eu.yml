@@ -106,6 +106,10 @@ eu:
         new:
           create: Sortu
           title: Kontsulta berria
+        results:
+          not_visible: Emaitzak eskuragai egongo dira inkesta ixten denean
+          participants: "%{count} parte-hartzaile"
+          total_votes: 'Guztira: %{count} boto'
         update:
           error: Errore bat gertatu da kontsulta hau eguneratzean.
           success: Kontsultak eguneratu egin du.
@@ -179,6 +183,24 @@ eu:
         update:
           error: Errore bat gertatu da galdera hau eguneratzean.
           success: Galdera ondo eguneratu da.
+      response_groups:
+        create:
+          error: Errore bat gertatu da erantzun-multzo berri bat sortzean.
+          success: Erantzun-multzoa zuzen sortu da.
+        destroy:
+          error: Arazo bat gertatu da erantzun-multzoa ezabatzean. Egiaztatu ez dagoela erantzunik horren menpe.
+          success: Erantzun-multzoa zuzen ezabatu da.
+        edit:
+          update: Eguneratu
+        form:
+          title: Informazio orokorra
+        help: Erabili multzoak aukera anitzeko galderak paketetan antolatzeko.
+        new:
+          create: Sortu
+          title: Erantzun-multzo berria
+        update:
+          error: Arazoa gertatu da erantzun hau eguneratzean.
+          success: Erantzuna zuzen eguneratu da.
       responses:
         create:
           error: Errore bat gertatu da erantzun berri bat sortzean.
@@ -199,6 +221,7 @@ eu:
       titles:
         consultations: kontsultak
         questions: Galderak
+        response_groups: Erantzun-multzoak
         responses: Erantzunak
     consultations:
       admin:
@@ -215,6 +238,8 @@ eu:
           label: 'Ordenatu kontsultak honela:'
           random: Random
           recent: Berrienak
+        show:
+          dates: Datak
       content_blocks:
         highlighted_consultations:
           name: Nabarmendutako kontsultak
@@ -256,9 +281,28 @@ eu:
         votes_out_of:
           one: bozkatu
           other: botoetatik kanpo
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Parte-hartzaileek gutxienez %{votes} banatu ahal dituzte hainbat aukeraren artean.
+          title: Galdera honetan, aukera anitzeko erantzunak egon daitezke
+          total_participants: Kontsultan, guztira %{count} pertsonak hartu dute parte.
+          vote_limit:
+            description: Parte-hartzaileek gehienez %{limit} aukera bozkatu ahal dituzte.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Gutxienez %{votes} boto banatu behar dituzu proposamen desberdinen artean.
+          title: 'Bozketa indarrean dagoen araudiaren araberakoa da:'
+          vote_limit:
+            description: Gehienez, %{limit} aukera bozkatu ahal duzu.
+            left: Gainontzekoak
+            votes: Botoak
       question_votes:
         create:
           error: Arazoak izan dira galdera hautapenean
+          success: Kontsultaren amaiera arte alda dezakezu. Azken botoa baino ez da onartuko.
+          title_error: Boto-akatsa!
+          title_success: Botoa zuzen erregistratu da
       regular_questions:
         title: Kontsulta honi buruzko galderak
       show:
@@ -280,6 +324,8 @@ eu:
     menu:
       consultations: kontsultak
     questions:
+      next_button: Hurrengo galdera
+      previous_button: Aurreko galdera
       results:
         title: Emaitzak
       show:
@@ -295,15 +341,26 @@ eu:
         already_voted: Bozkatu
         already_voted_hover: Ezeztatu laguntza
         starting_from: '%{date}tik hasita'
+        verification_required: Egiaztatu zure kontua bozkatzeko
         vote: Bozkatu
       vote_modal:
+        close_modal: Itxi leihoa
         contextual_help: Aukeratu aukera bat.
         title: 'Kontsulta: galdera-laguntza'
       vote_modal_confirm:
         change: Aldaketa
+        close_modal: Itxi leihoa
         confirm: Berretsi
         contextual_help: Berretsi hautatutako aukera.
         title: 'Kontsulta: berretsi laguntza'
+    resources:
+      consultations:
+        actions:
+          comment: Iruzkina
+          vote: Eman botoa
+    statistics:
+      consultations_count: Kontsultak
+      votes_count: Botoak
   layouts:
     decidim:
       consultation_voting_data:
@@ -313,3 +370,4 @@ eu:
         unfold: Zabaldu
       question_header:
         back_to_consultation: Ikusi kontsulta guztiak
+        back_to_question: Itzuli galderara
