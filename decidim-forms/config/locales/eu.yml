@@ -3,18 +3,27 @@ eu:
     attributes:
       answer:
         body: Erantzuna
+        choices: Aukerak
+        selected_choices: Hautatutako aukerak
       question:
         max_choices: Gehienezko aukera kopurua
         question_type: Mota
       questionnaire_question:
         mandatory: derrigorrezko
+        max_characters: Karaktereen muga (utzi 0 mugarik ez badago)
     errors:
       models:
         answer:
           attributes:
+            add_documents:
+              needs_to_be_reattached: Fitxategia berriro erantsi behar da
+            body:
+              too_long: luzeegia da
             choices:
               missing: ez dira osatu
               too_many: gehiegi dira
+        questionnaire:
+          request_invalid: Arazo bat izan da zure eskaera bidaltzean. Saiatu berriro
   decidim:
     forms:
       admin:
@@ -28,6 +37,32 @@ eu:
             free_text: Testu librea
             remove: Kendu
             statement: adierazpena
+          answers:
+            actions:
+              back: Itzuli erantzunetara
+              export: Esportatu
+              show: Erakutsi erantzunak
+            empty: Oraindik ez dago erantzunik
+            export:
+              answer:
+                title: '#%{number} erantzuna'
+            export_response:
+              title: survey_user_answers_%{token}
+            index:
+              title: "Guztira %{total} erantzun"
+            show:
+              title: '#%{number} erantzuna'
+          display_condition:
+            answer_option: Erantzuteko aukera
+            condition_question: Galdera
+            condition_type: Baldintza
+            condition_types:
+              answered: Erantzunda
+              equal: Honen berdina
+              match: Testua barne
+              not_answered: Erantzun gabe
+              not_equal: Ez da berdina
+            condition_value: Testua barne
           edit:
             save: Save
           form:
