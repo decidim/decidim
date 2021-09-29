@@ -251,11 +251,22 @@ eu:
           lead: Zure botoa eman da!
     votings:
       admin:
+        menu:
+          votings_submenu:
+            monitoring_committee: Jarraipen-batzordea
         monitoring_committee_polling_station_closures:
           closures:
             validated: Baliozkotuta?
           validate:
             success: Gailua zuzen baliozkotu da
+      polling_officer_zone:
+        polling_officers:
+          index:
+            polling_officer_role_description: Plataforma honetan egindako aukeraketa batzuetan mahaiko kudeatzaile gisa (Presidentea edo Administratzailea) jarduteko izendatu zaituzte.
+            polling_station:
+              no_polling_stations: Oraindik ez zaizu esleitu bozkatzeko lekurik.
+              role: Zure rola
+              voting: Bozketa
       votings:
         login:
           start_voting: Botoa ematen hasi
