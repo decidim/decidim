@@ -59,7 +59,6 @@ pl:
         birthplace: Miejsce urodzenia
         ceased_date: Data zakończenia
         designation_date: Data wyboru
-        designation_mode: Tryb wyboru
         full_name: Pełne imię i nazwisko
         gender: Płeć
         position: Pozycja

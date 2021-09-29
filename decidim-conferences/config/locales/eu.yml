@@ -3,6 +3,7 @@ eu:
     attributes:
       conference:
         assemblies_ids: Lotutako Batzarrak
+        available_slots: Leku libreak
         banner_image: Banner irudia
         consultations_ids: Lotutako kontsultak
         copy_categories: Kopiatu kategoriak
@@ -10,11 +11,16 @@ eu:
         copy_features: Kopiatu ezaugarriak
         decidim_scope_id: esparrua
         description: deskribapena
+        end_date: Amaiera-data
         hashtag: hashtag
         hero_image: Hasiera irudia
+        location: Kokapena
+        main_logo: Logo nagusia
+        objectives: Helburuak
         participatory_processes_ids: Parte hartutako prozesu erlazionatuak
         promoted: sustatuta
         published_at: Argitaratu at
+        registration_terms: Izen-ematearen irizpideak eta baldintzak
         scope_id: esparrua
         scopes_enabled: Scopes gaituta
         short_description: Deskribapen laburra
@@ -23,10 +29,12 @@ eu:
         slug: URL slug
         title: Izenburua
       conference_media_link:
+        title: Izenburua
         weight: pisu
       conference_partner:
         weight: pisu
       conference_registration_type:
+        title: Izenburua
         weight: pisu
       conference_speaker:
         full_name: Izen osoa

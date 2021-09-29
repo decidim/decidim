@@ -516,6 +516,7 @@ cs:
           close_meeting: Ukončit schůzku
           contributions: Počet příspěvků
           date: Datum
+          edit_close_meeting: Upravit zprávu schůzky
           edit_meeting: Upravit schůzku
           going: Přihlásili jste se k této schůzce
           join: Připojte se k setkání

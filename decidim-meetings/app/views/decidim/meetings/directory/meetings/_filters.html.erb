@@ -26,7 +26,7 @@
 
   <%= form.check_boxes_tree :origin, directory_filter_origin_values, legend_title: t("decidim.meetings.meetings.filters.origin") %>
 
-  <%= form.collection_radio_buttons :space, @meeting_spaces, :first, :last, legend_title: t("decidim.meetings.directory.meetings.index.space_type") %>
+  <%= form.check_boxes_tree :space, directory_meeting_spaces_values, legend_title: t("decidim.meetings.directory.meetings.index.space_type") %>
 
   <% if current_user %>
     <%= form.collection_radio_buttons :activity, activity_filter_values, :first, :last, { legend_title: t("decidim.meetings.meetings.filters.activity") }, "aria-controls": "meetings" %>

@@ -5,7 +5,7 @@ pl:
         one: Strona
         few: Strony
         many: Stron
-        other: Stron
+        other: Strony
   decidim:
     admin_log:
       page:

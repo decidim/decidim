@@ -22,6 +22,7 @@ it:
               c: Scelta C
             test_options:
               bar: Bar
+              baz: Baz
               foo: foo
           step:
             endorsements_blocked: Appoggi bloccati
@@ -29,6 +30,7 @@ it:
             readonly_step_attribute: Attributo di sola lettura
             test_options:
               bar: Bar
+              baz: Baz
               foo: foo
     dummy:
       admin:

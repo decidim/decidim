@@ -111,5 +111,17 @@ module Decidim
     def raw_model
       model.try(:__getobj__) || model
     end
+
+    def resource_i18n_scope
+      @resource_i18n_scope ||= [
+        from_context.class.name.deconstantize.underscore.gsub("/", "."),
+        resource_name.pluralize,
+        :show
+      ].join(".")
+    end
+
+    def resource_name
+      @resource_name ||= from_context.class.name.demodulize.underscore
+    end
   end
 end

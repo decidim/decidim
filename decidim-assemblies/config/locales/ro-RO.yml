@@ -59,7 +59,6 @@ ro:
         birthplace: Locul nașterii
         ceased_date: Data încetării
         designation_date: Data desemnării
-        designation_mode: Modul de desemnare
         full_name: Numele complet
         gender: Sexul
         position: Poziție

@@ -57,6 +57,14 @@ it:
               identical: Il titolo AND non può essere identico
             title:
               identical: Il corpo AND non può essere identico
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Non sono ufficiali
+        proposals_split:
+          attributes:
+            base:
+              not_official: Non sono ufficiali
     models:
       decidim/proposals/accepted_proposal_event: Proposta accettata
       decidim/proposals/admin/update_proposal_category_event: Categoria della proposta modificata
@@ -134,6 +142,9 @@ it:
             collaborative_drafts_enabled: Bozze collaborative abilitate
             comments_enabled: Commenti abilitati
             comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
+            default_sort_order_options:
+              random: Casuale
+              recent: Recenti
             geocoding_enabled: Geocoding abilitato
             minimum_votes_per_user: Voti minimi per utente
             new_proposal_body_template: Nuovo modello di testo della proposta

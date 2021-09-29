@@ -507,6 +507,11 @@ fi-pl:
           this_application_will_not_be_able_to: 'Tämä sovellus ei voi:'
           update_profile: Päivittää profiiliasi
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> haluaa käyttää tiliäsi"
+    editor_images:
+      create:
+        error: Kuvan lähettäminen epäonnistui
+        success: Kuvan lähettäminen onnistui
+      drag_and_drop_help: Lisää kuvia raahaamalla ja pudottamalla tai liittämällä niitä leikepöydältä.
     endorsable:
       endorsements: Suosituksia
       endorsements_count: Suositusten määrä

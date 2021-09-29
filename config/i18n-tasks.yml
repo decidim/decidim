@@ -306,6 +306,12 @@ ignore_unused:
   - decidim.meetings.public_participants_list.hidden_participants_count.*
   - decidim.budgets.budgets_list.*
   - decidim.budgets.projects.project_budget_button.*
+  - decidim.meetings.meetings.show.withdraw_btn_hint
+  - decidim.meetings.meetings.show.withdraw_confirmation_html
+  - decidim.meetings.meetings.show.withdraw_meeting
+  - decidim.proposals.proposals.show.withdraw_btn_hint
+  - decidim.proposals.proposals.show.withdraw_confirmation_html
+  - decidim.proposals.proposals.show.withdraw_proposal
   - decidim.assemblies.admin.assembly_members.form.explanation
   - decidim.assemblies.admin.assembly_members.form.image_guide
   - decidim.assemblies.admin.assembly_members.form.non_user_avatar_help

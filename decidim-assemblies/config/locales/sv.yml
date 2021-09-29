@@ -59,7 +59,6 @@ sv:
         birthplace: Födelseort
         ceased_date: Slutade datum
         designation_date: Utnämningsdatum
-        designation_mode: Utnämningsläge
         full_name: Fullständigt namn
         gender: Kön
         position: Befattning

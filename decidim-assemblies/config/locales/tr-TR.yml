@@ -58,7 +58,6 @@ tr:
         birthplace: DogumYeri
         ceased_date: Bitiş tarihi
         designation_date: Atama tarihi
-        designation_mode: Atama modu
         full_name: Ad Soyad
         gender: Cinsiyet
         position: Pozisyon

@@ -502,6 +502,11 @@ fr:
           this_application_will_not_be_able_to: 'Cette application ne sera pas capable de :'
           update_profile: Mettre à jour votre profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
+    editor_images:
+      create:
+        error: Erreur lors de l'envoi de l'image
+        success: Image envoyée avec succès
+      drag_and_drop_help: Ajoutez des images en les glissant - déposant ou en les collant depuis votre presse-papier.
     endorsable:
       endorsements: Soutiens
       endorsements_count: Nombre de soutiens

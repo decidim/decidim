@@ -255,7 +255,8 @@ describe "Explore meeting directory", type: :system do
 
       expect(page).to have_no_css(".card--meeting")
       within(all(".filters__section")[7]) do
-        choose "Assemblies"
+        uncheck "All"
+        check "Assemblies"
       end
 
       within ".date_check_boxes_tree_filter" do

@@ -144,6 +144,17 @@ fi:
             collaborative_drafts_enabled: Yhteistyöluonnokset ovat käytössä
             comments_enabled: Kommentit käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
+            default_sort_order: Ehdotuksen oletusjärjestys
+            default_sort_order_help: Oletus tarkoittaa, että mikäli kannatukset ovat käytössä, ehdotukset näytetään satunnaisessa järjestyksessä ja mikäli kannatukset on estetty, niin ehdotukset järjestetään eniten kannatuksia saaneet ensin.
+            default_sort_order_options:
+              default: Oletus
+              most_commented: Eniten kommentoidut
+              most_endorsed: Eniten suositellut
+              most_followed: Eniten seuratut
+              most_voted: Eniten kannatuksia saaneet
+              random: Satunnainen
+              recent: Viimeisimmät
+              with_more_authors: Eniten tekijöitä
             geocoding_enabled: Geokoodaus käytössä
             minimum_votes_per_user: Kannatusten vähimmäismäärä käyttäjää kohden
             new_proposal_body_template: Uuden ehdotuksen leipätekstin mallipohja
@@ -186,6 +197,17 @@ fi:
             automatic_hashtags: Aihetunnisteet (hashtag), jotka lisätään kaikkiin ehdotuksiin
             comments_blocked: Kommentointi estetty
             creation_enabled: Ehdotuksen luominen käytössä
+            default_sort_order: Ehdotuksen oletusjärjestys
+            default_sort_order_help: Oletus tarkoittaa, että mikäli kannatukset ovat käytössä, ehdotukset näytetään satunnaisessa järjestyksessä ja mikäli kannatukset on estetty, niin ehdotukset järjestetään eniten kannatuksia saaneet ensin.
+            default_sort_order_options:
+              default: Oletus
+              most_commented: Eniten kommentoidut
+              most_endorsed: Eniten suositellut
+              most_followed: Eniten seuratut
+              most_voted: Eniten kannatuksia saaneet
+              random: Satunnainen
+              recent: Viimeisimmät
+              with_more_authors: Eniten tekijöitä
             endorsements_blocked: Suositukset estetty
             endorsements_enabled: Suositukset käytössä
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
@@ -762,9 +784,12 @@ fi:
           filter_by: Suodata
           unfold: Avaa
         index:
+          click_here: Näytä kaikki ehdotukset
           collaborative_drafts_list: Mene yhteistyöluonnoksiin
           new_proposal: Uusi ehdotus
+          see_all: Näytä kaikki ehdotukset
           see_all_withdrawn: Näytä kaikki peruutetut ehdotukset
+          text_banner: Katselet peruutettuja ehdotuksia, jotka niiden tekijät ovat peruuttaneet. %{go_back_link}.
           view_proposal: Näytä ehdotus
         linked_proposals:
           proposal_votes:
