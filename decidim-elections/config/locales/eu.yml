@@ -222,8 +222,18 @@ eu:
             one: "Boto %{count}"
             other: "%{count} boto"
         show:
+          action_button:
+            change_vote: Aldatu zure botoa
+            vote: Botoa ematen hasi
+            vote_again: Berriro eman botoa
           callout:
+            already_voted: Jada botoa eman duzu aukera honetan. Zure botoa alda dezakezu edo egiaztatu.
             pending_vote: Zure botoa ematen ari da zerbitzarian.
+            vote_rejected: Ezin izan da zure botoa egiaztatu. Mesedez, egizu berriro.
+          verify:
+            already_voted: Bozkatu duzu?
+            verify_here: Egiaztatu zure botoa hemen.
+            will_verify: Zure botoa egiaztatu ahal izango duzu hautaketa hasten denean.
       models:
         answer:
           fields:
@@ -246,3 +256,6 @@ eu:
             validated: Baliozkotuta?
           validate:
             success: Gailua zuzen baliozkotu da
+      votings:
+        login:
+          start_voting: Botoa ematen hasi
