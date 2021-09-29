@@ -1183,6 +1183,7 @@ eu:
       scopes_picker_input:
         select_scope: 'Hautatu esparru bat (gaur egun: %{current})'
     search:
+      results: Bilaketaren emaitzak
       results_found_for_term: '%{count} Bilaketaren emaitzak: "%{term}"'
       term_input_placeholder: Search
     searches:
@@ -1222,6 +1223,7 @@ eu:
         more: gehiago
         unfold: Zabaldu
       filter_form_help:
+        help: Bilaketa-baldintzak aldatzen direnean, hurrengo formularioak dinamikoki iragazten ditu bilaketa-emaitzak.
         skip: Saltatu emaitzetara
       flag_modal:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
@@ -1233,17 +1235,30 @@ eu:
         report: Txostena
         spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
         title: Salatu arazo bat
+      flag_user_modal:
+        already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
+        close: Itxi
+        description: Erabiltzailearen zer da desegokia?
+        does_not_belong: Bertan badago legez kontrako jardunik, suizidio-mehatxurik, informazio pertsonalik edo beste zernahi, zure ustez %{organization_name}-ri ez dagokionik.
+        offensive: Bertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
+        report: Jakinarazi
+        spam: Bertan badago clickbait-ik, publizitaterik edo gidoi-robotik.
+        title: Jakinarazi erabiltzaile desegokia
       floating_help:
+        close: Itxi laguntza
         help: Laguntza
       follow_button:
         sign_in_before_follow: Hasi saioa ekintza hau burutu baino lehen
       login_modal:
+        close_modal: Itxi leihoa
         please_sign_in: Mesedez, erregistratu
         sign_up: Erregistratu
       participatory_space_filters:
         filters:
           areas: Arloak
           select_an_area: Hautatu eremu bat
+      public_participation:
+        public_participation: Erakutsi nire asistentzia publikoki
       reference:
         reference: 'Erreferentzia: %{reference}'
       represent_user_group:
@@ -1251,12 +1266,24 @@ eu:
         select_user_group: Aukeratu talde bat
       results_per_page:
         label: 'Emaitzak, orrialdeko:'
+        title: Hautatu emaitza kopurua orrialde bakoitzeko
       share_modal:
         close_window: Itxi leihoa
+        copy_share_link: Kopia
+        copy_share_link_clarification: Kopiatu arbelera partekatzeko lotura
+        copy_share_link_copied: Kopiatuta!
+        copy_share_link_message: Lotura arbelera zuzen kopiatu da.
         share: Partekatu
         share_link: Partekatu esteka
     statistics:
       comments_count: Iruzkinak
+      endorsements_count: Atxikimenduak
+      followers_count: Jarraitzaileak
+      headline: Estatistikak
+      no_stats: Oraindik ez dago estatistikarik.
+      pages_count: Orrialdeak
+      participants_count: Erabiltzaileak
+      users_count: Erabiltzaileak
     user_activity:
       index:
         no_activities_warning: Erabiltzaile honek ez du oraindik jarduera izan.
