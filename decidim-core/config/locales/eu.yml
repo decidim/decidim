@@ -1263,12 +1263,44 @@ eu:
         close_window: Itxi leihoa
         share: Partekatu
         share_link: Partekatu esteka
+    tags:
+      filter_results_for_category: 'Emaitzak kategoriaren arabera iragaztean: %{resource}'
+    translation_bar:
+      help_text: "<strong>Oharra:</strong> Edukia automatikoki itzul daiteke eta ez izan zuzena %100ean."
+      show_original: Erakutsi jatorrizko testua
+      show_translated: Erakutsi automatikoki itzulitako testua
     user_activity:
       index:
         no_activities_warning: Erabiltzaile honek ez du oraindik jarduera izan.
+    user_contact_disabled: Parte-hartzaile honek ez du mezu zuzenik onartzen.
     user_conversations:
+      create:
+        error: Mezua ezin izan da sortu. Saiatu berriro geroago
+        existing_error: Mezua ezin izan da sortu. Elkarrizketa bada, mesedez, saiatu berriro orain.
+        success: Elkarrizketa zuzen hasi da!
       index:
+        add_max_users: 'Gehitu erabiltzaileak elkarrizketara: gehienez 9 erabiltzaile'
+        add_users_placeholder: Bilatu...
+        close: Itxi
+        conversations_info: Elkarrizketak pribatuak dira. Beste inork ezin ditu ikusi. Elkarrizketa has daiteke plataforman erregistratutako edozein parte-hartzaile edo talderekin.
         from: Nork
+        last_message: Azken mezua
+        modal_title: Elkarrizketa berria
+        new_conversation: Elkarrizketa berria
+        next: Hurrengoa
+        no_conversations_warning: Oraindik ez dago elkarrizketarik.
+        no_results: Emaitzarik ez
+        participant_with_disabled_message_reception: Erabiltzaile honek mezuak jasotzea desaktibatu du
+        time_ago: "duela %{time}"
+      new:
+        title: Hasi elkarrizketa
+      reply:
+        placeholder: Zure erantzuna...
+        send: Bidali
+        title_reply: Erantzun
+      show:
+        not_allowed: Erabiltzaile honek ez du mezu zuzenik onartzen.
+        title: Elkarrizketa honekin %{usernames}
       update:
         error: Mezua ez da bidali. Saiatu berriro geroago
     user_interests:
@@ -1280,12 +1312,49 @@ eu:
       update:
         error: Errore bat gertatu da zure interesak eguneratzean.
         success: Zure interesak ondo eguneratu dira.
+    user_report_mailer:
+      notify:
+        body_1: '%{user} erabiltzailea %{token} k erreportatu du'
+        body_2: 'Arrazoia: %{reason}'
+        greetings: Agur, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Kaixo, %{admin},
+        subject: Beste erabiltzaile bat erreportatu dute hemen %{organization_name}
+    version:
+      show:
+        back_to_resource: Joan atzera
+        changes_at_title: Aldaketak hemen "%{title}"
+        number_of_versions: Bertsioak
+        show_all_versions: Erakutsi bertsio guztiak
+        version_author: Bertsioaren egilea
+        version_created_at: Bertsioaren data
+        version_number: Bertsioaren zenbakia
+        version_number_out_of_total: "%{total_count} etik %{current_version}"
     version_author:
       show:
         deleted: Erabiltzailea ezabatua
+    versions:
+      resource_version:
+        of_versions: "(%{number} etik)"
+        see_other_versions: ikusi beste bertsio batzuk
+        version: '%{number} bertsio zenbakia'
+    versions_list:
+      show:
+        back_to_resource: Joan atzera
+        changes_at_title: Aldaketak hemen "%{title}"
+        number_of_versions: Bertsioak
+        title: Bertsioak
+    versions_list_item:
+      show:
+        version_index: '%{index} bertsioa'
     welcome_notification:
       default_body: <p>Hi {{name}}, eskerrak emateko {{organization}} eta ongi etorria!</p><ul><li>Hemen zer egin dezakezuen ideia azkar bat nahi baduzu, begiratu <a href="{{help_url}}">Laguntza</a> atalean.</li><li>Behin irakurri ondoren, zure lehen txapela jasoko duzu. Hemen da <a href="{{badges_url}}">txapak guztiak zerrenda</a> parte bezala zuk ere lor dezakezu {{organization}}</li><li>Azkenik, beste pertsona batu, share haiekin ari arduratzen eta parte hartzen duten esperientzia {{organization}}. Egin proposamenak, iruzkinak, eztabaidak, ohiko onura nola laguntzen jakitea, konbentzitu, entzun eta irakurri argudioak ematea, zure ideiak modu zehatz eta zehatz batean adieraztea, pazientzia eta erabakia erantzutea, zure ideiak defendatzea eta mantentzea adimen irekia, beste pertsonen ideiak lankidetzan aritzeko.</li></ul>
       default_subject: Eskerrik asko sartzeko {{organization}}!
+    wizard_step_form:
+      wizard_aside:
+        back: Atzera
+      wizard_header:
+        see_steps: ikusi urratsak
+        step_of: '%{total_steps} etik %{current_step} urratsa'
   devise:
     confirmations:
       confirmed: Zure helbide elektronikoa ondo egiaztatu da.
@@ -1438,9 +1507,11 @@ eu:
       cycle_detected: Esparruko guraso bat ezin da bere ondorengoetako bat izan
       expired: iraungi egin da, eskatu beste bat
       file_size_is_less_than_or_equal_to: fitxategiaren pisuak %{count} izan behar du, edo gutxiago
+      invalid_time_zone: ordu-zona ez da baliozkoa
       long_words: luzeegia daukaten hitzak (35 karaktere baino gehiago)
       must_start_with_caps: letra maiuskulaz hasi behar da
       nesting_too_deep: ezin da egon azpikategoria batean
+      not_found: ezin izan da aurkitu. Aldez aurretik erregistratu zara?
       not_locked: ez zen blokeatuta
       not_saved:
         one: 'Errorea gertatu da zure eskaera prozesatzean:'
