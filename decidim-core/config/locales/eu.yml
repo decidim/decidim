@@ -1543,7 +1543,9 @@ eu:
       too_much_caps: maiuskulaz gehiegi erabiltzen ditu (testuaren% 25 baino gehiago)
       too_short: laburra da (15 karaktere baino gutxiago)
   forms:
+    correct_errors: Akatsak daude galdetegian, mesedez, zuzendu jarraitu ahal izateko.
     required: Nahitaezkoa da
+    required_explanation: "Derrigorrezko eremuak * batez daude markatuta"
   invisible_captcha:
     sentence_for_humans: Gizaki bat bazara, ez egin kasu eremu honi
     timestamp_error_message: Barkatu, baina azkarregi aritu zara! Mesedez, bidali.
@@ -1556,26 +1558,46 @@ eu:
       edit_link:
         edit: Editatu
       footer:
+        cc_by_license: Creative Commons lizentziaduna
+        decidim_logo: Decidimen logoa
         download_open_data: Deskargatu Open Data fitxategiak
         made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.
       header:
         close_menu: Itxi menua
+        main_menu: Menu nagusia
         navigation: Nabigazioa
         sign_in: Sartu
         sign_up: Erregistratu
+        user_menu: Erabiltzailearen menua
       impersonation_warning:
         close_session: Itxi saioa
         description_html: 'Honako erabiltzaile honen plantak egiten ari zara: <b>%{user_name}</b>.'
         expire_time_html: Zure saioa iraungiko da <b><span class="minutes">%{minutes}</span>minutu barru</b>.
+      language_chooser:
+        choose_language: Aukeratu hizkuntza
       notifications_dashboard:
         mark_all_as_read: Markatu dena irakurritako gisa
+        mark_as_read: Markatu irakurrita bezala
+      social_media_links:
+        facebook: "%{organization} Facebooken"
+        github: "%{organization} GitHuben"
+        instagram: "%{organization} Instagramen"
+        twitter: "%{organization} Twitterren"
+        youtube: "%{organization} YouTuben"
+      timeout_modal:
+        body: Jarduerarik gabe egon zara %{minutes} minututan. Aktibatu gabe jarraitzen baduzu, deskonektatuko zaitugu zure segurtasunerako.
+        continue_session: Jarraitu saioa
+        sign_out: Itxi saioa
+        title: Saioan jarraitu nahi duzu?
       user_menu:
+        account: '%{name} erabiltzailearen kontua'
         admin_dashboard: Administrazioko aginte-mahaia
         conversations: Elkarrizketak
         notifications: jakinarazpenak
         profile: Nire kontua
         public_profile: Nire profil publikoa
         sign_out: Irten
+        title: Profilaren loturak
       user_profile:
         account: Kontua
         authorizations: Baimenak
@@ -1589,6 +1611,7 @@ eu:
         see_more: Ikusi gehiago
   locale:
     name: Euskera
+    name_with_error: Ingelesa (akatsa!)
   password_validator:
     domain_included_in_password: domeinu izen honen antzekoa da
     email_included_in_password: zure posta elektronikoaren antzekoa da
@@ -1612,12 +1635,15 @@ eu:
     qq: Qzone
     reddit: Reddit
     share_to: 'Partekatu honekin: %{name}'
+    telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Ireki zure WeChat, egin klik "Discover" botoian, eta gero, egin klik berriro "Eskaneatu QR kodea” menuan.
     weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
     xing: Xing
   time:
     formats:
@@ -1627,15 +1653,36 @@ eu:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B, %d %Y %H:%M"
+      long_dashed: "%Y-%m-%d, %H:%M:%S"
+      short: "%d/%m/%Y, %H:%M"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Ezabapenak
+      right: Gehikuntza
+    dropdown:
+      choose_diff_view_html: 'HTML ikusteko modua:'
+      choose_diff_view_mode: 'Alderatu bistaratzeko modua:'
+      option_escaped: Ihes eginda
+      option_split: Paraleloan
+      option_unescaped: Ez ihes eginda
+      option_unified: Bateratua
   views:
     pagination:
       first: "&laquo; Lehena"
+      first_title: Lotura lehen orrialdearekin
       last: Azkena &raquo;
+      last_title: Lotura azken orrialdearekin
       next: Hurrengoa &rsaquo;
+      next_title: Lotura hurrengo orrialdearekin
+      pagination: Orri-zenbaketa
       previous: "&lsaquo; Aurrekoa"
+      previous_title: Lotura aurreko orrialdearekin
+      title: 'Orrialde zenbakia: '
       truncate: "&hellip;"
