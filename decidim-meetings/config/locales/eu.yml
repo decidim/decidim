@@ -29,7 +29,9 @@ eu:
         title: Titulua
         transparent: gardena
       minutes:
+        audio_url: Audioaren URLa
         description: deskribapena
+        video_url: Bideoaren URLa
         visible: Ikusgai dago
     errors:
       models:
@@ -151,7 +153,7 @@ eu:
         confirm_destroy: Ziur zaude topaketa hau ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
-        minutes: Minutu
+        minutes: Aktak
         new: Bilera berria
         preview: Aurreikusi
         registrations: Izen-emateak
@@ -255,12 +257,13 @@ eu:
             invalid: Arazo bat izan da minutu hau sortzeko
             success: Akta ongi sortu da
           edit:
+            title: Editatu aktak
             update: eguneratzearen
           new:
             create: Sortu
-            title: Sortu minutu
+            title: Sortu akta
           update:
-            invalid: Arazo bat izan da minutu hau eguneratzean
+            invalid: Arazo bat izan da akta hau eguneratzean
             success: Akta ongi eguneratu da
         models:
           meeting:
@@ -300,8 +303,8 @@ eu:
             organizer_presenter:
               not_found: 'Antolatzailea ez da aurkitu datu-basean (ID: %{id})'
         minutes:
-          create: "%{user_name} %{resource_name} topaketak %{space_name} espazioan sortu zituen"
-          update: "%{user_name} %{resource_name} topaketaren minutuak %{space_name} espazioan eguneratzen ditu"
+          create: "%{user_name} %{resource_name} topaketako akta %{space_name} espazioan sortu du"
+          update: "%{user_name} %{resource_name} topaketaren akta %{space_name} espazioan eguneratu du"
       calendar_modal:
         calendar_url: Egutegiaren URLa
         close_window: Itxi leihoa
@@ -344,7 +347,7 @@ eu:
           filter_by: 'Iragazi honen arabera:'
           unfold: Zabaldu
         meeting_minutes:
-          meeting_minutes: Bilera Minutes
+          meeting_minutes: Bileraren akta
           related_information: Lotutako informazioa
         meetings:
           no_meetings_warning: Ez dago bilaketa-irizpidearekin bat datorren topaketarik, edo ez dago ezein topaketarik programaturik.
