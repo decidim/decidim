@@ -4,20 +4,23 @@ eu:
       initiative:
         decidim_user_group_id: Egilea
         description: deskribapena
-        offline_votes: Face-to-face euskarriak
-        scope_id: esparrua
-        signature_end_date: Sinadura bildumaren epea amaituta
-        signature_start_date: Sinadura bildumaren aldiaren hasiera
+        offline_votes: Aurrez aurreko sinadurak
+        offline_votes_for_scope: Aurrez aurreko sinadurak %{scope_name} rentzat
+        scope_id: Esparrua
+        signature_end_date: Sinadurak biltzeko epearen amaiera
+        signature_start_date: Sinadurak biltzeko epearen hasiera
         signature_type: Sinadura bilketa mota
         signature_type_values:
-          any: mistoa
-          offline: Aurrez aurre
-          online: OnLine
-        state: Estatu
+          any: Mistoa
+          offline: Aurrez aurrekoa
+          online: Digitala
+        state: Egoera
         title: Izenburua
       initiatives_committee_member:
         user: Batzordeko kidea
       initiatives_type:
+        area_enabled: Egileei baimena eman beren ekimenerako eremua aukeratzeko
+        attachments_enabled: Gaitu erantsitako artxiboak
         banner_image: Banner irudia
         collect_user_extra_fields: Bildu sinadura pertsonalaren datu pertsonalak
         description: deskribapena
