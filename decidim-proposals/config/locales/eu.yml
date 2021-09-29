@@ -39,7 +39,7 @@ eu:
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Berriro uzteko beharra
+              needs_to_be_reattached: Artxiboa berriro erantsi behar da
             body:
               identical: ETA izenburua ezin da berdinak izan
             title:
@@ -79,6 +79,7 @@ eu:
         name: proposamenak
         settings:
           global:
+            allow_card_image: Baimendu irudidun txartela
             amendments_enabled: Emendakinak gaituta
             announcement: Anuntzio
             attachments_allowed: Onartu eranskinak
@@ -387,11 +388,11 @@ eu:
             select_states: Egiaztatu inportatzeko proposamenen egoera
         proposals_merges:
           create:
-            invalid: Errore bat gertatu da hautatutako proposamenekin bat egitea.
+            invalid: Errore bat izan da hautatutako proposamenak batzean.
             success: Proposamen berri batean sartu dira ondo.
         proposals_splits:
           create:
-            invalid: Errore bat gertatu da hautatutako proposamenen banaketa.
+            invalid: Errore bat izan da hautatutako proposamenak banatzean.
             success: Proposamen berrietara egokitu dira.
       admin_log:
         proposal:
@@ -574,6 +575,8 @@ eu:
           proposals_count:
             one: "%{count} proposamen"
             other: "%{count} proposamen"
+        dynamic_map_instructions:
+          instructions: <h3>Puntua mapan mugi dezakezu. </h3><p>Ez ahaztu "Eguneratu posizioa" botoian klik egitea zure proposamena argitaratu aurretik.</p>
         edit:
           attachment_legend: "(Aukerakoa) Gehitu eranskina"
           back: Back
@@ -629,6 +632,7 @@ eu:
             other: Proposamen hau editatu ahal izango duzu lehenengo %{count} Proposamenaren ondoren argitaratutako minutuak. Behin leiho hau igarotzen denean, ezingo duzu proposamen hori editatu.
           publish: Argitaratu
           title: Argitaratu zure proposamena
+          update_position: Eguneratu aukera
         proposal:
           creation_date: 'Sorkuntza: %{date}'
           view_proposal: Ikusi proposamena
