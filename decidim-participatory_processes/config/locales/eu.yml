@@ -32,6 +32,7 @@ eu:
         subtitle: Azpititulua
         target: Nor parte hartzen du
         title: Titulua
+        weight: Pisua
       participatory_process_group:
         description: Deskribapena
         hero_image: Irudia
@@ -361,8 +362,10 @@ eu:
         comments_count: Iruzkinak
         debates_count: eztabaidak
         endorsements_count: Oniritziak
+        followers_count: Jarraitzaileak
         headline: Jarduera
         meetings_count: Topaketak
+        no_stats: Ez dago estatistikarik oraindik.
         orders_count: Euskarriak
         pages_count: Orriak
         participants_count: Parte-hartzaileak
