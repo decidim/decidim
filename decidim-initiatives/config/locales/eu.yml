@@ -26,10 +26,12 @@ eu:
         collect_user_extra_fields: Bildu parte-hartzailearen datu pertsonalak sinaduraz
         custom_signature_end_date_enabled: Egileei sinadurak biltzeko aldiaren amaiera aukeratzen uztea
         description: Deskribapena
-        document_number_authorization_handler: Botoen dokumentu zenbakia egiaztatzeko baimena
+        document_number_authorization_handler: Sinaduretan dokumentu zenbakia egiaztatzeko baimena
         extra_fields_legal_information: Datu pertsonalen bilketari buruzko informazio juridikoa
-        minimum_committee_members: Batzorde kideen gutxienekoak
+        minimum_committee_members: Batzorde kideen gutxienekoa
         online_signature_enabled: Sinadura elektronikoa gaituta dago
+        only_global_scope_enabled: Eremu globaleko ekimenak soilik sortzeko aukera ematea
+        promoting_committee_enabled: Batzorde sustatzailea gaitzea
         title: Izenburua
         undo_online_signatures_enabled: Gaitu erabiltzaileek beren sinadurak desegin ditzaten
         validate_sms_code_on_votes: Gehitu SMS kodea baliozkotzeko urratsa sinadura prozesura
@@ -42,13 +44,21 @@ eu:
         address: Helbidea
         id_document: ID dokumentua
         name: Izen osoa
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Fitxategi hau ez da baliozkoa
+              needs_to_be_reattached: Artxiboa berriro erantsi behar da
+              title: Izenburua ezin da hutsik egon
   activerecord:
     models:
       decidim/initiative:
-        one: Initative
+        one: Ekimena
         other: Initatives
       decidim/initiative_comittee:
-        one: batzordea
+        one: Batzordea
         other: Comittees
       decidim/initiative_vote:
         one: Sinadura
@@ -57,20 +67,38 @@ eu:
     admin:
       actions:
         new_initiative_type: Ekimen mota berria
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Area
+          state_eq:
+            label: Egoera
+            values:
+              accepted: Beharrezko sinadurekin
+              created: Sortua
+              discarded: Baztertua
+              published: Argitaratua
+              rejected: Beharrezko sinadurarik gabe
+              validating: Baliozkotze teknikoa
+          type_id_eq:
+            label: Mota
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Bilatu %{collection} izenburuaren, deskribapenaren, IDaren edo egiletzaren arabera.
       menu:
         initiatives: Ekimenak
         initiatives_types: Ekimen motak
       models:
         initiatives:
           fields:
-            created_at: Sortutako at
+            created_at: Sortze-data
             id: NAN
+            published_at: Argitaratze-data
             state: Estatu
-            supports_count: sinadurak
+            supports_count: Sinadurak
             title: Ekimenak
         initiatives_type_scope:
           fields:
-            scope: esparrua
+            scope: Esparrua
             supports_required: Beharrezko euskarriak
           name: Initiative type scope
         initiatives_types:
@@ -90,17 +118,24 @@ eu:
             initiative_title: Ekimenaren izenburua
             name_and_surname: Izena eta abizena
             postal_code: Posta kodea
+            scope: Esparrua
             time_and_date: Denbora eta data
-            timestamp: timestamp
+            timestamp: Denbora-marka
       titles:
         initiatives: Ekimenak
         initiatives_types: Ekimen motak
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: '"%{resource_title}" ekimena balidazio teknikora bidali da. Egiaztatu honen bitartez: <a href="%{admin_initiative_url}">administrazio-panela</a>'
+            email_outro: Jakinarazpen hau jaso duzu plataformaren administratzaileetako bat zarelako.
+            email_subject: '%{resource_title} ekimenak baliozkotze teknikoa eskatu du.'
+            notification_title: '" %{resource_title}" ekimena baliozkotze teknikora bidali da. Egiaztatu honen bidez: <a href=" %{admin_initiative_path}">administrazio-panela</a>'
         initiative_extended:
-          email_intro: Sinatutako ekimenaren amaiera data %{resource_title} luzatu egin da!
+          email_intro: Ekimenaren amaiera-data %{resource_title} luzatu egin da!
           email_outro: Jakinarazpen hau jaso duzu %{resource_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: Ekimenaren sinadurak amaiera data luzatu da!
+          email_subject: Ekimen honetarako sinadurak jasotzeko amaiera data luzatu da!
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenaren amaierako data luzatu egin da.
         milestone_completed:
           affected_user:
