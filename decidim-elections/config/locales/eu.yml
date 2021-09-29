@@ -225,6 +225,15 @@ eu:
           lead: Eman duzu botoa!
         encrypting:
           header: Botoa kodifikatzen...
+          text: Zure botoa zifratzen ari da modu anonimoan emititzen dela ziurtatzeko.
+        header:
+          encrypting: Baieztatu botoa
+        processing:
+          header: Botoa prozesatzen...
+          text: Zure botoa jaso da eta prozesatzen ari dira. Itxaron, mesedez.
+        update:
+          error: Arazo bat izan da botoaren egoera eguneratzean
+          success: Botoaren egoera ongi eguneratu da
     pages:
       home:
         statistics:
@@ -233,9 +242,20 @@ eu:
       statistics:
         elections_count: Bozketak
     votings:
+      admin:
+        menu:
+          votings_submenu:
+            monitoring_committee_members: Jarraipen-batzordea
       polling_officer_zone:
         polling_officers:
           show:
+            actions:
+              count_votes: Botoak hautestontzietan zenbatzea
+              identify_person: Pertsona bat identifikatzea eta egiaztatzea
+            polling_officer_role_description: Plataforma honetan egindako aukeraketa batzuetan mahaiko kudeatzaile gisa (Presidentea edo Administratzailea) jarduteko izendatu zaituzte.
             polling_stations:
               list:
                 actions: Ekintzak
+                role: Zure rola
+                voting: Bozketa
+              no_polling_stations: Oraindik ez zaizu esleitu bozkatzeko lekurik.
