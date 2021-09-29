@@ -614,6 +614,10 @@ eu:
           email_outro: Jakinarazpen hori jaso duzu talde horretako kide zarelako.
           email_subject: '%{user_group_name} taldetik kendu duzu!'
           notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldetik kendu zaituzte.
+        user_group_created:
+          email_intro: Talde berri bat sortu da izen honekin %{user_group_name}. Orain egiaztatu ahal duzu, hala badokio, hemen <a href="%{groups_admin_url}">panel de administración</a>.
+          email_outro: Jakinarazpen hau jaso duzu plataformaren administratzaileetako bat zarelako.
+          email_subject: Talde berri bat sortu da
       notification_event:
         notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
       users:
@@ -624,6 +628,7 @@ eu:
           notification_title: <a href="%{resource_path}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
     export_mailer:
       data_portability_export:
+        click_button: 'Egin klik hurrengo loturan zure datuak deskargatzeko. <br/>Artxiboa eskuragai egongo da data honetara arte %{date}.<br/>Irekitzeko beharko duzu <a href="https://www.7-zip.org/">7-Zip</a> (Windowserako), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (Linuxerako). Pasahitza: %{password}'
         download: Deskarga
       export:
         ready: Atxikita aurkituko duzu zure esportazioaren bertsio trinkotua.
@@ -653,6 +658,7 @@ eu:
       create:
         button: Jarraitu
         error: Errorea gertatu da baliabide hau jarraitzeari uztean.
+        participatory_space: Jarraitzen <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Jarraitzeari utzi
         error: Errorea gertatu da baliabide hau jarraitzeari uztean.
