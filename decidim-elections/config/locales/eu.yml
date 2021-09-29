@@ -159,6 +159,8 @@ eu:
             title: Argitaratutako emaitzak
           tally:
             title: Zenbatzeko prozesua
+          tally_ended:
+            title: Kalkulatutako emaitzak
           vote:
             title: Bozketa-aldia
           vote_ended:
@@ -168,6 +170,15 @@ eu:
             title: Boto-estatistikak
             voters: Boto-emaileak
             votes: Botoak
+      admin_log:
+        election:
+          end_vote: "%{user_name} amaitu zen hautatzeko bozketa-aldia %{resource_name} Board Bulletin-ean"
+          publish: "%{user_name}-k argitaratu du %{resource_name} bozketa"
+          setup: "%{user_name} -k sortu zuen %{resource_name} aukera Bulletin Board-en"
+          start_key_ceremony: "%{user_name} -k hasi zuen gakoen zeremonia %{resource_name} aukeretarako Bulletin Board-en"
+          start_tally: "%{user_name} -k hasi zuen kontaketa %{resource_name} aukerarako Bulletin Board-en"
+          start_vote: "%{user_name} -k hasi zuen bozketa-aldia %{resource_name} aukerarako Bulletin Board-en"
+          unpublish: "%{user_name} -k desargitaratu zuen %{resource_name} bozketa"
       election_m:
         footer:
           vote: Eman botoa
@@ -180,12 +191,40 @@ eu:
           filter: Iragazi
           filter_by: Iragazi honen arabera
           unfold: Zabaldu
+        preview:
+          available_answers: Erantzun eskuragarriak
+          description: Hauek dira bozketa-prozesuan aurkituko dituzun galderak
+        results:
+          description: Hauek dira bozketaren emaitzak, galdera bakoitzerako
+          votes:
+            one: "%{count} boto"
+            other: "%{count} boto"
+            zero: "%{count} boto"
+        show:
+          action-button:
+            change-vote: Aldatu zure botoa
+            vote: Botoa ematen hasi
+            vote-again: Berriro eman botoa
+          callout:
+            already-voted: Jada botoa eman duzu aukera honetan. Zure botoa alda dezakezu edo egiaztatu.
+            vote-rejected: Ezin izan da zure botoa egiaztatu. Mesedez, egizu berriro.
+          verify:
+            already-voted: Bozkatu duzu?
+            verify-here: Egiaztatu zure botoa hemen.
+            will-verify: Zure botoa egiaztatu ahal izango duzu hautaketa hasten denean.
+      feedback:
+        answer:
+          invalid: Errore bat izan da zure feedbacka bidaltzean.
       votes:
         confirm:
           header: Baieztatu botoa
           intro: Hemen duzu emango duzun botoaren laburpena. < br> Mesedez, berretsi zure botoa edo editatu zure erantzunak.
         confirmed:
+          error: Sentitzen dugu, akats bat egon da botoa berrestean. Mesedez, bozkatu berriro.
           header: Baieztatutako botoa
+          lead: Eman duzu botoa!
+        encrypting:
+          header: Botoa kodifikatzen...
     pages:
       home:
         statistics:
