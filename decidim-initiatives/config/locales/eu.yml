@@ -22,8 +22,10 @@ eu:
         area_enabled: Egileei baimena eman beren ekimenerako eremua aukeratzeko
         attachments_enabled: Gaitu erantsitako artxiboak
         banner_image: Banner irudia
-        collect_user_extra_fields: Bildu sinadura pertsonalaren datu pertsonalak
-        description: deskribapena
+        child_scope_threshold_enabled: Sinadurak aktibatzea azpieremuaren arabera
+        collect_user_extra_fields: Bildu parte-hartzailearen datu pertsonalak sinaduraz
+        custom_signature_end_date_enabled: Egileei sinadurak biltzeko aldiaren amaiera aukeratzen uztea
+        description: Deskribapena
         document_number_authorization_handler: Botoen dokumentu zenbakia egiaztatzeko baimena
         extra_fields_legal_information: Datu pertsonalen bilketari buruzko informazio juridikoa
         minimum_committee_members: Batzorde kideen gutxienekoak
