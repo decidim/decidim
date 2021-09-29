@@ -628,11 +628,30 @@ eu:
           email_subject: '%{user_group_name} taldetik kendu duzu!'
           notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldetik kendu zaituzte.
         user_group_created:
-          email_intro: Talde berri bat sortu da izen honekin %{user_group_name}. Orain egiaztatu ahal duzu, hala badokio, hemen <a href="%{groups_admin_url}">panel de administración</a>.
+          email_intro: Talde berri bat sortu da izen honekin %{user_group_name}. Orain egiaztatu ahal duzu, hala badagokio, hemen <a href="%{groups_admin_url}">panel de administración</a>.
           email_outro: Jakinarazpen hau jaso duzu plataformaren administratzaileetako bat zarelako.
           email_subject: Talde berri bat sortu da
+          notification_title: Talde hau sortu da %{user_group_name}. Orain egiaztatu ahal duzu hemen <a href="%{groups_admin_path}">panel de administración</a>.
+        user_group_updated:
+          email_intro: '%{user_group_name} taldeak bere profila eguneratu du egiaztapena galduz. Berriro egiaztatu ahal duzu honen bidez <a href="%{groups_admin_url}">panel de administración</a>.'
+          email_outro: Jakinarazpen hau jaso duzu plataformaren administratzaileetako bat zarelako.
+          email_subject: Talde batek bere profila eguneratu du
+          notification_title: '%{user_group_name} taldeak bere profila eguneratu du egiaztapena galduz. Berriro egiaztatu ahal duzu honen bidez <a href="%{groups_admin_path}">panel de administración</a>.'
       notification_event:
         notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
+      reports:
+        resource_hidden:
+          email_intro: Administratzaile batek bere %{resource_type} ezabatu du erreportatua izan delako arrazoi honengatik %{report_reasons}.
+          email_outro: Jakinarazpen hau jaso duzu ezabatutako edukiaren egileetako bat zarelako.
+          email_subject: Zure %{resource_type} ezabatu egin da
+          notification_title: |-
+            Administratzaile batek zure %{resource_type} erreportatua izan delako arrazoi honengatik honela %{report_reasons}.</br>
+            <i>%{resource_content}</i>
+      resource_endorsed:
+        email_intro: 'Jarraitzen duzun hau %{endorser_name} %{endorser_nickname} honi atxiki zaio "%{resource_title}" zure interesekoa izan daiteke, egiaztatu eta lagundu:'
+        email_outro: Jakinarazpen hau jaso duzu % “ endorser_nickname”ri jarraitzen diozulako. Jakinarazpenak jasotzeari utzi ahal diozu, esteka hau jarraituz %{endorser_nickname}.
+        email_subject: "%{endorser_nickname} proposamen bati atxiki zaio"
+        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> atxiki zaio honako proposamen honi <a href="%{resource_path}">%{resource_title}</a> (%{resource_type}).
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
@@ -682,12 +701,20 @@ eu:
       errors:
         decidim/user:
           password: Pasahitza laburregia da.
+          password_confirmation: Pasahitzaren egiaztapena zure pasahitzarekin bat etorri behar da.
         error: Errorea bat dago eremu honetan.
       file_help:
         file:
           explanation: 'Jarraibideak artxiborako:'
+          message_1: Irudi bat edo dokumentu bat izan behar da.
+          message_2: Irudietarako, ahal izanez gero, erabili irudi etzanak, zerbitzuak irudia moztu egiten baitu. CSV artxiboetarako zutabeen arteko banatzailea koma bat izan behar da (",")
         image:
           explanation: 'Jarraibideak irudirako:'
+          message_1: Ahal izanez gero, irudi etzana eta testurik gabekoa.
+          message_2: Zerbitzuak irudia moztu egiten du.
+      file_validation:
+        allowed_file_extensions: 'Onartutako artxiboen formatua: %{extensions}'
+        max_file_size: 'Artxiboaren gehieneko tamaina: %{megabytes}MB'
       remove_this_file: Ezabatu artxibo hau
     gamification:
       all_badges_link: Ikusi eskuragarri dauden txapak.
@@ -826,6 +853,7 @@ eu:
         cancel: Utzi
         close_modal: Itxi leihoa
         proceed: Jarraitu
+        title: Ireki kanpoko lotura
     log:
       base_presenter:
         create: "%{user_name} sortu %{resource_name}"
