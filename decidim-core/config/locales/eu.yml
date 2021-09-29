@@ -850,6 +850,8 @@ eu:
     links:
       invalid_url: URL baliogabea
       warning:
+        body_1: Kanpoko lotura bat bisitatuko duzu eta eskatzen dizugu zuhurra izatea kanpoko orrialdeen edukiarekin.
+        body_2: Mesedez, jarraitu aurretik, egiaztatu bisitatuko duzun lotura leku seguru batena dela.
         cancel: Utzi
         close_modal: Itxi leihoa
         proceed: Jarraitu
@@ -892,28 +894,64 @@ eu:
           intro: "%{sender} elkarrizketa berria hasi duzu zurekin. Egin klik hemen ikusteko:"
           outro: Gozatu erabaki!
           subject: "%{sender} elkarrizketa bat hasi da zurekin"
+        new_group_conversation:
+          intro: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
+          outro: Disfrutatu Decidimez!
+          subject: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin"
+        new_group_message:
+          admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
+          greeting: Kaixo, %{recipient}!
+          intro: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
+          outro: Disfrutatu Decidimez!
+          subject: "%{group} k %{sender} ren mezu berriak ditu"
         new_message:
           greeting: Kaixo, %{recipient}!
-          intro: "%{sender} elkarrizketan mezu berriak argitaratu ditu. Egin klik hemen ikusteko:"
-          outro: Gozatu erabaki!
+          intro: "%{sender} k elkarrizketan mezu berriak argitaratu ditu. Egin klik hemen ikusteko:"
+          outro: Disfrutatu Decidimez!
           subject: '%{sender}-tik mezu berriak dituzu'
       conversations:
+        add_conversation_users:
+          add_max_users: 'Gehitu erabiltzaileak elkarrizketara: gehienez 9 erabiltzaile'
+          add_users_placeholder: Bilatu...
+          modal_title: Elkarrizketa berria
+          no_results: Emaitzarik ez
+          participant_with_disabled_message_reception: Erabiltzaile honek mezuak jasotzea desaktibatu du
+        conversation:
+          show: Erakutsi elkarrizketa honekin %{sender}
         create:
           error: Ez da elkarrizketa hasi. Saiatu berriro geroago
+        error_modal:
+          close: Itxi leihoa
+          correct_errors: Mesedez, zuzendu akatsak eta saiatu berriro.
+          intro: 'Zure mezuan honako akats hauek gertatu dira:'
+          ok: Ados
         index:
-          close: Itxi modal
-          from: Nork
+          ago: orain dela
+          close: Itxi leihoa
+          from: Nondik
+          groups: Nire taldeak
+          last_message: Azken mezua
+          new_conversation: Elkarrizketa berria
+          next: Hurrengoa
           no_conversations: Oraindik ez duzu elkarrizketarik
           title: Elkarrizketak
         reply:
+          placeholder: Zure erantzuna...
           send: Bidali
           title: Erantzun
         show:
-          title: Solasean %{usernames}
+          back: Itzuli elkarrizketa guztietara
+          chat_with: Elkarrizketa honekin
+          not_allowed: Parte-hartzaile honek ez du mezu zuzenik onartzen.
+          title: Elkarrizketa honekin %{usernames}
         start:
           send: Bidali
           title: Hasi elkarrizketa bat
+        update:
+          error: Mezua ez da bidali akats batengatik
     metrics:
+      download:
+        csv: Deskargatu datuak (CSV)
       followers:
         description: Parte hartze espazio hau jarraitzen duten erabiltzaile kopurua
         object: jarraitzaile
@@ -931,6 +969,11 @@ eu:
         note: 'Mezu hau jaso duzu albiste-buletinean harpidetuta zaudelako hemen: %{organization_name}. Ezarpenak aldatu ditzakezu zure <a href="%{link}">jakinarazpen-orrian</a>.'
         see_on_website: Ezin da mezu hau zuzenean ikusi? Ikusi <a href="%{link}" target="_blank">website</a> orrian.
         unsubscribe: Mezu mota hau jasotzeko ez onartzeko, <a href="%{link}" target="_blank" class="unsubscribe"> Harpidetu</a>.
+    newsletter_templates:
+      basic_only_text:
+        name: Oinarrizkoa (testua soilik)
+      basic_only_text_settings_form:
+        body: Gorputza
     newsletters:
       unsubscribe:
         check_subscription: Zure hobespenak aldatu nahi badituzu, <a href="%{link}" target="_blank">configurazio orriko 1233_4_1_321 orrian egin dezakezu.
