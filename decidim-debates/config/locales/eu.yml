@@ -118,9 +118,17 @@ eu:
           category: Kategoria
           category_prompt: Aukeratu kategoria bat
           citizens: Hiritarrak
+          commented: Iruzkina eginda
+          my_debates: Nire eztabaidak
           official: Ofiziala
           origin: Origin
+          scope: Eremua
           search: Search
+          state: Egoera
+          state_values:
+            closed: Itxita
+            open: Ireki
+          user_groups: Taldeak
         filters_small_view:
           close_modal: Itxi modal
           filter: Filter
@@ -134,7 +142,37 @@ eu:
           back: Back
           create: Sortu
           title: Berri eztabaida
+        orders:
+          commented: Iruzkin gehien dituztenak
+          label: Ordenatu eztabaidak honen arabera
+          random: Ausazko ordena
+          recent: Azkenak
+          updated: Orain dela gutxi eguneratuak
+        show:
+          back: Itzuli zerrendara
+          close_debate: Itxi eztabaida
+          date: Data
+          debate_closed: Itxita
+          debate_conclusions_are: 'Eztabaida %{date} egunean itxi zen ondorio hauekin:'
+          edit_conclusions: Editatu ondorioak
+          edit_debate: Editatu eztabaida
+          groups_count: Taldeak
+          last_comment_by: Honen azken iruzkina
+          no_comments_yet: Oraindik ez dago iruzkinik
+          open: Eztabaida irekita
+          participants_count: Parte-hartzaileak
+        update:
+          invalid: Arazo bat izan da eztabaida hau eguneratzean.
+          success: Eztabaida zuzen eguneratu da.
+        versions:
+          debates:
+            back_to_resource: Itzuli eztabaidara
+          index:
+            title: Bertsioak
+        versions_list:
+          back_to_resource: Itzuli eztabaidara
       last_activity:
+        debate_updated_at_html: "<span>eztabaida ordu honetan %{link}</span> eguneratuta"
         new_debate_at_html: "<span> %{link}</span>eztabaida berria"
       models:
         debate:
@@ -187,3 +225,5 @@ eu:
         description: Sortutako eztabaida kopurua
         object: eztabaidak
         title: eztabaidak
+    statistics:
+      debates_count: Eztabaidak
