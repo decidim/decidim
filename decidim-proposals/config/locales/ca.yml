@@ -354,6 +354,7 @@ ca:
       actions:
         answer_proposal: Respondre a la proposta
         edit_proposal: Edita la proposta
+        import: Importa des d'un altre component
         new: Nova proposta
         participatory_texts: Textos participatius
         show: Veure proposta
