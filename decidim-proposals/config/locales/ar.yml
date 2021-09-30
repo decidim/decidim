@@ -291,7 +291,6 @@ ar:
       actions:
         answer_proposal: الرد على المُقتَرَح
         edit_proposal: تعديل الاقتراح
-        import: استيراد من مكون آخر
         new: عرض جديد
         participatory_texts: النصوص التشاركية
         title: أفعال
