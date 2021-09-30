@@ -399,19 +399,43 @@ eu:
           add_to_calendar: Gehitu egutegira
           apple: Gehitu Appleren egutegira
           close_window: Itxi leihoa
+        edit:
+          back: Atzera
+          title: Editatu topaketa
+          update: Eguneratu
         filters:
+          activity: Nire jarduera
+          all: Denak
           category: Kategoria
           date: Data
+          date_values:
+            all: Denak
+            past: Aurrekoak
+            upcoming: Hurrengoak
+          my_meetings: Nire topaketak
+          origin: Jatorria
           origin_values:
+            all: Denak
             citizens: Hiritarrak
+            official: Ofiziala
+            user_groups: Taldeak
+          scope: Eremua
           search: Bilatu
+          type: Mota
           type_values:
+            all: Denak
+            hybrid: Biok
+            in_person: Aurrez aurre
             online: Lineakoa
         filters_small_view:
           close_modal: Itxi leihoa
           filter: Iragazi
           filter_by: 'Iragazi honen arabera:'
           unfold: Zabaldu
+        form:
+          create_as: Sortu topaketa honela
+        index:
+          new_meeting: Topaketa berria
         meeting_minutes:
           related_information: Lotutako informazioa
         meetings:
