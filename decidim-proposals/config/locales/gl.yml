@@ -315,7 +315,6 @@ gl:
       actions:
         answer_proposal: Responder á proposta
         edit_proposal: Editar proposta
-        import: Importar dende outro compoñente
         new: Nova proposta
         participatory_texts: Textos participativos
         show: Amosar proposta
