@@ -39,9 +39,9 @@ eu:
         proposal:
           attributes:
             add_documents:
-              needs_to_be_reattached: Berriro uzteko beharra
+              needs_to_be_reattached: Artxiboa berriro erantsi behar da
             add_photos:
-              needs_to_be_reattached: Berriro uzteko beharra
+              needs_to_be_reattached: Artxiboa berriro erantsi behar da
             body:
               identical: ETA izenburua ezin da berdinak izan
             title:
@@ -81,6 +81,7 @@ eu:
         name: proposamenak
         settings:
           global:
+            allow_card_image: Baimendu irudidun txartela
             amendments_enabled: Emendakinak gaituta
             announcement: Anuntzio
             attachments_allowed: Onartu eranskinak
@@ -389,11 +390,11 @@ eu:
             select_states: Egiaztatu inportatzeko proposamenen egoera
         proposals_merges:
           create:
-            invalid: Errore bat gertatu da hautatutako proposamenekin bat egitea.
+            invalid: Errore bat izan da hautatutako proposamenak batzean.
             success: Proposamen berri batean sartu dira ondo.
         proposals_splits:
           create:
-            invalid: Errore bat gertatu da hautatutako proposamenen banaketa.
+            invalid: Errore bat izan da hautatutako proposamenak banatzean.
             success: Proposamen berrietara egokitu dira.
       admin_log:
         proposal:

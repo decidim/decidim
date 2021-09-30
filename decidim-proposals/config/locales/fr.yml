@@ -145,6 +145,10 @@ fr:
             participatory_texts_enabled_readonly: Impossible d'interagir avec ce paramètre s'il y a des propositions existantes. Veuillez créer une nouvelle fonctionnalité `Propositions` si vous voulez activer cette fonctionnalité ou supprimer toutes les propositions importées dans 'Textes participatifs` si vous voulez la désactiver.
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             proposal_edit_before_minutes: Délai (en minutes) après lequel les auteurs ne peuvent plus modifier leurs propositions
+            proposal_edit_time: Durée d'édition des propositions
+            proposal_edit_time_choices:
+              infinite: Autoriser l'édition des propositions pour une durée infinie
+              limited: Autoriser l'édition des propositions durant un délai spécifique
             proposal_length: Nombre maximum de caractères du corps de la proposition
             proposal_limit: Limite de proposition par utilisateur
             proposal_wizard_step_1_help_text: Texte d'aide à l'étape "Créer" de la création de proposition
@@ -795,7 +799,7 @@ fr:
           answer: Répondre
           back_to: Retour à
           back_to_list: Retour à la liste
-          changes_at_title: Amendement de (%{title}"
+          changes_at_title: Amendement de "%{title}"
           comments: Commentaires
           edit_proposal: Modifier la proposition
           endorsements_list: Liste des soutiens
@@ -901,3 +905,7 @@ fr:
       included_proposals:
         proposal_project: 'Proposition figurant dans ces projets :'
         proposal_result: 'Proposition figurant dans ces réalisations :'
+    statistics:
+      proposals_accepted: Propositions acceptées
+      proposals_count: Propositions
+      supports_count: Votes

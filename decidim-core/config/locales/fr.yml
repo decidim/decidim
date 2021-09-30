@@ -5,6 +5,8 @@ fr:
         delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
       common:
         created_at: Créé le
+      conversation:
+        body: Corps de texte
       group:
         about: A propos
         avatar: Avatar
@@ -13,6 +15,8 @@ fr:
         name: Nom
         nickname: Nom d'utilisateur
         phone: Téléphone
+      message:
+        body: Corps de texte
       report:
         details: Commentaires supplémentaires
       user:
@@ -63,7 +67,6 @@ fr:
     'true': 'Oui'
   carrierwave:
     errors:
-      general: Erreur de traitement de l'image
       image_too_big: L'image est trop grande
       not_inside_organization: Le fichier n'est relié à aucune organisation
   date:
@@ -95,6 +98,7 @@ fr:
         error: Une erreur s'est produite lors de la suppression de votre compte.
         success: Votre compte a été supprimé avec succès.
       show:
+        available_locales_helper: Choisissez la langue que vous souhaitez utiliser pour naviguer et recevoir des notifications dans Decidim
         change_password: Changer de mot de passe
         update_account: Mettre à jour votre compte
       update:
@@ -259,6 +263,8 @@ fr:
       photos:
         related_photos: Photos associées
     author:
+      avatar: 'Avatar: %{name}'
+      avatar_multiuser: Avatar pour plusieurs utilisateurs
       comments:
         one: commentaire
         other: commentaires
@@ -1231,6 +1237,7 @@ fr:
         description: Ce contenu est-il inapproprié ?
         does_not_belong: Contient d’autres types de contenus qui vous semblent inappropriés à %{organization_name} (activités illégales, menaces suicidaires, informations personnelles,...).
         offensive: Contient des propos contraires à la loi (propos racistes, sexistes, insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine,...).
+        reason: Motif
         report: Signaler
         spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
         title: Signaler un contenu inapproprié
@@ -1268,10 +1275,21 @@ fr:
         title: Sélectionner le nombre de résultats par page
       share_modal:
         close_window: Fermer la fenêtre
+        copy_share_link: Copier
+        copy_share_link_clarification: Copier le lien de partage dans le presse-papiers
+        copy_share_link_copied: Copié!
+        copy_share_link_message: Le lien a bien été copié dans le presse-papier.
         share: Partager
         share_link: Lien de partage
     statistics:
       comments_count: Commentaires
+      endorsements_count: Soutiens
+      followers_count: Abonnés
+      headline: Statistiques
+      no_stats: Il n'y a pas encore de statistiques.
+      pages_count: Pages
+      participants_count: Participant·e·s
+      users_count: Participant·e·s
     tags:
       filter_results_for_category: 'Filtrer les résultats de la catégorie : %{resource}'
       filter_results_for_scope: 'Filtrer les résultats pour le secteur : %{resource}'
@@ -1309,6 +1327,7 @@ fr:
         send: Envoyer
         title_reply: Répondre
       show:
+        back: Afficher toutes les conversations
         not_allowed: Cet utilisateur n'accepte plus de messages directs.
         title: Conversation avec %{usernames}
       update:
@@ -1332,7 +1351,7 @@ fr:
     version:
       show:
         back_to_resource: Revenir en arrière
-        changes_at_title: Changements à%{title}"
+        changes_at_title: Changements sur "%{title}"
         number_of_versions: Versions
         show_all_versions: Afficher toutes les versions
         version_author: Auteur de la version
@@ -1350,10 +1369,11 @@ fr:
     versions_list:
       show:
         back_to_resource: Revenir en arrière
-        changes_at_title: Changements à%{title}"
+        changes_at_title: Changements sur "%{title}"
         number_of_versions: Versions
         title: Versions
     versions_list_item:
+      back: Afficher toutes les versions
       show:
         version_index: Version %{index}
     welcome_notification:
@@ -1532,6 +1552,10 @@ fr:
       too_short: est trop court (moins de 15 caractères)
   forms:
     correct_errors: Il y a des erreurs dans le formulaire, veuillez les corriger pour continuer.
+    length_validator:
+      minimum:
+        one: Au moins %{count} caractère
+        other: Au moins %{count} caractères
     required: Champ obligatoire
     required_explanation: "* Les champs obligatoires sont marqués d'un astérisque"
   invisible_captcha:

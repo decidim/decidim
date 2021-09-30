@@ -27,6 +27,7 @@ it:
     components:
       debates:
         actions:
+          comment: Commenta
           create: Creare
           endorse: Sottoscrivi
         name: Dibattiti

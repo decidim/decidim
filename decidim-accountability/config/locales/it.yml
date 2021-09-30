@@ -204,6 +204,8 @@ it:
             label: Stato
     components:
       accountability:
+        actions:
+          comment: Commenta
         name: Accountability
         settings:
           global:

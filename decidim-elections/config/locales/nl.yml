@@ -237,6 +237,7 @@ nl:
             title: Resultaten gepubliceerd
           tally:
             title: Turfproces
+            trustees: Trustees
           tally_ended:
             answer: Antwoord
             not_selected: Niet geselecteerd
@@ -291,6 +292,10 @@ nl:
         results:
           description: 'Dit zijn de resultaten van de stemronde, voor elke vraag:'
           percentage: "%{count}%"
+          votes:
+            one: "%{count} stem"
+            other: "%{count} stemmen"
+            zero: "%{count} stemmen"
         show:
           action_button:
             change_vote: Wijzig je stem

@@ -22,6 +22,11 @@
           elections_count:
             one: "%{count} valg"
             other: "%{count} valg"
+        results:
+          votes:
+            one: "%{count} stemmer"
+            other: "%{count} stemmer"
+            zero: "%{count} stemmer"
         show:
           action_button:
             change_vote: Endre stemmen din

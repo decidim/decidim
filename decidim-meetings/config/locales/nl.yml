@@ -23,6 +23,7 @@ nl:
         decidim_user_group_id: Gebruikers groep
         description: Beschrijving
         end_time: Eindtijd
+        id: ID
         location: Plaats
         location_hints: Locatie hints
         online_meeting_url: De URL van de online vergadering
@@ -69,6 +70,34 @@ nl:
         other: registraties
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Categorie
+          closed_at_present:
+            label: Status
+            values:
+              'false': Open
+              'true': Gesloten
+          is_upcoming_true:
+            label: Datum
+            values:
+              'false': Verleden
+              'true': Toekomstige
+          origin_eq:
+            label: Herkomst
+            values:
+              citizen: Inwoners
+              official: Officieel
+              user_group: Gebruikersgroepen
+          scope_id_eq:
+            label: Scope
+          type_eq:
+            label: Type vergadering
+            values:
+              hybrid: Beide
+              in_person: Fysiek
+              online: Online
       meeting_copies:
         create:
           error: Er is een fout opgetreden tijdens het dupliceren van deze vergadering.
@@ -146,6 +175,9 @@ nl:
           email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
           email_subject: Het "%{resource_title}" event start in minder dan 48 uur.
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event begint over minder dan 48 uur.
+    forms:
+      meetings:
+        attendees_count_help_text: Vergeet niet het totale aantal deelnemers op je evenement toe te voegen. Of het nu een fysieke, hybride of online bijeenkomst is, het is handig om het aantal mensen te kennen.
     gamification:
       badges:
         attended_meetings:
@@ -443,10 +475,6 @@ nl:
           back: Achterzijde
           create: Aanmaken
           title: Maak je vergadering
-        online_meeting_link:
-          join: Deelnemen aan de vergadering
-          link_available_soon: Link binnenkort beschikbaar
-          live_event: Deze vergadering vindt op dit moment plaats
         registration_confirm:
           cancel: Annuleer
           confirm: Bevestigen
@@ -492,6 +520,7 @@ nl:
           fields:
             closed: Gesloten
             end_time: Einddatum
+            id: Id
             map: Kaart
             official_meeting: Officiële vergadering
             start_time: Startdatum

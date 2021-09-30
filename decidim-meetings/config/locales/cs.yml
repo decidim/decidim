@@ -23,6 +23,7 @@ cs:
         decidim_user_group_id: Uživatelská skupina
         description: Popis
         end_time: Čas ukončení
+        id: ID
         location: Umístění
         location_hints: Nápověda k poloze
         online_meeting_url: URL online schůzky
@@ -34,12 +35,17 @@ cs:
         registration_terms: Podmínky registrace
         registration_url: URL registrace
         registrations_enabled: Registrace povoleny
+        show_embedded_iframe: Zobrazit vloženou iframe pro tuto URL
         start_time: Čas zahájení
         title: Název
         transparent: Transparentní
         type_of_meeting: Typ
     errors:
       models:
+        meeting:
+          attributes:
+            show_embedded_iframe:
+              not_embeddable: Tato adresa URL nemůže být vložena
         meeting_agenda:
           attributes:
             base:
@@ -75,6 +81,34 @@ cs:
         other: Registrace
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Kategorie
+          closed_at_present:
+            label: Stav
+            values:
+              'false': Otevřeno
+              'true': Uzavřeno
+          is_upcoming_true:
+            label: Datum
+            values:
+              'false': Minulé
+              'true': Nadcházející
+          origin_eq:
+            label: Původ
+            values:
+              citizen: Občané
+              official: Úředník
+              user_group: Skupiny uživatelů
+          scope_id_eq:
+            label: Oblast působnosti
+          type_eq:
+            label: Typ schůzky
+            values:
+              hybrid: Obojí
+              in_person: Osobně
+              online: Online
       meeting_copies:
         create:
           error: Bylo zde chyba, že se tato schůzka zdvojnásobila.
@@ -86,6 +120,7 @@ cs:
     components:
       meetings:
         actions:
+          comment: Komentář
           join: Přidat se
         name: Setkání
         settings:
@@ -153,6 +188,9 @@ cs:
           email_outro: Toto upozornění jste obdrželi, protože postupujete po schůzce "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
           email_subject: Schůzka "%{resource_title}" začne za méně než 48 hodin.
           notification_title: Setkání <a href="%{resource_path}">%{resource_title}</a> bude zahájeno za méně než 48 hodin.
+    forms:
+      meetings:
+        attendees_count_help_text: Nezapomeňte uvést celkový počet účastníků vaší akce. Ať už jde o osobní, kombinovanou nebo on-line, je důležité, abychom věděli, kolik lidí je zapojeno.
     gamification:
       badges:
         attended_meetings:
@@ -281,6 +319,7 @@ cs:
             registration_url_help: 'Odkaz: umožnit účastníkům jít na externí službu, kterou používáte pro registrace'
             select_a_meeting_type: Vyberte prosím typ schůzky
             select_a_registration_type: Vyberte prosím typ registrace
+            show_embedded_iframe_help: Rozhodněte o vložení URL iframe pro tuto videokonferenci. Pouze některé služby umožňují vložení (např. Youtube, Twitch...)
           index:
             title: Setkání
           new:
@@ -456,6 +495,7 @@ cs:
           select_a_category: Vyberte prosím kategorii
           select_a_meeting_type: Vyberte prosím typ schůzky
           select_a_registration_type: Vyberte prosím typ registrace
+          show_embedded_iframe_help: Rozhodněte o vložení URL iframe pro tuto videokonferenci. Pouze některé služby umožňují vložení (např. Youtube, Twitch...)
         index:
           new_meeting: Nová schůzka
         meeting_minutes:
@@ -467,10 +507,6 @@ cs:
           back: Zpět
           create: Vytvořit
           title: Vytvořte si schůzku
-        online_meeting_link:
-          join: Připojte se ke schůzce
-          link_available_soon: Odkaz bude brzy k dispozici
-          live_event: Tato schůzka se děje právě teď
         registration_confirm:
           cancel: Zrušit
           confirm: Potvrdit
@@ -485,7 +521,11 @@ cs:
           join: Připojte se k setkání
           leave: Zrušit registraci
           leave_confirmation: Opravdu chcete zrušit registraci na tuto schůzku?
+          link_available_soon: Odkaz bude brzy k dispozici
+          link_closed: Odkaz pro připojení se ke schůzce bude k dispozici několik minut před jejím spuštěním
+          live_event: Tato schůzka se děje právě teď
           meeting_minutes: Zápis z porady
+          micro_camera_permissions_warning: Po kliknutí na tlačítko níže budete požádáni o povolení k mikrofonu nebo fotoaparátu a připojíte se k videokonferenci
           no_slots_available: Žádné sloty nejsou k dispozici
           organizations: Účastnické organizace
           registration_code_help_text: Váš registrační kód
@@ -498,6 +538,7 @@ cs:
             many: "%{count} zbývajících bloků"
             other: "%{count} zbývajících bloků"
           view: Zobrazit
+          visit_finished: Zobrazit minulou schůzku
         update:
           invalid: Při aktualizaci schůzky došlo k chybě.
           success: Úspěšně jste aktualizovali schůzku.
@@ -518,6 +559,7 @@ cs:
           fields:
             closed: Zavřeno
             end_time: Datum ukončení
+            id: Id
             map: Mapa
             official_meeting: Oficiální schůzka
             start_time: Datum zahájení

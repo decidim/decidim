@@ -1,1 +1,205 @@
 ga:
+  activemodel:
+    attributes:
+      conference:
+        copy_categories: Cóipeáil catagóirí
+        decidim_scope_id: Scóip
+        end_date: Dáta deiridh
+        hashtag: Haischlib
+        location: Suíomh
+        participatory_processes_ids: Próisis Rannpháirteacha Ceangailte
+        scope_id: Scóip
+        slogan: Mana
+        slug: Píosa URL
+        title: Teideal
+      conference_media_link:
+        date: Dáta
+        link: Nasc
+        title: Teideal
+        weight: Meáchan
+      conference_partner:
+        link: Nasc
+        logo: Lógó
+        name: Ainm
+        weight: Meáchan
+      conference_registration_invite:
+        email: Seoladh ríomhphoist
+        name: Ainm
+        user_id: Úsáideoir
+      conference_registration_type:
+        price: Praghas
+        title: Teideal
+        weight: Meáchan
+      conference_speaker:
+        avatar: Abhatár
+        user_id: Úsáideoir
+      conference_user_role:
+        email: Seoladh ríomhphoist
+        name: Ainm
+        role: Ról
+  decidim:
+    admin:
+      actions:
+        confirm: Deimhnigh
+      conference_copies:
+        new:
+          copy: Cóipeáil
+      conference_speakers:
+        edit:
+          update: Nuashonraigh
+        new:
+          create: Cruthaigh
+      conference_user_roles:
+        edit:
+          update: Nuashonraigh
+        new:
+          create: Cruthaigh
+      conferences:
+        edit:
+          update: Nuashonraigh
+        new:
+          create: Cruthaigh
+      media_links:
+        edit:
+          update: Nuashonraigh
+        new:
+          create: Cruthaigh
+      menu:
+        conferences_submenu:
+          attachment_collections: Fillteáin
+          attachment_files: Comhaid
+          attachments: Ceangaltáin
+          categories: Catagóirí
+          conference_invites: Cuirí
+          conference_speakers: Cainteoirí
+          info: Eolas
+          partners: Comhpháirtithe
+      models:
+        conference:
+          fields:
+            title: Teideal
+        conference_speaker:
+          fields:
+            position: Céim
+        conference_user_role:
+          fields:
+            email: Seoladh ríomhphoist
+            name: Ainm
+            role: Ról
+          roles:
+            admin: Riarthóir
+            valuator: Luachálaí
+        media_link:
+          fields:
+            date: Dáta
+            link: Nasc
+            title: Teideal
+        partner:
+          fields:
+            link: Nasc
+            logo: Lógó
+            name: Ainm
+            partner_type: Cineál
+          name: Comhpháirtí
+        registration_type:
+          fields:
+            price: Praghas
+            title: Teideal
+      partners:
+        edit:
+          update: Nuashonraigh
+        new:
+          create: Cruthaigh
+      registration_types:
+        edit:
+          update: Nuashonraigh
+        new:
+          create: Cruthaigh
+    conference_program:
+      index:
+        title: Clár
+    conference_speakers:
+      index:
+        title: Cainteoirí
+    conferences:
+      admin:
+        conference_invites:
+          index:
+            filter:
+              accepted: Glactha
+              all: Uile
+              rejected: Diúltaithe
+              sent: Seolta
+            invites: Cuirí
+            search: Cuardaigh
+          new:
+            invite: Tabhair Cuireadh
+        conference_speakers:
+          index:
+            search: Cuardaigh
+        diplomas:
+          edit:
+            save: Sábháil
+        partners:
+          index:
+            title: Comhpháirtithe
+      conference:
+        registration_confirm:
+          cancel: Cealaigh
+          confirm: Deimhnigh
+        show:
+          free: Saor in aisce
+      conference_program:
+        program_meeting:
+          content: Inneachar
+          location: Suíomh
+          speakers: Cainteoirí
+        show:
+          day: Lá
+          program: Clár
+      conference_speakers:
+        index:
+          speakers: Cainteoirí
+      conferences:
+        partners:
+          collaborators: Comhpháirtithe
+        show:
+          register: Cláraigh
+      models:
+        conference_invite:
+          fields:
+            email: Seoladh ríomhphoist
+            name: Ainm
+            sent_at: Seolta ag
+            status: Stádas
+          status:
+            sent: Seolta
+        conference_registration:
+          fields:
+            email: Seoladh ríomhphoist
+            name: Ainm
+            state: Stádas
+            states:
+              pending: Ar feitheamh
+      photo:
+        show:
+          photo: Íomhá
+      photos_list:
+        show:
+          related_photos: Íomhánna
+      registration_types:
+        index:
+          register: Cláraigh
+      show:
+        details: Sonraí
+        introduction: Réamhrá
+        related_participatory_processes: Próisis Rannpháirteacha Ceangailte
+  layouts:
+    decidim:
+      conference_hero:
+        register: Cláraigh
+      conferences_nav:
+        conference_partners_menu_item: Comhpháirtithe
+        conference_speaker_menu_item: Cainteoirí
+        media: Meán
+        venues: Ionaid

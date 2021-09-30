@@ -359,11 +359,6 @@ pl:
           upcoming: Nadchodzące
         end_date: Data zakończenia
         footer:
-          remaining_time:
-            one: "<strong>%{count} godzina %{minutes} minut</strong> pozostało do głosowania."
-            few: "<strong>%{count} godzin %{minutes} minut</strong> pozostało do głosowania."
-            many: "<strong>%{count} godzin %{minutes} minut</strong> pozostało do głosowania."
-            other: "<strong>%{count} godziny %{minutes} minuty</strong> pozostały do głosowania."
           view: Zobacz
           vote: Głosuj
         label:
@@ -446,9 +441,8 @@ pl:
           title: Wyniki wyborów
           votes:
             one: "%{count} głos"
-            few: "%{count} głosów"
-            many: "%{count} głosów"
             other: "%{count} głosy"
+            zero: "%{count} głosów"
         show:
           action_button:
             change_vote: Zmień swój głos

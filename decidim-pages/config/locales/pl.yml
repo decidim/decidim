@@ -5,7 +5,7 @@ pl:
         one: Strona
         few: Strony
         many: Stron
-        other: Stron
+        other: Strony
   decidim:
     admin_log:
       page:
@@ -30,3 +30,6 @@ pl:
           update:
             invalid: Podczas zapisywania strony wystąpił błąd.
             success: Strona została zapisana.
+      home:
+        sub_hero:
+          register_title: Zarejestruj się, aby utworzyć konto
