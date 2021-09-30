@@ -332,7 +332,6 @@ zh-CN:
       actions:
         answer_proposal: 答复建议
         edit_proposal: 编辑提案
-        import: 从另一个组件导入
         new: 新提案
         participatory_texts: 参与性案文
         show: 显示提案
