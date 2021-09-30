@@ -99,6 +99,10 @@ eu:
             label: Eremua
           type_eq:
             label: Topaketa mota
+            values:
+              hybrid: Biok
+              in_person: Aurrez aurre
+              online: Linean
       meeting_copies:
         create:
           error: Akatsa gertatu da bilera hau bikoiztea.
@@ -110,18 +114,28 @@ eu:
     components:
       meetings:
         actions:
+          comment: Iruzkina
           join: Parte hartu
         name: Bilerak
         settings:
           global:
             announcement: Anuntzio
             comments_enabled: Iruzkinak gaituta
+            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
+            creation_enabled_for_participants: Parte-hartzaileek topaketak sortu ahal dituzte
             default_registration_terms: Izen-emate baldintzak lehenetsiak
             enable_pads_creation: Gaitu pads sortzea
+            maps_enabled: Mapak gaituta
+            registration_code_enabled: Izena emateko kodea aktibatuta
             resources_permissions_enabled: Akzioen baimenak bilera bakoitzerako ezarri daitezke
+            scope_id: Eremua
+            scopes_enabled: Eremuak gaituta
+            terms_and_conditions_url_for_meeting_creators: Irizpide eta baldintzen URLa topaketen egileentzat
           step:
             announcement: Anuntzio
             comments_blocked: Iruzkinak blokeatuta
+            creation_enabled_for_participants: Gaitu topaketak parte-hartzaileek sortzea
+            creation_enabled_for_user_groups: Gaitu topaketak taldeek sortzea
     events:
       meetings:
         meeting_closed:
@@ -136,6 +150,7 @@ eu:
             email_subject: '"%{resource_title}" bilera itxita zegoen'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera itxita zegoen.
         meeting_created:
+          button_text: Eman izena topaketan
           email_intro: Bilera "%{resource_title}" | gehitu da "%{participatory_space_title}" " jarraitzen ari zarela.
           email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
           email_subject: Bilera berria %{participatory_space_title}
@@ -167,6 +182,9 @@ eu:
           email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
           email_subject: '"%{resource_title}" topaketa 48 ordu baino gutxiagotan hasiko da.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa 48 ordu baino gutxiagoan hasiko da.
+    forms:
+      meetings:
+        attendees_count_help_text: Ez ahaztu zure topaketara joandako guztien kopurua sartzea, bai aurrez aurre, bai linean edo hibridoan.
     gamification:
       badges:
         attended_meetings:
@@ -188,6 +206,11 @@ eu:
         confirm_destroy: Ziur zaude topaketa hau ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
+        invalid_destroy:
+          proposals_count:
+            one: 'Topaketa ezin da ezabatu lotutako %{count} proposamen dituelako:'
+            other: 'Topaketa ezin da ezabatu lotutako %{count} proposamen dituelako:'
+        manage_poll: Konfiguratu inkesta
         new: Bilera berria
         preview: Aurreikusi
         registrations: Izen-emateak
@@ -224,6 +247,8 @@ eu:
             invalid: Arazo bat izan da agenda hau eguneratzean
             success: Agenda ondo eguneratu da
         exports:
+          answers: Erantzunak
+          meeting_comments: Iruzkinak
           meetings: Bilerak
           registrations: Izen-emateak
         invite_join_meeting_mailer:
@@ -264,8 +289,13 @@ eu:
           create:
             invalid: Arazo bat izan da topaketa hau sortzean.
           destroy:
+            invalid:
+              proposals_count:
+                one: Topaketa ezin da ezabatu lotutako %{count} proposamen dituelako
+                other: Topaketa ezin da ezabatu lotutako %{count} proposamen dituelako
             success: Topaketa zuzen ezabatu da.
           edit:
+            title: Editatu topaketa
             update: Eguneratu
           index:
             title: Topaketa-zerrenda
@@ -302,6 +332,7 @@ eu:
               other: Dena den, %{count} matrikulazioak.
             reserved_slots_help: Utzi 0 aukerarik ez baduzu erreserbatutako slotarik
             reserved_slots_less_than: '%{count} baino gutxiago izan behar du'
+            title: Erregistroak
           update:
             invalid: Arazo bat izan da izen-ematearen konfigurazioa gordetzean.
             success: Topaketen izen-emateen konfigurazioak zuzen gorde dira.
@@ -344,6 +375,11 @@ eu:
             upcoming: Datozen
       last_activity:
         new_meeting_at_html: "<span>Bilera berria %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Administratu
+          close: itxi
+          questions: Galderak
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -353,16 +389,53 @@ eu:
             subject: Zure topaketarako izen-ematea baieztatua izan da
       meeting:
         not_allowed: Ez zaude bilera hau ikusteko baimenik
+      meeting_closes:
+        edit:
+          back: Atzera
+          close: Itxi topaketa
+          title: Itxi topaketa
       meetings:
+        calendar_modal:
+          add_to_calendar: Gehitu egutegira
+          apple: Gehitu Appleren egutegira
+          close_window: Itxi leihoa
+        edit:
+          back: Atzera
+          title: Editatu topaketa
+          update: Eguneratu
         filters:
+          activity: Nire jarduera
+          all: Denak
           category: Kategoria
           date: Data
+          date_values:
+            all: Denak
+            past: Aurrekoak
+            upcoming: Hurrengoak
+          my_meetings: Nire topaketak
+          origin: Jatorria
+          origin_values:
+            all: Denak
+            citizens: Hiritarrak
+            official: Ofiziala
+            user_groups: Taldeak
+          scope: Eremua
           search: Bilatu
+          type: Mota
+          type_values:
+            all: Denak
+            hybrid: Biok
+            in_person: Aurrez aurre
+            online: Lineakoa
         filters_small_view:
           close_modal: Itxi leihoa
           filter: Iragazi
           filter_by: 'Iragazi honen arabera:'
           unfold: Zabaldu
+        form:
+          create_as: Sortu topaketa honela
+        index:
+          new_meeting: Topaketa berria
         meeting_minutes:
           related_information: Lotutako informazioa
         meetings:
