@@ -143,6 +143,7 @@ uk:
           notification_title: Тепер в <a href="%{participatory_space_url}">%{participatory_space_title}</a> відкрилась можливість <a href="%{resource_path}">голосувати щодо пропозицій</a>
     proposals:
       actions:
+        import: Запозичити з іншої складової
         new: Додати нову пропозицію
         title: Дії
       admin:
