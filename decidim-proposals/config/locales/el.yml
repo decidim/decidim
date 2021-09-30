@@ -319,6 +319,7 @@ el:
       actions:
         answer_proposal: Απάντηση σε πρόταση
         edit_proposal: Επεξεργασία πρότασης
+        import: Εισαγωγή από άλλο στοιχείο
         new: Νέα πρόταση
         participatory_texts: Κείμενα συμμετοχής
         show: Εμφάνιση πρότασης
