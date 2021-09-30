@@ -143,6 +143,7 @@ ru:
           notification_title: Теперь в <a href="%{participatory_space_url}">%{participatory_space_title}</a> появилась возможность <a href="%{resource_path}">голосовать по предложениям</a>
     proposals:
       actions:
+        import: Позаимствовать из другой составляющей
         new: Внести новое предложение
         title: Действия
       admin:
