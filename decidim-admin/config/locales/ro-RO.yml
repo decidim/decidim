@@ -444,10 +444,15 @@ ro:
       imports:
         error: A apărut o problemă în timpul importului
         new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
           actions:
             back: Înapoi
           file_legend: Adăugați un fișier de import care va fi analizat.
           import: Importă
+        notice: "%{number} %{resource_name} importate cu succes"
       logs:
         logs_list:
           no_logs_yet: Încă nu există jurnale
