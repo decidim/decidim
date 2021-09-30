@@ -69,11 +69,44 @@ Decidim.register_component(:my_component) do |component|
 
   # Import definitions allow data to be imported into a component.
   #
-  # For now supported formats for imports are CSV, JSON and Excel (.xls).
-  # Every resource type needs it's own creator, which creates resource
-  # from parsed data.
+  # For now supported formats for imports are CSV, JSON and Excel (.xlsx).
+  # Every resource type needs it's own creator, which creates resource from
+  # parsed data. You also need to define specific messages for the importer and
+  # can provide some extra options, too.
   component.imports :component_resources do |imports|
+    # Define a form partial if you want to add custom fields to the form
+    # imports.form_view = "decidim/my_component/admin/imports/component_resources_fields"
+    # Define a custom form class name if you want to customize the form object
+    # imports.form_class_name = "MyComponent::Admin::CustomImportForm"
+
+    # Define UI messages for the import functionality
+    imports.messages do |msg|
+      # The resource name is used in the success message:
+      # "X your resources successfully imported" (the "your resources" part)
+      msg.set(:resource_name) { |count: 1| I18n.t("decidim.my_component.admin.imports.resources.component_resources", count: count) }
+      # The title is the message shown at the top of the import page
+      msg.set(:title) { I18n.t("decidim.my_component.admin.imports.title.component_resources") }
+      # The label is what is shown in the import dropdown menu
+      msg.set(:label) { I18n.t("decidim.my_component.admin.imports.label.component_resources") }
+      # The optional help message can be used to provide additional contextual
+      # help for the import file, e.g. how it should be formatted
+      # msg.set(:help) { I18n.t("decidim.my_component.admin.imports.help.component_resources") }
+    end
+
+    # Define the creator that is used to create resources from the import data
     imports.creator MyComponent::ResourceCreator
+
+    # Define an example data set to guide the user how to format the import
+    # file. This will be available for download in the import view for each
+    # supported import format.
+    imports.example do |import_component|
+      organization = import_component.organization
+      [
+        organization.available_locales.map { |l| "title/#{l}" } + organization.available_locales.map { |l| "body/#{l}" },
+        organization.available_locales.map { "Example title" } + organization.available_locales.map { "Example body" },
+        organization.available_locales.map { "Example title 2" } + organization.available_locales.map { "Example body 2" },
+      ]
+    end
   end
 end
 ----

@@ -11,6 +11,33 @@ module Decidim
       # in order to parse relevant fields. Every import should specify their
       # own creator or this default will be used.
       class Creator
+        class << self
+          # Retuns the resource class to be created with the provided data.
+          def resource_klass
+            raise NotImplementedError, "#{self.class.name} does not define resource class"
+          end
+
+          # Returns the verifier class to be used to ensure the data is valid
+          # for the import.
+          def verifier_klass
+            Decidim::Admin::Import::Verifier
+          end
+
+          def required_headers
+            []
+          end
+
+          def localize_headers(header, locales)
+            @localize_headers ||= begin
+              localize_headers = []
+              locales.each do |locale|
+                localize_headers << "#{header}/#{locale}".to_sym
+              end
+              localize_headers
+            end
+          end
+        end
+
         attr_reader :data
 
         # Initializes the creator with a resource.
@@ -18,13 +45,8 @@ module Decidim
         # data - The data hash to parse.
         # context - The context needed by the producer
         def initialize(data, context = nil)
-          @data = data.except(:id, "id")
+          @data = data
           @context = context
-        end
-
-        # Retuns the resource class to be created with the provided data.
-        def self.resource_klass
-          raise NotImplementedError, "#{self.class.name} does not define resource class"
         end
 
         # Can be used to convert the data hash to the resource attributes in
@@ -50,7 +72,9 @@ module Decidim
           resource.save!
         end
 
-        private
+        protected
+
+        attr_reader :context
 
         def resource
           raise NotImplementedError, "#{self.class.name} does not define resource"
@@ -65,14 +89,10 @@ module Decidim
         # Returns the hash including locale-imported_data pairs. eg. {en: "Heading", ca: "Cap", es: "Bóveda"}
         #
         def locale_hasher(field, locales)
-          return data[field.to_sym] if data.has_key?(field.to_sym)
-
           hash = {}
           locales.each do |locale|
             parsed = data[:"#{field}/#{locale}"]
-            next if parsed.nil?
-
-            hash[locale] = parsed
+            hash[locale] = parsed unless parsed.nil?
           end
           hash
         end

@@ -158,7 +158,37 @@ Decidim.register_component(:proposals) do |component|
   end
 
   component.imports :proposals do |imports|
-    imports.creator Decidim::Proposals::ProposalCreator
+    imports.form_view = "decidim/proposals/admin/imports/proposals_fields"
+    imports.form_class_name = "Decidim::Proposals::Admin::ProposalsFileImportForm"
+
+    imports.messages do |msg|
+      msg.set(:resource_name) { |count: 1| I18n.t("decidim.proposals.admin.imports.resources.proposals", count: count) }
+      msg.set(:title) { I18n.t("decidim.proposals.admin.imports.title.proposals") }
+      msg.set(:label) { I18n.t("decidim.proposals.admin.imports.label.proposals") }
+      msg.set(:help) { I18n.t("decidim.proposals.admin.imports.help.proposals") }
+    end
+
+    imports.creator Decidim::Proposals::Import::ProposalCreator
+  end
+
+  component.imports :answers do |imports|
+    imports.messages do |msg|
+      msg.set(:resource_name) { |count: 1| I18n.t("decidim.proposals.admin.imports.resources.answers", count: count) }
+      msg.set(:title) { I18n.t("decidim.proposals.admin.imports.title.answers") }
+      msg.set(:label) { I18n.t("decidim.proposals.admin.imports.label.answers") }
+      msg.set(:help) { I18n.t("decidim.proposals.admin.imports.help.answers") }
+    end
+
+    imports.creator Decidim::Proposals::Import::ProposalAnswerCreator
+    imports.example do |import_component|
+      organization = import_component.organization
+      [
+        %w(id state) + organization.available_locales.map { |l| "answer/#{l}" },
+        [1, "accepted"] + organization.available_locales.map { "Example answer" },
+        [2, "rejected"] + organization.available_locales.map { "Example answer" },
+        [3, "evaluating"] + organization.available_locales.map { "Example answer" }
+      ]
+    end
   end
 
   component.seeds do |participatory_space|
