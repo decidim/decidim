@@ -91,6 +91,16 @@ es-MX:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Buscar %{collection} por nombre/email/alias o punto de votación.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
           : Buscar %{collection} por título, dirección o nombre del responsable/email/alias.
+        signed_eq:
+          label: Firmada
+          values:
+            'false': Firmada
+            'true': Sin firmar
+        validated_eq:
+          label: Validada
+          values:
+            'false': Validada
+            'true': Sin validar
     components:
       elections:
         actions:
@@ -333,9 +343,6 @@ es-MX:
           upcoming: Próximas
         end_date: Termina
         footer:
-          remaining_time:
-            one: "<strong>%{count} hora %{minutes} minutos</strong> restantes para votar."
-            other: "<strong>%{count} horas %{minutes} minutos</strong> restantes para votar."
           view: Ver
           vote: Votar
         label:
@@ -417,6 +424,7 @@ es-MX:
           votes:
             one: "%{count} voto"
             other: "%{count} votos"
+            zero: "%{count} votos"
         show:
           action_button:
             change_vote: Cambia tu voto
@@ -455,6 +463,8 @@ es-MX:
             end_time: Termina el
             start_time: Empieza el
             title: Título
+            verifiable_results_file_hash: Suma de comprobación SHA256 del archivo
+            verifiable_results_file_url: Archivo de verificación de la elección
         question:
           fields:
             answers: Respuestas
@@ -596,6 +606,8 @@ es-MX:
           lead: '¡Tu voto se ha emitido!'
           text: 'Puedes comprobar que tu voto se ha añadido correctamente a la urna con el siguiente identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Para comprobarlo, copia el identificador y pégalo en la <a href="%{link}">página de verificación de voto</a>
+        create:
+          error: Hubo un problema al emitir el voto. Por favor, inténtalo de nuevo.
         encrypting:
           header: Se está cifrando el voto...
           text: Se está cifrando tu papeleta para garantizar el secreto de voto.
@@ -780,7 +792,10 @@ es-MX:
             info: Información
             landing_page: Página de inicio
             monitoring_committee: Comité de seguimiento
+            monitoring_committee_election_results: Validar resultados
             monitoring_committee_members: Miembros
+            monitoring_committee_polling_station_closures: Validar certificados
+            monitoring_committee_verify_elections: Verificar elecciones
             polling_officers: Gestores de mesa
             polling_stations: Puntos de votación
         models:
@@ -812,6 +827,33 @@ es-MX:
               promoted: Destacada
               published: Publicada
               title: Título
+        monitoring_committee_election_results:
+          actions:
+            title: Acciones
+            view: Ver
+          index:
+            title: Elige una elección para ver los resultados
+          results:
+            bulletin_board: Bulletin Board
+            election_totals: Totales de la elección
+            polling_stations: Puntos de votación
+            result_types:
+              blank_answers: Respuestas en blanco
+              blank_ballots: Papeletas en blanco
+              null_ballots: Papeletas nulas
+              total_ballots: Total de papeletas
+              valid_ballots: Papeletas válidas
+            selected: Seleccionado
+            title: Resultados para la elección <i>%{election_title}</i>
+            totals: Totales
+          show:
+            change_election: Cambiar elección
+            publish_results: Publicar resultados
+            publishing: Publicando resultados...
+          update:
+            invalid: Se ha producido un error al publicar los resultados
+            rejected: La publicación de los resultados fue rechazada por el Bulletin Board. Inténtalo de nuevo o ponte en contacto con el administrador del sistema.
+            success: Los resultados se han publicado correctamente
         monitoring_committee_members:
           create:
             invalid: Hubo un problema al crear este miembro del comité de seguimiento
@@ -829,6 +871,38 @@ es-MX:
           new:
             create: Crear
             title: Crear miembro del comité de seguimiento
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: Acciones
+            validate: Validar
+            view: Ver
+          closures:
+            change_election: Cambiar elección
+            signed: '¿Firmado?'
+            title: Puntos de votación para la elección <i>%{election_title}</i>
+            validated: '¿Validado?'
+          edit:
+            change_polling_station: Volver a los puntos de votación
+            monitoring_committee_notes: Observaciones
+            monitoring_committee_notes_placeholder: Reporta cualquier incidencia aquí
+            title: Resultados para la elección <i>%{election_title}</i> en el punto de votación <i>%{polling_station_title}</i>
+          elections:
+            title: Elige una elección para validar
+          show:
+            change_polling_station: Volver a los puntos de votación
+            monitoring_committee_notes: Observaciones del Comité de Seguimiento
+          validate:
+            error: Se ha producido un error al validar el cierre
+            success: El cierre se ha validado correctamente
+        monitoring_committee_verify_elections:
+          index:
+            download: Descargar
+            how_to_checksum: 'Para asegurarse de que el archivo descargado no ha sido dañado o manipulado durante el proceso de descarga, ejecuta el siguiente comando en tu consola y comprueba que la salida coincida con la suma de verificación reportada arriba:'
+            how_to_download: Para verificar una elección, descarga tu archivo verificable de la tabla de arriba.
+            how_to_run_verifier: 'Una vez que hayas descargado el archivo y te hayas asegurado de que está bien, puedes proceder a ejecutar el verificador universal. Clona <a href=''https://github.com/decidim/decidim-bulletin-board''>este repositorio</a> y, desde la carpeta raíz, ejecuta el siguiente comando:'
+            how_to_title: Cómo verificar la validez de una elección
+            not_available: No disponible todavía
+            title: Elecciones
         polling_officers:
           create:
             invalid: Hubo un problema al crear este gestor de mesa
@@ -980,6 +1054,7 @@ es-MX:
             download: Descargar
             subject: La exportación de los códigos de acceso de votación para %{voting_title} está disponible
         vote_flow:
+          already_voted_in_person: Esta participante ya ha votado presencialmente y no tiene derecho a voto.
           datum_not_found: Los datos introducidos no coinciden con ningún votante.
       content_blocks:
         highlighted_votings:
@@ -1010,6 +1085,14 @@ es-MX:
       polling_officer_zone:
         closures:
           back_to_polling_stations: Volver a los puntos de votación
+          certify:
+            add_images: Añadir imágenes
+            error: Se ha producido un error al adjuntar el certificado, por favor inténtalo de nuevo.
+            form_legend: Sube una foto del certificado de cierre electoral
+            heading: Recuento de votos - Subir certificado
+            info_text: Por favor, sube una foto del certificado de cierre electoral.
+            submit: Subir el certificado
+            success: Certificado subido correctamente.
           create:
             error: Se ha producido un error al crear el cierre, por favor inténtalo de nuevo más tarde.
             success: Cierre creado correctamente.
@@ -1043,9 +1126,65 @@ es-MX:
             polling_station: 'Punto de votación:'
             submit: Verificar número total
             total_ballots_count: Número de papeletas
+          show:
+            heading: Recuento de votos
+            info_text: Cierre electoral del punto de votación.
+          sign:
+            cancel: Cancelar
+            check_box: Lo he revisado y es idéntico al certificado físico de cierre electoral
+            close_modal: Cerrar
+            confirm: Ok, continuar
+            error: Se ha producido un error, por favor inténtalo de nuevo.
+            heading: Recuento de votos - Firmar cierre
+            info_text: Si continúas ya no podrás modificar ninguna información, esta acción no se puede deshacer.
+            submit: Firmar el cierre
+            success: Cierre firmado con éxito.
+            title: Esta acción no se puede deshacer
           update:
             error: Se ha producido un error al actualizar los resultados del cierre. Inténtalo de nuevo más tarde.
             success: Resultados de cierre actualizados correctamente.
+        in_person_votes:
+          complete_voting:
+            available_answers: 'Respuestas disponibles:'
+            census_verified: La participante aún no ha votado.
+            complete_voting: Completar votación
+            identify_another: Identificar a otra participante
+            questions_title: 'Tiene derecho a votar en las siguientes preguntas:'
+            questions_title_voted: 'La participante ya ha votado en línea y tiene derecho a votar en las siguientes preguntas:'
+            voted: La participante ha votado
+          create:
+            error: El voto no ha sido registrado. Por favor, inténtalo de nuevo.
+          in_person_form:
+            census_not_present: Esta participante no aparece en el censo.
+            census_not_present_description: Debe acudir a la oficina de reclamaciones del censo o al servicio de asistencia técnica.
+            date_of_birth: Fecha de nacimiento
+            day: Día
+            day_placeholder: DD
+            document_number: Número de documento
+            document_number_placeholder: Número de ID
+            month: Mes
+            month_placeholder: MM
+            select: Selecciona el tipo de documento
+            title: 'Selecciona el tipo de documento e introduce el número de documento de la participante:'
+            validate_document: Validar documento
+            year: Año
+            year_placeholder: AAAA
+          new:
+            back: Volver a los puntos de votación
+            title: Identificar y verificar a una participante
+          show:
+            back: Volver a los puntos de votación
+            title: Esperando a que se registre el voto presencial
+          update:
+            error: Se ha producido un error al registrar el voto. Por favor, inténtalo de nuevo.
+            success:
+              accepted: El voto se ha registrado correctamente.
+              rejected: El Bulletin Board no ha aceptado el voto. Por favor, ponte en contacto con el administrador del sistema.
+          verify_document:
+            census_present: Esta participante aparece en el censo.
+            name: Nombre
+            title: 'Comprueba que los siguientes datos son correctos:'
+            verify_document: Verificar documento
         menu:
           polling_officer_zone: Zona del gestor de mesa
         polling_officers:
@@ -1072,6 +1211,16 @@ es-MX:
           manager: Administrador
           president: Presidente
           unassigned: No Asignado
+      polling_station_closure_recount:
+        nota_option: En blanco / Ninguna de las anteriores
+        polling_officer_notes: 'Notas del gestor de mesa:'
+        polling_officer_notes_blank: No hay notas
+        recount_summary: 'Resumen del recuento:'
+        signed: Firmado
+        total_ballots: 'Total de papeletas:'
+        total_blank_ballots: 'Total de papeletas en blanco:'
+        total_null_ballots: 'Total de papeletas nulas:'
+        total_valid_ballots: 'Total de papeletas válidas:'
       polling_stations:
         actions:
           confirm_destroy: '¿Estás segura?'
