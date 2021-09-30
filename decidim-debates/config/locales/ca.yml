@@ -27,6 +27,7 @@ ca:
     components:
       debates:
         actions:
+          comment: Comentar
           create: Crear
           endorse: Adherir-se
         name: Debats
