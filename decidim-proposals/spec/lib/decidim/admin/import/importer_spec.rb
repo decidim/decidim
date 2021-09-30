@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Admin::Import::Importer do
   subject { described_class.new(file: file, reader: reader, creator: creator, context: context) }
 
-  let(:creator) { Decidim::Proposals::ProposalCreator }
+  let(:creator) { Decidim::Proposals::Import::ProposalCreator }
 
   let(:organization) { create(:organization, available_locales: [:en]) }
   let(:user) { create(:user, organization: organization) }
@@ -26,6 +26,12 @@ describe Decidim::Admin::Import::Importer do
 
     it_behaves_like "proposal importer"
 
+    describe "#verify" do
+      it "verifies that the import data is valid" do
+        expect(subject.verify).to be(true)
+      end
+    end
+
     describe "#prepare" do
       it "makes an array of new proposals" do
         expect(subject.prepare).to be_an_instance_of(Array)
@@ -40,20 +46,6 @@ describe Decidim::Admin::Import::Importer do
         expect do
           subject.import!
         end.to change(Decidim::Proposals::Proposal, :count).by(3)
-      end
-    end
-
-    describe "#invalid_lines" do
-      it "returns empty array when everything is ok" do
-        subject.prepare
-        expect(subject.invalid_lines).to be_empty
-      end
-
-      it "returns index+1 of erroneous resource when validations faild" do
-        proposal = subject.prepare.first
-        proposal.title = ""
-        subject.instance_variable_set(:@prepare, [proposal])
-        expect(subject.invalid_lines).to eq([1])
       end
     end
   end

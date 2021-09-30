@@ -11,10 +11,25 @@ module Decidim
         class CSV < Base
           MIME_TYPE = "text/csv"
 
+          def self.first_data_index
+            1
+          end
+
           def read_rows
             ::CSV.read(file, col_sep: ";").each_with_index do |row, index|
               yield row, index
             end
+          end
+
+          # Returns a StringIO
+          def example_file(data)
+            csv_data = ::CSV.generate(col_sep: ";") do |csv|
+              data.each do |row|
+                csv << row
+              end
+            end
+
+            ::StringIO.new(csv_data)
           end
         end
       end
