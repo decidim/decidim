@@ -177,10 +177,6 @@ ga:
           reason: Cúis
       imports:
         new:
-          accepted_mime_types:
-            csv: csv
-            json: json
-            xlsx: xlsx
           actions:
             back: Ar Ais
           import: Iompórtáil
