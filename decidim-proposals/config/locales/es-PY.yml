@@ -354,6 +354,7 @@ es-PY:
       actions:
         answer_proposal: Responder a la propuesta
         edit_proposal: Editar propuesta
+        import: Importar desde otro componente
         new: Nueva propuesta
         participatory_texts: Textos participativos
         show: Ver propuesta
