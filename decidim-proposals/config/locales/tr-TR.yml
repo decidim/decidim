@@ -347,7 +347,6 @@ tr:
       actions:
         answer_proposal: Cevap önerisi
         edit_proposal: Teklifi düzenle
-        import: Başka bir bileşenden içe aktar
         new: Yeni teklif
         participatory_texts: Katılımcı metinler
         show: Teklifi göster
