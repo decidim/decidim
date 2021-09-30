@@ -455,23 +455,12 @@ ja:
           impersonate_existing_user: 参加者を管理 "%{name}"
           impersonate_new_managed_user: 新規参加者の管理
       imports:
-        creators:
-          proposalcreator: 提案クリエイター
         error: インポート中に問題が発生しました
-        help:
-          proposalcreator: 'ファイルには、カラム名「title/en」と「body/en」(または、あなたが好む別のロケール、例: 「title/ja」と「body/ja」) が必要です。また、カラム名「scope/id」と「category/id」にも対応しています。'
-        import_from_file: ファイルからインポート
-        invalid_lines: リソース番号 %{invalid_lines} にエラーが見つかりました
         new:
-          accepted_mime_types:
-            csv: csv
-            json: json
-            xlsx: xlsx
           actions:
             back: 戻る
           file_legend: 解析されるインポート ファイルを追加します。
           import: インポート
-        notice: "%{number} %{resource_name} を正常にインポートしました"
       logs:
         logs_list:
           no_logs_yet: ログはまだありません
