@@ -49,13 +49,9 @@ module Decidim
           organization: @participatory_space.organization
         )
 
-        InviteUserAgain.call(@existing_user, invitation_instructions) if @existing_user && invitation_pending?(@existing_user)
+        InviteUserAgain.call(@existing_user, invitation_instructions) if @existing_user&.invitation_pending?
 
         @existing_user
-      end
-
-      def invitation_pending?(user)
-        user.invited_to_sign_up? && !user.invitation_accepted?
       end
 
       def new_user
