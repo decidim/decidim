@@ -358,7 +358,6 @@ ro:
       actions:
         answer_proposal: Răspundeți la propunere
         edit_proposal: Editare propunere
-        import: Importă din altă componentă
         new: Propunere nouă
         participatory_texts: Textele participative
         show: Arată propunerea
