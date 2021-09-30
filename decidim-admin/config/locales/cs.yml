@@ -461,6 +461,7 @@ cs:
           accepted_mime_types:
             csv: csv
             json: json
+            xlsx: xlsx
           actions:
             back: Zpět
           file_legend: Přidat importovaný soubor, který bude analyzován.
