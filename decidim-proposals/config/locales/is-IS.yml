@@ -95,6 +95,7 @@ is-IS:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
     proposals:
       actions:
+        import: Flytja frá öðrum hlutum
         title: Aðgerðir
       admin:
         actions:
