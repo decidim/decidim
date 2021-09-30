@@ -132,6 +132,7 @@ ja:
       new_import:
         attributes:
           file:
+            invalid_file: 無効なファイルが指定されました。正しいフォーマットのファイルかどうか確認してください。
             invalid_mime_type: MIMEタイプが無効です
   activerecord:
     attributes:
@@ -455,12 +456,39 @@ ja:
           impersonate_existing_user: 参加者を管理 "%{name}"
           impersonate_new_managed_user: 新規参加者の管理
       imports:
+        and: and
+        data_errors:
+          duplicate_headers:
+            detail: ファイルに必須の列またはヘッダーが含まれていることを確認してください。
+            message:
+              other: '%{columns} 列が重複しています。'
+          invalid_indexes:
+            lines:
+              detail: これらの行が正しくフォーマットされ、有効なレコードが含まれていることを確認してください。
+              message:
+                other: インポートファイルの %{indexes} 行目にエラーが見つかりました。
+            records:
+              detail: これらの行が正しくフォーマットされ、有効なレコードが含まれていることを確認してください。
+              message:
+                other: オーダー番号 %{indexes} のレコードのインポートファイルにエラーが見つかりました。
+          missing_headers:
+            detail: ファイルに必要な列が含まれていることを確認してください。
+            message:
+              other: 列 %{columns} が見つかりません。
         error: インポート中に問題が発生しました
+        example_error: 指定された型の例を作成できませんでした
         new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
           actions:
             back: 戻る
+          download_example: サンプルをダウンロードする
+          download_example_format: '%{name} の例'
           file_legend: 解析されるインポート ファイルを追加します。
           import: インポート
+        notice: "%{number} %{resource_name} を正常にインポートしました"
       logs:
         logs_list:
           no_logs_yet: ログはまだありません
