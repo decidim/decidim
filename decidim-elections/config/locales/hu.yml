@@ -11,6 +11,11 @@ hu:
           unpublish:
             success: A választás publikálását sikeresen visszavonta.
       elections:
+        results:
+          votes:
+            one: "%{count} szavazat"
+            other: "%{count} szavazat"
+            zero: "%{count} szavazat"
         show:
           action_button:
             change_vote: Szavazatának megváltoztatása
