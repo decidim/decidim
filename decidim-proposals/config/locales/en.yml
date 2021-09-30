@@ -387,7 +387,7 @@ en:
       actions:
         answer_proposal: Answer proposal
         edit_proposal: Edit proposal
-        import: Import from another component
+        import: Import proposals from another component
         new: New proposal
         participatory_texts: Participatory texts
         show: Show proposal
@@ -398,6 +398,23 @@ en:
         exports:
           proposal_comments: Comments
           proposals: Proposals
+        imports:
+          help:
+            answers: 'The import document should contain the following columns: id, state (accepted, evaluating, rejected), answer/en (and other languages enabled for the organization).'
+            proposals: The file must have column names title/en and body/en (or another locale which you prefer eg. title/ca and body/ca). Also scope/id and category/id columns are supported.
+          label:
+            answers: Import answers from a file
+            proposals: Import proposals from a file
+          resources:
+            answers:
+              one: proposal answer
+              other: proposal answers
+            proposals:
+              one: proposal
+              other: proposals
+          title:
+            answers: Import proposal answers
+            proposals: Import proposals
         models:
           proposal:
             name: Proposal

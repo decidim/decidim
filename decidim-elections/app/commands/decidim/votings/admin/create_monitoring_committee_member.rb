@@ -67,7 +67,7 @@ module Decidim
               organization: voting.organization
             )
 
-            InviteUserAgain.call(tentative_user, invitation_instructions) if tentative_user && !tentative_user.invitation_accepted?
+            InviteUserAgain.call(tentative_user, invitation_instructions) if tentative_user&.invitation_pending?
 
             tentative_user
           end

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Proposals::ProposalCreator do
+describe Decidim::Proposals::Import::ProposalCreator do
   subject { described_class.new(data, context) }
 
   let!(:moment) { Time.current }
@@ -12,12 +12,8 @@ describe Decidim::Proposals::ProposalCreator do
       "id" => "101",
       category: category,
       scope: scope,
-      title: {
-        "en" => Faker::Lorem.sentence
-      },
-      body: {
-        "en" => Faker::Lorem.paragraph(sentence_count: 3)
-      },
+      :"title/en" => Faker::Lorem.sentence,
+      :"body/en" => Faker::Lorem.paragraph(sentence_count: 3),
       component: component,
       published_at: moment
     }
@@ -50,14 +46,16 @@ describe Decidim::Proposals::ProposalCreator do
 
   describe "#resource_attributes" do
     it "returns the attributes hash" do
+      # rubocop:disable Style/HashSyntax
       expect(subject.resource_attributes).to eq(
-        title: data[:title],
-        body: data[:body],
+        :"title/en" => data[:"title/en"],
+        :"body/en" => data[:"body/en"],
         category: data[:category],
         scope: data[:scope],
         component: data[:component],
         published_at: data[:published_at]
       )
+      # rubocop:enable Style/HashSyntax
     end
   end
 
@@ -68,8 +66,8 @@ describe Decidim::Proposals::ProposalCreator do
       expect(record).to be_a(Decidim::Proposals::Proposal)
       expect(record.category).to eq(category)
       expect(record.scope).to eq(scope)
-      expect(record.title).to eq(data[:title])
-      expect(record.body).to eq(data[:body])
+      expect(record.title["en"]).to eq(data[:"title/en"])
+      expect(record.body["en"]).to eq(data[:"body/en"])
       expect(record.published_at).to be >= (moment)
     end
   end
