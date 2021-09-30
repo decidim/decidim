@@ -452,10 +452,15 @@ ca:
       imports:
         error: S'ha produït un error durant la importació
         new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
           actions:
             back: Tornar
           file_legend: Afegir un arxiu d'importació que serà processat.
           import: Importar
+        notice: "%{number} %{resource_name} importat correctament"
       logs:
         logs_list:
           no_logs_yet: Encara no hi ha cap registre d'activitat
