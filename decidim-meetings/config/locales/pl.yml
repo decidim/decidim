@@ -22,6 +22,7 @@ pl:
         decidim_user_group_id: Grupa użytkowników
         description: Opis
         end_time: Czas zakończenia
+        id: Numer ID
         location: Miejsce
         location_hints: Wskazówki co do miejsca
         online_meeting_url: Adres URL spotkania online
@@ -73,6 +74,16 @@ pl:
         other: Rejestracje
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Kategoria
+          closed_at_present:
+            label: Państwo
+            values:
+              'true': Zamknięte
+          is_upcoming_true:
+            label: Data
       meeting_copies:
         create:
           error: Wystąpił błąd podczas duplikowania tego spotkania.
@@ -119,6 +130,7 @@ pl:
             email_subject: Spotkanie "%{resource_title}" zostało zakończone
             notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zakończone.
         meeting_created:
+          button_text: Zarejestruj się na spotkanie
           email_intro: Spotkanie "%{resource_title}" zostało dodane do przestrzeni "%{participatory_space_title}", którą obserwujesz.
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz przestrzeń "%{participatory_space_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie spotkania kliknij w przycisk obserwowania.
           email_subject: Nowe spotkanie zostało dodane do %{participatory_space_title}
@@ -177,6 +189,7 @@ pl:
             few: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązane propozycje:'
             many: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji:'
             other: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji:'
+        manage_poll: Zarządzaj głosowaniem
         new: Nowe spotkanie
         preview: Podgląd
         registrations: Rejestracje
@@ -293,6 +306,9 @@ pl:
           update:
             invalid: Podczas aktualizowania tego spotkania wystąpił błąd
             success: Spotkanie zostało zaktualizowane
+        meetings_poll:
+          form:
+            title: Edytuj kartę do głosowania dla %{questionnaire_for}
         models:
           meeting:
             name: Spotkanie
@@ -492,6 +508,10 @@ pl:
             official_meeting: Spotkanie oficjalne
             start_time: Data rozpoczęcia
             title: Tytuł
+      polls:
+        questions:
+          closed_question:
+            question_results: Wyniki wyborów
       read_more: "(zobacz więcej)"
       registration_mailer:
         confirmation:
