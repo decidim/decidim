@@ -305,6 +305,7 @@ eu:
               other: Dena den, %{count} matrikulazioak.
             reserved_slots_help: Utzi 0 aukerarik ez baduzu erreserbatutako slotarik
             reserved_slots_less_than: '%{count} baino gutxiago izan behar du'
+            title: Erregistroak
           update:
             invalid: Arazo bat izan da izen-ematearen konfigurazioa gordetzean.
             success: Topaketen izen-emateen konfigurazioak zuzen gorde dira.
@@ -359,16 +360,49 @@ eu:
             subject: Zure topaketarako izen-ematea baieztatua izan da
       meeting:
         not_allowed: Ez zaude bilera hau ikusteko baimenik
+      meeting_closes:
+        edit:
+          back: Atzera
+          close: Itxi topaketa
+          title: Itxi topaketa
       meetings:
+        edit:
+          back: Atzera
+          title: Editatu topaketa
+          update: Eguneratu
         filters:
+          activity: Nire jarduera
+          all: Denak
           category: Kategoria
           date: Data
+          date_values:
+            all: Denak
+            past: Aurrekoak
+            upcoming: Hurrengoak
+          my_meetings: Nire topaketak
+          origin: Jatorria
+          origin_values:
+            all: Denak
+            citizens: Hiritarrak
+            official: Ofiziala
+            user_groups: Taldeak
+          scope: Eremua
           search: Bilatu
+          type: Mota
+          type_values:
+            all: Denak
+            hybrid: Biok
+            in_person: Aurrez aurre
+            online: Lineakoa
         filters_small_view:
           close_modal: Itxi leihoa
           filter: Iragazi
           filter_by: 'Iragazi honen arabera:'
           unfold: Zabaldu
+        form:
+          create_as: Sortu topaketa honela
+        index:
+          new_meeting: Topaketa berria
         meeting_minutes:
           meeting_minutes: Bileraren akta
           related_information: Lotutako informazioa
