@@ -276,6 +276,7 @@ eu:
     proposals:
       actions:
         edit_proposal: Editatu proposamena
+        import: Inportatu beste osagai batetik
         new: Proposamen berria
         participatory_texts: Testu partehartzaileak
         title: Ekintzak
