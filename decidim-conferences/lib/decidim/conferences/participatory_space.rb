@@ -227,6 +227,17 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
       Decidim.component_manifests.each do |manifest|
         manifest.seed!(conference.reload)
       end
+
+      Decidim::ConferenceMeeting.where(component: conference.components).each do |conference_meeting|
+        next unless Faker::Boolean.boolean(true_ratio: 0.5)
+
+        conference.speakers.sample(3).each do |speaker|
+          Decidim::ConferenceSpeakerConferenceMeeting.create!(
+            conference_meeting: conference_meeting,
+            conference_speaker: speaker
+          )
+        end
+      end
     end
   end
 end
