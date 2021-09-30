@@ -1,6 +1,8 @@
 pt:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Activar o diagrama da organização
       assembly:
         area_id: Área
         assembly_type: Tipo de reunião
@@ -50,6 +52,7 @@ pt:
         target: Quem participa
         title: Título
         twitter: Twitter
+        weight: Posição de ordenamento
         youtube: Youtube
       assembly_member:
         birthday: Aniversário
@@ -60,6 +63,7 @@ pt:
         full_name: Nome completo
         gender: Género
         position: Posição
+        user_id: Utilizador ou grupo
       assembly_user_role:
         email: E-mail
         name: Nome
@@ -246,6 +250,7 @@ pt:
         update: "%{user_name} atualizou as definições de reuniões"
       assembly_type:
         create: "%{user_name} criou o tipo de reunião %{resource_name}"
+        delete: "%{user_name} removeu o tipo de reunião %{resource_name}"
         publish: "%{user_name} publicou o tipo de reunião %{resource_name}"
         unpublish: "%{user_name} removeu a publicação do tipo de reunião %{resource_name}"
         update: "%{user_name} atualizou o tipo de reunião %{resource_name}"
@@ -257,6 +262,7 @@ pt:
       admin:
         assemblies:
           form:
+            announcement_help: O texto que introduzir aqui será mostrado ao utilizador imediatamente abaixo da informação sobre a reunião.
             duration: Duração
             duration_help: Se a duração desta reunião for limitada, selecione a data final. Caso contrário, aparecerá como indefinida.
             filters: Filtros
@@ -304,6 +310,9 @@ pt:
         content_blocks:
           highlighted_assemblies:
             max_results: Quantidade máxima de elementos a mostrar
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Membros
@@ -413,6 +422,8 @@ pt:
     participatory_processes:
       show:
         related_assemblies: Reuniões relacionadas
+    statistics:
+      assemblies_count: Reuniões
   errors:
     messages:
       cannot_be_blank: não pode estar em branco
