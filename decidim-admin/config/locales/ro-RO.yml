@@ -442,23 +442,12 @@ ro:
           impersonate_existing_user: Gestionați participantul"%{name}"
           impersonate_new_managed_user: Gestionați participantul nou
       imports:
-        creators:
-          proposalcreator: Creator de propunere
         error: A apărut o problemă în timpul importului
-        help:
-          proposalcreator: Fişierul trebuie să aibă titlu/en şi corp (sau o altă localizare pe care o preferaţi. title/ca și corpul/ca). De asemenea, sunt acceptate coloane de scope/id și categorie/id.
-        import_from_file: Importă dintr-un fișier
-        invalid_lines: Eroare găsită în numărul resursei %{invalid_lines}
         new:
-          accepted_mime_types:
-            csv: csv
-            json: json
-            xlsx: xlsx
           actions:
             back: Înapoi
           file_legend: Adăugați un fișier de import care va fi analizat.
           import: Importă
-        notice: "%{number} %{resource_name} importate cu succes"
       logs:
         logs_list:
           no_logs_yet: Încă nu există jurnale
