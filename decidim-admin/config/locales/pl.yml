@@ -446,10 +446,15 @@ pl:
       imports:
         error: Podczas importowania wystąpił błąd
         new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
           actions:
             back: Wróć
           file_legend: Zaimportuj plik, który zostanie przetworzony.
           import: Importuj
+        notice: "Zaimportowano %{resource_name} %{number}"
       logs:
         logs_list:
           no_logs_yet: Nie ma jeszcze logów
