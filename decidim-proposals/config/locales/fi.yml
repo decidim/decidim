@@ -386,6 +386,7 @@ fi:
       actions:
         answer_proposal: Vastaa ehdotukseen
         edit_proposal: Muokkaa ehdotusta
+        import: Tuo toisesta komponentista
         new: Uusi ehdotus
         participatory_texts: Ehdotusaineistot
         show: Näytä ehdotus
