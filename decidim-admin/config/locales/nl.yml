@@ -414,10 +414,15 @@ nl:
       imports:
         error: Er zijn fouten opgetreden bij het importeren
         new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
           actions:
             back: Terug
           file_legend: Een importbestand toevoegen dat zal worden verwerkt.
           import: Importeren
+        notice: "%{number} %{resource_name} succesvol geïmporteerd"
       logs:
         logs_list:
           no_logs_yet: Er zijn nog geen logs
