@@ -132,6 +132,7 @@ cs:
       new_import:
         attributes:
           file:
+            invalid_file: Neplatný soubor, zkontrolujte, zda je soubor správně naformátován
             invalid_mime_type: Neplatný typ mime
   activerecord:
     attributes:
@@ -455,7 +456,34 @@ cs:
           impersonate_existing_user: Spravovat účastníka "%{name}"
           impersonate_new_managed_user: Spravovat nového účastníka
       imports:
+        and: a
+        data_errors:
+          duplicate_headers:
+            detail: Zkontrolujte, zda soubor obsahuje požadované sloupce nebo záhlaví pouze jednou.
+            message:
+              one: Duplikovat sloupec %{columns}.
+              few: Duplikovat sloupce %{columns}.
+              many: Duplikovat sloupce %{columns}.
+              other: Duplikovat sloupce %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Zkontrolujte, zda jsou tyto řádky správně formátovány a obsahují platné záznamy.
+              message:
+                one: Nalezena chyba v importním souboru na řádku %{indexes}.
+                few: Nalezena chyba v importním souboru na řádcách %{indexes}.
+                many: Nalezena chyba v importním souboru na řádcích %{indexes}.
+                other: Nalezeny chyby v importním souboru na řádcích %{indexes}.
+            records:
+              detail: Zkontrolujte, zda jsou tyto záznamy správně formátovány a obsahují platné záznamy.
+              message:
+                one: Nalezena chyba v importním souboru pro záznamy s pořadovým číslem %{indexes}.
+                few: Nalezeny chyby v importním souboru pro záznamy s pořadovými čísly %{indexes}.
+                many: Nalezeny chyby v importním souboru pro záznamy s pořadovými čísly %{indexes}.
+                other: Nalezeny chyby v importním souboru pro záznamy s pořadovými čísly %{indexes}.
+          missing_headers:
+            detail: Zkontrolujte, zda soubor obsahuje požadované sloupce.
         error: Při importu došlo k chybě
+        example_error: Nelze vytvořit příklad pro daný typ
         new:
           accepted_mime_types:
             csv: csv
@@ -463,6 +491,8 @@ cs:
             xlsx: xlsx
           actions:
             back: Zpět
+          download_example: Stáhnout příklad
+          download_example_format: Příklad jako %{name}
           file_legend: Přidat importovaný soubor, který bude analyzován.
           import: Importovat
         notice: "%{number} %{resource_name} úspěšně importováno"
