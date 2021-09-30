@@ -254,7 +254,7 @@ pt:
             trustees: Agentes fiduciários
           key_ceremony:
             title: Cerimônia de chave
-            trustees: Agentes fiduciários
+            trustees: Curadores
           key_ceremony_ended:
             errors:
               time_before: A eleição está pronta para começar. Você tem que esperar até %{hours} horas antes da hora de início (%{start_time}) para iniciar o período de votação.
@@ -275,7 +275,7 @@ pt:
             title: Resultados publicados
           tally:
             title: Processo de registro
-            trustees: Agentes fiduciários
+            trustees: Curadores
           tally_ended:
             answer: Resposta
             not_selected: Não selecionado
@@ -343,9 +343,6 @@ pt:
           upcoming: Próximos
         end_date: Finaliza
         footer:
-          remaining_time:
-            one: "<strong>%{count} hora %{minutes} minutos</strong> restantes para votar."
-            other: "<strong>%{count} horas %{minutes} minutos</strong> restantes para votar."
           view: Visualizar
           vote: Votar
         label:
@@ -425,8 +422,9 @@ pt:
           selected: Selecionado
           title: Resultados da eleição
           votes:
-            one: "%{count} voto"
+            one: "%{count} votos"
             other: "%{count} votos"
+            zero: "%{count} votos"
         show:
           action_button:
             change_vote: Mude seu voto
