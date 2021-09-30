@@ -331,6 +331,7 @@ nl:
       actions:
         answer_proposal: Antwoord voorstel
         edit_proposal: Bewerk voorstel
+        import: Importeren vanuit een ander onderdeel
         new: Nieuw voorstel
         participatory_texts: Participatieve teksten
         show: Toon voorstel
