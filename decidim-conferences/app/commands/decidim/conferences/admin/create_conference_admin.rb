@@ -68,7 +68,7 @@ module Decidim
             organization: conference.organization
           )
 
-          InviteUserAgain.call(@existing_user, invitation_instructions) if @existing_user && !@existing_user.invitation_accepted?
+          InviteUserAgain.call(@existing_user, invitation_instructions) if @existing_user&.invitation_pending?
 
           @existing_user
         end
