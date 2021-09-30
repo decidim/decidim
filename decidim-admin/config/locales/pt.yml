@@ -457,10 +457,15 @@ pt:
       imports:
         error: Houve um problema durante a importação
         new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
           actions:
             back: Voltar
           file_legend: Adicionar ficheiro para importar a analisar.
           import: Importar
+        notice: "%{number} %{resource_name} importado(s) com êxito"
       logs:
         logs_list:
           no_logs_yet: Ainda não há registos
