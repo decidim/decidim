@@ -382,7 +382,6 @@ ja:
       actions:
         answer_proposal: 提案に回答
         edit_proposal: 提案を編集
-        import: 別のコンポーネントからインポート
         new: 新しい提案
         participatory_texts: 参加型テキスト
         show: 提案を表示
