@@ -1,1 +1,52 @@
 ga:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Trácht
+      decidim/comments/comment_created_event: Trácht
+      decidim/comments/user_group_mentioned_event: Luaigh
+      decidim/comments/user_mentioned_event: Luaigh
+  activerecord:
+    models:
+      decidim/comments/comment_vote:
+        one: Vóta
+        two: Vótaí
+        few: Vótaí
+        many: Vótaí
+        other: Vótaí
+  decidim:
+    comments:
+      comments_title: Tráchtanna
+      view: Amharc
+    components:
+      add_comment_form:
+        form:
+          body:
+            label: Trácht
+          submit: Seol
+        opinion:
+          neutral: Neodrach
+      comment:
+        alignment:
+          against: In Aghaidh
+          in_favor: I bhfabhar
+        delete: Scrios
+        edit: Eagar
+        edited: Curtha in eagar
+        reply: Freagra
+        report:
+          action: Tuairiscigh
+          close: Dún
+      comment_order_selector:
+        order:
+          older: Níos Sine
+          recent: Is Déanaí
+      edit_comment_modal_form:
+        close: Dún
+        form:
+          body:
+            label: Trácht
+          submit: Seol
+    metrics:
+      comments:
+        object: tráchtanna
+        title: Tráchtanna
