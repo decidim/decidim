@@ -446,10 +446,15 @@ sv:
       imports:
         error: Ett fel uppstod under importeringsprocessen
         new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
           actions:
             back: Tillbaka
           file_legend: Lägg till en fil som kommer importeras.
           import: Importera
+        notice: "%{number} %{resource_name} har importerats"
       logs:
         logs_list:
           no_logs_yet: Det finns inga loggar än
