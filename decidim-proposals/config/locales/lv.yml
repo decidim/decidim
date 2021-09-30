@@ -318,7 +318,6 @@ lv:
       actions:
         answer_proposal: Atbildes priekšlikums
         edit_proposal: Rediģēt priekšlikumu
-        import: Importēt no cita komponenta
         new: Jauns priekšlikums
         participatory_texts: Līdzdalības teksti
         show: Rādīt priekšlikumu
