@@ -16,18 +16,23 @@ eu:
         available_slots: Bilera honetarako zirrikitu erabilgarriak
         decidim_category_id: Kategoria
         decidim_scope_id: Esparrua
+        decidim_user_group_id: Erabiltzaile-taldea
         description: Deskribapena
         end_time: Amaiera-ordua
         location: Kokapena
         location_hints: Kokapen-argibideak
+        online_meeting_url: Lineako topaketaren URLa
+        organizer_gid: Honela sortua
         organizer_id: Antolatzailea
         private_meeting: Bilera pribatua
         registration_form_enabled: Izena emateko inprimakia gaituta
         registration_terms: Izen-emateak
+        registration_url: Izena ematearen URLa
         registrations_enabled: Erregistroak gaituta
         start_time: Hasiera-ordua
         title: Titulua
         transparent: gardena
+        type_of_meeting: Mota
       minutes:
         audio_url: Audioaren URLa
         description: deskribapena
@@ -81,12 +86,20 @@ eu:
           global:
             announcement: Anuntzio
             comments_enabled: Iruzkinak gaituta
+            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
+            creation_enabled_for_participants: Parte-hartzaileek topaketak sortu ahal dituzte
             default_registration_terms: Izen-emate baldintzak lehenetsiak
             enable_pads_creation: Gaitu pads sortzea
+            registration_code_enabled: Izena emateko kodea aktibatuta
             resources_permissions_enabled: Akzioen baimenak bilera bakoitzerako ezarri daitezke
+            scope_id: Eremua
+            scopes_enabled: Eremuak gaituta
+            terms_and_conditions_url_for_meeting_creators: Irizpide eta baldintzen URLa topaketen egileentzat
           step:
             announcement: Anuntzio
             comments_blocked: Iruzkinak blokeatuta
+            creation_enabled_for_participants: Gaitu topaketak parte-hartzaileek sortzea
+            creation_enabled_for_user_groups: Gaitu topaketak taldeek sortzea
     events:
       meetings:
         meeting_closed:
@@ -153,6 +166,10 @@ eu:
         confirm_destroy: Ziur zaude topaketa hau ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
+        invalid_destroy:
+          proposals_count:
+            one: 'Topaketa ezin da ezabatu lotutako %{count} proposamen dituelako:'
+            other: 'Topaketa ezin da ezabatu lotutako %{count} proposamen dituelako:'
         minutes: Aktak
         new: Bilera berria
         preview: Aurreikusi
@@ -190,6 +207,7 @@ eu:
             invalid: Arazo bat izan da agenda hau eguneratzean
             success: Agenda ondo eguneratu da
         exports:
+          meeting_comments: Iruzkinak
           meetings: Bilerak
           registrations: Izen-emateak
         invite_join_meeting_mailer:
@@ -231,8 +249,13 @@ eu:
             invalid: Arazo bat izan da topaketa hau sortzean.
             success: Topaketa ongi sortu da
           destroy:
+            invalid:
+              proposals_count:
+                one: Topaketa ezin da ezabatu lotutako %{count} proposamen dituelako
+                other: Topaketa ezin da ezabatu lotutako %{count} proposamen dituelako
             success: Topaketa zuzen ezabatu da.
           edit:
+            title: Editatu topaketa
             update: Eguneratu
           index:
             title: Topaketa-zerrenda
