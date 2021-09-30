@@ -19,6 +19,8 @@ ca:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Comentar
         name: Sortejos
         settings:
           global:
