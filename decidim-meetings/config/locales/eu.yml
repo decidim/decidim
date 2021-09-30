@@ -17,22 +17,35 @@ eu:
       meeting:
         address: Helbidea
         available_slots: Bilera honetarako zirrikitu erabilgarriak
+        customize_registration_email: Pertsonalizatu izena emateko e-maila
         decidim_category_id: Kategoria
         decidim_scope_id: Esparrua
+        decidim_user_group_id: Erabiltzaile-taldea
         description: Deskribapena
         end_time: Amaiera-ordua
+        id: ID
         location: Kokapena
         location_hints: Kokapen-argibideak
+        online_meeting_url: Lineako topaketaren URLa
+        organizer_gid: Honela sortua
         organizer_id: Antolatzailea
         private_meeting: Bilera pribatua
+        registration_email_custom_content: Izena emateko e-mailaren eduki pertsonalizatua
         registration_form_enabled: Izena emateko inprimakia gaituta
         registration_terms: Izen-emateak
+        registration_url: Izena ematearen URLa
         registrations_enabled: Erregistroak gaituta
+        show_embedded_iframe: Erakutsi iframe txertatua URL honentzat
         start_time: Hasiera-ordua
         title: Titulua
         transparent: gardena
+        type_of_meeting: Mota
     errors:
       models:
+        meeting:
+          attributes:
+            show_embedded_iframe:
+              not_embeddable: URL hau ezin da txertatu
         meeting_agenda:
           attributes:
             base:
@@ -62,6 +75,30 @@ eu:
         other: Izen-emateak
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Kategoria
+          closed_at_present:
+            label: Egoera
+            values:
+              'false': Zabalik
+              'true': Itxita
+          is_upcoming_true:
+            label: Data
+            values:
+              'false': Aurrekoak
+              'true': Hurrengoak
+          origin_eq:
+            label: Jatorria
+            values:
+              citizen: Hiritarrak
+              official: Ofiziala
+              user_group: Erabiltzaile-taldeak
+          scope_id_eq:
+            label: Eremua
+          type_eq:
+            label: Topaketa mota
       meeting_copies:
         create:
           error: Akatsa gertatu da bilera hau bikoiztea.
