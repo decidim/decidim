@@ -394,7 +394,6 @@ cs:
       actions:
         answer_proposal: Odpověď na návrh
         edit_proposal: Upravit návrh
-        import: Import z jiné součásti
         new: Nový návrh
         participatory_texts: Participující texty
         show: Zobrazit návrh
