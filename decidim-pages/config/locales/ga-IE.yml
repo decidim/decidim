@@ -1,1 +1,13 @@
 ga:
+  decidim:
+    components:
+      pages:
+        name: Leathanach
+    pages:
+      admin:
+        models:
+          components:
+            body: Corp
+        pages:
+          edit:
+            save: Nuashonraigh
