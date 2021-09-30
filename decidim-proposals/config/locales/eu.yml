@@ -39,9 +39,9 @@ eu:
         proposal:
           attributes:
             add_documents:
-              needs_to_be_reattached: Berriro uzteko beharra
+              needs_to_be_reattached: Artxiboa berriro erantsi behar da
             add_photos:
-              needs_to_be_reattached: Berriro uzteko beharra
+              needs_to_be_reattached: Artxiboa berriro erantsi behar da
             body:
               identical: ETA izenburua ezin da berdinak izan
             title:
@@ -276,7 +276,6 @@ eu:
     proposals:
       actions:
         edit_proposal: Editatu proposamena
-        import: Inportatu beste osagai batetik
         new: Proposamen berria
         participatory_texts: Testu partehartzaileak
         title: Ekintzak
