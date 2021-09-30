@@ -333,6 +333,7 @@ hu:
       actions:
         answer_proposal: Javaslat megválaszolása
         edit_proposal: Javaslat szerkesztése
+        import: Importálás egy másik elemből
         new: Új javaslat
         participatory_texts: Részvételi szövegek
         show: Javaslat megtekintése
