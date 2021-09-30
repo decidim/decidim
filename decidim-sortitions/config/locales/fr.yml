@@ -19,6 +19,8 @@ fr:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Commenter
         name: Tirages au sort
         settings:
           global:
