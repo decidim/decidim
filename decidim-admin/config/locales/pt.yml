@@ -458,9 +458,9 @@ pt:
         error: Houve um problema durante a importação
         new:
           accepted_mime_types:
-            csv: csv
-            json: json
-            xlsx: xlsx
+            csv: CSV
+            json: JSON
+            xlsx: Excel (.xlsx)
           actions:
             back: Voltar
           file_legend: Adicionar ficheiro para importar a analisar.
