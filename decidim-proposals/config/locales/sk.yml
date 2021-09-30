@@ -319,7 +319,6 @@ sk:
       actions:
         answer_proposal: Odpoveď na návrh
         edit_proposal: Upraviť návrh
-        import: Import z inej súčasti
         new: Nový návrh
         participatory_texts: Participujúce texty
         show: Ukázať návrh
