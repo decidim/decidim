@@ -380,6 +380,10 @@ hu:
           impersonate_new_managed_user: Új résztvevő kezelése
       imports:
         new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
           actions:
             back: Vissza
           import: Import
