@@ -1601,7 +1601,7 @@ pt:
         twitter: "%{organization} no Twitter"
         youtube: "%{organization} no YouTube"
       timeout_modal:
-        body: Está inactivo há %{minutos}. Se continuar inactivo será automaticamente desligado para a sua própria segurança.
+        body: Está inactivo há %{minutes}. Se continuar inactivo será automaticamente desligado para a sua própria segurança.
         continue_session: Continuar sessão
         sign_out: Desligar
         title: Gostaria de continuar a sua sessão?
