@@ -361,7 +361,6 @@ pl:
       actions:
         answer_proposal: Odpowiedz na propozycję
         edit_proposal: Edytuj propozycję
-        import: Importuj z innego komponentu
         new: Nowa propozycja
         participatory_texts: Kolektywna legislacja
         show: Pokaż propozycję
