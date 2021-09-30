@@ -8,10 +8,12 @@ eu:
       close_meeting:
         attendees_count: Bertaratuen kopurua
         attending_organizations: 'Parte hartu duten erakundeen zerrenda:'
-        closing_report: Minutu
+        audio_url: Audioaren URLa
+        closing_report: Aktak
         closing_visible: Ikusgai dago
         contributions_count: Ekarpen-kopurua
         proposal_ids: Topaketan sortutako proposamenak
+        video_url: Bideoaren URLa
       meeting:
         address: Helbidea
         available_slots: Bilera honetarako zirrikitu erabilgarriak
@@ -336,7 +338,7 @@ eu:
           attendees: Bertaratuen kopurua
           contributions: Ekarpen-kopurua
           join: Izena eman topaketan
-          meeting_minutes: Bilera Minutes
+          meeting_minutes: Bileraren akta
           no_slots_available: Ez dago leku librerik
           organizations: Bertaratutako erakundeak
           registration_code_help_text: Zure izena emateko kodea
