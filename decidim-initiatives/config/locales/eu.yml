@@ -341,6 +341,7 @@ eu:
           edit_my_initiative: Editatu nire ekimena
           go_to_my_initiatives: Joan nire ekimenei
           more_information: "(Informazio gehiago)"
+          send_my_initiative: Bidali nire ekimena baliozkotze eknikora
         previous_form:
           back: Back
           continue: Jarraitu
@@ -363,6 +364,9 @@ eu:
           continue: Nire ekimena desberdina da
           more_information: "(Informazio gehiago)"
       edit:
+        accept: Onartu ekimena
+        back: Atzera
+        confirm: Ziur zaude?
         discard: Kendu ekimena
         export_pdf_signatures: Esportatu sinaduren PDF
         export_votes: Esportatu sinadurak
@@ -438,12 +442,14 @@ eu:
         committee_members:
           approve: Onartu
           confirm_revoke: Ziur zaude?
+          title: Batzorde-kideak
         count:
           title:
             one: "%{count} ekimena"
             other: "%{count} ekimenak"
         filters:
           any: Edozein
+          area: Area
           author: Egilea
           myself: Nire ekimenak
           scope: Eremua
