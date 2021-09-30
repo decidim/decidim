@@ -386,6 +386,7 @@ pt:
       actions:
         answer_proposal: Responder a proposta
         edit_proposal: Editar proposta
+        import: Importar de outro componente
         new: Nova proposta
         participatory_texts: Textos participativos
         show: Mostrar proposta
