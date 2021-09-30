@@ -149,7 +149,8 @@ Decidim.register_component(:meetings) do |component|
         author: participatory_space.organization,
         registration_terms: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
-        end
+        end,
+        published_at: Faker::Boolean.boolean(true_ratio: 0.8) ? Time.current : nil
       }
 
       _hybrid_meeting = Decidim.traceability.create!(
