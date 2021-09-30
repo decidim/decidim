@@ -457,10 +457,15 @@ fi:
       imports:
         error: Tuonti epäonnistui
         new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
           actions:
             back: Takaisin
           file_legend: Lisää tuontitiedosto, josta tiedot luetaan.
           import: Tuo
+        notice: "%{number} kpl kohteita %{resource_name} tuotu onnistuneesti"
       logs:
         logs_list:
           no_logs_yet: Ei vielä lokitietoja
