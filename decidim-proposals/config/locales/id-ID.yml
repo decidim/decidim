@@ -270,6 +270,7 @@ id:
     proposals:
       actions:
         edit_proposal: Edit proposal
+        import: Impor dari komponen lain
         new: Proposal baru
         participatory_texts: Teks partisipatif
         title: Tindakan
