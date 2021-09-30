@@ -365,7 +365,6 @@ it:
       actions:
         answer_proposal: Proposta di Risposta
         edit_proposal: Modifica proposta
-        import: Importa da un altro componente
         new: Nuova proposta
         participatory_texts: Testi partecipativi
         show: Mostra proposta
