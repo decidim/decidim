@@ -398,6 +398,7 @@ eu:
             more_information: Informazio gehiago
             participate: Parte hartu
             participate_in: Parte hartu %{resource_name} prozesuan
+            processes_button_title: Lotura prozesu guztiak erakusten dituen Prozesuen orrialdera
             see_all_processes: Ikusi prozesu guztiak
       participatory_process_steps:
         index:
@@ -431,6 +432,8 @@ eu:
           loading: Emaitzak kargatzen...
       show:
         area: Area
+        belongs_to_group: Prozesu hau honi dagokio
+        dates: Datak
         developer_group: Sustatzailearen taldea
         end_date: Bukaera-data
         local_area: Antolakuntza eremua
@@ -442,11 +445,14 @@ eu:
         start_date: Hasiera-data
         target: Nork parte hartzen du
         unspecified: Zehaztu gabea
+    statistics:
+      processes_count: Prozesuak
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
           browse: Arakatu
+          browse_resource: Aztertu %{resource_name} prozesuen multzoa
           processes_count: 'Prozesuak:'
       participatory_process_widgets:
         show:
@@ -458,11 +464,17 @@ eu:
         participatory_process:
           active_step: 'Oraingo fasea:'
           more_info: Informazio gehiago
+          more_info_about: Informazio gehiago %{resource_name} prozesuari buruz
           take_part: Parte hartu
+          take_part_in: Parte hartu %{resource_name} prozesuan
         promoted_process:
           active_step: 'Oraingo fasea:'
           more_info: Informazio gehiago
+          more_info_about: Informazio gehiago %{resource_name} prozesuari buruz
           take_part: Parte hartu
+          take_part_in: Parte hartu %{resource_name} prozesuan
+        promoted_process_group:
+          more_info: Informazio gehiago
       process_header_steps:
         step: '%{total} fasetatik %{current}.a'
         view_steps: Ikusi faseak
