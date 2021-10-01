@@ -179,20 +179,46 @@ eu:
           step:
             amendment_creation_enabled: Zuzenketa sortzea aktibatuta
             amendment_creation_enabled_help: Parte-hartzaileak proposamenak alda ditzake.
+            amendment_promotion_enabled: Zuzenketa sustatzea aktibatuta
+            amendment_promotion_enabled_help: Zuzenketaren egileek proposamen berri gisa sustatu ahal izango dute baztertutako zuzenketa.
+            amendment_reaction_enabled: Zuzenketaren erreakzioa aktibatuta
+            amendment_reaction_enabled_help: Proposamenen egileek beste parte-hartzaile batzuen zuzenketak onartu edo baztertu ahal izango dituzte.
+            amendments_visibility: Zuzenketaren ikusgarritasuna
+            amendments_visibility_choices:
+              all: Zuzenketak ikusgai denentzat
+              participants: Zuzenketak ikusgai daude beren egileentzat
             amendments_visibility_help: Zuzenketak egileentzat bakarrik ikusgai" aukera hautatzen bada, parte-hartzaileek saioa hasi beharko dute egindako zuzenketak ikusteko.
             announcement: Anuntzio
+            answers_with_costs: Gaitu kostua proposamenen erantzunetan
             automatic_hashtags: Hashtags proposamen guztiei gehitu zaie
             comments_blocked: Iruzkinak blokeatuta
             creation_enabled: Proposamenaren sorrera gaituta
+            default_sort_order: Proposamenen hurrenkera lehenetsia
+            default_sort_order_options:
+              default: Lehenetsita
+              most_commented: Iruzkin gehien dituztenak
+              most_endorsed: Aldeko boto gehien dituztenak
+              most_followed: Jarraitzaile gehien dituztenak
+              most_voted: Aldeko boto gehien dituztenak
+              random: Ausazkoa
+              recent: Berrienak
+              with_more_authors: Egile gehiagorekin
             endorsements_blocked: Onarpen blokeatuak
             endorsements_enabled: Onarpen gaituak
             proposal_answering_enabled: Proposamena erantzutea gaituta dago
+            publish_answers_immediately: Argitaratu berehala erantzunak proposamenei
             suggested_hashtags: Hashtag-ek erabiltzaileei proposamen berriak proposatu dizkie
             votes_blocked: Botoak blokeatuta
             votes_enabled: Botoak gaituta
             votes_hidden: Botoiak ezkutatuta (botoak gaituta badago, hau egiaztatuz boto kopurua ezkutatuko da)
     events:
       proposals:
+        admin:
+          proposal_note_created:
+            email_intro: Norbaitek ohar bat uzti du "%{resource_title}" proposamenean. Berrikusi orain honen bidez <a href="%{admin_proposal_info_url}">panel de administración</a>
+            email_outro: Jakinarazpen hau jaso duzu proposamena ebaluatu ahal duzulako.
+            email_subject: Norbaitek ohar bat utzi du %{resource_title} proposamenean.
+            notification_title: Norbaitek ohar bat utzi du <a href="%{resource_path}">%{resource_title}</a> proposamenean. Berrikusi orain honen bidez <a href="%{admin_proposal_info_path}">panel de administración</a>
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} onartu da <a href="%{resource_path}">%{resource_title}</a> lankidetza proiektuaren laguntzaile gisa sartzeko.'
           email_outro: Jakinarazpen hau jaso duzuelako <a href="%{resource_path}">%{resource_title}</a>.
@@ -256,6 +282,7 @@ eu:
             email_subject: Jarraitzen ari zaren proposamena ebaluatzen ari da
             notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena ebaluatzen ari da.
         proposal_mentioned:
+          email_intro: Zure proposamen hau "%{mentioned_proposal_title}" aipatu da <a href="%{resource_url}"> iruzkinen</a> espazioan.
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" egilearena delako.
           email_subject: Zure proposamena "%{mentioned_proposal_title}" aipatu da
           notification_title: '"%{mentioned_proposal_title}" zure proposamena <a href="%{resource_path}"></a> espazio honetan aipatu da iruzkinetan.'
