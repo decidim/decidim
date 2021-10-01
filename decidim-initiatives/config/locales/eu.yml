@@ -337,6 +337,9 @@ eu:
           go_to_my_initiatives: Joan nire ekimenei
           more_information: "(Informazio gehiago)"
           send_my_initiative: Bidali nire ekimena baliozkotze eknikora
+        finish_help:
+          access_reminder: Zure ekimenetara sartu ahal zara iragazki honen bidez %{link} Ekimenen orrialdean.
+          publish_helper_text: Gogoratu zure ekimena argitaratu ahal izateko eskatzen zaizun informazioa bete behar duzula, eta <strong>baliozkotze teknikora</strong> bidali, administratzaile batek berrikus dezan.
         previous_form:
           back: Back
           continue: Jarraitu
@@ -350,6 +353,7 @@ eu:
           choose_html: <strong>%{title}</strong>bat sortu nahi dut
           more_information: "(Informazio gehiago)"
           select: Ekimen hau sustatu nahi dut
+          select_initiative_type_help: Ekimenen bidez, parte-hartzaileek esku har dezakete erakundeak interes orokorraren aldeko ekintzak egin ditzan. Zein ekimen abiarazi nahi duzu?
         share_committee_link:
           continue: Jarraitu
           invite_to_committee_help: Sustapen batzordearen parte izango duten pertsonei gonbidatzeko esteka
@@ -437,6 +441,9 @@ eu:
         committee_members:
           approve: Onartu
           confirm_revoke: Ziur zaude?
+          invite_to_committee_help: Partekatu lotura hau beste parte-hartzaile batzuk batzorde bultzatzailera gonbidatzeko
+          no_members_yet: Ez dago kiderik batzorde bultzatzailean
+          revoke: Baliogabetu
           title: Batzorde-kideak
         count:
           title:
