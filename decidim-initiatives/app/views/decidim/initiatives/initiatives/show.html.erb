@@ -80,7 +80,7 @@ edit_link(
       <br>
       <div class="row column">
         <%= render partial: "initiative_badge", locals: { initiative: current_initiative } %>
-        <%= decidim_sanitize translated_attribute(current_initiative.description) %>
+        <%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
         <%= render partial: "tags", locals: { resource: current_initiative } %>
       </div>
 

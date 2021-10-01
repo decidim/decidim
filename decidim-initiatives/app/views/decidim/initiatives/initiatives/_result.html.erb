@@ -6,10 +6,10 @@
       <p>
         <% if initiative.answer_url.present? %>
           <a href="<%= initiative.answer_url %>" target="_blank">
-            <%= decidim_sanitize translated_attribute initiative.answer %>
+            <%= decidim_sanitize_editor translated_attribute initiative.answer %>
           </a>
         <% else %>
-          <%= decidim_sanitize translated_attribute initiative.answer %>
+          <%= decidim_sanitize_editor translated_attribute initiative.answer %>
         <% end %>
       </p>
     </div>

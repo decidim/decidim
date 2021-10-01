@@ -41,7 +41,7 @@ module Decidim
       # makes the layout look good.
       def description
         text = super
-        text.gsub!(/^<p>/, "<p>#{render :badge}")
+        text.sub!(/<p>/, "<p>#{render :badge}")
         html_truncate(text, length: 100)
       end
 

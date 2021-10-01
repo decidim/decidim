@@ -13,7 +13,7 @@
 
   <% if translated_attribute(answer.question.description).present? %>
     <div class="help-text">
-      <%= decidim_sanitize translated_attribute(answer.question.description) %>
+      <%= decidim_sanitize_editor translated_attribute(answer.question.description) %>
     </div>
   <% end %>
 

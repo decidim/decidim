@@ -7,7 +7,7 @@ module Decidim
       def proposal_reason_callout_announcement
         {
           title: proposal_reason_callout_title,
-          body: decidim_sanitize(translated_attribute(@proposal.answer))
+          body: decidim_sanitize_editor(translated_attribute(@proposal.answer))
         }
       end
 

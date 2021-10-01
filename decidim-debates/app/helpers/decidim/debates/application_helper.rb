@@ -22,7 +22,7 @@ module Decidim
       def render_debate_description(debate)
         description = present(debate).description(strip_tags: !safe_content?, links: true)
 
-        safe_content? ? decidim_sanitize(description) : simple_format(description)
+        safe_content? ? decidim_sanitize_editor(description) : simple_format(description)
       end
 
       # Returns :text_area or :editor based on current_component settings.
