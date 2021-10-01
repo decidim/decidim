@@ -377,16 +377,26 @@ eu:
         see_all: Ikusi dena (%{count})
     proposals:
       actions:
+        answer_proposal: Erantzun proposamenari
         edit_proposal: Editatu proposamena
         import: Inportatu beste osagai batetik
         new: Proposamen berria
         participatory_texts: Testu partehartzaileak
+        show: Ikusi proposamena
         title: Ekintzak
       admin:
         actions:
           preview: Aurreikusi
         exports:
+          proposal_comments: Iruzkinak
           proposals: Proposamenak
+        imports:
+          label:
+            answers: Inportatu erantzunak errenkada batetik
+            proposals: Inportatu proposamenak errenkada batetik
+          title:
+            answers: Inportatu erantzunak proposamen gisa
+            proposals: Inportatu proposamenak
         models:
           proposal:
             name: Proposamena
@@ -408,6 +418,7 @@ eu:
           new_import:
             accepted_mime_types:
               md: Markdown
+              odt: ODT
             bottom_hint: "(Dokumentuko atalen aurrebista eta ordenazioa ahal izango duzu)"
             title: ADD DOCUMENT
             upload_document: Kargatu dokumentua
@@ -449,37 +460,72 @@ eu:
           form:
             attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
             created_in_meeting: Proposamen hau bilera batetik dator
+            delete_attachment: Ezabatu erantsitako artxiboa
             select_a_category: Aukeratu kategoria bat
             select_a_meeting: Aukeratu bilera bat
           index:
             actions: Ekintzak
+            assign_to_valuator: Esleitu ebaluatzaileari
+            assign_to_valuator_button: Esleitu
             cancel: Utzi
             change_category: Aldatu kategoria
+            change_scope: Aldatu eremua
             merge: Bateratu berri bat sartu
             merge_button: Batu
             publish: Argitaratu
+            publish_answers: Argitaratu erantzunak
             select_component: Hautatu osagaia
             selected: hautatutako
             split: Proposamen banatuak
             split_button: Split
             title: Proposamenak
+            unassign_from_valuator: Desesleitu ebaluatzaileari
+            unassign_from_valuator_button: Desesleitu
             update: eguneratzearen
+            update_scope_button: Eguneratu eremua
           new:
             create: Sortu
             title: Sortu proposamena
           publish_answers:
+            number_of_proposals: '%{number} proposamenetarako erantzunak argitaratuko dira.'
             select_a_proposal: Aukeratu proposamen bat
           show:
+            amendments_count: Zuzenketa kopurua
+            assigned_valuators: Ebaluatzaileak esleituta
             authors: Egileak
             body: Gorputzeko
+            comments_count: Iruzkin kopurua
+            comments_negative_count: Aurka
+            comments_neutral_count: Neutrala
+            comments_positive_count: Alde
             created_at: Sortze data
-            proposals: proposamenak
+            documents: Dokumentuak
+            endorsements_count: Atxikimendu kopurua
+            endorsements_ranking: Sailkapena atxikimenduen arabera
+            endorsers: Atxiki dira
+            link: Lotura
+            n_more_endorsers:
+              one: eta 1 gehiago
+              other: eta %{count} gehiago
+            photos: Argazkiak
+            proposals: Proposamenak
+            ranking: "%{total} tik %{ranking}"
+            related_meetings: Erlazionatutako topaketak
+            remove_assignment: Desegin esleipena
+            remove_assignment_confirmation: Ziur zaude proposamen honen ebaluatzailea desesleitu nahi duzula?
+            valuators: Ebaluatzaileak
             votes_count: Botoen zenbaketa
+            votes_ranking: Sailkapena aldekoen arabera
           update_category:
+            invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} kategoria.'
             select_a_category: Hautatu kategoria bat
             select_a_proposal: Aukeratu proposamen bat
+            success: 'Proposamenak zuzen eguneratuta %{subject_name}: %{proposals} kategoriara.'
           update_scope:
+            invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} eremua.'
             select_a_proposal: Aukeratu proposamen bat
+            select_a_scope: Mesedez, hautatu eremu bat
+            success: 'Proposamenak zuzen eguneratuta %{subject_name}: %{proposals} eremuan.'
         proposals_imports:
           create:
             invalid: Arazo bat izan da proposamenak inportatzea
@@ -489,6 +535,7 @@ eu:
             no_components: Proposamenen inportazioa inportatzeko espazio parte hartzaile honetan ez dago proposamenrik.
             select_component: Hautatu osagaia
             select_states: Egiaztatu inportatzeko proposamenen egoera
+            title: Inportatu proposamenak
         proposals_merges:
           create:
             success: Proposamen berri batean sartu dira ondo.
@@ -624,9 +671,13 @@ eu:
           error: Lankidetza zirriborroa gordetzean erroreak gertatu dira.
           success: Laguntza-proiektua ondo eguneratu da.
         wizard_aside:
+          back_from_collaborative_draft: Itzuli zirriborro kolaboratzaileetara
           info: Bat sortzen ari zara <strong>elkarlanerako zirriborroa</strong>.
         wizard_header:
           title: Sortu zure lankidetza zirriborroa
+      content_blocks:
+        highlighted_proposals:
+          proposals: Proposamenak
       create:
         error: Erroreak gertatu dira proposamena gordetzean.
         success: Onartutako proposamena. Zirriborro gisa gorde da.
