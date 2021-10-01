@@ -412,6 +412,9 @@ cs:
           label:
             answers: Importovat odpovědi ze souboru
             proposals: Importovat návrhy ze souboru
+          title:
+            answers: Importovat odpovědi návrhu
+            proposals: Importovat návrhy
         models:
           proposal:
             name: Návrh
