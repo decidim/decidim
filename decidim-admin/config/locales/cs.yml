@@ -482,6 +482,11 @@ cs:
                 other: Nalezeny chyby v importním souboru pro záznamy s pořadovými čísly %{indexes}.
           missing_headers:
             detail: Zkontrolujte, zda soubor obsahuje požadované sloupce.
+            message:
+              one: Chybí sloupec %{columns}.
+              few: Chybí sloupce %{columns}.
+              many: Chybí sloupce %{columns}.
+              other: Chybí sloupce %{columns}.
         error: Při importu došlo k chybě
         example_error: Nelze vytvořit příklad pro daný typ
         new:
