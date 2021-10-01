@@ -7,6 +7,7 @@ eu:
         category_id: Kategoria
         decidim_scope_id: esparrua
         has_address: Helbidea du
+        scope_id: Eremua
         state: Estatu
         title: Izenburua
         user_group_id: Lankidetza zirriborroa sortu
@@ -17,19 +18,27 @@ eu:
         automatic_hashtags: Hashtags automatikoki gehitu da
         body: Testua
         category_id: Kategoria
+        decidim_scope_id: Eremua
         has_address: Helbidea du
+        scope_id: Eremua
         state: Estatu
         suggested_hashtags: Iradokitako hashtagak
         title: Titulua
         user_group_id: 'Sortu proposamen bat honako hau gisa:'
       proposal_answer:
         answer: Erantzuna
+        cost: Kostua
+        cost_report: Kostuaren txostena
+        execution_period: Exekuzioaldia
       proposals_copy:
         copy_proposals: Honek hautatutako osagaiaren unekoaren proposamen guztiak inportatuko ditu eta ekintza hori ezin da alderantzikatu.
         origin_component_id: Proposamenen kopia egiteko osagaia
       proposals_import:
         import_proposals: Inportatu proposamenak
         keep_authors: Mantendu jatorrizko egileak
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Ebaluatzailearen izena
     errors:
       models:
         participatory_text:
@@ -41,12 +50,14 @@ eu:
             attachment:
               needs_to_be_reattached: Artxiboa berriro erantsi behar da
             body:
+              cant_be_equal_to_template: ezin da plantillaren berdina izan
               identical: ETA izenburua ezin da berdinak izan
             title:
               identical: ETA gorputzak ezin du berdinak izan
     models:
       decidim/proposals/accepted_proposal_event: Onartutako proposamena
       decidim/proposals/admin/update_proposal_category_event: Proposamen kategoria aldatu da
+      decidim/proposals/admin/update_proposal_scope_event: Proposamen-eremua aldatuta
       decidim/proposals/creation_enabled_event: Proposamenaren sorrera gaituta
       decidim/proposals/endorsing_enabled_event: Onartutako proposamena gaituta
       decidim/proposals/evaluating_proposal_event: Proposamena ebaluatzen ari da
@@ -69,9 +80,39 @@ eu:
         one: Bozkatu
         other: Botoak
   decidim:
+    admin:
+      filters:
+        proposals:
+          category_id_eq:
+            label: Kategoria
+          is_emendation_true:
+            label: Mota
+            values:
+              'false': Proposamenak
+              'true': Zuzenketak
+          scope_id_eq:
+            label: Eremua
+          state_eq:
+            label: Egoera
+            values:
+              accepted: Onartuta
+              evaluating: Ebaluatzen
+              published: Argitaratua
+              rejected: Ukatua
+              validating: Baliozkotze teknikoa
+              withdrawn: Kenduta
+          state_null:
+            label: Egoera
+            values:
+              'true': Erantzun gabe
+          valuator_role_ids_has:
+            label: Esleituta ebaluatzaileari
+        search_placeholder:
+          id_string_or_title_cont: Bilatu %{collection} edo ID edo izenburuaren arabera.
     components:
       proposals:
         actions:
+          amend: Zuzendu
           create: Sortu
           endorse: gatoz
           vote: Bozkatu
@@ -81,18 +122,27 @@ eu:
           global:
             allow_card_image: Baimendu irudidun txartela
             amendments_enabled: Emendakinak gaituta
+            amendments_enabled_help: Aktibo badago, konfiguratu zuzenketen aukerak urrats bakoitzerako.
+            amendments_wizard_help_text: Zuzenketen testu-laguntzailea
             announcement: Anuntzio
             attachments_allowed: Onartu eranskinak
             can_accumulate_supports_beyond_threshold: Atalasetik haratago doazen euskarriak pilatu ditzakezu
             collaborative_drafts_enabled: Lankidetza zirriborroak gaituta
             comments_enabled: Iruzkinak gaituta
+            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
             geocoding_enabled: Geokodifikazioa gaituta dago
             minimum_votes_per_user: Erabiltzaile bakoitzeko gutxieneko botoiak
+            new_proposal_body_template: Plantilla proposamen berriaren testurako
+            new_proposal_body_template_help: Proposamen berriek izango duten testu aurredefinitua zehaztu ahal duzu
             new_proposal_help_text: Proposamen berriaren laguntza testu
             official_proposals_enabled: Proposamen ofizialak gaituta
             participatory_texts_enabled: Parte hartzaileen testuak gaituta
             proposal_answering_enabled: Proposamena erantzutea gaituta dago
             proposal_edit_before_minutes: Proposamenak egileek editatu ahal izango dituzte minutu asko igaro aurretik
+            proposal_edit_time: Proposamenen edizioa
+            proposal_edit_time_choices:
+              infinite: Utzi proposamenak editatzen epe mugagabe batean
+              limited: Utzi proposamenak editatzen epe zehatz baten barruan
             proposal_length: Proposamen maximoa gorputzaren luzera
             proposal_limit: Proposamenaren muga erabiltzaile bakoitzeko
             proposal_wizard_step_1_help_text: Proposamen laguntzailea "Sortu" urrats laguntza testua
@@ -100,9 +150,13 @@ eu:
             proposal_wizard_step_3_help_text: Proposamen laguntzailea "Bete" urrats laguntza testua
             proposal_wizard_step_4_help_text: Proposamen laguntzailea "Argitaratu" urrats laguntza testua
             resources_permissions_enabled: Ekintza-baimenak proposamen bakoitzerako ezarri daitezke
+            scope_id: Eremua
+            scopes_enabled: Eremuak gaituta
             threshold_per_proposal: Proposamen bakoitzeko atalasea
             vote_limit: Erabiltzaile bakoitzari botoa emateko muga
           step:
+            amendment_creation_enabled: Zuzenketa sortzea aktibatuta
+            amendment_creation_enabled_help: Parte-hartzaileak proposamenak alda ditzake.
             amendments_visibility_help: Zuzenketak egileentzat bakarrik ikusgai" aukera hautatzen bada, parte-hartzaileek saioa hasi beharko dute egindako zuzenketak ikusteko.
             announcement: Anuntzio
             automatic_hashtags: Hashtags proposamen guztiei gehitu zaie
