@@ -128,6 +128,8 @@ eu:
             title: Titulua
           name: Prozesu partizipatiboa
         participatory_process_group:
+          fields:
+            title: Izenburua
           name: Prozesu-multzoak
         participatory_process_step:
           fields:
@@ -274,6 +276,7 @@ eu:
         update: "%{user_name} %{resource_name} partehartze prozesua eguneratu du"
       participatory_process_group:
         create: "%{user_name} k sortu du %{resource_name} prozesu parte-hartzaileen multzoa"
+        update: "%{user_name} k eguneratu du %{resource_name} prozesu parte-hartzaileen multzoa"
       participatory_process_step:
         activate: "%{user_name} %{resource_name} urratsa %{space_name} prozesu parte-hartzailean aktibatuta"
         create: "%{user_name} %{resource_name} urratsa %{space_name} partaidetzazko prozesuan sortu zen"
@@ -285,6 +288,11 @@ eu:
         update: "%{user_name} erabiltzailearen rola aldatu %{resource_name} en %{space_name} prozesu parte-hartzailea"
     events:
       participatory_process:
+        role_assigned:
+          email_intro: '%{role} rola esleitu zaizu <a href="%{resource_title}"> prozesu parte-hartzailean.'
+          email_outro: Jakinarazpen hau jaso duzu %{role} rola esleitu zaizu "%{resource_title}" jardunaldian.
+          email_subject: '%{role} rola esleitu zaizu hemen "%{resource_title}".'
+          notification_title: '%{role} rola esleitu zaizu <a href="%{resource_url}">%{resource_title}</a> prozesu parte-hartzailean.'
         step_activated:
           email_intro: '%{resource_title} urratsa aktibo dago %{participatory_space_title}-ra. Orrialde hau ikusi dezakezu:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
@@ -308,10 +316,30 @@ eu:
         description: Erakundeko prozesu parte-hartzaile kopurua
         object: prozesu parte-hartzaileak
         title: Parte hartze prozesuak
+    participatory_process:
+      show:
+        related_assemblies: Erlazionatutako batzarrak
     participatory_process_groups:
       content_blocks:
+        html_1:
+          name: Lehen HTML blokea
+        html_2:
+          name: Bigarren HTML blokea
+        html_3:
+          name: Hirugarren HTML blokea
+        metadata:
+          developer_group: Nork sustatua
+          name: Metadatuak
+          participatory_scope: Zer erabakitzen den
+          participatory_structure: Nola erabakitzen den
+          target: Nork hartzen duen parte
+        participatory_processes:
+          name: Prozesu parte-hartzaileak
         stats:
           name: Jarduera
+        title:
+          meta_scope: Eremua
+          name: Izenburua, deskribapena eta traola
       show:
         title: Parte-hartze prozesuko taldeak
     participatory_process_steps:
@@ -323,9 +351,16 @@ eu:
         content_blocks:
           highlighted_processes:
             max_results: Erakusteko elementu gehienen kopurua
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'URL slugs erabiltzen dira prozesu hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metadatuak
+            title: Informazio Orokorra
         participatory_process_steps:
           form:
             cta_path_help: 'Erabili bideak partzialak, ez URL osoak hemen. Letrak, zenbakiak, marrak eta barrak onartzen ditu eta gutun batekin hasi behar duzu. Ezartzen bada, botoia ez da agertuko. Adibidea: %{url}'
