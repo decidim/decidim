@@ -361,6 +361,10 @@ eu:
           form:
             metadata: Metadatuak
             title: Informazio Orokorra
+            visibility: Ikusgarritasuna
+        participatory_process_imports:
+          form:
+            document_legend: Gehitu dokumentu bat
         participatory_process_steps:
           form:
             cta_path_help: 'Erabili bideak partzialak, ez URL osoak hemen. Letrak, zenbakiak, marrak eta barrak onartzen ditu eta gutun batekin hasi behar duzu. Ezartzen bada, botoia ez da agertuko. Adibidea: %{url}'
@@ -393,7 +397,11 @@ eu:
             active_step: Urratsa aktiboa
             more_information: Informazio gehiago
             participate: Parte hartu
+            participate_in: Parte hartu %{resource_name} prozesuan
             see_all_processes: Ikusi prozesu guztiak
+      participatory_process_steps:
+        index:
+          back_to_process: Itzuli prozesuaren orrialdera
       participatory_processes:
         filters:
           counters:
