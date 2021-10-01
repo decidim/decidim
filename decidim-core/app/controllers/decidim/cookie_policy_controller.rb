@@ -10,6 +10,8 @@ module Decidim
         Decidim.config.consent_cookie_name,
         value: "true",
         path: "/",
+        httponly: true,
+        secure: request.session_options[:secure],
         expires: 1.year.from_now.utc
       )
 
