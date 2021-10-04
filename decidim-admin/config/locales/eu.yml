@@ -455,6 +455,7 @@ eu:
           impersonate_existing_user: '"%{name}" erabiltzailea ordezkatzen du'
           impersonate_new_managed_user: Ordezkatu erabiltzaile kudeatu berria
       imports:
+        and: eta
         error: Errorea gertatu da inportatzean
         new:
           accepted_mime_types:
