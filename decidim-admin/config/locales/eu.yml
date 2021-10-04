@@ -464,6 +464,7 @@ eu:
             xlsx: xlsx
           actions:
             back: Atzera
+          download_example: Deskargatu adibidea
           file_legend: Gehitu prozesatuko den inportazio-artxibo bat.
           import: Inportatu
         notice: "%{number} %{resource_name} zuzen inportatu da"
