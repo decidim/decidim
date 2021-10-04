@@ -374,7 +374,7 @@ eu:
             slug_help: 'URL slugs erabiltzen dira konferentzia honetara bidaltzen dituzten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
         diplomas:
           edit:
-            save: Save
+            save: Gorde
             title: Asistentzia ziurtagiria
         invite_join_conference_mailer:
           invite:
