@@ -203,14 +203,68 @@ eu:
             select_component: Mesedez, hautatu osagai bat
             title: Inportatu proposamenak
         questions:
+          create:
+            invalid: Arazo bat izan da galdera hau sortzean
+            success: Galdera zuzen sortu da
+          destroy:
+            invalid: Arazo bat izan da galdera hau ezabatzean
+            success: Galdera zuzen ezabatu da
           edit:
+            title: Editatu galdera
             update: Eguneratu galdera
           index:
             title: Galderak
+          new:
+            create: Sortu galdera bat
+            title: Galdera berria
+          update:
+            invalid: Arazo bat izan da galdera hau eguneratzean
+            success: Galdera zuzen eguneratu da
         steps:
+          create_election:
+            errors:
+              max_selections: Galderek ez dute <strong>balio zuzenik </strong> galdera kopururako
+              minimum_answers: Galderek gutxienez eduki behar dituzte <strong> bi erantzun </strong>.
+              minimum_questions: <strong>aukerak gutxienez </strong> galdera bat eduki behar du.
+              published: <strong>aukera ez dago argitaratuta </strong>.
+              time_before: Hasierako ordua hemen dago <strong>3 ordu baino gutxiago</strong> bozketa hasi baino lehen.
+              trustees_number: <strong> espazio parte-hartzaileak gutxienez eduki behar du %{number} bermatzaile gako publikoarekin </strong>.
+            invalid: Arazo bat izan da aukera hau konfiguratzean
+            no_trustees: Ez dago bermatzaile konfiguraturik espazio parte-hartzaile honetarako
+            not_used_trustee: "(ez da erabiltzen)"
+            public_key:
+              'false': ez du <strong>gako publikorik</strong>
+              'true': badu <strong> gako publiko bat </strong>
+            requirements:
+              max_selections: Erantzun guztiek balio zuzena dute honetarako <strong>erantzun gehien</strong>.
+              minimum_answers: Galdera bakoitzak badu <strong>gutxienez 2 erantzun</strong>.
+              minimum_questions: Aukerak badu <strong>gutxienez galdera 1</strong>.
+              published: Aukera badago <strong>argitaratuta</strong>.
+              time_before: Konfigurazioa egiten ari da <strong>aukeraketa hasi baino gutxienez %{hours} ordu</strong>.
+              trustees_number: Espazio parte-hartzaileak badu <strong>gutxienez %{number} bermatzaile gako publikoarekin</strong>.
+            submit: Konfiguratu bozketa
+            success: Aukeraketa zuzen bidali da hona Bulletin Board
+            title: Konfiguratu bozketa
+            trustees: Hautaketaren bermatzaileak
+          created:
+            invalid: Arazo bat gertatu da gakoen zeremonia hastean
+            submit: Hasi gakoen zeremonia
+            success: 'Gakoen zeremonia hasteko eskaera zuzen bidali da hona: Bulletin Board'
+            title: Bozketa sortuta
+            trustees: Bermatzaileak
           key_ceremony:
             continue: Jarraitu
             title: Gakoen zeremonia
+          key_ceremony_ended:
+            errors:
+              time_before: Bozketa hasteko prest dago. (%{start_time}) hasierako ordua baino %{hours} ordu itxaron behar duzu bozketaldia hasteko.
+            invalid: Arazo bat izan da bozketaldia hastean
+            requirements:
+              time_before: Bozketa laster hasiko da. Eskuz hasi ahal duzu bozketaldia, edo automatikoki hasiko da hasierako ordua izan baino lehen, ordu honetan %{start_time}.
+            submit: Hasi bozketaldia
+            success: 'Bozketaldiaren eskaera zuzen bidali da hona: Bulletin Board'
+            title: Hasteko prest
+          processing: Prozesatzen...
           results_published:
             answer: Erantzuna
             not_selected: Ez hautatua
@@ -229,8 +283,17 @@ eu:
             question: Galdera
             result: Emaitza
             selected: Hautatua
+            submit: Argitaratu emaitzak
+            success: 'Emaitzak argitaratzeko eskaera zuzen bidali da hona: Bulletin Board'
             title: Kalkulatutako emaitzak
           vote:
+            errors:
+              time_after: Bozketa oraindik ez dago martxan. (%{end_time}) amaierako ordura arte itxaron behar duzu bozketaldia amaitzeko.
+            invalid: Arazo bat izan da bozketaldia amaitzean
+            requirements:
+              time_after: Bozketa amaitu da. Bozketaldia eskuz amaitu ahal duzu, edo minutu batzuk barru automatikoki amaituko da.
+            submit: Amaitu bozketaldia
+            success: 'Bozketaldia amaitzeko eskaera zuzen bidali da hona: Bulletin Board'
             title: Bozketa-aldia
           vote_ended:
             text: Bozketa amaitu da. Orain has zaitezke zenbaketa egiten.
