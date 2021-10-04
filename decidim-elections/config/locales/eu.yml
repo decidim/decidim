@@ -296,6 +296,9 @@ eu:
             success: 'Bozketaldia amaitzeko eskaera zuzen bidali da hona: Bulletin Board'
             title: Bozketa-aldia
           vote_ended:
+            invalid: Arazo bat izan da zenbaketa hastean
+            submit: Hasi zenbaketa
+            success: 'Zenbaketa hasteko eskaera zuzen bidali da hona: Bulletin Board'
             text: Bozketa amaitu da. Orain has zaitezke zenbaketa egiten.
             title: Bozketa-aldia amaituta
           vote_stats:
@@ -303,7 +306,36 @@ eu:
             title: Boto-estatistikak
             voters: Boto-emaileak
             votes: Botoak
+        trustees_participatory_spaces:
+          actions:
+            disable: Desgaitu
+            enable: Kontuan hartu
+          create:
+            exists: Bada bermatzailea espazio parte-hartzaile honetarako
+            invalid: Arazo bat izan da bermatzaile bat sortzean
+            success: Bermatzailea zuzen sortu da
+          delete:
+            invalid: Arazo bat izan da bermatzaile hau ezabatzean
+            success: Bermatzailea zuzen ezabatu da
+          form:
+            select_user: Hautatu erabiltzailea
+          index:
+            title: Bermatzaileak
+          new:
+            create: Sortu bermatzailea
+            title: Bermatzaile berria
+          update:
+            invalid: Arazo bat izan da %{trustee} bermatzailea eguneratzean
+            success: '%{trustee} bermatzailea zuzen eguneratu da'
+      admin_log:
+        election:
+          create: "%{user_name} k %{space_name} ko %{resource_name} aukera sortu zuen"
       election_m:
+        badge_name:
+          finished: Amaituta
+          ongoing: Aktibo
+          upcoming: Hurrengoak
+        end_date: Amaitu
         footer:
           vote: Eman botoa
       elections:
