@@ -132,6 +132,7 @@ eu:
       new_import:
         attributes:
           file:
+            invalid_file: Baliogabetutako fitxategia, mesedez, egiaztatu espedientea ondo formalizatuta dagoela
             invalid_mime_type: Baliogabeko mime mota
   activerecord:
     attributes:
@@ -695,9 +696,9 @@ eu:
           error: Errorea gertatu da parte-hartzailea blokeatzean
           success: Parte-hartzailea zuzen blokeatu da
         create:
-          success: Erabiltzailea arrakastatsua izan da
+          success: Erabiltzailea zuzen ofizializatu da
         destroy:
-          success: Erabiltzailea ez da ongi burutu
+          success: Parte-hartzailearen ofizializazioa behar bezala desgaitu da
         index:
           actions: Ekintzak
           badge: Badge
@@ -781,13 +782,13 @@ eu:
       participatory_space_private_users:
         create:
           error: Errore bat gertatu da partaidetza espazio honen erabiltzaile pribatua gehitzean.
-          success: Partaidetza espazioa erabiltzaile pribatuaren sarbidea behar bezala sortu da.
+          success: Zuzen sortu da sarbide pribatua partaidetza-espazioko partaideentzat.
         destroy:
           error: Errore bat gertatu da erabiltzaile pribatu bat ezabatzen parte hartzaileentzako.
-          success: Partekatze espazioa erabiltzaileen sarbide pribatuan arrakastaz suntsitu da.
+          success: Zuzen ezabatu da parte-hartzailearen sarbidea partaidetza-espazio pribaturako.
         index:
           import_via_csv: Inportatu CSV bidetik
-          title: Partaidetza espazioa erabiltzaile pribatua
+          title: Parte-hartze pribatuko espazioko parte-hartzailea
         new:
           create: Sortu
           title: Erabiltzaile pribatuaren parte hartzailea.
@@ -798,7 +799,7 @@ eu:
         new:
           explanation: 'Igo zure CSV fitxategia. Bi zutabe izan behar ditu, artxiboaren lehen zutabean eremu parte-hartzailera gehitu nahi dituzun erabiltzaileen posta elektronikoa, eta izena azken zutabean (posta elektronikoa, izena), goibururik gabe. Ez erabili balio ez duten karaktererik erabiltzaile-izenean, hala nola: `<>?%&^*#@()[]=+:;"{}\|`.'
           title: Igo zure CSV artxiboa
-          upload: Kargatu
+          upload: Igo
       resource_permissions:
         edit:
           submit: Bidali
@@ -920,7 +921,7 @@ eu:
       user_group:
         csv_verify:
           invalid: Errore bat gertatu da CSV fitxategia irakurtzean.
-          success: CSV fitxategiak behar bezala kargatu du, irizpideekin bat datozen erabiltzaile-taldeak egiaztatzen ari gara. Denbora pixka bat izan liteke.
+          success: CSV fitxategiak behar bezala kargatu da, irizpideekin bat datozen erabiltzaile-taldeak egiaztatzen ari gara. Denbora pixka bat izan liteke.
         reject:
           invalid: Errore bat gertatu da erabiltzaile talde hau arbuiatzerakoan.
           success: Erabiltzaile taldea arrakastaz arbuiatua
@@ -936,9 +937,9 @@ eu:
           verify_via_csv: Egiaztatu CSV bidez
       user_groups_csv_verifications:
         new:
-          explanation: Kargatu zure CSV fitxategia. Zure erakundeko erabiltzaile taldeen mezu elektronikoak fitxategian lehen zutabean izan behar du, goibururik gabe. Zure posta elektronikoa baieztatu duten erabiltzaile taldeek eta CSV fitxategian agertzen diren mezu elektronikoak baliozkotu egingo dira.
-          title: Kargatu zure CSV fitxategia
-          upload: Upload
+          explanation: Igo zure CSV fitxategia. Zure erakundeko erabiltzaile taldeen mezu elektronikoak fitxategian lehen zutabean izan behar du, goibururik gabe. Zure posta elektronikoa baieztatu duten erabiltzaile taldeek eta CSV fitxategian agertzen diren mezu elektronikoak baliozkotu egingo dira.
+          title: Igo zure CSV fitxategia
+          upload: Igo
       users:
         create:
           error: Errorea gertatu da erabiltzaile honi gonbit egitean.
@@ -992,7 +993,7 @@ eu:
             success: Edukia zuzen ezkutatu da.
           unhide:
             invalid: Arazo bat izan da baliabidea desegiteko.
-            success: Baliabidea ondo ezabatu da.
+            success: Ongi desezkutatutako edukia.
           unreport:
             invalid: Arazo bat izan da salaketa ezeztatzean.
             success: Salaketa zuzen ezeztatu da.
