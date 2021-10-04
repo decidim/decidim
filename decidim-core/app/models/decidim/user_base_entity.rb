@@ -38,7 +38,7 @@ module Decidim
                                               .pluck(:decidim_followable_type, "array_agg(decidim_followable_id)")
                                               .to_h
                                               .flat_map do |type, ids|
-          only_public(type.constantize, ids)
+        only_public(type.constantize, ids)
       end
     end
 
