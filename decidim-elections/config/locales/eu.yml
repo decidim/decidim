@@ -234,6 +234,7 @@ eu:
             trustees: Bermatzaileak
           key_ceremony:
             title: Gakoen zeremonia
+            trustees: Bermatzaileak
           key_ceremony_ended:
             errors:
               time_before: Bozketa hasteko prest dago. (%{start_time}) hasierako ordua baino %{hours} ordu itxaron behar duzu bozketaldia hasteko.
@@ -248,6 +249,7 @@ eu:
             title: Argitaratutako emaitzak
           tally:
             title: Zenbatzeko prozesua
+            trustees: Bermatzaileak
           tally_ended:
             submit: Argitaratu emaitzak
             title: Kalkulatutako emaitzak
@@ -261,12 +263,36 @@ eu:
             success: 'Bozketaldia amaitzeko eskaera zuzen bidali da hona: Bulletin Board'
             title: Bozketa-aldia
           vote_ended:
+            invalid: Arazo bat izan da zenbaketa hastean
+            submit: Hasi zenbaketa
+            success: 'Zenbaketa hasteko eskaera zuzen bidali da hona: Bulletin Board'
             title: Bozketa-aldia amaituta
           vote_stats:
             no_vote_statistics_yet: Oraindik ez dago boto-estatistikarik
             title: Boto-estatistikak
             voters: Boto-emaileak
             votes: Botoak
+        trustees_participatory_spaces:
+          actions:
+            disable: Desgaitu
+            enable: Kontuan hartu
+          create:
+            exists: Bada bermatzailea espazio parte-hartzaile honetarako
+            invalid: Arazo bat izan da bermatzaile bat sortzean
+            success: Bermatzailea zuzen sortu da
+          delete:
+            invalid: Arazo bat izan da bermatzaile hau ezabatzean
+            success: Bermatzailea zuzen ezabatu da
+          form:
+            select_user: Hautatu erabiltzailea
+          index:
+            title: Bermatzaileak
+          new:
+            create: Sortu bermatzailea
+            title: Bermatzaile berria
+          update:
+            invalid: Arazo bat izan da %{trustee} bermatzailea eguneratzean
+            success: '%{trustee} bermatzailea zuzen eguneratu da'
       admin_log:
         election:
           end_vote: "%{user_name} amaitu zen hautatzeko bozketa-aldia %{resource_name} Board Bulletin-ean"
@@ -277,6 +303,11 @@ eu:
           start_vote: "%{user_name} -k hasi zuen bozketa-aldia %{resource_name} aukerarako Bulletin Board-en"
           unpublish: "%{user_name} -k desargitaratu zuen %{resource_name} bozketa"
       election_m:
+        badge_name:
+          finished: Amaituta
+          ongoing: Aktibo
+          upcoming: Hurrengoak
+        end_date: Amaitu
         footer:
           vote: Eman botoa
       elections:
