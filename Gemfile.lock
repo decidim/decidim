@@ -304,7 +304,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.7.5)
       msgpack (~> 1.0)
-    brakeman (4.10.0)
+    brakeman (5.1.1)
     browser (2.7.1)
     builder (3.2.4)
     byebug (11.1.3)
