@@ -49,6 +49,15 @@ eu:
             polling_station_president:
               different_voting: Mahaiko kudeatzaileak bozketa-puntuaren bozketa berean egon behar du
     models:
+      decidim/elections/answer:
+        one: Erantzuna
+        other: Erantzunak
+      decidim/elections/election:
+        one: Bozketa
+        other: Bozketak
+      decidim/elections/question:
+        one: Galdera
+        other: Galderak
       decidim/votings/census/dataset:
         one: Data-multzoa
         other: Data-multzoa
@@ -170,6 +179,23 @@ eu:
           update:
             invalid: Errorea izan da aukera hau eguneratzean
             success: Aukera ondo eguneratu da
+        exports:
+          elections: Bozketak
+          feedback_form_answers: Erantzunen feedbacka
+        menu:
+          trustees: Bermatzaileak
+        models:
+          answer:
+            name: Erantzuna
+          election:
+            name: Bozketa
+          question:
+            name: Galdera
+          trustee:
+            name: Bermatzailea
+        questions:
+          index:
+            title: Galderak
         steps:
           key_ceremony:
             continue: Jarraitu
