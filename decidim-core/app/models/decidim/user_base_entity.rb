@@ -34,10 +34,10 @@ module Decidim
     # Returns an Array of Decidim::Followable
     def public_followings
       @public_followings ||= following_follows.select("array_agg(decidim_followable_id)")
-                                      .group(:decidim_followable_type)
-                                      .pluck(:decidim_followable_type, "array_agg(decidim_followable_id)")
-                                      .to_h
-                                      .flat_map do |type, ids|
+                                              .group(:decidim_followable_type)
+                                              .pluck(:decidim_followable_type, "array_agg(decidim_followable_id)")
+                                              .to_h
+                                              .flat_map do |type, ids|
           only_public(type.constantize, ids)
       end
     end
