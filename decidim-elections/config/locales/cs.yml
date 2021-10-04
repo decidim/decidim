@@ -359,6 +359,10 @@ cs:
           upcoming: Nadcházející
         end_date: Končí
         footer:
+          remaining_time:
+            one: "Na hlasování zbývá <strong>%{count} hodina a %{minutes} minut</strong>."
+            other: "Na hlasování zbývá <strong>%{count} hodin a %{minutes} minut</strong>."
+            zero: "Na hlasování zbývá <strong>%{minutes} minut</strong>."
           view: Zobrazit
           vote: Hlasovat
         label:

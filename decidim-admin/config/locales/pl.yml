@@ -335,6 +335,8 @@ pl:
       domain_whitelist:
         form:
           domain_too_short: Domena jest zbyt krótka
+        update:
+          error: Nie udało się zaktualizować białej listy domen
       exports:
         export_as: "%{name} jako %{export_format}"
         formats:
