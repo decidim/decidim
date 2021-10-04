@@ -24,6 +24,24 @@ eu:
         full_address: Helbide osoa
         verification_code: Egiaztapen kodea
   decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: Erabilgarria da prozesua hasita badago eta aurreko prozesuko baimenak ezeztatu nahi badituzu.
+          button: Ezeztatu guztiak
+          button_before: Ezeztatu data honen aurrekoak
+          destroy:
+            confirm: Data horren aurreko baimenak ezeztatzea ezin da desegin. Ziur jarraitu nahi duzula?
+            confirm_all: Baimen guztiak ezeztatzea ezin da desegin. Ziur jarraitu nahi duzula?
+          destroy_nok: Arazo bat izan da baimen guztiak ezeztatzean.
+          destroy_ok: Bat datozen baimen guztiak zuzen ezeztatu dira.
+          info: Guztira %{count} parte-hartzaile egiaztatuta daude.
+          no_data: Ez dago parte-hartzaile egiaztaturik
+          title: Baimenak ezeztatzea
+        authorization_workflows: Baimenak
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} k eguneratu zuen nortasun agiriko dokumentuen konfigurazioa"
     authorization_handlers:
       admin:
         csv_census:
