@@ -14,7 +14,7 @@
           </div>
         <% end %>
 
-        <% if show_embed? %>
+        <% if show_embed? && live? %>
           <div class="<%= "margin-top-3" if live? %> absolutes aspect-ratio-16-9">
             <%== embed_code(request.host) %>
           </div>
