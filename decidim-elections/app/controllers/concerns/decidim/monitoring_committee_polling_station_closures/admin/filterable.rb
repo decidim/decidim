@@ -14,9 +14,9 @@ module Decidim
           private
 
           def base_query
+            # Includes the officers (president and managers) and their correspective decidim users when they(=officers) are present
             query =
               collection
-              # Includes the officers (president and managers) and their correspective decidim users when they(=officers) are present
               .joins("LEFT JOIN decidim_votings_polling_officers president ON president.presided_polling_station_id = decidim_votings_polling_stations.id
                       LEFT JOIN decidim_users president_user ON president_user.id = president.decidim_user_id
                       LEFT JOIN decidim_votings_polling_officers managers ON managers.managed_polling_station_id = decidim_votings_polling_stations.id

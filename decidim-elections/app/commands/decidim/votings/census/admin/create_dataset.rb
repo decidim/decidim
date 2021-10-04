@@ -81,7 +81,7 @@ module Decidim
           end
 
           def file_lines_count(file_path)
-            `wc -l "#{file_path}"`.strip.split(" ")[0].to_i
+            `wc -l "#{file_path.shellescape}"`.strip.split(" ")[0].to_i
           end
         end
       end

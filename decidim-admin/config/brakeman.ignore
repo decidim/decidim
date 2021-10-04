@@ -1,0 +1,26 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Mass Assignment",
+      "warning_code": 70,
+      "fingerprint": "699f4c81d452fb04843f59870463bc1fc7cc94a37801a83efd654966b51e7674",
+      "check_name": "MassAssignment",
+      "message": "Specify exact keys allowed for mass assignment instead of using `permit!` which allows any keys",
+      "file": "app/controllers/decidim/admin/components_controller.rb",
+      "line": 131,
+      "link": "https://brakemanscanner.org/docs/warning_types/mass_assignment/",
+      "code": "params[:component].permit!",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Decidim::Admin::ComponentsController",
+        "method": "component_params"
+      },
+      "user_input": null,
+      "confidence": "Medium",
+      "note": ""
+    }
+  ],
+  "updated": "2021-10-04 17:49:10 +0000",
+  "brakeman_version": "5.1.1"
+}
