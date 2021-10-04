@@ -193,6 +193,15 @@ eu:
             name: Galdera
           trustee:
             name: Bermatzailea
+        proposals_imports:
+          create:
+            invalid: Arazo bat izan da proposamenak erantzun gisa inportatzean
+            success: "%{number} proposamen erantzunetara zuzen inportatuta"
+          new:
+            create: Inportatu proposamenak erantzun gisa
+            no_components: Ez dago beste proposamen-osagairik espazio honetan.
+            select_component: Mesedez, hautatu osagai bat
+            title: Inportatu proposamenak
         questions:
           edit:
             update: Eguneratu galdera
