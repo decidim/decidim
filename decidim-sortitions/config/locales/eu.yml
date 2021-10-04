@@ -23,6 +23,7 @@ eu:
         settings:
           global:
             comments_enabled: Iruzkinak gaituta
+            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
     events:
       sortitions:
         sortition_created:
@@ -124,6 +125,7 @@ eu:
         show:
           algorithm: Sortzeko algoritmoaren kodea
           any_category: kategoria guztietan
+          back: Itzuli zerrendara
           cancelled: Ezeztatuta sortzea
           candidate_proposal_ids: Ordenatzeko proposamenen ordena eta IDak
           candidate_proposals_info: 'Hurrengo proposamenen artean (%{category_label}) honako idazketa hauek egin dira (hautatutako proposamenetan lodia)  '
