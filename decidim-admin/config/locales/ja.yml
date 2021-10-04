@@ -132,6 +132,7 @@ ja:
       new_import:
         attributes:
           file:
+            invalid_file: 無効なファイルが指定されました。正しいフォーマットのファイルかどうか確認してください。
             invalid_mime_type: MIMEタイプが無効です
   activerecord:
     attributes:
@@ -455,13 +456,27 @@ ja:
           impersonate_existing_user: 参加者を管理 "%{name}"
           impersonate_new_managed_user: 新規参加者の管理
       imports:
-        creators:
-          proposalcreator: 提案クリエイター
+        and: and
+        data_errors:
+          duplicate_headers:
+            detail: ファイルに必須の列またはヘッダーが含まれていることを確認してください。
+            message:
+              other: '%{columns} 列が重複しています。'
+          invalid_indexes:
+            lines:
+              detail: これらの行が正しくフォーマットされ、有効なレコードが含まれていることを確認してください。
+              message:
+                other: インポートファイルの %{indexes} 行目にエラーが見つかりました。
+            records:
+              detail: これらの行が正しくフォーマットされ、有効なレコードが含まれていることを確認してください。
+              message:
+                other: オーダー番号 %{indexes} のレコードのインポートファイルにエラーが見つかりました。
+          missing_headers:
+            detail: ファイルに必要な列が含まれていることを確認してください。
+            message:
+              other: 列 %{columns} が見つかりません。
         error: インポート中に問題が発生しました
-        help:
-          proposalcreator: 'ファイルには、カラム名「title/en」と「body/en」(または、あなたが好む別のロケール、例: 「title/ja」と「body/ja」) が必要です。また、カラム名「scope/id」と「category/id」にも対応しています。'
-        import_from_file: ファイルからインポート
-        invalid_lines: リソース番号 %{invalid_lines} にエラーが見つかりました
+        example_error: 指定された型の例を作成できませんでした
         new:
           accepted_mime_types:
             csv: csv
@@ -469,6 +484,8 @@ ja:
             xlsx: xlsx
           actions:
             back: 戻る
+          download_example: サンプルをダウンロードする
+          download_example_format: '%{name} の例'
           file_legend: 解析されるインポート ファイルを追加します。
           import: インポート
         notice: "%{number} %{resource_name} を正常にインポートしました"
@@ -755,6 +772,7 @@ ja:
         form:
           colors:
             colors_title: 組織の色
+            colors_warning_html: '警告: これらの色を変更すると、アクセシビリティのコントラストが壊れる可能性があります。 <a href="%{link}">WebAIM Contrast Checker</a> または他の同様のツールで、選択したコントラストを確認できます。'
             header_snippets_help: HTML head 内にコードを追加するには、このフィールドを使用します。 最も一般的な用途は、追加の JavaScript や CSS を必要とするサードパーティのサービスを統合することです。 また、HTML にメタタグを追加するためにも使用できます。 これは公開ページでのみ表示され、管理用セクションでは表示されないことに注意してください。
           cta_button_path_help: 'ホームページへのリンクの「通話先アクション」ボタンの場所を上書きすることができます。完全なURLではなく、部分的なパスを使用してください。 文字、数字、ダッシュ、スラッシュを使用でき、文字で始まる必要があります。 Call To Actionボタンは、ウェルカムテキストと説明の間のホームページに表示されます。例: %{url}'
           cta_button_text_help: 組織の利用可能な言語ごとにホームページの [Call To Action] ボタンのテキストを上書きできます。 設定されていない場合は、デフォルト値が使用されます。 Call To Actionボタンは、ウェルカムテキストと説明の間のホームページに表示されます。

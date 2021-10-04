@@ -21,23 +21,49 @@ eu:
         promoted: sustatuta
         published_at: Argitaratu at
         registration_terms: Izen-ematearen irizpideak eta baldintzak
+        registrations_enabled: Gaitu izen-emateak
         scope_id: esparrua
         scopes_enabled: Scopes gaituta
         short_description: Deskribapen laburra
         show_statistics: Erakutsi estatistikak
-        slogan: leloa
-        slug: URL slug
+        sign_date: Sinatze-data
+        signature: Sinadura
+        signature_name: sinaduraren izena
+        slogan: Leloa
+        slug: URL laburra
+        start_date: Hasiera-data
         title: Izenburua
       conference_media_link:
+        date: Data
+        link: Lotura
         title: Izenburua
         weight: pisu
       conference_partner:
+        link: Lotura
+        logo: Logoa
+        name: Izena
+        partner_type: Lankidetza mota
         weight: pisu
+      conference_registration_invite:
+        email: Helbide elektronikoa
+        name: Izena
+        registration_type_id: Erregistro mota
+        user_id: Erabiltzailea
       conference_registration_type:
+        description: Deskribapena
+        price: Prezioa
         title: Izenburua
         weight: pisu
       conference_speaker:
+        affiliation: Kidetza
+        avatar: Avatarra
+        conference_meeting_ids: Honekin lotutako topaketak
         full_name: Izen osoa
+        personal_url: URL pertsonala
+        position: Kokapena
+        short_bio: Biografia laburra
+        twitter_handle: Twitter kontua
+        user_id: Erabiltzailea
       conference_user_role:
         email: Emaila
         name: izena
@@ -120,7 +146,7 @@ eu:
           error: Errore bat gertatu da konferentzia berri bat sortzean.
           success: Konferentzia ondo sortu da.
         edit:
-          update: eguneratzearen
+          update: Eguneratu
         exports:
           registrations: Izen-emateak
         form:
@@ -197,6 +223,7 @@ eu:
             admin: Administrator
             collaborator: Kolaboratzaile
             moderator: Moderatzaile
+            valuator: Ebaluatzailea
         media_link:
           fields:
             date: data
@@ -219,6 +246,7 @@ eu:
             price: Prezioa
             registrations_count: Erregistroak zenbatzea
             title: Izenburua
+            weight: Kokapenaren hurrenkera
           name: Izen-emate mota
       partners:
         create:
@@ -278,6 +306,10 @@ eu:
       conferences:
         conference_registration:
           confirm: "%{user_name} Kongresuko matrikula bat baieztatu da %{resource_name} Kongresuan"
+        partner:
+          create: "%{user_name} k sortu zuen %{resource_name} aurrekontua %{space_name} esparruan"
+          delete: "%{user_name} k ezabatu zuen %{resource_name} erabiltzailea %{space_name} batzarrean"
+          update: "%{user_name} k eguneratu zuen %{resource_name} erabiltzailea %{space_name} batzarrean"
         registration_type:
           create: "%{user_name} sortutako %{resource_name} matrikula mota %{space_name} konferentzia"
           publish: "%{user_name} argitaratutako %{resource_name} izen-emate mota %{space_name} biltzarrean"
@@ -410,6 +442,7 @@ eu:
         personal_website: Webgune pertsonala
         show:
           more_info: informazio gehiago
+          speaking_at: Hartzen du parte hemen
       conference_speaker_cell:
         personal_url:
           personal_website: Webgune pertsonala
@@ -468,11 +501,15 @@ eu:
         home:
           highlighted_conferences:
             active_conferences: Jardunaldi aktiboak
+            conferences_button_title: Lotura batzar guztiak erakusten dituen Batzarren orrialdera
             see_all_conferences: Ikusi hitzaldi guztiak
       photo:
+        image:
+          attributes:
+            alt: Multimedia-irudia
         show:
-          close_modal: Itxi modal
-          photo: photo
+          close_modal: Itxi leihoa
+          photo: Irudia
       photos_list:
         show:
           related_photos: Argazkiak
@@ -480,6 +517,7 @@ eu:
         index:
           choose_an_option: 'Aukeratu zure erregistro-aukera:'
           login_as: '%{name} <%{email}> gisa erregistratuta zaude'
+          no_registrations: Ez dago izen-ematerik
           register: Eman izena
           title: Izen-emate motak
       shared:
@@ -516,11 +554,22 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu delako "%{resource_title}" konferentzia jarraituz. Aurreko esteka estekan jarrai dezakezu.
           email_subject: Kongresuaren "%{resource_title}" erregistroak gaitu ditu.
           notification_title: <a href="%{resource_path}">%{resource_title}</a> bilkurak erregistroak gaitu ditu.
+        role_assigned:
+          email_intro: '%{role} rola esleitu zaizu <a href="%{resource_title}"> batzarrean.'
+          email_outro: Jakinarazpen hau jaso duzu %{role} rola esleitu dizutelako "%{resource_title}" batzarrean.
+          email_subject: '%{role} rola esleitu zaizu <a href="%{resource_title}"> batzarrean.'
+          notification_title: '%{role} rola esleitu zaizu <a href="%{resource_url}">%{resource_title}</a> batzarrean.'
         upcoming_conference:
           email_intro: '"%{resource_title}" konferentzia egiten ari da 2 egunetan. Bere orrialdearen azalpena irakur dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu delako "%{resource_title}" konferentzia jarraituz. Aurreko esteka estekan jarrai dezakezu.
           email_subject: Biltzarra "%{resource_title}" dator!
           notification_title: <a href="%{resource_path}">%{resource_title}</a> konferentzia 2 egunetan egongo da.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "</p>Programa batean antolatutako bileren bilduma bat da. Bertan, hizlari gisa gonbidatutako pertsonak daude, baita biltzar handietako edo gizarte-ekitaldietako ohiko informazio-eremuak ere (erregistroa, ekitaldia babesten edo laguntzen duten erakundeen zerrenda, etab.).</p> <p>Adibideak: Hitzaldi bat garrantzitsua izan daiteke erakunde batentzat eta haren kideentzat, edo parte hartzeko prozesu baten zati gisa edo kontsulta baten ondoren egin daiteke.</p>\n"
+          page: "</p>Programa batean antolatutako bileren bilduma bat da. Bertan, hizlari gisa gonbidatutako pertsonak daude, baita biltzar handietako edo gizarte-ekitaldietako ohiko informazio-eremuak ere (erregistroa, ekitaldia babesten edo laguntzen duten erakundeen zerrenda, etab.).</p> <p>Adibideak: Hitzaldi bat garrantzitsua izan daiteke erakunde batentzat eta haren kideentzat, edo parte hartzeko prozesu baten zati gisa edo kontsulta baten ondoren egin daiteke.</p>\n"
+          title: Zer dira hitzaldiak?
     log:
       value_types:
         conference_presenter:
@@ -531,6 +580,8 @@ eu:
         title: Media eta estekak
     menu:
       conferences: Jardunaldiak
+    statistics:
+      conferences_count: Hitzaldiak
   devise:
     mailer:
       join_conference:

@@ -444,13 +444,7 @@ sv:
           impersonate_existing_user: Hantera deltagaren "%{name}"
           impersonate_new_managed_user: Hantera ny deltagare
       imports:
-        creators:
-          proposalcreator: Förslagsförfattare
         error: Ett fel uppstod under importeringsprocessen
-        help:
-          proposalcreator: Filen måste ha kolumnnamn title/sv och body/sv (eller ett annat språk som du föredrar t. ex.. title/ca och body/ca). Även scope/id och category/id kolumner stöds.
-        import_from_file: Importera från fil
-        invalid_lines: Hittade fel i resursnumret %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv

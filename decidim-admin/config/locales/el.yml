@@ -450,16 +450,8 @@ el:
           impersonate_existing_user: Διαχείριση συμμετέχοντα «%{name}»
           impersonate_new_managed_user: Διαχείριση νέου συμμετέχοντα
       imports:
-        creators:
-          proposalcreator: Δημιουργός της πρότασης
         error: Υπήρξε πρόβλημα κατά την εισαγωγή
-        help:
-          proposalcreator: Το αρχείο πρέπει να έχει ονόματα στηλών title/en και body/en (ή άλλη τοπική γλώσσα που προτιμάτε, π.χ. title/ca και body/ca). Υποστηρίζονται επίσης οι στήλες scope/id και category/id.
-        import_from_file: Εισαγωγή από αρχείο
-        invalid_lines: Βρέθηκε σφάλμα στον αριθμό πόρου %{invalid_lines}
         new:
-          accepted_mime_types:
-            json: JSON
           actions:
             back: Πίσω
           file_legend: Προσθέστε ένα αρχείο εισαγωγής που θα αναλυθεί.

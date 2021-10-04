@@ -455,13 +455,7 @@ fi-pl:
           impersonate_existing_user: Esiinny käyttäjänä "%{name}"
           impersonate_new_managed_user: Esiinny uutena hallittuna käyttäjää
       imports:
-        creators:
-          proposalcreator: Ehdotuksen luoja
         error: Tuonti epäonnistui
-        help:
-          proposalcreator: Tiedostossa on oltava sarakenimet title/fi otsikoille ja body/fi kuvausteksteille (tai toiseen kieleen viittaavat sarakenimet, kuten title/en ja body/en). Tuettuja sarakkeita ovat myös scope/id (teemalle) ja category/id (aihepiirille).
-        import_from_file: Tuo tiedostosta
-        invalid_lines: Tuontitiedostossa on virheitä riveillä %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv

@@ -480,7 +480,11 @@ fr:
           select_a_registration_type: Veuillez sélectionner un type d'inscription
           show_embedded_iframe_help: Intégrer ou non l'iframe correspondant à cette URL de vidéoconférence. Seuls quelques services permettent l'intégration (c.-à-d. Youtube, Twitch...)
         index:
+          click_here: Voir toutes les réunions
           new_meeting: Nouvelle rencontre
+          see_all: Voir toutes les réunions
+          see_all_withdrawn: Voir toutes les réunions annulées
+          text_banner: Vous consultez la liste des réunions annulées par leurs auteurs. %{go_back_link}.
         meeting_minutes:
           related_information: Informations liées
         meetings:
@@ -521,6 +525,9 @@ fr:
             other: "Il reste %{count} places"
           view: Voir
           visit_finished: Consulter l’historique des rencontres
+          withdraw_btn_hint: Vous pouvez annuler votre réunion si vous changez d'avis. La réunion n'est pas supprimée, elle apparaîtra dans la liste des réunions retirées.
+          withdraw_confirmation_html: Êtes-vous sûr de vouloir annuler cette réunion ?<br><br><strong>Cette action ne peut pas être annulée !</strong>
+          withdraw_meeting: Annuler la réunion
         update:
           invalid: Une erreur s'est produite lors de la mise à jour de la rencontre.
           success: La rencontre a été mise à jour avec succès.
@@ -596,8 +603,12 @@ fr:
       types:
         private_meeting: Rencontre privée
         transparent: Visible par les non-membres
+        withdraw: Retirée
       versions:
         back_to_resource: Revenir à la rencontre
+      withdraw:
+        error: Une erreur s'est produite lors de l'annulation de la réunion
+        success: La réunion a été annulée avec succès
     metrics:
       meetings:
         description: Nombre de rencontres créées

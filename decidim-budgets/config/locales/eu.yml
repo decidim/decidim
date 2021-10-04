@@ -220,6 +220,9 @@ eu:
           remove: Ezabatu %{resource_name} proiektua zure bototik
           selected: Hautatua
           view: ikusi
+          votes:
+            one: Botoa
+            other: botoak
           you_voted: Hau bozkatu duzu
         project_budget_button:
           add: Gehitu zure botoari

@@ -455,17 +455,9 @@ lb:
           impersonate_existing_user: Imitieren von Benutzer "%{name}"
           impersonate_new_managed_user: Sich als neuer verwalteter Benutzer ausgeben
       imports:
-        creators:
-          proposalcreator: Vorschlagsersteller
         error: Beim Importieren ist ein Fehler aufgetreten
-        help:
-          proposalcreator: Die Datei muss die Spaltennamen title/de und body/de (oder andere Sprachen wie zum Beispiel title/en und body/en) enthalten. Zudem sind scope/id und category/id unterstützt.
-        import_from_file: Aus einer Datei importieren
-        invalid_lines: Fehler in der Ressource Nummer %{invalid_lines}
         new:
           accepted_mime_types:
-            csv: CSV
-            json: JSON
             xlsx: xlsx
           actions:
             back: Zurück

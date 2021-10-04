@@ -379,8 +379,6 @@ hu:
           impersonate_existing_user: '"%{name}" felhasználó kezelése'
           impersonate_new_managed_user: Új résztvevő kezelése
       imports:
-        import_from_file: Importálás fájlból
-        invalid_lines: Hiba található a(z) erőforrásban %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv

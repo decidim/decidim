@@ -450,13 +450,7 @@ es-MX:
           impersonate_existing_user: Impersonar usuario "%{name}"
           impersonate_new_managed_user: Impersonar a un nuevo usuario administrado
       imports:
-        creators:
-          proposalcreator: Creador de propuesta
         error: Se ha producido un error durante la importación
-        help:
-          proposalcreator: El archivo debe incluir los nombres de columna title/en y body/en (u otro idioma de tu preferencia, por ejemplo title/es y body/es). También se admiten las columnas scope/id y category/id.
-        import_from_file: Importar desde un archivo
-        invalid_lines: Se ha encontrado un error en el número de recurso %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv

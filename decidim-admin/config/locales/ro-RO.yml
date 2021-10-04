@@ -442,13 +442,7 @@ ro:
           impersonate_existing_user: Gestionați participantul"%{name}"
           impersonate_new_managed_user: Gestionați participantul nou
       imports:
-        creators:
-          proposalcreator: Creator de propunere
         error: A apărut o problemă în timpul importului
-        help:
-          proposalcreator: Fişierul trebuie să aibă titlu/en şi corp (sau o altă localizare pe care o preferaţi. title/ca și corpul/ca). De asemenea, sunt acceptate coloane de scope/id și categorie/id.
-        import_from_file: Importă dintr-un fișier
-        invalid_lines: Eroare găsită în numărul resursei %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv
