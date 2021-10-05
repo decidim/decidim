@@ -387,7 +387,14 @@ eu:
           verify: Egiaztatu aukeraketa
           vote_description:
             finished: Bozkatzeko prozesua amaitu da.
+            not_started: Oraindik ez da hasi bozkatzeko prozesua.
+            started: Bozkatzeko prozesua hasi da.
+          vote_title: Bozkatzeko prozesua
         filters:
+          active: Aktibo
+          all: Guztiak
+          finished: Amaituta
+          search: Bilatu
           state: Egoera
           upcoming: Hurrengoak
         filters_small_view:
@@ -397,7 +404,13 @@ eu:
           unfold: Zabaldu
         preview:
           available_answers: 'Aukerako erantzunak:'
+          description: 'Bozketa-prozesuan galdera hauek aurkituko dituzu:'
+          title: Aukeraketaren galderak
         results:
+          description: 'Hauek dira bozketaren emaitzak, galdera bakoitzerako:'
+          percentage: "%{count}%"
+          selected: Hautatua
+          title: Hautaketaren emaitzak
           votes:
             one: "Boto %{count}"
             other: "%{count} boto"
@@ -406,18 +419,138 @@ eu:
             change_vote: Aldatu zure botoa
             vote: Botoa ematen hasi
             vote_again: Berriro eman botoa
+          back: Aukera eskuragarriak
           callout:
             already_voted: Jada botoa eman duzu aukera honetan. Zure botoa alda dezakezu edo egiaztatu.
             pending_vote: Zure botoa ematen ari da zerbitzarian.
             vote_rejected: Ezin izan da zure botoa egiaztatu. Mesedez, egizu berriro.
+          election_log: Aukeraketaren erregistroa
+          preview: Aurreikusi
           verify:
             already_voted: Bozkatu duzu?
             verify_here: Egiaztatu zure botoa hemen.
             will_verify: Zure botoa egiaztatu ahal izango duzu hautaketa hasten denean.
+          voting_period_status:
+            finished: Bozketa hasi zen %{start_time} eta amaitu zen %{end_time}
+            ongoing: 'Bozketa aktibo %{end_time} arte'
+            upcoming: Bozketa hasiko da %{start_time}
+      feedback:
+        answer:
+          invalid: Errore bat izan da zure feedbacka bidaltzean.
+          spam_detected: Arazo bat izan da galdetegia erantzutean. Agian azkarregi joan zara, berriro egin dezakezu?
+          success: Feedbacka zuzen bidali da.
       models:
         answer:
           fields:
+            proposals: Proposamenak
+            selected: Hautatua
+            title: Izenburua
             votes: Botoak
+        election:
+          fields:
+            bb_status: Tbulletin Boarden egoera
+            end_time: Bukaera-data
+            start_time: Hasiera-data
+            title: Izenburua
+            verifiable_results_file_hash: Artxiboaren SHA256 egiaztapenaren batuketa
+            verifiable_results_file_url: Aukeraketa egiaztatzeko artxiboa
+        question:
+          fields:
+            answers: Erantzunak
+            max_selections: Hautatzeko gehieneko elementu kopurua
+            title: Izenburua
+        trustees_participatory_space:
+          fields:
+            considered: kontuan hartuta
+            email: E-maila
+            inactive: inaktibo
+            name: Izena
+            notification: Jakinarazpena egun honetan bidali zen
+            public_key: Gako Publikoa
+            status: Egoera
+      orders:
+        label: Ordenatu bozketak honen arabera
+        older: Zaharrena
+        recent: Berriena
+      trustee_zone:
+        elections:
+          backup_modal:
+            description: Aukera hori Bulletin Board-en sortzen ari da. Oso garrantzitsua da bertan parte hartzen duen bermatzaile bakoitzak gako horien segurtasun-kopia bat sortzea eta leku seguruan gordetzea. Ondoren, prozesuak aurrera egingo du.
+            download_election_keys: Deskargatu gakoak
+            download_icon: Ikonoak deskargatzeko ekintza adierazten du
+            title: Gakoen segurtasun-kopia %{election} aukeraketarako
+          key_ceremony_steps:
+            back: Atzera
+            description: Aukeraketa hau Bulletin Boarden sortzen ari da. Prozesu hau osatzeko, zure parte-hartzea bermatzaile gisa behar da.
+            keys:
+              create_election: Gakoak sortzea
+              key_ceremony:
+                joint_election_key: Gakoak batera sortzea
+                step_1: Gakoak argitaratzea
+            list:
+              status: Egoera
+              task: Eginkizuna
+            process_warning: Prozesua hasi ondoren, ez duzu orrialde honetatik atera behar prozesua amaitu arte. Zenbait minutu beharko ditu, bermatzaile guztiek konektatuta egon behar baitute hura osatzeko.
+            start: Hasi
+            start_icon: Ikonoak hasteko botoia adierazten du aukera bateko gakoak sortzen hasteko
+            status:
+              completed: Osatuta
+              pending: Zain
+              processing: Prozesatzen
+            title: Sortu gakoak %{election} aukeraketarako
+          restore_modal:
+            description: Bulletin Board-ek zure informazioa du aukera horren bermatzaile gisa. Prozesuarekin jarraitzeko, lehenengo igo aurreko saioan sortutako segurtasun-kopiaren fitxategia.
+            title: Berriztu gakoak %{election} aukerarako
+            upload_election_keys: Igo aukeraren gakoak
+            upload_icon: Ikonoak deskargatzeko ekintza adierazten du
+          tally_steps:
+            back: Atzera
+            description: Aukera horren emaitzak Bulletin Board-en kalkulatzen ari dira. Prozesu hori osatzeko, bermatzaile gisa parte hartu behar duzu.
+            keys:
+              end_tally: Zenbaketa amaituta
+              tally:
+                cast: Zenbaketa bidaltzea
+                share: Zenbaketa partekatzea
+            list:
+              status: Egoera
+              task: Eginkizuna
+            process_warning: Prozesua hasi ondoren, ez duzu orrialde honetatik atera behar prozesua amaitu arte. Zenbait minutu beharko ditu, bermatzaile guztiek konektatuta egon behar baitute hura osatzeko.
+            start: Hasi
+            start_icon: Ikonoak hasteko botoia adierazten du aukera bateko gakoak sortzen hasteko
+            status:
+              completed: Osatuta
+              pending: Zain
+              processing: Prozesatzen
+            title: Zenbaketa %{election} aukerarako
+          update:
+            error: Aukeraketaren egoera ez zen eguneratu.
+            success: 'Aukeraren egoera hauxe da: %{status}'
+        menu:
+          trustee_zone: Bermatzailearen gunea
+        no_bulletin_board:
+          body: Bulletin Board bat behar da, atal honetarako konfiguratua. Jarri harremanetan administratzailearekin xehetasun gehiago izateko.
+          title: Sentitzen dugu, Bulletin Board oraindik ez dago konfiguratuta.
+        trustees:
+          show:
+            elections:
+              list:
+                action_required:
+                  'false': 'Ez'
+                  name: Eskatutako ekintza?
+                  'true': Burutu ekintza
+                bb_status: Egoera
+                election: Aukera
+                voting_period: Bozketa-aldia
+              no_elections: Ez dago aukerarik zuk bermatzaile gisa aritzeko.
+              title: Bozketak
+            identification_keys:
+              cancel: Utzi
+              generate: Sortu identifikatzeko gakoak
+              generate_error: Arazo bat izan da identifikatzeko gakoak sortzean.
+              generate_legend: Bozketan bermatzaile gisa parte hartzeko, identifikatzeko gako pare bat sortu behar duzu.
+              generate_legend_1: Botoia sakatu ondoren sortutako identifikatzeko gakoak dituen artxiboa deskargatu behar duzu.
+              generate_legend_2: Kopiatu deskargatutako artxiboa USB gailu garbi batean
+              generate_legend_3: Ziurtatu zure ekipoak ez duela fitxategiaren kopiarik (adibidez, egiaztatu Deskargak eta Mahaigaina karpetak).
       votes:
         ballot_decision:
           description: Hemen dituzu zure boto-papera emateko aukerak, behar bezala zenbatzeko edo, bestela, zure boto-papera behar bezala zifratu zela auditatu dezakezu. Segurtasun-arrazoiak direla eta, boto-txartelaren ikuskaritzak hondatu egingo du, eta horrek esan nahi du bozketa-prozesua berriz hasi beharko duzula botoa emateko.
