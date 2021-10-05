@@ -72,9 +72,7 @@ module Decidim
       def personal_url
         return unless model.personal_url.presence || (model.user.presence && model.user.personal_url.presence)
 
-        link_to model.personal_url || model.user.personal_url, target: "_blank", class: "card-link", rel: "noopener" do
-          "#{icon "external-link"}" "&nbsp;#{t(".personal_website")}"
-        end
+        link_to t(".personal_website"), model.personal_url || model.user.personal_url, target: "_blank", class: "card-link", rel: "noopener"
       end
 
       def meetings
