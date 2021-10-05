@@ -11,6 +11,11 @@
         <%= position %>
       </div>
     <% end %>
+    <% if affiliation.presence %>
+      <div class="data-extra">
+        <%= affiliation %>
+      </div>
+    <% end %>
     <div class="data-extra">
       <% if nickname.present? %>
         <%= link_to profile_path, class: "card-link" do %>
@@ -34,6 +39,11 @@
           <% if position.presence %>
             <div class="data-role"><%= position %></div>
           <% end %>
+          <% if affiliation.presence %>
+            <div class="data-extra">
+              <%= affiliation %>
+            </div>
+          <% end %>
           <div class="data-extra">
             <% if nickname.present? %>
               <%= link_to profile_path, class: "card-link" do %>
@@ -51,11 +61,6 @@
           <% if twitter_handle.presence %>
             <div>
               <%= twitter_handle %>
-            </div>
-          <% end %>
-          <% if affiliation.presence %>
-            <div>
-              <%= affiliation %>
             </div>
           <% end %>
         </div>
