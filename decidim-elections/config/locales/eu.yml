@@ -314,7 +314,13 @@ eu:
         label:
           date: Datak
         questions: '%{count} galdera'
+        start_date: Hasi
+        unspecified: Zehaztu gabe
       elections:
+        count:
+          elections_count:
+            one: "%{count} bozketa"
+            other: "%{count} bozketa"
         filters:
           state: Egoera
           upcoming: Hurrengoak
