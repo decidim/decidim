@@ -323,10 +323,8 @@ el:
             all: Όλα
             date: Ημερομηνία
             meetings: Συσκέψεις
-            past: Παρελθόν
             search: Αναζήτηση
             space_type: Χώρος συμμετοχής
-            upcoming: Προσεχείς
       last_activity:
         new_meeting_at_html: "<span>Νέα σύσκεψη σε %{link}</span>"
       mailer:
