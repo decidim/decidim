@@ -380,6 +380,13 @@ en:
           value_types:
             organizer_presenter:
               not_found: 'The organizer was not found on the database (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: All
+        filter_meeting_space_values:
+          all: All
+        filter_scope_values:
+          all: All
       calendar_modal:
         calendar_url: Calendar URL
         close_window: Close window
@@ -393,13 +400,8 @@ en:
       directory:
         meetings:
           index:
-            all: All
-            date: Date
             meetings: Meetings
-            past: Past
-            search: Search
             space_type: Participatory space
-            upcoming: Upcoming
       last_activity:
         meeting_updated_at_html: "<span>Meeting updated at %{link}</span>"
         new_meeting_at_html: "<span>New meeting at %{link}</span>"
