@@ -392,13 +392,8 @@ ca:
       directory:
         meetings:
           index:
-            all: Totes
-            date: Data
             meetings: Trobades
-            past: Passades
-            search: Cercar
             space_type: Espai participatiu
-            upcoming: Properes
       last_activity:
         meeting_updated_at_html: "<span>Trobada actualitzada el %{link}</span>"
         new_meeting_at_html: "<span>Nova trobada a %{link}</span>"
