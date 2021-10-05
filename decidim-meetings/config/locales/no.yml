@@ -318,13 +318,8 @@
       directory:
         meetings:
           index:
-            all: Alle
-            date: Dato
             meetings: Møter
-            past: Fortid
-            search: Søk
             space_type: Deltakerområde
-            upcoming: Kommende
       last_activity:
         new_meeting_at_html: "<span>Nytt møte på %{link}</span>"
       mailer:
