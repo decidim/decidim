@@ -392,13 +392,8 @@ fi-pl:
       directory:
         meetings:
           index:
-            all: Kaikki
-            date: Päivämäärä
             meetings: Tapahtumat
-            past: Menneet
-            search: Hae
             space_type: Osallisuustila
-            upcoming: Tulevat
       last_activity:
         meeting_updated_at_html: "<span>Tapaaminen päivitetty osoitteessa %{link}</span>"
         new_meeting_at_html: "<span>Uusi tapahtuma osoitteessa %{link}</span>"
@@ -483,7 +478,11 @@ fi-pl:
           select_a_registration_type: Valitse ilmoittautumisten tyyppi
           show_embedded_iframe_help: Määrittää, upotetaanko tämän videotapaamisen URL tapaamisen sivulle. Ainoastaan muutamat palvelut sallivat upotuksen ulkopuolisiin palveluihin (esim. YouTube, Twitch...)
         index:
+          click_here: Näytä kaikki tapahtumat
           new_meeting: Uusi tapahtuma
+          see_all: Näytä kaikki tapahtumat
+          see_all_withdrawn: Näytä kaikki peruutetut tapahtumat
+          text_banner: Katselet peruutettuja tapahtumia, jotka niiden tekijät ovat peruuttaneet. %{go_back_link}.
         meeting_minutes:
           related_information: Liittyviä tietoja
         meetings:
@@ -502,6 +501,7 @@ fi-pl:
           close_meeting: Sulje tapaaminen
           contributions: Kontribuutioiden määrä
           date: Päivämäärä
+          edit_close_meeting: Muokkaa tapahtumaraporttia
           edit_meeting: Muokkaa tapahtumaa
           going: Olet ilmoittautunut tähän tapaamiseen
           join: Liity tapahtumaan
@@ -523,6 +523,9 @@ fi-pl:
             other: "%{count} paikkaa jäljellä"
           view: Näytä
           visit_finished: Näytä mennyt tapaaminen
+          withdraw_btn_hint: Voit peruuttaa tapahtumasi, jos muutat mieltäsi. Tapahtumaa ei poisteta kokonaan, eli se löytyy edelleen peruutettujen tapahtumien listasta.
+          withdraw_confirmation_html: Haluatko varmasti peruuttaa tämän tapahtuman?<br><br><strong>Tätä toimintoa ei voi peruuttaa!</strong>
+          withdraw_meeting: Peruuta tapahtuma
         update:
           invalid: Tapahtuman luonti epäonnistui.
           success: Tapahtuman luonti onnistui.
@@ -600,8 +603,12 @@ fi-pl:
       types:
         private_meeting: Yksityinen tapahtuma
         transparent: Läpinäkyvä
+        withdraw: Peruutettu
       versions:
         back_to_resource: Takaisin tapahtumaan
+      withdraw:
+        error: Tapahtuman peruuttaminen epäonnistui
+        success: Tapahtuman peruuttaminen onnistui
     metrics:
       meetings:
         description: Tapahtumien määrä
