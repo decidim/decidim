@@ -309,7 +309,11 @@ eu:
           upcoming: Hurrengoak
         end_date: Amaitu
         footer:
+          view: Ikusi
           vote: Eman botoa
+        label:
+          date: Datak
+        questions: '%{count} galdera'
       elections:
         filters:
           state: Egoera
