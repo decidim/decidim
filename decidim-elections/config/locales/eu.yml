@@ -551,17 +551,50 @@ eu:
               generate_legend_1: Botoia sakatu ondoren sortutako identifikatzeko gakoak dituen artxiboa deskargatu behar duzu.
               generate_legend_2: Kopiatu deskargatutako artxiboa USB gailu garbi batean
               generate_legend_3: Ziurtatu zure ekipoak ez duela fitxategiaren kopiarik (adibidez, egiaztatu Deskargak eta Mahaigaina karpetak).
+              generate_legend_4: Egin beste kopia bat kanpoko beste gailu batean, eta gorde oso leku seguruan.
+              submit: Bidali
+              submit_legend: Aurretik azaldutako urrats guztiak jarraitu ondoren, osatu prozesua identifikazio publikoaren gakoa bidaliz Decidimen zerbitzarian.
+              submit_title: Bidali identifikatzeko gako publikoa
+              title: Bermatzailearen identifikazio-gakoak
+              upload: Igo zure identifikazio-gakoak
+              upload_error:
+                invalid_format: Igotako artxiboak ez du identifikazio-gakorik.
+                invalid_key: Ezin dira kargatu identifikazio-gakoak igotako artxiboan.
+                invalid_public_key: Igotako artxiboko identifikazio-gakoak ez datoz bat Decidimek gordetako identifikazio publikoaren identifikazio-gakoarekin.
+              upload_legend: Decidimek zure identifikazio-gako publikoak ditu, baina zure nabigatzaileak oraindik ez ditu. Sortu ondoren egin zenuen segurtasun-kopiatik ordenagailura inportatu behar duzu zure identifikazio-gakoen fitxategia.
+            not_supported_browser_description: Dirudienez, berme-emaile gisa erabili ezin den nabigatzaile bat erabiltzen ari zara. Ziurtatu nabigatzailearen bertsio berriena erabiltzen ari zarela, edo saiatu nabigatzaile ezagunenetako edozein erabiltzen, zure zereginak bermatzaile gisa bete ahal izateko.
+            not_supported_browser_title: Eguneratu nabigatzailea bermatzaile gisa aritzeko
+            trustee_role_description: Plataforma honetan egindako bozketa batzuen bermatzaile gisa izendatu zaituzte.
+          update:
+            success: Zure identifikazio-gako publikoa zuzen gorde da.
       votes:
         ballot_decision:
+          audit: "( Ikuskatu boto-papera )"
+          back: Hasi berriro bozkatzeko prozesua
+          ballot_hash: 'Boto-paperaren identifikatzailea hau da:'
+          cast: Egin bozketa-papera
           description: Hemen dituzu zure boto-papera emateko aukerak, behar bezala zenbatzeko edo, bestela, zure boto-papera behar bezala zifratu zela auditatu dezakezu. Segurtasun-arrazoiak direla eta, boto-txartelaren ikuskaritzak hondatu egingo du, eta horrek esan nahi du bozketa-prozesua berriz hasi beharko duzula botoa emateko.
+          header: 'Boto-papera zifratu da: bidali edo ikuskatu'
         casting:
           header: Botoa ematen ari da...
+          text: Zure bozketa-papera hautetsontzian jartzen ari da.
         confirm:
+          answer: Erantzuna
+          answer_number: '%{number} erantzun'
+          confirm: Baieztatu
+          edit: editatu
           header: Baieztatu botoa
           intro: Hemen duzu emango duzun botoaren laburpena. < br> Mesedez, berretsi zure botoa edo editatu zure erantzunak.
+          nota_option: Hutsik
+          question: '%{count} galdera'
         confirmed:
+          back: Itzuli bozketetara
+          experience: Nola baloratzen duzu esperientzia?
+          feedback: Emaguzu zure iritzia
           header: Baieztatutako botoa
           lead: Zure botoa eman da!
+          text: 'Egiaztatu ahal duzu zure botoa zuzen sartu dela hautesontzian honako identifikatzailearekin: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_link: 'Egiaztatzeko, kopiatu identifikatzailea eta itsatsi hemen: <a href="%{link}">página de verificación de voto</a>'
     votings:
       admin:
         menu:
