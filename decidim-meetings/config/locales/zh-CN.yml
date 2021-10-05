@@ -311,13 +311,8 @@ zh-CN:
       directory:
         meetings:
           index:
-            all: 所有的
-            date: 日期
             meetings: 会议
-            past: 过去的
-            search: 搜索
             space_type: 参与空间
-            upcoming: 即将到来的
       last_activity:
         new_meeting_at_html: "<span>在 %{link}的新会议</span>"
       mailer:
