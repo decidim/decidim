@@ -353,13 +353,13 @@ es-MX:
       directory:
         meetings:
           index:
-            all: Todos
+            all: Todas
             date: Fecha
             meetings: Encuentros
-            past: Pasados
+            past: Pasadas
             search: Buscar
             space_type: Espacio participativo
-            upcoming: Próximo
+            upcoming: Próximas
       last_activity:
         meeting_updated_at_html: "<span>Encuentro actualizado a las %{link}</span>"
         new_meeting_at_html: "<span>Nuevo encuentro en %{link}</span>"
