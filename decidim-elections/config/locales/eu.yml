@@ -481,17 +481,43 @@ eu:
               submit_legend: Aurretik azaldutako urrats guztiak jarraitu ondoren, osatu prozesua identifikazio publikoaren gakoa bidaliz Decidimen zerbitzarian.
               submit_title: Bidali identifikatzeko gako publikoa
               title: Bermatzailearen identifikazio-gakoak
+              upload: Igo zure identifikazio-gakoak
+              upload_error:
+                invalid_format: Igotako artxiboak ez du identifikazio-gakorik.
+                invalid_key: Ezin dira kargatu identifikazio-gakoak igotako artxiboan.
+                invalid_public_key: Igotako artxiboko identifikazio-gakoak ez datoz bat Decidimek gordetako identifikazio publikoaren identifikazio-gakoarekin.
+              upload_legend: Decidimek zure identifikazio-gako publikoak ditu, baina zure nabigatzaileak oraindik ez ditu. Sortu ondoren egin zenuen segurtasun-kopiatik ordenagailura inportatu behar duzu zure identifikazio-gakoen fitxategia.
+            not_supported_browser_description: Dirudienez, berme-emaile gisa erabili ezin den nabigatzaile bat erabiltzen ari zara. Ziurtatu nabigatzailearen bertsio berriena erabiltzen ari zarela, edo saiatu nabigatzaile ezagunenetako edozein erabiltzen, zure zereginak bermatzaile gisa bete ahal izateko.
+            not_supported_browser_title: Eguneratu nabigatzailea bermatzaile gisa aritzeko
+            trustee_role_description: Plataforma honetan egindako bozketa batzuen bermatzaile gisa izendatu zaituzte.
+          update:
+            success: Zure identifikazio-gako publikoa zuzen gorde da.
       votes:
         confirm:
+          answer: Erantzuna
+          answer_number: '%{number} erantzun'
+          confirm: Baieztatu
+          edit: editatu
           header: Baieztatu botoa
           intro: Hemen duzu emango duzun botoaren laburpena. < br> Mesedez, berretsi zure botoa edo editatu zure erantzunak.
+          nota_option: Hutsik
+          question: '%{count} galdera'
         confirmed:
+          back: Itzuli bozketetara
           error: Sentitzen dugu, akats bat egon da botoa berrestean. Mesedez, bozkatu berriro.
+          experience: Nola baloratzen duzu esperientzia?
+          feedback: Emaguzu zure iritzia
           header: Baieztatutako botoa
           lead: Eman duzu botoa!
+          text: 'Egiaztatu ahal duzu zure botoa zuzen sartu dela hautesontzian honako identifikatzailearekin: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_link: 'Egiaztatzeko, kopiatu identifikatzailea eta itsatsi hemen: <a href="%{link}">página de verificación de voto</a>'
         encrypting:
           header: Botoa kodifikatzen...
           text: Zure botoa zifratzen ari da modu anonimoan emititzen dela ziurtatzeko.
+        failed:
+          header: Boto okerra
+          lead: Ez duzu eman botoa!
+          text: Zerbait txarto irten da, mesedez, saiatu berriro.
         header:
           encrypting: Baieztatu botoa
         processing:
