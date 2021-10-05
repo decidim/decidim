@@ -387,12 +387,12 @@ eu:
         meetings:
           index:
             all: guztiak
-            date: data
+            date: Data
             meetings: Bilerak
-            past: Iragana
+            past: Aurrekoak
             search: Search
             space_type: Partaidetza espazioa
-            upcoming: Datozen
+            upcoming: Hurrengoak
       last_activity:
         meeting_updated_at_html: "<span>eztabaida ordu honetan %{link}</span> eguneratuta"
         new_meeting_at_html: "<span>Bilera berria %{link}</span>"
