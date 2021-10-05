@@ -386,7 +386,21 @@ eu:
             started: Zenbatzeko prozesua hasi da.
           tally_title: Zenbatzeko prozesua
           title: Aukeraketaren erregistroa
+          verifiable_results:
+            checksum: 'Artxiboaren SHA256 egiaztapenaren batuketa:'
+            title: Egiaztatu aukeraketaren emaitzak
+            verifiable_file: 'Aukeraketaren artxibo egiaztagarria:'
+          verify: Egiaztatu aukeraketa
+          vote_description:
+            finished: Bozkatzeko prozesua amaitu da.
+            not_started: Oraindik ez da hasi bozkatzeko prozesua.
+            started: Bozkatzeko prozesua hasi da.
+          vote_title: Bozkatzeko prozesua
         filters:
+          active: Aktibo
+          all: Guztiak
+          finished: Amaituta
+          search: Bilatu
           state: Egoera
           upcoming: Hurrengoak
         filters_small_view:
@@ -396,7 +410,13 @@ eu:
           unfold: Zabaldu
         preview:
           available_answers: 'Aukerako erantzunak:'
+          description: 'Bozketa-prozesuan galdera hauek aurkituko dituzu:'
+          title: Aukeraketaren galderak
         results:
+          description: 'Hauek dira bozketaren emaitzak, galdera bakoitzerako:'
+          percentage: "%{count}%"
+          selected: Hautatua
+          title: Hautaketaren emaitzak
           votes:
             one: "%{count} boto"
             other: "%{count} boto"
@@ -406,14 +426,19 @@ eu:
             change_vote: Aldatu zure botoa
             vote: Botoa ematen hasi
             vote_again: Berriro eman botoa
+          back: Aukera eskuragarriak
           callout:
             already_voted: Jada botoa eman duzu aukera honetan. Zure botoa alda dezakezu edo egiaztatu.
             pending_vote: Zure botoa ematen ari da zerbitzarian.
             vote_rejected: Ezin izan da zure botoa egiaztatu. Mesedez, egizu berriro.
+          election_log: Aukeraketaren erregistroa
+          preview: Aurreikusi
           verify:
             already_voted: Bozkatu duzu?
             verify_here: Egiaztatu zure botoa hemen.
             will_verify: Zure botoa egiaztatu ahal izango duzu hautaketa hasten denean.
+          voting_period_status:
+            finished: Bozketa hasi zen %{start_time} eta amaitu zen %{end_time}
       models:
         answer:
           fields:
