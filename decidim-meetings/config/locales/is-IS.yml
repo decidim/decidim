@@ -141,6 +141,10 @@ is-IS:
           value_types:
             organizer_presenter:
               not_found: 'Skipuleggjandi fannst ekki í gagnagrunninum (ID: %{id})'
+      directory:
+        meetings:
+          index:
+            date: Dagsetning
       mailer:
         invite_join_meeting_mailer:
           invite:
