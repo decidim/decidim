@@ -564,18 +564,53 @@ eu:
               submit_title: Bidali identifikatzeko gako publikoa
               title: Bermatzailearen identifikazio-gakoak
               upload: Igo zure identifikazio-gakoak
+              upload_error:
+                invalid_format: Igotako artxiboak ez du identifikazio-gakorik.
+                invalid_key: Ezin dira kargatu identifikazio-gakoak igotako artxiboan.
+                invalid_public_key: Igotako artxiboko identifikazio-gakoak ez datoz bat Decidimek gordetako identifikazio publikoaren identifikazio-gakoarekin.
+              upload_legend: Decidimek zure identifikazio-gako publikoak ditu, baina zure nabigatzaileak oraindik ez ditu. Sortu ondoren egin zenuen segurtasun-kopiatik ordenagailura inportatu behar duzu zure identifikazio-gakoen fitxategia.
+            not_supported_browser_description: Dirudienez, berme-emaile gisa erabili ezin den nabigatzaile bat erabiltzen ari zara. Ziurtatu nabigatzailearen bertsio berriena erabiltzen ari zarela, edo saiatu nabigatzaile ezagunenetako edozein erabiltzen, zure zereginak bermatzaile gisa bete ahal izateko.
+            not_supported_browser_title: Eguneratu nabigatzailea bermatzaile gisa aritzeko
+            trustee_role_description: Plataforma honetan egindako bozketa batzuen bermatzaile gisa izendatu zaituzte.
+          update:
+            success: Zure identifikazio-gako publikoa zuzen gorde da.
       votes:
         ballot_decision:
+          audit: "( Ikuskatu boto-papera )"
+          back: Hasi berriro bozkatzeko prozesua
+          ballot_hash: 'Boto-paperaren identifikatzailea hau da:'
           cast: Egin bozketa-papera
           description: Hemen dituzu zure boto-papera emateko aukerak, behar bezala zenbatzeko edo, bestela, zure boto-papera behar bezala zifratu zela auditatu dezakezu. Segurtasun-arrazoiak direla eta, boto-txartelaren ikuskaritzak hondatu egingo du, eta horrek esan nahi du bozketa-prozesua berriz hasi beharko duzula botoa emateko.
+          header: 'Boto-papera zifratu da: bidali edo ikuskatu'
         casting:
           header: Botoa ematen ari da...
+          text: Zure bozketa-papera hautetsontzian jartzen ari da.
         confirm:
+          answer: Erantzuna
+          answer_number: '%{number} erantzun'
+          confirm: Baieztatu
+          edit: editatu
           header: Baieztatu botoa
           intro: Hemen duzu emango duzun botoaren laburpena. < br> Mesedez, berretsi zure botoa edo editatu zure erantzunak.
+          nota_option: Hutsik
+          question: '%{count} galdera'
         confirmed:
+          back: Itzuli bozketetara
+          experience: Nola baloratzen duzu esperientzia?
+          feedback: Emaguzu zure iritzia
           header: Baieztatutako botoa
           lead: Zure botoa eman da!
+          text: 'Egiaztatu ahal duzu zure botoa zuzen sartu dela hautesontzian honako identifikatzailearekin: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_link: 'Egiaztatzeko, kopiatu identifikatzailea eta itsatsi hemen: <a href="%{link}">página de verificación de voto</a>'
+        create:
+          error: Arazo bat izan da botoa ematean. Mesedez, saiatu berriro.
+        encrypting:
+          header: Botoa zifratzen ari da...
+          text: Zure boto-papera zifratzen ari da boto sekretua bermatzeko.
+        failed:
+          header: Boto okerra
+          lead: Ez duzu eman botoa!
+          text: Zerbait txarto irten da, mesedez, saiatu berriro.
     votings:
       admin:
         menu:
