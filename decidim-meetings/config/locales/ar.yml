@@ -334,10 +334,8 @@ ar:
             all: الكل
             date: تاريخ
             meetings: اجتماعات
-            past: الماضي
             search: بحث
             space_type: الفضاء التشاركي
-            upcoming: القادمة
       last_activity:
         new_meeting_at_html: "<span>اجتماع جديد في %{link}</span>"
       mailer:
