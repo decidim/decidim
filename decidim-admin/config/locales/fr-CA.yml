@@ -132,6 +132,7 @@ fr-CA:
       new_import:
         attributes:
           file:
+            invalid_file: Fichier fourni invalide , veuillez vérifier que le fichier est correctement formaté
             invalid_mime_type: Type MIME invalide
   activerecord:
     attributes:
@@ -455,7 +456,31 @@ fr-CA:
           impersonate_existing_user: Représenter l'utilisateur standard "%{name}"
           impersonate_new_managed_user: Représenter un nouvel utilisateur
       imports:
+        and: et
+        data_errors:
+          duplicate_headers:
+            detail: Veuillez vérifier que le fichier ne contient qu'une fois les colonnes ou les en-têtes requis.
+            message:
+              one: Colonne dupliquée %{columns}.
+              other: Colonnes dupliquées %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Veuillez vérifier que ces lignes sont correctement formatées et contiennent des données valides.
+              message:
+                one: Une erreur a été trouvée dans le fichier d'importation à la ligne %{indexes}.
+                other: Erreurs trouvées dans le fichier d'importation sur les lignes %{indexes}.
+            records:
+              detail: Veuillez vérifier que ces lignes sont correctement formatées et contiennent des données valides.
+              message:
+                one: Une erreur a été trouvée dans le fichier d'importation pour les enregistrements avec le numéro de commande %{indexes}.
+                other: Erreurs trouvées dans le fichier d'importation pour les enregistrements avec les numéros de commande %{indexes}.
+          missing_headers:
+            detail: Veuillez vérifier que le fichier contient les colonnes requises.
+            message:
+              one: Colonne %{columns} manquante.
+              other: Colonnes %{columns} manquantes.
         error: Un problème est survenu lors de l'import
+        example_error: Impossible de créer un exemple pour le type donné
         new:
           accepted_mime_types:
             csv: csv
@@ -463,6 +488,8 @@ fr-CA:
             xlsx: xlsx
           actions:
             back: Retour
+          download_example: Télécharger l''exemple
+          download_example_format: Exemple comme %{name}
           file_legend: Ajouter un fichier d'import qui sera analysé.
           import: Importer
         notice: "%{number} %{resource_name} importées avec succès"
