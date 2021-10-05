@@ -461,6 +461,7 @@ fr-CA:
           accepted_mime_types:
             csv: csv
             json: json
+            xlsx: xlsx
           actions:
             back: Retour
           file_legend: Ajouter un fichier d'import qui sera analysé.
