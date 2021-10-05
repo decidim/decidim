@@ -380,6 +380,13 @@ eu:
             started: Zenbatzeko prozesua hasi da.
           tally_title: Zenbatzeko prozesua
           title: Aukeraketaren erregistroa
+          verifiable_results:
+            checksum: 'Artxiboaren SHA256 egiaztapenaren batuketa:'
+            title: Egiaztatu aukeraketaren emaitzak
+            verifiable_file: 'Aukeraketaren artxibo egiaztagarria:'
+          verify: Egiaztatu aukeraketa
+          vote_description:
+            finished: Bozkatzeko prozesua amaitu da.
         filters:
           state: Egoera
           upcoming: Hurrengoak
