@@ -392,13 +392,8 @@ es-PY:
       directory:
         meetings:
           index:
-            all: Todas
-            date: Fecha
             meetings: Reuniones
-            past: Pasado
-            search: Buscar
             space_type: Espacio participativo
-            upcoming: Próximo
       last_activity:
         meeting_updated_at_html: "<span>Encuentro actualizado a las %{link}</span>"
         new_meeting_at_html: "<span>Nueva reunión en %{link}</span>"
