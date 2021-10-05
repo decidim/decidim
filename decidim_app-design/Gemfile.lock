@@ -845,7 +845,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (~> 1.4)
-  brakeman
+  brakeman (~> 5.1)
   byebug (~> 11.0)
   decidim!
   decidim-conferences!
