@@ -386,13 +386,8 @@ eu:
       directory:
         meetings:
           index:
-            all: guztiak
-            date: data
             meetings: Bilerak
-            past: Iragana
-            search: Search
             space_type: Partaidetza espazioa
-            upcoming: Datozen
       last_activity:
         meeting_updated_at_html: "<span>eztabaida ordu honetan %{link}</span> eguneratuta"
         new_meeting_at_html: "<span>Bilera berria %{link}</span>"
