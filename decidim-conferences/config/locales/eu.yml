@@ -177,10 +177,10 @@ eu:
           media_links_title: Media Links
         new:
           create: Sortu
-          title: Media Link
+          title: Multimedia Lotura
         update:
-          error: Errore bat gertatu da komunikazio-esteka hau eguneratzean.
-          success: Media Link eguneratu behar bezala.
+          error: Errore bat gertatu da multimedia link hau eguneratzean.
+          success: Multimedia linka behar bezala eguneratuta.
       menu:
         conferences: Jardunaldiak
         conferences_submenu:
@@ -212,29 +212,29 @@ eu:
             affiliation: Afiliazioa
             full_name: Izen osoa
             position: Kargua
-          name: Hitzaldi Hizlaria
+          name: Hizlaria
         conference_user_role:
           fields:
             email: Emaila
             name: izena
-            role: Role
-          name: Konferentzia Erabiltzailea
+            role: Rola
+          name: Jardunaldiaren administratzailea
           roles:
             admin: Administrator
-            collaborator: Kolaboratzaile
-            moderator: Moderatzaile
+            collaborator: Kolaboratzailea
+            moderator: Moderatzailea
             valuator: Ebaluatzailea
         media_link:
           fields:
-            date: data
-            link: Link
+            date: Data
+            link: Linka
             title: Izenburua
-          name: Media Link
+          name: Multimedia linka
         partner:
           fields:
-            link: Link
-            logo: Logotipo
-            name: izena
+            link: Linka
+            logo: Logotipoa
+            name: Izena
             partner_type: Mota
           name: Partner
           types:
@@ -242,7 +242,7 @@ eu:
             main_promotor: Garapen nagusia
         registration_type:
           fields:
-            conference_meetings: Bilera bilerak
+            conference_meetings: Hitzaldiaren topaketak
             price: Prezioa
             registrations_count: Erregistroak zenbatzea
             title: Izenburua
@@ -374,7 +374,7 @@ eu:
             slug_help: 'URL slugs erabiltzen dira konferentzia honetara bidaltzen dituzten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
         diplomas:
           edit:
-            save: Save
+            save: Gorde
             title: Asistentzia ziurtagiria
         invite_join_conference_mailer:
           invite:
