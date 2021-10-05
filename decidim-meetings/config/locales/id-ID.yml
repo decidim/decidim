@@ -314,10 +314,8 @@ id:
             all: Semua
             date: Tanggal
             meetings: Rapat
-            past: Lalu
             search: Pencarian
             space_type: Ruang partisipatif
-            upcoming: Mendatang
       last_activity:
         new_meeting_at_html: "<span>Pertemuan baru jam %{link}</span>"
       mailer:
