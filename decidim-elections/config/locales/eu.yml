@@ -595,6 +595,15 @@ eu:
           lead: Zure botoa eman da!
           text: 'Egiaztatu ahal duzu zure botoa zuzen sartu dela hautesontzian honako identifikatzailearekin: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: 'Egiaztatzeko, kopiatu identifikatzailea eta itsatsi hemen: <a href="%{link}">página de verificación de voto</a>'
+        create:
+          error: Arazo bat izan da botoa ematean. Mesedez, saiatu berriro.
+        encrypting:
+          header: Botoa zifratzen ari da...
+          text: Zure boto-papera zifratzen ari da boto sekretua bermatzeko.
+        failed:
+          header: Boto okerra
+          lead: Ez duzu eman botoa!
+          text: Zerbait txarto irten da, mesedez, saiatu berriro.
     votings:
       admin:
         menu:
