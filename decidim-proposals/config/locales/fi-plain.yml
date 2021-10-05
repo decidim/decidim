@@ -397,6 +397,23 @@ fi-pl:
         exports:
           proposal_comments: Kommentit
           proposals: Ehdotukset
+        imports:
+          help:
+            answers: 'Tuontitiedostossa on oltava sarakenimet id, state tilalle (accepted, evaluating, rejected), answer/fi vastaukselle (sekä muihin kieliin viittaavat sarakenimet, kuten answer/en).'
+            proposals: Tuontitiedostossa on oltava sarakenimet title/fi otsikolle ja body/fi kuvaustekstille (sekä muihin kieliin viittaavat sarakenimet, kuten title/en ja body/en). Tuettuja sarakkeita ovat myös scope/id (teemalle) ja category/id (aihepiirille).
+          label:
+            answers: Tuo vastaukset tiedostosta
+            proposals: Tuo ehdotuksia tiedostosta
+          resources:
+            answers:
+              one: ehdotuksen vastaus
+              other: ehdotusten vastausta
+            proposals:
+              one: ehdotus
+              other: ehdotusta
+          title:
+            answers: Tuo ehdotusten vastaukset
+            proposals: Tuo ehdotuksia
         models:
           proposal:
             name: Ehdotus
