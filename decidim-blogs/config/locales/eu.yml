@@ -79,8 +79,8 @@ eu:
       blogs:
         post_created:
           email_intro: '"%{resource_title}" mezua "%{participatory_space_title}" argitaratzen ari zarela jarraitzen ari zara.'
-          email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
-          email_subject: '%{participatory_space_title} urtean argitaratutako mezu berria'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> post %{participatory_space_title} argitaratu da
+          email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Aurreko estekan utzi ahal diozu jarraitzeari.
+          email_subject: '%{participatory_space_title} argitaratutako mezu berria'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> posta %{participatory_space_title} argitaratu da
     statistics:
       posts_count: Argitalpenak

@@ -444,13 +444,7 @@ pt:
           impersonate_existing_user: Representar usuário "%{name}"
           impersonate_new_managed_user: Representar novo usuário gerenciado
       imports:
-        creators:
-          proposalcreator: Criação de propostas
         error: Houve um problema durante a importação
-        help:
-          proposalcreator: O arquivo deve ter nomes de coluna título/en e corpo/en (ou outro idioma que você preferir. title/ca e corpo/ca). Também são suportadas colunas de escopo/id e categoria/id.
-        import_from_file: Importar de um arquivo
-        invalid_lines: Erro encontrado no número de recursos %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv

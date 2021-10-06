@@ -36,9 +36,9 @@ edit_link(
     <div class="columns medium-7 mediumlarge-8">
       <div class="section">
         <div class="lead">
-          <%= decidim_sanitize translated_attribute(current_participatory_space.short_description) %>
+          <%= decidim_sanitize_editor translated_attribute(current_participatory_space.short_description) %>
         </div>
-        <%= decidim_sanitize translated_attribute(current_participatory_space.description) %>
+        <%= decidim_sanitize_editor translated_attribute(current_participatory_space.description) %>
 
         <% if current_participatory_space.private_space? %>
           <%= assembly_features(current_participatory_space) %>
@@ -56,21 +56,21 @@ edit_link(
           <% if translated_attribute(current_participatory_space.purpose_of_action).present? %>
             <div class="section">
               <h3 class="section-heading"><%= t("purpose_of_action", scope: "decidim.assemblies.show") %></h3>
-              <%= decidim_sanitize translated_attribute(current_participatory_space.purpose_of_action) %>
+              <%= decidim_sanitize_editor translated_attribute(current_participatory_space.purpose_of_action) %>
             </div>
           <% end %>
 
           <% if translated_attribute(current_participatory_space.internal_organisation).present? %>
             <div class="section">
               <h3 class="section-heading"><%= t("internal_organisation", scope: "decidim.assemblies.show") %></h3>
-              <%= decidim_sanitize translated_attribute(current_participatory_space.internal_organisation) %>
+              <%= decidim_sanitize_editor translated_attribute(current_participatory_space.internal_organisation) %>
             </div>
           <% end %>
 
           <% if translated_attribute(current_participatory_space.composition).present? %>
             <div class="section">
               <h3 class="section-heading"><%= t("composition", scope: "decidim.assemblies.show") %></h3>
-              <%= decidim_sanitize translated_attribute(current_participatory_space.composition) %>
+              <%= decidim_sanitize_editor translated_attribute(current_participatory_space.composition) %>
             </div>
           <% end %>
           <div class="section text-center">
@@ -203,7 +203,7 @@ edit_link(
             <span class="definition-data__title"><%= t("closing_date", scope: "decidim.assemblies.show") %></span>
             <%= l(current_participatory_space.closing_date, format: :decidim_short) %>
             <br>
-            <%= decidim_sanitize translated_attribute(current_participatory_space.closing_date_reason) %>
+            <%= decidim_sanitize_editor translated_attribute(current_participatory_space.closing_date_reason) %>
           </div>
         <% end %>
 

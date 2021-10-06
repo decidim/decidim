@@ -405,6 +405,27 @@ cs:
         exports:
           proposal_comments: Komentáře
           proposals: Návrhy
+        imports:
+          help:
+            answers: 'Importní dokument by měl obsahovat následující sloupce: id, state (accepted, evaluating, rejected), answer/cs (a další jazyky povolené pro organizaci).'
+            proposals: Soubor musí mít názvy sloupců title/en a body/en (nebo jiné lokalizace, které dáváte. title/cs a body/cs). Podporovány jsou také sloupce pro scope/id a category/id.
+          label:
+            answers: Importovat odpovědi ze souboru
+            proposals: Importovat návrhy ze souboru
+          resources:
+            answers:
+              one: odpověď na návrh
+              few: odpovědi na návrh
+              many: odpovědí na návrh
+              other: odpovědi na návrh
+            proposals:
+              one: návrh
+              few: návrhy
+              many: návrhů
+              other: návrhy
+          title:
+            answers: Importovat odpovědi návrhu
+            proposals: Importovat návrhy
         models:
           proposal:
             name: Návrh

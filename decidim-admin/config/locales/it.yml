@@ -455,13 +455,7 @@ it:
           impersonate_existing_user: Gestisci partecipante %{name}"
           impersonate_new_managed_user: Gestisci nuovo partecipante
       imports:
-        creators:
-          proposalcreator: Autore della proposta
         error: Si è verificato un errore durante l'importazione
-        help:
-          proposalcreator: Il file deve avere nomi di colonna title/en e body/en (o un altro locale che preferisci, ad esempio title/it e body/it). Sono supportate anche le colonne scope/id e category/id.
-        import_from_file: Importare da un file
-        invalid_lines: Ci sono errori di importazione alle linee %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv

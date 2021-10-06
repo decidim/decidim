@@ -25,7 +25,7 @@ module Decidim
       end
 
       def body
-        decidim_sanitize(present(model).body)
+        decidim_sanitize_editor(present(model).body)
       end
 
       def has_state?

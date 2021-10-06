@@ -19,7 +19,7 @@ module Decidim
           query.upcoming.order(start_date: :asc)
         else # Assume 'all'
           timezone = ActiveSupport::TimeZone.find_tzinfo(Time.zone.name).identifier
-          query.order(Arel.sql("ABS(start_date - (CURRENT_DATE at time zone '#{timezone}')::date)"))
+          query.order(Arel.sql("ABS(start_date - (CURRENT_DATE at time zone '#{timezone}')::date)").to_s)
         end
       end
     end

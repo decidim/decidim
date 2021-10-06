@@ -8,6 +8,7 @@ module Decidim
         layout "layouts/decidim/application"
 
         include FilterResource
+        include Filterable
         include Paginable
 
         helper Decidim::WidgetUrlsHelper
@@ -63,18 +64,8 @@ module Decidim
           %w(all) + current_organization.public_participatory_spaces.collect(&:model_name).uniq.collect(&:name).collect(&:underscore)
         end
 
-        def default_filter_type_params
-          %w(all) + Decidim::Meetings::Meeting::TYPE_OF_MEETING
-        end
-
         def default_filter_scope_params
           %w(all global) + current_organization.scopes.pluck(:id).map(&:to_s)
-        end
-
-        def default_search_params
-          {
-            scope: Meeting.not_hidden.visible_meeting_for(current_user)
-          }
         end
 
         def default_filter_origin_params

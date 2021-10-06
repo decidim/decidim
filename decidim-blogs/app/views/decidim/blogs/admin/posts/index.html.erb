@@ -26,7 +26,7 @@
                 <%= translated_attribute(post.title) %><br>
               </td>
               <td>
-                <%= decidim_sanitize post_description_admin(post) %>
+                <%= decidim_sanitize_editor post_description_admin(post) %>
               </td>
               <td>
                 <%= post.try(:author).try(:name) %>

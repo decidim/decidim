@@ -441,13 +441,7 @@ gl:
           impersonate_existing_user: Substitúe o usuario "%{name}"
           impersonate_new_managed_user: Substituír o novo usuario xestor
       imports:
-        creators:
-          proposalcreator: Creador da proposta
         error: Produciuse un problema durante a importación
-        help:
-          proposalcreator: O ficheiro ten de incluír os nomes de columna title/en e body/en (ou outro idioma da túa preferencia, por exemplo title/gl e body/gl). Admítense tamén as columnas scope/id e category/id.
-        import_from_file: Importar dende o ficheiro
-        invalid_lines: Atopouse un erro no recurso número %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv

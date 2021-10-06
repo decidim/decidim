@@ -455,13 +455,7 @@ fr-CA:
           impersonate_existing_user: Représenter l'utilisateur standard "%{name}"
           impersonate_new_managed_user: Représenter un nouvel utilisateur
       imports:
-        creators:
-          proposalcreator: Créateur de proposition
         error: Un problème est survenu lors de l'import
-        help:
-          proposalcreator: Le fichier doit comprendre les colonnes title/fr et body/fr (ou une autre locale de votre choix). Les colonnes scope/id et category/id sont également prises en charge.
-        import_from_file: Importer à partir d'un fichier
-        invalid_lines: Erreur trouvée dans la ressource aux lignes %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv

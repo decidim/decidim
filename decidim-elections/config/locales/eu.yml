@@ -49,6 +49,15 @@ eu:
             polling_station_president:
               different_voting: Mahaiko kudeatzaileak bozketa-puntuaren bozketa berean egon behar du
     models:
+      decidim/elections/answer:
+        one: Erantzuna
+        other: Erantzunak
+      decidim/elections/election:
+        one: Bozketa
+        other: Bozketak
+      decidim/elections/question:
+        one: Galdera
+        other: Galderak
       decidim/votings/census/dataset:
         one: Data-multzoa
         other: Data-multzoa
@@ -170,6 +179,34 @@ eu:
           update:
             invalid: Errorea izan da aukera hau eguneratzean
             success: Aukera ondo eguneratu da
+        exports:
+          elections: Bozketak
+          feedback_form_answers: Erantzunen feedbacka
+        menu:
+          trustees: Bermatzaileak
+        models:
+          answer:
+            name: Erantzuna
+          election:
+            name: Bozketa
+          question:
+            name: Galdera
+          trustee:
+            name: Bermatzailea
+        proposals_imports:
+          create:
+            invalid: Arazo bat izan da proposamenak erantzun gisa inportatzean
+            success: "%{number} proposamen erantzunetara zuzen inportatuta"
+          new:
+            create: Inportatu proposamenak erantzun gisa
+            no_components: Ez dago beste proposamen-osagairik espazio honetan.
+            select_component: Mesedez, hautatu osagai bat
+            title: Inportatu proposamenak
+        questions:
+          edit:
+            update: Eguneratu galdera
+          index:
+            title: Galderak
         steps:
           key_ceremony:
             continue: Jarraitu
@@ -222,8 +259,18 @@ eu:
             one: "Boto %{count}"
             other: "%{count} boto"
         show:
+          action_button:
+            change_vote: Aldatu zure botoa
+            vote: Botoa ematen hasi
+            vote_again: Berriro eman botoa
           callout:
+            already_voted: Jada botoa eman duzu aukera honetan. Zure botoa alda dezakezu edo egiaztatu.
             pending_vote: Zure botoa ematen ari da zerbitzarian.
+            vote_rejected: Ezin izan da zure botoa egiaztatu. Mesedez, egizu berriro.
+          verify:
+            already_voted: Bozkatu duzu?
+            verify_here: Egiaztatu zure botoa hemen.
+            will_verify: Zure botoa egiaztatu ahal izango duzu hautaketa hasten denean.
       models:
         answer:
           fields:
@@ -241,8 +288,22 @@ eu:
           lead: Zure botoa eman da!
     votings:
       admin:
+        menu:
+          votings_submenu:
+            monitoring_committee: Jarraipen-batzordea
         monitoring_committee_polling_station_closures:
           closures:
             validated: Baliozkotuta?
           validate:
             success: Gailua zuzen baliozkotu da
+      polling_officer_zone:
+        polling_officers:
+          index:
+            polling_officer_role_description: Plataforma honetan egindako aukeraketa batzuetan mahaiko kudeatzaile gisa (Presidentea edo Administratzailea) jarduteko izendatu zaituzte.
+            polling_station:
+              no_polling_stations: Oraindik ez zaizu esleitu bozkatzeko lekurik.
+              role: Zure rola
+              voting: Bozketa
+      votings:
+        login:
+          start_voting: Botoa ematen hasi

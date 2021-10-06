@@ -268,6 +268,10 @@ ja:
           tally:
             continue: 続ける
             invalid: 受託者が見つからない報告する際に問題が発生しました
+            mark_as_missing: missing としてマーク
+            mark_as_missing_description: すべての受託者は、このプロセスに参加する必要がありますが、受託者がプロセスに参加できない場合は、missing とマークすることができます。
+            success: 不足していた受託者の報告は正しく掲示板に送信されました
+            tally_completion: すべての受託者がアクティブまたは missing とマークされた場合、プロセスは完了します。少なくとも %{quorum} 人の受託者がプロセスを完了する必要があります。
             title: 集計処理
           tally_ended:
             answer: 回答

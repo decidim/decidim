@@ -125,6 +125,7 @@ module Decidim
             ["my_meetings", t("decidim.meetings.meetings.filters.my_meetings")]
           ]
         end
+
         protected
 
         def categories_values(sorted_main_categories)

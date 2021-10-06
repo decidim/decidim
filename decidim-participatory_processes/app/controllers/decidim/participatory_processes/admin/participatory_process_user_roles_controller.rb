@@ -7,10 +7,11 @@ module Decidim
       #
       class ParticipatoryProcessUserRolesController < Decidim::Admin::ApplicationController
         include Concerns::ParticipatoryProcessAdmin
+        include Decidim::Admin::Officializations::Filterable
 
         def index
           enforce_permission_to :read, :process_user_role
-          @participatory_process_user_roles = collection
+          @participatory_process_user_roles = filtered_collection
         end
 
         def new
@@ -90,11 +91,18 @@ module Decidim
 
         private
 
+        def search_field_predicate
+          :name_or_nickname_or_email_cont
+        end
+
+        def filters
+          [:invitation_accepted_at_present, :last_sign_in_at_present]
+        end
+
         def collection
           @collection ||= Decidim::ParticipatoryProcessUserRole
-                          .includes(:user)
-                          .where(participatory_process: current_participatory_process)
-                          .order(:role, "decidim_users.name")
+                          .joins(:user)
+                          .where(participatory_process: current_participatory_process) # .order(:role, "decidim_users.name")
         end
       end
     end

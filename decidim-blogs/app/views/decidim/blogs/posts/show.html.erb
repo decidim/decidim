@@ -50,7 +50,7 @@
   <% end %>
   <div class="columns mediumlarge-8 <%= "mediumlarge-pull-4" if show_endorsements_card? %>">
     <div class="section">
-      <%= decidim_sanitize translated_attribute post.body %>
+      <%= decidim_sanitize_editor translated_attribute post.body %>
     </div>
     <%= cell "decidim/endorsers_list", post %>
   </div>

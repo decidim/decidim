@@ -455,13 +455,8 @@ eu:
           impersonate_existing_user: '"%{name}" erabiltzailea ordezkatzen du'
           impersonate_new_managed_user: Ordezkatu erabiltzaile kudeatu berria
       imports:
-        creators:
-          proposalcreator: Proposamen-sortzailea
+        and: eta
         error: Errorea gertatu da inportatzean
-        help:
-          proposalcreator: Fitxategiak title/en eta body/en (edo zuk nahiago duzun beste hizkuntza bat, adibidez, title/es eta body/es) zutabe-izenak izan behar ditu. Scope/id eta category/id zutabeak ere onartzen dira.
-        import_from_file: Inportatu artxibo batetik
-        invalid_lines: Errorea aurkitu da %{invalid_lines} errekurtso zenbakian
         new:
           accepted_mime_types:
             csv: csv
@@ -469,6 +464,7 @@ eu:
             xlsx: xlsx
           actions:
             back: Atzera
+          download_example: Deskargatu adibidea
           file_legend: Gehitu prozesatuko den inportazio-artxibo bat.
           import: Inportatu
         notice: "%{number} %{resource_name} zuzen inportatu da"

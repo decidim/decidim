@@ -175,7 +175,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
           user: conference.organization.users.sample,
           full_name: Faker::Name.name,
           position: Decidim::Faker::Localized.word,
-          affiliation: Decidim::Faker::Localized.paragraph(sentence_count: 3),
+          affiliation: Decidim::Faker::Localized.sentence(word_count: 3),
           short_bio: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,

@@ -13,7 +13,7 @@ module Decidim
       delegate :title, :state, :withdrawn?, to: :model
 
       def description
-        decidim_sanitize meeting_description(model)
+        decidim_sanitize_editor meeting_description(model)
       end
     end
   end

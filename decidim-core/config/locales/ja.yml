@@ -503,6 +503,7 @@ ja:
       create:
         error: アップロード画像のエラー
         success: 画像が正常にアップロードされました
+      drag_and_drop_help: ドラッグ&ドロップまたは貼り付けることで画像を追加できます。
     endorsable:
       endorsements: 支持
       endorsements_count: 支持数

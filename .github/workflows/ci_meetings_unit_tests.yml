@@ -81,6 +81,9 @@ jobs:
       - run: RAILS_ENV=test bundle exec rails assets:precompile
         name: Precompile assets
         working-directory: ./spec/decidim_dummy_app/
+      - run: bundle exec brakeman --rails6 --force-scan .
+        name: Scanning Security issues on module
+        working-directory: ${{ env.DECIDIM_MODULE }}
       - run: bundle exec rspec --exclude-pattern 'spec/system/**/*_spec.rb'
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
