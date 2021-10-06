@@ -1,9 +1,14 @@
 <div class="row accountability">
   <div class="small-12 columns">
     <%= render partial: "home_header" %>
-    <%= render partial: "scope_filters", locals: { url_method: :root_path } %>
+    <div class="hide-for-mediumlarge">
+      <%= render partial: "scope_filters_small" %>
+    </div>
+    <div class="show-for-mediumlarge">
+      <%= render partial: "scope_filters", locals: { url_method: :results_path } %>
+    </div>
     <%= render partial: "home_categories" %>
   </div>
 </div>
 
-<%= javascript_pack_tag "decidim_accountability" %>
+<%= javascript_include_tag "decidim/accountability/accountability" %>
