@@ -694,6 +694,7 @@ ca:
       no_followers: Encara no hi ha seguidores.
     following:
       no_followings: No segueix a cap persona ni cap activitat.
+      non_public_followings: Alguns dels recursos seguits no són públics.
     follows:
       create:
         button: Seguir
