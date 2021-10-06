@@ -391,6 +391,13 @@ cs:
           value_types:
             organizer_presenter:
               not_found: 'Organizátor nebyl nalezen v databázi (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Vše
+        filter_meeting_space_values:
+          all: Vše
+        filter_scope_values:
+          all: Vše
       calendar_modal:
         calendar_url: Adresa URL kalendáře
         close_window: Zavřete okno
