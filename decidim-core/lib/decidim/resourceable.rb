@@ -93,9 +93,8 @@ module Decidim
       # - the visibility of its participatory space.
       # - the visibility of the resource itself.
       def visible?
-        return resource_visible? if participatory_space?
-
-        component.participatory_space.try(:visible?) && component.published? && resource_visible?
+        (!self.class.try(:belong_to_component?) || (component && component.participatory_space.try(:visible?) && component.published?)) &&
+          resource_visible?
       end
 
       # Check only the resource visibility not its hierarchy.
@@ -109,12 +108,6 @@ module Decidim
         return !hidden? if respond_to?(:hidden?)
 
         true
-      end
-
-      def participatory_space?
-        return if component.present?
-
-        Decidim.participatory_space_manifests.find { |manifest| manifest.model_class_name == self.class.name }
       end
 
       # Public: Whether the permissions for this object actions can be set at resource level.

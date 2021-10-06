@@ -702,6 +702,7 @@ en:
       no_followers: No followers yet.
     following:
       no_followings: Doesn't follow anyone or anything yet.
+      non_public_followings: Some of the resources followed are not public.
     follows:
       create:
         button: Follow
