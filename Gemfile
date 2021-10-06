@@ -27,6 +27,8 @@ group :development, :test do
   gem "simplecov", "~> 0.19.0"
 
   gem "decidim-dev", path: "."
+
+  gem "brakeman", "~> 5.1"
 end
 
 group :development do
