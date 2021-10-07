@@ -587,7 +587,7 @@ eu:
           audit: "( Ikuskatu boto-papera )"
           back: Hasi berriro bozkatzeko prozesua
           ballot_hash: 'Boto-paperaren identifikatzailea hau da:'
-          cast: Egin bozketa-papera
+          cast: Egin boto-papera
           description: Hemen dituzu zure boto-papera emateko aukerak, behar bezala zenbatzeko edo, bestela, zure boto-papera behar bezala zifratu zela auditatu dezakezu. Segurtasun-arrazoiak direla eta, boto-txartelaren ikuskaritzak hondatu egingo du, eta horrek esan nahi du bozketa-prozesua berriz hasi beharko duzula botoa emateko.
           header: 'Boto-papera zifratu da: bidali edo ikuskatu'
         casting:
@@ -692,18 +692,19 @@ eu:
       admin:
         ballot_styles:
           create:
-            error: Arazo bat izan da bozketa-paper mota sortzean
-            success: Bozketa-paper mota zuzen sortu da
+            error: Arazo bat izan da boto-paper mota sortzean
+            success: Boto-paper mota zuzen sortu da
           destroy:
-            invalid: Arazo bat izan da bozketa-paper mota ezabatzean
-            success: Bozketa-paper mota zuzen ezabatu da
+            invalid: Arazo bat izan da boto-paper mota ezabatzean
+            success: Boto-paper mota zuzen ezabatu da
           edit:
-            title: Editatu bozketa-paper mota
+            title: Editatu boto-paper mota
             update: Eguneratu
           form:
-            code_help: 'Laguntza: kodea zentsuaren eta boto-txartelaren estiloaren arteko lotura da. Erroldako datuak eguneratzean, sarrera bakoitzari kodearekin bat datorren boto-txartelaren estiloa esleitzen zaio'
+            code_help: 'Laguntza: kodea zentsuaren eta boto-paperaren estiloaren arteko lotura da. Erroldako datuak eguneratzean, sarrera bakoitzari kodearekin bat datorren boto-paperaren estiloa esleitzen zaio'
             election: Aukera
-            questions: Galderak bozketa-paper motarako
+            questions: Galderak boto-paper mota honetarako
+            questions_help: 'Laguntza: hautatu boto-paper mota honetarako Bozketako osagaiaren galderak, honi esleitutako boto-emaileei aurkeztuko zaizkie'
           index:
             actions:
               confirm_destroy: Ziur zaude?
@@ -711,6 +712,7 @@ eu:
               edit: Editatu
               new: Berria
               title: Ekintzak
+            associated_census_data: Erroldarekin erlazionatutako sarrerak
         menu:
           votings_submenu:
             attachment_files: Fitxategiak
