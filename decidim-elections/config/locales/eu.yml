@@ -522,6 +522,14 @@ eu:
           confirm: Baieztatu botoa
           confirmed: Botoa baieztatu da
           encrypting: Baieztatu botoa
+        messages:
+          not_allowed: Une honetan ezin duzu botoa eman bozketa honetan.
+        modal:
+          close: Itxi
+          proposal_header: 'Proposamenak:'
+        new:
+          answer_choices: Gehienez %{choices} erantzun aukeratu ahal dituzu
+          more_information: Informazio gehiago
         processing:
           header: Botoa prozesatzen...
           text: Zure botoa jaso da eta prozesatzen ari dira. Itxaron, mesedez.
