@@ -343,6 +343,10 @@ eu:
           upcoming: Hurrengoak
         end_date: Amaitu
         footer:
+          remaining_time:
+            one: "<strong>%{count} ordu %{minutes} minutu </strong> geratzen da bozkatzeko."
+            other: "<strong>%{count} ordu %{minutes} minutu </strong> geratzen da bozkatzeko."
+            zero: "<strong>%{minutes} ordu minutu </strong> geratzen da bozkatzeko."
           view: Ikusi
           vote: Eman botoa
         label:
@@ -388,6 +392,10 @@ eu:
           title: Aukeraketaren erregistroa
           verifiable_results:
             checksum: 'Artxiboaren SHA256 egiaztapenaren batuketa:'
+            description:
+              not_ready: Hautapenaren artxibo egiaztagarria eta SHA256 egiaztatze-batura oraindik ez daude eskuragarri. Emaitzak argitaratu bezain laster, aukera hori egiaztatu ahal izango duzu.
+              ready: 'Hemen duzu aukera egiaztatzeko aukera. Lehenik eta behin, fitxategia deskargatu behar duzu eta ziurtatu ez dela hondatu. Horretarako, exekutatu ondorengo komandoa eta egiaztatu irteera egiaztatze-baturarekin bat datorrela:'
+            how_to_verify: 'Fitxategia deskargatu eta ondo dagoela ziurtatu ondoren, egiaztatzaile unibertsala exekuta dezakezu. Klona ezazu biltegi hau <a href=''https://github.com/decidim/decidim-bulletin-board''>este repositorio</a> eta, erro-karpetatik, exekuta ezazu ondoko komandoa:'
             title: Egiaztatu aukeraketaren emaitzak
             verifiable_file: 'Aukeraketaren artxibo egiaztagarria:'
           verify: Egiaztatu aukeraketa
@@ -628,16 +636,95 @@ eu:
         new:
           answer_choices: Gehienez %{choices} erantzun aukeratu ahal dituzu
           more_information: Informazio gehiago
+          nota_option: Zuriz / Aurreko bat ere ez
+          preview_alert: Hau bozketa-kabinaren aurrebista da.
+          question_steps: '%{total_steps} etik %{current_step} galdera'
+          selections: "Aukeratuta <br> %{selected} de %{max_selections}"
+        onboarding_modal:
+          close: Itxi leihoa
+          create_account: Sortu Kontua
+          description: Kontu berri bat sortu nahi duzu Decidime-en? Horrela, prozesuetan parte hartuko duzu eta erakundearen parte aktiboa izango zara.
+          no_account: Ez, eskerrik asko.
+          title: Berria zara Decidim-en?
+        update:
+          error: Arazo bat izan da botoaren egoera eguneratzean. Saiatu berriro.
+        verify:
+          content:
+            heading: Egiaztatu zure botoa
+            info: Egiaztatzaile horrek egiaztatu behar du zure botoa, zifratutako testu-batekin identifikatua, zuzen eman dela eta hautestontziaren barruan dagoela.
+          error:
+            header: Botoa ez da aurkitu!
+            info: Botoaren kodea ez da aurkitu %{link} hautestontzian, saiatu berriro.
+          form:
+            back: Itzuli Decidim-era
+            submit: Egiaztatu
+            vote_identifier: 'Kode identifikatzailea:'
+          header:
+            title: Egiaztatu zure botoa
+          success:
+            header: Botoa aurkituta!
+            info: Zure boto zifratua %{link} hautestontzian dago
+        voting_step:
+          back: Atzera
+          continue: Hurrengoa
+      warnings:
+        no_elections_warning: Ez dago bilaketa-irizpidearekin bat datorren topaketarik, edo ez dago ezein topaketarik programaturik.
+        no_scheduled_elections_warning: Orain ez dago bozketa programaturik, baina aurrekoak ikus ditzakezu.
+    events:
+      elections:
+        election_published:
+          email_intro: '%{resource_title} bozketa badago aktibo hemen %{participatory_space_title}. Orrialde honetatik ikus dezakezu:'
+          email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Jakinarazpenak jasotzeari utzi ahal diozu aurreko lotura jarraituz.
+      votings:
+        send_access_code:
+          instruction: 'Baduzu eskatu duzun sartzeko kodea: %{access_code}. Horrekin parte hartu ahal izango duzu hemen %{voting}.'
+          subject: 'Zure kodea sartzeko eta hemen parte hartzeko: %{voting}'
+    help:
+      participatory_spaces:
+        votings:
+          title: Zer dira bozketak?
+    menu:
+      votings: Bozketak
+    statistics:
+      elections_count: Bozketak
+      votings_count: Bozketak
     votings:
       admin:
+        ballot_styles:
+          create:
+            error: Arazo bat izan da bozketa-paper mota sortzean
+            success: Bozketa-paper mota zuzen sortu da
+          destroy:
+            invalid: Arazo bat izan da bozketa-paper mota ezabatzean
+            success: Bozketa-paper mota zuzen ezabatu da
+          edit:
+            title: Editatu bozketa-paper mota
+            update: Eguneratu
+          form:
+            code_help: 'Laguntza: kodea zentsuaren eta boto-txartelaren estiloaren arteko lotura da. Erroldako datuak eguneratzean, sarrera bakoitzari kodearekin bat datorren boto-txartelaren estiloa esleitzen zaio'
+            election: Aukera
+            questions: Galderak bozketa-paper motarako
+          index:
+            actions:
+              confirm_destroy: Ziur zaude?
+              destroy: Ezabatu
+              edit: Editatu
+              new: Berria
+              title: Ekintzak
         menu:
           votings_submenu:
+            attachment_files: Fitxategiak
             monitoring_committee: Jarraipen-batzordea
         monitoring_committee_polling_station_closures:
           closures:
             validated: Baliozkotuta?
           validate:
             success: Gailua zuzen baliozkotu da
+      census:
+        admin:
+          census:
+            create:
+              invalid_csv_header: CSV goiburuak ez du eremu-kopuru zuzena - Mesedez, irakurri argibideak arreta handiz
       polling_officer_zone:
         polling_officers:
           index:
