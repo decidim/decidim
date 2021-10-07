@@ -530,12 +530,49 @@ eu:
         new:
           answer_choices: Gehienez %{choices} erantzun aukeratu ahal dituzu
           more_information: Informazio gehiago
+          nota_option: Zuriz / Aurreko bat ere ez
+          preview_alert: Hau bozketa-kabinaren aurrebista da.
+          question_steps: '%{total_steps} etik %{current_step} galdera'
+          selections: "Aukeratuta <br> %{selected} de %{max_selections}"
         processing:
           header: Botoa prozesatzen...
           text: Zure botoa jaso da eta prozesatzen ari dira. Itxaron, mesedez.
         update:
           error: Arazo bat izan da botoaren egoera eguneratzean
           success: Botoaren egoera ongi eguneratu da
+        verify:
+          content:
+            heading: Egiaztatu zure botoa
+            info: Egiaztatzaile horrek egiaztatu behar du zure botoa, zifratutako testu-batekin identifikatua, zuzen eman dela eta hautestontziaren barruan dagoela.
+          error:
+            header: Botoa ez da aurkitu!
+            info: Botoaren kodea ez da aurkitu %{link} hautestontzian, saiatu berriro.
+          form:
+            back: Itzuli Decidim-era
+            submit: Egiaztatu
+            vote_identifier: 'Kode identifikatzailea:'
+          header:
+            title: Egiaztatu zure botoa
+          success:
+            header: Botoa aurkituta!
+            info: Zure boto zifratua %{link} hautestontzian dago
+        voting_step:
+          back: Atzera
+          continue: Hurrengoa
+      warnings:
+        no_elections_warning: Ez dago bilaketa-irizpidearekin bat datorren topaketarik, edo ez dago ezein topaketarik programaturik.
+        no_scheduled_elections_warning: Orain ez dago bozketa programaturik, baina aurrekoak ikus ditzakezu.
+    events:
+      elections:
+        election_published:
+          email_intro: '%{resource_title} bozketa badago aktibo hemen %{participatory_space_title}. Orrialde honetatik ikus dezakezu:'
+          email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Jakinarazpenak jasotzeari utzi ahal diozu aurreko lotura jarraituz.
+    help:
+      participatory_spaces:
+        votings:
+          title: Zer dira bozketak?
+    menu:
+      votings: Bozketak
     pages:
       home:
         statistics:
@@ -547,6 +584,7 @@ eu:
       admin:
         menu:
           votings_submenu:
+            attachment_files: Fitxategiak
             monitoring_committee_members: Jarraipen-batzordea
       polling_officer_zone:
         polling_officers:
