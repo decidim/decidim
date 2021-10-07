@@ -611,6 +611,14 @@ eu:
           header: Boto okerra
           lead: Ez duzu eman botoa!
           text: Zerbait txarto irten da, mesedez, saiatu berriro.
+          try_again: Saiatu berriro
+        header:
+          ballot_decision: Eman edo ikuskatu zure botoa
+          casting: Botoa ematen ari da
+          confirm: Baieztatu botoa
+          confirmed: Botoa baieztatu da
+          encrypting: Botoa zifratzen ari da
+          failed: Boto okerra
     votings:
       admin:
         menu:
