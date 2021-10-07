@@ -9,6 +9,38 @@
 
 ### Removed
 
+## [0.25.0](https://github.com/decidim/decidim/tree/v0.25.0)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-debates**: Backport: Fix title meta tag for debates (#8323) [\#8350](https://github.com/decidim/decidim/pull/8350)
+- **decidim-proposals**: Backport: Fix machine translated similarity for proposals (#8098) [\#8338](https://github.com/decidim/decidim/pull/8338)
+- **decidim-conferences**: Backport "Fix error when accessing the meetings of a conference with speakers related" [\#8371](https://github.com/decidim/decidim/pull/8371)
+- **decidim-admin**: Backport "Do not block registered users with InviteUserAgain" to v0.25 [\#8366](https://github.com/decidim/decidim/pull/8366)
+- **decidim-proposals**: [Backport] Fix UserAnswersSerializer for CSV exports to v0.25 [\#8370](https://github.com/decidim/decidim/pull/8370)
+- **decidim-meetings**: Backport "Define localized fields in Decidim::Meetings:DiffRenderer" to v0.25 [\#8384](https://github.com/decidim/decidim/pull/8384)
+
+### Improved
+
+- **decidim-comments**: Backport "Ignore errors during comments migration task" [\#8365](https://github.com/decidim/decidim/pull/8365)
+- **decidim-conferences**: Backport "Fix details on conference speakers: affiliation order, personal URL link, seeds and more info link" to v0.25 [\#8382](https://github.com/decidim/decidim/pull/8382)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
 ## [0.25.0.rc4](https://github.com/decidim/decidim/tree/v0.25.0.rc4)
 
 ### Added
