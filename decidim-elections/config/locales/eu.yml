@@ -619,6 +619,15 @@ eu:
           confirmed: Botoa baieztatu da
           encrypting: Botoa zifratzen ari da
           failed: Boto okerra
+        messages:
+          invalid_token: Bozketa-kabinan egindako saioa ez da baliozkoa. Saiatu berriro bozkatzen.
+          not_allowed: Une honetan ezin duzu botoa eman bozketa honetan.
+        modal:
+          close: Itxi
+          proposal_header: 'Proposamenak:'
+        new:
+          answer_choices: Gehienez %{choices} erantzun aukeratu ahal dituzu
+          more_information: Informazio gehiago
     votings:
       admin:
         menu:
