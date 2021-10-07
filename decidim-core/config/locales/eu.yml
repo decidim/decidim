@@ -60,6 +60,7 @@ eu:
     'true': 'Bai'
   carrierwave:
     errors:
+      general: Errorea irudia prozesatzean
       image_too_big: Irudia pisuegia da
       not_inside_organization: Artxiboa ez dago antolatzaile batekin erlazionatuta
   date:
