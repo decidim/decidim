@@ -519,6 +519,8 @@ eu:
           lead: Ez duzu eman botoa!
           text: Zerbait txarto irten da, mesedez, saiatu berriro.
         header:
+          confirm: Baieztatu botoa
+          confirmed: Botoa baieztatu da
           encrypting: Baieztatu botoa
         processing:
           header: Botoa prozesatzen...
