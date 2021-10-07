@@ -305,7 +305,7 @@ eu:
           follower:
             email_intro: '"%{resource_title}" proposamena baztertu egin da. Orri honetan erantzun dezakezu:'
             email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
-            email_subject: Ondorengo proposamen bat baztertu egin da
+            email_subject: Jarraitzen ari zaren propposamen bat ukatu egin da
             notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena baztertu da.
         proposal_update_category:
           email_intro: 'Administratzaileak "%{resource_title}" proposamenaren kategoria eguneratu du, check it out:'
@@ -315,6 +315,8 @@ eu:
         proposal_update_scope:
           email_intro: 'Administratzaile batek %{resource_title} zure proposamenaren eremua eguneratu du, orri honetan egiazta dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea delako.
+          email_subject: '%{resource_title} proposamenaren eremua eguneratu da'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren eremua administratzaile batek eguneratu du.
         voting_enabled:
           email_intro: 'Proposamenak bozkatu ditzakezu %{participatory_space_title}-n! Hasi orri honetan parte hartzea:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
