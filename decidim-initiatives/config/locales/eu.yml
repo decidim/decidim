@@ -293,7 +293,7 @@ eu:
       admin_states:
         accepted: Beharrezko sinadurak lortu ditu
         created: Sortu
-        discarded: baztertutako
+        discarded: Baztertuta
         published: Argitaratutako
         rejected: Ez ditu lortu beharrezko sinadurak
         validating: Balidazio teknikoa
