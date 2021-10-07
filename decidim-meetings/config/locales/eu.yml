@@ -260,8 +260,11 @@ eu:
           form:
             address_help: 'Helbidea: Geocoderrek erabilia kokapena aurkitzeko'
             available_slots_help: Uzti 0an erabiltzeko espazio mugatua baduzu
+            disclaimer: 'Erantzukizun-deskargua: Kanpoko inskripzio-sistema bat erabiliz, onartzen duzu %{organization} ko antolatzaileak ez direla kanpo-zerbitzuko erabiltzaileek emandako datuen erantzule.'
             location_help: 'Kokapena: mezua part-hartzaileei zuzendua biltzeko lekua adieraziz'
+            location_hints_help: 'Kokapen-aholkuak: informazio gehigarria. Adibidea: eraikinaren solairua, aurrez aurreko topaketa bada, edo aretoaren pasahitza, sarrera mugatua duen online topaketa bada.'
             online_meeting_url_help: 'Lotura: Utzi parte-hartzaileei zuzenean konektatzen zure topaketara'
+            registration_url_help: 'Lotura: parte-hartzaileei aukera ematea izena emateko erabiltzen ari zaren kanpoko zerbitzura joateko'
             select_a_meeting_type: Mesedez, hautatu topaketa mota bat
             select_a_registration_type: Mesedez, hautatu erregistro mota bat
           index:
