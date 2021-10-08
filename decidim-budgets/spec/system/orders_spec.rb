@@ -318,14 +318,22 @@ describe "Orders", type: :system do
 
         expect(page).to have_content "ASSIGNED: €25,000,000"
 
-        # Note that this is not a default alert box, this is the default browser
-        # prompt for verifying the page unload. Therefore, `dismiss_prompt` is
-        # used instead of `dismiss_confirm`.
-        dismiss_prompt do
-          page.find(".logo-wrapper a").click
-        end
+        page.find(".logo-wrapper a").click
 
+        expect(page).to have_content "You have not yet voted"
         expect(page).to have_current_path budget_projects_path
+      end
+
+      it "is alerted but can sign out before completing" do
+        visit_budget
+
+        page.find("#user-menu-control").click
+        page.find(".sign-out-link").click
+
+        expect(page).to have_content "You have not yet voted"
+
+        page.find("#exit-notification-link").click
+        expect(page).to have_content("Signed out successfully")
       end
 
       context "and try to vote a project that exceed the total budget" do

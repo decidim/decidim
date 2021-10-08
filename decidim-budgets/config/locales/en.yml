@@ -187,6 +187,12 @@ en:
           projects_count:
             one: 1 project
             other: "%{count} projects"
+        exit_modal:
+          cancel: Return to voting
+          close: Close window
+          exit: Exit voting
+          message: Your vote has not been registered because you have not yet completed the voting process. Are you sure you want to exit voting?
+          title: You have not yet voted
         filters:
           category: Category
           scope: Scope
