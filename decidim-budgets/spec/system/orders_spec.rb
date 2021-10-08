@@ -321,6 +321,10 @@ describe "Orders", type: :system do
         page.find(".logo-wrapper a").click
 
         expect(page).to have_content "You have not yet voted"
+
+        click_button "Return to voting"
+
+        expect(page).not_to have_content("You have not yet voted")
         expect(page).to have_current_path budget_projects_path
       end
 
