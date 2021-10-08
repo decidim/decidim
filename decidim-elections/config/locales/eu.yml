@@ -713,6 +713,22 @@ eu:
               new: Berria
               title: Ekintzak
             associated_census_data: Erroldarekin erlazionatutako sarrerak
+            explanation_callout: Boto-paperaren estilo batek zehazten du zein galdera aurkeztuko zaizkion boto-emaileari kabinan. Boto-paper baten estiloan, aukera dezakezu bozketa-osagaiaren zein galdera dagozkion boto-paper horri. Boto-paperaren estilo-kodea erabiltzen da bat etortzeko hautesle bat kabinan aurkeztuko den boto-paperarekin. Galdera guztiak erakutsi nahi badituzu, ez sortu inolako boto-paperik.
+            title: Boto-paper motak
+          new:
+            create: Sortu
+            title: Sortu boto-paper mota
+          update:
+            invalid: Arazo bat izan da boto-papera sortzean
+            success: Boto-papera zuzen sortu da
+        content_blocks:
+          highlighted_votings:
+            max_results: Erakusteko gehieneko elementu kopurua
+          landing_page:
+            attachments_and_folders:
+              name: Erantsitako artxiboak eta bozketako karpetak
+            description:
+              name: Bozketaren deskribapena
         menu:
           votings_submenu:
             attachment_files: Fitxategiak
