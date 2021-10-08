@@ -676,6 +676,12 @@ eu:
           email_intro: '%{resource_title} bozketa badago aktibo hemen %{participatory_space_title}. Orrialde honetatik ikus dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Jakinarazpenak jasotzeari utzi ahal diozu aurreko lotura jarraituz.
       votings:
+        polling_officers:
+          polling_station_assigned:
+            email_intro: '%{polling_station_name} bozketa-guneko %{role} rol bezala esleitu zaizu hemen: <a href="%{resource_url}">%{resource_title}</a>. Bozketa-gunea administratu ahal duzu <a href="%{polling_officer_zone_url}">espaziotik Mahaiko kudeatzaileen gunea</a>.'
+            email_outro: Jakinarazpen hau jaso duzu %{polling_station_name} ko%{role} rol bezala esleitu zaituztelako.
+            email_subject: '%{polling_station_name} bozketa-guneko %{role} zara.'
+            notification_title: '%{polling_station_name} bozketa-guneko %{role} zara <a href="%{resource_path}">%{resource_title}</a> bozketan.'
         send_access_code:
           instruction: 'Baduzu eskatu duzun sartzeko kodea: %{access_code}. Horrekin parte hartu ahal izango duzu hemen %{voting}.'
           subject: 'Zure kodea sartzeko eta hemen parte hartzeko: %{voting}'
@@ -729,15 +735,167 @@ eu:
               name: Erantsitako artxiboak eta bozketako karpetak
             description:
               name: Bozketaren deskribapena
+            elections:
+              name: Bozketako aukerak
+            header:
+              name: Bozketaren goiburua
+            html_block_1:
+              name: Bozketaren html 1 blokea
+            html_block_2:
+              name: Bozketaren html 2 blokea
+            html_block_3:
+              name: Bozketaren html 3 blokea
+            metrics:
+              name: Bozketaren metrikak
+            polling_stations:
+              name: Bozketa-guneak
+            stats:
+              name: Boto-estatistikak
+            timeline:
+              name: Bozketaren egutegia
+        index:
+          not_published: Desargitaratua
+          published: Argitaratua
+        landing_page:
+          content_blocks:
+            edit:
+              update: Eguneratu
+          edit:
+            active_content_blocks: Eduki-blokeak aktibatuta
+            inactive_content_blocks: Eduki-blokeak desaktibatuta
         menu:
+          votings: Bozketak
           votings_submenu:
+            attachment_collections: Karpetak
             attachment_files: Fitxategiak
+            attachments: Erantsitako fitxategiak
+            ballot_styles: Boto-paper motak
+            census: Errolda
+            components: Osagaiak
+            info: Informazioa
+            landing_page: Hasierako orrialdea
             monitoring_committee: Jarraipen-batzordea
+            monitoring_committee_election_results: Balioztatu emaitzak
+            monitoring_committee_members: Kideak
+            monitoring_committee_polling_station_closures: Balioztatu ziurtagiriak
+            monitoring_committee_verify_elections: Egiaztatu aukerak
+            polling_officers: Mahaiko kudeatzaileak
+            polling_stations: Bozketa-guneak
+        models:
+          ballot_style:
+            fields:
+              code: Kodea
+            name: Boto-paper mota
+          monitoring_committee_member:
+            fields:
+              email: E-maila
+              name: Izena
+            name: Jarraipen-batzordeko kidea
+          polling_officer:
+            fields:
+              email: E-maila
+              name: Izena
+              polling_station: Bozketa-gunea (rola)
+            name: Mahaiko kudeatzailea
+          polling_station:
+            fields:
+              address: Helbidea
+              polling_station_managers: Administratzaileak
+              polling_station_president: Presidentea
+              title: Izenburua
+            name: Bozketa-gunea
+          voting:
+            fields:
+              created_at: Sortze-data
+              promoted: Nabarmendua
+              published: Argitaratua
+              title: Izenburua
+        monitoring_committee_election_results:
+          actions:
+            title: Ekintzak
+            view: Ikusi
+          index:
+            title: Hautatu aukera bat emaitzak ikusteko
+          results:
+            bulletin_board: Bulletin Board
+            election_totals: Aukeraketak, guztira
+            polling_stations: Bozketa-guneak
+            result_types:
+              blank_answers: Erantzunak zuriz
+              blank_ballots: Boto-paperak zuriz
+              null_ballots: Baliorik gabeko boto-papera
+              total_ballots: Boto-paperak, guztira
+              valid_ballots: Boto-paper baliodunak
+            selected: Hautatua
+            title: Emaitzak <i>%{election_title}</i>aukerarako
+            totals: Guztira
+          show:
+            change_election: Aldatu aukera
+            publish_results: Argitaratu emaitzak
+            publishing: Emaitzak argitaratzen...
+          update:
+            invalid: Arazo bat izan da emaitzak argitaratzean
+            rejected: Bulletin Board-ek baztertu egin zuen emaitzak argitaratzea. Saiatu berriro edo jarri harremanetan sistema-administratzailearekin.
+            success: Emaitzak zuzen argitaratu dira
+        monitoring_committee_members:
+          form:
+            existing_user: Parte-hartzailea badago
+            non_user: Gonbidatu parte-hartzaile berri bat
+            user_type: Parte-hartzaile mota
+          index:
+            title: Jarraipen-batzordea
+          new:
+            create: Sortu
+            title: Sortu jarraipen-batzordeko kidea
         monitoring_committee_polling_station_closures:
+          actions:
+            title: Ekintzak
+            validate: Baliozkotu
+            view: Ikusi
           closures:
+            change_election: Aldatu aukera
+            signed: Sinatua?
+            title: Bozketa-guneak <i>%{election_title}</i> aukerarako
             validated: Baliozkotuta?
+          edit:
+            change_polling_station: Itzuli bozketa-guneetara
+            monitoring_committee_notes: Oharrak
+            title: Emaitzak <i>%{election_title}</i> aukerarako <i>%{polling_station_title}</i> bozketa-gunean
+          elections:
+            title: Hautatu aukera bat baliozkotzeko
+          show:
+            change_polling_station: Itzuli bozketa-guneetara
           validate:
             success: Gailua zuzen baliozkotu da
+        monitoring_committee_verify_elections:
+          index:
+            download: Deskargatu
+        polling_officers:
+          index:
+            role_manager: administratzailea
+            role_president: presidentea
+          new:
+            create: Sortu
+          polling_officers_picker:
+            close: Itxi
+        polling_stations:
+          create:
+            invalid: Arazo bat izan da bozketa-gune hau sortzean
+            success: Bozketa-gunea zuzen sortu da
+          destroy:
+            invalid: Arazo bat izan da bozketa-gune hau ezabatzean
+            success: Bozketa-gunea zuzen ezabatu da
+          edit:
+            title: Editatu bozketa-gunea
+            update: Eguneratu bozketa-gunea
+          form:
+            location_help: 'Kokapena: mezua boto-emaleei zuzendua bozketa-gune zehatza adieraziz'
+            location_hints_help: 'Kokapenerako iradokizunak: Informazio gehigarria. Adibidez: Bozketa-gunea dagoen eraikinaren solairua.'
+            select_president: Hautatu mahaiko kudeatzaile bat bozketa-guneko presidente gisa
+          index:
+            title: Bozketa-guneak
+          new:
+            title: Sortu bozketa-gunea
       census:
         admin:
           census:
