@@ -582,6 +582,14 @@ eu:
         elections_count: Bozketak
     votings:
       admin:
+        content_blocks:
+          highlighted_votings:
+            max_results: Erakusteko gehieneko elementu kopurua
+          landing_page:
+            attachments_and_folders:
+              name: Erantsitako artxiboak eta bozketako karpetak
+            description:
+              name: Bozketaren deskribapena
         menu:
           votings_submenu:
             attachment_files: Fitxategiak
