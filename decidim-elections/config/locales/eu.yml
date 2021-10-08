@@ -663,9 +663,16 @@ eu:
               published: Argitaratua
               title: Izenburua
         monitoring_committee_members:
+          create:
+            invalid: Arazo bat izan da jarraipen-batzordeko kide hau sortzean
+            success: Jarraipen-batzordeko kidea zuzen sortu da
+          destroy:
+            invalid: Arazo bat izan da jarraipen-batzordeko kide hau ezabatzean
+            success: Jarraipen-batzordeko kidea zuzen ezabatu da
           form:
             existing_user: Parte-hartzailea badago
             non_user: Gonbidatu parte-hartzaile berri bat
+            select_user: Bilatu helbide elektroniko, izen edo ezizenaren arabera
             user_type: Parte-hartzaile mota
           index:
             title: Jarraipen-batzordea
@@ -673,13 +680,29 @@ eu:
             create: Sortu
             title: Sortu jarraipen-batzordeko kidea
         polling_officers:
+          create:
+            invalid: Arazo bat izan da mahaiko kudeatzaile hau sortzean
+            success: Mahaiko kudeatzailea zuzen sortu da
+          destroy:
+            invalid: Arazo bat izan da mahaiko kudeatzaile hau ezabatzean
+            success: Mahaiko kudeatzailea zuzen ezabatu da
+          form:
+            existing_user: Parte-hartzailea badago
+            non_user: Gonbidatu parte-hartzaile berri bat
+            select_user: Bilatu helbide elektroniko, izen edo ezizenaren arabera
+            user_type: Parte-hartzaile mota
           index:
             role_manager: administratzailea
             role_president: presidentea
+            title: Mahaiko kudeatzaileak
           new:
             create: Sortu
+            title: Sortu mahaiko kudeatzailea
           polling_officers_picker:
+            choose_polling_officers: Aukeratu mahaiko kudeatzailea
             close: Itxi
+            more_polling_officers: '%{number} mahaiko kudeatzaile gehiago daude. Zehaztu berriro zure bilaketa aurkitzeko.'
+            no_polling_officers: Ez dago bilaketa-irizpidearekin bat datorren mahaiko kudeatzailerik, edo ez dago bat ere ez.
         polling_stations:
           create:
             invalid: Arazo bat izan da bozketa-gune hau sortzean
@@ -691,13 +714,36 @@ eu:
             title: Editatu bozketa-gunea
             update: Eguneratu bozketa-gunea
           form:
+            address_help: 'Helbidea: Geocoderrek erabilia kokapena aurkitzeko'
             location_help: 'Kokapena: mezua boto-emaleei zuzendua bozketa-gune zehatza adieraziz'
             location_hints_help: 'Kokapenerako iradokizunak: Informazio gehigarria. Adibidez: Bozketa-gunea dagoen eraikinaren solairua.'
+            polling_station_managers_help: 'Mahaiko administratzaileak: bozketa-guneko administratzaile gisa jardungo duten ofizialak. Ziurtatu ofizialak dagoeneko sortu direla Mahai-kudeatzaileetan eta ez daudela beste bozketa-gune bati esleituta'
+            polling_station_president_help: 'Mahaiko presidenteak: bozketa-guneko presidente gisa jardungo duten ofizialak. Ziurtatu ofizialak dagoeneko sortu direla Mahai-kudeatzaileetan eta ez daudela beste bozketa-gune bati esleituta'
             select_president: Hautatu mahaiko kudeatzaile bat bozketa-guneko presidente gisa
           index:
             title: Bozketa-guneak
           new:
+            create: Sortu
             title: Sortu bozketa-gunea
+          update:
+            invalid: Arazo bat izan da bozketa-gune hau eguneratzean
+            success: Bozketa-gunea zuzen eguneratu da
+        titles:
+          votings: Bozketak
+        votings:
+          actions:
+            confirm_destroy: Ziur zaude?
+            destroy: Ezabatu
+            new_voting: Bozketa-gune berri bat
+            publish: Argitaratu
+            unpublish: Desargitaratu
+          create:
+            invalid: Arazo bat izan da bozketa hau sortzean
+            success: Bozketa zuzen sortu da
+          edit:
+            add_election_component: Ez duzu bozketa honetarako hautaketarik konfiguratuta. Mesedez, gehitu osagaien atalean
+            assign_missing_officers: Presidenterik eta/edo administratzailerik gabeko bozketa-guneak daude. Esleitu itzazu bozketa-guneen ataletik
+            update: Eguneratu
       polling_officer_zone:
         polling_officers:
           show:
