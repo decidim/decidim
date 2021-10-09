@@ -70,11 +70,25 @@ gl:
             title: Nova resposta
           not_selected: Non seleccionada
           selected: Seleccionada
+        elections:
+          index:
+            title: Eleccións
+          new:
+            create: Crear elección
+            title: Nova elección
+        exports:
+          elections: Eleccións
+        menu:
+          trustees: Comisarios
         models:
           answer:
             name: Resposta
+          election:
+            name: Elección
           question:
             name: Pregunta
+          trustee:
+            name: Comisario
         questions:
           edit:
             title: Editar pregunta
@@ -105,6 +119,7 @@ gl:
             mark_as_missing_description: Todos os comisarios teñen que participar neste proceso, mais se un comisario non pode tomar parte pode ser sinalado como ausente.
             success: O informe sobre o comisario ausente foi enviado con éxito ao Bulletin Board
             tally_completion: O proceso completarase cando todos os comisarios estean activos ou marcados coma ausentes. Son necesarios polo menos %{quorum} comisarios para completar o proceso.
+            undo_mark_as_missing: Un comisario sinalado como ausente poderá participar antes de se completar o proceso. Poderá proceder como é usual e a marca de ausencia será ignorada.
           tally_ended:
             answer: Resposta
             not_selected: Non seleccionado
@@ -115,6 +130,16 @@ gl:
             title: Resultados calculados
           vote_ended:
             text: Rematou a votación. Podes comezar o reconto agora.
+      admin_log:
+        election:
+          create: "%{user_name} creou a elección %{resource_name} para %{space_name}"
+          delete: "%{user_name} eliminou a elección %{resource_name} para %{space_name}"
+          end_vote: "%{user_name} terminou o período de votación para a elección %{resource_name} de %{space_name} no Bulletin Board"
+          publish: "%{user_name} publicou a elección %{resource_name} para %{space_name}"
+          publish_results: "%{user_name} publicou os resultados da elección %{resource_name} para %{space_name} no Bulletin Board"
+          setup: "%{user_name} creou a elección %{resource_name} para %{space_name} no Bulletin Board"
+        trustee:
+          create: "%{user_name} atribuíu ao usuario %{trustee_user} como comisario"
       election_m:
         badge_name:
           finished: Finalizada
@@ -377,6 +402,8 @@ gl:
       census:
         admin:
           census:
+            create:
+              invalid_csv_header: Faltan as cabeceiras CSV ou non son correctas - por favor, le as instrucións con cuidado
             creating_data:
               info_message: "<strong>Agarda</strong>, procesadas %{processed_count} de %{raw_count} filas do ficheiro %{file}."
             delete:
