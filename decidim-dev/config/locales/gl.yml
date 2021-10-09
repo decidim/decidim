@@ -22,6 +22,7 @@ gl:
               c: Opción C
             test_options:
               bar: Bar
+              baz: Baz
               foo: Foo
           step:
             endorsements_blocked: Adhesións bloqueadas
@@ -29,6 +30,7 @@ gl:
             readonly_step_attribute: Atributo de paso de só lectura
             test_options:
               bar: Bar
+              baz: Baz
               foo: Foo
     dummy:
       admin:
