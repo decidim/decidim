@@ -397,6 +397,11 @@ gl:
           user_name_or_user_email_cont: Procurar %{collection} por nome ou correo electrónico.
         state_eq:
           label: Estado
+          values:
+            all: Todo
+            pending: Pendente
+            rejected: Rexeitado
+            verified: Verificado
       forms:
         file_help:
           import:
@@ -451,6 +456,8 @@ gl:
             xlsx: xlsx
           actions:
             back: Volver
+          download_example: Descargar exemplo
+          download_example_format: Exemplo com %{name}
           file_legend: Engadir un ficheiro de importación para o análise.
           import: Importar
         notice: "%{number}%{resource_name} importados con éxito"
@@ -733,6 +740,7 @@ gl:
         form:
           colors:
             colors_title: Cores da organización
+            colors_warning_html: Atención! Mudar estas cores pode estragar ao contrastes de accesibilidade. Podes verificar o contraste da túa elección a través de <a href="%{link}">WebAIM Contrast Checker</a> ou outras ferramentas semellantes.
             header_snippets_help: Use este campo para engadir cousas ao título HTML. O uso máis común é integrar servizos de terceiros que requiren algún JavaScript ou CSS adicional. Ademais, podes usalo para engadir etiquetas metais extra ao HTML. Ten en conta que isto só se renderá en páxinas públicas, non na sección de administración.
           cta_button_path_help: 'Pode sobrescribir onde se enlaza o botón de chamada a acción na páxina de inicio. Use aquí rutas parciais, non URL completo. Acepta letras, números, guións e barras, e debe comezar cunha letra. O botón de chamada a acción amósase na páxina de inicio entre o texto de benvida ea descrición. Exemplo: %{url}'
           cta_button_text_help: Pode sobrescribir o texto do botón de chamada a acción na páxina de inicio para cada idioma dispoñible na súa organización. Se non se establece, empregarase o valor predeterminado. O botón de chamada a acción amósase na páxina de inicio entre o texto de benvida ea descrición.
