@@ -448,7 +448,30 @@ gl:
           impersonate_new_managed_user: Substituír o novo usuario xestor
       imports:
         and: e
+        data_errors:
+          duplicate_headers:
+            detail: Por favor, verifica que o ficheiro contén as columnas requiridas ou que a cabeceira non está repetida.
+            message:
+              one: Columna duplicada %{columns}.
+              other: Columnas duplicadas %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Por favor, verifica que estas liñas teñen o formato correcto e conteñen rexistros válidos.
+              message:
+                one: Atopouse un erro no ficheiro a importar na liña %{indexes}.
+                other: Atopouse un erro no ficheiro a importar nas liñas %{indexes}.
+            records:
+              detail: Por favor, verifica que estes rexistros teñen o formato correcto e conteñen rexistros válidos.
+              message:
+                one: Atopouse un erro no ficheiro a importar para os rexistros con números de ordenación %{indexes}.
+                other: Atopáronse erros no ficheiro a importar para os rexistros con números de ordenación %{indexes}.
+          missing_headers:
+            detail: Por favor, verifica que o ficheiro contén as columnas requiridas.
+            message:
+              one: Falta a columna %{columns}.
+              other: Faltan as columnas %{columns}.
         error: Produciuse un problema durante a importación
+        example_error: Non foi posíbel crear un exemplo para o tipo dado
         new:
           accepted_mime_types:
             csv: csv
