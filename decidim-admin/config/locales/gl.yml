@@ -452,6 +452,7 @@ gl:
           accepted_mime_types:
             csv: csv
             json: json
+            xlsx: xlsx
           actions:
             back: Volver
           file_legend: Engadir un ficheiro de importación para o análise.
