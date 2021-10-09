@@ -104,6 +104,9 @@ gl:
           only_one: eliminar o teu voto e comezar de novo.
         highlighted_cta: Votar en %{name}
         my_budgets: Os meus orzamentos
+        progress: Finalizar votación
+        show: Ver proxectos
+        vote: Votar
       models:
         budget:
           fields:
