@@ -131,6 +131,7 @@ gl:
       new_import:
         attributes:
           file:
+            invalid_file: O ficheiro fornecido non é válido, por favor verifica que o ficheiro posúe o formato correcto
             invalid_mime_type: Tipo Mime non válido
   activerecord:
     attributes:
@@ -441,6 +442,7 @@ gl:
           impersonate_existing_user: Substitúe o usuario "%{name}"
           impersonate_new_managed_user: Substituír o novo usuario xestor
       imports:
+        and: e
         error: Produciuse un problema durante a importación
         new:
           accepted_mime_types:
