@@ -292,6 +292,13 @@ gl:
           value_types:
             organizer_presenter:
               not_found: 'O organizador non se atopou na base de datos (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Todas
+        filter_meeting_space_values:
+          all: Todas
+        filter_scope_values:
+          all: Todas
       calendar_modal:
         calendar_url: URL do calendario
         close_window: Pechar ventá
