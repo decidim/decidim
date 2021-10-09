@@ -115,6 +115,10 @@ gl:
           ongoing: Activa
           upcoming: Vindeiras
         footer:
+          remaining_time:
+            one: "Falta <strong>%{count} hora %{minutes} minutos</strong> para votar."
+            other: "Faltan <strong>%{count} horas %{minutes} minutos</strong> para votar."
+            zero: "Faltan <strong>%{minutes} minutos</strong> para votar."
           view: Ver
           vote: Votar
         label:
@@ -372,6 +376,8 @@ gl:
       census:
         admin:
           census:
+            create:
+              invalid_csv_header: A cabeceira do CSV non posúe o número correcto de campos - por favor, le as instrucións con atención
             creating_data:
               info_message: "<strong>Agarda</strong>, procesadas %{processed_count} de %{raw_count} filas do ficheiro %{file}."
             delete:
