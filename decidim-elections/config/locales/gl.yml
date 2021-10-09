@@ -100,7 +100,11 @@ gl:
             submit: Enviar
           tally:
             continue: Continuar
+            invalid: Produciuse un problema ao denunciar o comisario ausente
             mark_as_missing: Marcar coma ausente
+            mark_as_missing_description: Todos os comisarios teñen que participar neste proceso, mais se un comisario non pode tomar parte pode ser sinalado como ausente.
+            success: O informe sobre o comisario ausente foi enviado con éxito ao Bulletin Board
+            tally_completion: O proceso completarase cando todos os comisarios estean activos ou marcados coma ausentes. Son necesarios polo menos %{quorum} comisarios para completar o proceso.
           tally_ended:
             answer: Resposta
             not_selected: Non seleccionado
