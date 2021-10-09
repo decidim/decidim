@@ -70,11 +70,25 @@ gl:
             title: Nova resposta
           not_selected: Non seleccionada
           selected: Seleccionada
+        elections:
+          index:
+            title: Eleccións
+          new:
+            create: Crear elección
+            title: Nova elección
+        exports:
+          elections: Eleccións
+        menu:
+          trustees: Comisarios
         models:
           answer:
             name: Resposta
+          election:
+            name: Elección
           question:
             name: Pregunta
+          trustee:
+            name: Comisario
         questions:
           edit:
             title: Editar pregunta
