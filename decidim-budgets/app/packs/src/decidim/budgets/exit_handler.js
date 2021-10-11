@@ -4,8 +4,25 @@ const currentAllocationZero = () => {
 }
 
 const isSafeUrl = (exitUrl) => {
-  const safeUrl = $(".budget-summary").attr("data-safe-url").split("?")[0];
-  return exitUrl && exitUrl.startsWith(safeUrl)
+  if (!exitUrl) {
+    return false
+  }
+
+  const safeUrls = [
+    $(".budget-summary").attr("data-safe-url").split("?")[0],
+    `${location.pathname}#`,
+    `${location.href}#`,
+    "#"
+  ];
+
+  let safe = false;
+  safeUrls.forEach((url) => {
+    if (exitUrl.startsWith(url)) {
+      safe =  true
+    }
+  });
+
+  return safe;
 }
 
 const allowExitFrom = ($el) => {
@@ -34,6 +51,7 @@ $(() => {
   const defaultExitUrl = $exitLink.attr("href");
   const defaultExitLinkText = $exitLink.text();
   let exitLinkText = defaultExitLinkText;
+  const startLocation = location.href;
 
   if ($exitNotification.length < 1) {
     // Do not apply when not inside the voting pipeline
@@ -95,7 +113,7 @@ $(() => {
     const allowExit = window.allowExit;
     window.allowExit = false;
 
-    if (allowExit) {
+    if (allowExit || startLocation === location.href) {
       return;
     }
 
