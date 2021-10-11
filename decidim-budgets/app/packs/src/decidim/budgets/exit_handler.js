@@ -45,13 +45,24 @@ const allowExitFrom = ($el) => {
   return false;
 }
 
+// Comment tests are reloading page when 'visit current_path' is called and
+// tests give js error if we try to show beforeunload' confirmation panel
+// before "user" has interacted with site.
+const testReload = (initialLocation) => {
+  if (navigator && navigator.webdriver && initialLocation === location.href) {
+    return true;
+  }
+
+  return false;
+}
+
 $(() => {
   const $exitNotification = $("#exit-notification");
   const $exitLink = $("#exit-notification-link");
   const defaultExitUrl = $exitLink.attr("href");
   const defaultExitLinkText = $exitLink.text();
   let exitLinkText = defaultExitLinkText;
-  const startLocation = location.href;
+  const initialLocation = location.href;
 
   if ($exitNotification.length < 1) {
     // Do not apply when not inside the voting pipeline
@@ -113,7 +124,7 @@ $(() => {
     const allowExit = window.allowExit;
     window.allowExit = false;
 
-    if (allowExit || startLocation === location.href) {
+    if (allowExit || testReload(initialLocation)) {
       return;
     }
 
