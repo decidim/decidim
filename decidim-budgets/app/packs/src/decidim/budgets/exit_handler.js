@@ -45,9 +45,7 @@ const allowExitFrom = ($el) => {
   return false;
 }
 
-// Comment tests are reloading page when 'visit current_path' is called and
-// tests give js error if we try to show beforeunload' confirmation panel
-// before "user" has interacted with site.
+// Don't show browser's default confirmation panel when visit current_path is called in tests.
 const testReload = (initialLocation) => {
   if (navigator && navigator.webdriver && initialLocation === location.href) {
     return true;
