@@ -664,6 +664,11 @@ eu:
         election_published:
           email_intro: '%{resource_title} bozketa badago aktibo hemen %{participatory_space_title}. Orrialde honetatik ikus dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Jakinarazpenak jasotzeari utzi ahal diozu aurreko lotura jarraituz.
+          email_subject: '%{resource_title} bozketa hemen: %{participatory_space_title} badago aktibo.'
+          notification_title: '<a href="%{resource_path}">%{resource_title}</a> bozketa aktibo dago hemen: %{participatory_space_title}.'
+        trustees:
+          new_election:
+            email_intro: Bazaude gehituta bermatzaile gisa %{resource_title} aukerarako.
       votings:
         polling_officers:
           polling_station_assigned:
