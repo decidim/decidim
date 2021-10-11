@@ -680,6 +680,20 @@ eu:
         trustees:
           new_election:
             email_intro: Bazaude gehituta bermatzaile gisa %{resource_title} aukerarako.
+            email_outro: Jakinarazpen hau jaso duzu bermatzaile gisa gehitu zaituztelako %{resource_title} aukerarako.
+            email_subject: Bermatzailea zara %{resource_title} aukerarako..
+            notification_title: Bermatzailea zara <a href="%{resource_path}">%{resource_title}</a> aukerarako.
+          new_trustee:
+            email_intro: 'Administratzaile batek gehitu zaitu bermatzaile gisa honetarako: %{resource_name}. Zure gako publikoa sortu behar duzu =<''%{trustee_zone_url}''>bermatzaileen zure gunean</a>'
+            email_outro: Jakinarazpen hau jaso duzu bermatzaile gisa gehitu zaituztelako %{resource_name} aukerarako.
+            email_subject: '%{resource_name} ren bermatzailea zara.'
+            notification_title: <a href="%{participatory_space_url}">%{resource_name}</a> ren bermatzailea zara.
+        votes:
+          accepted_votes:
+            email_intro: 'Zure botoa onartu egin da! Zure botoaren tokena erabiliz: %{encrypted_vote_hash}, zure botoa egiaztatu ahal duzu<a href="%{verify_url}">hemen</a>.'
+            email_outro: Jakinarazpen hau jaso duzu %{resource_name} aukeran botoa eman duzulako.
+            email_subject: Zure botoa %{resource_name} aukerarako onartu egin da.
+            notification_title: 'Zure botoa onartu egin da. Egiaztatu zure botoa <a href="%{verify_url}">hemen</a> zure botoaren tokena erabiliz: %{encrypted_vote_hash}'
       votings:
         polling_officers:
           polling_station_assigned:
@@ -956,11 +970,64 @@ eu:
             add_election_component: Ez duzu bozketa honetarako hautaketarik konfiguratuta. Mesedez, gehitu osagaien atalean
             assign_missing_officers: Presidenterik eta/edo administratzailerik gabeko bozketa-guneak daude. Esleitu itzazu bozketa-guneen ataletik
             update: Eguneratu
+          form:
+            census_contact_information_help: Harremanetarako informazio hori zentsuarekin izandako arazoen berri eman nahi dituen parte-hartzaile batentzat da. Helbide elektroniko bat, beste leku bateko harremanetarako formulario bat, bisitarientzako Decim-en inkesta bat eta abar izan daitezke.
+            select_a_voting_type: Mesedez, hautatu bozketa mota bat
+            slug_help: 'URLko testu laburrak erabiltzen dira bozketa hau aipatzen duten URLak sortzeko. Letrak, zenbakiak eta gidoiak baino ez ditu onartzen, eta letra batez hasi behar da. Adibidea: %{url}'
+            title: Izenburua
+            voting_type:
+              hybrid: Hibridoa
+              in_person: Aurrez aurre
+              online: Lineakoa
+          new:
+            create: Sortu
+            title: Bozketa berria
+          publish:
+            success: Bozketa zuzen argitaratu da
+          unpublish:
+            success: Bozketa zuzen desargitaratu da
+          update:
+            invalid: Arazo bat izan da bozketa hau eguneratzean
+            success: Bozketa zuzen eguneratu da
+      admin_log:
+        voting:
+          create: "%{user_name}-k sortu du %{resource_name} bozketa"
+          publish: "%{user_name}-k argitaratu du %{resource_name} bozketa"
+          unpublish: "%{user_name}-k desargitaratu du %{resource_name} bozketa"
       census:
         admin:
           census:
             create:
+              invalid: Arazo bai izan da errolda igotzean, mesedez, saiatu berriro geroago.
               invalid_csv_header: CSV goiburuak ez du eremu-kopuru zuzena - Mesedez, irakurri argibideak arreta handiz
+            creating_data:
+              info_message: "<strong>Mesedez itxaron</strong>, %{processed_count} prozesatuak %{raw_count} tik %{file} fitxeroko ilara."
+            delete:
+              button: Ezabatu erroldako datu guztiak
+              confirm: Errolda osoa ezabatzea ezin da desegin. Ziur zaude jarraitu nahi duzula?
+            destroy:
+              error: Arazo bai izan da errolda ezabatzean, mesedez, saiatu berriro geroago.
+              success: Erroldako datuak ezabatuta
+            export_access_codes:
+              button: Esportatu bozketaren Sartzeko Kodeak
+              callout: Orain sartzeko kodeak esportatu ahal dituzu. Hori behin baino ezin da egin. Behin esportazioa hasita, posta elektroniko bat jasoko duzu, bertan jarraibideak <strong>%{email}</strong>
+              confirm: Sartzeko kodeak behin baino ezin dituzu esportatu. Ziurtatu <strong>%{email}</strong> posta elektronikoan sarbidea duzula.
+              file_not_exists: Artxibo hau ez dago
+              launch_error: Arazoa sartzeko kodeak esportatzen hastean
+              launch_success: 'Sartzeko kodeen esportazioa hasi egin da. Laster posta elektroniko bat jasoko duzu hemen: %{email}'
+            exporting_access_codes:
+              info_message: "<strong>Mesedez, itxaron</strong>, esportazioa prestatzen ari da, laster jasoko duzu hemen %{email}"
+            freeze:
+              callout: Errolda itxita dago eta ezin da aldatu.
+            generate_access_codes:
+              button: Sortu bozketaren Sartzeko Kodeak
+        document_types:
+          dni: NAN
+          nie: AIZ
+          passport: Pasaportea
+        export_mailer:
+          access_codes_export:
+            download: Deskargatu
       polling_officer_zone:
         polling_officers:
           index:
