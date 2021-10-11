@@ -1028,6 +1028,30 @@ eu:
               callout: Errolda itxita dago eta ezin da aldatu.
             generate_access_codes:
               button: Sortu bozketaren Sartzeko Kodeak
+              callout: Sartzeko kodeak orain sortu ahal dituzu. Kontuan hartu sortu ondoren, errolda ezin izango duzula berriro aldatu.
+              confirm: Jarraitzen baduzu, ezin izango duzu errolda aldatu.
+              info_message_all: "<strong>ilarak zuzen inportatu dira </strong> %{data_count}) ko (%{raw_count} fitxategiaren %{file} ilara."
+              info_message_warn: Mesedez, egiaztatu daturik ez dela falta, %{data_count} erregistro sortu baitira, baina igo den (%{file}) fitxategiak %{raw_count} ilara zituen.
+              launch_error: Arazo bat izan da sartzeko kodeak sortzean
+              launch_success: Kodeak sortzen hasi da.
+            generating_access_codes:
+              info_message: "<strong>Mesedez, itxaron</strong>, bozketan sartzeko kodeak sortzen ari dira..."
+            new:
+              file_help:
+                explanation: 'Jarraibideak artxiborako:'
+                message_1: Soilik CSV (.csv) artxiboak onartzen dira.
+                message_2: Zutabeen arteko banatzailea puntu eta koma (";") izan behar da.
+              has_ballot_styles_message: Boto-paper motak konfiguratu dituzu. Mesedez, ziurtatu CSVren "%{ballot_style_code_header}" eremua eta nahi duzun boto-paper motaren kodea bat datozela.
+              info_message: "<strong>Oraindik ez dago erroldarik.</strong> Mesedez, erabili hurrengo galdetegia sortzeko CSV batetik inportatuz."
+              submit: Bidali csv
+              title: Sortu errolda
+            show:
+              heading: Bozketa-gunearen errolda
+            upload_info:
+              csv_example_with_ballot_style: '<strong>con</strong> artxiboaren adibide bat boto-paper mota:'
+              csv_example_without_ballot_style: '<strong>con</strong> artxiboaren adibide bat boto-paper mota:'
+              csv_header_after: Ez sartu ("%{ballot_style_code_header}") azken eremua, baldintza-galderarik/boto-paper motarik behar ez baduzu
+              csv_header_before: 'Errolda CSV artxiboa izan behar da honako goiburu hau duena:'
         document_types:
           dni: NAN
           nie: AIZ
@@ -1035,6 +1059,7 @@ eu:
         export_mailer:
           access_codes_export:
             download: Deskargatu
+            subject: Bozketan sartzeko kodeen esportazioa %{voting_title} rako prest dago
       polling_officer_zone:
         polling_officers:
           index:
