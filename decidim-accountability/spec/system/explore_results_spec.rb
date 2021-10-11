@@ -84,6 +84,27 @@ describe "Explore results", versioning: true, type: :system do
         end
       end
 
+      context "when user navigates in responsive mode" do
+        before do
+          driven_by(:iphone)
+          visit path
+        end
+
+        it "doesn't show current scope active" do
+          expect(page).not_to have_css("ul.tags.tags--action li.active")
+        end
+
+        it "renders scopes with scope picker" do
+          expect(page).not_to have_link(translated(result.scope.name))
+
+          within ".hide-for-mediumlarge" do
+            click_button "Filter by:"
+          end
+
+          expect(page).to have_link(translated(result.scope.name))
+        end
+      end
+
       it "maintains scope filter" do
         click_link translated(category.name)
 
