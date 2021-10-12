@@ -15,7 +15,10 @@ module Decidim
       end
 
       it "has a value for each locale" do
-        available_locales.each do |locale|
+        # The last locale can be a machine translated locale, so only test the
+        # ones before that.
+        test_locales = available_locales.length > 1 ? available_locales[0..-2] : available_locales
+        test_locales.each do |locale|
           expect(subject[locale]).not_to be_nil
         end
       end
