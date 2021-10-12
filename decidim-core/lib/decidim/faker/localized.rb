@@ -168,7 +168,6 @@ module Decidim
       #
       # Returns a Hash with a value for each locale.
       def self.localized
-        # *locales, last_locale = Decidim.available_locales
         locales = Decidim.available_locales
         last_locale = locales.pop if locales.length > 1
 
@@ -197,7 +196,6 @@ module Decidim
       #
       # Return a Hash with a value for each locale.
       def self.prefixed(msg, locales = Decidim.available_locales)
-        # *all_locales, last_locale = locales
         other_locales = Decidim.available_locales
         last_locale = locales.pop if locales.length > 1
 
