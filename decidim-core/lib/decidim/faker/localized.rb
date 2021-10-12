@@ -168,7 +168,7 @@ module Decidim
       #
       # Returns a Hash with a value for each locale.
       def self.localized
-        locales = Decidim.available_locales
+        locales = Decidim.available_locales.dup
         last_locale = locales.pop if locales.length > 1
 
         value = locales.inject({}) do |result, locale|
@@ -195,8 +195,8 @@ module Decidim
       # of the form `locale => prefixed_msg`.
       #
       # Return a Hash with a value for each locale.
-      def self.prefixed(msg, locales = Decidim.available_locales)
-        other_locales = Decidim.available_locales
+      def self.prefixed(msg, locales = Decidim.available_locales.dup)
+        other_locales = locales
         last_locale = locales.pop if locales.length > 1
 
         value = other_locales.inject({}) do |result, locale|
