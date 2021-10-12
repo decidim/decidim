@@ -189,6 +189,7 @@ en:
             other: "%{count} projects"
         exit_modal:
           cancel: Return to voting
+          close_modal: Close modal
           exit: Exit voting
           message: Your vote has not been registered because you have not yet completed the voting process. Are you sure you want to exit voting?
           title: You have not yet voted
