@@ -49,6 +49,7 @@ describe Decidim do
 
     after do
       described_class.force_ssl = orig_force_ssl
+      load "#{Rails.application.root}/config/initializers/decidim.rb"
     end
 
     it "returns false for the test environment" do
