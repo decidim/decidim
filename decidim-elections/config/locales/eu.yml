@@ -1102,8 +1102,22 @@ eu:
             info_text: Mesedez, sartu erantzun kopurua galdera bakoitzerako.
             modal_ballots_results_count_error:
               close_modal: Itxi
+              info_text: Boto-paperen kopuru osoa ez dator bat gutun-azalen kopuru osoarekin. Mesedez, berrikusi boto-txartel guztiak.
+              title: Boto-paperen kopuru osoa ez dator bat
+            save_recount: Gorde zenbaketa
             total_ballots: Boto-paperak, guztira
+            total_blank_ballots: Boto-paper zuriak, guztira
+            total_null_ballots: Boto-paper okerrak, guztira
+            total_valid_ballots: Boto-paper baliodunak, guztira
           new:
+            election: 'Aukera:'
+            heading: Botoen zenbaketa
+            info_text: 'Mesedez, sartu bozketa-puntu honetan birzenbatutako boto-txartelen (gutun-azalen) kopuru osoa:'
+            modal_ballots_count_error:
+              btn_validate_total: Baliozkotu boto-paperen zenbaketa osoa
+              close_modal: Itxi
+              info_explanation_text: 'Mesedez, berrikusi boto-txartel guztiak. Kopuru osoa zuzena bada, azalpen bat eman behar diozu Jarraipen Batzordeari:'
+              text_area_placeholder: Mesedez, idatzi zure mezua
             polling_station: 'Bozketa-gunea:'
         polling_officers:
           index:
