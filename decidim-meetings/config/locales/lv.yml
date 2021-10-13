@@ -327,10 +327,8 @@ lv:
             all: Visi
             date: Datums
             meetings: Sanāksmes
-            past: Iepriekšējie
             search: Meklēt
             space_type: Līdzdalības telpa
-            upcoming: Gaidāmās
       last_activity:
         new_meeting_at_html: "<span>Jauna sanāksme plkst. %{link}</span>"
       mailer:

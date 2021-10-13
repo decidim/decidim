@@ -49,6 +49,7 @@ gl:
     'true': 'Si'
   carrierwave:
     errors:
+      general: Erro ao procesar a imaxe
       image_too_big: A imaxe é demasiado grande
   date:
     formats:

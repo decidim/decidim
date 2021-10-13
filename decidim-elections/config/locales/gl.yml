@@ -50,11 +50,23 @@ gl:
           new:
             create: Crear resposta
             title: Nova resposta
+        elections:
+          index:
+            title: Eleccións
+          new:
+            create: Crear elección
+            title: Nova elección
+        exports:
+          elections: Eleccións
         models:
           answer:
             name: Resposta
+          election:
+            name: Elección
           question:
             name: Pregunta
+          trustee:
+            name: Comisario
         questions:
           edit:
             title: Editar pregunta

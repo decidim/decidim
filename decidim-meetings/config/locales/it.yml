@@ -354,12 +354,12 @@ it:
         meetings:
           index:
             all: Tutti
-            date: Quando
+            date: Data
             meetings: Incontri
-            past: Conclusi
+            past: Passata
             search: Ricerca
             space_type: Spazio partecipativo
-            upcoming: Prossime
+            upcoming: Imminente
       last_activity:
         meeting_updated_at_html: "<span>Dibattito aggiornato su %{link}</span>"
         new_meeting_at_html: "<span>Nuovo incontro al %{link}</span>"

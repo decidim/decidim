@@ -356,8 +356,8 @@ fr-CA:
             all: Tout
             date: Date
             meetings: Rencontres
-            past: Passées
-            search: Rechercher
+            past: Passé
+            search: Chercher
             space_type: Espace participatif
             upcoming: À venir
       last_activity:

@@ -155,6 +155,10 @@ is-IS:
         minutes:
           create: "%{user_name} búið til fundargerð fundarins %{resource_name} á %{space_name} plássinu"
           update: "%{user_name} uppfært fundargerðir fundarins %{resource_name} á %{space_name} plássinu"
+      directory:
+        meetings:
+          index:
+            date: Dagsetning
       mailer:
         invite_join_meeting_mailer:
           invite:

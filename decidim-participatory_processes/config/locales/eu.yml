@@ -365,6 +365,7 @@ eu:
         participatory_process_imports:
           form:
             document_legend: Gehitu dokumentu bat
+            slug_help: 'URLko slugak prozesu horretan adierazten diren URLak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak baino ez ditu onartzen, eta letra batez hasi behar du. Adibidea: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Erabili bideak partzialak, ez URL osoak hemen. Letrak, zenbakiak, marrak eta barrak onartzen ditu eta gutun batekin hasi behar duzu. Ezartzen bada, botoia ez da agertuko. Adibidea: %{url}'

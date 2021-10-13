@@ -48,7 +48,7 @@ gl:
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Necesita ser reenxerado
+              needs_to_be_reattached: É preciso anexar de novo o ficheiro
             body:
               cant_be_equal_to_template: non pode ser igual ao modelo
               identical: E o título non pode ser idéntico
@@ -114,6 +114,7 @@ gl:
         name: Propostas
         settings:
           global:
+            allow_card_image: Permitir cartón con imaxe
             amendments_enabled: Modificacións habilitadas
             announcement: Anuncio
             attachments_allowed: Permitir anexos

@@ -60,6 +60,7 @@ eu:
     'true': 'Bai'
   carrierwave:
     errors:
+      general: Errorea irudia prozesatzean
       image_too_big: Irudia pisuegia da
       not_inside_organization: Artxiboa ez dago antolatzaile batekin erlazionatuta
   date:
@@ -153,8 +154,12 @@ eu:
         unofficialize: "%{user_name} erabiltzaile ez ofiziala %{resource_name}"
       user_group:
         reject: "%{user_name} baztertu %{resource_name} erabiltzaile taldeen egiaztapena"
-        verify: "%{user_name} egiaztatu %{resource_name} erabiltzaile taldea"
+        verify: "%{user_name} egiaztatu du %{resource_name} taldea"
         verify_via_csv: "%{user_name} egiaztatu du %{resource_name} erabiltzaile talde CSV fitxategi baten bidez"
+      user_moderation:
+        unreport: "%{user_name} desegin du %{resource_type} - %{unreported_user_name} erreportea"
+    admin_terms_of_use:
+      default_body: "<h2>TÉRMINOS ADMIN DE USO</h2><p>Sistemaren tokiko administratzailearen ohiko azalpena jaso duzulakoan gaude. Oro har, hiru gauza hauetara mugatzen da:</p><ol><li>Besteen pribatutasuna errespetatzea.</li><li>Klikatu aurretik pentsatu.</li><li>Botere handiak erantzukizun handia dakar.</li></ol>"
     alert:
       dismiss: Baztertu jakinarazpena
     amendments:
@@ -803,9 +808,9 @@ eu:
         success: Erregistratu eskaera behar bezala sortu da. Administratzaileak zure eskaera berrikusiko du taldera onartu aurretik.
       leave:
         error: Arazo bat izan da taldean utzita
-        success: Taldeak arrakastaz utzi du.
+        success: Taldea zuzen utzi duzu.
       members:
-        accept_or_reject_join_requests: 'Hurrengo talde honetako erabiltzaileei aplikatu zaie. Eskaerak onartu edo ukatu:'
+        accept_or_reject_join_requests: 'Hurrengo parte-hartzaileek taldean sartzea eskatu dute. Onartu edo ukatu bere eskariak:'
         accept_request: Onartu
         reject_request: Ukatu
       new:
@@ -842,13 +847,13 @@ eu:
         delete_with_space: "%{user_name} ezabatu %{resource_name} en %{space_name}"
         unknown_action: "%{user_name} Ekintza batzuk egin %{resource_name}"
         unknown_action_with_space: "%{user_name} Ekintza batzuk egin %{resource_name} en %{space_name}"
-        update: "%{user_name} eguneratu %{resource_name}"
-        update_with_space: "%{user_name} eguneratu %{resource_name} en %{space_name}"
+        update: "%{user_name} eguneratu zuen %{resource_name}"
+        update_with_space: "%{user_name} eguneratu zuen %{resource_name} hemen %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'Ez zen datu-basea aurkitu (ID: %{id})'
+          not_found: 'Area ez zen datu-basean aurkitu (ID: %{id})'
         area_type_presenter:
-          not_found: 'Eremu mota ez da datu basean aurkitu (ID: %{id})'
+          not_found: 'Area mota ez da datu basean aurkitu (ID: %{id})'
         scope_presenter:
           not_found: 'Esparrua ez da aurkitu datu-basean (ID: %{id})'
         scope_type_presenter:

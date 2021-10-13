@@ -318,8 +318,7 @@ ru:
             all: Все
             date: Дата
             meetings: Встречи
-            past: Прошедшие
-            upcoming: Предстоящие
+            search: Поиск
       last_activity:
         new_meeting_at_html: "<span>Новая встреча в %{link}</span>"
       mailer:

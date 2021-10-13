@@ -331,10 +331,8 @@ sk:
             all: Všetko
             date: dátum
             meetings: Stretnutie
-            past: Uplynulé
             search: Vyhľadávanie
             space_type: Zúčastňujú priestor
-            upcoming: Nadchádzajúce
       last_activity:
         new_meeting_at_html: "<span> Nové stretnutie v %{link} </ span>"
       mailer:
