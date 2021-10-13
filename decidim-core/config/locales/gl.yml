@@ -369,6 +369,11 @@ gl:
           this_application_will_not_be_able_to: 'Esta aplicación non poderá:'
           update_profile: Actualiza o teu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quere usar a túa conta"
+    editor_images:
+      create:
+        error: Erro ó subir a imaxe
+        success: Imaxe subida con éxito
+      drag_and_drop_help: Engade imaxes arrastrándoas ou pegándoas aquí.
     endorsable:
       endorsements: Aprobacións
     errors:
@@ -524,6 +529,7 @@ gl:
       no_followers: Aínda non hai seguidores.
     following:
       no_followings: Aínda non segue a ninguén nin a nada.
+      non_public_followings: Algúns dos recursos seguidos non son públicos.
     follows:
       create:
         button: Segue

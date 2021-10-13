@@ -391,6 +391,13 @@ cs:
           value_types:
             organizer_presenter:
               not_found: 'Organizátor nebyl nalezen v databázi (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Vše
+        filter_meeting_space_values:
+          all: Vše
+        filter_scope_values:
+          all: Vše
       calendar_modal:
         calendar_url: Adresa URL kalendáře
         close_window: Zavřete okno
@@ -404,13 +411,8 @@ cs:
       directory:
         meetings:
           index:
-            all: Vše
-            date: Datum
             meetings: Setkání
-            past: Minulé
-            search: Vyhledávání
             space_type: Účastní prostor
-            upcoming: Nadcházející
       last_activity:
         meeting_updated_at_html: "<span>Schůzka aktualizována na %{link}</span>"
         new_meeting_at_html: "<span>Nové setkání v %{link}</span>"

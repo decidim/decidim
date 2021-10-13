@@ -392,13 +392,8 @@ fi:
       directory:
         meetings:
           index:
-            all: Kaikki
-            date: Päivämäärä
             meetings: Tapaamiset
-            past: Menneet
-            search: Hae
             space_type: Osallistumistila
-            upcoming: Tulevat
       last_activity:
         meeting_updated_at_html: "<span>Tapaaminen päivitetty osoitteessa %{link}</span>"
         new_meeting_at_html: "<span>Uusi tapaaminen osoitteessa %{link}</span>"
