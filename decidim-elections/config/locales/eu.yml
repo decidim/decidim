@@ -1124,8 +1124,18 @@ eu:
               btn_validate_total: Baliozkotu boto-paperen zenbaketa osoa
               close_modal: Itxi
               info_explanation_text: 'Mesedez, berrikusi boto-txartel guztiak. Kopuru osoa zuzena bada, azalpen bat eman behar diozu Jarraipen Batzordeari:'
+              info_text: Sartutako boto-paperen kopurua (gutun-azalak) gutira, ez dator bat bozketa-gune honetan botoa eman duten pertsonen erregistroarekin.
+              message_for_monitoring_committee: Mezua Jarraipen Batzordearentzat
+              review_recount: Berrikusi zenbaketa
               text_area_placeholder: Mesedez, idatzi zure mezua
+              title: Erregistroen kopuru osoa ez dator bat
+              total_ballots: 'Boto-paperak, guztira:'
+              total_people: 'Pertsona kopurua, guztira:'
             polling_station: 'Bozketa-gunea:'
+            submit: Egiaztatu telefono zenbakia
+            total_ballots_count: Boto-paper kopurua
+          show:
+            heading: Botoen zenbaketa
         polling_officers:
           index:
             polling_officer_role_description: Plataforma honetan egindako aukeraketa batzuetan mahaiko kudeatzaile gisa (Presidentea edo Administratzailea) jarduteko izendatu zaituzte.
