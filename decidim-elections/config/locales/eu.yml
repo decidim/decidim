@@ -1051,9 +1051,44 @@ eu:
           passport: Pasaportea
         export_mailer:
           access_codes_export:
+            click_button: 'Egin klik hurrengo loturan zure datuak deskargatzeko. <br/>Artxiboa eskuragai egongo da data honetara arte %{date}.<br/>Irekitzeko beharko duzu <a href="https://www.7-zip.org/">7-Zip</a> (Windowserako), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (Linuxerako). Pasahitza: %{password}'
             download: Deskargatu
             subject: Bozketan sartzeko kodeen esportazioa %{voting_title} rako prest dago
+        vote_flow:
+          already_voted_in_person: Parte-hartzaile honek jada eman du botoa aurrez aurre eta ez du bozkatzeko eskubiderik.
+          datum_not_found: Sartutako datuak ez datoz bat parte-hartzaile batekin ere ez.
+      content_blocks:
+        highlighted_votings:
+          name: Bozketa nabarmenduak
+        landing_page:
+          description:
+            show_less: Irakurri gutxiago
+            show_more: Irakurri gehiago
+          metrics:
+            heading: Metrikak
+          polling_stations:
+            heading: Bozketa-guneak
+            no_polling_stations: Oraindik ez dago bozketa-gunerik.
+          timeline:
+            heading: Denbora-lerroa
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: Ziur zaude?
+          destroy: Ezabatu
+          new: Kide berria
+          title: Ekintzak
+      pages:
+        home:
+          highlighted_votings:
+            active_votings: Bozketa aktiboak
+            see_all_votings: Ikusi bozketa guztiak
+            votings_button_title: Lotura guztiak erakusten dituen Bozketen orrialdera
       polling_officer_zone:
+        closures:
+          back_to_polling_stations: Itzuli bozketa-guneetara
+          certify:
+            add_images: Gehiru irudiak
+            error: Arazo bat izan da ziurtagiria eranstean, mesedez, saiatu berriro.
         polling_officers:
           index:
             polling_officer_role_description: Plataforma honetan egindako aukeraketa batzuetan mahaiko kudeatzaile gisa (Presidentea edo Administratzailea) jarduteko izendatu zaituzte.
