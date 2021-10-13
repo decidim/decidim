@@ -3,6 +3,42 @@
 module Decidim
   module Messaging
     module ConversationHelper
+      def conversation_name_for(users)
+        return content_tag(:span, t("deleted", scope: "decidim.profile"), class: "label label--small label--basic") if users.first.deleted?
+
+        content_tag(:strong, users.first.name) do
+          content_tag(:span, "@#{users.first.nickname}", class: "muted")
+        end
+      end
+
+      def profile_for(sender)
+        return content_tag(:span, t("deleted", scope: "decidim.profile"), class: "label label--small label--basic") if sender.deleted?
+
+        link_to profile_path(sender.nickname) do
+          image_tag present(sender).avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(sender.name))
+        end
+      end
+
+      def participant_profile_for(participants)
+        return image_tag present(current_user).avatar.default_multiuser_url, alt: t("decidim.author.avatar_multiuser") unless participants.count == 1
+        return t("deleted", scope: "decidim.profile") if participants.first.deleted?
+
+        link_to profile_path(participants.first.nickname) do
+              image_tag present(participants.first).avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(participants.first.name))
+        end
+      end
+
+      def conversation_label_for(participants)
+        return t(".title", usernames: username_list(participants)) unless participants.count == 1
+
+        chat_with_user = if participants.first.deleted?
+                           t("deleted", scope: "decidim.profile")
+                         else
+                           "#{participants.first.name} (@#{participants.first.nickname})"
+                         end
+
+        "#{t(".chat_with")} #{chat_with_user}"
+      end
       #
       # Generates a visualization of users for listing conversations threads
       #
