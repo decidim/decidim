@@ -461,6 +461,7 @@ fi-pl:
           accepted_mime_types:
             csv: csv
             json: json
+            xlsx: xlsx
           actions:
             back: Takaisin
           file_legend: Lisää tuontitiedosto, josta tiedot luetaan.

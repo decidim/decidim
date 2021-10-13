@@ -350,7 +350,7 @@ sv:
       directory:
         meetings:
           index:
-            all: Alla
+            all: Allt
             date: Datum
             meetings: Möten
             past: Tidigare

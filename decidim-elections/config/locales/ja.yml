@@ -335,6 +335,10 @@ ja:
           upcoming: 今後の予定
         end_date: 終了
         footer:
+          remaining_time:
+            one: "投票期間は残り <strong>%{count} 時間 %{minutes} 分</strong> です。"
+            other: "投票期間は残り <strong>%{count} 時間 %{minutes} 分</strong> です。"
+            zero: "投票期間は残り <strong>%{minutes} 分</strong> です。"
           view: 表示
           vote: 投票
         label:
@@ -876,6 +880,11 @@ ja:
         votings:
           edit:
             assign_missing_officers: 投票管理者またはマネージャーがいない投票所があります。投票所セクションからアサインしてください
+      census:
+        admin:
+          census:
+            create:
+              invalid_csv_header: CSVヘッダのフィールド数が正しくありません - 説明をもう一度ご確認ください
       content_blocks:
         landing_page:
           description:

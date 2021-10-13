@@ -263,6 +263,12 @@ uk:
           value_types:
             organizer_presenter:
               not_found: 'Цього організатора не знайдено в базі даних (ID: %{id})'
+      directory:
+        meetings:
+          index:
+            all: Усі
+            date: Дата
+            search: Шукати
       mailer:
         invite_join_meeting_mailer:
           invite:

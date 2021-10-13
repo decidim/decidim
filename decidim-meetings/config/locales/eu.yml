@@ -301,10 +301,15 @@ eu:
           form:
             address_help: 'Helbidea: Geocoderrek erabilia kokapena aurkitzeko'
             available_slots_help: Uzti 0an erabiltzeko espazio mugatua baduzu
+            disclaimer: 'Erantzukizun-deskargua: Kanpoko inskripzio-sistema bat erabiliz, onartzen duzu %{organization} ko antolatzaileak ez direla kanpo-zerbitzuko erabiltzaileek emandako datuen erantzule.'
             location_help: 'Kokapena: mezua part-hartzaileei zuzendua biltzeko lekua adieraziz'
+            location_hints_help: 'Kokapen-aholkuak: informazio gehigarria. Adibidea: eraikinaren solairua, aurrez aurreko topaketa bada, edo aretoaren pasahitza, sarrera mugatua duen online topaketa bada.'
             online_meeting_url_help: 'Lotura: Utzi parte-hartzaileei zuzenean konektatzen zure topaketara'
+            registration_email_help: Testu hau izen-ematea baieztatzeko postaren erdian agertuko da. Inskripzio kodearen ondoren.
+            registration_url_help: 'Lotura: parte-hartzaileei aukera ematea izena emateko erabiltzen ari zaren kanpoko zerbitzura joateko'
             select_a_meeting_type: Mesedez, hautatu topaketa mota bat
             select_a_registration_type: Mesedez, hautatu erregistro mota bat
+            show_embedded_iframe_help: Sartu edo ez iframea bideokonferentziako URL honetarako. Zerbitzu batzuek baino ez dute aukera ematen (adibidez, Youtube, Twitch, etab.)
           index:
             title: Topaketa-zerrenda
           new:
@@ -346,6 +351,7 @@ eu:
           form:
             available_slots_help: Utzi 0an izen-emate mugagabeak edukiz gero.
             invites: Gonbidapenak
+            recommendation_message: Pribatutasuna dela eta, izena emateko inprimaki hau kentzea gomendatzen dizugu, behar ez duzunean. Besterik adierazi ezean, hau da, bilera amaitu eta 3 hilabetera.
             registration_form: Izena emateko inprimakia
             registrations_count:
               one: Dena den, %{count} erregistratzeko.
@@ -387,12 +393,12 @@ eu:
         meetings:
           index:
             all: guztiak
-            date: data
+            date: Data
             meetings: Bilerak
-            past: Iragana
+            past: Aurrekoak
             search: Search
             space_type: Partaidetza espazioa
-            upcoming: Datozen
+            upcoming: Hurrengoak
       last_activity:
         meeting_updated_at_html: "<span>eztabaida ordu honetan %{link}</span> eguneratuta"
         new_meeting_at_html: "<span>Bilera berria %{link}</span>"
@@ -467,11 +473,15 @@ eu:
           address_help: 'Helbidea: Geocoderrek erabilia kokapena aurkitzeko'
           available_slots_help: Uzti 0an erabiltzeko espazio mugatua baduzu
           create_as: Sortu topaketa honela
+          disclaimer: 'Erantzukizun-deskargua: Kanpoko inskripzio-sistema bat erabiliz, onartzen duzu %{organization} ko antolatzaileak ez direla kanpo-zerbitzuko erabiltzaileek emandako datuen erantzule.'
           location_help: 'Kokapena: mezua part-hartzaileei zuzendua biltzeko lekua adieraziz'
+          location_hints_help: 'Kokapen-aholkuak: informazio gehigarria. Adibidea: eraikinaren solairua, aurrez aurreko topaketa bada, edo aretoaren pasahitza, sarrera mugatua duen online topaketa bada.'
           online_meeting_url_help: 'Lotura: Utzi parte-hartzaileei zuzenean konektatzen zure topaketara'
+          registration_url_help: 'Lotura: parte-hartzaileei aukera ematea izena emateko erabiltzen ari zaren kanpoko zerbitzura joateko'
           select_a_category: Mesedez, hautatu kategoria bat
           select_a_meeting_type: Mesedez, hautatu topaketa mota bat
           select_a_registration_type: Mesedez, hautatu erregistro mota bat
+          show_embedded_iframe_help: Sartu edo ez iframea bideokonferentziako URL honetarako. Zerbitzu batzuek baino ez dute aukera ematen (adibidez, Youtube, Twitch, etab.)
         index:
           new_meeting: Topaketa berria
         meeting_minutes:
