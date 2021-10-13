@@ -4,7 +4,7 @@ module Decidim
   module Messaging
     module ConversationHelper
       def conversation_name_for(users)
-        return content_tag(:span, t("deleted", scope: "decidim.profile"), class: "label label--small label--basic") if users.first.deleted?
+        return content_tag(:span, t("decidim.profile.deleted"), class: "label label--small label--basic") if users.first.deleted?
 
         content_tag(:strong, users.first.name) do
           content_tag(:span, "@#{users.first.nickname}", class: "muted")
@@ -12,16 +12,17 @@ module Decidim
       end
 
       def conversation_label_for(participants)
-        return t(".title", usernames: username_list(participants)) unless participants.count == 1
+        return t("title", scope: "decidim.messaging.conversations.show", usernames: username_list(participants)) unless participants.count == 1
 
         chat_with_user = if participants.first.deleted?
-                           t("deleted", scope: "decidim.profile")
+                           t("decidim.profile.deleted")
                          else
                            "#{participants.first.name} (@#{participants.first.nickname})"
                          end
 
-        "#{t(".chat_with")} #{chat_with_user}"
+        "#{t("chat_with", scope: "decidim.messaging.conversations.show")} #{chat_with_user}"
       end
+
       #
       # Generates a visualization of users for listing conversations threads
       #

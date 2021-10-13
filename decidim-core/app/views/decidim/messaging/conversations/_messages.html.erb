@@ -1,13 +1,13 @@
 <div class="conversation-chat<%= " conversation-chat--offset" if sender_is_user?(sender) %>">
   <% if sender.deleted? %>
     <span class="label label--small label--basic">
-      <%=  t("deleted", scope: "decidim.profile")  %>
+      <%= t("deleted", scope: "decidim.profile") %>
     </span>
-  <%  else %>
+  <% else %>
     <%= link_to profile_path(sender.nickname) do %>
       <%= image_tag present(sender).avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(sender.name)) %>
     <% end %>
-  <%  end %>
+  <% end %>
   <div>
     <% messages.each do |message| %>
       <div class="card">
