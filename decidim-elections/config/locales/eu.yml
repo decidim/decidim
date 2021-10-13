@@ -1089,6 +1089,22 @@ eu:
           certify:
             add_images: Gehiru irudiak
             error: Arazo bat izan da ziurtagiria eranstean, mesedez, saiatu berriro.
+            form_legend: Igo bozketa-itxieraren ziurtagiriaren argazki bat
+            heading: Botoen zenbaketa - Igo ziurtagiria
+            info_text: Mesedez, igo bozketa-itxieraren ziurtagiriaren argazki bat.
+            submit: Igo ziurtagiria
+            success: Ziurtagiria zuzen igo da.
+          create:
+            error: Arazo bat izan da itxiera sortzean, mesedez, saiatu berriro geroago.
+            success: Itxiera zuzen egin da.
+          edit:
+            heading: Botoen zenbaketa - erantzunen zenbaketa
+            info_text: Mesedez, sartu erantzun kopurua galdera bakoitzerako.
+            modal_ballots_results_count_error:
+              close_modal: Itxi
+            total_ballots: Boto-paperak, guztira
+          new:
+            polling_station: 'Bozketa-gunea:'
         polling_officers:
           index:
             polling_officer_role_description: Plataforma honetan egindako aukeraketa batzuetan mahaiko kudeatzaile gisa (Presidentea edo Administratzailea) jarduteko izendatu zaituzte.
