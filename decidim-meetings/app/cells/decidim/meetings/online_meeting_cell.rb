@@ -7,7 +7,7 @@ module Decidim
     class OnlineMeetingCell < Decidim::ViewModel
       def show
         return if model.iframe_embed_type_none?
-        return unless iframe_access_level_allowed?
+        return unless model.iframe_access_level_allowed_for_user?(current_user)
         return unless assembly_privacy_allowed?
 
         render
@@ -38,17 +38,6 @@ module Decidim
 
       def future?
         Time.current <= model.start_time && !live?
-      end
-
-      def iframe_access_level_allowed?
-        case model.iframe_access_level
-        when "all"
-          true
-        when "signed_in"
-          current_user.present?
-        else
-          model.has_registration_for?(current_user)
-        end
       end
 
       def assembly_privacy_allowed?
