@@ -17,7 +17,7 @@ module Decidim
         it "raises an ActionController::RoutingError" do
           expect do
             get :index, params: { nickname: "foobar" }
-          end.to raise_error(ActionController::RoutingError)
+          end.to raise_error(ActionController::RoutingError, "Missing user: foobar")
         end
       end
     end
