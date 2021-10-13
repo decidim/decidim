@@ -19,6 +19,7 @@ module Decidim
     include SafeRedirect
     include NeedsSnippets
     include UserBlockedChecker
+    include DisableRedirectionToExternalHost
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
