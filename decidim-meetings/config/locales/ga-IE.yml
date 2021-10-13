@@ -131,12 +131,7 @@ ga:
       directory:
         meetings:
           index:
-            all: Uile
-            date: Dáta
             meetings: Cruinnithe
-            past: Roimhe
-            search: Cuardaigh
-            upcoming: Le teacht
       layouts:
         live_event:
           close: dún

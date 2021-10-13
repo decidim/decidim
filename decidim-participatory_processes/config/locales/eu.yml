@@ -24,18 +24,30 @@ eu:
         published_at: Argitaratu at
         related_process_ids: Elkarrekin lotutako prozesuak
         scope_id: Esparrua
+        scope_type_max_depth_id: Eremuaren iragazkiaren sakonera
         scopes_enabled: Esparru gaituak
         short_description: Deskribapen laburra
+        show_metrics: Erakutsi metrikak
         show_statistics: Erakutsi estatistikak
         slug: URL laburra
         start_date: Hasiera-data
         subtitle: Azpititulua
         target: Nor parte hartzen du
         title: Titulua
+        weight: Kokapenaren hurrenkera
       participatory_process_group:
         description: Deskribapena
+        developer_group: Talde sustatzailea
+        group_url: Web gunea
+        hashtag: Traola
         hero_image: Irudia
+        local_area: Antolatzailearen gunea
+        meta_scope: Eremuaren metadatuak
         participatory_process_ids: Elkarrekin lotutako prozesuak
+        participatory_scope: Zer erabakitzen den
+        participatory_structure: Nola erabakitzen den
+        target: Nork hartzen duen parte
+        title: Izenburua
       participatory_process_step:
         cta_path: Deitu ekintza bideari
         cta_text: Deitu ekintza testuari
@@ -48,6 +60,12 @@ eu:
         email: Helbide elektronikoa
         name: Izena
         role: Rola
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Dokumentu-mota baliogabea da. Formatu hauek onartzen dira: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Urratsera aktibatuta
       decidim/participatory_process_step_changed_event: Pasartea aldatu da
@@ -74,6 +92,7 @@ eu:
         filter:
           all_processes: Erakutsi prozesu guztiak
           process_groups: Prozesu taldeak
+        import_process: Inportatu
         new_process: Prozesu berria
         new_process_group: Prozesu talde berria
         new_process_step: Urrats berria
@@ -84,6 +103,9 @@ eu:
         unpublish: Desargitaratu
       menu:
         participatory_process_groups: Prozesu-multzoak
+        participatory_process_groups_submenu:
+          info: Informazioa
+          landing_page: Hasierako orrialdea
         participatory_processes: Prozesuak
         participatory_processes_submenu:
           attachment_collections: Karpetak
@@ -106,6 +128,8 @@ eu:
             title: Titulua
           name: Prozesu partizipatiboa
         participatory_process_group:
+          fields:
+            title: Izenburua
           name: Prozesu-multzoak
         participatory_process_step:
           fields:
@@ -123,6 +147,7 @@ eu:
             admin: Administratzailea
             collaborator: Kolaboratzailea
             moderator: Moderatzailea
+            valuator: Ebaluatzailea
         user:
           fields:
             invitation_accepted_at: 'Gonbita egun honetan onartu zen:'
@@ -132,8 +157,16 @@ eu:
           copy: Kopiatu
           select: Aukeratu itzazu kopiatu nahi dituzun datuak
           title: Partehartze prozesua bikoiztu
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Eduki-blokeak aktibatuta
+          inactive_content_blocks: Eduki-blokeak desaktibatuta
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Eguneratu
       participatory_process_groups:
         destroy:
+          error: Arazo bat izan da prozesu parte-hartzaile multzoa ezabatzean.
           success: Parte-hartze prozesuen taldea zuzen ezabatu da.
         edit:
           title: Prozesu-multzok editatu
@@ -144,6 +177,14 @@ eu:
         update:
           error: Errorea gertatu da multzo hau eguneratzean.
           success: Multzoa zuzen eguneratu da.
+      participatory_process_imports:
+        create:
+          error: Arazo bat izan da prozesu parte-hartzaile hau inportatzean.
+          success: Prozesu parte-hartzailea zuzen inportatu da.
+        new:
+          import: Inportatu
+          select: Hautatu zein datu inportatu nahi dituzun
+          title: Inportatu prozesu parte-hartzailea
       participatory_process_publications:
         create:
           error: Errorea gertatu da prozesu partizipatibo hau argitaratzean.
@@ -185,11 +226,13 @@ eu:
         destroy:
           success: Parte hartzaile prozesu honetatik arrakastaz ezabatu da erabiltzailea.
         edit:
+          title: Eguneratu prozesu parte-hartzailearen administratzailea
           update: Eguneratu
         index:
           process_admins_title: Prozesuaren erabiltzaileak
         new:
           create: Sortu
+          title: Prozesu parte-hartzailearen administratzaile berria
         update:
           error: Errore bat gertatu da parte hartzaile prozesu honetarako erabiltzaile bat.
           success: Ongi eguneratu da erabiltzailea prozesu partizipatibo honetarako.
@@ -231,6 +274,9 @@ eu:
         publish: "%{user_name} argitaratu du %{resource_name} prozesu parte-hartzailea"
         unpublish: "%{user_name} argitaratu gabe %{resource_name} prozesu parte-hartzailea"
         update: "%{user_name} %{resource_name} partehartze prozesua eguneratu du"
+      participatory_process_group:
+        create: "%{user_name} k sortu du %{resource_name} prozesu parte-hartzaileen multzoa"
+        update: "%{user_name} k eguneratu du %{resource_name} prozesu parte-hartzaileen multzoa"
       participatory_process_step:
         activate: "%{user_name} %{resource_name} urratsa %{space_name} prozesu parte-hartzailean aktibatuta"
         create: "%{user_name} %{resource_name} urratsa %{space_name} partaidetzazko prozesuan sortu zen"
@@ -242,6 +288,11 @@ eu:
         update: "%{user_name} erabiltzailearen rola aldatu %{resource_name} en %{space_name} prozesu parte-hartzailea"
     events:
       participatory_process:
+        role_assigned:
+          email_intro: '%{role} rola esleitu zaizu <a href="%{resource_title}"> prozesu parte-hartzailean.'
+          email_outro: Jakinarazpen hau jaso duzu %{role} rola esleitu zaizu "%{resource_title}" jardunaldian.
+          email_subject: '%{role} rola esleitu zaizu hemen "%{resource_title}".'
+          notification_title: '%{role} rola esleitu zaizu <a href="%{resource_url}">%{resource_title}</a> prozesu parte-hartzailean.'
         step_activated:
           email_intro: '%{resource_title} urratsa aktibo dago %{participatory_space_title}-ra. Orrialde hau ikusi dezakezu:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
@@ -265,10 +316,30 @@ eu:
         description: Erakundeko prozesu parte-hartzaile kopurua
         object: prozesu parte-hartzaileak
         title: Parte hartze prozesuak
+    participatory_process:
+      show:
+        related_assemblies: Erlazionatutako batzarrak
     participatory_process_groups:
       content_blocks:
+        html_1:
+          name: Lehen HTML blokea
+        html_2:
+          name: Bigarren HTML blokea
+        html_3:
+          name: Hirugarren HTML blokea
+        metadata:
+          developer_group: Nork sustatua
+          name: Metadatuak
+          participatory_scope: Zer erabakitzen den
+          participatory_structure: Nola erabakitzen den
+          target: Nork hartzen duen parte
+        participatory_processes:
+          name: Prozesu parte-hartzaileak
         stats:
           name: Jarduera
+        title:
+          meta_scope: Eremua
+          name: Izenburua, deskribapena eta traola
       show:
         title: Parte-hartze prozesuko taldeak
     participatory_process_steps:
@@ -280,9 +351,21 @@ eu:
         content_blocks:
           highlighted_processes:
             max_results: Erakusteko elementu gehienen kopurua
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'URL slugs erabiltzen dira prozesu hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metadatuak
+            title: Informazio Orokorra
+            visibility: Ikusgarritasuna
+        participatory_process_imports:
+          form:
+            document_legend: Gehitu dokumentu bat
+            slug_help: 'URLko slugak prozesu horretan adierazten diren URLak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak baino ez ditu onartzen, eta letra batez hasi behar du. Adibidea: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Erabili bideak partzialak, ez URL osoak hemen. Letrak, zenbakiak, marrak eta barrak onartzen ditu eta gutun batekin hasi behar duzu. Ezartzen bada, botoia ez da agertuko. Adibidea: %{url}'
@@ -315,7 +398,12 @@ eu:
             active_step: Urratsa aktiboa
             more_information: Informazio gehiago
             participate: Parte hartu
+            participate_in: Parte hartu %{resource_name} prozesuan
+            processes_button_title: Lotura prozesu guztiak erakusten dituen Prozesuen orrialdera
             see_all_processes: Ikusi prozesu guztiak
+      participatory_process_steps:
+        index:
+          back_to_process: Itzuli prozesuaren orrialdera
       participatory_processes:
         filters:
           counters:
@@ -345,6 +433,8 @@ eu:
           loading: Emaitzak kargatzen...
       show:
         area: Area
+        belongs_to_group: Prozesu hau honi dagokio
+        dates: Datak
         developer_group: Sustatzailearen taldea
         end_date: Bukaera-data
         local_area: Antolakuntza eremua
@@ -356,11 +446,14 @@ eu:
         start_date: Hasiera-data
         target: Nork parte hartzen du
         unspecified: Zehaztu gabea
+    statistics:
+      processes_count: Prozesuak
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
           browse: Arakatu
+          browse_resource: Aztertu %{resource_name} prozesuen multzoa
           processes_count: 'Prozesuak:'
       participatory_process_widgets:
         show:
@@ -372,11 +465,17 @@ eu:
         participatory_process:
           active_step: 'Oraingo fasea:'
           more_info: Informazio gehiago
+          more_info_about: Informazio gehiago %{resource_name} prozesuari buruz
           take_part: Parte hartu
+          take_part_in: Parte hartu %{resource_name} prozesuan
         promoted_process:
           active_step: 'Oraingo fasea:'
           more_info: Informazio gehiago
+          more_info_about: Informazio gehiago %{resource_name} prozesuari buruz
           take_part: Parte hartu
+          take_part_in: Parte hartu %{resource_name} prozesuan
+        promoted_process_group:
+          more_info: Informazio gehiago
       process_header_steps:
         step: '%{total} fasetatik %{current}.a'
         view_steps: Ikusi faseak

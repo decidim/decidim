@@ -386,13 +386,8 @@ ja:
       directory:
         meetings:
           index:
-            all: すべて
-            date: 日付
             meetings: ミーティング
-            past: 過去
-            search: 検索
             space_type: 参加者のスペース
-            upcoming: 近日公開
       last_activity:
         meeting_updated_at_html: "<span>ミーティングが %{link} に更新されました</span>"
         new_meeting_at_html: "<span> %{link}に新しいミーティング</span>"
@@ -476,7 +471,11 @@ ja:
           select_a_registration_type: 登録種別を選択してください
           show_embedded_iframe_help: このビデオ会議URLのiframeを埋め込むかどうか。いくつかのサービスのみが埋め込めます (例：YouTube、Twitchなど) 。
         index:
+          click_here: すべてのミーティングを見る
           new_meeting: 新しいミーティング
+          see_all: すべてのミーティングを見る
+          see_all_withdrawn: 撤回されたすべてのミーティングを見る
+          text_banner: 作成者が取り消したミーティングの一覧を表示しています． %{go_back_link}
         meeting_minutes:
           related_information: 関連情報
         meetings:
@@ -516,6 +515,9 @@ ja:
             other: "残り%{count} スロット"
           view: 表示
           visit_finished: 過去のミーティングを表示
+          withdraw_btn_hint: 気が変わった場合はミーティングを取り消せます．ミーティングは削除されません．取り消されたミーティングのリストに表示されます．
+          withdraw_confirmation_html: このミーティングを取り消してもよろしいですか?<br><br><strong>この操作はキャンセルできません!</strong>
+          withdraw_meeting: ミーティングを撤回する
         update:
           invalid: ミーティングの更新に問題がありました。
           success: ミーティングを更新しました．
@@ -592,8 +594,12 @@ ja:
       types:
         private_meeting: プライベートミーティング
         transparent: 透明度
+        withdraw: 取り消し
       versions:
         back_to_resource: ミーティングに戻る
+      withdraw:
+        error: ミーティングの取り消し中にエラーが発生しました
+        success: ミーティングは正常に取り消されました
     metrics:
       meetings:
         description: 作成されたミーティング数

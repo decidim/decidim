@@ -16,6 +16,12 @@ sv:
         other: Röster
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Kommentarer aktiverade
+            end_time: Kommentarer aktiverade till
+            start_time: Kommentarer aktiverade från och med
       comments:
         create:
           error: Det gick inte att skapa kommentaren.
@@ -93,6 +99,7 @@ sv:
         blocked_comments_warning: Kommentarer är inaktiverade just nu, men du kan läsa de föregående.
         comment_details_title: Kommentarsdetaljer
         loading: Laddar kommentarer...
+        single_comment_warning: <a href="%{url}">Visa alla kommentarer</a>
         single_comment_warning_title: Du visar en enda kommentar
         title:
           one: "%{count} kommentarer"

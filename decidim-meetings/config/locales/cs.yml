@@ -391,6 +391,13 @@ cs:
           value_types:
             organizer_presenter:
               not_found: 'Organizátor nebyl nalezen v databázi (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Vše
+        filter_meeting_space_values:
+          all: Vše
+        filter_scope_values:
+          all: Vše
       calendar_modal:
         calendar_url: Adresa URL kalendáře
         close_window: Zavřete okno
@@ -404,13 +411,8 @@ cs:
       directory:
         meetings:
           index:
-            all: Vše
-            date: Datum
             meetings: Setkání
-            past: Minulé
-            search: Vyhledávání
             space_type: Účastní prostor
-            upcoming: Nadcházející
       last_activity:
         meeting_updated_at_html: "<span>Schůzka aktualizována na %{link}</span>"
         new_meeting_at_html: "<span>Nové setkání v %{link}</span>"
@@ -497,7 +499,11 @@ cs:
           select_a_registration_type: Vyberte prosím typ registrace
           show_embedded_iframe_help: Rozhodněte o vložení URL iframe pro tuto videokonferenci. Pouze některé služby umožňují vložení (např. Youtube, Twitch...)
         index:
+          click_here: Zobrazit všechny schůzky
           new_meeting: Nová schůzka
+          see_all: Zobrazit všechny schůzky
+          see_all_withdrawn: Zobrazit všechny stažené schůzky
+          text_banner: Zobrazujete seznam schůzek stažených jejich autory. %{go_back_link}.
         meeting_minutes:
           related_information: Související informace
         meetings:
@@ -540,6 +546,9 @@ cs:
             other: "%{count} zbývajících bloků"
           view: Zobrazit
           visit_finished: Zobrazit minulou schůzku
+          withdraw_btn_hint: Schůzku můžete stáhnout, pokud změníte názor. Schůzka není smazána, objeví se v seznamu stažených schůzek.
+          withdraw_confirmation_html: Opravdu chcete tuto schůzku stáhnout?<br><br><strong>Tuto akci nelze zrušit!</strong>
+          withdraw_meeting: Stažení schůzky
         update:
           invalid: Při aktualizaci schůzky došlo k chybě.
           success: Úspěšně jste aktualizovali schůzku.
@@ -619,8 +628,12 @@ cs:
       types:
         private_meeting: Privátní setkání
         transparent: Průhledný
+        withdraw: Staženo
       versions:
         back_to_resource: Přejít zpět na schůzku
+      withdraw:
+        error: Došlo k chybě při stahování schůzky
+        success: Schůzka byla úspěšně stažena
     metrics:
       meetings:
         description: Počet vytvořených schůzek

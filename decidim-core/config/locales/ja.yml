@@ -503,6 +503,7 @@ ja:
       create:
         error: アップロード画像のエラー
         success: 画像が正常にアップロードされました
+      drag_and_drop_help: ドラッグ&ドロップまたは貼り付けることで画像を追加できます。
     endorsable:
       endorsements: 支持
       endorsements_count: 支持数
@@ -692,6 +693,7 @@ ja:
       no_followers: フォロワーはまだいません。
     following:
       no_followings: フォローしている人やコンテンツはありません
+      non_public_followings: フォローしているリソースのいくつかは公開されていません。
     follows:
       create:
         button: フォロー
@@ -1362,7 +1364,7 @@ ja:
         deleted: 削除された参加者
     versions:
       resource_version:
-        of_versions: "( %{number} の)"
+        of_versions: "/ %{number}"
         see_other_versions: 他のバージョンを見る
         version: バージョン %{number}
     versions_list:

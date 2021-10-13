@@ -13,7 +13,7 @@ module Decidim
     #
     # Returns a String.
     def resource_version(resource, options = {})
-      return unless resource.respond_to?(:versions) && resource.versions.present?
+      return unless resource.respond_to?(:versions) && resource.versions_count.positive?
 
       html = []
       html << resource_version_number(resource.versions_count)

@@ -22,7 +22,7 @@ module Decidim
         return unless meeting
 
         handle_locales(meeting.description, all_locales) do |content|
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize(content))
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize_editor(content))
           renderer.render(links: links).html_safe
         end
       end
@@ -55,7 +55,7 @@ module Decidim
         return unless meeting
 
         handle_locales(meeting.closing_report, all_locales) do |content|
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize(content))
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize_editor(content))
           renderer.render(links: links).html_safe
         end
       end
@@ -64,7 +64,7 @@ module Decidim
         return unless meeting
 
         handle_locales(meeting.registration_email_custom_content, all_locales) do |content|
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize(content))
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize_editor(content))
           renderer.render(links: links).html_safe
         end
       end

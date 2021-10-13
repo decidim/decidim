@@ -107,7 +107,7 @@ module Decidim
 
         return body unless safe_content?
 
-        decidim_sanitize(body)
+        decidim_sanitize_editor(body)
       end
 
       # Returns :text_area or :editor based on the organization' settings.

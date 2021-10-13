@@ -131,6 +131,7 @@ gl:
       new_import:
         attributes:
           file:
+            invalid_file: O ficheiro fornecido non é válido, por favor verifica que o ficheiro posúe o formato correcto
             invalid_mime_type: Tipo Mime non válido
   activerecord:
     attributes:
@@ -396,6 +397,11 @@ gl:
           user_name_or_user_email_cont: Procurar %{collection} por nome ou correo electrónico.
         state_eq:
           label: Estado
+          values:
+            all: Todo
+            pending: Pendente
+            rejected: Rexeitado
+            verified: Verificado
       forms:
         file_help:
           import:
@@ -441,13 +447,31 @@ gl:
           impersonate_existing_user: Substitúe o usuario "%{name}"
           impersonate_new_managed_user: Substituír o novo usuario xestor
       imports:
-        creators:
-          proposalcreator: Creador da proposta
+        and: e
+        data_errors:
+          duplicate_headers:
+            detail: Por favor, verifica que o ficheiro contén as columnas requiridas ou que a cabeceira non está repetida.
+            message:
+              one: Columna duplicada %{columns}.
+              other: Columnas duplicadas %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Por favor, verifica que estas liñas teñen o formato correcto e conteñen rexistros válidos.
+              message:
+                one: Atopouse un erro no ficheiro a importar na liña %{indexes}.
+                other: Atopouse un erro no ficheiro a importar nas liñas %{indexes}.
+            records:
+              detail: Por favor, verifica que estes rexistros teñen o formato correcto e conteñen rexistros válidos.
+              message:
+                one: Atopouse un erro no ficheiro a importar para os rexistros con números de ordenación %{indexes}.
+                other: Atopáronse erros no ficheiro a importar para os rexistros con números de ordenación %{indexes}.
+          missing_headers:
+            detail: Por favor, verifica que o ficheiro contén as columnas requiridas.
+            message:
+              one: Falta a columna %{columns}.
+              other: Faltan as columnas %{columns}.
         error: Produciuse un problema durante a importación
-        help:
-          proposalcreator: O ficheiro ten de incluír os nomes de columna title/en e body/en (ou outro idioma da túa preferencia, por exemplo title/gl e body/gl). Admítense tamén as columnas scope/id e category/id.
-        import_from_file: Importar dende o ficheiro
-        invalid_lines: Atopouse un erro no recurso número %{invalid_lines}
+        example_error: Non foi posíbel crear un exemplo para o tipo dado
         new:
           accepted_mime_types:
             csv: csv
@@ -455,6 +479,8 @@ gl:
             xlsx: xlsx
           actions:
             back: Volver
+          download_example: Descargar exemplo
+          download_example_format: Exemplo com %{name}
           file_legend: Engadir un ficheiro de importación para o análise.
           import: Importar
         notice: "%{number}%{resource_name} importados con éxito"
@@ -737,6 +763,7 @@ gl:
         form:
           colors:
             colors_title: Cores da organización
+            colors_warning_html: Atención! Mudar estas cores pode estragar ao contrastes de accesibilidade. Podes verificar o contraste da túa elección a través de <a href="%{link}">WebAIM Contrast Checker</a> ou outras ferramentas semellantes.
             header_snippets_help: Use este campo para engadir cousas ao título HTML. O uso máis común é integrar servizos de terceiros que requiren algún JavaScript ou CSS adicional. Ademais, podes usalo para engadir etiquetas metais extra ao HTML. Ten en conta que isto só se renderá en páxinas públicas, non na sección de administración.
           cta_button_path_help: 'Pode sobrescribir onde se enlaza o botón de chamada a acción na páxina de inicio. Use aquí rutas parciais, non URL completo. Acepta letras, números, guións e barras, e debe comezar cunha letra. O botón de chamada a acción amósase na páxina de inicio entre o texto de benvida ea descrición. Exemplo: %{url}'
           cta_button_text_help: Pode sobrescribir o texto do botón de chamada a acción na páxina de inicio para cada idioma dispoñible na súa organización. Se non se establece, empregarase o valor predeterminado. O botón de chamada a acción amósase na páxina de inicio entre o texto de benvida ea descrición.

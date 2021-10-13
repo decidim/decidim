@@ -412,13 +412,7 @@ nl:
           impersonate_existing_user: Beheer deelnemer "%{name}"
           impersonate_new_managed_user: Beheer nieuwe deelnemer
       imports:
-        creators:
-          proposalcreator: Maker van het voorstel
         error: Er zijn fouten opgetreden bij het importeren
-        help:
-          proposalcreator: Het bestand moet kolomnamen titel/nl en body/en bevatten (of een andere locale die jij verkiest, bijv. title/ca en body/ca). Ook scope/id en category/id kolommen worden ondersteund.
-        import_from_file: Uit een bestand importeren
-        invalid_lines: Fout gevonden in bronnummer %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv

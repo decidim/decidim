@@ -333,13 +333,8 @@ tr:
       directory:
         meetings:
           index:
-            all: Tümü
-            date: Tarih
             meetings: Toplantılar
-            past: Geçmiş
-            search: Arama
             space_type: Katılımcı alan
-            upcoming: Yaklaşan
       last_activity:
         new_meeting_at_html: "<span>%{link} </span> adresinde yeni toplantı"
       mailer:

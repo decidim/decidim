@@ -71,6 +71,9 @@ jobs:
       - run: bundle install --jobs 4 --retry 3
         name: Install Ruby deps
         working-directory: ${{ env.DECIDIM_MODULE }}
+      - run: bundle exec brakeman --rails6 --force-scan .
+        name: Scanning Security issues on module
+        working-directory: ${{ env.DECIDIM_MODULE }}
       - run: bundle exec rspec
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}

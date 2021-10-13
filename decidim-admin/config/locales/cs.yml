@@ -132,6 +132,7 @@ cs:
       new_import:
         attributes:
           file:
+            invalid_file: Neplatný soubor, zkontrolujte, zda je soubor správně naformátován
             invalid_mime_type: Neplatný typ mime
   activerecord:
     attributes:
@@ -455,13 +456,39 @@ cs:
           impersonate_existing_user: Spravovat účastníka "%{name}"
           impersonate_new_managed_user: Spravovat nového účastníka
       imports:
-        creators:
-          proposalcreator: Tvůrce návrhu
+        and: a
+        data_errors:
+          duplicate_headers:
+            detail: Zkontrolujte, zda soubor obsahuje požadované sloupce nebo záhlaví pouze jednou.
+            message:
+              one: Duplikovat sloupec %{columns}.
+              few: Duplikovat sloupce %{columns}.
+              many: Duplikovat sloupce %{columns}.
+              other: Duplikovat sloupce %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Zkontrolujte, zda jsou tyto řádky správně formátovány a obsahují platné záznamy.
+              message:
+                one: Nalezena chyba v importním souboru na řádku %{indexes}.
+                few: Nalezena chyba v importním souboru na řádcách %{indexes}.
+                many: Nalezena chyba v importním souboru na řádcích %{indexes}.
+                other: Nalezeny chyby v importním souboru na řádcích %{indexes}.
+            records:
+              detail: Zkontrolujte, zda jsou tyto záznamy správně formátovány a obsahují platné záznamy.
+              message:
+                one: Nalezena chyba v importním souboru pro záznamy s pořadovým číslem %{indexes}.
+                few: Nalezeny chyby v importním souboru pro záznamy s pořadovými čísly %{indexes}.
+                many: Nalezeny chyby v importním souboru pro záznamy s pořadovými čísly %{indexes}.
+                other: Nalezeny chyby v importním souboru pro záznamy s pořadovými čísly %{indexes}.
+          missing_headers:
+            detail: Zkontrolujte, zda soubor obsahuje požadované sloupce.
+            message:
+              one: Chybí sloupec %{columns}.
+              few: Chybí sloupce %{columns}.
+              many: Chybí sloupce %{columns}.
+              other: Chybí sloupce %{columns}.
         error: Při importu došlo k chybě
-        help:
-          proposalcreator: Soubor musí mít názvy sloupců title/en a body/en (nebo jiné lokalizace, které dáváte. title/cs a body/cs). Podporovány jsou také sloupce pro scope/id a category/id.
-        import_from_file: Importovat ze souboru
-        invalid_lines: Nalezena chyba ve zdroji číslo %{invalid_lines}
+        example_error: Nelze vytvořit příklad pro daný typ
         new:
           accepted_mime_types:
             csv: csv
@@ -469,6 +496,8 @@ cs:
             xlsx: xlsx
           actions:
             back: Zpět
+          download_example: Stáhnout příklad
+          download_example_format: Příklad jako %{name}
           file_legend: Přidat importovaný soubor, který bude analyzován.
           import: Importovat
         notice: "%{number} %{resource_name} úspěšně importováno"
@@ -755,6 +784,7 @@ cs:
         form:
           colors:
             colors_title: Organizační barvy
+            colors_warning_html: Varování! Změna těchto barev může narušit kontrasty přístupnosti. Můžete zkontrolovat kontrast výběru s <a href="%{link}">kontrolou kontrastu WebAIM Contrast Checker</a> nebo jinými podobnými nástroji.
             header_snippets_help: Toto pole použijte k přidání věcí do hlavičky HTML. Nejběžnějším používáním je integrace služeb třetích stran, které vyžadují nějaký extra JavaScript nebo CSS. Můžete také použít k přidání dalších metaznaček do HTML. Všimněte si, že to bude vykresleno pouze na veřejných stránkách, nikoliv v sekci admin.
           cta_button_path_help: 'Můžete přepsat, kde se na domovské stránce odkazuje tlačítko Výzvy k akci. Použijte zde částečné cesty, ne úplné adresy URL. Přijme písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Tlačítko Výzvy k akci se na domovské stránce zobrazí mezi uvítacím textem a popisem. Příklad: %{url}'
           cta_button_text_help: Text tlačítka výzvy k akci můžete na domovské stránce přepsat pro každý dostupný jazyk ve vaší organizaci. Pokud není nastaveno, bude použita výchozí hodnota. Tlačítko Výzvy k akci se na domovské stránce zobrazí mezi uvítacím textem a popisem.

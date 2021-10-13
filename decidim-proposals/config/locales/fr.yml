@@ -388,6 +388,23 @@ fr:
         exports:
           proposal_comments: Commentaires
           proposals: Propositions
+        imports:
+          help:
+            answers: 'Le document d''importation doit contenir les colonnes suivantes : Id, État (accepté, évaluation, rejeté), réponse/fr (et d''autres langues activées pour l''organisme).'
+            proposals: Le fichier doit comprendre les colonnes title/fr et corps/fr (ou une autre locale de votre choix, par ex. titre/de et corps/de). Les colonnes scope/id et category/id sont également pris en charge.
+          label:
+            answers: Importer des valeurs depuis un fichier
+            proposals: Importer des propositions depuis un fichier
+          resources:
+            answers:
+              one: réponse à la proposition
+              other: réponses à la proposition
+            proposals:
+              one: proposition
+              other: propositions
+          title:
+            answers: Importer des réponses aux propositions
+            proposals: Importer des propositions
         models:
           proposal:
             name: Proposition

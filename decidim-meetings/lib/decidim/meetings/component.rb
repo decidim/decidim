@@ -46,7 +46,7 @@ Decidim.register_component(:meetings) do |component|
         .not_hidden
         .visible
         .where(component: component_instance)
-        .includes(component: { participatory_space: :organization })
+        .includes(:scope, :category, component: { participatory_space: :organization })
     end
 
     exports.include_in_open_data = true
@@ -58,7 +58,7 @@ Decidim.register_component(:meetings) do |component|
     exports.collection do |component_instance|
       Decidim::Comments::Export.comments_for_resource(
         Decidim::Meetings::Meeting, component_instance
-      )
+      ).includes(:author, :user_group, root_commentable: { component: { participatory_space: :organization } })
     end
 
     exports.include_in_open_data = true
@@ -156,14 +156,22 @@ Decidim.register_component(:meetings) do |component|
       _hybrid_meeting = Decidim.traceability.create!(
         Decidim::Meetings::Meeting,
         admin_user,
-        params.merge(type_of_meeting: :hybrid, online_meeting_url: "http://example.org"),
+        params.merge(
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          type_of_meeting: :hybrid,
+          online_meeting_url: "http://example.org"
+        ),
         visibility: "all"
       )
 
       _online_meeting = Decidim.traceability.create!(
         Decidim::Meetings::Meeting,
         admin_user,
-        params.merge(type_of_meeting: :online, online_meeting_url: "http://example.org"),
+        params.merge(
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          type_of_meeting: :online,
+          online_meeting_url: "http://example.org"
+        ),
         visibility: "all"
       )
 

@@ -4,7 +4,7 @@ import lineBreakButtonHandler from "src/decidim/editor/linebreak_module"
 import "src/decidim/vendor/image-resize.min"
 import "src/decidim/vendor/image-upload.min"
 
-const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "video", "image", "alt", "break", "width", "style"];
+const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "video", "image", "alt", "break", "width", "style", "code", "blockquote", "indent"];
 
 export default function createQuillEditor(container) {
   const toolbar = $(container).data("toolbar");
@@ -13,14 +13,16 @@ export default function createQuillEditor(container) {
   let quillToolbar = [
     ["bold", "italic", "underline", "linebreak"],
     [{ list: "ordered" }, { list: "bullet" }],
-    ["link", "clean"]
+    ["link", "clean"],
+    ["code", "blockquote"],
+    [{ "indent": "-1"}, { "indent": "+1" }]
   ];
 
   let addImage = $(container).data("editorImages");
 
   if (toolbar === "full") {
     quillToolbar = [
-      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      [{ header: [2, 3, 4, 5, 6, false] }],
       ...quillToolbar,
       ["video"]
     ];

@@ -131,7 +131,7 @@ edit_link(
           <%= t("withdraw", scope: "decidim.meetings.types") %>
         </span>
       <% end %>
-      <%= decidim_sanitize(present(meeting).description(links: true)) %>
+      <%= decidim_sanitize_editor(present(meeting).description(links: true)) %>
 
       <% if meeting.maps_enabled? && !meeting.online_meeting? %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
@@ -169,7 +169,7 @@ edit_link(
     <% if meeting.closed? && meeting.closing_visible? %>
       <div class="section">
         <h3 class="section-heading"><%= t(".meeting_minutes") %></h3>
-        <%= decidim_sanitize translated_attribute meeting.closing_report %>
+        <%= decidim_sanitize_editor translated_attribute meeting.closing_report %>
       </div>
     <% end %>
 
