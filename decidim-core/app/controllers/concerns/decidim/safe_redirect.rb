@@ -24,6 +24,10 @@ module Decidim
         # Don't allow URLs without host or with a different host than the organization one
         return if target_uri.host != current_organization.host
 
+        # Convert the URI to relative
+        target_uri.scheme = target_uri.host = target_uri.port = nil
+
+        # Return the relative URL
         target_uri.to_s
       end
     end
