@@ -1260,5 +1260,79 @@ eu:
           month_placeholder: HH
           postal_code: Posta-kodea
           postal_code_placeholder: Posta-kodearen zenbakia
+          select: Hautatu dokumentu mota
+          year: Urtea
+          year_placeholder: UUUU
+        count:
+          title:
+            one: "Boto %{count}"
+            other: "%{count} boto"
+        elections_log:
+          bb_status: Aukeraren egoera
+          description: Aukeraren erregistroak bozketa bakoitzari buruzko informazio garrantzitsu guztia erakutsiko dizu. Adibidez, gako-zeremoniaren edo zenbaketaren egoera edo emaitzak argitaratuta dauden. Egin klik erregistroari buruzko informazioa nahi duzun aukeran.
+          election_log: Aukeraketaren erregistroa
+          title: Aukeraketaren erregistroa
+        filters:
+          active: Aktibo
+          all: Guztiak
+          finished: Amaituta
+          search: Bilatu
+          state: Egoera
+          upcoming: Hurrengoak
+        filters_small_view:
+          close_modal: Itxi leihoa
+          filter: Iragazi
+          filter_by: Iragazi honen arabera
+          unfold: Zabaldu
+        index:
+          no_votings: Ez dago bilaketa-irizpideekin bat datorren bozketarik.
+          only_finished: Orain ez dago bozketa programaturik, baina hemen zerrendan amaitutako bozketak ikus ditzakezu.
+          title: Bozketak
         login:
+          access_code: Sarbide-kodea
+          access_code_placeholder: Sarbide-kodea
+          ask_for_a_new_one: Eskatu berri bat.
+          dont_have_access_code: Ez duzu sarbide-koderik?
+          form_title: 'Bete ezazu ondoko galdetegia bozketan sartzeko:'
           start_voting: Botoa ematen hasi
+          step: Identifikazioa
+          title: Neure burua identifikatu erroldako nire datuekin
+        no_census_contact_information: Oraindik ez dago harremanetarako informaziorik
+        orders:
+          label: 'Ordenatu bozketak honen arabera:'
+          random: Ausazkoa
+          recent: Azkenak
+        send_access_code:
+          invalid: Arazo bat izan da sarbide-kodea bidaltzean
+          success: Zure sarbide-kodea zuzen bidali da
+        show:
+          dates: Datak
+      votings_m:
+        badge_name:
+          finished: Amaituta
+          ongoing: Bidean
+          upcoming: Laster
+        footer_button_text:
+          participate: Parte hartu
+          view: Ikusi
+          vote: Eman botoa
+        unspecified: Zehaztu gabe
+        voting_type:
+          hybrid: Hibridoa
+          in_person: Aurrez aurre
+          online: Lineakoa
+        voting_types_label: Bozketa mota
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Irten
+      voting_navigation:
+        check_census: Botoa eman dezaket?
+        election_log: Aukeraketaren erregistroa
+        voting_menu_item: Bozketa
+      votings:
+        index:
+          promoted_votings: Bozketa nabarmenduak
+        promoted_voting:
+          more_info: Informazio gehiago
+          vote: Eman botoa
