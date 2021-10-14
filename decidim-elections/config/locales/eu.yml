@@ -1129,6 +1129,32 @@ eu:
             total_ballots_count: Boto-paper kopurua
           show:
             heading: Botoen zenbaketa
+            info_text: Bozketa-guneko bozketaren itxiera.
+          sign:
+            cancel: Utzi
+            check_box: Berrikusi dut eta bozketaren itxieraren ziurtagiri fisikoaren berdina da
+            close_modal: Itxi
+            confirm: Ados, jarraitu
+            error: Arazo bat izan da, mesedez, saiatu berriro.
+            heading: Botoen zenbaketa - Sinatu itxiera
+            info_text: Jarraitzen baduzu, ezin izango duzu informaziorik aldatu, ekintza hau ezin da desegin.
+            submit: Sinatu itxiera
+            success: Itxiera zuzen itxi da.
+            title: Ekintza hau ezin da desegin
+          update:
+            error: Arazo bat izan da itxieraren emaitzak eguneratzean. Saiatu berriro geroago.
+            success: Itxieraren emaitzak zuzen eguneratu dira.
+        in_person_votes:
+          complete_voting:
+            available_answers: 'Erantzun eskuragarriak:'
+            census_verified: Parte-hartzaileak oraindik ez du botoa eman.
+            complete_voting: Osatu bozketa
+            identify_another: Identifikatu beste parte-hartzaile bat
+            questions_title: 'Botoa emateko eskubidea du ondoko galdera hauetan:'
+            questions_title_voted: 'Parte-hartzaileak dagoeneko lineako botoa eman du eta botoa emateko eskubidea du ondoko galdera hauetan:'
+            voted: Parte-hartzaileak botoa eman du
+          create:
+            error: Botoa ez da erregistratu. Mesedez, saiatu berriro.
         polling_officers:
           index:
             polling_officer_role_description: Plataforma honetan egindako aukeraketa batzuetan mahaiko kudeatzaile gisa (Presidentea edo Administratzailea) jarduteko izendatu zaituzte.
