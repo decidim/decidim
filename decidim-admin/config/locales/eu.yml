@@ -24,7 +24,7 @@ eu:
       component:
         name: Izena
         published_at: Argitaratu at
-        weight: Pisu
+        weight: Pisua
       id: NAN
       import:
         user_group_id: Inportatu hau bezala
@@ -47,6 +47,7 @@ eu:
         favicon: Ikonoa
         force_authentication: Behartu autentikazioa
         force_users_to_authenticate_before_access_organization: Behartu erabiltzaileak autentikatzera erakundean sartu baino lehen
+        from: Igorlearen posta elektronikoa
         github_handler: GitHub kudeatzailea
         header_snippets: Goiburuko mozkinak
         highlight_alternative_color: Nabarmendua, aukerakoa
@@ -111,12 +112,12 @@ eu:
         show_in_footer: Erakutsi orri-oinean
         slug: URL laburra
         title: Titulua
-        weight: Pisu
+        weight: Pisua
       static_page_topic:
         description: Deskribapena
         show_in_footer: Erakutsi orri-oinean
         title: Izenburua
-        weight: Pisu
+        weight: Pisua
       user_group_csv_verification:
         file: file
     errors:
@@ -177,10 +178,12 @@ eu:
           success: Ederto! Onartu dituzu Administrazioaren Gaiak eta Baldintzak.
         actions:
           accept: Ados nago ondoko gai hauekin
+          are_you_sure: Ziur zaude ez dituzula onartu nahi Administrazioko Irizpideak eta Baldintzak?
           refuse: Ez onartu Administrazio-irizpideak eta baldintzak
           title: Onartzen ditut Administrazio-irizpideak eta baldintzak
         required_review:
           alert: 'Eskatuta: berrikusi gure Administrazio-irizpideak eta baldintzak'
+          callout: Mesedez, hartu tarte bat Administrazioko erabilera-irizpideak eta baldintzak berrikusteko. Bestela, ezin izango duzu plataforma erabili.
           cta: Berrikusi orain.
         title: Administrazioaren Irizpideak eta Baldintzak
       area_types:
@@ -203,6 +206,7 @@ eu:
           error: Errore bat gertatu da area berri bat sortzean.
           success: Area sortu da behar bezala.
         destroy:
+          has_spaces: Eremuak mendekotasuna duten espazioak ditu, ez du mendekotasunik izan behar ezabatzeko.
           success: Area behar bezala suntsitu da
         edit:
           title: Editatu eremua
@@ -255,6 +259,7 @@ eu:
       block_user:
         new:
           action: Blokeatu kontua eta bidali justifikazioa
+          description: Erabiltzaile baten blokeoak kontu erabilezina utziko du. Zure justifikazioan zein irizpideren arabera desblokeatuko zenukeen azaldu dezakezu.
           justification: Justifikazioa
           title: Blokeatu erabiltzaile hau %{name}
       categories:
@@ -317,6 +322,7 @@ eu:
         'false': 'Ez'
         managed_user_name: Erabiltzaile kudeatua
         solved: Ebatzita
+        title: Egiaztapen-arazoak
         transfer:
           email: Helbide elektronikoa
           error: Errore bat gertatu da egungo parte-hartzailea transferitzean parte-hartzaile kudeatu bati.
@@ -373,6 +379,7 @@ eu:
         file_help:
           import:
             explanation: 'Jarraibideak artxiborako:'
+            message_1: CSV, JSON eta Excel (.xlsx) artxiboak eutsita daude
             message_2: CSV artxiboetarako, zutabeen arteko banatzailea puntu eta koma (";") izan behar da
       help_sections:
         error: Errore bat gertatu da laguntza-atalak eguneratuz
@@ -424,6 +431,7 @@ eu:
           accepted_mime_types:
             csv: csv
             json: json
+            xls: xls
           actions:
             back: Atzera
           file_legend: Gehitu prozesatuko den inportazio-artxibo bat.
@@ -680,10 +688,12 @@ eu:
           title: Erabiltzaile ofiziala "%{name}"
         show_email_modal:
           close_modal: Itxi leihoa
+          description: Parte-hartzaile batekin zuzenean harremanetan jarri behar baduzu, Erakutsi botoian klik egin dezakezu helbide elektronikoa ikusteko. Ekintza hori erregistratu egingo da.
           email_address: Korreo elektronikoaren helbidea
           full_name: Izen osoa
           hidden: ezkutua
           show: Erakutsi
+          title: Erakutsi parte-hartzailearen helbide elektronikoa
         unblock:
           error: Errorea gertatu da parte-hartzailea desblokeatzean
           success: Parte-hartzailea zuzen desblokeatu da
