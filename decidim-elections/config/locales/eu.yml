@@ -802,6 +802,8 @@ eu:
             see_all_votings: Ikusi bozketa guztiak
             votings_button_title: Lotura guztiak erakusten dituen Bozketen orrialdera
       polling_officer_zone:
+        menu:
+          polling_officer_zone: Mahaiko kudeatzailearen gunea
         polling_officers:
           show:
             actions:
@@ -817,3 +819,20 @@ eu:
                 voting: Bozketa
               no_polling_stations: Oraindik ez zaizu esleitu bozkatzeko lekurik.
               title: Bozketa-guneak
+      polling_officers:
+        actions:
+          confirm_destroy: Ziur zaude?
+          destroy: Ezabatu
+          new: Berria
+          title: Ekintzak
+        roles:
+          manager: Administratzailea
+          president: Presidentea
+          unassigned: Esleitu gabe
+      polling_stations:
+        actions:
+          confirm_destroy: Ziur zaude?
+          destroy: Ezabatu
+          edit: Editatu
+          new: Berria
+          title: Ekintzak
