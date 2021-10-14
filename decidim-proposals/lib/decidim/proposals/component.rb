@@ -131,8 +131,7 @@ Decidim.register_component(:proposals) do |component|
       collection = Decidim::Proposals::Proposal
                    .published
                    .where(component: component_instance)
-                   .includes(:scope, :category, component: { participatory_space: :organization })
-
+                   .includes(:scope, :category, :component)
 
       if space.user_roles(:valuator).where(user: user).any?
         collection.with_valuation_assigned_to(user, space)
@@ -150,7 +149,7 @@ Decidim.register_component(:proposals) do |component|
     exports.collection do |component_instance|
       Decidim::Comments::Export.comments_for_resource(
         Decidim::Proposals::Proposal, component_instance
-      ).includes(:author, :user_group, root_commentable: { component: {participatory_space: :organization} } )
+      ).includes(:author, :user_group, root_commentable: { component: { participatory_space: :organization } })
     end
 
     exports.include_in_open_data = true

@@ -346,13 +346,8 @@ ro:
       directory:
         meetings:
           index:
-            all: Toate
-            date: Data
             meetings: Întâlniri
-            past: Trecute
-            search: Caută
             space_type: Spaţiu participativ
-            upcoming: Urmează
       last_activity:
         meeting_updated_at_html: "<span>Întâlnire actualizată la %{link}</span>"
         new_meeting_at_html: "<span>O nouă ședință la %{link}</span>"

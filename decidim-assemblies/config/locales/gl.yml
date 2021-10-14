@@ -61,6 +61,7 @@ gl:
         designation_date: Data de designación
         full_name: Nome completo
         gender: Xénero
+        non_user_avatar: Avatar
         position: Posición
         user_id: Usuario
       assembly_user_role:
@@ -181,6 +182,9 @@ gl:
         update:
           error: Houbo un erro actualizado por un usuario para este conxunto.
           success: O usuario actualizouse con éxito para este conxunto.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Tipo de xuntanza
       menu:
         assemblies: Asembleas
         assemblies_settings: Axustes
@@ -294,7 +298,10 @@ gl:
         assembly_members:
           form:
             existing_user: Usuario existente
+            explanation: 'Instrucións para a imaxe:'
+            image_guide: É preferíbel unha imaxe apaisada sen ningún texto.
             non_user: Non usuario
+            non_user_avatar_help: Tes que obter o consentimento das persoas antes de publicalas coma membros.
             select_a_position: Seleccione unha posición
             select_user: Selecciona un usuario
             user_type: Tipo de usuario

@@ -304,7 +304,7 @@ module Decidim
 
       initializer "SSL and HSTS" do
         Rails.application.configure do
-          config.force_ssl = Rails.env.production? && Decidim.config.force_ssl
+          config.force_ssl = Decidim.config.force_ssl
         end
       end
 
@@ -315,7 +315,7 @@ module Decidim
       end
 
       initializer "Expire sessions" do
-        Rails.application.config.session_store :cookie_store, expire_after: Decidim.config.expire_session_after
+        Rails.application.config.session_store :cookie_store, secure: Decidim.config.force_ssl, expire_after: Decidim.config.expire_session_after
       end
 
       initializer "decidim.core.register_resources" do

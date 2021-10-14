@@ -58,7 +58,7 @@ Decidim.register_component(:meetings) do |component|
     exports.collection do |component_instance|
       Decidim::Comments::Export.comments_for_resource(
         Decidim::Meetings::Meeting, component_instance
-      ).includes(:author, :user_group, root_commentable: { component: {participatory_space: :organization} } )
+      ).includes(:author, :user_group, root_commentable: { component: { participatory_space: :organization } })
     end
 
     exports.include_in_open_data = true
@@ -87,7 +87,6 @@ Decidim.register_component(:meetings) do |component|
     settings.attribute :comments_max_length, type: :integer, required: false
     settings.attribute :registration_code_enabled, type: :boolean, default: true
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
-    settings.attribute :registration_code_enabled, type: :boolean, default: false
     settings.attribute :enable_pads_creation, type: :boolean, default: false
     settings.attribute :creation_enabled_for_participants, type: :boolean, default: false
     settings.attribute :maps_enabled, type: :boolean, default: true

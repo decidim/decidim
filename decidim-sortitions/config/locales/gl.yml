@@ -19,6 +19,8 @@ gl:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Comentario
         name: Edicións
         settings:
           global:

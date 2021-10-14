@@ -154,6 +154,7 @@ eu:
             client_secret: Bezeroaren sekretua
             site_url: Guneko URLa
           enabled: Gaituta
+          enabled_by_default: Hornitzaile hau lehenetsiz gaituta dago. Editatu ahal da, baina ezin da desaktibatu.
           facebook:
             app_id: Apparen IDa
             app_secret: Aplikazio-sekretua

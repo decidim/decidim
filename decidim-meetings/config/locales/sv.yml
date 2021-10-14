@@ -337,6 +337,13 @@ sv:
           value_types:
             organizer_presenter:
               not_found: 'Arrangören hittades inte i databasen (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Alla
+        filter_meeting_space_values:
+          all: Alla
+        filter_scope_values:
+          all: Alla
       calendar_modal:
         calendar_url: Kalender-URL
         close_window: Stäng fönster
@@ -350,13 +357,8 @@ sv:
       directory:
         meetings:
           index:
-            all: Alla
-            date: Datum
             meetings: Möten
-            past: Tidigare
-            search: Sök
             space_type: Deltagarutrymme
-            upcoming: Kommande
       last_activity:
         new_meeting_at_html: "<span>Nytt möte på %{link}</span>"
       layouts:
