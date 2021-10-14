@@ -1257,5 +1257,8 @@ eu:
           document_number: Dokumentuaren zenbakia
           document_number_placeholder: ID zenbakia
           month: Hilabetea
+          month_placeholder: HH
+          postal_code: Posta-kodea
+          postal_code_placeholder: Posta-kodearen zenbakia
         login:
           start_voting: Botoa ematen hasi
