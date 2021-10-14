@@ -836,3 +836,55 @@ eu:
           edit: Editatu
           new: Berria
           title: Ekintzak
+      votings:
+        count:
+          title:
+            one: "Boto %{count}"
+            other: "%{count} boto"
+        filters:
+          active: Aktibo
+          all: Guztiak
+          finished: Amaituta
+          search: Bilatu
+          state: Egoera
+          upcoming: Hurrengoak
+        filters_small_view:
+          close_modal: Itxi leihoa
+          filter: Iragazi
+          filter_by: Iragazi honen arabera
+          unfold: Zabaldu
+        index:
+          no_votings: Ez dago bilaketa-irizpideekin bat datorren bozketarik.
+          only_finished: Orain ez dago bozketa programaturik, baina hemen zerrendan amaitutako bozketak ikus ditzakezu.
+          title: Bozketak
+        orders:
+          label: 'Ordenatu bozketak honen arabera:'
+          random: Ausazkoa
+          recent: Azkenak
+        show:
+          dates: Datak
+      votings_m:
+        badge_name:
+          finished: Amaituta
+          ongoing: Bidean
+          upcoming: Laster
+        footer_button_text:
+          participate: Parte hartu
+          view: Ikusi
+          vote: Eman botoa
+        unspecified: Zehaztu gabe
+        voting_type:
+          hybrid: Hibridoa
+          in_person: Aurrez aurre
+          online: Lineakoa
+        voting_types_label: Bozketa mota
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Irten
+      votings:
+        index:
+          promoted_votings: Bozketa nabarmenduak
+        promoted_voting:
+          more_info: Informazio gehiago
+          vote: Eman botoa
