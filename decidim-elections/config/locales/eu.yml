@@ -1155,13 +1155,107 @@ eu:
             voted: Parte-hartzaileak botoa eman du
           create:
             error: Botoa ez da erregistratu. Mesedez, saiatu berriro.
+          in_person_form:
+            census_not_present: Parte-hartzaile hau ez da erroldan agertzen.
+            census_not_present_description: Erroldako erreklamazio-bulegora joan behar zara edo laguntza teknikoaren zerbitzura.
+            date_of_birth: Jaiotze-data
+            day: Eguna
+            day_placeholder: EE
+            document_number: Dokumentuaren zenbakia
+            document_number_placeholder: ID zenbakia
+            month: Hilabetea
+            month_placeholder: HH
+            select: Hautatu dokumentu mota
+            title: 'Hautatu dokumentu mota eta idatzi parte-hartzailearen agiriaren zenbakia:'
+            validate_document: Balidatu dokumentua
+            year: Urtea
+            year_placeholder: UUUU
+          new:
+            back: Itzuli bozketa-guneetara
+            title: Pertsona bat identifikatzea eta egiaztatzea
+          show:
+            back: Itzuli bozketa-guneetara
+            title: Aurrez aurreko botoa erregistratzearen zain
+          update:
+            error: Arazo bat izan da botoa erregistratzean. Mesedez, saiatu berriro.
+            success:
+              accepted: Botoa zuzen erregistratu da.
+              rejected: Bulletin Boardek ez du onartu botoa. Mesedez, jarri harremanetan programaren administratzailearekin.
+          verify_document:
+            census_present: Parte-hartzaile hau erroldan agertzen da.
+            name: Izena
+            title: 'Egiaztatu ondoko datu hauek zuzenak direla:'
+            verify_document: Egiaztatu agiria
+        menu:
+          polling_officer_zone: Mahaiko kudeatzailearen gunea
         polling_officers:
           index:
             polling_officer_role_description: Plataforma honetan egindako aukeraketa batzuetan mahaiko kudeatzaile gisa (Presidentea edo Administratzailea) jarduteko izendatu zaituzte.
             polling_station:
+              address: Helbidea
+              count_votes: Zenbatu botoak
+              election: Aukera
+              identify_person: Identifikatu pertsona bat
+              name: Izena
               no_polling_stations: Oraindik ez zaizu esleitu bozkatzeko lekurik.
               role: Zure rola
+              show_closure: Ikusi itxiera
+              title: Bozketa-guneak
               voting: Bozketa
+      polling_officers:
+        actions:
+          confirm_destroy: Ziur zaude?
+          destroy: Ezabatu
+          new: Berria
+          title: Ekintzak
+        roles:
+          manager: Administratzailea
+          president: Presidentea
+          unassigned: Esleitu gabe
+      polling_station_closure_recount:
+        nota_option: Zuriz / Aurreko bat ere ez
+        polling_officer_notes: 'Mahaiko kudeatzailearen oharrak:'
+        polling_officer_notes_blank: Ez dago oharrik
+        recount_summary: 'Zenbaketaren laburpena:'
+        signed: Sinatua
+        total_ballots: 'Boto-paperak, guztira:'
+        total_blank_ballots: 'Boto-paper zuriak, guztira:'
+        total_null_ballots: 'Boto-paper okerrak, guztira:'
+        total_valid_ballots: 'Boto-paper baliodunak, guztira:'
+      polling_stations:
+        actions:
+          confirm_destroy: Ziur zaude?
+          destroy: Ezabatu
+          edit: Editatu
+          new: Berria
+          title: Ekintzak
       votings:
+        access_code_modal:
+          email: 'Bidali posta elektronikoz honi: %{email}'
+          info: Parte hartzeko sarbide-kodea behar duzu. Postaz bat jaso ez baduzu, beste bat bidali ahal dizugu.
+          no_email: Posta elektronikoa ez erabilgarri
+          no_sms: Telefono zenbakia ez erabilgarri
+          sms: Bidali SMSz honi %{sms}
+          title: Lortu sartzeko kodea
+        check_census:
+          check_status: Egiaztatu egoera
+          description: Hemen, zure erroldako datuak egiaztatzeko aukera duzu, bozketan parte hartzeko eskubidea duzun jakiteko. Sarbide-kode bat izan beharko zenuke, baina galdu baduzu, berriro eska dezakezu, zure datuak zuzenak badira.
+          error:
+            info: 'Mesedez, saiatu berriro. Sistemaren datuak okerrak direla uste baduzu, hemen bidali ahal dituzu: %{census_contact_information}.'
+            title: Zure erroldako datuak okerrak dira!
+          form_title: 'Bete ondoko galdetegia zure erroldako datuak egiaztatzeko:'
+          invalid: Arazo bat izan da errolda egiaztatzean.
+          success:
+            access_link: sMSz edo posta elektronikoz.
+            info: Zure sarbide-kodea postaz jasota izan beharko zenuke. Ez baduzu, hemen eska dezakezu
+            title: Zure erroldako datuak zuzenak dira!
+          title: Botoa eman dezaket?
+        check_fields:
+          date_of_birth: Jaiotze-data
+          day: Eguna
+          day_placeholder: EE
+          document_number: Dokumentuaren zenbakia
+          document_number_placeholder: ID zenbakia
+          month: Hilabetea
         login:
           start_voting: Botoa ematen hasi
