@@ -6,9 +6,10 @@ module Decidim
       def conversation_name_for(users)
         return content_tag(:span, t("decidim.profile.deleted"), class: "label label--small label--basic") if users.first.deleted?
 
-        content_tag(:strong, users.first.name) do
-          content_tag(:span, "@#{users.first.nickname}", class: "muted")
-        end
+        content_tag = content_tag(:strong, users.first.name)
+        content_tag << tag.br
+        content_tag << content_tag(:span, "@#{users.first.nickname}", class: "muted")
+        content_tag
       end
 
       def conversation_label_for(participants)

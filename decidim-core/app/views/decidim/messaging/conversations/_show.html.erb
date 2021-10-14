@@ -10,6 +10,17 @@
             <% end %>
           </div>
 
+          <% if participants.count == 1 %>
+            <% if participants.first.deleted? %>
+              <%= image_tag present(participants.first).avatar_url, alt: t("decidim.author.avatar", name: t("decidim.profile.deleted")) %>
+            <% else %>
+              <%= link_to profile_path(participants.first.nickname) do %>
+                <%= image_tag present(participants.first).avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(participants.first.name)) %>
+              <% end %>
+            <% end %>
+          <% else %>
+            <%= image_tag present(current_user).avatar.default_multiuser_url, alt: t("decidim.author.avatar_multiuser") %>
+          <% end %>
           <div class="ml-s">
             <h1>
               <% if participants.count == 1 %>

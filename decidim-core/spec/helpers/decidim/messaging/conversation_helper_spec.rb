@@ -63,7 +63,7 @@ module Decidim
         end
 
         it "includes the user name" do
-          expect(helper.conversation_name_for(participants)).to eq "<strong><span class=\"muted\">@#{user.nickname}</span></strong>"
+          expect(helper.conversation_name_for(participants)).to eq "<strong>#{user.name}</strong><br><span class=\"muted\">@#{user.nickname}</span>"
         end
 
         context "when user is deleted" do
