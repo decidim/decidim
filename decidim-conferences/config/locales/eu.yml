@@ -37,13 +37,13 @@ eu:
         date: Data
         link: Lotura
         title: Izenburua
-        weight: pisu
+        weight: Pisua
       conference_partner:
         link: Lotura
         logo: Logoa
         name: Izena
         partner_type: Lankidetza mota
-        weight: pisu
+        weight: Pisua
       conference_registration_invite:
         email: Helbide elektronikoa
         name: Izena
@@ -53,7 +53,7 @@ eu:
         description: Deskribapena
         price: Prezioa
         title: Izenburua
-        weight: pisu
+        weight: Pisua
       conference_speaker:
         affiliation: Kidetza
         avatar: Avatarra
