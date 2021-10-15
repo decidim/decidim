@@ -14,13 +14,13 @@ module Decidim
 
         def upcoming_meetings
           @upcoming_meetings ||= Decidim::Meetings::Meeting
-                               .includes(component: :participatory_space)
-                               .where(component: meeting_components)
-                               .visible_meeting_for(current_user)
-                               .where("end_time >= ?", Time.current)
-                               .except_withdrawn
-                               .order(start_time: :asc)
-                               .limit(limit)
+                                 .includes(component: :participatory_space)
+                                 .where(component: meeting_components)
+                                 .visible_meeting_for(current_user)
+                                 .where("end_time >= ?", Time.current)
+                                 .except_withdrawn
+                                 .order(start_time: :asc)
+                                 .limit(limit)
         end
 
         def geolocation_enabled?

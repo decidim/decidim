@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RenameUpcomingEventsContentBlockToUpcomingMeetings < ActiveRecord::Migration[6.0]
   class ContentBlock < ApplicationRecord
     self.table_name = :decidim_content_blocks
