@@ -167,7 +167,7 @@ eu:
             title: Editatu aukera
             update: Eguneratu aukera
           index:
-            no_bulletin_board: Ez dago <a href = "https://github.com/decidim/decidim-bulletin-board" >Bulletin Board </a> zerbitzari konfiguraturik, modulu hau erabiltzeko beharrezkoa dena. Ataza hori sistemaren administratzaileak egin behar du.
+            no_bulletin_board: Ez dago <a href = "https://github.com/decidim/decidim-bulletin-board" >Iragarki Taula </a> zerbitzari konfiguraturik, modulu hau erabiltzeko beharrezkoa dena. Ataza hori sistemaren administratzaileak egin behar du.
             title: Aukerak
           new:
             create: Sortu aukera
@@ -243,7 +243,7 @@ eu:
               time_before: Konfigurazioa egiten ari da <strong>aukeraketa hasi baino gutxienez %{hours} ordu</strong>.
               trustees_number: Espazio parte-hartzaileak badu <strong>gutxienez %{number} bermatzaile gako publikoarekin</strong>.
             submit: Konfiguratu bozketa
-            success: Aukeraketa zuzen bidali da hona Bulletin Board
+            success: 'Aukeraketa zuzen bidali da hona: Iragarki Taula'
             title: Konfiguratu bozketa
             trustees: Hautaketaren bermatzaileak
           created:
@@ -532,8 +532,8 @@ eu:
         menu:
           trustee_zone: Bermatzailearen gunea
         no_bulletin_board:
-          body: Bulletin Board bat behar da, atal honetarako konfiguratua. Jarri harremanetan administratzailearekin xehetasun gehiago izateko.
-          title: Sentitzen dugu, Bulletin Board oraindik ez dago konfiguratuta.
+          body: Iragarki Taula bat behar da, atal honetarako konfiguratua. Jarri harremanetan administratzailearekin xehetasun gehiago izateko.
+          title: Sentitzen dugu, Iragarki Taula oraindik ez dago konfiguratuta.
         trustees:
           show:
             elections:
@@ -825,7 +825,7 @@ eu:
           index:
             title: Hautatu aukera bat emaitzak ikusteko
           results:
-            bulletin_board: Bulletin Board
+            bulletin_board: Iragarki Taula
             election_totals: Aukeraketak, guztira
             polling_stations: Bozketa-guneak
             result_types:
