@@ -64,11 +64,20 @@ export default function attachGeocoding($input, options, callback) {
   inputIdParts.pop();
 
   const idPrefix = `${inputIdParts.join("_")}`;
+
+  let latitudeName = "latitude";
+  let longitudeName = "longitude";
+
+  if ($input.length > 0) {
+    latitudeName = getCoordinateInputName("latitude", $input, attachOptions);
+    longitudeName = getCoordinateInputName("longitude", $input, attachOptions);
+  }
+
   const config = $.extend({
     latitudeId: `${idPrefix}_latitude`,
     longitudeId: `${idPrefix}_longitude`,
-    latitudeName: getCoordinateInputName("latitude", $input, attachOptions),
-    longitudeName: getCoordinateInputName("longitude", $input, attachOptions)
+    latitudeName: latitudeName,
+    longitudeName: longitudeName
   }, options);
   let geocoded = false;
 
