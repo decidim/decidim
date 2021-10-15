@@ -539,6 +539,40 @@ describe "Conversations", type: :system do
     end
   end
 
+  context "when user is deleted" do
+    let(:interlocutor) { create(:user, :confirmed, organization: organization) }
+
+    let!(:conversation) do
+      Decidim::Messaging::Conversation.start!(
+        originator: interlocutor,
+        interlocutors: [user],
+        body: "who wants apples?"
+      )
+    end
+
+    before do
+      Decidim::DestroyAccount.call(interlocutor, Decidim::DeleteAccountForm.from_params({}))
+      interlocutor.reload
+    end
+
+    it "shows user's conversation list" do
+      visit_inbox
+
+      within ".conversations" do
+        expect(page).to have_selector(".card.card--widget", text: /Participant deleted/i)
+        expect(page).to have_selector(".card.card--widget", text: "who wants apples?")
+      end
+    end
+
+    it "allows entering a conversation" do
+      visit_inbox
+      click_link "conversation-#{conversation.id}"
+
+      expect(page).to have_content("Conversation with Participant deleted")
+      expect(page).to have_content("who wants apples?")
+    end
+  end
+
   private
 
   def start_conversation(message)
