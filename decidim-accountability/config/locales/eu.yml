@@ -111,7 +111,7 @@ eu:
           index:
             title: Proiektuen denbora-lerroko sarrerak
           new:
-            create: Sortu sarrera
+            create: Sortu sarrerak
             title: Sarrera berria
           update:
             invalid: Arazo bat izan da sarrera hau eguneratzean
