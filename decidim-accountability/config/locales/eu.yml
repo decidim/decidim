@@ -12,9 +12,9 @@ eu:
         proposals: Proposamen sortak
         start_date: Hasiera-data
         title: Izenburua
-        updated_at: Eguneratuta
+        updated_at: Noiz eguneratua
       status:
-        description: Descripción
+        description: Deskribapena
         key: Gakoa
         name: Izena
         progress: Aurrerapena
