@@ -91,6 +91,7 @@ module Decidim
       end
 
       def compare
+        enforce_permission_to :edit, :proposal, proposal: @proposal
         @step = :step_2
         @similar_proposals ||= Decidim::Proposals::SimilarProposals
                                .for(current_component, @proposal)
@@ -103,7 +104,7 @@ module Decidim
       end
 
       def complete
-        enforce_permission_to :create, :proposal
+        enforce_permission_to :edit, :proposal, proposal: @proposal
         @step = :step_3
 
         @form = form_proposal_model
@@ -112,11 +113,13 @@ module Decidim
       end
 
       def preview
+        enforce_permission_to :edit, :proposal, proposal: @proposal
         @step = :step_4
         @form = form(ProposalForm).from_model(@proposal)
       end
 
       def publish
+        enforce_permission_to :edit, :proposal, proposal: @proposal
         @step = :step_4
         PublishProposal.call(@proposal, current_user) do
           on(:ok) do

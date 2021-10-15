@@ -24,16 +24,37 @@ describe "Admin views proposal details from admin", type: :system do
   end
 
   describe "with authors" do
-    it "has a link to each author profile" do
-      go_to_admin_proposal_page(proposal)
+    context "when the proposal's author is other user" do
+      let!(:other_user) { create(:user, organization: current_component.organization) }
+      let!(:proposal) { create :proposal, component: current_component, users: [other_user] }
 
-      within "#proposal-authors-list" do
-        proposal.authors.each do |author|
-          list_item = find("li", text: author.name)
+      it "has a link to each author profile" do
+        go_to_admin_proposal_page(proposal)
 
-          within list_item do
-            expect(page).to have_selector("a", text: author.name)
-            expect(page).to have_selector(:xpath, './/a[@title="Contact"]')
+        within "#proposal-authors-list" do
+          proposal.authors.each do |author|
+            list_item = find("li", text: author.name)
+
+            within list_item do
+              expect(page).to have_selector("a", text: author.name)
+              expect(page).to have_selector(:xpath, './/a[@title="Contact"]')
+            end
+          end
+        end
+      end
+    end
+
+    context "when the proposal's author is current user" do
+      it "has a link to each author profile" do
+        go_to_admin_proposal_page(proposal)
+
+        within "#proposal-authors-list" do
+          proposal.authors.each do |author|
+            list_item = find("li", text: author.name)
+
+            within list_item do
+              expect(page).to have_selector("a", text: author.name)
+            end
           end
         end
       end
