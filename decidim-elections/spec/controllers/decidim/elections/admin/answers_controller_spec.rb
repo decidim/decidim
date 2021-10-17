@@ -36,13 +36,20 @@ module Decidim
               photos: election.photos.map { |a| a.id.to_s }
             }
           end
-          let(:params) do
+
+          let(:space_params) do
             {
+              election_slug: component.participatory_space.slug,
+              script_name: "/participatory_process/#{component.participatory_space.slug}"
+            }
+          end
+          let(:params) do
+            space_params.merge(
               id: answer.id,
               election_id: election.id,
               question_id: question.id,
               answer: answer_params
-            }
+            )
           end
 
           it "updates the election" do
@@ -59,13 +66,10 @@ module Decidim
               let(:answer_title) { { en: "" } }
               let(:answer) { create(:election_answer, :with_photos, question: question) }
 
-              before do
-                controller.class_eval do
-                  helper_method :proposals_picker_election_question_answers_path
-
-                  def proposals_picker_election_question_answers_path(_election, _question)
-                    "/"
-                  end
+              controller(AnswersController) do
+                helper_method :proposals_picker_election_question_answers_path
+                def proposals_picker_election_question_answers_path(_foo, _bar)
+                  "/"
                 end
               end
 

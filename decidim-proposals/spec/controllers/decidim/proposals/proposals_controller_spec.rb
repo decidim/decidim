@@ -9,12 +9,18 @@ module Decidim
 
       let(:user) { create(:user, :confirmed, organization: component.organization) }
 
+      let(:space_params) do
+        {
+          participatory_process_slug: component.participatory_space.slug,
+          script_name: "/participatory_process/#{component.participatory_space.slug}"
+        }
+      end
       let(:proposal_params) do
         {
           component_id: component.id
         }
       end
-      let(:params) { { proposal: proposal_params } }
+      let(:params) { space_params.merge proposal: proposal_params }
 
       before do
         request.env["decidim.current_organization"] = component.organization
@@ -27,7 +33,7 @@ module Decidim
           let(:component) { create(:proposal_component, :with_geocoding_enabled) }
 
           it "sorts proposals by search defaults" do
-            get :index
+            get :index, params: space_params
             expect(response).to have_http_status(:ok)
             expect(subject).to render_template(:index)
             expect(assigns(:proposals).order_values).to eq(
@@ -46,7 +52,7 @@ module Decidim
             geocoded_proposals = create_list :proposal, 10, component: component, latitude: 1.1, longitude: 2.2
             _non_geocoded_proposals = create_list :proposal, 2, component: component, latitude: nil, longitude: nil
 
-            get :index
+            get :index, params: space_params
             expect(response).to have_http_status(:ok)
             expect(subject).to render_template(:index)
 
@@ -59,7 +65,7 @@ module Decidim
           let(:component) { create(:proposal_component, :with_participatory_texts_enabled) }
 
           it "sorts proposals by position" do
-            get :index
+            get :index, params: space_params
             expect(response).to have_http_status(:ok)
             expect(subject).to render_template(:participatory_text)
             expect(assigns(:proposals).order_values.first.expr.name).to eq("position")
@@ -71,7 +77,7 @@ module Decidim
             let!(:amendment) { create(:amendment, amendable: amendable, emendation: emendation, state: "accepted") }
 
             it "does not include emendations" do
-              get :index
+              get :index, params: space_params
               expect(response).to have_http_status(:ok)
               emendations = assigns(:proposals).select(&:emendation?)
               expect(emendations).to be_empty
@@ -146,10 +152,10 @@ module Decidim
           }
         end
         let(:params) do
-          {
+          space_params.merge(
             id: proposal.id,
             proposal: proposal_params
-          }
+          )
         end
 
         before { sign_in user }
@@ -191,10 +197,10 @@ module Decidim
         let!(:current_user) { create(:user, :confirmed, organization: component.organization) }
         let!(:proposal_extra) { create(:proposal, :draft, component: component, users: [current_user]) }
         let!(:params) do
-          {
+          space_params.merge(
             id: proposal_extra.id,
             proposal: proposal_params
-          }
+          )
         end
 
         before { sign_in user }

@@ -21,7 +21,14 @@ module Decidim
           )
         end
         let(:result) { create(:result, component: component) }
-        let(:params) { { id: result.id } }
+        let(:space_params) do
+          {
+            component_id: component.id,
+            participatory_process_slug: participatory_space.slug,
+            script_name: "/admin/participatory_process/#{participatory_space.slug}"
+          }
+        end
+        let(:params) { space_params.merge(id: result.id) }
 
         before do
           request.env["decidim.current_organization"] = organization
@@ -31,11 +38,7 @@ module Decidim
 
         describe "GET index" do
           it "renders the index view" do
-            get :index, params: {
-              participatory_process_slug: participatory_space.slug,
-              component_id: component.id
-            }
-
+            get :index, params: space_params
             expect(response).to have_http_status(:ok)
             expect(subject).to render_template("decidim/accountability/admin/results/index")
           end
@@ -52,7 +55,7 @@ module Decidim
           end
 
           context "when filtering proposals" do
-            let(:params) { { q: "a", id: result.id } }
+            let(:params) { space_params.merge(q: "a", id: result.id) }
 
             it "renders the proposals picker" do
               expect(response)

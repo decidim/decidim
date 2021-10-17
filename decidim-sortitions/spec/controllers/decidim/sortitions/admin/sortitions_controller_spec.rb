@@ -11,6 +11,12 @@ module Decidim
         let(:component) { sortition.component }
         let(:sortition) { create(:sortition) }
         let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
+        let(:space_params) do
+          {
+            participatory_process_slug: component.participatory_space.slug,
+            script_name: "/admin/participatory_process/#{component.participatory_space.slug}"
+          }
+        end
 
         before do
           request.env["decidim.current_organization"] = component.organization
@@ -21,11 +27,10 @@ module Decidim
         describe "show" do
           let(:sortition) { create(:sortition) }
           let(:params) do
-            {
-              component_id: sortition.component.id,
-              participatory_process_slug: sortition.component.participatory_space.slug,
-              id: sortition.id
-            }
+            space_params.merge({
+                                 component_id: sortition.component.id,
+                                 id: sortition.id
+                               })
           end
 
           it "renders the show template" do
@@ -35,9 +40,7 @@ module Decidim
         end
 
         describe "new" do
-          let(:params) do
-            { participatory_process_slug: component.participatory_space.slug }
-          end
+          let(:params) { space_params }
 
           it "renders the new template" do
             get :new, params: params
@@ -50,30 +53,29 @@ module Decidim
           let(:dice) { ::Faker::Number.between(from: 1, to: 6) }
           let(:target_items) { ::Faker::Number.between(from: 1, to: 10) }
           let(:params) do
-            {
-              participatory_process_slug: component.participatory_space.slug,
-              sortition: {
-                decidim_proposals_component_id: decidim_proposals_component_id,
-                decidim_category_id: decidim_category_id,
-                dice: dice,
-                target_items: target_items,
-                title: {
-                  en: "Title",
-                  es: "Título",
-                  ca: "Títol"
-                },
-                witnesses: {
-                  en: "Witnesses",
-                  es: "Testigos",
-                  ca: "Testimonis"
-                },
-                additional_info: {
-                  en: "Additional information",
-                  es: "Información adicional",
-                  ca: "Informació adicional"
-                }
-              }
-            }
+            space_params.merge({
+                                 sortition: {
+                                   decidim_proposals_component_id: decidim_proposals_component_id,
+                                   decidim_category_id: decidim_category_id,
+                                   dice: dice,
+                                   target_items: target_items,
+                                   title: {
+                                     en: "Title",
+                                     es: "Título",
+                                     ca: "Títol"
+                                   },
+                                   witnesses: {
+                                     en: "Witnesses",
+                                     es: "Testigos",
+                                     ca: "Testimonis"
+                                   },
+                                   additional_info: {
+                                     en: "Additional information",
+                                     es: "Información adicional",
+                                     ca: "Informació adicional"
+                                   }
+                                 }
+                               })
           end
 
           context "with invalid params" do
@@ -111,11 +113,10 @@ module Decidim
         describe "confirm_destroy" do
           let(:sortition) { create(:sortition) }
           let(:params) do
-            {
-              component_id: sortition.component.id,
-              participatory_process_slug: sortition.component.participatory_space.slug,
-              id: sortition.id
-            }
+            space_params.merge({
+                                 component_id: sortition.component.id,
+                                 id: sortition.id
+                               })
           end
 
           it "renders the confirm_destroy template" do
@@ -133,13 +134,12 @@ module Decidim
             }
           end
           let(:params) do
-            {
-              participatory_process_slug: component.participatory_space.slug,
-              id: sortition.id,
-              sortition: {
-                cancel_reason: cancel_reason
-              }
-            }
+            space_params.merge({
+                                 id: sortition.id,
+                                 sortition: {
+                                   cancel_reason: cancel_reason
+                                 }
+                               })
           end
 
           context "with invalid params" do
@@ -169,11 +169,10 @@ module Decidim
         describe "edit" do
           let(:sortition) { create(:sortition) }
           let(:params) do
-            {
-              component_id: sortition.component.id,
-              participatory_process_slug: sortition.component.participatory_space.slug,
-              id: sortition.id
-            }
+            space_params.merge({
+                                 component_id: sortition.component.id,
+                                 id: sortition.id
+                               })
           end
 
           it "renders the edit template" do
@@ -198,14 +197,13 @@ module Decidim
             }
           end
           let(:params) do
-            {
-              participatory_process_slug: component.participatory_space.slug,
-              id: sortition.id,
-              sortition: {
-                title: title,
-                additional_info: additional_info
-              }
-            }
+            space_params.merge({
+                                 id: sortition.id,
+                                 sortition: {
+                                   title: title,
+                                   additional_info: additional_info
+                                 }
+                               })
           end
 
           context "with invalid params" do

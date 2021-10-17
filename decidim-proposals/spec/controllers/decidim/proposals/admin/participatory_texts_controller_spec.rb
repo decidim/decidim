@@ -15,6 +15,7 @@ module Decidim
         let(:params) do
           {
             component_id: component.id,
+            script_name: "/admin/participatory_process/#{component.participatory_space.slug}",
             participatory_process_slug: component.participatory_space.slug,
             title: title,
             description: {},

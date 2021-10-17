@@ -8,11 +8,18 @@ module Decidim
       routes { Decidim::Proposals::Engine.routes }
 
       let(:component) { create(:proposal_component, :with_creation_enabled, :with_collaborative_drafts_enabled) }
-      let(:params) { { component_id: component.id } }
+      let(:params) { space_params.merge(component_id: component.id) }
       let(:user) { create(:user, :confirmed, organization: component.organization) }
       let(:author) { create(:user, :confirmed, organization: component.organization) }
       let!(:collaborative_draft) { create(:collaborative_draft, component: component, users: [author]) }
       let(:user_2) { create(:user, :confirmed, organization: component.organization) }
+
+      let(:space_params) do
+        {
+          participatory_process_slug: component.participatory_space.slug,
+          script_name: "/participatory_process/#{component.participatory_space.slug}"
+        }
+      end
 
       before do
         request.env["decidim.current_organization"] = component.organization
@@ -26,7 +33,7 @@ module Decidim
         end
 
         it "creates a new access request for the given collaborative_draft" do
-          expect { post :request_access, params: { id: collaborative_draft.id, state: collaborative_draft.state } }.to change {
+          expect { post :request_access, params: space_params.merge(id: collaborative_draft.id, state: collaborative_draft.state) }.to change {
             collaborative_draft.reload
             collaborative_draft.requesters.count
           }.by(1)
@@ -51,7 +58,7 @@ module Decidim
       describe "POST request_reject" do
         before do
           sign_in user_2, scope: :user
-          post :request_access, params: { id: collaborative_draft.id, state: collaborative_draft.state }
+          post :request_access, params: space_params.merge(id: collaborative_draft.id, state: collaborative_draft.state)
           sign_in author, scope: :user
         end
 
