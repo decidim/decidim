@@ -380,6 +380,8 @@ ja:
       conference_venues: ミーティング会場
       content_blocks:
         upcoming_meetings:
+          name: これからのミーティング
+          upcoming_meetings: これからのミーティング
           view_all_meetings: すべて表示
       directory:
         meetings:
