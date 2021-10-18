@@ -389,10 +389,10 @@ fr-CA:
         export_calendar: Calendrier d'exportation
       conference_venues: Salles de conférence
       content_blocks:
-        upcoming_events:
-          name: Évènements à venir
-          upcoming_events: Rencontres à venir
-          view_all_events: Voir tout
+        upcoming_meetings:
+          name: Rencontres à venir
+          upcoming_meetings: Rencontres à venir
+          view_all_meetings: Voir tout
       directory:
         meetings:
           index:
