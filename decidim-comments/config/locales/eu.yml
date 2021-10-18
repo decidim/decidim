@@ -93,6 +93,7 @@ eu:
         blocked_comments_warning: Iruzkinak desgaituta daude une honetan, baina aurrekoak irakur ditzakezu.
         comment_details_title: Iruzkinaren xehetasunak
         loading: Iruzkinak kargatzen...
+        single_comment_warning: Gainontzeko iruzkinak berrikusi ahal dituzu <a href="%{url}">hemen</a>.
         single_comment_warning_title: Iruzkin bakar bat ikusten ari zara
       down_vote_button:
         text: Ez nago ados iruzkin honekin
