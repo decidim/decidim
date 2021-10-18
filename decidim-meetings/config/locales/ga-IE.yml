@@ -126,8 +126,8 @@ ga:
           form:
             invites: Cuirí
       content_blocks:
-        upcoming_events:
-          view_all_events: Amharc ar uile
+        upcoming_meetings:
+          view_all_meetings: Amharc ar uile
       directory:
         meetings:
           index:
