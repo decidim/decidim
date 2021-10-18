@@ -1342,7 +1342,7 @@ ja:
         deleted: 削除された参加者
     versions:
       resource_version:
-        of_versions: "( %{number} の)"
+        of_versions: "/ %{number}"
         see_other_versions: 他のバージョンを見る
         version: バージョン %{number}
     versions_list:
