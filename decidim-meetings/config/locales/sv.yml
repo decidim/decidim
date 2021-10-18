@@ -350,10 +350,8 @@ sv:
         export_calendar: Exportera kalender
       conference_venues: Konferenslokaler
       content_blocks:
-        upcoming_events:
-          name: Kommande händelser
-          upcoming_events: Kommande möten
-          view_all_events: Visa alla
+        upcoming_meetings:
+          view_all_meetings: Visa alla
       directory:
         meetings:
           index:
