@@ -145,7 +145,7 @@ module Decidim
 
         Decidim.content_blocks.register(:participatory_process_group_homepage, :highlighted_meetings) do |content_block|
           content_block.cell = "decidim/meetings/content_blocks/highlighted_meetings"
-          content_block.public_name_key = "decidim.meetings.content_blocks.upcoming_events.name"
+          content_block.public_name_key = "decidim.meetings.content_blocks.upcoming_meetings.name"
           content_block.default!
         end
 
