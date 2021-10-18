@@ -288,7 +288,7 @@ eu:
       admin_states:
         accepted: Beharrezko sinadurak lortu ditu
         created: Sortu
-        discarded: baztertutako
+        discarded: Baztertuta
         published: Argitaratutako
         rejected: Ez ditu lortu beharrezko sinadurak
         validating: Balidazio teknikoa
@@ -329,12 +329,12 @@ eu:
           select_area: Hautatu eremu bat
           select_scope: Aukeratu esparrua
         finish:
-          back: Back
-          back_to_initiatives: Ekimenetara itzuli
+          back: Atzera
+          back_to_initiatives: Itzuli ekimenetara
           callout_text: Zorionak! Zure ekimena zuzen sortu da.
           confirm: Ekimena bidaliko duzu administratzaile batek berrikus eta argitara dezan. Argitaratu ondoren, ezin izango duzu editatu. Ziur zaude?
           edit_my_initiative: Editatu nire ekimena
-          go_to_my_initiatives: Joan nire ekimenei
+          go_to_my_initiatives: Joan nire ekimenetara
           more_information: "(Informazio gehiago)"
           send_my_initiative: Bidali nire ekimena baliozkotze eknikora
         finish_help:
@@ -359,7 +359,7 @@ eu:
           invite_to_committee_help: Sustapen batzordearen parte izango duten pertsonei gonbidatzeko esteka
         show_similar_initiatives:
           back: Back
-          compare_help: Honako ekimen hauetako bat zurea bezalako antzeko baldin baduzu, onartzen duzu. Zure proposamenak aukera gehiago izango ditu.
+          compare_help: Honako ekimen hauetako bat zurea bezalakoa baldin bada, onar ezazu. Zure proposamenak aukera gehiago izango ditu aurrera ateratzeko.
           continue: Nire ekimena desberdina da
           more_information: "(Informazio gehiago)"
       edit:
@@ -480,8 +480,8 @@ eu:
               other: Oharrak
         orders:
           label: 'Sortu ekintzak honela:'
-          most_commented: Iruzkinik gehien
-          most_voted: Gehien sinatuta
+          most_commented: Iruzkin gehien dutenak
+          most_voted: Sinadura gehien dutenak
           random: Random
           recent: Berrienak
           recently_published: Oraintsu argitaratutakoa
