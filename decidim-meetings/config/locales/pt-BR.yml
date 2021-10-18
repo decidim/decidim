@@ -348,7 +348,7 @@ pt:
       content_blocks:
         upcoming_events:
           name: Próximos eventos
-          upcoming_events: Próximos encontros
+          upcoming_events: Próximas reuniões
           view_all_events: Ver tudo
       directory:
         meetings:
