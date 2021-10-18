@@ -385,10 +385,8 @@ pt:
         export_calendar: Exportar calendário
       conference_venues: Locais da Conferência
       content_blocks:
-        upcoming_events:
-          name: Próximos eventos
-          upcoming_events: Próximas reuniões
-          view_all_events: Ver todos
+        upcoming_meetings:
+          view_all_meetings: Ver todos
       directory:
         meetings:
           index:
