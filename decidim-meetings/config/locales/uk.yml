@@ -282,6 +282,9 @@ uk:
         minutes:
           create: "%{user_name} створив протокол зустрічі %{resource_name} у просторі %{space_name}"
           update: "%{user_name} оновив протокол зустрічі %{resource_name} у просторі %{space_name}"
+      content_blocks:
+        upcoming_events:
+          upcoming_events: Прийдешні зустрічі
       directory:
         meetings:
           index:
