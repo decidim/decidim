@@ -149,7 +149,7 @@ eu:
             title: Editatu aukera
             update: Eguneratu aukera
           index:
-            no_bulletin_board: Ez dago <a href = "https://github.com/decidim/decidim-bulletin-board" >Bulletin Board </a> zerbitzari konfiguraturik, modulu hau erabiltzeko beharrezkoa dena. Ataza hori sistemaren administratzaileak egin behar du.
+            no_bulletin_board: Ez dago <a href = "https://github.com/decidim/decidim-bulletin-board" >Iragarki Taula </a> zerbitzari konfiguraturik, modulu hau erabiltzeko beharrezkoa dena. Ataza hori sistemaren administratzaileak egin behar du.
             title: Aukerak
           new:
             create: Sortu aukera
@@ -223,13 +223,13 @@ eu:
               time_before: Konfigurazioa egiten ari da <strong>aukeraketa hasi baino gutxienez %{hours} ordu</strong>.
               trustees_number: Espazio parte-hartzaileak badu <strong>gutxienez %{number} bermatzaile gako publikoarekin</strong>.
             submit: Konfiguratu bozketa
-            success: Aukeraketa zuzen bidali da hona Bulletin Board
+            success: 'Aukeraketa zuzen bidali da hona: Iragarki Taula'
             title: Konfiguratu bozketa
             trustees: Hautaketaren bermatzaileak
           created:
             invalid: Arazo bat gertatu da gakoen zeremonia hastean
             submit: Hasi gakoen zeremonia
-            success: 'Gakoen zeremonia hasteko eskaera zuzen bidali da hona: Bulletin Board'
+            success: 'Gakoen zeremonia hasteko eskaera zuzen bidali da hona: Iragarki taula'
             title: Bozketa sortuta
             trustees: Bermatzaileak
           key_ceremony:
@@ -242,7 +242,7 @@ eu:
             requirements:
               time_before: Bozketa laster hasiko da. Eskuz hasi ahal duzu bozketaldia, edo automatikoki hasiko da hasierako ordua izan baino lehen, ordu honetan %{start_time}.
             submit: Hasi bozketaldia
-            success: 'Bozketaldiaren eskaera zuzen bidali da hona: Bulletin Board'
+            success: 'Bozketaldiaren eskaera zuzen bidali da hona: Iragarki Taula'
             title: Hasteko prest
           processing: Prozesatzen...
           results_published:
@@ -260,12 +260,12 @@ eu:
             requirements:
               time_after: Bozketa amaitu da. Bozketaldia eskuz amaitu ahal duzu, edo minutu batzuk barru automatikoki amaituko da.
             submit: Amaitu bozketaldia
-            success: 'Bozketaldia amaitzeko eskaera zuzen bidali da hona: Bulletin Board'
+            success: 'Bozketaldia amaitzeko eskaera zuzen bidali da hona: Iragarki Taula'
             title: Bozketa-aldia
           vote_ended:
             invalid: Arazo bat izan da zenbaketa hastean
             submit: Hasi zenbaketa
-            success: 'Zenbaketa hasteko eskaera zuzen bidali da hona: Bulletin Board'
+            success: 'Zenbaketa hasteko eskaera zuzen bidali da hona: Iragarki Taula'
             title: Bozketa-aldia amaituta
           vote_stats:
             no_vote_statistics_yet: Oraindik ez dago boto-estatistikarik
@@ -295,12 +295,12 @@ eu:
             success: '%{trustee} bermatzailea zuzen eguneratu da'
       admin_log:
         election:
-          end_vote: "%{user_name} amaitu zen hautatzeko bozketa-aldia %{resource_name} Board Bulletin-ean"
+          end_vote: "%{user_name} amaitu zen hautatzeko bozketa-aldia %{resource_name} Iragarki Taulan"
           publish: "%{user_name}-k argitaratu du %{resource_name} bozketa"
-          setup: "%{user_name} -k sortu zuen %{resource_name} aukera Bulletin Board-en"
-          start_key_ceremony: "%{user_name} -k hasi zuen gakoen zeremonia %{resource_name} aukeretarako Bulletin Board-en"
-          start_tally: "%{user_name} -k hasi zuen kontaketa %{resource_name} aukerarako Bulletin Board-en"
-          start_vote: "%{user_name} -k hasi zuen bozketa-aldia %{resource_name} aukerarako Bulletin Board-en"
+          setup: "%{user_name} -k sortu zuen %{resource_name} aukera Iragarki Taulan"
+          start_key_ceremony: "%{user_name} -k hasi zuen gakoen zeremonia %{resource_name} aukeretarako Iragarki Taulan"
+          start_tally: "%{user_name} -k hasi zuen kontaketa %{resource_name} aukerarako Iragarki Taulan"
+          start_vote: "%{user_name} -k hasi zuen bozketa-aldia %{resource_name} aukerarako Iragarki Taulan"
           unpublish: "%{user_name} -k desargitaratu zuen %{resource_name} bozketa"
       election_m:
         badge_name:
@@ -375,7 +375,7 @@ eu:
             title: Izenburua
         election:
           fields:
-            bb_status: Tbulletin Boarden egoera
+            bb_status: Iragarki Taularen egoera
             end_time: Bukaera-data
             start_time: Hasiera-data
             title: Izenburua
@@ -400,13 +400,13 @@ eu:
       trustee_zone:
         elections:
           backup_modal:
-            description: Aukera hori Bulletin Board-en sortzen ari da. Oso garrantzitsua da bertan parte hartzen duen bermatzaile bakoitzak gako horien segurtasun-kopia bat sortzea eta leku seguruan gordetzea. Ondoren, prozesuak aurrera egingo du.
+            description: Aukera hori Iragarki Taulan sortzen ari da. Oso garrantzitsua da bertan parte hartzen duen bermatzaile bakoitzak gako horien segurtasun-kopia bat sortzea eta leku seguruan gordetzea. Ondoren, prozesuak aurrera egingo du.
             download_election_keys: Deskargatu gakoak
             download_icon: Ikonoak deskargatzeko ekintza adierazten du
             title: Gakoen segurtasun-kopia %{election} aukeraketarako
           key_ceremony_steps:
             back: Atzera
-            description: Aukeraketa hau Bulletin Boarden sortzen ari da. Prozesu hau osatzeko, zure parte-hartzea bermatzaile gisa behar da.
+            description: Aukeraketa hau Iragarki Taulan sortzen ari da. Prozesu hau osatzeko, zure parte-hartzea bermatzaile gisa behar da.
             keys:
               create_election: Gakoak sortzea
               key_ceremony:
@@ -424,13 +424,13 @@ eu:
               processing: Prozesatzen
             title: Sortu gakoak %{election} aukeraketarako
           restore_modal:
-            description: Bulletin Board-ek zure informazioa du aukera horren bermatzaile gisa. Prozesuarekin jarraitzeko, lehenengo igo aurreko saioan sortutako segurtasun-kopiaren fitxategia.
+            description: Iragarki Taulak zure informazioa du aukera horren bermatzaile gisa. Prozesuarekin jarraitzeko, lehenengo igo aurreko saioan sortutako segurtasun-kopiaren fitxategia.
             title: Berriztu gakoak %{election} aukerarako
             upload_election_keys: Igo aukeraren gakoak
             upload_icon: Ikonoak deskargatzeko ekintza adierazten du
           tally_steps:
             back: Atzera
-            description: Aukera horren emaitzak Bulletin Board-en kalkulatzen ari dira. Prozesu hori osatzeko, bermatzaile gisa parte hartu behar duzu.
+            description: Aukera horren emaitzak Iragarki Taulan kalkulatzen ari dira. Prozesu hori osatzeko, bermatzaile gisa parte hartu behar duzu.
             keys:
               end_tally: Zenbaketa amaituta
               tally:
@@ -453,8 +453,8 @@ eu:
         menu:
           trustee_zone: Bermatzailearen gunea
         no_bulletin_board:
-          body: Bulletin Board bat behar da, atal honetarako konfiguratua. Jarri harremanetan administratzailearekin xehetasun gehiago izateko.
-          title: Sentitzen dugu, Bulletin Board oraindik ez dago konfiguratuta.
+          body: Iragarki Taula bat behar da, atal honetarako konfiguratua. Jarri harremanetan administratzailearekin xehetasun gehiago izateko.
+          title: Sentitzen dugu, Iragarki Taula oraindik ez dago konfiguratuta.
         trustees:
           show:
             elections:
@@ -802,6 +802,8 @@ eu:
             see_all_votings: Ikusi bozketa guztiak
             votings_button_title: Lotura guztiak erakusten dituen Bozketen orrialdera
       polling_officer_zone:
+        menu:
+          polling_officer_zone: Mahaiko kudeatzailearen gunea
         polling_officers:
           show:
             actions:
@@ -817,3 +819,72 @@ eu:
                 voting: Bozketa
               no_polling_stations: Oraindik ez zaizu esleitu bozkatzeko lekurik.
               title: Bozketa-guneak
+      polling_officers:
+        actions:
+          confirm_destroy: Ziur zaude?
+          destroy: Ezabatu
+          new: Berria
+          title: Ekintzak
+        roles:
+          manager: Administratzailea
+          president: Presidentea
+          unassigned: Esleitu gabe
+      polling_stations:
+        actions:
+          confirm_destroy: Ziur zaude?
+          destroy: Ezabatu
+          edit: Editatu
+          new: Berria
+          title: Ekintzak
+      votings:
+        count:
+          title:
+            one: "Boto %{count}"
+            other: "%{count} boto"
+        filters:
+          active: Aktibo
+          all: Guztiak
+          finished: Amaituta
+          search: Bilatu
+          state: Egoera
+          upcoming: Hurrengoak
+        filters_small_view:
+          close_modal: Itxi leihoa
+          filter: Iragazi
+          filter_by: Iragazi honen arabera
+          unfold: Zabaldu
+        index:
+          no_votings: Ez dago bilaketa-irizpideekin bat datorren bozketarik.
+          only_finished: Orain ez dago bozketa programaturik, baina hemen zerrendan amaitutako bozketak ikus ditzakezu.
+          title: Bozketak
+        orders:
+          label: 'Ordenatu bozketak honen arabera:'
+          random: Ausazkoa
+          recent: Azkenak
+        show:
+          dates: Datak
+      votings_m:
+        badge_name:
+          finished: Amaituta
+          ongoing: Bidean
+          upcoming: Laster
+        footer_button_text:
+          participate: Parte hartu
+          view: Ikusi
+          vote: Eman botoa
+        unspecified: Zehaztu gabe
+        voting_type:
+          hybrid: Hibridoa
+          in_person: Aurrez aurre
+          online: Lineakoa
+        voting_types_label: Bozketa mota
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Irten
+      votings:
+        index:
+          promoted_votings: Bozketa nabarmenduak
+        promoted_voting:
+          more_info: Informazio gehiago
+          vote: Eman botoa

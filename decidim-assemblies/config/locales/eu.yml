@@ -52,6 +52,7 @@ eu:
         target: Nor parte hartzen du
         title: Prozesu partizipatiboen multzoak
         twitter: Twitter
+        weight: Pisua
         youtube: YouTube
       assembly_member:
         birthday: Urtebetetze
@@ -62,6 +63,7 @@ eu:
         full_name: Izen osoa
         gender: Generoa
         position: Kargua
+        user_id: Erabiltzailea
       assembly_user_role:
         email: Emaila
         name: izena
@@ -385,10 +387,15 @@ eu:
         comments_count: Iruzkinak
         debates_count: eztabaidak
         endorsements_count: Oniritziak
+        followers_count: Jarraitzaileak
+        headline: Estatistikak
         meetings_count: Topaketak
+        no_stats: Ez dago estatistikarik oraindik.
         orders_count: Euskarriak
         pages_count: Orriak
         participants_count: Parte-hartzaileak
+        posts_count: Argitalpenak
+        processes_count: Prozesuak
         projects_count: Proiektuak
         proposals_count: Proposamenak
         results_count: Emaitzak
@@ -401,6 +408,11 @@ eu:
         designated_on: Izendatuta
       index:
         title: Bazkideek
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Lotura batzar guztiak erakusten dituen Batzarren orrialdera
     events:
       assemblies:
         create_assembly_member:
@@ -433,7 +445,17 @@ eu:
         description: Sortutako multzo kopurua
         object: batzarrak
         title: Batzar
+    pages:
+      home:
+        hero:
+          participate_title: Parte hartu plataformako prozesuetan
+        sub_hero:
+          register_title: Hasi saioa edo sortu kontu bat
     participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Lotura prozesu guztiak erakusten dituen Prozesuen orrialdera
       show:
         related_assemblies: Erlazionatutako batzarrak
   errors:
