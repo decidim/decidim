@@ -85,58 +85,58 @@ ro:
             statuses: Stadii
         statuses:
           create:
-            invalid: A apărut o eroare la crearea acestui status
-            success: Status creat cu succes
+            invalid: A apărut o eroare la crearea acestui stadiu
+            success: Stadiu creat cu succes
           destroy:
-            success: Status şters cu succes
+            success: Stadiu şters cu succes
           edit:
-            title: Editare stare
-            update: Stare actualizare
+            title: Editare stadiu
+            update: Actualizare stadiu
           index:
-            title: Status-uri
+            title: Stadii
           new:
-            create: Creare stare
-            title: Stare nouă
+            create: Creare stadiu
+            title: Stadiu nou
           update:
-            invalid: A apărut o eroare la actualizarea acestei stări
-            success: Status actualizat cu succes
+            invalid: A apărut o eroare la crearea acestui stadiu
+            success: Stadiu actualizat cu succes
         timeline_entries:
           create:
-            invalid: A apărut o eroare la crearea acestei intrări
+            invalid: A apărut o eroare la crearea acestei înregistrări
             success: Intrare creată cu succes
           destroy:
             success: Intrare ștearsă cu succes
           edit:
-            title: Editare intrare
-            update: Actualizare intrare
+            title: Editare înregistrare
+            update: Actualizare înregistrare
           index:
-            title: Înregistrări de calendar proiect
+            title: Înregistrări în calendarul proiectului
           new:
-            create: Creare intrare
-            title: Intrare nouă
+            create: Creare înregistrare
+            title: Înregistrare nouă
           update:
-            invalid: A apărut o eroare la actualizarea acestei intrări
-            success: Intrare actualizata cu succes
+            invalid: A apărut o eroare la actualizarea acestei înregistrări
+            success: Înregistrare actualizată cu succes
       admin_log:
         result:
-          create: "%{user_name} rezultat creat %{resource_name} în %{space_name}"
-          delete: "%{user_name} a șters rezultatul %{resource_name} în %{space_name}"
-          update: "%{user_name} rezultat actualizat %{resource_name} în %{space_name}"
+          create: "%{user_name} a creat %{resource_name} în %{space_name}"
+          delete: "%{user_name} a șters %{resource_name} în %{space_name}"
+          update: "%{user_name} a actualizat %{resource_name} în %{space_name}"
         value_types:
           parent_presenter:
-            not_found: 'Părintele nu a fost găsit în baza de date (ID: %{id})'
+            not_found: 'Elementul-părinte nu a fost găsit în baza de date (ID: %{id})'
       content_blocks:
         highlighted_results:
           dates: Date
-          results: Rezultatele
+          results: Rezultate
           unspecified: Nespecificat
       import_mailer:
         import:
           errors: Erori
           errors_present: A apărut o problemă la importarea rezultatelor
           row_number: Rând
-          subject: Importarea cu succes a rezultatelor
-          success: Importul de rezultate s-a reușit. Puteți analiza rezultatele în interfața de administrare.
+          subject: Importare cu succes a rezultatelor
+          success: Rezultate importate. Puteți revizui rezultatele în interfața de administrare.
       last_activity:
         new_result_at_html: "<span>Un nou rezultat la %{link}</span>"
       models:
