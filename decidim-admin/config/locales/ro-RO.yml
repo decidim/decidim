@@ -90,35 +90,35 @@ ro:
         users_registration_mode: Mod înregistrare utilizatori
         warning_color: Avertizare
         welcome_notification_body: Textul notificării de bun venit
-        welcome_notification_subject: Subiectul notificării de întâmpinare
-        youtube_handler: Handler YouTube
+        welcome_notification_subject: Subiectul notificării de bun venit
+        youtube_handler: Responsabil YouTube
       scope:
         code: Cod
         name: Nume
         organization: Organizație
-        parent_id: Părinte
-        scope_type: Tip domeniu de aplicare
-        scope_type_id: Tip domeniu de aplicare
+        parent_id: Categoria mamă
+        scope_type: Tipul domeniului
+        scope_type_id: Tip domeniu
       scope_type:
         name: Nume
         organization: Organizație
         plural: Plural
       settings:
-        scope_id: Domeniul de Aplicare
+        scope_id: Domeniu
       static_page:
         allow_public_access: Permiteți accesul fără autentificare
-        changed_notably: Au existat schimbări vizibile.
+        changed_notably: Au avut loc modificări semnificative.
         content: Conținut
         organization: Organizație
-        show_in_footer: Arată în subsol
+        show_in_footer: Afișează în subsol
         slug: Adresă URL
         title: Titlu
-        weight: Ordinea procesului
+        weight: Pondere în poziționare
       static_page_topic:
         description: Descriere
-        show_in_footer: Arată în subsol
+        show_in_footer: Afișează în subsol
         title: Titlu
-        weight: Ordinea procesului
+        weight: Pondere în poziționare
       user_group_csv_verification:
         file: Fişier
     errors:
@@ -126,14 +126,14 @@ ro:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Fișier imagine nevalid
+              allowed_file_content_types: Fișier invalid
             official_img_header:
-              allowed_file_content_types: Fișier imagine nevalid
+              allowed_file_content_types: Fișier invalid
       new_import:
         attributes:
           file:
             invalid_file: Fișierul furnizat nu este valid, te rugăm verifică dacă acesta este formatat corect
-            invalid_mime_type: Tip mime nevalid
+            invalid_mime_type: Tip mime invalid
   activerecord:
     attributes:
       decidim/static_page:
@@ -141,25 +141,25 @@ ro:
         slug: Adresă URL
         title: Titlu
       doorkeeper/application:
-        authorize_url: Autorizare URL
+        authorize_url: Autorizează URL
         client_id: ID client
         client_secret: Secret client
         organization_name: Numele organizației
-        organization_url: URL organizație
-        redirect_uri: URI de redirecționare
+        organization_url: URL-ul organizației
+        redirect_uri: Redirecționați URI
         site: Website
   decidim:
     admin:
       actions:
-        add: Adăugare
+        add: Adaugă
         attachment:
-          new: Atașament nou
+          new: Adaugă un fișier nou
         attachment_collection:
-          new: Colecție nouă de atașamente
+          new: Colecție nouă de fișiere atașate
         browse: Caută
         category:
-          new: Categorie nouă
-        export: Exportaţi tot
+          new: Adaugă categorie
+        export: Exportă tot
         export-selection: Exportă selecția
         import: Importă
         manage: Gestionează
@@ -167,7 +167,7 @@ ro:
         newsletter:
           new: Buletin informativ nou
         participatory_space_private_user:
-          new: Noul utilizator privat al spațiului participativ
+          new: Nou utilizator privat al spațiului participativ
         per_page: Pe pagină
         permissions: Permisiuni
         reject: Respingere
