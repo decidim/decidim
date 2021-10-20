@@ -13,17 +13,17 @@ ro:
         attachment_collection_id: Dosar
         description: Descriere
         file: Fişier
-        title: Atașament sau nume imagine
+        title: Numele fișierului sau al imaginii atașate
       attachment_collection:
         description: Descriere
         name: Nume
       category:
         description: Descriere
         name: Nume
-        parent_id: Părinte
+        parent_id: Categoria mamă
       component:
         name: Nume
-        published_at: Publicat la
+        published_at: Publicat în
         weight: Ordinea procesului
       id: ID
       import:
@@ -61,14 +61,14 @@ ro:
         highlighted_content_banner_short_description: Descriere scurtă
         highlighted_content_banner_title: Titlu
         host: Gazdă
-        instagram_handler: Gestionar instagram
+        instagram_handler: Responsabil instagram
         logo: Logo
         machine_translation_display_priority: Prioritate de afișare a traducerii automate
         machine_translation_display_priority_original: Mai întâi textul original
         machine_translation_display_priority_translation: Mai întâi textul tradus
         name: Nume
-        official_img_footer: Logo oficial pentru footer
-        official_img_header: Logo oficial pentru header
+        official_img_footer: Logo oficial pentru subsol
+        official_img_header: Logo oficial pentru antet
         official_url: URL oficial al organizației
         omnipresent_banner_short_description: Descriere scurtă
         omnipresent_banner_title: Titlu
@@ -78,18 +78,18 @@ ro:
         organization_locales: Zona organizației
         primary_color: Primară
         reference_prefix: Prefix de referință
-        rich_text_editor_in_public_views: Activează editorul de text înbogățit pentru participanți
-        secondary_color: Secundar
+        rich_text_editor_in_public_views: Activează editorul avansat de text pentru participanți
+        secondary_color: Secundară
         secondary_hosts: Gazde secundare
         send_welcome_notification: Trimite notificare de bun venit
         success_color: Succes
         time_zone: Fus orar
-        tos_version: Termenii versiunii serviciului
-        twitter_handler: Twitter handler
-        user_groups_enabled: Activare grupuri
+        tos_version: Versiune a condițiilor de furnizare a serviciului
+        twitter_handler: Responsabil Twitter
+        user_groups_enabled: Activează grupurile
         users_registration_mode: Mod înregistrare utilizatori
         warning_color: Avertizare
-        welcome_notification_body: Corpul notificării de întâmpinare
+        welcome_notification_body: Textul notificării de bun venit
         welcome_notification_subject: Subiectul notificării de întâmpinare
         youtube_handler: Handler YouTube
       scope:
@@ -980,6 +980,10 @@ ro:
           no_users_count_statistics_yet: Încă nu există niciun număr de statistici pentru utilizatori
           participants: Participanți
       view_public_page: Vezi pagina publică
+    forms:
+      errors:
+        impersonate_user:
+          reason: Trebuie să furnizezi un motiv pentru gestionarea unui participant negestionat
     metrics:
       blocked_users:
         object: utilizatori blocați
