@@ -144,25 +144,25 @@ ro:
           fields:
             category: Categorie
             created_at: Creat
-            end_date: Data de încheiere
+            end_date: Dată de sfârşit
             id: ID
-            progress: Progresul
-            scope: Domeniu de aplicare
-            start_date: Data de început
-            status: Status
+            progress: Progres
+            scope: Domeniu
+            start_date: Dată de începere
+            status: Stadiu
             title: Titlu
         status:
           fields:
             description: Descriere
             key: Cheie
             name: Nume
-            progress: Progresul
+            progress: Progres
         timeline_entry:
           fields:
             description: Descriere
-            entry_date: Data
+            entry_date: Dată
       result_m:
-        executed: Execută
+        executed: Executat
         view: Vizualizare
       results:
         count:
