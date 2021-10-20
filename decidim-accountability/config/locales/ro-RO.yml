@@ -60,7 +60,7 @@ ro:
           result:
             name: Rezultat
           status:
-            name: Status
+            name: Stadiu
           timeline_entry:
             name: Intrare cronologie
         results:
@@ -71,7 +71,7 @@ ro:
             success: Rezultatul a fost șters
           edit:
             title: Editare rezultat
-            update: Rezultat actualizare
+            update: Actualizare rezultat
           index:
             title: Rezultate
           new:
@@ -82,7 +82,7 @@ ro:
             success: Rezultatul a fost actualizat
         shared:
           subnav:
-            statuses: Status-uri
+            statuses: Stadii
         statuses:
           create:
             invalid: A apărut o eroare la crearea acestui status
