@@ -48,6 +48,7 @@ ro:
         favicon: Iconiță
         force_authentication: Forțează autentificarea
         force_users_to_authenticate_before_access_organization: Forțează utilizatorii să se autentifice înainte de a accesa organizația
+        from: Adresa de e-mail a expeditorului
         github_handler: GitHub handler
         header_snippets: Snippet-uri antet
         highlight_alternative_color: Evidențiază, alternativă
@@ -179,10 +180,12 @@ ro:
           success: Super! Ai acceptat termenii de utilizare.
         actions:
           accept: Sunt de acord cu următorii termeni
+          are_you_sure: Sunteți sigur că doriți să refuzați termenii de utilizare ai administratorului?
           refuse: Refuz termenii
           title: Sunt de acord cu termenii și condițiile de utilizare
         required_review:
           alert: 'Necesar: Examinați termenii de utilizare'
+          callout: Te rugăm acordă un moment pentru a revizui Termenii de utilizare ai administratorului. În caz contrar, nu vei putea administra platforma.
           cta: Revizuiți termenii, acum.
         title: Termeni de Utilizare
       area_types:
@@ -205,6 +208,7 @@ ro:
           error: A apărut o problemă la crearea unei zone noi.
           success: Zonă creată cu succes.
         destroy:
+          has_spaces: Această zonă are spații participative (procese, grupuri de lucru) dependente. Te rugăm să te asiguri că nu există referințe la spațiul participativ din această zonă înainte de a o șterge.
           success: Zonă eliminată cu succes
         edit:
           title: Editare zonă
@@ -257,6 +261,7 @@ ro:
       block_user:
         new:
           action: Blochează contul și trimite justificarea
+          description: Blocarea unui utilizator va face contul său inutilizabil. Poți să furnizezi în justificarea ta orice instrucțiuni cu privire la modul în care vei lua în considerare deblocarea utilizatorului.
           justification: Justificare
           title: Blochează utilizator %{name}
       categories:
