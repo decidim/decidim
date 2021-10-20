@@ -325,6 +325,7 @@ ro:
         'false': 'Nu'
         managed_user_name: Gestionare utilizatori
         solved: Rezolvat
+        title: Conflicte de verificare
         transfer:
           email: E-mail
           error: A apărut o problemă la transferul participantului curent către participantul gestionat.
@@ -343,6 +344,7 @@ ro:
           domain_too_short: Domeniu prea scurt
         update:
           error: Actualizarea whitelist-ului domeniului a eșuat
+          success: Lista albă a domeniului a fost actualizată cu succes
       exports:
         export_as: "%{name} ca %{export_format}"
         formats:
@@ -361,6 +363,7 @@ ro:
             'false': 'Nu'
             'true': 'Da'
         last_sign_in_at_present:
+          label: Nicio autentificare
           values:
             'false': 'Nu'
             'true': 'Da'
@@ -403,6 +406,11 @@ ro:
           user_name_or_user_email_cont: Caută %{collection} după nume sau e-mail.
         state_eq:
           label: Stare
+          values:
+            all: Toate
+            pending: În așteptare
+            rejected: Respins
+            verified: Verificat
       forms:
         file_help:
           import:
@@ -448,7 +456,23 @@ ro:
           impersonate_existing_user: Gestionați participantul"%{name}"
           impersonate_new_managed_user: Gestionați participantul nou
       imports:
+        and: şi
+        data_errors:
+          duplicate_headers:
+            detail: Te rugăm verifică dacă fişierul conţine coloanele sau antetele obligatorii o singură dată.
+          invalid_indexes:
+            lines:
+              detail: Te rugăm verifică dacă aceste linii sunt formatate corect şi conţin înregistrări valide.
+              message:
+                one: Am găsit o eroare în fișierul importat la linia %{indexes}.
+                few: Am găsit erori în documentul importat la liniile %{indexes}.
+                other: Am găsit erori în documentul importat la liniile %{indexes}.
+            records:
+              detail: Te rugăm verifică dacă aceste linii sunt formatate corect şi conţin înregistrări valide.
+          missing_headers:
+            detail: Te rugăm verifică dacă fișierul conține coloanele obligatorii.
         error: A apărut o problemă în timpul importului
+        example_error: Nu am putut crea un exemplu pentru tipul dat
         new:
           accepted_mime_types:
             csv: csv
@@ -456,6 +480,8 @@ ro:
             xlsx: xlsx
           actions:
             back: Înapoi
+          download_example: Descarcă exemplul
+          download_example_format: Exemplu ca %{name}
           file_legend: Adăugați un fișier de import care va fi analizat.
           import: Importă
         notice: "%{number} %{resource_name} importate cu succes"
@@ -479,6 +505,7 @@ ro:
         areas: Zone
         configuration: Configurare
         dashboard: Panou de administrare
+        external_domain_whitelist: Domenii externe permise
         help_sections: Secțiuni de ajutor
         homepage: Pagina principală
         impersonations: Impersonări
@@ -613,6 +640,7 @@ ro:
             title: Rapoarte de moderare
           show:
             report_details: Detalii motiv
+            report_language: Raportează limbajul
             report_reason: Motiv
             title: Detalii raportare
       newsletter_templates:
@@ -626,6 +654,7 @@ ro:
       newsletters:
         create:
           error: A apărut o eroare la crearea acestui buletin informativ.
+          success: Buletinul informativ a fost creat cu succes. Te rugăm să îl revizuiești înainte de a-l trimite.
         deliver:
           error: A apărut o eroare la livrarea acestui buletin informativ.
           success: Buletinul informativ a fost livrat.
@@ -708,10 +737,12 @@ ro:
           title: Verificați participantul "%{name}"
         show_email_modal:
           close_modal: Închide fereastra
+          description: Dacă trebuie să contactezi direct un participant, poți face clic pe butonul Arată pentru a vedea adresa lor de e-mail. Această acțiune va fi înregistrată.
           email_address: Adresa de e-mail
           full_name: Numele complet
           hidden: ascuns
           show: Arată
+          title: Afișează adresa de e-mail a participantului
         unblock:
           error: A intervenit o eroare în încărcarea istoricului activității
           success: Participantul a fost deblocat
@@ -737,6 +768,7 @@ ro:
         form:
           colors:
             colors_title: Culori pentru organizații
+            colors_warning_html: Atenție! Schimbarea acestor culori poate distruge contrastele de accesibilitate. Poți verifica contrastul alegerii tale cu <a href="%{link}">WebAIM Contrast Checker</a> sau alte unelte similare.
             header_snippets_help: 'Utilizați acest câmp pentru a adăuga element în antetul HTML. Cea mai frecventă utilizare este integrarea de servicii terțe care necesită JavaScript sau CSS suplimentare. De asemenea, puteți adăuga metataguri suplimentare la HTML. Notă: acest lucru va avea efect doar în paginile publice, nu în secțiunea administrativă.'
           cta_button_path_help: 'Puteţi suprascrie unde butonul Apel la Acţiune din pagina de pornire. Utilizaţi căi parţiale, nu adrese URL complete aici. Acceptă litere, numere, cratime și tăieturi, și trebuie să înceapă cu o literă. Butonul Apel la Acțiune este afișat în pagina de start dintre textul de bun venit și descriere. Exemplu: %{url}'
           cta_button_text_help: Puteţi suprascrie textul butonului Apel la Acţiune din pagina de start pentru fiecare limbă disponibilă din organizaţie. Dacă nu este setată, va fi folosită valoarea implicită. Butonul Apel la Acțiune este afișat în pagina de start dintre textul de bun venit și descriere.
@@ -756,6 +788,7 @@ ro:
           up: Sus
         form:
           add: Adaugă la lista albă
+          title: Lista albă pentru domenii externe
       organization_homepage:
         edit:
           active_content_blocks: Blocuri de conținut active
