@@ -324,6 +324,7 @@ ro:
         'false': 'Nu'
         managed_user_name: Gestionare utilizatori
         solved: Rezolvat
+        title: Conflicte de verificare
         transfer:
           email: E-mail
           error: A apărut o problemă la transferul participantului curent către participantul gestionat.
@@ -342,6 +343,7 @@ ro:
           domain_too_short: Domeniu prea scurt
         update:
           error: Actualizarea whitelist-ului domeniului a eșuat
+          success: Lista albă a domeniului a fost actualizată cu succes
       exports:
         export_as: "%{name} ca %{export_format}"
         formats:
@@ -360,6 +362,7 @@ ro:
             'false': 'Nu'
             'true': 'Da'
         last_sign_in_at_present:
+          label: Nicio autentificare
           values:
             'false': 'Nu'
             'true': 'Da'
@@ -483,6 +486,7 @@ ro:
         areas: Zone
         configuration: Configurare
         dashboard: Panou de administrare
+        external_domain_whitelist: Domenii externe permise
         help_sections: Secțiuni de ajutor
         homepage: Pagina principală
         impersonations: Impersonări
@@ -617,6 +621,7 @@ ro:
             title: Rapoarte de moderare
           show:
             report_details: Detalii motiv
+            report_language: Raportează limbajul
             report_reason: Motiv
             title: Detalii raportare
       newsletter_templates:
@@ -630,6 +635,7 @@ ro:
       newsletters:
         create:
           error: A apărut o eroare la crearea acestui buletin informativ.
+          success: Buletinul informativ a fost creat cu succes. Te rugăm să îl revizuiești înainte de a-l trimite.
         deliver:
           error: A apărut o eroare la livrarea acestui buletin informativ.
           success: Buletinul informativ a fost livrat.
@@ -712,10 +718,12 @@ ro:
           title: Verificați participantul "%{name}"
         show_email_modal:
           close_modal: Închide fereastra
+          description: Dacă trebuie să contactezi direct un participant, poți face clic pe butonul Arată pentru a vedea adresa lor de e-mail. Această acțiune va fi înregistrată.
           email_address: Adresa de e-mail
           full_name: Numele complet
           hidden: ascuns
           show: Arată
+          title: Afișează adresa de e-mail a participantului
         unblock:
           error: A intervenit o eroare în încărcarea istoricului activității
           success: Participantul a fost deblocat
@@ -760,6 +768,7 @@ ro:
           up: Sus
         form:
           add: Adaugă la lista albă
+          title: Lista albă pentru domenii externe
       organization_homepage:
         edit:
           active_content_blocks: Blocuri de conținut active
