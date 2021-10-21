@@ -24,15 +24,15 @@ ro:
       component:
         name: Nume
         published_at: Publicat în
-        weight: Ordinea procesului
+        weight: Pondere în poziționare
       id: ID
       import:
         user_group_id: Creează importuri ca
       newsletter:
-        body: Corp
-        subject: Subiect
+        body: Conținut
+        subject: Titlu
       organization:
-        admin_terms_of_use_body: Text pentru termenii de utilizare ai administratorului
+        admin_terms_of_use_body: Coținut pentru termenii de utilizare ai administratorului
         alert_color: Alertă
         available_authorizations: Autorizații disponibile
         badges_enabled: Activează insigne
