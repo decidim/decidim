@@ -264,17 +264,17 @@ ro:
           action: Blochează contul și trimite justificarea
           description: Blocarea unui utilizator va face contul său inutilizabil. Poți să furnizezi în justificarea ta orice instrucțiuni cu privire la modul în care vei lua în considerare deblocarea utilizatorului.
           justification: Justificare
-          title: Blochează utilizator %{name}
+          title: Blochează utilizatorul %{name}
       categories:
         create:
           error: A apărut o eroare la crearea acestei categorii.
-          success: Categorie creată cu succes.
+          success: Categoria a fost creată cu succes.
         destroy:
           error: A apărut o eroare la ștergerea acestei categorii. Vă rugăm să ștergeți mai întâi orice subcategorie, asigurați-vă că nicio altă entitate nu aparține acestei categorii și încercați din nou.
-          success: Categoria a fost stearsa.
+          success: Categoria a fost stearsă cu succes.
         edit:
-          title: Editare categorie
-          update: Actualizare
+          title: Editează categoria
+          update: Actualizează
         index:
           categories_title: Categorii
           category_used: Această categorie nu poate fi ștearsă deoarece este în uz.
@@ -283,25 +283,25 @@ ro:
           title: Categorie nouă
         update:
           error: A apărut o eroare la actualizarea acestei categorii.
-          success: Categoria a fost actualizata.
+          success: Categoria a fost actualizată cu succes.
       component_permissions:
         update:
           error: A apărut o eroare la actualizarea permisiunilor acestei componente.
-          success: Permisiuni actualizate cu succes.
+          success: Permisiunile au fost actualizate cu succes.
       components:
         create:
           error: A apărut o eroare la crearea acestei componente.
-          success: Componenta a fost creată.
+          success: Componenta a fost creată cu succes.
         destroy:
-          error: A existat o problemă la eliminarea acestei componente.
-          success: Componenta ștearsă cu succes.
+          error: A apărut o problemă la eliminarea acestei componente.
+          success: Componenta a fost ștearsă cu succes.
         edit:
-          title: Editare componentă
-          update: Actualizare
+          title: Editează componenta
+          update: Actualizează
         form:
-          default_step_settings: Setări etape implicite
-          global_settings: Setări globale
-          step_settings: Setări pas
+          default_step_settings: Setări implicite pentru etapă
+          global_settings: Setări generale
+          step_settings: Setări de etapă
         index:
           add: Adaugă componentă
           headers:
