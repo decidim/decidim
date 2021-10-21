@@ -328,25 +328,25 @@ ro:
         title: Conflicte de verificare
         transfer:
           email: E-mail
-          error: A apărut o problemă la transferul participantului curent către participantul gestionat.
+          error: A apărut o problemă la transferul participantului curent drept participant gestionat.
           name: Nume
           reason: Motiv
-          success: Transferul a fost finalizat cu succes.
+          success: Transferul curent a fost finalizat cu succes.
           title: Transfer
         'true': 'Da'
         user_name: Utilizator
       dashboard:
         show:
-          view_more_logs: Afișați mai multe jurnale
-          welcome: Bine ați venit în Panoul de administrare Decidem.
+          view_more_logs: Afișează mai multe înregistrări
+          welcome: Bine ați venit în Panoul de administrare Decidim.
       domain_whitelist:
         form:
-          domain_too_short: Domeniu prea scurt
+          domain_too_short: Domeniul e prea scurt
         update:
           error: Actualizarea whitelist-ului domeniului a eșuat
           success: Lista albă a domeniului a fost actualizată cu succes
       exports:
-        export_as: "%{name} ca %{export_format}"
+        export_as: "%{name} drept %{export_format}"
         formats:
           CSV: CSV
           Excel: Excel
@@ -356,7 +356,7 @@ ro:
       filters:
         category_id_eq:
           label: Categorie
-        filter_label: Filtrare
+        filter_label: Filtru
         invitation_accepted_at_present:
           label: Invitaţie acceptată
           values:
@@ -373,18 +373,18 @@ ro:
         officialized_at_null:
           label: Stare
           values:
-            'false': Oficializat
-            'true': Nu este oficializat
+            'false': Verificat
+            'true': Neverificat
         participatory_space_private_users:
           user_invitation_accepted_at_not_null:
             label: Invitație acceptată
             values:
-              'false': Nu este acceptat
+              'false': Neacceptat
               'true': Acceptat
           user_invitation_sent_at_not_null:
-            label: Invitaţia a fost trimisă
+            label: Invitaţie trimisă
             values:
-              'false': Nu a fost trimis
+              'false': Nu s-a trimis
               'true': Trimis
         private_space_eq:
           label: Privat
@@ -397,15 +397,15 @@ ro:
             'false': Publicat
             'true': Nepublicat
         scope_id_eq:
-          label: Domeniu de aplicare
+          label: Domeniu
         search_label: Caută
         search_placeholder:
-          name_or_nickname_or_email_cont: Căutare %{collection} după e-mail, nume sau poreclă.
-          reported_id_string_or_reported_content_cont: Căutare %{collection} după id sau conținut raportabil.
-          title_cont: Căutați %{collection} după titlu.
+          name_or_nickname_or_email_cont: Caută %{collection} după e-mail, nume sau poreclă.
+          reported_id_string_or_reported_content_cont: Caută %{collection} după id sau conținut.
+          title_cont: Caută %{collection} după titlu.
           user_name_or_user_email_cont: Caută %{collection} după nume sau e-mail.
         state_eq:
-          label: Stare
+          label: Stadiu
           values:
             all: Toate
             pending: În așteptare
@@ -414,20 +414,20 @@ ro:
       forms:
         file_help:
           import:
-            explanation: 'Orientări pentru fișier:'
-            message_1: Fișierele CSV, JSON și Excel (.xlsx) sunt suportate
+            explanation: 'Îndrumare pentru fișier:'
+            message_1: Fișierele CSV, JSON și Excel (.xlsx) sunt acceptate
             message_2: Pentru fişierele CSV, separatorul dintre coloane trebuie să fie punct şi virgulă (";")
       help_sections:
         error: A apărut o eroare la actualizarea secțiunilor de ajutor
         form:
           save: Salvează
-        success: Secțiunea Ajutor actualizată cu succes
+        success: Secțiunea Ajutor a fost actualizată cu succes
       impersonatable_users:
         index:
           filter:
             all: Toate
             managed: Gestionat
-            not_managed: Nu este gestionat
+            not_managed: Negestionat
           filter_by: Filtrare după
           impersonate: Impersonare
           impersonate_new_managed_user: Gestionați participantul nou
