@@ -311,7 +311,7 @@ ro:
             type: Tipul componentei
         new:
           add: Adaugă componentă
-          title: 'Adaugă componentă: %{name}'
+          title: 'Adaugă componenta: %{name}'
         publish:
           success: Componenta a fost publicată cu succes.
         title: Componente
@@ -322,7 +322,7 @@ ro:
           success: Componenta a fost actualizată cu succes.
       conflicts:
         attempts: Încercări
-        'false': 'Nu'
+        'false': 'Nr'
         managed_user_name: Gestionare utilizatori
         solved: Rezolvat
         title: Conflicte de verificare
