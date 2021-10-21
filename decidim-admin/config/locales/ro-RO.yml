@@ -37,31 +37,31 @@ ro:
         available_authorizations: Autorizații disponibile
         badges_enabled: Activează insigne
         comments_max_length: Lungimea maximă a comentariilor (Lasă 0 pentru valoarea implicită)
-        cta_button_path: Calea butonului Apel la acţiune
-        cta_button_text: Text buton Apel la Acțiune
+        cta_button_path: Calea butonului de Apel la acțiune
+        cta_button_text: Textul butonului de Apel la acțiune
         customize_welcome_notification: Personalizați notificarea de bun venit
         default_locale: Localizare implicită
         description: Descriere
-        enable_omnipresent_banner: Show omnipresent banner
-        enable_participatory_space_filters: Activează filtrele pentru spațiale participative
-        facebook_handler: Manipulator Facebook
-        favicon: Iconiță
+        enable_omnipresent_banner: Afișează banner omniprezent
+        enable_participatory_space_filters: Activează filtrele pentru spațiul participativ
+        facebook_handler: Responsabil Facebook
+        favicon: Pictogramă
         force_authentication: Forțează autentificarea
         force_users_to_authenticate_before_access_organization: Forțează utilizatorii să se autentifice înainte de a accesa organizația
         from: Adresa de e-mail a expeditorului
-        github_handler: GitHub handler
-        header_snippets: Snippet-uri antet
-        highlight_alternative_color: Evidențiază, alternativă
-        highlight_color: Evidențiere
-        highlighted_content_banner_action_subtitle: Subtitrare buton acțiune
-        highlighted_content_banner_action_title: Titlu buton actiune
-        highlighted_content_banner_action_url: URL buton acțiune
-        highlighted_content_banner_enabled: Arată banner-ul pentru conținut evidențiat
+        github_handler: Responsabil GitHub
+        header_snippets: Elemente ale antetului
+        highlight_alternative_color: Evidențiere, alternativă
+        highlight_color: Evidențiază
+        highlighted_content_banner_action_subtitle: Subtitlul butonului de acțiune
+        highlighted_content_banner_action_title: Titlul butonului de acțiune
+        highlighted_content_banner_action_url: URL-ul butonului de acțiune
+        highlighted_content_banner_enabled: Afișează banner-ul pentru conținutul evidențiat
         highlighted_content_banner_image: Imagine
         highlighted_content_banner_short_description: Descriere scurtă
         highlighted_content_banner_title: Titlu
         host: Gazdă
-        instagram_handler: Responsabil instagram
+        instagram_handler: Responsabil Instagram
         logo: Logo
         machine_translation_display_priority: Prioritate de afișare a traducerii automate
         machine_translation_display_priority_original: Mai întâi textul original
@@ -89,7 +89,7 @@ ro:
         user_groups_enabled: Activează grupurile
         users_registration_mode: Mod înregistrare utilizatori
         warning_color: Avertizare
-        welcome_notification_body: Textul notificării de bun venit
+        welcome_notification_body: Conținutul notificării de bun venit
         welcome_notification_subject: Subiectul notificării de bun venit
         youtube_handler: Responsabil YouTube
       scope:
@@ -146,19 +146,19 @@ ro:
         client_secret: Secret client
         organization_name: Numele organizației
         organization_url: URL-ul organizației
-        redirect_uri: Redirecționați URI
+        redirect_uri: URI de redirecționare
         site: Website
   decidim:
     admin:
       actions:
         add: Adaugă
         attachment:
-          new: Adaugă un fișier nou
+          new: Fișier nou
         attachment_collection:
           new: Colecție nouă de fișiere atașate
         browse: Caută
         category:
-          new: Adaugă categorie
+          new: Categorie nouă
         export: Exportă tot
         export-selection: Exportă selecția
         import: Importă
@@ -185,79 +185,79 @@ ro:
           refuse: Refuz termenii
           title: Acceptă termenii și condițiile de utilizare
         required_review:
-          alert: 'Obligatoriu: Revizuiții termenii de utilizare ai administratorului'
+          alert: 'Obligatoriu: Revizuiți termenii de utilizare ai administratorului'
           callout: Te rugăm acordă un moment pentru a revizui Termenii de utilizare ai administratorului. În caz contrar, nu vei putea administra platforma.
           cta: Revizuiește acum.
         title: Termeni de Utilizare ai Administratorului
       area_types:
         create:
           error: A apărut o problemă la crearea unui nou tip de zonă.
-          success: Tipul de zonă creat cu succes.
+          success: Tipul de zonă a fost creat cu succes.
         destroy:
-          success: Tipul ariei eliminat cu succes
+          success: Tipul zonei a fost eliminat cu succes
         edit:
-          title: Editează tipul zonei
-          update: Actualizare
+          title: Editează tipul de zonă
+          update: Actualizează
         new:
           create: Crează tip de zonă
-          title: Tip de zonă nou
+          title: Tip nou de zonă
         update:
           error: A apărut o eroare la actualizarea acestui tip de zonă.
-          success: Tipul zonei actualizat cu succes
+          success: Tipul de zonă a fost actualizat cu succes
       areas:
         create:
           error: A apărut o problemă la crearea unei zone noi.
-          success: Zonă creată cu succes.
+          success: Zona a fost creată cu succes.
         destroy:
           has_spaces: Această zonă are spații participative (procese, grupuri de lucru) dependente. Te rugăm să te asiguri că nu există referințe la spațiul participativ din această zonă înainte de a o șterge.
-          success: Zonă eliminată cu succes
+          success: Zona a fost eliminată cu succes
         edit:
-          title: Editare zonă
-          update: Actualizare
+          title: Editează zona
+          update: Actualizează
         new:
           create: Creează o zonă
           title: Zonă nouă
-        no_areas: Nu există zone
+        no_areas: Nu există nicio zonă creată
         update:
           error: A apărut o eroare la actualizarea acestei zone.
-          success: Zonă actualizată cu succes
+          success: Zona a fost actualizată cu succes
       attachment_collections:
         create:
           error: A apărut o eroare la crearea unui nou dosar.
-          success: Dosar creat cu succes.
+          success: Folderul a fost creat cu succes.
         destroy:
-          success: Dosar eliminat cu succes.
+          success: Folderul a fost eliminat cu succes.
         edit:
-          title: Editare dosar
-          update: Actualizare
+          title: Editează folderul
+          update: Actualizează
         index:
-          attachment_collection_used: Acest dosar nu poate fi eliminat deoarece este în uz.
-          attachment_collections_title: Fişiere ataşate
+          attachment_collection_used: Acest folder nu poate fi eliminat deoarece este în uz.
+          attachment_collections_title: Foldere ataşate
         new:
           create: Crează
-          title: Dosar nou
+          title: Folder nou
         update:
-          error: A apărut o eroare la actualizarea acestui dosar.
-          success: Dosar actualizat cu succes.
+          error: A apărut o eroare la actualizarea acestui folder.
+          success: Folderul a fost actualizat cu succes.
       attachments:
         create:
           error: A apărut o eroare la crearea unui nou atașament.
-          success: Atașament creat cu succes.
+          success: Atașamentul a fost creat cu succes.
         destroy:
-          success: Atașament eliminat cu succes.
+          success: Atașamentul a fost eliminat cu succes.
         edit:
-          title: Editare atașament
-          update: Actualizare
+          title: Editează atașamentul
+          update: Actualizează
         index:
           attachments_title: Atașamente
         new:
-          create: Creare atașament
+          create: Crează un atașament
           title: Atașament nou
         update:
           error: A apărut o eroare la actualizarea acestui atașament.
-          success: Atașament actualizat cu succes.
+          success: Atașamentul a fost actualizat cu succes.
       autocomplete:
-        no_results: Nici un rezultat găsit
+        no_results: Nu a fost găsit niciun rezultat
         search_prompt: Tastați cel puțin trei caractere pentru a căuta
       block_user:
         new:
