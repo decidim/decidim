@@ -430,15 +430,15 @@ ro:
             not_managed: Negestionat
           filter_by: Filtrare după
           impersonate: Impersonare
-          impersonate_new_managed_user: Gestionați participantul nou
+          impersonate_new_managed_user: Gestionează participantul nou
           managed: Gestionat
           name: Nume
           needs_authorization_warning: Aveți nevoie de cel puțin o autorizație activată pentru această organizație.
-          not_managed: Nu este gestionat
+          not_managed: Negestionat
           promote: Promovează
           search: Caută
-          status: Stare
-          view_logs: Vezi jurnalele
+          status: Stadiu
+          view_logs: Vezi înregistrările
       impersonations:
         close_session:
           error: A apărut o problemă la închiderea actualei sesiuni de gestionare a participanților.
