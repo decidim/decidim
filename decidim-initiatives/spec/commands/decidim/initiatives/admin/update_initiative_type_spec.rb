@@ -43,7 +43,7 @@ module Decidim
           let(:context) do
             {
               current_organization: organization,
-              current_user: user,
+              current_user: user
             }
           end
 

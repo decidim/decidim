@@ -58,7 +58,7 @@ module Decidim
             child_scope_threshold_enabled: form.child_scope_threshold_enabled,
             only_global_scope_enabled: form.only_global_scope_enabled
           }.merge(
-            attachment_attributes( :banner_image)
+            attachment_attributes(:banner_image)
           )
         end
 
