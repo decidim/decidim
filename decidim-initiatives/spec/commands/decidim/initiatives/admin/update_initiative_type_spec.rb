@@ -6,7 +6,7 @@ module Decidim
   module Initiatives
     module Admin
       describe UpdateInitiativeType do
-        # let(:form_klass) { InitiativeTypeForm }
+        let(:form_klass) { InitiativeTypeForm }
 
         context "when valid data" do
           it_behaves_like "update an initiative type", true
