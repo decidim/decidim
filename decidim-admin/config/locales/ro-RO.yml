@@ -699,7 +699,7 @@ ro:
           title: Selectează destinatarii pentru trimitere
           warning: "<strong>Atenție:</strong> Acest buletin informativ va fi trimis doar utilizatorilor care au activat <em>Vreau să primesc știri</em> în setările lor."
         send:
-          no_recipients: Nu exista destinatari pentru această selecție
+          no_recipients: Nu există destinatari pentru această selecție
         show:
           preview: Previzualizează
           select_recipients_to_deliver: Selectează destinatarii pentru trimitere
@@ -941,26 +941,26 @@ ro:
           success: Fișierul CSV a fost încărcat cu succes, verificăm grupurile care corespund criteriilor. Acest lucru ar putea dura un timp.
         reject:
           invalid: A apărut o eroare la respingerea acestui grup.
-          success: Grupul a fost respins
+          success: Grupul a fost respins cu succes
         verify:
           invalid: A apărut o eroare la verificarea acestui grup.
-          success: Grupul a fost verificat
+          success: Grupul a fost verificat cu succes
       user_groups:
         index:
           state:
-            pending: In asteptare
+            pending: În așteptare
             rejected: Respins
             verified: Verificat
-          verify_via_csv: Verificare prin CSV
+          verify_via_csv: Verifică prin CSV
       user_groups_csv_verifications:
         new:
-          explanation: Încărcați fișierul dvs. CSV. Acesta trebuie să aibă e-mailurile oficiale ale grupurilor din organizația dvs. în prima coloană a fișierului, fără antete. Doar grupurile care și-au confirmat adresa de e-mail și care au un e-mail care apare în fișierul CSV vor fi validate.
+          explanation: Încărcă fișierul tău CSV. Acesta trebuie să aibă e-mail-urile oficiale ale grupurilor din organizația ta în prima coloană a fișierului, fără antet. Doar grupurile care și-au confirmat adresa de e-mail și care au un e-mail care apare în fișierul CSV vor fi validate.
           title: Încarcă fișierul tău CSV
-          upload: Incarca
+          upload: Încarcă
       users:
         create:
           error: A apărut o eroare la invitarea acestui administrator.
-          success: Participantul a fost invitat.
+          success: Participantul a fost invitat cu succes.
         destroy:
           error: A apărut o eroare la ștergerea acestui administrator.
           success: Participantul nu mai este administrator.
@@ -976,8 +976,8 @@ ro:
           admins: Administratori
           last_day: Ultima zi
           last_month: Ultima lună
-          last_week: Ultima Săptămînă
-          no_users_count_statistics_yet: Încă nu există niciun număr de statistici pentru utilizatori
+          last_week: Ultima săptămână
+          no_users_count_statistics_yet: Încă nu există statistici privind numărul de utilizatori
           participants: Participanți
       view_public_page: Vezi pagina publică
     forms:
@@ -989,8 +989,8 @@ ro:
         object: utilizatori blocați
         title: Utilizatori blocați
       reported_users:
-        object: utilizator raportat
-        title: Utilizator raportat
+        object: utilizatori raportați
+        title: Utilizatori raportați
       user_reports:
         object: rapoarte de utilizator
         title: Rapoarte de utilizator
@@ -1007,17 +1007,17 @@ ro:
         reportable:
           hide:
             invalid: A apărut o problemă la ascunderea resursei.
-            success: Resursă ascunsă cu succes.
+            success: Resursa a fost ascunsă cu succes.
           unhide:
-            invalid: A apărut o problemă la dezascunderea resursei.
-            success: Resursă dezascunsă cu succes.
+            invalid: A apărut o problemă la anularea ascunderii resursei.
+            success: Anularea ascunderii resursei a fost reaizată cu succes.
           unreport:
-            invalid: A apărut o problemă la dezraportarea resursei.
-            success: Resursă neraportată cu succes.
+            invalid: A apărut o problemă la anularea raportării resursei.
+            success: Anularea raportării resursei a fost efectuată cu succes.
       models:
         moderation:
           fields:
-            created_at: Data crearii
+            created_at: Data creării
             hidden_at: Ascuns la
             participatory_space: Spațiu participativ
             report_count: Număr
@@ -1028,7 +1028,7 @@ ro:
             visit_url: Vizitaţi URL-ul
         report:
           fields:
-            details: Detalii motiv
+            details: Detalierea motivului
             locale: Limbă
             reason: Motiv
   errors:
