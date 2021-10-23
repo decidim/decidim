@@ -445,16 +445,16 @@ ro:
           success: Sesiunea de impersonare curentă a fost încheiată cu succes.
         create:
           error: A apărut o problemă cu gestionarea participantului.
-          success: Participantul administrat a fost creat cu succes.
+          success: Participantul gestionat a fost creat cu succes.
         form:
-          authorization_method: Metoda de autorizare
+          authorization_method: Metodă de autorizare
           name: Nume
           reason: Motiv
         new:
           impersonate: Impersonare
-          impersonate_existing_managed_user: Gestionați participantul"%{name}"
-          impersonate_existing_user: Gestionați participantul"%{name}"
-          impersonate_new_managed_user: Gestionați participantul nou
+          impersonate_existing_managed_user: Gestionează participantul "%{name}"
+          impersonate_existing_user: Gestionează participantul "%{name}"
+          impersonate_new_managed_user: Gestionează participantul nou
       imports:
         and: şi
         data_errors:
