@@ -513,7 +513,7 @@ ro:
             success: Am fuzionat cu succes propunerile într-una nouă.
         proposals_splits:
           create:
-            invalid: A apărut o problemă de separare a propunerilor selectate.
+            invalid: A apărut o problemă la separarea propunerilor selectate.
             success: Propunerile au fost împărțite cu succes în altele noi.
         valuation_assignments:
           create:
@@ -705,7 +705,7 @@ ro:
             few: "%{count} propuneri"
             other: "%{count} propuneri"
         dynamic_map_instructions:
-          instructions: <h3>Puteți muta punctul de pe hartă. </h3><p>Nu uitați să faceți clic pe butonul "Actualizare poziție" înainte de a publica propunerea dvs.</p>
+          instructions: <h3>Puteți muta punctul de pe hartă. </h3><p>Nu uita să apeși pe butonul "Actualizare poziție" înainte de a publica propunerea ta.</p>
         edit:
           attachment_legend: "(Opțional) Adăugați un atașament"
           back: Înapoi
@@ -770,7 +770,7 @@ ro:
             other: Veți putea edita această propunere în primele %{count} minute după publicarea propunerii. După trecerea acestei ferestre temporale, nu veți putea edita propunerea.
           publish: Publică
           title: Publică propunerea ta
-          update_position: Actualizați poziția
+          update_position: Actualizează poziția
         proposal:
           creation_date: 'Creare: %{date}'
           view_proposal: Vizualizați propunerea
