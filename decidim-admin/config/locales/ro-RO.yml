@@ -475,32 +475,32 @@ ro:
         example_error: Nu am putut crea un exemplu pentru tipul dat
         new:
           accepted_mime_types:
-            csv: csv
-            json: json
-            xlsx: xlsx
+            csv: CSV
+            json: JSON
+            xlsx: Excel (.xlsx)
           actions:
             back: Înapoi
           download_example: Descarcă exemplul
           download_example_format: Exemplu ca %{name}
-          file_legend: Adăugați un fișier de import care va fi analizat.
+          file_legend: Adaugă un fișier de import care va fi analizat.
           import: Importă
         notice: "%{number} %{resource_name} importate cu succes"
       logs:
         logs_list:
-          no_logs_yet: Încă nu există jurnale
+          no_logs_yet: Nu există încă înregistrări
       managed_users:
         promotion:
           error: A apărut o problemă la promovarea participantului gestionat.
           success: Participantul administrat a fost promovat cu succes.
         promotions:
           new:
-            explanation: Participanții gestionați pot fi promovați participanților standard. Înseamnă că vor fi invitați la aplicație și nu veți mai putea să le gestionați din nou. Participantul invitat va primi un e-mail pentru a accepta invitația dvs.
-            new_managed_user_promotion: Promovarea noilor participanți gestionați
+            explanation: Participanții gestionați pot fi promovați drept participanți standard. Înseamnă că vor fi invitați în aplicație și nu vei mai putea să îi gestionezi din nou. Participantul invitat va primi un e-mail pentru a accepta invitația ta.
+            new_managed_user_promotion: Promovarea unui nou participant gestionat
             promote: Promovează
       menu:
-        admin_log: Jurnal activitate administrare
+        admin_log: Jurnal activitate admin
         admins: Administratori
-        appearance: Aspectul
+        appearance: Prezentare
         area_types: Tipuri de zone
         areas: Zone
         configuration: Configurare
@@ -512,16 +512,16 @@ ro:
         moderation: Moderări globale
         newsletters: Buletine informative
         participants: Participanți
-        reported_users: Utilizator raportat
-        scope_types: Tipuri de domeniu de aplicare
-        scopes: Domenii de aplicare
+        reported_users: Utilizatori raportați
+        scope_types: Tipuri de domenii
+        scopes: Domenii
         settings: Setări
         static_pages: Pagini
         user_groups: Grupuri
         users: Participanți
       metrics:
         metrics:
-          see_more_metrics: Vezi mai multe măsurători
+          see_more_metrics: Vezi mai mulți indicatori
       models:
         area:
           fields:
@@ -533,13 +533,13 @@ ro:
             plural: Plural
         attachment:
           fields:
-            collection: Dosar
+            collection: Folder
             content_type: Tip
             file_size: Dimensiune
             title: Titlu
           name: Atașament
         attachment_collection:
-          name: Dosar
+          name: Folder
         category:
           name: Categorie
         impersonation_log:
@@ -553,7 +553,7 @@ ro:
         newsletter:
           fields:
             created_at: Creat la
-            progress: Progresul
+            progress: Progres
             sent_at: Trimis la
             sent_to: Trimis către
             subject: Subiect
@@ -563,14 +563,14 @@ ro:
         scope:
           fields:
             name: Nume
-            scope_type: Tip domeniu de aplicare
+            scope_type: Tip domeniu
         scope_type:
           fields:
             name: Nume
             plural: Plural
         share_token:
           fields:
-            created_at: Creată la
+            created_at: Creat la
             expires_at: Expiră la
             last_used_at: Ultima utilizare
             times_used: Număr utilizări
@@ -598,20 +598,20 @@ ro:
             document_number: Număr document
             name: Nume
             phone: Telefon
-            state: Județ
+            state: Stadiu
             users_count: Numărul de participanți
       moderated_users:
         index:
           actions:
-            block: Blochează utilizator
+            block: Blochează utilizatorul
             title: Acţiuni
-            unblock: Deblocare utilizator
+            unblock: Deblochează utilizatorul
             unreport: Anulează raportarea
           name: Nume
           nickname: Poreclă
           reason: Motiv
-          reports: Număr rapoarte
-          title: Listare utilizatori raportați
+          reports: Număr de raportări
+          title: Listarea utilizatorilor raportați
         report:
           reasons:
             does_not_belong: Nu aparține
@@ -634,48 +634,48 @@ ro:
             callout_html: Un conținut apare în panoul de moderare atunci când a fost semnalat de un utilizator (poate fi oricine cu un cont înregistrat) făcând clic pe steagul %{icon} de lângă element.
             content_original_language: Limba originală a conținutului
             participatory_space: Spațiu participativ
-            reported_content: Conținutul raportat
-            see_current: Vezi curent
+            reported_content: Conținut raportat
+            see_current: Vezi versiunea actuală
             see_original: Vezi originalul
             title: Rapoarte de moderare
           show:
-            report_details: Detalii motiv
+            report_details: Detalierea motivului
             report_language: Raportează limbajul
             report_reason: Motiv
             title: Detalii raportare
       newsletter_templates:
         index:
-          preview_template: Previzualizare
+          preview_template: Previzualizează
           title: Modele de buletine informative
-          use_template: Utilizați acest șablon
+          use_template: Utilizează acest model
         show:
-          preview: 'Previzualizați șablonul: %{template_name}'
-          use_template: Utilizați acest șablon
+          preview: 'Previzualizează modelul: %{template_name}'
+          use_template: Utilizează acest model
       newsletters:
         create:
           error: A apărut o eroare la crearea acestui buletin informativ.
           success: Buletinul informativ a fost creat cu succes. Te rugăm să îl revizuiești înainte de a-l trimite.
         deliver:
           error: A apărut o eroare la livrarea acestui buletin informativ.
-          success: Buletinul informativ a fost livrat.
+          success: Buletinul informativ a fost livrat cu succes.
         destroy:
           error_already_sent: 'Nu se poate elimina buletinul informativ: A fost deja trimis.'
-          success: Newsletter eliminat cu succes.
+          success: Buletinul informativ a fost eliminat cu succes.
         edit:
-          save_and_preview: Salvare și previzualizare
-          title: Editați buletinul informativ
+          save_and_preview: Salvează și previzualizează
+          title: Editează buletinul informativ
         index:
-          all: toți
+          all: toate
           all_users: 'Toți utilizatorii '
           and: 'şi '
-          confirm_delete: Sunteţi sigur că doriţi să ştergeţi acest buletin informativ?
-          followers: 'urmăritori '
+          confirm_delete: Ești sigur că vrei să ştergi acest buletin informativ?
+          followers: 'abonați '
           has_been_sent_to: 'A fost trimis la: '
-          no_scopes: Nici un domeniu de aplicare
+          no_scopes: Nici un domeniu
           not_sent: Nu a fost trimis
           participants: 'participanți '
           segmented_to: 'Segmentat la %{subject}: '
-          subscribed_count: 'Abonat:'
+          subscribed_count: 'Abonați:'
           title: Buletine informative
         new:
           save: Salvează
@@ -683,65 +683,65 @@ ro:
         select_recipients_to_deliver:
           all_spaces: Toți
           all_users_help: Trimite buletinul informativ tuturor utilizatorilor confirmați.
-          confirm_deliver: Sunteţi sigur că doriţi să livraţi acest buletin informativ? Această acţiune nu poate fi anulată.
-          deliver: Buletin informativ trimis
+          confirm_deliver: Ești sigur că vrei să livrezi acest buletin informativ? Această acţiune nu poate fi anulată.
+          deliver: Trimite buletinul informativ
           followers_help: Trimite buletinul informativ tuturor utilizatorilor confirmați care urmăresc orice spații participative selectate din listă.
           none: Niciunul
           participants_help: Trimite buletinul informativ tuturor utilizatorilor confirmați care au participat la oricare dintre spațiile participative selectate din listă.
           recipients_count: Acest buletin informativ va fi trimis la <strong id='recipients_count'>%{count}</strong> utilizatori.
           scopes_help: Trimite buletinul informativ utilizatorilor care au unul din domeniile selectate activat în setările contului "Interesele mele".
-          select_scopes: Filtrați pentru utilizatorii care au activat oricare dintre domenii în setările pentru „Interesele mele” din contul lor.
-          select_spaces: Selectați spațiile pentru segmentarea buletinului de știri
-          select_users: Selectați utilizatorii pe care doriți să îi trimiteți buletinul informativ
+          select_scopes: Filtrați pentru utilizatorii care au activat oricare dintre domeniile selectate în setările privind „Interesele mele” din contul lor.
+          select_spaces: Selectează spațiile pentru segmentarea buletinului informativ
+          select_users: Selectează utilizatorii cărora vrei să trimiți buletinul informativ
           send_to_all_users: Trimite către toți utilizatorii
-          send_to_followers: Trimite către urmăritori
+          send_to_followers: Trimite către abonați
           send_to_participants: Trimite către participanți
-          title: Selectați destinatarii pentru trimitere
+          title: Selectează destinatarii pentru trimitere
           warning: "<strong>Atenție:</strong> Acest buletin informativ va fi trimis doar utilizatorilor care au activat <em>Vreau să primesc știri</em> în setările lor."
         send:
-          no_recipients: Niciun destinatar pentru această selecție
+          no_recipients: Nu exista destinatari pentru această selecție
         show:
-          preview: Previzualizare
-          select_recipients_to_deliver: Selectați destinatarii pentru trimitere
+          preview: Previzualizează
+          select_recipients_to_deliver: Selectează destinatarii pentru trimitere
           subject: Subiect
         update:
           error: A apărut o eroare la actualizarea acestui buletin informativ.
-          success: Buletin informativ actualizat cu succes. Vă rugăm să îl revizuiți înainte de a trimite.
+          success: Buletinul informativ a fost actualizat cu succes. Te rugăm să îl revizuiești înainte de a-l trimite.
       officializations:
         block:
-          error: A intervenit o eroare în încărcarea istoricului activității
-          success: Participantul a fost blocat
+          error: A apărut o eroare la blocarea participantului
+          success: Participantul a fost blocat cu succes
         create:
           success: Participantul a fost verificat cu succes
         destroy:
-          success: Participantul nu mai este verificat
+          success: Validarea participantului a fost retrasă cu succes
         index:
           actions: Acțiuni
           badge: Insignă
           block: Blochează utilizator
           created_at: Creat la
           name: Nume
-          nickname: Porecla
-          not_officialized: Neverificat
-          officialize: Verificare
-          officialized: Verificat
-          reofficialize: Reverificare
+          nickname: Poreclă
+          not_officialized: Nevalidat
+          officialize: Validează
+          officialized: Validat
+          reofficialize: Revalidează
           reports: Rapoarte
           show_email: Arată adresa de e-mail
-          status: Stare
-          unblock: Deblocare utilizator
-          unofficialize: Retrageți verificarea
+          status: Stadiu
+          unblock: Deblochează utilizatorul
+          unofficialize: Retrage validarea
         new:
-          badge: Ecuson de verificare
-          officialize: Verificare
-          title: Verificați participantul "%{name}"
+          badge: Insignă de validare
+          officialize: Validează
+          title: Validează participantul "%{name}"
         show_email_modal:
           close_modal: Închide fereastra
-          description: Dacă trebuie să contactezi direct un participant, poți face clic pe butonul Arată pentru a vedea adresa lor de e-mail. Această acțiune va fi înregistrată.
+          description: Dacă trebuie să contactezi direct un participant, poți apăsa pe butonul Arată pentru a vedea adresa lor de e-mail. Această acțiune va fi înregistrată.
           email_address: Adresa de e-mail
-          full_name: Numele complet
+          full_name: Nume complet
           hidden: ascuns
-          show: Arată
+          show: Afișează
           title: Afișează adresa de e-mail a participantului
         unblock:
           error: A intervenit o eroare în încărcarea istoricului activității
