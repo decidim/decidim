@@ -425,17 +425,17 @@ ro:
       assemblies: Grupuri de lucru
     metrics:
       assemblies:
-        description: Numărul de organizații create
-        object: organizații
-        title: Organizații
+        description: Număr de grupuri de lucru create
+        object: grupuri de lucru
+        title: Grupuri de lucru
     participatory_processes:
       show:
-        related_assemblies: Organizații asemănătoare
+        related_assemblies: Grupuri de lucru asemănătoare
     statistics:
-      assemblies_count: Organizații
+      assemblies_count: Grupuri de lucru
   errors:
     messages:
-      cannot_be_blank: nu poate fi necompletat
+      cannot_be_blank: nu poate fi gol
   layouts:
     decidim:
       assemblies:
@@ -443,15 +443,15 @@ ro:
           more_info: Mai multe informații
           take_part: Participă
         index:
-          children: 'Organizații: '
+          children: 'Grupuri de lucru: '
           organizational_chart: Grafic organizațional
-          promoted_assemblies: Organizații evidențiate
-          reset_chart: Resetare
+          promoted_assemblies: Grupuri de lucru evidențiate
+          reset_chart: Resetează
         order_by_assemblies:
           assemblies:
-            one: "%{count} ansambluri"
-            few: "%{count} ansambluri"
-            other: "%{count} organizații"
+            one: "%{count} grup de lucru"
+            few: "%{count} grupuri de lucru"
+            other: "%{count} grupuri de lucru"
         promoted_assembly:
           more_info: Mai multe informații
           take_part: Participă
