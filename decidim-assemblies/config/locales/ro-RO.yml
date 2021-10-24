@@ -276,29 +276,29 @@ ro:
             included_at_help: Selectați data la care aceast grup de lucru a fost adăugat în Decidem. Nu trebuie să fie neapărat aceeași dată cu data creării.
             metadata: Metadate
             other: Altul
-            select_a_created_by: Selectați un creeat de
+            select_a_created_by: Selectați după persoana care a creat
             select_an_area: Selectați o zonă
-            select_an_assembly_type: Selectaţi un tip de asamblare
-            select_parent_assembly: Selectați adunarea părinte
-            slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest punct de asamblare. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
-            social_handlers: Sociale
+            select_an_assembly_type: Selectaţi un tip de grup de lucru
+            select_parent_assembly: Selectați grupul de lucru părinte
+            slug_help: 'Adresele URL sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            social_handlers: Rețele de socializare
             title: Informaţii generale
             visbility: Vizibilitate
         assemblies_settings:
           edit:
-            update: Actualizare
+            update: Actualizează
           form:
-            title: Setări pentru ansambluri
+            title: Setări pentru grupuri de lucru
         assemblies_types:
           form:
             title: Titlu
         assembly_copies:
           form:
-            slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest punct de asamblare. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            slug_help: 'Adresele URL sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         assembly_imports:
           form:
             document_legend: Adaugă un document
-            slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest punct de asamblare. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            slug_help: 'Adresele URL sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         assembly_members:
           form:
             existing_user: Participant existent
@@ -311,14 +311,14 @@ ro:
             user_type: Tipul participantului
           index:
             filter:
-              all: Toate
+              all: Toți
               ceased: Sistat
               not_ceased: Nesistat
-            filter_by: Filtrare după
+            filter_by: Filtrează după
             search: Caută
         content_blocks:
           highlighted_assemblies:
-            max_results: Cantitatea maximă de elemente de afișat
+            max_results: Număr maxim de elemente care vor fi afișate
         new_import:
           accepted_types:
             json: JSON
@@ -326,40 +326,40 @@ ro:
         index:
           members: Membri
       assembly_types:
-        commission: Comision
-        consultative_advisory: Consultativă
+        commission: Comisie
+        consultative_advisory: Organ consultativ
         executive: Executiv
-        government: Guvernul
+        government: Conducere
         others: Altele
-        participatory: Participant
-        working_group: Grupul de lucru
+        participatory: Participativ
+        working_group: Sub-grup de lucru
       content_blocks:
         highlighted_assemblies:
-          name: Organizații evidențiate
+          name: Grupuri de lucru evidențiate
       created_by:
         city_council: Consiliul Local
-        others: Altele
+        others: Alții
         public: Public
       filter:
         all: Toate tipurile
-        commission: Comision
-        consultative_advisory: Consultativă
+        commission: Comisia
+        consultative_advisory: Organ consultativ
         executive: Executiv
-        government: Guvernul
-        help: 'Arată:'
+        government: Conducere
+        help: 'Afișează:'
         others: Altele
-        participatory: Participant
-        working_group: Grupul de lucru
+        participatory: Participativ
+        working_group: Sub-grup de lucru
       index:
-        title: Organizații
+        title: Grupuri de lucru
       last_activity:
-        new_assembly: Organizație nouă
+        new_assembly: Grup de lucru nou
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Organizații active
-            assemblies_button_title: Link către pagina de Organizații care afișează toate organizațiile
-            see_all_assemblies: Vezi toate organizațiile
+            active_assemblies: Grupuri de lucru active
+            assemblies_button_title: Link către pagina Grupuri de lucru care afișează toate grupurile
+            see_all_assemblies: Vezi toate grupurile de lucru
         user_profile:
           member_of:
             member_of: Membru al
