@@ -365,8 +365,8 @@ ro:
             member_of: Membru al
       show:
         area: Zonă
-        assembly_type: Tip organizație
-        children: Organizații
+        assembly_type: Tipul grupului de lucru
+        children: Grupuri de lucru
         closing_date: Data închiderii
         composition: Componență
         created_by: Creat de
@@ -374,55 +374,55 @@ ro:
         developer_group: Grup promotor
         duration: Durată
         included_at: Inclus la
-        indefinite_duration: Nedefinit
+        indefinite_duration: Nedeterminată
         internal_organisation: Organizare internă
         is_transparent:
           'false': opac
           'true': transparent
-        local_area: Zonă organizație
+        local_area: Zona grupului de lucru
         participatory_scope: Ce se decide
         participatory_structure: Cum se decide
-        private_space: Aceasta este o organizație privată
+        private_space: Acesta este un grup de lucru privat
         purpose_of_action: Scopul acțiunii
         read_less: Citește mai puțin
         read_more: Citește mai mult
         related_participatory_processes: Procese participative conexe
-        scope: Domeniu de aplicare
+        scope: Domeniu
         social_networks: Rețele sociale
-        social_networks_title: Distribuie această organizație pe
+        social_networks_title: Distribuie aceast grup de lucru pe
         target: Cine participă
     assembly_members:
       assembly_member:
-        designated_on: Desemnat la
+        designated_on: Desemnat către
       index:
         title: Membri
     events:
       assemblies:
         create_assembly_member:
-          email_intro: Un administrator al organizației <a href="%{resource_url}">%{resource_name}</a> te-a adăugat ca unul dintre membrii săi.
-          email_outro: Ați primit această notificare deoarece ați fost invitat la o organizație. Verificați <a href="%{resource_path}">pagina organizației</a> pentru a colabora!
-          email_subject: Ai fost invitat să fii membru al organizației %{resource_name}!
-          notification_title: Ați fost înregistrat ca membru al Organizației <a href="%{resource_path}">%{resource_name}</a>. Verificați pagina <a href="%{resource_path}">organizației</a> pentru a accepta!
+          email_intro: Un administrator al grupului de lucru <a href="%{resource_url}">%{resource_name}</a> te-a adăugat ca unul dintre membrii săi.
+          email_outro: Ai primit această notificare deoarece ai fost invitat la un grup de lucru. Verifică <a href="%{resource_path}">pagina organizației</a> pentru a colabora!
+          email_subject: Ai primit invitație drept membru al grupului de lucru %{resource_name}!
+          notification_title: Ai fost înregistrat ca membru al grupului de lucru <a href="%{resource_path}">%{resource_name}</a>. Verificați pagina <a href="%{resource_path}">grupului de lucru</a> pentru a accepta!
       assembly:
         role_assigned:
-          email_intro: Ai fost numit %{role} pentru organizația "%{resource_title}".
-          email_outro: Ați primit această notificare deoarece sunteți %{role} al organizației "%{resource_title}".
-          email_subject: Ai fost numit ca %{role} pentru "%{resource_title}".
-          notification_title: Ați fost numit %{role} pentru organizația <a href="%{resource_url}">%{resource_title}</a>.
+          email_intro: Ai fost numit %{role} pentru grupul de lucru "%{resource_title}".
+          email_outro: Ai primit această notificare deoare ești %{role} al grupului de lucru "%{resource_title}".
+          email_subject: Ai fost numit drept %{role} pentru "%{resource_title}".
+          notification_title: Ai fost numit %{role} pentru grupul de lucru <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>O <strong>organizație</strong> este un grup de membri ai unei organizații care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de aplicare al organizației.</p> <p>Organizațiile țin ședințe, unele sunt private și altele sunt deschise. Dacă sunt deschise, este posibilă participarea la acestea (de exemplu: participarea la activitate, dacă capacitatea permite acest lucru; adăugarea de puncte pe ordinea de zi sau formularea de observații cu privire la propunerile și deciziile luate de acest organ).</p> <p>Exemple: o adunare generală (care se întruneşte o dată pe an pentru a defini principalele direcţii de acţiune ale organizaţiei, precum şi organele sale executive prin vot); un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale) sunt toate exemple de adunări.</p>\n"
-          page: "<p>O <strong>organizație</strong> este un grup de membri ai unei organizații care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de aplicare al organizației.</p> <p>Organizațiile țin ședințe, unele sunt private și altele sunt deschise. Dacă sunt deschise, este posibilă participarea la acestea (de exemplu: participarea la activitate, dacă capacitatea permite acest lucru; adăugarea de puncte pe ordinea de zi sau formularea de observații cu privire la propunerile și deciziile luate de acest organ).</p> <p>Exemple: o adunare generală (care se întruneşte o dată pe an pentru a defini principalele direcţii de acţiune ale organizaţiei, precum şi organele sale executive prin vot); un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale) sunt toate exemple de adunări.</p>\n"
-          title: Ce sunt organizațiile?
+          contextual: "<p>O <strong>Grupul de lucru</strong> este un grup de oameni care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de interes.</p> <p>Grupurile de lucru țin ședințe, unele sunt private și altele sunt deschise. Dacă sunt deschise, este posibilă participarea la acestea (de exemplu: participarea la activitate, dacă numărul de participanți permite acest lucru; adăugarea de puncte pe ordinea de zi sau formularea de observații cu privire la propunerile și deciziile luate de acest grup).</p> <p>Exemple: o adunare generală (care se întruneşte o dată pe an pentru a defini principalele direcţii de acţiune ale unei organizaţiei, precum şi organele sale executive prin vot); un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale) sunt toate exemple de grupuri de lucru.</p>\n"
+          page: "<p>O <strong>Grupul de lucru</strong> este un grup de oameni care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de interes.</p> <p>Grupurile de lucru țin ședințe, unele sunt private și altele sunt deschise. Dacă sunt deschise, este posibilă participarea la acestea (de exemplu: participarea la activitate, dacă numărul de participanți permite acest lucru; adăugarea de puncte pe ordinea de zi sau formularea de observații cu privire la propunerile și deciziile luate de acest grup).</p> <p>Exemple: o adunare generală (care se întruneşte o dată pe an pentru a defini principalele direcţii de acţiune ale unei organizaţiei, precum şi organele sale executive prin vot); un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale) sunt toate exemple de grupuri de lucru.</p>\n"
+          title: Ce sunt grupurile de lucru?
     log:
       value_types:
         assembly_presenter:
-          not_found: 'Organizația nu a fost găsită în baza de date (ID: %{id})'
+          not_found: 'Grupul de lucru nu a fost găsit în baza de date (ID: %{id})'
         assembly_type_presenter:
-          not_found: 'Tipul de organizație nu a fost găsit în baza de date (ID: %{id})'
+          not_found: 'Tipul de grup de lucru nu a fost găsit în baza de date (ID: %{id})'
     menu:
-      assemblies: Organizații
+      assemblies: Grupuri de lucru
     metrics:
       assemblies:
         description: Numărul de organizații create
