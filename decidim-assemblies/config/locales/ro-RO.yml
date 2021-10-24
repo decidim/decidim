@@ -2,7 +2,7 @@ ro:
   activemodel:
     attributes:
       assemblies_setting:
-        enable_organization_chart: Activeaza graficul organizatiei
+        enable_organization_chart: Activează graficul organizatiei
       assembly:
         area_id: Zonă
         assembly_type: Tip organizație
@@ -61,6 +61,7 @@ ro:
         designation_date: Data desemnării
         full_name: Numele complet
         gender: Sexul
+        non_user_avatar: Avatar
         position: Poziție
         user_id: Utilizator sau grup
       assembly_user_role:
@@ -184,6 +185,9 @@ ro:
         update:
           error: A apărut o eroare la actualizarea unui administrator pentru această organizație.
           success: Administratorul a fost actualizat pentru această organizație.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Tipul grupului de lucru
       menu:
         assemblies: Organizații
         assemblies_settings: Setări
@@ -298,7 +302,10 @@ ro:
         assembly_members:
           form:
             existing_user: Participant existent
+            explanation: 'Îndrumare pentru imagine:'
+            image_guide: Este de preferat o imagine pe format orizontal care să nu conțină text deloc.
             non_user: Non participant
+            non_user_avatar_help: Ar trebui să obţii consimţământul persoanelor înainte de a îi publica drept membri.
             select_a_position: Selectaţi o poziţie
             select_user: Selectați un participant
             user_type: Tipul participantului
