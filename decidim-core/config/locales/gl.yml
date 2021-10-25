@@ -524,6 +524,7 @@ gl:
       no_followers: Aínda non hai seguidores.
     following:
       no_followings: Aínda non segue a ninguén nin a nada.
+      non_public_followings: Algúns dos recursos seguidos non son públicos.
     follows:
       create:
         button: Segue
