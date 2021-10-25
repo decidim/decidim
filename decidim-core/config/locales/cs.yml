@@ -719,6 +719,7 @@ cs:
       no_followers: Zatím žádní sledující.
     following:
       no_followings: Nesleduje nikoho ani nic.
+      non_public_followings: Některé z uvedených zdrojů nejsou veřejné.
     follows:
       create:
         button: Sledovat
