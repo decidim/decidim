@@ -138,31 +138,31 @@ ro:
           selected_projects: 'Proiectele pe care le-ai selectat sunt:'
           subject: Ai votat pentru spațiul participativ %{space_name}
           voted_on_space: Ai votat pentrul bugetul %{budget_name} aferent spațiului participativ %{space_name}.
-          voted_on_space_with_scope: Ați votat bugetul pentru %{budget_name} pentru spațiul participativ %{space_name} pe %{scope_name} (%{scope_type}).
+          voted_on_space_with_scope: Ai votat pentrul bugetul %{budget_name} aferent spațiului participativ %{space_name} pentru %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Dacă te răzgândești, poți modifica votul mai târziu.
           cancel: Anulează
-          confirm: Confirmare
-          description: Acestea sunt proiectele pe care aţi ales să le faceţi parte din buget.
+          confirm: Confirmă
+          description: Acestea sunt proiectele pe care ai ales să le incluzi în buget.
           title: Confirmă votul
         budget_excess:
           budget_excess:
-            description: Acest proiect depășește bugetul maxim și nu poate fi adăugat. Dacă dorești, poți șterge un proiect deja selectat pentru a-l adăuga pe acesta, putând astfel vota din nou conform preferintelor tale.
+            description: Acest proiect depășește bugetul maxim și nu poate fi adăugat. Dacă dorești, poți șterge un proiect deja selectat pentru a-l adăuga pe acesta, putând astfel vota din nou conform preferințelor tale.
             title: Buget maxim depășit
           close: Inchide
-          description: Acest proiect depășește bugetul maxim și nu poate fi adăugat. Dacă dorești, poți șterge un proiect deja selectat pentru a-l adăuga pe acesta, putând astfel vota din nou conform preferintelor tale.
+          description: Acest proiect depășește bugetul maxim și nu poate fi adăugat. Dacă dorești, poți șterge un proiect deja selectat pentru a-l adăuga pe acesta, putând astfel vota din nou conform preferințelor tale.
           ok: Ok
           projects_excess:
-            description: Acest proiect depășește numărul maxim de proiecte și nu poate fi adăugat. Dacă dorești, poți șterge un proiect deja selectat pentru a-l adăuga pe acesta, putând astfel vota din nou conform preferintelor tale.
+            description: Acest proiect depășește numărul maxim de proiecte și nu poate fi adăugat. Dacă dorești, poți șterge un proiect deja selectat pentru a-l adăuga pe acesta, putând astfel vota din nou conform preferințelor tale.
             title: Numărul maxim de proiecte a fost depășit
         budget_summary:
           are_you_sure: Ești sigur că vrei să anulezi votul?
-          assigned: 'Atribuit'
-          cancel_order: șterge votul tău și începe din nou
+          assigned: 'Atribuit:'
+          cancel_order: șterge votul și reia procesul
           checked_out:
-            description: Ai votat deja pentru buget. Dacă te-ai răzgândit, poți %{cancel_link}.
-            title: Votul pentru buget finalizat
+            description: Ai votat deja pentru acest buget. Dacă te-ai răzgândit, poți %{cancel_link}.
+            title: Votul pentru buget a fost finalizat
           minimum_projects_rule:
             description: Pentru ce proiecte consideri că ar trebui să alocăm bugetul? Selectează cel puțin %{minimum_number} proiecte pe care le susții și votează apoi conform preferințelor tale pentru a defini bugetul.
             instruction: "<li>Selectează cel puțin %{minimum_number} proiecte pe care le susții și votează în funcție de preferințele tale pentru a defini bugetul.</li>"
@@ -174,7 +174,7 @@ ro:
             instruction: "<li>Selectează până la %{maximum_number} proiecte pe care le susții și votează în funcție de preferințele tale pentru a defini bugetul.</li>"
           rules:
             title: Reguli privind votarea
-          title: Dumneavoastră decideţi bugetul
+          title: Tu decizi bugetul
           total_budget: Buget total
           total_projects: Total voturi
           vote_threshold_percent_rule:
@@ -192,13 +192,13 @@ ro:
           status: Stadiu
           status_values:
             all: Toate
-            not_selected: Neselectat
+            not_selected: Neselectate
             selected: Selectate
         filters_small_view:
           close_modal: Închide fereastra
           filter: Filtrare
-          filter_by: Filtrare după
-          unfold: Desfășurat
+          filter_by: Filtrează după
+          unfold: Extinde
         order_progress:
           vote: Votează
         order_selected_projects:
@@ -207,10 +207,10 @@ ro:
             one: proiect selectat
             few: proiecte selectate
             other: proiecte selectate
-          view: Vizualizare
+          view: Vizualizează
         orders:
           highest_cost: Cel mai mare cost
-          label: Ordonare proiecte de
+          label: Ordonează proiectele după
           lowest_cost: Cel mai mic cost
           most_voted: Cele mai votate
           random: Ordine aleatorie
@@ -219,7 +219,7 @@ ro:
           add: Adaugă proiectul %{resource_name} la votul tău
           remove: Elimină proiectul %{resource_name} din votul tău
           selected: Selectate
-          view: Vizualizare
+          view: Vizualizează
           votes:
             one: vot
             few: voturi
@@ -228,7 +228,7 @@ ro:
         project_budget_button:
           add: Adaugă la votul tău
           add_descriptive: Adaugă proiectul %{resource_name} la votul tău
-          added: Adăugat la votul dvs.
+          added: Adăugat la votul tău
           added_descriptive: Proiectul %{resource_name} a fost adăugat la votul tău
         projects_for: Proiecte pentru %{name}
         show:
@@ -244,7 +244,7 @@ ro:
           global:
             announcement: Anunţ
             comments_enabled: Comentarii activate
-            comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
+            comments_max_length: Lungimea maximă a comentariilor (lăsați 0 pentru valoarea implicită)
             form:
               errors:
                 budget_voting_rule_only_one: Doar o singură regulă de vot trebuie activată
@@ -258,13 +258,13 @@ ro:
             title: Titlu
             total_budget: Buget total
             vote_minimum_budget_projects_number: Numărul minim de proiecte de votat
-            vote_rule_minimum_budget_projects_enabled: 'Permite regula: numărul minim de proiecte care urmează să fie votate pe'
-            vote_rule_selected_projects_enabled: 'Activează regula: Numărul minim și numărul maxim de proiecte ce pot fi votate'
-            vote_rule_threshold_percent_enabled: 'Activare regulă: Procentaj minim buget'
+            vote_rule_minimum_budget_projects_enabled: 'Activează regula: Numărul minim de proiecte care urmează să fie votate pentru'
+            vote_rule_selected_projects_enabled: 'Activează regula: Numărul minim și numărul maxim de proiecte ce pot fi votate pentru'
+            vote_rule_threshold_percent_enabled: 'Activează regulă: Procentaj minim al bugetului'
             vote_selected_projects_maximum: Numărul maxim de proiecte ce pot fi selectate
             vote_selected_projects_minimum: Numărul minim de proiecte ce pot fi selectate
-            vote_threshold_percent: Pragul de vot procentual
-            workflow: Mod de lucru
+            vote_threshold_percent: Pragul procentual pentru vot
+            workflow: Flux de lucru
             workflow_choices:
               all: 'Votare pentru toate: permite participanților să voteze în cadrul tuturor bugetelor.'
               one: 'Votare pentru unul singur: permite participanților să voteze în orice buget, dar numai în unul dintre acestea.'
@@ -275,7 +275,7 @@ ro:
             landing_page_content: Pagina pentru bugetare participativă
             list_heading: Antetul listei cu bugete
             more_information_modal: Mai multe informații
-            show_votes: Arată voturile
+            show_votes: Afișează voturile
             title: Titlu
             votes: Votare
             votes_choices:
@@ -300,7 +300,7 @@ ro:
       included_proposals:
         project_proposal: Propuneri incluse în acest proiect
     statistics:
-      orders_count: Susține
+      orders_count: Voturi
       projects_count: Proiecte
   index:
     confirmed_orders_count: Numărul de voturi
