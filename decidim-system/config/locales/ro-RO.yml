@@ -52,7 +52,7 @@ ro:
         index:
           title: Administratori
         new:
-          create: Crează
+          create: Creează
           title: Administrator nou
         update:
           error: A apărut o eroare la actualizarea administratorului.
@@ -82,7 +82,7 @@ ro:
           name: Aplicație OAuth
         organization:
           actions:
-            save_and_invite: Creați organizație și invitați administrator
+            save_and_invite: Creează grupul de lucru și invită un administrator
           fields:
             created_at: Creat la
             file_upload_settings: Setări pentru încărcarea fișierului
