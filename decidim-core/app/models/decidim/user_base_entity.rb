@@ -25,26 +25,31 @@ module Decidim
 
     validates :name, format: { with: REGEXP_NAME }
 
-    # Public: Returns a collection with all the entities this user is following.
+    # Public: Returns a collection with all the public entities this user is following.
     #
     # This can't be done as with a `has_many :following, through: :following_follows`
     # since it's a polymorphic relation and Rails doesn't know how to load it. With
     # this implementation we only query the database once for each kind of following.
     #
     # Returns an Array of Decidim::Followable
-    def following
-      @following ||= begin
-        followings = following_follows.pluck(:decidim_followable_type, :decidim_followable_id)
-        grouped_followings = followings.each_with_object({}) do |(type, following_id), all|
-          all[type] ||= []
-          all[type] << following_id
-          all
-        end
-
-        grouped_followings.flat_map do |type, ids|
-          type.constantize.where(id: ids)
-        end
+    def public_followings
+      @public_followings ||= following_follows.select("array_agg(decidim_followable_id)")
+                                              .group(:decidim_followable_type)
+                                              .pluck(:decidim_followable_type, "array_agg(decidim_followable_id)")
+                                              .to_h
+                                              .flat_map do |type, ids|
+        only_public(type.constantize, ids)
       end
+    end
+
+    private
+
+    def only_public(klass, ids)
+      scope = klass.where(id: ids)
+      scope = scope.public_spaces if klass.try(:participatory_space?)
+      scope = scope.includes(:component) if klass.try(:has_component?)
+      scope = scope.filter(&:visible?) if klass.method_defined?(:visible?)
+      scope
     end
   end
 end
