@@ -157,10 +157,10 @@ ro:
           email_subject: Ai fost menționat în %{resource_title} ca membru al %{group_name}
           notification_title: Ai fost menționat în <a href="%{resource_path}">%{resource_title}</a> de <a href="%{author_path}">%{author_name} %{author_nickname}</a> ca membru al <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
-          email_intro: Ați fost menționat
-          email_outro: Ați primit această notificare deoarece ați fost menționat în %{resource_title}.
+          email_intro: Ai fost menționat(ă)
+          email_outro: Ai primit această notificare deoarece ai fost menționat în %{resource_title}.
           email_subject: Ai fost menționat în %{resource_title}
-          notification_title: Ai fost menționat în <a href="%{resource_path}">%{resource_title}</a> de <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+          notification_title: Ai fost menționat în <a href="%{resource_path}">%{resource_title}</a> de către <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
         description: Numărul de comentarii generate de participanți
@@ -168,4 +168,4 @@ ro:
         title: Comentarii
   errors:
     messages:
-      cannot_have_comments: nu pot avea comentarii
+      cannot_have_comments: nu poate fi comentat
