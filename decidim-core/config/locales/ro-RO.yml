@@ -846,7 +846,7 @@ ro:
         accept_request: Acceptă
         reject_request: Respingere
       new:
-        create_user_group: Creare grup
+        create_user_group: Creează grup
         new_user_group: Grup nou
         subtitle: Creați un grup și invitați alți utilizatori să participe la un nivel colectiv.
       no_user_groups: Încă nu aparține niciunui grup.
@@ -1158,7 +1158,7 @@ ro:
           title: Insigne
       user:
         confirmation_instructions_sent: Instrucțiuni de confirmare e-mail trimise
-        create_user_group: Creare grup
+        create_user_group: Creează grup
         edit_profile: Editare profil
         edit_user_group: Editează profilul grupului
         fill_in_email_to_confirm_it: Vă rugăm, completați e-mailul grupului dvs. pentru a confirma
