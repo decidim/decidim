@@ -199,7 +199,7 @@ ro:
           title: Editează tipul de zonă
           update: Actualizează
         new:
-          create: Crează tip de zonă
+          create: Creează tip de zonă
           title: Tip nou de zonă
         update:
           error: A apărut o eroare la actualizarea acestui tip de zonă.
@@ -234,7 +234,7 @@ ro:
           attachment_collection_used: Acest folder nu poate fi eliminat deoarece este în uz.
           attachment_collections_title: Foldere ataşate
         new:
-          create: Crează
+          create: Creează
           title: Folder nou
         update:
           error: A apărut o eroare la actualizarea acestui folder.
@@ -251,7 +251,7 @@ ro:
         index:
           attachments_title: Atașamente
         new:
-          create: Crează un atașament
+          create: Creează un atașament
           title: Atașament nou
         update:
           error: A apărut o eroare la actualizarea acestui atașament.
@@ -837,7 +837,7 @@ ro:
           title: Modifică tipul domeniului
           update: Actualizează
         new:
-          create: Crează tip de domeniu
+          create: Creează tip de domeniu
           title: Domeniu nou
         update:
           error: A apărut o problemă la actualizarea acestui tip de domeniu.
@@ -852,7 +852,7 @@ ro:
           title: Editează domeniul
           update: Actualizează
         new:
-          create: Crează domeniu
+          create: Creează domeniu
           title: Domeniu nou
         no_scopes: Nu există niciun domeniu la acest nivel.
         update:
@@ -908,7 +908,7 @@ ro:
         index:
           last_notable_change: Ultima modificare importantă
         new:
-          create: Crează o pagină
+          create: Creează o pagină
           title: Pagină nouă
         topic:
           destroy: Elimină subiectul
