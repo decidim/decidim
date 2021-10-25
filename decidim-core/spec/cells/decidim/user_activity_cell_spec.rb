@@ -96,7 +96,7 @@ describe Decidim::UserActivityCell, type: :cell do
         comment_link = "#{root_link}?commentId=#{log.resource.id}"
         title = html_truncate(translated_attribute(log.resource.root_commentable.title), length: 80)
 
-        expect(subject).to have_link(title, href: comment_link)
+        expect(subject).to have_link(title, { href: comment_link })
       end
 
       within "#decidim-paginate-container .pagination" do
