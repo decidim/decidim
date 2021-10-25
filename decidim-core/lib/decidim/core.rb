@@ -98,6 +98,7 @@ module Decidim
   autoload :ShareableWithToken, "decidim/shareable_with_token"
   autoload :RecordEncryptor, "decidim/record_encryptor"
   autoload :AttachmentAttributes, "decidim/attachment_attributes"
+  autoload :RectifyCommand, "decidim/rectify_command"
   autoload :CarrierWaveMigratorService, "decidim/carrier_wave_migrator_service"
   autoload :HasBlobFile, "decidim/has_blob_file"
   autoload :ReminderRegistry, "decidim/reminder_registry"

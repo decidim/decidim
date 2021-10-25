@@ -60,6 +60,7 @@ module Decidim
           ActiveSupport.on_load :action_controller do
             helper Decidim::LayoutHelper if respond_to?(:helper)
           end
+          ::Rectify::Command.prepend(::Decidim::RectifyCommand)
         end
       end
 
