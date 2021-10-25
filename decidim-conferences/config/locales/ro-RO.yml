@@ -2,7 +2,7 @@ ro:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Organizații asemănătoare
+        assemblies_ids: Grupuri de lucru asemănătoare
         available_slots: Locuri disponibile
         banner_image: Imagine pentru banner
         consultations_ids: Consultări conexe
