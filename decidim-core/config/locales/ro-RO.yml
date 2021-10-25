@@ -13,17 +13,17 @@ ro:
         document_number: Număr document
         email: E-mail
         name: Nume
-        nickname: Porecla
+        nickname: Pseudonim
         phone: Telefon
       message:
         body: Conținut
       report:
-        details: Observaţii suplimentare
+        details: Detalii
       user:
         about: Despre
         email: E-mailul dumneavoastră
-        name: Numele tău
-        nickname: Porecla
+        name: Numele
+        nickname: Pseudonim
         password: Parolă
         password_confirmation: Confirmați parola
         personal_url: URL personal
@@ -37,25 +37,25 @@ ro:
       decidim/join_request_accepted_event: Solicitare de înscriere acceptată
       decidim/join_request_rejected_event: Solicitare de înscriere respinsă
       decidim/profile_updated_event: Profil actualizat
-      decidim/promote_to_admin: Promovat la grupul de administratori
+      decidim/promote_to_admin: Promovat ca administrator
       decidim/removed_from_group: Eliminat din grup
-      decidim/resource_endorsed_event: Resursă aprobată
+      decidim/resource_endorsed_event: Resursă susținută
   activerecord:
     attributes:
       decidim/user:
         current_password: Parola curentă
         email: E-mail
-        name: Porecla
+        name: Pseudonim
         password: Parolă
         password_confirmation: Confirmare parolă
         remember_me: Ține-mă minte
     models:
       decidim/amendment:
-        one: Modificare
+        one: Amendament
         few: Amendamente
         other: Amendamente
       decidim/endorsement:
-        one: Aprobare
+        one: Susținere
         few: Susținători
         other: Susținători
       decidim/user:
@@ -67,7 +67,7 @@ ro:
         few: Grupuri
         other: Grupuri
   booleans:
-    'false': 'Nr'
+    'false': 'Nu'
     'true': 'Da'
   carrierwave:
     errors:
@@ -95,19 +95,20 @@ ro:
         confirm:
           close: Închide fereastra
           ok: Da, vreau să îmi șterg contul
-          question: Sunteţi sigur că doriţi să vă ştergeţi contul?
+          question: Ești sigur că vrei să-ți ștergi contul?
           title: Șterge contul meu
-        explanation: Vă rugăm, completați motivul pentru care doriți să vă ștergeți contul (opțional).
+        explanation: Care este motivul pentru care dorești să-ți ștergi (opțional).
       destroy:
-        error: A apărut o eroare la ștergerea contului dvs.
-        success: Contul dvs. a fost șters cu succes.
+        error: A apărut o eroare la ștergerea contului tău.
+        success: Contul tău a fost șters cu succes.
       show:
+        available_locales_helper: Alege limba pe care dorești să o utilizezi pentru a naviga și primi notificări în Decidim
         change_password: Schimbă parola
         update_account: Actualizați contul
       update:
         error: A apărut o eroare la actualizarea contului tău.
-        success: Contul dvs. a fost actualizat cu succes.
-        success_with_email_confirmation: Contul dvs. a fost actualizat cu succes. Veţi primi un e-mail pentru a confirma noua dvs. adresă de e-mail.
+        success: Contul tău fost actualizat cu succes.
+        success_with_email_confirmation: Contul tău a fost actualizat cu succes. Vei primi un e-mail pentru a confirma noua ta adresă de e-mail.
     admin:
       actions:
         cancel: Anulează
@@ -138,11 +139,11 @@ ro:
       organization:
         update: "%{user_name} a actualizat setările organizației"
       participatory_space_private_user:
-        create: "%{user_name} a invitat %{resource_name} să fie un participant privat"
-        create_via_csv: "%{user_name} a invitat %{resource_name} prin CSV să fie un participant privat"
+        create: "%{user_name} a invitat pe %{resource_name} să fie un participant privat"
+        create_via_csv: "%{user_name} a invitat pe %{resource_name} prin CSV să fie un participant privat"
         delete: "%{user_name} a eliminat participantul %{resource_name} ca participant privat"
       scope:
-        create: "%{user_name} a creat scopul %{resource_name}"
+        create: "%{user_name} a creat domeniul de aplicare %{resource_name}"
         create_with_parent: "%{user_name} a creat %{resource_name} domeniu în cadrul scopului %{parent_scope}"
         delete: "%{user_name} a șters scopul %{resource_name}"
         delete_with_parent: "%{user_name} a şters scopul %{resource_name} în cadrul scopului %{parent_scope}"
