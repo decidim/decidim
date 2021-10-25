@@ -385,10 +385,8 @@ es-PY:
         export_calendar: Exportar calendario
       conference_venues: Lugares de conferencia
       content_blocks:
-        upcoming_events:
-          name: Próximos Eventos
-          upcoming_events: Próximas reuniones
-          view_all_events: Ver todo
+        upcoming_meetings:
+          view_all_meetings: Ver todo
       directory:
         meetings:
           index:

@@ -339,10 +339,8 @@ ro:
         export_calendar: Exportă calendarul
       conference_venues: Locuri ale conferinței
       content_blocks:
-        upcoming_events:
-          name: Evenimente viitoare
-          upcoming_events: Întâlniri viitoare
-          view_all_events: Vezi toate
+        upcoming_meetings:
+          view_all_meetings: Vezi toate
       directory:
         meetings:
           index:

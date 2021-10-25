@@ -385,10 +385,8 @@ es-MX:
         export_calendar: Exportar calendario
       conference_venues: Sedes de las jornadas
       content_blocks:
-        upcoming_events:
-          name: Próximos encuentros
-          upcoming_events: Próximos encuentros
-          view_all_events: Ver todo
+        upcoming_meetings:
+          view_all_meetings: Ver todo
       directory:
         meetings:
           index:

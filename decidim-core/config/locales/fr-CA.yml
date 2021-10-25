@@ -697,6 +697,7 @@ fr-CA:
       no_followers: Aucun abonné pour le moment.
     following:
       no_followings: Aucun abonnement
+      non_public_followings: Certaines des ressources suivies ne sont pas publiques.
     follows:
       create:
         button: Suivre

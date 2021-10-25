@@ -404,10 +404,10 @@ cs:
         export_calendar: Exportovat kalendář
       conference_venues: Konferenční prostory
       content_blocks:
-        upcoming_events:
-          name: Připravované akce
-          upcoming_events: Nadcházející schůzky
-          view_all_events: Zobrazit vše
+        upcoming_meetings:
+          name: Nadcházející schůzky
+          upcoming_meetings: Nadcházející schůzky
+          view_all_meetings: Zobrazit vše
       directory:
         meetings:
           index:
