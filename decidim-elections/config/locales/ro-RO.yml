@@ -286,6 +286,10 @@ ro:
           upcoming: Urmează
         end_date: Se termină
         footer:
+          remaining_time:
+            one: "<strong>%{count} oră %{minutes} minute</strong> rămasă pentru a vota."
+            other: "<strong>%{count} ore %{minutes} minute</strong> rămase pentru a vota."
+            zero: "<strong>%{minutes} minute</strong> rămase pentru a vota."
           view: Vizualizare
           vote: Votează
         label:
@@ -465,7 +469,7 @@ ro:
           census:
             create:
               invalid: S-a produs o eroare la încărcarea recensământului, vă rugăm să încercați din nou mai târziu.
-              invalid_csv_header: Antetul CSV nu are numărul corect de câmpuri - vă rugăm să citiţi instrucţiunile cu atenţie
+              invalid_csv_header: Antetul CSV nu are numărul corect de câmpuri - te rugăm citește instrucţiunile cu atenţie
             destroy:
               error: S-a produs o eroare la ștergerea recensământului, vă rugăm să încercați din nou mai târziu.
             new:

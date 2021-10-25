@@ -5,9 +5,9 @@ ro:
   activerecord:
     models:
       decidim/blogs/post:
-        one: Postează
-        few: Mesaje
-        other: Mesaje
+        one: Postare
+        few: Postări
+        other: Postări
   decidim:
     blogs:
       actions:
@@ -60,6 +60,11 @@ ro:
       read_more: Citește mai mult
     components:
       blogs:
+        actions:
+          amend: Modifică
+          comment: Comentează
+          endorse: Susține
+          vote: Votează
         name: Blog
         settings:
           global:

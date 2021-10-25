@@ -310,7 +310,6 @@ lb:
       content_blocks:
         upcoming_events:
           name: Kommende Veranstaltungen
-          upcoming_events: Bevorstehende Treffen
           view_all_events: Alle ansehen
       directory:
         meetings:

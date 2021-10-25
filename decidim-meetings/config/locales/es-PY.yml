@@ -387,7 +387,7 @@ es-PY:
       content_blocks:
         upcoming_events:
           name: Próximos Eventos
-          upcoming_events: Próximas reuniones
+          upcoming_events: Próximos encuentros
           view_all_events: Ver todo
       directory:
         meetings:

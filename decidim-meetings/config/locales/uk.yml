@@ -263,6 +263,9 @@ uk:
           value_types:
             organizer_presenter:
               not_found: 'Цього організатора не знайдено в базі даних (ID: %{id})'
+      content_blocks:
+        upcoming_events:
+          upcoming_events: Прийдешні зустрічі
       directory:
         meetings:
           index:
