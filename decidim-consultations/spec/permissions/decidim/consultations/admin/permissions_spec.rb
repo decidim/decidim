@@ -11,7 +11,7 @@ describe Decidim::Consultations::Admin::Permissions do
   let(:question) { create :question, consultation: consultation }
   let(:context) { { consultation: consultation, question: question }.merge(extra_context) }
   let(:extra_context) { {} }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:action) do
     { scope: :admin, action: action_name, subject: action_subject }
   end

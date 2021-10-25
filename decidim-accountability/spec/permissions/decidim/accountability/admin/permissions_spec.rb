@@ -13,7 +13,7 @@ describe Decidim::Accountability::Admin::Permissions do
   end
   let(:extra_context) { {} }
   let(:accountability_component) { create :accountability_component }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   shared_examples "crud permissions" do
     describe "create" do

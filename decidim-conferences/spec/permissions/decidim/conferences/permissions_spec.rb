@@ -9,7 +9,7 @@ describe Decidim::Conferences::Permissions do
   let(:organization) { create :organization }
   let(:conference) { create :conference, organization: organization }
   let(:context) { {} }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:conference_admin) { create :conference_admin, conference: conference }
   let(:conference_collaborator) { create :conference_collaborator, conference: conference }
   let(:conference_moderator) { create :conference_moderator, conference: conference }

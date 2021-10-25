@@ -28,7 +28,7 @@ describe Decidim::Proposals::Permissions do
     }
   end
   let(:extra_settings) { {} }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   context "when scope is admin" do
     let(:action) do

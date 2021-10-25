@@ -9,7 +9,7 @@ describe Decidim::Initiatives::Permissions do
   let(:organization) { create :organization }
   let(:initiative) { create(:initiative, organization: organization) }
   let(:context) { {} }
-  let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
   shared_examples "votes permissions" do
     let(:organization) { create(:organization, available_authorizations: authorizations) }
