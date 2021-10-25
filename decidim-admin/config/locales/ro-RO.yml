@@ -591,6 +591,7 @@ ro:
             title: Rapoarte de moderare
           show:
             report_details: Detalii motiv
+            report_language: Raportează limbajul
             report_reason: Motiv
             title: Detalii raportare
       newsletter_templates:

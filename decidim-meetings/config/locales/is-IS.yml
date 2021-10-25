@@ -155,6 +155,9 @@ is-IS:
         minutes:
           create: "%{user_name} búið til fundargerð fundarins %{resource_name} á %{space_name} plássinu"
           update: "%{user_name} uppfært fundargerðir fundarins %{resource_name} á %{space_name} plássinu"
+      content_blocks:
+        upcoming_events:
+          upcoming_events: Næstu fundir
       directory:
         meetings:
           index:
