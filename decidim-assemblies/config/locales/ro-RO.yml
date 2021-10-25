@@ -106,7 +106,7 @@ ro:
           public: Public
           published: Publicat
         new:
-          create: Crează
+          create: Creează
           title: Grup de lucru nou
         update:
           error: A apărut o eroare la actualizarea acestui grup de lucru.
@@ -126,7 +126,7 @@ ro:
         destroy:
           success: Tipul grupului de lucru a fost șters cu succes.
         new:
-          create: Crează
+          create: Creează
           title: Tip nou de grup de lucru
         update:
           error: A apărut o eroare la actualizarea acestui grup de lucru.
@@ -156,7 +156,7 @@ ro:
         index:
           assembly_members_title: Membrii grupului de lucru
         new:
-          create: Crează
+          create: Creează
           title: Membru nou al grupului de lucru.
         update:
           error: A apărut o problemă la adăugarea unui membru pentru acest grup de lucru.
@@ -180,7 +180,7 @@ ro:
         index:
           assembly_admins_title: Administratori ai grupului de lucru
         new:
-          create: Crează
+          create: Creează
           title: Nou administrator al grupului de lucru.
         update:
           error: A apărut o eroare la actualizarea unui administrator pentru acest grup de lucru.
