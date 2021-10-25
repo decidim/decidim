@@ -255,8 +255,8 @@ ro:
             update: Actualizare
           new:
             back: Înapoi
-            create: Crează
-            title: Crearea domeniului de aplicare a tipului de inițiativă
+            create: Creează
+            title: Creează tipul domeniului pentru inițiative
           update:
             error: A apărut o eroare
             success: Domeniul de aplicare a fost actualizat cu succes
@@ -279,7 +279,7 @@ ro:
           initiative_type_scopes:
             title: Domeniul de aplicare al tipului de inițiativă
           new:
-            create: Crează
+            create: Creează
             title: Noul tip de inițiativă
           update:
             error: A apărut o eroare
@@ -583,14 +583,14 @@ ro:
           information: Informații
       initiative_creation_header:
         back: Înapoi
-        fill_data: Crează
+        fill_data: Creează
         finish: Terminare
         previous_form: Pornire
         promotal_committee: Comitet promotor
         select_initiative_type: Alege
         show_similar_initiatives: Compară
         step: Pasul %{current} din %{total}
-        title: Creați o inițiativă nouă
+        title: Creează o inițiativă nouă
       initiative_header:
         initiative_menu_item: Inițiativă
       initiative_signature_creation_header:
