@@ -83,44 +83,44 @@ ro:
             title: Proiect nou
           update:
             invalid: A apărut o eroare la actualizarea acestui proiect
-            success: Proiect actualizat cu succes
+            success: Proiectul a fost actualizat cu succes
         proposals_imports:
           create:
             invalid: A apărut o problemă la importul propunerilor în proiecte
             success: "%{number} propuneri importate cu succes în proiecte"
           new:
             create: Importă propuneri în proiecte
-            no_components: Nu există alte componente de propunere în acest spațiu participativ pentru a importa propunerile în proiecte.
-            select_component: Vă rugăm să selectaţi o componentă
+            no_components: Nu există alte componente de propuneri în acest spațiu participativ pentru a importa propunerile în proiecte.
+            select_component: Te rugăm selectează o componentă
             title: Importă propuneri
       admin_log:
         budget:
           create: "%{user_name} a creat bugetul %{resource_name} în spațiul %{space_name}"
-          delete: "%{user_name} a șters bugetul %{resource_name} în spațiul %{space_name}"
-          update: "%{user_name} a actualizat bugetul %{resource_name} în spațiul %{space_name}"
+          delete: "%{user_name} a șters bugetul %{resource_name} din spațiul %{space_name}"
+          update: "%{user_name} a actualizat bugetul %{resource_name} din spațiul %{space_name}"
         project:
           create: "%{user_name} a creat proiectul %{resource_name} în spațiul %{space_name}"
-          delete: "%{user_name} a șters proiectul %{resource_name} în spațiul %{space_name}"
-          update: "%{user_name} a actualizat proiectul %{resource_name} în spațiul %{space_name}"
+          delete: "%{user_name} a șters proiectul %{resource_name} din spațiul %{space_name}"
+          update: "%{user_name} a actualizat proiectul %{resource_name} din spațiul %{space_name}"
       budget:
-        view: Vezi toate proiectele bugetare
+        view: Vezi toate proiectele
       budget_information_modal:
         back_to: Înapoi la %{component_name}
-        close_modal: Închidere
+        close_modal: Închide fereastra
         continue: Continuă
         more_information: Mai multe informații
       budgets_list:
         cancel_order:
-          more_than_one: șterge votul pentru %{name} și începe din nou
-          only_one: șterge votul și începe din nou.
+          more_than_one: șterge votul tău pentru %{name} și reia procesul
+          only_one: șterge votul și reia procesul.
         finished_message: Ai terminat procesul de vot. Mulțumim pentru participare!
-        highlighted_cta: Votează la %{name}
-        if_change_opinion: Dacă v-ați răzgândit, puteți
+        highlighted_cta: Votează pentru %{name}
+        if_change_opinion: Dacă te-ai răzgândit, poți
         my_budgets: Bugetele mele
         voted_on: Ai votat pentru %{links}
       limit_announcement:
-        cant_vote: Nu puteți vota pentru acest buget. <a href="%{landing_path}">Încercați un alt buget</a>.
-        limit_reached: Voturi active în %{links}. Pentru a vota cu privire la acest buget, trebuie să <a href="%{landing_path}">ștergeți votul și să reîncepeți</a>.
+        cant_vote: Nu poți vota pentru acest buget. <a href="%{landing_path}">Încearcă un alt buget</a>.
+        limit_reached: Ai voturi active în %{links}. Pentru a vota în acest buget, trebuie <a href="%{landing_path}">să ștergi votul și să reiei procesul</a>.
       models:
         budget:
           fields:
@@ -132,9 +132,9 @@ ro:
             title: Titlu
       order_summary_mailer:
         order_summary:
-          selected_projects: 'Proiectele pe care le-aţi selectat sunt:'
-          subject: Ați votat pentru spațiul participativ %{space_name}
-          voted_on_space: Ați votat asupra bugetului %{budget_name} pentru spațiul participativ al %{space_name}.
+          selected_projects: 'Proiectele pe care le-ai selectat sunt:'
+          subject: Ai votat pentru spațiul participativ %{space_name}
+          voted_on_space: Ai votat pentrul bugetul %{budget_name} aferent spațiului participativ %{space_name}.
           voted_on_space_with_scope: Ați votat bugetul pentru %{budget_name} pentru spațiul participativ %{space_name} pe %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
@@ -278,6 +278,13 @@ ro:
               disabled: Votare dezactivată
               enabled: Votare activată
               finished: Votare terminată
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'Bugetul %{resource_title} este acum activ pentru %{participatory_space_title}. Îl poți vizualiza pe această pagină:'
+          email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula abonarea de la link-ul anterior.
+          email_subject: Bugetul %{resource_title} este în prezent activ pentru %{participatory_space_title}.
+          notification_title: Bugetul <a href="%{resource_path}">%{resource_title}</a> este activ pentru %{participatory_space_title}.
     orders:
       checkout:
         error: A apărut o problemă la procesarea votului tău
