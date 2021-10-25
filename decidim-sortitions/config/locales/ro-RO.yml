@@ -77,7 +77,7 @@ ro:
             title: Sortări
           new:
             confirm: Prin apăsarea butonului următor Decidim va înregistra data şi ora (cu precizie de secunde) şi împreună cu dice rull, această informaţie va fi folosită pentru a genera o selecţie aleatorie. Acțiunea va fi ireversibilă, odată ce butonul este apăsat, rezultatul acestei remize va fi publicat, împreună cu datele introduse în acest formular și nu pot fi modificate, vă rugăm să verificați cu atenție conținutul
-            create: Crează
+            create: Creează
             title: Sortare nouă
           show:
             selected_proposals: Propuneri selectate pentru remiză
