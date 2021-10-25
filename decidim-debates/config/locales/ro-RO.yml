@@ -28,7 +28,7 @@ ro:
     components:
       debates:
         actions:
-          create: Crează
+          create: Creează
           endorse: Aprobare
         name: Dezbateri
         settings:
@@ -141,7 +141,7 @@ ro:
           new_debate: Dezbatere nouă
         new:
           back: Înapoi
-          create: Crează
+          create: Creează
           title: Dezbatere nouă
         orders:
           commented: Cele mai comentate
