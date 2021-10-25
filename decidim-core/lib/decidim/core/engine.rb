@@ -61,6 +61,7 @@ module Decidim
             helper Decidim::LayoutHelper if respond_to?(:helper)
           end
           ::Rectify::Command.prepend(::Decidim::RectifyCommand)
+          ::Rectify::Presenter.prepend(::Decidim::RectifyCommand)
         end
       end
 
