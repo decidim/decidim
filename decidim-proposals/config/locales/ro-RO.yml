@@ -24,7 +24,7 @@ ro:
         state: Județ
         suggested_hashtags: Hashtag-uri sugerate
         title: Titlu
-        user_group_id: Creați propunerea ca
+        user_group_id: Creează propunerea ca
       proposal_answer:
         answer: Răspuns
         cost: Cost
@@ -121,7 +121,7 @@ ro:
         actions:
           amend: Modifică
           comment: Comentariu
-          create: Crează
+          create: Creează
           endorse: Aprobare
           vote: Suport
           vote_comment: Votează comentariul
@@ -326,14 +326,14 @@ ro:
         proposals:
           conditions:
             - Alegeți spațiul de participare al interesului dvs. cu prezentarea propunerilor activată
-            - Creați o nouă propunere
+            - Creează o nouă propunere
           description: Această insignă este acordată atunci când participați activ cu noi propuneri.
           description_another: Acest participant a creat %{score} propuneri.
           description_own: Ați creat %{score} propuneri.
           name: Propuneri
           next_level_in: Creează încă %{score} propuneri pentru a atinge nivelul următor!
           unearned_another: Acest participant nu a creat încă nicio propunere.
-          unearned_own: Nu ați creat încă nicio propunere.
+          unearned_own: Nu ai creat încă nicio propunere.
     metrics:
       accepted_proposals:
         description: Numărul de propuneri acceptate
@@ -458,8 +458,8 @@ ro:
             update: Actualizare
             update_scope_button: Actualizare domeniu
           new:
-            create: Crează
-            title: Creați o propunere
+            create: Creează
+            title: Creează propunere
           publish_answers:
             number_of_proposals: Răspunsurile pentru propunerile %{number} vor fi publicate.
             select_a_proposal: Vă rugăm să selectaţi o propunere
@@ -747,7 +747,7 @@ ro:
             other: suportă
         new:
           send: Continuă
-          title: Crează-ți propunerea
+          title: Creează propunerea ta
         orders:
           label: 'Ordonare propuneri după:'
           most_commented: Cele mai comentate
@@ -848,7 +848,7 @@ ro:
         wizard_steps:
           current_step: Pasul curent
           see_steps: vezi pașii
-          step_1: Creați propunerea dvs.
+          step_1: Creează propunerea ta
           step_2: Compară
           step_3: Complete
           step_4: Publică propunerea ta
