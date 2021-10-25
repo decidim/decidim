@@ -625,7 +625,7 @@ pl:
           new_collaborative_draft: Nowy wspólny szkic
         orders:
           label: 'Sortuj szkice według:'
-          most_contributed: Najwięcej kontrybucji
+          most_contributed: Najbardziej wspierane
           random: Losowo
           recent: Najnowszy
         requests:
@@ -683,7 +683,7 @@ pl:
         success: Szkic propozycji został usunięty.
       last_activity:
         new_proposal_at_html: "<span>Nowa propozycja pod %{link}</span>"
-        proposal_updated_at_html: "<span>Wniosek zaktualizowany o %{link}</span>"
+        proposal_updated_at_html: "<span>Propozycja zaktualizowana o %{link}</span>"
       models:
         collaborative_draft:
           fields:
