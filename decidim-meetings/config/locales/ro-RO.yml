@@ -8,7 +8,7 @@ ro:
       close_meeting:
         attendees_count: Număr de participanți
         attending_organizations: Lista organizaţiilor care au participat
-        closing_report: Raport
+        closing_report: Raportează
         contributions_count: Numărul de contribuții
         proposal_ids: Propuneri formulate în cadrul ședinței
       meeting:
@@ -174,7 +174,7 @@ ro:
             one: 'Întâlnirea nu poate fi eliminată deoarece are %{count} propunere asociată:'
             few: 'Întâlnirea nu poate fi eliminată deoarece are %{count} propunere asociată:'
             other: 'Întâlnirea nu poate fi eliminată deoarece are %{count} propuneri asociate acestuia:'
-        minutes: Minute
+        minutes: Minuta
         new: Ședință nouă
         preview: Previzualizare
         registrations: Înregistrări
@@ -251,7 +251,7 @@ ro:
             success: Ședință închisă cu succes
           create:
             invalid: A apărut o problemă la crearea acestei întâlniri
-            success: Ședință creată cu succes
+            success: Ședință a fost creată cu succes
           destroy:
             invalid:
               proposals_count:
@@ -292,17 +292,17 @@ ro:
             success: Întâlnire actualizată cu succes
         minutes:
           create:
-            invalid: A apărut o problemă la crearea acestui minut
-            success: Minute create cu succes
+            invalid: A apărut o problemă la crearea acestei minute
+            success: Minuta a fost creată cu succes
           edit:
-            title: Editare minute
+            title: Editează minuta
             update: Actualizare
           new:
             create: Crează
-            title: Crează minute
+            title: Crează minuta
           update:
-            invalid: A apărut o eroare la actualizarea acestui minut
-            success: Minute actualizate cu succes
+            invalid: A apărut o eroare la actualizarea acestei minute
+            success: Minuta a fost actualizată cu succes
         models:
           meeting:
             name: Întâlnire
@@ -344,8 +344,8 @@ ro:
             organizer_presenter:
               not_found: 'Organizatorul nu a fost găsit în baza de date (ID: %{id})'
         minutes:
-          create: "%{user_name} a creat procesul-verbal al ședinței %{resource_name} pe spațiul %{space_name}"
-          update: "%{user_name} a actualizat procesul-verbal al ședinței %{resource_name} pe spațiul %{space_name}"
+          create: "%{user_name} a creat minuta ședinței %{resource_name} în spațiul participativ %{space_name}"
+          update: "%{user_name} a actualizat minuta ședinței %{resource_name} în spațiul participativ %{space_name}"
       calendar_modal:
         calendar_url: URL Calendar
         close_window: Închide fereastra
@@ -440,7 +440,7 @@ ro:
         index:
           new_meeting: Ședință nouă
         meeting_minutes:
-          meeting_minutes: Procesul-verbal al şedinţei
+          meeting_minutes: Minutele şedinţelor
           related_information: Informații conexe
         meetings:
           no_meetings_warning: Nici o întâlnire nu corespunde criteriilor de căutare sau nu există nicio întrunire programată.
@@ -459,9 +459,9 @@ ro:
           contributions: Număr de contribuții
           date: Data
           edit_meeting: Editați ședința
-          going: Merge
+          going: Particip
           join: Alătură-te ședinței
-          meeting_report: Raportul reuniunii
+          meeting_report: Raportul întâlnirii
           no_slots_available: Niciun slot disponibil
           organizations: Participare la organizaţii
           registration_code_help_text: Codul dvs. de înregistrare
