@@ -166,7 +166,7 @@ ro:
             no_bulletin_board: Nu există <a href="https://github.com/decidim/decidim-bulletin-board">Serverul Bulletin Board</a> configurat, care este necesar pentru a utiliza acest modul. Această sarcină trebuie realizată de Administratorul de sistem.
             title: Alegeri
           new:
-            create: Creați alegeri
+            create: Creează alegeri
             title: Alegeri noi
           publish:
             success: Alegerile au fost publicate cu succes.
@@ -211,7 +211,7 @@ ro:
           index:
             title: Întrebări
           new:
-            create: Crează întrebare
+            create: Creează întrebare
             title: Întrebare nouă
           update:
             invalid: A apărut o eroare la actualizarea acestei întrebări
@@ -232,6 +232,8 @@ ro:
               'false': nu are <strong>o cheie publică</strong>
               'true': are o <strong>cheie publică</strong>
             title: Configurarea alegerilor
+          created:
+            title: Alegeri create
           tally_ended:
             success: Cererea de publicare a rezultatelor a fost trimisă cu succes la Bulletin Board
           vote_ended:
@@ -260,7 +262,7 @@ ro:
           index:
             title: Administrator
           new:
-            create: Crează Administrator
+            create: Creează Împuternicit
             title: Administrator nou
           update:
             invalid: A apărut o problemă la actualizarea administratorului %{trustee}
@@ -332,6 +334,8 @@ ro:
             title: Titlu
       trustee_zone:
         elections:
+          key_ceremony_steps:
+            title: Crează chei electorale pentru %{election}
           tally_steps:
             process_warning: Odată ce procesul este pornit, nu ar trebui să ieșiți din această pagină până când procesul se încheie. Va dura câteva minute, deoarece toate Truste-urile ar trebui conectate pentru a o finaliza.
             start: Incepe
@@ -428,7 +432,7 @@ ro:
           selections: "%{selected} din %{max_selections}<br> selecții"
         onboarding_modal:
           close: Închidere
-          create_account: Crează cont
+          create_account: Creează cont
           description: Vrei să creezi un cont nou în Decidim? Veţi putea participa la procese şi să fiţi o parte activă a organizaţiei.
           no_account: Nu, mulțumesc.
           title: Nou în Decidem?
@@ -447,9 +451,27 @@ ro:
         ballot_styles:
           index:
             associated_census_data: Intrări asociate recensământului
+          new:
+            create: Creează
+            title: Creează stil de vot
         menu:
           votings_submenu:
             monitoring_committee_members: Membri
+        monitoring_committee_members:
+          new:
+            create: Creează
+            title: Creează un membru al comitetului de monitorizare
+        polling_officers:
+          new:
+            create: Creează
+            title: Creează verificator al scrutinului
+        polling_stations:
+          new:
+            create: Creează
+            title: Creează stație de votare
+        votings:
+          new:
+            create: Creează
       census:
         admin:
           census:
@@ -460,6 +482,7 @@ ro:
             new:
               has_ballot_styles_message: Ai configurat Ballot Stiluri. Te rugăm să te asiguri că câmpul "%{ballot_style_code_header}" din CSV corespunde codului dorit al Stilului Balt.
               missing_ballot_styles_message: 'Încă nu există un stil de votare pentru acest vot. Dacă doriți să aveți întrebări condiționate (i..: prezintă alegătorului întrebări diferite, în funcţie de exemplu: districtul/regiunea de reședință), trebuie să setezi <a href=%{ballot_styles_admin_path}>Ballot Styles</a> <strong>înainte de</strong> importul recensământului. Dacă doriţi să le adresaţi tuturor alegătorilor aceleaşi întrebări, puteţi continua cu procedura de import de recensământ.'
+              title: Creează recensământul
             upload_info:
               csv_example_with_ballot_style: 'Un exemplu de fișier <strong>cu</strong> stiluri de vot:'
               csv_example_without_ballot_style: 'Un exemplu de fișier <strong>fără</strong> stiluri de vot:'
