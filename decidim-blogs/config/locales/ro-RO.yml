@@ -35,8 +35,8 @@ ro:
           index:
             title: Postări
           new:
-            create: Crează
-            title: Crează postare
+            create: Creează
+            title: Creează postare
           update:
             invalid: A apărut o eroare la salvarea postării.
             success: Postarea a fost salvată cu succes
