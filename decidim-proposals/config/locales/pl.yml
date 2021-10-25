@@ -622,7 +622,7 @@ pl:
           new_collaborative_draft: Nowy wspólny szkic
         orders:
           label: 'Sortuj szkice według:'
-          most_contributed: Najwięcej kontrybucji
+          most_contributed: Najbardziej wspierane
           random: Losowo
           recent: Najnowszy
         requests:
