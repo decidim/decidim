@@ -43,7 +43,7 @@ ro:
       admin:
         questionnaire_templates:
           choose:
-            create_from_template: Creați un șablon
+            create_from_template: Creează din model
             description: Sunteți pe cale să creați un nou chestionar. Puteți alege un șablon predefinit și să-l modificați ulterior.
             label: Alegeți un șablon
             placeholder: Alegeți un șablon
