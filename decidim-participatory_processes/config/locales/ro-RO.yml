@@ -175,7 +175,7 @@ ro:
           title: Editare grup proces
           update: Actualizare
         new:
-          create: Crează
+          create: Creează
           title: Proces nou de grup
         update:
           error: A apărut o problemă la actualizarea acestui grup participativ.
@@ -215,7 +215,7 @@ ro:
         index:
           steps_title: Faze
         new:
-          create: Crează
+          create: Creează
           title: Noua fază a procesului participativ
         ordering:
           error: A existat o problemă în reordonarea acestor faze ale procesului participativ.
@@ -234,7 +234,7 @@ ro:
         index:
           process_admins_title: Administratori ai proceselor participative
         new:
-          create: Crează
+          create: Creează
           title: Noul administrator al procesului participativ
         update:
           error: A apărut o eroare la actualizarea unui administrator pentru acest proces participativ.
@@ -251,7 +251,7 @@ ro:
           public: Publice
           published: Publicat
         new:
-          create: Crează
+          create: Creează
           title: Un nou proces participativ
         update:
           error: A apărut o eroare la actualizarea acestui proces participativ.
