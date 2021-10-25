@@ -120,6 +120,9 @@ ro:
         highlighted_cta: Votează la %{name}
         if_change_opinion: Dacă v-ați răzgândit, puteți
         my_budgets: Bugetele mele
+        progress: Finalizează votul
+        show: Vezi proiectele
+        vote: Votează
         voted_on: Ai votat pentru %{links}
       limit_announcement:
         cant_vote: Nu puteți vota pentru acest buget. <a href="%{landing_path}">Încercați un alt buget</a>.
