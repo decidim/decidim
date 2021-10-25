@@ -11,15 +11,15 @@ ro:
         document_number: Număr document
         email: E-mail
         name: Nume
-        nickname: Porecla
+        nickname: Pseudonim
         phone: Telefon
       report:
-        details: Observaţii suplimentare
+        details: Detalii
       user:
         about: Despre
         email: E-mailul dumneavoastră
-        name: Numele tău
-        nickname: Porecla
+        name: Numele
+        nickname: Pseudonim
         password: Parolă
         password_confirmation: Confirmați parola
         personal_url: URL personal
@@ -33,25 +33,25 @@ ro:
       decidim/join_request_accepted_event: Solicitare de înscriere acceptată
       decidim/join_request_rejected_event: Solicitare de înscriere respinsă
       decidim/profile_updated_event: Profil actualizat
-      decidim/promote_to_admin: Promovat la grupul de administratori
+      decidim/promote_to_admin: Promovat ca administrator
       decidim/removed_from_group: Eliminat din grup
-      decidim/resource_endorsed_event: Resursă aprobată
+      decidim/resource_endorsed_event: Resursă susținută
   activerecord:
     attributes:
       decidim/user:
         current_password: Parola curentă
         email: E-mail
-        name: Porecla
+        name: Pseudonim
         password: Parolă
         password_confirmation: Confirmare parolă
         remember_me: Ține-mă minte
     models:
       decidim/amendment:
-        one: Modificare
+        one: Amendament
         few: Amendamente
         other: Amendamente
       decidim/endorsement:
-        one: Aprobare
+        one: Susținere
         few: Susținători
         other: Susținători
       decidim/user:
@@ -63,7 +63,7 @@ ro:
         few: Grupuri
         other: Grupuri
   booleans:
-    'false': 'Nr'
+    'false': 'Nu'
     'true': 'Da'
   carrierwave:
     errors:
@@ -92,19 +92,19 @@ ro:
         confirm:
           close: Închide fereastra
           ok: Da, vreau să îmi șterg contul
-          question: Sunteţi sigur că doriţi să vă ştergeţi contul?
+          question: Ești sigur că vrei să-ți ștergi contul?
           title: Șterge contul meu
-        explanation: Vă rugăm, completați motivul pentru care doriți să vă ștergeți contul (opțional).
+        explanation: Care este motivul pentru care dorești să-ți ștergi (opțional).
       destroy:
-        error: A apărut o eroare la ștergerea contului dvs.
-        success: Contul dvs. a fost șters cu succes.
+        error: A apărut o eroare la ștergerea contului tău.
+        success: Contul tău a fost șters cu succes.
       show:
         change_password: Schimbă parola
         update_account: Actualizați contul
       update:
         error: A apărut o eroare la actualizarea contului tău.
-        success: Contul dvs. a fost actualizat cu succes.
-        success_with_email_confirmation: Contul dvs. a fost actualizat cu succes. Veţi primi un e-mail pentru a confirma noua dvs. adresă de e-mail.
+        success: Contul tău fost actualizat cu succes.
+        success_with_email_confirmation: Contul tău a fost actualizat cu succes. Vei primi un e-mail pentru a confirma noua ta adresă de e-mail.
     admin:
       actions:
         cancel: Anulează
@@ -135,16 +135,16 @@ ro:
       organization:
         update: "%{user_name} a actualizat setările organizației"
       participatory_space_private_user:
-        create: "%{user_name} a invitat %{resource_name} să fie un participant privat"
-        create_via_csv: "%{user_name} a invitat %{resource_name} prin CSV să fie un participant privat"
+        create: "%{user_name} a invitat pe %{resource_name} să fie un participant privat"
+        create_via_csv: "%{user_name} a invitat pe %{resource_name} prin CSV să fie un participant privat"
         delete: "%{user_name} a eliminat participantul %{resource_name} ca participant privat"
       scope:
-        create: "%{user_name} a creat scopul %{resource_name}"
-        create_with_parent: "%{user_name} a creat %{resource_name} domeniu în cadrul scopului %{parent_scope}"
-        delete: "%{user_name} a șters scopul %{resource_name}"
-        delete_with_parent: "%{user_name} a şters scopul %{resource_name} în cadrul scopului %{parent_scope}"
+        create: "%{user_name} a creat domeniul de aplicare %{resource_name}"
+        create_with_parent: "%{user_name} a creat %{resource_name} domeniu în cadrul domeniului %{parent_scope}"
+        delete: "%{user_name} a șters domeniul de aplicare %{resource_name}"
+        delete_with_parent: "%{user_name} a şters domeniul de aplicare %{resource_name} în cadrul domeniului %{parent_scope}"
         update: "%{user_name} a actualizat domeniul %{resource_name}"
-        update_with_parent: "%{user_name} a actualizat %{resource_name} domeniu în cadrul scopului %{parent_scope}"
+        update_with_parent: "%{user_name} a actualizat %{resource_name} domeniu în cadrul domeniului%{parent_scope}"
       static_page:
         create: "%{user_name} a creat pagina statică %{resource_name}"
         delete: "%{user_name} a șters pagina statică %{resource_name}"
@@ -164,9 +164,9 @@ ro:
         verify: "%{user_name} a verificat grupul %{resource_name}"
         verify_via_csv: "%{user_name} a verificat grupul %{resource_name} printr-un fișier CSV"
       user_moderation:
-        unreport: "%{user_name} neraportat %{resource_type} - %{unreported_user_name}"
+        unreport: "%{user_name} a anulat raportarea pentru %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
-      default_body: "<h2>ADMIN TERMENI DE UTILIZARE</h2><p>Avem încredere că ați primit prelegerea obișnuită de la Administratorul de Sistem local. De obicei se reduce la aceste trei lucruri:</p><ol><li>Respectă confidențialitatea altora.</li><li>Gândiți-vă înainte de a da click.</li><li>Cu mare putere vine o mare responsabilitate.</li></ol>"
+      default_body: "<h2>ADMIN TERMENI DE UTILIZARE</h2><p>Avem încredere că ai primit prelegerea obișnuită de la Administratorul de Sistem local. De obicei se reduce la aceste trei lucruri:</p><ol><li>Respectă confidențialitatea altora.</li><li>Gândesște-te înainte de a da click.</li><li>Cu o mare putere vine o mare responsabilitate.</li></ol>"
     alert:
       dismiss: Anulare notificare
     amendments:
@@ -178,46 +178,46 @@ ro:
         button: Modifică %{model_name}
         error: A apărut o eroare la modificarea acestei resurse.
         help_text: Îmbunătățește acest %{model_name} prin modificarea lui %{amendable_fields}
-        promote_button: Promovează către %{model_name}
-        promote_confirm_text: Sunteţi sigur că doriţi să promovaţi această emendare?
-        promote_help_text: Poți promova această emendare și publica ca un %{model_name} independent
+        promote_button: Promovează la %{model_name}
+        promote_confirm_text: Ești sigur că dorești să promovezi această modificare?
+        promote_help_text: Poți promova această modificare și publica ca un %{model_name} independent
         section_heading: Amendamente (%{count})
       compare_draft:
         continue: Continuă
-        no_similars_found: Nu s-au găsit emendări similare.
-        title: Modări similare
+        no_similars_found: Nu există modificări similare.
+        title: Modificări similare
       created:
-        error: A apărut o eroare la crearea proiectului de amendament.
-        success: Proiectul de amendament a fost creat cu succes.
+        error: S-a produs o eroare la crearea proiectului de modificare.
+        success: Draftul de modificare a fost creat cu succes.
       destroy_draft:
-        error: A apărut o eroare la eliminarea proiectului de amendament.
-        success: Amendamentul schiță a fost șters cu succes.
+        error: A apărut o eroare la eliminarea proiectului de modificare.
+        success: Draftul modificării a fost șters cu succes.
       edit_draft:
-        discard: Renunță la această schiță
-        discard_confirmation: Sunteţi sigur că doriţi să renunţaţi la acest proiect de amendament?
+        discard: Renunță la acest draft
+        discard_confirmation: Ești sigur că vrei să renunți la acest draft de modificare?
         send: Previzualizare
-        title: Editare proiect de amendament
+        title: Editare draft de modificare
       emendation:
         actions:
           button_accept: Acceptă
-          button_reject: Respingere
-          help_text: Examinați modificările și acceptați sau respingeți acest amendament. O notificare va fi trimisă autorului (autorilor).
+          button_reject: Respinge
+          help_text: Reexaminați modificările și acceptați-le sau respingeți această modificare. O notificare va fi trimisă autorului(autorilor) său(săi).
         announcement:
           accepted: |-
-            Acest amendament pentru %{amendable_type} %{proposal_link} a fost
-            acceptat pe <strong>%{date}</strong>.
+            Această modificare pentru %{amendable_type} %{proposal_link} a fost
+            acceptată pe <strong>%{date}</strong>.
           evaluating: |-
-            Acest amendament pentru %{amendable_type} %{proposal_link}
-            este evaluat.
-          promoted: Promovat la un %{amendable_type}.
-          rejected: Acest amendament pentru %{amendable_type} %{proposal_link} a fost respins la <strong>%{date}</strong>.
+            Această modificare a %{amendable_type} %{proposal_link}
+            este în curs de evaluare.
+          promoted: Promovat ca %{amendable_type}.
+          rejected: Această modificare pentru %{amendable_type} %{proposal_link} a fost respinsă la <strong>%{date}</strong>.
           withdrawn: |-
-            Acest amendament pentru %{amendable_type} %{proposal_link}
-            a fost retras de către autor.
+            Această modificare a %{amendable_type} %{proposal_link}
+            a fost retrasă de autor.
       new:
-        amendment_author: Autor de modificare
+        amendment_author: Autorul modificării
         send: Crează
-        title: Creați un proiect de amendament
+        title: Creați un draft de modificare
       preview_draft:
         modify: Modifică
         publish: Publică
@@ -839,7 +839,7 @@ ro:
         accept_request: Acceptă
         reject_request: Respingere
       new:
-        create_user_group: Creare grup
+        create_user_group: Creează grup
         new_user_group: Grup nou
         subtitle: Creați un grup și invitați alți utilizatori să participe la un nivel colectiv.
       no_user_groups: Încă nu aparține niciunui grup.
@@ -1159,7 +1159,7 @@ ro:
           title: Insigne
       user:
         confirmation_instructions_sent: Instrucțiuni de confirmare e-mail trimise
-        create_user_group: Creare grup
+        create_user_group: Creează grup
         edit_profile: Editare profil
         edit_user_group: Editează profilul grupului
         fill_in_email_to_confirm_it: Vă rugăm, completați e-mailul grupului dvs. pentru a confirma
