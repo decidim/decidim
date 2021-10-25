@@ -10,7 +10,6 @@
 require "rails"
 
 %w(
-  active_model/railtie
   active_record/railtie
   active_storage/engine
   action_controller/railtie
