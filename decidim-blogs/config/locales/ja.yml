@@ -59,10 +59,9 @@ ja:
     components:
       blogs:
         actions:
-          amend: 修正
-          comment: コメント
-          endorse: 支持
-          vote: 投票
+          create: 作成
+          destroy: 削除
+          update: 更新
         name: ブログ
         settings:
           global:
