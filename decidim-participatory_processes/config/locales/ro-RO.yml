@@ -461,20 +461,20 @@ ro:
         answers_count: Răspunsuri
         comments_count: Comentarii
         debates_count: Dezbateri
-        endorsements_count: Susținători
-        followers_count: Urmăritori
+        endorsements_count: Susțineri
+        followers_count: Abonați
         headline: Statistici
         meetings_count: Întâlniri
-        no_stats: Încă nu există statistici.
-        orders_count: Suportă
+        no_stats: Nu există încă statistici.
+        orders_count: Voturi
         pages_count: Pagini
         participants_count: Participanți
         processes_count: Procese participative
         projects_count: Proiecte
         proposals_count: Propuneri
         results_count: Rezultate
-        supports_count: Suportă
-        surveys_count: Chestionare
+        supports_count: Voturi
+        surveys_count: Sondaje
         users_count: Participanți
   layouts:
     decidim:
