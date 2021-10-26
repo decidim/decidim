@@ -613,109 +613,110 @@ ro:
       groups:
         demoted_membership:
           email_intro: Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> a eliminat drepturile tale de administrator din acel grup.
-          email_outro: Ați primit această notificare deoarece sunteți membru al acelui grup.
+          email_outro: Ai primit această notificare deoarece ești membru al acelui grup.
           email_subject: Nu mai ești administrator al grupului %{user_group_name}!
           notification_title: Nu mai ești administrator al grupului <a href="%{resource_path}">%{user_group_name}</a>.
         invited_to_group:
-          email_intro: Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> te-a invitat să te alăture.
-          email_outro: Ați primit această notificare deoarece ați fost invitat într-un grup. Vă rugăm să verificați fila Grupuri din profilul dvs. pentru a o aproba.
+          email_intro: Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> te-a invitat să te alături.
+          email_outro: Ai primit această notificare deoarece ai fost invitat într-un grup. Te rugăm să verifici fila Grupuri din profilul tău pentru a o aproba.
           email_subject: Ai fost invitat să te alături grupului %{user_group_name}!
-          notification_title: Ați fost invitat să vă alăturați grupului <a href="%{resource_path}">%{user_group_name}</a> . Verificați pagina <a href="%{groups_profile_tab_path}">Grupuri</a> din profilul dvs. pentru a o aproba!
+          notification_title: Ai fost invitat să te alături grupului <a href="%{resource_path}">%{user_group_name}</a>. Verifică pagina <a href="%{groups_profile_tab_path}">Grupuri</a> din profilul tău pentru a o aproba!
         join_request_accepted:
           email_intro: Felicitări! Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> a acceptat cererea ta de a te alătura.
-          email_outro: Ați primit această notificare deoarece solicitarea dvs. de aderare a fost actualizată.
+          email_outro: Ai primit această notificare deoarece solicitarea ta de aderare a fost actualizată.
           email_subject: Ai fost acceptat în grupul %{user_group_name}!
           notification_title: Ați fost acceptat pentru grupul <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
-          email_intro: Cineva a solicitat să se alăture grupului %{user_group_name} . Îl puteți accepta sau respinge de la <a href="%{resource_url}">pagina membrilor grupului</a>.
-          email_outro: Ați primit această notificare, deoarece puteți gestiona grupul %{user_group_name}.
+          email_intro: Cineva a solicitat să se alăture grupului %{user_group_name}. Îl poți accepta sau respinge de la <a href="%{resource_url}">pagina membrilor grupului</a>.
+          email_outro: Ai primit această notificare, deoarece poți gestiona grupul %{user_group_name}.
           email_subject: Cineva a solicitat să se alăture grupului %{user_group_name}!
-          notification_title: Cineva a solicitat să se alăture grupului %{user_group_name} . Îl puteți accepta sau respinge de la <a href="%{resource_path}">pagina membrilor grupului</a>.
+          notification_title: Cineva a solicitat să se alăture grupului %{user_group_name}. Îl poți accepta sau respinge de la <a href="%{resource_path}">pagina membrilor grupului</a>.
         join_request_rejected:
-          email_intro: Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> a respins cererea dvs. de a se alătura.
-          email_outro: Ați primit această notificare deoarece solicitarea dvs. de aderare a fost actualizată.
+          email_intro: Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> a respins cererea ta de a te alătura.
+          email_outro: Ai primit această notificare deoarece solicitarea ta de aderare a fost actualizată.
           email_subject: Cererea ta de a te alătura grupului %{user_group_name} a fost respinsă!
           notification_title: Cererea ta de a te alătura grupului <a href="%{resource_path}">%{user_group_name}</a> a fost respinsă.
         promoted_to_admin:
           email_intro: Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> ți-a acordat drepturi de administrator acelui grup.
-          email_outro: Ați primit această notificare deoarece sunteți membru al acelui grup.
+          email_outro: Ai primit această notificare deoarece ești membru al acelui grup.
           email_subject: Acum ești administrator al grupului %{user_group_name}!
           notification_title: Acum ești administrator al grupului <a href="%{resource_path}">%{user_group_name}</a>.
         removed_from_group:
           email_intro: Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> te-a eliminat din el.
-          email_outro: Ați primit această notificare deoarece ați fost membru al acelui grup.
+          email_outro: Ai primit această notificare deoarece ai fost membru al acelui grup.
           email_subject: Ai fost eliminat din grupul %{user_group_name}!
-          notification_title: Ați fost eliminat din grupul <a href="%{resource_path}">%{user_group_name}</a>.
+          notification_title: Ai fost eliminat din grupul <a href="%{resource_path}">%{user_group_name}</a>.
         user_group_created:
-          email_intro: Un nou grup de utilizatori a fost creat cu numele %{user_group_name}. Acum îl puteți verifica în panoul <a href="%{groups_admin_url}">de administratori</a>.
-          email_outro: Ați primit această notificare deoarece sunteți un administrator al platformei.
+          email_intro: Un nou grup de utilizatori a fost creat cu numele %{user_group_name}. Acum îl poți verifica în panoul <a href="%{groups_admin_url}">de administratori</a>.
+          email_outro: Ai primit această notificare deoarece ești un administrator al platformei.
           email_subject: A fost creat un nou grup de utilizatori
-          notification_title: Grupul de utilizatori %{user_group_name} a fost creat. Acum îl puteți verifica în panoul <a href="%{groups_admin_path}">de administratori</a>.
+          notification_title: Grupul de utilizatori %{user_group_name} a fost creat. Acum îl poți verifica în panoul <a href="%{groups_admin_path}">de administratori</a>.
         user_group_updated:
-          email_intro: Un grup de utilizatori cu numele %{user_group_name} și-a actualizat profilul, lăsându-l neverificat. Acum îl puteți verifica în panoul <a href="%{groups_admin_url}">de administrare</a>.
-          email_outro: Ați primit această notificare deoarece sunteți un administrator al platformei.
+          email_intro: Un grup de utilizatori cu numele %{user_group_name} și-a actualizat profilul, lăsându-l neverificat. Acum îl poți verifica în panoul <a href="%{groups_admin_url}">de administrare</a>.
+          email_outro: Ai primit această notificare deoarece ești un administrator al platformei.
           email_subject: Un grup de utilizatori și-a actualizat profilul
-          notification_title: Grupul de utilizatori %{user_group_name} și-a actualizat profilul, lăsând neverificat. Acum îl puteți verifica în panoul <a href="%{groups_admin_path}">de administratori</a>.
+          notification_title: Grupul de utilizatori %{user_group_name} și-a actualizat profilul, lăsând neverificat. Acum îl poți verifica în panoul <a href="%{groups_admin_path}">de administratori</a>.
       notification_event:
         notification_title: A apărut un eveniment pentru <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: Un administrator a eliminat %{resource_type} deoarece a fost raportat ca %{report_reasons}.
-          email_outro: Ați primit această notificare deoarece sunteți un autor al conținutului șters.
+          email_outro: Ai primit această notificare deoarece ești un autor al conținutului șters.
           email_subject: '%{resource_type} tău a fost eliminat'
           notification_title: |-
             Un administrator a eliminat %{resource_type} deoarece a fost raportat ca %{report_reasons}.</br>
             <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, pe care îl urmărești, tocmai a aprobat „%{resource_title}” și noi credem că ar putea fi interesant pentru tine. Verificați și contribuția:'
-        email_outro: Ați primit această notificare deoarece urmăriți %{endorser_nickname}. Puteți înceta să primiți notificări urmând linkul anterior.
+        email_outro: Ai primit această notificare deoarece urmărești %{endorser_nickname}. Poți înceta să primești notificări urmând linkul anterior.
         email_subject: "%{endorser_nickname} a efectuat o nouă aprobare"
         notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} a fost aprobat de <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: Pagina de profil <a href="%{resource_url}"></a> din %{name} (%{nickname}), pe care o urmărești, a fost actualizată.
-          email_outro: Ați primit această notificare deoarece urmăriți %{nickname}. Puteți înceta să primiți notificări urmând linkul anterior.
+          email_outro: Ai primit această notificare deoarece urmărești %{nickname}. Poți înceta să primești notificări urmând linkul anterior.
           email_subject: "%{nickname} și-a actualizat profilul"
           notification_title: Pagina de profil <a href="%{resource_path}"></a> din %{name} (%{nickname}), pe care o urmărești, a fost actualizată.
     export_mailer:
       data_portability_export:
-        click_button: 'Faceți clic pe următorul link pentru a descărca datele.<br/>Fișierul va fi disponibil până la %{date}.<br/>Veţi avea nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows), <a href="https://www.keka.io/en/">Keka</a> (pentru MacOS) sau <a href="https://peazip.github.io">PeaZip</a> (pentru Linux) pentru a-l deschide. Parola: %{password}'
+        click_button: 'Dă-i clic pe următorul link pentru a descărca datele.<br/>Fișierul va fi disponibil până la %{date}.<br/>Vei avea nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows), <a href="https://www.keka.io/en/">Keka</a> (pentru MacOS) sau <a href="https://peazip.github.io">PeaZip</a> (pentru Linux) pentru a-l deschide. Parola: %{password}'
         download: Descărcare
       export:
-        ready: Găsiți atașat o versiune zip a exportului dvs.
+        ready: Atașat vei găsi o versiune arhivată a exportului.
       subject: Exportul tău "%{name}este gata
     filters:
       linked_classes:
         all: Toate
-        collaborative_draft: Schiță colaborativă
-        dummy_resource: Resurse fictive
+        collaborative_draft: Proiect colaborativ
+        dummy_resource: Resurse-test
         meeting: Întâlniri
         project: Proiecte
         proposal: Propuneri
         result: Rezultate
     fingerprint:
       check: Verifică amprenta
-      explanation: Partea de text de mai jos este o reprezentare scurtă, spart a acestui conținut. Este util să se asigure că conținutul nu a fost modificat, deoarece o singură modificare ar avea ca rezultat o valoare total diferită.
+      explanation: Partea de text de mai jos este o reprezentare scurtă a acestui conținut. Este util să se asigure că conținutul nu a fost modificat, deoarece o singură modificare ar avea ca rezultat o valoare total diferită.
       online_calculator_name: Calculator MD5 online
-      replicate_help: Această amprentă este calculată folosind un algoritm de fixare SHA256. Pentru a-l copia singur, puteţi folosi un %{online_calculator_link} şi copia datele sursă.
+      replicate_help: Această amprentă este calculată folosind un algoritm de fixare SHA256. Pentru a-l copia singur/ă, poți folosi un %{online_calculator_link} şi copia datele sursă.
       source: Sursa
       title: Amprentă
       value: Valoare
     followers:
       followers_count:
         one: "%{count} urmăritor"
-        few: "%{count} urmăritori"
+        few: "%{count} urmăritor/urmăritoare"
         other: "%{count} urmăritori"
       no_followers: Nici un urmăritor încă.
     following:
-      no_followings: Încă nu urmează pe nimeni sau nimic.
+      no_followings: Încă nu urmărește pe nimeni sau nimic.
+      non_public_followings: Unele dintre resursele urmărite nu sunt publice.
     follows:
       create:
         button: Urmărește
         error: A apărut o problemă la urmărirea acestei resurse.
         participatory_space: Urmăriți<span class="show-for-sr">%{resource_name}</span>
       destroy:
-        button: Oprește urmărirea
+        button: Nu doresc să mai urmăresc
         error: A apărut o problemă la neurmărirea acestei resurse.
     forms:
       current_file: Fişier curent
@@ -730,7 +731,7 @@ ro:
         file:
           explanation: 'Orientări pentru fișier:'
           message_1: Are o imagine sau un document.
-          message_2: Pentru imagini, utilizați preferabil formatul landscape, serviciul va decupa imaginea. Pentru fișierele CSV, separatorul de coloane trebuie să fie virgula
+          message_2: Pentru imagini, utiilizează preferabil formatul landscape, serviciul va decupa imaginea. Pentru fișierele CSV, separatorul de coloane trebuie să fie virgula
         image:
           explanation: 'Orientări pentru imagine:'
           message_1: De preferință o imagine landscape care să nu conțină vreun text.
@@ -744,8 +745,8 @@ ro:
       badges:
         followers:
           conditions:
-            - A fi activ și a urmări alte persoane vă va face cu siguranță pe ceilalți să vă urmeze.
-          description: Această insignă este acordată atunci când atingeți un anumit număr de adepți. %{organization_name} este o rețea socială și politică, conectează-ți rețeaua pentru a comunica cu alți oameni de pe platformă.
+            - A fi activ și a urmări alte persoane îi va face cu siguranță pe ceilalți să te urmărească.
+          description: Această insignă este acordată atunci când atingi un anumit număr de urmăritori. %{organization_name} este o rețea socială și politică, conectează-ți rețeaua pentru a comunica cu alți oameni de pe platformă.
           description_another: Acest participant are %{score} urmăritori.
           description_own: "%{score} persoane te urmăresc."
           name: Urmăritori
