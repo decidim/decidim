@@ -1,0 +1,22 @@
+<% if current_user && current_component.current_settings.votes == "enabled" && !current_workflow.voted?(budget) %>
+  <div class="reveal" data-reveal id="exit-notification" role="dialog" aria-modal="true" aria-labelledby="exit-notification-label" aria-live="polite">
+    <div class="reveal__header">
+      <h3 id="exit-notification-label" class="reveal__title"><%= t(".title") %></h3>
+      <button class="close-button" data-close aria-label="<%= t(".close_modal") %>" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="static__content text-center">
+      <p><%= t(".message") %></p>
+    </div>
+
+    <div class="row">
+      <div class="columns medium-8 medium-offset-2">
+        <button class="button primary expanded" data-close type="button">
+          <%= t(".cancel") %>
+        </button>
+        <%= link_to t(".exit"), budget_projects_path, id: "exit-notification-link", class: "button primary hollow expanded" %>
+      </div>
+    </div>
+  </div>
+<% end %>
