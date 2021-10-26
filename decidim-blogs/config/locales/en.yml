@@ -61,10 +61,9 @@ en:
     components:
       blogs:
         actions:
-          amend: Amend
-          comment: Comment
-          endorse: Endorse
-          vote: Vote
+          create: Create
+          destroy: Delete
+          update: Update
         name: Blog
         settings:
           global:
