@@ -17,7 +17,7 @@ module GeocoderHelpers
   # Waits for the front-end geocoding request to finish in order to ensure there
   # are no pending requests when proceeding.
   def fill_in_geocoding(attribute, options = {})
-    fill_in attribute, options
+    fill_in attribute, **options
     expect(page).to have_selector(".autoComplete_wrapper ul#autoComplete_list_1", count: 1)
     find("li#autoComplete_result_0").click
   end
