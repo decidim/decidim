@@ -109,7 +109,7 @@ ro:
             announcement: Anunţ
     elections:
       actions:
-        confirm_destroy: Ești sigur?
+        confirm_destroy: Ești sigur(ă)?
         destroy: Distruge
         edit: Editare
         feedback: Feedback la votare
@@ -479,6 +479,8 @@ ro:
       admin:
         ballot_styles:
           index:
+            actions:
+              confirm_destroy: Ești sigur(ă)?
             associated_census_data: Intrări asociate recensământului
           new:
             create: Creează
@@ -503,6 +505,8 @@ ro:
             create: Creează
             title: Creează stație de votare
         votings:
+          actions:
+            confirm_destroy: Ești sigur(ă)?
           new:
             create: Creează
       census:
@@ -511,6 +515,8 @@ ro:
             create:
               invalid: S-a produs o eroare la încărcarea recensământului, vă rugăm să încercați din nou mai târziu.
               invalid_csv_header: Antetul CSV nu are numărul corect de câmpuri - te rugăm citește instrucţiunile cu atenţie
+            delete:
+              confirm: Ştergerea recensământului nu poate fi anulată. Ești sigur(ă) că vrei să continui?
             destroy:
               error: S-a produs o eroare la ștergerea recensământului, vă rugăm să încercați din nou mai târziu.
             new:
@@ -528,6 +534,9 @@ ro:
           passport: Pașaport
         vote_flow:
           datum_not_found: Datele oferite nu se potrivesc cu nici un alegător.
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: Ești sigur(ă)?
       polling_officer_zone:
         polling_officers:
           index:
@@ -536,6 +545,12 @@ ro:
               no_polling_stations: Nu ești încă atribuit niciunei secții de votare.
               role: Rolul tău
               voting: Votare
+      polling_officers:
+        actions:
+          confirm_destroy: Ești sigur(ă)?
+      polling_stations:
+        actions:
+          confirm_destroy: Ești sigur(ă)?
       votings:
         check_census:
           check_status: Verifică starea
