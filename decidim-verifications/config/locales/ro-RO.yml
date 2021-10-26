@@ -7,15 +7,15 @@ ro:
         offline_explanation: Instrucțiuni pentru verificarea offline
         online: Online
       id_document_information:
-        document_number: Numărul documentului (cu litera)
+        document_number: Numărul documentului (cu literă)
         document_type: Tipul documentului
       id_document_upload:
-        document_number: Numărul documentului (cu litera)
-        document_type: Tipul documentului dvs.
+        document_number: Numărul documentului (cu literă)
+        document_type: Tipul documentului tău
         user: Participant
         verification_attachment: Copie scanată a documentului tău
       offline_confirmation:
-        email: E-mail participant
+        email: E-mail-ul participantului
       postal_letter_address:
         full_address: Adresa completă
       postal_letter_confirmation:
@@ -27,7 +27,7 @@ ro:
     admin:
       menu:
         authorization_revocation:
-          before_date_info: Util dacă procesul a început deja și doriți să revocați permisiunile procesului anterior.
+          before_date_info: Util dacă procesul a început deja și dorești să revoci permisiunile procesului anterior.
           button: Revocă tot
           button_before: Revocă înainte de data
           destroy:
