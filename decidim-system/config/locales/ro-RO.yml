@@ -34,7 +34,7 @@ ro:
   decidim:
     system:
       actions:
-        confirm_destroy: Sunteţi sigur că doriţi să ştergeţi acest lucru?
+        confirm_destroy: Ești sigur(ă) că vrei să ştergi acest element?
         destroy: Ștergere
         edit: Editare
         new: Nou
