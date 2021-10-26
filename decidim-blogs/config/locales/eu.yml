@@ -59,11 +59,6 @@ eu:
       read_more: Irakurri gehiago
     components:
       blogs:
-        actions:
-          amend: Zuzendu
-          comment: Iruzkina egin
-          endorse: Atxiki
-          vote: Proiektuaren alde egin
         name: Bloga
         settings:
           global:
