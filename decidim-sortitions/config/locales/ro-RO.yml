@@ -2,52 +2,54 @@ ro:
   activemodel:
     attributes:
       sortition:
-        additional_info: Informații despre sortare
-        decidim_category_id: Categorii ale setului de propuneri în care doriți să aplicați desenul
+        additional_info: Informații privind tragerea la sorți
+        decidim_category_id: Categorii ale setului de propuneri în care doriți să aplicați tragerea la sorți
         decidim_proposals_component_id: Set de propuneri
-        dice: Rezultatul murdăriei pe robinet. Rulează un mor cu 6 laturi sau caută o altă metodă aleatorie pentru a genera un număr de la 1 la 6, și introduceți aici numărul rezultat în fața unor martori. Acest lucru contribuie la calitatea și la garantarea caracterului aleatoriu al rezultatului.
-        target_items: Numărul de propuneri care urmează să fie selectate (indică numărul de propuneri pe care doriți să le selectați prin desenarea multor grupuri de propuneri pe care le-ați ales anterior)
+        dice: Rezultat pe baza aruncării cu zarul. Folosește un zar cu 6 fețe sau caută o altă modalitate aleatorie de a genera un număr de la 1 la 6 și introdu aici numărul rezultat în fața unor martori. Acest lucru contribuie la calitatea și garanția unui rezultat aleatoriu
+        target_items: Numărul de propuneri de selectat (indică numărul de propuneri pe care dorești să fie selectat prin tragere la sorți a grupului de propuneri pe care le-ai ales anterior)
         title: Titlu
         witnesses: Martori
     models:
-      decidim/sortitions/create_sortition_event: Sortare
+      decidim/sortitions/create_sortition_event: Tragere la sorți
   activerecord:
     models:
       decidim/sortitions/sortition:
-        one: Sortare
-        few: Sortări
-        other: Sortări
+        one: Tragere la sorți
+        few: Trageri la sorți
+        other: Trageri la sorți
   decidim:
     components:
       sortitions:
-        name: Sortări
+        actions:
+          comment: Comentează
+        name: Trageri la sorți
         settings:
           global:
             comments_enabled: Comentarii activate
-            comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
+            comments_max_length: Lungimea maximă a comentariilor (Lasă 0 pentru valoarea implicită)
     events:
       sortitions:
         sortition_created:
-          email_intro: Sortarea "%{resource_title}" a fost adăugată la "%{participatory_space_title}" pe care o urmărești.
-          email_outro: Ați primit această notificare deoarece urmăriți „%{participatory_space_title}”. O puteți anula de la link-ul anterior.
-          email_subject: Sortare nouă adăugată la %{participatory_space_title}
-          notification_title: Sortarea <a href="%{resource_path}">%{resource_title}</a> a fost adăugată la %{participatory_space_title}
+          email_intro: Tragerea la sorți "%{resource_title}" a fost adăugată la "%{participatory_space_title}”, spațiu pe care îl urmărești.
+          email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula abonarea de la link-ul anterior.
+          email_subject: O nouă tragere la sorți a fost adăugată la %{participatory_space_title}
+          notification_title: Tragerea la sorți <a href="%{resource_path}">%{resource_title}</a> a fost adăugată la %{participatory_space_title}
     sortitions:
       admin:
         actions:
-          destroy: Anulează sortarea
-          edit: Editare
-          new: Sortare nouă
-          show: Detalii sortare
+          destroy: Anulează tragerea la sorți
+          edit: Editează
+          new: Tragere la sorți nouă
+          show: Detalii privind tragerea la sorți
         models:
           sortition:
             fields:
               category: Categorie
               created_at: Data creării
               decidim_proposals_component: Componenta propuneri
-              dice: Șoareci
+              dice: Zar
               reference: Referință
-              request_timestamp: Timp de desenare
+              request_timestamp: Ora tragerii la sorți
               seed: Secret
               target_items: Elemente de selectat
               title: Titlu
