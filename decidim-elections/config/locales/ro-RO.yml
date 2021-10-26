@@ -99,7 +99,7 @@ ro:
             announcement: Anunţ
     elections:
       actions:
-        confirm_destroy: Ești sigur?
+        confirm_destroy: Ești sigur(ă)?
         destroy: Distruge
         edit: Editare
         feedback: Feedback la votare
@@ -478,8 +478,13 @@ ro:
             create: Creează
             title: Creează stație de votare
         votings:
+          actions:
+            confirm_destroy: Ești sigur(ă)?
           new:
             create: Creează
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: Ești sigur(ă)?
       polling_officer_zone:
         polling_officers:
           show:
@@ -493,6 +498,12 @@ ro:
                 role: Rolul tău
                 voting: Votare
               no_polling_stations: Nu ești încă atribuit niciunei secții de votare.
+      polling_officers:
+        actions:
+          confirm_destroy: Ești sigur(ă)?
+      polling_stations:
+        actions:
+          confirm_destroy: Ești sigur(ă)?
   layouts:
     decidim:
       election_votes_header:
