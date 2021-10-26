@@ -59,11 +59,6 @@ pt:
       read_more: Ler mais
     components:
       blogs:
-        actions:
-          amend: Rever
-          comment: Comentar
-          endorse: Apoiar
-          vote: Votar
         name: Blog
         settings:
           global:
