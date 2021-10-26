@@ -158,6 +158,8 @@ es-MX:
         browse: Explorar
         category:
           new: Nueva categoría
+        export: Exportar todo
+        export-selection: Exportar selección
         import: Importar
         manage: Gestionar
         new: Nuevo %{name}
@@ -178,12 +180,12 @@ es-MX:
           success: '¡Genial! Has aceptado los Términos y Condiciones de Administración.'
         actions:
           accept: Estoy de acuerdo con los siguientes términos
-          are_you_sure: '¿Estás seguro de rechazar los Términos y Condiciones de Administración?'
+          are_you_sure: '¿Seguro que deseas rechazar los términos de uso para administradoras?'
           refuse: Rechazar los Términos y Condiciones de Administración
           title: Acepto los Términos y Condiciones de Administración
         required_review:
           alert: 'Requerido: revisa nuestros Términos y Condiciones de Administración'
-          callout: Por favor dedica un momento a revisar la actualización de nuestros Términos y Condiciones de Administración. De lo contrario, no podrás usar la plataforma.
+          callout: Por favor dedica un momento a familiarizarte con los términos de uso para administradoras. En caso contrario, no podrás administrar la plataforma.
           cta: Revísalos ahora.
         title: Términos y Condiciones de Administración
       area_types:
@@ -206,7 +208,7 @@ es-MX:
           error: Hubo un error al crear una nueva área.
           success: Área creada correctamente.
         destroy:
-          has_spaces: El área tiene espacios dependientes, no debe tener dependencias para ser eliminada.
+          has_spaces: Esta área tiene espacios dependientes. Asegúrate de que no hace referencia a ningún espacio de participación antes de eliminarla.
           success: Área destruida correctamente
         edit:
           title: Editar área
@@ -259,7 +261,7 @@ es-MX:
       block_user:
         new:
           action: Bloquear cuenta y enviar justificación
-          description: El bloqueo de una usuaria dejará su cuenta inservible, puede proporcionar en su justificación y directrices sobre las formas que consideres para desbloquear a la usuaria.
+          description: El bloqueo de una usuaria dejará su cuenta inutilizable. Puedes proporcionar en tu justificación los criterios bajo los cuales considerarías desbloquearla.
           justification: Justificación
           title: Bloquear a la usuaria %{name}
       categories:
@@ -322,7 +324,7 @@ es-MX:
         'false': 'No'
         managed_user_name: Usuario gestionado
         solved: Resuelto
-        title: Conflictos de verificaciones
+        title: Conflictos de verificación
         transfer:
           email: Correo electrónico
           error: Hubo un problema al transferir el participante actual a un participante gestionado.
@@ -336,6 +338,12 @@ es-MX:
         show:
           view_more_logs: Ver más registros
           welcome: Bienvenido al panel de administración de Decidim.
+      domain_whitelist:
+        form:
+          domain_too_short: Dominio demasiado corto
+        update:
+          error: Error al actualizar la lista blanca del dominio
+          success: Lista blanca de dominio actualizada correctamente
       exports:
         export_as: "%{name} como %{export_format}"
         formats:
@@ -348,6 +356,16 @@ es-MX:
         category_id_eq:
           label: Categoría
         filter_label: Filtro
+        invitation_accepted_at_present:
+          label: Invitación aceptada
+          values:
+            'false': 'No'
+            'true': 'Sí'
+        last_sign_in_at_present:
+          label: Alguna vez se ha conectado
+          values:
+            'false': 'No'
+            'true': 'Sí'
         moderations:
           reportable_type_string_eq:
             label: Tipo
@@ -443,7 +461,6 @@ es-MX:
           accepted_mime_types:
             csv: csv
             json: json
-            xlsx: xlsx
           actions:
             back: Volver
           file_legend: Añadir un archivo de importación que será procesado.
@@ -469,6 +486,7 @@ es-MX:
         areas: Áreas
         configuration: Configuración
         dashboard: Panel de control
+        external_domain_whitelist: Dominios externos permitidos
         help_sections: Secciones de ayuda
         homepage: Página principal
         impersonations: Impersonaciones
@@ -617,7 +635,7 @@ es-MX:
       newsletters:
         create:
           error: Se ha producido un error al crear este boletín.
-          success: Boletín creado con éxito. Por favor, revíselo antes de enviarlo.
+          success: Boletín creado correctamente. Por favor, revísalo antes de enviarlo.
         deliver:
           error: Ha habido un error de entrega de este boletín.
           success: Boletín enviado con éxito.
@@ -705,7 +723,7 @@ es-MX:
           full_name: Nombre completo
           hidden: oculto
           show: Mostrar
-          title: Mostrar dirección de correo del participante
+          title: Mostrar dirección de correo de la participante
         unblock:
           error: Se ha producido un error al desbloquear a la participante
           success: Participante desbloqueada correctamente
@@ -740,6 +758,17 @@ es-MX:
             layout_appearance_title: Editar apariencia de diseño global
             preview: Previsualizar
           omnipresent_banner_appearance_title: Editar banner omnipresente
+      organization_external_domain_whitelist:
+        edit:
+          update: Actualizar
+        external_domain:
+          down: Bajar
+          external_domain: Dominio externo
+          remove: Eliminar
+          up: Subir
+        form:
+          add: Añadir a la lista blanca
+          title: Lista blanca de dominios externos
       organization_homepage:
         edit:
           active_content_blocks: Bloques de contenido activos
@@ -899,11 +928,11 @@ es-MX:
       user_groups:
         index:
           filter:
-            all: Todos
+            all: Todas
             pending: Pendiente
-            rejected: Rechazados
-            verified: Verificados
-          filter_by: Filtrar por
+            rejected: Rechazado
+            verified: Verificado
+          filter_by: Filtrado por
           search: Buscar
           state:
             pending: Pendiente
@@ -941,7 +970,7 @@ es-MX:
     forms:
       errors:
         impersonate_user:
-          reason: Debe proporcionar una razón para impersonar a un usuario no administrado
+          reason: Debes indicar un motivo para la gestión de una participante no gestionada
     metrics:
       blocked_users:
         object: usuarias bloqueadas

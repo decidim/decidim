@@ -27,6 +27,7 @@ es-MX:
     components:
       debates:
         actions:
+          comment: Comentar
           create: Crear
           endorse: Adherirse
         name: Debates

@@ -94,8 +94,8 @@ describe "Explore versions", versioning: true, type: :system do
     it "shows the changed attributes" do
       expect(page).to have_content("Changes at")
 
-      within ".diff-for-title" do
-        expect(page).to have_content("TITLE")
+      within ".diff-for-title-english" do
+        expect(page).to have_content("TITLE (ENGLISH)")
 
         within ".diff > ul > .del" do
           expect(page).to have_content("My title")

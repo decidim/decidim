@@ -330,7 +330,7 @@ fi:
         election:
           end_vote: "%{user_name} päätti äänestysajan vaalille %{resource_name} sähköisellä ääniuurnalla"
           publish: "%{user_name} julkaisi vaalin %{resource_name}"
-          publish_results: "%{user_name} julkaisi vaalien %{resource_name} tulokset sähköisessä ääniuurnassa"
+          publish_results: "%{user_name} julkaisi vaalien %{resource_name} tulokset sähköisellä ääniuurnalla"
           setup: "%{user_name} loi vaalin %{resource_name} sähköiselle ääniuurnalle"
           start_key_ceremony: "%{user_name} aloitti avainseremonian vaalille %{resource_name} sähköisellä ääniuurnalla"
           start_tally: "%{user_name} aloitti ääntenlaskennan vaalille %{resource_name} sähköisellä ääniuurnalla"
@@ -346,6 +346,7 @@ fi:
           remaining_time:
             one: "<strong>%{count} tunti ja %{minutes} minuuttia</strong> äänestysaikaa jäljellä."
             other: "<strong>%{count} tuntia ja %{minutes} minuuttia</strong> äänestysaikaa jäljellä."
+            zero: "<strong>%{minutes} minuuttia</strong> äänestysaikaa jäljellä."
           view: Näytä
           vote: Äänestä
         label:
@@ -427,6 +428,7 @@ fi:
           votes:
             one: "%{count} ääni"
             other: "%{count} ääntä"
+            zero: "%{count} ääntä"
         show:
           action_button:
             change_vote: Muuta ääntäsi

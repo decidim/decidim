@@ -48,7 +48,7 @@ cs:
         favicon: Ikona
         force_authentication: Vynutit ověření
         force_users_to_authenticate_before_access_organization: Vynutit uživateli autentizaci před přístupem do organizace
-        from: Z e-mailové adresy
+        from: E-mailová adresa odesílatele
         github_handler: GitHub handler
         header_snippets: Úryvky záhlaví
         highlight_alternative_color: Jiné zvýraznění
@@ -180,12 +180,12 @@ cs:
           success: Skvělé! Přijali jste administrátorské podmínky použití.
         actions:
           accept: Souhlasím s následujícími podmínkami
-          are_you_sure: Opravdu chcete odmítnout administrátorské podmínky?
+          are_you_sure: Oravdu chcete odmítnout podmínky používání správce?
           refuse: Odmítnout administrátorské podmínky
           title: Souhlasit s podmínkami používání
         required_review:
           alert: 'Vyžadováno: Zkontrolujte naše administrátorské podmínky použití'
-          callout: Věnujte prosím chvilku a přečtěte si administrátorské podmínky použití. V opačném případě nebudete moci platformu spravovat. MUSÍTE KLIKNOUT NA ZELENÉ TLAČÍTKO.
+          callout: Věnujte prosím chvíli a přečtěte si podmínky použití správce. V opačném případě nebudete moci platformu spravovat.
           cta: Zkontrolovat je nyní.
         title: Administrátorské podmínky použití
       area_types:
@@ -208,7 +208,7 @@ cs:
           error: Při vytváření nové oblasti došlo k chybě.
           success: Oblast byla úspěšně vytvořena.
         destroy:
-          has_spaces: Oblast má závislá místa, nesmí mít závislosti, aby mohla být odstraněna.
+          has_spaces: Tato oblast má závislé prostory. Před smazáním se prosím ujistěte, že žádný účatnický prostor neodkazuje na tuto oblast.
           success: Oblast úspěšně zničena
         edit:
           title: Upravit oblast
@@ -261,7 +261,7 @@ cs:
       block_user:
         new:
           action: Blokovat účet a odeslat odůvodnění
-          description: Blokováním uživatele bude jeho účet nepoužitelný, ve svém odůvodnění a pokynech můžete uvést způsob, jaký považujete za vhodný k odblokování uživatele.
+          description: Blokováním uživatele bude jejich účet nepoužitelný. Ve svém zdůvodnění můžete uvést veškerá pravidla pro způsob, jakým byste uvažovali o odblokování uživatele.
           justification: Odůvodnění
           title: Blokovat uživatele %{name}
       categories:
@@ -487,7 +487,7 @@ cs:
         areas: Oblasti
         configuration: Konfigurace
         dashboard: Ovládací panel
-        external_domain_whitelist: Seznam externích povolených domén
+        external_domain_whitelist: Povolené externí domény
         help_sections: Sekce nápovědy
         homepage: Domovská stránka
         impersonations: V zastoupení
@@ -930,11 +930,11 @@ cs:
         index:
           filter:
             all: Vše
-            pending: Čekající
+            pending: čekající
             rejected: Odmítnuto
             verified: Ověřeno
           filter_by: Filtrovat podle
-          search: Vyhledávání
+          search: Hledat
           state:
             pending: čekající
             rejected: Odmítnuto

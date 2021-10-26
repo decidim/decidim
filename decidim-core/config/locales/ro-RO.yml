@@ -71,7 +71,6 @@ ro:
     'true': 'Da'
   carrierwave:
     errors:
-      general: Eroare la procesarea imaginii
       image_too_big: Imaginea este prea mare
       not_inside_organization: Fișierul nu este atașat niciunei organizații
   date:
@@ -731,11 +730,11 @@ ro:
         file:
           explanation: 'Orientări pentru fișier:'
           message_1: Are o imagine sau un document.
-          message_2: Pentru imagini, utilizați preferabil imagini de peisaj, serviciul decupează imaginea. Pentru fisierele CSV, separatorul dintre coloane trebuie sa fie o virgula (",")
+          message_2: Pentru imagini, utilizați preferabil formatul landscape, serviciul va decupa imaginea. Pentru fișierele CSV, separatorul de coloane trebuie să fie virgula
         image:
           explanation: 'Orientări pentru imagine:'
-          message_1: Recomandat o imagine peisaj care nu are nici un text.
-          message_2: Serviciul recoltează imaginea.
+          message_1: De preferință o imagine landscape care să nu conțină vreun text.
+          message_2: Serviciul decupează imaginea.
       file_validation:
         allowed_file_extensions: 'Extensii de fișiere permise: %{extensions}'
         max_file_size: 'Dimensiunea maximă a fișierului: %{megabytes}MB'
@@ -1098,7 +1097,7 @@ ro:
           participate: Participă
           welcome: Bine ai venit la %{organization}!
         metrics:
-          headline: Valori
+          headline: Indicatori
         statistics:
           headline: Starea curentă a %{organization}
         sub_hero:
@@ -1111,7 +1110,7 @@ ro:
         topics: Subiecte
       participatory_space:
         metrics:
-          headline: Valori
+          headline: Indicatori
           link: Arată toate măsurătorile
       terms_and_conditions:
         accept:

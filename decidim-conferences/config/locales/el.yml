@@ -3,6 +3,7 @@ el:
     attributes:
       conference:
         assemblies_ids: Σχετικές συνελεύσεις
+        available_slots: Διαθέσιμες χρονοθυρίδες
         banner_image: Εικόνα διαφημιστικού πλαισίου
         consultations_ids: Σχετικές διαβουλεύσεις
         copy_categories: Αντιγραφή κατηγοριών
@@ -10,26 +11,58 @@ el:
         copy_features: Αντιγραφή χαρακτηριστικών
         decidim_scope_id: Πεδίο εφαρμογής
         description: Περιγραφή
+        end_date: Ημερομηνία λήξης
         hashtag: Hashtag
         hero_image: Εικόνα αρχικής σελίδας
+        location: Τοποθεσία
+        main_logo: Κύριο λογότυπο
+        objectives: Στόχοι
         participatory_processes_ids: Σχετικές διαδικασίες συμμετοχής
         promoted: Επισημάνθηκε
         published_at: Δημοσιεύτηκε στις
+        registration_terms: Όροι εγγραφής
+        registrations_enabled: Ενεργοποιημένες εγγραφές
         scope_id: Πεδίο εφαρμογής
         scopes_enabled: Ενεργοποιημένα πεδία εφαρμογών
         short_description: Σύντομη περιγραφή
         show_statistics: Εμφάνιση στατιστικών
+        sign_date: Ημερομηνία υπογραφής
+        signature: Υπογραφή
+        signature_name: όνομα υπογραφής
         slogan: Σύνθημα
         slug: Slug διεύθυνσης URL
+        start_date: Ημερομηνία έναρξης
         title: Τίτλος
       conference_media_link:
+        date: Ημερομηνία
+        link: Σύνδεσμος
+        title: Τίτλος
         weight: Βάρος
       conference_partner:
+        link: Σύνδεσμος
+        logo: Λογότυπο
+        name: Όνομα
+        partner_type: Τύπος εταίρου
         weight: Βάρος
+      conference_registration_invite:
+        name: Όνομα
+        registration_type_id: Τύπος εγγραφής
+        user_id: Χρήστης
       conference_registration_type:
+        description: Περιγραφή
+        price: Τιμή
+        title: Τίτλος
         weight: Βάρος
       conference_speaker:
+        affiliation: Δεσμός
+        avatar: Εικόνα Χρήστη
+        conference_meeting_ids: Σχετικές συναντήσεις
         full_name: Ονοματεπώνυμο
+        personal_url: Προσωπικό url
+        position: Θέση
+        short_bio: Σύντομο Βιογραφικό
+        twitter_handle: Ψευδώνυμο Twitter
+        user_id: Χρήστης
       conference_user_role:
         email: Email
         name: Όνομα
@@ -212,6 +245,7 @@ el:
             price: Τιμή
             registrations_count: Αριθμός εγγραφών
             title: Τίτλος
+            weight: Θέση κατάταξης
           name: Τύπος εγγραφής
       partners:
         create:
@@ -271,6 +305,10 @@ el:
       conferences:
         conference_registration:
           confirm: "Ο χρήστης %{user_name} επιβεβαίωση μια εγγραφή διάσκεψης στη διάσκεψη %{resource_name}"
+        partner:
+          create: "Ο χρήστης %{user_name} δημιούργησε τον εταίρο %{resource_name} στη διάσκεψη %{space_name}"
+          delete: "Ο χρήστης %{user_name} απομάκρυνε τον εταίρο %{resource_name} από τη διάσκεψη %{space_name}"
+          update: "Ο χρήστης %{user_name} ενημέρωσε τον εταίρο %{resource_name} στη διάσκεψη %{space_name}"
         registration_type:
           create: "Ο χρήστης %{user_name} δημιούργησε τον τύπο εγγραφής %{resource_name} στη διάσκεψη %{space_name}"
           publish: "Ο χρήστης %{user_name} δημοσίευσε τον τύπο εγγραφής %{resource_name} στη διάσκεψη %{space_name}"
@@ -403,6 +441,7 @@ el:
         personal_website: Προσωπικός ιστότοπος
         show:
           more_info: περισσότερες πληροφορίες
+          speaking_at: Μιλώντας στο
       conference_speaker_cell:
         personal_url:
           personal_website: Προσωπικός ιστότοπος
@@ -461,6 +500,7 @@ el:
         home:
           highlighted_conferences:
             active_conferences: Ενεργές διασκέψεις
+            conferences_button_title: Σύνδεσμος προς τη σελίδα Διασκέψεων που εμφανίζει όλες τις διασκέψεις
             see_all_conferences: Δείτε όλες τις διασκέψεις
       photo:
         image:
@@ -476,6 +516,7 @@ el:
         index:
           choose_an_option: 'Ορίστε την επιλογή εγγραφής σας:'
           login_as: Έχετε συνδεθεί ως %{name} <%{email}>
+          no_registrations: Δεν υπάρχουν εγγραφές
           register: Εγγραφή
           title: Τύποι εγγραφής
       shared:
@@ -522,6 +563,12 @@ el:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τη διάσκεψη «%{resource_title}». Μπορείτε να σταματήσετε να την ακολουθείτε από τον προηγούμενο σύνδεσμο.
           email_subject: Η διάσκεψη «%{resource_title}» έρχεται σύντομα κοντά σας!
           notification_title: Η διάσκεψη <a href="%{resource_path}">%{resource_title}</a> θα πραγματοποιηθεί σε 2 ημέρες.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p>Μία <strong>Διάσκεψη</strong> είναι μια συλλογή συναντήσεων που οργανώνονται σε ένα πρόγραμμα, με έναν αριθμό ατόμων που προσκαλούνται ως ομιλητές, και άλλα πεδία πληροφοριών που είναι τυπικά για μεγάλα συνέδρια ή κοινωνικές εκδηλώσεις (εγγραφή, κατάλογος των οργανισμών που υποστηρίζουν ή χρηματοδοτούν την εκδήλωση, κ.λπ.).</p> <p>Παραδείγματα: Μια Διάσκεψη μπορεί να είναι ένα σχετικό γεγονός για έναν οργανισμό και τα μέλη του, ή να πραγματοποιείται στο πλαίσιο μιας συμμετοχικής διαδικασίας ή να ακολουθεί μια διαβούλευση.</p>\n"
+          page: "<p>Μία <strong>Διάσκεψη</strong> είναι μια συλλογή συναντήσεων που οργανώνονται σε ένα πρόγραμμα, με έναν αριθμό ατόμων που προσκαλούνται ως ομιλητές, και άλλα πεδία πληροφοριών που είναι τυπικά για μεγάλα συνέδρια ή κοινωνικές εκδηλώσεις (εγγραφή, κατάλογος των οργανισμών που υποστηρίζουν ή χρηματοδοτούν την εκδήλωση, κ.λπ.).</p> <p>Παραδείγματα: Μια Διάσκεψη μπορεί να είναι ένα σχετικό γεγονός για έναν οργανισμό και τα μέλη του, ή να πραγματοποιείται στο πλαίσιο μιας συμμετοχικής διαδικασίας ή να ακολουθεί μια διαβούλευση.</p>\n"
+          title: Τι είναι οι διασκέψεις;
     log:
       value_types:
         conference_presenter:
@@ -532,6 +579,8 @@ el:
         title: Πολυμέσα και σύνδεσμοι
     menu:
       conferences: Διασκέψεις
+    statistics:
+      conferences_count: Διασκέψεις
   devise:
     mailer:
       join_conference:

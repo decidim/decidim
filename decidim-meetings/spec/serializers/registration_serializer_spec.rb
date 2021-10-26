@@ -27,7 +27,7 @@ module Decidim::Meetings
         end
       end
 
-      context "when questtionaire enabled" do
+      context "when questionnaire enabled" do
         let(:meeting) { create :meeting, :with_registrations_enabled }
         let!(:user) { create(:user, organization: meeting.organization) }
         let!(:registration) { create(:registration, meeting: meeting, user: user) }
@@ -86,19 +86,19 @@ module Decidim::Meetings
 
         it "includes the answer for each question" do
           expect(serialized[:registration_form_answers]).to include(
-            "1. #{translated(questions.first.body, locale: I18n.locale)}" => answers.first.body
+            "#{questions.first.position + 1}. #{translated(questions.first.body, locale: I18n.locale)}" => answers.first.body
           )
           expect(serialized[:registration_form_answers]).to include(
-            "3. #{translated(questions.last.body, locale: I18n.locale)}" => answers.last.body
+            "#{questions.last.position + 1}. #{translated(questions.last.body, locale: I18n.locale)}" => answers.last.body
           )
           expect(serialized[:registration_form_answers]).to include(
-            "4. #{translated(multichoice_question.body, locale: I18n.locale)}" => multichoice_answer_choices.map(&:body)
+            "#{multichoice_question.position + 1}. #{translated(multichoice_question.body, locale: I18n.locale)}" => multichoice_answer_choices.map(&:body)
           )
           expect(serialized[:registration_form_answers]).to include(
-            "5. #{translated(singlechoice_question.body, locale: I18n.locale)}" => [singlechoice_answer_choice.body]
+            "#{singlechoice_question.position + 1}. #{translated(singlechoice_question.body, locale: I18n.locale)}" => [singlechoice_answer_choice.body]
           )
           expect(serialized[:registration_form_answers]).to include(
-            "6. #{translated(singlechoice_free_question.body, locale: I18n.locale)}" => ["Free text answer"]
+            "#{singlechoice_free_question.position + 1}. #{translated(singlechoice_free_question.body, locale: I18n.locale)}" => ["Free text answer"]
           )
         end
       end

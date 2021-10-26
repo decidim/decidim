@@ -48,7 +48,6 @@ gl:
         favicon: Ícona
         force_authentication: Forzar autenticación
         force_users_to_authenticate_before_access_organization: Forzar aos usuarios a se autenticar antes de acceder á organización
-        from: Correo electrónico do remitente
         github_handler: Xestor de GitHub
         header_snippets: Fragmentos de cabeceira
         highlight_alternative_color: Realzado, alternativo
@@ -180,12 +179,10 @@ gl:
           success: Xenial! Aceptaches os termos de uso do panel de administración.
         actions:
           accept: Concordo con seguintes termos
-          are_you_sure: Estás certo/a de querer rexeitar os termos de uso do panel de administración?
           refuse: Rexeitar os termos de uso
           title: Concordo cos termos e condicións de uso
         required_review:
           alert: 'Requirido: Revisa os nosos termos de uso do panel de administración'
-          callout: Por favor, dedícalle un anaco de tempo á revisión da actualización dos nosos Termos de uso do panel de administración. No caso contrario, non poderás administrar a plataforma.
           cta: Revísaos agora.
         title: Termos de uso do panel de administración
       area_types:
@@ -208,7 +205,6 @@ gl:
           error: Produciuse un erro ao crear unha nova área.
           success: Area creada con éxito.
         destroy:
-          has_spaces: A área ten espazos dependentes, non poderá ter dependencias para poder ser eliminada.
           success: Área destruída con éxito
         edit:
           title: Editar área
@@ -261,7 +257,6 @@ gl:
       block_user:
         new:
           action: Bloquear conta e enviar xustificante
-          description: O bloqueo dun usuario/a deixará a súa conta inservible, podes fornecer no teu xustificante e directrices de que xeito é posible desbloquear o usuario/a.
           justification: Xustificante
           title: Bloquear ao usuario %{name}
       categories:
@@ -324,7 +319,6 @@ gl:
         'false': 'Non'
         managed_user_name: Usuario xestionado
         solved: Resolto
-        title: Conflitos de verificación
         transfer:
           email: Correo electrónico
           error: Produciuse un problema ao transferir el participante actual a un participante xestionado.
@@ -632,7 +626,6 @@ gl:
       newsletters:
         create:
           error: Produciuse un erro ao crear este boletín informativo.
-          success: Boletín creado con éxito. Por favor, revíseo antes de enviar.
         deliver:
           error: Produciuse un erro ao enviar este boletín informativo.
           success: Boletín enviado con éxito.
@@ -715,12 +708,10 @@ gl:
           title: Clasificar o usuario "%{name}"
         show_email_modal:
           close_modal: Pechar modal
-          description: Se precisas contactar cun participante directamente, podes premer no botón Amosar para ver o seu enderezo de correo. Está acción será rexistrada.
           email_address: Enderezo de correo electrónico
           full_name: Nome completo
           hidden: oculto
           show: Amosar
-          title: Amosar o correo electrónico do participante
         unblock:
           error: Produciuse un erro ao desbloquear o participante
           success: Participante desbloqueado con éxito
@@ -959,10 +950,6 @@ gl:
           no_users_count_statistics_yet: Aínda non hai estatísticas do reconto de usuario/as
           participants: Participantes
       view_public_page: Ver páxina pública
-    forms:
-      errors:
-        impersonate_user:
-          reason: Debe proporcionar un motivo ao suplantar a un usuario non xestionado
     metrics:
       blocked_users:
         object: usuarias bloqueadas

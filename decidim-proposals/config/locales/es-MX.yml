@@ -715,6 +715,9 @@ es-MX:
           proposals_count:
             one: "%{count} propuesta"
             other: "%{count} propuestas"
+        dynamic_map_instructions:
+          description: Las coordenadas se actualizarán cuando hagas clic en el botón 'previsualizar'. Sin embargo, la dirección no cambia.
+          instructions: Puedes mover la ubicación en el mapa.
         edit:
           add_documents: Documentos
           add_images: Archivo

@@ -7,7 +7,7 @@ ro:
         decidim_scope_id: Domeniu de aplicare
         description: Descriere
         end_date: Data de sfârșit
-        progress: Progresul
+        progress: Progres
         project_ids: Proiecte incluse
         proposals: Propuneri incluse
         start_date: Data de început
@@ -206,6 +206,8 @@ ro:
             label: Stare
     components:
       accountability:
+        actions:
+          comment: Comentariu
         name: Responsabilitate
         settings:
           global:

@@ -21,6 +21,8 @@ cs:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Komentář
         name: Losování
         settings:
           global:

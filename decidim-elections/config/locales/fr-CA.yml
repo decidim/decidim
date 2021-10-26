@@ -36,6 +36,18 @@ fr-CA:
             public_key:
               cant_be_changed: ne peut être modifiée
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: L'agent de vote est déjà président/responsable d'un bureau de vote
+            voting:
+              different_organization: Le vote doit être dans le même organization que l'utilisateur
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: L'agent de vote doit être dans la même votation que le bureau de vote
     models:
       decidim/elections/answer:
         one: Réponse
@@ -49,10 +61,40 @@ fr-CA:
       decidim/votings/census/dataset:
         one: Jeu de données
         other: Jeux de données
+      decidim/votings/polling_station:
+        one: Bureau de vote
+        other: Bureaux de vote
       decidim/votings/voting:
         one: Vote
         other: Votes
   decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: Officier
+          values:
+            assigned: Assigné
+            unassigned: Non affecté
+        role_eq:
+          label: Rôle
+          values:
+            manager: Responsable
+            president: Président
+            unassigned: Non assigné(e)
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Rechercher %{collection} par nom/email/pseudo ou par bureau de vote.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Recherchez %{collection} par titre, adresse ou nom d'officier/email/pseudo de l'officier.
+        signed_eq:
+          label: Signé
+          values:
+            'false': Signé
+            'true': Non signé
+        validated_eq:
+          label: Validé
+          values:
+            'false': Validé
+            'true': Non validé
     components:
       elections:
         actions:
@@ -201,6 +243,7 @@ fr-CA:
           created:
             invalid: Il y a eu un problème lors du démarrage de la cérémonie des clés
             submit: Démarrer la cérémonie des clés
+            success: La demande de lancement de cérémonie des clés a bien été envoyée au Panneau d'Affichage
             title: Élection créée
             trustees: Garants
           key_ceremony:
@@ -213,6 +256,7 @@ fr-CA:
             requirements:
               time_before: L'élection va bientôt commencer. Vous pouvez démarrer la période de vote manuellement, ou elle sera démarrée automatiquement avant l'heure de départ, à %{start_time}.
             submit: Commencer la période de vote
+            success: La demande de lancement de la période de vote a bien été envoyée au Panneau d'Affichage
             title: Prêt à commencer
           processing: Traitement en cours...
           results_published:
@@ -224,6 +268,7 @@ fr-CA:
             submit: Envoyer
             title: Résultats publiés
           tally:
+            title: Dépouillement
             trustees: Garants
           tally_ended:
             answer: Répondre
@@ -232,6 +277,7 @@ fr-CA:
             result: Réalisation
             selected: Sélectionné
             submit: Publier les résultats
+            success: La demande de publication des résultats a bien été envoyée au Panneau d'Affichage
             title: Résultat du calcul
           vote:
             errors:
@@ -243,6 +289,9 @@ fr-CA:
             success: La demande de fin de la période de vote a été envoyée avec succès au Panneau d'Affichage
             title: Période de vote
           vote_ended:
+            invalid: Une erreur s'est produite au lancement du dépouillement
+            submit: Démarrer le dépouillement
+            success: La demande de lancement du dépouillement a bien été envoyée au Panneau d'Affichage
             text: Le vote est terminé. Vous pouvez commencer le comptage.
             title: Période de vote terminée
           vote_stats:
@@ -273,8 +322,13 @@ fr-CA:
             success: Le garant %{trustee} a été mis à jour avec succès
       admin_log:
         election:
+          end_vote: "%{user_name} a terminé la période de vote pour l'élection %{resource_name} sur le Tableau des Bulletins"
           publish: "%{user_name} a publié l'élection %{resource_name}"
           publish_results: "%{user_name} a publié les résultats de l'élection %{resource_name} sur le Tableau d'affichage"
+          setup: "%{user_name} a créé l'élection %{resource_name} sur le Tableau des Bulletins"
+          start_key_ceremony: "%{user_name} a commencé la cérémonie des clés pour l'élection %{resource_name} sur le Tableau des Bulletins"
+          start_tally: "%{user_name} a commencé le dépouillement pour l'élection %{resource_name} sur le Tableau des Bulletins"
+          start_vote: "%{user_name} a commencé la période de vote pour l'élection %{resource_name} sur le Tableau des Bulletins"
           unpublish: "%{user_name} a dépublié l'élection %{resource_name}"
       election_m:
         badge_name:
@@ -286,6 +340,7 @@ fr-CA:
           remaining_time:
             one: "<strong>Il reste %{count} heure %{minutes} minutes</strong> pour voter."
             other: "<strong>Il reste %{count} heures %{minutes} minutes</strong> pour voter."
+            zero: "<strong>Il reste %{minutes} minutes</strong> pour voter."
           view: Voir
           vote: Voter
         label:
@@ -366,6 +421,7 @@ fr-CA:
           votes:
             one: "%{count} vote"
             other: "%{count} votes"
+            zero: "%{count} votes"
         show:
           action_button:
             change_vote: Changer votre vote
@@ -535,6 +591,7 @@ fr-CA:
           header: Le vote a échoué
           lead: Votre vote n'a pas été exprimé!
           text: Une erreur est survenue, veuillez réessayer.
+          try_again: Réessayez
         header:
           ballot_decision: Validez ou auditez votre vote
           confirm: Confirmer votre vote
@@ -597,6 +654,10 @@ fr-CA:
       votings: Élections
     votings:
       admin:
+        ballot_styles:
+          index:
+            actions:
+              confirm_destroy: Êtes-vous sûr·e ?
         content_blocks:
           highlighted_votings:
             max_results: Nombre maximum d'éléments à afficher
@@ -611,9 +672,17 @@ fr-CA:
             attachments: Pièces jointes
             census: Recensement
             info: Information
+            landing_page: Page d’accueil
+            monitoring_committee: Comité de suivi
             monitoring_committee_members: Membres
             polling_stations: Bureaux de vote
         models:
+          monitoring_committee_member:
+            fields:
+              name: Nom
+          polling_officer:
+            fields:
+              name: Nom
           polling_station:
             fields:
               address: Adresse
@@ -683,6 +752,8 @@ fr-CA:
       census:
         admin:
           census:
+            create:
+              invalid_csv_header: L'en-tête CSV n'a pas le nombre de champs correct - veuillez lire attentivement les instructions
             creating_data:
               info_message: "<strong>Veuillez patienter</strong>, %{processed_count} traités sur %{raw_count} lignes à partir du fichier %{file}."
             delete:
@@ -787,6 +858,14 @@ fr-CA:
             name: Nom
             title: 'Vérifiez que les données suivantes sont correctes:'
             verify_document: Document requis
+        polling_officers:
+          index:
+            polling_officer_role_description: Vous avez été assigné à agir en tant qu’officier du Bureau de vote (Président ou Gestionnaire) sur certaines des élections ayant lieu sur cette plateforme.
+            polling_station:
+              name: Nom
+              no_polling_stations: Vous n'êtes pas encore assigné à un Bureau de vote.
+              role: Votre rôle
+              voting: Élection
       polling_station_closure_recount:
         nota_option: Vide / Aucune des options ci-dessus
         polling_officer_notes: 'Notes de l''accesseur :'
@@ -805,9 +884,13 @@ fr-CA:
           new: Nouveau
           title: Actions
       votings:
+        access_code_modal:
+          sms: Envoyer par SMS à %{sms}
+          title: Obtenir un code d’accès
         check_census:
           check_status: Vérifiez le statut
           form_title: 'Remplissez le formulaire suivant pour vérifier vos données de recensement:'
+          title: Puis-je voter ?
         check_fields:
           date_of_birth: Date de naissance
           day: Jour
@@ -880,6 +963,7 @@ fr-CA:
       election_votes_header:
         exit: Quitter
       voting_navigation:
+        check_census: Puis-je voter ?
         election_log: Journal de l'élection
         voting_menu_item: Le vote
       votings:

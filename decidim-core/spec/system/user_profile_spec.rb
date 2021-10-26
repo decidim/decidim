@@ -71,32 +71,56 @@ describe "Profile", type: :system do
     context "when displaying followers and following" do
       let(:other_user) { create(:user, organization: user.organization) }
       let(:user_to_follow) { create(:user, organization: user.organization) }
-      let!(:followed_resource) { create(:follow, user: user, followable: build(:dummy_resource)).followable }
+      let(:public_resource) { create(:dummy_resource, :published) }
 
       before do
         create(:follow, user: user, followable: other_user)
         create(:follow, user: user, followable: user_to_follow)
         create(:follow, user: other_user, followable: user)
-        visit decidim.profile_path(user.nickname)
+        create(:follow, user: user, followable: public_resource)
       end
 
       it "shows the number of followers and following" do
+        visit decidim.profile_path(user.nickname)
         expect(page).to have_link("Followers 1")
         expect(page).to have_link("Follows 3")
       end
 
       it "lists the followers" do
+        visit decidim.profile_path(user.nickname)
         click_link "Followers"
 
         expect(page).to have_content(other_user.name)
       end
 
       it "lists the followings" do
+        visit decidim.profile_path(user.nickname)
         click_link "Follows"
 
+        expect(page).not_to have_content("Some of the resources followed are not public.")
         expect(page).to have_content(translated(other_user.name))
         expect(page).to have_content(translated(user_to_follow.name))
-        expect(page).to have_content(translated(followed_resource.title))
+        expect(page).to have_content(translated(public_resource.title))
+      end
+
+      context "when the user follows non public resources" do
+        let(:non_public_resource) { create(:dummy_resource) }
+
+        before do
+          create(:follow, user: user, followable: non_public_resource)
+        end
+
+        it "lists only the public followings" do
+          visit decidim.profile_path(user.nickname)
+          expect(page).to have_link("Follows 4")
+
+          click_link "Follows"
+          expect(page).to have_content("Some of the resources followed are not public.")
+          expect(page).to have_content(translated(other_user.name))
+          expect(page).to have_content(translated(user_to_follow.name))
+          expect(page).to have_content(translated(public_resource.title))
+          expect(page).not_to have_content(translated(non_public_resource.title))
+        end
       end
     end
 

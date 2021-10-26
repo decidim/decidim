@@ -233,6 +233,7 @@ ca:
     components:
       budgets:
         actions:
+          comment: Comentar
           vote: Vota
         name: Pressupostos
         settings:

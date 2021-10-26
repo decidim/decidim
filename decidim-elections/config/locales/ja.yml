@@ -41,7 +41,7 @@ ja:
         decidim/votings/polling_officer:
           attributes:
             presided_polling_station:
-              president_and_manager: 投票委員はすでに投票所の代表者/マネージャーです
+              president_and_manager: 投票委員はすでに投票所の投票管理者/マネージャーです
             voting:
               different_organization: 投票はユーザーと同じ組織内にある必要があります
         decidim/votings/polling_station:
@@ -77,7 +77,7 @@ ja:
           label: ロール
           values:
             manager: マネージャー
-            president: 責任者
+            president: 投票管理者
             unassigned: 未割り当て
         search_placeholder:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: '%{collection} を名前/メールアドレス/ニックネーム/投票所で検索します。'
@@ -336,7 +336,9 @@ ja:
         end_date: 終了
         footer:
           remaining_time:
+            one: "投票期間は残り <strong>%{count} 時間 %{minutes} 分</strong> です。"
             other: "投票期間は残り <strong>%{count} 時間 %{minutes} 分</strong> です。"
+            zero: "投票期間は残り <strong>%{minutes} 分</strong> です。"
           view: 表示
           vote: 投票
         label:
@@ -415,7 +417,9 @@ ja:
           selected: 選択済
           title: 選挙結果
           votes:
+            one: "%{count} 票"
             other: "%{count} 票"
+            zero: "%{count} 票"
         show:
           action_button:
             change_vote: 投票の変更
@@ -575,6 +579,10 @@ ja:
           back: 投票プロセスを再度開始
           ballot_hash: '投票用紙の識別子:'
           cast: 投票用紙のキャスト
+          header: '投票は暗号化されています：キャストまたは監査されます'
+        casting:
+          header: 投票中…
+          text: あなたの投票は投票箱に投じられています。
         confirm:
           answer: 回答
           answer_number: 回答 %{number}
@@ -589,10 +597,26 @@ ja:
           experience: ご利用いただき、どう思われますか?
           feedback: フィードバックを送る
           header: 投票が確定されました
+          lead: あなたの投票が行われました!
           text: '投票が投票箱に正常に追加されたことを、次の識別子で確認できます: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_link: 確認するには、識別子をコピーして <a href="%{link}">投票検証ページ</a> に貼り付けます
+        create:
+          error: 投票を行う際に問題が発生しました。もう一度やり直してください。
+        encrypting:
+          header: 投票を暗号化しています...
+          text: 投票の秘密を確保するために、投票は暗号化されています。
+        failed:
+          header: 投票に失敗しました
+          lead: 投票は行われませんでした！
+          text: 問題が発生しました。もう一度やり直してください。
+          try_again: 再実行
         header:
+          ballot_decision: 投票を行うか監査する
+          casting: 投票の実行中
           confirm: 投票を確定
           confirmed: 投票が確定されました
+          encrypting: 投票の暗号化
+          failed: 投票に失敗しました
         messages:
           not_allowed: 現在、この選挙に投票することはできません。
         modal:
@@ -605,6 +629,30 @@ ja:
           preview_alert: これは投票ブースのプレビューです。
           question_steps: '%{current_step} / %{total_steps} の質問'
           selections: "%{selected} / %{max_selections}<br> の選択"
+        onboarding_modal:
+          close: 閉じる
+          create_account: アカウントの作成
+          description: Decidimで新しいアカウントを作成しますか？ プロセスに参加し、組織の積極的な一員になることができます。
+          no_account: いいえ結構です。
+          title: Decidimは初めてですか？
+        update:
+          error: 投票ステータスの更新中に問題が発生しました。もう一度投票してください。
+        verify:
+          content:
+            heading: 投票を確認
+            info: この検証器は、暗号化されたテキスト文字列で識別された投票が正しく変換され、投票箱内にあることを確認します。
+          error:
+            header: 投票が見つかりません！
+            info: 投票コードが %{link} 投票箱に見つかりませんでした。もう一度やり直してください。
+          form:
+            back: Decidimに戻る
+            submit: チェック
+            vote_identifier: '識別コード:'
+          header:
+            title: 投票を確認
+          success:
+            header: 投票しました！
+            info: 暗号化されたあなたの投票は %{link} 投票箱にあります
         voting_step:
           back: 戻る
           continue: 次へ
@@ -618,6 +666,28 @@ ja:
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{resource_title} の選挙は %{participatory_space_title} のために有効になりました。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> の選挙が %{participatory_space_title} に有効になりました。
+        trustees:
+          new_election:
+            email_intro: '%{resource_title} 選挙の受託者として追加されました。'
+            email_outro: '%{resource_title} 選挙の受託者に追加されたため、この通知が届きました。'
+            email_subject: あなたは %{resource_title} 選挙の受託者です..
+            notification_title: あなたは <a href="%{resource_path}">%{resource_title}</a> 選挙の受託者です。
+          new_trustee:
+            email_intro: 管理者が %{resource_name} の受託者としてあなたを追加しました。受託者ゾーンで <a href='%{trustee_zone_url}'>公開鍵を作成する必要があります。</a>
+            email_outro: '%{resource_name} の受信者として追加されたため、この通知を受信しました。'
+            email_subject: あなたは %{resource_name} の受託者です。
+            notification_title: あなたは <a href="%{participatory_space_url}">%{resource_name}</a> の受託者です。
+        votes:
+          accepted_votes:
+            email_intro: '投票が承認されました！投票トークン: %{encrypted_vote_hash} を使用して、投票を <a href="%{verify_url}">ここ</a> で確認できます。'
+            email_outro: '%{resource_name} 選挙に投票したため、この通知を受け取りました。'
+            email_subject: '%{resource_name} への投票が承認されました。'
+            notification_title: 'あなたの投票が承認されました。 <a href="%{verify_url}">ここ</a>であなたの投票トークン: %{encrypted_vote_hash} を使って投票を確認してください。'
+      votings:
+        polling_officers:
+          polling_station_assigned:
+            email_outro: '%{polling_station_name} の%{role} として割り当てられているため、この通知を受け取りました。'
+            email_subject: あなたは投票所%{polling_station_name} の %{role} です。
     help:
       participatory_spaces:
         votings:
@@ -643,10 +713,31 @@ ja:
             code_help: 'ヒント: コードは、センサスと投票スタイルをリンクさせるものです。 センサスデータをアップロードするとき、コードに一致する投票スタイルが割り当てられます。'
             election: 選挙
             questions: この投票スタイルに関する質問
+          index:
+            actions:
+              destroy: 削除
+              edit: 編集
+              new: 新規作成
+              title: アクション
+            title: 投票スタイル
+          new:
+            create: 作成
+            title: 投票スタイルを作成
+          update:
+            invalid: 投票スタイルの更新中に問題が発生しました
+            success: 投票スタイルが正常に更新されました
         content_blocks:
           highlighted_votings:
             max_results: 表示する要素の最大量
           landing_page:
+            attachments_and_folders:
+              name: 投票の添付ファイルとフォルダ
+            description:
+              name: 投票の説明
+            elections:
+              name: 投票する選挙
+            header:
+              name: 投票のヘッダー
             html_block_1:
               name: 投票htmlブロック1
             html_block_2:
@@ -654,7 +745,7 @@ ja:
             html_block_3:
               name: 投票htmlブロック3
             metrics:
-              name: 投票メトリック
+              name: 投票メトリクス
             polling_stations:
               name: 投票ステーション
             stats:
@@ -709,7 +800,7 @@ ja:
             fields:
               address: 住所
               polling_station_managers: マネージャー
-              polling_station_president: 責任者
+              polling_station_president: 投票管理者
               title: タイトル
             name: 投票所
           voting:
@@ -719,13 +810,88 @@ ja:
               published: 公開済み
               title: タイトル
         monitoring_committee_election_results:
+          actions:
+            title: アクション
+            view: 表示
+          index:
+            title: 結果を表示したい選挙を選択してください
           results:
             bulletin_board: 掲示板
+            election_totals: 総選挙数
+            polling_stations: 投票所
+            result_types:
+              blank_answers: 空白の回答
+              blank_ballots: 空白の投票数
+              null_ballots: 空の投票数
+              total_ballots: 総投票数
+              valid_ballots: 有効な投票数
+            selected: 選択済
+            title: <i>%{election_title}</i> 選挙の結果
+            totals: 合計
+          show:
+            change_election: 選択を変更
+            publish_results: 結果を公開
+            publishing: 結果を公開中...
           update:
+            invalid: 結果の公開中に問題が発生しました
             rejected: 結果の公開が掲示板によって拒否されました。もう一度試すか、システム管理者に連絡してください。
+            success: 結果は正常に公開されました
+        monitoring_committee_members:
+          create:
+            invalid: この監視委員会メンバーの作成中に問題が発生しました
+            success: 監視委員会のメンバーが正常に作成されました
+          destroy:
+            invalid: この監視委員会メンバーの削除中に問題が発生しました
+            success: 監視委員会のメンバーが正常に削除されました
+          form:
+            existing_user: 既存の参加者
+            non_user: 新しい参加者を招待
+            select_user: 名前、メールアドレス、ニックネームで検索
         monitoring_committee_verify_elections:
           index:
+            download: ダウンロード
             how_to_run_verifier: 'いったんファイルをダウンロードし問題のないことが確認できたら、ユニバーサルベリファイアの実行に進めます。 <a href=''https://github.com/decidim/decidim-bulletin-board''>このリポジトリ</a> をクローンして、ルートのフォルダにて次のコマンドを実行します:'
+            title: 選挙
+        polling_officers:
+          destroy:
+            invalid: この投票担当者を削除する際に問題が発生しました
+            success: 投票委員を削除しました
+          form:
+            existing_user: 既存の参加者
+            non_user: 新しい参加者を招待
+            select_user: 名前、メールアドレス、ニックネームで検索
+            user_type: 参加者の種類
+          index:
+            role_manager: マネージャー
+            role_president: 投票管理者
+            title: 投票委員
+          new:
+            create: 作成
+            title: 投票委員を作成
+          polling_officers_picker:
+            choose_polling_officers: 投票委員を選択してください
+            close: 閉じる
+            more_polling_officers: あと %{number} 人の投票委員がいます。検索を絞り込んで探しましょう。
+            no_polling_officers: 検索条件に一致する投票委員がいないか、または投票委員が存在しません。
+        polling_stations:
+          form:
+            polling_station_president_help: '投票管理者:投票所の代表を務める担当者。 投票委員がすでに投票所に設置されていること、および他の投票所に割り当てられていないことを確認してください'
+            select_president: 投票所の投票管理者として投票委員を選択してください
+        votings:
+          edit:
+            assign_missing_officers: 投票管理者またはマネージャーがいない投票所があります。投票所セクションからアサインしてください
+      census:
+        admin:
+          census:
+            create:
+              invalid_csv_header: CSVヘッダのフィールド数が正しくありません - 説明をもう一度ご確認ください
+      content_blocks:
+        landing_page:
+          description:
+            show_less: 詳細を閉じる
+            show_more: 続きを読む
+          metrics:
+            heading: メトリクス
       polling_officer_zone:
         in_person_votes:
           update:
@@ -738,6 +904,9 @@ ja:
               no_polling_stations: まだどの投票所にも割り当てられていません。
               role: あなたの役割
               voting: 投票
+      polling_officers:
+        roles:
+          president: 投票管理者
       votings:
         check_census:
           title: 投票できますか？

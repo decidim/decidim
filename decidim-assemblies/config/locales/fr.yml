@@ -52,6 +52,7 @@ fr:
         target: Participants
         title: Titre
         twitter: Twitter
+        weight: Rang
         youtube: Youtube
       assembly_member:
         birthday: Date de naissance
@@ -261,6 +262,7 @@ fr:
       admin:
         assemblies:
           form:
+            announcement_help: Le texte que vous saisissez ici sera affiché aux utilisateurs juste en dessous des informations de l'assemblée.
             duration: Durée
             duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
             filters: Filtres
@@ -420,6 +422,8 @@ fr:
     participatory_processes:
       show:
         related_assemblies: Assemblées associées
+    statistics:
+      assemblies_count: Assemblées
   errors:
     messages:
       cannot_be_blank: ne peut être vide

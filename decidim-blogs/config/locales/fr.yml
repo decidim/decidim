@@ -59,6 +59,11 @@ fr:
       read_more: Voir la suite
     components:
       blogs:
+        actions:
+          amend: Amender
+          comment: Commenter
+          endorse: Soutenir
+          vote: Voter
         name: Actualités
         settings:
           global:
@@ -77,3 +82,5 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez le retirer du lien précédent.
           email_subject: Nouvel article publié dans %{participatory_space_title}
           notification_title: L'article <a href="%{resource_path}">%{resource_title}</a> a été publié dans %{participatory_space_title}
+    statistics:
+      posts_count: Publications

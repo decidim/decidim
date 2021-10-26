@@ -60,7 +60,6 @@ bg:
     'true': 'Да'
   carrierwave:
     errors:
-      general: Грешка при обработването на изображението
       image_too_big: Изображението е твърде голямо
   date:
     formats:

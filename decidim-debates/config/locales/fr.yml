@@ -27,6 +27,7 @@ fr:
     components:
       debates:
         actions:
+          comment: Commenter
           create: Créer
           endorse: Soutenir
         name: Débats
@@ -235,3 +236,5 @@ fr:
         description: Nombre de débats créés
         object: débats
         title: Débats
+    statistics:
+      debates_count: Débats

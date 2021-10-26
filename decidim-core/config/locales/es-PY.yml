@@ -67,7 +67,6 @@ es-PY:
     'true': 'Sí'
   carrierwave:
     errors:
-      general: Error procesando imagen
       image_too_big: La imagen es demasiado grande
       not_inside_organization: El archivo no está relacionado con ninguna organización
   date:
@@ -99,6 +98,7 @@ es-PY:
         error: Se ha producido un error al eliminar tu cuenta.
         success: Tu cuenta se ha eliminado correctamente.
       show:
+        available_locales_helper: Elige el idioma que quieres utilizar para navegar y recibir notificaciones en Decidim
         change_password: Cambia la contraseña
         update_account: Actualizar cuenta
       update:
@@ -258,6 +258,8 @@ es-PY:
         download: Descargar archivo
       documents:
         related_documents: Documentos relacionados
+      geocoding:
+        geocoded_address: Dirección
       photos:
         related_photos: Fotos relacionadas
     author:
@@ -318,6 +320,8 @@ es-PY:
           authorize: Autorizar con "%{authorization}"
           explanation: Para llevar a cabo esta acción, tiene que disponer de la autorización "%{authorization}".
           title: Autorización requerida
+        ok:
+          title: Has sido autorizado mientras estás en esta página. Por favor, vuelve a cargar la página para realizar tu acción
         pending:
           explanation: Para realizar esta acción, debes estar autorizado con "%{authorization}", pero tu autorización todavía está en progreso
           resume: Verifica el progreso de la autorización "%{authorization}"
@@ -854,6 +858,15 @@ es-PY:
       index:
         last_activity: Última actividad
         resource_type: Tipo
+    links:
+      invalid_url: Dirección URL no válida
+      warning:
+        body_1: Estás a punto de visitar un enlace externo y te recomendamos que seas prudente respecto al contenido de páginas externas.
+        body_2: Por favor, antes de seguir, comprueba que el enlace que estás a punto de visitar pertenece a un sitio seguro.
+        cancel: Cancelar
+        close_modal: Cerrar ventana
+        proceed: Continuar
+        title: Abrir enlace externo
     log:
       base_presenter:
         create: "%{user_name} creó %{resource_name}"
@@ -1255,6 +1268,8 @@ es-PY:
         filters:
           areas: Áreas
           select_an_area: Seleccione un area
+      public_participation:
+        public_participation: Mostrar mi asistencia públicamente
       reference:
         reference: 'Referencia: %{reference}'
       represent_user_group:

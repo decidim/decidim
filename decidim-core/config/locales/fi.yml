@@ -67,7 +67,6 @@ fi:
     'true': 'Kyllä'
   carrierwave:
     errors:
-      general: Kuvan käsittely epäonnistui
       image_too_big: Kuva on liian suuri
       not_inside_organization: Tiedostoa ei ole liitetty mihinkään organisaatioon
   date:
@@ -99,6 +98,7 @@ fi:
         error: Tilisi poistaminen epäonnistui.
         success: Tilisi poistaminen onnistui.
       show:
+        available_locales_helper: Valitse kieli, jota haluat käyttää selataksesi Decidimiä ja vastaanottaaksesi ilmoituksia
         change_password: Vaihda salasana
         update_account: Päivitä tili
       update:

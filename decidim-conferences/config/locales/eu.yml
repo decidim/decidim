@@ -3,6 +3,7 @@ eu:
     attributes:
       conference:
         assemblies_ids: Lotutako Batzarrak
+        available_slots: Leku libreak
         banner_image: Banner irudia
         consultations_ids: Lotutako kontsultak
         copy_categories: Kopiatu kategoriak
@@ -10,26 +11,59 @@ eu:
         copy_features: Kopiatu ezaugarriak
         decidim_scope_id: esparrua
         description: deskribapena
+        end_date: Amaiera-data
         hashtag: hashtag
         hero_image: Hasiera irudia
+        location: Kokapena
+        main_logo: Logo nagusia
+        objectives: Helburuak
         participatory_processes_ids: Parte hartutako prozesu erlazionatuak
         promoted: sustatuta
         published_at: Argitaratu at
+        registration_terms: Izen-ematearen irizpideak eta baldintzak
+        registrations_enabled: Gaitu izen-emateak
         scope_id: esparrua
         scopes_enabled: Scopes gaituta
         short_description: Deskribapen laburra
         show_statistics: Erakutsi estatistikak
-        slogan: leloa
-        slug: URL slug
+        sign_date: Sinatze-data
+        signature: Sinadura
+        signature_name: sinaduraren izena
+        slogan: Leloa
+        slug: URL laburra
+        start_date: Hasiera-data
         title: Izenburua
       conference_media_link:
-        weight: pisu
+        date: Data
+        link: Lotura
+        title: Izenburua
+        weight: Pisua
       conference_partner:
-        weight: pisu
+        link: Lotura
+        logo: Logoa
+        name: Izena
+        partner_type: Lankidetza mota
+        weight: Pisua
+      conference_registration_invite:
+        email: Helbide elektronikoa
+        name: Izena
+        registration_type_id: Erregistro mota
+        user_id: Erabiltzailea
       conference_registration_type:
-        weight: pisu
+        description: Deskribapena
+        price: Prezioa
+        title: Izenburua
+        weight: Pisua
       conference_speaker:
+        affiliation: Kidetza
+        avatar: Avatarra
+        conference_meeting_ids: Honekin lotutako topaketak
         full_name: Izen osoa
+        personal_url: URL pertsonala
+        position: Kokapena
+        short_bio: Biografia laburra
+        twitter_handle: Twitter kontua
+        user_id: Erabiltzailea
       conference_user_role:
         email: Emaila
         name: izena
@@ -112,7 +146,7 @@ eu:
           error: Errore bat gertatu da konferentzia berri bat sortzean.
           success: Konferentzia ondo sortu da.
         edit:
-          update: eguneratzearen
+          update: Eguneratu
         exports:
           registrations: Izen-emateak
         form:
@@ -143,10 +177,10 @@ eu:
           media_links_title: Media Links
         new:
           create: Sortu
-          title: Media Link
+          title: Multimedia Lotura
         update:
-          error: Errore bat gertatu da komunikazio-esteka hau eguneratzean.
-          success: Media Link eguneratu behar bezala.
+          error: Errore bat gertatu da multimedia link hau eguneratzean.
+          success: Multimedia linka behar bezala eguneratuta.
       menu:
         conferences: Jardunaldiak
         conferences_submenu:
@@ -178,28 +212,29 @@ eu:
             affiliation: Afiliazioa
             full_name: Izen osoa
             position: Kargua
-          name: Hitzaldi Hizlaria
+          name: Hizlaria
         conference_user_role:
           fields:
             email: Emaila
             name: izena
-            role: Role
-          name: Konferentzia Erabiltzailea
+            role: Rola
+          name: Jardunaldiaren administratzailea
           roles:
             admin: Administrator
-            collaborator: Kolaboratzaile
-            moderator: Moderatzaile
+            collaborator: Kolaboratzailea
+            moderator: Moderatzailea
+            valuator: Ebaluatzailea
         media_link:
           fields:
-            date: data
-            link: Link
+            date: Data
+            link: Linka
             title: Izenburua
-          name: Media Link
+          name: Multimedia linka
         partner:
           fields:
-            link: Link
-            logo: Logotipo
-            name: izena
+            link: Linka
+            logo: Logotipoa
+            name: Izena
             partner_type: Mota
           name: Partner
           types:
@@ -207,10 +242,11 @@ eu:
             main_promotor: Garapen nagusia
         registration_type:
           fields:
-            conference_meetings: Bilera bilerak
+            conference_meetings: Hitzaldiaren topaketak
             price: Prezioa
             registrations_count: Erregistroak zenbatzea
             title: Izenburua
+            weight: Kokapenaren hurrenkera
           name: Izen-emate mota
       partners:
         create:
@@ -270,6 +306,10 @@ eu:
       conferences:
         conference_registration:
           confirm: "%{user_name} Kongresuko matrikula bat baieztatu da %{resource_name} Kongresuan"
+        partner:
+          create: "%{user_name} k sortu zuen %{resource_name} aurrekontua %{space_name} esparruan"
+          delete: "%{user_name} k ezabatu zuen %{resource_name} erabiltzailea %{space_name} batzarrean"
+          update: "%{user_name} k eguneratu zuen %{resource_name} erabiltzailea %{space_name} batzarrean"
         registration_type:
           create: "%{user_name} sortutako %{resource_name} matrikula mota %{space_name} konferentzia"
           publish: "%{user_name} argitaratutako %{resource_name} izen-emate mota %{space_name} biltzarrean"
@@ -334,7 +374,7 @@ eu:
             slug_help: 'URL slugs erabiltzen dira konferentzia honetara bidaltzen dituzten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
         diplomas:
           edit:
-            save: Save
+            save: Gorde
             title: Asistentzia ziurtagiria
         invite_join_conference_mailer:
           invite:
@@ -402,6 +442,7 @@ eu:
         personal_website: Webgune pertsonala
         show:
           more_info: informazio gehiago
+          speaking_at: Hartzen du parte hemen
       conference_speaker_cell:
         personal_url:
           personal_website: Webgune pertsonala
@@ -460,11 +501,15 @@ eu:
         home:
           highlighted_conferences:
             active_conferences: Jardunaldi aktiboak
+            conferences_button_title: Lotura batzar guztiak erakusten dituen Batzarren orrialdera
             see_all_conferences: Ikusi hitzaldi guztiak
       photo:
+        image:
+          attributes:
+            alt: Multimedia-irudia
         show:
-          close_modal: Itxi modal
-          photo: photo
+          close_modal: Itxi leihoa
+          photo: Irudia
       photos_list:
         show:
           related_photos: Argazkiak
@@ -472,6 +517,7 @@ eu:
         index:
           choose_an_option: 'Aukeratu zure erregistro-aukera:'
           login_as: '%{name} <%{email}> gisa erregistratuta zaude'
+          no_registrations: Ez dago izen-ematerik
           register: Eman izena
           title: Izen-emate motak
       shared:
@@ -508,11 +554,22 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu delako "%{resource_title}" konferentzia jarraituz. Aurreko esteka estekan jarrai dezakezu.
           email_subject: Kongresuaren "%{resource_title}" erregistroak gaitu ditu.
           notification_title: <a href="%{resource_path}">%{resource_title}</a> bilkurak erregistroak gaitu ditu.
+        role_assigned:
+          email_intro: '%{role} rola esleitu zaizu <a href="%{resource_title}"> batzarrean.'
+          email_outro: Jakinarazpen hau jaso duzu %{role} rola esleitu dizutelako "%{resource_title}" batzarrean.
+          email_subject: '%{role} rola esleitu zaizu <a href="%{resource_title}"> batzarrean.'
+          notification_title: '%{role} rola esleitu zaizu <a href="%{resource_url}">%{resource_title}</a> batzarrean.'
         upcoming_conference:
           email_intro: '"%{resource_title}" konferentzia egiten ari da 2 egunetan. Bere orrialdearen azalpena irakur dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu delako "%{resource_title}" konferentzia jarraituz. Aurreko esteka estekan jarrai dezakezu.
           email_subject: Biltzarra "%{resource_title}" dator!
           notification_title: <a href="%{resource_path}">%{resource_title}</a> konferentzia 2 egunetan egongo da.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "</p>Programa batean antolatutako bileren bilduma bat da. Bertan, hizlari gisa gonbidatutako pertsonak daude, baita biltzar handietako edo gizarte-ekitaldietako ohiko informazio-eremuak ere (erregistroa, ekitaldia babesten edo laguntzen duten erakundeen zerrenda, etab.).</p> <p>Adibideak: Hitzaldi bat garrantzitsua izan daiteke erakunde batentzat eta haren kideentzat, edo parte hartzeko prozesu baten zati gisa edo kontsulta baten ondoren egin daiteke.</p>\n"
+          page: "</p>Programa batean antolatutako bileren bilduma bat da. Bertan, hizlari gisa gonbidatutako pertsonak daude, baita biltzar handietako edo gizarte-ekitaldietako ohiko informazio-eremuak ere (erregistroa, ekitaldia babesten edo laguntzen duten erakundeen zerrenda, etab.).</p> <p>Adibideak: Hitzaldi bat garrantzitsua izan daiteke erakunde batentzat eta haren kideentzat, edo parte hartzeko prozesu baten zati gisa edo kontsulta baten ondoren egin daiteke.</p>\n"
+          title: Zer dira hitzaldiak?
     log:
       value_types:
         conference_presenter:
@@ -523,6 +580,8 @@ eu:
         title: Media eta estekak
     menu:
       conferences: Jardunaldiak
+    statistics:
+      conferences_count: Hitzaldiak
   devise:
     mailer:
       join_conference:

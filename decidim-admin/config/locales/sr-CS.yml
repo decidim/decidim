@@ -38,7 +38,6 @@ sr:
         enable_omnipresent_banner: Prikaži sveprisutni baner
         facebook_handler: Administrator Facebook-a
         favicon: Ikona
-        from: Od adrese e-pošte
         github_handler: Administrator GitHub-a
         header_snippets: Fragmenti zaglavlja
         highlighted_content_banner_action_subtitle: Podnastlov dugmeta akcije
@@ -133,12 +132,10 @@ sr:
           error: Greška u postupku prihvatanja uslova korišćenja za administratore.
           success: Odlično! Prihvatili ste uslove korišćenja za administratore.
         actions:
-          are_you_sure: Da li ste sigurni da ne prihvatate uslove korišćenja za administratore?
           refuse: Ne prihvatam uslove korišćenja za administratore
           title: Prihvatam propisane načine i uslove korišćenja
         required_review:
           alert: 'Obavezno: Pročitajte naše uslove korišćenja za administratore'
-          callout: Molimo da proučite Uslove korišćenja za administratore. U suprotnom nećete moći da upravljate platformom.
           cta: Proučite uslove sada.
         title: Uslovi korišćenja za administratore
       area_types:
@@ -161,7 +158,6 @@ sr:
           error: Nastao je problem pri stvaranju nove oblasti.
           success: Oblast je uspešno stvorena.
         destroy:
-          has_spaces: Oblast ima zavisne prostore, mora da ih nema da bi mogla da se obriše.
           success: Oblast je uspešno uništena
         edit:
           title: Uređivanje oblasti
@@ -458,7 +454,6 @@ sr:
       newsletters:
         create:
           error: Pojavio se problem pri kreiranju ovog biltena.
-          success: Bilten je uspešno kreiran. Molimo vas da ga pregledate pre slanja.
         deliver:
           error: Pojavio se problem pri dostavljanju ovog biltena.
           success: Bilten je uspešno dostavljen.
@@ -534,12 +529,10 @@ sr:
           officialize: Ozvaniči
           title: Ozvaniči status učesnika "%{name}"
         show_email_modal:
-          description: Ako je neophodno da učesnika direktno kontaktirate možete upotrebiti dugme Prikaži kako bi videli adresu E-pošte. Ova aktivnost će biti zabeležena.
           email_address: Adrеsa е-poštе
           full_name: Puno ime
           hidden: sakriveno
           show: Prikaži
-          title: Prikaži adresu e-pošte učesnika
       organization:
         edit:
           title: Uredi organizaciju
@@ -571,6 +564,12 @@ sr:
       titles:
         metrics: Metrika
         statistics: Aktivnost
+      user_groups:
+        index:
+          filter:
+            all: Sve
+          filter_by: Izaberi po
+          search: Pretraži
       users_statistics:
         users_count:
           last_day: Poslednji dan

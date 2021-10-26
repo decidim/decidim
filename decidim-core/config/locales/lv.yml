@@ -64,7 +64,6 @@ lv:
     'true': 'Jā'
   carrierwave:
     errors:
-      general: Apstrādājot attēlu, radās problēma
       image_too_big: Attēls ir pārāk liels
   date:
     formats:

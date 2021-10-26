@@ -37,14 +37,8 @@ describe "Conference program", type: :system do
   end
 
   context "when there are some conference meetings" do
-    let!(:meetings) do
-      create_list(
-        :meeting,
-        3,
-        :published,
-        component: component
-      )
-    end
+    let!(:conference_speakers) { create_list(:conference_speaker, 3, :with_meeting, conference: conference, meetings_component: component) }
+    let(:meetings) { Decidim::ConferenceMeeting.where(component: component) }
 
     before do
       visit decidim_conferences.conference_conference_program_path(conference, component)

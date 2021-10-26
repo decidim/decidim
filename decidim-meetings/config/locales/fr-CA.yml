@@ -23,6 +23,7 @@ fr-CA:
         decidim_user_group_id: Groupe d'utilisateurs
         description: Description
         end_time: Date de fin
+        id: ID
         location: Lieu
         location_hints: Indicateurs d’emplacement
         online_meeting_url: URL de la rencontre
@@ -34,12 +35,17 @@ fr-CA:
         registration_terms: Conditions d'inscription
         registration_url: URL d'inscription
         registrations_enabled: Inscriptions ouvertes
+        show_embedded_iframe: Montrer l'iframe intégrée pour cette URL
         start_time: Heure de début
         title: Titre
         transparent: Visible par les non-membres
         type_of_meeting: Type
     errors:
       models:
+        meeting:
+          attributes:
+            show_embedded_iframe:
+              not_embeddable: Cette URL ne peut pas être intégrée
         meeting_agenda:
           attributes:
             base:
@@ -69,6 +75,34 @@ fr-CA:
         other: Inscriptions
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Catégorie
+          closed_at_present:
+            label: État
+            values:
+              'false': Ouvert
+              'true': Fermé
+          is_upcoming_true:
+            label: Date
+            values:
+              'false': Passés
+              'true': À venir
+          origin_eq:
+            label: Origine
+            values:
+              citizen: Citoyen
+              official: Officiel
+              user_group: Groupes d’utilisateurs
+          scope_id_eq:
+            label: Périmètre
+          type_eq:
+            label: Type de rencontre
+            values:
+              hybrid: Hybride
+              in_person: En présentiel
+              online: En ligne
       meeting_copies:
         create:
           error: Une erreur s'est produite lors de la duplication de cette rencontre.
@@ -80,6 +114,7 @@ fr-CA:
     components:
       meetings:
         actions:
+          comment: Commenter
           join: Rejoindre
         name: Rencontres
         settings:
@@ -172,6 +207,7 @@ fr-CA:
           proposals_count:
             one: 'La rencontre ne peut être supprimée car %{count} proposition y est rattachée:'
             other: 'La rencontre ne peut être supprimée car %{count} propositions y sont rattachées:'
+        manage_poll: Gérer le sondage
         new: Nouvelle réunion
         preview: Aperçu
         registrations: Inscriptions
@@ -208,6 +244,7 @@ fr-CA:
             invalid: Un problème est survenu lors de la mise à jour de cet ordre du jour
             success: Ordre du jour mis à jour avec succès
         exports:
+          answers: Réponses
           meeting_comments: Commentaires
           meetings: Rencontres
           registrations: Inscriptions
@@ -248,6 +285,7 @@ fr-CA:
             success: Rencontre close avec succès
           create:
             invalid: Il y a eu un problème lors de la création de cette rencontre
+            success: Réunion créée avec succès. Notez que celle-ci n'est pas encore publiée, vous devez la publier manuellement.
           destroy:
             invalid:
               proposals_count:
@@ -268,11 +306,15 @@ fr-CA:
             registration_url_help: 'Lien : permet aux participants de partir sur le service externe que vous utilisez pour les inscriptions'
             select_a_meeting_type: Veuillez sélectionner un type de rencontre
             select_a_registration_type: Veuillez sélectionner un type d'inscription
+            show_embedded_iframe_help: Intégrer ou non l'iframe correspondant à cette URL de vidéoconférence. Seuls quelques services permettent l'intégration (c.-à-d. Youtube, Twitch...)
           index:
             title: Rencontres
           new:
             create: Créer
             title: Créer une rencontre
+          publish:
+            invalid: Une erreur s'est produite lors de la publication de cette rencontre
+            success: Rencontre publiée avec succès
           service:
             description: Description
             down: Vers le bas
@@ -283,9 +325,18 @@ fr-CA:
           services:
             add_service: Ajouter un service
             services: Services
+          unpublish:
+            invalid: Une erreur s'est produite lors de la dépublication de cette rencontre
+            success: Rencontre dépubliée avec succès
           update:
             invalid: Il y a eu un problème lors de la mise à jour de cette rencontre
             success: Rencontre mise à jour avec succès
+        meetings_poll:
+          form:
+            title: Modifier le questionnaire de sondage pour %{questionnaire_for}
+          update:
+            invalid: Une erreur est survenue lors de la mise à jour du sondage de la rencontre
+            success: Sondage de rencontre mis à jour avec succès
         models:
           meeting:
             name: Rencontre
@@ -341,13 +392,18 @@ fr-CA:
             all: Tout
             date: Date
             meetings: Rencontres
-            past: Passées
-            search: Rechercher
+            past: Passé
+            search: Chercher
             space_type: Espace participatif
             upcoming: À venir
       last_activity:
         meeting_updated_at_html: "<span>Débat mis à jour à %{link}</span>"
         new_meeting_at_html: "<span>Nouvelle réunion à %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Administrer
+          close: fermer
+          questions: Questions
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -363,6 +419,13 @@ fr-CA:
           close: Clore la rencontre
           title: Clore la rencontre
       meetings:
+        calendar_modal:
+          add_to_calendar: Ajouter au calendrier
+          apple: Envoyer vers le Calendrier Apple
+          close_window: Fermer la fenêtre
+          full_details_html: Pour plus de détails, allez sur %{link}
+          google: Ajouter au calendrier Google
+          outlook: Ajouter au calendrier Outlook
         count:
           meetings_count:
             one: "Réunion %{count}"
@@ -415,6 +478,7 @@ fr-CA:
           select_a_category: Veuillez sélectionner une catégorie
           select_a_meeting_type: Veuillez sélectionner un type de rencontre
           select_a_registration_type: Veuillez sélectionner un type d'inscription
+          show_embedded_iframe_help: Intégrer ou non l'iframe correspondant à cette URL de vidéoconférence. Seuls quelques services permettent l'intégration (c.-à-d. Youtube, Twitch...)
         index:
           new_meeting: Nouvelle réunion
         meeting_minutes:
@@ -426,8 +490,6 @@ fr-CA:
           back: Précédent
           create: Créer
           title: Créez votre réunion
-        online_meeting_link:
-          link_available_soon: Lien bientôt disponible
         registration_confirm:
           cancel: Annuler
           confirm: Confirmer
@@ -442,7 +504,11 @@ fr-CA:
           join: Participer à la rencontre
           leave: Annuler votre inscription
           leave_confirmation: Êtes-vous sûr de vouloir annuler votre inscription à cette rencontre ?
+          link_available_soon: Lien bientôt disponible
+          link_closed: Le lien pour rejoindre la réunion sera disponible quelques minutes avant le début de la réunion
+          live_event: Cette réunion se déroule en ce moment
           meeting_minutes: Comptes rendus des rencontres
+          micro_camera_permissions_warning: Lorsque vous cliquez sur le bouton ci-dessous, on vous demandera des autorisations de microphone et/ou de caméra, et vous rejoindrez la vidéoconférence
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
           registration_code_help_text: Votre code d'inscription
@@ -453,6 +519,7 @@ fr-CA:
             one: "Il reste %{count} place"
             other: "Il reste %{count} places"
           view: Voir
+          visit_finished: Consulter l’historique des rencontres
         update:
           invalid: Une erreur s'est produite lors de la mise à jour de la réunion.
           success: La réunion a été mise à jour avec succès.
@@ -473,10 +540,29 @@ fr-CA:
           fields:
             closed: Fermée
             end_time: Date de fin
+            id: Id
             map: Carte
             official_meeting: Réunion officielle
             start_time: Date de début
             title: Titre
+      polls:
+        questions:
+          closed_question:
+            question_results: Résultats de l'élection
+          index:
+            empty_questions: Tout au long de cette rencontre, certaines questions seront envoyées et vous pourrez y répondre. Elles seront affichées ici.
+          index_admin:
+            admin_dashboard: Tableau de bord d'administration
+            edit: Modifier dans le panneau Admin
+            question: Question
+            received_answer: réponse reçue
+            received_answers: réponses reçues
+            results: Résultats
+            send: Envoyer
+            sent: Envoyée
+          published_question:
+            max_choices_alert: Il y a trop de choix sélectionnés
+            question: Question
       public_participants_list:
         attending_participants: Participants présents
         hidden_participants_count:

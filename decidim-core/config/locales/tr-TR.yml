@@ -62,7 +62,6 @@ tr:
     'true': 'Evet'
   carrierwave:
     errors:
-      general: İsteği işlerken bir hata oluştu
       image_too_big: Görüntü çok büyük
       not_inside_organization: Dosya herhangi bir kuruluşa eklenmemiş
   date:

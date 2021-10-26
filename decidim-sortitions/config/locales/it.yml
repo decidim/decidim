@@ -19,6 +19,8 @@ it:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Commenta
         name: Sorteggi
         settings:
           global:

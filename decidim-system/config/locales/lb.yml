@@ -1,0 +1,8 @@
+lb:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: Name OAuth-Anwendung
+        organization_logo: Organisatiounslogo (quadratesch)
+        organization_name: Organisatioun
+        organization_url: URL der Organisatioun

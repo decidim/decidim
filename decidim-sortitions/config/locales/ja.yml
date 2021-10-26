@@ -18,6 +18,8 @@ ja:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: コメント
         name: 並べ替え
         settings:
           global:

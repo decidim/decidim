@@ -66,7 +66,7 @@ module Decidim
           organization: private_user_to.organization
         )
 
-        InviteUserAgain.call(@existing_user, invitation_instructions) if @existing_user && !@existing_user.invitation_accepted?
+        InviteUserAgain.call(@existing_user, invitation_instructions) if @existing_user&.invitation_pending?
 
         @existing_user
       end

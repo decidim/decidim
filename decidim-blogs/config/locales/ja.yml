@@ -58,6 +58,11 @@ ja:
       read_more: もっと読む
     components:
       blogs:
+        actions:
+          amend: 修正
+          comment: コメント
+          endorse: 支持
+          vote: 投票
         name: ブログ
         settings:
           global:

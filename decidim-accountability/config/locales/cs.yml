@@ -208,6 +208,8 @@ cs:
             label: Stav
     components:
       accountability:
+        actions:
+          comment: Komentář
         name: Odpovědnost
         settings:
           global:

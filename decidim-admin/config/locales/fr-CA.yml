@@ -32,6 +32,7 @@ fr-CA:
         body: Corps de texte
         subject: Objet
       organization:
+        admin_terms_of_use_body: Corps du texte pour les conditions d'utilisation de l'admin
         alert_color: Alerte
         available_authorizations: Autorisations disponibles
         badges_enabled: Activer les badges
@@ -47,7 +48,7 @@ fr-CA:
         favicon: Icône
         force_authentication: Forcer l'authentification
         force_users_to_authenticate_before_access_organization: Forcer les utilisateurs à s'authentifier avant d'accéder à l'organisation
-        from: Adresse e-mail de l’expéditeur
+        from: Adresse mail de l'expéditeur
         github_handler: Gestionnaire GitHub
         header_snippets: Éléments à ajouter entre les balises HTML
         highlight_alternative_color: Surligner, alternative
@@ -157,6 +158,8 @@ fr-CA:
         browse: Parcourir
         category:
           new: Nouvelle catégorie
+        export: Tout exporter
+        export-selection: Exporter la sélection
         import: Importer
         manage: Gérer
         new: Nouvelle %{name}
@@ -177,12 +180,12 @@ fr-CA:
           success: Super! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
           accept: J'accepte les conditions d'utilisation suivantes
-          are_you_sure: Êtes-vous certain de vouloir refuser les conditions d'utilisation administrateur?
+          are_you_sure: Êtes-vous sûr de vouloir refuser les conditions d'utilisation de l'administrateur?
           refuse: Refuser les conditions d'utilisation administrateur
           title: Accepter les conditions d'utilisation
         required_review:
           alert: 'Obligatoire: Consultez nos conditions d''utilisation administrateur'
-          callout: Veuillez prendre un moment pour consulter les conditions d'utilisation administrateur. Sinon, vous ne pourrez pas utiliser la plateforme en tant qu'administrateur.
+          callout: Veuillez prendre un moment pour consulter les conditions d'utilisation de l'administration. Sinon, vous ne pourrez pas gérer la plateforme.
           cta: Consulter les maintenant.
         title: Conditions d'utilisation administrateur
       area_types:
@@ -205,7 +208,7 @@ fr-CA:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
           success: Zone d'application créée avec succès.
         destroy:
-          has_spaces: Le secteur a des sous-secteur dépendants, il ne doit pas avoir de dépendances pour être supprimé.
+          has_spaces: Cette zone a des espaces dépendants. Veuillez vous assurer qu'aucun espace participatif ne référence cette zone avant de la supprimer.
           success: La zone d'application a bien été supprimée
         edit:
           title: Modifier la zone d'application
@@ -258,7 +261,7 @@ fr-CA:
       block_user:
         new:
           action: Bloquer le compte et envoyer la justification
-          description: Bloquer un utilisateur rendra son compte inutilisable, vous devriez fournir dans votre justification et vos directives les conditions de déblocage de l'utilisateur.
+          description: Bloquer un utilisateur rendra son compte inutilisable. Vous devriez fournir dans votre justification des actions à effectuer par ce dernier pour envisager le déblocage.
           justification: Justification
           title: Bloquer l'utilisateur %{name}
       categories:
@@ -484,7 +487,7 @@ fr-CA:
         areas: Zones d'application
         configuration: Configuration
         dashboard: Tableau de bord
-        external_domain_whitelist: Liste blanche du domaine externe
+        external_domain_whitelist: Domaines externes autorisés
         help_sections: Sections d'aide
         homepage: Page d'accueil
         impersonations: Utilisateurs représentés
@@ -633,7 +636,7 @@ fr-CA:
       newsletters:
         create:
           error: Il y a eu une erreur lors de la création de cette newsletter.
-          success: Newsletter créée avec succès. Veuillez la vérifier avant de l'envoyer.
+          success: Bulletin d'information créé avec succès. Veuillez le vérifier avant de l'envoyer.
         deliver:
           error: Il y a eu une erreur lors de l'envoi de cette newsletter.
           success: Newsletter envoyée avec succès.
@@ -716,12 +719,12 @@ fr-CA:
           title: Valider l'utilisateur "%{name}"
         show_email_modal:
           close_modal: Fermer la fenêtre modale
-          description: Si vous avez besoin de contacter directement un participant, vous pouvez cliquer sur le bouton Afficher pour voir l'adresse e-mail. Cette action sera enregistrée.
+          description: Si vous avez besoin de contacter directement un participant, vous pouvez cliquer sur le bouton Afficher pour voir leur adresse mèl. Cette action sera enregistrée.
           email_address: Adresse e-mail
           full_name: Nom complet
           hidden: masqués
           show: Afficher
-          title: Afficher l'adresse e-mail des participants
+          title: Afficher l'adresse e-mail du participant
         unblock:
           error: Une erreur s'est produite lors du déblocage du participant
           success: Participant débloqué avec succès
@@ -926,7 +929,7 @@ fr-CA:
       user_groups:
         index:
           filter:
-            all: Tous
+            all: Tout
             pending: En attente
             rejected: Non validés
             verified: Vérifié
@@ -968,7 +971,7 @@ fr-CA:
     forms:
       errors:
         impersonate_user:
-          reason: Vous devez fournir une raison lors de l'emprunt d'identité d'un utilisateur standard
+          reason: Vous devez fournir une raison si vous modérer un participant actuellement non-modéré
     metrics:
       blocked_users:
         object: utilisateurs bloqués
@@ -976,6 +979,9 @@ fr-CA:
       reported_users:
         object: utilisateurs signalés
         title: Utilisateurs signalés
+      user_reports:
+        object: signalements d'utilisateurs
+        title: Signalements d'utilisateurs
     moderations:
       actions:
         expand: Agrandir

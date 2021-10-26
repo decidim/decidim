@@ -19,6 +19,8 @@ fi:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Kommentoi
         name: Satunnaistamiset
         settings:
           global:

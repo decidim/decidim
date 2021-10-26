@@ -63,7 +63,6 @@ ja:
     'true': 'はい'
   carrierwave:
     errors:
-      general: 画像処理中にエラー
       image_too_big: 画像が大きすぎます
       not_inside_organization: ファイルはどの組織にも添付されていません
   date:
@@ -95,6 +94,7 @@ ja:
         error: アカウントの削除中に問題が発生しました。
         success: アカウントが正常に削除されました。
       show:
+        available_locales_helper: Decidimからの通知を閲覧および受信するために使用する言語を選択します
         change_password: パスワードの変更
         update_account: アカウントを更新
       update:
@@ -1358,7 +1358,7 @@ ja:
         deleted: 削除された参加者
     versions:
       resource_version:
-        of_versions: "( %{number} の)"
+        of_versions: "/ %{number}"
         see_other_versions: 他のバージョンを見る
         version: バージョン %{number}
     versions_list:

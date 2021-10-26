@@ -107,6 +107,10 @@ module Decidim
     # Returns a String.
     attr_accessor :invitation_instructions
 
+    def invitation_pending?
+      invited_to_sign_up? && !invitation_accepted?
+    end
+
     # Returns the user corresponding to the given +email+ if it exists and has pending invitations,
     #   otherwise returns nil.
     def self.has_pending_invitations?(organization_id, email)

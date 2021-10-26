@@ -70,11 +70,25 @@ gl:
             title: Nova resposta
           not_selected: Non seleccionada
           selected: Seleccionada
+        elections:
+          index:
+            title: Eleccións
+          new:
+            create: Crear elección
+            title: Nova elección
+        exports:
+          elections: Eleccións
+        menu:
+          trustees: Comisarios
         models:
           answer:
             name: Resposta
+          election:
+            name: Elección
           question:
             name: Pregunta
+          trustee:
+            name: Comisario
         questions:
           edit:
             title: Editar pregunta
@@ -116,8 +130,9 @@ gl:
           upcoming: Vindeiras
         footer:
           remaining_time:
-            one: "<strong>%{count} hora %{minutes} minutos</strong> para votar."
-            other: "<strong>%{count} horas %{minutes} minutos</strong> para votar."
+            one: "Falta <strong>%{count} hora %{minutes} minutos</strong> para votar."
+            other: "Faltan <strong>%{count} horas %{minutes} minutos</strong> para votar."
+            zero: "Faltan <strong>%{minutes} minutos</strong> para votar."
           view: Ver
           vote: Votar
         label:
@@ -157,6 +172,10 @@ gl:
           description: 'Estes son os resultados da votación, para cada pregunta:'
           percentage: "%{count}%"
           selected: Seleccionado
+          votes:
+            one: "%{count} voto"
+            other: "%{count} votos"
+            zero: "%{count} votos"
         show:
           action_button:
             change_vote: Troca o teu voto
@@ -371,6 +390,8 @@ gl:
       census:
         admin:
           census:
+            create:
+              invalid_csv_header: A cabeceira do CSV non posúe o número correcto de campos - por favor, le as instrucións con atención
             creating_data:
               info_message: "<strong>Agarda</strong>, procesadas %{processed_count} de %{raw_count} filas do ficheiro %{file}."
             delete:

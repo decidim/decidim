@@ -48,7 +48,7 @@ ca:
         favicon: Icona
         force_authentication: Forçar autenticació
         force_users_to_authenticate_before_access_organization: Forçar les usuàries a autenticar-se abans d'accedir a l'organització
-        from: Adreça des d'on s'enviaran els correus electrònics
+        from: Adreça de correu electrònic del remitent
         github_handler: Nom d'usuari de GitHub
         header_snippets: Codi personalitzat a la capçalera
         highlight_alternative_color: Destacat, alternatiu
@@ -158,6 +158,8 @@ ca:
         browse: Explorar
         category:
           new: Nova categoria
+        export: Exportar tot
+        export-selection: Exportar selecció
         import: Importar
         manage: Gestionar
         new: Nou %{name}
@@ -178,12 +180,12 @@ ca:
           success: Genial! Has acceptat els Termes i Condicions del panell d'administració.
         actions:
           accept: Estic d'acord amb els termes següents
-          are_you_sure: Segur que vols rebutjar els Termes i Condicions del panell d'administració?
+          are_you_sure: Segur que vols rebutjar els termes i condicions del panell d'administració?
           refuse: Rebutjar els termes
           title: Accepto els Termes i Condicions d'Administració
         required_review:
           alert: 'Requerit: Revisa els nostres Termes i Condicions del panell d''administració'
-          callout: Si us plau dedica un moment a revisar l'actualització dels nostres Termes i Condicions del panell d'administració. En cas contrari, no podràs utilitzar la plataforma.
+          callout: Si us plau dedica un moment a revisar l'actualització dels nostres termes i condicions del panell d'administració. En cas contrari, no podràs utilitzar la plataforma.
           cta: Revisa-les ara.
         title: Termes i Condicions del panell d'administració
       area_types:
@@ -206,7 +208,7 @@ ca:
           error: S'ha produït un error en crear una nova àrea.
           success: Àrea creada correctament.
         destroy:
-          has_spaces: L'àrea té espais dependents, no ha de tenir dependències per a ser esborrada.
+          has_spaces: Aquesta àrea té espais dependents. Assegura't que no fa referència a cap espai de participació abans d'eliminar-la.
           success: Àrea eliminada correctament
         edit:
           title: Editar àrea
@@ -259,7 +261,7 @@ ca:
       block_user:
         new:
           action: Bloquejar compte i enviar justificació
-          description: El bloqueig d'una usuària deixarà el seu compte inservible, pots facilitar a la teva justificació i directrius les maneres que consideris per tal de desbloquejar a la usuària.
+          description: El bloqueig d'una usuària deixarà el seu compte inutilitzable. Pots proporcionar en la teva justificació els criteris sota els quals consideraries desbloquejar-la.
           justification: Justificació
           title: Bloquejar a la usuària %{name}
       categories:
@@ -322,7 +324,7 @@ ca:
         'false': 'No'
         managed_user_name: Usuari gestionat
         solved: Resolt
-        title: Conflictes de verificacions
+        title: Conflictes de verificació
         transfer:
           email: Correu electrònic
           error: S¡ha produït un error en transferir la participant actual a la participant gestionada.
@@ -341,7 +343,7 @@ ca:
           domain_too_short: El domini és massa curt
         update:
           error: Hi ha hagut un error en incloure el domini en la llista blanca
-          success: Hem actualitzat correctament la llista blanca de dominis
+          success: Llista blanca de dominis actualitzada correctament
       exports:
         export_as: "%{name} com a %{export_format}"
         formats:
@@ -354,6 +356,16 @@ ca:
         category_id_eq:
           label: Categoria
         filter_label: Filtre
+        invitation_accepted_at_present:
+          label: 'Invitació: acceptada'
+          values:
+            'false': 'No'
+            'true': 'Sí'
+        last_sign_in_at_present:
+          label: Alguna vegada s'ha connectat
+          values:
+            'false': 'No'
+            'true': 'Sí'
         moderations:
           reportable_type_string_eq:
             label: Tipus
@@ -449,7 +461,6 @@ ca:
           accepted_mime_types:
             csv: csv
             json: json
-            xlsx: xlsx
           actions:
             back: Tornar
           file_legend: Afegir un arxiu d'importació que serà processat.
@@ -475,7 +486,7 @@ ca:
         areas: Àrees
         configuration: Configuració
         dashboard: Tauler de control
-        external_domain_whitelist: Llista blanca de dominis externs
+        external_domain_whitelist: Dominis externs permesos
         help_sections: Seccions d'ajuda
         homepage: Pàgina d'inici
         impersonations: Impersonacions
@@ -707,7 +718,7 @@ ca:
           title: Oficialitza la participant "%{name}"
         show_email_modal:
           close_modal: Tanca el modal
-          description: Si necessites contactar a una participant directament pots clicar al botó Mostra per veure la seva adreça de correu electrònic. Aquesta acció s'auditarà.
+          description: Si necessites contactar a una participant directament pots clicar al botó Mostra per veure la seva adreça de correu electrònic. Aquesta acció es registrarà.
           email_address: Adreça de correu electrònic
           full_name: Nom complet
           hidden: ocult
@@ -749,14 +760,14 @@ ca:
           omnipresent_banner_appearance_title: Edita banner omnipresent
       organization_external_domain_whitelist:
         edit:
-          update: Actualitza
+          update: Actualitzar
         external_domain:
-          down: Avall
+          down: Baixar
           external_domain: Domini extern
-          remove: Lleva
-          up: Amunt
+          remove: Eliminar
+          up: Pujar
         form:
-          add: Afegeix a llista blanca
+          add: Afegir a la llista blanca
           title: Llista blanca de dominis externs
       organization_homepage:
         edit:
@@ -917,12 +928,12 @@ ca:
       user_groups:
         index:
           filter:
-            all: Tots
-            pending: Pendents
-            rejected: Rebutjats
-            verified: Verificats
+            all: Totes
+            pending: Pendent
+            rejected: Rebutjat
+            verified: Verificat
           filter_by: Filtra per
-          search: Cerca
+          search: Cercar
           state:
             pending: Pendent
             rejected: Rebutjat

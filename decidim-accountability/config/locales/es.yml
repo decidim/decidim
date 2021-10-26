@@ -204,6 +204,8 @@ es:
             label: Estado
     components:
       accountability:
+        actions:
+          comment: Comentar
         name: Seguimiento
         settings:
           global:

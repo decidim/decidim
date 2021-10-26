@@ -23,6 +23,7 @@ fi:
         decidim_user_group_id: Käyttäjäryhmä
         description: Kuvaus
         end_time: Lopetusaika
+        id: ID
         location: Paikka
         location_hints: Paikan tarkemmat tiedot
         online_meeting_url: Verkkotapaamisen osoite (URL)
@@ -34,12 +35,17 @@ fi:
         registration_terms: Ilmoittautumisehdot
         registration_url: Ilmoittautumisosoite (URL)
         registrations_enabled: Ilmoittautumiset ovat käytössä
+        show_embedded_iframe: Näytä upotettu iframe tälle osoitteelle
         start_time: Aloitusaika
         title: Otsikko
         transparent: Läpinäkyvä
         type_of_meeting: Tyyppi
     errors:
       models:
+        meeting:
+          attributes:
+            show_embedded_iframe:
+              not_embeddable: Tätä URL-osoitetta ei voi upottaa
         meeting_agenda:
           attributes:
             base:
@@ -69,6 +75,34 @@ fi:
         other: Ilmoittautumiset
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Aihepiiri
+          closed_at_present:
+            label: Tila
+            values:
+              'false': Avoin
+              'true': Suljettu
+          is_upcoming_true:
+            label: Päivämäärä
+            values:
+              'false': Menneet
+              'true': Tulevat
+          origin_eq:
+            label: Alkuperä
+            values:
+              citizen: Kansalaiset
+              official: Viralliset
+              user_group: Käyttäjäryhmät
+          scope_id_eq:
+            label: Teema
+          type_eq:
+            label: Tapaamisen tyyppi
+            values:
+              hybrid: Molemmat
+              in_person: Fyysinen
+              online: Verkossa
       meeting_copies:
         create:
           error: Tapaamisen kopioiminen epäonnistui.
@@ -80,6 +114,7 @@ fi:
     components:
       meetings:
         actions:
+          comment: Kommentoi
           join: Liity mukaan
         name: Tapaamiset
         settings:
@@ -147,6 +182,9 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapaamista "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Tapaamisen "%{resource_title}" alkuun on alle 48 tuntia.
           notification_title: Tapaaminen <a href="%{resource_path}">%{resource_title}</a> alkaa alle 48 tuntin kuluttua.
+    forms:
+      meetings:
+        attendees_count_help_text: Älä unohda ilmoittaa tapahtuman osallistujamäärää. Tapahtuman tyypistä riippumatta, meille on tärkeä tietää, kuinka moni osallistui tapahtumaan.
     gamification:
       badges:
         attended_meetings:
@@ -271,6 +309,7 @@ fi:
             registration_url_help: 'Linkki: salli käyttäjien siirtyminen käytettyyn ulkoiseen ilmoittautumispalveluun'
             select_a_meeting_type: Valitse tapaamisen tyyppi
             select_a_registration_type: Valitse ilmoittautumisten tyyppi
+            show_embedded_iframe_help: Määrittää, upotetaanko tämän videotapaamisen URL tapaamisen sivulle. Ainoastaan muutamat palvelut sallivat upotuksen ulkopuolisiin palveluihin (esim. YouTube, Twitch...)
           index:
             title: Tapaamiset
           new:
@@ -442,6 +481,7 @@ fi:
           select_a_category: Valitse aihepiiri
           select_a_meeting_type: Valitse tapaamisen tyyppi
           select_a_registration_type: Valitse ilmoittautumisten tyyppi
+          show_embedded_iframe_help: Määrittää, upotetaanko tämän videotapaamisen URL tapaamisen sivulle. Ainoastaan muutamat palvelut sallivat upotuksen ulkopuolisiin palveluihin (esim. YouTube, Twitch...)
         index:
           new_meeting: Uusi tapaaminen
         meeting_minutes:
@@ -453,10 +493,6 @@ fi:
           back: Takaisin
           create: Luo
           title: Luo tapaaminen
-        online_meeting_link:
-          join: Ilmoittaudu tapaamiseen
-          link_available_soon: Linkki julkaistaan pian
-          live_event: Tämä tapaaminen on käynnissä juuri nyt
         registration_confirm:
           cancel: Peruuta
           confirm: Vahvista
@@ -471,7 +507,11 @@ fi:
           join: Ilmoittaudu tapaamiseen
           leave: Peruuta ilmoittautumisesi
           leave_confirmation: Haluatko varmasti peruuttaa ilmoittautumisesi tähän tapaamiseen?
+          link_available_soon: Linkki julkaistaan pian
+          link_closed: Linkki tähän tapaamiseen liittymiseksi julkaistaan muutama minuutti ennen tapaamisen alkamista
+          live_event: Tämä tapaaminen on parhaillaan käynnissä
           meeting_minutes: Tapaamisen pöytäkirja
+          micro_camera_permissions_warning: Painaessasi alla olevaa painiketta, sinua pyydetään antamaan palvelulle oikeudet käyttää mikrofoniasi ja/tai kameraasi, minkä jälkeen voit liittyä tapaamiseen
           no_slots_available: Ei paikkoja vapaana
           organizations: Osallistuvat järjestöt
           registration_code_help_text: Ilmoittautumiskoodisi
@@ -482,6 +522,7 @@ fi:
             one: "%{count} paikka jäljellä"
             other: "%{count} paikkaa jäljellä"
           view: Näytä
+          visit_finished: Näytä mennyt tapaaminen
         update:
           invalid: Tapaamisen luonti epäonnistui.
           success: Tapaamisen luonti onnistui.
@@ -502,6 +543,7 @@ fi:
           fields:
             closed: Suljettu
             end_time: Päättymispäivä
+            id: Id
             map: Kartta
             official_meeting: Virallinen tapaaminen
             start_time: Alkamispäivä

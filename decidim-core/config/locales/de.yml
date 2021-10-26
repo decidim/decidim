@@ -67,7 +67,6 @@ de:
     'true': 'Ja'
   carrierwave:
     errors:
-      general: Fehler bei der Bildverarbeitung
       image_too_big: Das Bild ist zu groß
       not_inside_organization: Die Datei ist keiner Organisation hinzugefügt
   date:

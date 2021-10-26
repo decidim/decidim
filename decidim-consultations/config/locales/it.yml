@@ -359,6 +359,7 @@ it:
     resources:
       consultations:
         actions:
+          comment: Commenta
           vote: Vota
     statistics:
       consultations_count: Consultazioni

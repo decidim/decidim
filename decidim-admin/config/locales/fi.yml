@@ -180,7 +180,7 @@ fi:
           success: Hienoa! Olet hyväksynyt hallintakäyttäjän ehdot.
         actions:
           accept: Hyväksyn seuraavat ehdot
-          are_you_sure: Haluatko varmasti olla hyväksymättä hallintakäyttäjän ehtoja?
+          are_you_sure: Oletko varma, että haluat kieltäytyä hyväksymästä hallintakäyttäjien käyttöehtoja?
           refuse: Kieltäydy hyväksymästä hallintakäyttäjän ehtoja
           title: Hyväksy käyttöehdot
         required_review:
@@ -208,7 +208,7 @@ fi:
           error: Uuden alueen luonti epäonnistui.
           success: Alueen luonti onnistui.
         destroy:
-          has_spaces: Alueella on siitä riippuvia osallistumistiloja. Sillä ei saa olla riippuvuuksia, jotta se voidaan poistaa.
+          has_spaces: Tällä alueella on riippuvia osallistumistiloja. Tarkasta huolellisesti, että alueella ei ole yhtään riippuuvuuksia osallistumistiloihin ennen sen poistoa.
           success: Aluen tuhoaminen onnistui
         edit:
           title: Muokkaa aluetta
@@ -324,7 +324,7 @@ fi:
         'false': 'Ei'
         managed_user_name: Hallittu käyttäjä
         solved: Ratkaistu
-        title: Tarkistusten ristiriidat
+        title: Vahvistusten ristiriidat
         transfer:
           email: Sähköposti
           error: Nykyisen käyttäjän siirto hallituksi käyttäjäksi epäonnistui.
@@ -487,7 +487,7 @@ fi:
         areas: Alueet
         configuration: Asetukset
         dashboard: Hallintapaneeli
-        external_domain_whitelist: Sallittujen ulkoisten verkkotunnusten lista
+        external_domain_whitelist: Sallitut ulkoiset verkko-osoitteet
         help_sections: Ohjeosiot
         homepage: Kotisivu
         impersonations: Esiintymiset toisena käyttäjänä
@@ -636,7 +636,7 @@ fi:
       newsletters:
         create:
           error: Uutiskirjeen luonti epäonnistui.
-          success: Uutiskirjeen luonti onnistui. Tarkasta se ennen lähetystä.
+          success: Uutiskirje luotu onnistuneesti. Tarkasta se ennen lähetystä.
         deliver:
           error: Uutiskirjeen toimitus epäonnistui.
           success: Uutiskirjeen toimitus onnistui.
@@ -934,7 +934,7 @@ fi:
             rejected: Hylätty
             verified: Vahvistettu
           filter_by: Suodata
-          search: Etsi
+          search: Hae
           state:
             pending: Odottaa
             rejected: Hylätty
@@ -971,7 +971,7 @@ fi:
     forms:
       errors:
         impersonate_user:
-          reason: Sinun on annettava syy esittäessäsi käyttäjää, joka ei ole hallittu
+          reason: Sinun on annettava syy, kun esiinnyt hallinnoimattomana osallistujana
     metrics:
       blocked_users:
         object: estetyt käyttäjät

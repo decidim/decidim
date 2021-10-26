@@ -233,6 +233,7 @@ it:
     components:
       budgets:
         actions:
+          comment: Commenta
           vote: Votazione
         name: Budget
         settings:

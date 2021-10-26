@@ -67,7 +67,6 @@ sv:
     'true': 'Ja'
   carrierwave:
     errors:
-      general: Fel vid bearbetning av bild
       image_too_big: Bilden är för stor
       not_inside_organization: Den här filen är inte bifogad till någon organisation
   date:
@@ -846,6 +845,10 @@ sv:
       index:
         last_activity: Senaste aktivitet
         resource_type: Typ
+    links:
+      invalid_url: Ogiltig URL
+      warning:
+        close_modal: Stäng fönster
     log:
       base_presenter:
         create: "%{user_name} skapade %{resource_name}"

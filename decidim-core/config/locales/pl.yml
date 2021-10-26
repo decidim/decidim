@@ -75,7 +75,6 @@ pl:
     'true': 'Tak'
   carrierwave:
     errors:
-      general: Błąd podczas przetwarzania obrazu
       image_too_big: Obraz jest zbyt duży
       not_inside_organization: Plik nie jest dołączony do żadnej organizacji
   date:
@@ -266,6 +265,8 @@ pl:
         download: Pobierz plik
       documents:
         related_documents: Materiały
+      geocoding:
+        geocoded_address: Adres
       photos:
         related_photos: Powiązane zdjęcia
     author:
@@ -870,6 +871,11 @@ pl:
       index:
         last_activity: Ostatnia aktywność
         resource_type: Typ
+    links:
+      warning:
+        close_modal: Zamknij okno
+        proceed: Dalej
+        title: Otwórz zewnętrzny link
     log:
       base_presenter:
         create: "%{user_name} stworzył(a) %{resource_name}"
@@ -914,7 +920,7 @@ pl:
         comanagers_new_message:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
-          intro: "%{manager} opublikował(a) nowe wiadomości w konwersacji w imieniu %{group}. Kliknij tutaj, aby je zobaczyć:"
+          intro: "%{manager} wysłał(a) nową wiadomość w konwersacji w imieniu %{group}. Kliknij tutaj, aby ją zobaczyć:"
           outro: Miłego korzystania z platformy!
           subject: "%{manager} wysłał(a) nowe wiadomości jako %{group}"
         new_conversation:
@@ -931,12 +937,12 @@ pl:
         new_group_message:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
-          intro: "%{sender} opublikował(a) nowe wiadomości w konwersacji z grupą %{group}. Kliknij tutaj, aby je zobaczyć:"
+          intro: "%{sender} wysłał(a) nową wiadomość w konwersacji z grupą %{group}. Kliknij tutaj, aby ją zobaczyć:"
           outro: Miłego korzystania z platformy!
           subject: "%{group} ma nowe wiadomości od %{sender}"
         new_message:
           greeting: Cześć, %{recipient}!
-          intro: "%{sender} opublikował(a) nowe wiadomości w twojej rozmowie. Kliknij tutaj, aby je zobaczyć:"
+          intro: "%{sender} wysłał(a) nową wiadomość w konwersacji. Kliknij tutaj, aby ją zobaczyć:"
           outro: Miłego korzystania z platformy!
           subject: Masz nowe wiadomości od %{sender}
       conversations:
@@ -962,7 +968,7 @@ pl:
           groups: Moje grupy
           last_message: Ostatnia wiadomość
           new_conversation: Nowa konwersacja
-          next: Następna
+          next: Dalej
           no_conversations: Nie masz jeszcze żadnych konwersacji
           title: Konwersacje
         reply:
@@ -1247,6 +1253,7 @@ pl:
         description: Czy ta treść jest nieodpowiednia?
         does_not_belong: Promuje nielegalną działalność, groźby samobójcze, informacje osobiste lub coś innego, co według Ciebie nie powinno pojawić się w %{organization_name}.
         offensive: Promuje rasizm, seksizm, nienawiść, ataki osobiste, groźby śmierci, groźby samobójcze jakąkolwiek formę mowy nienawiści.
+        reason: Powód
         report: Zgłoś
         spam: Zawiera clickbaity, reklamy, oszustwa lub wrogie skrypty.
         title: Zgłoś nieodpowiednią zawartość
@@ -1320,7 +1327,7 @@ pl:
         last_message: Ostatnia wiadomość
         modal_title: Nowa konwersacja
         new_conversation: Nowa konwersacja
-        next: Następna
+        next: Dalej
         no_conversations_warning: Brak konwersacji.
         no_results: Brak wyników
         participant_with_disabled_message_reception: Ten użytkownik wyłączył odbiór wiadomości
@@ -1621,7 +1628,7 @@ pl:
         public_profile: Mój profil publiczny
         sign_out: Wyloguj się
       user_profile:
-        account: Konto
+        account: Moje konto
         authorizations: Autoryzacje
         delete_my_account: Usuń moje konto
         my_data: Moje dane

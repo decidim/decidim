@@ -26,6 +26,7 @@ ja:
     components:
       debates:
         actions:
+          comment: コメント
           create: 作成
           endorse: 支持
         name: ディベート

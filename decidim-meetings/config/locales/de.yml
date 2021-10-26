@@ -346,7 +346,7 @@ de:
             all: Alle
             date: Datum
             meetings: Meetings
-            past: Vergangenheit
+            past: Vergangene
             search: Suche
             space_type: Partizipativer Raum
             upcoming: Bevorstehende
@@ -431,8 +431,6 @@ de:
           back: Zurück
           create: Erstellen
           title: Ihre Besprechung erstellen
-        online_meeting_link:
-          link_available_soon: Link bald verfügbar
         registration_confirm:
           cancel: Stornieren
           confirm: Bestätigen

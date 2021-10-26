@@ -359,6 +359,7 @@ ca:
     resources:
       consultations:
         actions:
+          comment: Comentar
           vote: Vota
     statistics:
       consultations_count: Consultes
