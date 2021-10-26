@@ -95,7 +95,7 @@ ro:
         confirm:
           close: Închide fereastra
           ok: Da, vreau să îmi șterg contul
-          question: Ești sigur că vrei să-ți ștergi contul?
+          question: Ești sigur(ă) că vrei să-ți ștergi contul?
           title: Șterge contul meu
         explanation: Care este motivul pentru care dorești să-ți ștergi (opțional).
       destroy:
@@ -183,7 +183,7 @@ ro:
         error: A apărut o eroare la modificarea acestei resurse.
         help_text: Îmbunătățește acest %{model_name} prin modificarea lui %{amendable_fields}
         promote_button: Promovează la %{model_name}
-        promote_confirm_text: Ești sigur că dorești să promovezi această modificare?
+        promote_confirm_text: Ești sigur(ă) că dorești să promovezi această modificare?
         promote_help_text: Poți promova această modificare și publica ca un %{model_name} independent
         section_heading: Amendamente (%{count})
       compare_draft:
@@ -198,7 +198,7 @@ ro:
         success: Draftul modificării a fost șters cu succes.
       edit_draft:
         discard: Renunță la acest draft
-        discard_confirmation: Ești sigur că vrei să renunți la acest draft de modificare?
+        discard_confirmation: Ești sigur(ă) că vrei să renunți la acest draft de modificare?
         send: Previzualizare
         title: Editare draft de modificare
       emendation:
@@ -491,7 +491,7 @@ ro:
             close_modal: Închide fereastra
             uncheck: Mențineți nebifat
           notice: |-
-            <p>Hei, ești sigur că nu vrei să primești un buletin informativ?<br>
+            <p>Hei, ești sigur(ă) că nu vrei să primești un buletin informativ?<br>
             Te rugăm să reconsideri bifarea din nou a căsuței de selectare a buletinului informativ de mai jos.<br>
             Este foarte important pentru noi să poți primi e-mailuri ocazionale
             pentru a face anunţuri importante, poți schimba întotdeauna acest lucru pe pagina de setări pentru notificări.</p>
@@ -750,7 +750,7 @@ ro:
           description_another: Acest participant are %{score} urmăritori.
           description_own: "%{score} persoane te urmăresc."
           name: Urmăritori
-          next_level_in: Primește încă %{score} persoane pentru a te urmări pentru a atinge următorul nivel!
+          next_level_in: Obțineți încă %{score} urmăritori pentru a atinge următorul nivel!
           unearned_another: Acest participant nu are încă niciun urmăritor.
           unearned_own: Încă nu aveți urmăritori.
         index:
@@ -761,9 +761,9 @@ ro:
         invitations:
           conditions:
             - Folosește link-ul "invită prieteni" de pe pagina ta de utilizator pentru a-ți invita prietenii
-            - Personalizați, dacă doriți, mesajul pe care îl trimiteți
+            - Personalizează, dacă dorești, mesajul pe care îl trimiți
             - Vei crește în nivel trimițând invitații și primindu-le înregistrate.
-          description: Această insignă este acordată atunci când ai invitat câțiva oameni și au petrecut puțin timp să se înregistreze în %{organization_name} și să devină participanți. Îți mulțumim că ai făcut %{organization_name} cunoscut altora și ai ajutat la extinderea comunității!
+          description: Această insignă este acordată atunci când ai invitat câțiva oameni și aceștia au petrecut puțin timp să se înregistreze în %{organization_name} și să devină participanți. Îți mulțumim că ai făcut %{organization_name} cunoscută și altora existența comunității și ai ajutat la extinderea ei!
           description_another: Acest participant a invitat %{score} persoane.
           description_own: Ai invitat %{score} persoane.
           name: Invitații
@@ -772,23 +772,23 @@ ro:
           unearned_own: Nu ai invitat încă pe nimeni.
       description: Insignele sunt recunoașterea acțiunilor participanților și progresele înregistrate în cadrul platformei. Pe măsură ce începi să descoperi, să participi și să interacționezi în platformă, vei câștiga diferite insigne.
       level: Nivelul %{level}
-      reached_top: Ai atins nivelul superior pentru această insignă.
+      reached_top: Ai atins nivelul maxim pentru această insignă.
     group_admins:
       actions:
-        are_you_sure: Ești sigur? Acest lucru nu va elimina participantul din grup.
+        are_you_sure: Ești sigur(ă)? Acest lucru nu va elimina participantul din grup.
         demote_admin: Elimină administratorul
       demote:
         error: A apărut o eroare la eliminarea acestui participant din lista de administratori
         success: Participantul a fost șters din administrator
       index:
         current_admins: 'Administratori curenți:'
-        manage_admins: Gestionează administratorii
+        manage_admins: Gestionare administratori
     group_invites:
       accept:
         error: A apărut o eroare la acceptarea acestei invitații
         success: Invitație acceptată cu succes
       accept_invitation: Acceptă
-      accept_or_reject_group_invitations: 'Următoarele grupuri v-au invitat să vă alăturați. Acceptați sau respingeți cererile lor:'
+      accept_or_reject_group_invitations: 'Următoarele grupuri te-au invitat să te alături. Acceptă sau respinge cererile lor:'
       index:
         invite: Invită
         invite_user: Invită un participant
@@ -798,18 +798,18 @@ ro:
       reject:
         error: A apărut o eroare la respingerea acestei invitații
         success: Invitație respinsă cu succes
-      reject_invitation: Respingere
+      reject_invitation: Respinge
     group_members:
       accept:
         error: A apărut o eroare la acceptarea acestei cereri de aderare
         success: Solicitare de înscriere acceptată cu succes
       actions:
-        are_you_sure: Ești sigur?
-        promote_to_admin: Faceți administrator
-        remove_from_group: Remove participant
+        are_you_sure: Ești sigur(ă)?
+        promote_to_admin: Setare ca administrator
+        remove_from_group: Eliminare participant
       index:
         current_members_without_admins: 'Membrii actuali (fără administratori):'
-        manage_members: Gestionează membrii
+        manage_members: Gestionare participanți
       promote:
         error: A apărut o problemă la promovarea acestui participant
         success: Participant promovat cu succes
@@ -821,7 +821,7 @@ ro:
         success: Participantul a fost șters din grup
     groups:
       actions:
-        are_you_sure: Ești sigur?
+        are_you_sure: Ești sigur(ă)?
       create:
         error: A apărut o problemă la crearea grupului
         success: Grup creat cu succes
@@ -1506,7 +1506,7 @@ ro:
     registrations:
       destroyed: Contul tău a fost anulat cu succes. Sperăm să te revedem în curând.
       edit:
-        are_you_sure: Ești sigur?
+        are_you_sure: Ești sigur(ă)?
         cancel_my_account: Anulează contul meu
         currently_waiting_confirmation_for_email: 'În prezent se așteaptă confirmarea pentru: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: lasă necompletat dacă nu vrei să-l schimbi
