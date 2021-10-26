@@ -15,6 +15,8 @@ module Decidim
       else
         configuration.additional_paths.push(path)
       end
+
+      Rails.autoloaders.main.ignore(path) if defined?(Rails) && Rails.configuration.autoloader == :zeitwerk
     end
 
     def self.register_entrypoints(entrypoints)
