@@ -61,10 +61,9 @@ ro:
     components:
       blogs:
         actions:
-          amend: Modifică
-          comment: Comentează
-          endorse: Susține
-          vote: Votează
+          create: Creează
+          destroy: Șterge
+          update: Actualizează
         name: Blog
         settings:
           global:
