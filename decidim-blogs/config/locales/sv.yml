@@ -61,6 +61,8 @@ sv:
       blogs:
         actions:
           amend: Redigera
+          comment: Kommentera
+          endorse: Instäm
           vote: Rösta
         name: Blogg
         settings:
