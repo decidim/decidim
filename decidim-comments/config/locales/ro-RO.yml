@@ -65,7 +65,7 @@ ro:
         alignment:
           against: Împotrivă
           in_favor: Pentru
-        confirm_destroy: Ești sigur că vrei să ştergi acest comentariu?
+        confirm_destroy: Ești sigur(ă) că vrei să ştergi acest comentariu?
         delete: Șterge
         deleted_at: Comentariu șters la %{date}
         deleted_user: Participant șters
