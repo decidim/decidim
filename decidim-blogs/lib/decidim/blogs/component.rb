@@ -18,7 +18,7 @@ Decidim.register_component(:blogs) do |component|
     Decidim::Blogs::Post.where(component: components).count
   end
 
-  component.actions = %w(endorse vote create withdraw amend comment)
+  component.actions = %w(create update destroy)
 
   component.settings(:global) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
