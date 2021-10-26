@@ -436,6 +436,7 @@ de:
           accepted_mime_types:
             csv: CSV
             json: JSON
+            xlsx: xlsx
           actions:
             back: Zurück
           file_legend: Datei zum Importieren hinzufügen.
@@ -729,6 +730,14 @@ de:
             layout_appearance_title: Layout-Layout bearbeiten
             preview: Vorschau
           omnipresent_banner_appearance_title: Bearbeiten Sie das allgegenwärtige Banner
+      organization_external_domain_whitelist:
+        external_domain:
+          down: Runter
+          external_domain: Externe Domain
+          remove: Entfernen
+          up: Hoch
+        form:
+          add: Zur Whitelist hinzufügen
       organization_homepage:
         edit:
           active_content_blocks: Aktive Inhaltsblöcke
