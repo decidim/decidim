@@ -178,7 +178,7 @@ ro:
           success: Super! Ai acceptat termenii de utilizare ai administratorului.
         actions:
           accept: Sunt de acord cu următorii termeni
-          are_you_sure: Sigur doriți să refuzați termenii de utilizare?
+          are_you_sure: Ești sigur(ă) că vrei să refuzi termenii de utilizare ai adiminstratorului?
           refuse: Refuz termenii
           title: Acceptă termenii și condițiile de utilizare
         required_review:
