@@ -736,7 +736,7 @@ ro:
         file:
           explanation: 'Orientări pentru fișier:'
           message_1: Are o imagine sau un document.
-          message_2: Pentru imagini, utilizați preferabil formatul landscape, serviciul va decupa imaginea. Pentru fișierele CSV, separatorul de coloane trebuie să fie virgula
+          message_2: Pentru imagini, utiilizează preferabil formatul landscape, serviciul va decupa imaginea. Pentru fișierele CSV, separatorul de coloane trebuie să fie virgula
         image:
           explanation: 'Orientări pentru imagine:'
           message_1: De preferință o imagine landscape care să nu conțină vreun text.
@@ -750,12 +750,12 @@ ro:
       badges:
         followers:
           conditions:
-            - A fi activ și a urmări alte persoane vă va face cu siguranță pe ceilalți să vă urmeze.
-          description: Această insignă este acordată atunci când atingeți un anumit număr de adepți. %{organization_name} este o rețea socială și politică, conectează-ți rețeaua pentru a comunica cu alți oameni de pe platformă.
+            - A fi activ și a urmări alte persoane îi va face cu siguranță pe ceilalți să te urmărească.
+          description: Această insignă este acordată atunci când atingi un anumit număr de urmăritori. %{organization_name} este o rețea socială și politică, conectează-ți rețeaua pentru a comunica cu alți oameni de pe platformă.
           description_another: Acest participant are %{score} urmăritori.
           description_own: "%{score} persoane te urmăresc."
           name: Urmăritori
-          next_level_in: Primește încă %{score} persoane pentru a te urmări pentru a atinge următorul nivel!
+          next_level_in: Obțineți încă %{score} urmăritori pentru a atinge următorul nivel!
           unearned_another: Acest participant nu are încă niciun urmăritor.
           unearned_own: Încă nu aveți urmăritori.
         index:
@@ -766,9 +766,9 @@ ro:
         invitations:
           conditions:
             - Folosește link-ul "invită prieteni" de pe pagina ta de utilizator pentru a-ți invita prietenii
-            - Personalizați, dacă doriți, mesajul pe care îl trimiteți
+            - Personalizează, dacă dorești, mesajul pe care îl trimiți
             - Vei crește în nivel trimițând invitații și primindu-le înregistrate.
-          description: Această insignă este acordată atunci când ai invitat câțiva oameni și au petrecut puțin timp să se înregistreze în %{organization_name} și să devină participanți. Îți mulțumim că ai făcut %{organization_name} cunoscut altora și ai ajutat la extinderea comunității!
+          description: Această insignă este acordată atunci când ai invitat câțiva oameni și aceștia au petrecut puțin timp să se înregistreze în %{organization_name} și să devină participanți. Îți mulțumim că ai făcut %{organization_name} cunoscută și altora existența comunității și ai ajutat la extinderea ei!
           description_another: Acest participant a invitat %{score} persoane.
           description_own: Ai invitat %{score} persoane.
           name: Invitații
