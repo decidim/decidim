@@ -59,6 +59,10 @@ fr:
       read_more: Voir la suite
     components:
       blogs:
+        actions:
+          create: Créer
+          destroy: Supprimer
+          update: Mettre à jour
         name: Actualités
         settings:
           global:
