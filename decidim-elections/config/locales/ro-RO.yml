@@ -258,7 +258,7 @@ ro:
             success: Administrator %{trustee} actualizat cu succes
       admin_log:
         election:
-          end_vote: "%{user_name} a încheiat perioada de votare pentru %{resource_name} alegerea în Buletin Board"
+          end_vote: "%{user_name} a încheiat perioada de votare în cadrul algerilor pentru %{resource_name} în Panoul de afișare al voturilor"
           publish: "%{user_name} a publicat alegerile pentru %{resource_name}"
           setup: "%{user_name} a creat alegerea %{resource_name} în Panoul de Buletin"
           start_key_ceremony: "%{user_name} a început ceremonia cheii pentru alegerile %{resource_name} din Panoul de Buletin"
