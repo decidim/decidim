@@ -190,6 +190,12 @@ cs:
             few: "%{count} projektů"
             many: "%{count} projektů"
             other: "%{count} projektů"
+        exit_modal:
+          cancel: Návrat k hlasování
+          close_modal: Zavřít modal
+          exit: Ukončit hlasování
+          message: Váš hlas nebyl zaregistrován, protože jste ještě nedokončili proces hlasování. Opravdu chcete ukončit hlasování?
+          title: Zatím jste nehlasovali
         filters:
           category: Kategorie
           scope: Oblast působnosti
