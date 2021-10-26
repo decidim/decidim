@@ -59,11 +59,6 @@ fr:
       read_more: Voir la suite
     components:
       blogs:
-        actions:
-          amend: Amender
-          comment: Commenter
-          endorse: Soutenir
-          vote: Voter
         name: Actualités
         settings:
           global:
