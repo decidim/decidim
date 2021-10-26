@@ -446,7 +446,7 @@ ro:
         ready: Gata
       show:
         download_data: Descarcă datele
-        download_data_description: Un fișier care conține toate informațiile asociate contului dvs. va fi trimis la <strong>%{user_email}</strong>. Acest e-mail va conține un fișier .zip și o parolă pentru a-l deschide.<br/><br/>Pentru a dezarhiva fişierul, aveţi nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows) sau <a href="https://www.keka.io/">Keka</a> (pentru MacOS). Dacă utilizați Linux, de cele mai multe ori îl veți instala în mod implicit. Dacă nu, puteți utiliza <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> sau <a href="https://peazip.github.io">PeaZip</a>).
+        download_data_description: Un fișier care conține toate informațiile asociate contului tău va fi trimis la <strong>%{user_email}</strong>. Acest e-mail va conține un fișier .zip și o parolă pentru a-l deschide.<br/><br/>Pentru a dezarhiva fişierul, aveţi nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows) sau <a href="https://www.keka.io/">Keka</a> (pentru MacOS). Dacă utilizați Linux, de cele mai multe ori îl veți instala în mod implicit. Dacă nu, puteți utiliza <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> sau <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Solicită date
     datepicker:
       help_text: 'Format preconizat: %{datepicker_format}'
@@ -456,38 +456,38 @@ ro:
           email_already_exists: Un alt cont folosește aceeași adresă de e-mail
         new:
           complete_profile: Profil complet
-          nickname_help: Aliasul tău în %{organization}. Poate conține doar litere, numere, '-' și '_'.
-          sign_up: Vă rugăm să completați profilul
-          subtitle: Vă rugăm să completaţi următorul formular pentru a finaliza înregistrarea
-          username_help: Numele public care apare pe posturi. Cu scopul de a garanta anonimitatea, poate fi orice nume.
+          nickname_help: Pseudonimul tău în %{organization}. Poate conține doar litere, numere, '-' și '_'.
+          sign_up: Completează-ţi profilul
+          subtitle: Te rugăm să completezi următorul formular pentru a finaliza înregistrarea
+          username_help: Numele public care apare pe posturi. Pentru a garanta anonimitatea, poate fi orice nume.
       registrations:
         new:
           already_have_an_account?: Ai deja un cont?
-          newsletter: Primiți un buletin informativ ocazional cu informații relevante
+          newsletter: Primește un buletin informativ ocazional cu informații relevante
           newsletter_title: Permisiune contact
-          nickname_help: Aliasul tău în %{organization}. Poate conține doar litere, numere, '-' și '_'.
-          password_help: "minim %{minimun_characters} caractere, nu trebuie să fie prea comune (ex. 123456) și trebuie să fie diferite de porecla și adresa dvs. de e-mail."
+          nickname_help: Pseudonimul l tău în %{organization}. Poate conține doar litere, numere, '-' și '_'.
+          password_help: "minim %{minimun_characters} caractere, nu trebuie să fie prea comune (ex. 123456) și trebuie să fie diferite de pseudonimul și adresa ta de e-mail."
           sign_in: Autentificare
           sign_up: Înscrie-te
           sign_up_as:
             legend: Înregistrează-te ca
-          subtitle: Înscrieți-vă pentru a participa la discuții și pentru a sprijini propuneri.
+          subtitle: Înscrie-te pentru a participa la discuții și pentru a sprijini propuneri.
           terms: termenii și condițiile de utilizare
           tos_agreement: Prin înregistrare ești de acord cu %{link}.
           tos_title: Condiții de utilizare
-          username_help: Numele public care apare pe posturi. Cu scopul de a garanta anonimitatea, poate fi orice nume.
+          username_help: Numele public care apare pe postări. Pentru a garanta anonimitatea, poate fi orice nume.
       sessions:
         new:
           are_you_new?: Nou pe platformă?
           register: Creează un cont
-          sign_in_disabled: Puteți accesa un cont extern
-          sign_up_disabled: Înregistrarea este dezactivată, puteți utiliza un cont existent pentru a accesa
+          sign_in_disabled: Puteți accesa cu un cont extern
+          sign_up_disabled: Înregistrarea este dezactivată, poți folosi un cont existent pentru a accesa
         user:
-          timed_out: Ați fost inactiv pentru prea mult timp și ați fost deconectat automat de la serviciu. Dacă doriți să continuați să utilizați serviciul, vă rugăm să vă conectați din nou.
+          timed_out: Ați fost inactiv pentru prea mult timp și ai fost deconectat automat de la serviciu. Dacă dorești să continui să utilizezi serviciul, te rugăm să te conectezi din nou.
       shared:
         newsletter_modal:
           buttons:
-            check: Verificați și continuați
+            check: Verifică și continuă
             close_modal: Închide fereastra
             uncheck: Mențineți nebifat
           notice: |-
