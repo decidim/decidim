@@ -545,74 +545,74 @@ ro:
             email_subject: Amendamentul acceptat pentru %{amendable_title} de la %{emendation_author_nickname}
             notification_title: Amendamentul <a href="%{emendation_path}"></a> creat de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a fost acceptat pentru <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Un amendament a fost acceptat pentru %{amendable_title}. Îl puteţi vedea de pe această pagină:'
-            email_outro: Ați primit această notificare deoarece urmăriți %{amendable_title}. Puteți înceta să primiți notificări urmând linkul anterior.
+            email_intro: 'Un amendament a fost acceptat pentru %{amendable_title}. Îl poți vedea de pe această pagină:'
+            email_outro: Ai primit această notificare deoarece urmărești%{amendable_title}. Poți înceta să primești notificări urmând linkul anterior.
             email_subject: Amendamentul acceptat pentru %{amendable_title} de la %{emendation_author_nickname}
             notification_title: Amendamentul <a href="%{emendation_path}"></a> creat de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a fost acceptat pentru <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
-            email_intro: 'Un nou amendament a fost creat pentru %{amendable_title}. Îl puteți vedea de pe această pagină:'
-            email_outro: Ați primit această notificare deoarece sunteți un autor al %{amendable_title}.
+            email_intro: 'Un nou amendament a fost creat pentru %{amendable_title}. Îl poți vedea de pe această pagină:'
+            email_outro: Ai primit această notificare deoarece ești autorul%{amendable_title}.
             email_subject: Nou amendament pentru %{amendable_title}
             notification_title: A fost creat un nou amendament pentru <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Un nou amendament a fost creat pentru %{amendable_title}. Îl puteți vedea de pe această pagină:'
-            email_outro: Ați primit această notificare deoarece urmăriți %{amendable_title}. Puteți înceta să primiți notificări urmând linkul anterior.
+            email_intro: 'Un nou amendament a fost creat pentru %{amendable_title}. Îl poți vedea de pe această pagină:'
+            email_outro: Ai primit această notificare deoarece urmărești %{amendable_title}. Poți înceta să primești notificări urmând linkul anterior.
             email_subject: Nou amendament pentru %{amendable_title}
             notification_title: A fost creat un nou amendament pentru <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
-            email_intro: 'Un amendament respins pentru %{amendable_title} a fost publicat ca un nou %{amendable_type}. Îl puteți vedea de pe această pagină:'
-            email_outro: Ați primit această notificare deoarece sunteți un autor al %{amendable_title}.
+            email_intro: 'Un amendament respins pentru %{amendable_title} a fost publicat ca un nou %{amendable_type}. Îl poți vedea de pe această pagină:'
+            email_outro: Ai primit această notificare deoarece ești autorul%{amendable_title}.
             email_subject: Un amendament de la %{emendation_author_nickname} a fost publicat ca o nouă %{amendable_type}
             notification_title: Un <a href="%{emendation_path}">amendament respins</a> pentru <a href="%{amendable_path}">%{amendable_title}</a> a fost publicat ca un nou %{amendable_type} de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
-            email_intro: 'Un amendament respins pentru %{amendable_title} a fost publicat ca un nou %{amendable_type}. Îl puteți vedea de pe această pagină:'
-            email_outro: Ați primit această notificare deoarece urmăriți %{amendable_title}. Puteți înceta să primiți notificări urmând linkul anterior.
+            email_intro: 'Un amendament respins pentru %{amendable_title} a fost publicat ca un nou %{amendable_type}. Îl poți vedea de pe această pagină:'
+            email_outro: Aii primit această notificare deoarece urmărești %{amendable_title}. Poți înceta să primești notificări urmând linkul anterior.
             email_subject: Un amendament de la %{emendation_author_nickname} a fost publicat ca o nouă %{amendable_type}
             notification_title: Un <a href="%{emendation_path}">amendament respins</a> pentru <a href="%{amendable_path}">%{amendable_title}</a> a fost publicat ca un nou %{amendable_type} de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
-            email_intro: 'Un amendament a fost respins pentru %{amendable_title}. Îl puteți vedea de pe această pagină:'
-            email_outro: Ați primit această notificare deoarece sunteți un autor al %{amendable_title}.
+            email_intro: 'Un amendament a fost respins pentru %{amendable_title}. Îl poți vedea de pe această pagină:'
+            email_outro: Ai primit această notificare deoarece ești autorul %{amendable_title}.
             email_subject: Amendament respins pentru %{amendable_title} de la %{emendation_author_nickname}
             notification_title: Amendamentul <a href="%{emendation_path}"></a> creat de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a fost respins pentru <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Un amendament a fost respins pentru %{amendable_title}. Îl puteți vedea de pe această pagină:'
-            email_outro: Ați primit această notificare deoarece urmăriți %{amendable_title}. Puteți înceta să primiți notificări urmând linkul anterior.
+            email_intro: 'Un amendament a fost respins pentru %{amendable_title}. Îl poți vedea de pe această pagină:'
+            email_outro: Ai primit această notificare deoarece urmărești %{amendable_title}. Poți înceta să primești notificări urmând linkul anterior.
             email_subject: Amendament respins pentru %{amendable_title} de la %{emendation_author_nickname}
             notification_title: Amendamentul <a href="%{emendation_path}"></a> creat de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a fost respins pentru <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
-          email_intro: 'Un nou document a fost adăugat la %{resource_title}. Îl puteți vedea de pe această pagină:'
-          email_outro: Ați primit această notificare deoarece urmăriți %{resource_title}. Puteți înceta să primiți notificări urmând linkul anterior.
+          email_intro: 'Un nou document a fost adăugat la %{resource_title}. Îl poți vedea de pe această pagină:'
+          email_outro: Ai primit această notificare deoarece urmărești %{resource_title}. Poți înceta să primești notificări urmând linkul anterior.
           email_subject: O actualizare la %{resource_title}
           notification_title: Un <a href="%{resource_path}">nou document</a> a fost adăugat la <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'Componenta %{resource_title} este acum activă pentru %{participatory_space_title}. O puteți vedea din această pagină:'
-          email_outro: Ați primit această notificare deoarece urmăriți %{participatory_space_title}. Puteți înceta să primiți notificări urmând linkul anterior.
+          email_intro: 'Componenta %{resource_title} este acum activă pentru %{participatory_space_title}. O poți vedea din această pagină:'
+          email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți înceta să primești notificări urmând linkul anterior.
           email_subject: O actualizare la %{participatory_space_title}
           notification_title: Componenta %{resource_title} este acum activă pentru <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
-        email_greeting: Bună ziua %{user_name},
-        email_intro: 'A existat o actualizare la "%{resource_title}". O puteţi vedea din această pagină:'
-        email_outro: Ați primit această notificare deoarece urmăriți „%{resource_title}”. O puteți anula de la link-ul anterior.
+        email_greeting: Salut %{user_name},
+        email_intro: 'A existat o actualizare la "%{resource_title}". O poţi vedea din această pagină:'
+        email_outro: Ai primit această notificare deoarece urmărești „%{resource_title}”. O poți anula de la link-ul anterior.
         email_subject: O actualizare la %{resource_title}
       gamification:
         badge_earned:
           email_intro: Felicitări! Ai câștigat <a href="%{resource_url}">%{badge_name} insignă</a> (nivelul %{current_level}).
-          email_outro: Ați primit această notificare deoarece ați făcut activitate pe site-ul nostru.
+          email_outro: Ai primit această notificare deoarece ai creat o activitate pe site-ul nostru.
           email_subject: 'Ai câștigat o insignă nouă: %{badge_name}!'
           notification_title: Felicitări! Ai câștigat <a href="%{resource_path}">%{badge_name} insignă</a> (nivelul %{current_level}).
         level_up:
           email_intro: Felicitări! Ai atins nivelul %{current_level} pe insigna <a href="%{resource_url}">%{badge_name}</a>!
-          email_outro: Ați primit această notificare deoarece ați făcut activitate pe site-ul nostru.
+          email_outro: Ai primit această notificare deoarece ai creat o activitate pe site-ul nostru.
           email_subject: Ai ajuns la nivelul %{current_level} pe insigna %{badge_name}!
           notification_title: Felicitări! Ai atins nivelul %{current_level} pe insigna <a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
-          email_intro: Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> a eliminat drepturile dumneavoastră de administrator din acel grup.
+          email_intro: Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> a eliminat drepturile tale de administrator din acel grup.
           email_outro: Ați primit această notificare deoarece sunteți membru al acelui grup.
           email_subject: Nu mai ești administrator al grupului %{user_group_name}!
           notification_title: Nu mai ești administrator al grupului <a href="%{resource_path}">%{user_group_name}</a>.
