@@ -2,8 +2,8 @@ ro:
   activemodel:
     attributes:
       sortition:
-        additional_info: Informații despre sortare
-        decidim_category_id: Categorii ale setului de propuneri în care doriți să aplicați desenul
+        additional_info: Informații despre triere
+        decidim_category_id: Categorii ale setului de propuneri în care doriți să aplicați tragerea la sorț
         decidim_proposals_component_id: Set de propuneri
         dice: Rezultatul murdăriei pe robinet. Rulează un mor cu 6 laturi sau caută o altă metodă aleatorie pentru a genera un număr de la 1 la 6, și introduceți aici numărul rezultat în fața unor martori. Acest lucru contribuie la calitatea și la garantarea caracterului aleatoriu al rezultatului.
         target_items: Numărul de propuneri care urmează să fie selectate (indică numărul de propuneri pe care doriți să le selectați prin desenarea multor grupuri de propuneri pe care le-ați ales anterior)
