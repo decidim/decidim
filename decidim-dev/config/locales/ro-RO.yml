@@ -44,13 +44,13 @@ ro:
       home:
         statistics:
           bar: Bară
-          dummies_count_high: Dummieri mari
-          dummies_count_medium: Medie de ficare
+          dummies_count_high: Test mare
+          dummies_count_medium: Test mediu
           foo: Foo
     participatory_processes:
       statistics:
-        dummies_count_high: Dummieri mari
-        dummies_count_medium: Medie de ficare
+        dummies_count_high: Test mare
+        dummies_count_medium: Test mediu
     resource_links:
       test_link:
         dummy_resource_dummy: Legat de manechin
