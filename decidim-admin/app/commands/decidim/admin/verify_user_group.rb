@@ -8,10 +8,11 @@ module Decidim
       #
       # user_group - The user_group to verify
       # current_user - the user performing the action
-      def initialize(user_group, current_user, via_csv: false)
+      def initialize(user_group, current_user, **options)
+        options = { via_csv: false }.reverse_merge(**options)
         @user_group = user_group
         @current_user = current_user
-        @via_csv = via_csv
+        @via_csv = options[:via_csv]
       end
 
       # Executes the command. Broadcasts these events:
