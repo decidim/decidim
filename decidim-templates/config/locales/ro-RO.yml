@@ -9,26 +9,26 @@ ro:
   decidim:
     admin:
       menu:
-        templates: Șabloane
+        templates: Modele
       templates:
         apply:
-          error: A apărut o eroare la aplicarea acestui șablon.
-          success: Șablonul aplicat cu succes
+          error: A apărut o eroare la aplicarea acestui model.
+          success: Modelul a fost aplicat cu succes
         copy:
-          error: A apărut o eroare la copierea acestui șablon.
-          success: Șablon copiat cu succes
+          error: A apărut o eroare la copierea acestui model.
+          success: Modelul a fost copiat cu succes
         create:
-          error: A apărut o eroare la crearea acestui șablon.
-          success: Șablon creat cu succes
+          error: A apărut o eroare la crearea acestui model.
+          success: Modelul a fost creat cu succes
         destroy:
-          success: Şablon şters cu succes
-        empty: Nu există încă nici un şabloan.
+          success: Modelul a fost şters cu succes
+        empty: Nu există încă nici un model.
         update:
-          error: A apărut o eroare la actualizarea acestui șablon.
-          success: Şablon actualizat cu succes
+          error: A apărut o eroare la actualizarea acestui model.
+          success: Modelul a fost actualizat cu succes
       titles:
         template_types:
-          questionnaires: Şabloane chestionar
+          questionnaires: Model de chestionar
         templates: Şabloane
     models:
       questionnaire_template:
