@@ -36,15 +36,15 @@ ro:
         date: Dată
         link: Link
         title: Titlu
-        weight: Greutate
+        weight: Pondere
       conference_partner:
         logo: Logo
         name: Nume
-        weight: Greutate
+        weight: Pondere
       conference_registration_invite:
         email: E-mail
       conference_registration_type:
-        weight: Greutate
+        weight: Pondere
       conference_speaker:
         avatar: Avatar
         full_name: Numele complet
