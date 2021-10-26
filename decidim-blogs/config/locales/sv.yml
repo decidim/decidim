@@ -59,11 +59,6 @@ sv:
       read_more: Läs mer
     components:
       blogs:
-        actions:
-          amend: Redigera
-          comment: Kommentera
-          endorse: Instäm
-          vote: Rösta
         name: Blogg
         settings:
           global:
