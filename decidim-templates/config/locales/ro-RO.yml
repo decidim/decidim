@@ -29,39 +29,39 @@ ro:
       titles:
         template_types:
           questionnaires: Model de chestionar
-        templates: Şabloane
+        templates: Modele
     models:
       questionnaire_template:
         fields:
           questions: Număr de întrebări
-          title: Nume chestionar
+          title: Numele chestionarului
       template:
         fields:
           created_at: Creat la
-        name: Șablon
+        name: Model
     templates:
       admin:
         questionnaire_templates:
           choose:
-            create_from_template: Creează din model
-            description: Sunteți pe cale să creați un nou chestionar. Puteți alege un șablon predefinit și să-l modificați ulterior.
-            label: Alegeți un șablon
-            placeholder: Alegeți un șablon
+            create_from_template: Creează după model
+            description: Ești pe cale de a crea un nou chestionar. Poți alege un model predefinit și să-l modifici ulterior.
+            label: Alege un model
+            placeholder: Alege un model
             skip_template: Treci peste
           edit:
             edit: Editează
-            empty: Încă nu există întrebări
+            empty: Nu există încă întrebări
             questionnaire: Chestionar
           form:
-            save: Salveaza
-            template_title: Informatii Sablon
-            title: Sablon chestionar %{questionnaire_for}
+            save: Salvează
+            template_title: Informatii despre model
+            title: Model de chestionar %{questionnaire_for}
           index:
-            confirm_delete: Sunteți sigur că doriți să ștergeți acest șablon?
-            title: Şabloane chestionar
+            confirm_delete: Ești sigur că vrei să ștergi acest model?
+            title: Model de chestionar
           preview:
             current_step: Pasul %{step}
             of_total_steps: din %{total_steps}
-            tos_agreement: Prin participare acceptați termenii și condițiile sale de utilizare
+            tos_agreement: Prin participare accepți Termenii și condițiile sale de utilizare
       template_types:
         questionnaires: Chestionare
