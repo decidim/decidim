@@ -34,7 +34,7 @@ Gem::Specification.new do |s|
   s.add_dependency "parallel_tests", "~> 3.7"
   s.add_dependency "puma", "~> 5.0"
   s.add_dependency "rails-controller-testing", "~> 1.0"
-  s.add_dependency "rspec-cells", "~> 0.3.4"
+  s.add_dependency "rspec-cells", "~> 0.3.7"
   s.add_dependency "rspec-html-matchers", "~> 0.9.1"
   s.add_dependency "rspec_junit_formatter", "~> 0.3.0"
   s.add_dependency "rspec-rails", "~> 4.0"
