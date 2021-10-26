@@ -310,7 +310,18 @@ ro:
         results:
           description: 'Acestea sunt rezultatele votului, pentru fiecare întrebare:'
         show:
+          action_button:
+            change_vote: Schimbă-ți votul
+            vote: Începe să votezi
+            vote_again: Votează din nou
+          callout:
+            already_voted: Ai votat deja pentru aceste alegeri. Îți poți schimba votul sau îl poți verifica.
+            vote_rejected: Nu am putut verifica votul. Te rugăm să reiei procesul de votare.
           preview: Previzualizare
+          verify:
+            already_voted: Ai votat deja?
+            verify_here: Verifică-ți votul aici.
+            will_verify: Îți vei putea verifica votul odată cu începerea alegerilor.
           voting_period_status:
             finished: Votarea a început la %{start_time} și s-a încheiat la %{end_time}
             upcoming: Votarea începe la %{start_time}
@@ -456,7 +467,11 @@ ro:
             title: Creează stil de vot
         menu:
           votings_submenu:
+            monitoring_committee: Comitetul de monitorizare
             monitoring_committee_members: Membri
+        monitoring_committee_election_results:
+          results:
+            bulletin_board: Panoul de votare
         monitoring_committee_members:
           new:
             create: Creează
@@ -494,6 +509,14 @@ ro:
           passport: Pașaport
         vote_flow:
           datum_not_found: Datele oferite nu se potrivesc cu nici un alegător.
+      polling_officer_zone:
+        polling_officers:
+          index:
+            polling_officer_role_description: Ați fost desemnat să acționați în calitate de verificator al scrutinului (președinte sau manager) în unele dintre alegerile celebrate în cadrul acestei platforme.
+            polling_station:
+              no_polling_stations: Nu ești încă atribuit niciunei secții de votare.
+              role: Rolul tău
+              voting: Votare
       votings:
         check_census:
           check_status: Verifică starea
@@ -517,6 +540,7 @@ ro:
           ask_for_a_new_one: Cere unul nou.
           dont_have_access_code: Nu ai un cod de acces?
           form_title: 'Completați următorul formular pentru a accesa votul:'
+          start_voting: Începe să votezi
           step: Identificare
           title: Mă identifică cu datele mele de recensământ de vot
         no_census_contact_information: Nu există încă informații de contact
