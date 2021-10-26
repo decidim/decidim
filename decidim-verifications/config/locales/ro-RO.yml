@@ -31,8 +31,8 @@ ro:
           button: Revocă tot
           button_before: Revocă înainte de data
           destroy:
-            confirm: Revocarea înainte de data autorizării nu poate fi anulată. Sigur doriți să continuați?
-            confirm_all: Revocrea tutuor autorizațiilor nu poate fi anulată. Ești sigur(ă) că vrei să continui?
+            confirm: Revocarea înainte de data autorizării nu poate fi anulată. Ești sigur(ă) că vrei să continui?
+            confirm_all: Revocarea tuturor autorizațiilor nu poate fi anulată. Ești sigur(ă) că vrei să continui?
           destroy_nok: A apărut o problemă în timpul revocării autorizațiilor.
           destroy_ok: Toate autorizațiile potrivite au fost revocate.
           info: Există un total de %{count} participanți verificați.
@@ -127,7 +127,7 @@ ro:
             destroy_all:
               success: Toate datele recensământului au fost șterse
           destroy:
-            confirm: Ştergerea recensământului nu poate fi anulată. Sunteţi sigur că doriţi să continuaţi?
+            confirm: Ştergerea recensământului nu poate fi anulată. Ești sigur(ă) că vrei să continui?
             title: Şterge toate datele recensământului
           index:
             data: Există %{count} înregistrări încărcate în total. Ultima dată de încărcare a fost pe %{due_date}
@@ -254,7 +254,7 @@ ro:
           destroy:
             success: Codul de verificare a fost resetat. Vă rugăm să reintroduceţi numărul de telefon.
           edit:
-            confirm_destroy: Sigur doriți să resetați codul de verificare?
+            confirm_destroy: Ești sigur(ă) că vrei să resetezi codul de verificare?
             destroy: Resetați codul de verificare
             resend: Nu ai primit codul de verificare?
             send: Confirmare
