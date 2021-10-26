@@ -273,14 +273,14 @@ ro:
             success: Administrator %{trustee} actualizat cu succes
       admin_log:
         election:
-          end_vote: "%{user_name} a încheiat perioada de votare pentru %{resource_name} alegerea în Buletin Board"
+          end_vote: "%{user_name} a încheiat perioada de votare în cadrul algerilor pentru %{resource_name} în Panoul de votare"
           publish: "%{user_name} a publicat alegerile pentru %{resource_name}"
           publish_results: "%{user_name} a publicat rezultatele pentru alegerea %{resource_name} în Panoul de Buletin"
-          setup: "%{user_name} a creat alegerea %{resource_name} în Panoul de Buletin"
-          start_key_ceremony: "%{user_name} a început ceremonia cheii pentru alegerile %{resource_name} din Panoul de Buletin"
-          start_tally: "%{user_name} a început numărătoarea pentru alegerea %{resource_name} în Panoul de Buletin"
-          start_vote: "%{user_name} a început perioada de votare pentru %{resource_name} alegeri în Bulletin Board"
-          unpublish: "%{user_name} nepublicat alegerea %{resource_name}"
+          setup: "%{user_name} a creat alegerile %{resource_name} în Panoul de votare"
+          start_key_ceremony: "%{user_name} a început ceremonia cheie pentru alegerile %{resource_name} din Panoul de votare"
+          start_tally: "%{user_name} a început numărătoarea voturilor pentru alegerile %{resource_name} în Panoul de votare"
+          start_vote: "%{user_name} a început perioada de votare pentru alegerile %{resource_name} în Panoul de votare"
+          unpublish: "%{user_name} a anulat publicarea alegerilor %{resource_name}"
       election_m:
         badge_name:
           finished: Terminat
@@ -323,8 +323,23 @@ ro:
           title: Întrebări electorale
         results:
           description: 'Acestea sunt rezultatele votului, pentru fiecare întrebare:'
+          votes:
+            one: "%{count} vot"
+            other: "%{count} de voturi"
+            zero: "%{count} de voturi"
         show:
+          action_button:
+            change_vote: Schimbă-ți votul
+            vote: Începe să votezi
+            vote_again: Votează din nou
+          callout:
+            already_voted: Ai votat deja pentru aceste alegeri. Îți poți schimba votul sau îl poți verifica.
+            vote_rejected: Nu am putut verifica votul. Te rugăm să reiei procesul de votare.
           preview: Previzualizare
+          verify:
+            already_voted: Ai votat deja?
+            verify_here: Verifică-ți votul aici.
+            will_verify: Îți vei putea verifica votul odată cu începerea alegerilor.
           voting_period_status:
             finished: Votarea a început la %{start_time} și s-a încheiat la %{end_time}
             upcoming: Votarea începe la %{start_time}
@@ -470,7 +485,11 @@ ro:
             title: Creează stil de vot
         menu:
           votings_submenu:
+            monitoring_committee: Comitetul de monitorizare
             monitoring_committee_members: Membri
+        monitoring_committee_election_results:
+          results:
+            bulletin_board: Panoul de votare
         monitoring_committee_members:
           new:
             create: Creează
@@ -509,6 +528,14 @@ ro:
           passport: Pașaport
         vote_flow:
           datum_not_found: Datele oferite nu se potrivesc cu nici un alegător.
+      polling_officer_zone:
+        polling_officers:
+          index:
+            polling_officer_role_description: Ați fost desemnat să acționați în calitate de verificator al scrutinului (președinte sau manager) în unele dintre alegerile celebrate în cadrul acestei platforme.
+            polling_station:
+              no_polling_stations: Nu ești încă atribuit niciunei secții de votare.
+              role: Rolul tău
+              voting: Votare
       votings:
         check_census:
           check_status: Verifică starea
@@ -532,6 +559,7 @@ ro:
           ask_for_a_new_one: Cere unul nou.
           dont_have_access_code: Nu ai un cod de acces?
           form_title: 'Completați următorul formular pentru a accesa votul:'
+          start_voting: Începe să votezi
           step: Identificare
           title: Mă identifică cu datele mele de recensământ de vot
         no_census_contact_information: Nu există încă informații de contact
