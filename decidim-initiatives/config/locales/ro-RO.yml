@@ -202,7 +202,7 @@ ro:
         committee_requests:
           index:
             approve: Aprobați
-            confirm_revoke: Ești sigur?
+            confirm_revoke: Ești sigur(ă)?
             invite_to_committee_help: Distribuie acest link pentru a invita alți participanți la comitetul promotorilor
             no_members_yet: Nu există membri în comitetul promotorilor
             revoke: Revoke
@@ -219,8 +219,8 @@ ro:
         initiatives:
           edit:
             accept: Acceptați inițiativa
-            confirm: Ești sigur?
-            confirm_send_to_technical_validation: Sunteţi sigur(-ă)?
+            confirm: Ești sigur(ă)?
+            confirm_send_to_technical_validation: Ești sigur(ă)?
             discard: Renunțați la inițiativă
             export_pdf_signatures: Exportă fișierul PDF al semnăturilor
             export_votes: Exportă semnăturile
@@ -254,7 +254,7 @@ ro:
             success: Domeniul de aplicare a fost eliminat cu succes
           edit:
             back: Înapoi
-            confirm_destroy: Ești sigur?
+            confirm_destroy: Ești sigur(ă)?
             destroy: Ștergere
             title: Editează domeniul de aplicare al tipului de inițiativă
             update: Actualizare
@@ -272,7 +272,7 @@ ro:
           destroy:
             success: Tipul de inițiativă a fost eliminat cu succes
           edit:
-            confirm_destroy: Ești sigur?
+            confirm_destroy: Ești sigur(ă)?
             destroy: Ștergere
             update: Actualizare
           form:
@@ -342,7 +342,7 @@ ro:
           back: Înapoi
           back_to_initiatives: Înapoi la inițiative
           callout_text: Felicitări! Inițiativa dvs. a fost creată cu succes.
-          confirm: Veți trimite inițiativa unui administrator pentru a o revizui și a o publica. Odată publicat, nu o vei putea edita. Ești sigur?
+          confirm: Vei trimite inițiativa unui administrator pentru a o revizui și a o publica. Odată publicată, nu o vei putea edita. Ești sigur(ă)?
           edit_my_initiative: Editează inițiativa mea
           go_to_my_initiatives: Mergeți la inițiativele mele
           more_information: "(Informaţii principale)"
@@ -376,7 +376,7 @@ ro:
       edit:
         accept: Acceptați inițiativa
         back: Înapoi
-        confirm: Sunteţi sigur(-ă)?
+        confirm: Ești sigur(ă)?
         discard: Renunțați la inițiativă
         export_pdf_signatures: Exportă fișierul PDF al semnăturilor
         export_votes: Exportă semnăturile
@@ -449,7 +449,7 @@ ro:
             other: și încă %{count} persoane
         committee_members:
           approve: Aprobă
-          confirm_revoke: Ești sigur?
+          confirm_revoke: Ești sigur(ă)?
           invite_to_committee_help: Distribuie acest link pentru a invita alți participanți la comitetul promotorilor
           no_members_yet: Nu există membri în comitetul promotorilor
           title: Membrii comitetului
@@ -514,6 +514,7 @@ ro:
           initiative_rejected_reason: Această inițiativă a fost respinsă din cauza lipsei de semnături.
         show:
           any_vote_method: Această inițiativă adună semnături online și personale.
+          confirm: Vei trimite inițiativa unui administrator pentru a o revizui și a o publica. Odată publicată, nu o vei putea edita. Ești sigur(ă)?
           edit: Editează
           follow_description: Primiți o notificare atunci când există știri în această inițiativă
           print: Imprimare inițiativă
