@@ -36,15 +36,15 @@ ro:
         date: Dată
         link: Link
         title: Titlu
-        weight: Greutate
+        weight: Pondere
       conference_partner:
         logo: Logo
         name: Nume
-        weight: Greutate
+        weight: Pondere
       conference_registration_invite:
         email: E-mail
       conference_registration_type:
-        weight: Greutate
+        weight: Pondere
       conference_speaker:
         avatar: Avatar
         full_name: Numele complet
@@ -235,7 +235,7 @@ ro:
             price: Preț
             registrations_count: Numărul de înregistrări
             title: Titlu
-            weight: Greutate
+            weight: Pondere
           name: Tip de înregistrare
       partners:
         create:
@@ -527,18 +527,18 @@ ro:
         comments_count: Comentarii
         conference_count: Conferințe
         debates_count: Dezbateri
-        endorsements_count: Susținători
+        endorsements_count: Susțineri
         headline: Activitate
         meetings_count: Întâlniri
-        orders_count: Suportă
+        orders_count: Voturi
         pages_count: Pagini
-        posts_count: Mesaje
+        posts_count: Postări
         projects_count: Proiecte
         proposals_count: Propuneri
         results_count: Rezultate
-        surveys_count: Chestionare
+        surveys_count: Sondaje
         users_count: Participanți
-        votes_count: Suportă
+        votes_count: Voturi
     events:
       conferences:
         conference_registration_confirmed:
