@@ -28,3 +28,8 @@ sv:
           update:
             invalid: Det gick inte att spara sidan.
             success: Sidan sparades framgångsrikt.
+      home:
+        hero:
+          participate_title: Delta i plattformens dialoger
+        sub_hero:
+          register_title: Skapa ett konto
