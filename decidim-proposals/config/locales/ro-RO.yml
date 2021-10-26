@@ -375,7 +375,7 @@ ro:
             name: Propunere
         participatory_texts:
           bulk-actions:
-            are_you_sure: Sigur doriți să renunțați la întregul proiect de text participativ?
+            are_you_sure: Ești sigur(ă) că vrei să renunți la întrega schiță de text participativ?
             discard_all: Renunță la toate
             import_doc: Importă documentul
           discard:
@@ -488,7 +488,7 @@ ro:
             ranking: "%{ranking} din %{total}"
             related_meetings: Întâlniri similare
             remove_assignment: Eliminare atribuire
-            remove_assignment_confirmation: Sigur doriți să eliminați evaluatorul din această propunere?
+            remove_assignment_confirmation: Ești sigur(ă) că vrei să elimini evaluatorul din această propunere?
             valuators: Evaluatori
             votes_count: Suporta numarul
             votes_ranking: Clasament după suport
@@ -717,7 +717,7 @@ ro:
           title: Editare propunere
         edit_draft:
           discard: Renunță la această schiță
-          discard_confirmation: Sunteți sigur că doriți să renunțați la proiectul de propunere?
+          discard_confirmation: Ești sigur(ă) că vrei să renunți la această schită de propunere?
           send: Previzualizare
           title: Editare proiect propunere
         filters:
@@ -805,7 +805,7 @@ ro:
           read_more: Citește mai mult
           report: Raport
           withdraw_btn_hint: Vă puteți retrage propunerea dacă vă răzgândiți, cu condiția să nu beneficiați de niciun sprijin. Propunerea nu este eliminată, ci va apărea pe lista propunerilor retrase.
-          withdraw_confirmation_html: Sunteți sigur că doriți să retrageți această propunere?<br><br><strong>Această acțiune nu poate fi anulată!</strong>
+          withdraw_confirmation_html: Ești sigur(ă) că vrei să retragi această propunere?<br><br><strong>Această acțiune nu poate fi anulată!</strong>
           withdraw_proposal: Retragere propunere
         tags:
           changed_from: "(schimbat de la <u>%{previous_name}</u> de către un administrator)"
