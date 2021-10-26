@@ -223,7 +223,7 @@ ro:
         publish: Publică
         title: Publicare proiect de amendament
       promoted:
-        error: A apărut o problemă la publicarea amendamentului ca propunere nouă
+        error: A apărut o problemă la publicarea amendamentului ca o propunere nouă
         success: Modificarea a fost publicată cu succes ca nouă propunere
       publish_draft:
         error: Există o problemă la publicarea amendamentului.
@@ -237,17 +237,17 @@ ro:
         help_text: Examinați un amendament la %{model_name}
         send: Acceptă amendamentul
       update_draft:
-        error: Există o problemă la actualizarea proiectului de amendament.
+        error: Există o problemă la actualizarea draftului de amendament.
         success: Proiectul de modificare a fost actualizat.
       withdraw:
-        error: A apărut o eroare la retragerea amendamentului
+        error: S-a produs o eroare la retragerea modificării
         success: Amendamentul a fost retras cu succes
       wizard_step_form:
         steps:
           '1': Creează-ți un amendament
-          '2': Comparați amendamentul dvs.
-          '3': Completați amendamentul dvs.
-          '4': Publicați amendamentul dvs.
+          '2': Compară amendamentul tău
+          '3': Completează amendamentul tău
+          '4': Publică amendamentul tău
     anonymous_user: Anonim
     application:
       collection:
@@ -268,18 +268,18 @@ ro:
         few: comentarii
         other: comentarii
       endorsements:
-        one: aprobări
+        one: susținere
         few: andosări
         other: andosări
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Verificați prin introducerea unui număr al pașaportului începând cu „A”
+        explanation: Verifică prin prin introducerea unui număr al pașaportului începând cu „A”
         fields:
           passport_number: Număr pașaport
           postal_code: Cod poștal
         name: Un alt exemplu de autorizare
       dummy_authorization_handler:
-        explanation: Fiți verificat prin introducerea unui număr de document care se termină cu "X"
+        explanation: Fii verificat prin introducerea unui număr de document care se termină cu "X"
         fields:
           allowed_postal_codes: Coduri poștale permise (separate prin virgulă)
           allowed_scope_id: Domeniul permis
@@ -288,9 +288,9 @@ ro:
           scope_id: Domeniu
         name: Exemplu de autorizare
       dummy_authorization_workflow:
-        name: Flux de lucru autorizare fictiv
+        name: Flux de lucru test pentru autorizare
       errors:
-        duplicate_authorization: Un participant este deja autorizat cu aceleași date. Un administrator vă va contacta pentru a verifica detaliile.
+        duplicate_authorization: Un participant este deja autorizat cu aceleași date. Un administrator te va contacta pentru a verifica detaliile.
       expired_at: A expirat la %{timestamp}
       expires_at: Expiră la %{timestamp}
       foo_authorization:
@@ -298,44 +298,44 @@ ro:
           bar: Bară
           foo: Foo
         name: Autorizare foo
-      granted_at: Oferit la %{timestamp}
+      granted_at: Acordată la %{timestamp}
       renew: Reînnoire verificare
       sms:
         explanation: Trimite numărul tău de telefon mobil pentru a-ți putea verifica identitatea.
         name: Cod prin SMS
-      started_at: A început la %{timestamp}
+      started_at: Început la %{timestamp}
     authorization_modals:
       content:
         expired:
           authorize: Reautorizează cu "%{authorization}"
-          explanation: Autorizarea dvs. a expirat. Pentru a efectua această acțiune, trebuie să fiți reautorizat cu "%{authorization}".
+          explanation: Autorizarea ta expirat. Pentru a efectua această acțiune, trebuie să fii reautorizat cu "%{authorization}".
           title: Autorizarea a expirat
         incomplete:
           cancel: Anulează
-          explanation: 'Chiar dacă ești autorizat cu "%{authorization}", trebuie să reautorizezi pentru că ne lipsesc următoarele date:'
+          explanation: 'Chiar dacă ești autorizat cu "%{authorization}", trebuie să te reautorizezi pentru că ne lipsesc următoarele date:'
           invalid_field: "%{field}"
           reauthorize: Reautorizează
-          title: Vă rugăm să reautorizați
+          title: Te rugăm să reautorizezi
         missing:
           authorize: Autorizează cu "%{authorization}"
           explanation: Pentru a efectua această acțiune, trebuie să fii autorizat cu "%{authorization}".
           title: Autorizare necesară
         ok:
-          title: Ați fost autorizat în timp ce vizitați această pagină. Vă rugăm să reîncărcați pagina pentru a efectua acțiunea
+          title: Ați fost autorizat în timp ce vizitai această pagină. Te rugăm să reîncarci pagina pentru a efectua acțiunea
         pending:
           explanation: Pentru a efectua această acțiune, trebuie să fii autorizat cu "%{authorization}", dar autorizația ta este încă în desfășurare
           resume: Verifică progresul autorizării tale ”%{authorization}"
-          title: Autorizarea este în curs de desfăşurare
+          title: În proces de autorizare
         unauthorized:
-          explanation: Ne pare rău, nu puteți efectua această acțiune deoarece unele dintre datele dvs. de autorizare nu se potrivesc.
+          explanation: Ne pare rău, nu puteți efectua această acțiune deoarece unele dintre datele tale de autorizare nu se potrivesc.
           invalid_field: "Valoarea %{field} %{value} nu este validă."
           ok: Ok
-          title: Nu este autorizat
+          title: Neautorizat
         unconfirmed:
-          confirmation_instructions: 'Dacă nu ați primit instrucțiunile de confirmare le puteți solicita din nou:'
+          confirmation_instructions: 'Dacă nu ai primit instrucțiunile de confirmare le poți solicita din nou:'
           explanation_html: Pentru a efectua această acțiune, trebuie să fii autorizat, înainte de a face acest lucru, trebuie să confirmi adresa ta de e-mail <strong>%{email}</strong>.
-          request_confirmation_instructions: Instrucțiuni de confirmare
-          title: Confirmați e-mailul dvs.
+          request_confirmation_instructions: Cere instrucțiunile de confirmare
+          title: Confirmați e-mailul tău
       show:
         close_modal: Închide fereastra
     block_user_mailer:
@@ -357,7 +357,7 @@ ro:
         no_content: Nu am putut găsi conținut cu acest criteriu
         order:
           all_types: Toate tipurile
-          collaborative_draft: Schiță colaborativă
+          collaborative_draft: Draft comun
           comment: Comentariu
           debate: Dezbatere
           initiative: Inițiativă
@@ -376,30 +376,30 @@ ro:
             amendments_enabled: Amendamente activate
             comments_enabled: Comentarii activate
             comments_max_length: Lungimea maximă a comentariilor
-            dummy_global_attribute_1: Atribut Dummy 1
-            dummy_global_attribute_2: Atribut Dummy 2
-            dummy_global_translatable_text: Text traductibil Dummy
+            dummy_global_attribute_1: Mostră de atribut 1
+            dummy_global_attribute_2: Mostră de atribut 2
+            dummy_global_translatable_text: Text-test traductibil
             enable_pads_creation: Activează crearea de pad-uri
             resources_permissions_enabled: Permisiuni resurse activate
-            scope_id: Domeniu de interes
-            scopes_enabled: Domenii de interes activate
+            scope_id: Domeniu
+            scopes_enabled: Domenii activate
           step:
             amendment_creation_enabled: Crearea de amendamente activată
-            amendment_promotion_enabled: Modificare promoție activată
-            amendment_reaction_enabled: Reacție de modificare activată
+            amendment_promotion_enabled: Promovarea modificărilor activată
+            amendment_reaction_enabled: Reacție de modificări activată
             amendments_visibility: Vizibilitatea amendamentului
             comments_blocked: Comentarii blocate
             dummy_step_attribute_1: Atribut fictiv 1
-            dummy_step_attribute_2: Atribut fictiv pas 2
-            dummy_step_translatable_text: Text traductibil paşi fichar@@0ier
+            dummy_step_attribute_2: Mostră de atribut 2 al etapei
+            dummy_step_translatable_text: Mostră de text traductibil pentru etapă
     contact: Contact
     content_blocks:
       cta:
         name: Butonul Imagine, Text și Apel la Acțiune
       cta_settings_form:
         background_image: Imagine de fundal
-        button_text: Textul butonului de Apel la acțiune
-        button_url: Adresă URL Acțiune
+        button_text: Text Apel la acțiune
+        button_url: URL-ul Apelului la Acțiune
         description: Descriere
       footer_sub_hero:
         name: Banner suberou suberou
@@ -407,7 +407,7 @@ ro:
         name: Imagine Erou
       hero_settings_form:
         background_image: Imagine de fundal
-        welcome_text: Text de întâmpinare
+        welcome_text: Text de bun-venit
       highlighted_content_banner:
         name: Banner conținut evidențiat
       highlighted_elements_settings_form:
@@ -416,7 +416,7 @@ ro:
           random: Aleatoriu
           recent: Cele mai recente
       how_to_participate:
-        name: Cum să participați
+        name: Cum să participi
       html:
         html_content: Conținut HTML
         name: Bloc HTML
@@ -439,7 +439,7 @@ ro:
         ready: Gata
       show:
         download_data: Descarcă datele
-        download_data_description: Un fișier care conține toate informațiile asociate contului dvs. va fi trimis la <strong>%{user_email}</strong>. Acest e-mail va conține un fișier .zip și o parolă pentru a-l deschide.<br/><br/>Pentru a dezarhiva fişierul, aveţi nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows) sau <a href="https://www.keka.io/">Keka</a> (pentru MacOS). Dacă utilizați Linux, de cele mai multe ori îl veți instala în mod implicit. Dacă nu, puteți utiliza <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> sau <a href="https://peazip.github.io">PeaZip</a>).
+        download_data_description: Un fișier care conține toate informațiile asociate contului tău va fi trimis la <strong>%{user_email}</strong>. Acest e-mail va conține un fișier .zip și o parolă pentru a-l deschide.<br/><br/>Pentru a dezarhiva fişierul, aveţi nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows) sau <a href="https://www.keka.io/">Keka</a> (pentru MacOS). Dacă utilizați Linux, de cele mai multe ori îl veți instala în mod implicit. Dacă nu, puteți utiliza <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> sau <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Solicită date
     datepicker:
       help_text: 'Format preconizat: %{datepicker_format}'
@@ -449,38 +449,38 @@ ro:
           email_already_exists: Un alt cont folosește aceeași adresă de e-mail
         new:
           complete_profile: Profil complet
-          nickname_help: Aliasul tău în %{organization}. Poate conține doar litere, numere, '-' și '_'.
-          sign_up: Vă rugăm să completați profilul
-          subtitle: Vă rugăm să completaţi următorul formular pentru a finaliza înregistrarea
-          username_help: Numele public care apare pe posturi. Cu scopul de a garanta anonimitatea, poate fi orice nume.
+          nickname_help: Pseudonimul tău în %{organization}. Poate conține doar litere, numere, '-' și '_'.
+          sign_up: Completează-ţi profilul
+          subtitle: Te rugăm să completezi următorul formular pentru a finaliza înregistrarea
+          username_help: Numele public care apare pe posturi. Pentru a garanta anonimitatea, poate fi orice nume.
       registrations:
         new:
           already_have_an_account?: Ai deja un cont?
-          newsletter: Primiți un buletin informativ ocazional cu informații relevante
+          newsletter: Primește un buletin informativ ocazional cu informații relevante
           newsletter_title: Permisiune contact
-          nickname_help: Aliasul tău în %{organization}. Poate conține doar litere, numere, '-' și '_'.
-          password_help: "minim %{minimun_characters} caractere, nu trebuie să fie prea comune (ex. 123456) și trebuie să fie diferite de porecla și adresa dvs. de e-mail."
+          nickname_help: Pseudonimul l tău în %{organization}. Poate conține doar litere, numere, '-' și '_'.
+          password_help: "minim %{minimun_characters} caractere, nu trebuie să fie prea comune (ex. 123456) și trebuie să fie diferite de pseudonimul și adresa ta de e-mail."
           sign_in: Autentificare
           sign_up: Înscrie-te
           sign_up_as:
             legend: Înregistrează-te ca
-          subtitle: Înscrieți-vă pentru a participa la discuții și pentru a sprijini propuneri.
+          subtitle: Înscrie-te pentru a participa la discuții și pentru a sprijini propuneri.
           terms: termenii și condițiile de utilizare
           tos_agreement: Prin înregistrare ești de acord cu %{link}.
           tos_title: Condiții de utilizare
-          username_help: Numele public care apare pe posturi. Cu scopul de a garanta anonimitatea, poate fi orice nume.
+          username_help: Numele public care apare pe postări. Pentru a garanta anonimitatea, poate fi orice nume.
       sessions:
         new:
           are_you_new?: Nou pe platformă?
           register: Creează un cont
-          sign_in_disabled: Puteți accesa un cont extern
-          sign_up_disabled: Înregistrarea este dezactivată, puteți utiliza un cont existent pentru a accesa
+          sign_in_disabled: Puteți accesa cu un cont extern
+          sign_up_disabled: Înregistrarea este dezactivată, poți folosi un cont existent pentru a accesa
         user:
-          timed_out: Ați fost inactiv pentru prea mult timp și ați fost deconectat automat de la serviciu. Dacă doriți să continuați să utilizați serviciul, vă rugăm să vă conectați din nou.
+          timed_out: Ați fost inactiv pentru prea mult timp și ai fost deconectat automat de la serviciu. Dacă dorești să continui să utilizezi serviciul, te rugăm să te conectezi din nou.
       shared:
         newsletter_modal:
           buttons:
-            check: Verificați și continuați
+            check: Verifică și continuă
             close_modal: Închide fereastra
             uncheck: Mențineți nebifat
           notice: |-
@@ -1084,8 +1084,8 @@ ro:
         metrics:
           headline: Indicatori
         statistics:
-          answers_count: Chestionare finalizate
-          assemblies_count: Organizații
+          answers_count: Sondaje completate
+          assemblies_count: Grupuri de lucru
           comments_count: Comentarii
           conferences_count: Conferințe
           debates_count: Dezbateri
@@ -1099,7 +1099,7 @@ ro:
           proposals_accepted: Propuneri acceptate
           proposals_count: Propuneri
           results_count: Rezultate
-          surveys_count: Chestionare
+          surveys_count: Sondaje
           users_count: Participanți
           votes_count: Voturi
         sub_hero:
