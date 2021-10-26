@@ -167,7 +167,7 @@ ro:
         attachment_collections: Dosare
         attachments: Atașamente
         close: Inchide
-        confirm_destroy: Sunteţi sigur că doriţi să ştergeţi această întâlnire?
+        confirm_destroy: Ești sigur(ă) că vrei să ştergi acestă întâlnire?
         destroy: Ștergere
         edit: Editare
         invalid_destroy:
@@ -450,6 +450,7 @@ ro:
           date: Data
           edit_meeting: Editați ședința
           join: Alătură-te ședinței
+          leave_confirmation: Ești sigur(ă) că vrei să anulezi înregistrarea la această întâlnire?
           meeting_minutes: Minutele şedinţelor
           no_slots_available: Niciun slot disponibil
           organizations: Participare la organizaţii
