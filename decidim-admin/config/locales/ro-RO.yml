@@ -619,7 +619,7 @@ ro:
           all: toate
           all_users: 'Toți utilizatorii '
           and: 'şi '
-          confirm_delete: Ești sigur că vrei să ştergi acest buletin informativ?
+          confirm_delete: Ești sigur(ă) că vrei să ştergi acest buletin informativ?
           followers: 'abonați '
           has_been_sent_to: 'A fost trimis la: '
           no_scopes: Nici un domeniu
@@ -634,7 +634,7 @@ ro:
         select_recipients_to_deliver:
           all_spaces: Toți
           all_users_help: Trimite buletinul informativ tuturor utilizatorilor confirmați.
-          confirm_deliver: Ești sigur că vrei să livrezi acest buletin informativ? Această acţiune nu poate fi anulată.
+          confirm_deliver: Ești sigur(ă) că vrei să livrezi acest buletin informativ? Această acţiune nu poate fi anulată.
           deliver: Trimite buletinul informativ
           followers_help: Trimite buletinul informativ tuturor utilizatorilor confirmați care urmăresc orice spații participative selectate din listă.
           none: Niciunul
