@@ -59,11 +59,6 @@ ca:
       read_more: Llegeix més
     components:
       blogs:
-        actions:
-          amend: Esmenar
-          comment: Comentar
-          endorse: Adherir-se
-          vote: Donar suport
         name: Blog
         settings:
           global:
