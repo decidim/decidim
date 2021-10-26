@@ -492,13 +492,12 @@ ro:
             uncheck: Mențineți nebifat
           notice: |-
             <p>Hei, ești sigur că nu vrei să primești un buletin informativ?<br>
-            Te rugăm să bifezi din nou căsuța de selectare a buletinului informativ de mai jos.<br>
-            Este foarte important pentru noi să primim e-mailuri ocazionale
-            pentru a face anunţuri importante, puteți schimba întotdeauna acest lucru pe pagina de setări pentru notificări
-            .</p>
-            <p>Dacă nu bifați căsuța, este posibil să nu aveți informații relevante
+            Te rugăm să reconsideri bifarea din nou a căsuței de selectare a buletinului informativ de mai jos.<br>
+            Este foarte important pentru noi să poți primi e-mailuri ocazionale
+            pentru a face anunţuri importante, poți schimba întotdeauna acest lucru pe pagina de setări pentru notificări.</p>
+            <p>Dacă nu bifezi căsuța, este posibil să nu ai acces la informații relevante
             despre noile oportunități de participare din cadrul platformei.<br>
-            Dacă încă dorești să eviți primirea buletinelor informative, vom înțelege perfect
+            Dacă încă dorești să eviți primirea buletinelor informative, înțelegem perfect
             decizia ta.</p>
             <p>Mulțumim că ai citit asta!</p>
           title: Notificări newsletter
@@ -514,20 +513,25 @@ ro:
           publish_content: Publică conținut pentru tine
           see_email: Vezi e-mailul tău
           see_name: Vezi numele tău
-          see_username: Vezi porecla
+          see_username: Vezi pseudonimul tău
           this_application_will_be_able_to: 'Această aplicație va putea să:'
           this_application_will_not_be_able_to: 'Această aplicație nu va putea să:'
-          update_profile: Actualizați-vă profilul
+          update_profile: Actualizeză-ți profilul
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vrea să folosească contul tău"
+    editor_images:
+      create:
+        error: Eroare la încărcarea imaginii
+        success: Imaginea a fost încărcată cu succes
+      drag_and_drop_help: Adaugă imagini prin tragere & plasare sau lipirea lor.
     endorsable:
       endorsements: Susținători
-      endorsements_count: Număr de aprobări
+      endorsements_count: Număr de susțineri
     endorsement_buttons_cell:
-      already_endorsed: Aprobat
-      endorse: Aprobare
+      already_endorsed: Susținut
+      endorse: Susține
     endorsements:
       identities:
-        done: Terminat
+        done: Finalizat
         select_identity: Selectare identitate
     errors:
       internal_server_error:
