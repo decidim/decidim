@@ -278,7 +278,7 @@ module Decidim
 
     # Public: Whether the supports required objective has been reached
     def supports_goal_reached?
-      initiative_type_scopes.map(&:scope).all? { |scope| supports_goal_reached_for?(scope) }
+      votable_initiative_type_scopes.map(&:scope).all? { |scope| supports_goal_reached_for?(scope) }
     end
 
     # Public: Whether the supports required objective has been reached for a scope
