@@ -398,9 +398,12 @@ ro:
           email_intro: "%{author_nickname} a respins cererea dvs. pentru a face parte din comitetul promotorilor pentru inițiativa următoare %{resource_title}."
           email_outro: 'Ați primit această notificare deoarece ați aplicat la această inițiativă: %{resource_title}.'
           email_subject: "%{author_nickname} a respins cererea ta la comitetul promotorilor"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> a respins cererea ta de a face parte din comitetul de promovare pentru următoarea inițiativă <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
           email_intro: "%{applicant_nickname} a aplicat pentru comitetul promotor al inițiativei dumneavoastră %{resource_title}. Pentru a accepta sau respinge cererea, accesați forma de editare a inițiativei dvs."
           email_outro: 'Ați primit această notificare deoarece sunteți autorul acestei inițiative: %{resource_title}'
+          email_subject: "%{applicant_nickname} vrea să se alăture inițiativei tale"
+          notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> a depus cerere pentru comitetul de promovare al inițiativa tale <a href="%{resource_url}">%{resource_title}</a>. Pentru a accepta sau respinge apasă <a href="%{resource_url}/edit">aici</a>.
       form:
         add_attachments: Documente
         attachment_legend: "(Opțional) Adăugați atașamente"
