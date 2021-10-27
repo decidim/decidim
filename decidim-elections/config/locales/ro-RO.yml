@@ -322,6 +322,19 @@ ro:
             few: "%{count} alegeri"
             other: "%{count} alegeri"
         election_log:
+          chained_hash: Hash chained al acestui mesaj
+          complete: Finalizate
+          creation_description:
+            complete: Alegerile au fost create și sunt configurate cu succes în Panoul de votare.
+            not_created: Alegerile nu au fost create încă.
+          creation_title: Alegeri create
+          description: Acesta este jurnalul alegerilor unde poţi verifica starea fiecărui pas, de ex. când alegerile au fost create, dacă procesul de numărare a voturilor s-a terminat, şi când alegerile au fost închise.
+          download: Descarcă
+          key_ceremony_description:
+            complete: Ceremonia de generare a cheilor este încheiată. Fiecare împuternicit are chei valide și a descărcat cheile de rezervă necesare.
+            not_started: Ceremonia de generare a cheilor nu a început încă.
+            started: Ceremonia de generare a cheilor a început dar nu s-a încheiat încă.
+          key_ceremony_title: Ceremonia de generare a cheilor
           verifiable_results:
             how_to_verify: 'Odată ce ai descărcat fișierul și te-ai asigurat că este în regulă, poți continua pornind verificatorul universal. Clonează <a href=''https://github.com/decidim/decidim-bulletin-board''>acestă arhivă</a> și, din dosarul rădăcină, rulează comanda următoare:'
         filters:
