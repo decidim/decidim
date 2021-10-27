@@ -87,6 +87,10 @@ ro:
             manager: Administrator
             president: Președinte
             unassigned: Neatribuit
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Caută %{collection} după nume/e-mail/pseudonim sau stație de votare.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Caută %{collection} după titlu, adresă sau nume/e-mail/pseudonim al ofițerului.
     components:
       elections:
         actions:
@@ -471,10 +475,14 @@ ro:
             attachment_collections: Dosare
             monitoring_committee_members: Comitetul de monitorizare
         monitoring_committee_members:
+          form:
+            select_user: Caută după nume, e-mail sau pseudonim
           new:
             create: Creează
             title: Creează un membru al comitetului de monitorizare
         polling_officers:
+          form:
+            select_user: Caută după nume, e-mail sau pseudonim
           new:
             create: Creează
             title: Creează verificator al scrutinului
