@@ -61,24 +61,24 @@ ro:
             - Participanții solicită un cod de verificare pentru a fi trimis la adresa lor.
             - Trimiți scrisoarea la adresa lor cu codul de verificare.
             - Marchează scrisoarea drept trimisă.
-            - Odată ce marcați litera ca fiind trimisă, participantul va putea introduce codul și va putea fi verificat.
+            - Odată ce marchezi scrisoarea drept trimisă, participantul va putea introduce codul și va putea fi verificat.
       csv_census:
         explanation: Obține verificarea folosind recensământul organizației
         name: Recensământul organizației
-      direct: Directă
+      direct: Direct
       help: Ajutor
       id_documents:
-        explanation: Încărcați documentele dvs. de identitate pentru a vă putea verifica identitatea
+        explanation: Încarcă documentele tale de identitate pentru a-ți putea verifica identitatea
         name: Documente de identitate
-      multistep: Multi-pas
+      multistep: Mai multe etape
       name: Nume
       postal_letter:
-        explanation: Îți vom trimite o scrisoare poștală cu un cod pe care va trebui să-l introduci pentru a putea verifica adresa ta
-        name: Cod poştal
+        explanation: Îți vom trimite o scrisoare poștală cu un cod pe care va trebui să-l introduci pentru a-ți putea verifica adresa
+        name: Cod primit prin scrisoare poștală
     events:
       verifications:
         verify_with_managed_user:
-          notification_title: Participantul <a href="%{resource_path}">%{resource_title}</a> a încercat să se verifice cu datele participantului <a href="%{managed_user_path}">%{managed_user_name}</a>
+          notification_title: Participantul <a href="%{resource_path}">%{resource_title}</a> a încercat să își verifice contul cu datele participantului <a href="%{managed_user_path}">%{managed_user_name}</a>
     verifications:
       authorizations:
         authorization_metadata:
@@ -87,25 +87,25 @@ ro:
         create:
           error: A apărut o eroare la crearea autorizației.
           success: Ai fost autorizat cu succes.
-          unconfirmed: Trebuie să vă confirmaţi adresa de e-mail pentru a vă autoriza singur.
+          unconfirmed: Trebuie să îți confirmi adresa de e-mail pentru a te autoriza singur.
         destroy:
           error: A apărut o eroare la ștergerea autorizației.
-          success: Aţi şters cu succes autorizaţia.
+          success: Ai şters cu succes autorizaţia.
         first_login:
           actions:
-            another_dummy_authorization_handler: Verifică cu un alt exemplu de operator de autorizare
-            csv_census: Verifică împotriva recensământului organizaţiei
-            dummy_authorization_handler: Verifică împotriva exemplarului de manipulator de autorizare
-            dummy_authorization_workflow: Verificați împotriva exemplului fluxului de lucru de autorizare
-            id_documents: Fiți verificat prin încărcarea documentului de identitate
+            another_dummy_authorization_handler: Verifică în raport cu un alt exemplu de responsabil de autorizare
+            csv_census: Verifică în raport cu recensământul organizaţiei
+            dummy_authorization_handler: Verifică în raport cu exemplul de responsabil de autorizare
+            dummy_authorization_workflow: Verifică în raport cu exemplul fluxului de lucru de autorizare
+            id_documents: Obține verificarea prin încărcarea documentului de identitate
             postal_letter: Obține verificarea prin primirea unui cod de verificare prin poștă
             sms: Obține verificarea prin primirea unui cod de verificare prin SMS
           title: Verifică-ți identitatea
-          verify_with_these_options: 'Acestea sunt opțiunile disponibile pentru a vă verifica identitatea:'
+          verify_with_these_options: 'Acestea sunt opțiunile disponibile pentru a îți verifica identitatea:'
         index:
           expired_verification: Verificarea a expirat
           pending_verification: Verificare în așteptare
-          show_renew_info: Clic pentru a reînnoi verificarea
+          show_renew_info: Apăsați pentru a reînnoi verificarea
           unauthorized_verification: Verificare nouă
         new:
           authorize: Trimite
@@ -114,44 +114,44 @@ ro:
           cancel: Anulează
           close: închide
           continue: Continuă
-          info_renew: Dacă doriți să actualizați datele, continuați cu reînnoirea
-          title: Reînnoire verificare
-        skip_verification: Puteți sări peste asta pentru moment și %{link}
+          info_renew: Dacă dorești să actualizezi datele, continuă cu reînnoirea
+          title: Reînnoiește verificarea
+        skip_verification: Poți sări peste asta pentru moment și %{link}
         start_exploring: începe explorarea
       csv_census:
         admin:
           census:
             create:
               error: A apărut o eroare la importarea recensământului.
-              success: Importat cu succes %{count} elemente (%{errors} erori)
+              success: S-au importat cu succes %{count} elemente (%{errors} erori)
             destroy_all:
               success: Toate datele recensământului au fost șterse
           destroy:
-            confirm: Ştergerea recensământului nu poate fi anulată. Ești sigur(ă) că vrei să continui?
+            confirm: Ştergerea recensământului nu poate fi anulată. Sigur dorești să continui?
             title: Şterge toate datele recensământului
           index:
             data: Există %{count} înregistrări încărcate în total. Ultima dată de încărcare a fost pe %{due_date}
             empty: Nu există date de recensământ. Utilizați formularul de mai jos pentru a-l importa folosind un fișier CSV.
-            title: Date recensământ curente
+            title: Date de recensământ curente
           instructions:
-            body: Pentru a face acest lucru, trebuie să introduceţi administrarea sistemului şi să adăugaţi autorizaţiile csv_recensământ în organizaţie
-            title: Trebuie să activați recensământul CSV pentru această organizație
+            body: Pentru a face acest lucru, trebuie să introduci administrarea sistemului şi să adaugi autorizaţiile csv_recensământ în organizaţie
+            title: Trebuie să activezi recensământul CSV pentru această organizație
           new:
             file: "fișier .csv cu date de e-mail"
-            info: 'Trebuie să fie un fișier în format CSV cu o singură coloană cu adresa de e-mail:'
-            submit: Incarca fisier
+            info: 'Trebuie să fie un fișier în format CSV cu o singură coloană cu adresele de e-mail:'
+            submit: Încarcă fișier
             title: Încarcă un nou recensământ
         authorizations:
           new:
             error: Nu am putut verifica contul tău sau nu ești în recensământul organizației.
-            success: Contul dvs. a fost verificat cu succes.
+            success: Contul tău a fost verificat cu succes.
       dummy_authorization:
         extra_explanation:
           postal_codes:
-            one: Participarea este limitată la participanții cu codul poștal %{postal_codes}.
-            few: 'Participarea este limitată la participanții cu oricare dintre următoarele coduri poștale: %{postal_codes}.'
-            other: 'Participarea este limitată la participanții cu oricare dintre următoarele coduri poștale: %{postal_codes}.'
-          scope: Participarea este limitată la participanții cu domeniul de aplicare %{scope_name}.
+            one: Participarea este limitată la cei cu codul poștal %{postal_codes}.
+            few: 'Participarea este limitată la cei cu oricare dintre următoarele coduri poștale: %{postal_codes}.'
+            other: 'Participarea este limitată la cei cu oricare dintre următoarele coduri poștale: %{postal_codes}.'
+          scope: Participarea este limitată la participanții cu domeniul de interes %{scope_name}.
           user_postal_codes:
             one: Participarea este limitată la participanții cu codul poștal %{postal_codes}, iar codul poștal este %{user_postal_code}.
             few: 'Participarea este limitată la participanții cu codul poștal %{postal_codes}, iar codul poștal este %{user_postal_code}.'
