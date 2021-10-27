@@ -291,6 +291,9 @@ ro:
             one: "%{count} alegeri"
             few: "%{count} alegeri"
             other: "%{count} alegeri"
+        election_log:
+          verifiable_results:
+            how_to_verify: 'Odată ce ai descărcat fișierul și te-ai asigurat că este în regulă, poți continua pornind verificatorul universal. Clonează <a href=''https://github.com/decidim/decidim-bulletin-board''>acestă arhivă</a> și, din dosarul rădăcină, rulează comanda următoare:'
         filters:
           active: Activ
           all: Toate
@@ -384,7 +387,7 @@ ro:
               generate_legend: Trebuie să generați o pereche de chei pentru a participa la alegeri ca un Trustee.
               generate_legend_1: După ce apăsați pe buton, ar trebui să descărcați fișierul cu tastele de identificare generate.
               generate_legend_2: Copiaţi fişierul descărcat pe un dispozitiv USB curat
-              generate_legend_3: Asigurați-vă că calculatorul dvs. nu are o copie a fișierului (de exemplu, verificați dosarele Descărcări și Desktop).
+              generate_legend_3: Asigură-te că nu există o copie a fișierului în calculatorul tău (de exemplu, verifică dosarele Descărcări și Desktop).
               generate_legend_4: Faceți o altă copie a fișierului pe un alt dispozitiv extern și păstrați-l într-un loc foarte sigur.
               submit: Trimiteți
               submit_legend: După urmărirea tuturor paşilor explicaţi mai sus, finalizaţi procesul de trimitere a cheii publice de identificare la serverul Decidim.
@@ -467,8 +470,13 @@ ro:
           new:
             create: Creează
             title: Creează stil de vot
+        content_blocks:
+          landing_page:
+            attachments_and_folders:
+              name: Atașamente și dosare aferente votării
         menu:
           votings_submenu:
+            attachment_collections: Dosare
             monitoring_committee: Comitetul de monitorizare
             monitoring_committee_members: Membri
         monitoring_committee_election_results:
@@ -478,6 +486,9 @@ ro:
           new:
             create: Creează
             title: Creează un membru al comitetului de monitorizare
+        monitoring_committee_verify_elections:
+          index:
+            how_to_run_verifier: 'Odată ce ai descărcat fișierul și te-ai asigurat că este în regulă, poți continua pornind verificatorul universal. Clonează <a href=''https://github.com/decidim/decidim-bulletin-board''>acestă arhivă</a> și, din dosarul rădăcină, rulează comanda următoare:'
         polling_officers:
           new:
             create: Creează
