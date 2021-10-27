@@ -192,7 +192,7 @@ ro:
             last_updated_at: Ultima actualizare la
             meetings: Întâlniri
             proposals: Propuneri
-            votes: Suportă
+            votes: Voturi
         timeline:
           title: Evoluția proiectului
     admin:
