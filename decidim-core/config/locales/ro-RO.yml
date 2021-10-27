@@ -834,9 +834,9 @@ ro:
         edit_user_group: Editează grup
         update_user_group: Actualizați grupul
       form:
-        document_number_help: Nu utilizaţi cratime sau spaţii
+        document_number_help: A nu se utiliza cratimele și spațiile
         email_help: E-mailul organizației, asocierii, colective, grupului, etc.
-        fill_in_for_verification: 'Completați aceste câmpuri dacă doriți ca grupul dvs. să fie verificat:'
+        fill_in_for_verification: 'Completați aceste câmpuri dacă dorești ca grupul tau să fie verificat:'
         name_help: Numele organizației, asocierii, colectivelor, grupului, etc.
         nickname_help: Porecla organizaţiei, asocierii, colectivelor, grupului etc. Nu utilizaţi spaţii sau accente.
         phone_help: Nu utilizaţi cratime sau spaţii
