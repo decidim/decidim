@@ -608,7 +608,7 @@ ro:
             unblock: Deblochează utilizatorul
             unreport: Anulează raportarea
           name: Nume
-          nickname: Poreclă
+          nickname: Pseudonim
           reason: Motiv
           reports: Număr de raportări
           title: Listarea utilizatorilor raportați
@@ -721,7 +721,7 @@ ro:
           block: Blochează utilizator
           created_at: Creat la
           name: Nume
-          nickname: Poreclă
+          nickname: Pseudonim
           not_officialized: Nevalidat
           officialize: Validează
           officialized: Validat
