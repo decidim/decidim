@@ -156,6 +156,8 @@ de:
         browse: Durchsuchen
         category:
           new: Neue Kategorie
+        export: Alles exportieren
+        export-selection: Auswahl exportieren
         import: Importieren
         manage: Verwalten
         new: Neu %{name}
@@ -341,6 +343,14 @@ de:
         category_id_eq:
           label: Kategorie
         filter_label: Filtern
+        invitation_accepted_at_present:
+          values:
+            'false': 'Nein'
+            'true': 'Ja'
+        last_sign_in_at_present:
+          values:
+            'false': 'Nein'
+            'true': 'Ja'
         moderations:
           reportable_type_string_eq:
             label: Art
@@ -462,6 +472,7 @@ de:
         areas: Bereiche
         configuration: Aufbau
         dashboard: Instrumententafel
+        external_domain_whitelist: Erlaubte externe Domains
         help_sections: Hilfeabschnitte
         homepage: Startseite
         impersonations: Identitätswechsel
@@ -610,6 +621,7 @@ de:
       newsletters:
         create:
           error: Beim Erstellen dieses Newsletters ist ein Fehler aufgetreten.
+          success: Newsletter erfolgreich erstellt Bitte, überprüfen Sie es vor dem Senden.
         deliver:
           error: Beim Versand dieses Newsletters ist ein Fehler aufgetreten.
           success: Newsletter erfolgreich geliefert
@@ -731,6 +743,8 @@ de:
             preview: Vorschau
           omnipresent_banner_appearance_title: Bearbeiten Sie das allgegenwärtige Banner
       organization_external_domain_whitelist:
+        edit:
+          update: Aktualisieren
         external_domain:
           down: Runter
           external_domain: Externe Domain
