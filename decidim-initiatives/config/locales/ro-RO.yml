@@ -450,6 +450,7 @@ ro:
           confirm_revoke: Ești sigur(ă)?
           invite_to_committee_help: Distribuie acest link pentru a invita alți participanți la comitetul promotorilor
           no_members_yet: Nu există membri în comitetul promotorilor
+          revoke: Revocă
           title: Membrii comitetului
         count:
           title:
@@ -477,6 +478,9 @@ ro:
             close: Inchide
             explanation: Trebuie să fiți verificat pentru a crea o nouă inițiativă.
             title: Autorizare necesară
+        initiatives:
+          closed_initiatives_warning: În prezent, nu există inițiative deschise, dar aici poți găsi toate inițiativele anterioare.
+          no_initiatives_warning: Nicio inițiativă nu corespunde criteriilor de căutare.
         interactions:
           comments_count:
             count:
@@ -496,16 +500,20 @@ ro:
           city: Localitate
           email: Email
           full_name: Numele complet
+          general_title: Cererea de admitere a unei inițiative
+          id_number: Numărul documentului de identificare
           initiative:
             attachments: Documentație atașată (vă rugăm să scrieți numele fiecărui document mai jos)
             description: 'Descriere:'
             title: 'Titlu:'
             type: Tipul de inițiativă
+          legal_text: Datele cu caracter personal colectate vor fi încorporate și tratate în mod confidențial de către organizație, în conformitate cu legislația actuală.
           phone_number: Număr de telefon
           place_date: Locul, data
           postal_code: Cod poștal/ZIP
           print: Tipărește
           province: Județ/stat
+          section: 'Dacă organizația solicită acest lucru, te rugăm tipărește și completează acest formular pentru a-l depune conform indicațiilor:'
           signature: Semnătură
         result:
           answer_title: S-a răspuns la această inițiativă
@@ -515,6 +523,7 @@ ro:
           confirm: Vei trimite inițiativa unui administrator pentru a o revizui și a o publica. Odată publicată, nu o vei putea edita. Ești sigur(ă)?
           edit: Editează
           follow_description: Primiți o notificare atunci când există știri în această inițiativă
+          offline_method: Această inițiativă colectează doar semnături în persoană.
           print: Imprimare inițiativă
           send_to_technical_validation: Trimite la validarea tehnică
         signatures_count:
