@@ -15,7 +15,7 @@ ro:
         user: Participant
         verification_attachment: Copie scanată a documentului tău
       offline_confirmation:
-        email: E-mail-ul participantului
+        email: E-mail participant
       postal_letter_address:
         full_address: Adresa completă
       postal_letter_confirmation:
@@ -34,33 +34,33 @@ ro:
             confirm: Revocarea înainte de data autorizării nu poate fi anulată. Ești sigur(ă) că vrei să continui?
             confirm_all: Revocarea tuturor autorizațiilor nu poate fi anulată. Ești sigur(ă) că vrei să continui?
           destroy_nok: A apărut o problemă în timpul revocării autorizațiilor.
-          destroy_ok: Toate autorizațiile potrivite au fost revocate.
+          destroy_ok: Toate autorizațiile corelate au fost revocate.
           info: Există un total de %{count} participanți verificați.
           no_data: Niciun participant verificat
-          title: Autorizații revocate
+          title: Revocarea autorizațiilor
         authorization_workflows: Autorizații
     admin_log:
       organization:
         update_id_documents_config: "%{user_name} a actualizat configurația pentru autorizarea documentelor de identitate"
       user:
-        grant_id_documents_offline_verification: "%{user_name} a verificat %{resource_name} folosind o autorizație de identitate offline"
+        grant_id_documents_offline_verification: "%{user_name} a verificat %{resource_name} utilizând o verificare offline a documentelor de identitate"
     authorization_handlers:
       admin:
         csv_census:
           help:
-            - Administratorii încarcă un CSV cu e-mailurile participanților acceptați
+            - Administratorii încarcă un CSV cu e-mail-urile participanților acceptați
             - Doar participanții cu un e-mail în fișierul CSV pot fi verificați
         id_documents:
           help:
             - Utilizatorii completează informațiile lor de identitate și încarcă o copie a documentului lor.
-            - Ați completat informațiile prezente în imaginea încărcată.
-            - Informaţiile trebuie să corespundă cu orice utilizator completat.
-            - Dacă nu puteți vedea în mod clar informația sau nu puteți să o verificați, puteți respinge cererea și utilizatorul va putea să o rezolve.
+            - Ai completat informațiile prezente în imaginea încărcată.
+            - Informaţiile trebuie să corespundă cu ce a completat utilizatorul.
+            - Dacă nu vezi informațiile clar sau nu le poți verifica, poți respinge cererea și utilizatorul va putea să o corecteze.
         postal_letter:
           help:
             - Participanții solicită un cod de verificare pentru a fi trimis la adresa lor.
             - Trimiți scrisoarea la adresa lor cu codul de verificare.
-            - Marcați litera ca trimisă.
+            - Marchează scrisoarea drept trimisă.
             - Odată ce marcați litera ca fiind trimisă, participantul va putea introduce codul și va putea fi verificat.
       csv_census:
         explanation: Obține verificarea folosind recensământul organizației
