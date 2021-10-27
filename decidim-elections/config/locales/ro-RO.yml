@@ -243,8 +243,20 @@ ro:
           tally:
             trustees: Administrator
           tally_ended:
+            submit: Publică rezultatele
             success: Cererea de publicare a rezultatelor a fost trimisă cu succes la Bulletin Board
+            title: Calculează rezultatele
+          vote:
+            errors:
+              time_after: Alegerile sunt încă în desfășurare. Trebuie să aștepți până se încheie (%{end_time}) pentru încheia perioada de votare.
+            invalid: A apărut o probemă la încheierea perioadei de votare
+            requirements:
+              time_after: Alegerile s-au terminat. Poți încheia perioada de votare manual, sau se va încheia automat în câteva minute.
+            submit: Încheie perioada de votare
+            success: Cererea de încheiere a perioadei de votare a fost trimisă cu succes panoului de votare
+            title: Perioada de vot
           vote_ended:
+            invalid: A apărut o problemă la începerea votării
             submit: Începeți să numărați
             success: Solicitarea de începere a fost trimisă cu succes la Panoul de Buletin
             text: Votul s-a terminat. Puteţi începe numărătoarea acum.
