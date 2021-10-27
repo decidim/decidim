@@ -369,6 +369,7 @@ ro:
     resources:
       consultations:
         actions:
+          comment: Comentează
           vote: Votează
     statistics:
       consultations_count: Consultări
