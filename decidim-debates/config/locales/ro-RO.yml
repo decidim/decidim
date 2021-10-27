@@ -28,6 +28,7 @@ ro:
     components:
       debates:
         actions:
+          comment: Comentează
           create: Creează
           endorse: Aprobare
         name: Dezbateri
