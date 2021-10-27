@@ -224,21 +224,21 @@ ro:
       attachment_collections:
         create:
           error: A apărut o eroare la crearea unui nou dosar.
-          success: Folderul a fost creat cu succes.
+          success: Dosarul a fost creat cu succes.
         destroy:
-          success: Folderul a fost eliminat cu succes.
+          success: Dosarul a fost eliminat cu succes.
         edit:
-          title: Editează folderul
+          title: Editează dosarul
           update: Actualizează
         index:
-          attachment_collection_used: Acest folder nu poate fi eliminat deoarece este în uz.
-          attachment_collections_title: Foldere ataşate
+          attachment_collection_used: Acest dosar nu poate fi eliminat deoarece este în uz.
+          attachment_collections_title: Dosare ataşate
         new:
           create: Creează
-          title: Folder nou
+          title: Dosar nou
         update:
-          error: A apărut o eroare la actualizarea acestui folder.
-          success: Folderul a fost actualizat cu succes.
+          error: A apărut o eroare la actualizarea acestui dosar.
+          success: Dosarul a fost actualizat cu succes.
       attachments:
         create:
           error: A apărut o eroare la crearea unui nou atașament.
@@ -533,13 +533,13 @@ ro:
             plural: Plural
         attachment:
           fields:
-            collection: Folder
+            collection: Dosar
             content_type: Tip
             file_size: Dimensiune
             title: Titlu
           name: Atașament
         attachment_collection:
-          name: Folder
+          name: Dosar
         category:
           name: Categorie
         impersonation_log:
@@ -865,7 +865,7 @@ ro:
           share: Distribuie
         destroy:
           error: A apărut o problemă la distrugerea acestui token.
-          success: Tokenul a fost eliminat.
+          success: Token-ul a fost distrus cu succes.
         share_tokens:
           empty: Nu există token-uri active
           help: Aceste tipuri de token sunt utilizate pentru a distribui public această resursă nepublicată cu orice utilizator. Acestea vor fi ascunse la momentul publicării resursei. Faceți clic pe pictograma de distribuire aferentă acestui token pentru a vizita URL-ul distribuit.
