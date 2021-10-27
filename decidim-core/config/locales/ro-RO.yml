@@ -838,22 +838,22 @@ ro:
         email_help: E-mailul organizației, asocierii, colective, grupului, etc.
         fill_in_for_verification: 'Completați aceste câmpuri dacă dorești ca grupul tau să fie verificat:'
         name_help: Numele organizației, asocierii, colectivelor, grupului, etc.
-        nickname_help: Porecla organizaţiei, asocierii, colectivelor, grupului etc. Nu utilizaţi spaţii sau accente.
+        nickname_help: Pseudonimul organizaţiei, asocierii, colectivelor, grupului etc. Nu folosi spaţii sau accente.
         phone_help: Nu utilizaţi cratime sau spaţii
       join:
-        error: A apărut o problemă la aderarea la grup
-        success: Alăturarea cererii a fost făcută cu succes. Un administrator va revizui cererea dumneavoastră înainte de a o accepta în grup.
+        error: A apărut o problemă la intrarea în grup
+        success: Cererea de intrare a fost făcută cu succes. Un administrator va revizui cererea ta înainte de a o accepta în grup.
       leave:
         error: A existat o problemă la părăsirea grupului
         success: Grupul a fost abandonat.
       members:
-        accept_or_reject_join_requests: 'Următorii utilizatori au solicitat să se alăture acestui grup. Acceptați sau respingeți cererile lor:'
+        accept_or_reject_join_requests: 'Următorii utilizatori au solicitat să se alăture acestui grup. Acceptă sau respinge cererile lor:'
         accept_request: Acceptă
-        reject_request: Respingere
+        reject_request: Respinge
       new:
         create_user_group: Creează grup
         new_user_group: Grup nou
-        subtitle: Creați un grup și invitați alți utilizatori să participe la un nivel colectiv.
+        subtitle: Creează un grup și invită alți participanți să participe.
       no_user_groups: Încă nu aparține niciunui grup.
       roles:
         admin: Administrator
@@ -865,7 +865,7 @@ ro:
     help:
       main_topic:
         default_page:
-          content: "<p>în %{organization} poți participa și decide cu privire la diferite subiecte, prin spaţiile pe care le vedeţi în meniul superior: Procese, Adunări, Iniţiative, Consultări.</p> <p>În cadrul fiecăruia veți găsi opțiuni diferite pentru a participa: faceți propuneri individual sau împreună cu alte persoane, să participe la dezbateri, să prioritizeze proiectele pentru a le pune în aplicare, să participe la reuniuni directe și la alte acțiuni.</p>\n"
+          content: "<p>în %{organization} poți participa și decide cu privire la diferite subiecte, prin spaţiile pe care le vedeţi în meniul superior: Procese, Adunări, Iniţiative, Consultări.</p> <p>În cadrul fiecăruia vei găsi opțiuni diferite pentru a participa: propune individual sau împreună cu alte persoane, ia parte la dezbateri, prioritizează proiectele pentru a le pune în aplicare, participă la reuniuni directe și la alte acțiuni.</p>\n"
           title: Ce pot face în %{organization}?
         description: Citește mai multe despre %{organization}
         title: Ajutor General
@@ -879,8 +879,8 @@ ro:
     links:
       invalid_url: URL invalid
       warning:
-        body_1: Sunteți pe cale să vizitați un link extern și am dori să fiți precauți în ceea ce privește conținutul de pe site-ul extern.
-        body_2: Vă rugăm să verificați link-ul pe care urmează să îl vizitați și să vă asigurați că îl recunoașteți ca un site sigur înainte de a continua.
+        body_1: Ești pe cale de a vizita un link extern și am dori să fii precaut în ceea ce privește conținutul de pe site-ul extern.
+        body_2: Te rugăm să verifici link-ul pe care urmează să îl vizitezi și să te asiguri că îl este un site sigur înainte de a continua.
         cancel: Anulare
         close_modal: Închidere
         proceed: Continuă
