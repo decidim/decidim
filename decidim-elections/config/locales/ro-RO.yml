@@ -332,11 +332,32 @@ ro:
           description: Acesta este jurnalul alegerilor unde poţi verifica starea fiecărui pas, de ex. când alegerile au fost create, dacă procesul de numărare a voturilor s-a terminat, şi când alegerile au fost închise.
           download: Descarcă
           key_ceremony_description:
-            complete: Ceremonia de generare a cheii este încheiată. Fiecare împuternicit are chei valide și a descărcat cheile de rezervă necesare.
-            not_started: Ceremonia de generare a cheii nu a început încă.
-            started: Ceremonia de generare a cheii a început dar nu s-a încheiat încă.
+            complete: Ceremonia de generare a cheilor este încheiată. Fiecare împuternicit are chei valide și a descărcat cheile de rezervă necesare.
+            not_started: Ceremonia de generare a cheilor nu a început încă.
+            started: Ceremonia de generare a cheilor a început dar nu s-a încheiat încă.
           key_ceremony_title: Ceremonia de generare a cheilor
+          not_available: Încă nu e disponibilă
+          not_created: Nu este creat
+          not_published: Nu este publicat
+          not_ready: Nu este gata
+          not_started: Nu a început
+          published: Publicat
+          results_description:
+            not_published: Rezultatele nu sunt încă publicate.
+            published: Rezultatele sunt publicate.
+          results_title: Rezultate
+          started: Începute
+          tally_description:
+            finished: Procesul de numărare a voturilor s-a încheiat.
+            not_started: Procesul de numărare a voturilor nu a început încă.
+            started: Procesul de numărare a voturilor a început.
+          tally_title: Procesul de numărare al voturilor
+          title: Jurnal electoral
           verifiable_results:
+            checksum: 'Sumă de control pentru fișierul SHA256:'
+            description:
+              not_ready: Fișierul verificabil electoral și suma de control pentru SHA256 nu sunt disponibile încă. Imediat ce vor fi publicate rezutatele, vei putea verifica aceste alegeri.
+              ready: 'Aici ai opțiunea de a verifica alegerile. Întâi, trebuie să descarci fișierul și să te asiguri că nu a fost corupt. Pentru a face asta, execută următoarea comandă și verifică dacă rezultatul corespunde cu suma de control:'
             how_to_verify: 'Odată ce ai descărcat fișierul și te-ai asigurat că este în regulă, poți continua pornind verificatorul universal. Clonează <a href=''https://github.com/decidim/decidim-bulletin-board''>acestă arhivă</a> și, din dosarul rădăcină, rulează comanda următoare:'
         filters:
           active: Activ
