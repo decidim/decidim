@@ -287,6 +287,17 @@ ro:
         election:
           create: "%{user_name} a creat algerile %{resource_name} în %{space_name}"
           delete: "%{user_name} a șters algerile %{resource_name} în %{space_name}"
+          end_vote: "%{user_name} a încheiat în Panoul de votare perioada pentru algerilor pentru %{resource_name} din %{space_name}"
+          publish: "%{user_name} a publicat algerile %{resource_name} în %{space_name}"
+          publish_results: "%{user_name} a publicat în Panoul de votare rezultatele alegerilor %{resource_name} din %{space_name}"
+          setup: "%{user_name} a creat în Panoul de votare alegerile %{resource_name} din %{space_name}"
+          start_key_ceremony: "%{user_name} a început în Panoul de votare ceremonia cheie pentru alegerile %{resource_name} din %{space_name}"
+          start_tally: "%{user_name} a început numărarea voturilor în Panoul de votare pentru alegerile %{resource_name} din %{space_name}"
+          start_vote: "%{user_name} a început în Panoul de votare perioada de votare pentru alegerile %{resource_name} din %{space_name}"
+          unpublish: "%{user_name} a anulat publicarea alegerilor %{resource_name} din %{space_name}"
+          update: "%{user_name} a actualizat algerile %{resource_name} din %{space_name}"
+        trustee:
+          create: "%{user_name} a desemnat utilizatorul %{trustee_user} drept imputericit"
       election_m:
         badge_name:
           finished: Terminat
@@ -312,6 +323,19 @@ ro:
             few: "%{count} alegeri"
             other: "%{count} alegeri"
         election_log:
+          chained_hash: Hash chained al acestui mesaj
+          complete: Finalizate
+          creation_description:
+            complete: Alegerile au fost create și sunt configurate cu succes în Panoul de votare.
+            not_created: Alegerile nu au fost create încă.
+          creation_title: Alegeri create
+          description: Acesta este jurnalul alegerilor unde poţi verifica starea fiecărui pas, de ex. când alegerile au fost create, dacă procesul de numărare a voturilor s-a terminat, şi când alegerile au fost închise.
+          download: Descarcă
+          key_ceremony_description:
+            complete: Ceremonia de generare a cheii este încheiată. Fiecare împuternicit are chei valide și a descărcat cheile de rezervă necesare.
+            not_started: Ceremonia de generare a cheii nu a început încă.
+            started: Ceremonia de generare a cheii a început dar nu s-a încheiat încă.
+          key_ceremony_title: Ceremonia de generare a cheilor
           verifiable_results:
             how_to_verify: 'Odată ce ai descărcat fișierul și te-ai asigurat că este în regulă, poți continua pornind verificatorul universal. Clonează <a href=''https://github.com/decidim/decidim-bulletin-board''>acestă arhivă</a> și, din dosarul rădăcină, rulează comanda următoare:'
         filters:
