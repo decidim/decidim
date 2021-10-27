@@ -138,6 +138,17 @@ ro:
             collaborative_drafts_enabled: Ciorne colaborative activate
             comments_enabled: Comentarii activate
             comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
+            default_sort_order: Mod implicit de sortare a propunerilor
+            default_sort_order_help: Implicit înseamnă că dacă este activată votarea, propunerile vor fi afișate aleatoriu, și dacă votarea este blocată, atunci vor fi sortate în funcție de cele mai multe voturi.
+            default_sort_order_options:
+              default: Implicit
+              most_commented: Cele mai comentate
+              most_endorsed: Cele mai susținute
+              most_followed: Cele mai urmărite
+              most_voted: Cele mai votate
+              random: Aleator
+              recent: Recente
+              with_more_authors: Cu mai mulți autori
             geocoding_enabled: Geocodare activată
             minimum_votes_per_user: Minim suport per utilizator
             new_proposal_body_template: Șablon nou propunere
@@ -180,6 +191,7 @@ ro:
             automatic_hashtags: Hashtag-uri adăugate la toate propunerile
             comments_blocked: Comentarii blocate
             creation_enabled: Crearea propunerii este activată
+            default_sort_order: Mod implicit de sortare a propunerilor
             endorsements_blocked: Aprobări blocate
             endorsements_enabled: Aprobări activate
             proposal_answering_enabled: Propunere de răspuns activată
