@@ -87,6 +87,10 @@ ro:
             manager: Administrator
             president: Președinte
             unassigned: Neatribuit
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Caută %{collection} după nume/e-mail/pseudonim sau stație de votare.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Caută %{collection} după titlu, adresă sau nume/e-mail/pseudonim al ofițerului.
         signed_eq:
           label: Semnat
           values:
@@ -501,6 +505,8 @@ ro:
           results:
             bulletin_board: Panoul de votare
         monitoring_committee_members:
+          form:
+            select_user: Caută după nume, e-mail sau pseudonim
           new:
             create: Creează
             title: Creează un membru al comitetului de monitorizare
@@ -508,6 +514,8 @@ ro:
           index:
             how_to_run_verifier: 'Odată ce ai descărcat fișierul și te-ai asigurat că este în regulă, poți continua pornind verificatorul universal. Clonează <a href=''https://github.com/decidim/decidim-bulletin-board''>acestă arhivă</a> și, din dosarul rădăcină, rulează comanda următoare:'
         polling_officers:
+          form:
+            select_user: Caută după nume, e-mail sau pseudonim
           new:
             create: Creează
             title: Creează verificator al scrutinului
