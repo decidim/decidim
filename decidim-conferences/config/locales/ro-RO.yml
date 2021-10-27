@@ -26,6 +26,7 @@ ro:
         scopes_enabled: Domenii de interes activate
         short_description: Descriere scurtă
         show_statistics: Arată statistici
+        sign_date: Data semnării
         signature: Semnătură
         signature_name: numele semnăturii
         slogan: Slogan
@@ -38,17 +39,30 @@ ro:
         title: Titlu
         weight: Pondere
       conference_partner:
+        link: Link
         logo: Logo
         name: Nume
+        partner_type: Tipul partenerului
         weight: Pondere
       conference_registration_invite:
         email: E-mail
+        name: Nume
+        registration_type_id: Tip de înscriere
+        user_id: Utilizator
       conference_registration_type:
+        description: Descriere
+        price: Preț
+        title: Titlu
         weight: Pondere
       conference_speaker:
+        affiliation: Afiliere
         avatar: Avatar
+        conference_meeting_ids: Întâlniri similare
         full_name: Numele complet
+        personal_url: Url personal
         position: Poziție
+        short_bio: Biografie scurtă
+        twitter_handle: Responsabil Twitter
         user_id: Utilizator
       conference_user_role:
         email: E-mail
