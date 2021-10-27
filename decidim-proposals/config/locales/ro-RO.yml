@@ -123,7 +123,7 @@ ro:
           comment: Comentariu
           create: Creează
           endorse: Aprobare
-          vote: Suport
+          vote: Votează
           vote_comment: Votează comentariul
           withdraw: Retragere
         name: Propuneri
