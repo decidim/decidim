@@ -23,6 +23,7 @@ ro:
         decidim_user_group_id: Grup de utilizatori
         description: Descriere
         end_time: Ora de încheiere
+        id: ID
         location: Locaţie
         location_hints: Sugestii de localizare
         online_meeting_url: URL-ul întâlnirii online
@@ -34,12 +35,17 @@ ro:
         registration_terms: Termeni de înregistrare
         registration_url: URL înregistrare
         registrations_enabled: Înregistrări activate
+        show_embedded_iframe: Arată iframe încorporat pentru acest URL
         start_time: Ora de începere
         title: Titlu
         transparent: Transparență
         type_of_meeting: Tip
     errors:
       models:
+        meeting:
+          attributes:
+            show_embedded_iframe:
+              not_embeddable: Acest URL nu poate fi încorporat
         meeting_agenda:
           attributes:
             base:
@@ -72,6 +78,34 @@ ro:
         other: Înregistrări
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Categorie
+          closed_at_present:
+            label: Stadiu
+            values:
+              'false': Deschis
+              'true': Închis
+          is_upcoming_true:
+            label: Dată
+            values:
+              'false': Trecute
+              'true': Viitoare
+          origin_eq:
+            label: Origine
+            values:
+              citizen: Cetățean
+              official: Oficial
+              user_group: Grupuri de utilizatori
+          scope_id_eq:
+            label: Domeniu de interes
+          type_eq:
+            label: Tip de întâlnire
+            values:
+              hybrid: Ambele
+              in_person: În persoană
+              online: Online
       meeting_copies:
         create:
           error: A apărut o problemă la duplicarea acestei reuniuni.
@@ -83,6 +117,7 @@ ro:
     components:
       meetings:
         actions:
+          comment: Comentează
           join: Alătură-te
         name: Întâlniri
         settings:
