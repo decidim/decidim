@@ -3,12 +3,12 @@ ro:
     attributes:
       collaborative_draft:
         address: Adresa
-        body: Corp
+        body: Conținut
         category_id: Categorie
-        decidim_scope_id: Domeniu
+        decidim_scope_id: Domeniu de interes
         has_address: Are adresă
-        scope_id: Domeniu
-        state: Județ
+        scope_id: Domeniu de interes
+        state: Stadiu
         title: Titlu
         user_group_id: Creează ciornă colaborativă ca
       proposal:
@@ -16,30 +16,30 @@ ro:
         answer: Răspuns
         answered_at: Răspuns la
         automatic_hashtags: Hashtag-uri adăugate automat
-        body: Corp
+        body: Conținut
         category_id: Categorie
-        decidim_scope_id: Domeniu
+        decidim_scope_id: Domeniu de interes
         has_address: Are adresă
-        scope_id: Domeniu
-        state: Județ
+        scope_id: Domeniu de interes
+        state: Stadiu
         suggested_hashtags: Hashtag-uri sugerate
         title: Titlu
-        user_group_id: Creează propunerea ca
+        user_group_id: Creați propunerea ca
       proposal_answer:
         answer: Răspuns
         cost: Cost
         cost_report: Raport de cost
         execution_period: Perioada de execuție
       proposals_copy:
-        copy_proposals: Înţeleg că aceasta va importa toate propunerile din componenta selectată în cea curentă şi că această acţiune nu poate fi inversată.
-        origin_component_id: Componentă pentru a copia propunerile de la
+        copy_proposals: Înţeleg că această acțiune va importa toate propunerile din componenta selectată în cea curentă şi că această acţiune nu poate fi inversată.
+        origin_component_id: Componentă de la care se copiază propunerile
       proposals_import:
         import_proposals: Importă propuneri
-        keep_answers: Păstrați starea și răspunsurile
+        keep_answers: Păstrează starea și răspunsurile
         keep_authors: Păstrează autorii originali
       valuation_assignment:
         admin_log:
-          valuator_role_id: Nume evaluator
+          valuator_role_id: Numele evaluatorului
     errors:
       models:
         participatory_text:
@@ -53,10 +53,10 @@ ro:
             add_photos:
               needs_to_be_reattached: Trebuie să fie reatașate
             body:
-              cant_be_equal_to_template: nu poate fi egal cu șablonul
-              identical: și titlul nu poate fi identic
+              cant_be_equal_to_template: nu poate fi egal cu modelul
+              identical: Nici titlul nu poate fi identic
             title:
-              identical: ȘI corpul nu poate fi identic
+              identical: Nici conținutul nu poate fi identic
     models:
       decidim/proposals/accepted_proposal_event: Propunere acceptată
       decidim/proposals/admin/update_proposal_category_event: Categorie de propunere modificată
