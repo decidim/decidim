@@ -57,17 +57,27 @@ ro:
               identical: Nici titlul nu poate fi identic
             title:
               identical: Nici conținutul nu poate fi identic
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Nu sunt oficiale
+              supported: Au primit voturi sau susțineri
+        proposals_split:
+          attributes:
+            base:
+              not_official: Nu sunt oficiale
+              supported: Au primit voturi sau susțineri
     models:
       decidim/proposals/accepted_proposal_event: Propunere acceptată
       decidim/proposals/admin/update_proposal_category_event: Categorie de propunere modificată
-      decidim/proposals/admin/update_proposal_scope_event: Domeniul propunerii modificat
-      decidim/proposals/creation_enabled_event: Crearea propunerii este activată
-      decidim/proposals/endorsing_enabled_event: Propunere de aprobare activată
+      decidim/proposals/admin/update_proposal_scope_event: Domeniu de interes al propunerii modificat
+      decidim/proposals/creation_enabled_event: Crearea de propuneri este activată
+      decidim/proposals/endorsing_enabled_event: Susținerea propunerii este activată
       decidim/proposals/evaluating_proposal_event: Propunerea este în curs de evaluare
       decidim/proposals/proposal_mentioned_event: Propunere menționată
       decidim/proposals/publish_proposal_event: Propunere publicată
       decidim/proposals/rejected_proposal_event: Propunere respinsă
-      decidim/proposals/voting_enabled_event: Votare propunere activată
+      decidim/proposals/voting_enabled_event: Votare propunerii este activată
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
@@ -83,9 +93,9 @@ ro:
         few: Note
         other: Note
       decidim/proposals/proposal_vote:
-        one: Suport
-        few: Suportă
-        other: Suportă
+        one: Vot
+        few: Voturi
+        other: Voturi
   decidim:
     admin:
       filters:
@@ -93,25 +103,25 @@ ro:
           category_id_eq:
             label: Categorie
           is_emendation_true:
-            label: Tipul
+            label: Tip
             values:
               'false': Propuneri
-              'true': Modificări
+              'true': Amendamente
           scope_id_eq:
             label: Domeniu de interes
           state_eq:
-            label: Stare
+            label: Stadiu
             values:
               accepted: Acceptat
-              evaluating: Evaluare
+              evaluating: În evaluare
               published: Publicat
-              rejected: Refuzat
+              rejected: Respins
               validating: Validarea tehnică
               withdrawn: Retras
           state_null:
-            label: Stare
+            label: Stadiu
             values:
-              'true': Nu s-a răspuns
+              'true': Fără răspuns
           valuator_role_ids_has:
             label: Atribuit evaluatorului
         search_placeholder:
