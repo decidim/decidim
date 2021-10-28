@@ -61,7 +61,7 @@ module Decidim
       end
 
       def commentable_path(params = {})
-        return resource_locator(options[:polymorphic]).path(params) if options[:polymorphic]
+        return resource_locator(options[:polymorphic].push(model)).path(params) if options[:polymorphic]
 
         resource_locator(model).path(params)
       end
