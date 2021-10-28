@@ -21,7 +21,7 @@ describe "Comments", type: :system do
   end
 
   describe "Get link" do
-    it "opens link location" do
+    it "opens single comment to another window" do
       visit decidim_budgets.budget_project_path(id: commentable.id, budget_id: budget.id)
 
       another_window = window_opened_by do
