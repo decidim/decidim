@@ -28,6 +28,14 @@ describe "Initiative signing", type: :system do
 
           expect(page).to have_content("SIGNING DISABLED")
         end
+
+        it "shows the offline supports received" do
+          initiative.update(offline_votes: { initiative.scoped_type.scope.id.to_s => 1357, "total" => 1357 })
+
+          visit decidim_initiatives.initiative_path(initiative)
+
+          expect(page).to have_content("1357/1000\nSIGNATURES")
+        end
       end
     end
   end
