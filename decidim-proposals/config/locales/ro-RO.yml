@@ -327,41 +327,41 @@ ro:
           email_subject: Domeniul de interes al propunerii %{resource_title} a fost actualizat
           notification_title: Domeniul de interes al propunerii <a href="%{resource_path}">%{resource_title}</a> a fost actualizat de către un administrator.
         voting_enabled:
-          email_intro: 'Puteți suporta propuneri în %{participatory_space_title}! Începeți să participați în această pagină:'
-          email_outro: Ați primit această notificare deoarece urmăriți %{participatory_space_title}. Puteți înceta să primiți notificări urmând linkul anterior.
-          email_subject: Suportul pentru propuneri a început pentru %{participatory_space_title}
-          notification_title: Acum poți începe <a href="%{resource_path}">să susții propuneri</a> în <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Poți vota propuneri pentru %{participatory_space_title}! Participă acum la această pagină:'
+          email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți anula aceste notificări de la link-ul anterior.
+          email_subject: A început votarea propunerilor pentru %{participatory_space_title}
+          notification_title: Acum poți începe <a href="%{resource_path}">să votezi propuneri</a> pentru <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
           conditions:
-            - Alegeți spațiul de participare al interesului dvs. cu prezentarea propunerilor activată
-            - Încercați să faceți propuneri care pot fi efectuate. În acest fel este mai probabil ca acestea să fie acceptate.
-          description: Această insignă este acordată atunci când participați activ cu noi propuneri, iar acestea sunt acceptate.
-          description_another: Acest participant a acceptat %{score} propuneri.
-          description_own: Ai acceptat %{score} propuneri.
+            - Alege spațiul de participare unde e activă opțiunea de a trimite propuneri conform domeniului tău de interes
+            - Încercă să faci propuneri care pot fi implementate. Astfel crește probabilitatea ca acestea să fie acceptate.
+          description: Această insignă este acordată atunci când participi activ cu noi propuneri, iar acestea sunt acceptate.
+          description_another: Acest participant are %{score} propuneri acceptate.
+          description_own: Ai %{score} propuneri acceptate.
           name: Propuneri acceptate
           next_level_in: Obține încă %{score} propuneri acceptate pentru a atinge următorul nivel!
-          unearned_another: Acest participant nu a acceptat încă nicio propunere.
-          unearned_own: Încă nu ai primit nicio propunere.
+          unearned_another: Acest participant nu are încă nicio propunere acceptată.
+          unearned_own: Încă nu ai nicio propunere acceptată.
         proposal_votes:
           conditions:
-            - Navighează și petrece ceva timp citind propunerile altora
-            - Acordați sprijin propunerilor care vă plac, sau găsiți interesante
+            - Răsfoiește paginile și petrece puțin timp citind propunerile altora
+            - Votează propunerilor care îți plac sau ți se par intersante
           description: Această insignă este acordată atunci când susții propunerile altora.
-          description_another: Acest participant a sprijinit propunerile %{score}.
-          description_own: Ați oferit sprijin pentru propunerile %{score}.
-          name: Propunere de sprijin
-          next_level_in: Oferiți sprijin pentru %{score} alte propuneri pentru a atinge următorul nivel!
-          unearned_another: Acest participant nu a oferit încă sprijin pentru nicio propunere.
-          unearned_own: Încă nu ați oferit sprijin pentru nicio propunere.
+          description_another: Acest participant a votat %{score} propuneri.
+          description_own: Ai oferit sprijin pentru %{score} propuneri.
+          name: Voturi pentru propuneri
+          next_level_in: Votează încă %{score} alte propuneri pentru a atinge următorul nivel!
+          unearned_another: Acest participant nu a votat încă nicio propunere.
+          unearned_own: Încă nu ai votat nicio propunere.
         proposals:
           conditions:
-            - Alegeți spațiul de participare al interesului dvs. cu prezentarea propunerilor activată
+            - Alege spațiul de participare unde e activă opțiunea de a trimite propuneri conform domeniului tău de interes
             - Creează o nouă propunere
-          description: Această insignă este acordată atunci când participați activ cu noi propuneri.
+          description: Această insignă este acordată atunci când participi activ cu noi propuneri.
           description_another: Acest participant a creat %{score} propuneri.
-          description_own: Ați creat %{score} propuneri.
+          description_own: Ai creat %{score} propuneri.
           name: Propuneri
           next_level_in: Creează încă %{score} propuneri pentru a atinge nivelul următor!
           unearned_another: Acest participant nu a creat încă nicio propunere.
@@ -372,39 +372,39 @@ ro:
         object: propuneri
         title: Propuneri acceptate
       endorsements:
-        description: Numărul de aprobări ale propunerilor
-        object: andosări
-        title: Susținători
+        description: Numărul de susțineri ale propunerilor
+        object: susțineri
+        title: Susțineri
       proposals:
         description: Număr de propuneri
         object: propuneri
         title: Propuneri
       votes:
-        description: Numărul de suporturi pentru propuneri
-        object: suportă
-        title: Suportă
+        description: Numărul de voturi pentru propuneri
+        object: voturi
+        title: Voturi
     participatory_spaces:
       highlighted_proposals:
-        see_all: Vezi toate (%{count})
+        see_all: Afișează toate propunerile (%{count})
     proposals:
       actions:
         answer_proposal: Răspundeți la propunere
-        edit_proposal: Editare propunere
-        import: Importă din altă componentă
+        edit_proposal: Editează propunerea
+        import: Importă propuneri din altă componentă
         new: Propunere nouă
-        participatory_texts: Textele participative
-        show: Arată propunerea
+        participatory_texts: Texte participative
+        show: Afișează propunerea
         title: Acțiuni
       admin:
         actions:
-          preview: Previzualizare
+          preview: Previzualizează
         exports:
           proposal_comments: Comentarii
           proposals: Propuneri
         imports:
           help:
-            answers: 'Documentul importat trebuie să conțină umrătoarele coloane: id, stadiu (acceptat, în evaluare, respins), răspuns/ro (și alte limbi activate pentru organizație).'
-            proposals: Fişierul trebuie să aibă titlu/ro şi conținut/ro (sau o altă configurație pe care o preferi, de exemplu title/en și conținut/en). De asemenea, sunt acceptate coloane de domeniu de interes/id și categorie/id.
+            answers: 'Documentul importat trebuie să conțină următoarele coloane: id, stadiu (acceptat, în evaluare, respins), răspuns/ro (și alte limbi activate pentru organizație).'
+            proposals: Fişierul trebuie să aibă titlu/ro şi conținut/ro (sau o altă configurație pe care o preferi, de exemplu titlu/en și conținut/en). De asemenea, sunt acceptate coloane de domeniu de interes/id și categorie/id.
           label:
             answers: Importă răspunsuri dintr-un fişier
             proposals: Importă propuneri dintr-un fişier
@@ -425,43 +425,43 @@ ro:
             name: Propunere
         participatory_texts:
           bulk-actions:
-            are_you_sure: Ești sigur(ă) că vrei să renunți la întrega schiță de text participativ?
+            are_you_sure: Sigur dorești să renunți la întrega schiță de text participativ?
             discard_all: Renunță la toate
             import_doc: Importă documentul
           discard:
-            success: Toate proiectele de text participativ au fost eliminate.
+            success: Toate schițele de text participativ au fost șterse.
           import:
             invalid: Formularul nu este valid!
-            invalid_file: Fişierul conţine o eroare, vă rugăm să încercaţi să editaţi conţinutul fişierului şi să-l re-încărcaţi din nou.
-            success: Felicitări, următoarele secțiuni au fost convertite în propuneri. Acum le puteți revizui și ajusta înainte de a publica.
+            invalid_file: Fişierul conţine o eroare, te rugăm să încerci să editezi conţinutul fişierului şi să-l reîncărci.
+            success: Felicitări, următoarele secțiuni au fost convertite în propuneri. Acum le poți revizui și ajusta înainte de a le publica.
           index:
-            info_1: Următoarele secțiuni au fost convertite în propuneri. Acum le puteți revizui și ajusta înainte de publicare.
-            publish_document: Publicare document
-            save_draft: Salvare ciornă
-            title: PREVEZI TEXTUL PARTICIPATORIEI
+            info_1: Următoarele secțiuni au fost convertite în propuneri. Acum le poți revizui și ajusta înainte de a le publica.
+            publish_document: Publică documentul
+            save_draft: Salvează ciorna
+            title: Pevizualizează textul participativ
           new_import:
             accepted_mime_types:
               md: Markdown
               odt: ODT
-            bottom_hint: "(Veţi putea previzualiza şi sorta secţiunile de document)"
-            document_legend: 'Adaugă un document mai mic de 2MB, fiecare secțiune până când 3 nivele adâncime vor fi analizate în propuneri. Formatele suportate sunt: %{valid_mime_types}'
-            title: Adaugă DOCUMENT
-            upload_document: Încărcați documentul
+            bottom_hint: "(Vei putea previzualiza şi sorta secţiuni din document)"
+            document_legend: 'Adaugă un document mai mic de 2MB. Fiecare secțiune din document, până la al treilea nivel de subtitluri, va fi convertită în propunere. Formatele acceptate sunt: %{valid_mime_types}'
+            title: Adaugă document
+            upload_document: Încărcă document
           publish:
             invalid: Propunerile nu au putut fi publicate
             success: Toate propunerile au fost publicate
           sections:
             article: "<em>Articolul</em>"
-            section: "<em>Secțiune:</em> <strong>%{title}</strong>"
-            sub-section: "<em>Subsecțiune:</em> %{title}"
+            section: "<em>Secțiunea:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Subsecțiunea:</em> %{title}"
           update:
             success: Textul participativ a fost actualizat cu succes.
         proposal_answers:
           form:
-            accepted: Acceptat
-            answer_proposal: Răspuns
-            evaluating: Evaluare
-            rejected: Respins
+            accepted: Acceptate
+            answer_proposal: Răspunse
+            evaluating: În evaluare
+            rejected: Respinse
             title: Răspuns pentru propunerea %{title}
         proposal_notes:
           create:
@@ -469,24 +469,24 @@ ro:
             success: Notă de propunere creată cu succes
           form:
             note: Notă
-            submit: Trimiteți
+            submit: Trimite
           leave_your_note: Lasă-ți nota
           title: Note private
         proposals:
           answer:
-            invalid: A apărut o problemă la răspunsul la această propunere
-            success: Propunere de răspuns cu succes
+            invalid: A apărut o problemă la răspunsul pentru această propunere
+            success: Răspunsul pentru propunere a fost înregistrat cu succes
           create:
             invalid: A apărut o problemă la crearea acestei propuneri
-            success: Propunere creată cu succes
+            success: Propunerea a fost creată cu succes
           edit:
-            title: Actualizare propunere
-            update: Actualizare
+            title: Actualizează propunerea
+            update: Actualizează
           form:
-            attachment_legend: "(Opțional) Adăugați un atașament"
-            created_in_meeting: Prezenta propunere provine dintr-o ședință
-            delete_attachment: Ștergere atașament
-            select_a_category: Selectați o categorie
+            attachment_legend: "(Opțional) Adaugă un atașament"
+            created_in_meeting: Această propunere provine dintr-o întâlnire
+            delete_attachment: Șterge atașamentul
+            select_a_category: Selectează o categorie
             select_a_meeting: Selectați o ședință
           index:
             actions: Acțiuni
