@@ -187,6 +187,9 @@ pl:
         update:
           error: Wystąpił błąd podczas aktualizacji administratora tego zespołu.
           success: Administrator zespołu został zaktualizowany pomyślnie.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Typ zespołu
       menu:
         assemblies: Zespoły
         assemblies_settings: Ustawienia
