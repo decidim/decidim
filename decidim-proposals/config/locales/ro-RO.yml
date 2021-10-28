@@ -129,25 +129,25 @@ ro:
     components:
       proposals:
         actions:
-          amend: Modifică
-          comment: Comentariu
+          amend: Trimite un amendament
+          comment: Comentează
           create: Creează
-          endorse: Aprobare
+          endorse: Susține
           vote: Votează
           vote_comment: Votează comentariul
-          withdraw: Retragere
+          withdraw: Retrage
         name: Propuneri
         settings:
           global:
-            amendments_enabled: Amendamente activate
-            amendments_enabled_help: Dacă este activ, configurați caracteristicile amendamentului pentru fiecare pas.
-            amendments_wizard_help_text: Asistent pentru amendamente text
+            amendments_enabled: Trimiterea de amendamente este activată
+            amendments_enabled_help: Dacă este activă, configurațI funcționalitățile aferente amendamentelor pentru fiecare pas.
+            amendments_wizard_help_text: Text de ajutor pentru amendamente
             announcement: Anunţ
             attachments_allowed: Permite atașamente
-            can_accumulate_supports_beyond_threshold: Poți acumula suport dincolo de prag
-            collaborative_drafts_enabled: Ciorne colaborative activate
-            comments_enabled: Comentarii activate
-            comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
+            can_accumulate_supports_beyond_threshold: Se pot acumula voturi dincolo de pragul limită
+            collaborative_drafts_enabled: Ciornele colaborative au fost activate
+            comments_enabled: Comentariile au fost activate
+            comments_max_length: Număr maxim de caractere a comentariilor (păstrează 0 pentru valoarea implicită)
             default_sort_order: Mod implicit de sortare a propunerilor
             default_sort_order_help: Implicit înseamnă că dacă este activată votarea, propunerile vor fi afișate aleatoriu, și dacă votarea este blocată, atunci vor fi sortate în funcție de cele mai multe voturi.
             default_sort_order_options:
@@ -159,14 +159,14 @@ ro:
               random: Aleator
               recent: Recente
               with_more_authors: Cu mai mulți autori
-            geocoding_enabled: Geocodare activată
-            minimum_votes_per_user: Minim suport per utilizator
-            new_proposal_body_template: Șablon nou propunere
-            new_proposal_body_template_help: Puteți defini textul precompletat pe care îl vor avea noile propuneri
-            new_proposal_help_text: Noua propunere ajută textul
-            official_proposals_enabled: Propuneri oficiale activate
-            participatory_texts_enabled: Texte participative activate
-            participatory_texts_enabled_readonly: Nu se poate interacționa cu această setare dacă există propuneri existente. Vă rugăm, creați o nouă `Componenta de Propuneri` dacă doriți să activați această caracteristică sau să renunțați la toate propunerile importate din meniul `Textele participative` dacă doriți să o dezactivați.
+            geocoding_enabled: Geocodarea a fost activată
+            minimum_votes_per_user: Număr minim de voturi pe utilizator
+            new_proposal_body_template: Model de conținut pentru o propunere nouă
+            new_proposal_body_template_help: Poți defini textul precompletat pe care îl vor avea noile propuneri
+            new_proposal_help_text: Text de ajutor pentru propunere nouă
+            official_proposals_enabled: Modulul propuneri oficiale a fost activat
+            participatory_texts_enabled: Modulul texte participative a fost activat
+            participatory_texts_enabled_readonly: Nu se poate interacționa cu această setare dacă există deja propuneri. Te rugăm, creează o nouă componenta 'Propuneri' dacă dorești să activezi această funcționalitate. Dacă vrei să o dezactivezi mergi în meniul `Texte participative`și renunță la toate propunerile importate.
             proposal_answering_enabled: Propunere de răspuns activată
             proposal_edit_before_minutes: Propunerile pot fi editate de către autori înainte de expirarea acestor mai multe minute
             proposal_edit_time: Modificare propunere
