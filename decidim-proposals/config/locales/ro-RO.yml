@@ -313,19 +313,19 @@ ro:
             notification_title: Propunerea ta <a href="%{resource_path}">%{resource_title}</a> a fost respinsă.
           follower:
             email_intro: 'Propunerea "%{resource_title}" a fost respinsă. Poţi citi răspunsul în această pagină:'
-            email_outro: Ați primit această notificare deoarece urmăriți „%{resource_title}”. O puteți anula de la link-ul anterior.
+            email_outro: Ai primit această notificare deoarece urmărești „%{resource_title}”. Poți anula aceste notificări de la link-ul anterior.
             email_subject: O propunere pe care o urmărești a fost respinsă
             notification_title: Propunerea <a href="%{resource_path}">%{resource_title}</a> a fost respinsă.
         proposal_update_category:
-          email_intro: 'Un administrator a actualizat categoria propunerii tale „%{resource_title}", verifică în această pagină:'
-          email_outro: Ați primit această notificare deoarece sunteți autorul propunerii.
+          email_intro: 'Un administrator a actualizat categoria propunerii tale „%{resource_title}", verifică modificarea în această pagină:'
+          email_outro: Ai primit această notificare deoarece ești autorul acestei propuneri.
           email_subject: Categoria propunerii %{resource_title} a fost actualizată
-          notification_title: Categoria de propuneri <a href="%{resource_path}">%{resource_title}</a> a fost actualizată de un administrator.
+          notification_title: Categoria propunerii <a href="%{resource_path}">%{resource_title}</a> a fost actualizată de către un administrator.
         proposal_update_scope:
-          email_intro: 'Un administrator a actualizat domeniul de aplicare al propunerii tale „%{resource_title}”, verifică în această pagină:'
-          email_outro: Ați primit această notificare deoarece sunteți autorul propunerii.
-          email_subject: Domeniul de aplicare al propunerii %{resource_title} a fost actualizat
-          notification_title: Domeniul de aplicare al propunerii <a href="%{resource_path}">%{resource_title}</a> a fost actualizat de către un administrator.
+          email_intro: 'Un administrator a actualizat domeniul de interes al propunerii tale „%{resource_title}”, verifică modificarea în această pagină:'
+          email_outro: Ai primit această notificare deoarece ești autorul acestei propuneri.
+          email_subject: Domeniul de interes al propunerii %{resource_title} a fost actualizat
+          notification_title: Domeniul de interes al propunerii <a href="%{resource_path}">%{resource_title}</a> a fost actualizat de către un administrator.
         voting_enabled:
           email_intro: 'Puteți suporta propuneri în %{participatory_space_title}! Începeți să participați în această pagină:'
           email_outro: Ați primit această notificare deoarece urmăriți %{participatory_space_title}. Puteți înceta să primiți notificări urmând linkul anterior.
