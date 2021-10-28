@@ -286,33 +286,33 @@ ro:
             email_subject: Propunerea ta este în curs de evaluare
             notification_title: Propunerea ta <a href="%{resource_path}">%{resource_title}</a> este în curs de evaluare.
           follower:
-            email_intro: 'Propunerea "%{resource_title}" este în curs de evaluare. Puteţi verifica un răspuns în această pagină:'
-            email_outro: Ați primit această notificare deoarece urmăriți „%{resource_title}”. O puteți anula de la link-ul anterior.
+            email_intro: 'Propunerea "%{resource_title}" este în curs de evaluare. Poţi verifica răspunsul în această pagină:'
+            email_outro: Ai primit această notificare deoarece urmărești „%{resource_title}”. Poți anula urmărirea de la link-ul anterior.
             email_subject: O propunere pe care o urmărești este în curs de evaluare
             notification_title: Propunerea <a href="%{resource_path}">%{resource_title}</a> este în curs de evaluare.
         proposal_mentioned:
           email_intro: Propunerea ta "%{mentioned_proposal_title}" a fost menționată <a href="%{resource_url}">în acest spațiu</a> în comentarii.
-          email_outro: Ați primit această notificare deoarece sunteți un autor al "%{resource_title}".
+          email_outro: Ai primit această notificare deoarece ești autor al propunerii "%{resource_title}".
           email_subject: Propunerea ta „%{mentioned_proposal_title}” a fost menționată
           notification_title: Propunerea ta "%{mentioned_proposal_title}" a fost menționată <a href="%{resource_path}">în acest spațiu</a> în comentarii.
         proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, pe care îl urmărești, a publicat o nouă propunere numită "%{resource_title}". Verifică-l și adaugă:'
-          email_outro: Ați primit această notificare deoarece urmăriți %{author_nickname}. Puteți înceta să primiți notificări urmând linkul anterior.
-          email_subject: Noua propunere "%{resource_title}" de %{author_nickname}
+          email_intro: '%{author_name} %{author_nickname}, pe care îl urmărești, a publicat o nouă propunere denumită "%{resource_title}". Verifică propunerea și colaborează:'
+          email_outro: Ai primit această notificare deoarece urmărești %{author_nickname}. Poți înceta să primești notificări urmând linkul anterior.
+          email_subject: O nouă propunere "%{resource_title}" de la %{author_nickname}
           notification_title: Propunerea <a href="%{resource_path}">%{resource_title}</a> a fost publicată de <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
-          email_intro: Propunerea "%{resource_title}" a fost adăugată la "%{participatory_space_title}" pe care o urmărești.
-          email_outro: Ați primit această notificare deoarece urmați ""%{participatory_space_title}". Puteți înceta să primiți notificări urmând linkul anterior.
-          email_subject: Noua propunere "%{resource_title}" a fost adăugată la %{participatory_space_title}
+          email_intro: Propunerea "%{resource_title}" a fost adăugată la "%{participatory_space_title}", spațiu participativ pe care îl urmărești.
+          email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula aceste notificări de la link-ul anterior.
+          email_subject: O nouă propunere "%{resource_title}" a fost adăugată la %{participatory_space_title}
           notification_title: Propunerea <a href="%{resource_path}">%{resource_title}</a> a fost adăugată la %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Propunerea ta "%{resource_title}" a fost respinsă. Poți citi răspunsul în această pagină:'
-            email_outro: Ați primit această notificare deoarece sunteți un autor al "%{resource_title}".
+            email_outro: Ai primit această notificare deoarece ești autor al propunerii "%{resource_title}".
             email_subject: Propunerea ta a fost respinsă
             notification_title: Propunerea ta <a href="%{resource_path}">%{resource_title}</a> a fost respinsă.
           follower:
-            email_intro: 'Propunerea "%{resource_title}" a fost respinsă. Puteţi citi răspunsul în această pagină:'
+            email_intro: 'Propunerea "%{resource_title}" a fost respinsă. Poţi citi răspunsul în această pagină:'
             email_outro: Ați primit această notificare deoarece urmăriți „%{resource_title}”. O puteți anula de la link-ul anterior.
             email_subject: O propunere pe care o urmărești a fost respinsă
             notification_title: Propunerea <a href="%{resource_path}">%{resource_title}</a> a fost respinsă.
