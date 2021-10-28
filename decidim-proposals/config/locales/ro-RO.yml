@@ -229,60 +229,60 @@ ro:
             email_subject: Cineva a trimis o notă la propunerea %{resource_title}.
             notification_title: Cineva a lăsat o notă la propunerea <a href="%{resource_path}">%{resource_title}</a>. Verifică detaliile în <a href="%{admin_proposal_info_path}">panoul de administrare</a>
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} a fost acceptat să acceseze ca contributor al proiectului de colaborare <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Ați primit această notificare deoarece sunteți colaborator al <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} a fost acceptat pentru a accesa ca contributor al %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a fost <strong>acceptat să acceseze ca contributor</strong> al proiectului de colaborare <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} a fost acceptat drept colaborator pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Ai primit această notificare deoarece ești colaborator pentru <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "Utilizatorul %{requester_name} a fost acceptat drept colaborator pentru %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a fost <strong>acceptat drept colaborator</strong> pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} a fost respins pentru a accesa ca contributor al proiectului de colaborare <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Ați primit această notificare deoarece sunteți colaborator al <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} a fost respins pentru a accesa ca contributor al proiectului de colaborare %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a fost <strong>respins pentru a accesa ca contributor</strong> al proiectului de colaborare <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} a fost respins drept colaborator pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Ai primit această notificare deoarece ești colaborator pentru <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} a fost respins drept colaborator pentru schița colaborativă %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a fost <strong>respins drept colaborator</strong> pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} a solicitat acces ca contribuitor. Puteți <strong>accepta sau respinge cererea</strong> din pagina <a href="%{resource_path}">%{resource_title}</a> de proiect colaborativ.'
-          email_outro: Ați primit această notificare deoarece sunteți colaborator al <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} a solicitat acces drept colaborator. Poți <strong>accepta sau respinge cererea</strong> din pagina schiței colaborative <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Ai primit această notificare deoarece ești colaborator pentru <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} a solicitat acces pentru a contribui la %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a solicitat acces pentru a contribui la <a href="%{resource_path}">%{resource_title}</a> proiect colaborativ. <strong>acceptați sau respingeți cererea</strong>.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a solicitat acces pentru a contribui la schița colaborativă <a href="%{resource_path}">%{resource_title}</a>. Te rugăm <strong>acceptă sau respinge cererea</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Ați fost acceptat să accesați ca contribuitor al proiectului <a href="%{resource_path}">%{resource_title}</a> colaborativ.
-          email_outro: Ați primit această notificare deoarece ați solicitat să deveniți colaborator de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: Ați fost acceptat ca contribuitor de %{resource_title}.
-          notification_title: Ați fost <strong>acceptat să accesați ca contribuitor</strong> al proiectului colaborativ <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: Ai fost acceptat drept colaborator pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Ai primit această notificare deoarece ai solicitat să devii colaborator pentru <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Ai fost acceptat drept colaborator pentru %{resource_title}.
+          notification_title: Ai fost <strong>acceptat drept colaborator</strong> pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
-          email_intro: Ai fost respins să accesezi ca contributor al proiectului <a href="%{resource_path}">%{resource_title}</a> colaborativ.
-          email_outro: Ați primit această notificare deoarece ați solicitat să deveniți colaborator de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: Ați fost respins ca contribuitor de %{resource_title}.
-          notification_title: Ați fost <strong>respins pentru a accesa ca contribuitor</strong> din proiectul colaborativ <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: Ai fost respins drept colaborator pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Ai primit această notificare deoarece ai solicitat să devii colaborator pentru <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Ai fost respins drept colaborator pentru %{resource_title}.
+          notification_title: Ai fost <strong>respins drept colaborator</strong> pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a retras proiectul colaborativ <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Ați primit această notificare deoarece sunteți colaborator al <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} a retras proiectul de colaborare %{resource_title}."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>a retras</strong> proiectul colaborativ <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a retras schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Ai primit această notificare deoarece ești colaborator pentru <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} a retras schița colaborativă %{resource_title}."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>a retras</strong> schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
-          email_intro: 'Acum poți crea propuneri noi în %{participatory_space_title}! Începe să participi la această pagină:'
-          email_outro: Ați primit această notificare deoarece urmăriți %{participatory_space_title}. Puteți înceta să primiți notificări urmând linkul anterior.
-          email_subject: Propuneri disponibile acum în %{participatory_space_title}
-          notification_title: Acum puteți înainta <a href="%{resource_path}">noi propuneri</a> în <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Acum poți crea propuneri noi pentru %{participatory_space_title}! Participă acum la această pagină:'
+          email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți anula aceste notificări de la link-ul anterior.
+          email_subject: Propunerile sunt acum disponibile pentru %{participatory_space_title}
+          notification_title: Acum poți înainta <a href="%{resource_path}">noi propuneri</a> pentru <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'Puteți aproba propuneri în %{participatory_space_title}! Începeți să participați în această pagină:'
-          email_outro: Ați primit această notificare deoarece urmăriți %{participatory_space_title}. Puteți înceta să primiți notificări urmând linkul anterior.
-          email_subject: Propunerile de aprobare au început pentru %{participatory_space_title}
-          notification_title: Acum poți începe <a href="%{resource_path}">să aprobi propuneri</a> în <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Poți susține propuneri pentru %{participatory_space_title}! Participă acum la această pagină:'
+          email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți anula aceste notificări de la link-ul anterior.
+          email_subject: Poți acum susține propunerile primite pentru %{participatory_space_title}
+          notification_title: Poți acum începe <a href="%{resource_path}">să susții propuneri</a> pentru <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Propunerea ta "%{resource_title}" a fost acceptată. Poți citi răspunsul în această pagină:'
-            email_outro: Ați primit această notificare deoarece sunteți un autor al "%{resource_title}".
+            email_outro: Ai primit această notificare deoarece ești autor al propunerii "%{resource_title}".
             email_subject: Propunerea ta a fost acceptată
             notification_title: Propunerea ta <a href="%{resource_path}">%{resource_title}</a> a fost acceptată.
           follower:
-            email_intro: 'Propunerea "%{resource_title}" a fost acceptată. Puteţi citi răspunsul din această pagină:'
-            email_outro: Ați primit această notificare deoarece urmăriți „%{resource_title}”. O puteți anula de la link-ul anterior.
+            email_intro: 'Propunerea "%{resource_title}" a fost acceptată. Poți citi răspunsul în această pagină:'
+            email_outro: Ai primit această notificare deoarece urmărești „%{resource_title}”. Poți anula urmărirea de la link-ul anterior.
             email_subject: O propunere pe care o urmărești a fost acceptată
             notification_title: Propunerea <a href="%{resource_path}">%{resource_title}</a> a fost acceptată.
         proposal_evaluating:
           affected_user:
-            email_intro: 'Propunerea ta "%{resource_title}" este în curs de evaluare. Poți verifica un răspuns în această pagină:'
-            email_outro: Ați primit această notificare deoarece sunteți un autor al "%{resource_title}".
+            email_intro: 'Propunerea ta "%{resource_title}" este în curs de evaluare. Poți verifica răspunsul în această pagină:'
+            email_outro: Ai primit această notificare deoarece ești autor al propunerii "%{resource_title}".
             email_subject: Propunerea ta este în curs de evaluare
             notification_title: Propunerea ta <a href="%{resource_path}">%{resource_title}</a> este în curs de evaluare.
           follower:
