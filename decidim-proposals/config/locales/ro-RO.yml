@@ -167,40 +167,40 @@ ro:
             official_proposals_enabled: Modulul propuneri oficiale a fost activat
             participatory_texts_enabled: Modulul texte participative a fost activat
             participatory_texts_enabled_readonly: Nu se poate interacționa cu această setare dacă există deja propuneri. Te rugăm, creează o nouă componenta 'Propuneri' dacă dorești să activezi această funcționalitate. Dacă vrei să o dezactivezi mergi în meniul `Texte participative`și renunță la toate propunerile importate.
-            proposal_answering_enabled: Propunere de răspuns activată
-            proposal_edit_before_minutes: Propunerile pot fi editate de către autori înainte de expirarea acestor mai multe minute
-            proposal_edit_time: Modificare propunere
+            proposal_answering_enabled: Modulul de răspuns pentru propuneri a fost activat
+            proposal_edit_before_minutes: Propunerile pot fi editate de către autori până la expirarea termenului definit mai jos în minute
+            proposal_edit_time: Durata editării propunerii
             proposal_edit_time_choices:
               infinite: Permite editarea propunerilor pentru o perioadă infinită de timp
               limited: Permite editarea propunerilor într-un anumit interval de timp
-            proposal_length: Lungimea maximă a corpului propunerii
-            proposal_limit: Limita propunerii per participant
-            proposal_wizard_step_1_help_text: Asistentul propunerii „Creează” pas ajutând textul
-            proposal_wizard_step_2_help_text: Expertul propunerii „Comparație” ajută textul
-            proposal_wizard_step_3_help_text: Asistentul propunerii „Finalizare” ajută textul
-            proposal_wizard_step_4_help_text: Asistentul propunerii „Publici” pas ajutător text
-            resources_permissions_enabled: Permisiunile de acțiuni pot fi setate pentru fiecare propunere
+            proposal_length: Lungimea maximă în caractere a conținutului propunerii
+            proposal_limit: Limită de propuneri pe participant
+            proposal_wizard_step_1_help_text: Text de ajutor pentru pasul „Creează” din crearea unei propuneri
+            proposal_wizard_step_2_help_text: Text de ajutor pentru pasul „Compară” din crearea unei propuneri
+            proposal_wizard_step_3_help_text: Text de ajutor pentru pasul „Finalizează” din crearea unei propuneri
+            proposal_wizard_step_4_help_text: Text de ajutor pentru pasul „Publică” din crearea unei propuneri
+            resources_permissions_enabled: Pentru fiecare propunere pot fi setate permisiuni pentru acțiuni
             scope_id: Domeniu de interes
-            scopes_enabled: Domenii de interes activate
-            threshold_per_proposal: Pragul per propunere
-            vote_limit: Limită suport per participant
+            scopes_enabled: Domeniile de interes au fost activate
+            threshold_per_proposal: Prag per propunere
+            vote_limit: Limită de voturi pe participant
           step:
-            amendment_creation_enabled: Crearea de amendamente activată
-            amendment_creation_enabled_help: Participantul poate modifica propuneri.
-            amendment_promotion_enabled: Modificare promoție activată
-            amendment_promotion_enabled_help: Autorii mandatelor vor putea promova propunerea emendul respins.
-            amendment_reaction_enabled: Reacție de modificare activată
-            amendment_reaction_enabled_help: Autorii propunerii vor putea accepta sau respinge indemnizațiile participanților.
-            amendments_visibility: Amendamente de vizibilitate
+            amendment_creation_enabled: Crearea de amendamente a fost activată
+            amendment_creation_enabled_help: Participantul poate face amendamente la propuneri.
+            amendment_promotion_enabled: Opțiunea de a promova amendamente a fost activată
+            amendment_promotion_enabled_help: Autorii amendamentelor vor putea promova drept propunere amendamentul respins.
+            amendment_reaction_enabled: Opțiunea de reacții la amendamente a fost activată
+            amendment_reaction_enabled_help: Autorii propunerii vor putea accepta sau respinge amendamentele participanților.
+            amendments_visibility: Vizibilitatea amendamentelor
             amendments_visibility_choices:
               all: Amendamentele sunt vizibile pentru toţi
               participants: Amendamentele sunt vizibile doar autorilor acestora
-            amendments_visibility_help: Dacă opţiunea "Amendamentele sunt vizibile doar autorilor lor" este selectată, participantul trebuie logat pentru a vedea modificările făcute.
+            amendments_visibility_help: Dacă este selectată opţiunea "Amendamentele sunt vizibile doar autorilor lor", participantul trebuie să fie conectat pe platformă pentru a vedea amendamentele primite.
             announcement: Anunţ
-            answers_with_costs: Activează costurile pentru răspunsurile la propuneri
+            answers_with_costs: Activează opțiunea de cost în răspunsurile la propuneri
             automatic_hashtags: Hashtag-uri adăugate la toate propunerile
             comments_blocked: Comentarii blocate
-            creation_enabled: Crearea propunerii este activată
+            creation_enabled: Crearea de propuneri a fost activată
             default_sort_order: Mod implicit de sortare a propunerilor
             default_sort_order_help: Implicit înseamnă că dacă este activată votarea, propunerile vor fi afișate aleatoriu, și dacă votarea este blocată, atunci vor fi sortate în funcție de cele mai multe voturi.
             default_sort_order_options:
@@ -212,22 +212,22 @@ ro:
               random: Aleator
               recent: Recente
               with_more_authors: Cu mai mulți autori
-            endorsements_blocked: Aprobări blocate
-            endorsements_enabled: Aprobări activate
-            proposal_answering_enabled: Propunere de răspuns activată
+            endorsements_blocked: Susțineri blocate
+            endorsements_enabled: Susțineri activate
+            proposal_answering_enabled: Modulul de răspuns pentru propuneri a fost activat
             publish_answers_immediately: Publică imediat răspunsurile la propunere
             suggested_hashtags: Hashtag-uri sugerate participanţilor pentru noi propuneri
-            votes_blocked: Suportă blocată
-            votes_enabled: Suportă activată
-            votes_hidden: Suportă ascunse (dacă sunt activate suport, verificarea va ascunde numărul de suporturi)
+            votes_blocked: Votare blocată
+            votes_enabled: Votare activată
+            votes_hidden: Voturi ascunse (dacă votarea este activată, bifarea acestei opțiuni va ascunde numărul de voturi primite)
     events:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Cineva a lăsat o notă cu privire la propunerea "%{resource_title}". Verifică la <a href="%{admin_proposal_info_url}">panoul de administrare</a>
-            email_outro: Ați primit această notificare, deoarece puteți aprecia propunerea.
+            email_intro: Cineva a lăsat o notă cu privire la propunerea "%{resource_title}". Verifică detaliile în <a href="%{admin_proposal_info_url}">panoul de administrare</a>
+            email_outro: Ai primit această notificare pentru a putea evalua propunerea.
             email_subject: Cineva a trimis o notă la propunerea %{resource_title}.
-            notification_title: Cineva a lăsat o notă despre propunerea <a href="%{resource_path}">%{resource_title}</a>. Verifică la <a href="%{admin_proposal_info_path}">panoul de administrare</a>
+            notification_title: Cineva a lăsat o notă la propunerea <a href="%{resource_path}">%{resource_title}</a>. Verifică detaliile în <a href="%{admin_proposal_info_path}">panoul de administrare</a>
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} a fost acceptat să acceseze ca contributor al proiectului de colaborare <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Ați primit această notificare deoarece sunteți colaborator al <a href="%{resource_path}">%{resource_title}</a>.
