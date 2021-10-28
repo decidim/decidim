@@ -38,6 +38,10 @@ module Decidim
           metric_operation.manager_class = "Decidim::Budgets::Metrics::BudgetFollowersMetricMeasure"
         end
       end
+
+      initializer "decidim_budgets.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
     end
   end
 end

@@ -14,6 +14,10 @@ module Decidim
         resources :pages, only: [:show], controller: :application
         root to: "application#show"
       end
+
+      initializer "decidim_pages.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
     end
   end
 end

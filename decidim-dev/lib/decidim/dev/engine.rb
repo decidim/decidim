@@ -12,6 +12,10 @@ module Decidim
           ActionController::Base.include Decidim::Dev::NeedsDevelopmentTools
         end
       end
+
+      initializer "decidim_dev.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
     end
   end
 end
