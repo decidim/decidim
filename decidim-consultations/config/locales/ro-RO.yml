@@ -102,7 +102,7 @@ ro:
         edit:
           update: Actualizare
         form:
-          slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică această consultare. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+          slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică această consultare. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
           title: Informaţii generale
         index:
           not_published: Nepublicat
