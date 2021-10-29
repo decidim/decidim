@@ -69,7 +69,6 @@ PATH
     decidim-core (0.26.0.dev)
       active_link_to (~> 1.0)
       acts_as_list (~> 0.9)
-      anchored (~> 1.1)
       batch-loader (~> 1.2)
       browser (~> 2.7)
       carrierwave (~> 2.2.1)
@@ -275,7 +274,6 @@ GEM
       activerecord (>= 3.0)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
-    anchored (1.1.0)
     ast (2.4.2)
     axe-core-api (4.2.1)
       capybara
@@ -872,4 +870,4 @@ RUBY VERSION
    ruby 2.7.1p83
 
 BUNDLED WITH
-   2.2.18
+   2.2.19
