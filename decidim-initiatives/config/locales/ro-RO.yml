@@ -4,9 +4,9 @@ ro:
       initiative:
         decidim_user_group_id: Autor
         description: Descriere
-        offline_votes: Semnături interpersonale
+        offline_votes: Semnături în persoană
         offline_votes_for_scope: Semnături personale pentru %{scope_name}
-        scope_id: Domeniu
+        scope_id: Domeniu de interes
         signature_end_date: Sfârșitul perioadei de colectare a semnăturilor
         signature_start_date: Începutul perioadei de colectare a semnăturilor
         signature_type: Tip colecție semnătură
@@ -30,7 +30,7 @@ ro:
         extra_fields_legal_information: Informații juridice privind colectarea datelor cu caracter personal
         minimum_committee_members: Numărul minim de membri ai comitetului
         online_signature_enabled: Semnătură online activată
-        only_global_scope_enabled: Permiteți numai crearea de inițiative la nivel global
+        only_global_scope_enabled: Permiteți numai crearea de inițiative la nivel general
         promoting_committee_enabled: Activați comitetul de promovare
         title: Titlu
         undo_online_signatures_enabled: Permite participanților să își anuleze semnăturile online
@@ -55,11 +55,11 @@ ro:
   activerecord:
     models:
       decidim/initiative:
-        one: Inactiv
+        one: Inițiativă
         few: Initații
         other: Initații
       decidim/initiative_comittee:
-        one: Compusul
+        one: Comitet
         few: Grupuri
         other: Grupuri
       decidim/initiative_vote:
@@ -77,19 +77,19 @@ ro:
           state_eq:
             label: Județ
             values:
-              accepted: Insuficiente semnături
+              accepted: Semnături suficiente
               created: Creat
-              discarded: Renunță
+              discarded: Respins
               published: Publicat
               rejected: Semnături insuficiente
               validating: Validarea tehnică
           type_id_eq:
             label: Tip
         search_placeholder:
-          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Căutați în %{collection} după titlu, descriere, ID sau numele autorului.
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Caută %{collection} după titlu, descriere, ID sau numele autorului.
       menu:
         attachments: Atașamente
-        committee_members: Membrii Comitetului
+        committee_members: Membrii comitetului
         components: Componente
         information: Informații
         initiatives: Inițiative
@@ -106,7 +106,7 @@ ro:
             title: Inițiative
         initiatives_type_scope:
           fields:
-            scope: Domeniu
+            scope: Domeniu de interes
             supports_required: Semnături necesare
           name: Domeniul de aplicare al inițiativei
         initiatives_types:
@@ -126,7 +126,7 @@ ro:
             initiative_title: Titlul inițiativei
             name_and_surname: Nume și prenume
             postal_code: Cod poștal
-            scope: Domeniu
+            scope: Domeniu de interes
             time_and_date: Ora și data
             timestamp: Ora
       titles:
@@ -136,41 +136,41 @@ ro:
       initiatives:
         admin:
           initiative_sent_to_technical_validation:
-            email_intro: Inițiativa „%{resource_title}” a fost trimisă la validarea tehnică. Verificați la <a href="%{admin_initiative_url}">panoul de administrare</a>
-            email_outro: Ați primit această notificare deoarece sunteți un administrator al platformei.
-            email_subject: Inițiativa „%{resource_title}” a fost trimisă la validare tehnică.
-            notification_title: Inițiativa „%{resource_title}” a fost trimisă la validarea tehnică. Verificați la <a href="%{admin_initiative_path}">panoul de administrare</a>
+            email_intro: Inițiativa „%{resource_title}” a fost trimisă la validarea tehnică. Verifică-o din <a href="%{admin_initiative_url}">panoul de administrare</a>
+            email_outro: Ai primit această notificare deoarece ești un administrator al platformei.
+            email_subject: Inițiativa „%{resource_title}” a fost trimisă spre validare tehnică.
+            notification_title: Inițiativa „%{resource_title}” a fost trimisă spre validarea tehnică. O poți verifica din <a href="%{admin_initiative_path}">panoul de administrare</a>
         initiative_extended:
           email_intro: Data de încheiere a semnăturilor pentru inițiativa %{resource_title} a fost extinsă!
-          email_outro: Ați primit această notificare deoarece urmăriți %{resource_title}. Puteți înceta să primiți notificări urmând linkul anterior.
-          email_subject: Semnăturile inițiativei au fost prelungite!
-          notification_title: Data de încheiere a semnăturilor pentru inițiativa <a href="%{resource_path}">%{resource_title}</a> a fost extinsă.
+          email_outro: Ai primit această notificare deoarece urmărești %{resource_title}. Poți opri notificările accesând linkul anterior.
+          email_subject: Termenul pentru semnarea inițiativei a fost prelungit!
+          notification_title: Data de încheiere a semnăturilor pentru inițiativa <a href="%{resource_path}">%{resource_title}</a> a fost prelungită.
         initiative_sent_to_technical_validation:
-          email_intro: Inițiativa "%{resource_title}" a fost trimisă pentru validare tehnică. Puteți verifica pe <a href="%{admin_initiative_url}">panoul de administrare</a>
-          email_outro: Ați primit această notificare deoarece sunteți administrator al platformei.
-          email_subject: Inițiativa "%{resource_title}" a fost trimisă pentru validare tehnică.
-          notification_title: Inițiativa "%{resource_title}" a fost trimisă pentru validare tehnică. Puteți verifica pe <a href="%{admin_initiative_path}">panoul de administrare</a>
+          email_intro: Inițiativa "%{resource_title}" a fost trimisă pentru validare tehnică. O poți verifica din <a href="%{admin_initiative_url}">panoul de administrare</a>
+          email_outro: Ai primit această notificare deoarece ești administrator al platformei.
+          email_subject: Inițiativa "%{resource_title}" a fost trimisă spre validare tehnică.
+          notification_title: Inițiativa "%{resource_title}" a fost trimisă spre validare tehnică. O poți verifica din <a href="%{admin_initiative_path}">panoul de administrare</a>
         milestone_completed:
           affected_user:
             email_intro: Inițiativa ta %{resource_title} a obținut %{percentage}% semnături!
-            email_outro: Ați primit această notificare deoarece sunteți autorul inițiativei %{resource_title}.
-            email_subject: Piatră nouă finalizată!
+            email_outro: Ai primit această notificare deoarece ești autorul inițiativei %{resource_title}.
+            email_subject: Etapă nouă atinsă!
             notification_title: Inițiativa ta <a href="%{resource_path}">%{resource_title}</a> a obținut %{percentage}% de semnături.
           follower:
             email_intro: Inițiativa %{resource_title} a obținut %{percentage}% semnături!
-            email_outro: Ați primit această notificare deoarece urmăriți %{resource_title}. Puteți înceta să primiți notificări urmând linkul anterior.
-            email_subject: Piatră nouă finalizată!
+            email_outro: Ai primit această notificare deoarece urmărești %{resource_title}. Poți opri notificările accesând linkul anterior.
+            email_subject: Etapă nouă atinsă!
             notification_title: Inițiativa <a href="%{resource_path}">%{resource_title}</a> a obținut %{percentage}% de semnături.
         support_threshold_reached:
           email_intro: Inițiativa %{resource_title} a atins pragul de semnături
-          email_outro: Ați primit această notificare deoarece sunteți un administrator al platformei.
+          email_outro: Ai primit această notificare deoarece ești administrator al platformei.
           email_subject: Pragul de semnături atins
           notification_title: Inițiativa <a href="%{resource_path}">%{resource_title}</a> a atins pragul de semnături
     gamification:
       badges:
         initiatives:
           conditions:
-            - Mergeți la spațiul de participare al Intiativelor
+            - Mergeți la spațiul de participare al inițiativelor
             - Urmează pașii necesari pentru a crea o nouă inițiativă
           description: Această insignă este acordată atunci când lansezi noi inițiative, colaborând cu alții pentru a o realiza.
           description_another: Acest participant a publicat %{score} inițiative.
@@ -198,18 +198,18 @@ ro:
             description: Descriere
             initiative_votes_count: Numărul de voturi
             initiatives: Inițiative
-            state: Județ
+            state: Status
         committee_requests:
           index:
-            approve: Aprobați
-            confirm_revoke: Ești sigur(ă)?
+            approve: Aprobă
+            confirm_revoke: Sigur dorești să?
             invite_to_committee_help: Distribuie acest link pentru a invita alți participanți la comitetul promotorilor
             no_members_yet: Nu există membri în comitetul promotorilor
-            revoke: Revoke
-            title: Membrii Comitetului
+            revoke: Revocă
+            title: Membrii comitetului
         content_blocks:
           highlighted_initiatives:
-            max_results: Cantitatea maximă de elemente de afișat
+            max_results: Număr maxim de elemente care vor fi afișate
             order:
               default: Implicit (recent)
               label: 'Ordonare element după:'
