@@ -2,10 +2,10 @@ ro:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Grupuri de lucru asemănătoare
+        assemblies_ids: Grupuri de lucru asociate
         available_slots: Locuri disponibile
         banner_image: Imagine pentru banner
-        consultations_ids: Consultări conexe
+        consultations_ids: Consultări asociate
         copy_categories: Copiază categoriile
         copy_components: Copiază componentele
         copy_features: Copiază funcționalitățile
@@ -17,7 +17,7 @@ ro:
         location: Locație
         main_logo: Logo principal
         objectives: Obiective
-        participatory_processes_ids: Procese participative conexe
+        participatory_processes_ids: Procese participative asociate
         promoted: Evidenţiat
         published_at: Publicat la
         registration_terms: Condiții de înscriere
@@ -57,7 +57,7 @@ ro:
       conference_speaker:
         affiliation: Afiliere
         avatar: Avatar
-        conference_meeting_ids: Întâlniri similare
+        conference_meeting_ids: Întâlniri asociate
         full_name: Numele complet
         personal_url: Url personal
         position: Poziție
@@ -534,9 +534,9 @@ ro:
         details: Detalii
         introduction: Introducere
         objectives: Obiective
-        related_assemblies: Asambluri asemănătoare
-        related_consultations: Consultări conexe
-        related_participatory_processes: Procese participative conexe
+        related_assemblies: Grupuri de lucru asociate
+        related_consultations: Consultări asociate
+        related_participatory_processes: Procese participative asociate
     events:
       conferences:
         conference_registration_confirmed:
