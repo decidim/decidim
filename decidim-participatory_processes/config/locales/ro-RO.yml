@@ -22,7 +22,7 @@ ro:
         participatory_structure: Cum se decide
         promoted: Promovat
         published_at: Publicat la
-        related_process_ids: Procese conexe
+        related_process_ids: Procese asociate
         scope_id: Domeniu
         scope_type_max_depth_id: Adâncimea filtrului de aplicare
         scopes_enabled: Domeniu de aplicare activat
@@ -43,7 +43,7 @@ ro:
         hero_image: Imagine
         local_area: Zona organizației
         meta_scope: Metadate privind domeniul de interes
-        participatory_process_ids: Procese conexe
+        participatory_process_ids: Procese asociate
         participatory_scope: Ce se decide
         participatory_structure: Cum se decide
         target: Cine participă
@@ -321,7 +321,7 @@ ro:
         title: Procese participative
     participatory_process:
       show:
-        related_assemblies: Organizații relaționate
+        related_assemblies: Grupuri de lucru asociate
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -385,7 +385,7 @@ ro:
             images: Imagini
             metadata: Metadate
             other: Altele
-            related_processes: Procese conexe
+            related_processes: Procese asociate
             scope_type_max_depth_help: Limitați adâncimea filtrului de domeniu; Filtrul se va afișa de la general la tipul selectat.
             select_an_area: Selectați o zonă
             select_process_group: Selectați un grup de procese
@@ -453,7 +453,7 @@ ro:
         participatory_scope: Ce se decide
         participatory_structure: Cum se decide
         private_space: Acesta este un proces privat
-        related_processes: Procese conexe
+        related_processes: Procese asociate
         scope: Domeniu de interes
         start_date: Data de început
         target: Cine participă
