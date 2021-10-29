@@ -17,9 +17,9 @@ ro:
       meeting:
         address: Adresa
         available_slots: Sloturi disponibile pentru această ședință
-        customize_registration_email: Personalizați e-mail de înregistrare
+        customize_registration_email: Personalizați e-mail-ul de înregistrare
         decidim_category_id: Categorie
-        decidim_scope_id: Domeniu
+        decidim_scope_id: Domeniu de interes
         decidim_user_group_id: Grup de utilizatori
         description: Descriere
         end_time: Ora de încheiere
@@ -38,7 +38,7 @@ ro:
         show_embedded_iframe: Arată iframe încorporat pentru acest URL
         start_time: Ora de începere
         title: Titlu
-        transparent: Transparență
+        transparent: Transparentă
         type_of_meeting: Tip
     errors:
       models:
@@ -112,8 +112,8 @@ ro:
           success: Întâlnire duplicată cu succes.
         new:
           copy: Copiază
-          select: Selectați datele pe care doriți să le duplicați
-          title: Întâlnire duplicată
+          select: Selectați datele pe care le dorești duplicate
+          title: Duplicarea reuniunii
     components:
       meetings:
         actions:
@@ -130,7 +130,7 @@ ro:
             enable_pads_creation: Activează crearea de pad-uri
             maps_enabled: Hărți activate
             registration_code_enabled: Cod de înregistrare activat
-            resources_permissions_enabled: Permisiunile de acțiuni pot fi setate pentru fiecare întâlnire
+            resources_permissions_enabled: Drepturile de acțiune pot fi setate pentru fiecare întâlnire
             scope_id: Domeniu de interes
             scopes_enabled: Domenii de interes activate
             terms_and_conditions_url_for_meeting_creators: URL condiții pentru întrunirea creatorilor
@@ -144,56 +144,60 @@ ro:
         meeting_closed:
           affected_user:
             email_intro: 'Întâlnirea ta „%{resource_title}” a fost închisă. Poți citi concluziile din pagina sa:'
-            email_outro: Ați primit această notificare deoarece ați organizat întâlnirea "%{resource_title}".
+            email_outro: Ai primit această notificare deoarece aii organizat întâlnirea "%{resource_title}".
             email_subject: Întâlnirea "%{resource_title}" a fost închisă
             notification_title: Ședința <a href="%{resource_path}">%{resource_title}</a> a fost închisă.
           follower:
             email_intro: 'Întâlnirea "%{resource_title}" a fost închisă. Poți citi concluziile din pagina sa:'
-            email_outro: Ați primit această notificare deoarece urmăriți ședința „%{resource_title}”. O puteți anula de la link-ul anterior.
+            email_outro: Ai primit această notificare deoarece urmărești ședința „%{resource_title}”. Poți opri notificările accesând link-ul anterior.
             email_subject: Întâlnirea "%{resource_title}" a fost închisă
             notification_title: Ședința <a href="%{resource_path}">%{resource_title}</a> a fost închisă.
         meeting_created:
+          button_text: Înregistrează-te pentru ședință
           email_intro: Întâlnirea "%{resource_title}" a fost adăugată la "%{participatory_space_title}" pe care o urmărești.
-          email_outro: Ați primit această notificare deoarece urmăriți „%{participatory_space_title}”. O puteți anula de la link-ul anterior.
+          email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți opri notificările accesând link-ul anterior.
           email_subject: Ședință nouă adăugată la %{participatory_space_title}
           notification_title: Întâlnirea <a href="%{resource_path}">%{resource_title}</a> a fost adăugată la %{participatory_space_title}
         meeting_registration_confirmed:
-          notification_title: Înregistrarea dvs. pentru ședința <a href="%{resource_url}">%{resource_title}</a> a fost confirmată. Codul dvs. de înregistrare este %{registration_code}.
+          notification_title: Înregistrarea ta la ședința <a href="%{resource_url}">%{resource_title}</a> a fost confirmată. Codul tău de înregistrare este %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Sloturile alocate pentru întâlnirea "%{resource_title}" sunt de peste %{percentage}%.
-          email_outro: Ați primit această notificare deoarece sunteți un administrator al spațiului participativ al ședinței.
+          email_outro: Ai primit această notificare deoarece ești administrator al spațiului participativ al ședinței.
           email_subject: Sloturile alocate pentru întâlnirea "%{resource_title}" sunt de peste %{percentage}%
           notification_title: Sloturile alocate pentru ședința de <a href="%{resource_path}">%{resource_title}</a> sunt de peste %{percentage}%.
         meeting_updated:
-          email_intro: 'Întâlnirea "%{resource_title}" a fost actualizată. Puteți citi noua versiune din pagina sa:'
-          email_outro: Ați primit această notificare deoarece urmăriți ședința „%{resource_title}”. O puteți anula de la link-ul anterior.
+          email_intro: 'Întâlnirea "%{resource_title}" a fost actualizată. Poți citi noua versiune din pagina sa:'
+          email_outro: Ai primit această notificare deoarece urmărești întâlnirea „%{resource_title}”. O puteți anula de la link-ul anterior.
           email_subject: Întâlnirea „%{resource_title}” a fost actualizată
           notification_title: Ședința <a href="%{resource_path}">%{resource_title}</a> a fost actualizată.
         registration_code_validated:
-          email_intro: Codul dvs. de înregistrare "%{registration_code}" pentru întâlnirea "%{resource_title}" a fost validat.
-          email_outro: Ați primit această notificare deoarece codul dvs. de înregistrare pentru ședința „%{resource_title}” a fost validat.
-          email_subject: Codul dvs. de înregistrare "%{registration_code}" pentru întâlnirea "%{resource_title}" a fost validat
-          notification_title: Codul dvs. de înregistrare "%{registration_code}" pentru ședința <a href="%{resource_path}">%{resource_title}</a> a fost validat.
+          email_intro: Codul tău de înregistrare "%{registration_code}" pentru întâlnirea "%{resource_title}" a fost validat.
+          email_outro: Ai primit această notificare deoarece codul tău de înregistrare pentru întâlnirea „%{resource_title}” a fost validat.
+          email_subject: Codul tău de înregistrare "%{registration_code}" pentru întâlnirea "%{resource_title}" a fost validat
+          notification_title: Codul tău de înregistrare "%{registration_code}" pentru ședința <a href="%{resource_path}">%{resource_title}</a> a fost validat.
         registrations_enabled:
-          email_intro: 'Întâlnirea "%{resource_title}" a permis înregistrări. Vă puteți înregistra pe pagina sa:'
-          email_outro: Ați primit această notificare deoarece urmăriți ședința „%{resource_title}”. O puteți anula de la link-ul anterior.
+          email_intro: 'Întâlnirea "%{resource_title}" a permis înregistrări. Te poți înregistra pe pagina sa:'
+          email_outro: Ai primit această notificare deoarece te-ai înregistrat pentru întâlnirea „%{resource_title}”. O poți anula de la link-ul anterior.
           email_subject: Întâlnirea "%{resource_title}" a permis înregistrări.
           notification_title: Întâlnirea <a href="%{resource_path}">%{resource_title}</a> a permis înregistrări.
         upcoming_meeting:
           email_intro: Întâlnirea „%{resource_title}” va începe în mai puțin de 48 de ore.
-          email_outro: Ați primit această notificare deoarece urmăriți ședința „%{resource_title}”. O puteți anula de la link-ul anterior.
+          email_outro: Ai primit această notificare deoarece te-ai înregistrate pentru întâlnirea „%{resource_title}”. O puteți anula de la link-ul anterior.
           email_subject: Întâlnirea „%{resource_title}” va începe în mai puțin de 48 de ore.
           notification_title: Ședința <a href="%{resource_path}">%{resource_title}</a> va începe în mai puțin de 48 de ore.
+    forms:
+      meetings:
+        attendees_count_help_text: Nu uita să incluzi numărul total de participanți la evenimentul tău. Indiferent dacă întâlnirea este în persoană, hibridă sau online, este important să ştim câţi oameni sunt implicaţi.
     gamification:
       badges:
         attended_meetings:
           conditions:
             - Înregistrează-te la întâlnirile la care vrei să participi
-          description: Această insignă este acordată atunci când participați la mai multe reuniuni față în față.
+          description: Această insignă este acordată atunci când participi la mai multe întâlniri față în față.
           description_another: Acest participant a participat la %{score} întâlniri.
           description_own: Ai participat la %{score} întâlniri.
-          name: Participanții la reuniuni
-          next_level_in: Participă încă %{score} întâlniri pentru a atinge următorul nivel!
+          name: Întâlniri la care ai participat
+          next_level_in: Participă la încă %{score} întâlniri pentru a atinge următorul nivel!
           unearned_another: Acest participant nu a participat încă la nicio întâlnire.
           unearned_own: Încă nu ai participat la nicio ședință.
     meetings:
@@ -201,17 +205,17 @@ ro:
         agenda: Agendă
         attachment_collections: Dosare
         attachments: Atașamente
-        close: Inchide
-        confirm_destroy: Ești sigur(ă) că vrei să ştergi acestă întâlnire?
+        close: Închide
+        confirm_destroy: Sigur dorești să ştergi acestă întâlnire?
         destroy: Ștergere
         edit: Editare
         invalid_destroy:
           proposals_count:
-            one: 'Întâlnirea nu poate fi eliminată deoarece are %{count} propunere asociată:'
-            few: 'Întâlnirea nu poate fi eliminată deoarece are %{count} propunere asociată:'
+            one: 'Întâlnirea nu poate fi eliminată deoarece are %{count} propuneri asociate:'
+            few: 'Întâlnirea nu poate fi eliminată deoarece are %{count} propuneri asociate:'
             other: 'Întâlnirea nu poate fi eliminată deoarece are %{count} propuneri asociate acestuia:'
         manage_poll: Gestionare sondaj
-        new: Ședință nouă
+        new: Noua întâlnire
         preview: Previzualizare
         registrations: Înregistrări
         title: Acțiuni
@@ -253,7 +257,7 @@ ro:
           registrations: Înregistrări
         invite_join_meeting_mailer:
           invite:
-            decline: Refuzați invitația
+            decline: Refuză invitația
             invited_you_to_join_a_meeting: "%{invited_by} te-a invitat să te alături unei întâlniri la %{application}. Poți să o refuzi sau să o accepți prin intermediul linkurilor de mai jos."
             join: Alătură-te ședinței '%{meeting_title}'
         invites:
@@ -266,7 +270,7 @@ ro:
             invite: Invită
             invite_explanation: Participantul va fi invitat să se alăture întâlnirii şi organizaţiei.
             non_user: Participant neexistent
-            select_user: Selectați un participant
+            select_user: Selecteză un participant
           index:
             filter:
               accepted: Acceptat
@@ -280,7 +284,7 @@ ro:
             search: Caută
         meeting_closes:
           edit:
-            close: Inchide
+            close: Închide
             title: Închide ședința
         meetings:
           close:
@@ -288,7 +292,7 @@ ro:
             success: Ședință închisă cu succes
           create:
             invalid: A apărut o problemă la crearea acestei întâlniri
-            success: Întâlnirea a fost creată. Observați că acest lucru nu a fost publicat încă, trebuie să îl publicați manual.
+            success: Întâlnirea a fost creată. Țineți cont că publicarea nu este automată, trebuie să o publicați manual.
           destroy:
             invalid:
               proposals_count:
@@ -302,7 +306,7 @@ ro:
           form:
             address_help: 'Adresă: utilizată de Geocoder pentru a găsi locaţia'
             available_slots_help: Lăsați la 0 dacă aveți locuri nelimitate disponibile
-            disclaimer: 'Declinare: Prin utilizarea unui sistem extern de înregistrare, știți că organizatorii %{organization} nu sunt responsabili pentru datele furnizate de utilizatori serviciului extern.'
+            disclaimer: 'Declinare: Prin utilizarea unui sistem extern de înregistrare, acceptați faptul că organizatorii %{organization} nu sunt responsabili pentru datele furnizate de utilizatorii serviciului extern.'
             location_help: 'Locație: mesaj direcționat către utilizatori care implică locul la care să se întâlnească'
             location_hints_help: 'Sugestii privind locaţia: informaţii suplimentare. Exemplu: podeaua clădirii dacă este o întâlnire interpersonală, sau dacă este vorba de o întâlnire online cu acces restrâns.'
             online_meeting_url_help: 'Link: permiteți participanților să se conecteze direct la întâlnirea dvs'
