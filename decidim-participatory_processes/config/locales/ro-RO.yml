@@ -363,7 +363,7 @@ ro:
             json: JSON
         participatory_process_copies:
           form:
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces. Acesta acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadate
@@ -372,7 +372,7 @@ ro:
         participatory_process_imports:
           form:
             document_legend: Adaugă un document
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces. Acesta acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Utilizează căi parţiale, nu adrese URL complete. Acestea acceptă litere, numere, cratime şi bare oblice, şi trebuie să înceapă cu o literă. Dacă nu este setat, butonul nu va fi afișat. Exemplu: %{url}'
@@ -389,7 +389,7 @@ ro:
             scope_type_max_depth_help: Limitează gradul de adâncime al filtrului privind domeniul; Filtrul afișează de la general la tipul de domeniu selectat.
             select_an_area: Selectează o zonă
             select_process_group: Selectează un grup de proces
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces. Acesta acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
             title: Informaţii generale
             visbility: Vizibilitate
       content_blocks:
