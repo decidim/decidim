@@ -4,7 +4,7 @@ ro:
       answer:
         description: Descriere
         image: Imagine
-        proposals: Propuneri conexe
+        proposals: Propuneri asociate
         title: Titlu
       election:
         description: Descriere
