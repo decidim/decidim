@@ -24,7 +24,7 @@ ro:
       component:
         name: Nume
         published_at: Publicat în
-        weight: Pondere în poziționare
+        weight: Ordinea în poziționare
       id: ID
       import:
         user_group_id: Creează importuri ca
@@ -111,14 +111,14 @@ ro:
         content: Conținut
         organization: Organizație
         show_in_footer: Afișează în subsol
-        slug: Adresă URL
+        slug: URL slug
         title: Titlu
-        weight: Pondere în poziționare
+        weight: Ordinea în poziționare
       static_page_topic:
         description: Descriere
         show_in_footer: Afișează în subsol
         title: Titlu
-        weight: Pondere în poziționare
+        weight: Ordinea în poziționare
       user_group_csv_verification:
         file: Fişier
     errors:
@@ -138,7 +138,7 @@ ro:
     attributes:
       decidim/static_page:
         content: Conținut
-        slug: Adresă URL
+        slug: URL slug
         title: Titlu
       doorkeeper/application:
         authorize_url: Autorizează URL
@@ -770,7 +770,7 @@ ro:
             colors_title: Culorile organizației
             colors_warning_html: Atenție! Schimbarea acestor culori poate distruge contrastele de accesibilitate. Poți verifica contrastul alegerii tale cu <a href="%{link}">WebAIM Contrast Checker</a> sau alte unelte similare.
             header_snippets_help: Utilizează acest câmp pentru a adăuga elemente în antetul HTML. Cea mai frecventă utilizare este integrarea de servicii terțe care necesită JavaScript sau CSS suplimentare. De asemenea, poți adăuga metataguri suplimentare la HTML. Reține că acest lucru va avea efect doar în paginile publice, nu și în secțiunea administrativă.
-          cta_button_path_help: 'Poți modifica adresa către care direcționează butonul Apel la acțiune de pe pagina principală. Aici utilizează căi parțiale, nu URL-uri complete. Se acceptă numai litere, numere, cratime și bare oblice și trebuie să înceapă cu o literă. Butonul „Apel la acțiune” este afișat pe prima pagină, între textul de întâmpinare și descriere. Exemplu: %{url}'
+          cta_button_path_help: 'Poți modifica adresa către care direcționează butonul Apel la acțiune de pe pagina principală. Aici poți utiliza doar căi parțiale, nu URL-uri complete. Se acceptă numai litere, numere, cratime și bare oblice și trebuie să înceapă cu o literă. Butonul „Apel la acțiune” este afișat pe prima pagină, între textul de întâmpinare și descriere. Exemplu: %{url}'
           cta_button_text_help: Poți înlocui textul butonului Apel la acțiune de pe pagina principală pentru fiecare limbă disponibilă în organizația ta. În cazul în care nu există alte limbi setate, se utilizează valoarea implicită. Butonul „Apel la acțiune” este afișat pe pagina principală, între textul de întâmpinare și descriere.
           homepage_appearance_title: Editează aspectul paginii principale
           homepage_highlighted_content_banner_title: Banner pentru conținut evidențiat
