@@ -12,7 +12,7 @@ ro:
         decidim_category_id: Categorie
         decidim_scope_id: Domeniu
         description: Descriere
-        proposal_ids: Propuneri conexe
+        proposal_ids: Propuneri asociate
         selected: Selectate pentru implementare
         title: Titlu
   activerecord:
