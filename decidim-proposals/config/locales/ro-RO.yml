@@ -721,12 +721,12 @@ ro:
           proposals: Propuneri
       create:
         error: A apărut o problemă la salvarea propunerii.
-        success: Propunere creată cu succes. Salvată ca Ciornă.
+        success: Propunere creată cu succes. Salvată drept ciornă.
       destroy_draft:
-        error: A apărut o eroare la ștergerea proiectului colaborativ.
-        success: Proiectul propunerii a fost şters cu succes.
+        error: A apărut o eroare la ștergerea ciornei colaborative.
+        success: Ciorna de propunere a fost ştearsă cu succes.
       last_activity:
-        new_proposal_at_html: "<span>Noua propunere la %{link}</span>"
+        new_proposal_at_html: "<span>Propunere nouă la %{link}</span>"
         proposal_updated_at_html: "<span>Propunere actualizată la %{link}</span>"
       models:
         collaborative_draft:
@@ -743,27 +743,27 @@ ro:
             official_proposal: Propunere oficială
             published_answer: Răspuns publicat
             published_at: Publicat la
-            scope: Domeniu
-            state: Status
+            scope: Domeniu de interes
+            state: Stadiu
             title: Titlu
             valuator: Evaluator
             valuators: Evaluatori
             votes: Voturi
       new:
-        limit_reached: Nu puteți crea propuneri noi deoarece ați depășit limita.
+        limit_reached: Nu poți crea propuneri noi deoarece ai depășit limita.
       participatory_text_proposal:
         alternative_title: Nu există niciun text participativ în acest moment
         buttons:
-          amend: Modifică
+          amend: Trimite un amendament
           comment: Comentariu
           comments: Comentarii
       proposal_votes:
         create:
-          error: A existat o problemă în sprijinirea propunerii.
+          error: A apăut o problemă în timpul votării propunerii.
       proposals:
         compare:
           continue: Continuă
-          no_similars_found: Bine lucrat! Nu s-au găsit propuneri similare
+          no_similars_found: Bine lucrat! Nu au fost găsite propuneri similare
           title: Propuneri similare
         complete:
           send: Trimite
@@ -774,24 +774,24 @@ ro:
             few: "%{count} propuneri"
             other: "%{count} propuneri"
         dynamic_map_instructions:
-          description: Coordonatele vor fi actualizate când apăsați pe butonul 'previzualizează'. Cu toate acestea, adresa nu se schimbă.
+          description: Coordonatele vor fi actualizate când apeși pe butonul 'previzualizează'. Cu toate acestea, adresa nu se schimbă.
           instructions: Poți muta punctul de pe hartă.
         edit:
           add_documents: Documente
           add_images: Fişier
-          attachment_legend: "(Opțional) Adăugați un atașament"
+          attachment_legend: "(Opțional) Adaugă un atașament"
           back: Înapoi
           delete_document: Șterge documentul
           delete_image: Șterge imaginea
           gallery_legend: "(Opțional) Adaugă o imagine la cardul de propunere"
-          select_a_category: Vă rugăm să selectaţi o categorie
+          select_a_category: Te rugăm selectează o categorie
           send: Trimite
-          title: Editare propunere
+          title: Editează propunerea
         edit_draft:
-          discard: Renunță la această schiță
-          discard_confirmation: Ești sigur(ă) că vrei să renunți la această schită de propunere?
-          send: Previzualizare
-          title: Editare proiect propunere
+          discard: Renunță la această ciornă
+          discard_confirmation: Sigur dorești să renunți la această ciornă de propunere?
+          send: Previzualizează
+          title: Editează ciorna de propunere
         filters:
           activity: Activitatea mea
           all: Toate
