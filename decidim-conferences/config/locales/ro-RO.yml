@@ -30,20 +30,20 @@ ro:
         signature: Semnătură
         signature_name: numele semnăturii
         slogan: Slogan
-        slug: Adresă URL
+        slug: URL slug
         start_date: Data de început
         title: Titlu
       conference_media_link:
         date: Dată
         link: Link
         title: Titlu
-        weight: Pondere
+        weight: Ordinea în poziționare
       conference_partner:
         link: Link
         logo: Logo
         name: Nume
         partner_type: Tipul partenerului
-        weight: Pondere
+        weight: Ordinea în poziționare
       conference_registration_invite:
         email: E-mail
         name: Nume
@@ -53,7 +53,7 @@ ro:
         description: Descriere
         price: Preț
         title: Titlu
-        weight: Pondere
+        weight: Ordinea în poziționare
       conference_speaker:
         affiliation: Afiliere
         avatar: Avatar
@@ -249,7 +249,7 @@ ro:
             price: Preț
             registrations_count: Numărul de înregistrări
             title: Titlu
-            weight: Poziția comenzii
+            weight: Ordinea în poziționare
           name: Tip de înregistrare
       partners:
         create:
@@ -332,7 +332,7 @@ ro:
       admin:
         conference_copies:
           form:
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest punct la această conferință. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică această conferință. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         conference_invites:
           create:
             error: A apărut o problemă la invitarea participantului să participe la conferinţă.
@@ -375,7 +375,7 @@ ro:
               one: A existat o înregistrare.
               few: Au fost %{count} înregistrări.
               other: Au fost %{count} înregistrări.
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest punct la această conferință. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică această conferință. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         diplomas:
           edit:
             save: Salvează
