@@ -372,24 +372,24 @@ ro:
         participatory_process_imports:
           form:
             document_legend: Adaugă un document
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces. Acesta acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Utilizaţi căi parţiale, nu adrese URL complete aici. Acceptă litere, numere, cratime şi tăieturi, şi trebuie să înceapă cu o literă. Dacă nu este setat, butonul nu va fi afișat. Exemplu: %{url}'
+            cta_path_help: 'Utilizează căi parţiale, nu adrese URL complete. Acestea acceptă litere, numere, cratime şi bare oblice, şi trebuie să înceapă cu o literă. Dacă nu este setat, butonul nu va fi afișat. Exemplu: %{url}'
             cta_text_help: Dacă nu este setat, butonul nu va fi afișat.
         participatory_processes:
           form:
-            announcement_help: Textul pe care îl introduceți aici va fi afișat utilizatorului chiar sub informațiile procesului.
+            announcement_help: Textul pe care îl introduci aici va fi afișat utilizatorului chiar sub informațiile procesului.
             duration: Durată
             filters: Filtre
             images: Imagini
             metadata: Metadate
             other: Altele
             related_processes: Procese asociate
-            scope_type_max_depth_help: Limitați adâncimea filtrului de domeniu; Filtrul se va afișa de la general la tipul selectat.
-            select_an_area: Selectați o zonă
-            select_process_group: Selectați un grup de procese
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            scope_type_max_depth_help: Limitează gradul de adâncime al filtrului privind domeniul; Filtrul afișează de la general la tipul de domeniu selectat.
+            select_an_area: Selectează o zonă
+            select_process_group: Selectează un grup de proces
+            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces. Acesta acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
             title: Informaţii generale
             visbility: Vizibilitate
       content_blocks:
@@ -398,17 +398,17 @@ ro:
       index:
         title: Procese participative
       last_activity:
-        new_participatory_process: Un nou proces participativ
+        new_participatory_process: Proces participativ nou
       pages:
         home:
           highlighted_processes:
             active_processes: Procese active
-            active_step: Faza activă
+            active_step: Etapă activă
             more_information: Mai multe informații
             participate: Participă
-            participate_in: Participă în procesul %{resource_name}
-            processes_button_title: Link către pagina Proceselor care afișează toate procesele
-            see_all_processes: Vezi toate procesele
+            participate_in: Participă la procesul %{resource_name}
+            processes_button_title: Link către pagina unde sunt afișate toate procesele participative
+            see_all_processes: Afișează toate procesele
       participatory_process_steps:
         index:
           back_to_process: Înapoi la pagina de proces
@@ -424,7 +424,7 @@ ro:
               few: "%{count} procese"
               other: "%{count} procese"
             past:
-              one: 1 proces trecut
+              one: 1 proces anterior
               few: "%{count} procese anterioare"
               other: "%{count} procese anterioare"
             upcoming:
@@ -432,24 +432,24 @@ ro:
               few: "%{count} procese viitoare"
               other: "%{count} procese viitoare"
           explanations:
-            no_active: Nici un proces activ
+            no_active: Niciun proces activ
             no_active_nor_upcoming: Nici un proces activ sau viitor
-            no_active_nor_upcoming_callout: Nu există procese active sau viitoare. Aici este o listă a celor din trecut.
+            no_active_nor_upcoming_callout: Nu există procese active sau viitoare. Aici este o listă a celor anterioare.
           names:
-            active: Activ
+            active: Active
             all: Toate
-            past: Trecute
-            upcoming: Urmează
-          see: Vedeți
+            past: Anterioare
+            upcoming: Viitoare
+          see: Vezi
         index:
           loading: Se încarcă rezultatele...
       show:
         area: Zonă
-        belongs_to_group: Acest proces aparține lui
+        belongs_to_group: Acest proces aparține de
         dates: Date
         developer_group: Grup promotor
         end_date: Data de încheiere
-        local_area: Zona Organizatie
+        local_area: Zona organizației
         participatory_scope: Ce se decide
         participatory_structure: Cum se decide
         private_space: Acesta este un proces privat
@@ -457,39 +457,39 @@ ro:
         scope: Domeniu de interes
         start_date: Data de început
         target: Cine participă
-        unspecified: Nu este specificat
+        unspecified: Nespecificat
     statistics:
-      processes_count: Procese participative
+      processes_count: Procese
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
-          browse: Răsfoiţi
-          browse_resource: Răsfoiți grupul de procese %{resource_name}
+          browse: Caută
+          browse_resource: Caută grupul de proces %{resource_name}
           processes_count: 'Procese:'
       participatory_process_widgets:
         show:
-          active_step: Faza activă
+          active_step: Etapă activă
           take_part: Participă
       participatory_processes:
         index:
           promoted_processes: Procese evidențiate
         participatory_process:
-          active_step: 'Faza curentă:'
+          active_step: 'Etapa curentă:'
           more_info: Mai multe informații
           more_info_about: Mai multe informații despre procesul %{resource_name}
           take_part: Participă
-          take_part_in: Ia parte la procesul %{resource_name}
+          take_part_in: Participă la procesul %{resource_name}
         promoted_process:
-          active_step: 'Faza curentă:'
+          active_step: 'Etapa curentă:'
           more_info: Mai multe informații
           more_info_about: Mai multe informații despre procesul %{resource_name}
           take_part: Participă
-          take_part_in: Ia parte la procesul %{resource_name}
+          take_part_in: Participă la procesul %{resource_name}
         promoted_process_group:
           more_info: Mai multe informații
       process_header_steps:
-        step: Faza %{current} din %{total}
-        view_steps: Vezi fazele
+        step: Etapa %{current} din %{total}
+        view_steps: Etape ale procesului
       process_navigation:
         process_menu_item: Procesul
