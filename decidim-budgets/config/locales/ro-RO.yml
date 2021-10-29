@@ -6,7 +6,7 @@ ro:
         description: Descriere
         title: Titlu
         total_budget: Total budget
-        weight: Poziția comenzii
+        weight: Ordinea în poziționare
       project:
         budget_amount: Sumă bugetară
         decidim_category_id: Categorie
