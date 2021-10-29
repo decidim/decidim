@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "selenium-webdriver"
-require "system_test_html_screenshots"
+require_relative "system_test_html_screenshots"
 
 module Decidim
   # Helpers meant to be used only during capybara test runs.
