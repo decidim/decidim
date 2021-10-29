@@ -35,7 +35,7 @@ ro:
         local_area: Zona grupului de lucru
         meta_scope: Metadate privind domeniul
         parent_id: Grup de lucru părinte
-        participatory_processes_ids: Procese participative conexe
+        participatory_processes_ids: Procese participative asociate
         participatory_scope: Ce se decide
         participatory_structure: Cum se decide
         private_space: Spațiu privat
@@ -46,13 +46,13 @@ ro:
         scopes_enabled: Domenii activate
         short_description: Descriere scurtă
         show_statistics: Arată statistici
-        slug: Adresă URL
+        slug: URL slug
         special_features: Funcționalități speciale
         subtitle: Subtitlu
         target: Cine participă
         title: Titlu
         twitter: Twitter
-        weight: Pondere
+        weight: Ordinea în poziționare
         youtube: YouTube
       assembly_member:
         birthday: Data nașterii
@@ -191,7 +191,7 @@ ro:
         assemblies_submenu:
           assembly_admins: Administratorii grupului de lucru
           assembly_members: Membri
-          attachment_collections: Foldere
+          attachment_collections: Dosare
           attachment_files: Fișiere
           attachments: Atașamente
           categories: Categorii
@@ -276,7 +276,7 @@ ro:
             select_an_area: Selectați o zonă
             select_an_assembly_type: Selectaţi un tip de grup de lucru
             select_parent_assembly: Selectați grupul de lucru părinte
-            slug_help: 'Adresele URL sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
             social_handlers: Rețele de socializare
             title: Informaţii generale
             visbility: Vizibilitate
@@ -290,11 +290,11 @@ ro:
             title: Titlu
         assembly_copies:
           form:
-            slug_help: 'Adresele URL sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         assembly_imports:
           form:
             document_legend: Adaugă un document
-            slug_help: 'Adresele URL sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         assembly_members:
           form:
             existing_user: Participant existent
@@ -379,7 +379,7 @@ ro:
         purpose_of_action: Scopul acțiunii
         read_less: Citește mai puțin
         read_more: Citește mai mult
-        related_participatory_processes: Procese participative conexe
+        related_participatory_processes: Procese participative asociate
         scope: Domeniu
         social_networks: Rețele sociale
         social_networks_title: Distribuie aceast grup de lucru pe
@@ -460,7 +460,7 @@ ro:
           highlighted_processes:
             processes_button_title: Link către pagina Proceselor care afișează toate procesele
       show:
-        related_assemblies: Grupuri de lucru asemănătoare
+        related_assemblies: Grupuri de lucru asociate
   errors:
     messages:
       cannot_be_blank: nu poate fi gol
