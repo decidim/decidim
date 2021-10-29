@@ -703,17 +703,17 @@ ro:
           request_access: Solicită acces
           requested_access: Acces solicitat
           version_history: vezi istoricul versiunilor pentru această propunere
-          withdraw: retrage proiectul
+          withdraw: retrage ciorna
         states:
-          open: Deschideți
-          published: Publicat
-          withdrawn: Retras
+          open: Deschise
+          published: Publicate
+          withdrawn: Retrase
         update:
-          error: A apărut o problemă la salvarea proiectului colaborativ.
-          success: Schiță de colaborare actualizată cu succes.
+          error: A apărut o problemă la salvarea ciornei colaborative.
+          success: Ciorna colaborativă a fost actualizată cu succes.
         wizard_aside:
           back_from_collaborative_draft: Înapoi la ciorne colaborative
-          info: Creezi o <strong>ciornă de colaborare</strong>.
+          info: Creezi o <strong>ciornă colaborativă</strong>.
         wizard_header:
           title: Creează ciorna ta colaborativă
       content_blocks:
