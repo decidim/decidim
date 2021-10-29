@@ -909,55 +909,59 @@ ro:
             description: Fiecare propunere poate acumula mai mult de %{limit} voturi
           minimum_votes_per_user:
             description: Trebuie să distribui un minim de %{votes} voturi pentru propuneri diferite.
-            given_enough_votes: Aţi oferit destule sprijinuri.
-            supports_remaining: Trebuie să susțineți încă %{remaining_votes} propuneri pentru ca sprijinul dvs. să fie luat în considerare.
+            given_enough_votes: Ai oferit destule voturi.
+            supports_remaining: Trebuie să votezi încă %{remaining_votes} propuneri pentru ca votul tău să fie luat în considerare.
           proposal_limit:
             description: Poți crea până la %{limit} propuneri.
           threshold_per_proposal:
-            description: Pentru a putea fi validate propunerile trebuie să ajungă la %{limit} suport
-          title: 'Ajutoarele sunt supuse următoarelor norme:'
+            description: Pentru a putea fi validate propunerile trebuie să adune %{limit} voturi
+          title: 'Voturile sunt supuse următoarelor reguli:'
           vote_limit:
-            description: Puteți sprijini până la %{limit} propuneri.
-            left: Rămas
-            votes: Suportă
+            description: Poți vota până la %{limit} propuneri.
+            left: Rămase
+            votes: Voturi
         wizard_aside:
           back: Înapoi
           back_from_step_1: Înapoi la propuneri
           back_from_step_2: Înapoi la propuneri
           back_from_step_3: Înapoi la compararea propunerilor
-          back_from_step_4: Înapoi la editarea schiței
-          info: Creezi o propunere <strong></strong>.
+          back_from_step_4: Înapoi la editarea ciornei
+          info: Creezi o <strong>propunere</strong>.
         wizard_steps:
           current_step: Pasul curent
           see_steps: vezi pașii
           step_1: Creează propunerea ta
           step_2: Compară
-          step_3: Complete
+          step_3: Finalizează
           step_4: Publică propunerea ta
           step_of: Pasul %{current_step_num} din %{total_steps}
           title: Etapele creării propunerii
       proposals_picker:
         choose_proposals: Alege propuneri
-        close: Inchide
+        close: Închide
         more_proposals: Mai sunt %{number} propuneri. Rafinează căutarea pentru a le localiza.
         no_proposals: Nicio propunere nu corespunde criteriilor tale de căutare sau nu există nicio propunere.
       publish:
-        error: A existat o problemă la publicarea propunerii.
-        success: Propunere publicată cu succes.
+        error: A apărut o problemă la publicarea propunerii.
+        success: Propunerea a fost publicată cu succes.
       publish_answers:
-        success: Răspunsurile la propuneri publicate cu succes.
+        success: Răspunsurile pentru propuneri au fost publicate cu succes.
       update:
         error: A apărut o problemă la salvarea propunerii.
-        success: Propunere actualizată cu succes.
+        success: Propunerea a fost actualizată cu succes.
       update_draft:
-        error: A apărut o problemă la salvarea proiectului colaborativ.
-        success: Proiectul propunerii a fost actualizat.
+        error: A apărut o problemă la salvarea ciornei colaborative.
+        success: Ciorna colaborativă a fost actualizată cu succes.
       versions:
+        collaborative_drafts:
+          back_to_resource: Înapoi la ciorna colaborativă
         index:
           title: Versiuni
+        proposals:
+          back_to_resource: Înapoi la propuneri
       withdraw:
         errors:
-          has_supports: Această propunere nu poate fi retrasă deoarece se bucură deja de sprijin.
+          has_supports: Această propunere nu poate fi retrasă deoarece are deja voturi.
     resource_links:
       copied_from_component:
         proposal_proposal: Propuneri asociate
@@ -966,3 +970,7 @@ ro:
       included_proposals:
         proposal_project: 'Propunere care apare în aceste proiecte:'
         proposal_result: 'Propunere care apare în aceste rezultate:'
+    statistics:
+      proposals_accepted: Propuneri acceptate
+      proposals_count: Propuneri
+      supports_count: Voturi
