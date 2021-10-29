@@ -242,49 +242,49 @@ ro:
       participatory_processes:
         create:
           error: A apărut o problemă la crearea unui nou proces participativ.
-          success: Procesul participativ a fost creat. Configurați acum fazele sale.
+          success: Procesul participativ a fost creat cu succes. Configurează acum etapele acestuia.
         edit:
-          update: Actualizare
+          update: Actualizează
         index:
-          not_published: Nu este publicat
-          private: Privat
+          not_published: Nepublicate
+          private: Private
           public: Publice
-          published: Publicat
+          published: Publicate
         new:
           create: Creează
-          title: Un nou proces participativ
+          title: Proces participativ nou
         update:
           error: A apărut o eroare la actualizarea acestui proces participativ.
-          success: Procesul participativ a fost actualizat.
+          success: Procesul participativ a fost actualizat cu succes.
       participatory_processes_copies:
         create:
-          error: A existat o problemă la duplicarea acestui proces participativ.
-          success: Procesul participativ a fost duplicat.
+          error: A apărut o problemă la duplicarea acestui proces participativ.
+          success: Procesul participativ a fost duplicat cu succes.
       participatory_processes_group:
         create:
           error: A apărut o problemă la crearea unui nou grup implicat în procesul participativ.
-          success: Grupul participativ a fost creat.
+          success: Grupul participativ a fost creat cu succes.
       titles:
-        participatory_process_groups: Grupuri participante
+        participatory_process_groups: Grupuri ale procesului participativ
         participatory_processes: Procese participative
       users:
         resend_invitation:
           error: A apărut o eroare la retrimiterea invitației.
-          success: Invitație retrimisă cu succes.
+          success: Invitația a fost retrimisă cu succes.
     admin_log:
       participatory_process:
         create: "%{user_name} a creat procesul participativ %{resource_name}"
         publish: "%{user_name} a publicat procesul participativ %{resource_name}"
-        unpublish: "%{user_name} nepublicat procesul participativ %{resource_name}"
+        unpublish: "%{user_name} a anulat publicarea pentru procesul participativ %{resource_name}"
         update: "%{user_name} a actualizat procesul participativ %{resource_name}"
       participatory_process_group:
         create: "%{user_name} a creat grupul de proces participativ %{resource_name}"
-        update: "%{user_name} a actualizat procesul participativ %{resource_name}"
+        update: "%{user_name} actualizat grupul de proces participativ %{resource_name}"
       participatory_process_step:
-        activate: "%{user_name} a activat faza %{resource_name} în procesul participativ %{space_name}"
-        create: "%{user_name} a creat faza %{resource_name} în procesul participativ %{space_name}"
-        delete: "%{user_name} a șters faza %{resource_name} din procesul participativ %{space_name}"
-        update: "%{user_name} a actualizat faza %{resource_name} în procesul participativ %{space_name}"
+        activate: "%{user_name} a activat etapa %{resource_name} în procesul participativ %{space_name}"
+        create: "%{user_name} a creat etapa %{resource_name} în procesul participativ %{space_name}"
+        delete: "%{user_name} a șters etapa %{resource_name} din procesul participativ %{space_name}"
+        update: "%{user_name} a actualizat etapa %{resource_name} din procesul participativ %{space_name}"
       participatory_process_user_role:
         create: "%{user_name} a invitat participantul %{resource_name} la procesul participativ %{space_name}"
         delete: "%{user_name} a eliminat participantul %{resource_name} din procesul participativ %{space_name}"
@@ -292,31 +292,31 @@ ro:
     events:
       participatory_process:
         role_assigned:
-          email_intro: Ai fost atribuit ca %{role} pentru procesul participativ "%{resource_title}".
-          email_outro: Ați primit această notificare deoarece sunteți %{role} din procesul participativ%{resource_title}.
-          email_subject: Ai fost atribuit ca %{role} pentru "%{resource_title}".
-          notification_title: Ai fost atribuit ca %{role} pentru procesul participativ <a href="%{resource_url}">%{resource_title}</a>.
+          email_intro: Ai fost atribuit drept %{role} pentru procesul participativ "%{resource_title}".
+          email_outro: Ai primit această notificare deoarece ești %{role} în procesul participativ "%{resource_title}".
+          email_subject: Ai fost atribuit drept %{role} pentru "%{resource_title}".
+          notification_title: Ai fost atribuit drept %{role} pentru procesul participativ <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
-          email_intro: 'Faza %{resource_title} este acum activă pentru %{participatory_space_title}. O poți vedea de pe această pagină:'
-          email_outro: Ați primit această notificare deoarece urmăriți %{participatory_space_title}. Puteți înceta să primiți notificări urmând linkul anterior.
-          email_subject: O actualizare la %{participatory_space_title}
-          notification_title: Faza %{resource_title} este acum activă pentru <a href="%{resource_path}">%{participatory_space_title}</a>
+          email_intro: 'Etapa %{resource_title} este acum activă pentru %{participatory_space_title}. O poți vedea de pe această pagină:'
+          email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți anula aceste notificări de la link-ul anterior.
+          email_subject: O actualizare pentru %{participatory_space_title}
+          notification_title: Etapa %{resource_title} este acum activă pentru <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'Datele pentru faza %{resource_title} de la %{participatory_space_title} au fost actualizate. O puteți vedea de pe această pagină:'
-          email_outro: Ați primit această notificare deoarece urmăriți %{participatory_space_title}. Puteți înceta să primiți notificări urmând linkul anterior.
-          email_subject: O actualizare la %{participatory_space_title}
-          notification_title: Datele pentru faza <a href="%{resource_path}">%{resource_title}</a> la <a href="%{participatory_space_url}">%{participatory_space_title}</a> au fost actualizate.
+          email_intro: 'Datele pentru etapa %{resource_title} din %{participatory_space_title} au fost actualizate. O poți vedea pe această pagină:'
+          email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți anula aceste notificări de la link-ul anterior.
+          email_subject: O actualizare pentru %{participatory_space_title}
+          notification_title: Datele pentru etapa <a href="%{resource_path}">%{resource_title}</a> din <a href="%{participatory_space_url}">%{participatory_space_title}</a> au fost actualizate.
     help:
       participatory_spaces:
         participatory_processes:
-          contextual: "<p>Un <strong>proces participativ</strong> este o secvență de activități participative (de ex. mai întâi să completaţi un sondaj, apoi să faceţi propuneri, discutându-le în cadrul reuniunilor directe sau virtuale; și, în cele din urmă, prioritizarea acestora) în scopul definirii și luării unei decizii cu privire la un subiect specific.</p> <p>Exemple de procese participative sunt: un proces de alegere a membrilor comitetului (în care sunt prezentate pentru prima dată candidații), apoi să se dezbată și, în cele din urmă, să se aleagă candidatura), bugetele participative (unde se fac propuneri, a apreciat din punct de vedere economic şi a votat cu banii disponibili), un proces de planificare strategică; elaborarea în colaborare a unui regulament sau normă, conceperea unui spațiu urban sau elaborarea unui plan de politică publică.</p>\n"
-          page: "<p>Un <strong>proces participativ</strong> este o secvență de activități participative (de ex. mai întâi să completaţi un sondaj, apoi să faceţi propuneri, discutându-le în cadrul reuniunilor directe sau virtuale; și, în cele din urmă, prioritizarea acestora) în scopul definirii și luării unei decizii cu privire la un subiect specific.</p> <p>Exemple de procese participative sunt: un proces de alegere a membrilor comitetului (în care sunt prezentate pentru prima dată candidații), apoi să se dezbată și, în cele din urmă, să se aleagă candidatura), bugetele participative (unde se fac propuneri, a apreciat din punct de vedere economic şi a votat cu banii disponibili), un proces de planificare strategică; elaborarea în colaborare a unui regulament sau normă, conceperea unui spațiu urban sau elaborarea unui plan de politică publică.</p>\n"
+          contextual: "<p>Un <strong> proces participativ</strong> este o succesiune de activități participative (de exemplu, prima etapă poate fi completarea unui sondaj, urmată de formularea de propuneri, discutarea lor în cadrul unor întâlniri față în față sau virtuale și, în cele din urmă, stabilirea priorităților) cu scopul de a defini și de a lua o decizie pe o temă specifică. </p> <p>Exemple de procese participative pot fi: un proces de alegere a membrilor unui comitet (atunci când candidaturile sunt prezentate pentru prima dată, apoi dezbătute și, în final, se alege o candidatură), un buget participativ (atunci când cetățenii fac propuneri, acestea sunt evaluate din punct de vedere economic și apoi sunt votate tot de către cetățeni în limita unui buget prestabilit), un proces de planificare strategică, elaborarea în colaborare a unui regulament sau a unei norme, conceperea unui spațiu urban sau elaborarea unui plan de politică publică.</p>\n"
+          page: "<p>Un <strong> proces participativ</strong> este o succesiune de activități participative (de exemplu, prima etapă poate fi completarea unui sondaj, urmată de formularea de propuneri, discutarea lor în cadrul unor întâlniri față în față sau virtuale și, în cele din urmă, stabilirea priorităților) cu scopul de a defini și de a lua o decizie pe o temă specifică. </p> <p>Exemple de procese participative pot fi: un proces de alegere a membrilor unui comitet (atunci când candidaturile sunt prezentate pentru prima dată, apoi dezbătute și, în final, se alege o candidatură), un buget participativ (atunci când cetățenii fac propuneri, acestea sunt evaluate din punct de vedere economic și apoi sunt votate tot de către cetățeni în limita unui buget prestabilit), un proces de planificare strategică, elaborarea în colaborare a unui regulament sau a unei norme, conceperea unui spațiu urban sau elaborarea unui plan de politică publică.</p>\n"
           title: Ce este un proces participativ?
     menu:
       processes: Procese participative
     metrics:
       participatory_processes:
-        description: Numărul de procese participative în această organizație
+        description: Numărul de procese participative ale acestei organizații
         object: procese participative
         title: Procese participative
     participatory_process:
@@ -348,22 +348,22 @@ ro:
             few: "%{count} procese"
             other: "%{count} procese"
       show:
-        title: Grupuri participante
+        title: Grupuri ale procesului participativ
     participatory_process_steps:
       index:
-        process_steps: Faze de proces
-        title: Fazele procesului participativ
+        process_steps: Etape ale procesului
+        title: Etape ale procesului participativ
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
-            max_results: Cantitatea maximă de elemente de afișat
+            max_results: Număr maxim de elemente care vor fi afișate
         new_import:
           accepted_types:
             json: JSON
         participatory_process_copies:
           form:
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces. Acesta acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadate
