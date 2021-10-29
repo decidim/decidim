@@ -50,7 +50,7 @@ ro:
           unearned_own: Nu ați creat încă niciun test.
     resource_links:
       test_link:
-        dummy_resource_dummy: Legat de manechin
+        dummy_resource_dummy: Test asociat
     statistics:
       bar: Bară
       dummies_count_high: Test mare
