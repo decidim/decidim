@@ -645,8 +645,8 @@ ro:
         meeting_proposal: 'Propuneri asociate:'
         proposal_meeting: 'Întâlniri asociate:'
     statistics:
-      meetings_count: Întruniri
+      meetings_count: Întâlniri
   devise:
     mailer:
       join_meeting:
-        subject: Invitația de a se alătura unei reuniuni
+        subject: Ești invitat să te alături întâlnirii
