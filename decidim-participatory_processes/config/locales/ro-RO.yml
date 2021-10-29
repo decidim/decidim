@@ -186,39 +186,39 @@ ro:
           success: Procesul participativ a fost importat cu succes.
         new:
           import: Importă
-          select: Selectați ce date doriți să importați
-          title: Importați procesul participativ
+          select: Selectează datele pe care dorești să le imporți
+          title: Importă procesul participativ
       participatory_process_publications:
         create:
           error: A apărut o problemă la publicarea acestui proces participativ.
-          success: Procesul participativ a fost publicat.
+          success: Procesul participativ a fost publicat cu succes.
         destroy:
-          error: S-a întâmpinat o problemă la retragerea de la publicare a acestui proces participativ.
-          success: Procesul participativ a fost de-publicat.
+          error: A apărut o problemă la anularea publicării acestui proces participativ.
+          success: Anularea publicării procesului participativ a fost efectuată cu succes.
       participatory_process_step_activations:
         create:
-          error: A apărut o problemă la activarea acestei faze a procesului participativ.
-          success: Procesul participativ a fost activat cu succes.
+          error: A apărut o problemă la activarea acestei etape a procesului participativ.
+          success: Etapa procesului participativ a fost activată cu succes.
       participatory_process_steps:
         create:
-          error: A apărut o problemă la crearea unei noi faze a procesului participativ.
-          success: Procesul participativ a fost creat.
+          error: A apărut o problemă la crearea unei noi etape a procesului participativ.
+          success: Etapa procesul participativ a fost creată cu succes.
         default_title: Introducere
         destroy:
           error:
-            active_step: Nu se poate șterge faza activă.
-            last_step: Nu se poate șterge ultima fază a unui proces.
-          success: Procesul participativ a fost şters cu succes.
+            active_step: Nu se poți șterge etapa activă.
+            last_step: Nu se poți șterge ultima etapă a unui proces.
+          success: Etapa procesului participativ a fost ştearsă cu succes.
         edit:
-          title: Editare proces participativ
-          update: Actualizare
+          title: Editează etapa procesului participativ
+          update: Actualizează
         index:
-          steps_title: Faze
+          steps_title: Etape
         new:
           create: Creează
-          title: Noua fază a procesului participativ
+          title: Etapă nouă a procesului participativ
         ordering:
-          error: A existat o problemă în reordonarea acestor faze ale procesului participativ.
+          error: A apărut o problemă la reordonarea acestor etape ale procesului participativ.
         update:
           error: A apărut o problemă la actualizarea acestei faze a procesului participativ.
           success: Faza de participare a fost actualizată.
