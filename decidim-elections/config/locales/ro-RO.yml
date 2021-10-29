@@ -4,7 +4,7 @@ ro:
       answer:
         description: Descriere
         image: Imagine
-        proposals: Propuneri conexe
+        proposals: Propuneri asociate
         title: Titlu
       election:
         description: Descriere
@@ -572,6 +572,8 @@ ro:
         votings:
           actions:
             confirm_destroy: Ești sigur(ă)?
+          form:
+            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces de votare. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
           new:
             create: Creează
       census:
