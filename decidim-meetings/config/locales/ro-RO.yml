@@ -459,7 +459,7 @@ ro:
         index:
           new_meeting: Ședință nouă
         meeting_minutes:
-          related_information: Informații conexe
+          related_information: Informații asociate
         meetings:
           no_meetings_warning: Nici o întâlnire nu corespunde criteriilor de căutare sau nu există nicio întrunire programată.
           upcoming_meetings_warning: În prezent, nu există întâlniri programate, dar aici se află pe listă toate reuniunile anterioare.
@@ -578,10 +578,10 @@ ro:
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Rezultate asociate:'
-        result_meeting: 'Întâlniri conexe:'
+        result_meeting: 'Întâlniri asociate:'
       proposals_from_meeting:
-        meeting_proposal: 'Propuneri conexe:'
-        proposal_meeting: 'Întâlniri conexe:'
+        meeting_proposal: 'Propuneri asociate:'
+        proposal_meeting: 'Întâlniri asociate:'
     statistics:
       meetings_count: Întruniri
   devise:
