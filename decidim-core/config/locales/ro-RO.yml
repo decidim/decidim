@@ -402,11 +402,11 @@ ro:
     contact: Contact
     content_blocks:
       cta:
-        name: Butonul Imagine, Text și Apel la Acțiune
+        name: Imagine, text și butonul Apel la acțiune
       cta_settings_form:
         background_image: Imagine de fundal
-        button_text: Text Apel la acțiune
-        button_url: URL-ul Apelului la Acțiune
+        button_text: Textul butonului Apel la acțiune
+        button_url: URL-ul butonului Apel la acțiune
         description: Descriere
       footer_sub_hero:
         name: Banner suberou suberou
@@ -1025,10 +1025,10 @@ ro:
         body_preview: 'Dummy text for body: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
         cta_text_preview: Apel la textul Acțiune
         introduction_preview: 'Dummy text for introduction: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
-        name: Butonul Imagine, Text și Apel la Acțiune
+        name: Imagine, text și butonul Apel la acțiune
       image_text_cta_settings_form:
         body: Corp
-        cta_text: Text buton Apel la Acțiune
+        cta_text: Textul butonului de Apel la acțiune
         cta_url: URL buton Apel la Acțiune
         interpolations_hint: 'Sugestie: Puteţi utiliza "%{name}" oriunde în introducere, corp, text CTA sau subiect şi va fi înlocuit cu numele destinatarului.'
         introduction: Introducere
