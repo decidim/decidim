@@ -35,7 +35,7 @@ ro:
         local_area: Zona grupului de lucru
         meta_scope: Metadate privind domeniul
         parent_id: Grup de lucru părinte
-        participatory_processes_ids: Procese participative conexe
+        participatory_processes_ids: Procese participative asociate
         participatory_scope: Ce se decide
         participatory_structure: Cum se decide
         private_space: Spațiu privat
@@ -386,7 +386,7 @@ ro:
         purpose_of_action: Scopul acțiunii
         read_less: Citește mai puțin
         read_more: Citește mai mult
-        related_participatory_processes: Procese participative conexe
+        related_participatory_processes: Procese participative asociate
         scope: Domeniu
         social_networks: Rețele sociale
         social_networks_title: Distribuie aceast grup de lucru pe
@@ -430,7 +430,7 @@ ro:
         title: Grupuri de lucru
     participatory_processes:
       show:
-        related_assemblies: Grupuri de lucru asemănătoare
+        related_assemblies: Grupuri de lucru asociate
     statistics:
       assemblies_count: Grupuri de lucru
   errors:
