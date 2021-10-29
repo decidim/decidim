@@ -176,14 +176,14 @@ ro:
           update: Actualizează
         new:
           create: Creează
-          title: Proces nou de grup
+          title: Grup nou de proces
         update:
-          error: A apărut o problemă la actualizarea acestui grup participativ.
-          success: Grupul procesului participativ a fost actualizat.
+          error: A apărut o problemă la actualizarea acestui grup de proces participativ.
+          success: Grupul de procese participativ a fost actualizat cu succes.
       participatory_process_imports:
         create:
           error: A apărut o problemă la importul acestui proces participativ.
-          success: Procesul participativ a fost importat.
+          success: Procesul participativ a fost importat cu succes.
         new:
           import: Importă
           select: Selectați ce date doriți să importați
