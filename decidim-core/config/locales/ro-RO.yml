@@ -262,11 +262,11 @@ ro:
       document:
         download: Descarcă fișier
       documents:
-        related_documents: Documente conexe
+        related_documents: Documente asociate
       geocoding:
         geocoded_address: Adresă
       photos:
-        related_photos: Imagini asemănătoare
+        related_photos: Imagini asociate
     author:
       avatar: 'Avatar: %{name}'
       avatar_multiuser: Avatar pentru mai mulți utilizatori
@@ -1360,7 +1360,7 @@ ro:
       show:
         my_interests: Interesele mele
         no_scopes: Această organizaţie nu are încă nici un scop!
-        select_your_interests: Selectează subiectele în care ești interesat să primești evenimente legate de ele în tab-ul Cronologie al profilului tău.
+        select_your_interests: Selectează subiectele pentru care vrei să primești evenimente asociate în cronologia profilului tău.
         update_my_interests: Actualizează-mi interesele
       update:
         error: A apărut o eroare la actualizarea intereselor tale.
