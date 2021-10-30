@@ -653,9 +653,9 @@ ja:
             %{resource_type} として報告されたため、管理者が %{report_reasons} を削除しました。</br>
             <i>%{resource_content}</i>
       resource_endorsed:
-        email_intro: 'あなたがフォローしている%{endorser_name} %{endorser_nickname}は、「%{resource_title}」を支持しました。私たちはあなたにとって興味深いことかもしれません。 チェックアウトして貢献：'
+        email_intro: 'あなたがフォローしている%{endorser_name} %{endorser_nickname} は、「%{resource_title}」をオススメしました。私たちはあなたにとって興味深いことかもしれません。 チェックアウトして貢献：'
         email_outro: '%{endorser_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
-        email_subject: "%{endorser_nickname} が新しい承認を行いました"
+        email_subject: "%{endorser_nickname} が新しいオススメを行いました"
         notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} は <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>によってオススメされました。
       users:
         profile_updated:
