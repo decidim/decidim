@@ -460,7 +460,7 @@ ro:
           collaborators: Parteneri
           main_promotors: Organizatori
         show:
-          login_as: Ești autentificat ca %{name} <%{email}>
+          login_as: Ești contectat ca %{name} <%{email}>
           make_conference_registration: 'Înregistrați-vă la conferință:'
           register: Inregistrare
       content_blocks:
@@ -520,7 +520,7 @@ ro:
       registration_types:
         index:
           choose_an_option: 'Alegeți opțiunea de înregistrare:'
-          login_as: Ești autentificat ca %{name} <%{email}>
+          login_as: Ești contectat ca %{name} <%{email}>
           no_registrations: Fără înregistrări
           register: Inregistrare
           title: Tipuri de înregistrare
@@ -528,7 +528,7 @@ ro:
         conference_user_login:
           already_account: Ai deja un cont în decidim?
           new_user: Utilizator nou?
-          sign_in: Loghează-te pentru a te înregistra la conferință
+          sign_in: Conectează-te pentru a te înregistra la conferință
           sign_up: Creează un cont în platforma Decidem pentru a vă înregistra la conferință
       show:
         details: Detalii
