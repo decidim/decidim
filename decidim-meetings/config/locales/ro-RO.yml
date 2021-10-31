@@ -96,7 +96,7 @@ ro:
             label: Origine
             values:
               citizen: Cetățean
-              official: Oficial
+              official: Publice
               user_group: Grupuri de utilizatori
           scope_id_eq:
             label: Domeniu de interes
@@ -563,7 +563,7 @@ ro:
             end_time: Data de încheiere
             id: Id
             map: Hartă
-            official_meeting: Ședința oficială
+            official_meeting: Întâlnire publică
             start_time: Data de început
             title: Titlu
       polls:
