@@ -525,7 +525,7 @@ ro:
           link_closed: Link-ul pentru a se alătura întâlnirii va fi disponibil cu câteva minute înainte ca aceasta să înceapă
           live_event: Această întâlnire are loc chiar acum
           meeting_minutes: Minutele şedinţelor
-          micro_camera_permissions_warning: Când dai click pe butonul de mai jos, ți se vor cere permisiuni pentru microfon și/sau cameră, și te vei alătura la videoconferinței
+          micro_camera_permissions_warning: Când dai click pe butonul de mai jos, ți se va cere dreptul de a accesa microfonul și/sau camera, și apoi te vei putea alătura videoconferinței
           no_slots_available: Niciun slot disponibil
           organizations: Organizații participante
           registration_code_help_text: Codul tău de înregistrare
