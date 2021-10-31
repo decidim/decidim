@@ -256,8 +256,8 @@ ro:
         collaborative_draft_withdrawn:
           email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a retras ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Ai primit această notificare deoarece ești colaborator pentru <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} a retras schița colaborativă %{resource_title}."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>a retras</strong> schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} a retras ciorna colaborativă %{resource_title}."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>a retras</strong> ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
           email_intro: 'Acum poți crea propuneri noi pentru %{participatory_space_title}! Participă acum la această pagină:'
           email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți anula aceste notificări de la link-ul anterior.
@@ -425,11 +425,11 @@ ro:
             name: Propunere
         participatory_texts:
           bulk-actions:
-            are_you_sure: Sigur dorești să renunți la întrega schiță de text participativ?
+            are_you_sure: Sigur dorești să renunți la întrega ciornă de text participativ?
             discard_all: Renunță la toate
             import_doc: Importă documentul
           discard:
-            success: Toate schițele de text participativ au fost șterse.
+            success: Toate ciornele de text participativ au fost șterse.
           import:
             invalid: Formularul nu este valid!
             invalid_file: Fişierul conţine o eroare, te rugăm să încerci să editezi conţinutul fişierului şi să-l reîncărci.
@@ -620,7 +620,7 @@ ro:
           publish:
             error: A apărut o problemă la publicarea ciornei colaborative.
             irreversible_action_modal:
-              body: După publicarea schiței ca propunere, aceasta nu va mai fi editabilă. Propunerea nu va mai accepta autori sau contribuții noi.
+              body: După publicarea ciornei drept propunere, aceasta nu va mai fi editabilă. Propunerea nu va mai accepta autori sau contribuții noi.
               cancel: Anulează
               ok: Publică drept propunere
               title: Următoarea acţiune este ireversibilă
@@ -631,7 +631,7 @@ ro:
             irreversible_action_modal:
               body: După închiderea ciornei, aceasta nu va mai putea fi editată. Ciorna nu va mai accepta autori sau contribuții noi.
               cancel: Anulează
-              ok: Retrage schița colaborativă
+              ok: Retrage ciorna colaborativă
               title: Următoarea acţiune este ireversibilă
             success: Ciorna colaborativă a fost retrasă cu succes.
         count:
@@ -700,7 +700,7 @@ ro:
           publish: Publică
           publish_info: Publică această versiune a ciornei sau
           published_proposal: propunere publicată
-          request_access: Solicită acces
+          request_access: Cere acces
           requested_access: Acces solicitat
           version_history: vezi istoricul versiunilor pentru această propunere
           withdraw: retrage ciorna
