@@ -439,7 +439,7 @@ ro:
         name: Banner suberoi
     core:
       actions:
-        login_before_access: Te rugăm să te autentifici cu contul tău înainte de a avea acces
+        login_before_access: Te rugăm să te conectezi cu contul tău înainte de a accesa conținutul
         unauthorized: Nu sunteți autorizat să efectuați această acțiune
     data_portability:
       export:
@@ -1281,7 +1281,7 @@ ro:
         sign_in_before_follow: Vă rugăm să vă autentificați înainte de a efectua această acțiune
       login_modal:
         close_modal: Închide fereastra
-        please_sign_in: Te rugăm să te autentifici
+        please_sign_in: Te rugăm să te conectezi
         sign_up: Înscrie-te
       participatory_space_filters:
         filters:
