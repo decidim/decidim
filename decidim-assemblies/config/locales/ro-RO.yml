@@ -389,12 +389,12 @@ ro:
         assemblies_count: Grupuri de lucru
         comments_count: Comentarii
         debates_count: Dezbateri
-        endorsements_count: Susținători
+        endorsements_count: Susțineri
         followers_count: Urmăritori
         headline: Statistici
         meetings_count: Întâlniri
         no_stats: Încă nu există statistici.
-        orders_count: Suportă
+        orders_count: Voturi
         pages_count: Pagini
         participants_count: Participanți
         posts_count: Mesaje
@@ -402,10 +402,10 @@ ro:
         projects_count: Proiecte
         proposals_count: Propuneri
         results_count: Rezultate
-        supports_count: Suportă
+        supports_count: Voturi
         surveys_count: Chestionare
         users_count: Participanți
-        votes_count: Suportă
+        votes_count: Voturi
     assembly_members:
       assembly_member:
         designated_on: Desemnat către
@@ -432,8 +432,8 @@ ro:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>O <strong>Grupul de lucru</strong> este un grup de oameni care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de interes.</p> <p>Grupurile de lucru țin ședințe, unele sunt private și altele sunt deschise. Dacă sunt deschise, este posibilă participarea la acestea (de exemplu: participarea la activitate, dacă numărul de participanți permite acest lucru; adăugarea de puncte pe ordinea de zi sau formularea de observații cu privire la propunerile și deciziile luate de acest grup).</p> <p>Exemple: o adunare generală (care se întruneşte o dată pe an pentru a defini principalele direcţii de acţiune ale unei organizaţiei, precum şi organele sale executive prin vot); un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale) sunt toate exemple de grupuri de lucru.</p>\n"
-          page: "<p>O <strong>Grupul de lucru</strong> este un grup de oameni care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de interes.</p> <p>Grupurile de lucru țin ședințe, unele sunt private și altele sunt deschise. Dacă sunt deschise, este posibilă participarea la acestea (de exemplu: participarea la activitate, dacă numărul de participanți permite acest lucru; adăugarea de puncte pe ordinea de zi sau formularea de observații cu privire la propunerile și deciziile luate de acest grup).</p> <p>Exemple: o adunare generală (care se întruneşte o dată pe an pentru a defini principalele direcţii de acţiune ale unei organizaţiei, precum şi organele sale executive prin vot); un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale) sunt toate exemple de grupuri de lucru.</p>\n"
+          contextual: "<p>Un <strong>grup de lucru</strong> reprezintă un grup de oameni care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de interes.</p> <p>Grupurile de lucru organizează întâlniri, unele sunt private și altele sunt deschise. Dacă sunt deschise, oricine poate participa (de exemplu: dacă nu a fost încă atins numărul maxim de participanți pentru o anumită întâlnire te poți înscrie, poți adăuga subiecte pe ordinea de zi sau poți contribui cu comentarii la propunerile și deciziile acestui grup). </p> <p> Exemple: un grup de lucru care se întrunește pentru definirea unui regulament pentru bugetare participativă, un grup de lucru care își propune să definească temele de proiectare pentru regenerare urbană prin consultarea atât a specialiștilor cât și a cetățenilor, un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale).</p>\n"
+          page: "<p>Un <strong>grup de lucru</strong> reprezintă un grup de oameni care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de interes.</p> <p>Grupurile de lucru organizează întâlniri, unele sunt private și altele sunt deschise. Dacă sunt deschise, oricine poate participa (de exemplu: dacă nu a fost încă atins numărul maxim de participanți pentru o anumită întâlnire te poți înscrie, poți adăuga subiecte pe ordinea de zi sau poți contribui cu comentarii la propunerile și deciziile acestui grup). </p> <p> Exemple: un grup de lucru care se întrunește pentru definirea unui regulament pentru bugetare participativă, un grup de lucru care își propune să definească temele de proiectare pentru regenerare urbană prin consultarea atât a specialiștilor cât și a cetățenilor, un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale).</p>\n"
           title: Ce sunt grupurile de lucru?
     log:
       value_types:
