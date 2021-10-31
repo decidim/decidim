@@ -181,7 +181,7 @@ ro:
           success: Super! Ai acceptat termenii de utilizare ai administratorului.
         actions:
           accept: Sunt de acord cu următorii termeni
-          are_you_sure: Ești sigur(ă) că vrei să refuzi termenii de utilizare ai adiminstratorului?
+          are_you_sure: Sigur dorești să refuzi termenii de utilizare ai adiminstratorului?
           refuse: Refuz termenii
           title: Acceptă termenii și condițiile de utilizare
         required_review:
@@ -680,7 +680,7 @@ ro:
           all: toate
           all_users: 'Toți utilizatorii '
           and: 'şi '
-          confirm_delete: Ești sigur(ă) că vrei să ştergi acest buletin informativ?
+          confirm_delete: Sigur dorești să ştergi acest buletin informativ?
           followers: 'urmăritori '
           has_been_sent_to: 'A fost trimis la: '
           no_scopes: Nici un domeniu
@@ -695,7 +695,7 @@ ro:
         select_recipients_to_deliver:
           all_spaces: Toți
           all_users_help: Trimite buletinul informativ tuturor utilizatorilor confirmați.
-          confirm_deliver: Ești sigur(ă) că vrei să livrezi acest buletin informativ? Această acţiune nu poate fi anulată.
+          confirm_deliver: Sigur dorești să livrezi acest buletin informativ? Această acţiune nu poate fi anulată.
           deliver: Trimite buletinul informativ
           followers_help: Trimite buletinul informativ tuturor utilizatorilor confirmați care urmăresc orice spații participative selectate din listă.
           none: Niciunul
