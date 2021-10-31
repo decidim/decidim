@@ -27,7 +27,7 @@ ro:
     admin:
       menu:
         authorization_revocation:
-          before_date_info: Util dacă procesul a început deja și dorești să revoci permisiunile procesului anterior.
+          before_date_info: Este util dacă procesul a început deja și dorești să revoci drepturile procesului anterior.
           button: Revocă tot
           button_before: Revocă înainte de data
           destroy:
