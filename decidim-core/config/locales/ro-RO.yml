@@ -143,12 +143,12 @@ ro:
         create_via_csv: "%{user_name} a invitat pe %{resource_name} prin CSV să fie un participant privat"
         delete: "%{user_name} a eliminat participantul %{resource_name} ca participant privat"
       scope:
-        create: "%{user_name} a creat domeniul de aplicare %{resource_name}"
-        create_with_parent: "%{user_name} a creat %{resource_name} domeniu în cadrul domeniului %{parent_scope}"
-        delete: "%{user_name} a șters domeniul de aplicare %{resource_name}"
-        delete_with_parent: "%{user_name} a şters domeniul de aplicare %{resource_name} în cadrul domeniului %{parent_scope}"
-        update: "%{user_name} a actualizat domeniul %{resource_name}"
-        update_with_parent: "%{user_name} a actualizat %{resource_name} domeniu în cadrul domeniului%{parent_scope}"
+        create: "%{user_name} a creat domeniul de interes %{resource_name}"
+        create_with_parent: "%{user_name} a creat subdomeniul %{resource_name} în cadrul domeniului %{parent_scope}"
+        delete: "%{user_name} a șters domeniul de interes %{resource_name}"
+        delete_with_parent: "%{user_name} a şters subdomeniul %{resource_name} în cadrul domeniului %{parent_scope}"
+        update: "%{user_name} a actualizat domeniul de interes %{resource_name}"
+        update_with_parent: "%{user_name} a actualizat subdomeniul %{resource_name} în cadrul domeniului %{parent_scope}"
       static_page:
         create: "%{user_name} a creat pagina statică %{resource_name}"
         delete: "%{user_name} a șters pagina statică %{resource_name}"
@@ -156,13 +156,13 @@ ro:
       user:
         block: "%{user_name} utilizator blocat %{resource_name}"
         invite: "%{user_name} a invitat participantul %{resource_name} cu rolul: %{role}"
-        officialize: "%{user_name} a oficializat participantul %{resource_name}"
+        officialize: "%{user_name} a validat participantul %{resource_name}"
         promote: "%{user_name} a promovat %{resource_name}"
         remove_from_admin: "%{user_name} a eliminat participantul %{resource_name} cu rolul: %{role}"
         show_email: "%{user_name} a recuperat e-mailul participantului %{resource_name}"
         transfer: "%{user_name} a transferat participantul %{resource_name}"
         unblock: "%{user_name} utilizator deblocat %{resource_name}"
-        unofficialize: "%{user_name} a neoficializat participantul %{resource_name}"
+        unofficialize: "%{user_name} a revocat validarea pentru participantul %{resource_name}"
       user_group:
         reject: "%{user_name} a respins verificarea grupului %{resource_name}"
         verify: "%{user_name} a verificat grupul %{resource_name}"
@@ -289,7 +289,7 @@ ro:
         explanation: Fii verificat prin introducerea unui număr de document care se termină cu "X"
         fields:
           allowed_postal_codes: Coduri poștale permise (separate prin virgulă)
-          allowed_scope_id: Domeniul permis
+          allowed_scope_id: Domeniu de interes permis
           document_number: Număr document
           postal_code: Cod poștal
           scope_id: Domeniu
@@ -364,7 +364,7 @@ ro:
         no_content: Nu am putut găsi conținut cu acest criteriu
         order:
           all_types: Toate tipurile
-          collaborative_draft: Draft comun
+          collaborative_draft: Ciornă colaborativă
           comment: Comentariu
           debate: Dezbatere
           initiative: Inițiativă
@@ -377,7 +377,7 @@ ro:
         actions:
           bar: Bară
           foo: Foo
-        name: Componenta fictiv
+        name: Componentă de test
         settings:
           global:
             amendments_enabled: Amendamente activate
@@ -387,8 +387,8 @@ ro:
             dummy_global_attribute_2: Mostră de atribut 2
             dummy_global_translatable_text: Text-test traductibil
             enable_pads_creation: Activează crearea de pad-uri
-            resources_permissions_enabled: Permisiuni resurse activate
-            scope_id: Domeniu
+            resources_permissions_enabled: Drepturi pentru resurse activate
+            scope_id: Domeniu de interes
             scopes_enabled: Domenii activate
           step:
             amendment_creation_enabled: Crearea de amendamente activată
@@ -464,8 +464,8 @@ ro:
         new:
           already_have_an_account?: Ai deja un cont?
           newsletter: Primește un buletin informativ ocazional cu informații relevante
-          newsletter_title: Permisiune contact
-          nickname_help: Pseudonimul l tău în %{organization}. Poate conține doar litere, numere, '-' și '_'.
+          newsletter_title: Drepturi privind contactele
+          nickname_help: Pseudonimul tău în %{organization}. Poate conține doar litere, numere, '-' și '_'.
           password_help: "minim %{minimun_characters} caractere, nu trebuie să fie prea comune (ex. 123456) și trebuie să fie diferite de pseudonimul și adresa ta de e-mail."
           sign_in: Autentificare
           sign_up: Înscrie-te
@@ -692,7 +692,7 @@ ro:
     filters:
       linked_classes:
         all: Toate
-        collaborative_draft: Proiect colaborativ
+        collaborative_draft: Ciornă colaborativă
         dummy_resource: Resurse-test
         meeting: Întâlniri
         project: Proiecte
@@ -709,7 +709,7 @@ ro:
     followers:
       followers_count:
         one: "%{count} urmăritor"
-        few: "%{count} urmăritor/urmăritoare"
+        few: "%{count} urmăritori"
         other: "%{count} urmăritori"
       no_followers: Nici un urmăritor încă.
     following:
@@ -722,7 +722,7 @@ ro:
         participatory_space: Urmăriți<span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Nu doresc să mai urmăresc
-        error: A apărut o problemă la neurmărirea acestei resurse.
+        error: A apărut o problemă la anularea urmăririi acestei resurse.
     forms:
       current_file: Fişier curent
       current_image: Imaginea curentă
@@ -757,7 +757,7 @@ ro:
           name: Urmăritori
           next_level_in: Obțineți încă %{score} urmăritori pentru a atinge următorul nivel!
           unearned_another: Acest participant nu are încă niciun urmăritor.
-          unearned_own: Încă nu aveți urmăritori.
+          unearned_own: Încă nu ai urmăritori.
         index:
           badge_title: "%{name} insignă"
           how: Cum poți să o câștigi
@@ -901,9 +901,9 @@ ro:
         area_type_presenter:
           not_found: 'Tipul zonei nu a fost găsit în baza de date (ID: %{id})'
         scope_presenter:
-          not_found: 'Domeniul de aplicare nu a fost găsit în baza de date (ID: %{id})'
+          not_found: 'Domeniul de interes nu a fost găsit în baza de date (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Tipul domeniului de aplicare nu a fost găsit în baza de date (ID: %{id})'
+          not_found: 'Tipul domeniului de interes nu a fost găsit în baza de date (ID: %{id})'
     managed_users:
       expired_session: Actuala sesiune de administrare a unui participant a expirat.
     map:
@@ -1200,7 +1200,7 @@ ro:
       create:
         error: A apărut o problemă în timpul înregistrării susținerii.
     scopes:
-      global: Domeniul global de aplicare
+      global: Domeniul global de interes
       picker:
         cancel: Anulează
         change: Schimbă domeniul selectat
@@ -1208,9 +1208,9 @@ ro:
         currently_selected: Domeniul selectat în prezent
         title: Selectează %{field}
       prompt: Selectează un domeniu
-      scopes: Domeniu
+      scopes: Domenii de interes
       scopes_picker_input:
-        select_scope: 'Selectați un domeniu (actual: %{current})'
+        select_scope: 'Selectează un domeniu (actual: %{current})'
     search:
       results: Rezultatele căutării
       results_found_for_term: '%{count} Rezultate pentru căutare: "%{term}"'
@@ -1316,7 +1316,7 @@ ro:
       users_count: Participanți
     tags:
       filter_results_for_category: 'Filtrează rezultatele pentru categoria: %{resource}'
-      filter_results_for_scope: 'Filtrează rezultatele pentru scope: %{resource}'
+      filter_results_for_scope: 'Filtrează rezultatele pentru domeniul: %{resource}'
     translation_bar:
       help_text: "<strong>Avertisment:</strong> Conținutul poate fi tradus automat și nu este 100% exact."
       show_original: Afișați textul original
@@ -1578,6 +1578,11 @@ ro:
       too_short: este prea scurt (sub 15 caractere)
   forms:
     correct_errors: Există erori în formular, vă rugăm să le corectaţi pentru a continua.
+    length_validator:
+      minimum:
+        one: Cel puțin un %{count} caracter
+        few: Cel puțin %{count} caractere
+        other: Cel puțin %{count} caractere
     required: Necesar
     required_explanation: "* Câmpurile obligatorii sunt marcate cu un asterisc"
   invisible_captcha:
