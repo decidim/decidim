@@ -306,6 +306,8 @@ gl:
       conference_venues: Lugares de conferencias
       content_blocks:
         upcoming_meetings:
+          name: Vindeiras xuntanzas
+          upcoming_meetings: Vindeiras xuntanzas
           view_all_meetings: Ver todo
       directory:
         meetings:
