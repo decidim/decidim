@@ -605,6 +605,8 @@ ro:
         monitoring_committee_election_results:
           results:
             bulletin_board: Panoul de afișare
+          update:
+            rejected: Pulicarea rezultatelor a fost respinsă de către Panoul de afișare. Încearcă din nou sau contactează un administrator.
         monitoring_committee_members:
           form:
             select_user: Caută după nume, e-mail sau pseudonim
@@ -672,6 +674,9 @@ ro:
             questions_title_voted: 'Participantul a votat deja online și are drept de vot pentru următoarele întrebări:'
           in_person_form:
             census_not_present_description: Trebuie mers la biroul de reclamații pentru recensământ sau să contacteze echipa de suport.
+          update:
+            success:
+              rejected: Votul nu a fost acceptat de către Panoul de afișare. Te rugăm contactează administratorul de sistem.
           verify_document:
             title: 'Verifică dacă următoarele date sunt corecte:'
         polling_officers:
