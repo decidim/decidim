@@ -37,8 +37,8 @@ ro:
         available_authorizations: Autorizații disponibile
         badges_enabled: Activează insigne
         comments_max_length: Lungimea maximă a comentariilor (Lasă 0 pentru valoarea implicită)
-        cta_button_path: Calea butonului de Apel la acțiune
-        cta_button_text: Textul butonului de Apel la acțiune
+        cta_button_path: Calea butonului Apel la acţiune
+        cta_button_text: Textul butonului Apel la acțiune
         customize_welcome_notification: Personalizați notificarea de bun venit
         default_locale: Localizare implicită
         description: Descriere
@@ -379,7 +379,7 @@ ro:
         file_help:
           import:
             explanation: 'Îndrumare pentru fișier:'
-            message_1: Sunt suportate fișierele CSV, JSON și Excel (.xls)
+            message_1: Fișierele CSV, JSON și Excel (.xls) sunt acceptate
             message_2: Pentru fişierele CSV, separatorul dintre coloane trebuie să fie punct şi virgulă (";")
       help_sections:
         error: A apărut o eroare la actualizarea secțiunilor de ajutor
@@ -424,7 +424,7 @@ ro:
           proposalcreator: Creator de propunere
         error: A apărut o problemă în timpul importului
         help:
-          proposalcreator: Fişierul trebuie să aibă titlu/en şi corp (sau o altă localizare pe care o preferaţi. title/ca și corpul/ca). De asemenea, sunt acceptate coloane de scope/id și categorie/id.
+          proposalcreator: Fişierul trebuie să aibă titlu/en şi corp (sau o altă localizare pe care o preferi. title/ca și corpul/ca). De asemenea, sunt acceptate coloane de scope/id și categorie/id.
         import_from_file: Importă dintr-un fișier
         invalid_lines: Eroare găsită în numărul resursei %{invalid_lines}
         new:
