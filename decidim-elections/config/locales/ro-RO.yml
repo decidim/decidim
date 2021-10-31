@@ -113,7 +113,7 @@ ro:
             announcement: Anunţ
     elections:
       actions:
-        confirm_destroy: Ești sigur(ă)?
+        confirm_destroy: Sigur dorești asta?
         destroy: Distruge
         edit: Editare
         feedback: Feedback la votare
@@ -164,10 +164,10 @@ ro:
             invalid: A apărut o eroare la ștergerea acestor alegeri
             success: Alegerile au fost șterse
           edit:
-            title: Editare alegeri
-            update: Actualizează alegerea
+            title: Editează alegeri
+            update: Actualizează alegeri
           index:
-            no_bulletin_board: Nu există <a href="https://github.com/decidim/decidim-bulletin-board">Serverul Bulletin Board</a> configurat, care este necesar pentru a utiliza acest modul. Această sarcină trebuie realizată de Administratorul de sistem.
+            no_bulletin_board: Nu există <a href="https://github.com/decidim/decidim-bulletin-board">serverul Panoul de afișare</a> configurat, care este necesar pentru a utiliza acest modul. Această sarcină trebuie realizată de Administratorul de sistem.
             title: Alegeri
           new:
             create: Creează alegeri
@@ -183,7 +183,7 @@ ro:
           elections: Alegeri
           feedback_form_answers: Răspunsuri la formularul de feedback
         menu:
-          trustees: Împuternicit
+          trustees: Împuterniciți
         models:
           answer:
             name: Răspuns
@@ -225,26 +225,38 @@ ro:
             errors:
               max_selections: Întrebările nu au <strong>o valoare corectă pentru suma de răspunsuri</strong>
               minimum_answers: Întrebările trebuie să aibă <strong>cel puţin două răspunsuri</strong>.
-              minimum_questions: Alegerea <strong>trebuie să aibă cel puţin o întrebare</strong>.
-              published: Alegerea nu este <strong>publicată</strong>.
+              minimum_questions: Alegerile <strong>trebuie să aibă cel puţin o întrebare</strong>.
+              published: Aceste alegerile <strong>nu sunt publicate</strong>.
               time_before: Timpul de începere este în <strong>mai puţin de 3 ore</strong> înainte de începerea alegerilor.
-              trustees_number: Spațiul participativ <strong>trebuie să aibă cel puțin %{number} administratori cu cheie publică</strong>.
+              trustees_number: Spațiul participativ <strong>trebuie să aibă cel puțin %{number} împuterniciți cu cheie publică</strong>.
             invalid: A apărut o eroare la organizarea acestor alegeri
-            no_trustees: Nu există trupe configurate pentru acest spațiu participativ
+            no_trustees: Nu există împuterniciți configurați pentru acest spațiu participativ
             not_used_trustee: "(nu este folosit)"
             public_key:
               'false': nu are <strong>o cheie publică</strong>
               'true': are o <strong>cheie publică</strong>
-            title: Configurarea alegerilor
+            requirements:
+              trustees_number: Spațiul participativ are <strong>cel puțin %{number} împuterniciți cu chei publice</strong>.
+            submit: Configurează alegerile
+            success: Alegerile au fost trimise cu succes către Panoul de afișare
+            title: Configurează alegerile
+            trustees: Împuterniciți pentru alegeri
           created:
             title: Alegeri create
+            trustees: Împuterniciți
           key_ceremony:
-            trustees: Administrator
+            trustees: Împuterniciți
           tally:
-            trustees: Administrator
+            title: Procesul de numărare al voturilor
+            trustees: Împuterniciți
           tally_ended:
+            answer: Răspuns
+            not_selected: Neselectate
+            question: Întrebare
+            result: Rezultat
+            selected: Selectate
             submit: Publică rezultatele
-            success: Cererea de publicare a rezultatelor a fost trimisă cu succes la Bulletin Board
+            success: Cererea de publicare a rezultatelor a fost trimisă cu succes către Panoul de afișare
             title: Calculează rezultatele
           vote:
             errors:
@@ -253,12 +265,12 @@ ro:
             requirements:
               time_after: Alegerile s-au terminat. Poți încheia perioada de votare manual, sau se va încheia automat în câteva minute.
             submit: Încheie perioada de votare
-            success: Cererea de încheiere a perioadei de votare a fost trimisă cu succes panoului de votare
+            success: Cererea de încheiere a perioadei de votare a fost trimisă cu succes către Panoul de afișare
             title: Perioada de vot
           vote_ended:
-            invalid: A apărut o problemă la începerea votării
-            submit: Începeți să numărați
-            success: Solicitarea de începere a fost trimisă cu succes la Panoul de Buletin
+            invalid: A apărut o problemă la începerea numărării voturilor
+            submit: Începe numărarea voturilor
+            success: Solicitarea de începere a fost trimisă cu succes către Panoul de afișare
             text: Votul s-a terminat. Puteţi începe numărătoarea acum.
             title: Perioada de vot s-a încheiat
           vote_stats:
@@ -271,31 +283,31 @@ ro:
             disable: Dezactivează
             enable: Luați în considerare
           create:
-            exists: Există Administrator pentru acest spațiu participativ
-            invalid: A apărut o problemă la crearea unui administrator
-            success: Administrator creat cu succes
+            exists: Există împuterniciți pentru acest spațiu participativ
+            invalid: A apărut o problemă la crearea unui împuternicit
+            success: Împuternicit creat cu succes
           delete:
-            invalid: A apărut o eroare la eliminarea acestui administrator
-            success: Administratorul a fost sters
+            invalid: A apărut o eroare la eliminarea acestui împuternicit
+            success: Împuternicitul a fost sters cu succes
           form:
             select_user: Selectați utilizatorul
           index:
-            title: Administrator
+            title: Împuterniciți
           new:
-            create: Creează Împuternicit
-            title: Administrator nou
+            create: Creează împuternicit
+            title: Împuternicit nou
           update:
-            invalid: A apărut o problemă la actualizarea administratorului %{trustee}
-            success: Administrator %{trustee} actualizat cu succes
+            invalid: A apărut o problemă la actualizarea împternicitului %{trustee}
+            success: Împuternicitul %{trustee} a fost actualizat cu succes
       admin_log:
         election:
-          end_vote: "%{user_name} a încheiat perioada de votare în cadrul algerilor pentru %{resource_name} în Panoul de votare"
+          end_vote: "%{user_name} a încheiat perioada de votare în cadrul algerilor pentru %{resource_name} în Panoul de afișare"
           publish: "%{user_name} a publicat alegerile pentru %{resource_name}"
           publish_results: "%{user_name} a publicat rezultatele pentru alegerea %{resource_name} în Panoul de Buletin"
-          setup: "%{user_name} a creat alegerile %{resource_name} în Panoul de votare"
+          setup: "%{user_name} a creat alegerea %{resource_name} în Panoul de Buletin"
           start_key_ceremony: "%{user_name} a început ceremonia cheie pentru alegerile %{resource_name} din Panoul de votare"
           start_tally: "%{user_name} a început numărătoarea voturilor pentru alegerile %{resource_name} în Panoul de votare"
-          start_vote: "%{user_name} a început perioada de votare pentru alegerile %{resource_name} în Panoul de votare"
+          start_vote: "%{user_name} a început perioada de votare pentru alegerile %{resource_name} în Panoul de afișare"
           unpublish: "%{user_name} a anulat publicarea alegerilor %{resource_name}"
       election_m:
         badge_name:
@@ -325,7 +337,7 @@ ro:
           chained_hash: Hash chained al acestui mesaj
           complete: Finalizate
           creation_description:
-            complete: Alegerile au fost create și sunt configurate cu succes în Panoul de votare.
+            complete: Alegerile au fost create și sunt configurate cu succes în Panoul de afișare.
             not_created: Alegerile nu au fost create încă.
           creation_title: Alegeri create
           description: Acesta este jurnalul alegerilor unde poţi verifica starea fiecărui pas, de ex. când alegerile au fost create, dacă procesul de numărare a voturilor s-a terminat, şi când alegerile au fost închise.
@@ -351,13 +363,15 @@ ro:
             not_started: Procesul de numărare a voturilor nu a început încă.
             started: Procesul de numărare a voturilor a început.
           tally_title: Procesul de numărare al voturilor
-          title: Jurnal electoral
+          title: Jurnal al alegerilor
           verifiable_results:
             checksum: 'Sumă de control pentru fișierul SHA256:'
             description:
               not_ready: Fișierul verificabil electoral și suma de control pentru SHA256 nu sunt disponibile încă. Imediat ce vor fi publicate rezutatele, vei putea verifica aceste alegeri.
               ready: 'Aici ai opțiunea de a verifica alegerile. Întâi, trebuie să descarci fișierul și să te asiguri că nu a fost corupt. Pentru a face asta, execută următoarea comandă și verifică dacă rezultatul corespunde cu suma de control:'
             how_to_verify: 'Odată ce ai descărcat fișierul și te-ai asigurat că este în regulă, poți continua pornind verificatorul universal. Clonează <a href=''https://github.com/decidim/decidim-bulletin-board''>acestă arhivă</a> și, din dosarul rădăcină, rulează comanda următoare:'
+            title: Verifică rezultatele alegerilor
+          verify: Verifică alegerile
         filters:
           active: Activ
           all: Toate
@@ -373,9 +387,10 @@ ro:
         preview:
           available_answers: 'Răspunsuri disponibile:'
           description: 'Acestea sunt întrebările pe care le veți găsi în procesul de votare:'
-          title: Întrebări electorale
+          title: Întrebări aferente alegerilor
         results:
           description: 'Acestea sunt rezultatele votului, pentru fiecare întrebare:'
+          title: Rezultatele alegerilor
           votes:
             one: "%{count} vot"
             other: "%{count} de voturi"
@@ -385,9 +400,11 @@ ro:
             change_vote: Schimbă-ți votul
             vote: Începe să votezi
             vote_again: Votează din nou
+          back: Alegeri disponibile
           callout:
             already_voted: Ai votat deja pentru aceste alegeri. Îți poți schimba votul sau îl poți verifica.
             vote_rejected: Nu am putut verifica votul. Te rugăm să reiei procesul de votare.
+          election_log: Jurnal al alegerilor
           preview: Previzualizare
           verify:
             already_voted: Ai votat deja?
@@ -406,6 +423,7 @@ ro:
             title: Titlu
         election:
           fields:
+            bb_status: Stadiul panoului de afișare
             end_time: Sfârșit la
             start_time: Începe la
             title: Titlu
@@ -414,27 +432,39 @@ ro:
             answers: Răspunsuri
             max_selections: Selecții maxime
             title: Titlu
+      orders:
+        label: Ordonează alegerile după
       trustee_zone:
         elections:
           key_ceremony_steps:
             title: Crează chei electorale pentru %{election}
           tally_steps:
-            process_warning: Odată ce procesul este pornit, nu ar trebui să ieșiți din această pagină până când procesul se încheie. Va dura câteva minute, deoarece toate Truste-urile ar trebui conectate pentru a o finaliza.
+            back: Înapoi
+            description: Rezultatele acestor alegeri sunt în proces de calculare în Panoul de afișare. Pentru a finaliza procesul este necesară participarea ta drept împuternicit.
+            keys:
+              end_tally: Procesul de numărare al voturilor s-a încheiat
+              tally:
+                cast: Anunțarea rezultatului votului
+                share: Împărtășirea rezultatului votului
+            list:
+              status: Stadiu
+              task: Activitate
+            process_warning: Odată ce procesul este pornit, nu ar trebui să ieși din această pagină până când procesul se încheie. Va dura câteva minute, deoarece toți împuterniciții ar trebui să fie conectați pentru a se finaliza procesul.
             start: Incepe
             start_icon: Pictograma care indică un buton de pornire pentru a porni generarea cheilor electorale
             status:
               completed: Finalizat
               pending: În așteptare
               processing: Se procesează
-            title: Corespondent pentru %{election}
+            title: Numărarea voturilor pentru %{election}
           update:
             error: Statutul alegerilor nu a fost actualizat.
             success: 'Statutul alegerilor este: %{status}'
         menu:
-          trustee_zone: Zonă Administrator
+          trustee_zone: Zonă împuternicit
         no_bulletin_board:
-          body: Pentru această secţiune este necesar un Bulletin configurat. Contactaţi Administratorul pentru mai multe detalii.
-          title: Ne pare rău, Bulletin Board nu este configurat încă.
+          body: Pentru această secţiune este necesar un Panoul de afișare configurat. Contactaţi administratorul pentru mai multe detalii.
+          title: Ne pare rău, Panoul de afișare nu este configurat încă.
         trustees:
           show:
             elections:
@@ -446,13 +476,13 @@ ro:
                 bb_status: Stare
                 election: Alegeri
                 voting_period: Perioada de vot
-              no_elections: Nu există alegeri unde să te comporţi ca un Administrator.
+              no_elections: Nu există alegeri unde să poți avea rol de împuternicit.
               title: Alegeri
             identification_keys:
               cancel: Anulează
               generate: Generează chei de identificare
               generate_error: A apărut o eroare la generarea cheilor de identificare.
-              generate_legend: Trebuie să generați o pereche de chei pentru a participa la alegeri ca un Trustee.
+              generate_legend: Trebuie să generați o pereche de chei pentru a participa la alegeri drept împuternicit.
               generate_legend_1: După ce apăsați pe buton, ar trebui să descărcați fișierul cu tastele de identificare generate.
               generate_legend_2: Copiaţi fişierul descărcat pe un dispozitiv USB curat
               generate_legend_3: Asigură-te că nu există o copie a fișierului în calculatorul tău (de exemplu, verifică dosarele Descărcări și Desktop).
@@ -460,7 +490,7 @@ ro:
               submit: Trimiteți
               submit_legend: După urmărirea tuturor paşilor explicaţi mai sus, finalizaţi procesul de trimitere a cheii publice de identificare la serverul Decidim.
               submit_title: Trimite cheia publică de identificare
-              title: Chei de identificare Administrator
+              title: Chei de identificare împuternicit
               upload: Încărcați-vă cheile de identificare
               upload_error:
                 invalid_format: Fişierul încărcat nu conţine nici o cheie de identificare.
@@ -469,7 +499,7 @@ ro:
               upload_legend: Decidim are cheile tale de identificare publică, dar browserul tău încă nu le are. Trebuie să importați fișierul cu cheile de identificare în calculator din copia de siguranță creată după ce ați generat.
             not_supported_browser_description: Se pare că folosești un browser web care nu poate fi folosit pentru a acționa ca împuternicit. Asigură-te că folosești cea mai recentă versiune de browser, sau încercați să utilizați oricare dintre cele mai populare browsere pentru a putea finaliza sarcinile dvs. drept împuternicit.
             not_supported_browser_title: Actualizează browser-ul pentru a acționa ca împuternicit
-            trustee_role_description: Ați fost desemnat să acționați ca Administrator în unele dintre alegerile celebrate în această platformă.
+            trustee_role_description: Ai fost desemnat drept împuternicit în unele dintre alegerile celebrate în această platformă.
           update:
             success: Cheia publică de identificare a fost stocată cu succes.
       votes:
@@ -528,6 +558,19 @@ ro:
           email_outro: Ați primit această notificare deoarece urmăriți %{participatory_space_title}. Puteți înceta să primiți notificări urmând linkul anterior.
           email_subject: Alegerea %{resource_title} este acum activă pentru %{participatory_space_title}.
           notification_title: Alegerile <a href="%{resource_path}">%{resource_title}</a> sunt acum active pentru %{participatory_space_title}.
+        trustees:
+          new_election:
+            email_intro: Ai fost adăugat drept împuternicit pentru alegerile %{resource_title}.
+            email_outro: Ai primit această notificare deoarece ai fost adăugat drept împuternicit pentru alegerile %{resource_title}.
+            email_subject: Ești împuternicit pentru alegerile %{resource_title}.
+            notification_title: Ești împuternicit pentru alegerile <a href="%{resource_path}">%{resource_title}</a>.
+          new_trustee:
+            email_intro: Un administrator te-a adăugat drept împuternicit pentru %{resource_name}. Ar trebui să își generei cheia de verificare publică <a href='%{trustee_zone_url}'>în zona ta dedicată rolului de împuternicit</a>
+            email_outro: Ai primit această notificare deoarece ai fost adăugat drept împuternicit pentru alegerile %{resource_name}.
+            email_subject: Ești împuternicit pentru %{resource_name}.
+            notification_title: Ești împuternicit pentru <a href="%{participatory_space_url}">%{resource_name}</a>.
+    statistics:
+      elections_count: Alegeri
     votings:
       admin:
         ballot_styles:
@@ -535,7 +578,7 @@ ro:
             questions_help: 'Sugestie: selectează întrebările din componenta alegeri pentru a le prezenta celor care votează în acest tip de votare'
           index:
             actions:
-              confirm_destroy: Ești sigur(ă)?
+              confirm_destroy: Sigur dorești asta?
             associated_census_data: Intrări asociate recensământului
             explanation_callout: Un stil de votare specifică ce fel de întrebări va primi un alegător în cabina de vot. Poți alege ce întrebări aparțin votării din componeta alegeri. Codul stilului de vot este folosit pentru a potrivi un alegător de la recensământ cu buletinul de vot pe care îl vor primi în cabina de vot. Nu crea niciun stil de votare dacă vrei să prezinți mereu toate întrebările.
           new:
@@ -545,15 +588,18 @@ ro:
           landing_page:
             attachments_and_folders:
               name: Atașamente și dosare aferente votării
+            elections:
+              name: Alegeri cu votare
         menu:
           votings_submenu:
             attachment_collections: Dosare
             components: Componente
             monitoring_committee: Comitetul de monitorizare
             monitoring_committee_members: Membri
+            monitoring_committee_verify_elections: Verifică alegerile
         monitoring_committee_election_results:
           results:
-            bulletin_board: Panoul de votare
+            bulletin_board: Panoul de afișare
         monitoring_committee_members:
           form:
             select_user: Caută după nume, e-mail sau pseudonim
@@ -563,6 +609,7 @@ ro:
         monitoring_committee_verify_elections:
           index:
             how_to_run_verifier: 'Odată ce ai descărcat fișierul și te-ai asigurat că este în regulă, poți continua pornind verificatorul universal. Clonează <a href=''https://github.com/decidim/decidim-bulletin-board''>acestă arhivă</a> și, din dosarul rădăcină, rulează comanda următoare:'
+            title: Alegeri
         polling_officers:
           form:
             select_user: Caută după nume, e-mail sau pseudonim
@@ -575,7 +622,7 @@ ro:
             title: Creează stație de votare
         votings:
           actions:
-            confirm_destroy: Ești sigur(ă)?
+            confirm_destroy: Sigur dorești asta?
           edit:
             add_election_component: Nu ai alegeri configurate pentru acest vot. Te rugăm să o adaugi în secțiunea Componente
           form:
@@ -589,7 +636,7 @@ ro:
               invalid: S-a produs o eroare la încărcarea recensământului, vă rugăm să încercați din nou mai târziu.
               invalid_csv_header: Antetul CSV nu are numărul corect de câmpuri - te rugăm citește instrucţiunile cu atenţie
             delete:
-              confirm: Ştergerea recensământului nu poate fi anulată. Ești sigur(ă) că vrei să continui?
+              confirm: Ştergerea recensământului nu poate fi anulată. Sigur dorești să continui?
             destroy:
               error: S-a produs o eroare la ștergerea recensământului, vă rugăm să încercați din nou mai târziu.
             new:
@@ -609,8 +656,12 @@ ro:
           datum_not_found: Datele oferite nu se potrivesc cu nici un alegător.
       monitoring_committee_members:
         actions:
-          confirm_destroy: Ești sigur(ă)?
+          confirm_destroy: Sigur dorești asta?
       polling_officer_zone:
+        closures:
+          new:
+            modal_ballots_count_error:
+              text_area_placeholder: Te rugăm să îți scrii mesajul
         in_person_votes:
           complete_voting:
             questions_title: 'Are drept de vot pentru umătoarele întrebări:'
@@ -628,10 +679,10 @@ ro:
               voting: Votare
       polling_officers:
         actions:
-          confirm_destroy: Ești sigur(ă)?
+          confirm_destroy: Sigur dorești asta?
       polling_stations:
         actions:
-          confirm_destroy: Ești sigur(ă)?
+          confirm_destroy: Sigur dorești asta?
       votings:
         check_census:
           check_status: Verifică starea
@@ -649,6 +700,8 @@ ro:
           select: Selectaţi tipul documentului
           year: Anul
           year_placeholder: AAAA
+        elections_log:
+          description: Jurnalul alegerilor îți va arăta toate informațiile relevante aferente fiecărui proces de vot. De exemplu, rezultatul numărării voturilor și dacă acesstea sunt deja publicate. Apasă pe alegerile despre care vrei să aflii mai multe detalii.
         login:
           access_code: Cod de acces
           access_code_placeholder: Cod de acces
