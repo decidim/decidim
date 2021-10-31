@@ -185,8 +185,8 @@ ro:
             success: "%{number} propuneri importate cu succes în răspunsuri"
           new:
             create: Importă propunerile pentru răspunsuri
-            no_components: Nu există alte componente de propunere în acest spațiu participativ pentru a se obține răspunsuri la propuneri.
-            select_component: Vă rugăm să selectaţi o componentă
+            no_components: Nu există alte componente de propunere în acest spațiu participativ pentru importa propunerile în răspunsuri.
+            select_component: Te rugăm selectează o componentă
             title: Importă propuneri
         questions:
           create:
@@ -409,8 +409,8 @@ ro:
                 invalid_key: Tastele de identificare din fișierul încărcat nu pot fi încărcate.
                 invalid_public_key: Tastele de identificare din fişierul încărcat nu se potrivesc cu cheia de identificare publică stocată de Decidim.
               upload_legend: Decidim are cheile tale de identificare publică, dar browserul tău încă nu le are. Trebuie să importați fișierul cu cheile de identificare în calculator din copia de siguranță creată după ce ați generat.
-            not_supported_browser_description: Se pare că folosești un browser web care nu poate fi folosit pentru a acționa ca Administrator. Asigură-te că folosești cea mai recentă versiune de browser, sau încercați să utilizați oricare dintre cele mai populare browsere pentru a putea finaliza sarcinile dvs. Administrator.
-            not_supported_browser_title: Actualizează browser-ul pentru a acționa ca Administrator
+            not_supported_browser_description: Se pare că folosești un browser web care nu poate fi folosit pentru a acționa ca împuternicit. Asigură-te că folosești cea mai recentă versiune de browser, sau încercați să utilizați oricare dintre cele mai populare browsere pentru a putea finaliza sarcinile dvs. drept împuternicit.
+            not_supported_browser_title: Actualizează browser-ul pentru a acționa ca împuternicit
             trustee_role_description: Ați fost desemnat să acționați ca Administrator în unele dintre alegerile celebrate în această platformă.
           update:
             success: Cheia publică de identificare a fost stocată cu succes.
@@ -484,6 +484,7 @@ ro:
         menu:
           votings_submenu:
             attachment_collections: Dosare
+            components: Componente
             monitoring_committee_members: Comitetul de monitorizare
         monitoring_committee_members:
           form:
@@ -504,6 +505,8 @@ ro:
         votings:
           actions:
             confirm_destroy: Ești sigur(ă)?
+          edit:
+            add_election_component: Nu ai alegeri configurate pentru acest vot. Te rugăm să o adaugi în secțiunea Componente
           form:
             slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces de votare. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
           new:
