@@ -348,9 +348,9 @@ ro:
           conditions:
             - Răsfoiește paginile și petrece puțin timp citind propunerile altora
             - Votează propunerilor care îți plac sau ți se par intersante
-          description: Această insignă este acordată atunci când susții propunerile altora.
+          description: Această insignă este acordată atunci când votezi propunerile altora.
           description_another: Acest participant a votat %{score} propuneri.
-          description_own: Ai oferit sprijin pentru %{score} propuneri.
+          description_own: Ai votat %{score} propuneri.
           name: Voturi pentru propuneri
           next_level_in: Votează încă %{score} alte propuneri pentru a atinge următorul nivel!
           unearned_another: Acest participant nu a votat încă nicio propunere.
@@ -525,7 +525,7 @@ ro:
             comments_positive_count: În favoarea
             created_at: Data creării
             documents: Documente
-            endorsements_count: Număr de aprobări
+            endorsements_count: Număr de susțineri
             endorsements_ranking: Clasament după susțineri
             endorsers: Susţinători
             link: Link
@@ -893,7 +893,7 @@ ro:
         vote_button:
           already_voted: Ai votat deja
           already_voted_hover: Retrage votul
-          maximum_votes_reached: Ați atins limita de votare
+          maximum_votes_reached: Ai atins limita de votare
           no_votes_remaining: Niciun vot rămas
           vote: Votează
           votes_blocked: Votare dezactivată
