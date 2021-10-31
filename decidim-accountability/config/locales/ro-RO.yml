@@ -35,7 +35,7 @@ ro:
       actions:
         attachment_collections: Dosare
         attachments: Atașamente
-        confirm_destroy: Ești sigur(ă) că vrei să ștergi acest %{name}?
+        confirm_destroy: Sigur dorești să ștergi acest %{name}?
         destroy: Ștergere
         edit: Editare
         import_csv: Importă CSV
