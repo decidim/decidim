@@ -68,9 +68,9 @@ ro:
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
-        one: Schiță colaborativă
-        few: Schițe colaborative
-        other: Schițe colaborative
+        one: Ciornă colaborativă
+        few: Ciorne colaborative
+        other: Ciorne colaborative
       decidim/proposals/proposal:
         one: Propunere
         few: Propuneri
@@ -154,7 +154,7 @@ ro:
             proposal_wizard_step_2_help_text: Text de ajutor pentru pasul „Compară” din crearea unei propuneri
             proposal_wizard_step_3_help_text: Text de ajutor pentru pasul „Finalizează” din crearea unei propuneri
             proposal_wizard_step_4_help_text: Text de ajutor pentru pasul „Publică” din crearea unei propuneri
-            resources_permissions_enabled: Pentru fiecare propunere pot fi setate permisiuni pentru acțiuni
+            resources_permissions_enabled: Pentru fiecare propunere pot fi setate drepturi pentru acțiuni
             scope_id: Domeniu de interes
             scopes_enabled: Domeniile de interes au fost activate
             threshold_per_proposal: Prag per propunere
@@ -193,35 +193,35 @@ ro:
             email_subject: Cineva a trimis o notă la propunerea %{resource_title}.
             notification_title: Cineva a lăsat o notă la propunerea <a href="%{resource_path}">%{resource_title}</a>. Verifică detaliile în <a href="%{admin_proposal_info_path}">panoul de administrare</a>
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} a fost acceptat drept colaborator pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.'
+          email_intro: '%{requester_name} a fost acceptat drept colaborator pentru ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Ai primit această notificare deoarece ești colaborator pentru <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "Utilizatorul %{requester_name} a fost acceptat drept colaborator pentru %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a fost <strong>acceptat drept colaborator</strong> pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a fost <strong>acceptat drept colaborator</strong> pentru ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} a fost respins drept colaborator pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.'
+          email_intro: '%{requester_name} a fost respins drept colaborator pentru ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Ai primit această notificare deoarece ești colaborator pentru <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} a fost respins drept colaborator pentru schița colaborativă %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a fost <strong>respins drept colaborator</strong> pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} a fost respins drept colaborator pentru ciorna colaborativă %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a fost <strong>respins drept colaborator</strong> pentru ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} a solicitat acces drept colaborator. Poți <strong>accepta sau respinge cererea</strong> din pagina schiței colaborative <a href="%{resource_path}">%{resource_title}</a>.'
+          email_intro: '%{requester_name} a solicitat acces drept colaborator. Poți <strong>accepta sau respinge cererea</strong> din pagina ciornei colaborative <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Ai primit această notificare deoarece ești colaborator pentru <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} a solicitat acces pentru a contribui la %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a solicitat acces pentru a contribui la schița colaborativă <a href="%{resource_path}">%{resource_title}</a>. Te rugăm <strong>acceptă sau respinge cererea</strong>.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a solicitat acces pentru a contribui la ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>. Te rugăm <strong>acceptă sau respinge cererea</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Ai fost acceptat drept colaborator pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: Ai fost acceptat drept colaborator pentru ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Ai primit această notificare deoarece ai solicitat să devii colaborator pentru <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Ai fost acceptat drept colaborator pentru %{resource_title}.
-          notification_title: Ai fost <strong>acceptat drept colaborator</strong> pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: Ai fost <strong>acceptat drept colaborator</strong> pentru ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
-          email_intro: Ai fost respins drept colaborator pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: Ai fost respins drept colaborator pentru ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Ai primit această notificare deoarece ai solicitat să devii colaborator pentru <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Ai fost respins drept colaborator pentru %{resource_title}.
-          notification_title: Ai fost <strong>respins drept colaborator</strong> pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: Ai fost <strong>respins drept colaborator</strong> pentru ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a retras schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a retras ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Ai primit această notificare deoarece ești colaborator pentru <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{author_name} %{author_nickname} a retras schița colaborativă %{resource_title}."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>a retras</strong> schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} a retras ciorna colaborativă %{resource_title}."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>a retras</strong> ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
           email_intro: 'Acum poți crea propuneri noi pentru %{participatory_space_title}! Participă acum la această pagină:'
           email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți anula aceste notificări de la link-ul anterior.
@@ -312,9 +312,9 @@ ro:
           conditions:
             - Răsfoiește paginile și petrece puțin timp citind propunerile altora
             - Votează propunerilor care îți plac sau ți se par intersante
-          description: Această insignă este acordată atunci când susții propunerile altora.
+          description: Această insignă este acordată atunci când votezi propunerile altora.
           description_another: Acest participant a votat %{score} propuneri.
-          description_own: Ai oferit sprijin pentru %{score} propuneri.
+          description_own: Ai votat %{score} propuneri.
           name: Voturi pentru propuneri
           next_level_in: Votează încă %{score} alte propuneri pentru a atinge următorul nivel!
           unearned_another: Acest participant nu a votat încă nicio propunere.
@@ -370,11 +370,11 @@ ro:
             name: Propunere
         participatory_texts:
           bulk-actions:
-            are_you_sure: Sigur dorești să renunți la întrega schiță de text participativ?
+            are_you_sure: Sigur dorești să renunți la întrega ciornă de text participativ?
             discard_all: Renunță la toate
             import_doc: Importă documentul
           discard:
-            success: Toate schițele de text participativ au fost șterse.
+            success: Toate ciornele de text participativ au fost șterse.
           import:
             invalid: Formularul nu este valid!
             invalid_file: Fişierul conţine o eroare, te rugăm să încerci să editezi conţinutul fişierului şi să-l reîncărci.
@@ -470,7 +470,7 @@ ro:
             comments_positive_count: În favoarea
             created_at: Data creării
             documents: Documente
-            endorsements_count: Număr de aprobări
+            endorsements_count: Număr de susțineri
             endorsements_ranking: Clasament după susțineri
             endorsers: Susţinători
             link: Link
@@ -509,7 +509,7 @@ ro:
             title: Importă propuneri
         proposals_merges:
           create:
-            invalid: A apărut o problemă la fuzionarea propunerilor selectate.
+            invalid: A apărut o problemă la combinarea propunerilor selectate.
             success: Propunerile au fost combinate cu succes într-o propunere nouă.
         proposals_splits:
           create:
@@ -565,7 +565,7 @@ ro:
           publish:
             error: A apărut o problemă la publicarea ciornei colaborative.
             irreversible_action_modal:
-              body: După publicarea schiței ca propunere, aceasta nu va mai fi editabilă. Propunerea nu va mai accepta autori sau contribuții noi.
+              body: După publicarea ciornei drept propunere, aceasta nu va mai fi editabilă. Propunerea nu va mai accepta autori sau contribuții noi.
               cancel: Anulează
               ok: Publică drept propunere
               title: Următoarea acţiune este ireversibilă
@@ -576,7 +576,7 @@ ro:
             irreversible_action_modal:
               body: După închiderea ciornei, aceasta nu va mai putea fi editată. Ciorna nu va mai accepta autori sau contribuții noi.
               cancel: Anulează
-              ok: Retrage schița colaborativă
+              ok: Retrage ciorna colaborativă
               title: Următoarea acţiune este ireversibilă
             success: Ciorna colaborativă a fost retrasă cu succes.
         count:
@@ -645,7 +645,7 @@ ro:
           publish: Publică
           publish_info: Publică această versiune a ciornei sau
           published_proposal: propunere publicată
-          request_access: Solicită acces
+          request_access: Cere acces
           requested_access: Acces solicitat
           version_history: vezi istoricul versiunilor pentru această propunere
           withdraw: retrage ciorna
@@ -835,7 +835,7 @@ ro:
         vote_button:
           already_voted: Ai votat deja
           already_voted_hover: Retrage votul
-          maximum_votes_reached: Ați atins limita de votare
+          maximum_votes_reached: Ai atins limita de votare
           no_votes_remaining: Niciun vot rămas
           vote: Votează
           votes_blocked: Votare dezactivată
