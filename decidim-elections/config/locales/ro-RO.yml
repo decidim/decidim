@@ -467,8 +467,8 @@ ro:
                 invalid_key: Tastele de identificare din fișierul încărcat nu pot fi încărcate.
                 invalid_public_key: Tastele de identificare din fişierul încărcat nu se potrivesc cu cheia de identificare publică stocată de Decidim.
               upload_legend: Decidim are cheile tale de identificare publică, dar browserul tău încă nu le are. Trebuie să importați fișierul cu cheile de identificare în calculator din copia de siguranță creată după ce ați generat.
-            not_supported_browser_description: Se pare că folosești un browser web care nu poate fi folosit pentru a acționa ca Administrator. Asigură-te că folosești cea mai recentă versiune de browser, sau încercați să utilizați oricare dintre cele mai populare browsere pentru a putea finaliza sarcinile dvs. Administrator.
-            not_supported_browser_title: Actualizează browser-ul pentru a acționa ca Administrator
+            not_supported_browser_description: Se pare că folosești un browser web care nu poate fi folosit pentru a acționa ca împuternicit. Asigură-te că folosești cea mai recentă versiune de browser, sau încercați să utilizați oricare dintre cele mai populare browsere pentru a putea finaliza sarcinile dvs. drept împuternicit.
+            not_supported_browser_title: Actualizează browser-ul pentru a acționa ca împuternicit
             trustee_role_description: Ați fost desemnat să acționați ca Administrator în unele dintre alegerile celebrate în această platformă.
           update:
             success: Cheia publică de identificare a fost stocată cu succes.
@@ -605,6 +605,9 @@ ro:
         actions:
           confirm_destroy: Ești sigur(ă)?
       polling_officer_zone:
+        in_person_votes:
+          in_person_form:
+            census_not_present_description: Trebuie mers la biroul de reclamații pentru recensământ sau să contacteze echipa de suport.
         polling_officers:
           index:
             polling_officer_role_description: Ați fost desemnat să acționați în calitate de verificator al scrutinului (președinte sau manager) în unele dintre alegerile celebrate în cadrul acestei platforme.
