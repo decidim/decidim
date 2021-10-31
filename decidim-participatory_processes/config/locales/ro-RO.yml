@@ -49,7 +49,7 @@ ro:
         target: Cine participă
         title: Titlu
       participatory_process_step:
-        cta_path: Calea butonului Apel la acțiune
+        cta_path: URL-ul butonului Apel la acțiune
         cta_text: Textul butonului Apel la acțiune
         description: Descriere
         end_date: Data de încheiere
