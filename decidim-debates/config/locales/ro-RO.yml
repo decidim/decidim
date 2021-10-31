@@ -48,7 +48,7 @@ ro:
     debates:
       actions:
         close: Închide
-        confirm_destroy: Sigur dorești să?
+        confirm_destroy: Sigur dorești asta?
         destroy: Ștergere
         edit: Editare
         new: '%{name} nou'
