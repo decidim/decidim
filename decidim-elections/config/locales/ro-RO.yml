@@ -303,10 +303,10 @@ ro:
         election:
           end_vote: "%{user_name} a încheiat perioada de votare în cadrul algerilor pentru %{resource_name} în Panoul de afișare"
           publish: "%{user_name} a publicat alegerile pentru %{resource_name}"
-          publish_results: "%{user_name} a publicat rezultatele pentru alegerea %{resource_name} în Panoul de Buletin"
-          setup: "%{user_name} a creat alegerea %{resource_name} în Panoul de Buletin"
-          start_key_ceremony: "%{user_name} a început ceremonia cheie pentru alegerile %{resource_name} din Panoul de votare"
-          start_tally: "%{user_name} a început numărătoarea voturilor pentru alegerile %{resource_name} în Panoul de votare"
+          publish_results: "%{user_name} a publicat rezultatele pentru alegerile %{resource_name} în Panoul de afișare"
+          setup: "%{user_name} a creat alegerile %{resource_name} în Panoul de afișare"
+          start_key_ceremony: "%{user_name} a început ceremonia cheie pentru alegerile %{resource_name} din Panoul de afișare"
+          start_tally: "%{user_name} a început numărătoarea voturilor pentru alegerile %{resource_name} în Panoul de afișare"
           start_vote: "%{user_name} a început perioada de votare pentru alegerile %{resource_name} în Panoul de afișare"
           unpublish: "%{user_name} a anulat publicarea alegerilor %{resource_name}"
       election_m:
@@ -600,6 +600,8 @@ ro:
         monitoring_committee_election_results:
           results:
             bulletin_board: Panoul de afișare
+          update:
+            rejected: Pulicarea rezultatelor a fost respinsă de către Panoul de afișare. Încearcă din nou sau contactează un administrator.
         monitoring_committee_members:
           form:
             select_user: Caută după nume, e-mail sau pseudonim
@@ -668,6 +670,9 @@ ro:
             questions_title_voted: 'Participantul a votat deja online și are drept de vot pentru următoarele întrebări:'
           in_person_form:
             census_not_present_description: Trebuie mers la biroul de reclamații pentru recensământ sau să contacteze echipa de suport.
+          update:
+            success:
+              rejected: Votul nu a fost acceptat de către Panoul de afișare. Te rugăm contactează administratorul de sistem.
           verify_document:
             title: 'Verifică dacă următoarele date sunt corecte:'
         polling_officers:
