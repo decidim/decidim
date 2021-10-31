@@ -2,7 +2,7 @@ ro:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Domeniu
+        decidim_scope_id: Domeniu de interes
         description: Descriere
         title: Titlu
         total_budget: Total budget
@@ -10,7 +10,7 @@ ro:
       project:
         budget_amount: Sumă bugetară
         decidim_category_id: Categorie
-        decidim_scope_id: Domeniu
+        decidim_scope_id: Domeniu de interes
         description: Descriere
         proposal_ids: Propuneri asociate
         selected: Selectate pentru implementare
@@ -248,8 +248,8 @@ ro:
             landing_page_content: Pagina pentru bugetare participativă
             more_information_modal: Mai multe informații
             projects_per_page: Proiecte pe pagină
-            resources_permissions_enabled: Pentru fiecare proiect pot fi setate permisiuni pentru acțiuni
-            scope_id: Domeniu
+            resources_permissions_enabled: Pentru fiecare proiect pot fi setate drepturi pentru acțiuni
+            scope_id: Domeniu de interes
             scopes_enabled: Domenii activate
             title: Titlu
             total_budget: Buget total
