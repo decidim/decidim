@@ -31,8 +31,8 @@ ro:
           button: Revocă tot
           button_before: Revocă înainte de data
           destroy:
-            confirm: Revocarea înainte de data autorizării nu poate fi anulată. Ești sigur(ă) că vrei să continui?
-            confirm_all: Revocarea tuturor autorizațiilor nu poate fi anulată. Ești sigur(ă) că vrei să continui?
+            confirm: Revocarea înainte de data autorizării nu poate fi anulată. Sigur dorești să continui?
+            confirm_all: Revocarea tuturor autorizațiilor nu poate fi anulată. Sigur dorești să continui?
           destroy_nok: A apărut o problemă în timpul revocării autorizațiilor.
           destroy_ok: Toate autorizațiile corelate au fost revocate.
           info: Există un total de %{count} participanți verificați.
@@ -207,9 +207,9 @@ ro:
             rejection_clarity: Asigură-te că informația este clar vizibilă în imaginea încărcată
             rejection_correctness: Asigură-te că informațiile introduse sunt corecte
             rejection_notice: A apărut o problemă cu verificarea ta. Te rugăm să încerci din nou
-            send: Solicită verificarea din nou
+            send: Cere verificarea din nou
           new:
-            send: Solicită verificare
+            send: Cere verificare
             title: Încarcă documentul tău de identitate
           update:
             error: A apărut o eroare la reîncărcarea documentului
@@ -242,7 +242,7 @@ ro:
             waiting_for_letter: Vom trimite în curând o scrisoare la adresa ta cu codul tău de verificare
           new:
             send: Trimite-mi o scrisoare
-            title: Solicită codul tău de verificare
+            title: Cere codul tău de verificare
           update:
             error: Codul tău de verificare nu se potrivește cu al nostru. Te rugăm să verifici din nou scrisoarea pe care ți-am trimis-o
             success: Felicitări. Ai fost verificat cu succes
@@ -261,7 +261,7 @@ ro:
             title: Introdu codul de verificare primit
           new:
             send: Trimite-mi un SMS
-            title: Solicită codul tău de verificare
+            title: Cere codul tău de verificare
           update:
             error: Codul tău de verificare nu se potrivește cu al nostru. Te rugăm să verifici din nou SMS-ul pe care ți l-am trimis.
             success: Felicitări. Ai fost verificat cu succes.
