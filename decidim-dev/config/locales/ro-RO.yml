@@ -3,7 +3,7 @@ ro:
     attributes:
       dummy_resource:
         created_at: Creat la
-        decidim_scope_id: Domeniu
+        decidim_scope_id: Domeniu de interes
         field: Câmpul meu
         start_date: Data de început
         title: Titlu
