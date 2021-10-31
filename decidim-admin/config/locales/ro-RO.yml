@@ -206,7 +206,7 @@ ro:
           error: A apărut o problemă la crearea unei zone noi.
           success: Zona a fost creată cu succes.
         destroy:
-          has_spaces: Zona are spaţii dependente, nu trebuie să aibă dependenţe pentru a fi ştersă.
+          has_spaces: Zona are spații dependente, pentru a putea fi ștearsă nu trebuie să aibă dependențe.
           success: Zona a fost eliminată cu succes
         edit:
           title: Editează zona
