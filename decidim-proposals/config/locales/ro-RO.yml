@@ -81,9 +81,9 @@ ro:
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
-        one: Schiță colaborativă
-        few: Schițe colaborative
-        other: Schițe colaborative
+        one: Ciornă colaborativă
+        few: Ciorne colaborative
+        other: Ciorne colaborative
       decidim/proposals/proposal:
         one: Propunere
         few: Propuneri
@@ -179,7 +179,7 @@ ro:
             proposal_wizard_step_2_help_text: Text de ajutor pentru pasul „Compară” din crearea unei propuneri
             proposal_wizard_step_3_help_text: Text de ajutor pentru pasul „Finalizează” din crearea unei propuneri
             proposal_wizard_step_4_help_text: Text de ajutor pentru pasul „Publică” din crearea unei propuneri
-            resources_permissions_enabled: Pentru fiecare propunere pot fi setate permisiuni pentru acțiuni
+            resources_permissions_enabled: Pentru fiecare propunere pot fi setate drepturi pentru acțiuni
             scope_id: Domeniu de interes
             scopes_enabled: Domeniile de interes au fost activate
             threshold_per_proposal: Prag per propunere
@@ -229,32 +229,32 @@ ro:
             email_subject: Cineva a trimis o notă la propunerea %{resource_title}.
             notification_title: Cineva a lăsat o notă la propunerea <a href="%{resource_path}">%{resource_title}</a>. Verifică detaliile în <a href="%{admin_proposal_info_path}">panoul de administrare</a>
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} a fost acceptat drept colaborator pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.'
+          email_intro: '%{requester_name} a fost acceptat drept colaborator pentru ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Ai primit această notificare deoarece ești colaborator pentru <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "Utilizatorul %{requester_name} a fost acceptat drept colaborator pentru %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a fost <strong>acceptat drept colaborator</strong> pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a fost <strong>acceptat drept colaborator</strong> pentru ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} a fost respins drept colaborator pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.'
+          email_intro: '%{requester_name} a fost respins drept colaborator pentru ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Ai primit această notificare deoarece ești colaborator pentru <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} a fost respins drept colaborator pentru schița colaborativă %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a fost <strong>respins drept colaborator</strong> pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} a fost respins drept colaborator pentru ciorna colaborativă %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a fost <strong>respins drept colaborator</strong> pentru ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} a solicitat acces drept colaborator. Poți <strong>accepta sau respinge cererea</strong> din pagina schiței colaborative <a href="%{resource_path}">%{resource_title}</a>.'
+          email_intro: '%{requester_name} a solicitat acces drept colaborator. Poți <strong>accepta sau respinge cererea</strong> din pagina ciornei colaborative <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Ai primit această notificare deoarece ești colaborator pentru <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} a solicitat acces pentru a contribui la %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a solicitat acces pentru a contribui la schița colaborativă <a href="%{resource_path}">%{resource_title}</a>. Te rugăm <strong>acceptă sau respinge cererea</strong>.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a solicitat acces pentru a contribui la ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>. Te rugăm <strong>acceptă sau respinge cererea</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Ai fost acceptat drept colaborator pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: Ai fost acceptat drept colaborator pentru ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Ai primit această notificare deoarece ai solicitat să devii colaborator pentru <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Ai fost acceptat drept colaborator pentru %{resource_title}.
-          notification_title: Ai fost <strong>acceptat drept colaborator</strong> pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: Ai fost <strong>acceptat drept colaborator</strong> pentru ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
-          email_intro: Ai fost respins drept colaborator pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: Ai fost respins drept colaborator pentru ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Ai primit această notificare deoarece ai solicitat să devii colaborator pentru <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Ai fost respins drept colaborator pentru %{resource_title}.
-          notification_title: Ai fost <strong>respins drept colaborator</strong> pentru schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: Ai fost <strong>respins drept colaborator</strong> pentru ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a retras schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a retras ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.
           email_outro: Ai primit această notificare deoarece ești colaborator pentru <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} a retras schița colaborativă %{resource_title}."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>a retras</strong> schița colaborativă <a href="%{resource_path}">%{resource_title}</a>.
