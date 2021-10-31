@@ -57,7 +57,7 @@ ro:
       decidim/endorsement:
         one: Susținere
         few: Susținători
-        other: Susținători
+        other: Susțineri
       decidim/user:
         one: Participant
         few: Participanți
@@ -191,14 +191,14 @@ ro:
         no_similars_found: Nu există modificări similare.
         title: Modificări similare
       created:
-        error: S-a produs o eroare la crearea proiectului de modificare.
-        success: Draftul de modificare a fost creat cu succes.
+        error: S-a produs o eroare la crearea ciornei de amendament.
+        success: Ciorna de amendament a fost creată cu succes.
       destroy_draft:
-        error: A apărut o eroare la eliminarea proiectului de modificare.
-        success: Draftul modificării a fost șters cu succes.
+        error: A apărut o eroare la ștergerea ciornei de amendament.
+        success: Ciorna de amendament a fost ștearsă cu succes.
       edit_draft:
         discard: Renunță la acest draft
-        discard_confirmation: Ești sigur(ă) că vrei să renunți la acest draft de modificare?
+        discard_confirmation: Sigur dorești să renunți la această ciornă de amendament?
         send: Previzualizare
         title: Editare draft de modificare
       emendation:
@@ -276,8 +276,8 @@ ro:
         other: comentarii
       endorsements:
         one: susținere
-        few: andosări
-        other: andosări
+        few: susțineri
+        other: susțineri
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Verifică prin prin introducerea unui număr al pașaportului începând cu „A”
@@ -471,7 +471,7 @@ ro:
           sign_up: Înscrie-te
           sign_up_as:
             legend: Înregistrează-te ca
-          subtitle: Înscrie-te pentru a participa la discuții și pentru a sprijini propuneri.
+          subtitle: Înscrie-te pentru a participa la discuții și pentru a vota propuneri.
           terms: termenii și condițiile de utilizare
           tos_agreement: Prin înregistrare ești de acord cu %{link}.
           tos_title: Condiții de utilizare
@@ -674,8 +674,8 @@ ro:
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, pe care îl urmărești, tocmai a aprobat „%{resource_title}” și noi credem că ar putea fi interesant pentru tine. Verificați și contribuția:'
         email_outro: Ai primit această notificare deoarece urmărești %{endorser_nickname}. Poți înceta să primești notificări urmând linkul anterior.
-        email_subject: "%{endorser_nickname} a efectuat o nouă aprobare"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} a fost aprobat de <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+        email_subject: "%{endorser_nickname} a susținut un conținut nou"
+        notification_title: Inițiativa <a href="%{resource_path}">%{resource_title}</a> %{resource_type} a fost susținută de <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: Pagina de profil <a href="%{resource_url}"></a> din %{name} (%{nickname}), pe care o urmărești, a fost actualizată.
@@ -1023,12 +1023,12 @@ ro:
         interpolations_hint: 'Sugestie: Puteţi utiliza "%{name}" oriunde în corp sau subiect şi va fi înlocuit cu numele destinatarului.'
       image_text_cta:
         body_preview: 'Dummy text for body: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
-        cta_text_preview: Apel la textul Acțiune
+        cta_text_preview: Textul butonului Apel la acțiune
         introduction_preview: 'Dummy text for introduction: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
         name: Imagine, text și butonul Apel la acțiune
       image_text_cta_settings_form:
         body: Corp
-        cta_text: Textul butonului de Apel la acțiune
+        cta_text: Textul butonului Apel la acțiune
         cta_url: URL buton Apel la Acțiune
         interpolations_hint: 'Sugestie: Puteţi utiliza "%{name}" oriunde în introducere, corp, text CTA sau subiect şi va fi înlocuit cu numele destinatarului.'
         introduction: Introducere
@@ -1094,7 +1094,7 @@ ro:
           meetings_explanation: Află unde și când poți participa la ședințe publice.
           more_info: Mai multe informații
           proposals: Propuneri
-          proposals_explanation: Faceți propuneri, sprijiniți propunerile existente și promovați modificările pe care doriți să le vedeți.
+          proposals_explanation: Formulează propuneri, votează propunerile existente și promovează schimbările pe care dorești să le vezi implementate.
         footer_sub_hero:
           footer_sub_hero_body: Haideți să construim o societate mai deschisă, mai transparentă și mai colaborativă.<br /> Alăturați-vă, participați și decideți.
           footer_sub_hero_headline: Bun venit pe platforma participativă %{organization}.
@@ -1198,7 +1198,7 @@ ro:
         success: Raportul a fost creat cu succes şi va fi revizuit de un administrator.
     resource_endorsements:
       create:
-        error: A existat o problemă în timpul acţiunii de aprobare.
+        error: A apărut o problemă în timpul înregistrării susținerii.
     scopes:
       global: Domeniul global de aplicare
       picker:
@@ -1307,7 +1307,7 @@ ro:
         share_link: Distribuie link-ul
     statistics:
       comments_count: Comentarii
-      endorsements_count: Susținători
+      endorsements_count: Susțineri
       followers_count: Urmăritori
       headline: Statistici
       no_stats: Încă nu există statistici.
