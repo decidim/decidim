@@ -49,7 +49,7 @@ ro:
         target: Cine participă
         title: Titlu
       participatory_process_step:
-        cta_path: Calea butonului Apel la acțiune
+        cta_path: URL-ul butonului Apel la acțiune
         cta_text: Textul butonului Apel la acțiune
         description: Descriere
         end_date: Data de încheiere
@@ -462,7 +462,7 @@ ro:
         comments_count: Comentarii
         debates_count: Dezbateri
         endorsements_count: Susțineri
-        followers_count: Abonați
+        followers_count: Urmăritori
         headline: Statistici
         meetings_count: Întâlniri
         no_stats: Nu există încă statistici.
