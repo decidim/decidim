@@ -280,12 +280,12 @@ ro:
             success: Împuternicitul %{trustee} a fost actualizat cu succes
       admin_log:
         election:
-          end_vote: "%{user_name} a încheiat perioada de votare în cadrul algerilor pentru %{resource_name} în Panoul de votare"
+          end_vote: "%{user_name} a încheiat perioada de votare în cadrul algerilor pentru %{resource_name} în Panoul de afișare"
           publish: "%{user_name} a publicat alegerile pentru %{resource_name}"
-          setup: "%{user_name} a creat alegerile %{resource_name} în Panoul de votare"
-          start_key_ceremony: "%{user_name} a început ceremonia cheie pentru alegerile %{resource_name} din Panoul de votare"
-          start_tally: "%{user_name} a început numărătoarea voturilor pentru alegerile %{resource_name} în Panoul de votare"
-          start_vote: "%{user_name} a început perioada de votare pentru alegerile %{resource_name} în Panoul de votare"
+          setup: "%{user_name} a creat alegerile %{resource_name} în Panoul de afișare"
+          start_key_ceremony: "%{user_name} a început ceremonia cheie pentru alegerile %{resource_name} din Panoul de afișare"
+          start_tally: "%{user_name} a început numărătoarea voturilor pentru alegerile %{resource_name} în Panoul de afișare"
+          start_vote: "%{user_name} a început perioada de votare pentru alegerile %{resource_name} în Panoul de afișare"
           unpublish: "%{user_name} a anulat publicarea alegerilor %{resource_name}"
       election_m:
         badge_name:
