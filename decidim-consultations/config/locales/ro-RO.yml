@@ -3,7 +3,7 @@ ro:
     attributes:
       consultation:
         banner_image: Imagine banner
-        decidim_highlighted_scope_id: Domeniul de aplicare
+        decidim_highlighted_scope_id: Domeniu evidențiat
         description: Descriere
         end_voting_date: Votarea se termină
         introductory_image: Imagine introductivă
@@ -15,21 +15,21 @@ ro:
         title: Titlu
       question:
         banner_image: Imagine banner
-        decidim_scope_id: Suprafață municipală
+        decidim_scope_id: Perimetru de aplicare
         hashtag: Hashtag
         hero_image: Imagine acasă
         i_frame_url: URL sistem de vot extern
         instructions: Instrucțiuni suplimentare pentru votare
         max_votes: Numărul maxim de voturi
         min_votes: Numărul minim de voturi
-        origin_scope: Domeniu
+        origin_scope: Domeniu de interes
         origin_title: Origine
         origin_url: URL Origine
-        participatory_scope: Domeniul de aplicare participativ
+        participatory_scope: Domeniul participativ
         promoter_group: Grup promotor
         question_context: Context
         reference: Referință
-        scope: Suprafață municipală
+        scope: Perimetru de aplicare
         slug: URL slug
         subtitle: Subtitrare
         vote: Sistem de vot extern
