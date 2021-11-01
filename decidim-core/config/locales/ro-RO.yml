@@ -865,7 +865,7 @@ ro:
     help:
       main_topic:
         default_page:
-          content: "<p>În %{organization} poți participa și decide cu privire la diferite subiecte, prin spaţiile pe care le vezi în meniul superior: Procese, Grupuri de lucru, Iniţiative, Consultări.</p> <p>În cadrul fiecăruia vei găsi opțiuni diferite pentru a participa: propune individual sau împreună cu alte persoane, ia parte la dezbateri, prioritizează proiectele pentru a fi puse în aplicare, participă la întâlniri față-în-față și la alte acțiuni.</p>\n"
+          content: "<p>În %{organization} poți participa și decide cu privire la diferite subiecte, prin spaţiile participative pe care le vezi în meniul superior: Procese, Grupuri de lucru, Iniţiative, Consultări.</p> <p>În cadrul fiecăruia vei găsi opțiuni diferite pentru a participa: formulează propuneri individual sau împreună cu alte persoane, ia parte la dezbateri, prioritizează proiectele ce urmează a fi puse în aplicare, participă la întâlniri față-în-față și la alte acțiuni.</p>\n"
           title: Ce pot face în %{organization}?
         description: Citește mai multe despre %{organization}
         title: Ajutor General
