@@ -12,7 +12,7 @@ ro:
         instructions: Instrucţiuni de participare
         start_time: Începe la
         title: Titlu
-        user_group_id: Creează o dezbatere ca
+        user_group_id: Creați o dezbatere în calitate de
     models:
       decidim/debates/close_debate_event: Dezbatere închisă
       decidim/debates/create_debate_event: Dezbatere
@@ -189,10 +189,10 @@ ro:
           space_followers:
             email_intro: |-
               Bună,
-              O nouă dezbatere "%{resource_title}" a fost creată pe spațiul participativ %{space_title}, uita-te peste și contribuie:
+              O nouă dezbatere "%{resource_title}" a fost creată în spațiul participativ %{space_title}, citește și contribuie:
             email_outro: Ați primit această notificare deoarece urmați spațiul participativ al %{space_title} . Puteți înceta să primiți notificări urmând linkul anterior.
             email_subject: Dezbatere nouă "%{resource_title}" pe %{space_title}
-            notification_title: Dezbaterea <a href="%{resource_path}">%{resource_title}</a> a fost creată pe <a href="%{space_path}">%{space_title}</a>.
+            notification_title: Dezbaterea <a href="%{resource_path}">%{resource_title}</a> a fost creată în <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Bună,
