@@ -48,7 +48,7 @@ module Decidim
       AUTO_LINK_RE = %r{(?: ((?:ftp|http|https):)// | www\. )[^\s<\u00A0"]+}ix.freeze
 
       # # regexps for determining context, used high-volume
-      AUTO_LINK_CRE = [/<[^>]+$/, /^[^>]*>/, /<a\b.*?>/i, %r{/</a>/i}].freeze
+      AUTO_LINK_CRE = [/<[^>]+$/, /^[^>]*>/, /<a\b.*?>/i, %r{</a>}i].freeze
 
       PUNCTUATION_RE = %r{[^\p{Word}/=&]$}.freeze
 
