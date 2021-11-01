@@ -865,7 +865,7 @@ ro:
     help:
       main_topic:
         default_page:
-          content: "<p>în %{organization} poți participa și decide cu privire la diferite subiecte, prin spaţiile pe care le vedeţi în meniul superior: Procese, Adunări, Iniţiative, Consultări.</p> <p>În cadrul fiecăruia vei găsi opțiuni diferite pentru a participa: propune individual sau împreună cu alte persoane, ia parte la dezbateri, prioritizează proiectele pentru a le pune în aplicare, participă la reuniuni directe și la alte acțiuni.</p>\n"
+          content: "<p>În %{organization} poți participa și decide cu privire la diferite subiecte, prin spaţiile pe care le vezi în meniul superior: Procese, Grupuri de lucru, Iniţiative, Consultări.</p> <p>În cadrul fiecăruia vei găsi opțiuni diferite pentru a participa: propune individual sau împreună cu alte persoane, ia parte la dezbateri, prioritizează proiectele pentru a fi puse în aplicare, participă la întâlniri față-în-față și la alte acțiuni.</p>\n"
           title: Ce pot face în %{organization}?
         description: Citește mai multe despre %{organization}
         title: Ajutor General
@@ -1091,7 +1091,7 @@ ro:
           debates_explanation: Dezbați și discuți, îți împărtășești opiniile și contribui la subiectele relevante pentru tine.
           how_to_participate: Cum pot lua parte la un proces?
           meetings: Întâlniri
-          meetings_explanation: Află unde și când poți participa la ședințe publice.
+          meetings_explanation: Află unde și când poți participa la întâlniri deschise publicului.
           more_info: Mai multe informații
           proposals: Propuneri
           proposals_explanation: Formulează propuneri, votează propunerile existente și promovează schimbările pe care dorești să le vezi implementate.
@@ -1401,7 +1401,7 @@ ro:
       show:
         version_index: Versiunea %{index}
     welcome_notification:
-      default_body: <p>Bună ziua {{name}}, vă mulțumin că v-ați alăturat {{organization}} și bine ați venit!</p><ul><li>Dacă doriți să aveți o idee despre ceea ce puteți face aici, examinați secțiunea de <a href="{{help_url}}">Ajutor</a>.</li><li>După citirea acesteia veți primi primul ecuson. Aici este <a href="{{badges_url}}">lista tuturor ecusoanelor</a> pe care le puteți obține pe măsură ce participați în cadrul {{organization}}</li><li>Nu în ultimul rând, puteți să vă alăturați altor persoane, să împărtășiți cu acestea experiența dvs. de implicare și participare în cadrul {{organization}}. Formulați propuneri și comentarii, dezbateți, reflectați asupra modului de a contribui la binele comun, oferiți argumente pentru a convinge, ascultați și citiți pentru a vă lăsa convinși, exprimați-vă ideile în mod concret și direct, răspundeți ferm și cu răbdare, apărați-vă ideile și mențineți o atitudine deschisă pentru a colabora și a participa la ideile altora.</li></ul>
+      default_body: <p>Bună ziua {{name}}, îți mulțumin că te-ai alăturat {{organization}} și bine ai venit!</p><ul><li>Dacă vrei să îți faci o idee despre ceea ce poți face în această platformă, citește secțiunea <a href="{{help_url}}">Ajutor</a>.</li><li>După citirea acesteia vei primi prima insignă. Aici este <a href="{{badges_url}}">lista tuturor insignelor</a> pe care le poți obține pe măsură ce participi în cadrul {{organization}}</li><li>Nu în ultimul rând, poți să te alături altor persoane, să împărtășești cu acestea experiența ta de implicare și participare în cadrul {{organization}}. Formulează propuneri și comentarii, participă la dezbateri, reflectă asupra modului de a contribui la binele comun, oferă argumente pentru a convinge, ascultă și citește pentru a vă forma părerea, exprimă-ți ideile în mod concret și direct, răspunde ferm și cu răbdare, apără-ți ideile și menține o atitudine deschisă pentru a colabora și a participa la ideile altora.</li></ul>
       default_subject: Îți mulțumim că te-ai alăturat {{organization}}!
     wizard_step_form:
       wizard_aside:
