@@ -539,16 +539,6 @@ module Decidim
         end
       end
 
-      # initializer "nbspw" do
-      #   NOBSPW.configuration.use_ruby_grep = true
-      # end
-
-      initializer "password strenght" do
-        Decidim.configure do |config|
-          config.minimum_password_length = 8
-        end
-      end
-
       initializer "decidim.premailer" do
         Premailer::Adapter.use = :decidim
       end

@@ -49,7 +49,7 @@
             </div>
 
             <div class="field">
-              <%= f.password_field :password, help_text: t(".password_help", minimun_characters: Decidim.minimum_password_length), autocomplete: "off" %>
+              <%= f.password_field :password, help_text: t(".password_help", minimun_characters: Decidim.config.minimum_password_length), autocomplete: "off" %>
             </div>
 
             <div class="field">
