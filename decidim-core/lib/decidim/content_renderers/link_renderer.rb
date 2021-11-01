@@ -50,7 +50,7 @@ module Decidim
       # # regexps for determining context, used high-volume
       AUTO_LINK_CRE = [/<[^>]+$/, /^[^>]*>/, /<a\b.*?>/i, %r{/</a>/i}].freeze
 
-      PUNCTUATION_RE = %r{/[^\p{Word}/=&]$/}.freeze
+      PUNCTUATION_RE = %r{[^\p{Word}/=&]$}.freeze
 
       BRACKETS = { "]" => "[", ")" => "(", "}" => "{" }.freeze
 

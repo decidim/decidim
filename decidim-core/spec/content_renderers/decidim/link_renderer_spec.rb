@@ -45,6 +45,19 @@ module Decidim
         end
       end
 
+      describe "punctuations after link" do
+        let(:punctuations) { %w(, . ; - ] [ } { ( )) }
+
+        it "renders punctuation after the link" do
+          urls.each do |url|
+            punctuations.each do |punctuation|
+              rendered = described_class.new("#{url}#{punctuation}").render
+              expect(rendered).to eq("<a href=\"#{url}\" target=\"_blank\" rel=\"nofollow noopener\">#{url}</a>#{punctuation}")
+            end
+          end
+        end
+      end
+
       describe "text after link" do
         it "renders link tag and text" do
           urls.each do |url|
