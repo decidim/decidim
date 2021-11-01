@@ -94,7 +94,6 @@ PATH
       loofah (~> 2.3.1)
       mini_magick (~> 4.9)
       mustache (~> 1.1.0)
-      nobspw (~> 0.6.0)
       omniauth (~> 2.0)
       omniauth-facebook (~> 5.0)
       omniauth-google-oauth2 (~> 1.0)
@@ -552,7 +551,6 @@ GEM
     mustache (1.1.1)
     netrc (0.11.0)
     nio4r (2.5.8)
-    nobspw (0.6.2)
     nokogiri (1.11.7)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
@@ -872,4 +870,4 @@ RUBY VERSION
    ruby 2.7.1p83
 
 BUNDLED WITH
-   2.2.18
+   2.2.19

@@ -34,7 +34,6 @@ require "cell/partial"
 require "kaminari"
 require "doorkeeper"
 require "doorkeeper-i18n"
-require "nobspw"
 require "batch-loader"
 require "etherpad-lite"
 require "diffy"
@@ -540,8 +539,14 @@ module Decidim
         end
       end
 
-      initializer "nbspw" do
-        NOBSPW.configuration.use_ruby_grep = true
+      # initializer "nbspw" do
+      #   NOBSPW.configuration.use_ruby_grep = true
+      # end
+
+      initializer "password strenght" do
+        Decidim.configure do |config|
+          config.minimum_password_length = 8
+        end
       end
 
       initializer "decidim.premailer" do
