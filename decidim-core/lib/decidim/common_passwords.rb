@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-# require_relative "./db/dictionary.txt"
-
 module Decidim
-  class KnownPasswords
+  class CommonPasswords
     include Singleton
 
     attr_reader :dictionary

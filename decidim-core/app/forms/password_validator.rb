@@ -91,6 +91,6 @@ class PasswordValidator < ActiveModel::EachValidator
   end
 
   def password_too_common
-    Decidim::KnownPasswords.instance.dictionary.include?(value)
+    Decidim::CommonPasswords.instance.dictionary.include?(value)
   end
 end

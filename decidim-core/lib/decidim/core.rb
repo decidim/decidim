@@ -95,7 +95,7 @@ module Decidim
   autoload :RecordEncryptor, "decidim/record_encryptor"
   autoload :AttachmentAttributes, "decidim/attachment_attributes"
   autoload :CarrierWaveMigratorService, "decidim/carrier_wave_migrator_service"
-  autoload :KnownPasswords, "decidim/known_passwords"
+  autoload :CommonPasswords, "decidim/common_passwords"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
