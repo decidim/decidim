@@ -428,6 +428,11 @@ fr:
           tally_steps:
             back: Retour
             description: Les résultats de cette élection sont calculés dans le Bulletin Board et pour compléter ce processus, votre participation en tant que garant est nécessaire.
+            keys:
+              end_tally: Dépouillement terminé
+              tally:
+                cast: Valider le dépouillement
+                share: Partager le décompte
             list:
               status: Statut
               task: Tâche
@@ -438,11 +443,15 @@ fr:
               completed: Terminé
               pending: En attente
               processing: Traitement en cours
+            title: Dépouillement pour %{election}
           update:
             error: Le statut de l'élection n'a pas été mis à jour.
             success: 'Le statut de l''élection est : %{status}'
         menu:
           trustee_zone: Espace de garant
+        no_bulletin_board:
+          body: Un tableau d'affichage configuré est requis pour cette section. Contactez l'administrateur pour plus de détails.
+          title: Désolé, le tableau d'affichage n'est pas encore configuré.
         trustees:
           show:
             elections:
