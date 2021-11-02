@@ -187,6 +187,10 @@ module Decidim
           metric_operation.manager_class = "Decidim::ParticipatoryProcesses::Metrics::ParticipatoryProcessFollowersMetricMeasure"
         end
       end
+
+      initializer "decidim_participatory_processes.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
     end
   end
 end

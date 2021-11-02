@@ -550,6 +550,10 @@ module Decidim
         Premailer::Adapter.use = :decidim
       end
 
+      initializer "decidim_core.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
+
       config.to_prepare do
         FoundationRailsHelper::FlashHelper.include Decidim::FlashHelperExtensions
       end

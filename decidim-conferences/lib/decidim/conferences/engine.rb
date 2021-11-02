@@ -82,6 +82,10 @@ module Decidim
       initializer "decidim_conferences.query_extensions" do
         Decidim::Api::QueryType.include Decidim::Conferences::QueryExtensions
       end
+
+      initializer "decidim_conferences.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
     end
   end
 end
