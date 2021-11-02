@@ -144,6 +144,16 @@ require "decidim/rails"
 
 * In `config/environments/*.rb` remove any line containing `config.assets.*` (i.e `config.assets.debug = true`)
 
+=== Help Decidim to know the application's assets folder
+
+To prevent Zeitwerk issues trying to autoload the non-ruby application folders, modify the `config/initializers/decidim.rb` file to include the following:
+
+[source,ruby]
+---
+# Inform Decidim about the assets folder
+Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)
+---
+
 == Deployment
 
 The deployment needs to be updated to manually run `npm install` before assets are precompiled.
@@ -173,3 +183,16 @@ Also, in the case of Capistrano it's interesting to add to the shared_paths the 
 * `tmp/webpacker-cache`
 * `node_modules`
 * `public/decidim-packs`
+
+== Troubleshooting
+
+If you have the following exception when executing `bundle exec rails decidim:upgrade` or `bundle exec rails decidim:webpacker:install`
+
+[source,console]
+----
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE unable to resolve dependency tree
+npm ERR!
+----
+
+Then you need to check again that you're using the correct Node.js and NPM versions.

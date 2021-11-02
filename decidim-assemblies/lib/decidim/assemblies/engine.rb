@@ -110,6 +110,10 @@ module Decidim
       initializer "decidim_assemblies.query_extensions" do
         Decidim::Api::QueryType.include Decidim::Assemblies::QueryExtensions
       end
+
+      initializer "decidim_assemblies.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
     end
   end
 end

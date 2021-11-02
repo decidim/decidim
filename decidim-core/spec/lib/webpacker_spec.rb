@@ -26,18 +26,10 @@ module Decidim
         )
       end
 
-      let(:a_path) { Dir.pwd }
-
       it "registers additional path for webpacker" do
         described_class.register_path("test")
 
         expect(described_class.configuration.additional_paths).to eq(%w(test))
-      end
-
-      it "adds an ignored path for zeitwerk" do
-        described_class.register_path(a_path)
-
-        expect(Rails.autoloaders.main.ignored_paths).to include(a_path)
       end
 
       context "with prepend" do
@@ -46,18 +38,6 @@ module Decidim
           described_class.register_path("test2", prepend: true)
 
           expect(described_class.configuration.additional_paths).to eq(%w(test2 test))
-        end
-      end
-
-      context "without zeitwerk" do
-        before do
-          Rails.configuration.autoloader = :classic
-        end
-
-        it "doesn't add the ignored path to Zeitwerk" do
-          expect(Rails.autoloaders.main).not_to receive(:ignore)
-
-          described_class.register_path(a_path)
         end
       end
     end

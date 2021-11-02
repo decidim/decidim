@@ -14,6 +14,10 @@ module Decidim
         # resources :<%= component_name %>
         # root to: "<%= component_name %>#index"
       end
+
+      initializer "<%= component_module_name %>.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
     end
   end
 end
