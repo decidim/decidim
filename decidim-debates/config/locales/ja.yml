@@ -28,7 +28,7 @@ ja:
         actions:
           comment: コメント
           create: 作成
-          endorse: 支持
+          endorse: オススメ
         name: ディベート
         settings:
           global:
@@ -41,8 +41,8 @@ ja:
             announcement: お知らせ
             comments_blocked: コメントをブロック
             creation_enabled: 参加者によるディベートの作成が有効になりました
-            endorsements_blocked: 支持がブロックされました
-            endorsements_enabled: 支持を有効にする
+            endorsements_blocked: オススメがブロックされました
+            endorsements_enabled: オススメを有効にする
     debates:
       actions:
         close: 閉じる

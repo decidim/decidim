@@ -59,6 +59,10 @@ gl:
       read_more: Ler máis
     components:
       blogs:
+        actions:
+          create: Crear
+          destroy: Eliminar
+          update: Actualizar
         name: Blog
         settings:
           global:
