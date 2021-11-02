@@ -390,6 +390,7 @@ sv:
         followers_count: Följare
         headline: Statistik
         meetings_count: Möten
+        no_stats: Det finns inga statistik ännu.
         orders_count: Stöd
         pages_count: Sidor
         participants_count: Deltagare

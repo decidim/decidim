@@ -379,6 +379,7 @@ sv:
         file_help:
           import:
             explanation: 'Vägledning för fil:'
+            message_1: CSV, JSON och Excel (.xls) filer är accepterade
             message_2: För CSV-filer måste separatorn mellan kolumner vara en semikolon (";")
       help_sections:
         error: Det gick inte att uppdatera hjälpavsnitten

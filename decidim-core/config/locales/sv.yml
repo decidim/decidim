@@ -311,6 +311,8 @@ sv:
           authorize: Auktorisera med "%{authorization}"
           explanation: För att utföra denna åtgärd måste du vara auktoriserad med "%{authorization}".
           title: Auktorisering krävs
+        ok:
+          title: Du har blivit auktoriserad på den här sidan. Ladda om sidan för att utföra din åtgärd
         pending:
           explanation: För att kunna utföra denna åtgärd måste du vara auktoriserad med "%{authorization}", men din auktorisering behandlas fortfarande
           resume: Se hur auktoriseringen med "%{authorization}" pågår
@@ -641,6 +643,10 @@ sv:
           email_intro: En administratör tog bort din %{resource_type} eftersom den har rapporterats som %{report_reasons}.
           email_outro: Du har fått det här meddelandet eftersom du är en författare till detta innehåll.
           email_subject: Din %{resource_type} har tagits bort
+          notification_title: |-
+            En administratör tog bort din %{resource_type} eftersom den har rapporterats som %{report_reasons}.
+            </br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, som du följer, har just instämt med "%{resource_title}" och vi tror att du kan vara intresserad. Ta en titt och bidra:'
         email_outro: Du har fått det här meddelandet eftersom du följer %{endorser_nickname}. Du kan sluta att ta emot meddelanden via föregående länk.
@@ -654,6 +660,7 @@ sv:
           notification_title: <a href="%{resource_path}">Profilsidan</a> för %{name} (%{nickname}), som du följer, har uppdaterats.
     export_mailer:
       data_portability_export:
+        click_button: 'Hämta dina data genom att klicka på Nästa.<br/>Filen kommer vara tillgänglig till och med %{date}.<br/>Du kan använda <a href="https://www.7-zip.org/">7-Zip</a> (för Windows), <a href="https://www.keka.io/en/">Keka</a> (för MacOS) eller <a href="https://peazip.github.io">PeaZip</a> (för Linux) för att öppna den. Lösenord: %{password}'
         download: Hämta
       export:
         ready: En komprimerad version av exporten är bifogad.
@@ -686,6 +693,7 @@ sv:
       create:
         button: Följ
         error: Det gick inte att följa resursen.
+        participatory_space: Följer <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Sluta följa
         error: Det gick inte att sluta följa den här resursen.
@@ -702,6 +710,7 @@ sv:
         file:
           explanation: 'Vägledning för fil:'
           message_1: Måste vara en bild eller ett dokument.
+          message_2: Använd helst landskapsbilder. Tjänsten beskär bilden. För CSV filer måste separatorn mellan kolumner vara ett kommatecken (",")
         image:
           explanation: 'Vägledning för bild:'
           message_1: Helst en landskapsbild som inte har någon text.
@@ -923,6 +932,8 @@ sv:
           error: Konversationen har inte startat. Försök igen senare
         error_modal:
           close: Stäng fönster
+          correct_errors: Rätta alla fel och försök igen.
+          intro: 'De följande fel fanns i ditt meddelande:'
           ok: OK
         index:
           ago: sedan
@@ -941,10 +952,13 @@ sv:
         show:
           back: Tillbaka till alla konversationer
           chat_with: Konversation med
+          not_allowed: Deltagaren tar inte emot direktmeddelanden.
           title: Samtal med %{usernames}
         start:
           send: Skicka
           title: Starta en konversation
+        update:
+          error: Meddelandet skickades inte på grund av ett fel
     metrics:
       download:
         csv: Ladda ner data (CSV)
@@ -1012,6 +1026,7 @@ sv:
         administrators: Administratörer
         allow_public_contact: Tillåt alla att skicka direktmeddelanden till mig, även de som jag inte följer.
         direct_messages: Ta emot direktmeddelanden från alla
+        email_on_moderations: Jag vill få ett e-brev varje gång något anmäls för moderering.
         email_on_notification: Jag vill få ett e-brev varje gång jag får ett meddelande.
         everything_followed: Allt jag följer
         newsletter_notifications: Jag vill få nyhetsbrev
@@ -1107,6 +1122,7 @@ sv:
       not_allowed: Du har inte rätt att se det här innehållet
     profile:
       deleted: Deltagaren har raderats
+      inaccessible_message: Denna profil kan inte ses på grund av överträdelse av användarvillkoren!
       view: Visa
     profiles:
       default_officialization_text_for_user_groups: Den här gruppen är offentligt verifierad, namnet har kontrollerats att överensstämma med dess riktiga namn
@@ -1232,6 +1248,9 @@ sv:
       flag_user_modal:
         already_reported: Det här innehållet har redan rapporterats och kommer att granskas av en administratör.
         close: Stäng
+        description: Vad är olämpligt med användaren?
+        does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tycker inte hör hemma på %{organization_name}.
+        offensive: Innehåller rasism, sexism, skällsord, personliga attacker, dödshot, uppmaningar att begå självmord eller någon form av hatpropaganda.
         report: Rapportera
         spam: Innehåller klickbete, reklam, bedrägerier eller skriptbottar.
         title: Rapportera olämplig användare
@@ -1316,6 +1335,7 @@ sv:
         body_2: 'Anledning: %{reason}'
         greetings: Hälsningar,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hej %{admin},
+        subject: En ny användare har rapporterats på %{organization_name}
     version:
       show:
         back_to_resource: Gå tillbaka

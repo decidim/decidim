@@ -94,6 +94,7 @@ sv:
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
             scope_id: Omfång
             scopes_enabled: Omfång aktiverade
+            terms_and_conditions_url_for_meeting_creators: Adress till användarvillkor för mötesförfattare
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
@@ -259,7 +260,11 @@ sv:
           form:
             address_help: 'Adress: anger en plats för Geocoder'
             available_slots_help: Lämna det till 0 om du har obegränsade platser
+            disclaimer: 'Disclaimer: När du använder ett externt anmälningssystem är du medveten om att administratörerna för %{organization} inte är ansvariga för de data som tillhandahålls av användarna till den externa tjänsten.'
             location_help: 'Plats: meddelande till användarna som anger mötesplats'
+            location_hints_help: 'Tips för att hitta platsen: ytterligare information. Exempel: våningen om det är ett fysiskt möte eller möteslösenordet om det är ett online möte.'
+            online_meeting_url_help: 'Länk: tillåt deltagare att koppla sig direct till ditt möte'
+            registration_url_help: 'Länk: tillåt deltagare att registrera sig på en extern tjänst'
             select_a_meeting_type: Välj mötestyp
             select_a_registration_type: Välj en registreringsmetod
           index:
@@ -356,6 +361,7 @@ sv:
             space_type: Deltagarutrymme
             upcoming: Kommande
       last_activity:
+        meeting_updated_at_html: "<span>Mötet uppdaterades på %{link}</span>"
         new_meeting_at_html: "<span>Nytt möte på %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
@@ -416,8 +422,14 @@ sv:
           address_help: 'Adress: som används av Geocoder för att hitta platsen'
           available_slots_help: Lämna det till 0 om du har obegränsade platser
           create_as: Skapa möte som
+          disclaimer: 'Disclaimer: När du använder ett externt anmälningssystem är du medveten om att administratörerna för %{organization} inte är ansvariga för de data som tillhandahålls av användarna till den externa tjänsten.'
           location_help: 'Plats: meddelande riktat till de användare som antyder platsen att träffas på'
+          location_hints_help: 'Tips för att hitta platsen: ytterligare information. Exempel: våningen om det är ett fysiskt möte eller möteslösenordet om det är ett online möte.'
+          online_meeting_url_help: 'Länk: tillåt deltagare att koppla sig direct till ditt möte'
+          registration_url_help: 'Länk: tillåt deltagare att registrera sig på en extern tjänst'
           select_a_category: Välj en kategori
+          select_a_meeting_type: Välj mötestyp
+          select_a_registration_type: Välj en registreringsmetod
         index:
           new_meeting: Nytt möte
         meeting_minutes:
