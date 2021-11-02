@@ -19,7 +19,7 @@ namespace :decidim do
         end
       end
 
-      list = list.select { |item| item.length >= ::PasswordValidator::MINIMUM_LENGTH }.uniq
+      list = list.select { |item| item.length >= 10 }.uniq
 
       if list.length.positive?
         File.open(File.join(__dir__, "..", "..", "decidim-core", "lib", "decidim", "db", "dictionary.txt"), "w") do |file|
