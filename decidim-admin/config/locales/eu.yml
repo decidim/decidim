@@ -778,7 +778,7 @@ eu:
           inactive_content_blocks: Eduki eduki gabeko blokeak
       organization_homepage_content_blocks:
         edit:
-          update: eguneratzearen
+          update: Eguneratu
       participatory_space_private_users:
         create:
           error: Errore bat gertatu da partaidetza espazio honen erabiltzaile pribatua gehitzean.
