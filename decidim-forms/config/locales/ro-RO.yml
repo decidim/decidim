@@ -161,7 +161,7 @@ ro:
           tos_agreement: Prin participare acceptați termenii și condițiile sale de utilizare
       step_navigation:
         show:
-          are_you_sure: Această acțiune nu poate fi anulată și nu veți putea să vă editați răspunsurile. Sunteți sigur?
+          are_you_sure: Această acțiune nu poate fi anulată și nu vei putea să îți editezi răspunsurile. Ești sigur(ă)?
           back: Înapoi
           continue: Continuă
           submit: Trimiteți

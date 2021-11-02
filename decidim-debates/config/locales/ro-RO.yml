@@ -28,7 +28,8 @@ ro:
     components:
       debates:
         actions:
-          create: Crează
+          comment: Comentează
+          create: Creează
           endorse: Aprobare
         name: Dezbateri
         settings:
@@ -47,7 +48,7 @@ ro:
     debates:
       actions:
         close: Închide
-        confirm_destroy: Ești sigur?
+        confirm_destroy: Ești sigur(ă)?
         destroy: Ștergere
         edit: Editare
         new: '%{name} nou'
@@ -141,7 +142,7 @@ ro:
           new_debate: Dezbatere nouă
         new:
           back: Înapoi
-          create: Crează
+          create: Creează
           title: Dezbatere nouă
         orders:
           commented: Cele mai comentate

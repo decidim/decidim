@@ -501,6 +501,7 @@ sv:
         home:
           highlighted_conferences:
             active_conferences: Pågående konferenser
+            conferences_button_title: Länk till sidan över konferenser som visar alla konferenser
             see_all_conferences: Visa alla konferenser
       photo:
         image:

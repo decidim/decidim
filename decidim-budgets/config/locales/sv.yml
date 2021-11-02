@@ -233,6 +233,7 @@ sv:
     components:
       budgets:
         actions:
+          comment: Kommentera
           vote: Rösta
         name: Budgetar
         settings:

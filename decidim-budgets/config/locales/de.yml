@@ -233,6 +233,7 @@ de:
     components:
       budgets:
         actions:
+          comment: Kommentieren
           vote: Abstimmen
         name: Budgets
         settings:

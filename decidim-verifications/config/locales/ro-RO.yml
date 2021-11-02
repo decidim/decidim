@@ -7,15 +7,15 @@ ro:
         offline_explanation: Instrucțiuni pentru verificarea offline
         online: Online
       id_document_information:
-        document_number: Numărul documentului (cu litera)
+        document_number: Numărul documentului (cu literă)
         document_type: Tipul documentului
       id_document_upload:
-        document_number: Numărul documentului (cu litera)
-        document_type: Tipul documentului dvs.
+        document_number: Numărul documentului (cu literă)
+        document_type: Tipul documentului tău
         user: Participant
         verification_attachment: Copie scanată a documentului tău
       offline_confirmation:
-        email: E-mail participant
+        email: E-mail-ul participantului
       postal_letter_address:
         full_address: Adresa completă
       postal_letter_confirmation:
@@ -27,12 +27,12 @@ ro:
     admin:
       menu:
         authorization_revocation:
-          before_date_info: Util dacă procesul a început deja și doriți să revocați permisiunile procesului anterior.
+          before_date_info: Util dacă procesul a început deja și dorești să revoci permisiunile procesului anterior.
           button: Revocă tot
           button_before: Revocă înainte de data
           destroy:
-            confirm: Anularea autorizărilor înainte de dată nu poate fi anulată. Sigur doriți să continuați?
-            confirm_all: Revocați toate autorizațiile nu pot fi anulate. Sigur doriți să continuați?
+            confirm: Revocarea înainte de data autorizării nu poate fi anulată. Ești sigur(ă) că vrei să continui?
+            confirm_all: Revocarea tuturor autorizațiilor nu poate fi anulată. Ești sigur(ă) că vrei să continui?
           destroy_nok: A apărut o problemă în timpul revocării autorizațiilor.
           destroy_ok: Toate autorizațiile potrivite au fost revocate.
           info: Există un total de %{count} participanți verificați.
@@ -127,7 +127,7 @@ ro:
             destroy_all:
               success: Toate datele recensământului au fost șterse
           destroy:
-            confirm: Ştergerea recensământului nu poate fi anulată. Sunteţi sigur că doriţi să continuaţi?
+            confirm: Ştergerea recensământului nu poate fi anulată. Ești sigur(ă) că vrei să continui?
             title: Şterge toate datele recensământului
           index:
             data: Există %{count} înregistrări încărcate în total. Ultima dată de încărcare a fost pe %{due_date}
@@ -254,7 +254,7 @@ ro:
           destroy:
             success: Codul de verificare a fost resetat. Vă rugăm să reintroduceţi numărul de telefon.
           edit:
-            confirm_destroy: Sigur doriți să resetați codul de verificare?
+            confirm_destroy: Ești sigur(ă) că vrei să resetezi codul de verificare?
             destroy: Resetați codul de verificare
             resend: Nu ai primit codul de verificare?
             send: Confirmare

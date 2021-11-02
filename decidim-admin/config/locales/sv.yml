@@ -48,6 +48,7 @@ sv:
         favicon: Ikon
         force_authentication: Tvinga autentisering
         force_users_to_authenticate_before_access_organization: Tvinga användare att autentisera sig innan att komma in organisationen
+        from: Avsändarens e-postadress
         github_handler: GitHub-hanterare
         header_snippets: Rubriksnuttar
         highlight_alternative_color: Markera alternativ
@@ -179,10 +180,12 @@ sv:
           success: Du har godkänt användarvillkoren för administratörer.
         actions:
           accept: Jag godkänner villkoren
+          are_you_sure: Är du säker på att du vill avvisa administratörsvillkoren?
           refuse: Avvisa villkoren för administratörer
           title: Godkänn användarvillkoren
         required_review:
           alert: 'Krav: granska villkoren för administratörer'
+          callout: Granska användarvillkoren för administratörer. Annars kan du inte administrera plattformen.
           cta: Granska dem nu.
         title: Användarvillkor för administratörer
       area_types:
@@ -205,6 +208,7 @@ sv:
           error: Det gick inte att skapa ett nytt område.
           success: Området har har skapats.
         destroy:
+          has_spaces: Det finns redan deltagarutrymmen för detta område. Se till att inget utrymme refererar till detta område innan du tar bort det.
           success: Området har tagits bort
         edit:
           title: Redigera område
@@ -257,6 +261,7 @@ sv:
       block_user:
         new:
           action: Blockera konto och skicka motivering
+          description: Att blockera en användare kommer att göra dess konto oanvändbart, du kan skriva din motivering och riktlinjer för hur du anser att du skulle överväga att avblockera användaren.
           justification: Motivering
           title: Blockera användare %{name}
       categories:
@@ -319,6 +324,7 @@ sv:
         'false': 'Nej'
         managed_user_name: Hanterad användare
         solved: Löst
+        title: Verifieringskonflikter
         transfer:
           email: E-post
           error: Det gick inte att konvertera användaren till hanterad användare.
@@ -455,6 +461,7 @@ sv:
           accepted_mime_types:
             csv: csv
             json: json
+            xlsx: xlsx
           actions:
             back: Tillbaka
           file_legend: Lägg till en fil som kommer importeras.
@@ -480,6 +487,7 @@ sv:
         areas: Områden
         configuration: Konfiguration
         dashboard: Kontrollpanel
+        external_domain_whitelist: Tillåtna externa domäner
         help_sections: Hjälpavsnitt
         homepage: Hemsida
         impersonations: Uppträd som
@@ -628,6 +636,7 @@ sv:
       newsletters:
         create:
           error: Det gick inte att skapa nyhetsbrevet.
+          success: Nyhetsbrevet har skapats. Granska det innan du skickar.
         deliver:
           error: Det gick inte att skicka nyhetsbrevet.
           success: Nyhetsbrevet har skickats.
@@ -710,10 +719,12 @@ sv:
           title: Gör deltagaren "%{name}" officiell
         show_email_modal:
           close_modal: Stäng modal
+          description: Om du behöver kontakta en deltagare direkt kan du klicka på Visa för att se deras e-postadress. Denna åtgärd kommer att loggas.
           email_address: E-postadress
           full_name: Fullständigt namn
           hidden: dold
           show: Visa
+          title: Visa deltagarens e-postadress
         unblock:
           error: Det gick inte att avblockera användaren
           success: Deltagaren har avblockerats
@@ -957,6 +968,10 @@ sv:
           no_users_count_statistics_yet: Det finns ingen statistik för användare än
           participants: Deltagare
       view_public_page: Visa offentlig sida
+    forms:
+      errors:
+        impersonate_user:
+          reason: Du måste ange en anledning vid hantering av en icke-hanterad användare
     metrics:
       blocked_users:
         object: blockerade användare

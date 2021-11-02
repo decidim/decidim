@@ -62,10 +62,9 @@ cs:
     components:
       blogs:
         actions:
-          amend: Pozměnit
-          comment: Komentář
-          endorse: Schválit
-          vote: Hlasovat
+          create: Vytvořit
+          destroy: Smazat
+          update: Aktualizovat
         name: Blog
         settings:
           global:
