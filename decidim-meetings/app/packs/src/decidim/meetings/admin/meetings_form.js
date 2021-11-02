@@ -157,7 +157,7 @@ $(() => {
     dependentFieldsSelector: ".iframe-fields--access-level",
     dependentInputSelector: "input",
     enablingCondition: ($field) => {
-      return $field.val() === "embed_in_meeting_page" || $field.val() === "open_in_live_event_page";
+      return $field.val() !== "none"
     }
   });
 })
