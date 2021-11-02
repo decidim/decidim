@@ -39,4 +39,11 @@ The class will need to be implemented, or reuse one from the community. Check th
 
 == Enabling the integration, organization-wise
 
-Each organization will be able to enable/disable machine translations if they want to. They can do that from the organization configuration.
+Each organization will be able to enable/disable machine translations if they want to. They can do that from the organization configuration. At the moment this isn't configured through the System dashboard (`/system`), so it needs to be configured through the Rails console:
+
+[source,ruby]
+----
+org = Decidim::Organization.first
+org.enable_machine_translations = true
+org.save
+----
