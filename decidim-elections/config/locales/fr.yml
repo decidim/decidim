@@ -331,6 +331,16 @@ fr:
           create: "%{user_name} a créé l'élection %{resource_name} dans %{space_name}"
           delete: "%{user_name} a supprimé l'élection %{resource_name} dans %{space_name}"
           end_vote: "%{user_name} a terminé la période de vote pour l'élection %{resource_name} de l'espace %{space_name} sur le Tableau des Bulletins"
+          publish: "%{user_name} a publié l'élection %{resource_name} de %{space_name}"
+          publish_results: "%{user_name} a publié les résultats de l'élection %{resource_name} de %{space_name} sur le Tableau d'Affichage"
+          setup: "%{user_name} a créé l'élection %{resource_name} de %{space_name} sur le Tableau d'affichage"
+          start_key_ceremony: "%{user_name} a commencé la cérémonie des clés pour l'élection %{resource_name} de %{space_name} sur le Panneau d'affichage"
+          start_tally: "%{user_name} a commencé le dépouillement pour l'élection %{resource_name} de %{space_name} sur le Tableau d'affichage"
+          start_vote: "%{user_name} a commencé la période de vote pour l'élection %{resource_name} de %{space_name} sur le Tableau d'affichage"
+          unpublish: "%{user_name} a dépublié le %{resource_name} de l'élection %{space_name}"
+          update: "%{user_name} a mis à jour l'élection %{resource_name} de %{space_name}"
+        trustee:
+          create: "%{user_name} a nommé l'utilisateur %{trustee_user} en tant que accesseur"
       election_m:
         badge_name:
           finished: Terminées
@@ -416,6 +426,7 @@ fr:
           title: Questions de l'élection
         results:
           description: 'Ce sont les résultats du vote, pour chaque question:'
+          percentage: "%{count}%"
           selected: Sélectionné
           title: Résultats de l'élection
           votes:
@@ -429,6 +440,7 @@ fr:
           back: Élections disponibles
           callout:
             already_voted: Vous avez déjà voté pour cette élection. Vous pouvez modifier votre vote ou le vérifier.
+            pending_vote: Votre vote est en cours de validation le serveur.
             vote_rejected: Il n'a pas été possible de vérifier votre vote. Veuillez recommencer.
           election_log: Journal de l'élection
           preview: Aperçu
@@ -454,9 +466,11 @@ fr:
             votes: Votes
         election:
           fields:
+            bb_status: Statut du Tableau d'affichage
             end_time: Prend fin à
             start_time: Commence à
             title: Titre
+            verifiable_results_file_hash: Somme de contrôle SHA256 du fichier
         question:
           fields:
             answers: Réponses
