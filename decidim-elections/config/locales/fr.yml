@@ -372,6 +372,7 @@ fr:
             title: Titre
         election:
           fields:
+            bb_status: Statut du Tableau d'affichage
             end_time: Prend fin à
             start_time: Commence à
             title: Titre
