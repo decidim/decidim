@@ -71,6 +71,8 @@ class PasswordValidator < ActiveModel::EachValidator
   end
 
   def name_included_in_password?
+    return true if value.include?(record.name.delete(" "))
+
     record.name.split(" ").each do |part|
       next if part.length < IGNORE_SIMILARITY_SHORTER_THAN
 
