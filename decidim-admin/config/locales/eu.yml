@@ -306,7 +306,7 @@ eu:
           headers:
             actions: Ekintzak
             name: Osagaiaren izena
-            scope: Osagaiaren eremua
+            scope: Osagaiaren esparrua
             type: Osagai mota
         new:
           add: Gehitu osagaia
@@ -396,7 +396,7 @@ eu:
             'false': Argitaratu da
             'true': Ez da argitaratu
         scope_id_eq:
-          label: Eremua
+          label: Esparrua
         search_label: Search
         search_placeholder:
           name_or_nickname_or_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
@@ -653,7 +653,7 @@ eu:
           confirm_delete: Ziur zaude buletin hau deuseztatu nahi duzula?
           followers: 'jarraitzaileak '
           has_been_sent_to: 'Honi bidalia: '
-          no_scopes: Eremurik gabe
+          no_scopes: Esparrurik gabe
           not_sent: Ez bidalita
           participants: 'parte-hartzaileak '
           segmented_to: 'Honentzat zatitua %{subject}: '
@@ -671,8 +671,8 @@ eu:
           none: Bat ere ez
           participants_help: Bidali albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu parte-hartzailetan esku hartu duten parte-hartzaile guztiei.
           recipients_count: 'Buletin hau erabiltzaile hauei bidaliko zaie: <strong id=''recipients_count''>%{count}</strong>.'
-          scopes_help: Bidali albisteen buletina "Nire interesekoak" konfigurazioan edozein eremu aktibatuta duten parte-hartzaileei.
-          select_scopes: Iragazi "Nire interesekoak" konfigurazioan edozein eremu aktibatu duten parte-hartzaileentzat.
+          scopes_help: Bidali albisteen buletina "Nire interesekoak" konfigurazioan edozein esparru aktibatuta duten parte-hartzaileei.
+          select_scopes: Iragazi "Nire interesekoak" konfigurazioan edozein esparru aktibatu duten parte-hartzaileentzat.
           select_spaces: Hautatu espazioak buletina zatitzeko
           select_users: Hautatu zein erabiltzaileri bidali nahi diezun buletina
           send_to_all_users: Bidali erabiltzaile guztiei
@@ -776,7 +776,7 @@ eu:
           inactive_content_blocks: Eduki eduki gabeko blokeak
       organization_homepage_content_blocks:
         edit:
-          update: eguneratzearen
+          update: Eguneratu
       participatory_space_private_users:
         create:
           error: Errore bat gertatu da partaidetza espazio honen erabiltzaile pribatua gehitzean.
@@ -807,7 +807,7 @@ eu:
       resources:
         index:
           headers:
-            scope: Eremua
+            scope: Esparrua
       scope_types:
         create:
           error: Errore bat gertatu da esparru mota berri bat sortzean.
