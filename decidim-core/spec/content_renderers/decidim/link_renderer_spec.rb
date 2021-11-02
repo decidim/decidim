@@ -14,6 +14,7 @@ module Decidim
         http://example.com/%E5%BC%95%E3%81%8D%E5%89%B2%E3%82%8A.html
         https://nörttilive.fi
         http://www.sinara.technology/about/
+        http://en.wikipedia.org/wiki/Sprite_(computer_graphics)
       )
     end
 
@@ -23,6 +24,16 @@ module Decidim
 
         it "renders hello world" do
           expect(renderer.render).to eq(content)
+        end
+      end
+
+      describe "options" do
+        let(:options) { { domain: "meta.decidim.org", target: "_blank" } }
+        let(:url) { "https://meta.decidim.org" }
+        let(:content) { "foo #{url} bar" }
+
+        it "does not include target" do
+          expect(renderer.render(options)).to eq("foo <a href=\"#{url}\" rel=\"nofollow noopener\">#{url}</a> bar")
         end
       end
 
@@ -45,7 +56,7 @@ module Decidim
         end
       end
 
-      describe "punctuations after link" do
+      describe "single punctuation after link" do
         let(:punctuations) { %w(, . ; - ] [ } { ( )) }
 
         it "renders punctuation after the link" do
