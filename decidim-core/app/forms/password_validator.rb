@@ -11,6 +11,7 @@ class PasswordValidator < ActiveModel::EachValidator
     :password_too_long?,
     :not_enough_unique_characters?,
     :name_included_in_password?,
+    :nickname_included_in_password?,
     :email_included_in_password?,
     :domain_included_in_password?,
     :password_too_common
@@ -77,6 +78,10 @@ class PasswordValidator < ActiveModel::EachValidator
     end
 
     false
+  end
+
+  def nickname_included_in_password?
+    value.include?(record.nickname)
   end
 
   def email_included_in_password?

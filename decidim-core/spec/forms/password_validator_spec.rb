@@ -11,6 +11,7 @@ describe PasswordValidator do
       double(
         name: ::Faker::Name.name,
         email: ::Faker::Internet.email,
+        nickname: ::Faker::Internet.username(specifier: 10..15),
         context: context,
         errors: {
           attribute.to_s => []
@@ -78,6 +79,15 @@ describe PasswordValidator do
       it "is too similar with name" do
         expect(validator).to eq(false)
         expect(record.errors[attribute]).to eq(["is too similar to your name"])
+      end
+    end
+
+    describe "nickname included in password" do
+      let(:value) { "foo#{record.nickname}bar" }
+
+      it "is too similar with nickname" do
+        expect(validator).to eq(false)
+        expect(record.errors[attribute]).to eq(["is too similar to your nickname"])
       end
     end
 
