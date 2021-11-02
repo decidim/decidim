@@ -2,6 +2,17 @@
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
 ### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+
+## [0.25.1](https://github.com/decidim/decidim/tree/v0.25.1)
+
+### Added
+
 #### Register assets paths
 To prevent Zeitwerk from trying to autoload classes from the `app/packs` folder, it's necesary to register these paths for each module and for the application using the method `Decidim.register_assets_path` on initializers. This is explained in the webpacker migration guides for [applications](https://github.com/decidim/decidim/blob/develop/docs/modules/develop/pages/guide_migrate_webpacker_app.adoc#help-decidim-to-know-the-applications-assets-folder) and [modules](https://github.com/decidim/decidim/blob/develop/docs/modules/develop/pages/guide_migrate_webpacker_module.adoc#help-decidim-to-know-the-modules-assets-folder)), and was implemented in [\#8449](https://github.com/decidim/decidim/pull/8449).
 
@@ -10,9 +21,36 @@ As per [\#8233](https://github.com/decidim/decidim/pull/8233), by default all pa
 
 ### Changed
 
+Nothing.
+
 ### Fixed
 
+- **decidim-proposals**: Backport: Any user can access proposal's pages representing the "create a proposal" steps (#8390) [\#8407](https://github.com/decidim/decidim/pull/8407)
+- Backport "Increase text contrast in current phase of a participatory process" [\#8436](https://github.com/decidim/decidim/pull/8436)
+- **decidim-core**: Backport "Include only public entities in the following page" to 0.25 [\#8406](https://github.com/decidim/decidim/pull/8406)
+- **decidim-generators**: Backport "Fix railties requirements on created applications" [\#8439](https://github.com/decidim/decidim/pull/8439)
+- **decidim-blogs**: Backport "Add missing translations" [\#8441](https://github.com/decidim/decidim/pull/8441)
+- **decidim-core**: Backport "Fix javascript exception when geocoding proposals is disabled" [\#8437](https://github.com/decidim/decidim/pull/8437)
+- **decidim-core**: Force Rails version to 6.0 [\#8440](https://github.com/decidim/decidim/pull/8440)
+- Backport "Fix CVE-2021-41136" [\#8443](https://github.com/decidim/decidim/pull/8443)
+- **decidim-comments**: Backport "Refresh comments component after updating" to v0.25 [\#8446](https://github.com/decidim/decidim/pull/8446)
+- **decidim-core**: Backport "Fix webpacker issue when using zeitwerk" to 0.25 [\#8447](https://github.com/decidim/decidim/pull/8447)
+- **decidim-core**: Backport "Improve Zeitwerk assets paths to ignore" to 0.25 [\#8454](https://github.com/decidim/decidim/pull/8454)
+
+### Improved
+
+- **decidim-core**: Backport "Enforce redirects to include the organization host" to 0.25 [\#8405](https://github.com/decidim/decidim/pull/8405)
+- **decidim-core**: Backport: Disallow redirection to the host when performing redirect_back [\#8402](https://github.com/decidim/decidim/pull/8402)
+- **decidim-core**: Backport "Update omniauth gem and dependencies" [\#8442](https://github.com/decidim/decidim/pull/8442)
+
 ### Removed
+
+Nothing.
+
+### Developer improvements
+
+- Backport "Fix railties requirements on created applications" [\#8439](https://github.com/decidim/decidim/pull/8439)
+- Backport "Fixing generator webpacker issues" [\#8438](https://github.com/decidim/decidim/pull/8438)
 
 ## [0.25.0](https://github.com/decidim/decidim/tree/v0.25.0)
 
