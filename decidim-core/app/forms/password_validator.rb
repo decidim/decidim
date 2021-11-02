@@ -24,6 +24,8 @@ class PasswordValidator < ActiveModel::EachValidator
   # value - Actual password
   # Returns true if password is strong enough
   def validate_each(record, attribute, value)
+    return false if value.blank?
+
     @record = record
     @attribute = attribute
     @value = value
@@ -43,7 +45,7 @@ class PasswordValidator < ActiveModel::EachValidator
   attr_reader :record, :attribute, :value
 
   def strong?
-    @strong ||= check_password
+    check_password
   end
 
   def get_message(reason)
@@ -71,6 +73,7 @@ class PasswordValidator < ActiveModel::EachValidator
   end
 
   def name_included_in_password?
+    return false if record.name.blank?
     return true if value.include?(record.name.delete(" "))
 
     record.name.split(" ").each do |part|
@@ -83,13 +86,16 @@ class PasswordValidator < ActiveModel::EachValidator
   end
 
   def nickname_included_in_password?
+    return false if record.nickname.blank?
+
     value.include?(record.nickname)
   end
 
   def email_included_in_password?
-    name, domain, _whatever = record.email.split("@")
+    return false if record.email.blank?
 
-    value.include?(name) || value.include?(domain.split(".").first)
+    name, domain, _whatever = record.email.split("@")
+    value.include?(name) || (domain && value.include?(domain.split(".").first))
   end
 
   def domain_included_in_password?
