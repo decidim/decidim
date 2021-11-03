@@ -1641,6 +1641,7 @@ en:
     name: English
     name_with_error: English (error!)
   password_validator:
+    blacklisted: is blacklisted
     domain_included_in_password: is too similar to this domain name
     email_included_in_password: is too similar to your email
     fallback: is not valid

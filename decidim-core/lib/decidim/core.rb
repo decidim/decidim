@@ -385,6 +385,11 @@ module Decidim
     "decidim-cc"
   end
 
+  # Blacklist passwords, array may contain plain text and regex entries.
+  config_accessor :password_blacklist do
+    []
+  end
+
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #

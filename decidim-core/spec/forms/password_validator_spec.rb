@@ -12,7 +12,7 @@ describe PasswordValidator do
         name: ::Faker::Name.name,
         email: ::Faker::Internet.email,
         nickname: ::Faker::Internet.username(specifier: 10..15),
-        context: context,
+        current_organization: organization,
         errors: {
           attribute.to_s => []
         }
@@ -24,16 +24,53 @@ describe PasswordValidator do
         attributes: [attribute]
       }
     end
-    let(:context) do
-      double(current_organization: organization)
-    end
 
     describe "perfect password" do
       let(:value) { "decidim123456" }
 
       it "just works" do
         expect(validator).to eq(true)
-        expect(record.errors[attribute]).to eq([])
+        expect(record.errors[attribute]).to be_empty
+      end
+    end
+
+    context "when there is blacklisted passwords" do
+      let(:example_password) { "examplepassword123456" }
+
+      before do
+        allow(Decidim).to receive(:password_blacklist).and_return(
+          [
+            example_password,
+            /[a-z]*foobar\w*/
+          ]
+        )
+      end
+
+      describe "example password" do
+        let(:value) { example_password }
+
+        it "is blacklisted" do
+          expect(validator).to eq(false)
+          expect(record.errors[attribute]).to eq(["is blacklisted"])
+        end
+      end
+
+      describe "regex blacklist" do
+        let(:value) { "bazfoobar123456" }
+
+        it "does not validate" do
+          expect(validator).to eq(false)
+          expect(record.errors[attribute]).to eq(["is blacklisted"])
+        end
+      end
+
+      describe "still accepts other passwords" do
+        let(:value) { "decidim123456" }
+
+        it "is valid" do
+          expect(validator).to eq(true)
+          expect(record.errors[attribute]).to be_empty
+        end
       end
     end
 
