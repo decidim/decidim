@@ -40,7 +40,9 @@ module Decidim
             election,
             form.current_user,
             extra: {
-              trustee_id: form.trustee_id
+              trustee_id: form.trustee_id,
+              name: trustee.name,
+              nickname: trustee.user.nickname
             },
             visibility: "all"
           )
