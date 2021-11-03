@@ -1,9 +1,10 @@
 = How to contribute to Decidim
 
-We're really glad you're reading this, because we need volunteer developers to help this project come to fruition.
+We're really glad you're reading this, because we need volunteer contributors to help this project come to fruition.
 
-If you haven't already, come find us in https://app.element.io/#/room/#decidimdevs:matrix.org[our Decidim Devs Matrix chat room].
-We have other chat room for designers, translators, and other volunteers. They're all in https://app.element.io/#/room/#decidim:matrix.org[our Decidim Matrix Space].
+If you haven't already, come find us in https://app.element.io/#/room/#decidimdevs:matrix.org[our Matrix chat room].
+
+We have other chat rooms for designers, translators, and other volunteers. They're all in https://app.element.io/#/room/#decidim:matrix.org[our Decidim Matrix.org Space].
 
 Please note that by making a Pull Request in this repository you're agreeing with https://decidim.org/contract[Decidim's Social Contract].
 
