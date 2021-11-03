@@ -385,7 +385,7 @@ module Decidim
     "decidim-cc"
   end
 
-  # Blacklist passwords, array may contain plain text and regex entries.
+  # Blacklisted passwords. Array may contain strings and regex entries.
   config_accessor :password_blacklist do
     []
   end
