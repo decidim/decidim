@@ -2,7 +2,8 @@
 
 We're really glad you're reading this, because we need volunteer developers to help this project come to fruition.
 
-If you haven't already, come find us in https://gitter.im/decidim/decidim[Gitter]. We want you working on things you're excited about.
+If you haven't already, come find us in https://app.element.io/#/room/#decidimdevs:matrix.org[our Decidim Devs Matrix chat room].
+We have other chat room for designers, translators, and other volunteers. They're all in https://app.element.io/#/room/#decidim:matrix.org[our Decidim Matrix Space].
 
 Please note that by making a Pull Request in this repository you're agreeing with https://decidim.org/contract[Decidim's Social Contract].
 
@@ -37,7 +38,7 @@ You can read in detail about this process in https://docs.decidim.org/en/governa
 
 == Do you have questions about the source code?
 
-* Ask any question about how to use Decidim in https://gitter.im/decidim/decidim[Gitter].
+* Ask any question about how to use Decidim in https://app.element.io/#/room/#decidimdevs:matrix.org[our Decidim Devs Matrix chat room].
 
 == Do you want to contribute to Decidim documentation?
 
