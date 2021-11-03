@@ -12,8 +12,8 @@ module Decidim
         http://localhost:3000/some/url
         http://example.com/引き割り.html
         http://example.com/%E5%BC%95%E3%81%8D%E5%89%B2%E3%82%8A.html
-        https://nörttilive.fi
-        http://www.sinara.technology/about/
+        https://ëxämplö.com
+        http://www.example.technology/about/
         http://en.wikipedia.org/wiki/Sprite_(computer_graphics)
       )
     end
