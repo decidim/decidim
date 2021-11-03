@@ -21,7 +21,8 @@ module Decidim
 
         def action_string
           case action
-          when "publish", "unpublish", "setup", "start_key_ceremony", "start_vote", "end_vote", "start_tally", "report_missing_trustee", "publish_results", "create", "delete", "update"
+          when "publish", "unpublish", "create", "delete", "update",
+               "setup", "start_key_ceremony", "start_vote", "end_vote", "start_tally", "report_missing_trustee", "publish_results"
             "decidim.elections.admin_log.election.#{action}"
           else
             super
@@ -36,11 +37,11 @@ module Decidim
           return {} unless action == "report_missing_trustee"
 
           {
-              trustee_name: if trustee
-                              Decidim::Log::UserPresenter.new(trustee.user, h, trustee_extra).present
-                            else
-                              trustee_extra["name"]
-                            end
+            trustee_name: if trustee
+                            Decidim::Log::UserPresenter.new(trustee.user, h, trustee_extra).present
+                          else
+                            trustee_extra["name"]
+                          end
           }
         end
 

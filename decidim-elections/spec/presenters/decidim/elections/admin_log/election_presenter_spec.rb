@@ -38,6 +38,7 @@ module Decidim
           expect(subject.present).to include(" deleted the election ")
         end
       end
+
       context "when the election is published" do
         let(:action) { :publish }
 
