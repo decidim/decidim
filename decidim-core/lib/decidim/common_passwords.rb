@@ -13,16 +13,15 @@ module Decidim
     ).freeze
 
     def initialize
-      file_path = File.join(__dir__, "db", "password-list.txt")
-      update_passwords! unless File.exist?(file_path)
+      update_passwords! unless File.exist?(password_list_path)
 
-      File.open(file_path, "r") do |file|
+      File.open(password_list_path, "r") do |file|
         @passwords = file.read.split
       end
     end
 
     def update_passwords!
-      File.open(File.join(__dir__, "db", "password-list.txt"), "w") do |file|
+      File.open(password_list_path, "w") do |file|
         common_password_list.each { |item| file.puts(item) }
       end
     end
@@ -48,6 +47,10 @@ module Decidim
       return ::PasswordValidator::MINIMUM_LENGTH if defined?(::PasswordValidator)
 
       10
+    end
+
+    def password_list_path
+      @password_list_path ||= File.join(__dir__, "db", "common-passwords.txt")
     end
   end
 end

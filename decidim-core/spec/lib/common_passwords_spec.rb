@@ -18,25 +18,28 @@ module Decidim
     end
 
     describe "#update_passwords!" do
+      let(:example_url) { "www.example.org/passwords.txt" }
+      let(:example_passwords) { "qwertyuiop 1234567890 q1w2e3r4t5 tooshort" }
+
       before do
-        allow(subject).to receive(:common_password_list).and_return(%w(qwertyuiop 1234567890 q1w2e3r4t5))
+        allow(subject).to receive(:password_list_path).and_return(test_password_list_path)
+        stub_const "Decidim::CommonPasswords::URLS", [example_url]
+        allow(URI).to receive(:open).with(example_url).and_return(example_passwords)
       end
 
       it "opens file for writing" do
-        Decidim::CommonPasswords::URLS.each do |url|
-          allow(URI).to receive(:open).with(url).and_return([::Faker::Lorem.word]).once
-        end
-        expect(File).to receive(:open).with(password_list_path, "w").once
+        expect(File).to receive(:open).with(test_password_list_path, "w")
 
         subject.update_passwords!
+
+        expect(subject.passwords).to eq(example_passwords.split.slice(0..-2))
       end
     end
 
     private
 
-    def password_list_path
-      directory = __dir__.sub("/spec/lib", "/lib/decidim")
-      File.join(directory, "db", "password-list.txt")
+    def test_password_list_path
+      Rails.root.join("tmp/common-passwords.txt")
     end
   end
 end
