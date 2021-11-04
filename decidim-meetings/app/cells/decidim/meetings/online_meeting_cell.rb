@@ -13,6 +13,13 @@ module Decidim
         render
       end
 
+      def live?
+        model.start_time &&
+          model.end_time &&
+          Time.current >= (model.start_time - 10.minutes) &&
+          Time.current <= model.end_time
+      end
+
       protected
 
       def embedder
@@ -27,13 +34,6 @@ module Decidim
         else
           model.online_meeting_url
         end
-      end
-
-      def live?
-        model.start_time &&
-          model.end_time &&
-          Time.current >= (model.start_time - 10.minutes) &&
-          Time.current <= model.end_time
       end
 
       def future?
