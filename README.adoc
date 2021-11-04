@@ -1,4 +1,4 @@
-:doctype: book
+D:doctype: book
 
 image::https://cdn.rawgit.com/decidim/decidim/develop/logo.svg[Decidim Logo,400]
 
@@ -103,7 +103,7 @@ We recommend doing that on GitHub (or any other code hosting platform) before pu
 
 You can read more on "http://producingoss.com/en/governments-and-open-source.html#starting-open-for-govs[Being Open Source From Day One is Especially Important for Government Projects]".
 
-If you have any trouble you can contact us on https://app.element.io/#/room/#decidimdevs:matrix.org[Decidim Devs Matrix.org chat room].
+If you have any trouble you can contact us on https://app.element.io/#/room/#decidimdevs:matrix.org[our Matrix.org chat room for developers].
 
 == Example applications
 
