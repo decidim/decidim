@@ -371,7 +371,7 @@ pl:
         search_label: Szukaj
         search_placeholder:
           name_or_nickname_or_email_cont: Przeszukaj %{collection} według adresu e-mail, nazwiska lub nazwy użytkownika.
-          reported_id_string_or_reported_content_cont: Szukaj %{collection} według identyfikatora lub treści zgłoszenia.
+          reported_id_string_or_reported_content_cont: Przeszukaj %{collection} według identyfikatora lub treści zgłoszenia.
           title_cont: Przeszukaj %{collection} według tytułu.
         state_eq:
           label: Stan
