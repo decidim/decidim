@@ -16,7 +16,7 @@ module Decidim
 
     before do
       # rubocop:disable RSpec/AnyInstance
-      allow_any_instance_of(described_class).to receive(:password_list_path).and_receive(test_password_list_path)
+      allow_any_instance_of(described_class).to receive(:password_list_path).and_return(test_password_list_path)
       # rubocop:enable RSpec/AnyInstance
       stub_const "Decidim::CommonPasswords::URLS", [example_url]
       allow(URI).to receive(:open).and_yield(dummy_data)
