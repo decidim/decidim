@@ -5,19 +5,14 @@ module Decidim
     # This cell defines methods required for other cells to render
     # online meeting urls
     class OnlineMeetingCell < Decidim::ViewModel
+      delegate :live?, to: :model
+
       def show
         return if model.iframe_embed_type_none?
         return unless model.iframe_access_level_allowed_for_user?(current_user)
         return unless assembly_privacy_allowed?
 
         render
-      end
-
-      def live?
-        model.start_time &&
-          model.end_time &&
-          Time.current >= (model.start_time - 10.minutes) &&
-          Time.current <= model.end_time
       end
 
       protected

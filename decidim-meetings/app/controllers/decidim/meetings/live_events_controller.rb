@@ -24,15 +24,11 @@ module Decidim
       def allowed_for_current_user?
         meeting.current_user_can_visit_meeting?(current_user) &&
           meeting.iframe_access_level_allowed_for_user?(current_user) &&
-          live?
+          meeting.live?
       end
 
       def live_meeting_embed_code
         MeetingIframeEmbedder.new(meeting.online_meeting_url).embed_code(request.host)
-      end
-
-      def live?
-        cell("decidim/meetings/online_meeting", meeting).live?
       end
     end
   end
