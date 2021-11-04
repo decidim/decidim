@@ -6,43 +6,52 @@ module Decidim
     include ActionView::Helpers::TagHelper
 
     def truncate(text, options = {})
-      @node_array = []
-      fill_node_array(Nokogiri::HTML::DocumentFragment.parse(text))
+      doc = Nokogiri::HTML::DocumentFragment.parse(text)
       remaining = initial_remaining(options)
+      content_array = []
 
-      final = ""
-      @node_array.each do |tag|
+      doc.children.each do |tag|
         if tag.content.length <= remaining
-          final += tag.to_html
+          content_array << tag.to_html
           remaining -= tag.content.length
         else
           # tag.content.truncate(remaining, omission: options[:tail])
-          final += last_tag(tag, remaining)
+          content_array << last_tag(tag, remaining, options)
           break
         end
       end
 
       content_tag(:p) do
-        final.html_safe
+        content_array.join.html_safe
       end
     end
 
     private
 
-    # rubocop:disable all
-    #asd
     def last_tag(tag, remaining, options)
-      foo = ""
+      if tag.children.empty?
+        tag.content = tag.content.truncate(remaining + options[:tail].length, omission: options[:tail])
+        return tag.to_html
+      end
+
+      array = []
       tag.children.each do |child|
-        if child.content.length < remaining
-          foo += child.to_html
-          remaining -= child.content.length
+        if child.content.length <= remaining
+          array << child.to_html
+        elsif remaining.zero?
+          array << options[:tail]
+          break
         else
-          child.content = truncate(child.content, omission: options[:tail])
+          child.content = child.content.truncate(remaining + options[:tail].length, omission: options[:tail])
+          array << child.to_html
+          break
         end
       end
+
+      content_tag(tag.name.to_sym) do
+        array.join.html_safe
+      end
     end
-    # rubocop:enable all
 
     def add_tag(content, tag)
       content_tag(tag.to_sym) do
@@ -54,12 +63,6 @@ module Decidim
       return options[:max_length] unless options[:count_tail]
 
       options[:max_length] - options[:tail].length
-    end
-
-    def fill_node_array(node)
-      node.children.each do |child|
-        @node_array << child
-      end
     end
   end
 end
