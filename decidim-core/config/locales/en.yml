@@ -1408,6 +1408,10 @@ en:
         resend_confirmation_instructions: Resend confirmation instructions
       send_instructions: You will receive an email with instructions for how to confirm your email address in a few minutes.
       send_paranoid_instructions: If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes.
+      show:
+        confirm_your_email_address: Confirm your email address
+        if_you_cannot_find_the_email: If you cannot find the email, please check your spam folder. It can take up to 10 minutes to receive the email.
+        we_have_sent_an_email: We've sent you an email.
     failure:
       already_authenticated: You are already signed in.
       inactive: Your account is not activated yet.

@@ -45,6 +45,13 @@ module Decidim
 
       protected
 
+      def after_inactive_sign_up_path_for(resource)
+        scope = ::Devise::Mapping.find_scope!(resource)
+        router_name = ::Devise.mappings[scope].router_name
+        context = router_name ? send(router_name) : self
+        context.respond_to?(:user_confirmation_path) ? context.user_confirmation_path : "/"
+      end
+
       def check_sign_up_enabled
         redirect_to new_user_session_path unless current_organization.sign_up_enabled?
       end

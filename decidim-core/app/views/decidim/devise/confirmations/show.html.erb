@@ -1,0 +1,30 @@
+<% add_decidim_page_title(t("devise.confirmations.show.confirm_your_email_address")) %>
+
+<div class="wrapper">
+<div class="row collapse">
+  <div class="row collapse">
+    <div class="columns large-8 large-centered text-center page-title">
+      <h1><%= t("devise.confirmations.show.confirm_your_email_address") %></h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns medium-7 large-5 medium-centered text-center">
+      <div class="card">
+        <div class="card__content">
+          <p>
+            <%= t("devise.confirmations.show.we_have_sent_an_email") %>
+          </p>
+          <p>
+            <%= t("devise.confirmations.show.if_you_cannot_find_the_email") %>
+          </p>
+
+          <p class="text-center">
+            <%= link_to t("devise.shared.links.didn_t_receive_confirmation_instructions"), new_confirmation_path(resource_name) %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -27,6 +27,8 @@ module Decidim
         super.merge(decidim_organization_id: current_organization.id)
       end
 
+      def show; end
+
       # Overwrites the default method to handle user groups confirmations.
       def after_confirmation_path_for(resource_name, resource)
         return profile_path(resource.nickname) if resource_name == :user_group
