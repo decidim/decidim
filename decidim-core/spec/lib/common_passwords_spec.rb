@@ -15,6 +15,9 @@ module Decidim
     let(:test_password_list_path) { Rails.root.join("tmp/common-passwords.txt") }
 
     before do
+      # rubocop:disable RSpec/AnyInstance
+      allow_any_instance_of(described_class).to receive(:password_list_path).and_receive(test_password_list_path)
+      # rubocop:enable RSpec/AnyInstance
       stub_const "Decidim::CommonPasswords::URLS", [example_url]
       allow(URI).to receive(:open).and_yield(dummy_data)
     end
@@ -31,16 +34,6 @@ module Decidim
 
         expect(subject.passwords).to eq(example_passwords.split.slice(0..-2))
       end
-    end
-  end
-end
-
-module Decidim
-  class CommonPasswords
-    private
-
-    def password_list_path
-      Rails.root.join("tmp/common-passwords.txt")
     end
   end
 end
