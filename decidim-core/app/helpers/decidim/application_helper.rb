@@ -25,7 +25,7 @@ module Decidim
       options[:count_tail] ||= false
       options[:tail_before_final_tag] = true unless options.has_key?(:tail_before_final_tag)
 
-      Decidim::Truncation.truncate(text, options)
+      Decidim::Truncation.new.truncate(text, options)
     end
 
     def present(object, presenter_class: nil)
