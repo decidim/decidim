@@ -11,7 +11,7 @@ ro:
   decidim:
     blogs:
       actions:
-        confirm_destroy: Ești sigur(ă) că vrei să ştergi această postare?
+        confirm_destroy: Sigur dorești să ştergi această postare?
         destroy: Șterge
         edit: Editează
         new: Postare nouă
