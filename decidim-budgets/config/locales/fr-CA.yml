@@ -186,6 +186,12 @@ fr-CA:
           projects_count:
             one: 1 projet
             other: "%{count} projets"
+        exit_modal:
+          cancel: Revenir au vote
+          close_modal: Fermer la fenêtre de dialogue
+          exit: Quitter le vote
+          message: Votre vote n'a pas été enregistré car vous n'avez pas encore terminé le processus de vote. Êtes-vous sûr de vouloir quitter le vote ?
+          title: Vous n'avez pas encore voté
         filters:
           category: Catégorie
           scope: Périmètre d'application
