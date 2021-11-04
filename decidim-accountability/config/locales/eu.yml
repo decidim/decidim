@@ -204,13 +204,13 @@ eu:
             label: Egoera
     components:
       accountability:
-        name: Kontuak
+        name: Jarraipena
         settings:
           global:
             categories_label: '"Kategoriak" izena'
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
-            display_progress_enabled: Bistaratze aurrerapena
+            display_progress_enabled: Erakutsi aurrerapena
             heading_leaf_level_results: '"Proiektuak" izena'
             heading_parent_level_results: '"Emaitzak" izena'
             intro: Intro
