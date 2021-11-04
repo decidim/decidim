@@ -355,6 +355,7 @@ cs:
           end_vote: "%{user_name} ukončil hlasovací období pro zvolení %{resource_name} ve %{space_name} na Vývěsce"
           publish: "%{user_name} publikoval volbu %{resource_name} z %{space_name}"
           publish_results: "%{user_name} zveřejnil výsledky voleb %{resource_name} v %{space_name} na Vývěsce"
+          report_missing_trustee: "%{user_name} nahlásil %{trustee_name} jako chybějícího správce během volby %{resource_name} %{space_name} na Vývěsce"
           setup: "%{user_name} vytvořil volbu %{resource_name} z %{space_name} na Vývěsce"
           start_key_ceremony: "%{user_name} zahájil klíčový ceremoniál pro volby %{resource_name} z %{space_name} na Vývěsce"
           start_tally: "%{user_name} zahájil volební přepočítání pro volby %{resource_name} %{space_name} na Vývěsce"
