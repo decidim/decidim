@@ -70,22 +70,22 @@ pl:
       decidim/proposals/collaborative_draft:
         one: Wspólny szkic
         few: Wspólne szkice
-        many: Wspólne szkice
+        many: Wspólne szkiców
         other: Wspólne szkice
       decidim/proposals/proposal:
         one: Propozycja
         few: Propozycje
-        many: Propozycje
+        many: Propozycji
         other: Propozycje
       decidim/proposals/proposal_note:
         one: Uwaga
         few: Uwagi
-        many: Uwagi
+        many: Uwag
         other: Uwagi
       decidim/proposals/proposal_vote:
         one: Wsparcie
-        few: Wsparć
-        many: Wsparcia
+        few: Wsparcia
+        many: Wsparć
         other: Wsparcia
   decidim:
     admin:
