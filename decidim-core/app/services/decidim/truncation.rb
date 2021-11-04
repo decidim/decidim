@@ -2,6 +2,9 @@
 
 module Decidim
   class Truncation
+    include ActionView::Context
+    include ActionView::Helpers::TagHelper
+
     def truncate(text, options = {})
       @node_array = []
       fill_node_array(Nokogiri::HTML::DocumentFragment.parse(text))
@@ -13,14 +16,39 @@ module Decidim
           final += tag.to_html
           remaining -= tag.content.length
         else
-          final += tag.content.truncate(remaining, omission: options[:tail])
+          # tag.content.truncate(remaining, omission: options[:tail])
+          final += last_tag(tag, remaining)
+          break
         end
       end
 
-      final
+      content_tag(:p) do
+        final.html_safe
+      end
     end
 
     private
+
+    # rubocop:disable all
+    #asd
+    def last_tag(tag, remaining, options)
+      foo = ""
+      tag.children.each do |child|
+        if child.content.length < remaining
+          foo += child.to_html
+          remaining -= child.content.length
+        else
+          child.content = truncate(child.content, omission: options[:tail])
+        end
+      end
+    end
+    # rubocop:enable all
+
+    def add_tag(content, tag)
+      content_tag(tag.to_sym) do
+        content
+      end
+    end
 
     def initial_remaining(options)
       return options[:max_length] unless options[:count_tail]
