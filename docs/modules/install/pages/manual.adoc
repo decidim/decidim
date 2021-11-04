@@ -10,7 +10,7 @@ In order to develop on decidim, you'll need:
 * *ImageMagick*
 * *Chrome* browser and https://sites.google.com/a/chromium.org/chromedriver/[chromedriver].
 
-We're starting with an Ubuntu 20.04 LTS. This is an opinionated guide, so you're free to use the technology that you are most comfortable. If you have any doubts and you're blocked you can go and ask on https://app.element.io/#/room/#decidimdevs:matrix.org[our Matrix.org chat room].
+We're starting with an Ubuntu 20.04 LTS. This is an opinionated guide, so you're free to use the technology that you are most comfortable. If you have any doubts and you're blocked you can go and ask on https://matrix.to/#/#decidimdevs:matrix.org[our Matrix.org chat room for developers].
 
 We recommend to have at least some basic proficiency in Ruby on Rails (a good starting point is http://guides.rubyonrails.org/getting_started.html[Getting Started with Ruby on Rails]) and have some knowledge on how gems work.
 
