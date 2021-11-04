@@ -2,11 +2,11 @@
 
 We're really glad you're reading this, because we need volunteer contributors to help this project come to fruition.
 
-If you haven't already, come find us in https://app.element.io/#/room/#decidimdevs:matrix.org[our Matrix chat room].
-
-We have other chat rooms for designers, translators, and other volunteers. They're all in https://app.element.io/#/room/#decidim:matrix.org[our Decidim Matrix.org Space].
-
 Please note that by making a Pull Request in this repository you're agreeing with https://decidim.org/contract[Decidim's Social Contract].
+
+== Do you want to say hello to us?
+
+Come find us at https://matrix.to/#/#decidim:matrix.org[our Matrix.org space]. We have chat rooms for developers, designers and translators.
 
 == Did you find a bug?
 
@@ -39,7 +39,7 @@ You can read in detail about this process in https://docs.decidim.org/en/governa
 
 == Do you have questions about the source code?
 
-* Ask any question about how to use Decidim in https://app.element.io/#/room/#decidimdevs:matrix.org[our Decidim Devs Matrix chat room].
+* Ask any question about how to use Decidim in https://matrix.to/#/#decidimdevs:matrix.org[our Decidim Devs Matrix chat room].
 
 == Do you want to contribute to Decidim documentation?
 
