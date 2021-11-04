@@ -32,7 +32,7 @@ module Decidim
 
         attr_accessor :form
 
-        delegate :election, :bulletin_board, to: :form
+        delegate :election, :bulletin_board, :trustee, to: :form
 
         def log_action
           Decidim.traceability.perform_action!(
