@@ -15,7 +15,7 @@ All members of the Decidim community agree with http://www.decidim.org/contract/
 
 '''
 
-image:https://img.shields.io/gem/v/decidim.svg[Gem,link=https://rubygems.org/gems/decidim] image:https://img.shields.io/gem/dt/decidim.svg[Gem,link=https://rubygems.org/gems/decidim] image:https://img.shields.io/github/contributors/decidim/decidim.svg[GitHub contributors,link=https://github.com/decidim/decidim/graphs/contributors] image:http://img.shields.io/badge/yard-docs-blue.svg[Yard Docs,link=http://rubydoc.info/github/decidim/decidim/master] image:https://img.shields.io/matrix/decidimdevs:matrix.org[Matrix,link=https://app.element.io/#/room/#decidimdevs:matrix.org]
+image:https://img.shields.io/gem/v/decidim.svg[Gem,link=https://rubygems.org/gems/decidim] image:https://img.shields.io/gem/dt/decidim.svg[Gem,link=https://rubygems.org/gems/decidim] image:https://img.shields.io/github/contributors/decidim/decidim.svg[GitHub contributors,link=https://github.com/decidim/decidim/graphs/contributors] image:http://img.shields.io/badge/yard-docs-blue.svg[Yard Docs,link=http://rubydoc.info/github/decidim/decidim/master] image:https://img.shields.io/matrix/decidimdevs:matrix.org[Matrix,link=https://matrix.to/#/#decidimdevs:matrix.org]
 
 Code quality
 
