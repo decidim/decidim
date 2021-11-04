@@ -34,7 +34,7 @@ ro:
   decidim:
     system:
       actions:
-        confirm_destroy: Ești sigur(ă) că vrei să ştergi acest element?
+        confirm_destroy: Sigur dorești să ştergi acest element?
         destroy: Ștergere
         edit: Editare
         new: Nou
@@ -103,7 +103,7 @@ ro:
         form:
           select_organization: Selectați o organizație
         index:
-          confirm_delete: Ești sigur(ă) că vrei să ștergi această aplicație?
+          confirm_delete: Sigur dorești să ștergi această aplicație?
           title: Aplicații OAuth
         new:
           save: Salveaza
