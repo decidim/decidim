@@ -96,6 +96,13 @@ Decidim.register_component(:debates) do |component|
 
     5.times do |x|
       finite = x != 2
+      if finite
+        start_time = [rand(1..20).weeks.from_now, rand(1..20).weeks.ago].sample
+        end_time = start_time + [rand(1..4).hours, rand(1..20).days].sample
+      else
+        start_time = nil
+        end_time = nil
+      end
       params = {
         component: component,
         category: participatory_space.categories.sample,
@@ -106,8 +113,8 @@ Decidim.register_component(:debates) do |component|
         instructions: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
-        start_time: (3.weeks.from_now if finite),
-        end_time: (3.weeks.from_now + 4.hours if finite),
+        start_time: start_time,
+        end_time: end_time,
         author: component.organization
       }
 
