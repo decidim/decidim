@@ -42,23 +42,25 @@ module Decidim
     def truncate_last_node(node, remaining)
       if node.children.count <= 1
         remaining = options[:count_tags] ? (remaining - opening_tag_length(node)) : remaining
-        node.content = truncate_and_add_tail(node, remaining)
-        return node.to_html
-      end
-
-      node.children.each do |child|
-        if node_length(child) > remaining
-          child.content = truncate_and_add_tail(child, remaining)
-          break
+        target = node.children.count == 1 ? node.children.first : node
+        target.content = cut_off(target, remaining)
+      else
+        node.children.each do |child|
+          if node_length(child) > remaining
+            child.content = cut_off(child, remaining)
+            break
+          end
+          remaining -= node_length(child)
         end
-        remaining -= node_length(child)
       end
 
+      node.add_child Nokogiri::XML::Text.new(options[:tail], document) if options[:tail_before_final_tag]
       node.to_html
     end
 
-    def truncate_and_add_tail(node, remaining)
-      "#{node.content.truncate(remaining, omission: "")}#{options[:tail]}"
+    def cut_off(node, remaining)
+      tail = options[:tail_before_final_tag] ? "" : options[:tail]
+      "#{node.content.truncate(remaining, omission: "")}#{tail}"
     end
 
     def initial_remaining

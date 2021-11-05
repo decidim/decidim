@@ -17,7 +17,7 @@ describe Decidim::Truncation do
   let(:tail) { "..." }
   let(:count_tags) { false }
   let(:count_tail) { false }
-  let(:tail_before_final_tag) { true }
+  let(:tail_before_final_tag) { false }
   let(:text) { ::Faker::Lorem.paragraph(sentence_count: 25) }
 
   describe "long string" do
@@ -44,6 +44,16 @@ describe Decidim::Truncation do
     end
   end
 
+  describe "tail before final tag" do
+    let(:tail_before_final_tag) { true }
+    let(:max_length) { 5 }
+    let(:text) { %(<p>foo<strong class="bar">baz</strong></p>) }
+
+    it "adds tail to the end" do
+      expect(subject).to eq('<p><p>foo<strong class="bar">ba</strong>...</p></p>')
+    end
+  end
+
   describe "basic content" do
     let(:texts) do
       [
@@ -62,7 +72,6 @@ describe Decidim::Truncation do
   end
 
   describe "cut inside a tag" do
-    let(:tail_before_final_tag) { true }
     let(:outer_before) { "foo " }
     let(:outer_after) { " bar" }
     let(:inner_text) { %(very long text here is this and its getting cutted</a> bar) }
