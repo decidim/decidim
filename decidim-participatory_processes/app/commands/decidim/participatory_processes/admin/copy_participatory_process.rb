@@ -116,7 +116,8 @@ module Decidim
               name: component.name,
               participatory_space: @copied_process,
               settings: component.settings,
-              step_settings: copied_step_settings
+              step_settings: copied_step_settings,
+              weight: component.weight
             )
             component.manifest.run_hooks(:copy, new_component: new_component, old_component: component)
           end
