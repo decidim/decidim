@@ -74,7 +74,9 @@
     <div class="field" id="meeting_registration_url">
       <%= form.text_field :registration_url %>
       <p class="help-text"><%= t(".registration_url_help") %></p>
-      <label><%= t(".disclaimer", organization: current_component.organization.name) %></label><br>
+      <div class="callout alert">
+        <%= t(".disclaimer", organization: current_component.organization.name) %>
+      </div>
     </div>
 
     <div class="row column" id="private_meeting">
