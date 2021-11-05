@@ -301,7 +301,6 @@ en:
             update: Update
           form:
             address_help: 'Address: used by Geocoder to find the location'
-            available_slots_help: Leave it to 0 if you have unlimited slots available
             disclaimer: 'Disclaimer: By using an external registration system, you''re aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
             location_help: 'Location: message directed to the users implying the spot to meet at'
             location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
