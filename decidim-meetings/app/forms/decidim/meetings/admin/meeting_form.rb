@@ -31,7 +31,6 @@ module Decidim
         translatable_attribute :description, String
         translatable_attribute :location, String
         translatable_attribute :location_hints, String
-        translatable_attribute :registration_email_custom_content, String
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true

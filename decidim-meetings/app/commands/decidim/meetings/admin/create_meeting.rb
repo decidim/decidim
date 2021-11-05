@@ -53,8 +53,6 @@ module Decidim
             registration_terms: form.current_component.settings.default_registration_terms,
             component: form.current_component,
             questionnaire: Decidim::Forms::Questionnaire.new,
-            customize_registration_email: form.customize_registration_email,
-            registration_email_custom_content: form.registration_email_custom_content,
             show_embedded_iframe: form.show_embedded_iframe,
             comments_enabled: form.comments_enabled,
             comments_start_time: form.comments_start_time,

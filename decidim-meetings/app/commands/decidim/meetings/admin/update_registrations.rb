@@ -40,6 +40,8 @@ module Decidim
             meeting.available_slots = form.available_slots
             meeting.reserved_slots = form.reserved_slots
             meeting.registration_terms = form.registration_terms
+            meeting.customize_registration_email = form.customize_registration_email
+            meeting.registration_email_custom_content = form.registration_email_custom_content if form.customize_registration_email
           end
 
           meeting.save!
