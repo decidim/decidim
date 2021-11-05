@@ -333,6 +333,7 @@ fr:
           end_vote: "%{user_name} a terminé la période de vote pour l'élection %{resource_name} de l'espace %{space_name} sur le Tableau des Bulletins"
           publish: "%{user_name} a publié l'élection %{resource_name} de %{space_name}"
           publish_results: "%{user_name} a publié les résultats de l'élection %{resource_name} de %{space_name} sur le Tableau d'Affichage"
+          report_missing_trustee: "%{user_name} a signalé %{trustee_name} en tant qu'accesseur manquant pendant le dépouillement de l'élection %{resource_name} de %{space_name} sur le Tableau d'affichage"
           setup: "%{user_name} a créé l'élection %{resource_name} de %{space_name} sur le Tableau d'affichage"
           start_key_ceremony: "%{user_name} a commencé la cérémonie des clés pour l'élection %{resource_name} de %{space_name} sur le Panneau d'affichage"
           start_tally: "%{user_name} a commencé le dépouillement pour l'élection %{resource_name} de %{space_name} sur le Tableau d'affichage"
