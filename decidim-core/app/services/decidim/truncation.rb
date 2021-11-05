@@ -5,20 +5,29 @@ module Decidim
     include ActionView::Context
     include ActionView::Helpers::TagHelper
 
-    def truncate(text, options = {})
-      doc = Nokogiri::HTML::DocumentFragment.parse(text)
-      remaining = initial_remaining(options)
-      content_array = []
+    def initialize(text, options = {})
+      @options = {
+        max_length: options[:max_length] || 30,
+        tail: options[:tail] || "...",
+        count_tags: options[:count_tags] || false,
+        count_tail: options[:count_tail] || false,
+        tail_before_final_tag: options[:tail_before_final_tag] || false
+      }
+      @document = Nokogiri::HTML::DocumentFragment.parse(text)
+    end
 
-      doc.children.each do |tag|
-        if tag.content.length <= remaining
-          content_array << tag.to_html
-          remaining -= tag.content.length
-        else
-          # tag.content.truncate(remaining, omission: options[:tail])
-          content_array << last_tag(tag, remaining, options)
+    def truncate
+      content_array = []
+      remaining = initial_remaining
+
+      document.children.each do |node|
+        if node_length(node) > remaining
+          content_array << truncate_last_node(node, remaining)
           break
         end
+
+        content_array << node.to_html
+        remaining -= node_length(node)
       end
 
       content_tag(:p) do
@@ -28,41 +37,42 @@ module Decidim
 
     private
 
-    def last_tag(tag, remaining, options)
-      if tag.children.empty?
-        tag.content = tag.content.truncate(remaining + options[:tail].length, omission: options[:tail])
-        return tag.to_html
+    attr_reader :document, :options
+
+    def truncate_last_node(node, remaining)
+      if node.children.count <= 1
+        remaining = options[:count_tags] ? (remaining - opening_tag_length(node)) : remaining
+        node.content = truncate_and_add_tail(node, remaining)
+        return node.to_html
       end
 
-      array = []
-      tag.children.each do |child|
-        if child.content.length <= remaining
-          array << child.to_html
-        elsif remaining.zero?
-          array << options[:tail]
-          break
-        else
-          child.content = child.content.truncate(remaining + options[:tail].length, omission: options[:tail])
-          array << child.to_html
+      node.children.each do |child|
+        if node_length(child) > remaining
+          child.content = truncate_and_add_tail(child, remaining)
           break
         end
+        remaining -= node_length(child)
       end
 
-      content_tag(tag.name.to_sym) do
-        array.join.html_safe
-      end
+      node.to_html
     end
 
-    def add_tag(content, tag)
-      content_tag(tag.to_sym) do
-        content
-      end
+    def truncate_and_add_tail(node, remaining)
+      "#{node.content.truncate(remaining, omission: "")}#{options[:tail]}"
     end
 
-    def initial_remaining(options)
+    def initial_remaining
       return options[:max_length] unless options[:count_tail]
 
       options[:max_length] - options[:tail].length
+    end
+
+    def opening_tag_length(node)
+      node.to_html.length - node.content.length - (node.name.length + 3) # 3 = </>
+    end
+
+    def node_length(node)
+      options[:count_tags] ? node.to_html.length : node.content.length
     end
   end
 end

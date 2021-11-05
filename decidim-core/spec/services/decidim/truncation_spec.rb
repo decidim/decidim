@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Truncation do
-  let(:subject) { described_class.new }
+  let(:subject) { described_class.new(text, options).truncate }
   let(:options) do
     {
       max_length: max_length,
@@ -13,24 +13,41 @@ describe Decidim::Truncation do
       tail_before_final_tag: tail_before_final_tag
     }
   end
-  let(:max_length) { 50 }
+  let(:max_length) { 30 }
   let(:tail) { "..." }
   let(:count_tags) { false }
   let(:count_tail) { false }
-  let(:tail_before_final_tag) { false }
+  let(:tail_before_final_tag) { true }
+  let(:text) { ::Faker::Lorem.paragraph(sentence_count: 25) }
 
   describe "long string" do
-    let(:text) { "我的思想造就了我，我的大腦認為我要離開去唱歌，我要聽寫，我的家人要撒鹽，我的物種要唱歌。 話在我嘴裡融化，演講掉下來，我的舌頭抬起來，我的牙齒壞了。親愛的哥哥，我的婊子，我美麗的植物夥伴！" }
-
     it "cuts text, adds tail and wraps to p tag" do
-      expect(described_class.new.truncate(text, options)).to eq("<p>#{text.truncate(50, omission: tail)}</p>")
+      expect(subject).to eq("<p>#{text.truncate(max_length + tail.length, omission: options[:tail])}</p>")
     end
   end
 
-  describe "basic texts" do
+  describe "count tail" do
+    let(:count_tail) { true }
+
+    it "countas tail" do
+      expect(subject).to eq("<p>#{text.truncate(max_length, omission: options[:tail])}</p>")
+    end
+  end
+
+  describe "count tags" do
+    let(:count_tags) { true }
+    let(:max_length) { 22 }
+    let(:text) { %(<strong class="foo">bar</strong) }
+
+    it "counts tags also" do
+      expect(subject).to eq('<p><strong class="foo">ba...</strong></p>')
+    end
+  end
+
+  describe "basic content" do
     let(:texts) do
       [
-        "Mauris sed libero. Suspendisse facilisis nulla in lacinia laoreet.",
+        "Mauris sed libero.",
         'foo <a href="www.example.com">link</a> bar',
         "some <strong>text</strong> here",
         "<b><em>foo</em></b>"
@@ -39,8 +56,39 @@ describe Decidim::Truncation do
 
     it "wraps text to p tag" do
       texts.each do |test_text|
-        expect(described_class.new.truncate(test_text, options)).to eq("<p>#{test_text}</p>")
+        expect(described_class.new(test_text, options).truncate).to eq("<p>#{test_text}</p>")
       end
+    end
+  end
+
+  describe "cut inside a tag" do
+    let(:tail_before_final_tag) { true }
+    let(:outer_before) { "foo " }
+    let(:outer_after) { " bar" }
+    let(:inner_text) { %(very long text here is this and its getting cutted</a> bar) }
+    let(:tags) do
+      [
+        { opening: %(<a href="www.example.org/something">), closing: %(</a>) },
+        { opening: %(<strong>), closing: %(</strong>) },
+        { opening: %(<em>), closing: %(</em>) },
+        { opening: %(<span class="baz">), closing: %(</span>) }
+      ]
+    end
+
+    it "cuts inner text of a tag" do
+      tags.each do |tag|
+        test_text = "#{outer_before}#{tag[:opening]}#{inner_text}#{tag[:closing]}#{outer_after}"
+        truncate_length = max_length - outer_before.length + options[:tail].length
+        expect(described_class.new(test_text, options).truncate).to eq("<p>#{outer_before}#{tag[:opening]}#{inner_text.truncate(truncate_length, omission: options[:tail])}#{tag[:closing]}</p>")
+      end
+    end
+  end
+
+  describe "option max length" do
+    let(:max_length) { 100 }
+
+    it "cuts text after 100 characters, adds tail and wraps to p tag" do
+      expect(subject).to eq("<p>#{text.truncate(max_length + tail.length, omission: tail)}</p>")
     end
   end
 end
