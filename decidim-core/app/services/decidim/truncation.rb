@@ -25,6 +25,8 @@ module Decidim
       @tail_added = false
     end
 
+    # Truncate text or html content added in constructor
+    # Returns truncated html
     def truncate
       content_array = []
       remaining = initial_remaining
