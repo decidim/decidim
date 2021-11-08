@@ -88,18 +88,11 @@ git commit -m "Initial commit. Generated with Decidim https://decidim.org"
 
 Modify your secrets (see `config/database.yml`). For this you can use https://github.com/laserlemon/figaro[figaro], https://github.com/bkeepers/dotenv[dotenv] or https://github.com/rbenv/rbenv-vars[rbenv-vars]. You should always be careful of not uploading your plain secrets on git or your version control system. You can also upload the encrypted secrets, using the sekrets gem or if you're on Ruby on Rails greater than 5.1 you can do it natively.
 
-For instance, for working with figaro, add this to your `Gemfile`:
-
-[source,ruby]
-----
-gem "figaro"
-----
-
-Then install it:
+For instance, for working with figaro, you'll need to install it:
 
 [source,bash]
 ----
-bundle install
+bundle add figaro
 bundle exec figaro install
 ----
 
