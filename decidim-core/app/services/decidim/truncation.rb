@@ -5,6 +5,14 @@ module Decidim
     include ActionView::Context
     include ActionView::Helpers::TagHelper
 
+    # Truncates text and html content
+    # text - Content to be truncated
+    # options - Hash with the options
+    #         max_length: An Integer maximum number of characters
+    #         tail: A string suffix to be added after truncation
+    #         count_tags: A boolean if html is calculate to max length, otherwise just content
+    #         count_tail: A boolean value that determines whether max_length contains the tail
+    #         tail_before_final_tag: A boolean, show tail inside of tag where text is cutted or before final closing tag.
     def initialize(text, options = {})
       @options = {
         max_length: options[:max_length] || 30,
@@ -14,6 +22,7 @@ module Decidim
         tail_before_final_tag: options[:tail_before_final_tag] || false
       }
       @document = Nokogiri::HTML::DocumentFragment.parse(text)
+      @tail_added = false
     end
 
     def truncate
@@ -35,6 +44,7 @@ module Decidim
 
     private
 
+    attr_accessor :tail_added
     attr_reader :document, :options
 
     def truncate_last_node(node, remaining)
@@ -52,12 +62,14 @@ module Decidim
         end
       end
 
-      node.add_child(Nokogiri::XML::Text.new(options[:tail], document)) if add_tail_node?(node)
+      node.add_child(Nokogiri::XML::Text.new(options[:tail], document)) if add_tail_node?(node) && !@tail_added
       node.to_html
     end
 
     def cut_off(node, remaining)
       tail = add_tail_node?(node) ? "" : options[:tail]
+      @tail_added = true if tail.present?
+
       "#{node.content.truncate(remaining, omission: "")}#{tail}"
     end
 
