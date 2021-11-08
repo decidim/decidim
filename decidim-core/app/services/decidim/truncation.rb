@@ -23,22 +23,22 @@ module Decidim
       }
       @document = Nokogiri::HTML::DocumentFragment.parse(text)
       @tail_added = false
+      @remaining = initial_remaining
     end
 
     # Truncate text or html content added in constructor
     # Returns truncated html
     def truncate
       content_array = []
-      remaining = initial_remaining
 
       document.children.each do |node|
-        if node_length(node) > remaining
-          content_array << truncate_last_node(node, remaining)
+        if node_length(node) > @remaining
+          content_array << truncate_last_node(node)
           break
         end
 
         content_array << node.to_html
-        remaining -= node_length(node)
+        @remaining -= node_length(node)
       end
 
       content_array.join.html_safe
@@ -46,21 +46,21 @@ module Decidim
 
     private
 
-    attr_accessor :tail_added
+    attr_accessor :tail_added, :remaining
     attr_reader :document, :options
 
-    def truncate_last_node(node, remaining)
+    def truncate_last_node(node)
       if node.children.count <= 1
-        remaining = options[:count_tags] ? (remaining - opening_tag_length(node)) : remaining
-        target = node.children.count == 1 ? node.children.first : node
-        target.content = cut_off(target, remaining)
+        @remaining = (@remaining - opening_tag_length(node)) if options[:count_tags]
+        target = find_target(node) || node
+        target.content = cut_off(target)
       else
         node.children.each do |child|
-          if node_length(child) > remaining
-            child.content = cut_off(child, remaining)
+          if node_length(child) > @remaining
+            child.content = cut_off(child)
             break
           end
-          remaining -= node_length(child)
+          @remaining -= node_length(child)
         end
       end
 
@@ -68,11 +68,27 @@ module Decidim
       node.to_html
     end
 
-    def cut_off(node, remaining)
+    def cut_off(node)
       tail = add_tail_node?(node) ? "" : options[:tail]
       @tail_added = true if tail.present?
 
-      "#{node.content.truncate(remaining, omission: "")}#{tail}"
+      "#{node.content.truncate(@remaining, omission: "")}#{tail}"
+    end
+
+    def find_target(node)
+      return node if node.children.empty?
+
+      node.children.each do |child|
+        if node_length(child) > @remaining
+          return child if child.children.count <= 1
+
+          return find_target(child)
+        end
+
+        @remaining -= node_length(child)
+      end
+
+      node.children.first
     end
 
     def initial_remaining
