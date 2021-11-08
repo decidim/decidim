@@ -20,40 +20,6 @@ describe Decidim::Truncation do
   let(:tail_before_final_tag) { false }
   let(:text) { ::Faker::Lorem.paragraph(sentence_count: 25) }
 
-  describe "long string" do
-    it "cuts text, adds tail and wraps to p tag" do
-      expect(subject).to eq("<p>#{text.truncate(max_length + tail.length, omission: options[:tail])}</p>")
-    end
-  end
-
-  describe "count tail" do
-    let(:count_tail) { true }
-
-    it "countas tail" do
-      expect(subject).to eq("<p>#{text.truncate(max_length, omission: options[:tail])}</p>")
-    end
-  end
-
-  describe "count tags" do
-    let(:count_tags) { true }
-    let(:max_length) { 22 }
-    let(:text) { %(<strong class="foo">bar</strong) }
-
-    it "counts tags also" do
-      expect(subject).to eq('<p><strong class="foo">ba...</strong></p>')
-    end
-  end
-
-  describe "tail before final tag" do
-    let(:tail_before_final_tag) { true }
-    let(:max_length) { 5 }
-    let(:text) { %(<p>foo<strong class="bar">baz</strong></p>) }
-
-    it "adds tail to the end" do
-      expect(subject).to eq('<p><p>foo<strong class="bar">ba</strong>...</p></p>')
-    end
-  end
-
   describe "basic content" do
     let(:texts) do
       [
@@ -64,10 +30,44 @@ describe Decidim::Truncation do
       ]
     end
 
-    it "wraps text to p tag" do
+    it "shows basic text" do
       texts.each do |test_text|
-        expect(described_class.new(test_text, options).truncate).to eq("<p>#{test_text}</p>")
+        expect(described_class.new(test_text, options).truncate).to eq(test_text.to_s)
       end
+    end
+  end
+
+  describe "long string" do
+    it "cuts text and adds tail" do
+      expect(subject).to eq(text.truncate(max_length + tail.length, omission: options[:tail]).to_s)
+    end
+  end
+
+  describe "count tail" do
+    let(:count_tail) { true }
+
+    it "countas tail" do
+      expect(subject).to eq(text.truncate(max_length, omission: options[:tail]).to_s)
+    end
+  end
+
+  describe "count tags" do
+    let(:count_tags) { true }
+    let(:max_length) { 22 }
+    let(:text) { %(<strong class="foo">bar</strong) }
+
+    it "counts tags also" do
+      expect(subject).to eq('<strong class="foo">ba...</strong>')
+    end
+  end
+
+  describe "tail before final tag" do
+    let(:tail_before_final_tag) { true }
+    let(:max_length) { 5 }
+    let(:text) { %(<p>foo<strong class="bar">baz</strong></p>) }
+
+    it "adds tail to the end" do
+      expect(subject).to eq('<p>foo<strong class="bar">ba</strong>...</p>')
     end
   end
 
@@ -88,7 +88,7 @@ describe Decidim::Truncation do
       tags.each do |tag|
         test_text = "#{outer_before}#{tag[:opening]}#{inner_text}#{tag[:closing]}#{outer_after}"
         truncate_length = max_length - outer_before.length + options[:tail].length
-        expect(described_class.new(test_text, options).truncate).to eq("<p>#{outer_before}#{tag[:opening]}#{inner_text.truncate(truncate_length, omission: options[:tail])}#{tag[:closing]}</p>")
+        expect(described_class.new(test_text, options).truncate).to eq("#{outer_before}#{tag[:opening]}#{inner_text.truncate(truncate_length, omission: options[:tail])}#{tag[:closing]}")
       end
     end
   end
@@ -97,7 +97,7 @@ describe Decidim::Truncation do
     let(:max_length) { 100 }
 
     it "cuts text after 100 characters, adds tail and wraps to p tag" do
-      expect(subject).to eq("<p>#{text.truncate(max_length + tail.length, omission: tail)}</p>")
+      expect(subject).to eq(text.truncate(max_length + tail.length, omission: tail).to_s)
     end
   end
 end

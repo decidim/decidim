@@ -30,9 +30,7 @@ module Decidim
         remaining -= node_length(node)
       end
 
-      content_tag(:p) do
-        content_array.join.html_safe
-      end
+      content_array.join.html_safe
     end
 
     private
