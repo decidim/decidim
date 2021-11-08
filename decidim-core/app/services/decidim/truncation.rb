@@ -23,7 +23,6 @@ module Decidim
       }
       @document = Nokogiri::HTML::DocumentFragment.parse(text)
       @tail_added = false
-      @max_length_exceeded = false
     end
 
     # Truncate text or html content added in constructor
@@ -65,12 +64,11 @@ module Decidim
         end
       end
 
-      node.add_child(Nokogiri::XML::Text.new(options[:tail], document)) if add_tail_node?(node) && @max_length_exceeded
+      node.add_child(Nokogiri::XML::Text.new(options[:tail], document)) if add_tail_node?(node)
       node.to_html
     end
 
     def cut_off(node, remaining)
-      @max_length_exceeded = true
       tail = add_tail_node?(node) ? "" : options[:tail]
       @tail_added = true if tail.present?
 
