@@ -54,12 +54,12 @@ module Decidim
         end
       end
 
-      node.add_child Nokogiri::XML::Text.new(options[:tail], document) if options[:tail_before_final_tag]
+      node.add_child(Nokogiri::XML::Text.new(options[:tail], document)) if add_tail_node?(node)
       node.to_html
     end
 
     def cut_off(node, remaining)
-      tail = options[:tail_before_final_tag] ? "" : options[:tail]
+      tail = add_tail_node?(node) ? "" : options[:tail]
       "#{node.content.truncate(remaining, omission: "")}#{tail}"
     end
 
@@ -75,6 +75,10 @@ module Decidim
 
     def node_length(node)
       options[:count_tags] ? node.to_html.length : node.content.length
+    end
+
+    def add_tail_node?(node)
+      options[:tail_before_final_tag] && node.children.present?
     end
   end
 end
