@@ -1,0 +1,18 @@
+# Basic webpacker file for the generator
+# See decidim-core/lib/decidim/webpacker/webpacker.yml for the one actually used in Decidim
+
+default: &default
+  source_path: app/packs
+  source_entry_path: entrypoints
+  public_root_path: public
+  webpack_compile_output: true
+  cache_path: tmp/webpacker-cache
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

@@ -91,6 +91,10 @@ module Decidim
 
         # Regenerate webpacker binstubs
         remove_file "bin/yarn"
+
+        # copy a dummy webpacker file to make webpacker operations possible
+        copy_file "webpacker.yml", "config/webpacker.yml"
+
         rails "webpacker:binstubs"
 
         # Run Decidim custom webpacker installation
