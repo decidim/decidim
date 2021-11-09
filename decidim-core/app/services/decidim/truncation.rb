@@ -64,27 +64,38 @@ module Decidim
       if node.children.count <= 1
         @remaining = (@remaining - opening_tag_length(node)) if options[:count_tags]
         target = find_target(node) || node
-        target.content = cut_off(target)
-      else
-        node.children.each do |child|
-          if node_length(child) > @remaining
-            child.content = cut_off(child)
-            break
-          end
-          @remaining -= node_length(child)
-        end
+        target.content = cut_content(target)
+        return node_to_html(node)
       end
 
+      cut_children(node)
+      node_to_html(node)
+    end
+
+    def node_to_html(node)
       node.add_child(Nokogiri::XML::Text.new(options[:tail], document)) if add_tail_node?(node)
       change_quotes(node)
       node.to_html
     end
 
-    def cut_off(node)
+    def cut_content(node)
       tail = add_tail_node?(node) ? "" : options[:tail]
       @tail_added = true if tail.present?
 
       "#{node.content.truncate(@remaining, omission: "")}#{tail}"
+    end
+
+    def cut_children(node)
+      cutted = false
+      node.children.each do |child|
+        if !cutted && node_length(child) > @remaining
+          child.content = cut_content(child)
+          cutted = true
+        elsif cutted
+          child.unlink
+        end
+        @remaining -= node_length(child)
+      end
     end
 
     def find_target(node)

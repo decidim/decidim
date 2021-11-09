@@ -20,7 +20,8 @@ describe Decidim::Truncation do
   let(:tail_before_final_tag) { false }
   let(:text) { ::Faker::Lorem.paragraph(sentence_count: 25) }
 
-  describe "basic content" do
+  describe "short content" do
+    let(:max_length) { 100 }
     let(:texts) do
       [
         "Mauris sed libero.",
@@ -30,7 +31,7 @@ describe Decidim::Truncation do
       ]
     end
 
-    it "shows basic text" do
+    it "does not get cutted" do
       texts.each do |test_text|
         expect(described_class.new(test_text, options).truncate).to eq(test_text.to_s)
       end
@@ -74,7 +75,7 @@ describe Decidim::Truncation do
   describe "cut inside a tag" do
     let(:outer_before) { "foo " }
     let(:outer_after) { " bar" }
-    let(:inner_text) { %(very long text here is this and its getting cutted</a> bar) }
+    let(:inner_text) { %(this is longer text than max length and is going to be cutted) }
     let(:tags) do
       [
         { opening: %(<a href="www.example.org/something">), closing: %(</a>) },
@@ -98,6 +99,24 @@ describe Decidim::Truncation do
 
     it "cuts text after 100 characters, adds tail and wraps to p tag" do
       expect(subject).to eq(text.truncate(max_length + tail.length, omission: tail).to_s)
+    end
+  end
+
+  describe "change quotation marks inside the tags" do
+    let(:max_length) { 19 }
+    let(:text) { "<p>some <b>\"content\"</b> here, cut at comma" }
+
+    it "changes escaped quotes" do
+      expect(subject).to eq("<p>some <b>&quot;content&quot;</b> here...</p>")
+    end
+  end
+
+  describe "nested tags" do
+    let(:max_length) { 100 }
+    let(:text) { "<p>Lorem <strong>ipsum <i>dolor</i> sit amet</strong>, consectetuer adipiscing elit.</p> <p>Sed posuere interdum sem. Quisque ligula <em>eros ullamcorper <strong>quis</strong>, lacinia</em> quis facilisis sed sapien.</p>" }
+
+    it "cuts inside tags" do
+      expect(subject).to eq("<p>Lorem <strong>ipsum <i>dolor</i> sit amet</strong>, consectetuer adipiscing elit.</p> <p>Sed posuere interdum sem. Quisque ligula <em>e...</em></p>")
     end
   end
 end
