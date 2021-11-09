@@ -37,17 +37,28 @@ module Decidim
           break
         end
 
+        change_quotes(node)
         content_array << node.to_html
         @remaining -= node_length(node)
       end
 
-      content_array.join.html_safe
+      # Nokogiri's to_html escapes &quot; to &amp;quot; and we do not want extra &amp so we have to unescape.
+      CGI.unescape_html content_array.join.html_safe
     end
 
     private
 
     attr_accessor :tail_added, :remaining
     attr_reader :document, :options
+
+    def change_quotes(node)
+      node.content = node.content.gsub("\"", "&quot\;") if node.is_a? Nokogiri::XML::Text
+      return if node.children.empty?
+
+      node.children.each do |child|
+        change_quotes(child)
+      end
+    end
 
     def truncate_last_node(node)
       if node.children.count <= 1
@@ -65,6 +76,7 @@ module Decidim
       end
 
       node.add_child(Nokogiri::XML::Text.new(options[:tail], document)) if add_tail_node?(node)
+      change_quotes(node)
       node.to_html
     end
 
