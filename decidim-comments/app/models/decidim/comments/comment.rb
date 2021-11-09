@@ -16,6 +16,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
+      include Decidim::SanitizeHelper
 
       # Limit the max depth of a comment tree. If C is a comment and R is a reply:
       # C          (depth 0)
@@ -179,7 +180,7 @@ module Decidim
       end
 
       def formatted_body
-        Decidim::ContentProcessor.render(sanitize_content(render_markdown(translated_body)), "div")
+        Decidim::ContentProcessor.render(sanitize_content_for_comment(render_markdown(translated_body)), "div")
       end
 
       def translated_body
@@ -232,11 +233,6 @@ module Decidim
       # Private: Compute comment depth inside the current comment tree
       def compute_depth
         self.depth = commentable.depth + 1 if commentable.respond_to?(:depth)
-      end
-
-      # Private: Returns the comment body sanitized, sanitizing HTML tags
-      def sanitize_content(content)
-        Decidim::ContentProcessor.sanitize(content)
       end
 
       # Private: Initializes the Markdown parser

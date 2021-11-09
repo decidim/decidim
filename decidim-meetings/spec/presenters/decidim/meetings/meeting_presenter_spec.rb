@@ -89,6 +89,16 @@ module Decidim::Meetings
         expect(presented_description["en"]).to eq("<div class=\"ql-editor ql-reset-decidim\">Description #description</div>")
         expect(presented_description["machine_translations"]["es"]).to eq("<div class=\"ql-editor ql-reset-decidim\">Description in Spanish #description</div>")
       end
+
+      context "when sanitizes any HTML input" do
+        let(:description1) { %(<a target="alert(1)" href="http://subdomain1.portswigger-labs.net/xss/xss.php?context=js_string_single&x=%27;eval(name)//">XSS via target in a tag</a>) }
+
+        it "removes the html input" do
+          expect(meeting.description["en"]).to match(/http:/)
+          presented_description = presented_meeting.description(all_locales: true, strip_tags: true)
+          expect(presented_description["en"]).to eq("XSS via target in a tag")
+        end
+      end
     end
   end
 end
