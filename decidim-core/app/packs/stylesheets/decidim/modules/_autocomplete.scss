@@ -1,0 +1,33 @@
+@import "stylesheets/decidim/variables";
+
+.autocomplete_search {
+  input {
+    &::placeholder {
+      color: $dark-gray;
+    }
+  }
+
+  ul {
+    background-color: $white;
+    list-style: none;
+
+    li {
+      color: $primary;
+      border-top: 1px solid $light-gray;
+
+      &[aria-selected="true"] {
+        background-color: $light-gray;
+      }
+    }
+  }
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.autocomplete_results {
+  li {
+    font-weight: $global-weight-bold;
+  }
+}
