@@ -54,7 +54,7 @@ import "src/decidim/start_conversation_dialog"
 import "src/decidim/notifications"
 import "src/decidim/identity_selector_dialog"
 import "src/decidim/gallery"
-import "src/decidim/autocomplete"
+import "src/decidim/participant_autocomplete"
 
 // CSS
 import "entrypoints/decidim_core.scss"

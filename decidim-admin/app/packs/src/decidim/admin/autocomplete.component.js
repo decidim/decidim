@@ -49,6 +49,7 @@ export class Autocomplete extends React.Component {
     };
 
     this.onInputChange = (query) => {
+      console.log("query2", query)
       if (query.length < this.minCharactersToSearch) {
         this.setState({ noResultsText: this.props.searchPromptText });
       }
@@ -58,6 +59,7 @@ export class Autocomplete extends React.Component {
     };
 
     this.loadOptions = (query, callback) => {
+      console.log("query", query)
       const lowerQuery = query.toLowerCase();
 
       if (this.cancelTokenSource) {
@@ -69,6 +71,7 @@ export class Autocomplete extends React.Component {
       }
 
       this.cancelTokenSource = axios.CancelToken.source();
+      console.log("searchURL", this.props.searchURL);
       axios.get(this.props.searchURL, {
         cancelToken: this.cancelTokenSource.token,
         headers: {

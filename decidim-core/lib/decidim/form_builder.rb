@@ -10,6 +10,29 @@ module Decidim
     include Decidim::TranslatableAttributes
     include Decidim::Map::Autocomplete::FormBuilder
 
+    def decidim_autocomplete(attribute, _selected = nil, options = {}, prompt_options = {})
+      # selected = yield(selected) if selected
+      template = ""
+      template += label(attribute, (options[:label] || label_for(attribute)) + required_for_attribute(attribute)) unless options[:label] == false
+      template += tag.div(
+        class: "admin-autocomplete_search select-control",
+        data:
+          {
+            name: options[:name] || "#{@object_name}[#{attribute}]",
+            multiple: options[:multiple] || false,
+            searchurl: prompt_options[:url]
+          }
+      ) do
+        tag.input(id: "admin-autocomplete", autocomplete: "off")
+      end
+      if options[:multiple]
+        template += tag.div(class: "columns large-12") do
+          tag.ul(class: "admin-autocomplete_results")
+        end
+      end
+      template.html_safe
+    end
+
     # Public: generates a check boxes input from a collection and adds help
     # text and errors.
     #

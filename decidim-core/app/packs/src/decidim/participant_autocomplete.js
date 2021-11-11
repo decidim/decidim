@@ -16,12 +16,12 @@ const parseResults = (response) => {
       "id": user.id,
       "nickname": user.nickname,
       "name": user.name,
+      "email": user.email,
       "avatar": user.avatarUrl
     }
   ))
   return suggestions
 }
-
 
 $(() => {
   const $inputWrapper = $(".autocomplete_search");
@@ -32,6 +32,7 @@ $(() => {
   let selected = []
 
   if ($inputWrapper.length < 1) {
+    console.log("RETURNAA")
     return;
   }
 
@@ -66,13 +67,12 @@ $(() => {
         const ids = [];
 
         // Remove duplicates
-        for (let i = 0; i < list.length; i++) {
-          const item = list[i];
-          if (ids.includes(item.value.id) || selected.includes(item.value.id)) {
-            continue;
+        for (let idx = 0; idx < list.length; idx += 1) {
+          const item = list[idx];
+          if (!ids.includes(item.value.id) && !selected.includes(item.value.id)) {
+            ids.push(item.value.id);
+            filtered.push(item);
           }
-          ids.push(item.value.id);
-          filtered.push(item);
         }
 
         return filtered
@@ -97,7 +97,13 @@ $(() => {
     const id = selection.value.id;
 
     if (options.multiple === false) {
-      autoCompleteJS.input.value = selection.value.name
+      // autoCompleteJS.input.value = selection.value.name
+      console.log("selection.value", selection.value)
+      $(".autocomplete_wrapper").append(`
+        <span id="${selection.value.id}" role="option" aria-selected="true">
+          ${selection.value.name} (${selection.value.nickname}) ${selection.value.email}
+        </span>
+      `)
       return;
     }
 
@@ -113,10 +119,10 @@ $(() => {
     selected.push(id);
     console.log("input", autoCompleteJS.input)
 
-    $results.find(`*[data-remove="${id}"]`).on("keypress click", (event) => {
-      const target = event.target.parentNode;
+    $results.find(`*[data-remove="${id}"]`).on("keypress click", (evt) => {
+      const target = evt.target.parentNode;
       if (target.tagName === "LI") {
-        selected = selected.filter(identifier => identifier !== id)
+        selected = selected.filter((identifier) => identifier !== id)
         target.remove();
       }
     })
