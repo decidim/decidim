@@ -340,6 +340,7 @@ en:
           end_vote: "%{user_name} ended the voting period for the election %{resource_name} of %{space_name} on the Bulletin Board"
           publish: "%{user_name} published the election %{resource_name} of %{space_name}"
           publish_results: "%{user_name} published the results for the election %{resource_name} of %{space_name} on the Bulletin Board"
+          report_missing_trustee: "%{user_name} reported %{trustee_name} as a missing trustee during the tally for the election %{resource_name} of %{space_name} on the Bulletin Board"
           setup: "%{user_name} created the election %{resource_name} of %{space_name} on the Bulletin Board"
           start_key_ceremony: "%{user_name} started the key ceremony for the election %{resource_name} of %{space_name} on the Bulletin Board"
           start_tally: "%{user_name} started the tally for the election %{resource_name} of %{space_name} on the Bulletin Board"

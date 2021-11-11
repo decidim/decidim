@@ -6,8 +6,14 @@ $(() => {
   const $addressInput = $("#address_input");
   const $addressInputField = $("input", $addressInput);
   const $map = $("#address_map");
-  const latFieldName = getCoordinateInputName("latitude", $addressInputField, {})
-  const longFieldName = getCoordinateInputName("longitude", $addressInputField, {})
+  let latFieldName = "latitude";
+  let longFieldName = "longitude";
+
+  if ($addressInputField.length > 0) {
+    latFieldName = getCoordinateInputName("latitude", $addressInputField, {})
+    longFieldName = getCoordinateInputName("longitude", $addressInputField, {})
+  }
+
   $map.hide();
 
   if ($checkbox.length > 0) {

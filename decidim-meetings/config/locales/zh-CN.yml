@@ -304,10 +304,8 @@ zh-CN:
         export_calendar: 导出日历
       conference_venues: 会议地点
       content_blocks:
-        upcoming_events:
-          name: 即将到来的事件
-          upcoming_events: 即将举行的会议
-          view_all_events: 查看全部
+        upcoming_meetings:
+          view_all_meetings: 查看全部
       directory:
         meetings:
           index:

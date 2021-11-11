@@ -5,10 +5,10 @@ require "spec_helper"
 module Decidim
   module Meetings
     module ContentBlocks
-      describe UpcomingEventsCell, type: :cell do
+      describe UpcomingMeetingsCell, type: :cell do
         controller Decidim::Meetings::Directory::MeetingsController
 
-        let(:html) { cell("decidim/meetings/content_blocks/upcoming_events").call }
+        let(:html) { cell("decidim/meetings/content_blocks/upcoming_meetings").call }
         let(:organization) { create(:organization) }
         let(:current_user) { create :user, :confirmed, organization: organization }
 
@@ -16,16 +16,16 @@ module Decidim
           expect(controller).to receive(:current_organization).at_least(:once).and_return(organization)
         end
 
-        context "with events" do
+        context "with meetings" do
           let(:organization) { meeting.organization }
           let(:meeting) { create(:meeting, :published, start_time: 1.week.from_now) }
 
-          it "renders the events" do
+          it "renders the meetings" do
             expect(html).to have_css(".card", count: 1)
           end
 
-          describe "upcoming events" do
-            subject { cell.upcoming_events }
+          describe "upcoming meetings" do
+            subject { cell.upcoming_meetings }
 
             let(:cell) { described_class.new(nil, context: { controller: controller }) }
             let!(:past_meeting) do
@@ -45,7 +45,7 @@ module Decidim
               expect(subject.last).to eq(second_meeting)
             end
 
-            context "with upcoming private events" do
+            context "with upcoming private meetings" do
               let!(:meeting) do
                 create(:meeting, :published, start_time: 1.week.from_now, private_meeting: true, transparent: false)
               end
@@ -58,7 +58,7 @@ module Decidim
               end
             end
 
-            context "with upcoming private events but invited user" do
+            context "with upcoming private meetings but invited user" do
               let!(:meeting) do
                 create(:meeting, :published, start_time: 1.week.from_now, private_meeting: true, transparent: false)
               end
@@ -76,9 +76,9 @@ module Decidim
           end
         end
 
-        context "with no events" do
+        context "with no meetings" do
           it "renders nothing" do
-            expect(html).to have_no_css(".upcoming-events")
+            expect(html).to have_no_css(".upcoming-meetings")
           end
         end
       end

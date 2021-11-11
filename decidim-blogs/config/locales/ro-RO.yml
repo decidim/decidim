@@ -5,77 +5,81 @@ ro:
   activerecord:
     models:
       decidim/blogs/post:
-        one: Postează
-        few: Mesaje
-        other: Mesaje
+        one: Postare
+        few: Postări
+        other: Postări
   decidim:
     blogs:
       actions:
-        confirm_destroy: Sunteţi sigur că doriţi să ştergeţi acest post?
-        destroy: Ștergere
-        edit: Editare
+        confirm_destroy: Sigur dorești să ştergi această postare?
+        destroy: Șterge
+        edit: Editează
         new: Postare nouă
         title: Acțiuni
         user_group_id: Creează postare ca
       admin:
         models:
           components:
-            body: Corp
+            body: Conținut
           post:
             name: Postează
         posts:
           create:
             invalid: A apărut o eroare la crearea acestei postări
-            success: Postare creată cu succes
+            success: Postarea a fost creată cu succes
           destroy:
-            success: Postare stearsa cu succes
+            success: Postarea a fost ștearsă cu succes
           edit:
-            save: Actualizare
+            save: Actualizează
             title: Editează postarea
           index:
-            title: Mesaje
+            title: Postări
           new:
-            create: Crează
-            title: Crează postare
+            create: Creează
+            title: Creează postare
           update:
             invalid: A apărut o eroare la salvarea postării.
-            success: Postare salvata cu succes
+            success: Postarea a fost salvată cu succes
       last_activity:
         new_post_at_html: "<span>Postare nouă la %{link}</span>"
       models:
         post:
           fields:
             author: Autor
-            body: Corp
+            body: Conținut
             created_at: Creat la
             title: titlu
       posts:
         show:
           back: Înapoi la listă
           comments: Comentarii
-          view: Vizualizare
+          view: Vizualizează
         sidebar_blog:
           comments: comentarii
-          most_commented_posts: Cele mai comentate mesaje
+          most_commented_posts: Cele mai comentate postări
       read_more: Citește mai mult
     components:
       blogs:
+        actions:
+          create: Creează
+          destroy: Șterge
+          update: Actualizează
         name: Blog
         settings:
           global:
             announcement: Anunţ
             comments_enabled: Comentarii activate
-            comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
+            comments_max_length: Lungimea maximă a comentariilor (lăsați 0 pentru valoarea implicită)
           step:
             announcement: Anunţ
             comments_blocked: Comentarii blocate
-            endorsements_blocked: Aprobări blocate
-            endorsements_enabled: Aprobări activate
+            endorsements_blocked: Susțineri blocate
+            endorsements_enabled: Susțineri activate
     events:
       blogs:
         post_created:
           email_intro: Postarea "%{resource_title}" a fost publicată în "%{participatory_space_title}" pe care o urmărești.
-          email_outro: Ați primit această notificare deoarece urmăriți „%{participatory_space_title}”. O puteți anula de la link-ul anterior.
+          email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula abonarea de la link-ul anterior.
           email_subject: Postare nouă publicată în %{participatory_space_title}
           notification_title: Postarea <a href="%{resource_path}">%{resource_title}</a> a fost publicată în %{participatory_space_title}
     statistics:

@@ -119,3 +119,14 @@ Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/your_componen
 # Register the admin panel's stylesheet include statement:
 Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/your_component/your_component_admin", group: :admin)
 ----
+
+=== Help Decidim to know the module's assets folder
+
+To prevent Zeitwerk issues trying to autoload the non-ruby module folders, modify the `lib/[module_name]/engine.rb` file to include the following:
+
+[source,ruby]
+---
+initializer "[module_name].webpacker.assets_path" do
+  Decidim.register_assets_path File.expand_path("app/packs", root)
+end
+---

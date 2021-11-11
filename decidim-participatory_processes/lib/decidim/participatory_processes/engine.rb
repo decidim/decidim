@@ -145,7 +145,7 @@ module Decidim
 
         Decidim.content_blocks.register(:participatory_process_group_homepage, :highlighted_meetings) do |content_block|
           content_block.cell = "decidim/meetings/content_blocks/highlighted_meetings"
-          content_block.public_name_key = "decidim.meetings.content_blocks.upcoming_events.name"
+          content_block.public_name_key = "decidim.meetings.content_blocks.upcoming_meetings.name"
           content_block.default!
         end
 
@@ -186,6 +186,10 @@ module Decidim
         Decidim.metrics_operation.register(:followers, :participatory_process) do |metric_operation|
           metric_operation.manager_class = "Decidim::ParticipatoryProcesses::Metrics::ParticipatoryProcessFollowersMetricMeasure"
         end
+      end
+
+      initializer "decidim_participatory_processes.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
       end
     end
   end

@@ -32,7 +32,7 @@ module Decidim
 
         attr_accessor :form
 
-        delegate :election, :bulletin_board, to: :form
+        delegate :election, :bulletin_board, :trustee, to: :form
 
         def log_action
           Decidim.traceability.perform_action!(
@@ -40,7 +40,9 @@ module Decidim
             election,
             form.current_user,
             extra: {
-              trustee_id: form.trustee_id
+              trustee_id: form.trustee_id,
+              name: trustee.name,
+              nickname: trustee.user.nickname
             },
             visibility: "all"
           )

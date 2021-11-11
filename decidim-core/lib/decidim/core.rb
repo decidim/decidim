@@ -604,4 +604,8 @@ module Decidim
 
     Decidim.machine_translation_service.to_s.safe_constantize
   end
+
+  def self.register_assets_path(path)
+    Rails.autoloaders.main.ignore(path) if Rails.configuration.autoloader == :zeitwerk
+  end
 end

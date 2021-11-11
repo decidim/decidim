@@ -60,7 +60,7 @@ pl:
       decidim/meetings/meeting:
         one: Spotkanie
         few: Spotkania
-        many: Spotkania
+        many: Spotkań
         other: Spotkania
       decidim/meetings/minutes:
         one: Minuta
@@ -70,7 +70,7 @@ pl:
       decidim/meetings/registration:
         one: Rejestracja
         few: Rejestracje
-        many: Rejestracje
+        many: Rejestracji
         other: Rejestracje
   decidim:
     admin:
@@ -356,10 +356,8 @@ pl:
         export_calendar: Eksportuj kalendarz
       conference_venues: Sale konferencyjne
       content_blocks:
-        upcoming_events:
-          name: Nadchodzące wydarzenia
-          upcoming_events: Nadchodzące spotkania
-          view_all_events: Pokaż wszystkie
+        upcoming_meetings:
+          view_all_meetings: Pokaż wszystkie
       directory:
         meetings:
           index:

@@ -38,7 +38,6 @@ require "nobspw"
 require "batch-loader"
 require "etherpad-lite"
 require "diffy"
-require "anchored"
 require "social-share-button"
 require "ransack"
 require "searchlight"
@@ -85,8 +84,6 @@ module Decidim
       end
 
       initializer "decidim.graphql_api" do
-        # Enable them method `!` everywhere for compatibility, this line will be removed when upgrading to GraphQL 2.0
-        GraphQL::DeprecatedDSL.activate
         Decidim::Api::QueryType.include Decidim::QueryExtensions
 
         Decidim::Api.add_orphan_type Decidim::Core::UserType
@@ -548,6 +545,10 @@ module Decidim
 
       initializer "decidim.premailer" do
         Premailer::Adapter.use = :decidim
+      end
+
+      initializer "decidim_core.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 
       config.to_prepare do

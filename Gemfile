@@ -14,7 +14,7 @@ gem "decidim-templates", path: "."
 gem "bootsnap", "~> 1.4"
 
 gem "foundation_rails_helper", git: "https://github.com/sgruhier/foundation_rails_helper.git"
-gem "puma", ">= 5.3.1"
+gem "puma", ">= 5.5.1"
 
 gem "faker", "~> 2.14"
 

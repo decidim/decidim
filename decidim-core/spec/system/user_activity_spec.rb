@@ -73,11 +73,12 @@ describe "User activity", type: :system do
 
     context "when accessing a non existing profile" do
       before do
+        allow(page.config).to receive(:raise_server_errors).and_return(false)
         visit decidim.profile_activity_path(nickname: "invalid_nickname")
       end
 
       it "displays an error message" do
-        expect(page).to have_text("Participant deleted")
+        expect(page).to have_text("Puma caught this error: Missing user: invalid_nickname")
       end
     end
   end

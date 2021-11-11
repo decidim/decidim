@@ -59,10 +59,9 @@ ja:
     components:
       blogs:
         actions:
-          amend: 修正
-          comment: コメント
-          endorse: 支持
-          vote: 投票
+          create: 作成
+          destroy: 削除
+          update: 更新
         name: ブログ
         settings:
           global:
@@ -72,8 +71,8 @@ ja:
           step:
             announcement: お知らせ
             comments_blocked: コメントをブロック
-            endorsements_blocked: 支持をブロック
-            endorsements_enabled: 支持が有効
+            endorsements_blocked: オススメをブロック
+            endorsements_enabled: オススメが有効
     events:
       blogs:
         post_created:

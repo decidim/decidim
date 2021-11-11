@@ -289,10 +289,6 @@ ru:
         calendar_url: Ссылка на календарь
         close_window: Закрыть окно
         export_calendar: Экспорт календаря
-      content_blocks:
-        upcoming_events:
-          name: Предстоящие события
-          upcoming_events: Предстоящие встречи
       directory:
         meetings:
           index:
