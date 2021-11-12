@@ -20,10 +20,11 @@ module Decidim
           {
             name: options[:name] || "#{@object_name}[#{attribute}]",
             multiple: options[:multiple] || false,
-            searchurl: prompt_options[:url]
+            searchurl: prompt_options[:url],
+            placeholder: prompt_options[:placeholder]
           }
       ) do
-        tag.input(id: "admin-autocomplete", autocomplete: "off")
+        tag.input(id: "admin-autocomplete", type: "text", placeholder: prompt_options[:placeholder], autocomplete: "off")
       end
       if options[:multiple]
         template += tag.div(class: "columns large-12") do

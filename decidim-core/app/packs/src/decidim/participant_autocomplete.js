@@ -41,7 +41,8 @@ $(() => {
   const autoCompleteJS = new AutoComplete({
     name: "autocomplete",
     selector: searchInputId,
-    debounce: 200, // Delay (milliseconds) before autocomplete engine starts
+    // Delay (milliseconds) before autocomplete engine starts
+    debounce: 200,
     data: {
       src: async (query) => {
         try {

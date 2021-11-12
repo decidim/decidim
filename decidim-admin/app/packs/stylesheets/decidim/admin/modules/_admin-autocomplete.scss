@@ -1,0 +1,40 @@
+@import "stylesheets/decidim/variables";
+
+.admin-autocomplete_search {
+  input {
+    &.selected {
+      caret-color: transparent;
+    }
+  }
+
+  span {
+    &.selected-value {
+      position: absolute;
+      height: 3rem;
+      line-height: 3rem;
+      padding: 0 1rem;
+    }
+  }
+
+  ul {
+    background-color: $white;
+    list-style: none;
+
+    li {
+      color: $primary;
+      border-top: 1px solid $light-gray;
+
+      &[aria-selected="true"] {
+        background-color: $light-gray;
+      }
+    }
+  }
+
+  .clear-selection {
+    display: inline;
+    position: absolute;
+    font-size: 1.3rem;
+    cursor: pointer;
+    right: 4rem;
+  }
+}

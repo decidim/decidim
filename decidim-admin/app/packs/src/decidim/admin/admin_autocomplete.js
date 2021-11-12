@@ -1,11 +1,5 @@
 import AutoComplete from "@tarekraafat/autocomplete.js";
 import axios from "axios";
-// import * as AutoComplete from "@tarekraafat/autocomplete.js"
-// const autoComplete = require("@tarekraafat/autocomplete.js")
-// const autoComplete = require("@tarekraafat/autocomplete.js/dist/autoComplete")
-// import { autoComplete } from "@tarekraafat/autocomplete.js/dist/autoComplete"
-// import { autoComplete } from "@tarekraafat/autocomplete.js/src"
-// import * as AutoComplete from "./autocomplete"
 
 const parseResults = (response) => {
   if (!response.data) {
@@ -30,17 +24,16 @@ $(() => {
   let selected = []
 
   if ($inputWrapper.length < 1) {
-    console.log("ADMIN-RETURNAA")
     return;
   }
 
-  console.log("wrapper", $inputWrapper);
-
+  console.log("options.placeholder", options.placeholder)
   const autoCompleteJS = new AutoComplete({
     name: "autocomplete",
     selector: searchInputId,
     // Delay (milliseconds) before autocomplete engine starts
     debounce: 200,
+    threshold: 3,
     data: {
       src: async (query) => {
         try {
@@ -88,26 +81,40 @@ $(() => {
     }
   });
 
-  // console.log("acj", autoCompleteJS)
-  // console.log("attr", $inputWrapper.data())
+  const resetInput = ($target) => {
+    $target.attr("placeholder", options.placeholder);
+    $target.removeClass("selected");
+  }
+
+  $searchInput.on("keyup", (evt) => {
+    if ($searchInput.val().length > 0) {
+      $searchInput.siblings(".current-selection").remove();
+      resetInput($searchInput);
+    } else if ($(evt.target).siblings(".current-selection").length === 0) {
+      resetInput($searchInput);
+    }
+  })
 
   $searchInput.on("selection", (event) => {
+    const $acWrapper = $(".autocomplete_wrapper");
     const feedback = event.detail;
     const selection = feedback.selection;
-    const $wrapper = $(".autocomplete_wrapper")
-    autoCompleteJS.input.value = ""
+    autoCompleteJS.input.value = "";
+    $searchInput.attr("placeholder", "");
+    $searchInput.addClass("selected");
 
-    $wrapper.prepend(`
-      <span class="clear-selection" data-remove=${selection.value.id} aria-label="Clear value" title="Clear value">&times;</span>
+    $acWrapper.prepend(`
+      <div id="selected-${selection.value.id}" class="current-selection">
+        <input type="hidden" name="${options.name}" value="${selection.value.id}">
+        <span class="clear-selection" data-remove=${selection.value.id} aria-label="Clear value" title="Clear value">&times;</span>
+        <span class="selected-value" role="option" aria-selected="true">
+          ${selection.value.label}
+        </span>
+      </div>
     `)
-    $wrapper.prepend(`
-      <span id="selected-${selection.value.id}" class="selected-value" role="option" aria-selected="true">
-        ${selection.value.label}
-      </span>
 
-    `)
-
-    $wrapper.find(`*[data-remove="${selection.value.id}"]`).on("keypress click", (evt) => {
+    $acWrapper.find(`*[data-remove="${selection.value.id}"]`).on("keypress click", (evt) => {
+      resetInput($searchInput);
       $(`#selected-${selection.value.id}`).remove();
       evt.target.remove();
     });
