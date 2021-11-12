@@ -1,7 +1,13 @@
 @import "stylesheets/decidim/variables";
 
+$list-color: #333;
+$list-background: #f2f9fc;
+$middle-gray: #ccc;
+$list-border: 1px solid $middle-gray;
+
 .admin-autocomplete_search {
   input {
+    margin-bottom: 0;
     &.selected {
       caret-color: transparent;
     }
@@ -19,15 +25,29 @@
   ul {
     background-color: $white;
     list-style: none;
+    border: $list-border;
+    margin-left: 0;
+
+    &.no_results {
+      margin: 0;
+    }
 
     li {
-      color: $primary;
+      color: $list-color;
       border-top: 1px solid $light-gray;
+      padding: 8px 10px;
+      cursor: pointer;
 
       &[aria-selected="true"] {
-        background-color: $light-gray;
+        background-color: $list-background;
       }
     }
+  }
+
+  .search_prompt,
+  .no_result {
+    color: $middle-gray;
+    border: $list-border;
   }
 
   .clear-selection {

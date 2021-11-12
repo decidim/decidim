@@ -24,7 +24,13 @@ module Decidim
             placeholder: prompt_options[:placeholder]
           }
       ) do
-        tag.input(id: "admin-autocomplete", type: "text", placeholder: prompt_options[:placeholder], autocomplete: "off")
+        tag.input(id: "admin-autocomplete", type: "text", placeholder: prompt_options[:placeholder], autocomplete: "off") +
+          tag.div(class: "no_result", style: "display: none") do
+            tag.span options[:no_results] || I18n.t("autocomplete.no_results", scope: "decidim.admin")
+          end +
+          tag.div(class: "search_prompt", style: "display: none") do
+            tag.span options[:search_prompt] || I18n.t("autocomplete.search_prompt", scope: "decidim.admin")
+          end
       end
       if options[:multiple]
         template += tag.div(class: "columns large-12") do

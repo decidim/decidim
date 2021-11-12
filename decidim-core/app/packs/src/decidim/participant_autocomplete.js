@@ -11,7 +11,7 @@ const parseResults = (response) => {
     return []
   }
 
-  const suggestions = response.data.users.map(user => (
+  const suggestions = response.data.users.map((user) => (
     {
       "id": user.id,
       "nickname": user.nickname,

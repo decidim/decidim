@@ -20,20 +20,23 @@ $(() => {
   const $inputWrapper = $(".admin-autocomplete_search");
   const searchInputId = "#admin-autocomplete";
   const $searchInput = $(searchInputId);
+  const $searchPrompt = $(".search_prompt");
+  const $noResult = $(".no_result")
   const options = $inputWrapper.data();
+  const threshold = 3;
   let selected = []
 
   if ($inputWrapper.length < 1) {
     return;
   }
 
-  console.log("options.placeholder", options.placeholder)
+  console.log("options", options)
   const autoCompleteJS = new AutoComplete({
     name: "autocomplete",
     selector: searchInputId,
     // Delay (milliseconds) before autocomplete engine starts
     debounce: 200,
-    threshold: 3,
+    threshold: threshold,
     data: {
       src: async (query) => {
         try {
@@ -74,6 +77,18 @@ $(() => {
         return filtered
       }
     },
+    resultsList: {
+      element: (list, data) => {
+        if (data.results.length > 0) {
+          $noResult.hide();
+          $(list).removeClass("no_results");
+        } else {
+          $(list).addClass("no_results");
+          $noResult.show();
+        }
+      },
+      noResults: true
+    },
     resultItem: {
       element: (item, data) => {
         item.innerHTML = `<span>${data.value.label}</span>`
@@ -82,17 +97,40 @@ $(() => {
   });
 
   const resetInput = ($target) => {
+    console.log("reset", $target);
+    $target.siblings(".current-selection").remove();
     $target.attr("placeholder", options.placeholder);
     $target.removeClass("selected");
   }
 
-  $searchInput.on("keyup", (evt) => {
-    if ($searchInput.val().length > 0) {
+  $searchInput.on("focusout", (event) => {
+    event.target.value = "";
+    $searchPrompt.hide();
+    $noResult.hide();
+  })
+
+  $searchInput.on("keyup", (event) => {
+    console.log("event", event.originalEvent)
+    const keyPressed = event.originalEvent.key
+    if (["Backspace", "Delete"].includes(keyPressed)) {
+      resetInput($(event.target));
+      return;
+    }
+
+    const inputCount = $searchInput.val().length;
+    if (inputCount > 0) {
       $searchInput.siblings(".current-selection").remove();
       resetInput($searchInput);
-    } else if ($(evt.target).siblings(".current-selection").length === 0) {
+      if (inputCount < threshold) {
+        $searchPrompt.show();
+        $noResult.hide();
+      } else {
+        $searchPrompt.hide();
+      }
+    } else if (inputCount === 0 && $(event.target).siblings(".current-selection").length === 0) {
       resetInput($searchInput);
     }
+    console.log("loppu")
   })
 
   $searchInput.on("selection", (event) => {
@@ -114,9 +152,7 @@ $(() => {
     `)
 
     $acWrapper.find(`*[data-remove="${selection.value.id}"]`).on("keypress click", (evt) => {
-      resetInput($searchInput);
-      $(`#selected-${selection.value.id}`).remove();
-      evt.target.remove();
+      resetInput($(evt.target).parent().siblings("input"));
     });
   })
 
