@@ -12,8 +12,8 @@ const parseResults = (response) => {
       "label": user.label
     }
   ))
-  console.log("suggestions", suggestions)
-  return suggestions
+  console.log("suggestions", suggestions);
+  return suggestions;
 }
 
 $(() => {
@@ -24,7 +24,7 @@ $(() => {
   const $noResult = $(".no_result")
   const options = $inputWrapper.data();
   const threshold = 3;
-  let selected = []
+  let selected = [];
 
   if ($inputWrapper.length < 1) {
     return;
@@ -40,7 +40,7 @@ $(() => {
     data: {
       src: async (query) => {
         try {
-          console.log("options.searchurl", options.searchurl)
+          console.log("options.searchurl", options.searchurl);
           const cancelToken = axios.CancelToken.source().token;
           const response = await axios.get(options.searchurl, {
             cancelToken: cancelToken,
@@ -91,7 +91,7 @@ $(() => {
     },
     resultItem: {
       element: (item, data) => {
-        item.innerHTML = `<span>${data.value.label}</span>`
+        item.innerHTML = `<span>${data.value.label}</span>`;
       }
     }
   });
@@ -110,8 +110,8 @@ $(() => {
   })
 
   $searchInput.on("keyup", (event) => {
-    console.log("event", event.originalEvent)
-    const keyPressed = event.originalEvent.key
+    console.log("event", event.originalEvent);
+    const keyPressed = event.originalEvent.key;
     if (["Backspace", "Delete"].includes(keyPressed)) {
       resetInput($(event.target));
       return;
@@ -130,7 +130,7 @@ $(() => {
     } else if (inputCount === 0 && $(event.target).siblings(".current-selection").length === 0) {
       resetInput($searchInput);
     }
-    console.log("loppu")
+    console.log("loppu");
   })
 
   $searchInput.on("selection", (event) => {

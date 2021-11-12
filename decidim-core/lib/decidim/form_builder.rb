@@ -10,7 +10,7 @@ module Decidim
     include Decidim::TranslatableAttributes
     include Decidim::Map::Autocomplete::FormBuilder
 
-    def decidim_autocomplete(attribute, _selected = nil, options = {}, prompt_options = {})
+    def autocomplete_select(attribute, _selected = nil, options = {}, prompt_options = {})
       # selected = yield(selected) if selected
       template = ""
       template += label(attribute, (options[:label] || label_for(attribute)) + required_for_attribute(attribute)) unless options[:label] == false

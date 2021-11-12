@@ -39,27 +39,27 @@ module Decidim
       # @return [String]
       #   The HTML ready to output in the view
       #
-      def autocomplete_select(attribute, selected = nil, options = {}, prompt_options = {})
-        selected = yield(selected) if selected
-        template = ""
-        template += label(attribute, (options[:label] || label_for(attribute)) + required_for_attribute(attribute)) unless options[:label] == false
-        template += content_tag(:div, nil, class: options[:class], data: {
-                                  autocomplete: {
-                                    name: options[:name] || "#{@object_name}[#{attribute}]",
-                                    options: (options[:default_options].to_a + [selected]).compact,
-                                    placeholder: prompt_options[:placeholder],
-                                    searchURL: prompt_options[:url],
-                                    changeURL: prompt_options[:change_url],
-                                    selected: selected ? selected[:value] : "",
-                                    searchPromptText: options[:search_prompt] || I18n.t("autocomplete.search_prompt", scope: "decidim.admin"),
-                                    noResultsText: options[:no_results] || I18n.t("autocomplete.no_results", scope: "decidim.admin")
-                                  },
-                                  autocomplete_for: attribute,
-                                  plugin: "autocomplete"
-                                })
-        template += error_for(attribute, options) if error?(attribute)
-        template.html_safe
-      end
+      # def autocomplete_select(attribute, selected = nil, options = {}, prompt_options = {})
+      #   selected = yield(selected) if selected
+      #   template = ""
+      #   template += label(attribute, (options[:label] || label_for(attribute)) + required_for_attribute(attribute)) unless options[:label] == false
+      #   template += content_tag(:div, nil, class: options[:class], data: {
+      #                             autocomplete: {
+      #                               name: options[:name] || "#{@object_name}[#{attribute}]",
+      #                               options: (options[:default_options].to_a + [selected]).compact,
+      #                               placeholder: prompt_options[:placeholder],
+      #                               searchURL: prompt_options[:url],
+      #                               changeURL: prompt_options[:change_url],
+      #                               selected: selected ? selected[:value] : "",
+      #                               searchPromptText: options[:search_prompt] || I18n.t("autocomplete.search_prompt", scope: "decidim.admin"),
+      #                               noResultsText: options[:no_results] || I18n.t("autocomplete.no_results", scope: "decidim.admin")
+      #                             },
+      #                             autocomplete_for: attribute,
+      #                             plugin: "autocomplete"
+      #                           })
+      #   template += error_for(attribute, options) if error?(attribute)
+      #   template.html_safe
+      # end
 
       # Calls Decidim::FormBuilder#editor with default options for admin.
       def editor(name, options = {})
