@@ -217,13 +217,6 @@ module Decidim::Meetings
       it { is_expected.not_to be_valid }
     end
 
-    describe "when registration type is on this platform and available slots are missing" do
-      let(:available_slots) { nil }
-      let(:registration_type) { "on_this_platform" }
-
-      it { is_expected.not_to be_valid }
-    end
-
     describe "when registration url is missing and registration type of meeting is on different platform" do
       let(:registration_type) { "on_different_platform" }
       let(:registration_url) { nil }
