@@ -1,21 +1,6 @@
 import AutoComplete from "@tarekraafat/autocomplete.js";
 import axios from "axios";
 
-const parseResults = (response) => {
-  if (!response.data) {
-    return []
-  }
-
-  const suggestions = response.data.map((user) => (
-    {
-      "id": user.value,
-      "label": user.label
-    }
-  ))
-  console.log("suggestions", suggestions);
-  return suggestions;
-}
-
 $(() => {
   const $inputWrapper = $(".admin-autocomplete_search");
   const searchInputId = "#admin-autocomplete";
@@ -24,7 +9,6 @@ $(() => {
   const $noResult = $(".no_result")
   const options = $inputWrapper.data();
   const threshold = 3;
-  let selected = [];
 
   if ($inputWrapper.length < 1) {
     return;
@@ -38,6 +22,7 @@ $(() => {
     debounce: 200,
     threshold: threshold,
     data: {
+      keys: ["label"],
       src: async (query) => {
         try {
           console.log("options.searchurl", options.searchurl);
@@ -52,29 +37,10 @@ $(() => {
               term: query
             }
           })
-          return parseResults(response);
+          return response.data
         } catch (error) {
           return error;
         }
-      },
-      keys: ["label"],
-      filter: (list) => {
-        if (options.multiple === false) {
-          return list
-        }
-        const filtered = [];
-        const ids = [];
-
-        // Remove duplicates
-        for (let idx = 0; idx < list.length; idx += 1) {
-          const item = list[idx];
-          if (!ids.includes(item.value.id) && !selected.includes(item.value.id)) {
-            ids.push(item.value.id);
-            filtered.push(item);
-          }
-        }
-
-        return filtered
       }
     },
     resultsList: {
@@ -130,31 +96,40 @@ $(() => {
     } else if (inputCount === 0 && $(event.target).siblings(".current-selection").length === 0) {
       resetInput($searchInput);
     }
-    console.log("loppu");
   })
+
+  const setSelection = ($target, value, label) => {
+    autoCompleteJS.input.value = "";
+    $searchInput.attr("placeholder", "");
+    $searchInput.addClass("selected");
+
+    $target.prepend(`
+      <div id="selected-${value}" class="current-selection">
+        <input type="hidden" name="${options.name}" value="${value}">
+        <span class="clear-selection" data-remove=${value} aria-label="Clear value" title="Clear value">&times;</span>
+        <span class="selected-value" role="option" aria-selected="true">
+          ${label}
+        </span>
+      </div>
+    `)
+
+    $target.find(`*[data-remove="${value}"]`).on("keypress click", (evt) => {
+      resetInput($(evt.target).parent().siblings("input"));
+    });
+  }
 
   $searchInput.on("selection", (event) => {
     const $acWrapper = $(".autocomplete_wrapper");
     const feedback = event.detail;
     const selection = feedback.selection;
-    autoCompleteJS.input.value = "";
-    $searchInput.attr("placeholder", "");
-    $searchInput.addClass("selected");
 
-    $acWrapper.prepend(`
-      <div id="selected-${selection.value.id}" class="current-selection">
-        <input type="hidden" name="${options.name}" value="${selection.value.id}">
-        <span class="clear-selection" data-remove=${selection.value.id} aria-label="Clear value" title="Clear value">&times;</span>
-        <span class="selected-value" role="option" aria-selected="true">
-          ${selection.value.label}
-        </span>
-      </div>
-    `)
-
-    $acWrapper.find(`*[data-remove="${selection.value.id}"]`).on("keypress click", (evt) => {
-      resetInput($(evt.target).parent().siblings("input"));
-    });
+    setSelection($acWrapper, selection.value.value, selection.value.label);
   })
+
+  if (options.selected?.value && options.selected.label) {
+    const $acWrapper = $(".autocomplete_wrapper");
+    setSelection($acWrapper, options.selected.value, options.selected.label);
+  }
 
   $("#autocomplete").on("open close", (event) => {
     event.stopPropagation();

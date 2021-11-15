@@ -10,8 +10,9 @@ module Decidim
     include Decidim::TranslatableAttributes
     include Decidim::Map::Autocomplete::FormBuilder
 
-    def autocomplete_select(attribute, _selected = nil, options = {}, prompt_options = {})
-      # selected = yield(selected) if selected
+    # rubocop:disable Metrics/CyclomaticComplexity
+    def autocomplete_select(attribute, selected = nil, options = {}, prompt_options = {})
+      selected = yield(selected) if selected
       template = ""
       template += label(attribute, (options[:label] || label_for(attribute)) + required_for_attribute(attribute)) unless options[:label] == false
       template += tag.div(
@@ -21,7 +22,8 @@ module Decidim
             name: options[:name] || "#{@object_name}[#{attribute}]",
             multiple: options[:multiple] || false,
             searchurl: prompt_options[:url],
-            placeholder: prompt_options[:placeholder]
+            placeholder: prompt_options[:placeholder],
+            selected: selected || ""
           }
       ) do
         tag.input(id: "admin-autocomplete", type: "text", placeholder: prompt_options[:placeholder], autocomplete: "off") +
@@ -39,6 +41,7 @@ module Decidim
       end
       template.html_safe
     end
+    # rubocop:enable Metrics/CyclomaticComplexity
 
     # Public: generates a check boxes input from a collection and adds help
     # text and errors.
