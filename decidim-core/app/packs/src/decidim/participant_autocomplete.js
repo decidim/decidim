@@ -29,6 +29,7 @@ $(() => {
   const $searchInput = $(searchInputId);
   const $results = $(".autocomplete_results");
   const options = $inputWrapper.data();
+  const threshold = options.threshold || 2;
   let selected = []
 
   if ($inputWrapper.length < 1) {
@@ -43,6 +44,7 @@ $(() => {
     selector: searchInputId,
     // Delay (milliseconds) before autocomplete engine starts
     debounce: 200,
+    threshold: threshold,
     data: {
       src: async (query) => {
         try {
@@ -78,6 +80,9 @@ $(() => {
 
         return filtered
       }
+    },
+    resultsList: {
+      maxResults: 10
     },
     resultItem: {
       element: (item, data) => {

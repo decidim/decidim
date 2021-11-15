@@ -1,7 +1,8 @@
 @import "stylesheets/decidim/variables";
 
-.autocomplete_search,
-.admin-autocomplete_search {
+.autocomplete_search {
+  color: $secondary;
+
   &.select-control {
     input {
       width: 100%;
@@ -21,6 +22,8 @@
   }
 
   input {
+    margin: 0;
+    border-radius: 4px 4px 0 0;
     &::placeholder {
       color: $dark-gray;
     }
@@ -28,10 +31,14 @@
 
   ul {
     background-color: $white;
+    margin: 0;
+    border: 1px solid $black;
+    border-top: 0;
     list-style: none;
+    max-height: 300px;
+    overflow: auto;
 
     li {
-      color: $primary;
       border-top: 1px solid $light-gray;
 
       &[aria-selected="true"] {
@@ -39,6 +46,7 @@
       }
     }
   }
+
   img {
     width: 40px;
     height: 40px;
@@ -53,9 +61,12 @@
   }
 }
 
-.autocomplete_results,
-.admin-autocomplete_results {
+.autocomplete_results {
   li {
     font-weight: $global-weight-bold;
+  }
+
+  [aria-label="Close"] {
+    cursor: pointer;
   }
 }
