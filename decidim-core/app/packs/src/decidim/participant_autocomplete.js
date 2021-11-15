@@ -1,43 +1,18 @@
 import AutoComplete from "@tarekraafat/autocomplete.js";
-// import * as AutoComplete from "@tarekraafat/autocomplete.js"
-// const autoComplete = require("@tarekraafat/autocomplete.js")
-// const autoComplete = require("@tarekraafat/autocomplete.js/dist/autoComplete")
-// import { autoComplete } from "@tarekraafat/autocomplete.js/dist/autoComplete"
-// import { autoComplete } from "@tarekraafat/autocomplete.js/src"
 // import * as AutoComplete from "./autocomplete"
 
-const parseResults = (response) => {
-  if (!response.data) {
-    return []
-  }
-
-  const suggestions = response.data.users.map((user) => (
-    {
-      "id": user.id,
-      "nickname": user.nickname,
-      "name": user.name,
-      "email": user.email,
-      "avatar": user.avatarUrl
-    }
-  ))
-  return suggestions
-}
-
 $(() => {
-  const $inputWrapper = $(".autocomplete_search");
+  const $fieldContainer = $(".autocomplete_search");
   const searchInputId = "#autocomplete";
   const $searchInput = $(searchInputId);
   const $results = $(".autocomplete_results");
-  const options = $inputWrapper.data();
-  const threshold = options.threshold || 2;
+  const options = $fieldContainer.data();
+  const threshold = options?.threshold || 2;
   let selected = []
 
-  if ($inputWrapper.length < 1) {
-    console.log("RETURNAA")
+  if ($fieldContainer.length < 1) {
     return;
   }
-
-  console.log("wrapper", $inputWrapper);
 
   const autoCompleteJS = new AutoComplete({
     name: "autocomplete",
@@ -46,6 +21,7 @@ $(() => {
     debounce: 200,
     threshold: threshold,
     data: {
+      keys: ["name", "nickname"],
       src: async (query) => {
         try {
           const response = await $.post("/api", {
@@ -59,12 +35,13 @@ $(() => {
                   }
               }`
           });
-          return parseResults(response);
+
+          console.log("results", response.data.users);
+          return response.data.users
         } catch (error) {
           return error;
         }
       },
-      keys: ["name", "nickname"],
       filter: (list) => {
         const filtered = [];
         const ids = [];
@@ -86,16 +63,15 @@ $(() => {
     },
     resultItem: {
       element: (item, data) => {
+        console.log("item", item);
+        console.log("data", data)
         item.innerHTML = `
-        <span><img src="${data.value.avatar}"></span>
+        <span><img src="${data.value.avatarUrl}"></span>
         <strong>${data.value.nickname}</strong>
         <small>${data.value.name}</small>`;
       }
     }
   });
-
-  // console.log("acj", autoCompleteJS)
-  // console.log("attr", $inputWrapper.data())
 
   $searchInput.on("selection", (event) => {
     const feedback = event.detail;
@@ -133,11 +109,6 @@ $(() => {
       }
     })
   })
-
-  // $("#autocomplete").on("navigate", (event) => {
-  //   // "event.detail" carries the autoComplete.js "feedback" object
-  //   console.log(event.detail);
-  // });
 
   // Stop input field from bubbling open and close events to parent elements,
   // because foundation closes modal from these events.
