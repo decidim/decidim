@@ -35,7 +35,7 @@ ja:
       decidim/profile_updated_event: プロフィールが更新されました
       decidim/promote_to_admin: グループ管理者に昇格しました
       decidim/removed_from_group: グループから削除しました
-      decidim/resource_endorsed_event: 支持されたリソース
+      decidim/resource_endorsed_event: オススメされた
   activerecord:
     attributes:
       decidim/user:
@@ -49,7 +49,7 @@ ja:
       decidim/amendment:
         other: 修正
       decidim/endorsement:
-        other: 支持
+        other: オススメ
       decidim/user:
         other: 参加者
       decidim/user_group:
@@ -256,7 +256,7 @@ ja:
       comments:
         other: コメント
       endorsements:
-        other: 承認
+        other: オススメ
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: '「A」で始まるパスポート番号を入力して確認する'
@@ -493,11 +493,11 @@ ja:
           update_profile: プロフィールを更新
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> があなたのアカウントを使用しようとしています"
     endorsable:
-      endorsements: 支持
-      endorsements_count: 支持数
+      endorsements: オススメ
+      endorsements_count: オススメ数
     endorsement_buttons_cell:
-      already_endorsed: 支持済み
-      endorse: 支持する
+      already_endorsed: オススメ済み
+      endorse: オススメする
     endorsements:
       identities:
         done: 完了
@@ -641,10 +641,10 @@ ja:
             %{resource_type} として報告されたため、管理者が %{report_reasons} を削除しました。</br>
             <i>%{resource_content}</i>
       resource_endorsed:
-        email_intro: 'あなたがフォローしている%{endorser_name} %{endorser_nickname}は、「%{resource_title}」を支持しました。私たちはあなたにとって興味深いことかもしれません。 チェックアウトして貢献：'
+        email_intro: 'あなたがフォローしている%{endorser_name} %{endorser_nickname} は、「%{resource_title}」をオススメしました。私たちはあなたにとって興味深いことかもしれません。 チェックアウトして貢献：'
         email_outro: '%{endorser_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
-        email_subject: "%{endorser_nickname} が新しい承認を行いました"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} は <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>によって承認されました。
+        email_subject: "%{endorser_nickname} が新しいオススメを行いました"
+        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} は <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>によってオススメされました。
       users:
         profile_updated:
           email_intro: あなたがフォロー中の %{name} (%{nickname}) さんの <a href="%{resource_url}">プロフィールページ</a> が更新されました。
@@ -1067,7 +1067,7 @@ ja:
           comments_count: コメント
           conferences_count: カンファレンス
           debates_count: ディベート
-          endorsements_count: 支持
+          endorsements_count: オススメ
           headline: '%{organization} の現在の状態'
           meetings_count: ミーティング
           orders_count: 投票
@@ -1172,7 +1172,7 @@ ja:
         success: レポートは正常に作成され、管理者によってレビューされます。
     resource_endorsements:
       create:
-        error: 承認アクション中に問題がありました。
+        error: オススメする際に問題がありました。
     scopes:
       global: グローバルスコープ
       picker:

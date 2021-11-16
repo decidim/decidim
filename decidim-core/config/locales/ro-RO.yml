@@ -30,8 +30,8 @@ ro:
       decidim/demoted_membership: Nu mai este un administrator de grup
       decidim/gamification/badge_earned_event: Insignă câștigată
       decidim/gamification/level_up_event: Ai crescut în nivel
-      decidim/join_request_accepted_event: Solicitare de înscriere acceptată
-      decidim/join_request_rejected_event: Solicitare de înscriere respinsă
+      decidim/join_request_accepted_event: Cerere de înscriere acceptată
+      decidim/join_request_rejected_event: Cerere de înscriere respinsă
       decidim/profile_updated_event: Profil actualizat
       decidim/promote_to_admin: Promovat ca administrator
       decidim/removed_from_group: Eliminat din grup
@@ -92,7 +92,7 @@ ro:
         confirm:
           close: Închide fereastra
           ok: Da, vreau să îmi șterg contul
-          question: Ești sigur(ă) că vrei să-ți ștergi contul?
+          question: Sigur dorești să-ți ștergi contul?
           title: Șterge contul meu
         explanation: Care este motivul pentru care dorești să-ți ștergi (opțional).
       destroy:
@@ -432,7 +432,7 @@ ro:
         name: Banner suberoi
     core:
       actions:
-        login_before_access: Te rugăm să te autentifici cu contul tău înainte de a avea acces
+        login_before_access: Te rugăm să te conectezi cu contul tău înainte de a accesa conținutul
         unauthorized: Nu sunteți autorizat să efectuați această acțiune
     data_portability:
       export:
@@ -440,7 +440,7 @@ ro:
       show:
         download_data: Descarcă datele
         download_data_description: Un fișier care conține toate informațiile asociate contului tău va fi trimis la <strong>%{user_email}</strong>. Acest e-mail va conține un fișier .zip și o parolă pentru a-l deschide.<br/><br/>Pentru a dezarhiva fişierul, aveţi nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows) sau <a href="https://www.keka.io/">Keka</a> (pentru MacOS). Dacă utilizați Linux, de cele mai multe ori îl veți instala în mod implicit. Dacă nu, puteți utiliza <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> sau <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Solicită date
+        request_data: Cere date
     datepicker:
       help_text: 'Format preconizat: %{datepicker_format}'
     devise:
@@ -484,7 +484,7 @@ ro:
             close_modal: Închide fereastra
             uncheck: Mențineți nebifat
           notice: |-
-            <p>Hei, ești sigur(ă) că nu vrei să primești un buletin informativ?<br>
+            <p>Hei, sigur nu vrei să primești un buletin informativ?<br>
             Te rugăm să reconsideri bifarea din nou a căsuței de selectare a buletinului informativ de mai jos.<br>
             Este foarte important pentru noi să poți primi e-mailuri ocazionale
             pentru a face anunţuri importante, poți schimba întotdeauna acest lucru pe pagina de setări pentru notificări.</p>
@@ -688,7 +688,7 @@ ro:
         result: Rezultate
     fingerprint:
       check: Verifică amprenta
-      explanation: Partea de text de mai jos este o reprezentare scurtă a acestui conținut. Este util să se asigure că conținutul nu a fost modificat, deoarece o singură modificare ar avea ca rezultat o valoare total diferită.
+      explanation: Partea de text de mai jos este o reprezentare scurtă a acestui conținut. Este util să te asiguri că acest conținut nu a fost modificat, deoarece o singură modificare ar avea ca rezultat o valoare total diferită.
       online_calculator_name: Calculator MD5 online
       replicate_help: Această amprentă este calculată folosind un algoritm de fixare SHA256. Pentru a-l copia singur/ă, poți folosi un %{online_calculator_link} şi copia datele sursă.
       source: Sursa
@@ -767,7 +767,7 @@ ro:
       reached_top: Ai atins nivelul maxim pentru această insignă.
     group_admins:
       actions:
-        are_you_sure: Ești sigur(ă)? Acest lucru nu va elimina participantul din grup.
+        are_you_sure: Sigur dorești asta? Acest lucru nu va elimina participantul din grup.
         demote_admin: Elimină administratorul
       demote:
         error: A apărut o eroare la eliminarea acestui participant din lista de administratori
@@ -796,7 +796,7 @@ ro:
         error: A apărut o eroare la acceptarea acestei cereri de aderare
         success: Solicitare de înscriere acceptată cu succes
       actions:
-        are_you_sure: Ești sigur(ă)?
+        are_you_sure: Sigur dorești asta?
         promote_to_admin: Setare ca administrator
         remove_from_group: Eliminare participant
       index:
@@ -813,7 +813,7 @@ ro:
         success: Participantul a fost șters din grup
     groups:
       actions:
-        are_you_sure: Ești sigur(ă)?
+        are_you_sure: Sigur dorești asta?
       create:
         error: A apărut o problemă la crearea grupului
         success: Grup creat cu succes
@@ -852,7 +852,7 @@ ro:
     help:
       main_topic:
         default_page:
-          content: "<p>în %{organization} poți participa și decide cu privire la diferite subiecte, prin spaţiile pe care le vedeţi în meniul superior: Procese, Adunări, Iniţiative, Consultări.</p> <p>În cadrul fiecăruia vei găsi opțiuni diferite pentru a participa: propune individual sau împreună cu alte persoane, ia parte la dezbateri, prioritizează proiectele pentru a le pune în aplicare, participă la reuniuni directe și la alte acțiuni.</p>\n"
+          content: "<p>În %{organization} poți participa și decide cu privire la diferite subiecte, prin spaţiile participative pe care le vezi în meniul superior: Procese, Grupuri de lucru, Iniţiative, Consultări.</p> <p>În cadrul fiecăruia vei găsi opțiuni diferite pentru a participa: formulează propuneri individual sau împreună cu alte persoane, ia parte la dezbateri, prioritizează proiectele ce urmează a fi puse în aplicare, participă la întâlniri față-în-față și la alte acțiuni.</p>\n"
           title: Ce pot face în %{organization}?
         description: Citește mai multe despre %{organization}
         title: Ajutor General
@@ -1066,10 +1066,10 @@ ro:
       home:
         extended:
           debates: Dezbateri
-          debates_explanation: Dezbateți și discutați, împărtășiți opiniile dvs. și îmbogățiți subiectele relevante.
+          debates_explanation: Dezbați și discuți, îți împărtășești opiniile și contribui la subiectele relevante pentru tine.
           how_to_participate: Cum pot lua parte la un proces?
           meetings: Întâlniri
-          meetings_explanation: Află unde și când poți participa la ședințe publice.
+          meetings_explanation: Află unde și când poți participa la întâlniri deschise publicului.
           more_info: Mai multe informații
           proposals: Propuneri
           proposals_explanation: Formulează propuneri, votează propunerile existente și promovează schimbările pe care dorești să le vezi implementate.
@@ -1275,7 +1275,7 @@ ro:
         sign_in_before_follow: Vă rugăm să vă autentificați înainte de a efectua această acțiune
       login_modal:
         close_modal: Închide fereastra
-        please_sign_in: Te rugăm să te autentifici
+        please_sign_in: Te rugăm să te conectezi
         sign_up: Înscrie-te
       participatory_space_filters:
         filters:
@@ -1378,7 +1378,7 @@ ro:
       show:
         version_index: Versiunea %{index}
     welcome_notification:
-      default_body: <p>Bună ziua {{name}}, vă mulțumin că v-ați alăturat {{organization}} și bine ați venit!</p><ul><li>Dacă doriți să aveți o idee despre ceea ce puteți face aici, examinați secțiunea de <a href="{{help_url}}">Ajutor</a>.</li><li>După citirea acesteia veți primi primul ecuson. Aici este <a href="{{badges_url}}">lista tuturor ecusoanelor</a> pe care le puteți obține pe măsură ce participați în cadrul {{organization}}</li><li>Nu în ultimul rând, puteți să vă alăturați altor persoane, să împărtășiți cu acestea experiența dvs. de implicare și participare în cadrul {{organization}}. Formulați propuneri și comentarii, dezbateți, reflectați asupra modului de a contribui la binele comun, oferiți argumente pentru a convinge, ascultați și citiți pentru a vă lăsa convinși, exprimați-vă ideile în mod concret și direct, răspundeți ferm și cu răbdare, apărați-vă ideile și mențineți o atitudine deschisă pentru a colabora și a participa la ideile altora.</li></ul>
+      default_body: <p>Bună ziua {{name}}, îți mulțumin că te-ai alăturat {{organization}} și bine ai venit!</p><ul><li>Dacă vrei să îți faci o idee despre ceea ce poți face în această platformă, citește secțiunea <a href="{{help_url}}">Ajutor</a>.</li><li>După citirea acesteia vei primi prima insignă. Aici este <a href="{{badges_url}}">lista tuturor insignelor</a> pe care le poți obține pe măsură ce participi în cadrul {{organization}}</li><li>Nu în ultimul rând, poți să te alături altor persoane, să împărtășești cu acestea experiența ta de implicare și participare în cadrul {{organization}}. Formulează propuneri și comentarii, participă la dezbateri, reflectă asupra modului de a contribui la binele comun, oferă argumente pentru a convinge, ascultă și citește pentru a vă forma părerea, exprimă-ți ideile în mod concret și direct, răspunde ferm și cu răbdare, apără-ți ideile și menține o atitudine deschisă pentru a colabora și a participa la ideile altora.</li></ul>
       default_subject: Îți mulțumim că te-ai alăturat {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1488,7 +1488,7 @@ ro:
     registrations:
       destroyed: Contul tău a fost anulat cu succes. Sperăm să te revedem în curând.
       edit:
-        are_you_sure: Ești sigur(ă)?
+        are_you_sure: Sigur dorești asta?
         cancel_my_account: Anulează contul meu
         currently_waiting_confirmation_for_email: 'În prezent se așteaptă confirmarea pentru: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: lasă necompletat dacă nu vrei să-l schimbi

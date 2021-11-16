@@ -64,7 +64,7 @@ ro:
               other: Trageri la sorți
         sortitions:
           confirm_destroy:
-            confirm_destroy: Ești sigur(ă) că vrei să anulezi această tragere la sorți?
+            confirm_destroy: Sigur dorești să anulezi această tragere la sorți?
             destroy: Anulează tragerea la sorți
             title: Anularea tragerii la sorți
           create:

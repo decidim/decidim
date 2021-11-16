@@ -61,7 +61,7 @@ pl:
       decidim/meetings/meeting:
         one: Spotkanie
         few: Spotkania
-        many: Spotkania
+        many: Spotkań
         other: Spotkania
       decidim/meetings/minutes:
         one: Minuta
@@ -71,7 +71,7 @@ pl:
       decidim/meetings/registration:
         one: Rejestracja
         few: Rejestracje
-        many: Rejestracje
+        many: Rejestracji
         other: Rejestracje
   decidim:
     admin:
