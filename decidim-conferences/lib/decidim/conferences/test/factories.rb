@@ -121,7 +121,10 @@ FactoryBot.define do
     short_bio { generate_localized_title }
     twitter_handle { Faker::Internet.user_name }
     personal_url { Faker::Internet.url }
-    avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+
+    trait :with_avatar do
+      avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+    end
 
     trait :with_user do
       user { create(:user, organization: conference.organization) }
