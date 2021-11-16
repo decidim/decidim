@@ -145,9 +145,14 @@ module Decidim::Meetings
       end
 
       it "schedules a upcoming meeting notification job 48h before start time" do
+        meeting = instance_double(Meeting, id: 1, start_time: start_time, participatory_space: participatory_process)
         expect(Decidim.traceability)
           .to receive(:create!)
-          .and_return(instance_double(Meeting, id: 1, start_time: start_time, participatory_space: participatory_process))
+          .and_return(meeting)
+
+        expect(meeting).to receive(:valid?)
+        expect(meeting).to receive(:publish!)
+        expect(meeting).to receive(:to_signed_global_id).and_return "gid://Decidim::Meetings::Meeting/1"
 
         expect(UpcomingMeetingNotificationJob)
           .to receive(:generate_checksum).and_return "1234"

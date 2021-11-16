@@ -6,6 +6,8 @@ module Decidim
       # This command is executed when the user creates a Meeting from the admin
       # panel.
       class CreateMeeting < Rectify::Command
+        include Decidim::FollowResource
+
         def initialize(form)
           @form = form
         end
@@ -21,6 +23,7 @@ module Decidim
             create_services!
           end
 
+          create_follow_form_resource(meeting, form.current_user)
           broadcast(:ok, meeting)
         end
 
