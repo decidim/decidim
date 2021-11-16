@@ -26,7 +26,7 @@ ro:
       actions:
         attachment_collections: Dosare
         attachments: Atașamente
-        confirm_destroy: Ești sigur(ă) că vrei să ştergi acest proiect?
+        confirm_destroy: Sigur dorești să ştergi acest proiect?
         destroy: Ștergere
         edit: Editare
         edit_projects: Gestionați proiectele
@@ -157,7 +157,7 @@ ro:
             description: Acest proiect depășește numărul maxim de proiecte și nu poate fi adăugat. Dacă dorești, poți șterge un proiect deja selectat pentru a-l adăuga pe acesta, putând astfel vota din nou conform preferințelor tale.
             title: Numărul maxim de proiecte a fost depășit
         budget_summary:
-          are_you_sure: Ești sigur(ă) că vrei să îți anulezi votul?
+          are_you_sure: Sigur dorești să îți anulezi votul?
           assigned: 'Atribuit:'
           cancel_order: șterge votul și reia procesul
           checked_out:

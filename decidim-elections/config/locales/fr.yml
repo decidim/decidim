@@ -416,6 +416,7 @@ fr:
           title: Questions de l'élection
         results:
           description: 'Ce sont les résultats du vote, pour chaque question:'
+          percentage: "%{count}%"
           selected: Sélectionné
           title: Résultats de l'élection
           votes:
@@ -430,6 +431,7 @@ fr:
           back: Élections disponibles
           callout:
             already_voted: Vous avez déjà voté pour cette élection. Vous pouvez modifier votre vote ou le vérifier.
+            pending_vote: Votre vote est en cours de validation le serveur.
             vote_rejected: Il n'a pas été possible de vérifier votre vote. Veuillez recommencer.
           election_log: Journal de l'élection
           preview: Aperçu
@@ -455,9 +457,12 @@ fr:
             votes: Votes
         election:
           fields:
+            bb_status: Statut du Tableau d'affichage
             end_time: Prend fin à
             start_time: Commence à
             title: Titre
+            verifiable_results_file_hash: Somme de contrôle SHA256 du fichier
+            verifiable_results_file_url: Fichier d'élection vérifiable
         question:
           fields:
             answers: Réponses
@@ -510,6 +515,11 @@ fr:
           tally_steps:
             back: Retour
             description: Les résultats de cette élection sont calculés dans le Bulletin Board et pour compléter ce processus, votre participation en tant que garant est nécessaire.
+            keys:
+              end_tally: Dépouillement terminé
+              tally:
+                cast: Valider le dépouillement
+                share: Partager le décompte
             list:
               status: Statut
               task: Tâche
@@ -520,11 +530,15 @@ fr:
               completed: Terminé
               pending: En attente
               processing: Traitement en cours
+            title: Dépouillement pour %{election}
           update:
             error: Le statut de l'élection n'a pas été mis à jour.
             success: 'Le statut de l''élection est : %{status}'
         menu:
           trustee_zone: Espace de garant
+        no_bulletin_board:
+          body: Un tableau d'affichage configuré est requis pour cette section. Contactez l'administrateur pour plus de détails.
+          title: Désolé, le tableau d'affichage n'est pas encore configuré.
         trustees:
           show:
             elections:
@@ -569,6 +583,9 @@ fr:
           ballot_hash: 'L''identifiant de votre bulletin est:'
           cast: Valider votre vote
           description: Ici, vous pouvez valider votre vote de sorte qu'il soit correctement compté ou alternativement vous pouvez vérifier que votre bulletin a bien été chiffré. Pour des raisons de sécurité, l’audit de votre bulletin révélera son contenu. Si vous souhaitez valider votre vote, vous devrez donc recommencer le processus de vote.
+          header: 'Le bulletin est chiffré: validez-le ou auditez-le'
+        casting:
+          header: Vote en cours...
         confirm:
           answer: Répondre
           answer_number: répondre à %{number}

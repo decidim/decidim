@@ -987,7 +987,7 @@ ro:
         expand: Extinde
         hidden: Ascuns
         hide: Ascunde
-        not_hidden: Nu este ascuns
+        not_hidden: Neascuns
         title: Acțiuni
         unhide: Anulează ascunderea
         unreport: Anulează raportarea
@@ -998,7 +998,7 @@ ro:
             success: Resursa a fost ascunsă cu succes.
           unhide:
             invalid: A apărut o problemă la anularea ascunderii resursei.
-            success: Anularea ascunderii resursei a fost reaizată cu succes.
+            success: Anularea ascunderii resursei a fost realizată cu succes.
           unreport:
             invalid: A apărut o problemă la anularea raportării resursei.
             success: Anularea raportării resursei a fost efectuată cu succes.

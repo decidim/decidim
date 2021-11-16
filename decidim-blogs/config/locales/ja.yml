@@ -71,8 +71,8 @@ ja:
           step:
             announcement: お知らせ
             comments_blocked: コメントをブロック
-            endorsements_blocked: 支持をブロック
-            endorsements_enabled: 支持が有効
+            endorsements_blocked: オススメをブロック
+            endorsements_enabled: オススメが有効
     events:
       blogs:
         post_created:
