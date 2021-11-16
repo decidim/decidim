@@ -42,7 +42,7 @@
       border-top: 1px solid $light-gray;
 
       &[aria-selected="true"] {
-        background-color: $light-gray;
+        background-color: #ccc;
       }
     }
   }
