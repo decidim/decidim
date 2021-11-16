@@ -39,7 +39,7 @@ The class will need to be implemented, or reuse one from the community. Check th
 
 == Enabling the integration, organization-wise
 
-Each organization will be able to enable / disable the machine translations if they want to. The administrators of the organization perform the action from `Settings` -> `Configuration` admin menu, where they able to either enable or disable the machine translation system, but also they can select the priority.
+Each organization will be able to enable / disable the machine translations if they want to. The administrators of the organization perform the action from `Settings` -> `Configuration` admin menu, where they can enable or disable the machine translation system, and also they can select the priority.
 
 * Original text first means that the platform will always display the original content as it has been added by contributors
 * Translated text first means that the platform will always display the translation first. 
