@@ -1,7 +1,5 @@
-// import AutoComplete from "@tarekraafat/autocomplete.js";
+import AutoComplete from "@tarekraafat/autocomplete.js";
 // import * as AutoComplete from "./autocomplete"
-
-import AutoComplete from "./autocomplete";
 
 $(() => {
   const $fieldContainer = $(".autocomplete_search");
@@ -9,43 +7,69 @@ $(() => {
   const $searchInput = $(searchInputId);
   const $results = $(".autocomplete_results");
   const options = $fieldContainer.data();
+  const threshold = options?.threshold || 2;
   let selected = []
 
   if ($fieldContainer.length < 1) {
     return;
   }
 
-  const autoComplete = new AutoComplete($searchInput[0], {
-    resolveValueIdentifier: (value) => value.data,
-    dataMatchKeys: ["name", "nickname"],
-    dataSource: (query, callback) => {
-      $.post("/api", {
-        "query": `
-          {
-            users(filter:{wildcard:"${query}",excludeIds:[]})
+  const autoCompleteJS = new AutoComplete({
+    name: "autocomplete",
+    selector: searchInputId,
+    // Delay (milliseconds) before autocomplete engine starts
+    debounce: 200,
+    threshold: threshold,
+    data: {
+      keys: ["name", "nickname"],
+      src: async (query) => {
+        try {
+          const response = await $.post("/api", {
+            "query": `
               {
-                id,nickname,name,avatarUrl,__typename,...on UserGroup{membersCount},...on User{
-                  directMessagesEnabled
-                }
-              }
-          }`
-      }).then((response) => {
-        callback(response.data.users);
-      });
+                users(filter:{wildcard:"${query}",excludeIds:[]})
+                  {
+                    id,nickname,name,avatarUrl,__typename,...on UserGroup{membersCount},...on User{
+                      directMessagesEnabled
+                    }
+                  }
+              }`
+          });
+
+          console.log("results", response.data.users);
+          return response.data.users
+        } catch (error) {
+          return error;
+        }
+      },
+      filter: (list) => {
+        const filtered = [];
+        const ids = [];
+
+        // Remove duplicates
+        for (let idx = 0; idx < list.length; idx += 1) {
+          const item = list[idx];
+          if (!ids.includes(item.value.id) && !selected.includes(item.value.id)) {
+            ids.push(item.value.id);
+            filtered.push(item);
+          }
+        }
+
+        return filtered
+      }
     },
-    dataFilter: (list) => {
-      return list.filter(
-        (item) => !selected.includes(item.value.id)
-      );
+    resultsList: {
+      maxResults: 10
     },
-    modifyResult: (element, value) => {
-      // console.log("item", item);
-      // console.log("data", data)
-      element.innerHTML = `
-        <span><img src="${value.avatarUrl}"></span>
-        <strong>${value.nickname}</strong>
-        <small>${value.name}</small>
-      `;
+    resultItem: {
+      element: (item, data) => {
+        console.log("item", item);
+        console.log("data", data)
+        item.innerHTML = `
+        <span><img src="${data.value.avatarUrl}"></span>
+        <strong>${data.value.nickname}</strong>
+        <small>${data.value.name}</small>`;
+      }
     }
   });
 
@@ -73,9 +97,9 @@ $(() => {
       </li>
     `);
 
-    autoComplete.clearInput();
+    autoCompleteJS.input.value = "";
     selected.push(id);
-    // console.log("input", autoCompleteJS.input)
+    console.log("input", autoCompleteJS.input)
 
     $results.find(`*[data-remove="${id}"]`).on("keypress click", (evt) => {
       const target = evt.target.parentNode;
