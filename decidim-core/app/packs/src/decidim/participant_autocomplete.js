@@ -7,7 +7,7 @@ $(() => {
   const $fieldContainer = $(".autocomplete_search");
   const searchInputId = "#autocomplete";
   const $searchInput = $(searchInputId);
-  const $results = $(".autocomplete_results");
+  const $selectedItems = $(".autocomplete_selected");
   const options = $fieldContainer.data();
   let selected = []
 
@@ -16,7 +16,6 @@ $(() => {
   }
 
   const autoComplete = new AutoComplete($searchInput[0], {
-    resolveValueIdentifier: (value) => value.data,
     dataMatchKeys: ["name", "nickname"],
     dataSource: (query, callback) => {
       $.post("/api", {
@@ -39,10 +38,8 @@ $(() => {
       );
     },
     modifyResult: (element, value) => {
-      // console.log("item", item);
-      // console.log("data", data)
       element.innerHTML = `
-        <span><img src="${value.avatarUrl}"></span>
+        <span class="author__avatar"><img src="${value.avatarUrl}"></span>
         <strong>${value.nickname}</strong>
         <small>${value.name}</small>
       `;
@@ -55,7 +52,6 @@ $(() => {
     const id = selection.value.id;
 
     if (options.multiple === false) {
-      // autoCompleteJS.input.value = selection.value.name
       console.log("selection.value", selection.value)
       $(".autocomplete_wrapper").append(`
         <span id="${selection.value.id}" role="option" aria-selected="true">
@@ -65,7 +61,7 @@ $(() => {
       return;
     }
 
-    $results.append(`
+    $selectedItems.append(`
       <li>
         <input type="hidden" name="${options.name}" value="${selection.value.id}">
         ${selection.value.name}
@@ -73,11 +69,10 @@ $(() => {
       </li>
     `);
 
-    autoComplete.clearInput();
+    autoComplete.setInput("");
     selected.push(id);
-    // console.log("input", autoCompleteJS.input)
 
-    $results.find(`*[data-remove="${id}"]`).on("keypress click", (evt) => {
+    $selectedItems.find(`*[data-remove="${id}"]`).on("keypress click", (evt) => {
       const target = evt.target.parentNode;
       if (target.tagName === "LI") {
         selected = selected.filter((identifier) => identifier !== id)

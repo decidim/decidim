@@ -1,13 +1,10 @@
 /* eslint-disable no-invalid-this */
 
-import * as React from "react";
-import * as ReactDOM from "react-dom";
 import toggleNav from "src/decidim/admin/toggle_nav"
 import createSortList from "src/decidim/admin/sort_list.component"
 import createQuillEditor from "src/decidim/editor"
 import formDatePicker from "src/decidim/form_datepicker"
 import DataPicker from "src/decidim/data_picker"
-import Autocomplete from "src/decidim/admin/autocomplete.component";
 import FormFilterComponent from "src/decidim/form_filter"
 import Configuration from "src/decidim/configuration"
 import InputCharacterCounter from "src/decidim/input_character_counter"
@@ -17,17 +14,6 @@ window.Decidim = window.Decidim || {};
 window.Decidim.managedUsersForm = managedUsersForm
 window.Decidim.config = new Configuration()
 window.Decidim.InputCharacterCounter = InputCharacterCounter;
-
-// const renderAutocompleteSelects = (nodeSelector) => {
-//   window.$(nodeSelector).each((index, node) => {
-//     const props = { ...window.$(node).data("autocomplete") };
-
-//     ReactDOM.render(
-//       React.createElement(Autocomplete, props),
-//       node
-//     );
-//   });
-// };
 
 $(() => {
   window.theDataPicker = new DataPicker($(".data-picker"));

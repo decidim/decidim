@@ -1,0 +1,58 @@
+$middle-gray: #ccc;
+$list-border: 1px solid $middle-gray;
+
+.autoComplete_wrapper {
+  color: $secondary;
+
+  input {
+    margin: 0;
+  }
+
+  ul {
+    background-color: $white;
+    margin: 0;
+    border: $list-border;
+    border-top: 0;
+    list-style: none;
+    max-height: 300px;
+    overflow: auto;
+
+    li {
+      padding: 0 .5rem;
+      border-top: $list-border;
+
+      &[aria-selected="true"] {
+        background-color: $middle-gray;
+      }
+    }
+  }
+
+  span {
+    &.author__avatar{
+      display: inline-block;
+      vertical-align: middle;
+      padding: 0;
+    }
+
+    &.selected-value {
+      position: absolute;
+      height: 3rem;
+      line-height: 3rem;
+      padding: 0 1rem;
+    }
+  }
+
+  .search_prompt,
+  .no_result {
+    color: $middle-gray;
+    border: $list-border;
+  }
+
+  .clear-selection {
+    display: inline;
+    position: absolute;
+    font-size: 1.3rem;
+    cursor: pointer;
+    right: 4rem;
+  }
+}
