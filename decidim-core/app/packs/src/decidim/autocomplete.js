@@ -1,107 +1,6 @@
 import AutoCompleteJS from "@tarekraafat/autocomplete.js";
 
 export default class AutoComplete {
-
-  /**
-   * This method can be used to create an autocomplete input automatically
-   * from the following kind of div:
-   *   <div data-autocomplete="{...}"></div>
-   *
-   * The data-autocomplete attribute should contain the following configuration
-   * which is used to generate the AutoComplete options:
-   * - name: assembly_member[user_id],
-   * - options: [],
-   * - placeholder: "Select a participant",
-   * - searchPromptText: "Type at least three characters to search"
-   * - noResultsText: "No results found"
-   * - searchURL: "http://..."
-   * - changeURL: null,
-   * - selected: "",
-   *
-   * @param {HTMLElement} el The element to generate the autocomplete for.
-   * @returns {AutoComplete} An instance of the AutoComplete class.
-   */
-  static autoConfigure(el) {
-    const config = JSON.parse(el.dataset.autocomplete);
-    const input = document.createElement("input");
-    input.name = config.name;
-    input.type = "hidden";
-
-    const textInput = document.createElement("input");
-    input.name = config.name;
-    textInput.type = "text";
-
-    const selectedValue = document.createElement("span");
-    selectedValue.className = "selected-value";
-    selectedValue.style.display = "none";
-
-    const clearSelection = document.createElement("span");
-    clearSelection.className = "clear-selection";
-    clearSelection.innerHTML = "&times;";
-    clearSelection.style.display = "none";
-
-    if (config.placeholder) {
-      textInput.placeholder = config.placeholder;
-    }
-    if (config.selected) {
-      input.value = config.selected.value;
-      textInput.value = config.selected.label;
-    }
-    el.parentNode.insertBefore(textInput, el.nextSibling);
-    el.parentNode.insertBefore(input, textInput);
-
-    const dataSource = (query, callback) => {
-      const params = new URLSearchParams({ term: query });
-      fetch(`${config.searchURL}?${params.toString()}`, {
-        method: "GET",
-        headers: { "Content-Type": "application/json" }
-      }).then((response) => response.json()).then((data) => {
-        callback(data)
-      });
-    };
-
-    const ac = new AutoComplete(textInput, {
-      dataMatchKeys: ["label"],
-      dataSource
-    });
-
-    const wrapper = document.querySelector(".autoComplete_wrapper");
-    wrapper.insertBefore(clearSelection, textInput);
-    wrapper.insertBefore(selectedValue, textInput);
-
-
-    const clearSelected = () => {
-      input.value = ""
-      textInput.placeholder = config.placeholder;
-      clearSelection.style.display = "none";
-      selectedValue.style.display = "none";
-    }
-
-    clearSelection.addEventListener("click", () => {
-      clearSelected();
-    })
-
-    textInput.addEventListener("selection", (event) => {
-      console.log("selection")
-      const feedback = event.detail;
-      const selection = feedback.selection;
-      input.value = selection.value.value;
-      textInput.value = "";
-      textInput.placeholder = "";
-      selectedValue.innerHTML = selection.value.label;
-      selectedValue.style.display = "block";
-      clearSelection.style.display = "block";
-    });
-
-    textInput.addEventListener("keyup", (event) => {
-      if (input.value !== "" && (textInput.value.length > 1 || ["Escape", "Backspace"].includes(event.key))) {
-        clearSelected();
-      }
-    })
-
-    return ac;
-  }
-
   constructor(el, options = {}) {
     this.element = el;
     this.options = Object.assign({
@@ -184,7 +83,7 @@ export default class AutoComplete {
         }
       }
     });
-    this.element.dataset.autocomplete = this.autocomplete;
+    this.element.autocomplete = this.autocomplete;
   }
 
   setInput(value) {

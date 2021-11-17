@@ -10,39 +10,6 @@ module Decidim
     include Decidim::TranslatableAttributes
     include Decidim::Map::Autocomplete::FormBuilder
 
-    # rubocop:disable Metrics/CyclomaticComplexity
-    # def autocomplete_select(attribute, selected = nil, options = {}, prompt_options = {})
-    #   selected = yield(selected) if selected
-    #   template = ""
-    #   template += label(attribute, (options[:label] || label_for(attribute)) + required_for_attribute(attribute)) unless options[:label] == false
-    #   template += tag.div(
-    #     class: "admin-autocomplete_search select-control",
-    #     data:
-    #       {
-    #         name: options[:name] || "#{@object_name}[#{attribute}]",
-    #         multiple: options[:multiple] || false,
-    #         searchurl: prompt_options[:url],
-    #         placeholder: prompt_options[:placeholder],
-    #         selected: selected || ""
-    #       }
-    #   ) do
-    #     tag.input(id: "admin-autocomplete", type: "text", placeholder: prompt_options[:placeholder], autocomplete: "off") +
-    #       tag.div(class: "no_result", style: "display: none") do
-    #         tag.span options[:no_results] || I18n.t("autocomplete.no_results", scope: "decidim.admin")
-    #       end +
-    #       tag.div(class: "search_prompt", style: "display: none") do
-    #         tag.span options[:search_prompt] || I18n.t("autocomplete.search_prompt", scope: "decidim.admin")
-    #       end
-    #   end
-    #   if options[:multiple]
-    #     template += tag.div(class: "columns large-12") do
-    #       tag.ul(class: "admin-autocomplete_results")
-    #     end
-    #   end
-    #   template.html_safe
-    # end
-    # rubocop:enable Metrics/CyclomaticComplexity
-
     # Public: generates a check boxes input from a collection and adds help
     # text and errors.
     #
