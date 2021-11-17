@@ -184,7 +184,7 @@ export default class AutoComplete {
         }
       }
     });
-    // this.element.dataset.autocomplete = this.autocomplete;
+    this.element.dataset.autocomplete = this.autocomplete;
   }
 
   setInput(value) {
