@@ -1,7 +1,4 @@
-// import AutoComplete from "@tarekraafat/autocomplete.js";
-// import * as AutoComplete from "./autocomplete"
-
-import AutoComplete from "./autocomplete";
+import AutoComplete from "src/decidim/autocomplete"
 
 $(() => {
   const $fieldContainer = $(".autocomplete_search");
@@ -64,8 +61,9 @@ $(() => {
     $selectedItems.append(`
       <li>
         <input type="hidden" name="${options.name}" value="${selection.value.id}">
-        ${selection.value.name}
-        <div class="float-right" data-remove=${id} tabindex="0" aria-controls="0" aria-label="Close" role="tab">&times;</div>
+        <img src="${selection.value.avatarUrl}" alt="${selection.value.name}">
+        <b>${selection.value.name}</b>
+        <button class="float-right" data-remove=${id} tabindex="0" aria-controls="0" aria-label="Close" role="tab">&times;</button>
       </li>
     `);
 

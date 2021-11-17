@@ -1,4 +1,4 @@
-import AutoComplete from "./autocomplete";
+import AutoComplete from "src/decidim/autocomplete"
 
 $(() => {
   $("[data-decidim-geocoding]").each((_i, el) => {
@@ -13,7 +13,16 @@ $(() => {
 
     $input.on("selection", (event) => {
       const selection = event.detail.selection;
+      $input.trigger("geocoder-suggest-select.decidim", [selection.value]);
       autoComplete.setInput(selection.value.key);
+
+      // Not all geocoding autocomplete APIs include the coordinates in the
+      // suggestions response. Therefore, some APIs may require additional
+      // query for the coordinates, which should trigger this event for the
+      // input element.
+      if (selection.value.coordinates) {
+        $input.trigger("geocoder-suggest-coordinates.decidim", [selection.value.coordinates]);
+      }
     });
   });
 
