@@ -66,8 +66,17 @@ module Decidim::Meetings
     context "when everything is ok" do
       let(:meeting) { Meeting.last }
 
-      it "creates the meeting" do
+      it "creates and publishes the meeting and log both actions" do
+        subject.call
+        meeting.reload
+        expect(meeting).to be_published
         expect { subject.call }.to change(Meeting, :count).by(1)
+        expect { subject.call }.to change(Decidim::ActionLog, :count).by(2)
+      end
+
+      it "makes the user follow the meeting" do
+        expect { subject.call }.to change(Decidim::Follow, :count).by(1)
+        expect(meeting.reload.followers).to include(current_user)
       end
 
       it "sets the scope" do
