@@ -393,7 +393,7 @@ ro:
         target: Cine participă
     assembly_members:
       assembly_member:
-        designated_on: Desemnat către
+        designated_on: Desemnat la
       index:
         title: Membri
     events:
