@@ -34,7 +34,7 @@ import "src/decidim/ajax_modals"
 import "src/decidim/admin/officializations"
 import "src/decidim/session_timeouter"
 import "src/decidim/slug_form"
-import "src/decidim/admin/admin_autocomplete"
+import "src/decidim/admin/autocomplete_picker"
 
 // CSS
 import "entrypoints/decidim_admin.scss";

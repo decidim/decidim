@@ -31,6 +31,15 @@ export default class AutoComplete {
     input.name = config.name;
     textInput.type = "text";
 
+    const selectedValue = document.createElement("span");
+    selectedValue.className = "selected-value";
+    selectedValue.style.display = "none";
+
+    const clearSelection = document.createElement("span");
+    clearSelection.className = "clear-selection";
+    clearSelection.innerHTML = "&times;";
+    clearSelection.style.display = "none";
+
     if (config.placeholder) {
       textInput.placeholder = config.placeholder;
     }
@@ -53,16 +62,42 @@ export default class AutoComplete {
 
     const ac = new AutoComplete(textInput, {
       dataMatchKeys: ["label"],
-      threshold: 3,
       dataSource
     });
 
+    const wrapper = document.querySelector(".autoComplete_wrapper");
+    wrapper.insertBefore(clearSelection, textInput);
+    wrapper.insertBefore(selectedValue, textInput);
+
+
+    const clearSelected = () => {
+      input.value = ""
+      textInput.placeholder = config.placeholder;
+      clearSelection.style.display = "none";
+      selectedValue.style.display = "none";
+    }
+
+    clearSelection.addEventListener("click", () => {
+      clearSelected();
+    })
+
     textInput.addEventListener("selection", (event) => {
+      console.log("selection")
       const feedback = event.detail;
       const selection = feedback.selection;
       input.value = selection.value.value;
-      textInput.value = selection.value.label;
+      textInput.value = "";
+      textInput.placeholder = "";
+      selectedValue.innerHTML = selection.value.label;
+      selectedValue.style.display = "block";
+      clearSelection.style.display = "block";
     });
+
+    textInput.addEventListener("keyup", (event) => {
+      if (input.value !== "" && (textInput.value.length > 1 || ["Escape", "Backspace"].includes(event.key))) {
+        clearSelected();
+      }
+    })
 
     return ac;
   }
@@ -149,7 +184,7 @@ export default class AutoComplete {
         }
       }
     });
-    this.element.dataset.autocomplete = this.autocomplete;
+    // this.element.dataset.autocomplete = this.autocomplete;
   }
 
   setInput(value) {
