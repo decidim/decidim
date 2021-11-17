@@ -18,16 +18,16 @@ window.Decidim.managedUsersForm = managedUsersForm
 window.Decidim.config = new Configuration()
 window.Decidim.InputCharacterCounter = InputCharacterCounter;
 
-const renderAutocompleteSelects = (nodeSelector) => {
-  window.$(nodeSelector).each((index, node) => {
-    const props = { ...window.$(node).data("autocomplete") };
+// const renderAutocompleteSelects = (nodeSelector) => {
+//   window.$(nodeSelector).each((index, node) => {
+//     const props = { ...window.$(node).data("autocomplete") };
 
-    ReactDOM.render(
-      React.createElement(Autocomplete, props),
-      node
-    );
-  });
-};
+//     ReactDOM.render(
+//       React.createElement(Autocomplete, props),
+//       node
+//     );
+//   });
+// };
 
 $(() => {
   window.theDataPicker = new DataPicker($(".data-picker"));
@@ -36,7 +36,7 @@ $(() => {
 
   toggleNav();
 
-  renderAutocompleteSelects('[data-plugin="autocomplete"]');
+  // renderAutocompleteSelects('[data-plugin="autocomplete"]');
 
   createSortList("#steps tbody", {
     placeholder: $('<tr style="border-style: dashed; border-color: #000"><td colspan="4">&nbsp;</td></tr>')[0],

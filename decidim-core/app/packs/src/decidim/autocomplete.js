@@ -22,13 +22,14 @@ export default class AutoComplete {
    * @returns {AutoComplete} An instance of the AutoComplete class.
    */
   static autoConfigure(el) {
-    const config = el.dataset.autocomplete;
+    console.log("el", el);
+    const config = JSON.parse(el.dataset.autocomplete);
     const input = document.createElement("input");
     input.name = config.name;
     input.type = "hidden";
 
     const textInput = document.createElement("input");
-    input.name = `${config.name}_autocomplete`;
+    input.name = config.name;
     textInput.type = "text";
 
     if (config.placeholder) {
@@ -41,23 +42,30 @@ export default class AutoComplete {
     el.parentNode.insertBefore(textInput, el.nextSibling);
     el.parentNode.insertBefore(input, textInput);
 
+    console.log("config", config)
+    console.log("searchURL", config.searchURL);
     const dataSource = (query, callback) => {
       const params = new URLSearchParams({ term: query });
       fetch(`${config.searchURL}?${params.toString()}`, {
         method: "GET",
         headers: { "Content-Type": "application/json" }
-      }).then(callback);
+      }).then((response) => response.json()).then((data) => {
+        console.log("data", data)
+        callback(data)
+      });
     };
 
     const ac = new AutoComplete(textInput, {
-      dataMatchKeys: ["value"],
+      dataMatchKeys: ["label"],
       dataSource
     });
 
     textInput.addEventListener("selection", (event) => {
       const feedback = event.detail;
       const selection = feedback.selection;
-      input.value = selection.value.id;
+      console.log("selection", selection)
+      input.value = selection.value.value;
+      textInput.value = selection.value.label;
     });
 
     return ac;
