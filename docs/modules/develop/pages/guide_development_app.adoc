@@ -21,6 +21,7 @@ On creation, this steps are automatically invoked by the generator:
 * create a `config/database.yml`
 * `bundle install`
 * `bin/rails decidim:upgrade`
+* `bin/rails db:create`
 * `bin/rails db:migrate db:seed`
 
 If the default database.yml does not suit your needs you can always configure it at your will and run this steps manually.
