@@ -18,7 +18,7 @@ module GeocoderHelpers
   # are no pending requests when proceeding.
   def fill_in_geocoding(attribute, options = {})
     fill_in attribute, options
-    expect(page).to have_selector(".tribute-container ul#results", count: 1)
+    expect(page).to have_selector(".autoComplete_wrapper ul#autoComplete_list_1", count: 1)
   end
 
   module_function
