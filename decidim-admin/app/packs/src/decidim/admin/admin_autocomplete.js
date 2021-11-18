@@ -28,6 +28,7 @@ const autoConfigure = (el) => {
   const textInput = document.createElement("input");
   input.name = config.name;
   textInput.type = "text";
+  textInput.className = "autocomplete-input";
 
   const selectedValue = document.createElement("span");
   selectedValue.className = "selected-value";
@@ -45,8 +46,8 @@ const autoConfigure = (el) => {
     input.value = config.selected.value;
     textInput.value = config.selected.label;
   }
-  el.parentNode.insertBefore(textInput, el.nextSibling);
-  el.parentNode.insertBefore(input, textInput);
+  el.appendChild(textInput);
+  el.insertBefore(input, textInput);
 
   const dataSource = (query, callback) => {
     const params = new URLSearchParams({ term: query });
@@ -63,9 +64,9 @@ const autoConfigure = (el) => {
     dataSource
   });
 
-  const wrapper = document.querySelector(".autoComplete_wrapper");
-  wrapper.insertBefore(clearSelection, textInput);
-  wrapper.insertBefore(selectedValue, textInput);
+  const acWrapper = document.querySelector(".autoComplete_wrapper");
+  acWrapper.insertBefore(clearSelection, textInput);
+  acWrapper.insertBefore(selectedValue, textInput);
 
   const clearSelected = () => {
     input.value = ""
