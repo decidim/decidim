@@ -53,11 +53,11 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
           expect(page).to have_content("Choose template")
         end
 
-        it "loads the last 5 templates in the select" do
-          page.find(".Select-control").click
+        it "loads the templates in the select" do
+          page.find("input[name='template-name']").click
 
-          within ".Select-menu" do
-            expect(page).to have_selector(".Select-option:not(.is-focused)", count: 5)
+          within "#template-list", visible: :hidden do
+            expect(page).to have_selector("option", visible: :hidden, count: 6)
           end
         end
 

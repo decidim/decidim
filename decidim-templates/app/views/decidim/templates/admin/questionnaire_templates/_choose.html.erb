@@ -13,7 +13,14 @@
 
     <%= decidim_form_for([questionnaire], url: decidim_admin_templates.apply_questionnaire_templates_url(questionnaire_id: questionnaire, url: request.url), method: :post, html: { class: "form choose_questionnaire_templates" }) do |form| %>
       <div class="row column">
-        <%= select_template form, templates %>
+        <%= form.hidden_field :questionnaire_template_id %>
+        <label for="template-name"><%= t(".label") %></label>
+        <input type="text" name="template-name" list="template-list" />
+        <datalist id="template-list">
+          <% templates.each do |template| %>
+            <option data-value="<%= template.id %>"><%= translated_attribute(template.name) %></option>
+          <% end %>
+        </datalist>
       </div>
 
       <div class="card-section questionnaire-template-preview">
@@ -32,4 +39,5 @@
   </div>
 </div>
 
+<%= javascript_pack_tag "decidim_templates" %>
 <%= stylesheet_pack_tag "decidim_templates", media: "all" %>
