@@ -1,14 +1,14 @@
 $middle-gray: #ccc;
 $list-border: 1px solid $middle-gray;
 
-.autoComplete_wrapper {
+.autoComplete_wrapper{
   color: $secondary;
 
-  input {
+  input{
     margin: 0;
   }
 
-  ul {
+  ul{
     background-color: $white;
     margin: 0;
     border: $list-border;
@@ -17,26 +17,26 @@ $list-border: 1px solid $middle-gray;
     max-height: 300px;
     overflow: auto;
 
-    li {
+    li{
       padding: .5rem;
       border-top: $list-border;
       cursor: pointer;
 
       &:hover,
-      &[aria-selected="true"] {
+      &[aria-selected="true"]{
         background-color: $middle-gray;
       }
     }
   }
 
-  span {
+  span{
     &.author__avatar{
       display: inline-block;
       vertical-align: middle;
       padding: 0;
     }
 
-    &.selected-value {
+    &.selected-value{
       position: absolute;
       height: 3rem;
       line-height: 3rem;
@@ -45,12 +45,12 @@ $list-border: 1px solid $middle-gray;
   }
 
   .search_prompt,
-  .no_result {
+  .no_result{
     color: $middle-gray;
     border: $list-border;
   }
 
-  .clear-selection {
+  .clear-selection{
     display: inline;
     position: absolute;
     font-size: 1.3rem;
@@ -59,17 +59,17 @@ $list-border: 1px solid $middle-gray;
   }
 }
 
-.autocomplete_selected {
+.autocomplete_selected{
   font-size: 1.3rem;
   line-height: 1.8;
   list-style: none;
-  margin: 1rem 0 0 0;
+  margin: 1rem 0 0;
 
-  button {
+  button{
     cursor: pointer;
   }
 
-  img {
+  img{
     display: inline-block;
     vertical-align: middle;
     padding: 0;
