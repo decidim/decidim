@@ -455,6 +455,7 @@ pt:
           accepted_mime_types:
             csv: csv
             json: json
+            xlsx: xlsx
           actions:
             back: Voltar
           file_legend: Adicionar um arquivo de importação que será analisado.
