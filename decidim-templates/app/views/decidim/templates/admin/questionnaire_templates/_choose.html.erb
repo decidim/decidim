@@ -12,10 +12,10 @@
     </div>
 
     <%= decidim_form_for([questionnaire], url: decidim_admin_templates.apply_questionnaire_templates_url(questionnaire_id: questionnaire, url: request.url), method: :post, html: { class: "form choose_questionnaire_templates" }) do |form| %>
-      <div class="row column">
+      <div id="choose-template" class="row column" data-previewurl="<%= decidim_admin_templates.preview_questionnaire_templates_url(format: :js) %>">
         <%= form.hidden_field :questionnaire_template_id %>
         <label for="template-name"><%= t(".label") %></label>
-        <input type="text" name="template-name" list="template-list" />
+        <input type="text" name="template-name" list="template-list" autocomplete="off" />
         <datalist id="template-list">
           <% templates.each do |template| %>
             <option data-value="<%= template.id %>"><%= translated_attribute(template.name) %></option>

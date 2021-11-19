@@ -62,7 +62,8 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
         end
 
         it "displays the preview when a template is selected" do
-          autocomplete_select template.name["en"], from: :questionnaire_template_id
+          select(template.name["en"], from: "template-name")
+
           within ".questionnaire-template-preview" do
             expect(page).to have_i18n_content(template.name)
             expect(page).to have_i18n_content(question.body)
