@@ -83,7 +83,7 @@ export default class AutoComplete {
         }
       }
     });
-    this.element.autocomplete = this.autocomplete;
+    this.element.ac = this.autocomplete;
   }
 
   setInput(value) {

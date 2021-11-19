@@ -2,8 +2,7 @@ import AutoComplete from "src/decidim/autocomplete"
 
 $(() => {
   const $fieldContainer = $(".autocomplete_search");
-  const searchInputId = "#autocomplete";
-  const $searchInput = $(searchInputId);
+  const $searchInput = $("#autocomplete");
   const $selectedItems = $(".autocomplete_selected");
   const options = $fieldContainer.data();
   let selected = []
