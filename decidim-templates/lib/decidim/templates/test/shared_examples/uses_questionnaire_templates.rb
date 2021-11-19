@@ -89,7 +89,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
       )
       visit questionnaire_edit_path
 
-      autocomplete_select template.name["en"], from: :questionnaire_template_id
+      select(template.name["en"], from: "template-name")
 
       within ".create-from-template" do
         find("*[type=submit]").click
