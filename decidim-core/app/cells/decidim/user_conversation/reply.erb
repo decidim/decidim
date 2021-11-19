@@ -1,0 +1,17 @@
+<div class="conversation-reply conversation-reply--offset row">
+  <div class="columns medium-9 medium-offset-3">
+    <h5 class="section-heading">
+      <%= title %>
+    </h5>
+
+    <%= reply_form do |f| %>
+      <% recipients.each do |recipient| %>
+        <%= f.hidden_field :recipient_id, id: nil, name: "conversation[recipient_id][]", value: recipient.id %>
+      <% end %>
+
+      <%= f.text_area :body, label: false, rows: 4, required: true, placeholder: t("decidim.user_conversations.reply.placeholder") %>
+
+      <%= f.submit t("decidim.user_conversations.reply.send"), class: "button secondary light pull-right", data: { disable: true } %>
+    <% end %>
+  </div>
+</div>

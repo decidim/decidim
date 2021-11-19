@@ -1,0 +1,15 @@
+<div class="user-activity">
+  <div class="columns tabs-panel is-active" id="conversation" role="tabpanel" aria-labelledby="conversation-label">
+    <div class="conversation">
+
+      <%= render :conversation_header %>
+
+      <div id="conversation">
+        <div id="messages"></div>
+
+        <%= render view: :reply, locals: { title: t("decidim.user_conversations.new.title") } %>
+
+      </div>
+    </div>
+  </div>
+</div>

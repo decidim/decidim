@@ -8,7 +8,7 @@ describe Decidim::ProfileCell, type: :cell do
 
   let(:organization) { create :organization, user_groups_enabled: true }
   let(:user) { create :user, :managed, organization: organization, blocked: false }
-  let(:context) { { content_cell: "decidim/user_activity", activities: [] } }
+  let(:context) { { content_cell: "decidim/user_conversations", conversations: [] } }
   let(:my_cell) { cell("decidim/profile", user, context: context) }
 
   context "when show is rendered" do
