@@ -6,10 +6,9 @@
       </div>
     </div>
     <div class="row">
-      <div class="row columns mentions__container">
-        <label for="add_conversation_users"><%= t "decidim.user_conversations.index.add_max_users" %></label>
-        <input id="add_conversation_users" type="text"
-            class="js-multiple-mentions mentions__container"
+      <div class="row columns autocomplete_search" data-name="recipient_id[]" data-multiple="true">
+        <label for="autocomplete"><%= t "decidim.user_conversations.index.add_max_users" %></label>
+        <input id="autocomplete" type="text"
             placeholder="<%= t("decidim.user_conversations.index.add_users_placeholder") %>"
             data-noresults="<%= t("decidim.user_conversations.index.no_results") %>"
             contenteditable="true"
@@ -17,7 +16,7 @@
             aria-expanded="false">
       </div>
       <div class="columns large-12">
-        <div class="js-multiple-mentions-recipients"></div>
+        <ul class="autocomplete_selected"></ul>
       </div>
     </div>
   </div>
