@@ -180,7 +180,6 @@ shared_examples "a record with front-end geocoding address field" do |geocoded_m
   it "calls the front-end geocoder when an address is written", :slow do
     within view_options[:within_selector] do
       fill_in_geocoding view_options[:address_field], with: geocoded_address_value
-      find(".tribute-container ul#results li", match: :first).click
       find("*[type=submit]").click
     end
 
