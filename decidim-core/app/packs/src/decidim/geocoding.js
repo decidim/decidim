@@ -12,16 +12,16 @@ $(() => {
     });
 
     $input.on("selection", (event) => {
-      const selection = event.detail.selection;
-      $input.trigger("geocoder-suggest-select.decidim", [selection.value]);
-      autoComplete.setInput(selection.value.key);
+      const selectedItem = event.detail.selection.value;
+      $input.trigger("geocoder-suggest-select.decidim", [selectedItem]);
+      autoComplete.setInput(selectedItem.key);
 
       // Not all geocoding autocomplete APIs include the coordinates in the
       // suggestions response. Therefore, some APIs may require additional
       // query for the coordinates, which should trigger this event for the
       // input element.
-      if (selection.value.coordinates) {
-        $input.trigger("geocoder-suggest-coordinates.decidim", [selection.value.coordinates]);
+      if (selectedItem.coordinates) {
+        $input.trigger("geocoder-suggest-coordinates.decidim", [selectedItem.coordinates]);
       }
     });
   });
