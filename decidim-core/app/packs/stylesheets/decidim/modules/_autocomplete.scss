@@ -1,5 +1,5 @@
-$middle-gray: #ccc;
-$list-border: 1px solid $middle-gray;
+$custom-gray: #ededed;
+$list-border: 1px solid $custom-gray;
 
 .autoComplete_wrapper{
   color: $secondary;
@@ -24,7 +24,12 @@ $list-border: 1px solid $middle-gray;
 
       &:hover,
       &[aria-selected="true"]{
-        background-color: $middle-gray;
+        background-color: $custom-gray;
+      }
+
+      &.disabled {
+        pointer-events: none;
+        opacity: 0.6;
       }
     }
   }
@@ -46,7 +51,7 @@ $list-border: 1px solid $middle-gray;
 
   .search_prompt,
   .no_result{
-    color: $middle-gray;
+    color: $custom-gray;
     border: $list-border;
   }
 

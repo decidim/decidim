@@ -35,11 +35,15 @@ $(() => {
       );
     },
     modifyResult: (element, value) => {
-      element.innerHTML = `
+      $(element).html(`
         <span class="author__avatar"><img src="${value.avatarUrl}"></span>
         <strong>${value.nickname}</strong>
         <small>${value.name}</small>
-      `;
+      `);
+      if (value.directMessagesEnabled === "false") {
+        $(element).addClass("disabled");
+        $(element).append(`<span>${$searchInput.data().directMessagesDisabled}</span>`);
+      }
     }
   });
 
@@ -47,14 +51,7 @@ $(() => {
     const feedback = event.detail;
     const selection = feedback.selection;
     const id = selection.value.id;
-
-    if (options.multiple === false) {
-      console.log("selection.value", selection.value)
-      $(".autocomplete_wrapper").append(`
-        <span id="${selection.value.id}" role="option" aria-selected="true">
-          ${selection.value.name} (${selection.value.nickname}) ${selection.value.email}
-        </span>
-      `)
+    if (selection.value.directMessagesEnabled === "false") {
       return;
     }
 
