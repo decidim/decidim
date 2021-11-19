@@ -50,7 +50,7 @@ $(() => {
     const feedback = event.detail;
     const selection = feedback.selection;
     const id = selection.value.id;
-    if (selection.value.directMessagesEnabled === "false") {
+    if (selected.length >= 9 || selection.value.directMessagesEnabled === "false") {
       return;
     }
 
