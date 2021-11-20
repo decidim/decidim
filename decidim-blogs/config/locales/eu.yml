@@ -11,7 +11,7 @@ eu:
     blogs:
       actions:
         confirm_destroy: Ziur mezua ezabatu nahi duzula?
-        destroy: ezabatu
+        destroy: Ezabatu
         edit: Editatu
         new: Post berria
         title: Ekintzak

@@ -199,6 +199,15 @@ fr-CA:
             creation_enabled: Autoriser la création de nouvelles propositions
             default_sort_order: Tri des propositions par défaut
             default_sort_order_help: Par défaut, si les aides sont activés, les propositions seront affichées par ordre aléatoire, et si les aides sont bloqués, alors ils seront triés par l’aide le plus soutenu.
+            default_sort_order_options:
+              default: Par défaut
+              most_commented: Les plus commentées
+              most_endorsed: Les plus soutenues
+              most_followed: Les plus suivies
+              most_voted: Les plus votées
+              random: Aléatoire
+              recent: Récentes
+              with_more_authors: Avec le plus d'auteurs
             endorsements_blocked: Bloquer les soutiens
             endorsements_enabled: Activer le module de soutiens
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
