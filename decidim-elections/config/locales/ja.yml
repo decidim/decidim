@@ -683,7 +683,14 @@ ja:
             existing_user: 既存の参加者
             non_user: 新しい参加者を招待
             select_user: 名前、メールアドレス、ニックネームで検索
+            user_type: 参加者の種類
+          new:
+            create: 作成
+            title: 監視委員会メンバーを作成
         polling_officers:
+          create:
+            invalid: この投票委員の作成中に問題が発生しました
+            success: 投票委員を作成しました
           destroy:
             invalid: この投票担当者を削除する際に問題が発生しました
             success: 投票委員を削除しました
