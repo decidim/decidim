@@ -712,12 +712,66 @@ ja:
             more_polling_officers: あと %{number} 人の投票委員がいます。検索を絞り込んで探しましょう。
             no_polling_officers: 検索条件に一致する投票委員がいないか、または投票委員が存在しません。
         polling_stations:
+          create:
+            invalid: 投票所の作成中に問題が発生しました
+            success: 投票所を作成しました
+          destroy:
+            invalid: 投票所を削除する際に問題が発生しました
+            success: 投票所を削除しました
+          edit:
+            title: 投票所を編集
+            update: 投票所を更新
           form:
+            polling_station_managers_help: '投票所管理者: 投票所の代表を務める担当者。担当者がすでに投票委員として作成されていること、および他の投票所にまだ割り当てられていないことを確認してください'
             polling_station_president_help: '投票管理者:投票所の代表を務める担当者。 投票委員がすでに投票所に設置されていること、および他の投票所に割り当てられていないことを確認してください'
             select_president: 投票所の投票管理者として投票委員を選択してください
+          index:
+            title: 投票所
+          new:
+            create: 作成
+            title: 投票所の作成
+          update:
+            invalid: 投票所の更新中に問題が発生しました
+            success: 投票所を更新しました
+        titles:
+          votings: 投票
         votings:
+          actions:
+            confirm_destroy: 本当に削除してよろしいですか？
+            destroy: 削除
+            new_voting: 新しい投票スペース
+            publish: 公開
+            unpublish: 非公開にする
+          create:
+            invalid: 投票の作成中に問題が発生しました
+            success: 投票が正常に作成されました
           edit:
+            add_election_component: この投票用に設定された選挙がありません。コンポーネントセクションに追加してください。
             assign_missing_officers: 投票管理者またはマネージャーがいない投票所があります。投票所セクションからアサインしてください
+            update: 更新
+          form:
+            select_a_voting_type: 投票方式を選択してください
+            title: タイトル
+            voting_type:
+              hybrid: ハイブリッド
+              in_person: 対面
+              online: オンライン
+          new:
+            create: 作成
+            title: 新しい投票
+          publish:
+            success: 投票が正常に公開されました
+          unpublish:
+            success: 投票を非公開にしました
+      admin_log:
+        voting:
+          publish: "%{user_name} が %{resource_name} の投票を公開しました"
+          unpublish: "%{user_name} が %{resource_name} の投票を非公開にしました"
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: 本当に削除してよろしいですか？
+          destroy: 削除
+          title: アクション
       polling_officer_zone:
         polling_officers:
           show:
@@ -735,8 +789,17 @@ ja:
               no_polling_stations: まだどの投票所にも割り当てられていません。
               title: 投票所
       polling_officers:
+        actions:
+          title: アクション
         roles:
           president: 投票管理者
+      polling_stations:
+        actions:
+          confirm_destroy: 本当によろしいですか？
+          destroy: 削除
+          edit: 編集
+          new: 新規作成
+          title: アクション
       votings:
         count:
           title:
@@ -777,7 +840,7 @@ ja:
           hybrid: ハイブリッド
           in_person: 対面
           online: オンライン
-        voting_types_label: 投票タイプ
+        voting_types_label: 投票方式
   layouts:
     decidim:
       election_votes_header:
