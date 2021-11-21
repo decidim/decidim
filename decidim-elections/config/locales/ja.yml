@@ -682,6 +682,8 @@ ja:
     help:
       participatory_spaces:
         votings:
+          contextual: "<p><strong>投票</strong>は、組織を形成するすべての人に明確な質問を投げかけ、投票への参加を呼びかけ、回答の賛否の議論に火をつけ、注文をつけることができるスペースです。投票日が来たら、投票を行い、その結果を公開することができます。</p><p>例: 投票は組織に影響するどのようなことにも利用できます。例えば、いくつかの案から組織の名前やロゴを選んで変更したり、より大きな組織の一部になるかどうかをイエスかノーかで決定したり、新しい戦略計画やワーキンググループの結果の検証や拒否したり、ポジションが最大で 1、2、3 の委任のままであるべきかどうかを決定したりできます。</p>\n"
+          page: "<p><strong>投票</strong>は、組織を形成するすべての人に明確な質問を投げかけ、投票への参加を呼びかけ、回答の賛否の議論に火をつけ、注文をつけることができるスペースです。投票日が来たら、投票を行い、その結果を公開することができます。</p><p>例: 投票は組織に影響するどのようなことにも利用できます。例えば、いくつかの案から組織の名前やロゴを選んで変更したり、より大きな組織の一部になるかどうかをイエスかノーかで決定したり、新しい戦略計画やワーキンググループの結果の検証や拒否したり、ポジションが最大で 1、2、3 の委任のままであるべきかどうかを決定したりできます。</p>\n"
           title: 投票とは何ですか？
     menu:
       votings: 投票
@@ -840,6 +842,8 @@ ja:
             non_user: 新しい参加者を招待
             select_user: 名前、メールアドレス、ニックネームで検索
             user_type: 参加者の種類
+          index:
+            title: 監視委員会
           new:
             create: 作成
             title: 監視委員会メンバーを作成
@@ -893,8 +897,11 @@ ja:
             title: 投票所を編集
             update: 投票所を更新
           form:
-            polling_station_managers_help: '投票所管理者: 投票所の代表を務める担当者。担当者がすでに投票委員として作成されていること、および他の投票所にまだ割り当てられていないことを確認してください'
-            polling_station_president_help: '投票管理者:投票所の代表を務める担当者。 投票委員がすでに投票所に設置されていること、および他の投票所に割り当てられていないことを確認してください'
+            address_help: '住所: ジオコーダーが場所を見つけるために使用'
+            location_help: '場所: 投票所の正確な場所を知らせるための投票者向けメッセージ'
+            location_hints_help: '場所のヒント: 追加情報。例：投票所がある建物のフロア。'
+            polling_station_managers_help: '投票所管理者: 投票所の管理を行う担当者。担当者がすでに投票委員として作成されていること、および他の投票所に割り当てられていないことを確認してください'
+            polling_station_president_help: '投票所責任者:投票所の代表を務める担当者。 投票委員がすでに投票所に設置されていること、および他の投票所に割り当てられていないことを確認してください'
             select_president: 投票所の投票管理者として投票委員を選択してください
           index:
             title: 投票所
@@ -941,7 +948,20 @@ ja:
           update: "%{user_name} は、スペース %{space_name} のコード %{ballot_style_code} の投票スタイルを更新しました"
         census:
           create: "%{user_name} がスペース %{space_name} のセンサスを作成しました"
+          delete: "%{user_name} がスペース %{space_name} のセンサスを削除しました"
+          update: "%{user_name} がスペース %{space_name} のセンサスを更新しました"
+        monitoring_committee_member:
+          create: "%{user_name} がユーザー %{monitoring_committee_member_user} をスペース %{space_name} の監視委員に指名しました"
+          delete: "%{user_name} は、 %{monitoring_committee_member_user} をスペース %{space_name} の監視委員の割り当てから解除しました"
+        polling_officer:
+          create: "%{user_name} がユーザー %{polling_officer_user} をスペース %{space_name} の投票委員に割り当てました"
+          delete: "%{user_name} は、 %{polling_officer_user} をスペース %{space_name} の投票委員の割り当てから解除しました"
+        polling_station:
+          create: "%{user_name} がスペース %{resource_name} で投票所 %{space_name} を作成しました"
+          delete: "%{user_name} がスペース %{resource_name} の投票所 %{space_name} を削除しました"
+          update: "%{user_name} がスペース %{resource_name} の投票所 %{space_name} を更新しました"
         voting:
+          create: "%{user_name} が %{resource_name} の投票を作成しました"
           publish: "%{user_name} が %{resource_name} の投票を公開しました"
           unpublish: "%{user_name} が %{resource_name} の投票を非公開にしました"
       census:
@@ -951,6 +971,8 @@ ja:
               info_message: "<strong>センサスはまだありません。</strong> 以下のフォームを使用してCSVファイルをインポートしてください。"
               title: センサスを作成
       content_blocks:
+        highlighted_votings:
+          name: 注目の投票
         landing_page:
           description:
             show_less: 詳細を閉じる
@@ -961,7 +983,13 @@ ja:
         actions:
           confirm_destroy: 本当に削除してよろしいですか？
           destroy: 削除
+          new: 新規メンバー
           title: アクション
+      pages:
+        home:
+          highlighted_votings:
+            active_votings: アクティブな投票
+            see_all_votings: すべての投票を表示
       polling_officer_zone:
         closures:
           edit:
@@ -979,6 +1007,17 @@ ja:
           new:
             modal_ballots_count_error:
               title: 合計レコードが追加されていません
+          sign:
+            cancel: キャンセル
+            check_box: 私はこれをレビューし、物理的な選挙閉鎖証明書と同じであることを確認しました
+            close_modal: 閉じる
+            confirm: はい、続行します
+            error: エラーが発生しました。もう一度やり直してください。
+            submit: 閉鎖に署名する
+            success: 閉鎖の署名に成功しました。
+            title: このアクションは元に戻せません
+          update:
+            error: 閉鎖結果の更新中にエラーが発生しました。後でもう一度お試しください。
         in_person_votes:
           new:
             title: 参加者を特定して確認する
@@ -990,17 +1029,29 @@ ja:
           index:
             polling_officer_role_description: あなたは、このプラットフォームで行われるいくつかの選挙で、投票所の責任者(長またはマネージャー) として行動するように割り当てられています。
             polling_station:
+              address: 住所
+              count_votes: 投票数の集計
+              election: 選挙
+              identify_person: 個人を特定する
+              name: 名前
               no_polling_stations: まだどの投票所にも割り当てられていません。
-              role: あなたの役割
+              role: 役割
+              show_closure: 閉鎖情報を表示
+              title: 投票所
               voting: 投票
       polling_officers:
         actions:
+          confirm_destroy: 本当に削除してよろしいですか？
+          destroy: 削除
+          new: 新規作成
           title: アクション
         roles:
-          president: 投票管理者
+          manager: マネージャー
+          president: 投票責任者
+          unassigned: 未割り当て
       polling_stations:
         actions:
-          confirm_destroy: 本当によろしいですか？
+          confirm_destroy: 本当に削除してよろしいですか？
           destroy: 削除
           edit: 編集
           new: 新規作成
