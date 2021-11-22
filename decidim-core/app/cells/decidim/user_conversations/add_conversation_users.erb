@@ -9,6 +9,8 @@
       <div class="row columns autocomplete_search" data-name="recipient_id[]" data-multiple="true">
         <label for="autocomplete"><%= t "decidim.user_conversations.index.add_max_users" %></label>
         <input id="autocomplete" type="text"
+            spellcheck="false"
+            autocomplete="off"
             placeholder="<%= t("decidim.user_conversations.index.add_users_placeholder") %>"
             data-noresults="<%= t("decidim.user_conversations.index.no_results") %>"
             contenteditable="true"
