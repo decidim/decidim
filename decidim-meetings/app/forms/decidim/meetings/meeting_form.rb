@@ -51,7 +51,7 @@ module Decidim
 
       def map_model(model)
         self.decidim_category_id = model.categorization.decidim_category_id if model.categorization
-        presenter = MeetingPresenter.new(model)
+        presenter = MeetingEditionPresenter.new(model)
         self.title = presenter.title(all_locales: false)
         self.description = presenter.description(all_locales: false)
         self.location = presenter.location(all_locales: false)
