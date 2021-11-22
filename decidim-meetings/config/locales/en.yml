@@ -121,10 +121,16 @@ en:
         settings:
           global:
             announcement: Announcement
+            close_report_notifications: Close meeting report notifications
+            close_report_reminder_notifications: Close meeting report reminder notifications
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
             creation_enabled_for_participants: Participants can create meetings
             default_registration_terms: Default registration terms
+            enable_cr_initial_notifications: Enable notifications for meeting close
+              report
+            enable_cr_reminder_notifications: Enable reminder notifications for meeting
+              close report
             enable_pads_creation: Enable pads creation
             maps_enabled: Maps enabled
             registration_code_enabled: Registration code enabled
@@ -391,6 +397,31 @@ en:
         calendar_url: Calendar URL
         close_window: Close window
         export_calendar: Export calendar
+      close_meeting_reminder_mailer:
+        first_notification:
+          body_1: Thank you for taking part in the %{organization_name} by organizing
+            the meeting '%{meeting_title}'. We hope you had a successful meeting and
+            a lively discussion. We invite you to add a meeting report by using the
+            'Close Meeting' button on the meeting page.
+          body_2: Sharing a meeting report ensures that participant have access to
+            the ideas that were exchanged at your event and that these ideas can be
+            taken into account in the analysis, allowing proper feedback and follow-up.
+          body_3: In the report, it would be useful to include information on the
+            type of the meeting (e.g. participatory workshop, open space, world café),
+            the number of participants and their demographic background (e.g. age,
+            gender), the main subjects discussed and ideas suggested, the arguments
+            that led to them, as well as the general atmosphere and expected follow-up.
+            Please indicate the number of participants in the dedicated field when
+            completing your meeting report.
+          body_4: We also encourage you to link proposals that emerged in the meeting
+            to the ideas which have already been published on the platform. This is
+            important for the analysis.
+          body_5: Your participation is greatly appreciated, please do not hesitate
+            to contact us should you have any questions.
+          greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Dear %{username},
+          subject: You can now close your event with a report on the %{organization_name}
+            platform
       conference_venues: Conference Venues
       content_blocks:
         upcoming_meetings:
