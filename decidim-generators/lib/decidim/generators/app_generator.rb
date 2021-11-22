@@ -228,7 +228,7 @@ module Decidim
         @gem_modifier ||= if options[:path]
                             "path: \"#{options[:path]}\""
                           elsif branch.present?
-                            "git: \"https://github.com/tremend-cofe/decidim.git\", branch: \"#{branch}\""
+                            "git: \"https://github.com/decidim/decidim.git\", branch: \"#{branch}\""
                           else
                             "\"#{Decidim::Generators.version}\""
                           end
