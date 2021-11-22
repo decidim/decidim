@@ -35,6 +35,8 @@ $list-border: 1px solid $custom-gray;
   }
 
   span{
+    color: $black;
+
     &.author__avatar{
       display: inline-block;
       vertical-align: middle;
