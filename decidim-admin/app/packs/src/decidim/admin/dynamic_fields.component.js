@@ -6,8 +6,10 @@ class DynamicFieldsComponent {
     this.fieldSelector = options.fieldSelector;
     this.addFieldButtonSelector = options.addFieldButtonSelector;
     this.addSeparatorButtonSelector = options.addSeparatorButtonSelector;
+    this.addTextSeparatorButtonSelector = options.addTextSeparatorButtonSelector;
     this.fieldTemplateSelector = options.fieldTemplateSelector;
     this.separatorTemplateSelector = options.separatorTemplateSelector;
+    this.TextSeparatorTemplateSelector = options.TextSeparatorTemplateSelector;
     this.removeFieldButtonSelector = options.removeFieldButtonSelector;
     this.moveUpFieldButtonSelector = options.moveUpFieldButtonSelector;
     this.moveDownFieldButtonSelector = options.moveDownFieldButtonSelector;
@@ -81,6 +83,12 @@ class DynamicFieldsComponent {
     if (this.addSeparatorButtonSelector) {
       $(this.wrapperSelector).on("click", this.addSeparatorButtonSelector, (event) =>
         this._bindSafeEvent(event, () => this._addField(this.separatorTemplateSelector))
+      );
+    }
+
+    if (this.addTextSeparatorButtonSelector) {
+      $(this.wrapperSelector).on("click", this.addTextSeparatorButtonSelector, (event) =>
+        this._bindSafeEvent(event, () => this._addField(this.TextSeparatorTemplateSelector))
       );
     }
 

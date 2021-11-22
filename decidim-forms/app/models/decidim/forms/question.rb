@@ -8,7 +8,8 @@ module Decidim
 
       QUESTION_TYPES = %w(short_answer long_answer single_option multiple_option sorting files matrix_single matrix_multiple).freeze
       SEPARATOR_TYPE = "separator"
-      TYPES = (QUESTION_TYPES + [SEPARATOR_TYPE]).freeze
+      TEXT_SEPARATOR_TYPE = "text_separator"
+      TYPES = (QUESTION_TYPES + [SEPARATOR_TYPE] + [TEXT_SEPARATOR_TYPE]).freeze
 
       translatable_fields :body, :description
 
@@ -82,6 +83,10 @@ module Decidim
 
       def separator?
         question_type.to_s == SEPARATOR_TYPE
+      end
+
+      def text_separator?
+        question_type.to_s == TEXT_SEPARATOR_TYPE
       end
 
       def has_attachments?
