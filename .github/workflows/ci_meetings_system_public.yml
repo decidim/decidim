@@ -25,6 +25,7 @@ env:
   RUBY_VERSION: 2.7.1
   NODE_VERSION: 16.9.1
   DECIDIM_MODULE: decidim-meetings
+  BIG_SCREEN_SIZE: "true"
 
 jobs:
   main:
