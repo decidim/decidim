@@ -1,5 +1,4 @@
 ---
-
 en:
   activemodel:
     attributes:
@@ -34,15 +33,6 @@ en:
             description: Description
             tos: Terms of service
         questionnaires:
-          text_separator:
-            collapse: Collapse
-            expand: Expand
-            text_separator: Text separator
-            title: Title
-            up: Up
-            down: Down
-            remove: Remove
-            description: Description
           actions:
             back: Back to questions
             show: Show responses
@@ -88,9 +78,9 @@ en:
             save: Save
             title: Edit questionnaire
           form:
-            add_text_separator: Add text separator
             add_question: Add question
             add_separator: Add separator
+            add_text_separator: Add text separator
             already_answered_warning: The form is already answered by some users so you cannot modify its questions.
             collapse: Collapse all questions
             expand: Expand all questions
@@ -119,6 +109,15 @@ en:
             down: Down
             remove: Remove
             separator: Separator
+            up: Up
+          text_separator:
+            collapse: Collapse
+            description: Description
+            down: Down
+            expand: Expand
+            remove: Remove
+            text_separator: Text separator
+            title: Title
             up: Up
           update:
             invalid: There was a problem saving the form.
