@@ -33,7 +33,6 @@ Gem::Specification.new do |s|
   s.add_dependency "diffy", "~> 3.3"
   s.add_dependency "doorkeeper", "~> 5.1"
   s.add_dependency "doorkeeper-i18n", "~> 4.0"
-  s.add_dependency "etherpad-lite", "~> 0.3"
   s.add_dependency "file_validators", "~> 2.1"
   s.add_dependency "fog-local", "~> 0.6"
   s.add_dependency "foundation_rails_helper"
