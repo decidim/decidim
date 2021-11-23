@@ -10,11 +10,11 @@ In order to develop on decidim, you'll need:
 * *ImageMagick*
 * *Chrome* browser and https://sites.google.com/a/chromium.org/chromedriver/[chromedriver].
 
-We're starting with an Ubuntu 20.04 LTS. This is an opinionated guide, so you're free to use the technology that you are most comfortable. If you have any doubts and you're blocked you can go and ask on https://matrix.to/#/#decidimdevs:matrix.org[our Matrix.org chat room for developers].
+We're starting with an Ubuntu 20.04.2 LTS. This is an opinionated guide, so you're free to use the technology that you are most comfortable. If you have any doubts and you're blocked you can go and ask on https://matrix.to/#/#decidimdevs:matrix.org[our Matrix.org chat room for developers].
 
 We recommend to have at least some basic proficiency in Ruby on Rails (a good starting point is http://guides.rubyonrails.org/getting_started.html[Getting Started with Ruby on Rails]) and have some knowledge on how gems work.
 
-In this guide, we'll see how to install rbenv, PostgreSQL and, Decidim, and how to configure everything together.
+In this guide, we'll see how to install rbenv, PostgreSQL, Node.js and, Decidim, and how to configure everything together.
 
 == 1. Installing rbenv
 
@@ -23,7 +23,7 @@ First, we're going to install https://github.com/rbenv/rbenv[rbenv], for managin
 [source,bash]
 ----
 sudo apt update
-sudo apt install -y build-essential git libssl-dev zlib1g-dev
+sudo apt install -y build-essential curl git libssl-dev zlib1g-dev
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
@@ -45,13 +45,26 @@ sudo -u postgres psql -c "CREATE USER decidim_app WITH SUPERUSER CREATEDB NOCREA
 
 You need to change the password (in this example is "thepassword") and save it somewhere to configure it later with the application.
 
-== 3. Installing Decidim
+== 3. Installing Node.js
+
+An important component for Decidim is Node.js and Yarn. With this commands you will install them:
+
+[source,bash]
+----
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt-get install -y nodejs
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
+echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get update && sudo apt-get install -y yarn
+----
+
+== 4. Installing Decidim
 
 Next, we need to install the `decidim` gem with its dependencies:
 
 [source,bash]
 ----
-sudo apt install -y libicu-dev nodejs imagemagick
+sudo apt install -y libicu-dev imagemagick
 gem install decidim
 ----
 
@@ -71,22 +84,15 @@ git add .
 git commit -m "Initial commit. Generated with Decidim https://decidim.org"
 ----
 
-== 4. Configure the database
+== 5. Configure the database
 
 Modify your secrets (see `config/database.yml`). For this you can use https://github.com/laserlemon/figaro[figaro], https://github.com/bkeepers/dotenv[dotenv] or https://github.com/rbenv/rbenv-vars[rbenv-vars]. You should always be careful of not uploading your plain secrets on git or your version control system. You can also upload the encrypted secrets, using the sekrets gem or if you're on Ruby on Rails greater than 5.1 you can do it natively.
 
-For instance, for working with figaro, add this to your `Gemfile`:
-
-[source,ruby]
-----
-gem "figaro"
-----
-
-Then install it:
+For instance, for working with figaro, you'll need to install it:
 
 [source,bash]
 ----
-bundle install
+bundle add figaro
 bundle exec figaro install
 ----
 
@@ -107,7 +113,7 @@ git add .
 git commit -m "Add figaro configuration management"
 ----
 
-== 5. Initializing your app for local development
+== 6. Initializing your app for local development
 
 We should now create your database:
 
@@ -119,7 +125,7 @@ bin/rails db:seed
 
 This will also create some default data so you can start testing the app, with an administrator account with email admin@example.org and password `decidim123456`
 
-== 6. Start your web server
+== 7. Start your web server
 
 You can now start your server!
 
