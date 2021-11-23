@@ -420,7 +420,7 @@ en:
             to contact us should you have any questions.
           greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Dear %{username},
-          subject: You can now close your event with a report on the %{organization_name}
+          subject: You can now close your meeting with a report on the %{organization_name}
             platform
       conference_venues: Conference Venues
       content_blocks:
