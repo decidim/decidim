@@ -9,6 +9,39 @@
 
 ### Removed
 
+## [0.25.2](https://github.com/decidim/decidim/tree/v0.25.2)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-surveys**: Backport fix notification after creating survey [\#8467](https://github.com/decidim/decidim/pull/8467)
+- **decidim-budgets**, **decidim-comments**: Backport comment's get link in project view (#8450) [\#8469](https://github.com/decidim/decidim/pull/8469)
+- **decidim-core**: Backport "Fix 404 link in 'how to participate' home content block" to v0.25 [\#8521](https://github.com/decidim/decidim/pull/8521)
+- **decidim-system**: Backport "Add `pptx` in allowed_file_extensions (of admin)" to v0.25 [\#8533](https://github.com/decidim/decidim/pull/8533)
+- **decidim-generators**: Backport "Freezing webpacker to RC.5 until RC.7 is fixed" to v0.25 [\#8536](https://github.com/decidim/decidim/pull/8536)
+- **decidim-meetings**: Backport "Fix meetings with multiple dates" to v0.25 [\#8522](https://github.com/decidim/decidim/pull/8522)
+- **decidim-conferences**: Backport "Fix conference speakers when there isn't any avatar" to v0.25 [\#8538](https://github.com/decidim/decidim/pull/8538)
+- **decidim-assemblies**, **decidim-participatory processes**: Backport "Fix the copy of components weights in participatory processes and assemblies" to v0.25 [\#8539](https://github.com/decidim/decidim/pull/8539)
+
+### Improved
+
+Nothing.
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
 ## [0.25.1](https://github.com/decidim/decidim/tree/v0.25.1)
 
 ### Added
