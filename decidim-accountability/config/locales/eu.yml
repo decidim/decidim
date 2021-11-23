@@ -217,7 +217,7 @@ eu:
             heading_parent_level_results: '"Emaitzak" izena'
             intro: Intro
             scope_id: Esparrua
-            scopes_enabled: Esparru gaituak
+            scopes_enabled: Esparruak gaituak
             subcategories_label: Izena "Azpikategoriak" izenarekin
           step:
             comments_blocked: Iruzkinak blokeatuta
