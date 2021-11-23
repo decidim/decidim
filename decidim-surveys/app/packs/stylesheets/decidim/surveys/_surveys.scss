@@ -1,31 +1,31 @@
 @import "stylesheets/decidim/forms/forms";
 
-.answer-questionnaire {
-  label {
+.answer-questionnaire{
+  label{
     font-size: inherit;
   }
 
   .radio-button-collection,
   .check-box-collection,
-  .sortable-check-box-collection {
+  .sortable-check-box-collection{
     margin: 0 0 1rem;
   }
 
-  .tos-agreement {
+  .tos-agreement{
     margin: 1rem 0 0;
 
-    .help-text {
+    .help-text{
       margin: .2rem 0 0;
     }
   }
 
-  .questionnaire-question {
+  .questionnaire-question{
     font-weight: 600;
     line-height: 1.4;
     margin-bottom: .3em;
   }
 
-  .questionnaire-text_separator {
+  .questionnaire-text_separator{
     font-size: 2rem;
     font-weight: 600;
     padding-left: 1rem;
@@ -33,32 +33,32 @@
     margin-bottom: .3em;
   }
 
-  .help-text_separator {
+  .help-text_separator{
     padding-left: 1rem;
     margin-bottom: 2rem;
 
-    .ql-video {
+    .ql-video{
       margin: .5em auto;
     }
   }
 
-  .help-text {
+  .help-text{
     margin-top: .5em;
 
-    .ql-video {
+    .ql-video{
       margin: .5em auto;
     }
   }
 
-  .last-sorted {
+  .last-sorted{
     margin-bottom: 1rem;
   }
 
-  &__steps {
+  &__steps{
     font-size: .8rem;
   }
 
-  &__submit {
+  &__submit{
     display: flex;
     align-items: baseline;
     justify-content: space-between;
