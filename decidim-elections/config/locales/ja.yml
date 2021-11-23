@@ -587,6 +587,8 @@ ja:
     help:
       participatory_spaces:
         votings:
+          contextual: "<p><strong>投票</strong>は、組織を形成するすべての人に明確な質問を投げかけ、投票への参加を呼びかけ、回答の賛否の議論に火をつけ、注文をつけることができるスペースです。投票日が来たら、投票を行い、その結果を公開することができます。</p><p>例: 投票は組織に影響するどのようなことにも利用できます。例えば、いくつかの案から組織の名前やロゴを選んで変更したり、より大きな組織の一部になるかどうかをイエスかノーかで決定したり、新しい戦略計画やワーキンググループの結果の検証や拒否したり、ポジションが最大で 1、2、3 の委任のままであるべきかどうかを決定したりできます。</p>\n"
+          page: "<p><strong>投票</strong>は、組織を形成するすべての人に明確な質問を投げかけ、投票への参加を呼びかけ、回答の賛否の議論に火をつけ、注文をつけることができるスペースです。投票日が来たら、投票を行い、その結果を公開することができます。</p><p>例: 投票は組織に影響するどのようなことにも利用できます。例えば、いくつかの案から組織の名前やロゴを選んで変更したり、より大きな組織の一部になるかどうかをイエスかノーかで決定したり、新しい戦略計画やワーキンググループの結果の検証や拒否したり、ポジションが最大で 1、2、3 の委任のままであるべきかどうかを決定したりできます。</p>\n"
           title: 投票とは何ですか？
     menu:
       votings: 投票
@@ -683,7 +685,16 @@ ja:
             existing_user: 既存の参加者
             non_user: 新しい参加者を招待
             select_user: 名前、メールアドレス、ニックネームで検索
+            user_type: 参加者の種類
+          index:
+            title: 監視委員会
+          new:
+            create: 作成
+            title: 監視委員会メンバーを作成
         polling_officers:
+          create:
+            invalid: この投票委員の作成中に問題が発生しました
+            success: 投票委員を作成しました
           destroy:
             invalid: この投票担当者を削除する際に問題が発生しました
             success: 投票委員を削除しました
@@ -705,31 +716,112 @@ ja:
             more_polling_officers: あと %{number} 人の投票委員がいます。検索を絞り込んで探しましょう。
             no_polling_officers: 検索条件に一致する投票委員がいないか、または投票委員が存在しません。
         polling_stations:
-          form:
-            polling_station_president_help: '投票管理者:投票所の代表を務める担当者。 投票委員がすでに投票所に設置されていること、および他の投票所に割り当てられていないことを確認してください'
-            select_president: 投票所の投票管理者として投票委員を選択してください
-        votings:
+          create:
+            invalid: 投票所の作成中に問題が発生しました
+            success: 投票所を作成しました
+          destroy:
+            invalid: 投票所を削除する際に問題が発生しました
+            success: 投票所を削除しました
           edit:
+            title: 投票所を編集
+            update: 投票所を更新
+          form:
+            address_help: '住所: ジオコーダーが場所を見つけるために使用'
+            location_help: '場所: 投票所の正確な場所を知らせるための投票者向けメッセージ'
+            location_hints_help: '場所のヒント: 追加情報。例：投票所がある建物のフロア。'
+            polling_station_managers_help: '投票所管理者: 投票所の管理を行う担当者。担当者がすでに投票委員として作成されていること、および他の投票所に割り当てられていないことを確認してください'
+            polling_station_president_help: '投票所責任者:投票所の代表を務める担当者。 投票委員がすでに投票所に設置されていること、および他の投票所に割り当てられていないことを確認してください'
+            select_president: 投票所の投票管理者として投票委員を選択してください
+          index:
+            title: 投票所
+          new:
+            create: 作成
+            title: 投票所の作成
+          update:
+            invalid: 投票所の更新中に問題が発生しました
+            success: 投票所を更新しました
+        titles:
+          votings: 投票
+        votings:
+          actions:
+            confirm_destroy: 本当に削除してよろしいですか？
+            destroy: 削除
+            new_voting: 新しい投票スペース
+            publish: 公開
+            unpublish: 非公開にする
+          create:
+            invalid: 投票の作成中に問題が発生しました
+            success: 投票が正常に作成されました
+          edit:
+            add_election_component: この投票用に設定された選挙がありません。コンポーネントセクションに追加してください。
             assign_missing_officers: 投票管理者またはマネージャーがいない投票所があります。投票所セクションからアサインしてください
+            update: 更新
+          form:
+            select_a_voting_type: 投票方式を選択してください
+            title: タイトル
+            voting_type:
+              hybrid: ハイブリッド
+              in_person: 対面
+              online: オンライン
+          new:
+            create: 作成
+            title: 新しい投票
+          publish:
+            success: 投票が正常に公開されました
+          unpublish:
+            success: 投票を非公開にしました
+      admin_log:
+        voting:
+          create: "%{user_name} が %{resource_name} の投票を作成しました"
+          publish: "%{user_name} が %{resource_name} の投票を公開しました"
+          unpublish: "%{user_name} が %{resource_name} の投票を非公開にしました"
+      content_blocks:
+        highlighted_votings:
+          name: 注目の投票
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: 本当に削除してよろしいですか？
+          destroy: 削除
+          new: 新規メンバー
+          title: アクション
+      pages:
+        home:
+          highlighted_votings:
+            active_votings: アクティブな投票
+            see_all_votings: すべての投票を表示
       polling_officer_zone:
         polling_officers:
           show:
             actions:
               count_votes: 投票箱の投票数をカウント
-              identify_person: 本人確認と本人確認を行う
+              identify_person: 本人の特定と検証を行う
             polling_officer_role_description: あなたは、このプラットフォームで行われるいくつかの選挙で、投票所の責任者(長またはマネージャー) として行動するように割り当てられています。
             polling_stations:
               list:
                 actions: アクション
                 address: 住所
                 name: 名前
-                role: あなたの役割
+                role: 役割
                 voting: 投票
               no_polling_stations: まだどの投票所にも割り当てられていません。
               title: 投票所
       polling_officers:
+        actions:
+          confirm_destroy: 本当に削除してよろしいですか？
+          destroy: 削除
+          new: 新規作成
+          title: アクション
         roles:
-          president: 投票管理者
+          manager: マネージャー
+          president: 投票責任者
+          unassigned: 未割り当て
+      polling_stations:
+        actions:
+          confirm_destroy: 本当に削除してよろしいですか？
+          destroy: 削除
+          edit: 編集
+          new: 新規作成
+          title: アクション
       votings:
         count:
           title:
@@ -770,7 +862,7 @@ ja:
           hybrid: ハイブリッド
           in_person: 対面
           online: オンライン
-        voting_types_label: 投票タイプ
+        voting_types_label: 投票方式
   layouts:
     decidim:
       election_votes_header:
