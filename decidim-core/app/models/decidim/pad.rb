@@ -12,22 +12,26 @@ module Decidim
 
     attr_reader :id
 
-    # Returns the Pad's read-only id. Used when pad isn't writable.
+    # Read only means that pad is not writable.
     def read_only_id
-      @read_only_id ||= resolve_read_only_id("/api/#{@api_version}/getReadOnlyID", { padID: id })
+      @read_only_id ||= resolve(:getReadOnlyID, { padID: id })[:readOnlyID]
+    end
+
+    def text
+      resolve(:getText)
     end
 
     private
 
-    attr_reader :api_key, :uri
+    attr_reader :api_key, :uri, :api_version
 
-    def resolve_read_only_id(path, params)
-      result = get(path, params)
+    def resolve(method, params = {})
+      result = get("/api/#{api_version}/#{method}", params)
       response = JSON.parse(result.body.to_s, symbolize_names: true)
 
       case response[:code]
       when 0 then response[:data]
-      when (1..4) then raise Error, response[:message]
+      when (1..4) then raise StandardError, response[:message]
       else raise Error, "An unknown error ocurrced while handling the API response: #{response}"
       end
     end
