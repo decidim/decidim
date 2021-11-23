@@ -330,8 +330,19 @@ describe "Authentication", type: :system do
           perform_enqueued_jobs { find("*[type=submit]").click }
         end
 
-        expect(page).to have_content("reset your password")
+        expect(page).to have_content("If your email address exists in our database")
         expect(emails.count).to eq(1)
+      end
+
+      it "says it sends a password recovery email when is a non-existing email" do
+        visit decidim.new_user_password_path
+
+        within ".new_user" do
+          fill_in :password_user_email, with: "nonexistent@example.org"
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("If your email address exists in our database")
       end
     end
 
@@ -389,14 +400,14 @@ describe "Authentication", type: :system do
             end
           end
 
-          it "shows the last attempt warning before locking the account" do
+          it "doesn't show the last attempt warning before locking the account" do
             within ".new_user" do
               fill_in :session_user_email, with: user.email
               fill_in :session_user_password, with: "not-the-pasword"
               find("*[type=submit]").click
             end
 
-            expect(page).to have_content("You have one more attempt before your account is locked.")
+            expect(page).to have_content("Invalid")
           end
         end
 
@@ -421,7 +432,7 @@ describe "Authentication", type: :system do
               perform_enqueued_jobs { find("*[type=submit]").click }
             end
 
-            expect(page).to have_content("Your account is locked.")
+            expect(page).to have_content("Invalid")
             expect(emails.count).to eq(1)
           end
         end
@@ -440,8 +451,17 @@ describe "Authentication", type: :system do
             perform_enqueued_jobs { find("*[type=submit]").click }
           end
 
-          expect(page).to have_content("You will receive an email with instructions for how to unlock your account in a few minutes.")
+          expect(page).to have_content("If your account exists")
           expect(emails.count).to eq(1)
+        end
+
+        it "says it resends the unlock instructions when is a non-existing user account" do
+          within ".new_user" do
+            fill_in :unlock_user_email, with: user.email
+            find("*[type=submit]").click
+          end
+
+          expect(page).to have_content("If your account exists")
         end
       end
 
