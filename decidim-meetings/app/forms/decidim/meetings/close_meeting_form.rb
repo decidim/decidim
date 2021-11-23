@@ -20,7 +20,7 @@ module Decidim
       # Returns nothing.
       def map_model(model)
         self.proposal_ids = model.linked_resources(:proposals, "proposals_from_meeting").pluck(:id)
-        presenter = MeetingPresenter.new(model)
+        presenter = MeetingEditionPresenter.new(model)
         self.closing_report = presenter.closing_report(all_locales: false)
       end
 
