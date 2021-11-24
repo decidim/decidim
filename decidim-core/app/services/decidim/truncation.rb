@@ -2,9 +2,6 @@
 
 module Decidim
   class Truncation
-    include ActionView::Context
-    include ActionView::Helpers::TagHelper
-
     # Truncates text and html content
     # text - Content to be truncated
     # options - Hash with the options
@@ -29,27 +26,42 @@ module Decidim
     # Truncate text or html content added in constructor
     # Returns truncated html
     def truncate
-      content_array = []
-
-      document.children.each do |node|
-        if node_length(node) > @remaining
-          content_array << truncate_last_node(node)
-          break
-        end
-
-        change_quotes(node)
-        content_array << node.to_html
-        @remaining -= node_length(node)
-      end
+      cut_children(document, options[:count_tags])
+      change_quotes(document)
+      add_tail(document) if @remaining.negative? && !@tail_added
 
       # Nokogiri's to_html escapes &quot; to &amp;quot; and we do not want extra &amp so we have to unescape.
-      CGI.unescape_html content_array.join.html_safe
+      CGI.unescape_html document.to_html
     end
 
     private
 
-    attr_accessor :tail_added, :remaining
+    attr_accessor :tail_added
     attr_reader :document, :options
+
+    def cut_children(node, count_html)
+      return @remaining -= node_length(node) if @remaining >= node_length(node)
+      return node.unlink if @remaining.negative?
+      return cut_with_tags(node) if count_html && @remaining < node_length(node)
+
+      if node.children.empty?
+        if @remaining <= node_length(node)
+          node.content = cut_content(node)
+          @remaining = -1
+        end
+
+        return
+      end
+
+      node.children.each do |child|
+        cut_children(child, count_html)
+      end
+    end
+
+    def cut_with_tags(node)
+      @remaining -= node.to_html.length - node.content.length - closing_tag_length(node)
+      cut_children(node, false)
+    end
 
     def change_quotes(node)
       node.content = node.content.gsub("\"", "&quot\;") if node.is_a? Nokogiri::XML::Text
@@ -60,58 +72,19 @@ module Decidim
       end
     end
 
-    def truncate_last_node(node)
-      if node.children.count <= 1
-        @remaining = (@remaining - opening_tag_length(node)) if options[:count_tags]
-        target = find_target(node) || node
-        target.content = cut_content(target)
-        return node_to_html(node)
-      end
+    def add_tail(document)
+      return if document.children.empty?
 
-      cut_children(node)
-      node_to_html(node)
-    end
-
-    def node_to_html(node)
-      node.add_child(Nokogiri::XML::Text.new(options[:tail], document)) if add_tail_node?(node)
-      change_quotes(node)
-      node.to_html
+      document.add_child(Nokogiri::XML::Text.new(options[:tail], document)) if document.children[-1].is_a? Nokogiri::XML::Text
+      document.children[-1].add_child(Nokogiri::XML::Text.new(options[:tail], document))
+      @tail_added = true
     end
 
     def cut_content(node)
-      tail = add_tail_node?(node) ? "" : options[:tail]
+      tail = options[:tail_before_final_tag] ? "" : options[:tail]
       @tail_added = true if tail.present?
 
       "#{node.content.truncate(@remaining, omission: "")}#{tail}"
-    end
-
-    def cut_children(node)
-      cutted = false
-      node.children.each do |child|
-        if !cutted && node_length(child) > @remaining
-          child.content = cut_content(child)
-          cutted = true
-        elsif cutted
-          child.unlink
-        end
-        @remaining -= node_length(child)
-      end
-    end
-
-    def find_target(node)
-      return node if node.children.empty?
-
-      node.children.each do |child|
-        if node_length(child) > @remaining
-          return child if child.children.count <= 1
-
-          return find_target(child)
-        end
-
-        @remaining -= node_length(child)
-      end
-
-      node.children.first
     end
 
     def initial_remaining
@@ -120,18 +93,12 @@ module Decidim
       options[:max_length] - options[:tail].length
     end
 
-    def opening_tag_length(node)
-      node.to_html.length - node.content.length - (node.name.length + 3) # 3 = </>
+    def closing_tag_length(node)
+      node.to_html.slice(node.to_html.index(node.content)..-1).sub(node.content, "").length
     end
 
     def node_length(node)
       options[:count_tags] ? node.to_html.length : node.content.length
-    end
-
-    def add_tail_node?(node)
-      return false if @tail_added
-
-      options[:tail_before_final_tag] && node.children.present?
     end
   end
 end
