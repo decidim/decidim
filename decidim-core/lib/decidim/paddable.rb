@@ -30,7 +30,6 @@ module Decidim
         return if Decidim.etherpad.blank?
         return unless component.settings.enable_pads_creation
 
-        # @pad ||= etherpad.pad(pad_id)
         @pad ||= ::Decidim::Etherpad::Pad.new(pad_id)
       end
 
