@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  class Truncation
+  class HtmlTruncation
     # Truncates text and html content
     # text - Content to be truncated
     # options - Hash with the options
@@ -19,19 +19,19 @@ module Decidim
         tail_before_final_tag: options[:tail_before_final_tag] || false
       }
       @document = Nokogiri::HTML::DocumentFragment.parse(text)
-      @tail_added = false
-      @remaining = initial_remaining
     end
 
     # Truncate text or html content added in constructor
     # Returns truncated html
-    def truncate
+    def perform
+      @tail_added = false
+      @remaining = initial_remaining
       cut_children(document, options[:count_tags])
       change_quotes(document)
       add_tail(document) if @remaining.negative? && !@tail_added
 
       # Nokogiri's to_html escapes &quot; to &amp;quot; and we do not want extra &amp so we have to unescape.
-      CGI.unescape_html document.to_html
+      CGI.unescape_html(document.to_html).gsub("\n", "")
     end
 
     private
@@ -73,10 +73,13 @@ module Decidim
     end
 
     def add_tail(document)
-      return if document.children.empty?
+      return if document.children.empty? || @tail_added
 
-      document.add_child(Nokogiri::XML::Text.new(options[:tail], document)) if document.children[-1].is_a? Nokogiri::XML::Text
-      document.children[-1].add_child(Nokogiri::XML::Text.new(options[:tail], document))
+      if document.children[-1].is_a? Nokogiri::XML::Text
+        document.add_child(Nokogiri::XML::Text.new(options[:tail], document))
+      else
+        document.children[-1].add_child(Nokogiri::XML::Text.new(options[:tail], document))
+      end
       @tail_added = true
     end
 

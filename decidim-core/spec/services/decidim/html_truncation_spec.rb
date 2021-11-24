@@ -2,8 +2,8 @@
 
 require "spec_helper"
 
-describe Decidim::Truncation do
-  let(:subject) { described_class.new(text, options).truncate }
+describe Decidim::HtmlTruncation do
+  let(:subject) { described_class.new(text, options).perform }
   let(:options) do
     {
       max_length: max_length,
@@ -89,7 +89,7 @@ describe Decidim::Truncation do
       tags.each do |tag|
         test_text = "#{outer_before}#{tag[:opening]}#{inner_text}#{tag[:closing]}#{outer_after}"
         truncate_length = max_length - outer_before.length + options[:tail].length
-        expect(described_class.new(test_text, options).truncate).to eq("#{outer_before}#{tag[:opening]}#{inner_text.truncate(truncate_length, omission: options[:tail])}#{tag[:closing]}")
+        expect(described_class.new(test_text, options).perform).to eq("#{outer_before}#{tag[:opening]}#{inner_text.truncate(truncate_length, omission: options[:tail])}#{tag[:closing]}")
       end
     end
   end
@@ -117,6 +117,29 @@ describe Decidim::Truncation do
 
     it "cuts inside tags" do
       expect(subject).to eq("<p>Lorem <strong>ipsum <i>dolor</i> sit amet</strong>, consectetuer adipiscing elit.</p> <p>Sed posuere interdum sem. Quisque ligula <em>e...</em></p>")
+    end
+  end
+
+  describe "HTML content with deeper elements" do
+    let(:text) do
+      %(
+        <div>
+          <article>
+            <h2>Foo</h2>
+            <div>
+              <p>Lorem <strong>ipsum <i>dolor</i> sit amet</strong>, consectetuer adipiscing elit.</p>
+              <p>Sed posuere interdum sem. Quisque ligula <em>eros ullamcorper <strong>quis</strong>, lacinia</em> quis facilisis sed sapien.</p>
+              <p><a href="#">Read more</a></p>
+            </div>
+          </article>
+        </div>
+      ).gsub(/\s{2,}/, "").gsub("\n", "")
+    end
+    let(:expected) { "<div><article><h2>Foo</h2><div><p>Lorem <strong>ipsum <i>dolor</i> sit amet</strong>, consectetuer adipiscing elit.</p><p>Sed posuere interdum sem. Quisque ligula <em>eros ullamcorper <strong>qu...</strong></em></p></div></article></div>" }
+    let(:max_length) { 120 }
+
+    it "cuts deep" do
+      expect(subject).to eq(expected)
     end
   end
 end
