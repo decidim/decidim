@@ -1220,7 +1220,7 @@ fr:
     security:
       selfxss_warning:
         description: Cette fonction de navigateur est destinée aux développeurs et vous ne devriez rien coller ici si vous n'avez pas avez été invité à le faire. Coller du contenu dans cette fenêtre peut compromettre votre vie privée et permettre aux hackers d'accéder à votre compte.
-        title: Arrêter !
+        title: Arrêtez !
     shared:
       confirm_modal:
         cancel: Annuler
