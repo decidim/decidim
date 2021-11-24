@@ -13,7 +13,7 @@ module Decidim
         api_key: "API_KEY"
       }
     end
-    let(:pad) { instance_double(Decidim::Pad, id: "pad-id", read_only_id: "read-only-id") }
+    let(:pad) { instance_double(Decidim::Etherpad::Pad, id: "pad-id", read_only_id: "read-only-id") }
     let(:salt) { "super-secret" }
 
     before do
