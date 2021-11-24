@@ -98,10 +98,14 @@ describe "Explore results", versioning: true, type: :system do
           expect(page).not_to have_link(translated(result.scope.name))
 
           within ".hide-for-mediumlarge" do
-            click_button "Filter by:"
+            expect(page).to have_content("Filter by:")
+            click_button "Select a scope"
           end
 
-          expect(page).to have_link(translated(result.scope.name))
+          within "#data_picker-modal" do
+            expect(page).to have_content("Select a scope")
+            expect(page).to have_link(translated(result.scope.name))
+          end
         end
       end
 

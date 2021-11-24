@@ -1,31 +1,37 @@
 <div class="scope-filters section">
   <% if current_component&.has_subscopes? %>
-    <div><%= t("results.filters.scopes", scope: "decidim.accountability") %></div>
+    <div><%= t("filter_by", scope: "decidim.accountability.results.filters") %></div>
 
     <ul class="tags tags--action">
       <div>
-        <button data-open="filter-box" class="filters-controls__trigger">
-          <%= t("filter_by", scope: "decidim.searches.filters_small_view") %>:
+        <button data-open="data_picker-modal" class="filters-controls__trigger">
+          <%= t("select_scope", scope: "decidim.accountability.results.filters") %>
           <%= icon "caret-bottom", class: "icon--small float-right", aria_label: "unfold", role: "img" %>
         </button>
       </div>
 
-      <div class="reveal" id="filter-box" data-reveal>
-        <div class="reveal__header">
-          <h3 class="reveal__title"><%= t("filter_by", scope: "decidim.searches.filters_small_view") %>:</h3>
-          <button class="close-button" data-close aria-label="close" type="button">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="filters">
-          <% current_participatory_space.try(:subscopes).each do |scope| %>
-            <li <%= active_class_if_current(scope.id) %>>
-              <%= link_to url_for(filter: { scope_id: scope.id, category_id: category.try(:id) }) do %>
-                <span class="show-for-sr"><%= Decidim::Scope.model_name.human(count: 1) %></span>
-                <%= translated_attribute(scope.name) %>
-              <% end %>
-            </li>
-          <% end %>
+      <div class="reveal" id="data_picker-modal" data-reveal>
+        <div class="data_picker-modal-content">
+          <div class="scope-picker picker-header picker-list">
+            <h3 class="data_picker-title"><%= t("select_scope", scope: "decidim.accountability.results.filters") %></h3>
+            <button class="close-button" data-close aria-label="close" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="scope-picker picker-content picker-list">
+            <div class="picker-scrollable-content">
+              <ul role="group" aria-label="<%= t("change", scope: "decidim.scopes.picker") %>">
+                <% current_participatory_space.try(:subscopes).each do |scope| %>
+                  <li class="picker-multiple"<%= active_class_if_current(scope.id) %>>
+                    <%= link_to url_for(filter: { scope_id: scope.id, category_id: category.try(:id) }) do %>
+                      <span class="show-for-sr"><%= Decidim::Scope.model_name.human(count: 1) %></span>
+                      <%= translated_attribute(scope.name) %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </ul>
