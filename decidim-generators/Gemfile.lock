@@ -80,6 +80,7 @@ PATH
       invisible_captcha (~> 0.12)
       kaminari (~> 1.2, >= 1.2.1)
       loofah (~> 2.3.1)
+      mime-types (>= 1.16, < 4.0)
       mini_magick (~> 4.9)
       mustache (~> 1.1.0)
       nobspw (~> 0.6.0)
