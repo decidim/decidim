@@ -769,7 +769,7 @@ GEM
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
     uber (0.1.0)
-    unicode-display_width (1.7.0)
+    unicode-display_width (1.8.0)
     valid_email2 (2.3.1)
       activemodel (>= 3.2)
       mail (~> 2.5)
