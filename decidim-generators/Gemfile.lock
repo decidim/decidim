@@ -121,7 +121,7 @@ PATH
       decidim (= 0.26.0.dev)
       erb_lint (~> 0.0.35)
       factory_bot_rails (~> 4.8)
-      i18n-tasks (~> 0.9.18)
+      i18n-tasks (= 0.9.34)
       mdl (~> 0.5)
       nokogiri (~> 1.11, >= 1.11.4)
       puma (~> 5.0)
