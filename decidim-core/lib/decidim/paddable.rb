@@ -31,7 +31,7 @@ module Decidim
         return unless component.settings.enable_pads_creation
 
         # @pad ||= etherpad.pad(pad_id)
-        @pad ||= Decidim::Pad.new(pad_id)
+        @pad ||= ::Decidim::Etherpad::Pad.new(pad_id)
       end
 
       # Public: Whether to show the pad or not.
