@@ -5,8 +5,6 @@ module Decidim
     # This command is executed when a participant or user group creates a Meeting from the public
     # views.
     class CreateMeeting < Rectify::Command
-      include Decidim::FollowResource
-
       def initialize(form)
         @form = form
       end
@@ -23,7 +21,7 @@ module Decidim
           send_notification
         end
 
-        create_follow_form_resource(meeting, form.current_user)
+        create_follow_form_resource(form.current_user)
         broadcast(:ok, meeting)
       end
 
@@ -86,6 +84,11 @@ module Decidim
           resource: meeting,
           followers: meeting.participatory_space.followers
         )
+      end
+
+      def create_follow_form_resource(user)
+        follow_form = Decidim::FollowForm.from_params(followable_gid: meeting.to_signed_global_id.to_s).with_context(current_user: user)
+        Decidim::CreateFollow.call(follow_form, user)
       end
     end
   end
