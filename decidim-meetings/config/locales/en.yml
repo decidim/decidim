@@ -50,10 +50,8 @@ en:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: The duration of the items exceed the meeting duration
-                by %{count} minutes
-              too_many_minutes_child: The duration of the item childs exceed the agenda
-                item "%{parent_title}" parent duration by %{count} minutes
+              too_many_minutes: The duration of the items exceed the meeting duration by %{count} minutes
+              too_many_minutes_child: The duration of the item childs exceed the agenda item "%{parent_title}" parent duration by %{count} minutes
         meeting_registration_invite:
           attributes:
             email:
@@ -62,8 +60,7 @@ en:
       decidim/meetings/close_meeting_event: Meeting closed
       decidim/meetings/create_meeting_event: Meeting
       decidim/meetings/meeting_registrations_enabled_event: Registrations enabled
-      decidim/meetings/meeting_registrations_over_percentage_event: Registrations
-        over limit
+      decidim/meetings/meeting_registrations_over_percentage_event: Registrations over limit
       decidim/meetings/upcoming_meeting_event: Upcoming meeting
       decidim/meetings/update_meeting_event: Meeting updated
   activerecord:
@@ -130,19 +127,15 @@ en:
             comments_max_length: Comments max length (Leave 0 for default value)
             creation_enabled_for_participants: Participants can create meetings
             default_registration_terms: Default registration terms
-            enable_cr_initial_notifications: Enable notifications for meeting close
-              report
-            enable_cr_reminder_notifications: Enable reminder notifications for meeting
-              close report
+            enable_cr_initial_notifications: Enable notifications for meeting close report
+            enable_cr_reminder_notifications: Enable reminder notifications for meeting close report
             enable_pads_creation: Enable pads creation
             maps_enabled: Maps enabled
             registration_code_enabled: Registration code enabled
-            resources_permissions_enabled: Actions permissions can be set for each
-              meeting
+            resources_permissions_enabled: Actions permissions can be set for each meeting
             scope_id: Scope
             scopes_enabled: Scopes enabled
-            terms_and_conditions_url_for_meeting_creators: Terms and conditions URL
-              for meeting creators
+            terms_and_conditions_url_for_meeting_creators: Terms and conditions URL for meeting creators
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
@@ -152,91 +145,57 @@ en:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Your meeting "%{resource_title}" was closed. You can read
-              the conclusions from its page:'
-            email_outro: You have received this notification because you organized
-              the "%{resource_title}" meeting.
+            email_intro: 'Your meeting "%{resource_title}" was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you organized the "%{resource_title}" meeting.
             email_subject: The "%{resource_title}" meeting was closed
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a>
-              meeting was closed.
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
           follower:
-            email_intro: 'The "%{resource_title}" meeting was closed. You can read
-              the conclusions from its page:'
-            email_outro: You have received this notification because you are following
-              the "%{resource_title}" meeting. You can unfollow it from the previous
-              link.
+            email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
             email_subject: The "%{resource_title}" meeting was closed
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a>
-              meeting was closed.
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
         meeting_created:
           button_text: Register to the meeting
-          email_intro: The meeting "%{resource_title}" has been added to "%{participatory_space_title}"
-            that you are following.
-          email_outro: You have received this notification because you are following
-            "%{participatory_space_title}". You can unfollow it from the previous
-            link.
+          email_intro: The meeting "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
+          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
           email_subject: New meeting added to %{participatory_space_title}
-          notification_title: The meeting <a href="%{resource_path}">%{resource_title}</a>
-            has been added to %{participatory_space_title}
+          notification_title: The meeting <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
         meeting_registration_confirmed:
-          notification_title: Your registration for the meeting <a href="%{resource_url}">%{resource_title}</a>
-            has been confirmed. Your registration code is %{registration_code}.
+          notification_title: Your registration for the meeting <a href="%{resource_url}">%{resource_title}</a> has been confirmed. Your registration code is %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: The allocated slots for the "%{resource_title}" meeting are
-            over %{percentage}%.
-          email_outro: You have received this notification because you are an admin
-            of the meeting's participatory space.
-          email_subject: The allocated slots for the "%{resource_title}" meeting are
-            over %{percentage}%
-          notification_title: The allocated slots for the <a href="%{resource_path}">%{resource_title}</a>
-            meeting are over %{percentage}%.
+          email_intro: The allocated slots for the "%{resource_title}" meeting are over %{percentage}%.
+          email_outro: You have received this notification because you are an admin of the meeting's participatory space.
+          email_subject: The allocated slots for the "%{resource_title}" meeting are over %{percentage}%
+          notification_title: The allocated slots for the <a href="%{resource_path}">%{resource_title}</a> meeting are over %{percentage}%.
         meeting_updated:
-          email_intro: 'The "%{resource_title}" meeting was updated. You can read
-            the new version from its page:'
-          email_outro: You have received this notification because you are following
-            the "%{resource_title}" meeting. You can unfollow it from the previous
-            link.
+          email_intro: 'The "%{resource_title}" meeting was updated. You can read the new version from its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting was updated
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a>
-            meeting was updated.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
         registration_code_validated:
-          email_intro: Your registration code "%{registration_code}" for the "%{resource_title}"
-            meeting has been validated.
-          email_outro: You have received this notification because your registration
-            code for the "%{resource_title}" meeting has been validated.
-          email_subject: Your registration code "%{registration_code}" for the "%{resource_title}"
-            meeting has been validated
-          notification_title: Your registration code "%{registration_code}" for the
-            <a href="%{resource_path}">%{resource_title}</a> meeting has been validated.
+          email_intro: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated.
+          email_outro: You have received this notification because your registration code for the "%{resource_title}" meeting has been validated.
+          email_subject: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated
+          notification_title: Your registration code "%{registration_code}" for the <a href="%{resource_path}">%{resource_title}</a> meeting has been validated.
         registrations_enabled:
-          email_intro: 'The "%{resource_title}" meeting has enabled registrations.
-            You can register yourself on its page:'
-          email_outro: You have received this notification because you are following
-            the "%{resource_title}" meeting. You can unfollow it from the previous
-            link.
+          email_intro: 'The "%{resource_title}" meeting has enabled registrations. You can register yourself on its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting has enabled registrations.
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a>
-            meeting has enabled registrations.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting has enabled registrations.
         upcoming_meeting:
           email_intro: The "%{resource_title}" meeting will start in less than 48h.
-          email_outro: You have received this notification because you are following
-            the "%{resource_title}" meeting. You can unfollow it from the previous
-            link.
+          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting will start in less than 48h.
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a>
-            meeting will start in less than 48h.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
     forms:
       meetings:
-        attendees_count_help_text: Don’t forget to include the total number of participants
-          at your event. Whether in person, hybrid, or online, it’s important that
-          we know how many people are involved.
+        attendees_count_help_text: Don’t forget to include the total number of participants at your event. Whether in person, hybrid, or online, it’s important that we know how many people are involved.
     gamification:
       badges:
         attended_meetings:
           conditions:
           - Register for the meetings you want to attend
-          description: This badge is granted when you attend several face-to-face
-            meetings.
+          description: This badge is granted when you attend several face-to-face meetings.
           description_another: This participant has attended %{score} meetings.
           description_own: You have attended %{score} meetings.
           name: Attended meetings
@@ -254,10 +213,8 @@ en:
         edit: Edit
         invalid_destroy:
           proposals_count:
-            one: 'The meeting cannot be destroyed because it has %{count} proposal
-              associated to it:'
-            other: 'The meeting cannot be destroyed because it has %{count} proposals
-              associated to it:'
+            one: 'The meeting cannot be destroyed because it has %{count} proposal associated to it:'
+            other: 'The meeting cannot be destroyed because it has %{count} proposals associated to it:'
         manage_poll: Manage poll
         new: New meeting
         preview: Preview
@@ -302,9 +259,7 @@ en:
         invite_join_meeting_mailer:
           invite:
             decline: Decline invitation
-            invited_you_to_join_a_meeting: "%{invited_by} has invited you to join
-              a meeting at %{application}. You can decline or accept it through the
-              links below."
+            invited_you_to_join_a_meeting: "%{invited_by} has invited you to join a meeting at %{application}. You can decline or accept it through the links below."
             join: Join meeting '%{meeting_title}'
         invites:
           create:
@@ -314,8 +269,7 @@ en:
             attendee_type: Attendee type
             existing_user: Existing participant
             invite: Invite
-            invite_explanation: The participant will be invited to join the meeting
-              and to the organization as well.
+            invite_explanation: The participant will be invited to join the meeting and to the organization as well.
             non_user: Non existing participant
             select_user: Select participant
           index:
@@ -327,8 +281,7 @@ en:
             filter_by: Filter by
             invite_attendee: Invite attendee
             invites: Invites
-            registrations_disabled: You can't invite an attendee because the registrations
-              are disabled.
+            registrations_disabled: You can't invite an attendee because the registrations are disabled.
             search: Search
         meeting_closes:
           edit:
@@ -340,15 +293,12 @@ en:
             success: Meeting successfully closed
           create:
             invalid: There was a problem creating this meeting
-            success: Meeting successfully created. Notice this is unpublished yet,
-              you need to manually publish it.
+            success: Meeting successfully created. Notice this is unpublished yet, you need to manually publish it.
           destroy:
             invalid:
               proposals_count:
-                one: The meeting cannot be destroyed because it has %{count} proposal
-                  associated to it
-                other: The meeting cannot be destroyed because it has %{count} proposals
-                  associated to it
+                one: The meeting cannot be destroyed because it has %{count} proposal associated to it
+                other: The meeting cannot be destroyed because it has %{count} proposals associated to it
             success: Meeting successfully deleted
           edit:
             title: Edit meeting
@@ -356,24 +306,15 @@ en:
           form:
             address_help: 'Address: used by Geocoder to find the location'
             available_slots_help: Leave it to 0 if you have unlimited slots available
-            disclaimer: 'Disclaimer: By using an external registration system, you''re
-              aware that the organizers of %{organization} are not responsible for
-              the data provided by the users to the external service.'
-            location_help: 'Location: message directed to the users implying the spot
-              to meet at'
-            location_hints_help: 'Location hints: additional info. Example: the floor
-              of the building if it is an in-person meeting, or the meeting password
-              if it is an online meeting with restricted access.'
-            online_meeting_url_help: 'Link: allow participants to connect directly
-              to your meeting'
-            registration_email_help: This text will appear in the middle of the registration
-              confirmation email. Just after the registration code.
-            registration_url_help: 'Link: allow participants to go on the external
-              service you are using for registrations'
+            disclaimer: 'Disclaimer: By using an external registration system, you''re aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
+            location_help: 'Location: message directed to the users implying the spot to meet at'
+            location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
+            online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
+            registration_email_help: This text will appear in the middle of the registration confirmation email. Just after the registration code.
+            registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
             select_a_meeting_type: Please select a meeting type
             select_a_registration_type: Please select a registration type
-            show_embedded_iframe_help: Whether or not embed the iframe for this videoconference
-              URL. Only a few services allow embedding (i.e. Youtube, Twitch...)
+            show_embedded_iframe_help: Whether or not embed the iframe for this videoconference URL. Only a few services allow embedding (i.e. Youtube, Twitch...)
           index:
             title: Meetings
           new:
@@ -415,9 +356,7 @@ en:
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invites: Invitations
-            recommendation_message: For privacy reasons we recommend that you delete
-              this inscription form when you no longer need it. By default this is
-              3 months after the meeting has ended.
+            recommendation_message: For privacy reasons we recommend that you delete this inscription form when you no longer need it. By default this is 3 months after the meeting has ended.
             registration_form: Registration form
             registrations_count:
               one: There has been %{count} registration.
@@ -433,23 +372,15 @@ en:
             success: Registration code successfully validated.
       admin_log:
         invite:
-          create: "%{user_name} invited %{attendee_name} to join %{resource_name}
-            meeting on the %{space_name} space"
-          deleted: "%{user_name} uninvited %{attendee_name} from joining %{resource_name}
-            meeting on the %{space_name} space"
-          update: "%{user_name} invited %{attendee_name} to join %{resource_name}
-            meeting on the %{space_name} space"
+          create: "%{user_name} invited %{attendee_name} to join %{resource_name} meeting on the %{space_name} space"
+          deleted: "%{user_name} uninvited %{attendee_name} from joining %{resource_name} meeting on the %{space_name} space"
+          update: "%{user_name} invited %{attendee_name} to join %{resource_name} meeting on the %{space_name} space"
         meeting:
-          close: "%{user_name} closed the %{resource_name} meeting on the %{space_name}
-            space"
-          create: "%{user_name} created the %{resource_name} meeting on the %{space_name}
-            space"
-          delete: "%{user_name} deleted the %{resource_name} meeting on the %{space_name}
-            space"
-          export_registrations: "%{user_name} exported the registrations of the %{resource_name}
-            meeting on the %{space_name} space"
-          update: "%{user_name} updated the %{resource_name} meeting on the %{space_name}
-            space"
+          close: "%{user_name} closed the %{resource_name} meeting on the %{space_name} space"
+          create: "%{user_name} created the %{resource_name} meeting on the %{space_name} space"
+          delete: "%{user_name} deleted the %{resource_name} meeting on the %{space_name} space"
+          export_registrations: "%{user_name} exported the registrations of the %{resource_name} meeting on the %{space_name} space"
+          update: "%{user_name} updated the %{resource_name} meeting on the %{space_name} space"
           value_types:
             organizer_presenter:
               not_found: 'The organizer was not found on the database (ID: %{id})'
@@ -466,29 +397,14 @@ en:
         export_calendar: Export calendar
       close_meeting_reminder_mailer:
         first_notification:
-          body_1: Thank you for taking part in the %{organization_name} by organizing
-            the meeting '%{meeting_title}'. We hope you had a successful meeting and
-            a lively discussion. We invite you to add a meeting report by using the
-            'Close Meeting' button on the meeting page.
-          body_2: Sharing a meeting report ensures that participant have access to
-            the ideas that were exchanged at your event and that these ideas can be
-            taken into account in the analysis, allowing proper feedback and follow-up.
-          body_3: In the report, it would be useful to include information on the
-            type of the meeting (e.g. participatory workshop, open space, world café),
-            the number of participants and their demographic background (e.g. age,
-            gender), the main subjects discussed and ideas suggested, the arguments
-            that led to them, as well as the general atmosphere and expected follow-up.
-            Please indicate the number of participants in the dedicated field when
-            completing your meeting report.
-          body_4: We also encourage you to link proposals that emerged in the meeting
-            to the ideas which have already been published on the platform. This is
-            important for the analysis.
-          body_5: Your participation is greatly appreciated, please do not hesitate
-            to contact us should you have any questions.
+          body_1: Thank you for taking part in the %{organization_name} by organizing the meeting '%{meeting_title}'. We hope you had a successful meeting and a lively discussion. We invite you to add a meeting report by using the 'Close Meeting' button on the meeting page.
+          body_2: Sharing a meeting report ensures that participant have access to the ideas that were exchanged at your event and that these ideas can be taken into account in the analysis, allowing proper feedback and follow-up.
+          body_3: In the report, it would be useful to include information on the type of the meeting (e.g. participatory workshop, open space, world café), the number of participants and their demographic background (e.g. age, gender), the main subjects discussed and ideas suggested, the arguments that led to them, as well as the general atmosphere and expected follow-up. Please indicate the number of participants in the dedicated field when completing your meeting report.
+          body_4: We also encourage you to link proposals that emerged in the meeting to the ideas which have already been published on the platform. This is important for the analysis.
+          body_5: Your participation is greatly appreciated, please do not hesitate to contact us should you have any questions.
           greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Dear %{username},
-          subject: You can now close your meeting with a report on the %{organization_name}
-            platform
+          subject: You can now close your meeting with a report on the %{organization_name} platform
       conference_venues: Conference Venues
       content_blocks:
         upcoming_meetings:
@@ -574,37 +490,26 @@ en:
           address_help: 'Address: used by Geocoder to find the location'
           available_slots_help: Leave it to 0 if you have unlimited slots available
           create_as: Create meeting as
-          disclaimer: 'Disclaimer: By using an external registration system, you''re
-            aware that the organizers of %{organization} are not responsible for the
-            data provided by the users to the external service.'
-          location_help: 'Location: message directed to the users implying the spot
-            to meet at'
-          location_hints_help: 'Location hints: additional info. Example: the floor
-            of the building if it is an in-person meeting, or the meeting password
-            if it is an online meeting with restricted access.'
-          online_meeting_url_help: 'Link: allow participants to connect directly to
-            your meeting'
-          registration_url_help: 'Link: allow participants to go on the external service
-            you are using for registrations'
+          disclaimer: 'Disclaimer: By using an external registration system, you''re aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
+          location_help: 'Location: message directed to the users implying the spot to meet at'
+          location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
+          online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
+          registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
           select_a_category: Please select a category
           select_a_meeting_type: Please select a meeting type
           select_a_registration_type: Please select a registration type
-          show_embedded_iframe_help: Whether or not embed the iframe for this videoconference
-            URL. Only a few services allow embedding (i.e. Youtube, Twitch...)
+          show_embedded_iframe_help: Whether or not embed the iframe for this videoconference URL. Only a few services allow embedding (i.e. Youtube, Twitch...)
         index:
           click_here: See all meetings
           new_meeting: New meeting
           see_all: See all meetings
           see_all_withdrawn: See all withdrawn meetings
-          text_banner: You are viewing the list of meetings withdrawn by their authors.
-            %{go_back_link}.
+          text_banner: You are viewing the list of meetings withdrawn by their authors. %{go_back_link}.
         meeting_minutes:
           related_information: Related Information
         meetings:
-          no_meetings_warning: No meetings match your search criteria or there isn't
-            any meeting scheduled.
-          upcoming_meetings_warning: Currently, there are no scheduled meetings, but
-            here you can find all the past meetings listed.
+          no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
+          upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
         new:
           back: Back
           create: Create
@@ -623,16 +528,12 @@ en:
           going: You have signed up for this meeting
           join: Join meeting
           leave: Cancel your registration
-          leave_confirmation: Are you sure you want to cancel your registration for
-            this meeting?
+          leave_confirmation: Are you sure you want to cancel your registration for this meeting?
           link_available_soon: Link available soon
-          link_closed: The link to join the meeting will be available a few minutes
-            before it starts
+          link_closed: The link to join the meeting will be available a few minutes before it starts
           live_event: This meeting is happening right now
           meeting_minutes: Meeting Minutes
-          micro_camera_permissions_warning: When you click on the button below, you
-            will be asked for microphone and/or camera permissions, and you will join
-            the videoconference
+          micro_camera_permissions_warning: When you click on the button below, you will be asked for microphone and/or camera permissions, and you will join the videoconference
           no_slots_available: No slots available
           organizations: Attending organizations
           registration_code_help_text: Your registration code
@@ -644,10 +545,8 @@ en:
             other: "%{count} slots remaining"
           view: View
           visit_finished: View past meeting
-          withdraw_btn_hint: You can withdraw your meeting if you change your mind.
-            The meeting is not deleted, it will appear in the list of withdrawn meetings.
-          withdraw_confirmation_html: Are you sure you want to withdraw this meeting?<br><br><strong>This
-            action cannot be cancelled!</strong>
+          withdraw_btn_hint: You can withdraw your meeting if you change your mind. The meeting is not deleted, it will appear in the list of withdrawn meetings.
+          withdraw_confirmation_html: Are you sure you want to withdraw this meeting?<br><br><strong>This action cannot be cancelled!</strong>
           withdraw_meeting: Withdraw meeting
         update:
           invalid: There was a problem updating the meeting.
@@ -679,8 +578,7 @@ en:
           closed_question:
             question_results: Question results
           index:
-            empty_questions: Throughout this meeting, some questions will be sent
-              and you will be able to answer them. They will be displayed here.
+            empty_questions: Throughout this meeting, some questions will be sent and you will be able to answer them. They will be displayed here.
           index_admin:
             admin_dashboard: Administrator dashboard
             edit: Edit in the admin
@@ -703,8 +601,7 @@ en:
       read_more: "(read more)"
       registration_mailer:
         confirmation:
-          confirmed_html: Your registration for the meeting <a href="%{url}">%{title}</a>
-            has been confirmed.
+          confirmed_html: Your registration for the meeting <a href="%{url}">%{title}</a> has been confirmed.
           details: You will find the meeting's details in the attachment.
           registration_code: Your registration code is %{code}.
       registration_type:
@@ -714,8 +611,7 @@ en:
       registrations:
         create:
           invalid: There was a problem joining this meeting.
-          success: You have joined the meeting successfully. Because you have registered
-            for this meeting, you'll be notified if there are updates on it.
+          success: You have joined the meeting successfully. Because you have registered for this meeting, you'll be notified if there are updates on it.
         decline_invitation:
           invalid: There was a problem declining the invitation.
           success: You have declined the invitation successfully.
