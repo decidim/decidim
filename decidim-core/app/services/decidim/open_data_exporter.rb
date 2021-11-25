@@ -33,7 +33,6 @@ module Decidim
         open_data_component_manifests.each do |manifest|
           add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: manifest.name }), data_for_component(manifest))
         end
-
         open_data_participatory_space_manifests.each do |manifest|
           add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: manifest.name }), data_for_participatory_space(manifest))
         end
@@ -42,12 +41,28 @@ module Decidim
       buffer.string
     end
 
-    def data_for_component(export_manifest)
+    def data_for_component(export_manifest, col_sep = Decidim.default_csv_col_sep)
+      headers = []
       collection = components.where(manifest_name: export_manifest.manifest.name).find_each.flat_map do |component|
-        export_manifest.collection.call(component)
+        export_manifest.collection.call(component).find_in_batches(batch_size: 250).flat_map do |batch|
+          exporter = Decidim::Exporters::CSV.new(batch, export_manifest.serializer)
+          headers.push(*exporter.headers)
+          exporter.export
+        end
       end
 
-      Decidim::Exporters::CSV.new(collection, export_manifest.serializer).export
+      headers.uniq!
+
+      data = ::CSV.generate(col_sep: col_sep) do |generated|
+        generated << headers
+        while (content = collection.shift)
+          csv = CSV.new(content.read, headers: true, col_sep: col_sep)
+          while (row = csv.shift)
+            generated << row.values_at(*headers)
+          end
+        end
+      end
+      Decidim::Exporters::ExportData.new(data, "csv")
     end
 
     def data_for_participatory_space(export_manifest)
