@@ -696,6 +696,7 @@ fi:
       no_followers: Ei vielä seuraajia.
     following:
       no_followings: Ei vielä seuraa ketään tai mitään.
+      non_public_followings: Osa seuratuista kohteista ei ole julkisia.
     follows:
       create:
         button: Seuraa
