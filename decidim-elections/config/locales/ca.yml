@@ -343,6 +343,10 @@ ca:
           upcoming: Properes
         end_date: Finalitza
         footer:
+          remaining_time:
+            one: "Queden <strong>%{count} hora %{minutes} minuts</strong> per votar."
+            other: "Queden <strong>%{count} hores %{minutes} minuts</strong> per votar."
+            zero: "Queden <strong>%{minutes} minuts</strong> per votar."
           view: Veure
           vote: Votar
         label:
