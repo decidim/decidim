@@ -461,6 +461,7 @@ ca:
           accepted_mime_types:
             csv: csv
             json: json
+            xlsx: xlsx
           actions:
             back: Tornar
           file_legend: Afegir un arxiu d'importació que serà processat.
