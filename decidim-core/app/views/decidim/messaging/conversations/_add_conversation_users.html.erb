@@ -13,11 +13,12 @@
             autocomplete="off"
             placeholder="<%= t(".add_users_placeholder") %>"
             data-noresults="<%= t(".no_results") %>"
+            data-selected="conversation-recipient-users"
             contenteditable="true"
             data-direct-messages-disabled="<%= t("decidim.messaging.conversations.add_conversation_users.participant_with_disabled_message_reception") %>">
       </div>
       <div class="columns large-12">
-        <ul class="autocomplete_selected"></ul>
+        <ul class="conversation-recipient-users"></ul>
       </div>
     </div>
   </div>

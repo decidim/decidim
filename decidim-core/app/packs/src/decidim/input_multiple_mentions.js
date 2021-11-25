@@ -2,8 +2,8 @@ import AutoComplete from "src/decidim/autocomplete"
 
 $(() => {
   const $fieldContainer = $(".autocomplete_search");
-  const $searchInput = $("#autocomplete");
-  const $selectedItems = $(".autocomplete_selected");
+  const $searchInput = $("input", $fieldContainer);
+  const $selectedItems = $(`ul.${$searchInput.data().selected}`);
   const options = $fieldContainer.data();
   let selected = []
 
@@ -77,7 +77,7 @@ $(() => {
 
   // Stop input field from bubbling open and close events to parent elements,
   // because foundation closes modal from these events.
-  $("#autocomplete").on("open close", (event) => {
+  $searchInput.on("open close", (event) => {
     event.stopPropagation();
   })
 })
