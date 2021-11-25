@@ -1,15 +1,14 @@
+import { datalistSelect } from "src/decidim/datalist_select";
+
 $(() => {
   const wrapper = document.querySelector("#choose-template");
   if (!wrapper) {
     return;
   }
 
-  const input = wrapper.querySelector("input#questionnaire_questionnaire_template_id");
-  const textInput = wrapper.querySelector("input[list='template-list']");
-  const options = wrapper.querySelector("#template-list").children;
-  const previewURL = wrapper.dataset.previewurl;
-
   const preview = (id) => {
+    const options = wrapper.dataset;
+    const previewURL = options.previewurl;
     if (!previewURL) {
       return;
     }
@@ -27,19 +26,5 @@ $(() => {
     });
   }
 
-  const selectValue = (selected) => {
-    for (let idx = 0; idx < options.length; idx += 1) {
-      if (options[idx].innerHTML === selected) {
-        const id = options[idx].dataset.value;
-        input.value = id
-        preview(id);
-        break;
-      }
-    }
-  }
-
-  textInput.addEventListener("input", () => {
-    const selected = textInput.value;
-    selectValue(selected);
-  })
+  datalistSelect(wrapper, preview)
 })
