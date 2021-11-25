@@ -13,26 +13,33 @@ You can create a `development_app` from inside the project's root folder with th
 git clone https://github.com/decidim/decidim.git
 cd decidim
 bundle install
-bundle exec rake development_app
+bin/rake development_app
 cd development_app
 ----
 
 A development_app/ entry appears in the .gitignore file, so you don't have to worry about committing the development app by mistake.
 
-On creation, this steps are automatically invoked by the generator:
+[NOTE]
+====
+On creation, these steps are automatically invoked by the generator:
 
 * create a `config/database.yml`
 * `bundle install`
 * `bin/rails decidim:upgrade`
-* `bin/rails db:migrate db:seed`
+* `bin/rails db:create`
+* `bin/rails db:migrate`
+* `bin/rails db:seed`
 
-If the default database.yml does not suit your needs you can always configure it at your will and run this steps manually.
+Mind that if everything went well you shouldn't need to run this commands manually.
+====
+
+If the default database.yml does not suit your needs you can always configure it at your will and run these steps manually.
 
 The last command will set your database and add some example data (called "seed data") so that you can start trying Decidim. We don't recommend using seed data for production environments, but it's useful for local development and staging environments.
 
 Once the app is created you are ready to start the server:
 
-* `bin/rails s`
+* `bin/rails server`
 
 == Migrations
 
