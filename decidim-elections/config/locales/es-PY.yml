@@ -343,6 +343,10 @@ es-PY:
           upcoming: Próximas
         end_date: Termina
         footer:
+          remaining_time:
+            one: "Quedan <strong>%{count} hora %{minutes} minutos</strong> restantes para votar."
+            other: "Quedan <strong>%{count} horas %{minutes} minutos</strong> restantes para votar."
+            zero: "Quedan <strong>%{minutes} minutos</strong> restantes para votar."
           view: Ver
           vote: Votar
         label:
