@@ -127,7 +127,6 @@ module Decidim
 
       def cache_hash
         hash = []
-        hash << "decidim/proposals/proposal_m"
         hash << I18n.locale.to_s
         hash << model.cache_key_with_version
         hash << model.proposal_votes_count
