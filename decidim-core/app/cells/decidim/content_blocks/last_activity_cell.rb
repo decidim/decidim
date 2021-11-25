@@ -52,7 +52,7 @@ module Decidim
         hash << Digest::MD5.hexdigest(valid_activities.map(&:cache_key_with_version).to_s)
         hash << I18n.locale.to_s
 
-        hash.join("/")
+        hash.join(Decidim.cache_key_separator)
       end
 
       def activities
