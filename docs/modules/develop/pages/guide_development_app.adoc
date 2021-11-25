@@ -52,6 +52,29 @@ bin/rails decidim:upgrade
 
 Anyway we recommend re-creating your development_app every once in a while.
 
+== Updating from develop
+
+We recommend that you periodically update your codebase with the last changes from the main repository. For this, you'll need to follow these instructions:
+
+[source,console]
+----
+git pull origin develop
+bin/rails decidim:upgrade
+bin/rails db:migrate
+----
+
+And restart your rails server (with Ctrl+C to stop it).
+
+== Re-creating the development_app
+
+If you're working with old branches or there were multiple changes in develop, you'll need to re-create your development_app.
+
+[source,console]
+----
+rm -rf development_app
+bin/rake development_app
+----
+
 == Troubleshooting
 
 [#database]
