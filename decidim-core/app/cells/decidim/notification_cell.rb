@@ -10,5 +10,11 @@ module Decidim
     def show
       render :show
     end
+
+    private
+
+    def notification
+      @notification ||= Decidim::NotificationPresenter.new(model)
+    end
   end
 end

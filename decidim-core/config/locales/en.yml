@@ -1674,6 +1674,20 @@ en:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    time_in_words_to_now:
+      seconds:
+        zero: "right now"
+        one: "1 second ago"
+        other: "%{count} seconds ago"
+      minutes:
+        one: "1 minute ago"
+        other: "%{count} min. ago"
+      hours:
+        one: "1 hour ago"
+        other: "%{count} hours ago"
+      days:
+        one: "1 day ago"
+        other: "%{count} days ago"
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -1682,6 +1696,8 @@ en:
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       devise:
         mailer:
           invitation_instructions:
