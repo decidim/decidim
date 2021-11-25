@@ -18,12 +18,13 @@ module Decidim
         count_tail: options[:count_tail] || false,
         tail_before_final_tag: options[:tail_before_final_tag] || false
       }
-      @document = Nokogiri::HTML::DocumentFragment.parse(text)
+      @text = text
     end
 
     # Truncate text or html content added in constructor
     # Returns truncated html
     def perform
+      @document = Nokogiri::HTML::DocumentFragment.parse(@text)
       @tail_added = false
       @remaining = initial_remaining
       cut_children(document, options[:count_tags])
