@@ -1,11 +1,11 @@
 $(() => {
   const wrapper = document.querySelector("#choose-template");
-  const input = wrapper.querySelector("input#questionnaire_questionnaire_template_id");
-  if (!input) {
+  if (!wrapper) {
     return;
   }
 
-  const textInput = wrapper.querySelector("input[name='template-name']");
+  const input = wrapper.querySelector("input#questionnaire_questionnaire_template_id");
+  const textInput = wrapper.querySelector("input[list='template-list']");
   const options = wrapper.querySelector("#template-list").children;
   const previewURL = wrapper.dataset.previewurl;
 
