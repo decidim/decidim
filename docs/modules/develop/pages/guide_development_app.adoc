@@ -1,10 +1,15 @@
 = Development App
 
-In order to start developing you will need what is called a `development_app`. This is nearly the same as a new Decidim app (that you can create with `decidim app_name`) but with a Gemfile pre-configured for local development and some other small config modifications.
+In order to start developing you will need what is called a `development_app`. This is nearly the same as a new Decidim
+app (that you can create with `decidim app_name`) but with a Gemfile pre-configured for local development and some other small config modifications.
 
-We recommend that you first have a xref:install:manual.adoc[working Decidim app] so that you have fullfilled all the necessary system and services requirements, like having a working Ruby installation, PostgreSQL, Node.JS, etc. For better following this guide and as you should be working in a development environment (ie without sensitive data in your database), for better comfort you can configure PostgreSQL with a relaxed security. See more information about this in the <<database,Database>> section of this page.
+We recommend that you first have a xref:install:manual.adoc[working Decidim app] so that you have fullfilled all the necessary
+system and services requirements, like having a working Ruby installation, PostgreSQL, Node.JS, etc. For better following this
+guide and as you should be working in a development environment (ie without sensitive data in your database), for better comfort
+you can configure PostgreSQL with a relaxed security. See more information about this in the <<database,Database>> section of this page.
 
-You need it in order to have a Rails application configured to lookup Decidim modules from your filesystem. This way changes in your modules will be directly observed by this `development_app`.
+You need it in order to have a Rails application configured to lookup Decidim modules from your filesystem. This way changes
+in your modules will be directly observed by this `development_app`.
 
 You can create a `development_app` from inside the project's root folder with the command:
 
@@ -35,7 +40,8 @@ Mind that if everything went well you shouldn't need to run this commands manual
 
 If the default database.yml does not suit your needs you can always configure it at your will and run these steps manually.
 
-The last command will set your database and add some example data (called "seed data") so that you can start trying Decidim. We don't recommend using seed data for production environments, but it's useful for local development and staging environments.
+The last command will set your database and add some example data (called "seed data") so that you can start trying Decidim.
+We don't recommend using seed data for production environments, but it's useful for local development and staging environments.
 
 Once the app is created you are ready to start the server:
 
@@ -43,7 +49,9 @@ Once the app is created you are ready to start the server:
 
 == Migrations
 
-When creating new migrations in Decidim's modules, you will need to "apply" this migrations to your development_app. The way to do this is by copying the migration from your module into the db/migrate dir of your development_app. Luckily we already have a script that automates this: it copies all missing migrations in development_app/db/migrate. The command is:
+When creating new migrations in Decidim's modules, you will need to "apply" this migrations to your development_app. The way
+to do this is by copying the migration from your module into the db/migrate dir of your development_app. Luckily we already
+have a script that automates this: it copies all missing migrations in development_app/db/migrate. The command is:
 
 [source,console]
 ----
@@ -54,7 +62,8 @@ Anyway we recommend re-creating your development_app every once in a while.
 
 == Updating from develop
 
-We recommend that you periodically update your codebase with the last changes from the main repository. For this, you'll need to follow these instructions:
+We recommend that you periodically update your codebase with the last changes from the main repository. For this, you'll need
+to follow these instructions:
 
 [source,console]
 ----
@@ -80,7 +89,10 @@ bin/rake development_app
 [#database]
 === Database
 
-If you find an error like `Couldn't create 'decidim_development_app_development' database it's because you need to configure PostgreSQL. You can do this on two ways:
+If you find an error like `Couldn't create 'decidim_development_app_development' database it's because you need to configure
+PostgreSQL. You can do this on two ways:
 
-. By following the same steps as the described in PostgreSQL and the database configuration in the xref:install:manual.adoc[Manual installation tutorial], like creating the user for the database access, configuring it through environment variables, etc.
-. If you're working with test data and in your development application locally, you can relax the security of the PostgreSQL installation, by using the `trust` authentication mechanism. Check that PostgreSQL is only listening in localhost.
+. By following the same steps as the described in PostgreSQL and the database configuration in the xref:install:manual.adoc[Manual installation tutorial],
+like creating the user for the database access, configuring it through environment variables, etc.
+. If you're working with test data and in your development application locally, you can relax the security of the PostgreSQL
+installation, by using the `trust` authentication mechanism. Check that PostgreSQL is only listening in localhost.
