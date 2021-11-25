@@ -461,6 +461,7 @@ es-MX:
           accepted_mime_types:
             csv: csv
             json: json
+            xlsx: xlsx
           actions:
             back: Volver
           file_legend: Añadir un archivo de importación que será procesado.
