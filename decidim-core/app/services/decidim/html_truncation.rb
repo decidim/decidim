@@ -27,7 +27,6 @@ module Decidim
       @tail_added = false
       @remaining = initial_remaining
       cut_children(document, options[:count_tags])
-      change_quotes(document)
       add_tail(document) if @remaining.negative? && !@tail_added
 
       # Nokogiri's to_html escapes &quot; to &amp;quot; and we do not want extra &amp so we have to unescape.
@@ -61,15 +60,6 @@ module Decidim
     def cut_with_tags(node)
       @remaining -= node.to_html.length - node.content.length - closing_tag_length(node)
       cut_children(node, false)
-    end
-
-    def change_quotes(node)
-      node.content = node.content.gsub("\"", "&quot\;") if node.is_a? Nokogiri::XML::Text
-      return if node.children.empty?
-
-      node.children.each do |child|
-        change_quotes(child)
-      end
     end
 
     def add_tail(document)

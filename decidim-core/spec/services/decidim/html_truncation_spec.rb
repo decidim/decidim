@@ -33,7 +33,7 @@ describe Decidim::HtmlTruncation do
 
     it "does not get cutted" do
       texts.each do |test_text|
-        expect(described_class.new(test_text, options).truncate).to eq(test_text.to_s)
+        expect(described_class.new(test_text, options).perform).to eq(test_text.to_s)
       end
     end
   end
@@ -102,12 +102,12 @@ describe Decidim::HtmlTruncation do
     end
   end
 
-  describe "change quotation marks inside the tags" do
+  describe "dont change quotation marks inside the tags" do
     let(:max_length) { 19 }
     let(:text) { "<p>some <b>\"content\"</b> here, cut at comma" }
 
     it "changes escaped quotes" do
-      expect(subject).to eq("<p>some <b>&quot;content&quot;</b> here...</p>")
+      expect(subject).to eq("<p>some <b>\"content\"</b> here...</p>")
     end
   end
 
