@@ -104,10 +104,10 @@ describe Decidim::HtmlTruncation do
 
   describe "dont change quotation marks inside the tags" do
     let(:max_length) { 19 }
-    let(:text) { "<p>some <b>\"content\"</b> here, cut at comma" }
+    let(:text) { %(<p>some <b>"content"</b> here, cut at comma") }
 
     it "changes escaped quotes" do
-      expect(subject).to eq("<p>some <b>\"content\"</b> here...</p>")
+      expect(subject).to eq("<p>some <b>&quot;content&quot;</b> here...</p>")
     end
   end
 

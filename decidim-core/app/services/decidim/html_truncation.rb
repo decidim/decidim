@@ -2,6 +2,8 @@
 
 module Decidim
   class HtmlTruncation
+    include Decidim::SanitizeHelper
+
     # Truncates text and html content
     # text - Content to be truncated
     # options - Hash with the options
@@ -29,6 +31,7 @@ module Decidim
       @remaining = initial_remaining
       cut_children(document, options[:count_tags])
       add_tail(document) if @remaining.negative? && !@tail_added
+      escape_html_from_content(document)
 
       # Nokogiri's to_html escapes &quot; to &amp;quot; and we do not want extra &amp so we have to unescape.
       CGI.unescape_html(document.to_html).gsub("\n", "")
@@ -55,6 +58,15 @@ module Decidim
 
       node.children.each do |child|
         cut_children(child, count_html)
+      end
+    end
+
+    def escape_html_from_content(node)
+      node.content = decidim_html_escape(node.content) if node.is_a? Nokogiri::XML::Text
+      return if node.children.empty?
+
+      node.children.each do |child|
+        escape_html_from_content(child)
       end
     end
 
