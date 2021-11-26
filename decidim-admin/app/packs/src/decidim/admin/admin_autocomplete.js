@@ -91,7 +91,7 @@ const autoConfigure = (el) => {
   });
 
   textInput.addEventListener("keyup", (event) => {
-    if (input.value !== "" && (textInput.value.length > 1 || ["Escape", "Backspace"].includes(event.key))) {
+    if (input.value !== "" && (textInput.value.length > 1 || ["Escape", "Backspace", "Delete"].includes(event.key))) {
       clearSelected();
     }
   })

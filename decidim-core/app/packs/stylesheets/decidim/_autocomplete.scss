@@ -1,0 +1,76 @@
+@import "@tarekraafat/autocomplete.js/dist/css/autoComplete.02.css";
+@import "stylesheets/decidim/variables";
+@import "stylesheets/decidim/utils/settings";
+
+.autoComplete_wrapper {
+  width: 100%;
+
+  input {
+    color: $black;
+    width: 100%;
+    margin: 0;
+  }
+
+  ul {
+    position: relative;
+    margin: 0;
+
+    li{
+      color: $secondary;
+
+      span {
+        &.author__avatar{
+          display: inline-block;
+        }
+      }
+
+      &:hover,
+      &[aria-selected="true"]{
+        background-color: #ededed;
+      }
+
+      &.disabled{
+        pointer-events: none;
+        opacity: .6;
+      }
+    }
+  }
+
+  span{
+    &.selected-value{
+      position: absolute;
+      height: 3rem;
+      line-height: 3rem;
+      padding: 0 1rem;
+    }
+  }
+
+  .clear-selection{
+    display: inline;
+    position: absolute;
+    font-size: 1.3rem;
+    cursor: pointer;
+    right: 1rem;
+  }
+}
+
+.autocomplete-multiple-selected{
+  font-size: 1.3rem;
+  line-height: 1.8;
+  list-style: none;
+  margin: 1rem 0 0;
+
+  button{
+    cursor: pointer;
+  }
+
+  img{
+    &.author__avatar{
+      display: inline-block;
+      padding: 0;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+    }
+  }
+}

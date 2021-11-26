@@ -35,7 +35,7 @@ $(() => {
     },
     modifyResult: (element, value) => {
       $(element).html(`
-        <span class="author__avatar"><img src="${value.avatarUrl}"></span>
+        <span class="author__avatar"><img src="${value.avatarUrl}" alt="${value.name}"></span>
         <strong>${value.nickname}</strong>
         <small>${value.name}</small>
       `);
@@ -57,7 +57,7 @@ $(() => {
     $selectedItems.append(`
       <li>
         <input type="hidden" name="${options.name}" value="${selection.value.id}">
-        <img src="${selection.value.avatarUrl}" alt="${selection.value.name}">
+        <img src="${selection.value.avatarUrl}" class="author__avatar" alt="${selection.value.name}">
         <b>${selection.value.name}</b>
         <button class="float-right" data-remove=${id} tabindex="0" aria-controls="0" aria-label="Close" role="tab">&times;</button>
       </li>
