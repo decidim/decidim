@@ -79,7 +79,7 @@ ja:
         primary_color: プライマリ（プライマリ）
         reference_prefix: 参照の接頭辞：
         rich_text_editor_in_public_views: 参加者にリッチテキストエディタを有効にする
-        secondary_color: Secondary
+        secondary_color: セカンダリ
         secondary_hosts: セカンダリホスト
         send_welcome_notification: ウェルカム通知を送信
         success_color: 成功
@@ -744,7 +744,7 @@ ja:
           description: 直接参加者に連絡する必要がある場合、彼らの電子メールアドレスを見るために表示ボタンをクリックしてください。このアクションは記録されます。
           email_address: メールアドレス
           full_name: フルネーム
-          hidden: hidden
+          hidden: 非表示
           show: 表示
           title: 参加者のメールアドレスを表示
         unblock:
@@ -1001,7 +1001,7 @@ ja:
     moderations:
       actions:
         expand: 展開
-        hidden: Hidden
+        hidden: 非表示
         hide: 非表示
         not_hidden: 非表示にしない
         title: アクション
