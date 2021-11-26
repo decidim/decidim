@@ -406,7 +406,7 @@ pl:
         button_url: Adres url przycisku CTA
         description: Opis
       footer_sub_hero:
-        name: Banner podrzędny stopki
+        name: Baner podrzędny stopki
       hero:
         name: Obraz główny
       hero_settings_form:
@@ -433,7 +433,7 @@ pl:
       stats:
         name: Statystyki organizacji
       sub_hero:
-        name: Banner podrzędny
+        name: Baner podrzędny
     core:
       actions:
         login_before_access: Zaloguj się na swoje konto, żeby mieć dostęp
