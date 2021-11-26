@@ -306,6 +306,7 @@ ja:
             select_a_registration_type: 登録種別を選択してください
             select_an_iframe_access_level: Iframeアクセスレベルを選択してください
             select_an_iframe_embed_type: Iframe 埋め込みタイプを選択してください
+            show_embedded_iframe_help: ミーティングやライブイベント( YouTube、Twitch、Jitsi) に埋め込むことができるサービスは限られたもののみです。
           index:
             title: ミーティング
           new:
@@ -389,6 +390,15 @@ ja:
           index:
             meetings: ミーティング
             space_type: 参加者のスペース
+      iframe_access_level:
+        all: すべての訪問者
+        registered: この会議に参加者を登録しました
+        signed_in: ログイン済みの参加者のみ
+      iframe_embed_type:
+        embed_in_meeting_page: ミーティングページに埋め込む
+        none: なし
+        open_in_live_event_page: ライブイベントページで開く (オプションの投票付き)
+        open_in_new_tab: URLを新しいタブで開く
       last_activity:
         meeting_updated_at_html: "<span>ミーティングが %{link} に更新されました</span>"
         new_meeting_at_html: "<span> %{link}に新しいミーティング</span>"
@@ -470,6 +480,8 @@ ja:
           select_a_category: カテゴリを選択してください
           select_a_meeting_type: ミーティング種別を選択してください
           select_a_registration_type: 登録種別を選択してください
+          select_an_iframe_embed_type: Iframe 埋め込みタイプを選択してください
+          show_embedded_iframe_help: ミーティングやライブイベント（YouTube、Twitch、Jitsi）に埋め込むことができるサービスは限られたもののみです。
         index:
           click_here: すべてのミーティングを見る
           new_meeting: 新しいミーティング
