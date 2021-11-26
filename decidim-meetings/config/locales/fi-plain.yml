@@ -42,10 +42,6 @@ fi-pl:
         type_of_meeting: Tyyppi
     errors:
       models:
-        meeting:
-          attributes:
-            show_embedded_iframe:
-              not_embeddable: Tätä URL-osoitetta ei voi upottaa
         meeting_agenda:
           attributes:
             base:
@@ -309,7 +305,6 @@ fi-pl:
             registration_url_help: 'Linkki: salli käyttäjien siirtyminen käytettyyn ulkoiseen ilmoittautumispalveluun'
             select_a_meeting_type: Valitse tapaamisen tyyppi
             select_a_registration_type: Valitse ilmoittautumisten tyyppi
-            show_embedded_iframe_help: Määrittää, upotetaanko tämän videotapaamisen URL tapaamisen sivulle. Ainoastaan muutamat palvelut sallivat upotuksen ulkopuolisiin palveluihin (esim. YouTube, Twitch...)
           index:
             title: Tapahtumat
           new:
@@ -379,6 +374,13 @@ fi-pl:
           value_types:
             organizer_presenter:
               not_found: 'Järjestäjää ei löytynyt tietokannasta (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Kaikki
+        filter_meeting_space_values:
+          all: Kaikki
+        filter_scope_values:
+          all: Kaikki
       calendar_modal:
         calendar_url: Kalenterin URL
         close_window: Sulje ikkuna
@@ -386,6 +388,8 @@ fi-pl:
       conference_venues: Tapahtumapaikat
       content_blocks:
         upcoming_meetings:
+          name: Tulevat tapaamiset
+          upcoming_meetings: Tulevat tapaamiset
           view_all_meetings: Näytä kaikki
       directory:
         meetings:
@@ -474,7 +478,6 @@ fi-pl:
           select_a_category: Valitse aihepiiri
           select_a_meeting_type: Valitse tapaamisen tyyppi
           select_a_registration_type: Valitse ilmoittautumisten tyyppi
-          show_embedded_iframe_help: Määrittää, upotetaanko tämän videotapaamisen URL tapaamisen sivulle. Ainoastaan muutamat palvelut sallivat upotuksen ulkopuolisiin palveluihin (esim. YouTube, Twitch...)
         index:
           click_here: Näytä kaikki tapahtumat
           new_meeting: Uusi tapahtuma
