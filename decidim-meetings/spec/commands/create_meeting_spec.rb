@@ -66,8 +66,17 @@ module Decidim::Meetings
     context "when everything is ok" do
       let(:meeting) { Meeting.last }
 
-      it "creates the meeting" do
+      it "creates and publishes the meeting and log both actions" do
+        subject.call
+        meeting.reload
+        expect(meeting).to be_published
         expect { subject.call }.to change(Meeting, :count).by(1)
+        expect { subject.call }.to change(Decidim::ActionLog, :count).by(2)
+      end
+
+      it "makes the user follow the meeting" do
+        expect { subject.call }.to change(Decidim::Follow, :count).by(1)
+        expect(meeting.reload.followers).to include(current_user)
       end
 
       it "sets the scope" do
@@ -145,9 +154,14 @@ module Decidim::Meetings
       end
 
       it "schedules a upcoming meeting notification job 48h before start time" do
+        meeting = instance_double(Meeting, id: 1, start_time: start_time, participatory_space: participatory_process)
         expect(Decidim.traceability)
           .to receive(:create!)
-          .and_return(instance_double(Meeting, id: 1, start_time: start_time, participatory_space: participatory_process))
+          .and_return(meeting)
+
+        expect(meeting).to receive(:valid?)
+        expect(meeting).to receive(:publish!)
+        expect(meeting).to receive(:to_signed_global_id).and_return "gid://Decidim::Meetings::Meeting/1"
 
         expect(UpcomingMeetingNotificationJob)
           .to receive(:generate_checksum).and_return "1234"
