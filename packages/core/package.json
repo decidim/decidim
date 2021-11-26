@@ -42,7 +42,6 @@
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "react-i18nify": "^1.8.8",
-    "react-select": "^1.2.1",
     "select": "^1.1.2",
     "social-share-button": "2.2.0",
     "svg4everybody": "2.1.9",
