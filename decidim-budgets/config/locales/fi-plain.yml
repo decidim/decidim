@@ -186,6 +186,12 @@ fi-pl:
           projects_count:
             one: 1 suunnitelma
             other: "%{count} suunnitelmaa"
+        exit_modal:
+          cancel: Palaa äänestykseen
+          close_modal: Sulje ikkuna
+          exit: Poistu äänestyksestä
+          message: Ääntäsi ei ole kirjattu, koska et ole vielä suorittanut äänestystä loppuun asti. Haluatko varmasti poistua äänestyksestä?
+          title: Et ole vielä äänestänyt
         filters:
           category: Aihepiiri
           scope: Teema
