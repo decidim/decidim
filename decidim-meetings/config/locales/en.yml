@@ -45,8 +45,8 @@ en:
       models:
         meeting:
           attributes:
-            show_embedded_iframe:
-              not_embeddable: This URL can't be embedded
+            iframe_embed_type:
+              not_embeddable: This URL can't be embedded in meeting or live event page
         meeting_agenda:
           attributes:
             base:
@@ -310,7 +310,9 @@ en:
             registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
             select_a_meeting_type: Please select a meeting type
             select_a_registration_type: Please select a registration type
-            show_embedded_iframe_help: Whether or not embed the iframe for this videoconference URL. Only a few services allow embedding (i.e. Youtube, Twitch...)
+            select_an_iframe_access_level: Please select an iframe access level
+            select_an_iframe_embed_type: Please select an iframe embed type
+            show_embedded_iframe_help: Only a few services allow embedding in meeting or live event (YouTube, Twitch and Jitsi)
           index:
             title: Meetings
           new:
@@ -402,6 +404,15 @@ en:
           index:
             meetings: Meetings
             space_type: Participatory space
+      iframe_access_level:
+        all: All visitors
+        registered: Registered participants to this meeting
+        signed_in: Only signed-in participants
+      iframe_embed_type:
+        embed_in_meeting_page: Embed in meeting page
+        none: None
+        open_in_live_event_page: Open in live event page (with optional polls)
+        open_in_new_tab: Open URL in a new tab
       last_activity:
         meeting_updated_at_html: "<span>Meeting updated at %{link}</span>"
         new_meeting_at_html: "<span>New meeting at %{link}</span>"
@@ -484,7 +495,8 @@ en:
           select_a_category: Please select a category
           select_a_meeting_type: Please select a meeting type
           select_a_registration_type: Please select a registration type
-          show_embedded_iframe_help: Whether or not embed the iframe for this videoconference URL. Only a few services allow embedding (i.e. Youtube, Twitch...)
+          select_an_iframe_embed_type: Please select an iframe embed type
+          show_embedded_iframe_help: Only a few services allow embedding in meeting or live event (YouTube, Twitch and Jitsi)
         index:
           click_here: See all meetings
           new_meeting: New meeting

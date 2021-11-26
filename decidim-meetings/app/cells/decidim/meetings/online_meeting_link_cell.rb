@@ -7,10 +7,6 @@ module Decidim
     class OnlineMeetingLinkCell < Decidim::Meetings::OnlineMeetingCell
       include Decidim::LayoutHelper
 
-      def show
-        render
-      end
-
       def online_meeting_url?
         model.online_meeting_url.present?
       end
@@ -20,7 +16,7 @@ module Decidim
       private
 
       def show_embed?
-        model.show_embedded_iframe? && embedder.embeddable?
+        model.iframe_embed_type_embed_in_meeting_page? && embedder.embeddable?
       end
     end
   end
