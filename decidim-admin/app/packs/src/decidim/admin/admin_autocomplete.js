@@ -6,7 +6,7 @@ import AutoComplete from "src/decidim/autocomplete";
  *   <div data-autocomplete="{...}"></div>
  *
  * The data-autocomplete attribute should contain the following configuration
- * which is used to generate the AutoComplete options:
+ * as an encoded JSON, which is used to generate the AutoComplete options:
  * - name: assembly_member[user_id],
  * - options: [],
  * - placeholder: "Select a participant",
