@@ -67,6 +67,12 @@ module Decidim
       hash.push(I18n.locale)
       hash.push(model.cache_key_with_version) if model.respond_to?(:cache_key_with_version)
       hash.push(current_user.present? ? 1 : 0)
+      hash.push(commentable? ? 1 : 0)
+      hash.push(endorsable? ? 1 : 0)
+      hash.push(actionable? ? 1 : 0)
+      hash.push(withdrawable? ? 1 : 0)
+      hash.push(flaggable? ? 1 : 0)
+      hash.push(profile_path? ? 1 : 0)
       hash.push(current_user.try(:id)) if current_user.present?
       hash.join(Decidim.cache_key_separator)
     end

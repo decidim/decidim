@@ -29,7 +29,7 @@ module Decidim
         end
 
         def search_klass
-          MeetingSearch
+          ::Decidim::Meetings::Directory::MeetingSearch
         end
 
         def default_filter_params

@@ -40,6 +40,8 @@ module Decidim
       private
 
       def cache_hash
+        return @hash if defined?(@hash)
+
         hash = []
         hash.push(I18n.locale)
         hash.push(model.must_render_translation?(current_organization) ? 1 : 0)
@@ -47,7 +49,7 @@ module Decidim
         hash.push(model.reported_by?(current_user) ? 1 : 0)
         hash.push(model.cache_key_with_version)
         hash.push(model.author.cache_key_with_version)
-        hash.join(Decidim.cache_key_separator)
+        @hash = hash.join(Decidim.cache_key_separator)
       end
 
       def decidim_comments
