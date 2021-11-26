@@ -928,6 +928,7 @@ ja:
             assign_missing_officers: 投票管理者またはマネージャーがいない投票所があります。投票所セクションからアサインしてください
             update: 更新
           form:
+            census_contact_information_help: この連絡先情報は、センサスで問題を報告したい参加者のためのものです。 それは電子メールアドレス、別のサイトの連絡先フォーム、訪問者のためのDecidimアンケートなどである可能性があります。
             select_a_voting_type: 投票方式を選択してください
             title: タイトル
             voting_type:
