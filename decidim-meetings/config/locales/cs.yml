@@ -42,6 +42,10 @@ cs:
         type_of_meeting: Typ
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Tato adresa URL nemůže být vložena do stránky schůzky nebo živé události
         meeting_agenda:
           attributes:
             base:
@@ -315,6 +319,9 @@ cs:
             registration_url_help: 'Odkaz: umožnit účastníkům jít na externí službu, kterou používáte pro registrace'
             select_a_meeting_type: Vyberte prosím typ schůzky
             select_a_registration_type: Vyberte prosím typ registrace
+            select_an_iframe_access_level: Vyberte prosím úroveň přístupu iframe
+            select_an_iframe_embed_type: Vyberte typ vloženého iframe
+            show_embedded_iframe_help: Pouze pár služeb umožňuje vložení do schůzky nebo živé události (YouTube, Twitch a Jitsi)
           index:
             title: Setkání
           new:
@@ -408,6 +415,15 @@ cs:
           index:
             meetings: Setkání
             space_type: Účastní prostor
+      iframe_access_level:
+        all: Všichni návštěvníci
+        registered: Registrovaní účastníci této schůzky
+        signed_in: Pouze přihlášení účastníci
+      iframe_embed_type:
+        embed_in_meeting_page: Vložit do stránky schůzky
+        none: Žádný
+        open_in_live_event_page: Otevřít na stránce živé události (s volitelnými anketami)
+        open_in_new_tab: Otevřít URL v nové kartě
       last_activity:
         meeting_updated_at_html: "<span>Schůzka aktualizována na %{link}</span>"
         new_meeting_at_html: "<span>Nové setkání v %{link}</span>"
@@ -492,6 +508,8 @@ cs:
           select_a_category: Vyberte prosím kategorii
           select_a_meeting_type: Vyberte prosím typ schůzky
           select_a_registration_type: Vyberte prosím typ registrace
+          select_an_iframe_embed_type: Vyberte typ vloženého iframe
+          show_embedded_iframe_help: Pouze pár služeb umožňuje vložení do schůzky nebo živé události (YouTube, Twitch a Jitsi)
         index:
           click_here: Zobrazit všechny schůzky
           new_meeting: Nová schůzka
