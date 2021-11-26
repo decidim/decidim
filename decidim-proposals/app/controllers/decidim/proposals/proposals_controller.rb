@@ -32,7 +32,7 @@ module Decidim
                        .published
                        .not_hidden
                        .only_amendables
-                       .includes(:category, :scope)
+                       .includes(:category, :scope, :attachments, :coauthorships)
                        .order(position: :asc)
           render "decidim/proposals/proposals/participatory_texts/participatory_text"
         else
@@ -41,7 +41,7 @@ module Decidim
                         .published
                         .not_hidden
 
-          @proposals = @base_query.includes(:component, :coauthorships)
+          @proposals = @base_query.includes(:component, :coauthorships, :attachments)
           @all_geocoded_proposals = @base_query.geocoded
 
           @voted_proposals = if current_user
