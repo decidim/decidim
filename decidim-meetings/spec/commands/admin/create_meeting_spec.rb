@@ -144,6 +144,11 @@ module Decidim::Meetings
         expect(meeting).not_to be_published
       end
 
+      it "makes the user follow the meeting" do
+        expect { subject.call }.to change(Decidim::Follow, :count).by(1)
+        expect(meeting.reload.followers).to include(current_user)
+      end
+
       it "sets show_embedded_iframe" do
         subject.call
 
