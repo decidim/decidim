@@ -633,15 +633,15 @@ ja:
           email_subject: あなたは %{user_group_name} グループから削除されました！
           notification_title: <a href="%{resource_path}">%{user_group_name}</a> グループから削除されました。
         user_group_created:
-          email_intro: '%{user_group_name}という名前の新しいユーザーグループが作成されました。 <a href="%{groups_admin_url}">管理パネル</a> で確認できるようになりました。'
+          email_intro: '%{user_group_name} という名前の新しいユーザーグループが作成されました。 <a href="%{groups_admin_url}">管理画面</a> で確認できるようになりました。'
           email_outro: あなたはプラットフォームの管理者であるため、この通知を受け取りました。
           email_subject: 新しいユーザーグループが作成されました
-          notification_title: '%{user_group_name} ユーザーグループが作成されました。 <a href="%{groups_admin_path}">管理パネル</a> で確認できるようになりました。'
+          notification_title: '%{user_group_name} ユーザーグループが作成されました。 <a href="%{groups_admin_path}">管理画面</a> で確認できるようになりました。'
         user_group_updated:
           email_intro: ユーザーグループ「 %{user_group_name} 」がプロフィールページをアップデートし、未承認のままになっています。 <a href="%{groups_admin_url}">管理画面</a>から承認してください。
           email_outro: あなたはプラットフォームの管理者であるため、この通知を受け取りました。
           email_subject: ユーザーグループがプロファイルを更新しました
-          notification_title: '%{user_group_name} ユーザーグループがプロファイルを更新し、未検証のままにしました。 <a href="%{groups_admin_path}">管理パネル</a> で確認できるようになりました。'
+          notification_title: '%{user_group_name} ユーザーグループがプロファイルを更新し、未検証のままにしました。 <a href="%{groups_admin_path}">管理画面</a> で確認できるようになりました。'
       notification_event:
         notification_title: <a href="%{resource_path}">%{resource_title}</a> にイベントが発生しました。
       reports:
