@@ -14,15 +14,15 @@ module Decidim
         context "when created_at is between zero and 59 seconds" do
           it "returns the date formated" do
             travel_to(creating_date) { expect(subject.created_at_in_words).to eq("right now") }
-            travel_to(creating_date + 1.second) { expect(subject.created_at_in_words).to eq("1 second ago") }
-            travel_to(creating_date + 10.seconds) { expect(subject.created_at_in_words).to eq("10 seconds ago") }
-            travel_to(creating_date + 59.seconds) { expect(subject.created_at_in_words).to eq("59 seconds ago") }
+            travel_to(creating_date + 1.second) { expect(subject.created_at_in_words).to eq("1 sec. ago") }
+            travel_to(creating_date + 10.seconds) { expect(subject.created_at_in_words).to eq("10 sec. ago") }
+            travel_to(creating_date + 59.seconds) { expect(subject.created_at_in_words).to eq("59 sec. ago") }
           end
         end
 
         context "when created_at is between 1 minute and 59 minutes" do
           it "returns the date formated" do
-            travel_to(creating_date + 1.minute) { expect(subject.created_at_in_words).to eq("60 seconds ago") }
+            travel_to(creating_date + 1.minute) { expect(subject.created_at_in_words).to eq("60 sec. ago") }
             travel_to(creating_date + 59.minutes) { expect(subject.created_at_in_words).to eq("59 min. ago") }
           end
         end
