@@ -21,6 +21,7 @@ module Decidim
             create_services!
           end
 
+          create_follow_form_resource(form.current_user)
           broadcast(:ok, meeting)
         end
 
@@ -75,6 +76,11 @@ module Decidim
               "description" => service.description
             )
           end
+        end
+
+        def create_follow_form_resource(user)
+          follow_form = Decidim::FollowForm.from_params(followable_gid: meeting.to_signed_global_id.to_s).with_context(current_user: user)
+          Decidim::CreateFollow.call(follow_form, user)
         end
       end
     end
