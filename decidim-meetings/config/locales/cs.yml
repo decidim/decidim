@@ -42,10 +42,6 @@ cs:
         type_of_meeting: Typ
     errors:
       models:
-        meeting:
-          attributes:
-            show_embedded_iframe:
-              not_embeddable: Tato adresa URL nemůže být vložena
         meeting_agenda:
           attributes:
             base:
@@ -319,7 +315,6 @@ cs:
             registration_url_help: 'Odkaz: umožnit účastníkům jít na externí službu, kterou používáte pro registrace'
             select_a_meeting_type: Vyberte prosím typ schůzky
             select_a_registration_type: Vyberte prosím typ registrace
-            show_embedded_iframe_help: Rozhodněte o vložení URL iframe pro tuto videokonferenci. Pouze některé služby umožňují vložení (např. Youtube, Twitch...)
           index:
             title: Setkání
           new:
@@ -497,7 +492,6 @@ cs:
           select_a_category: Vyberte prosím kategorii
           select_a_meeting_type: Vyberte prosím typ schůzky
           select_a_registration_type: Vyberte prosím typ registrace
-          show_embedded_iframe_help: Rozhodněte o vložení URL iframe pro tuto videokonferenci. Pouze některé služby umožňují vložení (např. Youtube, Twitch...)
         index:
           click_here: Zobrazit všechny schůzky
           new_meeting: Nová schůzka
