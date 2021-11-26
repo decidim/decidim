@@ -42,10 +42,6 @@ ja:
         type_of_meeting: 種別
     errors:
       models:
-        meeting:
-          attributes:
-            show_embedded_iframe:
-              not_embeddable: このURLは埋め込めません
         meeting_agenda:
           attributes:
             base:
@@ -304,7 +300,6 @@ ja:
             registration_url_help: 'リンク: 参加者が登録に使用している外部サービスにアクセスできるようにします'
             select_a_meeting_type: ミーティング種別を選択してください
             select_a_registration_type: 登録種別を選択してください
-            show_embedded_iframe_help: このビデオ会議URLのiframeを埋め込むかどうか。いくつかのサービスのみが埋め込めます (例：YouTube、Twitchなど) 。
           index:
             title: ミーティング
           new:
@@ -469,7 +464,6 @@ ja:
           select_a_category: カテゴリを選択してください
           select_a_meeting_type: ミーティング種別を選択してください
           select_a_registration_type: 登録種別を選択してください
-          show_embedded_iframe_help: このビデオ会議URLのiframeを埋め込むかどうか。いくつかのサービスのみが埋め込めます (例：YouTube、Twitchなど) 。
         index:
           click_here: すべてのミーティングを見る
           new_meeting: 新しいミーティング
