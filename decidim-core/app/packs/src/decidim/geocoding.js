@@ -10,11 +10,11 @@ $(() => {
         $input.trigger("geocoder-suggest.decidim", [query, callback]);
       }
     });
+    el.addEventListener("selection", autoComplete);
 
     $input.on("selection", (event) => {
       const selectedItem = event.detail.selection.value;
       $input.trigger("geocoder-suggest-select.decidim", [selectedItem]);
-      autoComplete.setInput(selectedItem.key);
 
       // Not all geocoding autocomplete APIs include the coordinates in the
       // suggestions response. Therefore, some APIs may require additional

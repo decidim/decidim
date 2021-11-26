@@ -6,19 +6,19 @@
       </div>
     </div>
     <div class="row">
-      <div class="row columns autocomplete_search" data-name="recipient_id[]" data-multiple="true">
+      <div class="row columns multiple-mentions" data-name="recipient_id[]" data-multiple="true">
         <label for="add_conversation_users"><%= t(".add_max_users") %></label>
         <input id="add_conversation_users" type="text"
             spellcheck="false"
             autocomplete="off"
             placeholder="<%= t(".add_users_placeholder") %>"
             data-noresults="<%= t(".no_results") %>"
-            data-selected="autocomplete-multiple-selected"
+            data-selected="multiple-mentions-selected"
             contenteditable="true"
             data-direct-messages-disabled="<%= t("decidim.messaging.conversations.add_conversation_users.participant_with_disabled_message_reception") %>">
       </div>
       <div class="columns large-12">
-        <ul class="autocomplete-multiple-selected"></ul>
+        <ul class="multiple-mentions-selected"></ul>
       </div>
     </div>
   </div>

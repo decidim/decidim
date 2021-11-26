@@ -3,7 +3,15 @@ import AutoCompleteJS from "@tarekraafat/autocomplete.js";
 export default class AutoComplete {
   constructor(el, options = {}) {
     this.element = el;
+    this.selectedValue = null;
+    this.clearSelection = null;
+    this.hiddenInput = null;
     this.options = Object.assign({
+      // Defines what happens after user has selected value from suggestions
+      // sticky (default) - Allows selecting a single value and not editing the value after selected (e.g. as the admin autocomplete fields)
+      // single - Allows selecting a single value and editing the selected text after the selection (e.g. geocoding field)
+      // multi - Allows selecting multiple values
+      mode: "single",
       // Defines how many results to show in the autocomplete selection list
       // by maximum.
       maxResults: 10,
@@ -88,5 +96,77 @@ export default class AutoComplete {
 
   setInput(value) {
     this.autocomplete.input.value = value;
+  }
+
+  handleEvent(event) {
+    console.log("event", event);
+    console.log("this.mode", this.options.mode);
+    switch (this.options.mode) {
+    case "single":
+      this.setInput(event.detail.selection.value.key);
+      break;
+    case "sticky":
+      this.handleStickyEvents(event);
+      break;
+    default:
+    }
+  }
+
+  handleStickyEvents(event) {
+    switch (event.type) {
+    case "selection":
+      this.stickySelect(event);
+      break;
+    case "click":
+      if (event.type === "click" && event.target === this.clearSelection) {
+        this.clearSelected();
+      }
+      break;
+    case "keyup":
+      if (event.target === this.element && this.element.value !== "" && (this.element.value.length > 1 || ["Escape", "Backspace", "Delete"].includes(event.key))) {
+        this.clearSelected();
+      }
+      break;
+    default:
+    }
+  }
+
+  stickySelect(event) {
+    const feedback = event.detail;
+    const selection = feedback.selection;
+    this.setInput("");
+    this.element.placeholder = "";
+    this.selectedValue.innerHTML = selection.value.label;
+    this.selectedValue.style.display = "block";
+    this.clearSelection.style.display = "block";
+  }
+
+  clearSelected() {
+    this.hiddenInput.value = ""
+    this.element.placeholder = this.options.placeholder;
+    this.setInput("");
+    this.clearSelection.style.display = "none";
+    this.selectedValue.style.display = "none";
+  }
+
+  createStickySelector(hiddenName) {
+    this.selectedValue = document.createElement("span");
+    this.selectedValue.className = "selected-value";
+    this.selectedValue.style.display = "none";
+
+    this.hiddenInput = document.createElement("input");
+    this.hiddenInput.name = hiddenName;
+    this.hiddenInput.type = "hidden";
+
+    this.clearSelection = document.createElement("span");
+    this.clearSelection.className = "clear-selection";
+    this.clearSelection.innerHTML = "&times;";
+    this.clearSelection.style.display = "none";
+    this.clearSelection.addEventListener("click", this);
+
+    const acWrapper = document.querySelector(".autoComplete_wrapper");
+    acWrapper.insertBefore(this.clearSelection, this.element);
+    acWrapper.insertBefore(this.selectedValue, this.element);
+    this.element.addEventListener("selection", this);
   }
 }

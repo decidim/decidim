@@ -21,33 +21,24 @@ import AutoComplete from "src/decidim/autocomplete";
  */
 const autoConfigure = (el) => {
   const config = JSON.parse(el.dataset.autocomplete);
-  const input = document.createElement("input");
-  input.name = config.name;
-  input.type = "hidden";
+  // const input = document.createElement("input");
+  // input.name = config.name;
+  // input.type = "hidden";
 
   const textInput = document.createElement("input");
-  input.name = config.name;
+  // input.name = config.name;
   textInput.type = "text";
   textInput.className = "autocomplete-input";
-
-  const selectedValue = document.createElement("span");
-  selectedValue.className = "selected-value";
-  selectedValue.style.display = "none";
-
-  const clearSelection = document.createElement("span");
-  clearSelection.className = "clear-selection";
-  clearSelection.innerHTML = "&times;";
-  clearSelection.style.display = "none";
 
   if (config.placeholder) {
     textInput.placeholder = config.placeholder;
   }
   if (config.selected) {
-    input.value = config.selected.value;
+    // input.value = config.selected.value;
     textInput.value = config.selected.label;
   }
   el.appendChild(textInput);
-  el.insertBefore(input, textInput);
+  // el.insertBefore(input, textInput);
 
   const dataSource = (query, callback) => {
     const params = new URLSearchParams({ term: query });
@@ -60,41 +51,11 @@ const autoConfigure = (el) => {
   };
 
   const ac = new AutoComplete(textInput, {
+    mode: "sticky",
     dataMatchKeys: ["label"],
     dataSource
   });
-
-  const acWrapper = document.querySelector(".autoComplete_wrapper");
-  acWrapper.insertBefore(clearSelection, textInput);
-  acWrapper.insertBefore(selectedValue, textInput);
-
-  const clearSelected = () => {
-    input.value = ""
-    textInput.placeholder = config.placeholder;
-    clearSelection.style.display = "none";
-    selectedValue.style.display = "none";
-  }
-
-  clearSelection.addEventListener("click", () => {
-    clearSelected();
-  })
-
-  textInput.addEventListener("selection", (event) => {
-    const feedback = event.detail;
-    const selection = feedback.selection;
-    input.value = selection.value.value;
-    textInput.value = "";
-    textInput.placeholder = "";
-    selectedValue.innerHTML = selection.value.label;
-    selectedValue.style.display = "block";
-    clearSelection.style.display = "block";
-  });
-
-  textInput.addEventListener("keyup", (event) => {
-    if (input.value !== "" && (textInput.value.length > 1 || ["Escape", "Backspace", "Delete"].includes(event.key))) {
-      clearSelected();
-    }
-  })
+  ac.createStickySelector(config.name);
 
   return ac;
 }

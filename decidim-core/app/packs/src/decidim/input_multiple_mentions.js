@@ -1,15 +1,15 @@
 import AutoComplete from "src/decidim/autocomplete"
 
 $(() => {
-  const $fieldContainer = $(".autocomplete_search");
+  const $fieldContainer = $(".multiple-mentions");
+  if ($fieldContainer.length < 1) {
+    return;
+  }
+
   const $searchInput = $("input", $fieldContainer);
   const $selectedItems = $(`ul.${$searchInput.data().selected}`);
   const options = $fieldContainer.data();
   let selected = []
-
-  if ($fieldContainer.length < 1) {
-    return;
-  }
 
   const autoComplete = new AutoComplete($searchInput[0], {
     dataMatchKeys: ["name", "nickname"],
