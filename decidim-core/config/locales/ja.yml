@@ -67,11 +67,11 @@ ja:
       not_inside_organization: ファイルはどの組織にも添付されていません
   date:
     formats:
-      decidim_short: "%d/%m/%Y"
-      decidim_short_with_month_name_short: "%d %b %Y"
-      decidim_with_day_and_month_name: "%A %d %b %Y"
-      decidim_with_month_name: "%d %B %Y"
-      decidim_with_month_name_short: "%d %b"
+      decidim_short: "%Y/%m/%d"
+      decidim_short_with_month_name_short: "%Y %b %d"
+      decidim_with_day_and_month_name: "%Y %b %d %A"
+      decidim_with_month_name: "%Y %B %d"
+      decidim_with_month_name_short: "%b %d"
   decidim:
     accessibility:
       external_link: 外部リンク
@@ -1659,18 +1659,18 @@ ja:
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
-      day_of_week_long: "%a %e"
-      day_of_year: "%d.%m.%y"
-      decidim_day_of_year: "%d %B %Y"
-      decidim_short: "%d/%m/%Y %H:%M"
-      default: "%a, %d %b %Y %H:%M:%S %z"
+      day_of_week_long: "%e %a"
+      day_of_year: "%y.%m.%d"
+      decidim_day_of_year: "%Y %B %d"
+      decidim_short: "%Y/%m/%d %H:%M"
+      default: "%Y %d %b (%a) %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
-            accept_until_format: "%B %d, %Y %I:%M %p"
+            accept_until_format: "%Y %B %d, %I:%M %p"
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
-      short: "%d/%m/%Y %H:%M"
+      short: "%Y/%m/%d %H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:
