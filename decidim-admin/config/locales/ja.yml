@@ -1003,7 +1003,7 @@ ja:
         expand: 展開
         hidden: 非表示
         hide: 非表示
-        not_hidden: 非表示にしない
+        not_hidden: 表示
         title: アクション
         unhide: Unhide
         unreport: 報告解除
