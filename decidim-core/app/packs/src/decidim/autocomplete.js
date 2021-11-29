@@ -6,12 +6,20 @@ export default class AutoComplete {
     this.selectedValue = null;
     this.clearSelection = null;
     this.hiddenInput = null;
+    this.multiSelectWrapper = null;
     this.options = Object.assign({
+      // Name of the resource
+      name: null,
+      // Placeholder of visible input field
+      placeholder: "",
       // Defines what happens after user has selected value from suggestions
-      // sticky (default) - Allows selecting a single value and not editing the value after selected (e.g. as the admin autocomplete fields)
+      // sticky - Allows selecting a single value and not editing the value after selected (e.g. as the admin autocomplete fields)
       // single - Allows selecting a single value and editing the selected text after the selection (e.g. geocoding field)
       // multi - Allows selecting multiple values
-      mode: "single",
+      // null (default) - Disable selection event handling in this class
+      mode: null,
+      // Defines how many characters input has to have before we start searching
+      threshold: 2,
       // Defines how many results to show in the autocomplete selection list
       // by maximum.
       maxResults: 10,
@@ -49,15 +57,15 @@ export default class AutoComplete {
       modifyResult: null
     }, options);
 
-    const threshold = this.options?.threshold || 2;
     this.autocomplete = new AutoCompleteJS({
       selector: () => this.element,
-      // Delay (milliseconds) before autocomplete engine starts
+      // Delay (milliseconds) before autocomplete engine starts. It's preventing many queries when user is typing fast.
       debounce: 200,
-      threshold: threshold,
+      threshold: this.options.threshold,
       data: {
         keys: this.options.dataMatchKeys,
         src: async (query) => {
+          console.log("hakeee dataaa")
           const fetchResults = () => {
             return new Promise((resolve) => {
               this.options.dataSource(query, resolve);
@@ -65,8 +73,11 @@ export default class AutoComplete {
           }
 
           try {
+            const aa = await fetchResults();
+            console.log("aa", aa)
             return await fetchResults();
           } catch (error) {
+            console.log("error", error)
             return error;
           }
         },
@@ -83,6 +94,8 @@ export default class AutoComplete {
       },
       resultItem: {
         element: (item, data) => {
+          console.log("item", item);
+          console.log("data", data);
           if (!this.options.modifyResult) {
             return;
           }
@@ -91,7 +104,39 @@ export default class AutoComplete {
         }
       }
     });
+
+    switch (this.options.mode) {
+    case "sticky":
+      this.createStickySelect(this.options.name);
+      break;
+    case "multi":
+      this.createMultiSelect(this.options.name);
+      break;
+    default:
+    }
+
     this.element.ac = this.autocomplete;
+  }
+
+  createMultiSelect() {
+    const acWrapper = document.querySelector(".autoComplete_wrapper");
+    this.multiSelectWrapper = document.createElement("div");
+    this.multiSelectWrapper.classList.add("multiselect");
+
+    const inputWrapper = document.createElement("span");
+
+    this.multiSelectWrapper.appendChild(inputWrapper);
+    acWrapper.appendChild(this.multiSelectWrapper);
+    inputWrapper.appendChild(this.element);
+
+    this.multiSelectWrapper.addEventListener("click", () => {
+      this.element.focus();
+    })
+
+    // testi
+    const chosen = document.createElement("span");
+    chosen.innerHTML = "yestagi";
+    this.multiSelectWrapper.prepend(chosen);
   }
 
   setInput(value) {
@@ -103,13 +148,44 @@ export default class AutoComplete {
     console.log("this.mode", this.options.mode);
     switch (this.options.mode) {
     case "single":
-      this.setInput(event.detail.selection.value.key);
+      this.setInput(event.detail.selection.value[event.detail.selection.key]);
       break;
     case "sticky":
       this.handleStickyEvents(event);
       break;
+    case "multi":
+      this.handleMultiEvents(event);
+      break;
     default:
     }
+  }
+
+  handleMultiEvents(event) {
+    switch (event.type) {
+    case "selection":
+      this.multiSelect(event);
+      break;
+    default:
+    }
+  }
+
+  multiSelect(event) {
+    const feedback = event.detail;
+    const selection = feedback.selection;
+    this.setInput("");
+    const chosen = document.createElement("span");
+    chosen.classList.add("chosen")
+    chosen.innerHTML = selection.value[selection.key];
+
+    const clearSelection = document.createElement("span");
+    clearSelection.className = "clear-multi-selection";
+    clearSelection.innerHTML = "&times;";
+    clearSelection.addEventListener("click", (evt) => {
+      evt.target.parentElement.remove();
+    });
+    chosen.appendChild(clearSelection);
+
+    this.multiSelectWrapper.prepend(chosen);
   }
 
   handleStickyEvents(event) {
@@ -136,7 +212,7 @@ export default class AutoComplete {
     const selection = feedback.selection;
     this.setInput("");
     this.element.placeholder = "";
-    this.selectedValue.innerHTML = selection.value.label;
+    this.selectedValue.innerHTML = selection.value[selection.key];
     this.selectedValue.style.display = "block";
     this.clearSelection.style.display = "block";
   }
@@ -149,7 +225,7 @@ export default class AutoComplete {
     this.selectedValue.style.display = "none";
   }
 
-  createStickySelector(hiddenName) {
+  createStickySelect(hiddenName) {
     this.selectedValue = document.createElement("span");
     this.selectedValue.className = "selected-value";
     this.selectedValue.style.display = "none";

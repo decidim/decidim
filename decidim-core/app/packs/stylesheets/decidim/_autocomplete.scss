@@ -52,6 +52,33 @@
     cursor: pointer;
     right: 1rem;
   }
+
+  .clear-multi-selection{
+    cursor: pointer;
+  }
+}
+
+.multiselect{
+  background-color: $white;
+  display: inline-block;
+  border: 1px solid $medium-gray;
+  width: 100%;
+  cursor: text;
+
+  span{
+    display: inline-block;
+    position: relative;
+
+    input{
+      border: none;
+    }
+
+    &.chosen{
+      padding: .5rem;
+      color: $white;
+      background-color: $secondary;
+    }
+  }
 }
 
 .multiple-mentions-selected{

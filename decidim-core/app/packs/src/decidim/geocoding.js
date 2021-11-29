@@ -5,6 +5,7 @@ $(() => {
     const $input = $(el);
 
     const autoComplete = new AutoComplete(el, {
+      mode: "single",
       dataMatchKeys: ["value"],
       dataSource: (query, callback) => {
         $input.trigger("geocoder-suggest.decidim", [query, callback]);

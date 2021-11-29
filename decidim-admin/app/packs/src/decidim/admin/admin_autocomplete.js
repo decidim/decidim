@@ -51,11 +51,10 @@ const autoConfigure = (el) => {
   };
 
   const ac = new AutoComplete(textInput, {
-    mode: "sticky",
+    name: config.name,
     dataMatchKeys: ["label"],
     dataSource
   });
-  ac.createStickySelector(config.name);
 
   return ac;
 }
