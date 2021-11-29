@@ -42,14 +42,14 @@ ja:
         customize_welcome_notification: ウェルカム通知をカスタマイズ
         default_locale: 既定のロケール：
         description: 説明
-        enable_omnipresent_banner: Show omnipresent banner
-        enable_participatory_space_filters: 参加スペースフィルタを有効にする
-        facebook_handler: Facebook handler
+        enable_omnipresent_banner: Omnipresentバナーを表示
+        enable_participatory_space_filters: 参加型スペースフィルタを有効にする
+        facebook_handler: Facebook ハンドラー
         favicon: アイコン
         force_authentication: 認証の強制
         force_users_to_authenticate_before_access_organization: 組織にアクセスする前にユーザーの認証を強制する
         from: 送信者メールアドレス
-        github_handler: GitHub handler
+        github_handler: GitHub ハンドラー
         header_snippets: ヘッダスニペットを表示
         highlight_alternative_color: 代替のハイライト
         highlight_color: 強調表示
@@ -61,7 +61,7 @@ ja:
         highlighted_content_banner_short_description: 短い説明
         highlighted_content_banner_title: タイトル
         host: ホスト
-        instagram_handler: Instagram handler
+        instagram_handler: Instagram ハンドラー
         logo: ロゴ
         machine_translation_display_priority: 機械翻訳表示の優先度
         machine_translation_display_priority_original: 元のテキストを最初にする
@@ -84,14 +84,14 @@ ja:
         send_welcome_notification: ウェルカム通知を送信
         success_color: 成功
         time_zone: タイムゾーン
-        tos_version: Terms of service version
-        twitter_handler: Twitter handler
+        tos_version: 利用規約のバージョン
+        twitter_handler: Twitter ハンドラー
         user_groups_enabled: グループを有効にする
         users_registration_mode: ユーザー登録モード
         warning_color: 警告
         welcome_notification_body: Welcome通知本文
         welcome_notification_subject: ウェルカム通知の件名
-        youtube_handler: YouTube handler
+        youtube_handler: YouTube ハンドラー
       scope:
         code: コード
         name: 名前
@@ -167,7 +167,7 @@ ja:
         newsletter:
           new: 新しいニュースレター
         participatory_space_private_user:
-          new: 新しい参加スペースのプライベートユーザー
+          new: 新しい参加型スペースのプライベートユーザー
         per_page: ページごと
         permissions: アクセス許可
         reject: 拒否
@@ -209,7 +209,7 @@ ja:
           error: 新しいエリアの作成中に問題が発生しました。
           success: エリアの作成に成功しました。
         destroy:
-          has_spaces: このエリアには依存スペースがあります。削除する前に参加スペースがこのエリアを参照していないことを確認してください。
+          has_spaces: このエリアには依存スペースがあります。削除する前に参加型スペースがこのエリアを参照していないことを確認してください。
           success: エリアの削除に成功しました
         edit:
           title: エリアを編集
@@ -563,7 +563,7 @@ ja:
             subject: 件名
           name: ニュースレター
         participatory_space_private_user:
-          name: 参加スペースプライベート参加者
+          name: 参加型スペースプライベート参加者
         scope:
           fields:
             name: 名前
@@ -630,7 +630,7 @@ ja:
         report:
           reasons:
             does_not_belong: 属していません
-            offensive: 攻撃
+            offensive: 攻撃的
             spam: スパム
         reports:
           index:
@@ -689,9 +689,9 @@ ja:
           all_users_help: 確認済みのすべてのユーザーにニュースレターを送信します。
           confirm_deliver: このニュースレターを配信してもよろしいですか？この操作は元に戻せません。
           deliver: ニュースレターを配信する
-          followers_help: リスト内の選択した参加スペースに従っているすべての確認済みユーザーにニュースレターを送信します。
+          followers_help: リスト内の選択した参加型スペースに従っているすべての確認済みユーザーにニュースレターを送信します。
           none: なし
-          participants_help: 選択した参加スペースに参加しているすべての確認済みユーザーにニュースレターを送信します。
+          participants_help: 選択した参加型スペースに参加しているすべての確認済みユーザーにニュースレターを送信します。
           recipients_count: このニュースレターは、 <strong id='recipients_count'>%{count}</strong> のユーザーに送信されます。
           scopes_help: アカウントの「私の興味」設定で選択したスコープのいずれかを有効にしているユーザーにニュースレターを送信します。
           select_scopes: アカウントの「趣味」設定で選択したスコープを有効にしているユーザーをフィルタリングします。
@@ -781,7 +781,7 @@ ja:
           images:
             layout_appearance_title: レイアウトを編集
             preview: プレビュー
-          omnipresent_banner_appearance_title: Edit omnipresent banner
+          omnipresent_banner_appearance_title: Omnipresentバナーを編集
       organization_external_domain_whitelist:
         edit:
           update: 更新
@@ -802,17 +802,17 @@ ja:
           update: 更新
       participatory_space_private_users:
         create:
-          error: この参加スペースにプライベート参加者を追加する際に問題が発生しました。
-          success: 参加スペースのプライベート参加者アクセスが正常に作成されました。
+          error: この参加型スペースにプライベート参加者を追加する際に問題が発生しました。
+          success: 参加型スペースのプライベート参加者アクセスが正常に作成されました。
         destroy:
-          error: この参加スペースのプライベート参加者を削除する際に問題が発生しました。
-          success: 参加スペースのプライベート参加者アクセスが正常に破棄されました。
+          error: この参加型スペースのプライベート参加者を削除する際に問題が発生しました。
+          success: 参加型スペースのプライベート参加者アクセスが正常に破棄されました。
         index:
           import_via_csv: CSV形式でインポート
-          title: 参加スペースプライベート参加者
+          title: 参加型スペースプライベート参加者
         new:
           create: 作成
-          title: 新しい参加空間のプライベート参加者。
+          title: 新しい参加型スペースのプライベート参加者。
       participatory_space_private_users_csv_imports:
         create:
           invalid: CSVファイルの読み込みに問題が発生しました。
