@@ -416,6 +416,7 @@ en:
             related_processes: Related processes
             scope_type_max_depth_help: Restrict the scope filter depth; The filter will show from general to the selected scope type.
             select_an_area: Select an Area
+            select_participatory_process_type: Select a process type
             select_process_group: Select a process group
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: General Information

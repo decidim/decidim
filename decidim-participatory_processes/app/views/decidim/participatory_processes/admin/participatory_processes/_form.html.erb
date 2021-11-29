@@ -188,6 +188,16 @@
     <div class="row column">
       <%= form.check_box :show_metrics %>
     </div>
+
+    <% if @form.participatory_process_types_for_select.present? %>
+      <div class="row column">
+        <%= form.select(
+              :participatory_process_type_id,
+              @form.participatory_process_types_for_select,
+              include_blank: t(".select_participatory_process_type")
+            ) %>
+      </div>
+    <% end %>
   </div>
 </div>
 
