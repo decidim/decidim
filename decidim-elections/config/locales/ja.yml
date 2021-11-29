@@ -1006,14 +1006,20 @@ ja:
             total_null_ballots: 空の投票の総数
             total_valid_ballots: 有効票の総数
           new:
+            election: '選挙:'
+            heading: 投票再集計
             modal_ballots_count_error:
+              close_modal: 閉じる
               title: 合計レコードが追加されていません
+          show:
+            heading: 投票再集計
           sign:
             cancel: キャンセル
             check_box: 私はこれをレビューし、物理的な選挙閉鎖証明書と同じであることを確認しました
             close_modal: 閉じる
             confirm: はい、続行します
             error: エラーが発生しました。もう一度やり直してください。
+            info_text: 続行すると、情報を変更できなくなります。このアクションは元に戻すことはできません。
             submit: 閉鎖に署名する
             success: 閉鎖の署名に成功しました。
             title: このアクションは元に戻せません
@@ -1050,6 +1056,15 @@ ja:
           manager: マネージャー
           president: 投票責任者
           unassigned: 未割り当て
+      polling_station_closure_recount:
+        nota_option: 空欄 / 上記のどれでもない
+        polling_officer_notes: '投票委員のメモ:'
+        polling_officer_notes_blank: メモはありません
+        recount_summary: '再集計の概要:'
+        signed: 署名済み
+        total_ballots: '総投票数:'
+        total_blank_ballots: '白票の投票数の合計：'
+        total_null_ballots: '空の投票数の総数:'
       polling_stations:
         actions:
           confirm_destroy: 本当に削除してよろしいですか？
