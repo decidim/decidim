@@ -273,6 +273,7 @@ ja:
             success: 不足していた受託者の報告は正しく掲示板に送信されました
             tally_completion: すべての受託者がアクティブまたは missing とマークされた場合、プロセスは完了します。少なくとも %{quorum} 人の受託者がプロセスを完了する必要があります。
             title: 集計処理
+            undo_mark_as_missing: 受託者は、プロセスが完了する前に、間違ってmissingとマークされていることができます。 その場合、通常通りに進行することができ、missingのマークは無視されます。
           tally_ended:
             answer: 回答
             not_selected: 未選択
@@ -323,6 +324,22 @@ ja:
           update:
             invalid: 受託者 %{trustee} の更新中に問題が発生しました
             success: 受託者 %{trustee} が正常に更新されました
+      admin_log:
+        election:
+          create: "%{user_name} が %{space_name} の選挙 %{resource_name} を作成しました"
+          delete: "%{user_name} が %{space_name} の選挙 %{resource_name} を削除しました"
+          end_vote: "%{user_name} が掲示板の %{space_name} の選挙 %{resource_name} の投票期間を終了させました"
+          publish: "%{user_name} が %{space_name} の選挙 %{resource_name} を公開しました"
+          publish_results: "%{user_name} が %{space_name} の選挙 %{resource_name} の結果を掲載しました"
+          report_missing_trustee: "%{user_name} は、%{space_name} の選挙 %{resource_name} の集計で不足している受託者として %{trustee_name} を報告しました"
+          setup: "%{user_name} が掲示板に %{space_name} の選挙%{resource_name} を作成しました"
+          start_key_ceremony: "%{user_name} が掲示板で %{space_name} の選挙%{resource_name} のキーセレモニーを開始しました"
+          start_tally: "%{user_name} が %{space_name} の選挙%{resource_name} の集計を開始しました。"
+          start_vote: "%{user_name} が掲示板で %{space_name} の 選挙%{resource_name} の投票期間を開始しました"
+          unpublish: "%{user_name} が %{space_name} の 選挙 %{resource_name} を非公開にしました"
+          update: "%{user_name} が %{space_name} の選挙 %{resource_name} を更新しました"
+        trustee:
+          create: "%{user_name} がユーザー %{trustee_user} を受託者に割り当てました"
       election_m:
         badge_name:
           finished: 完了
@@ -570,6 +587,7 @@ ja:
           back: 投票プロセスを再度開始
           ballot_hash: '投票用紙の識別子:'
           cast: 投票用紙のキャスト
+          description: ここでは、投票用紙を適切にカウントするか、または投票用紙が正しく暗号化されていることを監査することができます。 セキュリティ上の理由から、投票の監査はそれを台無しにします。つまり、投票を行うには、投票プロセスを再開する必要があります。
           header: '投票は暗号化されています：キャストまたは監査されます'
         casting:
           header: 投票中…
@@ -609,6 +627,7 @@ ja:
           encrypting: 投票の暗号化
           failed: 投票に失敗しました
         messages:
+          invalid_token: 投票ブースでのセッションが無効です。もう一度投票してください。
           not_allowed: 現在、この選挙に投票することはできません。
         modal:
           close: 閉じる
@@ -677,8 +696,13 @@ ja:
       votings:
         polling_officers:
           polling_station_assigned:
+            email_intro: "あなたは <a href=\"%{resource_url}\">%{resource_title}</a>の投票において、投票所 %{polling_station_name} の%{role} がアサインされました。\nあなたは<a href=\"%{polling_officer_zone_url}\">投票委員ゾーン</a>で投票所を管理できます."
             email_outro: '%{polling_station_name} の%{role} として割り当てられているため、この通知を受け取りました。'
             email_subject: あなたは投票所%{polling_station_name} の %{role} です。
+            notification_title: あなたは <a href="%{resource_path}">%{resource_title}</a>の投票において、投票所 %{polling_station_name} の%{role} です。
+        send_access_code:
+          instruction: 'あなたのアクセスコードこちらです: %{access_code}。これで %{voting} に参加できます。'
+          subject: '%{voting} に参加するためのアクセスコードです。'
     help:
       participatory_spaces:
         votings:
@@ -706,6 +730,7 @@ ja:
             code_help: 'ヒント: コードは、センサスと投票スタイルをリンクさせるものです。 センサスデータをアップロードするとき、コードに一致する投票スタイルが割り当てられます。'
             election: 選挙
             questions: この投票スタイルに関する質問
+            questions_help: 'ヒント: この投票スタイルに割り当てられた投票者に提示される選挙コンポーネントから質問を選択します'
           index:
             actions:
               confirm_destroy: 本当に削除してよろしいですか？
@@ -713,6 +738,8 @@ ja:
               edit: 編集
               new: 新規作成
               title: アクション
+            associated_census_data: 関連センサス項目
+            explanation_callout: 投票者がどのような質問をブースに提示するかは、投票スタイルで指定します。 投票スタイルでは、この投票の構成要素からどの質問が投票に属するかを選択できます。 投票コードは、センサスの投票者とブースで提示される投票用紙を一致させるために使用されます。 常にすべての質問を提示したい場合は、投票スタイルを作成しないでください。
             title: 投票スタイル
           new:
             create: 作成
@@ -1015,7 +1042,18 @@ ja:
               button: 投票アクセスコードを生成する
               callout: アクセスコードの生成に進めることができるようになりました。 アクセスコードを生成すると、センサスを変更することができなくなります。
               confirm: 続行すると、センサスを変更することはできません。
+              info_message_all: "<strong>すべての行をインポートできました</strong>: ファイル %{file} (%{raw_count} / %{data_count})."
+              info_message_warn: '%{data_count} レコードが作成されましたが、アップロードされたファイル %{file} は %{raw_count} 行だったため、データが失われていないことを確認してください。'
+              launch_error: アクセスコードの生成中に問題が発生しました
+              launch_success: コードの生成が開始されました
+            generating_access_codes:
+              info_message: "<strong>しばらくお待ちください</strong>, 投票アクセスコードの生成中です..."
             new:
+              file_help:
+                explanation: 'ファイルのガイダンス:'
+                message_1: CSV (.csv) ファイルのみが許可されます。
+                message_2: カラムの区切り文字はセミコロン(";") でなければなりません。
+              has_ballot_styles_message: 投票スタイルを設定しました。CSVの「%{ballot_style_code_header}」フィールドが、希望する投票スタイルのコードに対応していることを確認してください。
               info_message: "<strong>センサスはまだありません。</strong> 以下のフォームを使用してCSVファイルをインポートしてください。"
               submit: CSVを送信
               title: センサスを作成
@@ -1214,7 +1252,22 @@ ja:
         access_code_modal:
           email: '%{email} にメールで送信'
           info: 参加するにはアクセスコードが必要です。郵便で受け取れなかった場合は、新しいものをお送りします。
+          no_email: メールアドレスがありません
+          no_sms: 電話番号がありません
+          sms: SMSで %{sms} に送信
+          title: アクセスコードを取得
         check_census:
+          check_status: ステータスの確認
+          description: ここでは、あなたがこの投票に参加する権利があるかどうかを知るためにあなたのセンサスデータをチェックするオプションがあります。 すでにアクセスコードを持っているはずですが、紛失した場合は、データが正しいときにもう一度それを求めることができます。
+          error:
+            info: 'もう一度やり直してください。システム内のデータが正しくないと思われる場合は、こちらから報告できます: %{census_contact_information}.'
+            title: あなたのセンサスデータが正しくありません！
+          form_title: 'あなたのセンサスデータを確認するには、次のフォームに記入してください:'
+          invalid: センサスの確認中に問題がありました。
+          success:
+            access_link: SMSまたは電子メールで
+            info: すでに郵便番号でアクセスコードを受け取っているはずです。持っていない場合は、ここでリクエストできます。
+            title: あなたのセンサスデータは正しいです！
           title: 投票できますか？
         check_fields:
           date_of_birth: 生年月日
