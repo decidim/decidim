@@ -1708,21 +1708,6 @@ en:
         zero: right now
   datetime:
     distance_in_words:
-      x_seconds:
-        one: 1 sec. ago
-        other: "%{count} sec. ago"
-        zero: right now
-      x_minutes:
-        one: 1 min. ago
-        other: "%{count} min. ago"
-      x_hours:
-        one: 1 hour ago
-        other: "%{count} hours ago"
-      x_days:
-        one: "1 day ago"
-        other: "%{count} days ago"
-
-    distance_in_words:
       about_x_hours:
         one: about 1 hour
         other: about %{count} hours
