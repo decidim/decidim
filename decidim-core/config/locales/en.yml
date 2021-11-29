@@ -77,6 +77,34 @@ en:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: about 1 hour
+        other: about %{count} hours
+      about_x_months:
+        one: about 1 month
+        other: about %{count} months
+      half_a_minute: half a minute
+      less_than_x_minutes:
+        one: less than a min.
+        other: less than %{count} min.
+      less_than_x_seconds:
+        one: right now
+        other: less than %{count} sec.
+      x_days:
+        one: 1 day ago
+        other: "%{count} days ago"
+      x_hours:
+        one: 1 hour ago
+        other: "%{count} hours ago"
+      x_minutes:
+        one: 1 min. ago
+        other: "%{count} min. ago"
+      x_seconds:
+        one: 1 sec. ago
+        other: "%{count} sec. ago"
+        zero: right now
   decidim:
     accessibility:
       external_link: External link
@@ -1692,48 +1720,6 @@ en:
       long_dashed: "%Y-%m-%d %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
-    time_in_words_to_now:
-      days:
-        one: 1 day ago
-        other: "%{count} days ago"
-      hours:
-        one: 1 hour ago
-        other: "%{count} hours ago"
-      minutes:
-        one: 1 min. ago
-        other: "%{count} min. ago"
-      seconds:
-        one: 1 sec. ago
-        other: "%{count} sec. ago"
-        zero: right now
-  datetime:
-    distance_in_words:
-      about_x_hours:
-        one: about 1 hour
-        other: about %{count} hours
-      about_x_months:
-        one: about 1 month
-        other: about %{count} months
-      half_a_minute: half a minute
-      less_than_x_seconds:
-        one: right now
-        other: less than %{count} sec.
-      less_than_x_minutes:
-        one: less than a min.
-        other: less than %{count} min.
-      x_seconds:
-        one: 1 sec. ago
-        other: "%{count} sec. ago"
-        zero: right now
-      x_minutes:
-        one: 1 min. ago
-        other: "%{count} min. ago"
-      x_hours:
-        one: 1 hour ago
-        other: "%{count} hours ago"
-      x_days:
-        one: "1 day ago"
-        other: "%{count} days ago"
   versions:
     directions:
       left: Deletions
