@@ -55,10 +55,18 @@ describe Decidim::HtmlTruncation do
   describe "count tags" do
     let(:count_tags) { true }
     let(:max_length) { 22 }
-    let(:text) { %(<strong class="foo">bar</strong) }
+    let(:text) { %(<strong class="foo">bar</strong>) }
 
     it "counts tags also" do
       expect(subject).to eq('<strong class="foo">ba...</strong>')
+    end
+
+    describe "content with tag name" do
+      let(:text) { %(<div style="color: purple;" class="foo">div</div>) }
+
+      it "cuts content" do
+        expect(subject).to eq('<div style="color: purple;" class="foo">...</div>')
+      end
     end
   end
 

@@ -48,7 +48,7 @@ module Decidim
       return cut_with_tags(node) if count_html && @remaining < node_length(node)
 
       if node.children.empty?
-        if @remaining <= node_length(node)
+        if @remaining < node_length(node)
           node.content = cut_content(node)
           @remaining = -1
         end
@@ -72,6 +72,8 @@ module Decidim
 
     def cut_with_tags(node)
       @remaining -= node.to_html.length - node.content.length - closing_tag_length(node)
+      @remaining = 0 if @remaining.negative?
+
       cut_children(node, false)
     end
 
@@ -100,7 +102,7 @@ module Decidim
     end
 
     def closing_tag_length(node)
-      node.to_html.slice(node.to_html.index(node.content)..-1).sub(node.content, "").length
+      node.to_html.length - node.to_html.rindex("</")
     end
 
     def node_length(node)
