@@ -582,8 +582,10 @@ ja:
       votings:
         polling_officers:
           polling_station_assigned:
+            email_intro: "あなたは <a href=\"%{resource_url}\">%{resource_title}</a>の投票において、投票所 %{polling_station_name} の%{role} がアサインされました。\nあなたは<a href=\"%{polling_officer_zone_url}\">投票委員ゾーン</a>で投票所を管理できます."
             email_outro: '%{polling_station_name} の%{role} として割り当てられているため、この通知を受け取りました。'
             email_subject: あなたは投票所%{polling_station_name} の %{role} です。
+            notification_title: あなたは <a href="%{resource_path}">%{resource_title}</a>の投票において、投票所 %{polling_station_name} の%{role} です。
     help:
       participatory_spaces:
         votings:
