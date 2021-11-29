@@ -58,6 +58,10 @@ module Decidim
                foreign_key: "decidim_scope_type_id",
                class_name: "Decidim::ScopeType",
                optional: true
+    belongs_to :participatory_process_type,
+               foreign_key: "decidim_participatory_process_type_id",
+               class_name: "Decidim::ParticipatoryProcessType",
+               optional: true
 
     has_many :components, as: :participatory_space, dependent: :destroy
 
