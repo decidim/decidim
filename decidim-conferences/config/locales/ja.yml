@@ -537,7 +537,7 @@ ja:
           notification_title: カンファレンス <a href="%{resource_url}">%{resource_title}</a> の登録が確認されました。
         conference_registrations_over_percentage:
           email_intro: '"%{resource_title}" カンファレンス参加率は %{percentage} %を超えています。'
-          email_outro: あなたはカンファレンスの参加スペースの管理者であるため、この通知を受け取りました。
+          email_outro: あなたはカンファレンスの参加型スペースの管理者であるため、この通知を受け取りました。
           email_subject: '「%{resource_title}」カンファレンス参加率は %{percentage} %を超えています'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> カンファレンス参加率は %{percentage} %を超えています。
         conference_updated:
