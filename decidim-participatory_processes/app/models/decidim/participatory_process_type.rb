@@ -2,6 +2,8 @@
 
 module Decidim
   class ParticipatoryProcessType < ApplicationRecord
+    include Decidim::Traceable
+    include Decidim::Loggable
     include Decidim::TranslatableResource
 
     translatable_fields :title
@@ -17,5 +19,9 @@ module Decidim
              dependent: :nullify
 
     validates :title, presence: true
+
+    def self.log_presenter_class_for(_log)
+      Decidim::ParticipatoryProcesses::AdminLog::ParticipatoryProcessTypePresenter
+    end
   end
 end

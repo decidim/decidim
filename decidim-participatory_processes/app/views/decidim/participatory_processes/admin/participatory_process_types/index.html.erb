@@ -1,0 +1,60 @@
+<div class="card" id="participatory-process-types">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t("titles.participatory_process_types", scope: "decidim.admin") %>
+      <%= link_to(
+            t("actions.new_process_type", scope: "decidim.admin"),
+            [:new, :participatory_process_type],
+            class: "button tiny button--title"
+          ) if allowed_to? :create, :participatory_process_type %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.participatory_process_type.fields.title", scope: "decidim.admin") %></th>
+            <th><%= t("models.participatory_process_type.fields.created_at", scope: "decidim.admin") %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% collection.each do |participatory_process_type| %>
+          <tr>
+            <td>
+              <% if allowed_to?(:update, :participatory_process_type, participatory_process_type: participatory_process_type) %>
+                <%= link_to(
+                      translated_attribute(participatory_process_type.title),
+                      edit_participatory_process_type_path(participatory_process_type)
+                    ) %>
+              <% else %>
+                <%= translated_attribute(participatory_process_type.title) %></td>
+              <% end %>
+            <td><%= l(participatory_process_type.created_at, format: :short) %></td>
+            <td class="table-list__actions">
+              <% if allowed_to?(:update, :participatory_process_type, participatory_process_type: participatory_process_type) %>
+                <%= icon_link_to(
+                      "pencil",
+                      edit_participatory_process_type_path(participatory_process_type),
+                      t("actions.edit", scope: "decidim.admin"),
+                      class: "action-icon--new"
+                    ) %>
+              <% end %>
+              <% if allowed_to?(:destroy, :participatory_process_type, participatory_process_type: participatory_process_type) %>
+                <%= icon_link_to(
+                      "circle-x",
+                      participatory_process_type_path(participatory_process_type),
+                      t("actions.destroy", scope: "decidim.admin"),
+                      class: "action-icon--remove",
+                      method: :delete,
+                      data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") }
+                    ) %>
+              <% end %>
+            </td>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

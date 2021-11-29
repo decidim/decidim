@@ -57,6 +57,8 @@ en:
         short_description: Short description
         start_date: Start date
         title: Title
+      participatory_process_type:
+        title: Title
       participatory_process_user_role:
         email: Email
         name: Name
@@ -97,6 +99,7 @@ en:
         new_process: New process
         new_process_group: New process group
         new_process_step: New phase
+        new_process_type: New process type
         new_process_user_role: New process admin
         preview: Preview
         publish: Publish
@@ -107,6 +110,7 @@ en:
         participatory_process_groups_submenu:
           info: Info
           landing_page: Landing page
+        participatory_process_types: Process types
         participatory_processes: Processes
         participatory_processes_submenu:
           attachment_collections: Folders
@@ -138,6 +142,11 @@ en:
             start_date: Start date
             title: Title
           name: Participatory process phase
+        participatory_process_type:
+          fields:
+            created_at: Created at
+            title: Title
+          name: Process type
         participatory_process_user_role:
           fields:
             email: Email
@@ -220,6 +229,23 @@ en:
         update:
           error: There was a problem updating this phase of the participatory process.
           success: Participatory phase successfully updated.
+      participatory_process_types:
+        create:
+          error: There was a proble creating a new process type.
+          success: Process type successfully created.
+        destroy:
+          success: Process type successfully deleted.
+        edit:
+          title: Edit process type
+          update: Update
+        form:
+          title: Title
+        new:
+          create: Create
+          title: New process type
+        update:
+          error: There was a problem updating this process type.
+          success: Process type successfully updated.
       participatory_process_user_roles:
         create:
           error: There was a problem adding a participant for this participatory process.
@@ -264,6 +290,7 @@ en:
           success: Participatory process group successfully created.
       titles:
         participatory_process_groups: Participatory process groups
+        participatory_process_types: Participatory process types
         participatory_processes: Participatory processes
       users:
         resend_invitation:
@@ -283,6 +310,10 @@ en:
         create: "%{user_name} created the %{resource_name} phase in the %{space_name} participatory process"
         delete: "%{user_name} deleted the %{resource_name} phase in the %{space_name} participatory process"
         update: "%{user_name} updated the %{resource_name} phase in the %{space_name} participatory process"
+      participatory_process_type:
+        create: "%{user_name} created the %{resource_name} participatory process type"
+        delete: "%{user_name} deleted the %{resource_name} participatory process type"
+        update: "%{user_name} updated the %{resource_name} participatory process type"
       participatory_process_user_role:
         create: "%{user_name} invited the participant %{resource_name} to the %{space_name} participatory process"
         delete: "%{user_name} removed the participant %{resource_name} from the %{space_name} participatory process"
