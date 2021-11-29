@@ -375,6 +375,13 @@ ja:
           value_types:
             organizer_presenter:
               not_found: '主催者がデータベース上に見つかりませんでした (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: すべて
+        filter_meeting_space_values:
+          all: すべて
+        filter_scope_values:
+          all: すべて
       calendar_modal:
         calendar_url: カレンダー URL
         close_window: ウィンドウを閉じる
@@ -389,7 +396,7 @@ ja:
         meetings:
           index:
             meetings: ミーティング
-            space_type: 参加者のスペース
+            space_type: 参加型スペース
       iframe_access_level:
         all: すべての訪問者
         registered: この会議に参加者を登録しました
