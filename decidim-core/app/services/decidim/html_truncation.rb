@@ -73,7 +73,7 @@ module Decidim
     def cut_with_tags(node)
       @remaining -= opening_tag_length(node)
       @remaining = 0 if @remaining.negative?
-      cut_children(node, false) if node.children.empty?
+      return cut_children(node, false) if node.children.empty?
 
       node.children.each do |child|
         cut_children(child, false)
