@@ -74,7 +74,13 @@ module Decidim
     end
 
     def cut_with_tags(node, parent)
-      return node.children.each { |child| cut_with_tags(child, false) } if parent
+      if parent
+        return node.children.each { |child| cut_with_tags(child, false) } if node.children.present?
+
+        @remaining -= opening_tag_length(node)
+        cut_content(node)
+        return @remaining = -1
+      end
       return node.unlink if @cut
 
       if @remaining < node_length(node, true)
@@ -82,6 +88,7 @@ module Decidim
         if @remaining > opening_tag_length(node) || node.content.present?
           @remaining -= opening_tag_length(node)
           cut_content(node)
+          return @remaining = -1
         end
       end
       @remaining -= node_length(node, true)
