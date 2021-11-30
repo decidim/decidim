@@ -4,14 +4,14 @@ module Decidim
   class HtmlTruncation
     include Decidim::SanitizeHelper
 
-    # Truncates text and html content
+    # Truncates html content
     # text - Content to be truncated
     # options - Hash with the options
     #         max_length: An Integer maximum number of characters
-    #         tail: A string suffix to be added after truncation
-    #         count_tags: A boolean if html is calculate to max length, otherwise just content
+    #         tail: Suffix to add after truncation
+    #         count_tags: A boolean which tells if html tags should be calculated to max length, otherwise just content
     #         count_tail: A boolean value that determines whether max_length contains the tail
-    #         tail_before_final_tag: A boolean, show tail inside of tag where text is cutted or before final closing tag.
+    #         tail_before_final_tag: A boolean, add tail before final tag if true, otherwise add tail where content is cut.
     def initialize(text, options = {})
       @options = {
         max_length: options[:max_length] || 30,
@@ -23,8 +23,8 @@ module Decidim
       @text = text
     end
 
-    # Truncate text or html content added in constructor
-    # Returns truncated html
+    # Perform truncation to the html content (text) added in constructor
+    # Returns truncated String
     def perform
       @document = Nokogiri::HTML::DocumentFragment.parse(@text)
       @tail_added = false
