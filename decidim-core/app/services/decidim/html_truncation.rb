@@ -40,7 +40,6 @@ module Decidim
 
     private
 
-    attr_accessor :tail_added
     attr_reader :document, :options
 
     def cut_children(node, count_html)
