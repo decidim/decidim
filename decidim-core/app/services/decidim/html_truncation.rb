@@ -105,7 +105,7 @@ module Decidim
     end
 
     def opening_tag_length(node)
-      closing_tag_index = node.to_html.rindex("</") || node.to_html.length - 1
+      closing_tag_index = node.to_html.rindex("</") || node.to_html.length
       node.to_html.length - (node.to_html.length - closing_tag_index) - node.content.length
     end
 
