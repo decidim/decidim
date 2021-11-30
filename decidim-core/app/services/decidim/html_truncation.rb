@@ -43,13 +43,13 @@ module Decidim
     attr_reader :document, :options
 
     def cut_children(node, count_html)
-      return @remaining -= node_length(node) if @remaining >= node_length(node)
+      return @remaining -= node_length(node, count_html) if @remaining >= node_length(node, count_html)
       return node.unlink if @remaining.negative?
-      return cut_with_tags(node) if count_html && @remaining < node_length(node)
+      return cut_with_tags(node) if count_html && @remaining < node_length(node, count_html)
 
       if node.children.empty?
-        if @remaining < node_length(node)
-          node.content = cut_content(node)
+        if @remaining < node_length(node, count_html)
+          cut_content(node)
           @remaining = -1
         end
 
@@ -71,10 +71,13 @@ module Decidim
     end
 
     def cut_with_tags(node)
-      @remaining -= node.to_html.length - node.content.length - closing_tag_length(node)
+      @remaining -= opening_tag_length(node)
       @remaining = 0 if @remaining.negative?
+      cut_children(node, false) if node.children.empty?
 
-      cut_children(node, false)
+      node.children.each do |child|
+        cut_children(child, false)
+      end
     end
 
     def add_tail(document)
@@ -92,7 +95,7 @@ module Decidim
       tail = options[:tail_before_final_tag] ? "" : options[:tail]
       @tail_added = true if tail.present?
 
-      "#{node.content.truncate(@remaining, omission: "")}#{tail}"
+      node.content = "#{node.content.truncate(@remaining, omission: "")}#{tail}"
     end
 
     def initial_remaining
@@ -101,12 +104,13 @@ module Decidim
       options[:max_length] - options[:tail].length
     end
 
-    def closing_tag_length(node)
-      node.to_html.length - node.to_html.rindex("</")
+    def opening_tag_length(node)
+      closing_tag_index = node.to_html.rindex("</") || node.to_html.length - 1
+      node.to_html.length - (node.to_html.length - closing_tag_index) - node.content.length
     end
 
-    def node_length(node)
-      options[:count_tags] ? node.to_html.length : node.content.length
+    def node_length(node, count_html)
+      count_html ? node.to_html.length : node.content.length
     end
   end
 end

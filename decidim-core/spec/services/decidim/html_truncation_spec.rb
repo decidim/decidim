@@ -20,6 +20,14 @@ describe Decidim::HtmlTruncation do
   let(:tail_before_final_tag) { false }
   let(:text) { ::Faker::Lorem.paragraph(sentence_count: 25) }
 
+  describe "empty content" do
+    let(:text) { "" }
+
+    it "does not do anything" do
+      expect(subject).to eq(text)
+    end
+  end
+
   describe "short content" do
     let(:max_length) { 100 }
     let(:texts) do
@@ -58,14 +66,22 @@ describe Decidim::HtmlTruncation do
     let(:text) { %(<strong class="foo">bar</strong>) }
 
     it "counts tags also" do
-      expect(subject).to eq('<strong class="foo">ba...</strong>')
+      expect(subject).to eq(%(<strong class="foo">ba#{tail}</strong>))
     end
 
     describe "content with tag name" do
       let(:text) { %(<div style="color: purple;" class="foo">div</div>) }
 
       it "cuts content" do
-        expect(subject).to eq('<div style="color: purple;" class="foo">...</div>')
+        expect(subject).to eq(%(<div style="color: purple;" class="foo">#{tail}</div>))
+      end
+    end
+
+    describe "content with void element" do
+      let(:text) { %(<img src="some/path/foo/bar" alt="foobar">text) }
+
+      it "cuts content after the element" do
+        expect(subject).to eq(%(<img src="some/path/foo/bar" alt="foobar">#{tail}))
       end
     end
   end
@@ -76,7 +92,7 @@ describe Decidim::HtmlTruncation do
     let(:text) { %(<p>foo<strong class="bar">baz</strong></p>) }
 
     it "adds tail to the end" do
-      expect(subject).to eq('<p>foo<strong class="bar">ba</strong>...</p>')
+      expect(subject).to eq(%(<p>foo<strong class="bar">ba</strong>#{tail}</p>))
     end
   end
 
@@ -115,7 +131,7 @@ describe Decidim::HtmlTruncation do
     let(:text) { %(<p>some <b>"content"</b> here, cut at comma") }
 
     it "changes escaped quotes" do
-      expect(subject).to eq("<p>some <b>&quot;content&quot;</b> here...</p>")
+      expect(subject).to eq(%(<p>some <b>&quot;content&quot;</b> here#{tail}</p>))
     end
   end
 
@@ -124,7 +140,7 @@ describe Decidim::HtmlTruncation do
     let(:text) { "<p>Lorem <strong>ipsum <i>dolor</i> sit amet</strong>, consectetuer adipiscing elit.</p> <p>Sed posuere interdum sem. Quisque ligula <em>eros ullamcorper <strong>quis</strong>, lacinia</em> quis facilisis sed sapien.</p>" }
 
     it "cuts inside tags" do
-      expect(subject).to eq("<p>Lorem <strong>ipsum <i>dolor</i> sit amet</strong>, consectetuer adipiscing elit.</p> <p>Sed posuere interdum sem. Quisque ligula <em>e...</em></p>")
+      expect(subject).to eq(%(<p>Lorem <strong>ipsum <i>dolor</i> sit amet</strong>, consectetuer adipiscing elit.</p> <p>Sed posuere interdum sem. Quisque ligula <em>e#{tail}</em></p>))
     end
   end
 
@@ -143,7 +159,7 @@ describe Decidim::HtmlTruncation do
         </div>
       ).gsub(/\s{2,}/, "").gsub("\n", "")
     end
-    let(:expected) { "<div><article><h2>Foo</h2><div><p>Lorem <strong>ipsum <i>dolor</i> sit amet</strong>, consectetuer adipiscing elit.</p><p>Sed posuere interdum sem. Quisque ligula <em>eros ullamcorper <strong>qu...</strong></em></p></div></article></div>" }
+    let(:expected) { %(<div><article><h2>Foo</h2><div><p>Lorem <strong>ipsum <i>dolor</i> sit amet</strong>, consectetuer adipiscing elit.</p><p>Sed posuere interdum sem. Quisque ligula <em>eros ullamcorper <strong>qu#{tail}</strong></em></p></div></article></div>) }
     let(:max_length) { 120 }
 
     it "cuts deep" do
