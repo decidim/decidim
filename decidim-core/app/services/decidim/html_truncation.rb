@@ -94,7 +94,7 @@ module Decidim
       if target.is_a?(Nokogiri::XML::Text) || target.content.empty?
         document.add_child(Nokogiri::XML::Text.new(options[:tail], document))
       else
-        document.children[-1].add_child(Nokogiri::XML::Text.new(options[:tail], document))
+        target.add_child(Nokogiri::XML::Text.new(options[:tail], document))
       end
       @tail_added = true
     end
