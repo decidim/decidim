@@ -21,10 +21,13 @@ module Decidim
           return "-" if answer.choices.empty?
 
           choices = answer.choices.map do |choice|
-            choice.try(:custom_body) || choice.try(:body)
+            {
+              answer_option_body: choice.try(:answer_option).try(:translated_body),
+              choice_body: choice.try(:custom_body).presence || choice.try(:body).present? ? "-" : ""
+            }
           end
 
-          return choices.first if answer.question.question_type == "single_option"
+          return choices.first[:answer_option_body] if answer.question.question_type == "single_option"
 
           content_tag(:ul) do
             safe_join(choices.map { |c| choice(c) })
@@ -52,9 +55,13 @@ module Decidim
           # rubocop:enable Style/StringConcatenation
         end
 
-        def choice(choice_body)
-          content_tag :li do
-            choice_body
+        def choice(choice_hash)
+          render_body_for(choice_hash[:answer_option_body], :strong) + render_body_for(choice_hash[:choice_body])
+        end
+
+        def render_body_for(body, content_tag = :li)
+          content_tag content_tag do
+            body
           end
         end
       end
