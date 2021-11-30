@@ -29,6 +29,7 @@ module Decidim
       @document = Nokogiri::HTML::DocumentFragment.parse(@text)
       @tail_added = false
       @remaining = initial_remaining
+      @cut = false
       cut_children(document, options[:count_tags])
       add_tail(document) if @remaining.negative? && !@tail_added
       escape_html_from_content(document)
@@ -45,12 +46,14 @@ module Decidim
     def cut_children(node, count_html)
       return @remaining -= node_length(node, count_html) if @remaining >= node_length(node, count_html)
       return node.unlink if @remaining.negative?
-      return cut_with_tags(node) if count_html && @remaining < node_length(node, count_html)
+      return cut_with_tags(node, true) if count_html && @remaining < node_length(node, count_html)
 
       if node.children.empty?
-        if @remaining < node_length(node, count_html)
+        if node.content.present? && @remaining < node_length(node, count_html)
           cut_content(node)
           @remaining = -1
+        else
+          @remaining -= node_length(node, count_html)
         end
 
         return
@@ -70,20 +73,25 @@ module Decidim
       end
     end
 
-    def cut_with_tags(node)
-      @remaining -= opening_tag_length(node)
-      @remaining = 0 if @remaining.negative?
-      return cut_children(node, false) if node.children.empty?
+    def cut_with_tags(node, parent)
+      return node.children.each { |child| cut_with_tags(child, false) } if parent
+      return node.unlink if @cut
 
-      node.children.each do |child|
-        cut_children(child, false)
+      if @remaining < node_length(node, true)
+        @cut = true
+        if @remaining > opening_tag_length(node) || node.content.present?
+          @remaining -= opening_tag_length(node)
+          cut_content(node)
+        end
       end
+      @remaining -= node_length(node, true)
     end
 
     def add_tail(document)
       return if document.children.empty? || @tail_added
 
-      if document.children[-1].is_a? Nokogiri::XML::Text
+      target = document.children[-1]
+      if target.is_a?(Nokogiri::XML::Text) || target.content.empty?
         document.add_child(Nokogiri::XML::Text.new(options[:tail], document))
       else
         document.children[-1].add_child(Nokogiri::XML::Text.new(options[:tail], document))
