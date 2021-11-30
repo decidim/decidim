@@ -77,21 +77,21 @@ module Decidim
       if parent
         return node.children.each { |child| cut_with_tags(child, false) } if node.children.present?
 
-        @remaining -= opening_tag_length(node)
-        cut_content(node)
-        return @remaining = -1
+        return ignore_closing_tag_and_cut(node)
       end
       return node.unlink if @cut
 
       if @remaining < node_length(node, true)
         @cut = true
-        if @remaining > opening_tag_length(node) || node.content.present?
-          @remaining -= opening_tag_length(node)
-          cut_content(node)
-          return @remaining = -1
-        end
+        return ignore_closing_tag_and_cut(node) if @remaining > opening_tag_length(node) || node.content.present?
       end
       @remaining -= node_length(node, true)
+    end
+
+    def ignore_closing_tag_and_cut(node)
+      @remaining -= opening_tag_length(node)
+      cut_content(node)
+      @remaining = -1
     end
 
     def add_tail(document)
