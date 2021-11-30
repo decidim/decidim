@@ -73,7 +73,7 @@ module Decidim
           normalize_matrix_choices(answer, choices)
         else
           choices.map do |choice|
-            choice.try(:custom_body) || choice.try(:body)
+            [choice.try(:body), choice.try(:custom_body).presence || "-"].to_json
           end
         end
       end
