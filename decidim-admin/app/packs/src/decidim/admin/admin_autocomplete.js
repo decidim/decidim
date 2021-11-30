@@ -46,15 +46,18 @@ const autoConfigure = (el) => {
       method: "GET",
       headers: { "Content-Type": "application/json" }
     }).then((response) => response.json()).then((data) => {
+      console.log("data", data)
       callback(data)
     });
   };
 
   const ac = new AutoComplete(textInput, {
     name: config.name,
+    mode: "sticky",
     dataMatchKeys: ["label"],
     dataSource
   });
+  el.addEventListener("selection", ac);
 
   return ac;
 }

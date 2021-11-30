@@ -64,19 +64,22 @@
   border: 1px solid $medium-gray;
   width: 100%;
   cursor: text;
+  padding: 0 .5rem;
+  min-height: 2.4375rem;
 
   span{
     display: inline-block;
     position: relative;
+    margin: .5rem .5rem .5rem 0;
 
     input{
       border: none;
+      outline: none;
     }
 
-    &.chosen{
-      padding: .5rem;
-      color: $white;
-      background-color: $secondary;
+    &.remove{
+      margin: 0 0 0 .2rem;
+      cursor: pointer;
     }
   }
 }

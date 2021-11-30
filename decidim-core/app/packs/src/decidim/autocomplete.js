@@ -65,7 +65,6 @@ export default class AutoComplete {
       data: {
         keys: this.options.dataMatchKeys,
         src: async (query) => {
-          console.log("hakeee dataaa")
           const fetchResults = () => {
             return new Promise((resolve) => {
               this.options.dataSource(query, resolve);
@@ -73,11 +72,8 @@ export default class AutoComplete {
           }
 
           try {
-            const aa = await fetchResults();
-            console.log("aa", aa)
             return await fetchResults();
           } catch (error) {
-            console.log("error", error)
             return error;
           }
         },
@@ -94,8 +90,6 @@ export default class AutoComplete {
       },
       resultItem: {
         element: (item, data) => {
-          console.log("item", item);
-          console.log("data", data);
           if (!this.options.modifyResult) {
             return;
           }
@@ -105,6 +99,7 @@ export default class AutoComplete {
       }
     });
 
+    console.log("this.options.mode", this.options.mode);
     switch (this.options.mode) {
     case "sticky":
       this.createStickySelect(this.options.name);
@@ -118,34 +113,11 @@ export default class AutoComplete {
     this.element.ac = this.autocomplete;
   }
 
-  createMultiSelect() {
-    const acWrapper = document.querySelector(".autoComplete_wrapper");
-    this.multiSelectWrapper = document.createElement("div");
-    this.multiSelectWrapper.classList.add("multiselect");
-
-    const inputWrapper = document.createElement("span");
-
-    this.multiSelectWrapper.appendChild(inputWrapper);
-    acWrapper.appendChild(this.multiSelectWrapper);
-    inputWrapper.appendChild(this.element);
-
-    this.multiSelectWrapper.addEventListener("click", () => {
-      this.element.focus();
-    })
-
-    // testi
-    const chosen = document.createElement("span");
-    chosen.innerHTML = "yestagi";
-    this.multiSelectWrapper.prepend(chosen);
-  }
-
   setInput(value) {
     this.autocomplete.input.value = value;
   }
 
   handleEvent(event) {
-    console.log("event", event);
-    console.log("this.mode", this.options.mode);
     switch (this.options.mode) {
     case "single":
       this.setInput(event.detail.selection.value[event.detail.selection.key]);
@@ -163,38 +135,22 @@ export default class AutoComplete {
   handleMultiEvents(event) {
     switch (event.type) {
     case "selection":
-      this.multiSelect(event);
+      this.addMultiSelectItem(event.detail.selection);
+      break;
+    case "click":
+      // Remove multiselect item
       break;
     default:
     }
   }
 
-  multiSelect(event) {
-    const feedback = event.detail;
-    const selection = feedback.selection;
-    this.setInput("");
-    const chosen = document.createElement("span");
-    chosen.classList.add("chosen")
-    chosen.innerHTML = selection.value[selection.key];
-
-    const clearSelection = document.createElement("span");
-    clearSelection.className = "clear-multi-selection";
-    clearSelection.innerHTML = "&times;";
-    clearSelection.addEventListener("click", (evt) => {
-      evt.target.parentElement.remove();
-    });
-    chosen.appendChild(clearSelection);
-
-    this.multiSelectWrapper.prepend(chosen);
-  }
-
   handleStickyEvents(event) {
     switch (event.type) {
     case "selection":
-      this.stickySelect(event);
+      this.addStickySelectItem(event.detail.selection);
       break;
     case "click":
-      if (event.type === "click" && event.target === this.clearSelection) {
+      if (event.target === this.clearSelection) {
         this.clearSelected();
       }
       break;
@@ -207,14 +163,16 @@ export default class AutoComplete {
     }
   }
 
-  stickySelect(event) {
-    const feedback = event.detail;
-    const selection = feedback.selection;
-    this.setInput("");
-    this.element.placeholder = "";
-    this.selectedValue.innerHTML = selection.value[selection.key];
-    this.selectedValue.style.display = "block";
-    this.clearSelection.style.display = "block";
+  createHiddenInput(value) {
+    const acWrapper = document.querySelector(".autoComplete_wrapper");
+    const hiddenInput = document.createElement("input");
+    hiddenInput.name = this.options.name;
+    hiddenInput.type = "hidden";
+    if (value) {
+      hiddenInput.value = value;
+    }
+    acWrapper.prepend(hiddenInput)
+    return hiddenInput;
   }
 
   clearSelected() {
@@ -225,14 +183,44 @@ export default class AutoComplete {
     this.selectedValue.style.display = "none";
   }
 
-  createStickySelect(hiddenName) {
+  addStickySelectItem(selection) {
+    this.hiddenInput.value = selection.value.value;
+    this.setInput("");
+    this.element.placeholder = "";
+    this.selectedValue.innerHTML = selection.value[selection.key];
+    this.selectedValue.style.display = "block";
+    this.clearSelection.style.display = "block";
+  }
+
+  addMultiSelectItem(selection) {
+    this.setInput("");
+    const chosen = document.createElement("span");
+    chosen.classList.add("label", "primary")
+    chosen.innerHTML = selection.value[selection.key];
+    // Check this from tags module
+    chosen.setAttribute("data-remove", selection.value.value);
+
+    const clearSelection = document.createElement("span");
+    clearSelection.classList.add("remove");
+    clearSelection.innerHTML = "&times;";
+    clearSelection.addEventListener("click", (evt) => {
+      evt.target.parentElement.remove();
+    });
+    chosen.appendChild(clearSelection);
+
+    const inputContainer = this.multiSelectWrapper.querySelector("span.input-container")
+    this.multiSelectWrapper.insertBefore(chosen, inputContainer);
+
+    console.log("selection", selection)
+    this.createHiddenInput(selection.value.value)
+  }
+
+  createStickySelect() {
     this.selectedValue = document.createElement("span");
     this.selectedValue.className = "selected-value";
     this.selectedValue.style.display = "none";
 
-    this.hiddenInput = document.createElement("input");
-    this.hiddenInput.name = hiddenName;
-    this.hiddenInput.type = "hidden";
+    this.hiddenInput = this.createHiddenInput();
 
     this.clearSelection = document.createElement("span");
     this.clearSelection.className = "clear-selection";
@@ -244,5 +232,31 @@ export default class AutoComplete {
     acWrapper.insertBefore(this.clearSelection, this.element);
     acWrapper.insertBefore(this.selectedValue, this.element);
     this.element.addEventListener("selection", this);
+  }
+
+  createMultiSelect() {
+    const acWrapper = document.querySelector(".autoComplete_wrapper");
+    this.multiSelectWrapper = document.createElement("div");
+    this.multiSelectWrapper.classList.add("multiselect");
+
+    const inputContainer = document.createElement("span");
+    inputContainer.classList.add("input-container")
+
+    this.multiSelectWrapper.appendChild(inputContainer);
+    acWrapper.prepend(this.multiSelectWrapper);
+    inputContainer.appendChild(this.element);
+
+    this.multiSelectWrapper.addEventListener("click", () => {
+      this.element.focus();
+    })
+
+    // testi
+    this.addMultiSelectItem({
+      key: "label",
+      value: {
+        label: "testitagi",
+        value: "1337"
+      }
+    })
   }
 }
