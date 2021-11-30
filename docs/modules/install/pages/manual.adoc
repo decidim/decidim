@@ -14,7 +14,7 @@ We're starting with an Ubuntu 20.04.2 LTS. This is an opinionated guide, so you'
 
 We recommend to have at least some basic proficiency in Ruby on Rails (a good starting point is http://guides.rubyonrails.org/getting_started.html[Getting Started with Ruby on Rails]) and have some knowledge on how gems work.
 
-In this guide, we'll see how to install rbenv, PostgreSQL, Node.js and, Decidim, and how to configure everything together.
+In this guide, we'll see how to install rbenv, PostgreSQL, Node.js and, Decidim, and how to configure everything together for a (and this is important) a development environment.
 
 == 1. Installing rbenv
 
@@ -88,7 +88,34 @@ git commit -m "Initial commit. Generated with Decidim https://decidim.org"
 
 Modify your secrets (see `config/database.yml`). For this you can use https://github.com/laserlemon/figaro[figaro], https://github.com/bkeepers/dotenv[dotenv] or https://github.com/rbenv/rbenv-vars[rbenv-vars]. You should always be careful of not uploading your plain secrets on git or your version control system. You can also upload the encrypted secrets, using the sekrets gem or if you're on Ruby on Rails greater than 5.1 you can do it natively.
 
-For instance, for working with figaro, you'll need to install it:
+For a development environment, and if you are using rbenv, we strongly recommend you to use the https://github.com/rbenv/rbenv-vars[rbenv-vars] to facilitate the edition of ENV vars.
+
+Using Rbenv-vars, you only need to perform one step (once) to add the automated ENV vars functionality to rbenv:
+
+[source,bash]
+----
+git clone https://github.com/rbenv/rbenv-vars.git "$(rbenv root)"/plugins/rbenv-vars
+----
+
+Then, you just need to edit, in any folder above your decidim copy, a file named `.rbenv-vars` and put your variables there:
+
+[source,bash]
+----
+nano .rbenv-vars
+----
+
+[source,env]
+----
+DATABASE_HOST=localhost
+DATABASE_USERNAME=decidim_app
+DATABASE_PASSWORD=thepassword
+----
+
+=== 5.1 Alternatives with helper gems
+
+But other approaches also works (or can be used for different environments, for instance use the .rbenv-var approach for developing and the figaro method for production).
+
+For a working setup with figaro, you'll need to install it (but you don't need to do this if you are using rbenv-vars):
 
 [source,bash]
 ----
@@ -104,6 +131,8 @@ DATABASE_HOST: localhost
 DATABASE_USERNAME: decidim_app
 DATABASE_PASSWORD: thepassword
 ----
+
+Be sure, to add `config/application.yml` to the `.gitignore` file!!!
 
 Finally, save it all to git:
 
