@@ -27,7 +27,7 @@ module Decidim
             }
           end
 
-          return choices.first[:answer_option_body] if answer.question.question_type == "single_option"
+          return choice(choices.first) if answer.question.question_type == "single_option"
 
           content_tag(:ul) do
             safe_join(choices.map { |c| choice(c) })
@@ -56,7 +56,7 @@ module Decidim
         end
 
         def choice(choice_hash)
-          render_body_for(choice_hash[:answer_option_body], :strong) + render_body_for(choice_hash[:choice_body])
+          render_body_for(choice_hash[:answer_option_body], :em) + render_body_for(choice_hash[:choice_body])
         end
 
         def render_body_for(body, content_tag = :li)

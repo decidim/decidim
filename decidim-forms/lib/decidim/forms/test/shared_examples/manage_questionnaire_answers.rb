@@ -83,7 +83,7 @@ shared_examples_for "manage questionnaire answers" do
         it "shows the answers page with custom body" do
           within "#answers" do
             expect(page).to have_css("dt", text: translated(first.body))
-            expect(page).to have_css("strong", text: translated(answer_option.body))
+            expect(page).to have_css("em", text: translated(answer_option.body))
             expect(page).to have_content(translated(answer_option.body))
             expect(page).to have_css("li", text: "-")
           end
