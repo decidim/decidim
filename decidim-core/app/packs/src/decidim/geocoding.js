@@ -26,8 +26,4 @@ $(() => {
       }
     });
   });
-
-  $("[data-decidim-geocoding]").on("open close", (event) => {
-    event.stopPropagation();
-  });
 });

@@ -74,12 +74,4 @@ $(() => {
       }
     })
   })
-
-  // Stop input field from bubbling open and close events to parent elements,
-  // because foundation closes modal from these events.
-  $searchInput.on("open close", (event) => {
-    event.stopPropagation();
-  })
 })
-
-

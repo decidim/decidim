@@ -62,10 +62,4 @@ $(() => {
   $autocompleteDiv.each((_index, element) => {
     autoConfigure(element);
   })
-
-  // Stop input field from bubbling open and close events to parent elements,
-  // because foundation closes modal from these events.
-  $("#autocomplete").on("open close", (event) => {
-    event.stopPropagation();
-  })
 })

@@ -103,6 +103,13 @@ export default class AutoComplete {
 
     this.acWrapper = this.element.closest(".autoComplete_wrapper");
     this.element.ac = this.autocomplete;
+    // Stop input field from bubbling open and close events to parent elements,
+    // because foundation closes modal from these events.
+    const stopPropagation = (event) => {
+      event.stopPropagation();
+    }
+    this.element.addEventListener("close", stopPropagation)
+    this.element.addEventListener("open", stopPropagation)
 
     switch (this.options.mode) {
     case "sticky":
