@@ -1,10 +1,6 @@
 <% question = form.object %>
 <% is_expanded = question.errors.any? %>
 
-<% if is_expanded %>
-  <% byebug %>
-<% end %>
-
 <div class="card questionnaire-question" id="<%= id %>-field">
   <div class="card-divider question-divider">
     <h2 class="card-title">
