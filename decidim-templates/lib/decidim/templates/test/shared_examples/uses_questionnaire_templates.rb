@@ -89,7 +89,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
       )
       visit questionnaire_edit_path
 
-      select(template.name["en"], from: "template-name")
+      select(template.name["en"], from: "select-template")
 
       within ".create-from-template" do
         find("*[type=submit]").click

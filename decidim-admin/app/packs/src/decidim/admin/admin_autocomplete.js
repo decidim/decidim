@@ -54,7 +54,7 @@ const autoConfigure = (el) => {
 }
 
 $(() => {
-  const $autocompleteDiv = $("[data-plugin='autocomplete']");
+  const $autocompleteDiv = $("[data-autocomplete]");
   if ($autocompleteDiv.length < 1) {
     return;
   }
