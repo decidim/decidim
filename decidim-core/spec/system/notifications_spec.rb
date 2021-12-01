@@ -111,4 +111,21 @@ describe "Notifications", type: :system do
       end
     end
   end
+
+  context "with comment notifications" do
+    let!(:notification) { create :notification, :comment_notification, user: user }
+
+    before do
+      page.visit decidim.notifications_path
+    end
+
+    it "shows the comment notification with the conversation link" do
+      comment_id = notification.extra["comment_id"]
+      comment_definition_string = "commentId=#{comment_id}#comment_#{comment_id}"
+      links = page.all(".card.card--widget a")
+      hrefs = links.find { |link| link[:href].include?(comment_definition_string) }
+
+      expect(hrefs).not_to be(nil)
+    end
+  end
 end
