@@ -600,6 +600,12 @@ FactoryBot.define do
         some_extra_data: "1"
       }
     end
+
+    trait :comment_notification do
+      event_class { "Decidim::Comments::CommentCreatedEvent" }
+      event_name { "decidim.events.comments.comment_created" }
+      extra { { comment_id: create(:comment).id } }
+    end
   end
 
   factory :action_log, class: "Decidim::ActionLog" do
