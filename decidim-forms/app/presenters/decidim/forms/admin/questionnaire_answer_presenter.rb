@@ -23,7 +23,7 @@ module Decidim
           choices = answer.choices.map do |choice|
             {
               answer_option_body: choice.try(:answer_option).try(:translated_body),
-              choice_body: choice.try(:custom_body).presence || choice.try(:body).present? ? "-" : ""
+              choice_body: body_or_custom_body(choice)
             }
           end
 
@@ -63,6 +63,12 @@ module Decidim
           content_tag content_tag do
             body
           end
+        end
+
+        def body_or_custom_body(choice)
+          return choice.custom_body if choice.try(:custom_body).present?
+
+          choice.try(:body).present? ? "-" : ""
         end
       end
     end
