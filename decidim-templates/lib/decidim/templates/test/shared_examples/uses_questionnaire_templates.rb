@@ -54,7 +54,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
         end
 
         it "loads the templates in the select" do
-          page.find("input[name='template-name']").click
+          page.find("input[name='select-template']").click
 
           within "#template-list", visible: :hidden do
             expect(page).to have_selector("option", visible: :hidden, count: 6)
@@ -62,7 +62,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
         end
 
         it "displays the preview when a template is selected" do
-          select(template.name["en"], from: "template-name")
+          select(template.name["en"], from: "select-template")
 
           within ".questionnaire-template-preview" do
             expect(page).to have_i18n_content(template.name)

@@ -3,10 +3,9 @@ import AutoCompleteJS from "@tarekraafat/autocomplete.js";
 export default class AutoComplete {
   constructor(el, options = {}) {
     this.element = el;
-    this.selectedValue = null;
-    this.clearSelection = null;
-    this.hiddenInput = null;
-    this.multiSelectWrapper = null;
+    this.stickySelectedValue = null;
+    this.clearStickySelection = null;
+    this.stickyHiddenInput = null;
     this.options = Object.assign({
       // Name of the resource
       name: null,
@@ -18,6 +17,8 @@ export default class AutoComplete {
       // multi - Allows selecting multiple values
       // null (default) - Disable selection event handling in this class
       mode: null,
+      // Defines items that are selected already when page is loaded before user selects them. (e.g. when form submit fails)
+      selected: null,
       // Defines how many characters input has to have before we start searching
       threshold: 2,
       // Defines how many results to show in the autocomplete selection list
@@ -59,6 +60,7 @@ export default class AutoComplete {
 
     this.autocomplete = new AutoCompleteJS({
       selector: () => this.element,
+      placeHolder: options.placeholder,
       // Delay (milliseconds) before autocomplete engine starts. It's preventing many queries when user is typing fast.
       debounce: 200,
       threshold: this.options.threshold,
@@ -99,7 +101,9 @@ export default class AutoComplete {
       }
     });
 
-    console.log("this.options.mode", this.options.mode);
+    this.acWrapper = this.element.closest(".autoComplete_wrapper");
+    this.element.ac = this.autocomplete;
+
     switch (this.options.mode) {
     case "sticky":
       this.createStickySelect(this.options.name);
@@ -109,8 +113,6 @@ export default class AutoComplete {
       break;
     default:
     }
-
-    this.element.ac = this.autocomplete;
   }
 
   setInput(value) {
@@ -138,7 +140,6 @@ export default class AutoComplete {
       this.addMultiSelectItem(event.detail.selection);
       break;
     case "click":
-      // Remove multiselect item
       break;
     default:
     }
@@ -150,7 +151,7 @@ export default class AutoComplete {
       this.addStickySelectItem(event.detail.selection);
       break;
     case "click":
-      if (event.target === this.clearSelection) {
+      if (event.target === this.clearStickySelection) {
         this.clearSelected();
       }
       break;
@@ -164,32 +165,31 @@ export default class AutoComplete {
   }
 
   createHiddenInput(value) {
-    const acWrapper = document.querySelector(".autoComplete_wrapper");
     const hiddenInput = document.createElement("input");
     hiddenInput.name = this.options.name;
     hiddenInput.type = "hidden";
     if (value) {
       hiddenInput.value = value;
     }
-    acWrapper.prepend(hiddenInput)
+    this.acWrapper.prepend(hiddenInput)
     return hiddenInput;
   }
 
   clearSelected() {
-    this.hiddenInput.value = ""
+    this.stickyHiddenInput.value = ""
     this.element.placeholder = this.options.placeholder;
     this.setInput("");
-    this.clearSelection.style.display = "none";
-    this.selectedValue.style.display = "none";
+    this.clearStickySelection.style.display = "none";
+    this.stickySelectedValue.style.display = "none";
   }
 
   addStickySelectItem(selection) {
-    this.hiddenInput.value = selection.value.value;
+    this.stickyHiddenInput.value = selection.value.value;
     this.setInput("");
     this.element.placeholder = "";
-    this.selectedValue.innerHTML = selection.value[selection.key];
-    this.selectedValue.style.display = "block";
-    this.clearSelection.style.display = "block";
+    this.stickySelectedValue.innerHTML = selection.value[selection.key];
+    this.stickySelectedValue.style.display = "block";
+    this.clearStickySelection.style.display = "block";
   }
 
   addMultiSelectItem(selection) {
@@ -197,66 +197,65 @@ export default class AutoComplete {
     const chosen = document.createElement("span");
     chosen.classList.add("label", "primary")
     chosen.innerHTML = selection.value[selection.key];
-    // Check this from tags module
-    chosen.setAttribute("data-remove", selection.value.value);
-
     const clearSelection = document.createElement("span");
     clearSelection.classList.add("remove");
     clearSelection.innerHTML = "&times;";
+    clearSelection.setAttribute("data-remove", selection.value.value);
     clearSelection.addEventListener("click", (evt) => {
-      evt.target.parentElement.remove();
+      const hiddenInput = this.acWrapper.querySelector(`input[type='hidden'][value='${selection.value.value}']`)
+      if (hiddenInput) {
+        hiddenInput.remove();
+        evt.target.parentElement.remove();
+      }
     });
     chosen.appendChild(clearSelection);
 
-    const inputContainer = this.multiSelectWrapper.querySelector("span.input-container")
-    this.multiSelectWrapper.insertBefore(chosen, inputContainer);
-
-    console.log("selection", selection)
+    const multiSelectWrapper = this.acWrapper.querySelector(".multiselect");
+    const inputContainer = multiSelectWrapper.querySelector("span.input-container")
+    multiSelectWrapper.insertBefore(chosen, inputContainer);
     this.createHiddenInput(selection.value.value)
   }
 
   createStickySelect() {
-    this.selectedValue = document.createElement("span");
-    this.selectedValue.className = "selected-value";
-    this.selectedValue.style.display = "none";
+    this.stickySelectedValue = document.createElement("span");
+    this.stickySelectedValue.className = "selected-value";
+    this.stickySelectedValue.style.display = "none";
 
-    this.hiddenInput = this.createHiddenInput();
+    this.stickyHiddenInput = this.createHiddenInput();
 
-    this.clearSelection = document.createElement("span");
-    this.clearSelection.className = "clear-selection";
-    this.clearSelection.innerHTML = "&times;";
-    this.clearSelection.style.display = "none";
-    this.clearSelection.addEventListener("click", this);
+    this.clearStickySelection = document.createElement("span");
+    this.clearStickySelection.className = "clear-selection";
+    this.clearStickySelection.innerHTML = "&times;";
+    this.clearStickySelection.style.display = "none";
+    this.clearStickySelection.addEventListener("click", this);
 
-    const acWrapper = document.querySelector(".autoComplete_wrapper");
-    acWrapper.insertBefore(this.clearSelection, this.element);
-    acWrapper.insertBefore(this.selectedValue, this.element);
+    this.acWrapper.insertBefore(this.clearStickySelection, this.element);
+    this.acWrapper.insertBefore(this.stickySelectedValue, this.element);
     this.element.addEventListener("selection", this);
+    if (this.options.selected) {
+      this.addStickySelectItem(this.options.selected)
+    }
   }
 
   createMultiSelect() {
-    const acWrapper = document.querySelector(".autoComplete_wrapper");
-    this.multiSelectWrapper = document.createElement("div");
-    this.multiSelectWrapper.classList.add("multiselect");
+    const multiSelectWrapper = document.createElement("div");
+    multiSelectWrapper.classList.add("multiselect");
 
     const inputContainer = document.createElement("span");
     inputContainer.classList.add("input-container")
 
-    this.multiSelectWrapper.appendChild(inputContainer);
-    acWrapper.prepend(this.multiSelectWrapper);
+    multiSelectWrapper.appendChild(inputContainer);
+    this.acWrapper.prepend(multiSelectWrapper);
     inputContainer.appendChild(this.element);
 
-    this.multiSelectWrapper.addEventListener("click", () => {
+    multiSelectWrapper.addEventListener("click", () => {
       this.element.focus();
     })
 
-    // testi
-    this.addMultiSelectItem({
-      key: "label",
-      value: {
-        label: "testitagi",
-        value: "1337"
-      }
-    })
+    if (this.options.selected) {
+      this.options.selected.forEach((selection) => {
+        this.addMultiSelectItem(selection);
+      })
+    }
   }
 }

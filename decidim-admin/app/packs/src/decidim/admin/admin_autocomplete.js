@@ -21,24 +21,14 @@ import AutoComplete from "src/decidim/autocomplete";
  */
 const autoConfigure = (el) => {
   const config = JSON.parse(el.dataset.autocomplete);
-  // const input = document.createElement("input");
-  // input.name = config.name;
-  // input.type = "hidden";
-
   const textInput = document.createElement("input");
-  // input.name = config.name;
   textInput.type = "text";
   textInput.className = "autocomplete-input";
-
-  if (config.placeholder) {
-    textInput.placeholder = config.placeholder;
-  }
-  if (config.selected) {
-    // input.value = config.selected.value;
-    textInput.value = config.selected.label;
-  }
   el.appendChild(textInput);
-  // el.insertBefore(input, textInput);
+  let selected = null;
+  if (config.selected) {
+    selected = Object.assign({ key: "label" }, { value: config.options[config.options.length - 1] });
+  }
 
   const dataSource = (query, callback) => {
     const params = new URLSearchParams({ term: query });
@@ -46,13 +36,14 @@ const autoConfigure = (el) => {
       method: "GET",
       headers: { "Content-Type": "application/json" }
     }).then((response) => response.json()).then((data) => {
-      console.log("data", data)
       callback(data)
     });
   };
 
   const ac = new AutoComplete(textInput, {
     name: config.name,
+    placeholder: config.placeholder,
+    selected: selected,
     mode: "sticky",
     dataMatchKeys: ["label"],
     dataSource

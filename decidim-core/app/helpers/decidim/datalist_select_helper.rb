@@ -27,7 +27,7 @@ module Decidim
         html = ""
         html += yield if block_given?
         html += tag.label(options[:label], for: options[:name])
-        html += tag.input(type: "text", name: options[:name], list: options[:list], autocomplete: options[:autocomplete])
+        html += tag.input(type: "text", name: options[:name], list: options[:list], autocomplete: options[:autocomplete], placeholder: options[:placeholder])
         html += tag.datalist(id: options[:list]) do
           items.map do |item|
             tag.option(translated_attribute(item.name), data: { value: item.id })

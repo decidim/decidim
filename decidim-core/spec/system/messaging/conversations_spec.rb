@@ -279,8 +279,8 @@ describe "Conversations", type: :system do
           visit_inbox
           expect(page).to have_content("New conversation")
           click_button "New conversation"
-          expect(page).to have_selector("#autocomplete")
-          find("#autocomplete").fill_in with: "@#{interlocutor2.nickname.chars.first}"
+          expect(page).to have_selector("#add_conversation_users")
+          find("#add_conversation_users").fill_in with: "@#{interlocutor2.nickname.chars.first}"
           expect(page).to have_selector("#autoComplete_list_1 li.disabled", wait: 2)
         end
       end
