@@ -9,7 +9,7 @@ module Decidim
       QUESTION_TYPES = %w(short_answer long_answer single_option multiple_option sorting files matrix_single matrix_multiple).freeze
       SEPARATOR_TYPE = "separator"
       TEXT_SEPARATOR_TYPE = "text_separator"
-      TYPES = (QUESTION_TYPES + [SEPARATOR_TYPE] + [TEXT_SEPARATOR_TYPE]).freeze
+      TYPES = (QUESTION_TYPES + [SEPARATOR_TYPE, TEXT_SEPARATOR_TYPE]).freeze
 
       translatable_fields :body, :description
 
