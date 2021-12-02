@@ -5,17 +5,11 @@ module Decidim
     class ProcessFiltersCell < Decidim::ViewModel
       ALL_FILTERS = %w(active upcoming past all).freeze
 
-      def filter_link(filter)
+      def filter_link(date_filter, type_filter = nil)
         Decidim::ParticipatoryProcesses::Engine
           .routes
           .url_helpers
-          .participatory_processes_path(
-            filter: {
-              scope_id: get_filter(:scope_id),
-              area_id: get_filter(:area_id),
-              date: filter
-            }
-          )
+          .participatory_processes_path(**filter_params(date_filter, type_filter))
       end
 
       def current_filter
@@ -26,11 +20,23 @@ module Decidim
         params&.dig(:filter, filter_name) || default
       end
 
-      def filtered_processes(date_filter)
+      def filter_params(date_filter, type_filter)
+        {
+          filter: {
+            scope_id: get_filter(:scope_id),
+            area_id: get_filter(:area_id),
+            type_id: type_filter || get_filter(:type_id),
+            date: date_filter
+          }
+        }
+      end
+
+      def filtered_processes(date_filter, filter_by_type: true)
         ParticipatoryProcessSearch.new(
           date: date_filter,
           scope_id: get_filter(:scope_id),
           area_id: get_filter(:area_id),
+          type_id: filter_by_type ? get_filter(:type_id) : nil,
           current_user: current_user,
           organization: current_organization
         )
