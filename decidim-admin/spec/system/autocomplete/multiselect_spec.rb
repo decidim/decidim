@@ -99,6 +99,8 @@ describe "Autocomplete multiselect", type: :system do
           expect(page).to have_content(participant.name)
           hidden_input = find("input[type='hidden']", visible: false)
           expect(hidden_input.value).to eq(participant.id.to_s)
+          text_input = find("input[type='text']")
+          expect(text_input.value).to eq("")
         end
       end
 

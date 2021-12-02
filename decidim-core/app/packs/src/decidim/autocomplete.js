@@ -257,6 +257,7 @@ export default class AutoComplete {
     this.acWrapper.prepend(multiSelectWrapper);
     inputContainer.appendChild(this.element);
 
+    this.element.addEventListener("selection", this);
     multiSelectWrapper.addEventListener("click", () => {
       this.element.focus();
     })
