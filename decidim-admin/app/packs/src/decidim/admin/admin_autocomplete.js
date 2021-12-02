@@ -10,10 +10,7 @@ import AutoComplete from "src/decidim/autocomplete";
  * - name: assembly_member[user_id],
  * - options: [],
  * - placeholder: "Select a participant",
- * - searchPromptText: "Type at least three characters to search"
- * - noResultsText: "No results found"
  * - searchURL: "http://..."
- * - changeURL: null,
  * - selected: "",
  *
  * @param {HTMLElement} el The element to generate the autocomplete for.
@@ -25,9 +22,22 @@ const autoConfigure = (el) => {
   textInput.type = "text";
   textInput.className = "autocomplete-input";
   el.appendChild(textInput);
+  let mode = config.mode || "sticky"
   let selected = null;
   if (config.selected) {
-    selected = Object.assign({ key: "label" }, { value: config.options[config.options.length - 1] });
+    if (mode === "multi") {
+      selected = config.selected.map((item) => (
+        {
+          key: "label",
+          value: {
+            value: item.value,
+            label: item.label
+          }
+        }
+      ));
+    } else {
+      selected = { key: "label", value: config.options[config.options.length - 1] };
+    }
   }
 
   const dataSource = (query, callback) => {
@@ -44,7 +54,7 @@ const autoConfigure = (el) => {
     name: config.name,
     placeholder: config.placeholder,
     selected: selected,
-    mode: "sticky",
+    mode: mode,
     dataMatchKeys: ["label"],
     dataSource
   });

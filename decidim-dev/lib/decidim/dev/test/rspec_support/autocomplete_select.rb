@@ -12,7 +12,7 @@ module Capybara
         find("#autoComplete_result_0", text: value).hover
         expect(page).to have_css("#autoComplete_result_0", text: value)
         find("#autoComplete_result_0", text: value).click
-        expect(page).to have_css(".selected-value", text: value)
+        expect(page).to have_css(".autocomplete__selected-item", text: value)
       end
     end
   end
