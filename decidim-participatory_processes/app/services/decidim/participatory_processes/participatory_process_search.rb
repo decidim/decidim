@@ -22,6 +22,12 @@ module Decidim
           query.order(Arel.sql("ABS(start_date - (CURRENT_DATE at time zone '#{timezone}')::date)").to_s)
         end
       end
+
+      def search_type_id
+        return query if type_id.blank?
+
+        query.where(decidim_participatory_process_type_id: type_id)
+      end
     end
   end
 end
