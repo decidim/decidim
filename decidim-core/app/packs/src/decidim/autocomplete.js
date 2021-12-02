@@ -7,9 +7,9 @@ export default class AutoComplete {
     this.clearStickySelection = null;
     this.stickyHiddenInput = null;
     this.options = Object.assign({
-      // Name of the resource
+      // Defines name of the hidden input (e.g. assembly_member[user_id])
       name: null,
-      // Placeholder of visible input field
+      // Placeholder of the visible input field
       placeholder: "",
       // Defines what happens after user has selected value from suggestions
       // sticky - Allows selecting a single value and not editing the value after selected (e.g. as the admin autocomplete fields)
