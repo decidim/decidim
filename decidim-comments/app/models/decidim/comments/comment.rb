@@ -16,7 +16,6 @@ module Decidim
       include Decidim::Searchable
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
-      include Decidim::SanitizeHelper
 
       # Limit the max depth of a comment tree. If C is a comment and R is a reply:
       # C          (depth 0)
@@ -249,6 +248,13 @@ module Decidim
         return unless root_commentable
 
         root_commentable.update_comments_count
+      end
+
+      def sanitize_content_for_comment(text, options = {})
+        Rails::Html::WhiteListSanitizer.new.sanitize(
+          text,
+          { scrubber: Decidim::Comments::UserInputScrubber.new }.merge(options)
+        ).try(:html_safe)
       end
     end
   end

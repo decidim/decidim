@@ -182,10 +182,10 @@ module Decidim
         end
 
         describe "when the body contains HTML" do
-          let(:body) { %(<a target="alert(1)" href="http://subdomain1.portswigger-labs.net/xss/xss.php?context=js_string_single&x=%27;eval(name)//">XSS via target in a tag</a>) }
+          let(:body) { %(<a target="alert(1)" href="javascript:alert(document.location)">XSS via target in a tag</a>) }
           let(:result) { "<div><p>XSS via target in a tag</p></div>" }
 
-          it "parses quotes and renders them as blockquotes" do
+          it "parses the HTML and renders them only with accepted tags" do
             expect(comment.formatted_body).to eq(result)
           end
         end

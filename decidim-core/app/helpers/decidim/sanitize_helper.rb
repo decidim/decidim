@@ -23,13 +23,6 @@ module Decidim
       end
     end
 
-    def sanitize_content_for_comment(text, options = {})
-      Rails::Html::WhiteListSanitizer.new.sanitize(
-        text,
-        { scrubber: Decidim::Comments::UserInputScrubber.new }.merge(options)
-      ).try(:html_safe)
-    end
-
     def decidim_sanitize_newsletter(html, options = {})
       if options[:strip_tags]
         strip_tags sanitize(html, scrubber: Decidim::NewsletterScrubber.new)
