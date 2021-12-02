@@ -682,7 +682,7 @@ pl:
         click_button: 'Kliknij poniższy przycisk, aby pobrać swoje dane. <br/>Plik będzie dostępny do %{date}. <br/>Będziesz potrzebował <a href=''''https://www.7-zip.org/''''>7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) lub <a href="https://peazip.github.io">PeaZip</a> (Linux) do otwarcia pliku. Hasło: %{password}'
         download: Pobieranie
       export:
-        ready: Znajdź załączoną wersję eksportowanego pliku.
+        ready: Mail zawiera załączony plik eksportu.
       subject: Twój eksport "%{name}" jest gotowy
     filters:
       linked_classes:
