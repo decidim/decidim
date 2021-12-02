@@ -128,6 +128,17 @@ FactoryBot.define do
     end
   end
 
+  factory :participatory_process_type, class: "Decidim::ParticipatoryProcessType" do
+    title { generate_localized_title }
+    organization
+
+    trait :with_participatory_processes do
+      after(:create) do |participatory_process_type|
+        create_list(:participatory_process, 2, :published, organization: participatory_process_type.organization, participatory_process_type: participatory_process_type)
+      end
+    end
+  end
+
   factory :process_admin, parent: :user, class: "Decidim::User" do
     transient do
       participatory_process { create(:participatory_process) }
