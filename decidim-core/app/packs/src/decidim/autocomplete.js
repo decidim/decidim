@@ -146,8 +146,6 @@ export default class AutoComplete {
     case "selection":
       this.addMultiSelectItem(event.detail.selection);
       break;
-    case "click":
-      break;
     default:
     }
   }

@@ -25,7 +25,8 @@ const autoConfigure = (el) => {
   let mode = config.mode || "sticky"
   let selected = null;
   if (config.selected) {
-    if (mode === "multi") {
+    switch (mode) {
+    case "multi":
       selected = config.selected.map((item) => (
         {
           key: "label",
@@ -35,8 +36,12 @@ const autoConfigure = (el) => {
           }
         }
       ));
-    } else {
+      break;
+    case "sticky":
       selected = { key: "label", value: config.options[config.options.length - 1] };
+      break;
+    default:
+      selected = config.selected;
     }
   }
 
