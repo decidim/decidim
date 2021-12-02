@@ -3,6 +3,7 @@
     <%= title %>
     <%= render :filter_tabs %>
   </h3>
+  <%= render :type_filter if participatory_process_types_for_select.present? %>
 </div>
 <% if process_count_by_filter["active"] == 0 && process_count_by_filter["upcoming"] == 0 %>
 <div class="row column">

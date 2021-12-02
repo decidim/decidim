@@ -1,6 +1,8 @@
 var $grid = $('#processes-grid');
+var $order_by_filters = $grid.find('.processes-grid-order-by');
 var $loading = $grid.find('.loading');
 
 $grid.find('.card-grid').html('<%= j(render(collection)).strip.html_safe %>');
-$grid.find('.processes-grid-order-by').html('<%= j(render(partial: "decidim/participatory_processes/participatory_processes/order_by_processes", locals: { include_filter: true })).strip.html_safe %>');
+$order_by_filters.html('<%= j(render(partial: "decidim/participatory_processes/participatory_processes/order_by_processes", locals: { include_filter: true })).strip.html_safe %>');
+$order_by_filters.foundation();
 $loading.hide();

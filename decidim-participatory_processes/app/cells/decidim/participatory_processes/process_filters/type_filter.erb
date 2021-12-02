@@ -1,0 +1,17 @@
+<div id="process-type-filter" class="inline-filters">
+  <div id="inline-filter-sort" class="dropdown-pane" data-position="bottom" data-alignment="right" data-dropdown data-auto-focus="true">
+    <ul class="list-reset">
+      <% participatory_process_types_for_select.each do |title, id| %>
+        <li>
+          <%= link_to filter_link(current_filter, id), remote: true do %>
+            <%= title %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <label>
+    <span><%= filter_type_label %></span>
+    <button id="button-text" data-toggle="inline-filter-sort"><%= current_type_filter_name %></button>
+  </label>
+</div>
