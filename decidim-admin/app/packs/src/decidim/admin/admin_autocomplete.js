@@ -63,7 +63,6 @@ const autoConfigure = (el) => {
     dataMatchKeys: ["label"],
     dataSource
   });
-  el.addEventListener("selection", ac);
 
   return ac;
 }

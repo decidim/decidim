@@ -7,9 +7,9 @@ export default class AutoComplete {
     this.clearStickySelection = null;
     this.stickyHiddenInput = null;
     this.options = Object.assign({
-      // Name of the resource
+      // Defines name of the hidden input (e.g. assembly_member[user_id])
       name: null,
-      // Placeholder of visible input field
+      // Placeholder of the visible input field
       placeholder: "",
       // Defines what happens after user has selected value from suggestions
       // sticky - Allows selecting a single value and not editing the value after selected (e.g. as the admin autocomplete fields)
@@ -96,20 +96,21 @@ export default class AutoComplete {
             return;
           }
 
-          this.options.modifyResult(item, data.value)
+          this.options.modifyResult(item, data.value);
         }
       }
     });
 
     this.acWrapper = this.element.closest(".autoComplete_wrapper");
     this.element.ac = this.autocomplete;
+
     // Stop input field from bubbling open and close events to parent elements,
     // because foundation closes modal from these events.
     const stopPropagation = (event) => {
       event.stopPropagation();
     }
-    this.element.addEventListener("close", stopPropagation)
-    this.element.addEventListener("open", stopPropagation)
+    this.element.addEventListener("close", stopPropagation);
+    this.element.addEventListener("open", stopPropagation);
 
     switch (this.options.mode) {
     case "sticky":
@@ -151,6 +152,7 @@ export default class AutoComplete {
   }
 
   handleStickyEvents(event) {
+    console.log("event", event);
     switch (event.type) {
     case "selection":
       this.addStickySelectItem(event.detail.selection);
@@ -161,7 +163,7 @@ export default class AutoComplete {
       }
       break;
     case "keyup":
-      if (event.target === this.element && this.element.value !== "" && (this.element.value.length > 1 || ["Escape", "Backspace", "Delete"].includes(event.key))) {
+      if (this.stickyHiddenInput.value !== "" && event.target === this.element && (["Escape", "Backspace", "Delete"].includes(event.key) || this.element.value.length > 1)) {
         this.clearSelected();
       }
       break;
@@ -176,12 +178,12 @@ export default class AutoComplete {
     if (value) {
       hiddenInput.value = value;
     }
-    this.acWrapper.prepend(hiddenInput)
+    this.acWrapper.prepend(hiddenInput);
     return hiddenInput;
   }
 
   clearSelected() {
-    this.stickyHiddenInput.value = ""
+    this.stickyHiddenInput.value = "";
     this.element.placeholder = this.options.placeholder;
     this.setInput("");
     this.clearStickySelection.style.display = "none";
@@ -200,14 +202,14 @@ export default class AutoComplete {
   addMultiSelectItem(selection) {
     this.setInput("");
     const chosen = document.createElement("span");
-    chosen.classList.add("label", "primary", "autocomplete__selected-item")
+    chosen.classList.add("label", "primary", "autocomplete__selected-item");
     chosen.innerHTML = selection.value[selection.key];
     const clearSelection = document.createElement("span");
     clearSelection.classList.add("clear-selection");
     clearSelection.innerHTML = "&times;";
     clearSelection.setAttribute("data-remove", selection.value.value);
     clearSelection.addEventListener("click", (evt) => {
-      const hiddenInput = this.acWrapper.querySelector(`input[type='hidden'][value='${selection.value.value}']`)
+      const hiddenInput = this.acWrapper.querySelector(`input[type='hidden'][value='${selection.value.value}']`);
       if (hiddenInput) {
         hiddenInput.remove();
         evt.target.parentElement.remove();
@@ -216,9 +218,9 @@ export default class AutoComplete {
     chosen.appendChild(clearSelection);
 
     const multiSelectWrapper = this.acWrapper.querySelector(".multiselect");
-    const inputContainer = multiSelectWrapper.querySelector("span.input-container")
+    const inputContainer = multiSelectWrapper.querySelector("span.input-container");
     multiSelectWrapper.insertBefore(chosen, inputContainer);
-    this.createHiddenInput(selection.value.value)
+    this.createHiddenInput(selection.value.value);
   }
 
   createStickySelect() {
@@ -234,11 +236,13 @@ export default class AutoComplete {
     this.clearStickySelection.style.display = "none";
     this.clearStickySelection.addEventListener("click", this);
 
+    this.element.addEventListener("selection", this);
+    this.element.addEventListener("keyup", this);
+
     this.acWrapper.insertBefore(this.clearStickySelection, this.element);
     this.acWrapper.insertBefore(this.stickySelectedValue, this.element);
-    this.element.addEventListener("selection", this);
     if (this.options.selected) {
-      this.addStickySelectItem(this.options.selected)
+      this.addStickySelectItem(this.options.selected);
     }
   }
 
@@ -247,7 +251,7 @@ export default class AutoComplete {
     multiSelectWrapper.classList.add("multiselect");
 
     const inputContainer = document.createElement("span");
-    inputContainer.classList.add("input-container")
+    inputContainer.classList.add("input-container");
 
     multiSelectWrapper.appendChild(inputContainer);
     this.acWrapper.prepend(multiSelectWrapper);
