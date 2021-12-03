@@ -7,7 +7,9 @@ module Decidim
     # `filter` returns a Filter object from Decidim::FilterResource
     module FilterAssembliesHelper
       def available_filters
-        @available_filters ||= [t("all", scope: "decidim.assemblies.filter")] + organization_assembly_types
+        return if organization_assembly_types.blank?
+
+        [t("all", scope: "decidim.assemblies.filter")] + organization_assembly_types
       end
 
       def filter_link(type_id)
