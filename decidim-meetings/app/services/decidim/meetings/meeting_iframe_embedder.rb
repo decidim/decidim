@@ -48,7 +48,7 @@ module Decidim
 
       private
 
-      EMBEDDABLE_SERVICES = %( www.youtube.com www.twitch.tv )
+      EMBEDDABLE_SERVICES = %( www.youtube.com www.twitch.tv meet.jit.si )
 
       attr_accessor :online_meeting_service_url
 

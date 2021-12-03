@@ -24,6 +24,12 @@ module Decidim
         ExportData.new(data, "csv")
       end
 
+      def headers
+        return [] if processed_collection.empty?
+
+        @headers ||= processed_collection.inject([]) { |keys, resource| keys | resource.keys }
+      end
+
       protected
 
       def custom_sanitize(value)
@@ -40,15 +46,9 @@ module Decidim
 
       private
 
-      def headers
-        return [] if processed_collection.empty?
-
-        processed_collection.inject([]) { |keys, resource| keys | resource.keys }
-      end
-
       def processed_collection
         @processed_collection ||= collection.map do |resource|
-          flatten(@serializer.new(resource).run)
+          flatten(@serializer.new(resource).run).deep_dup
         end
       end
 

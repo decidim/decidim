@@ -43,7 +43,7 @@ module Decidim
           },
           comments: proposal.comments_count,
           attachments: proposal.attachments.size,
-          followers: proposal.followers.size,
+          followers: proposal.follows.size,
           published_at: proposal.published_at,
           url: url,
           meeting_urls: meetings,

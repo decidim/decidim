@@ -2,6 +2,7 @@ import AutoButtonsByPositionComponent from "src/decidim/admin/auto_buttons_by_po
 import AutoLabelByPositionComponent from "src/decidim/admin/auto_label_by_position.component"
 import createSortList from "src/decidim/admin/sort_list.component"
 import createDynamicFields from "src/decidim/admin/dynamic_fields.component"
+import createFieldDependentInputs from "src/decidim/admin/field_dependent_inputs.component"
 import attachGeocoding from "src/decidim/geocoding/attach_input"
 
 $(() => {
@@ -147,4 +148,16 @@ $(() => {
     toggleDependsOnSelect($meetingTypeOfMeeting, $meetingOnlineFields, "online");
     toggleDependsOnSelect($meetingTypeOfMeeting, $meetingInPersonFields, "in_person");
   }
+
+  const $meetingIframeEmbedType = $("#meeting_iframe_embed_type");
+
+  createFieldDependentInputs({
+    controllerField: $meetingIframeEmbedType,
+    wrapperSelector: ".iframe-fields",
+    dependentFieldsSelector: ".iframe-fields--access-level",
+    dependentInputSelector: "input",
+    enablingCondition: ($field) => {
+      return $field.val() !== "none"
+    }
+  });
 })

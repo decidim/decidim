@@ -30,7 +30,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
 
   participatory_space.exports :assemblies do |export|
     export.collection do |assembly|
-      Decidim::Assembly.where(id: assembly.id)
+      Decidim::Assembly.where(id: assembly.id).includes(:area, :scope, :attachment_collections, :categories)
     end
 
     export.serializer Decidim::Assemblies::AssemblySerializer
