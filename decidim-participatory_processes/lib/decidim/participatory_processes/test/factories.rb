@@ -132,9 +132,15 @@ FactoryBot.define do
     title { generate_localized_title }
     organization
 
-    trait :with_participatory_processes do
+    trait :with_active_participatory_processes do
       after(:create) do |participatory_process_type|
-        create_list(:participatory_process, 2, :published, organization: participatory_process_type.organization, participatory_process_type: participatory_process_type)
+        create_list(:participatory_process, 2, :active, :published, organization: participatory_process_type.organization, participatory_process_type: participatory_process_type)
+      end
+    end
+
+    trait :with_past_participatory_processes do
+      after(:create) do |participatory_process_type|
+        create_list(:participatory_process, 2, :past, :published, organization: participatory_process_type.organization, participatory_process_type: participatory_process_type)
       end
     end
   end
