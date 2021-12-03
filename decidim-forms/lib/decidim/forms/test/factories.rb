@@ -124,7 +124,9 @@ FactoryBot.define do
       question_type { :separator }
     end
 
-    # TODO: Add trait text-separator
+    trait :text_separator do
+      question_type { :text_separator }
+    end
   end
 
   factory :answer, class: "Decidim::Forms::Answer" do
