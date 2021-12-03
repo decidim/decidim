@@ -30,8 +30,8 @@ en:
           selected_at_null:
             label: Selected
             values:
-              'false': Selected
-              'true': Not selected
+              'false': Selected for implementation
+              'true': Not selected for implementation
           scope_id_eq:
             label: Scope
     budgets:
@@ -147,6 +147,7 @@ en:
             total_budget: Total budget
         project:
           fields:
+            id: ID
             title: Title
       order_summary_mailer:
         order_summary:

@@ -102,6 +102,17 @@ module Decidim
       ransacker :title do |parent|
         Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
       end
+
+      ransacker :confirmed_orders_count do
+        query = <<-SQL.squish
+        (
+            SELECT -COUNT(decidim_budgets_line_items.decidim_order_id)
+            FROM decidim_budgets_line_items
+            WHERE decidim_budgets_projects.id = decidim_budgets_line_items.decidim_project_id
+        )
+        SQL
+        Arel.sql(query)
+      end
     end
   end
 end

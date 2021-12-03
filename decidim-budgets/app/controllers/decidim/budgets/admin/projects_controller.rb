@@ -77,7 +77,6 @@ module Decidim
         private
 
         def projects
-          # @projects ||= budget.projects.page(params[:page]).per(15)
           @projects ||= filtered_collection
         end
 

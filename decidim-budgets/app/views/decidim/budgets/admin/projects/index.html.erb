@@ -21,16 +21,20 @@
       <table class="table-list">
         <thead>
           <tr>
-            <th><%= t("models.project.fields.title", scope: "decidim.budgets") %></th>
-            <th><%= t("index.confirmed_orders_count") %></th>
-            <th><%= t(".selected") %></th>
-            <%= th_resource_scope_label %>
+            <th><%= sort_link(query, :id, t("models.project.fields.id", scope: "decidim.budgets"), default_order: :desc) %>
+            <th><%= sort_link(query, :title, t("models.project.fields.title", scope: "decidim.budgets")) %></th>
+            <th><%= sort_link(query, :confirmed_orders_count, t("index.confirmed_orders_count")) %></th>
+            <th><%= sort_link(query, :selected, t(".selected")) %></th>
+            <%= th_scope_sort_link %>
             <th class="actions"><%= t("actions.title", scope: "decidim.budgets") %></th>
           </tr>
         </thead>
         <tbody>
           <% projects.each do |project| %>
             <tr data-id="<%= project.id %>">
+              <td>
+                <%= project.id %><br>
+              </td>
               <td>
                 <%= translated_attribute(project.title) %><br>
               </td>
