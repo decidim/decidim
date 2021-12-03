@@ -35,7 +35,7 @@ module Decidim
       end
 
       def organization_assembly_types
-        AssembliesType.where(organization: current_organization)&.map { |type| [translated_attribute(type.title), type.id] }
+        AssembliesType.where(organization: current_organization).joins(:assemblies).distinct&.map { |type| [translated_attribute(type.title), type.id] }
       end
     end
   end
