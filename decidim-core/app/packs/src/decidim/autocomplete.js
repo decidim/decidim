@@ -202,10 +202,10 @@ export default class AutoComplete {
   addMultiSelectItem(selection) {
     this.setInput("");
     const chosen = document.createElement("span");
-    chosen.classList.add("label", "primary", "autocomplete__selected-item");
+    chosen.classList.add("label", "primary", "autocomplete__selected-item", "multi");
     chosen.innerHTML = selection.value[selection.key];
     const clearSelection = document.createElement("span");
-    clearSelection.classList.add("clear-selection");
+    clearSelection.classList.add("clear-multi-selection");
     clearSelection.innerHTML = "&times;";
     clearSelection.setAttribute("data-remove", selection.value.value);
     clearSelection.addEventListener("click", (evt) => {
@@ -225,13 +225,13 @@ export default class AutoComplete {
 
   createStickySelect() {
     this.stickySelectedValue = document.createElement("span");
-    this.stickySelectedValue.className = "autocomplete__selected-item";
+    this.stickySelectedValue.classList.add("autocomplete__selected-item", "sticky");
     this.stickySelectedValue.style.display = "none";
 
     this.stickyHiddenInput = this.createHiddenInput();
 
     this.clearStickySelection = document.createElement("span");
-    this.clearStickySelection.className = "clear-selection";
+    this.clearStickySelection.className = "clear-sticky-selection";
     this.clearStickySelection.innerHTML = "&times;";
     this.clearStickySelection.style.display = "none";
     this.clearStickySelection.addEventListener("click", this);

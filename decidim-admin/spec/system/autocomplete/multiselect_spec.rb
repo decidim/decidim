@@ -109,7 +109,7 @@ describe "Autocomplete multiselect", type: :system do
           autocomplete_select participant.name, from: :user_id
           expect(page).to have_content(participant.name)
           expect(page).to have_selector(%(input[value="#{participant.id}"]), visible: :hidden)
-          find(".clear-selection").click
+          find(".clear-multi-selection").click
           expect(page).not_to have_content(participant.name)
           expect(page).not_to have_selector(%(input[value="#{participant.id}"]), visible: :hidden)
         end
