@@ -2,6 +2,8 @@
 
 require "spec_helper"
 
+# TODO: Add test for text-separator
+
 describe Decidim::Forms::QuestionReadonlyCell, type: :cell do
   controller Decidim::PagesController
 

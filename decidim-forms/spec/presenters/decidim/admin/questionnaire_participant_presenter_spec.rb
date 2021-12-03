@@ -2,6 +2,8 @@
 
 require "spec_helper"
 
+# TODO: Add test for text-separator
+
 module Decidim
   describe Forms::Admin::QuestionnaireParticipantPresenter, type: :helper do
     subject { described_class.new(participant: participant) }
