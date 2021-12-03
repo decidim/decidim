@@ -5,15 +5,7 @@
 Until we have the version 1.0 we support only the last minor and major
 version with security updates.
 
-|===
-| Version | Supported
-
-| 0.21.x
-| :white_check_mark:
-
-| \<= 0.20
-| :x:
-|===
+https://github.com/decidim/decidim/blob/doc/security-keyserver/SECURITY.adoc[See the last supported version].
 
 == Reporting a Vulnerability
 
