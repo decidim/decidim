@@ -29,5 +29,5 @@ is `C1BD 8981 D83C 23F9 D419 FE42 149A D0F9 84B9 35C4`. To download our key:
 
 [source,bash]
 ----
-gpg --keyserver pgp.key-server.io --recv 84B935C4
+gpg --keyserver pgp.mit.edu --recv 84B935C4
 ----
