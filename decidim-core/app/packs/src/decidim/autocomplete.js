@@ -53,7 +53,7 @@ export default class AutoComplete {
       // Delay in milliseconds how long to wait after user action before
       // doing a backend request.
       delay: 200,
-      // Allows modifying the result items before they are added to the DOM
+      // Allows modifying the suggested items before they are displayed in the list
       // Signature: (element: HTMLElement, value: Object)
       modifyResult: null
     }, options);
