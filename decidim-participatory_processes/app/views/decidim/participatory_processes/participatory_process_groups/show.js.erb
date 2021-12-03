@@ -1,5 +1,6 @@
 var $grid = $('#processes-grid');
 var $order_by_filters = $grid.find('.processes-grid-order-by');
+var $loading = $grid.find('.loading');
 
 $grid.find('.card-grid').html('<%= j(cell(
                                       "decidim/participatory_processes/filtered_participatory_processes",
@@ -11,3 +12,4 @@ $order_by_filters.html('<%= j(cell(
                                 base_relation: participatory_processes
                               ).show).strip.html_safe %>');
 $order_by_filters.foundation();
+$loading.hide();
