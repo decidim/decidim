@@ -209,7 +209,7 @@ ja:
             promoted: 強調表示
             published: 公開済み
             title: タイトル
-          name: Assembly
+          name: 参加スペース
         assembly_member:
           fields:
             ceased_date: 終了日
@@ -230,7 +230,7 @@ ja:
           name: 参加スペース管理者
           roles:
             admin: 管理者
-            collaborator: 共同編集者
+            collaborator: コラボレーター
             moderator: モデレーター
             valuator: 評価者
       titles:
@@ -368,7 +368,7 @@ ja:
         developer_group: プロモーターグループ
         duration: 持続期間
         included_at: 含まれた日
-        indefinite_duration: 不定義
+        indefinite_duration: 無期限
         internal_organisation: 内部組織
         is_transparent:
           'false': 不透明な
