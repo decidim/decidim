@@ -239,7 +239,7 @@ ja:
             main_promotor: 主プロモーター（プロモーター）
         registration_type:
           fields:
-            conference_meetings: カンファレンスの会議
+            conference_meetings: カンファレンスのミーティング
             price: 価格
             registrations_count: 登録数
             title: タイトル
@@ -382,7 +382,7 @@ ja:
             title: パートナー
         registration_types:
           form:
-            select_conference_meetings: カンファレンス会議の選択
+            select_conference_meetings: カンファレンスミーティングの選択
           index:
             title: 登録種別
         send_conference_diploma_mailer:
