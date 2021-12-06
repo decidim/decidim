@@ -276,7 +276,7 @@ ja:
             options: オプション
             title: 一般情報
           initiative_type_scopes:
-            title: イニシアチブの種別のスコープ
+            title: イニシアチブ種別のスコープ
           new:
             create: 作成
             title: 新しいイニシアチブ種別
