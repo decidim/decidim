@@ -97,8 +97,8 @@ ja:
         name: 名前
         organization: 組織
         parent_id: 親
-        scope_type: スコープの種類
-        scope_type_id: スコープの種類
+        scope_type: スコープ種別
+        scope_type_id: スコープ種別
       scope_type:
         name: 名前
         organization: 組織
@@ -517,7 +517,7 @@ ja:
         newsletters: ニュースレター
         participants: 参加者
         reported_users: 報告済みユーザー
-        scope_types: スコープの種類
+        scope_types: スコープ種別
         scopes: スコープ
         settings: 設定
         static_pages: ページ
@@ -567,7 +567,7 @@ ja:
         scope:
           fields:
             name: 名前
-            scope_type: スコープの種類
+            scope_type: スコープ種別
         scope_type:
           fields:
             name: 名前
@@ -833,19 +833,19 @@ ja:
             scope: スコープ
       scope_types:
         create:
-          error: 新しいスコープタイプの作成中に問題が発生しました。
-          success: スコープタイプが正常に作成されました。
+          error: 新しいスコープ種別の作成中に問題が発生しました。
+          success: スコープ種別が正常に作成されました。
         destroy:
-          success: スコープの種類が削除されました
+          success: スコープ種別が削除されました
         edit:
-          title: スコープの種類を編集
+          title: スコープ種別を編集
           update: 更新
         new:
-          create: スコープの種類を作成
+          create: スコープ種別を作成
           title: 新しいスコープ
         update:
-          error: このスコープタイプの更新中に問題が発生しました。
-          success: スコープの種類が正常に更新されました
+          error: このスコープ種別の更新中に問題が発生しました。
+          success: スコープ種別が正常に更新されました
       scopes:
         create:
           error: 新しいスコープの作成中に問題が発生しました。
@@ -933,7 +933,7 @@ ja:
         metrics: 指標
         panel: 管理者
         participants: 参加者
-        scope_types: スコープの種類
+        scope_types: スコープ種別
         scopes: スコープ
         static_pages: ページ
         statistics: アクティビティ
