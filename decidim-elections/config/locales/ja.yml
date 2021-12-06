@@ -803,7 +803,7 @@ ja:
           show:
             actions:
               count_votes: 投票箱の投票数をカウント
-              identify_person: 本人の特定と検証を行う
+              identify_person: 本人確認と検証を行う
             polling_officer_role_description: あなたは、このプラットフォームで行われるいくつかの選挙で、投票所の責任者(長またはマネージャー) として行動するように割り当てられています。
             polling_stations:
               list:
