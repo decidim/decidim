@@ -147,7 +147,7 @@ ja:
               most_commented: コメントが多い順
               most_endorsed: 最もオススメされた順
               most_followed: 最もフォローされている順
-              most_voted: 最もサポートされている順
+              most_voted: サポートされている順
               random: ランダム
               recent: 最近のもの
               with_more_authors: より多くの著者と一緒に
@@ -655,7 +655,7 @@ ja:
         orders:
           label: '下書きの注文:'
           most_contributed: 最も貢献したもの
-          random: Random
+          random: ランダム
           recent: 最近のもの
         requests:
           accepted_request:
@@ -809,8 +809,8 @@ ja:
           most_commented: コメントが多い順
           most_endorsed: 最もオススメされた
           most_followed: 最もフォローされている
-          most_voted: 最もサポートされています
-          random: Random
+          most_voted: サポートされている順
+          random: ランダム
           recent: 最近のもの
           with_more_authors: より多くの著者と一緒に
         participatory_texts:
