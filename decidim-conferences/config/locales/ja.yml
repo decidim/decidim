@@ -220,7 +220,7 @@ ja:
             admin: 管理者
             collaborator: 共同編集者
             moderator: モデレーター
-            valuator: 検証者
+            valuator: 評価者
         media_link:
           fields:
             date: 日付
