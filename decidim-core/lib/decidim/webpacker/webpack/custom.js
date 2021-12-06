@@ -84,6 +84,7 @@ module.exports = {
   },
   resolve: {
     extensions: [".js", ".jsx", ".gql", ".graphql"],
+    preferRelative: false,
     fallback: {
       crypto: false,
       path: require.resolve("path-browserify")
