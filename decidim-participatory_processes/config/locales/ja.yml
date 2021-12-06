@@ -144,7 +144,7 @@ ja:
             admin: 管理者
             collaborator: 共同編集者
             moderator: モデレーター
-            valuator: Valuator
+            valuator: 評価者
         user:
           fields:
             invitation_accepted_at: 招待が承認されました
