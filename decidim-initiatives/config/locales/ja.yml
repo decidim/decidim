@@ -433,7 +433,7 @@ ja:
         personal_data:
           invalid: 個人データは、承認のために提供されたデータと一致しません。
         sms_code:
-          invalid: 認証コードが私たちのものと一致しません。SMSを送信したことを再確認してください。
+          invalid: 確認コードが私たちのものと一致しません。SMSを送信したことを再確認してください。
         sms_phone:
           invalid: 電話番号が無効または承認待ちです。認証を確認してください。
       initiatives:
