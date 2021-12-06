@@ -55,7 +55,7 @@ ja:
   activerecord:
     models:
       decidim/initiative:
-        other: 取り組み
+        other: イニシアチブ
       decidim/initiative_comittee:
         other: Comittes
       decidim/initiative_vote:
@@ -483,8 +483,8 @@ ja:
         orders:
           label: 'イニシアチブの並べ替え:'
           most_commented: コメントが多い順
-          most_voted: 最も署名されたもの
-          random: Random
+          most_voted: 署名されている順
+          random: ランダム
           recent: 直近のもの
           recently_published: 直近に公開
         print:
