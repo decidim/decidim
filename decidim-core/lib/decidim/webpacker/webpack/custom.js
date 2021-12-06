@@ -85,7 +85,8 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".gql", ".graphql"],
     fallback: {
-      crypto: false
+      crypto: false,
+      path: require.resolve("path-browserify")
     }
   },
   // https://github.com/rails/webpacker/issues/2932
