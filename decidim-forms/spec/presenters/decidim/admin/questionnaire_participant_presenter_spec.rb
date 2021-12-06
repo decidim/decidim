@@ -2,8 +2,6 @@
 
 require "spec_helper"
 
-# TODO: Add test for text-separator
-
 module Decidim
   describe Forms::Admin::QuestionnaireParticipantPresenter, type: :helper do
     subject { described_class.new(participant: participant) }
@@ -14,7 +12,8 @@ module Decidim
       [
         create(:questionnaire_question, questionnaire: questionnaire, position: 1),
         create(:questionnaire_question, :separator, questionnaire: questionnaire, position: 2),
-        create(:questionnaire_question, questionnaire: questionnaire, position: 3)
+        create(:questionnaire_question, questionnaire: questionnaire, position: 3),
+        create(:questionnaire_question, :text_separator, questionnaire: questionnaire, position: 2)
       ]
     end
     let!(:answers) do
@@ -61,7 +60,7 @@ module Decidim
     end
 
     describe "answers" do
-      it "returns the participant's answers without the separators" do
+      it "returns the participant's answers without the separators and text-separators" do
         expect(subject.answers.map(&:answer)).to eq([answers.first, answers.last])
         expect(subject.answers.map(&:answer)).not_to include(answers.second)
       end
