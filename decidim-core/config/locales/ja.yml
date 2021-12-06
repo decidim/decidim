@@ -851,7 +851,7 @@ ja:
     last_activities:
       activities:
         no_activities_warning: アクティビティがありません
-      all: すべてのアクティビティタイプ
+      all: すべてのアクティビティ種別
       index:
         last_activity: 最後のアクティビティ
         resource_type: タイプ
