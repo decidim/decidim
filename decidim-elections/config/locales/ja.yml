@@ -1055,7 +1055,7 @@ ja:
                 message_2: カラムの区切り文字はセミコロン(";") でなければなりません。
               has_ballot_styles_message: 投票スタイルを設定しました。CSVの「%{ballot_style_code_header}」フィールドが、希望する投票スタイルのコードに対応していることを確認してください。
               info_message: "<strong>センサスはまだありません。</strong> 以下のフォームを使用してCSVファイルをインポートしてください。"
-              missing_ballot_styles_message: 'この投票の投票スタイルがありません。もし条件付きの質問がある場合 (例: 居住地域などにより投票者に異なる質問を提示する場合), you need to set up the <a href=%{ballot_styles_admin_path}>投票スタイル</a>をセンサスをインポートする <strong>前に</strong> 設定する必要があります。すべての投票者に対して同じ質問を定時したい場合は、センサスのインポート手続きを行ってください。'
+              missing_ballot_styles_message: 'この投票の投票スタイルがありません。もし条件付きの質問がある場合 (例: 居住地域などにより投票者に異なる質問を提示する場合), <a href=%{ballot_styles_admin_path}>投票スタイル</a>をセンサスをインポートする <strong>前に</strong> 設定する必要があります。すべての投票者に対して同じ質問を定時したい場合は、センサスのインポート手続きを行ってください。'
               submit: CSVを送信
               title: センサスを作成
             show:
