@@ -19,10 +19,10 @@ ja:
       postal_letter_address:
         full_address: フルアドレス
       postal_letter_confirmation:
-        verification_code: 認証コード
+        verification_code: 確認コード
       postal_letter_postage:
         full_address: フルアドレス
-        verification_code: 認証コード
+        verification_code: 確認コード
   decidim:
     admin:
       menu:
@@ -58,23 +58,23 @@ ja:
             - はっきりと情報を見ることができない、またはそれを検証することができない場合。 リクエストを拒否すると、ユーザーはそれを修正することができます。
         postal_letter:
           help:
-            - 参加者は、確認コードを自分のアドレスに送信するように要求します。
-            - 確認コードを入力して手紙を彼らのアドレスに送信します。
-            - 手紙を送信済みとしてマークします。
-            - 手紙を送信済みとしてマークすると、参加者はコードを紹介して確認することができます。
+            - 参加者は、確認コードを自分の住所に送信するように依頼します。
+            - 確認コードが記載された郵便物を参加者の住所に送信します。
+            - 郵便物を送信済みとしてマークします。
+            - 郵便物を送信済みとしてマークすると、参加者はコードを入力して検証することができます。
       csv_census:
         explanation: 組織センサスを使用して認証を取得する
         name: 組織の国勢調査
-      direct: Direct
+      direct: ダイレクト
       help: ヘルプ
       id_documents:
-        explanation: 本人確認のため身分証明書をアップロードしてください
-        name: 本人確認ドキュメント
+        explanation: 本人確認のため本人確認書類をアップロードしてください
+        name: 本人確認書類
       multistep: 複数ステップ
       name: 名前
       postal_letter:
-        explanation: 住所を確認するために入力する必要があるコードを記載した郵便手紙をお送りします。
-        name: 郵便番号によるコード
+        explanation: 住所を確認するために入力するコードを記載した郵便物をお送りします。
+        name: 郵便物によるコード
     events:
       verifications:
         verify_with_managed_user:
@@ -98,7 +98,7 @@ ja:
             dummy_authorization_handler: 認証ハンドラーの例に対して確認する
             dummy_authorization_workflow: 認証ワークフローの例に対して確認する
             id_documents: 本人確認書類をアップロードして認証を取得する
-            postal_letter: 郵便番号で確認コードを受信して認証する
+            postal_letter: 郵便物で確認コードを受信して認証する
             sms: SMS認証コードを受信して認証を取得する
           title: 本人確認を行う
           verify_with_these_options: '本人確認には以下のオプションがあります。'
@@ -186,7 +186,7 @@ ja:
               verification_number: '認証 #%{n}'
           rejections:
             create:
-              success: 本人確認が拒否されました。参加者は書類の修正を求められます。
+              success: 本人確認が拒否されました。参加者は書類を修正するよう求められます。
         authorizations:
           choose:
             choose_a_type: '確認方法を選択してください：'
@@ -223,15 +223,15 @@ ja:
               not_yet_sent: 送信されていません
               title: 現在検証中
               username: アカウントID
-              verification_code: 認証コード
+              verification_code: 確認コード
           postages:
             create:
-              error: エラーマーキング文字を送信しました
+              error: 郵便物送信済みのマーキング時エラー
               success: Letter successfully marked as sent
         authorizations:
           create:
             error: リクエストに問題がありました
-            success: ありがとうございます！あなたのアドレスに認証コードを送信します
+            success: ありがとうございます！あなたのアドレスに確認コードを送信します
           edit:
             send: 確認する
             title: 受信した認証コードを紹介する
