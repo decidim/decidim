@@ -99,7 +99,7 @@ ja:
             dummy_authorization_workflow: 認証ワークフローの例に対して確認する
             id_documents: 本人確認書類をアップロードして認証を取得する
             postal_letter: 郵便物で確認コードを受信して認証する
-            sms: SMS認証コードを受信して認証を取得する
+            sms: SMS確認コードを受信して認証を取得する
           title: 本人確認を行う
           verify_with_these_options: '本人確認には以下のオプションがあります。'
         index:
@@ -167,7 +167,7 @@ ja:
               error: 検証が一致しません。再試行するか、参加者が修正できるように検証を拒否してください
               success: 参加者を確認しました
             new:
-              introduce_user_data: 写真のデータを紹介する
+              introduce_user_data: 写真のデータを入力する
               reject: 拒否
               verify: 確認する
           offline_confirmations:
@@ -176,7 +176,7 @@ ja:
               success: 参加者を確認しました
             new:
               cancel: キャンセル
-              introduce_user_data: 参加者のメールアドレスと文書データを紹介
+              introduce_user_data: 参加者のメールアドレスと文書データを入力
               verify: 確認する
           pending_authorizations:
             index:
@@ -227,20 +227,20 @@ ja:
           postages:
             create:
               error: 郵便物送信済みのマーキング時エラー
-              success: Letter successfully marked as sent
+              success: 郵便物の送信済みにマークされました
         authorizations:
           create:
             error: リクエストに問題がありました
             success: ありがとうございます！あなたのアドレスに確認コードを送信します
           edit:
             send: 確認する
-            title: 受信した認証コードを紹介する
-            waiting_for_letter: 確認コードを記載した手紙をお送りします。
+            title: 受信した確認コードを入力する
+            waiting_for_letter: 確認コードを記載した郵便物をお送りします。
           new:
-            send: 手紙を送る
-            title: 認証コードをリクエストする
+            send: 郵便物を送る
+            title: 確認コードをリクエストする
           update:
-            error: あなたの認証コードが私たちのものと一致しません。私たちがあなたに送った手紙を再確認してください。
+            error: 入力された確認コードが郵送したものと一致しません。お送りした郵送物を再確認してください。
             success: おめでとうございます。正常に検証されました
       sms:
         authorizations:
@@ -248,18 +248,18 @@ ja:
             error: リクエストに問題がありました
             success: ありがとうございます！あなたの携帯電話にSMSを送信しました。
           destroy:
-            success: 認証コードが正常にリセットされました。電話番号を再入力してください。
+            success: 確認コードが正常にリセットされました。電話番号を再入力してください。
           edit:
             confirm_destroy: 確認コードをリセットしてもよろしいですか？
-            destroy: 認証コードをリセット
-            resend: 認証コードが届かなかった？
+            destroy: 確認コードをリセット
+            resend: 確認コードを受け取っていませんか？
             send: 確認する
-            title: 受信した認証コードを紹介する
+            title: 受信した確認コードを入力する
           new:
             send: SMSを送信
-            title: 認証コードをリクエストする
+            title: 確認コードをリクエストする
           update:
-            error: 認証コードが私たちのものと一致しません。SMSを送信したことを再確認してください。
+            error: 確認コードが私たちのものと一致しません。SMSを送信したことを再確認してください。
             success: おめでとうございます。認証に成功しました。
   errors:
     messages:
