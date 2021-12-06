@@ -22,6 +22,7 @@ module Decidim
       validate :question_belongs_to_questionnaire
 
       scope :not_separator, -> { joins(:question).where.not(decidim_forms_questions: { question_type: Decidim::Forms::Question::SEPARATOR_TYPE }) }
+      scope :not_text_separator, -> { joins(:question).where.not(decidim_forms_questions: { question_type: Decidim::Forms::Question::TEXT_SEPARATOR_TYPE }) }
 
       def self.user_collection(user)
         where(decidim_user_id: user.id)
