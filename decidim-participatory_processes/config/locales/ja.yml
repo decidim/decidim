@@ -142,7 +142,7 @@ ja:
           name: 参加型プロセス管理者
           roles:
             admin: 管理者
-            collaborator: 共同編集者
+            collaborator: コラボレーター
             moderator: モデレーター
             valuator: 評価者
         user:
