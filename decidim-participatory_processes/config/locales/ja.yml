@@ -84,7 +84,7 @@ ja:
         configure: 設定
         confirm_destroy: 削除の確認
         destroy: 削除
-        duplicate: Duplicate
+        duplicate: 複製
         edit: 編集
         filter:
           all_processes: すべての参加型プロセスを表示
