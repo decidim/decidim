@@ -8,7 +8,7 @@ ja:
         dice: ダイロールの結果。 6面ダイをロールするか、1から6まで数字を生成する別のランダムな方法を探します そして目撃者の前にナンバーを入力します。 これにより、品質と結果のランダム性を保証します
         target_items: 選択される提案の数 (選択した提案のグループをたくさん描画して選択したい提案の数を示します)
         title: タイトル
-        witnesses: Witnes
+        witnesses: 目撃者
     models:
       decidim/sortitions/create_sortition_event: 並べ替え
   activerecord:
@@ -127,7 +127,7 @@ ja:
           proposals_selected_by_sortition: 並べ替えによって選択された提案
           sortition_reproducibility_details: 並べ替え再現性の詳細
           time_seed: "(2) 時間の種"
-          witnesses: Witnes
+          witnesses: 目撃者
         sortition:
           random_seed: 乱数のシード
           selected_proposals:
