@@ -878,7 +878,7 @@ ja:
         area_presenter:
           not_found: 'The area was not found on the データベース (ID: %{id})'
         area_type_presenter:
-          not_found: 'The area type was not found on the database (ID: %{id})'
+          not_found: 'エリア種別がデータベース上に見つかりませんでした (ID: %{id})'
         scope_presenter:
           not_found: 'The scope was not found on the database(ID: %{id})'
         scope_type_presenter:
