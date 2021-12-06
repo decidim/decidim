@@ -89,7 +89,7 @@ ja:
         user_groups_enabled: グループを有効にする
         users_registration_mode: ユーザー登録モード
         warning_color: 警告
-        welcome_notification_body: Welcome通知本文
+        welcome_notification_body: ウェルカム通知本文
         welcome_notification_subject: ウェルカム通知の件名
         youtube_handler: YouTube ハンドラー
       scope:
@@ -191,19 +191,19 @@ ja:
         title: 管理者向け利用規約
       area_types:
         create:
-          error: 新しいエリアタイプの作成中に問題が発生しました。
-          success: エリアタイプが正常に作成されました。
+          error: 新しいエリア種別の作成中に問題が発生しました。
+          success: エリア種別が正常に作成されました。
         destroy:
-          success: エリアタイプを削除しました
+          success: エリア種別を削除しました
         edit:
-          title: エリアタイプの編集
+          title: エリア種別の編集
           update: 更新
         new:
-          create: エリアタイプを作成
-          title: 新しいエリアタイプ
+          create: エリア種別を作成
+          title: 新しいエリア種別
         update:
-          error: このエリアタイプの更新中に問題が発生しました。
-          success: エリアタイプが正常に更新されました
+          error: このエリア種別の更新中に問題が発生しました。
+          success: エリア種別が正常に更新されました
       areas:
         create:
           error: 新しいエリアの作成中に問題が発生しました。
@@ -480,7 +480,7 @@ ja:
         new:
           accepted_mime_types:
             csv: csv
-            json: json
+            json: JSON
             xlsx: xlsx
           actions:
             back: 戻る
@@ -505,7 +505,7 @@ ja:
         admin_log: 管理者アクティビティログ
         admins: 管理者
         appearance: 外観
-        area_types: エリアの種類
+        area_types: エリア種別
         areas: エリア
         configuration: 設定
         dashboard: ダッシュボード
@@ -529,7 +529,7 @@ ja:
       models:
         area:
           fields:
-            area_type: エリアの種類
+            area_type: エリア種別
             name: 名前
         area_type:
           fields:
@@ -924,7 +924,7 @@ ja:
           success: ページが正常に更新されました
       titles:
         admin_log: 管理者ログ
-        area_types: エリアの種類
+        area_types: エリア種別
         areas: エリア
         authorization_workflows: 確認方法
         dashboard: ダッシュボード
