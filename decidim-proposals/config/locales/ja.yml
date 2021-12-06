@@ -39,7 +39,7 @@ ja:
         keep_authors: オリジナルの作者を保持
       valuation_assignment:
         admin_log:
-          valuator_role_id: バリュエーター名
+          valuator_role_id: 評価者名
     errors:
       models:
         participatory_text:
@@ -493,7 +493,7 @@ ja:
             split_button: 分割
             title: 提案
             unassign_from_valuator: 評価者からの割り当てを解除
-            unassign_from_valuator_button: アサインを解除
+            unassign_from_valuator_button: 割り当ての解除
             update: 更新
             update_scope_button: スコープの更新
           new:
@@ -525,7 +525,7 @@ ja:
             related_meetings: 関連するミーティング
             remove_assignment: 課題を削除
             remove_assignment_confirmation: この提案から評価者を削除してもよろしいですか？
-            valuators: Valuators
+            valuators: 評価者
             votes_count: サポート数
             votes_ranking: サポートによるランキング
           update_category:
@@ -558,11 +558,11 @@ ja:
             success: 提案を新しいものに分割しました。
         valuation_assignments:
           create:
-            invalid: バリュエーターに提案を割り当てる際にエラーが発生しました
+            invalid: 評価者に提案を割り当てる際にエラーが発生しました
             success: 評価者に割り当てられた提案
           delete:
-            invalid: バリュエーターからの提案の割り当てを解除中にエラーが発生しました
-            success: プロポーザルから正常に割り当てられていません
+            invalid: 評価者からの提案の割り当てを解除中にエラーが発生しました
+            success: 評価者としての提案への割り当てが正常に解除されました
       admin_log:
         proposal:
           answer: "%{user_name} が %{resource_name} スペースで %{space_name} の提案に回答しました"
@@ -728,8 +728,8 @@ ja:
             scope: スコープ
             state: ステータス
             title: タイトル
-            valuator: Valuator
-            valuators: Valuators
+            valuator: 評価者
+            valuators: 評価者
             votes: 投票
       new:
         limit_reached: 制限を超えたため、新しい提案を作成することはできません。
