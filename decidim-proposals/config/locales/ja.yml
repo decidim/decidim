@@ -660,7 +660,7 @@ ja:
         requests:
           accepted_request:
             error: コラボレーターとして受け入れることができませんでした。後でもう一度お試しください。
-            success: "@%{user} は共同作業者として正常に承認されました"
+            success: "@%{user} はコラボレーターとして正常に承認されました"
           access_requested:
             error: リクエストを完了できませんでした。後でもう一度お試しください。
             success: 共同作業のリクエストが正常に送信されました
@@ -670,7 +670,7 @@ ja:
             title: コラボレーションリクエスト
           rejected_request:
             error: コラボレーターとして拒否できませんでした。後でもう一度やり直してください。
-            success: "@%{user} は共同作業者として正常に拒否されました"
+            success: "@%{user} はコラボレーターとして正常に拒否されました"
         show:
           back: 戻る
           edit: 共同作業の下書きを編集
