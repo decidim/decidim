@@ -215,7 +215,7 @@ ja:
           highest_cost: 最高コスト
           label: 'プロジェクトを注文:'
           lowest_cost: 最低コスト
-          most_voted: Most voted
+          most_voted: 投票順
           random: ランダムな注文
           selected: 選択済
         project:
