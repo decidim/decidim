@@ -25,8 +25,9 @@ module Decidim
       attribute :registration_url, String
       attribute :available_slots, Integer, default: 0
       attribute :registration_terms, String
-      attribute :show_embedded_iframe, Boolean, default: false
+      attribute :iframe_embed_type, String, default: "none"
 
+      validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.iframe_embed_types }
       validates :title, presence: true
       validates :description, presence: true
       validates :type_of_meeting, presence: true
@@ -125,6 +126,15 @@ module Decidim
         end
       end
 
+      def iframe_embed_type_select
+        Decidim::Meetings::Meeting.iframe_embed_types.map do |type, _value|
+          [
+            I18n.t("iframe_embed_type.#{type}", scope: "decidim.meetings"),
+            type
+          ]
+        end
+      end
+
       def on_this_platform?
         registration_type == "on_this_platform"
       end
@@ -147,9 +157,9 @@ module Decidim
       end
 
       def embeddable_meeting_url
-        if online_meeting_url.present? && show_embedded_iframe
+        if online_meeting_url.present? && %w(embed_in_meeting_page open_in_live_event_page).include?(iframe_embed_type)
           embedder_service = Decidim::Meetings::MeetingIframeEmbedder.new(online_meeting_url)
-          errors.add(:show_embedded_iframe, :not_embeddable) unless embedder_service.embeddable?
+          errors.add(:iframe_embed_type, :not_embeddable) unless embedder_service.embeddable?
         end
       end
     end

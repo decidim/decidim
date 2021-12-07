@@ -21,7 +21,7 @@ module Decidim::Meetings
     let(:type_of_meeting) { "online" }
     let(:registration_url) { "http://decidim.org" }
     let(:online_meeting_url) { "http://decidim.org" }
-    let(:show_embedded_iframe) { true }
+    let(:iframe_embed_type) { "embed_in_meeting_page" }
     let(:registration_type) { "on_this_platform" }
     let(:registrations_enabled) { true }
     let(:available_slots) { 0 }
@@ -52,7 +52,7 @@ module Decidim::Meetings
         registrations_enabled: registrations_enabled,
         clean_type_of_meeting: type_of_meeting,
         online_meeting_url: online_meeting_url,
-        show_embedded_iframe: show_embedded_iframe
+        iframe_embed_type: iframe_embed_type
       )
     end
 
@@ -67,8 +67,17 @@ module Decidim::Meetings
     context "when everything is ok" do
       let(:meeting) { Meeting.last }
 
-      it "creates the meeting" do
+      it "creates and publishes the meeting and log both actions" do
+        subject.call
+        meeting.reload
+        expect(meeting).to be_published
         expect { subject.call }.to change(Meeting, :count).by(1)
+        expect { subject.call }.to change(Decidim::ActionLog, :count).by(2)
+      end
+
+      it "makes the user follow the meeting" do
+        expect { subject.call }.to change(Decidim::Follow, :count).by(1)
+        expect(meeting.reload.followers).to include(current_user)
       end
 
       it "sets the scope" do
@@ -109,10 +118,10 @@ module Decidim::Meetings
         expect(meeting).to be_published
       end
 
-      it "sets show_embedded_iframe" do
+      it "sets iframe_embed_type" do
         subject.call
 
-        expect(meeting).to be_show_embedded_iframe
+        expect(meeting.iframe_embed_type).to eq(iframe_embed_type)
       end
 
       context "when the author is a user_group" do

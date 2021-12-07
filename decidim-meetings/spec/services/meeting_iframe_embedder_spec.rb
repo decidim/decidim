@@ -69,7 +69,7 @@ module Decidim
         end
 
         context "with a not recognized streaming URL" do
-          let(:url) { "https://meet.jit.si/decidim-meeting" }
+          let(:url) { "https://example.org/decidim-meeting" }
 
           it "is not embeddable" do
             expect(subject).not_to be_embeddable
