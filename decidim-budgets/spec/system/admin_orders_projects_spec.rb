@@ -30,17 +30,6 @@ describe "Admin orders projects", type: :system do
     ]
   end
 
-  let(:users) { create_list(:user, 4, organization: component.organization) }
-
-  let(:orders) do
-    [
-      create(:order, user: users[0], budget: budget),
-      create(:order, user: users[1], budget: budget),
-      create(:order, user: users[2], budget: budget),
-      create(:order, user: users[3], budget: budget)
-    ]
-  end
-
   before do
     visit_component_admin
     find("a[title='Manage projects']").click
@@ -87,17 +76,30 @@ describe "Admin orders projects", type: :system do
   end
 
   context "when there are votes" do
+    let(:users) { create_list(:user, 6, organization: component.organization) }
+
+    let(:orders) do
+      [
+        create(:order, user: users[0], budget: budget),
+        create(:order, user: users[1], budget: budget),
+        create(:order, user: users[2], budget: budget),
+        create(:order, user: users[3], budget: budget),
+        create(:order, user: users[4], budget: budget),
+        create(:order, user: users[5], budget: budget)
+      ]
+    end
+
     before do
+      # Projects[2] has 3 votes and projects[0] has 1 vote and 3 pending votes.
       orders[0].projects << projects[0]
       orders[0].projects << projects[2]
-      orders[0].save!
-      orders[0].update(checked_out_at: Time.current)
       orders[1].projects << projects[2]
-      orders[1].save!
-      orders[1].update(checked_out_at: Time.current)
       orders[2].projects << projects[2]
-      orders[2].save!
-      orders[2].update(checked_out_at: Time.current)
+      orders[3].projects << projects[0]
+      orders[4].projects << projects[0]
+      orders[5].projects << projects[0]
+      orders.each(&:save!)
+      orders.take(3).each { |order| order.update!(checked_out_at: Time.current) }
       visit current_path
     end
 

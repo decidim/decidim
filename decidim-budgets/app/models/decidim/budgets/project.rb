@@ -112,7 +112,9 @@ module Decidim
         (
             SELECT -COUNT(decidim_budgets_line_items.decidim_order_id)
             FROM decidim_budgets_line_items
-            WHERE decidim_budgets_projects.id = decidim_budgets_line_items.decidim_project_id
+            LEFT JOIN decidim_budgets_orders ON decidim_budgets_orders.id = decidim_budgets_line_items.decidim_order_id
+            WHERE decidim_budgets_orders.checked_out_at IS NOT NULL
+            AND decidim_budgets_projects.id = decidim_budgets_line_items.decidim_project_id
         )
         SQL
         Arel.sql(query)
