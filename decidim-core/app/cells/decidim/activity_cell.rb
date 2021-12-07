@@ -95,7 +95,7 @@ module Decidim
       hash << model.class.name.underscore
       hash << model.cache_key_with_version
 
-      hash.join("/")
+      hash.join(Decidim.cache_key_separator)
     end
 
     private
