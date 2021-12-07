@@ -13,15 +13,30 @@
     </div>
 
     <div class="row column">
+      <%= form.select :type_of_meeting,
+                      @form.type_of_meeting_select,
+                      { include_blank: t(".select_a_meeting_type") },
+                      { multiple: false } %>
+    </div>
+
+    <div class="row column field" data-meeting-type="in_person">
       <%= form.geocoding_field :address %>
     </div>
 
-    <div class="row column">
+    <div class="row column field" data-meeting-type="in_person">
       <%= form.translated :text_area, :location %>
     </div>
 
     <div class="row column">
       <%= form.translated :text_area, :location_hints %>
+    </div>
+
+    <div class="row column field" data-meeting-type="online">
+      <%= form.text_field :online_meeting_url %>
+    </div>
+
+    <div class="row column field" data-meeting-type="online">
+      <%= form.check_box :show_embedded_iframe %>
     </div>
 
     <div class="row">
