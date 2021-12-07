@@ -103,6 +103,10 @@ module Decidim
         Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
       end
 
+      ransacker :selected do
+        Arel.sql(%{("decidim_budgets_projects"."selected_at")::text})
+      end
+
       ransacker :confirmed_orders_count do
         query = <<-SQL.squish
         (
