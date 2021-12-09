@@ -147,6 +147,7 @@ en:
             total_budget: Total budget
         project:
           fields:
+            category: Category
             id: ID
             title: Title
       order_summary_mailer:

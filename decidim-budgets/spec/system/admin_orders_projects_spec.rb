@@ -57,6 +57,17 @@ describe "Admin orders projects", type: :system do
     end
   end
 
+  it "orders projects by category" do
+    ordered_projects = projects.sort_by { |project| translated(project.category.name) }
+
+    click_link "Category"
+    rows = page.all("tbody tr")
+
+    rows.each_with_index do |row, i|
+      expect(row).to have_text(translated(ordered_projects[i].category.name))
+    end
+  end
+
   it "orders projects by scope" do
     ordered_projects = projects.sort_by { |project| translated(project.scope.name) }
 
