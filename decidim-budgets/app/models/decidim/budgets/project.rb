@@ -110,7 +110,7 @@ module Decidim
       ransacker :confirmed_orders_count do
         query = <<-SQL.squish
         (
-            SELECT -COUNT(decidim_budgets_line_items.decidim_order_id)
+            SELECT COUNT(decidim_budgets_line_items.decidim_order_id)
             FROM decidim_budgets_line_items
             LEFT JOIN decidim_budgets_orders ON decidim_budgets_orders.id = decidim_budgets_line_items.decidim_order_id
             WHERE decidim_budgets_orders.checked_out_at IS NOT NULL

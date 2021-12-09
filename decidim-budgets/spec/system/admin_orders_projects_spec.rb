@@ -90,7 +90,9 @@ describe "Admin orders projects", type: :system do
     end
 
     before do
-      # Projects[2] has 3 votes and projects[0] has 1 vote and 3 pending votes.
+      # projects[2] has 3 votes
+      # projects[1] has 0 votes
+      # projects[0] has 1 vote and 3 pending votes
       orders[0].projects << projects[0]
       orders[0].projects << projects[2]
       orders[1].projects << projects[2]
@@ -107,9 +109,9 @@ describe "Admin orders projects", type: :system do
       click_link "Votes count"
       rows = page.all("tbody tr")
 
-      expect(rows[0]).to have_text(translated(projects.last.title))
+      expect(rows[0]).to have_text(translated(projects.second.title))
       expect(rows[1]).to have_text(translated(projects.first.title))
-      expect(rows[2]).to have_text(translated(projects.second.title))
+      expect(rows[2]).to have_text(translated(projects.last.title))
     end
   end
 end
