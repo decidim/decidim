@@ -55,7 +55,21 @@ module Decidim
       render
     end
 
+    def perform_caching?
+      true
+    end
+
     private
+
+    def cache_hash
+      hash = []
+
+      hash.push(I18n.locale)
+      hash.push(model.cache_key_with_version) if model.respond_to?(:cache_key_with_version)
+      hash.push(current_user.present? ? 1 : 0)
+      hash.push(current_user.try(:id)) if current_user.present?
+      hash.join(Decidim.cache_key_separator)
+    end
 
     def from_context_path
       resource_locator(from_context).path
