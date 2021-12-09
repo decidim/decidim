@@ -45,6 +45,11 @@
     "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^4.2.0",
     "webpack-config-utils": "^2.3.1",
-    "webpack-dev-server": "^4.0.0"
+    "webpack-dev-server": "^4.0.0",
+    "webpacker-pwa": "^0.1.2",
+    "workbox-cacheable-response": "^6.4.2",
+    "workbox-expiration": "^6.4.2",
+    "workbox-routing": "^6.4.2",
+    "workbox-strategies": "^6.4.2"
   }
 }
