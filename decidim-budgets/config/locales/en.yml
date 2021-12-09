@@ -27,13 +27,13 @@ en:
         projects:
           category_id_eq:
             label: Category
+          scope_id_eq:
+            label: Scope
           selected_at_null:
             label: Selected
             values:
               'false': Selected for implementation
               'true': Not selected for implementation
-          scope_id_eq:
-            label: Scope
     budgets:
       actions:
         attachment_collections: Folders
