@@ -5,10 +5,7 @@ module Decidim
     self.table_name = "decidim_reminders"
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
     belongs_to :component, foreign_key: "decidim_component_id", class_name: "Decidim::Component"
-
-    def remind!
-      update!(times: times << Time.current)
-      ::Decidim::Admin::VoteReminderDeliveryJob.perform_later(self)
-    end
+    has_many :records, foreign_key: "decidim_reminder_id", class_name: "Decidim::ReminderRecord", dependent: :destroy
+    has_many :deliveries, foreign_key: "decidim_reminder_id", class_name: "Decidim::ReminderDelivery", dependent: :destroy
   end
 end

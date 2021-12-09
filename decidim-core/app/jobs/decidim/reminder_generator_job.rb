@@ -4,15 +4,9 @@ module Decidim
   class ReminderGeneratorJob < ApplicationJob
     queue_as :reminders
 
-    def perform(reminder_manifest, organization)
-      return unless organization
-
-      generator = manifest.manager_class.new(reminder_manifest, organization)
-      reminders = generator.generate
-
-      reminders.each do |reminder|
-        manifest.delivery_class.perform_later(reminder)
-      end
+    def perform(manager_class)
+      generator = manager_class.constantize.new
+      generator.generate
     end
   end
 end

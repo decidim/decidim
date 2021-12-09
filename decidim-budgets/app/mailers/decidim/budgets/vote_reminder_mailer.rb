@@ -14,6 +14,7 @@ module Decidim
         with_user(user) do
           @organization = user.organization
           @user = user
+          @order_ids = order_ids
           @orders = Decidim::Budgets::Order.where(id: order_ids)
           wording = @orders.count == 1 ? "email_subject.one" : "email_subject.other"
 

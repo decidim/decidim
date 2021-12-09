@@ -523,7 +523,7 @@ module Decidim
   end
 
   def self.reminders_registry
-    @reminders_registry = ReminderRegistry.new
+    @reminders_registry ||= ReminderRegistry.new
   end
 
   # Public: Stores the registry of resource spaces
