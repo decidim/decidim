@@ -30,20 +30,17 @@ module Decidim
       end
 
       def update_reminder_records(reminder, users_pending_orders)
-        clean_records_with_deleted_order(reminder)
-        clean_checked_out_orders(reminder)
+        clean_checked_out_and_deleted_orders(reminder)
         add_pending_orders(reminder, users_pending_orders)
       end
 
-      def clean_records_with_deleted_order(reminder)
+      def clean_checked_out_and_deleted_orders(reminder)
         reminder.records.each do |record|
-          reminder.records.delete(record) if record.remindable.nil?
-        end
-      end
-
-      def clean_checked_out_orders(reminder)
-        reminder.records.each do |record|
-          record.update(reminder: nil) if record.remindable.checked_out_at.present?
+          if record.remindable.nil?
+            reminder.records.delete(record)
+          elsif record.remindable.checked_out_at.present?
+            record.update(reminder: nil)
+          end
         end
       end
 
