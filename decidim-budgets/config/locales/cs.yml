@@ -32,6 +32,9 @@ cs:
             label: Oblast působnosti
           selected_at_null:
             label: Vybráno
+            values:
+              'false': Vybráno pro implementaci
+              'true': Nevybráno pro implementaci
     budgets:
       actions:
         attachment_collections: Složky
@@ -145,6 +148,8 @@ cs:
             total_budget: Celkový rozpočet
         project:
           fields:
+            category: Kategorie
+            id: ID
             title: Titul
       order_summary_mailer:
         order_summary:
