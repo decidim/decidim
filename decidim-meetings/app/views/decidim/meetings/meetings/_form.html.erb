@@ -33,7 +33,7 @@
   <p class="help-text"><%= t(".online_meeting_url_help") %></p>
 </div>
 
-<div class="row column iframe-fields--embed-type" data-meeting-type="online">
+<div class="field" data-meeting-type="online">
   <%= form.select :iframe_embed_type,
     @form.iframe_embed_type_select,
     { multiple: false } %>
