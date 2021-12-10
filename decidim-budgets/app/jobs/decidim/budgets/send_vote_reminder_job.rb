@@ -9,6 +9,7 @@ module Decidim
         order_ids = reminder.records.pluck(:remindable_id)
         return if order_ids.blank?
 
+        ::Decidim::ReminderDelivery.create(reminder: reminder)
         ::Decidim::Budgets::VoteReminderMailer.vote_reminder(reminder.user, order_ids).deliver_now
       end
     end

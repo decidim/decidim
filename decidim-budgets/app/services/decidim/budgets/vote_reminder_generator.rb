@@ -4,7 +4,7 @@ module Decidim
   module Budgets
     class VoteReminderGenerator
       def initialize
-        @manifest = Decidim.reminders_registry.for(:orders)
+        @reminder_manifest = Decidim.reminders_registry.for(:orders)
       end
 
       def generate
@@ -15,34 +15,51 @@ module Decidim
 
       private
 
-      attr_reader :manifest
+      attr_reader :reminder_manifest
 
       def send_reminders(component)
         budgets = Decidim::Budgets::Budget.where(component: component)
         pending_orders = Decidim::Budgets::Order.where(budget: budgets, checked_out_at: nil)
         users = Decidim::User.where(id: pending_orders.pluck(:decidim_user_id).uniq)
         users.each do |user|
-          reminder = Decidim::Reminder.first_or_create(user: user, component: component)
+          reminder = Decidim::Reminder.find_or_create_by(user: user, component: component)
           users_pending_orders = pending_orders.where(user: user)
-          add_reminder_records(reminder, users_pending_orders)
-          if time_to_remind?(reminder, users_pending_orders)
-            ::Decidim::ReminderDelivery.create(reminder: reminder)
-            ::Decidim::Budgets::SendVoteReminderJob.perform_now(reminder)
-          end
+          update_reminder_records(reminder, users_pending_orders)
+          Decidim::Budgets::SendVoteReminderJob.perform_later(reminder) if reminder.records.any?
         end
       end
 
-      def add_reminder_records(reminder, users_pending_orders)
-        reminder_records = users_pending_orders.map { |order| Decidim::ReminderRecord.first_or_create(reminder: reminder, remindable: order) }
-        reminder.records.push(*reminder_records)
+      def update_reminder_records(reminder, users_pending_orders)
+        clean_records_with_deleted_order(reminder)
+        clean_checked_out_orders(reminder)
+        add_pending_orders(reminder, users_pending_orders)
       end
 
-      def time_to_remind?(reminder, users_pending_orders)
+      def clean_records_with_deleted_order(reminder)
+        reminder.records.each do |record|
+          reminder.records.delete(record) if record.remindable.nil?
+        end
+      end
+
+      def clean_checked_out_orders(reminder)
+        reminder.records.each do |record|
+          record.update(reminder: nil) if record.remindable.checked_out_at.present?
+        end
+      end
+
+      def add_pending_orders(reminder, users_pending_orders)
+        reminder_records = users_pending_orders.map { |order| Decidim::ReminderRecord.find_or_create_by(reminder: reminder, remindable: order) }
+        reminder_records.each do |record|
+          reminder.records.push(record) if reminder.records.exclude?(record) && time_to_remind?(reminder, record.remindable)
+        end
+      end
+
+      def time_to_remind?(reminder, order)
         delivered_count = reminder.deliveries.length
-        intervals = Array(manifest.settings.attributes[:reminder_times].default)
+        intervals = Array(reminder_manifest.settings.attributes[:reminder_times].default)
         return false if intervals.length <= delivered_count
 
-        intervals[delivered_count] < Time.current - users_pending_orders.last.created_at
+        intervals[delivered_count] < Time.current - order.created_at
       end
 
       def voting_enabled?(component)
