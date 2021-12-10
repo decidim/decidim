@@ -6,7 +6,7 @@ module Decidim
       # A form object used to copy a meeting from the admin
       # dashboard.
       #
-      class MeetingCopyForm < Form
+      class MeetingCopyForm < ::Decidim::Meetings::BaseMeetingForm
         include TranslatableAttributes
 
         translatable_attribute :title, String
@@ -14,26 +14,17 @@ module Decidim
         translatable_attribute :location, String
         translatable_attribute :location_hints, String
 
-        attribute :address, String
-        attribute :latitude, Float
-        attribute :longitude, Float
-        attribute :start_time, Decidim::Attributes::TimeWithZone
-        attribute :end_time, Decidim::Attributes::TimeWithZone
+        attribute :show_embedded_iframe, Boolean, default: false
         attribute :private_meeting, Boolean
         attribute :transparent, Boolean
         attribute :services, Array[MeetingServiceForm]
 
         mimic :meeting
 
-        validates :current_component, presence: true
-
+        validates :online_meeting_url, url: true, if: ->(form) { form.online_meeting? || form.hybrid_meeting? }
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
-        validates :location, translatable_presence: true
-        validates :address, presence: true
-        validates :address, geocoding: true, if: -> { Decidim::Map.available?(:geocoding) }
-        validates :start_time, presence: true, date: { before: :end_time }
-        validates :end_time, presence: true, date: { after: :start_time }
+        validates :location, translatable_presence: true, if: ->(form) { form.in_person_meeting? || form.hybrid_meeting? }
 
         def map_model(model)
           self.services = model.services.map do |service|

@@ -4,21 +4,14 @@ module Decidim
   module Meetings
     module Admin
       # This class holds a Form to create/update translatable meetings from Decidim's admin panel.
-      class MeetingForm < Decidim::Form
+      class MeetingForm < ::Decidim::Meetings::BaseMeetingForm
         include TranslatableAttributes
 
-        attribute :address, String
-        attribute :latitude, Float
-        attribute :longitude, Float
-        attribute :start_time, Decidim::Attributes::TimeWithZone
-        attribute :end_time, Decidim::Attributes::TimeWithZone
         attribute :services, Array[MeetingServiceForm]
         attribute :decidim_scope_id, Integer
         attribute :decidim_category_id, Integer
         attribute :private_meeting, Boolean
         attribute :transparent, Boolean
-        attribute :online_meeting_url, String
-        attribute :type_of_meeting, String
         attribute :registration_type, String
         attribute :registration_url, String
         attribute :available_slots, Integer, default: 0
@@ -38,9 +31,6 @@ module Decidim
         validates :registration_url, presence: true, url: true, if: ->(form) { form.on_different_platform? }
         validates :type_of_meeting, presence: true
         validates :location, translatable_presence: true, if: ->(form) { form.in_person_meeting? || form.hybrid_meeting? }
-
-        validates :address, presence: true, if: ->(form) { form.needs_address? }
-        validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? && form.needs_address? }
         validates :online_meeting_url, url: true, if: ->(form) { form.online_meeting? || form.hybrid_meeting? }
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }
@@ -95,34 +85,6 @@ module Decidim
           return unless current_component
 
           @category ||= categories.find_by(id: decidim_category_id)
-        end
-
-        def geocoding_enabled?
-          Decidim::Map.available?(:geocoding)
-        end
-
-        def has_address?
-          geocoding_enabled? && address.present?
-        end
-
-        def needs_address?
-          in_person_meeting? || hybrid_meeting?
-        end
-
-        def geocoded?
-          latitude.present? && longitude.present?
-        end
-
-        def online_meeting?
-          type_of_meeting == "online"
-        end
-
-        def in_person_meeting?
-          type_of_meeting == "in_person"
-        end
-
-        def hybrid_meeting?
-          type_of_meeting == "hybrid"
         end
 
         def clean_type_of_meeting
