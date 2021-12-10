@@ -103,7 +103,9 @@ module Decidim
       end
 
       def participatory_process_types
-        @participatory_process_types ||= Decidim::ParticipatoryProcessType.joins(:processes).where(organization: current_organization).distinct
+        @participatory_process_types ||= Decidim::ParticipatoryProcessType.joins(:processes).where(
+          decidim_participatory_processes: { id: filtered_processes(current_filter, filter_by_type: false).results }
+        ).distinct
       end
 
       def participatory_process_types_for_select

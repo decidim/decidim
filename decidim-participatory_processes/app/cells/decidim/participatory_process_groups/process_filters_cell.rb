@@ -67,13 +67,6 @@ module Decidim
       def default_date_filter
         @default_date_filter ||= options[:default_filter].presence || process_count_by_filter.find { |_, count| count.positive? }&.first || "all"
       end
-
-      def participatory_process_types
-        @participatory_process_types ||= Decidim::ParticipatoryProcessType.joins(:processes).where(
-          organization: current_organization,
-          decidim_participatory_processes: { decidim_participatory_process_group_id: model.id }
-        ).distinct
-      end
     end
   end
 end
