@@ -1,5 +1,5 @@
 const { config } = require("@rails/webpacker");
-const { GenerateSW, InjectManifest } = require('workbox-webpack-plugin');
+const { GenerateSW, InjectManifest } = require("workbox-webpack-plugin");
 
 const overrideSassRule = (modifyConfig) => {
   const sassRule = modifyConfig.module.rules.find(
