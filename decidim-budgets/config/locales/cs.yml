@@ -23,6 +23,15 @@ cs:
         many: Projekty
         other: Projekty
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Kategorie
+          scope_id_eq:
+            label: Oblast působnosti
+          selected_at_null:
+            label: Vybráno
     budgets:
       actions:
         attachment_collections: Složky
