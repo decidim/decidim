@@ -220,7 +220,7 @@ ja:
             existing_user: 既存の参加者
             invite: 招待
             invite_explanation: 参加者は、ミーティングや組織にも招待されます。
-            non_user: 非既存の参加者
+            non_user: 非参加者
             select_user: 参加者を選択
           index:
             filter:
@@ -338,7 +338,7 @@ ja:
         calendar_url: カレンダー URL
         close_window: ウィンドウを閉じる
         export_calendar: カレンダーをエクスポート
-      conference_venues: ミーティング会場
+      conference_venues: カンファレンス会場
       content_blocks:
         upcoming_events:
           name: 今後の予定
@@ -352,7 +352,7 @@ ja:
             meetings: ミーティング
             past: 過去
             search: 検索
-            space_type: 参加者のスペース
+            space_type: 参加型スペース
             upcoming: 近日公開
       last_activity:
         meeting_updated_at_html: "<span>ミーティングが %{link} に更新されました</span>"
@@ -507,7 +507,7 @@ ja:
         online: オンライン
       types:
         private_meeting: プライベートミーティング
-        transparent: 透明度
+        transparent: 透明性
       versions:
         back_to_resource: ミーティングに戻る
     metrics:
