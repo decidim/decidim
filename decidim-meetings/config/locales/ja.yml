@@ -278,6 +278,9 @@ ja:
           edit:
             close: 閉じる
             title: ミーティングを閉じる
+        meeting_copies:
+          form:
+            select_a_meeting_type: ミーティング種別を選択してください
         meetings:
           close:
             invalid: このミーティングを終了する際に問題が発生しました
