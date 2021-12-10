@@ -230,7 +230,7 @@ ja:
       consultations:
         orders:
           label: '議案の並び替え:'
-          random: Random
+          random: ランダム
           recent: 直近のもの
         show:
           dates: 日付
@@ -266,7 +266,7 @@ ja:
             see_all_consultations: すべての議案を見る
             voting_ends_in:
               other: 投票は <strong>%{count} 日</strong>で終了します
-            voting_ends_today: 投票は今日終了 <strong></strong>
+            voting_ends_today: <strong>本日</strong>投票終了
       question:
         take_part: 参加する
         view_results: 結果を表示
