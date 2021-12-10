@@ -1029,7 +1029,7 @@ ja:
                 message_2: カラムの区切り文字はセミコロン(";") でなければなりません。
               has_ballot_styles_message: 投票スタイルを設定しました。CSVの「%{ballot_style_code_header}」フィールドが、希望する投票スタイルのコードに対応していることを確認してください。
               info_message: "<strong>センサスはまだありません。</strong> 以下のフォームを使用してCSVファイルをインポートしてください。"
-              missing_ballot_styles_message: 'この投票の投票スタイルがありません。もし条件付きの質問がある場合 (例: 居住地域などにより投票者に異なる質問を提示する場合), you need to set up the <a href=%{ballot_styles_admin_path}>投票スタイル</a>をセンサスをインポートする <strong>前に</strong> 設定する必要があります。すべての投票者に対して同じ質問を定時したい場合は、センサスのインポート手続きを行ってください。'
+              missing_ballot_styles_message: 'この投票の投票スタイルがありません。もし条件付きの質問がある場合 (例: 居住地域などにより投票者に異なる質問を提示する場合), <a href=%{ballot_styles_admin_path}>投票スタイル</a>をセンサスをインポートする <strong>前に</strong> 設定する必要があります。すべての投票者に対して同じ質問を定時したい場合は、センサスのインポート手続きを行ってください。'
               submit: CSVを送信
               title: センサスを作成
             show:
@@ -1093,7 +1093,7 @@ ja:
             success: 閉鎖を作成しました。
           edit:
             heading: 投票の再集計 - 回答の再集計
-            info_text: 各質問の回答総数をご紹介ください。
+            info_text: 各質問の回答総数を入力してください。
             modal_ballots_results_count_error:
               close_modal: 閉じる
               info_text: 投票数がエンベロープの合計数と一致しません。投票数の合計を確認してください。
@@ -1111,7 +1111,7 @@ ja:
               btn_validate_total: 投票の再集計を検証します。
               close_modal: 閉じる
               info_explanation_text: '投票の合計数を確認してください。合計数が正しい場合は、監視委員会に説明する必要があります。'
-              info_text: 導入された総投票数(封筒) は、この投票所で投票した人々の記録と一致しません。
+              info_text: 入力された総投票数(封筒) は、この投票所で投票した人々の記録と一致しません。
               message_for_monitoring_committee: 監視委員会へのメッセージ
               review_recount: 再集計を確認する
               text_area_placeholder: メッセージを入力してください
