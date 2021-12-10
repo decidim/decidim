@@ -183,6 +183,7 @@ describe "Filter Participatory Processes", type: :system do
     context "when there are participatory processes types" do
       let!(:process_type) { create(:participatory_process_type, :with_active_participatory_processes, organization: organization, title: { en: "Awesome Type" }) }
       let!(:past_process_type) { create(:participatory_process_type, :with_past_participatory_processes, organization: organization, title: { en: "Old Type" }) }
+      let!(:unpublished_process_type) { create(:participatory_process_type, organization: organization, title: { en: "Unpublished Type" }) }
       let!(:empty_process_type) { create(:participatory_process_type, organization: organization, title: { en: "Empty Type" }) }
       let!(:processes_group_1) { create(:participatory_process_group, organization: organization, title: { en: "The South Group" }) }
       let!(:processes_group_2) { create(:participatory_process_group, organization: organization, title: { en: "The North Group" }) }
@@ -210,6 +211,15 @@ describe "Filter Participatory Processes", type: :system do
           participatory_process_type: group_2_process_type
         )
       end
+      let(:unpublished_process) do
+        create(
+          :participatory_process,
+          :active,
+          :unpublished,
+          title: { en: "Unpublished process" },
+          participatory_process_type: unpublished_process_type
+        )
+      end
 
       context "when visiting processes index" do
         before do
@@ -231,6 +241,7 @@ describe "Filter Participatory Processes", type: :system do
               expect(page).to have_content("The West Type")
               expect(page).to have_no_content("Old Type")
               expect(page).to have_no_content("Empty Type")
+              expect(page).to have_no_content("Unpublished Type")
             end
           end
         end
@@ -257,6 +268,7 @@ describe "Filter Participatory Processes", type: :system do
               expect(page).to have_no_content("The West Type")
               expect(page).to have_content("Old Type")
               expect(page).to have_no_content("Empty Type")
+              expect(page).to have_no_content("Unpublished Type")
             end
           end
         end
@@ -317,6 +329,7 @@ describe "Filter Participatory Processes", type: :system do
               expect(page).to have_no_content("The West Type")
               expect(page).to have_no_content("Old Type")
               expect(page).to have_no_content("Empty Type")
+              expect(page).to have_no_content("Unpublished Type")
             end
           end
         end
