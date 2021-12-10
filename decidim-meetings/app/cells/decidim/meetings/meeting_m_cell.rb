@@ -27,6 +27,10 @@ module Decidim
         present(model).title
       end
 
+      def description
+        present(model).description(strip_tags: true)
+      end
+
       delegate :online_meeting?, to: :model
 
       private
