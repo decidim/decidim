@@ -27,6 +27,10 @@ module Decidim
         present(model).title
       end
 
+      def description
+        present(model).description(strip_tags: true)
+      end
+
       def badge
         render if has_badge?
       end

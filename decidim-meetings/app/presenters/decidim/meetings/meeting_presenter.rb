@@ -7,6 +7,7 @@ module Decidim
     #
     class MeetingPresenter < Decidim::ResourcePresenter
       include Decidim::ResourceHelper
+      include Decidim::SanitizeHelper
 
       def meeting
         __getobj__
@@ -18,13 +19,15 @@ module Decidim
         super meeting.title, links, html_escape, all_locales
       end
 
-      def description(links: false, all_locales: false)
+      def description(links: false, extras: true, strip_tags: false, all_locales: false)
         return unless meeting
 
-        handle_locales(meeting.description, all_locales) do |content|
+        new_description = handle_locales(meeting.description, all_locales) do |content|
           renderer = Decidim::ContentRenderers::HashtagRenderer.new(sanitized(content))
           renderer.render(links: links).html_safe
         end
+
+        content_handle_locale(new_description, all_locales, extras, links, strip_tags)
       end
 
       def location(all_locales: false)

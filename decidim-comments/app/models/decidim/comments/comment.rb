@@ -179,7 +179,7 @@ module Decidim
       end
 
       def formatted_body
-        Decidim::ContentProcessor.render(sanitize_content(render_markdown(translated_body)), "div")
+        Decidim::ContentProcessor.render(sanitize_content_for_comment(render_markdown(translated_body)), "div")
       end
 
       def translated_body
@@ -234,11 +234,6 @@ module Decidim
         self.depth = commentable.depth + 1 if commentable.respond_to?(:depth)
       end
 
-      # Private: Returns the comment body sanitized, sanitizing HTML tags
-      def sanitize_content(content)
-        Decidim::ContentProcessor.sanitize(content)
-      end
-
       # Private: Initializes the Markdown parser
       def markdown
         @markdown ||= Decidim::Comments::Markdown.new
@@ -253,6 +248,13 @@ module Decidim
         return unless root_commentable
 
         root_commentable.update_comments_count
+      end
+
+      def sanitize_content_for_comment(text, options = {})
+        Rails::Html::WhiteListSanitizer.new.sanitize(
+          text,
+          { scrubber: Decidim::Comments::UserInputScrubber.new }.merge(options)
+        ).try(:html_safe)
       end
     end
   end
