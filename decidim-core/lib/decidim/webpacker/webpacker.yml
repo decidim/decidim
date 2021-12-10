@@ -9,7 +9,6 @@ default: &default
   webpack_compile_output: true
   cache_path: tmp/webpacker-cache
   extract_css: true
-  service_workers_entry_path: service_workers
 
   additional_paths:
     - node_modules

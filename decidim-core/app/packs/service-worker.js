@@ -2,6 +2,9 @@ import { registerRoute } from "workbox-routing";
 import { NetworkFirst, CacheFirst } from "workbox-strategies";
 import { CacheableResponsePlugin } from "workbox-cacheable-response";
 import { ExpirationPlugin } from "workbox-expiration";
+// import { precacheAndRoute } from "workbox-precaching";
+
+// precacheAndRoute(self.__WB_MANIFEST)
 
 // Loading pages (and turbolinks requests), checks the network first
 registerRoute(
@@ -59,6 +62,9 @@ registerRoute(
   })
 );
 
+self.addEventListener("install", () => console.log("[SW]: install"))
+self.addEventListener("activate", () => console.log("[SW]: activate"))
+self.addEventListener("fetch", () => console.log("[SW]: fetch"))
 
 // PUSH notifications
 // self.addEventListener("push", (event) => {

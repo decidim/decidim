@@ -54,6 +54,7 @@ import "src/decidim/start_conversation_dialog"
 import "src/decidim/notifications"
 import "src/decidim/identity_selector_dialog"
 import "src/decidim/gallery"
+import "src/decidim/service_worker_loader"
 
 // CSS
 import "entrypoints/decidim_core.scss"
@@ -66,4 +67,3 @@ require.context("../images", true)
 
 // This needs to be loaded after confirm dialog to bind properly
 Rails.start()
-

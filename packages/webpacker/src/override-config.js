@@ -1,4 +1,5 @@
 const { config } = require("@rails/webpacker");
+const { GenerateSW, InjectManifest } = require('workbox-webpack-plugin');
 
 const overrideSassRule = (modifyConfig) => {
   const sassRule = modifyConfig.module.rules.find(
@@ -47,6 +48,24 @@ const overrideSassRule = (modifyConfig) => {
   return modifyConfig;
 }
 
-module.exports = (originalConfig) => { // eslint-disable-line
-  return overrideSassRule(originalConfig);
-};
+const addWorkboxPlugin = (modifyConfig) => {
+//   console.log(`
+//   ${"=".repeat(100)}
+
+// // ${JSON.stringify(config, null, 2)}
+// ${config.source_path}/service-worker.js
+
+//   ${"=".repeat(100)}
+//   `);
+
+  const plugin = new InjectManifest({
+    swSrc: "../decidim-core/app/packs/service-worker.js"
+  })
+
+  modifyConfig.plugins.push(plugin)
+
+  return modifyConfig
+}
+
+// Since all modifiers are functions, we can use a reduce clause to apply all them
+module.exports = (originalConfig) => [overrideSassRule, addWorkboxPlugin].reduce((acc, modifier) => modifier(acc), originalConfig)
