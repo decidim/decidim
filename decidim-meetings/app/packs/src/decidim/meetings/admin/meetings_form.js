@@ -123,6 +123,8 @@ $(() => {
     const $meetingTypeOfMeeting = $form.find("#meeting_type_of_meeting");
     const $meetingOnlineFields = $form.find(".field[data-meeting-type='online']");
     const $meetingInPersonFields = $form.find(".field[data-meeting-type='in_person']");
+    const $meetingOnlineAccessLevelFields = $form.find(".field[data-meeting-type='online-access-level']");
+    const $meetingIframeEmbedType = $form.find("#meeting_iframe_embed_type");
 
     const toggleTypeDependsOnSelect = ($target, $showDiv, type) => {
       const value = $target.val();
@@ -138,23 +140,27 @@ $(() => {
 
     $meetingTypeOfMeeting.on("change", (ev) => {
       const $target = $(ev.target);
+      const embedTypeValue = $("#meeting_iframe_embed_type select").val();
+
       toggleTypeDependsOnSelect($target, $meetingOnlineFields, "online");
       toggleTypeDependsOnSelect($target, $meetingInPersonFields, "in_person");
+      if (embedTypeValue === "none") {
+        $meetingOnlineAccessLevelFields.hide();
+      } else {
+        toggleTypeDependsOnSelect($target, $meetingOnlineAccessLevelFields, "online");
+      }
     });
 
     toggleTypeDependsOnSelect($meetingTypeOfMeeting, $meetingOnlineFields, "online");
     toggleTypeDependsOnSelect($meetingTypeOfMeeting, $meetingInPersonFields, "in_person");
+    createFieldDependentInputs({
+      controllerField: $meetingIframeEmbedType,
+      wrapperSelector: ".iframe-fields",
+      dependentFieldsSelector: ".iframe-fields--access-level",
+      dependentInputSelector: "input",
+      enablingCondition: ($field) => {
+        return $field.find("select").val() !== "none"
+      }
+    });
   }
-
-  const $meetingIframeEmbedType = $("#meeting_iframe_embed_type");
-
-  createFieldDependentInputs({
-    controllerField: $meetingIframeEmbedType,
-    wrapperSelector: ".iframe-fields",
-    dependentFieldsSelector: ".iframe-fields--access-level",
-    dependentInputSelector: "input",
-    enablingCondition: ($field) => {
-      return $field.val() !== "none"
-    }
-  });
 })

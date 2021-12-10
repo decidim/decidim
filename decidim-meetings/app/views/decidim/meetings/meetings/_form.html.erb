@@ -36,7 +36,6 @@
 <div class="row column iframe-fields--embed-type" data-meeting-type="online">
   <%= form.select :iframe_embed_type,
     @form.iframe_embed_type_select,
-    { include_blank: t(".select_an_iframe_embed_type") },
     { multiple: false } %>
   <p class="help-text"><%= t(".show_embedded_iframe_help") %></p>
 </div>
