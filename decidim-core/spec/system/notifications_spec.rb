@@ -111,4 +111,20 @@ describe "Notifications", type: :system do
       end
     end
   end
+
+  context "with user group mentioned notifications" do
+    let!(:notification) { create :notification, :user_group_mentioned_notification, user: user }
+
+    before do
+      page.visit decidim.notifications_path
+    end
+
+    it "shows the notification with the group mentioned" do
+      group = Decidim::UserGroup.find(notification.extra["group_id"])
+      element = page.find(".card-data__item--expand")
+      notification_text = element.text
+
+      expect(notification_text).to end_with("as a member of #{group.name} @#{group.nickname}")
+    end
+  end
 end

@@ -35,9 +35,15 @@ module Decidim
         end
 
         def group
-          return unless extra[:group].is_a?(Decidim::UserGroup)
+          @group ||= fetch_group
+        end
 
-          extra[:group]
+        private
+
+        def fetch_group
+          return extra[:group] if extra[:group].is_a?(Decidim::UserGroup)
+
+          Decidim::UserGroup.find_by(id: extra[:group_id]) if extra[:group_id]
         end
       end
     end

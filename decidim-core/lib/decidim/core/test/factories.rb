@@ -600,6 +600,12 @@ FactoryBot.define do
         some_extra_data: "1"
       }
     end
+
+    trait :user_group_mentioned_notification do
+      event_class { "Decidim::Comments::UserGroupMentionedEvent" }
+      event_name { "decidim.events.comments.user_group_mentioned" }
+      extra { { comment_id: create(:comment).id, group_id: create(:user_group).id } }
+    end
   end
 
   factory :action_log, class: "Decidim::ActionLog" do
