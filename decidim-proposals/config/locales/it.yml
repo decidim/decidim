@@ -120,7 +120,7 @@ it:
         name: Proposte
         settings:
           global:
-            allow_card_image: Consenti l'immagine della scheda
+            allow_card_image: Abilita l'immagine di copertina per le proposte
             amendments_enabled: Emendamenti abilitati
             amendments_enabled_help: Se attivo, configura le caratteristiche di emendamento per ogni passo.
             amendments_wizard_help_text: Creazione guidata emendamenti
@@ -350,7 +350,7 @@ it:
       actions:
         answer_proposal: Proposta di Risposta
         edit_proposal: Modifica proposta
-        import: Importa da un altro componente
+        import: Importa da un altro componente proposte
         new: Nuova proposta
         participatory_texts: Testi partecipativi
         show: Mostra proposta
