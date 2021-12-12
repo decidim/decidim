@@ -20,6 +20,18 @@ ja:
       decidim/budgets/project:
         other: プロジェクト
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: カテゴリ
+          scope_id_eq:
+            label: スコープ
+          selected_at_null:
+            label: 選択済み
+            values:
+              'false': 選択済み
+              'true': 未選択
     budgets:
       actions:
         attachment_collections: フォルダ
@@ -133,6 +145,8 @@ ja:
             total_budget: 予算の合計
         project:
           fields:
+            category: カテゴリ
+            id: ID
             title: タイトル
       order_summary_mailer:
         order_summary:
