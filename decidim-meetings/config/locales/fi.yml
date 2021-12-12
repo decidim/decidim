@@ -42,6 +42,10 @@ fi:
         type_of_meeting: Tyyppi
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Tätä URL-osoitetta ei voi upottaa tapaamisen sivulle tai reaaliaikaisen tapahtuman sivulle
         meeting_agenda:
           attributes:
             base:
@@ -278,6 +282,9 @@ fi:
           edit:
             close: Sulje
             title: Sulje tapaaminen
+        meeting_copies:
+          form:
+            select_a_meeting_type: Valitse tapaamisen tyyppi
         meetings:
           close:
             invalid: Tapaamisen sulkeminen epäonnistui
@@ -305,6 +312,9 @@ fi:
             registration_url_help: 'Linkki: salli käyttäjien siirtyminen käytettyyn ulkoiseen ilmoittautumispalveluun'
             select_a_meeting_type: Valitse tapaamisen tyyppi
             select_a_registration_type: Valitse ilmoittautumisten tyyppi
+            select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
+            select_an_iframe_embed_type: Valitse iframe-upotusten tyyppi
+            show_embedded_iframe_help: Vain harvat palvelut sallivat tapaamisen upottamisen reaaliaikaisesti tapahtumasivulle (YouTube, Twitch ja Jitsi)
           index:
             title: Tapaamiset
           new:
@@ -396,6 +406,15 @@ fi:
           index:
             meetings: Tapaamiset
             space_type: Osallistumistila
+      iframe_access_level:
+        all: Kaikki kävijät
+        registered: Tähän tapaamiseen ilmoittautuneet osallistujat
+        signed_in: Vain sisäänkirjautuneet osallistujat
+      iframe_embed_type:
+        embed_in_meeting_page: Upota tapaamisen sivulle
+        none: Ei mitään
+        open_in_live_event_page: Avaa upotus tapahtuman sivulla reaaliajassa (liitä vapaaehtoisia mielipidekyselyjä)
+        open_in_new_tab: Avaa uudessa välilehdessä
       last_activity:
         meeting_updated_at_html: "<span>Tapaaminen päivitetty osoitteessa %{link}</span>"
         new_meeting_at_html: "<span>Uusi tapaaminen osoitteessa %{link}</span>"
@@ -478,6 +497,8 @@ fi:
           select_a_category: Valitse aihepiiri
           select_a_meeting_type: Valitse tapaamisen tyyppi
           select_a_registration_type: Valitse ilmoittautumisten tyyppi
+          select_an_iframe_embed_type: Valitse iframe-upotuksen tyyppi
+          show_embedded_iframe_help: Vain harvat palvelut sallivat tapaamisen upottamisen reaaliaikaisesti tapahtumasivulle (YouTube, Twitch ja Jitsi)
         index:
           click_here: Näytä kaikki tapahtumat
           new_meeting: Uusi tapaaminen
