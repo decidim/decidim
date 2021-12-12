@@ -21,6 +21,18 @@ fi:
         one: Suunnitelma
         other: Suunnitelmat
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Aihepiiri
+          scope_id_eq:
+            label: Teema
+          selected_at_null:
+            label: Valittu
+            values:
+              'false': Valittu toteutukseen
+              'true': Ei valittu toteutukseen
     budgets:
       actions:
         attachment_collections: Kansiot
@@ -134,6 +146,8 @@ fi:
             total_budget: Kokonaisbudjetti
         project:
           fields:
+            category: Aihepiiri
+            id: ID
             title: Otsikko
       order_summary_mailer:
         order_summary:
