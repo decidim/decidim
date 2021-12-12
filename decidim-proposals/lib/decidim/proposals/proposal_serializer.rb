@@ -33,6 +33,11 @@ module Decidim
           component: { id: component.id },
           title: proposal.title,
           body: proposal.body,
+          address: proposal.address,
+          coordinates: {
+            latitude: proposal.latitude,
+            longitude: proposal.longitude
+          },
           state: proposal.state.to_s,
           reference: proposal.reference,
           answer: ensure_translatable(proposal.answer),
