@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
+#
+# Copyright (c) 2018 David Rodríguez - The MIT License (MIT)
+# Originally copied from https://gitlab.com/deivid-rodriguez/system_test_html_screenshots
+#
+
 require "action_dispatch/system_testing/test_helpers/screenshot_helper"
 
 module ActionDispatch
