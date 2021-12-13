@@ -118,15 +118,12 @@ $(() => {
     });
 
     $meetingRegistrationType.trigger("change");
-  }
 
-  const $meetingForm = $(".meetings_form");
-  if ($meetingForm.length > 0) {
-    const $meetingTypeOfMeeting = $meetingForm.find("#meeting_type_of_meeting");
-    const $meetingOnlineFields = $meetingForm.find(".field[data-meeting-type='online']");
-    const $meetingInPersonFields = $meetingForm.find(".field[data-meeting-type='in_person']");
+    const $meetingTypeOfMeeting = $form.find("#meeting_type_of_meeting");
+    const $meetingOnlineFields = $form.find(".field[data-meeting-type='online']");
+    const $meetingInPersonFields = $form.find(".field[data-meeting-type='in_person']");
 
-    const toggleDependsOnSelect = ($target, $showDiv, type) => {
+    const toggleTypeDependsOnSelect = ($target, $showDiv, type) => {
       const value = $target.val();
       if (value === "hybrid") {
         $showDiv.show();
@@ -140,11 +137,11 @@ $(() => {
 
     $meetingTypeOfMeeting.on("change", (ev) => {
       const $target = $(ev.target);
-      toggleDependsOnSelect($target, $meetingOnlineFields, "online");
-      toggleDependsOnSelect($target, $meetingInPersonFields, "in_person");
+      toggleTypeDependsOnSelect($target, $meetingOnlineFields, "online");
+      toggleTypeDependsOnSelect($target, $meetingInPersonFields, "in_person");
     });
 
-    toggleDependsOnSelect($meetingTypeOfMeeting, $meetingOnlineFields, "online");
-    toggleDependsOnSelect($meetingTypeOfMeeting, $meetingInPersonFields, "in_person");
+    toggleTypeDependsOnSelect($meetingTypeOfMeeting, $meetingOnlineFields, "online");
+    toggleTypeDependsOnSelect($meetingTypeOfMeeting, $meetingInPersonFields, "in_person");
   }
 })
