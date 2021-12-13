@@ -10,7 +10,7 @@ namespace :decidim do
   end
 
   def call_reminder_job(reminder_manifest)
-    Decidim::ReminderGeneratorJob.perform_now(
+    Decidim::ReminderGeneratorJob.perform_later(
       reminder_manifest.manager_class
     )
   end

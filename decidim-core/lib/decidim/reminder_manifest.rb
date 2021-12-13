@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 module Decidim
+  # This class acts as a manifest for reminders.
+  #
+  # This manifest is a simple object that holds and stores reminder
+  # and it's manager class.
   class ReminderManifest
     include ActiveModel::Model
     include Virtus.model

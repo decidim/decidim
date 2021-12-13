@@ -10,21 +10,23 @@ module Decidim
 
       helper_method :routes
 
-      def vote_reminder(user, order_ids)
-        with_user(user) do
-          @organization = user.organization
-          @user = user
-          @order_ids = order_ids
-          @orders = Decidim::Budgets::Order.where(id: order_ids)
-          wording = @orders.count == 1 ? "email_subject.one" : "email_subject.other"
+      # Send the user an email reminder to finish voting
+      #
+      # user - the user who we are sending the reminder
+      # orders - user's pending orders
+      def vote_reminder(reminder)
+        @user = reminder.user
+        with_user(@user) do
+          @orders = reminder.records.active.map(&:remindable)
+          @organization = @user.organization
 
           subject = I18n.t(
-            wording,
-            scope: "decidim.admin.vote_reminder_mailer.vote_reminder",
-            order_count: @orders.count
+            "email_subject",
+            scope: "decidim.budgets.vote_reminder_mailer.vote_reminder",
+            count: @orders.count
           )
 
-          mail(to: user.email, subject: subject)
+          mail(to: @user.email, subject: subject)
         end
       end
 

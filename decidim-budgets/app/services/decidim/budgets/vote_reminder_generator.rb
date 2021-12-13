@@ -2,11 +2,14 @@
 
 module Decidim
   module Budgets
+    # This class is manager class which creates and updates order related reminders,
+    # after reminders are generated they are send to users who have not checked out their votes.
     class VoteReminderGenerator
       def initialize
         @reminder_manifest = Decidim.reminders_registry.for(:orders)
       end
 
+      # Creates reminders and updates them if they already exists.
       def generate
         Decidim::Component.where(manifest_name: "budgets").each do |component|
           send_reminders(component)
@@ -25,7 +28,7 @@ module Decidim
           reminder = Decidim::Reminder.find_or_create_by(user: user, component: component)
           users_pending_orders = pending_orders.where(user: user)
           update_reminder_records(reminder, users_pending_orders)
-          Decidim::Budgets::SendVoteReminderJob.perform_later(reminder) if reminder.records.any?
+          Decidim::Budgets::SendVoteReminderJob.perform_later(reminder) if reminder.records.active.any?
         end
       end
 
@@ -37,9 +40,9 @@ module Decidim
       def clean_checked_out_and_deleted_orders(reminder)
         reminder.records.each do |record|
           if record.remindable.nil?
-            reminder.records.delete(record)
+            record.update(state: "deleted")
           elsif record.remindable.checked_out_at.present?
-            record.update(reminder: nil)
+            record.update(state: "completed")
           end
         end
       end
@@ -47,16 +50,17 @@ module Decidim
       def add_pending_orders(reminder, users_pending_orders)
         reminder_records = users_pending_orders.map { |order| Decidim::ReminderRecord.find_or_create_by(reminder: reminder, remindable: order) }
         reminder_records.each do |record|
-          reminder.records.push(record) if reminder.records.exclude?(record) && time_to_remind?(reminder, record.remindable)
+          activity_check(record) if %w(active pending).include? record.state
         end
       end
 
-      def time_to_remind?(reminder, order)
-        delivered_count = reminder.deliveries.length
+      def activity_check(record)
+        delivered_count = record.reminder.deliveries.length
         intervals = Array(reminder_manifest.settings.attributes[:reminder_times].default)
-        return false if intervals.length <= delivered_count
+        return record.update(state: "completed") if intervals.length <= delivered_count
 
-        intervals[delivered_count] < Time.current - order.created_at
+        state = intervals[delivered_count] < Time.current - record.remindable.created_at ? "active" : "pending"
+        record.update(state: state)
       end
 
       def voting_enabled?(component)
