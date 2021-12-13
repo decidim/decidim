@@ -9,26 +9,16 @@ module Decidim
       Decidim.const_defined?("Proposals")
     end
 
-    # Admin settings to define close meeting notifications for users
+    # Settings to define close meeting notifications for users
 
     # Period of time (nb of days) after which to send the initial notification
-    config_accessor :close_report_notifications do
-      1
+    config_accessor :close_meeting_notification do
+      3
     end
 
     # Period of time (nb of days) after which to send the reminder notification
-    config_accessor :close_report_reminder_notifications do
+    config_accessor :close_meeting_reminder_notification do
       7
-    end
-
-    # Enable initial notifications
-    config_accessor :enable_cr_initial_notifications do
-      true
-    end
-
-    # Enable reminder notifications
-    config_accessor :enable_cr_reminder_notifications do
-      true
     end
   end
 end

@@ -93,6 +93,10 @@ module Decidim
         end
       end
 
+      initializer "decidim_meetings.component_notification_settings" do
+        Decidim.component_notification_settings(:close_meeting_reminder) { |ns| ns.area = :administrators }
+      end
+
       initializer "decidim_meetings.register_metrics" do
         Decidim.metrics_registry.register(:meetings) do |metric_registry|
           metric_registry.manager_class = "Decidim::Meetings::Metrics::MeetingsMetricManage"

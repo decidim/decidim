@@ -90,10 +90,6 @@ Decidim.register_component(:meetings) do |component|
     settings.attribute :enable_pads_creation, type: :boolean, default: false
     settings.attribute :creation_enabled_for_participants, type: :boolean, default: false
     settings.attribute :maps_enabled, type: :boolean, default: true
-    settings.attribute :enable_cr_initial_notifications, type: :boolean, default: Decidim::Meetings.enable_cr_initial_notifications
-    settings.attribute :close_report_notifications, type: :integer, default: Decidim::Meetings.close_report_notifications
-    settings.attribute :enable_cr_reminder_notifications, type: :boolean, default: Decidim::Meetings.enable_cr_reminder_notifications
-    settings.attribute :close_report_reminder_notifications, type: :integer, default: Decidim::Meetings.close_report_reminder_notifications
   end
 
   component.settings(:step) do |settings|

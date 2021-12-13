@@ -16,15 +16,12 @@ namespace :decidim_meetings do
 
   desc "Send initial and reminder notifications to users whose events have passed"
   task close_meeting_notification: :environment do
+    close_meeting_notif = Decidim::Meetings.close_meeting_notification
+    close_meeting_reminder_notif = Decidim::Meetings.close_meeting_reminder_notification
     components = Decidim::Component.where(manifest_name: "meetings").published
     components.find_each do |component|
-      enable_initial_notif = component.settings.enable_cr_initial_notifications
-      close_report_notif = component.settings.close_report_notifications
-      enable_reminder_notif = component.settings.enable_cr_reminder_notifications
-      close_report_reminder_notif = component.settings.close_report_reminder_notifications
-
-      send_notification(:first_notification, component, close_report_notif) if enable_initial_notif
-      send_notification(:reminder_notification, component, close_report_reminder_notif) if enable_reminder_notif
+      send_notification(:first_notification, component, close_meeting_notif)
+      send_notification(:reminder_notification, component, close_meeting_reminder_notif)
     end
   end
 
@@ -38,8 +35,9 @@ namespace :decidim_meetings do
       authors = meeting.author.is_a?(Decidim::User) ? [meeting.author] : space_admins
       authors.each do |author|
         args = [meeting, author]
+        send_notif = author.component_notification_settings.fetch("close_meeting_reminder", "0")
         # Send the notification
-        Decidim::Meetings::CloseMeetingReminderMailer.send(method, *args).deliver_later
+        Decidim::Meetings::CloseMeetingReminderMailer.send(method, *args).deliver_later if send_notif == "1"
       end
     end
   end

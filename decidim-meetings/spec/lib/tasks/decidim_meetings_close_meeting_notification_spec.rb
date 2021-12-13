@@ -9,17 +9,11 @@ describe "decidim_meetings:close_meeting_notification", type: :task do
     create :component,
            :published,
            manifest_name: :meetings,
-           participatory_space: participatory_process,
-           settings: {
-             enable_cr_initial_notifications: true,
-             close_report_notifications: 2,
-             enable_cr_reminder_notifications: true,
-             close_report_reminder_notifications: 7
-           }
+           participatory_space: participatory_process
   end
   let!(:mailer) { double :mailer }
 
-  let!(:user) { create(:user, :confirmed, organization: organization) }
+  let!(:user) { create(:user, :confirmed, component_notification_settings: { "close_meeting_reminder": "1" }, organization: organization) }
 
   let!(:meeting) do
     create(:meeting, :published, component: component, end_time: Time.current, author: user)
@@ -38,6 +32,10 @@ describe "decidim_meetings:close_meeting_notification", type: :task do
 
   describe "close report initial and reminder notifications are enabled" do
     context "when user has overdue meetings" do
+      before do
+        allow(Decidim::Meetings).to receive(:close_meeting_notification).and_return(2)
+      end
+
       it "sends the first notification" do
         expect(Decidim::Meetings::CloseMeetingReminderMailer)
           .to receive(:first_notification)
@@ -50,7 +48,11 @@ describe "decidim_meetings:close_meeting_notification", type: :task do
       end
     end
 
-    context "when user has overdue meetings" do
+    context "when user has an overdue meetings" do
+      before do
+        allow(Decidim::Meetings).to receive(:close_meeting_reminder_notification).and_return(7)
+      end
+
       let!(:meeting_overdue2) do
         create(:meeting, :published, component: component, end_time: 7.days.ago, author: user)
       end
@@ -69,9 +71,12 @@ describe "decidim_meetings:close_meeting_notification", type: :task do
   end
 
   describe "close report initial and reminder notifications are disabled" do
+    before do
+      user.update!(component_notification_settings: { close_meeting_reminder: "0" })
+    end
+
     context "when user has overdue meetings" do
       it "do not send the first notification" do
-        component.update!(settings: { enable_cr_initial_notifications: false })
         expect(Decidim::Meetings::CloseMeetingReminderMailer)
           .not_to receive(:first_notification)
           .with(meeting_overdue1, user)
