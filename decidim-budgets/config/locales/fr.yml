@@ -6,7 +6,7 @@ fr:
         description: Description
         title: Titre
         total_budget: Budget total
-        weight: Rang
+        weight: Rang d'affichage
       project:
         budget_amount: Montant du budget
         decidim_category_id: Catégorie
@@ -109,7 +109,7 @@ fr:
         continue: Continuer
         more_information: Plus d'information
       budget_list_item:
-        voting_finished: Vous avez voté pour ce budget
+        voting_finished: Vous avez voté dans ce budget
         voting_started: Vous avez commencé à voter dans ce budget
       budgets_list:
         cancel_order:
