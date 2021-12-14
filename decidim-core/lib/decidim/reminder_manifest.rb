@@ -9,10 +9,24 @@ module Decidim
     include ActiveModel::Model
     include Virtus.model
 
-    attribute :reminder_name, String
-    attribute :manager_class, String
+    attribute :name, String
+    attribute :manager_class_name, String
+    attribute :form_class_name, String
+    attribute :command_class_name, String
 
-    validates :reminder_name, :manager_class, presence: true
+    validates :name, :manager_class, presence: true
+
+    def manager_class
+      manager_class_name.constantize
+    end
+
+    def form_class
+      form_class_name.constantize
+    end
+
+    def command_class
+      command_class_name.constantize
+    end
 
     def has_settings?
       settings.attributes.any?

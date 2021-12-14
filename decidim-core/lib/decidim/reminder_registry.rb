@@ -27,7 +27,7 @@ module Decidim
         )
       end
 
-      reminder_manifest = ::Decidim::ReminderManifest.new(reminder_name: reminder_name)
+      reminder_manifest = ::Decidim::ReminderManifest.new(name: reminder_name)
       yield(reminder_manifest)
       reminder_manifest.validate!
 
@@ -36,7 +36,7 @@ module Decidim
 
     def for(reminder_name, list = nil)
       list ||= all
-      list.find { |manifest| manifest.reminder_name == reminder_name.to_s }
+      list.find { |manifest| manifest.name == reminder_name.to_s }
     end
 
     def all

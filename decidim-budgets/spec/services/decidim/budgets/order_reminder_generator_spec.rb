@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Budgets
-  describe VoteReminderGenerator do
+  describe OrderReminderGenerator do
     subject { described_class.new }
 
     let(:manifest) do

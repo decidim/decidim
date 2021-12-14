@@ -3,10 +3,13 @@
 module Decidim
   module Budgets
     # This class is manager class which creates and updates order related reminders,
-    # after reminders are generated they are send to users who have not checked out their votes.
-    class VoteReminderGenerator
+    # after reminder is generated it is send to user who have not checked out his/her/their vote.
+    class OrderReminderGenerator
+      attr_reader :reminders_sent
+
       def initialize
         @reminder_manifest = Decidim.reminders_registry.for(:orders)
+        @reminders_sent = 0
       end
 
       # Creates reminders and updates them if they already exists.
@@ -14,6 +17,10 @@ module Decidim
         Decidim::Component.where(manifest_name: "budgets").each do |component|
           send_reminders(component)
         end
+      end
+
+      def generate_for(component)
+        send_reminders(component)
       end
 
       private
@@ -28,7 +35,10 @@ module Decidim
           reminder = Decidim::Reminder.find_or_create_by(user: user, component: component)
           users_pending_orders = pending_orders.where(user: user)
           update_reminder_records(reminder, users_pending_orders)
-          Decidim::Budgets::SendVoteReminderJob.perform_later(reminder) if reminder.records.active.any?
+          if reminder.records.active.any?
+            Decidim::Budgets::SendVoteReminderJob.perform_later(reminder)
+            @reminders_sent += 1
+          end
         end
       end
 

@@ -45,7 +45,9 @@ module Decidim
 
       initializer "decidim_budgets.register_reminders" do
         Decidim.reminders_registry.register(:orders) do |reminder_registry|
-          reminder_registry.manager_class = "Decidim::Budgets::VoteReminderGenerator"
+          reminder_registry.manager_class_name = "Decidim::Budgets::OrderReminderGenerator"
+          reminder_registry.form_class_name = "Decidim::Budgets::Admin::OrderReminderForm"
+          reminder_registry.command_class_name = "Decidim::Budgets::Admin::CreateOrderReminders"
 
           reminder_registry.settings do |settings|
             settings.attribute :reminder_times, type: :array, default: [2.hours, 1.week, 2.weeks]
