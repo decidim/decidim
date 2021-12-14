@@ -4,7 +4,7 @@ fr:
       result:
         decidim_accountability_status_id: Progression
         decidim_category_id: Catégorie
-        decidim_scope_id: Périmètre d'application
+        decidim_scope_id: Secteur
         description: Description
         end_date: Date de fin
         progress: Avancement
@@ -38,7 +38,7 @@ fr:
         destroy: Supprimer
         edit: Modifier
         import_csv: Importer un fichier CSV
-        new: Nouveau %{name}
+        new: Nouvelle %{name}
         preview: Aperçu
         timeline_entries: Évolution de la réalisation
         title: Actions
@@ -170,7 +170,7 @@ fr:
             other: "%{count} réalisations"
         filters:
           all: Tous
-          scopes: Périmètre d'application
+          scopes: Secteurs
         home:
           categories_label: Catégories
           subcategories_label: Sous-catégories
