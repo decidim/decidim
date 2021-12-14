@@ -163,7 +163,7 @@ fr:
           email_subject: Les places réservées pour la rencontre "%{resource_title}" dépassent %{percentage}%
           notification_title: Les places réservées pour la rencontre <a href="%{resource_path}">%{resource_title}</a> dépassent %{percentage}%.
         meeting_updated:
-          email_intro: 'La rencontre "%{resource_title}" a été mise à jour. Vous pouvez accéder à la nouvelle version depuis sa page :'
+          email_intro: 'La rencontre "%{resource_title}" a été mise à jour. Vous pouvez accéder aux modifications sur la page de la rencontre :'
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
           email_subject: La rencontre "%{resource_title}" a été mise à jour
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été mise à jour.
@@ -208,7 +208,7 @@ fr:
             one: 'La rencontre ne peut être supprimée car %{count} proposition y est rattachée:'
             other: 'La rencontre ne peut être supprimée car %{count} propositions y sont rattachées:'
         manage_poll: Gérer le sondage
-        new: Nouvelle réunion
+        new: Nouvelle rencontre
         preview: Aperçu
         registrations: Inscriptions
         title: Actions
@@ -401,7 +401,7 @@ fr:
             upcoming: À venir
       last_activity:
         meeting_updated_at_html: "<span>Débat mis à jour à %{link}</span>"
-        new_meeting_at_html: "<span>Nouvelle réunion à %{link}</span>"
+        new_meeting_at_html: "<span>Nouvelle rencontre dans %{link}</span>"
       layouts:
         live_event:
           administrate: Administrer
@@ -551,21 +551,23 @@ fr:
       polls:
         questions:
           closed_question:
-            question_results: Résultats de l'élection
+            question_results: Résultats du sondage
           index:
             empty_questions: Tout au long de cette rencontre, certaines questions seront envoyées et vous pourrez y répondre. Elles seront affichées ici.
           index_admin:
-            admin_dashboard: Tableau de bord d'administration
-            edit: Modifier dans le panneau Admin
+            admin_dashboard: Administration du sondage
+            edit: Modifier le sondage dans le panneau d'administration (attention, une fois qu'une question a commencé à recevoir des réponses, vous ne pouvez plus modifier le sondage)
             question: Question
             received_answer: réponse reçue
             received_answers: réponses reçues
             results: Résultats
-            send: Envoyer
-            sent: Envoyée
+            send: Publier
+            sent: Publiée
           published_question:
-            max_choices_alert: Il y a trop de choix sélectionnés
+            max_choices_alert: Vous avez sélectionné trop de choix
             question: Question
+            question_replied: Réponse envoyée
+            reply_question: Répondre
       public_participants_list:
         attending_participants: Participants présents
         hidden_participants_count:
