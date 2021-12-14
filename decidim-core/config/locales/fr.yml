@@ -1294,8 +1294,8 @@ fr:
       headline: Statistiques
       no_stats: Il n'y a pas encore de statistiques.
       pages_count: Pages
-      participants_count: Participant·e·s
-      users_count: Participant·e·s
+      participants_count: Participants
+      users_count: Participants
     tags:
       filter_results_for_category: 'Filtrer les résultats de la catégorie : %{resource}'
       filter_results_for_scope: 'Filtrer les résultats pour le secteur : %{resource}'
