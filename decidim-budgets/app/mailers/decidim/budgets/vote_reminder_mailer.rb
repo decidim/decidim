@@ -12,9 +12,9 @@ module Decidim
 
       # Send the user an email reminder to finish voting
       #
-      # user - the user who we are sending the reminder
-      # orders - user's pending orders
+      # reminder - the reminder to send.
       def vote_reminder(reminder)
+        @reminder = reminder
         @user = reminder.user
         with_user(@user) do
           @orders = reminder.records.active.map(&:remindable)
@@ -33,7 +33,7 @@ module Decidim
       private
 
       def routes
-        @routes ||= Decidim::EngineRouter.main_proxy(@orders.first.component)
+        @routes ||= Decidim::EngineRouter.main_proxy(@reminder.component)
       end
     end
   end
