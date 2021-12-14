@@ -34,7 +34,7 @@ it:
         subtitle: Sottotitolo
         target: Chi partecipa
         title: Titolo
-        weight: Peso
+        weight: Ordinamento nella barra dei componenti
       participatory_process_group:
         description: Descrizione
         developer_group: Gruppo promotore
@@ -459,14 +459,14 @@ it:
         meetings_count: Eventi
         no_stats: Non ci sono ancora statistiche.
         orders_count: Voti
-        pages_count: Pagine
+        pages_count: Pagine di testo
         participants_count: Partecipanti
         processes_count: Processi
         projects_count: Progetti
         proposals_count: Proposte
         results_count: Risultati
         supports_count: Voti
-        surveys_count: indagini
+        surveys_count: Questionari
         users_count: Partecipanti
   layouts:
     decidim:

@@ -406,7 +406,7 @@ pl:
         button_url: Adres url przycisku CTA
         description: Opis
       footer_sub_hero:
-        name: Banner podrzędny stopki
+        name: Baner podrzędny stopki
       hero:
         name: Obraz główny
       hero_settings_form:
@@ -433,7 +433,7 @@ pl:
       stats:
         name: Statystyki organizacji
       sub_hero:
-        name: Banner podrzędny
+        name: Baner podrzędny
     core:
       actions:
         login_before_access: Zaloguj się na swoje konto, żeby mieć dostęp
@@ -676,7 +676,7 @@ pl:
         click_button: 'Kliknij poniższy przycisk, aby pobrać swoje dane. <br/>Plik będzie dostępny do %{date}. <br/>Będziesz potrzebował <a href=''''https://www.7-zip.org/''''>7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) lub <a href="https://peazip.github.io">PeaZip</a> (Linux) do otwarcia pliku. Hasło: %{password}'
         download: Pobieranie
       export:
-        ready: Znajdź załączoną wersję eksportowanego pliku.
+        ready: Mail zawiera załączony plik eksportu.
       subject: Twój eksport "%{name}" jest gotowy
     filters:
       linked_classes:

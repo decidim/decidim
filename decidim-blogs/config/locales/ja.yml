@@ -71,10 +71,10 @@ ja:
     events:
       blogs:
         post_created:
-          email_intro: The post "%{resource_title}" has been published in "%{participatory_space_title}" that you are following.
+          email_intro: あなたがフォローしている "%{participatory_space_title}" で投稿 "%{resource_title}" が公開されました。
           email_outro: '「%{participatory_space_title}」をフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
           email_subject: '%{participatory_space_title} に新しい投稿が公開されました'
-          notification_title: The post <a href="%{resource_path}">%{resource_title}</a> has been published in %{participatory_space_title}
+          notification_title: '%{participatory_space_title} で投稿 <a href="%{resource_path}">%{resource_title}</a> が公開されました'
     pages:
       home:
         statistics:

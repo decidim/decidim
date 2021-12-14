@@ -11,7 +11,7 @@ fr:
         document_number: Numéro de document
         email: Courriel
         name: Nom
-        nickname: Nom d'utilisateur
+        nickname: Pseudonyme
         phone: Téléphone
       report:
         details: Commentaires supplémentaires
@@ -19,7 +19,7 @@ fr:
         about: A propos de moi
         email: Votre email
         name: Votre nom
-        nickname: Surnom
+        nickname: Pseudonyme
         password: Mot de passe
         password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
@@ -41,7 +41,7 @@ fr:
       decidim/user:
         current_password: Mot de passe actuel
         email: Email
-        name: Surnom
+        name: Pseudonyme
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
         remember_me: Retenir le mot de passe
