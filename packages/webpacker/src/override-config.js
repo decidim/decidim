@@ -1,5 +1,6 @@
 const { config } = require("@rails/webpacker");
-const { GenerateSW, InjectManifest } = require("workbox-webpack-plugin");
+const { InjectManifest } = require("workbox-webpack-plugin");
+const path = require("path");
 
 const overrideSassRule = (modifyConfig) => {
   const sassRule = modifyConfig.module.rules.find(
@@ -49,17 +50,8 @@ const overrideSassRule = (modifyConfig) => {
 }
 
 const addWorkboxPlugin = (modifyConfig) => {
-//   console.log(`
-//   ${"=".repeat(100)}
-
-// // ${JSON.stringify(config, null, 2)}
-// ${config.source_path}/service-worker.js
-
-//   ${"=".repeat(100)}
-//   `);
-
   const plugin = new InjectManifest({
-    swSrc: "../decidim-core/app/packs/service-worker.js"
+    swSrc: path.resolve("../decidim-core/app/packs/service-worker.js")
   })
 
   modifyConfig.plugins.push(plugin)

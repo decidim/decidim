@@ -1,77 +1,107 @@
-import { registerRoute } from "workbox-routing";
-import { NetworkFirst, CacheFirst } from "workbox-strategies";
+// import { registerRoute, NavigationRoute } from "workbox-routing";
+// import { NetworkFirst, CacheFirst, NetworkOnly } from "workbox-strategies";
 import { CacheableResponsePlugin } from "workbox-cacheable-response";
 import { ExpirationPlugin } from "workbox-expiration";
-// import { precacheAndRoute } from "workbox-precaching";
+// import * as navigationPreload from 'workbox-navigation-preload';
+import {
+  pageCache,
+  imageCache,
+  staticResourceCache,
+  offlineFallback
+} from "workbox-recipes";
+import { setDefaultHandler, registerRoute } from "workbox-routing";
+import { NetworkOnly, NetworkFirst } from "workbox-strategies";
 
-// precacheAndRoute(self.__WB_MANIFEST)
+
+const log = (...logs) =>
+  console.log(`${"=".repeat(100)}
+
+${logs.map((x) => JSON.stringify(x, null, 2)).join("\n")}
+
+${"=".repeat(100)}`)
+
+log(`version: ${new Date().toLocaleTimeString()}`);
+
+// pageCache({
+//   matchCallback: ({ request }) => {
+//     log("DEPURAÇAO", request);
+
+//     return request.destination === "document" || (
+//       request.destination === "" &&
+//       request.mode === "cors" &&
+//       request.headers.get("Turbolinks-Referrer") !== null
+//     )
+//   }
+// })
+
+// staticResourceCache();
+
+// imageCache();
+
+setDefaultHandler(
+  new NetworkOnly()
+);
+
+offlineFallback();
+// offlineFallback({ pageFallback: "/offline" });
 
 // Loading pages (and turbolinks requests), checks the network first
-registerRoute(
-  ({request}) => request.destination === "document" || (
-    request.destination === "" &&
-    request.mode === "cors" &&
-    request.headers.get("Turbolinks-Referrer") !== null
-  ),
-  new NetworkFirst({
-    cacheName: "documents",
-    plugins: [
-      new ExpirationPlugin({
-        maxEntries: 5,
-        // 5 minutes
-        maxAgeSeconds: 5 * 60
-      }),
-      new CacheableResponsePlugin({
-        statuses: [0, 200]
-      })
-    ]
-  })
-);
+// registerRoute(
+//   ({ request }) => {
+//     console.log(1, request);
+//     log("DEPURAÇAO", request);
 
-// images
-registerRoute(
-  ({request}) => request.destination === "image",
-  new CacheFirst({
-    cacheName: "images",
-    plugins: [
-      new ExpirationPlugin({
-        maxEntries: 60,
-        // 30 Days
-        maxAgeSeconds: 30 * 24 * 60 * 60
-      })
-    ]
-  })
-);
+//     return request.destination === "document" || (
+//       request.destination === "" &&
+//       request.mode === "cors" &&
+//       request.headers.get("Turbolinks-Referrer") !== null
+//     )
+//   },
+//   new NetworkFirst({
+//     cacheName: "documents",
+//     plugins: [
+//       new ExpirationPlugin({
+//         maxEntries: 5,
+//         // 5 minutes
+//         maxAgeSeconds: 5 * 60
+//       }),
+//       new CacheableResponsePlugin({
+//         statuses: [0, 200]
+//       })
+//     ]
+//   })
+// );
 
-// Load CSS & JS from the Cache
-registerRoute(
-  ({request}) => request.destination === "script" ||
-  request.destination === "style",
-  new CacheFirst({
-    cacheName: "assets-styles-and-scripts",
-    plugins: [
-      new ExpirationPlugin({
-        maxEntries: 10,
-        // 30 Days
-        maxAgeSeconds: 60 * 60 * 24 * 30
-      }),
-      new CacheableResponsePlugin({
-        statuses: [0, 200]
-      })
-    ]
-  })
-);
+// // images
+// registerRoute(
+//   ({request}) => request.destination === "image",
+//   new CacheFirst({
+//     cacheName: "images",
+//     plugins: [
+//       new ExpirationPlugin({
+//         maxEntries: 60,
+//         // 30 Days
+//         maxAgeSeconds: 30 * 24 * 60 * 60
+//       })
+//     ]
+//   })
+// );
 
-self.addEventListener("install", () => console.log("[SW]: install"))
-self.addEventListener("activate", () => console.log("[SW]: activate"))
-self.addEventListener("fetch", () => console.log("[SW]: fetch"))
-
-// PUSH notifications
-// self.addEventListener("push", (event) => {
-//   console.log("[SW]: push");
-//   const { title = "No title", body = "No body", ...opts } = event.data.json();
-//   const text = opts.friends > 1
-//     ? `You have ${opts.friends} subscriptors!!`
-//     : title
-//   event.waitUntil(self.registration.showNotification(text, { body, ...opts }));
-// });
+// // Load CSS & JS from the Cache
+// registerRoute(
+//   ({request}) => request.destination === "script" ||
+//   request.destination === "style",
+//   new CacheFirst({
+//     cacheName: "assets-styles-and-scripts",
+//     plugins: [
+//       new ExpirationPlugin({
+//         maxEntries: 10,
+//         // 30 Days
+//         maxAgeSeconds: 60 * 60 * 24 * 30
+//       }),
+//       new CacheableResponsePlugin({
+//         statuses: [0, 200]
+//       })
+//     ]
+//   })
+// );
