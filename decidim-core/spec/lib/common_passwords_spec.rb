@@ -27,7 +27,7 @@ module Decidim
         end
       end
 
-      describe "#update_passwords!" do
+      describe ".update_passwords!" do
         it "updates passwords" do
           subject.update_passwords!
 
