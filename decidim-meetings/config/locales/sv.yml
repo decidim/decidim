@@ -42,10 +42,6 @@ sv:
         type_of_meeting: Typ
     errors:
       models:
-        meeting:
-          attributes:
-            show_embedded_iframe:
-              not_embeddable: URL:en kan inte integreras
         meeting_agenda:
           attributes:
             base:
@@ -309,7 +305,6 @@ sv:
             registration_url_help: 'Länk: tillåt deltagare att registrera sig på en extern tjänst'
             select_a_meeting_type: Välj mötestyp
             select_a_registration_type: Välj en registreringsmetod
-            show_embedded_iframe_help: Välj om adressen ska integreras som iframe. Endast ett fåtal tjänster tillåter integrering (t.ex. Youtube, Twitch...)
           index:
             title: Möten
           new:
@@ -483,7 +478,6 @@ sv:
           select_a_category: Välj en kategori
           select_a_meeting_type: Välj mötestyp
           select_a_registration_type: Välj en registreringsmetod
-          show_embedded_iframe_help: Välj om adressen ska integreras som iframe. Endast ett fåtal tjänster tillåter integrering (t.ex. Youtube, Twitch...)
         index:
           click_here: Se alla möten
           new_meeting: Nytt möte

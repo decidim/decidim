@@ -241,7 +241,6 @@ lb:
             registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
             select_a_meeting_type: Bitte eine Meeting-Typ auswählen
             select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
-            show_embedded_iframe_help: Intégrer ou non l'iframe correspondant à cette URL de vidéoconférence. Seuls quelques services permettent l'intégration (c.-à-d. Youtube, Twitch...)
           index:
             title: Versammlungen
           new:
