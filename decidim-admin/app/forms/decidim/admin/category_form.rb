@@ -14,7 +14,7 @@ module Decidim
 
       mimic :category
 
-      validates :name, :description, translatable_presence: true
+      validates :name, translatable_presence: true
       validates :parent_id, inclusion: { in: :parent_categories_ids }, allow_blank: true
 
       delegate :current_participatory_space, to: :context, prefix: false
