@@ -116,6 +116,7 @@ describe "Notifications", type: :system do
     let!(:notification) { create :notification, :comment_notification, user: user }
 
     before do
+      resource.destroy!
       page.visit decidim.notifications_path
     end
 
@@ -126,6 +127,13 @@ describe "Notifications", type: :system do
       hrefs = links.find { |link| link[:href].include?(comment_definition_string) }
 
       expect(hrefs).not_to be(nil)
+    end
+
+    it "shows the comment in the notification" do
+      comment_notification = page.find(".card.card--widget")
+      comment_body = Decidim::Comments::Comment.first.body["en"]
+
+      expect(comment_notification).to have_content(comment_body)
     end
   end
 end
