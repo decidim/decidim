@@ -11,18 +11,17 @@ module Decidim
       https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/darkweb2017-top10000.txt
       https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10-million-password-list-top-1000000.txt
     ).freeze
-    COMMON_PASSWORDS_PATH = File.join(__dir__, "db", "common-passwords.txt")
 
     def initialize
-      raise FileNotFoundError unless File.exist?(COMMON_PASSWORDS_PATH)
+      raise FileNotFoundError unless File.exist?(Decidim::CommonPasswords.common_passwords_path)
 
-      File.open(COMMON_PASSWORDS_PATH, "r") do |file|
+      File.open(Decidim::CommonPasswords.common_passwords_path, "r") do |file|
         @passwords = file.read.split
       end
     end
 
     def self.update_passwords!
-      File.open(COMMON_PASSWORDS_PATH, "w") do |file|
+      File.open(Decidim::CommonPasswords.common_passwords_path, "w") do |file|
         common_password_list.each { |item| file.puts(item) }
       end
     end
@@ -46,6 +45,10 @@ module Decidim
       return ::PasswordValidator::MINIMUM_LENGTH if defined?(::PasswordValidator)
 
       10
+    end
+
+    def self.common_passwords_path
+      File.join(__dir__, "db", "common-passwords.txt")
     end
 
     class FileNotFoundError < StandardError; end

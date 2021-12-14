@@ -4,7 +4,13 @@ require "spec_helper"
 
 module Decidim
   describe CommonPasswords do
-    let(:subject) { described_class }
+    let(:subject) do
+      Class.new(described_class) do
+        def self.common_passwords_path
+          Rails.root.join("tmp/common-passwords.txt")
+        end
+      end
+    end
 
     let(:organization) { create(:organization) }
     let(:example_passwords) { %w(VJHT29061987 1234567890 q1w2e3r4t5 tooshort 0000000000) }
@@ -12,7 +18,6 @@ module Decidim
 
     context "when file exists and request returns body" do
       before do
-        stub_const "#{subject}::COMMON_PASSWORDS_PATH", Rails.root.join("tmp/common-passwords.txt")
         urls.each do |request_url|
           stub_request(:get, request_url)
             .with(
