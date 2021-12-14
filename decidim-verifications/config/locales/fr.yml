@@ -224,7 +224,7 @@ fr:
               mark_as_sent: Marquer comme envoyé
               not_yet_sent: Pas encore envoyé
               title: Vérifications en cours
-              username: Nom d'utilisateur
+              username: Pseudonyme
               verification_code: Code de vérification
           postages:
             create:

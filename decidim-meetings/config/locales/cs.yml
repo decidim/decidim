@@ -290,6 +290,9 @@ cs:
           edit:
             close: Zavřít
             title: Zavřete schůzku
+        meeting_copies:
+          form:
+            select_a_meeting_type: Vyberte prosím typ schůzky
         meetings:
           close:
             invalid: Při setkání došlo k problému
