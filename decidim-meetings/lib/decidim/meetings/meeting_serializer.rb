@@ -42,7 +42,7 @@ module Decidim
           reference: meeting.reference,
           comments: meeting.comments_count,
           attachments: meeting.attachments.size,
-          followers: meeting.followers.size,
+          followers: meeting.follows.size,
           url: url,
           related_proposals: related_proposals,
           related_results: related_results

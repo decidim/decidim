@@ -93,6 +93,32 @@ module Decidim
       def attachment_context
         :admin
       end
+
+      ransacker :id_string do
+        Arel.sql(%{cast("decidim_budgets_projects"."id" as text)})
+      end
+
+      # Allow ransacker to search for a key in a hstore column (`title`.`en`)
+      ransacker :title do |parent|
+        Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
+      end
+
+      ransacker :selected do
+        Arel.sql(%{("decidim_budgets_projects"."selected_at")::text})
+      end
+
+      ransacker :confirmed_orders_count do
+        query = <<-SQL.squish
+        (
+            SELECT COUNT(decidim_budgets_line_items.decidim_order_id)
+            FROM decidim_budgets_line_items
+            LEFT JOIN decidim_budgets_orders ON decidim_budgets_orders.id = decidim_budgets_line_items.decidim_order_id
+            WHERE decidim_budgets_orders.checked_out_at IS NOT NULL
+            AND decidim_budgets_projects.id = decidim_budgets_line_items.decidim_project_id
+        )
+        SQL
+        Arel.sql(query)
+      end
     end
   end
 end

@@ -3,7 +3,7 @@ ro:
     attributes:
       dummy_resource:
         created_at: Creat la
-        decidim_scope_id: Domeniu
+        decidim_scope_id: Domeniu de interes
         field: Câmpul meu
         start_date: Data de început
         title: Titlu
@@ -22,13 +22,15 @@ ro:
               c: Alegere C
             test_options:
               bar: Bară
+              baz: Baz
               foo: Foo
           step:
-            endorsements_blocked: Aprobări blocate
-            endorsements_enabled: Aprobări activate
+            endorsements_blocked: Susțineri blocate
+            endorsements_enabled: Susțineri activate
             readonly_step_attribute: Atribut pas Readonly
             test_options:
               bar: Bară
+              baz: Baz
               foo: Foo
     dummy:
       admin:
@@ -48,9 +50,9 @@ ro:
           unearned_own: Nu ați creat încă niciun test.
     resource_links:
       test_link:
-        dummy_resource_dummy: Legat de manechin
+        dummy_resource_dummy: Test asociat
     statistics:
       bar: Bară
-      dummies_count_high: Dummieri mari
-      dummies_count_medium: Medie de ficare
+      dummies_count_high: Test mare
+      dummies_count_medium: Test mediu
       foo: Foo

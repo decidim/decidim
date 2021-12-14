@@ -42,10 +42,6 @@ eu:
         type_of_meeting: Mota
     errors:
       models:
-        meeting:
-          attributes:
-            show_embedded_iframe:
-              not_embeddable: URL hau ezin da txertatu
         meeting_agenda:
           attributes:
             base:
@@ -309,7 +305,6 @@ eu:
             registration_url_help: 'Lotura: parte-hartzaileei aukera ematea izena emateko erabiltzen ari zaren kanpoko zerbitzura joateko'
             select_a_meeting_type: Mesedez, hautatu topaketa mota bat
             select_a_registration_type: Mesedez, hautatu erregistro mota bat
-            show_embedded_iframe_help: Sartu edo ez iframea bideokonferentziako URL honetarako. Zerbitzu batzuek baino ez dute aukera ematen (adibidez, Youtube, Twitch, etab.)
           index:
             title: Topaketa-zerrenda
           new:
@@ -481,7 +476,6 @@ eu:
           select_a_category: Mesedez, hautatu kategoria bat
           select_a_meeting_type: Mesedez, hautatu topaketa mota bat
           select_a_registration_type: Mesedez, hautatu erregistro mota bat
-          show_embedded_iframe_help: Sartu edo ez iframea bideokonferentziako URL honetarako. Zerbitzu batzuek baino ez dute aukera ematen (adibidez, Youtube, Twitch, etab.)
         index:
           click_here: Ikusi topaketa guztiak
           new_meeting: Topaketa berria

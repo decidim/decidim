@@ -390,6 +390,13 @@ module Decidim
     []
   end
 
+  # This is an internal key that allow us to properly configure the caching key separator. This is useful for redis cache store
+  # as it creates some namespaces within the cached data.
+  # use `config.cache_key_separator = ":"` in your initializer to have namespaced data
+  config_accessor :cache_key_separator do
+    "/"
+  end
+
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #

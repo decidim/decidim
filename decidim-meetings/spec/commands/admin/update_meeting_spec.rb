@@ -31,7 +31,8 @@ module Decidim::Meetings
     let(:available_slots) { 0 }
     let(:customize_registration_email) { true }
     let(:registration_email_custom_content) { { "en" => "The registration email custom content." } }
-    let(:show_embedded_iframe) { false }
+    let(:iframe_embed_type) { "none" }
+    let(:iframe_access_level) { nil }
 
     let(:form) do
       double(
@@ -59,10 +60,11 @@ module Decidim::Meetings
         online_meeting_url: online_meeting_url,
         customize_registration_email: customize_registration_email,
         registration_email_custom_content: registration_email_custom_content,
-        show_embedded_iframe: show_embedded_iframe,
+        iframe_embed_type: iframe_embed_type,
         comments_enabled: true,
         comments_start_time: nil,
-        comments_end_time: nil
+        comments_end_time: nil,
+        iframe_access_level: iframe_access_level
       )
     end
 
@@ -116,6 +118,12 @@ module Decidim::Meetings
         expect(meeting.registration_email_custom_content).to eq(registration_email_custom_content)
       end
 
+      it "sets iframe_access_level" do
+        subject.call
+
+        expect(meeting.iframe_access_level).to eq(iframe_access_level)
+      end
+
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:update!)
@@ -159,10 +167,11 @@ module Decidim::Meetings
             online_meeting_url: online_meeting_url,
             customize_registration_email: customize_registration_email,
             registration_email_custom_content: registration_email_custom_content,
-            show_embedded_iframe: show_embedded_iframe,
+            iframe_embed_type: iframe_embed_type,
             comments_enabled: true,
             comments_start_time: nil,
-            comments_end_time: nil
+            comments_end_time: nil,
+            iframe_access_level: iframe_access_level
           )
         end
 

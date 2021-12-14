@@ -59,11 +59,6 @@ el:
       read_more: Διαβάστε περισσότερα
     components:
       blogs:
-        actions:
-          amend: Τροποποιήση
-          comment: Σχόλιο
-          endorse: Υποστηρίξτε το
-          vote: Ψηφίστε
         name: Ιστολόγιο
         settings:
           global:

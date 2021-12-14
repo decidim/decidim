@@ -3,7 +3,7 @@ ro:
     attributes:
       consultation:
         banner_image: Imagine banner
-        decidim_highlighted_scope_id: Domeniul de aplicare
+        decidim_highlighted_scope_id: Domeniu evidențiat
         description: Descriere
         end_voting_date: Votarea se termină
         introductory_image: Imagine introductivă
@@ -15,21 +15,21 @@ ro:
         title: Titlu
       question:
         banner_image: Imagine banner
-        decidim_scope_id: Suprafață municipală
+        decidim_scope_id: Perimetru de aplicare
         hashtag: Hashtag
         hero_image: Imagine acasă
         i_frame_url: URL sistem de vot extern
         instructions: Instrucțiuni suplimentare pentru votare
         max_votes: Numărul maxim de voturi
         min_votes: Numărul minim de voturi
-        origin_scope: Domeniu
+        origin_scope: Domeniu de interes
         origin_title: Origine
         origin_url: URL Origine
-        participatory_scope: Domeniul de aplicare participativ
+        participatory_scope: Domeniul participativ
         promoter_group: Grup promotor
         question_context: Context
         reference: Referință
-        scope: Suprafață municipală
+        scope: Perimetru de aplicare
         slug: URL slug
         subtitle: Subtitrare
         vote: Sistem de vot extern
@@ -102,13 +102,13 @@ ro:
         edit:
           update: Actualizare
         form:
-          slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică această consultare. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+          slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică această consultare. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
           title: Informaţii generale
         index:
           not_published: Nepublicat
           published: Publicat
         new:
-          create: Crează
+          create: Creează
           title: Consultare nouă
         results:
           not_visible: Rezultatele vor fi disponibile atunci când consultarea va fi închisă
@@ -185,7 +185,7 @@ ro:
           not_published: Nu este publicat
           published: Publicat
         new:
-          create: Crează
+          create: Creează
           title: Întrebare nouă
         update:
           error: A apărut o problemă la actualizarea acestei întrebări.
@@ -203,7 +203,7 @@ ro:
           title: Informaţii generale
         help: Folosește grupuri pentru a organiza întrebări de opțiuni multiple în pachete.
         new:
-          create: Crează
+          create: Creează
           title: Grup de răspuns nou
         update:
           error: A apărut o eroare la actualizarea acestui răspuns.
@@ -220,7 +220,7 @@ ro:
         form:
           title: Informaţii generale
         new:
-          create: Crează
+          create: Creează
           title: Răspuns nou
         update:
           error: A apărut o eroare la actualizarea acestui răspuns.
@@ -331,8 +331,8 @@ ro:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>O <strong>consultare</strong> este un spaţiu care vă permite să adresaţi o întrebare clară tuturor persoanelor care formează o organizaţie, să facă un apel la participarea la consultare, să declanşeze şi să ordone dezbaterea pentru sau împotriva unui răspuns. Când va sosi data consultării, puteţi vota şi publica rezultatele voturilor.</p> <p>Exemple: Consultările pot fi despre aproape orice aspect care afectează o organizaţie: unele exemple schimbă numele sau logo-ul organizaţiei care oferă mai multe alternative, decizia de a nu deveni parte a unei organizații mai mari, de a valida sau respinge un nou plan strategic sau rezultatul unui grup de lucru; fie de a defini dacă pozițiile ar trebui să rămână maximum 1, 2 sau 3 mandate.</p>\n"
-          page: "<p>O <strong>consultare</strong> este un spaţiu care vă permite să adresaţi o întrebare clară tuturor persoanelor care formează o organizaţie, să facă un apel la participarea la consultare, să declanşeze şi să ordone dezbaterea pentru sau împotriva unui răspuns. Când va sosi data consultării, puteţi vota şi publica rezultatele voturilor.</p> <p>Exemple: Consultările pot fi despre aproape orice aspect care afectează o organizaţie: unele exemple schimbă numele sau logo-ul organizaţiei care oferă mai multe alternative, decizia de a nu deveni parte a unei organizații mai mari, de a valida sau respinge un nou plan strategic sau rezultatul unui grup de lucru; fie de a defini dacă pozițiile rămân maximum 1, 2 sau 3 mandate în cadrul organizației.</p>\n"
+          contextual: "<p>O <strong>consultare</strong> este un spaţiu care îți permite să adresezi o întrebare clară tuturor persoanelor care formează o organizaţie sau un grup de lucru, să faci un apel la participarea la consultare, să demarezi şi să ordonezi dezbaterea pentru sau împotriva unui răspuns. Când va sosi data consultării, poţi vota şi publica rezultatele voturilor.</p> <p>Exemple: Consultările pot fi despre aproape orice aspect care afectează o organizaţie sau un grup de lucru: câteva exemple ar fi schimbarea numelui sau logo-ul organizaţiei oferind mai multe alternative, decizia de a nu deveni parte a unei organizații mai mari, de a valida sau respinge un nou plan strategic sau rezultatul unui grup de lucru, sau de de a decide dacă pozițiile ar trebui să rămână maximum 1, 2 sau 3 mandate.</p>\n"
+          page: "<p>O <strong>consultare</strong> este un spaţiu care îți permite să adresezi o întrebare clară tuturor persoanelor care formează o organizaţie sau un grup de lucru, să faci un apel la participarea la consultare, să demarezi şi să ordonezi dezbaterea pentru sau împotriva unui răspuns. Când va sosi data consultării, poţi vota şi publica rezultatele voturilor.</p> <p>Exemple: Consultările pot fi despre aproape orice aspect care afectează o organizaţie sau un grup de lucru: câteva exemple ar fi schimbarea numelui sau logo-ul organizaţiei oferind mai multe alternative, decizia de a nu deveni parte a unei organizații mai mari, de a valida sau respinge un nou plan strategic sau rezultatul unui grup de lucru, sau de de a decide dacă pozițiile ar trebui să rămână maximum 1, 2 sau 3 mandate.</p>\n"
           title: Ce sunt consultările?
     menu:
       consultations: Consultări
@@ -369,6 +369,7 @@ ro:
     resources:
       consultations:
         actions:
+          comment: Comentează
           vote: Votează
     statistics:
       consultations_count: Consultări

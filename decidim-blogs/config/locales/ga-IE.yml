@@ -43,11 +43,6 @@ ga:
           comments: tráchtanna
     components:
       blogs:
-        actions:
-          amend: Leasaigh
-          comment: Tabhair Trácht
-          endorse: Formhuinigh
-          vote: Vótáil
         name: Blag
         settings:
           step:

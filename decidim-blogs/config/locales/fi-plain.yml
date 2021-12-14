@@ -60,10 +60,9 @@ fi-pl:
     components:
       blogs:
         actions:
-          amend: Muokkaa
-          comment: Kommentoi
-          endorse: Suosittele
-          vote: Äänestä
+          create: Luo
+          destroy: Poista
+          update: Päivitä
         name: Blogi
         settings:
           global:

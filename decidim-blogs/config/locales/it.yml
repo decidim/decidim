@@ -59,11 +59,6 @@ it:
       read_more: Leggi di più
     components:
       blogs:
-        actions:
-          amend: Rettifica
-          comment: Commento
-          endorse: Appoggia
-          vote: Vota
         name: blog
         settings:
           global:

@@ -26,5 +26,5 @@ To download our key:
 
 [source,bash]
 ----
-gpg --keyserver pgp.key-server.io --recv 84B935C4
+gpg --keyserver pgp.mit.edu --recv 84B935C4
 ----
