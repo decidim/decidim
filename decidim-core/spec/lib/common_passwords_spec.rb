@@ -4,42 +4,35 @@ require "spec_helper"
 
 module Decidim
   describe CommonPasswords do
-    let(:subject) do
-      Class.new(described_class) do
-        def password_list_path
-          Rails.root.join("tmp/common-passwords.txt")
-        end
-      end.instance
-    end
+    let(:subject) { described_class }
+
     let(:organization) { create(:organization) }
-    let(:dummy_data) do
-      double(
-        read: example_passwords
-      )
-    end
-    let(:example_passwords) { "VJHT29061987 1234567890 q1w2e3r4t5 tooshort" }
+    let(:example_passwords) { %w(VJHT29061987 1234567890 q1w2e3r4t5 tooshort 0000000000) }
     let(:urls) { Decidim::CommonPasswords::URLS }
 
-    before do
-      urls.each do |request_url|
-        stub_request(:get, request_url)
-          .with(
-            headers: { "Accept" => "*/*", "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3", "User-Agent" => "Ruby" }
-          ).to_return(status: 200, body: example_passwords, headers: {})
+    context "when file exists and request returns body" do
+      before do
+        stub_const "#{subject}::COMMON_PASSWORDS_PATH", Rails.root.join("tmp/common-passwords.txt")
+        urls.each do |request_url|
+          stub_request(:get, request_url)
+            .with(
+              headers: { "Accept" => "*/*", "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3", "User-Agent" => "Ruby" }
+            ).to_return(status: 200, body: example_passwords.join("\n"), headers: {})
+        end
       end
-    end
 
-    describe "#passwords" do
-      it "returns passwords" do
-        expect(subject.passwords).to be_kind_of(Array)
+      describe "#passwords" do
+        it "returns passwords" do
+          expect(subject.instance.passwords).to be_kind_of(Array)
+        end
       end
-    end
 
-    describe "#update_passwords!" do
-      it "opens file for writing" do
-        subject.update_passwords!
+      describe "#update_passwords!" do
+        it "updates passwords" do
+          subject.update_passwords!
 
-        expect(subject.passwords).to eq(example_passwords.split.slice(0..-2))
+          expect(subject.instance.passwords).to eq(example_passwords.reject { |item| item.length < 10 })
+        end
       end
     end
   end

@@ -6,7 +6,7 @@ namespace :decidim do
   namespace :common_passwords do
     desc "Update common passwords list"
     task :update do
-      Decidim::CommonPasswords.instance.update_passwords!
+      Decidim::CommonPasswords.update_passwords!
     end
   end
 end
