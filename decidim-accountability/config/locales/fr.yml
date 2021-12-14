@@ -38,7 +38,7 @@ fr:
         destroy: Supprimer
         edit: Modifier
         import_csv: Importer un fichier CSV
-        new: Nouveau %{name}
+        new: Nouvelle %{name}
         preview: Aperçu
         timeline_entries: Évolution de la réalisation
         title: Actions
