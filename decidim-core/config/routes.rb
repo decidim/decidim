@@ -31,6 +31,8 @@ Decidim::Core::Engine.routes.draw do
     post "omniauth_registrations" => "devise/omniauth_registrations#create"
   end
 
+  resource :manifest, only: [:show]
+
   resource :locale, only: [:create]
 
   Decidim.participatory_space_manifests.each do |manifest|
