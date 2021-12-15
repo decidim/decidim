@@ -6,15 +6,17 @@ module Decidim
       include Decidim::ComponentPathHelper
 
       helper_method :reminder_manifest
+
       def new
-        # enforce_permission_to :create, :budget MAKE IT GREAT AGAIN
+        enforce_permission_to :create, :reminder
 
         @form = reminder_form_from_params({ name: reminder_manifest.name })
         render :new
       end
 
       def create
-        # enforce_permission_to :create, :budget PLZ ENFORCE SOME PERMISSIONS
+        enforce_permission_to :create, :reminder
+
         @form = reminder_form_from_params(params)
 
         command_class.call(@form) do
@@ -32,7 +34,7 @@ module Decidim
 
       private
 
-      def reminder_form_from_params(params = {})
+      def reminder_form_from_params(params)
         form(reminder_manifest.form_class).from_params(
           params,
           current_component: current_component
@@ -40,7 +42,11 @@ module Decidim
       end
 
       def reminder_manifest
-        @reminder_manifest ||= Decidim.reminders_registry.for(:orders)
+        @reminder_manifest ||= Decidim.reminders_registry.for(reminder_name)
+      end
+
+      def reminder_name
+        params[:name]
       end
 
       def command_class
