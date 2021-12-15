@@ -1,5 +1,4 @@
 ---
-
 en:
   activemodel:
     attributes:
@@ -135,7 +134,6 @@ en:
           resize_and_pad: Resized and padded to
           resize_to_fit: Resized to fit
       question_types:
-        text_separator: Text separator
         files: Files
         long_answer: Long answer
         matrix_multiple: Matrix (Multiple option)
@@ -144,6 +142,7 @@ en:
         short_answer: Short answer
         single_option: Single option
         sorting: Sorting
+        text_separator: Text separator
       questionnaires:
         answer:
           invalid: There was a problem answering the form.
