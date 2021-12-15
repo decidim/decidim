@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card with-overflow">
   <div class="card-divider">
     <h2 class="card-title">
       <%= t(".title") %>
@@ -25,6 +25,12 @@
         </table>
       </div>
     </h2>
+  </div>
+
+  <div class="card-section fcell grid-x">
+    <div class="cell auto text-right">
+      <%= admin_filters_pagination %>
+    </div>
   </div>
 
   <div class="card-section">
@@ -73,6 +79,7 @@
         <% end %>
         </tbody>
       </table>
+      <%= paginate @moderated_users, theme: "decidim" %>
     </div>
   </div>
 </div>

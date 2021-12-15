@@ -10,7 +10,7 @@ module Decidim
       def index
         enforce_permission_to :read, :moderate_users
 
-        @moderated_users = filtered_collection.page(params[:page]).per(15)
+        @moderated_users = filtered_collection
       end
 
       def ignore
