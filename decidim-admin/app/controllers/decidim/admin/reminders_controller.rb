@@ -19,12 +19,12 @@ module Decidim
 
         command_class.call(@form) do
           on(:ok) do |reminders_queued|
-            flash[:notice] = t("decidim.reminders.create.success", count: reminders_queued)
+            flash[:notice] = t("decidim.admin.reminders.create.success", count: reminders_queued)
             redirect_to manage_component_path(current_component)
           end
 
           on(:invalid) do
-            flash.now[:alert] = t("decidim.reminders.create.error")
+            flash.now[:alert] = t("decidim.admin.reminders.create.error")
             render :new
           end
         end

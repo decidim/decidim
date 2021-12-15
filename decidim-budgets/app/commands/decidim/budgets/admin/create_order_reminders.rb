@@ -13,17 +13,30 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
           return broadcast(:invalid) unless voting_enabled?
 
-          generate
+          generator.generate_for(current_component, &alternative_activity_check)
 
-          broadcast(:ok, generator.reminders_sent)
+          broadcast(:ok, generator.reminder_jobs_queued)
         end
 
         private
 
         attr_reader :form
 
-        def generate
-          generator.generate_for(current_component)
+        def alternative_activity_check
+          proc do |reminder|
+            reminder.records.each do |record|
+              next if %w(active pending).exclude? record.state
+
+              record.state = begin
+                if reminder.deliveries.present? && reminder.deliveries.last.created_at > 24.hours.ago
+                  "pending"
+                else
+                  "active"
+                end
+              end
+              record.save if record.changed?
+            end
+          end
         end
 
         def generator

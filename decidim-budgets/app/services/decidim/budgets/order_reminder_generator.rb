@@ -5,11 +5,11 @@ module Decidim
     # This class is manager class which creates and updates order related reminders,
     # after reminder is generated it is send to user who have not checked out his/her/their vote.
     class OrderReminderGenerator
-      attr_reader :reminders_sent
+      attr_reader :reminder_jobs_queued
 
       def initialize
         @reminder_manifest = Decidim.reminders_registry.for(:orders)
-        @reminders_sent = 0
+        @reminder_jobs_queued = 0
       end
 
       # Creates reminders and updates them if they already exists.
@@ -19,7 +19,8 @@ module Decidim
         end
       end
 
-      def generate_for(component)
+      def generate_for(component, &block)
+        @alternative_activity_check = block
         send_reminders(component)
       end
 
@@ -37,7 +38,7 @@ module Decidim
           update_reminder_records(reminder, users_pending_orders)
           if reminder.records.active.any?
             Decidim::Budgets::SendVoteReminderJob.perform_later(reminder)
-            @reminders_sent += 1
+            @reminder_jobs_queued += 1
           end
         end
       end
@@ -59,18 +60,19 @@ module Decidim
 
       def add_pending_orders(reminder, users_pending_orders)
         reminder_records = users_pending_orders.map { |order| Decidim::ReminderRecord.find_or_create_by(reminder: reminder, remindable: order) }
+        return @alternative_activity_check.call(reminder) if @alternative_activity_check.present?
+
         reminder_records.each do |record|
-          activity_check(record) if %w(active pending).include? record.state
+          activity_check(record, reminder.deliveries.length) if %w(active pending).include? record.state
         end
       end
 
-      def activity_check(record)
-        delivered_count = record.reminder.deliveries.length
+      def activity_check(record, delivered_count)
         intervals = Array(reminder_manifest.settings.attributes[:reminder_times].default)
-        return record.update(state: "completed") if intervals.length <= delivered_count
+        return record.update(state: "pending") if delivered_count >= intervals.length
 
-        state = intervals[delivered_count] < Time.current - record.remindable.created_at ? "active" : "pending"
-        record.update(state: state)
+        record.state = intervals[delivered_count].ago < record.remindable.created_at ? "active" : "pending"
+        record.save if record.changed?
       end
 
       def voting_enabled?(component)

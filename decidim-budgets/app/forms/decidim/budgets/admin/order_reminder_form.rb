@@ -16,13 +16,15 @@ module Decidim
               next if order.user.email.blank?
 
               reminder = Decidim::Reminder.find_by(component: current_component, user: order.user)
-              next if reminder && reminder.deliveries.present? && reminder.deliveries.last.created_at > Time.current - 24.hours
+              next if reminder && reminder.deliveries.present? && reminder.deliveries.last.created_at > 24.hours.ago
 
               user_ids << order.user.id
             end
             user_ids.uniq.count
           end
         end
+
+        private
 
         def unfinished_orders
           @unfinished_orders ||= Decidim::Budgets::Order.where(budget: budgets, checked_out_at: nil)
@@ -31,8 +33,6 @@ module Decidim
         def voting_enabled?
           current_component.current_settings.votes == "enabled"
         end
-
-        private
 
         def budgets
           @budgets ||= Decidim::Budgets::Budget.where(component: current_component)
