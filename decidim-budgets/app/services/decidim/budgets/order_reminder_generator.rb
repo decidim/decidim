@@ -59,10 +59,10 @@ module Decidim
       end
 
       def add_pending_orders(reminder, users_pending_orders)
-        reminder_records = users_pending_orders.map { |order| Decidim::ReminderRecord.find_or_create_by(reminder: reminder, remindable: order) }
+        reminder.records = users_pending_orders.map { |order| Decidim::ReminderRecord.find_or_create_by(reminder: reminder, remindable: order) }
         return @alternative_activity_check.call(reminder) if @alternative_activity_check.present?
 
-        reminder_records.each do |record|
+        reminder.records.each do |record|
           activity_check(record, reminder.deliveries.length) if %w(active pending).include? record.state
         end
       end
@@ -71,7 +71,7 @@ module Decidim
         intervals = Array(reminder_manifest.settings.attributes[:reminder_times].default)
         return record.update(state: "pending") if delivered_count >= intervals.length
 
-        record.state = intervals[delivered_count].ago < record.remindable.created_at ? "active" : "pending"
+        record.state = intervals[delivered_count].ago > record.remindable.created_at ? "active" : "pending"
         record.save if record.changed?
       end
 

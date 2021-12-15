@@ -28,7 +28,8 @@ module Decidim
               next if %w(active pending).exclude? record.state
 
               record.state = begin
-                if reminder.deliveries.present? && reminder.deliveries.last.created_at > 24.hours.ago
+                if record.remindable.created_at > minimum_time_between_reminders ||
+                   (reminder.deliveries.present? && reminder.deliveries.last.created_at > minimum_time_between_reminders)
                   "pending"
                 else
                   "active"
@@ -37,6 +38,10 @@ module Decidim
               record.save if record.changed?
             end
           end
+        end
+
+        def minimum_time_between_reminders
+          form.minimum_interval_between_reminders.ago
         end
 
         def generator
