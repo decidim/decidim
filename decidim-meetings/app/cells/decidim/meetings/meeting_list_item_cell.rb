@@ -15,10 +15,10 @@ module Decidim
 
       def cache_hash
         hash = []
-        hash << I18n.locale.to_s
-        hash << model.cache_key_with_version
-        hash << Digest::MD5.hexdigest(model.component.cache_key_with_version)
-        hash << (model.must_render_translation?(current_organization) ? 1 : 0) if model.respond_to?(:must_render_translation?)
+        hash.push(I18n.locale.to_s)
+        hash.push(model.cache_key_with_version)
+        hash.push(model.component.cache_key_with_version)
+        hash.push(model.must_render_translation?(current_organization) ? 1 : 0) if model.respond_to?(:must_render_translation?)
 
         hash.join(Decidim.cache_key_separator)
       end

@@ -13,7 +13,7 @@ module Decidim
         hash = []
         hash.push(I18n.locale)
         hash.push(model.id)
-        hash.push(current_user.id)
+        hash.push(current_user.try(:id))
         hash.join(Decidim.cache_key_separator)
       end
 
