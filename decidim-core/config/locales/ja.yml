@@ -44,7 +44,7 @@ ja:
     attributes:
       decidim/user:
         current_password: 現在のパスワード
-        email: Eメールアドレス
+        email: メールアドレス
         name: アカウントID
         password: パスワード
         password_confirmation: パスワードの確認
@@ -72,6 +72,12 @@ ja:
       decidim_with_day_and_month_name: "%Y %b %d %A"
       decidim_with_month_name: "%Y %B %d"
       decidim_with_month_name_short: "%b %d"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        other: 約 %{count} 時間
+      about_x_months:
+        other: 約%{count} ヶ月
   decidim:
     accessibility:
       external_link: 外部リンク
