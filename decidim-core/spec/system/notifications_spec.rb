@@ -125,7 +125,7 @@ describe "Notifications", type: :system do
       links = page.all(".card.card--widget a")
       hrefs = links.find { |link| link[:href].include?(comment_definition_string) }
 
-      expect(hrefs).not_to be(nil)
+      expect(hrefs).not_to be_nil
     end
   end
 end
