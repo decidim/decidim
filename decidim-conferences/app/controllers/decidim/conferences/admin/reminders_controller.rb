@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module ParticipatoryProcesses
+  module Conferences
     module Admin
       # This controller allows to send reminders.
       # It is targeted for customizations for reminder things that lives under
