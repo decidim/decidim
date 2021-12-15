@@ -42,10 +42,6 @@ fr:
         type_of_meeting: Type
     errors:
       models:
-        meeting:
-          attributes:
-            show_embedded_iframe:
-              not_embeddable: Cette URL ne peut pas être intégrée
         meeting_agenda:
           attributes:
             base:
@@ -279,6 +275,9 @@ fr:
           edit:
             close: Clore
             title: Clore la rencontre
+        meeting_copies:
+          form:
+            select_a_meeting_type: Veuillez sélectionner un type de rencontre
         meetings:
           close:
             invalid: Il y a eu un problème au moment de clore cette rencontre
@@ -306,7 +305,6 @@ fr:
             registration_url_help: 'Lien : permet aux participants de partir sur le service externe que vous utilisez pour les inscriptions'
             select_a_meeting_type: Veuillez sélectionner un type de rencontre
             select_a_registration_type: Veuillez sélectionner un type d'inscription
-            show_embedded_iframe_help: Intégrer ou non l'iframe correspondant à cette URL de vidéoconférence. Seuls quelques services permettent l'intégration (c.-à-d. Youtube, Twitch...)
           index:
             title: Rencontres
           new:
@@ -480,7 +478,6 @@ fr:
           select_a_category: Veuillez sélectionner une catégorie
           select_a_meeting_type: Veuillez sélectionner un type de rencontre
           select_a_registration_type: Veuillez sélectionner un type d'inscription
-          show_embedded_iframe_help: Intégrer ou non l'iframe correspondant à cette URL de vidéoconférence. Seuls quelques services permettent l'intégration (c.-à-d. Youtube, Twitch...)
         index:
           click_here: Voir toutes les réunions
           new_meeting: Nouvelle rencontre

@@ -42,10 +42,6 @@ ro:
         type_of_meeting: Tip
     errors:
       models:
-        meeting:
-          attributes:
-            show_embedded_iframe:
-              not_embeddable: Acest URL nu poate fi încorporat
         meeting_agenda:
           attributes:
             base:
@@ -314,7 +310,6 @@ ro:
             registration_url_help: 'Link: permite participanților să acceseze serviciul extern pe care îl utilizezi pentru înregistrare'
             select_a_meeting_type: Te rugăm să selectezi un tip de ședință
             select_a_registration_type: Te rugăm să selectezi un tip de înregistrare
-            show_embedded_iframe_help: Indiferent dacă iframe este încorporat sau nu în acest URL pentru videoconferință. Doar câteva servicii permit încorporarea (de exemplu, Youtube, Twitch...)
           index:
             title: Întâlniri
           new:
@@ -490,7 +485,6 @@ ro:
           select_a_category: Te rugăm să selectezi o categorie
           select_a_meeting_type: Te rugăm să selectezi un tip de ședință
           select_a_registration_type: Te rugăm să selectezi un tip de înregistrare
-          show_embedded_iframe_help: Indiferent dacă iframe este încorporat sau nu în acest URL pentru videoconferință. Doar câteva servicii permit încorporarea (de exemplu, Youtube, Twitch...)
         index:
           click_here: Vezi toate întâlnirile
           new_meeting: Întâlnire nouă

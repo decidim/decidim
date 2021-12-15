@@ -87,6 +87,28 @@ describe "User edit meeting", type: :system do
         expect(page).to have_content("problem updating")
       end
     end
+
+    context "when rich_text_editor_in_public_views is disabled" do
+      before { organization.update(rich_text_editor_in_public_views: false) }
+
+      it "displays the description not wrapped in ql-editor div" do
+        visit_component
+
+        click_link translated(meeting.title)
+        click_link "Edit meeting"
+
+        expect(page).to have_content "EDIT YOUR MEETING"
+
+        within "form.edit_meeting" do
+          expect(page).to have_no_css("div.ql-editor")
+        end
+
+        within "textarea#meeting_description" do
+          expect(page).to have_content translated(meeting.description)
+          expect(page).to have_no_content '<div class="ql-editor ql-reset-decidim">'
+        end
+      end
+    end
   end
 
   describe "editing someone else's meeting" do

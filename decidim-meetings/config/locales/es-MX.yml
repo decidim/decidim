@@ -42,10 +42,6 @@ es-MX:
         type_of_meeting: Tipo
     errors:
       models:
-        meeting:
-          attributes:
-            show_embedded_iframe:
-              not_embeddable: Esta URL no puede ser incrustada
         meeting_agenda:
           attributes:
             base:
@@ -309,7 +305,6 @@ es-MX:
             registration_url_help: 'Enlace: permitir a las participantes ir al servicio externo que estás utilizando para las inscripciones'
             select_a_meeting_type: Por favor, selecciona un tipo de encuentro
             select_a_registration_type: Por favor, seleccione un tipo de inscripción
-            show_embedded_iframe_help: Incrustar o no el iframe para esta URL de videoconferencia. Sólo algunos servicios permiten incrustar (por ejemplo, Youtube, Twitch, etc.)
           index:
             title: Encuentros
           new:
@@ -474,7 +469,6 @@ es-MX:
           select_a_category: Por favor, selecciona una categoría
           select_a_meeting_type: Por favor, selecciona un tipo de encuentro
           select_a_registration_type: Por favor, selecciona un tipo de inscripción
-          show_embedded_iframe_help: Incrustar o no el iframe para esta URL de videoconferencia. Sólo algunos servicios permiten incrustar (por ejemplo, Youtube, Twitch, etc.)
         index:
           new_meeting: Nuevo encuentro
         meeting_minutes:

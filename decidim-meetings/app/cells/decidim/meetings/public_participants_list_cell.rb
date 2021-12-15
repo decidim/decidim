@@ -10,6 +10,7 @@ module Decidim
     #
     #    cell("decidim/public_participants_list", meeting)
     class PublicParticipantsListCell < Decidim::ViewModel
+      include Decidim::Meetings::MeetingsHelper
       include ApplicationHelper
 
       def show

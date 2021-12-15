@@ -7,7 +7,7 @@ describe "I18n sanity" do
     ENV["ENFORCED_LOCALES"].presence || "en"
   end
 
-  let(:i18n) { I18n::Tasks::BaseTask.new(locales: locales.split(",")) }
+  let(:i18n) { I18n::Tasks::BaseTask.new({ locales: locales.split(",") }, config_file: nil) }
   let(:missing_keys) { i18n.missing_keys }
   let(:unused_keys) { i18n.unused_keys }
   let(:non_normalized_paths) { i18n.non_normalized_paths }
@@ -16,7 +16,7 @@ describe "I18n sanity" do
   it "correct Norwegian locale keys should be surrounded by quotation marks" do
     # otherwise psych evaluates `no:` to `false`
     # see https://makandracards.com/makandra/24809-yaml-keys-like-yes-or-no-evaluate-to-true-and-false
-    i18n = I18n::Tasks::BaseTask.new(locales: "no")
+    i18n = I18n::Tasks::BaseTask.new({ locales: "no" }, config_file: nil)
     forest = i18n.data_forest(["no"])
     stats = i18n.forest_stats(forest)
     expect(stats[:locales]).to eq("no")

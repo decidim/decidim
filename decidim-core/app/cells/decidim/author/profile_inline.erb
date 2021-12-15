@@ -1,5 +1,5 @@
 <span class="author__avatar">
-  <%= image_tag model.avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(author_name)) %>
+  <%= image_tag model.avatar_url(:thumb), alt: t("decidim.author.avatar", name: decidim_sanitize(author_name)) %>
 </span>
 
 <% if model.deleted? %>

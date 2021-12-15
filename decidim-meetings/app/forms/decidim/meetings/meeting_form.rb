@@ -3,44 +3,32 @@
 module Decidim
   module Meetings
     # This class holds a Form to create/update meetings for Participants and UserGroups.
-    class MeetingForm < Decidim::Form
+    class MeetingForm < ::Decidim::Meetings::BaseMeetingForm
       attribute :title, String
       attribute :description, String
       attribute :location, String
       attribute :location_hints, String
 
-      attribute :address, String
-      attribute :latitude, Float
-      attribute :longitude, Float
-      attribute :start_time, Decidim::Attributes::TimeWithZone
-      attribute :end_time, Decidim::Attributes::TimeWithZone
       attribute :decidim_scope_id, Integer
       attribute :decidim_category_id, Integer
       attribute :user_group_id, Integer
-      attribute :online_meeting_url, String
-      attribute :type_of_meeting, String
       attribute :registration_type, String
       attribute :registrations_enabled, Boolean, default: false
       attribute :registration_url, String
       attribute :available_slots, Integer, default: 0
       attribute :registration_terms, String
-      attribute :show_embedded_iframe, Boolean, default: false
+      attribute :iframe_embed_type, String, default: "none"
 
+      validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.iframe_embed_types }
       validates :title, presence: true
       validates :description, presence: true
       validates :type_of_meeting, presence: true
       validates :location, presence: true, if: ->(form) { form.in_person_meeting? || form.hybrid_meeting? }
-      validates :address, presence: true, if: ->(form) { form.needs_address? }
-      validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? && form.needs_address? }
       validates :online_meeting_url, presence: true, url: true, if: ->(form) { form.online_meeting? || form.hybrid_meeting? }
       validates :registration_type, presence: true
       validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, presence: true, if: ->(form) { form.on_this_platform? }
       validates :registration_terms, presence: true, if: ->(form) { form.on_this_platform? }
       validates :registration_url, presence: true, url: true, if: ->(form) { form.on_different_platform? }
-      validates :start_time, presence: true, date: { before: :end_time }
-      validates :end_time, presence: true, date: { after: :start_time }
-
-      validates :current_component, presence: true
       validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
       validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
@@ -51,7 +39,7 @@ module Decidim
 
       def map_model(model)
         self.decidim_category_id = model.categorization.decidim_category_id if model.categorization
-        presenter = MeetingPresenter.new(model)
+        presenter = MeetingEditionPresenter.new(model)
         self.title = presenter.title(all_locales: false)
         self.description = presenter.description(all_locales: false)
         self.location = presenter.location(all_locales: false)
@@ -82,34 +70,6 @@ module Decidim
         @category ||= categories.find_by(id: decidim_category_id)
       end
 
-      def geocoding_enabled?
-        Decidim::Map.available?(:geocoding)
-      end
-
-      def has_address?
-        geocoding_enabled? && address.present?
-      end
-
-      def needs_address?
-        in_person_meeting? || hybrid_meeting?
-      end
-
-      def geocoded?
-        latitude.present? && longitude.present?
-      end
-
-      def online_meeting?
-        type_of_meeting == "online"
-      end
-
-      def in_person_meeting?
-        type_of_meeting == "in_person"
-      end
-
-      def hybrid_meeting?
-        type_of_meeting == "hybrid"
-      end
-
       def clean_type_of_meeting
         type_of_meeting.presence
       end
@@ -118,6 +78,15 @@ module Decidim
         Decidim::Meetings::Meeting::TYPE_OF_MEETING.map do |type|
           [
             I18n.t("type_of_meeting.#{type}", scope: "decidim.meetings"),
+            type
+          ]
+        end
+      end
+
+      def iframe_embed_type_select
+        Decidim::Meetings::Meeting.iframe_embed_types.map do |type, _value|
+          [
+            I18n.t("iframe_embed_type.#{type}", scope: "decidim.meetings"),
             type
           ]
         end
@@ -145,9 +114,9 @@ module Decidim
       end
 
       def embeddable_meeting_url
-        if online_meeting_url.present? && show_embedded_iframe
+        if online_meeting_url.present? && %w(embed_in_meeting_page open_in_live_event_page).include?(iframe_embed_type)
           embedder_service = Decidim::Meetings::MeetingIframeEmbedder.new(online_meeting_url)
-          errors.add(:show_embedded_iframe, :not_embeddable) unless embedder_service.embeddable?
+          errors.add(:iframe_embed_type, :not_embeddable) unless embedder_service.embeddable?
         end
       end
     end
