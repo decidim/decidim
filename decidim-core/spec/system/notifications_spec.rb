@@ -113,7 +113,10 @@ describe "Notifications", type: :system do
   end
 
   context "with user group mentioned notifications" do
-    let!(:notification) { create :notification, :user_group_mentioned_notification, user: user }
+    let(:event_class) { "Decidim::Comments::UserGroupMentionedEvent" }
+    let(:event_name) { "decidim.events.comments.user_group_mentioned" }
+    let(:extra) { { comment_id: create(:comment).id, group_id: create(:user_group).id } }
+    let!(:notification) { create :notification, user: user, event_class: event_class, event_name: event_name, extra: extra }
 
     before do
       page.visit decidim.notifications_path
