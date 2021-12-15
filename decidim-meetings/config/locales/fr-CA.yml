@@ -566,6 +566,8 @@ fr-CA:
           published_question:
             max_choices_alert: Il y a trop de choix sélectionnés
             question: Question
+            question_replied: Réponse envoyée
+            reply_question: Répondre
       public_participants_list:
         attending_participants: Participants présents
         hidden_participants_count:
