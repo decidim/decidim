@@ -10,7 +10,7 @@ describe Decidim::Comments::UserGroupMentionedEvent do
   let(:extra) do
     {
       comment_id: comment.id,
-      group: group
+      group_id: group.id
     }
   end
 
