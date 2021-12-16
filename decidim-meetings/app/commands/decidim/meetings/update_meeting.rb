@@ -23,7 +23,7 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         transaction do
-          I18n.with_locale(form.locale) { update_meeting! }
+          update_meeting!
           send_notification if should_notify_followers?
           schedule_upcoming_meeting_notification if start_time_changed?
         end

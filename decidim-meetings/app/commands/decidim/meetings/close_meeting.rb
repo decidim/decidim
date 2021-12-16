@@ -21,7 +21,7 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         transaction do
-          I18n.with_locale(form.locale) { close_meeting }
+          close_meeting
           link_proposals
         end
 

@@ -18,7 +18,7 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         transaction do
-          I18n.with_locale(form.locale) { create_meeting! }
+          create_meeting!
           schedule_upcoming_meeting_notification
           send_notification
         end

@@ -40,9 +40,7 @@ module Decidim
         end
 
         transaction do
-          I18n.with_locale(form.locale) do
-            @proposal.draft? ? update_draft : update_proposal
-          end
+          @proposal.draft? ? update_draft : update_proposal
 
           create_gallery if process_gallery?
           create_attachments if process_attachments?

@@ -19,8 +19,7 @@ module Decidim
             "body" => body,
             "alignment" => alignment,
             "user_group_id" => user_group_id,
-            "commentable" => object,
-            "locale" => context[:current_organization].default_locale.to_s
+            "commentable" => object
           }
         }
         form = Decidim::Comments::CommentForm.from_params(params).with_context(

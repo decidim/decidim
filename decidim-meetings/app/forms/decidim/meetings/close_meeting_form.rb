@@ -9,7 +9,6 @@ module Decidim
       attribute :proposals
       attribute :closed_at, Decidim::Attributes::TimeWithZone, default: ->(_form, _attribute) { Time.current }
       attribute :attendees_count, Integer, default: 0
-      attribute :locale
 
       validates :closing_report, presence: true
       validates :attendees_count,

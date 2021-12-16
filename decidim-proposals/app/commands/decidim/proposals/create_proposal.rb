@@ -33,7 +33,7 @@ module Decidim
         end
 
         transaction do
-          I18n.with_locale(form.locale) { create_proposal }
+          create_proposal
         end
 
         broadcast(:ok, proposal)

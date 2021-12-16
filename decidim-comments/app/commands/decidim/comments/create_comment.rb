@@ -21,7 +21,7 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        I18n.with_locale(form.locale) { create_comment }
+        create_comment
 
         broadcast(:ok, comment)
       end

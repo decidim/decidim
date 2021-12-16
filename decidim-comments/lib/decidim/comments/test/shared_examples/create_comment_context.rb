@@ -9,7 +9,6 @@ RSpec.shared_context "when creating a comment" do
   let(:dummy_resource) { create :dummy_resource, component: component }
   let(:commentable) { dummy_resource }
   let(:body) { ::Faker::Lorem.paragraph }
-  let(:locale) { "en" }
   let(:alignment) { 1 }
   let(:user_group_id) { nil }
   let(:form_params) do
@@ -18,8 +17,7 @@ RSpec.shared_context "when creating a comment" do
         "body" => body,
         "alignment" => alignment,
         "user_group_id" => user_group_id,
-        "commentable" => commentable,
-        "locale" => locale
+        "commentable" => commentable
       }
     }
   end
