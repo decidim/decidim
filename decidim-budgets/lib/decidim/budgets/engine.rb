@@ -52,6 +52,11 @@ module Decidim
           reminder_registry.settings do |settings|
             settings.attribute :reminder_times, type: :array, default: [2.hours, 1.week, 2.weeks]
           end
+
+          reminder_registry.messages do |msg|
+            msg.set(:title) { |count: 0| I18n.t("decidim.budgets.admin.reminders.orders.title", count: count) }
+            msg.set(:description) { I18n.t("decidim.budgets.admin.reminders.orders.description") }
+          end
         end
       end
     end

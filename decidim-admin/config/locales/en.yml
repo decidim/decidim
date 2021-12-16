@@ -829,10 +829,11 @@ en:
       reminders:
         create:
           error: There was a problem creating reminders.
-          success: "%{count} users will be reminded."
+          success:
+            one: "%{count} user will be reminded."
+            other: "%{count} users will be reminded."
         new:
           submit: Send
-          title: You are about to send a reminder to %{count} people
       resource_permissions:
         edit:
           submit: Submit

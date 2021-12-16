@@ -93,6 +93,12 @@ en:
             no_components: There are no other proposal components in this participatory space to import the proposals into projects.
             select_component: Please select a component
             title: Import proposals
+        reminders:
+          orders:
+            title:
+              one: "You are about to send an email reminder to %{count} user"
+              other: "You are about to send an email reminder to %{count} users"
+            description: Users will receive an email with links to the budgets where they have pending order.
       admin_log:
         budget:
           create: "%{user_name} created the %{resource_name} budget in the %{space_name} space"

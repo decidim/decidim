@@ -9,12 +9,18 @@ module Decidim
     include ActiveModel::Model
     include Virtus.model
 
-    attribute :name, String
     attribute :manager_class_name, String
     attribute :form_class_name, String
     attribute :command_class_name, String
 
-    validates :name, :manager_class, presence: true
+    validates :manager_class, presence: true
+
+    attr_reader :name
+
+    def initialize(name:)
+      @name = name
+      @messages = ReminderManifestMessages.new
+    end
 
     def manager_class
       manager_class_name.constantize
@@ -37,5 +43,32 @@ module Decidim
       yield(@settings) if block
       @settings
     end
+
+    # Fetch the messages object or yield it for the block when a block is
+    # given.
+    def messages
+      if block_given?
+        yield @messages
+      else
+        @messages
+      end
+    end
+
+    def message(key, context = nil, **extra, &block)
+      extra = context if extra.empty? && context.is_a?(Hash)
+
+      if block_given?
+        messages.set(key, &block)
+      else
+        messages.render(key, context, **extra)
+      end
+    end
+
+    # Returns a boolean indicating whether the message exists with the given key.
+    def has_message?(key)
+      messages.has?(key)
+    end
+
+    class ReminderManifestMessages < Decidim::ManifestMessages; end
   end
 end

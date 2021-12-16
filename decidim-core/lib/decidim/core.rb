@@ -97,6 +97,7 @@ module Decidim
   autoload :CarrierWaveMigratorService, "decidim/carrier_wave_migrator_service"
   autoload :ReminderRegistry, "decidim/reminder_registry"
   autoload :ReminderManifest, "decidim/reminder_manifest"
+  autoload :ManifestMessages, "decidim/manifest_messages"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
