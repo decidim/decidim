@@ -6,17 +6,22 @@ app (that you can create with `decidim app_name`) but with a Gemfile pre-configu
 We recommend that you first have a xref:install:manual.adoc[working Decidim app] so that you have fullfilled all the necessary
 system and services requirements, like having a working Ruby installation, PostgreSQL, Node.JS, etc.
 
-For better following this guide and as you should be working in a development environment (ie without sensitive data in your database),
-for more comfort you can configure PostgreSQL with a relaxed security. This is not recommended for staging nor production configuration,
-just for local development. These instructions are tested in Ubuntu.
+You'll need to configure the PostgreSQL database before anything. For this,
+
+1. Configure postgresql with a super-user and save the database configuration in your shell environment. For instance, for a user called `decidim_user`
+with password `changeme` and using the bash shell, it'd be:
 
 [source,console]
 ----
-export DATABASE_HOST=/var/run/postgresql/ >> ~/.bashrc
-sudo su - postgres -c "createuser -s $USER"
+sudo -u postgres psql -c "CREATE USER decidim_development_app_user WITH SUPERUSER CREATEDB NOCREATEROLE PASSWORD 'changeme'"
+echo "export DATABASE_USERNAME=decidim_development_app_user" >> ~/.bashrc
+echo "export DATABASE_PASSWORD=changeme" >> ~/.bashrc
+source ~/.bashrc
 ----
 
-Then you can create a `development_app` from inside the project's root folder with the command:
+Of course you should change the password before anything.
+
+2. Then you can create a `development_app` from inside the project's root folder with the command:
 
 [source,console]
 ----
@@ -43,7 +48,8 @@ On creation, these steps are automatically invoked by the generator:
 Mind that if everything went well you shouldn't need to run these commands manually.
 ====
 
-If the default database.yml does not suit your needs you can always configure it at your will and run these steps manually.
+If the default database.yml does not suit your needs you can always configure it at your will and run these steps manually, although
+we recommend that you make the database configurations with environment variables (ENV VARs) so it's easy for you to regenerate the database. 
 
 The last command will set your database and add some example data (called "seed data") so that you can start trying Decidim.
 We don't recommend using seed data for production environments, but it's useful for local development and staging environments.
