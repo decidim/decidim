@@ -22,7 +22,7 @@ describe "Admin reminds users with pending orders", type: :system do
 
   describe "new vote reminder" do
     it "shows how many people are being reminded" do
-      expect(page).to have_content("You are about to send a reminder to 2 people")
+      expect(page).to have_content("You are about to send an email reminder to 2 users")
     end
   end
 

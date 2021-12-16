@@ -95,10 +95,10 @@ en:
             title: Import proposals
         reminders:
           orders:
-            title:
-              one: "You are about to send an email reminder to %{count} user"
-              other: "You are about to send an email reminder to %{count} users"
             description: Users will receive an email with links to the budgets where they have pending order.
+            title:
+              one: You are about to send an email reminder to %{count} user
+              other: You are about to send an email reminder to %{count} users
       admin_log:
         budget:
           create: "%{user_name} created the %{resource_name} budget in the %{space_name} space"
