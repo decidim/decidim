@@ -136,7 +136,7 @@ describe "Notifications", type: :system do
       expect(comment_notification).to have_content(comment_body)
     end
   end
-  
+
   context "with user group mentioned notifications" do
     let(:event_class) { "Decidim::Comments::UserGroupMentionedEvent" }
     let(:event_name) { "decidim.events.comments.user_group_mentioned" }
@@ -152,7 +152,7 @@ describe "Notifications", type: :system do
       element = page.find(".card-data__item--expand")
       notification_text = element.text
 
-      expect(notification_text).to end_with("as a member of #{group.name} @#{group.nickname}")
+      expect(notification_text).to include("as a member of #{group.name} @#{group.nickname}")
     end
   end
 end
