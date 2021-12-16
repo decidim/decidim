@@ -827,12 +827,12 @@ en:
           title: Upload your CSV file
           upload: Upload
       reminders:
-        new:
-          title: 'You are about to send a reminder to %{count} people'
-          submit: Send
         create:
-          success: '%{count} users will be reminded.'
           error: There was a problem creating reminders.
+          success: "%{count} users will be reminded."
+        new:
+          submit: Send
+          title: You are about to send a reminder to %{count} people
       resource_permissions:
         edit:
           submit: Submit

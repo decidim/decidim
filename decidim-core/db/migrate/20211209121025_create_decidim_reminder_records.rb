@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateDecidimReminderRecords < ActiveRecord::Migration[6.0]
   def change
     create_table :decidim_reminder_records do |t|
