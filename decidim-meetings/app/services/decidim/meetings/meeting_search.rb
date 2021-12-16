@@ -15,9 +15,7 @@ module Decidim
       def initialize(options = {})
         options[:scope] = options.fetch(:scope, Meeting.published)
         options[:scope] = options[:state] == "withdrawn" ? options[:scope].withdrawn : options[:scope].except_withdrawn
-
         options[:scope] = options[:scope].includes(:component, :attachments)
-
         super(options[:scope], options)
       end
 

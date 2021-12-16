@@ -29,7 +29,7 @@ ja:
         sign_date: 署名日
         signature: 署名
         signature_name: 署名の名前
-        slogan: Slogan
+        slogan: スローガン
         slug: URL スラグ
         start_date: 開始日
         title: タイトル
@@ -194,7 +194,7 @@ ja:
           media_links: メディアリンク
           moderations: モデレーション
           partners: パートナー
-          registration_types: 登録タイプ
+          registration_types: 登録種別
           registrations: 登録
           user_registrations: ユーザー登録
       models:
@@ -206,7 +206,7 @@ ja:
             title: タイトル
         conference_speaker:
           fields:
-            affiliation: Affiliation
+            affiliation: 所属
             full_name: フルネーム
             position: ポジション
           name: カンファレンススピーカー
@@ -218,9 +218,9 @@ ja:
           name: カンファレンス管理
           roles:
             admin: 管理者
-            collaborator: 共同編集者
+            collaborator: コラボレーター
             moderator: モデレーター
-            valuator: Valuator
+            valuator: 評価者
         media_link:
           fields:
             date: 日付
@@ -235,11 +235,11 @@ ja:
             partner_type: タイプ
           name: パートナー
           types:
-            collaborator: 共同編集者
+            collaborator: コラボレーター
             main_promotor: 主プロモーター（プロモーター）
         registration_type:
           fields:
-            conference_meetings: カンファレンスの会議
+            conference_meetings: カンファレンスのミーティング
             price: 価格
             registrations_count: 登録数
             title: タイトル
@@ -270,18 +270,18 @@ ja:
       registration_types:
         create:
           error: このカンファレンスに登録タイプを追加する際に問題がありました。
-          success: カンファレンスの登録タイプを追加しました。
+          success: カンファレンスの登録種別を追加しました。
         destroy:
-          success: カンファレンスの登録タイプを削除しました。
+          success: カンファレンスの登録種別を削除しました。
         edit:
-          title: 登録タイプの更新。
+          title: 登録種別の更新。
           update: 更新
         new:
           create: 作成
-          title: 新規登録タイプ
+          title: 新規登録種別
         update:
-          error: このカンファレンスの登録タイプの更新に問題がありました。
-          success: カンファレンスの登録タイプを更新しました。
+          error: このカンファレンスの登録種別の更新に問題がありました。
+          success: カンファレンスの登録種別を更新しました。
       titles:
         conferences: カンファレンス
     admin_log:
@@ -335,7 +335,7 @@ ja:
             attendee_type: 参加者の種類
             existing_user: 既存の参加者
             invite_explanation: 参加者は、カンファレンスや組織にも招待されます。
-            non_user: 非既存の参加者
+            non_user: 非参加者
             select_user: 参加者を選択
           index:
             filter:
@@ -344,20 +344,20 @@ ja:
               rejected: 拒否
               sent: 送信済み
             filter_by: フィルター
-            invite_attendee: Invite participant
+            invite_attendee: 参加者の招待
             invites: 招待
             search: 検索
           new:
             explanation: 参加者はカンファレンスに招待されます。 参加者の電子メールが組織に登録されていない場合、同様に組織に招待されます。
             invite: 招待
-            new_invite: Invite participant
+            new_invite: 参加者の招待
         conference_registrations:
           index:
             registrations: 登録
         conference_speakers:
           form:
             existing_user: 既存の参加者
-            non_user: Non participant
+            non_user: 非参加者
             select_user: 参加者を選択
             user_type: 参加者の種類
           index:
@@ -382,9 +382,9 @@ ja:
             title: パートナー
         registration_types:
           form:
-            select_conference_meetings: カンファレンス会議の選択
+            select_conference_meetings: カンファレンスミーティングの選択
           index:
-            title: 登録タイプ
+            title: 登録種別
         send_conference_diploma_mailer:
           diploma:
             diploma_html: 添付ファイルに、カンファレンス <a href="%{url}">%{title}</a> の出席証明書があります。
@@ -515,7 +515,7 @@ ja:
           login_as: '%{name} <%{email} >としてログインしています'
           no_registrations: 登録なし
           register: 登録
-          title: 登録タイプ
+          title: 登録種別
       shared:
         conference_user_login:
           already_account: 既にアカウントをお持ちですか？
@@ -537,7 +537,7 @@ ja:
           notification_title: カンファレンス <a href="%{resource_url}">%{resource_title}</a> の登録が確認されました。
         conference_registrations_over_percentage:
           email_intro: '"%{resource_title}" カンファレンス参加率は %{percentage} %を超えています。'
-          email_outro: あなたはカンファレンスの参加スペースの管理者であるため、この通知を受け取りました。
+          email_outro: あなたはカンファレンスの参加型スペースの管理者であるため、この通知を受け取りました。
           email_subject: '「%{resource_title}」カンファレンス参加率は %{percentage} %を超えています'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> カンファレンス参加率は %{percentage} %を超えています。
         conference_updated:

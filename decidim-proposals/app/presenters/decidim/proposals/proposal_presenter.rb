@@ -53,12 +53,6 @@ module Decidim
         content_handle_locale(proposal.body, all_locales, extras, links, strip_tags)
       end
 
-      def locale(*)
-        return unless proposal
-
-        proposal.body.is_a?(Hash) ? proposal.body.keys.first : I18n.locale.to_s
-      end
-
       # Returns the proposal versions, hiding not published answers
       #
       # Returns an Array.

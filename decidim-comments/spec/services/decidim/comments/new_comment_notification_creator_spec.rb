@@ -146,7 +146,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
             affected_users: a_collection_containing_exactly(*affected_group_users),
             extra: {
               comment_id: comment.id,
-              group: group
+              group_id: group.id
             }
           )
         expect(Decidim::EventsManager)
@@ -198,7 +198,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
               affected_users: a_collection_containing_exactly(*affected_group_users),
               extra: {
                 comment_id: comment.id,
-                group: group
+                group_id: group.id
               }
             )
           expect(Decidim::EventsManager)
@@ -232,7 +232,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
               affected_users: a_collection_containing_exactly(*affected_group_users),
               extra: {
                 comment_id: comment.id,
-                group: group
+                group_id: group.id
               }
             )
 

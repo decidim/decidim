@@ -35,9 +35,7 @@ module Decidim
         end
 
         def group
-          return unless extra[:group].is_a?(Decidim::UserGroup)
-
-          extra[:group]
+          @group ||= Decidim::UserGroup.find_by(id: extra[:group_id]) if extra[:group_id]
         end
       end
     end

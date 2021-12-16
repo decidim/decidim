@@ -9,13 +9,13 @@ module Decidim
     end
 
     def cache_hash
-      cache = []
-      cache.push(I18n.locale)
-      cache.push(model.reported_by?(current_user) ? 1 : 0)
-      cache.push(model.class.name.gsub("::", ":"))
-      cache.push(model.id)
-      cache.push(current_user.try(:id))
-      cache.join(Decidim.cache_key_separator)
+      hash = []
+      hash.push(I18n.locale)
+      hash.push(current_user.try(:id))
+      hash.push(model.reported_by?(current_user) ? 1 : 0)
+      hash.push(model.class.name.gsub("::", ":"))
+      hash.push(model.id)
+      hash.join(Decidim.cache_key_separator)
     end
 
     private

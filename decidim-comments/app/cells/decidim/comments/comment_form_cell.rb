@@ -21,6 +21,7 @@ module Decidim
         hash = []
         hash.push(I18n.locale)
         hash.push(model.cache_key)
+        hash.push(order)
         hash.push(current_user.try(:id))
         hash.join(Decidim.cache_key_separator)
       end
