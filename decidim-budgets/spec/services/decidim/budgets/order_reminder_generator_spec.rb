@@ -133,10 +133,12 @@ module Decidim::Budgets
           context "when recent order is checked out" do
             before { recent_order.update!(checked_out_at: 1.minute.ago) }
 
-            it "unlinks recent order and sends reminder about first order" do
+            it "marks recent record as completed and sends reminder about first order" do
               expect(Decidim::Budgets::SendVoteReminderJob).to receive(:perform_later)
 
-              expect { subject.generate }.to change(reminder.records.active, :count).to(1)
+              expect { subject.generate }.to change(reminder.records.active, :count)
+                .to(1)
+                .and change(reminder.records.completed, :count).to(1)
               expect(reminder.records.active.first.remindable).to eq(first_order)
             end
           end
@@ -144,10 +146,12 @@ module Decidim::Budgets
           context "when first order is checked out" do
             before { first_order.update!(checked_out_at: 1.minute.ago) }
 
-            it "unlinks first order and sends reminder about recent order" do
+            it "marks first record as completed and sends reminder about recent order" do
               expect(Decidim::Budgets::SendVoteReminderJob).to receive(:perform_later)
 
-              expect { subject.generate }.to change(reminder.records.active, :count).to(1)
+              expect { subject.generate }.to change(reminder.records.active, :count)
+                .to(1)
+                .and change(reminder.records.completed, :count).to(1)
               expect(reminder.records.active.first.remindable).to eq(recent_order)
             end
           end
@@ -155,10 +159,12 @@ module Decidim::Budgets
           context "when first order is deleted" do
             before { first_order.destroy! }
 
-            it "unlinks first order and sends reminder about recent order" do
+            it "marks first record as deleted and sends reminder about recent order" do
               expect(Decidim::Budgets::SendVoteReminderJob).to receive(:perform_later)
 
-              expect { subject.generate }.to change(reminder.records.active, :count).to(1)
+              expect { subject.generate }.to change(reminder.records.active, :count)
+                .to(1)
+                .and change(reminder.records.deleted, :count).to(1)
               expect(reminder.records.active.first.remindable).to eq(recent_order)
             end
           end
@@ -166,10 +172,12 @@ module Decidim::Budgets
           context "when recent order is deleted" do
             before { recent_order.destroy! }
 
-            it "unlinks recent order and sends reminder about first order" do
+            it "marks recent record as deleted and sends reminder about first order" do
               expect(Decidim::Budgets::SendVoteReminderJob).to receive(:perform_later)
 
-              expect { subject.generate }.to change(reminder.records.deleted, :count).to(1)
+              expect { subject.generate }.to change(reminder.records.deleted, :count)
+                .to(1)
+                .and change(reminder.records.deleted, :count).to(1)
               expect(reminder.records.active.first.remindable).to eq(first_order)
             end
           end

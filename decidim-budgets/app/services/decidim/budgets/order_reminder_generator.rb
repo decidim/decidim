@@ -59,7 +59,7 @@ module Decidim
       end
 
       def add_pending_orders(reminder, users_pending_orders)
-        reminder.records = users_pending_orders.map { |order| Decidim::ReminderRecord.find_or_create_by(reminder: reminder, remindable: order) }
+        reminder.records << users_pending_orders.map { |order| Decidim::ReminderRecord.find_or_create_by(reminder: reminder, remindable: order) }
         return @alternative_activity_check.call(reminder) if @alternative_activity_check.present?
 
         reminder.records.each do |record|
