@@ -112,31 +112,6 @@ describe "Notifications", type: :system do
     end
   end
 
-  context "with comment notifications" do
-    let!(:notification) { create :notification, :comment_notification, user: user }
-
-    before do
-      resource.destroy!
-      page.visit decidim.notifications_path
-    end
-
-    it "shows the comment notification with the conversation link" do
-      comment_id = notification.extra["comment_id"]
-      comment_definition_string = "commentId=#{comment_id}#comment_#{comment_id}"
-      links = page.all(".card.card--widget a")
-      hrefs = links.find { |link| link[:href].include?(comment_definition_string) }
-
-      expect(hrefs).not_to be(nil)
-    end
-
-    it "shows the comment in the notification" do
-      comment_notification = page.find(".card.card--widget")
-      comment_body = Decidim::Comments::Comment.first.body["en"]
-
-      expect(comment_notification).to have_content(comment_body)
-    end
-  end
-
   context "with user group mentioned notifications" do
     let(:event_class) { "Decidim::Comments::UserGroupMentionedEvent" }
     let(:event_name) { "decidim.events.comments.user_group_mentioned" }

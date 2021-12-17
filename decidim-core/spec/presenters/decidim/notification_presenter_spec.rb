@@ -67,7 +67,11 @@ module Decidim
     end
 
     context "with a valid comment notification" do
-      let(:notification) { create(:notification, :comment_notification) }
+      let(:event_class) { "Decidim::Comments::CommentCreatedEvent" }
+      let(:event_name) { "decidim.events.comments.comment_created" }
+      let(:extra) { { comment_id: create(:comment).id } }
+
+      let(:notification) { create(:notification, event_class: event_class, event_name: event_name, extra: extra) }
       let(:subject) { described_class.new(notification) }
 
       describe "#display_resource_text?" do
