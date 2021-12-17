@@ -26,17 +26,13 @@ module Decidim
         end
       end
 
-      describe "#passwords" do
-        it "returns passwords" do
-          expect(subject.instance.passwords).to be_kind_of(Array)
-        end
-      end
+      context "when passwords are updated" do
+        before { subject.update_passwords! }
 
-      describe ".update_passwords!" do
-        it "updates passwords" do
-          subject.update_passwords!
-
-          expect(subject.instance.passwords).to eq(example_passwords.reject { |item| item.length < 10 })
+        describe "#passwords" do
+          it "contains common passwords which are at least 10 characters long" do
+            expect(subject.instance.passwords).to eq(example_passwords.reject { |item| item.length < 10 })
+          end
         end
       end
     end
