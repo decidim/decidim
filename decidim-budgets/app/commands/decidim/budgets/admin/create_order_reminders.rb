@@ -13,7 +13,7 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
           return broadcast(:invalid) unless voting_enabled?
 
-          generator.generate_for(current_component, &alternative_activity_check)
+          generator.generate_for(current_component, &alternative_refresh_state)
 
           broadcast(:ok, generator.reminder_jobs_queued)
         end
@@ -22,7 +22,7 @@ module Decidim
 
         attr_reader :form
 
-        def alternative_activity_check
+        def alternative_refresh_state
           proc do |reminder|
             reminder.records.each do |record|
               next if %w(active pending).exclude? record.state

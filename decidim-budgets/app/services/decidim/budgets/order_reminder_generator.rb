@@ -20,7 +20,7 @@ module Decidim
       end
 
       def generate_for(component, &block)
-        @alternative_activity_check = block
+        @alternative_refresh_state = block
         send_reminders(component)
       end
 
@@ -60,14 +60,14 @@ module Decidim
 
       def add_pending_orders(reminder, users_pending_orders)
         reminder.records << users_pending_orders.map { |order| Decidim::ReminderRecord.find_or_create_by(reminder: reminder, remindable: order) }
-        return @alternative_activity_check.call(reminder) if @alternative_activity_check.present?
+        return @alternative_refresh_state.call(reminder) if @alternative_refresh_state.present?
 
         reminder.records.each do |record|
-          activity_check(record, reminder.deliveries.length) if %w(active pending).include? record.state
+          refresh_state(record, reminder.deliveries.length) if %w(active pending).include? record.state
         end
       end
 
-      def activity_check(record, delivered_count)
+      def refresh_state(record, delivered_count)
         intervals = Array(reminder_manifest.settings.attributes[:reminder_times].default)
         return record.update(state: "pending") if delivered_count >= intervals.length
 

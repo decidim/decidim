@@ -6,6 +6,7 @@ module Decidim
   # Reminder times could be used to define intervals between reminders, so that user
   # isn't reminded too often. In addition, you can register form and command classes
   # for additional features, such as order reminders can be sent manually from the admin panel.
+  # Notice that if you implement admin panel functionality, you should add 118n messages too.
   #
   # In order to register a reminder, you can follow this example:
   #
@@ -16,6 +17,11 @@ module Decidim
   #
   #       reminder_registry.settings do |settings|
   #         settings.attribute :reminder_times, type: :array, default: [2.hours, 1.week, 2.weeks]
+  #       end
+  #
+  #       reminder_registry.messages do |msg|
+  #         msg.set(:title) { |count: 0| I18n.t("decidim.budgets.admin.reminders.orders.title", count: count) }
+  #         msg.set(:description) { I18n.t("decidim.budgets.admin.reminders.orders.description") }
   #       end
   #     end
   #
