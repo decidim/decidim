@@ -8,7 +8,7 @@ system and services requirements, like having a working Ruby installation, Postg
 
 You'll need to configure the PostgreSQL database before anything. For this,
 
-1. Configure postgresql with a super-user and save the database configuration in your shell environment. For instance, for a user called `decidim_user`
+1. Configure postgresql with a super-user and save the database configuration in your shell environment. For instance, for a user called `decidim_development_app_user`
 with password `changeme` and using the bash shell, it'd be:
 
 [source,console]
@@ -29,7 +29,6 @@ git clone https://github.com/decidim/decidim.git
 cd decidim
 bundle install
 bin/rake development_app
-cd development_app
 ----
 
 A development_app/ entry appears in the .gitignore file, so you don't have to worry about committing the development app by mistake.
@@ -91,6 +90,5 @@ If you're working with old branches or there were multiple changes in develop, y
 
 [source,console]
 ----
-rm -rf development_app
 bin/rake development_app
 ----
