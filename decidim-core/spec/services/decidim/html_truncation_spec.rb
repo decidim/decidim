@@ -107,7 +107,7 @@ describe Decidim::HtmlTruncation do
   describe "cut inside a tag" do
     let(:outer_before) { "foo " }
     let(:outer_after) { " bar" }
-    let(:inner_text) { %(this is longer text than max length and is going to be cutted) }
+    let(:inner_text) { %(this is longer text than max length and is going to be cut) }
     let(:tags) do
       [
         { opening: %(<a href="www.example.org/something">), closing: %(</a>) },
