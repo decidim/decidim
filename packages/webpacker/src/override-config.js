@@ -51,7 +51,15 @@ const overrideSassRule = (modifyConfig) => {
 
 const addWorkboxPlugin = (modifyConfig) => {
   const plugin = new InjectManifest({
-    swSrc: path.resolve("../decidim-core/app/packs/service-worker.js")
+    swSrc: path.resolve("../decidim-core/app/packs/src/decidim/sw/sw.js"),
+
+    /**
+     * NOTE:
+     * @rails/webpacker outputs to '/packs',
+     * in order to make the SW run properly
+     * they must be put at the project's root folder '/'
+     */
+    swDest: "../sw.js"
   })
 
   modifyConfig.plugins.push(plugin)

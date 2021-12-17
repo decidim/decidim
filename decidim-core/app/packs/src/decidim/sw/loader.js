@@ -1,7 +1,7 @@
 // check if the browser supports serviceWorker at all
 window.addEventListener("load", async () => {
   if ("serviceWorker" in navigator) {
-    const registration = await navigator.serviceWorker.register("/decidim-packs/service-worker.js");
+    const registration = await navigator.serviceWorker.register("/sw.js", { scope: "/" });
     const permission = await window.Notification.requestPermission();
 
     if (permission !== "granted") {
