@@ -39,7 +39,7 @@ describe Decidim::HtmlTruncation do
       ]
     end
 
-    it "does not get cutted" do
+    it "does not get cut" do
       texts.each do |test_text|
         expect(described_class.new(test_text, options).perform).to eq(test_text.to_s)
       end
