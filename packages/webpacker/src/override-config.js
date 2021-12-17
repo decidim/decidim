@@ -1,6 +1,4 @@
 const { config } = require("@rails/webpacker");
-const { InjectManifest } = require("workbox-webpack-plugin");
-const path = require("path");
 
 const overrideSassRule = (modifyConfig) => {
   const sassRule = modifyConfig.module.rules.find(
@@ -49,23 +47,5 @@ const overrideSassRule = (modifyConfig) => {
   return modifyConfig;
 }
 
-const addWorkboxPlugin = (modifyConfig) => {
-  const plugin = new InjectManifest({
-    swSrc: path.resolve("../decidim-core/app/packs/src/decidim/sw/sw.js"),
-
-    /**
-     * NOTE:
-     * @rails/webpacker outputs to '/packs',
-     * in order to make the SW run properly
-     * they must be put at the project's root folder '/'
-     */
-    swDest: "../sw.js"
-  })
-
-  modifyConfig.plugins.push(plugin)
-
-  return modifyConfig
-}
-
 // Since all modifiers are functions, we can use a reduce clause to apply all them
-module.exports = (originalConfig) => [overrideSassRule, addWorkboxPlugin].reduce((acc, modifier) => modifier(acc), originalConfig)
+module.exports = (originalConfig) => [overrideSassRule].reduce((acc, modifier) => modifier(acc), originalConfig)
