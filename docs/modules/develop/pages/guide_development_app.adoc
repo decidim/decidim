@@ -8,15 +8,20 @@ system and services requirements, like having a working Ruby installation, Postg
 
 You'll need to configure the PostgreSQL database before anything. For this,
 
-1. Configure postgresql with a super-user and save the database configuration in your shell environment. For instance, for a user called `decidim_development_app_user`
-with password `changeme` and using the bash shell, it'd be:
+1. Configure postgresql with a super-user. For instance, for a user called `decidim_development_app_user` with password `changeme`, it'd be:
 
 [source,console]
 ----
 sudo -u postgres psql -c "CREATE USER decidim_development_app_user WITH SUPERUSER CREATEDB NOCREATEROLE PASSWORD 'changeme'"
-echo "export DATABASE_USERNAME=decidim_development_app_user" >> ~/.bashrc
-echo "export DATABASE_PASSWORD=changeme" >> ~/.bashrc
-source ~/.bashrc
+----
+
+2. Save the database configuration in your environment variables configuration. If you've followed the xref:install:manual.adoc[Decidim installation manual],
+then you should have a working `rbenv-vars` in your environment:
+
+[source,console]
+----
+echo "DATABASE_USERNAME=decidim_development_app_user" >> ~/.rbenv-vars
+echo "DATABASE_PASSWORD=changeme" >> ~/.rbenv-vars
 ----
 
 Of course you should change the password before anything.
