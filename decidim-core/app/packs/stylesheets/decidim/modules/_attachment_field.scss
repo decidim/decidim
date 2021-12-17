@@ -1,0 +1,25 @@
+.dropzone-container{
+
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+
+  input[type="file"] {
+    display: none;
+  }
+
+  label {
+    background-color: lightblue;
+
+    &.is-dragover {
+      background-color: white;
+    }
+
+    &.dropzone {
+      padding: 1rem;
+      border-style: dashed;
+      border-color: blue;
+      border-width: 2px;
+    }
+  }
+}
