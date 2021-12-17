@@ -2,7 +2,6 @@
 
 module Decidim
   class OfflineController < Decidim::ApplicationController
-    def show
-    end
+    def show; end
   end
 end

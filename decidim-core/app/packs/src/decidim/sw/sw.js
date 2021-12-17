@@ -7,14 +7,19 @@ import {
 import { setDefaultHandler } from "workbox-routing";
 import { NetworkOnly } from "workbox-strategies";
 
+/**
+ * This is a workaround to bypass a webpack compilation error
+ *
+ * The InjectManifest function requires the __WB_MANIFEST somewhere in this file,
+ * however, we cannot add precacheAndRoute as the issue suggests,
+ * as the other workbox-recipes won't work properly
+ *
+ * See more: https://github.com/GoogleChrome/workbox/issues/2519#issuecomment-634164566
+ */
+// eslint-disable-next-line no-unused-vars
+const dummy = self.__WB_MANIFEST;
+
 pageCache()
-// pageCache({
-//   matchCallback: ({ request }) => request.destination === "document" || (
-//     request.destination === "" &&
-//     request.mode === "cors" &&
-//     request.headers.get("Turbolinks-Referrer") !== null
-//   )
-// })
 
 staticResourceCache();
 
