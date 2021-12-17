@@ -13,15 +13,15 @@ module Decidim
     ).freeze
 
     def initialize
-      raise FileNotFoundError unless File.exist?(Decidim::CommonPasswords.common_passwords_path)
+      raise FileNotFoundError unless File.exist?(self.class.common_passwords_path)
 
-      File.open(Decidim::CommonPasswords.common_passwords_path, "r") do |file|
+      File.open(self.class.common_passwords_path, "r") do |file|
         @passwords = file.read.split
       end
     end
 
     def self.update_passwords!
-      File.open(Decidim::CommonPasswords.common_passwords_path, "w") do |file|
+      File.open(common_passwords_path, "w") do |file|
         common_password_list.each { |item| file.puts(item) }
       end
     end
