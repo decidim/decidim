@@ -1,5 +1,4 @@
-import { DirectUpload } from "@rails/activestorage"
-
+import { Uploader } from "src/decidim/direct_uploads/uploader";
 
 document.addEventListener("DOMContentLoaded", () => {
   const attachmentButtons = document.querySelectorAll(".add-field.add-attachment");
@@ -13,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
-  const dropZoneContainer = document.querySelector(".dropzone-container");
+  // const dropZoneContainer = document.querySelector(".dropzone-container");
   const dropZone = document.querySelector("label.dropzone");
 
   dropZone.addEventListener("dragenter", (event) => {
@@ -34,25 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // your form needs the file_field direct_upload: true, which
     //  provides data-direct-upload-url, data-direct-upload-token
     // and data-direct-upload-attachment-name
-    const url = input.dataset.directUploadUrl;
-    const token = input.dataset.directUploadToken;
-    const attachmentName = input.dataset.directUploadAttachmentName;
-    const upload = new DirectUpload(file, url, token, attachmentName);
-
-    upload.create((error, blob) => {
-      if (error) {
-        console.error(error);
-      } else {
-        // Add an appropriately-named hidden input to the form with a
-        //  value of blob.signed_id so that the blob ids will be
-        //  transmitted in the normal upload flow
-        const hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("value", blob.signed_id);
-        hiddenField.name = input.name;
-        dropZoneContainer.appendChild(hiddenField);
-      }
-    })
+    const uploader = new Uploader(file, input, {
+      url: input.dataset.directuploadurl,
+      token: "abcd1234",
+      attachmentName: "test.pdf"
+    });
+    return uploader;
   }
 
   dropZone.addEventListener("drop", (event) => {
@@ -61,3 +47,4 @@ document.addEventListener("DOMContentLoaded", () => {
     Array.from(files).forEach((file) => uploadFile(file));
   })
 })
+/* eslint-enable */

@@ -11,7 +11,8 @@
 
   <div class="row dropzone-container">
     <label class="dropzone">
-      <input type="file">
+      <%# direct_uploads_path = "/rails/active_storage/direct_uploads" %>
+      <%= form.file_field :attachments, label: false, multiple: true, direct_upload: true, data: { directuploadurl: "/rails/active_storage/direct_uploads" } %>
       Drop files here or click to upload
     </label>
   </div>

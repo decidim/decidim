@@ -5,6 +5,8 @@ module Decidim
     include Cell::ViewModel::Partial
     include ERB::Util
 
+    alias form model
+
     private
 
     def field_id
