@@ -112,26 +112,6 @@ describe "Notifications", type: :system do
     end
   end
 
-  context "with comment notifications" do
-    let(:event_class) { "Decidim::Comments::CommentCreatedEvent" }
-    let(:event_name) { "decidim.events.comments.comment_created" }
-    let(:extra) { { comment_id: create(:comment).id } }
-
-    let(:notification) { create(:notification, user: user, event_class: event_class, event_name: event_name, extra: extra) }
-
-    before do
-      page.visit decidim.notifications_path
-    end
-
-    it "shows the comment notification with the conversation link" do
-      comment_id = notification.extra["comment_id"]
-      comment_definition_string = "commentId=#{comment_id}#comment_#{comment_id}"
-      links = page.all(".card.card--widget a")
-      hrefs = links.find { |link| link[:href].include?(comment_definition_string) }
-      expect(hrefs).not_to be_nil
-    end
-  end
-
   context "with user group mentioned notifications" do
     let(:event_class) { "Decidim::Comments::UserGroupMentionedEvent" }
     let(:event_name) { "decidim.events.comments.user_group_mentioned" }
