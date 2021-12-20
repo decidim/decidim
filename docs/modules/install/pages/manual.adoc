@@ -86,7 +86,8 @@ git commit -m "Initial commit. Generated with Decidim https://decidim.org"
 
 == 5. Configure the database
 
-Modify your secrets (see `config/database.yml`). For this you can use https://github.com/laserlemon/figaro[figaro], https://github.com/bkeepers/dotenv[dotenv] or https://github.com/rbenv/rbenv-vars[rbenv-vars]. You should always be careful of not uploading your plain secrets on git or your version control system. You can also upload the encrypted secrets, using the sekrets gem or if you're on Ruby on Rails greater than 5.1 you can do it natively.
+Modify your secrets (see `config/database.yml`). For this you can use https://github.com/laserlemon/figaro[figaro], https://github.com/bkeepers/dotenv[dotenv] or https://github.com/rbenv/rbenv-vars[rbenv-vars]. You
+should always be careful of not uploading your plain secrets on git or your version control system. You can also upload the encrypted secrets, using the sekrets gem or if you're on Ruby on Rails greater than 5.1 you can do it natively.
 
 For a development environment, and if you are using rbenv, we strongly recommend you to use the https://github.com/rbenv/rbenv-vars[rbenv-vars] to facilitate the edition of ENV vars.
 
@@ -101,25 +102,14 @@ Then, in **any folder above your decidim generated application**, you need to cr
 
 [source,bash]
 ----
-nano .rbenv-vars
-----
-
-[source,env]
-----
+cat << EOF > .rbenv-vars
 DATABASE_HOST=localhost
 DATABASE_USERNAME=decidim_app
 DATABASE_PASSWORD=thepassword
+EOF
 ----
 
-Be careful where you put the `.rbenv-vars` file, as if you put it in the same folder of your decidim generated application, and if you use a version control system (like `git`, which we strongly recommend), then you should ignore this file (ie with the `.gitignore` file)
-
-Finally, save it all to git:
-
-[source,bash]
-----
-git add .
-git commit -m "Add figaro configuration management"
-----
+Be careful where you put the `.rbenv-vars` file, as if you put it in the same folder of your decidim generated application, and if you use a version control system (like `git`, which we strongly recommend), then you should ignore this file (ie with the `.gitignore` file).
 
 == 6. Initializing your app for local development
 

@@ -226,7 +226,7 @@ Decidim.configure do |config|
   # Etherpad configuration
   #
   # Only needed if you want to have Etherpad integration with Decidim. See
-  # Decidim docs at docs/services/etherpad.md in order to set it up.
+  # Decidim docs at https://docs.decidim.org/en/services/etherpad/ in order to set it up.
   #
   # config.etherpad = {
   #   server: Rails.application.secrets.etherpad[:server],
@@ -250,6 +250,9 @@ Decidim.configure do |config|
   # config.amendments_visibility_options = %w(all participants)
 
   # Machine Translation Configuration
+  #
+  # See Decidim docs at https://docs.decidim.org/en/develop/machine_translations/
+  # for more information about how it works and how to set it up.
   #
   # Enable machine translations
   config.enable_machine_translations = false
