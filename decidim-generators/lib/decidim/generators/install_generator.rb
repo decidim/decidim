@@ -128,6 +128,10 @@ module Decidim
         recreate_db if options[:recreate_db]
       end
 
+      def build_api_docs
+        rails "decidim_api:generate_docs"
+      end
+
       def letter_opener_web
         route <<~RUBY
           if Rails.env.development?

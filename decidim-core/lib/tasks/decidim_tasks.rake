@@ -15,6 +15,7 @@ namespace :decidim do
       decidim
       decidim_accountability
       decidim_admin
+      decidim_api
       decidim_assemblies
       decidim_blogs
       decidim_budgets
