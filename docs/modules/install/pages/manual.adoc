@@ -112,28 +112,6 @@ DATABASE_PASSWORD=thepassword
 ----
 
 Be careful where you put the `.rbenv-vars` file, as if you put it in the same folder of your decidim generated application, and if you use a version control system (like `git`, which we strongly recommend), then you should ignore this file (ie with the `.gitignore` file)
-=== 5.1 Alternatives with helper gems
-
-But other approaches also works (or can be used for different environments, for instance use the .rbenv-var approach for developing and the figaro method for production).
-
-For a working setup with figaro, you'll need to install it (but you don't need to do this if you are using rbenv-vars):
-
-[source,bash]
-----
-bundle add figaro
-bundle exec figaro install
-----
-
-Next, add this to your `config/application.yml`, using the setup PostgreSQL database name, user and, password that you've configured before.
-
-[source,yaml]
-----
-DATABASE_HOST: localhost
-DATABASE_USERNAME: decidim_app
-DATABASE_PASSWORD: thepassword
-----
-
-Be sure, to add `config/application.yml` to the `.gitignore` file!!!
 
 Finally, save it all to git:
 
