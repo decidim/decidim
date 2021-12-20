@@ -56,19 +56,21 @@ module Decidim
         end
 
         def choice(choice_hash)
-          render_body_for(choice_hash[:answer_option_body], :em) + render_body_for(choice_hash[:choice_body])
+          content_tag :li do
+            render_body_for choice_hash
+          end
         end
 
-        def render_body_for(body, content_tag = :li)
-          content_tag content_tag do
-            body
-          end
+        def render_body_for(choice_hash)
+          return choice_hash[:answer_option_body] if choice_hash[:choice_body].blank?
+
+          "#{choice_hash[:answer_option_body]} (#{choice_hash[:choice_body]})"
         end
 
         def body_or_custom_body(choice)
           return choice.custom_body if choice.try(:custom_body).present?
 
-          choice.try(:body).present? ? "-" : ""
+          ""
         end
       end
     end

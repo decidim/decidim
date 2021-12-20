@@ -40,7 +40,7 @@ module Decidim
 
         context "when it is a single_option question" do
           it "Returns the choice's body" do
-            expect(subject.body).to eq("<em>#{answer_choice.body}</em><li>-</li>")
+            expect(subject.body).to eq("<li>#{answer_choice.body}</li>")
           end
         end
 
@@ -48,7 +48,7 @@ module Decidim
           let!(:question) { create :questionnaire_question, questionnaire: questionnaire, question_type: "multiple_option" }
 
           it "Returns the choice's body as a <li> element inside a <ul>" do
-            expect(subject.body).to eq("<ul><em>#{answer_choice.body}</em><li>-</li></ul>")
+            expect(subject.body).to eq("<ul><li>#{answer_choice.body}</li></ul>")
           end
         end
       end
@@ -61,7 +61,7 @@ module Decidim
         let!(:answer_choice_2) { create :answer_choice, answer: answer, answer_option: answer_option_2, body: translated(answer_option_2.body, locale: I18n.locale) }
 
         it "Returns the choices wrapped in <li> elements inside a <ul>" do
-          expect(subject.body).to eq("<ul><em>#{answer_choice_1.body}</em><li>-</li><em>#{answer_choice_2.body}</em><li>-</li></ul>")
+          expect(subject.body).to eq("<ul><li>#{answer_choice_1.body}</li><li>#{answer_choice_2.body}</li></ul>")
         end
 
         context "and free text is enabled on answer options" do
@@ -69,7 +69,7 @@ module Decidim
           let!(:answer_option_2) { create :answer_option, :free_text_enabled }
 
           it "returns the choices and question wrapped in <li> elements inside a <ul>" do
-            expect(subject.body).to eq("<ul><em>#{answer_option_1.translated_body}</em><li>-</li><em>#{answer_option_2.translated_body}</em><li>-</li></ul>")
+            expect(subject.body).to eq("<ul><li>#{answer_option_1.translated_body}</li><li>#{answer_option_2.translated_body}</li></ul>")
           end
         end
       end
