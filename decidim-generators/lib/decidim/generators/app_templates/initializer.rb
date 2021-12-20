@@ -226,7 +226,7 @@ Decidim.configure do |config|
   # Etherpad configuration
   #
   # Only needed if you want to have Etherpad integration with Decidim. See
-  # Decidim docs at docs/services/etherpad.md in order to set it up.
+  # Decidim docs at https://docs.decidim.org/en/services/etherpad/ in order to set it up.
   #
   # config.etherpad = {
   #   server: Rails.application.secrets.etherpad[:server],
