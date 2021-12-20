@@ -83,7 +83,6 @@ PATH
       loofah (~> 2.3.1)
       mini_magick (~> 4.9)
       mustache (~> 1.1.0)
-      nobspw (~> 0.6.0)
       omniauth (~> 2.0)
       omniauth-facebook (~> 5.0)
       omniauth-google-oauth2 (~> 1.0)
@@ -106,7 +105,6 @@ PATH
       searchlight (~> 4.1)
       seven_zip_ruby (~> 1.3)
       social-share-button (~> 1.2, >= 1.2.1)
-      truncato (~> 0.7)
       valid_email2 (~> 2.1)
       webpacker (= 6.0.0.rc.5)
       wisper (~> 2.0)
@@ -545,7 +543,6 @@ GEM
     mustache (1.1.1)
     netrc (0.11.0)
     nio4r (2.5.8)
-    nobspw (0.6.2)
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
@@ -768,9 +765,6 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.10)
     tomlrb (2.0.1)
-    truncato (0.7.11)
-      htmlentities (~> 4.3.1)
-      nokogiri (>= 1.7.0, <= 2.0)
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
     uber (0.1.0)
@@ -857,7 +851,7 @@ DEPENDENCIES
   wicked_pdf (~> 2.1)
 
 RUBY VERSION
-   ruby 2.7.1p83
+   ruby 2.7.5p203
 
 BUNDLED WITH
    2.2.19
