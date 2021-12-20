@@ -16,7 +16,7 @@
             <%= f.hidden_field :reset_password_token %>
 
             <div class="field">
-              <%= f.password_field :password, autocomplete: "off", help_text: t("devise.passwords.edit.password_help", minimun_characters: NOBSPW.configuration.min_password_length) %>
+              <%= f.password_field :password, autocomplete: "off", help_text: t("devise.passwords.edit.password_help", minimun_characters: ::PasswordValidator::MINIMUM_LENGTH) %>
             </div>
 
             <div class="field">

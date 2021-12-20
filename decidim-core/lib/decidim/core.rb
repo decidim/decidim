@@ -95,6 +95,7 @@ module Decidim
   autoload :RecordEncryptor, "decidim/record_encryptor"
   autoload :AttachmentAttributes, "decidim/attachment_attributes"
   autoload :CarrierWaveMigratorService, "decidim/carrier_wave_migrator_service"
+  autoload :CommonPasswords, "decidim/common_passwords"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -382,6 +383,11 @@ module Decidim
   # set cookies.
   config_accessor :consent_cookie_name do
     "decidim-cc"
+  end
+
+  # Blacklisted passwords. Array may contain strings and regex entries.
+  config_accessor :password_blacklist do
+    []
   end
 
   # This is an internal key that allow us to properly configure the caching key separator. This is useful for redis cache store
