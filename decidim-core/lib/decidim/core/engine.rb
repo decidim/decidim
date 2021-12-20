@@ -17,7 +17,6 @@ require "rectify"
 require "carrierwave"
 require "rails-i18n"
 require "date_validator"
-require "truncato"
 require "file_validators"
 require "omniauth"
 require "omniauth-facebook"
@@ -34,7 +33,6 @@ require "cell/partial"
 require "kaminari"
 require "doorkeeper"
 require "doorkeeper-i18n"
-require "nobspw"
 require "batch-loader"
 require "mime-types"
 require "diffy"
@@ -537,10 +535,6 @@ module Decidim
           badge.levels = [1, 15, 30, 60, 100]
           badge.reset = ->(user) { user.followers.count }
         end
-      end
-
-      initializer "nbspw" do
-        NOBSPW.configuration.use_ruby_grep = true
       end
 
       initializer "decidim.premailer" do

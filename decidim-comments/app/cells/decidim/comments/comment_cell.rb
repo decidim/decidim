@@ -16,6 +16,7 @@ module Decidim
       property :deleted_at
       property :alignment
       property :translated_body
+      property :formatted_body
       property :comment_threads
       property :accepts_new_comments?
       property :edited?
@@ -32,14 +33,31 @@ module Decidim
         render :votes
       end
 
+      def perform_caching?
+        super && has_replies? == false
+      end
+
       private
+
+      def cache_hash
+        return @hash if defined?(@hash)
+
+        hash = []
+        hash.push(I18n.locale)
+        hash.push(model.must_render_translation?(current_organization) ? 1 : 0)
+        hash.push(model.authored_by?(current_user) ? 1 : 0)
+        hash.push(model.reported_by?(current_user) ? 1 : 0)
+        hash.push(model.cache_key_with_version)
+        hash.push(model.author.cache_key_with_version)
+        @hash = hash.join(Decidim.cache_key_separator)
+      end
 
       def decidim_comments
         Decidim::Comments::Engine.routes.url_helpers
       end
 
       def comment_body
-        Decidim::ContentProcessor.render(translated_body)
+        formatted_body
       end
 
       def replies

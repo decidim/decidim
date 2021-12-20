@@ -49,7 +49,7 @@
             </div>
 
             <div class="field">
-              <%= f.password_field :password, help_text: t(".password_help", minimun_characters: NOBSPW.configuration.min_password_length), autocomplete: "off" %>
+              <%= f.password_field :password, help_text: t(".password_help", minimun_characters: ::PasswordValidator::MINIMUM_LENGTH), autocomplete: "off" %>
             </div>
 
             <div class="field">
