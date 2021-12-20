@@ -14,7 +14,7 @@ We're starting with an Ubuntu 20.04.2 LTS. This is an opinionated guide, so you'
 
 We recommend to have at least some basic proficiency in Ruby on Rails (a good starting point is http://guides.rubyonrails.org/getting_started.html[Getting Started with Ruby on Rails]) and have some knowledge on how gems work.
 
-In this guide, we'll see how to install rbenv, PostgreSQL, Node.js and, Decidim, and how to configure everything together.
+In this guide, we'll see how to install rbenv, PostgreSQL, Node.js and, Decidim, and how to configure everything together for a development environment. Mind that if you want to make a production deployment with real users this guide isn't enough, you should configure a web server (like nginx), backups, monitoring, etc. This is out of the scope of this guide, but you can follow the https://platoniq.github.io/decidim-install/[Platoniq guide].
 
 == 1. Installing rbenv
 
@@ -88,22 +88,30 @@ git commit -m "Initial commit. Generated with Decidim https://decidim.org"
 
 Modify your secrets (see `config/database.yml`). For this you can use https://github.com/laserlemon/figaro[figaro], https://github.com/bkeepers/dotenv[dotenv] or https://github.com/rbenv/rbenv-vars[rbenv-vars]. You should always be careful of not uploading your plain secrets on git or your version control system. You can also upload the encrypted secrets, using the sekrets gem or if you're on Ruby on Rails greater than 5.1 you can do it natively.
 
-For instance, for working with figaro, you'll need to install it:
+For a development environment, and if you are using rbenv, we strongly recommend you to use the https://github.com/rbenv/rbenv-vars[rbenv-vars] to facilitate the edition of ENV vars.
+
+First you'll need to install the rbenv-vars plugin:
 
 [source,bash]
 ----
-bundle add figaro
-bundle exec figaro install
+git clone https://github.com/rbenv/rbenv-vars.git "$(rbenv root)"/plugins/rbenv-vars
 ----
 
-Next, add this to your `config/application.yml`, using the setup PostgreSQL database name, user and, password that you've configured before.
+Then, in **any folder above your decidim generated application**, you need to create a file named `.rbenv-vars` and put your variables there:
 
-[source,yaml]
+[source,bash]
 ----
-DATABASE_HOST: localhost
-DATABASE_USERNAME: decidim_app
-DATABASE_PASSWORD: thepassword
+nano .rbenv-vars
 ----
+
+[source,env]
+----
+DATABASE_HOST=localhost
+DATABASE_USERNAME=decidim_app
+DATABASE_PASSWORD=thepassword
+----
+
+Be careful where you put the `.rbenv-vars` file, as if you put it in the same folder of your decidim generated application, and if you use a version control system (like `git`, which we strongly recommend), then you should ignore this file (ie with the `.gitignore` file)
 
 Finally, save it all to git:
 
