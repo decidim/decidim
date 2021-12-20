@@ -3,11 +3,13 @@ window.addEventListener("load", async () => {
   if ("serviceWorker" in navigator) {
     // eslint-disable-next-line no-unused-vars
     const registration = await navigator.serviceWorker.register("/sw.js", { scope: "/" });
-    const permission = await window.Notification.requestPermission();
 
-    if (permission !== "granted") {
-      throw new Error("Permission not granted for Notification");
-    }
+    // NOTE: Uncomment this when enable PUSH notifications
+    // const permission = await window.Notification.requestPermission();
+
+    // if (permission !== "granted") {
+    //   throw new Error("Permission not granted for Notification");
+    // }
 
     // do stuff
   } else {
