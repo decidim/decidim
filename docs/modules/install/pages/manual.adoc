@@ -97,7 +97,7 @@ First you'll need to install the rbenv-vars plugin:
 git clone https://github.com/rbenv/rbenv-vars.git "$(rbenv root)"/plugins/rbenv-vars
 ----
 
-Then, you just need to edit, in any folder above your decidim copy, a file named `.rbenv-vars` and put your variables there:
+Then, in **any folder above your decidim generated application**, you need to create a file named `.rbenv-vars` and put your variables there:
 
 [source,bash]
 ----
