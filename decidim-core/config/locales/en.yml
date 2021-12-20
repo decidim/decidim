@@ -1669,10 +1669,12 @@ en:
     name: English
     name_with_error: English (error!)
   password_validator:
+    blacklisted: is blacklisted
     domain_included_in_password: is too similar to this domain name
     email_included_in_password: is too similar to your email
     fallback: is not valid
     name_included_in_password: is too similar to your name
+    nickname_included_in_password: is too similar to your nickname
     not_enough_unique_characters: does not have enough unique characters
     password_not_allowed: is not allowed
     password_too_common: is too common

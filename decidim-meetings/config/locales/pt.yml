@@ -42,10 +42,6 @@ pt:
         type_of_meeting: Tipo
     errors:
       models:
-        meeting:
-          attributes:
-            show_embedded_iframe:
-              not_embeddable: Este URL não pode ser embutido
         meeting_agenda:
           attributes:
             base:
@@ -309,7 +305,6 @@ pt:
             registration_url_help: 'Ligação: permitir aos participantes dirigirem-se ao serviço externo que está a usar para os registos'
             select_a_meeting_type: Por favor seleccione um tipo de reunião
             select_a_registration_type: Por favor seleccione um tipo de registo
-            show_embedded_iframe_help: URL para embutir ou não um iframe para esta video conferência. Só alguns serviços permitem ser embutidos (por exemplo, Youtube, Twitch...)
           index:
             title: Reuniões
           new:
@@ -474,7 +469,6 @@ pt:
           select_a_category: Por favor selecione uma categoria
           select_a_meeting_type: Por favor seleccione um tipo de reunião
           select_a_registration_type: Por favor seleccione um tipo de registo
-          show_embedded_iframe_help: URL para embutir ou não um iframe para esta video conferência. Só alguns serviços permitem ser embutidos (por exemplo, Youtube, Twitch...)
         index:
           new_meeting: Nova reunião
         meeting_minutes:

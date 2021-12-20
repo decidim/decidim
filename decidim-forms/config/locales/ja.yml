@@ -9,7 +9,7 @@ ja:
         max_choices: 選択肢の最大数
         question_type: タイプ
       questionnaire_question:
-        mandatory: Mandatory
+        mandatory: 必須
         max_characters: 文字数制限 (制限がない場合は0にしてください)
     errors:
       models:

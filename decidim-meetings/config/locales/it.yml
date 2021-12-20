@@ -42,10 +42,6 @@ it:
         type_of_meeting: Tipo
     errors:
       models:
-        meeting:
-          attributes:
-            show_embedded_iframe:
-              not_embeddable: Questo URL non può essere incorporato
         meeting_agenda:
           attributes:
             base:
@@ -309,7 +305,6 @@ it:
             registration_url_help: 'Link: consentire ai partecipanti di accedere al servizio esterno che stai utilizzando per le iscrizioni'
             select_a_meeting_type: Seleziona un tipo di riunione
             select_a_registration_type: Seleziona un tipo di registrazione
-            show_embedded_iframe_help: Indica se incorporare o meno l'iframe per questo URL della videoconferenza. Solo alcuni servizi consentono l'incorporazione (es. Youtube, Twitch...)
           index:
             title: Incontri
           new:
@@ -474,7 +469,6 @@ it:
           select_a_category: Scegli una categoria
           select_a_meeting_type: Seleziona un tipo di riunione
           select_a_registration_type: Seleziona un tipo di registrazione
-          show_embedded_iframe_help: Indica se incorporare o meno l'iframe per questo URL della videoconferenza. Solo alcuni servizi consentono l'incorporazione (es. Youtube, Twitch...)
         index:
           new_meeting: Nuova riunione
         meeting_minutes:
