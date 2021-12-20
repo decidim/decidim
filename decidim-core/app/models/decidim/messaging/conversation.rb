@@ -132,6 +132,15 @@ module Decidim
       end
 
       #
+      # Given a user, returns if ALL the interlocutors have their accounts deleted
+      #
+      # @return Boolean
+      #
+      def with_deleted_users?(user)
+        interlocutors(user).all?(&:deleted?)
+      end
+
+      #
       # Given a user, returns if the user is participating in the conversation
       # for groups being part of a conversation all their admin member are accepted
       #
