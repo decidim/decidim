@@ -251,6 +251,9 @@ Decidim.configure do |config|
 
   # Machine Translation Configuration
   #
+  # See Decidim docs at https://docs.decidim.org/en/develop/machine_translations/
+  # for more information about how it works and how to set it up.
+  #
   # Enable machine translations
   config.enable_machine_translations = false
   #
