@@ -34,7 +34,7 @@ module Decidim
         case response[:code]
         when 0 then response[:data]
         when (1..4) then raise StandardError, response[:message]
-        else raise Error, "An unknown error ocurrced while handling the API response: #{response}"
+        else raise Error, "An unknown error ocurred while handling the API response: #{response}"
         end
       end
 
