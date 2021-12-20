@@ -1642,10 +1642,12 @@ ja:
     name: 日本語
     name_with_error: 英語 (エラー!)
   password_validator:
+    blacklisted: ブラックリストに登録済み
     domain_included_in_password: このドメイン名に似ています
     email_included_in_password: はあなたのメールアドレスに似ています
     fallback: 有効ではありません
     name_included_in_password: あなたの名前に似ています
+    nickname_included_in_password: ニックネームに類似しすぎています
     not_enough_unique_characters: ユニークな文字が十分ではありません
     password_not_allowed: は許可されていません
     password_too_common: あまりにも一般的です
