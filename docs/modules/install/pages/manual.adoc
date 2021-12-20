@@ -90,7 +90,7 @@ Modify your secrets (see `config/database.yml`). For this you can use https://gi
 
 For a development environment, and if you are using rbenv, we strongly recommend you to use the https://github.com/rbenv/rbenv-vars[rbenv-vars] to facilitate the edition of ENV vars.
 
-Using Rbenv-vars, you only need to perform one step (once) to add the automated ENV vars functionality to rbenv:
+First you'll need to install the rbenv-vars plugin:
 
 [source,bash]
 ----
