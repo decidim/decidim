@@ -1669,10 +1669,12 @@ cs:
     name: Čeština
     name_with_error: Čeština
   password_validator:
+    blacklisted: je na černé listině
     domain_included_in_password: je příliš podobné tomuto názvu domény
     email_included_in_password: je příliš podobný e-mailu
     fallback: není platný
     name_included_in_password: je příliš podobné vašemu jménu
+    nickname_included_in_password: je příliš podobné vaší přezdívce
     not_enough_unique_characters: nemá dostatek jedinečných znaků
     password_not_allowed: není povoleno
     password_too_common: je příliš běžné
