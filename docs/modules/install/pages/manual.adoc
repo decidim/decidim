@@ -102,25 +102,14 @@ Then, in **any folder above your decidim generated application**, you need to cr
 
 [source,bash]
 ----
-nano .rbenv-vars
-----
-
-[source,env]
-----
+cat << EOF > .rbenv-vars
 DATABASE_HOST=localhost
 DATABASE_USERNAME=decidim_app
 DATABASE_PASSWORD=thepassword
+EOF
 ----
 
-Be careful where you put the `.rbenv-vars` file, as if you put it in the same folder of your decidim generated application, and if you use a version control system (like `git`, which we strongly recommend), then you should ignore this file (ie with the `.gitignore` file)
-
-Finally, save it all to git:
-
-[source,bash]
-----
-git add .
-git commit -m "Add figaro configuration management"
-----
+Be careful where you put the `.rbenv-vars` file, as if you put it in the same folder of your decidim generated application, and if you use a version control system (like `git`, which we strongly recommend), then you should ignore this file (ie with the `.gitignore` file).
 
 == 6. Initializing your app for local development
 
