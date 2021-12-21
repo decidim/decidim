@@ -6,7 +6,7 @@ module Decidim
   describe NotificationPresenter, type: :presenter do
     include ActiveSupport::Testing::TimeHelpers
     let(:creating_date) { Time.parse("Wed, 1 Sep 2021 21:00:00 UTC +00:00").in_time_zone }
-    let(:notification) { instance_double("Decidim::Notification", created_at: creating_date) }
+    let(:notification) { create(:notification, created_at: creating_date) }
     let(:subject) { described_class.new(notification) }
 
     context "with a valid notification" do
@@ -56,6 +56,27 @@ module Decidim
             travel_to(creating_date + 23.months) { expect(subject.created_at_in_words).to eq("01.09.2021") }
             travel_to(creating_date + 50.years) { expect(subject.created_at_in_words).to eq("01.09.2021") }
           end
+        end
+      end
+
+      describe "#display_resource_text?" do
+        it "returns false if the notification hasn't to display the content of the comment" do
+          expect(subject.display_resource_text?).to eq(false)
+        end
+      end
+    end
+
+    context "with a valid comment notification" do
+      let(:event_class) { "Decidim::Comments::CommentCreatedEvent" }
+      let(:event_name) { "decidim.events.comments.comment_created" }
+      let(:extra) { { comment_id: create(:comment).id } }
+
+      let(:notification) { create(:notification, event_class: event_class, event_name: event_name, extra: extra) }
+      let(:subject) { described_class.new(notification) }
+
+      describe "#display_resource_text?" do
+        it "returns true if the notification has to display the content of the comment" do
+          expect(subject.display_resource_text?).to eq(true)
         end
       end
     end

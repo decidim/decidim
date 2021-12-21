@@ -15,6 +15,11 @@
         <span>
           <%= notification.event_class_instance.notification_title %>
         </span>
+        <% if notification.display_resource_text? %>
+          <p>
+            <em><%= notification.resource_text %></em>
+          </p>
+        <% end %>
       </div>
       <div class="right center mr-s">
         <%= link_to model, remote: true, method: :delete, class: "mark-as-read-button" do %>
