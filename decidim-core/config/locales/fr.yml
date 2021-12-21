@@ -1658,10 +1658,12 @@ fr:
     name: Français
     name_with_error: Anglais (erreur !)
   password_validator:
+    blacklisted: sur liste noire
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
     email_included_in_password: est trop similaire à votre email
     fallback: n'est pas valide
     name_included_in_password: est trop similaire à votre nom
+    nickname_included_in_password: est trop similaire à votre surnom
     not_enough_unique_characters: n'a pas assez de caractères uniques
     password_not_allowed: n'est pas autorisé
     password_too_common: est trop commun
