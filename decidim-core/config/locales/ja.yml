@@ -40,7 +40,7 @@ ja:
     attributes:
       decidim/user:
         current_password: 現在のパスワード
-        email: Eメールアドレス
+        email: メールアドレス
         name: アカウントID
         password: パスワード
         password_confirmation: パスワードの確認
