@@ -103,6 +103,7 @@ shared_context "with frontend map elements" do
     final_html = html_document
     Rails.application.routes.draw do
       get "test_dynamic_map", to: ->(_) { [200, {}, [final_html]] }
+      get "offline", to: ->(_) { [200, {}, [""]] }
     end
 
     visit "/test_dynamic_map"
