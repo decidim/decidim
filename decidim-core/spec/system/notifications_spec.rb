@@ -127,7 +127,7 @@ describe "Notifications", type: :system do
       element = page.find(".card-data__item--expand")
       notification_text = element.text
 
-      expect(notification_text).to end_with("as a member of #{group.name} @#{group.nickname}")
+      expect(notification_text).to include("as a member of #{group.name} @#{group.nickname}")
     end
   end
 end

@@ -17,6 +17,10 @@
 <meta property="og:description" content="<%= decidim_meta_description %>">
 <meta property="og:image" content="<%= decidim_meta_image_url %>">
 
+<% if current_organization.colors["theme"] %>
+  <meta name="theme-color" content="<%= current_organization.colors["theme"] %>">
+<% end %>
+
 <%= favicon %>
 
 <link rel="manifest" href="/manifest.webmanifest">

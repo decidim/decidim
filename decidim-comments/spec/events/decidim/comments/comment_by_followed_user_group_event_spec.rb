@@ -39,7 +39,7 @@ module Decidim
           expect(subject.notification_title)
             .to start_with("There is a new comment by <a href=\"#{user_group_path}\">#{CGI.escapeHTML(user_group.name)} @#{user_group.nickname}</a> in")
           expect(subject.notification_title)
-            .to end_with("<a href=\"#{resource_path}#comment_#{comment.id}\">#{resource_title}</a>.")
+            .to end_with("<a href=\"#{resource_path}?commentId=#{comment.id}#comment_#{comment.id}\">#{resource_title}</a>.")
         end
       end
     end

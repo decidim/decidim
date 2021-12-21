@@ -396,6 +396,10 @@ fr-CA:
           index:
             meetings: Rencontres
             space_type: Espace participatif
+      iframe_access_level:
+        signed_in: Les participants connectés seulement
+      iframe_embed_type:
+        open_in_live_event_page: Ouvrir dans la page de l'événement en direct (avec sondages facultatifs)
       last_activity:
         meeting_updated_at_html: "<span>Débat mis à jour à %{link}</span>"
         new_meeting_at_html: "<span>Nouvelle réunion à %{link}</span>"
@@ -570,6 +574,8 @@ fr-CA:
           published_question:
             max_choices_alert: Il y a trop de choix sélectionnés
             question: Question
+            question_replied: Réponse envoyée
+            reply_question: Répondre
       public_participants_list:
         attending_participants: Participants présents
         hidden_participants_count:
