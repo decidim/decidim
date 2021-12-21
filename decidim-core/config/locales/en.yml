@@ -1094,6 +1094,10 @@ en:
       update:
         error: There was a problem updating your notifications settings.
         success: Your notifications settings were successfully updated.
+    offline:
+      show:
+        message: It looks like you're currently offline. Please, try again later.
+        retry: Retry
     open_data:
       not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
     own_user_groups:
