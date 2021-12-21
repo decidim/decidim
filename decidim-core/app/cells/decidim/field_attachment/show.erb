@@ -1,4 +1,6 @@
 <button class="button small hollow add-field add-attachment"><%= "Add attachment" %></button>
+<div class="field-attachment hidden-inputs">
+</div>
 
 <div class="reveal attachment-modal" id="attachment-modal-<%= field_id %>" data-reveal>
   <div class="reveal__header">
@@ -12,7 +14,7 @@
   <div class="row dropzone-container">
     <label class="dropzone">
       <%# direct_uploads_path = "/rails/active_storage/direct_uploads" %>
-      <%= form.file_field :attachments, label: false, multiple: true, direct_upload: true, data: { directuploadurl: "/rails/active_storage/direct_uploads" } %>
+      <%= form.file_field :add_documents, label: false, multiple: true, direct_upload: true, data: { directuploadurl: "/rails/active_storage/direct_uploads" } %>
       Drop files here or click to upload
     </label>
   </div>
@@ -20,7 +22,7 @@
   <div class="row columns reveal__content">
     <div class="attachment-fields-wrapper"></div>
     <div class="text-center">
-      <button class="button primary add-attachment"><%= "Save" %></button>
+      <button class="button primary add-attachment" data-close><%= "Save" %></button>
       <button class="link cancel-attachment margin-left-1" data-close><%= "Cancel" %></button>
     </div>
   </div>

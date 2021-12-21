@@ -7,6 +7,7 @@ export class Uploader {
     this.options = options;
     this.el = el;
     this.container = this.el.closest(".dropzone-container");
+    this.target = document.querySelector(".field-attachment.hidden-inputs")
 
     this.progressBarWrapper = document.createElement("div");
     this.progressBarWrapper.className = "progress-bar-wrapper";
@@ -39,7 +40,7 @@ export class Uploader {
         hiddenField.setAttribute("type", "hidden");
         hiddenField.setAttribute("value", blob.signed_id);
         hiddenField.name = this.el.name;
-        this.container.appendChild(hiddenField);
+        this.target.appendChild(hiddenField);
       }
     });
   }
