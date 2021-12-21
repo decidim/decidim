@@ -13,7 +13,7 @@ module Decidim
         api_key: "API_KEY"
       }
     end
-    let(:pad) { instance_double(EtherpadLite::Pad, id: "pad-id", read_only_id: "read-only-id") }
+    let(:pad) { instance_double(Decidim::Etherpad::Pad, id: "pad-id", read_only_id: "read-only-id") }
     let(:salt) { "super-secret" }
 
     before do
@@ -73,20 +73,6 @@ module Decidim
 
         it "returns nil" do
           expect(paddable.pad).to be_nil
-        end
-      end
-
-      context "when pad_id is faked" do
-        before do
-          allow(paddable).to receive(:pad_id).and_return("secret-id")
-        end
-
-        it "finds a pad in the server" do
-          etherpad_service = instance_double(EtherpadLite::Instance)
-          expect(paddable).to receive(:etherpad).and_return(etherpad_service)
-          expect(etherpad_service).to receive(:pad).with("secret-id").and_return(pad)
-
-          expect(paddable.pad).to eq(pad)
         end
       end
 
