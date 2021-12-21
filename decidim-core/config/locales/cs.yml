@@ -86,6 +86,11 @@ cs:
       decidim_with_month_name_short: "%d %b"
   datetime:
     distance_in_words:
+      about_x_hours:
+        one: asi 1 hodina
+        few: asi %{count} hodiny
+        many: asi %{count} hodin
+        other: asi %{count} hodin
       half_a_minute: půl minuty
   decidim:
     accessibility:
