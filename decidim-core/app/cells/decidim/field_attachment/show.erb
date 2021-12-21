@@ -1,20 +1,20 @@
-<button class="button small hollow add-field add-attachment"><%= "Add attachment" %></button>
-<div class="field-attachment hidden-inputs">
+<button name=<%= options[:name] %> class="button small hollow add-field add-attachment"><%= options[:name] %></button>
+<div class="field-attachment-<%= options[:name] %> hidden-inputs">
 </div>
 
 <div class="reveal attachment-modal" id="attachment-modal-<%= field_id %>" data-reveal>
   <div class="reveal__header">
-    <h3 class="reveal__title"><%= "Add attachment" %></h3>
+    <h3 class="reveal__title"><%= options[:name] %></h3>
     <button class="close-button" data-close aria-label="<%= "Close modal" %>"
       type="button">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
 
-  <div class="row dropzone-container">
+  <div class="row dropzone-container" data-name=<%= options[:name] %>>
     <label class="dropzone">
       <%# direct_uploads_path = "/rails/active_storage/direct_uploads" %>
-      <%= form.file_field :add_documents, label: false, multiple: true, direct_upload: true, data: { directuploadurl: "/rails/active_storage/direct_uploads" } %>
+      <%= form.file_field options[:name], label: false, multiple: true, direct_upload: true, data: { directuploadurl: "/rails/active_storage/direct_uploads" } %>
       Drop files here or click to upload
     </label>
   </div>

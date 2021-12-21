@@ -7,6 +7,12 @@ module Decidim
 
     alias form model
 
+    def show
+      return unless options[:name]
+
+      render
+    end
+
     private
 
     def field_id

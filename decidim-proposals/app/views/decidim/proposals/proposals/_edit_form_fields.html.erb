@@ -65,5 +65,13 @@
 <% end %>
 
 <% if component_settings.attachments_allowed? && @proposal %>
-  <%= cell("decidim/field_attachment", form) %>
+  <fieldset class="gallery__container photos_container">
+    <legend><%= t("gallery_legend", scope: "decidim.proposals.proposals.edit") %></legend>
+    <%= cell("decidim/field_attachment", form, name: :add_photos) %>
+  </fieldset>
+
+  <fieldset class="gallery__container documents_container">
+    <legend><%= t("attachment_legend", scope: "decidim.proposals.proposals.edit") %></legend>
+    <%= cell("decidim/field_attachment", form, name: :add_documents) %>
+  </fieldset>
 <% end %>
