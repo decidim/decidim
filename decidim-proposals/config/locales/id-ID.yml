@@ -188,7 +188,6 @@ id:
           email_intro: Proposal "%{resource_title}" telah ditambahkan ke "%{participatory_space_title}" yang Anda ikuti.
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{participatory_space_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
           email_subject: Proposal baru "%{resource_title}" ditambahkan ke %{participatory_space_title}
-          notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> telah ditambahkan ke %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Proposal Anda "%{resource_title}" telah ditolak. Anda dapat membaca jawabannya di halaman ini:'
