@@ -233,7 +233,6 @@ el:
           email_intro: Η πρόταση «%{resource_title}» προστέθηκε στον χώρο συμμετοχής «%{participatory_space_title}» που ακολουθείτε.
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής «%{participatory_space_title}». Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
           email_subject: Η νέα πρόταση «%{resource_title}» προστέθηκε στον χώρο συμμετοχής %{participatory_space_title}
-          notification_title: Η πρόταση <a href="%{resource_path}">%{resource_title}</a> προστέθηκε στον χώρο συμμετοχής %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Η πρότασή σας «%{resource_title}» απορρίφθηκε. Μπορείτε να διαβάσετε την απάντηση σε αυτήν τη σελίδα:'
