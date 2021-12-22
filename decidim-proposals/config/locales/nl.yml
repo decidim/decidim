@@ -245,7 +245,6 @@ nl:
           email_intro: Het voorstel "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat je volgt.
           email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Schakel de meldingen uit door op bovenstaande link te klikken en te stoppen met volgen.
           email_subject: Nieuw voorstel "%{resource_title}" toegevoegd aan %{participatory_space_title}
-          notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Uw voorstel "%{resource_title}" is afgewezen. U kunt het antwoord op deze pagina lezen:'
