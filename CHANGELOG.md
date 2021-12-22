@@ -14,9 +14,9 @@ Decidim.configure do |config|
 end
 ```
 
-#### User workflows change to prevent user enumeration attacks 
+#### User workflows change to prevent user enumeration attacks
 
-Until now it was possible to see if an email account was registered in Decidim, by using features like "Forgot your password", as the response changed if the email existed ("`You will receive an email with instructions on how to reset your password in a few minutes`") that's different to a non-existing user account ("`could not be found. Did you sign up previously?`"). This allows User Enumration attacks, where a malicious actor can check if anyone has an acount in the platform. As per [\#8537](https://github.com/decidim/decidim/pull/8537), anyone has the same answer always "`If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes`". 
+Until now it was possible to see if an email account was registered in Decidim, by using features like "Forgot your password", as the response changed if the email existed ("`You will receive an email with instructions on how to reset your password in a few minutes`") that's different to a non-existing user account ("`could not be found. Did you sign up previously?`"). This allows User Enumration attacks, where a malicious actor can check if anyone has an acount in the platform. As per [\#8537](https://github.com/decidim/decidim/pull/8537), anyone has the same answer always "`If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes`".
 
 ### Added
 * [#8012](https://github.com/decidim/decidim/pull/8012) Participatory space to comments, to fix the statistics. Use
@@ -39,3 +39,7 @@ PR [\#8250](https://github.com/decidim/decidim/pull/8250) Replaces the default b
 ```
 rails decidim:active_storage_migrations:migrate_inline_images_to_active_storage[admin_email]
 ```
+
+#### Custom icons new uploader
+
+PR [\#8645](https://github.com/decidim/decidim/pull/8645) we now only allow PNG images at Favicon so we can provide higher quality versions to mobile devices.
