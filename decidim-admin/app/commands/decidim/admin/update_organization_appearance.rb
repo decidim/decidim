@@ -102,7 +102,8 @@ module Decidim
             warning: form.warning_color,
             alert: form.alert_color,
             highlight: form.highlight_color,
-            "highlight-alternative": form.highlight_alternative_color
+            "highlight-alternative": form.highlight_alternative_color,
+            theme: form.theme_color
           }
         }
       end

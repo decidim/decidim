@@ -6,7 +6,7 @@ fr:
         description: Description
         title: Titre
         total_budget: Budget total
-        weight: Rang
+        weight: Rang d'affichage
       project:
         budget_amount: Montant du budget
         decidim_category_id: Catégorie
@@ -109,7 +109,7 @@ fr:
         continue: Continuer
         more_information: Plus d'information
       budget_list_item:
-        voting_finished: Vous avez voté pour ce budget
+        voting_finished: Vous avez voté dans ce budget
         voting_started: Vous avez commencé à voter dans ce budget
       budgets_list:
         cancel_order:
@@ -134,6 +134,8 @@ fr:
             total_budget: Budget total
         project:
           fields:
+            category: Catégorie
+            id: ID
             title: Titre
       order_summary_mailer:
         order_summary:
@@ -190,7 +192,7 @@ fr:
           cancel: Revenir au vote
           close_modal: Fermer la fenêtre de dialogue
           exit: Quitter le vote
-          message: Votre vote n'a pas été enregistré car vous n'avez pas encore terminé le processus de vote. Êtes-vous sûr de vouloir quitter le vote ?
+          message: Votre vote n'a pas encore été enregistré car vous n'avez pas terminé le processus de vote. Êtes-vous sûr de vouloir quitter le vote ?
           title: Vous n'avez pas encore voté
         filters:
           category: Catégorie

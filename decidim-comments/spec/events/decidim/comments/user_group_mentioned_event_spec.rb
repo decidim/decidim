@@ -48,7 +48,7 @@ describe Decidim::Comments::UserGroupMentionedEvent do
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include("You have been mentioned in <a href=\"#{resource_path}#comment_#{comment.id}\">#{html_escape(translated(resource.title))}</a>")
+        .to include("You have been mentioned in <a href=\"#{resource_path}?commentId=#{comment.id}#comment_#{comment.id}\">#{html_escape(translated(resource.title))}</a>")
 
       expect(subject.notification_title)
         .to include(" as a member of <a href=\"/profiles/#{group.nickname}\">#{html_escape(group.name)} @#{group.nickname}</a>")

@@ -1,4 +1,4 @@
-FROM ruby:2.7.1
+FROM ruby:2.7.5
 LABEL maintainer="info@codegram.com"
 
 ENV LANG C.UTF-8
