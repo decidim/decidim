@@ -67,11 +67,11 @@
 <% if component_settings.attachments_allowed? && @proposal %>
   <fieldset class="gallery__container photos_container">
     <legend><%= t("gallery_legend", scope: "decidim.proposals.proposals.edit") %></legend>
-    <%= cell("decidim/field_attachment", form, name: :add_photos) %>
+    <%= cell("decidim/field_attachment", form, name: :photos, attachments: @form.photos) %>
   </fieldset>
 
   <fieldset class="gallery__container documents_container">
     <legend><%= t("attachment_legend", scope: "decidim.proposals.proposals.edit") %></legend>
-    <%= cell("decidim/field_attachment", form, name: :add_documents) %>
+    <%= cell("decidim/field_attachment", form, name: :documents, attachments: @form.documents) %>
   </fieldset>
 <% end %>

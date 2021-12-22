@@ -8,12 +8,24 @@ module Decidim
     alias form model
 
     def show
-      return unless options[:name]
+      return unless resource_name
 
       render
     end
 
     private
+
+    def resource_name
+      options[:name]
+    end
+
+    def attachments
+      options[:attachments]
+    end
+
+    def file_name(attachment)
+      attachment.file&.blob&.filename&.sanitized || attachment.url.split("/").last
+    end
 
     def field_id
       @field_id ||= "attachments_#{SecureRandom.uuid}"

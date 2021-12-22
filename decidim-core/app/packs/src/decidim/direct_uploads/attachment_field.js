@@ -5,11 +5,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   attachmentButtons.forEach((attachmentButton) => {
     console.log("attachmentButton", attachmentButton)
-    attachmentButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      const el = document.querySelector(".reveal.attachment-modal")
-      $(el).foundation("open");
-    })
+    // attachmentButton.addEventListener("click", (event) => {
+    //   event.preventDefault();
+    //   const el = document.querySelector(".reveal.attachment-modal")
+    //   $(el).foundation("open");
+    // })
     const um = new UploadModal(attachmentButton);
     um.init();
   })

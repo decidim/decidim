@@ -14,19 +14,19 @@
     }
 
     label{
-      background-color: lightblue;
+      background-color: $white;
       margin: 1rem 0;
       cursor: pointer;
 
-      &.is-dragover {
-        background-color: white;
+      &.is-dragover{
+        background-color: lighten($secondary, 50);
       }
 
-      &.dropzone {
+      &.dropzone{
         padding: 1rem;
         text-align: center;
         border-style: dashed;
-        border-color: blue;
+        border-color: var(--secondary);
         border-width: 2px;
         border-radius: 4px;
       }
@@ -39,7 +39,7 @@
 
     .progress-bar-border{
       height: 2rem;
-      border: 1px solid red;
+      border: 1px solid var(--primary);
       box-sizing: border-box;
       padding: 0;
 
@@ -47,7 +47,7 @@
         display: flex;
         align-items: center;
         color: white;
-        background-color: red;
+        background-color: var(--primary);
         padding: 0 .5rem;
         height: 2rem;
       }

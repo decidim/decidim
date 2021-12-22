@@ -6,12 +6,12 @@ module Decidim
 
     def build_attachments
       @documents = []
-      @form.add_documents.each do |file|
+      @form.add_documents.each do |attachment|
         @documents << Attachment.new(
-          title: { I18n.locale => "Test title #{rand(1..1000)}" },
+          title: { I18n.locale => attachment[:title] },
           attached_to: @attached_to || documents_attached_to,
-          file: file,
-          content_type: "blob"
+          file: attachment[:file],
+          content_type: ActiveStorage::Blob.last.content_type # FIX THIS
         )
       end
     end
