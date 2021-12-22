@@ -300,7 +300,6 @@ pt:
           email_intro: A proposta "%{resource_title}" foi adicionada a "%{participatory_space_title}" que você segue.
           email_outro: Recebeu esta notificação porque segue "%{participatory_space_title}". Pode deixar de receber notificações seguindo a hiperligação anterior.
           email_subject: Nova proposta "%{resource_title}" adicionada a %{participatory_space_title}
-          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi adicionada a %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'A sua proposta "%{resource_title}" foi rejeitada. Pode ler a resposta nesta página:'
