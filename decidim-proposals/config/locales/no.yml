@@ -213,7 +213,6 @@
           email_intro: Forslaget "%{resource_title}" er blitt lagt til "%{participatory_space_title}" som du følger.
           email_outro: Du har mottatt denne varslingen fordi du følger "%{participatory_space_title}". Du kan slutte å motta varsler hvis du følger den forrige lenken.
           email_subject: Nytt forslag "%{resource_title}" lagt til %{participatory_space_title}
-          notification_title: Forslaget <a href="%{resource_path}">%{resource_title}</a> har blitt lagt til %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Forslaget ditt "%{resource_title}" er blitt avvist. Du kan lese svaret på denne siden:'
