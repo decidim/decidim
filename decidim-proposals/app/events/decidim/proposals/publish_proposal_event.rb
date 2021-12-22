@@ -4,9 +4,17 @@ module Decidim
   module Proposals
     class PublishProposalEvent < Decidim::Events::SimpleEvent
       include Decidim::Events::CoauthorEvent
+      include Decidim::Core::Engine.routes.url_helpers
+      include ActionView::Helpers::UrlHelper
 
       def resource_text
         resource.body
+      end
+
+      def i18n_options
+        author_path = link_to("@#{author.nickname}", profile_path(author.nickname))
+        author_string = "#{author.name} #{author_path}"
+        super.merge({ author: author_string })
       end
 
       private
