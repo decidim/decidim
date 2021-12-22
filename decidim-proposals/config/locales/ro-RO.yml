@@ -304,7 +304,6 @@ ro:
           email_intro: Propunerea "%{resource_title}" a fost adăugată la "%{participatory_space_title}", spațiu participativ pe care îl urmărești.
           email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula aceste notificări de la link-ul anterior.
           email_subject: O nouă propunere "%{resource_title}" a fost adăugată la %{participatory_space_title}
-          notification_title: Propunerea <a href="%{resource_path}">%{resource_title}</a> a fost adăugată la %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Propunerea ta "%{resource_title}" a fost respinsă. Poți citi răspunsul în această pagină:'
