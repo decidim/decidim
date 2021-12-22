@@ -122,7 +122,6 @@ uk:
         proposal_published_for_space:
           email_intro: До "%{participatory_space_title}", за яким ви стежите, була додана пропозиція "%{resource_title}".
           email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{participatory_space_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-          notification_title: До %{participatory_space_title} було додано пропозицію <a href="%{resource_path}">%{resource_title}</a>
         proposal_rejected:
           follower:
             email_intro: 'Пропозиція "%{resource_title}" була відхилена. Ви можете прочитати відповідь на сторінці:'
