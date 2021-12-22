@@ -25,6 +25,14 @@ module Decidim
         expect(manifest["lang"]).to eq(organization.default_locale)
 
         expect(manifest["description"]).to eq(ActionView::Base.full_sanitizer.sanitize(organization.description["en"]))
+
+        expect(manifest["icons"]).to match(
+          [
+            a_hash_including("src" => a_string_starting_with("/"), "sizes" => "32x32", "type" => "image/png"),
+            a_hash_including("src" => a_string_starting_with("/"), "sizes" => "180x180", "type" => "image/png"),
+            a_hash_including("src" => a_string_starting_with("/"), "sizes" => "192x192", "type" => "image/png")
+          ]
+        )
       end
     end
   end

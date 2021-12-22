@@ -756,8 +756,8 @@ en:
       file_help:
         file:
           explanation: 'Guidance for file:'
-          message_1: Has to be an image or a document.
-          message_2: For images, use preferrably landscape images, the service crops the image. For CSV files, the separator between columns must be a comma (",")
+          message_1: Has to be an square image.
+          message_2: The recommended size for this image is 512x512.
         image:
           explanation: 'Guidance for image:'
           message_1: Preferrably a landscape image that does not have any text.
