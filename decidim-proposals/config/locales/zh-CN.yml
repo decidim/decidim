@@ -247,7 +247,6 @@ zh-CN:
           email_intro: 提议 "%{resource_title}" 已被添加到"%{participatory_space_title}"，您正在关注它。
           email_outro: 您收到此通知是因为您正在关注 "%{participatory_space_title}"。您可以停止收到跟随上一个链接的通知。
           email_subject: 新提议 "%{resource_title}" 已添加到 %{participatory_space_title}
-          notification_title: 提议 <a href="%{resource_path}">%{resource_title}</a> 已被添加到 %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: '您的提议 "%{resource_title}" 已被拒绝。您可以在此页中读取答案：'
