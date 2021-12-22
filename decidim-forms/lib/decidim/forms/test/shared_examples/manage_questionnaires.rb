@@ -16,6 +16,14 @@ shared_examples_for "manage questionnaires" do
     }
   end
 
+  let(:text_separator_body) do
+    {
+      en: "Este es el primer separador de texto",
+      ca: "Aquest és el primer separador de text",
+      es: "Esta es la primera pregunta"
+    }
+  end
+
   it "updates the questionnaire" do
     visit questionnaire_edit_path
 
