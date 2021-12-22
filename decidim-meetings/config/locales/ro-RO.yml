@@ -286,6 +286,9 @@ ro:
           edit:
             close: Închide
             title: Închide ședința
+        meeting_copies:
+          form:
+            select_a_meeting_type: Te rugăm să selectezi un tip de ședință
         meetings:
           close:
             invalid: A apărut o problemă la închiderea acestei întâlniri
