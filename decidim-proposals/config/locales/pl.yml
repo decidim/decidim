@@ -275,7 +275,6 @@ pl:
           email_intro: Propozycja "%{resource_title}" została dodana do przestrzeni "%{participatory_space_title}", którą obserwujesz.
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie kliknij w przycisk obserwowania.
           email_subject: Nowa propozycja "%{resource_title}" została dodana do %{participatory_space_title}
-          notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została dodana do %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Twoja propozycja "%{resource_title}" została odrzucona. Możesz przeczytać odpowiedź na tej stronie:'
