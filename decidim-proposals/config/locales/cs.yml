@@ -308,7 +308,6 @@ cs:
           email_intro: Návrh "%{resource_title}" byl přidán k "%{participatory_space_title}", který sledujete.
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{participatory_space_title}". Můžete jej odhlásit od předchozího odkazu.
           email_subject: Nový návrh "%{resource_title}" byl přidán k %{participatory_space_title}
-          notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl přidán do %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Váš návrh "%{resource_title}" byl zamítnut. Odpověď můžete číst na této stránce:'
