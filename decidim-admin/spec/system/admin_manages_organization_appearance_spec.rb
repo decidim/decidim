@@ -48,7 +48,7 @@ describe "Admin manages organization", type: :system do
       fill_in "Official organization URL", with: "http://www.example.com"
 
       attach_file "Logo", Decidim::Dev.asset("city2.jpeg")
-      attach_file "Icon", Decidim::Dev.asset("city3.jpeg")
+      attach_file "Icon", Decidim::Dev.asset("icon.png")
       attach_file "Official logo header", Decidim::Dev.asset("city2.jpeg")
       attach_file "Official logo footer", Decidim::Dev.asset("city3.jpeg")
 
