@@ -82,7 +82,6 @@ uk:
           step:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено
-            creation_enabled: Внесення пропозицій увімкнено
             endorsements_blocked: Надання підтримки вимкнене
             endorsements_enabled: Надання підтримки увімкнено
             proposal_answering_enabled: Відповіді на пропозиції увімкнено
