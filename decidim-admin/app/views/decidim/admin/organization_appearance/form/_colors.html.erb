@@ -17,6 +17,7 @@
       <%= form.color_field :alert_color, value: current_organization.colors["alert"] %>
       <%= form.color_field :highlight_color, value: current_organization.colors["highlight"] %>
       <%= form.color_field :highlight_alternative_color, value: current_organization.colors["highlight-alternative"] %>
+      <%= form.color_field :theme_color, value: current_organization.colors["theme"] %>
     </div>
 
     <% if Decidim.enable_html_header_snippets %>

@@ -102,12 +102,7 @@ module Decidim
 
       # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.
       def render_proposal_body(proposal)
-        body = present(proposal).body(links: true, strip_tags: !safe_content?)
-        body = simple_format(body, {}, sanitize: false)
-
-        return body unless safe_content?
-
-        decidim_sanitize_editor(body)
+        render_sanitized_content(proposal, :body)
       end
 
       # Returns :text_area or :editor based on the organization' settings.

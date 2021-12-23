@@ -45,6 +45,9 @@ module Decidim
         source: :user
       )
 
+      enum iframe_access_level: [:all, :signed_in, :registered], _prefix: true
+      enum iframe_embed_type: [:none, :embed_in_meeting_page, :open_in_live_event_page, :open_in_new_tab], _prefix: true
+
       component_manifest_name "meetings"
 
       validates :title, presence: true
@@ -211,6 +214,17 @@ module Decidim
         Decidim::Meetings::Meeting.visible_meeting_for(user).exists?(id: id)
       end
 
+      def iframe_access_level_allowed_for_user?(user)
+        case iframe_access_level
+        when "all"
+          true
+        when "signed_in"
+          user.present?
+        else
+          has_registration_for?(user)
+        end
+      end
+
       # Return the duration of the meeting in minutes
       def meeting_duration
         @meeting_duration ||= ((end_time - start_time) / 1.minute).abs
@@ -305,6 +319,13 @@ module Decidim
 
       def has_attendees?
         !!attendees_count && attendees_count.positive?
+      end
+
+      def live?
+        start_time &&
+          end_time &&
+          Time.current >= (start_time - 10.minutes) &&
+          Time.current <= end_time
       end
 
       def self.sort_by_translated_title_asc

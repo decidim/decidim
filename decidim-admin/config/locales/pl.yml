@@ -447,6 +447,7 @@ pl:
           impersonate_existing_user: Zarządzaj użytkownikiem "%{name}"
           impersonate_new_managed_user: Zarządzaj nowym uczestnikiem
       imports:
+        and: i
         error: Podczas importowania wystąpił błąd
         new:
           accepted_mime_types:

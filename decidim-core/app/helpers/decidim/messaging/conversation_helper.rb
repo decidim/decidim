@@ -28,10 +28,18 @@ module Decidim
       # Generates a visualization of users for listing conversations threads
       #
       def username_list(users, shorten: false)
-        return users.pluck(:name).join(", ") unless shorten
-        return users.pluck(:name).join(", ") unless users.count > 3
+        content_tags = []
+        first_users = shorten ? users.first(3) : users
+        deleted_user_tag = content_tag(:span, t("decidim.profile.deleted"), class: "label label--small label--basic")
+        first_users.each do |u|
+          content_tags.push(u.deleted? ? deleted_user_tag : content_tag(:strong, u.name))
+        end
 
-        "#{users.first(3).pluck(:name).join(", ")} + #{users.count - 3}"
+        return content_tags.join(", ") unless shorten
+        return content_tags.join(", ") unless users.count > 3
+
+        content_tags.push(content_tag(:strong, " + #{users.count - 3}"))
+        content_tags.join(", ")
       end
 
       #

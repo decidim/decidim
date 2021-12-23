@@ -77,6 +77,7 @@ module Decidim
   autoload :Amendable, "decidim/amendable"
   autoload :Gamification, "decidim/gamification"
   autoload :Hashtag, "decidim/hashtag"
+  autoload :Etherpad, "decidim/etherpad"
   autoload :Paddable, "decidim/paddable"
   autoload :OpenDataExporter, "decidim/open_data_exporter"
   autoload :IoEncoder, "decidim/io_encoder"
@@ -95,6 +96,7 @@ module Decidim
   autoload :RecordEncryptor, "decidim/record_encryptor"
   autoload :AttachmentAttributes, "decidim/attachment_attributes"
   autoload :CarrierWaveMigratorService, "decidim/carrier_wave_migrator_service"
+  autoload :CommonPasswords, "decidim/common_passwords"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -382,6 +384,18 @@ module Decidim
   # set cookies.
   config_accessor :consent_cookie_name do
     "decidim-cc"
+  end
+
+  # Blacklisted passwords. Array may contain strings and regex entries.
+  config_accessor :password_blacklist do
+    []
+  end
+
+  # This is an internal key that allow us to properly configure the caching key separator. This is useful for redis cache store
+  # as it creates some namespaces within the cached data.
+  # use `config.cache_key_separator = ":"` in your initializer to have namespaced data
+  config_accessor :cache_key_separator do
+    "/"
   end
 
   # Public: Registers a global engine. This method is intended to be used

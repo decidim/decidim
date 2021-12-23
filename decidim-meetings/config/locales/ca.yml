@@ -42,10 +42,6 @@ ca:
         type_of_meeting: Tipus
     errors:
       models:
-        meeting:
-          attributes:
-            show_embedded_iframe:
-              not_embeddable: Aquest URL no es pot incrustar
         meeting_agenda:
           attributes:
             base:
@@ -309,7 +305,6 @@ ca:
             registration_url_help: 'Enllaç: permetre a les participants anar al servei extern que estàs utilitzant per a les inscripcions'
             select_a_meeting_type: Si us plau selecciona un tipus de trobada
             select_a_registration_type: Si us plau selecciona un tipus d'inscripció
-            show_embedded_iframe_help: Incrustar o no un iframe per a aquesta URL de videoconferència. Només alguns serveis permeten la incrustació (per exemple, Youtube, Twitch, etc.)
           index:
             title: Trobades
           new:
@@ -474,7 +469,6 @@ ca:
           select_a_category: Si us plau, selecciona una categoria
           select_a_meeting_type: Si us plau selecciona un tipus de trobada
           select_a_registration_type: Si us plau selecciona un tipus d'inscripció
-          show_embedded_iframe_help: Incrustar o no un iframe per a aquesta URL de videoconferència. Només alguns serveis permeten la incrustació (per exemple, Youtube, Twitch, etc.)
         index:
           new_meeting: Nova trobada
         meeting_minutes:

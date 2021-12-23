@@ -7,6 +7,9 @@
     </button>
   </div>
   <% if current_organization.sign_in_enabled? %>
+    <% cache current_organization do %>
+      <%= render "decidim/devise/shared/omniauth_buttons_mini" %>
+    <% end %>
     <div class="row">
       <div class="columns medium-8 medium-centered">
           <%
@@ -39,9 +42,6 @@
           </p>
       </div>
     </div>
-    <% cache current_organization do %>
-      <%= render "decidim/devise/shared/omniauth_buttons_mini" %>
-    <% end %>
   <% else %>
     <div class="row">
       <div class="columns medium-8 medium-centered">
