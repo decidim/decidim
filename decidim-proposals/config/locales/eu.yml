@@ -192,7 +192,6 @@ eu:
             answers_with_costs: Gaitu kostua proposamenen erantzunetan
             automatic_hashtags: Hashtags proposamen guztiei gehitu zaie
             comments_blocked: Iruzkinak blokeatuta
-            creation_enabled: Proposamenaren sorrera gaituta
             default_sort_order: Proposamenen hurrenkera lehenetsia
             default_sort_order_options:
               default: Lehenetsita
