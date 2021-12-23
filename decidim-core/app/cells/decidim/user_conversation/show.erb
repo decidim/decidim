@@ -10,10 +10,12 @@
         <% end %>
       </div>
 
-      <% if conversation.accept_user?(user) %>
+      <% if conversation.with_deleted_users?(user) %>
+        <div class="callout warning margin-top-2"><%= t "decidim.user_conversations.show.deleted_accounts" %></div>
+      <% elsif conversation.accept_user?(user) %>
         <%= render view: :reply, locals: { title: t("decidim.user_conversations.reply.title_reply") } %>
       <% else %>
-        <em><%= t "decidim.user_conversations.show.not_allowed" %></em>
+        <div class="callout warning margin-top-2"><%= t "decidim.user_conversations.show.not_allowed" %></div>
       <% end %>
     </div>
   </div>
