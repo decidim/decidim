@@ -17,7 +17,6 @@ nl:
       decidim/debates/close_debate_event: Debat gesloten
       decidim/debates/create_debate_event: Debat
       decidim/debates/creation_disabled_event: Debatten uitgeschakeld
-      decidim/debates/creation_enabled_event: Debatten ingeschakeld
   activerecord:
     models:
       decidim/debates/debate:
@@ -39,7 +38,6 @@ nl:
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
-            creation_enabled: Gebruikers kunnen zelf debat aanmaken
     debates:
       actions:
         close: Sluiten
