@@ -168,7 +168,6 @@ tr:
             answers_with_costs: Teklif yanıtlarında maliyetleri etkinleştirin
             automatic_hashtags: Tüm tekliflere etiketler eklendi
             comments_blocked: Yorumlar engellendi
-            creation_enabled: Teklif oluşturma etkin
             endorsements_blocked: Onaylar engellendi
             endorsements_enabled: Onaylar etkin
             proposal_answering_enabled: Teklif yanıtlama etkin
