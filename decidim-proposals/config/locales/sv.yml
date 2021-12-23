@@ -196,7 +196,6 @@ sv:
             answers_with_costs: Tillåt kostnader i svar på förslag
             automatic_hashtags: Hashtags läggs till i alla förslag
             comments_blocked: Kommentarer blockerade
-            creation_enabled: Skapande av förslag aktiverat
             default_sort_order: Förvald produkt sortering
             default_sort_order_help: Förinställt innebär att om stödet är aktiverat kommer förslagen sorteras slumpmässigt, och om stöden är blockerade kommer de att sorteras efter mest stödda.
             default_sort_order_options:
