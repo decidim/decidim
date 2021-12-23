@@ -196,7 +196,6 @@ pt:
             answers_with_costs: Ativar custos nas respostas a propostas
             automatic_hashtags: Hashtags adicionados a todas as propostas
             comments_blocked: Comentários bloqueados
-            creation_enabled: Criação de proposta ativada
             default_sort_order: Ordenamento por defeitos das propostas
             default_sort_order_help: Por defeito significa que se os apoios estiverem activos as propostas serão ordenadas ao acaso, e se os apoios estiverem bloqueados serão ordenadas do maior para o menor número de apoios.
             default_sort_order_options:
