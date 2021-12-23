@@ -2,6 +2,7 @@ import AutoButtonsByPositionComponent from "src/decidim/admin/auto_buttons_by_po
 import AutoLabelByPositionComponent from "src/decidim/admin/auto_label_by_position.component"
 import createSortList from "src/decidim/admin/sort_list.component"
 import createDynamicFields from "src/decidim/admin/dynamic_fields.component"
+import createFieldDependentInputs from "src/decidim/admin/field_dependent_inputs.component"
 import attachGeocoding from "src/decidim/geocoding/attach_input"
 
 $(() => {
@@ -114,15 +115,12 @@ $(() => {
     });
 
     $meetingRegistrationType.trigger("change");
-  }
 
-  const $meetingForm = $(".meetings_form");
-  if ($meetingForm.length > 0) {
-    const $meetingTypeOfMeeting = $meetingForm.find("#meeting_type_of_meeting");
-    const $meetingOnlineFields = $meetingForm.find(".field[data-meeting-type='online']");
-    const $meetingInPersonFields = $meetingForm.find(".field[data-meeting-type='in_person']");
+    const $meetingTypeOfMeeting = $form.find("#meeting_type_of_meeting");
+    const $meetingOnlineFields = $form.find(".field[data-meeting-type='online']");
+    const $meetingInPersonFields = $form.find(".field[data-meeting-type='in_person']");
 
-    const toggleDependsOnSelect = ($target, $showDiv, type) => {
+    const toggleTypeDependsOnSelect = ($target, $showDiv, type) => {
       const value = $target.val();
       if (value === "hybrid") {
         $showDiv.show();
@@ -136,11 +134,23 @@ $(() => {
 
     $meetingTypeOfMeeting.on("change", (ev) => {
       const $target = $(ev.target);
-      toggleDependsOnSelect($target, $meetingOnlineFields, "online");
-      toggleDependsOnSelect($target, $meetingInPersonFields, "in_person");
+      toggleTypeDependsOnSelect($target, $meetingOnlineFields, "online");
+      toggleTypeDependsOnSelect($target, $meetingInPersonFields, "in_person");
     });
 
-    toggleDependsOnSelect($meetingTypeOfMeeting, $meetingOnlineFields, "online");
-    toggleDependsOnSelect($meetingTypeOfMeeting, $meetingInPersonFields, "in_person");
+    toggleTypeDependsOnSelect($meetingTypeOfMeeting, $meetingOnlineFields, "online");
+    toggleTypeDependsOnSelect($meetingTypeOfMeeting, $meetingInPersonFields, "in_person");
   }
+
+  const $meetingIframeEmbedType = $("#meeting_iframe_embed_type");
+
+  createFieldDependentInputs({
+    controllerField: $meetingIframeEmbedType,
+    wrapperSelector: ".iframe-fields",
+    dependentFieldsSelector: ".iframe-fields--access-level",
+    dependentInputSelector: "input",
+    enablingCondition: ($field) => {
+      return $field.val() !== "none"
+    }
+  });
 })

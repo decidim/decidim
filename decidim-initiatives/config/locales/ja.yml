@@ -19,7 +19,7 @@ ja:
       initiatives_committee_member:
         user: 委員会メンバー
       initiatives_type:
-        area_enabled: 作成者が取り組みの領域を選択できるようにする
+        area_enabled: 作成者がイニシアチブの領域を選択できるようにする
         attachments_enabled: 添付ファイルを有効化
         banner_image: バナー画像
         child_scope_threshold_enabled: 下層スコープの署名を有効にする
@@ -30,7 +30,7 @@ ja:
         extra_fields_legal_information: 個人データの収集に関する法的情報
         minimum_committee_members: 委員の最小数
         online_signature_enabled: オンライン署名は有効です
-        only_global_scope_enabled: グローバルスコープの取り組みの作成のみを許可する
+        only_global_scope_enabled: グローバルスコープのイニシアチブの作成のみを許可する
         promoting_committee_enabled: 推進委員会を有効にする
         title: タイトル
         undo_online_signatures_enabled: 参加者がオンライン署名を取り消すことを有効にする
@@ -55,7 +55,7 @@ ja:
   activerecord:
     models:
       decidim/initiative:
-        other: 取り組み
+        other: イニシアチブ
       decidim/initiative_comittee:
         other: Comittes
       decidim/initiative_vote:
@@ -63,7 +63,7 @@ ja:
   decidim:
     admin:
       actions:
-        new_initiative_type: 新しい取り組み種別
+        new_initiative_type: 新しいイニシアチブ種別
       filters:
         initiatives:
           decidim_area_id_eq:
@@ -87,7 +87,7 @@ ja:
         components: コンポーネント
         information: 情報
         initiatives: イニシアチブ
-        initiatives_types: 取り組み種別
+        initiatives_types: イニシアチブ種別
         moderations: モデレーション
       models:
         initiatives:
@@ -212,7 +212,7 @@ ja:
           initiatives: イニシアチブ
         initiatives:
           edit:
-            accept: 取り組みを承認する
+            accept: イニシアチブを承認する
             confirm: よろしいですか？
             confirm_send_to_technical_validation: 本当によろしいですか？
             discard: イニシアチブを破棄する
@@ -272,11 +272,11 @@ ja:
           form:
             authorizations: 認証設定
             child_scope_threshold_enabled_help: 'この設定では、対面での署名収集をサポートせず、サブスコープの署名フラグを有効にし、スコープとユーザーを関連付ける承認ハンドラと連携します。オーソリゼーションの設定で、下記のオーソリゼーションを必ず選択してください。これが機能するためには、1つのスコープ - N個のサブスコープというように、階層的に構成されている必要があります。この設定がどのように機能するかについては、この<a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">リンク</a>を参照してください。'
-            only_global_scope_enabled_help: '「子スコープ署名」を有効にし、グローバルスコープを親スコープとして設定する場合、このフラグをチェックします。 これを有効にすると、取り組み作成ウィザードで取り組みタイプの選択がスキップされます。 この設定の仕組みについての詳細は、この <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">リンク</a> を参照してください。'
+            only_global_scope_enabled_help: '「子スコープ署名」を有効にし、グローバルスコープを親スコープとして設定する場合、このフラグをチェックします。 これを有効にすると、イニシアチブ作成ウィザードでイニシアチブ種別の選択がスキップされます。 この設定の仕組みについての詳細は、この <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">リンク</a> を参照してください。'
             options: オプション
             title: 一般情報
           initiative_type_scopes:
-            title: イニシアチブの種別のスコープ
+            title: イニシアチブ種別のスコープ
           new:
             create: 作成
             title: 新しいイニシアチブ種別
@@ -351,7 +351,7 @@ ja:
           more_information: "(詳細)"
         promotal_committee:
           back: 戻る
-          individual_help_text: この種類のイニシアチブでは、少なくとも%{committee_size} のメンバー(証人) で構成される推進委員会が必要です。以下のリンクを、この取り組みに参加している他の人々と共有する必要があります。あなたの連絡先がこのリンクを受け取ったら、指示された手順に従う必要があります。
+          individual_help_text: この種類のイニシアチブでは、少なくとも%{committee_size} のメンバー(証人) で構成される推進委員会が必要です。以下のリンクを、このイニシアチブに参加している他の人々と共有する必要があります。あなたの連絡先がこのリンクを受け取ったら、指示された手順に従う必要があります。
           more_information: "(詳細)"
         select_initiative_type:
           back: 戻る
@@ -391,8 +391,8 @@ ja:
         endorse_initiative_event:
           email_intro: "あなたがフォローしている%{author_name} %{author_nickname}は、次のイニシアチブを承認しました。会話に貢献したい場合もあります："
           email_outro: '%{author_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
-          email_subject: '%{author_nickname} によって支持されたイニシアチブ。'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> イニシアチブは、 <a href="%{author_path}">%{author_name} %{author_nickname}</a> によって承認されました。
+          email_subject: '%{author_nickname} によってオススメされたイニシアチブ'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> イニシアチブは、 <a href="%{author_path}">%{author_name} %{author_nickname}</a> によってオススメされました。
         revoke_membership_request:
           email_intro: "%{author_nickname} は、以下のイニシアチブ %{resource_title} の推進委員会に参加する申請を拒否しました。"
           email_outro: 'この通知を受け取ったのは、イニシアチブ %{resource_title} に応募したためです。'
@@ -433,7 +433,7 @@ ja:
         personal_data:
           invalid: 個人データは、承認のために提供されたデータと一致しません。
         sms_code:
-          invalid: 認証コードが私たちのものと一致しません。SMSを送信したことを再確認してください。
+          invalid: 確認コードが私たちのものと一致しません。SMSを送信したことを再確認してください。
         sms_phone:
           invalid: 電話番号が無効または承認待ちです。認証を確認してください。
       initiatives:
@@ -483,8 +483,8 @@ ja:
         orders:
           label: 'イニシアチブの並べ替え:'
           most_commented: コメントが多い順
-          most_voted: 最も署名されたもの
-          random: Random
+          most_voted: 署名されている順
+          random: ランダム
           recent: 直近のもの
           recently_published: 直近に公開
         print:

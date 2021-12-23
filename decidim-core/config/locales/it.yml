@@ -1635,10 +1635,12 @@ it:
     name: Italiano
     name_with_error: Inglese (errore!)
   password_validator:
+    blacklisted: è nella blacklist
     domain_included_in_password: è troppo simile a questo nome di dominio
     email_included_in_password: è troppo simile alla tua email
     fallback: non è valido
     name_included_in_password: è troppo simile al tuo nome
+    nickname_included_in_password: è troppo simile al tuo nickname
     not_enough_unique_characters: non ha abbastanza caratteri unici
     password_not_allowed: non è permesso
     password_too_common: è troppo comune

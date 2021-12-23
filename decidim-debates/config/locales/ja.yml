@@ -28,7 +28,7 @@ ja:
         actions:
           comment: コメント
           create: 作成
-          endorse: 支持
+          endorse: オススメ
         name: ディベート
         settings:
           global:
@@ -41,8 +41,8 @@ ja:
             announcement: お知らせ
             comments_blocked: コメントをブロック
             creation_enabled: 参加者によるディベートの作成が有効になりました
-            endorsements_blocked: 支持がブロックされました
-            endorsements_enabled: 支持を有効にする
+            endorsements_blocked: オススメがブロックされました
+            endorsements_enabled: オススメを有効にする
     debates:
       actions:
         close: 閉じる
@@ -185,8 +185,8 @@ ja:
           space_followers:
             email_intro: |-
               こんにちは、
-              %{resource_title}参加スペースに新しいディベート「 %{space_title} 」が作成されました。チェックして貢献：
-            email_outro: '%{space_title} の参加スペースをフォローしているため、この通知を受信しました。前のリンクに続く通知の受信を停止できます。'
+              %{resource_title} 参加型スペースに新しいディベート「 %{space_title} 」が作成されました。チェックして貢献：
+            email_outro: '%{space_title} の参加型スペースをフォローしているため、この通知を受信しました。前のリンクに続く通知の受信を停止できます。'
             email_subject: '%{resource_title}に新しいディベート " %{space_title}"'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> のディベートは <a href="%{space_path}">%{space_title}</a> に作成されました。
           user_followers:

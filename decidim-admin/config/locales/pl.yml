@@ -392,8 +392,9 @@ pl:
         search_label: Szukaj
         search_placeholder:
           name_or_nickname_or_email_cont: Przeszukaj %{collection} według adresu e-mail, nazwiska lub nazwy użytkownika.
-          reported_id_string_or_reported_content_cont: Szukaj %{collection} według identyfikatora lub treści zgłoszenia.
+          reported_id_string_or_reported_content_cont: Przeszukaj %{collection} według identyfikatora lub treści zgłoszenia.
           title_cont: Przeszukaj %{collection} według tytułu.
+          user_name_or_user_email_cont: Przeszukaj %{collection} według nazwy lub e-maila.
         state_eq:
           label: Stan
           values:
@@ -446,6 +447,7 @@ pl:
           impersonate_existing_user: Zarządzaj użytkownikiem "%{name}"
           impersonate_new_managed_user: Zarządzaj nowym uczestnikiem
       imports:
+        and: i
         error: Podczas importowania wystąpił błąd
         new:
           accepted_mime_types:

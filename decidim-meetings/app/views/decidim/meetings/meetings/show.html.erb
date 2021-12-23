@@ -43,15 +43,8 @@ edit_link(
 
     <div class="card extra">
       <div class="card__content">
-        <div class="extra__date">
-          <%= l meeting.start_time, format: "%d" %>
-          <span class="extra__month"><%= l meeting.start_time, format: "%B" %>
-            <%= l(meeting.start_time, format: "%Y") if meeting.start_time.year != Date.current.year %>
-          </span>
-        </div>
-        <div class="extra__time">
-          <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
-        </div>
+        <%= cell("decidim/date_range", { start: meeting.start_time, end: meeting.end_time }) %>
+
         <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
         <%= render partial: "decidim/shared/follow_button", locals: { followable: meeting, large: false  } %>
       </div>
@@ -131,7 +124,7 @@ edit_link(
           <%= t("withdraw", scope: "decidim.meetings.types") %>
         </span>
       <% end %>
-      <%= decidim_sanitize_editor(present(meeting).description(links: true)) %>
+      <%= render_meeting_body(@meeting) %>
 
       <% if meeting.maps_enabled? && !meeting.online_meeting? %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>

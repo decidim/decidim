@@ -119,6 +119,9 @@ de:
         highlighted_cta: Über %{name} abstimmen
         if_change_opinion: Wenn sie ihr Meinung geändert haben, können sie
         my_budgets: Meine Budgets
+        progress: Abstimmung beenden
+        show: Projekte ansehen
+        vote: Abstimmen
         voted_on: Sie haben über %{links} abgestimmt
       limit_announcement:
         cant_vote: Sie können nicht über dieses Budget abstimmen. <a href="%{landing_path}">Versuchen Sie es mit einem anderen Budget</a>.
@@ -183,6 +186,12 @@ de:
           projects_count:
             one: 1 Projekt
             other: "%{count} Projekte"
+        exit_modal:
+          cancel: Zurück zur Abstimmung
+          close_modal: Dialog schließen
+          exit: Abstimmung verlassen
+          message: Ihre Stimme wurde nicht registriert, weil Sie den Abstimmungsprozess noch nicht abgeschlossen haben. Sind Sie sicher, dass Sie die Abstimmung beenden möchten?
+          title: Sie haben noch nicht abgestimmt
         filters:
           category: Kategorie
           scope: Umfang
@@ -233,6 +242,7 @@ de:
     components:
       budgets:
         actions:
+          comment: Kommentieren
           vote: Abstimmen
         name: Budgets
         settings:

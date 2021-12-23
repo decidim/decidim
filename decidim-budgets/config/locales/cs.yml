@@ -23,6 +23,18 @@ cs:
         many: Projekty
         other: Projekty
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Kategorie
+          scope_id_eq:
+            label: Oblast působnosti
+          selected_at_null:
+            label: Vybráno
+            values:
+              'false': Vybráno pro implementaci
+              'true': Nevybráno pro implementaci
     budgets:
       actions:
         attachment_collections: Složky
@@ -136,6 +148,8 @@ cs:
             total_budget: Celkový rozpočet
         project:
           fields:
+            category: Kategorie
+            id: ID
             title: Titul
       order_summary_mailer:
         order_summary:
@@ -190,6 +204,12 @@ cs:
             few: "%{count} projektů"
             many: "%{count} projektů"
             other: "%{count} projektů"
+        exit_modal:
+          cancel: Návrat k hlasování
+          close_modal: Zavřít modal
+          exit: Ukončit hlasování
+          message: Váš hlas nebyl zaregistrován, protože jste ještě nedokončili proces hlasování. Opravdu chcete ukončit hlasování?
+          title: Zatím jste nehlasovali
         filters:
           category: Kategorie
           scope: Oblast působnosti

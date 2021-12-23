@@ -24,7 +24,8 @@ module Decidim::Meetings
     let(:online_meeting_url) { "http://decidim.org" }
     let(:registration_url) { "http://decidim.org" }
     let(:registration_type) { "on_this_platform" }
-    let(:show_embedded_iframe) { true }
+    let(:iframe_embed_type) { "embed_in_meeting_page" }
+    let(:iframe_access_level) { "all" }
     let(:services) do
       [
         {
@@ -65,10 +66,11 @@ module Decidim::Meetings
         registration_url: registration_url,
         clean_type_of_meeting: type_of_meeting,
         online_meeting_url: online_meeting_url,
-        show_embedded_iframe: show_embedded_iframe,
+        iframe_embed_type: iframe_embed_type,
         comments_enabled: true,
         comments_start_time: nil,
-        comments_end_time: nil
+        comments_end_time: nil,
+        iframe_access_level: iframe_access_level
       )
     end
 
@@ -134,10 +136,21 @@ module Decidim::Meetings
         expect(meeting).not_to be_published
       end
 
-      it "sets show_embedded_iframe" do
+      it "makes the user follow the meeting" do
+        expect { subject.call }.to change(Decidim::Follow, :count).by(1)
+        expect(meeting.reload.followers).to include(current_user)
+      end
+
+      it "sets iframe_embed_type" do
         subject.call
 
-        expect(meeting).to be_show_embedded_iframe
+        expect(meeting.iframe_embed_type).to eq(iframe_embed_type)
+      end
+
+      it "sets iframe_access_level" do
+        subject.call
+
+        expect(meeting.iframe_access_level).to eq(iframe_access_level)
       end
 
       it "traces the action", versioning: true do

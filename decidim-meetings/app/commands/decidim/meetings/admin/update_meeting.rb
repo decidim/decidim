@@ -59,10 +59,11 @@ module Decidim
             location_hints: form.location_hints,
             private_meeting: form.private_meeting,
             transparent: form.transparent,
-            show_embedded_iframe: form.show_embedded_iframe,
+            iframe_embed_type: form.iframe_embed_type,
             comments_enabled: form.comments_enabled,
             comments_start_time: form.comments_start_time,
-            comments_end_time: form.comments_end_time
+            comments_end_time: form.comments_end_time,
+            iframe_access_level: form.iframe_access_level
           )
         end
 

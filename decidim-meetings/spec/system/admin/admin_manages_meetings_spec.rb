@@ -349,65 +349,6 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     end
   end
 
-  describe "duplicating a meeting" do
-    it "creates a new meeting", :slow, :serves_geocoding_autocomplete do
-      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
-        click_link "Duplicate"
-      end
-
-      fill_in_i18n(
-        :meeting_title,
-        "#meeting-title-tabs",
-        en: "My duplicate meeting",
-        es: "Mi meeting duplicado",
-        ca: "El meu meeting duplicat"
-      )
-      fill_in_i18n(
-        :meeting_location,
-        "#meeting-location-tabs",
-        en: "Location",
-        es: "Location",
-        ca: "Location"
-      )
-      fill_in_i18n(
-        :meeting_location_hints,
-        "#meeting-location_hints-tabs",
-        en: "Location hints",
-        es: "Location hints",
-        ca: "Location hints"
-      )
-      fill_in_i18n_editor(
-        :meeting_description,
-        "#meeting-description-tabs",
-        en: "A longer description",
-        es: "Descripción más larga",
-        ca: "Descripció més llarga"
-      )
-
-      fill_in_geocoding :meeting_address, with: address
-
-      page.execute_script("$('#meeting_start_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "10:00").click
-      page.find(".datepicker-dropdown .minute", text: "10:50").click
-
-      page.execute_script("$('#meeting_end_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "12:00").click
-      page.find(".datepicker-dropdown .minute", text: "12:50").click
-
-      within ".copy_meetings" do
-        find("*[type=submit]").click
-      end
-
-      expect(page).to have_admin_callout("successfully")
-
-      within "table" do
-        expect(page).to have_content("My duplicate meeting")
-      end
-    end
-  end
-
   describe "deleting a meeting" do
     let!(:meeting2) { create(:meeting, component: current_component) }
 

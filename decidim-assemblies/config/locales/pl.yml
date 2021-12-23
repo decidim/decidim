@@ -187,6 +187,9 @@ pl:
         update:
           error: Wystąpił błąd podczas aktualizacji administratora tego zespołu.
           success: Administrator zespołu został zaktualizowany pomyślnie.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Typ zespołu
       menu:
         assemblies: Zespoły
         assemblies_settings: Ustawienia
@@ -302,6 +305,7 @@ pl:
           form:
             existing_user: Istniejący użytkownik
             non_user: Brak użytkownika
+            non_user_avatar_help: Powinieneś uzyskać zgodę osób przed opublikowaniem ich jako członka.
             select_a_position: Wybierz pozycję
             select_user: Wybierz użytkownika
             user_type: Rodzaj użytkownika

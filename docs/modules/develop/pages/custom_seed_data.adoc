@@ -1,4 +1,4 @@
-= Development with custom seed data
+= Custom seed data
 
 The seed data is not only useful for local development, but also for staging environments to showcase your work to your clients. In this case, you might need to customize some of that seed data to make sure it fits your needs.
 

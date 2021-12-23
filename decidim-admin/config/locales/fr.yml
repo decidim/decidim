@@ -745,12 +745,12 @@ fr:
           title: Valider l'utilisateur "%{name}"
         show_email_modal:
           close_modal: Fermer la fenêtre de dialogue
-          description: Si vous avez besoin de contacter directement un participant, vous pouvez cliquer sur le bouton Afficher pour voir leur adresse mèl. Cette action sera enregistrée.
+          description: Si vous avez besoin de contacter directement un participant, vous pouvez cliquer sur le bouton Afficher pour voir son adresse mail. Cette action sera enregistrée.
           email_address: Adresse e-mail
           full_name: Nom complet
           hidden: masqués
           show: Afficher
-          title: Afficher l'adresse e-mail du participant
+          title: Afficher l'adresse e-mail de l'utilisateur
         unblock:
           error: Une erreur s'est produite lors du déblocage du participant
           success: Participant débloqué avec succès
@@ -776,6 +776,7 @@ fr:
         form:
           colors:
             colors_title: Couleurs de l'organisation
+            colors_warning_html: Attention ! La modification de ces couleurs peut rompre les contrastes d'accessibilité. Vous pouvez vérifier le contraste de votre choix avec <a href="%{link}">WebAIM Contrast Checker</a> ou d'autres outils similaires.
             header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises HTML <head> </head>. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.
           cta_button_path_help: 'Vous pouvez remplacer le lien vers lequel renvoie le bouton de la page d''accueil. Utilisez ici des chemins partiels et non des URL complets. Il accepte les lettres, les chiffres, les tirets et les barres obliques, et doit commencer par une lettre. Le bouton apparaît sur la page d''accueil entre le texte de bienvenue et la description. Exemple : %{url}'
           cta_button_text_help: Vous pouvez remplacer le texte du bouton dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton apparaît sur la page d'accueil entre le texte de bienvenue et la description.
@@ -990,7 +991,7 @@ fr:
     forms:
       errors:
         impersonate_user:
-          reason: Vous devez fournir une raison si vous modérer un participant actuellement non-modéré
+          reason: Vous devez fournir une raison si vous modérer un utilisateur actuellement non-modéré
     metrics:
       blocked_users:
         object: utilisateurs bloqués

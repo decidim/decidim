@@ -60,7 +60,7 @@ pl:
       decidim/meetings/meeting:
         one: Spotkanie
         few: Spotkania
-        many: Spotkania
+        many: Spotkań
         other: Spotkania
       decidim/meetings/minutes:
         one: Minuta
@@ -70,7 +70,7 @@ pl:
       decidim/meetings/registration:
         one: Rejestracja
         few: Rejestracje
-        many: Rejestracje
+        many: Rejestracji
         other: Rejestracje
   decidim:
     admin:
@@ -266,6 +266,7 @@ pl:
             success: Spotkanie zostało zakończone
           create:
             invalid: Podczas tworzenia tego spotkania wystąpił błąd
+            success: Spotkanie zostało utworzone. Zauważ, że jest ono nieopublikowane, musisz je opublikować ręcznie.
           destroy:
             invalid:
               proposals_count:
@@ -293,6 +294,9 @@ pl:
           new:
             create: Utwórz
             title: Utwórz spotkanie
+          publish:
+            invalid: Wystąpił błąd podczas publikowania tego spotkania
+            success: Spotkanie zostało opublikowane
           service:
             description: Opis
             down: Na dół
@@ -303,6 +307,9 @@ pl:
           services:
             add_service: Dodaj usługę
             services: Usługi
+          unpublish:
+            invalid: Wystąpił błąd podczas ukrywania tego spotkania
+            success: Spotkanie zostało ukryte
           update:
             invalid: Podczas aktualizowania tego spotkania wystąpił błąd
             success: Spotkanie zostało zaktualizowane
@@ -505,6 +512,11 @@ pl:
         questions:
           closed_question:
             question_results: Wyniki wyborów
+          published_question:
+            max_choices_alert: Wybrano zbyt wiele opcji
+            question: Pytanie
+            question_replied: Odpowiedziano na pytanie
+            reply_question: Odpowiedz na pytanie
       read_more: "(zobacz więcej)"
       registration_mailer:
         confirmation:

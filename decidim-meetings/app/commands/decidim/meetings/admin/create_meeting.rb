@@ -21,6 +21,7 @@ module Decidim
             create_services!
           end
 
+          create_follow_form_resource(form.current_user)
           broadcast(:ok, meeting)
         end
 
@@ -53,10 +54,11 @@ module Decidim
             registration_terms: form.current_component.settings.default_registration_terms,
             component: form.current_component,
             questionnaire: Decidim::Forms::Questionnaire.new,
-            show_embedded_iframe: form.show_embedded_iframe,
+            iframe_embed_type: form.iframe_embed_type,
             comments_enabled: form.comments_enabled,
             comments_start_time: form.comments_start_time,
-            comments_end_time: form.comments_end_time
+            comments_end_time: form.comments_end_time,
+            iframe_access_level: form.iframe_access_level
           }
 
           @meeting = Decidim.traceability.create!(
@@ -75,6 +77,11 @@ module Decidim
               "description" => service.description
             )
           end
+        end
+
+        def create_follow_form_resource(user)
+          follow_form = Decidim::FollowForm.from_params(followable_gid: meeting.to_signed_global_id.to_s).with_context(current_user: user)
+          Decidim::CreateFollow.call(follow_form, user)
         end
       end
     end

@@ -30,7 +30,7 @@ Capybara.register_driver :headless_chrome do |app|
   options.args << if ENV["BIG_SCREEN_SIZE"].present?
                     "--window-size=1920,3000"
                   else
-                    "--window-size=1024,768"
+                    "--window-size=1920,1080"
                   end
 
   Capybara::Selenium::Driver.new(

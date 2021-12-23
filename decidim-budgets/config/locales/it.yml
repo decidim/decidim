@@ -186,6 +186,12 @@ it:
           projects_count:
             one: 1 progetto
             other: "%{count} progetti"
+        exit_modal:
+          cancel: Ritorna alla votazione
+          close_modal: Chiudi modalità
+          exit: Esci dalla votazione
+          message: Il tuo voto non è stato registrato perché non hai ancora completato il processo di votazione. Sei sicuro di voler uscire dal voto?
+          title: Non hai ancora votato
         filters:
           category: Categoria
           scope: Ambito tematico

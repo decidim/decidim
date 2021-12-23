@@ -59,10 +59,9 @@ ja:
     components:
       blogs:
         actions:
-          amend: 修正
-          comment: コメント
-          endorse: 支持
-          vote: 投票
+          create: 作成
+          destroy: 削除
+          update: 更新
         name: ブログ
         settings:
           global:
@@ -72,14 +71,14 @@ ja:
           step:
             announcement: お知らせ
             comments_blocked: コメントをブロック
-            endorsements_blocked: 支持をブロック
-            endorsements_enabled: 支持が有効
+            endorsements_blocked: オススメをブロック
+            endorsements_enabled: オススメが有効
     events:
       blogs:
         post_created:
-          email_intro: The post "%{resource_title}" has been published in "%{participatory_space_title}" that you are following.
+          email_intro: あなたがフォローしている "%{participatory_space_title}" で投稿 "%{resource_title}" が公開されました。
           email_outro: '「%{participatory_space_title}」をフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
           email_subject: '%{participatory_space_title} に新しい投稿が公開されました'
-          notification_title: The post <a href="%{resource_path}">%{resource_title}</a> has been published in %{participatory_space_title}
+          notification_title: '%{participatory_space_title} で投稿 <a href="%{resource_path}">%{resource_title}</a> が公開されました'
     statistics:
       posts_count: 投稿
