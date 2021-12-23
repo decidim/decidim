@@ -82,7 +82,6 @@ ru:
           step:
             announcement: Объявление
             comments_blocked: Комментарии отключены
-            creation_enabled: Включена возможность создания предложений
             endorsements_blocked: Возможность выразить поддержку отключена
             endorsements_enabled: Возможность выразить поддержку включена
             proposal_answering_enabled: Включена возможность отвечать на предложения
