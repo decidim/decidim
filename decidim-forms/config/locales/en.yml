@@ -116,8 +116,8 @@ en:
             down: Down
             expand: Expand
             remove: Remove
-            title_and_description: Title and description
             title: Title
+            title_and_description: Title and description
             up: Up
           update:
             invalid: There was a problem saving the form.
