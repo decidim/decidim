@@ -1,28 +1,28 @@
-<div class="added-attachments-<%= resource_name %> hidden-inputs">
+<div class="added-attachments-<%= attachment_name %> hidden-inputs">
   <% if attachments %>
     <% attachments.each do |attachment| %>
       <div data-title="<%= translated_attribute(attachment.title) %>" data-filename="<%= file_name(attachment) %>">
-        <%= form.hidden_field resource_name, multiple: true, value: attachment.id, id: "#{resource_name}-#{attachment.id}" %>
+        <%= form.hidden_field attachment_name, multiple: true, value: attachment.id, id: "#{attachment_name}-#{attachment.id}" %>
         <%= translated_attribute(attachment.title) %> (<%= file_name(attachment) %>)
       </div>
     <% end %>
   <% end %>
 </div>
 
-<button name=<%= resource_name %> class="button small hollow add-field add-attachment" data-open="<%= field_id %>"><%= resource_name %></button>
+<button name=<%= attachment_name %> class="button small hollow add-field add-attachment" data-open="<%= field_id %>" data-resourcename="<%= resource_name %>"><%= attachment_name %></button>
 
 <div class="reveal attachment-modal" id="<%= field_id %>" data-reveal>
   <div class="reveal__header">
-    <h3 class="reveal__title"><%= resource_name %></h3>
+    <h3 class="reveal__title"><%= attachment_name %></h3>
     <button class="close-button" data-close aria-label="<%= "Close modal" %>"
       type="button">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
 
-  <div class="row dropzone-container" data-name=<%= resource_name %>>
+  <div class="row dropzone-container" data-name=<%= attachment_name %>>
     <label class="dropzone">
-      <%= form.file_field "add_#{resource_name}".to_sym, label: false, multiple: true, direct_upload: true, data: { directuploadurl: "/rails/active_storage/direct_uploads" } %>
+      <%= form.file_field "add_#{attachment_name}".to_sym, label: false, multiple: true, direct_upload: true, data: { directuploadurl: "/rails/active_storage/direct_uploads" } %>
       <span>Drop files here or click to upload</span>
     </label>
   </div>
@@ -30,7 +30,7 @@
   <div class="row columns reveal__content">
     <div class="attachment-fields-wrapper"></div>
     <div class="text-center">
-      <button class="button primary add-attachment-<%= resource_name %>" data-close><%= "Save" %></button>
+      <button class="button primary add-attachment-<%= attachment_name %>" data-close><%= "Save" %></button>
       <button class="link cancel-attachment margin-left-1" data-close><%= "Cancel" %></button>
     </div>
   </div>

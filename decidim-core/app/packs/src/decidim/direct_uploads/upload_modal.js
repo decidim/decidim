@@ -3,6 +3,7 @@ import { Uploader } from "src/decidim/direct_uploads/uploader";
 export default class UploadModal {
   constructor(button, options = {}) {
     this.button = button;
+    this.resourceName = button.dataset.resourcename
     this.options = options;
     this.attachmentCounter = 0;
     this.name = this.button.name;
@@ -52,12 +53,12 @@ export default class UploadModal {
         const hiddenBlobField = document.createElement("input");
         hiddenBlobField.setAttribute("type", "hidden");
         hiddenBlobField.setAttribute("value", blob.signed_id);
-        hiddenBlobField.name = `proposal[add_${this.name}][${ordinalNumber}][file]`;
+        hiddenBlobField.name = `${this.resourceName}[add_${this.name}][${ordinalNumber}][file]`;
 
         const hiddenTitleField = document.createElement("input");
         hiddenTitleField.setAttribute("type", "hidden");
         hiddenTitleField.setAttribute("value", file.name.split(".")[0]);
-        hiddenTitleField.name = `proposal[add_${this.name}][${ordinalNumber}][title]`;
+        hiddenTitleField.name = `${this.resourceName}[add_${this.name}][${ordinalNumber}][title]`;
 
         hiddenFieldsContainer.appendChild(hiddenBlobField);
         hiddenFieldsContainer.appendChild(hiddenTitleField);

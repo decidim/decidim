@@ -16,7 +16,11 @@ module Decidim
     private
 
     def resource_name
-      options[:name]
+      options[:resource_name]
+    end
+
+    def attachment_name
+      options[:attachment_name]
     end
 
     def attachments
