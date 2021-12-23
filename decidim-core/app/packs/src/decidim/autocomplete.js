@@ -152,7 +152,6 @@ export default class AutoComplete {
   }
 
   handleStickyEvents(event) {
-    console.log("event", event);
     switch (event.type) {
     case "selection":
       this.addStickySelectItem(event.detail.selection);
