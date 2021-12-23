@@ -200,7 +200,6 @@ ro:
             answers_with_costs: Activează opțiunea de cost în răspunsurile la propuneri
             automatic_hashtags: Hashtag-uri adăugate la toate propunerile
             comments_blocked: Comentarii blocate
-            creation_enabled: Crearea de propuneri a fost activată
             default_sort_order: Mod implicit de sortare a propunerilor
             default_sort_order_help: Implicit înseamnă că dacă este activată votarea, propunerile vor fi afișate aleatoriu, și dacă votarea este blocată, atunci vor fi sortate în funcție de cele mai multe voturi.
             default_sort_order_options:
