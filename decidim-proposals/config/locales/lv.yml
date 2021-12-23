@@ -142,7 +142,6 @@ lv:
             answers_with_costs: Iespējot izmaksas priekšlikumu atbildēs
             automatic_hashtags: Mirkļbirkas tiek pievienotas visiem priekšlikumiem
             comments_blocked: Komentāri ir bloķēti
-            creation_enabled: Priekšlikuma izveide ir iespējota
             endorsements_blocked: Atbalsti ir bloķēti
             endorsements_enabled: Atbalsti ir iespējoti
             proposal_answering_enabled: Atbilde uz priekšlikumiem ir iespējota
