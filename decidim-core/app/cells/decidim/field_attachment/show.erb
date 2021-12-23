@@ -1,4 +1,4 @@
-<div class="added-attachments-<%= attachment_name %> hidden-inputs">
+<div class="active-attachments-<%= attachment_name %> hidden-inputs">
   <% if attachments %>
     <% attachments.each do |attachment| %>
       <div data-title="<%= translated_attribute(attachment.title) %>" data-filename="<%= file_name(attachment) %>">
@@ -27,10 +27,12 @@
       <%= form.file_field "add_#{attachment_name}".to_sym, label: false, multiple: true, direct_upload: true, data: { directuploadurl: "/rails/active_storage/direct_uploads" } %>
       <span>Drop files here or click to upload</span>
     </label>
+    <div class="upload-items"></div>
+    <div class="pending-attachments-<%= attachment_name %>">
+    </div>
   </div>
 
   <div class="row columns reveal__content">
-    <div class="attachment-fields-wrapper"></div>
     <div class="text-center">
       <button class="button primary add-attachment-<%= attachment_name %>" data-close><%= "Save" %></button>
       <button class="link cancel-attachment margin-left-1" data-close><%= "Cancel" %></button>

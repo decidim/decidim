@@ -36,12 +36,12 @@ module Decidim
     end
 
     def document_cleanup!
-      # documents_attached_to.documents.each do |document|
-      #   document.destroy! if @form.documents.map(&:id).exclude? document.id
-      # end
+      documents_attached_to.documents.each do |document|
+        document.destroy! if @form.documents.map(&:id).exclude? document.id
+      end
 
-      # documents_attached_to.reload
-      # documents_attached_to.instance_variable_set(:@documents, nil)
+      documents_attached_to.reload
+      documents_attached_to.instance_variable_set(:@documents, nil)
     end
   end
 end

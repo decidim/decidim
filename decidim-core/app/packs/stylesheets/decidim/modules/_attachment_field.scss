@@ -33,7 +33,7 @@
     }
   }
 
-  .file-fields{
+  .upload-items{
     display: flex;
     flex-direction: column;
 
@@ -53,7 +53,7 @@
       }
     }
 
-    .remove-file-field {
+    .remove-upload-item {
       cursor: pointer;
     }
   }
