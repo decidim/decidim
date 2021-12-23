@@ -152,7 +152,6 @@ nl:
             answers_with_costs: Kosten inschakelen bij antwoorden op voorstel
             automatic_hashtags: Hashtags toegevoegd aan alle voorstellen
             comments_blocked: Reacties geblokkeerd
-            creation_enabled: Creatie nieuw voorstel toegestaan
             endorsements_blocked: Aanbevelingen geblokkeerd
             endorsements_enabled: "Aanbevelingen toegestaan\n"
             proposal_answering_enabled: Formeel antwoord op voorstellen toegestaan.
