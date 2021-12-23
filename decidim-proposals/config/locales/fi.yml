@@ -196,7 +196,6 @@ fi:
             answers_with_costs: Ota käyttöön kustannusarviointi ehdotusten vastauksissa
             automatic_hashtags: Aihetunnisteet (hashtag), jotka lisätään kaikkiin ehdotuksiin
             comments_blocked: Kommentointi estetty
-            creation_enabled: Ehdotuksen luominen käytössä
             default_sort_order: Ehdotuksen oletusjärjestys
             default_sort_order_help: Oletus tarkoittaa, että mikäli kannatukset ovat käytössä, ehdotukset näytetään satunnaisessa järjestyksessä ja mikäli kannatukset on estetty, niin ehdotukset järjestetään eniten kannatuksia saaneet ensin.
             default_sort_order_options:
