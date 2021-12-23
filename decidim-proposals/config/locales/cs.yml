@@ -204,7 +204,6 @@ cs:
             answers_with_costs: Povolit finanční náklady v odpovědích k návrhu
             automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
             comments_blocked: Komentáře byly blokovány
-            creation_enabled: Vytváření návrhu je povoleno
             default_sort_order: Výchozí řazení návrhu
             default_sort_order_help: Výchozí znamená, že pokud jsou podporované funkce povoleny, budou návrhy zobrazeny náhodně, a pokud jsou opory blokovány, pak budou seřazeny podle nejpodporovanější.
             default_sort_order_options:
