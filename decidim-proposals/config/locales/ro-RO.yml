@@ -180,7 +180,7 @@ ro:
             answers_with_costs: Activează opțiunea de cost în răspunsurile la propuneri
             automatic_hashtags: Hashtag-uri adăugate la toate propunerile
             comments_blocked: Comentarii blocate
-            creation_enabled: Crearea de propuneri a fost activată
+            creation_enabled: Crearea de propuneri este activată
             endorsements_blocked: Susțineri blocate
             endorsements_enabled: Susțineri activate
             proposal_answering_enabled: Modulul de răspuns pentru propuneri a fost activat
