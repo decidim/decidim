@@ -15,6 +15,12 @@ module Decidim
 
     private
 
+    def button_inner_html
+      return "Edit #{attachment_name}" if attachments && attachments.count.positive?
+
+      "Add #{attachment_name}"
+    end
+
     def resource_name
       options[:resource_name]
     end

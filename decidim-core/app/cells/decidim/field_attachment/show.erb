@@ -3,13 +3,15 @@
     <% attachments.each do |attachment| %>
       <div data-title="<%= translated_attribute(attachment.title) %>" data-filename="<%= file_name(attachment) %>">
         <%= form.hidden_field attachment_name, multiple: true, value: attachment.id, id: "#{attachment_name}-#{attachment.id}" %>
-        <%= translated_attribute(attachment.title) %> (<%= file_name(attachment) %>)
+        <span><%= translated_attribute(attachment.title) %> (<%= file_name(attachment) %>)</span>
       </div>
     <% end %>
   <% end %>
 </div>
 
-<button name=<%= attachment_name %> class="button small hollow add-field add-attachment" data-open="<%= field_id %>" data-resourcename="<%= resource_name %>"><%= attachment_name %></button>
+<button name=<%= attachment_name %> class="button small hollow add-field add-attachment" data-open="<%= field_id %>" data-resourcename="<%= resource_name %>">
+  <%= button_inner_html %>
+</button>
 
 <div class="reveal attachment-modal" id="<%= field_id %>" data-reveal>
   <div class="reveal__header">
