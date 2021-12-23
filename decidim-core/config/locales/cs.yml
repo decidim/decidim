@@ -1005,6 +1005,7 @@ cs:
         show:
           back: Zpět ke všem konverzacím
           chat_with: Konverzace s
+          deleted_accounts: Nemůžete mít konverzaci s odstraněnými účty.
           not_allowed: Tento uživatel nepřijímá přímé zprávy.
           title: Konverzace s číslem %{usernames}
         start:
@@ -1072,6 +1073,12 @@ cs:
         greetings: Zdravím,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Ahoj,
         subject: Chcete nadále dostávat příslušné informace o %{organization_name}?
+    notification_mailer:
+      event_received:
+        no_translation_available: Omlouváme se, po odeslání e-mailu nelze získat automatický překlad. Překlad původního textu můžete zkontrolovat na následujícím odkazu %{link}.
+        original_text: 'Původní text:'
+        same_language: Obsah byl zveřejněn ve vašem preferovaném jazyce (%{language}), proto se v tomto e-mailu nezobrazuje automatický překlad.
+        translated_text: 'Automaticky přeložený text:'
     notifications:
       no_notifications: Zatím žádné oznámení.
     notifications_settings:
@@ -1371,6 +1378,7 @@ cs:
         title_reply: Odpovědět
       show:
         back: Zobrazit všechny konverzace
+        deleted_accounts: Nemůžete mít konverzaci s odstraněnými účty.
         not_allowed: Tento uživatel již nepřijímá žádné přímé zprávy.
         title: Konverzace s %{usernames}
       update:
