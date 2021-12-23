@@ -17,7 +17,6 @@ fi:
       decidim/debates/close_debate_event: Keskustelu suljettu
       decidim/debates/create_debate_event: Keskustelu
       decidim/debates/creation_disabled_event: Keskustelut poistettu käytöstä
-      decidim/debates/creation_enabled_event: Keskustelut käytössä
   activerecord:
     models:
       decidim/debates/debate:
@@ -41,7 +40,6 @@ fi:
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
-            creation_enabled: Keskustelujen luominen käyttäjien toimesta käytössä
             endorsements_blocked: Suositukset estetty
             endorsements_enabled: Suositukset käytössä
     debates:
