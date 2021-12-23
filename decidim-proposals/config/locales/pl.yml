@@ -182,7 +182,6 @@ pl:
             answers_with_costs: Zezwalaj na koszty w odpowiedziach na propozycje
             automatic_hashtags: Hashtagi dodane do wszystkich propozycji
             comments_blocked: Komentarze zablokowane
-            creation_enabled: Włączono tworzenie propozycji
             endorsements_blocked: Rekomendacje zostały zablokowane
             endorsements_enabled: Rekomendacje włączone
             proposal_answering_enabled: Włączono odpowiadanie na propozycję
