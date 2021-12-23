@@ -43,7 +43,6 @@ is-IS:
           step:
             announcement: Tilkynning
             comments_blocked: Athugasemdir læst
-            creation_enabled: Tillaga stofnun virkt
             endorsements_blocked: Áritanir lokaðar
             endorsements_enabled: Tilmæli virkt
             proposal_answering_enabled: Tillaga svarað virkt
