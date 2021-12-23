@@ -16,7 +16,7 @@ shared_examples_for "manage questionnaires" do
     }
   end
 
-  let(:text_separator_body) do
+  let(:title_and_description_body) do
     {
       en: "Este es el primer separador de texto",
       ca: "Aquest és el primer separador de text",

@@ -46,14 +46,14 @@ module Decidim
           with_choices = sibilings.where.not("decidim_forms_questions.question_type in (?)", %w(short_answer long_answer))
                                   .where("decidim_forms_answers.id IN (SELECT decidim_answer_id FROM decidim_forms_answer_choices)").count
 
-          (with_body + with_choices).to_f / questionnaire.questions.not_separator.not_text_separator.count * 100
+          (with_body + with_choices).to_f / questionnaire.questions.not_separator.not_title_and_description.count * 100
         end
 
         private
 
         def sibilings
           Answer.not_separator
-                .not_text_separator
+                .not_title_and_description
                 .where(questionnaire: questionnaire, session_token: participant.session_token)
                 .joins(:question).order("decidim_forms_questions.position ASC")
         end

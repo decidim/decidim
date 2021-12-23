@@ -80,7 +80,7 @@ en:
           form:
             add_question: Add question
             add_separator: Add separator
-            add_text_separator: Add text separator
+            add_title_and_description: add title and description
             already_answered_warning: The form is already answered by some users so you cannot modify its questions.
             collapse: Collapse all questions
             expand: Expand all questions
@@ -110,13 +110,13 @@ en:
             remove: Remove
             separator: Separator
             up: Up
-          text_separator:
+          title_and_description:
             collapse: Collapse
             description: Description
             down: Down
             expand: Expand
             remove: Remove
-            text_separator: Text separator
+            title_and_description: Title and description
             title: Title
             up: Up
           update:
@@ -142,7 +142,7 @@ en:
         short_answer: Short answer
         single_option: Single option
         sorting: Sorting
-        text_separator: Text separator
+        title_and_description: Title and description
       questionnaires:
         answer:
           invalid: There was a problem answering the form.

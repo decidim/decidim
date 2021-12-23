@@ -1,7 +1,7 @@
 <% add_decidim_meta_tags({
-                           title: translated_attribute(questionnaire.title),
-                           description: translated_attribute(questionnaire.description),
-                         }) %>
+  title: translated_attribute(questionnaire.title),
+  description: translated_attribute(questionnaire.description),
+}) %>
 
 <% columns = allow_answers? && visitor_can_answer? && @form.responses.map(&:question).any?(&:matrix?) ? 9 : 6 %>
 
@@ -78,16 +78,16 @@
 
                           <%= fields_for "questionnaire[responses][#{answer_idx}]", answer do |answer_form| %>
                             <%= render(
-                                  "decidim/forms/questionnaires/answer",
-                                  answer_form: answer_form,
-                                  answer: answer,
-                                  answer_idx: answer_idx,
-                                  cleaned_answer_idx: cleaned_answer_idx,
-                                  disabled: !current_participatory_space.can_participate?(current_user)
-                                ) %>
+                              "decidim/forms/questionnaires/answer",
+                              answer_form: answer_form,
+                              answer: answer,
+                              answer_idx: answer_idx,
+                              cleaned_answer_idx: cleaned_answer_idx,
+                              disabled: !current_participatory_space.can_participate?(current_user)
+                            ) %>
                           <% end %>
                         </div>
-                        <% if !(answer.question.separator? || answer.question.text_separator?) %>
+                        <% if !(answer.question.separator? || answer.question.title_and_description?) %>
                           <% cleaned_answer_idx += 1 %>
                         <% end %>
                         <% answer_idx += 1 %>
@@ -115,12 +115,12 @@
                       <% end %>
 
                       <%= cell(
-                            "decidim/forms/step_navigation",
-                            step_index,
-                            total_steps: @form.total_steps,
-                            button_disabled: !current_participatory_space.can_participate?(current_user),
-                            form: form
-                          ) %>
+                        "decidim/forms/step_navigation",
+                        step_index,
+                        total_steps: @form.total_steps,
+                        button_disabled: !current_participatory_space.can_participate?(current_user),
+                        form: form
+                      ) %>
                     </div>
                   <% end %>
                 <% end %>

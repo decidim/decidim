@@ -4,12 +4,12 @@ require "spec_helper"
 
 shared_examples_for "add questions" do
   it "adds a few questions and separators to the questionnaire" do
-    fields_body = ["This is the first question", "This is the second question", "This is the first text separator"]
+    fields_body = ["This is the first question", "This is the second question", "This is the first title and description"]
 
     within "form.edit_questionnaire" do
       click_button "Add question"
       click_button "Add separator"
-      click_button "Add text separator"
+      click_button "add title and description"
       click_button "Add question"
 
       expect(page).to have_selector(".questionnaire-question", count: 4)
@@ -31,7 +31,7 @@ shared_examples_for "add questions" do
 
     expect(page).to have_selector("input[value='This is the first question']")
     expect(page).to have_selector("input[value='This is the second question']")
-    expect(page).to have_selector("input[value='This is the first text separator']")
+    expect(page).to have_selector("input[value='This is the first title and description']")
     expect(page).to have_content("Separator #2")
   end
 
@@ -64,9 +64,9 @@ shared_examples_for "add questions" do
     expect(page).to have_selector("strong", text: "Superkalifragilistic description")
   end
 
-  it "adds a text-separator" do
+  it "adds a title-and-description" do
     within "form.edit_questionnaire" do
-      click_button "Add text separator"
+      click_button "add title and description"
       expand_all_questions
 
       within ".questionnaire-question" do

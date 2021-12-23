@@ -42,8 +42,8 @@ module Decidim
           question_type == Decidim::Forms::Question::SEPARATOR_TYPE
         end
 
-        def text_separator?
-          question_type == Decidim::Forms::Question::TEXT_SEPARATOR_TYPE
+        def title_and_description?
+          question_type == Decidim::Forms::Question::TITLE_AND_DESCRIPTION_TYPE
         end
 
         def matrix_rows_by_position

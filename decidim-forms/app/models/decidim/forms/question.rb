@@ -8,8 +8,8 @@ module Decidim
 
       QUESTION_TYPES = %w(short_answer long_answer single_option multiple_option sorting files matrix_single matrix_multiple).freeze
       SEPARATOR_TYPE = "separator"
-      TEXT_SEPARATOR_TYPE = "text_separator"
-      TYPES = (QUESTION_TYPES + [SEPARATOR_TYPE, TEXT_SEPARATOR_TYPE]).freeze
+      TITLE_AND_DESCRIPTION_TYPE = "title_and_description"
+      TYPES = (QUESTION_TYPES + [SEPARATOR_TYPE, TITLE_AND_DESCRIPTION_TYPE]).freeze
 
       translatable_fields :body, :description
 
@@ -50,7 +50,7 @@ module Decidim
       validates :question_type, inclusion: { in: TYPES }
 
       scope :not_separator, -> { where.not(question_type: SEPARATOR_TYPE) }
-      scope :not_text_separator, -> { where.not(question_type: TEXT_SEPARATOR_TYPE) }
+      scope :not_title_and_description, -> { where.not(question_type: TITLE_AND_DESCRIPTION_TYPE) }
 
       scope :with_body, -> { where(question_type: %w(short_answer long_answer)) }
       scope :with_choices, -> { where.not(question_type: %w(short_answer long_answer)) }
@@ -86,8 +86,8 @@ module Decidim
         question_type.to_s == SEPARATOR_TYPE
       end
 
-      def text_separator?
-        question_type.to_s == TEXT_SEPARATOR_TYPE
+      def title_and_description?
+        question_type.to_s == TITLE_AND_DESCRIPTION_TYPE
       end
 
       def has_attachments?

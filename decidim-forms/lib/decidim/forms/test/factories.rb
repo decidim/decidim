@@ -124,8 +124,8 @@ FactoryBot.define do
       question_type { :separator }
     end
 
-    trait :text_separator do
-      question_type { :text_separator }
+    trait :title_and_description do
+      question_type { :title_and_description }
     end
   end
 

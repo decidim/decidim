@@ -9,7 +9,7 @@ describe Decidim::Forms::QuestionReadonlyCell, type: :cell do
 
   let(:question) { create :questionnaire_question }
   let(:separator) { create :questionnaire_question, :separator }
-  let(:text_separator) { create :questionnaire_question, :text_separator }
+  let(:title_and_description) { create :questionnaire_question, :title_and_description }
   let(:model) { question }
 
   context "when using a separator" do
@@ -20,12 +20,12 @@ describe Decidim::Forms::QuestionReadonlyCell, type: :cell do
     end
   end
 
-  context "when using a text-separator" do
-    it "renders the text-separator body" do
+  context "when using a title-and-description" do
+    it "renders the title-and-description body" do
       expect(subject.call).to have_content(translated(model.body))
     end
 
-    it "renders the text-separator type" do
+    it "renders the title-and-description type" do
       translated_question_type = I18n.t(model.question_type, scope: "decidim.forms.question_types")
       expect(subject.call).to have_content(translated_question_type)
     end

@@ -21,7 +21,7 @@ module Decidim
       # Finds and group answers by user for each questionnaire's question.
       def query
         answers = Answer.not_separator
-                        .not_text_separator
+                        .not_title_and_description
                         .joins(:question)
                         .where(questionnaire: @questionnaire)
 

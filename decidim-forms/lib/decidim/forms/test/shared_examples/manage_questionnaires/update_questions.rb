@@ -118,8 +118,8 @@ shared_examples_for "update questions" do
     end
   end
 
-  context "when a questionnaire has a text separator" do
-    let!(:question) { create(:questionnaire_question, :text_separator, questionnaire: questionnaire, body: text_separator_body) }
+  context "when a questionnaire has a title and description" do
+    let!(:question) { create(:questionnaire_question, :title_and_description, questionnaire: questionnaire, body: title_and_description_body) }
 
     before do
       visit questionnaire_edit_path
@@ -129,7 +129,7 @@ shared_examples_for "update questions" do
     it "modifies the question when the information is valid" do
       within "form.edit_questionnaire" do
         within ".questionnaire-question" do
-          fill_in "questionnaire_questions_#{question.id}_body_en", with: "Modified text separator"
+          fill_in "questionnaire_questions_#{question.id}_body_en", with: "Modified title and description"
         end
 
         click_button "Save"
@@ -139,8 +139,8 @@ shared_examples_for "update questions" do
 
       visit_questionnaire_edit_path_and_expand_all
 
-      expect(page).to have_selector("input[value='Modified text separator']")
-      expect(page).to have_no_selector("input[value='This is the first text separator']")
+      expect(page).to have_selector("input[value='Modified title and description']")
+      expect(page).to have_no_selector("input[value='This is the first title and description']")
     end
 
     it "re-renders the form when the information is invalid and displays errors" do
@@ -159,7 +159,7 @@ shared_examples_for "update questions" do
       expect(page).to have_admin_callout("There was a problem saving")
       expect(page).to have_content("can't be blank", count: 1)
       expect(page).to have_selector("input[value='']")
-      expect(page).to have_no_selector("input[value='This is the first text separator']")
+      expect(page).to have_no_selector("input[value='This is the first title and description']")
     end
 
     it "preserves deleted status across submission failures" do
