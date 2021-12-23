@@ -20,7 +20,7 @@ Until now it was possible to see if an email account was registered in Decidim, 
 
 #### Blocked user in global search
 
-PR [\#8657](https://github.com/decidim/decidim/pull/8657) Blocked users are present in global search, to update the search and make them disappear, Run in a rails console or create a migration with:
+PR [\#8658](https://github.com/decidim/decidim/pull/8658) Blocked users are present in global search, to update the search and make them disappear, Run in a rails console or create a migration with:
 
 ```ruby
   Decidim::User.find_each(&:try_update_index_for_search_resource)
