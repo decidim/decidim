@@ -186,7 +186,6 @@ it:
             answers_with_costs: Abilita i costi sulle risposte proposte
             automatic_hashtags: Hashtag aggiunti a tutte le proposte
             comments_blocked: Commenti bloccati
-            creation_enabled: Creazione della proposta abilitata
             endorsements_blocked: Approvazioni bloccate
             endorsements_enabled: Approvazioni abilitate
             proposal_answering_enabled: Risposta alla proposta abilitata
