@@ -197,7 +197,7 @@ en:
             answers_with_costs: Enable costs on proposal answers
             automatic_hashtags: Hashtags added to all proposals
             comments_blocked: Comments blocked
-            creation_enabled: Proposal creation enabled
+            creation_enabled: Participants can create proposals
             default_sort_order: Default proposal sorting
             default_sort_order_help: Default it means that if the supports are enabled, the proposals will be shown sorted by random, and if the supports are blocked, then they will be sorted by the most supported.
             default_sort_order_options:
