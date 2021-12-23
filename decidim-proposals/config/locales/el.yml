@@ -140,7 +140,6 @@ el:
             answers_with_costs: Ενεργοποιήστε το κόστος στις απαντήσεις της πρότασης
             automatic_hashtags: Προστέθηκαν hashtag σε όλες τις προτάσεις
             comments_blocked: Τα σχόλια αποκλείστηκαν
-            creation_enabled: Η δημιουργία πρότασης ενεργοποιήθηκε
             endorsements_blocked: Επιδοκιμασίες αποκλεισμένες
             endorsements_enabled: Επιδοκιμασίες ενεργοποιημένες
             proposal_answering_enabled: Η απάντηση στην πρόταση ενεργοποιήθηκε
