@@ -138,7 +138,6 @@ bg:
             answers_with_costs: Активиране на "тежест" за отговорите на предложение
             automatic_hashtags: Добавени са хаштагове на всички предложения
             comments_blocked: Коментарите са блокирани
-            creation_enabled: Създаването на предложения е разрешено
             endorsements_blocked: Одобряване забранено
             endorsements_enabled: Одобряване разрешено
             proposal_answering_enabled: Отговора на предложение е разрешен
