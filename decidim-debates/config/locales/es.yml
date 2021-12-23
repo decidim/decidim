@@ -17,7 +17,6 @@ es:
       decidim/debates/close_debate_event: Debate cerrado
       decidim/debates/create_debate_event: Debate
       decidim/debates/creation_disabled_event: Debates deshabilitados
-      decidim/debates/creation_enabled_event: Debates habilitados
   activerecord:
     models:
       decidim/debates/debate:
@@ -41,7 +40,6 @@ es:
           step:
             announcement: Aviso
             comments_blocked: Comentarios bloqueados
-            creation_enabled: Creación de debates por parte de las participantes habilitada
             endorsements_blocked: Adhesiones bloqueadas
             endorsements_enabled: Adhesiones habilitadas
     debates:
