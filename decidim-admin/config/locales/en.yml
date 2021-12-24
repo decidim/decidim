@@ -408,6 +408,7 @@ en:
           label: Scope
         search_label: Search
         search_placeholder:
+          name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
           report_count_eq: Report count eq
           reported_id_string_or_reported_content_cont: Search %{collection} by reportable id or content.
           title_cont: Search %{collection} by title.
