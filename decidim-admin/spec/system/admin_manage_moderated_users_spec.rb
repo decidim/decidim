@@ -7,13 +7,9 @@ describe "Admin manages moderated users", type: :system do
   let(:model_name) { Decidim::User.model_name }
   let(:resource_controller) { Decidim::Admin::ModeratedUsersController }
 
-  let!(:first_reportable_user) { create(:user, :confirmed, organization: organization) }
-  let!(:second_reportable_user) { create(:user, :confirmed, organization: organization) }
-  let!(:third_reportable_user) { create(:user, :confirmed, organization: organization) }
-
-  let!(:first_moderation) { create(:user_moderation, user: first_reportable_user, report_count: 1) }
-  let!(:second_moderation) { create(:user_moderation, user: second_reportable_user, report_count: 2) }
-  let!(:third_moderation) { create(:user_moderation, user: third_reportable_user, report_count: 3) }
+  let!(:first_moderation) { create(:user_moderation, user: first_user, report_count: 1) }
+  let!(:second_moderation) { create(:user_moderation, user: second_user, report_count: 2) }
+  let!(:third_moderation) { create(:user_moderation, user: third_user, report_count: 3) }
 
   let!(:first_user_report) { create(:user_report, moderation: first_moderation, user: admin, reason: "spam") }
   let!(:second_user_report) { create(:user_report, moderation: second_moderation, user: admin, reason: "offensive") }
@@ -22,69 +18,59 @@ describe "Admin manages moderated users", type: :system do
   before do
     switch_to_host(organization.host)
     login_as admin, scope: :user
-    visit decidim_admin.moderated_users_path
   end
 
   include_context "with filterable context"
 
   context "when on reported users path" do
-    context "when filtering by report count" do
-      it_behaves_like "a filtered collection", options: "Report count", filter: "1" do
-        let(:in_filter) { first_reportable_user.name }
-        let(:not_in_filter) { second_reportable_user.name }
-      end
+    let!(:first_user) { create(:user, :confirmed, organization: organization) }
+    let!(:second_user) { create(:user, :confirmed, organization: organization) }
+    let!(:third_user) { create(:user, :confirmed, organization: organization) }
 
-      it_behaves_like "a filtered collection", options: "Report count", filter: "2" do
-        let(:in_filter) { second_reportable_user.name }
-        let(:not_in_filter) { first_reportable_user.name }
-      end
-
-      it_behaves_like "a filtered collection", options: "Report count", filter: "3" do
-        let(:in_filter) { second_reportable_user.name }
-        let(:not_in_filter) { third_reportable_user.name }
-      end
+    before do
+      visit decidim_admin.moderated_users_path
     end
 
     context "when filtering by report reason" do
-      it_behaves_like "a filtered collection", options: "Report reason", filter: "spam" do
-        let(:in_filter) { first_reportable_user.name }
-        let(:not_in_filter) { second_reportable_user.name }
+      it_behaves_like "a filtered collection", options: "Report reason", filter: "Spam" do
+        let(:in_filter) { first_user.name }
+        let(:not_in_filter) { second_user.name }
       end
 
-      it_behaves_like "a filtered collection", options: "Report reason", filter: "offensive" do
-        let(:in_filter) { second_reportable_user.name }
-        let(:not_in_filter) { first_reportable_user.name }
+      it_behaves_like "a filtered collection", options: "Report reason", filter: "Offensive" do
+        let(:in_filter) { second_user.name }
+        let(:not_in_filter) { first_user.name }
       end
 
-      it_behaves_like "a filtered collection", options: "Report reason", filter: "does not belong" do
-        let(:in_filter) { second_reportable_user.name }
-        let(:not_in_filter) { third_reportable_user.name }
+      it_behaves_like "a filtered collection", options: "Report reason", filter: "Does not belong" do
+        let(:in_filter) { third_user.name }
+        let(:not_in_filter) { second_user.name }
       end
     end
 
     context "when searching by email, name or nickname" do
       it "can be searched by nickname" do
-        search_by_text(first_reportable_user.nickname)
+        search_by_text(first_user.nickname)
 
-        expect(page).to have_content(first_reportable_user.name)
-        expect(page).not_to have_content(second_reportable_user.name)
-        expect(page).not_to have_content(third_reportable_user.name)
+        expect(page).to have_content(first_user.name)
+        expect(page).not_to have_content(second_user.name)
+        expect(page).not_to have_content(third_user.name)
       end
 
       it "can be searched by email" do
-        search_by_text(first_reportable_user.email)
+        search_by_text(first_user.email)
 
-        expect(page).to have_content(first_reportable_user.name)
-        expect(page).not_to have_content(second_reportable_user.name)
-        expect(page).not_to have_content(third_reportable_user.name)
+        expect(page).to have_content(first_user.name)
+        expect(page).not_to have_content(second_user.name)
+        expect(page).not_to have_content(third_user.name)
       end
 
       it "can be searched by name" do
-        search_by_text(first_reportable_user.name)
+        search_by_text(first_user.name)
 
-        expect(page).to have_content(first_reportable_user.name)
-        expect(page).not_to have_content(second_reportable_user.name)
-        expect(page).not_to have_content(third_reportable_user.name)
+        expect(page).to have_content(first_user.name)
+        expect(page).not_to have_content(second_user.name)
+        expect(page).not_to have_content(third_user.name)
       end
     end
 
@@ -93,24 +79,98 @@ describe "Admin manages moderated users", type: :system do
         it "sorts reported users by report count" do
           click_link "Reports count"
 
-          find "tbody:last_child" do
-            byebug
-            expect(all("tr").first.text).to include(first_reportable_user.name)
-            expect(all("tr").last.text).to include(third_reportable_user.name)
+          all("tbody").last do
+            expect(all("tr").first.text).to include(first_user.name)
+            expect(all("tr").last.text).to include(third_user.name)
           end
         end
       end
     end
 
     context "when there is a lot of reported users" do
-      it_behaves_like "paginating a collection" do
-        before do
-          collection.each do |reportable_user|
-            moderation = create(:user_moderation, user: reportable_user, report_count: 1)
-            create(:user_report, moderation: moderation, user: admin, reason: "spam")
+      let!(:collection) { create_list(:user, 50, :confirmed, organization: organization) }
+
+      before do
+        collection.each do |user|
+          moderation = create(:user_moderation, user: user, report_count: 1)
+          create(:user_report, moderation: moderation, user: admin, reason: "spam")
+        end
+      end
+
+      it_behaves_like "a paginated collection"
+    end
+  end
+
+  context "when on blocked users path" do
+    let!(:first_user) { create(:user, :confirmed, :blocked, organization: organization) }
+    let!(:second_user) { create(:user, :confirmed, :blocked, organization: organization) }
+    let!(:third_user) { create(:user, :confirmed, :blocked, organization: organization) }
+
+    before do
+      visit decidim_admin.moderated_users_path(blocked: true)
+    end
+
+    context "when filtering by report reason" do
+      it_behaves_like "a filtered collection", options: "Report reason", filter: "Spam" do
+        let(:in_filter) { first_user.nickname }
+        let(:not_in_filter) { second_user.nickname }
+      end
+
+      it_behaves_like "a filtered collection", options: "Report reason", filter: "Offensive" do
+        let(:in_filter) { second_user.nickname }
+        let(:not_in_filter) { first_user.nickname }
+      end
+
+      it_behaves_like "a filtered collection", options: "Report reason", filter: "Does not belong" do
+        let(:in_filter) { third_user.nickname }
+        let(:not_in_filter) { second_user.nickname }
+      end
+    end
+
+    context "when searching by email, name or nickname" do
+      it "can be searched by nickname" do
+        search_by_text(first_user.nickname)
+
+        expect(page).to have_content(first_user.nickname)
+      end
+
+      it "can be searched by email" do
+        search_by_text(first_user.email)
+
+        expect(page).to have_content(first_user.nickname)
+      end
+
+      it "can be searched by name" do
+        search_by_text(first_user.name)
+
+        expect(page).to have_content(first_user.nickname)
+      end
+    end
+
+    context "when sorting" do
+      context "with report count" do
+        it "sorts reported users by report count" do
+          click_link "Reports count"
+
+          all("tbody").last do
+            expect(all("tr").first.text).to include(first_user.nickname)
+            expect(all("tr").last.text).to include(third_user.nickname)
           end
         end
       end
+    end
+
+    context "when there is a lot of reported users" do
+      let!(:collection) { create_list(:user, 50, :confirmed, :blocked, organization: organization) }
+
+      before do
+        collection.each do |user|
+          moderation = create(:user_moderation, user: user, report_count: 1)
+          create(:user_report, moderation: moderation, user: admin, reason: "spam")
+        end
+      end
+
+      it_behaves_like "a paginated collection", url: true
     end
   end
 end
