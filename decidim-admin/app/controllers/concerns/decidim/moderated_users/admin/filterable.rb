@@ -19,7 +19,6 @@ module Decidim
 
           def filters
             [
-
             ]
           end
 
@@ -36,7 +35,7 @@ module Decidim
           end
 
           def search_field_predicate
-
+            :user_name_or_user_nickname_or_user_email_cont
           end
 
           def report_count

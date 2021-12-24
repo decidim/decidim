@@ -7,17 +7,17 @@ describe "Admin manages moderated users", type: :system do
   let(:model_name) { Decidim::User.model_name }
   let(:resource_controller) { Decidim::Admin::ModeratedUsersController }
 
-  let(:first_reportable_user) { create(:user, :confirmed, organization: organization) }
-  let(:second_reportable_user) { create(:user, :confirmed, organization: organization) }
-  let(:third_reportable_user) { create(:user, :confirmed, organization: organization) }
+  let!(:first_reportable_user) { create(:user, :confirmed, organization: organization) }
+  let!(:second_reportable_user) { create(:user, :confirmed, organization: organization) }
+  let!(:third_reportable_user) { create(:user, :confirmed, organization: organization) }
 
-  let(:first_moderation) { create(:user_moderation, user: reportable_user, report_count: 1) }
-  let(:second_moderation) { create(:user_moderation, user: reportable_user, report_count: 2) }
-  let(:third_moderation) { create(:user_moderation, user: reportable_user, report_count: 3) }
+  let!(:first_moderation) { create(:user_moderation, user: first_reportable_user, report_count: 1) }
+  let!(:second_moderation) { create(:user_moderation, user: second_reportable_user, report_count: 2) }
+  let!(:third_moderation) { create(:user_moderation, user: third_reportable_user, report_count: 3) }
 
-  let(:first_user_report) { create(:user_report, moderation: first_moderation, user: admin, reason: "spam") }
-  let(:second_user_report) { create(:user_report, moderation: second_moderation, user: admin, reason: "offensive") }
-  let(:third_user_report) { create(:user_report, moderation: third_moderation, user: admin, reason: "does_not_belong") }
+  let!(:first_user_report) { create(:user_report, moderation: first_moderation, user: admin, reason: "spam") }
+  let!(:second_user_report) { create(:user_report, moderation: second_moderation, user: admin, reason: "offensive") }
+  let!(:third_user_report) { create(:user_report, moderation: third_moderation, user: admin, reason: "does_not_belong") }
 
   before do
     switch_to_host(organization.host)

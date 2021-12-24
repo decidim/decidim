@@ -27,11 +27,7 @@
     </h2>
   </div>
 
-  <div class="card-section fcell grid-x">
-    <div class="cell auto text-right">
-      <%= admin_filters_pagination %>
-    </div>
-  </div>
+  <%= admin_filter_selector(:moderated_users) %>
 
   <div class="card-section">
     <div class="table-scroll">
@@ -65,7 +61,7 @@
 
             <td class="actions">
               <% if allowed_to?(:unreport, :moderate_users) %>
-                <%= icon_link_to "action-undo",  ignore_moderated_user_path(id: moderation),  t(".actions.unreport"),  class: "action-icon--unreport",  method: :put %>
+                <%= icon_link_to "action-undo", ignore_moderated_user_path(id: moderation), t(".actions.unreport"), class: "action-icon--unreport", method: :put %>
               <% end %>
               <% if allowed_to?(:block, :moderate_users) %>
                 <% if moderation.user.blocked? %>
