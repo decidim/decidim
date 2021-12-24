@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     attributes:
@@ -355,6 +356,10 @@ en:
           JSON: JSON
         notice: Your export is currently in progress. You'll receive an email when it's complete.
       filters:
+        report_reasons_string_cont:
+          label: Report reason
+        report_count_string_eq:
+          label: Report count
         category_id_eq:
           label: Category
         filter_label: Filter
@@ -401,6 +406,7 @@ en:
           label: Scope
         search_label: Search
         search_placeholder:
+          report_count_eq: Report count eq
           name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
           reported_id_string_or_reported_content_cont: Search %{collection} by reportable id or content.
           title_cont: Search %{collection} by title.

@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     class ModeratedUsersController < Decidim::Admin::ApplicationController
-      include Decidim::Moderations::Admin::Filterable
+      include Decidim::ModeratedUsers::Admin::Filterable
 
       layout "decidim/admin/users"
 
