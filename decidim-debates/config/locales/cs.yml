@@ -17,6 +17,7 @@ cs:
       decidim/debates/close_debate_event: Debata byla uzavřena
       decidim/debates/create_debate_event: Debata
       decidim/debates/creation_disabled_event: Debaty zakázány
+      decidim/debates/creation_enabled_event: Vytvoření debat povoleno
   activerecord:
     models:
       decidim/debates/debate:
@@ -42,6 +43,7 @@ cs:
           step:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
+            creation_enabled: Účastníci mohou vytvářet debaty
             endorsements_blocked: Schvalování blokováno
             endorsements_enabled: Schvalování povoleno
     debates:
