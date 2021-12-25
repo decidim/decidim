@@ -91,7 +91,37 @@ cs:
         few: asi %{count} hodiny
         many: asi %{count} hodin
         other: asi %{count} hodin
+      about_x_months:
+        one: asi 1 měsíc
+        few: asi %{count} měsíce
+        many: asi %{count} měsíců
+        other: asi %{count} měsíců
       half_a_minute: půl minuty
+      less_than_x_minutes:
+        one: méně než minutu.
+        few: méně než %{count} minuty.
+        many: méně než %{count} minut.
+        other: méně než %{count} minut.
+      x_days:
+        one: před 1 dnem
+        few: "před %{count} dny"
+        many: "před %{count} ti dny"
+        other: "před %{count} ti dny"
+      x_hours:
+        one: před 1 hodinou
+        few: "před %{count} hodinami"
+        many: "před %{count} hodinami"
+        other: "před %{count} hodinami"
+      x_minutes:
+        one: před 1 minutou
+        few: "před %{count} minutami"
+        many: "před %{count} minutami"
+        other: "před %{count} minutami"
+      x_seconds:
+        one: před 1 vteřinou
+        few: "před %{count} vteřinami"
+        many: "před %{count} vteřinami"
+        other: "před %{count} vteřinami"
   decidim:
     accessibility:
       external_link: Externí odkaz
