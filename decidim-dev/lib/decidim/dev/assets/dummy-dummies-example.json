@@ -12,7 +12,9 @@
       "es": "Translatable text"
     },
     "address": "Fake street 1",
-    "latitude": 1.0,
-    "longitude": 1.0
+    "coordinates": {
+      "latitude": 1.0,
+      "longitude": 1.0
+    }
   }
 ]
