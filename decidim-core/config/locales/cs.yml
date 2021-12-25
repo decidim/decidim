@@ -102,6 +102,11 @@ cs:
         few: méně než %{count} minuty.
         many: méně než %{count} minut.
         other: méně než %{count} minut.
+      less_than_x_seconds:
+        one: právě teď
+        few: méně než %{count} vteřiny.
+        many: méně než %{count} vteřin.
+        other: méně než %{count} vteřin.
       x_days:
         one: před 1 dnem
         few: "před %{count} dny"
