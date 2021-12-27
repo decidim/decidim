@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  class FieldAttachmentCell < Decidim::ViewModel
+  class UploadModalCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
     include ERB::Util
 
@@ -16,21 +16,21 @@ module Decidim
     private
 
     def button_inner_html
-      return "Edit #{attachment_name}" if attachments && attachments.count.positive?
+      return "Edit #{attribute}" if attachments && attachments.count.positive?
 
-      "Add #{attachment_name}"
+      "Add #{attribute}"
     end
 
     def resource_name
       options[:resource_name]
     end
 
-    def attachment_name
-      options[:attachment_name]
+    def attribute
+      options[:attribute]
     end
 
     def attachments
-      options[:attachments]
+      options[:attachments] || form.object.send(options[:attribute])
     end
 
     def file_name(attachment)
@@ -39,6 +39,10 @@ module Decidim
 
     def field_id
       @field_id ||= "attachments_#{SecureRandom.uuid}"
+    end
+
+    def current_organization
+      controller.current_organization
     end
   end
 end

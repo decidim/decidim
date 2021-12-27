@@ -1,0 +1,41 @@
+<div class="active-attachments-<%= attribute %> hidden-inputs">
+  <% if attachments %>
+    <% attachments.each do |attachment| %>
+      <div data-title="<%= translated_attribute(attachment.title) %>" data-filename="<%= file_name(attachment) %>" data-state="uploaded">
+        <%= form.hidden_field attribute, multiple: true, value: attachment.id, id: "#{attribute}-#{attachment.id}" %>
+        <span><%= translated_attribute(attachment.title) %> (<%= file_name(attachment) %>)</span>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<button name=<%= attribute %> class="button small hollow add-field add-attachment" data-open="<%= field_id %>" data-resourcename="<%= resource_name %>">
+  <%= button_inner_html %>
+</button>
+
+<div class="reveal attachment-modal" id="<%= field_id %>" data-reveal>
+  <div class="reveal__header">
+    <h3 class="reveal__title"><%= attribute %></h3>
+    <button class="close-button" data-close aria-label="<%= "Close modal" %>"
+      type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="row dropzone-container" data-name=<%= attribute %>>
+    <label class="dropzone">
+      <%= form.file_field "add_#{attribute}".to_sym, label: false, multiple: true, direct_upload: true, data: { directuploadurl: "/rails/active_storage/direct_uploads" } %>
+      <span>Drop files here or click to upload</span>
+    </label>
+    <div class="upload-items"></div>
+    <div class="pending-attachments-<%= attribute %>">
+    </div>
+  </div>
+
+  <div class="row columns reveal__content">
+    <div class="text-center">
+      <button class="button primary add-attachment-<%= attribute %>" data-close><%= "Save" %></button>
+      <button class="link cancel-attachment margin-left-1" data-close><%= "Cancel" %></button>
+    </div>
+  </div>
+</div>

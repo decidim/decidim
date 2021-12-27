@@ -6,6 +6,7 @@ module Decidim
     class ProposalForm < Decidim::Proposals::ProposalWizardCreateStepForm
       include Decidim::TranslatableAttributes
       include Decidim::AttachmentAttributes
+      include Decidim::HasUploadValidations
 
       mimic :proposal
 

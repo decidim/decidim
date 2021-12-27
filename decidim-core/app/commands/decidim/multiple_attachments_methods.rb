@@ -6,12 +6,12 @@ module Decidim
 
     def build_attachments
       @documents = []
-      @form.add_documents.each do |file|
+      @form.add_documents.each do |attachment|
         @documents << Attachment.new(
-          title: { I18n.locale => file.original_filename },
+          title: { I18n.locale => attachment[:title] },
           attached_to: @attached_to || documents_attached_to,
-          file: file,
-          content_type: file.content_type
+          file: attachment[:file],
+          content_type: blob(attachment[:file].content_type)
         )
       end
     end
@@ -56,6 +56,10 @@ module Decidim
       return form.current_organization if form.respond_to?(:current_organization)
 
       form.current_component.organization if form.respond_to?(:current_component)
+    end
+
+    def blob(signed_id)
+      ActiveStorage::Blob.find_signed(signed_id)
     end
   end
 end

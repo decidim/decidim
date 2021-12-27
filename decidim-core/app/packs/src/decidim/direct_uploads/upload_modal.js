@@ -8,7 +8,6 @@ export default class UploadModal {
     this.options = options;
     this.attachmentCounter = 0;
     this.name = this.button.name;
-    // this.container = this.modal.querySelector(`div[data-name='${this.name}']`)
 
     this.uploadItems = this.modal.querySelector(".upload-items");
     this.dropZone = this.modal.querySelector(".dropzone");
@@ -21,19 +20,19 @@ export default class UploadModal {
   init() {
     this.loadAttachments();
     this.addInputEventListeners();
+    this.addOpenModalButtonEventListeners();
     this.addDropzoneEventListeners();
     this.addSaveButtonEventListeners();
   }
 
   loadAttachments() {
     Array.from(this.activeAttachments.children).forEach((child) => {
-      this.createUploadItemComponent(child.dataset.filename, child.dataset.title, true);
+      this.createUploadItemComponent(child.dataset.filename, child.dataset.title, "uploaded");
     })
   }
 
   uploadFile(file) {
-    console.log("file", file);
-    const uploadItemComponent = this.createUploadItemComponent(file.name, file.name.split(".")[0])
+    const uploadItemComponent = this.createUploadItemComponent(file.name, file.name.split(".")[0], "init");
     const uploader = new Uploader(file, uploadItemComponent, {
       url: this.input.dataset.directuploadurl,
       attachmentName: file.name
@@ -41,14 +40,14 @@ export default class UploadModal {
 
     uploader.upload.create((error, blob) => {
       if (error) {
-        uploadItemComponent.querySelector(".progress-bar").style.width = "100%"
+        uploadItemComponent.dataset.state = "error";
+        uploadItemComponent.querySelector(".progress-bar").style.width = "100%";
         uploadItemComponent.querySelector(".progress-bar").innerHTML = "Error";
         console.error(error);
       } else {
         // Add an appropriately-named hidden input to the form with a
         //  value of blob.signed_id so that the blob ids will be
         //  transmitted in the normal upload flow
-        console.log("this.name", this.name)
         const ordinalNumber = this.attachmentCounter;
         this.attachmentCounter += 1;
         const hiddenFieldsContainer = document.createElement("div");
@@ -74,7 +73,7 @@ export default class UploadModal {
     });
   }
 
-  createUploadItemComponent(fileName, title, uploaded) {
+  createUploadItemComponent(fileName, title, state) {
     const wrapper = document.createElement("div");
     wrapper.classList.add("upload-item");
     wrapper.setAttribute("data-filename", fileName);
@@ -97,8 +96,8 @@ export default class UploadModal {
 
     const progressBar = document.createElement("div");
     progressBar.classList.add("progress-bar");
-    if (uploaded) {
-      progressBar.innerHTML = "uploaded";
+    if (state) {
+      progressBar.innerHTML = state;
       progressBar.style.justifyContent = "center";
     }
 
@@ -122,9 +121,7 @@ export default class UploadModal {
     removeField.classList.add("columns", "small-3", "remove-upload-item");
     removeField.innerHTML = "&times; Remove";
     removeField.addEventListener(("click"), () => {
-      console.log("click")
       const item = this.uploadItems.querySelector(`[data-filename='${fileName}']`)
-      console.log("item", item);
       item.setAttribute("data-deleted", "true");
       item.style.display = "none";
     })
@@ -152,6 +149,21 @@ export default class UploadModal {
     })
   }
 
+  addOpenModalButtonEventListeners() {
+    this.button.addEventListener("click", (event) => {
+      event.preventDefault();
+      console.log("eka", this.activeAttachments);
+      Array.from(this.activeAttachments.children).forEach((attachmentEl) => {
+        console.log("attachmentEl", attachmentEl);
+        const fileName = attachmentEl.dataset.filename;
+        const target = this.uploadItems.querySelector(`[data-filename='${fileName}'`);
+        target.dataset.deleted = false;
+        // Remove display: none;
+        target.style.display = null;
+      })
+    })
+  }
+
   addSaveButtonEventListeners() {
     const saveButton = this.modal.querySelector(`.add-attachment-${this.name}`);
     saveButton.addEventListener("click", (event) => {
@@ -174,7 +186,6 @@ export default class UploadModal {
     this.uploadItems.querySelectorAll(".upload-item[data-deleted='true'").forEach((item) => {
       const fileName = item.dataset.filename;
       const activeAttachment = this.activeAttachments.querySelector(`div[data-filename='${fileName}']`)
-      console.log("activeAttachment", activeAttachment)
       if (activeAttachment) {
         activeAttachment.remove();
       }

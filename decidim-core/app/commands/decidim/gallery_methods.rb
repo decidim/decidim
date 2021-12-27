@@ -9,21 +9,19 @@ module Decidim
     def build_gallery(attached_to = nil)
       @gallery = []
       @form.add_photos.each do |photo|
-        next unless image? photo
+        next unless image? photo[:file]
 
         @gallery << Attachment.new(
-          title: { I18n.locale => photo.original_filename },
+          title: { I18n.locale => photo[:title] },
           attached_to: attached_to || gallery_attached_to,
-          file: photo, # Define attached_to before this
-          content_type: photo.content_type
+          file: photo[:file],
+          content_type: blob(photo[:file]).content_type
         )
       end
     end
 
-    def image?(image)
-      return unless image.respond_to? :content_type
-
-      image.content_type.start_with? "image"
+    def image?(signed_id)
+      blob(signed_id).content_type.start_with? "image"
     end
 
     def gallery_invalid?
@@ -67,6 +65,10 @@ module Decidim
       return form.current_organization if form.respond_to?(:current_organization)
 
       form.current_component.organization if form.respond_to?(:current_component)
+    end
+
+    def blob(signed_id)
+      ActiveStorage::Blob.find_signed(signed_id)
     end
   end
 end
