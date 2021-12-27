@@ -97,6 +97,7 @@ module Decidim
   autoload :AttachmentAttributes, "decidim/attachment_attributes"
   autoload :CarrierWaveMigratorService, "decidim/carrier_wave_migrator_service"
   autoload :CommonPasswords, "decidim/common_passwords"
+  autoload :AttributeObject, "decidim/attribute_object"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.

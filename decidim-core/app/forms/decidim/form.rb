@@ -3,7 +3,7 @@
 module Decidim
   # A base form object to hold common logic, like automatically adding as
   # public method the params sent as context by the `FormFactory` concern.
-  class Form < Rectify::Form
+  class Form < Decidim::AttributeObject::Form
     delegate :current_organization,
              :current_user,
              :current_component,
