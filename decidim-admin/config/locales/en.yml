@@ -251,6 +251,7 @@ en:
           update: Update
         index:
           attachments_title: Attachments
+          privacy_warning: Be careful when working with attachments in a private space. Any participant could share this document to others.
         new:
           create: Create attachment
           title: New attachment
