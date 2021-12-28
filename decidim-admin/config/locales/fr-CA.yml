@@ -488,7 +488,7 @@ fr-CA:
             xlsx: xlsx
           actions:
             back: Retour
-          download_example: Télécharger l''exemple
+          download_example: Télécharger l'exemple
           download_example_format: Exemple comme %{name}
           file_legend: Ajouter un fichier d'import qui sera analysé.
           import: Importer
