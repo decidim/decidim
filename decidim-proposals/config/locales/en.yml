@@ -768,12 +768,14 @@ en:
           description: The coordinates will be updated when clicking on 'preview' button. However, the address does not change.
           instructions: You can move the point on the map.
         edit:
-          add_documents: Documents
-          add_images: File
+          add_documents: Add documents
+          add_image: Add Image
           attachment_legend: "(Optional) Add an attachment"
           back: Back
           delete_document: Delete Document
           delete_image: Delete Image
+          edit_documents: Edit documents
+          edit_image: Edit image
           gallery_legend: "(Optional) Add an image to the proposal card"
           select_a_category: Please select a category
           send: Send

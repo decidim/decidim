@@ -15,10 +15,18 @@ module Decidim
 
     private
 
-    def button_inner_html
-      return "Edit #{attribute}" if attachments && attachments.count.positive?
+    def label
+      return edit_label if attachments && attachments.count.positive?
 
-      "Add #{attribute}"
+      add_label
+    end
+
+    def add_label
+      options[:label]
+    end
+
+    def edit_label
+      options[:edit_label] || add_label
     end
 
     def resource_name
@@ -27,6 +35,20 @@ module Decidim
 
     def attribute
       options[:attribute]
+    end
+
+    def multiple
+      options[:multiple] || false
+    end
+
+    def add_attribute
+      return "add_#{attribute}" if form.object.respond_to? "add_#{attribute}".to_sym
+
+      attribute.to_sym
+    end
+
+    def help_messages
+      Array(options[:help])
     end
 
     def attachments

@@ -8,6 +8,9 @@ export default class UploadModal {
     this.options = options;
     this.attachmentCounter = 0;
     this.name = this.button.name;
+    this.multiple = this.button.dataset.multiple === "true";
+    this.dropZoneEnabled = true;
+    this.modalTitle = this.modal.querySelector(".reveal__title");
 
     this.uploadItems = this.modal.querySelector(".upload-items");
     this.dropZone = this.modal.querySelector(".dropzone");
@@ -15,6 +18,7 @@ export default class UploadModal {
 
     this.activeAttachments = document.querySelector(`.active-attachments-${this.name}`);
     this.pendingAttachments = document.querySelector(`.pending-attachments-${this.name}`);
+    this.trashCan = this.createTrashCan();
   }
 
   init() {
@@ -25,6 +29,14 @@ export default class UploadModal {
     this.addSaveButtonEventListeners();
   }
 
+  createTrashCan() {
+    const trashCan =  document.createElement("div");
+    trashCan.classList.add("trash-can");
+    trashCan.style.display = "none";
+    this.uploadItems.parentElement.appendChild(trashCan);
+    return trashCan;
+  }
+
   loadAttachments() {
     Array.from(this.activeAttachments.children).forEach((child) => {
       this.createUploadItemComponent(child.dataset.filename, child.dataset.title, "uploaded");
@@ -32,6 +44,10 @@ export default class UploadModal {
   }
 
   uploadFile(file) {
+    if (!this.dropZoneEnabled) {
+      return;
+    }
+
     const uploadItemComponent = this.createUploadItemComponent(file.name, file.name.split(".")[0], "init");
     const uploader = new Uploader(file, uploadItemComponent, {
       url: this.input.dataset.directuploadurl,
@@ -45,32 +61,47 @@ export default class UploadModal {
         uploadItemComponent.querySelector(".progress-bar").innerHTML = "Error";
         console.error(error);
       } else {
-        // Add an appropriately-named hidden input to the form with a
-        //  value of blob.signed_id so that the blob ids will be
-        //  transmitted in the normal upload flow
+        const inputName = this.input.name;
+        const addAttribute = inputName.substring(inputName.indexOf("[") + 1, inputName.indexOf("]"));
         const ordinalNumber = this.attachmentCounter;
         this.attachmentCounter += 1;
-        const hiddenFieldsContainer = document.createElement("div");
-        hiddenFieldsContainer.setAttribute("display", "none");
-        hiddenFieldsContainer.setAttribute("data-filename", file.name);
+
+        const hiddenFieldsContainer = uploadItemComponent.querySelector(".hidden-fields-container");
         hiddenFieldsContainer.classList.add(`pending-${this.name}`);
 
         const hiddenBlobField = document.createElement("input");
         hiddenBlobField.setAttribute("type", "hidden");
         hiddenBlobField.setAttribute("value", blob.signed_id);
-        hiddenBlobField.name = `${this.resourceName}[add_${this.name}][${ordinalNumber}][file]`;
+        hiddenBlobField.name = `${this.resourceName}[${addAttribute}][${ordinalNumber}][file]`;
 
         const hiddenTitleField = document.createElement("input");
         hiddenTitleField.classList.add("hidden-title");
         hiddenTitleField.setAttribute("type", "hidden");
         hiddenTitleField.setAttribute("value", file.name.split(".")[0]);
-        hiddenTitleField.name = `${this.resourceName}[add_${this.name}][${ordinalNumber}][title]`;
+        hiddenTitleField.name = `${this.resourceName}[${addAttribute}][${ordinalNumber}][title]`;
 
         hiddenFieldsContainer.appendChild(hiddenBlobField);
         hiddenFieldsContainer.appendChild(hiddenTitleField);
-        this.pendingAttachments.appendChild(hiddenFieldsContainer);
+        uploadItemComponent.appendChild(hiddenFieldsContainer)
       }
     });
+    this.updateDropZone();
+  }
+
+  updateDropZone() {
+    if (this.multiple) {
+      return;
+    }
+
+    if (this.uploadItems.children.length > 0) {
+      this.dropZone.classList.add("disabled");
+      this.dropZoneEnabled = false;
+      this.input.disabled = true;
+    } else {
+      this.dropZone.classList.remove("disabled");
+      this.dropZoneEnabled = true;
+      this.input.disabled = false;
+    }
   }
 
   createUploadItemComponent(fileName, title, state) {
@@ -120,11 +151,16 @@ export default class UploadModal {
     const removeField = document.createElement("span");
     removeField.classList.add("columns", "small-3", "remove-upload-item");
     removeField.innerHTML = "&times; Remove";
-    removeField.addEventListener(("click"), () => {
-      const item = this.uploadItems.querySelector(`[data-filename='${fileName}']`)
-      item.setAttribute("data-deleted", "true");
-      item.style.display = "none";
+    removeField.addEventListener(("click"), (event) => {
+      event.preventDefault();
+      const item = this.uploadItems.querySelector(`[data-filename='${fileName}']`);
+      this.trashCan.append(item);
+      this.updateDropZone();
     })
+
+    const hiddenFieldsContainer = document.createElement("div");
+    hiddenFieldsContainer.classList.add("hidden-fields-container");
+    hiddenFieldsContainer.setAttribute("data-filename", fileName);
 
     firstRow.appendChild(fileNameSpan);
     firstRow.appendChild(titleContainer);
@@ -135,6 +171,7 @@ export default class UploadModal {
 
     wrapper.appendChild(firstRow);
     wrapper.appendChild(secondRow);
+    wrapper.appendChild(hiddenFieldsContainer);
 
     this.uploadItems.appendChild(wrapper);
 
@@ -152,15 +189,15 @@ export default class UploadModal {
   addOpenModalButtonEventListeners() {
     this.button.addEventListener("click", (event) => {
       event.preventDefault();
-      console.log("eka", this.activeAttachments);
-      Array.from(this.activeAttachments.children).forEach((attachmentEl) => {
-        console.log("attachmentEl", attachmentEl);
-        const fileName = attachmentEl.dataset.filename;
-        const target = this.uploadItems.querySelector(`[data-filename='${fileName}'`);
-        target.dataset.deleted = false;
-        // Remove display: none;
-        target.style.display = null;
+      Array.from(this.trashCan.children).forEach((item) => {
+        this.uploadItems.append(item);
       })
+      if (this.uploadItems.children.length === 0) {
+        this.modalTitle.innerHTML = this.modalTitle.dataset.addlabel;
+      } else {
+        this.modalTitle.innerHTML = this.modalTitle.dataset.editlabel;
+      }
+      this.updateDropZone();
     })
   }
 
@@ -168,24 +205,23 @@ export default class UploadModal {
     const saveButton = this.modal.querySelector(`.add-attachment-${this.name}`);
     saveButton.addEventListener("click", (event) => {
       event.preventDefault();
-      Array.from(this.pendingAttachments.children).forEach((child) => {
-        const hiddenTitleInput = child.querySelector(".hidden-title");
+      this.uploadItems.querySelectorAll(".upload-item").forEach((item) => {
+        const title = item.querySelector("input[type='text']").value;
         const titleAndFileNameSpan = document.createElement("span");
-        titleAndFileNameSpan.innerHTML = `${hiddenTitleInput.value} (${child.dataset.filename})`;
-        child.className = `active-${this.name}`;
-        child.append(titleAndFileNameSpan);
-        this.activeAttachments.append(child);
+        titleAndFileNameSpan.innerHTML = `${title} (${item.dataset.filename})`;
+        const hiddenFieldsContainer = item.querySelector(".hidden-fields-container");
+        this.activeAttachments.appendChild(hiddenFieldsContainer);
       })
-      this.updateDeleted();
+      this.cleanTrashCan();
       this.updateTitles();
       this.updateAddAttachmentsButton();
     })
   }
 
-  updateDeleted() {
-    this.uploadItems.querySelectorAll(".upload-item[data-deleted='true'").forEach((item) => {
+  cleanTrashCan() {
+    Array.from(this.trashCan.children).forEach((item) => {
       const fileName = item.dataset.filename;
-      const activeAttachment = this.activeAttachments.querySelector(`div[data-filename='${fileName}']`)
+      const activeAttachment = this.activeAttachments.querySelector(`div[data-filename='${fileName}']`);
       if (activeAttachment) {
         activeAttachment.remove();
       }
@@ -198,18 +234,16 @@ export default class UploadModal {
       const fileName = fileField.dataset.filename
       const updatedTitle = fileField.querySelector("input[type='text']").value;
       const attachmentWrapper = this.activeAttachments.querySelector(`[data-filename='${fileName}']`);
-      const hiddenTitleField = attachmentWrapper.querySelector(".hidden-title");
       const titleAndFilenameSpan = attachmentWrapper.querySelector("span");
-      hiddenTitleField.value = updatedTitle;
       titleAndFilenameSpan.innerHTML = `${updatedTitle} (${fileName})`;
     })
   }
 
   updateAddAttachmentsButton() {
     if (this.activeAttachments.children.length === 0) {
-      this.button.innerHTML = `Add ${this.name}`;
+      this.button.innerHTML = this.modalTitle.dataset.addlabel;
     } else {
-      this.button.innerHTML = `Edit ${this.name}`;
+      this.button.innerHTML = this.modalTitle.dataset.editlabel;
     }
   }
 

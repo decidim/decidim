@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 2rem 0;
+    margin-bottom: 1rem;
 
     input[type="file"]{
       display: none;
@@ -29,6 +29,16 @@
         border-color: var(--secondary);
         border-width: 2px;
         border-radius: 4px;
+      }
+
+      &.disabled{
+        background-color: $light-gray;
+        cursor: not-allowed;
+        border-color: lighten($secondary, 50);
+
+        span{
+          color: #ccc;
+        }
       }
     }
   }

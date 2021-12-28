@@ -393,24 +393,70 @@ module Decidim
       template.html_safe
     end
 
-    # Public: Generates a file upload field and sets the form as multipart.
-    # If the file is an image it displays the default image if present or the current one.
-    # By default it also generates a checkbox to delete the file. This checkbox can
-    # be hidden if `options[:optional]` is passed as `false`.
-    #
-    # attribute    - The String name of the attribute to buidl the field.
-    # options      - A Hash with options to build the field.
-    #              * optional: Whether the file can be optional or not.
-    def upload(attribute, options = {})
+    def attachment(attribute, options = {})
+      options = {
+        attribute: attribute,
+        resource_name: @object_name,
+        help: upload_help(attribute, options)
+      }.merge(options)
+
       ::Decidim::ViewModel.cell(
         "decidim/upload_modal",
         self,
-        attribute: attribute,
-        resource_name: @object_name,
-        help: upload_help(attribute, options),
-        options: options
+        options
       )
     end
+
+    # rubocop: disable all
+    def upload(attribute, options = {})
+      self.multipart = true
+      options[:optional] = options[:optional].nil? ? true : options[:optional]
+      label_text = options[:label] || label_for(attribute)
+      alt_text = label_text
+
+      file = object.send attribute
+      template = ""
+      template += label(attribute, label_text + required_for_attribute(attribute))
+      template += upload_help(attribute, options)
+      template += @template.file_field @object_name, attribute
+
+      template += extension_allowlist_help(options[:extension_allowlist]) if options[:extension_allowlist].present?
+      template += image_dimensions_help(options[:dimensions_info]) if options[:dimensions_info].present?
+
+      default_image_path = uploader_default_image_path(attribute)
+      file_path = file_attachment_path(file)
+
+      if file_path.present? && file.attachment.image? || default_image_path.present?
+        if file_path.present?
+          template += @template.content_tag :label, I18n.t("current_image", scope: "decidim.forms")
+          template += @template.link_to @template.image_tag(file_path, alt: alt_text), file_path, target: "_blank", rel: "noopener"
+        else
+          template += @template.content_tag :label, I18n.t("default_image", scope: "decidim.forms")
+          template += @template.link_to @template.image_tag(default_image_path, alt: alt_text), default_image_path, target: "_blank", rel: "noopener"
+        end
+      elsif file_path.present?
+        template += @template.label_tag I18n.t("current_file", scope: "decidim.forms")
+        template += @template.link_to file.filename, file_path, target: "_blank", rel: "noopener"
+      end
+
+      if file_path.present? && options[:optional]
+        template += content_tag :div, class: "field" do
+          safe_join([
+                      @template.check_box(@object_name, "remove_#{attribute}"),
+                      label("remove_#{attribute}", I18n.t("remove_this_file", scope: "decidim.forms"))
+                    ])
+        end
+      end
+
+      if object.errors[attribute].any?
+        template += content_tag :p, class: "is-invalid-label" do
+          safe_join object.errors[attribute], "<br/>".html_safe
+        end
+      end
+
+      template.html_safe
+    end
+    # rubocop: enable all
 
     def upload_help(attribute, options = {})
       humanizer = FileValidatorHumanizer.new(object, attribute)
@@ -433,15 +479,7 @@ module Decidim
         end
       end
 
-      content_tag(:div, class: "help-text") do
-        inner = "<p>#{I18n.t("explanation", scope: help_scope)}</p>".html_safe
-        inner + content_tag(:ul) do
-          messages = help_messages.each.map { |msg| I18n.t(msg, scope: help_scope) }
-          messages += humanizer.messages
-
-          messages.map { |msg| content_tag(:li, msg) }.join("\n").html_safe
-        end.html_safe
-      end
+      help_messages.each.map { |msg| I18n.t(msg, scope: help_scope) } + humanizer.messages
     end
 
     # Public: Returns the translated name for the given attribute.

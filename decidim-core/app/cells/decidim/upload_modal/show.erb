@@ -9,22 +9,31 @@
   <% end %>
 </div>
 
-<button name=<%= attribute %> class="button small hollow add-field add-attachment" data-open="<%= field_id %>" data-resourcename="<%= resource_name %>">
-  <%= button_inner_html %>
+<button name=<%= attribute %> class="button small hollow add-field add-attachment" data-open="<%= field_id %>" data-resourcename="<%= resource_name %>" data-multiple="<%= multiple %>">
+  <%= label %>
 </button>
 
 <div class="reveal attachment-modal" id="<%= field_id %>" data-reveal>
   <div class="reveal__header">
-    <h3 class="reveal__title"><%= attribute %></h3>
+    <h3 class="reveal__title" data-addlabel="<%= add_label %>" data-editlabel="<%= edit_label %>"><%= label %></h3>
     <button class="close-button" data-close aria-label="<%= "Close modal" %>"
       type="button">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
 
+  <div class="help">
+    <span>Guidance for <%= attribute %></span>
+    <ul>
+      <% help_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+
   <div class="row dropzone-container" data-name=<%= attribute %>>
     <label class="dropzone">
-      <%= form.file_field "add_#{attribute}".to_sym, label: false, multiple: true, direct_upload: true, data: { directuploadurl: "/rails/active_storage/direct_uploads" } %>
+      <%= form.file_field add_attribute, label: false, multiple: true, direct_upload: true, data: { directuploadurl: "/rails/active_storage/direct_uploads" } %>
       <span>Drop files here or click to upload</span>
     </label>
     <div class="upload-items"></div>
