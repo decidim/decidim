@@ -66,7 +66,7 @@ shared_examples_for "add questions" do
 
   it "adds a title-and-description" do
     within "form.edit_questionnaire" do
-      click_button "add title and description"
+      click_button "Add title and description"
       expand_all_questions
 
       within ".questionnaire-question" do
