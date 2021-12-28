@@ -14,9 +14,19 @@ Decidim.configure do |config|
 end
 ```
 
-#### User workflows change to prevent user enumeration attacks 
+#### User workflows change to prevent user enumeration attacks
 
-Until now it was possible to see if an email account was registered in Decidim, by using features like "Forgot your password", as the response changed if the email existed ("`You will receive an email with instructions on how to reset your password in a few minutes`") that's different to a non-existing user account ("`could not be found. Did you sign up previously?`"). This allows User Enumration attacks, where a malicious actor can check if anyone has an acount in the platform. As per [\#8537](https://github.com/decidim/decidim/pull/8537), anyone has the same answer always "`If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes`". 
+Until now it was possible to see if an email account was registered in Decidim, by using features like "Forgot your password", as the response changed if the email existed ("`You will receive an email with instructions on how to reset your password in a few minutes`") that's different to a non-existing user account ("`could not be found. Did you sign up previously?`"). This allows User Enumration attacks, where a malicious actor can check if anyone has an acount in the platform. As per [\#8537](https://github.com/decidim/decidim/pull/8537), anyone has the same answer always "`If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes`".
+
+#### Global search user by nickname
+
+PR [\#8659](https://github.com/decidim/decidim/pull/8659) Added the ability to search for a user by nickname, to update the existing search, Run in a rails console or create a migration with:
+
+```ruby
+  Decidim::User.find_each(&:try_update_index_for_search_resource)
+```
+
+Please be aware that it could take a while if your database has a lot of Users.
 
 ### Added
 * [#8012](https://github.com/decidim/decidim/pull/8012) Participatory space to comments, to fix the statistics. Use

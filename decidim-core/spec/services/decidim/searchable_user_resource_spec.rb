@@ -8,7 +8,7 @@ module Decidim
 
     let(:organization) { create(:organization) }
     let(:scope1) { create :scope, organization: organization }
-    let!(:user) { create(:user, name: "Neil Diamond", organization: organization) }
+    let!(:user) { create(:user, nickname: "the_solitary_man", name: "Neil Diamond", organization: organization) }
 
     describe "Indexing of users" do
       context "when implementing Searchable" do
@@ -43,27 +43,53 @@ module Decidim
 
     describe "Search" do
       context "when searching by User resource_type" do
-        let!(:user2) { create(:user, name: "Neil Young", organization: organization) }
+        let!(:user2) { create(:user, nickname: "the_loner", name: "Neil Young", organization: organization) }
 
-        it "returns User results" do
-          Decidim::Search.call("Neil", organization, resource_type: user.class.name) do
-            on(:ok) do |results_by_type|
-              results = results_by_type[user.class.name]
-              expect(results[:count]).to eq 2
-              expect(results[:results]).to match_array [user, user2]
+        context "when searching by name" do
+          it "returns User results" do
+            Decidim::Search.call("Neil", organization, resource_type: user.class.name) do
+              on(:ok) do |results_by_type|
+                results = results_by_type[user.class.name]
+                expect(results[:count]).to eq 2
+                expect(results[:results]).to match_array [user, user2]
+              end
+              on(:invalid) { raise("Should not happen") }
             end
-            on(:invalid) { raise("Should not happen") }
+          end
+
+          it "allows searching by prefix characters" do
+            Decidim::Search.call("diam", organization, resource_type: user.class.name) do
+              on(:ok) do |results_by_type|
+                results = results_by_type[user.class.name]
+                expect(results[:count]).to eq 1
+                expect(results[:results]).to eq [user]
+              end
+              on(:invalid) { raise("Should not happen") }
+            end
           end
         end
 
-        it "allows searching by prefix characters" do
-          Decidim::Search.call("diam", organization, resource_type: user.class.name) do
-            on(:ok) do |results_by_type|
-              results = results_by_type[user.class.name]
-              expect(results[:count]).to eq 1
-              expect(results[:results]).to eq [user]
+        context "when searching by nickname" do
+          it "returns User results" do
+            Decidim::Search.call("the_loner", organization, resource_type: user.class.name) do
+              on(:ok) do |results_by_type|
+                results = results_by_type[user.class.name]
+                expect(results[:count]).to eq 1
+                expect(results[:results]).to eq [user2]
+              end
+              on(:invalid) { raise("Should not happen") }
             end
-            on(:invalid) { raise("Should not happen") }
+          end
+
+          it "allows searching by prefix characters" do
+            Decidim::Search.call("the_", organization, resource_type: user.class.name) do
+              on(:ok) do |results_by_type|
+                results = results_by_type[user.class.name]
+                expect(results[:count]).to eq 2
+                expect(results[:results]).to match_array [user, user2]
+              end
+              on(:invalid) { raise("Should not happen") }
+            end
           end
         end
       end
@@ -84,7 +110,7 @@ module Decidim
     def expected_searchable_resource_attrs(resource, locale)
       {
         "content_a" => resource.name,
-        "content_b" => "",
+        "content_b" => resource.nickname,
         "content_c" => "",
         "content_d" => "",
         "locale" => locale,
