@@ -80,7 +80,7 @@ en:
           form:
             add_question: Add question
             add_separator: Add separator
-            add_title_and_description: add title and description
+            add_title_and_description: Add title and description
             already_answered_warning: The form is already answered by some users so you cannot modify its questions.
             collapse: Collapse all questions
             expand: Expand all questions
