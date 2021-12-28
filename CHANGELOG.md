@@ -20,7 +20,7 @@ Until now it was possible to see if an email account was registered in Decidim, 
 
 #### Global search user by nickname
 
-PR [\#8659](https://github.com/decidim/decidim/pull/8659) Added the ability to search for a user by nickname, to update the existing search, Run in a rails console or create a migration with:
+PR [\#86](https://github.com/decidim/decidim/pull/8663) Added the ability to search for a user by nickname, to update the existing search, Run in a rails console or create a migration with:
 
 ```ruby
   Decidim::User.find_each(&:try_update_index_for_search_resource)
