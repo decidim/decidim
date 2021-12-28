@@ -9,7 +9,7 @@ shared_examples_for "add questions" do
     within "form.edit_questionnaire" do
       click_button "Add question"
       click_button "Add separator"
-      click_button "add title and description"
+      click_button "Add title and description"
       click_button "Add question"
 
       expect(page).to have_selector(".questionnaire-question", count: 4)
