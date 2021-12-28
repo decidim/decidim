@@ -975,6 +975,7 @@ en:
         show:
           back: Back to all conversations
           chat_with: Conversation with
+          deleted_accounts: You can't have a conversation with deleted accounts.
           not_allowed: This participant does not accept direct messages.
           title: Conversation with %{usernames}
         start:
@@ -1339,6 +1340,7 @@ en:
         title_reply: Reply
       show:
         back: Show all conversations
+        deleted_accounts: You can't have a conversation with deleted accounts.
         not_allowed: This user does not accept any more direct messages.
         title: Conversation with %{usernames}
       update:
