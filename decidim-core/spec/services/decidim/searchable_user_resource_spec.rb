@@ -111,49 +111,21 @@ module Decidim
 
         context "when searching by name" do
           it "returns User results" do
-            Decidim::Search.call("Neil", organization, resource_type: user.class.name) do
-              on(:ok) do |results_by_type|
-                results = results_by_type[user.class.name]
-                expect(results[:count]).to eq 2
-                expect(results[:results]).to match_array [user, user2]
-              end
-              on(:invalid) { raise("Should not happen") }
-            end
+            expect_searched_user_results("Neil", 2, [user, user2])
           end
 
           it "allows searching by prefix characters" do
-            Decidim::Search.call("diam", organization, resource_type: user.class.name) do
-              on(:ok) do |results_by_type|
-                results = results_by_type[user.class.name]
-                expect(results[:count]).to eq 1
-                expect(results[:results]).to eq [user]
-              end
-              on(:invalid) { raise("Should not happen") }
-            end
+            expect_searched_user_results("diam", 1, [user])
           end
         end
 
         context "when searching by nickname" do
           it "returns User results" do
-            Decidim::Search.call("the_loner", organization, resource_type: user.class.name) do
-              on(:ok) do |results_by_type|
-                results = results_by_type[user.class.name]
-                expect(results[:count]).to eq 1
-                expect(results[:results]).to eq [user2]
-              end
-              on(:invalid) { raise("Should not happen") }
-            end
+            expect_searched_user_results("the_loner", 1, [user2])
           end
 
           it "allows searching by prefix characters" do
-            Decidim::Search.call("the_", organization, resource_type: user.class.name) do
-              on(:ok) do |results_by_type|
-                results = results_by_type[user.class.name]
-                expect(results[:count]).to eq 2
-                expect(results[:results]).to match_array [user, user2]
-              end
-              on(:invalid) { raise("Should not happen") }
-            end
+            expect_searched_user_results("the_", 2, [user, user2])
           end
         end
 
@@ -216,6 +188,17 @@ module Decidim
         "resource_id" => resource.id,
         "resource_type" => "Decidim::User"
       }
+    end
+
+    def expect_searched_user_results(term, count, expected_results)
+      Decidim::Search.call(term, organization, resource_type: user.class.name) do
+        on(:ok) do |results_by_type|
+          results = results_by_type[user.class.name]
+          expect(results[:count]).to eq count
+          expect(results[:results]).to match_array expected_results
+        end
+        on(:invalid) { raise("Should not happen") }
+      end
     end
   end
 end
