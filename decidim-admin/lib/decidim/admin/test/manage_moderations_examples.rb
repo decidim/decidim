@@ -1,5 +1,38 @@
 # frozen_string_literal: true
 
+shared_examples "sorted moderations" do
+  let!(:moderations) do
+    reportables.first(reportables.length - 1).map do |reportable|
+      moderation = create(:moderation, reportable: reportable, report_count: 1, reported_content: reportable.reported_searchable_content_text)
+      create(:report, moderation: moderation)
+      moderation
+    end
+  end
+  let!(:moderation) { moderations.first }
+  let!(:hidden_moderations) do
+    reportables.last(1).map do |reportable|
+      moderation = create(:moderation, reportable: reportable, report_count: 3, reported_content: reportable.reported_searchable_content_text, hidden_at: Time.current)
+      create_list(:report, 3, moderation: moderation, reason: :spam)
+      moderation
+    end
+  end
+  let(:moderations_link_text) { "Moderations" }
+
+  before do
+    visit participatory_space_path
+    click_link moderations_link_text
+  end
+
+  it "sorts the most recent first" do
+    within ".pagination" do
+      click_link "Last"
+    end
+    all("tbody tr").each_with_index do |row, _index|
+      expect(row.find("td:first-child")).to have_content(reportables.first.id)
+    end
+  end
+end
+
 shared_examples "manage moderations" do
   let!(:moderations) do
     reportables.first(reportables.length - 1).map do |reportable|
