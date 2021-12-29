@@ -123,6 +123,10 @@ FactoryBot.define do
     trait :separator do
       question_type { :separator }
     end
+
+    trait :title_and_description do
+      question_type { :title_and_description }
+    end
   end
 
   factory :answer, class: "Decidim::Forms::Answer" do
