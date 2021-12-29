@@ -969,6 +969,7 @@ it:
         show:
           back: Torna a tutte le conversazioni
           chat_with: Conversazione con
+          deleted_accounts: Non è possibile avere una conversazione con account eliminati.
           not_allowed: Questo partecipante non accetta messaggi diretti.
           title: Conversazione con %{usernames}
         start:
