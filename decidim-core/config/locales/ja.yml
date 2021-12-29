@@ -1053,6 +1053,12 @@ ja:
         greetings: こんにちは、<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: こんにちは、
         subject: '%{organization_name} に関する関連情報を引き続き受信しますか？'
+    notification_mailer:
+      event_received:
+        no_translation_available: 申し訳ありませんが、メール送信時に自動翻訳を取得できませんでした。 原文の翻訳は、次のリンク %{link} で確認できます。
+        original_text: '原文:'
+        same_language: コンテンツはあなたの設定された言語(%{language}) で投稿されました。このため、このメールには自動翻訳は表示されません。
+        translated_text: '自動翻訳されたテキスト:'
     notifications:
       no_notifications: まだ通知はありません。
     notifications_settings:
