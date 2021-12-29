@@ -38,7 +38,8 @@ module Decidim
           @trustee = Decidim.traceability.create!(
             Trustee,
             form.current_user,
-            user: form.user
+            user: form.user,
+            organization: form.user.organization
           )
         end
 
@@ -73,7 +74,7 @@ module Decidim
             resource: form.current_participatory_space,
             affected_users: [form.user]
           }
-          Decidim::EventsManager.publish(data)
+          Decidim::EventsManager.publish(**data)
         end
       end
     end

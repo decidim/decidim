@@ -16,7 +16,7 @@ module Decidim
       end
 
       def translated_description
-        @translated_description ||= decidim_sanitize(translated_attribute(model.settings.description))
+        @translated_description ||= decidim_sanitize_editor(translated_attribute(model.settings.description))
       end
 
       def button_url
@@ -28,7 +28,7 @@ module Decidim
       end
 
       def background_image
-        model.images_container.background_image.big.url
+        model.images_container.attached_uploader(:background_image).path(variant: :big)
       end
     end
   end

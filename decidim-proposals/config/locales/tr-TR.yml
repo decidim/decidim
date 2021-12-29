@@ -47,7 +47,9 @@ tr:
               invalid_document_type: 'Geçersiz doküman tipi. Kabul edilen formatlar: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Yeniden eklenmesi gerekiyor
+            add_photos:
               needs_to_be_reattached: Yeniden eklenmesi gerekiyor
             body:
               cant_be_equal_to_template: şablona eşit olamaz
@@ -120,7 +122,6 @@ tr:
         name: Teklifler
         settings:
           global:
-            allow_card_image: Kart resmine izin ver
             amendments_enabled: Değişiklikler etkinleştirildi
             amendments_enabled_help: Etkinse, her adım için Değişiklik özelliklerini yapılandırın.
             amendments_wizard_help_text: Değişiklik Sihirbazı yardım metni
@@ -499,11 +500,9 @@ tr:
             title: Teklifleri içe aktar
         proposals_merges:
           create:
-            invalid: Seçilen teklifler birleştirilirken bir hata oluştu.
             success: Teklifler, yeni bir taneyle başarılı bir şekilde birleştirildi.
         proposals_splits:
           create:
-            invalid: Seçilen teklifleri bölerken bir sorun vardı.
             success: Teklifleri başarılı bir şekilde yenilere ayırdı.
         valuation_assignments:
           create:
@@ -704,8 +703,6 @@ tr:
           proposals_count:
             one: "%{count} teklif"
             other: "%{count} teklif"
-        dynamic_map_instructions:
-          instructions: <h3> Noktayı harita üzerinde hareket ettirebilirsiniz. </h3> <p> Teklifinizi yayınlamadan önce "Pozisyonu Güncelle" düğmesini tıklamayı unutmayın. </p>
         edit:
           add_documents: Dokümanlar
           add_images: Dosya
@@ -775,7 +772,6 @@ tr:
             other: Bu teklifi, teklif yayınlandıktan sonraki ilk %{count} dakika içinde düzenleyebileceksiniz. Bu zaman aralığı geçtikten sonra teklifi düzenleyemezsiniz.
           publish: Yayınla
           title: Teklifinizi yayınlayın
-          update_position: Konumu güncelle
         proposal:
           creation_date: 'Oluşturma: %{date}'
           view_proposal: Teklifi görüntüle

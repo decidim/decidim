@@ -21,6 +21,18 @@ fi:
         one: Suunnitelma
         other: Suunnitelmat
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Aihepiiri
+          scope_id_eq:
+            label: Teema
+          selected_at_null:
+            label: Valittu
+            values:
+              'false': Valittu toteutukseen
+              'true': Ei valittu toteutukseen
     budgets:
       actions:
         attachment_collections: Kansiot
@@ -108,14 +120,20 @@ fi:
         close_modal: Sulje ikkuna
         continue: Jatka
         more_information: Lisätietoa
+      budget_list_item:
+        voting_finished: Olet äänestänyt tästä budjetista
+        voting_started: Olet aloittanut äänestämään tästä budjetista
       budgets_list:
         cancel_order:
-          more_than_one: poista äänesi budjetista %{name} ja aloita alusta
-          only_one: poista äänesi ja aloita alusta.
+          more_than_one: poistaa äänesi budjetista %{name} ja aloittaa alusta
+          only_one: poistaa äänesi ja aloittaa alusta.
         finished_message: Olet suorittanut äänestysprosessin. Kiitos osallistumisesta!
         highlighted_cta: Äänestä budjetista %{name}
         if_change_opinion: Jos olet muuttanut mieltäsi, voit
         my_budgets: Omat budjetit
+        progress: Viimeistele äänestys
+        show: Näytä projektit
+        vote: Äänestä
         voted_on: Olet äänestänyt budjeteissa %{links}
       limit_announcement:
         cant_vote: Et voi äänestää tästä budjetista. <a href="%{landing_path}">Kokeile toista budjettia</a>.
@@ -128,6 +146,8 @@ fi:
             total_budget: Kokonaisbudjetti
         project:
           fields:
+            category: Aihepiiri
+            id: ID
             title: Otsikko
       order_summary_mailer:
         order_summary:
@@ -180,6 +200,12 @@ fi:
           projects_count:
             one: 1 suunnitelma
             other: "%{count} suunnitelmaa"
+        exit_modal:
+          cancel: Palaa äänestykseen
+          close_modal: Sulje ikkuna
+          exit: Poistu äänestyksestä
+          message: Ääntäsi ei ole kirjattu, koska et ole vielä suorittanut äänestystä loppuun asti. Haluatko varmasti poistua äänestyksestä?
+          title: Et ole vielä äänestänyt
         filters:
           category: Aihepiiri
           scope: Teema
@@ -230,6 +256,7 @@ fi:
     components:
       budgets:
         actions:
+          comment: Kommentoi
           vote: Äänestä
         name: Budjetit
         settings:

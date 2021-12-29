@@ -51,7 +51,7 @@ module Decidim
       end
 
       def comments_count
-        model.comments.count
+        model.comments_count
       end
 
       def root_depth
@@ -61,6 +61,8 @@ module Decidim
       end
 
       def commentable_path(params = {})
+        return resource_locator(Array(options[:polymorphic]).push(model)).path(params) if options[:polymorphic]
+
         resource_locator(model).path(params)
       end
 
@@ -113,7 +115,7 @@ module Decidim
       def single_comment
         return if options[:single_comment].blank?
 
-        @single_comment ||= model.comments.find_by(id: options[:single_comment])
+        @single_comment ||= SortedComments.for(model, id: options[:single_comment], order_by: order).first
       end
 
       def machine_translations_toggled?
@@ -128,6 +130,28 @@ module Decidim
         return false unless user_signed_in?
 
         !model.user_allowed_to_comment?(current_user)
+      end
+
+      def comment_permissions?
+        [model, current_component].any? do |resource|
+          resource.try(:permissions).try(:[], "comment")
+        end
+      end
+
+      # action_authorization_link expects current_component to be available
+      def current_component
+        model.try(:component)
+      end
+
+      def blocked_comments_for_unauthorized_user_warning_link
+        options = if current_component.present?
+                    { resource: model }
+                  else
+                    { resource: model, permissions_holder: model }
+                  end
+        action_authorized_link_to(:comment, commentable_path, options) do
+          t("decidim.components.comments.blocked_comments_for_unauthorized_user_warning")
+        end
       end
     end
   end

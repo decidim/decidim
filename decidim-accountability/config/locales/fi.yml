@@ -204,6 +204,8 @@ fi:
             label: Tila
     components:
       accountability:
+        actions:
+          comment: Kommentoi
         name: Vastuullisuus
         settings:
           global:

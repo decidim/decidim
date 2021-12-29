@@ -1,7 +1,18 @@
-<div id="budgets" class="card card--list card--list--mini">
-  <% budgets.each do |budget| %>
-    <% next if highlighted.include?(budget) && !voting_finished? %>
+<%# show highlighted budgets first %>
+<% if highlighted.any? %>
+  <div id="highlighted-budgets" class="card card--list budget-list">
+    <% highlighted.each do |budget| %>
+      <%= cell("decidim/budgets/budget_list_item", budget) %>
+    <% end %>
+  </div>
+<% end %>
 
-    <%= cell("decidim/budgets/budget_list_item", budget) %>
-  <% end %>
-</div>
+<% non_highlighted = (budgets - highlighted - voted) %>
+
+<% if non_highlighted.any? %>
+  <div id="budgets" class="card card--list budget-list">
+    <% non_highlighted.each do |budget| %>
+      <%= cell("decidim/budgets/budget_list_item", budget) %>
+    <% end %>
+  </div>
+<% end %>

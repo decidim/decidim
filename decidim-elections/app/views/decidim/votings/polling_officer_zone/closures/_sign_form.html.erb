@@ -1,0 +1,56 @@
+<%= decidim_form_for(@form,
+                     url: sign_polling_officer_election_closure_path(polling_officer, election),
+                     html: { class: "form sign_closure" }) do |form| %>
+  <div class="row column">
+    <%= form.check_box :signed, label: t("check_box", scope: "decidim.votings.polling_officer_zone.closures.sign") %>
+  </div>
+
+  <%= form.submit "", class: "hide" %>
+
+  <%= content_tag :button,
+                  t("submit", scope: "decidim.votings.polling_officer_zone.closures.sign"),
+                  type: "button",
+                  id: "btn-modal-closure-sign",
+                  class: "button button--sc mt-sm mb-none",
+                  data: { open: "modal-closure-sign" },
+                  aria: {
+                    controls: "modal-closure-sign",
+                    haspopup: "dialog"
+                  },
+                  disabled: true,
+                  tabindex: "0" %>
+
+  <div id="wrapper-modal-closure-sign">
+    <div class="reveal" data-reveal id="modal-closure-sign" data-append-to="div#wrapper-modal-closure-sign" role="dialog" aria-modal="true" aria-labelledby="modal-closure-sign-label">
+      <div class="reveal__header">
+        <%= content_tag :h3,
+                        t("title", scope: "decidim.votings.polling_officer_zone.closures.sign"),
+                        class: "reveal__title",
+                        id: "modal-closure-sign-label" %>
+
+        <button class="close-button" data-close aria-label="<%= t("close_modal", scope: "decidim.votings.polling_officer_zone.closures.sign") %>" type="button">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+
+      <%= content_tag :p,
+                      t("info_text", scope: "decidim.votings.polling_officer_zone.closures.sign") %>
+
+      <div class="row mt-sm">
+        <div class="columns medium-8 medium-offset-2">
+          <button form="new_closure_sign_" id="btn-submit-from-modal" class="button button--sc expanded">
+            <%= t("confirm", scope: "decidim.votings.polling_officer_zone.closures.sign") %>
+          </button>
+
+          <div class="text-center">
+            <button type="button" class="link" data-close>
+              <%= t("cancel", scope: "decidim.votings.polling_officer_zone.closures.sign") %>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= javascript_pack_tag "decidim_votings_voting_polling_officer_zone_sign_closure" %>

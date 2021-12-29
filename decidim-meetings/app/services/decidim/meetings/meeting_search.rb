@@ -11,10 +11,12 @@ module Decidim
       # Public: Initializes the service.
       # component     - A Decidim::Component to get the meetings from.
       # page        - The page number to paginate the results.
-      # per_page    - The number of proposals to return per page.
+      # per_page    - The number of meetings to return per page.
       def initialize(options = {})
-        scope = options.fetch(:scope, Meeting.all)
-        super(scope, options)
+        options[:scope] = options.fetch(:scope, Meeting.published)
+        options[:scope] = options[:state] == "withdrawn" ? options[:scope].withdrawn : options[:scope].except_withdrawn
+        options[:scope] = options[:scope].includes(:component, :attachments)
+        super(options[:scope], options)
       end
 
       # Handle the date filter
@@ -46,6 +48,17 @@ module Decidim
         else
           query
         end
+      end
+
+      # Handle the state filter
+      def search_state
+        return query.withdrawn if state == "withdrawn"
+
+        query.except_withdrawn
+      end
+
+      def results
+        super.includes(attachments: :file_attachment, component: { participatory_space: :organization })
       end
     end
   end

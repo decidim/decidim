@@ -6,7 +6,7 @@ module Decidim
   describe MenuItemPresenter, type: :helper do
     subject { MenuItemPresenter.new(menu_item, view) }
 
-    let(:menu_item) { MenuItem.new("Foo", "/boo") }
+    let(:menu_item) { MenuItem.new("Foo", "/boo", :foo) }
 
     it "renders the label" do
       expect(subject.render).to have_content("Foo")

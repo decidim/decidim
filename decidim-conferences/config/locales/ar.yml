@@ -22,6 +22,12 @@ ar:
         slogan: شعار
         slug: سبيكة العنوان الشبكي
         title: عنوان
+      conference_media_link:
+        weight: وزن
+      conference_partner:
+        weight: وزن
+      conference_registration_type:
+        weight: وزن
       conference_speaker:
         full_name: الاسم الكامل
       conference_user_role:

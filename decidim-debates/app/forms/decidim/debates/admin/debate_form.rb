@@ -16,6 +16,7 @@ module Decidim
         attribute :decidim_category_id, Integer
         attribute :finite, Boolean, default: true
         attribute :scope_id, Integer
+        attribute :comments_enabled, Boolean, default: true
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true

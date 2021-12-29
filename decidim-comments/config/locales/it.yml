@@ -16,9 +16,19 @@ it:
         other: voti
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Commenti abilitati
+            end_time: Commenti abilitati fino a
+            start_time: Commenti abilitati da
       comments:
         create:
           error: Ci sono stati problemi durante la creazione del commento.
+        delete:
+          error: Il commento non può essere eliminato.
+        update:
+          error: Si è verificato un errore durante l'aggiornamento del commento.
       comments_count: Conteggio dei Commenti
       comments_title: Commenti
       last_activity:
@@ -39,7 +49,13 @@ it:
           user_group_id:
             label: Commenta come
         opinion:
+          label: La tua opinione su questo argomento
+          negative: Negativo
+          negative_selected: Hai un'opinione negativa su questo argomento
           neutral: Neutro
+          neutral_selected: Hai un'opinione neutrale su questo argomento
+          positive: Positivo
+          positive_selected: Hai un'opinione positiva su questo argomento
         remaining_characters: "%{count} caratteri rimasti"
         remaining_characters_1: "%{count} carattere sinistro"
         title: Aggiungi il tuo commento
@@ -47,7 +63,12 @@ it:
         alignment:
           against: Contro
           in_favor: A favore
+        confirm_destroy: Sei sicura di voler eliminare questo commento?
+        delete: Cancella
+        deleted_at: Commento eliminato il %{date}
         deleted_user: Utente cancellato
+        edit: Modifica
+        edited: Modificato
         hide_replies: Nascondi risposte
         reply: Rispondi
         report:
@@ -62,7 +83,7 @@ it:
             spam: Contiene pubblicità, truffe, clickbait ("esca da click") o altro contenuto mirato ad attrarre traffico internet.
           title: Segnala contenuti inappropriati
         show_replies: Mostra %{replies_count} risposte
-        single_comment_link_title: Ottieni link a singolo commento
+        single_comment_link_title: Ottieni il link
       comment_order_selector:
         order:
           best_rated: Favoriti
@@ -73,14 +94,26 @@ it:
       comment_thread:
         title: Conversazioni con %{authorName}
       comments:
+        blocked_comments_for_unauthorized_user_warning: Devi essere verificato prima di poter commentare, ma puoi leggere i commenti precedenti.
         blocked_comments_for_user_warning: Non sei in grado di commentare in questo momento, ma puoi leggere quelli precedenti.
         blocked_comments_warning: I commenti sono disabilitati in questo momento, ma puoi leggere quelli precedenti.
         comment_details_title: Dettagli commento
         loading: Sto caricando i commenti ...
-        single_comment_warning: Puoi controllare il resto dei commenti <a href="%{url}">qui</a>.
+        single_comment_warning: <a href="%{url}">Visualizza tutti i commenti</a>
         single_comment_warning_title: Stai vedendo un singolo commento
+        title:
+          one: "%{count} commento"
+          other: "%{count} commenti"
       down_vote_button:
         text: Non sono d'accordo con questo commento
+      edit_comment_modal_form:
+        close: Chiudi
+        form:
+          body:
+            label: Commento
+            placeholder: Cosa ne pensi?
+          submit: Invia
+        title: Modifica il tuo commento
       up_vote_button:
         text: Sono d'accordo con questo commento
     events:
@@ -100,6 +133,16 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}" o il suo autore. Puoi smettere di seguirlo dal link precedente.
           email_subject: C'è un nuovo commento da %{author_name} in %{resource_title}
           notification_title: C'è un nuovo commento da <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: Il tuo commento in "%{resource_title}" ha ricevuto un voto negativo. Ora ha un totale di %{upvotes} voti positivi e %{downvotes} voti negativi.
+          email_outro: Hai ricevuto questa notifica perché sei l'autore di questo commento.
+          email_subject: Il tuo commento in "%{resource_title}" ha ricevuto un voto negativo.
+          notification_title: Il tuo <a href="%{resource_path}">commento</a> in "%{resource_title}" ha ricevuto un voto negativo. Ora ha un totale di %{upvotes} voti positivi e %{downvotes} voti negativi.
+        comment_upvoted:
+          email_intro: Il tuo commento in "%{resource_title}" è stato votato. Ora ha un totale di %{upvotes} voti positivi e %{downvotes} voti negativi.
+          email_outro: Ricevi questa notifica perché sei l'autore di questo commento.
+          email_subject: Il tuo commento in "%{resource_title}" è stato votato.
+          notification_title: Il tuo <a href="%{resource_path}">commento</a> in "%{resource_title}" è stato votato. Ora ha un totale di %{upvotes} voti positivi e %{downvotes} voti negativi.
         reply_created:
           email_intro: "%{author_name} ha risposto il tuo commento in %{resource_title}. Puoi leggerlo in questa pagina:"
           email_outro: Hai ricevuto questa notifica perché il tuo commento è stato risposto.

@@ -28,15 +28,30 @@ module Decidim
       end
 
       field :closed, GraphQL::Types::Boolean, "Whether this meeting is closed or not.", method: :closed?, null: false
+      field :isWithdrawn, GraphQL::Types::Boolean, "Whether this meeting is withdrawn or not.", method: :withdrawn?, null: false
       field :closing_report, Decidim::Core::TranslatedFieldType, "The closing report of this meeting.", null: true
+      field :video_url, GraphQL::Types::String, "URL for the video of the session, if any", null: true
+      field :audio_url, GraphQL::Types::String, "URL for the audio of the session, if any", null: true
+
+      def closing_report
+        object.closing_report if object.closing_visible?
+      end
+
+      def video_url
+        object.video_url if object.closing_visible?
+      end
+
+      def audio_url
+        object.audio_url if object.closing_visible?
+      end
+
+      field :created_at, Decidim::Core::DateTimeType, description: "The date and time this minutes was created", null: true
+      field :updated_at, Decidim::Core::DateTimeType, description: "The date and time this minutes was updated", null: true
+
       field :attending_organizations, GraphQL::Types::String, "list of attending organizations", null: true
       field :attendee_count, GraphQL::Types::Int, "Amount of attendees to this meeting", method: :attendees_count, null: true
       field :contribution_count, GraphQL::Types::Int, "Amount of contributions to this meeting", method: :contributions_count, null: true
-      field :minutes, Decidim::Meetings::MinutesType, "Minutes for this meeting, if available", null: true
 
-      def minutes
-        object.minutes if object.minutes&.visible?
-      end
       field :private_meeting, GraphQL::Types::Boolean, "Whether the meeting is private or not (it can only be true if transparent)", null: false
       field :transparent, GraphQL::Types::Boolean, "For private meetings, information is public if transparent", null: false
       field :registrations_enabled, GraphQL::Types::Boolean, "Whether the registrations are enabled or not", null: false
@@ -58,6 +73,7 @@ module Decidim
       end
       field :type_of_meeting, GraphQL::Types::String, "The type of the meeting (online or in-person)", null: false
       field :online_meeting_url, GraphQL::Types::String, "The URL of the meeting (when the type is online)", null: false
+      field :iframe_embed_type, GraphQL::Types::String, "The type of displaying of the online meeting URL", null: true
     end
   end
 end

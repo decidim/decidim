@@ -59,7 +59,6 @@ sk:
             offensive: Obsahuje rasizmus, sexizmus, urážky, osobné útoky, vyhrážky alebo inú podobu nenávistného prejavu.
             spam: Obsahuje clickbait, reklamy, scam alebo je to skriptovací robot.
         show_replies: Zobraziť %{replies_count} odpovedí
-        single_comment_link_title: Odkaz na komentár
       comment_order_selector:
         order:
           best_rated: Najlepšie hodnotené
@@ -74,7 +73,6 @@ sk:
         blocked_comments_warning: Komentáre nie sú v súčasnosti povolené, ale môžete si prečítať predchádzajúce komentáre.
         comment_details_title: Podrobnosti komentára
         loading: Nahrávanie komentárov...
-        single_comment_warning: Zvyšné komentáre zobrazíte  <a href="%{url}">tu</a>.
         single_comment_warning_title: Zobrazujete jeden komentár
     events:
       comments:

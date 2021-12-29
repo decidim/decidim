@@ -17,14 +17,17 @@ module Decidim
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections
 
-      enum voting_type: [:in_person, :online, :hybrid].map { |type| [type, type.to_s] }.to_h, _suffix: :voting
+      enum voting_type: [:in_person, :online, :hybrid].index_with(&:to_s), _suffix: :voting
 
       translatable_fields :title, :description
 
       belongs_to :organization,
                  foreign_key: "decidim_organization_id",
                  class_name: "Decidim::Organization"
-
+      has_one :dataset,
+              foreign_key: "decidim_votings_voting_id",
+              class_name: "Decidim::Votings::Census::Dataset",
+              dependent: :destroy
       has_many :components, as: :participatory_space, dependent: :destroy
       has_many :categories,
                foreign_key: "decidim_participatory_space_id",
@@ -38,15 +41,16 @@ module Decidim
                class_name: "Decidim::Votings::MonitoringCommitteeMember",
                inverse_of: :voting,
                dependent: :destroy
+      has_many :ballot_styles, foreign_key: "decidim_votings_voting_id", class_name: "Decidim::Votings::BallotStyle", inverse_of: :voting, dependent: :destroy
 
       validates :slug, uniqueness: { scope: :organization }
       validates :slug, presence: true, format: { with: Decidim::Votings::Voting.slug_format }
 
-      validates_upload :banner_image
-      mount_uploader :banner_image, Decidim::BannerImageUploader
+      has_one_attached :banner_image
+      validates_upload :banner_image, uploader: Decidim::BannerImageUploader
 
-      validates_upload :introductory_image
-      mount_uploader :introductory_image, Decidim::BannerImageUploader
+      has_one_attached :introductory_image
+      validates_upload :introductory_image, uploader: Decidim::BannerImageUploader
 
       scope :upcoming, -> { published.where("start_time > ?", Time.now.utc) }
       scope :active, lambda {
@@ -117,10 +121,6 @@ module Decidim
         true
       end
 
-      def needs_elections?
-        !in_person_voting? && !has_elections?
-      end
-
       def polling_stations_with_missing_officers?
         !online_voting? && polling_stations.any?(&:missing_officers?)
       end
@@ -131,12 +131,30 @@ module Decidim
           .where(managed_polling_station_id: nil)
       end
 
-      private
+      def has_ballot_styles?
+        ballot_styles.exists?
+      end
 
-      def has_elections?
-        components.where(manifest_name: :elections).any? do |component|
-          Decidim::Elections::Election.where(component: component).any?
-        end
+      def elections
+        Decidim::Elections::Election.where(component: components)
+      end
+
+      def published_elections
+        Decidim::Elections::Election.where(component: components.published).published
+      end
+
+      # Methods for Votings Space <-> Elections Component interaction
+
+      def complete_election_data(election, election_data)
+        election_data[:polling_stations] = polling_stations.map(&:slug)
+        election_data[:ballot_styles] = ballot_styles.map do |ballot_style|
+          questions = ballot_style.questions_for(election)
+          [ballot_style.slug, questions.map(&:slug)] if questions.any?
+        end.compact.to_h
+      end
+
+      def vote_flow_for(election)
+        Decidim::Votings::CensusVoteFlow.new(election)
       end
     end
   end

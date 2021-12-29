@@ -1,6 +1,8 @@
 sv:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Aktivera organisationskarta
       assembly:
         area_id: Område
         assembly_type: Typ av grupp
@@ -50,16 +52,18 @@ sv:
         target: Vem deltar
         title: Titel
         twitter: Twitter
+        weight: Vikt
         youtube: YouTube
       assembly_member:
         birthday: Födelsedag
         birthplace: Födelseort
         ceased_date: Slutade datum
         designation_date: Utnämningsdatum
-        designation_mode: Utnämningsläge
         full_name: Fullständigt namn
         gender: Kön
+        non_user_avatar: Profilbild
         position: Befattning
+        user_id: Användare
       assembly_user_role:
         email: E-post
         name: Namn
@@ -178,6 +182,9 @@ sv:
         update:
           error: Det gick inte att uppdatera en administratör för gruppen.
           success: Administratören för gruppen har uppdaterats.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Typ av grupp
       menu:
         assemblies: Grupper
         assemblies_settings: Inställningar
@@ -186,6 +193,7 @@ sv:
           assembly_members: Medlemmar
           attachment_collections: Mappar
           attachment_files: Filer
+          attachments: Bilagor
           categories: Kategorier
           components: Komponenter
           info: Info
@@ -245,6 +253,7 @@ sv:
         update: "%{user_name} uppdaterade inställningarna för församlingarna"
       assembly_type:
         create: "%{user_name} skapade grupptypen %{resource_name}"
+        delete: "%{user_name} raderade grupptypen %{resource_name}"
         publish: "%{user_name} publicerade grupptypen %{resource_name}"
         unpublish: "%{user_name} avpublicerade grupptypen %{resource_name}"
         update: "%{user_name} uppdaterade grupptypen %{resource_name}"
@@ -256,6 +265,7 @@ sv:
       admin:
         assemblies:
           form:
+            announcement_help: Texten du skriver här visas för användaren direkt under gruppinformationen.
             duration: Varaktighet
             duration_help: Om varaktigheten för gruppen är begränsad, välj ett slutdatum. Annars kommer den att visas som permanent.
             filters: Filter
@@ -289,7 +299,10 @@ sv:
         assembly_members:
           form:
             existing_user: Befintlig deltagare
+            explanation: 'Vägledning för bild:'
+            image_guide: Helst en porträttbild utan text.
             non_user: Ej deltagande
+            non_user_avatar_help: Du bör få samtycke av personerna innan du publicerar dem som medlem.
             select_a_position: Välj en position
             select_user: Välj en deltagare
             user_type: Typ av deltagare
@@ -380,11 +393,6 @@ sv:
         designated_on: Utsedd den
       index:
         title: Medlemmar
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Länk till sidan över konferenser som visar alla konferenser
     events:
       assemblies:
         create_assembly_member:
@@ -417,17 +425,11 @@ sv:
         description: Antal skapade grupper
         object: grupper
         title: Grupper
-    pages:
-      home:
-        hero:
-          participate_title: Delta i plattformens dialoger
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Länk till sidan som visar alla dialoger
       show:
         related_assemblies: Relaterade grupper
+    statistics:
+      assemblies_count: Grupper
   errors:
     messages:
       cannot_be_blank: kan inte vara tomt

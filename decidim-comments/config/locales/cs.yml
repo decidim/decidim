@@ -20,9 +20,19 @@ cs:
         other: Hlasy
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Komentáře povoleny
+            end_time: Komentáře povoleny do
+            start_time: Komentáře povoleny od
       comments:
         create:
           error: Při vytváření komentáře došlo k chybě.
+        delete:
+          error: Komentář nemohl být odstraněn.
+        update:
+          error: Při aktualizaci komentáře došlo k chybě.
       comments_count: Počet komentářů
       comments_title: Komentáře
       last_activity:
@@ -43,7 +53,13 @@ cs:
           user_group_id:
             label: Komentovat jako
         opinion:
+          label: Váš názor na toto téma
+          negative: Negativní
+          negative_selected: Váš názor na toto téma je negativní
           neutral: Neutrální
+          neutral_selected: Váš názor na toto téma je neutrální
+          positive: Pozitivní
+          positive_selected: Váš názor na toto téma je pozitivní
         remaining_characters: "Zbývá %{count} znaků"
         remaining_characters_1: "Zbývá %{count} znak"
         title: Přidejte svůj komentář
@@ -51,7 +67,12 @@ cs:
         alignment:
           against: Proti
           in_favor: Ve prospěch
+        confirm_destroy: Opravdu chcete odstranit tento komentář?
+        delete: Smazat
+        deleted_at: Komentář byl smazán dne %{date}
         deleted_user: Vymazaný účastník
+        edit: Upravit
+        edited: Upraveno
         hide_replies: Skrýt odpovědi
         reply: Odpověď
         report:
@@ -66,7 +87,7 @@ cs:
             spam: Obsahuje clickbait, reklamu, podvody nebo škodlivé skripty.
           title: Nahlásit nevhodný obsah
         show_replies: Zobrazit %{replies_count} odpovědí
-        single_comment_link_title: Získat odkaz na jeden komentář
+        single_comment_link_title: Získat odkaz
       comment_order_selector:
         order:
           best_rated: Nejlépe hodnocené
@@ -77,11 +98,12 @@ cs:
       comment_thread:
         title: Konverzace s číslem %{authorName}
       comments:
+        blocked_comments_for_unauthorized_user_warning: Musíte být ověřen, abyste mohli komentovat tuto chvíli, ale můžete si přečíst ty předchozí.
         blocked_comments_for_user_warning: Momentálně nemůžete komentovat, ale můžete si přečíst ty předchozí.
         blocked_comments_warning: Komentáře jsou momentálně zakázány, ale můžete si přečíst ty předchozí.
         comment_details_title: Podrobnosti komentáře
         loading: Načítání komentářů ...
-        single_comment_warning: Můžete zkontrolovat zbytek komentářů <a href="%{url}">zde</a>.
+        single_comment_warning: <a href="%{url}">Zobrazit všechny komentáře</a>
         single_comment_warning_title: Vidíte jeden komentář
         title:
           one: "%{count} komentář"
@@ -90,6 +112,14 @@ cs:
           other: "%{count} komentářů"
       down_vote_button:
         text: Nesouhlasím s tímto komentářem
+      edit_comment_modal_form:
+        close: Zavřít
+        form:
+          body:
+            label: Komentář
+            placeholder: Co si o tom myslíte?
+          submit: Odeslat
+        title: Upravit komentář
       up_vote_button:
         text: Souhlasím s tímto komentářem
     events:
@@ -98,17 +128,17 @@ cs:
           email_intro: "%{author_name} zanechal komentář v %{resource_title}. Můžete si je přečíst na této stránce:"
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_name}. Tento uživatel můžete zrušit ze své profilové stránky.
           email_subject: K dispozici je nový komentář %{author_name} v %{resource_title}
-          notification_title: K dispozici je nový komentář <a href="%{author_path}">%{author_name} %{author_nickname}</a> v <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: Je tu nový komentář <a href="%{author_path}">%{author_name} %{author_nickname}</a> v <a href="%{resource_path}">%{resource_title}</a>.
         comment_by_followed_user_group:
           email_intro: 'Skupina %{author_name} zanechala komentář v %{resource_title}. Můžete si jej přečíst na této stránce:'
           email_outro: Obdrželi jste toto oznámení, protože sledujete %{author_name}. Můžete zrušit sledování této skupiny na její profilové stránce.
           email_subject: K dispozici je nový komentář %{author_name} v %{resource_title}
-          notification_title: K dispozici je nový komentář <a href="%{author_path}">%{author_name} %{author_nickname}</a> v <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: Je tu nový komentář <a href="%{author_path}">%{author_name} %{author_nickname}</a> v <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} bylo komentováno. Můžete si přečíst komentář na této stránce:"
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{resource_title}" nebo jeho autora. Můžete jej odhlásit od předchozího odkazu.
           email_subject: K dispozici je nový komentář od %{author_name} do %{resource_title}
-          notification_title: Je zde nový komentář od <a href="%{author_path}">%{author_name} %{author_nickname}</a> do <a href="%{resource_path}">%{resource_title}</a>
+          notification_title: Je tu nový komentář od <a href="%{author_path}">%{author_name} %{author_nickname}</a> do <a href="%{resource_path}">%{resource_title}</a>
         comment_downvoted:
           email_intro: Váš komentář v "%{resource_title}" byl nepodpořen. Nyní má celkem %{upvotes} hlasů podpory a %{downvotes} hlasuje proti.
           email_outro: Obdrželi jste toto oznámení, protože jste autorem tohoto komentáře.
@@ -123,7 +153,7 @@ cs:
           email_intro: "%{author_name} odpověděl váš komentář v %{resource_title}. Můžete si je přečíst na této stránce:"
           email_outro: Toto oznámení jste obdrželi, protože váš komentář byl zodpovězen.
           email_subject: "%{author_name} odpověděl váš komentář v %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> odpověděl / a svůj komentář v <a href="%{resource_path}">%{resource_title}</a>
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> odpověděl na váš komentář v <a href="%{resource_path}">%{resource_title}</a>
         user_group_mentioned:
           email_intro: Byla zmíněna skupina, do které patříte
           email_outro: Obdrželi jste toto oznámení, protože jste členem skupiny %{group_name}, která byla zmíněna v %{resource_title}.
@@ -133,7 +163,7 @@ cs:
           email_intro: Byl jste zmíněn
           email_outro: Toto oznámení jste obdrželi, protože jste byli uvedeni v %{resource_title}.
           email_subject: Byl jste zmíněn v %{resource_title}
-          notification_title: Byli jste uvedeni v <a href="%{resource_path}">%{resource_title}</a> podle <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+          notification_title: Byli jste zmíněni v <a href="%{resource_path}">%{resource_title}</a> od <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:
       comments:
         description: Počet komentářů generovaných uživateli

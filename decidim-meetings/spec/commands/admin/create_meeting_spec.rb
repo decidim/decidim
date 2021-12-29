@@ -25,6 +25,8 @@ module Decidim::Meetings
     let(:registration_url) { "http://decidim.org" }
     let(:registration_type) { "on_this_platform" }
     let(:available_slots) { 0 }
+    let(:iframe_embed_type) { "embed_in_meeting_page" }
+    let(:iframe_access_level) { "all" }
     let(:services) do
       [
         {
@@ -40,6 +42,9 @@ module Decidim::Meetings
     let(:services_to_persist) do
       services.map { |service| Admin::MeetingServiceForm.from_params(service) }
     end
+    let(:customize_registration_email) { true }
+    let(:registration_email_custom_content) { { "en" => "The registration email custom content." } }
+
     let(:form) do
       double(
         invalid?: invalid,
@@ -64,7 +69,14 @@ module Decidim::Meetings
         available_slots: available_slots,
         registration_url: registration_url,
         clean_type_of_meeting: type_of_meeting,
-        online_meeting_url: online_meeting_url
+        online_meeting_url: online_meeting_url,
+        customize_registration_email: customize_registration_email,
+        registration_email_custom_content: registration_email_custom_content,
+        iframe_embed_type: iframe_embed_type,
+        comments_enabled: true,
+        comments_start_time: nil,
+        comments_end_time: nil,
+        iframe_access_level: iframe_access_level
       )
     end
 
@@ -124,6 +136,36 @@ module Decidim::Meetings
         expect(meeting.questionnaire).to be_a(Decidim::Forms::Questionnaire)
       end
 
+      it "sets the registration email related fields" do
+        subject.call
+
+        expect(meeting.customize_registration_email).to be true
+        expect(meeting.registration_email_custom_content).to eq(registration_email_custom_content)
+      end
+
+      it "is created as unpublished" do
+        subject.call
+
+        expect(meeting).not_to be_published
+      end
+
+      it "makes the user follow the meeting" do
+        expect { subject.call }.to change(Decidim::Follow, :count).by(1)
+        expect(meeting.reload.followers).to include(current_user)
+      end
+
+      it "sets iframe_embed_type" do
+        subject.call
+
+        expect(meeting.iframe_embed_type).to eq(iframe_embed_type)
+      end
+
+      it "sets iframe_access_level" do
+        subject.call
+
+        expect(meeting.iframe_access_level).to eq(iframe_access_level)
+      end
+
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:create!)
@@ -133,34 +175,6 @@ module Decidim::Meetings
         expect { subject.call }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
         expect(action_log.version).to be_present
-      end
-
-      it "schedules a upcoming meeting notification job 48h before start time" do
-        expect(UpcomingMeetingNotificationJob)
-          .to receive(:generate_checksum).and_return "1234"
-
-        expect(UpcomingMeetingNotificationJob)
-          .to receive_message_chain(:set, :perform_later) # rubocop:disable RSpec/MessageChain
-          .with(set: start_time - 2.days)
-          .with(kind_of(Integer), "1234")
-
-        subject.call
-      end
-
-      it "sends a notification to the participatory space followers" do
-        follower = create(:user, organization: organization)
-        create(:follow, followable: participatory_process, user: follower)
-
-        expect(Decidim::EventsManager)
-          .to receive(:publish)
-          .with(
-            event: "decidim.events.meetings.meeting_created",
-            event_class: Decidim::Meetings::CreateMeetingEvent,
-            resource: kind_of(Meeting),
-            followers: [follower]
-          )
-
-        subject.call
       end
     end
   end

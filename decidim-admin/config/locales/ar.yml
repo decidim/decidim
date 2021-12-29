@@ -38,7 +38,6 @@ ar:
         enable_omnipresent_banner: عرض لافتة في كل مكان
         facebook_handler: مُعرّف حساب فيسبوك
         favicon: أيقونة
-        from: مِن عنوان البريد الإلكتروني
         github_handler: مُعرّف حساب غِت هَب
         header_snippets: قصاصات رأس
         highlighted_content_banner_action_subtitle: نص زر الإجراء
@@ -122,7 +121,6 @@ ar:
       actions:
         add: إضافة
         browse: تصفح
-        export: تصدير
         manage: تدبير
         new: جديد %{name}
         per_page: في كل صفحة
@@ -133,7 +131,6 @@ ar:
         accept:
           success: رائع! لقد قمت بالموافقة على شروط الإستخدام للمدير.
         actions:
-          are_you_sure: هل أنت متأكد مِن أنك رافض لشروط المدير؟
           refuse: ارفض شروط المدير
           title: وافق على شروط وأحكام الإستخدام
         required_review:
@@ -446,7 +443,6 @@ ar:
       newsletters:
         create:
           error: كانت هناك مشكلة في إنشاء هذه الرسالة الإخبارية.
-          success: تم إنشاء النشرة الإخبارية بنجاح. من فضلك ، قم بمراجعته قبل الإرسال.
         deliver:
           error: كانت هناك مشكلة في توصيل هذه الرسالة الإخبارية.
           success: تم تسليم النشرة الإخبارية بنجاح.
@@ -665,13 +661,6 @@ ar:
           success: تم التحقق من المجموعة بنجاح
       user_groups:
         index:
-          filter:
-            all: الكل
-            pending: قيد الانتظار
-            rejected: مرفوض
-            verified: التحقق
-          filter_by: مصنف بواسطة
-          search: بحث
           state:
             pending: قيد الانتظار
             rejected: مرفوض
@@ -701,10 +690,6 @@ ar:
           admins: المدراء
           participants: المشاركون
       view_public_page: عرض الصفحة العامة
-    forms:
-      errors:
-        impersonate_user:
-          reason: تحتاج إلى تقديم سبب عند إدارة مشارك غير مُدار
     moderations:
       actions:
         hidden: مخفي

@@ -17,6 +17,10 @@ module Decidim
     end
 
     class_methods do
+      def belong_to_component?
+        true
+      end
+
       def component_manifest_name(manifest_name)
         validates :component, component: { manifest: manifest_name || name.demodulize.pluralize.downcase }
       end

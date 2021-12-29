@@ -24,7 +24,7 @@ module Decidim
 
       describe "GET index" do
         context "when participatory texts are disabled" do
-          let(:component) { create(:proposal_component) }
+          let(:component) { create(:proposal_component, :with_geocoding_enabled) }
 
           it "sorts proposals by search defaults" do
             get :index
@@ -40,6 +40,18 @@ module Decidim
             expect(assigns(:proposals).order_values.map(&:to_sql)).to eq(
               ["\"decidim_proposals_proposals\".\"id\" * RANDOM()"]
             )
+          end
+
+          it "sets two different collections" do
+            geocoded_proposals = create_list :proposal, 10, component: component, latitude: 1.1, longitude: 2.2
+            _non_geocoded_proposals = create_list :proposal, 2, component: component, latitude: nil, longitude: nil
+
+            get :index
+            expect(response).to have_http_status(:ok)
+            expect(subject).to render_template(:index)
+
+            expect(assigns(:proposals).count).to eq 12
+            expect(assigns(:all_geocoded_proposals)).to match_array(geocoded_proposals)
           end
         end
 
@@ -174,6 +186,48 @@ module Decidim
         end
       end
 
+      describe "access links from creating proposal steps" do
+        let!(:component) { create(:proposal_component, :with_creation_enabled) }
+        let!(:current_user) { create(:user, :confirmed, organization: component.organization) }
+        let!(:proposal_extra) { create(:proposal, :draft, component: component, users: [current_user]) }
+        let!(:params) do
+          {
+            id: proposal_extra.id,
+            proposal: proposal_params
+          }
+        end
+
+        before { sign_in user }
+
+        context "when you try to preview a proposal created by another user" do
+          it "will not render the preview page" do
+            get :preview, params: params
+            expect(subject).not_to render_template(:preview)
+          end
+        end
+
+        context "when you try to complete a proposal created by another user" do
+          it "will not render the complete page" do
+            get :complete, params: params
+            expect(subject).not_to render_template(:complete)
+          end
+        end
+
+        context "when you try to compare a proposal created by another user" do
+          it "will not render the compare page" do
+            get :compare, params: params
+            expect(subject).not_to render_template(:compare)
+          end
+        end
+
+        context "when you try to publish a proposal created by another user" do
+          it "will not render the publish page" do
+            post :publish, params: params
+            expect(subject).not_to render_template(:publish)
+          end
+        end
+      end
+
       describe "withdraw a proposal" do
         let(:component) { create(:proposal_component, :with_creation_enabled) }
 
@@ -206,7 +260,7 @@ module Decidim
         end
 
         describe "when current user is NOT the author of the proposal" do
-          let(:current_user) { create(:user, organization: component.organization) }
+          let(:current_user) { create(:user, :confirmed, organization: component.organization) }
           let(:proposal) { create(:proposal, component: component, users: [current_user]) }
 
           context "and the proposal has no supports" do

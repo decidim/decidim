@@ -48,6 +48,14 @@ module Decidim::Elections
         expect(subject).to have_css(".success")
       end
 
+      context "when election end less than 12 hours away" do
+        let(:end_time) { 10.hours.from_now }
+
+        it "renders remaining time callout" do
+          expect(subject).to have_css(".callout", text: "remaining to vote")
+        end
+      end
+
       context "with attached image" do
         let(:image) { create(:attachment, :with_image, attached_to: election) }
 

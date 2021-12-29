@@ -59,34 +59,6 @@ module Decidim
         remove_file "app/views/layouts/mailer.text.erb"
       end
 
-      def append_assets
-        append_file "app/assets/javascripts/application.js", "//= require decidim"
-        gsub_file "app/assets/javascripts/application.js", %r{//= require turbolinks\n}, ""
-        inject_into_file "app/assets/stylesheets/application.css",
-                         before: "*= require_tree ." do
-          "*= require decidim\n "
-        end
-
-        template "decidim.scss.erb", "app/assets/stylesheets/decidim.scss", force: true
-      end
-
-      def disable_precompilation_on_demand
-        %w(development test).each do |environment|
-          inject_into_file "config/environments/#{environment}.rb",
-                           before: /^end$/ do
-            cut <<~RUBY, strip: false
-              |
-              |  # No precompilation on demand on first request
-              |  config.assets.check_precompiled_asset = false
-            RUBY
-          end
-        end
-      end
-
-      def configure_js_compressor
-        gsub_file "config/environments/production.rb", "config.assets.js_compressor = :uglifier", "config.assets.js_compressor = Uglifier.new(:harmony => true)"
-      end
-
       def smtp_environment
         inject_into_file "config/environments/production.rb",
                          after: "config.log_formatter = ::Logger::Formatter.new" do
@@ -106,8 +78,49 @@ module Decidim
         end
       end
 
+      def install_decidim_webpacker
+        # Copy CSS files
+        copy_file "decidim_application.scss", "app/packs/stylesheets/decidim/decidim_application.scss"
+        copy_file "_decidim-settings.scss", "app/packs/stylesheets/decidim/_decidim-settings.scss"
+
+        # Copy JS application file
+        copy_file "decidim_application.js", "app/packs/src/decidim/decidim_application.js"
+
+        # Create empty directory for images
+        empty_directory "app/packs/images"
+
+        # Regenerate webpacker binstubs
+        remove_file "bin/yarn"
+        rails "webpacker:binstubs"
+
+        # Run Decidim custom webpacker installation
+        rails "decidim:webpacker:install"
+      end
+
+      def remove_old_assets
+        remove_file "config/initializers/assets.rb"
+        remove_dir("app/assets")
+        remove_dir("app/javascript")
+      end
+
+      def remove_sprockets_requirement
+        gsub_file "config/application.rb", %r{require ['"]rails/all['"]\R}, <<~RUBY
+          require "decidim/rails"
+
+          # Add the frameworks used by your app that are not loaded by Decidim.
+          # require "action_mailbox/engine"
+          # require "action_text/engine"
+          require "action_cable/engine"
+          require "rails/test_unit/railtie"
+        RUBY
+
+        gsub_file "config/environments/development.rb", /config\.assets.*$/, ""
+        gsub_file "config/environments/test.rb", /config\.assets.*$/, ""
+        gsub_file "config/environments/production.rb", /config\.assets.*$/, ""
+      end
+
       def copy_migrations
-        rails "decidim:upgrade"
+        rails "decidim:choose_target_plugins", "railties:install:migrations"
         recreate_db if options[:recreate_db]
       end
 
@@ -171,11 +184,6 @@ module Decidim
       # Runs rails commands in a subprocess silencing errors, and ignores status
       def soft_rails(*args)
         system("bin/rails", *args, err: File::NULL)
-      end
-
-      def scss_variables
-        variables = File.join(Gem.loaded_specs["decidim-core"].full_gem_path, "app", "assets", "stylesheets", "decidim", "_variables.scss")
-        File.read(variables).split("\n").map { |line| "// #{line}".gsub(" !default", "") }.join("\n")
       end
 
       def cut(text, strip: true)

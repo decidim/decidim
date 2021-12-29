@@ -1,0 +1,268 @@
+fr-LU:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Méthodes disponibles
+        offline: Hors ligne
+        offline_explanation: Instructions pour la vérification hors ligne
+        online: En ligne
+      id_document_information:
+        document_number: Numéro de document (avec lettre)
+        document_type: Type de document
+      id_document_upload:
+        document_number: Numéro de document (avec lettre)
+        document_type: Type de votre document
+        user: Utilisateur
+        verification_attachment: Copie scannée du document
+      offline_confirmation:
+        email: Email de l'utilisateur
+      postal_letter_address:
+        full_address: Adresse complète
+      postal_letter_confirmation:
+        verification_code: Code de vérification
+      postal_letter_postage:
+        full_address: Adresse complète
+        verification_code: Code de vérification
+  decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: Utile si le processus a déjà commencé et que vous voulez révoquer les permissions du processus précédent.
+          button: Révoquer tout
+          button_before: Révoquer avant
+          destroy:
+            confirm: Révoquer avant la date d'autorisation ne peut pas être annulée. Êtes-vous sûr de vouloir continuer ?
+            confirm_all: Révoquer toutes les autorisations ne peut pas être annulés. Êtes-vous sûr de vouloir continuer ?
+          destroy_nok: Il y a eu un problème lors de la révocation des autorisations.
+          destroy_ok: Toutes les autorisations correspondantes ont été annulées avec succès.
+          info: Il y a un total de %{count} participants vérifiés.
+          no_data: Aucun participant vérifié
+          title: Révocation des autorisations
+        authorization_workflows: Autorisations
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} a mis à jour la configuration de vérification des documents d’identité"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} a vérifié %{resource_name} au moyen d’une vérification de documents d’identité hors ligne"
+    authorization_handlers:
+      admin:
+        csv_census:
+          help:
+            - Les administrateurs téléchargent un fichier CSV avec les emails des participants acceptés
+            - Seuls les participants avec un email dans ce fichier CSV peuvent être vérifiés
+        id_documents:
+          help:
+            - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
+            - Vous remplissez les informations présentes dans l'image téléchargée.
+            - L'information doit correspondre à tout ce que l'utilisateur a rempli.
+            - Si vous ne pouvez pas voir clairement les informations ou si vous ne pouvez pas les vérifier, vous pouvez rejeter la demande et l'utilisateur sera en mesure de les corriger.
+        postal_letter:
+          help:
+            - Les utilisateurs demandent un code de vérification à envoyer à leur adresse.
+            - Vous envoyez la lettre à leur adresse avec le code de vérification.
+            - Vous marquez la lettre comme envoyée.
+            - Une fois que vous avez coché la lettre, l'utilisateur sera en mesure de présenter le code et d'être vérifié.
+      csv_census:
+        explanation: Faites-vous vérifier en utilisant le recensement de l'organisation
+        name: Recensement de l'organisation
+      direct: Direct
+      help: Texte d'aide
+      id_documents:
+        explanation: Téléchargez vos documents d'identité afin que nous puissions vérifier votre identité
+        name: Documents d'identité
+      multistep: En plusieurs étapes
+      name: Nom
+      postal_letter:
+        explanation: Nous vous enverrons une lettre postale avec un code que vous devrez saisir afin que nous puissions vérifier votre adresse
+        name: Code par lettre postale
+    events:
+      verifications:
+        verify_with_managed_user:
+          notification_title: Le participant <a href="%{resource_path}">%{resource_title}</a> a essayé de se vérifier avec les données du participant représenté <a href="%{managed_user_path}">%{managed_user_name}</a>
+    verifications:
+      authorizations:
+        authorization_metadata:
+          info: 'Ceci est la donne de la vérification actuelle : '
+          no_data_stored: Aucune donnée enregistrée.
+        create:
+          error: Une erreur s'est produite lors de la création de l'autorisation.
+          success: Vous avez été autorisé avec succès.
+          unconfirmed: Vous devez confirmer votre email pour vous autoriser.
+        destroy:
+          error: Un problème est survenu lors de la destruction de l'autorisation.
+          success: Vous avez réussi à détruire l'autorisation.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Vérifier avec un autre exemple de gestionnaire d'autorisation
+            csv_census: Vérifier par rapport au recensement de l'organisation
+            dummy_authorization_handler: Vérifier en comparant avec l'exemple du gestionnaire d'autorisation
+            dummy_authorization_workflow: Vérifiez par rapport à l'exemple de procédure d'autorisation
+            id_documents: Vérifiez votre identité en téléchargeant votre document d'identité
+            postal_letter: Vérifiez votre identité en recevant un code de vérification par courrier postal
+            sms: Soyez vérifié en recevant un code de vérification par SMS
+          title: Vérifier votre Identité
+          verify_with_these_options: 'Voici les options disponibles pour vérifier votre identité :'
+        index:
+          expired_verification: Vérification expiré
+          pending_verification: En attente de vérification
+          show_renew_info: Cliquez pour renouveler la vérification
+          unauthorized_verification: Nouvelle vérification
+        new:
+          authorize: Envoyer
+          authorize_with: Vérifier votre identité avec %{authorizer}
+        renew_modal:
+          cancel: Annuler
+          close: fermer
+          continue: Continuer
+          info_renew: Si vous voulez mettre à jour les données, continuez avec le renouvellement
+          title: Renouveler la vérification
+        skip_verification: Vous pouvez omettre cette étape pour le moment et %{link}
+        start_exploring: commencer à explorer
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Une erreur est survenue lors du recensement.
+              success: '%{count} articles importés avec succès (%{errors} erreur)'
+            destroy_all:
+              success: Toutes les données du recensement ont été supprimées
+          destroy:
+            confirm: Supprimer tout le recensement ne peut pas être annulé. Es-tu sur de vouloir continuer?
+            title: Supprimer toutes les données du recensement
+          index:
+            data: Il y a %{count} enregistrements chargés au total. La dernière date de mise en ligne était le %{due_date}
+            empty: Il n'y a pas de données de recensement. Utilisez le formulaire ci-dessous pour l'importer à l'aide d'un fichier CSV.
+            title: Données de recensement actuelles
+          instructions:
+            body: Pour ce faire, vous devez entrer dans l’administration système et ajouter les autorisations csv_census à l’organisation.
+            title: Vous devez activer le recensement CSV pour cette organisation
+          new:
+            file: "Fichier .csv avec données de courrier électronique"
+            info: 'Doit être un fichier au format CSV avec une seule colonne avec l''adresse e-mail :'
+            submit: Téléverser un fichier
+            title: Télécharger un nouveau recensement
+        authorizations:
+          new:
+            error: Nous n'avons pas pu vérifier votre compte ou vous n'êtes pas dans le recensement de l'organisation.
+            success: Votre compte a été vérifié avec succès.
+      dummy_authorization:
+        extra_explanation:
+          postal_codes:
+            one: La participation est réservée aux utilisateurs avec le code postal %{postal_codes}.
+            other: 'La participation est réservée aux utilisateurs avec l''un des codes postaux suivants: %{postal_codes}.'
+          scope: La participation est réservée aux participants avec le secteur %{scope_name}.
+          user_postal_codes:
+            one: La participation est réservée aux participants avec le code postal %{postal_codes}, et votre code postal est %{user_postal_code}.
+            other: 'La participation est réservée aux participants avec l''un des codes postaux suivants : %{postal_codes}. Votre code postal est %{user_postal_code}.'
+          user_scope: La participation est réservée aux participants ayant le secteur %{scope_name}, et votre secteur est %{user_scope_name}.
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: Configuration des documents d'identité
+              update: Mettre à jour
+            update:
+              error: Une erreur s'est produite lors de la mise à jour de la configuration.
+              success: Configuration mise à jour avec succès
+          confirmations:
+            create:
+              error: La vérification ne correspond pas. Réessayez ou rejetez la vérification afin que l'utilisateur puisse la modifier
+              success: Utilisateur vérifié avec succès
+            new:
+              introduce_user_data: Introduire les données dans l'image
+              reject: Rejeter
+              verify: Vérifier
+          offline_confirmations:
+            create:
+              error: La vérification ne correspond pas. Réessayez ou dites à l'utilisateur de le modifier.
+              success: Utilisateur vérifié avec succès
+            new:
+              cancel: Annuler
+              introduce_user_data: Introduire le courrier électronique de l'utilisateur et les données du document
+              verify: Vérifier
+          pending_authorizations:
+            index:
+              config: Config
+              offline_verification: Vérification hors ligne
+              title: Vérifications en attente
+              verification_number: 'Vérification # %{n}'
+          rejections:
+            create:
+              success: Vérification rejetée. L'utilisateur sera invité à modifier ses documents
+        authorizations:
+          choose:
+            choose_a_type: 'Veuillez sélectionner comment vous souhaitez être vérifié:'
+            offline: Hors ligne
+            online: En ligne
+            title: Vérifiez-vous en utilisant votre pièce d'identité
+          create:
+            error: Un problème est survenu lors du téléchargement de votre document
+            success: Document téléchargé avec succès
+          edit:
+            being_reviewed: Nous examinons vos documents et votre autorisation sera bientôt validée
+            offline: Utiliser la vérification hors ligne
+            online: Utiliser la vérification en ligne
+            rejection_clarity: Assurez-vous que les informations sont clairement visibles dans l'image téléchargée
+            rejection_correctness: Assurez-vous que les informations entrées sont correctes
+            rejection_notice: Il y a eu un problème avec votre vérification. Veuillez essayer à nouveau
+            send: Demande de vérification à nouveau
+          new:
+            send: Demande de vérification
+            title: Téléchargez votre document d'identité
+          update:
+            error: Un problème est survenu lors du chargement de votre document
+            success: Document téléchargé avec succès
+        dni: Carte nationale d'identité
+        nie: Carte de séjour ou de résident
+        passport: Passeport
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Adresse
+              letter_sent_at: Lettre envoyée à
+              mark_as_sent: Marquer comme envoyé
+              not_yet_sent: Pas encore envoyé
+              title: Vérifications en cours
+              username: Nom d'utilisateur
+              verification_code: Code de vérification
+          postages:
+            create:
+              error: Erreur en marquant la lettre comme envoyée
+              success: Lettre marquée avec succès comme envoyée
+        authorizations:
+          create:
+            error: Il y a eu un problème avec votre demande
+            success: Merci ! Nous enverrons un code de vérification à votre adresse
+          edit:
+            send: Confirmer
+            title: Introduisez le code de vérification que vous avez reçu
+            waiting_for_letter: Nous vous enverrons une lettre à votre adresse avec votre code de vérification
+          new:
+            send: Envoyez-moi une lettre
+            title: Demandez votre code de vérification
+          update:
+            error: Votre code de vérification ne correspond pas au nôtre. Veuillez vérifier la lettre que nous vous avons envoyée
+            success: Félicitations, votre identité a été vérifiée avec succès
+      sms:
+        authorizations:
+          create:
+            error: Il y avait un problème avec votre demande
+            success: Merci! Nous avons envoyé un SMS sur votre téléphone.
+          destroy:
+            success: Le code de vérification a été réinitialisé avec succès. Veuillez ré-entrer votre numéro de téléphone.
+          edit:
+            confirm_destroy: Êtes-vous sûr de vouloir réinitialiser le code de vérification?
+            destroy: Réinitialiser le code de vérification
+            resend: Vous n'avez pas reçu le code de vérification?
+            send: Confirmer
+            title: Introduisez le code de vérification que vous avez reçu
+          new:
+            send: Envoyez moi un SMS
+            title: Demander votre code de vérification
+          update:
+            error: Votre code de vérification ne correspond pas au nôtre. Veuillez vérifier le SMS que nous vous avons envoyé.
+            success: Toutes nos félicitations. Vous avez été vérifié avec succès.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: à saisir en majuscule avec uniquement des lettres et / ou des chiffres

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "active_support/core_ext/module/delegation"
 require "open3"
 
 module Decidim
@@ -53,12 +54,22 @@ module Decidim
       end
     end
 
-    def replace_version
+    def replace_gem_version
       Dir.chdir(@dir) do
-        self.class.replace_file(
+        replace_file(
           "lib/#{name.tr("-", "/")}/version.rb",
           /def self\.version(\s*)"[^"]*"/,
           "def self.version\\1\"#{version}\""
+        )
+      end
+    end
+
+    def replace_package_version
+      Dir.chdir(@dir) do
+        replace_file(
+          "package.json",
+          /^  "version": "[^"]*"/,
+          "  \"version\": \"#{semver_friendly_version(version)}\""
         )
       end
     end
@@ -85,14 +96,12 @@ module Decidim
       end
 
       def replace_versions
-        replace_file(
-          "package.json",
-          /^  "version": "[^"]*"/,
-          "  \"version\": \"#{semver_friendly_version}\""
-        )
-
         all_dirs do |dir|
-          new(dir).replace_version
+          new(dir).replace_gem_version
+        end
+
+        package_dirs do |dir|
+          new(dir).replace_package_version
         end
       end
 
@@ -129,6 +138,14 @@ module Decidim
         end
       end
 
+      def run_packages(command, out: $stdout)
+        package_dirs do |dir|
+          status = new(dir).run(command, out: out)
+
+          break unless status || ENV["FAIL_FAST"] == "false"
+        end
+      end
+
       def version
         @version ||= File.read(version_file).strip
       end
@@ -146,8 +163,18 @@ module Decidim
         dirs.each { |dir| yield(dir) }
       end
 
+      def package_dirs
+        dirs = Dir.glob("#{root}/packages/*")
+
+        dirs.each { |dir| yield(dir) }
+      end
+
       def plugins
         Dir.glob("#{root}/decidim-*/")
+      end
+
+      def semver_friendly_version(a_version)
+        a_version.gsub(/\.pre/, "-pre").gsub(/\.dev/, "-dev").gsub(/.rc(\d*)/, "-rc\\1")
       end
 
       private
@@ -156,16 +183,14 @@ module Decidim
         File.expand_path(File.join("..", ".."), __dir__)
       end
 
-      def semver_friendly_version
-        version.gsub(/\.pre/, "-pre").gsub(/\.dev/, "-dev").gsub(/.rc(\d*)/, "-rc\\1")
-      end
-
       def version_file
         File.join(root, ".decidim-version")
       end
     end
 
     private
+
+    delegate :plugins, :replace_file, :semver_friendly_version, :version, to: :class
 
     def interpolated_in_folder(command)
       Dir.chdir(@dir) do
@@ -178,11 +203,7 @@ module Decidim
     end
 
     def name
-      self.class.plugins.map { |name| File.expand_path(name) }.include?(@dir) ? folder_name : "decidim"
-    end
-
-    def version
-      self.class.version
+      plugins.map { |name| File.expand_path(name) }.include?(@dir) ? folder_name : "decidim"
     end
   end
 end

@@ -26,6 +26,8 @@ describe "Show a page", type: :system do
         visit_component
       end
 
+      it_behaves_like "accessible page"
+
       it "renders the content of the page" do
         expect(page).to have_content("Content")
       end

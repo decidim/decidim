@@ -8,12 +8,16 @@ gl:
       close_meeting:
         attendees_count: Número de asistentes
         attending_organizations: Listaxe de organizacións que asistiron
-        closing_report: Informe
+        audio_url: URL de son
+        closing_report: Minutos
+        closing_visible: É visible
         contributions_count: Número de contribucións
         proposal_ids: Propostas creadas na reunión
+        video_url: URL do vídeo
       meeting:
         address: Enderezo
         available_slots: Slots dispoñibles para esta reunión
+        customize_registration_email: Personalizar o correo de rexistro
         decidim_category_id: Categoría
         decidim_scope_id: Alcance
         description: Descrición
@@ -22,15 +26,13 @@ gl:
         location_hints: Consellos de localización
         organizer_id: Organizador
         private_meeting: Encontro privado
+        registration_email_custom_content: Contido personalizado do correo de rexistro
         registration_form_enabled: Formulario de rexistro habilitado
         registration_terms: Termos de rexistro
         registrations_enabled: Rexistros habilitados
         start_time: Hora de inicio
         title: Título
         transparent: Transparente
-      minutes:
-        description: Descrición
-        visible: É visible
     errors:
       models:
         meeting_agenda:
@@ -81,6 +83,7 @@ gl:
             comments_enabled: Comentarios habilitados
             default_registration_terms: Términos de rexistro por defecto
             enable_pads_creation: Habilita a creación de pastillas
+            maps_enabled: Mapas habilitados
             resources_permissions_enabled: Os permisos de acción pódense establecer para cada reunión
           step:
             announcement: Anuncio
@@ -99,6 +102,7 @@ gl:
             email_subject: A reunión "%{resource_title}" pechouse
             notification_title: A reunión <a href="%{resource_path}">%{resource_title}</a> foi pechada.
         meeting_created:
+          button_text: Inscribirse na xuntanza
           email_intro: A reunión "%{resource_title}" Engadiuse a "%{participatory_space_title}" que estás seguindo.
           email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: Nova reunión engadida a %{participatory_space_title}
@@ -151,7 +155,6 @@ gl:
         confirm_destroy: Estás seguro de que queres eliminar esta reunión?
         destroy: Eliminar
         edit: Editar
-        minutes: Minutos
         new: Nova reunión
         preview: Vista previa
         registrations: Rexistros
@@ -188,6 +191,7 @@ gl:
             invalid: Produciuse un problema ao actualizar esta axenda
             success: A axenda actualizouse correctamente
         exports:
+          answers: Respostas
           meetings: Reunións
           registrations: Rexistros
         invite_join_meeting_mailer:
@@ -227,11 +231,12 @@ gl:
             success: Reunión pechada con éxito
           create:
             invalid: Produciuse un problema ao crear esta reunión
-            success: Reunión creada correctamente
           destroy:
             success: Reunión eliminada correctamente
           edit:
             update: Actualización
+          form:
+            registration_email_help: Este texto aparecerá no medio do correo de confirmación do rexistro, xusto despois do código de rexistro.
           index:
             title: Reunións
           new:
@@ -250,18 +255,6 @@ gl:
           update:
             invalid: Produciuse un problema ao actualizar esta reunión
             success: Reunión actualizada correctamente
-        minutes:
-          create:
-            invalid: Produciuse un problema ao crear estes minutos
-            success: Minutos creados con éxito
-          edit:
-            update: Actualización
-          new:
-            create: Crear
-            title: Crea minutos
-          update:
-            invalid: Produciuse un problema ao actualizar estes minutos
-            success: Minutos actualizados correctamente
         models:
           meeting:
             name: Reunión
@@ -299,31 +292,40 @@ gl:
           value_types:
             organizer_presenter:
               not_found: 'O organizador non se atopou na base de datos (ID: %{id})'
-        minutes:
-          create: "%{user_name} creou o acta da reunión %{resource_name} no espazo %{space_name}"
-          update: "%{user_name} actualizou os minutos da reunión %{resource_name} no espazo %{space_name}"
+      application_helper:
+        filter_category_values:
+          all: Todas
+        filter_meeting_space_values:
+          all: Todas
+        filter_scope_values:
+          all: Todas
       calendar_modal:
         calendar_url: URL do calendario
         close_window: Pechar ventá
         export_calendar: Calendario de exportación
       conference_venues: Lugares de conferencias
       content_blocks:
-        upcoming_events:
-          name: Próximos eventos
-          upcoming_events: Próximas reunións
-          view_all_events: Ver todo
+        upcoming_meetings:
+          name: Vindeiras xuntanzas
+          upcoming_meetings: Vindeiras xuntanzas
+          view_all_meetings: Ver todo
       directory:
         meetings:
           index:
-            all: Todo
-            date: Data
             meetings: Reunións
-            past: Pasado
-            search: Busca
             space_type: Espazo participativo
-            upcoming: Próximos
+      iframe_access_level:
+        all: Todos os visitantes
+      iframe_embed_type:
+        open_in_new_tab: Abrir ligazón nunha nova lapela
       last_activity:
+        meeting_updated_at_html: "<span>Xuntanza actualizada en %{link}</span>"
         new_meeting_at_html: "<span>Nova reunión en %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Administrar
+          close: pechar
+          questions: Preguntas
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -334,6 +336,13 @@ gl:
       meeting:
         not_allowed: Non tes permiso para ver esta reunión
       meetings:
+        calendar_modal:
+          add_to_calendar: Engadir ao calendario
+          apple: Engadir ao Apple Calendar
+          close_window: Pechar xanela
+          full_details_html: Ver todos os detalles en %{link}
+          google: Engadir ao Google Calendar
+          outlook: Engadir ao calendario do Outlook
         filters:
           category: Categoría
           date: Data
@@ -343,8 +352,12 @@ gl:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Despregar
+        index:
+          click_here: Ver todas as xuntanzas
+          see_all: Ver todas as xuntanzas
+          see_all_withdrawn: Ver todas as xuntanzas anuladas
+          text_banner: Estás a ver todas as xuntanzas anuladas polos seus autores. %{go_back_link}.
         meeting_minutes:
-          meeting_minutes: Minutos de reunión
           related_information: Información relacionada
         meetings:
           no_meetings_warning: Non hai encontros que coincidan cos seus criterios de busca ou non hai ningunha reunión programada.
@@ -355,9 +368,12 @@ gl:
         show:
           attendees: Os asistentes contan
           contributions: Contribucións contar
-          going: Indo
+          edit_close_meeting: Editar o informe da xuntanza
+          going: Inscribícheste nesta xuntaza
           join: Únete a reunión
-          meeting_report: Informe de reunión
+          leave: Cancelar a túa inscrición
+          leave_confirmation: Estás certo/a de querer cancelar a túa inscrición nesta xuntanza?
+          meeting_minutes: Minutos de reunión
           no_slots_available: Non hai slots dispoñibles
           organizations: Organizacións asistentes
           registration_code_help_text: O seu código de rexistro
@@ -368,6 +384,9 @@ gl:
             one: "%{count} slot restante"
             other: "%{count} slots restantes"
           view: Ver
+          withdraw_btn_hint: Podes anular a túa xuntanza se mudas de parecer. A xuntanza non está anulada, aparecerá na listaxe de xuntanzas anuladas.
+          withdraw_confirmation_html: Estás certo/a de querer anular esta xuntanza?<br><br><strong>Esta acción non pode ser cancelada!</strong>
+          withdraw_meeting: Anular xuntanza
       meetings_map:
         view_meeting: Ver reunión
       models:
@@ -388,6 +407,23 @@ gl:
             map: Mapa
             start_time: Data de inicio
             title: Título
+      polls:
+        questions:
+          index_admin:
+            question: Pregunta
+            received_answer: resposta recibida
+            received_answers: respostas recibidas
+            results: Resultados
+            send: Enviar
+            sent: Enviada
+          published_question:
+            question: Pregunta
+            reply_question: Responder pregunta
+      public_participants_list:
+        attending_participants: Participantes presentes
+        hidden_participants_count:
+          one: e %{count} persoa máis
+          other: e %{count} persoas máis
       read_more: "(Le máis)"
       registration_mailer:
         confirmation:
@@ -407,6 +443,10 @@ gl:
       types:
         private_meeting: Encontro privado
         transparent: Transparente
+        withdraw: Anular
+      withdraw:
+        error: Produciuse un erro ao anular a xuntanza
+        success: Xuntanza anulada con éxito
     metrics:
       meetings:
         description: Número de reunións creadas
@@ -426,6 +466,8 @@ gl:
       proposals_from_meeting:
         meeting_proposal: 'Propostas relacionadas:'
         proposal_meeting: 'Reunións relacionadas:'
+    statistics:
+      meetings_count: Xuntanzas
   devise:
     mailer:
       join_meeting:

@@ -29,7 +29,8 @@ module Decidim
       query = query.where(user: options[:user]) if options[:user]
       query = query.where(resource_type: options[:resource_name]) if options[:resource_name]
 
-      filter_follows(query)
+      query = filter_follows(query)
+      filter_hidden(query)
     end
 
     # Overwrites the default Searchlight run method since we want to return
@@ -118,6 +119,50 @@ module Decidim
       end
 
       query.where(chained_conditions)
+    end
+
+    def filter_hidden(query)
+      # Filter out the items that have been moderated.
+      query = query.joins(
+        <<~SQL.squish
+          LEFT JOIN decidim_moderations
+            ON decidim_moderations.decidim_reportable_type = decidim_action_logs.resource_type
+            AND decidim_moderations.decidim_reportable_id = decidim_action_logs.resource_id
+            AND decidim_moderations.hidden_at IS NOT NULL
+        SQL
+      ).where(decidim_moderations: { id: nil })
+
+      # Filter out the private space items that should not be visible for the
+      # current user.
+      current_user_id = options.fetch(:current_user, nil)&.id.to_i
+      Decidim.participatory_space_manifests.map do |manifest|
+        klass = manifest.model_class_name.constantize
+        next unless klass.include?(Decidim::HasPrivateUsers)
+
+        table = klass.table_name
+        query = query.joins(
+          Arel.sql(
+            <<~SQL.squish
+              LEFT JOIN #{table}
+                ON decidim_action_logs.participatory_space_type = '#{manifest.model_class_name}'
+                AND #{table}.id = decidim_action_logs.participatory_space_id
+              LEFT JOIN decidim_participatory_space_private_users AS #{manifest.name}_private_users
+                ON #{manifest.name}_private_users.privatable_to_type = '#{manifest.model_class_name}'
+                AND #{table}.id = #{manifest.name}_private_users.privatable_to_id
+            SQL
+          ).to_s
+        ).where(
+          Arel.sql(
+            <<~SQL.squish
+              #{table}.id IS NULL OR
+              #{table}.private_space = 'f' OR
+              #{manifest.name}_private_users.decidim_user_id = #{current_user_id}
+            SQL
+          ).to_s
+        )
+      end
+
+      query
     end
 
     def followed_users_conditions(follows)

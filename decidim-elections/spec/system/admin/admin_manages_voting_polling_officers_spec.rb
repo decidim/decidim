@@ -15,7 +15,7 @@ describe "Admin manages polling officers", type: :system do
     click_link "Polling Officers"
   end
 
-  context "when linsting the polling officers" do
+  context "when listing the polling officers" do
     let(:model_name) { polling_officer.class.model_name }
     let(:resource_controller) { Decidim::Votings::Admin::PollingOfficersController }
 

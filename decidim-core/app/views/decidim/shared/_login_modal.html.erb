@@ -1,12 +1,15 @@
-<div class="reveal" id="loginModal" data-reveal>
+<div class="reveal" id="loginModal" data-reveal role="dialog" aria-modal="true" aria-labelledby="loginModal-label">
   <div class="reveal__header">
-    <h2 class="reveal__title"><%= t(".please_sign_in") %></h2>
+    <h2 id="loginModal-label" class="reveal__title"><%= t(".please_sign_in") %></h2>
     <button class="close-button" data-close aria-label="<%= t(".close_modal") %>"
       type="button">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <% if current_organization.sign_in_enabled? %>
+    <% cache current_organization do %>
+      <%= render "decidim/devise/shared/omniauth_buttons_mini" %>
+    <% end %>
     <div class="row">
       <div class="columns medium-8 medium-centered">
           <%
@@ -39,9 +42,6 @@
           </p>
       </div>
     </div>
-    <% cache current_organization do %>
-      <%= render "decidim/devise/shared/omniauth_buttons_mini" %>
-    <% end %>
   <% else %>
     <div class="row">
       <div class="columns medium-8 medium-centered">

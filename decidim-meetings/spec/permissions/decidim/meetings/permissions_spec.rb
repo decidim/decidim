@@ -6,11 +6,13 @@ describe Decidim::Meetings::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
   let(:user) { create :user, organization: meeting_component.organization }
+  let(:admin_user) { create :user, :admin, organization: meeting_component.organization }
   let(:context) do
     {
       current_component: meeting_component,
       component_settings: component_settings,
-      meeting: meeting
+      meeting: meeting,
+      question: question
     }
   end
   let(:component_settings) do
@@ -19,6 +21,9 @@ describe Decidim::Meetings::Permissions do
   let(:meeting_component) { create :meeting_component }
   let(:meeting) { create :meeting, component: meeting_component }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:poll) { create :poll, meeting: meeting }
+  let(:poll_questionnaire) { create :meetings_poll_questionnaire, questionnaire_for: poll }
+  let(:question) { create :meetings_poll_question, questionnaire: poll_questionnaire }
   let(:registrations_enabled) { true }
 
   context "when scope is admin" do
@@ -37,12 +42,44 @@ describe Decidim::Meetings::Permissions do
     it_behaves_like "permission is not set"
   end
 
-  context "when subject is not a meeting" do
+  context "when subject is not a meeting and answer or a question" do
     let(:action) do
       { scope: :public, action: :vote, subject: :foo }
     end
 
     it_behaves_like "permission is not set"
+  end
+
+  context "when answering a question" do
+    let(:action) do
+      { scope: :public, action: :create, subject: :answer }
+    end
+
+    context "when question not answered" do
+      it { is_expected.to eq true }
+    end
+
+    context "when question answered" do
+      let!(:answer) { create :meetings_poll_answer, user: user, question: question, questionnaire: poll_questionnaire }
+
+      it { is_expected.to eq false }
+    end
+  end
+
+  context "when updating a question" do
+    let(:action) do
+      { scope: :public, action: :update, subject: :question }
+    end
+
+    context "when user is not admin" do
+      it { is_expected.to eq false }
+    end
+
+    context "when user is admin" do
+      let(:user) { admin_user }
+
+      it { is_expected.to eq true }
+    end
   end
 
   context "when joining a meeting" do
@@ -92,6 +129,24 @@ describe Decidim::Meetings::Permissions do
       let(:can_be_registered) { true }
 
       it { is_expected.to eq true }
+    end
+  end
+
+  context "when withdrawing a meeting" do
+    let(:action) do
+      { scope: :public, action: :withdraw, subject: :meeting }
+    end
+
+    context "when meeting author is the user trying to withdraw" do
+      let(:meeting) { create :meeting, author: user, component: meeting_component }
+
+      it { is_expected.to eq true }
+    end
+
+    context "when trying by another user" do
+      let(:user) { build :user }
+
+      it { is_expected.to eq false }
     end
   end
 

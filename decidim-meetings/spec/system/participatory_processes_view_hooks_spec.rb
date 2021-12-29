@@ -9,7 +9,7 @@ describe "Meetings in process home", type: :system do
 
   context "when there are only past meetings" do
     let!(:past_meetings) do
-      create_list(:meeting, meetings_count, :past, component: component)
+      create_list(:meeting, meetings_count, :published, :past, component: component)
     end
 
     it "shows the last three past meetings" do
@@ -24,7 +24,7 @@ describe "Meetings in process home", type: :system do
 
   context "when there are only upcoming meetings" do
     let!(:upcoming_meetings) do
-      create_list(:meeting, meetings_count, :upcoming, component: component)
+      create_list(:meeting, meetings_count, :published, :upcoming, component: component)
     end
 
     it "shows the first three upcoming meetings" do
@@ -39,11 +39,11 @@ describe "Meetings in process home", type: :system do
 
   context "when there are past and upcoming meetings" do
     let!(:past_meetings) do
-      create_list(:meeting, meetings_count, :past, component: component)
+      create_list(:meeting, meetings_count, :published, :past, component: component)
     end
 
     let!(:upcoming_meetings) do
-      create_list(:meeting, meetings_count, :upcoming, component: component)
+      create_list(:meeting, meetings_count, :published, :upcoming, component: component)
     end
 
     it "only shows the first three upcoming meetings" do

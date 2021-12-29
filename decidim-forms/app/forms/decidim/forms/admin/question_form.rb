@@ -42,6 +42,24 @@ module Decidim
           question_type == Decidim::Forms::Question::SEPARATOR_TYPE
         end
 
+        def title_and_description?
+          question_type == Decidim::Forms::Question::TITLE_AND_DESCRIPTION_TYPE
+        end
+
+        def matrix_rows_by_position
+          matrix_rows.sort do |a, b|
+            if a.position && b.position
+              a.position <=> b.position
+            elsif a.position
+              -1
+            elsif b.position
+              1
+            else
+              0
+            end
+          end
+        end
+
         private
 
         def matrix?

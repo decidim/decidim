@@ -22,11 +22,10 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-comments", Decidim::Initiatives.version
   s.add_dependency "decidim-core", Decidim::Initiatives.version
   s.add_dependency "decidim-verifications", Decidim::Initiatives.version
-  s.add_dependency "kaminari", "~> 1.2", ">= 1.2.1"
   s.add_dependency "origami", "~> 2.1"
   s.add_dependency "virtus-multiparams", "~> 0.1"
   s.add_dependency "wicked", "~> 1.3"
-  s.add_dependency "wicked_pdf", "~> 1.4"
+  s.add_dependency "wicked_pdf", "~> 2.1"
   s.add_dependency "wkhtmltopdf-binary", "~> 0.12"
 
   s.add_development_dependency "decidim-dev", Decidim::Initiatives.version

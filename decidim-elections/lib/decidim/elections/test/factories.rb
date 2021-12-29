@@ -17,6 +17,8 @@ FactoryBot.define do
   factory :election, class: "Decidim::Elections::Election" do
     transient do
       organization { build(:organization) }
+      number_of_votes { Faker::Number.number(digits: 2) }
+      base_id { 10_000 }
     end
 
     upcoming
@@ -28,10 +30,11 @@ FactoryBot.define do
     bb_status { nil }
     questionnaire
     component { create(:elections_component, organization: organization) }
+    salt { SecureRandom.hex(32) }
 
     trait :bb_test do
       bb_status { "key_ceremony" }
-      id { (10_000 + Decidim::Elections::Election.bb_statuses.keys.index(bb_status)) }
+      id { (base_id + Decidim::Elections::Election.bb_statuses.keys.index(bb_status)) }
     end
 
     trait :upcoming do
@@ -67,7 +70,7 @@ FactoryBot.define do
 
     trait :ready_for_setup do
       transient do
-        trustee_keys { 2.times.map { [Faker::Name.name, generate(:private_key).export.to_json] }.to_h }
+        trustee_keys { 3.times.map { [Faker::Name.name, generate(:private_key).export.to_json] }.to_h }
       end
 
       upcoming
@@ -116,12 +119,8 @@ FactoryBot.define do
       finished
       bb_status { "vote_ended" }
 
-      after(:build) do |election|
-        election.questions.each do |question|
-          question.answers.each do |answer|
-            answer.votes_count = Faker::Number.number(digits: 1)
-          end
-        end
+      after(:create) do |election, evaluator|
+        create_list(:vote, evaluator.number_of_votes, :accepted, election: election)
       end
     end
 
@@ -133,6 +132,12 @@ FactoryBot.define do
     trait :tally_ended do
       tally
       bb_status { "tally_ended" }
+      verifiable_results_file_hash { SecureRandom.hex(32) }
+      verifiable_results_file_url { Faker::Internet.url }
+
+      after(:create) do |election|
+        create(:bb_closure, :with_results, election: election)
+      end
     end
 
     trait :results_published do
@@ -219,10 +224,11 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     weight { Faker::Number.number(digits: 1) }
     selected { false }
-    votes_count { 0 }
 
     trait :with_votes do
-      votes_count { Faker::Number.number(digits: 1) }
+      after(:build) do |answer|
+        create(:election_result, election: answer.question.election, question: answer.question, answer: answer)
+      end
     end
 
     trait :with_photos do
@@ -242,6 +248,60 @@ FactoryBot.define do
     end
   end
 
+  factory :bb_closure, class: "Decidim::Elections::BulletinBoardClosure" do
+    initialize_with do
+      Decidim::Elections::BulletinBoardClosure.find_or_create_by(
+        decidim_elections_election_id: election.id
+      )
+    end
+
+    election { create(:election, :complete) }
+
+    trait :with_results do
+      after :create do |closure|
+        total_votes = closure.election.votes.count
+        closure.election.questions.each do |question|
+          max = total_votes
+          question.answers.each do |answer|
+            value = Faker::Number.between(from: 0, to: max)
+            closure.results << create(:election_result, election: closure.election, question: question, answer: answer, value: value)
+            max -= value
+          end
+          closure.results << create(:election_result, :blank_ballots, election: closure.election, question: question, value: max)
+        end
+        closure.results << create(:election_result, :total_ballots, election: closure.election, value: total_votes)
+      end
+    end
+  end
+
+  factory :election_result, class: "Decidim::Elections::Result" do
+    transient do
+      election { create(:election, :tally_ended) }
+    end
+
+    closurable { create :bb_closure, election: election }
+    question { create :question, election: election }
+    answer { create :election_answer, question: question }
+    value { Faker::Number.number(digits: 1) }
+    result_type { "valid_answers" }
+
+    trait :null_ballots do
+      result_type { "null_ballots" }
+      answer { nil }
+    end
+
+    trait :blank_ballots do
+      result_type { "blank_ballots" }
+      answer { nil }
+    end
+
+    trait :total_ballots do
+      result_type { "total_ballots" }
+      answer { nil }
+      question { nil }
+    end
+  end
+
   factory :action, class: "Decidim::Elections::Action" do
     election
     message_id { "a.message+id" }
@@ -252,11 +312,11 @@ FactoryBot.define do
   factory :trustee, class: "Decidim::Elections::Trustee" do
     transient do
       election { nil }
-      organization { election&.component&.participatory_space&.organization || create(:organization) }
     end
 
     public_key { nil }
-    user { build(:user, organization: organization) }
+    user { build(:user, :confirmed, organization: organization) }
+    organization { create(:organization) }
 
     trait :considered do
       after(:build) do |trustee, evaluator|
@@ -272,7 +332,7 @@ FactoryBot.define do
 
     trait :with_public_key do
       considered
-      name { Faker::Name.name }
+      name { Faker::Name.unique.name }
       public_key { generate(:private_key).export.to_json }
     end
   end
@@ -298,5 +358,10 @@ FactoryBot.define do
     status { "pending" }
     message_id { "decidim-test-authority.2.vote.cast+v.5826de088371d1b15b38f00c8203871caec07041ed0c8fb0c6fb875f0df763b6" }
     user { build(:user) }
+    email { "an_email@example.org" }
+
+    trait :accepted do
+      status { "accepted" }
+    end
   end
 end

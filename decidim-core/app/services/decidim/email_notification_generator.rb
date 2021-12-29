@@ -66,6 +66,9 @@ module Decidim
       return unless recipient.email_on_notification?
       return if resource.respond_to?(:can_participate?) && !resource.can_participate?(recipient)
 
+      wait_time = 0
+      wait_time = Decidim.machine_translation_delay.to_i + 1.minute if recipient.organization.enable_machine_translations
+
       NotificationMailer
         .event_received(
           event,
@@ -75,7 +78,7 @@ module Decidim
           user_role.to_s,
           extra
         )
-        .deliver_later
+        .deliver_later(wait: wait_time)
     end
 
     def component

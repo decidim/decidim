@@ -19,10 +19,9 @@ module Decidim
           transaction do
             create_meeting!
             create_services!
-            schedule_upcoming_meeting_notification
-            send_notification
           end
 
+          create_follow_form_resource(form.current_user)
           broadcast(:ok, meeting)
         end
 
@@ -55,7 +54,14 @@ module Decidim
             author: form.current_organization,
             registration_terms: form.current_component.settings.default_registration_terms,
             component: form.current_component,
-            questionnaire: Decidim::Forms::Questionnaire.new
+            questionnaire: Decidim::Forms::Questionnaire.new,
+            customize_registration_email: form.customize_registration_email,
+            registration_email_custom_content: form.registration_email_custom_content,
+            iframe_embed_type: form.iframe_embed_type,
+            comments_enabled: form.comments_enabled,
+            comments_start_time: form.comments_start_time,
+            comments_end_time: form.comments_end_time,
+            iframe_access_level: form.iframe_access_level
           }
 
           @meeting = Decidim.traceability.create!(
@@ -76,21 +82,9 @@ module Decidim
           end
         end
 
-        def schedule_upcoming_meeting_notification
-          checksum = Decidim::Meetings::UpcomingMeetingNotificationJob.generate_checksum(meeting)
-
-          Decidim::Meetings::UpcomingMeetingNotificationJob
-            .set(wait_until: meeting.start_time - 2.days)
-            .perform_later(meeting.id, checksum)
-        end
-
-        def send_notification
-          Decidim::EventsManager.publish(
-            event: "decidim.events.meetings.meeting_created",
-            event_class: Decidim::Meetings::CreateMeetingEvent,
-            resource: meeting,
-            followers: meeting.participatory_space.followers
-          )
+        def create_follow_form_resource(user)
+          follow_form = Decidim::FollowForm.from_params(followable_gid: meeting.to_signed_global_id.to_s).with_context(current_user: user)
+          Decidim::CreateFollow.call(follow_form, user)
         end
       end
     end

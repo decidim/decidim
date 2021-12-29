@@ -90,6 +90,15 @@ module Decidim
       "action-#{model.id}"
     end
 
+    def cache_hash
+      hash = []
+      hash << I18n.locale.to_s
+      hash << model.class.name.underscore
+      hash << model.cache_key_with_version
+
+      hash.join(Decidim.cache_key_separator)
+    end
+
     private
 
     def published?

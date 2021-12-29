@@ -41,7 +41,7 @@ module Decidim
       # makes the layout look good.
       def description
         text = super
-        text.gsub!(/^<p>/, "<p>#{render :badge}")
+        text.sub!(/<p>/, "<p>#{render :badge}")
         html_truncate(text, length: 100)
       end
 
@@ -50,11 +50,11 @@ module Decidim
       end
 
       def resource_image_path
-        model.banner_image.url
+        model.attached_uploader(:banner_image).path
       end
 
       def has_image?
-        model.banner_image.url.present?
+        model.banner_image.attached?
       end
 
       def start_time

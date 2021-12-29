@@ -52,17 +52,18 @@ ca:
         target: Qui participa
         title: Títol
         twitter: Twitter
+        weight: Ordre de posició
         youtube: YouTube
       assembly_member:
         birthday: Aniversari
         birthplace: Lloc de naixement
         ceased_date: Data de cessament
         designation_date: Data de designació
-        designation_mode: Mode de designació
         full_name: Nom complet
         gender: Gènere
+        non_user_avatar: Avatar
         position: Posició
-        user_id: Usuària
+        user_id: Participant o grup
       assembly_user_role:
         email: Correu electrònic
         name: Nom
@@ -181,6 +182,9 @@ ca:
         update:
           error: S'ha produït un error en actualitzar una administradora per a aquesta assemblea.
           success: L'administradora s'ha actualitzat correctament per a aquesta assemblea.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Tipus d'assemblea
       menu:
         assemblies: Assemblees
         assemblies_settings: Configuració
@@ -189,6 +193,7 @@ ca:
           assembly_members: Membres
           attachment_collections: Carpetes
           attachment_files: Fitxers
+          attachments: Adjunts
           categories: Categories
           components: Components
           info: Informació
@@ -260,6 +265,7 @@ ca:
       admin:
         assemblies:
           form:
+            announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sota de la informació de l'assemblea.
             duration: Durada
             duration_help: Si la durada d'aquesta assemblea és limitada, selecciona la data de finalització. En cas contrari, apareixerà com a indefinida.
             filters: Filtres
@@ -293,6 +299,7 @@ ca:
         assembly_members:
           form:
             existing_user: Participant existent
+            explanation: 'Instruccions per a la imatge:'
             non_user: No participant
             select_a_position: Selecciona una posició
             select_user: Selecciona una participant
@@ -384,11 +391,6 @@ ca:
         designated_on: Designat a
       index:
         title: Membres
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Enllaç a la pàgina de Jornades mostrant totes les jornades
     events:
       assemblies:
         create_assembly_member:
@@ -421,19 +423,11 @@ ca:
         description: Nombre d'assemblees creades
         object: assemblees
         title: Assemblees
-    pages:
-      home:
-        hero:
-          participate_title: Participa als processos de la plataforma
-        sub_hero:
-          register_title: Registra't
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Enllaç a la pàgina de Processos mostrant tots els processos
       show:
         related_assemblies: Assemblees relacionades
+    statistics:
+      assemblies_count: Assemblees
   errors:
     messages:
       cannot_be_blank: no es pot estar en blanc

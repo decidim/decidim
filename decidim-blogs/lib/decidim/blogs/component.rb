@@ -5,7 +5,7 @@ require "decidim/components/namer"
 Decidim.register_component(:blogs) do |component|
   component.engine = Decidim::Blogs::Engine
   component.admin_engine = Decidim::Blogs::AdminEngine
-  component.icon = "decidim/blogs/icon.svg"
+  component.icon = "media/images/decidim_blogs.svg"
   component.permissions_class_name = "Decidim::Blog::Permissions"
 
   component.query_type = "Decidim::Blogs::BlogsType"
@@ -18,7 +18,7 @@ Decidim.register_component(:blogs) do |component|
     Decidim::Blogs::Post.where(component: components).count
   end
 
-  component.actions = %w(endorse vote create withdraw amend)
+  component.actions = %w(create update destroy)
 
   component.settings(:global) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
@@ -36,7 +36,7 @@ Decidim.register_component(:blogs) do |component|
   component.register_resource(:blogpost) do |resource|
     resource.model_class_name = "Decidim::Blogs::Post"
     resource.card = "decidim/blogs/post"
-    resource.actions = %w(endorse vote amend)
+    resource.actions = %w(endorse vote amend comment)
     resource.searchable = true
   end
 

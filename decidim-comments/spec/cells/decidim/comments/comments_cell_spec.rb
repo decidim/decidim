@@ -35,7 +35,7 @@ module Decidim::Comments
 
       context "with the single comment defined" do
         let(:my_cell) { cell("decidim/comments/comments", comment.commentable, single_comment: comment.id) }
-        let(:other_comments) { create_list(:comment, 10, commentable: commentable) }
+        let!(:other_comments) { create_list(:comment, 10, commentable: commentable) }
 
         it "renders only the single comment" do
           expect(subject).to have_css(".section-heading", text: "Comment details")
@@ -48,7 +48,31 @@ module Decidim::Comments
 
         it "renders the single comment warning" do
           expect(subject).to have_css(".callout.secondary", text: "You are seeing a single comment")
-          expect(subject).to have_css(".callout.secondary", text: "You can check the rest of the comments here.")
+          expect(subject).to have_css(".callout.secondary", text: "View all comments")
+        end
+
+        context "with the single comment being moderated" do
+          before do
+            create(
+              :moderation,
+              :hidden,
+              reportable: comment,
+              participatory_space: commentable.participatory_space
+            )
+          end
+
+          it "renders the thread" do
+            expect(subject).to have_css(".section-heading", text: "10 comments")
+            expect(subject).to have_css(".callout.primary.loading-comments p", text: "Loading comments ...")
+            expect(subject).not_to have_content(comment.body.values.first)
+            expect(subject).to have_css(".add-comment")
+            expect(subject).to have_content("Sign in with your account or sign up to add your comment.")
+          end
+
+          it "does not render the single comment warning" do
+            expect(subject).not_to have_css(".callout.secondary", text: "You are seeing a single comment")
+            expect(subject).not_to have_css(".callout.secondary", text: "View all comments")
+          end
         end
       end
 
@@ -92,11 +116,37 @@ module Decidim::Comments
         context "when user comments are blocked" do
           before do
             allow(commentable).to receive(:user_allowed_to_comment?).with(current_user).and_return(false)
+            allow(commentable).to receive(:user_authorized_to_comment?).with(current_user).and_return(true)
           end
 
           it "renders the user comments blocked warning" do
-            expect(subject).not_to have_css(".callout.warning", text: I18n.t("decidim.components.comments.blocked_comments_warning"))
+            expect(subject).not_to have_css(".callout.warning", text: I18n.t("decidim.components.comments.blocked_comments_for_unauthorized_user_warning"))
             expect(subject).to have_css(".callout.warning", text: I18n.t("decidim.components.comments.blocked_comments_for_user_warning"))
+          end
+        end
+
+        context "when user is not authorized to comment" do
+          let(:permissions) do
+            {
+              comment: {
+                authorization_handlers: {
+                  "dummy_authorization_handler" => { "options" => {} }
+                }
+              }
+            }
+          end
+
+          before do
+            organization.available_authorizations = ["dummy_authorization_handler"]
+            organization.save!
+            commentable.create_resource_permission(permissions: permissions)
+            allow(commentable).to receive(:user_allowed_to_comment?).with(current_user).and_return(false)
+            allow(commentable).to receive(:user_authorized_to_comment?).with(current_user).and_return(false)
+          end
+
+          it "renders the user not authorized to comment warning" do
+            expect(subject).to have_css(".callout.warning", text: I18n.t("decidim.components.comments.blocked_comments_for_unauthorized_user_warning"))
+            expect(subject).not_to have_css(".callout.warning", text: I18n.t("decidim.components.comments.blocked_comments_for_user_warning"))
           end
         end
       end

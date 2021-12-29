@@ -115,7 +115,6 @@ id:
       actions:
         add: Menambahkan
         browse: Jelajahi
-        export: Ekspor
         manage: Mengelola
         new: Baru %{name}
         permissions: Izin
@@ -411,7 +410,6 @@ id:
       newsletters:
         create:
           error: Terjadi kesalahan saat membuat buletin ini.
-          success: Newsletter berhasil dibuat. Silakan, tinjau sebelum mengirim.
         deliver:
           error: Terjadi kesalahan saat mengirim buletin ini.
           success: Nawala berhasil dikirim.
@@ -609,13 +607,6 @@ id:
           success: Kelompok pengguna berhasil diverifikasi
       user_groups:
         index:
-          filter:
-            all: Semua
-            pending: Menunggu keputusan
-            rejected: Ditolak
-            verified: Diverifikasi
-          filter_by: Filter berdasarkan
-          search: Pencarian
           state:
             pending: Menunggu keputusan
             rejected: Ditolak
@@ -645,10 +636,6 @@ id:
           admins: Admin
           participants: Peserta
       view_public_page: Lihat halaman publik
-    forms:
-      errors:
-        impersonate_user:
-          reason: Anda perlu memberikan alasan ketika meniru pengguna yang tidak dikelola
     moderations:
       actions:
         hidden: Tersembunyi

@@ -40,7 +40,30 @@ module Decidim
         attr_reader :form, :process
 
         def create_participatory_process
-          @process = ParticipatoryProcess.new(
+          @process = ParticipatoryProcess.new
+          @process.assign_attributes(attributes)
+
+          return process unless process.valid?
+
+          transaction do
+            process.save!
+
+            log_process_creation(process)
+
+            process.steps.create!(
+              title: TranslationsHelper.multi_translation(
+                "decidim.admin.participatory_process_steps.default_title",
+                form.current_organization.available_locales
+              ),
+              active: true
+            )
+
+            process
+          end
+        end
+
+        def attributes
+          {
             organization: form.current_organization,
             title: form.title,
             subtitle: form.subtitle,
@@ -66,25 +89,7 @@ module Decidim
             start_date: form.start_date,
             end_date: form.end_date,
             participatory_process_group: form.participatory_process_group
-          )
-
-          return process unless process.valid?
-
-          transaction do
-            process.save!
-
-            log_process_creation(process)
-
-            process.steps.create!(
-              title: TranslationsHelper.multi_translation(
-                "decidim.admin.participatory_process_steps.default_title",
-                form.current_organization.available_locales
-              ),
-              active: true
-            )
-
-            process
-          end
+          }
         end
 
         def log_process_creation(process)

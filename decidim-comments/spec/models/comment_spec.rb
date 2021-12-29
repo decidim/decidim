@@ -53,6 +53,10 @@ module Decidim
         expect(comment.down_votes.count).to eq(1)
       end
 
+      it "has an associated participatory_process" do
+        expect(comment.participatory_space).to eq(component.participatory_space)
+      end
+
       it "is not valid if its parent is a comment and cannot accept new comments" do
         expect(comment.root_commentable).to receive(:accepts_new_comments?).and_return false
         expect(replies[0]).not_to be_valid
@@ -155,7 +159,7 @@ module Decidim
         end
 
         it "sanitizes user input" do
-          expect(comment).to receive(:sanitize_content)
+          expect(comment).to receive(:sanitize_content_for_comment)
           comment.formatted_body
         end
 
@@ -173,6 +177,15 @@ module Decidim
           let(:result) { "<div><blockquote class=\"comment__quote\"><p>quote first line\n<br />quote second line</p></blockquote><p>answer</p></div>" }
 
           it "parses quotes and renders them as blockquotes" do
+            expect(comment.formatted_body).to eq(result)
+          end
+        end
+
+        describe "when the body contains HTML" do
+          let(:body) { %(<a target="alert(1)" href="javascript:alert(document.location)">XSS via target in a tag</a>) }
+          let(:result) { "<div><p>XSS via target in a tag</p></div>" }
+
+          it "parses the HTML and renders them only with accepted tags" do
             expect(comment.formatted_body).to eq(result)
           end
         end
@@ -254,6 +267,13 @@ module Decidim
       end
 
       describe "#user_commentators_ids_in" do
+        context "when passing a non-commentable resource" do
+          it "returns the autors of the resources' comments" do
+            ids = Decidim::Comments::Comment.user_commentators_ids_in([commentable.component.participatory_space])
+            expect(ids).to match_array([])
+          end
+        end
+
         context "when commentors belong to the given resources" do
           it "returns the autors of the resources' comments" do
             ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::DummyResources::DummyResource.where(component: commentable.component))
@@ -268,16 +288,6 @@ module Decidim
           it "does not return them" do
             ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::DummyResources::DummyResource.where(component: commentable.component))
             expect(ids).to match_array([author.id])
-          end
-        end
-
-        context "when resource is not commentable" do
-          let(:other_component) { create(:dummy_component) }
-          let!(:non_commentable) { create(:coauthorable_dummy_resource, component: other_component) }
-
-          it "returns nil" do
-            ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::DummyResources::CoauthorableDummyResource.where(component: other_component))
-            expect(ids).to be_nil
           end
         end
       end

@@ -57,7 +57,6 @@
             spam: Inneholder klikkagn, reklame, svindel eller manus-roboter.
           title: Rapporter upassende innhold
         show_replies: Vis %{replies_count} svar
-        single_comment_link_title: Få lenke til enkeltkommentar
       comment_order_selector:
         order:
           best_rated: Best vurdert
@@ -72,7 +71,6 @@
         blocked_comments_warning: Kommenterer er deaktivert på dette tidspunktet, men du kan lese de forrige.
         comment_details_title: Kommenter detaljer
         loading: Laster inn kommenterer ...
-        single_comment_warning: Du kan sjekke resten av kommentarene <a href="%{url}">her</a>.
         single_comment_warning_title: Du ser en enkelt kommentar
       down_vote_button:
         text: Jeg er uenig med denne kommentaren

@@ -1,0 +1,29 @@
+<%= link_to voting_monitoring_committee_polling_station_closures_path(current_voting, election_id: closure.election.id) do %>
+  <%= icon "caret-left", class: "icon--small", role: "img" %> <%= t(".change_polling_station") %>
+<% end %>
+
+<div class="card" id="monitoring_committee_polling_station_closures">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t(".title", polling_station_title: translated_attribute(closure.polling_station.title), election_title: translated_attribute(closure.election.title)).html_safe %>
+    </h2>
+  </div>
+
+  <%= render partial: "closure_certificate_results" %>
+
+  <div class="card-section">
+    <%= decidim_form_for @form, url: validate_voting_monitoring_committee_polling_station_closure_path(current_voting, closure), method: :post do |form| %>
+      <%= content_tag :div,
+        form.text_area(
+          :monitoring_committee_notes,
+          rows: 5,
+          label: t(".monitoring_committee_notes"),
+          placeholder: t(".monitoring_committee_notes_placeholder")
+        ) %>
+
+      <div class="button--double form-general-submit">
+        <%= form.submit t("actions.validate", scope: "decidim.votings.admin.monitoring_committee_polling_station_closures") %>
+      </div>
+    <% end %>
+  </div>
+</div>

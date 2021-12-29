@@ -15,6 +15,7 @@ pt:
         edit: Editar
         new: Nova publicação
         title: Ações
+        user_group_id: Criar publicação como
       admin:
         models:
           components:
@@ -24,11 +25,12 @@ pt:
         posts:
           create:
             invalid: Ocorreu um problema ao criar esta publicação
-            success: Publicação criada corretamente
+            success: Publicação criada com êxito
           destroy:
-            success: Publicação eliminada corretamente
+            success: Publicação eliminada com êxito
           edit:
-            save: Atualizar
+            save: Actualizar
+            title: Editar publicação
           index:
             title: Publicações
           new:
@@ -36,7 +38,7 @@ pt:
             title: Criar publicação
           update:
             invalid: Ocorreu um problema ao guardar a publicação.
-            success: Publicação guardada corretamente
+            success: Publicação guardada com êxito
       last_activity:
         new_post_at_html: "<span>Nova publicação em %{link}</span>"
       models:
@@ -75,3 +77,5 @@ pt:
           email_outro: Recebeu esta notificação porque segue "%{participatory_space_title}". Pode deixar de segui-lo através da hiperligação anterior.
           email_subject: Nova publicação publicada em %{participatory_space_title}
           notification_title: A publicação <a href="%{resource_path}">%{resource_title}</a> foi publicada em %{participatory_space_title}
+    statistics:
+      posts_count: Publicações

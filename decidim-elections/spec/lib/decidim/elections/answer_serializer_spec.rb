@@ -32,8 +32,8 @@ module Decidim
           end
         end
 
-        it "serializes the votes" do
-          expect(serialized[:answer_votes]).to eq(answer.votes_count)
+        it "serializes the results total" do
+          expect(serialized[:answer_votes]).to eq(answer.results_total)
         end
 
         it "serializes the election id" do

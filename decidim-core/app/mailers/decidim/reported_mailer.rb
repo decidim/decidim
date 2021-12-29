@@ -53,7 +53,7 @@ module Decidim
     end
 
     def author_profile_url
-      @author_profile_url ||= @author.is_a?(Decidim::UserBaseEntity) ? decidim.profile_url(@author.nickname, host: @organization.host) : nil
+      @author_profile_url ||= @author.is_a?(Decidim::UserBaseEntity) && !@author.deleted? ? decidim.profile_url(@author.nickname, host: @organization.host) : nil
     end
 
     def original_language(reportable)

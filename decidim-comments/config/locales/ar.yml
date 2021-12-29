@@ -63,7 +63,6 @@ ar:
             offensive: يحتوي على العنصرية والتمييز الجنسي والتشهير والهجمات الشخصية والتهديدات بالقتل أو طلبات الانتحار أو أي شكل من أشكال خطاب الكراهية.
             spam: يحتوي على clickbait أو الإعلان أو الخدع أو روبوت البرامج النصية.
         show_replies: اظهر الردود الـ %{replies_count}
-        single_comment_link_title: الحصول على رابط نحو تعليق واحد
       comment_order_selector:
         order:
           best_rated: أفضل تصنيف
@@ -78,7 +77,6 @@ ar:
         blocked_comments_warning: التعليقات معطلة في هذا الوقت ، لكن يمكنك قراءة التعليقات السابقة.
         comment_details_title: تفاصيل التعليق
         loading: جارٍ تحميل التعليقات ...
-        single_comment_warning: يمكنك الإطلاع على التعليقات المتبقية الأخرى <a href="%{url}">هنا</a>.
         single_comment_warning_title: إنك ترى تعليقا واحدا
     events:
       comments:

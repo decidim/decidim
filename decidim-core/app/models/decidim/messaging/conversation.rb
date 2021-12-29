@@ -8,6 +8,8 @@ module Decidim
     # a group or a one-to-one conversation.
     #
     class Conversation < ApplicationRecord
+      self.table_name = "decidim_messaging_conversations"
+
       include Decidim::DataPortability
 
       has_many :participations, foreign_key: :decidim_conversation_id,
@@ -127,6 +129,15 @@ module Decidim
         # if user is a group, members are accepted
         blocked = interlocutors(user).detect { |participant| !participant.accepts_conversation?(user) }
         blocked.blank?
+      end
+
+      #
+      # Given a user, returns if ALL the interlocutors have their accounts deleted
+      #
+      # @return Boolean
+      #
+      def with_deleted_users?(user)
+        interlocutors(user).all?(&:deleted?)
       end
 
       #

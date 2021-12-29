@@ -9,6 +9,17 @@
         translatable_text: Oversettbar tekst
         updated_at: Oppdatert på
   decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            test_options:
+              bar: Felt
+              foo: Foo
+          step:
+            test_options:
+              bar: Felt
+              foo: Foo
     dummy:
       admin:
         exports:

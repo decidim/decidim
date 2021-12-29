@@ -204,6 +204,8 @@ ca:
             label: Estat
     components:
       accountability:
+        actions:
+          comment: Comentar
         name: Seguiment
         settings:
           global:
@@ -244,3 +246,5 @@ ca:
         result_project: Projectes inclosos en aquest resultat
       included_proposals:
         result_proposal: Propostes incloses en aquest resultat
+    statistics:
+      results_count: Resultats

@@ -70,12 +70,13 @@ module Decidim
       scope :except_drafts, -> { where.not(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
       scope :order_by_most_recent, -> { order(created_at: :desc) }
+
       scope :sort_by_valuation_assignments_count_asc, lambda {
-        order("#{sort_by_valuation_assignments_count_nulls_last_query}ASC NULLS FIRST")
+        order(Arel.sql("#{sort_by_valuation_assignments_count_nulls_last_query} ASC NULLS FIRST").to_s)
       }
 
       scope :sort_by_valuation_assignments_count_desc, lambda {
-        order("#{sort_by_valuation_assignments_count_nulls_last_query}DESC NULLS LAST")
+        order(Arel.sql("#{sort_by_valuation_assignments_count_nulls_last_query} DESC NULLS LAST").to_s)
       }
 
       def self.with_valuation_assigned_to(user, space)
@@ -278,7 +279,7 @@ module Decidim
       #
       # user - the user to check for authorship
       def editable_by?(user)
-        return true if draft?
+        return true if draft? && created_by?(user)
 
         !published_state? && within_edit_time_limit? && !copied_from_other_component? && created_by?(user)
       end
@@ -337,8 +338,18 @@ module Decidim
         ")
       end
 
+      def self.sort_by_translated_title_asc
+        field = Arel::Nodes::InfixOperation.new("->>", arel_table[:title], Arel::Nodes.build_quoted(I18n.locale))
+        order(Arel::Nodes::InfixOperation.new("", field, Arel.sql("ASC")))
+      end
+
+      def self.sort_by_translated_title_desc
+        field = Arel::Nodes::InfixOperation.new("->>", arel_table[:title], Arel::Nodes.build_quoted(I18n.locale))
+        order(Arel::Nodes::InfixOperation.new("", field, Arel.sql("DESC")))
+      end
+
       ransacker :title do
-        Arel.sql(%{("decidim_proposals_proposals"."title")::text})
+        Arel.sql(%{cast("decidim_proposals_proposals"."title" as text)})
       end
 
       ransacker :id_string do

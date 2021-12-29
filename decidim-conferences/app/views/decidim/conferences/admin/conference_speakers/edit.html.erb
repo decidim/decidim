@@ -1,4 +1,4 @@
-<%= decidim_form_for(@form, url: conference_speaker_path(@conference_speaker.conference, @conference_speaker), html: { class: "form edit_conference_speaker" }) do |f| %>
+<%= decidim_form_for(@form, url: conference_speaker_path(@item.conference, @item), html: { class: "form edit_conference_speaker" }) do |f| %>
   <%= render partial: "form", object: f, locals: { title: t("conference_speakers.edit.title", scope: "decidim.admin") } %>
 
   <div class="button--double form-general-submit">

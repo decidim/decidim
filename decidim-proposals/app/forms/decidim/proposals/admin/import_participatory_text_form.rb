@@ -7,6 +7,7 @@ module Decidim
       # from a participatory text.
       class ImportParticipatoryTextForm < Decidim::Form
         include TranslatableAttributes
+        include Decidim::HasUploadValidations
 
         # WARNING: consider adding/removing the relative translation key at
         # decidim.assemblies.admin.new_import.accepted_types when modifying this hash

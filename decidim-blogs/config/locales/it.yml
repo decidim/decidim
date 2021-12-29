@@ -15,6 +15,7 @@ it:
         edit: Modifica
         new: Nuovo post
         title: Azioni
+        user_group_id: Crea post come
       admin:
         models:
           components:
@@ -29,6 +30,7 @@ it:
             success: Posta cancellata con successo
           edit:
             save: Aggiornare
+            title: Modifica post
           index:
             title: Messaggi
           new:
@@ -75,3 +77,5 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{participatory_space_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: Nuovo post pubblicato su %{participatory_space_title}
           notification_title: Il post <a href="%{resource_path}">%{resource_title}</a> è stato pubblicato su %{participatory_space_title}
+    statistics:
+      posts_count: Post

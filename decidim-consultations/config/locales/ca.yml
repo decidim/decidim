@@ -359,7 +359,11 @@ ca:
     resources:
       consultations:
         actions:
+          comment: Comentar
           vote: Vota
+    statistics:
+      consultations_count: Consultes
+      votes_count: Vots
   layouts:
     decidim:
       consultation_voting_data:

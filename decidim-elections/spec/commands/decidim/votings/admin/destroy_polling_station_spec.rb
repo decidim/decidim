@@ -9,11 +9,10 @@ module Decidim
         subject { described_class.new(polling_station, user) }
 
         let(:polling_station) { create :polling_station }
-        let(:user) { create :user, :admin, organization: organization }
-        let(:organization) { create(:organization) }
+        let(:user) { create :user, :admin, organization: polling_station.voting.organization }
 
         context "when everything is ok" do
-          it "destroys the meeting" do
+          it "destroys the polling station" do
             subject.call
 
             expect { polling_station.reload }.to raise_error(ActiveRecord::RecordNotFound)

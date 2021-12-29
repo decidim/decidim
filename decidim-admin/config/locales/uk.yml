@@ -93,7 +93,6 @@ uk:
       actions:
         add: Додати
         browse: Переглянути
-        export: Зберегти у вигляді файлу
         manage: Керувати
         new: Додати %{name}
         permissions: Права
@@ -382,7 +381,6 @@ uk:
       newsletters:
         create:
           error: При спробі створити це розсилання новин сталася помилка.
-          success: Випуск новин успішно створено. Будь ласка, перегляньте його перед відправленням.
         deliver:
           error: При розсиланні цього випуску новин сталася помилка.
           success: Випуск новин успішно доставлено.
@@ -543,13 +541,6 @@ uk:
           success: Гурт учасників успішно підтверджено
       user_groups:
         index:
-          filter:
-            all: Усі
-            pending: Очікує на розгляд
-            rejected: Відхилено
-            verified: Перевірено
-          filter_by: 'Відібрати за ознакою:'
-          search: Шукати
           state:
             pending: Очікує на розгляд
             rejected: Відхилено
@@ -571,10 +562,6 @@ uk:
       users_statistics:
         users_count:
           admins: Адміністратори
-    forms:
-      errors:
-        impersonate_user:
-          reason: Ви повинні вказати причину, коли виступаєте в ролі не керованого учасника
     moderations:
       actions:
         hidden: Приховано

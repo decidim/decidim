@@ -8,6 +8,7 @@ FactoryBot.define do
     commentable { build(:dummy_resource) }
     root_commentable { commentable }
     body { Decidim::Faker::Localized.paragraph }
+    participatory_space { commentable.try(:participatory_space) }
 
     after(:build) do |comment, evaluator|
       comment.body = if evaluator.body.is_a?(String)

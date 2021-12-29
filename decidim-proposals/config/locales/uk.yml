@@ -19,7 +19,9 @@ uk:
       models:
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Необхідно повторно вкласти
+            add_photos:
               needs_to_be_reattached: Необхідно повторно вкласти
     models:
       decidim/proposals/accepted_proposal_event: Пропозиція прийнята

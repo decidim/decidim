@@ -1,4 +1,11 @@
 cs:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Název
+      template:
+        description: Popis
+        name: Jméno
   decidim:
     admin:
       menu:

@@ -92,6 +92,8 @@ describe "Participatory Processes", type: :system do
         visit decidim_participatory_processes.participatory_processes_path
       end
 
+      it_behaves_like "accessible page"
+
       context "and accessing from the homepage" do
         it "the menu link is not shown" do
           visit decidim.root_path
@@ -111,6 +113,8 @@ describe "Participatory Processes", type: :system do
           promoted_process.save!
           visit decidim_participatory_processes.participatory_processes_path
         end
+
+        it_behaves_like "accessible page"
 
         it "lists all the highlighted processes" do
           within "#highlighted-processes" do
@@ -228,7 +232,7 @@ describe "Participatory Processes", type: :system do
       end
 
       context "when there are promoted participatory process groups" do
-        let!(:promoted_group) { create(:participatory_process_group, :promoted, :with_participatory_processes) }
+        let!(:promoted_group) { create(:participatory_process_group, :promoted, :with_participatory_processes, organization: organization) }
         let(:promoted_items_titles) { page.all("#highlighted-processes .card__title").map(&:text) }
 
         before do
@@ -268,6 +272,16 @@ describe "Participatory Processes", type: :system do
           it "shows a CTA button inside group card" do
             within("#highlighted-processes") do
               expect(page).to have_link(cta_settings[:button_text_en], href: cta_settings[:button_url])
+            end
+          end
+
+          context "and promoted group belongs to another organization" do
+            let!(:promoted_group) { create(:participatory_process_group, :promoted, :with_participatory_processes) }
+
+            it "shows a CTA button inside group card" do
+              within("#highlighted-processes") do
+                expect(page).not_to have_link(cta_settings[:button_text_en], href: cta_settings[:button_url])
+              end
             end
           end
         end

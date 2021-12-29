@@ -1,0 +1,132 @@
+= Migrate to Webpacker a Decidim module
+
+Decidim modules are included to Decidim apps as gems. Since the introduction of Webpacker to manage and compile assets in Decidim, there are some changes required to make modules compatible with Decidim
+
+== About Webpacker
+
+It's recommended to understand how Webpacker works. More information:
+
+* https://github.com/rails/webpacker#usage
+* https://edgeguides.rubyonrails.org/webpacker.html
+
+== Overview
+
+The recommended way to import assets from a gem in a Rails app using Webpacker is to publish a package in npmjs.org and include it in the package.json via `npm install`. Then the assets are available to Webpack via node_modules/ folder
+
+Once created, you should update the instructions to install the module and add the step to add the assets with npm.
+
+== Folder migration
+
+It's recommend to migrate to the new folders structure:
+
+```
+app/packs:
+  ├── entrypoints
+  └── src
+  └── stylesheets
+  └── images
+```
+
+== Update Rails helpers
+
+`javascript_include_tag` and `stylesheet_link_tag` have been replaced by `javascript_pack_tag` and `stylesheet_pack_tag`
+
+For images, if they are in `app/packs/images` you could use `image_pack_tag`.
+
+== Asset compilation
+
+As all assets are now compiled using Webpacker without ever loading the Rails or Decidim environment, there are some new conventions how to tell Webpacker about the Decidim module's assets.
+
+To begin with, create a new file named `config/assets.rb` inside your Decidim module.
+
+After this, add the following contents in that file, depending what kind of assets your module provides:
+
+[source,ruby]
+----
+# frozen_string_literal: true
+# This file is located at `config/assets.rb` of your module.
+
+# Define the base path of your module. Please note that `Rails.root` may not be
+# used because we are not inside the Rails environment when this file is loaded.
+base_path = File.expand_path("..", __dir__)
+
+# Register an additional load path for webpack. All the assets within these
+# directories will be available for inclusion within the Decidim assets. For
+# example, if you have `app/packs/src/decidim/foo.js`, you can include that file
+# in your JavaScript entrypoints (or other JavaScript files within Decidim)
+# using `import "src/decidim/foo"` after you have registered the additional path
+# as follows.
+Decidim::Webpacker.register_path("#{base_path}/app/packs")
+
+# Register the entrypoints for your module. These entrypoints can be included
+# within your application using `javascript_pack_tag` and if you include any
+# SCSS files within the entrypoints, they become available for inclusion using
+# `stylesheet_pack_tag`.
+Decidim::Webpacker.register_entrypoints(
+  decidim_foo: "#{base_path}/app/packs/entrypoints/decidim_foo.js",
+  decidim_foo_admin: "#{base_path}/app/packs/entrypoints/decidim_foo_admin.js"
+)
+
+# If you want to import some extra SCSS files in the Decidim main SCSS file
+# without adding any extra stylesheet inclusion tags, you can use the following
+# method to register the stylesheet import for the main application.
+Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/foo/app")
+
+# If you want to do the same but include the SCSS file for the admin panel's
+# main SCSS file, you can use the following method.
+Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/foo/admin", group: :admin)
+
+# If you want to override some SCSS variables/settings for Foundation from the
+# module, you can add the following registered import.
+Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/foo/settings", type: :settings)
+
+# If you want to do the same but override the SCSS variables of the admin
+# panel's styles, you can use the following method.
+Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/foo/admin_settings", type: :settings, group: :admin)
+----
+
+== Component stylesheet migration
+
+In older Decidim versions your components could define their own stylesheet as follows:
+
+[source,ruby]
+----
+Decidim.register_component(:your_component) do |component|
+  component.engine = Decidim::YourComponent::Engine
+  component.stylesheet = "decidim/your_component/your_component"
+  component.admin_stylesheet = "decidim/your_component/your_component_admin"
+end
+----
+
+These were automatically included in the main application's stylesheet file and also in the admin panel's stylesheet file. These no longer work with Webpacker as the Decidim environment is not loaded when Webpacker compiles the assets.
+
+What you should do instead is to follow the asset compilation migration guide above and migrate these definitions into your module's `config/assets.rb` file as follows:
+
+[source,ruby]
+----
+# frozen_string_literal: true
+# This file is located at `config/assets.rb` of your module.
+
+base_path = File.expand_path("..", __dir__)
+
+# Register the additonal path for Webpacker in order to make the module's
+# stylesheets available for inclusion.
+Decidim::Webpacker.register_path("#{base_path}/app/packs")
+
+# Register the main application's stylesheet include statement:
+Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/your_component/your_component")
+
+# Register the admin panel's stylesheet include statement:
+Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/your_component/your_component_admin", group: :admin)
+----
+
+=== Help Decidim to know the module's assets folder
+
+To prevent Zeitwerk issues trying to autoload the non-ruby module folders, modify the `lib/[module_name]/engine.rb` file to include the following:
+
+[source,ruby]
+---
+initializer "[module_name].webpacker.assets_path" do
+  Decidim.register_assets_path File.expand_path("app/packs", root)
+end
+---

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require "searchlight"
-require "kaminari"
+require "decidim/core"
 
 module Decidim
   module Accountability
@@ -16,10 +15,6 @@ module Decidim
           resources :versions, only: [:show, :index]
         end
         root to: "results#home"
-      end
-
-      initializer "decidim_accountability.assets" do |app|
-        app.config.assets.precompile += %w(decidim_accountability_manifest.js)
       end
 
       initializer "decidim_accountability.view_hooks" do
@@ -43,6 +38,10 @@ module Decidim
             settings.attribute :weight, type: :integer, default: 4
           end
         end
+      end
+
+      initializer "decidim_accountability.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
       end
     end
   end

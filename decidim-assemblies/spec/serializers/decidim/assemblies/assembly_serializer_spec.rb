@@ -55,6 +55,7 @@ module Decidim::Assemblies
         expect(serialized).to include(github_handler: resource.github_handler)
         expect(serialized).to include(created_by_other: resource.created_by_other)
         expect(serialized).to include(decidim_assemblies_type_id: resource.decidim_assemblies_type_id)
+        expect(serialized).to include(announcement: resource.announcement)
       end
 
       context "when assembly has area" do

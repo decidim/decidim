@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "manage attachments examples" do
-  context "when processing attachments", processing_uploads_for: Decidim::AttachmentUploader do
+  context "when processing attachments" do
     let!(:attachment) { create(:attachment, attached_to: attached_to, attachment_collection: attachment_collection) }
 
     before do

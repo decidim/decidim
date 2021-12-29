@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/components/namer"
+require "decidim/components/namer"
 
 Decidim.register_component(:elections) do |component|
   component.engine = Decidim::Elections::Engine
   component.admin_engine = Decidim::Elections::AdminEngine
-  component.icon = "decidim/elections/icon.svg"
+  component.icon = "media/images/decidim_elections.svg"
   component.stylesheet = "decidim/elections/elections"
   component.permissions_class_name = "Decidim::Elections::Permissions"
   component.query_type = "Decidim::Elections::ElectionsType"
@@ -56,7 +56,8 @@ Decidim.register_component(:elections) do |component|
 
   component.exports :elections do |exports|
     exports.collection do |component_instance|
-      Decidim::Elections::Question.where(election: Decidim::Elections::Election.where(component: component_instance).bb_results_published).collect(&:answers).flatten
+      Decidim::Elections::Answer
+        .where(decidim_elections_question_id: Decidim::Elections::Election.where(component: component_instance).bb_results_published.extract_associated(:questions))
     end
 
     exports.include_in_open_data = true
@@ -99,7 +100,8 @@ Decidim.register_component(:elections) do |component|
           end,
           start_time: 3.weeks.from_now,
           end_time: 3.weeks.from_now + 4.hours,
-          published_at: Faker::Boolean.boolean(true_ratio: 0.5) ? 1.week.ago : nil
+          published_at: Faker::Boolean.boolean(true_ratio: 0.5) ? 1.week.ago : nil,
+          salt: Decidim::Tokenizer.random_salt
         },
         visibility: "all"
       )
@@ -133,8 +135,7 @@ Decidim.register_component(:elections) do |component|
                 Decidim::Faker::Localized.paragraph(sentence_count: 3)
               end,
               weight: Faker::Number.number(digits: 1),
-              selected: Faker::Boolean.boolean(true_ratio: 0.2), # false
-              votes_count: 0
+              selected: Faker::Boolean.boolean(true_ratio: 0.2) # false
             },
             visibility: "all"
           )
@@ -143,7 +144,13 @@ Decidim.register_component(:elections) do |component|
             title: Decidim::Faker::Localized.sentence(word_count: 2),
             description: Decidim::Faker::Localized.sentence(word_count: 5),
             attached_to: answer,
-            file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
+            content_type: "image/jpeg",
+            file: ActiveStorage::Blob.create_after_upload!(
+              io: File.open(File.join(__dir__, "seeds", "city.jpeg")),
+              filename: "city.jpeg",
+              content_type: "image/jpeg",
+              metadata: nil
+            ) # Keep after attached_to
           )
         end
 
@@ -193,7 +200,8 @@ Decidim.register_component(:elections) do |component|
           end,
           start_time: 4.weeks.ago,
           end_time: 3.weeks.ago,
-          published_at: 4.weeks.ago
+          published_at: 4.weeks.ago,
+          salt: Decidim::Tokenizer.random_salt
         },
         visibility: "all"
       )
@@ -227,8 +235,7 @@ Decidim.register_component(:elections) do |component|
                 Decidim::Faker::Localized.paragraph(sentence_count: 3)
               end,
               weight: Faker::Number.number(digits: 1),
-              selected: Faker::Boolean.boolean(true_ratio: 0.2), # false
-              votes_count: 0
+              selected: Faker::Boolean.boolean(true_ratio: 0.2) # false
             },
             visibility: "all"
           )
@@ -237,7 +244,13 @@ Decidim.register_component(:elections) do |component|
             title: Decidim::Faker::Localized.sentence(word_count: 2),
             description: Decidim::Faker::Localized.sentence(word_count: 5),
             attached_to: answer,
-            file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
+            content_type: "image/jpeg",
+            file: ActiveStorage::Blob.create_after_upload!(
+              io: File.open(File.join(__dir__, "seeds", "city.jpeg")),
+              filename: "city.jpeg",
+              content_type: "image/jpeg",
+              metadata: nil
+            ) # Keep after attached_to
           )
         end
 
@@ -288,10 +301,32 @@ Decidim.register_component(:elections) do |component|
           start_time: 4.weeks.ago,
           end_time: 3.weeks.ago,
           published_at: 3.weeks.ago,
-          bb_status: "results_published"
+          bb_status: "results_published",
+          salt: Decidim::Tokenizer.random_salt
 
         },
         visibility: "all"
+      )
+
+      bb_closure = Decidim::Elections::BulletinBoardClosure.create!(
+        election: election_with_results
+      )
+
+      valid_ballots = Faker::Number.number(digits: 3)
+      Decidim::Elections::Result.create!(
+        value: valid_ballots,
+        closurable: bb_closure,
+        question: nil,
+        answer: nil,
+        result_type: :valid_ballots
+      )
+
+      Decidim::Elections::Result.create!(
+        value: valid_ballots,
+        closurable: bb_closure,
+        question: nil,
+        answer: nil,
+        result_type: :total_ballots
       )
 
       rand(1...4).times do
@@ -312,6 +347,7 @@ Decidim.register_component(:elections) do |component|
           visibility: "all"
         )
 
+        question_pending = valid_ballots
         rand(2...5).times do
           answer = Decidim.traceability.create!(
             Decidim::Elections::Answer,
@@ -323,8 +359,7 @@ Decidim.register_component(:elections) do |component|
                 Decidim::Faker::Localized.paragraph(sentence_count: 3)
               end,
               weight: Faker::Number.number(digits: 1),
-              selected: Faker::Boolean.boolean(true_ratio: 0.5),
-              votes_count: Faker::Number.number(digits: 3)
+              selected: Faker::Boolean.boolean(true_ratio: 0.5)
             },
             visibility: "all"
           )
@@ -333,7 +368,33 @@ Decidim.register_component(:elections) do |component|
             title: Decidim::Faker::Localized.sentence(word_count: 2),
             description: Decidim::Faker::Localized.sentence(word_count: 5),
             attached_to: answer,
-            file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
+            content_type: "image/jpeg",
+            file: ActiveStorage::Blob.create_after_upload!(
+              io: File.open(File.join(__dir__, "seeds", "city.jpeg")),
+              filename: "city.jpeg",
+              content_type: "image/jpeg",
+              metadata: nil
+            ) # Keep after attached_to
+          )
+
+          answer_value = Faker::Number.between(from: 0, to: question_pending)
+          Decidim::Elections::Result.create!(
+            value: answer_value,
+            closurable: bb_closure,
+            question: result_question,
+            answer: answer,
+            result_type: :valid_answers
+          )
+          question_pending -= answer_value
+        end
+
+        if result_question.nota_option? && result_question.max_selections == 1
+          Decidim::Elections::Result.create!(
+            value: question_pending,
+            closurable: bb_closure,
+            question: result_question,
+            answer: nil,
+            result_type: :blank_answers
           )
         end
 
@@ -382,7 +443,8 @@ Decidim.register_component(:elections) do |component|
         end,
         start_time: 2.weeks.ago,
         end_time: 2.weeks.from_now + 4.hours,
-        published_at: 3.weeks.ago
+        published_at: 3.weeks.ago,
+        salt: Decidim::Tokenizer.random_salt
       },
       visibility: "all"
     )
@@ -416,8 +478,7 @@ Decidim.register_component(:elections) do |component|
               Decidim::Faker::Localized.paragraph(sentence_count: 3)
             end,
             weight: Faker::Number.number(digits: 1),
-            selected: Faker::Boolean.boolean(true_ratio: 0.2), # false
-            votes_count: 0
+            selected: Faker::Boolean.boolean(true_ratio: 0.2) # false
           },
           visibility: "all"
         )
@@ -426,7 +487,13 @@ Decidim.register_component(:elections) do |component|
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.sentence(word_count: 5),
           attached_to: answer,
-          file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
+          content_type: "image/jpeg",
+          file: ActiveStorage::Blob.create_after_upload!(
+            io: File.open(File.join(__dir__, "seeds", "city.jpeg")),
+            filename: "city.jpeg",
+            content_type: "image/jpeg",
+            metadata: nil
+          ) # Keep after attached_to
         )
       end
     end

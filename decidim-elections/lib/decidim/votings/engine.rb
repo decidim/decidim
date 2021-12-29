@@ -12,7 +12,13 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resources :votings, param: :slug, only: [:index, :show, :update]
+        resources :votings, param: :slug, only: [:index, :show, :update] do
+          get :check_census, action: :show_check_census
+          post :check_census, action: :check_census
+          match :login, via: [:get, :post]
+          post :send_access_code
+          get :elections_log
+        end
 
         get "votings/:voting_id", to: redirect { |params, _request|
           voting = Decidim::Votings::Voting.find(params[:voting_id])
@@ -35,12 +41,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_votings.assets" do |app|
-        app.config.assets.precompile += %w(
-          decidim_votings_manifest.js
-        )
-      end
-
       initializer "decidim.stats" do
         Decidim.stats.register :votings_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
           Decidim::Votings::Voting.where(organization: organization).published.count
@@ -54,11 +54,12 @@ module Decidim
 
       initializer "decidim_votings.menu" do
         Decidim.menu :menu do |menu|
-          menu.item I18n.t("menu.votings", scope: "decidim"),
-                    decidim_votings.votings_path,
-                    position: 2.6,
-                    if: Decidim::Votings::Voting.where(organization: current_organization).published.any?,
-                    active: :inclusive
+          menu.add_item :votings,
+                        I18n.t("menu.votings", scope: "decidim"),
+                        decidim_votings.votings_path,
+                        position: 2.6,
+                        if: Decidim::Votings::Voting.where(organization: current_organization).published.any?,
+                        active: :inclusive
         end
       end
 

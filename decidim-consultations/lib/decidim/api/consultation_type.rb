@@ -24,6 +24,14 @@ module Decidim
       field :results_published_at, Decidim::Core::DateType, "Date when the results have been published", null: true
 
       field :questions, [Decidim::Consultations::ConsultationQuestionType, { null: true }], "", null: true
+
+      def introductory_image
+        object.attached_uploader(:introductory_image).path
+      end
+
+      def banner_image
+        object.attached_uploader(:banner_image).path
+      end
     end
   end
 end

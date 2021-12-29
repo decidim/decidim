@@ -1,0 +1,16 @@
+{
+  "name": "@decidim/stylelint-config",
+  "description": "The stylelint configuration for Decidim",
+  "version": "0.26.0-dev",
+  "repository": {
+    "url": "git@github.com:decidim/decidim.git",
+    "type": "git",
+    "directory": "packages/stylelint-config"
+  },
+  "author": "Decidim Contributors",
+  "license": "AGPL-3.0",
+  "main": "index.js",
+  "peerDependencies": {
+    "stylelint": "13.11.0"
+  }
+}

@@ -6,9 +6,14 @@ module Decidim
       # This controller allows an admin to manage projects from a Participatory Process
       class ProjectsController < Admin::ApplicationController
         include Decidim::ApplicationHelper
-        include Decidim::Proposals::Admin::Picker
+        include Decidim::Proposals::Admin::Picker if Decidim::Budgets.enable_proposal_linking
+        include Decidim::Budgets::Admin::Filterable
 
         helper_method :projects, :finished_orders, :pending_orders, :present
+
+        def collection
+          @collection ||= budget.projects.page(params[:page]).per(15)
+        end
 
         def new
           enforce_permission_to :create, :project
@@ -72,7 +77,7 @@ module Decidim
         private
 
         def projects
-          @projects ||= budget.projects.page(params[:page]).per(15)
+          @projects ||= filtered_collection
         end
 
         def orders

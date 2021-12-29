@@ -53,11 +53,26 @@ module Decidim::Meetings
         expect { subject.call }.to broadcast(:ok)
       end
 
-      it "creates a registration for the meeting and the user" do
+      it "creates a registration for the meeting and the user no public participation" do
         expect { subject.call }.to change(Registration, :count).by(1)
         last_registration = Registration.last
         expect(last_registration.user).to eq(user)
         expect(last_registration.meeting).to eq(meeting)
+        expect(last_registration.public_participation).to be false
+      end
+
+      context "when the form has public_participation set to true" do
+        before do
+          registration_form.public_participation = true
+        end
+
+        it "creates a registration for the meeting and the user with public participation" do
+          expect { subject.call }.to change(Registration, :count).by(1)
+          last_registration = Registration.last
+          expect(last_registration.user).to eq(user)
+          expect(last_registration.meeting).to eq(meeting)
+          expect(last_registration.public_participation).to be true
+        end
       end
 
       context "when registration code is enabled" do
@@ -261,6 +276,30 @@ module Decidim::Meetings
           answer = Decidim::Forms::Answer.last
           expect(answer.user).to eq(user)
           expect(answer.body).to eq("My answer response")
+        end
+
+        it "creates a registration for the meeting and the user with no public participation" do
+          expect { subject.call }.to change(Registration, :count).by(1)
+          last_registration = Registration.last
+          expect(last_registration.user).to eq(user)
+          expect(last_registration.meeting).to eq(meeting)
+          expect(last_registration.public_participation).to be false
+        end
+
+        context "when the form has public_participation set to true" do
+          before do
+            registration_form.tos_agreement = true
+            registration_form.responses.first.body = "My answer response"
+            registration_form.public_participation = true
+          end
+
+          it "creates a registration for the meeting and the user with public participation" do
+            expect { subject.call }.to change(Registration, :count).by(1)
+            last_registration = Registration.last
+            expect(last_registration.user).to eq(user)
+            expect(last_registration.meeting).to eq(meeting)
+            expect(last_registration.public_participation).to be true
+          end
         end
       end
     end

@@ -65,13 +65,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_initiatives.assets" do |app|
-        app.config.assets.precompile += %w(
-          decidim_initiatives_manifest.js
-          decidim_initiatives_manifest.css
-        )
-      end
-
       initializer "decidim_initiatives.content_blocks" do
         Decidim.content_blocks.register(:homepage, :highlighted_initiatives) do |content_block|
           content_block.cell = "decidim/initiatives/content_blocks/highlighted_initiatives"
@@ -92,10 +85,11 @@ module Decidim
 
       initializer "decidim_initiatives.menu" do
         Decidim.menu :menu do |menu|
-          menu.item I18n.t("menu.initiatives", scope: "decidim"),
-                    decidim_initiatives.initiatives_path,
-                    position: 2.4,
-                    active: :inclusive
+          menu.add_item :initiatives,
+                        I18n.t("menu.initiatives", scope: "decidim"),
+                        decidim_initiatives.initiatives_path,
+                        position: 2.4,
+                        active: :inclusive
         end
       end
 
@@ -123,6 +117,10 @@ module Decidim
 
       initializer "decidim_initiatives.query_extensions" do
         Decidim::Api::QueryType.include QueryExtensions
+      end
+
+      initializer "decidim_initiatives.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
       end
     end
   end

@@ -42,6 +42,8 @@
                 <span class="action-space icon"></span>
               <% end %>
 
+              <%= resource_permissions_link(sortition) %>
+
               <% if allowed_to? :destroy, :sortition, sortition: sortition %>
                 <%= icon_link_to "circle-x",
                                  confirm_destroy_sortition_path(sortition),

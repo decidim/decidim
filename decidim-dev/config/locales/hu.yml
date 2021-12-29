@@ -15,9 +15,15 @@ hu:
           global:
             test_choices:
               a: Egy választás
+            test_options:
+              bar: Oszlop
+              foo: foo
           step:
             endorsements_blocked: Jóváhagyások letiltva
             endorsements_enabled: Jóváhagyások engedélyezve
+            test_options:
+              bar: Oszlop
+              foo: foo
     dummy:
       admin:
         exports:

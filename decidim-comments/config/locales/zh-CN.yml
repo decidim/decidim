@@ -56,7 +56,6 @@ zh-CN:
             spam: 包含点击、广告、骗子或脚本机器人。
           title: 报告不恰当的内容
         show_replies: 显示 %{replies_count} 个回复
-        single_comment_link_title: 获取单个评论的链接
       comment_order_selector:
         order:
           best_rated: 最佳评分
@@ -71,7 +70,6 @@ zh-CN:
         blocked_comments_warning: 评论此时被禁用，但您可以阅读前面的评论。
         comment_details_title: 评论详情
         loading: 正在加载评论...
-        single_comment_warning: 您可以在这里查看 <a href="%{url}">的其余评论</a>。
         single_comment_warning_title: 您正在看到一个评论
       down_vote_button:
         text: 我不同意这个评论

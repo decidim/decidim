@@ -21,6 +21,7 @@ module Decidim
           send_notification
         end
 
+        create_follow_form_resource(form.current_user)
         broadcast(:ok, meeting)
       end
 
@@ -52,7 +53,9 @@ module Decidim
           registration_terms: { I18n.locale => form.registration_terms },
           registrations_enabled: form.registrations_enabled,
           type_of_meeting: form.clean_type_of_meeting,
-          component: form.current_component
+          component: form.current_component,
+          published_at: Time.current,
+          iframe_embed_type: form.iframe_embed_type
         }
 
         @meeting = Decidim.traceability.create!(
@@ -61,6 +64,9 @@ module Decidim
           params,
           visibility: "public-only"
         )
+        Decidim.traceability.perform_action!(:publish, meeting, form.current_user, visibility: "all") do
+          meeting.publish!
+        end
       end
 
       def schedule_upcoming_meeting_notification
@@ -78,6 +84,11 @@ module Decidim
           resource: meeting,
           followers: meeting.participatory_space.followers
         )
+      end
+
+      def create_follow_form_resource(user)
+        follow_form = Decidim::FollowForm.from_params(followable_gid: meeting.to_signed_global_id.to_s).with_context(current_user: user)
+        Decidim::CreateFollow.call(follow_form, user)
       end
     end
   end

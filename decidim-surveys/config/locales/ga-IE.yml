@@ -1,1 +1,12 @@
 ga:
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Freagair
+        name: Suirbhé
+        settings:
+          global:
+            scope_id: Scóip
+    statistics:
+      answers_count: Freagraí

@@ -15,10 +15,9 @@ module Decidim
     end
 
     def query
-      users = Decidim::User.where(organization: @organization)
+      users = Decidim::User.where(organization: @organization).not_deleted.not_blocked.confirmed
       users = users.where("created_at >= ?", @start_at) if @start_at.present?
       users = users.where("created_at <= ?", @end_at) if @end_at.present?
-      users = users.where.not(confirmed_at: nil)
       users.count
     end
   end

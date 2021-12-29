@@ -43,7 +43,11 @@
     <div class="row column">
       <%= form.categories_select :decidim_category_id, current_participatory_space.categories, include_blank: "", disable_parents: false %>
     </div>
+
+    <div class="row column">
+      <%= form.check_box :comments_enabled, label: t("enabled", scope: "decidim.comments.admin.shared.availability_fields") %>
+    </div>
   </div>
 </div>
 
-<%= javascript_include_tag "decidim/debates/admin/debates" %>
+<%= javascript_pack_tag "decidim_debates_admin" %>

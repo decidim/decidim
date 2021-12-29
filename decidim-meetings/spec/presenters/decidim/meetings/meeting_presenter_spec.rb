@@ -31,6 +31,17 @@ module Decidim::Meetings
       it "has at least one proposal" do
         expect(subject.size.positive?).to be true
       end
+
+      context "when proposal linking is disabled" do
+        before do
+          allow(Decidim::Meetings).to receive(:enable_proposal_linking).and_return(false)
+        end
+
+        it "returns an empty array and does not call authored_proposals" do
+          expect(meeting).not_to receive(:authored_proposals)
+          expect(subject).to be nil
+        end
+      end
     end
 
     describe "#formatted_proposals_titles" do
@@ -75,8 +86,17 @@ module Decidim::Meetings
         expect(meeting.description["machine_translations"]["es"]).to match(/gid:/)
 
         presented_description = presented_meeting.description(all_locales: true)
-        expect(presented_description["en"]).to eq("Description #description")
-        expect(presented_description["machine_translations"]["es"]).to eq("Description in Spanish #description")
+        expect(presented_description["en"]).to eq("<div class=\"ql-editor ql-reset-decidim\">Description #description</div>")
+        expect(presented_description["machine_translations"]["es"]).to eq("<div class=\"ql-editor ql-reset-decidim\">Description in Spanish #description</div>")
+      end
+
+      context "when sanitizes any HTML input" do
+        let(:description1) { %(<a target="alert(1)" href="javascript:alert(document.location)">XSS via target in a tag</a>) }
+
+        it "removes the html input" do
+          presented_description = presented_meeting.description(all_locales: true, strip_tags: true)
+          expect(presented_description["en"]).to eq("XSS via target in a tag")
+        end
       end
     end
   end

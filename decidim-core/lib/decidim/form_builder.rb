@@ -174,6 +174,7 @@ module Decidim
     #                      or 'full' (optional) (default: 'basic')
     #           :lines - The Integer to indicate how many lines should editor have (optional) (default: 10)
     #           :disabled - Whether the editor should be disabled
+    #           :editor_images - Allow attached images (optional) (default: false)
     #
     # Renders a container with both hidden field and editor container
     def editor(name, options = {})
@@ -191,9 +192,9 @@ module Decidim
         template += label(name, label_text + required_for_attribute(name)) if options.fetch(:label, true)
         template += hidden_field(name, hidden_options)
         template += content_tag(:div, nil, class: "editor-container #{"js-hashtags" if hashtaggable}", data: {
-                                  toolbar: toolbar,
-                                  disabled: options[:disabled]
-                                }, style: "height: #{lines}rem")
+          toolbar: toolbar,
+          disabled: options[:disabled]
+        }.merge(editor_images_options(options)), style: "height: #{lines}rem")
         template += error_for(name, options) if error?(name)
         template.html_safe
       end
@@ -417,19 +418,23 @@ module Decidim
       template += extension_allowlist_help(options[:extension_allowlist]) if options[:extension_allowlist].present?
       template += image_dimensions_help(options[:dimensions_info]) if options[:dimensions_info].present?
 
-      if file_is_image?(file)
-        template += if file.present?
-                      @template.content_tag :label, I18n.t("current_image", scope: "decidim.forms")
-                    else
-                      @template.content_tag :label, I18n.t("default_image", scope: "decidim.forms")
-                    end
-        template += @template.link_to @template.image_tag(file.url, alt: alt_text), file.url, target: "_blank", rel: "noopener"
-      elsif file_is_present?(file)
+      default_image_path = uploader_default_image_path(attribute)
+      file_path = file_attachment_path(file)
+
+      if file_path.present? && file.attachment.image? || default_image_path.present?
+        if file_path.present?
+          template += @template.content_tag :label, I18n.t("current_image", scope: "decidim.forms")
+          template += @template.link_to @template.image_tag(file_path, alt: alt_text), file_path, target: "_blank", rel: "noopener"
+        else
+          template += @template.content_tag :label, I18n.t("default_image", scope: "decidim.forms")
+          template += @template.link_to @template.image_tag(default_image_path, alt: alt_text), default_image_path, target: "_blank", rel: "noopener"
+        end
+      elsif file_path.present?
         template += @template.label_tag I18n.t("current_file", scope: "decidim.forms")
-        template += @template.link_to file.file.filename, file.url, target: "_blank", rel: "noopener"
+        template += @template.link_to file.filename, file_path, target: "_blank", rel: "noopener"
       end
 
-      if file_is_present?(file) && options[:optional]
+      if file_path.present? && options[:optional]
         template += content_tag :div, class: "field" do
           safe_join([
                       @template.check_box(@object_name, "remove_#{attribute}"),
@@ -622,7 +627,7 @@ module Decidim
       length_validator = find_validator(attribute, ActiveModel::Validations::LengthValidator)
       return length_validator.options[type] if length_validator
 
-      length_validator = find_validator(attribute, ProposalLengthValidator)
+      length_validator = find_validator(attribute, ProposalLengthValidator) if Object.const_defined?("ProposalLengthValidator")
       if length_validator
         length = length_validator.options[type]
         return length.call(object) if length.respond_to?(:call)
@@ -746,19 +751,21 @@ module Decidim
       label(attribute, (text || "").html_safe, options)
     end
 
-    # Private: Returns whether the file is an image or not.
-    def file_is_image?(file)
-      return unless file && file.respond_to?(:url)
-      return file.content_type.start_with? "image" if file.content_type.present?
+    # Private: Returns default url for attribute when uploader is an
+    # image and has defined a default url
+    def uploader_default_image_path(attribute)
+      uploader = FileValidatorHumanizer.new(object, attribute).uploader
+      return if uploader.blank?
+      return unless uploader.is_a?(Decidim::ImageUploader)
 
-      Mime::Type.lookup_by_extension(File.extname(file.url)[1..-1]).to_s.start_with? "image" if file.url.present?
+      uploader.try(:default_url)
     end
 
-    # Private: Returns whether the file exists or not.
-    def file_is_present?(file)
-      return unless file && file.respond_to?(:url)
+    # Private: Returns blob path when file is attached
+    def file_attachment_path(file)
+      return unless file && file.try(:attached?)
 
-      file.present?
+      Rails.application.routes.url_helpers.rails_blob_url(file.blob, only_path: true)
     end
 
     def required_for_attribute(attribute)
@@ -774,7 +781,6 @@ module Decidim
           visible_title + screenreader_title,
           title: I18n.t("required", scope: "forms"),
           data: { tooltip: true, disable_hover: false, keep_on_hover: true },
-          "aria-haspopup": true,
           class: "label-required"
         ).html_safe
       end
@@ -894,6 +900,16 @@ module Decidim
           end
         end
       end
+    end
+
+    def editor_images_options(options)
+      return {} unless options[:editor_images]
+
+      {
+        editor_images: true,
+        upload_images_path: Decidim::Core::Engine.routes.url_helpers.editor_images_path,
+        drag_and_drop_help_text: I18n.t("drag_and_drop_help", scope: "decidim.editor_images")
+      }
     end
   end
 end

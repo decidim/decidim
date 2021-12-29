@@ -16,9 +16,19 @@ fi-pl:
         other: Äänet
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Kommentointi sallittu
+            end_time: Kommentointi sallittu aikarajaan saakka
+            start_time: Kommentointi sallittu alkaen
       comments:
         create:
           error: Kommentin luotaessa tapahtui virhe.
+        delete:
+          error: Kommenttia ei voitu poistaa.
+        update:
+          error: Kommentin päivittäminen epäonnistui.
       comments_count: Kommenttien määrä
       comments_title: Kommentit
       last_activity:
@@ -39,7 +49,13 @@ fi-pl:
           user_group_id:
             label: Kommentoi käyttäjänä
         opinion:
+          label: Mielipiteesi tästä aiheesta
+          negative: Negatiivinen
+          negative_selected: Mielipiteesi tästä aiheesta on negatiivinen
           neutral: Neutraali
+          neutral_selected: Mielipiteesi tästä aiheesta on neutraali
+          positive: Positiivinen
+          positive_selected: Mielipiteesi tästä aiheesta on positiivinen
         remaining_characters: "%{count} merkkiä jäljellä"
         remaining_characters_1: "%{count} merkki jäljellä"
         title: Lisää oma kommenttisi
@@ -47,7 +63,12 @@ fi-pl:
         alignment:
           against: Vastaan
           in_favor: Puolesta
+        confirm_destroy: Haluatko varmasti poistaa tämän kommentin?
+        delete: Poista
+        deleted_at: Kommentti poistettu %{date}
         deleted_user: Poistettu käyttäjä
+        edit: Muokkaa
+        edited: Muokattu
         hide_replies: Piilota vastaukset
         reply: Vastaa
         report:
@@ -62,7 +83,7 @@ fi-pl:
             spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
           title: Ilmoita asiatonta sisältöä
         show_replies: Näytä %{replies_count} vastausta
-        single_comment_link_title: Hae linkki yksittäiseen kommenttiin
+        single_comment_link_title: Linkki kommenttiin
       comment_order_selector:
         order:
           best_rated: Parhaiksi arvioidut
@@ -73,17 +94,26 @@ fi-pl:
       comment_thread:
         title: Keskustelu henkilön %{authorName} kanssa
       comments:
+        blocked_comments_for_unauthorized_user_warning: Tilisi tulee olla varmennettu, jotta voit kommentoida tällä hetkellä. Voit kuitenkin lukea muiden jättämiä kommentteja.
         blocked_comments_for_user_warning: Et voi kommentoida tällä hetkellä, mutta voit lukea aikaisempia kommentteja.
         blocked_comments_warning: Kommentit on poistettu käytöstä tällä hetkellä, mutta voit lukea aikaisempia kommentteja.
         comment_details_title: Kommentin yksityiskohdat
         loading: Ladataan kommentteja ...
-        single_comment_warning: Voit katsoa loput kommentit <a href="%{url}">täältä</a>.
+        single_comment_warning: <a href="%{url}">Näytä kaikki kommentit</a>
         single_comment_warning_title: Näet yhden kommentin
         title:
           one: "%{count} kommentti"
           other: "%{count} kommenttia"
       down_vote_button:
         text: Olen eri mieltä tämän kommentin kanssa
+      edit_comment_modal_form:
+        close: Sulje
+        form:
+          body:
+            label: Kommentti
+            placeholder: Mitä mieltä olet tästä?
+          submit: Lähetä
+        title: Muokkaa kommenttiasi
       up_vote_button:
         text: Olen samaa mieltä tämän kommentin kanssa
     events:

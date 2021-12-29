@@ -1,0 +1,5 @@
+var $aside = $("#meeting-poll-aside");
+
+if($aside.length){
+  $aside.html('<%= j(render partial: "decidim/meetings/polls/questions/index").strip.html_safe %>');
+}

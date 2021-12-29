@@ -39,15 +39,17 @@ module Decidim
               action_user: form.current_user,
               extra_attributes: {
                 "component" => target_component
-              }
+              }.merge(proposal_answer_attributes(original_proposal))
             )
           end.compact
         end
 
         def proposals
-          Decidim::Proposals::Proposal
-            .where(component: origin_component)
-            .where(state: proposal_states)
+          @proposals = Decidim::Proposals::Proposal
+                       .where(component: origin_component)
+                       .where(state: proposal_states)
+          @proposals = @proposals.where(scope: proposal_scopes) unless proposal_scopes.empty?
+          @proposals
         end
 
         def proposal_states
@@ -59,6 +61,10 @@ module Decidim
           end
 
           @proposal_states
+        end
+
+        def proposal_scopes
+          @form.scopes
         end
 
         def origin_component
@@ -77,6 +83,17 @@ module Decidim
 
         def proposal_author
           form.keep_authors ? nil : @form.current_organization
+        end
+
+        def proposal_answer_attributes(original_proposal)
+          return {} unless form.keep_answers
+
+          {
+            answer: original_proposal.answer,
+            answered_at: original_proposal.answered_at,
+            state: original_proposal.state,
+            state_published_at: original_proposal.state_published_at
+          }
         end
       end
     end

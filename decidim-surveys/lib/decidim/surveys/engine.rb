@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/core"
+
 module Decidim
   module Surveys
     # This is the engine that runs on the public interface of `decidim-surveys`.
@@ -16,12 +18,14 @@ module Decidim
       end
 
       initializer "decidim_changes" do
-        Decidim::SettingsChange.subscribe "surveys" do |changes|
-          Decidim::Surveys::SettingsChangeJob.perform_later(
-            changes[:component_id],
-            changes[:previous_settings],
-            changes[:current_settings]
-          )
+        config.to_prepare do
+          Decidim::SettingsChange.subscribe "surveys" do |changes|
+            Decidim::Surveys::SettingsChangeJob.perform_later(
+              changes[:component_id],
+              changes[:previous_settings],
+              changes[:current_settings]
+            )
+          end
         end
       end
 
@@ -40,6 +44,10 @@ module Decidim
         Decidim.metrics_operation.register(:participants, :surveys) do |metric_operation|
           metric_operation.manager_class = "Decidim::Surveys::Metrics::SurveyParticipantsMetricMeasure"
         end
+      end
+
+      initializer "decidim_surveys.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
       end
     end
   end

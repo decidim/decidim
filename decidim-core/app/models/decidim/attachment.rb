@@ -6,15 +6,17 @@ module Decidim
   class Attachment < ApplicationRecord
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
+    before_save :set_content_type_and_size, if: :attached?
 
     translatable_fields :title, :description
     belongs_to :attachment_collection, class_name: "Decidim::AttachmentCollection", optional: true
     belongs_to :attached_to, polymorphic: true
 
-    mount_uploader :file, Decidim::AttachmentUploader
+    has_one_attached :file
+    validates_upload :file, uploader: Decidim::AttachmentUploader
+    validates :content_type, presence: true
 
-    validates_upload :file
-    validates :file, :content_type, presence: true
+    delegate :attached?, to: :file
 
     default_scope { order(arel_table[:weight].asc, arel_table[:id].asc) }
 
@@ -46,8 +48,9 @@ module Decidim
     #
     # Returns Boolean.
     def photo?
-      @photo ||= content_type.start_with? "image"
+      @photo ||= file.attached? && file.image?
     end
+    alias image? photo?
 
     # Whether this attachment is a document or not.
     #
@@ -60,13 +63,12 @@ module Decidim
     #
     # Returns String.
     def file_type
-      file.url&.split(".")&.last&.downcase
+      url&.split(".")&.last&.downcase
     end
 
-    # The URL to download the file.
-    #
-    # Returns String.
-    delegate :url, to: :file
+    def url
+      attached_uploader(:file).path
+    end
 
     # The URL to download the thumbnail of the file. Only works with images.
     #
@@ -74,7 +76,7 @@ module Decidim
     def thumbnail_url
       return unless photo?
 
-      file.thumbnail.url
+      attached_uploader(:file).path(variant: :thumbnail)
     end
 
     # The URL to download the a big version of the file. Only works with images.
@@ -83,7 +85,12 @@ module Decidim
     def big_url
       return unless photo?
 
-      file.big.url
+      attached_uploader(:file).path(variant: :big)
+    end
+
+    def set_content_type_and_size
+      self.content_type = file.content_type
+      self.file_size = file.byte_size
     end
   end
 end

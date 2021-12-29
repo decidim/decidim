@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/zip_stream/zip_stream_writer"
 
 module Decidim
   module ZipStream
@@ -13,10 +12,16 @@ module Decidim
     describe Writer do
       subject { ZipStreamWriterWrapper.new }
 
-      context "when fog_provider is unknown" do
+      let(:user) { create(:user) }
+
+      context "when nothing attached" do
+        before do
+          user.avatar.purge
+        end
+
         describe "#add_attachments_to_zip_stream" do
           it "does nothing" do
-            attachment_block = ["some/path", [DummyUploader.new("fog/dummy", Object.new)]]
+            attachment_block = ["some/path", [user.avatar]]
             subject.add_attachments_to_zip_stream(nil, [attachment_block])
           end
         end

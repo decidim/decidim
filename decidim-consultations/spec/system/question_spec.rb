@@ -70,6 +70,24 @@ describe "Question", type: :system do
     end
   end
 
+  context "when no question is published" do
+    let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+    let(:previous_question) { create :question, :unpublished, consultation: consultation }
+    let(:question) { create :question, :unpublished, consultation: consultation }
+    let(:next_question) { create :question, :unpublished, consultation: consultation }
+
+    before do
+      switch_to_host(organization.host)
+      login_as user, scope: :user
+      visit decidim_consultations.question_path(question)
+    end
+
+    it "hides the previous/next question button" do
+      expect(page).not_to have_content("Previous question")
+      expect(page).not_to have_content("Next question")
+    end
+  end
+
   context "when next question is published" do
     before do
       question.publish!

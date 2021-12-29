@@ -4,7 +4,7 @@
                      html: { class: "form edit_voting" } do |f| %>
   <%= render partial: "form", object: f %>
   <div class="button--double form-general-submit">
-    <%= f.submit t("votings.edit.update", scope: "decidim.votings.admin"), class: "button" %>
+    <%= f.submit t("votings.edit.update", scope: "decidim.votings.admin"), class: "button", disabled: !allowed_to?(:update, :voting, voting: current_voting) %>
 
     <% if allowed_to? :publish, :voting, voting: @current_voting %>
       <% if @current_voting.published? %>

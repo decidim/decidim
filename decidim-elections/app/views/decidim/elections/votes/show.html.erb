@@ -1,0 +1,11 @@
+<div class="vote-wrapper">
+  <div class="focus__step">
+    <% if vote&.pending? %>
+      <%= render("show_casting") %>
+    <% elsif vote&.accepted? || preview_mode? %>
+      <%= render("show_casted") %>
+    <% else %>
+      <%= render("show_failed") %>
+    <% end %>
+  </div>
+</div>

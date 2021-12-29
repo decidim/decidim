@@ -57,7 +57,6 @@ lv:
             offensive: Satur rasismu, seksismu, lamuvārdus, personiskus uzbrukumus, nāves draudus, ierosinājumus veikt pašnāvību vai jebkāda veida naida runu.
             spam: Satur klikšķu ēsmu (clickbait), reklāmu, krāpšanu vai skriptu robotprogrammatūru.
         show_replies: Rādīt %{replies_count} atbildes
-        single_comment_link_title: Iegūt saiti uz atsevišķu komentāru
       comment_order_selector:
         order:
           best_rated: Vislabāk novērtētie
@@ -72,7 +71,6 @@ lv:
         blocked_comments_warning: Komentāri šobrīd ir atspējoti, bet jūs varat lasīt iepriekšējos komentārus.
         comment_details_title: Komentāra informācija
         loading: Notiek komentāru ielāde ...
-        single_comment_warning: Pārējos komentārus varat aplūkot <a href="%{url}">šeit</a>.
         single_comment_warning_title: Jūs redzat vienu komentāru
     events:
       comments:

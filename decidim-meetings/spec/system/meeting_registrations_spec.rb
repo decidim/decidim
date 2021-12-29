@@ -8,7 +8,7 @@ describe "Meeting registrations", type: :system do
 
   let!(:questionnaire) { create(:questionnaire) }
   let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0) }
-  let!(:meeting) { create :meeting, component: component, questionnaire: questionnaire }
+  let!(:meeting) { create :meeting, :published, component: component, questionnaire: questionnaire }
   let!(:user) { create :user, :confirmed, organization: organization }
 
   let(:registrations_enabled) { true }
@@ -116,6 +116,33 @@ describe "Meeting registrations", type: :system do
           expect(page).to have_css("#loginModal", visible: :visible)
         end
 
+        context "and caching is enabled", :caching do
+          it "they have the option to sign in with different languages" do
+            visit_meeting
+
+            within ".card.extra" do
+              click_button "Join meeting"
+            end
+
+            within "#loginModal" do
+              expect(page).to have_content("Sign in with Facebook")
+              find(".close-button").click
+            end
+
+            within_language_menu do
+              click_link "Català"
+            end
+
+            within ".card.extra" do
+              click_button "Inscriu-te a la trobada"
+            end
+
+            within "#loginModal" do
+              expect(page).to have_content("Inicia sessió amb Facebook")
+            end
+          end
+        end
+
         context "and registration form is enabled" do
           let(:registration_form_enabled) { true }
 
@@ -151,12 +178,70 @@ describe "Meeting registrations", type: :system do
 
             within "#meeting-registration-confirm-#{meeting.id}" do
               expect(page).to have_content "A legal text"
+              expect(page).to have_content "Show my attendance publicly"
+              expect(page).to have_field("public_participation", checked: false)
+              page.find(".button.expanded").click
+            end
+
+            within_flash_messages do
+              expect(page).to have_content("successfully")
+            end
+
+            expect(page).to have_text("You have signed up for this meeting")
+            expect(page).to have_css(".button", text: "CANCEL YOUR REGISTRATION")
+            expect(page).to have_text("19 slots remaining")
+            expect(page).to have_text("Stop following")
+            expect(page).to have_no_text("ATTENDING PARTICIPANTS")
+            expect(page).to have_no_css("#list-of-public-participants")
+          end
+
+          it "they can join the meeting and configure their participation to be shown publicly" do
+            visit_meeting
+
+            within ".card.extra" do
+              click_button "Join meeting"
+            end
+
+            within "#meeting-registration-confirm-#{meeting.id}" do
+              expect(page).to have_content "Show my attendance publicly"
+              expect(page).to have_field("public_participation", checked: false)
+              page.find("input#public_participation").click
               page.find(".button.expanded").click
             end
 
             expect(page).to have_content("successfully")
 
-            expect(page).to have_css(".button", text: "GOING")
+            expect(page).to have_text("You have signed up for this meeting")
+            expect(page).to have_text("19 slots remaining")
+            expect(page).to have_text("Stop following")
+            expect(page).to have_text("ATTENDING PARTICIPANTS")
+            within "#list-of-public-participants" do
+              expect(page).to have_text(user.name)
+            end
+          end
+
+          it "they can join the meeting if they are already following it" do
+            create(:follow, followable: meeting, user: user)
+
+            visit_meeting
+
+            within ".card.extra" do
+              click_button "Join meeting"
+            end
+
+            within "#meeting-registration-confirm-#{meeting.id}" do
+              expect(page).to have_content "A legal text"
+              expect(page).to have_content "Show my attendance publicly"
+              expect(page).to have_field("public_participation", checked: false)
+              page.find(".button.expanded").click
+            end
+
+            within_flash_messages do
+              expect(page).to have_content("successfully")
+            end
+
+            expect(page).to have_text("You have signed up for this meeting")
+            expect(page).to have_css(".button", text: "CANCEL YOUR REGISTRATION")
             expect(page).to have_text("19 slots remaining")
             expect(page).to have_text("Stop following")
           end
@@ -165,7 +250,7 @@ describe "Meeting registrations", type: :system do
         context "and they ARE part of a verified user group" do
           let!(:user_group) { create :user_group, :verified, users: [user], organization: organization }
 
-          it "they can join the meeting representing a group" do
+          it "they can join the meeting representing a group and appear in the attending organizations list" do
             visit_meeting
 
             within ".card.extra" do
@@ -174,18 +259,27 @@ describe "Meeting registrations", type: :system do
 
             within "#meeting-registration-confirm-#{meeting.id}" do
               expect(page).to have_content "I represent a group"
+              expect(page).to have_content "Show my attendance publicly"
+              expect(page).to have_field("public_participation", checked: false)
+              page.find("input#public_participation").click
               page.find("input#user_group").click
               select user_group.name, from: :join_meeting_user_group_id
+              page.find("input#public_participation").click
               page.find(".button.expanded").click
             end
 
-            expect(page).to have_content("successfully")
+            within_flash_messages do
+              expect(page).to have_content("successfully")
+            end
 
-            expect(page).to have_css(".button", text: "GOING")
+            expect(page).to have_text("You have signed up for this meeting")
+            expect(page).to have_css(".button", text: "CANCEL YOUR REGISTRATION")
             expect(page).to have_text("19 slots remaining")
 
             expect(page).to have_text("ATTENDING ORGANIZATIONS")
             expect(page).to have_text(user_group.name)
+            expect(page).to have_no_text("ATTENDING PARTICIPANTS")
+            expect(page).to have_no_css("#list-of-public-participants")
           end
         end
       end
@@ -195,6 +289,12 @@ describe "Meeting registrations", type: :system do
       let(:registration_form_enabled) { true }
 
       it_behaves_like "has questionnaire"
+
+      context "when the user is following the meeting" do
+        let!(:follow) { create(:follow, followable: meeting, user: user) }
+
+        it_behaves_like "has questionnaire"
+      end
 
       context "when the registration form has no questions" do
         before do
@@ -207,6 +307,8 @@ describe "Meeting registrations", type: :system do
 
           expect(page).to have_i18n_content(questionnaire.title, upcase: true)
           expect(page).to have_i18n_content(questionnaire.description)
+          expect(page).to have_content "Show my attendance publicly"
+          expect(page).to have_field("public_participation", checked: false)
 
           expect(page).to have_no_i18n_content(question.body)
 
@@ -221,6 +323,29 @@ describe "Meeting registrations", type: :system do
 
       before do
         login_as user, scope: :user
+      end
+
+      it "shows the confirmation modal when leaving the meeting" do
+        visit_meeting
+
+        click_button "Cancel your registration"
+
+        within ".confirm-modal-content" do
+          expect(page).to have_content("Are you sure you want to cancel your registration for this meeting?")
+        end
+      end
+
+      it "they can leave the meeting" do
+        visit_meeting
+
+        accept_confirm { click_button "Cancel your registration" }
+
+        within_flash_messages do
+          expect(page).to have_content("successfully")
+        end
+
+        expect(page).to have_css(".button", text: "JOIN MEETING")
+        expect(page).to have_text("20 slots remaining")
       end
 
       context "when registration code is enabled" do
@@ -301,17 +426,6 @@ describe "Meeting registrations", type: :system do
           expect(registration.validated_at).not_to be(nil)
           expect(page).to have_no_content("VALIDATED")
         end
-      end
-
-      it "they can leave the meeting" do
-        visit_meeting
-        click_button "Going"
-
-        expect(page).to have_content("successfully")
-        expect(questionnaire.answers.where(user: user).empty?).to be(true)
-
-        expect(page).to have_css(".button", text: "JOIN MEETING")
-        expect(page).to have_text("20 slots remaining")
       end
 
       context "and registration form is enabled" do

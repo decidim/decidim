@@ -8,9 +8,12 @@
       close_meeting:
         attendees_count: Antall deltagere
         attending_organizations: Liste over organisasjoner som deltok
-        closing_report: Rapport
+        audio_url: Audio URL
+        closing_report: Referat
+        closing_visible: Er synlig
         contributions_count: Antall bidrag
         proposal_ids: Forslag opprettet i møtet
+        video_url: Video URL
       meeting:
         address: Adresse
         available_slots: Tilgjengelige plasser for dette møtet
@@ -33,11 +36,6 @@
         title: Tittel
         transparent: Privat
         type_of_meeting: Type møte
-      minutes:
-        audio_url: Audio URL
-        description: Beskrivelse
-        video_url: Video URL
-        visible: Er synlig
     errors:
       models:
         meeting_agenda:
@@ -169,7 +167,6 @@
           proposals_count:
             one: 'Dette møtet kan ikke slettes, da det har %{count} forslag tilknyttet:'
             other: 'Dette møtet kan ikke slettes, da det har %{count} forslag tilknyttet:'
-        minutes: Referat
         new: Nytt møte
         preview: Forhåndsvis
         registrations: Registreringer
@@ -245,7 +242,6 @@
             success: Møtet ble avsluttet
           create:
             invalid: Det oppstod et problem med å opprette dette møtet
-            success: Møtet ble opprettet
           destroy:
             success: Møtet ble slettet
           edit:
@@ -271,18 +267,6 @@
           update:
             invalid: Det oppstod et problem med å oppdatere dette møtet
             success: Møtet ble oppdatert
-        minutes:
-          create:
-            invalid: Det oppstod et problem med å opprette dette referatet
-            success: Referatet ble opprettet
-          edit:
-            update: Oppdater
-          new:
-            create: Opprett
-            title: Opprett referat
-          update:
-            invalid: Det oppstod et problem med å oppdatere dette referatet
-            success: Referatet ble oppdatert
         models:
           meeting:
             name: Møte
@@ -321,29 +305,19 @@
           value_types:
             organizer_presenter:
               not_found: 'Arrangøren ble ikke funnet i databasen (ID: %{id})'
-        minutes:
-          create: "%{user_name} opprettet referatet av møte %{resource_name} på %{space_name} rommet"
-          update: "%{user_name} oppdaterte referatet av møte %{resource_name} på %{space_name} rommet"
       calendar_modal:
         calendar_url: Kalender URL
         close_window: Lukk vindu
         export_calendar: Eksporter kalender
       conference_venues: Konferanse Arenaer
       content_blocks:
-        upcoming_events:
-          name: Kommende hendelser
-          upcoming_events: Kommende møter
-          view_all_events: Vis alle
+        upcoming_meetings:
+          view_all_meetings: Vis alle
       directory:
         meetings:
           index:
-            all: Alle
-            date: Dato
             meetings: Møter
-            past: Fortid
-            search: Søk
             space_type: Deltakerområde
-            upcoming: Kommende
       last_activity:
         new_meeting_at_html: "<span>Nytt møte på %{link}</span>"
       mailer:
@@ -386,7 +360,6 @@
           filter_by: Filtrer etter
           unfold: Åpne
         meeting_minutes:
-          meeting_minutes: Møte referater
           related_information: Relatert Informasjon
         meetings:
           no_meetings_warning: Ingen møter samsvarer med søkekriteriene, eller det er ikke planlagt noe møte.
@@ -398,9 +371,8 @@
           attendees: Antall deltakere
           contributions: Bidrag teller
           date: Dato
-          going: Skal
           join: Bli med på møte
-          meeting_report: Møtet rapportert
+          meeting_minutes: Møte referater
           no_slots_available: Ingen plasser tilgjengelig
           organizations: Deltakende organisasjoner
           registration_code_help_text: Din registreringskode

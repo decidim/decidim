@@ -74,9 +74,11 @@ Running it as is, or passing it the `--help` flag, will render the help section 
 bin/changelog_generator <GITHUB_TOKEN> <SHA>
 ----
 
+This command will create a `temporary_changelog.md` in the root of the project, so you can inspect this file and generated changelog.
+
 If you have some elements in the `Unsorted` section of the output, you can review the PRs individually, fix the title and the tags and rerun the script. Those PRs with the tags fixed will be automatically sorted. Labelling the PRs as they're opened or merged is encouraged to save some time when producing the changelog.
 
-You can copy-paste the output of the command to the relevant sections of the changelog file.
+You can copy-paste the contents of the temporary changelog file to the relevant sections of the Changelog file.
 
 == Release Candidates
 

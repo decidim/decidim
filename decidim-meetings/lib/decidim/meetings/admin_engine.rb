@@ -15,6 +15,10 @@ module Decidim
         get "/answer_options", to: "registration_form#answer_options", as: :answer_options_meeting
 
         resources :meetings do
+          member do
+            put :publish
+            put :unpublish
+          end
           resources :meeting_closes, only: [:edit, :update] do
             get :proposals_picker, on: :collection
           end
@@ -30,7 +34,7 @@ module Decidim
           resources :attachment_collections
           resources :attachments
           resources :copies, controller: "meeting_copies", only: [:new, :create]
-          resources :minutes, except: [:show, :index]
+          resource :poll, only: [:edit, :update], controller: "meetings_poll"
         end
         root to: "meetings#index"
       end

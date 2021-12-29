@@ -70,6 +70,11 @@ Decidim::Core::Engine.routes.draw do
     resource :user_interests, only: [:show, :update]
 
     get "/authorization_modals/:authorization_action/f/:component_id(/:resource_name/:resource_id)", to: "authorization_modals#show", as: :authorization_modal
+    get(
+      "/free_resource_authorization_modals/:authorization_action/f/:resource_name/:resource_id",
+      to: "free_resource_authorization_modals#show",
+      as: :free_resource_authorization_modal
+    )
 
     resources :groups, except: [:destroy, :index, :show] do
       resources :join_requests, only: [:create, :update, :destroy], controller: "user_group_join_requests"
@@ -113,6 +118,8 @@ Decidim::Core::Engine.routes.draw do
 
   get "/search", to: "searches#index", as: :search
 
+  get "/link", to: "links#new", as: :link
+
   get "/scopes/picker", to: "scopes#picker", as: :scopes_picker
 
   get "/static_map", to: "static_map#show", as: :static_map
@@ -148,6 +155,8 @@ Decidim::Core::Engine.routes.draw do
       put :withdraw
     end
   end
+
+  resources :editor_images, only: [:create]
 
   namespace :gamification do
     resources :badges, only: [:index]

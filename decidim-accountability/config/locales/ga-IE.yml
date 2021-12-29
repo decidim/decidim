@@ -1,1 +1,114 @@
 ga:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Stádas
+        decidim_category_id: Catagóir
+        decidim_scope_id: Scóip
+        end_date: Dáta deiridh
+        progress: Forás
+        title: Teideal
+      status:
+        key: Eochair
+        name: Ainm
+        progress: Forás
+      timeline_entry:
+        entry_date: Dáta
+  decidim:
+    accountability:
+      actions:
+        attachment_collections: Fillteáin
+        attachments: Ceangaltáin
+        destroy: Scrios
+        edit: Eagar
+        preview: Réamhamharc
+        title: Gníomhartha
+      admin:
+        exports:
+          result_comments: Tráchtanna
+          results: Torthaí
+        import_results:
+          new:
+            import: Iompórtáil
+            link: nasc
+        models:
+          result:
+            name: Toradh
+          status:
+            name: Stádas
+        results:
+          index:
+            title: Torthaí
+        shared:
+          subnav:
+            statuses: Stádas
+        statuses:
+          index:
+            title: Stádas
+      content_blocks:
+        highlighted_results:
+          dates: Dátaí
+          results: Torthaí
+      import_mailer:
+        import:
+          errors: Earráidí
+          row_number: Ró
+      models:
+        result:
+          fields:
+            category: Catagóir
+            created_at: Cruthaithe
+            end_date: Dáta deiridh
+            id: ID
+            progress: Forás
+            scope: Scóip
+            status: Stádas
+            title: Teideal
+        status:
+          fields:
+            key: Eochair
+            name: Ainm
+            progress: Forás
+        timeline_entry:
+          fields:
+            entry_date: Dáta
+      result_m:
+        view: Amharc
+      results:
+        filters:
+          all: Uile
+          scopes: Scóip
+        home:
+          categories_label: Catagóirí
+          subcategories_label: Fochatagóirí
+        show:
+          stats:
+            comments: Tráchtanna
+            meetings: Cruinnithe
+            proposals: Moltaí
+            votes: Tacaíochtaí
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Catagóir
+          scope_id_eq:
+            label: Scóip
+          status_id_eq:
+            label: Stádas
+    components:
+      accountability:
+        actions:
+          comment: Tabhair Trácht
+        settings:
+          global:
+            categories_label: Ainm do "Catagóirí"
+            intro: Réamhrá
+            scope_id: Scóip
+            subcategories_label: Ainm do "Fochatagóirí"
+    metrics:
+      results:
+        object: torthaí
+        title: Torthaí
+    statistics:
+      results_count: Torthaí

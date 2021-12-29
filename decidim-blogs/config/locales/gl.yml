@@ -15,6 +15,7 @@ gl:
         edit: Editar
         new: Nova publicación
         title: Accións
+        user_group_id: Crear publicación como
       admin:
         models:
           components:
@@ -58,6 +59,10 @@ gl:
       read_more: Ler máis
     components:
       blogs:
+        actions:
+          create: Crear
+          destroy: Eliminar
+          update: Actualizar
         name: Blog
         settings:
           global:
@@ -76,3 +81,5 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir dende a ligazón anterior.
           email_subject: Nova publicación publicada en %{participatory_space_title}
           notification_title: A publicación <a href="%{resource_path}">%{resource_title}</a> publicouse en %{participatory_space_title}
+    statistics:
+      posts_count: Publicacións

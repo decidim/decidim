@@ -5,21 +5,25 @@ fr:
         delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
       common:
         created_at: Créé le
+      conversation:
+        body: Corps de texte
       group:
         about: A propos
         avatar: Avatar
         document_number: Numéro de document
         email: Courriel
         name: Nom
-        nickname: Nom d'utilisateur
+        nickname: Pseudonyme
         phone: Téléphone
+      message:
+        body: Corps de texte
       report:
         details: Commentaires supplémentaires
       user:
         about: A propos de moi
         email: Votre email
         name: Votre nom
-        nickname: Surnom
+        nickname: Pseudonyme
         password: Mot de passe
         password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
@@ -41,7 +45,7 @@ fr:
       decidim/user:
         current_password: Mot de passe actuel
         email: Email
-        name: Surnom
+        name: Pseudonyme
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
         remember_me: Retenir le mot de passe
@@ -63,7 +67,6 @@ fr:
     'true': 'Oui'
   carrierwave:
     errors:
-      general: Erreur de traitement de l'image
       image_too_big: L'image est trop grande
       not_inside_organization: Le fichier n'est relié à aucune organisation
   date:
@@ -73,6 +76,33 @@ fr:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: environ %{count} heure
+        other: environ %{count} heures
+      about_x_months:
+        one: environ %{count} mois
+        other: environ %{count} mois
+      half_a_minute: une demi-minute
+      less_than_x_minutes:
+        one: moins d’une minute.
+        other: moins de %{count} min.
+      less_than_x_seconds:
+        one: à l’instant
+        other: moins de %{count} sec.
+      x_days:
+        one: Hier
+        other: "Il y a %{count} jours"
+      x_hours:
+        one: Il y a 1 heure
+        other: "Il y a %{count} heures"
+      x_minutes:
+        one: Il y a 1 min
+        other: "Il y a %{count} min"
+      x_seconds:
+        one: Il y a 1 seconde
+        other: "Il y a %{count} secondes"
   decidim:
     accessibility:
       external_link: Lien externe
@@ -95,6 +125,7 @@ fr:
         error: Une erreur s'est produite lors de la suppression de votre compte.
         success: Votre compte a été supprimé avec succès.
       show:
+        available_locales_helper: Choisissez la langue que vous souhaitez utiliser pour naviguer et recevoir des notifications dans Decidim
         change_password: Changer de mot de passe
         update_account: Mettre à jour votre compte
       update:
@@ -254,10 +285,13 @@ fr:
         download: Télécharger le fichier
       documents:
         related_documents: Documents à consulter
+      geocoding:
+        geocoded_address: Adresse
       photos:
         related_photos: Photos associées
     author:
-      avatar: Avatar
+      avatar: 'Avatar: %{name}'
+      avatar_multiuser: Avatar pour plusieurs utilisateurs
       comments:
         one: commentaire
         other: commentaires
@@ -313,6 +347,8 @@ fr:
           authorize: Autoriser avec "%{authorization}"
           explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}".
           title: Autorisation requise
+        ok:
+          title: Vous avez été autorisé pendant que vous étiez sur cette page. Veuillez recharger la page pour effectuer votre action
         pending:
           explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}", mais votre autorisation est toujours en cours de validation.
           resume: Vérifiez votre progression d'autorisation "%{authorization}"
@@ -493,6 +529,11 @@ fr:
           this_application_will_not_be_able_to: 'Cette application ne sera pas capable de :'
           update_profile: Mettre à jour votre profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
+    editor_images:
+      create:
+        error: Erreur lors de l'envoi de l'image
+        success: Image envoyée avec succès
+      drag_and_drop_help: Ajoutez des images en les glissant - déposant ou en les collant depuis votre presse-papier.
     endorsable:
       endorsements: Soutiens
       endorsements_count: Nombre de soutiens
@@ -683,6 +724,7 @@ fr:
       no_followers: Aucun abonné pour le moment.
     following:
       no_followings: Aucun abonnement
+      non_public_followings: Certaines des ressources suivies ne sont pas publiques.
     follows:
       create:
         button: Suivre
@@ -704,7 +746,7 @@ fr:
         file:
           explanation: 'Orientation pour le fichier :'
           message_1: Doit être une image ou un document.
-          message_2: Pour les images, utilisez de préférence des formats paysage, car le service recadre l'image. Pour les fichiers CSV, le séparateur entre les colonnes doit être une virgule (",")
+          message_2: Pour les images, utilisez de préférence des formats paysage, car le service recadre l'image. Pour les fichiers CSV, le séparateur entre les colonnes doit être une virgule (","). Pour pouvoir choisir le type de séparateur il recommander d'utiliser le logiciel "Libre Office"
         image:
           explanation: 'Orientation pour l''image:'
           message_1: De préférence une image au format paysage qui n'a pas de texte.
@@ -844,6 +886,15 @@ fr:
       index:
         last_activity: Dernière Activité
         resource_type: Type
+    links:
+      invalid_url: URL invalide
+      warning:
+        body_1: Vous êtes sur le point de visiter un lien externe et nous aimerions que vous soyez prudent quant au contenu du site externe.
+        body_2: Veuillez vérifier le lien que vous êtes sur le point de visiter et assurez-vous de le reconnaître comme un site sûr avant de poursuivre.
+        cancel: Annuler
+        close_modal: Fermer la fenêtre de dialogue
+        proceed: Continuer
+        title: Ouvrir le lien externe
     log:
       base_presenter:
         create: "%{user_name} a créé %{resource_name}"
@@ -1219,6 +1270,7 @@ fr:
         description: Ce contenu est-il inapproprié ?
         does_not_belong: Contient d’autres types de contenus qui vous semblent inappropriés à %{organization_name} (activités illégales, menaces suicidaires, informations personnelles,...).
         offensive: Contient des propos contraires à la loi (propos racistes, sexistes, insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine,...).
+        reason: Motif
         report: Signaler
         spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
         title: Signaler un contenu inapproprié
@@ -1244,6 +1296,8 @@ fr:
         filters:
           areas: Zones d'application
           select_an_area: Sélectionnez une zone d'application
+      public_participation:
+        public_participation: Afficher ma présence publiquement
       reference:
         reference: 'Référence : %{reference}'
       represent_user_group:
@@ -1254,10 +1308,21 @@ fr:
         title: Sélectionner le nombre de résultats par page
       share_modal:
         close_window: Fermer la fenêtre
+        copy_share_link: Copier
+        copy_share_link_clarification: Copier le lien de partage dans le presse-papiers
+        copy_share_link_copied: Copié!
+        copy_share_link_message: Le lien a bien été copié dans le presse-papier.
         share: Partager
         share_link: Lien de partage
     statistics:
       comments_count: Commentaires
+      endorsements_count: Soutiens
+      followers_count: Abonnés
+      headline: Statistiques
+      no_stats: Il n'y a pas encore de statistiques.
+      pages_count: Pages
+      participants_count: Participants
+      users_count: Participants
     tags:
       filter_results_for_category: 'Filtrer les résultats de la catégorie : %{resource}'
       filter_results_for_scope: 'Filtrer les résultats pour le secteur : %{resource}'
@@ -1295,6 +1360,7 @@ fr:
         send: Envoyer
         title_reply: Répondre
       show:
+        back: Afficher toutes les conversations
         not_allowed: Cet utilisateur n'accepte plus de messages directs.
         title: Conversation avec %{usernames}
       update:
@@ -1318,7 +1384,7 @@ fr:
     version:
       show:
         back_to_resource: Revenir en arrière
-        changes_at_title: Changements à%{title}"
+        changes_at_title: Changements sur "%{title}"
         number_of_versions: Versions
         show_all_versions: Afficher toutes les versions
         version_author: Auteur de la version
@@ -1336,10 +1402,11 @@ fr:
     versions_list:
       show:
         back_to_resource: Revenir en arrière
-        changes_at_title: Changements à%{title}"
+        changes_at_title: Changements sur "%{title}"
         number_of_versions: Versions
         title: Versions
     versions_list_item:
+      back: Afficher toutes les versions
       show:
         version_index: Version %{index}
     welcome_notification:
@@ -1520,8 +1587,8 @@ fr:
     correct_errors: Il y a des erreurs dans le formulaire, veuillez les corriger pour continuer.
     length_validator:
       minimum:
-        one: au moins %{count} caractères
-        other: au moins %{count} caractères
+        one: Au moins %{count} caractère
+        other: Au moins %{count} caractères
     required: Champ obligatoire
     required_explanation: "* Les champs obligatoires sont marqués d'un astérisque"
   invisible_captcha:
@@ -1542,9 +1609,11 @@ fr:
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
       header:
         close_menu: Fermer le menu
+        main_menu: Menu principal
         navigation: Navigation
         sign_in: Se connecter
         sign_up: S'inscrire
+        user_menu: Menu utilisateur
       impersonation_warning:
         close_session: Fermer la session
         description_html: Vous agissez en tant que l'utilisateur <b>%{user_name}</b>.
@@ -1573,6 +1642,7 @@ fr:
         profile: Mon compte
         public_profile: Mon profil public
         sign_out: Déconnexion
+        title: Liens du profil
       user_profile:
         account: Compte
         authorizations: Autorisations
@@ -1626,6 +1696,8 @@ fr:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%d %B %Y %H h %M min %S s"

@@ -6,6 +6,7 @@ gl:
         description: Descripción
         title: Título
         total_budget: Orzamento total
+        weight: Orde de posición
       project:
         budget_amount: Importe do orzamento
         decidim_category_id: Categoría
@@ -90,15 +91,22 @@ gl:
           delete: "%{user_name} eliminou o %{resource_name} proxecto no espazo %{space_name}"
           update: "%{user_name} actualizou o proxecto %{resource_name} no espazo %{space_name}"
       budget_information_modal:
+        back_to: Volver a %{component_name}
         close_modal: Pechar modal
         continue: Continuar
         more_information: Máis información
+      budget_list_item:
+        voting_finished: Votaches neste orzamento
+        voting_started: Comezaches o voto neste orzamento
       budgets_list:
         cancel_order:
           more_than_one: eliminar o teu voto de %{name} e comezar de novo
           only_one: eliminar o teu voto e comezar de novo.
         highlighted_cta: Votar en %{name}
         my_budgets: Os meus orzamentos
+        progress: Finalizar votación
+        show: Ver proxectos
+        vote: Votar
       models:
         budget:
           fields:
@@ -129,12 +137,21 @@ gl:
           checked_out:
             description: Xa votou polo orzamento. Se mudou de idea, pode %{cancel_link}.
             title: A votación do orzamento completada
+          rules:
+            title: Regras do orzamento
           title: Vostede decide o orzamento
+          total_budget: Orzamento total
           total_projects: Votos totais
         count:
           projects_count:
             one: 1 proxecto
             other: "%{count} proxectos"
+        exit_modal:
+          cancel: Volver á votación
+          close_modal: Pechar modal
+          exit: Saír da votación
+          message: O teu voto non foi rexistrado xa que aínda non completaches o proceso de votación. Estás certo/a de querer saír da votación?
+          title: Aínda non votaches
         filters:
           category: Categoría
           scope: Alcance
@@ -142,6 +159,8 @@ gl:
           status: Estado
           status_values:
             all: Todos
+            not_selected: Non seleccionado
+            selected: Seleccionado
         filters_small_view:
           close_modal: Pechar modal
           filter: Filtro
@@ -156,12 +175,26 @@ gl:
             other: proxectos seleccionados
           view: Ver
         orders:
+          highest_cost: Maior custo
           label: Ordenar proxectos por
+          lowest_cost: Menor custo
+          most_voted: Máis votado
+          random: Orde ao chou
+          selected: Seleccionado
         project:
+          add: Engadir o proxecto %{resource_name} ao teu voto
+          remove: Eliminar o proxecto %{resource_name} do teu voto
+          selected: Seleccionado
           view: Ver
           votes:
             one: voto
             other: votos
+          you_voted: Votaches isto
+        project_budget_button:
+          add: Engadir ao teu voto
+          add_descriptive: Engadir o proxecto %{resource_name} ao teu voto
+          added: Engadido ao teu voto
+          added_descriptive: O proxecto %{resource_name} engadiuse ao teu voto
         projects_for: Proxectos para %{name}
         show:
           budget: Orzamento
@@ -186,6 +219,8 @@ gl:
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
+            list_heading: Título da listaxe
+            more_information_modal: Modal de "Máis información"
             show_votes: Mostrar votos
             title: Título
             votes: Votación
@@ -193,6 +228,10 @@ gl:
               disabled: Votación deshabilitada
               enabled: Votación habilitada
               finished: Votación finalizada
+    events:
+      budgets:
+        budget_published:
+          notification_title: O orzamento <a href="%{resource_path}">%{resource_title}</a> para %{participatory_space_title} xa está aberto.
     orders:
       checkout:
         error: Produciuse un erro ao procesar o teu voto
@@ -200,5 +239,11 @@ gl:
       destroy:
         error: Produciuse un erro ao cancelar o teu voto
         success: O teu voto foi cancelado correctamente
+    resource_links:
+      included_proposals:
+        project_proposal: Propostas incluídas neste proxecto
+    statistics:
+      orders_count: Apoios
+      projects_count: Proxectos
   index:
     confirmed_orders_count: Reconto de votos

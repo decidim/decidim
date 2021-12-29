@@ -46,6 +46,13 @@ describe "Proposals", type: :system do
     let!(:proposals) { create_list(:proposal, 3, component: component) }
     let!(:proposal) { proposals.first }
 
+    it_behaves_like "accessible page" do
+      before do
+        visit_component
+        click_link proposal_title
+      end
+    end
+
     it "allows viewing a single proposal" do
       visit_component
 
@@ -119,10 +126,9 @@ describe "Proposals", type: :system do
       it_behaves_like "rendering unsafe content", ".columns.mediumlarge-8.large-9"
     end
 
-    context "when it is a proposal with card image enabled" do
+    context "when it is a proposal with image" do
       let!(:component) do
         create(:proposal_component,
-               :with_card_image_allowed,
                manifest: manifest,
                participatory_space: participatory_process)
       end
@@ -361,6 +367,10 @@ describe "Proposals", type: :system do
         expect(page).to have_selector(".card--proposal", text: unlucky_proposal_title)
         expect(page).to have_author(lucky_proposal.creator_author.name)
       end
+    end
+
+    it_behaves_like "accessible page" do
+      before { visit_component }
     end
 
     it "lists all the proposals" do

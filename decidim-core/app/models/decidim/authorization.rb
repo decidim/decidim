@@ -18,8 +18,8 @@ module Decidim
     encrypt_attribute :metadata, type: :hash
     encrypt_attribute :verification_metadata, type: :hash
 
-    validates_upload :verification_attachment
-    mount_uploader :verification_attachment, Decidim::Verifications::AttachmentUploader
+    has_one_attached :verification_attachment
+    validates_upload :verification_attachment, uploader: Decidim::Verifications::AttachmentUploader
 
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
     has_one :organization, through: :user, class_name: "Decidim::Organization"
@@ -45,9 +45,7 @@ module Decidim
     end
 
     def grant!
-      remove_verification_attachment!
-
-      update!(granted_at: Time.current, verification_metadata: {})
+      update!(granted_at: Time.current, verification_metadata: {}, verification_attachment: nil)
     end
 
     def granted?

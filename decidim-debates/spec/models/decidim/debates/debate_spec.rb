@@ -14,6 +14,7 @@ describe Decidim::Debates::Debate do
   include_examples "has component"
   include_examples "has category"
   include_examples "resourceable"
+  include_examples "has comments availability attributes"
 
   describe "newsletter participants" do
     subject { Decidim::Debates::Debate.newsletter_participant_ids(debate.component) }

@@ -46,7 +46,8 @@ module Decidim
           attached_to: @attached_to,
           weight: form.weight,
           attachment_collection: form.attachment_collection,
-          file: form.file # Define attached_to before this
+          file: form.file, # Define attached_to before this
+          content_type: form.file.content_type
         )
       end
 

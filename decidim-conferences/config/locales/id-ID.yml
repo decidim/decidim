@@ -22,6 +22,12 @@ id:
         slogan: Slogan
         slug: Siput URL
         title: Judul
+      conference_media_link:
+        weight: Berat
+      conference_partner:
+        weight: Berat
+      conference_registration_type:
+        weight: Berat
       conference_speaker:
         full_name: Nama lengkap
       conference_user_role:

@@ -921,6 +921,7 @@ shared_examples_for "has questionnaire" do
 
           context "when the condition_question type is long answer" do
             let!(:condition_question_type) { "long_answer" }
+            let!(:conditioned_question_id) { "#questionnaire_responses_0" }
 
             it "shows the question only if the condition is fulfilled" do
               expect_question_to_be_visible(false)
@@ -1012,6 +1013,7 @@ shared_examples_for "has questionnaire" do
 
           context "when the condition_question type is long answer" do
             let!(:condition_question_type) { "long_answer" }
+            let!(:conditioned_question_id) { "#questionnaire_responses_0" }
 
             it "shows the question only if the condition is fulfilled" do
               expect_question_to_be_visible(true)

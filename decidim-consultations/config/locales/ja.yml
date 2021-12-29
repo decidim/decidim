@@ -90,6 +90,7 @@ ja:
         create:
           error: 新しい議案を作成する際に問題がありました。
           success: 議案を作成しました。
+        deprecation_warning: コンサルテーションモジュールは近い将来非推奨になります。Votingsと呼ばれる次世代の暗号を利用した安全なバージョンに取り組んでいます。
         edit:
           update: 更新
         form:
@@ -229,7 +230,7 @@ ja:
       consultations:
         orders:
           label: '議案の並び替え:'
-          random: Random
+          random: ランダム
           recent: 直近のもの
         show:
           dates: 日付
@@ -265,7 +266,7 @@ ja:
             see_all_consultations: すべての議案を見る
             voting_ends_in:
               other: 投票は <strong>%{count} 日</strong>で終了します
-            voting_ends_today: 投票は今日終了 <strong></strong>
+            voting_ends_today: <strong>本日</strong>投票終了
       question:
         take_part: 参加する
         view_results: 結果を表示
@@ -310,6 +311,8 @@ ja:
     help:
       participatory_spaces:
         consultations:
+          contextual: "<p><strong>議案</strong>は、組織を形成するすべての人に明確な質問を投げかけ、コンサルテーションへの参加を呼びかけ、回答の賛否の議論に火をつけ、注文をつけることができるスペースです。議案の日が来たら、投票をして、その結果を公開することができます。</p><p>例: 議案は組織に影響するどのようなことにも利用できます。例えば、いくつかの代替案から組織の名前やロゴを選び変更したり、より大きな組織の一部になるかどうか、イエスかノーかを決定したり、新しい戦略計画やワーキンググループの結果を検証したり拒否したり、ポジションが最大で 1、2、3 の委任のままであるべきかどうかを定義したりできます。</p>\n"
+          page: "<p><strong>議案</strong>は、組織を形成するすべての人に明確な質問を投げかけ、コンサルテーションへの参加を呼びかけ、回答の賛否の議論に火をつけ、注文をつけることができるスペースです。議案の日が来たら、投票をして、その結果を公開することができます。</p><p>例: 議案は組織に影響するどのようなことにも利用できます。例えば、いくつかの代替案から組織の名前やロゴを選び変更したり、より大きな組織の一部になるかどうか、イエスかノーかを決定したり、新しい戦略計画やワーキンググループの結果を検証したり拒否したり、ポジションが最大で 1、2、3 の委任のままであるべきかどうかを定義したりできます。</p>\n"
           title: 議案とは何ですか?
     menu:
       consultations: 議案
@@ -346,7 +349,11 @@ ja:
     resources:
       consultations:
         actions:
+          comment: コメント
           vote: 投票
+    statistics:
+      consultations_count: コンサルテーション
+      votes_count: 投票
   layouts:
     decidim:
       consultation_voting_data:

@@ -7,7 +7,7 @@ sv:
         decidim_scope_id: Omfattning
         description: Beskrivning
         end_date: Slutdatum
-        progress: Behandling
+        progress: Genomförande
         project_ids: Projekt som omfattas
         proposals: Förslag som omfattas
         start_date: Startdatum
@@ -17,7 +17,7 @@ sv:
         description: Beskrivning
         key: Nyckel
         name: Namn
-        progress: Behandling
+        progress: Genomförande
       timeline_entry:
         description: Beskrivning
         entry_date: Datum
@@ -145,7 +145,7 @@ sv:
             created_at: Skapad
             end_date: Slutdatum
             id: ID
-            progress: Behandling
+            progress: Genomförande
             scope: Omfång
             start_date: Startdatum
             status: Status
@@ -204,6 +204,8 @@ sv:
             label: Status
     components:
       accountability:
+        actions:
+          comment: Kommentar
         name: Ansvarsskyldighet
         settings:
           global:
@@ -244,3 +246,5 @@ sv:
         result_project: Projekt som ingår i detta resultat
       included_proposals:
         result_proposal: Förslag som ingår i detta resultat
+    statistics:
+      results_count: Resultat

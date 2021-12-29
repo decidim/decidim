@@ -58,7 +58,7 @@ shared_examples "create an initiative" do
         end.to change { Decidim::Initiative.count }.by(1)
       end
 
-      context "when attachment is present", processing_uploads_for: Decidim::AttachmentUploader do
+      context "when attachment is present" do
         let(:uploaded_files) do
           [
             Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")
@@ -79,7 +79,7 @@ shared_examples "create an initiative" do
         end
       end
 
-      context "when has multiple attachments", processing_uploads_for: Decidim::AttachmentUploader do
+      context "when has multiple attachments" do
         let(:uploaded_files) do
           [
             Decidim::Dev.test_file("city.jpeg", "image/jpeg"),

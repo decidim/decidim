@@ -34,6 +34,7 @@ es:
         subtitle: Subtítulo
         target: Quién participa
         title: Título
+        weight: Orden de posición
       participatory_process_group:
         description: Descripción
         developer_group: Grupo promotor
@@ -335,7 +336,7 @@ es:
         participatory_processes:
           name: Procesos participativos
         stats:
-          name: Estatísticas
+          name: Estadísticas
         title:
           meta_scope: Ámbito
           name: Título, descripción y hashtag
@@ -402,6 +403,7 @@ es:
             more_information: Más información
             participate: Participar
             participate_in: Participa en el proceso %{resource_name}
+            processes_button_title: Enlace a la página de Procesos que muestra todos los procesos
             see_all_processes: Ver todos los procesos
       participatory_process_steps:
         index:
@@ -448,6 +450,8 @@ es:
         start_date: Fecha de inicio
         target: Quién participa
         unspecified: No especificado
+    statistics:
+      processes_count: Procesos
   layouts:
     decidim:
       participatory_process_groups:

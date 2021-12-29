@@ -10,7 +10,8 @@ module Decidim
       include Decidim::HasCategory
       include Decidim::Resourceable
       include Decidim::Followable
-      include Decidim::Comments::Commentable
+      include Decidim::Comments::CommentableWithComponent
+      include Decidim::Comments::HasAvailabilityAttributes
       include Decidim::ScopableResource
       include Decidim::Authorable
       include Decidim::Reportable
@@ -57,6 +58,14 @@ module Decidim
         Decidim::Debates::AdminLog::DebatePresenter
       end
 
+      def comments_start_time
+        start_time
+      end
+
+      def comments_end_time
+        end_time
+      end
+
       # Public: Overrides the `reported_content_url` Reportable concern method.
       def reported_content_url
         ResourceLocatorPresenter.new(self).url
@@ -96,17 +105,12 @@ module Decidim
         (ama? && open_ama?) || !ama?
       end
 
-      # Public: Overrides the `commentable?` Commentable concern method.
-      def commentable?
-        component.settings.comments_enabled?
-      end
-
-      # Public: Overrides the `accepts_new_comments?` Commentable concern method.
+      # Public: Overrides the `accepts_new_comments?` CommentableWithComponent concern method.
       def accepts_new_comments?
         return false unless open?
         return false if closed?
 
-        commentable? && !comments_blocked?
+        commentable? && !comments_blocked? && comments_allowed?
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.
@@ -131,13 +135,13 @@ module Decidim
         followers
       end
 
-      def self.export_serializer
-        Decidim::Debates::DataPortabilityDebateSerializer
+      # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
+      def allow_resource_permissions?
+        true
       end
 
-      # Public: Whether the object can have new comments or not.
-      def user_allowed_to_comment?(user)
-        can_participate_in_space?(user)
+      def self.export_serializer
+        Decidim::Debates::DataPortabilityDebateSerializer
       end
 
       def self.newsletter_participant_ids(component)
@@ -176,12 +180,12 @@ module Decidim
       #
       # rubocop:disable Rails/SkipsModelValidations
       def update_comments_count
-        comments_count = comments.not_hidden.count
-        last_comment = comments.not_hidden.order("created_at DESC").first
+        comments_count = comments.not_hidden.not_deleted.count
+        last_comment = comments.not_hidden.not_deleted.order("created_at DESC").first
 
         update_columns(
           last_comment_at: last_comment&.created_at,
-          last_comment_by_id: last_comment&.decidim_author_id,
+          last_comment_by_id: last_comment&.decidim_user_group_id || last_comment&.decidim_author_id,
           last_comment_by_type: last_comment&.decidim_author_type,
           comments_count: comments_count,
           updated_at: Time.current

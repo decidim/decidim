@@ -41,6 +41,16 @@ module Capybara
 
       expect(proposals_picker).to have_proposals_picked(proposals)
     end
+
+    def proposals_remove(proposals_picker, proposals)
+      data_picker = proposals_picker.data_picker
+
+      proposals.each do |proposal|
+        data_picker.find("a", text: proposal.title["en"]).find("span").click
+      end
+
+      expect(proposals_picker).to have_proposals_not_picked(proposals)
+    end
   end
 end
 

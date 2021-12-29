@@ -9,6 +9,10 @@ module Decidim
 
         helper_method :current_voting, :monitoring_committee_members, :monitoring_committee_member
 
+        def index
+          enforce_permission_to :read, :monitoring_committee_members, voting: current_voting
+        end
+
         def new
           enforce_permission_to :create, :monitoring_committee_member, voting: current_voting
           @form = form(MonitoringCommitteeMemberForm).instance

@@ -21,10 +21,18 @@ en:
               a: A choice
               b: B choice
               c: C choice
+            test_options:
+              bar: Bar
+              baz: Baz
+              foo: Foo
           step:
             endorsements_blocked: Endorsements blocked
             endorsements_enabled: Endorsements enabled
             readonly_step_attribute: Readonly step attribute
+            test_options:
+              bar: Bar
+              baz: Baz
+              foo: Foo
     dummy:
       admin:
         exports:

@@ -57,6 +57,14 @@ module Decidim
         end
 
         def election_data
+          @election_data ||= begin
+            ret = base_election_data
+            election.participatory_space.try(:complete_election_data, election, ret)
+            ret
+          end
+        end
+
+        def base_election_data
           {
             trustees: trustees_data,
             default_locale: current_organization.default_locale,
@@ -64,7 +72,8 @@ module Decidim
             start_date: election.start_time,
             end_date: election.end_time,
             questions: questions_data,
-            answers: answers_data
+            answers: answers_data,
+            ballot_styles: {}
           }
         end
 
@@ -72,7 +81,7 @@ module Decidim
           trustees.map do |trustee|
             {
               name: trustee.name,
-              slug: trustee.slug,
+              slug: trustee.bulletin_board_slug,
               public_key: JSON.parse(trustee.public_key)
             }
           end
@@ -133,7 +142,7 @@ module Decidim
             affected_users: trustee
           }
 
-          Decidim::EventsManager.publish(data)
+          Decidim::EventsManager.publish(**data)
         end
 
         # Since machine_translations return a nested hash but Electionguard and other
@@ -149,7 +158,7 @@ module Decidim
           translated_attribute.deep_symbolize_keys!
           machine_translations = translated_attribute.delete(:machine_translations) || {}
 
-          machine_translations.merge(translated_attribute)
+          machine_translations.merge(translated_attribute).reject { |_k, v| v.empty? }
         end
       end
     end

@@ -1,0 +1,29 @@
+<div class="reveal edit-comment-modal" id="<%= "editCommentModal#{model.id}" %>" data-reveal role="dialog" aria-modal="true" aria-labelledby="<%= "editCommentModal#{model.id}" %>-label">
+  <div class="reveal__header">
+    <h3 id="<%= "editCommentModal#{model.id}" %>-label" class="reveal__title"><%= t("decidim.components.edit_comment_modal_form.title") %></h3>
+    <button class="close-button" data-close aria-label="<%= t("decidim.components.edit_comment_modal_form.close") %>" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <%= form_for(form_object, url: decidim_comments.comment_path(comment), method: :put, remote: true, html: { id: form_id }) do |form| %>
+    <div class="field">
+      <label class="show-for-sr" for="<%= form_id %>">
+        <%= t("decidim.components.edit_comment_modal_form.form.body.label") %>
+      </label>
+      <div class="hashtags__container">
+        <%= form.text_area(
+          :body,
+          id: form_id,
+          rows: 4,
+          maxlength: comments_max_length,
+          required: true,
+          placeholder: t("decidim.components.edit_comment_modal_form.form.body.placeholder"),
+          label: false,
+          data: { remaining_characters: "##{form_id}-remaining-characters" }
+        ) %>
+      </div>
+      <button type="submit" data-close class="button button--sc"><%= t("decidim.components.edit_comment_modal_form.form.submit") %></button>
+      <span id="<%= form_id %>-remaining-characters" class="remaining-character-count"></span>
+    </div>
+  <% end %>
+</div>

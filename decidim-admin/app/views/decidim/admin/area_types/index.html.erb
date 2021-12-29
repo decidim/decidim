@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= t "decidim.admin.titles.area_types" %>
       <% if allowed_to? :create, :area_type %>
-        <%= link_to t("actions.add", scope: "decidim.admin"), ["new", "area_type"], class: "button tiny button--title new" %>
+        <%= link_to t("actions.add", scope: "decidim.admin"), [:new, :area_type], class: "button tiny button--title new" %>
       <% end %>
     </h2>
   </div>
@@ -28,7 +28,7 @@
               </td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :area_type, area_type: area_type %>
-                  <%= icon_link_to "pencil", ["edit", area_type], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
+                  <%= icon_link_to "pencil", [:edit, area_type], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
                 <% end %>
 
                 <% if allowed_to? :destroy, :area_type, area_type: area_type %>

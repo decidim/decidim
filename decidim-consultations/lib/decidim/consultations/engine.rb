@@ -52,13 +52,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_consultations.assets" do |app|
-        app.config.assets.precompile += %w(
-          decidim_consultations_manifest.js
-          decidim_consultations_manifest.css
-        )
-      end
-
       initializer "decidim.stats" do
         Decidim.stats.register :consultations_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
           Decidim::Consultation.where(organization: organization).published.count
@@ -72,11 +65,12 @@ module Decidim
 
       initializer "decidim_consultations.menu" do
         Decidim.menu :menu do |menu|
-          menu.item I18n.t("menu.consultations", scope: "decidim"),
-                    decidim_consultations.consultations_path,
-                    position: 2.65,
-                    if: Decidim::Consultation.where(organization: current_organization).published.any?,
-                    active: :inclusive
+          menu.add_item :consultations,
+                        I18n.t("menu.consultations", scope: "decidim"),
+                        decidim_consultations.consultations_path,
+                        position: 2.65,
+                        if: Decidim::Consultation.where(organization: current_organization).published.any?,
+                        active: :inclusive
         end
       end
 
@@ -94,6 +88,10 @@ module Decidim
 
       initializer "decidim_consultations.query_extensions" do
         Decidim::Api::QueryType.include Decidim::Consultations::QueryExtensions
+      end
+
+      initializer "decidim_consultations.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
       end
     end
   end

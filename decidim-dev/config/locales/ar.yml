@@ -9,6 +9,17 @@ ar:
         translatable_text: نص قابل للترجمة
         updated_at: تم التحديث في
   decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            test_options:
+              bar: شريط
+              foo: فو
+          step:
+            test_options:
+              bar: شريط
+              foo: فو
     dummy:
       admin:
         exports:

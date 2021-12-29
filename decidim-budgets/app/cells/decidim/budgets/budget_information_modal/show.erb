@@ -1,10 +1,10 @@
-<button class="link" data-open="budget-modal-info" aria-controls="budget-modal-info" aria-haspopup="true" tabindex="0">
+<button class="link" data-open="budget-modal-info" aria-controls="budget-modal-info" aria-haspopup="dialog" tabindex="0">
   <%= t(:more_information, scope: i18n_scope) %>
 </button>
 
-<div class="reveal" data-reveal id="budget-modal-info">
+<div class="reveal" data-reveal id="budget-modal-info" aria-modal="true" aria-labelledby="budget-modal-info-label">
   <div class="reveal__header">
-    <h3 class="reveal__title"><%= decidim_sanitize(component_name) %></h3>
+    <h3 id="budget-modal-info-label" class="reveal__title"><%= decidim_sanitize(component_name) %></h3>
     <button class="close-button" data-close aria-label="<%= t(:close_modal, scope: i18n_scope) %>" type="button">
       <span aria-hidden="true">×</span>
     </button>

@@ -17,6 +17,7 @@ describe "Explore versions", versioning: true, type: :system do
   let!(:meeting) do
     create(
       :meeting,
+      :published,
       title: { I18n.locale => "My title" },
       component: component,
       # PaperTrail can create an extra version if there's a questionnaire
@@ -93,8 +94,8 @@ describe "Explore versions", versioning: true, type: :system do
     it "shows the changed attributes" do
       expect(page).to have_content("Changes at")
 
-      within ".diff-for-title" do
-        expect(page).to have_content("TITLE")
+      within ".diff-for-title-english" do
+        expect(page).to have_content("TITLE (ENGLISH)")
 
         within ".diff > ul > .del" do
           expect(page).to have_content("My title")

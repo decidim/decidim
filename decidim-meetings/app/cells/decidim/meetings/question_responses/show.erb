@@ -1,0 +1,7 @@
+<% answer_options_with_percentages.each do |(answer_option_body, answer_percentage)| %>
+  <label><%= translated_attribute(answer_option_body) %></label>
+  <div class="meeting-polls__answer">
+    <div class="meeting-polls__answer--value"><%= answer_percentage %></div>
+    <div class="meeting-polls__answer--bar"><div style="width: <%= answer_percentage %>"></div></div>
+  </div>
+<% end %>

@@ -35,8 +35,8 @@ module Decidim
         attr_reader :form, :conference
 
         def update_conference_diploma
-          @conference.main_logo = @form.main_logo
-          @conference.signature = @form.signature
+          @conference.main_logo = @form.main_logo if @form.main_logo.present?
+          @conference.signature = @form.signature if @form.signature.present?
           @conference.signature_name = @form.signature_name
           @conference.sign_date = @form.sign_date
 

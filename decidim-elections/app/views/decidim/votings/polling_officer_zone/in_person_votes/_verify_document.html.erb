@@ -1,0 +1,23 @@
+<div class="row section">
+  <div class="columns">
+    <div class="callout success mt-s">
+      <h5><%= t(".census_present") %></h5>
+    </div>
+    <div class="row mt-sm">
+      <div class="columns large-7">
+        <p><strong><%= t(".title") %></strong></p>
+        <div class="card--secondary">
+          <div class="card__content">
+            <p>
+              <strong><%= t(".name") %></strong>
+              <br><%= voter_name %>
+            </p>
+            <button type="button" class="button button--sc expanded mt-sm mb-none js-verify-document">
+              <%= t(".verify_document") %>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

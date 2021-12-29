@@ -7,7 +7,7 @@ module Decidim
       class TrusteesParticipatorySpaceForm < Decidim::Form
         attribute :user_id, Integer
 
-        validates :user_id, presence: true
+        validates :user_id, :user, presence: true
 
         def map_model(trustee)
           self.user_id = trustee.decidim_user_id

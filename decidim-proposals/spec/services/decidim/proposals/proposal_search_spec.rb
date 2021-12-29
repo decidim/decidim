@@ -114,7 +114,8 @@ module Decidim
           end
 
           context "when filtering withdrawn proposals" do
-            let(:states) { %w(withdrawn) }
+            let(:params) { default_params.merge(state_withdraw: state_withdraw) }
+            let(:state_withdraw) { "withdrawn" }
 
             it "returns only withdrawn proposals" do
               create_list(:proposal, 3, component: component)

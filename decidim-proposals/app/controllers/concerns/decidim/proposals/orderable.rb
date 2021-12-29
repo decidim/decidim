@@ -15,19 +15,32 @@ module Decidim
 
         # Available orders based on enabled settings
         def available_orders
-          @available_orders ||= begin
-            available_orders = %w(random recent)
-            available_orders << "most_voted" if most_voted_order_available?
-            available_orders << "most_endorsed" if current_settings.endorsements_enabled?
-            available_orders << "most_commented" if component_settings.comments_enabled?
-            available_orders << "most_followed" << "with_more_authors"
-            available_orders
+          @available_orders ||= [default_order] + possible_orders.excluding(default_order)
+        end
+
+        def possible_orders
+          @possible_orders ||= begin
+            possible_orders = %w(random recent)
+            possible_orders << "most_voted" if most_voted_order_available?
+            possible_orders << "most_endorsed" if current_settings.endorsements_enabled?
+            possible_orders << "most_commented" if component_settings.comments_enabled?
+            possible_orders << "most_followed" << "with_more_authors"
+            possible_orders
           end
         end
 
         def default_order
+          @default_order ||= begin
+            default_order = current_settings.default_sort_order.presence || component_settings.default_sort_order
+            return order_by_default if default_order == "default"
+
+            possible_orders.include?(default_order) ? default_order : order_by_default
+          end
+        end
+
+        def order_by_default
           if order_by_votes?
-            detect_order("most_voted")
+            "most_voted"
           else
             "random"
           end

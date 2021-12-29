@@ -66,7 +66,8 @@ module Decidim::Assemblies
         facebook_handler: "lorem",
         instagram_handler: "lorem",
         youtube_handler: "lorem",
-        github_handler: "lorem"
+        github_handler: "lorem",
+        announcement: { en: "announcement_lorem" }
       )
     end
     let(:invalid) { false }
@@ -109,7 +110,13 @@ module Decidim::Assemblies
     end
 
     context "when the uploaded hero image has too large dimensions" do
-      let(:hero_image) { Decidim::Dev.test_file("5000x5000.png", "image/png") }
+      let(:hero_image) do
+        ActiveStorage::Blob.create_after_upload!(
+          io: File.open(Decidim::Dev.asset("5000x5000.png")),
+          filename: "5000x5000.png",
+          content_type: "image/png"
+        )
+      end
       let(:banner_image) { nil }
       let(:form) do
         Admin::AssemblyForm.from_params(
@@ -126,15 +133,6 @@ module Decidim::Assemblies
           current_organization: organization,
           current_user: current_user
         )
-      end
-
-      before do
-        # Enable processing for the test in order to catch validation errors
-        Decidim::HeroImageUploader.enable_processing = true
-      end
-
-      after do
-        Decidim::HeroImageUploader.enable_processing = false
       end
 
       it "broadcasts invalid" do

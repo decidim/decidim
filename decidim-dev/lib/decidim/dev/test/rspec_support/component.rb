@@ -45,6 +45,32 @@ module Decidim
 
         root to: proc { [200, {}, ["DUMMY ADMIN ENGINE"]] }
       end
+
+      initializer "dummy_admin.imports" do
+        class ::DummyCreator < Decidim::Admin::Import::Creator
+          def self.resource_klass
+            Decidim::DummyResources::DummyResource
+          end
+
+          def produce
+            resource
+          end
+
+          private
+
+          def resource
+            @resource ||= Decidim::DummyResources::DummyResource.new(
+              title: { en: "Dummy" },
+              author: context[:current_user],
+              component: component
+            )
+          end
+
+          def component
+            context[:current_component]
+          end
+        end
+      end
     end
 
     class ApplicationRecord < ActiveRecord::Base
@@ -115,6 +141,11 @@ module Decidim
         component.can_participate_in_space?(user)
       end
 
+      # Public: Whether the object can have new comment votes or not.
+      def user_allowed_to_vote_comment?(user)
+        component.can_participate_in_space?(user)
+      end
+
       def self.user_collection(user)
         where(decidim_author_id: user.id, decidim_author_type: "Decidim::User")
       end
@@ -157,14 +188,14 @@ module Decidim
         false
       end
 
-      def respond_to_missing?
+      def respond_to_missing?(*)
         true
       end
 
       def method_missing(method, *args)
         if method.to_s.ends_with?("?")
           false
-        elsif [:avatar_url, :profile_path, :badge, :followers_count].include?(method)
+        elsif [:avatar_url, :profile_path, :badge, :followers_count, :cache_key_with_version].include?(method)
           ""
         else
           super
@@ -179,6 +210,10 @@ class DummySerializer
     @id = id
   end
 
+  def run
+    serialize
+  end
+
   def serialize
     {
       id: @id
@@ -189,7 +224,7 @@ end
 Decidim.register_component(:dummy) do |component|
   component.engine = Decidim::DummyResources::DummyEngine
   component.admin_engine = Decidim::DummyResources::DummyAdminEngine
-  component.icon = "decidim/dummy.svg"
+  component.icon = "media/images/decidim_dev_dummy.svg"
 
   component.actions = %w(foo bar)
 
@@ -259,6 +294,24 @@ Decidim.register_component(:dummy) do |component|
 
     exports.serializer DummySerializer
   end
+
+  component.imports :dummies do |imports|
+    imports.messages do |msg|
+      msg.set(:resource_name) { |count: 1| count == 1 ? "Dummy" : "Dummies" }
+      msg.set(:title) { "Import dummies" }
+      msg.set(:label) { "Import dummies from a file" }
+    end
+
+    imports.creator DummyCreator
+    imports.example do |import_component|
+      locales = import_component.organization.available_locales
+      translated = ->(name) { locales.map { |l| "#{name}/#{l}" } }
+      [
+        translated.call("title") + %w(body) + translated.call("translatable_text") + %w(address latitude longitude),
+        locales.map { "Title text" } + ["Body text"] + locales.map { "Translatable text" } + ["Fake street 1", 1.0, 1.0]
+      ]
+    end
+  end
 end
 
 RSpec.configure do |config|
@@ -276,6 +329,7 @@ RSpec.configure do |config|
           t.integer :coauthorships_count, null: false, default: 0
           t.integer :endorsements_count, null: false, default: 0
           t.integer :comments_count, null: false, default: 0
+          t.integer :follows_count, null: false, default: 0
 
           t.references :decidim_component, index: false
           t.integer :decidim_author_id, index: false

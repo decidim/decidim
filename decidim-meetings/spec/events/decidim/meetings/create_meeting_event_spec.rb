@@ -5,9 +5,12 @@ require "spec_helper"
 describe Decidim::Meetings::CreateMeetingEvent do
   let(:resource) { create :meeting }
   let(:event_name) { "decidim.events.meetings.meeting_created" }
+  let(:available_slots) { 10 }
+  let(:questionnaire) { nil }
 
   include_context "when a simple event"
   it_behaves_like "a simple event"
+  it_behaves_like "a translated meeting event"
 
   describe "email_subject" do
     it "is generated correctly" do
@@ -38,6 +41,65 @@ describe Decidim::Meetings::CreateMeetingEvent do
   describe "resource_text" do
     it "returns the meeting description" do
       expect(subject.resource_text).to eq translated(resource.description)
+    end
+  end
+
+  describe "button text" do
+    it "returns the nil" do
+      expect(subject.button_text).to be_nil
+    end
+  end
+
+  describe "button url" do
+    it "returns the nil" do
+      expect(subject.button_url).to be_nil
+    end
+  end
+
+  context "when in a participatory space and the registration is enabled" do
+    let(:organization) { create :organization }
+    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:component) { create :component, manifest_name: :meetings, participatory_space: participatory_process }
+    let(:registrations_enabled) { true }
+    let(:resource) do
+      create(:meeting,
+             component: component,
+             registrations_enabled: registrations_enabled,
+             registration_form_enabled: registration_form_enabled,
+             available_slots: available_slots,
+             questionnaire: questionnaire)
+    end
+
+    context "when registration form is enabled" do
+      let(:registration_form_enabled) { true }
+
+      describe "button text" do
+        it "returns a register to meeting call to action" do
+          expect(subject.button_text).to eq("Register to the meeting")
+        end
+      end
+
+      describe "button url" do
+        it "returns the link to join the meeting" do
+          expect(subject.button_url).to eq(Decidim::EngineRouter.main_proxy(component).join_meeting_registration_url(meeting_id: resource.id, host: organization.host))
+        end
+      end
+    end
+
+    context "when registration form is disabled" do
+      let(:registration_form_enabled) { false }
+
+      describe "button text" do
+        it "returns a register to meeting call to action" do
+          expect(subject.button_text).to eq("Register to the meeting")
+        end
+      end
+
+      describe "button url" do
+        it "returns the link to the meeting" do
+          expect(subject.button_url).to eq(Decidim::EngineRouter.main_proxy(component).meeting_url(id: resource.id, host: organization.host))
+        end
+      end
     end
   end
 end

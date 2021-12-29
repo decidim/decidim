@@ -30,6 +30,20 @@ module Decidim
         it { is_expected.to be_invalid }
       end
 
+      context "when body is too long" do
+        let(:max_length) { Decidim.config.maximum_conversation_message_length }
+        let(:body) { "c" * (max_length + 1) }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "when body has maximum length" do
+        let(:max_length) { Decidim.config.maximum_conversation_message_length }
+        let(:body) { "c" * max_length }
+
+        it { is_expected.to be_valid }
+      end
+
       context "when no recipient" do
         let(:recipient_id) { nil }
 

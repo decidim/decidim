@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Admin
-  describe CreateAttachment, processing_uploads_for: Decidim::AttachmentUploader do
+  describe CreateAttachment do
     subject { described_class.call(form, attached_to) }
 
     let(:form) do

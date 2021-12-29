@@ -69,9 +69,9 @@ if !Rails.env.production? || ENV["SEED"]
       question_type: matrix_question_type
     )
 
-    3.times do
+    3.times do |idx|
       question.answer_options.create!(body: Decidim::Faker::Localized.sentence)
-      question.matrix_rows.create!(body: Decidim::Faker::Localized.sentence)
+      question.matrix_rows.create!(body: Decidim::Faker::Localized.sentence, position: idx)
     end
   end
 

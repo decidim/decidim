@@ -93,7 +93,8 @@ module Decidim
       # - the visibility of its participatory space.
       # - the visibility of the resource itself.
       def visible?
-        component.participatory_space.try(:visible?) && component.published? && resource_visible?
+        (!self.class.try(:belong_to_component?) || (component && component.participatory_space.try(:visible?) && component.published?)) &&
+          resource_visible?
       end
 
       # Check only the resource visibility not its hierarchy.

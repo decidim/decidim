@@ -11,7 +11,7 @@
 
       <% if allowed_to? :create, :process %>
         <%= link_to t("actions.new_process", scope: "decidim.admin"),
-                    ["new", "participatory_process"],
+                    [:new, :participatory_process],
                     class: "button tiny button--title" %>
       <% end %>
 
@@ -70,7 +70,7 @@
             <tr>
               <td>
                 <% if process.promoted? %>
-                  <span data-tooltip class="icon-state icon-highlight" aria-haspopup="true" data-disable-hover="false" title="<%= t("models.participatory_process.fields.promoted", scope: "decidim.admin") %>">
+                  <span data-tooltip class="icon-state icon-highlight" data-disable-hover="false" title="<%= t("models.participatory_process.fields.promoted", scope: "decidim.admin") %>">
                     <%= icon "star" %>
                   </span>
                 <% end %>

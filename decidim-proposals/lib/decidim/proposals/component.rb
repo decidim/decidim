@@ -6,7 +6,7 @@ Decidim.register_component(:proposals) do |component|
   component.engine = Decidim::Proposals::Engine
   component.admin_engine = Decidim::Proposals::AdminEngine
   component.stylesheet = "decidim/proposals/proposals"
-  component.icon = "decidim/proposals/icon.svg"
+  component.icon = "media/images/decidim_proposals.svg"
 
   component.on(:before_destroy) do |instance|
     raise "Can't destroy this component when there are proposals" if Decidim::Proposals::Proposal.where(component: instance).any?
@@ -16,11 +16,13 @@ Decidim.register_component(:proposals) do |component|
 
   component.newsletter_participant_entities = ["Decidim::Proposals::Proposal"]
 
-  component.actions = %w(endorse vote create withdraw amend)
+  component.actions = %w(endorse vote create withdraw amend comment vote_comment)
 
   component.query_type = "Decidim::Proposals::ProposalsType"
 
   component.permissions_class_name = "Decidim::Proposals::Permissions"
+
+  POSSIBLE_SORT_ORDERS = %w(default random recent most_endorsed most_voted most_commented most_followed with_more_authors).freeze
 
   component.settings(:global) do |settings|
     settings.attribute :scopes_enabled, type: :boolean, default: false
@@ -34,12 +36,12 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :threshold_per_proposal, type: :integer, default: 0
     settings.attribute :can_accumulate_supports_beyond_threshold, type: :boolean, default: false
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
+    settings.attribute :default_sort_order, type: :select, default: "default", choices: -> { POSSIBLE_SORT_ORDERS }
     settings.attribute :official_proposals_enabled, type: :boolean, default: true
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: false
     settings.attribute :geocoding_enabled, type: :boolean, default: false
     settings.attribute :attachments_allowed, type: :boolean, default: false
-    settings.attribute :allow_card_image, type: :boolean, default: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :collaborative_drafts_enabled, type: :boolean, default: false
     settings.attribute :participatory_texts_enabled,
@@ -65,6 +67,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :comments_blocked, type: :boolean, default: false
     settings.attribute :creation_enabled, type: :boolean
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
+    settings.attribute :default_sort_order, type: :select, include_blank: true, choices: -> { POSSIBLE_SORT_ORDERS }
     settings.attribute :publish_answers_immediately, type: :boolean, default: true
     settings.attribute :answers_with_costs, type: :boolean, default: false
     settings.attribute :amendment_creation_enabled, type: :boolean, default: true
@@ -83,7 +86,7 @@ Decidim.register_component(:proposals) do |component|
     resource.template = "decidim/proposals/proposals/linked_proposals"
     resource.card = "decidim/proposals/proposal"
     resource.reported_content_cell = "decidim/proposals/reported_content"
-    resource.actions = %w(endorse vote amend)
+    resource.actions = %w(endorse vote amend comment vote_comment)
     resource.searchable = true
   end
 
@@ -108,7 +111,7 @@ Decidim.register_component(:proposals) do |component|
 
   component.register_stat :endorsements_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).not_hidden
-    Decidim::Endorsement.where(resource_id: proposals.pluck(:id), resource_type: Decidim::Proposals::Proposal.name).count
+    proposals.sum(:endorsements_count)
   end
 
   component.register_stat :comments_count, tag: :comments do |components, start_at, end_at|
@@ -128,7 +131,7 @@ Decidim.register_component(:proposals) do |component|
       collection = Decidim::Proposals::Proposal
                    .published
                    .where(component: component_instance)
-                   .includes(:category, :component)
+                   .includes(:scope, :category, :component)
 
       if space.user_roles(:valuator).where(user: user).any?
         collection.with_valuation_assigned_to(user, space)
@@ -146,7 +149,7 @@ Decidim.register_component(:proposals) do |component|
     exports.collection do |component_instance|
       Decidim::Comments::Export.comments_for_resource(
         Decidim::Proposals::Proposal, component_instance
-      )
+      ).includes(:author, :user_group, root_commentable: { component: { participatory_space: :organization } })
     end
 
     exports.include_in_open_data = true
@@ -155,7 +158,37 @@ Decidim.register_component(:proposals) do |component|
   end
 
   component.imports :proposals do |imports|
-    imports.creator Decidim::Proposals::ProposalCreator
+    imports.form_view = "decidim/proposals/admin/imports/proposals_fields"
+    imports.form_class_name = "Decidim::Proposals::Admin::ProposalsFileImportForm"
+
+    imports.messages do |msg|
+      msg.set(:resource_name) { |count: 1| I18n.t("decidim.proposals.admin.imports.resources.proposals", count: count) }
+      msg.set(:title) { I18n.t("decidim.proposals.admin.imports.title.proposals") }
+      msg.set(:label) { I18n.t("decidim.proposals.admin.imports.label.proposals") }
+      msg.set(:help) { I18n.t("decidim.proposals.admin.imports.help.proposals") }
+    end
+
+    imports.creator Decidim::Proposals::Import::ProposalCreator
+  end
+
+  component.imports :answers do |imports|
+    imports.messages do |msg|
+      msg.set(:resource_name) { |count: 1| I18n.t("decidim.proposals.admin.imports.resources.answers", count: count) }
+      msg.set(:title) { I18n.t("decidim.proposals.admin.imports.title.answers") }
+      msg.set(:label) { I18n.t("decidim.proposals.admin.imports.label.answers") }
+      msg.set(:help) { I18n.t("decidim.proposals.admin.imports.help.answers") }
+    end
+
+    imports.creator Decidim::Proposals::Import::ProposalAnswerCreator
+    imports.example do |import_component|
+      organization = import_component.organization
+      [
+        %w(id state) + organization.available_locales.map { |l| "answer/#{l}" },
+        [1, "accepted"] + organization.available_locales.map { "Example answer" },
+        [2, "rejected"] + organization.available_locales.map { "Example answer" },
+        [3, "evaluating"] + organization.available_locales.map { "Example answer" }
+      ]
+    end
   end
 
   component.seeds do |participatory_space|

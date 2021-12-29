@@ -36,6 +36,7 @@ en:
         origin_component_id: Component to copy the proposals from
       proposals_import:
         import_proposals: Import proposals
+        keep_answers: Keep state and answers
         keep_authors: Keep original authors
       valuation_assignment:
         admin_log:
@@ -48,13 +49,25 @@ en:
               invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Needs to be reattached
+            add_photos:
               needs_to_be_reattached: Needs to be reattached
             body:
               cant_be_equal_to_template: cannot be equal to the template
               identical: AND title cannot be identical
             title:
               identical: AND body cannot be identical
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Are not official
+              supported: Have received support or endorsements
+        proposals_split:
+          attributes:
+            base:
+              not_official: Are not official
+              supported: Have received support or endorsements
     models:
       decidim/proposals/accepted_proposal_event: Proposal accepted
       decidim/proposals/admin/update_proposal_category_event: Proposal category changed
@@ -114,14 +127,15 @@ en:
       proposals:
         actions:
           amend: Amend
+          comment: Comment
           create: Create
           endorse: Endorse
           vote: Support
+          vote_comment: Vote comment
           withdraw: Withdraw
         name: Proposals
         settings:
           global:
-            allow_card_image: Allow card image
             amendments_enabled: Amendments enabled
             amendments_enabled_help: If active, configure Amendment features for each step.
             amendments_wizard_help_text: Amendments Wizard help text
@@ -131,6 +145,17 @@ en:
             collaborative_drafts_enabled: Collaborative drafts enabled
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
+            default_sort_order: Default proposal sorting
+            default_sort_order_help: Default means that if the supports are enabled, the proposals will be shown sorted by random, and if the supports are blocked, then they will be sorted by the most supported.
+            default_sort_order_options:
+              default: Default
+              most_commented: Most commented
+              most_endorsed: Most endorsed
+              most_followed: Most followed
+              most_voted: Most supported
+              random: Random
+              recent: Recent
+              with_more_authors: With more authors
             geocoding_enabled: Geocoding enabled
             minimum_votes_per_user: Minimum supports per user
             new_proposal_body_template: New proposal body template
@@ -172,7 +197,18 @@ en:
             answers_with_costs: Enable costs on proposal answers
             automatic_hashtags: Hashtags added to all proposals
             comments_blocked: Comments blocked
-            creation_enabled: Proposal creation enabled
+            creation_enabled: Participants can create proposals
+            default_sort_order: Default proposal sorting
+            default_sort_order_help: Default it means that if the supports are enabled, the proposals will be shown sorted by random, and if the supports are blocked, then they will be sorted by the most supported.
+            default_sort_order_options:
+              default: Default
+              most_commented: Most commented
+              most_endorsed: Most endorsed
+              most_followed: Most followed
+              most_voted: Most supported
+              random: Random
+              recent: Recent
+              with_more_authors: With more authors
             endorsements_blocked: Endorsements blocked
             endorsements_enabled: Endorsements enabled
             proposal_answering_enabled: Proposal answering enabled
@@ -265,7 +301,7 @@ en:
           email_intro: The proposal "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can stop receiving notifications following the previous link.
           email_subject: New proposal "%{resource_title}" added to %{participatory_space_title}
-          notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
+          notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title} by %{author}
         proposal_rejected:
           affected_user:
             email_intro: 'Your proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
@@ -351,7 +387,7 @@ en:
       actions:
         answer_proposal: Answer proposal
         edit_proposal: Edit proposal
-        import: Import from another component
+        import: Import proposals from another component
         new: New proposal
         participatory_texts: Participatory texts
         show: Show proposal
@@ -362,6 +398,23 @@ en:
         exports:
           proposal_comments: Comments
           proposals: Proposals
+        imports:
+          help:
+            answers: 'The import document should contain the following columns: id, state (accepted, evaluating, rejected), answer/en (and other languages enabled for the organization).'
+            proposals: The file must have column names title/en and body/en (or another locale which you prefer eg. title/ca and body/ca). Also scope/id and category/id columns are supported.
+          label:
+            answers: Import answers from a file
+            proposals: Import proposals from a file
+          resources:
+            answers:
+              one: proposal answer
+              other: proposal answers
+            proposals:
+              one: proposal
+              other: proposals
+          title:
+            answers: Import proposal answers
+            proposals: Import proposals
         models:
           proposal:
             name: Proposal
@@ -505,11 +558,11 @@ en:
             title: Import proposals
         proposals_merges:
           create:
-            invalid: There was a problem merging the selected proposals.
+            invalid: 'There has been a problem merging the selected proposals because some of them:'
             success: Successfully merged the proposals into a new one.
         proposals_splits:
           create:
-            invalid: There was a problem spliting the selected proposals.
+            invalid: 'There has been a problem splitting the selected proposals because some of them:'
             success: Successfully splitted the proposals into new ones.
         valuation_assignments:
           create:
@@ -712,7 +765,8 @@ en:
             one: "%{count} proposal"
             other: "%{count} proposals"
         dynamic_map_instructions:
-          instructions: <h3>You can move the point on the map. </h3><p>Don't forget to click on the "Update Position" button before publishing your proposal.</p>
+          description: The coordinates will be updated when clicking on 'preview' button. However, the address does not change.
+          instructions: You can move the point on the map.
         edit:
           add_documents: Documents
           add_images: File
@@ -748,9 +802,12 @@ en:
           filter_by: Filter by
           unfold: Unfold
         index:
+          click_here: See all proposals
           collaborative_drafts_list: Access collaborative drafts
           new_proposal: New proposal
+          see_all: See all proposals
           see_all_withdrawn: See all withdrawn proposals
+          text_banner: You are viewing the list of proposals withdrawn by their authors. %{go_back_link}.
           view_proposal: View proposal
         linked_proposals:
           proposal_votes:
@@ -784,7 +841,6 @@ en:
             other: You will be able to edit this proposal during the first %{count} minutes after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
           publish: Publish
           title: Publish your proposal
-          update_position: Update position
         proposal:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal

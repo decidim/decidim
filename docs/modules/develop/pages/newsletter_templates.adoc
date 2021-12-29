@@ -19,7 +19,7 @@ Decidim.content_blocks.register(:newsletter_template, :my_template) do |content_
     {
       name: :main_image,
       uploader: "Decidim::NewsletterTemplateImageUploader",
-      preview: -> { ActionController::Base.helpers.asset_path("decidim/placeholder.jpg") }
+      preview: -> { ActionController::Base.helpers.asset_pack_path("media/images/placeholder.jpg") }
     }
   ]
 

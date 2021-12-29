@@ -18,12 +18,12 @@ module Decidim
       # Handle the search_text filter
       def search_search_text
         query
-          .where("title->>'#{current_locale}' ILIKE ?", "%#{search_text}%")
+          .where(Arel.sql("title->>'#{current_locale}' ILIKE ?").to_s, "%#{search_text}%")
           .or(
-            query.where("description->>'#{current_locale}' ILIKE ?", "%#{search_text}%")
+            query.where(Arel.sql("description->>'#{current_locale}' ILIKE ?").to_s, "%#{search_text}%")
           )
           .or(
-            query.where("subtitle->>'#{current_locale}' ILIKE ?", "%#{search_text}%")
+            query.where(Arel.sql("subtitle->>'#{current_locale}' ILIKE ?").to_s, "%#{search_text}%")
           )
       end
 

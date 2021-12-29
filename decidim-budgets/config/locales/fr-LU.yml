@@ -1,0 +1,294 @@
+fr-LU:
+  activemodel:
+    attributes:
+      budget:
+        decidim_scope_id: Secteur
+        description: Description
+        title: Titre
+        total_budget: Budget total
+      project:
+        budget_amount: Montant du budget
+        decidim_category_id: Catégorie
+        decidim_scope_id: Périmètre d'application
+        description: Description
+        proposal_ids: Propositions liées
+        selected: Sélectionné pour l'implémentation
+        title: Titre
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Projet
+        other: Projets
+  decidim:
+    budgets:
+      actions:
+        attachment_collections: Dossiers
+        attachments: Documents liés
+        confirm_destroy: Êtes-vous certain de vouloir supprimer ce projet?
+        destroy: Supprimer
+        edit: Modifier
+        edit_projects: Gérer les projets
+        import: Importer des propositions dans des projets
+        new: Nouveau %{name}
+        preview: Aperçu
+        title: Actions
+      admin:
+        budgets:
+          create:
+            invalid: Un problème est survenu lors de la création de ce budget
+            success: Budget créé avec succès
+          destroy:
+            invalid: Un problème est survenu lors de la suppression de ce budget
+            success: Budget supprimé avec succès
+          edit:
+            title: Modifier le budget
+            update: Mettre à jour le budget
+          index:
+            finished_orders: Votes terminés
+            pending_orders: Votes en cours
+            title: Budgets
+            users_with_finished_orders: Utilisateurs ayant fini leur vote
+            users_with_pending_orders: Utilisateurs ayant des votes en attente
+          new:
+            create: Créer un budget
+            title: Nouveau budget
+          update:
+            invalid: Un problème est survenu lors de la mise à jour de ce budget
+            success: Budget mis à jour avec succès
+        exports:
+          projects: Projets
+        models:
+          budget:
+            name: Budget
+          project:
+            name: Projet
+        projects:
+          create:
+            invalid: Il y a eu un problème lors de la création de ce projet
+            success: Projet créé avec succès
+          destroy:
+            success: Projet supprimé avec succès
+          edit:
+            title: Éditer un projet
+            update: Mettre à jour
+          index:
+            finished_orders: Votes terminés
+            pending_orders: Votes en cours
+            selected: Sélectionné
+            title: Projets
+          new:
+            create: Créer
+            title: Nouveau projet
+          update:
+            invalid: Il y a eu un problème lors de la mise à jour de ce projet
+            success: Projet mis à jour avec succès
+        proposals_imports:
+          create:
+            invalid: Un problème est survenu lors de l'importation des propositions dans des projets
+            success: "%{number} propositions importées avec succès dans des projets"
+          new:
+            create: Importer des propositions dans des projets
+            no_components: Il n'y a pas d'autres modules de proposition dans cet espace participatif pour importer les propositions dans des projets.
+            select_component: Veuillez sélectionner un module
+            title: Importer des propositions
+      admin_log:
+        budget:
+          create: "%{user_name} a créé le budget %{resource_name} dans l'espace %{space_name}"
+          delete: "%{user_name} a supprimé le budget %{resource_name} dans l'espace %{space_name}"
+          update: "%{user_name} a mis à jour le budget %{resource_name} dans l'espace %{space_name}"
+        project:
+          create: "%{user_name} a créé le projet %{resource_name} dans l'espace %{space_name}"
+          delete: "%{user_name} a supprimé le projet %{resource_name} dans l'espace %{space_name}"
+          update: "%{user_name} a mis à jour le projet %{resource_name} dans l'espace %{space_name}"
+      budget:
+        view: Voir tous les projets
+      budget_information_modal:
+        back_to: Retour à %{component_name}
+        close_modal: Fermer la fenêtre de dialogue
+        continue: Continuer
+        more_information: Plus d'information
+      budgets_list:
+        cancel_order:
+          more_than_one: supprimer votre vote sur %{name} et recommencer
+          only_one: supprimer votre vote et recommencez.
+        finished_message: Vous avez terminé le processus de vote. Merci de votre participation !
+        highlighted_cta: Voter pour %{name}
+        if_change_opinion: Si vous avez changé d'avis, vous pouvez
+        my_budgets: Mes Budgets
+        voted_on: Vous avez voté sur %{links}
+      limit_announcement:
+        cant_vote: Vous ne pouvez pas voter sur ce budget. <a href="%{landing_path}">Essayez sur un autre budget</a>.
+        limit_reached: Vous avez des votes actifs dans %{links}. Pour voter sur ce budget, vous devez <a href="%{landing_path}">supprimer votre vote et recommencer</a>.
+      models:
+        budget:
+          fields:
+            name: Nom
+            projects_count: Nombre de projets
+            total_budget: Budget total
+        project:
+          fields:
+            title: Titre
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Les projets que vous avez sélectionnés sont :'
+          subject: Vous avez voté sur l'espace participatif %{space_name}
+          voted_on_space: Vous avez voté sur le budget %{budget_name} pour l'espace participatif %{space_name}.
+          voted_on_space_with_scope: Vous avez voté sur le budget %{budget_name} pour l'espace participatif %{space_name} sur %{scope_name} (%{scope_type}).
+      projects:
+        budget_confirm:
+          are_you_sure: Si vous changez d'avis, vous pourrez modifier votre vote plus tard.
+          cancel: Annuler
+          confirm: Confirmer
+          description: Voici les projets que vous avez choisis pour le budget.
+          title: Confirmez votre vote
+        budget_excess:
+          budget_excess:
+            description: Ce projet dépasse le budget maximum et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné puis voter de nouveau selon vos préférences.
+            title: Budget maximum dépassé
+          close: Fermer
+          description: Ce projet dépasse le budget maximum et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné puis voter de nouveau selon vos préférences.
+          ok: D'accord
+          projects_excess:
+            description: Vous avez dépassé le nombre maximum de projets à sélectionner, ce projet ne peut donc être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné puis voter de nouveau selon vos préférences.
+            title: Nombre maximum de projets dépassé
+        budget_summary:
+          are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?
+          assigned: 'Affecté à :'
+          cancel_order: supprimer votre vote et recommencer
+          checked_out:
+            description: Vous avez déjà voté pour le budget. Si vous avez changé d'avis, vous pouvez %{cancel_link}.
+            title: Vote du budget terminé
+          minimum_projects_rule:
+            description: A quels projets pensez-vous que nous devrions allouer un budget ? Sélectionnez au moins %{minimum_number} projets que vous soutenez et votez selon vos préférences pour définir le budget.
+            instruction: "<li>Sélectionnez au moins %{minimum_number} projets que vous souhaitez voir se réaliser et votez selon vos préférences pour définir le budget.</li>"
+          projects_rule:
+            description: A quels projets pensez-vous que nous devrions allouer un budget ? Sélectionnez entre %{minimum_number} et %{maximum_number} projets que vous soutenez et votez selon vos préférences pour définir le budget.
+            instruction: "<li>Sélectionnez entre %{minimum_number} et %{maximum_number} projets que vous souhaitez et votez selon vos préférences pour définir le budget.</li>"
+          projects_rule_maximum_only:
+            description: A quels projets pensez-vous que nous devrions allouer un budget ? Sélectionnez au maximum %{maximum_number} projets que vous soutenez et votez selon vos préférences pour définir le budget.
+            instruction: "<li>Sélectionnez au maximum %{maximum_number} projets que vous souhaitez et votez selon vos préférences pour définir le budget.</li>"
+          rules:
+            title: Règles du vote
+          title: Vous décidez du budget
+          total_budget: Budget total
+          total_projects: Nombre total de votes
+          vote_threshold_percent_rule:
+            description: À quels projets pensez-vous que nous devrions allouer un budget ? Assignez au moins %{minimum_budget} aux projets que vous soutenez et votez selon vos préférences pour définir le budget.
+            instruction: "<li>Assignez au moins %{minimum_budget} aux projets que vous soutenez et votez selon vos préférences pour définir le budget.</li>"
+        count:
+          projects_count:
+            one: 1 projet
+            other: "%{count} projets"
+        filters:
+          category: Catégorie
+          scope: Périmètre d'application
+          search: Rechercher
+          status: Statut
+          status_values:
+            all: Tous
+            not_selected: Non sélectionné
+            selected: Sélectionné
+        filters_small_view:
+          close_modal: Fermez la fenêtre
+          filter: Filtrer
+          filter_by: Filtrer par
+          unfold: Voir la suite
+        order_progress:
+          vote: Voter
+        order_selected_projects:
+          remove: Supprimer
+          selected_projects:
+            one: projet sélectionné
+            other: projets sélectionnés
+          view: Voir
+        orders:
+          highest_cost: Prix décroissant
+          label: Trier les projets par
+          lowest_cost: Prix croissant
+          most_voted: Les plus votés
+          random: Ordre aléatoire
+          selected: Sélectionné
+        project:
+          add: Ajouter le projet %{resource_name} à votre vote
+          remove: Retirer le projet %{resource_name} de votre vote
+          selected: Sélectionné
+          view: Voir
+          votes:
+            one: vote
+            other: votes
+          you_voted: Vous avez voté pour
+        project_budget_button:
+          add: Ajouter à votre vote
+          add_descriptive: Ajouter le projet %{resource_name} à votre vote
+          added: Ajouté à votre vote
+          added_descriptive: Projet %{resource_name} ajouté à votre vote
+        projects_for: Projets pour %{name}
+        show:
+          budget: Budget
+          view_all_projects: Voir tous les projets
+    components:
+      budgets:
+        actions:
+          vote: Voter
+        name: Budgets
+        settings:
+          global:
+            announcement: Annonce
+            comments_enabled: Activer le module de commentaire
+            comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            form:
+              errors:
+                budget_voting_rule_only_one: Une seule règle de vote doit être activée
+                budget_voting_rule_required: Une règle de vote est requise
+            landing_page_content: Page d'accueil des budgets
+            more_information_modal: Plus d’informations
+            projects_per_page: Projets par page
+            resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque projet
+            scope_id: Secteur
+            scopes_enabled: Secteurs activés
+            title: Titre
+            total_budget: Budget total
+            vote_minimum_budget_projects_number: Nombre minimum de projets à voter
+            vote_rule_minimum_budget_projects_enabled: 'Activer la règle : Nombre minimum de projets à voter'
+            vote_rule_selected_projects_enabled: 'Activer la règle : Nombre minimum et maximum de projets à voter'
+            vote_rule_threshold_percent_enabled: 'Activer la règle : Pourcentage de budget minimum'
+            vote_selected_projects_maximum: Nombre maximum de projets à sélectionner
+            vote_selected_projects_minimum: Nombre minimum de projets à sélectionner
+            vote_threshold_percent: Pourcentage du budget à atteindre pour voter
+            workflow: Processus
+            workflow_choices:
+              all: 'Voter sur tous les budgets : autorise les participants à voter sur tous les budgets.'
+              one: 'Voter sur un seul budget : autorise les participants à voter sur un seul budget parmi les budgets proposés.'
+          step:
+            announcement: Annonce
+            comments_blocked: Commentaires bloqués
+            highlighted_heading: En-tête en surbrillance
+            landing_page_content: Page d'accueil des budgets
+            list_heading: En-tête de la liste des budgets
+            more_information_modal: Plus d’informations
+            show_votes: Afficher les votes
+            title: Titre
+            votes: Vote
+            votes_choices:
+              disabled: Vote désactivé
+              enabled: Votes activés
+              finished: Vote terminé
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'Le budget %{resource_title} est maintenant actif pour %{participatory_space_title}. Vous pouvez le voir sur cette page :'
+          email_outro: Vous recevez cette notification car vous suivez « %{participatory_space_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
+          email_subject: Le budget %{resource_title} est maintenant actif pour %{participatory_space_title}.
+          notification_title: Le budget <a href="%{resource_path}">%{resource_title}</a> est maintenant actif pour %{participatory_space_title}.
+    orders:
+      checkout:
+        error: Une erreur s'est produite lors du traitement de votre vote
+        success: Votre vote a été enregistré avec succès
+      destroy:
+        error: Une erreur s'est produite lors de l'annulation de votre vote
+        success: Votre vote a été annulé avec succès
+    resource_links:
+      included_proposals:
+        project_proposal: Propositions incluses dans ce projet
+  index:
+    confirmed_orders_count: Nombre de votes

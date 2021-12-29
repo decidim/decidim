@@ -24,7 +24,8 @@ module Decidim
             attendees_count: resource.meeting.attendees_count,
             attending_organizations: resource.meeting.attending_organizations,
             closed_at: resource.meeting.closed_at,
-            closing_report: resource.meeting.closing_report
+            closing_report: resource.meeting.closing_report,
+            published_at: resource.meeting.published_at
           }
         }
       end

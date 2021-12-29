@@ -28,6 +28,7 @@
 
   <% if matrix_row.persisted? %>
     <%= form.hidden_field :id, disabled: !editable %>
+    <%= form.hidden_field :position, disabled: !editable %>
   <% end %>
 
   <%= form.hidden_field :deleted, disabled: !editable %>

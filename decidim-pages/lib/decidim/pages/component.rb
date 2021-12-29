@@ -5,7 +5,7 @@ require "decidim/components/namer"
 Decidim.register_component(:pages) do |component|
   component.engine = Decidim::Pages::Engine
   component.admin_engine = Decidim::Pages::AdminEngine
-  component.icon = "decidim/pages/icon.svg"
+  component.icon = "media/images/decidim_pages.svg"
   component.permissions_class_name = "Decidim::Pages::Permissions"
 
   component.query_type = "Decidim::Pages::PagesType"

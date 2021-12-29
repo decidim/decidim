@@ -59,7 +59,7 @@ module Decidim
         jobs = ActiveJob::Base.queue_adapter.enqueued_jobs
         expect(jobs.count).to eq 1
 
-        _, _, _, queued_user, _, queued_options = ActiveJob::Arguments.deserialize(jobs.first[:args])
+        queued_user, _, queued_options = ActiveJob::Arguments.deserialize(jobs.first[:args]).last[:args]
         expect(queued_user).to eq(invited_user)
         expect(queued_options).to eq(invitation_instructions: "invite_admin")
       end
@@ -90,7 +90,7 @@ module Decidim
         clear_enqueued_jobs
         command.call
 
-        _, _, _, queued_user, _, queued_options = ActiveJob::Arguments.deserialize(ActiveJob::Base.queue_adapter.enqueued_jobs.first[:args])
+        queued_user, _, queued_options = ActiveJob::Arguments.deserialize(ActiveJob::Base.queue_adapter.enqueued_jobs.first[:args]).last[:args]
 
         expect(queued_user).to eq(invited_user)
         expect(queued_options).to eq(invitation_instructions: "invite_admin")

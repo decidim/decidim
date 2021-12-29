@@ -5,7 +5,7 @@ module Decidim
     # Custom ApplicationJob scoped to the admin panel.
     #
     class ImportParticipatorySpacePrivateUserCsvJob < ApplicationJob
-      queue_as :default
+      queue_as :exports
 
       def perform(email, user_name, privatable_to, current_user)
         return if email.blank? || user_name.blank?

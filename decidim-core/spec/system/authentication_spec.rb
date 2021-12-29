@@ -27,7 +27,7 @@ describe "Authentication", type: :system do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("You have signed up successfully")
+        expect(page).to have_content("confirmation link")
       end
     end
 
@@ -52,7 +52,7 @@ describe "Authentication", type: :system do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("¡Bienvenida! Te has registrado con éxito.")
+        expect(page).to have_content("Se ha enviado un mensaje con un enlace de confirmación")
         expect(last_user.locale).to eq("es")
       end
     end
@@ -73,7 +73,7 @@ describe "Authentication", type: :system do
           find("*[type=submit]").click
         end
 
-        expect(page).not_to have_content("You have signed up successfully")
+        expect(page).not_to have_content("confirmation link")
       end
     end
 
@@ -92,11 +92,14 @@ describe "Authentication", type: :system do
       before do
         OmniAuth.config.test_mode = true
         OmniAuth.config.mock_auth[:facebook] = omniauth_hash
+        OmniAuth.config.add_camelization "facebook", "FaceBook"
+        OmniAuth.config.request_validation_phase = ->(env) {} if OmniAuth.config.respond_to?(:request_validation_phase)
       end
 
       after do
         OmniAuth.config.test_mode = false
         OmniAuth.config.mock_auth[:facebook] = nil
+        OmniAuth.config.camelizations.delete("facebook")
       end
 
       context "when the user has confirmed the email in facebook" do
@@ -128,11 +131,15 @@ describe "Authentication", type: :system do
       before do
         OmniAuth.config.test_mode = true
         OmniAuth.config.mock_auth[:twitter] = omniauth_hash
+
+        OmniAuth.config.add_camelization "twitter", "Twitter"
+        OmniAuth.config.request_validation_phase = ->(env) {} if OmniAuth.config.respond_to?(:request_validation_phase)
       end
 
       after do
         OmniAuth.config.test_mode = false
         OmniAuth.config.mock_auth[:twitter] = nil
+        OmniAuth.config.camelizations.delete("twitter")
       end
 
       context "when the response doesn't include the email" do
@@ -199,11 +206,15 @@ describe "Authentication", type: :system do
       before do
         OmniAuth.config.test_mode = true
         OmniAuth.config.mock_auth[:google_oauth2] = omniauth_hash
+
+        OmniAuth.config.add_camelization "google_oauth2", "GoogleOauth"
+        OmniAuth.config.request_validation_phase = ->(env) {} if OmniAuth.config.respond_to?(:request_validation_phase)
       end
 
       after do
         OmniAuth.config.test_mode = false
         OmniAuth.config.mock_auth[:google_oauth2] = nil
+        OmniAuth.config.camelizations.delete("google_oauth2")
       end
 
       it "creates a new User" do
@@ -297,6 +308,17 @@ describe "Authentication", type: :system do
         expect(page).to have_content("Signed in successfully")
         expect(page).to have_content(user.name)
       end
+
+      it "caches the omniauth buttons correctly with different languages", :caching do
+        find(".sign-in-link").click
+        expect(page).to have_content("Sign in with Facebook")
+
+        within_language_menu do
+          click_link "Català"
+        end
+
+        expect(page).to have_content("Inicia sessió amb Facebook")
+      end
     end
 
     describe "Forgot password" do
@@ -308,8 +330,19 @@ describe "Authentication", type: :system do
           perform_enqueued_jobs { find("*[type=submit]").click }
         end
 
-        expect(page).to have_content("reset your password")
+        expect(page).to have_content("If your email address exists in our database")
         expect(emails.count).to eq(1)
+      end
+
+      it "says it sends a password recovery email when is a non-existing email" do
+        visit decidim.new_user_password_path
+
+        within ".new_user" do
+          fill_in :password_user_email, with: "nonexistent@example.org"
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("If your email address exists in our database")
       end
     end
 
@@ -367,14 +400,14 @@ describe "Authentication", type: :system do
             end
           end
 
-          it "shows the last attempt warning before locking the account" do
+          it "doesn't show the last attempt warning before locking the account" do
             within ".new_user" do
               fill_in :session_user_email, with: user.email
               fill_in :session_user_password, with: "not-the-pasword"
               find("*[type=submit]").click
             end
 
-            expect(page).to have_content("You have one more attempt before your account is locked.")
+            expect(page).to have_content("Invalid")
           end
         end
 
@@ -399,7 +432,7 @@ describe "Authentication", type: :system do
               perform_enqueued_jobs { find("*[type=submit]").click }
             end
 
-            expect(page).to have_content("Your account is locked.")
+            expect(page).to have_content("Invalid")
             expect(emails.count).to eq(1)
           end
         end
@@ -418,8 +451,17 @@ describe "Authentication", type: :system do
             perform_enqueued_jobs { find("*[type=submit]").click }
           end
 
-          expect(page).to have_content("You will receive an email with instructions for how to unlock your account in a few minutes.")
+          expect(page).to have_content("If your account exists")
           expect(emails.count).to eq(1)
+        end
+
+        it "says it resends the unlock instructions when is a non-existing user account" do
+          within ".new_user" do
+            fill_in :unlock_user_email, with: user.email
+            find("*[type=submit]").click
+          end
+
+          expect(page).to have_content("If your account exists")
         end
       end
 
@@ -457,11 +499,14 @@ describe "Authentication", type: :system do
     before do
       OmniAuth.config.test_mode = true
       OmniAuth.config.mock_auth[:facebook] = omniauth_hash
+      OmniAuth.config.add_camelization "facebook", "FaceBook"
+      OmniAuth.config.request_validation_phase = ->(env) {} if OmniAuth.config.respond_to?(:request_validation_phase)
     end
 
     after do
       OmniAuth.config.test_mode = false
       OmniAuth.config.mock_auth[:facebook] = nil
+      OmniAuth.config.camelizations.delete("facebook")
     end
 
     describe "Sign in" do
@@ -528,7 +573,7 @@ describe "Authentication", type: :system do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("You have signed up successfully")
+          expect(page).to have_content("confirmation link")
         end
       end
     end
@@ -553,11 +598,14 @@ describe "Authentication", type: :system do
     before do
       OmniAuth.config.test_mode = true
       OmniAuth.config.mock_auth[:facebook] = omniauth_hash
+      OmniAuth.config.add_camelization "facebook", "FaceBook"
+      OmniAuth.config.request_validation_phase = ->(env) {} if OmniAuth.config.respond_to?(:request_validation_phase)
     end
 
     after do
       OmniAuth.config.test_mode = false
       OmniAuth.config.mock_auth[:facebook] = nil
+      OmniAuth.config.camelizations.delete("facebook")
     end
 
     describe "Sign Up" do

@@ -103,7 +103,7 @@
 <%= translated_attribute(current_initiative.type.title) %>
 
 <h2 class="print-section-title">Definició de la Iniciativa:</h2>
-<%= decidim_sanitize translated_attribute(current_initiative.description) %>
+<%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
 
 <h2 class="print-section-title">Exposició de motius:</h2>
 <br><br><br><br><br>
@@ -177,4 +177,4 @@ rectificació, cancel·lació i oposició, tal com estableix l'article 5 de l'es
 </p>
 
 <a href="#" onclick="window.print();return false;" class="button expanded"><%= t ".print" %></a>
-<%= stylesheet_link_tag "decidim/initiatives/print-initiative", media: "all" %>
+<%= stylesheet_pack_tag "decidim_initiatives_print", media: "all" %>

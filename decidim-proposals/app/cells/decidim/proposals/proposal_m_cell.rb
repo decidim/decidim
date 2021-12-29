@@ -25,7 +25,7 @@ module Decidim
       end
 
       def body
-        decidim_sanitize(present(model).body)
+        decidim_sanitize_editor(present(model).body)
       end
 
       def has_state?
@@ -118,7 +118,7 @@ module Decidim
       end
 
       def has_image?
-        @has_image ||= model.component.settings.allow_card_image && model.attachments.find_by("content_type like '%image%'").present?
+        @has_image ||= model.attachments.map(&:image?).any?
       end
 
       def resource_image_path
@@ -127,21 +127,24 @@ module Decidim
 
       def cache_hash
         hash = []
-        hash << "decidim/proposals/proposal_m"
         hash << I18n.locale.to_s
         hash << model.cache_key_with_version
         hash << model.proposal_votes_count
         hash << model.endorsements_count
-        hash << Digest::MD5.hexdigest(model.component.settings.to_json)
+        hash << model.comments_count
+        hash << Digest::MD5.hexdigest(model.component.cache_key_with_version)
         hash << Digest::MD5.hexdigest(resource_image_path) if resource_image_path
+        hash << render_space? ? 1 : 0
         if current_user
           hash << current_user.cache_key_with_version
           hash << current_user.follows?(model) ? 1 : 0
         end
-        hash << Digest::MD5.hexdigest(model.followers.to_json)
-        hash << Digest::MD5.hexdigest(model.coauthorships.map(&:cache_key_with_version).to_s)
+        hash << model.follows_count
+        hash << Digest::MD5.hexdigest(model.authors.map(&:cache_key_with_version).to_s)
+        hash << (model.must_render_translation?(model.organization) ? 1 : 0) if model.respond_to?(:must_render_translation?)
+        hash << model.component.participatory_space.active_step.id if model.component.participatory_space.try(:active_step)
 
-        hash.join("/")
+        hash.join(Decidim.cache_key_separator)
       end
     end
   end

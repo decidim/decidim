@@ -54,6 +54,7 @@ FactoryBot.define do
     youtube_handler { "others" }
     github_handler { "others" }
     weight { 1 }
+    announcement { generate_localized_title }
 
     trait :with_type do
       assembly_type { create :assemblies_type, organization: organization }
@@ -167,7 +168,6 @@ FactoryBot.define do
     birthplace { Faker::Lorem.word }
     position { Decidim::AssemblyMember::POSITIONS.first }
     designation_date { Faker::Date.between(from: 1.year.ago, to: 1.month.ago) }
-    designation_mode { Faker::Lorem.word }
 
     trait :ceased do
       ceased_date { Faker::Date.between(from: 1.day.ago, to: 5.days.ago) }

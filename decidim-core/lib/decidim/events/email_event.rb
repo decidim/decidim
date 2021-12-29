@@ -33,6 +33,18 @@ module Decidim
         def email_outro
           I18n.t("decidim.events.email_event.email_outro", resource_title: resource_title)
         end
+
+        def has_button?
+          button_text.present? && button_url.present?
+        end
+
+        def button_text
+          nil
+        end
+
+        def button_url
+          nil
+        end
       end
     end
   end

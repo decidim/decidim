@@ -8,6 +8,9 @@ module Decidim
         include TranslatableAttributes
 
         translatable_attribute :closing_report, String
+        attribute :video_url, String
+        attribute :audio_url, String
+        attribute :closing_visible, Boolean, default: true
         attribute :attendees_count, Integer, default: 0
         attribute :contributions_count, Integer, default: 0
         attribute :attending_organizations, String
@@ -16,9 +19,8 @@ module Decidim
         attribute :closed_at, Decidim::Attributes::TimeWithZone, default: ->(_form, _attribute) { Time.current }
 
         validates :closing_report, translatable_presence: true
-        validates :attendees_count, presence: true, numericality: { greater_than_or_equal_to: 0 }
+        validates :attendees_count, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 999, only_integer: true }
         validates :contributions_count, numericality: true, allow_blank: true
-        validates :attending_organizations, presence: true
 
         # Private: Gets the proposals from the meeting and injects them to the form.
         #

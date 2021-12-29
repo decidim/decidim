@@ -6,14 +6,16 @@ module Decidim
     # for a given instance of an Election
     class ElectionVoteCtaCell < Decidim::ViewModel
       delegate :current_user,
-               :allowed_to?,
                :current_participatory_space,
+               :preview_mode?,
+               :can_preview?,
+               :vote_flow,
                to: :controller
 
       private
 
       def last_vote
-        @last_vote ||= Decidim::Elections::Votes::UserElectionLastVote.new(current_user, model).query
+        @last_vote ||= Decidim::Elections::Votes::LastVoteForVoter.for(model, vote_flow.voter_id) if vote_flow.has_voter?
       end
 
       def new_election_vote_path
@@ -34,16 +36,19 @@ module Decidim
         end
       end
 
-      def verify_election_vote_path
-        engine_router.verify_election_vote_path(
+      def election_vote_verify_path
+        engine_router.election_vote_verify_path(
           "#{key_participatory_space_slug}": current_participatory_space.slug,
           component_id: current_component.id,
-          election_id: model.id
+          election_id: model.id,
+          vote_id: "_"
         )
       end
 
       def callout_text
-        if last_vote_accepted?
+        if last_vote_pending?
+          t("callout.pending_vote", scope: "decidim.elections.elections.show")
+        elsif last_vote_accepted?
           t("callout.already_voted", scope: "decidim.elections.elections.show")
         else
           t("callout.vote_rejected", scope: "decidim.elections.elections.show")
@@ -52,6 +57,10 @@ module Decidim
 
       def already_voted?
         last_vote.present?
+      end
+
+      def last_vote_pending?
+        !!last_vote&.pending?
       end
 
       def last_vote_accepted?

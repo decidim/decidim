@@ -15,11 +15,17 @@ module Decidim
       end
 
       def geocoded_meetings
-        @geocoded_meetings ||= meetings.select(&:geocoded?)
+        @geocoded_meetings ||= meetings.select(&:geocoded_and_valid?)
       end
 
       def meetings
         model
+      end
+
+      private
+
+      def cache_hash
+        nil
       end
     end
   end

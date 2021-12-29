@@ -65,8 +65,20 @@ module Decidim::Meetings
       it { is_expected.not_to be_valid }
     end
 
+    context "when the available slots is blank" do
+      let(:available_slots) { "" }
+
+      it { is_expected.not_to be_valid }
+    end
+
     context "when the reserved slots is negative" do
       let(:reserved_slots) { -1 }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    context "when the reserved slots is blank" do
+      let(:reserved_slots) { "" }
 
       it { is_expected.not_to be_valid }
     end

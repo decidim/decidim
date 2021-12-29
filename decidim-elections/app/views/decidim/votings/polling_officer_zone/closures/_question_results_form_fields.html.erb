@@ -1,0 +1,22 @@
+<% form.object.question_results.each do |question| %>
+  <%= content_tag :h5,
+              translated_attribute(question.title),
+              class: "heading5 mt-sm" %>
+
+  <div class="card--secondary">
+    <div class="card__content">
+      <%= render partial: "answer_results_form_fields", locals: { form: form, question: question } %>
+
+      <% if question.nota_option? %>
+        <%= form.fields_for "[question_results][]", question do |question_form| %>
+          <%= question_form.hidden_field :id %>
+
+          <%= question_form.number_field(:value,
+                                   label: t("decidim.elections.votes.new.nota_option"),
+                                   min: 0,
+                                   class: "medium-3 result_votes_count") %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

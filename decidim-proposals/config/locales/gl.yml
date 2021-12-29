@@ -7,6 +7,7 @@ gl:
         category_id: Categoría
         decidim_scope_id: Alcance
         has_address: Ten enderezo
+        scope_id: Ámbito
         state: Estado
         title: Título
         user_group_id: Crear un borrador colaborativo como
@@ -17,19 +18,28 @@ gl:
         automatic_hashtags: Engadíronse automaticamente os hexágonos
         body: Corpo
         category_id: Categoría
+        decidim_scope_id: Ámbito
         has_address: Ten enderezo
+        scope_id: Ámbito
         state: Estado
         suggested_hashtags: Hashtags suxeridos
         title: Título
         user_group_id: Crear proposta como
       proposal_answer:
         answer: Resposta
+        cost: Custo
+        cost_report: Informe de custos
+        execution_period: Período de execución
       proposals_copy:
         copy_proposals: Comprendo que isto importará todas as propostas do compoñente seleccionado ao actual e que esta acción non se pode revertir.
         origin_component_id: Componente para copiar as propostas de
       proposals_import:
         import_proposals: Propostas de importación
+        keep_answers: Manter o estado e as respostas
         keep_authors: Mantén os autores orixinais
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Nome do avaliador/a
     errors:
       models:
         participatory_text:
@@ -38,15 +48,29 @@ gl:
               invalid_document_type: 'Tipo de documento non válido. Os formatos aceptados son: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
-              needs_to_be_reattached: Necesita ser reenxerado
+            add_documents:
+              needs_to_be_reattached: É preciso anexar de novo o ficheiro
+            add_photos:
+              needs_to_be_reattached: É preciso anexar de novo o ficheiro
             body:
+              cant_be_equal_to_template: non pode ser igual ao modelo
               identical: E o título non pode ser idéntico
             title:
               identical: E o corpo non pode ser idéntico
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Non é oficial
+              supported: Recibiron soporte ou apoios
+        proposals_split:
+          attributes:
+            base:
+              not_official: Non é oficial
+              supported: Recibiron soporte ou apoios
     models:
       decidim/proposals/accepted_proposal_event: A proposta foi aceptada
       decidim/proposals/admin/update_proposal_category_event: Modificouse a categoría de proposta
+      decidim/proposals/admin/update_proposal_scope_event: Mudouse o ámbito da proposta
       decidim/proposals/creation_enabled_event: Creación de proposta habilitada
       decidim/proposals/endorsing_enabled_event: Aprobación da proposta habilitada
       decidim/proposals/evaluating_proposal_event: A proposta está a ser avaliada
@@ -69,12 +93,38 @@ gl:
         one: Vota
         other: Votos
   decidim:
+    admin:
+      filters:
+        proposals:
+          category_id_eq:
+            label: Categoría
+          is_emendation_true:
+            label: Tipo
+            values:
+              'false': Propostas
+          scope_id_eq:
+            label: Ámbito
+          state_eq:
+            label: Estado
+            values:
+              accepted: Aceptada
+              evaluating: En avaliación
+              published: Publicadas
+              rejected: Rexeitada
+              validating: Validación técnica
+              withdrawn: Retiradas
+          state_null:
+            label: Estado
+        search_placeholder:
+          id_string_or_title_cont: Procurar %{collection} por ID ou título.
     components:
       proposals:
         actions:
+          comment: Comentario
           create: Crear
           endorse: Endosar
           vote: Vota
+          vote_comment: Votar comentario
           withdraw: Retirar
         name: Propostas
         settings:
@@ -85,6 +135,17 @@ gl:
             can_accumulate_supports_beyond_threshold: Pode acumular soportes máis aló do limiar
             collaborative_drafts_enabled: Esquemas colaborativos habilitados
             comments_enabled: Comentarios habilitados
+            default_sort_order: Orde predefinido das propostas
+            default_sort_order_help: Predefinido significa que se os apoios están activos, as propostas amosaranse ordenadas ao chou e se están bloqueados, entón serán ordenados de máis a menos apoios.
+            default_sort_order_options:
+              default: Predefinida
+              most_commented: Máis comentadas
+              most_endorsed: Máis apoios
+              most_followed: Máis seguidas
+              most_voted: Máis apoios
+              random: Ao chou
+              recent: Máis recentes
+              with_more_authors: Con máis autores
             geocoding_enabled: Geocoding habilitado
             minimum_votes_per_user: Votos mínimos por usuario
             new_proposal_help_text: Nova proposta de axuda de texto
@@ -99,6 +160,8 @@ gl:
             proposal_wizard_step_3_help_text: Asistente de propostas Texto de axuda de paso "Completo"
             proposal_wizard_step_4_help_text: Asistente de propostas "Publica" o texto de axuda paso a paso
             resources_permissions_enabled: Os permisos de acción pódense establecer para cada proposta
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
             threshold_per_proposal: Umbral por proposta
             vote_limit: Límite de voto por usuario
           step:
@@ -106,6 +169,17 @@ gl:
             automatic_hashtags: Hashtags engadido a todas as propostas
             comments_blocked: Comentarios bloqueados
             creation_enabled: Creación de proposta habilitada
+            default_sort_order: Orde predefinido das propostas
+            default_sort_order_help: Predefinido significa que se os apoios están activos, as propostas amosaranse ordenadas ao chou e se están bloqueados, entón serán ordenados de máis a menos apoios.
+            default_sort_order_options:
+              default: Predefinida
+              most_commented: Máis comentadas
+              most_endorsed: Máis apoios
+              most_followed: Máis seguidas
+              most_voted: Máis apoios
+              random: Ao chou
+              recent: Recentes
+              with_more_authors: Con máis autores
             endorsements_blocked: Aprobacións bloqueadas
             endorsements_enabled: Aprobacións habilitadas
             proposal_answering_enabled: Contestando a proposta habilitada
@@ -271,16 +345,35 @@ gl:
         see_all: Ver todos (%{count})
     proposals:
       actions:
+        answer_proposal: Responder á proposta
         edit_proposal: Editar proposta
         import: Importar dende outro compoñente
         new: Nova proposta
         participatory_texts: Textos participativos
+        show: Amosar proposta
         title: Accións
       admin:
         actions:
           preview: Vista previa
         exports:
+          proposal_comments: Comentarios
           proposals: Propostas
+        imports:
+          help:
+            answers: 'O documento a importar ten de conter as seguintes columnas: id, state (aceptado, avaliando, rexeitado), resposta (e outros idiomas habilitados pola organización).'
+          label:
+            answers: Importar respostas dende un ficheiro
+            proposals: Importar propostas dende un ficheiro
+          resources:
+            answers:
+              one: resposta á proposta
+              other: respostas á proposta
+            proposals:
+              one: proposta
+              other: propostas
+          title:
+            answers: Importar as respostas ás propostas
+            proposals: Importar propostas
         models:
           proposal:
             name: Proposta
@@ -366,14 +459,28 @@ gl:
           show:
             authors: Autores
             body: Corpo
+            comments_neutral_count: Neutral
+            comments_positive_count: A favor
             created_at: Data de creación
+            documents: Documentos
+            link: Ligazón
+            n_more_endorsers:
+              one: e 1 máis
+              other: e %{count} máis
+            photos: Fotos
             proposals: Propostas
+            ranking: "%{ranking} de %{total}"
+            related_meetings: Xuntanzas relacionadas
+            remove_assignment_confirmation: Estás seguro de que desexas eliminar este avaliador/a da proposta?
+            valuators: Avaliadores/as
             votes_count: Reconto de votos
+            votes_ranking: Clasificación por apoios
           update_category:
             select_a_category: Selecciona unha categoría
             select_a_proposal: Selecciona unha proposta
           update_scope:
             select_a_proposal: Selecciona unha proposta
+            select_a_scope: Por favor, escolle un ámbito
         proposals_imports:
           create:
             invalid: Produciuse un problema na importación das propostas
@@ -383,14 +490,18 @@ gl:
             no_components: Non existen outros compoñentes de proposta neste espazo participativo para importar as propostas.
             select_component: Selecciona un compoñente
             select_states: Comprobe os estados das propostas para importar
+            title: Importar propostas
         proposals_merges:
           create:
-            invalid: Produciuse un erro ao fusionar as propostas seleccionadas.
+            invalid: 'Produciuse un problema ao agrupar as propostas xa que algunhas delas:'
             success: Fusionou con éxito as propostas nun novo.
         proposals_splits:
           create:
-            invalid: Produciuse un erro dividindo as propostas seleccionadas.
+            invalid: 'Produciuse un problema ao dividir as propostas seleccionadas xa que algunhas delas:'
             success: Reaccionou con éxito as propostas en novas.
+        valuation_assignments:
+          create:
+            invalid: Produciuse un erro ao asignar propostas a un avaliador/a
       admin_log:
         proposal:
           answer: "%{user_name} respondeu á proposta %{resource_name} no espazo %{space_name}"
@@ -523,6 +634,9 @@ gl:
           info: Está creando un <strong>proxecto de colaboración</strong>.
         wizard_header:
           title: Crea o teu borrador colaborativo
+      content_blocks:
+        highlighted_proposals:
+          proposals: Propostas
       create:
         error: Produciuse un erro ao gardar a proposta.
         success: Proposta creada con éxito. Gardado como borrador.
@@ -531,6 +645,7 @@ gl:
         success: O borrador da proposta eliminouse con éxito.
       last_activity:
         new_proposal_at_html: "<span>Nova proposta en %{link}</span>"
+        proposal_updated_at_html: "<span>Proposta actualizada en %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -544,10 +659,13 @@ gl:
             id: ID
             notes: Notas
             official_proposal: Proposta oficial
+            published_answer: Resposta publicada
             published_at: Publicado en
             scope: Alcance
             state: Estado
             title: Título
+            valuator: Avaliador/a
+            valuators: Avaliadores/as
             votes: Votos
       new:
         limit_reached: Non podes crear novas propostas xa que superaches o límite.
@@ -572,9 +690,16 @@ gl:
           proposals_count:
             one: "%{count} proposta"
             other: "%{count} propostas"
+        dynamic_map_instructions:
+          instructions: Podes mover o punto no mapa.
         edit:
+          add_documents: Documentos
+          add_images: Ficheiro
           attachment_legend: "(Opcional) Engada un anexo"
           back: De volta
+          delete_document: Eliminar documento
+          delete_image: Eliminar imaxe
+          gallery_legend: "(Opcional) Engadir unha imaxe ao cartón de proposta"
           select_a_category: Selecciona unha categoría
           send: Enviar
           title: Editar proposta
@@ -584,8 +709,11 @@ gl:
           send: Vista previa
           title: Editar borrador de proposta
         filters:
+          activity: A miña actividade
+          all: Todas
           amendment_type: Tipo
           category: Categoría
+          my_proposals: As miñas propostas
           origin: Orixe
           related_to: Relacionado con
           scope: Alcance
@@ -599,9 +727,12 @@ gl:
           filter_by: Filtrar por
           unfold: Despregar
         index:
+          click_here: Ver todas as propostas
           collaborative_drafts_list: Acceda a borradores colaborativos
           new_proposal: Nova proposta
+          see_all: Ver todas as propostas
           see_all_withdrawn: Ver todas as propostas retiradas
+          text_banner: Estás a ver todas as propostas anuladas polos seus autores. %{go_back_link}.
           view_proposal: Ver proposta
         linked_proposals:
           proposal_votes:
@@ -612,14 +743,20 @@ gl:
           title: Crea a túa proposta
         orders:
           label: 'Solicitar propostas por:'
+          most_commented: Máis comentadas
+          most_endorsed: Con máis adhesións
+          most_followed: Con máis seguidores
           most_voted: A maioría votada
           random: Aleatorio
           recent: Recentes
+          with_more_authors: Con máis autores
         participatory_texts:
           index:
             document_index: Índice do documento
           view_index:
             see_index: Ver índice
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
           announcement_body: A túa proposta gardouse coma borrador. É preciso que sexa publicada para aparecer no sitio.
           announcement_title: A túa proposta aínda non foi publicada
@@ -632,9 +769,12 @@ gl:
         proposal:
           creation_date: 'Creación: %{date}'
           view_proposal: Ver proposta
+        proposals:
+          empty: Aínda non hai ningunha proposta
         show:
           answer: Resposta
           back_to: Voltar
+          back_to_list: Volver á listaxe
           comments: Comentarios
           edit_proposal: Editar proposta
           endorsements_list: Lista de avales
@@ -715,3 +855,7 @@ gl:
       included_proposals:
         proposal_project: 'Proposta que aparece nestes proxectos:'
         proposal_result: 'Proposta que aparece nestes resultados:'
+    statistics:
+      proposals_accepted: Propostas aceptadas
+      proposals_count: Propostas
+      supports_count: Apoios

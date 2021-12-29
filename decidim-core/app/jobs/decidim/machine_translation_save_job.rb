@@ -6,7 +6,7 @@ module Decidim
   # save it and also enables storing translations asynchronously when the
   # translation service returns the translated text in a webhook.
   class MachineTranslationSaveJob < ApplicationJob
-    queue_as :default
+    queue_as :translations
 
     # Performs the job. It won't perform anything if the
     # `Decidim.machine_translation_service` config is not set.

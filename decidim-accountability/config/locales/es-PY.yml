@@ -204,6 +204,8 @@ es-PY:
             label: Estado
     components:
       accountability:
+        actions:
+          comment: Comentar
         name: Seguimiento
         settings:
           global:
@@ -244,3 +246,5 @@ es-PY:
         result_project: Proyectos incluidos en este resultado
       included_proposals:
         result_proposal: Propuestas incluidas en este resultado
+    statistics:
+      results_count: Resultados

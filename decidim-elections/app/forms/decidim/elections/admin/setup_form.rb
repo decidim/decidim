@@ -57,6 +57,10 @@ module Decidim
           @bulletin_board ||= context[:bulletin_board] || Decidim::Elections.bulletin_board
         end
 
+        def main_button?
+          true
+        end
+
         private
 
         def choose_random_trustees

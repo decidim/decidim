@@ -351,7 +351,7 @@ describe "Initiative", type: :system do
         end
       end
 
-      context "when Finish", processing_uploads_for: Decidim::AttachmentUploader do
+      context "when Finish" do
         let(:initiative) { build(:initiative) }
 
         before do

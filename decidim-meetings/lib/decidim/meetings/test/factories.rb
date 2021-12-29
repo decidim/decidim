@@ -3,7 +3,6 @@
 require "decidim/core/test/factories"
 require "decidim/forms/test/factories"
 require "decidim/participatory_processes/test/factories"
-require "decidim/assemblies/test/factories"
 
 FactoryBot.define do
   factory :meeting_component, parent: :component do
@@ -38,9 +37,23 @@ FactoryBot.define do
     registration_type { :on_this_platform }
     type_of_meeting { :in_person }
     component { build(:component, manifest_name: "meetings") }
+    iframe_access_level { :all }
+    iframe_embed_type { :none }
 
     author do
       component.try(:organization)
+    end
+
+    trait :published do
+      published_at { Time.current }
+    end
+
+    trait :withdrawn do
+      state { "withdrawn" }
+    end
+
+    trait :in_person do
+      type_of_meeting { :in_person }
     end
 
     trait :online do
@@ -88,6 +101,14 @@ FactoryBot.define do
       contributions_count { rand(50) }
       attending_organizations { Array.new(3) { Faker::TvShows::GameOfThrones.house }.join(", ") }
       closed_at { Time.current }
+      closing_visible { true }
+    end
+
+    trait :closed_with_minutes do
+      closed
+      video_url { Faker::Internet.url }
+      audio_url { Faker::Internet.url }
+      closing_visible { true }
     end
 
     trait :with_registrations_enabled do
@@ -104,6 +125,39 @@ FactoryBot.define do
 
     trait :upcoming do
       start_time { Faker::Time.between(from: 1.day.from_now, to: 10.days.from_now) }
+    end
+
+    trait :live do
+      start_time { 1.day.ago }
+      end_time { 1.day.from_now }
+    end
+
+    trait :embeddable do
+      online_meeting_url { "https://www.youtube.com/watch?v=pj_2G3x6-Zk" }
+    end
+
+    factory :published_meeting do
+      published_at { Time.current }
+    end
+
+    trait :signed_in_iframe_access_level do
+      iframe_access_level { :signed_in }
+    end
+
+    trait :registered_iframe_access_level do
+      iframe_access_level { :registered }
+    end
+
+    trait :embed_in_meeting_page_iframe_embed_type do
+      iframe_embed_type { :embed_in_meeting_page }
+    end
+
+    trait :open_in_live_event_page_iframe_embed_type do
+      iframe_embed_type { :open_in_live_event_page }
+    end
+
+    trait :open_in_new_tab_iframe_embed_type do
+      iframe_embed_type { :open_in_new_tab }
     end
   end
 
@@ -142,14 +196,6 @@ FactoryBot.define do
     end
   end
 
-  factory :minutes, class: "Decidim::Meetings::Minutes" do
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    video_url { Faker::Internet.url }
-    audio_url { Faker::Internet.url }
-    visible { true }
-    meeting
-  end
-
   factory :invite, class: "Decidim::Meetings::Invite" do
     meeting
     user
@@ -170,5 +216,56 @@ FactoryBot.define do
     meeting
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+  end
+
+  factory :poll, class: "Decidim::Meetings::Poll" do
+    meeting
+  end
+
+  factory :meetings_poll_questionnaire, class: "Decidim::Meetings::Questionnaire" do
+    questionnaire_for { build(:poll) }
+  end
+
+  factory :meetings_poll_question, class: "Decidim::Meetings::Question" do
+    transient do
+      options { [] }
+    end
+
+    body { generate_localized_title }
+    position { 0 }
+    status { 0 }
+    question_type { Decidim::Meetings::Question::QUESTION_TYPES.first }
+    questionnaire factory: :meetings_poll_questionnaire
+    answer_options do
+      Array.new(3).collect { build(:meetings_poll_answer_option, question: nil) }
+    end
+
+    trait :unpublished do
+      status { 0 }
+    end
+
+    trait :published do
+      status { 1 }
+    end
+
+    trait :closed do
+      status { 2 }
+    end
+  end
+
+  factory :meetings_poll_answer, class: "Decidim::Meetings::Answer" do
+    questionnaire factory: :meetings_poll_questionnaire
+    question { create(:meetings_poll_question, questionnaire: questionnaire) }
+    user { create(:user, organization: questionnaire.questionnaire_for.organization) }
+  end
+
+  factory :meetings_poll_answer_option, class: "Decidim::Meetings::AnswerOption" do
+    question { create(:meetings_poll_question) }
+    body { generate_localized_title }
+  end
+
+  factory :meetings_poll_answer_choice, class: "Decidim::Meetings::AnswerChoice" do
+    answer factory: :meetings_poll_answer
+    answer_option { create(:meetings_poll_answer_option, question: answer.question) }
   end
 end

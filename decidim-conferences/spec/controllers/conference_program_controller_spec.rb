@@ -38,6 +38,7 @@ module Decidim
             create_list(
               :meeting,
               3,
+              :published,
               component: component
             )
           end

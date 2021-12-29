@@ -6,7 +6,7 @@ module Decidim::Meetings
   describe Admin::UpdateMeeting do
     subject { described_class.new(form, meeting) }
 
-    let(:meeting) { create(:meeting) }
+    let(:meeting) { create(:meeting, :published) }
     let(:organization) { meeting.component.organization }
     let(:scope) { create :scope, organization: organization }
     let(:category) { create :category, participatory_space: meeting.component.participatory_space }
@@ -29,6 +29,11 @@ module Decidim::Meetings
     let(:registration_url) { "http://decidim.org" }
     let(:registration_type) { "on_this_platform" }
     let(:available_slots) { 0 }
+    let(:customize_registration_email) { true }
+    let(:registration_email_custom_content) { { "en" => "The registration email custom content." } }
+    let(:iframe_embed_type) { "none" }
+    let(:iframe_access_level) { nil }
+
     let(:form) do
       double(
         invalid?: invalid,
@@ -52,7 +57,14 @@ module Decidim::Meetings
         available_slots: available_slots,
         registration_url: registration_url,
         clean_type_of_meeting: type_of_meeting,
-        online_meeting_url: online_meeting_url
+        online_meeting_url: online_meeting_url,
+        customize_registration_email: customize_registration_email,
+        registration_email_custom_content: registration_email_custom_content,
+        iframe_embed_type: iframe_embed_type,
+        comments_enabled: true,
+        comments_start_time: nil,
+        comments_end_time: nil,
+        iframe_access_level: iframe_access_level
       )
     end
 
@@ -99,6 +111,19 @@ module Decidim::Meetings
         end
       end
 
+      it "sets the registration email related fields" do
+        subject.call
+
+        expect(meeting.customize_registration_email).to be true
+        expect(meeting.registration_email_custom_content).to eq(registration_email_custom_content)
+      end
+
+      it "sets iframe_access_level" do
+        subject.call
+
+        expect(meeting.iframe_access_level).to eq(iframe_access_level)
+      end
+
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:update!)
@@ -139,7 +164,14 @@ module Decidim::Meetings
             available_slots: available_slots,
             registration_url: registration_url,
             clean_type_of_meeting: type_of_meeting,
-            online_meeting_url: online_meeting_url
+            online_meeting_url: online_meeting_url,
+            customize_registration_email: customize_registration_email,
+            registration_email_custom_content: registration_email_custom_content,
+            iframe_embed_type: iframe_embed_type,
+            comments_enabled: true,
+            comments_start_time: nil,
+            comments_end_time: nil,
+            iframe_access_level: iframe_access_level
           )
         end
 
@@ -233,6 +265,28 @@ module Decidim::Meetings
               )
 
             subject.call
+          end
+        end
+
+        context "when the meeting is unpublished" do
+          let(:meeting) { create(:meeting) }
+
+          context "when the start time changes" do
+            let(:start_time) { meeting.start_time - 1.day }
+
+            it "doesn't notify the change" do
+              expect(Decidim::EventsManager)
+                .not_to receive(:publish)
+
+              subject.call
+            end
+
+            it "doesn't schedule the upcoming meeting notification job" do
+              expect(UpcomingMeetingNotificationJob)
+                .not_to receive(:perform_later)
+
+              subject.call
+            end
           end
         end
       end

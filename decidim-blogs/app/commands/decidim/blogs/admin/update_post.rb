@@ -35,7 +35,8 @@ module Decidim
         def update_post!
           post.update!(
             title: form.title,
-            body: form.body
+            body: form.body,
+            author: form.author
           )
         end
       end

@@ -8,7 +8,7 @@
 
   <div class="card-section">
     <div class="row column">
-      <strong><%= t ".description" %>: </strong> <%= decidim_sanitize translated_attribute(initiative.description) %>
+      <strong><%= t ".description" %>: </strong> <%= decidim_sanitize_editor translated_attribute(initiative.description) %>
     </div>
     <div class="row column">
       <strong><%= t ".created_at" %>: </strong> <%= l initiative.created_at, format: :decidim_short %>

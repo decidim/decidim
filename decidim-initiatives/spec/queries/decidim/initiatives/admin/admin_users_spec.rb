@@ -7,14 +7,13 @@ module Decidim::Initiatives
     subject { described_class.new(initiative) }
 
     let(:organization) { create :organization }
-    let(:initiative) { create :initiative, :published, organization: organization }
+    let!(:initiative) { create :initiative, :published, organization: organization }
     let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
-    let!(:initiative_admin) do
-      create(:user, :admin, :confirmed, organization: organization)
-    end
+    let!(:normal_user) { create(:user, :confirmed, organization: organization) }
+    let!(:other_organization_user) { create(:user, :confirmed) }
 
-    it "returns the organization admins and initiative admins" do
-      expect(subject.query).to match_array([admin, initiative_admin])
+    it "returns the organization admins" do
+      expect(subject.query).to match_array([admin])
     end
   end
 end

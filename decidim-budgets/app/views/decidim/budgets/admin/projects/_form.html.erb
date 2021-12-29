@@ -28,9 +28,11 @@
       <%= form.categories_select :decidim_category_id, current_participatory_space.categories, include_blank: true, disable_parents: false %>
     </div>
 
-    <div class="row column">
-      <%= proposals_picker(form, :proposals, proposals_picker_projects_path) %>
-    </div>
+    <% if Decidim::Budgets.enable_proposal_linking %>
+      <div class="row column">
+        <%= proposals_picker(form, :proposals, proposals_picker_projects_path) %>
+      </div>
+    <% end %>
 
     <%= render partial: "decidim/admin/shared/gallery", locals: { form: form } %>
 

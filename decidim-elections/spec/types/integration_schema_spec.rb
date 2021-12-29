@@ -36,7 +36,7 @@ describe "Decidim::Api::QueryType" do
               "title" => { "translation" => a.title[locale] },
               "versions" => [],
               "versionsCount" => 0,
-              "votes_count" => a.votes_count.to_i,
+              "results_total" => a.results_total.to_i,
               "weight" => a.weight.to_i
             }
           end,
@@ -111,7 +111,7 @@ describe "Decidim::Api::QueryType" do
                       id
                     }
                     versionsCount
-                    votes_count
+                    results_total
                     weight
                   }
                   description {
@@ -191,7 +191,7 @@ describe "Decidim::Api::QueryType" do
                 id
               }
               versionsCount
-              votes_count
+              results_total
               weight
             }
             description {

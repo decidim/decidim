@@ -6,18 +6,32 @@ ja:
         description: 説明
         title: タイトル
         total_budget: 予算の合計
+        weight: 順番の位置
       project:
         budget_amount: 予算額
         decidim_category_id: カテゴリ
         decidim_scope_id: スコープ
         description: 説明
         proposal_ids: 関連する提案
+        selected: 実装の選択
         title: タイトル
   activerecord:
     models:
       decidim/budgets/project:
         other: プロジェクト
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: カテゴリ
+          scope_id_eq:
+            label: スコープ
+          selected_at_null:
+            label: 選択済み
+            values:
+              'false': 選択済み
+              'true': 未選択
     budgets:
       actions:
         attachment_collections: フォルダ
@@ -42,13 +56,19 @@ ja:
             title: 予算の編集
             update: 予算を更新
           index:
+            finished_orders: 完了した投票
+            pending_orders: 保留中の投票
             title: 予算
+            users_with_finished_orders: 投票済みのユーザー
+            users_with_pending_orders: 投票保留中のユーザー
           new:
             create: 予算を作成する
             title: 新しい予算
           update:
             invalid: 予算の更新中に問題が発生しました。
             success: 予算が正常に更新されました。
+        exports:
+          projects: プロジェクト
         models:
           budget:
             name: 予算
@@ -80,8 +100,9 @@ ja:
             success: "%{number} 件の提案がプロジェクトにインポートされました"
           new:
             create: プロジェクトへの提案をインポート
-            no_components: この参加スペースには、プロジェクトにインポートするための他の提案コンポーネントはありません。
+            no_components: この参加型スペースには、プロジェクトにインポートするための他の提案コンポーネントはありません。
             select_component: コンポーネントを選択してください
+            title: 提案のインポート
       admin_log:
         budget:
           create: "%{user_name} が予算 %{resource_name} を %{space_name} に作成しました。"
@@ -98,6 +119,9 @@ ja:
         close_modal: ウィンドウを閉じる
         continue: 続行
         more_information: 詳細情報
+      budget_list_item:
+        voting_finished: この予算に投票しました
+        voting_started: この予算に投票し始めました
       budgets_list:
         cancel_order:
           more_than_one: '%{name} への投票を削除してからやり直してください'
@@ -106,6 +130,9 @@ ja:
         highlighted_cta: '%{name} に投票'
         if_change_opinion: 気が変わった場合は、
         my_budgets: 私の予算
+        progress: 投票を終了
+        show: プロジェクトを表示
+        vote: 投票
         voted_on: '%{links} に投票しました'
       limit_announcement:
         cant_vote: この予算に投票することはできません。 <a href="%{landing_path}">別の予算を試してみてください</a>。
@@ -118,13 +145,15 @@ ja:
             total_budget: 予算の合計
         project:
           fields:
+            category: カテゴリ
+            id: ID
             title: タイトル
       order_summary_mailer:
         order_summary:
           selected_projects: '選択したプロジェクトは次のとおりです。'
-          subject: '%{space_name} 参加スペースに投票しました'
-          voted_on_space: '%{budget_name} 参加スペースの %{space_name} 予算に投票しました。'
-          voted_on_space_with_scope: '%{budget_name} (%{space_name}) の %{scope_name} 参加スペースの %{scope_type} 予算に投票しました。'
+          subject: 参加型スペース%{space_name} に投票しました
+          voted_on_space: '%{budget_name} 参加型スペースの %{space_name} 予算に投票しました。'
+          voted_on_space_with_scope: '%{budget_name} (%{space_name}) の %{scope_name} 参加型スペースの %{scope_type} 予算に投票しました。'
       projects:
         budget_confirm:
           are_you_sure: 気が変わった場合は、後で投票を変更できます。
@@ -134,9 +163,14 @@ ja:
           title: 投票の確認
         budget_excess:
           budget_excess:
+            description: 予算上限を超えてしまうため、このプロジェクトは追加できません。 追加したい場合、すでに選択済みのプロジェクトを削除すると、改めて選択できるようになります。
             title: 最大予算を超えました
           close: 閉じる
+          description: 予算上限を超えてしまうため、このプロジェクトは追加できません。 追加したい場合、すでに選択済みのプロジェクトを削除すると、改めて選択できるようになります。
           ok: OK
+          projects_excess:
+            description: プロジェクト数の上限を超えてしまうため、このプロジェクトは追加できません。 追加したい場合、すでに選択済みのプロジェクトを削除すると、改めて選択できるようになります。
+            title: プロジェクト数の上限を超えました
         budget_summary:
           are_you_sure: 投票をキャンセルしてもよろしいですか？
           assigned: 'アサイン済み:'
@@ -144,10 +178,32 @@ ja:
           checked_out:
             description: すでに予算に投票しています。気が変わった場合は、 %{cancel_link} することができます。
             title: 予算投票が完了しました
+          minimum_projects_rule:
+            description: どのプロジェクトに予算を割り当てるべきだと思いますか？ 希望するプロジェクトを %{minimum_number} 件以上選択し、好ましいと思う予算を決めて投票します。
+            instruction: "<li>希望するプロジェクトを %{minimum_number} 件以上選択し、好ましいと思う予算を決めて投票します。</li>"
+          projects_rule:
+            description: どのプロジェクトに予算を割り当てるべきだと思いますか？ 希望するプロジェクトを最小 %{minimum_number} 件、最大 %{maximum_number} 件選択し、好ましいと思う予算を決めて投票します。
+            instruction: "<li>希望するプロジェクトを最小 %{minimum_number} 件、最大 %{maximum_number} 件選択し、好ましいと思う予算を決めて投票します。</li>"
+          projects_rule_maximum_only:
+            description: どのプロジェクトに予算を割り当てるべきだと思いますか？ 希望するプロジェクトを %{maximum_number} 件まで選択し、好ましいと思う予算を決めて投票します。
+            instruction: "<li>希望するプロジェクトを %{maximum_number} 件まで選択し、好ましいと思う予算を決めて投票します。</li>"
+          rules:
+            title: 予算ルール
           title: 予算を決める
+          total_budget: 予算の合計
+          total_projects: 投票の合計
+          vote_threshold_percent_rule:
+            description: どのプロジェクトに予算を割り当てるべきだと思いますか？ 希望するプロジェクトに予算を %{minimum_budget} 以上割り当てて、好ましいと思う予算を決めて投票します。
+            instruction: "<li>希望するプロジェクトに %{minimum_budget} 以上の予算を割り当てて、好ましいと思う予算を決めて投票します。</li>"
         count:
           projects_count:
             other: "%{count} プロジェクト"
+        exit_modal:
+          cancel: 投票に戻る
+          close_modal: 閉じる
+          exit: 投票を終了
+          message: 投票プロセスがまだ完了していないため、投票が登録されていません。投票を終了してもよろしいですか？
+          title: まだ投票していません
         filters:
           category: カテゴリ
           scope: スコープ
@@ -173,7 +229,7 @@ ja:
           highest_cost: 最高コスト
           label: 'プロジェクトを注文:'
           lowest_cost: 最低コスト
-          most_voted: Most voted
+          most_voted: 投票順
           random: ランダムな注文
           selected: 選択済
         project:
@@ -183,6 +239,7 @@ ja:
           view: 表示
           votes:
             other: 投票
+          you_voted: 投票済
         project_budget_button:
           add: 投票に追加
           add_descriptive: プロジェクト %{resource_name} をあなたの投票に追加
@@ -195,6 +252,7 @@ ja:
     components:
       budgets:
         actions:
+          comment: コメント
           vote: 投票
         name: 予算
         settings:
@@ -216,7 +274,10 @@ ja:
             total_budget: 予算の合計
             vote_minimum_budget_projects_number: 投票するプロジェクトの最小数
             vote_rule_minimum_budget_projects_enabled: 'ルールを有効にします: 投票するプロジェクトの最小数'
+            vote_rule_selected_projects_enabled: 'ルールの有効化: 投票するプロジェクトの最小数と最大数'
             vote_rule_threshold_percent_enabled: 'ルールを有効にします：予算の最小割合'
+            vote_selected_projects_maximum: 選択するプロジェクトの上限
+            vote_selected_projects_minimum: 選択するプロジェクトの下限
             vote_threshold_percent: 投票しきい値パーセント
             workflow: ワークフロー
             workflow_choices:
@@ -250,5 +311,11 @@ ja:
       destroy:
         error: 投票のキャンセル中に問題が発生しました
         success: 投票は正常にキャンセルされました
+    resource_links:
+      included_proposals:
+        project_proposal: このプロジェクトに含まれる提案
+    statistics:
+      orders_count: サポート
+      projects_count: プロジェクト
   index:
     confirmed_orders_count: 投票数

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 shared_examples_for "has attachment collections" do
-  context "when it has attachment collections", processing_uploads_for: Decidim::AttachmentUploader do
+  context "when it has attachment collections" do
     let(:attachment_collection) { create(:attachment_collection, collection_for: collection_for) }
     let!(:document) { create(:attachment, :with_pdf, attached_to: attached_to, attachment_collection: attachment_collection) }
     let!(:other_document) { create(:attachment, :with_pdf, attached_to: attached_to, attachment_collection: nil) }
@@ -26,7 +26,7 @@ shared_examples_for "has attachment collections" do
     end
   end
 
-  context "when are ordered by weight", processing_uploads_for: Decidim::AttachmentUploader do
+  context "when are ordered by weight" do
     let!(:last_attachment_collection) { create(:attachment_collection, collection_for: collection_for, weight: 2) }
     let!(:document_one) { create(:attachment, :with_pdf, attached_to: attached_to, attachment_collection: last_attachment_collection) }
 
@@ -44,7 +44,7 @@ shared_examples_for "has attachment collections" do
     end
   end
 
-  context "when collection is empty", processing_uploads_for: Decidim::AttachmentUploader do
+  context "when collection is empty" do
     let(:attachment_collection) { create(:attachment_collection, collection_for: collection_for) }
     let!(:document) { create(:attachment, :with_pdf, attached_to: attached_to, attachment_collection: attachment_collection) }
     let(:empty_attachment_collection) { create(:attachment_collection, collection_for: collection_for) }

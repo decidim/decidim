@@ -14,9 +14,19 @@ ja:
         other: 投票
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: コメントを有効にする
+            end_time: 次の時点までのコメントを有効にする
+            start_time: 次の時点からコメントを有効にする
       comments:
         create:
           error: コメントの登録に問題がありました。
+        delete:
+          error: コメントを削除できませんでした。
+        update:
+          error: コメントの更新中に問題が発生しました。
       comments_count: コメント数
       comments_title: コメント
       last_activity:
@@ -37,7 +47,13 @@ ja:
           user_group_id:
             label: 'コメント:'
         opinion:
+          label: このトピックに関するあなたの意見
+          negative: 否定的
+          negative_selected: このトピックについてのあなたの意見は否定的です
           neutral: 中立
+          neutral_selected: このトピックについてのあなたの意見は中立です
+          positive: 肯定的
+          positive_selected: このトピックについてのあなたの意見は肯定的です
         remaining_characters: "残り %{count} 文字"
         remaining_characters_1: "残り%{count} 文字"
         title: コメントを追加
@@ -45,7 +61,12 @@ ja:
         alignment:
           against: 反対
           in_favor: 賛成
+        confirm_destroy: コメントを削除してもよろしいですか？
+        delete: 削除
+        deleted_at: '%{date} にコメントが削除されました'
         deleted_user: 退会者
+        edit: 編集
+        edited: 編集済み
         hide_replies: 返信を非表示
         reply: 返信
         report:
@@ -60,7 +81,7 @@ ja:
             spam: 本来の内容に関係が無い広告、詐欺や悪意のある処理などが含まれています。
           title: 不適切なコンテンツを報告する
         show_replies: '%{replies_count} 件の返信を表示'
-        single_comment_link_title: シングルコメントへのリンクを取得
+        single_comment_link_title: リンク取得
       comment_order_selector:
         order:
           best_rated: 最高評価
@@ -71,16 +92,25 @@ ja:
       comment_thread:
         title: '%{authorName} との会話'
       comments:
+        blocked_comments_for_unauthorized_user_warning: 現在、コメントできるのは検証済アカウントのみになりますが、以前のコメントを読むことはできます。
         blocked_comments_for_user_warning: 現時点ではコメントできませんが、以前のコメントを読むことができます。
         blocked_comments_warning: コメントは現時点で無効になっていますが、以前のコメントを読むことができます。
         comment_details_title: コメントの詳細
         loading: コメントを読み込んでいます...
-        single_comment_warning: コメントの残りは <a href="%{url}">こちら</a>で確認できます。
+        single_comment_warning: <a href="%{url}">すべてのコメントを表示</a>
         single_comment_warning_title: コメントを1件のみ表示しています
         title:
           other: "%{count} 件のコメント"
       down_vote_button:
         text: このコメントに同意しません
+      edit_comment_modal_form:
+        close: 閉じる
+        form:
+          body:
+            label: コメント
+            placeholder: これについてどう思いますか?
+          submit: 送信
+        title: コメントを編集
       up_vote_button:
         text: このコメントに同意します
     events:
@@ -89,17 +119,27 @@ ja:
           email_intro: "%{author_name} は %{resource_title}にコメントを残しました。このページで読むことができます:"
           email_outro: '%{author_name}をフォローしているため、この通知を受け取りました。プロフィールページからこのユーザーのフォローを解除することができます。'
           email_subject: '%{author_name} から %{resource_title} に対して新しいコメントがあります'
-          notification_title: There is a new comment by <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> より <a href="%{resource_path}">%{resource_title} に対して新しいコメントがあります</a>.
         comment_by_followed_user_group:
           email_intro: 'グループ %{author_name} は %{resource_title}にコメントを残しました。このページで読むことができます:'
           email_outro: '%{author_name}をフォローしているため、この通知を受け取りました。プロフィールページからこのグループのフォローを解除できます。'
           email_subject: '%{author_name} から %{resource_title} に対して新しいコメントがあります'
-          notification_title: There is a new comment by <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> より <a href="%{resource_path}">%{resource_title} に対して新しいコメントがあります</a>.
         comment_created:
           email_intro: "%{resource_title} はコメントされました。このページでコメントを読むことができます："
           email_outro: '"%{resource_title}" 、またはその参加者をフォローしているためこの通知を受け取りました。前のリンクからフォローを解除することができます。'
           email_subject: '%{author_name} から %{resource_title} に対して新しいコメントがあります'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> から <a href="%{resource_path}">%{resource_title} に対して新しいコメントがあります</a>
+        comment_downvoted:
+          email_intro: '"%{resource_title}" でのあなたの意見への反対票がありました。現在の合計は、賛成票が %{upvotes} 件、反対票が %{downvotes} 件です。'
+          email_outro: このコメントの作成者であるため、この通知を受け取りました。
+          email_subject: '"%{resource_title}" のコメントに反対票がありました。'
+          notification_title: '"%{resource_title}"についてのあなたの <a href="%{resource_path}">コメント</a> に反対票がありました。現在の合計は、賛成票が %{upvotes} 件、反対票が %{downvotes} 件です。'
+        comment_upvoted:
+          email_intro: '"%{resource_title}" でのあなたの意見への賛成票がありました。現在の合計は、賛成票が %{upvotes} 件、反対票が %{downvotes} 件です。'
+          email_outro: このコメントの作成者であるため、この通知を受け取りました。
+          email_subject: '"%{resource_title}" のコメントに賛成票がありました。'
+          notification_title: '"%{resource_title}"についてのあなたの <a href="%{resource_path}">コメント</a> に賛成票がありました。現在の合計は、賛成票が %{upvotes} 件、反対票が %{downvotes} 件です。'
         reply_created:
           email_intro: "%{author_name} は %{resource_title}であなたのコメントを返信しました。このページで読むことができます:"
           email_outro: コメントが返信されたため、この通知を受信しました。

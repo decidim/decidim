@@ -55,7 +55,6 @@ ru:
         birthplace: Место рождения
         ceased_date: Дата прекращения полномочий
         designation_date: Дата предоставления полномочий
-        designation_mode: Вид полномочий
         full_name: Полное имя
         gender: Пол
         position: Должность
@@ -161,6 +160,7 @@ ru:
           assembly_members: Члены президиума
           attachment_collections: Папки
           attachment_files: Прикрепленные файлы
+          attachments: Прикрепленные файлы
           categories: Категории
           components: Составляющие
           info: Сведения

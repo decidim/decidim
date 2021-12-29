@@ -112,7 +112,7 @@ module Decidim
         end
 
         def current_published_question_index
-          current_consultation_published_questions.find_index(current_question)
+          current_consultation_published_questions.find_index(current_question) || -1
         end
       end
     end

@@ -1,10 +1,10 @@
-<li><%= link_to t(".profile"), decidim.account_path, tabindex: "-1" %></li>
+<li role="presentation"><%= link_to t(".profile"), decidim.account_path, role: "menuitem" %></li>
 <% if current_user.nickname.present? && !current_user.managed? %>
-  <li><%= link_to t(".public_profile"), decidim.profile_path(current_user.nickname), tabindex: "-1" %></li>
+  <li role="presentation"><%= link_to t(".public_profile"), decidim.profile_path(current_user.nickname), role: "menuitem" %></li>
 <% end %>
-<li><%= link_to t(".notifications"), decidim.notifications_path, tabindex: "-1" %></li>
-<li><%= link_to t(".conversations"), decidim.conversations_path, tabindex: "-1" %></li>
+<li role="presentation"><%= link_to t(".notifications"), decidim.notifications_path, role: "menuitem" %></li>
+<li role="presentation"><%= link_to t(".conversations"), decidim.conversations_path, role: "menuitem" %></li>
 <% if allowed_to? :read, :admin_dashboard %>
-  <li><%= link_to t(".admin_dashboard"), decidim_admin.root_path, tabindex: "-1" %></li>
+  <li role="presentation"><%= link_to t(".admin_dashboard"), decidim_admin.root_path, role: "menuitem" %></li>
 <% end %>
-<li><%= link_to t(".sign_out"), decidim.destroy_user_session_path, method: :delete, class: "sign-out-link", tabindex: "-1" %></li>
+<li role="presentation"><%= link_to t(".sign_out"), decidim.destroy_user_session_path, method: :delete, class: "sign-out-link", role: "menuitem" %></li>

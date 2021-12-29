@@ -24,7 +24,6 @@ sr:
       proposals:
         settings:
           global:
-            allow_card_image: Dozvoli sliku kartice
             new_proposal_body_template: Novi predlog šablona glavnog teksta
             new_proposal_body_template_help: Možete da definišete tekst koji će se pojavljivati pri kreiranju novog predloga
           step:

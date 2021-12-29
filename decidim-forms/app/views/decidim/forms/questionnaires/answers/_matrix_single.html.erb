@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <% answer.question.matrix_rows.each_with_index do |row, row_idx| %>
+    <% answer.question.matrix_rows.by_position.each_with_index do |row, row_idx| %>
       <tr class="radio-button-collection">
         <td><%= translated_attribute row.body %></td>
         <% answer.question.answer_options.each_with_index do |answer_option, idx| %>

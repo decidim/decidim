@@ -15,6 +15,7 @@ sv:
         edit: Redigera
         new: Nytt inlägg
         title: Åtgärder
+        user_group_id: Skapa inlägg som
       admin:
         models:
           components:
@@ -29,6 +30,7 @@ sv:
             success: Inlägget har raderats
           edit:
             save: Uppdatera
+            title: Redigera inlägg
           index:
             title: Inlägg
           new:
@@ -57,6 +59,10 @@ sv:
       read_more: Läs mer
     components:
       blogs:
+        actions:
+          create: Skapa
+          destroy: Radera
+          update: Uppdatera
         name: Blogg
         settings:
           global:
@@ -75,3 +81,5 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan sluta att följa det från den föregående länken.
           email_subject: Ett nytt inlägg har publicerats i %{participatory_space_title}
           notification_title: Inlägget <a href="%{resource_path}">%{resource_title}</a> har publicerats i %{participatory_space_title}
+    statistics:
+      posts_count: Inlägg

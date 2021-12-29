@@ -1,0 +1,10 @@
+<%= link_to voting_monitoring_committee_polling_station_closures_path(current_voting, election_id: closure.election.id) do %>
+  <%= icon "caret-left", class: "icon--small", role: "img" %> <%= t(".change_polling_station") %>
+<% end %>
+
+<%= render partial: "closure_certificate_results" %>
+
+<div class="card__content">
+  <%= content_tag :strong, t(".monitoring_committee_notes") %>:
+  <%= closure.monitoring_committee_notes %>
+</div>

@@ -36,7 +36,6 @@ sl:
         description: Opis
         facebook_handler: Facebook krmilnik
         favicon: Ikona
-        from: Iz elektronskega naslova
         github_handler: GitHub krmilnik
         header_snippets: Deli glave
         highlight_alternative_color: Poudarek, alternativno
@@ -119,7 +118,6 @@ sl:
       actions:
         add: Dodaj
         browse: Brskaj
-        export: Izvozi
         manage: Uredi
         new: Novo %{name}
         per_page: Na stran

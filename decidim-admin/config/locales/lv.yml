@@ -37,7 +37,6 @@ lv:
         enable_omnipresent_banner: Rādīt visuresošo reklāmkarogu
         facebook_handler: Facebook apdarinātājs
         favicon: Ikona
-        from: No e-pasta adreses
         github_handler: GitHub apdarinātājs
         header_snippets: Galvenes koda fragmenti
         highlighted_content_banner_action_subtitle: Darbības pogas apakšnosaukums
@@ -120,7 +119,6 @@ lv:
       actions:
         add: Pievienot
         browse: Pārlūkot
-        export: Eksportēt
         manage: Pārvaldīt
         new: Jauns %{name}
         per_page: Lapā
@@ -132,12 +130,10 @@ lv:
           error: Piekrītot administratora lietošanas noteikumiem, radās kļūda.
           success: Lieliski! Jūs esat piekritis administratora lietošanas noteikumiem.
         actions:
-          are_you_sure: Vai tiešām nepiekrītat administratora noteikumiem?
           refuse: Nepiekrist administratora noteikumiem
           title: Piekrist lietošanas noteikumiem
         required_review:
           alert: 'Obligāti: pārskatiet mūsu administratora lietošanas noteikumus'
-          callout: Lūdzu, veltiet laiku, lai pārskatītu administratora lietošanas noteikumus. Pretējā gadījumā jūs nevarēsiet administrēt platformu.
           cta: Pārskatiet tos tagad.
         title: Administratora lietošanas noteikumi
       area_types:
@@ -160,7 +156,6 @@ lv:
           error: Jaunas jomas izveides laikā radās problēma.
           success: Joma ir veiksmīgi izveidota.
         destroy:
-          has_spaces: Šai jomai ir piesaistītas telpas. Jomu drīkst dzēst tikai tad, ja tai nav piesaistītu telpu.
           success: Joma ir veiksmīgi dzēsta
         edit:
           title: Labot jomu
@@ -456,7 +451,6 @@ lv:
       newsletters:
         create:
           error: Šī informatīvā biļetena izveides laikā radās problēma.
-          success: Informatīvais biļetens ir veiksmīgi izveidots. Lūdzu, pārskatiet to pirms nosūtīšanas.
         deliver:
           error: Šī informatīvā biļetena nosūtīšanas laikā radās problēma.
           success: Informatīvais biļetens ir veiksmīgi nosūtīts.
@@ -532,12 +526,10 @@ lv:
           officialize: Piešķirt oficiālo statusu
           title: Piešķirt oficiālo statusu dalībniekam "%{name}"
         show_email_modal:
-          description: Ja jums tieši jāsazinās ar dalībnieku, varat noklikšķināt uz pogas Show button, lai redzētu e-pasta adresi. Šī darbība tiks reģistrēta.
           email_address: E-pasta adrese
           full_name: Vārds, uzvārds
           hidden: slēpts
           show: Rādīt
-          title: Rādīt dalībnieka e-pasta adresi
       organization:
         edit:
           title: Labot organizāciju
@@ -702,13 +694,6 @@ lv:
           success: Grupa ir veiksmīgi pārbaudīta
       user_groups:
         index:
-          filter:
-            all: Visi
-            pending: Nepabeigts
-            rejected: Noraidīts
-            verified: Pārbaudīts
-          filter_by: Filtrēt pēc
-          search: Meklēt
           state:
             pending: Nepabeigts
             rejected: Noraidīts
@@ -742,10 +727,6 @@ lv:
           no_users_count_statistics_yet: Pagaidām nav lietotāju skaita statistikas
           participants: Dalībnieki
       view_public_page: Skatīt publisko lapu
-    forms:
-      errors:
-        impersonate_user:
-          reason: Jums ir jānorāda iemesls, pārvaldot nepārvaldītu dalībnieku
     moderations:
       actions:
         hidden: Slēpts

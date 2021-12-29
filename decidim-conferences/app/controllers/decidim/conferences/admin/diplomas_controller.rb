@@ -16,7 +16,7 @@ module Decidim
         def update
           enforce_permission_to :update, :conference, conference: current_conference
 
-          @form = form(DiplomaForm).from_params(diploma_params).with_context(conference: current_conference)
+          @form = form(DiplomaForm).from_params(diploma_params).with_context(conference: current_conference, current_organization: current_organization)
 
           UpdateDiploma.call(@form, current_conference) do
             on(:ok) do
@@ -51,9 +51,7 @@ module Decidim
 
         def diploma_params
           {
-            id: params[:slug],
-            signature: current_conference.signature,
-            main_logo: current_conference.main_logo
+            id: params[:slug]
           }.merge(params[:conference].to_unsafe_h)
         end
       end

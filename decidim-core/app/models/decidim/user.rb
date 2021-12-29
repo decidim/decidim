@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_dependency "devise/models/decidim_validatable"
-require_dependency "devise/models/decidim_newsletterable"
+require "devise/models/decidim_validatable"
+require "devise/models/decidim_newsletterable"
 require "valid_email2"
 
 module Decidim
@@ -13,6 +13,8 @@ module Decidim
     include Decidim::UserReportable
     include Decidim::Traceable
 
+    REGEXP_NICKNAME = /\A[\w\-]+\z/.freeze
+
     class Roles
       def self.all
         Decidim.config.user_roles
@@ -20,11 +22,12 @@ module Decidim
     end
 
     devise :invitable, :database_authenticatable, :registerable, :confirmable, :timeoutable,
-           :recoverable, :rememberable, :trackable, :lockable,
+           :recoverable, :trackable, :lockable,
            :decidim_validatable, :decidim_newsletterable,
            :omniauthable, omniauth_providers: Decidim::OmniauthProvider.available.keys,
                           request_keys: [:env], reset_password_keys: [:decidim_organization_id, :email],
                           confirmation_keys: [:decidim_organization_id, :email]
+    devise :rememberable if Decidim.enable_remember_me
 
     has_many :identities, foreign_key: "decidim_user_id", class_name: "Decidim::Identity", dependent: :destroy
     has_many :memberships, class_name: "Decidim::UserGroupMembership", foreign_key: :decidim_user_id, dependent: :destroy
@@ -35,7 +38,11 @@ module Decidim
     has_one :blocking, class_name: "Decidim::UserBlock", foreign_key: :id, primary_key: :block_id, dependent: :destroy
 
     validates :name, presence: true, unless: -> { deleted? }
-    validates :nickname, presence: true, unless: -> { deleted? || managed? }, length: { maximum: Decidim::User.nickname_max_length }
+    validates :nickname,
+              presence: true,
+              format: { with: REGEXP_NICKNAME },
+              length: { maximum: Decidim::User.nickname_max_length },
+              unless: -> { deleted? || managed? }
     validates :locale, inclusion: { in: :available_locales }, allow_blank: true
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
     validates :tos_agreement, acceptance: true, if: :user_invited?
@@ -43,7 +50,10 @@ module Decidim
 
     validate :all_roles_are_valid
 
-    mount_uploader :avatar, Decidim::AvatarUploader
+    has_one_attached :avatar
+    validates_upload :avatar, uploader: Decidim::AvatarUploader
+
+    has_one_attached :data_portability_file
 
     scope :not_deleted, -> { where(deleted_at: nil) }
 
@@ -63,7 +73,7 @@ module Decidim
       actual_ids = scope_ids.select(&:presence)
       if actual_ids.count.positive?
         ids = actual_ids.map(&:to_i).join(",")
-        where("extended_data->'interested_scopes' @> ANY('{#{ids}}')")
+        where(Arel.sql("extended_data->'interested_scopes' @> ANY('{#{ids}}')").to_s)
       else
         # Do not apply the scope filter when there are scope ids available. Note
         # that the active record scope must always return an active record
@@ -82,8 +92,8 @@ module Decidim
                         A: :name,
                         datetime: :created_at
                       },
-                      index_on_create: ->(user) { !user.deleted? },
-                      index_on_update: ->(user) { !user.deleted? })
+                      index_on_create: ->(user) { !(user.deleted? || user.blocked?) },
+                      index_on_update: ->(user) { !(user.deleted? || user.blocked?) })
 
     before_save :ensure_encrypted_password
 
@@ -96,6 +106,10 @@ module Decidim
     #
     # Returns a String.
     attr_accessor :invitation_instructions
+
+    def invitation_pending?
+      invited_to_sign_up? && !invitation_accepted?
+    end
 
     # Returns the user corresponding to the given +email+ if it exists and has pending invitations,
     #   otherwise returns nil.
@@ -223,14 +237,6 @@ module Decidim
       extended_data["user_name"] || name
     end
 
-    # Caches a Decidim::DataPortabilityUploader with the retrieved file.
-    def data_portability_file(filename)
-      @data_portability_file ||= DataPortabilityUploader.new(self).tap do |uploader|
-        uploader.retrieve_from_store!(filename)
-        uploader.cache!(filename)
-      end
-    end
-
     # return the groups where this user has been accepted
     def accepted_user_groups
       UserGroups::AcceptedUserGroups.for(self)
@@ -248,6 +254,14 @@ module Decidim
     def invalidate_all_sessions!
       self.session_token = SecureRandom.hex
       save!
+    end
+
+    ransacker :invitation_accepted_at do
+      Arel.sql(%{("decidim_users"."invitation_accepted_at")::text})
+    end
+
+    ransacker :last_sign_in_at do
+      Arel.sql(%{("decidim_users"."last_sign_in_at")::text})
     end
 
     protected

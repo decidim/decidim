@@ -5,6 +5,8 @@ it:
         delete_reason: Motivo per il quale vuoi eliminare il tuo account
       common:
         created_at: Creato il
+      conversation:
+        body: Testo
       group:
         about: Dettagli
         avatar: Immagine del profilo
@@ -13,6 +15,8 @@ it:
         name: Nome
         nickname: Pseudonimo
         phone: Telefono
+      message:
+        body: Testo
       report:
         details: Ulteriori commenti
       user:
@@ -35,6 +39,7 @@ it:
       decidim/profile_updated_event: profilo aggiornato
       decidim/promote_to_admin: Promosso ad amministratore del gruppo
       decidim/removed_from_group: Rimosso dal gruppo
+      decidim/resource_endorsed_event: Risorsa approvata
   activerecord:
     attributes:
       decidim/user:
@@ -62,7 +67,6 @@ it:
     'true': 'Si'
   carrierwave:
     errors:
-      general: Errore nell'elaborazione dell'immagine
       image_too_big: L'immagine è troppo grande
       not_inside_organization: Il file non è collegato a nessuna organizzazione
   date:
@@ -94,6 +98,7 @@ it:
         error: Si è verificato un errore durante l'eliminazione del tuo account.
         success: Il tuo account è stato eliminato correttamente.
       show:
+        available_locales_helper: Scegli la lingua che vuoi usare per navigare e ricevere notifiche in Decidim
         change_password: Cambia password
         update_account: Aggiorna l'account
       update:
@@ -253,10 +258,13 @@ it:
         download: Scarica file
       documents:
         related_documents: Documenti Relativi
+      geocoding:
+        geocoded_address: Indirizzo
       photos:
         related_photos: Immagini relative
     author:
-      avatar: Immagine di profilo
+      avatar: 'Avatar: %{name}'
+      avatar_multiuser: Avatar per più utenti
       comments:
         one: commento
         other: Commenti
@@ -312,6 +320,8 @@ it:
           authorize: Autorizzare con "%{authorization}"
           explanation: Per effettuare questa operazione devi disporre della autorizzazione "%{authorization}".
           title: Autorizzazione richiesta
+        ok:
+          title: Sei stato autorizzato durante la navigazione su questa pagina. Ricarica la pagina per eseguire la tua azione
         pending:
           explanation: Per eseguire questa azione, devi essere autorizzato con "%{authorization}", ma la tua autorizzazione è ancora in corso
           resume: Controlla il tuo avanzamento dell'autorizzazione "%{authorization}"
@@ -428,6 +438,7 @@ it:
         ready: Pronto
       show:
         download_data: Scarica i dati
+        download_data_description: Un file contenente tutte le informazioni associate al tuo account verrà inviato a <strong>%{user_email}</strong>. Questa email conterrà un file .zip e una password per aprirlo.<br/><br/>Per decomprimere il file, avrai bisogno di <a href="https://www.7-zip.org/">7-Zip</a> (per Windows) o <a href="https://www.keka.io/">Keka</a> (per MacOS). Se si utilizza Linux, la maggior parte delle volte il software predefinito è sufficiente. In caso contrario, è possibile utilizzare <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Richiedi dati
     datepicker:
       help_text: 'Formato previsto: %{datepicker_format}'
@@ -463,6 +474,8 @@ it:
           register: Crea un account
           sign_in_disabled: È possibile accedere con un account esterno
           sign_up_disabled: La registrazione è disabilitata, puoi accedere a un utente esistente
+        user:
+          timed_out: Sei stato inattivo per troppo tempo e sei stato automaticamente disconnesso dal servizio. Se desideri continuare a utilizzare il servizio, accedi di nuovo.
       shared:
         newsletter_modal:
           buttons:
@@ -494,6 +507,11 @@ it:
           this_application_will_not_be_able_to: 'Questa applicazione non sarà in grado di:'
           update_profile: Aggiorna il tuo profilo
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vuole utilizzare il tuo account"
+    editor_images:
+      create:
+        error: Errore nel caricamento dell'immagine
+        success: Immagine caricata con successo
+      drag_and_drop_help: Aggiungi immagini trascinandole o incollandole.
     endorsable:
       endorsements: Mi piace
       endorsements_count: Numero di Appoggi
@@ -655,6 +673,7 @@ it:
           notification_title: La pagina <a href="%{resource_path}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
     export_mailer:
       data_portability_export:
+        click_button: 'Clicca sul link per scaricare i tuoi dati.<br/>Il file sarà disponibile fino a %{date}.<br/>Avrai bisogno di <a href="https://www.7-zip.org/">7-Zip</a> (per Windows), <a href="https://www.keka.io/en/">Keka</a> (per MacOS) o <a href="https://peazip.github.io">PeaZip</a> (per Linux) per aprirlo. Password: %{password}'
         download: Scaricare
       export:
         ready: In allegato una versione zippata (Zip) dei dati esportati.
@@ -687,6 +706,7 @@ it:
       create:
         button: Segui
         error: C'è stato un errore seguendo questa risorsa.
+        participatory_space: Stai seguendo <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Smetti di seguire
         error: Si è verificato un errore ad smettere questa risorsa.
@@ -843,6 +863,15 @@ it:
       index:
         last_activity: L'ultima attività
         resource_type: genere
+    links:
+      invalid_url: URL non valido
+      warning:
+        body_1: Stai per visitare un collegamento esterno e vorremmo che tu sia cauto riguardo al contenuto del sito esterno.
+        body_2: Per favore controlla il link che stai per visitare e assicurati di riconoscerlo come un sito sicuro prima di procedere.
+        cancel: Annulla
+        close_modal: Chiudi finestra
+        proceed: Procedi
+        title: Apri collegamento esterno
     log:
       base_presenter:
         create: "%{user_name} creato %{resource_name}"
@@ -945,6 +974,7 @@ it:
         show:
           back: Torna a tutte le conversazioni
           chat_with: Conversazione con
+          not_allowed: Questo partecipante non accetta messaggi diretti.
           title: Conversazione con %{usernames}
         start:
           send: Invia
@@ -1015,8 +1045,10 @@ it:
       no_notifications: Nessuna notifica.
     notifications_settings:
       show:
+        administrators: Amministratori
         allow_public_contact: Permetti a chiunque di inviarmi un messaggio diretto, anche se non lo seguo.
         direct_messages: Ricevi messaggi diretti da chiunque
+        email_on_moderations: Voglio ricevere un'email ogni volta che qualcosa viene segnalato per la moderazione.
         email_on_notification: Voglio ricevere un'e-mail ogni volta che ricevo una notifica.
         everything_followed: Tutto ciò che seguo
         newsletter_notifications: Voglio ricevere le newsletter
@@ -1215,6 +1247,7 @@ it:
         description: Questo contenuto è inappropriato?
         does_not_belong: Contiene attività illegali, istigazione al suicidio, informazioni personali o riservate, o altre cose che tu credi che non sono appropriato per %{organization_name}.
         offensive: Contiene contenuti razzisti, diffamatori, sessisti, insulti o attacchi personali, minacce di morte, istigazioni al suicidio o altre forme di odio verbale.
+        reason: Motivazione
         report: Rapporto
         spam: Contiene clickbait, pubblicità, truffe o script bots.
         title: Segnala un problema
@@ -1240,6 +1273,8 @@ it:
         filters:
           areas: Ambiti territoriali
           select_an_area: Seleziona un'area
+      public_participation:
+        public_participation: Mostra pubblicamente la mia presenza
       reference:
         reference: 'Riferimento: %{reference}'
       represent_user_group:
@@ -1250,10 +1285,21 @@ it:
         title: Seleziona il numero di risultati per pagina
       share_modal:
         close_window: Chiudi questa finestra
+        copy_share_link: Copia
+        copy_share_link_clarification: Copia il link di condivisione negli appunti
+        copy_share_link_copied: Copiato!
+        copy_share_link_message: Il link è stato copiato con successo negli appunti.
         share: Condividi
         share_link: Condividi link
     statistics:
       comments_count: Commenti
+      endorsements_count: Approvazioni
+      followers_count: Follower
+      headline: Statistiche
+      no_stats: Non ci sono ancora statistiche.
+      pages_count: Pagine
+      participants_count: Partecipanti
+      users_count: Partecipanti
     tags:
       filter_results_for_category: 'Filtra i risultati per categoria: %{resource}'
       filter_results_for_scope: 'Filtra i risultati per l''ambito: %{resource}'
@@ -1291,6 +1337,7 @@ it:
         send: Invia
         title_reply: Rispondi
       show:
+        back: Tutte le conversazioni
         not_allowed: Questo utente non accetta più messaggi diretti.
         title: Conversazione con %{usernames}
       update:
@@ -1336,6 +1383,7 @@ it:
         number_of_versions: Versioni
         title: Versioni
     versions_list_item:
+      back: Mostra tutte le versioni
       show:
         version_index: Versione %{index}
     welcome_notification:
@@ -1516,8 +1564,8 @@ it:
     correct_errors: Ci sono errori nel modulo, correggerli per continuare.
     length_validator:
       minimum:
-        one: almeno %{count} carattere
-        other: almeno %{count} caratteri
+        one: Almeno %{count} carattere
+        other: Almeno %{count} caratteri
     required: Richiesto
     required_explanation: "* I campi obbligatori sono contrassegnati con un asterisco"
   invisible_captcha:
@@ -1538,9 +1586,11 @@ it:
         made_with_open_source: Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.
       header:
         close_menu: Chiudere menu
+        main_menu: Menù principale
         navigation: Navigazione
         sign_in: Accedi
         sign_up: Registrati
+        user_menu: Menù utente
       impersonation_warning:
         close_session: Chiudere la sessione
         description_html: Stai impersonando l'utente <b>%{user_name}</b>.
@@ -1556,6 +1606,11 @@ it:
         instagram: "%{organization} su Instagram"
         twitter: "%{organization} su Twitter"
         youtube: "%{organization} su YouTube"
+      timeout_modal:
+        body: Sei stato inattivo per %{minutes} minuti. Se continui ad essere inattivo, sarai automaticamente disconnesso per la tua sicurezza.
+        continue_session: Continua la sessione
+        sign_out: Esci
+        title: Vorresti continuare la tua sessione?
       user_menu:
         account: 'Account utente: %{name}'
         admin_dashboard: Cruscotto per gli amministratori (Admin dashboard)
@@ -1564,6 +1619,7 @@ it:
         profile: Il mio account
         public_profile: Il mio profilo
         sign_out: Esci
+        title: Link del profilo
       user_profile:
         account: Account
         authorizations: Autorizzazioni
@@ -1579,10 +1635,12 @@ it:
     name: Italiano
     name_with_error: Inglese (errore!)
   password_validator:
+    blacklisted: è nella blacklist
     domain_included_in_password: è troppo simile a questo nome di dominio
     email_included_in_password: è troppo simile alla tua email
     fallback: non è valido
     name_included_in_password: è troppo simile al tuo nome
+    nickname_included_in_password: è troppo simile al tuo nickname
     not_enough_unique_characters: non ha abbastanza caratteri unici
     password_not_allowed: non è permesso
     password_too_common: è troppo comune
@@ -1624,7 +1682,7 @@ it:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
-      long: "%B %d, % %Y %H:%M"
+      long: "%B %d %Y %H:%M"
       long_dashed: "%d/%m/%Y %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"

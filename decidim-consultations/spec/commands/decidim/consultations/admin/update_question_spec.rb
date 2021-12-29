@@ -30,8 +30,8 @@ module Decidim
               question_context_en: question.question_context["en"],
               question_context_ca: question.question_context["ca"],
               question_context_es: question.question_context["es"],
-              banner_image: question.banner_image,
-              hero_image: question.hero_image,
+              banner_image: question.banner_image.blob,
+              hero_image: question.hero_image.blob,
               hashtag: question.hashtag,
               decidim_scope_id: question.scope.id,
               order: question.order

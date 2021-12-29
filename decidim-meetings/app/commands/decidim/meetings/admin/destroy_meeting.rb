@@ -40,6 +40,8 @@ module Decidim
         end
 
         def proposals
+          return [] unless Decidim::Meetings.enable_proposal_linking
+
           @proposals ||= meeting.authored_proposals.load
         end
       end

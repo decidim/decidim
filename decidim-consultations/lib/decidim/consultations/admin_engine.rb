@@ -55,90 +55,103 @@ module Decidim
 
       initializer "decidim_consultations.admin_consultation_menu" do
         Decidim.menu :admin_consultation_menu do |menu|
-          menu.item I18n.t("info", scope: "decidim.admin.menu.consultations_submenu"),
-                    decidim_admin_consultations.edit_consultation_path(current_consultation),
-                    position: 1.0,
-                    active: is_active_link?(decidim_admin_consultations.edit_consultation_path(current_consultation)),
-                    if: allowed_to?(:update, :consultation, consultation: current_consultation)
-          menu.item I18n.t("questions", scope: "decidim.admin.menu.consultations_submenu"),
-                    decidim_admin_consultations.consultation_questions_path(current_consultation),
-                    position: 1.1,
-                    active: is_active_link?(decidim_admin_consultations.consultation_questions_path(current_consultation)),
-                    if: allowed_to?(:read, :question)
-          menu.item I18n.t("results", scope: "decidim.admin.menu.consultations_submenu"),
-                    decidim_admin_consultations.results_consultation_path(current_consultation),
-                    position: 1.0,
-                    active: is_active_link?(decidim_admin_consultations.results_consultation_path(current_consultation)),
-                    if: allowed_to?(:read, :question)
+          menu.add_item :edit_consultation,
+                        I18n.t("info", scope: "decidim.admin.menu.consultations_submenu"),
+                        decidim_admin_consultations.edit_consultation_path(current_consultation),
+                        position: 1.0,
+                        active: is_active_link?(decidim_admin_consultations.edit_consultation_path(current_consultation)),
+                        if: allowed_to?(:update, :consultation, consultation: current_consultation)
+          menu.add_item :consultation_questions,
+                        I18n.t("questions", scope: "decidim.admin.menu.consultations_submenu"),
+                        decidim_admin_consultations.consultation_questions_path(current_consultation),
+                        position: 1.1,
+                        active: is_active_link?(decidim_admin_consultations.consultation_questions_path(current_consultation)),
+                        if: allowed_to?(:read, :question)
+          menu.add_item :results_consultation,
+                        I18n.t("results", scope: "decidim.admin.menu.consultations_submenu"),
+                        decidim_admin_consultations.results_consultation_path(current_consultation),
+                        position: 1.0,
+                        active: is_active_link?(decidim_admin_consultations.results_consultation_path(current_consultation)),
+                        if: allowed_to?(:read, :question)
         end
       end
       initializer "decidim_consultations.admin_menu" do
         Decidim.menu :admin_menu do |menu|
-          menu.item I18n.t("menu.consultations", scope: "decidim.admin"),
-                    decidim_admin_consultations.consultations_path,
-                    icon_name: "comment-square",
-                    position: 2.65,
-                    active: :inclusive,
-                    if: allowed_to?(:enter, :space_area, space_name: :consultations)
+          menu.add_item :consultations,
+                        I18n.t("menu.consultations", scope: "decidim.admin"),
+                        decidim_admin_consultations.consultations_path,
+                        icon_name: "comment-square",
+                        position: 2.65,
+                        active: :inclusive,
+                        if: allowed_to?(:enter, :space_area, space_name: :consultations)
         end
       end
 
-      initializer "decidim_consultations.admin_consultation_question_menu" do
-        Decidim.menu :admin_consultation_question_menu do |menu|
-          menu.item I18n.t("consultation", scope: "decidim.admin.menu.questions_submenu"),
-                    decidim_admin_consultations.edit_consultation_path(current_participatory_space.consultation),
-                    position: 1.0,
-                    active: is_active_link?(decidim_admin_consultations.edit_consultation_path(current_participatory_space.consultation)),
-                    if: allowed_to?(:update, :consultation, consultation: current_participatory_space.consultation)
-          menu.item I18n.t("questions", scope: "decidim.admin.menu.consultations_submenu"),
-                    decidim_admin_consultations.consultation_questions_path(current_participatory_space.consultation),
-                    position: 1.0,
-                    active: is_active_link?(decidim_admin_consultations.consultation_questions_path(current_participatory_space.consultation)),
-                    submenu: { target_menu: :admin_questions_menu }
+      initializer "decidim_consultations.admin_question_menu" do
+        Decidim.menu :admin_question_menu do |menu|
+          menu.add_item :edit_consultation,
+                        I18n.t("consultation", scope: "decidim.admin.menu.questions_submenu"),
+                        decidim_admin_consultations.edit_consultation_path(current_participatory_space.consultation),
+                        position: 1.0,
+                        active: is_active_link?(decidim_admin_consultations.edit_consultation_path(current_participatory_space.consultation)),
+                        if: allowed_to?(:update, :consultation, consultation: current_participatory_space.consultation)
+          menu.add_item :consultation_questions,
+                        I18n.t("questions", scope: "decidim.admin.menu.consultations_submenu"),
+                        decidim_admin_consultations.consultation_questions_path(current_participatory_space.consultation),
+                        position: 1.0,
+                        active: is_active_link?(decidim_admin_consultations.consultation_questions_path(current_participatory_space.consultation)),
+                        submenu: { target_menu: :admin_questions_menu }
 
-          menu.item I18n.t("results", scope: "decidim.admin.menu.consultations_submenu"),
-                    decidim_admin_consultations.results_consultation_path(current_participatory_space.consultation),
-                    position: 1.0,
-                    active: is_active_link?(decidim_admin_consultations.results_consultation_path(current_participatory_space.consultation))
+          menu.add_item :results_consultation,
+                        I18n.t("results", scope: "decidim.admin.menu.consultations_submenu"),
+                        decidim_admin_consultations.results_consultation_path(current_participatory_space.consultation),
+                        position: 1.0,
+                        active: is_active_link?(decidim_admin_consultations.results_consultation_path(current_participatory_space.consultation))
         end
       end
       initializer "decidim_consultations.admin_questions_menu" do
         Decidim.menu :admin_questions_menu do |menu|
-          menu.item I18n.t("info", scope: "decidim.admin.menu.questions_submenu"),
-                    decidim_admin_consultations.edit_question_path(current_participatory_space),
-                    position: 1.0,
-                    active: is_active_link?(decidim_admin_consultations.edit_question_path(current_participatory_space)),
-                    if: allowed_to?(:update, :question, question: current_participatory_space)
+          menu.add_item :edit_question,
+                        I18n.t("info", scope: "decidim.admin.menu.questions_submenu"),
+                        decidim_admin_consultations.edit_question_path(current_participatory_space),
+                        position: 1.0,
+                        active: is_active_link?(decidim_admin_consultations.edit_question_path(current_participatory_space)),
+                        if: allowed_to?(:update, :question, question: current_participatory_space)
 
-          menu.item I18n.t("configuration", scope: "decidim.admin.menu.questions_submenu"),
-                    decidim_admin_consultations.edit_question_configuration_path(current_participatory_space),
-                    position: 1.0,
-                    active: is_active_link?(decidim_admin_consultations.edit_question_configuration_path(current_participatory_space)),
-                    if: allowed_to?(:configure, :question, question: current_participatory_space)
-          menu.item I18n.t("responses", scope: "decidim.admin.menu.questions_submenu"),
-                    decidim_admin_consultations.responses_path(current_participatory_space),
-                    position: 1.0,
-                    active: is_active_link?(decidim_admin_consultations.responses_path(current_participatory_space)) ||
-                            is_active_link?(decidim_admin_consultations.response_groups_path(current_participatory_space)),
-                    if: allowed_to?(:read, :response)
+          menu.add_item :edit_question_configuration,
+                        I18n.t("configuration", scope: "decidim.admin.menu.questions_submenu"),
+                        decidim_admin_consultations.edit_question_configuration_path(current_participatory_space),
+                        position: 1.0,
+                        active: is_active_link?(decidim_admin_consultations.edit_question_configuration_path(current_participatory_space)),
+                        if: allowed_to?(:configure, :question, question: current_participatory_space)
+          menu.add_item :responses,
+                        I18n.t("responses", scope: "decidim.admin.menu.questions_submenu"),
+                        decidim_admin_consultations.responses_path(current_participatory_space),
+                        position: 1.0,
+                        active: is_active_link?(decidim_admin_consultations.responses_path(current_participatory_space)) ||
+                                is_active_link?(decidim_admin_consultations.response_groups_path(current_participatory_space)),
+                        if: allowed_to?(:read, :response)
 
-          menu.item I18n.t("components", scope: "decidim.admin.menu.questions_submenu"),
-                    decidim_admin_consultations.components_path(current_participatory_space),
-                    position: 1.0,
-                    active: is_active_link?(decidim_admin_consultations.components_path(current_participatory_space)),
-                    if: allowed_to?(:read, :component),
-                    submenu: { target_menu: :admin_consultation_components_menu, options: { container_options: { id: "components-list" } } }
+          menu.add_item :components,
+                        I18n.t("components", scope: "decidim.admin.menu.questions_submenu"),
+                        decidim_admin_consultations.components_path(current_participatory_space),
+                        position: 1.0,
+                        active: is_active_link?(decidim_admin_consultations.components_path(current_participatory_space)),
+                        if: allowed_to?(:read, :component),
+                        submenu: { target_menu: :admin_consultation_components_menu, options: { container_options: { id: "components-list" } } }
 
-          menu.item I18n.t("categories", scope: "decidim.admin.menu.questions_submenu"),
-                    decidim_admin_consultations.categories_path(current_participatory_space),
-                    position: 1.0,
-                    active: is_active_link?(decidim_admin_consultations.categories_path(current_participatory_space)),
-                    if: allowed_to?(:read, :category)
-          menu.item I18n.t("attachments", scope: "decidim.admin.menu.questions_submenu"),
-                    decidim_admin_consultations.question_attachments_path(current_participatory_space),
-                    position: 1.0,
-                    active: is_active_link?(decidim_admin_consultations.question_attachments_path(current_participatory_space)),
-                    if: allowed_to?(:read, :attachment)
+          menu.add_item :categories,
+                        I18n.t("categories", scope: "decidim.admin.menu.questions_submenu"),
+                        decidim_admin_consultations.categories_path(current_participatory_space),
+                        position: 1.0,
+                        active: is_active_link?(decidim_admin_consultations.categories_path(current_participatory_space)),
+                        if: allowed_to?(:read, :category)
+          menu.add_item :question_attachments,
+                        I18n.t("attachments", scope: "decidim.admin.menu.questions_submenu"),
+                        decidim_admin_consultations.question_attachments_path(current_participatory_space),
+                        position: 1.0,
+                        active: is_active_link?(decidim_admin_consultations.question_attachments_path(current_participatory_space)),
+                        if: allowed_to?(:read, :attachment)
         end
       end
       initializer "decidim_consultations.admin_consultation_components_menu" do
@@ -149,12 +162,13 @@ module Decidim
               caption += content_tag(:span, component.primary_stat, class: component.primary_stat.zero? ? "component-counter component-counter--off" : "component-counter")
             end
 
-            menu.item caption.html_safe,
-                      manage_component_path(component),
-                      active: is_active_link?(manage_component_path(component)) ||
-                              is_active_link?(decidim_admin_consultations.edit_component_path(current_participatory_space, component)) ||
-                              is_active_link?(decidim_admin_consultations.edit_component_permissions_path(current_participatory_space, component)),
-                      if: component.manifest.admin_engine && user_role_config.component_is_accessible?(component.manifest_name)
+            menu.add_item [component.manifest_name, component.id].join("_"),
+                          caption.html_safe,
+                          manage_component_path(component),
+                          active: is_active_link?(manage_component_path(component)) ||
+                                  is_active_link?(decidim_admin_consultations.edit_component_path(current_participatory_space, component)) ||
+                                  is_active_link?(decidim_admin_consultations.edit_component_permissions_path(current_participatory_space, component)),
+                          if: component.manifest.admin_engine && user_role_config.component_is_accessible?(component.manifest_name)
           end
         end
       end

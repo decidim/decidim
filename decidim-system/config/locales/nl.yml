@@ -34,6 +34,9 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze admin.
           success: Admin succesvol bijgewerkt
+      dashboard:
+        show:
+          current_organizations: Huidige organisaties
       default_pages:
         placeholders:
           content: Voeg relevante inhoud aan het statische pagina van %{page} op het admin dashboard.
@@ -60,6 +63,9 @@ nl:
             smtp_settings: SMTP-instellingen
           name: Organisatie
       organizations:
+        advanced_settings:
+          hide: Geavanceerde instellingen verbergen
+          show: Geavanceerde instellingen tonen
         create:
           error: Er is een fout opgetreden bij het aanmaken van een nieuwe organisatie.
           success: Organisatie is succesvol aangemaakt.

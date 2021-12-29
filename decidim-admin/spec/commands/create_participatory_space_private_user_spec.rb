@@ -76,6 +76,13 @@ module Decidim::Admin
         end
       end
 
+      it "don't invite the user again" do
+        subject.call
+        user.reload
+
+        expect(user.invited_to_sign_up?).not_to be true
+      end
+
       context "when there is no user with the given email" do
         let(:email) { "does_not_exist@example.com" }
 
@@ -110,7 +117,7 @@ module Decidim::Admin
         end
 
         it "gets the invitation resent" do
-          expect { subject.call }.to have_enqueued_job(ActionMailer::DeliveryJob)
+          expect { subject.call }.to have_enqueued_job(ActionMailer::MailDeliveryJob)
         end
       end
     end

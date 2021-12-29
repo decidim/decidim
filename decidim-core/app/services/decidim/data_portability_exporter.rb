@@ -2,7 +2,7 @@
 
 require "seven_zip_ruby"
 require "zip"
-require_relative "zip_stream/zip_stream_writer"
+require_relative "zip_stream/writer"
 
 module Decidim
   # Public: Generates a 7z(seven zip) file with data files ready to be persisted

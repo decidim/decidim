@@ -6,10 +6,18 @@ module Decidim
       # Exposes the polling officer zone for polling officer users
       class PollingOfficersController < Decidim::Votings::PollingOfficerZone::ApplicationController
         helper Decidim::Admin::IconLinkHelper
-        helper_method :polling_stations
+        helper Decidim::ResourceHelper
 
-        def show
+        helper_method :polling_stations, :polling_officers_elections
+
+        def index
           enforce_permission_to :view, :polling_officers, polling_officers: polling_officers
+        end
+
+        private
+
+        def polling_officers_elections
+          @polling_officers_elections ||= polling_officers.flat_map { |polling_officer| polling_officer.voting.published_elections }
         end
       end
     end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_dependency "devise/models/decidim_validatable"
+require "devise/models/decidim_validatable"
 require "valid_email2"
 
 module Decidim
@@ -10,6 +10,7 @@ module Decidim
     include Decidim::DataPortability
     include Decidim::ActsAsAuthor
     include Decidim::UserReportable
+    include Decidim::Searchable
 
     has_many :memberships, class_name: "Decidim::UserGroupMembership", foreign_key: :decidim_user_group_id, dependent: :destroy
     has_many :users, through: :memberships, class_name: "Decidim::User", foreign_key: :decidim_user_id
@@ -25,6 +26,9 @@ module Decidim
     validate :correct_state
     validate :unique_document_number, if: :has_document_number?
 
+    has_one_attached :avatar
+    validates_upload :avatar, uploader: Decidim::AvatarUploader
+
     devise :confirmable, :decidim_validatable, confirmation_keys: [:decidim_organization_id, :email]
 
     scope :verified, -> { where.not("extended_data->>'verified_at' IS ?", nil) }
@@ -32,9 +36,23 @@ module Decidim
     scope :rejected, -> { where.not("extended_data->>'rejected_at' IS ?", nil) }
     scope :pending, -> { where("extended_data->>'rejected_at' IS ? AND extended_data->>'verified_at' IS ?", nil, nil) }
 
+    searchable_fields(
+      {
+        organization_id: :decidim_organization_id,
+        A: :name,
+        datetime: :created_at
+      },
+      index_on_create: ->(user_group) { !user_group.deleted? },
+      index_on_update: ->(user_group) { !user_group.deleted? }
+    )
+
     def self.with_document_number(organization, number)
       where(decidim_organization_id: organization.id)
         .where("extended_data->>'document_number' = ?", number)
+    end
+
+    def non_deleted_memberships
+      memberships.where(decidim_users: { deleted_at: nil })
     end
 
     # Returns the presenter for this author, to be used in the views.
@@ -60,6 +78,11 @@ module Decidim
     # Public: Checks if the user group is pending.
     def pending?
       verified_at.blank? && rejected_at.blank?
+    end
+
+    # Check if the group has been deleted or not
+    def deleted?
+      deleted_at.present?
     end
 
     def self.user_collection(user)
@@ -119,6 +142,46 @@ module Decidim
     def unread_messages_count_for(user)
       @unread_messages_count_for ||= {}
       @unread_messages_count_for[user.id] ||= Decidim::Messaging::Conversation.user_collection(self).unread_messages_by(user).count
+    end
+
+    def self.state_eq(value)
+      send(value.to_sym) if %w(all pending rejected verified).include?(value)
+    end
+
+    def self.ransackable_scopes(_auth = nil)
+      [:state_eq]
+    end
+
+    scope :sort_by_users_count_asc, lambda {
+      order("users_count ASC NULLS FIRST")
+    }
+
+    scope :sort_by_users_count_desc, lambda {
+      order("users_count DESC NULLS LAST")
+    }
+
+    def self.sort_by_document_number_asc
+      order(Arel.sql("extended_data->>'document_number' ASC"))
+    end
+
+    def self.sort_by_document_number_desc
+      order(Arel.sql("extended_data->>'document_number' DESC"))
+    end
+
+    def self.sort_by_phone_asc
+      order(Arel.sql("extended_data->>'phone' ASC"))
+    end
+
+    def self.sort_by_phone_desc
+      order(Arel.sql("extended_data->>'phone' DESC"))
+    end
+
+    def self.sort_by_state_asc
+      order(Arel.sql("extended_data->>'rejected_at' ASC, extended_data->>'verified_at' ASC, deleted_at ASC"))
+    end
+
+    def self.sort_by_state_desc
+      order(Arel.sql("extended_data->>'rejected_at' DESC, extended_data->>'verified_at' DESC, deleted_at DESC"))
     end
 
     private

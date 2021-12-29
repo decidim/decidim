@@ -57,6 +57,9 @@ fi:
         update:
           error: Hallinnointikäyttäjän päivitys epäonnistui.
           success: Hallinnointikäyttäjän päivitys onnistui
+      dashboard:
+        show:
+          current_organizations: Nykyiset organisaatiot
       default_pages:
         placeholders:
           content: Lisää merkityksellistä sisältöä staattiselle sivulle %{page} hallintapaneelista.
@@ -112,6 +115,9 @@ fi:
           error: Sovelluksen päivittäminen epäonnistui.
           success: Sovelluksen päivittäminen onnistui.
       organizations:
+        advanced_settings:
+          hide: Piilota lisäasetukset
+          show: Näytä lisäasetukset
         create:
           error: Uuden organisaation luonti epäonnistui.
           success: Organisaation luonti onnistui.

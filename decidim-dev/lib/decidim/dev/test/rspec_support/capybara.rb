@@ -30,7 +30,7 @@ Capybara.register_driver :headless_chrome do |app|
   options.args << if ENV["BIG_SCREEN_SIZE"].present?
                     "--window-size=1920,3000"
                   else
-                    "--window-size=1024,768"
+                    "--window-size=1920,1080"
                   end
 
   Capybara::Selenium::Driver.new(
@@ -58,6 +58,8 @@ Capybara.server = :puma, { Silent: true, Threads: "1:1" }
 Capybara.asset_host = "http://localhost:3000"
 
 Capybara.server_errors = [SyntaxError, StandardError]
+
+Capybara.default_max_wait_time = 10
 
 RSpec.configure do |config|
   config.before :each, type: :system do

@@ -23,9 +23,14 @@ module Decidim
               # further inspection in the rspec expectations.
               <<~HEAD
                 <script type="text/javascript">
+                window.mapIndex = 1;
                   L.tileLayer.here = function(config) {
-                    $("body").append('<div id="tile_layer_config"></div>');
-                    $("#tile_layer_config").text(JSON.stringify(config));
+                    var configId = "tile_layer_config" + window.mapIndex;
+
+                    $("#content").append('<div id="' + configId + '"></div>');
+                    $("#" + configId).text(JSON.stringify(config));
+
+                    window.mapIndex++;
 
                     var mockLayer = { addTo: function(target) {} };
                     return mockLayer;
@@ -36,7 +41,7 @@ module Decidim
 
             it "sets up the tile layer" do
               expect(page).to have_selector(
-                "#tile_layer_config",
+                "#tile_layer_config1",
                 text: options[:tile_layer][:options].to_json
               )
             end

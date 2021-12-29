@@ -72,13 +72,15 @@ module Decidim
             attachment_collections: serialize_attachment_collections,
             files: serialize_attachments
           },
-          components: serialize_components
+          components: serialize_components,
+          announcement: assembly.announcement
         }
       end
 
       private
 
       attr_reader :assembly
+      alias resource assembly
 
       def serialize_categories
         return unless assembly.categories.first_class.any?
@@ -141,7 +143,7 @@ module Decidim
 
       def serialize_components
         serializer = Decidim::Exporters::ParticipatorySpaceComponentsSerializer.new(@assembly)
-        serializer.serialize
+        serializer.run
       end
     end
   end

@@ -38,12 +38,12 @@ module Decidim
           answer: ensure_translatable(proposal.answer),
           supports: proposal.proposal_votes_count,
           endorsements: {
-            total_count: proposal.endorsements.count,
+            total_count: proposal.endorsements.size,
             user_endorsements: user_endorsements
           },
           comments: proposal.comments_count,
-          attachments: proposal.attachments.count,
-          followers: proposal.followers.count,
+          attachments: proposal.attachments.size,
+          followers: proposal.follows.size,
           published_at: proposal.published_at,
           url: url,
           meeting_urls: meetings,
@@ -59,6 +59,7 @@ module Decidim
       private
 
       attr_reader :proposal
+      alias resource proposal
 
       def component
         proposal.component

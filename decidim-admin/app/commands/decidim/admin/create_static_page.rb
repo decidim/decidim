@@ -34,15 +34,21 @@ module Decidim
         @page = Decidim.traceability.create!(
           StaticPage,
           form.current_user,
+          attributes
+        )
+      end
+
+      def attributes
+        {
+          organization: form.organization,
           title: form.title,
           slug: form.slug,
-          content: form.content,
           show_in_footer: form.show_in_footer,
           weight: form.weight,
           topic: form.topic,
-          organization: form.organization,
+          content: form.content,
           allow_public_access: form.allow_public_access
-        )
+        }
       end
 
       def update_organization_tos_version

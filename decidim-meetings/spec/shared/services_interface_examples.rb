@@ -13,7 +13,7 @@ shared_examples_for "services interface" do
     end
 
     describe "with some services" do
-      let(:model) { create :meeting, :with_services }
+      let(:model) { create :meeting, :published, :with_services }
       let(:services) { model.services }
 
       it "includes the required data" do

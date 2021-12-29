@@ -4,7 +4,8 @@ is-IS:
       close_meeting:
         attendees_count: Fjöldi þátttakenda
         attending_organizations: Listi yfir samtök sem sóttu
-        closing_report: Skýrsla
+        closing_report: Fundargerðir
+        closing_visible: Er sýnilegt
         contributions_count: Fjöldi framlaga
         proposal_ids: Tillögur búin til á fundinum
       meeting:
@@ -22,9 +23,6 @@ is-IS:
         start_time: Byrjunartími
         title: Titill
         transparent: Gegnsætt
-      minutes:
-        description: Lýsing
-        visible: Er sýnilegt
   decidim:
     admin:
       meeting_copies:
@@ -84,7 +82,6 @@ is-IS:
         confirm_destroy: Ertu viss um að þú viljir eyða þessum fundi?
         destroy: Eyða
         edit: Breyta
-        minutes: Fundargerðir
         preview: Preview
         registrations: Skráningar
         title: Aðgerðir
@@ -101,8 +98,6 @@ is-IS:
         meetings:
           close:
             success: Fundur með góðum árangri lokað
-          create:
-            success: Fundur búin til með góðum árangri
           destroy:
             success: Fundur með góðum árangri eytt
           edit:
@@ -124,16 +119,6 @@ is-IS:
             services: Þjónusta
           update:
             success: Fundur tókst að uppfæra
-        minutes:
-          create:
-            success: Fundargerðir búin til með góðum árangri
-          edit:
-            update: Uppfæra
-          new:
-            create: Búa til
-            title: Búðu til mínútur
-          update:
-            success: Fundargerðir með góðum árangri uppfærð
         models:
           meeting:
             name: Fundur
@@ -156,9 +141,6 @@ is-IS:
           value_types:
             organizer_presenter:
               not_found: 'Skipuleggjandi fannst ekki í gagnagrunninum (ID: %{id})'
-        minutes:
-          create: "%{user_name} búið til fundargerð fundarins %{resource_name} á %{space_name} plássinu"
-          update: "%{user_name} uppfært fundargerðir fundarins %{resource_name} á %{space_name} plássinu"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -187,9 +169,7 @@ is-IS:
         show:
           attendees: Þátttakendur telja
           contributions: Framlög telja
-          going: Fara
           join: Skráðu þig í fundi
-          meeting_report: Fundarskýrsla
           no_slots_available: Engar rifa í boði
           organizations: Mæta stofnanir
       models:

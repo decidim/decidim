@@ -43,8 +43,6 @@ module Decidim::Conferences
             location: my_conference.location,
             slug: my_conference.slug,
             hashtag: my_conference.hashtag,
-            hero_image: my_conference.hero_image,
-            banner_image: my_conference.banner_image,
             promoted: my_conference.promoted,
             description_en: my_conference.description,
             description_ca: my_conference.description,
@@ -66,7 +64,13 @@ module Decidim::Conferences
             participatory_processes_ids: participatory_processes.map(&:id),
             assemblies_ids: assemblies.map(&:id),
             consultations_ids: questions.collect(&:consultation).uniq
-          }
+          }.merge(attachments_params)
+        }
+      end
+      let(:attachments_params) do
+        {
+          hero_image: my_conference.hero_image.blob,
+          banner_image: my_conference.banner_image.blob
         }
       end
       let(:context) do
@@ -160,6 +164,12 @@ module Decidim::Conferences
         end
 
         context "when homepage image is not updated" do
+          let(:attachments_params) do
+            {
+              banner_image: my_conference.banner_image.blob
+            }
+          end
+
           it "does not replace the homepage image" do
             expect(my_conference).not_to receive(:hero_image=)
 
@@ -171,6 +181,12 @@ module Decidim::Conferences
         end
 
         context "when banner image is not updated" do
+          let(:attachments_params) do
+            {
+              hero_image: my_conference.hero_image.blob
+            }
+          end
+
           it "does not replace the banner image" do
             expect(my_conference).not_to receive(:banner_image=)
 

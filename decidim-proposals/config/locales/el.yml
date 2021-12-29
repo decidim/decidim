@@ -44,7 +44,9 @@ el:
               invalid_document_type: 'Μη έγκυρος τύπος εγγράφου. Οι αποδεκτές μορφές είναι: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Πρέπει να επισυναφθεί ξανά
+            add_photos:
               needs_to_be_reattached: Πρέπει να επισυναφθεί ξανά
             body:
               cant_be_equal_to_template: δεν μπορεί να είναι ίσο με το πρότυπο
@@ -95,7 +97,6 @@ el:
         name: Προτάσεις
         settings:
           global:
-            allow_card_image: Να επιτρέπεται η εικόνα κάρτας
             amendments_enabled: Οι τροποποιήσεις ενεργοποιήθηκαν
             amendments_enabled_help: Εάν είναι ενεργό, διαμορφώστε τα χαρακτηριστικά Τροποποίησης για κάθε βήμα.
             amendments_wizard_help_text: Κείμενο βοήθειας για τον Οδηγό τροποποιήσεων
@@ -467,11 +468,9 @@ el:
             select_states: Ελέγξτε την κατάσταση των προτάσεων προς εισαγωγή
         proposals_merges:
           create:
-            invalid: Υπήρξε ένα πρόβλημα κατά τη συγχώνευση των επιλεγμένων προτάσεων.
             success: Επιτυχής συγχώνευση των προτάσεων σε μία νέα.
         proposals_splits:
           create:
-            invalid: Υπήρξε ένα πρόβλημα κατά τον διαχωρισμό των επιλεγμένων προτάσεων.
             success: Επιτυχής διαχωρισμός των προτάσεων σε νέες.
         valuation_assignments:
           create:

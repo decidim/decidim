@@ -10,7 +10,8 @@ module Decidim
 
       def index
         enforce_permission_to :read, :scope
-        @scopes = children_scopes.order(Arel.sql("name->'#{I18n.locale}' ASC"))
+        field = Arel::Nodes::InfixOperation.new("->", Decidim::Scope.arel_table[:name], Arel::Nodes.build_quoted(I18n.locale))
+        @scopes = children_scopes.order(Arel::Nodes::InfixOperation.new("", field, Arel.sql("ASC")))
       end
 
       def new

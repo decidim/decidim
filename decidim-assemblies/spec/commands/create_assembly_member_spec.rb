@@ -7,15 +7,20 @@ module Decidim::Assemblies
     subject { described_class.new(form, current_user, assembly) }
 
     let(:assembly) { create(:assembly) }
-    let(:user) { nil }
+    let(:user_entity) { nil }
     let!(:current_user) { create :user, :confirmed, organization: assembly.organization }
-    let(:form) do
-      instance_double(
-        Admin::AssemblyMemberForm,
-        invalid?: invalid,
-        full_name: "Full name",
-        user: user,
-        attributes: {
+    let(:existing_user) { false }
+    let(:non_user_avatar) do
+      ActiveStorage::Blob.create_after_upload!(
+        io: File.open(Decidim::Dev.asset("avatar.jpg")),
+        filename: "avatar.jpeg",
+        content_type: "image/jpeg"
+      )
+    end
+    let(:form_klass) { Admin::AssemblyMemberForm }
+    let(:form_params) do
+      {
+        assembly_member: {
           weight: 0,
           full_name: "Full name",
           gender: Faker::Lorem.word,
@@ -23,19 +28,44 @@ module Decidim::Assemblies
           birthplace: Faker::Demographic.demonym,
           ceased_date: nil,
           designation_date: Time.current,
-          designation_mode: "designation mode",
           position: Decidim::AssemblyMember::POSITIONS.sample,
-          position_other: "other"
+          position_other: "other",
+          existing_user: existing_user,
+          non_user_avatar: non_user_avatar,
+          user_id: user_entity&.id
         }
+      }
+    end
+    let(:form) do
+      form_klass.from_params(
+        form_params
+      ).with_context(
+        current_user: current_user,
+        current_organization: assembly.organization
       )
     end
-    let(:invalid) { false }
 
     context "when the form is not valid" do
-      let(:invalid) { true }
+      let(:existing_user) { true }
 
       it "is not valid" do
         expect { subject.call }.to broadcast(:invalid)
+      end
+
+      context "when image is invalid" do
+        let(:existing_user) { false }
+        let(:non_user_avatar) do
+          ActiveStorage::Blob.create_after_upload!(
+            io: File.open(Decidim::Dev.asset("invalid.jpeg")),
+            filename: "avatar.jpeg",
+            content_type: "image/jpeg"
+          )
+        end
+
+        it "prevents uploading" do
+          expect { subject.call }.not_to raise_error
+          expect { subject.call }.to broadcast(:invalid)
+        end
       end
     end
 
@@ -67,11 +97,12 @@ module Decidim::Assemblies
       end
 
       context "with an existing user in the platform" do
-        let!(:user) { create(:user, organization: assembly.organization) }
+        let!(:user_entity) { create(:user, organization: assembly.organization) }
+        let(:existing_user) { true }
 
         it "sets the user" do
           subject.call
-          expect(assembly_member.user).to eq user
+          expect(assembly_member.user).to eq user_entity
         end
 
         it "notifies the user" do
@@ -82,11 +113,38 @@ module Decidim::Assemblies
               event: "decidim.events.assemblies.create_assembly_member",
               event_class: Decidim::Assemblies::CreateAssemblyMemberEvent,
               resource: assembly,
-              followers: a_collection_containing_exactly(user)
+              followers: a_collection_containing_exactly(user_entity)
             )
 
           subject.call
-          expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
+          expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.on_queue("mailers")
+        end
+      end
+
+      context "with an existing group in the platform" do
+        let!(:member1) { create(:user, organization: assembly.organization) }
+        let!(:member2) { create(:user, organization: assembly.organization) }
+        let!(:user_entity) { create(:user_group, :verified, users: [member1, member2], organization: assembly.organization) }
+        let(:existing_user) { true }
+
+        it "sets the group" do
+          subject.call
+          expect(assembly_member.user).to eq user_entity
+        end
+
+        it "notifies the group members" do
+          expect(Decidim::EventsManager)
+            .to receive(:publish)
+            .once
+            .with(
+              event: "decidim.events.assemblies.create_assembly_member",
+              event_class: Decidim::Assemblies::CreateAssemblyMemberEvent,
+              resource: assembly,
+              followers: a_collection_containing_exactly(member1, member2)
+            )
+
+          subject.call
+          expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.twice.on_queue("mailers")
         end
       end
     end

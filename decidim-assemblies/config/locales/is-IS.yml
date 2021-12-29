@@ -51,7 +51,6 @@ is-IS:
         birthplace: Fæðingarstaður
         ceased_date: Hættudagur
         designation_date: Tilnefningardagur
-        designation_mode: Tilnefningarmáti
         full_name: Fullt nafn
         gender: Kyn
         position: Staða
@@ -118,6 +117,7 @@ is-IS:
         assemblies_submenu:
           assembly_members: Meðlimir
           attachment_files: Skrár
+          attachments: Viðhengi
           categories: Flokkar
           components: Hluti
           info: Upplýsingar

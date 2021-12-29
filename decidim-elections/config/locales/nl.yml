@@ -57,6 +57,12 @@ nl:
       decidim/elections/question:
         one: Vraag
         other: vragen
+      decidim/votings/census/dataset:
+        one: Dataset
+        other: Datasets
+      decidim/votings/census/datum:
+        one: Datum
+        other: Data
       decidim/votings/polling_officer:
         one: Stembeambte
         other: Stembeambtes
@@ -76,6 +82,16 @@ nl:
         search_placeholder:
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
           : Zoek %{collection} op titel, adres of beambte naam/e-mail/bijnaam.
+        signed_eq:
+          label: Ondertekend
+          values:
+            'false': Ondertekend
+            'true': Niet ondertekend
+        validated_eq:
+          label: Gevalideerd
+          values:
+            'false': Gevalideerd
+            'true': Niet gevalideerd
     components:
       elections:
         actions:
@@ -145,6 +161,8 @@ nl:
             success: Verkiezing succesvol bijgewerkt
         exports:
           elections: Verkiezingen
+        menu:
+          trustees: Trustees
         models:
           answer:
             name: Beantwoorden
@@ -208,7 +226,6 @@ nl:
             trustees: Verkiezing Trustees
           key_ceremony:
             title: Sleutelceremonie
-            trustees: Trustees
           results_published:
             answer: Antwoord
             not_selected: Niet geselecteerd
@@ -225,7 +242,7 @@ nl:
             question: Vraag
             result: Resultaat
             selected: Geselecteerd
-            success: Turven succesvol beëindigd
+            success: Verzoek om de resultaten te publiceren is met succes verzonden naar het Bulletin Board
             title: Berekende resultaten
           vote:
             title: Stemperiode
@@ -257,11 +274,6 @@ nl:
           update:
             invalid: Er is een fout opgetreden bij het bijwerken van trustee %{trustee}
             success: Trustee %{trustee} succesvol bijgewerkt
-      admin_log:
-        election:
-          publish: "%{user_name} publiceerde de %{resource_name} verkiezing"
-          setup: "%{user_name} heeft de %{resource_name} stemronde op het Bulletin Bord aangemaakt"
-          unpublish: "%{user_name} heeft de verkiezing van %{resource_name} gedepubliceerd"
       elections:
         count:
           elections_count:
@@ -272,6 +284,7 @@ nl:
           description: 'Dit zijn de vragen die je tijdens het stemproces tegenkomt:'
         results:
           description: 'Dit zijn de resultaten van de stemronde, voor elke vraag:'
+          percentage: "%{count}%"
         show:
           action_button:
             change_vote: Wijzig je stem
@@ -280,6 +293,7 @@ nl:
           back: Beschikbare verkiezingen
           callout:
             already_voted: Je hebt al gestemd in deze verkiezing. Je kunt je stem wijzigen of controleren.
+            pending_vote: Jouw stem wordt uitgebracht op de server.
             vote_rejected: Het was niet mogelijk om je stem te verifiëren. Gelieve je stem opnieuw uit te brengen.
           preview: Voorvertoning
           verify:
@@ -303,6 +317,8 @@ nl:
             end_time: Beëindigen op
             start_time: Begint om
             title: Aanspreektitel
+            verifiable_results_file_hash: SHA256-controlegetal
+            verifiable_results_file_url: Verifieerbaar verkiezingsbestand
         question:
           fields:
             answers: Antwoorden
@@ -401,6 +417,9 @@ nl:
           cast: Stem uitbrengen
           description: 'Hier heb je de opties om je stem uit te brengen zodat ze goed geteld wordt, of -ook een optie: controleren of je stem correct is versleuteld. Om veiligheidsredenen vernietigen we stem op het moment dat je deze controleert. In dat geval moet je het stemproces herstarten om je stem uit te brengen.'
           header: 'Stem is versleuteld: uitbrengen of controleren'
+        casting:
+          header: Aan het stemmen...
+          text: Je stem wordt uitgebracht in de stembus.
         confirm:
           answer: Beantwoorden
           answer_number: antwoord %{number}
@@ -411,25 +430,28 @@ nl:
           question: Vraag %{count}
         confirmed:
           back: Terug naar verkiezingen
-          error: Sorry, er is iets misgegaan bij het bevestigen van de stem. Probeer het nog eens.
           experience: Hoe was uw ervaring?
           feedback: Geef ons feedback
           header: Stem bevestigd
-          lead: Je stem is al verstuurd!
           text: 'U kunt controleren of uw stem succesvol is toegevoegd aan de stembus met het volgende identificatie: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Om het te controleren, kopieer de identificatiecode en plak ze in de <a href="%{link}">pagina voor het controleren van stemmen</a>
+        create:
+          error: Er was een probleem bij het uitbrengen van de stem, probeer het opnieuw.
         encrypting:
-          header: Stem coderen...
-          text: Je stem wordt versleuteld om ervoor te zorgen dat je deze anoniem kunt werpen.
+          header: Versleutelen van de stem...
+          text: Je stem wordt versleuteld om het geheim ervan te waarborgen.
         failed:
           header: Stem mislukt
           lead: Je stem is niet uitgebracht!
           text: Er is iets mis gegaan, probeer het alsjeblief nog een keer.
+          try_again: Probeer opnieuw
         header:
           ballot_decision: Stem uitbrengen of stem controleren
+          casting: Aan het stemmen
           confirm: Bevestig uw stem
           confirmed: Stem bevestigd
-          encrypting: Bevestigen van stem
+          encrypting: Versleutelen van de stem
+          failed: Stem mislukt
         messages:
           not_allowed: U mag op dit moment niet stemmen over deze verkiezingen.
         modal:
@@ -441,8 +463,7 @@ nl:
           question_steps: Vraag %{current_step} van %{total_steps}
           selections: "%{selected} van %{max_selections}<br> selecties"
         update:
-          error: Er is een probleem opgetreden bij het bijwerken van de status van de stem
-          success: Status stemming succesvol bijgewerkt
+          error: Er is een probleem opgetreden bij het bijwerken van stemstatus. Probeer het opnieuw.
         verify:
           content:
             heading: Verifieer je stem
@@ -542,10 +563,15 @@ nl:
             attachment_collections: Mappen
             attachment_files: Bestanden
             attachments: Bijlagen
+            census: Register
             components: Onderdelen
             info: Informatie
             landing_page: Landingspagina
-            monitoring_committee_members: Controlecomité
+            monitoring_committee: Controlecomité
+            monitoring_committee_election_results: Resultaten valideren
+            monitoring_committee_members: Leden
+            monitoring_committee_polling_station_closures: Certificaten valideren
+            monitoring_committee_verify_elections: Verifieer verkiezingen
             polling_stations: Stembureau
         models:
           monitoring_committee_member:
@@ -569,6 +595,32 @@ nl:
               promoted: In de kijker
               published: Gepubliceerd
               title: Titel
+        monitoring_committee_election_results:
+          actions:
+            title: Acties
+            view: Bekijken
+          index:
+            title: Kies een verkiezing waarvan je de resultaten wil zien
+          results:
+            election_totals: Verkiezingstotalen
+            polling_stations: Stembureaus
+            result_types:
+              blank_answers: Blanco antwoorden
+              blank_ballots: Blanco stemmen
+              null_ballots: Geen stemmen
+              total_ballots: Totaal aantal stemmen
+              valid_ballots: Geldige stemmen
+            selected: Geselecteerd
+            title: Resultaten voor de verkiezing <i>%{election_title}</i>
+            totals: Totalen
+          show:
+            change_election: Verkiezing wijzigen
+            publish_results: Resultaten publiceren
+            publishing: Resultaten publiceren...
+          update:
+            invalid: Er is een probleem opgetreden bij het publiceren van de resultaten
+            rejected: De publicatie van de resultaten is geweigerd door het Bulletin Board. Probeer het opnieuw of neem contact op met de systeembeheerder.
+            success: De resultaten zijn succesvol gepubliceerd
         monitoring_committee_members:
           create:
             invalid: Er is een fout opgetreden bij het aanmaken van dit lid van het controlecomité
@@ -586,6 +638,38 @@ nl:
           new:
             create: Creëren
             title: Maak lid van controlecomité aan
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: Acties
+            validate: Bevestigen
+            view: Bekijk
+          closures:
+            change_election: Verkiezing wijzigen
+            signed: Ondertekend?
+            title: Resultaten voor de verkiezing <i>%{election_title}</i>
+            validated: Gevalideerd?
+          edit:
+            change_polling_station: Terug naar stembureaus
+            monitoring_committee_notes: Opmerkingen
+            monitoring_committee_notes_placeholder: Meld hier een incident
+            title: Resultaten voor de verkiezing <i>%{election_title}</i> in het stembureau <i>%{polling_station_title}</i>
+          elections:
+            title: Kies een verkiezing die je wilt valideren
+          show:
+            change_polling_station: Terug naar stembureaus
+            monitoring_committee_notes: Opmerkingen van het Comité van toezicht
+          validate:
+            error: Er is een probleem opgetreden bij het valideren van de sluiting
+            success: De sluiting is correct gevalideerd
+        monitoring_committee_verify_elections:
+          index:
+            download: Download
+            how_to_checksum: 'Om zeker te zijn dat het bestand dat je hebt gedownload niet is beschadigd of gemanipuleerd tijdens het downloadproces, voer de volgende opdracht uit op je toestel en controleer of de uitvoer overeenkomt met het controlegetal hierboven:'
+            how_to_download: Om een verkiezing te verifiëren, download het controleerbare bestand uit bovenstaande tabel.
+            how_to_run_verifier: 'Nadat je het bestand gedownload hebt en zeker weet dat het in orde is, kan je doorgaan met de universele controle. Kopieer <a href=''https://github.com/decidim/decidim-bulletin-board''>deze repository</a> en voer vanuit de hoofdmap de volgende opdracht uit:'
+            how_to_title: Hoe de geldigheid van een verkiezing te verifiëren
+            not_available: Nog niet beschikbaar
+            title: Verkiezingen
         polling_officers:
           index:
             role_manager: manager
@@ -659,6 +743,33 @@ nl:
           create: "%{user_name} heeft de stemronde %{resource_name} aangemaakt"
           publish: "%{user_name} heeft de stemronde %{resource_name} gepubliceerd"
           unpublish: "%{user_name} heeft de publicatie van de stemronde %{resource_name} ongedaan gemaakt"
+      census:
+        admin:
+          census:
+            creating_data:
+              info_message: "<strong>Gelieve te wachten</strong>, %{processed_count} verwerkt van %{raw_count} rijen uit bestand %{file}."
+            delete:
+              button: Verwijder alle registergegevens
+              confirm: Het verwijderen van alle registers kan niet ongedaan worden gemaakt. Weet je zeker dat je wil doorgaan?
+            destroy:
+              success: Registergegevens verwijderd
+            generate_access_codes:
+              button: Genereer stemcodes
+              confirm: Als je doorgaat, kan je het register niet wijzigen.
+              info_message_all: "<strong>Alle rijen zijn met succes</strong> geïmporteerd uit bestand %{file} (%{raw_count} van %{data_count})."
+              info_message_warn: Controleer of er geen gegevens ontbreken, omdat %{data_count} records zijn gemaakt en het geüploade bestand %{file} %{raw_count} rijen had.
+            new:
+              file_help:
+                explanation: 'Instructie bij het bestand:'
+                message_1: Alleen CSV-bestanden (.csv) zijn toegestaan.
+                message_2: Het scheidingsteken tussen kolommen moet een puntkomma (";") zijn.
+              info_message: "<strong>Er is nog geen register.</strong> Gebruik het formulier hieronder om een CSV-bestand te importeren."
+              submit: Dien CSV in
+              title: Stel het register op
+            show:
+              heading: Register van de stemming
+        vote_flow:
+          already_voted_in_person: Deze gebruiker heeft al persoonlijk gestemd en heeft geen stemrecht.
       content_blocks:
         highlighted_votings:
           name: Stemrondes in de kijker
@@ -686,28 +797,139 @@ nl:
             see_all_votings: Bekijk alle stemrondes
             votings_button_title: Link naar de pagina Votings waarop alle stemrondes worden weergegeven
       polling_officer_zone:
+        closures:
+          back_to_polling_stations: Terug naar stembureaus
+          certify:
+            add_images: Afbeeldingen toevoegen
+            error: Er is een fout opgetreden tijdens het toevoegen van het certificaat, probeer het opnieuw.
+            form_legend: Upload een foto van het Stemmensluitingscertificaat
+            heading: Stem hertelling - Upload certificaat
+            info_text: Upload een foto van het Stemmensluitingscertificaat.
+            submit: Certificaat uploaden
+            success: Certificaat succesvol geüpload.
+          create:
+            error: Er is een fout opgetreden bij de sluiting, probeer het later opnieuw.
+            success: Sluiting succesvol aangemaakt.
+          edit:
+            heading: Stem hertelling - Hertelling van antwoorden
+            info_text: Voer voor elke vraag het totale aantal antwoorden in.
+            modal_ballots_results_count_error:
+              close_modal: Sluit
+              info_text: Het totale aantal stemmen komt niet overeen met het totaal aantal enveloppen. Controleer alstublieft het totaal aantal stemmen.
+              title: Totaal stemmen stemt niet overeen
+            save_recount: Bewaar hertelling
+            total_ballots: Totaal aantal stemmen
+            total_blank_ballots: Totaal blanco stemmen
+            total_null_ballots: Totaal ongeldige stemmen
+            total_valid_ballots: Totaal geldige stemmen
+          new:
+            election: 'Verkiezing:'
+            heading: Hertelling van de stemmen
+            info_text: 'Voer het totale aantal stemmen (enveloppen) in dat in dit stembureau werden herteld:'
+            modal_ballots_count_error:
+              btn_validate_total: Bevestig de totale hertelling van de stemmen
+              close_modal: Sluit
+              info_explanation_text: 'Gelieve het totale aantal stemmen na te kijken. Als het totale aantal correct is, zal je een verklaring moeten geven voor het toezichtcomité:'
+              info_text: Het totale aantal ingevoerde stemmen (enveloppen) komt niet overeen met de lijst van mensen die in dit stembureau hebben gestemd.
+              message_for_monitoring_committee: Bericht aan het Comité van toezicht
+              review_recount: Controleer de hertelling
+              text_area_placeholder: Schrijf je bericht
+              title: Totaal stemmen stemt niet overeen
+              total_ballots: 'Totaal aantal stemmen:'
+              total_people: 'Totaal aantal mensen:'
+            polling_station: 'Stembureau:'
+            submit: Controleer het totale aantal
+            total_ballots_count: Aantal stemmen
+          show:
+            heading: Hertelling van de stemmen
+            info_text: Stembureau sluiting van de verkiezing.
+          sign:
+            cancel: Annuleer
+            check_box: Ik heb dit nagekeken en is hetzelfde als het fysieke verkiezingssluitingscertificaat
+            close_modal: Sluiten
+            confirm: Ok, verdergaan
+            error: Er is een fout opgetreden, probeer het opnieuw.
+            heading: Stem hertelling - Onderteken sluiting
+            info_text: Als je doorgaat, kun je geen informatie meer wijzigen, deze actie kan niet ongedaan worden gemaakt.
+            submit: Onderteken de sluiting
+            success: Sluiting succesvol ondertekend.
+            title: Deze actie kan niet ongedaan worden gemaakt
+          update:
+            error: Er is een fout opgetreden bij het bijwerken van de resultaten van de sluiting, probeer het later opnieuw.
+            success: Sluiting resultaten succesvol bijgewerkt.
+        in_person_votes:
+          complete_voting:
+            available_answers: 'Beschikbare antwoorden:'
+            census_verified: De gebruiker heeft nog niet gestemd.
+            complete_voting: Voltooi het stemmen
+            identify_another: Identificeer een andere deelnemer
+            questions_title: 'Zij/hij heeft het recht om te stemmen op de volgende vragen:'
+            questions_title_voted: 'De gebruiker heeft al online gestemd en heeft het recht om te stemmen op de volgende vragen:'
+            voted: De gebruiker heeft gestemd
+          create:
+            error: De stemming werd niet geregistreerd. Probeer het opnieuw.
+          in_person_form:
+            census_not_present: Deze gebruiker staat niet op het stemregister.
+            census_not_present_description: Zij/hij moet naar het klachtenbureau gaan of contact opnemen met support.
+            date_of_birth: Geboortedatum
+            day: Dag
+            day_placeholder: DD
+            document_number: Documentnummer
+            document_number_placeholder: Id-nummer
+            month: Maand
+            month_placeholder: MM
+            select: Selecteer het type document
+            title: 'Selecteer het documenttype en voer het documentnummer van de gebruiker:'
+            validate_document: Het document valideren
+            year: Jaar
+            year_placeholder: JJJJ
+          new:
+            back: Terug naar stembureaus
+            title: Identificeer en verifieer een gebruiker
+          show:
+            back: Terug naar stembureaus
+            title: Wachten op de registratie van de persoonlijke stem
+          update:
+            error: Er is een fout opgetreden bij het registreren van de stemming. Probeer het opnieuw.
+            success:
+              accepted: De stem is met succes geregistreerd.
+              rejected: De stemming werd niet geaccepteerd door het Bulletin Board. Neem contact op met de systeembeheerder.
+          verify_document:
+            census_present: Deze gebruiker staat op het stemregister.
+            name: Naam
+            title: 'Controleer of de volgende gegevens juist zijn:'
+            verify_document: Document verifiëren
         menu:
           polling_officer_zone: Zone Stembeambte
         polling_officers:
-          show:
-            actions:
-              count_votes: Tel de stemmen in de stembus
-              identify_person: Identificeer en verifieer een persoon
+          index:
             polling_officer_role_description: Je bent aangewezen als Stembureau beambte (Voorzitter of manager) bij enkele van de verkiezingen die op dit platform worden gehouden.
-            polling_stations:
-              list:
-                actions: Acties
-                address: Adres
-                name: Naam
-                role: Jouw rol
-                voting: Stemronde
+            polling_station:
+              address: Adres
+              count_votes: Stemmen tellen
+              election: Verkiezing
+              identify_person: Identificeer een persoon
+              name: Naam
               no_polling_stations: Je bent nog niet toegewezen aan een Stembureau.
+              role: Jouw rol
+              show_closure: Bekijk sluiting
               title: Stembureaus
+              voting: Stemronde
       polling_officers:
         roles:
           manager: Manager
           president: Voorzitter
           unassigned: Niet toegewezen
+      polling_station_closure_recount:
+        nota_option: Leeg/Geen van bovenstaande
+        polling_officer_notes: 'Notities van de stembeambte:'
+        polling_officer_notes_blank: Er zijn geen notities
+        recount_summary: 'Samenvatting hertellen:'
+        signed: Ondertekend
+        total_ballots: 'Totaal aantal stemmen:'
+        total_blank_ballots: 'Totaal blanco stemmen:'
+        total_null_ballots: 'Totaal ongeldige stemmen:'
+        total_valid_ballots: 'Totaal geldige stemmen:'
       polling_stations:
         actions:
           confirm_destroy: Ben je zeker?
@@ -716,6 +938,9 @@ nl:
           new: Nieuw
           title: Acties
       votings:
+        elections_log:
+          election_log: Verkiezingslogboek
+          title: Verkiezingslogboek
         filters:
           active: Actief
           all: Alle
@@ -729,6 +954,8 @@ nl:
         index:
           no_votings: Er zijn geen stemrondes die voldoen aan jouw zoekcriteria.
           only_finished: Momenteel zijn er geen geplande stemrondes, maar hier vind je alle afgelopen stemrondes.
+        login:
+          start_voting: Begin met stemmen
       votings_m:
         footer_button_text:
           participate: Deelnemen
@@ -743,6 +970,7 @@ nl:
       election_votes_header:
         exit: Afsluiten
       voting_navigation:
+        election_log: Verkiezingslogboek
         voting_menu_item: De stemronde
       votings:
         index:

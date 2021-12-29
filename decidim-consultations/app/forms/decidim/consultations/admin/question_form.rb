@@ -20,10 +20,10 @@ module Decidim
         translatable_attribute :origin_title, String
         attribute :origin_url, String
         attribute :slug, String
-        attribute :remove_hero_image
+        attribute :remove_hero_image, Boolean, default: false
         attribute :hero_image
         attribute :banner_image
-        attribute :remove_banner_image
+        attribute :remove_banner_image, Boolean, default: false
         attribute :hashtag, String
         attribute :decidim_scope_id, Integer
         attribute :external_voting, Boolean, default: false
@@ -37,7 +37,7 @@ module Decidim
         validates :banner_image, passthru: { to: Decidim::Consultations::Question }
         validate :slug_uniqueness
         validates :origin_scope, :origin_title, translatable_presence: true, if: :has_origin_data?
-        validates :i_frame_url, presence: true, if: :external_voting
+        validates :i_frame_url, url: true, presence: true, if: :external_voting
         validates :order, numericality: { only_integer: true, allow_nil: true, allow_blank: true }
 
         alias organization current_organization

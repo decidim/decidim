@@ -23,7 +23,7 @@ module Decidim
       # Returns nothing.
       def call
         transaction do
-          return broadcast(:invalid) if voting_not_enabled? || order.checked_out?
+          return broadcast(:invalid) if voting_not_enabled? || order.checked_out? || exceeds_budget?
 
           add_line_item
           broadcast(:ok, order)
@@ -42,6 +42,10 @@ module Decidim
         order.with_lock do
           order.projects << project
         end
+      end
+
+      def exceeds_budget?
+        order.allocation_for(project) + order.total > order.available_allocation
       end
 
       def voting_not_enabled?

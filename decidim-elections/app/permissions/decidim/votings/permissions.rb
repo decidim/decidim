@@ -8,7 +8,7 @@ module Decidim
 
         return permission_action unless user
 
-        return Decidim::Votings::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
+        return Decidim::Votings::Admin::Permissions.new(user, permission_action, context).permissions if admin_scope?
 
         # Delegate the polling_officer_zone permission checks to the polling officer zone permissions class
         return Decidim::Votings::PollingOfficerZone::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :polling_officer_zone
@@ -34,6 +34,10 @@ module Decidim
         when :participatory_space
           allow!
         end
+      end
+
+      def admin_scope?
+        permission_action.scope == :admin || permission_action.subject == :admin_dashboard
       end
     end
   end

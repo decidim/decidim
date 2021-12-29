@@ -14,7 +14,7 @@ describe Decidim::Forms::ExportQuestionnaireAnswersJob do
 
   describe "queue" do
     it "is queued to events" do
-      expect(subject.queue_name).to eq "default"
+      expect(subject.queue_name).to eq "exports"
     end
   end
 

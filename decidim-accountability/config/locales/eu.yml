@@ -12,9 +12,9 @@ eu:
         proposals: Proposamen sortak
         start_date: Hasiera-data
         title: Izenburua
-        updated_at: Eguneratuta
+        updated_at: Noiz eguneratua
       status:
-        description: Descripción
+        description: Deskribapena
         key: Gakoa
         name: Izena
         progress: Aurrerapena
@@ -32,16 +32,29 @@ eu:
   decidim:
     accountability:
       actions:
+        attachment_collections: Karpetak
+        attachments: Erantsitako artxiboak
         confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
+        import_csv: Inportatu CSV
         new: '%{name} berria'
         preview: Aurreikusi
         timeline_entries: Proiektuen bilakaera
         title: Ekintzak
       admin:
         exports:
+          result_comments: Iruzkinak
           results: Emaitzak
+        import_results:
+          new:
+            import: Inportatu
+            info: "Ondoko urrats hauek ematea gomendatzen dizugu: </p><ol><li> Sortu egoerak erantsi nahi dituzun emaitzetarako (<a href='%{link_new_status}' target='_blank'> link </a>)</li><li>) Sortu emaitza bat gutxienez eskuz administrazioaren panelaren bidez (<a href='%{link_new_result}' target='_blank'>link</a>) inportatu baino lehen, hobeto ulertzeko formatua eta nola bete. </li><li> Deskargatu CSV formatuko artxiboa (%{link_export_csv}</li><li> Egin aldaketak lokalean. CSVren ondoko zutabeak baino ezin dituzu aldatu: </li></ol><ul><li><b> id category /id:</b> ID kategoriarako </li><li><b>scope /id:</b> ID eremurako </li><li><b>parent /id:</b> ID aitarentzat (erlazionatutako emaitzetarako). Aukerakoa </li> <li><b>title /I18N:</b> izenburua hizkuntzan X</li> <li><b> deskribapena /I18N:</b> deskribapena hizkuntzan X</li><li><b>start_date: </b> emaitza gauzatzen den hasiera-data (AAAA-MM-DD formatua) </li><li><b>end emaitza gauzatzen den amaiera-data (AAAA-MM-DD formatua) </li><li><b> status /id: </b> egoeraren ID emaitza honetarako </li><li><b>progress:</b> gauzatzearen ehunekoa (0tik 100era) </li><li><b>proposals_ids:</b> erlazionatutako proposamenen barneko ID (komez bidez bereizita). Automatikoki bihurtuko da: <span class = 'attribute-name'>proposal_url</span></li></ul>"
+            link: lotura
+            title: Inportatu emaitzak CSVtik
+        imports:
+          create:
+            success: Fitxeroa inportatzen ari da. Hurrengo minutuetan mezu elektroniko bat jasoko duzu inportazioaren emaitzak dituena
         models:
           result:
             name: Emaitza
@@ -98,7 +111,7 @@ eu:
           index:
             title: Proiektuen denbora-lerroko sarrerak
           new:
-            create: Sortu sarrera
+            create: Sortu sarrerak
             title: Sarrera berria
           update:
             invalid: Arazo bat izan da sarrera hau eguneratzean
@@ -111,13 +124,29 @@ eu:
         value_types:
           parent_presenter:
             not_found: 'Gurasoa ez zen datu-basean aurkitu (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Datak
+          results: Emaitzak
+          unspecified: Zehaztu gabe
+      import_mailer:
+        import:
+          errors: Erroreak
+          errors_present: Arazo bat izan da emaitzak inportatzen
+          row_number: Errenkada
+          subject: Emaitzak zuzen inportatu dira
+          success: Emaitzak zuzen inportatu dira. Emaitzak administrazioaren panelaren bidez berrikusi ahal dituzu.
       last_activity:
         new_result_at_html: "<span> %{link}</span>emaitza berrian"
       models:
         result:
           fields:
+            category: Kategoria
+            created_at: Noiz sortua
             end_date: Bukaera-data
+            id: NAN
             progress: Aurrerapena
+            scope: Esparrua
             start_date: Hasiera-data
             status: Egoera
             title: Izenburua
@@ -131,6 +160,9 @@ eu:
           fields:
             description: Descripción
             entry_date: Data
+      result_m:
+        executed: Burutua
+        view: Ikusi
       results:
         count:
           results_count:
@@ -161,17 +193,31 @@ eu:
             votes: Sostenguak
         timeline:
           title: Proiektuen bilakaera
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategoria
+          scope_id_eq:
+            label: Esparrua
+          status_id_eq:
+            label: Egoera
     components:
       accountability:
-        name: Kontuak
+        actions:
+          comment: Iruzkina
+        name: Jarraipena
         settings:
           global:
             categories_label: '"Kategoriak" izena'
             comments_enabled: Iruzkinak gaituta
-            display_progress_enabled: Bistaratze aurrerapena
+            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
+            display_progress_enabled: Erakutsi aurrerapena
             heading_leaf_level_results: '"Proiektuak" izena'
             heading_parent_level_results: '"Emaitzak" izena'
             intro: Intro
+            scope_id: Esparrua
+            scopes_enabled: Esparruak gaituak
             subcategories_label: Izena "Azpikategoriak" izenarekin
           step:
             comments_blocked: Iruzkinak blokeatuta
@@ -192,8 +238,13 @@ eu:
         description: Sortutako emaitza kopurua
         object: emaitzak
         title: Emaitzak
+    participatory_spaces:
+      highlighted_results:
+        see_all: Ikusi emaitza guztiak (%{count})
     resource_links:
       included_projects:
         result_project: Emaitza honetan sartutako proiektuak
       included_proposals:
         result_proposal: Emaitza honetan jasotako proposamenak
+    statistics:
+      results_count: Emaitzak

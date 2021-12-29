@@ -55,7 +55,8 @@ module Decidim
         @registration = Decidim::Meetings::Registration.create!(
           meeting: meeting,
           user: user,
-          user_group: user_group
+          user_group: user_group,
+          public_participation: registration_form.public_participation
         )
       end
 

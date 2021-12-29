@@ -8,6 +8,17 @@ id:
         title: Judul
         updated_at: Diperbarui pada
   decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            test_options:
+              bar: Bar
+              foo: Foo
+          step:
+            test_options:
+              bar: Bar
+              foo: Foo
     dummy:
       admin:
         exports:

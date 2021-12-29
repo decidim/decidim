@@ -5,7 +5,7 @@ require "decidim/components/namer"
 Decidim.register_component(:budgets) do |component|
   component.engine = Decidim::Budgets::Engine
   component.admin_engine = Decidim::Budgets::AdminEngine
-  component.icon = "decidim/budgets/icon.svg"
+  component.icon = "media/images/decidim_budgets.svg"
   component.stylesheet = "decidim/budgets/budgets"
   component.permissions_class_name = "Decidim::Budgets::Permissions"
   component.component_form_class_name = "Decidim::Budgets::Admin::ComponentForm"
@@ -16,7 +16,7 @@ Decidim.register_component(:budgets) do |component|
 
   component.query_type = "Decidim::Budgets::BudgetsType"
 
-  component.actions = %(vote)
+  component.actions = %w(vote comment)
 
   component.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this component" if Decidim::Budgets::Budget.where(component: instance).any?
@@ -32,7 +32,7 @@ Decidim.register_component(:budgets) do |component|
     resource.model_class_name = "Decidim::Budgets::Project"
     resource.template = "decidim/budgets/projects/linked_projects"
     resource.card = "decidim/budgets/project"
-    resource.actions = %(vote)
+    resource.actions = %w(vote comment)
     resource.searchable = true
   end
 
@@ -162,19 +162,37 @@ Decidim.register_component(:budgets) do |component|
           description: Decidim::Faker::Localized.sentence(word_count: 5),
           attachment_collection: attachment_collection,
           attached_to: project,
-          file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf"))
+          content_type: "application/pdf",
+          file: ActiveStorage::Blob.create_after_upload!(
+            io: File.open(File.join(__dir__, "seeds", "Exampledocument.pdf")),
+            filename: "Exampledocument.pdf",
+            content_type: "application/pdf",
+            metadata: nil
+          )
         )
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.sentence(word_count: 5),
           attached_to: project,
-          file: File.new(File.join(__dir__, "seeds", "city.jpeg"))
+          content_type: "image/jpeg",
+          file: ActiveStorage::Blob.create_after_upload!(
+            io: File.open(File.join(__dir__, "seeds", "city.jpeg")),
+            filename: "city.jpeg",
+            content_type: "image/jpeg",
+            metadata: nil
+          )
         )
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.sentence(word_count: 5),
           attached_to: project,
-          file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf"))
+          content_type: "application/pdf",
+          file: ActiveStorage::Blob.create_after_upload!(
+            io: File.open(File.join(__dir__, "seeds", "Exampledocument.pdf")),
+            filename: "Exampledocument.pdf",
+            content_type: "application/pdf",
+            metadata: nil
+          )
         )
         Decidim::Comments::Seed.comments_for(project)
       end

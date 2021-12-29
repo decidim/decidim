@@ -8,12 +8,16 @@ de:
       close_meeting:
         attendees_count: Anzahl der Teilnehmer
         attending_organizations: Liste der Organisationen, die teilgenommen haben
-        closing_report: Bericht
+        audio_url: Audio-URL
+        closing_report: Protokoll
+        closing_visible: Ist sichtbar
         contributions_count: Anzahl der Beiträge
         proposal_ids: An der Sitzung entstandene Vorschläge
+        video_url: Video-URL
       meeting:
         address: Adresse
         available_slots: Verfügbare Slots für dieses Meeting
+        customize_registration_email: Registrierungs-E-Mail anpassen
         decidim_category_id: Kategorie
         decidim_scope_id: Umfang
         decidim_user_group_id: Benutzergruppe
@@ -25,6 +29,7 @@ de:
         organizer_gid: Erstellt als
         organizer_id: Veranstalter
         private_meeting: Private Sitzung
+        registration_email_custom_content: Angepasster Inhalt des Registrierungs-E-Mails
         registration_form_enabled: Anmeldeformular aktiviert
         registration_terms: Registrierungsbedingungen
         registration_url: Registrierungs-URL
@@ -33,11 +38,6 @@ de:
         title: Titel
         transparent: Transparent
         type_of_meeting: Art
-      minutes:
-        audio_url: Audio-URL
-        description: Beschreibung
-        video_url: Video-URL
-        visible: Ist sichtbar
     errors:
       models:
         meeting_agenda:
@@ -170,7 +170,6 @@ de:
           proposals_count:
             one: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschlag mit dieser verbunden ist:'
             other: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschläge mit dieser verbunden sind:'
-        minutes: Protokoll
         new: Neue Sitzung
         preview: Vorschau
         registrations: Anmeldungen
@@ -247,7 +246,7 @@ de:
             success: Sitzung erfolgreich abgeschlossen
           create:
             invalid: Beim Erstellen dieses Meetings ist ein Problem aufgetreten
-            success: Besprechung erfolgreich erstellt
+            success: Sitzung erfolgreich erstellt. Beachten Sie, dass dies noch nicht veröffentlicht wurde. Sie müssen es manuell veröffentlichen.
           destroy:
             invalid:
               proposals_count:
@@ -264,6 +263,7 @@ de:
             location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
             location_hints_help: 'Hinweise zum Standort: Zusätzliche Informationen. Beispiel: das Stockwerk im Gebäude wenn es eine Sitzung vor Ort ist, oder das Passwort wenn es eine Online-Sitzung mit eingeschränktem Zugriff ist.'
             online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
+            registration_email_help: Dieser Text erscheint in der Mitte der Registrierungs-E-Mail, direkt nach dem Registrierungscode.
             registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
             select_a_meeting_type: Bitte eine Meeting-Typ auswählen
             select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
@@ -272,6 +272,9 @@ de:
           new:
             create: Erstellen
             title: Besprechung erstellen
+          publish:
+            invalid: Beim Veröffentlichen dieser Sitzung ist ein Fehler aufgetreten
+            success: Sitzung erfolgreich veröffentlicht
           service:
             description: Beschreibung
             down: Nieder
@@ -282,22 +285,12 @@ de:
           services:
             add_service: Dienst hinzufügen
             services: Dienstleistungen
+          unpublish:
+            invalid: Beim Aufheben der Veröffentlichung dieser Sitzung ist ein Fehler aufgetreten
+            success: Veröffentlichung der Sitzung erfolgreich rückgängig gemacht
           update:
             invalid: Beim Aktualisieren dieses Meetings ist ein Problem aufgetreten
             success: Sitzung erfolgreich aktualisiert
-        minutes:
-          create:
-            invalid: Beim Erstellen dieser Minuten ist ein Problem aufgetreten
-            success: Minuten erfolgreich erstellt
-          edit:
-            title: Minuten bearbeiten
-            update: Aktualisieren
-          new:
-            create: Erstellen
-            title: Erstellen Sie Minuten
-          update:
-            invalid: Beim Aktualisieren dieser Minuten ist ein Problem aufgetreten
-            success: Minuten erfolgreich aktualisiert
         models:
           meeting:
             name: Treffen
@@ -337,29 +330,19 @@ de:
           value_types:
             organizer_presenter:
               not_found: 'Der Organisator wurde nicht in der Datenbank gefunden (ID: %{id})'
-        minutes:
-          create: "%{user_name} hat das Protokoll der Sitzung %{resource_name} in %{space_name} erstellt"
-          update: "%{user_name} hat das Protokoll der Sitzung %{resource_name} in %{space_name} aktualisiert"
       calendar_modal:
         calendar_url: Kalender-URL
         close_window: Fenster schließen
         export_calendar: Kalender exportieren
       conference_venues: Tagungsstätten
       content_blocks:
-        upcoming_events:
-          name: Kommende Veranstaltungen
-          upcoming_events: Bevorstehende Treffen
-          view_all_events: Alle ansehen
+        upcoming_meetings:
+          view_all_meetings: Alle ansehen
       directory:
         meetings:
           index:
-            all: Alle
-            date: Datum
             meetings: Meetings
-            past: Vergangenheit
-            search: Suche
             space_type: Partizipativer Raum
-            upcoming: Bevorstehende
       last_activity:
         meeting_updated_at_html: "<span>Besprechung aktualisiert unter %{link}</span>"
         new_meeting_at_html: "<span>Neues Treffen um %{link}</span>"
@@ -433,7 +416,6 @@ de:
         index:
           new_meeting: Neue Besprechung
         meeting_minutes:
-          meeting_minutes: Sitzungsprotokolle
           related_information: Zugehörige Informationen
         meetings:
           no_meetings_warning: Keine Besprechung entspricht Ihren Suchkriterien oder es ist keine Besprechung geplant.
@@ -452,9 +434,11 @@ de:
           contributions: Beiträge zählen
           date: Datum
           edit_meeting: Besprechung bearbeiten
-          going: Gehen
+          going: Sie haben sich für diese Sitzung angemeldet
           join: Tritt dem Treffen bei
-          meeting_report: Gesprächsprotokoll
+          leave: Registrierung stornieren
+          leave_confirmation: Sind Sie sicher dass Sie Ihre Registrierung für diese Sitzung stornieren möchten?
+          meeting_minutes: Sitzungsprotokolle
           no_slots_available: Keine Steckplätze verfügbar
           organizations: Teilnahme an Organisationen
           registration_code_help_text: Ihr Registrierungscode

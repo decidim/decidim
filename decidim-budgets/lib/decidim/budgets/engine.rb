@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require "searchlight"
-require "kaminari"
+require "decidim/core"
 
 module Decidim
   module Budgets
@@ -25,10 +24,6 @@ module Decidim
         root to: "budgets#index"
       end
 
-      initializer "decidim_budgets.assets" do |app|
-        app.config.assets.precompile += %w(decidim_budgets_manifest.js)
-      end
-
       initializer "decidim_budgets.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Budgets::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Budgets::Engine.root}/app/views") # for partials
@@ -42,6 +37,10 @@ module Decidim
         Decidim.metrics_operation.register(:followers, :budgets) do |metric_operation|
           metric_operation.manager_class = "Decidim::Budgets::Metrics::BudgetFollowersMetricMeasure"
         end
+      end
+
+      initializer "decidim_budgets.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
       end
     end
   end

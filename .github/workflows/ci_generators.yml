@@ -8,11 +8,17 @@ on:
   pull_request:
     branches-ignore:
       - "chore/l10n*"
+    paths:
+      - "*"
+      - ".github/**"
+      - "decidim-core/**"
+      - "decidim-generators/**"
 
 env:
   CI: "true"
   SIMPLECOV: "true"
-  RUBY_VERSION: 2.7.1
+  RUBY_VERSION: 2.7.5
+  NODE_VERSION: 16.9.1
   DECIDIM_MODULE: decidim-generators
 
 jobs:
@@ -49,8 +55,24 @@ jobs:
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Get npm cache directory path
+        id: npm-cache-dir-path
+        run: echo "::set-output name=dir::$(npm get cache)-${{ env.DECIDIM_MODULE }}"
+      - uses: actions/cache@v2
+        id: npm-cache
+        with:
+          path: ${{ steps.npm-cache-dir-path.outputs.dir }}
+          key: npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            npm-
       - run: bundle install --jobs 4 --retry 3
         name: Install Ruby deps
+        working-directory: ${{ env.DECIDIM_MODULE }}
+      - run: bundle exec brakeman --rails6 --force-scan .
+        name: Scanning Security issues on module
         working-directory: ${{ env.DECIDIM_MODULE }}
       - run: bundle exec rspec
         name: RSpec

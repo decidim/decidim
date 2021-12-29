@@ -8,22 +8,30 @@
       <% end %>
     </h2>
   </div>
-
+  <%= admin_filter_selector(:participatory_space_private_users) %>
   <div class="card-section">
-    <% if collection.any? %>
+    <% if participatory_space_private_users.any? %>
       <div class="table-scroll">
         <table class="stack">
           <thead>
             <tr>
-              <th><%= t("models.assembly_user_role.fields.name", scope: "decidim.admin") %></th>
-              <th><%= t("models.assembly_user_role.fields.email", scope: "decidim.admin") %></th>
-              <th><%= t("models.user.fields.invitation_sent_at", scope: "decidim.admin") %></th>
-              <th><%= t("models.user.fields.invitation_accepted_at", scope: "decidim.admin") %></th>
+              <th>
+               <%= sort_link(query, :name, t("models.user.fields.name", scope: "decidim.admin"), default_order: :desc ) %>
+              </th>
+              <th>
+                <%= sort_link(query, :email, t("models.user.fields.email", scope: "decidim.admin"), default_order: :desc ) %>
+              </th>
+              <th>
+                <%= sort_link(query, :invitation_sent_at, t("models.user.fields.invitation_sent_at", scope: "decidim.admin"), default_order: :desc ) %>
+              </th>
+              <th>
+                <%= sort_link(query, :invitation_accepted_at, t("models.user.fields.invitation_accepted_at", scope: "decidim.admin"), default_order: :desc ) %>
+              </th>
               <th class="actions"></th>
             </tr>
           </thead>
           <tbody>
-            <% collection.each do |private_user| %>
+            <% participatory_space_private_users.each do |private_user| %>
               <tr>
                 <td>
                   <%= private_user.user.name %><br>
@@ -55,7 +63,7 @@
           </tbody>
         </table>
       </div>
-      <%= decidim_paginate collection %>
+      <%= decidim_paginate participatory_space_private_users %>
     <% end %>
   </div>
 </div>

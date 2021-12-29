@@ -9,7 +9,7 @@ module Decidim
       attribute :body, Decidim::Attributes::CleanString
       attribute :recipient_id, Integer
 
-      validates :body, :recipient, presence: true
+      validates :body, :recipient, presence: true, length: { maximum: Decidim.config.maximum_conversation_message_length }
       validate :check_recipient
 
       def recipient

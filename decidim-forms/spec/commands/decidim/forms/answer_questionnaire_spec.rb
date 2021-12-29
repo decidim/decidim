@@ -126,6 +126,12 @@ module Decidim
 
         context "with attachments" do
           let(:question_1) { create(:questionnaire_question, questionnaire: questionnaire, question_type: :files) }
+          let(:uploaded_files) do
+            [
+              Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
+              Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")
+            ]
+          end
           let(:form_params) do
             {
               "responses" => [
@@ -138,14 +144,7 @@ module Decidim
             }
           end
 
-          context "when attachments are allowed", processing_uploads_for: Decidim::AttachmentUploader do
-            let(:uploaded_files) do
-              [
-                Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-                Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")
-              ]
-            end
-
+          context "when attachments are allowed" do
             it "creates multiple atachments for the proposal" do
               expect { command.call }.to change(Decidim::Attachment, :count).by(2)
               last_attachment = Decidim::Attachment.last
@@ -153,16 +152,28 @@ module Decidim
             end
           end
 
-          context "when attachments are allowed and file is invalid", processing_uploads_for: Decidim::AttachmentUploader do
+          context "when attachments are allowed and file is invalid" do
             let(:uploaded_files) do
               [
                 Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-                Decidim::Dev.test_file("Exampledocument.pdf", "")
+                Decidim::Dev.test_file("verify_user_groups.csv", "text/csv")
               ]
             end
 
             it "does not create atachments for the proposal" do
               expect { command.call }.to change(Decidim::Attachment, :count).by(0)
+            end
+
+            it "broadcasts invalid" do
+              expect { command.call }.to broadcast(:invalid)
+            end
+          end
+
+          context "when the user has answered the survey" do
+            let!(:answer) { create(:answer, questionnaire: questionnaire, question: question_1, user: current_user) }
+
+            it "doesn't create questionnaire answers" do
+              expect { command.call }.not_to change(Answer, :count)
             end
 
             it "broadcasts invalid" do
@@ -189,6 +200,18 @@ module Decidim
             expect(Answer.second.ip_hash).to eq(ip_hash)
             expect(Answer.third.session_token).to eq(tokenize(session_id))
             expect(Answer.third.ip_hash).to eq(ip_hash)
+          end
+        end
+
+        context "and visitor has answered the survey" do
+          let!(:answer) { create(:answer, questionnaire: questionnaire, question: question_1, session_token: tokenize(session_id)) }
+
+          it "doesn't create questionnaire answers" do
+            expect { command.call }.not_to change(Answer, :count)
+          end
+
+          it "broadcasts invalid" do
+            expect { command.call }.to broadcast(:invalid)
           end
         end
 

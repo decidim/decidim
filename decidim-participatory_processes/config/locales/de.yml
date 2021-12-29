@@ -403,6 +403,7 @@ de:
             more_information: Mehr Informationen
             participate: Sich beteiligen
             participate_in: Am Prozess %{resource_name} teilnehmen
+            processes_button_title: Link zur Prozess-Seite die alle Prozesse anzeigt
             see_all_processes: Alle Beteiligungsprozesses anzeigen
       participatory_process_steps:
         index:

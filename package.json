@@ -1,292 +1,66 @@
 {
-  "name": "decidim",
-  "description": "The participatory democracy framework",
-  "version": "0.25.0-dev",
-  "repository": {
-    "url": "git@github.com:decidim/decidim.git",
-    "type": "git"
-  },
-  "author": "Marc Riera <mrc2407@gmail.com>",
-  "license": "AGPL-3.0",
+  "name": "a-decidim-app",
+  "description": "Note: this is not a package, just the dependencies for the project in the dev environment.",
+  "private": true,
   "engines": {
-    "node": "^10.5.0",
-    "npm": "^6.2.0"
+    "node": "^16.9.1",
+    "npm": "^7.21.1"
   },
+  "files": [
+    "packages/**/*"
+  ],
   "browserslist": [
-    "> 0.5%",
-    "last 2 versions",
-    "Firefox ESR",
-    "IE 11",
-    "not dead"
+    "extends @decidim/browserslist-config"
   ],
   "scripts": {
-    "build": "webpack --env.dev",
-    "build:prod": "NODE_ENV=production webpack -p --env.prod",
-    "start": "webpack --env.dev --watch --progress --color --display-error-details",
-    "prelint": "tslint decidim-*/**/*.ts decidim-*/**/*.tsx",
-    "lint": "eslint -c .eslintrc.json --ext .js,.js.es6,.jsx .",
+    "lint": "eslint -c .eslintrc.json --no-error-on-unmatched-pattern --ext .js,.jsx decidim-*",
+    "stylelint": "stylelint decidim-*/**/*.scss",
     "test": "jest",
     "test:watch": "npm run test -- --watch",
     "test:ci": "npm run lint && npm run test"
   },
   "stylelint": {
-    "rules": {
-      "at-rule-empty-line-before": [
-        "always",
-        {
-          "except": [
-            "blockless-after-same-name-blockless",
-            "first-nested"
-          ],
-          "ignore": [
-            "after-comment"
-          ],
-          "ignoreAtRules": [
-            "else"
-          ]
-        }
-      ],
-      "at-rule-name-case": "lower",
-      "at-rule-semicolon-newline-after": "always",
-      "block-closing-brace-empty-line-before": "never",
-      "block-closing-brace-newline-after": "always",
-      "block-closing-brace-newline-before": "always-multi-line",
-      "block-closing-brace-space-before": "always-single-line",
-      "block-no-empty": true,
-      "block-opening-brace-newline-after": "always-multi-line",
-      "block-opening-brace-space-after": "always-single-line",
-      "block-opening-brace-space-before": "never",
-      "color-hex-case": "lower",
-      "color-hex-length": "short",
-      "color-no-invalid-hex": true,
-      "comment-empty-line-before": [
-        "always",
-        {
-          "except": [
-            "first-nested"
-          ],
-          "ignore": [
-            "stylelint-commands"
-          ]
-        }
-      ],
-      "comment-no-empty": true,
-      "comment-whitespace-inside": "always",
-      "custom-property-empty-line-before": [
-        "always",
-        {
-          "except": [
-            "after-custom-property",
-            "first-nested"
-          ],
-          "ignore": [
-            "after-comment",
-            "inside-single-line-block"
-          ]
-        }
-      ],
-      "declaration-bang-space-after": "never",
-      "declaration-bang-space-before": "always",
-      "declaration-block-no-duplicate-properties": [
-        true,
-        {
-          "ignore": [
-            "consecutive-duplicates-with-different-values"
-          ]
-        }
-      ],
-      "declaration-block-no-redundant-longhand-properties": true,
-      "declaration-block-no-shorthand-property-overrides": true,
-      "declaration-block-semicolon-newline-after": "always-multi-line",
-      "declaration-block-semicolon-space-after": "always-single-line",
-      "declaration-block-semicolon-space-before": "never",
-      "declaration-block-single-line-max-declarations": 1,
-      "declaration-block-trailing-semicolon": "always",
-      "declaration-colon-newline-after": "always-multi-line",
-      "declaration-colon-space-after": "always-single-line",
-      "declaration-colon-space-before": "never",
-      "declaration-empty-line-before": [
-        "always",
-        {
-          "except": [
-            "after-declaration",
-            "first-nested"
-          ],
-          "ignore": [
-            "after-comment",
-            "inside-single-line-block"
-          ]
-        }
-      ],
-      "function-calc-no-unspaced-operator": true,
-      "function-comma-newline-after": "always-multi-line",
-      "function-comma-space-after": "always-single-line",
-      "function-comma-space-before": "never",
-      "function-linear-gradient-no-nonstandard-direction": true,
-      "function-max-empty-lines": 0,
-      "function-name-case": "lower",
-      "function-parentheses-newline-inside": "always-multi-line",
-      "function-parentheses-space-inside": "never-single-line",
-      "function-whitespace-after": "always",
-      "indentation": 2,
-      "keyframe-declaration-no-important": true,
-      "length-zero-no-unit": true,
-      "max-empty-lines": 1,
-      "media-feature-colon-space-after": "always",
-      "media-feature-colon-space-before": "never",
-      "media-feature-name-case": "lower",
-      "media-feature-name-no-unknown": true,
-      "media-feature-parentheses-space-inside": "never",
-      "media-feature-range-operator-space-after": "always",
-      "media-feature-range-operator-space-before": "always",
-      "media-query-list-comma-newline-after": "always-multi-line",
-      "media-query-list-comma-space-after": "always-single-line",
-      "media-query-list-comma-space-before": "never",
-      "no-empty-source": true,
-      "no-eol-whitespace": true,
-      "no-extra-semicolons": true,
-      "no-invalid-double-slash-comments": true,
-      "no-missing-end-of-source-newline": true,
-      "number-leading-zero": "never",
-      "number-no-trailing-zeros": true,
-      "property-case": "lower",
-      "property-no-unknown": true,
-      "rule-empty-line-before": [
-        "always-multi-line",
-        {
-          "except": [
-            "first-nested"
-          ],
-          "ignore": [
-            "after-comment"
-          ]
-        }
-      ],
-      "selector-attribute-brackets-space-inside": "never",
-      "selector-attribute-operator-space-after": "never",
-      "selector-attribute-operator-space-before": "never",
-      "selector-combinator-space-after": "always",
-      "selector-combinator-space-before": "always",
-      "selector-descendant-combinator-no-non-space": true,
-      "selector-list-comma-newline-after": "always",
-      "selector-list-comma-space-before": "never",
-      "selector-max-empty-lines": 0,
-      "selector-pseudo-class-case": "lower",
-      "selector-pseudo-class-no-unknown": true,
-      "selector-pseudo-class-parentheses-space-inside": "never",
-      "selector-pseudo-element-case": "lower",
-      "selector-pseudo-element-colon-notation": "double",
-      "selector-pseudo-element-no-unknown": true,
-      "selector-type-case": "lower",
-      "selector-type-no-unknown": true,
-      "shorthand-property-no-redundant-values": true,
-      "string-no-newline": true,
-      "unit-case": "lower",
-      "unit-no-unknown": true,
-      "value-list-comma-newline-after": "always-multi-line",
-      "value-list-comma-space-after": "always-single-line",
-      "value-list-comma-space-before": "never",
-      "value-list-max-empty-lines": 0
-    }
-  },
-  "devDependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/polyfill": "^7.2.5",
-    "@babel/preset-env": "^7.3.4",
-    "@types/classnames": "^2.2.3",
-    "@types/enzyme": "^3.1.0",
-    "@types/enzyme-adapter-react-16": "^1.0.2",
-    "@types/es6-promise": "^3.3.0",
-    "@types/faker": "^4.1.1",
-    "@types/jest": "^22.2.0",
-    "@types/jquery": "^3.3.1",
-    "@types/react": "^16.0.7",
-    "@types/react-dom": "^16.0.2",
-    "@types/react-select": "^1.2.6",
-    "@types/uuid": "^3.4.2",
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^8.2.2",
-    "babel-jest": "^22.4.1",
-    "babel-loader": "^7.1.4",
-    "babel-plugin-__coverage__": "~11.0.0",
-    "babel-plugin-transform-decorators-legacy": "^1.3.5",
-    "babel-preset-airbnb": "^2.6.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "css-loader": "^2.1.1",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.4",
-    "eslint": "^4.19.1",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-loader": "^2.2.1",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.8.0",
-    "eslint-plugin-react": "^7.20.6",
-    "eslint-plugin-standard": "^3.1.0",
-    "expose-loader": "^0.7.5",
-    "faker": "^4.1.0",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^22.4.4",
-    "jest-localstorage-mock": "^2.4.3",
-    "json-loader": "~0.5.7",
-    "mini-css-extract-plugin": "^0.4.5",
-    "node-sass": "^4.14.1",
-    "progress-bar-webpack-plugin": "^1.12.1",
-    "raf": "^3.4.1",
-    "sass-loader": "^7.3.1",
-    "source-map-loader": "^0.2.4",
-    "style-loader": "^0.21.0",
-    "ts-jest": "^22.4.6",
-    "ts-loader": "^4.5.0",
-    "tslint": "^5.20.1",
-    "tslint-react": "^3.6.0",
-    "typescript": "^2.9.2",
-    "typescript-babel-jest": "^1.0.6",
-    "webpack": "^4.44.1",
-    "webpack-bundle-analyzer": "^3.8.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-config-utils": "^2.3.1",
-    "yaml-jest": "^1.0.5",
-    "yaml-loader": "^0.5.0"
-  },
-  "dependencies": {
-    "@babel/types": "^7.0.0-beta.40",
-    "axios": "^0.21.1",
-    "classnames": "^2.2.5",
-    "jquery": "^3.2.1",
-    "postcss": "^7.0.32",
-    "prop-types": "^15.5.7",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-i18nify": "^1.8.8",
-    "react-select": "^1.2.1",
-    "react-test-renderer": "^16.0.0",
-    "stylelint": "^13.6.1",
-    "unfetch": "^3.0.0",
-    "uuid": "^3.2.1"
+    "extends": "@decidim/stylelint-config"
   },
   "jest": {
     "testURL": "https://decidim.dev/",
     "setupFiles": [
-      "raf/polyfill",
-      "<rootDir>/decidim-admin/app/frontend/entry_test.ts"
+      "<rootDir>/decidim-core/spec/js/entry_test.js",
+      "raf/polyfill"
     ],
     "moduleFileExtensions": [
-      "ts",
-      "tsx",
       "js"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "decidim-core/app/packs"
     ],
     "moduleNameMapper": {
       "\\.(scss|css|less)$": "identity-obj-proxy"
     },
     "transform": {
-      "^.+\\.(ts|tsx)$": "typescript-babel-jest",
       "\\.yml$": "yaml-jest",
-      ".*": "babel-jest"
+      "\\.js$": "babel-jest"
     },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$"
+    "testRegex": "\\.(test|spec)\\.js$"
+  },
+  "dependencies": {
+    "@decidim/browserslist-config": "file:packages/browserslist-config",
+    "@decidim/core": "file:packages/core",
+    "@decidim/elections": "file:packages/elections",
+    "@decidim/webpacker": "file:packages/webpacker"
+  },
+  "devDependencies": {
+    "@decidim/dev": "file:packages/dev",
+    "@decidim/eslint-config": "file:packages/eslint-config",
+    "@decidim/stylelint-config": "file:packages/stylelint-config",
+    "babel-jest": "^26.6.3",
+    "concat-stream": "^2.0.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.4",
+    "jest": "^26.6.3",
+    "jest-localstorage-mock": "^2.4.3",
+    "react-test-renderer": "^16.0.0",
+    "yaml-jest": "^1.0.5"
   }
 }

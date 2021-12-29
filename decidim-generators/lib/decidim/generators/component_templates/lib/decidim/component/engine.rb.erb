@@ -15,8 +15,8 @@ module Decidim
         # root to: "<%= component_name %>#index"
       end
 
-      initializer "decidim_<%= component_name %>.assets" do |app|
-        app.config.assets.precompile += %w[decidim_<%= component_name %>_manifest.js decidim_<%= component_name %>_manifest.css]
+      initializer "<%= component_module_name %>.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
       end
     end
   end

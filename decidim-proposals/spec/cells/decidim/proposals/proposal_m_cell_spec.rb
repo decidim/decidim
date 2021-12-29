@@ -12,7 +12,7 @@ module Decidim::Proposals
     let(:cell_html) { my_cell.call }
     let(:created_at) { Time.current - 1.month }
     let(:published_at) { Time.current }
-    let(:component) { create(:proposal_component, :with_attachments_allowed, :with_card_image_allowed) }
+    let(:component) { create(:proposal_component, :with_attachments_allowed) }
     let!(:proposal) { create(:proposal, component: component, created_at: created_at, published_at: published_at) }
     let(:model) { proposal }
     let(:user) { create :user, organization: proposal.participatory_space.organization }
@@ -126,6 +126,7 @@ module Decidim::Proposals
         it "generate a different hash" do
           old_hash = my_cell.send(:cache_hash)
           create(:proposal_vote, proposal: proposal)
+          my_cell.model.reload
 
           expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
         end
@@ -136,6 +137,7 @@ module Decidim::Proposals
           component_settings = component.settings
           old_hash = my_cell.send(:cache_hash)
           component.settings = { foo: "bar" }
+          component.save!
 
           expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
 
@@ -149,6 +151,7 @@ module Decidim::Proposals
         it "generate a different hash" do
           old_hash = my_cell.send(:cache_hash)
           create(:attachment, :with_image, attached_to: proposal)
+          my_cell.model.reload
 
           expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
         end
@@ -212,6 +215,61 @@ module Decidim::Proposals
 
         it "returns different hashes" do
           expect(cached_proposals.uniq.length).to eq(5)
+        end
+      end
+
+      context "when space is rendered" do
+        it "generates a different hash" do
+          old_hash = my_cell.send(:cache_hash)
+          my_cell.context.merge!({ show_space: true })
+
+          expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
+        end
+      end
+
+      context "when the active participatory space step change" do
+        let(:step_1) { create(:participatory_process_step, participatory_process: participatory_process, active: step_1_active) }
+        let(:step_1_active) { true }
+        let(:step_2) { create(:participatory_process_step, participatory_process: participatory_process, active: step_2_active) }
+        let(:step_2_active) { false }
+        let(:step_3) { create(:participatory_process_step, participatory_process: participatory_process, active: step_3_active) }
+        let(:step_3_active) { false }
+        let(:component) do
+          create(:proposal_component,
+                 participatory_space: participatory_process,
+                 step_settings: {
+                   step_1.id => { votes_enabled: false },
+                   step_2.id => { votes_enabled: true },
+                   step_3.id => { votes_enabled: false }
+                 })
+        end
+        let(:participatory_process) { create(:participatory_process) }
+
+        context "when the voting period starts" do
+          it "generates a different hash" do
+            old_hash = my_cell.send(:cache_hash)
+
+            step_1.update!(active: false)
+            step_2.update!(active: true)
+            proposal.reload
+
+            expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
+          end
+        end
+
+        context "when the voting period ends" do
+          let(:step_1_active) { false }
+          let(:step_2_active) { true }
+
+          it "generates a different hash" do
+            old_hash = my_cell.send(:cache_hash)
+
+            step_2.update!(active: false)
+            step_3.update!(active: true)
+            proposal.reload
+
+            expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
+          end
         end
       end
     end

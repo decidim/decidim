@@ -31,7 +31,7 @@ module Decidim
           spaces = Decidim.participatory_space_manifests.flat_map do |manifest|
             manifest.participatory_spaces.call(@organization).public_spaces
           end
-          proposal_ids = Decidim::Proposals::Proposal.where(component: visible_component_ids_from_spaces(spaces.pluck(:id))).except_withdrawn.not_hidden.pluck(:id)
+          proposal_ids = Decidim::Proposals::Proposal.where(component: visible_components_from_spaces(spaces)).except_withdrawn.not_hidden.pluck(:id)
           @query = Decidim::Proposals::ProposalVote.joins(proposal: :component)
                                                    .left_outer_joins(proposal: :category)
                                                    .where(proposal: proposal_ids)

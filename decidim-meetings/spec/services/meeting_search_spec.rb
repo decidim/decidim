@@ -11,14 +11,15 @@ module Decidim::Meetings
     let(:default_params) { { component: component, organization: component.organization, user: user } }
     let(:params) { default_params }
 
-    it_behaves_like "a resource search", :meeting
-    it_behaves_like "a resource search with scopes", :meeting
-    it_behaves_like "a resource search with categories", :meeting
+    it_behaves_like "a resource search", :published_meeting
+    it_behaves_like "a resource search with scopes", :published_meeting
+    it_behaves_like "a resource search with categories", :published_meeting
 
     describe "filters" do
       let!(:meeting1) do
         create(
           :meeting,
+          :published,
           author: user,
           component: component,
           start_time: 1.day.from_now,
@@ -28,17 +29,42 @@ module Decidim::Meetings
       let!(:meeting2) do
         create(
           :meeting,
+          :published,
           component: component,
           start_time: 1.day.ago,
           end_time: 2.days.from_now,
           description: Decidim::Faker::Localized.literal("Curabitur arcu erat, accumsan id imperdiet et.")
         )
       end
+      # Meeting not published, shouldn't appear
+      let!(:meeting3) do
+        create(
+          :meeting,
+          author: user,
+          component: component,
+          start_time: 1.day.from_now,
+          description: Decidim::Faker::Localized.literal("Nulla TestCheck accumsan tincidunt.")
+        )
+      end
+
+      # Meeting withdrawn, shouldn't appear
+      let!(:meeting4) do
+        create(
+          :meeting,
+          :published,
+          :withdrawn,
+          author: user,
+          component: component,
+          start_time: 1.day.ago,
+          end_time: 2.days.from_now,
+          description: Decidim::Faker::Localized.literal("Nulla TestCheck accumsan tincidunt.")
+        )
+      end
 
       context "with date" do
         let(:params) { default_params.merge(date: date) }
         let!(:past_meeting) do
-          create(:meeting, component: component, start_time: 10.days.ago, end_time: 1.day.ago)
+          create(:meeting, :published, component: component, start_time: 10.days.ago, end_time: 1.day.ago)
         end
 
         context "when upcoming" do
@@ -58,6 +84,26 @@ module Decidim::Meetings
         end
       end
 
+      context "with state" do
+        let(:params) { default_params.merge(state: state) }
+
+        context "when withdrawn" do
+          let(:state) { "withdrawn" }
+
+          it "only returns meetings that are withdrawn" do
+            expect(subject).to match_array [meeting4]
+          end
+        end
+
+        context "when except withdrawn" do
+          let(:state) { nil }
+
+          it "only returns meetings that are not withdrawn" do
+            expect(subject).to match_array [meeting1, meeting2]
+          end
+        end
+      end
+
       context "with search_text" do
         let(:params) { default_params.merge(search_text: "TestCheck") }
 
@@ -69,10 +115,10 @@ module Decidim::Meetings
 
       context "when filtering by type" do
         let!(:in_person_meeting) do
-          create(:meeting, component: component)
+          create(:meeting, :published, component: component)
         end
         let!(:online_meeting) do
-          create(:meeting, :online, component: component)
+          create(:meeting, :published, :online, component: component)
         end
 
         context "when online" do

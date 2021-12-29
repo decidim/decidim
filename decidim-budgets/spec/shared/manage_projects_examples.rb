@@ -9,6 +9,23 @@ shared_examples "manage projects" do
     end
 
     it_behaves_like "having a rich text editor", "new_project", "full"
+
+    it "displays the proposals picker" do
+      expect(page).to have_content("Choose proposals")
+    end
+
+    context "when proposal linking is disabled" do
+      before do
+        allow(Decidim::Budgets).to receive(:enable_proposal_linking).and_return(false)
+
+        # Reload the page with the updated settings
+        visit current_path
+      end
+
+      it "does not display the proposal picker" do
+        expect(page).not_to have_content "Choose proposals"
+      end
+    end
   end
 
   it "updates a project" do
@@ -154,6 +171,26 @@ shared_examples "manage projects" do
       within "table" do
         expect(page).to have_content("My new title")
       end
+    end
+
+    it "removes proposals from project", :slow do
+      project.link_resources(proposals, "included_proposals")
+      not_removed_projects_title = project.linked_resources(:proposals, "included_proposals").first.title
+      expect(project.linked_resources(:proposals, "included_proposals").count).to eq(5)
+
+      within find("tr", text: translated(project.title)) do
+        click_link "Edit"
+      end
+
+      within ".edit_project" do
+        proposals_remove(select_data_picker(:project_proposals, multiple: true), proposals.last(4))
+
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+      expect(project.linked_resources(:proposals, "included_proposals").count).to eq(1)
+      expect(project.linked_resources(:proposals, "included_proposals").first.title).to eq(not_removed_projects_title)
     end
 
     it "creates a new project", :slow do

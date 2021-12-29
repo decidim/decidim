@@ -26,6 +26,7 @@ module Decidim
 
           Assembly.transaction do
             copy_assembly
+            copy_assembly_attachments
             copy_assembly_categories if @form.copy_categories?
             copy_assembly_components if @form.copy_components?
           end
@@ -46,8 +47,6 @@ module Decidim
             hashtag: @assembly.hashtag,
             description: @assembly.description,
             short_description: @assembly.short_description,
-            hero_image: @assembly.hero_image,
-            banner_image: @assembly.banner_image,
             promoted: @assembly.promoted,
             scope: @assembly.scope,
             parent: @assembly.parent,
@@ -57,8 +56,17 @@ module Decidim
             target: @assembly.target,
             participatory_scope: @assembly.participatory_scope,
             participatory_structure: @assembly.participatory_structure,
-            meta_scope: @assembly.meta_scope
+            meta_scope: @assembly.meta_scope,
+            announcement: @assembly.announcement
           )
+        end
+
+        def copy_assembly_attachments
+          [:hero_image, :banner_image].each do |attribute|
+            next unless @assembly.attached_uploader(attribute).attached?
+
+            @copied_assembly.send(attribute).attach(@assembly.send(attribute).blob)
+          end
         end
 
         def copy_assembly_categories
@@ -79,7 +87,8 @@ module Decidim
               name: component.name,
               participatory_space: @copied_assembly,
               settings: component.settings,
-              step_settings: component.step_settings
+              step_settings: component.step_settings,
+              weight: component.weight
             )
             component.manifest.run_hooks(:copy, new_component: new_component, old_component: component)
           end

@@ -24,7 +24,7 @@ shared_examples "split proposals" do
     context "when split into a new one is selected from the actions dropdown" do
       before do
         page.find("#proposals_bulk.js-check-all").set(false)
-        page.first(".js-proposal-list-check").set(true)
+        page.find(".js-proposal-id-#{proposals.first.id}").set(true)
 
         click_button "Actions"
         click_button "Split proposals"
@@ -49,6 +49,20 @@ shared_examples "split proposals" do
         it "creates a new proposal" do
           expect(page).to have_content("Successfully splitted the proposals into new ones")
           expect(page).to have_css(".table-list tbody tr", count: 2)
+        end
+
+        context "when splitting to the same component" do
+          let!(:target_component) { current_component }
+
+          context "and the proposals can't be splitted" do
+            let!(:proposals) { create_list :proposal, 3, :with_endorsements, :with_votes, component: current_component }
+
+            it "doesn't create a new proposal and displays a validation fail message" do
+              expect(page).to have_content("There has been a problem splitting the selected proposals")
+              expect(page).to have_content("Are not official")
+              expect(page).to have_content("Have received support or endorsements")
+            end
+          end
         end
       end
     end

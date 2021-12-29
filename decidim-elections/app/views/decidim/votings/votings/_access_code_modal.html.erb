@@ -1,0 +1,33 @@
+<div class="reveal" data-reveal id="access-code-modal">
+  <div class="reveal__header">
+    <h3 class="reveal__title"><%= t(".title") %></h3>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <p>
+    <%= t(".info") %>
+  </p>
+  <div class="row">
+    <div class="columns medium-8 medium-offset-2">
+      <% if email.empty? %>
+        <button class="disabled button hollow expanded">
+          <%= t(".no_email") %>
+        </button>
+      <% else %>
+        <%= button_to t(".email", email: email), voting_send_access_code_path(datum.dataset.voting, datum_id: datum, medium: "email"), class: "button hollow expanded" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns medium-8 medium-offset-2">
+      <% if sms.empty? %>
+        <button class="disabled button hollow expanded">
+          <%= t(".no_sms") %>
+        </button>
+      <% else %>
+        <%= button_to t(".sms", sms: sms), voting_send_access_code_path(datum.dataset.voting, datum_id: datum, medium: "sms"), class: "button hollow expanded" %>
+      <% end %>
+    </div>
+  </div>
+</div>

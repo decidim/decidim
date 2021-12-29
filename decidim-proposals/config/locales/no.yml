@@ -39,7 +39,9 @@
               invalid_document_type: 'Ugyldig dokumenttype. Godkjente formater er: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Må festes på nytt
+            add_photos:
               needs_to_be_reattached: Må festes på nytt
             body:
               cant_be_equal_to_template: kan ikke være lik malen
@@ -86,7 +88,6 @@
         name: Forslag
         settings:
           global:
-            allow_card_image: Tillat kortbilde
             amendments_enabled: Endringer aktivert
             amendments_enabled_help: Hvis aktiv, konfigurer du endringsfunksjoner for hvert trinn.
             amendments_wizard_help_text: Endrings Veiviser hjelpetekst
@@ -426,11 +427,9 @@
             select_states: Sjekk statusen til forslagene som skal importeres
         proposals_merges:
           create:
-            invalid: Det oppstod et problem med å slå sammen de valgte forslagene.
             success: Slo sammen forslagene til et nytt ett.
         proposals_splits:
           create:
-            invalid: Det oppstod et problem med å splitte de valgte forslagene.
             success: Delte forslagene vellykket til nye.
       admin_log:
         proposal:

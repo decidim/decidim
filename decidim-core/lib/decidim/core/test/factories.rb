@@ -98,6 +98,7 @@ FactoryBot.define do
     admin_terms_of_use_body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     force_users_to_authenticate_before_access_organization { false }
     machine_translation_display_priority { "original" }
+    external_domain_whitelist { ["example.org", "twitter.com", "facebook.com", "youtube.com", "github.com", "mytesturl.me"] }
     smtp_settings do
       {
         "from" => "test@example.org",
@@ -108,6 +109,7 @@ FactoryBot.define do
       }
     end
     file_upload_settings { Decidim::OrganizationSettings.default(:upload) }
+    enable_participatory_space_filters { true }
 
     trait :secure_context do
       host { "localhost" }
@@ -246,7 +248,7 @@ FactoryBot.define do
   end
 
   factory :user_group_membership, class: "Decidim::UserGroupMembership" do
-    user
+    user { create(:user, :confirmed, organization: user_group.organization) }
     role { :creator }
     user_group
   end
@@ -746,5 +748,11 @@ FactoryBot.define do
       times_used { 3 }
       last_used_at { 1.hour.ago }
     end
+  end
+
+  factory :editor_image, class: "Decidim::EditorImage" do
+    organization
+    author { create(:user, :admin, :confirmed, organization: organization) }
+    file { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
   end
 end

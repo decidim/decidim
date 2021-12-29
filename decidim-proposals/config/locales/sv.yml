@@ -10,7 +10,7 @@ sv:
         scope_id: Omfattning
         state: Status
         title: Titel
-        user_group_id: Skapa gemensamt utkast som
+        user_group_id: Skapa samarbetsutkast som
       proposal:
         address: Adress
         answer: Svar
@@ -29,11 +29,13 @@ sv:
         answer: Svar
         cost: Kostnad
         cost_report: Kostnadsrapport
+        execution_period: Genomförandesperiod
       proposals_copy:
         copy_proposals: Jag förstår att detta kommer att importera alla förslag från den valda komponenten till den nuvarande och att den här åtgärden inte kan ångras.
         origin_component_id: Komponent att kopiera förslagen från
       proposals_import:
         import_proposals: Importera förslag
+        keep_answers: Behåll status och svar
         keep_authors: Behåll originalförfattare
       valuation_assignment:
         admin_log:
@@ -46,13 +48,25 @@ sv:
               invalid_document_type: 'Ogiltig dokumenttyp. Godkända format är: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Måste bifogas igen
+            add_photos:
               needs_to_be_reattached: Måste bifogas igen
             body:
               cant_be_equal_to_template: kan inte vara detsamma som mallen
               identical: OCH titeln kan inte vara identisk
             title:
               identical: OCH innehållet kan inte vara identiskt
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Är inte officiella
+              supported: Har fått stöd eller instämmande
+        proposals_split:
+          attributes:
+            base:
+              not_official: Är inte officiella
+              supported: Har fått stöd eller instämmande
     models:
       decidim/proposals/accepted_proposal_event: Förslag accepterat
       decidim/proposals/admin/update_proposal_category_event: Förslagskategori ändrad
@@ -112,14 +126,15 @@ sv:
       proposals:
         actions:
           amend: Ändra
+          comment: Kommentera
           create: Skapa
           endorse: Instäm
           vote: Stötta
+          vote_comment: Rösta på en kommentar
           withdraw: Dra tillbaka
         name: Förslag
         settings:
           global:
-            allow_card_image: Tillåt kortbild
             amendments_enabled: Ändringar möjliga
             amendments_enabled_help: Om aktivt, konfigurera ändringsfunktioner till varje steg.
             amendments_wizard_help_text: Hjälptext för guiden för ändringsförslag
@@ -129,6 +144,17 @@ sv:
             collaborative_drafts_enabled: Samarbetsutkast aktiverat
             comments_enabled: Kommentarer aktiverade
             comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
+            default_sort_order: Förvald produkt sortering
+            default_sort_order_help: Förinställt innebär att om stödet är aktiverat kommer förslagen sorteras slumpmässigt, och om stöden är blockerade kommer de att sorteras efter mest stödda.
+            default_sort_order_options:
+              default: Förinställt
+              most_commented: Mest kommenterade
+              most_endorsed: Mest instämda i
+              most_followed: Mest följda
+              most_voted: Mest stödda
+              random: Slumpmässigt
+              recent: Senaste
+              with_more_authors: Med fler författare
             geocoding_enabled: Geokodning aktiverad
             minimum_votes_per_user: Minsta antal stöd per användare
             new_proposal_body_template: Innehållsmall för nytt förslag
@@ -139,6 +165,10 @@ sv:
             participatory_texts_enabled_readonly: Det går inte att ändra denna inställning om det finns befintliga förslag. Skapa en ny `Förslagskomponent` om du vill aktivera funktionen, eller kasta alla importerade förslag under menyn `Deltagartexter` om du vill avaktivera den.
             proposal_answering_enabled: Aktiverat svar på förslag
             proposal_edit_before_minutes: Förslag kan redigeras av författare inom så här många minuter
+            proposal_edit_time: Redigering av förslag
+            proposal_edit_time_choices:
+              infinite: Tillåt redigering av förslag utan tidsbegränsning
+              limited: Tillåt redigering av förslag med tidsbegränsning
             proposal_length: Maximal längd på förslagets innehåll
             proposal_limit: Förslagsgräns per användare
             proposal_wizard_step_1_help_text: Hjälptext till steget "Skapa" i förslagsguiden
@@ -146,6 +176,8 @@ sv:
             proposal_wizard_step_3_help_text: Hjälptext till steget "Komplettera" i förslagsguiden
             proposal_wizard_step_4_help_text: Förslagsguidens hjälptext för steg "Publicera"
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje förslag
+            scope_id: Omfång
+            scopes_enabled: Omfång aktiverade
             threshold_per_proposal: Tröskel per förslag
             vote_limit: Stödgräns per deltagare
           step:
@@ -165,6 +197,17 @@ sv:
             automatic_hashtags: Hashtags läggs till i alla förslag
             comments_blocked: Kommentarer blockerade
             creation_enabled: Skapande av förslag aktiverat
+            default_sort_order: Förvald produkt sortering
+            default_sort_order_help: Förinställt innebär att om stödet är aktiverat kommer förslagen sorteras slumpmässigt, och om stöden är blockerade kommer de att sorteras efter mest stödda.
+            default_sort_order_options:
+              default: Förinställt
+              most_commented: Mest kommenterade
+              most_endorsed: Mest instämda i
+              most_followed: Mest följda
+              most_voted: Mest stödda
+              random: Slumpmässigt
+              recent: Senaste
+              with_more_authors: Med fler författare
             endorsements_blocked: Instämmanden är blockerade
             endorsements_enabled: Instämmanden aktiverade
             proposal_answering_enabled: Svar på förslag aktiverat
@@ -352,7 +395,25 @@ sv:
         actions:
           preview: Förhandsvisa
         exports:
+          proposal_comments: Kommentarer
           proposals: Förslag
+        imports:
+          help:
+            answers: 'Importdokumentet ska innehålla följande kolumner: id, state (accepterat, utvärderat, avvisat), answer/sv, answer/en (och andra språk aktiverade för organisationen).'
+            proposals: Filen måste ha kolumnnamn title/sv och body/sv (eller ett annat språk som du föredrar t. ex.. title/en och body/en). Även scope/id och category/id kolumner stöds.
+          label:
+            answers: Importera svar från en fil
+            proposals: Importerar förslag från en fil
+          resources:
+            answers:
+              one: svar till förslaget
+              other: svar till förslaget
+            proposals:
+              one: förslag
+              other: förslag
+          title:
+            answers: Importera svar till förslag
+            proposals: Importera förslag
         models:
           proposal:
             name: Förslag
@@ -375,7 +436,9 @@ sv:
           new_import:
             accepted_mime_types:
               md: Markdown
+              odt: ODT
             bottom_hint: "(Du kommer att kunna förhandsvisa och sortera dokumentavsnitt)"
+            document_legend: 'Lägg till ett dokument som är mindre än 2MB, varje avsnitt upp till 3 nivåers djup kommer läsas in till förslagen. Möjliga format är: %{valid_mime_types}'
             title: LÄGG TILL DOKUMENT
             upload_document: Skicka in dokument
           publish:
@@ -416,6 +479,7 @@ sv:
           form:
             attachment_legend: "(Valfritt) Lägg till en bilaga"
             created_in_meeting: Detta förslag kommer från ett möte
+            delete_attachment: Ta bort bilaga
             select_a_category: Välj en kategori
             select_a_meeting: Välj ett möte
           index:
@@ -490,13 +554,14 @@ sv:
             no_components: Det finns inga andra förslagskomponenter i detta deltagarutrymme att importera förslagen från.
             select_component: Välj en komponent
             select_states: Kontrollera status för förslagen som ska importeras
+            title: Importera förslag
         proposals_merges:
           create:
-            invalid: Det gick inte att slå samman de valda förslagen.
+            invalid: 'Det gick inte att slå samman de valda förslagen på grund av vissa av dem:'
             success: Förslagen har sammanfogats till ett nytt förslag.
         proposals_splits:
           create:
-            invalid: Det gick inte att dela upp de valda förslagen.
+            invalid: 'Det gick inte att dela upp de valda förslagen på grund av vissa av dem:'
             success: Förslagen har delats upp till nya förslag.
         valuation_assignments:
           create:
@@ -642,6 +707,9 @@ sv:
           info: Du skapar ett <strong>gemensamt utkast</strong>.
         wizard_header:
           title: Skapa ditt gemensamma utkast
+      content_blocks:
+        highlighted_proposals:
+          proposals: Förslag
       create:
         error: Det gick inte att spara förslaget.
         success: Förslaget har skapats. Det är sparat som ett utkast.
@@ -650,6 +718,7 @@ sv:
         success: Utkastet till förslag har tagits bort.
       last_activity:
         new_proposal_at_html: "<span>Nytt förslag vid %{link}</span>"
+        proposal_updated_at_html: "<span>Förslag uppdaterades på %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -695,10 +764,16 @@ sv:
             one: "%{count} förslag"
             other: "%{count} förslag"
         dynamic_map_instructions:
-          instructions: <h3>Nu kan du dra markören och flytta den på kartan. </h3><p>Glöm inte att klicka på knappen "Uppdatera position" innan du publicerar ditt förslag.</p>
+          description: Koordinaterna uppdateras när du klickar på knappen 'Förhandsgranska'. Adressen ändras dock inte.
+          instructions: Nu kan du flytta markören på kartan.
         edit:
+          add_documents: Dokument
+          add_images: Bild
           attachment_legend: "(Valfritt) Lägg till en bilaga"
           back: Tillbaka
+          delete_document: Radera dokument
+          delete_image: Radera bild
+          gallery_legend: "(Frivilligt) Lägg till en bild"
           select_a_category: Välj en kategori
           send: Skicka
           title: Redigera förslag
@@ -726,9 +801,12 @@ sv:
           filter_by: Filtrera efter
           unfold: Veckla ut
         index:
+          click_here: Se alla förslag
           collaborative_drafts_list: Visa gemensamma utkast
           new_proposal: Nytt förslag
+          see_all: Se alla förslag
           see_all_withdrawn: Se alla tillbakadragna förslag
+          text_banner: Du tittar på listan över förslag som dragits tillbaka av deras författare. %{go_back_link}.
           view_proposal: Visa förslag
         linked_proposals:
           proposal_votes:
@@ -751,14 +829,17 @@ sv:
             document_index: Dokumentindex
           view_index:
             see_index: Visa index
+        placeholder:
+          address: Drottninggatan 23, 123 45 Stockholm
         preview:
+          announcement_body: Ditt förslag har sparats som ett utkast. Det måste publiceras för att det ska visas på webbplatsen.
+          announcement_title: Ditt förslag har ännu inte publicerats
           modify: Ändra förslaget
           proposal_edit_before_minutes:
             one: Du kommer att kunna redigera detta förslag under den första minuten efter att förslaget har publicerats. När det tidsfönstret har passerat kommer du inte att kunna redigera förslaget.
             other: Du kommer att kunna redigera förslaget upp till %{count} minuter efter att förslaget har publicerats. När det tidsfönstret passerat kommer du inte att kunna redigera förslaget.
           publish: Publicera
           title: Publicera ditt förslag
-          update_position: Uppdatera position
         proposal:
           creation_date: 'Skapat: %{date}'
           view_proposal: Visa förslag
@@ -875,3 +956,7 @@ sv:
       included_proposals:
         proposal_project: 'Förslag som ingår i dessa projekt:'
         proposal_result: 'Förslag som ingår i dessa resultat:'
+    statistics:
+      proposals_accepted: Godkända Förslag
+      proposals_count: Förslag
+      supports_count: Stöd

@@ -12,6 +12,10 @@ module Decidim
           @resource = resource
         end
 
+        def run
+          serialize
+        end
+
         def serialize
           {
             id: @resource.id,
@@ -97,6 +101,10 @@ module Decidim
         Class.new do
           def initialize(resource)
             @resource = resource
+          end
+
+          def run
+            serialize
           end
 
           def serialize

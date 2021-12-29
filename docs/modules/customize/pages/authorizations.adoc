@@ -20,3 +20,29 @@ Each decidim instance is in full control of its authorizations, and can customiz
 * The different actions in decidim that require authorization, and which authorization method they require. For example, a decidim instance might choose to require census authorization to create proposals, but a fully verified address via a verification code sent by postal mail for voting on proposals.
 
 See https://github.com/decidim/decidim/blob/develop/decidim-verifications/README.md[decidim-verifications's README] and https://decidim.org/modules[Decidim's Modules page].
+
+== Examples
+
+Here are some examples:
+
+- https://github.com/AjuntamentdeBarcelona/decidim-barcelona/blob/master/app/services/census_authorization_handler.rb[Barcelona (City)]
+- https://github.com/AjuntamentdeCalafell/decidim-calafell/blob/master/app/services/census_authorization_handler.rb[Calafell]
+- https://github.com/diputacioBCN/decidim-diba/blob/master/decidim-diba_census_api/app/services/diba_census_api_authorization_handler.rb[DIBA (Barcelona Province)]
+- https://github.com/AjuntamentDeGava/decidim-gava/blob/master/app/services/census_authorization_handler.rb[Gavà]
+- https://github.com/HospitaletDeLlobregat/decidim-hospitalet/blob/master/app/services/census_authorization_handler.rb[Hospitalet de Llobregat]
+- https://github.com/AjMalgrat/decidim-malgrat/blob/master/app/services/carpetaciutada_handler.rb[Malgrat de Mar]
+- https://github.com/AjuntamentDeMataro/decidimmataro.cat/blob/master/app/services/census_authorization_handler.rb[Mataró]
+- https://github.com/ErabakiPamplona/erabaki/blob/master/app/services/census_authorization_handler.rb[Pamplona]
+- https://github.com/AjuntamentdeReus/decidim/blob/master/app/services/census_authorization_handler.rb[Reus]
+- https://github.com/AjuntamentDeSabadell/decidim-sabadell/blob/master/app/services/census_authorization_handler.rb[Sabadell]
+- https://github.com/AjuntamentdeSantCugat/decidim-sant_cugat/blob/master/app/services/census_authorization_handler.rb[Sant Cugat]
+- https://github.com/AjuntamentDeTerrassa/decidim-terrassa/blob/master/app/services/census_authorization_handler.rb[Terrassa]
+- https://github.com/vilanovailageltru/decidim-vilanova/blob/master/app/services/vilanova_authorization_handler.rb[Vilanova i la Geltrú]
+
+Other special verifications:
+
+- https://github.com/podemos-info/participa2/tree/master/decidim-module-census_connector[Podemos]
+- https://github.com/ElectricThings/fund_action/blob/master/app/services/anybody_authorization_handler.rb[FundAction]
+- https://github.com/CodiTramuntana/decidim-verifications-csv_emails[CSV emails]
+- https://github.com/mainio/decidim-module-access_requests[Access Requests]
+

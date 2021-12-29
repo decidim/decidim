@@ -8,7 +8,7 @@ SHA=`jq -r ".pull_request.head.sha // .check_run.head_sha // .after" $EVENT_PAYL
 
 if [ $PRID = "null" ]
 then
-  bash <(curl -s https://codecov.io/bash) -n $REPORT_NAME -C $SHA
+  bash <(curl -s https://codecov.io/bash) -n $REPORT_NAME -C $SHA -F $REPORT_NAME
 else
-  bash <(curl -s https://codecov.io/bash) -n $REPORT_NAME -C $SHA -P $PRID
+  bash <(curl -s https://codecov.io/bash) -n $REPORT_NAME -C $SHA -P $PRID -F $REPORT_NAME
 fi

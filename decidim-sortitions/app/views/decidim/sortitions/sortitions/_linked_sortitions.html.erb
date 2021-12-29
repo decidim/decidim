@@ -11,7 +11,7 @@
           <% end %>
           <div class="author">
             <span class="author__avatar">
-              <%= image_tag sortition.author.avatar_url %>
+              <%= image_tag present(sortition.author).avatar_url %>
             </span>
             <span class="author__name">
               <%= sortition.author.name %>

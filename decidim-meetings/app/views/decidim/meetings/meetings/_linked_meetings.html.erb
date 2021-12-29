@@ -4,7 +4,7 @@
       <div class="card card--meeting">
         <div class="card__content">
           <%= link_to resource_locator(meeting).path, class: "card__link" do %>
-            <h5 class="card__title"><%= present(meeting).title %></h5>
+            <h5 class="card__title"><%= present(meeting).title(html_escape: true) %></h5>
           <% end %>
           <div class="card__datetime">
             <div class="card__datetime__date">
@@ -14,7 +14,7 @@
               <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
             </div>
           </div>
-          <%= decidim_sanitize( present(meeting).description ) %>
+          <%= decidim_sanitize_editor(present(meeting).description) %>
         </div>
       </div>
     </div>

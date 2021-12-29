@@ -57,6 +57,9 @@ cs:
         update:
           error: Při aktualizaci tohoto administrátora došlo k chybě.
           success: Správce byl úspěšně aktualizován
+      dashboard:
+        show:
+          current_organizations: Aktuální organizace
       default_pages:
         placeholders:
           content: Přidejte smysluplný obsah na statickou stránku %{page} na ovládacím panelu administrátora.
@@ -112,6 +115,9 @@ cs:
           error: Při aktualizaci této žádosti došlo k chybě.
           success: Žádost byla úspěšně aktualizována.
       organizations:
+        advanced_settings:
+          hide: Skrýt pokročilá nastavení
+          show: Zobrazit pokročilá nastavení
         create:
           error: Při vytváření nové organizace došlo k chybě.
           success: Organizace byla úspěšně vytvořena.

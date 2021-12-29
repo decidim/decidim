@@ -90,7 +90,7 @@ describe "Organization Areas", type: :system do
         it "can not be deleted" do
           click_delete_area
           expect(area.reload.destroyed?).to be false
-          expect(page).to have_admin_callout("Area has dependent spaces")
+          expect(page).to have_admin_callout("This area has dependent spaces")
         end
       end
     end

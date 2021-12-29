@@ -24,6 +24,7 @@
       component:
         name: Navn
         published_at: Publisert den
+        weight: Plassering av sortering
       id: ID
       import:
         user_group_id: Opprett importer som
@@ -31,6 +32,7 @@
         body: Tekst
         subject: Emne
       organization:
+        admin_terms_of_use_body: Innholdet i de administrative vilkårene for bruk av plattformen
         alert_color: Varsel
         available_authorizations: Tilgjengelige autorisasjoner
         badges_enabled: Aktiver utmerkelse
@@ -41,10 +43,11 @@
         default_locale: Standardspråk
         description: Beskrivelse
         enable_omnipresent_banner: Vis overstyrende banner
+        enable_participatory_space_filters: Aktive filtere for bruk av medvirkningsrommene
         facebook_handler: Facebook brukernavn
         favicon: Ikon
         force_authentication: Tving godkjenning
-        from: Fra e-postadresse
+        force_users_to_authenticate_before_access_organization: Pålegg brukere å godkjenne før tilgang til organisasjonen
         github_handler: GitHub brukernavn
         header_snippets: Utdrag topptekst
         highlight_alternative_color: Fremhev, alternativ
@@ -69,6 +72,8 @@
         omnipresent_banner_short_description: Kort beskrivelse
         omnipresent_banner_title: Tittel
         omnipresent_banner_url: URL
+        organization_admin_email: Epost for organisasjonsadministrator
+        organization_admin_name: Navn på organisasjonen
         primary_color: Primært
         reference_prefix: Referanse prefiks
         rich_text_editor_in_public_views: Aktiver rik-tekst-redigering for deltakere
@@ -77,7 +82,7 @@
         send_welcome_notification: Send velkomst varsel
         success_color: Vellykket
         time_zone: Tidssone
-        tos_version: Vilkår for tjenester versjon
+        tos_version: Vilkår for tjenesten
         twitter_handler: Twitter brukernavn
         user_groups_enabled: Aktiver grupper
         warning_color: Advarsel
@@ -135,7 +140,6 @@
       actions:
         add: Legg til
         browse: Bla gjennom
-        export: Eksport
         manage: Administrer
         new: Nytt %{name}
         per_page: Per side
@@ -148,12 +152,10 @@
           error: Det oppstod et problem med å godkjenne administrator vilkårene.
           success: Flott! Du har godtatt administratorenes vilkår for bruk.
         actions:
-          are_you_sure: Er du sikker på å nekte administrasjons vilkårene?
           refuse: Avslå administratorvilkårene
           title: Godta vilkårene for bruk
         required_review:
           alert: 'Påkrevd: Gå gjennom administrasjons vilkårene våre'
-          callout: Vennligst ta deg tid til å se gjennom administrator Vilkår for Bruk. Ellers vil du ikke kunne administrere plattformen.
           cta: Se over dem nå.
         title: Administrator vilkår for bruk
       area_types:
@@ -176,7 +178,6 @@
           error: Det oppstod et problem med å opprette et nytt område.
           success: Området ble opprettet.
         destroy:
-          has_spaces: Område har avhengige rom, den må ikke ha avhengigheter for å bli slettet.
           success: Området ble ødelagt
         edit:
           title: Endre området
@@ -490,7 +491,6 @@
       newsletters:
         create:
           error: Det oppstod et problem med å opprette dette nyhetsbrevet.
-          success: Nyhetsbrev opprettet. Vennligst se gjennom det før du sender.
         deliver:
           error: Det oppstod et problem med å levere dette nyhetsbrevet.
           success: Nyhetsbrevet ble levert.
@@ -567,12 +567,10 @@
           title: Offisialiser deltaker "%{name}"
         show_email_modal:
           close_modal: Lukk modal
-          description: Hvis du trenger å kontakte en deltaker direkte, kan du klikke på Vis for å se e-postadressen. Denne handlingen vil bli logget.
           email_address: E-postadresser
           full_name: Fullt navn
           hidden: skjult
           show: Vis
-          title: Vis deltakerens e-postadresse
       organization:
         edit:
           title: Rediger organisasjon
@@ -751,13 +749,6 @@
           success: Gruppen ble verifisert
       user_groups:
         index:
-          filter:
-            all: Alle
-            pending: Venter
-            rejected: Avvist
-            verified: Verifisert
-          filter_by: Filtrer etter
-          search: Søk
           state:
             pending: Venter
             rejected: Avvist
@@ -791,10 +782,6 @@
           no_users_count_statistics_yet: Det er ingen statistikk på antall brukere enda
           participants: Deltakere
       view_public_page: Vis offentlig side
-    forms:
-      errors:
-        impersonate_user:
-          reason: Du må oppgi en grunn når du administrerer en ikke administrert deltaker
     moderations:
       actions:
         hidden: Skjult

@@ -1,0 +1,7 @@
+<summary><%= t(".question_results") %></summary>
+
+<div>
+  <p><%= translated_attribute(question.body) %></p>
+
+  <%= cell "decidim/meetings/question_responses", question %>
+</div>

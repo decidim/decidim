@@ -4,10 +4,8 @@ sr:
       comment:
         hide_replies: Sakrij odgovore
         show_replies: Prikaži %{replies_count} odgovora
-        single_comment_link_title: Nabavi vezu ka jednom komentaru
       comments:
         comment_details_title: Detalji o komentaru
-        single_comment_warning: Možete videti ostale komentare <a href="%{url}">ovde</a>.
         single_comment_warning_title: Vidite samo jedan komentar
     events:
       comments:

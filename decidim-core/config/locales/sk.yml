@@ -68,7 +68,6 @@ sk:
     'true': 'Áno'
   carrierwave:
     errors:
-      general: Chyba spracovania obrázku
       image_too_big: Obrázok je príliš veľký
   date:
     formats:
@@ -246,7 +245,6 @@ sk:
       photos:
         related_photos: Súvisiace fotografie
     author:
-      avatar: Avatar
       comments:
         one: komentár
         few: komentáre

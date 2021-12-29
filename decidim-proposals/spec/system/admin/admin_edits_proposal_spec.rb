@@ -59,7 +59,7 @@ describe "Admin edits proposals", type: :system do
       end
     end
 
-    context "when the proposal has attachement", processing_uploads_for: Decidim::AttachmentUploader do
+    context "when the proposal has attachement" do
       let!(:component) do
         create(:proposal_component,
                :with_creation_enabled,

@@ -16,6 +16,11 @@ nl:
         other: Stemmen
   decidim:
     comments:
+      comments:
+        delete:
+          error: De reactie kon niet worden verwijderd.
+        update:
+          error: Er is een probleem opgetreden bij het bijwerken van de reactie.
       comments_count: Aantal reacties
       last_activity:
         new_comment_at_html: "<span>Nieuwe opmerking op %{link}</span>"
@@ -35,7 +40,13 @@ nl:
           user_group_id:
             label: Reageer als
         opinion:
+          label: Jouw mening over dit onderwerp
+          negative: Negatief
+          negative_selected: Jouw mening over dit onderwerp is negatief
           neutral: Neutraal
+          neutral_selected: Jouw mening over dit onderwerp is neutraal
+          positive: Positief
+          positive_selected: Jouw mening over dit onderwerp is positief
         remaining_characters: "%{count} tekens over"
         remaining_characters_1: "%{count} teken over"
         title: Voeg je reactie toe
@@ -43,7 +54,12 @@ nl:
         alignment:
           against: Tegen
           in_favor: Voor
+        confirm_destroy: Weet je zeker dat je deze reactie wil verwijderen?
+        delete: Verwijderen
+        deleted_at: Reactie verwijderd op %{date}
         deleted_user: Verwijderde deelnemer
+        edit: Bewerk
+        edited: Bewerkt
         hide_replies: Antwoorden verbergen
         reply: Antwoord
         report:
@@ -58,7 +74,7 @@ nl:
             spam: Bevat clickbait, reclame, oplichting of script bots.
           title: Meld ongepaste inhoud
         show_replies: Toon %{replies_count} reacties
-        single_comment_link_title: Krijg link naar enkele reactie
+        single_comment_link_title: Haal link op
       comment_order_selector:
         order:
           best_rated: Best beoordeeld
@@ -69,14 +85,22 @@ nl:
       comment_thread:
         title: Gesprek met %{authorName}
       comments:
-        blocked_comments_for_user_warning: U kunt op dit moment geen opmerkingen maken, maar u kunt de vorige wel lezen.
+        blocked_comments_for_unauthorized_user_warning: Je kan op dit moment geen opmerkingen toevoegen, maar je kunt de eerdere opmerkingen wel lezen.
+        blocked_comments_for_user_warning: Je kunt op dit moment geen opmerkingen toevoegen, maar je kunt eerdere reacties wel lezen.
         blocked_comments_warning: Reacties zijn op dit moment uitgeschakeld, maar je kan de vorige berichten lezen.
         comment_details_title: Reactieonderdelen
         loading: Reacties laden...
-        single_comment_warning: U kunt de rest van de reacties <a href="%{url}">hier</a> controleren.
         single_comment_warning_title: Je ziet een enkele reactie
       down_vote_button:
         text: Ik ben het niet eens met deze reactie
+      edit_comment_modal_form:
+        close: Sluit
+        form:
+          body:
+            label: Reactie
+            placeholder: Wat wil je hierover zeggen?
+          submit: Verzenden
+        title: Bewerk je reactie
       up_vote_button:
         text: Ik ben het eens met deze reactie
     events:

@@ -1,1 +1,58 @@
 ga:
+  activemodel:
+    attributes:
+      config:
+        offline: As líne
+        online: Ar líne
+      postal_letter_confirmation:
+        verification_code: Cód deimhnithe
+      postal_letter_postage:
+        verification_code: Cód deimhnithe
+  decidim:
+    authorization_handlers:
+      direct: Díreach
+      help: Cabhair
+      name: Ainm
+    verifications:
+      authorizations:
+        new:
+          authorize: Seol
+        renew_modal:
+          cancel: Cealaigh
+          close: dún
+          continue: Lean ar aghaidh
+      id_documents:
+        admin:
+          config:
+            edit:
+              update: Nuashonraigh
+          confirmations:
+            new:
+              reject: Diúltaigh
+              verify: Deimhnigh
+          offline_confirmations:
+            new:
+              cancel: Cealaigh
+              verify: Deimhnigh
+          pending_authorizations:
+            index:
+              config: Cumraíocht
+        authorizations:
+          choose:
+            offline: As líne
+            online: Ar líne
+        dni: Cárta ID
+        nie: Cárta ID Eachtrannaigh
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Seoladh
+              username: Leasainm
+        authorizations:
+          edit:
+            send: Deimhnigh
+      sms:
+        authorizations:
+          edit:
+            send: Deimhnigh

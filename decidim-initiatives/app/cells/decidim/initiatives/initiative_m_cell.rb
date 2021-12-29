@@ -65,9 +65,7 @@ module Decidim
       end
 
       def image
-        @image ||= model.attachments.find do |attachment|
-          attachment.file.content_type.start_with?("image")
-        end
+        @image ||= model.attachments.find(&:image?)
       end
 
       def resource_image_path

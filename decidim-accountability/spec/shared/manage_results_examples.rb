@@ -7,6 +7,23 @@ shared_examples "manage results" do
     before { click_on "New Result", match: :first }
 
     it_behaves_like "having a rich text editor", "new_result", "full"
+
+    it "displays the proposals picker" do
+      expect(page).to have_content("Choose proposals")
+    end
+
+    context "when proposal linking is disabled" do
+      before do
+        allow(Decidim::Accountability).to receive(:enable_proposal_linking).and_return(false)
+
+        # Reload the page with the updated settings
+        visit current_path
+      end
+
+      it "does not display the proposal picker" do
+        expect(page).not_to have_content "Choose proposals"
+      end
+    end
   end
 
   context "when having existing proposals" do

@@ -16,6 +16,10 @@ module Decidim
       def tos
         render plain: "Terms"
       end
+
+      def unauthorized
+        enforce_permission_to :foo, :bar
+      end
     end
 
     before do
@@ -23,6 +27,7 @@ module Decidim
       routes.draw do
         get "show" => "decidim/application#show"
         get "pages/terms-and-conditions" => "decidim/application#tos"
+        get "unauthorized" => "decidim/application#unauthorized"
       end
     end
 
@@ -36,7 +41,19 @@ module Decidim
       it "allows absolute URLs within the organization" do
         get :show, params: { redirect_url: "http://#{organization.host}/my/account" }
 
-        expect(controller.helpers.redirect_url).to eq("http://#{organization.host}/my/account")
+        expect(controller.helpers.redirect_url).to eq("/my/account")
+      end
+
+      it "adds a slash when the URLs starts with a dot" do
+        get :show, params: { redirect_url: ".example.org" }
+
+        expect(controller.helpers.redirect_url).to eq("/.example.org")
+      end
+
+      it "adds a slash when the URLs starts with at" do
+        get :show, params: { redirect_url: "@example.org" }
+
+        expect(controller.helpers.redirect_url).to eq("/@example.org")
       end
 
       it "doesn't allow other URLs" do
@@ -188,6 +205,26 @@ module Decidim
             expect(response).to redirect_to("/users/sign_in")
             expect(flash[:warning]).to include("Please, login with your account before access")
           end
+        end
+      end
+    end
+
+    describe "#unauthorized" do
+      it "redirects the user to the sign in page" do
+        get :unauthorized
+
+        expect(response).to redirect_to("/users/sign_in")
+      end
+
+      context "when authenticated" do
+        before do
+          sign_in user
+        end
+
+        it "redirects the user to root path" do
+          get :unauthorized
+
+          expect(response).to redirect_to("/")
         end
       end
     end

@@ -42,7 +42,9 @@ lv:
               invalid_document_type: 'Nederīgs dokumenta tips. Pieņemtie formāti ir: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Jāpievieno no jauna
+            add_photos:
               needs_to_be_reattached: Jāpievieno no jauna
             body:
               cant_be_equal_to_template: nevar būt vienāds ar veidni
@@ -97,7 +99,6 @@ lv:
         name: Priekšlikumi
         settings:
           global:
-            allow_card_image: Atļaut kartītes attēlu
             amendments_enabled: Grozījumi ir iespējoti
             amendments_enabled_help: Ja aktīvs, tad konfigurējiet grozījumu iespējas katram solim.
             amendments_wizard_help_text: Grozījumu vedņa palīdzības teksts
@@ -465,11 +466,9 @@ lv:
             select_states: Pārbaudiet importējamo priekšlikumu statusu
         proposals_merges:
           create:
-            invalid: Apvienojot atlasītos priekšlikumus, radās problēma.
             success: Visi priekšlikumi ir veiksmīgi apvienoti vienā jaunā priekšlikumā.
         proposals_splits:
           create:
-            invalid: Sadalot atlasītos priekšlikumus, radās problēma.
             success: Priekšlikumi ir veiksmīgi sadalīti jaunos priekšlikumos.
         valuation_assignments:
           create:

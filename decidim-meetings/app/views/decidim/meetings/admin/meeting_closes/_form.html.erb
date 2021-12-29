@@ -21,8 +21,23 @@
         <%= form.number_field :contributions_count, min: 0 %>
       </div>
     </div>
+
+    <% if Decidim::Meetings.enable_proposal_linking %>
+      <div class="row column">
+        <%= proposals_picker(form, :proposals, proposals_picker_meeting_meeting_closes_path(meeting)) %>
+      </div>
+    <% end %>
+
     <div class="row column">
-      <%= proposals_picker(form, :proposals, proposals_picker_meeting_meeting_closes_path(meeting)) %>
+      <%= form.text_field :video_url %>
+    </div>
+
+    <div class="row column">
+      <%= form.text_field :audio_url %>
+    </div>
+
+    <div class="row column">
+      <%= form.check_box :closing_visible %>
     </div>
   </div>
 </div>

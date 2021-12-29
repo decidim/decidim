@@ -23,6 +23,18 @@ cs:
         many: Projekty
         other: Projekty
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Kategorie
+          scope_id_eq:
+            label: Oblast působnosti
+          selected_at_null:
+            label: Vybráno
+            values:
+              'false': Vybráno pro implementaci
+              'true': Nevybráno pro implementaci
     budgets:
       actions:
         attachment_collections: Složky
@@ -110,6 +122,9 @@ cs:
         close_modal: Zavřít okno
         continue: Pokračovat
         more_information: Více informací
+      budget_list_item:
+        voting_finished: Hlasovali jste v tomto rozpočtu
+        voting_started: Začali jste hlasovat v tomto rozpočtu
       budgets_list:
         cancel_order:
           more_than_one: smažte svůj hlas na %{name} a začněte znovu
@@ -118,6 +133,9 @@ cs:
         highlighted_cta: Hlasovat na %{name}
         if_change_opinion: Pokud jste změnili názor, můžete
         my_budgets: Mé rozpočty
+        progress: Dokončit hlasování
+        show: Zobrazit projekty
+        vote: Hlasovat
         voted_on: Hlasovali jste pro %{links}
       limit_announcement:
         cant_vote: O tomto rozpočtu nelze hlasovat. <a href="%{landing_path}">Zkuste jiný rozpočet</a>.
@@ -130,6 +148,8 @@ cs:
             total_budget: Celkový rozpočet
         project:
           fields:
+            category: Kategorie
+            id: ID
             title: Titul
       order_summary_mailer:
         order_summary:
@@ -184,6 +204,12 @@ cs:
             few: "%{count} projektů"
             many: "%{count} projektů"
             other: "%{count} projektů"
+        exit_modal:
+          cancel: Návrat k hlasování
+          close_modal: Zavřít modal
+          exit: Ukončit hlasování
+          message: Váš hlas nebyl zaregistrován, protože jste ještě nedokončili proces hlasování. Opravdu chcete ukončit hlasování?
+          title: Zatím jste nehlasovali
         filters:
           category: Kategorie
           scope: Oblast působnosti
@@ -238,6 +264,7 @@ cs:
     components:
       budgets:
         actions:
+          comment: Komentář
           vote: Hlasovat
         name: Rozpočty
         settings:

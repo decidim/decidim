@@ -204,6 +204,8 @@ it:
             label: Stato
     components:
       accountability:
+        actions:
+          comment: Commenta
         name: Accountability
         settings:
           global:
@@ -244,3 +246,5 @@ it:
         result_project: Progetti inclusi in questo risultato
       included_proposals:
         result_proposal: Proposte incluse in questo risultato
+    statistics:
+      results_count: Risultati

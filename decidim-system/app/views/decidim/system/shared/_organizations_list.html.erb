@@ -1,0 +1,25 @@
+<table class="stack">
+  <thead>
+    <tr>
+      <th><%= t("models.organization.fields.name", scope: "decidim.system") %></th>
+      <th><%= t("models.organization.fields.created_at", scope: "decidim.system") %></th>
+      <th class="actions"><%= t("actions.title", scope: "decidim.system") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% organizations.each do |organization| %>
+      <tr>
+        <td>
+          <%= link_to organization.name, organization %><br>
+          <%= organization.host %>
+        </td>
+        <td>
+          <%= l organization.created_at, format: :short %>
+        </td>
+        <td class="actions">
+          <%= link_to t("actions.edit", scope: "decidim.system"), [:edit, organization] %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

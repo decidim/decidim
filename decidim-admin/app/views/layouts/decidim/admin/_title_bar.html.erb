@@ -2,7 +2,7 @@
   <a href="#menu" class="menu-trigger"><%= icon "menu" %></a>
   <%= link_to decidim.root_path, class: "logo", target: "_blank" do %>
     <% if current_organization.logo.present? %>
-      <%= image_tag current_organization.logo.url, alt: current_organization.name %>
+      <%= image_tag current_organization.attached_uploader(:logo).path, alt: current_organization.name %>
     <% else %>
       <%= current_organization.name %>
     <% end %>
@@ -17,7 +17,7 @@
           data-close-on-click="true"
           tabindex="-1">
           <li class="is-dropdown-submenu-parent" tabindex="-1">
-            <%= link_to t("name", scope: "locale"), "#", id: "admin-user-menu-control", "aria-controls": "admin-user-menu", "aria-haspopup": "true" %>
+            <%= link_to t("name", scope: "locale"), "#", id: "admin-user-menu-control", "aria-controls": "admin-user-menu", "aria-haspopup": "menu" %>
             <ul class="menu is-dropdown-submenu" id="admin-user-menu" role="menu" aria-labelledby="admin-user-menu-control" tabindex="-1">
               <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
                 <li><%= link_to(locale_name(locale), decidim.locale_path(locale: locale), method: :post, tabindex: "-1") %></li>
@@ -36,7 +36,7 @@
         data-close-on-click="true"
         tabindex="-1">
         <li class="is-dropdown-submenu-parent" tabindex="-1">
-          <%= link_to current_user.email, "#", id: "admin-language-menu-control", "aria-controls": "admin-language-menu", "aria-haspopup": "true", "aria-label": t("layouts.decidim.user_menu.account", name: current_user.email) %>
+          <%= link_to current_user.email, "#", id: "admin-language-menu-control", "aria-controls": "admin-language-menu", "aria-haspopup": "menu", "aria-label": t("layouts.decidim.user_menu.account", name: current_user.email) %>
           <ul class="menu is-dropdown-submenu" id="admin-language-menu" role="menu" aria-labelledby="admin-language-menu-control" tabindex="-1">
             <li><%= link_to(t("layouts.decidim.user_menu.sign_out"), decidim.destroy_user_session_path, method: :delete, tabindex: "-1") %></li>
           </ul>

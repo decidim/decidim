@@ -22,7 +22,7 @@ describe "Decidim::Api::QueryType" do
         "updatedAt" => assembly.assembly_type.updated_at.iso8601.to_s.gsub("Z", "+00:00")
       },
       "attachments" => [],
-      "bannerImage" => assembly.banner_image.url,
+      "bannerImage" => assembly.attached_uploader(:banner_image).path,
       "categories" => [],
       "children" => [],
       "childrenCount" => 0,
@@ -40,7 +40,7 @@ describe "Decidim::Api::QueryType" do
       "facebookHandler" => assembly.facebook_handler,
       "githubHandler" => assembly.github_handler,
       "hashtag" => assembly.hashtag,
-      "heroImage" => assembly.hero_image.url,
+      "heroImage" => assembly.attached_uploader(:hero_image).path,
       "id" => assembly.id.to_s,
       "includedAt" => assembly.included_at.to_date.to_s,
       "instagramHandler" => assembly.instagram_handler,

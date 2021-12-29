@@ -12,6 +12,7 @@ module Decidim
         include Decidim::Initiatives::TypeSelectorOptions
         include Decidim::Initiatives::Admin::Filterable
 
+        helper ::Decidim::Admin::ResourcePermissionsHelper
         helper Decidim::Initiatives::InitiativeHelper
         helper Decidim::Initiatives::CreateInitiativeHelper
 
@@ -125,7 +126,12 @@ module Decidim
         def export
           enforce_permission_to :export, :initiatives
 
-          Decidim::Initiatives::ExportInitiativesJob.perform_later(current_user, params[:format] || default_format)
+          Decidim::Initiatives::ExportInitiativesJob.perform_later(
+            current_user,
+            current_organization,
+            params[:format] || default_format,
+            params[:collection_ids].presence&.map(&:to_i)
+          )
 
           flash[:notice] = t("decidim.admin.exports.notice")
 

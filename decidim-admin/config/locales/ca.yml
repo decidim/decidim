@@ -24,6 +24,7 @@ ca:
       component:
         name: Nom
         published_at: Publicat el
+        weight: Ordre de posició
       id: ID
       import:
         user_group_id: Importar com
@@ -31,6 +32,7 @@ ca:
         body: Cos
         subject: Assumpte
       organization:
+        admin_terms_of_use_body: Cos del text de condicions d'ús per als administradors
         alert_color: Alerta
         available_authorizations: Autoritzacions disponibles
         badges_enabled: Habilitar les ensenyes
@@ -41,11 +43,12 @@ ca:
         default_locale: Idioma per defecte
         description: Descripció
         enable_omnipresent_banner: Mostrar el banner omnipresent
+        enable_participatory_space_filters: Habilitar els filtres a l'espai de participació
         facebook_handler: Nom d'usuari de Facebook
         favicon: Icona
         force_authentication: Forçar autenticació
         force_users_to_authenticate_before_access_organization: Forçar les usuàries a autenticar-se abans d'accedir a l'organització
-        from: Adreça des d'on s'enviaran els correus electrònics
+        from: Adreça de correu electrònic del remitent
         github_handler: Nom d'usuari de GitHub
         header_snippets: Codi personalitzat a la capçalera
         highlight_alternative_color: Destacat, alternatiu
@@ -110,10 +113,12 @@ ca:
         show_in_footer: Mostra al peu de pàgina
         slug: Nom curt d'URL
         title: Títol
+        weight: Ordre de posició
       static_page_topic:
         description: Descripció
         show_in_footer: Mostra al peu de pàgina
         title: Títol
+        weight: Ordre de posició
       user_group_csv_verification:
         file: Fitxer
     errors:
@@ -153,7 +158,8 @@ ca:
         browse: Explorar
         category:
           new: Nova categoria
-        export: Exporta
+        export: Exportar tot
+        export-selection: Exportar selecció
         import: Importar
         manage: Gestionar
         new: Nou %{name}
@@ -174,12 +180,12 @@ ca:
           success: Genial! Has acceptat els Termes i Condicions del panell d'administració.
         actions:
           accept: Estic d'acord amb els termes següents
-          are_you_sure: Segur que vols rebutjar els Termes i Condicions del panell d'administració?
+          are_you_sure: Segur que vols rebutjar els termes i condicions del panell d'administració?
           refuse: Rebutjar els termes
           title: Accepto els Termes i Condicions d'Administració
         required_review:
           alert: 'Requerit: Revisa els nostres Termes i Condicions del panell d''administració'
-          callout: Si us plau dedica un moment a revisar l'actualització dels nostres Termes i Condicions del panell d'administració. En cas contrari, no podràs utilitzar la plataforma.
+          callout: Si us plau dedica un moment a revisar l'actualització dels nostres termes i condicions del panell d'administració. En cas contrari, no podràs utilitzar la plataforma.
           cta: Revisa-les ara.
         title: Termes i Condicions del panell d'administració
       area_types:
@@ -202,7 +208,7 @@ ca:
           error: S'ha produït un error en crear una nova àrea.
           success: Àrea creada correctament.
         destroy:
-          has_spaces: L'àrea té espais dependents, no ha de tenir dependències per a ser esborrada.
+          has_spaces: Aquesta àrea té espais dependents. Assegura't que no fa referència a cap espai de participació abans d'eliminar-la.
           success: Àrea eliminada correctament
         edit:
           title: Editar àrea
@@ -255,7 +261,7 @@ ca:
       block_user:
         new:
           action: Bloquejar compte i enviar justificació
-          description: El bloqueig d'una usuària deixarà el seu compte inservible, pots facilitar a la teva justificació i directrius les maneres que consideris per tal de desbloquejar a la usuària.
+          description: El bloqueig d'una usuària deixarà el seu compte inutilitzable. Pots proporcionar en la teva justificació els criteris sota els quals consideraries desbloquejar-la.
           justification: Justificació
           title: Bloquejar a la usuària %{name}
       categories:
@@ -318,7 +324,7 @@ ca:
         'false': 'No'
         managed_user_name: Usuari gestionat
         solved: Resolt
-        title: Conflictes de verificacions
+        title: Conflictes de verificació
         transfer:
           email: Correu electrònic
           error: S¡ha produït un error en transferir la participant actual a la participant gestionada.
@@ -332,6 +338,12 @@ ca:
         show:
           view_more_logs: Veure més registres
           welcome: Benvinguda al tauler d'administració de Decidim.
+      domain_whitelist:
+        form:
+          domain_too_short: El domini és massa curt
+        update:
+          error: Hi ha hagut un error en incloure el domini en la llista blanca
+          success: Llista blanca de dominis actualitzada correctament
       exports:
         export_as: "%{name} com a %{export_format}"
         formats:
@@ -344,6 +356,16 @@ ca:
         category_id_eq:
           label: Categoria
         filter_label: Filtre
+        invitation_accepted_at_present:
+          label: 'Invitació: acceptada'
+          values:
+            'false': 'No'
+            'true': 'Sí'
+        last_sign_in_at_present:
+          label: Alguna vegada s'ha connectat
+          values:
+            'false': 'No'
+            'true': 'Sí'
         moderations:
           reportable_type_string_eq:
             label: Tipus
@@ -352,6 +374,17 @@ ca:
           values:
             'false': Oficialitzada
             'true': No oficialitzada
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Invitació acceptada
+            values:
+              'false': No acceptada
+              'true': Acceptada
+          user_invitation_sent_at_not_null:
+            label: S'ha enviat la invitació
+            values:
+              'false': No enviada
+              'true': Enviada
         private_space_eq:
           label: Privat
           values:
@@ -369,12 +402,14 @@ ca:
           name_or_nickname_or_email_cont: Buscar %{collection} per correu electrònic, nom o àlies.
           reported_id_string_or_reported_content_cont: Cercar %{collection} per id o contingut reportable.
           title_cont: Buscar %{collection} per títol.
+          user_name_or_user_email_cont: Cerca %{collection} per nom o correu electrònic.
         state_eq:
           label: Estat
       forms:
         file_help:
           import:
             explanation: 'Instruccions per a l''arxiu:'
+            message_1: Estan suportats els arxius CSV, JSON i Excel (.xlsx)
             message_2: Pels arxius CSV, el separador entre columnes ha de ser un punt i coma (";")
       help_sections:
         error: S'ha produït un error en actualitzar les seccions d'ajuda
@@ -415,17 +450,12 @@ ca:
           impersonate_existing_user: Gestionar la participant "%{name}"
           impersonate_new_managed_user: Gestionar una nova participant
       imports:
-        creators:
-          proposalcreator: Creador de la proposta
         error: S'ha produït un error durant la importació
-        help:
-          proposalcreator: L'arxiu ha d'incloure els noms de columna title/en i body/en (o un altre idioma de preferència per exemple, title/ca i body/ca). També s'admeten les columnes scope/id i category/id.
-        import_from_file: Importar d'un arxiu
-        invalid_lines: S'ha trobat un error al recurs número %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv
             json: json
+            xlsx: xlsx
           actions:
             back: Tornar
           file_legend: Afegir un arxiu d'importació que serà processat.
@@ -451,6 +481,7 @@ ca:
         areas: Àrees
         configuration: Configuració
         dashboard: Tauler de control
+        external_domain_whitelist: Dominis externs permesos
         help_sections: Seccions d'ajuda
         homepage: Pàgina d'inici
         impersonations: Impersonacions
@@ -682,7 +713,7 @@ ca:
           title: Oficialitza la participant "%{name}"
         show_email_modal:
           close_modal: Tanca el modal
-          description: Si necessites contactar a una participant directament pots clicar al botó Mostra per veure la seva adreça de correu electrònic. Aquesta acció s'auditarà.
+          description: Si necessites contactar a una participant directament pots clicar al botó Mostra per veure la seva adreça de correu electrònic. Aquesta acció es registrarà.
           email_address: Adreça de correu electrònic
           full_name: Nom complet
           hidden: ocult
@@ -722,6 +753,17 @@ ca:
             layout_appearance_title: Edita l'aparença del disseny global
             preview: Previsualitzar
           omnipresent_banner_appearance_title: Edita banner omnipresent
+      organization_external_domain_whitelist:
+        edit:
+          update: Actualitzar
+        external_domain:
+          down: Baixar
+          external_domain: Domini extern
+          remove: Eliminar
+          up: Pujar
+        form:
+          add: Afegir a la llista blanca
+          title: Llista blanca de dominis externs
       organization_homepage:
         edit:
           active_content_blocks: Blocs de contingut actiu
@@ -880,13 +922,6 @@ ca:
           success: Grup verificat correctament
       user_groups:
         index:
-          filter:
-            all: Tots
-            pending: Pendents
-            rejected: Rebutjats
-            verified: Verificats
-          filter_by: Filtra per
-          search: Cerca
           state:
             pending: Pendent
             rejected: Rebutjat

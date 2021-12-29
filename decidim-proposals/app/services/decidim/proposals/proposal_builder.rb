@@ -68,9 +68,11 @@ module Decidim
           "answered_at",
           "decidim_component_id",
           "reference",
-          "proposal_votes_count",
+          "comments_count",
           "endorsements_count",
-          "proposal_notes_count"
+          "follows_count",
+          "proposal_notes_count",
+          "proposal_votes_count"
         ).merge(
           "category" => original_proposal.category
         ).merge(
@@ -108,14 +110,14 @@ module Decidim
               # Attached to needs to be always defined before the file is set
               attached_to: proposal
             }.merge(
-              attachment.attributes.slice("content_type", "description", "file", "file_size", "title", "weight")
+              attachment.attributes.slice("content_type", "description", "file_size", "title", "weight")
             )
           )
 
-          if File.exist?(attachment.file.file.path)
-            new_attachment.file = File.open(attachment.file.file.path)
+          if attachment.file.attached?
+            new_attachment.file = attachment.file.blob
           else
-            new_attachment.remote_file_url = attachment.url
+            new_attachment.attached_uploader(:file).remote_url = attachment.attached_uploader(:file).url(host: original_proposal.organization.host)
           end
 
           new_attachment.save!

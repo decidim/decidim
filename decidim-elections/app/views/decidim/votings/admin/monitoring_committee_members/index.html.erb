@@ -29,7 +29,7 @@
                 <% if allowed_to? :delete, :monitoring_committee_member, voting: current_voting, monitoring_committee_member: monitoring_committee_member %>
                   <%= icon_link_to "circle-x", voting_monitoring_committee_member_path(current_voting, monitoring_committee_member), t("actions.destroy", scope: "decidim.votings.monitoring_committee_members"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.votings.monitoring_committee_members") } %>
                 <% else %>
-                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
+                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.votings.monitoring_committee_members") %>
                 <% end %>
               </td>
             </tr>

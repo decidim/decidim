@@ -1,7 +1,7 @@
 <div class="reveal" data-reveal id="conference-registration-confirm-<%= model.id %>">
   <div class="row">
     <div class="columns medium-10 medium-offset-1 help-text">
-      <%= decidim_sanitize translated_attribute(conference.registration_terms) %>
+      <%= decidim_sanitize_editor translated_attribute(conference.registration_terms) %>
     </div>
   </div>
   <div class="row">

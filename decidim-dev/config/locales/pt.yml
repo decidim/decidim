@@ -20,10 +20,18 @@ pt:
               a: Escolha A
               b: Escolha B
               c: Escolha C
+            test_options:
+              bar: Barra
+              baz: Bar
+              foo: Foo
           step:
             endorsements_blocked: Endossamentos bloqueados
             endorsements_enabled: Endossamentos ativados
             readonly_step_attribute: Atributo de passo só de leitura
+            test_options:
+              bar: Barra
+              baz: Bar
+              foo: Foo
     dummy:
       admin:
         exports:

@@ -45,6 +45,7 @@ module Decidim::Meetings
         expect(serialized_meeting).to include(attending_organizations: resource.meeting.attending_organizations)
         expect(serialized_meeting).to include(closed_at: resource.meeting.closed_at)
         expect(serialized_meeting).to include(closing_report: resource.meeting.closing_report)
+        expect(serialized_meeting).to include(published_at: resource.meeting.published_at)
       end
     end
   end

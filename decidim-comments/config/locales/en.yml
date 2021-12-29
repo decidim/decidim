@@ -17,9 +17,19 @@ en:
         other: Votes
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Comments enabled
+            end_time: Comments enabled until
+            start_time: Comments enabled from
       comments:
         create:
           error: There was a problem creating the comment.
+        delete:
+          error: The comment couldn't be deleted.
+        update:
+          error: There was a problem updating the comment.
       comments_count: Comments count
       comments_title: Comments
       last_activity:
@@ -40,7 +50,13 @@ en:
           user_group_id:
             label: Comment as
         opinion:
+          label: Your opinion about this topic
+          negative: Negative
+          negative_selected: Your opinion about this topic is negative
           neutral: Neutral
+          neutral_selected: Your opinion about this topic is neutral
+          positive: Positive
+          positive_selected: Your opinion about this topic is positive
         remaining_characters: "%{count} characters left"
         remaining_characters_1: "%{count} character left"
         title: Add your comment
@@ -48,7 +64,12 @@ en:
         alignment:
           against: Against
           in_favor: In favor
+        confirm_destroy: Are you sure you want to delete this comment?
+        delete: Delete
+        deleted_at: Comment deleted on %{date}
         deleted_user: Deleted participant
+        edit: Edit
+        edited: Edited
         hide_replies: Hide replies
         reply: Reply
         report:
@@ -63,7 +84,7 @@ en:
             spam: Contains clickbait, advertising, scams or script bots.
           title: Report inappropriate content
         show_replies: Show %{replies_count} replies
-        single_comment_link_title: Get link to single comment
+        single_comment_link_title: Get link
       comment_order_selector:
         order:
           best_rated: Best rated
@@ -74,17 +95,26 @@ en:
       comment_thread:
         title: Conversation with %{authorName}
       comments:
+        blocked_comments_for_unauthorized_user_warning: You need to be verified to comment at this moment, but you can read the previous ones.
         blocked_comments_for_user_warning: You are not able to comment at this moment, but you can read the previous ones.
         blocked_comments_warning: Comments are disabled at this time, but you can read the previous ones.
         comment_details_title: Comment details
         loading: Loading comments ...
-        single_comment_warning: You can check the rest of the comments <a href="%{url}">here</a>.
+        single_comment_warning: <a href="%{url}">View all comments</a>
         single_comment_warning_title: You are seeing a single comment
         title:
           one: "%{count} comment"
           other: "%{count} comments"
       down_vote_button:
         text: I disagree with this comment
+      edit_comment_modal_form:
+        close: Close
+        form:
+          body:
+            label: Comment
+            placeholder: What do you think about this?
+          submit: Send
+        title: Edit your comment
       up_vote_button:
         text: I agree with this comment
     events:

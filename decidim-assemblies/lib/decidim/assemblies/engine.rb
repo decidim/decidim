@@ -39,10 +39,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_assemblies.assets" do |app|
-        app.config.assets.precompile += %w(decidim_assemblies_manifest.js)
-      end
-
       initializer "decidim_assemblies.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Assemblies::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Assemblies::Engine.root}/app/views") # for partials
@@ -56,11 +52,12 @@ module Decidim
 
       initializer "decidim_assemblies.menu" do
         Decidim.menu :menu do |menu|
-          menu.item I18n.t("menu.assemblies", scope: "decidim"),
-                    decidim_assemblies.assemblies_path,
-                    position: 2.2,
-                    if: OrganizationPublishedAssemblies.new(current_organization, current_user).any?,
-                    active: :inclusive
+          menu.add_item :assemblies,
+                        I18n.t("menu.assemblies", scope: "decidim"),
+                        decidim_assemblies.assemblies_path,
+                        position: 2.2,
+                        if: OrganizationPublishedAssemblies.new(current_organization, current_user).any?,
+                        active: :inclusive
         end
       end
 
@@ -112,6 +109,10 @@ module Decidim
 
       initializer "decidim_assemblies.query_extensions" do
         Decidim::Api::QueryType.include Decidim::Assemblies::QueryExtensions
+      end
+
+      initializer "decidim_assemblies.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
       end
     end
   end

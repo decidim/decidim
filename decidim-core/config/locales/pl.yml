@@ -5,6 +5,8 @@ pl:
         delete_reason: Powód usunięcia konta
       common:
         created_at: Utworzono
+      conversation:
+        body: Treść
       group:
         about: O grupie
         avatar: Awatar
@@ -13,6 +15,8 @@ pl:
         name: Nazwa
         nickname: Pseudonim
         phone: Telefon
+      message:
+        body: Treść
       report:
         details: Dodatkowe uwagi
       user:
@@ -71,7 +75,6 @@ pl:
     'true': 'Tak'
   carrierwave:
     errors:
-      general: Błąd podczas przetwarzania obrazu
       image_too_big: Obraz jest zbyt duży
       not_inside_organization: Plik nie jest dołączony do żadnej organizacji
   date:
@@ -262,10 +265,13 @@ pl:
         download: Pobierz plik
       documents:
         related_documents: Materiały
+      geocoding:
+        geocoded_address: Adres
       photos:
         related_photos: Powiązane zdjęcia
     author:
-      avatar: Awatar
+      avatar: 'Awatar: %{name}'
+      avatar_multiuser: Awatar dla wielu użytkowników
       comments:
         one: komentarz
         few: komentarze
@@ -383,7 +389,7 @@ pl:
             dummy_global_attribute_1: Przykładowy atrybut 1
             dummy_global_attribute_2: Przykładowy atrybut 2
             dummy_global_translatable_text: Przykładowy tekst do tłumaczenia
-            enable_pads_creation: Włącz tworzenie klocków
+            enable_pads_creation: Włącz tworzenie padów
             resources_permissions_enabled: Włączono uprawnienia do zasobów
             scope_id: Zakres
             scopes_enabled: Zakresy włączone
@@ -406,7 +412,7 @@ pl:
         button_url: Adres url przycisku CTA
         description: Opis
       footer_sub_hero:
-        name: Banner podrzędny stopki
+        name: Baner podrzędny stopki
       hero:
         name: Obraz główny
       hero_settings_form:
@@ -429,11 +435,11 @@ pl:
         title: Ostatnia aktywność
         view_all: Pokaż wszystkie
       metrics:
-        name: Dane organizacji
+        name: Partycypacja w liczbach
       stats:
         name: Statystyki organizacji
       sub_hero:
-        name: Banner podrzędny
+        name: Baner podrzędny
     core:
       actions:
         login_before_access: Zaloguj się na swoje konto, żeby mieć dostęp
@@ -463,7 +469,7 @@ pl:
           newsletter: Chcę otrzymywać okazjonalne newslettery z istotnymi informacjami
           newsletter_title: Zgoda na subskrybcję
           nickname_help: Twój pseudonim w %{organization}. Może zawierać tylko litery, cyfry, '-' i '_'.
-          password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechny (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
+          password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
           sign_in: Zaloguj się
           sign_up: Zarejestruj się
           sign_up_as:
@@ -471,7 +477,7 @@ pl:
           subtitle: Zarejestruj się, aby brać udział w dyskusjach i wspierać propozycje.
           terms: warunki i zasady korzystania
           tos_agreement: Rejestrując się, zgadzasz się na %{link}.
-          tos_title: Warunki korzystania z Serwisu
+          tos_title: Warunki korzystania z Platformy
           username_help: Publiczne imię wyświetlane przy Twoich wpisach. W celu zagwarantowania anonimowości może być dowolna nazwa.
       sessions:
         new:
@@ -591,7 +597,7 @@ pl:
       email_event:
         email_greeting: Witaj %{user_name},
         email_intro: 'Zaktualizowano "%{resource_title}". Możesz zobaczyć zmiany na tej stronie:'
-        email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać obserwować ten zasób klikając w poprzedni link.
+        email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz przestrzeń "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie kliknij w przycisk obserwowania.
         email_subject: Aktualizacja %{resource_title}
       gamification:
         badge_earned:
@@ -658,7 +664,7 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem usuniętego zasobu.
           email_subject: '%{resource_type} został usunięty'
           notification_title: |-
-            Administrator usunął %{resource_type}, ponieważ zasób został zgłoszony jako %{report_reasons}.</br>
+            Administrator usunął %{resource_type}, ponieważ treść została zgłoszona jako %{report_reasons}.</br>
             <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, którego śledzisz, właśnie zarekomendował(a) „%{resource_title}” i uważamy, że może Cię to zainteresować. Sprawdź i zadecyduj:'
@@ -676,7 +682,7 @@ pl:
         click_button: 'Kliknij poniższy przycisk, aby pobrać swoje dane. <br/>Plik będzie dostępny do %{date}. <br/>Będziesz potrzebował <a href=''''https://www.7-zip.org/''''>7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) lub <a href="https://peazip.github.io">PeaZip</a> (Linux) do otwarcia pliku. Hasło: %{password}'
         download: Pobieranie
       export:
-        ready: Znajdź załączoną wersję eksportowanego pliku.
+        ready: Mail zawiera załączony plik eksportu.
       subject: Twój eksport "%{name}" jest gotowy
     filters:
       linked_classes:
@@ -725,11 +731,11 @@ pl:
         file:
           explanation: 'Wytyczne dotyczące pliku:'
           message_1: Ma być obrazem lub dokumentem.
-          message_2: Jako obrazów używaj najlepiej krajobrazów, serwis docina obraz. Dla plików CSV separatorem kolumn musi być przecinek (",")
+          message_2: Jako obrazów używaj najlepiej krajobrazów, obraz jest docinany automatycznie. Dla plików CSV separatorem kolumn musi być przecinek (",")
         image:
           explanation: 'Wytyczne dotyczące obrazu:'
           message_1: Preferowany obraz krajobrazu, który nie zawiera żadnego tekstu.
-          message_2: Serwis docina obraz.
+          message_2: Obraz jest docinany automatycznie.
       file_validation:
         allowed_file_extensions: 'Dozwolone rozszerzenia plików: %{extensions}'
         max_file_size: 'Maksymalny rozmiar pliku: %{megabytes}MB'
@@ -865,6 +871,11 @@ pl:
       index:
         last_activity: Ostatnia aktywność
         resource_type: Typ
+    links:
+      warning:
+        close_modal: Zamknij okno
+        proceed: Dalej
+        title: Otwórz zewnętrzny link
     log:
       base_presenter:
         create: "%{user_name} stworzył(a) %{resource_name}"
@@ -904,35 +915,35 @@ pl:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{manager} rozpoczął/rozpoczęła nową konwersację w imieniu %{group}. Kliknij tutaj, aby ją zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: "%{manager} rozpoczął/rozpoczęła nową konwersację jako %{group}"
         comanagers_new_message:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
-          intro: "%{manager} opublikował(a) nowe wiadomości w konwersacji w imieniu %{group}. Kliknij tutaj, aby je zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          intro: "%{manager} wysłał(a) nową wiadomość w konwersacji w imieniu %{group}. Kliknij tutaj, aby ją zobaczyć:"
+          outro: Miłego korzystania z platformy!
           subject: "%{manager} wysłał(a) nowe wiadomości jako %{group}"
         new_conversation:
           greeting: Cześć, %{recipient}!
           intro: "%{sender} rozpoczął/rozpoczęła z tobą nową rozmowę. Kliknij tutaj, aby zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: "%{sender} rozpoczął/rozpoczęła z Tobą rozmowę"
         new_group_conversation:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{sender} rozpoczął/rozpoczęła nową konwersację z grupą %{group}. Kliknij tutaj, aby ją zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: "%{sender} rozpoczął/rozpoczęła konwersację z %{group}"
         new_group_message:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
-          intro: "%{sender} opublikował(a) nowe wiadomości w konwersacji z grupą %{group}. Kliknij tutaj, aby je zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          intro: "%{sender} wysłał(a) nową wiadomość w konwersacji z grupą %{group}. Kliknij tutaj, aby ją zobaczyć:"
+          outro: Miłego korzystania z platformy!
           subject: "%{group} ma nowe wiadomości od %{sender}"
         new_message:
           greeting: Cześć, %{recipient}!
-          intro: "%{sender} opublikował(a) nowe wiadomości w twojej rozmowie. Kliknij tutaj, aby je zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          intro: "%{sender} wysłał(a) nową wiadomość w konwersacji. Kliknij tutaj, aby ją zobaczyć:"
+          outro: Miłego korzystania z platformy!
           subject: Masz nowe wiadomości od %{sender}
       conversations:
         add_conversation_users:
@@ -957,7 +968,7 @@ pl:
           groups: Moje grupy
           last_message: Ostatnia wiadomość
           new_conversation: Nowa konwersacja
-          next: Następna
+          next: Dalej
           no_conversations: Nie masz jeszcze żadnych konwersacji
           title: Konwersacje
         reply:
@@ -1114,8 +1125,8 @@ pl:
           modal_title: Czy rzeczywiście odmawiasz zaakceptowania zaktualizowanego regulaminu?
         required_review:
           alert: Zaktualizowaliśmy nasze Warunki korzystania z usługi, zapoznaj się z nimi.
-          body: Poświęć chwilę, aby przejrzeć aktualizacje naszych Warunków korzystania z Serwisu. W przeciwnym razie nie będziesz mógł korzystać z platformy.
-          title: 'Wymagane: sprawdź aktualizacje naszych warunków korzystania z serwisu'
+          body: Poświęć chwilę, aby przejrzeć aktualizacje naszych Warunków korzystania z Platformy. W przeciwnym razie nie będziesz mógł korzystać z platformy.
+          title: 'Wymagane: sprawdź aktualizacje naszych warunków korzystania z platformy'
     participatory_space_private_users:
       not_allowed: Nie możesz wyświetlać tych treści
     profile:
@@ -1174,8 +1185,8 @@ pl:
         subject: Zasób został zgłoszony
     reports:
       create:
-        error: Wystąpił błąd podczas tworzenia raportu. Proszę spróbować ponownie.
-        success: Raport został utworzony z powodzeniem i zostanie zweryfikowany przez administratora.
+        error: Wystąpił błąd podczas tworzenia zgłoszenia. Proszę spróbować ponownie.
+        success: Zgłoszenie zostało utworzone z powodzeniem i zostanie zweryfikowane przez administratora.
     resource_endorsements:
       create:
         error: Wystąpił błąd podczas udzielania rekomendacji.
@@ -1242,7 +1253,8 @@ pl:
         description: Czy ta treść jest nieodpowiednia?
         does_not_belong: Promuje nielegalną działalność, groźby samobójcze, informacje osobiste lub coś innego, co według Ciebie nie powinno pojawić się w %{organization_name}.
         offensive: Promuje rasizm, seksizm, nienawiść, ataki osobiste, groźby śmierci, groźby samobójcze jakąkolwiek formę mowy nienawiści.
-        report: Raport
+        reason: Powód
+        report: Zgłoś
         spam: Zawiera clickbaity, reklamy, oszustwa lub wrogie skrypty.
         title: Zgłoś nieodpowiednią zawartość
       flag_user_modal:
@@ -1277,10 +1289,19 @@ pl:
         title: Wybierz liczbę wyników na stronie
       share_modal:
         close_window: Zamknij okno
+        copy_share_link_copied: Skopiowano!
+        copy_share_link_message: Link został pomyślnie skopiowany do schowka.
         share: Udostępnij
         share_link: Udostępnij link
     statistics:
       comments_count: Komentarze
+      endorsements_count: Rekomendacje
+      followers_count: Obserwujący
+      headline: Statystyki
+      no_stats: Nie ma jeszcze żadnych statystyk.
+      pages_count: Stron
+      participants_count: Użytkowników
+      users_count: Uczestników
     tags:
       filter_results_for_category: 'Filtruj wyniki dla kategorii: %{resource}'
       filter_results_for_scope: 'Filtruj wyniki dla zakresu: %{resource}'
@@ -1306,7 +1327,7 @@ pl:
         last_message: Ostatnia wiadomość
         modal_title: Nowa konwersacja
         new_conversation: Nowa konwersacja
-        next: Następna
+        next: Dalej
         no_conversations_warning: Brak konwersacji.
         no_results: Brak wyników
         participant_with_disabled_message_reception: Ten użytkownik wyłączył odbiór wiadomości
@@ -1318,6 +1339,7 @@ pl:
         send: Wyślij
         title_reply: Odpowiedz
       show:
+        back: Pokaż wszystkie rozmowy
         not_allowed: Ten użytkownik nie przyjmuje więcej bezpośrednich wiadomości.
         title: Konwersacja z %{usernames}
       update:
@@ -1363,6 +1385,7 @@ pl:
         number_of_versions: Wersje
         title: Wersje
     versions_list_item:
+      back: Pokaż wszystkie wersje
       show:
         version_index: Wersja %{index}
     welcome_notification:
@@ -1464,7 +1487,7 @@ pl:
         change_your_password: Zmień swoje hasło
         confirm_new_password: Potwierdź nowe hasło
         new_password: Nowe hasło
-        password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechny (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
+        password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
       new:
         forgot_your_password: Zapomniałeś hasła?
         send_me_reset_password_instructions: Wyślij mi instrukcje resetowania hasła
@@ -1523,7 +1546,7 @@ pl:
       public: Twoje informacje publiczne.
   errors:
     messages:
-      already_confirmed: zostało już potwierdzone, spróbuj się zalogować
+      already_confirmed: zostało już potwierdzone
       confirmation_period_expired: musi być potwierdzone w ciągu %{period}, proszę poprosić o nowy
       content_type_allowlist_error: typ pliku jest nieprawidłowy
       cycle_detected: zakres podrzędny nie może być jednocześnie zakresem nadrzędnym
@@ -1547,10 +1570,10 @@ pl:
     correct_errors: Wystąpiły błędy w formularzu, popraw je, aby kontynuować.
     length_validator:
       minimum:
-        one: co najmniej %{count} znak
-        few: co najmniej %{count} znaków
-        many: co najmniej %{count} znaków
-        other: co najmniej %{count} znaków
+        one: Co najmniej %{count} znak
+        few: Co najmniej %{count} znaki
+        many: Co najmniej %{count} znaków
+        other: Co najmniej %{count} znaków
     required: Wymagane
     required_explanation: "* Wymagane pola są oznaczone gwiazdką"
   invisible_captcha:
@@ -1571,9 +1594,11 @@ pl:
         made_with_open_source: Strona internetowa powstała z użyciem <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
         close_menu: Zamknij menu
+        main_menu: Menu główne
         navigation: Nawigacja
         sign_in: Zaloguj się
         sign_up: Zarejestruj się
+        user_menu: Menu użytkownika
       impersonation_warning:
         close_session: Zakończ sesję
         description_html: Zarządzasz uczestnikiem <b>%{user_name}</b>.
@@ -1603,7 +1628,7 @@ pl:
         public_profile: Mój profil publiczny
         sign_out: Wyloguj się
       user_profile:
-        account: Konto
+        account: Moje konto
         authorizations: Autoryzacje
         delete_my_account: Usuń moje konto
         my_data: Moje dane
@@ -1644,7 +1669,7 @@ pl:
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
-    wechat_footer: Otwórz program WeChat, kliknij przycisk "Odkryj", a następnie kliknij menu "Zeskanuj kod QR Code".
+    wechat_footer: Otwórz program WeChat, kliknij przycisk "Odkryj", a następnie kliknij menu "Skan kodu QR".
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp

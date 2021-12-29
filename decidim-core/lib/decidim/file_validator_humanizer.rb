@@ -21,7 +21,7 @@ module Decidim
     end
 
     def uploader
-      @uploader ||= passthru_uploader || record.send(attribute)
+      @uploader ||= passthru_uploader || record.attached_uploader(attribute) || record.send(attribute)
     end
 
     def messages
@@ -94,7 +94,8 @@ module Decidim
     def passthru_uploader
       return unless passthru_record
 
-      passthru_record.send(passthru_validator.target_attribute(attribute))
+      passthru_attribute = passthru_validator.target_attribute(attribute)
+      passthru_record.attached_uploader(passthru_attribute) || passthru_record.send(passthru_attribute)
     end
   end
 end

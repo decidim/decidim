@@ -12,17 +12,17 @@ module Decidim
             let(:html_head) do
               <<~HEAD
                 <script type="text/javascript">
-                  $(function() {
-                    $("body").append('<div id="ajax_request"></div>');
-                    $("body").append('<div id="geocoder_suggested"></div>');
-                    $("body").append('<div id="geocoder_coordinates"></div>');
+                  window.$(function() {
+                    window.$("body").append('<div id="ajax_request"></div>');
+                    window.$("body").append('<div id="geocoder_suggested"></div>');
+                    window.$("body").append('<div id="geocoder_coordinates"></div>');
 
                     // Override jQuery AJAX in order to check the request is
                     // sent correctly.
-                    $.ajax = function(request) {
-                      $("#ajax_request").text(JSON.stringify(request));
+                    window.$.ajax = function(request) {
+                      window.$("#ajax_request").text(JSON.stringify(request));
 
-                      var deferred = $.Deferred().resolve({
+                      var deferred = window.$.Deferred().resolve({
                         features: [
                           {
                             properties: {
@@ -68,12 +68,12 @@ module Decidim
 
                     // Bind the geocoding events in order to display the results
                     // on the page for Capybara.
-                    var $input = $("#test_address");
+                    var $input = window.$("#test_address");
                     $input.on("geocoder-suggest-select.decidim", function(ev, selectedItem) {
-                      $("#geocoder_suggested").text(JSON.stringify(selectedItem));
+                      window.$("#geocoder_suggested").text(JSON.stringify(selectedItem));
                     });
                     $input.on("geocoder-suggest-coordinates.decidim", function(ev, coordinates) {
-                      $("#geocoder_coordinates").text(coordinates[0] + "," + coordinates[1]);
+                      window.$("#geocoder_coordinates").text(coordinates[0] + "," + coordinates[1]);
                     });
                   });
                 </script>

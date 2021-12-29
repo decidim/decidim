@@ -7,6 +7,7 @@ module Decidim
   class AuthorCell < Decidim::ViewModel
     include LayoutHelper
     include CellsHelper
+    include Decidim::SanitizeHelper
     include ::Devise::Controllers::Helpers
     include ::Devise::Controllers::UrlHelpers
     include Messaging::ConversationHelper
@@ -54,7 +55,27 @@ module Decidim
       render
     end
 
+    def perform_caching?
+      true
+    end
+
     private
+
+    def cache_hash
+      hash = []
+
+      hash.push(I18n.locale)
+      hash.push(model.cache_key_with_version) if model.respond_to?(:cache_key_with_version)
+      hash.push(current_user.try(:id))
+      hash.push(current_user.present?)
+      hash.push(commentable?)
+      hash.push(endorsable?)
+      hash.push(actionable?)
+      hash.push(withdrawable?)
+      hash.push(flaggable?)
+      hash.push(profile_path?)
+      hash.join(Decidim.cache_key_separator)
+    end
 
     def from_context_path
       resource_locator(from_context).path
@@ -109,6 +130,18 @@ module Decidim
 
     def raw_model
       model.try(:__getobj__) || model
+    end
+
+    def resource_i18n_scope
+      @resource_i18n_scope ||= [
+        from_context.class.name.deconstantize.underscore.gsub("/", "."),
+        resource_name.pluralize,
+        :show
+      ].join(".")
+    end
+
+    def resource_name
+      @resource_name ||= from_context.class.name.demodulize.underscore
     end
   end
 end

@@ -24,10 +24,11 @@ module Decidim
 
       initializer "decidim_elections.trustee_zone.menu" do
         Decidim.menu :user_menu do |menu|
-          menu.item I18n.t("menu.trustee_zone", scope: "decidim.elections.trustee_zone"),
-                    decidim.decidim_elections_trustee_zone_path,
-                    active: :inclusive,
-                    if: Decidim::Elections::Trustee.trustee?(current_user)
+          menu.add_item :decidim_elections_trustee_zone,
+                        I18n.t("menu.trustee_zone", scope: "decidim.elections.trustee_zone"),
+                        decidim.decidim_elections_trustee_zone_path,
+                        active: :inclusive,
+                        if: Decidim::Elections::Trustee.trustee?(current_user)
         end
       end
     end

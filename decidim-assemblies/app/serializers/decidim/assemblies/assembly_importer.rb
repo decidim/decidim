@@ -58,7 +58,8 @@ module Decidim
             youtube_handler: attributes["youtube_handler"],
             github_handler: attributes["github_handler"],
             created_by: attributes["created_by"],
-            meta_scope: attributes["meta_scope"]
+            meta_scope: attributes["meta_scope"],
+            announcement: attributes["announcement"]
           )
           @imported_assembly.remote_hero_image_url = attributes["remote_hero_image_url"] if remote_file_exists?(attributes["remote_hero_image_url"])
           @imported_assembly.remote_banner_image_url = attributes["remote_banner_image_url"] if remote_file_exists?(attributes["remote_banner_image_url"])
@@ -115,7 +116,7 @@ module Decidim
               content_type: file_tmp.content_type,
               attached_to: @imported_assembly,
               weight: file["weight"],
-              file: form.file, # Define attached_to before this
+              file: file_tmp, # Define attached_to before this
               file_size: file_tmp.size
             )
             attachment.create_attachment_collection(file["attachment_collection"])

@@ -25,7 +25,8 @@ module Decidim
             banner_image: nil,
             introductory_image: nil,
             promoted: promoted,
-            voting_type: voting_type
+            voting_type: voting_type,
+            census_contact_information: census_contact_information
           )
         end
 
@@ -38,6 +39,7 @@ module Decidim
         let(:scope) { create :scope, organization: organization }
         let(:promoted) { true }
         let(:voting_type) { "online" }
+        let(:census_contact_information) { nil }
 
         let(:voting) { Decidim::Votings::Voting.last }
 

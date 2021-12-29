@@ -2,7 +2,7 @@
 
 module Decidim
   class ExportParticipatorySpaceJob < ApplicationJob
-    queue_as :default
+    queue_as :exports
 
     def perform(user, participatory_space, name, format)
       export_manifest = participatory_space.manifest.export_manifests.find do |manifest|

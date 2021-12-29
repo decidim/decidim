@@ -35,6 +35,7 @@ fi:
         origin_component_id: Osio josta ehdotukset kopioidaan
       proposals_import:
         import_proposals: Tuo ehdotuksia
+        keep_answers: Säilytä tilat ja vastaukset
         keep_authors: Säilytä alkuperäiset laatijat
       valuation_assignment:
         admin_log:
@@ -47,13 +48,25 @@ fi:
               invalid_document_type: 'Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Liitettävä uudelleen
+            add_photos:
               needs_to_be_reattached: Liitettävä uudelleen
             body:
               cant_be_equal_to_template: ei voi vastata mallipohjaa
               identical: JA otsikko ei voi olla täysin sama
             title:
               identical: JA kuvaus ei voi olla täysin sama
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Ehdotukset eivät ole virallisia ehdotuksia
+              supported: Ehdotukset eivät ole saaneet kannatuksia tai suosituksia
+        proposals_split:
+          attributes:
+            base:
+              not_official: Ehdotukset eivät ole virallisia ehdotuksia
+              supported: Ehdotukset eivät ole saaneet kannatuksia tai suosituksia
     models:
       decidim/proposals/accepted_proposal_event: Ehdotus hyväksytty
       decidim/proposals/admin/update_proposal_category_event: Ehdotuksen aihepiiri muutettu
@@ -113,14 +126,15 @@ fi:
       proposals:
         actions:
           amend: Muokkaa
+          comment: Kommentoi
           create: Luo
           endorse: Suosittele
           vote: Kannata
+          vote_comment: Äänestä kommenttia
           withdraw: Peru
         name: Ehdotukset
         settings:
           global:
-            allow_card_image: Salli kuva ehdotuskortilla
             amendments_enabled: Muutokset käytössä
             amendments_enabled_help: Jos käytössä, määritä asetukset kullekin vaiheelle.
             amendments_wizard_help_text: Muutoksen luonnin ohjeteksti
@@ -130,6 +144,17 @@ fi:
             collaborative_drafts_enabled: Yhteistyöluonnokset ovat käytössä
             comments_enabled: Kommentit käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
+            default_sort_order: Ehdotuksen oletusjärjestys
+            default_sort_order_help: Oletus tarkoittaa, että mikäli kannatukset ovat käytössä, ehdotukset näytetään satunnaisessa järjestyksessä ja mikäli kannatukset on estetty, niin ehdotukset järjestetään eniten kannatuksia saaneet ensin.
+            default_sort_order_options:
+              default: Oletus
+              most_commented: Eniten kommentoidut
+              most_endorsed: Eniten suositellut
+              most_followed: Eniten seuratut
+              most_voted: Eniten kannatuksia saaneet
+              random: Satunnainen
+              recent: Viimeisimmät
+              with_more_authors: Eniten tekijöitä
             geocoding_enabled: Geokoodaus käytössä
             minimum_votes_per_user: Kannatusten vähimmäismäärä käyttäjää kohden
             new_proposal_body_template: Uuden ehdotuksen leipätekstin mallipohja
@@ -172,6 +197,17 @@ fi:
             automatic_hashtags: Aihetunnisteet (hashtag), jotka lisätään kaikkiin ehdotuksiin
             comments_blocked: Kommentointi estetty
             creation_enabled: Ehdotuksen luominen käytössä
+            default_sort_order: Ehdotuksen oletusjärjestys
+            default_sort_order_help: Oletus tarkoittaa, että mikäli kannatukset ovat käytössä, ehdotukset näytetään satunnaisessa järjestyksessä ja mikäli kannatukset on estetty, niin ehdotukset järjestetään eniten kannatuksia saaneet ensin.
+            default_sort_order_options:
+              default: Oletus
+              most_commented: Eniten kommentoidut
+              most_endorsed: Eniten suositellut
+              most_followed: Eniten seuratut
+              most_voted: Eniten kannatuksia saaneet
+              random: Satunnainen
+              recent: Viimeisimmät
+              with_more_authors: Eniten tekijöitä
             endorsements_blocked: Suositukset estetty
             endorsements_enabled: Suositukset käytössä
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
@@ -361,6 +397,23 @@ fi:
         exports:
           proposal_comments: Kommentit
           proposals: Ehdotukset
+        imports:
+          help:
+            answers: 'Tuontitiedostossa on oltava sarakenimet id, state tilalle (accepted, evaluating, rejected), answer/fi vastaukselle (sekä muihin kieliin viittaavat sarakenimet, kuten answer/en).'
+            proposals: Tuontitiedostossa on oltava sarakenimet title/fi otsikolle ja body/fi kuvaustekstille (sekä muihin kieliin viittaavat sarakenimet, kuten title/en ja body/en). Tuettuja sarakkeita ovat myös scope/id (teemalle) ja category/id (aihepiirille).
+          label:
+            answers: Tuo vastaukset tiedostosta
+            proposals: Tuo ehdotuksia tiedostosta
+          resources:
+            answers:
+              one: ehdotuksen vastaus
+              other: ehdotusten vastausta
+            proposals:
+              one: ehdotus
+              other: ehdotusta
+          title:
+            answers: Tuo ehdotusten vastaukset
+            proposals: Tuo ehdotuksia
         models:
           proposal:
             name: Ehdotus
@@ -504,11 +557,11 @@ fi:
             title: Tuo ehdotuksia
         proposals_merges:
           create:
-            invalid: Valittujen ehdotusten yhdistäminen epäonnistui.
+            invalid: 'Valittujen ehdotusten yhdistäminen epäonnistui, koska:'
             success: Ehdotukset yhdistettiin onnistuneesti uudeksi ehdotukseksi.
         proposals_splits:
           create:
-            invalid: Valittujen ehdotusten jakaminen epäonnistui.
+            invalid: 'Valittujen ehdotusten jakaminen epäonnistui, koska:'
             success: Ehdotukset jaettiin onnistuneesti uusiksi ehdotuksiksi.
         valuation_assignments:
           create:
@@ -711,7 +764,8 @@ fi:
             one: "%{count} ehdotus"
             other: "%{count} ehdotusta"
         dynamic_map_instructions:
-          instructions: <h3>Voit siirtää karttapistettä</h3><p>Muistathan painaa "Päivitä sijainti" -painiketta ennen kuin julkaiset ehdotuksen.</p>
+          description: Koordinaatit päivitetään, kun painat Esikatsele-painiketta. Osoitetekstiä ei muuteta.
+          instructions: Voit siirtää pistettä kartalla.
         edit:
           add_documents: Asiakirjat
           add_images: Tiedosto
@@ -747,9 +801,12 @@ fi:
           filter_by: Suodata
           unfold: Avaa
         index:
+          click_here: Näytä kaikki ehdotukset
           collaborative_drafts_list: Mene yhteistyöluonnoksiin
           new_proposal: Uusi ehdotus
+          see_all: Näytä kaikki ehdotukset
           see_all_withdrawn: Näytä kaikki peruutetut ehdotukset
+          text_banner: Katselet peruutettuja ehdotuksia, jotka niiden tekijät ovat peruuttaneet. %{go_back_link}.
           view_proposal: Näytä ehdotus
         linked_proposals:
           proposal_votes:
@@ -783,7 +840,6 @@ fi:
             other: Voit muokata tätä ehdotusta ensimmäisten %{count} minuutin aikana ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.
           publish: Julkaise
           title: Julkaise ehdotuksesi
-          update_position: Päivitä sijainti
         proposal:
           creation_date: 'Luontiaika: %{date}'
           view_proposal: Näytä ehdotus

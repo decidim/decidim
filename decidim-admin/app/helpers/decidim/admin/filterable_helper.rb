@@ -29,7 +29,7 @@ module Decidim
         links = []
         links += extra_dropdown_submenu_options_items(filter, i18n_scope)
         links += values.map { |value| filter_link_value(filter, value, i18n_scope) }
-        links.each_with_object({}) { |link, hash| hash[link] = nil }
+        links.index_with { nil }
       end
 
       # To be overriden. Useful for adding links that do not match with the filter.

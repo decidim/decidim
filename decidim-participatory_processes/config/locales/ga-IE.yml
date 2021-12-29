@@ -1,1 +1,149 @@
 ga:
+  activemodel:
+    attributes:
+      participatory_process:
+        area_id: Ceantar
+        copy_categories: Cóipeáil catagóirí
+        decidim_area_id: Ceantar
+        domain: Fearann
+        end_date: Dáta deiridh
+        hashtag: Haischlib
+        participatory_process_group_id: Grúpa próisis
+        promoted: Curtha chun cinn
+        related_process_ids: Próisis Ceangailte
+        scope_id: Scóip
+        slug: Píosa URL
+        subtitle: Fotheideal
+        title: Teideal
+      participatory_process_group:
+        group_url: Suíomh Gréasáin
+        hashtag: Haischlib
+        hero_image: Íomhá
+        participatory_process_ids: Próisis Ceangailte
+        title: Teideal
+      participatory_process_step:
+        end_date: Dáta deiridh
+        title: Teideal
+      participatory_process_user_role:
+        email: Seoladh ríomhphoist
+        name: Ainm
+        role: Ról
+  decidim:
+    admin:
+      actions:
+        destroy: Scrios
+        edit: Eagar
+        filter:
+          process_groups: Grúpaí próiseas
+        import_process: Iompórtáil
+        new_process: Próiseas nua
+        new_process_group: Grúpa próisis nua
+        new_process_user_role: Riarachán próisis nua
+        preview: Réamhamharc
+        publish: Foilsigh
+      menu:
+        participatory_process_groups: Grúpaí próiseas
+        participatory_process_groups_submenu:
+          info: Eolas
+        participatory_processes: Próisis
+        participatory_processes_submenu:
+          attachment_collections: Fillteáin
+          attachment_files: Comhaid
+          attachments: Ceangaltáin
+          categories: Catagóirí
+          info: Eolas
+          process_admins: Riaracháin próiseas
+          steps: Céimeanna
+      models:
+        participatory_process:
+          fields:
+            private: Príobháideach
+            title: Teideal
+          name: Próiseas Rannpháirtíochta
+        participatory_process_group:
+          fields:
+            title: Teideal
+          name: Grúpa próisis
+        participatory_process_step:
+          fields:
+            end_date: Dáta deiridh
+            title: Teideal
+          name: Céim próisis rannpháirtíochta
+        participatory_process_user_role:
+          fields:
+            email: Seoladh ríomhphoist
+            name: Ainm
+            role: Ról
+          name: Riarachán próisis rannpháirtíochta
+          roles:
+            admin: Riarthóir
+            valuator: Luachálaí
+      participatory_process_copies:
+        new:
+          copy: Cóipeáil
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Nuashonraigh
+      participatory_process_groups:
+        edit:
+          update: Nuashonraigh
+        new:
+          create: Cruthaigh
+      participatory_process_imports:
+        new:
+          import: Iompórtáil
+      participatory_process_steps:
+        default_title: Réamhrá
+        edit:
+          update: Nuashonraigh
+        index:
+          steps_title: Céimeanna
+        new:
+          create: Cruthaigh
+      participatory_process_user_roles:
+        edit:
+          update: Nuashonraigh
+        new:
+          create: Cruthaigh
+      participatory_processes:
+        edit:
+          update: Nuashonraigh
+        index:
+          private: Príobháideach
+          public: Poblach
+        new:
+          create: Cruthaigh
+    participatory_process_groups:
+      content_blocks:
+        title:
+          meta_scope: Scóip
+    participatory_processes:
+      admin:
+        new_import:
+          accepted_types:
+            json: JSON
+        participatory_processes:
+          form:
+            duration: Fad
+            filters: Scagairí
+            images: Íomhánna
+            metadata: Meiteashonraí
+            other: Eile
+      participatory_processes:
+        filters:
+          names:
+            active: Gníomhach
+            all: Uile
+            past: Roimhe
+            upcoming: Le teacht
+          see: Feic
+      show:
+        area: Ceantar
+        dates: Dátaí
+        end_date: Dáta deiridh
+        scope: Scóip
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Brabhsáil

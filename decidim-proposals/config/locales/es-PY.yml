@@ -35,6 +35,7 @@ es-PY:
         origin_component_id: Componente para copiar las propuestas de
       proposals_import:
         import_proposals: Propuestas de importación
+        keep_answers: Mantener estado y respuestas
         keep_authors: Mantener autores originales
       valuation_assignment:
         admin_log:
@@ -47,7 +48,9 @@ es-PY:
               invalid_document_type: 'Tipo de documento no válido. Los formatos aceptados son: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Es necesario volver a adjuntar el fichero
+            add_photos:
               needs_to_be_reattached: Es necesario volver a adjuntar el fichero
             body:
               cant_be_equal_to_template: no puede ser igual a la plantilla
@@ -113,14 +116,15 @@ es-PY:
       proposals:
         actions:
           amend: Enmendar
+          comment: Comentar
           create: Crear
           endorse: Adherirse
           vote: Apoyar
+          vote_comment: Votar comentario
           withdraw: Retirar
         name: Propuestas
         settings:
           global:
-            allow_card_image: Permitir tarjeta con imagen
             amendments_enabled: Enmiendas habilitadas
             amendments_enabled_help: Si está activo, configura las opciones de enmiendas para cada fase.
             amendments_wizard_help_text: Asistente de ayuda de las enmiendas
@@ -504,11 +508,9 @@ es-PY:
             title: Importar propuestas
         proposals_merges:
           create:
-            invalid: Se produjo un error al fusionar las propuestas seleccionadas.
             success: Fusionó con éxito las propuestas en una nueva.
         proposals_splits:
           create:
-            invalid: Hubo un error dividiendo las propuestas seleccionadas.
             success: Dividió con éxito las propuestas en otras nuevas.
         valuation_assignments:
           create:
@@ -665,6 +667,7 @@ es-PY:
         success: El borrador de la propuesta fue eliminado con éxito.
       last_activity:
         new_proposal_at_html: "<span>Nueva propuesta en %{link}</span>"
+        proposal_updated_at_html: "<span>Propuesta actualizada a las %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -710,7 +713,8 @@ es-PY:
             one: "%{count} propuesta"
             other: "%{count} propuestas"
         dynamic_map_instructions:
-          instructions: <h3>Puedes mover el punto en el mapa. </h3><p>No olvides hacer clic en el botón "Actualizar posición" antes de publicar tu propuesta.</p>
+          description: Las coordenadas se actualizarán cuando hagas clic en el botón 'previsualizar'. Sin embargo, la dirección no cambia.
+          instructions: Puedes mover la ubicación en el mapa.
         edit:
           add_documents: Documentos
           add_images: Archivo
@@ -782,7 +786,6 @@ es-PY:
             other: Podrás editar esta propuesta durante los primeros %{count} minutos después de que se publique. Una vez que pase este tiempo, no podrás editar la propuesta.
           publish: Publicar
           title: Publica tu propuesta
-          update_position: Actualizar posición
         proposal:
           creation_date: 'Creación: %{date}'
           view_proposal: Ver propuesta
@@ -899,3 +902,7 @@ es-PY:
       included_proposals:
         proposal_project: 'Propuesta formulada en estos proyectos:'
         proposal_result: 'Propuesta formulada en estos resultados:'
+    statistics:
+      proposals_accepted: Propuestas aceptadas
+      proposals_count: Propuestas
+      supports_count: Apoyos

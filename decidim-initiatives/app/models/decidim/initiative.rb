@@ -21,6 +21,7 @@ module Decidim
     include Decidim::Searchable
     include Decidim::Initiatives::HasArea
     include Decidim::TranslatableResource
+    include Decidim::HasResourcePermission
 
     translatable_fields :title, :description, :answer
 
@@ -124,15 +125,18 @@ module Decidim
       Decidim::Initiatives::AdminLog::InitiativePresenter
     end
 
+    delegate :document_number_authorization_handler, :promoting_committee_enabled?, to: :type
+    delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
+
     # PUBLIC banner image
     #
     # Overrides participatory space's banner image with the banner image defined
     # for the initiative type.
     #
-    # RETURNS string
-    delegate :banner_image, to: :type
-    delegate :document_number_authorization_handler, :promoting_committee_enabled?, to: :type
-    delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
+    # RETURNS Decidim::BannerImageUploader
+    def banner_image
+      type.attached_uploader(:banner_image)
+    end
 
     # PUBLIC
     #
@@ -175,17 +179,6 @@ module Decidim
     # RETURN string
     def author_name
       user_group&.name || author.name
-    end
-
-    # PUBLIC author_avatar_url
-    #
-    # Returns the author's avatar URL. In case it is not defined the method
-    # falls back to decidim/default-avatar.svg
-    #
-    # RETURNS STRING
-    def author_avatar_url
-      author.avatar&.url ||
-        ActionController::Base.helpers.asset_path("decidim/default-avatar.svg")
     end
 
     def votes_enabled?
@@ -410,6 +403,10 @@ module Decidim
       committee_members.approved.count >= minimum_committee_members
     end
 
+    def component
+      nil
+    end
+
     # PUBLIC
     #
     # Checks if the type the initiative belongs to enables SMS code
@@ -426,6 +423,15 @@ module Decidim
     # implement this interface.
     def user_role_config_for(_user, _role_name)
       Decidim::ParticipatorySpaceRoleConfig::Base.new(:empty_role_name)
+    end
+
+    # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
+    def allow_resource_permissions?
+      true
+    end
+
+    def user_allowed_to_comment?(user)
+      ActionAuthorizer.new(user, "comment", self, nil).authorize.ok?
     end
 
     private

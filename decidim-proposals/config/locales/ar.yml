@@ -42,7 +42,9 @@ ar:
               invalid_document_type: 'نوع المستند غير صالح. التنسيقات المقبولة هي: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: يحتاج إلى إعادة ربط
+            add_photos:
               needs_to_be_reattached: يحتاج إلى إعادة ربط
             body:
               identical: لا يمكن أن يكون العنوان متطابقًا
@@ -105,7 +107,6 @@ ar:
         name: اقتراحات
         settings:
           global:
-            allow_card_image: السماح بالبطاقة الصورية
             amendments_enabled: تم تمكين التعديلات
             announcement: إعلان
             attachments_allowed: السماح للمرفقات
@@ -418,11 +419,9 @@ ar:
             select_states: تحقق من حالة مقترحات الاستيراد
         proposals_merges:
           create:
-            invalid: كانت هناك مشكلة في دمج المقترحات المحددة.
             success: دمج المقترحات بنجاح في واحدة جديدة.
         proposals_splits:
           create:
-            invalid: كانت هناك مشكلة في تقسيم المقترحات المحددة.
             success: تم تقسيم المقترحات بنجاح إلى مقترحات جديدة.
         valuation_assignments:
           create:

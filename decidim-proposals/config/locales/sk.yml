@@ -45,7 +45,9 @@ sk:
               invalid_document_type: 'Neplatný typ dokumentu. Prijateľné formáty sú: %{valid_mime_types} '
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Je potrebné priložiť znovu
+            add_photos:
               needs_to_be_reattached: Je potrebné priložiť znovu
             body:
               cant_be_equal_to_template: nemôže byť rovnaké, ako šablóna
@@ -104,7 +106,6 @@ sk:
         name: Návrhy
         settings:
           global:
-            allow_card_image: Povoliť kartové obrázky
             amendments_enabled: Pozmeňujúce návrhy povolené
             amendments_enabled_help: Ak je aktívne, nastavte funkcie Pozmeňujúcich návrhov pre každý krok.
             amendments_wizard_help_text: Sprievodca Pozmeňujúcimi návrhmi
@@ -469,11 +470,9 @@ sk:
             select_states: Skontrolujte stav návrhov, ktoré chcete importovať
         proposals_merges:
           create:
-            invalid: Pri prepojení vybraných návrhov došlo k chybe.
             success: Projekty boli úspešne zlúčené do novej.
         proposals_splits:
           create:
-            invalid: Pri výbere vybraných návrhov došlo k chybe.
             success: Úspešne rozdelil návrhy na nové.
         valuation_assignments:
           create:

@@ -14,8 +14,8 @@ pl:
         copy_categories: Skopiuj kategorie
         copy_components: Skopiuj komponenty
         copy_features: Skopiuj funkcje
-        created_by: Stworzono przez
-        created_by_other: Stworzono przez inne
+        created_by: Utworzony przez
+        created_by_other: Utworzony przez inne
         creation_date: Data utworzenia
         decidim_area_id: Powierzchnia
         decidim_assemblies_type_id: Typ zespołu
@@ -52,20 +52,20 @@ pl:
         target: Do kogo kierowane
         title: Tytuł
         twitter: Twitter
+        weight: Kolejność na stronie
         youtube: YouTube
       assembly_member:
         birthday: Urodziny
         birthplace: Miejsce urodzenia
         ceased_date: Data zakończenia
         designation_date: Data wyboru
-        designation_mode: Tryb wyboru
         full_name: Pełne imię i nazwisko
         gender: Płeć
         position: Pozycja
         user_id: Użytkownik
       assembly_user_role:
         email: E-mail
-        name: Nazwa
+        name: Imię
         role: Rola
     errors:
       models:
@@ -187,6 +187,9 @@ pl:
         update:
           error: Wystąpił błąd podczas aktualizacji administratora tego zespołu.
           success: Administrator zespołu został zaktualizowany pomyślnie.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Typ zespołu
       menu:
         assemblies: Zespoły
         assemblies_settings: Ustawienia
@@ -195,6 +198,7 @@ pl:
           assembly_members: Członkowie
           attachment_collections: Foldery
           attachment_files: Pliki
+          attachments: Załączniki
           categories: Kategorie
           components: Komponenty
           info: Informacje
@@ -218,7 +222,7 @@ pl:
           fields:
             ceased_date: Data zakończenia
             designation_date: Data wyznaczenia
-            full_name: Nazwa
+            full_name: Imię
             position: Pozycja
           name: Członek
           positions:
@@ -229,14 +233,14 @@ pl:
         assembly_user_role:
           fields:
             email: E-mail
-            name: Nazwa
+            name: Imię
             role: Rola
           name: Administrator zespołu
           roles:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
-            valuator: Taksator
+            valuator: Weryfikator
       titles:
         assemblies: Zespoły
         assemblies_types: Typy zespołów
@@ -266,6 +270,7 @@ pl:
       admin:
         assemblies:
           form:
+            announcement_help: Wprowadzony tutaj tekst zostanie wyświetlony użytkownikowi tuż pod informacjami o zespole.
             duration: Czas trwania
             duration_help: Jeśli czas trwania tego zespołu jest ograniczony, wybierz datę końcową. W przeciwnym razie pojawi się jako nieokreślony.
             filters: Filtry
@@ -300,6 +305,7 @@ pl:
           form:
             existing_user: Istniejący użytkownik
             non_user: Brak użytkownika
+            non_user_avatar_help: Powinieneś uzyskać zgodę osób przed opublikowaniem ich jako członka.
             select_a_position: Wybierz pozycję
             select_user: Wybierz użytkownika
             user_type: Rodzaj użytkownika
@@ -383,18 +389,13 @@ pl:
         related_participatory_processes: Powiązane procesy partycypacyjne
         scope: Zakres
         social_networks: Portale społecznościowe
-        social_networks_title: Udostępnij zespół na
+        social_networks_title: Odwiedź zespół na
         target: Do kogo kierowane
     assembly_members:
       assembly_member:
         designated_on: Wyznaczony na
       index:
         title: Członkowie
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Link do strony Konferencji wyświetlającej wszystkie konferencje
     events:
       assemblies:
         create_assembly_member:
@@ -427,19 +428,11 @@ pl:
         description: Liczba utworzonych zespołów
         object: zespoły
         title: Zespoły
-    pages:
-      home:
-        hero:
-          participate_title: Weź udział w procesach udostępnionych na platformie
-        sub_hero:
-          register_title: Zapisz się by utworzyć konto
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Link do strony Procesy wyświetlającej wszystkie procesy
       show:
         related_assemblies: Powiązane zespoły
+    statistics:
+      assemblies_count: Zespoły
   errors:
     messages:
       cannot_be_blank: nie może być puste

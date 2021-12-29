@@ -60,11 +60,11 @@ en:
         birthplace: Birthplace
         ceased_date: Ceased date
         designation_date: Designation date
-        designation_mode: Designation mode
         full_name: Full name
         gender: Gender
+        non_user_avatar: Avatar
         position: Position
-        user_id: User
+        user_id: User or group
       assembly_user_role:
         email: Email
         name: Name
@@ -183,6 +183,9 @@ en:
         update:
           error: There was a problem updating an admin for this assembly.
           success: Admin updated successfully for this assembly.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Assembly type
       menu:
         assemblies: Assemblies
         assemblies_settings: Settings
@@ -191,6 +194,7 @@ en:
           assembly_members: Members
           attachment_collections: Folders
           attachment_files: Files
+          attachments: Attachments
           categories: Categories
           components: Components
           info: Info
@@ -262,6 +266,7 @@ en:
       admin:
         assemblies:
           form:
+            announcement_help: The text you enter here will be shown to the user right below the assembly information.
             duration: Duration
             duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
             filters: Filters
@@ -295,7 +300,10 @@ en:
         assembly_members:
           form:
             existing_user: Existing participant
+            explanation: 'Guidance for image:'
+            image_guide: Preferrably a portrait image that does not have any text.
             non_user: Non participant
+            non_user_avatar_help: You should get the consent of the persons before publishing them as a member.
             select_a_position: Select a position
             select_user: Select a participant
             user_type: Participant type
@@ -386,11 +394,6 @@ en:
         designated_on: Designated on
       index:
         title: Members
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Link to the Conferences page displaying all the conferences
     events:
       assemblies:
         create_assembly_member:
@@ -423,17 +426,7 @@ en:
         description: Number of assemblies created
         object: assemblies
         title: Assemblies
-    pages:
-      home:
-        hero:
-          participate_title: Participate to the platform's processes
-        sub_hero:
-          register_title: Sign up to create an account
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Link to the Processes page displaying all the processes
       show:
         related_assemblies: Related assemblies
     statistics:

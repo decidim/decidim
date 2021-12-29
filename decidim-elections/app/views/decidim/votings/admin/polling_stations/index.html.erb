@@ -37,13 +37,13 @@
                 <% if allowed_to? :update, :polling_station, voting: current_voting, polling_station: polling_station %>
                   <%= icon_link_to "pencil", edit_voting_polling_station_path(current_voting, polling_station), t("actions.edit", scope: "decidim.votings.polling_stations"), class: "action-icon--edit" %>
                 <% else %>
-                  <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img" %>
+                  <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.votings.polling_stations") %>
                 <% end %>
 
                 <% if allowed_to? :delete, :polling_station, voting: current_voting, polling_station: polling_station %>
                   <%= icon_link_to "circle-x", voting_polling_station_path(current_voting, polling_station), t("actions.destroy", scope: "decidim.votings.polling_stations"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.votings.polling_stations") } %>
                 <% else %>
-                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
+                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.votings.polling_stations") %>
                 <% end %>
               </td>
             </tr>

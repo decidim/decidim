@@ -5,6 +5,8 @@ ca:
         delete_reason: Raó per eliminar el teu compte
       common:
         created_at: Creat el
+      conversation:
+        body: Cos
       group:
         about: Quant a
         avatar: Avatar
@@ -13,6 +15,8 @@ ca:
         name: Nom
         nickname: Àlies
         phone: Telèfon
+      message:
+        body: Cos
       report:
         details: Comentaris addicionals
       user:
@@ -63,7 +67,6 @@ ca:
     'true': 'Sí'
   carrierwave:
     errors:
-      general: Error en processar la imatge
       image_too_big: La imatge és massa gran
       not_inside_organization: L'arxiu no està relacionat amb cap organització
   date:
@@ -79,7 +82,7 @@ ca:
       logo: "Logo oficial de %{organization}"
       skip_button: Vés al contingut principal
     account:
-      blocked: Aquest compte ha estat bloquejada degut a una violació dels Termes i Condicions d'ús
+      blocked: Aquest compte ha estat bloquejat degut a una violació dels Termes i Condicions d'ús
       data_portability_export:
         file_no_exists: L'arxiu no existeix
         notice: La descàrrega de les teves dades està en curs. Rebràs un correu electrònic quan estigui completa.
@@ -95,6 +98,7 @@ ca:
         error: S'ha produït un error en eliminar el teu compte.
         success: El teu compte s'ha eliminat correctament.
       show:
+        available_locales_helper: Tria l'idioma que vols utilitzar per a navegar i rebre notificacions a Decidim
         change_password: Canvia la contrasenya
         update_account: Actualitzar compte
       update:
@@ -251,10 +255,13 @@ ca:
         download: Descarregar fitxer
       documents:
         related_documents: Documents relacionats
+      geocoding:
+        geocoded_address: Adreça
       photos:
         related_photos: Imatges relacionades
     author:
-      avatar: Avatar
+      avatar: 'Avatar: %{name}'
+      avatar_multiuser: Avatar per múltiples usuàries
       comments:
         one: comentari
         other: comentaris
@@ -310,6 +317,8 @@ ca:
           authorize: Autoritzar amb "%{authorization}"
           explanation: Per dur a terme aquesta acció, has de disposar de l'autorització "%{authorization}".
           title: Es requereix autorització
+        ok:
+          title: Has estat autoritzat mentre estàs en aquesta pàgina. Si us plau, torna a carregar la pàgina per a realitzar la teva acció
         pending:
           explanation: Per realitzar aquesta acció, has d'estar autoritzat/da amb "%{authorization}", però la teva autorització encara està en curs
           resume: Comprova el progrés de l'autorització "%{authorization}"
@@ -685,6 +694,7 @@ ca:
       no_followers: Encara no hi ha seguidores.
     following:
       no_followings: No segueix a cap persona ni cap activitat.
+      non_public_followings: Alguns dels recursos seguits no són públics.
     follows:
       create:
         button: Seguir
@@ -846,6 +856,15 @@ ca:
       index:
         last_activity: Última activitat
         resource_type: Tipus
+    links:
+      invalid_url: URL no vàlida
+      warning:
+        body_1: Estàs a punt de visitar un enllaç extern i et recomanem que siguis prudent pel que fa als continguts en pàgines externes.
+        body_2: Assegura't que l'enllaç que visitaràs és d'un lloc segur abans de seguir.
+        cancel: Cancel·lar
+        close_modal: Tancar finestra
+        proceed: Continuar
+        title: Obrir enllaç extern
     log:
       base_presenter:
         create: "%{user_name} ha creat %{resource_name}"
@@ -1221,6 +1240,7 @@ ca:
         description: Aquest contingut no és apropiat?
         does_not_belong: Conté activitat il·legal, amenaces de suïcidi, informació personal, o qualsevol altra cosa que creguis que no pertany a %{organization_name}.
         offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort o de suïcidi o qualsevol forma de discurs d'odi.
+        reason: Motiu
         report: Denunciar
         spam: Conté "clickbait", publicitat o estafes.
         title: Reportar contingut inapropiat
@@ -1246,6 +1266,8 @@ ca:
         filters:
           areas: Àrees
           select_an_area: Selecciona una àrea
+      public_participation:
+        public_participation: Mostra públicament la meva assistència
       reference:
         reference: 'Referència: %{reference}'
       represent_user_group:
@@ -1256,10 +1278,21 @@ ca:
         title: Seleccionar el nombre de resultats per pàgina
       share_modal:
         close_window: Tanca la finestra
+        copy_share_link: Còpia
+        copy_share_link_clarification: Copia l'enllaç al porta-retalls
+        copy_share_link_copied: Copiat!
+        copy_share_link_message: S'ha copiat l'enllaç al porta-retalls.
         share: Compartir
         share_link: Compartir l'enllaç
     statistics:
       comments_count: Comentaris
+      endorsements_count: Adhesions
+      followers_count: Seguidores
+      headline: Estadístiques
+      no_stats: Encara no hi ha estadístiques.
+      pages_count: Pàgines
+      participants_count: Participants
+      users_count: Participants
     tags:
       filter_results_for_category: 'Resultats al filtrar per la categoria: %{resource}'
       filter_results_for_scope: 'Resultats al filtrar per l''àmbit: %{resource}'
@@ -1297,6 +1330,7 @@ ca:
         send: Enviar
         title_reply: Respondre
       show:
+        back: Mostra totes les converses
         not_allowed: Aquesta participant no accepta missatges directes.
         title: Conversa amb %{usernames}
       update:
@@ -1342,6 +1376,7 @@ ca:
         number_of_versions: Versions
         title: Versions
     versions_list_item:
+      back: Mostra totes les versions
       show:
         version_index: Versió %{index}
     welcome_notification:
@@ -1521,8 +1556,8 @@ ca:
     correct_errors: Hi ha errors al formulari, si us plau corregeix-los per continuar.
     length_validator:
       minimum:
-        one: com a mínim %{count} caràcter
-        other: com a mínim %{count} caràcters
+        one: Almenys %{count} caràcter
+        other: Almenys %{count} caràcters
     required: Obligatori
     required_explanation: "* Els camps obligatoris estan marcats amb un asterisc"
   invisible_captcha:
@@ -1543,9 +1578,11 @@ ca:
         made_with_open_source: Web creada amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
       header:
         close_menu: Tancar menú
+        main_menu: Menú principal
         navigation: Navegació
         sign_in: Entra
         sign_up: Registra't
+        user_menu: Menú d'usuari
       impersonation_warning:
         close_session: Tanca la sessió
         description_html: Estàs gestionant la participant <b>%{user_name}</b>.
@@ -1574,6 +1611,7 @@ ca:
         profile: El meu compte
         public_profile: El meu perfil públic
         sign_out: Surt
+        title: Enllaços del perfil
       user_profile:
         account: Compte
         authorizations: Autoritzacions

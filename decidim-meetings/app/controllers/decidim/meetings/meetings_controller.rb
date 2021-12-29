@@ -5,9 +5,12 @@ module Decidim
     # Exposes the meeting resource so users can view them
     class MeetingsController < Decidim::Meetings::ApplicationController
       include FilterResource
+      include Filterable
       include Flaggable
+      include Withdrawable
       include FormFactory
       include Paginable
+
       helper Decidim::WidgetUrlsHelper
       helper Decidim::ResourceVersionsHelper
 
@@ -83,6 +86,21 @@ module Decidim
         end
       end
 
+      def withdraw
+        enforce_permission_to :withdraw, :meeting, meeting: meeting
+
+        WithdrawMeeting.call(@meeting, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("meetings.withdraw.success", scope: "decidim")
+            redirect_to Decidim::ResourceLocatorPresenter.new(@meeting).path
+          end
+          on(:invalid) do
+            flash[:alert] = I18n.t("meetings.withdraw.error", scope: "decidim")
+            redirect_to Decidim::ResourceLocatorPresenter.new(@meeting).path
+          end
+        end
+      end
+
       private
 
       def meeting
@@ -90,7 +108,7 @@ module Decidim
       end
 
       def meetings
-        @meetings ||= paginate(search.results.order(:start_time))
+        @meetings ||= paginate(search.results.order(start_time: :desc))
       end
 
       def registration
@@ -112,25 +130,9 @@ module Decidim
           activity: "all",
           scope_id: default_filter_scope_params,
           category_id: default_filter_category_params,
+          state: nil,
           origin: default_filter_origin_params,
           type: default_filter_type_params
-        }
-      end
-
-      def default_filter_origin_params
-        filter_origin_params = %w(citizens)
-        filter_origin_params << "official"
-        filter_origin_params << "user_group" if current_organization.user_groups_enabled?
-        filter_origin_params
-      end
-
-      def default_filter_type_params
-        %w(all) + Decidim::Meetings::Meeting::TYPE_OF_MEETING
-      end
-
-      def default_search_params
-        {
-          scope: Meeting.not_hidden.visible_meeting_for(current_user)
         }
       end
     end

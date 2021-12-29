@@ -6,9 +6,9 @@
         <p>
           <%= link_to resource_locator(proposal).path do %>
             <% if proposal.participatory_text_level == "article" %>
-              <u><%= decidim_html_escape(present(proposal).title).html_safe %></u>
+              <u><%= decidim_html_escape(present(proposal).title) %></u>
             <% else %>
-              <u><%= decidim_html_escape(present(proposal).title).html_safe %></u>
+              <u><%= decidim_html_escape(present(proposal).title) %></u>
             <% end %>
             <br>
           <% end %>

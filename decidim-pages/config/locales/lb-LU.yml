@@ -1,0 +1,35 @@
+lb:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Seite
+        other: Seiten
+  decidim:
+    admin_log:
+      page:
+        update: "%{user_name} hat die Seite %{resource_name} in %{space_name} aktualisiert"
+    components:
+      pages:
+        name: Seite
+        settings:
+          global:
+            announcement: Ankündigung
+          step:
+            announcement: Ankündigung
+    pages:
+      admin:
+        models:
+          components:
+            body: Haupttext
+        pages:
+          edit:
+            save: Aktualisieren
+            title: Seite bearbeiten
+          update:
+            invalid: Beim Speichern der Seite sind Fehler aufgetreten.
+            success: Seite erfolgreich gespeichert
+      home:
+        hero:
+          participate_title: An den Prozessen der Plattform teilnehmen
+        sub_hero:
+          register_title: Registrieren

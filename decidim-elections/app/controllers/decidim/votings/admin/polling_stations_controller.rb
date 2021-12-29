@@ -11,6 +11,10 @@ module Decidim
 
         helper_method :current_voting, :polling_station, :filtered_polling_stations
 
+        def index
+          enforce_permission_to :read, :polling_stations, voting: current_voting
+        end
+
         def new
           enforce_permission_to :create, :polling_station, voting: current_voting
           @form = form(PollingStationForm).instance

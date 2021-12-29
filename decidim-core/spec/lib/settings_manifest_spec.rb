@@ -126,6 +126,12 @@ module Decidim
           expect(attribute.default_value).to eq(nil)
         end
 
+        it "supports select" do
+          attribute = SettingsManifest::Attribute.new(type: :select)
+          expect(attribute.type_class).to eq(String)
+          expect(attribute.default_value).to eq(nil)
+        end
+
         it "supports scopes" do
           attribute = SettingsManifest::Attribute.new(type: :scope)
           expect(attribute.type_class).to eq(Integer)

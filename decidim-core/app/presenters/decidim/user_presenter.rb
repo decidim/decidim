@@ -22,12 +22,24 @@ module Decidim
       "verified-badge"
     end
 
-    delegate :url, to: :avatar, prefix: true
-
     def profile_url
       return "" if respond_to?(:deleted?) && deleted?
 
       decidim.profile_url(__getobj__.nickname, host: __getobj__.organization.host)
+    end
+
+    def avatar
+      attached_uploader(:avatar)
+    end
+
+    def avatar_url(variant = nil)
+      return avatar.default_url unless avatar.attached?
+
+      avatar.path(variant: variant)
+    end
+
+    def default_avatar_url
+      attached_uploader.default_url
     end
 
     def profile_path

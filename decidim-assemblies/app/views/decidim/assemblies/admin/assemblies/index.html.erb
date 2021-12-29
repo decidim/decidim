@@ -48,7 +48,7 @@
             <tr>
               <td>
                 <% if assembly.promoted? %>
-                  <span data-tooltip class="icon-state icon-highlight" aria-haspopup="true" data-disable-hover="false" title="<%= t("models.assembly.fields.promoted", scope: "decidim.admin") %>">
+                  <span data-tooltip class="icon-state icon-highlight" data-disable-hover="false" title="<%= t("models.assembly.fields.promoted", scope: "decidim.admin") %>">
                     <%= icon "star", role: "img", "aria-hidden": true %>
                   </span>
                 <% end %>

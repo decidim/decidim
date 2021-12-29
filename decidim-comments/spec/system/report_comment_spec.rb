@@ -20,5 +20,5 @@ describe "Report Comment", type: :system do
     )
   end
 
-  include_examples "reports"
+  include_examples "comments_reports"
 end

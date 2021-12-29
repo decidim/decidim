@@ -2,8 +2,8 @@
 <div id="minimap-wrapper">
   <div id="minimap">
     <div class="minimap-tab">
-      <% if current_organization.favicon.present? %>
-        <%= image_tag current_organization.favicon.url, class: "minimap-favicon" %>
+      <% if current_organization.favicon.attached? %>
+        <%= image_tag current_organization.attached_uploader(:favicon).path, class: "minimap-favicon" %>
       <% else %>
         <%= content_tag :div, nil, { class: "minimap-favicon placeholder", style: "width: #{image_width(current_organization, :favicon) * size_factor }px; height: #{image_height(current_organization, :favicon) * size_factor }px;" } do %>
         <% end %>
@@ -14,15 +14,15 @@
 
     <div class="minimap-header">
       <% if current_organization.logo.present? %>
-        <%= image_tag current_organization.logo.url, class: "minimap-logo" %>
+        <%= image_tag current_organization.attached_uploader(:logo).path, class: "minimap-logo" %>
       <% else %>
         <%= content_tag :div, nil, { class: "minimap-logo placeholder", style: "width: #{image_width(current_organization, :logo) * size_factor }px; height: #{image_height(current_organization, :logo) * size_factor }px;" } do %>
           <span><%= t("logo", scope: "activemodel.attributes.organization") %></span>
         <% end %>
       <% end %>
 
-      <% if current_organization.official_img_header.present? %>
-        <%= image_tag current_organization.official_img_header.url, class: "minimap-official_img_header" %>
+      <% if current_organization.official_img_header.attached? %>
+        <%= image_tag current_organization.attached_uploader(:official_img_header).path, class: "minimap-official_img_header" %>
       <% else %>
         <span class="float-right"><%= t("official_img_header", scope: "activemodel.attributes.organization") %> &gt; </span>
         <%= content_tag :div, nil, { class: "minimap-official_img_header placeholder float-right", style: "width: #{image_width(current_organization, :official_img_header) * size_factor }px; height: #{image_height(current_organization, :official_img_header) * size_factor }px;" } %>
@@ -34,8 +34,8 @@
     <div class="minimap-body"></div>
 
     <div class="minimap-footer">
-      <% if current_organization.official_img_footer.present? %>
-        <%= image_tag current_organization.official_img_footer.url, class: "minimap-official_img_footer" %>
+      <% if current_organization.official_img_footer.attached? %>
+        <%= image_tag current_organization.attached_uploader(:official_img_footer).path, class: "minimap-official_img_footer" %>
       <% else %>
         <%= content_tag :div, nil, { class: "minimap-official_img_footer placeholder", style: "width: #{image_width(current_organization, :official_img_footer) * size_factor }px; height: #{image_height(current_organization, :official_img_footer) * size_factor }px;" } do %>
         <span><%= t("official_img_footer", scope: "activemodel.attributes.organization") %></span>

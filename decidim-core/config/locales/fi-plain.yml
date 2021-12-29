@@ -5,6 +5,8 @@ fi-pl:
         delete_reason: Syy tilisi poistoon
       common:
         created_at: Luontiaika
+      conversation:
+        body: Viestin teksti
       group:
         about: Tietoja
         avatar: Avatar
@@ -13,6 +15,8 @@ fi-pl:
         name: Nimi
         nickname: Nimimerkki
         phone: Puhelinnumero
+      message:
+        body: Viestin teksti
       report:
         details: Lisätiedot
       user:
@@ -63,7 +67,6 @@ fi-pl:
     'true': 'Kyllä'
   carrierwave:
     errors:
-      general: Kuvan käsittely epäonnistui
       image_too_big: Kuva on liian suuri
       not_inside_organization: Tiedostoa ei ole liitetty mihinkään organisaatioon
   date:
@@ -95,6 +98,7 @@ fi-pl:
         error: Tilin poistossa tapahtui virhe.
         success: Tilisi poistaminen onnistui.
       show:
+        available_locales_helper: Valitse kieli, jota haluat käyttää selataksesi Decidimiä ja vastaanottaaksesi ilmoituksia
         change_password: Vaihda salasana
         update_account: Päivitä tili
       update:
@@ -254,10 +258,13 @@ fi-pl:
         download: Lataa tiedosto
       documents:
         related_documents: Liittyvät dokumentit
+      geocoding:
+        geocoded_address: Osoite
       photos:
         related_photos: Liittyvät kuvat
     author:
-      avatar: Avatar
+      avatar: 'Profiilikuva: %{name}'
+      avatar_multiuser: Profiilikuva usealle käyttäjälle
       comments:
         one: kommentti
         other: kommentit
@@ -313,6 +320,8 @@ fi-pl:
           authorize: Varmenna varmennustavalla "%{authorization}"
           explanation: Suorittaaksesi tämän toiminnon, sinun tulee varmentaa tilisi varmennustavalla "%{authorization}".
           title: Varmennus vaaditaan
+        ok:
+          title: Sinut on valtuutettu sen aikana, kun olet ollut tällä sivulla. Lataa sivu uudelleen suorittaaksesi toiminnon, jota yritit suorittaa.
         pending:
           explanation: Tämän toiminnon suorittamiseksi sinun varmennettava itsesi palvelulla "%{authorization}", mutta varmennuksesi on edelleen kesken
           resume: Tarkista "%{authorization}" varmennuksen eteneminen
@@ -498,6 +507,11 @@ fi-pl:
           this_application_will_not_be_able_to: 'Tämä sovellus ei voi:'
           update_profile: Päivittää profiiliasi
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> haluaa käyttää tiliäsi"
+    editor_images:
+      create:
+        error: Kuvan lähettäminen epäonnistui
+        success: Kuvan lähettäminen onnistui
+      drag_and_drop_help: Lisää kuvia raahaamalla ja pudottamalla tai liittämällä niitä leikepöydältä.
     endorsable:
       endorsements: Suosituksia
       endorsements_count: Suositusten määrä
@@ -687,6 +701,7 @@ fi-pl:
       no_followers: Ei vielä seuraajia.
     following:
       no_followings: Ei vielä seuraa ketään tai mitään.
+      non_public_followings: Osa seuratuista kohteista ei ole julkisia.
     follows:
       create:
         button: Seuraa
@@ -848,6 +863,15 @@ fi-pl:
       index:
         last_activity: Viimeisin tapahtuma
         resource_type: Tyyppi
+    links:
+      invalid_url: Virheellinen URL-osoite
+      warning:
+        body_1: Olet siirtymässä ulkoiseen osoitteeseen ja haluaisimme varoittaa sinua ulkoisilla sivustoilla olevasta sisällöstä.
+        body_2: Tarkasta osoite, jonne olet siirtymässä ja varmista, että tunnistat sen turvalliseksi sivustoksi ennen kuin jatkat eteenpäin.
+        cancel: Peruuta
+        close_modal: Sulje ikkuna
+        proceed: Jatka
+        title: Avaa ulkoinen linkki
     log:
       base_presenter:
         create: "%{user_name} loi %{resource_name}"
@@ -1223,6 +1247,7 @@ fi-pl:
         description: Onko tämä sisältö epäasiallista?
         does_not_belong: Sisältää lain vastaista toimintaa, itsemurhauhkauksia, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan organisaatioon %{organization_name}.
         offensive: Sisältää rasismia, seksismiä, loukkauksia, henkilöihin kohdistuneita hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai mitä tahansa vihapuhetta.
+        reason: Syy
         report: Tee ilmoitus
         spam: Tämä ehdotus sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
         title: Ilmoita ongelmasta
@@ -1248,6 +1273,8 @@ fi-pl:
         filters:
           areas: alueet
           select_an_area: Valitse alue
+      public_participation:
+        public_participation: Näytä läsnäoloni julkisesti
       reference:
         reference: 'Viite: %{reference}'
       represent_user_group:
@@ -1258,6 +1285,10 @@ fi-pl:
         title: Valitse tulosten määrä sivua kohti
       share_modal:
         close_window: Sulje ikkuna
+        copy_share_link: Kopio
+        copy_share_link_clarification: Kopioi jakolinkki leikepöydälle
+        copy_share_link_copied: Kopioitu!
+        copy_share_link_message: Linkin kopiointi leikepöydälle onnistui.
         share: Jaa
         share_link: Jaa linkki
     statistics:
@@ -1306,6 +1337,7 @@ fi-pl:
         send: Lähetä
         title_reply: Vastaa
       show:
+        back: Näytä kaikki keskustelut
         not_allowed: Tämä käyttäjä ei ole sallinut yksityisviestejä muilta käyttäjiltä.
         title: 'Keskustelu: %{usernames}'
       update:
@@ -1351,6 +1383,7 @@ fi-pl:
         number_of_versions: Versiot
         title: Versiot
     versions_list_item:
+      back: Näytä kaikki versiot
       show:
         version_index: Versio %{index}
     welcome_notification:
@@ -1531,8 +1564,8 @@ fi-pl:
     correct_errors: Lomakkeella on virheitä, korjaa ne jatkaaksesi.
     length_validator:
       minimum:
-        one: vähintään %{count} kirjain
-        other: vähintään %{count} kirjainta
+        one: Vähintään %{count} kirjain
+        other: Vähintään %{count} kirjainta
     required: Vaadittu
     required_explanation: "* Vaaditut kentät on merkitty tähtimerkillä"
   invisible_captcha:
@@ -1553,9 +1586,11 @@ fi-pl:
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
       header:
         close_menu: Sulje valikko
+        main_menu: Päävalikko
         navigation: Navigaatio
         sign_in: Kirjaudu sisään
         sign_up: Rekisteröidy
+        user_menu: Käyttäjän valikko
       impersonation_warning:
         close_session: Sulje istunto
         description_html: Esiinnyt käyttäjänä <b>%{user_name}</b>.
@@ -1584,6 +1619,7 @@ fi-pl:
         profile: Oma käyttäjätili
         public_profile: Oma julkinen profiili
         sign_out: Kirjaudu ulos
+        title: Profiilin linkit
       user_profile:
         account: Käyttäjätili
         authorizations: Varmennukset

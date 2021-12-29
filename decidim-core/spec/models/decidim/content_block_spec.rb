@@ -15,14 +15,8 @@ module Decidim
     end
 
     describe ".images_container" do
-      before do
-        # Enable processing for the test in order to catch validation errors
-        Decidim::HomepageImageUploader.enable_processing = true
-      end
-
       after do
-        Decidim::HomepageImageUploader.enable_processing = false
-        content_block.images_container.background_image.remove! if content_block.images_container.background_image
+        content_block.images_container.background_image.purge if content_block.images_container.background_image.attached?
       end
 
       it "responds to the image names" do
@@ -31,7 +25,7 @@ module Decidim
 
       context "when the image has not been uploaded" do
         it "returns nil" do
-          expect(subject.images_container.background_image.url).to be_nil
+          expect(subject.images_container.attached_uploader(:background_image).path).to be_nil
         end
       end
 
@@ -44,12 +38,15 @@ module Decidim
         end
 
         before do
+          subject.images_container.background_image.purge
           subject.images_container.background_image = original_image
           subject.save
+          subject.reload
         end
 
         it "returns the image" do
-          expect(subject.images_container.background_image).not_to be_nil
+          expect(subject.images_container.background_image.attached?).to be true
+          expect(subject.images_container.attached_uploader(:background_image).path).not_to be_nil
         end
       end
 
@@ -68,14 +65,16 @@ module Decidim
         end
 
         it "returns fails to save the image with validation errors" do
+          expect(subject.images_container.background_image.attached?).to be false
           subject.images_container.background_image = original_image
           subject.save
           expect(subject.valid?).to be(false)
           expect(subject.errors[:images_container]).to eq(["is invalid"])
           expect(subject.images_container.errors.full_messages).to eq(
-            ["Background image The image is too big"]
+            ["Background image file size must be less than or equal to 1 KB"]
           )
-          expect(subject.images).to eq({ "background_image" => nil })
+          subject.reload
+          expect(subject.images_container.background_image.attached?).to be false
         end
       end
     end

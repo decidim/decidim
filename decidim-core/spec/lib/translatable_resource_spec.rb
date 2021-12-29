@@ -57,7 +57,7 @@ module Decidim
         expect(dummy_resource).to be_valid
         dummy_resource.save
 
-        expect(Decidim::MachineTranslationResourceJob).to have_been_enqueued.on_queue("default").with(
+        expect(Decidim::MachineTranslationResourceJob).to have_been_enqueued.on_queue("translations").with(
           dummy_resource,
           dummy_resource.translatable_previous_changes,
           current_locale
@@ -67,7 +67,7 @@ module Decidim
       it "enqueues the machine translation job when resource is created" do
         another_resource = create :dummy_resource, component: dummy_resource.component
 
-        expect(Decidim::MachineTranslationResourceJob).to have_been_enqueued.on_queue("default").with(
+        expect(Decidim::MachineTranslationResourceJob).to have_been_enqueued.on_queue("translations").with(
           another_resource,
           another_resource.translatable_previous_changes,
           current_locale
@@ -82,12 +82,12 @@ module Decidim
         it "doesn't enqueue a job when resource is updated" do
           updated_title = Decidim::Faker::Localized.name
           dummy_resource.update(title: updated_title)
-          expect(Decidim::MachineTranslationResourceJob).not_to have_been_enqueued.on_queue("default")
+          expect(Decidim::MachineTranslationResourceJob).not_to have_been_enqueued.on_queue("translations")
         end
 
         it "doesn't enqueue a job when resource is created" do
           dummy_resource.save
-          expect(Decidim::MachineTranslationResourceJob).not_to have_been_enqueued.on_queue("default")
+          expect(Decidim::MachineTranslationResourceJob).not_to have_been_enqueued.on_queue("translations")
         end
       end
     end

@@ -30,7 +30,7 @@ module Decidim
           .published
           .where(organization: @organization)
           .where(
-            "GREATEST(#{title_similarity}, #{description_similarity}) >= ?",
+            Arel.sql("GREATEST(#{title_similarity}, #{description_similarity}) >= ?").to_s,
             form.title,
             form.description,
             Decidim::Initiatives.similarity_threshold

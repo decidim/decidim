@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= t ".title" %>
       <% if allowed_to?(:create, :template) %>
-        <%= link_to t("actions.new", scope: "decidim.admin", name: t("template.name", scope: "decidim.models").downcase), ["new", "questionnaire_template"], class: "button tiny button--title new" %>
+        <%= link_to t("actions.new", scope: "decidim.admin", name: t("template.name", scope: "decidim.models").downcase), [:new, :questionnaire_template], class: "button tiny button--title new" %>
       <% end %>
     </h2>
   </div>

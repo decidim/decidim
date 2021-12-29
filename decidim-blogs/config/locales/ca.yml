@@ -15,6 +15,7 @@ ca:
         edit: Edita
         new: Nova publicació
         title: Accions
+        user_group_id: Crear publicació com
       admin:
         models:
           components:
@@ -76,3 +77,5 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
           email_subject: Nova publicació publicada a %{participatory_space_title}
           notification_title: La publicació <a href="%{resource_path}">%{resource_title}</a> ha estat publicada a %{participatory_space_title}
+    statistics:
+      posts_count: Publicacions

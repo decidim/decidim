@@ -135,7 +135,7 @@ describe Decidim::OpenDataExporter do
         let(:component) do
           create(:meeting_component, organization: organization, published_at: Time.current)
         end
-        let!(:meeting) { create(:meeting, component: component) }
+        let!(:meeting) { create(:meeting, :published, component: component) }
 
         before do
           subject.export

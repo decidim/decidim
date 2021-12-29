@@ -52,7 +52,6 @@ sl:
         birthplace: Rojstni kraj
         ceased_date: Datum prenehanja
         designation_date: Datum imenovanja
-        designation_mode: Način imenovanja
         full_name: Polno ime
         gender: Spol
         position: Položaj
@@ -153,6 +152,7 @@ sl:
           assembly_members: Člani
           attachment_collections: Mape
           attachment_files: Datoteke
+          attachments: Priponke
           categories: Kategorije
           components: Komponente
           info: Informacije

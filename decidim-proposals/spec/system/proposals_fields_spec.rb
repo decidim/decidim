@@ -44,7 +44,7 @@ describe "Proposals", type: :system do
                  settings: { scopes_enabled: true, scope_id: participatory_process.scope&.id })
         end
 
-        let(:proposal_draft) { create(:proposal, :draft, component: component) }
+        let(:proposal_draft) { create(:proposal, :draft, component: component, users: [user]) }
 
         context "when process is not related to any scope" do
           it "can be related to a scope" do
@@ -80,6 +80,9 @@ describe "Proposals", type: :system do
             find("*[type=submit]").click
           end
 
+          expect(page).not_to have_css(".address__info")
+          expect(page).not_to have_css(".address__map")
+
           click_button "Publish"
 
           expect(page).to have_content("successfully")
@@ -113,10 +116,20 @@ describe "Proposals", type: :system do
               fill_in :proposal_title, with: "More sidewalks and less roads"
               fill_in :proposal_body, with: "Cities need more people, not more cars"
               fill_in_geocoding :proposal_address, with: address
+
+              expect(page).to have_css("[data-decidim-map]")
+              expect(page).to have_content("You can move the point on the map.")
+
               select translated(category.name), from: :proposal_category_id
               scope_pick scope_picker, scope
 
               find("*[type=submit]").click
+            end
+
+            within ".card__content.address" do
+              expect(page).to have_css(".address__info")
+              expect(page).to have_css(".address__map")
+              expect(page).to have_content(address)
             end
 
             click_button "Publish"
@@ -278,7 +291,7 @@ describe "Proposals", type: :system do
           end
         end
 
-        context "when attachments are allowed", processing_uploads_for: Decidim::AttachmentUploader do
+        context "when attachments are allowed" do
           let!(:component) do
             create(:proposal_component,
                    :with_creation_enabled,

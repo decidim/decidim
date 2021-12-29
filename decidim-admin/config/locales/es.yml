@@ -24,6 +24,7 @@ es:
       component:
         name: Nombre
         published_at: Publicado en
+        weight: Orden de posición
       id: ID
       import:
         user_group_id: Importar como
@@ -31,6 +32,7 @@ es:
         body: Cuerpo
         subject: Asunto
       organization:
+        admin_terms_of_use_body: Cuerpo para los términos de uso del administrador
         alert_color: Alerta
         available_authorizations: Autorizaciones disponibles
         badges_enabled: Habilitar insignias
@@ -41,6 +43,7 @@ es:
         default_locale: Idioma predeterminado
         description: Descripción
         enable_omnipresent_banner: Mostrar banner omnipresente
+        enable_participatory_space_filters: Habilitar los filtros en el espacio de participación
         facebook_handler: Nombre en Facebook
         favicon: Icono
         force_authentication: Forzar autenticación
@@ -110,10 +113,12 @@ es:
         show_in_footer: Mostrar en el pie de página
         slug: Texto corto de URL
         title: Título
+        weight: Orden de posición
       static_page_topic:
         description: Descripción
         show_in_footer: Mostrar en el pie de página
         title: Título
+        weight: Orden de posición
       user_group_csv_verification:
         file: Archivo
     errors:
@@ -153,7 +158,8 @@ es:
         browse: Explorar
         category:
           new: Nueva categoría
-        export: Exportar
+        export: Exportar todo
+        export-selection: Exportar selección
         import: Importar
         manage: Gestionar
         new: Nuevo %{name}
@@ -174,12 +180,12 @@ es:
           success: '¡Genial! Has aceptado los Términos y Condiciones de Administración.'
         actions:
           accept: Estoy de acuerdo con los siguientes términos
-          are_you_sure: '¿Estás seguro de rechazar los Términos y Condiciones de Administración?'
+          are_you_sure: '¿Seguro que deseas rechazar los términos de uso para administradoras?'
           refuse: Rechazar los Términos y Condiciones de Administración
           title: Acepto los Términos y Condiciones de Administración
         required_review:
           alert: 'Requerido: revisa nuestros Términos y Condiciones de Administración'
-          callout: Por favor dedica un momento a revisar la actualización de nuestros Términos y Condiciones de Administración. De lo contrario, no podrás usar la plataforma.
+          callout: Por favor dedica un momento a familiarizarte con los términos de uso para administradoras. En caso contrario, no podrás administrar la plataforma.
           cta: Revísalos ahora.
         title: Términos y Condiciones de Administración
       area_types:
@@ -202,7 +208,7 @@ es:
           error: Se ha producido un error al crear una nueva área.
           success: Área creada correctamente.
         destroy:
-          has_spaces: El área tiene espacios dependientes, no debe tener dependencias para ser eliminada.
+          has_spaces: Esta área tiene espacios dependientes. Asegúrate de que no hace referencia a ningún espacio de participación antes de eliminarla.
           success: Área eliminada correctamente
         edit:
           title: Editar área
@@ -255,7 +261,7 @@ es:
       block_user:
         new:
           action: Bloquear cuenta y enviar justificación
-          description: El bloqueo de una usuaria dejará su cuenta inservible, puedes proporcionar en tu justificación y directrices sobre las formas que consideres para desbloquear a la usuaria.
+          description: El bloqueo de una usuaria dejará su cuenta inutilizable. Puedes proporcionar en tu justificación los criterios bajo los cuales considerarías desbloquearla.
           justification: Justificación
           title: Bloquear a la usuaria %{name}
       categories:
@@ -318,7 +324,7 @@ es:
         'false': 'No'
         managed_user_name: Usuario gestionado
         solved: Resuelto
-        title: Conflictos de verificaciones
+        title: Conflictos de verificación
         transfer:
           email: Correo electrónico
           error: Hubo un problema al transferir el participante actual a un participante gestionado.
@@ -332,6 +338,12 @@ es:
         show:
           view_more_logs: Ver más registros
           welcome: Bienvenida al panel de administración de Decidim.
+      domain_whitelist:
+        form:
+          domain_too_short: Dominio demasiado corto
+        update:
+          error: Error al actualizar la lista blanca del dominio
+          success: Lista blanca de dominio actualizada correctamente
       exports:
         export_as: "%{name} como %{export_format}"
         formats:
@@ -344,6 +356,16 @@ es:
         category_id_eq:
           label: Categoría
         filter_label: Filtro
+        invitation_accepted_at_present:
+          label: Invitación aceptada
+          values:
+            'false': 'No'
+            'true': 'Sí'
+        last_sign_in_at_present:
+          label: Alguna vez se ha conectado
+          values:
+            'false': 'No'
+            'true': 'Sí'
         moderations:
           reportable_type_string_eq:
             label: Tipo
@@ -352,6 +374,17 @@ es:
           values:
             'false': Oficializada
             'true': No oficializada
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Invitación aceptada
+            values:
+              'false': No aceptada
+              'true': Aceptada
+          user_invitation_sent_at_not_null:
+            label: Invitación enviada
+            values:
+              'false': No enviada
+              'true': Enviada
         private_space_eq:
           label: Privado
           values:
@@ -369,12 +402,14 @@ es:
           name_or_nickname_or_email_cont: Buscar %{collection} por correo electrónico, nombre o alias.
           reported_id_string_or_reported_content_cont: Buscar %{collection} por contenido o id reportable.
           title_cont: Buscar %{collection} por título.
+          user_name_or_user_email_cont: Busca %{collection} por nombre o por correo electrónico.
         state_eq:
           label: Estado
       forms:
         file_help:
           import:
             explanation: 'Instrucciones para el archivo:'
+            message_1: Los archivos CSV, JSON y Excel (.xlsx) están soportados
             message_2: Para archivos CSV, el separador entre columnas debe ser un punto y coma (";")
       help_sections:
         error: Se ha producido un error al actualizar las secciones de ayuda
@@ -415,17 +450,12 @@ es:
           impersonate_existing_user: Gestionar participante "%{name}"
           impersonate_new_managed_user: Gestionar nueva participante
       imports:
-        creators:
-          proposalcreator: Creador de propuesta
         error: Se ha producido un error durante la importación
-        help:
-          proposalcreator: El archivo debe incluir los nombres de columna title/en y body/en (u otro idioma de tu preferencia, por ejemplo title/es y body/es). También se admiten las columnas scope/id y category/id.
-        import_from_file: Importar desde un archivo
-        invalid_lines: Se ha encontrado un error en el número de recurso %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv
             json: json
+            xlsx: xlsx
           actions:
             back: Volver
           file_legend: Añadir un archivo de importación que será procesado.
@@ -451,6 +481,7 @@ es:
         areas: Áreas
         configuration: Configuración
         dashboard: Panel de control
+        external_domain_whitelist: Dominios externos permitidos
         help_sections: Secciones de ayuda
         homepage: Página principal
         impersonations: Impersonaciones
@@ -687,7 +718,7 @@ es:
           full_name: Nombre completo
           hidden: oculto
           show: Mostrar
-          title: Mostrar dirección de correo del participante
+          title: Mostrar dirección de correo de la participante
         unblock:
           error: Se ha producido un error al desbloquear a la participante
           success: Participante desbloqueada correctamente
@@ -722,6 +753,17 @@ es:
             layout_appearance_title: Editar apariencia de diseño global
             preview: Previsualizar
           omnipresent_banner_appearance_title: Editar banner omnipresente
+      organization_external_domain_whitelist:
+        edit:
+          update: Actualizar
+        external_domain:
+          down: Bajar
+          external_domain: Dominio externo
+          remove: Eliminar
+          up: Subir
+        form:
+          add: Añadir a la lista blanca
+          title: Lista blanca de dominios externos
       organization_homepage:
         edit:
           active_content_blocks: Bloques de contenido activos
@@ -880,13 +922,6 @@ es:
           success: Grupo verificado correctamente
       user_groups:
         index:
-          filter:
-            all: Todos
-            pending: Pendiente
-            rejected: Rechazados
-            verified: Verificados
-          filter_by: Filtrar por
-          search: Buscar
           state:
             pending: Pendiente
             rejected: Rechazado

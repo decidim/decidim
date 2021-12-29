@@ -58,7 +58,6 @@ tr:
         birthplace: DogumYeri
         ceased_date: Bitiş tarihi
         designation_date: Atama tarihi
-        designation_mode: Atama modu
         full_name: Ad Soyad
         gender: Cinsiyet
         position: Pozisyon
@@ -189,6 +188,7 @@ tr:
           assembly_members: Üyeler
           attachment_collections: Klasörler
           attachment_files: Dosyalar
+          attachments: Ekler
           categories: Kategoriler
           components: Bileşenler
           info: Bilgi
@@ -383,11 +383,6 @@ tr:
         designated_on: Üzerinde belirlenen
       index:
         title: Üyeler
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Tüm konferansları görüntüleyen Konferanslar sayfasına bağlantı
     events:
       assemblies:
         create_assembly_member:
@@ -420,15 +415,7 @@ tr:
         description: Oluşturulan kurul sayısı
         object: kurullar
         title: Kurullar
-    pages:
-      home:
-        hero:
-          participate_title: Platformun süreçlerine katılın
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Tüm süreçleri gösteren Süreçler sayfasına bağlantı
       show:
         related_assemblies: İlgili kurullar
   errors:

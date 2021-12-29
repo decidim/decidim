@@ -1,0 +1,7 @@
+<div class="evote__preview-result">
+  <h3 class="evote__preview-option">
+    <%= t("decidim.elections.votes.new.nota_option") %>
+  </h3>
+
+  <%= render view: :progress_bar, locals: { results_percentage: question.blank_votes_percentage, results_total: question.blank_votes } %>
+</div>

@@ -33,11 +33,24 @@ describe "Consultation", type: :system do
 
       before do
         switch_to_host(organization.host)
-        visit decidim_consultations.consultation_path(consultation)
       end
 
-      it "redirects to root path" do
-        expect(page).to have_current_path("/")
+      it "redirects to sign in path" do
+        visit decidim_consultations.consultation_path(consultation)
+        expect(page).to have_current_path("/users/sign_in")
+      end
+
+      context "with signed in user" do
+        let!(:user) { create(:user, :confirmed, organization: organization) }
+
+        before do
+          sign_in user, scope: :user
+        end
+
+        it "redirects to root path" do
+          visit decidim_consultations.consultation_path(consultation)
+          expect(page).to have_current_path("/")
+        end
       end
     end
 

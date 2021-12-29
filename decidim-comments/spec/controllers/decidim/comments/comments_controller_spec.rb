@@ -184,6 +184,48 @@ module Decidim
           end
         end
       end
+
+      describe "DELETE destroy" do
+        let(:user) { create(:user, :confirmed, locale: "en", organization: organization) }
+        let(:comment_author) { create(:user, :confirmed, locale: "en", organization: organization) }
+        let!(:comment) { create(:comment, commentable: commentable, author: comment_author) }
+
+        it "redirects to sign in path" do
+          expect do
+            delete :destroy, xhr: true, params: { id: comment.id }
+          end.not_to(change { Decidim::Comments::Comment.not_deleted.count })
+
+          expect(response).to redirect_to("/users/sign_in")
+        end
+
+        context "when a user different of the author is signed in" do
+          before do
+            sign_in user, scope: :user
+          end
+
+          it "doesn't delete the comment" do
+            expect do
+              delete :destroy, xhr: true, params: { id: comment.id }
+            end.not_to(change { Decidim::Comments::Comment.not_deleted.count })
+
+            expect(response).not_to have_http_status(:success)
+          end
+        end
+
+        context "when the author is signed in" do
+          before do
+            sign_in comment_author, scope: :user
+          end
+
+          it "deletes the comment" do
+            expect do
+              delete :destroy, xhr: true, params: { id: comment.id }
+            end.to change { Decidim::Comments::Comment.not_deleted.count }.by(-1)
+
+            expect(response).to have_http_status(:success)
+          end
+        end
+      end
     end
   end
 end

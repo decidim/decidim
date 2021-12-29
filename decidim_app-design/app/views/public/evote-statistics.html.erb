@@ -1,0 +1,20 @@
+<%
+@title = "Statistics -- Decidim Barcelona"
+@activesection = "consultations"
+@activepage = "statistics"
+%>
+
+<%
+@title = "Evote -- Decidim Barcelona"
+%>
+
+<%= partial "template_top" %>
+
+<main>
+  <%= partial "evote_hero" %>
+  <div class="wrapper">
+    <%= partial "evote_results_stats" %>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

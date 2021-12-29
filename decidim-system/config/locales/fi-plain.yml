@@ -57,6 +57,9 @@ fi-pl:
         update:
           error: Hallinnoijan päivityksessä tapahtui virhe.
           success: Hallinnoija päivitetty onnistuneesti
+      dashboard:
+        show:
+          current_organizations: Nykyiset organisaatiot
       default_pages:
         placeholders:
           content: Lisää merkityksellistä sisältöä staattiselle sivulle %{page} hallintapaneelista.
@@ -112,6 +115,9 @@ fi-pl:
           error: Sovelluksen päivittäminen epäonnistui.
           success: Sovelluksen päivittäminen onnistui.
       organizations:
+        advanced_settings:
+          hide: Piilota lisäasetukset
+          show: Näytä lisäasetukset
         create:
           error: Uuden organisaation luonnissa tapahtui virhe.
           success: Organisaatio luotu onnistuneesti.

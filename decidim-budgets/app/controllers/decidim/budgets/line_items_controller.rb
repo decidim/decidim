@@ -20,7 +20,7 @@ module Decidim
             end
 
             on(:invalid) do
-              render nothing: true, status: :unprocessable_entity
+              format.js { render "update_budget", status: :unprocessable_entity }
             end
           end
         end
@@ -35,7 +35,7 @@ module Decidim
             end
 
             on(:invalid) do
-              render nothing: true, status: :unprocessable_entity
+              format.js { render "update_budget", status: :unprocessable_entity }
             end
           end
         end

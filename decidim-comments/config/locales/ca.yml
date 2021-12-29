@@ -19,6 +19,10 @@ ca:
       comments:
         create:
           error: S'ha produït un error en crear el comentari.
+        delete:
+          error: El comentari no s'ha pogut eliminar.
+        update:
+          error: S'ha produït un error en actualitzar el comentari.
       comments_count: Número de comentaris
       comments_title: Comentaris
       last_activity:
@@ -39,7 +43,13 @@ ca:
           user_group_id:
             label: Comentar com a
         opinion:
+          label: La teva opinió sobre aquest tema
+          negative: Negativa
+          negative_selected: La teva opinió sobre aquest tema és negativa
           neutral: Neutral
+          neutral_selected: La teva opinió sobre aquest tema és neutral
+          positive: Positiva
+          positive_selected: La teva opinió sobre aquest tema és positiva
         remaining_characters: "Queden %{count} caràcters"
         remaining_characters_1: "Queda %{count} caràcter"
         title: Deixa el teu comentari
@@ -47,7 +57,12 @@ ca:
         alignment:
           against: En contra
           in_favor: A favor
+        confirm_destroy: Segur que vols esborrar aquest comentari?
+        delete: Esborrar
+        deleted_at: Comentari esborrat el %{date}
         deleted_user: Participant eliminada
+        edit: Editar
+        edited: Editat
         hide_replies: Oculta les respostes
         reply: Respondre
         report:
@@ -62,7 +77,7 @@ ca:
             spam: Conté "clickbait", publicitat o estafes.
           title: Notificar contingut inapropiat
         show_replies: Mostra %{replies_count} respostes
-        single_comment_link_title: Aconsegueix l'enllaç al comentari
+        single_comment_link_title: Obtenir enllaç
       comment_order_selector:
         order:
           best_rated: Més ben valorats
@@ -73,17 +88,26 @@ ca:
       comment_thread:
         title: Conversa amb %{authorName}
       comments:
+        blocked_comments_for_unauthorized_user_warning: Has d'estar verificat abans de poder fer comentaris, però pots llegir els comentaris anteriors.
         blocked_comments_for_user_warning: No pots fer comentaris en aquest moment, però pots llegir els anteriors.
         blocked_comments_warning: Els comentaris estan desactivats en aquest moment, però pots llegir els anteriors.
         comment_details_title: Detalls del comentari
         loading: Carregant els comentaris ...
-        single_comment_warning: Pots revisar la resta de comentaris <a href="%{url}">aquí</a>.
+        single_comment_warning: <a href="%{url}">Mostra tots els comentaris</a>
         single_comment_warning_title: Estàs veient un sol comentari
         title:
           one: "%{count} comentari"
           other: "%{count} comentaris"
       down_vote_button:
         text: No estic d'acord amb aquest comentari
+      edit_comment_modal_form:
+        close: Tancar
+        form:
+          body:
+            label: Comentar
+            placeholder: Què opines sobre això?
+          submit: Enviar
+        title: Edita el teu comentari
       up_vote_button:
         text: Estic d'acord amb aquest comentari
     events:

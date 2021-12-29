@@ -38,7 +38,9 @@ id:
               invalid_document_type: 'Jenis dokumen tidak valid. Format yang diterima adalah: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Perlu disambungkan kembali
+            add_photos:
               needs_to_be_reattached: Perlu disambungkan kembali
             body:
               identical: DAN judul tidak bisa sama
@@ -381,11 +383,9 @@ id:
             select_states: Periksa status proposal untuk diimpor
         proposals_merges:
           create:
-            invalid: Terjadi kesalahan saat menggabungkan proposal yang dipilih.
             success: Berhasil menggabungkan proposal menjadi proposal baru.
         proposals_splits:
           create:
-            invalid: Terjadi kesalahan saat membagi proposal yang dipilih.
             success: Berhasil membagi proposal menjadi proposal baru.
       admin_log:
         proposal:

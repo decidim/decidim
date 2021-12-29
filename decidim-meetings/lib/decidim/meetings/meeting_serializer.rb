@@ -41,8 +41,8 @@ module Decidim
           location: meeting.location,
           reference: meeting.reference,
           comments: meeting.comments_count,
-          attachments: meeting.attachments.count,
-          followers: meeting.followers.count,
+          attachments: meeting.attachments.size,
+          followers: meeting.follows.size,
           url: url,
           related_proposals: related_proposals,
           related_results: related_results
@@ -52,6 +52,7 @@ module Decidim
       private
 
       attr_reader :meeting
+      alias resource meeting
 
       def component
         meeting.component

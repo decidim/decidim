@@ -265,10 +265,18 @@ shared_examples "a proposal form" do |options|
   end
 
   context "when the attachment is present" do
-    let(:attachment_params) do
+    let(:params) do
       {
-        title: "My attachment",
-        file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
+        title: title,
+        body: body,
+        author: author,
+        category_id: category_id,
+        scope_id: scope_id,
+        address: address,
+        has_address: has_address,
+        meeting_as_author: meeting_as_author,
+        suggested_hashtags: suggested_hashtags,
+        add_photos: [Decidim::Dev.test_file("city.jpeg", "image/jpeg")]
       }
     end
 
@@ -281,11 +289,11 @@ shared_examples "a proposal form" do |options|
         expect(subject).not_to be_valid
 
         if options[:i18n]
-          expect(subject.errors.full_messages).to match_array(["Title en can't be blank", "Attachment Needs to be reattached"])
-          expect(subject.errors.keys).to match_array([:title_en, :attachment])
+          expect(subject.errors.full_messages).to match_array(["Title en can't be blank", "Add photos Needs to be reattached"])
+          expect(subject.errors.keys).to match_array([:title_en, :add_photos])
         else
-          expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Title is too short (under 15 characters)", "Attachment Needs to be reattached"])
-          expect(subject.errors.keys).to match_array([:title, :attachment])
+          expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Title is too short (under 15 characters)", "Add photos Needs to be reattached"])
+          expect(subject.errors.keys).to match_array([:title, :add_photos])
         end
       end
     end

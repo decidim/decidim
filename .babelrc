@@ -1,17 +1,6 @@
+// This file is required by jest (otherwise, it doesn't transpile the test files)
 {
-  "presets": [
-    "env",
-    "airbnb",
-    "react",
-    "stage-2"
-  ],
-  "plugins": ["transform-decorators-legacy"],
-  "env": {
-    "test": {
-      "plugins": [
-        ["__coverage__", {"ignore": "*.+(test|stub).*"}],
-        "transform-es2015-modules-commonjs"
-      ]
-    }
-  }
+    "presets": [
+        "@babel/preset-env"
+    ]
 }

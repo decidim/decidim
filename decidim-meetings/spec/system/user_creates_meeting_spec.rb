@@ -6,7 +6,7 @@ describe "User creates meeting", type: :system do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
-  let(:organization) { create(:organization) }
+  let(:organization) { create(:organization, available_authorizations: %w(dummy_authorization_handler)) }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
   let(:current_component) { create :meeting_component, participatory_space: participatory_process }
   let(:start_time) { 1.day.from_now }
@@ -15,6 +15,7 @@ describe "User creates meeting", type: :system do
     create_list(
       :meeting,
       meetings_count,
+      :published,
       component: current_component,
       start_time: 1.day.from_now,
       end_time: start_time + 4.hours
@@ -28,6 +29,13 @@ describe "User creates meeting", type: :system do
   context "when creating a new meeting", :serves_geocoding_autocomplete do
     let(:user) { create :user, :confirmed, organization: organization }
     let!(:category) { create :category, participatory_space: participatory_space }
+
+    context "when the user is not logged in" do
+      it "redirects the user to the sign in page" do
+        page.visit Decidim::EngineRouter.main_proxy(component).new_meeting_path
+        expect(page).to have_current_path("/users/sign_in")
+      end
+    end
 
     context "when the user is logged in" do
       before do

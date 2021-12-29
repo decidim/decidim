@@ -15,7 +15,7 @@ module Decidim::Admin
             description_ca: "La meva descripció",
             enable_omnipresent_banner: false,
             header_snippets: '<script>alert("Hello");</script>',
-            favicon: File.new(Decidim::Dev.asset("icon.png"))
+            favicon: fixture_file_upload(File.new(Decidim::Dev.asset("icon.png")))
           }
         }
       end
@@ -117,7 +117,7 @@ module Decidim::Admin
             command.call
             organization.reload
 
-            expect(organization.favicon.small).to be_present
+            expect(organization.attached_uploader(:favicon).variant_path(:small)).to be_present
           end
         end
       end

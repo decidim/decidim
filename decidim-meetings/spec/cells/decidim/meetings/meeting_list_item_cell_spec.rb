@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Meetings
   describe MeetingListItemCell, type: :cell do
-    let!(:meeting) { create(:meeting) }
+    let!(:meeting) { create(:meeting, :published) }
 
     context "when rendering" do
       it "renders the card" do

@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
-require "searchlight"
-require "kaminari"
-require "jquery-tmpl-rails"
 require "icalendar"
-require "cells/rails"
-require "cells-erb"
-require "cell/partial"
+
+require "decidim/core"
 
 module Decidim
   module Meetings
@@ -17,7 +13,10 @@ module Decidim
       isolate_namespace Decidim::Meetings
 
       routes do
-        resources :meetings, only: [:index, :show, :new, :create, :edit, :update] do
+        resources :meetings, only: [:index, :show, :new, :create, :edit, :update, :withdraw] do
+          member do
+            put :withdraw
+          end
           resources :meeting_closes, only: [:edit, :update] do
             get :proposals_picker, on: :collection
           end
@@ -31,9 +30,16 @@ module Decidim
           end
           resources :versions, only: [:show, :index]
           resource :widget, only: :show, path: "embed"
+          resource :live_event, only: :show
+          namespace :polls do
+            resources :questions, only: [:index, :update]
+            resources :answers, only: [:index, :create]
+          end
         end
         root to: "meetings#index"
-        resource :calendar, only: [:show], format: :text
+        resource :calendar, only: [:show], format: :text do
+          resources :meetings, only: [:show], controller: :calendars, action: :meeting_calendar
+        end
       end
 
       initializer "decidim_meetings.view_hooks" do
@@ -104,8 +110,8 @@ module Decidim
         end
       end
 
-      initializer "decidim_meetings.assets" do |app|
-        app.config.assets.precompile += %w(decidim_meetings_manifest.js)
+      initializer "decidim_meetings.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
       end
     end
   end

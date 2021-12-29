@@ -38,10 +38,6 @@ module Decidim
         root to: "proposals#index"
       end
 
-      initializer "decidim_proposals.admin_assets" do |app|
-        app.config.assets.precompile += %w(admin/decidim_proposals_manifest.js)
-      end
-
       def load_seed
         nil
       end

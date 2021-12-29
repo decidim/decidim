@@ -14,7 +14,7 @@ describe "Comments", type: :system do
     )
     user
   end
-  let!(:commentable) { create(:meeting, component: component) }
+  let!(:commentable) { create(:meeting, :published, component: component) }
   let!(:follow) { create(:follow, followable: commentable, user: participatory_process_admin) }
 
   let(:resource_path) { resource_locator(commentable).path }

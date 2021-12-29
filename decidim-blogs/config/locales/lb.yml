@@ -1,0 +1,79 @@
+lb:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Neuer Blogeintrag
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Post
+        other: Beiträge
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Möchten Sie diesen Beitrag wirklich löschen?
+        destroy: Löschen
+        edit: Bearbeiten
+        new: Neuer Beitrag
+        title: Aktionen
+        user_group_id: Beitrag erstellen als
+      admin:
+        models:
+          components:
+            body: Haupttext
+          post:
+            name: Post
+        posts:
+          create:
+            invalid: Beim Erstellen dieses Posts ist ein Problem aufgetreten
+            success: Post erfolgreich erstellt
+          destroy:
+            success: Beitrag wurde erfolgreich gelöscht
+          edit:
+            save: Aktualisieren
+            title: Post bearbeiten
+          index:
+            title: Beiträge
+          new:
+            create: Erstellen
+            title: Post erstellen
+          update:
+            invalid: Beim Speichern des Posts sind Fehler aufgetreten.
+            success: Beitrag wurde erfolgreich gespeichert
+      last_activity:
+        new_post_at_html: "<span>Neuer Beitrag bei %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Autor
+            body: Haupttext
+            created_at: Hergestellt in
+            title: Titel
+      posts:
+        show:
+          back: Zurück zur Liste
+          comments: Kommentare
+          view: Anzeigen
+        sidebar_blog:
+          comments: Bemerkungen
+          most_commented_posts: Meist kommentierte Posts
+      read_more: Weiterlesen
+    components:
+      blogs:
+        name: Blog
+        settings:
+          global:
+            announcement: Ankündigung
+            comments_enabled: Kommentare aktiviert
+            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
+          step:
+            announcement: Ankündigung
+            comments_blocked: Kommentare blockiert
+            endorsements_blocked: Unterstützung deaktiviert
+            endorsements_enabled: Unterstützung aktiviert
+    events:
+      blogs:
+        post_created:
+          email_intro: Der Beitrag "%{resource_title}" wurde in "%{participatory_space_title}" veröffentlicht, dem Sie folgen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Neuer Beitrag in %{participatory_space_title}
+          notification_title: Der Beitrag <a href="%{resource_path}">%{resource_title}</a> wurde in %{participatory_space_title} veröffentlicht

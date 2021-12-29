@@ -35,6 +35,28 @@ module Decidim::Budgets
           expect(subject).to eq [resource_without_scope]
         end
       end
+
+      context "when votes are finished" do
+        let(:component) { create(:budgets_component, :with_voting_finished) }
+        let!(:resource_selected) { create(:project, :selected, budget: budget) }
+        let!(:resource_not_selected) { create(:project, budget: budget) }
+
+        context "and the user doesn't filter by status" do
+          it { expect(subject).to match_array([resource_selected, resource_not_selected]) }
+        end
+
+        context "and the user filters selected projects" do
+          let(:params) { default_params.merge(status: ["selected"]) }
+
+          it { expect(subject).to eq [resource_selected] }
+        end
+
+        context "and the user filters not selected projects" do
+          let(:params) { default_params.merge(status: ["not_selected"]) }
+
+          it { expect(subject).to eq [resource_not_selected] }
+        end
+      end
     end
   end
 end

@@ -6,9 +6,9 @@ module Decidim
   describe ActionAuthorizer do
     subject { authorizer }
 
-    let(:organization) { create :organization }
+    let(:organization) { create(:organization, available_authorizations: %w(dummy_authorization_handler another_dummy_authorization_handler)) }
     let(:user) { create(:user, organization: organization) }
-    let(:component) { create(:component, permissions: permissions) }
+    let(:component) { create(:component, permissions: permissions, organization: organization) }
     let(:resource) { nil }
     let(:action) { "vote" }
     let(:permissions) { { action => permission } }
@@ -17,10 +17,6 @@ module Decidim
 
     let!(:authorization) do
       create(:authorization, :granted, name: name, metadata: metadata)
-    end
-
-    let!(:another_authorization) do
-      create(:authorization, :granted, name: "another_dummy_authorization_handler", metadata: metadata)
     end
 
     let(:metadata) { { postal_code: "1234", location: "Tomorrowland" } }
@@ -46,7 +42,39 @@ module Decidim
         end
       end
 
+      context "when one authorization handler is set" do
+        let(:permission) do
+          {
+            "authorization_handler_name" => name,
+            "options" => options
+          }
+        end
+
+        context "when authorization is granted" do
+          before { authorization.update!(user: user, granted_at: 1.minute.ago) }
+
+          it "returns an authorization status ok" do
+            expect(response).to be_ok
+            expect(response.statuses.count).to eq(1)
+            expect(response.codes).to include(:ok)
+          end
+        end
+
+        context "when authorization is not granted" do
+          before { authorization.update!(user: user, granted_at: nil) }
+
+          it "returns an authorization status not ok" do
+            expect(response).not_to be_ok
+            expect(response.statuses.count).to eq(1)
+            expect(response.codes).to include(:pending)
+          end
+        end
+      end
+
       context "when more than one authorization handlers are set" do
+        let!(:another_authorization) do
+          create(:authorization, :granted, name: "another_dummy_authorization_handler", metadata: metadata)
+        end
         let(:permission) do
           {
             "authorization_handlers" => {
@@ -86,6 +114,21 @@ module Decidim
               expect(response.codes).to include(:unauthorized)
             end
           end
+        end
+      end
+
+      context "when organization doesnt have authorization handler available" do
+        let(:permission) do
+          {
+            "authorization_handlers" => {
+              "disabled_authorization_handler" => {}
+            }
+          }
+        end
+
+        it "doesn't require it" do
+          expect(response).to be_ok
+          expect(response.statuses.count).to eq(0)
         end
       end
 

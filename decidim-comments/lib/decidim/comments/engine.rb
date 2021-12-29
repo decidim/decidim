@@ -4,11 +4,7 @@ require "rails"
 require "active_support/all"
 
 require "decidim/core"
-require "jquery-rails"
-require "sassc-rails"
-require "foundation-rails"
 require "foundation_rails_helper"
-require "autoprefixer-rails"
 
 require "decidim/comments/query_extensions"
 require "decidim/comments/mutation_extensions"
@@ -20,13 +16,9 @@ module Decidim
       isolate_namespace Decidim::Comments
 
       routes do
-        resources :comments, only: [:index, :create] do
+        resources :comments, except: [:new, :edit] do
           resources :votes, only: [:create]
         end
-      end
-
-      initializer "decidim_comments.assets" do |app|
-        app.config.assets.precompile += %w(decidim_comments_manifest.js)
       end
 
       initializer "decidim_comments.query_extensions" do
@@ -73,6 +65,10 @@ module Decidim
       initializer "decidim_comments.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Comments::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Comments::Engine.root}/app/views") # for partials
+      end
+
+      initializer "decidim_comments.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
       end
     end
   end

@@ -9,13 +9,11 @@ describe Decidim::OpenDataJob do
 
   describe "perform" do
     before do
-      FileUtils.rm(organization.open_data_file.file.path) if organization.open_data_file.file.exists?
+      organization.open_data_file.purge
     end
 
     it "uploads the generated file" do
-      subject.perform_now(organization)
-
-      expect(organization.open_data_file.file.exists?).to eq(true)
+      expect { subject.perform_now(organization) }.to change { organization.open_data_file.attached? }.from(false).to(true)
     end
   end
 end

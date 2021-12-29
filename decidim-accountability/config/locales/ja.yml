@@ -80,7 +80,7 @@ ja:
             success: 結果を更新しました
         shared:
           subnav:
-            statuses: Statuses
+            statuses: ステータス
         statuses:
           create:
             invalid: ステータスの作成中に問題が発生しました
@@ -91,9 +91,9 @@ ja:
             title: ステータスの編集
             update: ステータスを更新
           index:
-            title: Statuses
+            title: ステータス
           new:
-            create: 状態を作成
+            create: ステータスを作成
             title: 新しいステータス
           update:
             invalid: ステータスの更新中に問題が発生しました
@@ -101,9 +101,9 @@ ja:
         timeline_entries:
           create:
             invalid: このエントリの作成中に問題が発生しました
-            success: Entry successfully created
+            success: エントリが正常に作成されました。
           destroy:
-            success: Entry successfully deleted
+            success: エントリが正常に削除されました。
           edit:
             title: エントリを編集
             update: エントリを更新
@@ -114,7 +114,7 @@ ja:
             title: 新しい項目
           update:
             invalid: このエントリの更新中に問題が発生しました
-            success: Entry successfully updated
+            success: エントリが正常に更新されました。
       admin_log:
         result:
           create: "%{user_name} が結果 %{resource_name} を %{space_name} に作成しました"
@@ -202,6 +202,8 @@ ja:
             label: ステータス
     components:
       accountability:
+        actions:
+          comment: コメント
         name: アカウンタビリティ
         settings:
           global:

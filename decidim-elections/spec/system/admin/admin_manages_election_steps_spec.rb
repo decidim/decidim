@@ -2,28 +2,16 @@
 
 require "spec_helper"
 
-describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
-  let(:manifest_name) { "elections" }
-
-  include_context "when mocking the bulletin board in the browser"
-
-  include_context "when managing a component as an admin" do
-    let(:admin_component_organization_traits) { [:secure_context] }
-  end
-
-  before do
-    election
-    login_as user, scope: :user
-    visit_component_admin
-  end
+describe "Admin manages election steps", :slow, type: :system do
+  include Decidim::Elections::FullElectionHelpers
+  include_context "with test bulletin board"
+  include_context "when admin manages elections"
 
   describe "setup an election" do
-    let!(:election) { create :election, :ready_for_setup, component: current_component }
+    let(:election) { create :election, :ready_for_setup, component: current_component, title: { en: "English title", es: "" } }
 
     it "performs the action successfully" do
-      within find("tr", text: translated(election.title)) do
-        page.find(".action-icon--manage-steps").click
-      end
+      visit_steps_page
 
       within "form.create_election" do
         expect(page).to have_content("The election has at least 1 question.")
@@ -31,7 +19,7 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
         expect(page).to have_content("All the questions have a correct value for maximum of answers.")
         expect(page).to have_content("The election is published.")
         expect(page).to have_content("The setup is being done at least 3 hours before the election starts.")
-        expect(page).to have_content("The participatory space has at least 2 trustees with public key.")
+        expect(page).to have_content("The participatory space has at least 3 trustees with public key.")
         expect(page).to have_content("has a public key", minimum: 2)
 
         click_button "Setup election"
@@ -47,12 +35,10 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
   end
 
   describe "start the key ceremony" do
-    let!(:election) { create :election, :bb_test, :created, component: current_component }
+    let(:election) { create :election, :bb_test, :created, component: current_component }
 
     it "performs the action successfully" do
-      within find("tr", text: translated(election.title)) do
-        page.find(".action-icon--manage-steps").click
-      end
+      visit_steps_page
 
       within ".form.created" do
         expect(page).to have_content("Trustees")
@@ -72,27 +58,36 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
     end
   end
 
-  describe "view key ceremony step" do
-    let!(:election) { create :election, :key_ceremony, component: current_component }
+  describe "view key ceremony step", :slow, download: true do
+    include_context "when performing the whole process"
 
     it "shows the step information" do
-      within find("tr", text: translated(election.title)) do
-        page.find(".action-icon--manage-steps").click
-      end
+      setup_election
 
-      within ".content.key_ceremony" do
-        expect(page).to have_content("Key ceremony")
-      end
+      visit_steps_page
+      expect(page).to have_content("Key ceremony")
+      expect(page).to have_css(".loading-spinner") # It shows the loading icon
+      expect(page).not_to have_css("svg.icon--task") # The trustees didn't participate yet
+      expect(page).to have_link("Continue", class: "disabled")
+
+      download_election_keys(0)
+      download_election_keys(1)
+      download_election_keys(2)
+
+      visit_steps_page
+      expect(page).to have_content("Key ceremony")
+      expect(page).not_to have_css(".loading-spinner") # It's not waiting for any trustee
+      expect(page).to have_css("svg.icon--task") # All the trustees are active
+      expect(page).not_to have_link("Continue", class: "disabled")
+      expect(page).to have_link("Continue")
     end
   end
 
   describe "start the voting period" do
-    let!(:election) { create :election, :bb_test, :key_ceremony_ended, component: current_component }
+    let(:election) { create :election, :bb_test, :key_ceremony_ended, component: current_component }
 
     it "performs the action successfully" do
-      within find("tr", text: translated(election.title)) do
-        page.find(".action-icon--manage-steps").click
-      end
+      visit_steps_page
 
       within ".form.key_ceremony_ended" do
         expect(page).to have_content("The election will start soon.")
@@ -113,13 +108,11 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
   end
 
   describe "voting period" do
-    let!(:election) { create :election, :bb_test, :vote, component: current_component }
+    let(:election) { create :election, :bb_test, :vote, component: current_component }
 
     context "with no vote statistics" do
       it "shows text about vote statistics" do
-        within find("tr", text: translated(election.title)) do
-          page.find(".action-icon--manage-steps").click
-        end
+        visit_steps_page
 
         within "#vote-stats" do
           expect(page).to have_content("Vote Statistics")
@@ -135,9 +128,7 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
       let!(:user_2_votes) { create :vote, election: election, status: "accepted", voter_id: "voter_#{user_2.id}" }
 
       it "shows votes and unique voters" do
-        within find("tr", text: translated(election.title)) do
-          page.find(".action-icon--manage-steps").click
-        end
+        visit_steps_page
 
         within "#vote-stats" do
           expect(page).to have_content("Votes")
@@ -154,12 +145,10 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
   end
 
   describe "end the voting period" do
-    let!(:election) { create :election, :bb_test, :vote, :finished, component: current_component }
+    let(:election) { create :election, :bb_test, :vote, :finished, component: current_component }
 
     it "performs the action successfully" do
-      within find("tr", text: translated(election.title)) do
-        page.find(".action-icon--manage-steps").click
-      end
+      visit_steps_page
 
       within ".form.vote" do
         expect(page).to have_content("The election has ended.")
@@ -180,12 +169,10 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
   end
 
   describe "start the tally" do
-    let!(:election) { create :election, :bb_test, :vote_ended, component: current_component }
+    let(:election) { create :election, :bb_test, :vote_ended, component: current_component }
 
     it "performs the action successfully" do
-      within find("tr", text: translated(election.title)) do
-        page.find(".action-icon--manage-steps").click
-      end
+      visit_steps_page
 
       within ".form.vote_ended" do
         expect(page).to have_content("Vote period ended")
@@ -199,40 +186,62 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
         expect(page).to have_content("Processing...")
       end
 
-      within ".content.tally" do
-        expect(page).to have_content("Tally")
+      within ".form.tally" do
+        expect(page).to have_content("Tally process")
       end
     end
   end
 
+  describe "report missing trustee" do
+    let(:election) { create :election, :bb_test, :tally, component: current_component }
+    let(:trustee) { election.trustees.first }
+
+    it "marks the trustee as missing" do
+      visit_steps_page
+
+      # allows admin to mark trustees as missing
+      expect(page).to have_selector("button", text: "Mark as missing")
+
+      within find("tr", text: trustee.name) do
+        click_button "Mark as missing"
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      # shows the trustee as missing
+      within find("tr", text: trustee.name) do
+        expect(page).to have_css("svg.icon--x")
+      end
+
+      # don't allow to mark more trustees as missing
+      expect(page).not_to have_selector("button", text: "Mark as missing")
+    end
+  end
+
   describe "tally ended" do
-    let!(:election) { create :election, :bb_test, :tally_ended, component: current_component }
-    let!(:question) { election.questions.first }
-    let!(:answer) { question.answers.first }
+    let(:election) { create :election, :tally_ended, component: current_component }
+    let(:question) { election.questions.first }
+    let(:answer) { question.answers.first }
 
     it "shows the calculated results" do
-      within find("tr", text: translated(election.title)) do
-        page.find(".action-icon--manage-steps").click
-      end
+      visit_steps_page
 
       within ".form.tally_ended" do
         expect(page).to have_content("Calculated results")
         expect(page).to have_content(translated(question.title))
         expect(page).to have_content(translated(answer.title))
-        expect(page).to have_content(answer.votes_count)
+        expect(page).to have_content(answer.results_total)
       end
     end
   end
 
   describe "publishing results" do
-    let!(:election) { create :election, :bb_test, :tally_ended, component: current_component }
-    let!(:question) { election.questions.first }
-    let!(:answer) { question.answers.first }
+    let(:election) { create :election, :bb_test, :tally_ended, component: current_component }
+    let(:question) { election.questions.first }
+    let(:answer) { question.answers.first }
 
     it "performs the action successfully" do
-      within find("tr", text: translated(election.title)) do
-        page.find(".action-icon--manage-steps").click
-      end
+      visit_steps_page
 
       within ".form.tally_ended" do
         expect(page).to have_content("Calculated results")
@@ -242,9 +251,24 @@ describe "Admin manages election steps", :vcr, :billy, :slow, type: :system do
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".form.results_published" do
+      within ".form.tally_ended" do
+        expect(page).to have_content("Processing...")
+      end
+
+      within ".content.results_published" do
         expect(page).to have_content("Results published")
       end
+    end
+  end
+
+  def visit_steps_page
+    election
+
+    relogin_as user, scope: :user
+    visit_component_admin
+
+    within find("tr", text: translated(election.title)) do
+      page.find(".action-icon--manage-steps").click
     end
   end
 end

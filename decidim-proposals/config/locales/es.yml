@@ -35,6 +35,7 @@ es:
         origin_component_id: Componente desde dónde importar las propuestas
       proposals_import:
         import_proposals: Importar propuestas
+        keep_answers: Mantener estado y respuestas
         keep_authors: Mantener autoría original
       valuation_assignment:
         admin_log:
@@ -47,7 +48,9 @@ es:
               invalid_document_type: 'Tipo de documento no válido. Los formatos aceptados son: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Es necesario volver a adjuntar el fichero
+            add_photos:
               needs_to_be_reattached: Es necesario volver a adjuntar el fichero
             body:
               cant_be_equal_to_template: no puede ser igual a la plantilla
@@ -113,14 +116,15 @@ es:
       proposals:
         actions:
           amend: Enmendar
+          comment: Comentar
           create: Crear
           endorse: Adherirse
           vote: Dar apoyo
+          vote_comment: Votar comentario
           withdraw: Retirar
         name: Propuestas
         settings:
           global:
-            allow_card_image: Permitir tarjeta con imagen
             amendments_enabled: Enmiendas habilitadas
             amendments_enabled_help: Si está activo, configura las opciones de enmiendas para cada fase.
             amendments_wizard_help_text: Asistente de ayuda de las enmiendas
@@ -189,10 +193,10 @@ es:
             email_subject: Alguien dejó una nota en la propuesta %{resource_title}.
             notification_title: Alguien ha dejado una nota en la propuesta <a href="%{resource_path}">%{resource_title}</a>. Revísala ahora a través del <a href="%{admin_proposal_info_path}">panel de administración</a>
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} ha sido aceptado para acceder como contribuidora del borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.'
+          email_intro: '%{requester_name} ha sido aceptada para acceder como contribuidora del borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Has recibido esta notificación porque eres contribuidora de <a href="%{resource_path}">%{resource_title}</a>.
-          email_subject: "%{requester_name} ha sido aceptado para acceder como contribuidora de %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sido <strong>aceptado para acceder como colaboradora</strong> del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} ha sido aceptada para acceder como contribuidora de %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sido <strong>aceptada para acceder como contribuidora</strong> del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} ha sido rechazado para acceder como contribuidora del borrador colaborativo de <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Has recibido esta notificación porque eres contribuidora de <a href="%{resource_path}">%{resource_title}</a>.
@@ -504,11 +508,9 @@ es:
             title: Importar propuestas
         proposals_merges:
           create:
-            invalid: Se ha producido un error al fusionar las propuestas seleccionadas.
             success: Se han convinado con éxito las propuestas en una de nueva.
         proposals_splits:
           create:
-            invalid: Se ha producido un error al dividir las propuestas seleccionadas.
             success: Las propuestas se han dividido en otras nuevas con éxito.
         valuation_assignments:
           create:
@@ -665,6 +667,7 @@ es:
         success: El borrador de la propuesta fue eliminado correctamente.
       last_activity:
         new_proposal_at_html: "<span>Nueva propuesta en %{link}</span>"
+        proposal_updated_at_html: "<span>Propuesta actualizada a las %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -710,7 +713,8 @@ es:
             one: "%{count} propuesta"
             other: "%{count} propuestas"
         dynamic_map_instructions:
-          instructions: <h3>Puedes mover el punto en el mapa. </h3><p>No olvides hacer clic en el botón "Actualizar posición" antes de publicar tu propuesta.</p>
+          description: Las coordenadas se actualizarán cuando hagas clic en el botón 'previsualizar'. Sin embargo, la dirección no cambia.
+          instructions: Puedes mover la ubicación en el mapa.
         edit:
           add_documents: Documentos
           add_images: Archivo
@@ -782,7 +786,6 @@ es:
             other: Podrás editar esta propuesta durante los primeros %{count} minutos después que se publique. Una vez que pase este tiempo, no podrás editar la propuesta.
           publish: Publicar
           title: Publicar tu propuesta
-          update_position: Actualizar posición
         proposal:
           creation_date: 'Fecha de creación: %{date}'
           view_proposal: Ver propuesta
@@ -899,3 +902,7 @@ es:
       included_proposals:
         proposal_project: 'Propuesta vinculada a estos proyectos:'
         proposal_result: 'Propuesta vinculada a estos resultados:'
+    statistics:
+      proposals_accepted: Propuestas aceptadas
+      proposals_count: Propuestas
+      supports_count: Apoyos

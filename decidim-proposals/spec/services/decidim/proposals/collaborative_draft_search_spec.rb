@@ -26,8 +26,8 @@ module Decidim
 
           it "returns the drafts containing the search in the title or the body" do
             create_list(:collaborative_draft, 3, component: component)
-            create(:collaborative_draft, title: "A giraffe", component: component)
-            create(:collaborative_draft, body: "There is a giraffe in the office", component: component)
+            create(:collaborative_draft, title: { en: "A giraffe" }, component: component)
+            create(:collaborative_draft, body: { en: "There is a giraffe in the office" }, component: component)
 
             expect(subject.size).to eq(2)
           end

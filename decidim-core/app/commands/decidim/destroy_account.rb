@@ -39,7 +39,7 @@ module Decidim
       @user.admin = false if @user.admin?
       @user.deleted_at = Time.current
       @user.skip_reconfirmation!
-      @user.remove_avatar!
+      @user.avatar.purge
       @user.save!
     end
 

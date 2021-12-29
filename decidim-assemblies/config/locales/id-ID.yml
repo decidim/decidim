@@ -56,7 +56,6 @@ id:
         birthplace: Tempat lahir
         ceased_date: Tanggal berhenti
         designation_date: Tanggal penunjukan
-        designation_mode: Mode penunjukan
         full_name: Nama lengkap
         gender: Jenis kelamin
         position: Posisi
@@ -153,6 +152,7 @@ id:
           assembly_members: Anggota
           attachment_collections: Folder
           attachment_files: File
+          attachments: Lampiran
           categories: Kategori
           components: Komponen
           info: Info

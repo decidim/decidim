@@ -105,8 +105,8 @@ shared_examples "manage conferences" do
 
       expect(page).to have_admin_callout("successfully")
 
-      expect(page).to have_css("img[src*='#{conference.hero_image.url}']")
-      expect(page).to have_css("img[src*='#{conference.banner_image.url}']")
+      expect(page).to have_css("img[src*='#{conference.attached_uploader(:hero_image).path}']")
+      expect(page).to have_css("img[src*='#{conference.attached_uploader(:banner_image).path}']")
     end
   end
 

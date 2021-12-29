@@ -205,7 +205,7 @@ shared_examples "manage impersonations examples" do
 
         context "and no reason is provided" do
           it "prevents submissions and shows an error" do
-            expect(page).to have_content("You need to provide a reason when managing a non managed participant")
+            expect(page).to have_content("You need to provide a reason when managing a non-managed participant")
           end
         end
 

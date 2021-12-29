@@ -1,0 +1,291 @@
+lb:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Banner-Bild
+        decidim_highlighted_scope_id: Hervorgehobener Umfang
+        description: Beschreibung
+        end_voting_date: Die Abstimmung endet
+        introductory_image: Einführungsbild
+        introductory_video_url: Einleitende Video-URL
+        questions: Fragen
+        slug: URL-Block
+        start_voting_date: Die Abstimmung beginnt
+        subtitle: Untertitel
+        title: Titel
+      question:
+        banner_image: Banner-Bild
+        decidim_scope_id: Kommunales Gebiet
+        hashtag: Hashtag
+        hero_image: Hauptbild
+        i_frame_url: URL des externen Abstimmungssystems
+        instructions: Zusätzliche Anweisungen für Abstimmungen
+        max_votes: Maximale Anzahl von Stimmen
+        min_votes: Mindestanzahl von Stimmen
+        origin_scope: Umfang
+        origin_title: Ursprung
+        origin_url: Ursprungs-URL
+        participatory_scope: Partizipativer Bereich
+        promoter_group: Promoter-Gruppe
+        question_context: Kontext
+        reference: Referenz
+        scope: Kommunales Gebiet
+        slug: URL-Block
+        subtitle: Untertitel
+        vote: Externes Wahlsystem
+        what_is_decided: Was ist entschieden?
+      response:
+        decidim_consultations_response_group_id: Gruppe
+    errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Die maximale Anzahl von Stimmen sollte höher oder gleich der Mindestanzahl sein.
+      vote:
+        decidim_consultations_response_id:
+          not_found: Antwort nicht gefunden.
+  activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Die Anzahl der Stimmen ist ungültig
+    models:
+      decidim/consultation:
+        one: Beratung
+        other: Konsultationen
+      decidim/consultations/question:
+        one: Frage
+        other: Fragen
+      decidim/consultations/response:
+        one: Antwort
+        other: Antworten
+      decidim/consultations/vote:
+        one: Abstimmung
+        other: Abstimmung
+  decidim:
+    admin:
+      actions:
+        back_to_responses: Zurück zu Antworten
+        new_consultation: Neue Konsultation
+        new_question: Neue Frage
+        new_response: Neue Antwort
+        new_response_group: Neue Gruppe
+        publish_results: Veröffentlichen Sie die Ergebnisse
+        response_groups: Antwortgruppen verwalten
+        unpublish_results: Veröffentlichen Sie die Ergebnisse
+      consultation_publications:
+        create:
+          error: Bei der Veröffentlichung dieser Konsultation ist ein Fehler aufgetreten.
+          success: Konsultation erfolgreich veröffentlicht.
+        destroy:
+          error: Es ist ein Fehler aufgetreten, diese Konsultation aufzuheben.
+          success: Beratung wurde erfolgreich nicht veröffentlicht.
+      consultation_results_publications:
+        create:
+          error: Bei der Veröffentlichung der Ergebnisse für diese Konsultation ist ein Fehler aufgetreten.
+          success: Konsultationsergebnisse erfolgreich veröffentlicht.
+        destroy:
+          error: Es ist ein Fehler aufgetreten, die Ergebnisse dieser Konsultation nicht zu veröffentlichen.
+          success: Konsultationsergebnisse wurden nicht veröffentlicht.
+      consultations:
+        create:
+          error: Beim Erstellen einer neuen Konsultation ist ein Fehler aufgetreten.
+          success: Beratung erfolgreich erstellt.
+        deprecation_warning: Das Beratungsmodul wird in naher Zukunft veraltet sein. Wir arbeiten an der nächsten, kryptographisch sicheren Version namens Votings.
+        edit:
+          update: Aktualisieren
+        form:
+          slug_help: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Abfrage verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+      questions:
+        new:
+          create: Erstellen
+          title: Neue Frage
+        update:
+          error: Beim Aktualisieren dieser Frage ist ein Fehler aufgetreten.
+          success: Frage erfolgreich aktualisiert.
+      response_groups:
+        create:
+          error: Beim Erstellen einer neuen Antwortgruppe ist ein Fehler aufgetreten.
+          success: Antwortgruppe wurde erfolgreich erstellt.
+        destroy:
+          error: Beim Entfernen der Antwortgruppe ist ein Fehler aufgetreten. Prüfen Sie, dass keine Antworten von dieser Gruppe abhängig sind.
+          success: Antwortgruppe wurde erfolgreich gelöscht.
+        edit:
+          update: Aktualisieren
+        form:
+          title: Allgemeine Information
+        help: Verwenden Sie Gruppen, um Multiple-Choice-Fragen in Paketen zu organisieren.
+        new:
+          create: Erstellen
+          title: Neue Antwortgruppe
+        update:
+          error: Beim Aktualisieren dieser Antwort ist ein Fehler aufgetreten.
+          success: Antwort wurde erfolgreich aktualisiert.
+      responses:
+        create:
+          error: Beim Erstellen einer neuen Antwort ist ein Fehler aufgetreten.
+          success: Antwort erfolgreich erstellt
+        destroy:
+          error: Beim Entfernen der Antwort ist ein Fehler aufgetreten.
+          success: Antwort wurde erfolgreich gelöscht.
+        edit:
+          update: Aktualisieren
+        form:
+          title: Allgemeine Information
+        new:
+          create: Erstellen
+          title: Neue Antwort
+        update:
+          error: Beim Aktualisieren dieser Antwort ist ein Fehler aufgetreten.
+          success: Antwort wurde erfolgreich aktualisiert.
+      titles:
+        consultations: Konsultationen
+        questions: Fragen
+        response_groups: Antwortgruppen
+        responses: Antworten
+        results: Ergebnisse
+    consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
+      consultation:
+        start_voting_date: Die Abstimmung beginnt
+        view_results: Ergebnisse anzeigen
+      consultation_card:
+        view_results: Ergebnisse anzeigen
+      consultations:
+        orders:
+          label: 'Sortieren Sie die Konsultationen nach:'
+          random: Zufällig
+          recent: Neueste zuerst
+        show:
+          dates: Daten
+      content_blocks:
+        highlighted_consultations:
+          name: Hervorgehobene Konsultationen
+      count:
+        title:
+          one: "%{count} Beratung"
+          other: "%{count} Konsultationen"
+      filters:
+        active: Aktiv
+        all: Alle
+        finished: Fertig
+        search: Suche
+        state: Zustand
+        upcoming: Bevorstehende
+      filters_small_view:
+        close_modal: Fenster schließen
+        filter: Filter
+        filter_by: Filtern nach
+        unfold: Entfalten
+      pages:
+        home:
+          highlighted_consultations:
+            see_all_consultations: Sehen Sie alle Konsultationen
+            voting_ends_in:
+              one: Die Abstimmung endet <strong>morgen</strong>
+              other: Die Abstimmung endet in <strong>%{count} Tagen</strong>
+            voting_ends_today: Die Abstimmung endet <strong>heute</strong>
+      question:
+        take_part: Teilnehmen
+        view_results: Ergebnisse anzeigen
+        votes_out_of:
+          one: abstimmen
+          other: Stimmen aus
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Teilnehmer konnten mindestens %{votes} Stimmen für verschiedene Optionen abgeben.
+          title: In dieser Frage sind Multiple-Choice-Fragen erlaubt
+          total_participants: Es haben insgesamt %{count} Personen an der Abstimmung teilgenommen.
+          vote_limit:
+            description: Teilnehmer konnten bis zu über %{limit} Optionen abstimmen.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Sie müssen mindestens %{votes} Stimmen für verschiedene Optionen abgeben.
+          title: 'Die Abstimmung unterliegt folgenden Regeln:'
+          vote_limit:
+            description: Sie können bis zu über %{limit} Optionen abstimmen.
+            left: Verbleibend
+            votes: Stimmen
+      question_votes:
+        create:
+          error: Es gab Fehler bei der Abstimmung der Frage
+          success: Sie können dies bis zum Ende der Konsultation ändern. Nur die letzte Stimme wird akzeptiert.
+          title_error: Abstimmungsfehler!
+          title_success: Stimme erfolgreich registriert
+      regular_questions:
+        title: Fragen für diese Konsultation
+      show:
+        badge_name:
+          finished: Abgeschlossen
+          open: Öffnen
+          open_votes: Stimmen öffnen
+          published_results: Ergebnisse veröffentlicht
+        footer_button_text:
+          debate: Debatte
+          view: Anzeigen
+          view_results: Ergebnisse anzeigen
+          vote: Abstimmen
+        unspecified: Keine Angabe
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p>Eine <strong>Konsultation</strong> ist ein Raum, in dem Sie allen Personen, die eine Organisation gründen, eine klare Frage stellen, zur Teilnahme an der Konsultation anrufen, die Debatte für oder gegen eine Antwort. Wenn der Konsultationstermin erreicht ist, können Sie abstimmen und die Ergebnisse der Abstimmungen veröffentlichen.</p> <p>Beispiele: Die Konsultationen können sich auf fast jeden Aspekt beziehen, der eine Organisation betrifft: Einige Beispiele sind die Änderung des Namens oder des Logos der Organisation mehrere Alternativen anbieten, Ja oder Nein entscheiden, Teil einer größeren Organisation zu werden, einen neuen strategischen Plan oder das Ergebnis einer Arbeitsgruppe validieren oder ablehnen oder festlegen, ob die Positionen maximal 1, 2 oder 3 Mandate bleiben sollen.</ p>"
+          page: "<p>Eine <strong>Konsultation</strong> ist ein Raum, in dem Sie allen Personen, die eine Organisation bilden, eine klare Frage stellen, anrufen, um an der Konsultation teilzunehmen, die Debatte für oder gegen eine Antwort anzuordnen. Wenn das Konsultationsdatum erreicht ist, können Sie abstimmen und die Abstimmungsergebnisse veröffentlichen.</p> <p>Beispiele: Bei den Konsultationen kann es sich um fast jeden Aspekt handeln, der eine Organisation betrifft: Bei einigen Beispielen wird der Name oder das Logo der Organisation geändert, die verschiedene Alternativen bietet. Sie entscheiden sich für Ja oder Nein, um Teil einer größeren Organisation zu werden, eine neue Strategie zu bestätigen oder abzulehnen Plan oder das Ergebnis einer Arbeitsgruppe oder die Festlegung, ob die Positionen maximal 1, 2 oder 3 Mandate in der Organisation bleiben sollen.</p>\n"
+          title: Was sind Konsultationen?
+    menu:
+      consultations: Konsultationen
+    questions:
+      next_button: Nächste Frage
+      previous_button: Vorherige Frage
+      results:
+        title: Resultater
+      show:
+        read_more: Weiterlesen
+      statistics:
+        assistants_count_title: Assistenten
+        comments_count_title: Bemerkungen
+        meetings_count_title: Meetings
+        supports_count_title: Unterstützt
+      technical_info:
+        technical_data: Technische Daten
+      vote_button:
+        already_voted: Schon gewählt
+        already_voted_hover: Support entziehen
+        starting_from: Beginnend von %{date}
+        verification_required: Verifizieren Sie Ihr Konto, um abstimmen zu können
+        vote: Abstimmung
+      vote_modal:
+        close_modal: Modal schließen
+        contextual_help: Bitte wähle eine Option.
+        title: 'Beratung: Frage Unterstützung'
+      vote_modal_confirm:
+        change: Veränderung
+        close_modal: Modal schließen
+        confirm: Bestätigen
+        contextual_help: Bitte bestätigen Sie die ausgewählte Option.
+        title: 'Beratung: Bestätigung der Unterstützung'
+    resources:
+      consultations:
+        actions:
+          comment: Kommentar
+          vote: Abstimmen
+    statistics:
+      consultations_count: Beratungen
+      votes_count: Stimmen
+  layouts:
+    decidim:
+      consultation_voting_data:
+        start_voting_date: Die Abstimmung beginnt
+      question_components:
+        question_menu_item: Die Frage
+        unfold: Entfalten
+      question_header:
+        back_to_consultation: Sehen Sie alle Konsultationen
+        back_to_question: Zurück zur Frage

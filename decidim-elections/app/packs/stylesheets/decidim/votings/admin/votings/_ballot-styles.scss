@@ -1,0 +1,16 @@
+.ballot-style__question--checked{
+  color: green;
+}
+
+.ballot-style__question--unchecked{
+  color: red;
+}
+
+.ballot-style__question-header{
+  max-width: 100px;
+  display: table-cell;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+}

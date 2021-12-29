@@ -21,9 +21,20 @@ module Decidim
               class_name: "Decidim::Votings::PollingOfficer",
               inverse_of: :presided_polling_station,
               dependent: :nullify
-
+      has_many :in_person_votes,
+               foreign_key: "decidim_votings_polling_station_id",
+               class_name: "Decidim::Votings::InPersonVote",
+               inverse_of: :polling_station,
+               dependent: :restrict_with_exception
+      has_many :closures,
+               foreign_key: "decidim_votings_polling_station_id",
+               class_name: "Decidim::Votings::PollingStationClosure",
+               inverse_of: :polling_station,
+               dependent: :restrict_with_exception
       validate :polling_station_managers_same_voting
       validate :polling_station_president_same_voting
+
+      alias participatory_space voting
 
       # Allow ransacker to search for a key in a hstore column (`title`.`en`)
       ransacker :title do |parent|
@@ -42,6 +53,18 @@ module Decidim
 
       def missing_officers?
         polling_station_president.nil? || polling_station_managers.empty?
+      end
+
+      def slug
+        "polling_station_#{id}"
+      end
+
+      def closure_for(election)
+        closures.find_by(election: election)
+      end
+
+      def self.log_presenter_class_for(_log)
+        Decidim::Votings::AdminLog::PollingStationPresenter
       end
 
       private

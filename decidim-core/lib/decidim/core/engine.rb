@@ -2,25 +2,21 @@
 
 require "rails"
 require "active_support/all"
+require "action_view/railtie"
 
 require "pg"
 require "redis"
 
+require "acts_as_list"
 require "devise"
 require "devise-i18n"
 require "devise_invitable"
-require "jquery-rails"
-require "sassc-rails"
-require "foundation-rails"
 require "foundation_rails_helper"
-require "autoprefixer-rails"
 require "active_link_to"
 require "rectify"
 require "carrierwave"
 require "rails-i18n"
 require "date_validator"
-require "sprockets/es6"
-require "truncato"
 require "file_validators"
 require "omniauth"
 require "omniauth-facebook"
@@ -33,16 +29,24 @@ require "geocoder"
 require "paper_trail"
 require "cells/rails"
 require "cells-erb"
+require "cell/partial"
 require "kaminari"
 require "doorkeeper"
 require "doorkeeper-i18n"
-require "nobspw"
 require "batch-loader"
-require "etherpad-lite"
+require "mime-types"
 require "diffy"
-require "anchored"
+require "social-share-button"
+require "ransack"
+require "searchlight"
+require "webpacker"
+
+# Needed for the assets:precompile task, for configuring webpacker instance
+require "decidim/webpacker"
 
 require "decidim/api"
+require "decidim/middleware/strip_x_forwarded_host"
+require "decidim/middleware/current_organization"
 
 module Decidim
   module Core
@@ -52,27 +56,17 @@ module Decidim
       engine_name "decidim"
 
       initializer "decidim.action_controller" do |_app|
-        ActiveSupport.on_load :action_controller do
-          helper Decidim::LayoutHelper if respond_to?(:helper)
+        config.to_prepare do
+          ActiveSupport.on_load :action_controller do
+            helper Decidim::LayoutHelper if respond_to?(:helper)
+          end
         end
       end
 
       initializer "decidim.middleware" do |app|
-        app.config.middleware.insert_before Warden::Manager, Decidim::CurrentOrganization
-        app.config.middleware.insert_before Warden::Manager, Decidim::StripXForwardedHost
+        app.config.middleware.insert_before Warden::Manager, Decidim::Middleware::CurrentOrganization
+        app.config.middleware.insert_before Warden::Manager, Decidim::Middleware::StripXForwardedHost
         app.config.middleware.use BatchLoader::Middleware
-      end
-
-      initializer "decidim.assets" do |app|
-        app.config.assets.paths << File.expand_path("../../../app/assets/stylesheets", __dir__)
-        app.config.assets.precompile += %w(decidim_core_manifest.js
-                                           decidim/identity_selector_dialog)
-
-        Decidim.component_manifests.each do |component|
-          app.config.assets.precompile += [component.icon]
-        end
-
-        app.config.assets.debug = true if Rails.env.test?
       end
 
       initializer "decidim.default_form_builder" do |_app|
@@ -88,8 +82,6 @@ module Decidim
       end
 
       initializer "decidim.graphql_api" do
-        # Enable them method `!` everywhere for compatibility, this line will be removed when upgrading to GraphQL 2.0
-        GraphQL::DeprecatedDSL.activate
         Decidim::Api::QueryType.include Decidim::QueryExtensions
 
         Decidim::Api.add_orphan_type Decidim::Core::UserType
@@ -179,59 +171,70 @@ module Decidim
 
       initializer "decidim.menu" do
         Decidim.menu :menu do |menu|
-          menu.item I18n.t("menu.home", scope: "decidim"),
-                    decidim.root_path,
-                    position: 1,
-                    active: :exclusive
+          menu.add_item :root,
+                        I18n.t("menu.home", scope: "decidim"),
+                        decidim.root_path,
+                        position: 1,
+                        active: :exclusive
 
-          menu.item I18n.t("menu.help", scope: "decidim"),
-                    decidim.pages_path,
-                    position: 7,
-                    active: :inclusive
+          menu.add_item :pages,
+                        I18n.t("menu.help", scope: "decidim"),
+                        decidim.pages_path,
+                        position: 7,
+                        active: :inclusive
         end
       end
 
       initializer "decidim.user_menu" do
         Decidim.menu :user_menu do |menu|
-          menu.item t("account", scope: "layouts.decidim.user_profile"),
-                    decidim.account_path,
-                    position: 1.0,
-                    active: :exact
+          menu.add_item :account,
+                        t("account", scope: "layouts.decidim.user_profile"),
+                        decidim.account_path,
+                        position: 1.0,
+                        active: :exact
 
-          menu.item t("notifications_settings", scope: "layouts.decidim.user_profile"),
-                    decidim.notifications_settings_path,
-                    position: 1.1
+          menu.add_item :notifications_settings,
+                        t("notifications_settings", scope: "layouts.decidim.user_profile"),
+                        decidim.notifications_settings_path,
+                        position: 1.1
 
           if available_verification_workflows.any?
-            menu.item t("authorizations", scope: "layouts.decidim.user_profile"),
-                      decidim_verifications.authorizations_path,
-                      position: 1.2
+            menu.add_item :authorizations,
+                          t("authorizations", scope: "layouts.decidim.user_profile"),
+                          decidim_verifications.authorizations_path,
+                          position: 1.2
           end
 
           if current_organization.user_groups_enabled? && user_groups.any?
-            menu.item t("user_groups", scope: "layouts.decidim.user_profile"),
-                      decidim.own_user_groups_path,
-                      position: 1.3
+            menu.add_item :own_user_groups,
+                          t("user_groups", scope: "layouts.decidim.user_profile"),
+                          decidim.own_user_groups_path,
+                          position: 1.3
           end
 
-          menu.item t("my_interests", scope: "layouts.decidim.user_profile"),
-                    decidim.user_interests_path,
-                    position: 1.4
+          menu.add_item :user_interests,
+                        t("my_interests", scope: "layouts.decidim.user_profile"),
+                        decidim.user_interests_path,
+                        position: 1.4
 
-          menu.item t("my_data", scope: "layouts.decidim.user_profile"),
-                    decidim.data_portability_path,
-                    position: 1.5
+          menu.add_item :data_portability,
+                        t("my_data", scope: "layouts.decidim.user_profile"),
+                        decidim.data_portability_path,
+                        position: 1.5
 
-          menu.item t("delete_my_account", scope: "layouts.decidim.user_profile"),
-                    decidim.delete_account_path,
-                    position: 999,
-                    active: :exact
+          menu.add_item :delete_account,
+                        t("delete_my_account", scope: "layouts.decidim.user_profile"),
+                        decidim.delete_account_path,
+                        position: 999,
+                        active: :exact
         end
       end
 
       initializer "decidim.notifications" do
-        Decidim::EventsManager.subscribe(/^decidim\.events\./) do |event_name, data|
-          EventPublisherJob.perform_later(event_name, data)
+        config.to_prepare do
+          Decidim::EventsManager.subscribe(/^decidim\.events\./) do |event_name, data|
+            EventPublisherJob.perform_later(event_name, data)
+          end
         end
       end
 
@@ -296,7 +299,7 @@ module Decidim
 
       initializer "SSL and HSTS" do
         Rails.application.configure do
-          config.force_ssl = Rails.env.production? && Decidim.config.force_ssl
+          config.force_ssl = Decidim.config.force_ssl
         end
       end
 
@@ -307,7 +310,7 @@ module Decidim
       end
 
       initializer "Expire sessions" do
-        Rails.application.config.session_store :cookie_store, expire_after: Decidim.config.expire_session_after
+        Rails.application.config.session_store :cookie_store, secure: Decidim.config.force_ssl, expire_after: Decidim.config.expire_session_after
       end
 
       initializer "decidim.core.register_resources" do
@@ -320,6 +323,7 @@ module Decidim
         Decidim.register_resource(:user_group) do |resource|
           resource.model_class_name = "Decidim::UserGroup"
           resource.card = "decidim/user_profile"
+          resource.searchable = true
         end
       end
 
@@ -486,7 +490,7 @@ module Decidim
             {
               name: :main_image,
               uploader: "Decidim::NewsletterTemplateImageUploader",
-              preview: -> { ActionController::Base.helpers.asset_path("decidim/placeholder.jpg") }
+              preview: -> { ActionController::Base.helpers.asset_pack_path("media/images/placeholder.jpg") }
             }
           ]
 
@@ -533,12 +537,12 @@ module Decidim
         end
       end
 
-      initializer "nbspw" do
-        NOBSPW.configuration.use_ruby_grep = true
-      end
-
       initializer "decidim.premailer" do
         Premailer::Adapter.use = :decidim
+      end
+
+      initializer "decidim_core.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 
       config.to_prepare do

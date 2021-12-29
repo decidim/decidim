@@ -91,7 +91,7 @@
 <%= translated_attribute(current_initiative.title) %>
 
 <h2 class="print-section-title"><%= t ".initiative.description" %></h2>
-<%= decidim_sanitize translated_attribute(current_initiative.description) %>
+<%= decidim_sanitize_editor translated_attribute(current_initiative.description) %>
 
 <div class="print-table">
   <div class="print-table-header">
@@ -153,4 +153,4 @@
 </p>
 
 <a href="#" onclick="window.print();return false;" class="button expanded"><%= t ".print" %></a>
-<%= stylesheet_link_tag "decidim/initiatives/print-initiative", media: "all" %>
+<%= stylesheet_pack_tag "decidim_initiatives_print", media: "all" %>

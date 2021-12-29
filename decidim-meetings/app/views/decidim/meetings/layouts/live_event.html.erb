@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>" class="no-js">
+  <head>
+    <title><%= decidim_page_title %></title>
+    <%= render partial: "layouts/decidim/head" %>
+    <%= javascript_pack_tag "decidim_meetings" %>
+    <%= render partial: "layouts/decidim/js_configuration" %>
+  </head>
+
+  <body>
+    <header class="meeting-polls__header">
+      <% if current_user && poll %>
+        <div class="flex--cc">
+          <button class="meeting-polls__button meeting-polls__action-list">
+            <%= t(".questions") %> <span id="visible-questions-count">(<%= questionnaire.questions.visible.count %>)</span>
+          </button>
+
+          <% if admin_allowed_to?(:update, :poll, meeting: meeting, poll: poll) %>
+            <button class="meeting-polls__button meeting-polls__action-administrate"><%= t(".administrate") %></button>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div>
+        <strong class="text-secondary"><%= current_organization.name %></strong> / <strong><%= present(meeting).title(links: true) %></strong>
+      </div>
+
+      <div class="flex--cc">
+        <% if current_user %>
+          <span>
+            <%= link_to current_user.name, decidim.account_path, target: "_blank", "aria-label": t("layouts.decidim.user_menu.account", name: current_user.name) %>
+          </span>
+        <% end %>
+
+        <span class="meeting-polls__close">
+          <%= link_to meeting_path(meeting), "aria-label": t(".close") do %>
+            <%= t(".close") %>
+            <%= icon "x", class: "text-small" %>
+          <% end %>
+        </span>
+      </div>
+    </header>
+
+    <main class="meeting-polls__main">
+      <aside class="meeting-polls__aside" id="meeting-poll-aside" data-decidim-meetings-poll='{"questionsUrl":"<%= meeting_polls_questions_path(meeting) %>"}'></aside>
+      <aside class="meeting-polls__aside" id="admin-meeting-poll-aside" data-decidim-admin-meetings-poll='{"questionsUrl":"<%= meeting_polls_questions_path(meeting, admin: true) %>"}'></aside>
+      <%= yield %>
+    </main>
+  </body>
+</html>

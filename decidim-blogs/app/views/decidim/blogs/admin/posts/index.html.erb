@@ -26,7 +26,7 @@
                 <%= translated_attribute(post.title) %><br>
               </td>
               <td>
-                <%= decidim_sanitize post_description_admin(post) %>
+                <%= decidim_sanitize_editor post_description_admin(post) %>
               </td>
               <td>
                 <%= post.try(:author).try(:name) %>
@@ -46,6 +46,8 @@
                 <% if allowed_to? :update, :blogpost, blog_post: post %>
                   <%= icon_link_to "paperclip", post_attachments_path(post), t("actions.attachments", scope: "decidim.meetings"), class: "action-icon--attachments" %>
                 <% end %>
+
+                <%= resource_permissions_link(post) %>
 
                 <% if allowed_to? :destroy, :blogpost, blog_post: post %>
                   <%= icon_link_to "circle-x", post_path(post), t("actions.destroy", scope: "decidim.blogs"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.blogs") } %>

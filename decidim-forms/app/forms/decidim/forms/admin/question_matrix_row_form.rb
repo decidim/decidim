@@ -7,12 +7,12 @@ module Decidim
       class QuestionMatrixRowForm < Decidim::Form
         include TranslatableAttributes
 
-        attribute :position, Integer, default: 0
+        attribute :position, Integer
         attribute :deleted, Boolean, default: false
 
         translatable_attribute :body, String
 
-        validates :position, numericality: { greater_than_or_equal_to: 0 }
+        validates :position, numericality: { greater_than_or_equal_to: 0 }, if: -> { position.present? }
         validates :body, translatable_presence: true, unless: :deleted
 
         def to_param

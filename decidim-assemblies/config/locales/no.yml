@@ -56,7 +56,6 @@
         birthplace: Fødested
         ceased_date: Opphørt dato
         designation_date: Valgdato
-        designation_mode: Valgform
         full_name: Fullt navn
         gender: Kjønn
         position: Stilling
@@ -186,6 +185,7 @@
           assembly_members: Medlemmer
           attachment_collections: Mapper
           attachment_files: Filer
+          attachments: Vedlegg
           categories: Kategorier
           components: Komponenter
           info: Info
@@ -380,11 +380,6 @@
         designated_on: Utpekt på
       index:
         title: Medlemmer
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Lenke til konferansesiden som viser alle konferansene
     events:
       assemblies:
         create_assembly_member:
@@ -417,15 +412,7 @@
         description: Antall forsmalinger opprettet
         object: forsamlinger
         title: Forsamlinger
-    pages:
-      home:
-        hero:
-          participate_title: Delta i plattformens prosesser
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Lenke til prosessiden som viser alle prosesser
       show:
         related_assemblies: Relaterte forsamlinger
   errors:

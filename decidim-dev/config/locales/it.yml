@@ -20,10 +20,18 @@ it:
               a: Scelta A
               b: Scelta B
               c: Scelta C
+            test_options:
+              bar: Bar
+              baz: Baz
+              foo: foo
           step:
             endorsements_blocked: Appoggi bloccati
             endorsements_enabled: Appoggi abilitati
             readonly_step_attribute: Attributo di sola lettura
+            test_options:
+              bar: Bar
+              baz: Baz
+              foo: foo
     dummy:
       admin:
         exports:

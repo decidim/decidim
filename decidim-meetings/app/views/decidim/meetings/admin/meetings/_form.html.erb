@@ -38,6 +38,23 @@
       <p class="help-text"><%= t(".online_meeting_url_help") %></p>
     </div>
 
+    <div class="iframe-fields">
+      <div class="row column field iframe-fields--embed-type" data-meeting-type="online">
+        <%= form.select :iframe_embed_type,
+          @form.iframe_embed_type_select,
+          { include_blank: t(".select_an_iframe_embed_type") },
+          { multiple: false } %>
+        <p class="help-text"><%= t(".show_embedded_iframe_help") %></p>
+      </div>
+
+      <div class="row column field iframe-fields--access-level" data-meeting-type="online">
+        <%= form.select :iframe_access_level,
+          @form.iframe_access_level_select,
+          { include_blank: t(".select_an_iframe_access_level") },
+          { multiple: false } %>
+      </div>
+    </div>
+
     <div class="row">
       <div class="columns xlarge-6">
         <%= form.datetime_field :start_time %>
@@ -84,9 +101,20 @@
     <div class="row column" id="transparent">
       <%= form.check_box :transparent %>
     </div>
+
+    <div class="row column">
+      <%= form.check_box :customize_registration_email, :"data-toggle" => "customize_registration_email-div" %>
+    </div>
+
+    <div id="customize_registration_email-div" data-toggler=".hide" class="row column <%= @form.customize_registration_email? ? nil : "hide" %>">
+      <%= form.translated :editor, :registration_email_custom_content, lines: 10 %>
+      <p class="help-text"><%= t(".registration_email_help") %></p>
+    </div>
+
+    <%= render partial: "decidim/comments/admin/shared/availability_fields", locals: { form: form } %>
   </div>
 </div>
 
 <%= render "services", form: form, id: tabs_id_for_service(blank_service) %>
 
-<%= javascript_include_tag "decidim/meetings/admin/meetings_form" %>
+<%= javascript_pack_tag "decidim_meetings_admin" %>

@@ -26,7 +26,7 @@ fr-CA:
         duration: Durée
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
+        hashtag: Mot-clic
         hero_image: Image de la page d'accueil
         included_at: Intégrée à cette plateforme le
         instagram: Instagram
@@ -52,15 +52,16 @@ fr-CA:
         target: Participants
         title: Titre
         twitter: Twitter
+        weight: Rang
         youtube: Youtube
       assembly_member:
         birthday: Date de naissance
         birthplace: Lieu de naissance
         ceased_date: Date de radiation
         designation_date: Date de désignation
-        designation_mode: Mode de désignation
         full_name: Nom et prénom
         gender: Genre
+        non_user_avatar: Avatar
         position: Statut
         user_id: Utilisateur
       assembly_user_role:
@@ -181,6 +182,9 @@ fr-CA:
         update:
           error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette assemblée.
           success: Utilisateur mis à jour avec succès pour cette assemblée.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Type d'assemblée
       menu:
         assemblies: Assemblées
         assemblies_settings: Paramètres
@@ -189,6 +193,7 @@ fr-CA:
           assembly_members: Membres
           attachment_collections: Dossiers
           attachment_files: Fichiers
+          attachments: Documents liés
           categories: Catégories
           components: Composants
           info: Information
@@ -260,6 +265,7 @@ fr-CA:
       admin:
         assemblies:
           form:
+            announcement_help: Le texte que vous saisissez ici sera affiché aux utilisateurs juste en dessous des informations de l'assemblée.
             duration: Durée
             duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
             filters: Filtres
@@ -293,7 +299,10 @@ fr-CA:
         assembly_members:
           form:
             existing_user: Utilisateur existant
+            explanation: 'Instruction concernant l’image:'
+            image_guide: De préférence une image en format portrait sans texte.
             non_user: Utilisateur inconnu
+            non_user_avatar_help: Vous devriez obtenir le consentement des personnes avant de les publier en tant que membre.
             select_a_position: Sélectionnez un statut
             select_user: Sélectionnez un utilisateur
             user_type: Type d'utilisateur
@@ -384,11 +393,6 @@ fr-CA:
         designated_on: Désigné le
       index:
         title: Membres
-    conferences:
-      pages:
-        home:
-          highlighted_conferences:
-            conferences_button_title: Lien vers la page Conférences où toutes les conférences sont affichées
     events:
       assemblies:
         create_assembly_member:
@@ -421,19 +425,11 @@ fr-CA:
         description: Nombre d'assemblées créées
         object: assemblées
         title: Assemblées
-    pages:
-      home:
-        hero:
-          participate_title: Participer aux processus de la plateforme
-        sub_hero:
-          register_title: Inscrivez-vous pour créer un compte
     participatory_processes:
-      pages:
-        home:
-          highlighted_processes:
-            processes_button_title: Lien vers la page Concertation où toutes les concertations sont affichées
       show:
         related_assemblies: Assemblées associées
+    statistics:
+      assemblies_count: Assemblées
   errors:
     messages:
       cannot_be_blank: ne peut être vide

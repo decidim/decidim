@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require "searchlight"
-require "kaminari"
-
 module Decidim
   module Debates
     # This is the engine that runs on the public interface of `decidim-debates`.
@@ -23,22 +20,20 @@ module Decidim
       end
 
       initializer "decidim_changes" do
-        Decidim::SettingsChange.subscribe "debates" do |changes|
-          Decidim::Debates::SettingsChangeJob.perform_later(
-            changes[:component_id],
-            changes[:previous_settings],
-            changes[:current_settings]
-          )
+        config.to_prepare do
+          Decidim::SettingsChange.subscribe "debates" do |changes|
+            Decidim::Debates::SettingsChangeJob.perform_later(
+              changes[:component_id],
+              changes[:previous_settings],
+              changes[:current_settings]
+            )
+          end
         end
       end
 
       initializer "decidim_meetings.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Debates::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Debates::Engine.root}/app/views") # for partials
-      end
-
-      initializer "decidim_debates.assets" do |app|
-        app.config.assets.precompile += %w(decidim_debates_manifest.js)
       end
 
       initializer "decidim.debates.commented_debates_badge" do
@@ -56,26 +51,28 @@ module Decidim
           end
         end
 
-        Decidim::Comments::CommentCreation.subscribe do |data|
-          comment = Decidim::Comments::Comment.find(data[:comment_id])
-          next unless comment.decidim_root_commentable_type == "Decidim::Debates::Debate"
+        config.to_prepare do
+          Decidim::Comments::CommentCreation.subscribe do |data|
+            comment = Decidim::Comments::Comment.find(data[:comment_id])
+            next unless comment.decidim_root_commentable_type == "Decidim::Debates::Debate"
 
-          if comment.user_group.present?
-            comments = Decidim::Comments::Comment.where(
-              decidim_root_commentable_id: comment.decidim_root_commentable_id,
-              decidim_root_commentable_type: comment.decidim_root_commentable_type,
-              user_group: comment.user_group
-            )
+            if comment.user_group.present?
+              comments = Decidim::Comments::Comment.where(
+                decidim_root_commentable_id: comment.decidim_root_commentable_id,
+                decidim_root_commentable_type: comment.decidim_root_commentable_type,
+                user_group: comment.user_group
+              )
 
-            Decidim::Gamification.increment_score(comment.user_group, :commented_debates) if comments.count == 1
-          elsif comment.author.present?
-            comments = Decidim::Comments::Comment.where(
-              decidim_root_commentable_id: comment.decidim_root_commentable_id,
-              decidim_root_commentable_type: comment.decidim_root_commentable_type,
-              author: comment.author
-            )
+              Decidim::Gamification.increment_score(comment.user_group, :commented_debates) if comments.count == 1
+            elsif comment.author.present?
+              comments = Decidim::Comments::Comment.where(
+                decidim_root_commentable_id: comment.decidim_root_commentable_id,
+                decidim_root_commentable_type: comment.decidim_root_commentable_type,
+                author: comment.author
+              )
 
-            Decidim::Gamification.increment_score(comment.author, :commented_debates) if comments.count == 1
+              Decidim::Gamification.increment_score(comment.author, :commented_debates) if comments.count == 1
+            end
           end
         end
       end
@@ -99,6 +96,10 @@ module Decidim
         Decidim.metrics_operation.register(:followers, :debates) do |metric_operation|
           metric_operation.manager_class = "Decidim::Debates::Metrics::DebateFollowersMetricMeasure"
         end
+      end
+
+      initializer "decidim_debates.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
       end
     end
   end

@@ -5,6 +5,7 @@ module Decidim
     # Custom helpers used in meetings views
     module MeetingsHelper
       include Decidim::ApplicationHelper
+      include Decidim::Meetings::ApplicationHelper
       include Decidim::TranslationsHelper
       include Decidim::ResourceHelper
 
@@ -33,6 +34,8 @@ module Decidim
           "alert"
         when "transparent"
           "secondary"
+        when "withdraw"
+          "alert"
         end
       end
 
@@ -118,6 +121,27 @@ module Decidim
 
       def current_user_groups?
         current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any?
+      end
+
+      # Public: URL to create an event in Google Calendars based on meeting
+      # data.
+      #
+      # meeting - a Decidim::Meeting instance.
+      #
+      # Returns a String.
+      def google_calendar_event_url(meeting)
+        meeting_url = resource_locator(meeting).url
+        meeting = present(meeting)
+        params = {
+          text: meeting.title,
+          dates: meeting.dates_param,
+          details: I18n.t(
+            "decidim.meetings.meetings.calendar_modal.full_details_html",
+            link: link_to(meeting_url, meeting_url)
+          )
+        }
+        base_url = "https://calendar.google.com/calendar/u/0/r/eventedit"
+        "#{base_url}?#{params.to_param}"
       end
     end
   end

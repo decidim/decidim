@@ -53,6 +53,8 @@ pl:
         description: Liczba ankiet wypełnionych przez użytkowników
         object: odpowiedzi na ankiety
         title: Odpowiedzi na ankiety
+    statistics:
+      answers_count: Odpowiedzi
     surveys:
       admin:
         exports:

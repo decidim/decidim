@@ -16,9 +16,19 @@ gl:
         other: Votos
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Comentarios habilitados
+            end_time: Comentarios habilitados até
+            start_time: Comentarios habilitados dende
       comments:
         create:
           error: Produciuse un problema ao crear o comentario.
+        delete:
+          error: Non foi posíbel eliminar o comentario.
+        update:
+          error: Produciuse un problema ao actualizar o comentario.
       comments_count: Número de comentarios
       comments_title: Comentarios
       last_activity:
@@ -39,7 +49,13 @@ gl:
           user_group_id:
             label: Comentar como
         opinion:
+          label: A túa opinión canto a este tema
+          negative: Negativa
+          negative_selected: A túa opinión canto a este tema é negativa
           neutral: Neutro
+          neutral_selected: A túa opinión canto a este tema é neutral
+          positive: Positiva
+          positive_selected: A túa opinión canto a este tema é positiva
         remaining_characters: "Faltan %{count} caracteres"
         remaining_characters_1: "Faltou o personaxe %{count}"
         title: Engade o teu comentario
@@ -47,7 +63,12 @@ gl:
         alignment:
           against: Contra
           in_favor: A favor
+        confirm_destroy: Estás certo/a de querer eliminar este comentario?
+        delete: Eliminar
+        deleted_at: Comentario eliminado o %{date}
         deleted_user: Usuario eliminado
+        edit: Editar
+        edited: Editado
         hide_replies: Ocultar respostas
         reply: Responder
         report:
@@ -62,7 +83,7 @@ gl:
             spam: Contén clic, publicidade, fraudes ou bots de script.
           title: Denunciar contido inapropiado
         show_replies: Amosar %{replies_count} respostas
-        single_comment_link_title: Obter ligazón a un único comentario
+        single_comment_link_title: Obter ligazón
       comment_order_selector:
         order:
           best_rated: Mellor valorado
@@ -73,17 +94,26 @@ gl:
       comment_thread:
         title: Conversa con %{authorName}
       comments:
+        blocked_comments_for_unauthorized_user_warning: Tes de estar verificado para poder comentar neste intre, porén podes ler os comentarios anteriores.
         blocked_comments_for_user_warning: Non podes comentar neste momento, pero podes ler os anteriores.
         blocked_comments_warning: Os comentarios están desactivados neste momento, pero podes ler os anteriores.
         comment_details_title: Detalles do comentario
         loading: Cargando comentarios ...
-        single_comment_warning: Podes revisar os comentarios restantes <a href="%{url}">aquí</a>.
+        single_comment_warning: <a href="%{url}">Ver todos os comentarios</a>
         single_comment_warning_title: Estás a ver un único comentario
         title:
           one: "%{count} comentario"
           other: "%{count} comentarios"
       down_vote_button:
         text: Non estou de acordo con este comentario
+      edit_comment_modal_form:
+        close: Pechar
+        form:
+          body:
+            label: Comentario
+            placeholder: Que pensas sobre isto?
+          submit: Enviar
+        title: Editar o teu comentario
       up_vote_button:
         text: Estou de acordo con este comentario
     events:

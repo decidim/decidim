@@ -1,4 +1,11 @@
 it:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Titolo
+      template:
+        description: Descrizione
+        name: Nome
   decidim:
     admin:
       menu:
@@ -48,6 +55,7 @@ it:
           form:
             save: Salva
             template_title: Informazioni del modello
+            title: Template del questionario %{questionnaire_for}
           index:
             confirm_delete: Sei sicuro di voler eliminare questo modello?
             title: Modelli di questionari

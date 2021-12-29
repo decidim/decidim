@@ -7,9 +7,9 @@
     <ul class="no-bullet-indented">
       <% form.messages.each do |key, value| %>
         <% if form.errors.include?(key) %>
-          <li><%= icon "x", role: "img", "aria-hidden": true %>&nbsp;<%= form.errors.messages[key][0].html_safe %></li>
+          <li><%= icon "x", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= form.errors.messages[key][0].html_safe %></li>
         <% else %>
-          <li><%= icon "check", role: "img", "aria-hidden": true %>&nbsp;<%= value.html_safe %></li>
+          <li><%= icon "check", class: "text-success", role: "img", "aria-hidden": true %>&nbsp;<%= value.html_safe %></li>
         <% end %>
       <% end %>
     </ul>
@@ -24,7 +24,7 @@
                                           .sort_by {|trustee, used| used ? 0 : 1}
                                           .each do |trustee, used| %>
         <li <%= "class=text-muted" if !used %>>
-          <%= icon trustee.public_key ? "check" : "x", role: "img", "aria-hidden": true %>
+          <%= icon trustee.public_key ? "check" : "x", class: "text-#{trustee.public_key ? "success": "alert"}", role: "img", "aria-hidden": true %>
           <%= trustee.user.name || trustee.name %> <%= t(".public_key.#{used}").html_safe %>
           <% if used %>
             <%= f.hidden_field :trustee_ids, multiple: true, value: trustee.id %>

@@ -48,5 +48,15 @@ module Decidim
         expect { renderer.render }.not_to raise_error
       end
     end
+
+    context "when markdown is rendered " do
+      let(:content) { "<p>#{user_group.to_global_id}</p><p>#{user_group.to_global_id}</p>" }
+
+      it "ensure regex does not match across multiple gids" do
+        rendered = renderer.render
+        mention = %(<a class="user-mention" href="#{profile_url}">@#{user_group.nickname}</a>)
+        expect(rendered.scan(mention).length).to eq(2)
+      end
+    end
   end
 end

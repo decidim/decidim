@@ -17,7 +17,7 @@ module Decidim
       return if @organization.nil? || @organization.smtp_settings.blank?
 
       mail.from = @organization.smtp_settings["from"].presence || mail.from
-      mail.reply_to = mail.from || Decidim.config.mailer_reply
+      mail.reply_to = mail.reply_to || Decidim.config.mailer_reply
       mail.delivery_method.settings.merge!(
         address: @organization.smtp_settings["address"],
         port: @organization.smtp_settings["port"],

@@ -1,0 +1,67 @@
+fr-LU:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Titre
+      template:
+        description: Description
+        name: Nom
+  decidim:
+    admin:
+      menu:
+        templates: Modèles de questionnaire
+      templates:
+        apply:
+          error: Une erreur est survenue lors de l'application de ce modèle.
+          success: Modèle appliqué avec succès
+        copy:
+          error: Une erreur est survenue lors de la copie de ce modèle.
+          success: Modèle copié avec succès
+        create:
+          error: Une erreur est survenue pendant la création du modèle.
+          success: Modèle créé avec succès
+        destroy:
+          success: Modèle supprimé avec succès
+        empty: Il n'y a pas de modèle pour l'instant.
+        update:
+          error: Une erreur est survenue pendant la mise à jour du modèle.
+          success: Modèle mis à jour avec succès
+      titles:
+        template_types:
+          questionnaires: Modèles de questionnaire
+        templates: Modèles
+    models:
+      questionnaire_template:
+        fields:
+          questions: Nombre de questions
+          title: Nom du questionnaire
+      template:
+        fields:
+          created_at: Créé le
+        name: Modèle
+    templates:
+      admin:
+        questionnaire_templates:
+          choose:
+            create_from_template: Créer depuis un modèle
+            description: Vous êtes sur le point de créer un nouveau questionnaire. Vous pouvez choisir un modèle prédéfini et le modifier par la suite.
+            label: Choisir un modèle
+            placeholder: Choisir un modèle
+            skip_template: Passer
+          edit:
+            edit: Modifier
+            empty: Il n'y a pas encore de question
+            questionnaire: Questionnaire
+          form:
+            save: Sauvegarder
+            template_title: Informations sur le modèle
+            title: Modèle de questionnaire %{questionnaire_for}
+          index:
+            confirm_delete: Êtes-vous sûr de vouloir supprimer ce modèle?
+            title: Modèles de questionnaire
+          preview:
+            current_step: Étape %{step}
+            of_total_steps: sur %{total_steps}
+            tos_agreement: En participant, vous acceptez ces conditions d'utilisation
+      template_types:
+        questionnaires: Questionnaires

@@ -1,0 +1,10 @@
+<div class="row column">
+  <button type="button" class="button collapse hide"><%= t(".hide") %></button>
+  <button type="button" class="button expand"><%= t(".show") %></button>
+</div>
+
+<div class="collapsible hide">
+  <%= render partial: "smtp_settings", locals: { f: f } %>
+  <%= render partial: "omniauth_settings", locals: { f: f } %>
+  <%= render partial: "file_upload_settings", locals: { f: f } %>
+</div>

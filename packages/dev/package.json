@@ -1,0 +1,15 @@
+{
+  "name": "@decidim/dev",
+  "description": "The dev dependencies for Decidim",
+  "version": "0.26.0-dev",
+  "repository": {
+    "url": "git@github.com:decidim/decidim.git",
+    "type": "git",
+    "directory": "packages/dev"
+  },
+  "author": "Decidim Contributors",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "axe-core": "^4.1.4"
+  }
+}

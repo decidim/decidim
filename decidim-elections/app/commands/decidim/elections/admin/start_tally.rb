@@ -7,7 +7,7 @@ module Decidim
       class StartTally < Rectify::Command
         # Public: Initializes the command.
         #
-        # form - A VotePeriodForm object with the information needed to start or end the vote period
+        # form - An ActionForm object with the information needed to perform an action
         def initialize(form)
           @form = form
         end

@@ -32,6 +32,7 @@ nl:
         body: Body
         subject: Onderwerp
       organization:
+        admin_terms_of_use_body: Body voor de admin gebruiksvoorwaarden
         alert_color: Alarm
         available_authorizations: Beschikbare autorisaties
         badges_enabled: Schakel badges in
@@ -46,7 +47,7 @@ nl:
         favicon: Pictogram
         force_authentication: Verplicht aanmelden
         force_users_to_authenticate_before_access_organization: Verplicht gebruikers om zich aan te melden voor toegang tot de organisatie
-        from: Afzender van de e-mail
+        from: E-mailadres afzender
         github_handler: GitHub gebruikersnaam
         header_snippets: Elementen om toe te voegen tussen HTML-tags
         highlight_alternative_color: In de kijker, alternatief
@@ -151,7 +152,8 @@ nl:
         browse: Browsen
         category:
           new: Nieuwe categorie
-        export: Exporteren
+        export: Alles exporteren
+        export-selection: Selectie exporteren
         import: Importeren
         manage: Beheer
         new: Nieuwe %{name}
@@ -171,12 +173,12 @@ nl:
           success: Geweldig! Je hebt de admin gebruiksvoorwaarden geaccepteerd.
         actions:
           accept: Ik ga akkoord met de volgende voorwaarden
-          are_you_sure: Weet u zeker dat u de admin gebruiksvoorwaarden wilt weigeren?
+          are_you_sure: Weet je zeker dat je de Admin gebruiksvoorwaarden wil resetten?
           refuse: Weiger de admin gebruiksvoorwaarden
           title: Ga akkoord met de gebruiksvoorwaarden
         required_review:
           alert: 'Vereist: neem onze admin gebruiksvoorwaarden door'
-          callout: Neem even de tijd om Admin Gebruiksvoorwaarden door te nemen. Anders kunt u het platform niet beheren.
+          callout: Neem even de tijd om de Admin Gebruiksvoorwaarden door te nemen. Anders kan je het platform niet beheren.
           cta: Bekijk ze nu.
         title: Admin gebruiksvoorwaarden
       area_types:
@@ -199,7 +201,7 @@ nl:
           error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
           success: Pagina succesvol aangemaakt.
         destroy:
-          has_spaces: Gebied heeft afhankelijke ruimten, het mag geen afhankelijkheden hebben om te worden verwijderd.
+          has_spaces: Dit gebied heeft nog onderliggende ruimtes. Zorg ervoor dat er geen participatieve ruimte meer naar dit gebied verwijst om het te verwijderen.
           success: Pagina succesvol verwijderd
         edit:
           title: Pagina bewerken
@@ -310,6 +312,8 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit onderdeel.
           success: Het onderdeel is met succes bijgewerkt.
+      conflicts:
+        title: Controle conflicten
       dashboard:
         show:
           view_more_logs: Bekijk meer logs
@@ -326,6 +330,16 @@ nl:
         category_id_eq:
           label: Categorie
         filter_label: Filteren
+        invitation_accepted_at_present:
+          label: Uitnodiging geaccepteerd
+          values:
+            'false': 'Nee'
+            'true': 'Ja'
+        last_sign_in_at_present:
+          label: Ooit ingelogd
+          values:
+            'false': 'Nee'
+            'true': 'Ja'
         moderations:
           reportable_type_string_eq:
             label: Type
@@ -398,13 +412,7 @@ nl:
           impersonate_existing_user: Beheer deelnemer "%{name}"
           impersonate_new_managed_user: Beheer nieuwe deelnemer
       imports:
-        creators:
-          proposalcreator: Maker van het voorstel
         error: Er zijn fouten opgetreden bij het importeren
-        help:
-          proposalcreator: Het bestand moet kolomnamen titel/nl en body/en bevatten (of een andere locale die jij verkiest, bijv. title/ca en body/ca). Ook scope/id en category/id kolommen worden ondersteund.
-        import_from_file: Uit een bestand importeren
-        invalid_lines: Fout gevonden in bronnummer %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv
@@ -435,6 +443,7 @@ nl:
         areas: Thema's
         configuration: Configuratie
         dashboard: Dashboard
+        external_domain_whitelist: Toegelaten externe domeinen
         help_sections: Helpsecties
         homepage: Startpagina
         impersonations: Zich voordoen als
@@ -556,7 +565,7 @@ nl:
       newsletters:
         create:
           error: Er is een fout opgetreden bij het maken van deze nieuwsbrief.
-          success: Nieuwsbrief is succesvol gemaakt. Controleer het alvorens te verzenden.
+          success: Nieuwsbrief is succesvol gemaakt. Gelieve te controleren voor verzenden.
         deliver:
           error: Er is een fout opgetreden bij het leveren van deze nieuwsbrief.
           success: Nieuwsbrief is succesvol geleverd.
@@ -638,12 +647,12 @@ nl:
           title: Deelnemer "%{name}" officieel maken
         show_email_modal:
           close_modal: Sluit venster
-          description: Als u rechtstreeks contact wilt opnemen met een deelnemer, kunt u klikken op de Toon knop om het e-mailadres te zien. Deze actie wordt geregistreerd.
+          description: Als je rechtstreeks contact wil opnemen met een deelnemer, kun je op de knop Weergeven klikken om het e-mailadres te zien. Voor deze actie worden logbestanden bewaard.
           email_address: E-mail adres
           full_name: Volledige naam
           hidden: hidden
           show: Weergeven
-          title: Toon e-mailadres van gebruiker
+          title: E-mailadres deelnemer weergeven
         unblock:
           error: Er was een probleem bij het deblokkeren van de deelnemer
           success: Deelnemer met succes gedeblokkeerd
@@ -829,13 +838,6 @@ nl:
           success: Groep succesvol geverifieerd
       user_groups:
         index:
-          filter:
-            all: Alle
-            pending: In afwachting
-            rejected: Geweigerd
-            verified: Geverifieerd
-          filter_by: Filteren op
-          search: Zoeken
           state:
             pending: In afwachting
             rejected: Geweigerd
@@ -872,8 +874,10 @@ nl:
     forms:
       errors:
         impersonate_user:
-          reason: U moet een reden opgeven voor het beheer van een niet-beheerde deelnemer
+          reason: Je moet een reden opgeven voor het beheer van een niet-beheerde deelnemer
     metrics:
+      blocked_users:
+        object: geblokkeerde gebruikers
       reported_users:
         object: gerapporteerde gebruikers
         title: Gerapporteerde gebruikers

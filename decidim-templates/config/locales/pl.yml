@@ -55,6 +55,6 @@ pl:
           preview:
             current_step: Krok %{step}
             of_total_steps: z %{total_steps}
-            tos_agreement: Biorąc udział akceptujesz Regulamin korzystania z serwisu
+            tos_agreement: Biorąc udział akceptujesz Warunki korzystania z Platformy
       template_types:
         questionnaires: Kwestionariusze

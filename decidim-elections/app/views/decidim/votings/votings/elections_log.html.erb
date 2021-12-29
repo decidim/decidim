@@ -1,0 +1,34 @@
+<% add_decidim_meta_tags(title: t("votings.index.title", scope: "decidim.votings")) %>
+
+<%
+edit_link(
+  decidim_admin_votings.votings_path,
+  :read,
+  :voting
+)
+%>
+<%= cell("decidim/votings/content_blocks/landing_page/header", nil) %>
+
+<div class="row section">
+  <div class="column large-8">
+    <h1 class="heading3"><%= t(".title") %></h1>
+    <p><%= t(".description") %></p>
+    <div class="card card--list">
+      <% elections.each do |election| %>
+        <div class="card--list__item">
+          <div class="card--list__text">
+            <div>
+              <%= link_to translated_attribute(election.title), election_log_path(election), class: "card--list__heading heading6" %>
+              <span class="text-small">
+                <strong><%= t(".bb_status") %>: </strong><%= election.bb_status.to_s.titlecase %>
+              </span>
+            </div>
+          </div>
+          <div class="card--list__data">
+            <%= icon_link_to "chevron-right", election_log_path(election), t(".election_log"), class:"card--list__data__icon" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

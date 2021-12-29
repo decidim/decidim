@@ -5,9 +5,11 @@ module Decidim
     # Controller that allows managing all admins at the admin panel.
     #
     class UsersController < Decidim::Admin::ApplicationController
+      include Decidim::Admin::Officializations::Filterable
+
       def index
         enforce_permission_to :read, :admin_user
-        @users = collection.page(params[:page]).per(15)
+        @users = filtered_collection
       end
 
       def new
@@ -79,6 +81,10 @@ module Decidim
 
       def collection
         @collection ||= current_organization.admins.or(current_organization.users_with_any_role)
+      end
+
+      def filters
+        [:invitation_accepted_at_present, :last_sign_in_at_present]
       end
     end
   end

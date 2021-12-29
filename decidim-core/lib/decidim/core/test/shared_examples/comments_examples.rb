@@ -48,6 +48,45 @@ shared_examples "comments" do
     expect(page).to have_css(".comments > div:nth-child(2)", text: "Most Rated Comment")
   end
 
+  context "when there are deleted comments" do
+    let(:deleted_comment) { comments[0] }
+
+    before do
+      deleted_comment.delete!
+      visit resource_path
+    end
+
+    it "shows only a deletion message for deleted comments" do
+      expect(page).to have_selector("#comment_#{deleted_comment.id}")
+
+      expect(page).to have_no_content(deleted_comment.author.name)
+      expect(page).to have_no_content(deleted_comment.body.values.first)
+      within "#comment_#{deleted_comment.id}" do
+        expect(page).to have_content("Comment deleted on")
+        expect(page).to have_no_selector("comment__header")
+        expect(page).to have_no_selector("comment__footer")
+      end
+    end
+
+    it "counts only not deleted comments" do
+      expect(page).to have_selector("span.comments-count", text: "#{comments.length - 1} COMMENTS")
+    end
+
+    context "when deleted comment has replies, they are shown" do
+      let!(:reply) { create(:comment, commentable: deleted_comment, root_commentable: commentable, body: "Please, delete your comment") }
+
+      it "shows replies of deleted comments" do
+        visit resource_path
+
+        within "#comment_#{deleted_comment.id}" do
+          expect(page).to have_selector("#comment-#{deleted_comment.id}-replies")
+          expect(page).to have_content(reply.author.name)
+          expect(page).to have_content(reply.body.values.first)
+        end
+      end
+    end
+  end
+
   context "when not authenticated" do
     it "does not show form to add comments to user" do
       visit resource_path
@@ -82,13 +121,15 @@ shared_examples "comments" do
         end
       end
 
-      context "when component has a default comments length params" do
+      context "when component is present and has a default comments length params" do
         it "displays the numbers of characters left" do
-          component.update!(settings: { comments_max_length: 3000 })
-          visit current_path
+          if component.present?
+            component.update!(settings: { comments_max_length: 3000 })
+            visit current_path
 
-          within ".add-comment form" do
-            expect(page).to have_content("3000 characters left")
+            within ".add-comment form" do
+              expect(page).to have_content("3000 characters left")
+            end
           end
         end
       end
@@ -102,9 +143,76 @@ shared_examples "comments" do
         end
       end
 
-      it "shows comment to the user and updates the comments counter" do
+      it "shows comment to the user, updates the comments counter and clears the comment textarea" do
         expect(page).to have_comment_from(user, "This is a new comment", wait: 20)
         expect(page).to have_selector("span.comments-count", text: "#{commentable.comments.count} COMMENTS")
+        expect(page).to have_field("add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "")
+      end
+    end
+
+    context "when user adds a new comment with a link" do
+      before do
+        within ".add-comment form" do
+          fill_in "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "Very nice http://www.debian.org linux distro"
+          click_button "Send"
+        end
+      end
+
+      it "adds external link css" do
+        expect(page).to have_css(".external-link-container", text: "http://www.debian.org")
+      end
+
+      it "changes link to point to /link" do
+        expect(page).to have_link("http://www.debian.org", href: "/link?external_url=http%3A%2F%2Fwww.debian.org")
+      end
+    end
+
+    context "when the user is writing a new comment while someone else comments" do
+      let(:new_comment_body) { "Hey, I just jumped in the conversation!" }
+      let(:new_comment) { build(:comment, commentable: commentable, body: new_comment_body) }
+
+      before do
+        within ".add-comment form" do
+          fill_in "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "This is a new comment"
+        end
+        new_comment.save!
+      end
+
+      it "does not clear the current user's comment" do
+        expect(page).to have_content(new_comment.body.values.first, wait: 20)
+        expect(page).to have_field(
+          "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}",
+          with: "This is a new comment"
+        )
+      end
+
+      context "when inside a thread reply form" do
+        let(:thread) { comments.first }
+        let(:new_reply_body) { "Hey, I just jumped inside the thread!" }
+        let(:new_reply) { build(:comment, commentable: thread, root_commentable: commentable, body: new_reply_body) }
+
+        before do
+          within "#comment_#{thread.id}" do
+            click_button "Reply"
+
+            within ".add-comment form" do
+              fill_in "add-comment-#{thread.commentable_type.demodulize}-#{thread.id}", with: "This is a new reply"
+            end
+          end
+          new_reply.save!
+        end
+
+        it "does not clear the current user's comment" do
+          expect(page).to have_content(new_reply.body.values.first, wait: 20)
+          expect(page).to have_field(
+            "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}",
+            with: "This is a new comment"
+          )
+          expect(page).to have_field(
+            "add-comment-#{thread.commentable_type.demodulize}-#{thread.id}",
+            with: "This is a new reply"
+          )
+        end
       end
     end
 
@@ -127,6 +235,127 @@ shared_examples "comments" do
         end
 
         expect(page).to have_comment_from(user_group, "This is a new comment", wait: 20)
+      end
+    end
+
+    context "when a user deletes a comment" do
+      let(:comment_body) { "This comment is a mistake" }
+      let!(:comment) { create(:comment, body: comment_body, commentable: commentable, author: comment_author) }
+
+      before do
+        visit resource_path
+      end
+
+      context "when the comment is not authored by user" do
+        let!(:comment_author) { create(:user, :confirmed, organization: organization) }
+
+        it "the context menu of the comment doesn't show a delete link" do
+          within "#comment_#{comment.id}" do
+            within ".comment__header__context-menu" do
+              page.find(".icon--ellipses").click
+              expect(page).to have_no_link("Delete")
+            end
+          end
+        end
+      end
+
+      context "when the comment is authored by user" do
+        let(:comment_author) { user }
+
+        it "the context menu of the comment shows a delete link" do
+          within "#comment_#{comment.id}" do
+            within ".comment__header__context-menu" do
+              page.find(".icon--ellipses").click
+              expect(page).to have_link("Delete")
+            end
+          end
+        end
+
+        it "the user can delete the comment and updates the comments counter" do
+          expect(Decidim::Comments::Comment.not_deleted.count).to eq(4)
+
+          within "#comment_#{comment.id}" do
+            within ".comment__header__context-menu" do
+              page.find(".icon--ellipses").click
+              click_link "Delete"
+            end
+          end
+
+          within "div.confirm-reveal" do
+            click_link "OK"
+          end
+
+          expect(page).to have_selector("#comment_#{comment.id}")
+          expect(page).to have_no_content(comment_body)
+          within "#comment_#{comment.id}" do
+            expect(page).to have_content("Comment deleted on")
+            expect(page).to have_no_content comment_author.name
+            expect(page).to have_no_selector("comment__header")
+            expect(page).to have_no_selector("comment__footer")
+          end
+          expect(page).to have_selector("span.comments-count", text: "3 COMMENTS")
+
+          expect(Decidim::Comments::Comment.not_deleted.count).to eq(3)
+        end
+      end
+    end
+
+    context "when a user edits a comment" do
+      let(:comment_body) { "This coment has a typo" }
+      let!(:comment) { create(:comment, body: comment_body, commentable: commentable, author: comment_author) }
+
+      before do
+        visit resource_path
+      end
+
+      context "when the comment is not authored by user" do
+        let!(:comment_author) { create(:user, :confirmed, organization: organization) }
+
+        it "the context menu of the comment doesn't show an edit button" do
+          within "#comment_#{comment.id}" do
+            within ".comment__header__context-menu" do
+              page.find(".icon--ellipses").click
+              expect(page).to have_no_button("Edit")
+            end
+          end
+        end
+      end
+
+      context "when the comment is authored by user" do
+        let!(:comment_author) { user }
+
+        it "the context menu of the comment show an edit button" do
+          within "#comment_#{comment.id}" do
+            within ".comment__header__context-menu" do
+              page.find(".icon--ellipses").click
+              expect(page).to have_button("Edit")
+            end
+          end
+        end
+
+        context "when the user edits a comment" do
+          before do
+            within "#comment_#{comment.id} .comment__header__context-menu" do
+              page.find(".icon--ellipses").click
+              click_button "Edit"
+            end
+            fill_in "edit_comment_#{comment.id}", with: "This comment has been fixed"
+            click_button "Send"
+          end
+
+          it "the comment body changes" do
+            within "#comment_#{comment.id}" do
+              expect(page).to have_content("This comment has been fixed")
+              expect(page).to have_no_content(comment_body)
+            end
+          end
+
+          it "the header of the comment displays an edited message" do
+            within "#comment_#{comment.id} .comment__header" do
+              expect(page).to have_content("Edited")
+            end
+          end
+        end
       end
     end
 
@@ -184,6 +413,10 @@ shared_examples "comments" do
         it "works according to the setting in the commentable" do
           if commentable.comments_have_alignment?
             page.find(".opinion-toggle--ok").click
+            expect(page.find(".opinion-toggle--ok")["aria-pressed"]).to eq("true")
+            expect(page.find(".opinion-toggle--meh")["aria-pressed"]).to eq("false")
+            expect(page.find(".opinion-toggle--ko")["aria-pressed"]).to eq("false")
+            expect(page.find(".opinion-toggle .selected-state", visible: false)).to have_content("Your opinion about this topic is positive")
 
             within ".add-comment form" do
               fill_in "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "I am in favor about this!"
@@ -267,7 +500,7 @@ shared_examples "comments" do
         let(:content) { "A unconfirmed user mention: @#{mentioned_user.nickname}" }
 
         it "do not show the tribute container" do
-          expect(page).not_to have_selector(".tribute-container")
+          expect(page).not_to have_selector(".tribute-container", text: mentioned_user.name)
         end
       end
 

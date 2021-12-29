@@ -64,11 +64,26 @@ cs:
         few: Otázek
         many: Otázek
         other: Otázek
+      decidim/votings/census/dataset:
+        one: Datová sada
+        few: Datové sady
+        many: Datových sad
+        other: Datové sady
+      decidim/votings/census/datum:
+        one: Datum
+        few: Data
+        many: Datumů
+        other: Datumy
       decidim/votings/polling_officer:
         one: Volební komisař
         few: Volební komisaři
         many: Volebních komisařů
         other: Volební komisaři
+      decidim/votings/polling_station:
+        one: Volební místnost
+        few: Volební místnosti
+        many: Volebních místností
+        other: Volebních místnostech
       decidim/votings/voting:
         one: Hlasování
         few: Hlasování
@@ -92,6 +107,16 @@ cs:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Vyhledejte %{collection} podle jména/e-mailu/přezdívky nebo volební místnosti.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
           : Hledat %{collection} podle názvu, adresy nebo jména úředníka/e-mailu/přezdívky.
+        signed_eq:
+          label: Podepsáno
+          values:
+            'false': Podepsáno
+            'true': Nepodepsáno
+        validated_eq:
+          label: Ověřeno
+          values:
+            'false': Ověřeno
+            'true': Neschváleno
     components:
       elections:
         actions:
@@ -158,7 +183,7 @@ cs:
             title: Upravit volbu
             update: Aktualizovat volby
           index:
-            no_bulletin_board: Není nastaven žádný <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board server</a>, který je potřebný pro použití tohoto modulu. Tento úkol by měl provést správce systému.
+            no_bulletin_board: Není nastaven žádný <a href="https://github.com/decidim/decidim-bulletin-board">server Vývěsky</a>, který je potřebný pro použití tohoto modulu. Tento úkol by měl provést správce systému.
             title: Volby
           new:
             create: Vytvořit volbu
@@ -173,6 +198,8 @@ cs:
         exports:
           elections: Volby
           feedback_form_answers: Odpovědi na formulář zpětné vazby
+        menu:
+          trustees: Volební důvěrníci
         models:
           answer:
             name: Odpověď
@@ -232,18 +259,18 @@ cs:
               time_before: Nastavení se provádí <strong>alespoň %{hours} hodin</strong> před zahájením voleb.
               trustees_number: Participační prostor má <strong>alespoň %{number} důvěrníků s veřejným klíčem</strong>.
             submit: Nastavení voleb
-            success: Volba byla úspěšně odeslána do Bulletin Board
+            success: Volby byly úspěšně odeslány do Vývěsky
             title: Nastavení voleb
             trustees: Volební důvěrníci
           created:
             invalid: Vyskytl se problém při zahájení ceremoniálu
             submit: Zahájit ceremoniál
-            success: Počáteční žádost o ceremoniál byla úspěšně odeslána do Bulletin Board
+            success: Žádost o Úvodní ceremoniál byla úspěšně odeslána do Vývěsky
             title: Volba vytvořena
             trustees: Důvěrníci
           key_ceremony:
+            continue: Pokračovat
             title: Slavnostní ceremoniál
-            trustees: Důvěrníci
           key_ceremony_ended:
             errors:
               time_before: Volby jsou připraveny k zahájení. Musíte počkat %{hours} hodin před začátkem období hlasování (%{start_time}).
@@ -251,7 +278,7 @@ cs:
             requirements:
               time_before: Volba začne brzy. Hlasovací období můžete začít ručně, nebo bude spuštěna automaticky před časem začátku v %{start_time}.
             submit: Začátek doby hlasování
-            success: Počátek období hlasování bylo úspěšně odesláno do Bulletin Board
+            success: Žádost o Počátek voleb byla úspěšně odeslána do Vývěsky
             title: Připraveno k zahájení
           processing: Zpracovávání...
           results_published:
@@ -263,8 +290,14 @@ cs:
             submit: Odeslat
             title: Výsledky publikovány
           tally:
+            continue: Pokračovat
+            invalid: Došlo k problému s nahlášením chybějícího důvěrníka
+            mark_as_missing: Označit jako chybějící
+            mark_as_missing_description: Tohoto procesu by se měli účastnit všichni důvěrníci, ale pokud se některý důvěrník nemůže procesu účastnit, můžete ho označit jako chybějícího.
+            success: Zpráva o chybějícím důvěrníkovi byla úspěšně odeslána na vývěsku
+            tally_completion: Proces bude dokončen, jakmile budou všichni důvěrníci aktivní nebo budou označeni jako chybějící. K dokončení procesu je zapotřebí alespoň %{quorum} důvěrníků.
             title: Proces volebního přepočítání
-            trustees: Volební důvěrníci
+            undo_mark_as_missing: Správce, který byl omylem označen jako chybějící, se bude moci zúčastnit před dokončením procesu. Může postupovat jako obvykle a chybějící označení bude ignorováno.
           tally_ended:
             answer: Odpověď
             not_selected: Nevybráno
@@ -272,7 +305,7 @@ cs:
             result: Výsledek
             selected: Vybráno
             submit: Publikovat výsledky
-            success: Volební přepočítání úspěšně zakončeno
+            success: Žádost o Zveřejnění výsledků bylo úspěšně odesláno na Vývěsku
             title: Vypočítané výsledky
           vote:
             errors:
@@ -281,12 +314,12 @@ cs:
             requirements:
               time_after: Volba skončila. Hlasovací dobu můžete ukončit ručně, nebo bude automaticky ukončena za několik minut.
             submit: Konec doby hlasování
-            success: Žádost o ukončení hlasování byla úspěšně odeslána do Bulletin Board
+            success: Žádost o ukončení voleb byla úspěšně odeslána do Vývěsky
             title: Období hlasování
           vote_ended:
             invalid: Vyskytl se problém při startu Volební listiny
             submit: Začít Volební přepočítání
-            success: Požadavek zahájení Volebního přepočítání byl úspěšně odeslán na Bulletin Board
+            success: Požadavek zahájení Volebního přepočítání byl úspěšně odeslán do Vývěsky
             text: Hlasování bylo ukončeno. Nyní můžete začít volební přepočítání.
             title: Období hlasování skončilo
           vote_stats:
@@ -317,13 +350,20 @@ cs:
             success: Důvěrník %{trustee} úspěšně aktualizován
       admin_log:
         election:
-          end_vote: "%{user_name} ukončil hlasovací období pro volby v %{resource_name} na Bulletin Board"
-          publish: "%{user_name} zveřejnil volby %{resource_name}"
-          setup: "%{user_name} vytvořil %{resource_name} volby na Bulletin Boardu"
-          start_key_ceremony: "%{user_name} zahájil klíčový ceremoniál pro volby ve Bulletin Board %{resource_name}"
-          start_tally: "%{user_name} zahájil Volební přepočítání pro volby v %{resource_name} na Bulletin Board"
-          start_vote: "%{user_name} zahájil hlasovací období pro volby v %{resource_name} na Bulletin Boardu"
-          unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
+          create: "%{user_name} vytvořil volby %{resource_name} z %{space_name}"
+          delete: "%{user_name} odstranil volby %{resource_name} ze %{space_name}"
+          end_vote: "%{user_name} ukončil hlasovací období pro zvolení %{resource_name} ve %{space_name} na Vývěsce"
+          publish: "%{user_name} publikoval volbu %{resource_name} z %{space_name}"
+          publish_results: "%{user_name} zveřejnil výsledky voleb %{resource_name} v %{space_name} na Vývěsce"
+          report_missing_trustee: "%{user_name} nahlásil %{trustee_name} jako chybějícího správce během volby %{resource_name} %{space_name} na Vývěsce"
+          setup: "%{user_name} vytvořil volbu %{resource_name} z %{space_name} na Vývěsce"
+          start_key_ceremony: "%{user_name} zahájil klíčový ceremoniál pro volby %{resource_name} z %{space_name} na Vývěsce"
+          start_tally: "%{user_name} zahájil volební přepočítání pro volby %{resource_name} %{space_name} na Vývěsce"
+          start_vote: "%{user_name} zahájil hlasovací období pro volby %{resource_name} z %{space_name} na Vývěsce"
+          unpublish: "%{user_name} zrušil publikaci %{resource_name} z volby %{space_name}"
+          update: "%{user_name} aktualizoval volbu %{resource_name} z %{space_name}"
+        trustee:
+          create: "%{user_name} přiřadil uživatele %{trustee_user} jako důvěrníka"
       election_m:
         badge_name:
           finished: Dokončeno
@@ -331,6 +371,11 @@ cs:
           upcoming: Nadcházející
         end_date: Končí
         footer:
+          remaining_time:
+            one: "Na hlasování zbývá <strong>%{count} hodina a %{minutes} minut</strong>."
+            few: "Na hlasování zbývá <strong>%{count} hodiny a %{minutes} minut</strong>."
+            many: "Na hlasování zbývá <strong>%{count} hodin a %{minutes} minut</strong>."
+            other: "Na hlasování zbývá <strong>%{count} hodin a %{minutes} minut</strong>."
           view: Zobrazit
           vote: Hlasovat
         label:
@@ -345,6 +390,51 @@ cs:
             few: "%{count} zvolení"
             many: "%{count} zvolení"
             other: "%{count} voleb"
+        election_log:
+          chained_hash: Získaný hash této zprávy
+          complete: Dokončeno
+          creation_description:
+            complete: Volby jsou vytvořené a úspěšně nastavené na Vývěsku.
+            not_created: Volby ještě nejsou vytvořeny.
+          creation_title: Volby vytvořeny
+          description: Toto je volební deník, kde můžete zkontrolovat stav každého kroku, např. když se volby vytvořily, pokud bude dokončen proces spojenectví a až budou ukončeny volby.
+          download: Stáhnout
+          key_ceremony_description:
+            complete: Úvodní ceremoniál je dokončen. Každý správce má platné klíče a stáhl potřebné záložní klíče.
+            not_started: Úvodní ceremoniál ještě nezačal.
+            started: Úvodní ceremoniál byl zahájen, ale ještě není dokončen.
+          key_ceremony_title: Úvodní ceremoniál
+          not_available: Ještě není k dispozici
+          not_created: Nevytvořeno
+          not_published: Nezveřejněno
+          not_ready: Není připraveno
+          not_started: Nezahájeno
+          published: Publikováno
+          results_description:
+            not_published: Výsledky ještě nejsou publikovány.
+            published: Výsledky jsou publikovány.
+          results_title: Výsledky
+          started: Spuštěno
+          tally_description:
+            finished: Proces je dokončen.
+            not_started: Proces ještě nezačal.
+            started: Proces byl zahájen.
+          tally_title: Proces volebního přepočítání
+          title: Volební protokol
+          verifiable_results:
+            checksum: 'Kontrolní součet SHA256 souboru:'
+            description:
+              not_ready: Ověřitelný volební soubor a kontrolní součet SHA256 ještě nejsou k dispozici. Jakmile budou výsledky zveřejněny, budete moci tuto volbu ověřit.
+              ready: 'Zde máte možnost ověřit volby. Nejprve musíte stáhnout soubor a ujistěte se, že nebyl poškozen. Chcete-li tak učinit, spusťte následující příkaz a zkontrolujte, zda se výstup shoduje s kontrolním součtem:'
+            how_to_verify: 'Jakmile stáhnete soubor a ujistíte se, že je v pořádku, můžete pokračovat ve spuštění univerzálního ověřovače. Klonujte <a href=''https://github.com/decidim/decidim-bulletin-board''>tento repozitář</a> a z kořenové složky spusťte následující příkaz:'
+            title: Ověřit výsledky voleb
+            verifiable_file: 'Ověřitelný volební soubor:'
+          verify: Ověřit volby
+          vote_description:
+            finished: Proces hlasování je ukončen.
+            not_started: Proces hlasování ještě nezačal.
+            started: Proces hlasování byl zahájen.
+          vote_title: Proces hlasování
         filters:
           active: Aktivní
           all: Vše
@@ -363,6 +453,7 @@ cs:
           title: Volební otázky
         results:
           description: 'To jsou výsledky hlasování pro každou otázku:'
+          percentage: "%{count}%"
           selected: Vybrané
           title: Výsledky voleb
           votes:
@@ -378,7 +469,9 @@ cs:
           back: Dostupné volby
           callout:
             already_voted: V této volbě jste již hlasovali. Můžete změnit svůj hlas nebo jej ověřit.
+            pending_vote: Váš hlas se odehrává na serveru.
             vote_rejected: Nebylo možné ověřit váš hlas. Prosím, pošlete jej znovu.
+          election_log: Volební protokol
           preview: Náhled
           verify:
             already_voted: Již jste hlasovali?
@@ -402,10 +495,12 @@ cs:
             votes: Hlasy
         election:
           fields:
-            bb_status: Stav Bulletin Boardu
+            bb_status: Stav Vývěsky
             end_time: Končí v
             start_time: Začíná v
             title: Název
+            verifiable_results_file_hash: Kontrolní součet SHA256 souboru
+            verifiable_results_file_url: Ověřitelný volební soubor
         question:
           fields:
             answers: Odpovědi
@@ -427,13 +522,13 @@ cs:
       trustee_zone:
         elections:
           backup_modal:
-            description: Tyto volby se konají v Bulletin Board. Je velmi důležité, aby každý důvěrník, který se na něm podílí, vytvořil záložní kopii těchto klíčů a uložil je na bezpečném místě. Poté proces pokračuje.
+            description: Tyto volby jsou vytvořeny na Vývěsce. Je velmi důležité, aby každý důvěrník, který se na něm podílí, vytvořil záložní kopii těchto klíčů a uložil je na bezpečném místě. Poté proces pokračuje.
             download_election_keys: Stáhnout klíče
             download_icon: Ikona, která indikuje akci ke stažení
             title: Zálohovat volební klíče pro %{election}
           key_ceremony_steps:
             back: Zpět
-            description: Tyto volby se odehrávají v Bulletin Board. Pro dokončení tohoto procesu je nutná vaše účast jako důvěrníka.
+            description: Tyto volby jsou vytvořeny na Vývěsce. Pro dokončení tohoto procesu je nutná vaše účast jako důvěrníka.
             keys:
               create_election: Generování klíčů
               key_ceremony:
@@ -451,13 +546,13 @@ cs:
               processing: Zpracovávání
             title: Vytvořit volební klíče pro %{election}
           restore_modal:
-            description: Bulletin Board má od vás jako důvěrníka informace o těchto volbách. Chcete-li pokračovat v procesu, nejprve nahrajte záložní soubor generovaný během předchozí relace.
+            description: Vývěska má od vás jako důvěrníka informace o těchto volbách. Chcete-li pokračovat v procesu, nejprve nahrajte záložní soubor generovaný během předchozí relace.
             title: Obnovit volební klíče pro %{election}
             upload_election_keys: Nahrát volební klíče
             upload_icon: Ikona, která indikuje akci ke stažení
           tally_steps:
             back: Zpět
-            description: Výsledky těchto voleb jsou vypočítány v Bulletin Board. Pro dokončení tohoto procesu je zapotřebí vaší účasti jako Důvěrníka.
+            description: Výsledky těchto voleb jsou vyčísleny na Vývěsce. Pro dokončení tohoto procesu je zapotřebí vaší účasti jako Důvěrníka.
             keys:
               end_tally: Volební přepočítání uzavřeno
               tally:
@@ -480,8 +575,8 @@ cs:
         menu:
           trustee_zone: Zóna důvěrníků
         no_bulletin_board:
-          body: Konfigurovaný bulletin Board je vyžadován pro tuto sekci. Pro více informací kontaktujte správce.
-          title: Omlouváme se, ale Bulletin Board ještě není nakonfigurován.
+          body: Konfigurovaná Vývěska je vyžadována pro tuto sekci. Pro více informací kontaktujte správce.
+          title: Omlouváme se, ale Vývěska ještě není nakonfigurována.
         trustees:
           show:
             elections:
@@ -523,9 +618,13 @@ cs:
         ballot_decision:
           audit: "(Audit volebního lístku)"
           back: Zahájit proces hlasování znovu
+          ballot_hash: 'Identifikátor vašeho hlasování:'
           cast: Zahlasování hlasovacího lístku
           description: Zde máte možnost odevzdat hlasovací lístek tak, aby byl správně spočítán, nebo případně můžete kontrolovat, zda je vaše hlasování správně šifrované. Z důvodů porušeného zabezpečnení to váš hlasovací lístek může zrušit. To znamená, že abyste mohli hlasovat, budete muset znovu zahájit hlasovací proces.
           header: 'Hlasovací lístek je šifrovaný: zahlasujte s ním nebo jej auditujte'
+        casting:
+          header: Hlasování...
+          text: Váš hlasovací lístek byl vložen do volební urny.
         confirm:
           answer: Odpověď
           answer_number: odpověď %{number}
@@ -537,26 +636,31 @@ cs:
           question: Otázka %{count}
         confirmed:
           back: Zpět k volbám
-          error: Omlouváme se, došlo k chybě při potvrzení hlasování. Prosím, hlasujte znovu.
           experience: Jaká byla vaše zkušenost?
           feedback: Dejte nám zpětnou vazbu
           header: Hlasování potvrzeno
-          lead: Váš hlas již byl odeslán!
+          lead: Váš hlas byl odeslán!
           text: 'Můžete zkontrolovat, že váš hlas byl úspěšně přidán do volební urny s následujícím identifikátorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
           verify_link: Chcete-li jej zkontrolovat, zkopírujte identifikátor a vložte jej na <a href="%{link}">stránku pro ověření hlasování</a>
+        create:
+          error: Při hlasování se vyskytl problém. Zkuste to prosím znovu.
         encrypting:
-          header: Zakódování hlasů...
-          text: Váš hlas je šifrován, abyste ho mohli anonymně posílat.
+          header: Šifrování hlasování...
+          text: Váš hlasovací lístek je šifrován, aby bylo zajištěno že vaše hlasování je tajné.
         failed:
           header: Hlasování se nezdařilo
           lead: Váš hlas nebyl odeslán!
           text: Něco se pokazilo, zkuste to prosím znovu.
+          try_again: Zkuste to znovu
         header:
           ballot_decision: Zahlasování nebo audit vašeho hlasování
+          casting: Hlasování
           confirm: Potvrďte svůj hlas
           confirmed: Hlasování potvrzeno
-          encrypting: Potvrzení hlasování
+          encrypting: Šifrování hlasování
+          failed: Hlasování se nezdařilo
         messages:
+          invalid_token: Vaše relace u hlasovacího místa není platná. Zkuste hlasovat znovu.
           not_allowed: V tuto chvíli vám není dovoleno hlasovat o těchto volbách.
         modal:
           close: Zavřít
@@ -568,9 +672,14 @@ cs:
           preview_alert: To je náhled hlasovacího pultu.
           question_steps: Otázka %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> výběrů"
+        onboarding_modal:
+          close: Zavřít okno
+          create_account: Vytvořit účet
+          description: Chcete si vytvořit nový účet v Decidimu? Budete se moci účastnit procesů a být aktivní součástí organizace.
+          no_account: Ne, děkuji.
+          title: Jste v Decidim poprvé?
         update:
-          error: Při aktualizaci stavu hlasování došlo k chybě
-          success: Stav hlasování byl úspěšně aktualizován
+          error: Při aktualizaci statusu hlasování se vyskytl problém. Prosím, hlasujte znovu.
         verify:
           content:
             heading: Ověřte svůj hlas
@@ -624,6 +733,9 @@ cs:
             email_outro: Obdrželi jste toto oznámení, protože jste byli přiřazeni jako %{role} v %{polling_station_name}.
             email_subject: Jste %{role} z volební místnosti %{polling_station_name}.
             notification_title: Jste %{role} z volební místnosti %{polling_station_name} při hlasování <a href="%{resource_path}">%{resource_title}</a>.
+        send_access_code:
+          instruction: 'Zde je váš přístupový kód, o který jste požádali: %{access_code}. S tím se budete moci podílet na %{voting}.'
+          subject: Váš přístupový kód pro účast v %{voting}
     help:
       participatory_spaces:
         votings:
@@ -637,6 +749,37 @@ cs:
       votings_count: Hlasování
     votings:
       admin:
+        ballot_styles:
+          create:
+            error: Při vytváření tohoto stylu hlasování došlo k chybě
+            success: Styl hlasování byl úspěšně vytvořen
+          destroy:
+            invalid: Při mazání tohoto stylu hlasování došlo k chybě
+            success: Styl hlasování byl úspěšně smazán
+          edit:
+            title: Upravit styl hlasování
+            update: Aktualizovat
+          form:
+            code_help: 'Tip: kód je spojitost mezi seznamem členů a stylem hlasování. Při nahrávání dat ze seznamu členů bude každému záznamu přiřazen styl hlasovacích lístků podle odpovídajícího kódu'
+            election: Volby
+            questions: Otázky pro tento styl voleb
+            questions_help: 'Tip: vyberte otázky z volebních složek, které mají být předloženy voličům přiřazeným k tomuto stylu hlasování'
+          index:
+            actions:
+              confirm_destroy: Jste si jist?
+              destroy: Smazat
+              edit: Upravit
+              new: Nový
+              title: Akce
+            associated_census_data: Související záznamy ze seznamu obyvatel
+            explanation_callout: Styl hlasování specifikuje, jaké otázky budou předloženy u přítomného voliče za plentou. Ve stylu hlasování si můžete vybrat, jaké otázky z volebních složek tohoto hlasování patří k volbám. Kód stylu hlasování se používá k tomu, aby volič ze seznamu členů odpovídal na hlasování, které bude prezentováno za plentou. Pokud chcete vždy prezentovat všechny otázky, nevytvářejte žádný styl hlasování.
+            title: Styly hlasování
+          new:
+            create: Vytvořit
+            title: Vytvořit styl hlasování
+          update:
+            invalid: Při aktualizaci tohoto stylu hlasování došlo k chybě
+            success: Styl hlasování byl úspěšně aktualizován
         content_blocks:
           highlighted_votings:
             max_results: Maximální počet prvků k zobrazení
@@ -679,13 +822,23 @@ cs:
             attachment_collections: Složky
             attachment_files: Soubory
             attachments: Přílohy
+            ballot_styles: Styly hlasování
+            census: Seznam obyvatel
             components: Komponenty
             info: Informace
             landing_page: Vstupní stránka
-            monitoring_committee_members: Monitorovací výbor
+            monitoring_committee: Monitorovací výbor
+            monitoring_committee_election_results: Ověřit výsledky
+            monitoring_committee_members: Členové
+            monitoring_committee_polling_station_closures: Potvrdit certifikáty
+            monitoring_committee_verify_elections: Ověřit volby
             polling_officers: Volební komisaři
             polling_stations: Volební místnost
         models:
+          ballot_style:
+            fields:
+              code: Kód
+            name: Styly hlasování
           monitoring_committee_member:
             fields:
               email: E-mail
@@ -710,6 +863,33 @@ cs:
               promoted: Zvýrazněno
               published: Publikováno
               title: Název
+        monitoring_committee_election_results:
+          actions:
+            title: Akce
+            view: Zobrazit
+          index:
+            title: Vyberte si volby, u kterých chcete vidět výsledky
+          results:
+            bulletin_board: Vývěska
+            election_totals: Volební součet
+            polling_stations: Volební místnosti
+            result_types:
+              blank_answers: Prázdné odpovědi
+              blank_ballots: Prázdné hlasovací lístky
+              null_ballots: Prázdné hlasovací lístky
+              total_ballots: Celkový počet hlasovacích lístků
+              valid_ballots: Platné hlasovací lístky
+            selected: Vybráno
+            title: Výsledky voleb <i>%{election_title}</i>
+            totals: Celkem
+          show:
+            change_election: Změnit volbu
+            publish_results: Zveřejnit výsledky
+            publishing: Zveřejňování výsledků...
+          update:
+            invalid: Při publikování výsledků došlo k chybě
+            rejected: Zveřejnění výsledků bylo výborem Vývěsky zamítnuto. Zkuste to znovu nebo se obraťte na správce systému.
+            success: Výsledky byly úspěšně publikovány
         monitoring_committee_members:
           create:
             invalid: Při vytváření tohoto člena monitorovacího výboru došlo k potížím
@@ -727,6 +907,38 @@ cs:
           new:
             create: Vytvořit
             title: Vytvořit člena monitorovacího výboru
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: Akce
+            validate: Ověřit
+            view: Zobrazit
+          closures:
+            change_election: Změnit volbu
+            signed: Podepsáno?
+            title: Hlasovací stanice pro volby <i>%{election_title}</i>
+            validated: Ověřeno?
+          edit:
+            change_polling_station: Zpět do volebních místností
+            monitoring_committee_notes: Poznámky
+            monitoring_committee_notes_placeholder: Zde nahlaste jakýkoliv incident
+            title: Výsledky voleb <i>%{election_title}</i> ve volební místnosti<i>%{polling_station_title}</i>
+          elections:
+            title: Vyberte volbu, kterou chcete ověřit
+          show:
+            change_polling_station: Zpět do volebních místností
+            monitoring_committee_notes: Poznámky monitorovacího výboru
+          validate:
+            error: Při ověřování uzavření došlo k chybě
+            success: Uzavření bylo správně ověřeno
+        monitoring_committee_verify_elections:
+          index:
+            download: Stáhnout
+            how_to_checksum: 'Chcete-li se ujistit, že stažený soubor nebyl během procesu stahování poškozen nebo zmanipulován, spusťte následující příkaz v konzoli a zkontrolujte, zda výstup odpovídá výše uvedenému kontrolním součtu:'
+            how_to_download: Chcete-li ověřit volby, stáhněte si ověřitelný soubor z tabulky výše.
+            how_to_run_verifier: 'Jakmile stáhnete soubor a ujistíte se, že je v pořádku, můžete pokračovat ve spuštění univerzálního ověřovače. Klonujte <a href=''https://github.com/decidim/decidim-bulletin-board''>tento repozitář</a> a z kořenové složky spusťte následující příkaz:'
+            how_to_title: Jak ověřit platnost voleb
+            not_available: Ještě není k dispozici
+            title: Volby
         polling_officers:
           create:
             invalid: Při vytváření tohoto volebního komisaře došlo k chybě
@@ -793,6 +1005,7 @@ cs:
             assign_missing_officers: Existují volební místnosti bez předsedy a/nebo manažerů. Prosím, přiřaďte je ze sekce volebních místností
             update: Aktualizovat
           form:
+            census_contact_information_help: Tato kontaktní informace je určena pro účastníka, který chce nahlásit problémy se sčítáním. Může to být e-mailová adresa, kontaktní formulář na jiné stránce, anketa Decidim pro návštěvníky, atd.
             select_a_voting_type: Vyberte prosím typ hlasování
             slug_help: 'URL slugů se používají k generování URL, které odkazují na toto hlasování. přijímá pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
             title: Název
@@ -811,10 +1024,92 @@ cs:
             invalid: Při aktualizaci tohoto hlasování došlo k chybě
             success: Hlasování bylo úspěšně aktualizováno
       admin_log:
+        ballot_style:
+          create: "%{user_name} vytvořil styl voleb s kódem %{ballot_style_code} ve %{space_name}"
+          delete: "%{user_name} odstranil styl voleb s kódem %{ballot_style_code} ve %{space_name}"
+          update: "%{user_name} aktualizoval styl voleb s kódem %{ballot_style_code} ve %{space_name}"
+        census:
+          create: "%{user_name} vytvořil sčítání pro %{space_name}"
+          delete: "%{user_name} odstranil sčítání pro %{space_name}"
+          update: "%{user_name} aktualizoval sčítání pro %{space_name}"
+        monitoring_committee_member:
+          create: "%{user_name} přiřadil uživatele %{monitoring_committee_member_user} jako člena monitorovacího výboru ve %{space_name}"
+          delete: "%{user_name} odebral uživatele %{monitoring_committee_member_user} jako člena monitorovacího výboru ve %{space_name}"
+        polling_officer:
+          create: "%{user_name} přiřadil uživatele %{polling_officer_user} jako volebního úředníka ve %{space_name}"
+          delete: "%{user_name} zrušil přiřazení uživatele %{polling_officer_user} jako volebního úředníka ve %{space_name}"
+        polling_station:
+          create: "%{user_name} vytvořil hlasovací místo %{resource_name} ve %{space_name}"
+          delete: "%{user_name} odstranil hlasovací místo %{resource_name} ve %{space_name}"
+          update: "%{user_name} aktualizoval hlasovací místo %{resource_name} ve %{space_name}"
         voting:
           create: "%{user_name} vytvořil %{resource_name} hlasování"
           publish: "%{user_name} zveřejnil %{resource_name} hlasování"
           unpublish: "%{user_name} zrušil publikování %{resource_name} hlasování"
+      census:
+        admin:
+          census:
+            create:
+              invalid: Při nahrávání seznamu osob došlo k chybě, opakujte akci později.
+              invalid_csv_header: Hlavičky CSV chybí nebo nejsou správné - přečtěte si prosím pečlivě pokyny
+            creating_data:
+              info_message: "<strong>Počkejte prosím</strong>, zpracováno %{processed_count} z %{raw_count} řádků ze souboru %{file}."
+            delete:
+              button: Odstranit všechna data ze seznamu obyvatel
+              confirm: Odstranění veškerých seznamů členů nelze vrátit zpět. Opravdu chcete pokračovat?
+            destroy:
+              error: Došlo k chybě při odstraňování seznamu osob, opakujte akci později.
+              success: Seznam členů byl smazán
+            export_access_codes:
+              button: Generovat hlasovací přístupové kódy
+              callout: Nyní můžete pokračovat v exportu přístupových kódů. Lze to provést pouze jednou. Jakmile zahájíte export, obdržíte e-mail s pokyny pro <strong>%{email}</strong>
+              confirm: Exportovat přístupové kódy můžete pouze jednou. Ujistěte se, že máte přístup k e-mailovému účtu <strong>%{email}</strong>.
+              file_not_exists: Tento soubor neexistuje
+              launch_error: Problém se spuštěním exportu přístupových kódů
+              launch_success: Export přístupových kódů byl spuštěn. Brzy obdržíte e-mail na %{email}
+            exporting_access_codes:
+              info_message: "<strong>Počkejte prosím</strong>, export se připravuje, brzy ho obdržíte na %{email}"
+            freeze:
+              callout: Seznam osob je zmrazen a nelze jej upravit.
+            generate_access_codes:
+              button: Generovat hlasovací přístupové kódy
+              callout: Nyní můžete přejít k vygenerování přístupových kódů. Pamatujte, že po vygenerování přístupových kódů již nebudete moci měnit seznam osob.
+              confirm: Budete-li pokračovat, nebudete moci měnit seznam členů.
+              info_message_all: "<strong>Všechny řádky úspěšně importovány</strong> ze souboru %{file} (%{raw_count} z %{data_count})."
+              info_message_warn: Zkontrolujte, že žádná data nechybí, protože byly vytvořeno %{data_count} záznamů a nahraný soubor %{file} měl %{raw_count} řádků.
+              launch_error: Problém při spuštění generování přístupových kódů
+              launch_success: Vytváření kódů bylo spuštěno.
+            generating_access_codes:
+              info_message: "<strong>Počkejte prosím</strong>, přístupové kódy hlasování jsou generovány..."
+            new:
+              file_help:
+                explanation: 'Pokyny pro soubor:'
+                message_1: Jsou povoleny pouze soubory CSV (.csv).
+                message_2: Oddělovač sloupců musí být středník (";").
+              has_ballot_styles_message: Nastavili jste styl hlasování. Ujistěte se, že pole "%{ballot_style_code_header}" v CSV odpovídá požadovanému kódu Stylu hlasování.
+              info_message: "<strong>Zatím neexistuje žádný seznam osob.</strong> Použijte prosím formulář níže pro vytvoření importu souboru CSV."
+              missing_ballot_styles_message: 'Pro toto hlasování zatím neexistuje žádný styl hlasování. Pokud chcete mít podmíněné otázky (tj.: představit voliče s různými otázkami podle např. okresu / regionu bydliště, musíte nastavit <a href=%{ballot_styles_admin_path}>Styly pro hlasování</a> <strong>před</strong> importováním seznamu osob. Pokud chcete všem voličům položit stejné otázky, můžete pokračovat v proceduře importu seznamu osob.'
+              submit: Odeslat csv
+              title: Vytvořit seznam osob
+            show:
+              heading: Hlasovací prostor seznamu osob
+            upload_info:
+              csv_example_with_ballot_style: 'Příklad souboru <strong>se</strong> styly hlasování:'
+              csv_example_without_ballot_style: 'Příklad souboru <strong>bez</strong> stylů hlasování:'
+              csv_header_after: Nezahrnujte poslední pole ("%{ballot_style_code_header}"), pokud nepotřebujete styly hlasování / podmíněné otázky
+              csv_header_before: 'Soubor seznamu osob musí být soubor CSV s následujícím záhlavím:'
+        document_types:
+          dni: Občanský průkaz
+          nie: Daňové identifikační číslo
+          passport: Cestovní pas
+        export_mailer:
+          access_codes_export:
+            click_button: 'Klikněte na následující odkaz pro stažení přístupových kódů.<br/>Soubor bude k dispozici do %{date}.<br/>Budete potřebovat <a href="https://www.7-zip.org/">7-Zip</a> (pro Windows), <a href="https://www.keka.io/en/">Keka</a> (pro MacOS) nebo <a href="https://peazip.github.io">PeaZip</a> (pro Linux) pro jeho otevření. Heslo: %{password}'
+            download: Stáhnout
+            subject: Export hlasovacích kódů pro %{voting_title} je k dispozici
+        vote_flow:
+          already_voted_in_person: Tento uživatel již hlasoval osobně a nemá právo hlasovat.
+          datum_not_found: Poskytnutá data neodpovídají žádnému voliči.
       content_blocks:
         highlighted_votings:
           name: Zvýrazněné hlasování
@@ -842,23 +1137,124 @@ cs:
             see_all_votings: Zobrazit všechna hlasování
             votings_button_title: Odkaz na stránku hlasování zobrazující všechna hlasování
       polling_officer_zone:
+        closures:
+          back_to_polling_stations: Zpět do volební místnosti
+          certify:
+            add_images: Přidat obrázky
+            error: Došlo k chybě při připojování certifikátu, zkuste to prosím znovu.
+            form_legend: Nahrajte prosím fotografii volebního certifikátu o uzavření
+            heading: Přepočet hlasů - Nahrát certifikát
+            info_text: Nahrajte prosím fotografii volebního certifikátu o uzavření.
+            submit: Nahrát certifikát
+            success: Certifikát byl úspěšně nahrán.
+          create:
+            error: Při vytváření uzavření došlo k chybě, opakujte akci později.
+            success: Uzavření bylo úspěšně vytvořeno.
+          edit:
+            heading: Přepočet hlasů - přepočet odpovědí
+            info_text: Uveďte celkový počet odpovědí na každou otázku.
+            modal_ballots_results_count_error:
+              close_modal: Zavřít
+              info_text: Celkový počet hlasovacích lístků neodpovídá celkovému počtu obálek. Zkontrolujte prosím celkový počet hlasovacích lístků.
+              title: Součet hlasovacích lístků se nesčítá
+            save_recount: Uložit přepočet
+            total_ballots: Celkový počet hlasovacích lístků
+            total_blank_ballots: Celkový počet prázdných hlasovacích lístků
+            total_null_ballots: Celkový počet prázdných hlasovacích lístků
+            total_valid_ballots: Celkový počet platných hlasovacích lístků
+          new:
+            election: 'Volby:'
+            heading: Přepočet hlasů
+            info_text: 'Uveďte celkový počet hlasovacích lístků (obálek) přepočtených v této volební místnosti:'
+            modal_ballots_count_error:
+              btn_validate_total: Ověření celkového přepočtu hlasovacích lístků
+              close_modal: Zavřít
+              info_explanation_text: 'Zkontrolujte celkový počet hlasovacích lístků. Pokud je celkový počet správný, musíte monitorovacímu výboru poskytnout vysvětlení:'
+              info_text: Celkový počet vložených hlasovacích lístků (obálek) neodpovídá počtu osob, které v této volební místnosti hlasovaly.
+              message_for_monitoring_committee: Zpráva pro monitorovací výbor
+              review_recount: Zkontrolovat přepočet
+              text_area_placeholder: Zadejte prosím vaši zprávu
+              title: Celkový počet záznamů se nesčítá
+              total_ballots: 'Celkový počet hlasovacích lístků:'
+              total_people: 'Celkem lidí:'
+            polling_station: 'Volební místnost:'
+            submit: Ověřit celkové číslo
+            total_ballots_count: Počet hlasovacích lístků
+          show:
+            heading: Počet hlasů
+            info_text: Uzavření hlasovací stanice voleb.
+          sign:
+            cancel: Zrušit
+            check_box: Přezkoumal jsem to a je to stejné jako fyzický certifikát o ukončení voleb
+            close_modal: Zavřít
+            confirm: Ok, pokračovat
+            error: Došlo k chybě. Prosím zkuste to znovu.
+            heading: Přepočet hlasů - uzavření podpisu
+            info_text: Pokud budete pokračovat, již nemůžete upravovat žádné informace, tuto akci nelze vrátit zpět.
+            submit: Podepsat uzavření
+            success: Uzavření úspěšně podepsáno.
+            title: Tuto akci nelze vrátit zpět
+          update:
+            error: Při aktualizaci výsledků uzávěrky došlo k chybě, zkuste to prosím později.
+            success: Výsledky uzávěrky byly úspěšně aktualizovány.
+        in_person_votes:
+          complete_voting:
+            available_answers: 'Dostupné odpovědi:'
+            census_verified: Uživatel ještě nehlasoval.
+            complete_voting: Dokončené hlasování
+            identify_another: Identifikovat jiného účastníka
+            questions_title: 'Má právo hlasovat v těchto otázkách:'
+            questions_title_voted: 'Účastník již hlasoval on-line a je oprávněn hlasovat v následujících otázkách:'
+            voted: Uživatel hlasoval
+          create:
+            error: Hlasování nebylo zaregistrováno. Zkuste to prosím znovu.
+          in_person_form:
+            census_not_present: Tento uživatel není uveden v seznamu osob.
+            census_not_present_description: Musí jít do úřadu pro stížnosti ze sčítání nebo kontaktovat podporu.
+            date_of_birth: Datum narození
+            day: Den
+            day_placeholder: DD
+            document_number: Číslo dokumentu
+            document_number_placeholder: Číslo občanského průkazu
+            month: Měsíc
+            month_placeholder: MM
+            select: Vyberte typ dokumentu
+            title: 'Vyberte typ dokumentu a zadejte číslo dokladu účastníka:'
+            validate_document: Ověřit platnost dokladu
+            year: Rok
+            year_placeholder: RRRR
+          new:
+            back: Zpět do volební místnosti
+            title: Identifikovat a ověřit účastníka
+          show:
+            back: Zpět do volební místnosti
+            title: Čekání na registraci osobního hlasu
+          update:
+            error: Při registraci hlasování došlo k chybě. Zkuste to znovu.
+            success:
+              accepted: Hlasování bylo úspěšně zaregistrováno.
+              rejected: Hlasování nebylo přijato Volební vývěskou. Kontaktujte prosím správce systému.
+          verify_document:
+            census_present: Tento uživatel je uveden v seznamu osob.
+            name: Jméno
+            title: 'Zkontrolujte, zda jsou tyto údaje správné:'
+            verify_document: Ověřit doklad
         menu:
           polling_officer_zone: Zóna volebního komisaře
         polling_officers:
-          show:
-            actions:
-              count_votes: Spočítat hlasy ve volební urně
-              identify_person: Identifikovat a ověřit osobu
+          index:
             polling_officer_role_description: V některých volbách, které se na této platformě provádí, vám byly přiděleny funkce úředníka volební místnosti (předsedy nebo ředitele).
-            polling_stations:
-              list:
-                actions: Akce
-                address: Adresa
-                name: Název
-                role: Vaše role
-                voting: Hlasování
+            polling_station:
+              address: Adresa
+              count_votes: Počítat hlasy
+              election: Volby
+              identify_person: Identifikovat osobu
+              name: Jméno
               no_polling_stations: Zatím nejste přiřazeni k žádnému volební místnosti.
+              role: Vaše role
+              show_closure: Zobrazit uzavření
               title: Volební místnosti
+              voting: Hlasování
       polling_officers:
         actions:
           confirm_destroy: Jste si jisti?
@@ -869,6 +1265,16 @@ cs:
           manager: Manažer
           president: Předseda
           unassigned: Nepřiřazen
+      polling_station_closure_recount:
+        nota_option: Prázdná/Nic z výše uvedených
+        polling_officer_notes: 'Poznámky volebního komisaře:'
+        polling_officer_notes_blank: Nejsou žádné poznámky
+        recount_summary: 'Přepočet shrnutí:'
+        signed: Podepsáno
+        total_ballots: 'Celkový počet hlasovacích lístků:'
+        total_blank_ballots: 'Celkový počet nevyplněných hlasovacích lístků:'
+        total_null_ballots: 'Celkový počet prázdných hlasovacích lístků:'
+        total_valid_ballots: 'Celkový počet platných hlasovacích lístků:'
       polling_stations:
         actions:
           confirm_destroy: Jste si jist?
@@ -877,12 +1283,50 @@ cs:
           new: Nový
           title: Akce
       votings:
+        access_code_modal:
+          email: Poslat e-mailem na %{email}
+          info: K účasti potřebujete přístupový kód. Pokud jste ho nedostali poštou, můžeme vám poslat nový.
+          no_email: E-mail není k dispozici
+          no_sms: Žádné telefonní číslo není k dispozici
+          sms: Poslat SMS do %{sms}
+          title: Získat přístupový kód
+        check_census:
+          check_status: Zkontrolovat stav
+          description: Zde máte možnost zkontrolovat údaje ze seznamu osob, abyste věděli, zda máte právo účastnit se tohoto hlasování. Měli byste mít přístupový kód již k dispozici, ale pokud ho ztratíte, můžete ho znovu vyžádat, až budou vaše údaje správné.
+          error:
+            info: 'Zkuste to prosím znovu. Pokud si myslíte, že data v systému jsou nesprávná, můžete je nahlásit zde: %{census_contact_information}.'
+            title: Vaše data ze seznamu osob jsou nesprávná!
+          form_title: 'Vyplňte následující formulář pro kontrolu dat ze seznamu osob:'
+          invalid: Při kontrole seznamu osob došlo k chybě.
+          success:
+            access_link: prostřednictvím SMS nebo e-mailu.
+            info: Váš přístupový kód jste již měli obdržet poštou. V případě, že ho nemáte k dispozici, můžete o něj požádat zde
+            title: Vaše data seznamu osob jsou nesprávná!
+          title: Mohu hlasovat?
+        check_fields:
+          date_of_birth: Datum narození
+          day: Den
+          day_placeholder: DD
+          document_number: Číslo dokumentu
+          document_number_placeholder: Číslo občanského průkazu
+          month: Měsíc
+          month_placeholder: MM
+          postal_code: PSČ
+          postal_code_placeholder: Poštovní směrovací číslo
+          select: Vyberte typ dokumentu
+          year: Rok
+          year_placeholder: RRRR
         count:
           title:
             one: "%{count} hlasování"
             few: "%{count} hlasování"
             many: "%{count} hlasování"
             other: "%{count} hlasů"
+        elections_log:
+          bb_status: Stav voleb
+          description: Volební protokol vám zobrazí všechny příslušné informace o každém hlasování. Například status úvodního ceremoniálu nebo tally nebo pokud jsou výsledky již zveřejněny. Klikněte na volby, o kterých chcete protokolem informovat.
+          election_log: Volební protokol
+          title: Volební protokol
         filters:
           active: Aktivní
           all: Vše
@@ -899,10 +1343,23 @@ cs:
           no_votings: Žádné hlasování neodpovídá vašim kritériím hledání.
           only_finished: Momentálně nejsou žádné naplánované hlasování, ale zde můžete najít dokončené hlasování uvedené v seznamu.
           title: Hlasování
+        login:
+          access_code: Přístupový kód
+          access_code_placeholder: Přístupový kód
+          ask_for_a_new_one: Požádejte o nový.
+          dont_have_access_code: Nemáte přístupový kód?
+          form_title: 'Pro přístup k hlasování vyplňte následující formulář:'
+          start_voting: Zahájit hlasování
+          step: Identifikace
+          title: Identifikujte se podle dat mého seznamu osob
+        no_census_contact_information: Zatím neexistují žádné kontaktní informace
         orders:
           label: 'Seřadit hlasy podle:'
           random: Náhodně
           recent: Nejnovější
+        send_access_code:
+          invalid: Při odesílání přístupového kódu došlo k chybě
+          success: Váš přístupový kód byl úspěšně odeslán
         show:
           dates: Data
       votings_m:
@@ -925,6 +1382,8 @@ cs:
       election_votes_header:
         exit: Ukončit
       voting_navigation:
+        check_census: Mohu hlasovat?
+        election_log: Volební protokol
         voting_menu_item: Hlasování
       votings:
         index:

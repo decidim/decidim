@@ -8,7 +8,14 @@ module Decidim
       graphql_name "MeetinsLinkedResourcewInterface"
       description "An interface that can be used with Resourceable models."
 
-      field :proposals_from_meeting, [Decidim::Proposals::ProposalType, { null: true }], "Proposals created in this meeting", null: false
+      if Decidim::Meetings.enable_proposal_linking
+        field(
+          :proposals_from_meeting,
+          [Decidim::Proposals::ProposalType, { null: true }],
+          "Proposals created in this meeting",
+          null: false
+        )
+      end
 
       def proposals_from_meeting
         object.linked_resources(:proposals, :proposals_from_meeting)

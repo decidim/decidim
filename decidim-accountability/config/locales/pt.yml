@@ -32,6 +32,8 @@ pt:
   decidim:
     accountability:
       actions:
+        attachment_collections: Pastas
+        attachments: Anexos
         confirm_destroy: Tem certeza de que deseja eliminar este %{name}?
         destroy: Eliminar
         edit: Editar
@@ -42,6 +44,7 @@ pt:
         title: Ações
       admin:
         exports:
+          result_comments: Comentários
           results: Resultados
         import_results:
           new:
@@ -121,6 +124,11 @@ pt:
         value_types:
           parent_presenter:
             not_found: 'O pai não foi encontrado na base de dados (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Datas
+          results: Resultados
+          unspecified: Não especificado
       import_mailer:
         import:
           errors: Erros
@@ -133,8 +141,12 @@ pt:
       models:
         result:
           fields:
+            category: Categoria
+            created_at: Criado em
             end_date: Data final
+            id: ID
             progress: Progresso
+            scope: Âmbito
             start_date: Data de início
             status: Estado
             title: Título
@@ -148,6 +160,9 @@ pt:
           fields:
             description: Descrição
             entry_date: Data
+      result_m:
+        executed: Executado
+        view: Visualizar
       results:
         count:
           results_count:
@@ -178,8 +193,19 @@ pt:
             votes: Suporta
         timeline:
           title: Evolução do projeto
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Categoria
+          scope_id_eq:
+            label: Âmbito
+          status_id_eq:
+            label: Estado
     components:
       accountability:
+        actions:
+          comment: Comentário
         name: Prestação de contas
         settings:
           global:
@@ -190,6 +216,8 @@ pt:
             heading_leaf_level_results: Nome para "Projetos"
             heading_parent_level_results: Nome para "Resultados"
             intro: Introdução
+            scope_id: Âmbito
+            scopes_enabled: Âmbitos activados
             subcategories_label: Nome para "Subcategorias"
           step:
             comments_blocked: Comentários bloqueados
@@ -218,3 +246,5 @@ pt:
         result_project: Projetos incluídos neste resultado
       included_proposals:
         result_proposal: Propostas incluídas neste resultado
+    statistics:
+      results_count: Resultados

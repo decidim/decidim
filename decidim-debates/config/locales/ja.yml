@@ -26,8 +26,9 @@ ja:
     components:
       debates:
         actions:
+          comment: コメント
           create: 作成
-          endorse: 支持
+          endorse: オススメ
         name: ディベート
         settings:
           global:
@@ -40,8 +41,8 @@ ja:
             announcement: お知らせ
             comments_blocked: コメントをブロック
             creation_enabled: 参加者によるディベートの作成が有効になりました
-            endorsements_blocked: 支持がブロックされました
-            endorsements_enabled: 支持を有効にする
+            endorsements_blocked: オススメがブロックされました
+            endorsements_enabled: オススメを有効にする
     debates:
       actions:
         close: 閉じる
@@ -64,6 +65,10 @@ ja:
           edit:
             title: ディベートを編集
             update: ディベートを更新
+          form:
+            debate_type: ディベートタイプ
+            finite: 期間限定 (開始時刻と終了時刻あり)
+            open: 無期限 (開始時刻または終了時刻なし)
           index:
             title: ディベート
           new:
@@ -72,6 +77,8 @@ ja:
           update:
             invalid: このディベートを更新する際に問題が発生しました。
             success: ディベートが正常に更新されました。
+        exports:
+          comments: コメント
         models:
           debate:
             name: ディベート
@@ -150,6 +157,7 @@ ja:
           groups_count: グループ
           last_comment_by: 最新コメント
           no_comments_yet: コメントがありません
+          open: 公開ディベート
           participants_count: 参加者
         update:
           invalid: ディベートの更新に問題がありました。
@@ -162,6 +170,7 @@ ja:
         versions_list:
           back_to_resource: ディベートに戻る
       last_activity:
+        debate_updated_at_html: "<span>ディベートが %{link} に更新されました</span>"
         new_debate_at_html: "<span> %{link}での新しいディベート</span>"
       models:
         debate:
@@ -176,8 +185,8 @@ ja:
           space_followers:
             email_intro: |-
               こんにちは、
-              %{resource_title}参加スペースに新しいディベート「 %{space_title} 」が作成されました。チェックして貢献：
-            email_outro: '%{space_title} の参加スペースをフォローしているため、この通知を受信しました。前のリンクに続く通知の受信を停止できます。'
+              %{resource_title} 参加型スペースに新しいディベート「 %{space_title} 」が作成されました。チェックして貢献：
+            email_outro: '%{space_title} の参加型スペースをフォローしているため、この通知を受信しました。前のリンクに続く通知の受信を停止できます。'
             email_subject: '%{resource_title}に新しいディベート " %{space_title}"'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> のディベートは <a href="%{space_path}">%{space_title}</a> に作成されました。
           user_followers:
@@ -225,3 +234,5 @@ ja:
         description: 作成されたディベート数
         object: ディベート
         title: ディベート
+    statistics:
+      debates_count: ディベート

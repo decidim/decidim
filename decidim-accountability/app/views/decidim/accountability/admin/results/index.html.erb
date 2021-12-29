@@ -94,6 +94,8 @@
                   <%= icon_link_to "paperclip", result_attachments_path(result), t("actions.attachments", scope: "decidim.accountability"), class: "action-icon--attachments" %>
                 <% end %>
 
+                <%= resource_permissions_link(result) %>
+
                 <% if allowed_to? :destroy, :result, result: result %>
                   <%= icon_link_to "circle-x", result_path(result), t("actions.destroy", scope: "decidim.accountability"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")) } %>
                 <% end %>

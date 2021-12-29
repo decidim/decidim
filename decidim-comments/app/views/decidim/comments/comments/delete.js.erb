@@ -1,0 +1,17 @@
+$(() => {
+  const deleteDataHtml = '<%== j(render partial: "delete", locals: { comment: @comment }).strip %>';
+  const rootCommentableId = <%== "comments-for-#{@comment.root_commentable.commentable_type.demodulize}-#{@comment.root_commentable.id}".to_json %>;
+  const commentId = <%= @comment.id.to_json %>;
+  const $comment = $(`#comment_${commentId}`);
+  const $commentReply = $(`#comment${commentId}-reply`);
+  const $content = $("> .comment__content", $comment);
+  const sectionsToDelete = ["header", "footer", "additionalreply"];
+
+  sectionsToDelete.forEach((section) => {
+    $(`> .comment__${section}`, $comment).remove();
+  });
+  $commentReply.remove();
+  $content.replaceWith(deleteDataHtml);
+
+  $(".comments-count", $(`#${rootCommentableId}`)).text(<%== t("decidim.components.comments.title", count: @comment.root_commentable.comments_count).to_json %>);
+});

@@ -70,7 +70,7 @@ module Decidim
         let(:query) { "{ avatar }" }
 
         it "returns the conference speaker avatar field" do
-          expect(response["avatar"]).to eq(model.avatar.to_s)
+          expect(response["avatar"]).to eq(model.attached_uploader(:avatar).path)
         end
       end
 

@@ -1,0 +1,18 @@
+[
+  {
+    "title": {
+      "en": "Title text",
+      "ca": "Title text",
+      "es": "Title text"
+    },
+    "body": "Body text",
+    "translatable_text": {
+      "en": "Translatable text",
+      "ca": "Translatable text",
+      "es": "Translatable text"
+    },
+    "address": "Fake street 1",
+    "latitude": 1.0,
+    "longitude": 1.0
+  }
+]

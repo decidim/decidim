@@ -28,7 +28,7 @@ module Decidim
     def save
       return @registry if @registry
 
-      return if cumulative.zero?
+      return if cumulative.zero? && %w(blocked_users reported_users user_reports).exclude?(@metric_name)
 
       @registry = Decidim::Metric.find_or_initialize_by(day: @day.to_s, metric_type: @metric_name, organization: @organization)
       @registry.assign_attributes(cumulative: cumulative, quantity: quantity)
@@ -74,8 +74,8 @@ module Decidim
     end
 
     # Returns the ids for all the published components in the given +spaces+.
-    def visible_component_ids_from_spaces(spaces)
-      Decidim::Component.where(participatory_space: spaces).published.pluck(:id)
+    def visible_components_from_spaces(spaces)
+      Decidim::Component.where(participatory_space: spaces).published
     end
   end
 end

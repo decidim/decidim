@@ -16,9 +16,19 @@ sv:
         other: Röster
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Kommentarer aktiverade
+            end_time: Kommentarer aktiverade till
+            start_time: Kommentarer aktiverade från och med
       comments:
         create:
           error: Det gick inte att skapa kommentaren.
+        delete:
+          error: Kommentaren kunde inte tas bort.
+        update:
+          error: Det gick inte att uppdatera kommentaren.
       comments_count: Antal kommentarer
       comments_title: Kommentarer
       last_activity:
@@ -39,7 +49,13 @@ sv:
           user_group_id:
             label: Kommentera som
         opinion:
+          label: Din åsikt om detta ämne
+          negative: Negativ
+          negative_selected: Din åsikt om detta ämne är negativ
           neutral: Neutral
+          neutral_selected: Din åsikt om detta ämne är neutral
+          positive: Positiv
+          positive_selected: Din åsikt om detta ämne är positiv
         remaining_characters: "%{count} tecken kvar"
         remaining_characters_1: "%{count} tecken kvar"
         title: Lägg till din kommentar
@@ -47,7 +63,12 @@ sv:
         alignment:
           against: Mot
           in_favor: För
+        confirm_destroy: Är du säker på att du vill ta bort denna kommentar?
+        delete: Radera
+        deleted_at: Kommentar borttagen den %{date}
         deleted_user: Raderad deltagare
+        edit: Redigera
+        edited: Redigerad
         hide_replies: Göm svar
         reply: Svara
         report:
@@ -62,7 +83,7 @@ sv:
             spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
           title: Rapportera olämpligt innehåll
         show_replies: Visa %{replies_count} svar
-        single_comment_link_title: Få länk till enstaka kommentar
+        single_comment_link_title: Hämta länk
       comment_order_selector:
         order:
           best_rated: Bästa betyg
@@ -73,17 +94,26 @@ sv:
       comment_thread:
         title: Samtal med %{authorName}
       comments:
+        blocked_comments_for_unauthorized_user_warning: Du behöver verifiera dig för att kunna kommentera just nu, men du kan läsa tidigare kommentarer.
         blocked_comments_for_user_warning: Du kan inte kommentera just nu, men du kan läsa tidigare kommentarer.
         blocked_comments_warning: Kommentarer är inaktiverade just nu, men du kan läsa de föregående.
         comment_details_title: Kommentarsdetaljer
         loading: Laddar kommentarer...
-        single_comment_warning: Läs återstående <a href="%{url}">kommentarer</a>.
+        single_comment_warning: <a href="%{url}">Visa alla kommentarer</a>
         single_comment_warning_title: Du visar en enda kommentar
         title:
           one: "%{count} kommentarer"
           other: "%{count} kommentarer"
       down_vote_button:
         text: Jag håller inte med om denna kommentar
+      edit_comment_modal_form:
+        close: Stäng
+        form:
+          body:
+            label: Kommentar
+            placeholder: Vad tycker du om detta?
+          submit: Skicka
+        title: Redigera din kommentar
       up_vote_button:
         text: Jag instämmer i denna kommentar
     events:
@@ -103,6 +133,16 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer "%{resource_title}" eller dess författare. Du kan avfölja det från föregående länk.
           email_subject: Det finns en ny kommentar från %{author_name} i %{resource_title}
           notification_title: Det finns en ny kommentar från <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: Din kommentar i "%{resource_title}" har blivit nedröstad. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
+          email_outro: Du har fått det här meddelandet eftersom du är författare till denna kommentar.
+          email_subject: Din kommentar i "%{resource_title}" har nedröstats.
+          notification_title: Din <a href="%{resource_path}">kommentar</a> i "%{resource_title}" har nedröstats. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
+        comment_upvoted:
+          email_intro: Din kommentar i "%{resource_title}" har uppröstats. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
+          email_outro: Du har fått det här meddelandet eftersom du är författare till denna kommentar.
+          email_subject: Din kommentar i "%{resource_title}" har uppröstats.
+          notification_title: Din <a href="%{resource_path}">kommentar</a> i "%{resource_title}" har uppröstats. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
         reply_created:
           email_intro: "%{author_name} har svarat din kommentar i %{resource_title}. Du kan läsa den på den här sidan:"
           email_outro: Du har fått denna notis eftersom din kommentar blev besvarad.

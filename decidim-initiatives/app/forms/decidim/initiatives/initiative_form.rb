@@ -115,7 +115,8 @@ module Decidim
 
         attachment = Attachment.new(
           attached_to: attachment.try(:attached_to),
-          file: attachment.try(:file)
+          file: attachment.try(:file),
+          content_type: attachment.try(:file)&.content_type
         )
 
         errors.add(:attachment, :file) if !attachment.save && attachment.errors.has_key?(:file)

@@ -2,7 +2,7 @@
 
 Decidim is multiple things:
 
-* A command line utility, which can create an application
+* A command-line utility, which can create an application
 * A set of libraries, that the application can use
 
 Most of the time, you should work with the generated application. That application (development_app on this docs) should be named as your project, for instance for Barcelona City Council is `DecidimBarcelona`, so for creating it should be:
@@ -17,7 +17,7 @@ If you want to override/change anything, you can just do it with the same name o
 * https://github.com/gencat/participa/blob/master/app/decorators/decidim/admin/selective_newsletter_form_decorator.rb[Decidim::Admin::SelectiveNewsletterForm]. As it's a decorator you also need to make it available in the https://github.com/gencat/participa/blob/3416992ae095f6ab1e826fee961253514c4ff0ef/config/application.rb#L48[application config]
 * https://github.com/barcelonaregional/decidim-premet25/blob/master/config/initializers/etiquette_validator.rb[EtiquetteValidator.class_eval]
 
-If you want to extend Decidim, the prefered way should be by having a Module. This is a Ruby on Rails Engine which provides ruby code (models, views, controllers, assets, etc). You can use it through multiple ways:
+If you want to extend Decidim, the preferred way should be by having a Module. This is a Ruby on Rails Engine which provides ruby code (models, views, controllers, assets, etc). You can use it in multiple ways:
 
 * Putting it on the same directory as your app and pointing on the Gemfile. https://github.com/AjuntamentdeBarcelona/decidim-barcelona/tree/c210b5338d7ba1338c9879627e081da1441f1946[See example on GitHub]. For instance:
 
@@ -34,3 +34,5 @@ gem "decidim-consultations", git: "https://github.com/decidim/decidim-module-con
 ----
 
 * Publishing it on rubygems.org
+
+You can learn more about xref:develop:modules.adoc[Modules] in the development guide.

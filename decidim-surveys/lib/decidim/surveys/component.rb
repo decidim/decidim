@@ -5,7 +5,7 @@ require "decidim/components/namer"
 Decidim.register_component(:surveys) do |component|
   component.engine = Decidim::Surveys::Engine
   component.admin_engine = Decidim::Surveys::AdminEngine
-  component.icon = "decidim/surveys/icon.svg"
+  component.icon = "media/images/decidim_surveys.svg"
   component.stylesheet = "decidim/surveys/surveys"
   component.permissions_class_name = "Decidim::Surveys::Permissions"
   component.serializes_specific_data = true
@@ -161,9 +161,9 @@ Decidim.register_component(:surveys) do |component|
         position: index
       )
 
-      3.times do
+      3.times do |position|
         question.answer_options.create!(body: Decidim::Faker::Localized.sentence)
-        question.matrix_rows.create!(body: Decidim::Faker::Localized.sentence)
+        question.matrix_rows.create!(body: Decidim::Faker::Localized.sentence, position: position)
       end
     end
   end

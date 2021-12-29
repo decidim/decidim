@@ -29,21 +29,10 @@ The `label` option accepts this arguments:
 
 == Introducing a Card Cell to a `component`
 
-* add *dependency* to "decidim-*.gemspec"
+* Add the module cell paths to cell view paths in `decidim-<module>/lib/decidim/<module>/engine.rb`
 +
 [source,rb]
 ----
-s.add_dependency "cells-erb", "~> 0.1.0"
-s.add_dependency "cells-rails", "~> 0.0.9"
-----
-
-* *require* cells in `decidim-<module>/lib/decidim/<module>/engine.rb`
-+
-[source,rb]
-----
-require "cells/rails"
-require "cells-erb"
-
 initializer "decidim_<module>.add_cells_view_paths" do
   Cell::ViewModel.view_paths << File.expand_path("#{Decidim::<Module>::Engine.root}/app/cells")
   Cell::ViewModel.view_paths << File.expand_path("#{Decidim::<Module>::Engine.root}/app/views") # for partials

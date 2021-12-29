@@ -1,0 +1,22 @@
+name: "[CI] Lint PR format"
+on:
+  pull_request:
+    branches-ignore:
+      - "chore/l10n*"
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  check_title:
+    name: Check PR title
+    runs-on: ubuntu-latest
+    steps:
+      - uses: rokroskar/workflow-run-cleanup-action@v0.3.2
+        if: "github.ref != 'refs/heads/develop'"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: deepakputhraya/action-pr-title@master
+        with:
+          disallowed_prefixes: "feat,chore,build,ci,refactor,docs,wip"
+          prefix_case_sensitive: false
+          min_length: 5
+          max_length: 100

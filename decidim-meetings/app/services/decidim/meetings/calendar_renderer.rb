@@ -9,6 +9,8 @@ module Decidim
           Calendar::OrganizationCalendar.for(resource)
         when Decidim::Component
           Calendar::ComponentCalendar.for(resource)
+        when Decidim::Meetings::Meeting
+          Calendar::MeetingCalendar.for(resource)
         end
       end
     end

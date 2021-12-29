@@ -7,7 +7,7 @@ module Decidim
       include Decidim::Api::Types::BaseInterface
       description "An interface that can be used in categorizable objects."
 
-      field :category, Decidim::Core::CategoryType, "The object's category", null: false
+      field :category, Decidim::Core::CategoryType, "The object's category", null: true
     end
   end
 end

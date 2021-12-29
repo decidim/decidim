@@ -22,6 +22,12 @@ zh-CN:
         slogan: 斯洛根文
         slug: URL 名称
         title: 标题
+      conference_media_link:
+        weight: 权重
+      conference_partner:
+        weight: 权重
+      conference_registration_type:
+        weight: 权重
       conference_speaker:
         full_name: 全名
       conference_user_role:

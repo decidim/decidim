@@ -8,7 +8,8 @@ id:
       close_meeting:
         attendees_count: Jumlah peserta
         attending_organizations: Daftar organisasi yang hadir
-        closing_report: Melaporkan
+        closing_report: Menit
+        closing_visible: Terlihat
         contributions_count: Jumlah kontribusi
         proposal_ids: Proposal yang dibuat dalam pertemuan
       meeting:
@@ -28,9 +29,6 @@ id:
         start_time: Waktu mulai
         title: Judul
         transparent: Transparan
-      minutes:
-        description: Deskripsi
-        visible: Terlihat
     errors:
       models:
         meeting_agenda:
@@ -148,7 +146,6 @@ id:
         confirm_destroy: Anda yakin ingin menghapus rapat ini?
         destroy: Menghapus
         edit: Edit
-        minutes: Menit
         new: Pertemuan baru
         preview: Preview
         registrations: Pendaftaran
@@ -224,7 +221,6 @@ id:
             success: Rapat berhasil ditutup
           create:
             invalid: Ada masalah saat membuat rapat ini
-            success: Pertemuan berhasil dibuat
           destroy:
             success: Rapat berhasil dihapus
           edit:
@@ -247,18 +243,6 @@ id:
           update:
             invalid: Terjadi masalah saat memperbarui rapat ini
             success: Rapat berhasil diperbarui
-        minutes:
-          create:
-            invalid: Terjadi masalah saat membuat menit ini
-            success: Menit berhasil dibuat
-          edit:
-            update: Memperbarui
-          new:
-            create: Membuat
-            title: Buat menit
-          update:
-            invalid: Terjadi masalah saat memperbarui menit ini
-            success: Notulen berhasil diperbarui
         models:
           meeting:
             name: Pertemuan
@@ -295,29 +279,19 @@ id:
           value_types:
             organizer_presenter:
               not_found: 'Organiser tidak ditemukan di database (ID: %{id})'
-        minutes:
-          create: "%{user_name} membuat menit dari pertemuan %{resource_name} pada %{space_name} ruang"
-          update: "%{user_name} memperbarui notulen rapat %{resource_name} pada %{space_name} ruang"
       calendar_modal:
         calendar_url: URL Kalender
         close_window: Tutup jendela
         export_calendar: Ekspor kalender
       conference_venues: Tempat Konferensi
       content_blocks:
-        upcoming_events:
-          name: Acara Mendatang
-          upcoming_events: Pertemuan yang akan datang
-          view_all_events: Lihat semua
+        upcoming_meetings:
+          view_all_meetings: Lihat semua
       directory:
         meetings:
           index:
-            all: Semua
-            date: Tanggal
             meetings: Rapat
-            past: Lalu
-            search: Pencarian
             space_type: Ruang partisipatif
-            upcoming: Mendatang
       last_activity:
         new_meeting_at_html: "<span>Pertemuan baru jam %{link}</span>"
       mailer:
@@ -340,7 +314,6 @@ id:
           filter_by: Filter berdasarkan
           unfold: Membuka
         meeting_minutes:
-          meeting_minutes: Risalah Pertemuan
           related_information: Informasi Terkait
         meetings:
           no_meetings_warning: Tidak ada pertemuan yang sesuai dengan kriteria pencarian Anda atau tidak ada jadwal pertemuan.
@@ -351,9 +324,8 @@ id:
         show:
           attendees: Jumlah peserta
           contributions: Kontribusi dihitung
-          going: Pergi
           join: Bergabunglah dengan rapat
-          meeting_report: Laporan pertemuan
+          meeting_minutes: Risalah Pertemuan
           no_slots_available: Tidak ada slot yang tersedia
           organizations: Menghadiri organisasi
           registration_code_help_text: Kode registrasi Anda

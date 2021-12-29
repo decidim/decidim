@@ -35,6 +35,7 @@ fr:
         origin_component_id: Fonctionnalité dont on veut copier les propositions
       proposals_import:
         import_proposals: Importer des propositions
+        keep_answers: Garder l'état et les réponses
         keep_authors: Gardez les auteurs originaux
       valuation_assignment:
         admin_log:
@@ -47,13 +48,25 @@ fr:
               invalid_document_type: 'Type de document invalide. Les formats acceptés sont: %{valid_mime_types}'
         proposal:
           attributes:
-            attachment:
+            add_documents:
+              needs_to_be_reattached: Doit être téléchargé de nouveau
+            add_photos:
               needs_to_be_reattached: Doit être téléchargé de nouveau
             body:
               cant_be_equal_to_template: ne peut pas être égal au modèle
               identical: ET le titre ne peut pas être identique
             title:
               identical: ET le corps ne peut pas être identique
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Non officiels
+              supported: Avoir reçu des soutiens ou des approbations
+        proposals_split:
+          attributes:
+            base:
+              not_official: Non officiels
+              supported: A reçu des soutiens ou des approbations
     models:
       decidim/proposals/accepted_proposal_event: Proposition acceptée
       decidim/proposals/admin/update_proposal_category_event: Catégorie de proposition modifiée
@@ -113,14 +126,15 @@ fr:
       proposals:
         actions:
           amend: Amender
+          comment: Commentaire
           create: Créer
           endorse: Soutenir
           vote: Voter
+          vote_comment: Vote sur le commentaire
           withdraw: Retirer
         name: Propositions
         settings:
           global:
-            allow_card_image: Afficher les images sur les cartes de l'index de proposition
             amendments_enabled: Modifications activées
             amendments_enabled_help: Si actif, configurez les fonctionnalités d'amendement pour chaque étape.
             amendments_wizard_help_text: Texte d'aide de l'assistant
@@ -130,6 +144,17 @@ fr:
             collaborative_drafts_enabled: Brouillons collaboratifs activés
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur maximum (en caractères) des commentaires (laisser 0 pour la valeur par défaut)
+            default_sort_order: Tri des propositions par défaut
+            default_sort_order_help: Par défaut, si l’es aides sont activés, les propositions seront affichées par ordre aléatoire, et si les aides sont bloqués, alors ils seront triés par l’aide le plus soutenu.
+            default_sort_order_options:
+              default: Défaut
+              most_commented: Les plus commentées
+              most_endorsed: Les plus approuvées
+              most_followed: Les plus suivies
+              most_voted: Les plus soutenues
+              random: Aléatoire
+              recent: Les plus récents
+              with_more_authors: Avec le plus d'auteurs
             geocoding_enabled: Géocodage activé
             minimum_votes_per_user: Nombre minimum de votes par utilisateur
             new_proposal_body_template: Modèle de corps d'une nouvelle proposition
@@ -140,6 +165,10 @@ fr:
             participatory_texts_enabled_readonly: Impossible d'interagir avec ce paramètre s'il y a des propositions existantes. Veuillez créer une nouvelle fonctionnalité `Propositions` si vous voulez activer cette fonctionnalité ou supprimer toutes les propositions importées dans 'Textes participatifs` si vous voulez la désactiver.
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             proposal_edit_before_minutes: Délai (en minutes) après lequel les auteurs ne peuvent plus modifier leurs propositions
+            proposal_edit_time: Durée d'édition des propositions
+            proposal_edit_time_choices:
+              infinite: Autoriser l'édition des propositions pour une durée infinie
+              limited: Autoriser l'édition des propositions durant un délai spécifique
             proposal_length: Nombre maximum de caractères du corps de la proposition
             proposal_limit: Limite de proposition par utilisateur
             proposal_wizard_step_1_help_text: Texte d'aide à l'étape "Créer" de la création de proposition
@@ -168,6 +197,17 @@ fr:
             automatic_hashtags: Hashtags ajoutés à toutes les propositions
             comments_blocked: Bloquer la création de nouveaux commentaires
             creation_enabled: Autoriser la création de nouvelles propositions
+            default_sort_order: Tri des propositions par défaut
+            default_sort_order_help: Par défaut, si les aides sont activés, les propositions seront affichées par ordre aléatoire, et si les aides sont bloqués, alors ils seront triés par l’aide le plus soutenu.
+            default_sort_order_options:
+              default: Par défaut
+              most_commented: Les plus commentées
+              most_endorsed: Les plus soutenues
+              most_followed: Les plus suivies
+              most_voted: Les plus votées
+              random: Aléatoire
+              recent: Récentes
+              with_more_authors: Avec le plus d'auteurs
             endorsements_blocked: Bloquer les soutiens
             endorsements_enabled: Activer le module de soutiens
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
@@ -357,6 +397,23 @@ fr:
         exports:
           proposal_comments: Commentaires
           proposals: Propositions
+        imports:
+          help:
+            answers: 'Le document d''importation doit contenir les colonnes suivantes : Id, État (accepté, évaluation, rejeté), réponse/fr (et d''autres langues activées pour l''organisme).'
+            proposals: Le fichier doit comprendre les colonnes title/fr et corps/fr (ou une autre locale de votre choix, par ex. titre/de et corps/de). Les colonnes scope/id et category/id sont également pris en charge.
+          label:
+            answers: Importer des valeurs depuis un fichier
+            proposals: Importer des propositions depuis un fichier
+          resources:
+            answers:
+              one: réponse à la proposition
+              other: réponses à la proposition
+            proposals:
+              one: proposition
+              other: propositions
+          title:
+            answers: Importer des réponses aux propositions
+            proposals: Importer des propositions
         models:
           proposal:
             name: Proposition
@@ -500,11 +557,11 @@ fr:
             title: Importer des propositions
         proposals_merges:
           create:
-            invalid: Une erreur s'est produite lors de la fusion des propositions sélectionnées.
+            invalid: 'Une erreur est survenue lors de la fusion des propositions à cause de certaines d''entre elles:'
             success: A fusionné avec succès les propositions dans un nouveau.
         proposals_splits:
           create:
-            invalid: Une erreur s'est produite lors de la division des propositions sélectionnées.
+            invalid: 'Une erreur est survenue lors de la division des propositions sélectionnées à cause de certaines d''entre elles:'
             success: Divisé avec succès les propositions en nouvelles.
         valuation_assignments:
           create:
@@ -707,7 +764,8 @@ fr:
             one: "%{count} proposition"
             other: "%{count} propositions"
         dynamic_map_instructions:
-          instructions: <h3>Vous pouvez déplacer le point sur la carte. </h3><p>N'oubliez pas de cliquer sur le bouton "Mettre à jour la position" avant de publier votre proposition.</p>
+          description: Les coordonnées seront mises à jour en cliquant sur le bouton 'Aperçu'. Cependant, l'adresse ne change pas.
+          instructions: Vous pouvez déplacer le point sur la carte.
         edit:
           add_documents: Documents
           add_images: Fichier
@@ -743,9 +801,12 @@ fr:
           filter_by: Filtrer par
           unfold: Voir plus
         index:
+          click_here: Voir toutes les propositions
           collaborative_drafts_list: Accéder aux brouillons collaboratifs
           new_proposal: Nouvelle proposition
+          see_all: Voir toutes les propositions
           see_all_withdrawn: Voir toutes les propositions retirées
+          text_banner: Vous voyez actuellemnent la liste des propositions retirées par leurs auteurs. %{go_back_link}.
           view_proposal: Voir la proposition
         linked_proposals:
           proposal_votes:
@@ -779,7 +840,6 @@ fr:
             other: Vous avez la possibilité de modifier cette proposition dans les %{count} minutes suivant sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
           publish: Publier
           title: Publier la proposition
-          update_position: Mettre à jour la position
         proposal:
           creation_date: 'Création : %{date}'
           view_proposal: Voir la proposition
@@ -790,7 +850,7 @@ fr:
           answer: Répondre
           back_to: Retour à
           back_to_list: Retour à la liste
-          changes_at_title: Amendement de (%{title}"
+          changes_at_title: Amendement de "%{title}"
           comments: Commentaires
           edit_proposal: Modifier la proposition
           endorsements_list: Liste des soutiens
@@ -896,3 +956,7 @@ fr:
       included_proposals:
         proposal_project: 'Proposition figurant dans ces projets :'
         proposal_result: 'Proposition figurant dans ces réalisations :'
+    statistics:
+      proposals_accepted: Propositions acceptées
+      proposals_count: Propositions
+      supports_count: Votes

@@ -5,6 +5,8 @@ module Decidim
     # A command with all the business logic to update an attachment from a
     # participatory process.
     class UpdateAttachment < Rectify::Command
+      include ::Decidim::AttachmentAttributesMethods
+
       attr_reader :attachment
 
       # Public: Initializes the command.
@@ -44,7 +46,9 @@ module Decidim
           description: form.description,
           weight: form.weight,
           attachment_collection: form.attachment_collection
-        }.reject do |attribute, value|
+        }.merge(
+          attachment_attributes(:file)
+        ).reject do |attribute, value|
           value.blank? && attribute != :attachment_collection
         end
       end

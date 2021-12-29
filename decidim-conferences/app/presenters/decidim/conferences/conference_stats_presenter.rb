@@ -3,7 +3,7 @@
 module Decidim
   module Conferences
     # A presenter to render statistics in the homepage.
-    class ConferenceStatsPresenter < Rectify::Presenter
+    class ConferenceStatsPresenter < Decidim::StatsPresenter
       attribute :conference, Decidim::Conference
       include IconHelper
 
@@ -11,12 +11,12 @@ module Decidim
       def highlighted
         highlighted_stats = component_stats(priority: StatsRegistry::HIGH_PRIORITY)
         highlighted_stats.concat(component_stats(priority: StatsRegistry::MEDIUM_PRIORITY))
+        highlighted_stats.concat(comments_stats(:conferences))
         highlighted_stats = highlighted_stats.reject(&:empty?)
-        highlighted_stats = highlighted_stats.reject { |_name, data| data.zero? }
+        highlighted_stats = highlighted_stats.reject { |_manifest, _name, data| data.zero? }
+        grouped_highlighted_stats = highlighted_stats.group_by(&:first)
 
-        highlighted_stats.map do |name, data|
-          { stat_title: name, stat_number: data }
-        end
+        statistics(grouped_highlighted_stats)
       end
 
       private
@@ -26,7 +26,7 @@ module Decidim
           component_manifest.stats
                             .filter(conditions)
                             .with_context(published_components)
-                            .map { |name, data| [name, data] }.flatten
+                            .map { |name, data| [component_manifest.name, name, data] }.flatten
         end
       end
 

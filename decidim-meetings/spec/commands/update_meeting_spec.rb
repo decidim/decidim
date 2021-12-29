@@ -24,6 +24,7 @@ module Decidim::Meetings
     let(:registration_type) { "on_this_platform" }
     let(:available_slots) { 0 }
     let(:registration_url) { "http://decidim.org" }
+    let(:iframe_embed_type) { "none" }
     let(:form) do
       double(
         invalid?: invalid,
@@ -47,7 +48,8 @@ module Decidim::Meetings
         registration_terms: "The meeting registration terms",
         registrations_enabled: true,
         clean_type_of_meeting: type_of_meeting,
-        online_meeting_url: online_meeting_url
+        online_meeting_url: online_meeting_url,
+        iframe_embed_type: iframe_embed_type
       )
     end
 
@@ -144,7 +146,8 @@ module Decidim::Meetings
             registration_terms: meeting.registration_terms,
             registrations_enabled: true,
             clean_type_of_meeting: type_of_meeting,
-            online_meeting_url: online_meeting_url
+            online_meeting_url: online_meeting_url,
+            iframe_embed_type: iframe_embed_type
           )
         end
 

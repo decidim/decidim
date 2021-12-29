@@ -30,9 +30,7 @@
     <%= f.collection_check_boxes :available_authorizations, Decidim.authorization_workflows, :name, :description %>
   </div>
 
-  <%= render partial: "smtp_settings", locals: { f: f } %>
-  <%= render partial: "omniauth_settings", locals: { f: f } %>
-  <%= render partial: "file_upload_settings", locals: { f: f } %>
+  <%= render partial: "advanced_settings", locals: { f: f } %>
 
   <div class="actions">
     <%= f.submit t("decidim.system.actions.save") %>

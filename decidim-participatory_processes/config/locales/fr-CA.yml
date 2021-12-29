@@ -402,6 +402,7 @@ fr-CA:
             more_information: Plus d'informations
             participate: Participer
             participate_in: Participer au processus %{resource_name}
+            processes_button_title: Lien vers la page Concertation où toutes les concertations sont affichées
             see_all_processes: Voir toutes les concertations
       participatory_process_steps:
         index:

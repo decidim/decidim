@@ -33,8 +33,17 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <input type="text" title="<%= t(".share_link") %>" value="<%= "#{decidim_meta_url}" %>" readonly>
+  <div class="input-group">
+    <input id="urlShareLink" class="input-group-field" type="text" title="<%= t(".share_link") %>" value="<%= "#{decidim_meta_url}" %>" readonly>
+    <div class="input-group-button">
+      <button class="button primary"
+        data-clipboard-copy="#urlShareLink"
+        data-clipboard-copy-label="<%= t(".copy_share_link_copied") %>"
+        data-clipboard-copy-message="<%= t(".copy_share_link_message") %>"
+        aria-label="<%= t(".copy_share_link_clarification") %>">
+          <%= icon "clipboard", role: "img", "aria-hidden": true %>
+          <%= t(".copy_share_link") %>
+      </button>
+    </div>
+  </div>
 </div>
-
-<%= javascript_include_tag "decidim/social_share" %>
-<%= stylesheet_link_tag "decidim/extras/_social_share" %>

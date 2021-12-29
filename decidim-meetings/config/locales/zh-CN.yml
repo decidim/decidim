@@ -8,7 +8,8 @@ zh-CN:
       close_meeting:
         attendees_count: 参与者人数
         attending_organizations: 与会组织名单
-        closing_report: 报告
+        closing_report: 分钟
+        closing_visible: 可见
         contributions_count: 捐款数目
         proposal_ids: 会议上提出的建议
       meeting:
@@ -30,9 +31,6 @@ zh-CN:
         start_time: 开始时间
         title: 标题
         transparent: 透明的
-      minutes:
-        description: 描述
-        visible: 可见
     errors:
       models:
         meeting_agenda:
@@ -159,7 +157,6 @@ zh-CN:
         invalid_destroy:
           proposals_count:
             other: '会议不能被破坏，因为它有 %{count} 个建议与此相关联：'
-        minutes: 分钟
         new: 新会议
         preview: 预览
         registrations: 注册
@@ -235,7 +232,6 @@ zh-CN:
             success: 会议已成功关闭
           create:
             invalid: 创建此会议时出现问题
-            success: 会议已成功创建
           destroy:
             invalid:
               proposals_count:
@@ -264,18 +260,6 @@ zh-CN:
           update:
             invalid: 更新本次会议时出错
             success: 会议已成功更新
-        minutes:
-          create:
-            invalid: 创建这分钟时出错
-            success: 创建分钟成功
-          edit:
-            update: 更新
-          new:
-            create: 创建
-            title: 创建分钟
-          update:
-            invalid: 更新这分钟时出现问题
-            success: 分钟已成功更新
         models:
           meeting:
             name: 会议
@@ -314,29 +298,19 @@ zh-CN:
           value_types:
             organizer_presenter:
               not_found: '在数据库中找不到组织者 (ID: %{id})'
-        minutes:
-          create: "%{user_name} 在 %{space_name} 空间创建了会议记录 %{resource_name}"
-          update: "%{user_name} 更新了会议记录 %{resource_name} 在 %{space_name} 空间"
       calendar_modal:
         calendar_url: 日历 URL
         close_window: 关闭窗口
         export_calendar: 导出日历
       conference_venues: 会议地点
       content_blocks:
-        upcoming_events:
-          name: 即将到来的事件
-          upcoming_events: 即将举行的会议
-          view_all_events: 查看全部
+        upcoming_meetings:
+          view_all_meetings: 查看全部
       directory:
         meetings:
           index:
-            all: 所有的
-            date: 日期
             meetings: 会议
-            past: 过去的
-            search: 搜索
             space_type: 参与空间
-            upcoming: 即将到来的
       last_activity:
         new_meeting_at_html: "<span>在 %{link}的新会议</span>"
       mailer:
@@ -387,7 +361,6 @@ zh-CN:
         index:
           new_meeting: 新会议
         meeting_minutes:
-          meeting_minutes: 会议分钟
           related_information: 相关信息
         meetings:
           no_meetings_warning: 没有符合您搜索条件的会议，也没有安排任何会议。
@@ -405,9 +378,8 @@ zh-CN:
           contributions: 捐款计数
           date: 日期
           edit_meeting: 编辑会议
-          going: 去了
           join: 加入会议
-          meeting_report: 会议报告
+          meeting_minutes: 会议分钟
           no_slots_available: 无可用槽位
           organizations: B. 参加组织
           registration_code_help_text: 您的注册码

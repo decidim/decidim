@@ -8,45 +8,15 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      def demodulized_name
-        @demodulized_name ||= self.class.name.demodulize
-      end
-
-      delegate :foreign_key, to: :demodulized_name
-
-      def module_name
-        "Decidim::#{demodulized_name.pluralize}"
-      end
-
-      def admin_module_name
-        "#{module_name}::Admin"
-      end
-
-      def underscored_name
-        demodulized_name.underscore
-      end
-
-      def mounted_engine
-        "decidim_#{underscored_name.pluralize}"
-      end
-
-      def mounted_admin_engine
-        "decidim_admin_#{underscored_name.pluralize}"
-      end
+      delegate :demodulized_name, :foreign_key, :module_name, :admin_module_name, :underscored_name,
+               :mounted_engine, :mounted_admin_engine, :admin_extension_module, :admins_query,
+               to: :class
 
       def mounted_params
         {
           host: organization.host,
           "#{underscored_name}_slug".to_sym => slug
         }
-      end
-
-      def admin_extension_module
-        "#{admin_module_name}::#{demodulized_name}Context".constantize
-      end
-
-      def admins_query
-        "#{admin_module_name}::AdminUsers".constantize
       end
 
       def admins
@@ -94,12 +64,55 @@ module Decidim
     end
 
     class_methods do
+      def demodulized_name
+        @demodulized_name ||= name.demodulize
+      end
+
+      delegate :foreign_key, to: :demodulized_name
+
+      def module_name
+        "Decidim::#{demodulized_name.pluralize}"
+      end
+
+      def admin_module_name
+        "#{module_name}::Admin"
+      end
+
+      def underscored_name
+        demodulized_name.underscore
+      end
+
+      def mounted_engine
+        "decidim_#{underscored_name.pluralize}"
+      end
+
+      def mounted_admin_engine
+        "decidim_admin_#{underscored_name.pluralize}"
+      end
+
+      def admin_extension_module
+        "#{admin_module_name}::#{demodulized_name}Context".constantize
+      end
+
+      def admins_query
+        "#{admin_module_name}::AdminUsers".constantize
+      end
+
+      def moderators(organization)
+        admins_query.for_organization(organization)
+      end
+
       def slug_format
         /\A[a-zA-Z]+[a-zA-Z0-9\-]+\z/
       end
 
       def participatory_space_manifest
         Decidim.find_participatory_space_manifest(name.demodulize.underscore.pluralize)
+      end
+
+      # Public: Is the class a participatory space?
+      def participatory_space?
+        true
       end
 
       # Public: Adds a sane default way to retrieve public spaces. Please, overwrite

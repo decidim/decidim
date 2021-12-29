@@ -205,6 +205,8 @@ en:
             label: Status
     components:
       accountability:
+        actions:
+          comment: Comment
         name: Accountability
         settings:
           global:

@@ -2,7 +2,17 @@
 
 <p class="email-instructions"><%= @event_instance.email_intro %></p>
 
+<% if @event_instance.resource_path.present? && @event_instance.resource_title.present? %>
+  <p class="email-button email-button__cta">
+    <%= link_to @event_instance.resource_title, @event_instance.resource_url %>
+  </p>
+<% end %>
+
 <% if @event_instance.try(:safe_resource_text).present? %>
+  <% if @event_instance.perform_translation? %>
+    <p style="font-weight: bold"><%= t(".original_text") %></p>
+  <% end %>
+
   <blockquote>
     <p>
       <%= @event_instance.safe_resource_text %>
@@ -10,10 +20,34 @@
   </blockquote>
 <% end %>
 
-<% if @event_instance.resource_path.present? && @event_instance.resource_title.present? %>
-  <p class="email-button email-button__cta">
-    <%= link_to @event_instance.resource_title, @event_instance.resource_url %>
-  </p>
+<% if @event_instance.content_in_same_language? %>
+  <p><%= t(".same_language", language: I18n.locale.to_s ) %></p>
+<% elsif @event_instance.translation_missing? %>
+  <p><%= t(".no_translation_available", link: @event_instance.resource_url ) %></p>
+<% elsif @event_instance.perform_translation? %>
+  <p style="font-weight: bold"><%= t(".translated_text") %></p>
+  <blockquote>
+    <p>
+      <%= @event_instance.safe_resource_translated_text %>
+    </p>
+  </blockquote>
+<% end %>
+
+<% if @event_instance.has_button? %>
+  <table class="button expanded radius">
+    <tr>
+      <td>
+        <table>
+          <tr>
+            <td>
+              <%= link_to @event_instance.button_text, @event_instance.button_url, target: :blank %>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
 <% end %>
 
 <p class="email-closing"><%= @event_instance.email_outro %></p>
