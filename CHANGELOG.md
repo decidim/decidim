@@ -28,6 +28,16 @@ PR [\#86](https://github.com/decidim/decidim/pull/8663) Added the ability to sea
 
 Please be aware that it could take a while if your database has a lot of Users.
 
+#### Blocked user in global search
+
+PR [\#8658](https://github.com/decidim/decidim/pull/8658) Blocked users are present in global search, to update the search and make them disappear, Run in a rails console or create a migration with:
+
+```ruby
+  Decidim::User.find_each(&:try_update_index_for_search_resource)
+```
+
+Please be aware that it could take a while if your database has a lot of Users.
+
 ### Added
 * [#8012](https://github.com/decidim/decidim/pull/8012) Participatory space to comments, to fix the statistics. Use
 `rake decidim_comments:update_participatory_process_in_comments` to migrate existing comments to the new structure.

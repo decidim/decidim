@@ -93,8 +93,8 @@ module Decidim
                         B: :nickname,
                         datetime: :created_at
                       },
-                      index_on_create: ->(user) { !user.deleted? },
-                      index_on_update: ->(user) { !user.deleted? })
+                      index_on_create: ->(user) { !(user.deleted? || user.blocked?) },
+                      index_on_update: ->(user) { !(user.deleted? || user.blocked?) })
 
     before_save :ensure_encrypted_password
 

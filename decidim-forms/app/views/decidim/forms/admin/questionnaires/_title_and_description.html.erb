@@ -1,0 +1,80 @@
+<% question = form.object %>
+<% is_expanded = question.errors.any? %>
+
+<div class="card questionnaire-question" id="<%= id %>-field">
+  <div class="card-divider question-divider">
+    <h2 class="card-title">
+    <span>
+      <% if editable %>
+        <%== icon("move") %>
+      <% end %>
+      <%= dynamic_title(translated_attribute(question.body), class: "question-title-statement", max_length: 50, omission: "...", placeholder: t(".title_and_description")) %>
+    </span>
+
+      <button type="button" class="button small secondary button--title question--collapse" data-toggle="<%= id %>-question-card button--collapse-question-<%= id %> button--expand-question-<%= id %>">
+        <span id="button--collapse-question-<%= id %>" data-toggler=".hide" class="icon-collapse <%= "hide" unless is_expanded %>">
+          <%== icon("caret-top", aria_label: t(".collapse"), role: "img") %>
+        </span>
+
+        <span id="button--expand-question-<%= id %>" data-toggler=".hide" class="icon-expand <%= "hide" if is_expanded %>">
+          <%== icon("caret-bottom", aria_label: t(".expand"), role: "img") %>
+        </span>
+      </button>
+
+      <% if editable %>
+        <button class="button small alert hollow move-up-question button--title">
+          <%== "#{icon("arrow-top")} #{t(".up")}" %>
+        </button>
+
+        <button class="button small alert hollow move-down-question button--title">
+          <%== "#{icon("arrow-bottom")} #{t(".down")}" %>
+        </button>
+
+        <button class="button small alert hollow remove-question button--title">
+          <%= t(".remove") %>
+        </button>
+      <% end %>
+    </h2>
+  </div>
+
+  <div class="card-section collapsible <%= "hide" unless is_expanded %>" data-toggler=".hide" id="<%= id %>-question-card">
+    <div class="row column">
+      <%=
+        form.translated(
+          :text_field,
+          :body,
+          tabs_id: id,
+          label: t(".title"),
+          disabled: !editable
+        )
+      %>
+    </div>
+
+    <div class="row column">
+      <%=
+        form.translated(
+          :editor,
+          :description,
+          toolbar: :full,
+          tabs_id: id,
+          label: t(".description"),
+          disabled: !editable
+        )
+      %>
+    </div>
+
+    <%=
+      form.hidden_field(
+        :question_type,
+        value: :title_and_description
+      )
+    %>
+
+    <% if question.persisted? %>
+      <%= form.hidden_field :id, disabled: !editable %>
+    <% end %>
+
+    <%= form.hidden_field :position, value: question.position || 0, disabled: !editable %>
+    <%= form.hidden_field :deleted, disabled: !editable %>
+  </div>
+</div>
