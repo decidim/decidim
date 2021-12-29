@@ -1,1 +1,10 @@
 val:
+  decidim:
+    forms:
+      admin:
+        questionnaires:
+          title_and_description:
+            description: Descripció
+            down: Baixa
+            expand: Expandeix
+            remove: Elimina
