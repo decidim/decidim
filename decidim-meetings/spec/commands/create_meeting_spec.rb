@@ -170,7 +170,25 @@ module Decidim::Meetings
 
         expect(UpcomingMeetingNotificationJob)
           .to receive_message_chain(:set, :perform_later) # rubocop:disable RSpec/MessageChain
-          .with(set: start_time - 2.days).with(1, "1234")
+          .with(set: start_time - Decidim::Meetings.upcoming_meeting_notification).with(1, "1234")
+
+        allow(Decidim::EventsManager).to receive(:publish).and_return(true)
+
+        subject.call
+      end
+
+      it "don't schedule an upcoming meeting notification if start time is in the past" do
+        meeting = instance_double(Meeting, id: 1, start_time: 2.days.ago, participatory_space: participatory_process)
+        expect(Decidim.traceability)
+          .to receive(:create!)
+          .and_return(meeting)
+
+        expect(meeting).to receive(:valid?)
+        expect(meeting).to receive(:publish!)
+        expect(meeting).to receive(:to_signed_global_id).and_return "gid://Decidim::Meetings::Meeting/1"
+
+        expect(UpcomingMeetingNotificationJob).not_to receive(:generate_checksum)
+        expect(UpcomingMeetingNotificationJob).not_to receive(:set)
 
         allow(Decidim::EventsManager).to receive(:publish).and_return(true)
 

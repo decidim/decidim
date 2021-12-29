@@ -222,15 +222,32 @@ module Decidim::Meetings
             subject.call
           end
 
-          it "schedules a upcoming meeting notification job 48h before start time" do
-            expect(UpcomingMeetingNotificationJob)
-              .to receive(:generate_checksum).and_return "1234"
+          context "when future meeting" do
+            let(:start_time) { meeting.start_time + 1.day }
 
-            expect(UpcomingMeetingNotificationJob)
-              .to receive_message_chain(:set, :perform_later) # rubocop:disable RSpec/MessageChain
-              .with(set: start_time - 2.days).with(meeting.id, "1234")
+            it "schedules a upcoming meeting notification job 48h before start time" do
+              expect(UpcomingMeetingNotificationJob)
+                .to receive(:generate_checksum).and_return "1234"
 
-            subject.call
+              expect(UpcomingMeetingNotificationJob)
+                .to receive_message_chain(:set, :perform_later) # rubocop:disable RSpec/MessageChain
+                .with(set: start_time - Decidim::Meetings.upcoming_meeting_notification).with(meeting.id, "1234")
+
+              subject.call
+            end
+          end
+
+          context "when past meeting" do
+            let(:start_time) { meeting.start_time - Decidim::Meetings.upcoming_meeting_notification }
+
+            it "schedules a upcoming meeting notification job 48h before start time" do
+              expect(UpcomingMeetingNotificationJob).not_to receive(:generate_checksum)
+
+              expect(UpcomingMeetingNotificationJob).not_to receive(:set)
+              expect(UpcomingMeetingNotificationJob).not_to receive(:perform_later)
+
+              subject.call
+            end
           end
         end
 
