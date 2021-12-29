@@ -1042,6 +1042,9 @@ it:
         greetings: Saluti,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Ciao,
         subject: Vuoi continuare a ricevere informazioni rilevanti su %{organization_name}?
+    notification_mailer:
+      event_received:
+        translated_text: 'Testo tradotto automaticamente:'
     notifications:
       no_notifications: Nessuna notifica.
     notifications_settings:
