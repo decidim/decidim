@@ -766,6 +766,10 @@ en:
         allowed_file_extensions: 'Allowed file extensions: %{extensions}'
         max_file_size: 'Maximum file size: %{megabytes}MB'
       remove_this_file: Remove this file
+      upload:
+        labels:
+          add_image: Add image
+          replace: Replace
     gamification:
       all_badges_link: See all available badges.
       badges:

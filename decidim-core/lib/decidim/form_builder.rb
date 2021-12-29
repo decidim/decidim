@@ -394,10 +394,18 @@ module Decidim
     end
 
     def attachment(attribute, options = {})
+      options = { titled: true }.merge(options)
+      upload(attribute, options)
+    end
+
+    def upload(attribute, options = {})
       options = {
         attribute: attribute,
         resource_name: @object_name,
-        help: upload_help(attribute, options)
+        titled: false,
+        help: upload_help(attribute, options),
+        label: I18n.t("decidim.forms.upload.labels.add_image"),
+        edit_label: I18n.t("decidim.forms.upload.labels.replace")
       }.merge(options)
 
       ::Decidim::ViewModel.cell(
@@ -407,8 +415,7 @@ module Decidim
       )
     end
 
-    # rubocop: disable all
-    def upload(attribute, options = {})
+    def upload2(attribute, options = {})
       self.multipart = true
       options[:optional] = options[:optional].nil? ? true : options[:optional]
       label_text = options[:label] || label_for(attribute)
@@ -417,7 +424,7 @@ module Decidim
       file = object.send attribute
       template = ""
       template += label(attribute, label_text + required_for_attribute(attribute))
-      template += upload_help(attribute, options)
+      template += upload_help(attribute, options).to_s
       template += @template.file_field @object_name, attribute
 
       template += extension_allowlist_help(options[:extension_allowlist]) if options[:extension_allowlist].present?
@@ -456,7 +463,6 @@ module Decidim
 
       template.html_safe
     end
-    # rubocop: enable all
 
     def upload_help(attribute, options = {})
       humanizer = FileValidatorHumanizer.new(object, attribute)

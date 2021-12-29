@@ -68,3 +68,15 @@
     }
   }
 }
+
+.dynamical-uploads{
+  display: flex;
+
+  > *{
+    margin: 0 .2rem;
+  }
+
+  button.remove-attachment{
+    cursor: pointer;
+  }
+}

@@ -4,6 +4,7 @@
 # content types.
 class UploaderContentTypeValidator < ActiveModel::Validations::FileContentTypeValidator
   # rubocop: disable Metrics/CyclomaticComplexity
+  # rubocop: disable Metrics/PerceivedComplexity
   def validate_each(record, attribute, value)
     begin
       values = parse_values(value)
@@ -23,6 +24,7 @@ class UploaderContentTypeValidator < ActiveModel::Validations::FileContentTypeVa
 
     values.each do |val|
       val_mode = mode
+      blob = val.respond_to?(:blob) ? val.blob : ActiveStorage::Blob.find_signed(val[:file])
 
       # The :strict mode would be more robust for the content type detection if
       # the value does not know its own content type. However, this would
@@ -31,14 +33,15 @@ class UploaderContentTypeValidator < ActiveModel::Validations::FileContentTypeVa
       # the CLI utility, Terrapin or Cocaine in older versions of the
       # file_validators gem. The :relaxed mode detects the content type based on
       # the file extension through the mime-types gem.
-      val_mode = :relaxed if val_mode.blank? && !val.respond_to?(:content_type)
+      val_mode = :relaxed if val_mode.blank? && !blob.respond_to?(:content_type)
 
-      content_type = get_content_type(val, val_mode)
+      content_type = get_content_type(blob, val_mode)
       validate_whitelist(record, attribute, content_type, allowed_types)
       validate_blacklist(record, attribute, content_type, forbidden_types)
     end
   end
   # rubocop: enable Metrics/CyclomaticComplexity
+  # rubocop: enable Metrics/PerceivedComplexity
 
   def check_validity!; end
 end

@@ -1,19 +1,39 @@
-<div class="active-attachments-<%= attribute %> hidden-inputs">
-  <% if attachments %>
+<div class="dynamical-uploads upload-container-for-<%= attribute %>">
+  <div class="active-attachments">
     <% attachments.each do |attachment| %>
-      <div data-title="<%= translated_attribute(attachment.title) %>" data-filename="<%= file_name(attachment) %>" data-state="uploaded">
+      <% next if attachment.is_a? Array %>
+      <div data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded">
         <%= form.hidden_field attribute, multiple: true, value: attachment.id, id: "#{attribute}-#{attachment.id}" %>
-        <span><%= translated_attribute(attachment.title) %> (<%= file_name(attachment) %>)</span>
+        <span><%= title_for(attachment) %> <%= file_name_for(attachment) %></span>
       </div>
     <% end %>
+  </div>
+
+  <button
+    name=<%= attribute %>
+    class="<%= button_class %>"
+    data-open="<%= modal_id %>"
+    data-resourcename="<%= resource_name %>"
+    data-multiple="<%= multiple %>"
+    data-titled="<%= has_title? %>">
+    <%= label %>
+  </button>
+
+  <% if !has_title? && !attachments.first.is_a?(Array) %>
+    <div class="remove-attachment" id="attachment_<%= attachments.first&.id %>" data-closable>
+      <button class="remove-attachment"
+            aria-label="<%= t("delete_document", scope: "decidim.proposals.proposals.edit") %>"
+            title="<%= t("delete_document", scope: "decidim.proposals.proposals.edit") %>"
+            type="button" data-close>
+        <span aria-hidden="true">&times; Remove</span>
+      </button>
+    </div>
   <% end %>
 </div>
 
-<button name=<%= attribute %> class="button small hollow add-field add-attachment" data-open="<%= field_id %>" data-resourcename="<%= resource_name %>" data-multiple="<%= multiple %>">
-  <%= label %>
-</button>
+<!-- MODAL STARTS -->
 
-<div class="reveal attachment-modal" id="<%= field_id %>" data-reveal>
+<div class="reveal attachment-modal" id="<%= modal_id %>" data-reveal>
   <div class="reveal__header">
     <h3 class="reveal__title" data-addlabel="<%= add_label %>" data-editlabel="<%= edit_label %>"><%= label %></h3>
     <button class="close-button" data-close aria-label="<%= "Close modal" %>"
