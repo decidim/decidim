@@ -17,6 +17,7 @@ it:
       decidim/debates/close_debate_event: Dibattito chiuso
       decidim/debates/create_debate_event: Discussione
       decidim/debates/creation_disabled_event: Discussioni disabilitate
+      decidim/debates/creation_enabled_event: Creazione di nuovi dibattiti abilitata
   activerecord:
     models:
       decidim/debates/debate:
@@ -40,6 +41,7 @@ it:
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
+            creation_enabled: I partecipanti possono creare nuovi dibattiti
             endorsements_blocked: Sottoscrizioni bloccate
             endorsements_enabled: Sottoscrizioni abilitate
     debates:
