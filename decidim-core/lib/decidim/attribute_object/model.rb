@@ -100,7 +100,7 @@ module Decidim
 
         def attributes_nested
           @attributes_nested ||=
-            if superclass == ::Decidim::Form
+            if (defined?(Decidim::Form) && superclass == ::Decidim::Form) || !superclass.respond_to?(:attributes_nested)
               Decidim::AttributeObject::NestedAttributes.new
             else
               superclass.attributes_nested.dup
