@@ -235,7 +235,7 @@ describe "Filter Participatory Processes", type: :system do
 
           it "only shows process types with active processes" do
             within "#process-type-filter" do
-              click_button "All"
+              click_button "All types"
               expect(page).to have_content("Awesome Type")
               expect(page).to have_content("The East Type")
               expect(page).to have_content("The West Type")
@@ -262,7 +262,7 @@ describe "Filter Participatory Processes", type: :system do
 
           it "only shows process types with past processes" do
             within "#process-type-filter" do
-              click_button "All"
+              click_button "All types"
               expect(page).to have_no_content("Awesome Type")
               expect(page).to have_no_content("The East Type")
               expect(page).to have_no_content("The West Type")
@@ -276,7 +276,7 @@ describe "Filter Participatory Processes", type: :system do
         context "and filtering by a process type" do
           before do
             within "#process-type-filter" do
-              click_button "All"
+              click_button "All types"
               click_link "The West Type"
             end
             sleep 2
@@ -323,7 +323,7 @@ describe "Filter Participatory Processes", type: :system do
 
           it "only shows process types with active processes in the group" do
             within "#process-type-filter" do
-              click_button "All"
+              click_button "All types"
               expect(page).to have_no_content("Awesome Type")
               expect(page).to have_content("The East Type")
               expect(page).to have_no_content("The West Type")

@@ -447,7 +447,7 @@ en:
           back_to_process: Back to the process page
       participatory_processes:
         filters:
-          all_types: All
+          all_types: All types
           counters:
             active:
               one: 1 active process
@@ -465,7 +465,7 @@ en:
             no_active: No active processes
             no_active_nor_upcoming: No active nor upcoming processes
             no_active_nor_upcoming_callout: There are no active nor upcoming processes. Here is a list of the past ones.
-          filter_by: Filter by
+          filter_by: Show
           names:
             active: Active
             all: All
