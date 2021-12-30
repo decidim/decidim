@@ -62,7 +62,7 @@ module Decidim
           elsif type == Hash
             attribute(name, Hash[String => Object], **options)
           elsif type == Array
-            attribute(name, Array[String], **options)
+            attribute(name, Array[Object], **options)
           else
             # Off the bat, this handles the basic types from:
             # https://github.com/rails/rails/tree/main/activemodel/lib/active_model/type
