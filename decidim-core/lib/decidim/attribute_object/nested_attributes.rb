@@ -44,7 +44,7 @@ module Decidim
 
       def value(raw, type)
         return unless raw
-        return raw if raw.is_a?(type)
+        return raw if raw.is_a?(type) || (raw <= type)
         return type.new(raw.to_h) if type.include?(Decidim::AttributeObject::Model) || type <= ActiveRecord::Base || type == Object
 
         value_primitive(raw, type)
