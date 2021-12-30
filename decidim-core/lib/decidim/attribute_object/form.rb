@@ -16,15 +16,25 @@ module Decidim
         @model_name || infer_model_name
       end
 
+      def self.infer_model_name
+        class_name = name.split("::").last
+        return :form if class_name == "Form"
+
+        class_name.chomp("Form").underscore.to_sym
+      end
+
       # Converts the mimiced name to ActiveModel naming.
       def self.model_name
-        return super if name
-
         ActiveModel::Name.new(self, nil, mimicked_model_name.to_s)
       end
 
       def self.from_model(model)
-        form = new(model.attributes.select { |name, _val| model.respond_to?(name) })
+        attribute_keys = attribute_types.keys + attributes_nested.attributes.keys
+        form_attributes = attribute_keys.each_with_object({}) do |key, attrs|
+          attrs[key] = model.send(key) if model.respond_to?(key)
+        end
+
+        form = new(form_attributes)
         form.map_model(model)
 
         form
@@ -51,6 +61,29 @@ module Decidim
           {}
         end
       end
+
+      def persisted?
+        id.present? && id.to_i.positive?
+      end
+
+      def to_key
+        [id]
+      end
+
+      # Required for the active model naming to work correctly to form the HTML
+      # class attributes for the form elements (e.g. edit_account instead
+      # of edit_account_form).
+      def to_model
+        self
+      end
+
+      def to_param
+        id.to_s
+      end
+
+      # Use the map_model method within the form implementations to map any
+      # custom form-specific attributes from the model to the form.
+      def map_model(_model); end
 
       def with_context(new_context)
         @context = if new_context.is_a?(Hash)

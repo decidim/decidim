@@ -2,10 +2,10 @@
 
 module Decidim
   module AttributeObject
-    # This provides a proof of concept implementation for replacing the Virtus
-    # models using ActiveModel. This class is a lightweight version of
+    # This provides a dummy model implementation for replacing the Virtus models
+    # using ActiveModel. This class is a lightweight version of
     # ActiveModel::Model with the `ActiveModel::Attributes` module and its
-    # overridden methods.
+    # overridden methods + adds the support for nested attributes.
     #
     # The main purpose of this class is to provide a backwards compatible API
     # for defining classes that hold attributes, such as the form classes.
@@ -35,20 +35,28 @@ module Decidim
           when Hash
             key_type = type.keys.first || String
             val_type = type.values.first || String
+            options[:default] ||= {}
 
             attribute_nested(name, Hash, **options.merge(key_type: key_type, value_type: val_type))
           when Array
+            options[:default] ||= []
+
             attribute_nested(name, Array, **options.merge(value_type: type.first))
           else
             super
+
+            # Create the boolean method alias with the question mark at the end
+            # which is used in some places. This was a default behavior of
+            # Virtus but not a feature in ActiveModel::Attributes.
+            alias_method :"#{name}?", name if type == Boolean
           end
         end
 
         def attribute_class(name, type, **options)
-          if type.include?(Decidim::AttributeObject::Model) || type <= ActiveRecord::Base
+          if type.include?(Decidim::AttributeObject::Model) || type <= ActiveRecord::Base || type == Object
             attribute_nested(name, type, **options)
           elsif type == Hash
-            attribute(name, Hash[String => String], **options)
+            attribute(name, Hash[String => Object], **options)
           elsif type == Array
             attribute(name, Array[String], **options)
           else
@@ -90,7 +98,12 @@ module Decidim
         end
 
         def attributes_nested
-          @attributes_nested ||= Decidim::AttributeObject::NestedAttributes.new
+          @attributes_nested ||=
+            if superclass == ::Decidim::Form
+              Decidim::AttributeObject::NestedAttributes.new
+            else
+              superclass.attributes_nested.dup
+            end
         end
       end
 
@@ -111,10 +124,17 @@ module Decidim
       end
 
       def to_h
-        attributes.transform_keys(&:to_sym).merge(
-          self.class.attributes_nested.keys.map { |attr| [attr, send(attr)] }.to_h
+        hash = attributes.transform_keys(&:to_sym).merge(
+          self.class.attributes_nested.keys.index_with { |attr| send(attr) }
         )
+        hash.delete(:id) if hash.has_key?(:id) && hash[:id].blank?
+
+        hash
       end
+
+      # The to_hash alias is needed for the as_json call which calls this method
+      # if defined.
+      alias to_hash to_h
     end
   end
 end
