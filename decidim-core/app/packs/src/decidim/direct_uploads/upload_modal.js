@@ -36,7 +36,6 @@ export default class UploadModal {
       url: this.input.dataset.directuploadurl,
       attachmentName: file.name
     });
-
     uploader.upload.create((error, blob) => {
       if (error) {
         uploadItemComponent.dataset.state = "error";
@@ -83,7 +82,9 @@ export default class UploadModal {
         }
 
         attachmentDetails.appendChild(hiddenBlobField);
-        uploadItemComponent.appendChild(attachmentDetails)
+        uploadItemComponent.appendChild(attachmentDetails);
+        // Fix to event
+        uploader.validate(blob.signed_id);
       }
     });
     this.updateDropZone();
