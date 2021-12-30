@@ -11,7 +11,7 @@ module Decidim
           title: { I18n.locale => attachment[:title] },
           attached_to: @attached_to || documents_attached_to,
           file: attachment[:file],
-          content_type: blob(attachment[:file].content_type)
+          content_type: blob(attachment[:file]).content_type
         )
       end
     end

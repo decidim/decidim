@@ -2,8 +2,8 @@
   <div class="active-attachments">
     <% attachments.each do |attachment| %>
       <% next if attachment.is_a? Array %>
-      <div data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded">
-        <%= form.hidden_field attribute, multiple: true, value: attachment.id, id: "#{attribute}-#{attachment.id}" %>
+      <div class="attachment-details" data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded">
+        <%= form.hidden_field attribute, multiple: true, value: attachment.id %>
         <span><%= title_for(attachment) %> <%= file_name_for(attachment) %></span>
       </div>
     <% end %>
@@ -57,8 +57,6 @@
       <span>Drop files here or click to upload</span>
     </label>
     <div class="upload-items"></div>
-    <div class="pending-attachments-<%= attribute %>">
-    </div>
   </div>
 
   <div class="row columns reveal__content">

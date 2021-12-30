@@ -79,4 +79,8 @@
   button.remove-attachment{
     cursor: pointer;
   }
+
+  &.with-title{
+    display: block;
+  }
 }
