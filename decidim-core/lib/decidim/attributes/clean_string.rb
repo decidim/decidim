@@ -2,10 +2,10 @@
 
 module Decidim
   module Attributes
-    # Custom Virtus value to "standardize" the newline characters within strings
-    # that are sent through user entered forms. This strips out the carriage
-    # return characters from the strings in order to avoid validation mismatches
-    # with the string lengths between the frontend and the backend.
+    # Custom attributes value to "standardize" the newline characters within
+    # strings that are sent through user entered forms. This strips out the
+    # carriage return characters from the strings in order to avoid validation
+    # mismatches with the string lengths between the frontend and the backend.
     #
     # This type should be used with forms that have:
     # - A user input defined with the <textarea> element
@@ -41,5 +41,3 @@ module Decidim
     end
   end
 end
-
-ActiveModel::Type.register(:"decidim/attributes/clean_string", Decidim::Attributes::CleanString)

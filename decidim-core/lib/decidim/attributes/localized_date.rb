@@ -2,7 +2,7 @@
 
 module Decidim
   module Attributes
-    # Custom Virtus value to parse a String representing a Date using
+    # Custom attributes value to parse a String representing a Date using
     # the app localization format.
     class LocalizedDate < ActiveModel::Type::Date
       def type
@@ -21,5 +21,3 @@ module Decidim
     end
   end
 end
-
-ActiveModel::Type.register(:"decidim/attributes/localized_date", Decidim::Attributes::LocalizedDate)

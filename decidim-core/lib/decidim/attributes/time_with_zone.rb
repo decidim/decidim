@@ -2,7 +2,7 @@
 
 module Decidim
   module Attributes
-    # Custom Virtus value to parse a String representing a Time using
+    # Custom attributes value to parse a String representing a Time using
     # the app TimeZone.
     class TimeWithZone < ActiveModel::Type::Time
       def type
@@ -21,5 +21,3 @@ module Decidim
     end
   end
 end
-
-ActiveModel::Type.register(:"decidim/attributes/time_with_zone", Decidim::Attributes::TimeWithZone)
