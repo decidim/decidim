@@ -126,7 +126,30 @@ module Decidim
           end
 
         # Only pass the existing attribute keys to assign_attributes
-        correct_attributes = base_attributes.select { |k, _v| attribute_names.include?(k.to_s) }
+        # The regular expression matching makes sure we also include the "multi"
+        # parameters, such as date fields passed from the view which are
+        # formatted as date(1i), date(2i), date(3i). These are converted to
+        # hashes below which are handled by the ActiveModel::Attributes types,
+        # such as :date.
+        correct_attributes = {}.tap do |attrs|
+          base_attributes.each do |k, v|
+            # Handle "multi" parameter attributes, such as date(1i), date(2i),
+            # date(3i). This converts these three attributes to a single hash
+            # attribute formatted as:
+            #   { "date" => { 1 => ..., 2 => ..., 3 => ...  } }
+            mp = k.to_s.match(/(.*)\(([0-9]+i)\)$/)
+            if mp
+              next unless attribute_names.include?(mp[1])
+
+              attrs[mp[1]] ||= {}
+              attrs[mp[1]][mp[2].to_i] = v
+            else
+              next unless attribute_names.include?(k.to_s)
+
+              attrs[k] = v
+            end
+          end
+        end
 
         assign_attributes(correct_attributes)
       end
