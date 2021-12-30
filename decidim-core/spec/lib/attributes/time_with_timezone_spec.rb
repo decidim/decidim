@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   describe Attributes::TimeWithZone do
     describe "coerce" do
-      subject { described_class.build(Attributes::TimeWithZone, {}).coerce(value) }
+      subject { described_class.new.cast(value) }
 
       context "when given a Time" do
         let(:value) { Time.current }
