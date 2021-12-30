@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# Make sure the custom attributes are defined
+require "decidim/attributes"
+
 module Decidim
   module AttributeObject
     # This provides a dummy model implementation for replacing the Virtus models
