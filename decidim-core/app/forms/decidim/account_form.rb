@@ -27,7 +27,7 @@ module Decidim
     validates :password, confirmation: true
     validates :password, password: { name: :name, email: :email, username: :nickname }, if: -> { password.present? }
     validates :password_confirmation, presence: true, if: :password_present
-    validates :real_avatar, passthru: { to: Decidim::User }
+    validates :avatar, passthru: { to: Decidim::User }
 
     validate :unique_email
     validate :unique_nickname
@@ -41,10 +41,6 @@ module Decidim
       return "http://#{super}" unless super.match?(%r{\A(http|https)://}i)
 
       super
-    end
-
-    def real_avatar
-      @real_avatar ||= ActiveStorage::Blob.find_signed(avatar[:file]) if avatar.is_a?(Hash) && avatar[:file]
     end
 
     private

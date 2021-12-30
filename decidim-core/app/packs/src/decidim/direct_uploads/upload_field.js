@@ -65,11 +65,16 @@ const addSaveButtonEventListener = (um) => {
       } else {
         details = um.activeAttachments.querySelector(`.attachment-details[data-filename='${item.dataset.filename}'`);
       }
-      const title = item.querySelector("input[type='text']").value;
-      details.dataset.title = title;
-      details.style.display = "block";
       const span = details.querySelector("span");
-      span.innerHTML = `${title} (${item.dataset.filename})`;
+      if (um.titled) {
+        const title = item.querySelector("input[type='text']").value;
+        details.dataset.title = title;
+        span.innerHTML = `${title} (${item.dataset.filename})`;
+      } else {
+        span.innerHTML = item.dataset.filename
+      }
+      // ei varmaa tarvii
+      details.style.display = "block";
       span.style.display = "block";
     });
 

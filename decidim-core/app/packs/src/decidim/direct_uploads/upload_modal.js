@@ -62,7 +62,7 @@ export default class UploadModal {
         if (this.titled) {
           hiddenBlobField.name = `${this.resourceName}[${addAttribute}][${ordinalNumber}][file]`;
         } else {
-          hiddenBlobField.name = `${this.resourceName}[${addAttribute}][file]`;
+          hiddenBlobField.name = `${this.resourceName}[${addAttribute}]`;
         }
 
         if (this.titled) {
@@ -76,6 +76,10 @@ export default class UploadModal {
           attachmentDetails.appendChild(hiddenTitleField);
         } else {
           titleAndFileNameSpan.innerHTML = file.name;
+        }
+
+        if (!this.multiple) {
+          this.cleanTrashCan();
         }
 
         attachmentDetails.appendChild(hiddenBlobField);
@@ -102,7 +106,6 @@ export default class UploadModal {
   }
 
   createUploadItemComponent(fileName, title, state) {
-    console.log("createUploadItemComponent")
     const wrapper = document.createElement("div");
     wrapper.classList.add("upload-item");
     wrapper.setAttribute("data-filename", fileName);

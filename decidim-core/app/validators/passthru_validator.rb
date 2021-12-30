@@ -25,12 +25,15 @@ class PassthruValidator < ActiveModel::EachValidator
 
     # Create a dummy record for which the validations are actually run on
     dummy = validation_record(record)
+    dummy.public_send("#{dummy_attr}=", value)
+    value = dummy.public_send(dummy_attr)
 
     target_validators(attribute).each do |validator|
       next unless validator.is_a?(ActiveModel::EachValidator)
       next unless check_validator_conditions(dummy, validator)
 
       dummy.errors.clear
+
       validator.validate_each(dummy, dummy_attr, value)
       dummy.errors[dummy_attr].each do |err|
         record.errors.add(attribute, err)
