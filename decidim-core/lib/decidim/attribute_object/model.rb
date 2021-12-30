@@ -158,6 +158,11 @@ module Decidim
         @attribute_names ||= self.class.attribute_types.keys.map(&:to_s) + self.class.attributes_nested.keys.map(&:to_s)
       end
 
+      # Convenience method used in initiatives
+      def attributes_with_values
+        to_h.compact
+      end
+
       def to_h
         hash = attributes.transform_keys(&:to_sym).merge(
           self.class.attributes_nested.keys.index_with { |attr| send(attr) }
