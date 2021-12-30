@@ -39,15 +39,6 @@ module Decidim
 
       private
 
-      # Overwrites Rectify::Form#form_attributes_valid? to validate nested `step_settings` attributes.
-      def form_attributes_valid?
-        return false unless errors.empty? && settings_errors_empty? # Preserves errors from custom validation methods
-
-        attributes_that_respond_to(:valid?).concat(
-          step_settings.each_value.select { |attribute| attribute.respond_to?(:valid?) }
-        ).all?(&:valid?)
-      end
-
       def settings_errors_empty?
         validations = [settings.errors.empty?]
         validations << if default_step_settings.present?
