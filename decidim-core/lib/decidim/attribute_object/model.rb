@@ -112,12 +112,20 @@ module Decidim
         # Parentheses needed not to pass the arguments.
         super()
 
-        if attributes
-          # Only pass the existing attribute keys to assign_attributes
-          correct_attributes = attributes.select { |k, _v| attribute_names.include?(k.to_s) }
+        return unless attributes
 
-          assign_attributes(correct_attributes)
-        end
+        # Make sure the attributes is a hash
+        base_attributes =
+          if attributes.is_a?(Hash)
+            attributes
+          else
+            attributes.to_h
+          end
+
+        # Only pass the existing attribute keys to assign_attributes
+        correct_attributes = base_attributes.select { |k, _v| attribute_names.include?(k.to_s) }
+
+        assign_attributes(correct_attributes)
       end
 
       def attribute_names
