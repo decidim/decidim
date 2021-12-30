@@ -10,7 +10,7 @@ module Decidim
     # This class serves as a DSL to declaratively specify a verification method.
     #
     # To define a direct verification method, you need to specify the `form`
-    # attribute as a `Rectify::Form` that will be valid if the authorization is
+    # attribute as a `Decidim::Form` that will be valid if the authorization is
     # valid.
     #
     # To define a deferred verification method, you need specify the `engine`
