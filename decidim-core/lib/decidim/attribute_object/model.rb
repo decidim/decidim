@@ -53,7 +53,8 @@ module Decidim
         end
 
         def attribute_class(name, type, **options)
-          if type.include?(Decidim::AttributeObject::Model) || type <= ActiveRecord::Base || type == Object
+          primitive_types = [Object, Proc]
+          if primitive_types.include?(type) || type.include?(Decidim::AttributeObject::Model) || type <= ActiveRecord::Base
             attribute_nested(name, type, **options)
           elsif type == Hash
             attribute(name, Hash[String => Object], **options)
