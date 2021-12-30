@@ -4,13 +4,13 @@ require "active_support/concern"
 
 module Decidim
   # A set of convenience methods to deal with I18n attributes and validations
-  # in a way that's compatible with Virtus and ActiveModel, thus making it easy
-  # to integrate into Rails' forms and similar workflows.
+  # in a way that's compatible with AttributeObject and ActiveModel, thus making
+  # it easy to integrate into Rails' forms and similar workflows.
   module TranslatableAttributes
     extend ActiveSupport::Concern
 
     class_methods do
-      # Public: Mirrors Virtus' `attribute` interface to define attributes in
+      # Public: Mirrors the `attribute` interface to define attributes in
       # multiple locales.
       #
       # name - The attribute's name
@@ -48,6 +48,8 @@ module Decidim
 
           define_method "#{attribute_name}=" do |value|
             field = public_send(name) || {}
+            value_type = self.class.attribute_types[attribute_name.to_s]
+            value = value_type.cast(value) if value_type
             public_send("#{name}=", field.merge(locale => super(value)))
           end
 

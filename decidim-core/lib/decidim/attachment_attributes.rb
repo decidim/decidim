@@ -3,14 +3,14 @@
 require "active_support/concern"
 
 module Decidim
-  # A set of convenience methods to deal with attachment attributes for Virtus
+  # A set of convenience methods to deal with attachment attributes for
   # models that may set the attachment records through the original model
   # (Decidim::Attachment) or through the user submitted form data (String).
   module AttachmentAttributes
     extend ActiveSupport::Concern
 
     class_methods do
-      # Public: Mirrors Virtus' `attribute` interface to define attachment
+      # Public: Mirrors the `attribute` interface to define attachment
       # attributes for form objects.
       #
       # name - The attribute's name

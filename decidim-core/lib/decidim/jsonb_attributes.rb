@@ -4,13 +4,13 @@ require "active_support/concern"
 
 module Decidim
   # A set of convenient methods to generate dynamic jsonb objects in a way is
-  # compatilbe with Virtus and ActiveModel thus making it easy to integrate
-  # into Rails forms and similar workflows.
+  # compatible with AttirubteObject and ActiveModel thus making it easy to
+  # integrate into Rails forms and similar workflows.
   module JsonbAttributes
     extend ActiveSupport::Concern
 
     class_methods do
-      # Public: Mirrors Virtus `attribute` interface to define attributes in
+      # Public: Mirrors the `attribute` interface to define attributes in
       # custom jsonb objects.
       #
       # name - Attribute's name
@@ -36,6 +36,8 @@ module Decidim
 
           define_method "#{f}=" do |value|
             field = public_send(name) || {}
+            value_type = self.class.attribute_types[f.to_s]
+            value = value_type.cast(value) if value_type
             public_send("#{name}=", field.merge(f => super(value)))
           end
         end
