@@ -30,48 +30,45 @@ FactoryBot.define do
 
     trait :with_all_questions do
       after(:build) do |questionaire, _evaluator|
-        questionaire.questions do
-          position = 0
-          qs = %w(short_answer long_answer).collect do |text_question_type|
-            q = build(:questionnaire_question,
-                      question_type: text_question_type,
-                      position: position,
-                      questionaire: questionaire)
-            position += 1
-            q
-          end
+        position = 0
+        %w(short_answer long_answer).collect do |text_question_type|
+          q = create(:questionnaire_question,
+                     question_type: text_question_type,
+                     position: position,
+                     questionnaire: questionaire)
+          position += 1
+          questionaire.questions << q
+        end
 
-          %w(single_option multiple_option).each do |option_question_type|
-            q = build(:questionnaire_question, :with_answer_options,
-                      question_type: option_question_type,
-                      position: position,
-                      questionaire: questionaire)
-            position += 1
-            qs << q
-            q.display_conditions.build(
-              condition_question: qs[q.position - 2],
-              question: q,
-              condition_type: :answered,
-              mandatory: true
-            )
-          end
+        %w(single_option multiple_option).each do |option_question_type|
+          q = create(:questionnaire_question, :with_answer_options,
+                     question_type: option_question_type,
+                     position: position,
+                     questionnaire: questionaire)
+          q.display_conditions.build(
+            condition_question: questionaire.questions[q.position - 1],
+            question: q,
+            condition_type: :answered,
+            mandatory: true
+          )
+          questionaire.questions << q
+          position += 1
+        end
 
-          %w(matrix_single matrix_multiple).collect do |matrix_question_type|
-            q = build(:questionnaire_question, :with_answer_options,
-                      question_type: matrix_question_type,
-                      position: position,
-                      body: generate_localized_title,
-                      questionaire: questionaire)
-            position += 1
-            qs << q
-            q.display_conditions.build(
-              condition_question: qs[q.position - 2],
-              question: q,
-              condition_type: :answered,
-              mandatory: true
-            )
-          end
-          qs
+        %w(matrix_single matrix_multiple).collect do |matrix_question_type|
+          q = build(:questionnaire_question, :with_answer_options,
+                    question_type: matrix_question_type,
+                    position: position,
+                    body: generate_localized_title,
+                    questionnaire: questionaire)
+          q.display_conditions.build(
+            condition_question: questionaire.questions[q.position - 1],
+            question: q,
+            condition_type: :answered,
+            mandatory: true
+          )
+          questionaire.questions << q
+          position += 1
         end
       end
     end
