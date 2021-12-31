@@ -44,9 +44,9 @@ module Decidim
         model.name_ca = "Hola"
         model.name_pt__BR = "Olá"
 
-        expect(model.name).to include("en" => "Hello")
-        expect(model.name).to include("ca" => "Hola")
-        expect(model.name).to include("pt-BR" => "Olá")
+        expect(model.name).to include(en: "Hello")
+        expect(model.name).to include(ca: "Hola")
+        expect(model.name).to include("pt-BR": "Olá")
       end
 
       it "coerces values" do
