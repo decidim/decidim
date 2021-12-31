@@ -168,6 +168,12 @@ module Decidim
         public_send(attribute_name)
       end
 
+      # Convenience method for settings the attributes through
+      # model[:attr_name] = "foo" which is used in some places across the code.
+      def []=(attribute_name, value)
+        public_send("#{attribute_name}=", value)
+      end
+
       # Convenience method used in initiatives
       def attributes_with_values
         to_h.compact
