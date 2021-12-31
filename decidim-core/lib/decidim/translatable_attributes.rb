@@ -43,13 +43,13 @@ module Decidim
 
           define_method attribute_name do
             field = public_send(name) || {}
-            field[locale.to_s] || field[locale.to_sym]
+            value = field[locale.to_s] || field[locale.to_sym]
+            value_type = self.class.attribute_types[attribute_name.to_s]
+            value_type ? value_type.cast(value) : value
           end
 
           define_method "#{attribute_name}=" do |value|
             field = public_send(name) || {}
-            value_type = self.class.attribute_types[attribute_name.to_s]
-            value = value_type.cast(value) if value_type
             public_send("#{name}=", field.merge(locale => super(value)))
           end
 
