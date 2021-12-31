@@ -158,6 +158,12 @@ module Decidim
         @attribute_names ||= self.class.attribute_types.keys.map(&:to_s) + self.class.attributes_nested.keys.map(&:to_s)
       end
 
+      # Convenience method for accessing the attributes through
+      # model[:attr_name] which is used in multiple places across the code.
+      def [](attribute_name)
+        public_send(attribute_name)
+      end
+
       # Convenience method used in initiatives
       def attributes_with_values
         to_h.compact
