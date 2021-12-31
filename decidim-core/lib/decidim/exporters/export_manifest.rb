@@ -26,6 +26,7 @@ module Decidim
       # manifest - The parent manifest where this export manifest belongs to.
       #
       def initialize(name, manifest)
+        super()
         @name = name.to_sym
         @manifest = manifest
       end
