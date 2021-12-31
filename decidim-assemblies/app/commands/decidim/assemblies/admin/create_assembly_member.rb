@@ -53,16 +53,16 @@ module Decidim
 
         def assembly_member_attributes
           form.attributes.slice(
-            :full_name,
-            :gender,
-            :birthday,
-            :birthplace,
-            :ceased_date,
-            :designation_date,
-            :position,
-            :position_other,
-            :weight
-          ).merge(
+            "full_name",
+            "gender",
+            "birthday",
+            "birthplace",
+            "ceased_date",
+            "designation_date",
+            "position",
+            "position_other",
+            "weight"
+          ).transform_keys(&:to_sym).merge(
             assembly: assembly,
             user: form.user
           ).merge(

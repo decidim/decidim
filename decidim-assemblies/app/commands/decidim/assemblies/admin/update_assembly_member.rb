@@ -51,16 +51,16 @@ module Decidim
 
         def attributes
           form.attributes.slice(
-            :full_name,
-            :gender,
-            :birthday,
-            :birthplace,
-            :ceased_date,
-            :designation_date,
-            :position,
-            :position_other,
-            :weight
-          ).merge(
+            "full_name",
+            "gender",
+            "birthday",
+            "birthplace",
+            "ceased_date",
+            "designation_date",
+            "position",
+            "position_other",
+            "weight"
+          ).transform_keys(&:to_sym).merge(
             user: form.user
           ).merge(
             attachment_attributes(:non_user_avatar)
