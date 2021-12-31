@@ -95,6 +95,8 @@ module Decidim
       end
 
       def convert_array_value(value, value_type)
+        value = value.to_a if !value.is_a?(Array) && value.respond_to?(:to_a)
+
         if value.is_a?(Hash)
           value = value.values
         elsif !value.is_a?(Array)
