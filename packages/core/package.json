@@ -10,7 +10,7 @@
   "author": "Decidim Contributors",
   "license": "AGPL-3.0",
   "dependencies": {
-    "@joeattardi/emoji-button": "^4.6.0",
+    "@joeattardi/emoji-button": "^4.6.2",
     "@zeitiger/appendaround": "^1.0.0",
     "axios": "^0.21.4",
     "bootstrap-tagsinput": "^0.7.1",
