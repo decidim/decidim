@@ -36,8 +36,8 @@ module Decidim
           when Class
             attribute_class(name, type, **options)
           when Hash
-            key_type = type.keys.first || String
-            val_type = type.values.first || String
+            key_type = type.keys.first || Symbol
+            val_type = type.values.first || Object
             options[:default] ||= {}
 
             attribute_nested(name, Hash, **options.merge(key_type: key_type, value_type: val_type))
@@ -60,7 +60,7 @@ module Decidim
           if primitive_types.include?(type) || type.include?(Decidim::AttributeObject::Model) || type <= ActiveRecord::Base
             attribute_nested(name, type, **options)
           elsif type == Hash
-            attribute(name, Hash[String => Object], **options)
+            attribute(name, Hash[Symbol => Object], **options)
           elsif type == Array
             attribute(name, Array[Object], **options)
           else
