@@ -158,6 +158,10 @@ module Decidim
         @attribute_names ||= self.class.attribute_types.keys.map(&:to_s) + self.class.attributes_nested.keys.map(&:to_s)
       end
 
+      def attributes
+        attribute_names.index_with { |name| public_send(name) }
+      end
+
       # Convenience method for accessing the attributes through
       # model[:attr_name] which is used in multiple places across the code.
       def [](attribute_name)
