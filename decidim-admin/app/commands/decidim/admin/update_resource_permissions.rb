@@ -40,7 +40,7 @@ module Decidim
       def update_permissions
         permissions = configured_permissions.inject({}) do |result, (key, value)|
           handlers_content = selected_handlers(value).inject({}) do |handlers_content_result, handler_key|
-            opts = value.authorization_handlers_options[handler_key.to_sym]
+            opts = value.authorization_handlers_options[handler_key.to_s]
 
             handlers_content_result.update(handler_key => opts ? { options: opts } : {})
           end

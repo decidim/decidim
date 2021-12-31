@@ -65,11 +65,11 @@ module Decidim
 
       def update_content_block_images
         content_block.manifest.images.each do |image_config|
-          image_name = image_config[:name].to_s
+          image_name = image_config[:name]
 
           if form.images[image_name]
             content_block.images_container.send("#{image_name}=", form.images[image_name])
-          elsif form.images["remove_#{image_name}"] == "1"
+          elsif form.images["remove_#{image_name}".to_sym] == "1"
             content_block.images_container.send("#{image_name}=", nil)
           end
         end
