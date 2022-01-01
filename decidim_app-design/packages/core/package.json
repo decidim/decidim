@@ -17,7 +17,7 @@
     "@joeattardi/emoji-button": "^4.6.0",
     "@zeitiger/appendaround": "^1.0.0",
     "axios": "^0.21.1",
-    "bootstrap-tagsinput": "^0.7.1",
+    "bootstrap-tagsinput-2021": "^0.8.6",
     "classnames": "^2.2.5",
     "d3": "5.4.0",
     "diff": "^5.0.0",
