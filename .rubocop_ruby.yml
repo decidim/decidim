@@ -18,6 +18,7 @@ AllCops:
     - "decidim_app-design/node_modules/**/*"
     - "spec/decidim_dummy_app/**/*"
     - "node_modules/**/*"
+    - "decidim-initiatives/lib/gem_overrides/origami/date.rb"
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior
