@@ -1,4 +1,4 @@
-import "bootstrap-tagsinput"
+import "bootstrap-tagsinput-2021"
 
 $(() => {
   const $tagContainer = $(".js-tags-container");
