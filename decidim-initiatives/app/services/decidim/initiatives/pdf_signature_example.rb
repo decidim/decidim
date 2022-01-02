@@ -2,6 +2,7 @@
 
 require "origami"
 require "tempfile"
+require_relative "../../../../lib/gem_overrides/origami/date"
 
 module Decidim
   module Initiatives
