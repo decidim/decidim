@@ -1,4 +1,4 @@
-name: "[CI] Initiatives"
+name: "[CI] Initiatives (unit tests)"
 on:
   push:
     branches:
