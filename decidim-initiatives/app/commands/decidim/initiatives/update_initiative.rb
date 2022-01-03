@@ -6,6 +6,7 @@ module Decidim
     # existing initiative.
     class UpdateInitiative < Rectify::Command
       include ::Decidim::MultipleAttachmentsMethods
+      include ::Decidim::GalleryMethods
       include CurrentLocale
 
       # Public: Initializes the command.
@@ -39,6 +40,7 @@ module Decidim
           attributes
         )
 
+        photo_cleanup!
         document_cleanup!
         create_attachments if process_attachments?
 
