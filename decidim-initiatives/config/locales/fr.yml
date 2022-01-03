@@ -408,6 +408,7 @@ fr:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> a postulé pour faire partie du comité de promotion de votre pétition <a href="%{resource_url}">%{resource_title}</a>. Pour accepter ou rejeter la demande, cliquez <a href="%{resource_url}/edit">ici</a>.
       form:
         add_attachments: Pièces-jointes
+        attachment_legend: "(Facultatif) Ajouter une pièce jointe"
         delete_attachment: Supprimer
       index:
         title: Initiatives
