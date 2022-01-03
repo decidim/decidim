@@ -51,9 +51,7 @@ jobs:
           fetch-depth: 1
       - uses: ./.github/actions/module-rspec
         with:
-          ruby-version: ${{ env.RUBY_VERSION }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          node-version: ${{ env.NODE_VERSION }}
           name: ${{ env.DECIDIM_MODULE }}
       - run: bundle exec rspec
         name: RSpec
