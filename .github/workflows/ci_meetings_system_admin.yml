@@ -21,7 +21,6 @@ on:
 
 env:
   CI: "true"
-  SIMPLECOV: "true"
   RUBY_VERSION: 2.7.5
   NODE_VERSION: 16.9.1
   DECIDIM_MODULE: decidim-meetings
@@ -84,6 +83,8 @@ jobs:
       - run: bundle exec rspec spec/system/admin
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
+        env:
+          SIMPLECOV: "true"
       - run: ./.github/upload_coverage.sh decidim-meetings-system-admin $GITHUB_EVENT_PATH
         name: Upload coverage
       - uses: actions/upload-artifact@v2
