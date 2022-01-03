@@ -18,6 +18,16 @@ end
 
 Until now it was possible to see if an email account was registered in Decidim, by using features like "Forgot your password", as the response changed if the email existed ("`You will receive an email with instructions on how to reset your password in a few minutes`") that's different to a non-existing user account ("`could not be found. Did you sign up previously?`"). This allows User Enumration attacks, where a malicious actor can check if anyone has an acount in the platform. As per [\#8537](https://github.com/decidim/decidim/pull/8537), anyone has the same answer always "`If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes`".
 
+#### Blocked user in global search
+
+PR [\#8658](https://github.com/decidim/decidim/pull/8658) Blocked users are present in global search, to update the search and make them disappear, Run in a rails console or create a migration with:
+
+```ruby
+  Decidim::User.find_each(&:try_update_index_for_search_resource)
+```
+
+Please be aware that it could take a while if your database has a lot of Users.
+
 ### Added
 * [#8012](https://github.com/decidim/decidim/pull/8012) Participatory space to comments, to fix the statistics. Use
 `rake decidim_comments:update_participatory_process_in_comments` to migrate existing comments to the new structure.

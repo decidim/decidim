@@ -1008,6 +1008,7 @@ en:
         show:
           back: Back to all conversations
           chat_with: Conversation with
+          deleted_accounts: You can't have a conversation with deleted accounts.
           not_allowed: This participant does not accept direct messages.
           title: Conversation with %{usernames}
         start:
@@ -1075,6 +1076,12 @@ en:
         greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hello,
         subject: Do you want to keep receiving relevant information about %{organization_name}?
+    notification_mailer:
+      event_received:
+        no_translation_available: Sorry, the automated translation could not be retrieved when the email has been sent. You can check the translation of the original text on the following link %{link}.
+        original_text: 'Original text:'
+        same_language: The content has been posted in your preferred language (%{language}), this is why no automated translation is displayed in this email.
+        translated_text: 'Automatically translated text:'
     notifications:
       no_notifications: No notifications yet.
     notifications_settings:
@@ -1372,6 +1379,7 @@ en:
         title_reply: Reply
       show:
         back: Show all conversations
+        deleted_accounts: You can't have a conversation with deleted accounts.
         not_allowed: This user does not accept any more direct messages.
         title: Conversation with %{usernames}
       update:
