@@ -23,7 +23,6 @@ on:
 
 env:
   CI: "true"
-  SIMPLECOV: "true"
   RUBY_VERSION: 2.7.5
   NODE_VERSION: 16.9.1
   DECIDIM_MODULE: decidim-proposals
@@ -90,6 +89,8 @@ jobs:
           bundle exec rspec $list_of_files
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
+        env:
+          SIMPLECOV: "true"
       - run: ./.github/upload_coverage.sh decidim-proposals-system-public $GITHUB_EVENT_PATH
         name: Upload coverage
       - uses: actions/upload-artifact@v2
