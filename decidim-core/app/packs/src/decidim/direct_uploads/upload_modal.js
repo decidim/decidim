@@ -3,9 +3,17 @@ import { Uploader } from "src/decidim/direct_uploads/uploader";
 export default class UploadModal {
   constructor(button, options = {}) {
     this.button = button;
-    this.modal = document.querySelector(`#${button.dataset.open}`)
-    this.resourceName = button.dataset.resourcename
     this.options = options;
+    this.modal = document.querySelector(`#${button.dataset.open}`);
+    this.resourceName = button.dataset.resourcename;
+    this.resourceClass = button.dataset.resourceclass;
+    this.locales = {
+      error: "Error",
+      validating: "Validating...",
+      validationError: "Validation error",
+      uploaded: "Uploaded",
+      remove: "Remove"
+    };
     this.attachmentCounter = 0;
     this.name = this.button.name;
     this.multiple = this.button.dataset.multiple === "true";
@@ -16,11 +24,9 @@ export default class UploadModal {
     this.uploadItems = this.modal.querySelector(".upload-items");
     this.dropZone = this.modal.querySelector(".dropzone");
     this.input = this.dropZone.querySelector("input");
+    this.addAttribute = this.input.name.substring(this.input.name.indexOf("[") + 1, this.input.name.indexOf("]"));
 
     this.uploadContainer = document.querySelector(`.upload-container-for-${this.name}`);
-    if (this.titled) {
-      this.uploadContainer.classList.add("with-title");
-    }
     this.activeAttachments = this.uploadContainer.querySelector(".active-attachments");
     this.removeButton = this.uploadContainer.querySelector("button.remove-attachment");
     this.trashCan = this.createTrashCan();
@@ -31,20 +37,19 @@ export default class UploadModal {
       return;
     }
 
-    const uploadItemComponent = this.createUploadItemComponent(file.name, file.name.split(".")[0], "init");
-    const uploader = new Uploader(file, uploadItemComponent, {
+    const uploadItem = this.createUploadItem(file.name, file.name.split(".")[0], "init");
+    const uploader = new Uploader(this, uploadItem, {
+      file: file,
       url: this.input.dataset.directuploadurl,
       attachmentName: file.name
     });
     uploader.upload.create((error, blob) => {
       if (error) {
-        uploadItemComponent.dataset.state = "error";
-        uploadItemComponent.querySelector(".progress-bar").style.width = "100%";
-        uploadItemComponent.querySelector(".progress-bar").innerHTML = "Error";
+        uploadItem.dataset.state = "error";
+        uploadItem.querySelector(".progress-bar").style.width = "100%";
+        uploadItem.querySelector(".progress-bar").innerHTML = this.locales.error;
         console.error(error);
       } else {
-        const inputName = this.input.name;
-        const addAttribute = inputName.substring(inputName.indexOf("[") + 1, inputName.indexOf("]"));
         const ordinalNumber = this.attachmentCounter;
         this.attachmentCounter += 1;
 
@@ -52,16 +57,16 @@ export default class UploadModal {
         attachmentDetails.classList.add("attachment-details");
         attachmentDetails.dataset.filename = file.name;
         const titleAndFileNameSpan = document.createElement("span");
-        attachmentDetails.style.display = "none";
+        titleAndFileNameSpan.style.display = "none";
         attachmentDetails.appendChild(titleAndFileNameSpan);
 
         const hiddenBlobField = document.createElement("input");
         hiddenBlobField.setAttribute("type", "hidden");
         hiddenBlobField.setAttribute("value", blob.signed_id);
         if (this.titled) {
-          hiddenBlobField.name = `${this.resourceName}[${addAttribute}][${ordinalNumber}][file]`;
+          hiddenBlobField.name = `${this.resourceName}[${this.addAttribute}][${ordinalNumber}][file]`;
         } else {
-          hiddenBlobField.name = `${this.resourceName}[${addAttribute}]`;
+          hiddenBlobField.name = `${this.resourceName}[${this.addAttribute}]`;
         }
 
         if (this.titled) {
@@ -70,7 +75,7 @@ export default class UploadModal {
           hiddenTitleField.classList.add("hidden-title");
           hiddenTitleField.setAttribute("type", "hidden");
           hiddenTitleField.setAttribute("value", title);
-          hiddenTitleField.name = `${this.resourceName}[${addAttribute}][${ordinalNumber}][title]`;
+          hiddenTitleField.name = `${this.resourceName}[${this.addAttribute}][${ordinalNumber}][title]`;
           titleAndFileNameSpan.innerHTML = `${title} (${file.name})`;
           attachmentDetails.appendChild(hiddenTitleField);
         } else {
@@ -82,7 +87,7 @@ export default class UploadModal {
         }
 
         attachmentDetails.appendChild(hiddenBlobField);
-        uploadItemComponent.appendChild(attachmentDetails);
+        uploadItem.appendChild(attachmentDetails);
         // Fix to event
         uploader.validate(blob.signed_id);
       }
@@ -106,7 +111,7 @@ export default class UploadModal {
     }
   }
 
-  createUploadItemComponent(fileName, title, state) {
+  createUploadItem(fileName, title, state) {
     const wrapper = document.createElement("div");
     wrapper.classList.add("upload-item");
     wrapper.setAttribute("data-filename", fileName);
@@ -152,9 +157,12 @@ export default class UploadModal {
       tileInputContainer.appendChild(titleInput);
     }
 
+    const errorList = document.createElement("ul");
+    errorList.className = "upload-errors";
+
     const removeField = document.createElement("span");
     removeField.classList.add("columns", "small-3", "remove-upload-item");
-    removeField.innerHTML = "&times; Remove";
+    removeField.innerHTML = `&times; ${this.locales.remove}`;
     removeField.addEventListener(("click"), (event) => {
       event.preventDefault();
       const item = this.uploadItems.querySelector(`[data-filename='${fileName}']`);
@@ -173,6 +181,7 @@ export default class UploadModal {
       secondRow.appendChild(tileInputContainer);
     }
     secondRow.appendChild(removeField);
+    secondRow.appendChild(errorList);
 
     wrapper.appendChild(firstRow);
     wrapper.appendChild(secondRow);

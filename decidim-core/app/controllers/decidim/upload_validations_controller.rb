@@ -9,7 +9,7 @@ module Decidim
 
       CreateUploadValidation.call(@form) do
         on(:ok) do
-          render json: { foo: "good" }
+          render json: []
         end
 
         on(:invalid) do |errors|

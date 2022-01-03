@@ -35,6 +35,10 @@ module Decidim
       options[:edit_label] || add_label
     end
 
+    def resource_class
+      options[:resource_class]
+    end
+
     def resource_name
       options[:resource_name]
     end
@@ -57,13 +61,27 @@ module Decidim
       options[:titled] == true
     end
 
+    def with_title
+      "with-title" if has_title?
+    end
+
+    def current_file
+      form.object.send(attribute)
+    end
+
+    def current_file_label
+      return I18n.t("current_image", scope: "decidim.forms") if file_attachment_path(current_file).present?
+
+      I18n.t("default_image", scope: "decidim.forms")
+    end
+
     def help_messages
       Array(options[:help])
     end
 
     def attachments
       @attachments = begin
-        attachments = options[:attachments] || form.object.send(options[:attribute])
+        attachments = options[:attachments] || form.object.send(attribute)
         Array(attachments)
       end
     end
@@ -86,6 +104,25 @@ module Decidim
       return "(#{filename})" if has_title?
 
       filename
+    end
+
+    def file_attachment_path(file)
+      return unless file
+
+      if file.try(:attached?)
+        attachment_path = Rails.application.routes.url_helpers&.rails_blob_url(file.blob, only_path: true)
+        return attachment_path if attachment_path.present?
+      end
+
+      uploader_default_image_path(attribute)
+    end
+
+    def uploader_default_image_path(attribute)
+      uploader = FileValidatorHumanizer.new(form.object, attribute).uploader
+      return if uploader.blank?
+      return unless uploader.is_a?(Decidim::ImageUploader)
+
+      uploader.try(:default_url)
     end
 
     # SUPER HACK FIX THIS!!!

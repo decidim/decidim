@@ -1,4 +1,4 @@
-<div class="dynamical-uploads upload-container-for-<%= attribute %>">
+<div class="dynamical-uploads <%= with_title %> upload-container-for-<%= attribute %>">
   <div class="active-attachments">
     <% attachments.each do |attachment| %>
       <% next if attachment.is_a? Array %>
@@ -14,6 +14,7 @@
     class="<%= button_class %>"
     data-open="<%= modal_id %>"
     data-resourcename="<%= resource_name %>"
+    data-resourceclass="<%= resource_class %>"
     data-multiple="<%= multiple %>"
     data-titled="<%= has_title? %>">
     <%= label %>
@@ -30,6 +31,11 @@
     </div>
   <% end %>
 </div>
+
+<% if !has_title? && file_attachment_path(current_file) %>
+  <label><%= current_file_label %></label>
+  <%= link_to image_tag(file_attachment_path(current_file), alt: attribute), file_attachment_path(current_file) %>
+<% end %>
 
 <!-- MODAL STARTS -->
 

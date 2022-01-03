@@ -63,14 +63,21 @@
       }
     }
 
-    .remove-upload-item {
+    .remove-upload-item{
       cursor: pointer;
+    }
+
+    .upload-errors{
+      .form-error {
+        margin: 0;
+      }
     }
   }
 }
 
 .dynamical-uploads{
   display: flex;
+  margin: 0 0 1.5rem;
 
   > *{
     margin: 0 .2rem;
@@ -82,5 +89,6 @@
 
   &.with-title{
     display: block;
+    margin: 0;
   }
 }

@@ -4,7 +4,7 @@ import UploadModal from "src/decidim/direct_uploads/upload_modal";
 const loadAttachments = (um) => {
   console.log("um.activeAttachments.children", um.activeAttachments.children);
   Array.from(um.activeAttachments.children).forEach((child) => {
-    um.createUploadItemComponent(child.dataset.filename, child.dataset.title, "uploaded");
+    um.createUploadItem(child.dataset.filename, child.dataset.title, "uploaded");
   })
 }
 
@@ -58,7 +58,7 @@ const addSaveButtonEventListener = (um) => {
   saveButton.addEventListener("click", (event) => {
     event.preventDefault();
 
-    um.uploadItems.querySelectorAll(".upload-item").forEach((item) => {
+    um.uploadItems.querySelectorAll(".upload-item[data-state='validated']").forEach((item) => {
       let details = item.querySelector(".attachment-details");
       if (details) {
         um.activeAttachments.appendChild(details);
@@ -73,8 +73,6 @@ const addSaveButtonEventListener = (um) => {
       } else {
         span.innerHTML = item.dataset.filename
       }
-      // ei varmaa tarvii
-      details.style.display = "block";
       span.style.display = "block";
     });
 

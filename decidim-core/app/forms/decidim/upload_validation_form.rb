@@ -11,12 +11,11 @@ module Decidim
     validate :file
 
     def file
-      PassthruValidator.new(attributes: [attribute], to: Decidim::User).validate_each(self, attribute, blob)
+      PassthruValidator.new(attributes: [attribute], to: resource.constantize).validate_each(self, attribute.to_sym, blob)
     end
 
     def organization
-      # HAXX
-      Decidim::Organization.first
+      @organization ||= current_organization
     end
   end
 end

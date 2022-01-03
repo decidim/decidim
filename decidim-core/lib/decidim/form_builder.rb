@@ -394,7 +394,11 @@ module Decidim
     end
 
     def attachment(attribute, options = {})
-      options = { titled: true }.merge(options)
+      options = {
+        titled: true,
+        resource_class: "Decidim::Attachment",
+        show_current: false
+      }.merge(options)
       upload(attribute, options)
     end
 
@@ -402,7 +406,9 @@ module Decidim
       options = {
         attribute: attribute,
         resource_name: @object_name,
+        resource_class: options[:resource_class] || object.send(attribute).record.class.to_s,
         titled: false,
+        show_current: true,
         help: upload_help(attribute, options),
         label: I18n.t("decidim.forms.upload.labels.add_image"),
         edit_label: I18n.t("decidim.forms.upload.labels.replace")
@@ -755,20 +761,20 @@ module Decidim
 
     # Private: Returns default url for attribute when uploader is an
     # image and has defined a default url
-    def uploader_default_image_path(attribute)
-      uploader = FileValidatorHumanizer.new(object, attribute).uploader
-      return if uploader.blank?
-      return unless uploader.is_a?(Decidim::ImageUploader)
+    # def uploader_default_image_path(attribute)
+    #   uploader = FileValidatorHumanizer.new(object, attribute).uploader
+    #   return if uploader.blank?
+    #   return unless uploader.is_a?(Decidim::ImageUploader)
 
-      uploader.try(:default_url)
-    end
+    #   uploader.try(:default_url)
+    # end
 
     # Private: Returns blob path when file is attached
-    def file_attachment_path(file)
-      return unless file && file.try(:attached?)
+    # def file_attachment_path(file)
+    #   return unless file && file.try(:attached?)
 
-      Rails.application.routes.url_helpers.rails_blob_url(file.blob, only_path: true)
-    end
+    #   Rails.application.routes.url_helpers.rails_blob_url(file.blob, only_path: true)
+    # end
 
     def required_for_attribute(attribute)
       if attribute_required?(attribute)
