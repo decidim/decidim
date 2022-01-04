@@ -6,7 +6,7 @@ module Decidim
     # Renders a collection of linked resources for a resource.
     #
     # resource  - The resource to get the links from.
-    # type      - The String type fo the resources we want to render.
+    # type      - The String type for the resources we want to render.
     # link_name - The String name of the link between the resources.
     #
     # Example to render the proposals in a meeting view:

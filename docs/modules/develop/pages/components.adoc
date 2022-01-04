@@ -70,7 +70,7 @@ Decidim.register_component(:my_component) do |component|
   # Import definitions allow data to be imported into a component.
   #
   # For now supported formats for imports are CSV, JSON and Excel (.xlsx).
-  # Every resource type needs it's own creator, which creates resource from
+  # Every resource type needs its own creator, which creates resource from
   # parsed data. You also need to define specific messages for the importer and
   # can provide some extra options, too.
   component.imports :component_resources do |imports|

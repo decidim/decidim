@@ -13,7 +13,7 @@ module Decidim
 
     include ActiveSupport::Configurable
 
-    # Public Setting that defines whether proposals can be linked to meetings
+    # Public Setting that defines whether proposals can be linked to results
     config_accessor :enable_proposal_linking do
       Decidim.const_defined?("Proposals")
     end
