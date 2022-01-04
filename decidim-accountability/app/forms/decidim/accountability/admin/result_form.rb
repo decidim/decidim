@@ -66,7 +66,7 @@ module Decidim
         #
         # Returns the scope identifier related to the result
         def decidim_scope_id
-          @decidim_scope_id || scope&.id
+          super || scope&.id
         end
 
         def category
