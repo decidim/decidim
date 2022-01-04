@@ -23,6 +23,8 @@ module Decidim
               permission_action.allow!
             when :import_proposals
               permission_action.allow!
+            when :import_paper_ballots
+              permission_action.allow!
             when :update, :destroy
               permission_action.allow! if project.present?
             end

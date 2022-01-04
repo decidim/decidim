@@ -16,6 +16,7 @@ module Decidim
           resources :projects do
             collection do
               resource :proposals_import, only: [:new, :create]
+              resource :paper_ballots_import, only: [:new, :create]
             end
           end
         end

@@ -7,6 +7,9 @@
       </div>
       <div class="flex--cc flex-gap--1">
         <%= link_to t("actions.import", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_budget_proposals_import_path(budget), class: "button tiny button--title" if allowed_to? :import_proposals, :project %>
+        <% current_component.manifest.import_manifests.each do |import_manifest| %>
+            <%= link_to import_manifest.message(:label, self), admin_imports_path(current_component, name: import_manifest.name), class: "button tiny button--title" %>
+        <% end %>
         <% if allowed_to? :export, :budget %>
           <%= export_dropdown(current_component, budget.id) %>
         <% end %>

@@ -75,6 +75,17 @@ Decidim.register_component(:budgets) do |component|
     exports.serializer Decidim::Budgets::ProjectSerializer
   end
 
+  component.imports :paper_ballot_result do |imports|
+    imports.messages do |msg|
+      msg.set(:resource_name) { |count: 1| I18n.t("decidim.budgets.admin.imports.resources.paper_ballot_results", count: count) }
+      msg.set(:title) { I18n.t("decidim.budgets.admin.imports.title.paper_ballot_results") }
+      msg.set(:label) { I18n.t("decidim.budgets.admin.imports.label.paper_ballot_results") }
+      msg.set(:help) { I18n.t("decidim.budgets.admin.imports.help.paper_ballot_results") }
+    end
+
+    imports.creator Decidim::Budgets::Import::PaperBallotResultCreator
+  end
+
   component.settings(:global) do |settings|
     settings.attribute :scopes_enabled, type: :boolean, default: false
     settings.attribute :scope_id, type: :scope

@@ -16,6 +16,9 @@ en:
         proposal_ids: Related proposals
         selected: Selected for implementation
         title: Title
+      paper_ballot_result:
+        decidim_project_id: Project
+        votes: Votes
   activerecord:
     models:
       decidim/budgets/project:
@@ -43,6 +46,7 @@ en:
         edit: Edit
         edit_projects: Manage projects
         import: Import proposals to projects
+        import_results: Import paper ballots
         new: New %{name}
         preview: Preview
         title: Actions
@@ -71,11 +75,23 @@ en:
             success: Budget successfully updated
         exports:
           projects: Projects
+        imports:
+          help:
+            paper_ballot_results: "The import document should contain the following columns: id (with the project's id) and votes (with the number of votes for the project). You can simply reuse an export of all the projects and add a column named 'votes'."
+          label:
+            paper_ballot_results: Import paper ballots
+          resources:
+            paper_ballot_results:
+              one: paper ballot result
+              other: paper ballot results
+          title:
+            paper_ballot_results: Import results from paper ballots
         models:
           budget:
             name: Budget
           project:
             name: Project
+          paper_ballot_result: Paper ballot result
         projects:
           create:
             invalid: There was a problem creating this project
@@ -105,6 +121,10 @@ en:
             no_components: There are no other proposal components in this participatory space to import the proposals into projects.
             select_component: Please select a component
             title: Import proposals
+        paper_ballots_imports:
+          new:
+            create: Import paper ballots
+            title: Import paper ballots
       admin_log:
         budget:
           create: "%{user_name} created the %{resource_name} budget in the %{space_name} space"
@@ -114,6 +134,8 @@ en:
           create: "%{user_name} created the %{resource_name} project in the %{space_name} space"
           delete: "%{user_name} deleted the %{resource_name} project in the %{space_name} space"
           update: "%{user_name} updated the %{resource_name} project in the %{space_name} space"
+        paper_ballot_result:
+          create: "%{user_name} imported paper ballot results in the %{space_name} space"
       budget:
         view: View all budget projects
       budget_information_modal:
