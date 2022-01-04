@@ -62,8 +62,8 @@ module Decidim
       end
 
       def action_authorizer_class
-        if @action_authorizer.present?
-          @action_authorizer.constantize
+        if action_authorizer.present?
+          action_authorizer.constantize
         else
           DefaultActionAuthorizer
         end
