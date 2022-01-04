@@ -53,7 +53,6 @@ module Decidim
         enforce_permission_to :edit, :debate, debate: debate
 
         @form = form(DebateForm).from_params(params)
-        @form.debate = debate
 
         UpdateDebate.call(@form) do
           on(:ok) do |debate|
@@ -72,7 +71,6 @@ module Decidim
         enforce_permission_to :close, :debate, debate: debate
 
         @form = form(CloseDebateForm).from_params(params)
-        @form.debate = debate
 
         CloseDebate.call(@form) do
           on(:ok) do |debate|

@@ -18,7 +18,7 @@ describe Decidim::Debates::CloseDebateForm do
   let(:conclusions) { "We found a conlcusion." }
   let(:attributes) do
     {
-      debate: debate,
+      id: debate.id,
       conclusions: conclusions
     }
   end
