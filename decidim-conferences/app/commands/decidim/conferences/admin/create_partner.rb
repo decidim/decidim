@@ -72,13 +72,13 @@ module Decidim
         def attributes
           { conference: conference }.merge(
             form.attributes.slice(
-              :name,
-              :weight,
-              :link,
-              :partner_type,
-              :logo,
-              :remove_avatar
-            )
+              "name",
+              "weight",
+              "link",
+              "partner_type",
+              "logo",
+              "remove_avatar"
+            ).transform_keys(&:to_sym)
           )
         end
       end

@@ -50,11 +50,11 @@ module Decidim
             Decidim::Conferences::MediaLink,
             current_user,
             form.attributes.slice(
-              :title,
-              :link,
-              :weight,
-              :date
-            ).merge(
+              "title",
+              "link",
+              "weight",
+              "date"
+            ).transform_keys(&:to_sym).merge(
               conference: conference
             ),
             log_info

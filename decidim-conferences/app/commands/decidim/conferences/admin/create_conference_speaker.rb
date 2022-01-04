@@ -54,13 +54,13 @@ module Decidim
 
         def conference_speaker_with_attributes
           attrs = form.attributes.slice(
-            :full_name,
-            :twitter_handle,
-            :personal_url,
-            :position,
-            :affiliation,
-            :short_bio
-          ).merge(
+            "full_name",
+            "twitter_handle",
+            "personal_url",
+            "position",
+            "affiliation",
+            "short_bio"
+          ).transform_keys(&:to_sym).merge(
             decidim_conference_id: conference.id,
             conference: conference,
             user: form.user

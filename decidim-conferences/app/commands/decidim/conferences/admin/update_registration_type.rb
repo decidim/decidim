@@ -51,11 +51,11 @@ module Decidim
             registration_type,
             form.current_user,
             form.attributes.slice(
-              :title,
-              :description,
-              :price,
-              :weight
-            ),
+              "title",
+              "description",
+              "price",
+              "weight"
+            ).transform_keys(&:to_sym),
             log_info
           )
         end

@@ -52,11 +52,11 @@ module Decidim
             Decidim::Conferences::RegistrationType,
             form.current_user,
             form.attributes.slice(
-              :title,
-              :description,
-              :price,
-              :weight
-            ).merge(
+              "title",
+              "description",
+              "price",
+              "weight"
+            ).transform_keys(&:to_sym).merge(
               conference: conference
             ),
             log_info
