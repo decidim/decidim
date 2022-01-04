@@ -19,7 +19,7 @@ describe "Identity document online upload", type: :system do
     expect(page).to have_content("Upload your identity document")
   end
 
-  it "allows the user to upload her identity document" do
+  it "allows the user to upload their identity document" do
     submit_upload_form(
       doc_type: "DNI",
       doc_number: "XXXXXXXX",

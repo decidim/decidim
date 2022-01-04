@@ -13,7 +13,7 @@ module Decidim
       # PUBLIC
       # Notifies when an initiative has changed its status.
       #
-      # * created: Notifies the author that his initiative has been created.
+      # * created: Notifies the author that their initiative has been created.
       #
       # * validating: Administrators will be notified about the initiative that
       #   requests technical validation.
