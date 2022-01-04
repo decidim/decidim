@@ -397,7 +397,9 @@ module Decidim
       options = {
         titled: true,
         resource_class: "Decidim::Attachment",
-        show_current: false
+        show_current: false,
+        label: I18n.t("decidim.forms.upload.labels.add_image"),
+        button_edit_label: I18n.t("decidim.forms.upload.labels.edit_image")
       }.merge(options)
       upload(attribute, options)
     end
@@ -410,8 +412,9 @@ module Decidim
         titled: false,
         show_current: true,
         help: upload_help(attribute, options),
-        label: I18n.t("decidim.forms.upload.labels.add_image"),
-        edit_label: I18n.t("decidim.forms.upload.labels.replace")
+        label: label_for(attribute),
+        button_label: I18n.t("decidim.forms.upload.labels.add_image"),
+        button_edit_label: I18n.t("decidim.forms.upload.labels.replace")
       }.merge(options)
 
       ::Decidim::ViewModel.cell(

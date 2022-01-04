@@ -7,13 +7,6 @@ export default class UploadModal {
     this.modal = document.querySelector(`#${button.dataset.open}`);
     this.resourceName = button.dataset.resourcename;
     this.resourceClass = button.dataset.resourceclass;
-    this.locales = {
-      error: "Error",
-      validating: "Validating...",
-      validationError: "Validation error",
-      uploaded: "Uploaded",
-      remove: "Remove"
-    };
     this.attachmentCounter = 0;
     this.name = this.button.name;
     this.multiple = this.button.dataset.multiple === "true";
@@ -22,6 +15,7 @@ export default class UploadModal {
     this.modalTitle = this.modal.querySelector(".reveal__title");
 
     this.uploadItems = this.modal.querySelector(".upload-items");
+    this.locales = JSON.parse(this.uploadItems.dataset.locales);
     this.dropZone = this.modal.querySelector(".dropzone");
     this.input = this.dropZone.querySelector("input");
     this.addAttribute = this.input.name.substring(this.input.name.indexOf("[") + 1, this.input.name.indexOf("]"));
@@ -117,20 +111,12 @@ export default class UploadModal {
     wrapper.setAttribute("data-filename", fileName);
 
     const firstRow = document.createElement("div");
-    firstRow.classList.add("row");
+    firstRow.classList.add("first-row");
     const secondRow = document.createElement("div");
-    secondRow.classList.add("row");
+    secondRow.classList.add("second-row");
 
     const fileNameSpan = document.createElement("span");
-    fileNameSpan.classList.add("columns", "small-4");
     fileNameSpan.innerHTML = fileName;
-
-    const titleSpan = document.createElement("span");
-    titleSpan.innerHTML = "Title";
-
-    const titleContainer = document.createElement("div");
-    titleContainer.classList.add("columns", "small-8");
-    titleContainer.appendChild(titleSpan);
 
     const progressBar = document.createElement("div");
     progressBar.classList.add("progress-bar");
@@ -147,7 +133,7 @@ export default class UploadModal {
     progressBarBorder.appendChild(progressBar);
 
     const progressBarWrapper = document.createElement("div");
-    progressBarWrapper.classList.add("columns", "small-4");
+    progressBarWrapper.classList.add("progress-bar-wrapper");
     progressBarWrapper.appendChild(progressBarBorder);
 
     let tileInputContainer = null;
@@ -156,7 +142,6 @@ export default class UploadModal {
       titleInput.type = "text";
       titleInput.value = title;
       tileInputContainer = document.createElement("div");
-      tileInputContainer.classList.add("columns", "small-5");
       tileInputContainer.appendChild(titleInput);
     }
 
@@ -164,7 +149,7 @@ export default class UploadModal {
     errorList.className = "upload-errors";
 
     const removeField = document.createElement("span");
-    removeField.classList.add("columns", "small-3", "remove-upload-item");
+    removeField.classList.add("remove-upload-item");
     removeField.innerHTML = `&times; ${this.locales.remove}`;
     removeField.addEventListener(("click"), (event) => {
       event.preventDefault();
@@ -177,10 +162,15 @@ export default class UploadModal {
     titleAndFileNameSpan.innerHTML = `${title} (${fileName})`;
 
     firstRow.appendChild(fileNameSpan);
-    firstRow.appendChild(titleContainer);
 
     secondRow.appendChild(progressBarWrapper);
     if (this.titled) {
+      const titleSpan = document.createElement("span");
+      titleSpan.innerHTML = "Title";
+
+      const titleContainer = document.createElement("div");
+      titleContainer.appendChild(titleSpan);
+      firstRow.appendChild(titleContainer);
       secondRow.appendChild(tileInputContainer);
     }
     secondRow.appendChild(removeField);

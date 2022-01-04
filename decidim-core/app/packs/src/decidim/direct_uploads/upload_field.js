@@ -97,11 +97,20 @@ const addRemoveButtonEventListener = (um) => {
   })
 }
 
+const configure = (um, attachmentButton) => {
+  if (um.titled) {
+    const actionsWrapper = attachmentButton.parentElement;
+    actionsWrapper.insertBefore(attachmentButton, um.activeAttachments);
+    actionsWrapper.style.flexDirection = "column";
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const attachmentButtons = document.querySelectorAll("button.add-attachment");
 
   attachmentButtons.forEach((attachmentButton) => {
     const um = new UploadModal(attachmentButton);
+    configure(um, attachmentButton);
     loadAttachments(um);
     addInputEventListener(um);
     addButtonEventListener(um);

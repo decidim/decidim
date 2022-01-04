@@ -34,6 +34,7 @@ import "src/decidim/ajax_modals"
 import "src/decidim/admin/officializations"
 import "src/decidim/session_timeouter"
 import "src/decidim/slug_form"
+import "src/decidim/direct_uploads/upload_field"
 
 // CSS
 import "entrypoints/decidim_admin.scss";

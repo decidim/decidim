@@ -22,17 +22,17 @@ module Decidim
     end
 
     def label
-      return edit_label if attachments.count.positive?
-
-      add_label
-    end
-
-    def add_label
       options[:label]
     end
 
-    def edit_label
-      options[:edit_label] || add_label
+    def button_label
+      return button_edit_label if attachments.count.positive?
+
+      options[:button_label]
+    end
+
+    def button_edit_label
+      options[:button_edit_label] || options[:button_label]
     end
 
     def resource_class
@@ -65,12 +65,12 @@ module Decidim
       "with-title" if has_title?
     end
 
-    def current_file
-      form.object.send(attribute)
-    end
+    # def current_file
+    #   form.object.send(attribute)
+    # end
 
-    def current_file_label
-      return I18n.t("current_image", scope: "decidim.forms") if file_attachment_path(current_file).present?
+    def attachment_label
+      return I18n.t("current_image", scope: "decidim.forms") if attachments.count.positive? && file_attachment_path(attachments.first).present?
 
       I18n.t("default_image", scope: "decidim.forms")
     end

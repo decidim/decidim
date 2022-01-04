@@ -769,7 +769,16 @@ en:
       upload:
         labels:
           add_image: Add image
+          edit_image: Edit image
+          error: Error
+          remove: Remove
           replace: Replace
+          uploaded: Uploaded
+          validating: Validating...
+          validation_error: Validation error
+      upload_help:
+        dropzone: Drop files here or click to upload
+        guidance: Guidance for %{attribute}
     gamification:
       all_badges_link: See all available badges.
       badges:

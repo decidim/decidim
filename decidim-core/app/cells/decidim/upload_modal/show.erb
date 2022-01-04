@@ -1,47 +1,49 @@
 <div class="dynamical-uploads <%= with_title %> upload-container-for-<%= attribute %>">
-  <div class="active-attachments">
-    <% attachments.each do |attachment| %>
-      <% next if attachment.is_a? Array %>
-      <div class="attachment-details" data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded">
-        <%= form.hidden_field attribute, multiple: true, value: attachment.id %>
-        <span><%= title_for(attachment) %> <%= file_name_for(attachment) %></span>
+  <%= tag.strong label unless has_title? %>
+  <div class="actions-wrapper">
+    <div class="active-attachments">
+      <% attachments.each do |attachment| %>
+        <% next if attachment.is_a? Array %>
+        <div class="attachment-details" data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded">
+          <span><%= title_for(attachment) %> <%= file_name_for(attachment) %></span>
+        </div>
+      <% end %>
+    </div>
+    <%= tag.button button_label,
+      id: attribute,
+      name: attribute,
+      class: button_class,
+      data: {
+        open: modal_id,
+        resourcename: resource_name,
+        resourceclass: resource_class,
+        multiple: multiple,
+        titled: has_title?
+      }
+    %>
+    <% if !has_title? %>
+      <div class="remove-attachment" id="attachment_<%= attachments.first&.id %>" data-closable>
+        <button class="remove-attachment"
+              aria-label="<%= t("remove_this_file", scope: "decidim.forms") %>"
+              title="<%= t("remove_this_file", scope: "decidim.forms") %>"
+              type="button" data-close>
+          <span aria-hidden="true">&times; <%= t("decidim.forms.upload.labels.remove") %></span>
+        </button>
       </div>
     <% end %>
   </div>
 
-  <button
-    name=<%= attribute %>
-    class="<%= button_class %>"
-    data-open="<%= modal_id %>"
-    data-resourcename="<%= resource_name %>"
-    data-resourceclass="<%= resource_class %>"
-    data-multiple="<%= multiple %>"
-    data-titled="<%= has_title? %>">
-    <%= label %>
-  </button>
-
-  <% if !has_title? && !attachments.first.is_a?(Array) %>
-    <div class="remove-attachment" id="attachment_<%= attachments.first&.id %>" data-closable>
-      <button class="remove-attachment"
-            aria-label="<%= t("remove_this_file", scope: "decidim.forms") %>"
-            title="<%= t("remove_this_file", scope: "decidim.forms") %>"
-            type="button" data-close>
-        <span aria-hidden="true">&times; Remove</span>
-      </button>
-    </div>
+  <% if !has_title? && file_attachment_path(attachments.first) %>
+    <strong><%= attachment_label %></strong>
+    <%= link_to image_tag(file_attachment_path(attachments.first), alt: attribute), file_attachment_path(attachments.first) %>
   <% end %>
 </div>
-
-<% if !has_title? && file_attachment_path(current_file) %>
-  <label><%= current_file_label %></label>
-  <%= link_to image_tag(file_attachment_path(current_file), alt: attribute), file_attachment_path(current_file) %>
-<% end %>
 
 <!-- MODAL STARTS -->
 
 <div class="reveal attachment-modal" id="<%= modal_id %>" data-reveal>
   <div class="reveal__header">
-    <h3 class="reveal__title" data-addlabel="<%= add_label %>" data-editlabel="<%= edit_label %>"><%= label %></h3>
+    <h3 class="reveal__title" data-addlabel="<%= button_label %>" data-editlabel="<%= button_edit_label %>"><%= label %></h3>
     <button class="close-button" data-close aria-label="<%= "Close modal" %>"
       type="button">
       <span aria-hidden="true">&times;</span>
@@ -49,7 +51,7 @@
   </div>
 
   <div class="help">
-    <span>Guidance for <%= attribute %></span>
+    <span><%= t("decidim.forms.upload_help.guidance", attribute: attribute) %></span>
     <ul>
       <% help_messages.each do |message| %>
         <li><%= message %></li>
@@ -60,9 +62,18 @@
   <div class="row dropzone-container" data-name=<%= attribute %>>
     <label class="dropzone">
       <%= form.file_field add_attribute, label: false, multiple: true, direct_upload: true, data: { directuploadurl: "/rails/active_storage/direct_uploads" } %>
-      <span>Drop files here or click to upload</span>
+      <span><%= t("decidim.forms.upload_help.dropzone") %></span>
     </label>
-    <div class="upload-items"></div>
+    <%= tag.div class: "upload-items", data: {
+        locales: {
+          error: t("decidim.forms.upload.labels.error"),
+          remove: t("decidim.forms.upload.labels.remove"),
+          uploaded: t("decidim.forms.upload.labels.uploaded"),
+          validating: t("decidim.forms.upload.labels.validating"),
+          validation_error: t("decidim.forms.upload.labels.validation_error")
+        }
+      }
+    %>
   </div>
 
   <div class="row columns reveal__content">

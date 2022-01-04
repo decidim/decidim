@@ -47,19 +47,33 @@
     display: flex;
     flex-direction: column;
 
-    .progress-bar-border{
-      height: 2rem;
-      border: 1px solid var(--primary);
-      box-sizing: border-box;
-      padding: 0;
+    .upload-item{
+      display: flex;
+      flex-direction: column;
 
-      .progress-bar{
+      .second-row{
         display: flex;
-        align-items: center;
-        color: white;
-        background-color: var(--primary);
-        padding: 0 .5rem;
-        height: 2rem;
+        justify-content: space-between;
+      }
+
+      .progress-bar-wrapper{
+        flex: 0.8 0.7 auto;
+
+        .progress-bar-border{
+          height: 2rem;
+          border: 1px solid var(--primary);
+          box-sizing: border-box;
+          padding: 0;
+
+          .progress-bar{
+            display: flex;
+            align-items: center;
+            color: white;
+            background-color: var(--primary);
+            padding: 0 .5rem;
+            height: 2rem;
+          }
+        }
       }
     }
 
@@ -77,15 +91,26 @@
 
 .dynamical-uploads{
   display: flex;
-  align-items: center;
-  margin: 0 0 1.5rem;
+  flex-direction: column;
 
-  > *{
-    margin: 0 .2rem;
-  }
+  .actions-wrapper{
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
 
-  button.remove-attachment{
-    cursor: pointer;
+    .active-attachments{
+      span:last-child{
+        margin-right: .5rem;
+      }
+    }
+
+    button.primary{
+      margin-right: .5rem;
+    }
+
+    button.remove-attachment{
+      cursor: pointer;
+    }
   }
 
   &.with-title{
