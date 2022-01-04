@@ -45,12 +45,19 @@ module Decidim
       def value(raw, type)
         return unless raw
         return raw if raw.is_a?(type) || (raw.is_a?(Class) && raw <= type)
-        return type.new(raw.to_h) if type.include?(Decidim::AttributeObject::Model) || type <= ActiveRecord::Base || type == Object
+        return value_object(raw, type) if type.include?(Decidim::AttributeObject::Model) || type <= ActiveRecord::Base || type == Object
 
         value_primitive(raw, type)
       end
 
       private
+
+      def value_object(raw, type)
+        return type.new(raw) if raw.is_a?(Hash)
+        return type.new(raw.to_h) if raw.respond_to?(:to_h)
+
+        raw
+      end
 
       def value_primitive(raw, type)
         return value_cast(raw, :to_s) if type == String
