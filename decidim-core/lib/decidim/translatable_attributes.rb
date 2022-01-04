@@ -50,7 +50,10 @@ module Decidim
 
           define_method "#{attribute_name}=" do |value|
             field = public_send(name) || {}
-            public_send("#{name}=", field.merge(locale => super(value)))
+            final = super(value)
+            return unless final # Do not set the `nil` values for the parent hash
+
+            public_send("#{name}=", field.merge(locale => final))
           end
 
           yield(attribute_name, locale) if block_given?
