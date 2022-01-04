@@ -74,7 +74,8 @@ module Decidim::Assemblies
       it "updates the assembly full name" do
         expect do
           subject.call
-        end.to change { assembly_member.reload && assembly_member.full_name }.from(assembly_member.full_name).to("New name")
+          assembly_member.reload
+        end.to change(assembly_member, :full_name).from(assembly_member.full_name).to("New name")
       end
 
       it "broadcasts  ok" do
