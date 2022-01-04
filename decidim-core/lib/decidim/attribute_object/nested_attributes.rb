@@ -59,6 +59,10 @@ module Decidim
         return value_float(raw) if type == Float
 
         type.new(raw)
+      rescue StandardError
+        # Some "abstract" classes cannot be initiated when an abstract class is
+        # defined as the type (Rails::Engine, for instance).
+        raw
       end
 
       def value_cast(raw, cast_method)
