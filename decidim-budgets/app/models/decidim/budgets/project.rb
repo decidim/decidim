@@ -25,6 +25,7 @@ module Decidim
       has_one :component, through: :budget, foreign_key: "decidim_component_id", class_name: "Decidim::Component"
       has_many :line_items, class_name: "Decidim::Budgets::LineItem", foreign_key: "decidim_project_id", dependent: :destroy
       has_many :orders, through: :line_items, foreign_key: "decidim_project_id", class_name: "Decidim::Budgets::Order"
+      has_many :paper_ballot_results, foreign_key: "decidim_project_id", class_name: "Decidim::Budgets::PaperBallotResult"
 
       delegate :organization, :participatory_space, :can_participate_in_space?, to: :component
 
@@ -72,9 +73,19 @@ module Decidim
         followers
       end
 
-      # Public: Returns the number of times an specific project have been checked out.
+      # Public: Returns the number of times a specific project has been checked out.
       def confirmed_orders_count
         orders.finished.count
+      end
+
+      # Public: Returns the number of paper votes for a specific project
+      def paper_ballots
+        paper_ballot_results.sum(:votes)
+      end
+
+      # Public: Returns the number of times a specific project has been selected through both online and paper votes.
+      def total_votes
+        confirmed_orders_count() + paper_ballots()
       end
 
       # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.

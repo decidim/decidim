@@ -34,6 +34,8 @@ module Decidim
           budget: { id: project.budget.id },
           budget_amount: project.budget_amount,
           confirmed_votes: project.confirmed_orders_count,
+          paper_ballots: project.paper_ballots,
+          total_votes: project.total_votes,
           comments: project.comments_count,
           created_at: project.created_at,
           url: project.polymorphic_resource_url({}),

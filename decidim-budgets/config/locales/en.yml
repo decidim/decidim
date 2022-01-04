@@ -150,6 +150,10 @@ en:
             category: Category
             id: ID
             title: Title
+        paper_ballot_result:
+          fields:
+            id: ID
+            votes: Votes
       order_summary_mailer:
         order_summary:
           selected_projects: 'The projects that you have selected are:'
