@@ -42,14 +42,14 @@ module Decidim
       #
       # Returns a Decidim::Scope
       def scope
-        @scope ||= @scope_id ? current_component.scopes.find_by(id: @scope_id) : current_component.scope
+        @scope ||= @attributes["scope_id"].value ? current_component.scopes.find_by(id: @attributes["scope_id"].value) : current_component.scope
       end
 
       # Scope identifier
       #
       # Returns the scope identifier related to the debate
       def scope_id
-        @scope_id || scope&.id
+        super || scope&.id
       end
 
       def debate
