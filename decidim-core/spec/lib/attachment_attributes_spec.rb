@@ -30,7 +30,7 @@ module Decidim
 
       it "creates the photos and add_photos array arguments" do
         expect(klass.attributes_nested.attributes[:photos][:type]).to be(Array)
-        expect(klass.attributes_nested.attributes[:photos][:options][:value_type]).to be(String)
+        expect(klass.attributes_nested.attributes[:photos][:options][:value_type]).to be(Integer)
         expect(klass.attributes_nested.attributes[:add_photos][:type]).to be(Array)
         expect(klass.attributes_nested.attributes[:add_photos][:options][:value_type]).to be(Object)
       end
