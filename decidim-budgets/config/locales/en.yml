@@ -78,7 +78,7 @@ en:
           projects: Projects
         imports:
           help:
-            paper_ballot_results: "The import document should contain the following columns: id (with the project's id) and votes (with the number of votes for the project). You can simply reuse an export of all the projects and add a column named 'votes'."
+            paper_ballot_results: "The import document should contain the following columns: id (with the project's id) and new_paper_votes (with the number of new votes for the project that should be imported). You can simply reuse an export of all the projects and add a column named 'new_paper_votes'."
           label:
             paper_ballot_results: Import paper ballots
           resources:

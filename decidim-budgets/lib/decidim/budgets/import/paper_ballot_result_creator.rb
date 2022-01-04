@@ -39,7 +39,7 @@ module Decidim
         end
 
         def votes
-          data[:votes].to_i
+          data[:new_paper_ballots].to_i
         end
 
         def id
