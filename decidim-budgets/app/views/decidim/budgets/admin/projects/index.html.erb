@@ -49,7 +49,8 @@
               </td>
               <%= td_resource_scope_for(project.scope) %>
               <td>
-               <%= project.confirmed_orders_count %>
+               <%= project.total_votes %>
+               (<%= project.confirmed_orders_count %>/<%= project.paper_ballots %>)
               </td>
               <td>
                 <% if project.selected? %>
@@ -92,5 +93,7 @@
     <strong><%= t ".finished_orders" %>:&nbsp;</strong><span><%= finished_orders.count %></span>
     <span>&nbsp;|&nbsp;</span>
     <strong><%= t ".pending_orders" %>:&nbsp;</strong><span><%= pending_orders.count %></span>
+    <span>&nbsp;|&nbsp;</span>
+    <strong><%= t ".paper_ballots" %>:&nbsp;</strong><span><%= paper_ballots_count %></span>
   </div>
 </div>

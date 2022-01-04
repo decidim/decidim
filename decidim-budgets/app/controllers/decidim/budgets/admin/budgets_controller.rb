@@ -6,7 +6,7 @@ module Decidim
       # This controller allows the create or update a budget.
       class BudgetsController < Admin::ApplicationController
         helper_method :budgets, :budget, :finished_orders, :pending_orders,
-                      :users_with_pending_orders, :users_with_finished_orders
+                      :users_with_pending_orders, :users_with_finished_orders, :paper_ballots_count
 
         def new
           enforce_permission_to :create, :budget
@@ -82,6 +82,10 @@ module Decidim
           @orders ||= Order.where(decidim_budgets_budget_id: budgets)
         end
 
+        def paper_ballot_results
+          @paper_ballot_results ||= PaperBallotResult.joins(:project).where(decidim_budgets_projects: { decidim_budgets_budget_id: budgets })
+        end
+
         def pending_orders
           orders.pending
         end
@@ -97,6 +101,11 @@ module Decidim
         def users_with_finished_orders
           orders.finished.pluck(:decidim_user_id).uniq
         end
+
+        def paper_ballots_count
+          paper_ballot_results.sum(:votes)
+        end
+
       end
     end
   end

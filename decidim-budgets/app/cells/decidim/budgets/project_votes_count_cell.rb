@@ -18,16 +18,16 @@ module Decidim
 
       def content
         if options[:layout] == :one_line
-          safe_join([model.confirmed_orders_count, " ", label(t("decidim.budgets.projects.project.votes",
-                                                                count: model.confirmed_orders_count))])
+          safe_join([model.total_votes, " ", label(t("decidim.budgets.projects.project.votes",
+                                                                count: model.total_votes))])
         else
           safe_join([number, label(t("decidim.budgets.projects.project.votes",
-                                     count: model.confirmed_orders_count))])
+                                     count: model.total_votes))])
         end
       end
 
       def number
-        content_tag :div, model.confirmed_orders_count, class: "text-large"
+        content_tag :div, model.total_votes, class: "text-large"
       end
 
       def label(i18n_string)

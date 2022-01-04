@@ -9,7 +9,7 @@ module Decidim
         include Decidim::Proposals::Admin::Picker if Decidim::Budgets.enable_proposal_linking
         include Decidim::Budgets::Admin::Filterable
 
-        helper_method :projects, :finished_orders, :pending_orders, :present
+        helper_method :projects, :finished_orders, :pending_orders, :paper_ballots_count, :present
 
         def collection
           @collection ||= budget.projects.page(params[:page]).per(15)
@@ -84,12 +84,20 @@ module Decidim
           @orders ||= Order.where(budget: budget)
         end
 
+        def paper_ballot_results
+          @paper_ballot_results ||= PaperBallotResult.joins(:project).where(decidim_budgets_projects: { decidim_budgets_budget_id: budget })
+        end
+
         def pending_orders
           orders.pending
         end
 
         def finished_orders
           orders.finished
+        end
+
+        def paper_ballots_count
+          paper_ballot_results.sum(:votes)
         end
 
         def project

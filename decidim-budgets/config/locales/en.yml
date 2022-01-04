@@ -64,6 +64,7 @@ en:
           index:
             finished_orders: Finished votes
             pending_orders: Pending votes
+            paper_ballots: Paper ballots
             title: Budgets
             users_with_finished_orders: Users with finished votes
             users_with_pending_orders: Users with pending votes
@@ -104,6 +105,7 @@ en:
           index:
             finished_orders: Finished votes
             pending_orders: Pending votes
+            paper_ballots: Paper ballots
             selected: Selected
             title: Projects
           new:
