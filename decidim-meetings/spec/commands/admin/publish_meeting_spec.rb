@@ -40,7 +40,7 @@ module Decidim
             expect(action_log.version).to be_present
           end
 
-          context "when future meeting" do
+          context "when it's a future meeting" do
             it "schedules a upcoming meeting notification job 48h before start time" do
               expect(UpcomingMeetingNotificationJob)
                 .to receive(:generate_checksum).and_return "1234"
@@ -54,10 +54,10 @@ module Decidim
             end
           end
 
-          context "when past meeting" do
+          context "when it's a past meeting" do
             let(:meeting) { create :meeting, component: current_component, start_time: 1.day.ago }
 
-            it "schedules a upcoming meeting notification job 48h before start time" do
+            it "doesn't schedule an upcoming meeting notification" do
               expect(UpcomingMeetingNotificationJob).not_to receive(:generate_checksum)
               expect(UpcomingMeetingNotificationJob).not_to receive(:set)
 

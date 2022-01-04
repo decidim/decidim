@@ -24,7 +24,7 @@ module Decidim
       Decidim.const_defined?("Proposals")
     end
 
-    # Public Setting that defines the interval when the upcoming meeting  will be sent
+    # Public Setting that defines the interval when the upcoming meeting will be sent
     config_accessor :upcoming_meeting_notification do
       2.days
     end

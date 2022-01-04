@@ -217,7 +217,7 @@ module Decidim::Meetings
           end
 
           context "when past meeting" do
-            it "don't schedule an upcoming meeting notification if start time is in the past" do
+            it "doesn't schedule an upcoming meeting notification if start time is in the past" do
               expect(UpcomingMeetingNotificationJob).not_to receive(:generate_checksum)
               expect(UpcomingMeetingNotificationJob).not_to receive(:set)
 

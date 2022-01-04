@@ -222,7 +222,7 @@ module Decidim::Meetings
             subject.call
           end
 
-          context "when future meeting" do
+          context "when it's a future meeting" do
             let(:start_time) { meeting.start_time + 1.day }
 
             it "schedules a upcoming meeting notification job 48h before start time" do
@@ -237,10 +237,10 @@ module Decidim::Meetings
             end
           end
 
-          context "when past meeting" do
+          context "when it's a past meeting" do
             let(:start_time) { meeting.start_time - Decidim::Meetings.upcoming_meeting_notification }
 
-            it "schedules a upcoming meeting notification job 48h before start time" do
+            it "doesn't schedule an upcoming meeting notification" do
               expect(UpcomingMeetingNotificationJob).not_to receive(:generate_checksum)
 
               expect(UpcomingMeetingNotificationJob).not_to receive(:set)

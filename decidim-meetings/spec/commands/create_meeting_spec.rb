@@ -177,7 +177,7 @@ module Decidim::Meetings
         subject.call
       end
 
-      it "don't schedule an upcoming meeting notification if start time is in the past" do
+      it "doesn't schedule an upcoming meeting notification if start time is in the past" do
         meeting = instance_double(Meeting, id: 1, start_time: 2.days.ago, participatory_space: participatory_process)
         expect(Decidim.traceability)
           .to receive(:create!)
