@@ -20,7 +20,7 @@ module Decidim
       attribute :iframe_embed_type, String, default: "none"
       attribute :iframe_access_level, String
 
-      validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.iframe_embed_types }
+      validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.participants_iframe_embed_types }
       validates :title, presence: true
       validates :description, presence: true
       validates :type_of_meeting, presence: true
@@ -37,7 +37,7 @@ module Decidim
       validates(
         :iframe_access_level,
         inclusion: { in: Decidim::Meetings::Meeting.iframe_access_levels },
-        if: ->(form) { %w(embed_in_meeting_page open_in_live_event_page open_in_new_tab).include?(form.iframe_embed_type) }
+        if: ->(form) { %w(embed_in_meeting_page open_in_new_tab).include?(form.iframe_embed_type) }
       )
       validate :embeddable_meeting_url
 
@@ -99,7 +99,7 @@ module Decidim
       end
 
       def iframe_embed_type_select
-        Decidim::Meetings::Meeting.iframe_embed_types.map do |type, _value|
+        Decidim::Meetings::Meeting.participants_iframe_embed_types.map do |type, _value|
           [
             I18n.t("iframe_embed_type.#{type}", scope: "decidim.meetings"),
             type
