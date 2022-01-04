@@ -23,8 +23,8 @@
   <% if !has_title? && !attachments.first.is_a?(Array) %>
     <div class="remove-attachment" id="attachment_<%= attachments.first&.id %>" data-closable>
       <button class="remove-attachment"
-            aria-label="<%= t("delete_document", scope: "decidim.proposals.proposals.edit") %>"
-            title="<%= t("delete_document", scope: "decidim.proposals.proposals.edit") %>"
+            aria-label="<%= t("remove_this_file", scope: "decidim.forms") %>"
+            title="<%= t("remove_this_file", scope: "decidim.forms") %>"
             type="button" data-close>
         <span aria-hidden="true">&times; Remove</span>
       </button>

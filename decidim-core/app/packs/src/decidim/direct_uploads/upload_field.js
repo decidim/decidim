@@ -2,9 +2,8 @@ import UploadModal from "src/decidim/direct_uploads/upload_modal";
 
 
 const loadAttachments = (um) => {
-  console.log("um.activeAttachments.children", um.activeAttachments.children);
   Array.from(um.activeAttachments.children).forEach((child) => {
-    um.createUploadItem(child.dataset.filename, child.dataset.title, "uploaded");
+    um.createUploadItem(child.dataset.filename, child.dataset.title, "validated");
   })
 }
 
@@ -57,7 +56,6 @@ const addSaveButtonEventListener = (um) => {
 
   saveButton.addEventListener("click", (event) => {
     event.preventDefault();
-
     um.uploadItems.querySelectorAll(".upload-item[data-state='validated']").forEach((item) => {
       let details = item.querySelector(".attachment-details");
       if (details) {

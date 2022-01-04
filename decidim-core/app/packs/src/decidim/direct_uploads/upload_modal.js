@@ -135,8 +135,11 @@ export default class UploadModal {
     const progressBar = document.createElement("div");
     progressBar.classList.add("progress-bar");
     if (state) {
-      progressBar.innerHTML = state;
+      if (state === "validated") {
+        progressBar.innerHTML = this.locales.uploaded;
+      }
       progressBar.style.justifyContent = "center";
+      wrapper.dataset.state = state;
     }
 
     const progressBarBorder = document.createElement("div");

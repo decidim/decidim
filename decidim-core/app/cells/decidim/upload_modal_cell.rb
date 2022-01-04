@@ -125,9 +125,8 @@ module Decidim
       uploader.try(:default_url)
     end
 
-    # SUPER HACK FIX THIS!!!
     def blob
-      @blob ||= ActiveStorage::Blob.find_signed(attachments.last.last)
+      @blob ||= current_file.blob
     end
 
     def modal_id
