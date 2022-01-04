@@ -77,11 +77,11 @@ module Decidim
         end
 
         def latitude
-          data.has_key?(:coordinates) ? data[:coordinates]["latitude"] : data[:"coordinates/latitude"].to_f
+          data.has_key?(:latitude) ? data[:latitude] : nil
         end
 
         def longitude
-          data.has_key?(:coordinates) ? data[:coordinates]["longitude"] : data[:"coordinates/longitude"].to_f
+          data.has_key?(:longitude) ? data[:longitude] : nil
         end
 
         def available_locales

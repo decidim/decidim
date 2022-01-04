@@ -34,10 +34,8 @@ module Decidim
           title: proposal.title,
           body: proposal.body,
           address: proposal.address,
-          coordinates: {
-            latitude: proposal.latitude,
-            longitude: proposal.longitude
-          },
+          latitude: proposal.latitude,
+          longitude: proposal.longitude,
           state: proposal.state.to_s,
           reference: proposal.reference,
           answer: ensure_translatable(proposal.answer),
