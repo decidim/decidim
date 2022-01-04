@@ -7,6 +7,7 @@ module Decidim
     module TypeMap
       # rubocop:disable Naming/ConstantName
       Boolean = :boolean
+      Decimal = :decimal
       # rubocop:enable Naming/ConstantName
     end
   end
