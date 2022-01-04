@@ -405,6 +405,7 @@ ja:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> があなたのイニシアチブの推進委員会に申請しました <a href="%{resource_url}">%{resource_title}</a>. 受け入れるか拒否するには <a href="%{resource_url}/edit">ここ</a>をクリックしてください。
       form:
         add_attachments: ドキュメント
+        attachment_legend: "(オプション) 添付ファイルを追加"
         delete_attachment: 削除
       index:
         title: イニシアチブ
