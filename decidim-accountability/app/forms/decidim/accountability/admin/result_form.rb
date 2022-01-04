@@ -59,7 +59,7 @@ module Decidim
         #
         # Returns a Decidim::Scope
         def scope
-          @scope ||= attributes["decidim_scope_id"] ? current_component.scopes.find_by(id: attributes["decidim_scope_id"]) : current_component.scope
+          @scope ||= @attributes["decidim_scope_id"].value ? current_component.scopes.find_by(id: @attributes["decidim_scope_id"].value) : current_component.scope
         end
 
         # Scope identifier
