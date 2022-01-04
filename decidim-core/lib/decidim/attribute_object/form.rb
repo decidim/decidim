@@ -109,6 +109,26 @@ module Decidim
 
         self
       end
+
+      # Although we are running the nested attributes validations through the
+      # NestedValidator, we still need to check for the errors in the nested
+      # attributes after the main validations are run in case the main
+      # validations are adding errors to the nested attributes.
+      #
+      # This preserves the backwards compatibility with Rectify::Form which
+      # did the validations in this order and fails the main record validation
+      # in case one of the nested attributes is not valid. This is needed e.g.
+      # for the customized component validations (e.g. Budgets component form).
+      def valid?(_context = nil)
+        super && self.class.attributes_nested.keys.all? do |attr|
+          nested = send(attr)
+          if nested.respond_to?(:errors)
+            nested.errors.none?
+          else
+            true
+          end
+        end
+      end
     end
   end
 end
