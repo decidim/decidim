@@ -1,4 +1,4 @@
-name: "[CI] Core (unit tests)"
+name: "[CI] Initiatives (system public)"
 on:
   push:
     branches:
@@ -11,15 +11,18 @@ on:
     paths:
       - "*"
       - ".github/**"
-      - "decidim-api/**"
+      - "decidim-admin/**"
+      - "decidim-comments/**"
       - "decidim-core/**"
       - "decidim-dev/**"
+      - "decidim-initiatives/**"
+      - "decidim-verifications/**"
 
 env:
   CI: "true"
   RUBY_VERSION: 2.7.5
   NODE_VERSION: 16.9.1
-  DECIDIM_MODULE: decidim-core
+  DECIDIM_MODULE: decidim-initiatives
 
 jobs:
   main:
@@ -79,7 +82,7 @@ jobs:
       - run: bundle exec brakeman --rails6 --force-scan .
         name: Scanning Security issues on module
         working-directory: ${{ env.DECIDIM_MODULE }}
-      - run: bundle exec rspec --exclude-pattern 'spec/{system,lib}/**/*_spec.rb'
+      - run: bundle exec rspec spec/system/ --exclude-pattern 'spec/system/admin/**/*_spec.rb'
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:

@@ -1,4 +1,4 @@
-name: "[CI] Core (unit tests)"
+name: "[CI] Meetings (system public 1)"
 on:
   push:
     branches:
@@ -11,15 +11,19 @@ on:
     paths:
       - "*"
       - ".github/**"
-      - "decidim-api/**"
+      - "decidim-admin/**"
+      - "decidim-assemblies/**"
       - "decidim-core/**"
       - "decidim-dev/**"
+      - "decidim-forms/**"
+      - "decidim-meetings/**"
+      - "decidim-participatory_processes/**"
 
 env:
   CI: "true"
   RUBY_VERSION: 2.7.5
   NODE_VERSION: 16.9.1
-  DECIDIM_MODULE: decidim-core
+  DECIDIM_MODULE: decidim-meetings
 
 jobs:
   main:
@@ -76,15 +80,16 @@ jobs:
       - run: RAILS_ENV=test bundle exec rails assets:precompile
         name: Precompile assets
         working-directory: ./spec/decidim_dummy_app/
-      - run: bundle exec brakeman --rails6 --force-scan .
-        name: Scanning Security issues on module
-        working-directory: ${{ env.DECIDIM_MODULE }}
-      - run: bundle exec rspec --exclude-pattern 'spec/{system,lib}/**/*_spec.rb'
+      - run: |
+          count=$(ls spec/system/*_spec.rb | wc -l | tr -d ' ')
+          half=$(expr $count / 2)
+          list_of_files=$(ls spec/system/*_spec.rb | sed -n "1,$(echo $half)p" | xargs)
+          bundle exec rspec $list_of_files
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:
           SIMPLECOV: "true"
-      - run: ./.github/upload_coverage.sh $DECIDIM_MODULE $GITHUB_EVENT_PATH
+      - run: ./.github/upload_coverage.sh decidim-meetings-system-public $GITHUB_EVENT_PATH
         name: Upload coverage
       - uses: actions/upload-artifact@v2
         if: always()

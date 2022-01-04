@@ -1,4 +1,4 @@
-name: "[CI] Core (unit tests)"
+name: "[CI] Core (lib specs)"
 on:
   push:
     branches:
@@ -79,7 +79,7 @@ jobs:
       - run: bundle exec brakeman --rails6 --force-scan .
         name: Scanning Security issues on module
         working-directory: ${{ env.DECIDIM_MODULE }}
-      - run: bundle exec rspec --exclude-pattern 'spec/{system,lib}/**/*_spec.rb'
+      - run: bundle exec rspec spec/lib
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:
