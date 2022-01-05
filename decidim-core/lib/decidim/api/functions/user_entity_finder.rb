@@ -23,6 +23,7 @@ module Decidim
         end
         Decidim::UserBaseEntity
           .where.not(confirmed_at: nil)
+          .where(blocked_at: nil)
           .find_by(filters)
       end
     end
