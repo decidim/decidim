@@ -134,8 +134,8 @@ module Decidim::ParticipatoryProcesses
 
         expect(last_component.participatory_space).to eq(last_participatory_process)
         expect(last_component.name).to eq(component.name)
-        expect(last_component.settings.attributes.except(:dummy_global_translatable_text)).to eq(component.settings.attributes.except(:dummy_global_translatable_text))
-        expect(last_component.settings.attributes[:dummy_global_translatable_text]).to include(component.settings.attributes[:dummy_global_translatable_text])
+        expect(last_component.settings.attributes.except("dummy_global_translatable_text")).to eq(component.settings.attributes.except("dummy_global_translatable_text"))
+        expect(last_component.settings.attributes["dummy_global_translatable_text"]).to include(component.settings.attributes["dummy_global_translatable_text"])
         expect(last_component.step_settings.keys).not_to eq(component.step_settings.keys)
         expect(last_component.step_settings.values).not_to eq(component.step_settings.values)
       end
