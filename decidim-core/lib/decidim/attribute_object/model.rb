@@ -85,7 +85,9 @@ module Decidim
 
           @attributes_parent.module_eval <<-RUBY, __FILE__, __LINE__ + 1
             def #{name}
-              @#{name} || self.class.attributes_nested.default_value(:#{name})
+              @#{name} = self.class.attributes_nested.default_value(:#{name}).dup unless @#{name}
+
+              @#{name}
             end
 
             def #{name}=(value)
