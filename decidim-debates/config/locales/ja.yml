@@ -17,6 +17,7 @@ ja:
       decidim/debates/close_debate_event: ディベートが終了しました
       decidim/debates/create_debate_event: ディベート
       decidim/debates/creation_disabled_event: ディベートは無効です
+      decidim/debates/creation_enabled_event: ディベートの作成が有効です
   activerecord:
     models:
       decidim/debates/debate:
@@ -39,6 +40,7 @@ ja:
           step:
             announcement: お知らせ
             comments_blocked: コメントをブロック
+            creation_enabled: 参加者はディベートを作成できます
             endorsements_blocked: オススメがブロックされました
             endorsements_enabled: オススメを有効にする
     debates:
