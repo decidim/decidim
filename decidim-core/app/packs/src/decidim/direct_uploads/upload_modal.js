@@ -5,8 +5,9 @@ export default class UploadModal {
     this.button = button;
     this.options = options;
     this.modal = document.querySelector(`#${button.dataset.open}`);
-    this.resourceName = button.dataset.resourcename;
-    this.resourceClass = button.dataset.resourceclass;
+    this.resourceName = button.dataset.resourceName;
+    this.resourceClass = button.dataset.resourceClass;
+    this.maxFileSize = button.dataset.maxFileSize;
     this.attachmentCounter = 0;
     this.name = this.button.name;
     this.multiple = this.button.dataset.multiple === "true";
@@ -37,6 +38,9 @@ export default class UploadModal {
       url: this.input.dataset.directuploadurl,
       attachmentName: file.name
     });
+    if (uploader.fileTooBig) {
+      return;
+    }
     uploader.upload.create((error, blob) => {
       if (error) {
         uploadItem.dataset.state = "error";

@@ -398,6 +398,7 @@ module Decidim
         titled: true,
         resource_class: "Decidim::Attachment",
         show_current: false,
+        max_file_size: max_file_size(:file),
         label: I18n.t("decidim.forms.upload.labels.add_image"),
         button_edit_label: I18n.t("decidim.forms.upload.labels.edit_image")
       }.merge(options)
@@ -405,12 +406,15 @@ module Decidim
     end
 
     def upload(attribute, options = {})
+      resource_class = options[:resource_class] || object.send(attribute).record.class.to_s
+      max_file_size = options[:max_file_size] || max_file_size(attribute)
       options = {
         attribute: attribute,
         resource_name: @object_name,
-        resource_class: options[:resource_class] || object.send(attribute).record.class.to_s,
+        resource_class: resource_class,
         titled: false,
         show_current: true,
+        max_file_size: max_file_size,
         help: upload_help(attribute, options),
         label: label_for(attribute),
         button_label: I18n.t("decidim.forms.upload.labels.add_image"),
@@ -422,6 +426,10 @@ module Decidim
         self,
         options
       )
+    end
+
+    def max_file_size(attribute)
+      Decidim::FileValidatorHumanizer.new(object, attribute).max_file_size
     end
 
     def upload2(attribute, options = {})

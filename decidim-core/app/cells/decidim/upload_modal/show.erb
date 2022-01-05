@@ -15,8 +15,9 @@
       class: button_class,
       data: {
         open: modal_id,
-        resourcename: resource_name,
-        resourceclass: resource_class,
+        resource_name: resource_name,
+        resource_class: resource_class,
+        max_file_size: max_file_size,
         multiple: multiple,
         titled: has_title?
       }
@@ -67,6 +68,7 @@
     <%= tag.div class: "upload-items", data: {
         locales: {
           error: t("decidim.forms.upload.labels.error"),
+          file_too_big: t("decidim.forms.upload.labels.file_too_big", megabytes: (max_file_size_mb)),
           remove: t("decidim.forms.upload.labels.remove"),
           uploaded: t("decidim.forms.upload.labels.uploaded"),
           validating: t("decidim.forms.upload.labels.validating"),

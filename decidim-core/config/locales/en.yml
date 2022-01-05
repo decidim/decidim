@@ -770,12 +770,13 @@ en:
         labels:
           add_image: Add image
           edit_image: Edit image
-          error: Error
+          error: Error!
+          file_too_big: 'File is too big! Maximun file size: %{megabytes}MB'
           remove: Remove
           replace: Replace
           uploaded: Uploaded
           validating: Validating...
-          validation_error: Validation error
+          validation_error: Validation error!
       upload_help:
         dropzone: Drop files here or click to upload
         guidance: Guidance for %{attribute}

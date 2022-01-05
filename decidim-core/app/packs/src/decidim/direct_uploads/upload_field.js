@@ -1,6 +1,5 @@
 import UploadModal from "src/decidim/direct_uploads/upload_modal";
 
-
 const loadAttachments = (um) => {
   Array.from(um.activeAttachments.children).forEach((child) => {
     um.createUploadItem(child.dataset.filename, child.dataset.title, "validated");

@@ -18,6 +18,9 @@
 #     validates :image, passthru: { to: Person, attribute: :avatar_image }
 #   end
 class PassthruValidator < ActiveModel::EachValidator
+  # record - Form object (e.g. Decidim::UploadValidationForm)
+  # attribute - The attribute to validate (e.g. :avatar)
+  # value - Blob signed id (e.g. "eyJfcmFpbHMi...")
   def validate_each(record, attribute, value)
     return unless target_class
 

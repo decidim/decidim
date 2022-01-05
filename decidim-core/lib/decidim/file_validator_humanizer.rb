@@ -12,6 +12,8 @@ module Decidim
   # another object in case the PassthruValidator is in charge of the
   # validations.
   class FileValidatorHumanizer
+    # record - Form object (e.g. Decidim::AccountForm)
+    # attribute - form field (e.g. :avatar)
     def initialize(record, attribute)
       @record = record
       @attribute = attribute

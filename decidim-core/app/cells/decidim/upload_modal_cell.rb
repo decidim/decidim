@@ -35,6 +35,14 @@ module Decidim
       options[:button_edit_label] || options[:button_label]
     end
 
+    def max_file_size
+      options[:max_file_size]
+    end
+
+    def max_file_size_mb
+      (((max_file_size / 1024 / 1024) * 100) / 100).round
+    end
+
     def resource_class
       options[:resource_class]
     end
