@@ -46,7 +46,7 @@ module Decidim
         validates(
           :iframe_access_level,
           inclusion: { in: Decidim::Meetings::Meeting.iframe_access_levels },
-          if: ->(form) { %w(embed_in_meeting_page open_in_live_event_page).include?(form.iframe_embed_type) }
+          if: ->(form) { %w(embed_in_meeting_page open_in_live_event_page open_in_new_tab).include?(form.iframe_embed_type) }
         )
         validate :embeddable_meeting_url
 
