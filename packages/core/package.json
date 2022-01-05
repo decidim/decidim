@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@joeattardi/emoji-button": "^4.6.0",
-    "@rails/activestorage": "^7.0.0",
+    "@rails/activestorage": "^6.1.3",
     "@zeitiger/appendaround": "^1.0.0",
     "axios": "^0.21.1",
     "bootstrap-tagsinput": "^0.7.1",
