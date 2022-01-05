@@ -28,6 +28,19 @@ module Decidim
 
         # Default attributes for all models
         attribute :id
+
+        # Override the ActiveModel::AttributeMethods#respond_to? method because
+        # otherwise this would fail in case it is called very early after the
+        # object initialization, such as the `map_model` methods in the form
+        # classes. We don't need the functionality provided by
+        # ActiveModel::AttributeMethods for the attribute methods which checks
+        # whether attributes[method] returns a value (which calls `attributes`
+        # that is problematic).
+        # rubocop:disable Style/OptionalBooleanParameter
+        def respond_to?(method, include_private_methods = false)
+          respond_to_without_attributes?(method, include_private_methods)
+        end
+        # rubocop:enable Style/OptionalBooleanParameter
       end
 
       class_methods do
