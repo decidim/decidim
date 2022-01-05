@@ -123,7 +123,7 @@ module Decidim
       def default_filter_params
         {
           search_text: "",
-          origin: %w(official citizens user_group),
+          origin: %w(official participants user_group),
           activity: "all",
           category_id: default_filter_category_params,
           scope_id: default_filter_scope_params,

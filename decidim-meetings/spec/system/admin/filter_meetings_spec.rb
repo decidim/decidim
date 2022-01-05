@@ -67,32 +67,32 @@ describe "Admin filters meetings", type: :system do
 
   context "when filtering by origin" do
     let!(:official_meeting) { create(:meeting, :official, component: component) }
-    let!(:citizen_meeting) { create(:meeting, :not_official, component: component) }
+    let!(:participant_meeting) { create(:meeting, :not_official, component: component) }
     let!(:user_group_meeting) { create(:meeting, :user_group_author, component: component) }
 
     before { visit_component_admin }
 
-    context "when filtering citizens " do
+    context "when filtering participants " do
       context "when no official event is present" do
-        it_behaves_like "a filtered collection", options: "Origin", filter: "Citizen" do
-          let(:in_filter) { translated(citizen_meeting.title) }
+        it_behaves_like "a filtered collection", options: "Origin", filter: "Participants" do
+          let(:in_filter) { translated(participant_meeting.title) }
           let(:not_in_filter) { translated(official_meeting.title) }
         end
       end
 
       context "when no user group is present" do
-        it_behaves_like "a filtered collection", options: "Origin", filter: "Citizen" do
-          let(:in_filter) { translated(citizen_meeting.title) }
+        it_behaves_like "a filtered collection", options: "Origin", filter: "Participants" do
+          let(:in_filter) { translated(participant_meeting.title) }
           let(:not_in_filter) { translated(user_group_meeting.title) }
         end
       end
     end
 
     context "when filtering official " do
-      context "when no citizen event is present" do
+      context "when no participant event is present" do
         it_behaves_like "a filtered collection", options: "Origin", filter: "Official" do
           let(:in_filter) { translated(official_meeting.title) }
-          let(:not_in_filter) { translated(citizen_meeting.title) }
+          let(:not_in_filter) { translated(participant_meeting.title) }
         end
       end
 
@@ -105,10 +105,10 @@ describe "Admin filters meetings", type: :system do
     end
 
     context "when filtering official " do
-      context "when no citizen event is present" do
+      context "when no participant event is present" do
         it_behaves_like "a filtered collection", options: "Origin", filter: "User Groups" do
           let(:in_filter) { translated(user_group_meeting.title) }
-          let(:not_in_filter) { translated(citizen_meeting.title) }
+          let(:not_in_filter) { translated(participant_meeting.title) }
         end
       end
 

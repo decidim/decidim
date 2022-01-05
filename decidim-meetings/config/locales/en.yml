@@ -93,7 +93,7 @@ en:
           origin_eq:
             label: Origin
             values:
-              citizen: Citizen
+              participant: Participant
               official: Official
               user_group: User Groups
           scope_id_eq:
@@ -470,7 +470,7 @@ en:
           origin: Origin
           origin_values:
             all: All
-            citizens: Citizens
+            participants: Participants
             official: Official
             user_groups: Groups
           scope: Scope

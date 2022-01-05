@@ -593,7 +593,7 @@ en:
           all: All
         filter_origin_values:
           all: All
-          citizens: Citizens
+          participants: Participants
           meetings: Meetings
           official: Official
           user_groups: Groups
