@@ -12,7 +12,7 @@ module Decidim
       private
 
       def static_api_docs_content
-        render_to_string(File.join("static", "api", "docs", *safe_content_path, "index"))
+        render_to_string(File.join("static", "api", "docs", *safe_content_path, "index"), layout: false)
       end
 
       def safe_content_path
