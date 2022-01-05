@@ -133,14 +133,7 @@ module Decidim
           let!(:user2) { create(:user, :deleted, name: "Neil Young", organization: organization) }
 
           it "doesn't returns User results" do
-            Decidim::Search.call("Neil", organization, resource_type: user.class.name) do
-              on(:ok) do |results_by_type|
-                results = results_by_type[user.class.name]
-                expect(results[:count]).to eq 1
-                expect(results[:results]).to match_array [user]
-              end
-              on(:invalid) { raise("Should not happen") }
-            end
+            expect_searched_user_results("Neil", 1, [user])
           end
         end
 
@@ -148,14 +141,7 @@ module Decidim
           let!(:user2) { create(:user, :blocked, name: "Neil Young", organization: organization) }
 
           it "doesn't returns User results" do
-            Decidim::Search.call("Neil", organization, resource_type: user.class.name) do
-              on(:ok) do |results_by_type|
-                results = results_by_type[user.class.name]
-                expect(results[:count]).to eq 1
-                expect(results[:results]).to match_array [user]
-              end
-              on(:invalid) { raise("Should not happen") }
-            end
+            expect_searched_user_results("Neil", 1, [user])
           end
         end
       end

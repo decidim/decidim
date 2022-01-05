@@ -14,7 +14,6 @@ module Decidim
     # Public setting that defines whether creation is allowed to any validated
     # user or not. Defaults to true.
     config_accessor :creation_enabled do
-      true
     end
 
     # Public Setting that defines the similarity minimum value to consider two
