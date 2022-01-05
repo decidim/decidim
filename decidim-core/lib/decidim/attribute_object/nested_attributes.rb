@@ -55,6 +55,7 @@ module Decidim
       def value_object(raw, type)
         return type.new(raw) if raw.is_a?(Hash)
         return type.new(raw.to_h) if raw.respond_to?(:to_h)
+        return type.new(raw.attributes) if raw.respond_to?(:attributes)
 
         raw
       end
