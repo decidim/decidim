@@ -768,6 +768,8 @@ en:
       remove_this_file: Remove this file
       upload:
         labels:
+          add_attachment: Add attachment
+          add_file: Add file
           add_image: Add image
           edit_image: Edit image
           error: Error!

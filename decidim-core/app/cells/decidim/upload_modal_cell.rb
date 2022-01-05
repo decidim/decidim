@@ -40,6 +40,8 @@ module Decidim
     end
 
     def max_file_size_mb
+      return unless max_file_size
+
       (((max_file_size / 1024 / 1024) * 100) / 100).round
     end
 

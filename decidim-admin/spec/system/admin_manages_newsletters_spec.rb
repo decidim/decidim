@@ -76,11 +76,15 @@ describe "Admin manages newsletters", type: :system do
           ca: "Hola, %{name}! Contingut rellevant."
         )
 
-        attach_file(
-          "Main image",
-          Decidim::Dev.asset("city2.jpeg")
-        )
+        # attach_file(
+        #   "Main image",
+        #   Decidim::Dev.asset("city2.jpeg")
+        # )
+      end
 
+      dynamically_attach_file("main_image", "city2.jpeg")
+
+      within ".new_newsletter" do
         find("*[type=submit]").click
       end
 

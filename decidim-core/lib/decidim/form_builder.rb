@@ -399,15 +399,16 @@ module Decidim
         resource_class: "Decidim::Attachment",
         show_current: false,
         max_file_size: max_file_size(:file),
-        label: I18n.t("decidim.forms.upload.labels.add_image"),
+        label: I18n.t("decidim.forms.upload.labels.add_attachment"),
         button_edit_label: I18n.t("decidim.forms.upload.labels.edit_image")
       }.merge(options)
       upload(attribute, options)
     end
 
     def upload(attribute, options = {})
-      resource_class = options[:resource_class] || object.send(attribute).record.class.to_s
+      resource_class = options[:resource_class] || object.send(attribute)&.record&.class&.to_s || "Decidim::Attachment"
       max_file_size = options[:max_file_size] || max_file_size(attribute)
+      button_label = options[:button_label] || deduce_button_label(attribute)
       options = {
         attribute: attribute,
         resource_name: @object_name,
@@ -417,7 +418,7 @@ module Decidim
         max_file_size: max_file_size,
         help: upload_help(attribute, options),
         label: label_for(attribute),
-        button_label: I18n.t("decidim.forms.upload.labels.add_image"),
+        button_label: button_label,
         button_edit_label: I18n.t("decidim.forms.upload.labels.replace")
       }.merge(options)
 
@@ -432,53 +433,12 @@ module Decidim
       Decidim::FileValidatorHumanizer.new(object, attribute).max_file_size
     end
 
-    def upload2(attribute, options = {})
-      self.multipart = true
-      options[:optional] = options[:optional].nil? ? true : options[:optional]
-      label_text = options[:label] || label_for(attribute)
-      alt_text = label_text
-
-      file = object.send attribute
-      template = ""
-      template += label(attribute, label_text + required_for_attribute(attribute))
-      template += upload_help(attribute, options).to_s
-      template += @template.file_field @object_name, attribute
-
-      template += extension_allowlist_help(options[:extension_allowlist]) if options[:extension_allowlist].present?
-      template += image_dimensions_help(options[:dimensions_info]) if options[:dimensions_info].present?
-
-      default_image_path = uploader_default_image_path(attribute)
-      file_path = file_attachment_path(file)
-
-      if file_path.present? && file.attachment.image? || default_image_path.present?
-        if file_path.present?
-          template += @template.content_tag :label, I18n.t("current_image", scope: "decidim.forms")
-          template += @template.link_to @template.image_tag(file_path, alt: alt_text), file_path, target: "_blank", rel: "noopener"
-        else
-          template += @template.content_tag :label, I18n.t("default_image", scope: "decidim.forms")
-          template += @template.link_to @template.image_tag(default_image_path, alt: alt_text), default_image_path, target: "_blank", rel: "noopener"
-        end
-      elsif file_path.present?
-        template += @template.label_tag I18n.t("current_file", scope: "decidim.forms")
-        template += @template.link_to file.filename, file_path, target: "_blank", rel: "noopener"
+    def deduce_button_label(attribute)
+      if object.send(attribute).present? && object.send(attribute).record.attached_config[attribute].uploader <= Decidim::ImageUploader
+        return I18n.t("decidim.forms.upload.labels.add_image")
       end
 
-      if file_path.present? && options[:optional]
-        template += content_tag :div, class: "field" do
-          safe_join([
-                      @template.check_box(@object_name, "remove_#{attribute}"),
-                      label("remove_#{attribute}", I18n.t("remove_this_file", scope: "decidim.forms"))
-                    ])
-        end
-      end
-
-      if object.errors[attribute].any?
-        template += content_tag :p, class: "is-invalid-label" do
-          safe_join object.errors[attribute], "<br/>".html_safe
-        end
-      end
-
-      template.html_safe
+      I18n.t("decidim.forms.upload.labels.add_file")
     end
 
     def upload_help(attribute, options = {})

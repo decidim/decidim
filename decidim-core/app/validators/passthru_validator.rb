@@ -28,8 +28,14 @@ class PassthruValidator < ActiveModel::EachValidator
 
     # Create a dummy record for which the validations are actually run on
     dummy = validation_record(record)
-    dummy.public_send("#{dummy_attr}=", value)
-    value = dummy.public_send(dummy_attr)
+    if dummy.respond_to? dummy_attr
+      dummy.public_send("#{dummy_attr}=", value)
+      value = dummy.public_send(dummy_attr)
+    else
+      # IM NOT SURE ABOUT THIS HACK, USED BECAUSE NEWSLETTER ATTACHMENTS ARE WEIRD
+      dummy.public_send("file=", value)
+      value = dummy.public_send(:file)
+    end
 
     target_validators(attribute).each do |validator|
       next unless validator.is_a?(ActiveModel::EachValidator)

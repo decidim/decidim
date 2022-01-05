@@ -7,7 +7,7 @@ export class Uploader {
     this.progressBar = uploadItem.querySelector(".progress-bar");
     this.validationSent = false;
     this.fileTooBig = false;
-    if (options.file.size > modal.maxFileSize) {
+    if (modal.maxFileSize && options.file.size > modal.maxFileSize) {
       this.fileTooBig = true;
       this.showError([modal.locales.file_too_big]);
     } else {

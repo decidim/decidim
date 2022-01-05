@@ -1,3 +1,5 @@
+@import "stylesheets/decidim/variables";
+
 .attachment-modal{
   .button{
     margin: 0;
@@ -26,7 +28,7 @@
         padding: 1rem;
         text-align: center;
         border-style: dashed;
-        border-color: var(--secondary);
+        border-color: $secondary;
         border-width: 2px;
         border-radius: 4px;
       }
@@ -61,7 +63,7 @@
 
         .progress-bar-border{
           height: 2rem;
-          border: 1px solid var(--primary);
+          border: 1px solid $primary;
           box-sizing: border-box;
           padding: 0;
 
@@ -69,7 +71,7 @@
             display: flex;
             align-items: center;
             color: white;
-            background-color: var(--primary);
+            background-color: $primary;
             padding: 0 .5rem;
             height: 2rem;
           }
