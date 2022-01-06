@@ -59,6 +59,10 @@ nl:
       read_more: Lees meer
     components:
       blogs:
+        actions:
+          create: Creëren
+          destroy: Verwijderen
+          update: Bijwerken
         name: blog
         settings:
           global:
