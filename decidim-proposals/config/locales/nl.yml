@@ -35,6 +35,7 @@ nl:
         origin_component_id: Onderdeel om de voorstellen te kopiëren van
       proposals_import:
         import_proposals: Voorstellen importeren
+        keep_answers: Status en antwoorden behouden
         keep_authors: Bewaar originele auteurs
       valuation_assignment:
         admin_log:
