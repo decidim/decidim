@@ -35,6 +35,7 @@ nl:
         registration_terms: Registratievoorwaarden
         registration_url: Registratie URL
         registrations_enabled: Registraties geactiveerd
+        show_embedded_iframe: Toon embedded iframe voor deze URL
         start_time: Starttijd
         title: Titel
         transparent: Transparant
@@ -109,6 +110,7 @@ nl:
     components:
       meetings:
         actions:
+          comment: Reactie
           join: Word lid
         name: event
         settings:
@@ -492,7 +494,11 @@ nl:
           join: Deelnemen aan bijeenkomst
           leave: Inschrijving annuleren
           leave_confirmation: Weet je zeker dat je je inschrijving voor deze vergadering wil annuleren?
+          link_available_soon: Link binnenkort beschikbaar
+          link_closed: De link om deel te nemen aan de vergadering zal enkele minuten voor het begint beschikbaar zijn
+          live_event: Deze vergadering vindt op dit moment plaats
           meeting_minutes: Verslag van de vergadering
+          micro_camera_permissions_warning: Als je op de knop hieronder klikt, wordt toestemming gevraagd voor het gebruik van je microfoon en/of camera en neem je deel aan de videoconferentie
           no_slots_available: Geen plaatsen beschikbaar
           organizations: Bijwonen van organisaties
           registration_code_help_text: Uw registratiecode
@@ -503,6 +509,7 @@ nl:
             one: "%{count} resterende plaats"
             other: "%{count} slots over"
           view: Bekijk
+          visit_finished: Bekijk voorbije vergadering
         update:
           invalid: Er was een probleem bij het bijwerken van de vergadering.
           success: U heeft de vergadering succesvol bijgewerkt.
