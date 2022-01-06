@@ -11,7 +11,7 @@ module Decidim
       private
 
       def cast_value(value)
-        return value unless value.is_a?(Symbol)
+        return value unless value.is_a?(::Symbol)
 
         value.to_sym
       end
