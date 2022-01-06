@@ -89,7 +89,7 @@ module Decidim
       end
 
       def suggested_hashtags
-        downcased_suggested_hashtags = Array(@suggested_hashtags&.map(&:downcase)).to_set
+        downcased_suggested_hashtags = super.map(&:downcase).to_set
         component_suggested_hashtags.select { |hashtag| downcased_suggested_hashtags.member?(hashtag.downcase) }
       end
 
