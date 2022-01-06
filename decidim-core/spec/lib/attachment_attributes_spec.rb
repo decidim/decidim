@@ -29,10 +29,10 @@ module Decidim
       end
 
       it "creates the photos and add_photos array arguments" do
-        expect(klass.attributes_nested.attributes[:photos][:type]).to be(Array)
-        expect(klass.attributes_nested.attributes[:photos][:options][:value_type]).to be(Integer)
-        expect(klass.attributes_nested.attributes[:add_photos][:type]).to be(Array)
-        expect(klass.attributes_nested.attributes[:add_photos][:options][:value_type]).to be(Object)
+        expect(klass.attribute_types["photos"]).to be_a(Decidim::Attributes::Array)
+        expect(klass.attribute_types["photos"].value_type).to be(Integer)
+        expect(klass.attribute_types["add_photos"]).to be_a(Decidim::Attributes::Array)
+        expect(klass.attribute_types["add_photos"].value_type).to be(Object)
       end
 
       it "adds the argument reader method that converts the IDs to attachments" do
@@ -41,7 +41,7 @@ module Decidim
       end
 
       it "returns the original value if the original value is not an array" do
-        model.instance_variable_set(:@photos, "test")
+        model.photos = "test"
         expect(model.photos).to eq("test")
       end
     end
