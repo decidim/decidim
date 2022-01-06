@@ -56,6 +56,16 @@ nl:
               identical: EN titel kan niet identiek zijn
             title:
               identical: EN tekstgedeelte kan niet identiek zijn
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Zijn niet officieel
+              supported: Heeft steun ontvangen
+        proposals_split:
+          attributes:
+            base:
+              not_official: Zijn niet officieel
+              supported: Heeft steun ontvangen
     models:
       decidim/proposals/accepted_proposal_event: Voorstel geaccepteerd
       decidim/proposals/admin/update_proposal_category_event: Voorstelcategorie gewijzigd
@@ -523,9 +533,11 @@ nl:
             select_states: Controleer de status van de voorstellen om te importeren
         proposals_merges:
           create:
+            invalid: 'Er is een probleem opgetreden bij het samenvoegen van de geselecteerde voorstellen omdat:'
             success: De voorstellen zijn succesvol samengevoegd tot een nieuwe.
         proposals_splits:
           create:
+            invalid: 'Er is een probleem opgetreden bij het splitsen van de geselecteerde voorstellen omdat:'
             success: De voorstellen succesvol gesplitst in nieuwe.
         valuation_assignments:
           create:
