@@ -43,6 +43,7 @@ nl:
         default_locale: Standaard taal
         description: Beschrijving
         enable_omnipresent_banner: Toon permanente header
+        enable_participatory_space_filters: Schakel filters in voor de participatieve ruimte
         facebook_handler: Facebook naam
         favicon: Pictogram
         force_authentication: Verplicht aanmelden
@@ -354,6 +355,17 @@ nl:
           values:
             'false': Gevalideerd
             'true': Niet gevalideerd
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Uitnodiging geaccepteerd
+            values:
+              'false': Niet geaccepteerd
+              'true': Geaccepteerd
+          user_invitation_sent_at_not_null:
+            label: Uitnodiging verzonden
+            values:
+              'false': Niet verzonden
+              'true': Verzonden
         private_space_eq:
           label: Privé
           values:
@@ -371,6 +383,7 @@ nl:
           name_or_nickname_or_email_cont: Zoek %{collection} op e-mail, naam of bijnaam.
           reported_id_string_or_reported_content_cont: Zoek %{collection} op rapporteerbaar id of op inhoud.
           title_cont: Zoek %{collection} op titel.
+          user_name_or_user_email_cont: '%{collection} doorzoeken op Id of titel.'
         state_eq:
           label: Provincie
       forms:
