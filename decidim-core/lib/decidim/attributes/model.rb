@@ -11,8 +11,8 @@ module Decidim
       private
 
       def cast_value(value)
+        return value if value.is_a?(primitive)
         return value if value.is_a?(Decidim::AttributeObject::Model)
-        return value if value.is_a?(ActiveRecord::Base)
         return primitive.new(value) if value.is_a?(::Hash)
         return primitive.new(value.to_h) if value.respond_to?(:to_h)
         return primitive.new(value.attributes) if value.respond_to?(:attributes)
