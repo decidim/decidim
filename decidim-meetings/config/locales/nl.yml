@@ -271,6 +271,9 @@ nl:
           edit:
             close: Sluiten
             title: Vergadering sluiten
+        meeting_copies:
+          form:
+            select_a_meeting_type: Selecteer een vergaderingstype
         meetings:
           close:
             invalid: Er is een probleem opgetreden bij het sluiten van deze vergadering
@@ -362,6 +365,13 @@ nl:
           value_types:
             organizer_presenter:
               not_found: 'De organisator is niet gevonden in de database (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Alle
+        filter_meeting_space_values:
+          all: Alle
+        filter_scope_values:
+          all: Alle
       calendar_modal:
         calendar_url: Agenda-URL
         close_window: Venster sluiten
@@ -369,6 +379,8 @@ nl:
       conference_venues: Vergaderlocaties
       content_blocks:
         upcoming_meetings:
+          name: Geplande vergaderingen
+          upcoming_meetings: Geplande vergaderingen
           view_all_meetings: Bekijk alles
       directory:
         meetings:
@@ -459,7 +471,11 @@ nl:
           select_a_registration_type: Selecteer een registratietype
           select_an_iframe_access_level: Selecteer een iframe toegangsniveau
         index:
+          click_here: Alle vergaderingen bekijken
           new_meeting: Nieuwe vergadering
+          see_all: Alle vergaderingen bekijken
+          see_all_withdrawn: Bekijk alle afgelaste vergaderingen
+          text_banner: Je bekijkt de lijst van vergaderingen die zijn afgelast door hun maker. %{go_back_link}.
         meeting_minutes:
           related_information: Gerelateerde informatie
         meetings:
@@ -494,6 +510,9 @@ nl:
             one: "%{count} resterende plaats"
             other: "%{count} slots over"
           view: Bekijk
+          withdraw_btn_hint: Je kunt je vergadering afgelasten indien nodig. De vergadering wordt niet verwijderd, deze verschijnt in de lijst met afgelaste vergaderingen.
+          withdraw_confirmation_html: Weet je zeker dat je deze vergadering wil afgelasten? <br><br><strong>Deze actie kan niet worden ongedaan gemaakt</strong>
+          withdraw_meeting: Vergadering afgelasten
         update:
           invalid: Er was een probleem bij het bijwerken van de vergadering.
           success: U heeft de vergadering succesvol bijgewerkt.
@@ -571,8 +590,12 @@ nl:
       types:
         private_meeting: Privé vergadering
         transparent: Transparant
+        withdraw: Afgelasten
       versions:
         back_to_resource: Ga terug naar de vergadering
+      withdraw:
+        error: Er is een fout opgetreden tijdens het afgelasten van de vergadering
+        success: De vergadering is met succes afgelast
     metrics:
       meetings:
         description: Aantal gemaakte vergaderingen
