@@ -225,6 +225,7 @@ nl:
             title: Nieuwe stemronde
             trustees: Verkiezing Trustees
           key_ceremony:
+            continue: Doorgaan
             title: Sleutelceremonie
           results_published:
             answer: Antwoord
@@ -235,6 +236,7 @@ nl:
             submit: Indienen
             title: Resultaten gepubliceerd
           tally:
+            continue: Doorgaan
             title: Turfproces
           tally_ended:
             answer: Antwoord
