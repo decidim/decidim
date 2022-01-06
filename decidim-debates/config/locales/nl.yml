@@ -27,6 +27,7 @@ nl:
     components:
       debates:
         actions:
+          comment: Reactie
           create: Aanmaken
         name: Debatten
         settings:
