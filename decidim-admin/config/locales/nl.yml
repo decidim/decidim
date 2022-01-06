@@ -319,6 +319,12 @@ nl:
         show:
           view_more_logs: Bekijk meer logs
           welcome: Welkom bij het Decidim Admin Panel.
+      domain_whitelist:
+        form:
+          domain_too_short: Domein te kort
+        update:
+          error: Kan domein whitelist niet bijwerken
+          success: Domain whitelist succesvol bijgewerkt
       exports:
         export_as: "%{name} als %{export_format}"
         formats:
@@ -377,6 +383,11 @@ nl:
           user_name_or_user_nickname_or_user_email_cont: Doorzoek %{collection} op e-mail, naam of bijnaam.
         state_eq:
           label: Provincie
+          values:
+            all: Alle
+            pending: In afwachting
+            rejected: Afgewezen
+            verified: Geverifieerd
       forms:
         file_help:
           import:
@@ -724,6 +735,17 @@ nl:
             layout_appearance_title: Weergave van de lay-out bewerken
             preview: Voorvertoning
           omnipresent_banner_appearance_title: Bewerk de permanente banner
+      organization_external_domain_whitelist:
+        edit:
+          update: Bijwerken
+        external_domain:
+          down: Naar beneden
+          external_domain: Extern domein
+          remove: Verwijderen
+          up: Naar boven
+        form:
+          add: Toevoegen aan whitelist
+          title: Externe domein whitelist
       organization_homepage:
         edit:
           active_content_blocks: Actieve inhoudsblokken
