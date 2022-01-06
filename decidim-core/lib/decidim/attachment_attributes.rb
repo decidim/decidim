@@ -37,12 +37,12 @@ module Decidim
         define_method name do
           return instance_variable_get(variable_name) if instance_variable_defined?(variable_name)
 
-          original = super()
+          original = @attributes["photos"].value_before_type_cast
           return original unless original.is_a?(Array)
 
           instance_variable_set(
             variable_name,
-            original.map do |attachment|
+            super().map do |attachment|
               if attachment.is_a?(Integer)
                 Decidim::Attachment.find_by(id: attachment)
               else
