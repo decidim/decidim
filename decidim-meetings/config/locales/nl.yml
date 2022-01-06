@@ -271,6 +271,9 @@ nl:
           edit:
             close: Sluiten
             title: Vergadering sluiten
+        meeting_copies:
+          form:
+            select_a_meeting_type: Selecteer een vergaderingstype
         meetings:
           close:
             invalid: Er is een probleem opgetreden bij het sluiten van deze vergadering
