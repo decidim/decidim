@@ -15,6 +15,12 @@ module Decidim
         :array
       end
 
+      # The value would not be cast in case it is nil by default. We also want
+      # to cast the nil values to the default values.
+      def cast(value)
+        cast_value(value)
+      end
+
       # The nested validator should be only added for those attributes that
       # inherit from the AttributeObject::Model type. Otherwise this would be
       # also added e.g. for ActiveRecord objects which would cause unexpected
