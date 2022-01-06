@@ -237,7 +237,13 @@ nl:
             title: Resultaten gepubliceerd
           tally:
             continue: Doorgaan
+            invalid: Er is een fout opgetreden bij het rapporteren van de ontbrekende trustee
+            mark_as_missing: Als ontbrekend markeren
+            mark_as_missing_description: Alle trustees moeten deelnemen aan dit proces, maar als een trustee niet aan het proces kan deelnemen, kan je dit als ontbrekend aanduiden.
+            success: Het rapport met de ontbrekende trustees is met succes verzonden naar het Bulletin Board
+            tally_completion: Het proces zal worden voltooid wanneer alle trustees actief zijn of als ontbrekend zijn aangeduid. Tenminste %{quorum} trustees zijn vereist om het proces te voltooien.
             title: Turfproces
+            undo_mark_as_missing: Zolang het proces niet is voltooid zal een trustee die per ongeluk is gemarkeerd als ontbrekend kunnen deelnemen. Ze kunnen doorgaan zoals gebruikelijk en de aanduiding als 'ontbrekend' wordt genegeerd.
           tally_ended:
             answer: Antwoord
             not_selected: Niet geselecteerd
@@ -276,6 +282,22 @@ nl:
           update:
             invalid: Er is een fout opgetreden bij het bijwerken van trustee %{trustee}
             success: Trustee %{trustee} succesvol bijgewerkt
+      admin_log:
+        election:
+          create: "%{user_name} heeft de verkiezing %{resource_name} van %{space_name} gemaakt"
+          delete: "%{user_name} heeft de verkiezing %{resource_name} van %{space_name} verwijderd"
+          end_vote: "%{user_name} beëindigde de stemperiode voor de verkiezing %{resource_name} van %{space_name} in het Bulletin Board"
+          publish: "%{user_name} heeft de verkiezing %{resource_name} van %{space_name} gepubliceerd"
+          publish_results: "%{user_name} publiceerde de resultaten voor de verkiezing %{resource_name} van %{space_name} in het Bulletin Board"
+          report_missing_trustee: "%{user_name} rapporteerde %{trustee_name} als een ontbrekende trustee tijdens de telling voor de verkiezing %{resource_name} van %{space_name} op het Bulletin Board"
+          setup: "%{user_name} maakte de verkiezing %{resource_name} van %{space_name} aan in het Bulletin Board"
+          start_key_ceremony: "%{user_name} startte de sleutelceremonie voor de verkiezing %{resource_name} van %{space_name} in het Bulletin Board"
+          start_tally: "%{user_name} startte de telling voor de verkiezing %{resource_name} van %{space_name} in het Bulletin Board"
+          start_vote: "%{user_name} startte de stemperiode voor de verkiezing %{resource_name} van %{space_name} in het Bulletin Board"
+          unpublish: "%{user_name} heeft de publicatie van de verkiezing %{resource_name} van %{space_name} ongedaan gemaakt"
+          update: "%{user_name} heeft de verkiezing %{resource_name} van %{space_name} bijgewerkt"
+        trustee:
+          create: "%{user_name} heeft de gebruiker %{trustee_user} aangewezen als Trustee"
       elections:
         count:
           elections_count:
@@ -741,6 +763,24 @@ nl:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze stemronde
             success: Vergadering succesvol bijgewerkt
       admin_log:
+        ballot_style:
+          create: "%{user_name} heeft een stembriefstijl gemaakt met code %{ballot_style_code} in %{space_name}"
+          delete: "%{user_name} heeft de stembriefstijl verwijderd met code %{ballot_style_code} in %{space_name}"
+          update: "%{user_name} heeft de stembriefstijl bijgewerkt met code %{ballot_style_code} in %{space_name}"
+        census:
+          create: "%{user_name} heeft de census voor %{space_name} gemaakt"
+          delete: "%{user_name} heeft de census voor %{space_name} verwijderd"
+          update: "%{user_name} heeft de census voor %{space_name} bijgewerkt"
+        monitoring_committee_member:
+          create: "%{user_name} heeft de gebruiker %{monitoring_committee_member_user} aangewezen als lid van de monitoring commissie in %{space_name}"
+          delete: "%{user_name} heeft de gebruiker %{monitoring_committee_member_user} verwijderd als lid van de monitoring commissie in %{space_name}"
+        polling_officer:
+          create: "%{user_name} heeft de gebruiker %{polling_officer_user} aangewezen als polling officer in %{space_name}"
+          delete: "%{user_name} heeft de gebruiker %{polling_officer_user} verwijderd als polling officer in %{space_name}"
+        polling_station:
+          create: "%{user_name} heeft het stembureau %{resource_name} van %{space_name} gemaakt"
+          delete: "%{user_name} heeft het stembureau %{resource_name} van %{space_name} verwijderd"
+          update: "%{user_name} heeft het stembureau %{resource_name} van %{space_name} bijgewerkt"
         voting:
           create: "%{user_name} heeft de stemronde %{resource_name} aangemaakt"
           publish: "%{user_name} heeft de stemronde %{resource_name} gepubliceerd"
@@ -748,6 +788,8 @@ nl:
       census:
         admin:
           census:
+            create:
+              invalid_csv_header: De CSV-headers ontbreken of zijn niet correct - lees de instructies zorgvuldig door
             creating_data:
               info_message: "<strong>Gelieve te wachten</strong>, %{processed_count} verwerkt van %{raw_count} rijen uit bestand %{file}."
             delete:
