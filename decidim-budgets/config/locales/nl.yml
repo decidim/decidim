@@ -131,6 +131,9 @@ nl:
         highlighted_cta: Stem op %{name}
         if_change_opinion: Als je van gedachten veranderd bent, kun je
         my_budgets: Mijn budgetten
+        progress: Beëindig stemmen
+        show: Bekijk projecten
+        vote: Stem
         voted_on: Je hebt gestemd op %{links}
       limit_announcement:
         cant_vote: Je kunt niet stemmen op dit budget. <a href="%{landing_path}">Probeer een ander budget</a>.
@@ -247,6 +250,7 @@ nl:
     components:
       budgets:
         actions:
+          comment: Reactie
           vote: Stemmen
         name: Budgetten
         settings:
