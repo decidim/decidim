@@ -29,7 +29,7 @@ module Decidim
       end
 
       def self.from_model(model)
-        attribute_keys = attribute_types.keys + attributes_nested.attributes.keys
+        attribute_keys = attribute_types.keys
         form_attributes = attribute_keys.each_with_object({}) do |key, attrs|
           attrs[key] = model.send(key) if model.respond_to?(key)
         end
@@ -113,20 +113,39 @@ module Decidim
       # Although we are running the nested attributes validations through the
       # NestedValidator, we still need to check for the errors in the nested
       # attributes after the main validations are run in case the main
-      # validations are adding errors to the nested attributes.
+      # validations are adding errors to some of the nested attributes.
+      #
+      # An example of such form is the Decidim::Budgets::Admin::ComponentForm
+      # which adds errors to the sub-attribute "settings" during its own
+      # validations. Because these errors are not added to the main form object,
+      # the main form object would be interpreted as valid without checking the
+      # sub-attribute validations.
       #
       # This preserves the backwards compatibility with Rectify::Form which
       # did the validations in this order and fails the main record validation
       # in case one of the nested attributes is not valid. This is needed e.g.
       # for the customized component validations (e.g. Budgets component form).
       def valid?(_context = nil)
-        super && self.class.attributes_nested.keys.all? do |attr|
-          nested = send(attr)
-          if nested.respond_to?(:errors)
-            nested.errors.none?
+        super && self.class.attribute_types.none? do |name, type|
+          if type.respond_to?(:validate_nested?) && type.validate_nested?
+            _value_has_errors?(public_send(name))
           else
-            true
+            false
           end
+        end
+      end
+
+      private
+
+      def _value_has_errors?(value)
+        if value.is_a?(Array)
+          value.any? { |v| _value_has_errors?(v) }
+        elsif value.is_a?(Hash)
+          _value_has_errors?(value.values)
+        elsif value.respond_to?(:errors)
+          value.errors.any?
+        else
+          false
         end
       end
     end

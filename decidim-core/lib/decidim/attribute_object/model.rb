@@ -32,84 +32,31 @@ module Decidim
 
       class_methods do
         def attribute(name, type = ActiveModel::Type::Value.new, **options)
-          case type
-          when Class
-            attribute_class(name, type, **options)
-          when Hash
-            key_type = type.keys.first || Symbol
-            val_type = type.values.first || Object
-            options[:default] ||= {}
+          typedef = AttributeObject.types.resolve(type, **options)
 
-            attribute_nested(name, Hash, **options.merge(key_type: key_type, value_type: val_type))
-          when Array
-            options[:default] ||= []
+          super(name, typedef[:type], **typedef[:options])
 
-            attribute_nested(name, Array, **options.merge(value_type: type.first))
-          else
-            super
+          # Create the boolean method alias with the question mark at the end
+          # which is used in some places. This was a default behavior of
+          # Virtus but not a feature in ActiveModel::Attributes.
+          alias_method :"#{name}?", name if typedef[:type] == :boolean
 
-            # Create the boolean method alias with the question mark at the end
-            # which is used in some places. This was a default behavior of
-            # Virtus but not a feature in ActiveModel::Attributes.
-            alias_method :"#{name}?", name if type == Boolean
-          end
-        end
+          # Add the nested validation in case validations module is loaded and
+          # the type reports it needs nested validations.
+          return unless include?(ActiveModel::Validations)
 
-        def attribute_class(name, type, **options)
-          primitive_types = [Object, Proc, Rails::Engine, ActiveSupport::Duration]
-          if primitive_types.include?(type) || type.include?(Decidim::AttributeObject::Model) || type <= ActiveRecord::Base
-            attribute_nested(name, type, **options)
-          elsif type == Hash
-            attribute(name, Hash[Symbol => Object], **options)
-          elsif type == Array
-            attribute(name, Array[Object], **options)
-          else
-            # Off the bat, this handles the basic types from:
-            # https://github.com/rails/rails/tree/main/activemodel/lib/active_model/type
-            #
-            # Custom types would need special handling.
-            attribute(name, type.to_s.underscore.to_sym, **options)
-          end
-        end
+          # The nested validator should be only added for those attributes that
+          # inherit from the AttributeObject::Model type. Otherwise this would
+          # be also added e.g. for ActiveRecord objects which would cause
+          # unexpected validation errors.
+          finaltype = attribute_types[name.to_s]
+          return unless finaltype.respond_to?(:validate_nested?)
+          return unless finaltype.validate_nested?
 
-        def attribute_nested(name, type, **options)
-          attributes_nested.add(name, type, options)
-
-          # The parent module provides the backwards compatible `super` access
-          # to the attributes when the attribute methods are overridden in the
-          # extending model class.
-          unless @attributes_parent
-            @attributes_parent = Module.new
-            include @attributes_parent
-          end
-
-          @attributes_parent.module_eval <<-RUBY, __FILE__, __LINE__ + 1
-            def #{name}
-              @#{name} = self.class.attributes_nested.default_value(:#{name}).dup unless @#{name}
-
-              @#{name}
-            end
-
-            def #{name}=(value)
-              @#{name} = self.class.attributes_nested.convert_value(:#{name}, value)
-            end
-          RUBY
-
-          if include?(ActiveModel::Validations)
-            validates_with(
-              Decidim::AttributeObject::NestedValidator,
-              _merge_attributes([name])
-            )
-          end
-        end
-
-        def attributes_nested
-          @attributes_nested ||=
-            if (defined?(Decidim::Form) && superclass == ::Decidim::Form) || !superclass.respond_to?(:attributes_nested)
-              Decidim::AttributeObject::NestedAttributes.new
-            else
-              superclass.attributes_nested.dup
-            end
+          validates_with(
+            Decidim::AttributeObject::NestedValidator,
+            _merge_attributes([name])
+          )
         end
       end
 
@@ -156,24 +103,16 @@ module Decidim
         assign_attributes(correct_attributes)
       end
 
-      def attribute_names
-        @attribute_names ||= self.class.attribute_types.keys.map(&:to_s) + self.class.attributes_nested.keys.map(&:to_s)
-      end
-
-      def attributes
-        attribute_names.index_with { |name| public_send(name) }
-      end
-
       # Convenience method for accessing the attributes through
       # model[:attr_name] which is used in multiple places across the code.
       def [](attribute_name)
-        public_send(attribute_name)
+        public_send(attribute_name) if respond_to?(attribute_name)
       end
 
       # Convenience method for settings the attributes through
       # model[:attr_name] = "foo" which is used in some places across the code.
       def []=(attribute_name, value)
-        public_send("#{attribute_name}=", value)
+        public_send("#{attribute_name}=", value) if respond_to?("#{attribute_name}=")
       end
 
       # Convenience method used in initiatives
@@ -182,9 +121,7 @@ module Decidim
       end
 
       def to_h
-        hash = attributes.transform_keys(&:to_sym).merge(
-          self.class.attributes_nested.keys.index_with { |attr| send(attr) }
-        )
+        hash = attributes.transform_keys(&:to_sym)
         hash.delete(:id) if hash.has_key?(:id) && hash[:id].blank?
 
         hash
@@ -193,19 +130,6 @@ module Decidim
       # The to_hash alias is needed for the as_json call which calls this method
       # if defined.
       alias to_hash to_h
-
-      # Override the ActiveModel::AttributeMethods#respond_to? method because
-      # otherwise this would fail in case it is called very early after the
-      # object initialization, such as the `map_model` methods in the form
-      # classes. We don't need the functionality provided by
-      # ActiveModel::AttributeMethods for the attribute methods which checks
-      # whether attributes[method] returns a value (which calls `attributes`
-      # that is problematic).
-      # rubocop:disable Style/OptionalBooleanParameter
-      def respond_to?(method, include_private_methods = false)
-        respond_to_without_attributes?(method, include_private_methods)
-      end
-      # rubocop:enable Style/OptionalBooleanParameter
     end
   end
 end
