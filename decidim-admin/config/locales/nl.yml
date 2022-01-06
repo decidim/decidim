@@ -340,6 +340,13 @@ nl:
           values:
             'false': 'Nee'
             'true': 'Ja'
+        moderated_users:
+          reports_reason_eq:
+            label: Reden rapportering
+            values:
+              does_not_belong: Hoort niet
+              offensive: Beledigend
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Type
@@ -363,8 +370,10 @@ nl:
         search_label: Zoeken
         search_placeholder:
           name_or_nickname_or_email_cont: Zoek %{collection} op e-mail, naam of bijnaam.
+          report_count_eq: Aantal rapporteringen
           reported_id_string_or_reported_content_cont: Zoek %{collection} op rapporteerbaar id of op inhoud.
           title_cont: Zoek %{collection} op titel.
+          user_name_or_user_nickname_or_user_email_cont: Doorzoek %{collection} op e-mail, naam of bijnaam.
         state_eq:
           label: Provincie
       forms:
