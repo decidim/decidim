@@ -870,6 +870,15 @@ nl:
       index:
         last_activity: Laatste Activiteit
         resource_type: Type
+    links:
+      invalid_url: Ongeldige URL
+      warning:
+        body_1: Je staat op het punt om een externe link te bezoeken, wees voorzichtig met de inhoud van de externe site.
+        body_2: Controleer de link, zorg ervoor dat je deze herkent als een veilige site voor je verdergaat.
+        cancel: Annuleer
+        close_modal: Sluit venster
+        proceed: Doorgaan
+        title: Externe link openen
     log:
       base_presenter:
         create: "%{user_name} gemaakt %{resource_name}"
