@@ -293,6 +293,15 @@ nl:
           elections_count:
             one: "%{count} verkiezing"
             other: "%{count} verkiezingen"
+        election_log:
+          chained_hash: De ketting Hash van dit bericht
+          complete: Voltooid
+          creation_description:
+            complete: De verkiezing is aangemaakt en in het Bulletin Board toegevoegd.
+            not_created: De verkiezing is nog niet aangemaakt.
+          creation_title: Verkiezing aangemaakt
+          description: Dit is het verkiezingslogboek waar je de status van elke stap kunt controleren, bijvoorbeeld als de verkiezingen eenmaal zijn voltooid, als de telling is afgerond en als de verkiezingen zijn afgesloten.
+          download: Download
         preview:
           available_answers: 'Beschikbare antwoorden:'
           description: 'Dit zijn de vragen die je tijdens het stemproces tegenkomt:'
