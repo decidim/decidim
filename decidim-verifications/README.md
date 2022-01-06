@@ -150,7 +150,7 @@ Decidim::Verifications.register_workflow(:my_workflow) do |workflow|
 end
 ```
 
-The format of the options you can define is the standard for a virtus attribute,
+The format of the options you can define is the standard for a Decidim attribute,
 plus an additional `required` (true by default) option were you can choose
 whether the option is compulsory when configuring the workflow as a permission
 for an action or not.
