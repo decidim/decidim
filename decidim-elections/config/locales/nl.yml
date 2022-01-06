@@ -279,8 +279,15 @@ nl:
       admin_log:
         election:
           publish: "%{user_name} publiceerde de %{resource_name} verkiezing"
+          publish_results: "%{user_name} publiceerde de resultaten voor de verkiezing %{resource_name} in het Bulletin Board"
           setup: "%{user_name} heeft de %{resource_name} stemronde op het Bulletin Bord aangemaakt"
           unpublish: "%{user_name} heeft de verkiezing van %{resource_name} gedepubliceerd"
+      election_m:
+        footer:
+          remaining_time:
+            one: "<strong>%{count} uur %{minutes} minuten</strong> over om te stemmen."
+            other: "<strong>%{count} uur %{minutes} minuten</strong> over om te stemmen."
+            zero: "<strong>%{minutes} minuten</strong> over om te stemmen."
       elections:
         count:
           elections_count:
@@ -757,6 +764,8 @@ nl:
       census:
         admin:
           census:
+            create:
+              invalid_csv_header: De CSV-header heeft niet het juiste aantal velden - lees de instructies zorgvuldig na
             creating_data:
               info_message: "<strong>Gelieve te wachten</strong>, %{processed_count} verwerkt van %{raw_count} rijen uit bestand %{file}."
             delete:
