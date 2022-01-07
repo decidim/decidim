@@ -11,7 +11,7 @@ module Decidim
         let(:value) { Time.current }
 
         it "returns the time" do
-          expect(subject).to eq(value)
+          expect(subject).to be(value)
         end
       end
 
@@ -50,7 +50,7 @@ module Decidim
           let(:value) { "foo" }
 
           it "returns nil" do
-            expect(subject).to eq(nil)
+            expect(subject).to be(nil)
           end
         end
       end

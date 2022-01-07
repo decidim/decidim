@@ -12,7 +12,7 @@ module Decidim
 
     describe "#type" do
       it "returns :array" do
-        expect(subject.type).to eq(:array)
+        expect(subject.type).to be(:array)
       end
     end
 
@@ -28,14 +28,14 @@ module Decidim
       let(:value_type) { double }
 
       it "returns false for non-object type values" do
-        expect(subject.validate_nested?).to eq(false)
+        expect(subject.validate_nested?).to be(false)
       end
 
       context "when a module value type is provided" do
         let(:value_type) { Decidim::AttributeObject::Model }
 
         it "returns false because it is not a class" do
-          expect(subject.validate_nested?).to eq(false)
+          expect(subject.validate_nested?).to be(false)
         end
       end
 
@@ -44,7 +44,7 @@ module Decidim
           let(:value_type) { Class.new { include Decidim::AttributeObject::Model } }
 
           it "returns true" do
-            expect(subject.validate_nested?).to eq(true)
+            expect(subject.validate_nested?).to be(true)
           end
         end
 
@@ -52,7 +52,7 @@ module Decidim
           let(:value_type) { Class.new }
 
           it "returns false" do
-            expect(subject.validate_nested?).to eq(false)
+            expect(subject.validate_nested?).to be(false)
           end
         end
       end

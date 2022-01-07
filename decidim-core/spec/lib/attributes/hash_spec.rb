@@ -13,7 +13,7 @@ module Decidim
 
     describe "#type" do
       it "returns :hash" do
-        expect(subject.type).to eq(:hash)
+        expect(subject.type).to be(:hash)
       end
     end
 

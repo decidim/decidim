@@ -5,6 +5,12 @@ require "spec_helper"
 module Decidim
   describe Attributes::LocalizedDate do
     describe "#cast" do
+      it "returns :model" do
+        expect(subject.type).to be(:"decidim/attributes/localized_date")
+      end
+    end
+
+    describe "#cast" do
       subject { described_class.new.cast(value) }
 
       context "when given a Date" do

@@ -5,6 +5,12 @@ require "spec_helper"
 module Decidim
   describe Attributes::CleanString do
     describe "#cast" do
+      it "returns :model" do
+        expect(subject.type).to be(:"decidim/attributes/clean_string")
+      end
+    end
+
+    describe "#cast" do
       subject { described_class.new.cast(value) }
 
       context "with long string with carriage returns" do

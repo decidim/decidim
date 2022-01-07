@@ -11,7 +11,7 @@ module Decidim
 
     describe "#type" do
       it "returns :model" do
-        expect(subject.type).to eq(:model)
+        expect(subject.type).to be(:model)
       end
     end
 

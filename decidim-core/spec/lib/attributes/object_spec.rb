@@ -11,7 +11,7 @@ module Decidim
 
     describe "#type" do
       it "returns :object" do
-        expect(subject.type).to eq(:object)
+        expect(subject.type).to be(:object)
       end
     end
 
@@ -27,14 +27,14 @@ module Decidim
       let(:primitive) { double }
 
       it "returns false for non-object type primitives" do
-        expect(subject.validate_nested?).to eq(false)
+        expect(subject.validate_nested?).to be(false)
       end
 
       context "when a module primitive is provided" do
         let(:primitive) { Decidim::AttributeObject::Model }
 
         it "returns false because it is not a class" do
-          expect(subject.validate_nested?).to eq(false)
+          expect(subject.validate_nested?).to be(false)
         end
       end
 
@@ -43,7 +43,7 @@ module Decidim
           let(:primitive) { Class.new { include Decidim::AttributeObject::Model } }
 
           it "returns true" do
-            expect(subject.validate_nested?).to eq(true)
+            expect(subject.validate_nested?).to be(true)
           end
         end
 
@@ -51,7 +51,7 @@ module Decidim
           let(:primitive) { Class.new }
 
           it "returns false" do
-            expect(subject.validate_nested?).to eq(false)
+            expect(subject.validate_nested?).to be(false)
           end
         end
       end
