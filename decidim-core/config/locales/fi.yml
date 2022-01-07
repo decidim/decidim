@@ -76,6 +76,24 @@ fi:
       decidim_with_day_and_month_name: "%A %d. %b %Y"
       decidim_with_month_name: "%B %d. %Y"
       decidim_with_month_name_short: "%d. %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: noin tunti
+        other: noin %{count} tuntia
+      about_x_months:
+        one: noin kuukausi
+        other: noin %{count} kuukautta
+      half_a_minute: puoli minuuttia
+      less_than_x_minutes:
+        one: alle minuutti.
+        other: vähemmän kuin %{count} minuuttia.
+      less_than_x_seconds:
+        one: juuri nyt
+        other: vähemmän kuin %{count} sekuntia.
+      x_days:
+        one: päivä sitten
+        other: "%{count} päivää sitten"
   decidim:
     accessibility:
       external_link: Ulkoinen linkki
