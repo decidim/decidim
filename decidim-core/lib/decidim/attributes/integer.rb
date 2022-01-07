@@ -5,10 +5,6 @@ module Decidim
     # Custom attributes value to represent an Integer that is customized from
     # the parent class to also convert records to their ID representations.
     class Integer < ActiveModel::Type::Integer
-      def type # :nodoc:
-        :integer
-      end
-
       private
 
       def cast_value(value)
