@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe Attributes::CleanString do
-    describe "#coerce" do
+    describe "#cast" do
       subject { described_class.new.cast(value) }
 
       context "with long string with carriage returns" do

@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe Attributes::LocalizedDate do
-    describe "coerce" do
+    describe "#cast" do
       subject { described_class.new.cast(value) }
 
       context "when given a Date" do
