@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   describe Attributes::Symbol do
     describe "#type" do
-      it "returns :object" do
+      it "returns :symbol" do
         expect(subject.type).to be(:symbol)
       end
     end

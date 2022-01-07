@@ -4,8 +4,8 @@ require "spec_helper"
 
 module Decidim
   describe Attributes::LocalizedDate do
-    describe "#cast" do
-      it "returns :model" do
+    describe "#type" do
+      it "returns :\"decidim/attributes/localized_date\"" do
         expect(subject.type).to be(:"decidim/attributes/localized_date")
       end
     end

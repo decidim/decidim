@@ -4,8 +4,8 @@ require "spec_helper"
 
 module Decidim
   describe Attributes::CleanString do
-    describe "#cast" do
-      it "returns :model" do
+    describe "#type" do
+      it "returns :\"decidim/attributes/clean_string\"" do
         expect(subject.type).to be(:"decidim/attributes/clean_string")
       end
     end
