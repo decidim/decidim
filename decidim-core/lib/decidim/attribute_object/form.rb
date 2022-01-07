@@ -29,8 +29,7 @@ module Decidim
       end
 
       def self.from_model(model)
-        attribute_keys = attribute_types.keys
-        form_attributes = attribute_keys.each_with_object({}) do |key, attrs|
+        form_attributes = attribute_types.keys.each_with_object({}) do |key, attrs|
           attrs[key] = model.send(key) if model.respond_to?(key)
         end
 
