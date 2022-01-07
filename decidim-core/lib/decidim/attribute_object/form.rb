@@ -17,6 +17,8 @@ module Decidim
       end
 
       def self.infer_model_name
+        return :form unless name
+
         class_name = name.split("::").last
         return :form if class_name == "Form"
 
