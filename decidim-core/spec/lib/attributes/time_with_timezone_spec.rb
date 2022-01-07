@@ -4,6 +4,12 @@ require "spec_helper"
 
 module Decidim
   describe Attributes::TimeWithZone do
+    describe "#type" do
+      it "returns :\"decidim/attributes/time_with_zone\"" do
+        expect(subject.type).to be(:"decidim/attributes/time_with_zone")
+      end
+    end
+
     describe "#cast" do
       subject { described_class.new.cast(value) }
 
