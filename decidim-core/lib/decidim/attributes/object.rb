@@ -21,7 +21,7 @@ module Decidim
       def validate_nested?
         return false unless primitive.is_a?(Class)
 
-        primitive <= Decidim::AttributeObject::Model
+        (primitive < Decidim::AttributeObject::Model) == true
       end
     end
   end

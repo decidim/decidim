@@ -30,7 +30,7 @@ module Decidim
       def validate_nested?
         return false unless value_type.is_a?(Class)
 
-        value_type <= Decidim::AttributeObject::Model
+        (value_type < Decidim::AttributeObject::Model) == true
       end
 
       private
