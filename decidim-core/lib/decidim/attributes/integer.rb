@@ -8,7 +8,7 @@ module Decidim
       private
 
       def cast_value(value)
-        return value.id if value.respond_to?(:id)
+        return cast_value(value.id) if value.respond_to?(:id)
 
         super
       end

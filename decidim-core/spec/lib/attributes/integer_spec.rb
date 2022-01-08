@@ -22,8 +22,16 @@ module Decidim
         context "when the id method returns a string" do
           let(:id_value) { "abc-123" }
 
-          it "returns the id of the value as string" do
-            expect(subject).to eq("abc-123")
+          it "returns the id of the value converted to integer" do
+            expect(subject).to eq(0)
+          end
+
+          context "and the string can be converted to integer" do
+            let(:id_value) { "123" }
+
+            it "returns the id of the value converted to integer" do
+              expect(subject).to eq(123)
+            end
           end
         end
       end
