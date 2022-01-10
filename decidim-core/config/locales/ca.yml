@@ -76,6 +76,33 @@ ca:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: al voltant d’1 hora
+        other: al voltant de %{count} hores
+      about_x_months:
+        one: al voltant d’1 mes
+        other: al voltant de %{count} mesos
+      half_a_minute: mig minut
+      less_than_x_minutes:
+        one: menys d’un minut
+        other: menys de %{count} minuts
+      less_than_x_seconds:
+        one: ara mateix
+        other: menys de %{count} segons
+      x_days:
+        one: fa 1 dia
+        other: "fa %{count} dies"
+      x_hours:
+        one: fa 1 hora
+        other: "fa %{count} hores"
+      x_minutes:
+        one: fa 1 minut
+        other: "fa %{count} minuts"
+      x_seconds:
+        one: fa 1 segon
+        other: "fa %{count} segons"
   decidim:
     accessibility:
       external_link: Enllaç extern
@@ -504,6 +531,11 @@ ca:
           this_application_will_not_be_able_to: 'Aquesta aplicació no podrà:'
           update_profile: Actualitza el teu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vol utilitzar el teu compte"
+    editor_images:
+      create:
+        error: S'ha produït un error en pujar la imatge
+        success: La imatge s'ha pujat correctament
+      drag_and_drop_help: Afegeix imatges arrossegant-les i deixant-les anar o bé enganxant-les.
     endorsable:
       endorsements: Adhesions
       endorsements_count: Número d'adhesions
