@@ -76,6 +76,15 @@ es:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadamente 1 hora
+        other: aproximadamente %{count} horas
+      about_x_months:
+        one: aproximadamente 1 mes
+        other: aproximadamente %{count} meses
+      half_a_minute: medio minuto
   decidim:
     accessibility:
       external_link: Enlace externo
