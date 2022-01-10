@@ -253,6 +253,7 @@ ca:
             title: Elecció creada
             trustees: Garants
           key_ceremony:
+            continue: Continuar
             title: Cerimònia de claus
           key_ceremony_ended:
             errors:
@@ -273,7 +274,14 @@ ca:
             submit: Enviar
             title: Resultats publicats
           tally:
+            continue: Continuar
+            invalid: S'ha produït un error en notificar l'absència de la garant
+            mark_as_missing: Marcar com absent
+            mark_as_missing_description: Totes les garants haurien de participar en aquest procés, però si una garant no en pot prendre part, la pots marcar com a absent.
+            success: La notificació d'absència de la garant ha estat enviada correctament
+            tally_completion: El procés es completarà quan totes les garants estiguin actives o marcades com a absents. Fan falta com un mínim de %{quorum} garant per a completar el procés.
             title: Procés de recompte
+            undo_mark_as_missing: Una garant marcada com a absent per error podrà participar abans de la finalització del procés. Pot actuar com de costum i la seva absència serà ignorada.
           tally_ended:
             answer: Resposta
             not_selected: No seleccionat
@@ -324,6 +332,18 @@ ca:
           update:
             invalid: S'ha produït un error en actualitzar el garant %{trustee}
             success: El garant %{trustee} s'ha actualitzat correctament
+      admin_log:
+        election:
+          create: "%{user_name} ha creat l'elecció %{resource_name} de %{space_name}"
+          delete: "%{user_name} ha eliminat l'elecció %{resource_name} de %{space_name}"
+          end_vote: "%{user_name} ha tancat el període de votació per a l'elecció %{resource_name} de %{space_name}"
+          publish: "%{user_name} ha publicat l'elecció %{resource_name} de %{space_name}"
+          publish_results: "%{user_name} ha publicat els resultats de l'elecció %{resource_name} de %{space_name}"
+          report_missing_trustee: "%{user_name} ha notificat %{trustee_name} com a absent durant el recompte de les eleccions %{resource_name} de %{space_name}"
+          setup: "%{user_name} ha creat l'elecció %{resource_name} a %{space_name}"
+          start_key_ceremony: "%{user_name} ha iniciat la cerimònia de claus per l'elecció %{resource_name} de %{space_name}"
+          start_tally: "%{user_name} ha iniciat el recompte de l'elecció %{resource_name} de %{space_name}"
+          start_vote: "%{user_name} ha iniciat el període de votació per a l'elecció %{resource_name} a %{space_name}"
       election_m:
         badge_name:
           finished: Acabada
