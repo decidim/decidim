@@ -116,7 +116,11 @@ types = {
   "Developer improvements" => {
     label: "target: developer-experience",
     skip_modules: true
-  }
+  },
+  "Internal" => {
+    label: "type: internal",
+    skip_modules: false
+  },
 }
 
 types.each do |type_title, type_data|
