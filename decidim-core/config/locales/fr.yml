@@ -1038,7 +1038,7 @@ fr:
     notifications_settings:
       show:
         administrators: Administrateurs
-        allow_public_contact: Permettre à n'importe quoi de m'envoyer un message direct, même si je ne les suis pas.
+        allow_public_contact: Permettre à quelqu'un de m'envoyer un message direct, même si je ne les suis pas.
         direct_messages: Recevoir des messages directs de n'importe qui
         email_on_moderations: Je veux recevoir un email chaque fois que quelque chose est signalé pour modération.
         email_on_notification: Je souhaite recevoir un email à chaque fois que je reçois une notification.
