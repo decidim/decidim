@@ -42,6 +42,10 @@ ca:
         type_of_meeting: Tipus
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Aquesta adreça URL no es pot incrustar a la pàgina de la trobada o de l'esdeveniment en directe
         meeting_agenda:
           attributes:
             base:
@@ -278,6 +282,9 @@ ca:
           edit:
             close: Tancar
             title: Tancar trobada
+        meeting_copies:
+          form:
+            select_a_meeting_type: Si us plau, selecciona un tipus de trobada
         meetings:
           close:
             invalid: S'ha produït un error en tancar aquesta trobada
@@ -305,6 +312,8 @@ ca:
             registration_url_help: 'Enllaç: permetre a les participants anar al servei extern que estàs utilitzant per a les inscripcions'
             select_a_meeting_type: Si us plau selecciona un tipus de trobada
             select_a_registration_type: Si us plau selecciona un tipus d'inscripció
+            select_an_iframe_access_level: Si us plau, selecciona el nivell d'accés a l'iframe
+            show_embedded_iframe_help: Només uns quants serveis es poden incrustar a una trobada o esdeveniment en directe (YouTube, Twitch i Jitsi)
           index:
             title: Trobades
           new:
@@ -374,6 +383,13 @@ ca:
           value_types:
             organizer_presenter:
               not_found: 'L''organitzador no s''ha trobat a la base de dades (identificació: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Totes
+        filter_meeting_space_values:
+          all: Totes
+        filter_scope_values:
+          all: Totes
       calendar_modal:
         calendar_url: URL del calendari
         close_window: Tanca la finestra
@@ -381,12 +397,23 @@ ca:
       conference_venues: Seus de les jornades
       content_blocks:
         upcoming_meetings:
+          name: Properes trobades
+          upcoming_meetings: Properes trobades
           view_all_meetings: Veure-ho tot
       directory:
         meetings:
           index:
             meetings: Trobades
             space_type: Espai participatiu
+      iframe_access_level:
+        all: Totes les visites
+        registered: Participants inscrites a aquesta trobada
+        signed_in: Només participants registrades
+      iframe_embed_type:
+        embed_in_meeting_page: Incrustar a la pàgina de la trobada
+        none: Cap
+        open_in_live_event_page: Obrir a la pàgina de l'esdeveniment en directe (amb opció d'enquestes)
+        open_in_new_tab: Obrir en una nova pestanya
       last_activity:
         meeting_updated_at_html: "<span>Trobada actualitzada el %{link}</span>"
         new_meeting_at_html: "<span>Nova trobada a %{link}</span>"
@@ -469,8 +496,14 @@ ca:
           select_a_category: Si us plau, selecciona una categoria
           select_a_meeting_type: Si us plau selecciona un tipus de trobada
           select_a_registration_type: Si us plau selecciona un tipus d'inscripció
+          select_an_iframe_access_level: Si us plau, selecciona el nivell d'accés a l'iframe
+          show_embedded_iframe_help: Només uns quants serveis es poden incrustar a una trobada o esdeveniment en directe (YouTube, Twitch i Jitsi)
         index:
+          click_here: Veure totes les trobades
           new_meeting: Nova trobada
+          see_all: Veure totes les trobades
+          see_all_withdrawn: Veure totes les trobades cancel·lades
+          text_banner: Estàs veient un llistat de trobades cancel·lades per les seves autores. %{go_back_link}.
         meeting_minutes:
           related_information: Informació relacionada
         meetings:
@@ -511,6 +544,9 @@ ca:
             other: "%{count} places restants"
           view: Veure
           visit_finished: Veure trobada passada
+          withdraw_btn_hint: Pots cancel·lar la teva trobada si canvies de parer. La trobada no s'elimina, apareixerà al llistat de trobades cancel·lades.
+          withdraw_confirmation_html: Segur que vols cancel·lar aquesta trobada?<br><br><strong>Aquesta acció no es pot desfer!</strong>
+          withdraw_meeting: Cancel·lar trobada
         update:
           invalid: Hi ha hagut un problema en actualitzar aquesta trobada.
           success: Has actualitzat la trobada amb èxit.
@@ -588,6 +624,7 @@ ca:
       types:
         private_meeting: Trobada privada
         transparent: Transparent
+        withdraw: Cancel·lada
       versions:
         back_to_resource: Tornar a la trobada
     metrics:
