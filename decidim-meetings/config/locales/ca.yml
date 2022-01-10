@@ -627,6 +627,9 @@ ca:
         withdraw: Cancel·lada
       versions:
         back_to_resource: Tornar a la trobada
+      withdraw:
+        error: S'ha produït un error al cancel·lar la trobada
+        success: La trobada s'ha cancel·lat correctament
     metrics:
       meetings:
         description: Nombre de trobades creades
