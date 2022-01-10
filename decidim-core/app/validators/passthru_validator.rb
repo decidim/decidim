@@ -31,12 +31,10 @@ class PassthruValidator < ActiveModel::EachValidator
     if dummy.respond_to? dummy_attr
       dummy.public_send("#{dummy_attr}=", value)
       value = dummy.public_send(dummy_attr)
+    elsif dummy.respond_to? :file
+      dummy.public_send("file=", value)
+      value = dummy.public_send(:file)
     end
-    # else
-    #   # IM NOT SURE ABOUT THIS HACK, USED BECAUSE NEWSLETTER ATTACHMENTS ARE WEIRD
-    #   dummy.public_send("file=", value)
-    #   value = dummy.public_send(:file)
-    # end
 
     target_validators(attribute).each do |validator|
       next unless validator.is_a?(ActiveModel::EachValidator)

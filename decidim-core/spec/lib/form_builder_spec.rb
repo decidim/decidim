@@ -621,7 +621,7 @@ module Decidim
         }
       end
       let(:output) do
-        builder.upload :image, attributes
+        builder.upload(:image, attributes)
       end
 
       before do
@@ -643,6 +643,7 @@ module Decidim
         let(:image?) { true }
 
         context "and it is not present but uploader has default url" do
+          let(:file) { nil }
           let(:uploader) { Decidim::AvatarUploader }
 
           it "renders the 'Default image' label" do
@@ -665,12 +666,18 @@ module Decidim
 
       context "when it is not an image" do
         let(:filename) { "my_file.pdf" }
+        let(:blob) do
+          ActiveStorage::Blob.create_after_upload!(
+            io: File.open(Decidim::Dev.asset("Exampledocument.pdf")),
+            filename: filename
+          )
+        end
 
         context "and it is present" do
           let(:present?) { true }
 
-          it "renders the 'Current file' label" do
-            expect(output).to include("Current file")
+          it "renders the filename" do
+            expect(output).to include(%(<a href="#{url}">#{filename}</a>))
           end
 
           it "doesn't render an image tag" do
@@ -686,31 +693,31 @@ module Decidim
       context "when the file is present" do
         let(:present?) { true }
 
-        it "renders the delete checkbox" do
-          expect(parsed.css('input[type="checkbox"]')).not_to be_empty
+        it "renders the remove button" do
+          expect(parsed.css("button.remove-attachment")).not_to be_empty
         end
 
         context "when the optional argument is false" do
           let(:optional) { false }
 
-          it "doesn't render the delete checkbox" do
-            expect(parsed.css('input[type="checkbox"]')).to be_empty
+          it "doesn't render the remove button" do
+            expect(parsed.css("button.remove-attachment")).to be_empty
           end
         end
       end
 
-      context "when :dimensions_info is passed as option" do
-        let(:attributes) { { dimensions_info: { medium: { processor: :resize_to_fit, dimensions: [100, 100] } } } }
-        let(:output) { builder.upload :image, attributes }
+      # context "when :dimensions_info is passed as option" do
+      #   let(:attributes) { { dimensions_info: { medium: { processor: :resize_to_fit, dimensions: [100, 100] } } } }
+      #   let(:output) { builder.upload :image, attributes }
 
-        it "renders help message" do
-          html = output
-          expect(html).to include("<span>This image will be:</span>")
-          expect(html).to include("<span>Resized to fit</span>")
-          expect(html).to include("<b>100 x 100 px</b>")
-          expect(parsed.css("p.help-text")).not_to be_empty
-        end
-      end
+      #   it "renders help message" do
+      #     html = output
+      #     expect(html).to include("<span>This image will be:</span>")
+      #     expect(html).to include("<span>Resized to fit</span>")
+      #     expect(html).to include("<b>100 x 100 px</b>")
+      #     expect(parsed.css("p.help-text")).not_to be_empty
+      #   end
+      # end
 
       context "when :help_i18n_scope is passed as option" do
         let(:attributes) { { help_i18n_scope: "custom.scope" } }
@@ -718,7 +725,9 @@ module Decidim
 
         it "renders calls I18n.t() with the correct scope" do
           # Upload help messages
-          expect(I18n).to receive(:t).with("explanation", scope: "custom.scope")
+          expect(I18n).to receive(:t).with("explanation", scope: "custom.scope", attribute: :image)
+          expect(I18n).to receive(:t).with("decidim.forms.upload.labels.add_image")
+          expect(I18n).to receive(:t).with("decidim.forms.upload.labels.replace")
           expect(I18n).to receive(:t).with("message_1", scope: "custom.scope")
           expect(I18n).to receive(:t).with("message_2", scope: "custom.scope")
           output
@@ -731,7 +740,9 @@ module Decidim
 
         it "renders calls I18n.t() with the correct messages" do
           # Upload help messages
-          expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.file_help.file")
+          expect(I18n).to receive(:t).with("decidim.forms.upload.labels.add_image")
+          expect(I18n).to receive(:t).with("decidim.forms.upload.labels.replace")
+          expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.upload_help", attribute: :image)
           expect(I18n).to receive(:t).with("message_1", scope: "decidim.forms.file_help.file")
           expect(I18n).to receive(:t).with("message_2", scope: "decidim.forms.file_help.file")
           expect(I18n).to receive(:t).with("message_3", scope: "decidim.forms.file_help.file")
@@ -744,7 +755,8 @@ module Decidim
 
           it "renders calls I18n.t() with the correct messages" do
             # Upload help messages
-            expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.file_help.file")
+
+            expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.upload_help", attribute: :image)
             expect(I18n).to receive(:t).with("message_1", scope: "decidim.forms.file_help.file")
             expect(I18n).not_to receive(:t).with("message_2", scope: "decidim.forms.file_help.file")
             output

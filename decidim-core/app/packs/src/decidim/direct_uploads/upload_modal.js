@@ -3,15 +3,17 @@ import { Uploader } from "src/decidim/direct_uploads/uploader";
 export default class UploadModal {
   constructor(button, options = {}) {
     this.button = button;
-    this.options = options;
-    this.modal = document.querySelector(`#${button.dataset.open}`);
-    this.resourceName = button.dataset.resourceName;
-    this.resourceClass = button.dataset.resourceClass;
-    this.maxFileSize = button.dataset.maxFileSize;
-    this.attachmentCounter = 0;
+    this.options = Object.assign({
+      resourceName: button.dataset.resourceName,
+      resourceClass: button.dataset.resourceClass,
+      optional: this.button.dataset.optional === "true",
+      multiple: this.button.dataset.multiple === "true",
+      titled: this.button.dataset.titled === "true",
+      maxFileSize: button.dataset.maxFileSize
+    }, options)
     this.name = this.button.name;
-    this.multiple = this.button.dataset.multiple === "true";
-    this.titled = this.button.dataset.titled === "true";
+    this.modal = document.querySelector(`#${button.dataset.open}`);
+    this.attachmentCounter = 0;
     this.dropZoneEnabled = true;
     this.modalTitle = this.modal.querySelector(".reveal__title");
 
@@ -23,7 +25,6 @@ export default class UploadModal {
 
     this.uploadContainer = document.querySelector(`.upload-container-for-${this.name}`);
     this.activeAttachments = this.uploadContainer.querySelector(".active-attachments");
-    this.removeButton = this.uploadContainer.querySelector("button.remove-attachment");
     this.trashCan = this.createTrashCan();
   }
 
@@ -61,26 +62,26 @@ export default class UploadModal {
         const hiddenBlobField = document.createElement("input");
         hiddenBlobField.setAttribute("type", "hidden");
         hiddenBlobField.setAttribute("value", blob.signed_id);
-        if (this.titled) {
-          hiddenBlobField.name = `${this.resourceName}[${this.addAttribute}][${ordinalNumber}][file]`;
+        if (this.options.titled) {
+          hiddenBlobField.name = `${this.options.resourceName}[${this.addAttribute}][${ordinalNumber}][file]`;
         } else {
-          hiddenBlobField.name = `${this.resourceName}[${this.addAttribute}]`;
+          hiddenBlobField.name = `${this.options.resourceName}[${this.addAttribute}]`;
         }
 
-        if (this.titled) {
+        if (this.options.titled) {
           const title = file.name.split(".")[0];
           const hiddenTitleField = document.createElement("input");
           hiddenTitleField.classList.add("hidden-title");
           hiddenTitleField.setAttribute("type", "hidden");
           hiddenTitleField.setAttribute("value", title);
-          hiddenTitleField.name = `${this.resourceName}[${this.addAttribute}][${ordinalNumber}][title]`;
+          hiddenTitleField.name = `${this.options.resourceName}[${this.addAttribute}][${ordinalNumber}][title]`;
           titleAndFileNameSpan.innerHTML = `${title} (${file.name})`;
           attachmentDetails.appendChild(hiddenTitleField);
         } else {
           titleAndFileNameSpan.innerHTML = file.name;
         }
 
-        if (!this.multiple) {
+        if (!this.options.multiple) {
           this.cleanTrashCan();
         }
 
@@ -94,7 +95,7 @@ export default class UploadModal {
   }
 
   updateDropZone() {
-    if (this.multiple) {
+    if (this.options.multiple) {
       return;
     }
 
@@ -141,7 +142,7 @@ export default class UploadModal {
     progressBarWrapper.appendChild(progressBarBorder);
 
     let tileInputContainer = null;
-    if (this.titled) {
+    if (this.options.titled) {
       const titleInput = document.createElement("input");
       titleInput.type = "text";
       titleInput.value = title;
@@ -168,7 +169,7 @@ export default class UploadModal {
     firstRow.appendChild(fileNameSpan);
 
     secondRow.appendChild(progressBarWrapper);
-    if (this.titled) {
+    if (this.options.titled) {
       const titleSpan = document.createElement("span");
       titleSpan.innerHTML = "Title";
 

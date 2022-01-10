@@ -79,20 +79,23 @@ const addSaveButtonEventListener = (um) => {
 }
 
 const addRemoveButtonEventListener = (um) => {
-  if (um.titled) {
+  if (um.options.titled || !um.options.optional) {
     return;
   }
 
+  const removeButton = um.uploadContainer.querySelector("button.remove-attachment");
+
   if (um.activeAttachments.children.length === 0) {
-    um.removeButton.parentElement.style.display = "none";
+    removeButton.parentElement.style.display = "none";
   }
 
-  um.removeButton.addEventListener("click", (event) => {
+  removeButton.addEventListener("click", (event) => {
     event.preventDefault();
+    console.log("klik")
 
-    um.removeButton.parentElement.style.display = "none";
+    removeButton.parentElement.style.display = "none";
     um.uploadItems.innerHTML = "";
-    um.activeAttachments.innerHTML = `<input name='${um.resourceName}[remove_${um.name}]' type="hidden" value="true">`;
+    um.activeAttachments.innerHTML = `<input name='${um.options.resourceName}[remove_${um.name}]' type="hidden" value="true">`;
   })
 }
 

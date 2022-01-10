@@ -7,7 +7,7 @@ export class Uploader {
     this.progressBar = uploadItem.querySelector(".progress-bar");
     this.validationSent = false;
     this.fileTooBig = false;
-    if (modal.maxFileSize && options.file.size > modal.maxFileSize) {
+    if (modal.options.maxFileSize && options.file.size > modal.options.maxFileSize) {
       this.fileTooBig = true;
       this.showError([modal.locales.file_too_big]);
     } else {
@@ -46,12 +46,12 @@ export class Uploader {
 
     if (!this.validationSent) {
       let attribute = this.modal.addAttribute;
-      if (this.modal.titled) {
+      if (this.modal.options.titled) {
         attribute = "file"
       }
 
       const params = new URLSearchParams({
-        resource: this.modal.resourceClass,
+        resource: this.modal.options.resourceClass,
         attribute: attribute,
         blob: blobId
       });

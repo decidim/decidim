@@ -6,7 +6,15 @@
         <% next if attachment.is_a? Array %>
 
         <div class="attachment-details" data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded">
-          <span><%= title_for(attachment) %> <%= file_name_for(attachment) %></span>
+          <% if has_title? %>
+            <span><%= title_for(attachment) %> <%= file_name_for(attachment) %></span>
+          <% else %>
+            <% if blob(attachment).image? %>
+              <span><%= file_name_for(attachment) %></span>
+            <% else %>
+              <%= link_to file_name_for(attachment), file_attachment_path(attachment) %>
+            <% end %>
+          <% end %>
         </div>
       <% end %>
     </div>
@@ -18,12 +26,13 @@
         open: modal_id,
         resource_name: resource_name,
         resource_class: resource_class,
+        optional: optional,
         max_file_size: max_file_size,
         multiple: multiple,
         titled: has_title?
       }
     %>
-    <% if !has_title? %>
+    <% if !has_title? && optional %>
       <div class="remove-attachment" id="attachment_<%= id_for(attachments.first) %>" data-closable>
         <button class="remove-attachment"
               aria-label="<%= t("remove_this_file", scope: "decidim.forms") %>"
@@ -35,9 +44,12 @@
     <% end %>
   </div>
 
-  <% if !has_title? && file_attachment_path(attachments.first) %>
+  <% if !has_title? && file_attachment_path(attachments.first) && blob(attachments.first).image? %>
     <strong><%= attachment_label %></strong>
     <%= link_to image_tag(file_attachment_path(attachments.first), alt: attribute), file_attachment_path(attachments.first) %>
+  <% elsif !has_title? && uploader_default_image_path(attribute).present? %>
+      <span><%= t("default_image", scope: "decidim.forms") %></span>
+      <%= image_tag uploader_default_image_path(attribute) %>
   <% end %>
 </div>
 
@@ -53,7 +65,7 @@
   </div>
 
   <div class="help">
-    <span><%= t("decidim.forms.upload_help.guidance", attribute: attribute) %></span>
+    <span><%= explanation %></span>
     <ul>
       <% help_messages.each do |message| %>
         <li><%= message %></li>

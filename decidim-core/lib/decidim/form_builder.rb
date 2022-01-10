@@ -413,6 +413,7 @@ module Decidim
         attribute: attribute,
         resource_name: @object_name,
         resource_class: resource_class(attribute, options).to_s,
+        optional: true,
         titled: false,
         show_current: true,
         max_file_size: max_file_size,
@@ -426,7 +427,7 @@ module Decidim
         "decidim/upload_modal",
         self,
         options
-      )
+      ).call
     end
 
     def resource_class(attribute, options = {})
@@ -435,7 +436,10 @@ module Decidim
 
         return options[:resource_class]
       end
-      return object._validators[attribute][0].options[:to] if object._validators[attribute].is_a?(Array) && object._validators[attribute].size.positive?
+      if object._validators[attribute].is_a?(Array) && object._validators[attribute].size.positive?
+        return object._validators[attribute][0].options[:to] if object._validators[attribute][0].options[:to].present?
+        return object.send(attribute).record.class if object.send(attribute)&.record.present?
+      end
 
       object.class
     end
@@ -445,8 +449,9 @@ module Decidim
     end
 
     def deduce_button_label(attribute)
-      # if object.send(attribute).present? && object.send(attribute).record.attached_config[attribute].uploader <= Decidim::ImageUploader
-      return I18n.t("decidim.forms.upload.labels.add_image") if resource_class(attribute).attached_config[attribute].uploader <= Decidim::ImageUploader
+      if resource_class(attribute).attached_config[attribute] && resource_class(attribute).attached_config[attribute].uploader <= Decidim::ImageUploader
+        return I18n.t("decidim.forms.upload.labels.add_image")
+      end
 
       I18n.t("decidim.forms.upload.labels.add_file")
     end

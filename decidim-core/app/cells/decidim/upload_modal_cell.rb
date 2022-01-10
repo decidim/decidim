@@ -61,6 +61,16 @@ module Decidim
       options[:multiple] || false
     end
 
+    def optional
+      options[:optional]
+    end
+
+    def explanation
+      return I18n.t("explanation", scope: options[:help_i18n_scope], attribute: attribute) if options[:help_i18n_scope].present?
+
+      I18n.t("explanation", scope: "decidim.forms.upload_help", attribute: attribute)
+    end
+
     def add_attribute
       return "add_#{attribute}" if form.object.respond_to? "add_#{attribute}"
 
@@ -74,8 +84,6 @@ module Decidim
     def with_title
       "with-title" if has_title?
     end
-
-
 
     def attachment_label
       return I18n.t("current_image", scope: "decidim.forms") if attachments.count.positive? && file_attachment_path(attachments.first).present?
@@ -108,9 +116,7 @@ module Decidim
 
     def file_name_for(attachment)
       filename = begin
-        return attachment.file.blob.filename.sanitized if attachment.respond_to? :file
-        return attachment.blob.filename.sanitized if attachment.respond_to? :blob
-        return blob.filename if attachment.is_a?(Array) || attachment.is_a?(ActiveStorage::Blob)
+        return blob(attachment).filename if blob(attachment).present?
 
         attachment.url.split("/").last
       end
@@ -120,11 +126,11 @@ module Decidim
       filename
     end
 
-    def file_attachment_path(file)
-      return unless file
+    def file_attachment_path(attachment)
+      return unless attachment
 
-      if file.try(:attached?)
-        attachment_path = Rails.application.routes.url_helpers&.rails_blob_url(file.blob, only_path: true)
+      if attachment.try(:attached?)
+        attachment_path = Rails.application.routes.url_helpers&.rails_blob_url(attachment.blob, only_path: true)
         return attachment_path if attachment_path.present?
       end
 
@@ -139,16 +145,10 @@ module Decidim
       uploader.try(:default_url)
     end
 
-    def blob
-      @blob ||= begin
-        return ActiveStorage::Blob.find_signed(current_file) if current_file.is_a? String
-
-        current_file.blob
-      end
-    end
-
-    def current_file
-      form.object.send(attribute)
+    def blob(attachment)
+      return ActiveStorage::Blob.find_signed(attachment) if attachment.is_a? String
+      return attachment.file.blob if attachment.is_a? Decidim::Attachment
+      return attachment.blob if attachment.respond_to? :blob
     end
 
     def modal_id

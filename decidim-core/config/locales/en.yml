@@ -781,7 +781,7 @@ en:
           validation_error: Validation error!
       upload_help:
         dropzone: Drop files here or click to upload
-        guidance: Guidance for %{attribute}
+        explanation: Guidance for %{attribute}
     gamification:
       all_badges_link: See all available badges.
       badges:
