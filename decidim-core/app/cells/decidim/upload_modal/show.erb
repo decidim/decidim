@@ -4,6 +4,7 @@
     <div class="active-attachments">
       <% attachments.each do |attachment| %>
         <% next if attachment.is_a? Array %>
+
         <div class="attachment-details" data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded">
           <span><%= title_for(attachment) %> <%= file_name_for(attachment) %></span>
         </div>
@@ -23,7 +24,7 @@
       }
     %>
     <% if !has_title? %>
-      <div class="remove-attachment" id="attachment_<%= attachments.first&.id %>" data-closable>
+      <div class="remove-attachment" id="attachment_<%= id_for(attachments.first) %>" data-closable>
         <button class="remove-attachment"
               aria-label="<%= t("remove_this_file", scope: "decidim.forms") %>"
               title="<%= t("remove_this_file", scope: "decidim.forms") %>"

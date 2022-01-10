@@ -44,10 +44,16 @@ describe "Admin manages questions", type: :system do
           en: "What is decided"
         )
         fill_in :question_slug, with: "slug"
-        attach_file :question_hero_image, image2_path
-        attach_file :question_banner_image, image1_path
-        scope_pick select_data_picker(:question_decidim_scope_id), organization.scopes.first
 
+        scope_pick select_data_picker(:question_decidim_scope_id), organization.scopes.first
+      end
+
+      # attach_file :question_hero_image, image2_path
+      # attach_file :question_banner_image, image1_path
+      dynamically_attach_file(:question_hero_image, image2_path)
+      dynamically_attach_file(:question_banner_image, image1_path)
+
+      within ".new_question" do
         find("*[type=submit]").click
       end
 
@@ -94,10 +100,13 @@ describe "Admin manages questions", type: :system do
           "#question-what_is_decided-tabs",
           en: "What is decided"
         )
-        attach_file :question_banner_image, image1_path
-        attach_file :question_hero_image, image2_path
         scope_pick select_data_picker(:question_decidim_scope_id), organization.scopes.first
+      end
 
+      dynamically_attach_file(:banner_image, image1_path)
+      dynamically_attach_file(:hero_image, image2_path)
+
+      within ".new_question" do
         find("*[type=submit]").click
       end
 

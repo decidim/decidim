@@ -406,13 +406,13 @@ module Decidim
     end
 
     def upload(attribute, options = {})
-      resource_class = options[:resource_class] || object.send(attribute)&.record&.class&.to_s || "Decidim::Attachment"
+      self.multipart = true
       max_file_size = options[:max_file_size] || max_file_size(attribute)
       button_label = options[:button_label] || deduce_button_label(attribute)
       options = {
         attribute: attribute,
         resource_name: @object_name,
-        resource_class: resource_class,
+        resource_class: resource_class(attribute, options).to_s,
         titled: false,
         show_current: true,
         max_file_size: max_file_size,
@@ -429,14 +429,24 @@ module Decidim
       )
     end
 
+    def resource_class(attribute, options = {})
+      if options[:resource_class].present?
+        return options[:resource_class].constantize if options[:resource_class].is_a? String
+
+        return options[:resource_class]
+      end
+      return object._validators[attribute][0].options[:to] if object._validators[attribute].is_a?(Array) && object._validators[attribute].size.positive?
+
+      object.class
+    end
+
     def max_file_size(attribute)
       Decidim::FileValidatorHumanizer.new(object, attribute).max_file_size
     end
 
     def deduce_button_label(attribute)
-      if object.send(attribute).present? && object.send(attribute).record.attached_config[attribute].uploader <= Decidim::ImageUploader
-        return I18n.t("decidim.forms.upload.labels.add_image")
-      end
+      # if object.send(attribute).present? && object.send(attribute).record.attached_config[attribute].uploader <= Decidim::ImageUploader
+      return I18n.t("decidim.forms.upload.labels.add_image") if resource_class(attribute).attached_config[attribute].uploader <= Decidim::ImageUploader
 
       I18n.t("decidim.forms.upload.labels.add_file")
     end

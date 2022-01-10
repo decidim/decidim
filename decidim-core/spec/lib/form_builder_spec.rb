@@ -18,6 +18,14 @@ module Decidim
           ActiveModel::Name.new(self, nil, "dummy")
         end
 
+        def self.attached_config
+          attached_config = OpenStruct.new
+          attached_config.uploader = Decidim::ImageUploader
+          {
+            image: attached_config
+          }
+        end
+
         extend ActiveModel::Translation
         include ActiveModel::Model
         include Virtus.model

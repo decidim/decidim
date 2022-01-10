@@ -75,9 +75,7 @@ module Decidim
       "with-title" if has_title?
     end
 
-    # def current_file
-    #   form.object.send(attribute)
-    # end
+
 
     def attachment_label
       return I18n.t("current_image", scope: "decidim.forms") if attachments.count.positive? && file_attachment_path(attachments.first).present?
@@ -92,8 +90,14 @@ module Decidim
     def attachments
       @attachments = begin
         attachments = options[:attachments] || form.object.send(attribute)
-        Array(attachments)
+        Array(attachments).map { |a| a.is_a?(String) ? ActiveStorage::Blob.find_signed(a) : a }
       end
+    end
+
+    def id_for(attachment)
+      return attachment.id if attachment.respond_to? :id
+
+      rand(1..10_000)
     end
 
     def title_for(attachment)
@@ -106,7 +110,7 @@ module Decidim
       filename = begin
         return attachment.file.blob.filename.sanitized if attachment.respond_to? :file
         return attachment.blob.filename.sanitized if attachment.respond_to? :blob
-        return blob.filename if attachment.is_a? Array
+        return blob.filename if attachment.is_a?(Array) || attachment.is_a?(ActiveStorage::Blob)
 
         attachment.url.split("/").last
       end
@@ -136,7 +140,15 @@ module Decidim
     end
 
     def blob
-      @blob ||= current_file.blob
+      @blob ||= begin
+        return ActiveStorage::Blob.find_signed(current_file) if current_file.is_a? String
+
+        current_file.blob
+      end
+    end
+
+    def current_file
+      form.object.send(attribute)
     end
 
     def modal_id

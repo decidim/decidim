@@ -6,11 +6,11 @@ module Capybara
   module UploadModal
     # Replaces attach_file.
     # Beware that modal does not open within form!
-    def dynamically_attach_file(value, file_name)
+    def dynamically_attach_file(value, file_location)
       find("##{value}").click
 
       within ".attachment-modal" do
-        attach_file Decidim::Dev.asset(file_name) do
+        attach_file file_location do
           find(".dropzone").click
         end
         expect(page).to have_content("Uploaded")
