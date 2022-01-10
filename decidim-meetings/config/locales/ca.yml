@@ -282,6 +282,9 @@ ca:
           edit:
             close: Tancar
             title: Tancar trobada
+        meeting_copies:
+          form:
+            select_a_meeting_type: Si us plau, selecciona un tipus de trobada
         meetings:
           close:
             invalid: S'ha produït un error en tancar aquesta trobada
