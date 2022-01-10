@@ -453,9 +453,9 @@ ca:
         error: S'ha produït un error durant la importació
         new:
           accepted_mime_types:
-            csv: csv
-            json: json
-            xlsx: xlsx
+            csv: CSV
+            json: JSON
+            xlsx: Excel (.xlsx)
           actions:
             back: Tornar
           file_legend: Afegir un arxiu d'importació que serà processat.
