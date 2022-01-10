@@ -132,6 +132,7 @@ es:
       new_import:
         attributes:
           file:
+            invalid_file: El archivo proporcionado no es válido, por favor comprueba que el archivo está correctamente formateado
             invalid_mime_type: Tipo de mime inválido
   activerecord:
     attributes:
@@ -366,6 +367,9 @@ es:
           values:
             'false': 'No'
             'true': 'Sí'
+        moderated_users:
+          reports_reason_eq:
+            label: Motivo de la denuncia
         moderations:
           reportable_type_string_eq:
             label: Tipo
@@ -453,9 +457,9 @@ es:
         error: Se ha producido un error durante la importación
         new:
           accepted_mime_types:
-            csv: csv
-            json: json
-            xlsx: xlsx
+            csv: CSV
+            json: JSON
+            xlsx: Excel (.xlsx)
           actions:
             back: Volver
           file_legend: Añadir un archivo de importación que será procesado.
