@@ -694,6 +694,7 @@ es:
       no_followers: Aún no hay seguidores.
     following:
       no_followings: No sigue a nadie ni a ninguna actividad.
+      non_public_followings: Algunos de los recursos seguidos no son públicos.
     follows:
       create:
         button: Seguir
@@ -966,6 +967,7 @@ es:
         show:
           back: Volver a todas las conversaciones
           chat_with: Conversación con
+          deleted_accounts: No puedes tener una conversación con cuentas borradas.
           not_allowed: Esta participante no acepta mensajes directos.
           title: Conversación con %{usernames}
         start:
@@ -1330,6 +1332,7 @@ es:
         title_reply: Responder
       show:
         back: Ver todas las conversaciones
+        deleted_accounts: No puedes tener una conversación con cuentas borradas.
         not_allowed: Esta participante no acepta mensajes directos.
         title: Conversación con %{usernames}
       update:

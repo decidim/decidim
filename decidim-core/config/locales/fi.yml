@@ -969,6 +969,7 @@ fi:
         show:
           back: Takaisin kaikkiin keskusteluihin
           chat_with: Keskustelu osallistujien kanssa
+          deleted_accounts: Et voi keskustella poistettujen käyttäjätilien kanssa.
           not_allowed: Tämä osallistuja ei halua vastaanottaa yksityisviestejä.
           title: 'Keskustelu: %{usernames}'
         start:
@@ -1333,6 +1334,7 @@ fi:
         title_reply: Vastaa
       show:
         back: Näytä kaikki keskustelut
+        deleted_accounts: Et voi keskustella poistettujen käyttäjätilien kanssa.
         not_allowed: Tämä käyttäjä ei ole sallinut yksityisviestejä muilta käyttäjiltä.
         title: 'Keskustelu: %{usernames}'
       update:

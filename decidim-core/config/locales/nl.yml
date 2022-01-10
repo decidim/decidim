@@ -677,6 +677,7 @@ nl:
       no_followers: Nog geen volgers.
     following:
       no_followings: Volgt nog niets of niemand.
+      non_public_followings: Sommige van de gevolgde bronnen zijn niet openbaar.
     follows:
       create:
         button: Volgen
@@ -837,6 +838,15 @@ nl:
       index:
         last_activity: Laatste Activiteit
         resource_type: Type
+    links:
+      invalid_url: Ongeldige URL
+      warning:
+        body_1: Je staat op het punt om een externe link te bezoeken, wees voorzichtig met de inhoud van de externe site.
+        body_2: Controleer de link, zorg ervoor dat je deze herkent als een veilige site voor je verdergaat.
+        cancel: Annuleer
+        close_modal: Sluit venster
+        proceed: Doorgaan
+        title: Externe link openen
     log:
       base_presenter:
         create: "%{user_name} gemaakt %{resource_name}"
@@ -939,6 +949,7 @@ nl:
         show:
           back: Terug naar alle gesprekken
           chat_with: Gesprek met
+          deleted_accounts: Je kunt geen gesprek voeren met verwijderde accounts.
           not_allowed: Deze deelnemer aanvaardt geen rechtstreekse berichten.
           title: Gesprek met %{usernames}
         start:
@@ -1289,6 +1300,7 @@ nl:
         title_reply: Beantwoorden
       show:
         back: Toon alle gesprekken
+        deleted_accounts: Je kunt geen gesprek voeren met verwijderde accounts.
         not_allowed: Deze gebruiker accepteert geen directe berichten meer.
         title: Gesprek met %{usernames}
       update:

@@ -961,6 +961,7 @@ ja:
         show:
           back: すべての会話に戻る
           chat_with: 会話
+          deleted_accounts: 削除されたアカウントと会話することはできません。
           not_allowed: この参加者はダイレクトメッセージを受け付けません。
           title: '%{usernames} との会話'
         start:
@@ -1324,6 +1325,7 @@ ja:
         title_reply: 返信
       show:
         back: すべての会話を表示
+        deleted_accounts: 削除されたアカウントと会話することはできません。
         not_allowed: このユーザーはこれ以上のダイレクトメッセージを受け付けません。
         title: '%{usernames} との会話'
       update:

@@ -992,6 +992,7 @@ cs:
         show:
           back: Zpět ke všem konverzacím
           chat_with: Konverzace s
+          deleted_accounts: Nemůžete mít konverzaci s odstraněnými účty.
           not_allowed: Tento uživatel nepřijímá přímé zprávy.
           title: Konverzace s číslem %{usernames}
         start:
@@ -1358,6 +1359,7 @@ cs:
         title_reply: Odpovědět
       show:
         back: Zobrazit všechny konverzace
+        deleted_accounts: Nemůžete mít konverzaci s odstraněnými účty.
         not_allowed: Tento uživatel již nepřijímá žádné přímé zprávy.
         title: Konverzace s %{usernames}
       update:
