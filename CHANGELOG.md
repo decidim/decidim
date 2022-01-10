@@ -2,6 +2,9 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+## [0.26.0.rc1](https://github.com/decidim/decidim/tree/v0.26.0.rc1)
+
+### Migration notes
 #### Register assets paths
 To prevent Zeitwerk from trying to autoload classes from the `app/packs` folder, it's necesary to register these paths for each module and for the application using the method `Decidim.register_assets_path` on initializers. This is explained in the webpacker migration guides for [applications](https://github.com/decidim/decidim/blob/develop/docs/modules/develop/pages/guide_migrate_webpacker_app.adoc#help-decidim-to-know-the-applications-assets-folder) and [modules](https://github.com/decidim/decidim/blob/develop/docs/modules/develop/pages/guide_migrate_webpacker_module.adoc#help-decidim-to-know-the-modules-assets-folder)), and was implemented in [\#8449](https://github.com/decidim/decidim/pull/8449).
 
@@ -28,24 +31,217 @@ PR [\#8658](https://github.com/decidim/decidim/pull/8658) Blocked users are pres
 
 Please be aware that it could take a while if your database has a lot of Users.
 
-### Added
-* [#8012](https://github.com/decidim/decidim/pull/8012) Participatory space to comments, to fix the statistics. Use
-`rake decidim_comments:update_participatory_process_in_comments` to migrate existing comments to the new structure.
+#### Fix statistics in Comments
 
-### Changed
+As per [#8012](https://github.com/decidim/decidim/pull/8012), for fixing statistic in comments. There's a rake task that you need to run:
 
-### Fixed
-
-### Removed
-
-## Previous versions
-
-Please check [release/0.25-stable](https://github.com/decidim/decidim/blob/release/0.25-stable/CHANGELOG.md) for previous changes.
+```ruby
+rake decidim_comments:update_participatory_process_in_comments
+```
 
 #### Base64 images migration
 
-PR [\#8250](https://github.com/decidim/decidim/pull/8250) Replaces the default base64 editor images attachment with the use of ActiveStorage attachments. Also adds a task to parse all editor contents and replace existing base64 images with attachments. The task parses all the attributes which can be edited from admin using the WYSIWYG editor. The task requires an argument with the email of an admin used to create EditorImage instances. To run this task execute:
+As per [\#8250](https://github.com/decidim/decidim/pull/8250), we've replaced the default base64 editor images attachment with the use of ActiveStorage attachments. This PR also adds a task to parse all editor contents and replace existing base64 images with attachments. The task parses all the attributes which can be edited from admin using the WYSIWYG editor. The task requires an argument with the email of an admin used to create EditorImage instances. To run this task execute:
 
 ```
 rails decidim:active_storage_migrations:migrate_inline_images_to_active_storage[admin_email]
 ```
+
+### Added
+
+- **decidim-budgets**: Port decidim-budgets improvements from AjuntamentdeBarcelona/decidim [\#8249](https://github.com/decidim/decidim/pull/8249)
+- **decidim-elections**: Improve evote admin logs [\#8263](https://github.com/decidim/decidim/pull/8263)
+- **decidim-blogs**, **decidim-meetings**: Add card images to meetings and blog posts [\#8276](https://github.com/decidim/decidim/pull/8276)
+- **decidim-admin**: Align UI groups filtering with the rest of decidim  [\#8105](https://github.com/decidim/decidim/pull/8105)
+- **decidim-admin**, **decidim-proposals**: Improve error messages in admin panel [\#8193](https://github.com/decidim/decidim/pull/8193)
+- **decidim-elections**: Allow to mark trustees as missing [\#8314](https://github.com/decidim/decidim/pull/8314)
+- **decidim-admin**: Add sorting to private participants in a participatory space [\#8242](https://github.com/decidim/decidim/pull/8242)
+- **decidim-comments**: Improve control of comments in meetings and debates [\#8027](https://github.com/decidim/decidim/pull/8027)
+- **decidim-proposals**: Offer a way to see all proposals in withdrawn proposal list [\#8251](https://github.com/decidim/decidim/pull/8251)
+- **decidim-admin**, **decidim-proposals**: Configurable default order for proposals [\#8295](https://github.com/decidim/decidim/pull/8295)
+- **decidim-assemblies**: Filter assemblies by assembly type in admin [\#7153](https://github.com/decidim/decidim/pull/7153)
+- **decidim-assemblies**: Non participant assembly members avatar [\#8277](https://github.com/decidim/decidim/pull/8277)
+- **decidim-core**: Add image file upload in QuillJS editor [\#8250](https://github.com/decidim/decidim/pull/8250)
+- **decidim-meetings**: Make meeting report editable by the author in front-end [\#8209](https://github.com/decidim/decidim/pull/8209)
+- **decidim-core**: Improve dialog accessibility [\#8294](https://github.com/decidim/decidim/pull/8294)
+- **decidim-meetings**: Ability for users to withdraw their meetings [\#8248](https://github.com/decidim/decidim/pull/8248)
+- **decidim-admin**: Add colors accessibility warning in admin Appearance [\#8354](https://github.com/decidim/decidim/pull/8354)
+- **decidim-proposals**: Import proposal answers [\#8271](https://github.com/decidim/decidim/pull/8271)
+- **decidim-core**: Add more actions in QuillJS toolbar [\#8120](https://github.com/decidim/decidim/pull/8120)
+- **decidim-meetings**: Add more filter options to directory meetings page [\#8333](https://github.com/decidim/decidim/pull/8333)
+- **decidim-assemblies**, **decidim-conferences**, **decidim-participatory processes**: Add filters for Participatory process admins section [\#8106](https://github.com/decidim/decidim/pull/8106)
+- **decidim-budgets**: Show modal when user is trying to leave with pending vote [\#8387](https://github.com/decidim/decidim/pull/8387)
+- **decidim-meetings**: Meetings iframe visibility [\#8307](https://github.com/decidim/decidim/pull/8307)
+- **decidim-budgets**: Add search, filters and sorting to admin panel budget projects [\#8592](https://github.com/decidim/decidim/pull/8592)
+- **decidim-core**: Describe the notifications' time with words [\#8564](https://github.com/decidim/decidim/pull/8564)
+- **decidim-comments**, **decidim-core**: Add link to comments in Notifications [\#8607](https://github.com/decidim/decidim/pull/8607)
+- **decidim-comments**, **decidim-core**: Add full content of comments in notifications [\#8581](https://github.com/decidim/decidim/pull/8581)
+- **decidim-core**: Change colors on mobile navigation bar [\#8628](https://github.com/decidim/decidim/pull/8628)
+- **decidim-core**, **decidim-proposals**: Add author to proposals in notifications [\#8603](https://github.com/decidim/decidim/pull/8603)
+- **decidim-comments**, **decidim-core**, **decidim-meetings**, **decidim-proposals**: Allow participants to receive translated content by email [\#8174](https://github.com/decidim/decidim/pull/8174)
+- **decidim-admin**: Add search, filters, pagination and sorting to moderated users [\#8620](https://github.com/decidim/decidim/pull/8620)
+- **decidim-surveys**: Add "title and description" in surveys [\#8588](https://github.com/decidim/decidim/pull/8588)
+
+### Changed
+
+- **decidim-elections**: Validate census CSV headers [\#8264](https://github.com/decidim/decidim/pull/8264)
+- **decidim-meetings**: Improve Attendees count error handling on frontend [\#8238](https://github.com/decidim/decidim/pull/8238)
+- **decidim-core**: Disable unconfirmed access by default [\#8233](https://github.com/decidim/decidim/pull/8233)
+- **decidim-meetings**: Rename 'upcoming events' content block to 'upcoming meetings' [\#8412](https://github.com/decidim/decidim/pull/8412)
+- **decidim-core**: Change user workflows to prevent user enumeration attacks [\#8537](https://github.com/decidim/decidim/pull/8537)
+
+### Fixed
+
+- **decidim-accountability**: Fix accountability notifications proposal title [\#8240](https://github.com/decidim/decidim/pull/8240)
+- **decidim-elections**: Remove white spaces in Census [\#8262](https://github.com/decidim/decidim/pull/8262)
+- **decidim-debates**, **decidim-meetings**, **decidim-proposals**: Fix characters not encoded in title [\#8253](https://github.com/decidim/decidim/pull/8253)
+- **decidim-proposals**: Fix flaky test on proposals splitting [\#8302](https://github.com/decidim/decidim/pull/8302)
+- **decidim-core**: Fix invalid i18n values for diff changeset [\#8299](https://github.com/decidim/decidim/pull/8299)
+- **decidim-meetings**: Fix live? missing method delegation in online_meeting cell [\#8241](https://github.com/decidim/decidim/pull/8241)
+- **decidim-comments**: Fix statistics in Comments [\#8012](https://github.com/decidim/decidim/pull/8012)
+- **decidim-budgets**: Fix some explore budgets specs [\#8303](https://github.com/decidim/decidim/pull/8303)
+- **decidim-core**: Fix missing icons after CORS [\#8290](https://github.com/decidim/decidim/pull/8290)
+- **decidim-core**: Remove unnecessary spacer from external link indicator [\#8291](https://github.com/decidim/decidim/pull/8291)
+- **decidim-core**: [CVE-2021-22942] Possible Open Redirect in Host Authorization Middleware [\#8265](https://github.com/decidim/decidim/pull/8265)
+- **decidim-debates**: Fix "last comment by" when commenter is a user group [\#8279](https://github.com/decidim/decidim/pull/8279)
+- **decidim-proposals**: Similar proposal functionality breaks when the machine translation is enabled.  [\#8098](https://github.com/decidim/decidim/pull/8098)
+- **decidim-core**: Fix regex that parses users and groups references inside content. [\#8297](https://github.com/decidim/decidim/pull/8297)
+- **decidim-assemblies**: Fix birthday attribute type in Assembly Members [\#8311](https://github.com/decidim/decidim/pull/8311)
+- **decidim-comments**: Fix issues with dynamic comments polling [\#8317](https://github.com/decidim/decidim/pull/8317)
+- **decidim-assemblies**: Fix "Edit" and "View public page" in Assembly Members [\#8312](https://github.com/decidim/decidim/pull/8312)
+- **decidim-comments**: Fix "View all comments" link in single comment page [\#8308](https://github.com/decidim/decidim/pull/8308)
+- **decidim-budgets**: Fix dont allow budget exceeding in project view [\#8261](https://github.com/decidim/decidim/pull/8261)
+- **decidim-debates**: Fix title meta tag for debates [\#8323](https://github.com/decidim/decidim/pull/8323)
+- **decidim-proposals**: Fix UserAnswersSerializer for CSV exports [\#8329](https://github.com/decidim/decidim/pull/8329)
+- **decidim-admin**: Do not block registered users with InviteUserAgain [\#8268](https://github.com/decidim/decidim/pull/8268)
+- **decidim-conferences**: Fix error when accessing the meetings of a conference with speakers related  [\#8369](https://github.com/decidim/decidim/pull/8369)
+- **decidim-conferences**: Fix details on conference speakers: affiliation order, personal URL link, seeds and more info link  [\#8378](https://github.com/decidim/decidim/pull/8378)
+- **decidim-meetings**: Define localized fields in Decidim::Meetings:DiffRenderer [\#8381](https://github.com/decidim/decidim/pull/8381)
+- **decidim-core**: Include only public entities in the following page [\#8361](https://github.com/decidim/decidim/pull/8361)
+- **decidim-proposals**: Any user can access proposal's pages representing the "create a proposal" steps [\#8390](https://github.com/decidim/decidim/pull/8390)
+- **decidim-core**: Fix localized faker with single locale [\#8394](https://github.com/decidim/decidim/pull/8394)
+- **decidim-core**: Fix user activity page error message with missing username [\#8403](https://github.com/decidim/decidim/pull/8403)
+- **decidim-core**: Fix conversation with deleted account [\#8409](https://github.com/decidim/decidim/pull/8409)
+- **decidim-core**: Fix javascript exception when geocoding proposals is disabled [\#8413](https://github.com/decidim/decidim/pull/8413)
+- **decidim-blogs**: Add missing translations [\#8426](https://github.com/decidim/decidim/pull/8426)
+- **decidim-comments**: Refresh comments component after updating [\#8362](https://github.com/decidim/decidim/pull/8362)
+- **decidim-core**: Fix webpacker issue when using zeitwerk [\#8444](https://github.com/decidim/decidim/pull/8444)
+- **decidim-core**: Improve Zeitwerk assets paths to ignore [\#8449](https://github.com/decidim/decidim/pull/8449)
+- **decidim-surveys**: Fix notification after creating survey [\#8463](https://github.com/decidim/decidim/pull/8463)
+- **decidim-budgets**, **decidim-comments**: Fix comment's get link in project view [\#8450](https://github.com/decidim/decidim/pull/8450)
+- **decidim-elections**: Fix report missing trustee admin log entry [\#8468](https://github.com/decidim/decidim/pull/8468)
+- **decidim-system**: Add `pptx` in allowed_file_extensions (of admin) [\#8502](https://github.com/decidim/decidim/pull/8502)
+- **decidim-core**: Fix 404 link in 'how to participate' home content block [\#8513](https://github.com/decidim/decidim/pull/8513)
+- **decidim-meetings**: Fix meetings with multiple dates [\#8497](https://github.com/decidim/decidim/pull/8497)
+- **decidim-core**: Fix pt-BR issue [\#8523](https://github.com/decidim/decidim/pull/8523)
+- **decidim-generators**: Freezing webpacker to RC.5 until RC.7 is fixed [\#8531](https://github.com/decidim/decidim/pull/8531)
+- **decidim-conferences**: Fix conference speakers when there isn't any avatar [\#8520](https://github.com/decidim/decidim/pull/8520)
+- **decidim-assemblies**, **decidim-participatory processes**: Fix the copy of components weights in participatory processes and assemblies [\#8498](https://github.com/decidim/decidim/pull/8498)
+- **decidim-meetings**: Fix meetings input when rich text editor is disabled [\#8534](https://github.com/decidim/decidim/pull/8534)
+- **decidim-meetings**: Fix showing created meetings in 'my public profile' [\#8519](https://github.com/decidim/decidim/pull/8519)
+- **decidim-meetings**, **decidim-proposals**: Fix various proposal picker issues when there are thousands of proposals [\#8558](https://github.com/decidim/decidim/pull/8558)
+- **decidim-core**: Remove border on all the fieldsets [\#8561](https://github.com/decidim/decidim/pull/8561)
+- **decidim-initiatives**: Remove wrong </div> in initiatives header [\#8563](https://github.com/decidim/decidim/pull/8563)
+- **decidim-core**: Fix CSS layout wrapper top padding [\#8562](https://github.com/decidim/decidim/pull/8562)
+- **decidim-forms**, **decidim-surveys**: Fix duplicated answers in surveys [\#8560](https://github.com/decidim/decidim/pull/8560)
+- **decidim-meetings**: Fix the meeting copy functionality [\#8430](https://github.com/decidim/decidim/pull/8430)
+- **decidim-core**: Move social login buttons to the top of the login modal [\#8574](https://github.com/decidim/decidim/pull/8574)
+- **decidim-comments**, **decidim-meetings**: Fix HTML injection in comments and meeting's description [\#8511](https://github.com/decidim/decidim/pull/8511)
+- **decidim-core**: Fix avatar thumbnail in participants' profile [\#8577](https://github.com/decidim/decidim/pull/8577)
+- **decidim-core**: Rename index to avoid conflicts with decidim_awesome module migrations [\#8613](https://github.com/decidim/decidim/pull/8613)
+- **decidim-core**: Fix group mentions in notifications [\#8598](https://github.com/decidim/decidim/pull/8598)
+- **decidim-forms**, **decidim-surveys**: Fix surveys exports with free text in multiple option [\#8582](https://github.com/decidim/decidim/pull/8582)
+- **decidim-core**: Fix reply to a conversation with deleted participants [\#8635](https://github.com/decidim/decidim/pull/8635)
+- **decidim-admin**, **decidim-debates**, **decidim-proposals**: Fix consistency in creation actions phrasing: "Participants can create XXX" [\#8650](https://github.com/decidim/decidim/pull/8650)
+- **decidim-core**: Fix wrong display of deleted accounts in conversations [\#8641](https://github.com/decidim/decidim/pull/8641)
+- **decidim-core**: Fix cache key on ActivityCell [\#8654](https://github.com/decidim/decidim/pull/8654)
+- **decidim-participatory processes**: Fix participatory groups leaks on other organizations/tenants [\#8651](https://github.com/decidim/decidim/pull/8651)
+- **decidim-core**: Fix blocked users appear in search [\#8658](https://github.com/decidim/decidim/pull/8658)
+- **decidim-meetings**: Don't start poll meetings component when DOM elements are not present [\#8676](https://github.com/decidim/decidim/pull/8676)
+- **decidim-initiatives**, **decidim-proposals**: Fix initiative attachments [\#7452](https://github.com/decidim/decidim/pull/7452)
+- **decidim-assemblies**: Fix performance issues on assemblies page when having many private users [\#8509](https://github.com/decidim/decidim/pull/8509)
+- **decidim-proposals**: Add location data to proposals export and import [\#8679](https://github.com/decidim/decidim/pull/8679)
+- **decidim-meetings**: Fix meetings form embed type visibility [\#8602](https://github.com/decidim/decidim/pull/8602)
+- **decidim-meetings**: Do not send upcoming meeting events notification for past events [\#8665](https://github.com/decidim/decidim/pull/8665)
+
+### Removed
+
+- **decidim-proposals**: Remove "Allow card image" setting from Proposals [\#8281](https://github.com/decidim/decidim/pull/8281)
+- **decidim-assemblies**: Remove designation_mode field from Assembly Members [\#8310](https://github.com/decidim/decidim/pull/8310)
+- **decidim-participatory processes**: Remove admin show page in Participatory Process Groups [\#8313](https://github.com/decidim/decidim/pull/8313)
+
+### Developer improvements
+
+- Fix Luxembourgish locale [\#8270](https://github.com/decidim/decidim/pull/8270)
+- Fix ARIA roles for dialogs and tooltips [\#8293](https://github.com/decidim/decidim/pull/8293)
+- Add selectors on _edit_form_fields  [\#8353](https://github.com/decidim/decidim/pull/8353)
+- Fix HTTPOnly and secure flag on the cookie acceptance cookie [\#8358](https://github.com/decidim/decidim/pull/8358)
+- Add Brakeman to GitHub Actions for improving security [\#6832](https://github.com/decidim/decidim/pull/6832)
+- Disallow redirection to the host when performing redirect_back [\#8296](https://github.com/decidim/decidim/pull/8296)
+- Improve performance on the serializers by using includes, query counter [\#8278](https://github.com/decidim/decidim/pull/8278)
+- Enforce redirects to include the organization host [\#8385](https://github.com/decidim/decidim/pull/8385)
+- Fix issues with the session/environment security configs [\#8360](https://github.com/decidim/decidim/pull/8360)
+- Improve extendability on some controllers [\#8398](https://github.com/decidim/decidim/pull/8398)
+- Add avatar eager logging to UserEntityFinder #8416 [\#8417](https://github.com/decidim/decidim/pull/8417)
+- Increase text contrast in current phase of a participatory process [\#8422](https://github.com/decidim/decidim/pull/8422)
+- Fix CVE-2021-41136 (HTTP Request Smuggling in puma) [\#8431](https://github.com/decidim/decidim/pull/8431)
+- Remove anchored dependency [\#8453](https://github.com/decidim/decidim/pull/8453)
+- Fix pt-BR issue [\#8523](https://github.com/decidim/decidim/pull/8523)
+- Add rendered view instrumentation information [\#8530](https://github.com/decidim/decidim/pull/8530)
+- Optimize open data exporter for large amount of data [\#8503](https://github.com/decidim/decidim/pull/8503)
+- Add cache key separator to cache_hash [\#8559](https://github.com/decidim/decidim/pull/8559)
+- Improve generation of the opendata export [\#8593](https://github.com/decidim/decidim/pull/8593)
+- Add several cache keys to cells [\#8566](https://github.com/decidim/decidim/pull/8566)
+- Update password strength check [\#8455](https://github.com/decidim/decidim/pull/8455)
+- Remove etherpad-lite dependency [\#8541](https://github.com/decidim/decidim/pull/8541)
+- Fix Rack::Attack initializer custom parameter configuration [\#8643](https://github.com/decidim/decidim/pull/8643)
+
+### Internal
+
+- Fix dependencies locks after 0.26.0.dev bump [\#8247](https://github.com/decidim/decidim/pull/8247)
+- Add modules recommendations in documentation [\#8218](https://github.com/decidim/decidim/pull/8218)
+- Fix webpacker dependency lock [\#8272](https://github.com/decidim/decidim/pull/8272)
+- Improve README with examples [\#8244](https://github.com/decidim/decidim/pull/8244)
+- Update foundation-sites to 6.7.0 for better Dart Sass compatibility [\#8273](https://github.com/decidim/decidim/pull/8273)
+- Fix NPM packages versioning during release process [\#8280](https://github.com/decidim/decidim/pull/8280)
+- Add 'Lint PR title' workflow to CI [\#8285](https://github.com/decidim/decidim/pull/8285)
+- Don't trigger PR linting on pushes, only on PRs [\#8304](https://github.com/decidim/decidim/pull/8304)
+- Prevent root package.json to be treated as a package [\#8315](https://github.com/decidim/decidim/pull/8315)
+- Fix CSS validation tests caused by a bug on the validation service [\#8322](https://github.com/decidim/decidim/pull/8322)
+- **decidim-core**: Remove npm decidim packages with dependencies from other decidim packages [\#8330](https://github.com/decidim/decidim/pull/8330)
+- **decidim-core**: Fix problems introduced by #8330 [\#8341](https://github.com/decidim/decidim/pull/8341)
+- Update Node and NPM version [\#8343](https://github.com/decidim/decidim/pull/8343)
+- Remove hack for CSS validation [\#8326](https://github.com/decidim/decidim/pull/8326)
+- Update docs in migrating to webpacker [\#8349](https://github.com/decidim/decidim/pull/8349)
+- **decidim-comments**: Ignore errors during comments migration task [\#8351](https://github.com/decidim/decidim/pull/8351)
+- **decidim-meetings**: Fix published and title in seeded meetings [\#8359](https://github.com/decidim/decidim/pull/8359)
+- **decidim-core**: Fix SQL to make version display faster [\#8393](https://github.com/decidim/decidim/pull/8393)
+- Remove GraphQL deprecated API call [\#8432](https://github.com/decidim/decidim/pull/8432)
+- **decidim-generators**: Fixing generator webpacker issues [\#8427](https://github.com/decidim/decidim/pull/8427)
+- **decidim-generators**: Fix railties requirements on created applications [\#8415](https://github.com/decidim/decidim/pull/8415)
+- **decidim-core**: Update omniauth gem and dependencies [\#8388](https://github.com/decidim/decidim/pull/8388)
+- Document how to enable machine translations on organization [\#8458](https://github.com/decidim/decidim/pull/8458)
+- **decidim-dev**: Improves manual installation documentation [\#8508](https://github.com/decidim/decidim/pull/8508)
+- Update the i18n-tasks initialization syntax [\#8544](https://github.com/decidim/decidim/pull/8544)
+- Documentation: improve develop section  [\#8553](https://github.com/decidim/decidim/pull/8553)
+- Change default window size in Capybara configuration [\#8576](https://github.com/decidim/decidim/pull/8576)
+- Fix security instructions [\#8587](https://github.com/decidim/decidim/pull/8587)
+- Temporarily ignore CSS validation issue in CI [\#8597](https://github.com/decidim/decidim/pull/8597)
+- Update nokogiri to 1.12.5 [\#8609](https://github.com/decidim/decidim/pull/8609)
+- Update paper_trail to 12.1 [\#8608](https://github.com/decidim/decidim/pull/8608)
+- Update ruby to 2.7.5 [\#8629](https://github.com/decidim/decidim/pull/8629)
+- Remove truncato dependency [\#8507](https://github.com/decidim/decidim/pull/8507)
+- Change figaro to rbenv-vars in "manual installation" documentation [\#8575](https://github.com/decidim/decidim/pull/8575)
+- Add instructions PostgreSQL configuration in development app [\#8618](https://github.com/decidim/decidim/pull/8618)
+- Fix etherpad doc reference in initializer [\#8632](https://github.com/decidim/decidim/pull/8632)
+- Clarifies git branches conventions in doc [\#8644](https://github.com/decidim/decidim/pull/8644)
+- Fix changelog link [\#8671](https://github.com/decidim/decidim/pull/8671)
+- Enable simplecov only for rspec step [\#8674](https://github.com/decidim/decidim/pull/8674)
+- **decidim-dev**: Improve machine translation documentation and comments [\#8668](https://github.com/decidim/decidim/pull/8668)
+- Split the workflows files for CI [\#8675](https://github.com/decidim/decidim/pull/8675)
+- DRY GitHub workflows with composite actions [\#8677](https://github.com/decidim/decidim/pull/8677)
+- Change Gitter to Matrix.org in documentation [\#8466](https://github.com/decidim/decidim/pull/8466)
+
+## Previous versions
+
+Please check [release/0.25-stable](https://github.com/decidim/decidim/blob/release/0.25-stable/CHANGELOG.md) for previous changes.
