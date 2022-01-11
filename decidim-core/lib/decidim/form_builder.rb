@@ -430,16 +430,6 @@ module Decidim
       ).call
     end
 
-    def resource_class(attribute)
-      if object._validators[attribute].is_a?(Array) && object._validators[attribute].size.positive?
-        passthru = object._validators[attribute].find { |v| v.is_a?(PassthruValidator) }
-        return passthru.options[:to] if passthru && passthru.options[:to].present?
-        return object.send(attribute).record.class if object.send(attribute)&.record.present?
-      end
-
-      object.class
-    end
-
     def max_file_size(attribute)
       Decidim::FileValidatorHumanizer.new(object, attribute).max_file_size
     end
@@ -900,6 +890,18 @@ module Decidim
         upload_images_path: Decidim::Core::Engine.routes.url_helpers.editor_images_path,
         drag_and_drop_help_text: I18n.t("drag_and_drop_help", scope: "decidim.editor_images")
       }
+    end
+
+    # Determines the correct resource class for validators from the object or
+    # its PassthruValidator.
+    def resource_class(attribute)
+      if object._validators[attribute].is_a?(Array) && object._validators[attribute].size.positive?
+        passthru = object._validators[attribute].find { |v| v.is_a?(PassthruValidator) }
+        return passthru.options[:to] if passthru && passthru.options[:to].present?
+        return object.send(attribute).record.class if object.send(attribute)&.record.present?
+      end
+
+      object.class
     end
   end
 end
