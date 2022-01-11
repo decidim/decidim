@@ -58,9 +58,8 @@ class PassthruValidator < ActiveModel::EachValidator
       elsif record.respond_to?(:organization)
         dummy.attached_to = record.organization
       end
-    elsif record.respond_to?(:organization)
-      dummy.organization = record.organization if dummy.respond_to?(:organization=)
-      dummy.define_singleton_method(:organization) { record.organization } unless dummy.respond_to?(:organization=)
+    elsif dummy.respond_to?(:organization=) && record.respond_to?(:organization)
+      dummy.organization = record.organization
     end
     dummy
   end
