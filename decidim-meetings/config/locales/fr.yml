@@ -87,16 +87,16 @@ fr:
           is_upcoming_true:
             label: Date
             values:
-              'false': Passés
+              'false': Passées
               'true': À venir
           origin_eq:
             label: Origine
             values:
-              citizen: Citoyen
-              official: Officiel
+              citizen: Participants
+              official: Officielle
               user_group: Groupes d’utilisateurs
           scope_id_eq:
-            label: Périmètre
+            label: Secteur
           type_eq:
             label: Type de rencontre
             values:
@@ -150,7 +150,7 @@ fr:
             email_subject: La rencontre "%{resource_title}" est terminée
             notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
-          button_text: S'inscrire à la réunion
+          button_text: S'inscrire à la rencontre
           email_intro: La rencontre "%{resource_title}" a été ajoutée à "%{participatory_space_title}" que vous suivez.
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez arrêter le suivi à partir du lien précédent.
           email_subject: Nouvelle rencontre ajoutée à %{participatory_space_title}
@@ -182,6 +182,9 @@ fr:
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
           email_subject: La rencontre "%{resource_title}" commencera dans moins de 48h.
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
+    forms:
+      meetings:
+        attendees_count_help_text: N’oubliez pas d’inclure le nombre total de participants à votre événement, que ce soit en présentiel, en ligne ou en hybride.
     gamification:
       badges:
         attended_meetings:
@@ -288,7 +291,7 @@ fr:
             success: Rencontre close avec succès
           create:
             invalid: Il y a eu un problème lors de la création de cette rencontre
-            success: Réunion créée avec succès. Notez que celle-ci n'est pas encore publiée, vous devez la publier manuellement.
+            success: Rencontre créée avec succès. Notez que celle-ci n'est pas encore publiée, vous devez la publier manuellement.
           destroy:
             invalid:
               proposals_count:
@@ -316,7 +319,7 @@ fr:
             create: Créer
             title: Créer une rencontre
           publish:
-            invalid: Une erreur s'est produite lors de la publication de cette rencontre
+            invalid: Une erreur s'est produite lors de la publication de la rencontre
             success: Rencontre publiée avec succès
           service:
             description: Description
@@ -329,7 +332,7 @@ fr:
             add_service: Ajouter un service
             services: Services
           unpublish:
-            invalid: Une erreur s'est produite lors de la dépublication de cette rencontre
+            invalid: Une erreur s'est produite lors de la dépublication de la rencontre
             success: Rencontre dépubliée avec succès
           update:
             invalid: Il y a eu un problème lors de la mise à jour de cette rencontre
@@ -338,7 +341,7 @@ fr:
           form:
             title: Modifier le questionnaire de sondage pour %{questionnaire_for}
           update:
-            invalid: Une erreur est survenue lors de la mise à jour du sondage de la rencontre
+            invalid: Une erreur s'est produite lors de la mise à jour du sondage de la rencontre
             success: Sondage de rencontre mis à jour avec succès
         models:
           meeting:
@@ -400,7 +403,7 @@ fr:
             space_type: Espace participatif
             upcoming: À venir
       last_activity:
-        meeting_updated_at_html: "<span>Débat mis à jour à %{link}</span>"
+        meeting_updated_at_html: "<span>Rencontre mis à jour à %{link}</span>"
         new_meeting_at_html: "<span>Nouvelle rencontre dans %{link}</span>"
       layouts:
         live_event:
@@ -621,6 +624,8 @@ fr:
       proposals_from_meeting:
         meeting_proposal: 'Propositions créées lors de cette rencontre :'
         proposal_meeting: 'Rencontres associées :'
+    statistics:
+      meetings_count: Rencontres
   devise:
     mailer:
       join_meeting:
