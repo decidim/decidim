@@ -892,8 +892,8 @@ module Decidim
       }
     end
 
-    # Determines the correct resource class for validators from the object or
-    # its PassthruValidator.
+    # Private: Determines the correct resource class for validators from the
+    # object or its PassthruValidator.
     def resource_class(attribute)
       if object._validators[attribute].is_a?(Array) && object._validators[attribute].size.positive?
         passthru = object._validators[attribute].find { |v| v.is_a?(PassthruValidator) }
