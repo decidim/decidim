@@ -300,7 +300,7 @@ it:
             update: Modifica
           form:
             address_help: 'Indirizzo: usato da Geocoder per trovare la posizione'
-            available_slots_help: Lasciare a 0 se si dispone di posti illimitati disponibili
+            available_slots_help: Lasciare a 0 se disponi di slot illimitati
             disclaimer: 'Disclaimer: Utilizzando un sistema di registrazione esterno, sei consapevole che gli organizzatori di %{organization} non sono responsabili per i dati forniti dagli utenti al servizio esterno.'
             location_help: 'Posizione: messaggio diretto agli utenti che riporta il luogo dell''incontro'
             location_hints_help: 'Suggerimenti: informazioni aggiuntive. Esempio: il pavimento dell''edificio se si tratta di una riunione di persona o la password di riunione se si tratta di una riunione online con accesso ristretto.'
