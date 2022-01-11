@@ -14,7 +14,7 @@ shared_examples "manage categories examples" do
 
     expect(page).to have_selector("input#category_name_en[value='#{translated(category.name, locale: :en)}']")
     expect(page).to have_selector("input#category_weight[value='#{category.weight}']")
-   
+
     expect(page).to have_selector("select#category_parent_id")
   end
 
@@ -29,7 +29,7 @@ shared_examples "manage categories examples" do
         es: "Mi categoría",
         ca: "La meva categoria"
       )
-     
+
       find("*[type=submit]").click
     end
 
