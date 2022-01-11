@@ -596,6 +596,7 @@ fr:
           header: 'Le bulletin est chiffré: validez-le ou auditez-le'
         casting:
           header: Vote en cours...
+          text: Votre bulletin a bien été pris en compte.
         confirm:
           answer: Répondre
           answer_number: répondre à %{number}
@@ -612,8 +613,12 @@ fr:
           header: Vote confirmé
           lead: Votre vote a été comptabilisé !
           text: 'Vous pouvez vérifier que votre vote a bien été ajouté aux urnes avec l''identifiant suivant : <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_link: Pour vérifier que votre vote a bien été pris en compte, copiez le code d'identification et collez-le sur la <a href="%{link}">page de vérification de vote</a>
         create:
           error: Un problème s'est produit lors de la validation du vote. Veuillez réessayer.
+        encrypting:
+          header: Chiffrement du vote...
+          text: Votre bulletin est en cours de chiffrement afin de garantir le secret de votre vote.
         failed:
           header: Le vote a échoué
           lead: Votre vote n'a pas été exprimé!
@@ -621,8 +626,11 @@ fr:
           try_again: Réessayez
         header:
           ballot_decision: Validez ou auditez votre vote
+          casting: Vote en cours
           confirm: Confirmer votre vote
           confirmed: Vote confirmé
+          encrypting: Chiffrement du vote
+          failed: Le vote a échoué
         messages:
           invalid_token: Votre session dans l'isoloir n'est pas valide. Essayez de voter à nouveau.
           not_allowed: Vous n'êtes pas autorisé à voter sur cette élection pour le moment.
@@ -642,11 +650,24 @@ fr:
           description: Voulez-vous créer un compte sur Decidim ? Vous pourrez participer à toutes les concertations et prendre une part active dans l'organisation.
           no_account: Non, merci.
           title: Nouveau sur Decidim ?
+        update:
+          error: Une erreur s'est produite lors de la mise à jour du statut du vote. Tentez de voter à nouveau. 
         verify:
           content:
             heading: Vérifiez votre vote
+            info: Ce vérificateur s'assure que votre vote, identifié avec une chaîne de texte chiffrée, a été diffusé correctement et se trouve bien dans l'urne.
           error:
             header: Vote introuvable !
+            info: Le code de vote n'a pas été trouvé dans %{link} l'urne, essayez à nouveau.
+          form:
+            back: Retour à Decidim
+            submit: Vérifier
+            vote_identifier: 'Code d''identification :'
+          header:
+            title: Vérifiez votre vote
+          success:
+            header: Vote trouvé !
+            info: Votre vote chiffré se trouve bien dans %{link} l'urne
         voting_step:
           back: Retour
           continue: Suivant
@@ -671,6 +692,22 @@ fr:
             email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_name}".
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_name}.
             notification_title: Vous êtes garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
+        votes:
+          accepted_votes:
+            email_intro: 'Votre vote a été accepté ! En utilisant votre jeton de vote : %{encrypted_vote_hash}, vous pouvez vérifier votre vote <a href="%{verify_url}">ici</a>.'
+            email_outro: Vous avez reçu cette notification parce que vous avez voté pour l'élection %{resource_name}.
+            email_subject: Votre vote pour %{resource_name} a été accepté.
+            notification_title: 'Votre vote a été accepté. Vérifiez votre vote <a href="%{verify_url}">ici</a> en utilisant votre jeton de vote : %{encrypted_vote_hash}'
+      votings:
+        polling_officers:
+          polling_station_assigned:
+            email_intro: Vous avez été assigné en tant que %{role} du Bureau de vote %{polling_station_name} sur <a href="%{resource_url}">%{resource_title}</a>. Vous pouvez gérer le Bureau de vote à partir de la <a href="%{polling_officer_zone_url}">zones des responsable du scrutin</a>.
+            email_outro: Vous avez reçu cette notification parce que vous avez été assigné au rôle de %{role} sur %{polling_station_name}.
+            email_subject: Vous êtes %{role} du Bureau de vote %{polling_station_name}.
+            notification_title: Vous êtes %{role} du Bureau de vote %{polling_station_name} sur le vote <a href="%{resource_path}">%{resource_title}</a>.
+        send_access_code:
+          instruction: 'Voici le code d''accès que vous avez demandé : %{access_code}, avec lequel vous pourrez participer à %{voting}.'
+          subject: Votre code d'accès pour participer à %{voting}
     help:
       participatory_spaces:
         votings:
@@ -679,15 +716,54 @@ fr:
           title: Que sont les élections ?
     menu:
       votings: Élections
+    statistics:
+      elections_count: Élections
+      votings_count: Votes
     votings:
       admin:
         ballot_styles:
+          create:
+            error: Il y a eu un problème lors de la création de ce style de bulletin
+            success: Style de bulletin créé avec succès
+          destroy:
+            invalid: Un problème est survenu lors de la suppression de ce style de bulletin
+            success: Style de bulletin supprimé avec succès
+          edit:
+            title: Modifier le style de bulletin
+            update: Mettre à jour
+          form:
+            code_help: 'Note : le code est le lien entre le recensement et un bulletin de vote. Lors du téléchargement des données de recensement, chaque entrée se verra assignée un style de vote en faisant la correspondance avec le code'
+            election: Élection
+            questions: Questions pour ce style de bulletin
+            questions_help: 'Note : sélectionnez les questions de la fonctionnalité Élection que vous souhaitez présenter aux électeurs affectés à ce style de bulletin'
           index:
             actions:
-              confirm_destroy: Êtes-vous sûr·e ?
+              confirm_destroy: Êtes-vous sûr(e) ?
+              destroy: Supprimer
+              edit: Modifier
+              new: Nouveau
+              title: Actions
+            associated_census_data: Entrées de recensement associées
+            explanation_callout: Un style de bulletin spécifie quelles questions seront présentées aux électeurs dans le stand. Dans un style de bulletin, vous pouvez choisir quelles questions de la fonctionnalité Élection de ce vote appartiennent à un bulletin de vote. Le code de style de bulletin est utilisé pour faire correspondre un électeur du recensement avec le bulletin de vote qui lui sera présenté dans l'isoloir. Ne créez pas de style de vote si vous voulez présenter toutes les questions.
+            title: Styles de bulletin
+          new:
+            create: Créer
+            title: Créer un style de bulletin
+          update:
+            invalid: Il y a eu un problème lors de la création de ce style de bulletin
+            success: Style de bulletin mis à jour avec succès
         content_blocks:
           highlighted_votings:
             max_results: Nombre maximum d'éléments à afficher
+          landing_page:
+            attachments_and_folders:
+              name: Pièces jointes et dossiers du vote
+            description:
+              name: Description du vote
+            elections:
+              name: Élections
+            header:
+              name: Header du vote
         index:
           not_published: Non publié
           published: Publié
@@ -697,6 +773,7 @@ fr:
             attachment_collections: Dossiers
             attachment_files: Fichiers
             attachments: Pièces jointes
+            ballot_styles: Styles de bulletin
             census: Recensement
             info: Information
             landing_page: Page d’accueil
@@ -704,6 +781,10 @@ fr:
             monitoring_committee_members: Membres
             polling_stations: Bureaux de vote
         models:
+          ballot_style:
+            fields:
+              code: Code
+            name: Style de bulletin
           monitoring_committee_member:
             fields:
               name: Nom
@@ -782,6 +863,10 @@ fr:
             invalid: Une erreur s'est produite lors de la mise à jour de cette élection
             success: Élection mise à jour avec succès
       admin_log:
+        ballot_style:
+          create: "%{user_name} a créé un style de bulletin avec le code %{ballot_style_code} dans l'espace %{space_name}"
+          delete: "%{user_name} a supprimé un style de bulletin avec le code %{ballot_style_code} dans l'espace %{space_name}"
+          update: "%{user_name} a mis à jour un style de bulletin avec le code %{ballot_style_code} dans l'espace %{space_name}"
         voting:
           create: "%{user_name} a créé l'élection %{resource_name}"
           publish: "%{user_name} a publié l'élection %{resource_name}"
@@ -806,11 +891,17 @@ fr:
                 explanation: 'Instructions concernant le fichier :'
                 message_1: Seuls les fichiers CSV (.csv) sont autorisés.
                 message_2: Le séparateur de colonnes doit être un point-virgule (";").
+              has_ballot_styles_message: Vous avez mis en place des styles de bulletin. Assurez-vous que le champ "%{ballot_style_code_header}" dans le CSV correspond au code du style de bulletin désiré.
               info_message: "<strong>Il n'y a pas encore de recensement.</strong> Veuillez utiliser le formulaire ci-dessous pour le créer en important un fichier CSV."
+              missing_ballot_styles_message: 'Il n''y a pas encore de style de bulletin pour ce vote. Si vous souhaitez avoir des questions conditionnelles (ex : présenter à l’électeur des questions différentes en fonction de son quartier/ville de résidence), vous devez configurer les <a href=%{ballot_styles_admin_path}>styles de bulletin</a> <strong>avant</strong> d''importer le recensement. Si vous voulez présenter les mêmes questions à tous les électeurs, vous pouvez passer à la procédure d''import du recensement.'
               submit: Valider le fichier csv
               title: Créer le recensement
             show:
               heading: Recensement de l'espace de vote
+            upload_info:
+              csv_example_with_ballot_style: 'Un exemple du fichier <strong>avec</strong> styles de bulletin :'
+              csv_example_without_ballot_style: 'Un exemple du fichier <strong>sans</strong> styles de bulletin :'
+              csv_header_after: Ne pas inclure le dernier champ ("%{ballot_style_code_header}") si vous n'avez pas besoin de styles de bulletin/questions conditionnelles
         document_types:
           passport: Passeport
         vote_flow:
