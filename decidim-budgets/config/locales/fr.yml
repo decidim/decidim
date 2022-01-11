@@ -32,6 +32,7 @@ fr:
             label: Sélectionnés
             values:
               'false': Projet sélectionné
+              'true': Non sélectionné
     budgets:
       actions:
         attachment_collections: Dossiers
