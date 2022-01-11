@@ -412,7 +412,7 @@ module Decidim
       options = {
         attribute: attribute,
         resource_name: @object_name,
-        resource_class: options[:resource_class].to_s || resource_class(attribute),
+        resource_class: options[:resource_class]&.to_s || resource_class(attribute),
         optional: true,
         titled: false,
         show_current: true,
