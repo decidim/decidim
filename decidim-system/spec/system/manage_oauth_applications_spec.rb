@@ -22,11 +22,16 @@ describe "Manage OAuth applications", type: :system do
       select organization.name, from: :oauth_application_decidim_organization_id
       fill_in :oauth_application_organization_name, with: "Ajuntament de Barcelona"
       fill_in :oauth_application_organization_url, with: "https://www.barcelona.cat"
-      attach_file "Organization logo", Decidim::Dev.asset("city.jpeg")
+      # attach_file "Organization logo", Decidim::Dev.asset("city.jpeg")
+    end
 
+    dynamically_attach_file("organization_logo", Decidim::Dev.asset("city.jpeg"))
+
+    within ".new_oauth_application" do
       find("*[type=submit]").click
     end
 
+    click_button "Add file"
     expect(page).to have_content("successfully")
 
     within "table" do

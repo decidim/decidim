@@ -23,7 +23,6 @@ class PassthruValidator < ActiveModel::EachValidator
   # value - Blob signed id (e.g. "eyJfcmFpbHMi...")
   def validate_each(record, attribute, value)
     return unless target_class
-
     dummy_attr = target_attribute(attribute)
 
     # Create a dummy record for which the validations are actually run on
@@ -59,8 +58,10 @@ class PassthruValidator < ActiveModel::EachValidator
       elsif record.respond_to?(:organization)
         dummy.attached_to = record.organization
       end
-    elsif dummy.respond_to?(:organization=) && record.respond_to?(:organization)
-      dummy.organization = record.organization
+    elsif record.respond_to?(:organization)
+      byebug
+      dummy.organization = record.organization if dummy.respond_to?(:organization=)
+      dummy.define_singleton_method(:organization) { record.organization } unless dummy.respond_to?(:organization=)
     end
     dummy
   end

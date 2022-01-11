@@ -138,7 +138,7 @@ describe "Identity document request edition", type: :system do
   def submit_upload_form(doc_type:, doc_number:, file_name: nil)
     select doc_type, from: "Type of your document"
     fill_in "Document number (with letter)", with: doc_number
-    attach_file "Scanned copy of your document", Decidim::Dev.asset(file_name) if file_name
+    dynamically_attach_file("verification_attachment", Decidim::Dev.asset(file_name)) if file_name
 
     click_button "Request verification again"
   end

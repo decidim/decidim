@@ -65,6 +65,10 @@
             background-color: $primary;
             padding: 0 .5rem;
             height: 2rem;
+
+            &.filled{
+              width: 100%;
+            }
           }
         }
       }

@@ -10,10 +10,9 @@ module Capybara
       find("##{value}").click
 
       within ".attachment-modal" do
-        attach_file file_location do
-          find(".dropzone").click
-        end
-        expect(page).to have_content("Uploaded")
+        input_element = find("input[type='file']", visible: :all)
+        input_element.attach_file file_location
+        expect(page).to have_css("div.progress-bar.filled", wait: 5)
         click_button "Save"
       end
     end

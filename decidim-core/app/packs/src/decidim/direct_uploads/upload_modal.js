@@ -4,6 +4,7 @@ export default class UploadModal {
   constructor(button, options = {}) {
     this.button = button;
     this.options = Object.assign({
+      token: "abcdefg1234",
       resourceName: button.dataset.resourceName,
       resourceClass: button.dataset.resourceClass,
       optional: this.button.dataset.optional === "true",
@@ -42,11 +43,13 @@ export default class UploadModal {
     if (uploader.fileTooBig) {
       return;
     }
+
     uploader.upload.create((error, blob) => {
       if (error) {
         uploadItem.dataset.state = "error";
-        uploadItem.querySelector(".progress-bar").style.width = "100%";
-        uploadItem.querySelector(".progress-bar").innerHTML = this.locales.error;
+        const progressBar = uploadItem.querySelector(".progress-bar");
+        progressBar.classList.add("filled");
+        progressBar.innerHTML = this.locales.error;
         console.error(error);
       } else {
         const ordinalNumber = this.attachmentCounter;
@@ -87,7 +90,6 @@ export default class UploadModal {
 
         attachmentDetails.appendChild(hiddenBlobField);
         uploadItem.appendChild(attachmentDetails);
-        // Fix to event
         uploader.validate(blob.signed_id);
       }
     });
@@ -131,6 +133,9 @@ export default class UploadModal {
     if (state) {
       if (state === "validated") {
         progressBar.innerHTML = this.locales.uploaded;
+      } else {
+        progressBar.innerHTML = "0%";
+        progressBar.style.width = "25%";
       }
       progressBar.style.justifyContent = "center";
       wrapper.dataset.state = state;
@@ -143,7 +148,6 @@ export default class UploadModal {
     const progressBarWrapper = document.createElement("div");
     progressBarWrapper.classList.add("columns", "progress-bar-wrapper");
     progressBarWrapper.appendChild(progressBarBorder);
-    console.log("titled", this.options.titled);
     if (this.options.titled) {
       progressBarWrapper.classList.add("small-5");
     } else {

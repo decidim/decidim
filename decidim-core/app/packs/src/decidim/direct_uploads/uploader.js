@@ -41,6 +41,7 @@ export class Uploader {
       } else {
         this.showError(errors);
       }
+      this.progressBar.classList.add("filled");
     }
 
     if (!this.validationSent) {
@@ -69,8 +70,10 @@ export class Uploader {
   }
 
   directUploadWillStoreFileWithXHR(request) {
+    console.log("request", request);
     request.upload.addEventListener("progress", (event) => {
       const progress = Math.floor(event.loaded / event.total) * 100;
+      console.log("progress", progress);
       let width = "25%";
       if (progress > 25) {
         width = `${progress}%`;
