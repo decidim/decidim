@@ -296,12 +296,10 @@ fr:
             update: Mettre à jour
           form:
             address_help: 'L''adresse entrée est utilisée par le géocodage pour trouver l''emplacement et afficher la réunion sur la carte. Format accepté : [rue] [code postal] [ville]'
-            available_slots_help: Laisser à 0 si le nombre de places disponibles est illimité
             disclaimer: 'Avertissement : En utilisant un système d''enregistrement externe, sachez que les organisateurs de %{organization} ne sont pas responsables des données fournies par les utilisateurs au service externe.'
             location_help: 'Le lieu indique le nom de l''endroit qui accueille la réunion (ex : Maison de la citoyenneté)'
             location_hints_help: 'Indices de localisation : informations complémentaires. Exemple: l''étage du bâtiment s''il s''agit d''une réunion en personne, ou le mot de passe de la réunion s''il s''agit d''une réunion en ligne avec accès restreint.'
             online_meeting_url_help: 'Lien : permet aux participants de se connecter directement à votre réunion'
-            registration_email_help: Ce texte apparaîtra au milieu de l'e-mail de confirmation d'inscription, juste après le code d'inscription.
             registration_url_help: 'Lien : permet aux participants de partir sur le service externe que vous utilisez pour les inscriptions'
             select_a_meeting_type: Veuillez sélectionner un type de rencontre
             select_a_registration_type: Veuillez sélectionner un type d'inscription
@@ -347,6 +345,7 @@ fr:
             available_slots_help: Laisser à 0 si le nombre de places disponibles est illimité.
             invites: Invitations
             recommendation_message: Pour des raisons de confidentialité, nous vous recommandons de supprimer ce formulaire d'inscription lorsque vous n'en avez plus besoin. Par défaut, il le sera 3 mois après la fin de la réunion.
+            registration_email_help: Ce texte apparaîtra au milieu de l'e-mail de confirmation d'inscription, juste après le code d'inscription.
             registration_form: Formulaire d'inscription
             registrations_count:
               one: Il y a eu %{count} inscription.
