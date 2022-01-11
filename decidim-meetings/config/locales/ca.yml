@@ -303,12 +303,10 @@ ca:
             update: Actualitzar
           form:
             address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
-            available_slots_help: Deixeu-ho a 0 si les places disponibles són il·limitades
             disclaimer: 'Descàrrec de responsabilitat: en utilitzar un sistema d''inscripcions extern, ets conscient que els organitzadors de %{organization} no són responsables de les dades proporcionades per les usuàries al servei extern.'
             location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
             location_hints_help: 'Detalls d''ubicació: informació addicional. Exemple: la planta de l''edifici si es tracta d''una reunió presencial, o la contrasenya de la reunió si es tracta d''una reunió en línia amb accés restringit.'
             online_meeting_url_help: 'Enllaç: permetre que les participants es connectin directament a la teva trobada'
-            registration_email_help: Aquest text apareixerà enmig del correu de confirmació de la inscripció. Just a sota del codi d'inscripció.
             registration_url_help: 'Enllaç: permetre a les participants anar al servei extern que estàs utilitzant per a les inscripcions'
             select_a_meeting_type: Si us plau selecciona un tipus de trobada
             select_a_registration_type: Si us plau selecciona un tipus d'inscripció
@@ -356,6 +354,7 @@ ca:
             available_slots_help: Deixar a 0 si les inscripcions són il·limitades.
             invites: Invitacions
             recommendation_message: Per raons de privacitat et recomanem que esborris aquest formulari d'inscripció quan ja no el necessitis. Per defecte això és 3 mesos després que la reunió hagi finalitzat.
+            registration_email_help: Aquest text apareixerà enmig del correu de confirmació de la inscripció. Just a sota del codi d'inscripció.
             registration_form: Formulari d'inscripció
             registrations_count:
               one: Hi ha hagut %{count} inscripció.
