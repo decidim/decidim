@@ -28,9 +28,6 @@ module Decidim::Meetings
     let(:online_meeting_url) { "http://decidim.org" }
     let(:registration_url) { "http://decidim.org" }
     let(:registration_type) { "on_this_platform" }
-    let(:available_slots) { 0 }
-    let(:customize_registration_email) { true }
-    let(:registration_email_custom_content) { { "en" => "The registration email custom content." } }
     let(:iframe_embed_type) { "none" }
     let(:iframe_access_level) { nil }
 
@@ -54,12 +51,9 @@ module Decidim::Meetings
         current_user: user,
         current_organization: organization,
         registration_type: registration_type,
-        available_slots: available_slots,
         registration_url: registration_url,
         clean_type_of_meeting: type_of_meeting,
         online_meeting_url: online_meeting_url,
-        customize_registration_email: customize_registration_email,
-        registration_email_custom_content: registration_email_custom_content,
         iframe_embed_type: iframe_embed_type,
         comments_enabled: true,
         comments_start_time: nil,
@@ -111,13 +105,6 @@ module Decidim::Meetings
         end
       end
 
-      it "sets the registration email related fields" do
-        subject.call
-
-        expect(meeting.customize_registration_email).to be true
-        expect(meeting.registration_email_custom_content).to eq(registration_email_custom_content)
-      end
-
       it "sets iframe_access_level" do
         subject.call
 
@@ -161,12 +148,9 @@ module Decidim::Meetings
             current_user: user,
             current_organization: organization,
             registration_type: registration_type,
-            available_slots: available_slots,
             registration_url: registration_url,
             clean_type_of_meeting: type_of_meeting,
             online_meeting_url: online_meeting_url,
-            customize_registration_email: customize_registration_email,
-            registration_email_custom_content: registration_email_custom_content,
             iframe_embed_type: iframe_embed_type,
             comments_enabled: true,
             comments_start_time: nil,
