@@ -2,7 +2,7 @@ eu:
   activemodel:
     attributes:
       area:
-        area_type: Area mota
+        area_type: Eremu mota
         name: Izena
         organization: Erakundea
       area_type:
