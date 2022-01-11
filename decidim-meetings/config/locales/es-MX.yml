@@ -303,12 +303,10 @@ es-MX:
             update: Actualizar
           form:
             address_help: 'Dirección: usada por Geocoder para encontrar la ubicación'
-            available_slots_help: Déjalo a 0 si tienes espacio ilimitado disponible
             disclaimer: 'Descargo de responsabilidad: Mediante el uso de un sistema de inscripción externo, aceptas que los organizadores de %{organization} no son responsables de los datos proporcionados por los usuarios al servicio externo.'
             location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
             location_hints_help: 'Consejos de ubicación: información adicional. Ejemplo: la planta del edificio si se trata de un encuentro presencial, o la contraseña de la sala si se trata de un encuentro online con acceso restringido.'
             online_meeting_url_help: 'Enlace: permitir a las participantes conectarse directamente a tu encuentro'
-            registration_email_help: Este texto aparecerá en medio del correo de confirmación de inscripción. Justo después del código de inscripción.
             registration_url_help: 'Enlace: permitir a las participantes ir al servicio externo que estás utilizando para las inscripciones'
             select_a_meeting_type: Por favor, selecciona un tipo de encuentro
             select_a_registration_type: Por favor, seleccione un tipo de inscripción
@@ -356,6 +354,7 @@ es-MX:
             available_slots_help: Déjalo a 0 si tiene inscripciones ilimitadas.
             invites: Invitaciones
             recommendation_message: Por razones de privacidad te recomendamos que elimines este formulario de inscripción cuando ya no lo necesites. Por defecto, esto es 3 meses después de que la reunión haya finalizado.
+            registration_email_help: Este texto aparecerá en medio del correo de confirmación de inscripción. Justo después del código de inscripción.
             registration_form: Formulario de inscripción
             registrations_count:
               one: Ha habido %{count} inscripción.
