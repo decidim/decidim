@@ -93,8 +93,8 @@ en:
           origin_eq:
             label: Origin
             values:
-              participant: Participant
               official: Official
+              participant: Participant
               user_group: User Groups
           scope_id_eq:
             label: Scope
@@ -470,8 +470,8 @@ en:
           origin: Origin
           origin_values:
             all: All
-            participants: Participants
             official: Official
+            participants: Participants
             user_groups: Groups
           scope: Scope
           search: Search

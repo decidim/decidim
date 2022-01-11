@@ -593,9 +593,9 @@ en:
           all: All
         filter_origin_values:
           all: All
-          participants: Participants
           meetings: Meetings
           official: Official
+          participants: Participants
           user_groups: Groups
         filter_scope_values:
           all: All
