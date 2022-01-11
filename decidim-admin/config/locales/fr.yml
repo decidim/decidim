@@ -801,7 +801,7 @@ fr:
         external_domain:
           down: Descendre
           external_domain: Domaine externe
-          remove: Supprimer
+          remove: Retirer
           up: Monter
         form:
           add: Ajouter à la liste blanche
