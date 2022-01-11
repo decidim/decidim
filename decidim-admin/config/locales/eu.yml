@@ -2,7 +2,7 @@ eu:
   activemodel:
     attributes:
       area:
-        area_type: Area mota
+        area_type: Eremu mota
         name: Izena
         organization: Erakundea
       area_type:
@@ -367,6 +367,9 @@ eu:
           values:
             'false': 'Ez'
             'true': 'Bai'
+        moderated_users:
+          reports_reason_eq:
+            label: Arrazoiaren berri eman
         moderations:
           reportable_type_string_eq:
             label: Mota
@@ -457,7 +460,14 @@ eu:
           impersonate_new_managed_user: Ordezkatu erabiltzaile kudeatu berria
       imports:
         and: eta
+        data_errors:
+          duplicate_headers:
+            detail: Mesedez, egiaztatu fitxategiak behin bakarrik eskatzen diren zutabeak edo goiburuak dituela.
+          invalid_indexes:
+            records:
+              detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
         error: Errorea gertatu da inportatzean
+        example_error: Ezin izan da adibiderik sortu emandako motarako
         new:
           accepted_mime_types:
             csv: csv
@@ -752,6 +762,7 @@ eu:
         form:
           colors:
             colors_title: Antolaketa koloreak
+            colors_warning_html: "\nKontuz! Kolore horiek aldatzeak irisgarritasun-kontrasteak hautsi ditzake. Zure aukeraren kontrastea egiazta dezakezu <a href=\"%{link}\">WebAIM Contrast Checker</a> edo antzeko tresnekin."
             header_snippets_help: Erabili eremu hau HTML goiburuari gauzak gehitzeko. Erabilerarik ohikoena da JavaScript edo CSS gehigarriak behar dituzten hirugarrenen zerbitzuak txertatzea. Gainera, HTMLari meta-etiketa gehigarriak gehitzeko erabil dezakezu. Kontuan hartu orri publikoetan baino ez dela erakutsiko, ez administrazio atalean.
           cta_button_path_help: 'Orrialde nagusira deitzeko dei-botoirako esteka gainidatzi dezakezu. Erabili bideak partzialak, ez URL osoak hemen. Letrak, zenbakiak, marrak eta barrak onartzen ditu eta gutun batekin hasi behar duzu. The Call To Action botoian hasierako orrian erakusten da ongietorri testua eta azalpena. Adibidea: %{url}'
           cta_button_text_help: Hasierako pantailako Call To Action botoian testua gainidatz dezakezu zure erakundeko hizkuntza bakoitzarentzat. Ezartzen bada, balio lehenetsia erabiliko da. The Call To Action botoian hasierako orrian erakusten da ongietorri testua eta azalpena.
