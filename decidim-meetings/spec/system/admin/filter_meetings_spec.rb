@@ -74,14 +74,14 @@ describe "Admin filters meetings", type: :system do
 
     context "when filtering participants " do
       context "when no official meeting is present" do
-        it_behaves_like "a filtered collection", options: "Origin", filter: "Participants" do
+        it_behaves_like "a filtered collection", options: "Origin", filter: "Participant" do
           let(:in_filter) { translated(participant_meeting.title) }
           let(:not_in_filter) { translated(official_meeting.title) }
         end
       end
 
       context "when no user group is present" do
-        it_behaves_like "a filtered collection", options: "Origin", filter: "Participants" do
+        it_behaves_like "a filtered collection", options: "Origin", filter: "Participant" do
           let(:in_filter) { translated(participant_meeting.title) }
           let(:not_in_filter) { translated(user_group_meeting.title) }
         end
