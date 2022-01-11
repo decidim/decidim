@@ -24,7 +24,7 @@ fr:
       component:
         name: Titre
         published_at: Publiée à
-        weight: Rang
+        weight: Rang d'affichage
       id: ID
       import:
         user_group_id: Créer des imports en tant que
@@ -48,7 +48,7 @@ fr:
         favicon: Icône
         force_authentication: Forcer l'authentification
         force_users_to_authenticate_before_access_organization: Forcer les utilisateurs à s'authentifier avant d'accéder à l'organisation
-        from: Adresse mail de l'expéditeur
+        from: Adresse email de l’expéditeur
         github_handler: Gestionnaire GitHub
         header_snippets: Éléments à ajouter entre les balises HTML
         highlight_alternative_color: Surbrillance alternative
@@ -113,12 +113,12 @@ fr:
         show_in_footer: Montrer dans le pied de page
         slug: Identifiant
         title: Titre
-        weight: Rang
+        weight: Rang d'affichage
       static_page_topic:
         description: La description
         show_in_footer: Montrer dans le pied de page
         title: Titre
-        weight: Rang
+        weight: Rang d'affichage
       user_group_csv_verification:
         file: Fichier
     errors:
@@ -180,7 +180,7 @@ fr:
           success: Super! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
           accept: J'accepte les conditions d'utilisation suivantes
-          are_you_sure: Êtes-vous sûr de vouloir refuser les conditions d'utilisation de l'administrateur?
+          are_you_sure: Êtes-vous sûr de vouloir refuser les conditions d'utilisation de l'administrateur ?
           refuse: Refuser les conditions d'utilisation administrateur
           title: Accepter les conditions d'utilisation
         required_review:
