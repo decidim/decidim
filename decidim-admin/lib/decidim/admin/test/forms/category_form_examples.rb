@@ -58,17 +58,7 @@ module Decidim
 
         it { is_expected.to be_invalid }
       end
-
-      #      context "when some language in description is missing" do
-      #        let(:description) do
-      #          {
-      #            ca: "Descripció"
-      #          }
-      #        end
-      #
-      #        it { is_expected.to be_invalid }
-      #      end
-
+     
       context "when the parent_id is set" do
         let!(:category) { create :category, participatory_space: participatory_space }
 
