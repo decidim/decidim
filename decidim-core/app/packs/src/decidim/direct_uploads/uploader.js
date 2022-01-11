@@ -16,6 +16,7 @@ export class Uploader {
   }
 
   showError(errors) {
+    this.progressBar.classList.add("filled");
     this.progressBar.innerHTML = this.modal.locales.validation_error;
     this.uploadItem.dataset.state = "error";
     const errorList = this.uploadItem.querySelector(".upload-errors");
@@ -70,16 +71,13 @@ export class Uploader {
   }
 
   directUploadWillStoreFileWithXHR(request) {
-    console.log("request", request);
     request.upload.addEventListener("progress", (event) => {
-      const progress = Math.floor(event.loaded / event.total) * 100;
-      console.log("progress", progress);
-      let width = "25%";
-      if (progress > 25) {
+      const progress = Math.floor(event.loaded / event.total * 100);
+      let width = "15%";
+      if (progress > 15) {
         width = `${progress}%`;
       }
       this.progressBar.style.width = width;
-
 
       if (progress === 100) {
         this.progressBar.innerHTML = this.modal.locales.validating;

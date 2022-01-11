@@ -46,7 +46,7 @@ module Decidim
     end
 
     def resource_class
-      options[:resource_class]
+      options[:resource_class].to_s
     end
 
     def resource_name

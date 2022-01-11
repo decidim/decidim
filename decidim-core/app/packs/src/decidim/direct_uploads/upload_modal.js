@@ -7,9 +7,9 @@ export default class UploadModal {
       token: "abcdefg1234",
       resourceName: button.dataset.resourceName,
       resourceClass: button.dataset.resourceClass,
-      optional: this.button.dataset.optional === "true",
-      multiple: this.button.dataset.multiple === "true",
-      titled: this.button.dataset.titled === "true",
+      optional: button.dataset.optional === "true",
+      multiple: button.dataset.multiple === "true",
+      titled: button.dataset.titled === "true",
       maxFileSize: button.dataset.maxFileSize
     }, options)
     this.name = this.button.name;
@@ -135,9 +135,8 @@ export default class UploadModal {
         progressBar.innerHTML = this.locales.uploaded;
       } else {
         progressBar.innerHTML = "0%";
-        progressBar.style.width = "25%";
+        progressBar.style.width = "15%";
       }
-      progressBar.style.justifyContent = "center";
       wrapper.dataset.state = state;
     }
 
