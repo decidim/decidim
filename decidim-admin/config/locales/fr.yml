@@ -208,7 +208,7 @@ fr:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
           success: Zone d'application créée avec succès.
         destroy:
-          has_spaces: Cette zone a des espaces dépendants. Veuillez vous assurer qu'aucun espace participatif ne référence cette zone avant de la supprimer.
+          has_spaces: Des espaces dépendent de cette zone d'application. Veuillez vous assurer qu'aucun espace participatif n'est lié à cette zone avant de la supprimer.
           success: La zone d'application a bien été supprimée
         edit:
           title: Modifier la zone d'application
@@ -342,7 +342,7 @@ fr:
         form:
           domain_too_short: Le nom de domaine est trop court
         update:
-          error: Échec lors de la mise à jour de la liste blanches du domaine
+          error: Échec lors de la mise à jour de la liste blanche du domaine
           success: Liste blanche du domaine mise à jour avec succès
       exports:
         export_as: "%{name} en format %{export_format}"
@@ -636,7 +636,7 @@ fr:
       newsletters:
         create:
           error: Il y a eu une erreur lors de la création de cette newsletter.
-          success: Bulletin d'information créé avec succès. Veuillez le vérifier avant de l'envoyer.
+          success: Newsletter créée avec succès. N'hésitez pas à la relire avant de l'envoyer.
         deliver:
           error: Il y a eu une erreur lors de l'envoi de cette newsletter.
           success: Newsletter envoyée avec succès.
