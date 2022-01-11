@@ -898,8 +898,8 @@ module Decidim
       if object._validators[attribute].is_a?(Array) && object._validators[attribute].size.positive?
         passthru = object._validators[attribute].find { |v| v.is_a?(PassthruValidator) }
         return passthru.options[:to] if passthru && passthru.options[:to].present?
-        return object.send(attribute).record.class if object.send(attribute)&.record.present?
       end
+      return object.send(attribute).record.class if object.send(attribute)&.record.present?
 
       object.class
     end
