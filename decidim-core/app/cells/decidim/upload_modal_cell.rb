@@ -53,6 +53,10 @@ module Decidim
       options[:resource_name]
     end
 
+    def actions_wrapper_class
+      has_title? ? "actions-wrapper titled" : "actions-wrapper"
+    end
+
     def attribute
       options[:attribute]
     end

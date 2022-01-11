@@ -46,21 +46,12 @@
   }
 
   .upload-items{
-    display: flex;
-    flex-direction: column;
-
     .upload-item{
-      display: flex;
-      flex-direction: column;
-
-      .second-row{
-        display: flex;
-        justify-content: space-between;
+      input[type="text"]{
+        margin: 0;
       }
 
       .progress-bar-wrapper{
-        flex: 0.8 0.7 auto;
-
         .progress-bar-border{
           height: 2rem;
           border: 1px solid $primary;
@@ -100,15 +91,17 @@
     justify-content: flex-start;
     align-items: baseline;
 
+    &.titled{
+      flex-direction: column-reverse;
+    }
+
     .active-attachments{
-      span:last-child{
+      span.filename{
         margin-right: .5rem;
       }
 
-      .attachment-details{
-        a{
-          margin-right: .5rem;
-        }
+      span:last-child{
+        margin-right: .5rem;
       }
     }
 

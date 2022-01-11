@@ -1,6 +1,6 @@
 <div class="dynamical-uploads <%= with_title %> upload-container-for-<%= attribute %>">
   <%= tag.strong label unless has_title? %>
-  <div class="actions-wrapper">
+  <div class="<%= actions_wrapper_class %>">
     <div class="active-attachments">
       <% attachments.each do |attachment| %>
         <% next if attachment.is_a? Array %>
@@ -83,6 +83,7 @@
           error: t("decidim.forms.upload.labels.error"),
           file_too_big: t("decidim.forms.upload.labels.file_too_big", megabytes: (max_file_size_mb)),
           remove: t("decidim.forms.upload.labels.remove"),
+          title: t("decidim.forms.upload.labels.title"),
           uploaded: t("decidim.forms.upload.labels.uploaded"),
           validating: t("decidim.forms.upload.labels.validating"),
           validation_error: t("decidim.forms.upload.labels.validation_error")

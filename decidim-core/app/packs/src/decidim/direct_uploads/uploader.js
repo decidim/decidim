@@ -19,7 +19,6 @@ export class Uploader {
     this.progressBar.innerHTML = this.modal.locales.validation_error;
     this.uploadItem.dataset.state = "error";
     const errorList = this.uploadItem.querySelector(".upload-errors");
-    this.uploadItem.appendChild(errorList);
     errors.forEach((error) => {
       const errorItem = document.createElement("li");
       errorItem.classList.add("form-error", "is-visible");

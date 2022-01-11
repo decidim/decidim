@@ -776,6 +776,7 @@ en:
           file_too_big: 'File is too big! Maximun file size: %{megabytes}MB'
           remove: Remove
           replace: Replace
+          title: Title
           uploaded: Uploaded
           validating: Validating...
           validation_error: Validation error!
