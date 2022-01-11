@@ -303,7 +303,7 @@ ca:
             update: Actualitzar
           form:
             address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
-            available_slots_help: Deixeu-ho a 0 si les places disponibles són il·limitades
+            available_slots_help: Deixa-ho a 0 si les places disponibles són il·limitades
             disclaimer: 'Descàrrec de responsabilitat: en utilitzar un sistema d''inscripcions extern, ets conscient que els organitzadors de %{organization} no són responsables de les dades proporcionades per les usuàries al servei extern.'
             location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
             location_hints_help: 'Detalls d''ubicació: informació addicional. Exemple: la planta de l''edifici si es tracta d''una reunió presencial, o la contrasenya de la reunió si es tracta d''una reunió en línia amb accés restringit.'
