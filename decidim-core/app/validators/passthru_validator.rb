@@ -59,7 +59,6 @@ class PassthruValidator < ActiveModel::EachValidator
         dummy.attached_to = record.organization
       end
     elsif record.respond_to?(:organization)
-      byebug
       dummy.organization = record.organization if dummy.respond_to?(:organization=)
       dummy.define_singleton_method(:organization) { record.organization } unless dummy.respond_to?(:organization=)
     end
