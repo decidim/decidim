@@ -42,6 +42,10 @@ fr:
         type_of_meeting: Type
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Cette URL ne peut pas être intégrée dans la page de réunion ou d'événement en direct
         meeting_agenda:
           attributes:
             base:
