@@ -45,7 +45,7 @@ fr:
         meeting:
           attributes:
             iframe_embed_type:
-              not_embeddable: Cette URL ne peut pas être intégrée dans la page de réunion ou d'événement en direct
+              not_embeddable: Cette URL ne peut pas être intégrée dans la page de rencontre ou d'événement en direct
         meeting_agenda:
           attributes:
             base:
@@ -87,16 +87,16 @@ fr:
           is_upcoming_true:
             label: Date
             values:
-              'false': Passés
+              'false': Passées
               'true': À venir
           origin_eq:
             label: Origine
             values:
-              citizen: Citoyen
-              official: Officiel
+              citizen: Participants
+              official: Officielle
               user_group: Groupes d’utilisateurs
           scope_id_eq:
-            label: Périmètre
+            label: Secteur
           type_eq:
             label: Type de rencontre
             values:
@@ -150,7 +150,7 @@ fr:
             email_subject: La rencontre "%{resource_title}" est terminée
             notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_created:
-          button_text: S'inscrire à la réunion
+          button_text: S'inscrire à la rencontre
           email_intro: La rencontre "%{resource_title}" a été ajoutée à "%{participatory_space_title}" que vous suivez.
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez arrêter le suivi à partir du lien précédent.
           email_subject: Nouvelle rencontre ajoutée à %{participatory_space_title}
@@ -182,6 +182,9 @@ fr:
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
           email_subject: La rencontre "%{resource_title}" commencera dans moins de 48h.
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
+    forms:
+      meetings:
+        attendees_count_help_text: N’oubliez pas d’inclure le nombre total de participants à votre événement, que ce soit en présentiel, en ligne ou en hybride.
     gamification:
       badges:
         attended_meetings:
@@ -288,7 +291,7 @@ fr:
             success: Rencontre close avec succès
           create:
             invalid: Il y a eu un problème lors de la création de cette rencontre
-            success: Réunion créée avec succès. Notez que celle-ci n'est pas encore publiée, vous devez la publier manuellement.
+            success: Rencontre créée avec succès. Notez que celle-ci n'est pas encore publiée, vous devez la publier manuellement.
           destroy:
             invalid:
               proposals_count:
@@ -307,13 +310,15 @@ fr:
             registration_url_help: 'Lien : permet aux participants de partir sur le service externe que vous utilisez pour les inscriptions'
             select_a_meeting_type: Veuillez sélectionner un type de rencontre
             select_a_registration_type: Veuillez sélectionner un type d'inscription
+            select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
+            show_embedded_iframe_help: Seuls quelques services permettent d'intégrer des rencontres ou des événements en direct (YouTube, Twitch et Jitsi)
           index:
             title: Rencontres
           new:
             create: Créer
             title: Créer une rencontre
           publish:
-            invalid: Une erreur s'est produite lors de la publication de cette rencontre
+            invalid: Une erreur s'est produite lors de la publication de la rencontre
             success: Rencontre publiée avec succès
           service:
             description: Description
@@ -326,7 +331,7 @@ fr:
             add_service: Ajouter un service
             services: Services
           unpublish:
-            invalid: Une erreur s'est produite lors de la dépublication de cette rencontre
+            invalid: Une erreur s'est produite lors de la dépublication de la rencontre
             success: Rencontre dépubliée avec succès
           update:
             invalid: Il y a eu un problème lors de la mise à jour de cette rencontre
@@ -335,7 +340,7 @@ fr:
           form:
             title: Modifier le questionnaire de sondage pour %{questionnaire_for}
           update:
-            invalid: Une erreur est survenue lors de la mise à jour du sondage de la rencontre
+            invalid: Une erreur s'est produite lors de la mise à jour du sondage de la rencontre
             success: Sondage de rencontre mis à jour avec succès
         models:
           meeting:
@@ -379,7 +384,7 @@ fr:
               not_found: 'L''organisateur n''a pas été trouvé dans la base de données (ID: %{id})'
       application_helper:
         filter_category_values:
-          all: Tous
+          all: Toutes
         filter_meeting_space_values:
           all: Tous
         filter_scope_values:
@@ -400,11 +405,16 @@ fr:
             meetings: Rencontres
             space_type: Espace participatif
       iframe_access_level:
+        all: Tous les visiteurs
+        registered: Participants inscrits à cette rencontre
         signed_in: Les participants connectés seulement
       iframe_embed_type:
+        embed_in_meeting_page: Intégrer à la page de la rencontre
+        none: Aucun
         open_in_live_event_page: Ouvrir dans la page de l'événement en direct (avec sondages facultatifs)
+        open_in_new_tab: Ouvrir dans un nouvel onglet
       last_activity:
-        meeting_updated_at_html: "<span>Débat mis à jour à %{link}</span>"
+        meeting_updated_at_html: "<span>Rencontre mis à jour à %{link}</span>"
         new_meeting_at_html: "<span>Nouvelle rencontre dans %{link}</span>"
       layouts:
         live_event:
@@ -486,6 +496,7 @@ fr:
           select_a_meeting_type: Veuillez sélectionner un type de rencontre
           select_a_registration_type: Veuillez sélectionner un type d'inscription
           select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
+          show_embedded_iframe_help: Seuls quelques services permettent d'intégrer des rencontres ou des événements en direct (YouTube, Twitch et Jitsi)
         index:
           click_here: Voir toutes les réunions
           new_meeting: Nouvelle rencontre
@@ -533,8 +544,8 @@ fr:
           view: Voir
           visit_finished: Consulter l’historique des rencontres
           withdraw_btn_hint: Vous pouvez annuler votre réunion si vous changez d'avis. La réunion n'est pas supprimée, elle apparaîtra dans la liste des réunions retirées.
-          withdraw_confirmation_html: Êtes-vous sûr de vouloir annuler cette réunion ?<br><br><strong>Cette action ne peut pas être annulée !</strong>
-          withdraw_meeting: Annuler la réunion
+          withdraw_confirmation_html: Êtes-vous sûr de vouloir annuler cette rencontre ?<br><br><strong>Cette action ne peut pas être annulée !</strong>
+          withdraw_meeting: Annuler la rencontre
         update:
           invalid: Une erreur s'est produite lors de la mise à jour de la rencontre.
           success: La rencontre a été mise à jour avec succès.
@@ -637,6 +648,8 @@ fr:
       proposals_from_meeting:
         meeting_proposal: 'Propositions créées lors de cette rencontre :'
         proposal_meeting: 'Rencontres associées :'
+    statistics:
+      meetings_count: Rencontres
   devise:
     mailer:
       join_meeting:
