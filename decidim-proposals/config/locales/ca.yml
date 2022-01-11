@@ -765,7 +765,7 @@ ca:
           send: Continua
           title: Crea la teva proposta
         orders:
-          label: 'Ordenar propostes per:'
+          label: 'Ordenar propostes:'
           most_commented: Més comentades
           most_endorsed: Amb més adhesions
           most_followed: Amb més seguidores
