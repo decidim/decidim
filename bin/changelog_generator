@@ -120,7 +120,7 @@ types = {
   "Internal" => {
     label: "type: internal",
     skip_modules: false
-  },
+  }
 }
 
 types.each do |type_title, type_data|
