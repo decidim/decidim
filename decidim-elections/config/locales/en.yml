@@ -59,6 +59,9 @@ en:
       decidim/elections/question:
         one: Question
         other: Questions
+      decidim/voting:
+        one: Voting
+        other: Votings
       decidim/votings/census/dataset:
         one: Dataset
         other: Datasets
