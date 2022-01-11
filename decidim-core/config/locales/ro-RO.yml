@@ -1667,6 +1667,7 @@ ro:
     email_included_in_password: este prea asemănător cu adresa de e-mail
     fallback: nu este valid
     name_included_in_password: este prea asemănător cu numele tău
+    nickname_included_in_password: este prea similar cu nickname-ul dvs
     not_enough_unique_characters: nu are destule caractere unice
     password_not_allowed: nu este permis
     password_too_common: este prea frecvent
