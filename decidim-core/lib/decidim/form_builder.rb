@@ -412,7 +412,7 @@ module Decidim
       options = {
         attribute: attribute,
         resource_name: @object_name,
-        resource_class: resource_class(attribute, options).to_s,
+        resource_class: options[:resource_class].to_s || resource_class(attribute),
         optional: true,
         titled: false,
         show_current: true,
@@ -430,14 +430,10 @@ module Decidim
       ).call
     end
 
-    def resource_class(attribute, options = {})
-      if options[:resource_class].present?
-        return options[:resource_class].constantize if options[:resource_class].is_a? String
-
-        return options[:resource_class]
-      end
+    def resource_class(attribute)
       if object._validators[attribute].is_a?(Array) && object._validators[attribute].size.positive?
-        return object._validators[attribute][0].options[:to] if object._validators[attribute][0].options[:to].present?
+        passthru = object._validators[attribute].find { |v| v.is_a?(PassthruValidator) }
+        return passthru.options[:to] if passthru && passthru.options[:to].present?
         return object.send(attribute).record.class if object.send(attribute)&.record.present?
       end
 
