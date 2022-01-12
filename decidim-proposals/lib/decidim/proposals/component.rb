@@ -232,6 +232,8 @@ Decidim.register_component(:proposals) do |component|
       global = nil
     end
 
+    possible_authors = [participatory_space.organization]
+
     5.times do |n|
       state, answer, state_published_at = if n > 3
                                             ["accepted", Decidim::Faker::Localized.sentence(word_count: 10), Time.current]
@@ -265,7 +267,7 @@ Decidim.register_component(:proposals) do |component|
         visibility: "all"
       ) do
         proposal = Decidim::Proposals::Proposal.new(params)
-        proposal.add_coauthor(participatory_space.organization)
+        proposal.add_coauthor(possible_authors)#participatory_space.organization)
         proposal.save!
         proposal
       end
