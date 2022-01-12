@@ -592,7 +592,6 @@ ca:
           all: Totes
         filter_origin_values:
           all: Totes
-          citizens: Ciutadania
           meetings: Trobades
           official: Oficial
           user_groups: Grups
