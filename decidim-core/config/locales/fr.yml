@@ -84,7 +84,7 @@ fr:
       about_x_months:
         one: environ %{count} mois
         other: environ %{count} mois
-      half_a_minute: une demi-minute
+      half_a_minute: 30 secondes
       less_than_x_minutes:
         one: moins d’une minute.
         other: moins de %{count} min.
@@ -125,7 +125,7 @@ fr:
         error: Une erreur s'est produite lors de la suppression de votre compte.
         success: Votre compte a été supprimé avec succès.
       show:
-        available_locales_helper: Choisissez la langue que vous souhaitez utiliser pour naviguer et recevoir des notifications dans Decidim
+        available_locales_helper: Choisissez la langue que vous souhaitez utiliser pour naviguer et recevoir des notifications dans %{organization_name}
         change_password: Changer de mot de passe
         update_account: Mettre à jour votre compte
       update:
@@ -531,8 +531,8 @@ fr:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
     editor_images:
       create:
-        error: Erreur lors de l'envoi de l'image
-        success: Image envoyée avec succès
+        error: Erreur lors du téléchargement de l'image
+        success: Image téléchargée avec succès
       drag_and_drop_help: Ajoutez des images en les glissant - déposant ou en les collant depuis votre presse-papier.
     endorsable:
       endorsements: Soutiens
