@@ -89,7 +89,6 @@ ja:
           origin_eq:
             label: 起案者
             values:
-              citizen: 市民
               official: 公式
               user_group: ユーザーグループ
           scope_id_eq:
@@ -460,7 +459,6 @@ ja:
           origin: 起案者：
           origin_values:
             all: すべて
-            citizens: 一般参加者
             official: 事務局
             user_groups: グループ
           scope: スコープ
