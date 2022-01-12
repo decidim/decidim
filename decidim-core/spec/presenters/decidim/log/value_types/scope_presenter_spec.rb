@@ -22,7 +22,7 @@ describe Decidim::Log::ValueTypes::ScopePresenter, type: :helper do
       end
     end
 
-    context "when the scope is found" do
+    context "when the scope isn't found" do
       let(:value) { scope.id + 1 }
 
       it "shows a string explaining the problem" do

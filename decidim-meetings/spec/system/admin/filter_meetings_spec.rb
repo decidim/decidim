@@ -104,7 +104,7 @@ describe "Admin filters meetings", type: :system do
       end
     end
 
-    context "when filtering official " do
+    context "when filtering user groups " do
       context "when no citizen event is present" do
         it_behaves_like "a filtered collection", options: "Origin", filter: "User Groups" do
           let(:in_filter) { translated(user_group_meeting.title) }
