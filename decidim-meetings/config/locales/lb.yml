@@ -87,7 +87,6 @@ lb:
           origin_eq:
             label: Ursprung
             values:
-              citizen: Bierger*in
               official: Offiziell
               user_group: Benotzergruppen
           scope_id_eq:
