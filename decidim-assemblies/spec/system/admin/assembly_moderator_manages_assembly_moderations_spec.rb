@@ -17,4 +17,8 @@ describe "Assembly moderator manages assembly moderations", type: :system do
   end
 
   it_behaves_like "manage moderations"
+
+  it_behaves_like "sorted moderations" do
+    let!(:reportables) { create_list(:dummy_resource, 17, component: current_component) }
+  end
 end
