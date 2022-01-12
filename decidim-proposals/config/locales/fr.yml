@@ -561,7 +561,7 @@ fr:
             success: A fusionné avec succès les propositions dans un nouveau.
         proposals_splits:
           create:
-            invalid: 'Une erreur est survenue lors de la division des propositions sélectionnées à cause de certaines d''entre elles:'
+            invalid: 'Une erreur est survenue lors du fractionnement des propositions sélectionnées à cause de certaines d''entre elles:'
             success: Divisé avec succès les propositions en nouvelles.
         valuation_assignments:
           create:
@@ -718,7 +718,7 @@ fr:
         success: Le brouillon de la proposition a bien été supprimé.
       last_activity:
         new_proposal_at_html: "<span>Nouvelle proposition à %{link}</span>"
-        proposal_updated_at_html: "<span>Débat mis à jour à %{link}</span>"
+        proposal_updated_at_html: "<span>Proposition mise à jour à %{link}</span>"
       models:
         collaborative_draft:
           fields:
