@@ -92,7 +92,6 @@ fi:
           origin_eq:
             label: Alkuperä
             values:
-              citizen: Kansalaiset
               official: Viralliset
               user_group: Käyttäjäryhmät
           scope_id_eq:
@@ -467,7 +466,6 @@ fi:
           origin: Alkuperä
           origin_values:
             all: Kaikki
-            citizens: Kansalaiset
             official: Viralliset
             user_groups: Ryhmät
           scope: Teema
