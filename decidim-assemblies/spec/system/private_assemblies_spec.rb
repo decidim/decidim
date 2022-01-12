@@ -16,7 +16,7 @@ describe "Private Assemblies", type: :system do
     context "and the assembly is transparent" do
       let!(:private_assembly) { create :assembly, :published, organization: organization, private_space: true, is_transparent: true }
 
-      context "and no user is loged in" do
+      context "and no user is logged in" do
         before do
           switch_to_host(organization.host)
           visit decidim_assemblies.assemblies_path
@@ -36,7 +36,7 @@ describe "Private Assemblies", type: :system do
         end
       end
 
-      context "when user is loged in and is not a assembly private user" do
+      context "when user is logged in and is not an assembly private user" do
         before do
           switch_to_host(organization.host)
           login_as user, scope: :user
@@ -61,7 +61,7 @@ describe "Private Assemblies", type: :system do
     context "when the assembly is not transparent" do
       let!(:private_assembly) { create :assembly, :published, organization: organization, private_space: true, is_transparent: false }
 
-      context "and no user is loged in" do
+      context "and no user is logged in" do
         before do
           switch_to_host(organization.host)
           visit decidim_assemblies.assemblies_path
@@ -81,7 +81,7 @@ describe "Private Assemblies", type: :system do
         end
       end
 
-      context "when user is loged in and is not a assembly private user" do
+      context "when user is logged in and is not an assembly private user" do
         before do
           switch_to_host(organization.host)
           login_as logged_in_user, scope: :user
@@ -129,7 +129,7 @@ describe "Private Assemblies", type: :system do
         end
       end
 
-      context "when user is loged in and is assembly private user" do
+      context "when user is logged in and is an assembly private user" do
         before do
           switch_to_host(organization.host)
           login_as other_user, scope: :user
