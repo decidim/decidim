@@ -11,6 +11,7 @@ module Decidim
 
       validates :file, presence: true
       validates :name, presence: true
+      validate :ensure_file_is_blob
       validate :check_accepted_mime_type
       validate :check_invalid_file, if: -> { file.present? && accepted_mime_type? }
       validate :verify_import, if: -> { file.present? && accepted_mime_type? && !importer.invalid_file? }
@@ -20,6 +21,10 @@ module Decidim
       end
 
       private
+
+      def ensure_file_is_blob
+        self.file = ActiveStorage::Blob.find_signed(file) if file.present? && file.is_a?(String)
+      end
 
       def check_accepted_mime_type
         return if accepted_mime_type?
@@ -61,9 +66,9 @@ module Decidim
         manifest.creator
       end
 
-      def importer_for(filepath, mime_type)
+      def importer_for(file_path, mime_type)
         Import::ImporterFactory.build(
-          filepath,
+          file_path,
           mime_type,
           context: importer_context,
           creator: creator_class

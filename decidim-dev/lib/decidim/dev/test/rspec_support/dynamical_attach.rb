@@ -6,17 +6,13 @@ module Capybara
   module UploadModal
     # Replaces attach_file.
     # Beware that modal does not open within form!
-    def dynamically_attach_file(value, file_location)
+    def dynamically_attach_file(value, file_location, options = {})
       find("##{value}").click
 
       within ".attachment-modal" do
+        find(".remove-upload-item").click if options[:remove_before]
         input_element = find("input[type='file']", visible: :all)
         input_element.attach_file file_location
-        # attach_file file_location do
-        #   find(".dropzone").click
-        # end
-        # pb = document.querySelectorAll("div.progress-bar")
-        # execute_script('am = document.querySelectorAll(".attachment-modal")[1]; pb = am.querySelector("div.progress-bar"); am.innerHTML += pb.className')
         expect(page).to have_css("div.progress-bar.filled", wait: 5)
         click_button "Save"
       end

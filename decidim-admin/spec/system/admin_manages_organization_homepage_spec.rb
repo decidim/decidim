@@ -46,10 +46,7 @@ describe "Admin manages organization homepage", type: :system do
     it "updates the images of the content block" do
       visit decidim_admin.edit_organization_homepage_content_block_path(:hero)
 
-      attach_file(
-        :content_block_images_background_image,
-        Decidim::Dev.asset("city2.jpeg")
-      )
+      dynamically_attach_file(:content_block_images_background_image, Decidim::Dev.asset("city2.jpeg"))
 
       click_button "Update"
       visit decidim.root_path
