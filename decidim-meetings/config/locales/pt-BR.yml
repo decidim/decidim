@@ -406,7 +406,6 @@ pt-BR:
           origin: Origem
           origin_values:
             all: Tudo
-            citizens: Cidadãos
             official: Oficial
             user_groups: Grupos
           scope: Escopo
