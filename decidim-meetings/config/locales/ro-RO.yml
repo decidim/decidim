@@ -91,7 +91,6 @@ ro:
           origin_eq:
             label: Origine
             values:
-              citizen: Cetățean
               official: Publice
               user_group: Grupuri de utilizatori
           scope_id_eq:
@@ -464,7 +463,6 @@ ro:
           origin: Origine
           origin_values:
             all: Toate
-            citizens: Cetățeni
             official: Oficial
             user_groups: Grupuri
           scope: Domeniu de interes
