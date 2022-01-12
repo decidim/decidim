@@ -98,7 +98,6 @@ cs:
           origin_eq:
             label: Původ
             values:
-              citizen: Občané
               official: Úředník
               user_group: Skupiny uživatelů
           scope_id_eq:
@@ -481,7 +480,6 @@ cs:
           origin: Původ
           origin_values:
             all: Vše
-            citizens: Občané
             official: Úředník
             user_groups: Skupiny
           scope: Oblast působnosti
