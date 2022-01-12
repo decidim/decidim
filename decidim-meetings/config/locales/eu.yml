@@ -88,7 +88,6 @@ eu:
           origin_eq:
             label: Jatorria
             values:
-              citizen: Hiritarrak
               official: Ofiziala
               user_group: Erabiltzaile-taldeak
           scope_id_eq:
@@ -447,7 +446,6 @@ eu:
           origin: Jatorria
           origin_values:
             all: Denak
-            citizens: Hiritarrak
             official: Ofiziala
             user_groups: Taldeak
           scope: Eremua
