@@ -88,7 +88,6 @@ nl:
           origin_eq:
             label: Herkomst
             values:
-              citizen: Inwoners
               official: Officieel
               user_group: Gebruikersgroepen
           scope_id_eq:
@@ -442,7 +441,6 @@ nl:
           origin: Oorsprong
           origin_values:
             all: Allemaal
-            citizens: Burgers
             official: Officiële
             user_groups: Groepen
           scope: Bereik
