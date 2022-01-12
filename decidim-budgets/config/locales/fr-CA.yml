@@ -21,6 +21,18 @@ fr-CA:
         one: Projet
         other: Projets
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Catégorie
+          scope_id_eq:
+            label: Secteur
+          selected_at_null:
+            label: Sélectionnés
+            values:
+              'false': Projet sélectionné
+              'true': Non sélectionné
     budgets:
       actions:
         attachment_collections: Dossiers
