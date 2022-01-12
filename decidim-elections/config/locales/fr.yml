@@ -653,7 +653,7 @@ fr:
         onboarding_modal:
           close: Fermer la fenêtre de dialogue
           create_account: Créer un compte
-          description: Voulez-vous créer un compte sur Decidim ? Vous pourrez participer à toutes les concertations et prendre une part active dans l'organisation.
+          description: Voulez-vous créer un compte sur Decidim ? Vous pourrez participer aux concertations et prendre une part active dans l'organisation.
           no_account: Non, merci.
           title: Nouveau sur Decidim ?
         update:
@@ -980,7 +980,7 @@ fr:
             success: Élection créée avec succès
           edit:
             add_election_component: Vous n'avez aucune élection configurée pour ce vote. Veuillez en créer une dans la section Fonctionnalités
-            assign_missing_officers: Il reste des bureaux de votes sans président et/ou accesseurs. Veuillez lier ces derniers à partir de la section Bureaux de votes
+            assign_missing_officers: Il reste des bureaux de votes sans président et/ou directeurs. Veuillez lier ces derniers à partir de la section Bureaux de votes
             update: Mettre à jour
           form:
             census_contact_information_help: Cette information de contact est destinée à un participant qui veut signaler des problèmes avec le recensement. Il peut s'agir d'une adresse e-mail, d'un formulaire de contact sur un autre site, d'une enquête Decidim pour les visiteurs, etc.
@@ -993,14 +993,14 @@ fr:
               online: En ligne
           new:
             create: Créer
-            title: Nouvelle élection
+            title: Nouveau vote
           publish:
-            success: Élection publiée avec succès
+            success: Vote publiée avec succès
           unpublish:
-            success: Élection publiée avec succès
+            success: Vote publié avec succès
           update:
-            invalid: Une erreur s'est produite lors de la mise à jour de cette élection
-            success: Élection mise à jour avec succès
+            invalid: Une erreur s'est produite lors de la mise à jour de ce vote
+            success: Vote mis à jour avec succès
       admin_log:
         ballot_style:
           create: "%{user_name} a créé un style de bulletin avec le code %{ballot_style_code} dans l'espace %{space_name}"
@@ -1021,9 +1021,9 @@ fr:
           delete: "%{user_name} a supprimé le bureau de vote %{resource_name} dans l'espace %{space_name}"
           update: "%{user_name} a mis à jour le bureau de vote %{resource_name} dans l'espace %{space_name}"
         voting:
-          create: "%{user_name} a créé l'élection %{resource_name}"
-          publish: "%{user_name} a publié l'élection %{resource_name}"
-          unpublish: "%{user_name} a annulé la publication de l'élection %{resource_name}"
+          create: "%{user_name} a créé le vote %{resource_name}"
+          publish: "%{user_name} a publié le vote %{resource_name}"
+          unpublish: "%{user_name} a annulé la publication du vote %{resource_name}"
       census:
         admin:
           census:
@@ -1216,7 +1216,7 @@ fr:
             census_present: Ce participant n'est pas répertorié dans le recensement.
             name: Nom
             title: 'Vérifiez que les données suivantes sont correctes:'
-            verify_document: Document requis
+            verify_document: Vérifier le document
         menu:
           polling_officer_zone: Zone des responsables du scrutin
         polling_officers:
@@ -1322,7 +1322,7 @@ fr:
         login:
           access_code: Code d'accès
           access_code_placeholder: Code d'accès
-          ask_for_a_new_one: Demander une nouvelle.
+          ask_for_a_new_one: Demander un nouveau.
           dont_have_access_code: Vous n'avez pas de code d'accès?
           form_title: 'Remplissez le formulaire suivant pour accéder au vote :'
           start_voting: Commencer à voter
@@ -1363,7 +1363,7 @@ fr:
         voting_menu_item: Le vote
       votings:
         index:
-          promoted_votings: Votations remarquables
+          promoted_votings: Votations mises en avant
         promoted_voting:
           more_info: Plus d'informations
           vote: Voter
