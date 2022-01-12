@@ -93,6 +93,7 @@ fr:
             label: Origine
             values:
               official: Officielle
+              participant: Participant
               user_group: Groupes d’utilisateurs
           scope_id_eq:
             label: Secteur
@@ -385,9 +386,9 @@ fr:
         filter_category_values:
           all: Tout
         filter_meeting_space_values:
-          all: Tous
+          all: Tout
         filter_scope_values:
-          all: Tous
+          all: Tout
       calendar_modal:
         calendar_url: URL du calendrier
         close_window: Fermer la fenêtre
@@ -406,14 +407,14 @@ fr:
       iframe_access_level:
         all: Tous les visiteurs
         registered: Participants inscrits à cette rencontre
-        signed_in: Les participants connectés seulement
+        signed_in: Les participants inscrits uniquement
       iframe_embed_type:
         embed_in_meeting_page: Intégrer à la page de la rencontre
         none: Aucun
         open_in_live_event_page: Ouvrir dans la page de l'événement en direct (avec sondages facultatifs)
-        open_in_new_tab: Ouvrir dans un nouvel onglet
+        open_in_new_tab: Ouvrir le lien dans un nouvel onglet
       last_activity:
-        meeting_updated_at_html: "<span>Rencontre mis à jour à %{link}</span>"
+        meeting_updated_at_html: "<span>Rencontre mise à jour à %{link}</span>"
         new_meeting_at_html: "<span>Nouvelle rencontre dans %{link}</span>"
       layouts:
         live_event:
@@ -437,9 +438,9 @@ fr:
       meetings:
         calendar_modal:
           add_to_calendar: Ajouter au calendrier
-          apple: Envoyer vers le Calendrier Apple
+          apple: Ajouter au calendrier Apple
           close_window: Fermer la fenêtre
-          full_details_html: Pour plus de détails, allez sur %{link}
+          full_details_html: Pour plus de détails, cliquez sur %{link}
           google: Ajouter au calendrier Google
           outlook: Ajouter au calendrier Outlook
         count:
@@ -467,6 +468,7 @@ fr:
           origin_values:
             all: Toutes
             official: Officiel
+            participants: Participants
             user_groups: Groupes
           scope: Secteur
           search: Rechercher
