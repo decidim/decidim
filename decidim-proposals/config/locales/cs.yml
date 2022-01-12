@@ -608,6 +608,7 @@ cs:
           all: Vše
           meetings: Setkání
           official: Oficiální
+          participants: Účastníci
           user_groups: Skupiny uživatelů
         filter_scope_values:
           all: Vše
