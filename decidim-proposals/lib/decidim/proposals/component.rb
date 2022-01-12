@@ -232,7 +232,8 @@ Decidim.register_component(:proposals) do |component|
       global = nil
     end
 
-    possible_authors = [participatory_space.organization]
+    possible_authors = [participatory_space.organization, "yeraldin"]
+    #meeting origin:         authors.first.class.name == "Decidim::Meetings::Meeting"
 
     5.times do |n|
       state, answer, state_published_at = if n > 3
