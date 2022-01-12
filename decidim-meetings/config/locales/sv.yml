@@ -88,7 +88,6 @@ sv:
           origin_eq:
             label: Ursprung
             values:
-              citizen: Medborgare
               official: Officiell
               user_group: Användargrupper
           scope_id_eq:
@@ -449,7 +448,6 @@ sv:
           origin: Ursprung
           origin_values:
             all: Alla
-            citizens: Medborgare
             official: Officiell
             user_groups: Grupper
           scope: Omfattning
