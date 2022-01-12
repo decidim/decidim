@@ -93,8 +93,8 @@ en:
           origin_eq:
             label: Origin
             values:
-              citizen: Citizen
               official: Official
+              participant: Participant
               user_group: User Groups
           scope_id_eq:
             label: Scope
@@ -468,8 +468,8 @@ en:
           origin: Origin
           origin_values:
             all: All
-            citizens: Citizens
             official: Official
+            participants: Participants
             user_groups: Groups
           scope: Scope
           search: Search

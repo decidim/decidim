@@ -362,7 +362,7 @@ module Decidim
         Arel.sql("CASE
             WHEN decidim_author_type = 'Decidim::Organization' THEN 'official'
             WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NOT NULL THEN 'user_group'
-            WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NULL THEN 'citizen'
+            WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NULL THEN 'participant'
             ELSE 'unknown' END
         ")
       end
