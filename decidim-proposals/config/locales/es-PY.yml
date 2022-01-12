@@ -592,7 +592,6 @@ es-PY:
           all: Todos
         filter_origin_values:
           all: Todos
-          citizens: Ciudadanía
           meetings: Reuniones
           official: Oficial
           user_groups: Grupos de Usuarios
