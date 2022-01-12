@@ -17,7 +17,7 @@ fr:
         min_selections: Aucune des options ci-dessus
         title: Titre
       voting:
-        end_time: Le vote se termine
+        end_time: Le vote prend fin le
         start_time: Le vote commence le
     errors:
       models:
@@ -43,7 +43,7 @@ fr:
             presided_polling_station:
               president_and_manager: L'agent de vote est déjà président/responsable d'un bureau de vote
             voting:
-              different_organization: Le vote doit être dans le même organization que l'utilisateur
+              different_organization: Le vote doit être dans la même organisation que l'utilisateur
         decidim/votings/polling_station:
           attributes:
             polling_station_president:
@@ -80,19 +80,19 @@ fr:
           label: Officier
           values:
             assigned: Assigné
-            unassigned: Non affecté
+            unassigned: Non assigné
         role_eq:
           label: Rôle
           values:
             manager: Responsable
             president: Président
-            unassigned: Non assigné(e)
+            unassigned: Non assigné
         search_placeholder:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Rechercher %{collection} par nom/email/pseudo ou par bureau de vote.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
           : Recherchez %{collection} par titre, adresse ou nom d'officier/email/pseudo de l'officier.
         signed_eq:
-          label: Signé
+          label: Signature
           values:
             'false': Signé
             'true': Non signé
@@ -280,11 +280,11 @@ fr:
             answer: Répondre
             not_selected: Non sélectionné
             question: Question
-            result: Réalisation
+            result: Résultat
             selected: Sélectionné
             submit: Publier les résultats
             success: La demande de publication des résultats a bien été envoyée au Panneau d'Affichage
-            title: Résultat du calcul
+            title: Résultats du calcul
           vote:
             errors:
               time_after: L'élection est toujours en cours. Vous devez attendre (%{end_time}) pour terminer la période de vote.
@@ -373,7 +373,7 @@ fr:
             not_started: La génération des clés n'a pas encore commencée.
             started: La cérémonie de génération des clés a commencé mais n'est pas encore terminée.
           key_ceremony_title: Cérémonie de génération des clés
-          not_available: Pas encore disponible
+          not_available: N'est pas encore disponible
           not_created: N'est pas créée
           not_published: Non publié
           not_ready: Pas encore prêt
@@ -505,7 +505,7 @@ fr:
             list:
               status: Statut
               task: Tâche
-            process_warning: Une fois le processus démarré, vous ne devriez pas quitter cette page avant la fin du processus. Cela prendra plusieurs minutes, car tous les Mandataires doivent être connectés pour le compléter.
+            process_warning: Une fois le processus démarré, vous ne devriez pas quitter cette page avant la fin du processus. Cela prendra plusieurs minutes, car tous les garants doivent être connectés pour le compléter.
             start: Démarrer
             start_icon: Icône indiquant un bouton de démarrage pour démarrer la génération des clés d'élection
             status:
@@ -514,18 +514,18 @@ fr:
               processing: Traitement en cours
             title: Créer des clés d'élection pour %{election}
           restore_modal:
-            description: Le Tableau d'Affichage a des informations pour vous en temps que Mandataire de cette élection. Pour continuer le processus, commencer par télécharger le fichier de sauvegarde généré pendant la session précédente.
+            description: Le Panneau d'affichage a des informations pour vous en temps que garant de cette élection. Pour continuer le processus, commencer par télécharger le fichier de sauvegarde généré pendant la session précédente.
             title: Restaurer les clés d'élection pour %{election}
             upload_election_keys: Télécharger les clés d'élection
             upload_icon: Icône indiquant une action de téléchargement
           tally_steps:
             back: Retour
-            description: Les résultats de cette élection sont calculés dans le Bulletin Board et pour compléter ce processus, votre participation en tant que garant est nécessaire.
+            description: Les résultats de cette élection sont calculés dans le Panneau d'affichage et pour compléter ce processus, votre participation en tant que garant est nécessaire.
             keys:
               end_tally: Dépouillement terminé
               tally:
                 cast: Valider le dépouillement
-                share: Partager le décompte
+                share: Partager le dépouillement
             list:
               status: Statut
               task: Tâche
@@ -543,8 +543,8 @@ fr:
         menu:
           trustee_zone: Espace de garant
         no_bulletin_board:
-          body: Un tableau d'affichage configuré est requis pour cette section. Contactez l'administrateur pour plus de détails.
-          title: Désolé, le tableau d'affichage n'est pas encore configuré.
+          body: Un Panneau d'affichage configuré est requis pour cette section. Contactez l'administrateur pour plus de détails.
+          title: Désolé, le Panneau d'affichage n'est pas encore configuré.
         trustees:
           show:
             elections:
@@ -586,10 +586,10 @@ fr:
         ballot_decision:
           audit: "(Auditer le bulletin de vote)"
           back: Recommencer le processus de vote
-          ballot_hash: 'L''identifiant de votre bulletin est:'
-          cast: Valider votre vote
-          description: Ici, vous pouvez valider votre vote de sorte qu'il soit correctement compté ou alternativement vous pouvez vérifier que votre bulletin a bien été chiffré. Pour des raisons de sécurité, l’audit de votre bulletin révélera son contenu. Si vous souhaitez valider votre vote, vous devrez donc recommencer le processus de vote.
-          header: 'Le bulletin est chiffré: validez-le ou auditez-le'
+          ballot_hash: 'L''identifiant de votre bulletin est :'
+          cast: Valider votre bulletin
+          description: Ici, vous pouvez valider votre vote de sorte qu'il soit correctement comptabilisé ou alternativement vous pouvez vérifier que votre bulletin a bien été chiffré. Pour des raisons de sécurité, l’audit de votre bulletin révélera son contenu. Si vous souhaitez valider votre vote, vous devrez donc recommencer le processus de vote.
+          header: 'Le bulletin est chiffré : validez-le ou auditez-le'
         casting:
           header: Vote en cours...
           text: Votre bulletin a bien été pris en compte.
@@ -609,7 +609,7 @@ fr:
           header: Vote confirmé
           lead: Votre vote a été comptabilisé !
           text: 'Vous pouvez vérifier que votre vote a bien été ajouté aux urnes avec l''identifiant suivant : <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
-          verify_link: Pour vérifier que votre vote a bien été pris en compte, copiez le code d'identification et collez-le sur la <a href="%{link}">page de vérification de vote</a>
+          verify_link: Pour vérifier que votre vote a bien été pris en compte, copiez l'identifiant et collez-le sur la <a href="%{link}">page de vérification de vote</a>
         create:
           error: Un problème s'est produit lors de la validation du vote. Veuillez réessayer.
         encrypting:
@@ -617,7 +617,7 @@ fr:
           text: Votre bulletin est en cours de chiffrement afin de garantir le secret de votre vote.
         failed:
           header: Le vote a échoué
-          lead: Votre vote n'a pas été exprimé!
+          lead: Votre vote n'a pas été exprimé !
           text: Une erreur est survenue, veuillez réessayer.
           try_again: Réessayez
         header:
@@ -828,7 +828,7 @@ fr:
           voting:
             fields:
               created_at: Créée le
-              promoted: Mise en avant
+              promoted: Mis en avant
               published: Publié
               title: Titre
         monitoring_committee_election_results:
@@ -856,7 +856,7 @@ fr:
             publishing: Publication en cours ...
           update:
             invalid: Un problème est survenu lors de la publication des résultats
-            rejected: La publication des résultats a été rejetée par le tableau d'affichage. Réessayez ou contactez l'administrateur du système.
+            rejected: La publication des résultats a été rejetée par le Panneau d'affichage. Réessayez ou contactez l'administrateur système.
             success: Les résultats ont été publiés avec succès
         monitoring_committee_members:
           create:
@@ -1059,16 +1059,16 @@ fr:
             subject: L'export des codes d'accès au vote pour %{voting_title} est disponible
         vote_flow:
           already_voted_in_person: Ce participant a déjà voté en personne et n'a plus le droit de voter.
-          datum_not_found: Les données données ne correspondent à aucun électeur.
+          datum_not_found: Les données ne correspondent à aucun électeur.
       content_blocks:
         highlighted_votings:
-          name: Élections remarquables
+          name: Élections mises en avant
         landing_page:
           description:
             show_less: Voir moins
-            show_more: Lire la suite
+            show_more: Voir plus
           metrics:
-            heading: Statistiques
+            heading: Métriques
           polling_stations:
             heading: Bureaux de vote
             no_polling_stations: Il n'y a pas encore de bureau de vote.
@@ -1272,8 +1272,8 @@ fr:
             other: "%{count} élections"
         elections_log:
           bb_status: État actuel de l'élection
-          description: Le journal des élections vous montrera toutes les informations pertinentes sur chaque vote. Par exemple, le statut de la cérémonie de génération des clées ou du dépouillement ou si les résultats sont déjà publiés. Cliquez sur l'élection à propos de laquelle vous voulez des informations.
-          election_log: Journal de l'élection
+          description: Le journal des élections vous montrera toutes les informations pertinentes sur chaque vote. Par exemple, le statut de la cérémonie de génération des clés ou du dépouillement ou si les résultats sont déjà publiés. Cliquez sur l'élection à propos de laquelle vous voulez des informations.
+          election_log: Logs de l'élection
           title: Journal de l'élection
         filters:
           active: Actifs
