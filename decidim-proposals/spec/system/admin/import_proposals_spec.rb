@@ -28,14 +28,15 @@ describe "Import proposals", type: :system do
     end
 
     it "doesnt change proposal amount if one imported row fails" do
-      attach_file :proposals_file_import_file, Decidim::Dev.asset("import_proposals_broken.csv")
+      dynamically_attach_file(:file, Decidim::Dev.asset("import_proposals_broken.csv"))
+
       click_button "Import"
       expect(page).to have_content("Found an error in the import file on line 4")
       expect(Decidim::Proposals::Proposal.count).to eq(0)
     end
 
     it "creates proposals after succesfully import" do
-      attach_file :proposals_file_import_file, Decidim::Dev.asset("import_proposals.csv")
+      dynamically_attach_file(:file, Decidim::Dev.asset("import_proposals_broken.csv"))
       click_button "Import"
       expect(page).to have_content("3 proposals successfully imported")
       expect(Decidim::Proposals::Proposal.count).to eq(3)
@@ -58,7 +59,7 @@ describe "Import proposals", type: :system do
     it "links proposal to user group during the import" do
       page.find("#proposals_file_import_user_group_id").click
       select user_group.name, from: "proposals_file_import_user_group_id"
-      attach_file :proposals_file_import_file, Decidim::Dev.asset("import_proposals.csv")
+      dynamically_attach_file(:file, Decidim::Dev.asset("import_proposals.csv"))
       click_button "Import"
       expect(page).to have_content("3 proposals successfully imported")
       expect(Decidim::Proposals::Proposal.last.user_groups.count).to eq(1)

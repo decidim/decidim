@@ -25,7 +25,7 @@ shared_examples "manage assembly members examples" do
           with: "Daisy O'connor"
         )
 
-        attach_file "Avatar", Decidim::Dev.asset("avatar.jpg")
+        dynamically_attach_file("avatar", Decidim::Dev.asset("avatar.jpg"))
 
         select "President", from: :assembly_member_position
 

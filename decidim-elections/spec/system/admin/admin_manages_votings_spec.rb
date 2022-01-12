@@ -52,12 +52,14 @@ describe "Admin manages votings", type: :system do
           ca: "Descripció més llarga"
         )
         fill_in :voting_slug, with: "slug"
-        attach_file :voting_banner_image, image1_path
-        attach_file :voting_introductory_image, image2_path
+      end
+
+      dynamically_attach_file(:banner_image, image1_path)
+      dynamically_attach_file(:introductory_image, image2_path)
+
+      within ".new_voting" do
         select "Online", from: :voting_voting_type
-
         scope_pick select_data_picker(:voting_scope_id), organization.scopes.first
-
         find("*[type=submit]").click
       end
 
@@ -105,10 +107,13 @@ describe "Admin manages votings", type: :system do
         )
         fill_in :voting_slug, with: "slug"
         select "Online", from: :voting_voting_type
-        attach_file :voting_banner_image, image1_path
-        attach_file :voting_introductory_image, image2_path
-        scope_pick select_data_picker(:voting_scope_id), organization.scopes.first
+      end
 
+      dynamically_attach_file(:banner_image, image1_path)
+      dynamically_attach_file(:introductory_image, image2_path)
+
+      within ".new_voting" do
+        scope_pick select_data_picker(:voting_scope_id), organization.scopes.first
         find("*[type=submit]").click
       end
 
@@ -133,7 +138,7 @@ describe "Admin manages votings", type: :system do
         es: "Mi nuevo título",
         ca: "El meu nou títol"
       )
-      attach_file :voting_banner_image, image3_path
+      dynamically_attach_file(:banner_image, image3_path)
       select "Online", from: :voting_voting_type
 
       within ".edit_voting" do
@@ -179,7 +184,7 @@ describe "Admin manages votings", type: :system do
     end
 
     it "does not update the voting" do
-      attach_file :voting_banner_image, image_invalid_path
+      dynamically_attach_file(:banner_image, image_invalid_path)
 
       within ".edit_voting" do
         find("*[type=submit]").click

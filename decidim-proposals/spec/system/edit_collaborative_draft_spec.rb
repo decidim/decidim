@@ -62,7 +62,11 @@ describe "Edit collaborative_drafts", type: :system do
 
           within "form.edit_collaborative_draft" do
             fill_in :collaborative_draft_attachment_title, with: "My attachment"
-            attach_file :collaborative_draft_attachment_file, Decidim::Dev.asset("city.jpeg")
+          end
+
+          dynamically_attach_file(:attachment_file, Decidim::Dev.asset("city.jpeg"))
+
+          within "form.edit_collaborative_draft" do
             find("*[type=submit]").click
           end
 
