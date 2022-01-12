@@ -594,6 +594,7 @@ ca:
           all: Totes
           meetings: Trobades
           official: Oficial
+          participants: Participants
           user_groups: Grups
         filter_scope_values:
           all: Totes
