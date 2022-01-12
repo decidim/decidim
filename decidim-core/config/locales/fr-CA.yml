@@ -84,7 +84,7 @@ fr-CA:
       about_x_months:
         one: environ %{count} mois
         other: environ %{count} mois
-      half_a_minute: une demi-minute
+      half_a_minute: 30 secondes
       less_than_x_minutes:
         one: moins d’une minute.
         other: moins de %{count} min.
@@ -1065,6 +1065,12 @@ fr-CA:
         greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Bonjour,
         subject: Voulez-vous continuer à recevoir des informations pertinentes sur %{organization_name} ?
+    notification_mailer:
+      event_received:
+        no_translation_available: Désolé, la traduction automatique n'a pas pu être récupérée lorsque l'e-mail a été envoyé. Vous pouvez voir la traduction du texte original sur le lien suivant %{link}.
+        original_text: 'Texte original :'
+        same_language: Le contenu a été publié dans votre langue préférée (%{language}), c'est pourquoi aucune traduction automatique n'est affichée dans cet e-mail.
+        translated_text: 'Traduction automatique du texte :'
     notifications:
       no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
