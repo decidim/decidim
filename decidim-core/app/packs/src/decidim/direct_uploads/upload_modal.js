@@ -4,7 +4,7 @@ export default class UploadModal {
   constructor(button, options = {}) {
     this.button = button;
     this.options = Object.assign({
-      token: "abcdefg1234",
+      token: button.dataset.token,
       resourceName: button.dataset.resourceName,
       resourceClass: button.dataset.resourceClass,
       optional: button.dataset.optional === "true",

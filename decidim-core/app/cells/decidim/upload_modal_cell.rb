@@ -21,6 +21,10 @@ module Decidim
       "button small primary add-attachment"
     end
 
+    def token
+      ""
+    end
+
     def label
       options[:label]
     end

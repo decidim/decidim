@@ -128,8 +128,14 @@ module Decidim
           let(:question_1) { create(:questionnaire_question, questionnaire: questionnaire, question_type: :files) }
           let(:uploaded_files) do
             [
-              Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-              Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")
+              {
+                title: "Picture of the city",
+                file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("city.jpeg", "image/jpeg"), filename: "city.jpeg").signed_id
+              },
+              {
+                title: "Example document",
+                file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf"), filename: "Exampledocument.pdf").signed_id
+              }
             ]
           end
           let(:form_params) do
@@ -155,8 +161,14 @@ module Decidim
           context "when attachments are allowed and file is invalid" do
             let(:uploaded_files) do
               [
-                Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-                Decidim::Dev.test_file("verify_user_groups.csv", "text/csv")
+                {
+                  title: "Picture of the city",
+                  file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("city.jpeg", "image/jpeg"), filename: "city.jpeg").signed_id
+                },
+                {
+                  title: "CSV document",
+                  file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("verify_user_groups.csv", "text/csv"), filename: "verify_user_groups.csv").signed_id
+                }
               ]
             end
 
