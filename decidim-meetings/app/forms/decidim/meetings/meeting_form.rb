@@ -18,8 +18,9 @@ module Decidim
       attribute :available_slots, Integer, default: 0
       attribute :registration_terms, String
       attribute :iframe_embed_type, String, default: "none"
+      attribute :iframe_access_level, String
 
-      validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.iframe_embed_types }
+      validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.participants_iframe_embed_types }
       validates :title, presence: true
       validates :description, presence: true
       validates :type_of_meeting, presence: true
@@ -33,6 +34,11 @@ module Decidim
       validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
       validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
       validates :clean_type_of_meeting, presence: true
+      validates(
+        :iframe_access_level,
+        inclusion: { in: Decidim::Meetings::Meeting.iframe_access_levels },
+        if: ->(form) { %w(embed_in_meeting_page open_in_new_tab).include?(form.iframe_embed_type) }
+      )
       validate :embeddable_meeting_url
 
       delegate :categories, to: :current_component
@@ -83,8 +89,17 @@ module Decidim
         end
       end
 
+      def iframe_access_level_select
+        Decidim::Meetings::Meeting.iframe_access_levels.map do |level, _value|
+          [
+            I18n.t("iframe_access_level.#{level}", scope: "decidim.meetings"),
+            level
+          ]
+        end
+      end
+
       def iframe_embed_type_select
-        Decidim::Meetings::Meeting.iframe_embed_types.map do |type, _value|
+        Decidim::Meetings::Meeting.participants_iframe_embed_types.map do |type, _value|
           [
             I18n.t("iframe_embed_type.#{type}", scope: "decidim.meetings"),
             type

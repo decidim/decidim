@@ -72,7 +72,7 @@ describe "Admin filters meetings", type: :system do
 
     before { visit_component_admin }
 
-    context "when filtering participants " do
+    context "when filtering participants" do
       context "when no official meeting is present" do
         it_behaves_like "a filtered collection", options: "Origin", filter: "Participant" do
           let(:in_filter) { translated(participant_meeting.title) }
@@ -88,7 +88,7 @@ describe "Admin filters meetings", type: :system do
       end
     end
 
-    context "when filtering official " do
+    context "when filtering official" do
       context "when no participant meeting is present" do
         it_behaves_like "a filtered collection", options: "Origin", filter: "Official" do
           let(:in_filter) { translated(official_meeting.title) }
@@ -104,7 +104,7 @@ describe "Admin filters meetings", type: :system do
       end
     end
 
-    context "when filtering official " do
+    context "when filtering user groups" do
       context "when no participant meeting is present" do
         it_behaves_like "a filtered collection", options: "Origin", filter: "User Groups" do
           let(:in_filter) { translated(user_group_meeting.title) }

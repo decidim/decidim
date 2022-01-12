@@ -127,6 +127,10 @@ module Decidim
       # we create a salt for the meeting only on new meetings to prevent changing old IDs for existing (Ether)PADs
       before_create :set_default_salt
 
+      def self.participants_iframe_embed_types
+        iframe_embed_types.except(:open_in_live_event_page)
+      end
+
       # Return registrations of a particular meeting made by users representing a group
       def user_group_registrations
         registrations.where.not(decidim_user_group_id: nil)
