@@ -584,7 +584,6 @@ ja:
           all: すべて
         filter_origin_values:
           all: すべて
-          citizens: 一般参加者
           meetings: ミーティング
           official: 事務局
           user_groups: グループ
