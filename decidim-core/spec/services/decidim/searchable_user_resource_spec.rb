@@ -12,31 +12,95 @@ module Decidim
 
     describe "Indexing of users" do
       context "when implementing Searchable" do
-        it "inserts a SearchableResource after User creation" do
-          organization.available_locales.each do |locale|
-            searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale: locale)
-            expect_searchable_resource_to_correspond_to_user(searchable, user, locale)
+        describe "index_on_create" do
+          it "inserts a SearchableResource" do
+            organization.available_locales.each do |locale|
+              searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale: locale)
+              expect_searchable_resource_to_correspond_to_user(searchable, user, locale)
+            end
+          end
+
+          context "when User has been deleted" do
+            let!(:user) { create(:user, :deleted, name: "Neil Diamond", organization: organization) }
+
+            it "doesn't inserts a SearchableResource" do
+              organization.available_locales.each do |locale|
+                searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale: locale)
+
+                expect(searchable).to be_nil
+              end
+            end
+          end
+
+          context "when User has been blocked" do
+            let!(:user) { create(:user, :blocked, name: "Neil Diamond", organization: organization) }
+
+            it "doesn't inserts a SearchableResource" do
+              organization.available_locales.each do |locale|
+                searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale: locale)
+
+                expect(searchable).to be_nil
+              end
+            end
           end
         end
 
-        it "updates the associated SearchableResource after User update" do
-          searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id)
-          created_at = searchable.created_at
-          user.save!
+        describe "index_on_update" do
+          it "updates the associated SearchableResource" do
+            searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id)
+            created_at = searchable.created_at
+            user.save!
 
-          organization.available_locales.each do |locale|
-            searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale: locale)
-            expect(searchable.content_a).to eq user.name
-            expect(searchable.updated_at.to_i).to be >= created_at.to_i
+            organization.available_locales.each do |locale|
+              searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale: locale)
+              expect(searchable.content_a).to eq user.name
+              expect(searchable.updated_at.to_i).to be >= created_at.to_i
+            end
+          end
+
+          context "when User has been deleted" do
+            it "doesn't updates the associated SearchableResource" do
+              searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id)
+              expect(searchable).not_to be_nil
+              user.update!({
+                             email: "",
+                             deleted_at: Time.current
+                           })
+
+              organization.available_locales.each do |locale|
+                searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale: locale)
+                expect(searchable).to be_nil
+              end
+            end
+          end
+
+          context "when User has been blocked" do
+            it "doesn't updates the associated SearchableResource" do
+              searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id)
+              expect(searchable).not_to be_nil
+              user.update!({
+                             blocked: true,
+                             blocked_at: Time.current,
+                             extended_data: { "user_name": user.name },
+                             name: "Blocked user"
+                           })
+
+              organization.available_locales.each do |locale|
+                searchable = SearchableResource.find_by(resource_type: user.class.name, resource_id: user.id, locale: locale)
+                expect(searchable).to be_nil
+              end
+            end
           end
         end
 
-        it "destroys the associated SearchableResource after User destroy" do
-          user.destroy
+        describe "after_destroy" do
+          it "destroys the associated SearchableResource after User destroy" do
+            user.destroy
 
-          searchables = SearchableResource.where(resource_type: user.class.name, resource_id: user.id)
+            searchables = SearchableResource.where(resource_type: user.class.name, resource_id: user.id)
 
-          expect(searchables.any?).to be false
+            expect(searchables.any?).to be false
+          end
         end
       end
     end
@@ -64,6 +128,36 @@ module Decidim
               expect(results[:results]).to eq [user]
             end
             on(:invalid) { raise("Should not happen") }
+          end
+        end
+
+        context "when User has been deleted" do
+          let!(:user2) { create(:user, :deleted, name: "Neil Young", organization: organization) }
+
+          it "doesn't returns User results" do
+            Decidim::Search.call("Neil", organization, resource_type: user.class.name) do
+              on(:ok) do |results_by_type|
+                results = results_by_type[user.class.name]
+                expect(results[:count]).to eq 1
+                expect(results[:results]).to match_array [user]
+              end
+              on(:invalid) { raise("Should not happen") }
+            end
+          end
+        end
+
+        context "when User has been blocked" do
+          let!(:user2) { create(:user, :blocked, name: "Neil Young", organization: organization) }
+
+          it "doesn't returns User results" do
+            Decidim::Search.call("Neil", organization, resource_type: user.class.name) do
+              on(:ok) do |results_by_type|
+                results = results_by_type[user.class.name]
+                expect(results[:count]).to eq 1
+                expect(results[:results]).to match_array [user]
+              end
+              on(:invalid) { raise("Should not happen") }
+            end
           end
         end
       end

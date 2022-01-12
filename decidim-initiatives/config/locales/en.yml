@@ -409,7 +409,7 @@ en:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> applied for the promoter committee of your initiative <a href="%{resource_url}">%{resource_title}</a>. To accept or reject click <a href="%{resource_url}/edit">here</a>.
       form:
         add_attachments: Documents
-        attachment_legend: "(Optional) Add Attachments"
+        attachment_legend: "(Optional) Add an attachment"
         delete_attachment: Delete
       index:
         title: Initiatives

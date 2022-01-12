@@ -482,6 +482,7 @@ fr:
           select_a_category: Veuillez sélectionner une catégorie
           select_a_meeting_type: Veuillez sélectionner un type de rencontre
           select_a_registration_type: Veuillez sélectionner un type d'inscription
+          select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
         index:
           click_here: Voir toutes les réunions
           new_meeting: Nouvelle rencontre

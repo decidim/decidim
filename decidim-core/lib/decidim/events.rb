@@ -9,5 +9,6 @@ module Decidim
     autoload :AuthorEvent, "decidim/events/author_event"
     autoload :CoauthorEvent, "decidim/events/coauthor_event"
     autoload :UserGroupEvent, "decidim/events/user_group_event"
+    autoload :MachineTranslatedEvent, "decidim/events/machine_translated_event"
   end
 end

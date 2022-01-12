@@ -16,7 +16,7 @@ sudo -u postgres psql -c "CREATE USER decidim_development_app_user WITH SUPERUSE
 ----
 
 2. Save the database configuration in your environment variables configuration. If you've followed the xref:install:manual.adoc[Decidim installation manual],
-then you should have a working [rbenv-vars](https://github.com/rbenv/rbenv-vars) in your environment:
+then you should have a working https://github.com/rbenv/rbenv-vars[rbenv-vars] in your environment:
 
 [source,console]
 ----

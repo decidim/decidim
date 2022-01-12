@@ -40,7 +40,7 @@ module Decidim
 
         context "when it is a single_option question" do
           it "Returns the choice's body" do
-            expect(subject.body).to eq(answer_choice.body)
+            expect(subject.body).to eq("<li>#{answer_choice.body}</li>")
           end
         end
 
@@ -62,6 +62,15 @@ module Decidim
 
         it "Returns the choices wrapped in <li> elements inside a <ul>" do
           expect(subject.body).to eq("<ul><li>#{answer_choice_1.body}</li><li>#{answer_choice_2.body}</li></ul>")
+        end
+
+        context "and free text is enabled on answer options" do
+          let!(:answer_option_1) { create :answer_option, :free_text_enabled }
+          let!(:answer_option_2) { create :answer_option, :free_text_enabled }
+
+          it "returns the choices and question wrapped in <li> elements inside a <ul>" do
+            expect(subject.body).to eq("<ul><li>#{answer_option_1.translated_body}</li><li>#{answer_option_2.translated_body}</li></ul>")
+          end
         end
       end
     end

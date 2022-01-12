@@ -72,7 +72,7 @@ module Decidim
         context "when condition_type is :answered" do
           let(:condition_type) { :answered }
 
-          context "and body is empty" do
+          context "and form is empty" do
             let(:answer_form) { nil }
 
             it "is not fulfilled" do
@@ -100,7 +100,7 @@ module Decidim
         context "when condition_type is :not_answered" do
           let(:condition_type) { :not_answered }
 
-          context "and body is empty" do
+          context "and form is empty" do
             let(:answer_form) { nil }
 
             it "is not fulfilled" do
