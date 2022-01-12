@@ -54,12 +54,15 @@ describe "Edit proposals", type: :system do
         expect(page).to have_content("RELATED IMAGES")
         click_link "Edit proposal"
 
-        within "#attachment_#{file.id}" do
-          click_button "Delete Document"
+        click_button "Edit documents"
+        within ".attachment-modal" do
+          find("button.remove-upload-item").click
+          click_button "Save"
         end
-
-        within "#attachment_#{photo.id}" do
-          click_button "Delete Image"
+        click_button "Edit image"
+        within ".attachment-modal" do
+          find("button.remove-upload-item").click
+          click_button "Save"
         end
 
         click_button "Send"

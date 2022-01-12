@@ -310,7 +310,7 @@ describe "Proposals", type: :system do
               fill_in :proposal_body, with: "This is my proposal and I want to upload attachments."
             end
 
-            dynamically_attach_file(:add_photos, Decidim::Dev.asset("city.jpeg"))
+            dynamically_attach_file(:photos, Decidim::Dev.asset("city.jpeg"))
 
             within ".edit_proposal" do
               find("*[type=submit]").click

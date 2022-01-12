@@ -156,10 +156,10 @@ export default class UploadModal {
     const errorList = document.createElement("ul");
     errorList.classList.add("upload-errors");
 
-    const removeField = document.createElement("span");
-    removeField.classList.add("columns", "small-2", "remove-upload-item");
-    removeField.innerHTML = `&times; ${this.locales.remove}`;
-    removeField.addEventListener(("click"), (event) => {
+    const removeButton = document.createElement("button");
+    removeButton.classList.add("columns", "small-2", "remove-upload-item");
+    removeButton.innerHTML = `&times; ${this.locales.remove}`;
+    removeButton.addEventListener(("click"), (event) => {
       event.preventDefault();
       const item = this.uploadItems.querySelector(`[data-filename='${fileName}']`);
       this.trashCan.append(item);
@@ -193,7 +193,7 @@ export default class UploadModal {
       secondRow.appendChild(tileInputContainer);
     }
 
-    secondRow.appendChild(removeField);
+    secondRow.appendChild(removeButton);
 
     wrapper.appendChild(firstRow);
     wrapper.appendChild(secondRow);
