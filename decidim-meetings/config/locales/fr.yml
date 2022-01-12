@@ -403,7 +403,7 @@ fr:
             space_type: Espace participatif
             upcoming: À venir
       last_activity:
-        meeting_updated_at_html: "<span>Rencontre mis à jour à %{link}</span>"
+        meeting_updated_at_html: "<span>Rencontre mise à jour à %{link}</span>"
         new_meeting_at_html: "<span>Nouvelle rencontre dans %{link}</span>"
       layouts:
         live_event:
@@ -427,9 +427,9 @@ fr:
       meetings:
         calendar_modal:
           add_to_calendar: Ajouter au calendrier
-          apple: Envoyer vers le Calendrier Apple
+          apple: Ajouter au calendrier Apple
           close_window: Fermer la fenêtre
-          full_details_html: Pour plus de détails, allez sur %{link}
+          full_details_html: Pour plus de détails, cliquez sur %{link}
           google: Ajouter au calendrier Google
           outlook: Ajouter au calendrier Outlook
         count:
