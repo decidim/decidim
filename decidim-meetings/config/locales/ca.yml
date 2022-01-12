@@ -516,7 +516,7 @@ ca:
           meeting_minutes: Acta de la trobada
           micro_camera_permissions_warning: Quan facis clic en el botó de sota, se't demanaran permisos per al micròfon i/o la càmera, i t'uniràs a la videoconferència
           no_slots_available: No hi ha places disponible
-          organizations: Organitzacions que han assistit
+          organizations: Organitzacions assistents
           registration_code_help_text: El teu codi de registre
           registration_state:
             validated: VALIDAT
@@ -572,7 +572,7 @@ ca:
             question_replied: Pregunta contestada
             reply_question: Contestar a la pregunta
       public_participants_list:
-        attending_participants: Participants que han assistit
+        attending_participants: Participants assistents
         hidden_participants_count:
           one: i %{count} persona més
           other: i %{count} persones més
