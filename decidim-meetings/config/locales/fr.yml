@@ -92,7 +92,6 @@ fr:
           origin_eq:
             label: Origine
             values:
-              citizen: Participants
               official: Officielle
               user_group: Groupes d’utilisateurs
           scope_id_eq:
@@ -384,7 +383,7 @@ fr:
               not_found: 'L''organisateur n''a pas été trouvé dans la base de données (ID: %{id})'
       application_helper:
         filter_category_values:
-          all: Toutes
+          all: Tout
         filter_meeting_space_values:
           all: Tous
         filter_scope_values:
@@ -467,7 +466,6 @@ fr:
           origin: Origine
           origin_values:
             all: Toutes
-            citizens: Citoyens
             official: Officiel
             user_groups: Groupes
           scope: Secteur
