@@ -14,12 +14,12 @@ module Decidim
       50
     end
 
-    # defines the schema max_per_page to configure GraphQL query complexity
+    # defines the schema max_complexity to configure GraphQL query complexity
     config_accessor :schema_max_complexity do
       5000
     end
 
-    # defines the schema max_per_page to configure GraphQL query max_depth
+    # defines the schema max_depth to configure GraphQL query max_depth
     config_accessor :schema_max_depth do
       15
     end
