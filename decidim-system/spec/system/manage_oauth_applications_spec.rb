@@ -30,7 +30,6 @@ describe "Manage OAuth applications", type: :system do
       find("*[type=submit]").click
     end
 
-    click_button "Add file"
     expect(page).to have_content("successfully")
 
     within "table" do
