@@ -447,9 +447,9 @@ fr:
           back: Élections disponibles
           callout:
             already_voted: Vous avez déjà voté pour cette élection. Vous pouvez modifier votre vote ou le vérifier.
-            pending_vote: Votre vote est en cours de validation le serveur.
+            pending_vote: Votre vote est en cours de validation sur le serveur.
             vote_rejected: Il n'a pas été possible de vérifier votre vote. Veuillez recommencer.
-          election_log: Journal de l'élection
+          election_log: Logs de l'élection
           preview: Aperçu
           verify:
             already_voted: Déjà voté?
@@ -461,7 +461,7 @@ fr:
             upcoming: Le vote commence le %{start_time}
       feedback:
         answer:
-          invalid: Un problème est survenu lors de l'envoi de votre commentaire.
+          invalid: Un problème est survenu lors de l'envoi de votre retour utilisateur.
           spam_detected: Une erreur s'est produite lors de la complétion du formulaire. Peut-être êtes-vous allés trop vite, pouvez-vous réessayer?
           success: Votre avis a bien été envoyé.
       models:
@@ -473,7 +473,7 @@ fr:
             votes: Votes
         election:
           fields:
-            bb_status: Statut du Tableau d'affichage
+            bb_status: Statut du Panneau d'affichage
             end_time: Prend fin à
             start_time: Commence à
             title: Titre
@@ -500,7 +500,7 @@ fr:
       trustee_zone:
         elections:
           backup_modal:
-            description: Cette élection est en cours de création dans le Tableau d'Affichage. Il est très important que chaque Mandataire qui y participe fasse une sauvegarde de ces clés et les stocke dans un endroit sûr. Ensuite, le processus se poursuit.
+            description: Cette élection est en cours de création dans le Panneau d'affichage. Il est très important que chaque garant qui y participe fasse une sauvegarde de ces clés et les stocke dans un endroit sûr. Ensuite, le processus se poursuit.
             download_election_keys: Télécharger les clés
             download_icon: Icône indiquant une action de téléchargement
             title: Sauvegarder les clés d'élection pour %{election}
