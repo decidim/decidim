@@ -370,7 +370,6 @@ tr:
           origin: Orijin
           origin_values:
             all: Tümü
-            citizens: Vatandaşlar
             official: Resmi
             user_groups: Gruplar
           scope: Kapsam
