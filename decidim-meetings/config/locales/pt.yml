@@ -88,7 +88,6 @@ pt:
           origin_eq:
             label: Origem
             values:
-              citizen: Cidadão
               official: Oficial
               user_group: Grupos de utilizadores
           scope_id_eq:
@@ -440,7 +439,6 @@ pt:
           origin: Origem
           origin_values:
             all: Todos
-            citizens: Cidadãos
             official: Oficial
             user_groups: Grupos
           scope: Âmbito
