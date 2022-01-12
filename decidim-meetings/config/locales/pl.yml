@@ -419,7 +419,6 @@ pl:
           origin: Źródło
           origin_values:
             all: Wszystkie
-            citizens: Obywatele
             official: Oficjalny
             user_groups: Grupy
           scope: Zakres
