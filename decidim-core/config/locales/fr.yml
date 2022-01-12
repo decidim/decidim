@@ -1638,7 +1638,7 @@ fr:
         twitter: "%{organization} sur Twitter"
         youtube: "%{organization} sur YouTube"
       timeout_modal:
-        body: Vous avez été inactif pendant %{minutes} minutes. Si vous continuez à être inactif, vous serez automatiquement déconnecté pour votre propre sécurité.
+        body: Vous avez été inactif pendant %{minutes} minutes. Si vous continuez à être inactif, vous serez automatiquement déconnecté de la plateforme pour des raisons de sécurité.
         continue_session: Continuer la session
         sign_out: Se déconnecter
         title: Voulez-vous poursuivre votre session ?
