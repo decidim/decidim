@@ -116,7 +116,7 @@ fr:
       proposals:
         actions:
           amend: Amender
-          comment: Commentaire
+          comment: Commenter
           create: Créer
           endorse: Soutenir
           vote: Voter
