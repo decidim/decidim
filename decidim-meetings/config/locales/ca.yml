@@ -93,6 +93,7 @@ ca:
             label: Origen
             values:
               official: Oficial
+              participant: Participant
               user_group: Grups
           scope_id_eq:
             label: Àmbit
@@ -467,6 +468,7 @@ ca:
           origin_values:
             all: Tots
             official: Oficial
+            participants: Participants
             user_groups: Grups
           scope: Àmbit
           search: Cerca
