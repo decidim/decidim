@@ -9,13 +9,6 @@ shared_examples "sorted moderations" do
     end
   end
   let!(:moderation) { moderations.first }
-  # let!(:hidden_moderations) do
-  #   reportables.last(1).map do |reportable|
-  #     moderation = create(:moderation, reportable: reportable, report_count: 3, reported_content: reportable.reported_searchable_content_text, hidden_at: Time.current)
-  #     create_list(:report, 3, moderation: moderation, reason: :spam)
-  #     moderation
-  #   end
-  # end
   let(:moderations_link_text) { "Moderations" }
 
   before do

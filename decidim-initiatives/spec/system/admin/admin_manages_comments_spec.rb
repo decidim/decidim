@@ -30,14 +30,6 @@ describe "Admin manages comments", type: :system do
         moderation
       end
     end
-    #
-    # let!(:hidden_moderations) do
-    #   reportables.last(1).map do |reportable|
-    #     moderation = create(:moderation, reportable: reportable, participatory_space: commentable, report_count: 3, hidden_at: Time.current)
-    #     create_list(:report, 3, moderation: moderation, reason: :spam)
-    #     moderation
-    #   end
-    # end
   end
 
   it_behaves_like "manage moderations" do
