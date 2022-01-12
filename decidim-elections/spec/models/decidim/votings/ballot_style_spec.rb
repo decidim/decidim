@@ -25,7 +25,7 @@ describe Decidim::Votings::BallotStyle do
         end
       end
 
-      context "when the ballot style has questions from this election" do
+      context "when the ballot style has questions from another election" do
         let(:ballot_style) { create(:ballot_style) }
 
         it "returns the questions for the specified election" do
@@ -43,7 +43,7 @@ describe Decidim::Votings::BallotStyle do
         end
       end
 
-      context "when the ballot style has questions from this election" do
+      context "when the ballot style has questions from another election" do
         let(:ballot_style) { create(:ballot_style) }
 
         it "returns the questions for the specified election" do
