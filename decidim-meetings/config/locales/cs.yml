@@ -99,6 +99,7 @@ cs:
             label: Původ
             values:
               official: Úředník
+              participant: Účastník
               user_group: Skupiny uživatelů
           scope_id_eq:
             label: Oblast působnosti
@@ -481,6 +482,7 @@ cs:
           origin_values:
             all: Vše
             official: Úředník
+            participants: Účastníci
             user_groups: Skupiny
           scope: Oblast působnosti
           search: Vyhledávání
