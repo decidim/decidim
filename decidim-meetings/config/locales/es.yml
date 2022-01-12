@@ -92,7 +92,6 @@ es:
           origin_eq:
             label: Origen
             values:
-              citizen: Ciudadanía
               official: Oficial
               user_group: Grupos
           scope_id_eq:
@@ -467,7 +466,6 @@ es:
           origin: Origen
           origin_values:
             all: Todos
-            citizens: Ciudadanía
             official: Oficial
             user_groups: Grupos
           scope: Ámbito
