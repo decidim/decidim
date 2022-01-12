@@ -17,7 +17,7 @@ fr:
         min_selections: Aucune des options ci-dessus
         title: Titre
       voting:
-        end_time: Le vote se termine
+        end_time: Le vote prend fin le
         start_time: Le vote commence le
     errors:
       models:
@@ -41,13 +41,13 @@ fr:
         decidim/votings/polling_officer:
           attributes:
             presided_polling_station:
-              president_and_manager: L'agent de vote est déjà président/responsable d'un bureau de vote
+              president_and_manager: Le responsable de scrutin est déjà président/responsable d'un bureau de vote
             voting:
-              different_organization: Le vote doit être dans le même organization que l'utilisateur
+              different_organization: Le vote doit être dans la même organisation que l'utilisateur
         decidim/votings/polling_station:
           attributes:
             polling_station_president:
-              different_voting: L'agent de vote doit être dans la même votation que le bureau de vote
+              different_voting: Le responsable de scrutin doit être dans la même élection que le bureau de vote
     models:
       decidim/elections/answer:
         one: Réponse
@@ -77,16 +77,16 @@ fr:
     admin:
       filters:
         officers_assigned_eq:
-          label: Officier
+          label: Responsable
           values:
             assigned: Assigné
-            unassigned: Non affecté
+            unassigned: Non assigné
         role_eq:
           label: Rôle
           values:
             manager: Responsable
             president: Président
-            unassigned: Non assigné(e)
+            unassigned: Non assigné
         search_placeholder:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Rechercher %{collection} par nom/email/pseudo ou par bureau de vote.
           ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
@@ -339,15 +339,15 @@ fr:
           end_vote: "%{user_name} a terminé la période de vote pour l'élection %{resource_name} de l'espace %{space_name} sur le Panneau d'affichage"
           publish: "%{user_name} a publié l'élection %{resource_name} de %{space_name}"
           publish_results: "%{user_name} a publié les résultats de l'élection %{resource_name} de %{space_name} sur le Panneau d'affichage"
-          report_missing_trustee: "%{user_name} a signalé %{trustee_name} en tant qu'accesseur manquant pendant le dépouillement de l'élection %{resource_name} de %{space_name} sur le Tableau d'affichage"
-          setup: "%{user_name} a créé l'élection %{resource_name} de %{space_name} sur le Tableau d'affichage"
+          report_missing_trustee: "%{user_name} a signalé %{trustee_name} en tant que garant absent pendant le dépouillement de l'élection %{resource_name} de %{space_name} sur le Panneau d'affichage"
+          setup: "%{user_name} a créé l'élection %{resource_name} de %{space_name} sur le Panneau d'affichage"
           start_key_ceremony: "%{user_name} a commencé la cérémonie des clés pour l'élection %{resource_name} de %{space_name} sur le Panneau d'affichage"
-          start_tally: "%{user_name} a commencé le dépouillement pour l'élection %{resource_name} de %{space_name} sur le Tableau d'affichage"
-          start_vote: "%{user_name} a commencé la période de vote pour l'élection %{resource_name} de %{space_name} sur le Tableau d'affichage"
+          start_tally: "%{user_name} a commencé le dépouillement pour l'élection %{resource_name} de %{space_name} sur le Panneau d'affichage"
+          start_vote: "%{user_name} a commencé la période de vote pour l'élection %{resource_name} de %{space_name} sur le Panneau d'affichage"
           unpublish: "%{user_name} a dépublié le %{resource_name} de l'élection %{space_name}"
           update: "%{user_name} a mis à jour l'élection %{resource_name} de %{space_name}"
         trustee:
-          create: "%{user_name} a nommé l'utilisateur %{trustee_user} en tant que accesseur"
+          create: "%{user_name} a nommé l'utilisateur %{trustee_user} en tant que Garant"
       election_m:
         badge_name:
           finished: Terminées
@@ -374,17 +374,17 @@ fr:
           chained_hash: La chaîne de hash de ce message
           complete: Terminée
           creation_description:
-            complete: L'élection a bien été créée et ajoutée sur le Tableau d'affichage.
+            complete: L'élection a bien été créée et ajoutée au Panneau d'affichage.
             not_created: L'élection n'est pas encore créée.
           creation_title: Élection créée
           description: Ceci est le journal des élections, où vous pouvez vérifier le statut de chaque étape, par exemple lorsque l'élection a été créée, si le processus de dépouillement est terminé, et la date de clôture de l'élection.
           download: Télécharger
           key_ceremony_description:
             complete: La cérémonie de génération de clés est terminée. Chaque garant a des clés valides et a téléchargé les clés de sauvegarde nécessaires.
-            not_started: La génération des clés n'a pas encore commencée.
+            not_started: La génération des clés n'a pas encore commencé.
             started: La cérémonie de génération des clés a commencé mais n'est pas encore terminée.
           key_ceremony_title: Cérémonie de génération des clés
-          not_available: Pas encore disponible
+          not_available: N'est pas encore disponible
           not_created: N'est pas créée
           not_published: Non publié
           not_ready: Pas encore prêt
@@ -394,7 +394,7 @@ fr:
             not_published: Les résultats ne sont pas encore publiés.
             published: Les résultats sont publiés.
           results_title: Résultats
-          started: Débutée
+          started: Démarré
           tally_description:
             finished: Le dépouillement est terminé.
             not_started: Le dépouillement n'a pas encore commencé.
@@ -402,7 +402,7 @@ fr:
           tally_title: Dépouillement
           title: Journal de l'élection
           verifiable_results:
-            checksum: 'Somme de contrôle SHA256:'
+            checksum: 'Fichier de somme de contrôle SHA256:'
             description:
               not_ready: Le fichier de vérification électoral et la somme de contrôle SHA256 ne sont pas encore disponibles. Dès que les résultats seront publiés, vous serez en mesure de vérifier cette élection.
               ready: 'Ici, vous avez la possibilité de vérifier l''élection. D''abord, vous devez télécharger le fichier et vous assurer qu''il n''a pas été corrompu. Pour ce faire, exécutez la commande suivante et vérifiez que la sortie correspond à la somme de contrôle :'
@@ -428,11 +428,11 @@ fr:
           filter_by: Filtrer par
           unfold: Voir plus
         preview:
-          available_answers: 'Réponses disponibles:'
-          description: 'Voici les questions que vous trouverez dans le processus de vote:'
+          available_answers: 'Réponses disponibles :'
+          description: 'Voici les questions que vous trouverez dans le processus de vote :'
           title: Questions de l'élection
         results:
-          description: 'Ce sont les résultats du vote, pour chaque question:'
+          description: 'Ce sont les résultats du vote, pour chaque question :'
           percentage: "%{count}%"
           selected: Sélectionné
           title: Résultats de l'élection
