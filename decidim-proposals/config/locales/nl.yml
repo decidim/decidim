@@ -569,7 +569,6 @@ nl:
           all: Alle
         filter_origin_values:
           all: Alle
-          citizens: Burgers
           meetings: vergaderingen
           official: Officieel
           user_groups: Groepen
