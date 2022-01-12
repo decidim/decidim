@@ -8,6 +8,7 @@ module Decidim
       layout "decidim/api/documentation"
 
       helper_method :static_api_docs_content
+      before_action :set_cache_headers
 
       private
 
@@ -19,6 +20,12 @@ module Decidim
         return "" unless params[:path]
 
         params[:path].split("/").excluding("..", ".")
+      end
+
+      def set_cache_headers
+        response.headers["Cache-Control"] = "no-cache, no-store"
+        response.headers["Pragma"] = "no-cache"
+        response.headers["Expires"] = "Mon, 01 Jan 1990 00:00:00 GMT"
       end
     end
   end
