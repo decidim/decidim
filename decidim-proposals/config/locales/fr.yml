@@ -35,7 +35,7 @@ fr:
         origin_component_id: Fonctionnalité dont on veut copier les propositions
       proposals_import:
         import_proposals: Importer des propositions
-        keep_answers: Garder l'état et les réponses
+        keep_answers: Conserver l'état et les réponses aux propositions
         keep_authors: Gardez les auteurs originaux
       valuation_assignment:
         admin_log:
