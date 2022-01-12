@@ -34,7 +34,7 @@ fr:
             confirm: Révoquer avant la date d'autorisation ne peut pas être annulée. Êtes-vous sûr de vouloir continuer ?
             confirm_all: Révoquer toutes les autorisations ne peut pas être annulés. Êtes-vous sûr de vouloir continuer ?
           destroy_nok: Il y a eu un problème lors de la révocation des autorisations.
-          destroy_ok: Toutes les autorisations correspondantes ont été annulées avec succès.
+          destroy_ok: Toutes les autorisations correspondantes ont été révoquées avec succès.
           info: Il y a un total de %{count} participants vérifiés.
           no_data: Aucun participant vérifié
           title: Révocation des autorisations
