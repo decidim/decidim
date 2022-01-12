@@ -45,10 +45,10 @@ fr:
         partner_type: Type de partenaire
         weight: Rang d'affichage
       conference_registration_invite:
-        email: Courriel
+        email: Email
         name: Nom
         registration_type_id: Type d'inscription
-        user_id: Utilisateur·rice
+        user_id: Utilisateur
       conference_registration_type:
         description: Description
         price: Prix
@@ -56,12 +56,12 @@ fr:
         weight: Rang d'affichage
       conference_speaker:
         affiliation: Affiliation
-        avatar: Image de profil
-        conference_meeting_ids: Réunions connexes
+        avatar: Avatar
+        conference_meeting_ids: Rencontres associées
         full_name: Nom complet
-        personal_url: URL personnelle
+        personal_url: Site internet personnel
         position: Position
-        short_bio: Courte bio
+        short_bio: Courte introduction
         twitter_handle: Gestionnaire Twitter
         user_id: Utilisateur
       conference_user_role:
