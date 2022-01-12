@@ -476,13 +476,13 @@ fr:
             lines:
               detail: Veuillez vérifier que ces lignes sont correctement formatées et contiennent des données valides.
               message:
-                one: Une erreur a été trouvée dans le fichier d'importation à la ligne %{indexes}.
-                other: Erreurs trouvées dans le fichier d'importation sur les lignes %{indexes}.
+                one: Une erreur a été trouvée dans le fichier d'import à la ligne %{indexes}.
+                other: Des erreurs ont été trouvées dans le fichier d'import sur les lignes %{indexes}.
             records:
               detail: Veuillez vérifier que ces lignes sont correctement formatées et contiennent des données valides.
               message:
-                one: Une erreur a été trouvée dans le fichier d'importation pour les enregistrements avec le numéro de commande %{indexes}.
-                other: Erreurs trouvées dans le fichier d'importation pour les enregistrements avec les numéros de commande %{indexes}.
+                one: Une erreur a été trouvée dans le fichier d'import pour les enregistrements avec le numéro de commande %{indexes}.
+                other: Des erreurs ont été trouvées dans le fichier d'import pour les enregistrements avec les numéros de commande %{indexes}.
           missing_headers:
             detail: Veuillez vérifier que le fichier contient les colonnes requises.
             message:
