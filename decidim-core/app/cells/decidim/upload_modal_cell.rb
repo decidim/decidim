@@ -73,6 +73,14 @@ module Decidim
       options[:optional]
     end
 
+    # Lisää kommentti miksi tämmönen metodi täällä ylipäätään on
+    def input_validation_field
+      object_name = "#{add_attribute}_validation"
+      object_name = "#{form.object.model_name.param_key}[#{add_attribute}_validation]" if form.object.present?
+      input = check_box_tag object_name, 1, attachments.present?, class: "hide", label: false, required: !optional
+      input + form.send(:abide_error_element, add_attribute)
+    end
+
     def explanation
       return I18n.t("explanation", scope: options[:help_i18n_scope], attribute: attribute) if options[:help_i18n_scope].present?
 
@@ -125,6 +133,7 @@ module Decidim
 
     def file_name_for(attachment)
       filename = begin
+        return attachment.filename if attachment.is_a? ActiveStorage::Blob
         return blob(attachment).filename if blob(attachment).present?
 
         attachment.url.split("/").last
@@ -137,6 +146,7 @@ module Decidim
 
     def file_attachment_path(attachment)
       return unless attachment
+      return Rails.application.routes.url_helpers.rails_blob_url(attachment, only_path: true) if attachment.is_a? ActiveStorage::Blob
 
       if attachment.try(:attached?)
         attachment_path = Rails.application.routes.url_helpers&.rails_blob_url(attachment.blob, only_path: true)
@@ -155,6 +165,7 @@ module Decidim
     end
 
     def blob(attachment)
+      return attachment if attachment.is_a? ActiveStorage::Blob
       return ActiveStorage::Blob.find_signed(attachment) if attachment.is_a? String
       return attachment.file.blob if attachment.is_a? Decidim::Attachment
       return attachment.blob if attachment.respond_to? :blob

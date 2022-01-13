@@ -55,7 +55,9 @@ const addSaveButtonEventListener = (um) => {
 
   saveButton.addEventListener("click", (event) => {
     event.preventDefault();
-    um.uploadItems.querySelectorAll(".upload-item[data-state='validated']").forEach((item) => {
+    const validatedItems = um.uploadItems.querySelectorAll(".upload-item[data-state='validated']")
+    const validatedItemsCount = validatedItems.length;
+    validatedItems.forEach((item) => {
       let details = item.querySelector(".attachment-details");
       if (details) {
         um.activeAttachments.appendChild(details);
@@ -74,6 +76,14 @@ const addSaveButtonEventListener = (um) => {
       span.style.display = "block";
     });
 
+    if (validatedItemsCount > 0) {
+      // Foundation helper does some magic with error fields, so these must be triggered using jQuery.
+      const $el = $(um.uploadContainer.querySelector("input[type='checkbox']"))
+      if ($el) {
+        $el.prop("checked", true)
+        $el.trigger("change")
+      }
+    }
     um.cleanTrashCan();
     um.updateAddAttachmentsButton();
   });

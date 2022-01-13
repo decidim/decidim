@@ -900,7 +900,8 @@ module Decidim
         passthru = object._validators[attribute].find { |v| v.is_a?(PassthruValidator) }
         return passthru.options[:to] if passthru && passthru.options[:to].present?
       end
-      return object.send(attribute).record.class if object.send(attribute)&.record.present?
+      klass = object.send(attribute)
+      return object.send(attribute).record.class if !klass.is_a?(String) && klass&.record.present?
 
       object.class
     end

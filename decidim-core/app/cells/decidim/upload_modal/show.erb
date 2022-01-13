@@ -33,7 +33,7 @@
         titled: has_title?
       }
     %>
-    <%= form.text_field add_attribute, class: "hide", label: false, multiple: true, direct_upload: true, data: { directuploadurl: "/rails/active_storage/direct_uploads" } %>
+    <%= input_validation_field unless optional %>
     <% if !has_title? && optional %>
       <div class="remove-attachment" id="attachment_<%= id_for(attachments.first) %>" data-closable>
         <button class="remove-attachment"
@@ -77,8 +77,7 @@
 
   <div class="row dropzone-container" data-name=<%= attribute %>>
     <label class="dropzone">
-      <%#= form.file_field add_attribute, id: nil, label: false, multiple: true, direct_upload: true, data: { directuploadurl: "/rails/active_storage/direct_uploads" } %>
-      <input multiple="multiple" data-directuploadurl="/rails/active_storage/direct_uploads" type="file">
+      <%= form.file_field add_attribute, id: nil, class: "hide", label: false, multiple: true, direct_upload: true, data: { directuploadurl: "/rails/active_storage/direct_uploads" } %>
       <span><%= t("decidim.forms.upload_help.dropzone") %></span>
     </label>
     <%= tag.div class: "upload-items", data: {
