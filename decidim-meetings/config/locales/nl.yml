@@ -89,6 +89,7 @@ nl:
             label: Herkomst
             values:
               official: Officieel
+              participant: Deelnemer
               user_group: Gebruikersgroepen
           scope_id_eq:
             label: Scope
@@ -442,6 +443,7 @@ nl:
           origin_values:
             all: Allemaal
             official: Officiële
+            participants: Deelnemers
             user_groups: Groepen
           scope: Bereik
           search: Zoeken
