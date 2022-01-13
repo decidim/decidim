@@ -20,7 +20,7 @@ Decidim::Api.schema_max_depth = 15
 
 The static documentation will be rendered into : ```app/views/static/api/docs``` which is being refreshed automatically when you will run ```rake decidim:upgrade```.
 
-You can automatically regenerate the docs by running: ```rake decidim_api:generate_docs```
+You can manually regenerate the docs by running: ```rake decidim_api:generate_docs```
 
 ### Changed
 
