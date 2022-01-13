@@ -4,7 +4,6 @@
 # content types.
 class UploaderContentTypeValidator < ActiveModel::Validations::FileContentTypeValidator
   # rubocop: disable Metrics/CyclomaticComplexity
-  # rubocop: disable Metrics/PerceivedComplexity
   def validate_each(record, attribute, value)
     begin
       values = parse_values(value)
@@ -40,7 +39,6 @@ class UploaderContentTypeValidator < ActiveModel::Validations::FileContentTypeVa
     end
   end
   # rubocop: enable Metrics/CyclomaticComplexity
-  # rubocop: enable Metrics/PerceivedComplexity
 
   def check_validity!; end
 end

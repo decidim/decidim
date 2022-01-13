@@ -659,6 +659,8 @@ en:
           unfold: Unfold
         new:
           send: Continue
+          add_file: Add file
+          edit_file: Edit file
         new_collaborative_draft_button:
           new_collaborative_draft: New collaborative draft
         orders:

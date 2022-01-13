@@ -58,13 +58,7 @@ describe "Edit collaborative_drafts", type: :system do
           click_link collaborative_draft.title
           click_link "Edit collaborative draft"
 
-          expect(page).to have_css "#collaborative_draft_attachment_file"
-
-          within "form.edit_collaborative_draft" do
-            fill_in :collaborative_draft_attachment_title, with: "My attachment"
-          end
-
-          dynamically_attach_file(:attachment_file, Decidim::Dev.asset("city.jpeg"))
+          dynamically_attach_file(:documents, Decidim::Dev.asset("city.jpeg"), { title: "My attachment" })
 
           within "form.edit_collaborative_draft" do
             find("*[type=submit]").click

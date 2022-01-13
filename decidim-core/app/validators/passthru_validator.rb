@@ -23,6 +23,7 @@ class PassthruValidator < ActiveModel::EachValidator
   # value - Blob signed id (e.g. "eyJfcmFpbHMi...")
   def validate_each(record, attribute, value)
     return unless target_class
+
     dummy_attr = target_attribute(attribute)
 
     # Create a dummy record for which the validations are actually run on

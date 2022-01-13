@@ -398,7 +398,8 @@ module Decidim
         titled: true,
         resource_class: "Decidim::Attachment",
         show_current: false,
-        max_file_size: max_file_size(:file),
+        max_file_size: max_file_size(object.attachment, :file),
+        help: options[:help] || upload_help(object.attachment, :file, options),
         label: I18n.t("decidim.forms.upload.labels.add_attachment"),
         button_edit_label: I18n.t("decidim.forms.upload.labels.edit_image")
       }.merge(options)
@@ -407,8 +408,8 @@ module Decidim
 
     def upload(attribute, options = {})
       self.multipart = true
-      max_file_size = options[:max_file_size] || max_file_size(attribute)
-      button_label = options[:button_label] || deduce_button_label(attribute)
+      max_file_size = options[:max_file_size] || max_file_size(object, attribute)
+      button_label = options[:button_label] || choose_button_label(attribute)
       options = {
         attribute: attribute,
         resource_name: @object_name,
@@ -417,7 +418,7 @@ module Decidim
         titled: false,
         show_current: true,
         max_file_size: max_file_size,
-        help: upload_help(attribute, options),
+        help: options[:help] || upload_help(object, attribute, options),
         label: label_for(attribute),
         button_label: button_label,
         button_edit_label: I18n.t("decidim.forms.upload.labels.replace")
@@ -430,11 +431,11 @@ module Decidim
       ).call
     end
 
-    def max_file_size(attribute)
-      Decidim::FileValidatorHumanizer.new(object, attribute).max_file_size
+    def max_file_size(record, attribute)
+      Decidim::FileValidatorHumanizer.new(record, attribute).max_file_size
     end
 
-    def deduce_button_label(attribute)
+    def choose_button_label(attribute)
       if resource_class(attribute).attached_config[attribute] && resource_class(attribute).attached_config[attribute].uploader <= Decidim::ImageUploader
         return I18n.t("decidim.forms.upload.labels.add_image")
       end
@@ -442,8 +443,8 @@ module Decidim
       I18n.t("decidim.forms.upload.labels.add_file")
     end
 
-    def upload_help(attribute, options = {})
-      humanizer = FileValidatorHumanizer.new(object, attribute)
+    def upload_help(record, attribute, options = {})
+      humanizer = FileValidatorHumanizer.new(record, attribute)
 
       help_scope = begin
         if options[:help_i18n_scope].present?

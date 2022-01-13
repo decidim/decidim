@@ -177,6 +177,7 @@ export default class UploadModal {
     let tileInputContainer = null;
     if (this.options.titled) {
       const titleInput = document.createElement("input");
+      titleInput.classList.add("attachment-title");
       titleInput.type = "text";
       titleInput.value = title;
       tileInputContainer = document.createElement("div");
