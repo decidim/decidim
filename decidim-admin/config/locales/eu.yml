@@ -50,7 +50,7 @@ eu:
         force_users_to_authenticate_before_access_organization: Behartu erabiltzaileak autentikatzera erakundean sartu baino lehen
         from: Igorlearen helbide elektronikoa
         github_handler: GitHub kudeatzailea
-        header_snippets: Goiburuko mozkinak
+        header_snippets: Goiburuko zatiak
         highlight_alternative_color: Nabarmendua, aukerakoa
         highlight_color: Nabarmendua
         highlighted_content_banner_action_subtitle: Ekintza botoia azpititulua
@@ -370,6 +370,8 @@ eu:
         moderated_users:
           reports_reason_eq:
             label: Arrazoiaren berri eman
+            values:
+              offensive: Iraingarria
         moderations:
           reportable_type_string_eq:
             label: Mota
@@ -407,6 +409,7 @@ eu:
           reported_id_string_or_reported_content_cont: Bilatu %{collection} eduki edo Id erreportablearen arabera.
           title_cont: Bilatu %{collection} tituluaren arabera.
           user_name_or_user_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
+          user_name_or_user_nickname_or_user_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
         state_eq:
           label: Egoera
           values:
@@ -464,6 +467,8 @@ eu:
           duplicate_headers:
             detail: Mesedez, egiaztatu fitxategiak behin bakarrik eskatzen diren zutabeak edo goiburuak dituela.
           invalid_indexes:
+            lines:
+              detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
             records:
               detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
         error: Errorea gertatu da inportatzean
