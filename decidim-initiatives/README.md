@@ -1,7 +1,7 @@
 # Decidim::Initiatives
 
-Initiatives is the place on Decidim's where citizens can promote a civic initiative. Unlike
-participatory processes that must be created by an administrator, Civic initiatives can be
+Initiatives is the place on Decidim's where participants can promote an initiative. Unlike
+participatory processes that must be created by an administrator, initiatives can be
 created by any user of the platform.
 
 An initiative will contain attachments and comments from other users as well.

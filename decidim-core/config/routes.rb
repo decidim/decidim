@@ -35,6 +35,8 @@ Decidim::Core::Engine.routes.draw do
 
   resource :locale, only: [:create]
 
+  resource :manifest, only: [:show]
+
   Decidim.participatory_space_manifests.each do |manifest|
     mount manifest.context(:public).engine, at: "/", as: "decidim_#{manifest.name}"
   end

@@ -88,11 +88,11 @@ module Decidim
           serialized_files_answer = files_answer.attachments.map(&:url)
 
           expect(serialized).to include(
-            "#{multichoice_question.position + 1}. #{translated(multichoice_question.body, locale: I18n.locale)}" => multichoice_answer_choices.map(&:body)
+            "#{multichoice_question.position + 1}. #{translated(multichoice_question.body, locale: I18n.locale)}" => [multichoice_answer_choices.first.body, multichoice_answer_choices.last.body]
           )
 
           expect(serialized).to include(
-            "#{singlechoice_question.position + 1}. #{translated(singlechoice_question.body, locale: I18n.locale)}" => ["Free text"]
+            "#{singlechoice_question.position + 1}. #{translated(singlechoice_question.body, locale: I18n.locale)}" => ["#{translated(singlechoice_answer_choice.body)} (Free text)"]
           )
 
           expect(serialized).to include(

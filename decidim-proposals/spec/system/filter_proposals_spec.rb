@@ -61,7 +61,7 @@ describe "Filter Proposals", :slow, type: :system do
         end
       end
 
-      context "with 'citizens' origin" do
+      context "with 'participants' origin" do
         it "lists the filtered proposals" do
           create_list(:proposal, 2, component: component, scope: scope)
           create(:proposal, :official, component: component, scope: scope)
@@ -69,7 +69,7 @@ describe "Filter Proposals", :slow, type: :system do
 
           within ".filters .origin_check_boxes_tree_filter" do
             uncheck "All"
-            check "Citizens"
+            check "Participants"
           end
 
           expect(page).to have_css(".card--proposal", count: 2)

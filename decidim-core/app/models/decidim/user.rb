@@ -5,7 +5,7 @@ require "devise/models/decidim_newsletterable"
 require "valid_email2"
 
 module Decidim
-  # A User is a citizen that wants to join the platform to participate.
+  # A User is a participant that wants to join the platform to engage.
   class User < UserBaseEntity
     include Decidim::DataPortability
     include Decidim::Searchable
@@ -92,8 +92,8 @@ module Decidim
                         A: :name,
                         datetime: :created_at
                       },
-                      index_on_create: ->(user) { !user.deleted? },
-                      index_on_update: ->(user) { !user.deleted? })
+                      index_on_create: ->(user) { !(user.deleted? || user.blocked?) },
+                      index_on_update: ->(user) { !(user.deleted? || user.blocked?) })
 
     before_save :ensure_encrypted_password
 

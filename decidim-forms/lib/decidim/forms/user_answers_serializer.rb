@@ -73,7 +73,7 @@ module Decidim
           normalize_matrix_choices(answer, choices)
         else
           choices.map do |choice|
-            choice.try(:custom_body) || choice.try(:body)
+            format_free_text_for choice
           end
         end
       end
@@ -93,6 +93,12 @@ module Decidim
 
       def answer_translated_attribute_name(attribute)
         I18n.t(attribute.to_sym, scope: "decidim.forms.user_answers_serializer")
+      end
+
+      def format_free_text_for(choice)
+        return choice.try(:body) if choice.try(:custom_body).blank?
+
+        "#{choice.try(:body)} (#{choice.try(:custom_body)})"
       end
     end
   end

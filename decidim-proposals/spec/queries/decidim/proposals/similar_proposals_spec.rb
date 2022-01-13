@@ -31,7 +31,7 @@ describe Decidim::Proposals::SimilarProposals do
     end
   end
 
-  context "when machine_translations is disabled" do
+  context "when machine_translations is enabled" do
     let(:enabled) { true }
     let(:proposal_body) { { "en": "100% match for body" } }
     let(:proposal_title) { { "en": "100% match for title" } }

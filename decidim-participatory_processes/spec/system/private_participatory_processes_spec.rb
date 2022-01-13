@@ -14,7 +14,7 @@ describe "Private Participatory Processes", type: :system do
   let!(:participatory_space_private_user_2) { create :participatory_space_private_user, user: other_user_2, privatable_to: private_participatory_process }
 
   context "when there are private participatory processes" do
-    context "and no user is loged in" do
+    context "and no user is logged in" do
       before do
         switch_to_host(organization.host)
         visit decidim_participatory_processes.participatory_processes_path
@@ -34,7 +34,7 @@ describe "Private Participatory Processes", type: :system do
       end
     end
 
-    context "when user is loged in and is not a participatory space private user" do
+    context "when user is logged in and is not a participatory space private user" do
       before do
         switch_to_host(organization.host)
         login_as user, scope: :user
@@ -75,7 +75,7 @@ describe "Private Participatory Processes", type: :system do
       end
     end
 
-    context "when user is loged in and is participatory space private user" do
+    context "when user is logged in and is participatory space private user" do
       before do
         switch_to_host(organization.host)
         login_as other_user, scope: :user

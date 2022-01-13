@@ -5,9 +5,11 @@
     <% end %>
   </div>
 
-  <% if conversation.accept_user?(current_user) %>
+  <% if conversation.with_deleted_users?(current_user) %>
+    <div class="callout warning margin-top-2"><%= t ".deleted_accounts" %></div>
+  <% elsif conversation.accept_user?(current_user) %>
     <%= render "reply", form: @form, conversation: conversation %>
   <% else %>
-    <em><%= t ".not_allowed" %></em>
+    <div class="callout warning margin-top-2"><%= t ".not_allowed" %></div>
   <% end %>
 <% end %>

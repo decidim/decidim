@@ -10,9 +10,18 @@ module Decidim
     def favicon
       return if current_organization.favicon.blank?
 
-      safe_join(Decidim::OrganizationFaviconUploader::SIZES.map do |version, size|
-        favicon_link_tag(current_organization.attached_uploader(:favicon).variant_url(version, host: current_organization.host), sizes: "#{size}x#{size}")
+      safe_join(Decidim::OrganizationFaviconUploader::SIZES.map do |version, _|
+        favicon_link_tag(current_organization.attached_uploader(:favicon).variant_url(version, host: current_organization.host), sizes: "any")
       end)
+    end
+
+    # Public: Generates the meta tag for the apple-touch-icon
+    #
+    # Returns a safe String with the meta tag
+    def apple_touch_icon
+      return if current_organization.favicon.blank?
+
+      favicon_link_tag(current_organization.attached_uploader(:favicon).variant_url(:medium, host: current_organization.host), sizes: "180x180", rel: "apple-touch-icon")
     end
 
     # Outputs an SVG-based icon.

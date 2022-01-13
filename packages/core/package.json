@@ -1,7 +1,7 @@
 {
   "name": "@decidim/core",
   "description": "The core dependencies for Decidim",
-  "version": "0.26.0-dev",
+  "version": "0.27.0-dev",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git",
@@ -9,10 +9,6 @@
   },
   "author": "Decidim Contributors",
   "license": "AGPL-3.0",
-  "engines": {
-    "node": "^16.9.1",
-    "npm": "^7.21.1"
-  },
   "dependencies": {
     "@joeattardi/emoji-button": "^4.6.0",
     "@zeitiger/appendaround": "^1.0.0",

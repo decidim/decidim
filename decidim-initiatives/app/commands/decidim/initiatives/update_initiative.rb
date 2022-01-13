@@ -6,6 +6,7 @@ module Decidim
     # existing initiative.
     class UpdateInitiative < Rectify::Command
       include ::Decidim::MultipleAttachmentsMethods
+      include ::Decidim::GalleryMethods
       include CurrentLocale
 
       # Public: Initializes the command.
@@ -29,18 +30,20 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         if process_attachments?
-          @initiative.attachments.where(id: form.documents).destroy_all
-
           build_attachments
           return broadcast(:invalid) if attachments_invalid?
         end
+
         @initiative = Decidim.traceability.update!(
           initiative,
           current_user,
           attributes
         )
 
+        photo_cleanup!
+        document_cleanup!
         create_attachments if process_attachments?
+
         broadcast(:ok, initiative)
       rescue ActiveRecord::RecordInvalid
         broadcast(:invalid, initiative)
