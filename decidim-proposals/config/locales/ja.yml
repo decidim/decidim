@@ -586,6 +586,7 @@ ja:
           all: すべて
           meetings: ミーティング
           official: 事務局
+          participants: 参加者
           user_groups: グループ
         filter_scope_values:
           all: すべて
