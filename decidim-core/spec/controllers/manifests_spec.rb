@@ -25,6 +25,9 @@ module Decidim
         expect(manifest["lang"]).to eq(organization.default_locale)
         expect(manifest["description"]).to eq(ActionView::Base.full_sanitizer.sanitize(organization.description["en"]))
         expect(manifest["background_color"]).to eq("#f0f0f0")
+        expect(manifest["display"]).to eq("standalone")
+        expect(manifest["start_url"]).to eq("/")
+        expect(manifest["theme_color"]).to eq("#f0f0f0")
 
         expect(manifest["icons"]).to match(
           [
