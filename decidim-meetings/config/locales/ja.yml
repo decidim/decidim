@@ -90,6 +90,7 @@ ja:
             label: 起案者
             values:
               official: 公式
+              participant: 参加者
               user_group: ユーザーグループ
           scope_id_eq:
             label: スコープ
@@ -460,6 +461,7 @@ ja:
           origin_values:
             all: すべて
             official: 事務局
+            participants: 参加者
             user_groups: グループ
           scope: スコープ
           search: 検索
