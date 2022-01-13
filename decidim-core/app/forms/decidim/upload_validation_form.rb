@@ -11,15 +11,18 @@ module Decidim
     validate :file
 
     def file
-      PassthruValidator.new(attributes: [attribute], to: resource.constantize).validate_each(self, attribute.to_sym, blob)
-      # org = organization
-      # PassthruValidator.new(
-      #   attributes: [attribute],
-      #   to: resource.constantize,
-      #   with: lambda { |record|
-      #     record.organization = org if record.respond_to?(:organization=) && !record.organization
-      #   }
-      # ).validate_each(self, attribute.to_sym, blob)
+      org = organization
+      PassthruValidator.new(
+        attributes: [attribute],
+        to: resource.constantize,
+        with: lambda { |record|
+          if record.respond_to?(:organization=)
+            { organization: record.try(:organization) || org }
+          else
+            {}
+          end
+        }
+      ).validate_each(self, attribute.to_sym, blob)
     end
 
     def organization

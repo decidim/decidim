@@ -301,7 +301,7 @@ describe "Collaborative drafts", type: :system do
               fill_in :collaborative_draft_attachment_title, with: "My attachment"
             end
 
-            dynamically_attach_file(:attachment_file, Decidim::Dev.asset("city.jpeg"))
+            dynamically_attach_file(:file, Decidim::Dev.asset("city.jpeg"))
 
             within ".new_collaborative_draft" do
               find("*[type=submit]").click

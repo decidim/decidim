@@ -106,7 +106,8 @@ module Decidim
     def attachments
       @attachments = begin
         attachments = options[:attachments] || form.object.send(attribute)
-        Array(attachments).map { |a| a.is_a?(String) ? ActiveStorage::Blob.find_signed(a) : a }
+        attachments = Array(attachments).reject(&:blank?)
+        attachments.map { |attachment| attachment.is_a?(String) ? ActiveStorage::Blob.find_signed(attachment) : attachment }
       end
     end
 
