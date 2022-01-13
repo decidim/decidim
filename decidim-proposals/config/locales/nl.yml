@@ -571,6 +571,7 @@ nl:
           all: Alle
           meetings: vergaderingen
           official: Officieel
+          participants: Deelnemers
           user_groups: Groepen
         filter_scope_values:
           all: Alle
