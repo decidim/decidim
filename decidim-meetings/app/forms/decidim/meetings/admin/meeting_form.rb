@@ -14,7 +14,6 @@ module Decidim
         attribute :transparent, Boolean
         attribute :registration_type, String
         attribute :registration_url, String
-        attribute :available_slots, Integer, default: 0
         attribute :customize_registration_email, Boolean
         attribute :iframe_embed_type, String, default: "none"
         attribute :comments_enabled, Boolean, default: true
@@ -26,13 +25,11 @@ module Decidim
         translatable_attribute :description, String
         translatable_attribute :location, String
         translatable_attribute :location_hints, String
-        translatable_attribute :registration_email_custom_content, String
 
         validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.iframe_embed_types }
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
         validates :registration_type, presence: true
-        validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, presence: true, if: ->(form) { form.on_this_platform? }
         validates :registration_url, presence: true, url: true, if: ->(form) { form.on_different_platform? }
         validates :type_of_meeting, presence: true
         validates :location, translatable_presence: true, if: ->(form) { form.in_person_meeting? || form.hybrid_meeting? }
@@ -46,7 +43,7 @@ module Decidim
         validates(
           :iframe_access_level,
           inclusion: { in: Decidim::Meetings::Meeting.iframe_access_levels },
-          if: ->(form) { %w(embed_in_meeting_page open_in_live_event_page).include?(form.iframe_embed_type) }
+          if: ->(form) { %w(embed_in_meeting_page open_in_live_event_page open_in_new_tab).include?(form.iframe_embed_type) }
         )
         validate :embeddable_meeting_url
 

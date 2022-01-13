@@ -12,7 +12,7 @@ describe "Access list", type: :system do
     login_as admin, scope: :admin
   end
 
-  it "allows access to citizen side" do
+  it "allows access to participants side" do
     visit decidim.root_path
 
     expect(page).to have_content(organization.name)
@@ -29,7 +29,7 @@ describe "Access list", type: :system do
       allow(Decidim.config).to receive(:system_accesslist_ips).and_return(["127.0.0.1"])
     end
 
-    it "allows access to citizen side" do
+    it "allows access to participants side" do
       visit decidim.root_path
 
       expect(page).to have_content(organization.name)

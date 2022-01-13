@@ -175,7 +175,6 @@ ca:
             answers_with_costs: Habilitar cost en les respostes a propostes
             automatic_hashtags: Hashtags afegits a totes les propostes
             comments_blocked: Comentaris bloquejats
-            creation_enabled: Habilitar la creació de propostes
             endorsements_blocked: Adhesions bloquejades
             endorsements_enabled: Adhesions habilitades
             proposal_answering_enabled: Resposta a propostes activada
@@ -268,7 +267,7 @@ ca:
           email_intro: La proposta "%{resource_title}" s'ha afegit a "%{participatory_space_title}", que segueixes.
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Nova proposta "%{resource_title}" afegida a %{participatory_space_title}
-          notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> s'ha afegit a %{participatory_space_title}
+          notification_title: '%{author} ha afegit la proposta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}'
         proposal_rejected:
           affected_user:
             email_intro: 'La teva proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta en aquesta pàgina:'
