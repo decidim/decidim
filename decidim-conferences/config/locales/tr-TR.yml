@@ -312,7 +312,6 @@ tr:
             invites: Davetler
             search: Arama
           new:
-            explanation: Kullanıcı bir konferansa katılmaya davet edilecek. E-posta kayıtlı değilse, organizasyona da davet edilecektir.
             invite: Davet et
             new_invite: Kullanıcı davet et
         conference_registrations:
