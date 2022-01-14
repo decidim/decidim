@@ -15,6 +15,8 @@ module Decidim
       # Creates reminders and updates them if they already exists.
       def generate
         Decidim::Component.where(manifest_name: "budgets").each do |component|
+          return if component.current_settings.votes != "enabled"
+
           send_reminders(component)
         end
       end
