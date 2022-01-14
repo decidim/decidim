@@ -1,0 +1,8 @@
+<div class="flash callout primary small js-offline-message" style="display: none">
+  <%= t(".cache_version_page") %>
+</div>
+<script>
+  if (!navigator.onLine) {
+    document.querySelector(".js-offline-message").style.display = "block"
+  }
+</script>
