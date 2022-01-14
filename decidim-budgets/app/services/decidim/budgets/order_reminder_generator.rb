@@ -2,7 +2,7 @@
 
 module Decidim
   module Budgets
-    # This class is manager class which creates and updates order related reminders,
+    # This class is the generator class which creates and updates order related reminders,
     # after reminder is generated it is send to user who have not checked out his/her/their vote.
     class OrderReminderGenerator
       attr_reader :reminder_jobs_queued

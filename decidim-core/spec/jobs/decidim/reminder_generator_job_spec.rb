@@ -3,9 +3,9 @@
 require "spec_helper"
 
 describe Decidim::ReminderGeneratorJob do
-  subject { described_class.perform_now(manager_class) }
+  subject { described_class.perform_now(generator_class) }
 
-  let(:manager_class) do
+  let(:generator_class) do
     double(
       constantize: constantized_class,
       generate: double
@@ -20,7 +20,7 @@ describe Decidim::ReminderGeneratorJob do
 
   let(:generator) { double }
 
-  context "when there is manager class" do
+  context "when there is generator class" do
     describe "#perform" do
       it "creates generator and calls generate" do
         expect(generator).to receive(:generate)
