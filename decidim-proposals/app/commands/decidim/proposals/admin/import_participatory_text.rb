@@ -20,6 +20,7 @@ module Decidim
         #
         # Returns nothing.
         def call
+          byebug
           return broadcast(:invalid) unless @form.valid?
 
           transaction do

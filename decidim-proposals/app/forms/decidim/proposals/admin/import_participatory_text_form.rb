@@ -40,7 +40,7 @@ module Decidim
         end
 
         def document_type
-          document.content_type
+          blob.content_type
         end
 
         def i18n_invalid_document_type_text
@@ -60,7 +60,17 @@ module Decidim
         end
 
         def document_text
-          @document_text ||= document&.read
+          @document_text ||= blob&.download
+        end
+
+        private
+
+        def blob
+          @blob ||= begin
+            return ActiveStorage::Blob.find_signed(document) if document.is_a? String
+
+            document if document.is_a? ActiveStorage::Blob
+          end
         end
       end
     end
