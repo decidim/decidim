@@ -21,7 +21,7 @@ module Decidim
           .where.not(decidim_user_group_id: nil)
       }
 
-      scope :citizens_origin, lambda {
+      scope :participants_origin, lambda {
         where(decidim_author_type: "Decidim::UserBaseEntity")
           .where(decidim_user_group_id: nil)
       }

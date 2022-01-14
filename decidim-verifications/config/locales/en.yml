@@ -189,7 +189,7 @@ en:
               verification_number: 'Verification #%{n}'
           rejections:
             create:
-              success: Verification rejected. Participant will be prompted to amend her documents
+              success: Verification rejected. Participant will be prompted to amend their documents
         authorizations:
           choose:
             choose_a_type: 'Please select how you want to be verified:'

@@ -15,7 +15,7 @@ describe "Cookies", type: :system do
     expect(page).to have_content "This site uses cookies."
   end
 
-  it "user accept the cookie policy and he doesn't see it anymore'" do
+  it "user accepts the cookie policy and it isn't shown anymore'" do
     click_button "I agree"
     expect(page).to have_no_content "This site uses cookies."
 

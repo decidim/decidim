@@ -29,7 +29,7 @@ module Decidim
       nil
     end
 
-    # THe attributes of the handler that should be exposed as form input when
+    # The attributes of the handler that should be exposed as form input when
     # rendering the handler in a form.
     #
     # Returns an Array of Strings.

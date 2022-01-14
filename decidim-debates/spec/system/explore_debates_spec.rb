@@ -113,7 +113,7 @@ describe "Explore debates", type: :system do
           let!(:debates) { create_list(:debate, 2, component: component, skip_injection: true) }
 
           it "lists the filtered debates" do
-            create(:debate, :citizen_author, component: component, skip_injection: true)
+            create(:debate, :participant_author, component: component, skip_injection: true)
             visit_component
 
             within ".filters .origin_check_boxes_tree_filter" do
@@ -126,8 +126,8 @@ describe "Explore debates", type: :system do
           end
         end
 
-        context "with 'citizens' origin" do
-          let!(:debates) { create_list(:debate, 2, :citizen_author, component: component, skip_injection: true) }
+        context "with 'participants' origin" do
+          let!(:debates) { create_list(:debate, 2, :participant_author, component: component, skip_injection: true) }
 
           it "lists the filtered debates" do
             create(:debate, component: component, skip_injection: true)
@@ -135,7 +135,7 @@ describe "Explore debates", type: :system do
 
             within ".filters .origin_check_boxes_tree_filter" do
               uncheck "All"
-              check "Citizens"
+              check "Participants"
             end
 
             expect(page).to have_css(".card--debate", count: 2)
