@@ -1181,14 +1181,12 @@ es-MX:
             census_verified: La participante aún no ha votado.
             complete_voting: Completar votación
             identify_another: Identificar a otra participante
-            questions_title: 'Tiene derecho a votar en las siguientes preguntas:'
             questions_title_voted: 'La participante ya ha votado en línea y tiene derecho a votar en las siguientes preguntas:'
             voted: La participante ha votado
           create:
             error: El voto no ha sido registrado. Por favor, inténtalo de nuevo.
           in_person_form:
             census_not_present: Esta participante no aparece en el censo.
-            census_not_present_description: Debe acudir a la oficina de reclamaciones del censo o al servicio de asistencia técnica.
             date_of_birth: Fecha de nacimiento
             day: Día
             day_placeholder: DD
