@@ -47,8 +47,6 @@
     "webpack-config-utils": "^2.3.1",
     "webpack-dev-server": "^4.0.0",
     "workbox-recipes": "^6.4.2",
-    "workbox-routing": "^6.4.2",
-    "workbox-strategies": "^6.4.2",
     "workbox-webpack-plugin": "^6.4.2"
   }
 }
