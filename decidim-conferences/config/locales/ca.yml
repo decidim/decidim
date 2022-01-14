@@ -351,7 +351,6 @@ ca:
             invites: Convida
             search: Cercar
           new:
-            explanation: La participant serà convidada a unir-se a una jornada. Si el correu electrònic no està registrat, també se la convidarà a unir-se a l'organització.
             invite: Convidar
             new_invite: Convidar participant
         conference_registrations:
