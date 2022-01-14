@@ -32,7 +32,7 @@ module Decidim
         class_name.chomp("Form").underscore.to_sym
       end
 
-      # Converts the mimiced name to ActiveModel naming.
+      # Converts the mimicked name to ActiveModel naming.
       def self.model_name
         ActiveModel::Name.new(self, nil, mimicked_model_name.to_s)
       end
