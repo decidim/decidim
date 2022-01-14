@@ -166,9 +166,6 @@ zh-CN:
               offline_verification: 离线验证
               title: 待定在线验证
               verification_number: '验证 #%{n}'
-          rejections:
-            create:
-              success: 验证被拒绝。参与者将被提示修改她的文档
         authorizations:
           choose:
             choose_a_type: '请选择您想要验证的方式：'
