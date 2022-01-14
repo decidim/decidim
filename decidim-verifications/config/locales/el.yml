@@ -168,9 +168,6 @@ el:
               offline_verification: Επαλήθευση εκτός σύνδεσης
               title: Ηλεκτρονικές επαληθεύσεις που εκκρεμούν
               verification_number: 'Αρ. επαλήθευσης %{n}'
-          rejections:
-            create:
-              success: Η επαλήθευση απορρίφθηκε. Η συμμετέχουσα θα κληθεί να τροποποιήσει τα έγγραφά της
         authorizations:
           choose:
             choose_a_type: 'Επιλέξτε τον τρόπο επαλήθευσης:'
