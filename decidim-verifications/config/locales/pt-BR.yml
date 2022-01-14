@@ -186,9 +186,6 @@ pt-BR:
               offline_verification: Verificação off-line
               title: Verificações pendentes
               verification_number: 'Verificação # %{n}'
-          rejections:
-            create:
-              success: Verificação rejeitada. O usuário será solicitado a alterar seus documentos
         authorizations:
           choose:
             choose_a_type: 'Por favor, selecione como deseja ser verificado:'
