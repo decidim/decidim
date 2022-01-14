@@ -29,7 +29,7 @@ module Decidim
       end
 
       def set_group
-        @group = Decidim::ParticipatoryProcessGroup.find(params[:id])
+        @group = Decidim::ParticipatoryProcessGroup.where(organization: current_organization).find(params[:id])
       end
 
       attr_reader :group

@@ -408,7 +408,7 @@ fi:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> haki jäseneksi aloitteesi <a href="%{resource_url}">%{resource_title}</a> kannatuskomiteaan. Voit hyväksyä tai hylätä pyynnön <a href="%{resource_url}/edit">aloitteen muokkaussivulta</a>.
       form:
         add_attachments: Asiakirjat
-        attachment_legend: "(Vapaaehtoinen) Lisää liitteitä"
+        attachment_legend: "(Valinnainen) Lisää liitetiedosto"
         delete_attachment: Poista
       index:
         title: Aloitteet

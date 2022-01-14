@@ -244,6 +244,8 @@ ro:
           created:
             title: Alegeri create
             trustees: Împuterniciți
+          key_ceremony:
+            continue: Continuă
           tally:
             continue: Continuă
             invalid: A apărut o problemă la raportarea împuternicitului care lipsește

@@ -63,7 +63,8 @@ module Decidim
             registrations_enabled: form.registrations_enabled,
             type_of_meeting: form.clean_type_of_meeting,
             online_meeting_url: form.online_meeting_url,
-            iframe_embed_type: form.iframe_embed_type
+            iframe_embed_type: form.iframe_embed_type,
+            iframe_access_level: form.iframe_access_level
           },
           visibility: "public-only"
         )
@@ -91,10 +92,12 @@ module Decidim
       end
 
       def schedule_upcoming_meeting_notification
+        return if meeting.start_time < Time.zone.now
+
         checksum = Decidim::Meetings::UpcomingMeetingNotificationJob.generate_checksum(meeting)
 
         Decidim::Meetings::UpcomingMeetingNotificationJob
-          .set(wait_until: meeting.start_time - 2.days)
+          .set(wait_until: meeting.start_time - Decidim::Meetings.upcoming_meeting_notification)
           .perform_later(meeting.id, checksum)
       end
     end

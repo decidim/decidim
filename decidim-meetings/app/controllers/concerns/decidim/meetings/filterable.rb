@@ -22,7 +22,7 @@ module Decidim
         end
 
         def default_filter_origin_params
-          filter_origin_params = %w(citizens)
+          filter_origin_params = %w(participants)
           filter_origin_params << "official"
           filter_origin_params << "user_group" if current_organization.user_groups_enabled?
           filter_origin_params
