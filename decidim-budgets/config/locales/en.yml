@@ -22,6 +22,18 @@ en:
         one: Project
         other: Projects
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Category
+          scope_id_eq:
+            label: Scope
+          selected_at_null:
+            label: Selected
+            values:
+              'false': Selected for implementation
+              'true': Not selected for implementation
     budgets:
       actions:
         attachment_collections: Folders
@@ -141,6 +153,8 @@ en:
             total_budget: Total budget
         project:
           fields:
+            category: Category
+            id: ID
             title: Title
       order_summary_mailer:
         order_summary:

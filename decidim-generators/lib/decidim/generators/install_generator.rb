@@ -97,6 +97,10 @@ module Decidim
         rails "decidim:webpacker:install"
       end
 
+      def build_api_docs
+        rails "decidim_api:generate_docs"
+      end
+
       def remove_old_assets
         remove_file "config/initializers/assets.rb"
         remove_dir("app/assets")

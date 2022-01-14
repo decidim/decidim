@@ -44,8 +44,8 @@ fi-pl:
       models:
         meeting:
           attributes:
-            show_embedded_iframe:
-              not_embeddable: Tätä URL-osoitetta ei voi upottaa
+            iframe_embed_type:
+              not_embeddable: Tätä URL-osoitetta ei voi upottaa tapaamisen sivulle tai reaaliaikaisen tapahtuman sivulle
         meeting_agenda:
           attributes:
             base:
@@ -282,6 +282,9 @@ fi-pl:
           edit:
             close: Sulje
             title: Sulje tapahtuma
+        meeting_copies:
+          form:
+            select_a_meeting_type: Valitse tapaamisen tyyppi
         meetings:
           close:
             invalid: Tapahtuman sulkemisessa tapahtui virhe
@@ -309,7 +312,8 @@ fi-pl:
             registration_url_help: 'Linkki: salli käyttäjien siirtyminen käytettyyn ulkoiseen ilmoittautumispalveluun'
             select_a_meeting_type: Valitse tapaamisen tyyppi
             select_a_registration_type: Valitse ilmoittautumisten tyyppi
-            show_embedded_iframe_help: Määrittää, upotetaanko tämän videotapaamisen URL tapaamisen sivulle. Ainoastaan muutamat palvelut sallivat upotuksen ulkopuolisiin palveluihin (esim. YouTube, Twitch...)
+            select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
+            show_embedded_iframe_help: Vain harvat palvelut sallivat tapaamisen upottamisen reaaliaikaisesti tapahtumasivulle (YouTube, Twitch ja Jitsi)
           index:
             title: Tapahtumat
           new:
@@ -379,6 +383,13 @@ fi-pl:
           value_types:
             organizer_presenter:
               not_found: 'Järjestäjää ei löytynyt tietokannasta (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Kaikki
+        filter_meeting_space_values:
+          all: Kaikki
+        filter_scope_values:
+          all: Kaikki
       calendar_modal:
         calendar_url: Kalenterin URL
         close_window: Sulje ikkuna
@@ -386,12 +397,23 @@ fi-pl:
       conference_venues: Tapahtumapaikat
       content_blocks:
         upcoming_meetings:
+          name: Tulevat tapaamiset
+          upcoming_meetings: Tulevat tapaamiset
           view_all_meetings: Näytä kaikki
       directory:
         meetings:
           index:
             meetings: Tapahtumat
             space_type: Osallisuustila
+      iframe_access_level:
+        all: Kaikki kävijät
+        registered: Tähän tapaamiseen ilmoittautuneet osallistujat
+        signed_in: Vain sisäänkirjautuneet osallistujat
+      iframe_embed_type:
+        embed_in_meeting_page: Upota tapaamisen sivulle
+        none: Ei mitään
+        open_in_live_event_page: Avaa upotus tapahtuman sivulla reaaliajassa (liitä vapaaehtoisia mielipidekyselyjä)
+        open_in_new_tab: Avaa uudessa välilehdessä
       last_activity:
         meeting_updated_at_html: "<span>Tapaaminen päivitetty osoitteessa %{link}</span>"
         new_meeting_at_html: "<span>Uusi tapahtuma osoitteessa %{link}</span>"
@@ -474,7 +496,7 @@ fi-pl:
           select_a_category: Valitse aihepiiri
           select_a_meeting_type: Valitse tapaamisen tyyppi
           select_a_registration_type: Valitse ilmoittautumisten tyyppi
-          show_embedded_iframe_help: Määrittää, upotetaanko tämän videotapaamisen URL tapaamisen sivulle. Ainoastaan muutamat palvelut sallivat upotuksen ulkopuolisiin palveluihin (esim. YouTube, Twitch...)
+          show_embedded_iframe_help: Vain harvat palvelut sallivat tapaamisen upottamisen reaaliaikaisesti tapahtumasivulle (YouTube, Twitch ja Jitsi)
         index:
           click_here: Näytä kaikki tapahtumat
           new_meeting: Uusi tapahtuma

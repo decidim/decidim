@@ -20,8 +20,8 @@
   <div class="columns large-<%= columns %> medium-centered">
     <div class="card">
       <div class="card__content">
-       <% unless questionnaire_for.try(:component)&.try(:published?) %>
-           <div class="section">
+        <% unless questionnaire_for.try(:component)&.try(:published?) %>
+          <div class="section">
             <div class="callout warning">
               <p><%= t(".questionnaire_not_published.body") %></p>
             </div>
@@ -65,14 +65,15 @@
                     <div id="step-<%= step_index %>" class="<%= step_index.zero? ? "questionnaire-step" : "questionnaire-step hide" %>" data-toggler=".hide">
                       <% if @form.total_steps > 1 %>
                         <h4 class="section-heading">
-                          <%= t(".current_step", step: step_index + 1) %> <span class="answer-questionnaire__steps"><%= t(".of_total_steps", total_steps: @form.total_steps) %></span>
+                          <%= t(".current_step", step: step_index + 1) %>
+                          <span class="answer-questionnaire__steps"><%= t(".of_total_steps", total_steps: @form.total_steps) %></span>
                         </h4>
                       <% end %>
 
                       <% step_answers.each do |answer| %>
                         <div class="row column answer question" data-max-choices="<%= answer.question.max_choices %>" data-conditioned="<%= answer.question.display_conditions.any? %>" data-question-id="<%= answer.question.id %>">
                           <% answer.question.display_conditions.each do |display_condition| %>
-                            <%= content_tag :div, nil,  class: "display-condition", data: display_condition.to_html_data %>
+                            <%= content_tag :div, nil, class: "display-condition", data: display_condition.to_html_data %>
                           <% end %>
 
                           <%= fields_for "questionnaire[responses][#{answer_idx}]", answer do |answer_form| %>
@@ -86,7 +87,7 @@
                             ) %>
                           <% end %>
                         </div>
-                        <% if !answer.question.separator? %>
+                        <% if !(answer.question.separator? || answer.question.title_and_description?) %>
                           <% cleaned_answer_idx += 1 %>
                         <% end %>
                         <% answer_idx += 1 %>

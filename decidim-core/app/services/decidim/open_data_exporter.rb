@@ -43,24 +43,33 @@ module Decidim
 
     def data_for_component(export_manifest, col_sep = Decidim.default_csv_col_sep)
       headers = []
-      collection = components.where(manifest_name: export_manifest.manifest.name).find_each.flat_map do |component|
-        export_manifest.collection.call(component).find_in_batches(batch_size: 250).flat_map do |batch|
-          exporter = Decidim::Exporters::CSV.new(batch, export_manifest.serializer)
-          headers.push(*exporter.headers)
-          exporter.export
+      collection = []
+      ActiveRecord::Base.uncached do
+        components.where(manifest_name: export_manifest.manifest.name).find_each do |component|
+          export_manifest.collection.call(component).find_in_batches(batch_size: 100) do |batch|
+            exporter = Decidim::Exporters::CSV.new(batch, export_manifest.serializer)
+            headers.push(*exporter.headers)
+            exported = exporter.export
+
+            tmpfile = Tempfile.new("#{export_manifest.name}-#{component.id}-")
+            tmpfile.write(exported.read)
+            # Do not delete the file when the reference is deleted
+            ObjectSpace.undefine_finalizer(tmpfile)
+            tmpfile.close
+
+            collection.push(tmpfile.path)
+          end
         end
       end
 
       headers.uniq!
 
-      data = ::CSV.generate(col_sep: col_sep) do |generated|
-        generated << headers
-        while (content = collection.shift)
-          csv = CSV.new(content.read, headers: true, col_sep: col_sep)
-          while (row = csv.shift)
-            generated << row.values_at(*headers)
-          end
+      data = CSV.generate_line(headers, col_sep: col_sep)
+      collection.each do |content|
+        CSV.foreach(content, headers: true, col_sep: col_sep) do |row|
+          data << CSV.generate_line(row.values_at(*headers), col_sep: col_sep)
         end
+        File.unlink(content)
       end
       Decidim::Exporters::ExportData.new(data, "csv")
     end

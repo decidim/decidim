@@ -7,10 +7,10 @@ Until we have the version 1.0 we support only the last minor and major version w
 |===
 | Version | Supported
 
-| 0.25.x
+| 0.26.x
 | :white_check_mark:
 
-| \<= 0.24
+| \<= 0.25
 | :x:
 |===
 
@@ -26,5 +26,5 @@ To download our key:
 
 [source,bash]
 ----
-gpg --keyserver pgp.key-server.io --recv 84B935C4
+gpg --keyserver pgp.mit.edu --recv 84B935C4
 ----

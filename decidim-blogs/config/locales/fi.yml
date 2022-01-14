@@ -59,6 +59,10 @@ fi:
       read_more: Lue lisää
     components:
       blogs:
+        actions:
+          create: Luo
+          destroy: Poista
+          update: Päivitä
         name: Blogi
         settings:
           global:

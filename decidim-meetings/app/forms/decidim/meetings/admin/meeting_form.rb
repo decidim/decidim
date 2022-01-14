@@ -4,24 +4,16 @@ module Decidim
   module Meetings
     module Admin
       # This class holds a Form to create/update translatable meetings from Decidim's admin panel.
-      class MeetingForm < Decidim::Form
+      class MeetingForm < ::Decidim::Meetings::BaseMeetingForm
         include TranslatableAttributes
 
-        attribute :address, String
-        attribute :latitude, Float
-        attribute :longitude, Float
-        attribute :start_time, Decidim::Attributes::TimeWithZone
-        attribute :end_time, Decidim::Attributes::TimeWithZone
         attribute :services, Array[MeetingServiceForm]
         attribute :decidim_scope_id, Integer
         attribute :decidim_category_id, Integer
         attribute :private_meeting, Boolean
         attribute :transparent, Boolean
-        attribute :online_meeting_url, String
-        attribute :type_of_meeting, String
         attribute :registration_type, String
         attribute :registration_url, String
-        attribute :available_slots, Integer, default: 0
         attribute :customize_registration_email, Boolean
         attribute :iframe_embed_type, String, default: "none"
         attribute :comments_enabled, Boolean, default: true
@@ -33,26 +25,17 @@ module Decidim
         translatable_attribute :description, String
         translatable_attribute :location, String
         translatable_attribute :location_hints, String
-        translatable_attribute :registration_email_custom_content, String
 
         validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.iframe_embed_types }
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
         validates :registration_type, presence: true
-        validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, presence: true, if: ->(form) { form.on_this_platform? }
         validates :registration_url, presence: true, url: true, if: ->(form) { form.on_different_platform? }
         validates :type_of_meeting, presence: true
         validates :location, translatable_presence: true, if: ->(form) { form.in_person_meeting? || form.hybrid_meeting? }
-
-        validates :address, presence: true, if: ->(form) { form.needs_address? }
-        validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? && form.needs_address? }
         validates :online_meeting_url, url: true, if: ->(form) { form.online_meeting? || form.hybrid_meeting? }
-        validates :start_time, presence: true, date: { before: :end_time }
-        validates :end_time, presence: true, date: { after: :start_time }
         validates :comments_start_time, date: { before: :comments_end_time, allow_blank: true, if: proc { |obj| obj.comments_end_time.present? } }
         validates :comments_end_time, date: { after: :comments_start_time, allow_blank: true, if: proc { |obj| obj.comments_start_time.present? } }
-
-        validates :current_component, presence: true
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
@@ -60,7 +43,7 @@ module Decidim
         validates(
           :iframe_access_level,
           inclusion: { in: Decidim::Meetings::Meeting.iframe_access_levels },
-          if: ->(form) { %w(embed_in_meeting_page open_in_live_event_page).include?(form.iframe_embed_type) }
+          if: ->(form) { %w(embed_in_meeting_page open_in_live_event_page open_in_new_tab).include?(form.iframe_embed_type) }
         )
         validate :embeddable_meeting_url
 
@@ -107,34 +90,6 @@ module Decidim
           return unless current_component
 
           @category ||= categories.find_by(id: decidim_category_id)
-        end
-
-        def geocoding_enabled?
-          Decidim::Map.available?(:geocoding)
-        end
-
-        def has_address?
-          geocoding_enabled? && address.present?
-        end
-
-        def needs_address?
-          in_person_meeting? || hybrid_meeting?
-        end
-
-        def geocoded?
-          latitude.present? && longitude.present?
-        end
-
-        def online_meeting?
-          type_of_meeting == "online"
-        end
-
-        def in_person_meeting?
-          type_of_meeting == "in_person"
-        end
-
-        def hybrid_meeting?
-          type_of_meeting == "hybrid"
         end
 
         def clean_type_of_meeting

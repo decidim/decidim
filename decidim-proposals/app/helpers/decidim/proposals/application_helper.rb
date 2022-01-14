@@ -102,12 +102,7 @@ module Decidim
 
       # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.
       def render_proposal_body(proposal)
-        body = present(proposal).body(links: true, strip_tags: !safe_content?)
-        body = simple_format(body, {}, sanitize: false)
-
-        return body unless safe_content?
-
-        decidim_sanitize_editor(body)
+        render_sanitized_content(proposal, :body)
       end
 
       # Returns :text_area or :editor based on the organization' settings.
@@ -177,7 +172,7 @@ module Decidim
       def filter_origin_values
         origin_values = []
         origin_values << TreePoint.new("official", t("decidim.proposals.application_helper.filter_origin_values.official")) if component_settings.official_proposals_enabled
-        origin_values << TreePoint.new("citizens", t("decidim.proposals.application_helper.filter_origin_values.citizens"))
+        origin_values << TreePoint.new("participants", t("decidim.proposals.application_helper.filter_origin_values.participants"))
         origin_values << TreePoint.new("user_group", t("decidim.proposals.application_helper.filter_origin_values.user_groups")) if current_organization.user_groups_enabled?
         origin_values << TreePoint.new("meeting", t("decidim.proposals.application_helper.filter_origin_values.meetings"))
 

@@ -32,7 +32,7 @@ module Decidim
                        .published
                        .not_hidden
                        .only_amendables
-                       .includes(:category, :scope)
+                       .includes(:category, :scope, :attachments, :coauthorships)
                        .order(position: :asc)
           render "decidim/proposals/proposals/participatory_texts/participatory_text"
         else
@@ -41,7 +41,7 @@ module Decidim
                         .published
                         .not_hidden
 
-          @proposals = @base_query.includes(:component, :coauthorships)
+          @proposals = @base_query.includes(:component, :coauthorships, :attachments)
           @all_geocoded_proposals = @base_query.geocoded
 
           @voted_proposals = if current_user
@@ -229,7 +229,7 @@ module Decidim
       end
 
       def default_filter_origin_params
-        filter_origin_params = %w(citizens meeting)
+        filter_origin_params = %w(participants meeting)
         filter_origin_params << "official" if component_settings.official_proposals_enabled
         filter_origin_params << "user_group" if current_organization.user_groups_enabled?
         filter_origin_params

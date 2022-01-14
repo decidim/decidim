@@ -7,6 +7,9 @@ describe Decidim::Comments::CommentCreatedEvent do
   let(:event_name) { "decidim.events.comments.comment_created" }
 
   it_behaves_like "a comment event"
+  it_behaves_like "a translated comment event" do
+    let(:translatable) { true }
+  end
 
   describe "email_subject" do
     it "is generated correctly" do
@@ -33,7 +36,7 @@ describe Decidim::Comments::CommentCreatedEvent do
         .to include("There is a new comment from <a href=\"/profiles/#{comment_author.nickname}\">#{comment_author.name} @#{comment_author.nickname}</a>")
 
       expect(subject.notification_title)
-        .to include(" in <a href=\"#{resource_path}#comment_#{comment.id}\">#{resource_title}</a>")
+        .to include(" in <a href=\"#{resource_path}?commentId=#{comment.id}#comment_#{comment.id}\">#{resource_title}</a>")
     end
   end
 end

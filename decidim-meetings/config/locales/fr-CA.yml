@@ -42,10 +42,6 @@ fr-CA:
         type_of_meeting: Type
     errors:
       models:
-        meeting:
-          attributes:
-            show_embedded_iframe:
-              not_embeddable: Cette URL ne peut pas être intégrée
         meeting_agenda:
           attributes:
             base:
@@ -279,6 +275,9 @@ fr-CA:
           edit:
             close: Clore
             title: Clore la rencontre
+        meeting_copies:
+          form:
+            select_a_meeting_type: Veuillez sélectionner un type de rencontre
         meetings:
           close:
             invalid: Il y a eu un problème au moment de clore cette rencontre
@@ -306,7 +305,6 @@ fr-CA:
             registration_url_help: 'Lien : permet aux participants de partir sur le service externe que vous utilisez pour les inscriptions'
             select_a_meeting_type: Veuillez sélectionner un type de rencontre
             select_a_registration_type: Veuillez sélectionner un type d'inscription
-            show_embedded_iframe_help: Intégrer ou non l'iframe correspondant à cette URL de vidéoconférence. Seuls quelques services permettent l'intégration (c.-à-d. Youtube, Twitch...)
           index:
             title: Rencontres
           new:
@@ -398,6 +396,10 @@ fr-CA:
           index:
             meetings: Rencontres
             space_type: Espace participatif
+      iframe_access_level:
+        signed_in: Les participants connectés seulement
+      iframe_embed_type:
+        open_in_live_event_page: Ouvrir dans la page de l'événement en direct (avec sondages facultatifs)
       last_activity:
         meeting_updated_at_html: "<span>Débat mis à jour à %{link}</span>"
         new_meeting_at_html: "<span>Nouvelle réunion à %{link}</span>"
@@ -480,7 +482,6 @@ fr-CA:
           select_a_category: Veuillez sélectionner une catégorie
           select_a_meeting_type: Veuillez sélectionner un type de rencontre
           select_a_registration_type: Veuillez sélectionner un type d'inscription
-          show_embedded_iframe_help: Intégrer ou non l'iframe correspondant à cette URL de vidéoconférence. Seuls quelques services permettent l'intégration (c.-à-d. Youtube, Twitch...)
         index:
           click_here: Voir toutes les réunions
           new_meeting: Nouvelle réunion
@@ -573,6 +574,8 @@ fr-CA:
           published_question:
             max_choices_alert: Il y a trop de choix sélectionnés
             question: Question
+            question_replied: Réponse envoyée
+            reply_question: Répondre
       public_participants_list:
         attending_participants: Participants présents
         hidden_participants_count:

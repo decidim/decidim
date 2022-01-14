@@ -1184,14 +1184,14 @@ en:
             census_verified: The participant has not voted yet.
             complete_voting: Complete voting
             identify_another: Identify another participant
-            questions_title: 'She is entitled to vote in the following questions:'
+            questions_title: 'They''re entitled to vote in the following questions:'
             questions_title_voted: 'The participant has already voted online and is entitled to vote in the following questions:'
             voted: The participant has voted
           create:
             error: The vote was not registered. Please try again.
           in_person_form:
             census_not_present: This participant is not listed in the census.
-            census_not_present_description: She must go to the census complaint office or contact support.
+            census_not_present_description: They must go to the census complaint office or contact support.
             date_of_birth: Date of birth
             day: Day
             day_placeholder: DD

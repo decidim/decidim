@@ -77,6 +77,7 @@ module Decidim
   autoload :Amendable, "decidim/amendable"
   autoload :Gamification, "decidim/gamification"
   autoload :Hashtag, "decidim/hashtag"
+  autoload :Etherpad, "decidim/etherpad"
   autoload :Paddable, "decidim/paddable"
   autoload :OpenDataExporter, "decidim/open_data_exporter"
   autoload :IoEncoder, "decidim/io_encoder"
@@ -98,6 +99,7 @@ module Decidim
   autoload :ReminderRegistry, "decidim/reminder_registry"
   autoload :ReminderManifest, "decidim/reminder_manifest"
   autoload :ManifestMessages, "decidim/manifest_messages"
+  autoload :CommonPasswords, "decidim/common_passwords"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -387,6 +389,18 @@ module Decidim
     "decidim-cc"
   end
 
+  # Blacklisted passwords. Array may contain strings and regex entries.
+  config_accessor :password_blacklist do
+    []
+  end
+
+  # This is an internal key that allow us to properly configure the caching key separator. This is useful for redis cache store
+  # as it creates some namespaces within the cached data.
+  # use `config.cache_key_separator = ":"` in your initializer to have namespaced data
+  config_accessor :cache_key_separator do
+    "/"
+  end
+
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #
@@ -600,8 +614,11 @@ module Decidim
   end
 
   # Defines the time after which the machine translation job should be enabled.
-  # In some cases, it is required to have a delay, otherwise the ttanslation job will be discarded:
-  #  Discarded Decidim::MachineTranslationResourceJob due to a ActiveJob::DeserializationError.
+  # In some cases, like when Workers is processing faster than ActiveRecord can commit to Database,
+  # it is required to have a delay, to prevent any discarding with
+  # Decidim::MachineTranslationResourceJob due to a ActiveJob::DeserializationError.
+  # In some Decidim Installations, ActiveJob can be configured to discard jobs failing with
+  # ActiveJob::DeserializationError
   config_accessor :machine_translation_delay do
     0.seconds
   end
