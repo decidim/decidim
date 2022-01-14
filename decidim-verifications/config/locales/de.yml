@@ -186,9 +186,6 @@ de:
               offline_verification: Offline-Überprüfung
               title: Ausstehende Überprüfungen
               verification_number: 'Überprüfung #%{n}'
-          rejections:
-            create:
-              success: Überprüfung abgelehnt Benutzer wird aufgefordert, ihre Dokumente zu ändern
         authorizations:
           choose:
             choose_a_type: 'Bitte wählen Sie aus, wie Sie verifiziert werden möchten:'
