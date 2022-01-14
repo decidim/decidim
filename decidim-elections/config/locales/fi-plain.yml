@@ -1181,14 +1181,12 @@ fi-pl:
             census_verified: Osallistuja ei ole vielä äänestänyt.
             complete_voting: Viimeistele äänestys
             identify_another: Tunnista toinen osallistuja
-            questions_title: 'Hänellä on oikeus äänestää seuraavista kysymyksistä:'
             questions_title_voted: 'Osallistuja on jo äänestänyt verkossa ja hänellä on oikeus äänestää seuraavista kysymyksistä:'
             voted: Osallistuja on äänestänyt
           create:
             error: Ääntä ei tallennettu. Ole hyvä ja yritä uudelleen.
           in_person_form:
             census_not_present: Tätä osallistujaa ei ole henkilötietorekisterissä.
-            census_not_present_description: Hänen on mentävä reklamoimaan henkilötietorekisteriä hallinnoivaan toimistoon tai otettava yhteyttä tukeen.
             date_of_birth: Syntymäaika
             day: Päivä
             day_placeholder: PV
