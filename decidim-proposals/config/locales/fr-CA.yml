@@ -594,6 +594,7 @@ fr-CA:
           all: Tout
           meetings: Des réunions
           official: Propositions officielles
+          participants: Participants
           user_groups: Groupes d'utilisateurs
         filter_scope_values:
           all: Tout
