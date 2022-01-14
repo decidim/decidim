@@ -186,6 +186,9 @@ ca:
               offline_verification: Verificació presencial
               title: Verificacions online pendents
               verification_number: 'Verificació #%{n}'
+          rejections:
+            create:
+              success: S'ha rebutjat la verificació. Es demanarà a la participant que modifiqui els seus documents
         authorizations:
           choose:
             choose_a_type: 'Si us plau selecciona com et vols verificar:'
