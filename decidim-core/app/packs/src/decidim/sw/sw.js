@@ -1,11 +1,13 @@
 import {
-  pageCache,
   imageCache,
   staticResourceCache,
   offlineFallback
 } from "workbox-recipes";
-import { setDefaultHandler } from "workbox-routing";
-import { NetworkOnly } from "workbox-strategies";
+import { setDefaultHandler, registerRoute } from "workbox-routing";
+import { NetworkFirst, NetworkOnly } from "workbox-strategies";
+import { CacheableResponsePlugin } from "workbox-cacheable-response";
+import { ExpirationPlugin } from "workbox-expiration";
+
 
 // https://developers.google.com/web/tools/workbox/guides/troubleshoot-and-debug#debugging_workbox
 self.__WB_DISABLE_DEV_LOGS = true
@@ -22,14 +24,31 @@ self.__WB_DISABLE_DEV_LOGS = true
 // eslint-disable-next-line no-unused-vars
 const dummy = self.__WB_MANIFEST;
 
-pageCache()
+const cacheName = "pages";
+const matchCallback = ({ request }) => request.mode === "navigate";
+const networkTimeoutSeconds = 3;
+const maxAgeSeconds = 60 * 60;
 
+// https://developers.google.com/web/tools/workbox/modules/workbox-recipes#pattern_3
+registerRoute(
+  matchCallback,
+  new NetworkFirst({
+    networkTimeoutSeconds,
+    cacheName,
+    plugins: [
+      new CacheableResponsePlugin({
+        statuses: [0, 200]
+      }),
+      new ExpirationPlugin({
+        maxAgeSeconds
+      })
+    ]
+  }),
+);
+
+// common recipes
 staticResourceCache();
 
 imageCache();
-
-setDefaultHandler(
-  new NetworkOnly()
-);
 
 offlineFallback({ pageFallback: "/offline" });
