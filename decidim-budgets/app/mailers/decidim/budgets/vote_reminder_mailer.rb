@@ -21,8 +21,7 @@ module Decidim
           @organization = @user.organization
 
           subject = I18n.t(
-            "email_subject",
-            scope: "decidim.budgets.vote_reminder_mailer.vote_reminder",
+            "decidim.budgets.vote_reminder_mailer.vote_reminder.email_subject",
             count: @orders.count
           )
 
