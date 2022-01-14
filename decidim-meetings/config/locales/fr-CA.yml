@@ -93,6 +93,7 @@ fr-CA:
             label: Origine
             values:
               official: Officiel
+              participant: Participant
               user_group: Groupes d’utilisateurs
           scope_id_eq:
             label: Périmètre
@@ -411,7 +412,7 @@ fr-CA:
         embed_in_meeting_page: Intégrer à la page de la rencontre
         none: Aucun
         open_in_live_event_page: Ouvrir dans la page de l'événement en direct (avec sondages facultatifs)
-        open_in_new_tab: Ouvrir dans un nouvel onglet
+        open_in_new_tab: Ouvrir le lien dans un nouvel onglet
       last_activity:
         meeting_updated_at_html: "<span>Débat mis à jour à %{link}</span>"
         new_meeting_at_html: "<span>Nouvelle réunion à %{link}</span>"
@@ -467,6 +468,7 @@ fr-CA:
           origin_values:
             all: Toutes
             official: Officiel
+            participants: Participants
             user_groups: Groupes
           scope: Périmètre d'application
           search: Rechercher
@@ -496,11 +498,11 @@ fr-CA:
           select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
           show_embedded_iframe_help: Seuls quelques services permettent d'intégrer des rencontres ou des événements en direct (YouTube, Twitch et Jitsi)
         index:
-          click_here: Voir toutes les réunions
+          click_here: Voir toutes les rencontres
           new_meeting: Nouvelle réunion
-          see_all: Voir toutes les réunions
-          see_all_withdrawn: Voir toutes les réunions annulées
-          text_banner: Vous consultez la liste des réunions annulées par leurs auteurs. %{go_back_link}.
+          see_all: Voir toutes les rencontres
+          see_all_withdrawn: Voir toutes les rencontres annulées
+          text_banner: Vous consultez la liste des rencontres annulées par leurs auteurs. %{go_back_link}.
         meeting_minutes:
           related_information: Informations liées
         meetings:
@@ -519,7 +521,7 @@ fr-CA:
           close_meeting: Clore la rencontre
           contributions: Décompte des contributions
           date: Date
-          edit_close_meeting: Modifier le rapport de la rencontre
+          edit_close_meeting: Modifier le compte-rendu de la rencontre
           edit_meeting: Modifier la réunion
           going: Vous vous êtes inscrit à cette rencontre
           join: Participer à la rencontre
@@ -541,7 +543,7 @@ fr-CA:
             other: "Il reste %{count} places"
           view: Voir
           visit_finished: Consulter l’historique des rencontres
-          withdraw_btn_hint: Vous pouvez annuler votre réunion si vous changez d'avis. La réunion n'est pas supprimée, elle apparaîtra dans la liste des réunions retirées.
+          withdraw_btn_hint: Vous pouvez annuler votre rencontre si vous changez d'avis. La rencontre n'est pas supprimée, elle apparaîtra dans la liste des rencontres retirées.
           withdraw_confirmation_html: Êtes-vous sûr de vouloir annuler cette rencontre ?<br><br><strong>Cette action ne peut pas être annulée !</strong>
           withdraw_meeting: Annuler la rencontre
         update:
@@ -625,7 +627,7 @@ fr-CA:
       versions:
         back_to_resource: Revenir à la réunion
       withdraw:
-        error: Une erreur s'est produite lors de l'annulation de la réunion
+        error: Une erreur s'est produite lors de l'annulation de la rencontre
         success: La réunion a été annulée avec succès
     metrics:
       meetings:
