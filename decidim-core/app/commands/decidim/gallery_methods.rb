@@ -8,7 +8,7 @@ module Decidim
 
     def build_gallery(attached_to = nil)
       @gallery = []
-      @form.add_photos.each do |photo|
+      @form.add_photos.reject(&:blank?).each do |photo|
         next unless image? photo[:file]
 
         @gallery << Attachment.new(

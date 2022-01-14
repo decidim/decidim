@@ -6,7 +6,7 @@ module Decidim
 
     def build_attachments
       @documents = []
-      @form.add_documents.each do |attachment|
+      @form.add_documents.reject(&:blank?).each do |attachment|
         @documents << Attachment.new(
           title: { I18n.locale => attachment[:title] },
           attached_to: @attached_to || documents_attached_to,

@@ -7,7 +7,8 @@
 
         <div class="attachment-details" data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded">
           <% if has_title? %>
-            <span><%= title_for(attachment) %> <%= file_name_for(attachment) %></span>
+            <span><%= title_for(attachment) %> (<%= file_name_for(attachment) %>)</span>
+            <%= form.hidden_field attribute, multiple: true, value: attachment.id, id: attachment.id %>
           <% else %>
             <% if blob(attachment).image? %>
               <span><%= file_name_for(attachment) %></span>

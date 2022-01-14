@@ -31,6 +31,10 @@
         border-color: $secondary;
         border-width: 2px;
         border-radius: 4px;
+
+        * >{
+          display: none;
+        }
       }
 
       &.disabled{
@@ -81,7 +85,7 @@
     }
 
     .upload-errors{
-      .form-error {
+      .form-error{
         margin: 0;
       }
     }
