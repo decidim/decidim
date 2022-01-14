@@ -183,9 +183,6 @@ eu:
               offline_verification: Lineaz kanpoko egiaztapena
               title: Zain dauden egiaztapenak
               verification_number: 'Egiaztapena # %{n}'
-          rejections:
-            create:
-              success: Verification rejected. Erabiltzailea bere dokumentuak aldatzeko eskatuko zaio
         authorizations:
           choose:
             choose_a_type: 'Hautatu nola egiaztatu nahi duzun:'
