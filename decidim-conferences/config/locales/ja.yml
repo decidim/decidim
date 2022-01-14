@@ -348,7 +348,6 @@ ja:
             invites: 招待
             search: 検索
           new:
-            explanation: 参加者はカンファレンスに招待されます。 参加者の電子メールが組織に登録されていない場合、同様に組織に招待されます。
             invite: 招待
             new_invite: 参加者の招待
         conference_registrations:
