@@ -347,7 +347,6 @@ gl:
             invites: Invitacións
             search: Busca
           new:
-            explanation: Invitarase ao usuario a participar nunha conferencia. Se o correo electrónico non está rexistrado, tamén serán invitados á organización.
             invite: Invitar
             new_invite: Invitar ao usuario
         conference_registrations:
