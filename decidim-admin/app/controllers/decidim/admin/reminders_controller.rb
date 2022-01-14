@@ -10,7 +10,7 @@ module Decidim
       def new
         enforce_permission_to :create, :reminder
 
-        @form = reminder_form_from_params({ name: reminder_manifest.name })
+        @form = reminder_form_from_params(name: reminder_manifest.name)
         render :new
       end
 
