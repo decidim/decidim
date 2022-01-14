@@ -102,8 +102,6 @@ const addRemoveButtonEventListener = (um) => {
 
   removeButton.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log("klik")
-
     removeButton.parentElement.style.display = "none";
     um.uploadItems.innerHTML = "";
     um.activeAttachments.innerHTML = `<input name='${um.options.resourceName}[remove_${um.name}]' type="hidden" value="true">`;

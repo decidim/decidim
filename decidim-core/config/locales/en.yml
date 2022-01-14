@@ -745,7 +745,6 @@ en:
         button: Stop following
         error: There was a problem unfollowing this resource.
     forms:
-      current_file: Current file
       current_image: Current image
       default_image: Default image
       errors:

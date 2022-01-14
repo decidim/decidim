@@ -658,9 +658,9 @@ en:
           filter_by: Filter by
           unfold: Unfold
         new:
-          send: Continue
           add_file: Add file
           edit_file: Edit file
+          send: Continue
         new_collaborative_draft_button:
           new_collaborative_draft: New collaborative draft
         orders:
@@ -774,8 +774,6 @@ en:
           add_image: Add Image
           attachment_legend: "(Optional) Add an attachment"
           back: Back
-          delete_document: Delete Document
-          delete_image: Delete Image
           edit_documents: Edit documents
           edit_image: Edit image
           gallery_legend: "(Optional) Add an image to the proposal card"

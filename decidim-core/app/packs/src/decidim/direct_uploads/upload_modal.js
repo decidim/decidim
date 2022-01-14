@@ -5,6 +5,7 @@ export default class UploadModal {
     this.button = button;
     this.options = Object.assign({
       token: button.dataset.token,
+      addAttribute: button.dataset.addAttribute,
       resourceName: button.dataset.resourceName,
       resourceClass: button.dataset.resourceClass,
       optional: button.dataset.optional === "true",
@@ -17,13 +18,10 @@ export default class UploadModal {
     this.attachmentCounter = 0;
     this.dropZoneEnabled = true;
     this.modalTitle = this.modal.querySelector(".reveal__title");
-
     this.uploadItems = this.modal.querySelector(".upload-items");
     this.locales = JSON.parse(this.uploadItems.dataset.locales);
     this.dropZone = this.modal.querySelector(".dropzone");
     this.input = this.dropZone.querySelector("input");
-    this.addAttribute = this.input.name.substring(this.input.name.indexOf("[") + 1, this.input.name.indexOf("]"));
-
     this.uploadContainer = document.querySelector(`.upload-container-for-${this.name}`);
     this.activeAttachments = this.uploadContainer.querySelector(".active-attachments");
     this.trashCan = this.createTrashCan();
@@ -66,9 +64,9 @@ export default class UploadModal {
         hiddenBlobField.setAttribute("type", "hidden");
         hiddenBlobField.setAttribute("value", blob.signed_id);
         if (this.options.titled) {
-          hiddenBlobField.name = `${this.options.resourceName}[${this.addAttribute}][${ordinalNumber}][file]`;
+          hiddenBlobField.name = `${this.options.resourceName}[${this.options.addAttribute}][${ordinalNumber}][file]`;
         } else {
-          hiddenBlobField.name = `${this.options.resourceName}[${this.addAttribute}]`;
+          hiddenBlobField.name = `${this.options.resourceName}[${this.options.addAttribute}]`;
         }
 
         if (this.options.titled) {
@@ -77,7 +75,7 @@ export default class UploadModal {
           hiddenTitleField.classList.add("hidden-title");
           hiddenTitleField.setAttribute("type", "hidden");
           hiddenTitleField.setAttribute("value", title);
-          hiddenTitleField.name = `${this.options.resourceName}[${this.addAttribute}][${ordinalNumber}][title]`;
+          hiddenTitleField.name = `${this.options.resourceName}[${this.options.addAttribute}][${ordinalNumber}][title]`;
           titleAndFileNameSpan.innerHTML = `${title} (${file.name})`;
           attachmentDetails.appendChild(hiddenTitleField);
         } else {
