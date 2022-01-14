@@ -45,7 +45,7 @@ module Decidim
 
       initializer "decidim_budgets.register_reminders" do
         Decidim.reminders_registry.register(:orders) do |reminder_registry|
-          reminder_registry.manager_class_name = "Decidim::Budgets::OrderReminderGenerator"
+          reminder_registry.generator_class_name = "Decidim::Budgets::OrderReminderGenerator"
           reminder_registry.form_class_name = "Decidim::Budgets::Admin::OrderReminderForm"
           reminder_registry.command_class_name = "Decidim::Budgets::Admin::CreateOrderReminders"
 

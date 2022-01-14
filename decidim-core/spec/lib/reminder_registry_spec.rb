@@ -31,9 +31,9 @@ module Decidim
       end
     end
 
-    def register_reminder(name, manager_class_name = "Decidim::DummyGenerator")
+    def register_reminder(name, generator_class_name = "Decidim::DummyGenerator")
       subject.register(name) do |reminder_registry|
-        reminder_registry.manager_class_name = manager_class_name
+        reminder_registry.generator_class_name = generator_class_name
       end
     end
   end

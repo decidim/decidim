@@ -4,16 +4,16 @@ module Decidim
   # This class acts as a manifest for reminders.
   #
   # This manifest is a simple object that holds and stores reminder
-  # and it's manager class.
+  # and it's generator class.
   class ReminderManifest
     include ActiveModel::Model
     include Virtus.model
 
-    attribute :manager_class_name, String
+    attribute :generator_class_name, String
     attribute :form_class_name, String
     attribute :command_class_name, String
 
-    validates :manager_class, presence: true
+    validates :generator_class, presence: true
 
     attr_reader :name
 
@@ -22,8 +22,8 @@ module Decidim
       @messages = ReminderManifestMessages.new
     end
 
-    def manager_class
-      manager_class_name.constantize
+    def generator_class
+      generator_class_name.constantize
     end
 
     def form_class

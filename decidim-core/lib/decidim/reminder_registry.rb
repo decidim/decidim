@@ -2,7 +2,7 @@
 
 module Decidim
   # This class acts as a registry for reminders. Each reminder needs a name,
-  # and a manager class, that will be used for generating the actual sendable reminders.
+  # and a generator class, that will be used for generating the actual sendable reminders.
   # Reminder times could be used to define intervals between reminders, so that user
   # isn't reminded too often. In addition, you can register form and command classes
   # for additional features, such as order reminders can be sent manually from the admin panel.
@@ -11,7 +11,7 @@ module Decidim
   # In order to register a reminder, you can follow this example:
   #
   #     Decidim.reminders_registry.register(:orders) do |reminder_registry|
-  #       reminder_registry.manager_class_name = "Decidim::Budgets::OrderReminderGenerator"
+  #       reminder_registry.generator_class_name = "Decidim::Budgets::OrderReminderGenerator"
   #       reminder_registry.form_class_name = "Decidim::Budgets::Admin::OrderReminderForm"
   #       reminder_registry.command_class_name = "Decidim::Budgets::Admin::CreateOrderReminders"
   #
