@@ -351,7 +351,6 @@ it:
             invites: Inviti
             search: Ricerca
           new:
-            explanation: L'utente sarà invitato a partecipare a una conferenza. Se l'e-mail non è registrata, saranno anche invitati all'organizzazione.
             invite: Invita
             new_invite: Invita partecipante
         conference_registrations:
