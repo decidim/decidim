@@ -168,9 +168,6 @@ sk:
               offline_verification: Overenie offline
               title: Čakajúci overenie online
               verification_number: 'Overenie #%{n}'
-          rejections:
-            create:
-              success: Overenie bolo zamietnuté. Používateľ bude vyzvaný, aby zmenil svoje dokumenty
         authorizations:
           choose:
             choose_a_type: 'Vyberte, ako chcete overiť:'
