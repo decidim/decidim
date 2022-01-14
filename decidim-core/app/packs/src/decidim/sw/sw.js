@@ -3,8 +3,8 @@ import {
   staticResourceCache,
   offlineFallback
 } from "workbox-recipes";
-import { setDefaultHandler, registerRoute } from "workbox-routing";
-import { NetworkFirst, NetworkOnly } from "workbox-strategies";
+import { registerRoute } from "workbox-routing";
+import { NetworkFirst } from "workbox-strategies";
 import { CacheableResponsePlugin } from "workbox-cacheable-response";
 import { ExpirationPlugin } from "workbox-expiration";
 
