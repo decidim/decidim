@@ -323,7 +323,6 @@ ar:
             invites: تدعو
             search: بحث
           new:
-            explanation: سيدعى المشارك للانضمام إلى مؤتمر. إذا لم يتم تسجيل بريدها الإلكتروني ، فستتم دعوتها إلى المنظمة أيضًا.
             invite: دعا
             new_invite: دعوة مشارك
         conference_registrations:
