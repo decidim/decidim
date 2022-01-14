@@ -186,9 +186,6 @@ fr:
               offline_verification: Vérification hors ligne
               title: Vérifications en attente
               verification_number: 'Vérification # %{n}'
-          rejections:
-            create:
-              success: Vérification rejetée. L'utilisateur sera invité à modifier ses documents
         authorizations:
           choose:
             choose_a_type: 'Veuillez sélectionner comment vous souhaitez être vérifié:'
