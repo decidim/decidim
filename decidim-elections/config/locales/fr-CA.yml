@@ -339,15 +339,15 @@ fr-CA:
           end_vote: "%{user_name} a terminé la période de vote pour l'élection %{resource_name} de l'espace %{space_name} sur le Tableau des Bulletins"
           publish: "%{user_name} a publié l'élection %{resource_name} de %{space_name}"
           publish_results: "%{user_name} a publié les résultats de l'élection %{resource_name} de %{space_name} sur le Panneau d'affichage"
-          report_missing_trustee: "%{user_name} a signalé %{trustee_name} en tant qu'accesseur manquant pendant le dépouillement de l'élection %{resource_name} de %{space_name} sur le Tableau d'affichage"
-          setup: "%{user_name} a créé l'élection %{resource_name} de %{space_name} sur le Tableau d'affichage"
+          report_missing_trustee: "%{user_name} a signalé %{trustee_name} en tant que garant absent pendant le dépouillement de l'élection %{resource_name} de %{space_name} sur le Panneau d'affichage"
+          setup: "%{user_name} a créé l'élection %{resource_name} de %{space_name} sur le Panneau d'affichage"
           start_key_ceremony: "%{user_name} a commencé la cérémonie des clés pour l'élection %{resource_name} de %{space_name} sur le Panneau d'affichage"
-          start_tally: "%{user_name} a commencé le dépouillement pour l'élection %{resource_name} de %{space_name} sur le Tableau d'affichage"
-          start_vote: "%{user_name} a commencé la période de vote pour l'élection %{resource_name} de %{space_name} sur le Tableau d'affichage"
+          start_tally: "%{user_name} a commencé le dépouillement pour l'élection %{resource_name} de %{space_name} sur le Panneau d'affichage"
+          start_vote: "%{user_name} a commencé la période de vote pour l'élection %{resource_name} de %{space_name} sur le Panneau d'affichage"
           unpublish: "%{user_name} a dépublié le %{resource_name} de l'élection %{space_name}"
           update: "%{user_name} a mis à jour l'élection %{resource_name} de %{space_name}"
         trustee:
-          create: "%{user_name} a nommé l'utilisateur %{trustee_user} en tant que accesseur"
+          create: "%{user_name} a nommé l'utilisateur %{trustee_user} en tant que Garant"
       election_m:
         badge_name:
           finished: Terminées
@@ -447,7 +447,7 @@ fr-CA:
           back: Élections disponibles
           callout:
             already_voted: Vous avez déjà voté pour cette élection. Vous pouvez modifier votre vote ou le vérifier.
-            pending_vote: Votre vote est en cours de validation le serveur.
+            pending_vote: Votre vote est en cours de validation sur le serveur.
             vote_rejected: Il n'a pas été possible de vérifier votre vote. Veuillez recommencer.
           election_log: Journal de l'élection
           preview: Aperçu
@@ -473,7 +473,7 @@ fr-CA:
             votes: Votes
         election:
           fields:
-            bb_status: Statut du Tableau d'affichage
+            bb_status: Statut du Panneau d'affichage
             end_time: Prend fin à
             start_time: Commence à
             title: Titre
@@ -1181,14 +1181,12 @@ fr-CA:
             census_verified: Le participant n'a pas encore voté.
             complete_voting: Vote terminé
             identify_another: Identifier un autre participant
-            questions_title: 'Elle a le droit de voter sur les questions suivantes:'
             questions_title_voted: 'Le participant a déjà voté en ligne et a le droit de voter dans les questions suivantes :'
             voted: Le participant a voté
           create:
             error: Le vote n'a pas été enregistré. Veuillez réessayer.
           in_person_form:
             census_not_present: Ce participant n'est pas répertorié dans le recensement.
-            census_not_present_description: Elle doit se rendre au bureau des plaintes du recensement ou contacter le support.
             date_of_birth: Date de naissance
             day: Jour
             day_placeholder: JJ
@@ -1322,7 +1320,7 @@ fr-CA:
         login:
           access_code: Code d'accès
           access_code_placeholder: Code d'accès
-          ask_for_a_new_one: Demander une nouvelle.
+          ask_for_a_new_one: Demander un nouveau.
           dont_have_access_code: Vous n'avez pas de code d'accès?
           form_title: 'Remplissez le formulaire suivant pour accéder au vote :'
           start_voting: Commencer à voter
