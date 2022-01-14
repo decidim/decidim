@@ -354,7 +354,6 @@ ro:
             invites: Invitații
             search: Caută
           new:
-            explanation: Participantul va fi invitat să participe la o conferință. În cazul în care e-mailul său nu este înregistrat, ea va fi de asemenea invitată la organizație.
             invite: Invită
             new_invite: Invite participant
         conference_registrations:
