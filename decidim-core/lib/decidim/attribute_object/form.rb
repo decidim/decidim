@@ -2,6 +2,13 @@
 
 module Decidim
   module AttributeObject
+    # This is the main Form class that provides the functionality for all core
+    # forms that take in user input from the user interface forms and converts
+    # the inputs to expected formats.
+    #
+    # This replaces the Rectify::Form classes in Decidim which used to provide
+    # similar functionality. The API provided by this class is largely
+    # compatible with `Rectify::Form`.
     class Form
       include Decidim::AttributeObject::Model
       include ActiveModel::Validations
