@@ -354,7 +354,6 @@ pl:
             invites: Zaproszeni
             search: Szukaj
           new:
-            explanation: Użytkownik zostanie zaproszony do udziału w konferencji. Jeśli e-mail nie został wcześniej zarejestrowany, zostanie również zaproszony do organizacji.
             invite: Zaproś
             new_invite: Zaproś użytkownika
         conference_registrations:
