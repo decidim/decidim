@@ -1203,12 +1203,14 @@ cs:
             census_verified: Uživatel ještě nehlasoval.
             complete_voting: Dokončené hlasování
             identify_another: Identifikovat jiného účastníka
+            questions_title: 'Jsou oprávněni hlasovat v následujících otázkách:'
             questions_title_voted: 'Účastník již hlasoval on-line a je oprávněn hlasovat v následujících otázkách:'
             voted: Uživatel hlasoval
           create:
             error: Hlasování nebylo zaregistrováno. Zkuste to prosím znovu.
           in_person_form:
             census_not_present: Tento uživatel není uveden v seznamu osob.
+            census_not_present_description: Musí jít na úřad místního zastupitelstva, nebo kontaktovat podporu.
             date_of_birth: Datum narození
             day: Den
             day_placeholder: DD
