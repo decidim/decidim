@@ -83,7 +83,7 @@ module Decidim
       renamed_origin = Array(origin).map do |search_value|
         "#{search_value}_origin"
       end
-      apply_scopes(%w(official_origin citizens_origin user_group_origin meeting_origin), renamed_origin)
+      apply_scopes(%w(official_origin participants_origin user_group_origin meeting_origin), renamed_origin)
     end
 
     # We overwrite the `results` method to ensure we only return unique

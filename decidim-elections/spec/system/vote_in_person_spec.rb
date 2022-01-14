@@ -31,7 +31,7 @@ describe "Polling Officer zone", type: :system do
   shared_examples "a polling officer registers an in person vote" do
     include_context "with test bulletin board"
 
-    let(:questions_title) { "She is entitled to vote in the following questions:" }
+    let(:questions_title) { "They're entitled to vote in the following questions:" }
 
     it "can identify a person and register their vote", :slow do
       click_link "Identify a person"

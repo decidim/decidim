@@ -86,7 +86,47 @@ cs:
       decidim_with_month_name_short: "%d %b"
   datetime:
     distance_in_words:
+      about_x_hours:
+        one: asi 1 hodina
+        few: asi %{count} hodiny
+        many: asi %{count} hodin
+        other: asi %{count} hodin
+      about_x_months:
+        one: asi 1 měsíc
+        few: asi %{count} měsíce
+        many: asi %{count} měsíců
+        other: asi %{count} měsíců
       half_a_minute: půl minuty
+      less_than_x_minutes:
+        one: méně než minutu.
+        few: méně než %{count} minuty.
+        many: méně než %{count} minut.
+        other: méně než %{count} minut.
+      less_than_x_seconds:
+        one: právě teď
+        few: méně než %{count} vteřiny.
+        many: méně než %{count} vteřin.
+        other: méně než %{count} vteřin.
+      x_days:
+        one: před 1 dnem
+        few: "před %{count} dny"
+        many: "před %{count} ti dny"
+        other: "před %{count} ti dny"
+      x_hours:
+        one: před 1 hodinou
+        few: "před %{count} hodinami"
+        many: "před %{count} hodinami"
+        other: "před %{count} hodinami"
+      x_minutes:
+        one: před 1 minutou
+        few: "před %{count} minutami"
+        many: "před %{count} minutami"
+        other: "před %{count} minutami"
+      x_seconds:
+        one: před 1 vteřinou
+        few: "před %{count} vteřinami"
+        many: "před %{count} vteřinami"
+        other: "před %{count} vteřinami"
   decidim:
     accessibility:
       external_link: Externí odkaz
@@ -1000,6 +1040,7 @@ cs:
         show:
           back: Zpět ke všem konverzacím
           chat_with: Konverzace s
+          deleted_accounts: Nemůžete mít konverzaci s odstraněnými účty.
           not_allowed: Tento uživatel nepřijímá přímé zprávy.
           title: Konverzace s číslem %{usernames}
         start:
@@ -1067,6 +1108,12 @@ cs:
         greetings: Zdravím,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Ahoj,
         subject: Chcete nadále dostávat příslušné informace o %{organization_name}?
+    notification_mailer:
+      event_received:
+        no_translation_available: Omlouváme se, po odeslání e-mailu nelze získat automatický překlad. Překlad původního textu můžete zkontrolovat na následujícím odkazu %{link}.
+        original_text: 'Původní text:'
+        same_language: Obsah byl zveřejněn ve vašem preferovaném jazyce (%{language}), proto se v tomto e-mailu nezobrazuje automatický překlad.
+        translated_text: 'Automaticky přeložený text:'
     notifications:
       no_notifications: Zatím žádné oznámení.
     notifications_settings:
@@ -1366,6 +1413,7 @@ cs:
         title_reply: Odpovědět
       show:
         back: Zobrazit všechny konverzace
+        deleted_accounts: Nemůžete mít konverzaci s odstraněnými účty.
         not_allowed: Tento uživatel již nepřijímá žádné přímé zprávy.
         title: Konverzace s %{usernames}
       update:

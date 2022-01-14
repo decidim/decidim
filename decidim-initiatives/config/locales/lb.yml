@@ -338,7 +338,6 @@ lb:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> hat sich für das Promoter-Komittee Ihrer Initiative <a href="%{resource_url}">%{resource_title}</a> beworben. Um anzunehmen oder abzulehnen, klicken Sie <a href="%{resource_url}/edit">hier</a>.
       form:
         add_attachments: Dokumente
-        attachment_legend: "(Optional) Anhang hinzufügen"
         delete_attachment: Löschen
       index:
         title: Initiativen

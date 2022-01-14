@@ -4,7 +4,7 @@ module Decidim
   # This class acts as a manifest for metrics.
   #
   # This manifest is a simple object that holds and stores currently available
-  # metrics and his managers, for calculations purpose
+  # metrics and its managers, for calculations purpose
   #
   class MetricManifest
     include ActiveModel::Model

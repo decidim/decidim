@@ -126,13 +126,13 @@ describe "Explore meeting directory", type: :system do
       end
     end
 
-    context "with 'citizens' origin" do
+    context "with 'participants' origin" do
       it "lists the filtered meetings" do
         visit directory
 
         within ".origin_check_boxes_tree_filter" do
           uncheck "All"
-          check "Citizens"
+          check "Participants"
         end
 
         expect(page).to have_css(".card--meeting", count: 6)

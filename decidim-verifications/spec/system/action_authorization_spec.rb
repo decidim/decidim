@@ -107,7 +107,7 @@ describe "Action Authorization", type: :system do
                                  metadata: { postal_code: "1234", scope_id: other_scope.id })
         end
 
-        it "prompts user to check her authorization status" do
+        it "prompts user to check their authorization status" do
           click_link "New proposal"
 
           expect(page).to have_content("Not authorized")
@@ -127,7 +127,7 @@ describe "Action Authorization", type: :system do
         context "when the postal code is missing" do
           let(:postal_code) { "" }
 
-          it "prompts user to check her authorization status" do
+          it "prompts user to check their authorization status" do
             click_link "New proposal"
 
             expect(page).to have_content("Not authorized")
@@ -140,7 +140,7 @@ describe "Action Authorization", type: :system do
         context "when the scope is missing" do
           let(:user_scope) { nil }
 
-          it "prompts user to check her authorization status" do
+          it "prompts user to check their authorization status" do
             click_link "New proposal"
 
             expect(page).to have_content("Not authorized")
@@ -153,7 +153,7 @@ describe "Action Authorization", type: :system do
           let(:user_scope) { nil }
           let(:postal_code) {}
 
-          it "prompts user to check her authorization status" do
+          it "prompts user to check their authorization status" do
             click_link "New proposal"
 
             expect(page).to have_content("Not authorized")
@@ -176,7 +176,7 @@ describe "Action Authorization", type: :system do
         click_link "New proposal"
       end
 
-      it "prompts user to check her authorization status" do
+      it "prompts user to check their authorization status" do
         expect(page).to have_content("Authorization required")
         expect(page)
           .to have_content("Your authorization has expired. In order to perform this action, you need to be reauthorized with \"Example authorization\"")
@@ -239,7 +239,7 @@ describe "Action Authorization", type: :system do
         click_link "New proposal"
       end
 
-      it "prompts user to check her authorization status" do
+      it "prompts user to check their authorization status" do
         expect(page).to have_content("Authorization is still in progress")
         expect(page)
           .to have_content("In order to perform this action, you need to be authorized with \"Dummy authorization workflow\", but your authorization is still in progress")
@@ -263,7 +263,7 @@ describe "Action Authorization", type: :system do
         click_link "New proposal"
       end
 
-      it "prompts user to check her authorization status" do
+      it "prompts user to check their authorization status" do
         expect(page).to have_content("Authorization required")
         expect(page)
           .to have_content("Your authorization has expired. In order to perform this action, you need to be reauthorized with \"Dummy authorization workflow\"")

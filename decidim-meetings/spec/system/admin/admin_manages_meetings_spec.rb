@@ -241,17 +241,6 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     scope_pick select_data_picker(:meeting_decidim_scope_id), scope
     select translated(category.name), from: :meeting_decidim_category_id
 
-    # the field is not visible by default
-    expect(page).not_to have_field("Custom content in registration email")
-    # make the field visible
-    find("#meeting_customize_registration_email").click
-    expect(help_text_for("div[data-tabs-content*='meeting-registration_email_custom_content-tab']")).to be_present
-    fill_in_i18n_editor(
-      :meeting_registration_email_custom_content,
-      "#meeting-registration_email_custom_content-tabs",
-      en: "We're very happy you registered for this event!"
-    )
-
     within ".new_meeting" do
       find("*[type=submit]").click
     end
@@ -351,14 +340,11 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     within ".new_meeting" do
       select "Registration disabled", from: :meeting_registration_type
       expect(page).to have_no_field("Registration URL")
-      expect(page).to have_no_field("Available slots")
 
       select "On a different platform", from: :meeting_registration_type
       expect(page).to have_field("Registration URL")
-      expect(page).to have_no_field("Available slots")
 
       select "On this platform", from: :meeting_registration_type
-      expect(page).to have_field("Available slots")
       expect(page).to have_no_field("Registration URL")
     end
   end

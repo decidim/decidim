@@ -11,9 +11,12 @@ module Decidim
 
         attribute :registrations_enabled, Boolean
         attribute :registration_form_enabled, Boolean
+        attribute :customize_registration_email, Boolean
         attribute :available_slots, Integer
         attribute :reserved_slots, Integer
+
         translatable_attribute :registration_terms, String
+        translatable_attribute :registration_email_custom_content, String
 
         validates :registration_terms, translatable_presence: true, if: ->(form) { form.registrations_enabled? }
         validates :available_slots, :reserved_slots, presence: true, if: ->(form) { form.registrations_enabled? }

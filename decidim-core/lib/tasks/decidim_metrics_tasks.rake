@@ -4,7 +4,7 @@ namespace :decidim do
   namespace :metrics do
     # All ------
     #
-    # Get all metrics entities and execute his own rake task.
+    # Get all metrics entities and execute its own rake task.
     # It admits a date-string parameter, in a 'YYYY-MM-DD' format from
     # today to all past dates
     desc "Execute all metrics calculation methods"
