@@ -351,7 +351,6 @@ pt:
             invites: Convites
             search: Pesquisar
           new:
-            explanation: O participante será convidado a participar numa conferência. Se o seu e-mail não estiver registado, será convidado para a organização também.
             invite: Convidar
             new_invite: Convidar participante
         conference_registrations:
