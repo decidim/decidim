@@ -1181,14 +1181,12 @@ fr:
             census_verified: Le participant n'a pas encore voté.
             complete_voting: Vote terminé
             identify_another: Identifier un autre participant
-            questions_title: 'Elle a le droit de voter sur les questions suivantes:'
             questions_title_voted: 'Le participant a déjà voté en ligne et a le droit de voter dans les questions suivantes :'
             voted: Le participant a voté
           create:
             error: Le vote n'a pas été enregistré. Veuillez réessayer.
           in_person_form:
             census_not_present: Ce participant n'est pas répertorié dans le recensement.
-            census_not_present_description: Elle doit se rendre au bureau des plaintes du recensement ou contacter le support.
             date_of_birth: Date de naissance
             day: Jour
             day_placeholder: JJ
