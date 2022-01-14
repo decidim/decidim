@@ -522,7 +522,6 @@ gl:
             complete_voting: Completar votación
           in_person_form:
             census_not_present: Este participante non está no censo.
-            census_not_present_description: Ten de ir á oficina de reclamacións do censo ou contactar coa asistencia técnica.
             date_of_birth: Data de nacemento
             day: Día
             day_placeholder: DD
