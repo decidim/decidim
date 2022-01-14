@@ -50,7 +50,7 @@ eu:
         force_users_to_authenticate_before_access_organization: Behartu erabiltzaileak autentikatzera erakundean sartu baino lehen
         from: Igorlearen helbide elektronikoa
         github_handler: GitHub kudeatzailea
-        header_snippets: Goiburuko mozkinak
+        header_snippets: Goiburuko zatiak
         highlight_alternative_color: Nabarmendua, aukerakoa
         highlight_color: Nabarmendua
         highlighted_content_banner_action_subtitle: Ekintza botoia azpititulua
