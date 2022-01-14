@@ -1116,14 +1116,12 @@ de:
             census_verified: Der Teilnehmer hat noch nicht abgestimmt.
             complete_voting: Abstimmung abschliessen
             identify_another: Einen anderen Teilnehmer identifizieren
-            questions_title: 'Er hat das Recht, bei folgenden Anfragen abzustimmen:'
             questions_title_voted: 'Der Teilnehmer hat bereits online abgestimmt und kann bei folgenden Fragen abstimmen:'
             voted: Der Teilnehmer hat abgestimmt
           create:
             error: Die Stimme wurde nicht registriert. Bitte versuchen Sie es erneut.
           in_person_form:
             census_not_present: Dieser Teilnehmer ist nicht in den Zensusdaten aufgeführt.
-            census_not_present_description: Er/Sie muss zum Beschwerdenbüro gehen oder den Support kontaktieren.
             date_of_birth: Geburtsdatum
             day: Tag
             day_placeholder: TT
