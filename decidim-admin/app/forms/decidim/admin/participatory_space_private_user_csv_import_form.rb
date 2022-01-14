@@ -19,9 +19,15 @@ module Decidim
       def validate_csv
         return if file.blank?
 
-        CSV.foreach(file.path) do |_email, user_name|
+        CSV.foreach(ActiveStorage::Blob.service.path_for(blob.key)) do |_email, user_name|
           errors.add(:user_name, :invalid) unless user_name.match?(UserBaseEntity::REGEXP_NAME)
         end
+      end
+
+      private
+
+      def blob
+        @blob ||= ActiveStorage::Blob.find_signed(file)
       end
     end
   end

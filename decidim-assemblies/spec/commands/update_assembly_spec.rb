@@ -120,7 +120,7 @@ module Decidim::Assemblies
 
         it "broadcasts invalid" do
           expect { command.call }.to broadcast(:invalid)
-          expect(form.errors.messages[:hero_image]).to contain_exactly(["The image is too big"])
+          expect(form.errors.messages[:hero_image]).to contain_exactly("The image is too big")
         end
       end
 
