@@ -190,9 +190,6 @@ cs:
               offline_verification: Ověření offline
               title: Čekající ověření online
               verification_number: 'Ověření #%{n}'
-          rejections:
-            create:
-              success: Ověření bylo zamítnuto. Uživatel bude vyzván, aby změnil své dokumenty
         authorizations:
           choose:
             choose_a_type: 'Vyberte, jak chcete ověřit:'
