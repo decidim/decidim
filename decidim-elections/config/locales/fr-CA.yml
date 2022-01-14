@@ -437,7 +437,7 @@ fr-CA:
           back: Élections disponibles
           callout:
             already_voted: Vous avez déjà voté pour cette élection. Vous pouvez modifier votre vote ou le vérifier.
-            pending_vote: Votre vote est en cours de validation le serveur.
+            pending_vote: Votre vote est en cours de validation sur le serveur.
             vote_rejected: Il n'a pas été possible de vérifier votre vote. Veuillez recommencer.
           election_log: Journal de l'élection
           preview: Aperçu
@@ -463,7 +463,7 @@ fr-CA:
             votes: Votes
         election:
           fields:
-            bb_status: Statut du Tableau d'affichage
+            bb_status: Statut du Panneau d'affichage
             end_time: Prend fin à
             start_time: Commence à
             title: Titre
@@ -1294,7 +1294,7 @@ fr-CA:
         login:
           access_code: Code d'accès
           access_code_placeholder: Code d'accès
-          ask_for_a_new_one: Demander une nouvelle.
+          ask_for_a_new_one: Demander un nouveau.
           dont_have_access_code: Vous n'avez pas de code d'accès?
           form_title: 'Remplissez le formulaire suivant pour accéder au vote :'
           start_voting: Commencer à voter
