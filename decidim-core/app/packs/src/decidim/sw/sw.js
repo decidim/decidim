@@ -7,6 +7,9 @@ import {
 import { setDefaultHandler } from "workbox-routing";
 import { NetworkOnly } from "workbox-strategies";
 
+// https://developers.google.com/web/tools/workbox/guides/troubleshoot-and-debug#debugging_workbox
+self.__WB_DISABLE_DEV_LOGS = true
+
 /**
  * This is a workaround to bypass a webpack compilation error
  *
