@@ -1173,14 +1173,12 @@ it:
             census_verified: L'utente non ha ancora votato.
             complete_voting: Completa la votazione
             identify_another: Identificare un altro utente
-            questions_title: 'Ha diritto di voto nelle seguenti domande:'
             questions_title_voted: 'Il partecipante ha già votato online e ha diritto a votare nelle seguenti domande:'
             voted: L'utente ha votato
           create:
             error: La votazione non è stata registrata. Per favore riprova.
           in_person_form:
             census_not_present: Questo partecipante non è elencato nel censimento.
-            census_not_present_description: Deve andare all'ufficio reclami del censimento o contattare l'assistenza.
             date_of_birth: Data di nascita
             day: Giorno
             day_placeholder: DD
