@@ -161,9 +161,6 @@ lv:
               offline_verification: Bezsaistes verifikācija
               title: Tiešsaistes verifikācijas, kas vēl gaida
               verification_number: 'Verifikācija #%{n}'
-          rejections:
-            create:
-              success: Verifikācija noraidīta. Dalībniekam tiks piedāvāts mainīt savus dokumentus
         authorizations:
           choose:
             choose_a_type: 'Lūdzu, atlasiet, kā vēlaties tikt verificēts:'
