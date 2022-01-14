@@ -317,7 +317,6 @@ de:
             invites: Lädt ein
             search: Suche
           new:
-            explanation: Der Benutzer wird eingeladen, an einer Konferenz teilzunehmen. Wenn die E-Mail nicht registriert ist, werden sie ebenfalls zur Organisation eingeladen.
             invite: Einladen
             new_invite: Nutzer einladen
         conference_registrations:
