@@ -190,9 +190,6 @@ pl:
               offline_verification: Weryfikacja offline
               title: Oczekujące weryfikacje
               verification_number: 'Weryfikacja # %{n}'
-          rejections:
-            create:
-              success: Weryfikacja odrzucona. Użytkownik zostanie poproszony o poprawienie swoich dokumentów
         authorizations:
           choose:
             choose_a_type: 'Wybierz sposób weryfikacji:'
