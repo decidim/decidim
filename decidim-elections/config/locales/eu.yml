@@ -1157,14 +1157,12 @@ eu:
             census_verified: Parte-hartzaileak oraindik ez du botoa eman.
             complete_voting: Osatu bozketa
             identify_another: Identifikatu beste parte-hartzaile bat
-            questions_title: 'Botoa emateko eskubidea du ondoko galdera hauetan:'
             questions_title_voted: 'Parte-hartzaileak dagoeneko lineako botoa eman du eta botoa emateko eskubidea du ondoko galdera hauetan:'
             voted: Parte-hartzaileak botoa eman du
           create:
             error: Botoa ez da erregistratu. Mesedez, saiatu berriro.
           in_person_form:
             census_not_present: Parte-hartzaile hau ez da erroldan agertzen.
-            census_not_present_description: Erroldako erreklamazio-bulegora joan behar zara edo laguntza teknikoaren zerbitzura.
             date_of_birth: Jaiotze-data
             day: Eguna
             day_placeholder: EE
