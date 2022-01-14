@@ -162,9 +162,6 @@ hu:
               offline_verification: Offline ellenőrzés
               title: Folyamatban lévő ellenőrzések
               verification_number: 'Ellenőrzés #%{n}'
-          rejections:
-            create:
-              success: Ellenőrzés elutasítva. A felhasználónak módosítania kell dokumentumain
         authorizations:
           choose:
             choose_a_type: 'Kérjük, adja meg, hogy miként szeretné ellenőrizni:'
