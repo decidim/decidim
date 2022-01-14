@@ -78,7 +78,8 @@ module Decidim
       object_name = "#{add_attribute}_validation"
       object_name = "#{form.object.model_name.param_key}[#{add_attribute}_validation]" if form.object.present?
       input = check_box_tag object_name, 1, attachments.present?, class: "hide", label: false, required: !optional
-      input + form.send(:abide_error_element, add_attribute)
+      message = form.send(:abide_error_element, add_attribute) + form.send(:error_and_help_text, add_attribute)
+      input + message
     end
 
     def explanation

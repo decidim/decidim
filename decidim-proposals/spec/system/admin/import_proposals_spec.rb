@@ -36,7 +36,7 @@ describe "Import proposals", type: :system do
     end
 
     it "creates proposals after succesfully import" do
-      dynamically_attach_file(:file, Decidim::Dev.asset("import_proposals_broken.csv"))
+      dynamically_attach_file(:file, Decidim::Dev.asset("import_proposals.csv"))
       click_button "Import"
       expect(page).to have_content("3 proposals successfully imported")
       expect(Decidim::Proposals::Proposal.count).to eq(3)
