@@ -143,9 +143,6 @@ ar:
               offline_verification: التحقق حاليا
               title: في انتظار التحقق عبر الإنترنت
               verification_number: 'التحقق #%{n}'
-          rejections:
-            create:
-              success: تم رفض التحقق. ستتم مطالبة المشاركين بتعديل مستنداتها
         authorizations:
           choose:
             choose_a_type: 'الرجاء تحديد الطريقة التي تريد التحقق منها:'
