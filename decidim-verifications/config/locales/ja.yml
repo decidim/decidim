@@ -184,6 +184,9 @@ ja:
               offline_verification: オフライン認証
               title: オンラインでの認証待ちです
               verification_number: '認証 #%{n}'
+          rejections:
+            create:
+              success: 本人確認が拒否されました。参加者は書類の修正を求められます
         authorizations:
           choose:
             choose_a_type: '確認方法を選択してください：'
