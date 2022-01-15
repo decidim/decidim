@@ -14,7 +14,6 @@ namespace :decidim do
       # to add dynamically the urls to check.
 
       HOST = "http://localhost:3000"
-      # homepage
       urls = ["/"]
       # participatory process page
       urls << ::Decidim::ResourceLocatorPresenter.new(Decidim::ParticipatoryProcess.published.first).path
