@@ -16,7 +16,6 @@ namespace :decidim do
       host = "http://localhost:3000"
       urls = ["/"]
       urls << ::Decidim::ResourceLocatorPresenter.new(Decidim::ParticipatoryProcess.published.first).path
-      # meeting page
       urls << ::Decidim::ResourceLocatorPresenter.new(Decidim::Meetings::Meeting.published.first).path
       # proposal page
       urls << ::Decidim::ResourceLocatorPresenter.new(Decidim::Proposals::Proposal.published.first).path
