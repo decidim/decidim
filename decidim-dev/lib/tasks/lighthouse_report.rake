@@ -13,7 +13,7 @@ namespace :decidim do
       # Because seeds make urls dynamic, this task updates the lighthouse configuration
       # to add dynamically the urls to check.
 
-      HOST = "http://localhost:3000"
+      host = "http://localhost:3000"
       urls = ["/"]
       urls << ::Decidim::ResourceLocatorPresenter.new(Decidim::ParticipatoryProcess.published.first).path
       # meeting page
