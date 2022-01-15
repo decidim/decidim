@@ -17,7 +17,6 @@ namespace :decidim do
       urls = ["/"]
       urls << ::Decidim::ResourceLocatorPresenter.new(Decidim::ParticipatoryProcess.published.first).path
       urls << ::Decidim::ResourceLocatorPresenter.new(Decidim::Meetings::Meeting.published.first).path
-      # proposal page
       urls << ::Decidim::ResourceLocatorPresenter.new(Decidim::Proposals::Proposal.published.first).path
 
       # Update lighthouse configuration with the urls
