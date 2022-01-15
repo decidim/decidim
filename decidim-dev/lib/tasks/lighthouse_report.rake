@@ -22,7 +22,7 @@ namespace :decidim do
       # Update lighthouse configuration with the urls
       lighthouse_rc_path = Rails.root.join("../.lighthouserc.json")
       lighthouserc = JSON.parse(File.read(lighthouse_rc_path))
-      lighthouserc["ci"]["collect"]["url"] = urls.map { |url| "#{HOST}#{url}" }
+      lighthouserc["ci"]["collect"]["url"] = urls.map { |url| "#{host}#{url}" }
       File.write(lighthouse_rc_path, lighthouserc.to_json)
     end
   end
