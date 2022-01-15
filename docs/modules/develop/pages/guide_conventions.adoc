@@ -61,6 +61,14 @@ We would like to have all branches following this namings:
 | We only offer support for the last mayor version.
 |===
 
+After the prefix we recommend to add some words that describe what the change is doing, like a summary of the Pull Request title. For instance, some good branch names are:
+
+. refactor/autocomplete
+. feature/add-pagination-to-moderated-users
+. fix/free-text-choice-answer
+
+The rationale behind this is that we don't like to have the issue number (`fix/9123` or just `9123`) as that difficults working with `git`. 
+
 == Git commit messages and Pull Request titles
 
 We recommend following https://chris.beams.io/posts/git-commit/[this guide] for making good git commit messages. It also applies to Pull Request titles. The summary is:

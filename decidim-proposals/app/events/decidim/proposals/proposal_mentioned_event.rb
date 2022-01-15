@@ -7,6 +7,14 @@ module Decidim
 
       i18n_attributes :mentioned_proposal_title
 
+      def safe_resource_translated_text
+        resource_text
+      end
+
+      def perform_translation?
+        false
+      end
+
       private
 
       def mentioned_proposal_title

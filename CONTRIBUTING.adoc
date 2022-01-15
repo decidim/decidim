@@ -23,7 +23,7 @@ Be sure to include a *title and clear description*, as much relevant information
 Include the relevant issue number if applicable.
 * Check our https://docs.decidim.org/en/develop/guide/[development_guide].
 * When the PR includes a breaking change or includes something that requires manual intervention when deploying, it's necessary to add it on the changelog upgrade notes.
-See https://docs.decidim.org/en/develop/guide_changelog/[rules for the changelog page in docs].
+See https://docs.decidim.org/en/develop/guide_conventions/#_changelog[rules for the changelog page in docs].
 
 == Do you intend to add a new feature or change an existing one?
 

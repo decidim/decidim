@@ -18,7 +18,7 @@ describe Decidim::Budgets::Admin::Permissions do
   let(:project) { create :project, component: budgets_component }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
 
-  context "when scope is not admin" do
+  context "when scope and action are both random" do
     let(:action) do
       { scope: :foo, action: :bar, subject: :budget }
     end

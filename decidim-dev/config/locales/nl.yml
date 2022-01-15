@@ -22,6 +22,7 @@ nl:
               c: C keuze
             test_options:
               bar: Bar
+              baz: Baz
               foo: Foo
           step:
             endorsements_blocked: Aanbevelingen geblokkeerd
@@ -29,6 +30,7 @@ nl:
             readonly_step_attribute: Kenmerk van alleen-lezenstap
             test_options:
               bar: Bar
+              baz: Baz
               foo: Foo
     dummy:
       admin:

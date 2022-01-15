@@ -64,6 +64,18 @@ module Decidim
           expect(serialized).to include(body: proposal.body)
         end
 
+        it "serializes the address" do
+          expect(serialized).to include(address: proposal.address)
+        end
+
+        it "serializes the latitude" do
+          expect(serialized).to include(latitude: proposal.latitude)
+        end
+
+        it "serializes the longitude" do
+          expect(serialized).to include(longitude: proposal.longitude)
+        end
+
         it "serializes the amount of supports" do
           expect(serialized).to include(supports: proposal.proposal_votes_count)
         end

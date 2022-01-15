@@ -13,6 +13,9 @@ module Decidim
       let(:user_group_path) { Decidim::UserGroupPresenter.new(user_group).profile_path }
 
       it_behaves_like "a comment event"
+      it_behaves_like "a translated comment event" do
+        let(:translatable) { true }
+      end
 
       describe "email_subject" do
         it "is correct" do

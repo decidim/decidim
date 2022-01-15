@@ -60,10 +60,12 @@ module Decidim
         end
 
         def schedule_upcoming_meeting_notification
+          return if meeting.start_time < Time.zone.now
+
           checksum = Decidim::Meetings::UpcomingMeetingNotificationJob.generate_checksum(meeting)
 
           Decidim::Meetings::UpcomingMeetingNotificationJob
-            .set(wait_until: meeting.start_time - 2.days)
+            .set(wait_until: meeting.start_time - Decidim::Meetings.upcoming_meeting_notification)
             .perform_later(meeting.id, checksum)
         end
       end

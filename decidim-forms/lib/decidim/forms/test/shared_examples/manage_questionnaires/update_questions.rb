@@ -118,6 +118,104 @@ shared_examples_for "update questions" do
     end
   end
 
+  context "when a questionnaire has a title and description" do
+    let!(:question) { create(:questionnaire_question, :title_and_description, questionnaire: questionnaire, body: title_and_description_body) }
+
+    before do
+      visit questionnaire_edit_path
+      expand_all_questions
+    end
+
+    it "modifies the question when the information is valid" do
+      within "form.edit_questionnaire" do
+        within ".questionnaire-question" do
+          fill_in "questionnaire_questions_#{question.id}_body_en", with: "Modified title and description"
+        end
+
+        click_button "Save"
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      visit_questionnaire_edit_path_and_expand_all
+
+      expect(page).to have_selector("input[value='Modified title and description']")
+      expect(page).to have_no_selector("input[value='This is the first title and description']")
+    end
+
+    it "re-renders the form when the information is invalid and displays errors" do
+      expand_all_questions
+
+      within "form.edit_questionnaire" do
+        within ".questionnaire-question" do
+          fill_in "questionnaire_questions_#{question.id}_body_en", with: ""
+        end
+
+        click_button "Save"
+      end
+
+      expand_all_questions
+
+      expect(page).to have_admin_callout("There was a problem saving")
+      expect(page).to have_content("can't be blank", count: 1)
+      expect(page).to have_selector("input[value='']")
+      expect(page).to have_no_selector("input[value='This is the first title and description']")
+    end
+
+    it "preserves deleted status across submission failures" do
+      within "form.edit_questionnaire" do
+        within ".questionnaire-question" do
+          click_button "Remove"
+        end
+      end
+
+      click_button "Add question"
+
+      click_button "Save"
+
+      expect(page).to have_selector(".questionnaire-question", count: 1)
+
+      within ".questionnaire-question" do
+        expect(page).to have_selector(".card-title", text: "#1")
+        expect(page).to have_no_button("Up")
+      end
+    end
+
+    it "removes the question" do
+      within "form.edit_questionnaire" do
+        within ".questionnaire-question" do
+          click_button "Remove"
+        end
+
+        click_button "Save"
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      visit questionnaire_edit_path
+
+      within "form.edit_questionnaire" do
+        expect(page).to have_selector(".questionnaire-question", count: 0)
+      end
+    end
+
+    it "cannot be moved up" do
+      within "form.edit_questionnaire" do
+        within ".questionnaire-question" do
+          expect(page).to have_no_button("Up")
+        end
+      end
+    end
+
+    it "cannot be moved down" do
+      within "form.edit_questionnaire" do
+        within ".questionnaire-question" do
+          expect(page).to have_no_button("Down")
+        end
+      end
+    end
+  end
+
   context "when a questionnaire has an existing question with answer options" do
     let!(:question) do
       create(

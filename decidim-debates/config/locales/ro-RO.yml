@@ -17,7 +17,6 @@ ro:
       decidim/debates/close_debate_event: Dezbatere închisă
       decidim/debates/create_debate_event: Dezbatere
       decidim/debates/creation_disabled_event: Dezbateri dezactivate
-      decidim/debates/creation_enabled_event: Dezbateri activate
   activerecord:
     models:
       decidim/debates/debate:
@@ -42,7 +41,6 @@ ro:
           step:
             announcement: Anunţ
             comments_blocked: Comentarii blocate
-            creation_enabled: Crearea de dezbateri de către participanți este activată
             endorsements_blocked: Susțineri blocate
             endorsements_enabled: Susțineri activate
     debates:

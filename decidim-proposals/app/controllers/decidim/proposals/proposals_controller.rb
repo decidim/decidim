@@ -229,7 +229,7 @@ module Decidim
       end
 
       def default_filter_origin_params
-        filter_origin_params = %w(citizens meeting)
+        filter_origin_params = %w(participants meeting)
         filter_origin_params << "official" if component_settings.official_proposals_enabled
         filter_origin_params << "user_group" if current_organization.user_groups_enabled?
         filter_origin_params
