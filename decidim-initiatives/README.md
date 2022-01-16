@@ -100,7 +100,7 @@ a mechanism to validate that there are no duplicated signatures. To do so the en
 a functionality that allows exporting the online signatures to validate them against physical
 signatures.
 
-The signatures are exported as a hash string in order to preserve the identity of the signer together with her privacy.
+The signatures are exported as a hash string in order to preserve the identity of the signer together with their privacy.
 Each hash is composed with the following criteria:
 
 * Algorithm used: SHA1

@@ -25,7 +25,7 @@ describe "Identity document offline request", type: :system do
     expect(page).to have_content("This is my explanation text")
   end
 
-  it "allows the user fill in her identity document" do
+  it "allows the user fill in their identity document" do
     submit_upload_form(
       doc_type: "DNI",
       doc_number: "XXXXXXXX"
