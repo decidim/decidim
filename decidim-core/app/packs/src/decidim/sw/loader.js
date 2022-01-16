@@ -18,15 +18,15 @@ window.addEventListener("load", async () => {
 });
 
 // Visits control to prompt the a2hs confirmation banner
-window.addEventListener("beforeinstallprompt", (e) => {
+window.addEventListener("beforeinstallprompt", (event) => {
   let visits = localStorage.getItem("visits_counter") || 0
   localStorage.setItem("visits_counter", parseInt(visits) + 1)
   console.log("---> ");
 
   if(visits > 3)
-    e.prompt();
+    event.prompt();
   else
-    e.preventDefault();
+    event.preventDefault();
 
   console.log(`'beforeinstallprompt' event was fired.`);
 });
