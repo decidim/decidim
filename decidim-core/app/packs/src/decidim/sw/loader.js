@@ -16,3 +16,22 @@ window.addEventListener("load", async () => {
     console.log("Your browser doesn't support service workers 🤷‍♀️");
   }
 });
+
+// Visits control to prompt the a2hs confirmation banner
+window.addEventListener("beforeinstallprompt", (e) => {
+  let visits = localStorage.getItem("visits_counter") || 0
+  localStorage.setItem("visits_counter", parseInt(visits) + 1)
+  console.log("---> ");
+
+  if(visits > 3)
+    e.prompt();
+  else
+    e.preventDefault();
+
+  console.log(`'beforeinstallprompt' event was fired.`);
+});
+
+window.addEventListener("appinstalled", () => {
+  localStorage.removeItem("visits_counter");
+  console.log("PWA was installed");
+});
