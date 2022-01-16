@@ -93,6 +93,8 @@ module Decidim
 
             expect(schema).to match(/create_table "#{table}"|create_table :#{table}/)
           end
+
+          expect(Pathname.new("#{test_app}/node_modules/@rails/webpacker")).to be_directory
         end
       end
 

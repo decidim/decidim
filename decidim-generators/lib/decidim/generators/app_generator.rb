@@ -69,6 +69,10 @@ module Decidim
                                default: "true",
                                desc: "Doesn't force to use ssl"
 
+      class_option :skip_webpack_install, type: :boolean,
+                                          default: true,
+                                          desc: "Don't run Webpack install"
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end

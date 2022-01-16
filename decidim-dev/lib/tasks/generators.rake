@@ -32,7 +32,6 @@ namespace :decidim do
       "--skip_spring",
       "--demo",
       "--force_ssl",
-      "--skip_webpack_install",
       "false"
     )
   end
@@ -49,7 +48,6 @@ namespace :decidim do
         "--recreate_db",
         "--seed_db",
         "--demo",
-        "--skip_webpack_install",
         "--profiling"
       )
     end
