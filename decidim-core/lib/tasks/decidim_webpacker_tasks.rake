@@ -24,9 +24,6 @@ namespace :decidim do
       add_binstub_load_path "bin/webpack"
       add_binstub_load_path "bin/webpack-dev-server"
 
-      # Install JS dependencies
-      install_decidim_npm
-
       # Remove the webpacker dependencies as they come through Decidim dependencies.
       # This ensures we can control their versions from Decidim dependencies to avoid version conflicts.
       webpacker_packages = %w(
@@ -41,6 +38,9 @@ namespace :decidim do
         webpack-dev-server
       )
       system! "npm uninstall #{webpacker_packages.join(" ")}"
+
+      # Install JS dependencies
+      install_decidim_npm
 
       # Add the Browserslist configuration to the project
       add_decidim_browserslist_configuration
