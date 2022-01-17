@@ -21,13 +21,6 @@ module Decidim
           ca: "Nom"
         }
       end
-      let(:description) do
-        {
-          en: "Description",
-          es: "Descripción",
-          ca: "Descripció"
-        }
-      end
       let(:parent_id) { nil }
       let(:attributes) do
         {
@@ -35,10 +28,7 @@ module Decidim
             "name_en" => name[:en],
             "name_es" => name[:es],
             "name_ca" => name[:ca],
-            "parent_id" => parent_id,
-            "description_en" => description[:en],
-            "description_es" => description[:es],
-            "description_ca" => description[:ca]
+            "parent_id" => parent_id
           }
         }
       end
