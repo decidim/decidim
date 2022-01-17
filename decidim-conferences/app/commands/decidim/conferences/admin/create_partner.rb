@@ -78,7 +78,7 @@ module Decidim
               "partner_type",
               "logo",
               "remove_avatar"
-            ).transform_keys(&:to_sym)
+            ).symbolize_keys
           )
         end
       end

@@ -54,7 +54,7 @@ module Decidim
               "link",
               "weight",
               "date"
-            ).transform_keys(&:to_sym),
+            ).symbolize_keys,
             log_info
           )
         end

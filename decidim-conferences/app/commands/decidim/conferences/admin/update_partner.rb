@@ -55,7 +55,7 @@ module Decidim
             "weight",
             "partner_type",
             "link"
-          ).transform_keys(&:to_sym).merge(
+          ).symbolize_keys.merge(
             attachment_attributes(:logo)
           )
         end

@@ -61,7 +61,7 @@ module Decidim
             "position",
             "affiliation",
             "short_bio"
-          ).transform_keys(&:to_sym).merge(
+          ).symbolize_keys.merge(
             user: form.user
           ).merge(
             attachment_attributes(:avatar)

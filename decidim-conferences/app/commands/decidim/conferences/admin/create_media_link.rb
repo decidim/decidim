@@ -54,7 +54,7 @@ module Decidim
               "link",
               "weight",
               "date"
-            ).transform_keys(&:to_sym).merge(
+            ).symbolize_keys.merge(
               conference: conference
             ),
             log_info

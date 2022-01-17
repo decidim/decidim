@@ -60,7 +60,7 @@ module Decidim
             "position",
             "affiliation",
             "short_bio"
-          ).transform_keys(&:to_sym).merge(
+          ).symbolize_keys.merge(
             decidim_conference_id: conference.id,
             conference: conference,
             user: form.user

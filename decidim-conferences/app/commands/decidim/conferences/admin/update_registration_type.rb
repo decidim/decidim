@@ -55,7 +55,7 @@ module Decidim
               "description",
               "price",
               "weight"
-            ).transform_keys(&:to_sym),
+            ).symbolize_keys,
             log_info
           )
         end

@@ -60,7 +60,7 @@ module Decidim
             "position",
             "position_other",
             "weight"
-          ).transform_keys(&:to_sym).merge(
+          ).symbolize_keys.merge(
             user: form.user
           ).merge(
             attachment_attributes(:non_user_avatar)

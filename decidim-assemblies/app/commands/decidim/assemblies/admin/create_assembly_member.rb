@@ -62,7 +62,7 @@ module Decidim
             "position",
             "position_other",
             "weight"
-          ).transform_keys(&:to_sym).merge(
+          ).symbolize_keys.merge(
             assembly: assembly,
             user: form.user
           ).merge(
