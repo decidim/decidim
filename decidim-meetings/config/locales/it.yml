@@ -89,6 +89,7 @@ it:
             label: Origine
             values:
               official: Ufficiale
+              participant: Utente
               user_group: Gruppi di utenti
           scope_id_eq:
             label: Ambito
@@ -440,6 +441,7 @@ it:
           origin_values:
             all: Tutte
             official: Ufficiale
+            participants: Utenti
             user_groups: Gruppi
           scope: Ambito
           search: Cerca
