@@ -273,8 +273,8 @@ Decidim.register_component(:proposals) do |component|
           Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
         when 2
           Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
-        when 3
-          Decidim::Meetings.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
+        #when 3
+          #Decidim::Meetings.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
         else
         end
         proposal.add_coauthor(coauthor)
