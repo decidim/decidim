@@ -18,20 +18,38 @@ window.addEventListener("load", async () => {
 });
 
 // Visits control to prompt the a2hs confirmation banner
+let visits = localStorage.getItem("visits_counter") || 0
+let visitsReached = false;
+
 window.addEventListener("beforeinstallprompt", (event) => {
-  let visits = localStorage.getItem("visits_counter") || 0
   localStorage.setItem("visits_counter", parseInt(visits) + 1)
   console.log("---> ");
+  window.deferredPrompt = event;
 
   if(visits > 3)
-    event.prompt();
+    visitsReached = true
   else
     event.preventDefault();
 
   console.log(`'beforeinstallprompt' event was fired.`);
 });
 
-window.addEventListener("appinstalled", () => {
-  localStorage.removeItem("visits_counter");
-  console.log("PWA was installed");
+$( document ).ready(function() {
+  window.addEventListener("appinstalled", () => {
+    localStorage.removeItem("visits_counter");
+    console.log("PWA was installed");
+  });
+
+  window.addEventListener('touchend', async () => {
+    if(visitsReached === true) {
+      console.log('👍', 'butInstall-clicked');
+      const promptEvent = window.deferredPrompt;
+      if (!promptEvent) {
+        // The deferred prompt isn't available.
+        return;
+      }
+      promptEvent.prompt();
+      window.deferredPrompt = null;
+    }
+  });
 });
