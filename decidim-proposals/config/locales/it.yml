@@ -554,6 +554,7 @@ it:
           all: Tutti
           meetings: Incontri
           official: Ufficiale
+          participants: Utenti
           user_groups: Gruppi di utenti
         filter_scope_values:
           all: Tutti
