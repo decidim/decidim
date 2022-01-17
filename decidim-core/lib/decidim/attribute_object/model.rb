@@ -103,6 +103,19 @@ module Decidim
         assign_attributes(correct_attributes)
       end
 
+      # This provides backwards compatibility for accessing the attributes
+      # through symbols by calling `obj.attributes[:key]` or
+      # `obj.attributes.slice(:key1, :key2)`. In the legacy Virtus models, this
+      # returned a hash with symbol keys.
+      #
+      # Deprecated:
+      # Attributes access through symbols is deprecated and may be removed in
+      # future versions. Please refactor all your attributes calls to access the
+      # attributes through symbol keys.
+      def attributes
+        super.with_indifferent_access
+      end
+
       # Convenience method for accessing the attributes through
       # model[:attr_name] which is used in multiple places across the code.
       def [](attribute_name)
@@ -121,7 +134,7 @@ module Decidim
       end
 
       def to_h
-        hash = attributes.transform_keys(&:to_sym)
+        hash = Hash[attributes].symbolize_keys
         hash.delete(:id) if hash.has_key?(:id) && hash[:id].blank?
 
         hash
