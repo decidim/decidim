@@ -1,6 +1,9 @@
 @import "@tarekraafat/autocomplete.js/dist/css/autoComplete.02.css";
-@import "stylesheets/decidim/variables";
-@import "stylesheets/decidim/utils/settings";
+
+$autocomplete-item-color: $secondary !default;
+$autocomplete-item-hover-bg: #ededed !default;
+$autocomplete-multiselect-bg: $white !default;
+$autocomplete-multiselect-border-color: $medium-gray !default;
 
 .autoComplete_wrapper{
   width: 100%;
@@ -16,7 +19,7 @@
     margin: 0;
 
     li{
-      color: $secondary;
+      color: $autocomplete-item-color;
 
       span{
         &.author__avatar{
@@ -26,7 +29,7 @@
 
       &:hover,
       &[aria-selected="true"]{
-        background-color: #ededed;
+        background-color: $autocomplete-item-hover-bg;
       }
 
       &.disabled{
@@ -59,9 +62,9 @@
 }
 
 .multiselect{
-  background-color: $white;
+  background-color: $autocomplete-multiselect-bg;
   display: inline-block;
-  border: 1px solid $medium-gray;
+  border: 1px solid $autocomplete-multiselect-border-color;
   width: 100%;
   cursor: text;
   padding: 0 .5rem;

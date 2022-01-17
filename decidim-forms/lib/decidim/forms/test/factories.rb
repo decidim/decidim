@@ -144,6 +144,14 @@ FactoryBot.define do
     question { create(:questionnaire_question) }
     body { generate_localized_title }
     free_text { false }
+
+    trait :free_text_enabled do
+      free_text { true }
+    end
+
+    trait :free_text_disabled do
+      free_text { false }
+    end
   end
 
   factory :answer_choice, class: "Decidim::Forms::AnswerChoice" do

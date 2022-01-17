@@ -1,4 +1,4 @@
-import AutoComplete from "src/decidim/autocomplete"
+import AutoComplete from "src/decidim/autocomplete";
 
 $(() => {
   const $fieldContainer = $(".multiple-mentions");
@@ -9,7 +9,7 @@ $(() => {
   const $searchInput = $("input", $fieldContainer);
   const $selectedItems = $(`ul.${$searchInput.data().selected}`);
   const options = $fieldContainer.data();
-  let selected = []
+  let selected = [];
 
   const autoComplete = new AutoComplete($searchInput[0], {
     dataMatchKeys: ["name", "nickname"],
@@ -69,7 +69,7 @@ $(() => {
     $selectedItems.find(`*[data-remove="${id}"]`).on("keypress click", (evt) => {
       const target = evt.target.parentNode;
       if (target.tagName === "LI") {
-        selected = selected.filter((identifier) => identifier !== id)
+        selected = selected.filter((identifier) => identifier !== id);
         target.remove();
       }
     })

@@ -1,5 +1,5 @@
 <% if online_meeting_url? %>
-  <% if show_embed? || live? || future? %>
+  <% if live? || future? %>
     <div class="card card--secondary">
       <div class="card__content text-center">
         <% if live? %>
@@ -14,7 +14,7 @@
           </div>
         <% end %>
 
-        <% if show_embed? %>
+        <% if show_embed? && live? %>
           <div class="<%= "margin-top-3" if live? %> absolutes aspect-ratio-16-9">
             <%== embed_code(request.host) %>
           </div>
