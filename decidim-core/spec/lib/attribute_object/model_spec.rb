@@ -103,6 +103,42 @@ module Decidim
       end
     end
 
+    describe "#attributes" do
+      it "responds to string keys" do
+        expect(subject.attributes["any"]).to eq(attributes[:any])
+        expect(subject.attributes["str"]).to eq("string")
+        expect(subject.attributes["int"]).to eq(1)
+        expect(subject.attributes["flt"]).to eq(1.1)
+      end
+
+      it "allows slicing the attributes with string keys" do
+        expect(subject.attributes.slice("any", "str", "int", "flt")).to eq(
+          "any" => attributes[:any],
+          "str" => "string",
+          "int" => 1,
+          "flt" => 1.1
+        )
+      end
+
+      context "with deprecated keys access" do
+        it "responds to symbol keys" do
+          expect(subject.attributes[:any]).to eq(attributes[:any])
+          expect(subject.attributes[:str]).to eq("string")
+          expect(subject.attributes[:int]).to eq(1)
+          expect(subject.attributes[:flt]).to eq(1.1)
+        end
+
+        it "allows slicing the attributes with symbol keys" do
+          expect(subject.attributes.slice(:any, :str, :int, :flt)).to eq(
+            "any" => attributes[:any],
+            "str" => "string",
+            "int" => 1,
+            "flt" => 1.1
+          )
+        end
+      end
+    end
+
     describe "#[]" do
       it "returns the attribute value for existing attributes when accessing through #[]" do
         expect(subject[:str]).to eq("string")
