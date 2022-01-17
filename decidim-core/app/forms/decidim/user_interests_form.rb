@@ -2,7 +2,7 @@
 
 module Decidim
   # The form object that handles the data behind updating a user's
-  # interests in her profile page.
+  # interests in their profile page.
   class UserInterestsForm < Form
     mimic :user
 
