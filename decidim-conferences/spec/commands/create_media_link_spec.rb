@@ -14,10 +14,10 @@ module Decidim::Conferences
         invalid?: invalid,
         title: { en: "title" },
         attributes: {
-          title: { en: "title" },
-          weight: Faker::Number.between(from: 1, to: 10),
-          link: Faker::Internet.url,
-          date: 5.days.from_now
+          "title" => { en: "title" },
+          "weight" => Faker::Number.between(from: 1, to: 10),
+          "link" => Faker::Internet.url,
+          "date" => 5.days.from_now
         }
       )
     end

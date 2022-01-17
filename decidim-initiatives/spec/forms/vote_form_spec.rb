@@ -65,7 +65,7 @@ module Decidim
         {
           name_and_surname: "James Morgan McGill",
           document_number: document_number,
-          date_of_birth: 40.years.ago,
+          date_of_birth: 40.years.ago.to_date,
           postal_code: postal_code
         }
       end

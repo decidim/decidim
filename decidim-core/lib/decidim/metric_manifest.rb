@@ -8,7 +8,7 @@ module Decidim
   #
   class MetricManifest
     include ActiveModel::Model
-    include Virtus.model
+    include Decidim::AttributeObject::Model
 
     attribute :metric_name, String
     attribute :manager_class, String
