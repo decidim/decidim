@@ -36,6 +36,10 @@ $autocomplete-multiselect-border-color: $medium-gray !default;
         pointer-events: none;
         opacity: .6;
       }
+
+      .is-group{
+        float: right;
+      }
     }
   }
 

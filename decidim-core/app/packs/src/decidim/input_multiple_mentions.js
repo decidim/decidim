@@ -10,6 +10,7 @@ $(() => {
   const $selectedItems = $(`ul.${$searchInput.data().selected}`);
   const options = $fieldContainer.data();
   let selected = [];
+  const iconsPath = window.Decidim.config.get("icons_path");
 
   const autoComplete = new AutoComplete($searchInput[0], {
     dataMatchKeys: ["name", "nickname"],
@@ -42,6 +43,9 @@ $(() => {
       if (value.directMessagesEnabled === "false") {
         $(element).addClass("disabled");
         $(element).append(`<span>${$searchInput.data().directMessagesDisabled}</span>`);
+      }
+      if (value.membersCount) {
+        $(element).append(`<span class="is-group">${value.membersCount}x <svg class="icon--members icon"><use href="${iconsPath}#icon-members"/></svg></span>`);
       }
     }
   });
