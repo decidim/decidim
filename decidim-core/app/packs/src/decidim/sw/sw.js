@@ -4,7 +4,7 @@ import {
   offlineFallback
 } from "workbox-recipes";
 import { registerRoute } from "workbox-routing";
-import { NetworkFirst } from "workbox-strategies";
+import { NetworkFirst, NetworkOnly } from "workbox-strategies";
 import { CacheableResponsePlugin } from "workbox-cacheable-response";
 import { ExpirationPlugin } from "workbox-expiration";
 
@@ -24,23 +24,24 @@ self.__WB_DISABLE_DEV_LOGS = true
 // eslint-disable-next-line no-unused-vars
 const dummy = self.__WB_MANIFEST;
 
-const cacheName = "pages";
-const matchCallback = ({ request }) => request.mode === "navigate";
-const networkTimeoutSeconds = 3;
-const maxAgeSeconds = 60 * 60;
+// avoid caching admin or users paths
+registerRoute(
+  ({ url }) => ["/admin/", "/users/"].some((path) => url.pathname.startsWith(path)),
+  new NetworkOnly()
+);
 
 // https://developers.google.com/web/tools/workbox/modules/workbox-recipes#pattern_3
 registerRoute(
-  matchCallback,
+  ({ request }) => request.mode === "navigate",
   new NetworkFirst({
-    networkTimeoutSeconds,
-    cacheName,
+    networkTimeoutSeconds: 3,
+    cacheName: "pages",
     plugins: [
       new CacheableResponsePlugin({
         statuses: [0, 200]
       }),
       new ExpirationPlugin({
-        maxAgeSeconds
+        maxAgeSeconds: 60 * 60
       })
     ]
   }),
