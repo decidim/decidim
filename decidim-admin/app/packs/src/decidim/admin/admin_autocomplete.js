@@ -60,6 +60,9 @@ const autoConfigure = (el) => {
     placeholder: config.placeholder,
     selected: selected,
     mode: mode,
+    searchPrompt: true,
+    searchPromptText: config.searchPromptText,
+    threshold: 3,
     dataMatchKeys: ["label"],
     dataSource
   });

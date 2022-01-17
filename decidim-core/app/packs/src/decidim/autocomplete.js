@@ -6,6 +6,8 @@ export default class AutoComplete {
     this.stickySelectedValue = null;
     this.clearStickySelection = null;
     this.stickyHiddenInput = null;
+    this.promptDiv = null;
+    const thresholdTemp = options.threshold || 2;
     this.options = Object.assign({
       // Defines name of the hidden input (e.g. assembly_member[user_id])
       name: null,
@@ -17,10 +19,14 @@ export default class AutoComplete {
       // multi - Allows selecting multiple values
       // null (default) - Disable selection event handling in this class
       mode: null,
+      // Defines if we show input help (e.g. "Type at least three characters to search") or not.
+      searchPrompt: false,
+      // Defines search prompt message, only shown if showPrompt is enabled!
+      searchPromptText: `Type at least ${thresholdTemp} characters to search`,
       // Defines items that are selected already when page is loaded before user selects them. (e.g. when form submit fails)
       selected: null,
       // Defines how many characters input has to have before we start searching
-      threshold: 2,
+      threshold: thresholdTemp,
       // Defines how many results to show in the autocomplete selection list
       // by maximum.
       maxResults: 10,
@@ -98,6 +104,13 @@ export default class AutoComplete {
 
           this.options.modifyResult(item, data.value);
         }
+      },
+      events: {
+        input: {
+          blur: () => {
+            this.promptDiv.style.display = "none";
+          }
+        }
       }
     });
 
@@ -115,6 +128,7 @@ export default class AutoComplete {
     switch (this.options.mode) {
     case "sticky":
       this.createStickySelect(this.options.name);
+      this.createPromptDiv();
       break;
     case "multi":
       this.createMultiSelect(this.options.name);
@@ -158,12 +172,18 @@ export default class AutoComplete {
       break;
     case "click":
       if (event.target === this.clearStickySelection) {
-        this.clearSelected();
+        this.clearStickySelection();
       }
       break;
     case "keyup":
       if (this.stickyHiddenInput.value !== "" && event.target === this.element && (["Escape", "Backspace", "Delete"].includes(event.key) || this.element.value.length > 1)) {
-        this.clearSelected();
+        this.clearStickySelection();
+      } else if (this.options.searchPrompt) {
+        if (this.element.value.length < this.options.threshold) {
+          this.promptDiv.style.display = "block";
+        } else {
+          this.promptDiv.style.display = "none";
+        }
       }
       break;
     default:
@@ -181,10 +201,9 @@ export default class AutoComplete {
     return hiddenInput;
   }
 
-  clearSelected() {
+  clearStickySelection() {
     this.stickyHiddenInput.value = "";
     this.element.placeholder = this.options.placeholder;
-    this.setInput("");
     this.clearStickySelection.style.display = "none";
     this.stickySelectedValue.style.display = "none";
   }
@@ -266,5 +285,13 @@ export default class AutoComplete {
         this.addMultiSelectItem(selection);
       })
     }
+  }
+
+  createPromptDiv() {
+    this.promptDiv = document.createElement("div");
+    this.promptDiv.classList.add("search-prompt");
+    this.promptDiv.style.display = "none";
+    this.promptDiv.innerHTML = this.options.searchPromptText;
+    this.acWrapper.appendChild(this.promptDiv);
   }
 }

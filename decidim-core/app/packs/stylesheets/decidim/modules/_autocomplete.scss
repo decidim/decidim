@@ -4,6 +4,7 @@ $autocomplete-item-color: $secondary !default;
 $autocomplete-item-hover-bg: #ededed !default;
 $autocomplete-multiselect-bg: $white !default;
 $autocomplete-multiselect-border-color: $medium-gray !default;
+$autocomplete-multiselect-search-prompt-color: $dark-gray;
 
 .autoComplete_wrapper{
   width: 100%;
@@ -62,6 +63,12 @@ $autocomplete-multiselect-border-color: $medium-gray !default;
 
   .clear-multi-selection{
     cursor: pointer;
+  }
+
+  .search-prompt{
+    color: $autocomplete-multiselect-search-prompt-color;
+    border: 1px solid $autocomplete-multiselect-border-color;
+    padding: .2rem;
   }
 }
 
