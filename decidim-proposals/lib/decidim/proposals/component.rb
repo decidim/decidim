@@ -267,7 +267,8 @@ Decidim.register_component(:proposals) do |component|
         proposal = Decidim::Proposals::Proposal.new(params)
         #coauthor = case n
         #when 0
-           participatory_space.organization
+          coauthor = participatory_space.organization
+           #participatory_space.organization
         #when 1
           #Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample)
         #when 2
@@ -277,7 +278,7 @@ Decidim.register_component(:proposals) do |component|
         #else
         #end
         proposal.add_coauthor(coauthor)
-        #ßproposal.save!
+        #proposal.save!
         proposal
       end
 
