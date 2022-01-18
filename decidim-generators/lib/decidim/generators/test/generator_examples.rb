@@ -29,8 +29,8 @@ shared_examples_for "a new development application" do
     tables = []
     dropped = []
     Decidim::GemManager.plugins.each do |plugin|
-      Dir.glob("#{plugin}db/migrate/*.rb").each do |migration|
-        lines = File.readlines(migration)
+      Dir.glob("#{plugin}db/migrate/*.rb").each do |_migration|
+        lines = File.readlines(migratienabled)
         tables.concat(lines.filter { |line| line.match? "create_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
         dropped.concat(lines.filter { |line| line.match? "drop_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
         tables.concat(lines.filter { |line| line.match? "rename_table" }.map { |line| line.match(/(, :)([a-z_0-9]+)/)[2] })
@@ -46,13 +46,13 @@ shared_examples_for "a new development application" do
 end
 
 shared_examples_for "an application with configurable env vars" do
-  let(:env_disabled) do
+  let(:env_off) do
     {
       "RAILS_ENV" => "production"
     }
   end
 
-  let(:env_enabled) do
+  let(:env_on) do
     {
       "RAILS_ENV" => "production",
       "OMNIAUTH_FACEBOOK_APP_ID" => "a-facebook-id",
@@ -79,19 +79,23 @@ shared_examples_for "an application with configurable env vars" do
       "AUTHORITY_PRIVATE_KEY" => "an-authority-private-key",
       "ELECTIONS_SCHEME_NAME" => "an-elections-scheme-name",
       "ELECTIONS_NUMBER_OF_TRUSTEES" => "an-elections-number-of-trustees",
-      "ELECTIONS_QUORUM" => "an-elections-quorum"
+      "ELECTIONS_QUORUM" => "an-elections-quorum",
+      "DECIDIM_APPLICATION_NAME" => "A test application",
+      "DECIDIM_MAILER_SENDER" => "noreply@example.org"
     }
   end
 
-  let(:secrets_disabled) do
+  let(:secrets_off) do
     {
       %w(omniauth facebook enabled) => false,
       %w(omniauth twitter enabled) => false,
-      %w(omniauth google_oauth2 enabled) => false
+      %w(omniauth google_oauth2 enabled) => false,
+      %w(decidim application_name) => "My Application Name",
+      %w(decidim mailer_sender) => "change-me@example.org"
     }
   end
 
-  let(:secrets_enabled) do
+  let(:secrets_on) do
     {
       %w(omniauth facebook enabled) => true,
       %w(omniauth facebook app_id) => "a-facebook-id",
@@ -105,14 +109,14 @@ shared_examples_for "an application with configurable env vars" do
       %w(maps api_key) => "a-maps-api-key",
       %w(etherpad server) => "a-etherpad-server",
       %w(etherpad api_key) => "a-etherpad-key",
-      ["secret_key_base"] => "a-secret-key-base",
-      ["smtp_username"] => "a-smtp-username",
-      ["smtp_password"] => "a-smtp-password",
-      ["smtp_address"] => "a-smtp-address",
-      ["smtp_domain"] => "a-smtp-domain",
-      ["smtp_port"] => "a-smtp-port",
-      ["smtp_starttls_auto"] => "a-smtp-starttls-auto",
-      ["smtp_authentication"] => "a-smtp-authentication",
+      %w(secret_key_base) => "a-secret-key-base",
+      %w(smtp_username) => "a-smtp-username",
+      %w(smtp_password) => "a-smtp-password",
+      %w(smtp_address) => "a-smtp-address",
+      %w(smtp_domain) => "a-smtp-domain",
+      %w(smtp_port) => "a-smtp-port",
+      %w(smtp_starttls_auto) => "a-smtp-starttls-auto",
+      %w(smtp_authentication) => "a-smtp-authentication",
       %w(elections bulletin_board_server) => "a-bulletin-board-server",
       %w(elections bulletin_board_public_key) => "a-bulletin-public-key",
       %w(elections authority_api_key) => "an-authority-api-key",
@@ -120,25 +124,55 @@ shared_examples_for "an application with configurable env vars" do
       %w(elections authority_private_key) => "an-authority-private-key",
       %w(elections scheme_name) => "an-elections-scheme-name",
       %w(elections number_of_trustees) => "an-elections-number-of-trustees",
-      %w(elections quorum) => "an-elections-quorum"
+      %w(elections quorum) => "an-elections-quorum",
+      %w(decidim application_name) => "A test application",
+      %w(decidim mailer_sender) => "noreply@example.org"
+    }
+  end
+
+  let(:initializer_off) do
+    {
+      "application_name" => "My Application Name",
+      "mailer_sender" => "change-me@example.org"
+    }
+  end
+
+  let(:initializer_on) do
+    {
+      "application_name" => "A test application",
+      "mailer_sender" => "noreply@example.org"
     }
   end
 
   it "env vars generate secrets application" do
     expect(result[1]).to be_success, result[0]
 
-    json_disabled = json_secrets_for(test_app, env_disabled)
-    secrets_disabled.each do |keys, value|
-      expect(json_disabled.dig(*keys)).to eq(value), "#{keys} expected to match #{value}"
+    json_off = json_secrets_for(test_app, env_off)
+    secrets_off.each do |keys, value|
+      expect(json_off.dig(*keys)).to eq(value), "Secret [#{keys}] expected to match Env OFF [#{value}]"
     end
 
-    json_enabled = json_secrets_for(test_app, env_enabled)
-    secrets_enabled.each do |keys, value|
-      expect(json_enabled.dig(*keys)).to eq(value), "#{keys} expected to match #{value}"
+    json_on = json_secrets_for(test_app, env_on)
+    secrets_on.each do |keys, value|
+      expect(json_on.dig(*keys)).to eq(value), "Secret [#{keys}] expected to match Env ON [#{value}]"
+    end
+
+    json_off = initializer_config_for(test_app, env_off)
+    initializer_off.each do |key, value|
+      expect(json_off[key]).to eq(value), "Initializer [#{key}] expected to match Env OFF [#{value}]"
+    end
+
+    json_on = initializer_config_for(test_app, env_on)
+    initializer_on.each do |key, value|
+      expect(json_on[key]).to eq(value), "Initializer [#{key}] expected to match Env ON [#{value}]"
     end
   end
 end
 
 def json_secrets_for(path, env)
   JSON.parse Decidim::GemManager.new(path).capture("bin/rails runner 'puts Rails.application.secrets.to_json'", env: env, with_stderr: false)[0]
+end
+
+def initializer_config_for(path, env)
+  JSON.parse Decidim::GemManager.new(path).capture("bin/rails runner 'puts Decidim.config.to_json'", env: env, with_stderr: false)[0]
 end
