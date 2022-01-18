@@ -7,7 +7,8 @@ export default function addInputEmoji() {
   if (containers.length) {
     containers.forEach((elem) => {
       const picker = new EmojiButton({
-        position: "bottom-end"
+        position: "bottom-end",
+        zIndex: 9999
       });
 
       const wrapper = document.createElement("div");
