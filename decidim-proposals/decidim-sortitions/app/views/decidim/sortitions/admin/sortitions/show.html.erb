@@ -1,0 +1,55 @@
+<div class="card" id="sortition">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= decidim_html_escape(translated_attribute(sortition.title)) %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list sortition">
+        <thead>
+          <tr>
+            <th><%= t("models.sortition.fields.request_timestamp", scope: "decidim.sortitions.admin") %></th>
+            <th><%= t("models.sortition.fields.dice", scope: "decidim.sortitions.admin") %></th>
+            <th><%= t("models.sortition.fields.target_items", scope: "decidim.sortitions.admin") %></th>
+            <th><%= t("models.sortition.fields.category", scope: "decidim.sortitions.admin") %></th>
+            <th><%= t("models.sortition.fields.decidim_proposals_component", scope: "decidim.sortitions.admin") %></th>
+            <th><%= t("models.sortition.fields.seed", scope: "decidim.sortitions.admin") %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= l sortition.request_timestamp, format: :long %></td>
+            <td><%= sortition.dice %></td>
+            <td><%= sortition.target_items %></td>
+            <td><%= sortition_category sortition %></td>
+            <td><%= translated_attribute sortition.decidim_proposals_component.name %></td>
+            <td><%= sortition.seed %></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list proposals">
+        <thead>
+          <tr>
+            <th><%= t ".selected_proposals" %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% sortition.proposals.each do |proposal| %>
+            <tr>
+              <td><%= decidim_html_escape(present(proposal).title).html_safe %></td>
+              <td></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

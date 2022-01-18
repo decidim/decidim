@@ -1,0 +1,49 @@
+#sortition-details{
+  margin-bottom: 1.5rem;
+}
+
+.sortition-details{
+  padding: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+
+  .sortition-details-item{
+    width: 33.3%;
+
+    @include breakpoint(large down){
+      width: 33.3%;
+    }
+
+    @include breakpoint(medium down){
+      width: 49.9%;
+    }
+
+    @include breakpoint(smallmedium down){
+      width: 100%;
+    }
+
+    display: inline-block;
+    padding: 1em;
+    border: $border;
+    background: $white;
+
+    .sortition-details-title{
+      margin-right: .5rem;
+      font-weight: bolder;
+    }
+
+    .sortition-details-text{
+      letter-spacing: .03em;
+      font-size: 90%;
+      text-transform: uppercase;
+      color: #3d393c;
+      font-weight: 600;
+      line-height: 1;
+      vertical-align: middle;
+      height: 1.5em;
+    }
+  }
+}

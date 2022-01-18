@@ -1,0 +1,139 @@
+<% add_decidim_meta_tags({
+  description: decidim_sanitize_editor(translated_attribute(sortition.additional_info)),
+  title: decidim_html_escape(translated_attribute(sortition.title)),
+  url: sortition_url(sortition.to_param)
+}) %>
+
+<div class="row column">
+  <div class="callout success">
+    <p><%= t ".introduction", reference: sortition.id, target_items: sortition.target_items %></p>
+  </div>
+</div>
+
+<div class="row column view-header">
+
+  <div class="m-bottom">
+    <%= link_to :sortitions, class: "small hollow" do %>
+      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+      <%= t(".back") %>
+    <% end %>
+  </div>
+
+  <h2 class="heading2"><%= decidim_html_escape(translated_attribute(sortition.title)) %></h2>
+  <div class="author-data">
+    <%= render partial: "sortition_author", locals: { sortition: sortition } %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+    <div class="card extra">
+      <div class="card__content">
+        <%= render partial: "results_count", locals: { sortition: sortition } %>
+      </div>
+    </div>
+    <%= resource_reference(sortition) %>
+    <%= render partial: "decidim/shared/share_modal" %>
+    <%= embed_modal_for sortition_widget_url(sortition, format: :js) %>
+  </div>
+
+  <div class="columns mediumlarge-8 mediumlarge-pull-4">
+    <div class="section">
+      <%= decidim_sanitize_editor translated_attribute sortition.additional_info %>
+    </div>
+  </div>
+</div>
+
+<% if sortition.cancelled? %>
+<div class="row column">
+  <div class="title-action">
+    <h2 class="title-action__title section-heading"><%= t ".cancelled" %></h2>
+  </div>
+  <div class=section>
+    <div class="author-data">
+      <%= render partial: "sortition_cancel_author", locals: { sortition: sortition } %>
+    </div>
+  </div>
+  <div class=section>
+    <%= decidim_sanitize_editor translated_attribute sortition.cancel_reason %>
+  </div>
+</div>
+<% end %>
+
+<div class="row column">
+  <div class="title-action">
+    <h2 class="title-action__title section-heading"><%= t ".witnesses" %></h2>
+  </div>
+  <div class="section">
+    <%= decidim_sanitize_editor translated_attribute sortition.witnesses %>
+  </div>
+</div>
+
+<% if sortition&.proposals %>
+  <div class="row columns">
+    <div class="title-action">
+      <h2 id="proposals-count" class="title-action__title section-heading">
+        <%= t ".proposals_selected_by_sortition" %>
+      </h2>
+    </div>
+    <div class="row">
+      <div id="proposals" class="columns mediumlarge-12 large-12">
+        <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
+          <%= render partial: "proposal", collection: sortition.proposals %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="row column">
+  <section class="extended" id="sortition-details">
+    <div class="row column">
+      <h4 class="section-heading"><%= t ".sortition_reproducibility_details" %></h4>
+    </div>
+    <div class=row>
+      <div class="columns small-centered mediumlarge-12 large-12 sortition-details">
+        <div class="sortition-details-item">
+          <span class="sortition-details-title sortition-details-text"><%= t ".dice_result" %></span>
+          <span class=sortition-details-text><%= sortition.dice %></span>
+        </div>
+
+        <div class="sortition-details-item">
+          <span class="sortition-details-title sortition-details-text"><%= t ".time_seed" %></span>
+          <span class=sortition-details-text><%= sortition.request_timestamp.to_i %></span>
+        </div>
+
+        <div class="sortition-details-item">
+          <span class="sortition-details-title sortition-details-text"><%= t ".mathematical_result" %></span>
+          <span class=sortition-details-text><%= sortition.seed %></span>
+        </div>
+
+        <div class="sortition-details-item">
+          <span class="sortition-details-title sortition-details-text"><%= t ".algorithm" %></span><br>
+          <span class=sortition-details-text>
+            <%= link_to Decidim::Sortitions.sortition_algorithm,
+                        Decidim::Sortitions.sortition_algorithm,
+                        target: "_blank",
+                        title: t(".algorithm") %>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class=extended>
+    <div class="row column">
+      <h4 class="section-heading"><%= t ".candidate_proposal_ids" %></h4>
+    </div>
+    <div class="row columns">
+      <%= t ".candidate_proposals_info", category_label: sortition_category_label(sortition) %>:
+    </div>
+    <div class=row>
+      <div class="columns small-centered mediumlarge-12 large-12">
+        <%= sortition_proposal_candidate_ids sortition %>
+      </div>
+    </div>
+  </section>
+</div>
+
+<%= comments_for sortition %>

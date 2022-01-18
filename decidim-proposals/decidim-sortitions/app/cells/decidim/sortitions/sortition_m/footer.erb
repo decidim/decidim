@@ -1,0 +1,13 @@
+<div class="card__footer">
+  <div class="card__support">
+    <div>
+      <strong class="text-large">
+        <%= proposals_count %>
+      </strong>
+      <small class="text-medium">
+        <%= t("decidim.sortitions.sortitions.sortition.selected_proposals", count: proposals_count) %>
+      </small>
+    </div>
+    <%= link_to t("decidim.sortitions.sortitions.sortition.view"), resource_path, class: "card__button button--sc button small secondary light" %>
+  </div>
+</div>
