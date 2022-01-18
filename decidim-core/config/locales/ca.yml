@@ -1092,6 +1092,10 @@ ca:
       update:
         error: S'ha produït un error en actualitzar la configuració de les notificacions.
         success: La configuració de les notificacions s'ha actualitzat correctament.
+    offline:
+      show:
+        message: Sembla que esteu desconnectats. Torneu-ho a intentar més tard, si us plau.
+        retry: Torna-ho a Provar
     open_data:
       not_available_yet: Els fitxers Open Data encara no estan disponibles, torna-ho a provar d'aquí a uns minuts.
     own_user_groups:
@@ -1632,6 +1636,8 @@ ca:
       notifications_dashboard:
         mark_all_as_read: Marcar tot com a llegit
         mark_as_read: Marcar com a llegit
+      offline_banner:
+        cache_version_page: Ostres! La vostra xarxa està desconnectada. El que esteu veient és una versió prèvia de la pàgina desada a la memòria cau i que podria no estar actualitzada.
       social_media_links:
         facebook: "%{organization} a Facebook"
         github: "%{organization} a GitHub"
