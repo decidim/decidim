@@ -3,18 +3,6 @@
 module Decidim
   # View helpers related to the layout.
   module LayoutHelper
-    # Public: Generates a set of meta tags that generate the different favicon
-    # versions for an organization.
-    #
-    # Returns a safe String with the versions.
-    def favicon
-      return if current_organization.favicon.blank?
-
-      safe_join(Decidim::OrganizationFaviconUploader::SIZES.map do |version, size|
-        favicon_link_tag(current_organization.attached_uploader(:favicon).variant_url(version, host: current_organization.host), sizes: "#{size}x#{size}")
-      end)
-    end
-
     # Outputs an SVG-based icon.
     #
     # name    - The String with the icon name.

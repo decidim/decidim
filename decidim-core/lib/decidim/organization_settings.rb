@@ -106,7 +106,8 @@ module Decidim
             "allowed_file_extensions" => {
               "default" => %w(jpg jpeg gif png bmp pdf rtf txt),
               "admin" => %w(jpg jpeg gif png bmp pdf doc docx xls xlsx ppt pptx ppx rtf txt odt ott odf otg ods ots),
-              "image" => %w(jpg jpeg gif png bmp ico)
+              "image" => %w(jpg jpeg gif png bmp ico),
+              "favicon" => %w(png)
             },
             "allowed_content_types" => {
               "default" => %w(
