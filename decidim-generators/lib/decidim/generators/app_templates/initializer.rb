@@ -30,7 +30,7 @@ Decidim.configure do |config|
   # config.content_processors = []
 
   # Whether SSL should be enabled or not.
-  # config.force_ssl = true
+  config.force_ssl = Rails.application.secrets.decidim[:force_ssl]
 
   # Map and Geocoder configuration
   #

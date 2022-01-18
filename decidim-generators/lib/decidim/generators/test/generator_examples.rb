@@ -29,7 +29,7 @@ shared_examples_for "a new development application" do
     tables = []
     dropped = []
     Decidim::GemManager.plugins.each do |plugin|
-      Dir.glob("#{plugin}db/migrate/*.rb").each do |_migration|
+      Dir.glob("#{plugin}db/migrate/*.rb").each do |migration|
         lines = File.readlines(migration)
         tables.concat(lines.filter { |line| line.match? "create_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
         dropped.concat(lines.filter { |line| line.match? "drop_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
@@ -83,7 +83,8 @@ shared_examples_for "an application with configurable env vars" do
       "DECIDIM_APPLICATION_NAME" => "A test application",
       "DECIDIM_MAILER_SENDER" => "noreply@example.org",
       "DECIDIM_AVAILABLE_LOCALES" => "de, fr, zh-CN",
-      "DECIDIM_DEFAULT_LOCALE" => "zh-CN"
+      "DECIDIM_DEFAULT_LOCALE" => "zh-CN",
+      "DECIDIM_DISABLE_SSL" => "true"
     }
   end
 
@@ -95,7 +96,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim application_name) => "My Application Name",
       %w(decidim mailer_sender) => "change-me@example.org",
       %w(decidim available_locales) => %w(en ca es),
-      %w(decidim default_locale) => "en"
+      %w(decidim default_locale) => "en",
+      %w(decidim force_ssl) => true
     }
   end
 
@@ -132,7 +134,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim application_name) => "A test application",
       %w(decidim mailer_sender) => "noreply@example.org",
       %w(decidim available_locales) => %w(de fr zh-CN),
-      %w(decidim default_locale) => "zh-CN"
+      %w(decidim default_locale) => "zh-CN",
+      %w(decidim force_ssl) => false
 
     }
   end
@@ -142,7 +145,8 @@ shared_examples_for "an application with configurable env vars" do
       "application_name" => "My Application Name",
       "mailer_sender" => "change-me@example.org",
       "available_locales" => %w(en ca es),
-      "default_locale" => "en"
+      "default_locale" => "en",
+      "force_ssl" => true
     }
   end
 
@@ -151,7 +155,8 @@ shared_examples_for "an application with configurable env vars" do
       "application_name" => "A test application",
       "mailer_sender" => "noreply@example.org",
       "available_locales" => %w(de fr zh-CN),
-      "default_locale" => "zh-CN"
+      "default_locale" => "zh-CN",
+      "force_ssl" => false
     }
   end
 

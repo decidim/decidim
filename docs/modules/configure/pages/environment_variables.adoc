@@ -103,6 +103,11 @@ The next table shows all the default Env Vars available when running a default D
 |en
 |*Yes*
 
+|DECIDIM_DISABLE_SSL
+|By default, Decidim enforces a SSL connection (https), sometimes it is necessary to disable it in order to handle this through a proxy system (note that use Decidim without SSL at all is NOT RECOMMENDED). Set this var to `true` in order to not force SSL.
+|
+|No
+
 |SMTP_PORT
 |Port for the SMTP server, for sending emails. See xref:services:smtp.adoc[SMTP]
 |587
