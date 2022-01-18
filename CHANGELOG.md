@@ -21,7 +21,7 @@ Decidim::Api.schema_max_depth = 15
 The static documentation will be rendered into : ```app/views/static/api/docs``` which is being refreshed automatically when you will run ```rake decidim:upgrade```.
 
 #### Global search user by nickname
-PR [\#8663](https://github.com/decidim/decidim/pull/8663) Added the ability to search for a user by nickname, to update the existing search, Run in a rails console or create a migration with:
+PR [\#8663](https://github.com/decidim/decidim/pull/8663) Added the ability to search for a user by nickname, to update the existing search, run in a rails console or create a migration with:
 
 ```ruby
   Decidim::User.find_each(&:try_update_index_for_search_resource)
