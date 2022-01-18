@@ -268,16 +268,16 @@ Decidim.register_component(:proposals) do |component|
         coauthor = case n
         when 0
           #coauthor = participatory_space.organization
-          participatory_space.organization
+          proposal.add_coauthor(participatory_space.organization)
         when 1
-          Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
-        when 2
-          Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
+          proposal.add_coauthor(Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample)
+        else #when 2
+          proposal.add_coauthor(Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample)
         #when 3
           #Decidim::Meetings.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
-        else
+
         end
-        proposal.add_coauthor(coauthor)
+        #proposal.add_coauthor(coauthor)
         proposal.save!
         proposal
       end
