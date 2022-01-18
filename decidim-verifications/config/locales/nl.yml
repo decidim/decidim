@@ -182,6 +182,9 @@ nl:
               offline_verification: Offline verificatie
               title: In afwachting van online verificaties
               verification_number: 'Verificatie # %{n}'
+          rejections:
+            create:
+              success: Verificatie geweigerd. De deelnemer wordt gevraagd om zijn/haar documenten te wijzigen
         authorizations:
           choose:
             choose_a_type: 'Selecteer alstublieft hoe u wilt worden geverifieerd:'
