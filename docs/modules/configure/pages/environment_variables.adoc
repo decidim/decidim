@@ -134,52 +134,52 @@ The next table shows all the default Env Vars available when running a default D
 |*Yes*
 
 |OMNIAUTH_TWITTER_API_KEY
-|API Key for enabling access through Google.com accounts. See xref:services:social_providers.adoc[Social Providers].
+|API Key for enabling access through Twitter.com accounts. See xref:services:social_providers.adoc[Social Providers].
 |
 |*Yes*
 
 |OMNIAUTH_TWITTER_API_SECRET
-|API Secret for enabling access through Google.com accounts. See xref:services:social_providers.adoc[Social Providers].
+|API Secret for enabling access through Twitter.com accounts. See xref:services:social_providers.adoc[Social Providers].
 |
 |*Yes*
 
 |BULLETIN_BOARD_SERVER
-| See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
+|The full URL to identify a https://github.com/decidim/decidim-bulletin-board[Bulletin Board Server]. *It must point to the Graphql API* (ie: https://bulletinexample.com/api) See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
 |
 |No
 
 |BULLETIN_BOARD_PUBLIC_KEY
-| See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
+|The public RSA key used to verify the Bulletin Board Server. See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
 |
 |No
 
 |BULLETIN_BOARD_API_KEY
-| See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
+|An additional API key to add additional security with the comunications with the Elections Bulletin Board Server. See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
 |
 |No
 
 |AUTHORITY_NAME
-| See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
+|The name of the Authority registered in the Bulletin Board Server corresponding to this Decidim instance. See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
 |
 |No
 
 |AUTHORITY_PRIVATE_KEY
-| See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
+|The private RSA key of this Decidim instance corresponding to the Authority public key registered in the Bulletin Board Server. See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
 |
 |No
 
 |ELECTIONS_SCHEME_NAME
-| See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
-|
+|The type of strategy used in the Bulletin Board Server used for encrypting the Election. *Currently only `electionguard` is available for production* See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
+|electionguard
 |No
 
 |ELECTIONS_NUMBER_OF_TRUSTEES
-| See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
+|Number of trustees for `electionguard` election scheme, minimum number is 2. See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
 |
 |No
 
 |ELECTIONS_QUORUM
-| See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
+|Number of trustees required to be present in order to decrypt an election in case of the `electionguard` scheme. Minimum is 2, maximum the number os trustees. See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
 |
 |No
 
