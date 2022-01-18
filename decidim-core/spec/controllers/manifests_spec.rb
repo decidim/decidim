@@ -22,6 +22,9 @@ module Decidim
 
         manifest = JSON.parse(response.body)
         expect(manifest["name"]).to eq(organization.name)
+        expect(manifest["lang"]).to eq(organization.default_locale)
+
+        expect(manifest["description"]).to eq(ActionView::Base.full_sanitizer.sanitize(organization.description["en"]))
       end
     end
   end
