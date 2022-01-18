@@ -282,6 +282,9 @@ ro:
           edit:
             close: Închide
             title: Închide ședința
+        meeting_copies:
+          form:
+            select_a_meeting_type: Te rugăm să selectezi un tip de ședință
         meetings:
           close:
             invalid: A apărut o problemă la închiderea acestei întâlniri
@@ -402,6 +405,11 @@ ro:
           index:
             meetings: Întâlniri
             space_type: Spaţiu participativ
+      iframe_access_level:
+        all: Toți vizitatorii
+      iframe_embed_type:
+        embed_in_meeting_page: Incorporează în pagina de şedinţe
+        open_in_new_tab: Deschideți în filă nouă
       last_activity:
         meeting_updated_at_html: "<span>Întâlnire actualizată la %{link}</span>"
         new_meeting_at_html: "<span>O nouă ședință la %{link}</span>"

@@ -55,13 +55,13 @@ module Decidim
 
         def attributes
           form.attributes.slice(
-            :full_name,
-            :twitter_handle,
-            :personal_url,
-            :position,
-            :affiliation,
-            :short_bio
-          ).merge(
+            "full_name",
+            "twitter_handle",
+            "personal_url",
+            "position",
+            "affiliation",
+            "short_bio"
+          ).symbolize_keys.merge(
             user: form.user
           ).merge(
             attachment_attributes(:avatar)

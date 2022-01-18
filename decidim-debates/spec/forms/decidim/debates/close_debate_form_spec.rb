@@ -14,11 +14,11 @@ describe Decidim::Debates::CloseDebateForm do
       current_user: user
     }
   end
-  let(:debate) { create :debate, :citizen_author, component: current_component, author: user }
+  let(:debate) { create :debate, :participant_author, component: current_component, author: user }
   let(:conclusions) { "We found a conlcusion." }
   let(:attributes) do
     {
-      debate: debate,
+      id: debate.id,
       conclusions: conclusions
     }
   end

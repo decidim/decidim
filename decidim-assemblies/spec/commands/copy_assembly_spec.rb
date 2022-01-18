@@ -100,8 +100,8 @@ module Decidim::Assemblies
 
         expect(last_component.participatory_space).to eq(last_assembly)
         expect(last_component.name).to eq(component.name)
-        expect(last_component.settings.attributes.except(:dummy_global_translatable_text)).to eq(component.settings.attributes.except(:dummy_global_translatable_text))
-        expect(last_component.settings.attributes[:dummy_global_translatable_text]).to include(component.settings.attributes[:dummy_global_translatable_text])
+        expect(last_component.settings.attributes.except("dummy_global_translatable_text")).to eq(component.settings.attributes.except("dummy_global_translatable_text"))
+        expect(last_component.settings.attributes["dummy_global_translatable_text"]).to include(component.settings.attributes["dummy_global_translatable_text"])
         expect(last_component.step_settings.keys).to eq(component.step_settings.keys)
         expect(last_component.step_settings.values).to eq(component.step_settings.values)
       end

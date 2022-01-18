@@ -220,22 +220,4 @@ describe Decidim::Verifications::AuthorizationsBeforeDate do
       end
     end
   end
-
-  describe "when granted only, not impersonated" do
-    it_behaves_like "a correct usage of the query" do
-      let(:parameters) do
-        { organization: organization, date: prev_month, granted: true }
-      end
-
-      let(:expectation) do
-        [
-          granted_now,
-          granted_prev_week,
-          granted_prev_month,
-          granted_prev_year,
-          granted_managed
-        ]
-      end
-    end
-  end
 end

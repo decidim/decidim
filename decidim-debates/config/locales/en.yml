@@ -118,11 +118,11 @@ en:
           all: All
           category: Category
           category_prompt: Select a category
-          citizens: Citizens
           commented: Commented
           my_debates: My debates
           official: Official
           origin: Origin
+          participants: Participants
           scope: Scope
           search: Search
           state: Status

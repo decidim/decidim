@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
 
   s.name = "decidim-initiatives"
   s.summary = "Decidim initiatives module"
-  s.description = "Citizen initiatives plugin for decidim."
+  s.description = "Participants initiatives plugin for decidim."
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
@@ -23,7 +23,6 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-core", Decidim::Initiatives.version
   s.add_dependency "decidim-verifications", Decidim::Initiatives.version
   s.add_dependency "origami", "~> 2.1"
-  s.add_dependency "virtus-multiparams", "~> 0.1"
   s.add_dependency "wicked", "~> 1.3"
   s.add_dependency "wicked_pdf", "~> 2.1"
   s.add_dependency "wkhtmltopdf-binary", "~> 0.12"

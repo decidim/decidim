@@ -11,7 +11,6 @@ on:
 
 env:
   CI: "true"
-  SIMPLECOV: "true"
   RUBY_VERSION: 2.7.5
   NODE_VERSION: 16.9.1
 
@@ -49,3 +48,5 @@ jobs:
         run: npm ci
       - run: bundle exec rspec
         name: RSpec
+        env:
+          SIMPLECOV: "true"
