@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe OrganizationPresenter, type: :helper do
-    let(:description) { {"en"=>"<p>A necessitatibus quo. 1</p>" } }
+    let(:description) { { "en" => "<p>A necessitatibus quo. 1</p>" } }
     let(:organization) { create(:organization, description: description) }
     let(:subject) { described_class.new(organization) }
 
