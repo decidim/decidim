@@ -83,6 +83,16 @@ The next table shows all the default Env Vars available when running a default D
 |
 |*Yes*
 
+|*DECIDIM_APPLICATION_NAME*
+|Default name (shown in the browser's title status and search engines) for the Decidim instance.
+|My Application Name
+|*Yes*
+
+|*DECIDIM_MAILER_SENDER*
+|Default Reply email for any email sent (transactional or newsletters).
+|change-me@example.org
+|*Yes*
+
 |SMTP_PORT
 |Port for the SMTP server, for sending emails. See xref:services:smtp.adoc[SMTP]
 |587
