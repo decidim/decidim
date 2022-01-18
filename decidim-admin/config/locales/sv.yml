@@ -352,7 +352,7 @@ sv:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Exporten pågår just nu. Du får ett e-brev när den är klar.
+        notice: Exporten pågår just nu. Du får ett e-post när den är klar.
       filters:
         category_id_eq:
           label: Kategori
