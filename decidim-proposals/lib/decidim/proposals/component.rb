@@ -232,7 +232,7 @@ Decidim.register_component(:proposals) do |component|
       global = nil
     end
 
-    3.times do |n|
+    5.times do |n|
       state, answer, state_published_at = if n > 3
                                             ["accepted", Decidim::Faker::Localized.sentence(word_count: 10), Time.current]
                                           elsif n > 2
@@ -266,15 +266,14 @@ Decidim.register_component(:proposals) do |component|
       ) do
         proposal = Decidim::Proposals::Proposal.new(params)
         coauthor = case n
-        when 0
-          participatory_space.organization
-        when 1
-          Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
-        else #when 2
-          Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
-        #when 3
-          #Decidim::Meetings::Meeting.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
-
+                   when 0
+                     Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
+                  when 1
+                     Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
+                  # when 2
+                    # Decidim::Meetings::Meeting.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
+                  else
+                    participatory_space.organization
         end
         proposal.add_coauthor(coauthor)
         proposal.save!
