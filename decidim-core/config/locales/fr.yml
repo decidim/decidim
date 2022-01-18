@@ -498,7 +498,7 @@ fr:
       sessions:
         new:
           are_you_new?: Nouveau sur la plateforme ?
-          register: Créer un compte
+          register: S'inscrire
           sign_in_disabled: Vous pouvez accéder avec un compte externe
           sign_up_disabled: L'inscription est désactivée, vous pouvez utiliser un utilisateur existant pour accéder
         user:
@@ -1551,7 +1551,7 @@ fr:
     sessions:
       already_signed_out: Déconnecté(e) avec succès.
       new:
-        sign_in: S'identifier
+        sign_in: Se connecter
       signed_in: Connexion réussie.
       signed_out: Déconnecté(e) avec succès.
     shared:
@@ -1560,7 +1560,7 @@ fr:
         didn_t_receive_confirmation_instructions: Vous n'avez pas reçu d'instructions de confirmation?
         didn_t_receive_unlock_instructions: Si la plateforme vous indique que votre compte est bloqué, cliquez ici pour recevoir les instructions de déblocage
         forgot_your_password: Mot de passe oublié?
-        sign_in: S'identifier
+        sign_in: Se connecter
         sign_in_with_provider: Se connecter avec %{provider}
         sign_up: S'inscrire
       minimum_password_length:
