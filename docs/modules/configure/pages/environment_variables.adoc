@@ -9,7 +9,7 @@ The next table shows all the default Env Vars available when running a default D
 |Name |Value |Default value|Multitenant's System configurable
 
 |_DATABASE_HOST_
-|Hostname for the Postgres database. Default is `localhost`.
+|Hostname for the Postgres database.
 |localhost
 |No
 
@@ -19,7 +19,7 @@ The next table shows all the default Env Vars available when running a default D
 |No
 
 |_DATABASE_PORT_
-|Port for the Postgres database. Default is `5432`.
+|Port for the Postgres database.
 |5432
 |No
 
@@ -29,7 +29,7 @@ The next table shows all the default Env Vars available when running a default D
 |No
 
 |*DATABASE_URL*
-|For production environments database needs to be defined following the scheme: `postgres://USERNAME:PASSWORD@HOST/DATABASE_NAME``
+|For production environments database needs to be defined as a string following the scheme: `postgres://USERNAME:PASSWORD@HOST/DATABASE_NAME``
 |
 |No
 
@@ -49,13 +49,13 @@ The next table shows all the default Env Vars available when running a default D
 |No
 
 |PORT
-|Specifies the `port` that Puma will listen on to receive requests.
+|Specifies the `port` that Puma will listen on to receive requests. This does not apply to alternative application servers such as Passenger.
 |3000
 |No
 
 |RAILS_MAX_THREADS
-|Specifies the `threads` that Puma will use to receive requests.
-|3000
+|Specifies the maximum number of concurrent database connections and `threads` that Puma will use to serve requests. Please refer to http://guides.rubyonrails.org/configuring.html#database-pooling for more information.
+|5
 |No
 
 |*SECRET_KEY_BASE*
@@ -66,72 +66,123 @@ The next table shows all the default Env Vars available when running a default D
 |*SMTP_ADDRESS*
 |Hostname for the SMTP server, for sending emails. See xref:services:smtp.adoc[SMTP]
 |
-|yes
+|*Yes*
 
 |*SMTP_DOMAIN*
 |Domain for the SMTP server, for sending emails. See xref:services:smtp.adoc[SMTP]
 |
-|yes
+|*Yes*
 
 |*SMTP_PASSWORD*
 |Password for the SMTP server, for sending emails. See xref:services:smtp.adoc[SMTP]
 |
-|yes
+|*Yes*
 
 |*SMTP_USERNAME*
 |Username for the SMTP server, for sending emails. See xref:services:smtp.adoc[SMTP]
 |
-|yes
+|*Yes*
 
 |SMTP_PORT
 |Port for the SMTP server, for sending emails. See xref:services:smtp.adoc[SMTP]
 |587
-|yes
+|*Yes*
 
 |SMTP_STARTTLS_AUTO
 |Automatically use STARTTLS protocol for the SMTP server, for sending emails. See xref:services:smtp.adoc[SMTP]
 |true
-|yes
+|*Yes*
 
 |SMTP_AUTHENTICATION
 |Type of authentication for the SMTP server, for sending emails. See xref:services:smtp.adoc[SMTP]
 |plain
-|yes
+|*Yes*
 
 |GEOCODER_API_KEY
-|API key for Geocoder HERE.com
+|API key for Geocoder and map provider if using https://HERE.com[HERE Maps]. See xref:services:maps.adoc[Maps].
+|
+|No
+
+|ETHERPAD_SERVER
+|URL for an https://etherpad.org/[Etherpad.org] server to integrate in Decidim for collaborative, real time writing events. See xref:services:ehterpad.adoc[Etherpad].
+|
+|No
+
+|ETHERPAD_API_KEY
+|API key for communicating with the Etherpad server. See xref:services:ehterpad.adoc[Etherpad].
 |
 |No
 
 |OMNIAUTH_FACEBOOK_APP_ID
 |App ID for enabling access through Facebook.com accounts. See xref:services:social_providers.adoc[Social Providers]. Note that defining this variable automatically renders the "login with" button. 
 |
-|yes
+|*Yes*
 
 |OMNIAUTH_FACEBOOK_APP_SECRET
 |App Secret for enabling access through Facebook.com accounts. See xref:services:social_providers.adoc[Social Providers].
 |
-|yes
+|*Yes*
 
 |OMNIAUTH_GOOGLE_CLIENT_ID
 |Client ID for enabling access through Google.com accounts. See xref:services:social_providers.adoc[Social Providers].
 |
-|Yes
+|*Yes*
 
 |OMNIAUTH_GOOGLE_CLIENT_SECRET
 |Client Secret for enabling access through Google.com accounts. See xref:services:social_providers.adoc[Social Providers].
 |
-|Yes
+|*Yes*
 
 |OMNIAUTH_TWITTER_API_KEY
 |API Key for enabling access through Google.com accounts. See xref:services:social_providers.adoc[Social Providers].
 |
-|yes
+|*Yes*
 
 |OMNIAUTH_TWITTER_API_SECRET
 |API Secret for enabling access through Google.com accounts. See xref:services:social_providers.adoc[Social Providers].
 |
-|Yes
+|*Yes*
+
+|BULLETIN_BOARD_SERVER
+| See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
+|
+|No
+
+|BULLETIN_BOARD_PUBLIC_KEY
+| See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
+|
+|No
+
+|BULLETIN_BOARD_API_KEY
+| See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
+|
+|No
+
+|AUTHORITY_NAME
+| See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
+|
+|No
+
+|AUTHORITY_PRIVATE_KEY
+| See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
+|
+|No
+
+|ELECTIONS_SCHEME_NAME
+| See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
+|
+|No
+
+|ELECTIONS_NUMBER_OF_TRUSTEES
+| See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
+|
+|No
+
+|ELECTIONS_QUORUM
+| See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
+|
+|No
+
 
 |===
 
