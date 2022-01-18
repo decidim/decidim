@@ -175,17 +175,43 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     expect(page).to have_selector("input[value='This is the second service']")
   end
 
-  it "allows the user to preview the meeting" do
+  it "allows the user to preview a published meeting" do
+    meeting_path = resource_locator(meeting).path
+
     within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
       klass = "action-icon--preview"
-      href = resource_locator(meeting).path
-      target = "blank"
 
       expect(page).to have_selector(
         :xpath,
-        "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
+        "//a[contains(@class,'#{klass}')][@href='#{meeting_path}'][@target='blank']"
       )
     end
+
+    # Visit the meeting
+    page.visit meeting_path
+
+    expect(page).to have_current_path(meeting_path)
+  end
+
+  it "allows the user to preview an unpublished meeting" do
+    unpublished_meeting = create :meeting, scope: scope, services: [], component: current_component
+    visit current_path
+
+    meeting_path = resource_locator(unpublished_meeting).path
+
+    within find("tr", text: Decidim::Meetings::MeetingPresenter.new(unpublished_meeting).title) do
+      klass = "action-icon--preview"
+
+      expect(page).to have_selector(
+        :xpath,
+        "//a[contains(@class,'#{klass}')][@href='#{meeting_path}'][@target='blank']"
+      )
+    end
+
+    # Visit the unpublished meeting
+    page.visit meeting_path
+
+    expect(page).to have_current_path(meeting_path)
   end
 
   it "creates a new meeting", :slow, :serves_geocoding_autocomplete do # rubocop:disable RSpec/ExampleLength
