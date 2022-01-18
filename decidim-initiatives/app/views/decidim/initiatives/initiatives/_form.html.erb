@@ -64,7 +64,7 @@
   <%= form.select :signature_type, [], {}, { disabled: !@form.signature_type_updatable? } %>
 </div>
 <% if current_initiative.type.attachments_enabled? %>
-  <fieldset>
+  <fieldset class="attachments_container">
     <legend><%= t("attachment_legend", scope: "decidim.initiatives.form") %></legend>
 
     <% if @form.photos.any? %>

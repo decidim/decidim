@@ -286,7 +286,7 @@ describe "Meeting live event access", type: :system do
     end
   end
 
-  context "when online meeting is not live and is not embedded" do
+  context "when online meeting is not live and it's embedded" do
     let(:meeting) { create :meeting, :published, :embed_in_meeting_page_iframe_embed_type, :online, :embeddable, component: component }
 
     it "doesn't show the meeting link embedded" do

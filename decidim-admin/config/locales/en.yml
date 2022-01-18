@@ -368,6 +368,13 @@ en:
           values:
             'false': 'No'
             'true': 'Yes'
+        moderated_users:
+          reports_reason_eq:
+            label: Report reason
+            values:
+              does_not_belong: Does not belong
+              offensive: Offensive
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Type
@@ -402,9 +409,11 @@ en:
         search_label: Search
         search_placeholder:
           name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
+          report_count_eq: Report count eq
           reported_id_string_or_reported_content_cont: Search %{collection} by reportable id or content.
           title_cont: Search %{collection} by title.
           user_name_or_user_email_cont: Search %{collection} by name or email.
+          user_name_or_user_nickname_or_user_email_cont: Search %{collection} by email, name or nickname.
         state_eq:
           label: State
           values:

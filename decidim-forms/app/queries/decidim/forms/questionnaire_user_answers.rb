@@ -20,7 +20,10 @@ module Decidim
 
       # Finds and group answers by user for each questionnaire's question.
       def query
-        answers = Answer.not_separator.joins(:question).where(questionnaire: @questionnaire)
+        answers = Answer.not_separator
+                        .not_title_and_description
+                        .joins(:question)
+                        .where(questionnaire: @questionnaire)
 
         answers.sort_by { |answer| answer.question.position }.group_by { |a| a.user || a.session_token }.values
       end

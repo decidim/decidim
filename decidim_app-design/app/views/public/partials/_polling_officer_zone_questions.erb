@@ -11,7 +11,7 @@
       <% end %>
       <% if locals[:warning] %>
         <div class="callout warning mt-s">
-          <p>This participant has already voted online. If she continues the process, she will override her previous vote.</p>
+          <p>This participant has already voted online. If they continue the process, they will override their previous vote.</p>
         </div>
       <% end %>
       <% if locals[:error] %>
@@ -20,7 +20,7 @@
         </div>
       <% end %>
       <% if locals[:success] || locals[:warning] %>
-        <p class="mt-sm"><strong>She is entitled to vote on the following questions:</strong></p>
+        <p class="mt-sm"><strong>They are entitled to vote on the following questions:</strong></p>
         <ul class="accordion js-sortable evote__preview"
           data-accordion
           data-multi-expand="true"
@@ -70,7 +70,7 @@
             </button>
           </div>
           <p class="text-center">
-            This person hasn't voted yet, but you are about to cancel the process. Her vote will not be counted. Are you sure?
+            This person hasn't voted yet, but you are about to cancel the process. Their vote will not be counted. Are you sure?
           </p>
           <div class="row">
             <div class="columns medium-8 medium-offset-2">

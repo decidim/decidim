@@ -23,6 +23,9 @@ module Decidim
       alias component current_component
 
       def map_model(model)
+        self.title = translated_attribute(model.title)
+        self.body = translated_attribute(model.body)
+
         self.user_group_id = model.user_groups.first&.id
         return unless model.categorization
 

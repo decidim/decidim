@@ -175,7 +175,6 @@ es-PY:
             answers_with_costs: Habilitar coste en las respuestas a propuestas
             automatic_hashtags: Hashtags añadidos a todas las propuestas.
             comments_blocked: Comentarios bloqueados
-            creation_enabled: Creación de propuesta habilitada
             endorsements_blocked: Adhesiones bloqueados
             endorsements_enabled: Adhesiones habilitados
             proposal_answering_enabled: Contestación de propuesta habilitada
@@ -268,7 +267,6 @@ es-PY:
           email_intro: La propuesta "%{resource_title}" se ha añadido a "%{participatory_space_title}" que estás siguiendo.
           email_outro: Recibiste esta notificación porque estás siguiendo "%{participatory_space_title}". Puedes dejar de seguirlo desde el enlace anterior.
           email_subject: Nueva propuesta "%{resource_title}" añadida a %{participatory_space_title}
-          notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> se ha agregado a %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Su propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'

@@ -75,7 +75,7 @@ module Decidim
           context "when attachments are allowed" do
             let(:uploaded_files) do
               [
-                Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
+                Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf"),
                 Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")
               ]
             end
@@ -85,6 +85,28 @@ module Decidim
               initiative.reload
               last_attachment = Decidim::Attachment.last
               expect(last_attachment.attached_to).to eq(initiative)
+            end
+
+            context "when the initiative already had some attachments" do
+              let!(:document) { create(:attachment, :with_pdf, attached_to: initiative) }
+              let(:current_files) { [document.id] }
+
+              it "keeps the new and old attachments" do
+                command.call
+                initiative.reload
+                expect(initiative.documents.count).to eq(3)
+              end
+
+              context "when the old attachments are deleted by the user" do
+                let(:current_files) { [] }
+
+                it "deletes the old attachments" do
+                  command.call
+                  initiative.reload
+                  expect(initiative.documents.count).to eq(2)
+                  expect(initiative.documents).not_to include(document)
+                end
+              end
             end
           end
 
