@@ -8,6 +8,7 @@ module Decidim
       class ImportParticipatoryTextForm < Decidim::Form
         include TranslatableAttributes
         include Decidim::HasUploadValidations
+        include Decidim::HasFileBlob
 
         # WARNING: consider adding/removing the relative translation key at
         # decidim.assemblies.admin.new_import.accepted_types when modifying this hash
@@ -65,13 +66,16 @@ module Decidim
 
         private
 
-        def blob
-          @blob ||= begin
-            return ActiveStorage::Blob.find_signed(document) if document.is_a? String
-
-            document if document.is_a? ActiveStorage::Blob
-          end
+        def file
+          document
         end
+        # def blob
+        #   @blob ||= begin
+        #     return ActiveStorage::Blob.find_signed(document) if document.is_a? String
+
+        #     document if document.is_a? ActiveStorage::Blob
+        #   end
+        # end
       end
     end
   end

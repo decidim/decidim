@@ -10,7 +10,7 @@ module Decidim
 
         let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
         let(:component) { create :proposal_component, :with_participatory_texts_enabled }
-        let(:document_file) { fixture_file_upload(Decidim::Dev.asset("participatory_text.md"), "text/markdown") }
+        let(:document_file) { upload_test_file(Decidim::Dev.asset("participatory_text.md"), content_type: "text/markdown") }
         let(:title) { { en: ::Faker::Book.title } }
         let(:params) do
           {

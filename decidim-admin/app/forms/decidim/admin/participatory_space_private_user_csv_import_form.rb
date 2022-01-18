@@ -8,6 +8,7 @@ module Decidim
     #
     class ParticipatorySpacePrivateUserCsvImportForm < Form
       include Decidim::HasUploadValidations
+      include Decidim::HasFileBlob
 
       attribute :file
       attribute :user_name, String
@@ -22,12 +23,6 @@ module Decidim
         CSV.foreach(ActiveStorage::Blob.service.path_for(blob.key)) do |_email, user_name|
           errors.add(:user_name, :invalid) unless user_name.match?(UserBaseEntity::REGEXP_NAME)
         end
-      end
-
-      private
-
-      def blob
-        @blob ||= ActiveStorage::Blob.find_signed(file)
       end
     end
   end

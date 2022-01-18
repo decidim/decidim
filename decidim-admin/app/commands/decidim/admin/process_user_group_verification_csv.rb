@@ -32,14 +32,11 @@ module Decidim
       def process_csv
         verifier = @form.current_user
         organization = @form.current_organization
-        CSV.foreach(ActiveStorage::Blob.service.path_for(blob.key)) do |row|
+
+        CSV.foreach(@form.file.path) do |row|
           email = row[0]
           VerifyUserGroupFromCsvJob.perform_later(email, verifier, organization) if email.present?
         end
-      end
-
-      def blob
-        @blob ||= ActiveStorage::Blob.find_signed(@form.file)
       end
     end
   end

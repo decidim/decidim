@@ -178,13 +178,13 @@ module Decidim
             let(:component) { create(:proposal_component, :with_attachments_allowed) }
             let(:uploaded_files) do
               [
-                file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("Exampledocument.pdf", "image/jpeg"), filename: "Exampledocument.pdf").signed_id
+                file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf")
               ]
             end
             let(:uploaded_photos) do
               [
                 {
-                  file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("city.jpeg", "image/jpeg"), filename: "city.jpeg").signed_id
+                  file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg")
                 }
               ]
             end
@@ -211,12 +211,8 @@ module Decidim
             let(:component) { create(:proposal_component, :with_attachments_allowed) }
             let(:uploaded_files) do
               [
-                {
-                  file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("city.jpeg", "image/jpeg"), filename: "city.jpeg").signed_id
-                },
-                {
-                  file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("verify_user_groups.csv", "text/csv"), filename: "verify_user_groups.csv").signed_id
-                }
+                { file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf") },
+                { file: upload_test_file(Decidim::Dev.asset("verify_user_groups.csv"), content_type: "text/csv") }
               ]
             end
 
@@ -231,14 +227,8 @@ module Decidim
 
           context "when documents and gallery are allowed" do
             let(:component) { create(:proposal_component, :with_attachments_allowed) }
-            let(:uploaded_photos) { [{ file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("city.jpeg", "image/jpeg"), filename: "city.jpeg").signed_id }] }
-            let(:uploaded_files) do
-              [
-                {
-                  file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf"), filename: "Exampledocument.pdf").signed_id
-                }
-              ]
-            end
+            let(:uploaded_photos) { [{ file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") }] }
+            let(:uploaded_files) { [{ file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf") }] }
 
             it "Create gallery and documents for the proposal" do
               expect { command.call }.to change(Decidim::Attachment, :count).by(2)
@@ -247,13 +237,7 @@ module Decidim
 
           context "when gallery are allowed" do
             let(:component) { create(:proposal_component, :with_attachments_allowed) }
-            let(:uploaded_photos) do
-              [
-                {
-                  file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("city.jpeg", "image/jpeg"), filename: "city.jpeg").signed_id
-                }
-              ]
-            end
+            let(:uploaded_photos) { [{ file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") }] }
 
             it "creates an image attachment for the proposal" do
               expect { command.call }.to change(Decidim::Attachment, :count).by(1)

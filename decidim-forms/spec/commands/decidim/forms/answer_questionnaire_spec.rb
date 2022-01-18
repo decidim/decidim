@@ -130,11 +130,11 @@ module Decidim
             [
               {
                 title: "Picture of the city",
-                file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("city.jpeg", "image/jpeg"), filename: "city.jpeg").signed_id
+                file: upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg"))
               },
               {
                 title: "Example document",
-                file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf"), filename: "Exampledocument.pdf").signed_id
+                file: upload_test_file(Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf"))
               }
             ]
           end
@@ -163,11 +163,11 @@ module Decidim
               [
                 {
                   title: "Picture of the city",
-                  file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("city.jpeg", "image/jpeg"), filename: "city.jpeg").signed_id
+                  file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg")
                 },
                 {
                   title: "CSV document",
-                  file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("verify_user_groups.csv", "text/csv"), filename: "verify_user_groups.csv").signed_id
+                  file: upload_test_file(Decidim::Dev.asset("verify_user_groups.csv"), content_type: "text/csv")
                 }
               ]
             end

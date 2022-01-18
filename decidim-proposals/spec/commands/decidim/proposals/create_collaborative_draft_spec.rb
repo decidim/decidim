@@ -158,7 +158,7 @@ module Decidim
               [
                 {
                   title: "My attachment",
-                  file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("city.jpeg", "image/jpeg"), filename: "city.jpeg").signed_id
+                  file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg")
                 }
               ]
             end
