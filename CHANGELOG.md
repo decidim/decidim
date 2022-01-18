@@ -20,11 +20,8 @@ Decidim::Api.schema_max_depth = 15
 
 The static documentation will be rendered into : ```app/views/static/api/docs``` which is being refreshed automatically when you will run ```rake decidim:upgrade```.
 
-#### `Decidim::Form`s no longer use `Rectify::Form` and `Virtus` should be no longer used
-
 #### Global search user by nickname
-
-PR [\#86](https://github.com/decidim/decidim/pull/8663) Added the ability to search for a user by nickname, to update the existing search, Run in a rails console or create a migration with:
+PR [\#8663](https://github.com/decidim/decidim/pull/8663) Added the ability to search for a user by nickname, to update the existing search, Run in a rails console or create a migration with:
 
 ```ruby
   Decidim::User.find_each(&:try_update_index_for_search_resource)
@@ -33,6 +30,16 @@ PR [\#86](https://github.com/decidim/decidim/pull/8663) Added the ability to sea
 Please be aware that it could take a while if your database has a lot of Users.
 
 #### Blocked user in global search
+PR [\#8658](https://github.com/decidim/decidim/pull/8658) Added the ability to search for a user by nickname, to update the existing search, Run in a rails console or create a migration with:
+
+```ruby
+  Decidim::User.find_each(&:try_update_index_for_search_resource)
+```
+
+Please be aware that it could take a while if your database has a lot of Users.
+
+#### `Decidim::Form`s no longer use `Rectify::Form` and `Virtus` should be no longer used
+
 As per [\#8669], your `Decidim::Form`s will no longer use `Rectify::Form` or `Virtus.model` attributes because `Virtus` is discontinued and Decidim is loosening the dependency on the `virtus` gem. Instead, the attributes implementation is now based on [`ActiveModel::Attributes`](https://api.rubyonrails.org/classes/ActiveModel/Attributes/ClassMethods.html) with an integration layer within Decidim that aims to provide as much backwards compatibility as possible with the `Virtus.model` attributes that were previously used.
 
 For most cases, no changes in the code should be needed but there are specific differences with the implementation which may require changes in the 3rd party code as well. Both `Rectify::Form` and `Virtus` will be still available in the core (through the `rectify` gem) but you should migrate away from them as soon as possible as they may be removed in future versions of Decidim.
