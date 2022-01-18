@@ -84,7 +84,8 @@ shared_examples_for "an application with configurable env vars" do
       "DECIDIM_MAILER_SENDER" => "noreply@example.org",
       "DECIDIM_AVAILABLE_LOCALES" => "de, fr, zh-CN",
       "DECIDIM_DEFAULT_LOCALE" => "zh-CN",
-      "DECIDIM_DISABLE_SSL" => "true"
+      "DECIDIM_DISABLE_SSL" => "true",
+      "DECIDIM_ENABLE_HTML_HEADER_SNIPPETS" => "true"
     }
   end
 
@@ -97,7 +98,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim mailer_sender) => "change-me@example.org",
       %w(decidim available_locales) => %w(en ca es),
       %w(decidim default_locale) => "en",
-      %w(decidim force_ssl) => true
+      %w(decidim force_ssl) => true,
+      %w(decidim enable_html_header_snippets) => false
     }
   end
 
@@ -135,7 +137,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim mailer_sender) => "noreply@example.org",
       %w(decidim available_locales) => %w(de fr zh-CN),
       %w(decidim default_locale) => "zh-CN",
-      %w(decidim force_ssl) => false
+      %w(decidim force_ssl) => false,
+      %w(decidim enable_html_header_snippets) => true
 
     }
   end
@@ -146,7 +149,8 @@ shared_examples_for "an application with configurable env vars" do
       "mailer_sender" => "change-me@example.org",
       "available_locales" => %w(en ca es),
       "default_locale" => "en",
-      "force_ssl" => true
+      "force_ssl" => true,
+      "enable_html_header_snippets" => false
     }
   end
 
@@ -156,7 +160,8 @@ shared_examples_for "an application with configurable env vars" do
       "mailer_sender" => "noreply@example.org",
       "available_locales" => %w(de fr zh-CN),
       "default_locale" => "zh-CN",
-      "force_ssl" => false
+      "force_ssl" => false,
+      "enable_html_header_snippets" => true
     }
   end
 

@@ -108,6 +108,22 @@ The next table shows all the default Env Vars available when running a default D
 |
 |No
 
+|DECIDIM_ENABLE_HTML_HEADER_SNIPPETS
+|Set to `true` in order to allow administrators to define an arbitrary custom HTML code in the `<head></head>` section any Decidim page.
+
+The most common use is to integrate third-party services that require some
+extra JavaScript or CSS. Also, you can use it to add extra meta tags to the
+HTML. Note that this will only be rendered in public pages, not in the admin
+section.
+
+Before enabling this you should ensure that any tracking that might be done
+is in accordance with the rules and regulations that apply to your
+environment and usage scenarios. This component also comes with the risk
+that an organization's administrator injects malicious scripts to spy on or
+take over user accounts.
+|
+|No
+
 |SMTP_PORT
 |Port for the SMTP server, for sending emails. See xref:services:smtp.adoc[SMTP]
 |587
