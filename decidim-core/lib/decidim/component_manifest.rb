@@ -14,8 +14,8 @@ module Decidim
     include ActiveModel::Model
     include Decidim::AttributeObject::Model
 
-    attribute :admin_engine, Rails::Engine, {}
-    attribute :engine, Rails::Engine, {}
+    attribute :admin_engine, Rails::Engine
+    attribute :engine, Rails::Engine
 
     attribute :name, Symbol
     attribute :hooks, Hash[Symbol => Array[Proc]], default: {}

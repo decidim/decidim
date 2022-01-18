@@ -178,7 +178,7 @@ module Decidim
         route <<~RUBY
           authenticate :user, ->(u) { u.admin? } do
             mount Sidekiq::Web => "/sidekiq"
-          end      
+          end
         RUBY
 
         add_production_gems do
@@ -332,11 +332,11 @@ module Decidim
       def branch
         return if options[:path]
 
-        @branch ||= options[:edge] ? "develop" : options[:branch].presence
+        @branch ||= options[:edge] ? "ruby-3.0" : options[:branch].presence
       end
 
       def repository
-        @repository ||= options[:repository] || "https://github.com/decidim/decidim.git"
+        @repository ||= options[:repository] || "https://github.com/tremend-cofe/decidim.git"
       end
 
       def app_name
@@ -361,7 +361,7 @@ module Decidim
         root = if options[:path]
                  expanded_path
                elsif branch.present?
-                 "https://raw.githubusercontent.com/decidim/decidim/#{branch}/decidim-generators"
+                 "https://raw.githubusercontent.com/tremend-cofe/decidim/#{branch}/decidim-generators"
                else
                  root_path
                end
