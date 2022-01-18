@@ -12,12 +12,12 @@ Decidim.configure do |config|
   # When an organization is created through the System area, system admins will
   # be able to choose the available languages for that organization. That list
   # of languages will be equal or a subset of the list in this file.
-  config.available_locales = [:en, :ca, :es]
+  config.available_locales = Rails.application.secrets.decidim[:available_locales]
 
   # Sets the default locale for new organizations. When creating a new
   # organization from the System area, system admins will be able to overwrite
   # this value for that specific organization.
-  config.default_locale = :en
+  config.default_locale = Rails.application.secrets.decidim[:default_locale]
 
   # Restrict access to the system part with an authorized ip list.
   # You can use a single ip like ("1.2.3.4"), or an ip subnet like ("1.2.3.4/24")

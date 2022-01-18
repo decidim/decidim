@@ -30,7 +30,7 @@ shared_examples_for "a new development application" do
     dropped = []
     Decidim::GemManager.plugins.each do |plugin|
       Dir.glob("#{plugin}db/migrate/*.rb").each do |_migration|
-        lines = File.readlines(migratienabled)
+        lines = File.readlines(migration)
         tables.concat(lines.filter { |line| line.match? "create_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
         dropped.concat(lines.filter { |line| line.match? "drop_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
         tables.concat(lines.filter { |line| line.match? "rename_table" }.map { |line| line.match(/(, :)([a-z_0-9]+)/)[2] })
@@ -81,7 +81,9 @@ shared_examples_for "an application with configurable env vars" do
       "ELECTIONS_NUMBER_OF_TRUSTEES" => "an-elections-number-of-trustees",
       "ELECTIONS_QUORUM" => "an-elections-quorum",
       "DECIDIM_APPLICATION_NAME" => "A test application",
-      "DECIDIM_MAILER_SENDER" => "noreply@example.org"
+      "DECIDIM_MAILER_SENDER" => "noreply@example.org",
+      "DECIDIM_AVAILABLE_LOCALES" => "de, fr, zh-CN",
+      "DECIDIM_DEFAULT_LOCALE" => "zh-CN"
     }
   end
 
@@ -91,7 +93,9 @@ shared_examples_for "an application with configurable env vars" do
       %w(omniauth twitter enabled) => false,
       %w(omniauth google_oauth2 enabled) => false,
       %w(decidim application_name) => "My Application Name",
-      %w(decidim mailer_sender) => "change-me@example.org"
+      %w(decidim mailer_sender) => "change-me@example.org",
+      %w(decidim available_locales) => %w(en ca es),
+      %w(decidim default_locale) => "en"
     }
   end
 
@@ -126,21 +130,28 @@ shared_examples_for "an application with configurable env vars" do
       %w(elections number_of_trustees) => "an-elections-number-of-trustees",
       %w(elections quorum) => "an-elections-quorum",
       %w(decidim application_name) => "A test application",
-      %w(decidim mailer_sender) => "noreply@example.org"
+      %w(decidim mailer_sender) => "noreply@example.org",
+      %w(decidim available_locales) => %w(de fr zh-CN),
+      %w(decidim default_locale) => "zh-CN"
+
     }
   end
 
   let(:initializer_off) do
     {
       "application_name" => "My Application Name",
-      "mailer_sender" => "change-me@example.org"
+      "mailer_sender" => "change-me@example.org",
+      "available_locales" => %w(en ca es),
+      "default_locale" => "en"
     }
   end
 
   let(:initializer_on) do
     {
       "application_name" => "A test application",
-      "mailer_sender" => "noreply@example.org"
+      "mailer_sender" => "noreply@example.org",
+      "available_locales" => %w(de fr zh-CN),
+      "default_locale" => "zh-CN"
     }
   end
 
@@ -149,22 +160,26 @@ shared_examples_for "an application with configurable env vars" do
 
     json_off = json_secrets_for(test_app, env_off)
     secrets_off.each do |keys, value|
-      expect(json_off.dig(*keys)).to eq(value), "Secret [#{keys}] expected to match Env OFF [#{value}]"
+      current = json_off.dig(*keys)
+      expect(current).to eq(value), "Secret #{keys} = [#{current}] expected to match Env OFF [#{value}]"
     end
 
     json_on = json_secrets_for(test_app, env_on)
     secrets_on.each do |keys, value|
-      expect(json_on.dig(*keys)).to eq(value), "Secret [#{keys}] expected to match Env ON [#{value}]"
+      current = json_on.dig(*keys)
+      expect(current).to eq(value), "Secret #{keys} = [#{current}] expected to match Env ON [#{value}]"
     end
 
     json_off = initializer_config_for(test_app, env_off)
     initializer_off.each do |key, value|
-      expect(json_off[key]).to eq(value), "Initializer [#{key}] expected to match Env OFF [#{value}]"
+      current = json_off[key]
+      expect(current).to eq(value), "Initializer [#{key}] = [#{current}] expected to match Env OFF [#{value}]"
     end
 
     json_on = initializer_config_for(test_app, env_on)
     initializer_on.each do |key, value|
-      expect(json_on[key]).to eq(value), "Initializer [#{key}] expected to match Env ON [#{value}]"
+      current = json_on[key]
+      expect(current).to eq(value), "Initializer [#{key}] = [#{current}] expected to match Env ON [#{value}]"
     end
   end
 end
