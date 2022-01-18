@@ -63,7 +63,7 @@ module Decidim::Meetings
         let!(:singlechoice_free_question) { create :questionnaire_question, questionnaire: meeting.questionnaire, question_type: "single_option" }
         let!(:singlechoice_free_answer_options) do
           options = create_list :answer_option, 2, question: singlechoice_free_question
-          options << create(:answer_option, question: singlechoice_free_question, free_text: true)
+          options << create(:answer_option, :free_text_enabled, question: singlechoice_free_question)
 
           options
         end
@@ -92,13 +92,13 @@ module Decidim::Meetings
             "#{questions.last.position + 1}. #{translated(questions.last.body, locale: I18n.locale)}" => answers.last.body
           )
           expect(serialized[:registration_form_answers]).to include(
-            "#{multichoice_question.position + 1}. #{translated(multichoice_question.body, locale: I18n.locale)}" => multichoice_answer_choices.map(&:body)
+            "#{multichoice_question.position + 1}. #{translated(multichoice_question.body, locale: I18n.locale)}" => [multichoice_answer_choices.first.body, multichoice_answer_choices.last.body]
           )
           expect(serialized[:registration_form_answers]).to include(
             "#{singlechoice_question.position + 1}. #{translated(singlechoice_question.body, locale: I18n.locale)}" => [singlechoice_answer_choice.body]
           )
           expect(serialized[:registration_form_answers]).to include(
-            "#{singlechoice_free_question.position + 1}. #{translated(singlechoice_free_question.body, locale: I18n.locale)}" => ["Free text answer"]
+            "#{singlechoice_free_question.position + 1}. #{translated(singlechoice_free_question.body, locale: I18n.locale)}" => ["#{singlechoice_free_answer_choice.body} (Free text answer)"]
           )
         end
       end

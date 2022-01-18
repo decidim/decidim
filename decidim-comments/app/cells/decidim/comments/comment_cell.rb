@@ -16,6 +16,7 @@ module Decidim
       property :deleted_at
       property :alignment
       property :translated_body
+      property :formatted_body
       property :comment_threads
       property :accepts_new_comments?
       property :edited?
@@ -39,7 +40,7 @@ module Decidim
       end
 
       def comment_body
-        Decidim::ContentProcessor.render(translated_body)
+        formatted_body
       end
 
       def replies

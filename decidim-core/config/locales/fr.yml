@@ -13,7 +13,7 @@ fr:
         document_number: Numéro de document
         email: Courriel
         name: Nom
-        nickname: Nom d'utilisateur
+        nickname: Pseudonyme
         phone: Téléphone
       message:
         body: Corps de texte
@@ -23,7 +23,7 @@ fr:
         about: A propos de moi
         email: Votre email
         name: Votre nom
-        nickname: Surnom
+        nickname: Pseudonyme
         password: Mot de passe
         password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
@@ -45,7 +45,7 @@ fr:
       decidim/user:
         current_password: Mot de passe actuel
         email: Email
-        name: Surnom
+        name: Pseudonyme
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
         remember_me: Retenir le mot de passe
@@ -965,6 +965,7 @@ fr:
         show:
           back: Retour à toutes les conversations
           chat_with: Conversation avec
+          deleted_accounts: Vous ne pouvez pas avoir de conversation avec des comptes supprimés.
           not_allowed: Cet utilisateur ne souhaite pas recevoir de messages directs.
           title: Conversation avec %{usernames}
         start:
@@ -1289,8 +1290,8 @@ fr:
       headline: Statistiques
       no_stats: Il n'y a pas encore de statistiques.
       pages_count: Pages
-      participants_count: Participant·e·s
-      users_count: Participant·e·s
+      participants_count: Participants
+      users_count: Participants
     tags:
       filter_results_for_category: 'Filtrer les résultats de la catégorie : %{resource}'
       filter_results_for_scope: 'Filtrer les résultats pour le secteur : %{resource}'
@@ -1329,6 +1330,7 @@ fr:
         title_reply: Répondre
       show:
         back: Afficher toutes les conversations
+        deleted_accounts: Vous ne pouvez pas avoir de conversation avec des comptes supprimés.
         not_allowed: Cet utilisateur n'accepte plus de messages directs.
         title: Conversation avec %{usernames}
       update:

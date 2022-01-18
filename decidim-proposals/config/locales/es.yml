@@ -176,7 +176,7 @@ es:
             answers_with_costs: Habilitar coste en las respuestas a propuestas
             automatic_hashtags: Hashtags añadidos a todas las propuestas.
             comments_blocked: Comentarios bloqueados
-            creation_enabled: Habilitar creación de propuestas
+            creation_enabled: Creación de propuestas habilitada
             endorsements_blocked: Adhesiones bloqueadas
             endorsements_enabled: Adhesiones habilitadas
             proposal_answering_enabled: Respuesta a propuestas activadas

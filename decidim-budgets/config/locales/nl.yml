@@ -233,6 +233,7 @@ nl:
     components:
       budgets:
         actions:
+          comment: Reactie
           vote: Stemmen
         name: Budgetten
         settings:
