@@ -51,11 +51,11 @@ module Decidim
 
         def attributes
           form.attributes.slice(
-            :name,
-            :weight,
-            :partner_type,
-            :link
-          ).merge(
+            "name",
+            "weight",
+            "partner_type",
+            "link"
+          ).symbolize_keys.merge(
             attachment_attributes(:logo)
           )
         end

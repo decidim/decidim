@@ -17,7 +17,7 @@ module Decidim
         end
 
         include ActiveModel::Model
-        include Virtus.model
+        include Decidim::AttributeObject::Model
 
         attribute :category_id, Integer
       end.new

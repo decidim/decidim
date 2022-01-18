@@ -3,6 +3,7 @@
 require "decidim/core/engine"
 require "decidim/core/api"
 require "decidim/core/version"
+
 # Decidim configuration.
 module Decidim
   autoload :Deprecations, "decidim/deprecations"
@@ -43,7 +44,6 @@ module Decidim
   autoload :FriendlyDates, "decidim/friendly_dates"
   autoload :Nicknamizable, "decidim/nicknamizable"
   autoload :HasReference, "decidim/has_reference"
-  autoload :Attributes, "decidim/attributes"
   autoload :StatsRegistry, "decidim/stats_registry"
   autoload :Exporters, "decidim/exporters"
   autoload :FileZipper, "decidim/file_zipper"
@@ -97,6 +97,7 @@ module Decidim
   autoload :AttachmentAttributes, "decidim/attachment_attributes"
   autoload :CarrierWaveMigratorService, "decidim/carrier_wave_migrator_service"
   autoload :CommonPasswords, "decidim/common_passwords"
+  autoload :AttributeObject, "decidim/attribute_object"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.

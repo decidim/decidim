@@ -17,7 +17,6 @@ module Decidim
           enforce_permission_to :close, :debate, debate: debate
 
           @form = form(Admin::CloseDebateForm).from_params(params)
-          @form.debate = debate
 
           CloseDebate.call(@form) do
             on(:ok) do |_debate|

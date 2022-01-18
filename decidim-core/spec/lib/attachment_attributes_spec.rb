@@ -11,7 +11,7 @@ module Decidim
         end
 
         include ActiveModel::Model
-        include Virtus.model
+        include Decidim::AttributeObject::Model
         include AttachmentAttributes
       end
     end
@@ -29,10 +29,10 @@ module Decidim
       end
 
       it "creates the photos and add_photos array arguments" do
-        expect(klass.attribute_set[:photos].type.primitive).to be(Array)
-        expect(klass.attribute_set[:photos].type.member_type.primitive).to be(String)
-        expect(klass.attribute_set[:add_photos].type.primitive).to be(Array)
-        expect(klass.attribute_set[:add_photos].type.member_type.primitive).to be(BasicObject)
+        expect(klass.attribute_types["photos"]).to be_a(Decidim::Attributes::Array)
+        expect(klass.attribute_types["photos"].value_type).to be(Integer)
+        expect(klass.attribute_types["add_photos"]).to be_a(Decidim::Attributes::Array)
+        expect(klass.attribute_types["add_photos"].value_type).to be(Object)
       end
 
       it "adds the argument reader method that converts the IDs to attachments" do
@@ -41,7 +41,7 @@ module Decidim
       end
 
       it "returns the original value if the original value is not an array" do
-        model.instance_variable_set(:@photos, "test")
+        model.photos = "test"
         expect(model.photos).to eq("test")
       end
     end

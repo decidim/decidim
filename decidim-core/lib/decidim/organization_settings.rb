@@ -130,8 +130,8 @@ module Decidim
               )
             },
             "maximum_file_size" => {
-              "default" => 10,
-              "avatar" => 5
+              "default" => 10.0,
+              "avatar" => 5.0
             }
           }
         }

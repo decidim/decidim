@@ -123,7 +123,7 @@ module Decidim
       end
 
       def questionnaire?
-        registration_form.model_name == "Questionnaire"
+        registration_form.model_name == "questionnaire"
       end
     end
   end
