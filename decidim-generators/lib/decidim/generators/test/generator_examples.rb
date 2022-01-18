@@ -85,7 +85,8 @@ shared_examples_for "an application with configurable env vars" do
       "DECIDIM_AVAILABLE_LOCALES" => "de, fr, zh-CN",
       "DECIDIM_DEFAULT_LOCALE" => "zh-CN",
       "DECIDIM_DISABLE_SSL" => "true",
-      "DECIDIM_ENABLE_HTML_HEADER_SNIPPETS" => "true"
+      "DECIDIM_ENABLE_HTML_HEADER_SNIPPETS" => "true",
+      "DECIDIM_CURRENCY_UNIT" => "$"
     }
   end
 
@@ -99,7 +100,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim available_locales) => %w(en ca es),
       %w(decidim default_locale) => "en",
       %w(decidim force_ssl) => true,
-      %w(decidim enable_html_header_snippets) => false
+      %w(decidim enable_html_header_snippets) => false,
+      %w(decidim currency_unit) => "€"
     }
   end
 
@@ -138,7 +140,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim available_locales) => %w(de fr zh-CN),
       %w(decidim default_locale) => "zh-CN",
       %w(decidim force_ssl) => false,
-      %w(decidim enable_html_header_snippets) => true
+      %w(decidim enable_html_header_snippets) => true,
+      %w(decidim currency_unit) => "$",
 
     }
   end
@@ -150,7 +153,8 @@ shared_examples_for "an application with configurable env vars" do
       "available_locales" => %w(en ca es),
       "default_locale" => "en",
       "force_ssl" => true,
-      "enable_html_header_snippets" => false
+      "enable_html_header_snippets" => false,
+      "currency_unit" => "€"
     }
   end
 
@@ -161,7 +165,8 @@ shared_examples_for "an application with configurable env vars" do
       "available_locales" => %w(de fr zh-CN),
       "default_locale" => "zh-CN",
       "force_ssl" => false,
-      "enable_html_header_snippets" => true
+      "enable_html_header_snippets" => true,
+      "currency_unit" => "$"
     }
   end
 

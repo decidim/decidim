@@ -124,6 +124,11 @@ take over user accounts.
 |
 |No
 
+|DECIDIM_CURRENCY_UNIT
+|Currency unit is used in view showing monetary actions, such as budgets. It does not affect any internal calculations.
+|€
+|No
+
 |SMTP_PORT
 |Port for the SMTP server, for sending emails. See xref:services:smtp.adoc[SMTP]
 |587
