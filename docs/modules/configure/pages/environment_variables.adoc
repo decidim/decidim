@@ -93,6 +93,16 @@ The next table shows all the default Env Vars available when running a default D
 |change-me@example.org
 |*Yes*
 
+|DECIDIM_AVAILABLE_LOCALES
+|a list of, coma separated, locales that will be available for each organization configured in the System configuration. Check for the https://github.com/decidim/decidim/blob/develop/decidim-core/lib/decidim/core.rb#L163[Supported values] in ISO639 format. 
+|en,ca,es
+|No
+
+|DECIDIM_DEFAULT_LOCALE
+|The default locale to be used as a fallback (note that, in practice, this value must always be defined in the System configuration for each organization anyway).
+|en
+|*Yes*
+
 |SMTP_PORT
 |Port for the SMTP server, for sending emails. See xref:services:smtp.adoc[SMTP]
 |587
