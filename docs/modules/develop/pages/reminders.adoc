@@ -4,6 +4,13 @@ Reminders can be used to remind users about anything they need to know about reg
 
 The automatic reminder generation should run once every day and the reminder generator will contain the logic that decides who to remind about what. The generator class will queue the reminders that need to be sent.
 
+* To run automatic reminder generator.
++
+[source,ruby]
+----
+bundle exec rake decidim:reminders:all
+----
+
 == Key concepts
 
 Reminders can be created either automatically or through an admin triggered action from the admin panel. For instance, we can send budgeting reminders automatically after two hours, one week and two weeks after voting has been started. If the admin wanted to remind all users at the start of final day of the voting, which would be two days after the last automatic reminder or 2.5 weeks after the voting start, they would have to trigger it manually or change the configuration of the budgeting reminder.
