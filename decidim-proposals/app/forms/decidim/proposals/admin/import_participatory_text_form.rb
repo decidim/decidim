@@ -22,6 +22,8 @@ module Decidim
         validates :document, presence: true, if: :new_participatory_text?
         validate :document_type_must_be_valid, if: :document
 
+        alias file document
+
         # Assume it's a NEW participatory_text if there are no proposals
         # Validate document presence while CREATING proposals from document
         # Allow skipping document validation while UPDATING title/description
@@ -63,19 +65,6 @@ module Decidim
         def document_text
           @document_text ||= blob&.download
         end
-
-        private
-
-        def file
-          document
-        end
-        # def blob
-        #   @blob ||= begin
-        #     return ActiveStorage::Blob.find_signed(document) if document.is_a? String
-
-        #     document if document.is_a? ActiveStorage::Blob
-        #   end
-        # end
       end
     end
   end

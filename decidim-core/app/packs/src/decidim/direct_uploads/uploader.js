@@ -47,15 +47,13 @@ export class Uploader {
 
     if (!this.validationSent) {
       let attribute = this.modal.options.addAttribute;
-      console.log("attriubte0", attribute);
       if (this.modal.options.titled) {
         attribute = "file"
       }
-      console.log("attriubte1", attribute);
 
       const params = new URLSearchParams({
         resource: this.modal.options.resourceClass,
-        attribute: attribute,
+        property: attribute,
         blob: blobId
       });
 

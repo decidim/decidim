@@ -5,7 +5,7 @@ module Decidim
     include Decidim::HasUploadValidations
 
     attribute :resource, String
-    attribute :attribute, String
+    attribute :property, String
     attribute :blob, String
 
     validate :file
@@ -13,7 +13,7 @@ module Decidim
     def file
       org = organization
       PassthruValidator.new(
-        attributes: [attribute],
+        attributes: [property],
         to: resource.constantize,
         with: lambda { |record|
           if record.respond_to?(:organization=)
@@ -22,7 +22,7 @@ module Decidim
             {}
           end
         }
-      ).validate_each(self, attribute.to_sym, blob)
+      ).validate_each(self, property.to_sym, blob)
     end
 
     def organization

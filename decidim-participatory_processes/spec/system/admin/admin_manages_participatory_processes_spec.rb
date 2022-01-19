@@ -68,7 +68,7 @@ describe "Admin manages participatory processes", versioning: true, type: :syste
         fill_in :participatory_process_weight, with: 1
       end
 
-      dynamically_attach_file(:group_hero_image, image1_path)
+      dynamically_attach_file(:hero_image, image1_path)
       dynamically_attach_file(:banner_image, image2_path)
 
       within ".new_participatory_process" do
