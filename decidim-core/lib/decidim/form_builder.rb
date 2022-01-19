@@ -904,7 +904,7 @@ module Decidim
         return passthru.options[:to] if passthru && passthru.options[:to].present?
       end
       klass = object.send(attribute)
-      return object.send(attribute).record.class if !klass.is_a?(String) && klass&.record.present?
+      return object.send(attribute).record.class if klass.respond_to?(:record) && klass.record.present?
 
       object.class
     end
