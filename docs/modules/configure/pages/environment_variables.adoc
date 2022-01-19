@@ -129,6 +129,16 @@ take over user accounts.
 |€
 |No
 
+|DECIDIM_IMAGE_UPLOADER_QUALITY
+|Defines the quality of image uploads after processing. Image uploads are processed by Decidim, this value helps reduce the size of the files.
+|80
+|No
+
+|DECIDIM_MAX_REPORTS_BEFORE_HIDING
+|The number of reports which a resource can receive before hiding it. This affects moderations for resources such as proposals or users.
+|3
+|No
+
 |SMTP_PORT
 |Port for the SMTP server, for sending emails. See xref:services:smtp.adoc[SMTP]
 |587
@@ -150,12 +160,12 @@ take over user accounts.
 |No
 
 |ETHERPAD_SERVER
-|URL for an https://etherpad.org/[Etherpad.org] server to integrate in Decidim for collaborative, real time writing events. See xref:services:ehterpad.adoc[Etherpad].
+|URL for an https://etherpad.org/[Etherpad.org] server to integrate in Decidim for collaborative, real time writing events. See xref:services:etherpad.adoc[Etherpad].
 |
 |No
 
 |ETHERPAD_API_KEY
-|API key for communicating with the Etherpad server. See xref:services:ehterpad.adoc[Etherpad].
+|API key for communicating with the Etherpad server. See xref:services:etherpad.adoc[Etherpad].
 |
 |No
 

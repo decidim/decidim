@@ -86,7 +86,9 @@ shared_examples_for "an application with configurable env vars" do
       "DECIDIM_DEFAULT_LOCALE" => "zh-CN",
       "DECIDIM_DISABLE_SSL" => "true",
       "DECIDIM_ENABLE_HTML_HEADER_SNIPPETS" => "true",
-      "DECIDIM_CURRENCY_UNIT" => "$"
+      "DECIDIM_CURRENCY_UNIT" => "$",
+      "DECIDIM_IMAGE_UPLOADER_QUALITY" => "91",
+      "DECIDIM_MAX_REPORTS_BEFORE_HIDING" => "4"
     }
   end
 
@@ -101,7 +103,9 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim default_locale) => "en",
       %w(decidim force_ssl) => true,
       %w(decidim enable_html_header_snippets) => false,
-      %w(decidim currency_unit) => "€"
+      %w(decidim currency_unit) => "€",
+      %w(decidim image_uploader_quality) => 80,
+      %w(decidim max_reports_before_hiding) => 3
     }
   end
 
@@ -142,7 +146,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim force_ssl) => false,
       %w(decidim enable_html_header_snippets) => true,
       %w(decidim currency_unit) => "$",
-
+      %w(decidim image_uploader_quality) => 91,
+      %w(decidim max_reports_before_hiding) => 4
     }
   end
 
@@ -154,7 +159,9 @@ shared_examples_for "an application with configurable env vars" do
       "default_locale" => "en",
       "force_ssl" => true,
       "enable_html_header_snippets" => false,
-      "currency_unit" => "€"
+      "currency_unit" => "€",
+      "image_uploader_quality" => 80,
+      "max_reports_before_hiding" => 3
     }
   end
 
@@ -166,7 +173,9 @@ shared_examples_for "an application with configurable env vars" do
       "default_locale" => "zh-CN",
       "force_ssl" => false,
       "enable_html_header_snippets" => true,
-      "currency_unit" => "$"
+      "currency_unit" => "$",
+      "image_uploader_quality" => 91,
+      "max_reports_before_hiding" => 4
     }
   end
 

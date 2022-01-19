@@ -110,10 +110,10 @@ Decidim.configure do |config|
 
   # Defines the quality of image uploads after processing. Image uploads are
   # processed by Decidim, this value helps reduce the size of the files.
-  # config.image_uploader_quality = 80
+  config.image_uploader_quality = Rails.application.secrets.decidim[:image_uploader_quality]
 
   # The number of reports which a resource can receive before hiding it
-  # config.max_reports_before_hiding = 3
+  config.max_reports_before_hiding = Rails.application.secrets.decidim[:max_reports_before_hiding]
 
   # Custom HTML Header snippets
   #
