@@ -13,7 +13,7 @@ module Decidim
   # validations.
   class FileValidatorHumanizer
     # record - Form object (e.g. Decidim::AccountForm)
-    # attribute - form field (e.g. :avatar)
+    # attribute - Form field (e.g. :avatar)
     def initialize(record, attribute)
       @record = record
       @attribute = attribute
@@ -23,7 +23,12 @@ module Decidim
     end
 
     def uploader
-      @uploader ||= passthru_uploader || record.attached_uploader(attribute) || record.send(attribute)
+      @uploader ||= begin
+        return passthru_uploader if passthru_uploader.present?
+        return record.attached_uploader(attribute) if record.respond_to?(:attached_uploader) && record.attached_uploader(attribute).present?
+
+        record.send(attribute)
+      end
     end
 
     def messages

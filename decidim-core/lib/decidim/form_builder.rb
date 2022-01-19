@@ -402,7 +402,7 @@ module Decidim
         resource_class: "Decidim::Attachment",
         show_current: false,
         max_file_size: max_file_size(record, :file),
-        help: options[:help] || upload_help(record, :file, options),
+        help: options[:help] || upload_help(record, attribute, options),
         label: I18n.t("decidim.forms.upload.labels.add_attachment"),
         button_edit_label: I18n.t("decidim.forms.upload.labels.edit_image")
       }.merge(options)
