@@ -91,6 +91,9 @@ shared_examples_for "an application with configurable env vars" do
       "MAPS_API_KEY" => "a-maps-api-key",
       "ETHERPAD_SERVER" => "a-etherpad-server",
       "ETHERPAD_API_KEY" => "a-etherpad-key",
+      "SERVICE_SMS_GATEWAY" => "MySMSGatewayService",
+      "SERVICE_TIMESTAMP" => "MyTimestampService",
+      "SERVICE_PDF_SIGNATURE" => "MyPDFSignatureService",
       "SECRET_KEY_BASE" => "a-secret-key-base",
       "SMTP_USERNAME" => "a-smtp-username",
       "SMTP_PASSWORD" => "a-smtp-password",
@@ -111,7 +114,7 @@ shared_examples_for "an application with configurable env vars" do
       "DECIDIM_MAILER_SENDER" => "noreply@example.org",
       "DECIDIM_AVAILABLE_LOCALES" => "de, fr, zh-CN",
       "DECIDIM_DEFAULT_LOCALE" => "zh-CN",
-      "DECIDIM_FORCE_SSL" => "false",
+      "DECIDIM_FORCE_SSL" => "",
       "DECIDIM_ENABLE_HTML_HEADER_SNIPPETS" => "true",
       "DECIDIM_CURRENCY_UNIT" => "$",
       "DECIDIM_IMAGE_UPLOADER_QUALITY" => "91",
@@ -123,7 +126,7 @@ shared_examples_for "an application with configurable env vars" do
       "DECIDIM_THROTTLING_MAX_REQUESTS" => "99",
       "DECIDIM_THROTTLING_PERIOD" => "2",
       "DECIDIM_UNCONFIRMED_ACCESS_FOR" => "3",
-      "DECIDIM_SYSTEM_ACCESSLIST_IPS" => "120.0.0.1,172.26.0.1/24",
+      "DECIDIM_SYSTEM_ACCESSLIST_IPS" => "127.0.0.1,172.26.0.1/24",
       "DECIDIM_BASE_UPLOADS_PATH" => "some-path/",
       "DECIDIM_DEFAULT_CSV_COL_SEP" => ",",
       "DECIDIM_CORS_ENABLED" => "true"
@@ -172,6 +175,9 @@ shared_examples_for "an application with configurable env vars" do
       %w(maps api_key) => "a-maps-api-key",
       %w(etherpad server) => "a-etherpad-server",
       %w(etherpad api_key) => "a-etherpad-key",
+      %w(service sms_gateway) => "MySMSGatewayService",
+      %w(service timestamp) => "MyTimestampService",
+      %w(service pdf_signature) => "MyPDFSignatureService",
       %w(secret_key_base) => "a-secret-key-base",
       %w(smtp_username) => "a-smtp-username",
       %w(smtp_password) => "a-smtp-password",
@@ -204,7 +210,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim throttling_max_requests) => 99,
       %w(decidim throttling_period) => 2,
       %w(decidim unconfirmed_access_for) => 3,
-      %w(decidim system_accesslist_ips) => ["120.0.0.1", "172.26.0.1/24"],
+      %w(decidim system_accesslist_ips) => ["127.0.0.1", "172.26.0.1/24"],
       %w(decidim base_uploads_path) => "some-path/",
       %w(decidim default_csv_col_sep) => ",",
       %w(decidim cors_enabled) => true
@@ -254,10 +260,13 @@ shared_examples_for "an application with configurable env vars" do
       "throttling_max_requests" => 99,
       "throttling_period" => 120, # 2 minutes
       "unconfirmed_access_for" => 259_200, # 3 days
-      "system_accesslist_ips" => ["120.0.0.1", "172.26.0.1/24"],
+      "system_accesslist_ips" => ["127.0.0.1", "172.26.0.1/24"],
       "base_uploads_path" => "some-path/",
       "default_csv_col_sep" => ",",
-      "cors_enabled" => true
+      "cors_enabled" => true,
+      "sms_gateway_service" => "MySMSGatewayService",
+      "timestamp_service" => "MyTimestampService",
+      "pdf_signature_service" => "MyPDFSignatureService"
     }
   end
 

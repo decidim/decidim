@@ -139,6 +139,37 @@ The next tables show all the default Env Vars available when running a default D
 |
 |*Yes*
 
+|SERVICE_SMS_GATEWAY
+|If you want to verify your users by sending a verification code via
+SMS you need to provide a SMS gateway service class.
+
+For an implementation example refer to: xref:configure:initializer.adoc[Decidim initializer file]
+|
+|No
+
+|SERVICE_TIMESTAMP
+|Used by `decidim-initiatives`.
+
+Provide a class to generate a timestamp for a document. The instances of
+this class are initialized with a hash containing the :document key with
+the document to be timestamped as value. The instances respond to a
+timestamp public method with the timestamp.
+
+For an implementation example refer to: xref:configure:initializer.adoc[Decidim initializer file]
+|
+|No
+|SERVICE_PDF_SIGNATURE
+|Used by `decidim-initiatives`.
+
+Provide a class to process a pdf and return the document including a
+digital signature. The instances of this class are initialized with a hash
+containing the :pdf key with the pdf file content as value. The instances
+respond to a signed_pdf method containing the pdf with the signature.
+
+For an implementation example refer to: xref:configure:initializer.adoc[Decidim initializer file]
+|
+|No
+
 |BULLETIN_BOARD_SERVER
 |The full URL to identify a https://github.com/decidim/decidim-bulletin-board[Bulletin Board Server]. *It must point to the Graphql API* (ie: https://bulletinexample.com/api) See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
 |

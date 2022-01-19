@@ -289,7 +289,7 @@ Used by `decidim-initiatives`.
 
 Provide a class to generate a timestamp for a document. The instances of
 this class are initialized with a hash containing the :document key with
-the document to be timestamped as value. The istances respond to a
+the document to be timestamped as value. The instances respond to a
 timestamp public method with the timestamp.
 
 An example class would be something like:

@@ -12,17 +12,17 @@ Decidim.configure do |config|
   # When an organization is created through the System area, system admins will
   # be able to choose the available languages for that organization. That list
   # of languages will be equal or a subset of the list in this file.
-  config.available_locales = Rails.application.secrets.decidim[:available_locales]
+  config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]
 
   # Sets the default locale for new organizations. When creating a new
   # organization from the System area, system admins will be able to overwrite
   # this value for that specific organization.
-  config.default_locale = Rails.application.secrets.decidim[:default_locale]
+  config.default_locale = Rails.application.secrets.decidim[:default_locale].presence || :en
 
   # Restrict access to the system part with an authorized ip list.
   # You can use a single ip like ("1.2.3.4"), or an ip subnet like ("1.2.3.4/24")
   # You may specify multiple ip in an array ["1.2.3.4", "1.2.3.4/24"]
-  config.system_accesslist_ips = Rails.application.secrets.decidim[:system_accesslist_ips]
+  config.system_accesslist_ips = Rails.application.secrets.decidim[:system_accesslist_ips] if Rails.application.secrets.decidim[:system_accesslist_ips].present?
 
   # Defines a list of custom content processors. They are used to parse and
   # render specific tags inside some user-provided content. Check the docs for
@@ -109,10 +109,10 @@ Decidim.configure do |config|
   # end
 
   # Currency unit
-  config.currency_unit = Rails.application.secrets.decidim[:currency_unit]
+  config.currency_unit = Rails.application.secrets.decidim[:currency_unit] if Rails.application.secrets.decidim[:currency_unit].present?
 
   # Workaround to enable SVG assets cors
-  config.cors_enabled = Rails.application.secrets.decidim[:cors_enabled]
+  config.cors_enabled = Rails.application.secrets.decidim[:cors_enabled].present?
 
   # Defines the quality of image uploads after processing. Image uploads are
   # processed by Decidim, this value helps reduce the size of the files.
@@ -122,7 +122,7 @@ Decidim.configure do |config|
   config.maximum_avatar_size = Rails.application.secrets.decidim[:maximum_avatar_size].to_i.megabytes
 
   # The number of reports which a resource can receive before hiding it
-  config.max_reports_before_hiding = Rails.application.secrets.decidim[:max_reports_before_hiding]
+  config.max_reports_before_hiding = Rails.application.secrets.decidim[:max_reports_before_hiding].to_i
 
   # Custom HTML Header snippets
   #
@@ -137,7 +137,7 @@ Decidim.configure do |config|
   # that an organization's administrator injects malicious scripts to spy on or
   # take over user accounts.
   #
-  config.enable_html_header_snippets = Rails.application.secrets.decidim[:enable_html_header_snippets]
+  config.enable_html_header_snippets = Rails.application.secrets.decidim[:enable_html_header_snippets].present?
 
   # Allow organizations admins to track newsletter links.
   config.track_newsletter_links = Rails.application.secrets.decidim[:track_newsletter_links].present? unless Rails.application.secrets.decidim[:track_newsletter_links] == "auto"
@@ -146,7 +146,7 @@ Decidim.configure do |config|
   config.data_portability_expiry_time = Rails.application.secrets.decidim[:data_portability_expiry_time].to_i.days
 
   # Max requests in a time period to prevent DoS attacks. Only applied on production.
-  config.throttling_max_requests = Rails.application.secrets.decidim[:throttling_max_requests]
+  config.throttling_max_requests = Rails.application.secrets.decidim[:throttling_max_requests].to_i
 
   # Time window in which the throttling is applied.
   config.throttling_period = Rails.application.secrets.decidim[:throttling_period].to_i.minutes
@@ -160,7 +160,7 @@ Decidim.configure do |config|
   # environments, but in different folders.
   #
   # If not set, it will be ignored.
-  config.base_uploads_path = Rails.application.secrets.decidim[:base_uploads_path]
+  config.base_uploads_path = Rails.application.secrets.decidim[:base_uploads_path] if Rails.application.secrets.decidim[:base_uploads_path].present?
 
   # SMS gateway configuration
   #
@@ -182,7 +182,8 @@ Decidim.configure do |config|
   #     true
   #   end
   # end
-  #
+  config.sms_gateway_service = Rails.application.secrets.services[:sms_gateway] if Rails.application.secrets.decidim[:sms_gateway].present?
+  # or manually force it to some value:
   # config.sms_gateway_service = "MySMSGatewayService"
 
   # Timestamp service configuration
@@ -207,6 +208,8 @@ Decidim.configure do |config|
   #   end
   # end
   #
+  config.timestamp_service = Rails.application.secrets.services[:timestamp] if Rails.application.secrets.decidim[:timestamp].present?
+  # or manually force it to some value:
   # config.timestamp_service = "MyTimestampService"
 
   # PDF signature service configuration
@@ -229,7 +232,8 @@ Decidim.configure do |config|
   #     # Code to return the pdf signed
   #   end
   # end
-  #
+  config.pdf_signature_service = Rails.application.secrets.services[:pdf_signature] if Rails.application.secrets.decidim[:pdf_signature].present?
+  # or manually force it to some value:
   # config.pdf_signature_service = "MyPDFSignatureService"
 
   # Etherpad configuration
@@ -244,7 +248,7 @@ Decidim.configure do |config|
   # }
 
   # Sets Decidim::Exporters::CSV's default column separator
-  config.default_csv_col_sep = Rails.application.secrets.decidim[:default_csv_col_sep]
+  config.default_csv_col_sep = Rails.application.secrets.decidim[:default_csv_col_sep] if Rails.application.secrets.decidim[:default_csv_col_sep].present?
 
   # The list of roles a user can have, not considering the space-specific roles.
   # config.user_roles = %w(admin user_manager)
