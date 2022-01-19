@@ -267,15 +267,15 @@ Decidim.register_component(:proposals) do |component|
         proposal = Decidim::Proposals::Proposal.new(params)
 
         proposal.add_coauthor(participatory_space.organization)
-        
+
         coauthor = case n
                    when 0
-                    Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).order(Arel.sql('RANDOM()')).first
+                     Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).order(Arel.sql("RANDOM()")).first
 
                    when 1
-                    Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).order(Arel.sql('RANDOM()')).first
+                     Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).order(Arel.sql("RANDOM()")).first
                    when 2
-                    Decidim::Meetings::Meeting.where(component: component).order(Arel.sql('RANDOM()')).first
+                     Decidim::Meetings::Meeting.where(component: component).order(Arel.sql("RANDOM()")).first
                    else
                      participatory_space.organization
         end
