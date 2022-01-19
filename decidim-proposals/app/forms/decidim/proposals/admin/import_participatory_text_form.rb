@@ -8,7 +8,7 @@ module Decidim
       class ImportParticipatoryTextForm < Decidim::Form
         include TranslatableAttributes
         include Decidim::HasUploadValidations
-        include Decidim::HasFileBlob
+        include Decidim::HasBlobFile
 
         # WARNING: consider adding/removing the relative translation key at
         # decidim.assemblies.admin.new_import.accepted_types when modifying this hash

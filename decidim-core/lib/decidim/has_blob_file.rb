@@ -3,7 +3,7 @@
 require "active_support/concern"
 
 module Decidim
-  module HasFileBlob
+  module HasBlobFile
     extend ActiveSupport::Concern
 
     def blob

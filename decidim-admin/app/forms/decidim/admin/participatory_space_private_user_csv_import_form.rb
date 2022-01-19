@@ -8,7 +8,7 @@ module Decidim
     #
     class ParticipatorySpacePrivateUserCsvImportForm < Form
       include Decidim::HasUploadValidations
-      include Decidim::HasFileBlob
+      include Decidim::HasBlobFile
 
       attribute :file
       attribute :user_name, String

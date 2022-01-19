@@ -96,7 +96,7 @@ module Decidim
   autoload :RecordEncryptor, "decidim/record_encryptor"
   autoload :AttachmentAttributes, "decidim/attachment_attributes"
   autoload :CarrierWaveMigratorService, "decidim/carrier_wave_migrator_service"
-  autoload :HasFileBlob, "decidim/has_file_blob"
+  autoload :HasBlobFile, "decidim/has_blob_file"
   autoload :CommonPasswords, "decidim/common_passwords"
   autoload :AttributeObject, "decidim/attribute_object"
 
