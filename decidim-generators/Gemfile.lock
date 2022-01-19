@@ -138,6 +138,7 @@ PATH
       system_test_html_screenshots (~> 0.2)
       w3c_rspec_validators (~> 0.3.0)
       webmock (~> 3.6)
+      webpush (~> 1.1)
       wisper-rspec (~> 1.0)
     decidim-elections (0.27.0.dev)
       decidim-bulletin_board (= 0.22.3)
@@ -466,6 +467,7 @@ GEM
     hashdiff (1.0.1)
     hashie (5.0.0)
     highline (2.0.3)
+    hkdf (0.3.0)
     html-pipeline (2.14.0)
       activesupport (>= 2)
       nokogiri (>= 1.4)
@@ -815,6 +817,9 @@ GEM
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
       semantic_range (>= 2.3.0)
+    webpush (1.1.0)
+      hkdf (~> 0.2)
+      jwt (~> 2.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -856,4 +861,4 @@ RUBY VERSION
    ruby 2.7.5p203
 
 BUNDLED WITH
-   2.2.19
+   2.2.31
