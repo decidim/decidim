@@ -12,6 +12,7 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
           return broadcast(:invalid) unless voting_enabled?
+          return broadcast(:invalid) if voting_ends_soon?
 
           generator.generate_for(current_component, &alternative_refresh_state)
 
@@ -54,6 +55,10 @@ module Decidim
 
         def voting_enabled?
           form.voting_enabled?
+        end
+
+        def voting_ends_soon?
+          form.voting_ends_soon?
         end
       end
     end

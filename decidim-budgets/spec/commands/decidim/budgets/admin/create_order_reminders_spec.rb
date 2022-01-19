@@ -10,11 +10,13 @@ describe Decidim::Budgets::Admin::CreateOrderReminders do
       Decidim::Budgets::Admin::OrderReminderForm,
       invalid?: false,
       voting_enabled?: voting_enabled,
+      voting_ends_soon?: voting_ends_soon,
       current_component: component,
       minimum_interval_between_reminders: minimum_interval
     )
   end
   let(:voting_enabled) { true }
+  let(:voting_ends_soon) { false }
   let(:minimum_interval) { 24.hours }
   let(:organization) { create(:organization) }
   let(:component) { create(:component, organization: organization, manifest_name: "budgets") }

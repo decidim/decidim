@@ -13,8 +13,45 @@ describe Decidim::Budgets::Admin::OrderReminderForm do
     }
   end
   let(:organization) { create(:organization) }
-  let(:component) { create(:component, organization: organization, manifest_name: "budgets") }
+  let(:participatory_process) { create(:participatory_process, organization: organization) }
+  let(:component) { create(:component, participatory_space: participatory_process, manifest_name: "budgets") }
   let(:budget) { create(:budget, component: component) }
+
+  context "when voting is ending today" do
+    let!(:step1) do
+      create(:participatory_process_step,
+             active: true,
+             end_date: Time.zone.now.to_date,
+             participatory_process: participatory_process)
+    end
+    let!(:step2) do
+      create(:participatory_process_step,
+             active: false,
+             end_date: 1.month.from_now.to_date,
+             participatory_process: participatory_process)
+    end
+
+    before do
+      participatory_process.reload
+      participatory_process.steps.reload
+    end
+
+    context "and there are 5 hours left in the day" do
+      before { allow(Time.zone).to receive(:now).and_return(Time.zone.now.end_of_day - 5.hours) }
+
+      it "voting_ends_soon? returns true" do
+        expect(subject.voting_ends_soon?).to eq(true)
+      end
+    end
+
+    context "and there are 10 hours left in the day" do
+      before { allow(Time.zone).to receive(:now).and_return(Time.zone.now.end_of_day - 10.hours) }
+
+      it "voting_ends_soon? returns false" do
+        expect(subject.voting_ends_soon?).to eq(false)
+      end
+    end
+  end
 
   describe "#reminder_amount" do
     context "when there is new order" do
