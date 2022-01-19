@@ -2,7 +2,6 @@
 
 require "webpush"
 require "decidim/generators/app_generator"
-require "webpush"
 
 namespace :decidim do
   def generate_decidim_app(*options)
