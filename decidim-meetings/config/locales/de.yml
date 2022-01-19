@@ -509,6 +509,11 @@ de:
             official_meeting: Offizielle Besprechung
             start_time: Anfangsdatum
             title: Titel
+      polls:
+        questions:
+          published_question:
+            question: Frage
+            question_replied: Frage beantwortet
       read_more: "(Weiterlesen)"
       registration_mailer:
         confirmation:
