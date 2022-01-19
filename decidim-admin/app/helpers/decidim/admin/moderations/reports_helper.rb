@@ -14,13 +14,14 @@ module Decidim
           reportable_authors = reportable.try(:authors) || [reportable.try(:normalized_author)]
           content_tag :ul, class: "reportable-authors" do
             reportable_authors.select(&:present?).map do |author|
-              if author.is_a? User
+              case author
+              when User
                 content_tag :li do
                   link_to current_or_new_conversation_path_with(author), target: "_blank", rel: "noopener" do
                     "#{author.name} #{icon "envelope-closed"}".html_safe
                   end
                 end
-              elsif author.is_a? Decidim::Meetings::Meeting
+              when Decidim::Meetings::Meeting
                 content_tag :li do
                   link_to resource_locator(author).path, target: "_blank", rel: "noopener" do
                     translated_attribute(author.title)
