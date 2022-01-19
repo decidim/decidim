@@ -172,6 +172,10 @@ module Decidim
       return attachment.blob if attachment.respond_to? :blob
     end
 
+    def form_object_class
+      form.object.class.to_s
+    end
+
     def modal_id
       @modal_id ||= "attachments_#{SecureRandom.uuid}"
     end

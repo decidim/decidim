@@ -9,6 +9,8 @@ module Capybara
     def dynamically_attach_file(value, file_location, options = {})
       find("##{value}").click
 
+      yield if block_given?
+
       within ".attachment-modal" do
         find(".remove-upload-item").click if options[:remove_before]
         input_element = find("input[type='file']", visible: :all)

@@ -50,11 +50,12 @@ export class Uploader {
       if (this.modal.options.titled) {
         attribute = "file"
       }
-
+      console.log("this.modal.options.formObjectClass", this.modal.options.formObjectClass);
       const params = new URLSearchParams({
         resource: this.modal.options.resourceClass,
         property: attribute,
-        blob: blobId
+        blob: blobId,
+        klass: this.modal.options.formObjectClass
       });
 
       fetch(`/upload_validations?${params.toString()}`, {

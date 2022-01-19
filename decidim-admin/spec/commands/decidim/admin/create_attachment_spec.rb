@@ -24,12 +24,7 @@ module Decidim::Admin
         weight: 0
       )
     end
-    let(:file) do
-      Rack::Test::UploadedFile.new(
-        Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-        "image/jpeg"
-      )
-    end
+    let(:file) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
     let(:attached_to) { create(:participatory_process) }
 
     describe "when valid" do

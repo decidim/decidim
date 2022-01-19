@@ -11,7 +11,8 @@ export default class UploadModal {
       optional: button.dataset.optional === "true",
       multiple: button.dataset.multiple === "true",
       titled: button.dataset.titled === "true",
-      maxFileSize: button.dataset.maxFileSize
+      maxFileSize: button.dataset.maxFileSize,
+      formObjectClass: button.dataset.formObjectClass
     }, options)
     this.name = this.button.name;
     this.modal = document.querySelector(`#${button.dataset.open}`);
