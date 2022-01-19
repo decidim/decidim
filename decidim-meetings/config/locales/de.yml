@@ -404,6 +404,9 @@ de:
       meetings:
         calendar_modal:
           add_to_calendar: Zum Kalender hinzufügen
+          apple: Zu Apple Kalender hinzufügen
+          close_window: Fenster schließen
+          full_details_html: Für alle Details gehen Sie zu %{link}
         count:
           meetings_count:
             one: "%{count} Besprechung"
@@ -515,6 +518,11 @@ de:
             official_meeting: Offizielle Besprechung
             start_time: Anfangsdatum
             title: Titel
+      polls:
+        questions:
+          published_question:
+            question: Frage
+            question_replied: Frage beantwortet
       read_more: "(Weiterlesen)"
       registration_mailer:
         confirmation:
@@ -544,6 +552,8 @@ de:
         transparent: Transparent
       versions:
         back_to_resource: Zurück zur Besprechung
+      withdraw:
+        success: Das Meeting wurde erfolgreich zurückgezogen
     metrics:
       meetings:
         description: Anzahl der erstellten Meetings
