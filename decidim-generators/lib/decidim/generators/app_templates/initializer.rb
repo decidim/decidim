@@ -30,7 +30,10 @@ Decidim.configure do |config|
   # config.content_processors = []
 
   # Whether SSL should be enabled or not.
-  config.force_ssl = Rails.application.secrets.decidim[:force_ssl]
+  # if this var is not defined, it is decided automatically per-rails-environment
+  config.force_ssl = Rails.application.secrets.decidim[:force_ssl].present? unless Rails.application.secrets.decidim[:force_ssl] == "auto"
+  # or set it up manually and prevent any ENV manipulation:
+  # config.force_ssl = true
 
   # Map and Geocoder configuration
   #
@@ -108,9 +111,15 @@ Decidim.configure do |config|
   # Currency unit
   config.currency_unit = Rails.application.secrets.decidim[:currency_unit]
 
+  # Workaround to enable SVG assets cors
+  config.cors_enabled = Rails.application.secrets.decidim[:cors_enabled]
+
   # Defines the quality of image uploads after processing. Image uploads are
   # processed by Decidim, this value helps reduce the size of the files.
-  config.image_uploader_quality = Rails.application.secrets.decidim[:image_uploader_quality]
+  config.image_uploader_quality = Rails.application.secrets.decidim[:image_uploader_quality].to_i
+
+  config.maximum_attachment_size = Rails.application.secrets.decidim[:maximum_attachment_size].to_i.megabytes
+  config.maximum_avatar_size = Rails.application.secrets.decidim[:maximum_avatar_size].to_i.megabytes
 
   # The number of reports which a resource can receive before hiding it
   config.max_reports_before_hiding = Rails.application.secrets.decidim[:max_reports_before_hiding]
@@ -131,7 +140,7 @@ Decidim.configure do |config|
   config.enable_html_header_snippets = Rails.application.secrets.decidim[:enable_html_header_snippets]
 
   # Allow organizations admins to track newsletter links.
-  config.track_newsletter_links = Rails.application.secrets.decidim[:track_newsletter_links]
+  config.track_newsletter_links = Rails.application.secrets.decidim[:track_newsletter_links].present? unless Rails.application.secrets.decidim[:track_newsletter_links] == "auto"
 
   # Amount of time that the data portability files will be available in the server.
   config.data_portability_expiry_time = Rails.application.secrets.decidim[:data_portability_expiry_time].to_i.days
@@ -235,7 +244,7 @@ Decidim.configure do |config|
   # }
 
   # Sets Decidim::Exporters::CSV's default column separator
-  # config.default_csv_col_sep = ";"
+  config.default_csv_col_sep = Rails.application.secrets.decidim[:default_csv_col_sep]
 
   # The list of roles a user can have, not considering the space-specific roles.
   # config.user_roles = %w(admin user_manager)

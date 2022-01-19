@@ -2,7 +2,7 @@
 
 There are some settings that you'll need to change in the `config/initializer/decidim.rb` file.
 
-This is where you can change the behaviour defined on the diferent components (most notably from `decidim-core`).
+This is where you can change the behaviour defined on the different components (most notably from `decidim-core`).
 
 After making changes to this file you'll need to also restart your application server.
 
@@ -155,7 +155,7 @@ Mind that this depends on your environment, for instance you could also need to 
 
 === User avatar file size
 
-  # The maximum file size for a user avatar
+The maximum file size for a user avatar
 
 Mind that this depends on your environment, for instance you could also need to change your web server configuration (nginx, apache, etc).
 

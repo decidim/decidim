@@ -46,9 +46,36 @@ shared_examples_for "a new development application" do
 end
 
 shared_examples_for "an application with configurable env vars" do
+  # ensure that empty env behave like non-defined envs
   let(:env_off) do
     {
-      "RAILS_ENV" => "production"
+      "RAILS_ENV" => "production",
+      "OMNIAUTH_FACEBOOK_APP_ID" => "",
+      "OMNIAUTH_FACEBOOK_APP_SECRET" => "",
+      "OMNIAUTH_TWITTER_API_KEY" => "",
+      "OMNIAUTH_TWITTER_API_SECRET" => "",
+      "OMNIAUTH_GOOGLE_CLIENT_ID" => "",
+      "OMNIAUTH_GOOGLE_CLIENT_SECRET" => "",
+      "MAPS_API_KEY" => "",
+      "ETHERPAD_SERVER" => "",
+      "ETHERPAD_API_KEY" => "",
+      "DECIDIM_APPLICATION_NAME" => "",
+      "DECIDIM_MAILER_SENDER" => "",
+      "DECIDIM_AVAILABLE_LOCALES" => "",
+      "DECIDIM_DEFAULT_LOCALE" => "",
+      "DECIDIM_ENABLE_HTML_HEADER_SNIPPETS" => "",
+      "DECIDIM_CURRENCY_UNIT" => "",
+      "DECIDIM_IMAGE_UPLOADER_QUALITY" => "",
+      "DECIDIM_MAXIMUM_ATTACHMENT_SIZE" => "",
+      "DECIDIM_MAXIMUM_AVATAR_SIZE" => "",
+      "DECIDIM_MAX_REPORTS_BEFORE_HIDING" => "",
+      "DECIDIM_THROTTLING_MAX_REQUESTS" => "",
+      "DECIDIM_THROTTLING_PERIOD" => "",
+      "DECIDIM_UNCONFIRMED_ACCESS_FOR" => "",
+      "DECIDIM_SYSTEM_ACCESSLIST_IPS" => "",
+      "DECIDIM_BASE_UPLOADS_PATH" => "",
+      "DECIDIM_DEFAULT_CSV_COL_SEP" => "",
+      "DECIDIM_CORS_ENABLED" => ""
     }
   end
 
@@ -84,10 +111,12 @@ shared_examples_for "an application with configurable env vars" do
       "DECIDIM_MAILER_SENDER" => "noreply@example.org",
       "DECIDIM_AVAILABLE_LOCALES" => "de, fr, zh-CN",
       "DECIDIM_DEFAULT_LOCALE" => "zh-CN",
-      "DECIDIM_DISABLE_SSL" => "true",
+      "DECIDIM_FORCE_SSL" => "false",
       "DECIDIM_ENABLE_HTML_HEADER_SNIPPETS" => "true",
       "DECIDIM_CURRENCY_UNIT" => "$",
       "DECIDIM_IMAGE_UPLOADER_QUALITY" => "91",
+      "DECIDIM_MAXIMUM_ATTACHMENT_SIZE" => "25",
+      "DECIDIM_MAXIMUM_AVATAR_SIZE" => "11",
       "DECIDIM_MAX_REPORTS_BEFORE_HIDING" => "4",
       "DECIDIM_TRACK_NEWSLETTER_LINKS" => "",
       "DECIDIM_DATA_PORTABILITY_EXPIRY_TIME" => "2",
@@ -95,7 +124,9 @@ shared_examples_for "an application with configurable env vars" do
       "DECIDIM_THROTTLING_PERIOD" => "2",
       "DECIDIM_UNCONFIRMED_ACCESS_FOR" => "3",
       "DECIDIM_SYSTEM_ACCESSLIST_IPS" => "120.0.0.1,172.26.0.1/24",
-      "DECIDIM_BASE_UPLOADS_PATH" => "some-path/"
+      "DECIDIM_BASE_UPLOADS_PATH" => "some-path/",
+      "DECIDIM_DEFAULT_CSV_COL_SEP" => ",",
+      "DECIDIM_CORS_ENABLED" => "true"
     }
   end
 
@@ -108,18 +139,22 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim mailer_sender) => "change-me@example.org",
       %w(decidim available_locales) => %w(en ca es),
       %w(decidim default_locale) => "en",
-      %w(decidim force_ssl) => true,
+      %w(decidim force_ssl) => "auto",
       %w(decidim enable_html_header_snippets) => false,
       %w(decidim currency_unit) => "€",
       %w(decidim image_uploader_quality) => 80,
+      %w(decidim maximum_attachment_size) => 10,
+      %w(decidim maximum_avatar_size) => 5,
       %w(decidim max_reports_before_hiding) => 3,
-      %w(decidim track_newsletter_links) => true,
+      %w(decidim track_newsletter_links) => "auto",
       %w(decidim data_portability_expiry_time) => 7,
       %w(decidim throttling_max_requests) => 100,
       %w(decidim throttling_period) => 1,
-      %w(decidim unconfirmed_access_for) => 2,
+      %w(decidim unconfirmed_access_for) => 0,
       %w(decidim system_accesslist_ips) => [],
-      %w(decidim base_uploads_path) => nil
+      %w(decidim base_uploads_path) => nil,
+      %w(decidim default_csv_col_sep) => ";",
+      %w(decidim cors_enabled) => false
     }
   end
 
@@ -161,6 +196,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim enable_html_header_snippets) => true,
       %w(decidim currency_unit) => "$",
       %w(decidim image_uploader_quality) => 91,
+      %w(decidim maximum_attachment_size) => 25,
+      %w(decidim maximum_avatar_size) => 11,
       %w(decidim max_reports_before_hiding) => 4,
       %w(decidim track_newsletter_links) => false,
       %w(decidim data_portability_expiry_time) => 2,
@@ -168,7 +205,9 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim throttling_period) => 2,
       %w(decidim unconfirmed_access_for) => 3,
       %w(decidim system_accesslist_ips) => ["120.0.0.1", "172.26.0.1/24"],
-      %w(decidim base_uploads_path) => "some-path/"
+      %w(decidim base_uploads_path) => "some-path/",
+      %w(decidim default_csv_col_sep) => ",",
+      %w(decidim cors_enabled) => true
     }
   end
 
@@ -182,14 +221,18 @@ shared_examples_for "an application with configurable env vars" do
       "enable_html_header_snippets" => false,
       "currency_unit" => "€",
       "image_uploader_quality" => 80,
+      "maximum_attachment_size" => 10_485_760, # 10 megabytes
+      "decidim maximum_avatar_size" => 5_242_880, # 5 megabytes
       "max_reports_before_hiding" => 3,
       "track_newsletter_links" => true,
       "data_portability_expiry_time" => 604_800, # 7 days,
       "throttling_max_requests" => 100,
       "throttling_period" => 60, # 1 minute
-      "unconfirmed_access_for" => 172_800, # 2 days
+      "unconfirmed_access_for" => 0,
       "system_accesslist_ips" => [],
-      "base_uploads_path" => nil
+      "base_uploads_path" => nil,
+      "default_csv_col_sep" => ";",
+      "cors_enabled" => false
     }
   end
 
@@ -203,6 +246,8 @@ shared_examples_for "an application with configurable env vars" do
       "enable_html_header_snippets" => true,
       "currency_unit" => "$",
       "image_uploader_quality" => 91,
+      "maximum_attachment_size" => 26_214_400, # 25 megabytes
+      "decidim maximum_avatar_size" => 11_534_336, # 11 megabytes
       "max_reports_before_hiding" => 4,
       "track_newsletter_links" => false,
       "data_portability_expiry_time" => 172_800, # 2 days
@@ -210,7 +255,9 @@ shared_examples_for "an application with configurable env vars" do
       "throttling_period" => 120, # 2 minutes
       "unconfirmed_access_for" => 259_200, # 3 days
       "system_accesslist_ips" => ["120.0.0.1", "172.26.0.1/24"],
-      "base_uploads_path" => "some-path/"
+      "base_uploads_path" => "some-path/",
+      "default_csv_col_sep" => ",",
+      "cors_enabled" => true
     }
   end
 
@@ -220,25 +267,25 @@ shared_examples_for "an application with configurable env vars" do
     json_off = json_secrets_for(test_app, env_off)
     secrets_off.each do |keys, value|
       current = json_off.dig(*keys)
-      expect(current).to eq(value), "Secret #{keys} = [#{current}] expected to match Env OFF [#{value}]"
+      expect(current).to eq(value), "Secret #{keys} = (#{current}) expected to match Env OFF (#{value})"
     end
 
     json_on = json_secrets_for(test_app, env_on)
     secrets_on.each do |keys, value|
       current = json_on.dig(*keys)
-      expect(current).to eq(value), "Secret #{keys} = [#{current}] expected to match Env ON [#{value}]"
+      expect(current).to eq(value), "Secret #{keys} = (#{current}) expected to match Env ON (#{value})"
     end
 
     json_off = initializer_config_for(test_app, env_off)
     initializer_off.each do |key, value|
       current = json_off[key]
-      expect(current).to eq(value), "Initializer [#{key}] = [#{current}] expected to match Env OFF [#{value}]"
+      expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env OFF (#{value})"
     end
 
     json_on = initializer_config_for(test_app, env_on)
     initializer_on.each do |key, value|
       current = json_on[key]
-      expect(current).to eq(value), "Initializer [#{key}] = [#{current}] expected to match Env ON [#{value}]"
+      expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env ON (#{value})"
     end
   end
 end

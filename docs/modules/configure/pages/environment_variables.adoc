@@ -181,7 +181,7 @@ The next tables show all the default Env Vars available when running a default D
 
 |===
 
-.Additional oOptional Decidim Env Vars for the setting up the application
+.Additional Optional Decidim Env Vars for the setting up the application
 |===
 |Name |Value |Default value|Multitenant's System configurable
 
@@ -195,9 +195,16 @@ The next tables show all the default Env Vars available when running a default D
 |en
 |*Yes*
 
-|DECIDIM_DISABLE_SSL
-|By default, Decidim enforces a SSL connection (https), sometimes it is necessary to disable it in order to handle this through a proxy system (note that use Decidim without SSL at all is NOT RECOMMENDED). Set this var to `true` in order to not force SSL.
-|
+|DECIDIM_FORCE_SSL
+|By default, Decidim enforces a SSL connection (https), sometimes it is necessary to disable it in order to handle this through a proxy system (note that use Decidim without SSL at all is NOT RECOMMENDED). This value can take 3 values:
+
+`auto`: Will be `true` for Rails Production or Staging environments and `false` for development or test. If undefined, defaults to this value.
+
+`true`: Will redirect to HTTPS always
+
+`false`: Won't redirect to HTTPS
+
+|auto
 |No
 
 |DECIDIM_ENABLE_HTML_HEADER_SNIPPETS
@@ -221,10 +228,29 @@ take over user accounts.
 |€
 |No
 
+|DECIDIM_CORS_ENABLED
+|The SVG do not support CORS. When using custom asset host different than root url, set this value to `true`, in order to activate the available workaround.
+|false
+|No
+
 |DECIDIM_IMAGE_UPLOADER_QUALITY
 |Defines the quality of image uploads after processing. Image uploads are processed by Decidim, this value helps reduce the size of the files.
 |80
 |No
+
+|DECIDIM_MAXIMUM_ATTACHMENT_SIZE
+|The maximum file size of an attachment (in Megabytes).
+
+Mind that this depends on your environment, for instance you could also need to change your web server configuration (nginx, apache, etc).
+|10
+|*Yes*
+
+|DECIDIM_MAXIMUM_AVATAR_SIZE
+|The maximum file size for a user avatar (in Megabytes).
+
+Mind that this depends on your environment, for instance you could also need to change your web server configuration (nginx, apache, etc).
+|5
+|*Yes*
 
 |DECIDIM_MAX_REPORTS_BEFORE_HIDING
 |The number of reports which a resource can receive before hiding it. This affects moderations for resources such as proposals or users.
@@ -232,7 +258,7 @@ take over user accounts.
 |No
 
 |DECIDIM_TRACK_NEWSLETTER_LINKS
-|Allow organizations admins to track newsletter links, trough UTMs. See https://en.wikipedia.org/wiki/UTM_parameters[UTM parameters in Wikipedia]. *Leave it empty or undefined in order to NOT TO TRACK*.
+|Allow organizations admins to track newsletter links, trough UTMs. See https://en.wikipedia.org/wiki/UTM_parameters[UTM parameters in Wikipedia]. Set it to `true` or `false`, if undefined defaults to `true`.
 |true
 |No
 
@@ -253,20 +279,35 @@ take over user accounts.
 
 |DECIDIM_UNCONFIRMED_ACCESS_FOR
 |Time window (in number of days) were users can access the website even if their email is not confirmed.
-|2
+|0
 |No
 
 |DECIDIM_SYSTEM_ACCESSLIST_IPS
 |For extra security, restrict access to the system part with an authorized ip list.
+
 You can use a single ip like `1.2.3.4`, or an ip subnet like `1.2.3.4/24`
 You may specify multiple ip in an array, separating by commas, such as `1.2.3.4, 1.2.3.4/24`
-
 |
+|No
+
+|DECIDIM_BASE_UPLOADS_PATH
+|A base path for the uploads. If set, make sure it ends in a slash.
+Uploads will be set to `<base_path>/uploads/`. This can be useful if you
+want to use the same uploads place for both staging and production
+environments, but in different folders.
+
+If not set, it will be ignored.
+|
+|No
+
+|DECIDIM_DEFAULT_CSV_COL_SEP
+|Sets Decidim::Exporters::CSV's default column separator. This is used in general in any process that generate CSV files.
+|;
 |No
 
 |===
 
-.Additional Rails Env Vars
+.Optional Env Vars for extra Rails configuration
 |===
 |Name |Value |Default value|Multitenant's System configurable
 
