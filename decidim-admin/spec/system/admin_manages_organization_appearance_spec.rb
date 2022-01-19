@@ -52,6 +52,8 @@ describe "Admin manages organization", type: :system do
       dynamically_attach_file(:official_img_header, Decidim::Dev.asset("city2.jpeg"), remove_before: true)
       dynamically_attach_file(:official_img_footer, Decidim::Dev.asset("city3.jpeg"), remove_before: true)
 
+      fill_in :organization_theme_color, with: "#a0a0a0"
+
       click_button "Update"
 
       expect(page).to have_content("updated successfully")
@@ -59,6 +61,19 @@ describe "Admin manages organization", type: :system do
       within "#minimap" do
         expect(page.all("img").count).to eq(4)
       end
+    end
+
+    it "updates the value of the theme-color meta tag" do
+      color = "#a0a0a0"
+
+      visit decidim_admin.edit_organization_appearance_path
+
+      fill_in :organization_theme_color, with: color
+      click_button "Update"
+      visit decidim.root_path
+      meta_tag = page.find 'meta[name="theme-color"]', visible: false
+
+      expect(meta_tag[:content]).to eq(color)
     end
   end
 end

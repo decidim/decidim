@@ -10,7 +10,6 @@ module Decidim
       attribute :body, String
       attribute :choices, Array[AnswerChoiceForm]
       attribute :current_user, Decidim::User
-      attribute :answer, Decidim::Meetings::Answer
 
       validates :selected_choices, presence: true
       validate :max_choices, if: -> { question.max_choices }

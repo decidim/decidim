@@ -9,7 +9,7 @@ module Decidim
       end
 
       def query
-        Decidim::ParticipatoryProcess.where(participatory_process_group: @group)
+        Decidim::ParticipatoryProcess.where(participatory_process_group: @group).order(weight: :asc)
       end
     end
   end

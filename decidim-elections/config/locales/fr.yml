@@ -721,6 +721,16 @@ fr:
               promoted: Mise en avant
               published: Publié
               title: Titre
+        monitoring_committee_members:
+          form:
+            select_user: Recherche par nom, email ou pseudo
+            user_type: Type de participant
+        polling_officers:
+          form:
+            existing_user: Participant existant
+            non_user: Inviter un nouveau participant
+            select_user: Recherche par nom, email ou pseudo
+            user_type: Type du participant
         polling_stations:
           create:
             invalid: Une erreur est survenue lors de la création de ce bureau de vote

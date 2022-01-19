@@ -30,7 +30,7 @@ module Decidim
         return if Decidim.etherpad.blank?
         return unless component.settings.enable_pads_creation
 
-        @pad ||= etherpad.pad(pad_id)
+        @pad ||= ::Decidim::Etherpad::Pad.new(pad_id)
       end
 
       # Public: Whether to show the pad or not.
@@ -54,14 +54,6 @@ module Decidim
       end
 
       private
-
-      def etherpad
-        @etherpad ||= EtherpadLite.connect(
-          Decidim.etherpad.fetch(:server),
-          Decidim.etherpad.fetch(:api_key),
-          Decidim.etherpad.fetch(:api_version, "1.2.1")
-        )
-      end
 
       def pad_id
         @pad_id ||= [reference, token].join("-").slice(0, 50)

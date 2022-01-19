@@ -1,4 +1,5 @@
 import attachGeocoding from "src/decidim/geocoding/attach_input"
+import createFieldDependentInputs from "src/decidim/admin/field_dependent_inputs.component"
 
 $(() => {
   // Adds the latitude/longitude inputs after the geocoding is done
@@ -12,6 +13,7 @@ $(() => {
     const $meetingTypeOfMeeting = $form.find("#meeting_type_of_meeting");
     const $meetingOnlineFields = $form.find(".field[data-meeting-type='online']");
     const $meetingInPersonFields = $form.find(".field[data-meeting-type='in_person']");
+    const $meetingOnlineAccessLevelFields = $form.find(".field[data-meeting-type='online-access-level']");
 
     const toggleDependsOnSelect = ($target, $showDiv, type) => {
       const value = $target.val();
@@ -27,8 +29,15 @@ $(() => {
 
     $meetingTypeOfMeeting.on("change", (ev) => {
       const $target = $(ev.target);
+      const embedTypeValue = $("#meeting_iframe_embed_type").val();
+
       toggleDependsOnSelect($target, $meetingOnlineFields, "online");
       toggleDependsOnSelect($target, $meetingInPersonFields, "in_person");
+      if (embedTypeValue === "none") {
+        $meetingOnlineAccessLevelFields.hide();
+      } else {
+        toggleDependsOnSelect($target, $meetingOnlineAccessLevelFields, "online");
+      }
     });
 
     toggleDependsOnSelect($meetingTypeOfMeeting, $meetingOnlineFields, "online");
@@ -50,5 +59,15 @@ $(() => {
     toggleDependsOnSelect($meetingRegistrationType, $meetingAvailableSlots, "on_this_platform");
     toggleDependsOnSelect($meetingRegistrationType, $meetingRegistrationTerms, "on_this_platform");
     toggleDependsOnSelect($meetingRegistrationType, $meetingRegistrationUrl, "on_different_platform");
+
+    createFieldDependentInputs({
+      controllerField: $("#meeting_iframe_embed_type"),
+      wrapperSelector: ".iframe-fields",
+      dependentFieldsSelector: ".iframe-fields--access-level",
+      dependentInputSelector: "input",
+      enablingCondition: ($field) => {
+        return $field.val() !== "none"
+      }
+    });
   }
 });

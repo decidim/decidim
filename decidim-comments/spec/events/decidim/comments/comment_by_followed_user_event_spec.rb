@@ -11,6 +11,9 @@ module Decidim
       let(:event_name) { "decidim.events.comments.comment_by_followed_user" }
 
       it_behaves_like "a comment event"
+      it_behaves_like "a translated comment event" do
+        let(:translatable) { true }
+      end
 
       describe "email_subject" do
         it "is generated correctly" do
@@ -37,7 +40,7 @@ module Decidim
           expect(subject.notification_title)
             .to start_with("There is a new comment by <a href=\"#{author_path}\">#{author_name} #{author_nickname}</a> in")
           expect(subject.notification_title)
-            .to end_with("<a href=\"#{resource_path}#comment_#{comment.id}\">#{resource_title}</a>.")
+            .to end_with("<a href=\"#{resource_path}?commentId=#{comment.id}#comment_#{comment.id}\">#{resource_title}</a>.")
         end
       end
     end

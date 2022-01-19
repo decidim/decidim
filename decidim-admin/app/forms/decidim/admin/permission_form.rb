@@ -4,15 +4,21 @@ module Decidim
   module Admin
     # This form handles permissions for a particular action in the admin panel.
     class PermissionForm < Form
-      attribute :authorization_handlers, Hash
-      attribute :authorization_handlers_options, Hash
+      attribute :authorization_handlers, Array[String]
+      attribute :authorization_handlers_options, Hash[String => Object]
+
+      def authorization_handlers
+        handlers = super || []
+
+        handlers.index_with { |name| { "options" => authorization_handler_options(name) } }
+      end
 
       def authorization_handlers_names
         authorization_handlers.keys.map(&:to_s)
       end
 
       def authorization_handler_options(handler_name)
-        find_handler(handler_name)&.dig("options") || {}
+        authorization_handlers_options&.dig(handler_name.to_s) || {}
       end
 
       def manifest(handler_name)
@@ -32,11 +38,6 @@ module Decidim
 
       def options_manifest(handler_name)
         manifest(handler_name).options
-      end
-
-      def find_handler(handler_name)
-        authorization_handlers[handler_name.to_s] ||
-          authorization_handlers[handler_name.to_sym]
       end
     end
   end

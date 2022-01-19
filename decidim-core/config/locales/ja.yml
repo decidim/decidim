@@ -44,7 +44,7 @@ ja:
     attributes:
       decidim/user:
         current_password: 現在のパスワード
-        email: Eメールアドレス
+        email: メールアドレス
         name: アカウントID
         password: パスワード
         password_confirmation: パスワードの確認
@@ -72,6 +72,25 @@ ja:
       decidim_with_day_and_month_name: "%Y %b %d %A"
       decidim_with_month_name: "%Y %B %d"
       decidim_with_month_name_short: "%b %d"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        other: 約 %{count} 時間
+      about_x_months:
+        other: 約%{count} ヶ月
+      half_a_minute: 約30秒
+      less_than_x_minutes:
+        other: '%{count} 分未満'
+      less_than_x_seconds:
+        other: '%{count} 秒未満'
+      x_days:
+        other: "%{count} 日前"
+      x_hours:
+        other: "%{count} 時間前"
+      x_minutes:
+        other: "%{count} 分前"
+      x_seconds:
+        other: "%{count} 秒前"
   decidim:
     accessibility:
       external_link: 外部リンク
@@ -966,6 +985,7 @@ ja:
         show:
           back: すべての会話に戻る
           chat_with: 会話
+          deleted_accounts: 削除されたアカウントと会話することはできません。
           not_allowed: この参加者はダイレクトメッセージを受け付けません。
           title: '%{usernames} との会話'
         start:
@@ -1033,6 +1053,12 @@ ja:
         greetings: こんにちは、<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: こんにちは、
         subject: '%{organization_name} に関する関連情報を引き続き受信しますか？'
+    notification_mailer:
+      event_received:
+        no_translation_available: 申し訳ありませんが、メール送信時に自動翻訳を取得できませんでした。 原文の翻訳は、次のリンク %{link} で確認できます。
+        original_text: '原文:'
+        same_language: コンテンツはあなたの設定された言語(%{language}) で投稿されました。このため、このメールには自動翻訳は表示されません。
+        translated_text: '自動翻訳されたテキスト:'
     notifications:
       no_notifications: まだ通知はありません。
     notifications_settings:
@@ -1329,6 +1355,7 @@ ja:
         title_reply: 返信
       show:
         back: すべての会話を表示
+        deleted_accounts: 削除されたアカウントと会話することはできません。
         not_allowed: このユーザーはこれ以上のダイレクトメッセージを受け付けません。
         title: '%{usernames} との会話'
       update:
@@ -1623,10 +1650,12 @@ ja:
     name: 日本語
     name_with_error: 英語 (エラー!)
   password_validator:
+    blacklisted: ブラックリストに登録済み
     domain_included_in_password: このドメイン名に似ています
     email_included_in_password: はあなたのメールアドレスに似ています
     fallback: 有効ではありません
     name_included_in_password: あなたの名前に似ています
+    nickname_included_in_password: ニックネームに類似しすぎています
     not_enough_unique_characters: ユニークな文字が十分ではありません
     password_not_allowed: は許可されていません
     password_too_common: あまりにも一般的です
@@ -1661,6 +1690,8 @@ ja:
       day_of_week: "%a"
       day_of_week_long: "%e %a"
       day_of_year: "%y.%m.%d"
+      ddmm: "%m/%d"
+      ddmmyyyy: "%Y/%m/%d"
       decidim_day_of_year: "%Y %B %d"
       decidim_short: "%Y/%m/%d %H:%M"
       default: "%Y %d %b (%a) %H:%M:%S %z"

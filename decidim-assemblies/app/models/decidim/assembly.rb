@@ -93,21 +93,6 @@ module Decidim
                       index_on_create: ->(_assembly) { false },
                       index_on_update: ->(assembly) { assembly.visible? })
 
-    # Overwriting existing method Decidim::HasPrivateUsers.visible_for
-    def self.visible_for(user)
-      if user
-        return all if user.admin?
-
-        left_outer_joins(:participatory_space_private_users).where(
-          %{private_space = false OR
-          (private_space = true AND is_transparent = true) OR
-          decidim_participatory_space_private_users.decidim_user_id = ?}, user.id
-        ).distinct
-      else
-        public_spaces
-      end
-    end
-
     # Overwriting existing method Decidim::HasPrivateUsers.public_spaces
     def self.public_spaces
       where(private_space: false).or(where(private_space: true).where(is_transparent: true)).published

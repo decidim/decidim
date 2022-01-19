@@ -28,7 +28,7 @@ module Decidim
 
         extend ActiveModel::Translation
         include ActiveModel::Model
-        include Virtus.model
+        include Decidim::AttributeObject::Model
         include TranslatableAttributes
         include Decidim::HasUploadValidations
 

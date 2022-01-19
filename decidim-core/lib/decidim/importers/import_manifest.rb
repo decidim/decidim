@@ -6,7 +6,7 @@ module Decidim
     # specify it's own creator, which will be responsible for producing (creating)
     # and finishing (saving) the imported resource.
     class ImportManifest
-      include Virtus.model
+      include Decidim::AttributeObject::Model
 
       attr_reader :name, :manifest
 

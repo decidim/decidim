@@ -10,7 +10,7 @@ module Decidim
     # This class serves as a DSL to declaratively specify a verification method.
     #
     # To define a direct verification method, you need to specify the `form`
-    # attribute as a `Rectify::Form` that will be valid if the authorization is
+    # attribute as a `Decidim::Form` that will be valid if the authorization is
     # valid.
     #
     # To define a deferred verification method, you need specify the `engine`
@@ -27,10 +27,10 @@ module Decidim
     #
     class WorkflowManifest
       include ActiveModel::Model
-      include Virtus.model
+      include Decidim::AttributeObject::Model
 
-      attribute :engine, Rails::Engine
-      attribute :admin_engine, Rails::Engine
+      attribute :engine, Rails::Engine, {}
+      attribute :admin_engine, Rails::Engine, {}
       attribute :form, String
       attribute :expires_in, ActiveSupport::Duration, default: 0.minutes
       attribute :action_authorizer, String
@@ -62,8 +62,8 @@ module Decidim
       end
 
       def action_authorizer_class
-        if @action_authorizer.present?
-          @action_authorizer.constantize
+        if action_authorizer.present?
+          action_authorizer.constantize
         else
           DefaultActionAuthorizer
         end

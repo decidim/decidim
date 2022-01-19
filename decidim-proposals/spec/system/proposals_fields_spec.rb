@@ -106,7 +106,7 @@ describe "Proposals", type: :system do
                    })
           end
 
-          let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "He will not solve everything") }
+          let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "It will not solve everything") }
 
           it "creates a new proposal", :slow do
             visit complete_proposal_path(component, proposal_draft)
@@ -174,7 +174,7 @@ describe "Proposals", type: :system do
                    participatory_space: participatory_process)
           end
 
-          let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "He will not solve everything") }
+          let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "It will not solve everything") }
           let(:component_automatic_hashtags) { "AutoHashtag1 AutoHashtag2" }
           let(:component_suggested_hashtags) { "SuggestedHashtag1 SuggestedHashtag2" }
 
@@ -241,7 +241,7 @@ describe "Proposals", type: :system do
                      })
             end
 
-            let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "He will not solve everything") }
+            let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "It will not solve everything") }
 
             it "creates a new proposal as a user group", :slow do
               visit complete_proposal_path(component, proposal_draft)

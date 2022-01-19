@@ -203,6 +203,8 @@ nl:
             label: Status
     components:
       accountability:
+        actions:
+          comment: Reactie
         name: Opvolging
         settings:
           global:

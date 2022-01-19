@@ -226,7 +226,7 @@ Decidim.configure do |config|
   # Etherpad configuration
   #
   # Only needed if you want to have Etherpad integration with Decidim. See
-  # Decidim docs at docs/services/etherpad.md in order to set it up.
+  # Decidim docs at https://docs.decidim.org/en/services/etherpad/ in order to set it up.
   #
   # config.etherpad = {
   #   server: Rails.application.secrets.etherpad[:server],
@@ -251,11 +251,18 @@ Decidim.configure do |config|
 
   # Machine Translation Configuration
   #
+  # See Decidim docs at https://docs.decidim.org/en/develop/machine_translations/
+  # for more information about how it works and how to set it up.
+  #
   # Enable machine translations
   config.enable_machine_translations = false
   #
   # If you want to enable machine translation you can create your own service
   # to interact with third party service to translate the user content.
+  #
+  # If you still want to use "Decidim::Dev::DummyTranslator" as translator placeholder,
+  # add the follwing line at the beginning of this file:
+  # require "decidim/dev/dummy_translator"
   #
   # An example class would be something like:
   #

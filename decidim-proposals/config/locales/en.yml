@@ -197,7 +197,7 @@ en:
             answers_with_costs: Enable costs on proposal answers
             automatic_hashtags: Hashtags added to all proposals
             comments_blocked: Comments blocked
-            creation_enabled: Proposal creation enabled
+            creation_enabled: Participants can create proposals
             default_sort_order: Default proposal sorting
             default_sort_order_help: Default it means that if the supports are enabled, the proposals will be shown sorted by random, and if the supports are blocked, then they will be sorted by the most supported.
             default_sort_order_options:
@@ -301,7 +301,7 @@ en:
           email_intro: The proposal "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can stop receiving notifications following the previous link.
           email_subject: New proposal "%{resource_title}" added to %{participatory_space_title}
-          notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
+          notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title} by %{author}
         proposal_rejected:
           affected_user:
             email_intro: 'Your proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
@@ -593,9 +593,9 @@ en:
           all: All
         filter_origin_values:
           all: All
-          citizens: Citizens
           meetings: Meetings
           official: Official
+          participants: Participants
           user_groups: Groups
         filter_scope_values:
           all: All

@@ -45,7 +45,7 @@ module Decidim
           handlers_content = {}
 
           selected_handlers(value).each do |handler_key|
-            opts = value.authorization_handlers_options[handler_key.to_sym]
+            opts = value.authorization_handlers_options[handler_key.to_s]
             handlers_content[handler_key] = opts ? { options: opts } : {}
           end
 

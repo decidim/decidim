@@ -73,7 +73,7 @@ module Decidim
       end
 
       def promoted_participatory_process_groups
-        @promoted_participatory_process_groups ||= PromotedParticipatoryProcessGroups.new
+        @promoted_participatory_process_groups ||= OrganizationPromotedParticipatoryProcessGroups.new(current_organization)
       end
 
       def promoted_collection
@@ -93,8 +93,8 @@ module Decidim
       end
 
       def participatory_process_groups
-        @participatory_process_groups ||= Decidim::ParticipatoryProcessGroup
-                                          .where(id: filtered_processes.grouped.group_ids)
+        @participatory_process_groups ||= OrganizationParticipatoryProcessGroups.new(current_organization).query
+                                                                                .where(id: filtered_processes.grouped.group_ids)
       end
 
       def stats
