@@ -63,6 +63,12 @@ We try to let most of the things defined through Environment Variables, as https
 |SMTP_USERNAME
 |Username for the SMTP server, for sending emails. See xref:services:smtp.adoc[SMTP]
 
+|VAPID_PUBLIC_KEY
+|VAPID public key that will be used to sign the Push API requests. It can be generated runing the task: `rake decidim:generate`
+
+|VAPID_PRIVATE_KEY
+|VAPID private key that will be used to sign the Push API requests. It can be generated runing the task: `rake decidim:generate`
+
 |===
 
 Please take care that all these configurations would be the defaults but *some of these could also be changed on a Multitenant's System configuration* (for instance SMTP or OAUTH providers).
