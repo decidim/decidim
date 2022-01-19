@@ -2,9 +2,9 @@
 
 We try to let most of the things defined through Environment Variables, as https://12factor.net/config[12factor applications's config]. You'll need to configure through your hosting provider (for example in Heroku), through a gem like `figaro` or through docker-compose `env_file`.
 
-The next table shows all the default Env Vars available when running a default Decidim application (note that customized Decidim apps might differ). The ones marked in *bold* are the minimal required to run a production server. The ones marked as _italic_ are only required for development.
+The next tables show all the default Env Vars available when running a default Decidim application (note that customized Decidim apps might differ). The ones marked in *bold* are the minimal required to run a production server. The ones marked as _italic_ are only required for development.
 
-.Decidim Env Vars
+.Required Decidim Env Vars
 |===
 |Name |Value |Default value|Multitenant's System configurable
 
@@ -36,26 +36,6 @@ The next table shows all the default Env Vars available when running a default D
 |*RAILS_ENV*
 |Environment for Ruby on Rails. If it's on your local machine for development, then it should be `development`. If it's on server it should be `production`. Please take care that this has security implications. You DON'T want to be running a production application on development mode.
 |development
-|No
-
-|RAILS_LOG_TO_STDOUT
-|If defined (value is indifferent) it'll show the log contents on the shell Standard Out. It's special relevant on certain hosting providers (for example, Heroku or Docker). It's also part of https://12factor.net/logs[12factor's recommendations].
-|
-|No
-
-|RAILS_SERVE_STATIC_FILES
-|If defined (value is indifferent) it'll serve static files present in the `public` folder of Rails. It's special relevant on certain hosting providers (for example, Heroku or Docker). 
-|
-|No
-
-|PORT
-|Specifies the `port` that Puma will listen on to receive requests. This does not apply to alternative application servers such as Passenger.
-|3000
-|No
-
-|RAILS_MAX_THREADS
-|Specifies the maximum number of concurrent database connections and `threads` that Puma will use to serve requests. Please refer to http://guides.rubyonrails.org/configuring.html#database-pooling for more information.
-|5
 |No
 
 |*SECRET_KEY_BASE*
@@ -93,52 +73,6 @@ The next table shows all the default Env Vars available when running a default D
 |change-me@example.org
 |*Yes*
 
-|DECIDIM_AVAILABLE_LOCALES
-|a list of, coma separated, locales that will be available for each organization configured in the System configuration. Check for the https://github.com/decidim/decidim/blob/develop/decidim-core/lib/decidim/core.rb#L163[Supported values] in ISO639 format. 
-|en,ca,es
-|No
-
-|DECIDIM_DEFAULT_LOCALE
-|The default locale to be used as a fallback (note that, in practice, this value must always be defined in the System configuration for each organization anyway).
-|en
-|*Yes*
-
-|DECIDIM_DISABLE_SSL
-|By default, Decidim enforces a SSL connection (https), sometimes it is necessary to disable it in order to handle this through a proxy system (note that use Decidim without SSL at all is NOT RECOMMENDED). Set this var to `true` in order to not force SSL.
-|
-|No
-
-|DECIDIM_ENABLE_HTML_HEADER_SNIPPETS
-|Set to `true` in order to allow administrators to define an arbitrary custom HTML code in the `<head></head>` section any Decidim page.
-
-The most common use is to integrate third-party services that require some
-extra JavaScript or CSS. Also, you can use it to add extra meta tags to the
-HTML. Note that this will only be rendered in public pages, not in the admin
-section.
-
-Before enabling this you should ensure that any tracking that might be done
-is in accordance with the rules and regulations that apply to your
-environment and usage scenarios. This component also comes with the risk
-that an organization's administrator injects malicious scripts to spy on or
-take over user accounts.
-|
-|No
-
-|DECIDIM_CURRENCY_UNIT
-|Currency unit is used in view showing monetary actions, such as budgets. It does not affect any internal calculations.
-|€
-|No
-
-|DECIDIM_IMAGE_UPLOADER_QUALITY
-|Defines the quality of image uploads after processing. Image uploads are processed by Decidim, this value helps reduce the size of the files.
-|80
-|No
-
-|DECIDIM_MAX_REPORTS_BEFORE_HIDING
-|The number of reports which a resource can receive before hiding it. This affects moderations for resources such as proposals or users.
-|3
-|No
-
 |SMTP_PORT
 |Port for the SMTP server, for sending emails. See xref:services:smtp.adoc[SMTP]
 |587
@@ -153,6 +87,12 @@ take over user accounts.
 |Type of authentication for the SMTP server, for sending emails. See xref:services:smtp.adoc[SMTP]
 |plain
 |*Yes*
+
+|===
+
+.Optional Decidim Env Vars for external services integration
+|===
+|Name |Value |Default value|Multitenant's System configurable
 
 |GEOCODER_API_KEY
 |API key for Geocoder and map provider if using https://HERE.com[HERE Maps]. See xref:services:maps.adoc[Maps].
@@ -239,6 +179,116 @@ take over user accounts.
 |
 |No
 
+|===
+
+.Additional oOptional Decidim Env Vars for the setting up the application
+|===
+|Name |Value |Default value|Multitenant's System configurable
+
+|DECIDIM_AVAILABLE_LOCALES
+|a list of, coma separated, locales that will be available for each organization configured in the System configuration. Check for the https://github.com/decidim/decidim/blob/develop/decidim-core/lib/decidim/core.rb#L163[Supported values] in ISO639 format. 
+|en,ca,es
+|No
+
+|DECIDIM_DEFAULT_LOCALE
+|The default locale to be used as a fallback (note that, in practice, this value must always be defined in the System configuration for each organization anyway).
+|en
+|*Yes*
+
+|DECIDIM_DISABLE_SSL
+|By default, Decidim enforces a SSL connection (https), sometimes it is necessary to disable it in order to handle this through a proxy system (note that use Decidim without SSL at all is NOT RECOMMENDED). Set this var to `true` in order to not force SSL.
+|
+|No
+
+|DECIDIM_ENABLE_HTML_HEADER_SNIPPETS
+|Set to `true` in order to allow administrators to define an arbitrary custom HTML code in the `<head></head>` section any Decidim page.
+
+The most common use is to integrate third-party services that require some
+extra JavaScript or CSS. Also, you can use it to add extra meta tags to the
+HTML. Note that this will only be rendered in public pages, not in the admin
+section.
+
+Before enabling this you should ensure that any tracking that might be done
+is in accordance with the rules and regulations that apply to your
+environment and usage scenarios. This component also comes with the risk
+that an organization's administrator injects malicious scripts to spy on or
+take over user accounts.
+|
+|No
+
+|DECIDIM_CURRENCY_UNIT
+|Currency unit is used in view showing monetary actions, such as budgets. It does not affect any internal calculations.
+|€
+|No
+
+|DECIDIM_IMAGE_UPLOADER_QUALITY
+|Defines the quality of image uploads after processing. Image uploads are processed by Decidim, this value helps reduce the size of the files.
+|80
+|No
+
+|DECIDIM_MAX_REPORTS_BEFORE_HIDING
+|The number of reports which a resource can receive before hiding it. This affects moderations for resources such as proposals or users.
+|3
+|No
+
+|DECIDIM_TRACK_NEWSLETTER_LINKS
+|Allow organizations admins to track newsletter links, trough UTMs. See https://en.wikipedia.org/wiki/UTM_parameters[UTM parameters in Wikipedia]. *Leave it empty or undefined in order to NOT TO TRACK*.
+|true
+|No
+
+|DECIDIM_DATA_PORTABILITY_EXPIRY_TIME
+|Number of days that the data portability files will be available in the server.
+|7
+|No
+
+|DECIDIM_THROTTLING_MAX_REQUESTS
+|Max requests in a time period to prevent DoS attacks. Only applied on production. Note that this is used by the Gem https://github.com/rack/rack-attack#throttlename-options-block[Rack::Attack] and blocks are based on the detected remote IP. Different proxy configurations (such as load balancers) may affect this, we recommend to read the documentation for this gem.
+|100
+|No
+
+|DECIDIM_THROTTLING_PERIOD
+|Time window (in number of minutes) in which the throttling is applied.
+|1
+|No
+
+|DECIDIM_UNCONFIRMED_ACCESS_FOR
+|Time window (in number of days) were users can access the website even if their email is not confirmed.
+|2
+|No
+
+|DECIDIM_SYSTEM_ACCESSLIST_IPS
+|For extra security, restrict access to the system part with an authorized ip list.
+You can use a single ip like `1.2.3.4`, or an ip subnet like `1.2.3.4/24`
+You may specify multiple ip in an array, separating by commas, such as `1.2.3.4, 1.2.3.4/24`
+
+|
+|No
+
+|===
+
+.Additional Rails Env Vars
+|===
+|Name |Value |Default value|Multitenant's System configurable
+
+|RAILS_LOG_TO_STDOUT
+|If defined (value is indifferent) it'll show the log contents on the shell Standard Out. It's special relevant on certain hosting providers (for example, Heroku or Docker). It's also part of https://12factor.net/logs[12factor's recommendations].
+|
+|No
+
+|RAILS_SERVE_STATIC_FILES
+|If defined (value is indifferent) it'll serve static files present in the `public` folder of Rails. It's special relevant on certain hosting providers (for example, Heroku or Docker). 
+|
+|No
+
+|PORT
+|Specifies the `port` that Puma will listen on to receive requests. This does not apply to alternative application servers such as Passenger.
+|3000
+|No
+
+|RAILS_MAX_THREADS
+|Specifies the maximum number of concurrent database connections and `threads` that Puma will use to serve requests. Please refer to http://guides.rubyonrails.org/configuring.html#database-pooling for more information.
+|5
+|No
 
 |===
 

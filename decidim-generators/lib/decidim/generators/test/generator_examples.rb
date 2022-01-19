@@ -88,7 +88,14 @@ shared_examples_for "an application with configurable env vars" do
       "DECIDIM_ENABLE_HTML_HEADER_SNIPPETS" => "true",
       "DECIDIM_CURRENCY_UNIT" => "$",
       "DECIDIM_IMAGE_UPLOADER_QUALITY" => "91",
-      "DECIDIM_MAX_REPORTS_BEFORE_HIDING" => "4"
+      "DECIDIM_MAX_REPORTS_BEFORE_HIDING" => "4",
+      "DECIDIM_TRACK_NEWSLETTER_LINKS" => "",
+      "DECIDIM_DATA_PORTABILITY_EXPIRY_TIME" => "2",
+      "DECIDIM_THROTTLING_MAX_REQUESTS" => "99",
+      "DECIDIM_THROTTLING_PERIOD" => "2",
+      "DECIDIM_UNCONFIRMED_ACCESS_FOR" => "3",
+      "DECIDIM_SYSTEM_ACCESSLIST_IPS" => "120.0.0.1,172.26.0.1/24",
+      "DECIDIM_BASE_UPLOADS_PATH" => "some-path/"
     }
   end
 
@@ -105,7 +112,14 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim enable_html_header_snippets) => false,
       %w(decidim currency_unit) => "€",
       %w(decidim image_uploader_quality) => 80,
-      %w(decidim max_reports_before_hiding) => 3
+      %w(decidim max_reports_before_hiding) => 3,
+      %w(decidim track_newsletter_links) => true,
+      %w(decidim data_portability_expiry_time) => 7,
+      %w(decidim throttling_max_requests) => 100,
+      %w(decidim throttling_period) => 1,
+      %w(decidim unconfirmed_access_for) => 2,
+      %w(decidim system_accesslist_ips) => [],
+      %w(decidim base_uploads_path) => nil
     }
   end
 
@@ -147,7 +161,14 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim enable_html_header_snippets) => true,
       %w(decidim currency_unit) => "$",
       %w(decidim image_uploader_quality) => 91,
-      %w(decidim max_reports_before_hiding) => 4
+      %w(decidim max_reports_before_hiding) => 4,
+      %w(decidim track_newsletter_links) => false,
+      %w(decidim data_portability_expiry_time) => 2,
+      %w(decidim throttling_max_requests) => 99,
+      %w(decidim throttling_period) => 2,
+      %w(decidim unconfirmed_access_for) => 3,
+      %w(decidim system_accesslist_ips) => ["120.0.0.1", "172.26.0.1/24"],
+      %w(decidim base_uploads_path) => "some-path/"
     }
   end
 
@@ -161,7 +182,14 @@ shared_examples_for "an application with configurable env vars" do
       "enable_html_header_snippets" => false,
       "currency_unit" => "€",
       "image_uploader_quality" => 80,
-      "max_reports_before_hiding" => 3
+      "max_reports_before_hiding" => 3,
+      "track_newsletter_links" => true,
+      "data_portability_expiry_time" => 604_800, # 7 days,
+      "throttling_max_requests" => 100,
+      "throttling_period" => 60, # 1 minute
+      "unconfirmed_access_for" => 172_800, # 2 days
+      "system_accesslist_ips" => [],
+      "base_uploads_path" => nil
     }
   end
 
@@ -175,7 +203,14 @@ shared_examples_for "an application with configurable env vars" do
       "enable_html_header_snippets" => true,
       "currency_unit" => "$",
       "image_uploader_quality" => 91,
-      "max_reports_before_hiding" => 4
+      "max_reports_before_hiding" => 4,
+      "track_newsletter_links" => false,
+      "data_portability_expiry_time" => 172_800, # 2 days
+      "throttling_max_requests" => 99,
+      "throttling_period" => 120, # 2 minutes
+      "unconfirmed_access_for" => 259_200, # 3 days
+      "system_accesslist_ips" => ["120.0.0.1", "172.26.0.1/24"],
+      "base_uploads_path" => "some-path/"
     }
   end
 

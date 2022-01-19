@@ -22,7 +22,7 @@ Decidim.configure do |config|
   # Restrict access to the system part with an authorized ip list.
   # You can use a single ip like ("1.2.3.4"), or an ip subnet like ("1.2.3.4/24")
   # You may specify multiple ip in an array ["1.2.3.4", "1.2.3.4/24"]
-  # config.system_accesslist_ips = ["127.0.0.1"]
+  config.system_accesslist_ips = Rails.application.secrets.decidim[:system_accesslist_ips]
 
   # Defines a list of custom content processors. They are used to parse and
   # render specific tags inside some user-provided content. Check the docs for
@@ -131,19 +131,19 @@ Decidim.configure do |config|
   config.enable_html_header_snippets = Rails.application.secrets.decidim[:enable_html_header_snippets]
 
   # Allow organizations admins to track newsletter links.
-  # config.track_newsletter_links = true
+  config.track_newsletter_links = Rails.application.secrets.decidim[:track_newsletter_links]
 
   # Amount of time that the data portability files will be available in the server.
-  # config.data_portability_expiry_time = 7.days
+  config.data_portability_expiry_time = Rails.application.secrets.decidim[:data_portability_expiry_time].to_i.days
 
   # Max requests in a time period to prevent DoS attacks. Only applied on production.
-  # config.throttling_max_requests = 100
+  config.throttling_max_requests = Rails.application.secrets.decidim[:throttling_max_requests]
 
   # Time window in which the throttling is applied.
-  # config.throttling_period = 1.minute
+  config.throttling_period = Rails.application.secrets.decidim[:throttling_period].to_i.minutes
 
   # Time window were users can access the website even if their email is not confirmed.
-  # config.unconfirmed_access_for = 2.days
+  config.unconfirmed_access_for = Rails.application.secrets.decidim[:unconfirmed_access_for].to_i.days
 
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
@@ -151,7 +151,7 @@ Decidim.configure do |config|
   # environments, but in different folders.
   #
   # If not set, it will be ignored.
-  # config.base_uploads_path = nil
+  config.base_uploads_path = Rails.application.secrets.decidim[:base_uploads_path]
 
   # SMS gateway configuration
   #
