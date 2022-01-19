@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require "decidim/generators/app_generator"
 require "webpush"
+require "decidim/generators/app_generator"
 
 namespace :decidim do
   def generate_decidim_app(*options)
