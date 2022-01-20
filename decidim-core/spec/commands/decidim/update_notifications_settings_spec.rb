@@ -11,6 +11,7 @@ module Decidim
       {
         email_on_notification: true,
         email_on_moderations: true,
+        allow_push_notifications: true,
         newsletter_notifications_at: Time.current,
         direct_message_types: "followed-only"
       }
@@ -23,6 +24,7 @@ module Decidim
         email_on_moderations: data[:email_on_moderations],
         newsletter_notifications_at: data[:newsletter_notifications_at],
         direct_message_types: data[:direct_message_types],
+        allow_push_notifications: data[:allow_push_notifications],
         valid?: valid
       )
     end
@@ -45,6 +47,7 @@ module Decidim
         expect(user.newsletter_notifications_at).not_to be_nil
         expect(user.notification_types).to eq "none"
         expect(user.direct_message_types).to eq "followed-only"
+        expect(user.allow_push_notifications).to be_truthy
       end
     end
   end

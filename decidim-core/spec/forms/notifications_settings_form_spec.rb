@@ -11,7 +11,8 @@ module Decidim
         email_on_notification: email_on_notification,
         email_on_moderations: email_on_moderations,
         newsletter_notifications: newsletter_notifications,
-        allow_public_contact: allow_public_contact
+        allow_public_contact: allow_public_contact,
+        allow_push_notifications: allow_push_notifications
       ).with_context(
         current_user: user
       )
@@ -25,6 +26,7 @@ module Decidim
     let(:email_on_moderations) { "1" }
     let(:newsletter_notifications) { "1" }
     let(:allow_public_contact) { "1" }
+    let(:allow_push_notifications) { "1" }
 
     context "with correct data" do
       it "is valid" do
@@ -173,6 +175,28 @@ module Decidim
 
         it "returns true when user is a moderator" do
           expect(subject.user_is_moderator?(moderator)).to eq true
+        end
+      end
+    end
+
+    describe "#meet_push_notifications_requirements?" do
+      context "when the notifications requirements are met" do
+        before do
+          stub_const("ENV", {})
+        end
+
+        it "returns true" do
+          expect(subject.meet_push_notifications_requirements?).to eq false
+        end
+      end
+
+      context "when the notifications requirements aren't met" do
+        before do
+          stub_const("ENV", { "VAPID_PUBLIC_KEY" => "public_key", "VAPID_PRIVATE_KEY" => "private_key" })
+        end
+
+        it "returns false " do
+          expect(subject.meet_push_notifications_requirements?).to eq true
         end
       end
     end
