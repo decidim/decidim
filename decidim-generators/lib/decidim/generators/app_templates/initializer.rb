@@ -101,7 +101,7 @@ Decidim.configure do |config|
   #   cache: Redis.new,
   #   cache_prefix: "..."
   # }
-  if Rails.application.secrets.maps.present? && Rails.application.secrets.maps[:provider].present?
+  if Rails.application.secrets.maps.present? && Rails.application.secrets.maps[:static_provider].present?
     static_provider = Rails.application.secrets.maps[:static_provider]
     dynamic_provider = Rails.application.secrets.maps[:dynamic_provider]
     url = Rails.application.secrets.maps[:static_url]
@@ -109,7 +109,7 @@ Decidim.configure do |config|
     config.maps = {
       provider: static_provider,
       api_key: Rails.application.secrets.maps[:static_api_key],
-      static: { url: url }
+      static: { url: url },
       dynamic: {
         provider: dynamic_provider,
         api_key: Rails.application.secrets.maps[:dynamic_api_key]
