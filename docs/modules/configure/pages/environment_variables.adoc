@@ -110,7 +110,7 @@ The next tables show all the default Env Vars available when running a default D
 |No
 
 |OMNIAUTH_FACEBOOK_APP_ID
-|App ID for enabling access through Facebook.com accounts. See xref:services:social_providers.adoc[Social Providers]. Note that defining this variable automatically renders the "login with" button. 
+|App ID for enabling access through Facebook.com accounts. See xref:services:social_providers.adoc[Social Providers]. Note that defining this variable automatically renders the "login with" button.
 |
 |*Yes*
 
@@ -217,7 +217,7 @@ For an implementation example refer to: xref:configure:initializer.adoc[Decidim 
 |Name |Value |Default value|Multitenant's System configurable
 
 |DECIDIM_AVAILABLE_LOCALES
-|a list of, coma separated, locales that will be available for each organization configured in the System configuration. Check for the https://github.com/decidim/decidim/blob/develop/decidim-core/lib/decidim/core.rb#L163[Supported values] in ISO639 format. 
+|a list of, coma separated, locales that will be available for each organization configured in the System configuration. Check for the https://github.com/decidim/decidim/blob/develop/decidim-core/lib/decidim/core.rb#L163[Supported values] in ISO639 format.
 |en,ca,es
 |No
 
@@ -336,6 +336,11 @@ If not set, it will be ignored.
 |;
 |No
 
+|DECIDIM_CONSENT_COOKIE_NAME
+|Defines the name of the cookie used to check if the user allows Decidim to set cookies. This is needed due the GDPR regulations.
+|decidim-cc
+|No
+
 |===
 
 .Optional Env Vars for extra Rails configuration
@@ -348,7 +353,7 @@ If not set, it will be ignored.
 |No
 
 |RAILS_SERVE_STATIC_FILES
-|If defined (value is indifferent) it'll serve static files present in the `public` folder of Rails. It's special relevant on certain hosting providers (for example, Heroku or Docker). 
+|If defined (value is indifferent) it'll serve static files present in the `public` folder of Rails. It's special relevant on certain hosting providers (for example, Heroku or Docker).
 |
 |No
 
