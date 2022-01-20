@@ -295,7 +295,10 @@ Decidim.configure do |config|
   # Defines the name of the cookie used to check if the user allows Decidim to
   # set cookies.
   config.consent_cookie_name = Rails.application.secrets.decidim[:consent_cookie_name] if Rails.application.secrets.decidim[:consent_cookie_name].present?
+
+  # Additional optional configurations (see decidim-core/lib/decidim/core.rb)
   config.cache_key_separator = Rails.application.secrets.decidim[:cache_key_separator] if Rails.application.secrets.decidim[:cache_key_separator].present?
+  config.expire_session_after = Rails.application.secrets.decidim[:expire_session_after] if Rails.application.secrets.decidim[:expire_session_after].present?
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales

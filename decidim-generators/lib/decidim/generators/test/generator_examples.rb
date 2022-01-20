@@ -128,7 +128,8 @@ shared_examples_for "an application with configurable env vars" do
       "DECIDIM_DEFAULT_CSV_COL_SEP" => ",",
       "DECIDIM_CORS_ENABLED" => "true",
       "DECIDIM_CONSENT_COOKIE_NAME" => ":weird-consent-cookie-name:",
-      "DECIDIM_CACHE_KEY_SEPARATOR" => ":"
+      "DECIDIM_CACHE_KEY_SEPARATOR" => ":",
+      "DECIDIM_EXPIRE_SESSION_AFTER" => "45"
     }
   end
 
@@ -159,6 +160,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim cors_enabled) => false,
       %w(decidim consent_cookie_name) => "decidim-cc"
       %w(decidim cache_key_separator) => "/"
+      %w(decidim expire_session_after) => 30
     }
   end
 
@@ -213,7 +215,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim default_csv_col_sep) => ",",
       %w(decidim cors_enabled) => true,
       %w(decidim consent_cookie_name) => ":weird-consent-cookie-name:"
-      %w(decidim cache_key_separator) => ":"
+      %w(decidim cache_key_separator) => ":",
+      %w(decidim expire_session_after) => 45
     }
   end
 
@@ -240,7 +243,8 @@ shared_examples_for "an application with configurable env vars" do
       "default_csv_col_sep" => ";",
       "cors_enabled" => false,
       "consent_cookie_name" => "decidim-cc",
-      "cache_key_separator" => "/"
+      "cache_key_separator" => "/",
+      "expire_session_after" => 1800 # 30 minutes,
     }
   end
 
@@ -267,7 +271,8 @@ shared_examples_for "an application with configurable env vars" do
       "default_csv_col_sep" => ",",
       "cors_enabled" => true,
       "consent_cookie_name" => ":weird-consent-cookie-name:",
-      "cache_key_separator" => ":"
+      "cache_key_separator" => ":",
+      "expire_session_after" => 2700 # 45 minutes,
     }
   end
 
