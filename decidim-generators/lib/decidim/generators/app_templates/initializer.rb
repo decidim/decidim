@@ -238,11 +238,13 @@ Decidim.configure do |config|
   # Only needed if you want to have Etherpad integration with Decidim. See
   # Decidim docs at https://docs.decidim.org/en/services/etherpad/ in order to set it up.
   #
-  # config.etherpad = {
-  #   server: Rails.application.secrets.etherpad[:server],
-  #   api_key: Rails.application.secrets.etherpad[:api_key],
-  #   api_version: Rails.application.secrets.etherpad[:api_version]
-  # }
+  if Rails.application.secrets.etherpad.present? && Rails.application.secrets.etherpad[:server].present?
+    config.etherpad = {
+      server: Rails.application.secrets.etherpad[:server],
+      api_key: Rails.application.secrets.etherpad[:api_key],
+      api_version: Rails.application.secrets.etherpad[:api_version]
+    }
+  end
 
   # Sets Decidim::Exporters::CSV's default column separator
   config.default_csv_col_sep = Rails.application.secrets.decidim[:default_csv_col_sep] if Rails.application.secrets.decidim[:default_csv_col_sep].present?
@@ -306,6 +308,7 @@ Decidim.configure do |config|
   config.follow_http_x_forwarded_host = Rails.application.secrets.decidim[:follow_http_x_forwarded_host].present?
   config.maximum_conversation_message_length = Rails.application.secrets.decidim[:maximum_conversation_message_length].to_i
   config.password_blacklist = Rails.application.secrets.decidim[:password_blacklist] if Rails.application.secrets.decidim[:password_blacklist].present?
+  config.allow_open_redirects = Rails.application.secrets.decidim[:allow_open_redirects] if Rails.application.secrets.decidim[:allow_open_redirects].present?
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales

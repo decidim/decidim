@@ -2,6 +2,10 @@
 
 We try to let most of the things defined through Environment Variables, as https://12factor.net/config[12factor applications's config]. You'll need to configure through your hosting provider (for example in Heroku), through a gem like `figaro` or through docker-compose `env_file`.
 
+This is an extensive list of all the Env variables supported for an application created with the default `decidim` generator (ie: `decidim my-application`). Custom applications may modify or customize the default decidim initializer (`config/initializers/decidim.rb`) in such a a way that this will have no effect.
+
+Finally, take into account that there are some config variables not available as Env vars, this is because it is not enough to set them in order to make that particular feature to work, it requires the user to add some custom code (usually a service class that acts a wrapper for an external API). These are the case for initializers such as `sms_gateway_service`, `timestamp_service`, `pdf_signature_service` or `machine_translation_service`. For more information about these extra services check the xref:configure:initializer.adoc[Initializer documentation].
+
 The next tables show all the default Env Vars available when running a default Decidim application (note that customized Decidim apps might differ). The ones marked in *bold* are the minimal required to run a production server. The ones marked as _italic_ are only required for development.
 
 .Required Decidim Env Vars
@@ -351,6 +355,18 @@ Separate each item of the array with a comma AND a space, for instance:
 |
 |No
 
+|DECIDIM_ALLOW_OPEN_REDIRECTS
+|Disable the redirection to the external host when performing redirect back.
+
+*This is not recommended to activate unless you know what are you doing*
+
+For more details https://github.com/rails/rails/issues/39643
+
+Additional context: This has been revealed as an issue during a security audit on Future of Europe installation
+
+|false
+|No
+
 |===
 
 .Optional Env Vars for extra Rails configuration
@@ -364,6 +380,20 @@ Separate each item of the array with a comma AND a space, for instance:
 
 |RAILS_SERVE_STATIC_FILES
 |If defined (value is indifferent) it'll serve static files present in the `public` folder of Rails. It's special relevant on certain hosting providers (for example, Heroku or Docker).
+|
+|No
+
+|RAILS_LOG_LEVEL
+|The log level for the application. This makes more or less verbose the logger. Usually, is a good choice to use `info` after a period of testing a production application.
+
+It must be one of these: `debug`, `info`, `warn`, `error`, `fatal`
+
+Note that this only applies to production environments.
+|debug
+|No
+
+|RAILS_ASSET_HOST
+|If you use a CDN or another type of assets management, you can specify the host (an path) for it so, instead of Rails serving your assets (CSS, Javascript, Images) will use your custom system. For instance `https://assets.example.org`
 |
 |No
 

@@ -75,7 +75,8 @@ shared_examples_for "an application with configurable env vars" do
       "DECIDIM_SYSTEM_ACCESSLIST_IPS" => "",
       "DECIDIM_BASE_UPLOADS_PATH" => "",
       "DECIDIM_DEFAULT_CSV_COL_SEP" => "",
-      "DECIDIM_CORS_ENABLED" => ""
+      "DECIDIM_CORS_ENABLED" => "",
+      "RAILS_LOG_LEVEL" => "nonsense"
     }
   end
 
@@ -89,8 +90,9 @@ shared_examples_for "an application with configurable env vars" do
       "OMNIAUTH_GOOGLE_CLIENT_ID" => "a-google-client-id",
       "OMNIAUTH_GOOGLE_CLIENT_SECRET" => "a-google-client-secret",
       "MAPS_API_KEY" => "a-maps-api-key",
-      "ETHERPAD_SERVER" => "a-etherpad-server",
-      "ETHERPAD_API_KEY" => "a-etherpad-key",
+      "ETHERPAD_SERVER" => "http://a-etherpad-server.com",
+      "ETHERPAD_API_KEY" => "an-etherpad-key",
+      "ETHERPAD_API_VERSION" => "1.2.2",
       "SECRET_KEY_BASE" => "a-secret-key-base",
       "SMTP_USERNAME" => "a-smtp-username",
       "SMTP_PASSWORD" => "a-smtp-password",
@@ -134,7 +136,10 @@ shared_examples_for "an application with configurable env vars" do
       "DECIDIM_SESSION_TIMEOUT_INTERVAL" => "33",
       "DECIDIM_FOLLOW_HTTP_X_FORWARDED_HOST" => "true",
       "DECIDIM_MAXIMUM_CONVERSATION_MESSAGE_LENGTH" => "1234",
-      "DECIDIM_PASSWORD_BLACKLIST" => "i-dont-like-this-password, i-dont-like-this-one-either, password123456"
+      "DECIDIM_PASSWORD_BLACKLIST" => "i-dont-like-this-password, i-dont,like,this,one,either, password123456",
+      "DECIDIM_ALLOW_OPEN_REDIRECTS" => "true",
+      "RAILS_LOG_LEVEL" => "fatal",
+      "RAILS_ASSET_HOST" => "http://assets.example.org"
     }
   end
 
@@ -166,11 +171,15 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim consent_cookie_name) => "decidim-cc",
       %w(decidim cache_key_separator) => "/",
       %w(decidim expire_session_after) => 30,
-      %w(decidim enable_remember_me) => true,
+      %w(decidim enable_remember_me) => "auto",
       %w(decidim session_timeout_interval) => 10,
       %w(decidim follow_http_x_forwarded_host) => false,
-      %w(decidim maximum_conversation_message_length) => false,
-      %w(decidim password_blacklist) => []
+      %w(decidim maximum_conversation_message_length) => 1000,
+      %w(decidim password_blacklist) => [],
+      %w(decidim allow_open_redirects) => false,
+      %w(etherpad server) => nil,
+      %w(etherpad api_key) => nil,
+      %w(etherpad api_version) => "1.2.1"
     }
   end
 
@@ -187,7 +196,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(omniauth google_oauth2 client_secret) => "a-google-client-secret",
       %w(maps api_key) => "a-maps-api-key",
       %w(etherpad server) => "a-etherpad-server",
-      %w(etherpad api_key) => "a-etherpad-key",
+      %w(etherpad api_key) => "an-etherpad-key",
       %w(secret_key_base) => "a-secret-key-base",
       %w(smtp_username) => "a-smtp-username",
       %w(smtp_password) => "a-smtp-password",
@@ -231,7 +240,11 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim session_timeout_interval) => 33,
       %w(decidim follow_http_x_forwarded_host) => true,
       %w(decidim maximum_conversation_message_length) => 1234,
-      %w(decidim password_blacklist) => ["i-dont-like-this-password", "i-dont-like-this-one-either", "password123456"]
+      %w(decidim password_blacklist) => ["i-dont-like-this-password", "i-dont,like,this,one,either", "password123456"],
+      %w(decidim allow_open_redirects) => true,
+      %w(etherpad server) => "http://a-etherpad-server.com",
+      %w(etherpad api_key) => "an-etherpad-key",
+      %w(etherpad api_version) => "1.2.2"
     }
   end
 
@@ -264,7 +277,9 @@ shared_examples_for "an application with configurable env vars" do
       "session_timeout_interval" => 10,
       "follow_http_x_forwarded_host" => false,
       "maximum_conversation_message_length" => 1000,
-      "password_blacklist" => []
+      "password_blacklist" => [],
+      "allow_open_redirects" => false,
+      "etherpad" => nil
     }
   end
 
@@ -297,13 +312,34 @@ shared_examples_for "an application with configurable env vars" do
       "session_timeout_interval" => 33,
       "follow_http_x_forwarded_host" => true,
       "maximum_conversation_message_length" => 1234,
-      "password_blacklist" => ["i-dont-like-this-password", "i-dont-like-this-one-either", "password123456"]
+      "password_blacklist" => ["i-dont-like-this-password", "i-dont,like,this,one,either", "password123456"],
+      "allow_open_redirects" => true,
+      "etherpad" => {
+        "server" => "http://a-etherpad-server.com",
+        "api_key" => "an-etherpad-key",
+        "api_version" => "1.2.2"
+      }
+    }
+  end
+
+  let(:rails_off) do
+    {
+      "Rails.logger.level" => "0",
+      "Rails.application.config.log_level" => "debug",
+      "Rails.application.config.action_controller.asset_host" => nil
+    }
+  end
+
+  let(:rails_on) do
+    {
+      "Rails.logger.level" => "4",
+      "Rails.application.config.log_level" => "fatal",
+      "Rails.application.config.action_controller.asset_host" => "http://assets.example.org"
     }
   end
 
   it "env vars generate secrets application" do
     expect(result[1]).to be_success, result[0]
-
     json_off = json_secrets_for(test_app, env_off)
     secrets_off.each do |keys, value|
       current = json_off.dig(*keys)
@@ -327,6 +363,18 @@ shared_examples_for "an application with configurable env vars" do
       current = json_on[key]
       expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env ON (#{value})"
     end
+
+    json_off = rails_config_for(test_app, env_off)
+    rails_off.each do |key, value|
+      current = json_off[key]
+      expect(current).to eq(value), "Rails config (#{key}) = (#{current}) expected to match Env OFF (#{value})"
+    end
+
+    json_on = rails_config_for(test_app, env_on)
+    rails_on.each do |key, value|
+      current = json_on[key]
+      expect(current).to eq(value), "Rails config (#{key}) = (#{current}) expected to match Env ON (#{value})"
+    end
   end
 end
 
@@ -336,4 +384,8 @@ end
 
 def initializer_config_for(path, env)
   JSON.parse Decidim::GemManager.new(path).capture("bin/rails runner 'puts Decidim.config.to_json'", env: env, with_stderr: false)[0]
+end
+
+def rails_value(_value, path, env)
+  JSON.parse Decidim::GemManager.new(path).capture("bin/rails runner 'puts %{value}.to_json'", env: env, with_stderr: false)[0]
 end
