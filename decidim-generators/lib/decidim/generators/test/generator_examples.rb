@@ -129,7 +129,9 @@ shared_examples_for "an application with configurable env vars" do
       "DECIDIM_CORS_ENABLED" => "true",
       "DECIDIM_CONSENT_COOKIE_NAME" => ":weird-consent-cookie-name:",
       "DECIDIM_CACHE_KEY_SEPARATOR" => ":",
-      "DECIDIM_EXPIRE_SESSION_AFTER" => "45"
+      "DECIDIM_EXPIRE_SESSION_AFTER" => "45",
+      "DECIDIM_ENABLE_REMEMBER_ME" => "",
+      "DECIDIM_SESSION_TIMEOUT_INTERVAL" => "33"
     }
   end
 
@@ -160,7 +162,9 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim cors_enabled) => false,
       %w(decidim consent_cookie_name) => "decidim-cc"
       %w(decidim cache_key_separator) => "/"
-      %w(decidim expire_session_after) => 30
+      %w(decidim expire_session_after) => 30,
+      %w(decidim enable_remember_me) => true,
+      %w(decidim session_timeout_interval) => 10
     }
   end
 
@@ -216,7 +220,9 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim cors_enabled) => true,
       %w(decidim consent_cookie_name) => ":weird-consent-cookie-name:"
       %w(decidim cache_key_separator) => ":",
-      %w(decidim expire_session_after) => 45
+      %w(decidim expire_session_after) => 45,
+      %w(decidim enable_remember_me) => false,
+      %w(decidim session_timeout_interval) => 33
     }
   end
 
@@ -234,7 +240,7 @@ shared_examples_for "an application with configurable env vars" do
       "maximum_avatar_size" => 5_242_880, # 5 megabytes
       "max_reports_before_hiding" => 3,
       "track_newsletter_links" => true,
-      "data_portability_expiry_time" => 604_800, # 7 days,
+      "data_portability_expiry_time" => 604_800, # 7 days
       "throttling_max_requests" => 100,
       "throttling_period" => 60, # 1 minute
       "unconfirmed_access_for" => 0,
@@ -244,7 +250,9 @@ shared_examples_for "an application with configurable env vars" do
       "cors_enabled" => false,
       "consent_cookie_name" => "decidim-cc",
       "cache_key_separator" => "/",
-      "expire_session_after" => 1800 # 30 minutes,
+      "expire_session_after" => 1800, # 30 minutes
+      "enable_remember_me" => true,
+      "session_timeout_interval" => 10
     }
   end
 
@@ -272,7 +280,9 @@ shared_examples_for "an application with configurable env vars" do
       "cors_enabled" => true,
       "consent_cookie_name" => ":weird-consent-cookie-name:",
       "cache_key_separator" => ":",
-      "expire_session_after" => 2700 # 45 minutes,
+      "expire_session_after" => 2700, # 45 minutes
+      "enable_remember_me" => false,
+      "session_timeout_interval" => 33
     }
   end
 

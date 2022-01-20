@@ -317,6 +317,18 @@ Notice that this is also maximum time that user can idle before getting automati
 |30
 |No
 
+|DECIDIM_ENABLE_REMEMBER_ME
+|If set to true, users have option to "remember me".
+
+Notice that expire_session_after won't take effect when the user wants to be remembered.
+|true
+|No
+
+|DECIDIM_SESSION_TIMEOUT_INTERVAL
+|In seconds, defines how often `session_timeouter.js` checks time between current moment and last request. This is a periodic poll method that it is used to show the user an alert that the session is about to expire if is doing nothing.
+|10
+|No
+
 |===
 
 .Optional Env Vars for extra Rails configuration
