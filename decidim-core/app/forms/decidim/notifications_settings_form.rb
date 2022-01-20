@@ -12,6 +12,7 @@ module Decidim
     attribute :notifications_from_followed, Boolean
     attribute :notifications_from_own_activity, Boolean
     attribute :allow_public_contact, Boolean
+    attribute :allow_push_notifications, Boolean
 
     def map_model(user)
       self.newsletter_notifications = user.newsletter_notifications_at.present?
@@ -48,6 +49,10 @@ module Decidim
         return true if participatory_space_type.moderators(user.organization).exists?(id: user.id)
       end
       false
+    end
+
+    def meet_push_notifications_requirements?
+      ENV.has_key?("VAPID_PUBLIC_KEY") && ENV.has_key?("VAPID_PRIVATE_KEY")
     end
   end
 end
