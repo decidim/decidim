@@ -61,7 +61,7 @@ shared_examples "create an initiative" do
       context "when attachment is present" do
         let(:uploaded_files) do
           [
-            Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")
+            upload_test_file(Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf"))
           ]
         end
 
@@ -82,8 +82,8 @@ shared_examples "create an initiative" do
       context "when has multiple attachments" do
         let(:uploaded_files) do
           [
-            Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-            Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")
+            upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")),
+            upload_test_file(Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf"))
           ]
         end
 
