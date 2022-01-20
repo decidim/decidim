@@ -300,7 +300,12 @@ Decidim.configure do |config|
   config.cache_key_separator = Rails.application.secrets.decidim[:cache_key_separator] if Rails.application.secrets.decidim[:cache_key_separator].present?
   config.expire_session_after = Rails.application.secrets.decidim[:expire_session_after].to_i.minutes if Rails.application.secrets.decidim[:expire_session_after].present?
   config.enable_remember_me = Rails.application.secrets.decidim[:enable_remember_me].present? unless Rails.application.secrets.decidim[:enable_remember_me] == "auto"
-  config.session_timeout_interval = Rails.application.secrets.decidim[:session_timeout_interval].to_i.seconds if Rails.application.secrets.decidim[:session_timeout_interval].present?
+  if Rails.application.secrets.decidim[:session_timeout_interval].present?
+    config.session_timeout_interval = Rails.application.secrets.decidim[:session_timeout_interval].to_i.seconds
+  end
+  config.follow_http_x_forwarded_host = Rails.application.secrets.decidim[:follow_http_x_forwarded_host].present?
+  config.maximum_conversation_message_length = Rails.application.secrets.decidim[:maximum_conversation_message_length].to_i
+  config.password_blacklist = Rails.application.secrets.decidim[:password_blacklist] if Rails.application.secrets.decidim[:password_blacklist].present?
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales

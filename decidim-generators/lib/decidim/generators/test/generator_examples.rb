@@ -131,7 +131,10 @@ shared_examples_for "an application with configurable env vars" do
       "DECIDIM_CACHE_KEY_SEPARATOR" => ":",
       "DECIDIM_EXPIRE_SESSION_AFTER" => "45",
       "DECIDIM_ENABLE_REMEMBER_ME" => "",
-      "DECIDIM_SESSION_TIMEOUT_INTERVAL" => "33"
+      "DECIDIM_SESSION_TIMEOUT_INTERVAL" => "33",
+      "DECIDIM_FOLLOW_HTTP_X_FORWARDED_HOST" => "true",
+      "DECIDIM_MAXIMUM_CONVERSATION_MESSAGE_LENGTH" => "1234",
+      "DECIDIM_PASSWORD_BLACKLIST" => "i-dont-like-this-password, i-dont-like-this-one-either, password123456"
     }
   end
 
@@ -160,11 +163,14 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim base_uploads_path) => nil,
       %w(decidim default_csv_col_sep) => ";",
       %w(decidim cors_enabled) => false,
-      %w(decidim consent_cookie_name) => "decidim-cc"
-      %w(decidim cache_key_separator) => "/"
+      %w(decidim consent_cookie_name) => "decidim-cc",
+      %w(decidim cache_key_separator) => "/",
       %w(decidim expire_session_after) => 30,
       %w(decidim enable_remember_me) => true,
-      %w(decidim session_timeout_interval) => 10
+      %w(decidim session_timeout_interval) => 10,
+      %w(decidim follow_http_x_forwarded_host) => false,
+      %w(decidim maximum_conversation_message_length) => false,
+      %w(decidim password_blacklist) => []
     }
   end
 
@@ -218,11 +224,14 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim base_uploads_path) => "some-path/",
       %w(decidim default_csv_col_sep) => ",",
       %w(decidim cors_enabled) => true,
-      %w(decidim consent_cookie_name) => ":weird-consent-cookie-name:"
+      %w(decidim consent_cookie_name) => ":weird-consent-cookie-name:",
       %w(decidim cache_key_separator) => ":",
       %w(decidim expire_session_after) => 45,
       %w(decidim enable_remember_me) => false,
-      %w(decidim session_timeout_interval) => 33
+      %w(decidim session_timeout_interval) => 33,
+      %w(decidim follow_http_x_forwarded_host) => true,
+      %w(decidim maximum_conversation_message_length) => 1234,
+      %w(decidim password_blacklist) => ["i-dont-like-this-password", "i-dont-like-this-one-either", "password123456"]
     }
   end
 
@@ -252,7 +261,10 @@ shared_examples_for "an application with configurable env vars" do
       "cache_key_separator" => "/",
       "expire_session_after" => 1800, # 30 minutes
       "enable_remember_me" => true,
-      "session_timeout_interval" => 10
+      "session_timeout_interval" => 10,
+      "follow_http_x_forwarded_host" => false,
+      "maximum_conversation_message_length" => 1000,
+      "password_blacklist" => []
     }
   end
 
@@ -282,7 +294,10 @@ shared_examples_for "an application with configurable env vars" do
       "cache_key_separator" => ":",
       "expire_session_after" => 2700, # 45 minutes
       "enable_remember_me" => false,
-      "session_timeout_interval" => 33
+      "session_timeout_interval" => 33,
+      "follow_http_x_forwarded_host" => true,
+      "maximum_conversation_message_length" => 1234,
+      "password_blacklist" => ["i-dont-like-this-password", "i-dont-like-this-one-either", "password123456"]
     }
   end
 

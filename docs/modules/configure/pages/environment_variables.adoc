@@ -329,6 +329,28 @@ Notice that expire_session_after won't take effect when the user wants to be rem
 |10
 |No
 
+|DECIDIM_FOLLOW_HTTP_X_FORWARDED_HOST
+|Exposes a configuration option: HTTP_X_FORWADED_HOST header follow-up.
+
+If a caching system is in place, it can also allow cache and log poisoning attacks, allowing attackers to control the contents of caches and logs that could be used for other attacks.
+|false
+|No
+
+|DECIDIM_MAXIMUM_CONVERSATION_MESSAGE_LENGTH
+|The maximum length (number of characters) for conversation messages. Conversations are private threads between two or more users or groups. 
+
+This does not affect comments as its length can be configured by administrators in the component's settings.
+|1000
+|No
+
+|DECIDIM_PASSWORD_BLACKLIST
+|Blacklisted passwords. Array may contain strings and regex entries.
+
+Separate each item of the array with a comma AND a space, for instance:
+`i-dont-like-this-password, i-dont-like-this-one-either, password123456`
+|
+|No
+
 |===
 
 .Optional Env Vars for extra Rails configuration
