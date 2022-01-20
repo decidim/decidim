@@ -13,8 +13,8 @@ describe Decidim::Budgets::Admin::OrderReminderForm do
     }
   end
   let(:organization) { create(:organization) }
-  let(:participatory_process) { create(:participatory_process, organization: organization) }
-  let(:component) { create(:component, participatory_space: participatory_process, manifest_name: "budgets") }
+  let(:participatory_space) { create(:participatory_process, organization: organization) }
+  let(:component) { create(:component, participatory_space: participatory_space, manifest_name: "budgets") }
   let(:budget) { create(:budget, component: component) }
 
   context "when voting is ending today" do
@@ -22,18 +22,18 @@ describe Decidim::Budgets::Admin::OrderReminderForm do
       create(:participatory_process_step,
              active: true,
              end_date: Time.zone.now.to_date,
-             participatory_process: participatory_process)
+             participatory_process: participatory_space)
     end
     let!(:step2) do
       create(:participatory_process_step,
              active: false,
              end_date: 1.month.from_now.to_date,
-             participatory_process: participatory_process)
+             participatory_process: participatory_space)
     end
 
     before do
-      participatory_process.reload
-      participatory_process.steps.reload
+      participatory_space.reload
+      participatory_space.steps.reload
     end
 
     context "and there are 5 hours left in the day" do
@@ -48,6 +48,18 @@ describe Decidim::Budgets::Admin::OrderReminderForm do
       before { allow(Time.zone).to receive(:now).and_return(Time.zone.now.end_of_day - 10.hours) }
 
       it "voting_ends_soon? returns false" do
+        expect(subject.voting_ends_soon?).to eq(false)
+      end
+    end
+  end
+
+  context "when participatory spac doesnt have steps" do
+    let(:participatory_space) { create(:assembly) }
+
+    context "and there are 2 hours left in the day" do
+      before { allow(Time.zone).to receive(:now).and_return(Time.zone.now.end_of_day - 2.hours) }
+
+      it "we dont know that ending is ending soon" do
         expect(subject.voting_ends_soon?).to eq(false)
       end
     end

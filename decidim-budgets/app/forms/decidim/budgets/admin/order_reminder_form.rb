@@ -53,7 +53,11 @@ module Decidim
         end
 
         def unfinished_orders
-          @unfinished_orders ||= Decidim::Budgets::Order.where(budget: budgets, checked_out_at: nil, created_at: ..minimum_time_before_first_reminder.ago).select do |order|
+          @unfinished_orders ||= Decidim::Budgets::Order.where(
+            budget: budgets,
+            checked_out_at: nil,
+            created_at: Time.zone.at(0)..minimum_time_before_first_reminder.ago
+          ).select do |order|
             order.user.email.present?
           end
         end

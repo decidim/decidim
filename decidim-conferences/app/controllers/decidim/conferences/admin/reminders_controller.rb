@@ -7,7 +7,7 @@ module Decidim
       # It is targeted for customizations for reminder things that lives under
       # a conference.
       class RemindersController < Decidim::Admin::RemindersController
-        include Concerns::ParticipatoryProcessAdmin
+        include Concerns::ConferenceAdmin
       end
     end
   end
