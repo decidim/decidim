@@ -182,7 +182,7 @@ Decidim.configure do |config|
   #     true
   #   end
   # end
-  config.sms_gateway_service = Rails.application.secrets.services[:sms_gateway] if Rails.application.secrets.decidim[:sms_gateway].present?
+  config.sms_gateway_service = Rails.application.secrets.services[:sms_gateway] if Rails.application.secrets.services[:sms_gateway].present?
   # or manually force it to some value:
   # config.sms_gateway_service = "MySMSGatewayService"
 
@@ -208,7 +208,7 @@ Decidim.configure do |config|
   #   end
   # end
   #
-  config.timestamp_service = Rails.application.secrets.services[:timestamp] if Rails.application.secrets.decidim[:timestamp].present?
+  config.timestamp_service = Rails.application.secrets.services[:timestamp] if Rails.application.secrets.services[:timestamp].present?
   # or manually force it to some value:
   # config.timestamp_service = "MyTimestampService"
 
@@ -232,7 +232,7 @@ Decidim.configure do |config|
   #     # Code to return the pdf signed
   #   end
   # end
-  config.pdf_signature_service = Rails.application.secrets.services[:pdf_signature] if Rails.application.secrets.decidim[:pdf_signature].present?
+  config.pdf_signature_service = Rails.application.secrets.services[:pdf_signature] if Rails.application.secrets.services[:pdf_signature].present?
   # or manually force it to some value:
   # config.pdf_signature_service = "MyPDFSignatureService"
 
