@@ -39,7 +39,7 @@ module Decidim
           }
         end
         let(:slug) { "slug" }
-        let(:attachment) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+        let(:attachment) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
         let(:show_metrics) { true }
         let(:show_statistics) { true }
         let(:attributes) do
@@ -71,30 +71,19 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
-        context "when hero_image is too big" do
-          before do
-            organization.settings.tap do |settings|
-              settings.upload.maximum_file_size.default = 5
-            end
-            expect(subject.hero_image).to receive(:size).twice.and_return(6.megabytes)
-          end
-
-          it { is_expected.not_to be_valid }
-        end
-
         context "when banner_image is too big" do
           before do
             organization.settings.tap do |settings|
               settings.upload.maximum_file_size.default = 5
             end
-            expect(subject.banner_image).to receive(:size).twice.and_return(6.megabytes)
+            ActiveStorage::Blob.find_signed(attachment).update(byte_size: 6.megabytes)
           end
 
           it { is_expected.not_to be_valid }
         end
 
         context "when images are not the expected type" do
-          let(:attachment) { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
+          let(:attachment) { upload_test_file(Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")) }
 
           it { is_expected.not_to be_valid }
         end

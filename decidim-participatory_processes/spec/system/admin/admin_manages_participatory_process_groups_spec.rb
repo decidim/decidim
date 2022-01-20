@@ -48,7 +48,7 @@ describe "Admin manages participatory process groups", type: :system do
       select participatory_processes.first.title["en"], from: :participatory_process_group_participatory_process_ids
     end
 
-    dynamically_attach_file(:group_hero_image, image1_path)
+    dynamically_attach_file(:hero_image, image1_path)
 
     within ".new_participatory_process_group" do
       find("*[type=submit]").click
@@ -106,7 +106,7 @@ describe "Admin manages participatory process groups", type: :system do
         select participatory_processes.last.title["en"], from: :participatory_process_group_participatory_process_ids
       end
 
-      dynamically_attach_file(:group_hero_image, image2_path)
+      dynamically_attach_file(:hero_image, image2_path, remove_before: true)
 
       within ".edit_participatory_process_group" do
         find("*[type=submit]").click
@@ -147,7 +147,9 @@ describe "Admin manages participatory process groups", type: :system do
         click_link "Edit"
       end
 
-      check "Remove this file"
+      within ".upload-container-for-hero_image" do
+        find("button.remove-attachment").click
+      end
       click_button "Update"
 
       expect(page).to have_no_css("img")
