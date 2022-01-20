@@ -91,9 +91,6 @@ shared_examples_for "an application with configurable env vars" do
       "MAPS_API_KEY" => "a-maps-api-key",
       "ETHERPAD_SERVER" => "a-etherpad-server",
       "ETHERPAD_API_KEY" => "a-etherpad-key",
-      "SERVICE_SMS_GATEWAY" => "MySMSGatewayService",
-      "SERVICE_TIMESTAMP" => "MyTimestampService",
-      "SERVICE_PDF_SIGNATURE" => "MyPDFSignatureService",
       "SECRET_KEY_BASE" => "a-secret-key-base",
       "SMTP_USERNAME" => "a-smtp-username",
       "SMTP_PASSWORD" => "a-smtp-password",
@@ -110,7 +107,7 @@ shared_examples_for "an application with configurable env vars" do
       "ELECTIONS_SCHEME_NAME" => "an-elections-scheme-name",
       "ELECTIONS_NUMBER_OF_TRUSTEES" => "an-elections-number-of-trustees",
       "ELECTIONS_QUORUM" => "an-elections-quorum",
-      "DECIDIM_APPLICATION_NAME" => "A test application",
+      "DECIDIM_APPLICATION_NAME" => "\"A test\" {application}",
       "DECIDIM_MAILER_SENDER" => "noreply@example.org",
       "DECIDIM_AVAILABLE_LOCALES" => "de, fr, zh-CN",
       "DECIDIM_DEFAULT_LOCALE" => "zh-CN",
@@ -129,7 +126,9 @@ shared_examples_for "an application with configurable env vars" do
       "DECIDIM_SYSTEM_ACCESSLIST_IPS" => "127.0.0.1,172.26.0.1/24",
       "DECIDIM_BASE_UPLOADS_PATH" => "some-path/",
       "DECIDIM_DEFAULT_CSV_COL_SEP" => ",",
-      "DECIDIM_CORS_ENABLED" => "true"
+      "DECIDIM_CORS_ENABLED" => "true",
+      "DECIDIM_CONSENT_COOKIE_NAME" => ":weird-consent-cookie-name:",
+      "DECIDIM_CACHE_KEY_SEPARATOR" => ":"
     }
   end
 
@@ -157,7 +156,9 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim system_accesslist_ips) => [],
       %w(decidim base_uploads_path) => nil,
       %w(decidim default_csv_col_sep) => ";",
-      %w(decidim cors_enabled) => false
+      %w(decidim cors_enabled) => false,
+      %w(decidim consent_cookie_name) => "decidim-cc"
+      %w(decidim cache_key_separator) => "/"
     }
   end
 
@@ -175,9 +176,6 @@ shared_examples_for "an application with configurable env vars" do
       %w(maps api_key) => "a-maps-api-key",
       %w(etherpad server) => "a-etherpad-server",
       %w(etherpad api_key) => "a-etherpad-key",
-      %w(services sms_gateway) => "MySMSGatewayService",
-      %w(services timestamp) => "MyTimestampService",
-      %w(services pdf_signature) => "MyPDFSignatureService",
       %w(secret_key_base) => "a-secret-key-base",
       %w(smtp_username) => "a-smtp-username",
       %w(smtp_password) => "a-smtp-password",
@@ -194,7 +192,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(elections scheme_name) => "an-elections-scheme-name",
       %w(elections number_of_trustees) => "an-elections-number-of-trustees",
       %w(elections quorum) => "an-elections-quorum",
-      %w(decidim application_name) => "A test application",
+      %w(decidim application_name) => "\"A test\" {application}",
       %w(decidim mailer_sender) => "noreply@example.org",
       %w(decidim available_locales) => %w(de fr zh-CN),
       %w(decidim default_locale) => "zh-CN",
@@ -213,7 +211,9 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim system_accesslist_ips) => ["127.0.0.1", "172.26.0.1/24"],
       %w(decidim base_uploads_path) => "some-path/",
       %w(decidim default_csv_col_sep) => ",",
-      %w(decidim cors_enabled) => true
+      %w(decidim cors_enabled) => true,
+      %w(decidim consent_cookie_name) => ":weird-consent-cookie-name:"
+      %w(decidim cache_key_separator) => ":"
     }
   end
 
@@ -238,13 +238,15 @@ shared_examples_for "an application with configurable env vars" do
       "system_accesslist_ips" => [],
       "base_uploads_path" => nil,
       "default_csv_col_sep" => ";",
-      "cors_enabled" => false
+      "cors_enabled" => false,
+      "consent_cookie_name" => "decidim-cc",
+      "cache_key_separator" => "/"
     }
   end
 
   let(:initializer_on) do
     {
-      "application_name" => "A test application",
+      "application_name" => "\"A test\" {application}",
       "mailer_sender" => "noreply@example.org",
       "available_locales" => %w(de fr zh-CN),
       "default_locale" => "zh-CN",
@@ -264,9 +266,8 @@ shared_examples_for "an application with configurable env vars" do
       "base_uploads_path" => "some-path/",
       "default_csv_col_sep" => ",",
       "cors_enabled" => true,
-      "sms_gateway_service" => "MySMSGatewayService",
-      "timestamp_service" => "MyTimestampService",
-      "pdf_signature_service" => "MyPDFSignatureService"
+      "consent_cookie_name" => ":weird-consent-cookie-name:",
+      "cache_key_separator" => ":"
     }
   end
 

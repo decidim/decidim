@@ -182,8 +182,7 @@ Decidim.configure do |config|
   #     true
   #   end
   # end
-  config.sms_gateway_service = Rails.application.secrets.services[:sms_gateway] if Rails.application.secrets.services[:sms_gateway].present?
-  # or manually force it to some value:
+  #
   # config.sms_gateway_service = "MySMSGatewayService"
 
   # Timestamp service configuration
@@ -208,8 +207,7 @@ Decidim.configure do |config|
   #   end
   # end
   #
-  config.timestamp_service = Rails.application.secrets.services[:timestamp] if Rails.application.secrets.services[:timestamp].present?
-  # or manually force it to some value:
+  #
   # config.timestamp_service = "MyTimestampService"
 
   # PDF signature service configuration
@@ -232,8 +230,7 @@ Decidim.configure do |config|
   #     # Code to return the pdf signed
   #   end
   # end
-  config.pdf_signature_service = Rails.application.secrets.services[:pdf_signature] if Rails.application.secrets.services[:pdf_signature].present?
-  # or manually force it to some value:
+  #
   # config.pdf_signature_service = "MyPDFSignatureService"
 
   # Etherpad configuration
@@ -297,7 +294,8 @@ Decidim.configure do |config|
 
   # Defines the name of the cookie used to check if the user allows Decidim to
   # set cookies.
-  # config.consent_cookie_name = "decidim-cc"
+  config.consent_cookie_name = Rails.application.secrets.decidim[:consent_cookie_name] if Rails.application.secrets.decidim[:consent_cookie_name].present?
+  config.cache_key_separator = Rails.application.secrets.decidim[:cache_key_separator] if Rails.application.secrets.decidim[:cache_key_separator].present?
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
