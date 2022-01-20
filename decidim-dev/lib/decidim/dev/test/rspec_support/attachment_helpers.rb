@@ -13,7 +13,7 @@ module AttachmentHelpers
   # Creates blob and returns its signed_id
   def upload_test_file(file, options = {})
     filename = options[:filename] || solve_filename(file)
-    content_type = options[:content_type] || file.content_type
+    content_type = options[:content_type] || solve_content_type(file)
 
     blob = ActiveStorage::Blob.create_after_upload!(
       io: File.open(file),
@@ -29,6 +29,12 @@ module AttachmentHelpers
     return file.original_filename if file.respond_to? :original_filename
 
     file.split("/").last
+  end
+
+  def solve_content_type(file)
+    return file.content_type if file.respond_to? :content_type
+
+    MIME::Types.type_for(file).first.content_type
   end
 end
 

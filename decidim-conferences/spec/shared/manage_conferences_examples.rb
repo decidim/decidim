@@ -82,7 +82,7 @@ shared_examples "manage conferences" do
         es: "Mi nuevo título",
         ca: "El meu nou títol"
       )
-      dynamically_attach_file(:banner_image, image3_path)
+      dynamically_attach_file(:banner_image, image3_path, remove_before: true)
 
       within ".edit_conference" do
         find("*[type=submit]").click

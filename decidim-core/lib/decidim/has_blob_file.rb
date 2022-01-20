@@ -6,6 +6,8 @@ module Decidim
   module HasBlobFile
     extend ActiveSupport::Concern
 
+    private
+
     def blob
       @blob ||= begin
         return file if file.is_a? ActiveStorage::Blob
@@ -18,7 +20,7 @@ module Decidim
 
     def files_signed_id
       @files_signed_id ||= begin
-        return file if file.is_a? String
+        return file if defined?(file) && file.is_a?(String)
         return @form.file if @form.file.is_a? String
       end
     end
