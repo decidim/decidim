@@ -101,6 +101,22 @@ Decidim.configure do |config|
   #   cache: Redis.new,
   #   cache_prefix: "..."
   # }
+  if Rails.application.secrets.maps.present? && Rails.application.secrets.maps[:provider].present?
+    static_provider = Rails.application.secrets.maps[:static_provider]
+    dynamic_provider = Rails.application.secrets.maps[:dynamic_provider]
+    url = Rails.application.secrets.maps[:static_url]
+    url = "https://image.maps.ls.hereapi.com/mia/1.6/mapview" if static_provider == "here" && url.blank?
+    config.maps = {
+      provider: static_provider,
+      api_key: Rails.application.secrets.maps[:static_api_key],
+      static: { url: url }
+      dynamic: {
+        provider: dynamic_provider,
+        api_key: Rails.application.secrets.maps[:dynamic_api_key]
+      }
+    }
+    config.maps[:geocoding] = { host: Rails.application.secrets.maps[:geocoding_host], use_https: true } if Rails.application.secrets.maps[:geocoding_host]
+  end
 
   # Custom resource reference generator method. Check the docs for more info.
   # config.reference_generator = lambda do |resource, component|
