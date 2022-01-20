@@ -27,7 +27,7 @@ module Decidim
     end
 
     def validation_with
-      if form_object_class._validators[property.to_sym].is_a?(Array) && form_object_class._validators[property.to_sym].size.positive?
+      if form_object_class && form_object_class._validators[property.to_sym].is_a?(Array) && form_object_class._validators[property.to_sym].size.positive?
         passthru = form_object_class._validators[property.to_sym].find { |v| v.is_a?(PassthruValidator) }
         return passthru.options[:with] if passthru && passthru.options[:with].present?
       end
@@ -37,6 +37,8 @@ module Decidim
     def form_object_class
       @form_object_class ||= begin
         klass.constantize if klass.present?
+      rescue NameError
+        nil
       end
     end
 
