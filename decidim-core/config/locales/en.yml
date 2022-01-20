@@ -1127,6 +1127,9 @@ en:
         receive_notifications_about: I want to get notifications about
         send_notifications_by_email: Send notifications by email
         update_notifications_settings: Save changes
+        push_notifications: Push notifications
+        push_notifications_reminder: To get notifications from Decidim, you'll need to allow them in your browser settings first.
+        allow_push_notifications: Get push notifications to find out what's going on when you're not on Decidim. You can turn them off anytime.
       update:
         error: There was a problem updating your notifications settings.
         success: Your notifications settings were successfully updated.
