@@ -3,6 +3,28 @@
 module Decidim
   # View helpers related to the layout.
   module LayoutHelper
+    # Public: Generates a set of meta tags that generate the different favicon
+    # versions for an organization.
+    #
+    # Returns a safe String with the versions.
+    def favicon
+      return if current_organization.favicon.blank?
+
+      safe_join(Decidim::OrganizationFaviconUploader::SIZES.map do |version, size|
+        favicon_link_tag(current_organization.attached_uploader(:favicon).variant_url(version, host: current_organization.host, port: 3000), sizes: "#{size}x#{size}")
+      end)
+    end
+
+    def apple_favicon
+      icon_image = current_organization.attached_uploader(:favicon).variant_url(:medium, host: current_organization.host, port: 3000)
+      favicon_link_tag(icon_image, rel: "apple-touch-icon", type: "image/png")
+    end
+
+    def legacy_favicon
+      icon_image = current_organization.attached_uploader(:favicon).variant_url(:small, host: current_organization.host, port: 3000).gsub(".png", ".ico")
+      favicon_link_tag(icon_image, rel: "icon", sizes: "any", type: nil)
+    end
+
     # Outputs an SVG-based icon.
     #
     # name    - The String with the icon name.
