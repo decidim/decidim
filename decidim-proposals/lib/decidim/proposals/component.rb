@@ -276,6 +276,7 @@ Decidim.register_component(:proposals) do |component|
                      Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).order(Arel.sql("RANDOM()")).first
                    when 2
                      Decidim::Meetings::Meeting.where(component: component).order(Arel.sql("RANDOM()")).first
+                   else
                      participatory_space.organization
                    end
         proposal.add_coauthor(coauthor)
