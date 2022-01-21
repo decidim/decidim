@@ -24,5 +24,9 @@ module Decidim
         return @form.file if @form.file.is_a? String
       end
     end
+
+    def blob_path
+      ActiveStorage::Blob.service.path_for(blob.key)
+    end
   end
 end

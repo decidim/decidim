@@ -14,7 +14,7 @@ module Capybara
       within ".attachment-modal" do
         find(".remove-upload-item").click if options[:remove_before]
         input_element = find("input[type='file']", visible: :all)
-        input_element.attach_file file_location
+        input_element.attach_file(file_location)
         expect(page).to have_css("div.progress-bar.filled", wait: 5)
         all("input.attachment-title").last.set(options[:title]) if options.has_key?(:title)
         click_button "Save"

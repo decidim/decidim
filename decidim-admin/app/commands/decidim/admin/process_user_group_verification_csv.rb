@@ -35,7 +35,7 @@ module Decidim
         verifier = @form.current_user
         organization = @form.current_organization
 
-        CSV.foreach(ActiveStorage::Blob.service.path_for(blob.key)) do |row|
+        CSV.foreach(blob_path) do |row|
           email = row[0]
           VerifyUserGroupFromCsvJob.perform_later(email, verifier, organization) if email.present?
         end
