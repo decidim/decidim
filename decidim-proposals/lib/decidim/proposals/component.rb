@@ -271,7 +271,6 @@ Decidim.register_component(:proposals) do |component|
         coauthor = case n
                    when 0
                      Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).order(Arel.sql("RANDOM()")).first
-
                    when 1
                      Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).order(Arel.sql("RANDOM()")).first
                    when 2

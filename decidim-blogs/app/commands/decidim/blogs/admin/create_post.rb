@@ -8,7 +8,7 @@ module Decidim
       class CreatePost < Rectify::Command
         def initialize(form, current_user)
           @form = form
-          @current_user = participatory_space.organization
+          @current_user = current_user
         end
 
         # Creates the post if valid.
@@ -28,11 +28,12 @@ module Decidim
         private
 
         def create_post!
-          attributes = {º
+          attributes = {
             title: @form.title,
             body: @form.body,
             component: @form.current_component,
-            author: @form.author.current_user
+            author: @form.author
+          }
 
           @post = Decidim.traceability.create!(
             Post,
