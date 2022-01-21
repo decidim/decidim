@@ -41,8 +41,7 @@ module Decidim
         {
           name: form.name,
           weight: form.weight,
-          parent_id: form.parent_id,
-          description: form.description
+          parent_id: form.parent_id
         }
       end
     end

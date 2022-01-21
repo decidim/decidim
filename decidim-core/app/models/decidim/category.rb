@@ -6,7 +6,7 @@ module Decidim
   class Category < ApplicationRecord
     include Decidim::TranslatableResource
 
-    translatable_fields :name, :description
+    translatable_fields :name
 
     belongs_to :participatory_space, foreign_key: "decidim_participatory_space_id", foreign_type: "decidim_participatory_space_type", polymorphic: true
     has_many :subcategories, foreign_key: "parent_id", class_name: "Decidim::Category", dependent: :destroy, inverse_of: :parent
