@@ -89,10 +89,6 @@ shared_examples_for "an application with configurable env vars" do
       "OMNIAUTH_TWITTER_API_SECRET" => "a-twitter-api-secret",
       "OMNIAUTH_GOOGLE_CLIENT_ID" => "a-google-client-id",
       "OMNIAUTH_GOOGLE_CLIENT_SECRET" => "a-google-client-secret",
-      "MAPS_API_KEY" => "a-maps-api-key",
-      "ETHERPAD_SERVER" => "http://a-etherpad-server.com",
-      "ETHERPAD_API_KEY" => "an-etherpad-key",
-      "ETHERPAD_API_VERSION" => "1.2.2",
       "SECRET_KEY_BASE" => "a-secret-key-base",
       "SMTP_USERNAME" => "a-smtp-username",
       "SMTP_PASSWORD" => "a-smtp-password",
@@ -139,7 +135,24 @@ shared_examples_for "an application with configurable env vars" do
       "DECIDIM_PASSWORD_BLACKLIST" => "i-dont-like-this-password, i-dont,like,this,one,either, password123456",
       "DECIDIM_ALLOW_OPEN_REDIRECTS" => "true",
       "RAILS_LOG_LEVEL" => "fatal",
-      "RAILS_ASSET_HOST" => "http://assets.example.org"
+      "RAILS_ASSET_HOST" => "http://assets.example.org",
+      "ETHERPAD_SERVER" => "http://a-etherpad-server.com",
+      "ETHERPAD_API_KEY" => "an-etherpad-key",
+      "ETHERPAD_API_VERSION" => "1.2.2",
+      "MAPS_PROVIDER" => "here",
+      "MAPS_API_KEY" => "a-maps-api-key"
+    }
+  end
+
+  let(:env_maps_osm) do
+    {
+      "RAILS_ENV" => "production",
+      "MAPS_PROVIDER" => "osm",
+      "MAPS_API_KEY" => "another-maps-api-key",
+      "MAPS_DYNAMIC_URL" => "https://tiles.example.org/{z}/{x}/{y}.png?key={apiKey}&{foo}",
+      "MAPS_STATIC_URL" => "https://staticmap.example.org/",
+      "MAPS_ATTRIBUTION" => '<a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors',
+      "MAPS_GEOCODING_HOST" => "nominatim.example.org"
     }
   end
 
@@ -179,7 +192,16 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim allow_open_redirects) => false,
       %w(etherpad server) => nil,
       %w(etherpad api_key) => nil,
-      %w(etherpad api_version) => "1.2.1"
+      %w(etherpad api_version) => "1.2.1",
+      %w(maps dynamic_provider) => nil,
+      %w(maps static_provider) => nil,
+      %w(maps static_api_key) => nil,
+      %w(maps dynamic_api_key) => nil,
+      %w(maps static_url) => nil,
+      %w(maps dynamic_url) => nil,
+      %w(maps attribution) => nil,
+      %w(maps extra_vars) => nil,
+      %w(maps geocoding_host) => nil
     }
   end
 
@@ -194,9 +216,6 @@ shared_examples_for "an application with configurable env vars" do
       %w(omniauth google_oauth2 enabled) => true,
       %w(omniauth google_oauth2 client_id) => "a-google-client-id",
       %w(omniauth google_oauth2 client_secret) => "a-google-client-secret",
-      %w(maps api_key) => "a-maps-api-key",
-      %w(etherpad server) => "a-etherpad-server",
-      %w(etherpad api_key) => "an-etherpad-key",
       %w(secret_key_base) => "a-secret-key-base",
       %w(smtp_username) => "a-smtp-username",
       %w(smtp_password) => "a-smtp-password",
@@ -244,7 +263,16 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim allow_open_redirects) => true,
       %w(etherpad server) => "http://a-etherpad-server.com",
       %w(etherpad api_key) => "an-etherpad-key",
-      %w(etherpad api_version) => "1.2.2"
+      %w(etherpad api_version) => "1.2.2",
+      %w(maps dynamic_provider) => "here",
+      %w(maps static_provider) => "here",
+      %w(maps static_api_key) => "a-maps-api-key",
+      %w(maps dynamic_api_key) => "a-maps-api-key",
+      %w(maps static_url) => nil,
+      %w(maps dynamic_url) => nil,
+      %w(maps attribution) => nil,
+      %w(maps extra_vars) => nil,
+      %w(maps geocoding_host) => nil
     }
   end
 
@@ -279,7 +307,8 @@ shared_examples_for "an application with configurable env vars" do
       "maximum_conversation_message_length" => 1000,
       "password_blacklist" => [],
       "allow_open_redirects" => false,
-      "etherpad" => nil
+      "etherpad" => nil,
+      "maps" => nil
     }
   end
 
@@ -318,13 +347,49 @@ shared_examples_for "an application with configurable env vars" do
         "server" => "http://a-etherpad-server.com",
         "api_key" => "an-etherpad-key",
         "api_version" => "1.2.2"
+      },
+      "maps" => {
+        "provider" => "here",
+        "api_key" => "a-maps-api-key",
+        "static" => {
+          "url" => "https://image.maps.ls.hereapi.com/mia/1.6/mapview"
+        },
+        "dynamic" => {
+          "provider" => "here",
+          "api_key" => "a-maps-api-key",
+          "tile_layer" => {}
+        }
+      }
+    }
+  end
+
+  let(:initializer_maps_osm) do
+    {
+      "maps" => {
+        "provider" => "osm",
+        "api_key" => "another-maps-api-key",
+        "static" => {
+          "url" => "https://staticmap.example.org/"
+        },
+        "dynamic" => {
+          "provider" => "osm",
+          "api_key" => "another-maps-api-key",
+          "tile_layer" => {
+            "url" => "https://tiles.example.org/{z}/{x}/{y}.png?key={apiKey}&{foo}",
+            "attribution" => '<a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors'
+          }
+        },
+        "geocoding" => {
+          "host" => "nominatim.example.org",
+          "use_https" => true
+        }
       }
     }
   end
 
   let(:rails_off) do
     {
-      "Rails.logger.level" => "0",
+      "Rails.logger.level" => 0,
       "Rails.application.config.log_level" => "debug",
       "Rails.application.config.action_controller.asset_host" => nil
     }
@@ -332,7 +397,7 @@ shared_examples_for "an application with configurable env vars" do
 
   let(:rails_on) do
     {
-      "Rails.logger.level" => "4",
+      "Rails.logger.level" => 4,
       "Rails.application.config.log_level" => "fatal",
       "Rails.application.config.action_controller.asset_host" => "http://assets.example.org"
     }
@@ -364,15 +429,19 @@ shared_examples_for "an application with configurable env vars" do
       expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env ON (#{value})"
     end
 
-    json_off = rails_config_for(test_app, env_off)
+    json_on = initializer_config_for(test_app, env_maps_osm)
+    initializer_maps_osm.each do |key, value|
+      current = json_on[key]
+      expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env Maps OSM (#{value})"
+    end
+
     rails_off.each do |key, value|
-      current = json_off[key]
+      current = rails_value(key, test_app, env_off)
       expect(current).to eq(value), "Rails config (#{key}) = (#{current}) expected to match Env OFF (#{value})"
     end
 
-    json_on = rails_config_for(test_app, env_on)
     rails_on.each do |key, value|
-      current = json_on[key]
+      current = rails_value(key, test_app, env_on)
       expect(current).to eq(value), "Rails config (#{key}) = (#{current}) expected to match Env ON (#{value})"
     end
   end
@@ -386,6 +455,6 @@ def initializer_config_for(path, env)
   JSON.parse Decidim::GemManager.new(path).capture("bin/rails runner 'puts Decidim.config.to_json'", env: env, with_stderr: false)[0]
 end
 
-def rails_value(_value, path, env)
-  JSON.parse Decidim::GemManager.new(path).capture("bin/rails runner 'puts %{value}.to_json'", env: env, with_stderr: false)[0]
+def rails_value(value, path, env)
+  JSON.parse Decidim::GemManager.new(path).capture("bin/rails runner 'puts #{value}.to_json'", env: env, with_stderr: false)[0]
 end
