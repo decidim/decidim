@@ -177,7 +177,7 @@ export default class AutoComplete {
       }
       break;
     case "keyup":
-      if (this.stickyHiddenInput.value !== "" && event.target === this.element && (["Escape", "Backspace", "Delete"].includes(event.key) || /^[a-z0-9]$/i.test(event.key))) {
+      if (this.stickyHiddenInput.value !== "" && event.target === this.element && (["Escape", "Backspace", "Delete"].includes(event.key) || (/^[a-z0-9]$/i).test(event.key))) {
         this.removeStickySelection();
       } else if (this.options.searchPrompt) {
         if (this.stickyHiddenInput.value === "" && this.element.value.length < this.options.threshold) {
