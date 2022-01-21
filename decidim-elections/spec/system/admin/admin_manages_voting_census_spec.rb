@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Admin manages polling officers", type: :system do
   include_context "when admin managing a voting"
 
-  let(:csv_file) { Decidim::Dev.test_file("import_voting_census.csv", "text/csv") }
+  let(:csv_file) { upload_test_file(Decidim::Dev.test_file("import_voting_census.csv", "text/csv")) }
 
   before do
     switch_to_host(organization.host)
