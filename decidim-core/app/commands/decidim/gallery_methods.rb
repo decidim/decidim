@@ -9,13 +9,11 @@ module Decidim
     def build_gallery(attached_to = nil)
       @gallery = []
       @form.add_photos.reject(&:blank?).each do |photo|
-        next unless image? photo[:file]
-
         @gallery << Attachment.new(
-          title: { I18n.locale => photo[:title] },
+          title: photos_title(photo),
           attached_to: attached_to || gallery_attached_to,
-          file: photo[:file],
-          content_type: blob(photo[:file]).content_type
+          file: photos_signed_id(photo),
+          content_type: photos_content_type(photo)
         )
       end
     end
@@ -65,6 +63,22 @@ module Decidim
       return form.current_organization if form.respond_to?(:current_organization)
 
       form.current_component.organization if form.respond_to?(:current_component)
+    end
+
+    def photos_signed_id(photo)
+      return photo[:file] if photo.is_a?(Hash)
+
+      photo
+    end
+
+    def photos_title(photo)
+      return { I18n.locale => photo[:title] } if photo.is_a?(Hash) && photo.has_key?(:title)
+
+      { I18n.locale => "" }
+    end
+
+    def photos_content_type(photo)
+      blob(photos_signed_id(photo)).content_type
     end
 
     def blob(signed_id)
