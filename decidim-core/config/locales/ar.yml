@@ -711,6 +711,9 @@ ar:
       index:
         last_activity: النشاط الاخير
         resource_type: نوع
+    links:
+      warning:
+        cancel: إلغاء
     log:
       base_presenter:
         create: "%{user_name} تم الإنشاء %{resource_name}"
@@ -962,6 +965,8 @@ ar:
           other: "%{count} النتائج"
         view_all: عرض الكل (%{count})
     shared:
+      confirm_modal:
+        cancel: إلغاء
       embed_modal:
         close_window: أغلق النافذة
         embed: يرجى لصق هذا الرمز في صفحتك
