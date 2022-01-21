@@ -29,7 +29,7 @@ module Decidim
     let(:nickname) { "foo_bar" }
     let(:phone) { "987654321" }
     let(:document_number) { "12345678X" }
-    let(:avatar) { File.open("spec/assets/avatar.jpg") }
+    let(:avatar) { upload_test_file(Decidim::Dev.test_file("avatar.jpg", "image/jpeg")) }
     let(:about) { "This is a description about me" }
 
     context "with correct data" do

@@ -10,7 +10,7 @@ module Decidim
 
     def blob
       @blob ||= begin
-        return file if file.is_a? ActiveStorage::Blob
+        return file if defined?(file) && file.is_a?(ActiveStorage::Blob)
         return @form.file if @form.present? && @form.respond_to?(:file) && @form.file.is_a?(ActiveStorage::Blob)
         return ActiveStorage::Blob.find_signed(files_signed_id) if files_signed_id.is_a? String
 

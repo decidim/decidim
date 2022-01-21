@@ -48,8 +48,8 @@ describe "Admin manages questions", type: :system do
         scope_pick select_data_picker(:question_decidim_scope_id), organization.scopes.first
       end
 
-      dynamically_attach_file(:question_hero_image, image2_path)
-      dynamically_attach_file(:question_banner_image, image1_path)
+      dynamically_attach_file(:hero_image, image2_path)
+      dynamically_attach_file(:banner_image, image1_path)
 
       within ".new_question" do
         find("*[type=submit]").click
@@ -124,7 +124,7 @@ describe "Admin manages questions", type: :system do
         "#question-title-tabs",
         en: "My new title"
       )
-      dynamically_attach_file(:banner_image, image_path)
+      dynamically_attach_file(:banner_image, image3_path, remove_before: true)
 
       within ".edit_question" do
         find("*[type=submit]").click

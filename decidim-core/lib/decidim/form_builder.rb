@@ -439,7 +439,9 @@ module Decidim
     end
 
     def choose_button_label(attribute)
-      if resource_class(attribute).attached_config[attribute] && resource_class(attribute).attached_config[attribute].uploader <= Decidim::ImageUploader
+      if resource_class(attribute).respond_to?(:attached_config) &&
+         resource_class(attribute).attached_config[attribute] &&
+         resource_class(attribute).attached_config[attribute].uploader <= Decidim::ImageUploader
         return I18n.t("decidim.forms.upload.labels.add_image")
       end
 

@@ -21,7 +21,7 @@ describe "Admin manages polling officers", type: :system do
     end
 
     it "uploads a csv" do
-      dynamically_attach_file(:add_photos, Decidim::Dev.asset("import_voting_census.csv"))
+      dynamically_attach_file(:file, Decidim::Dev.asset("import_voting_census.csv"))
       within ".form.new_census" do
         find("*[type=submit]").click
       end

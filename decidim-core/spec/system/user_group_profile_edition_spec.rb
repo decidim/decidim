@@ -41,7 +41,7 @@ describe "User group profile edition", type: :system do
 
       fill_in "Name", with: "My super duper group"
       fill_in "About", with: "We are awesome"
-      dynamically_attach_file(:avatar, Decidim::Dev.asset("city.jpeg"))
+      dynamically_attach_file(:avatar, Decidim::Dev.asset("city.jpeg"), remove_before: true)
 
       click_button "Update group"
 
