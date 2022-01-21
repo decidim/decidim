@@ -230,8 +230,13 @@ module Decidim
     end
   end
 
-  # Exposes a configuration option: the whitelist ips
+  # Exposes a configuration option: the :system accesslist ips
   config_accessor :system_accesslist_ips do
+    []
+  end
+
+  # Exposes a configuration option: the :system accesslist ips
+  config_accessor :admin_accesslist_ips do
     []
   end
 

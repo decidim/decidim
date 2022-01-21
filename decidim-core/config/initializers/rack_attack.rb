@@ -7,12 +7,19 @@ if Rails.env.production? || Rails.env.test?
     config.middleware.use Rack::Attack
   end
 
+  def rack_attack_access_authorized?(path, allowed_ips, request)
+    return unless request.path.start_with?(path)
+
+    allowed_ips.any? && allowed_ips.map { |ip_address| IPAddr.new(ip_address).include?(IPAddr.new(request.ip)) }.any?
+  end
+
   ActiveSupport::Reloader.to_prepare do
     Rack::Attack.blocklist("block all access to system") do |request|
-      # Requests are blocked if the return value is truthy
-      if request.path.start_with?("/system")
-        Decidim.system_accesslist_ips.any? && Decidim.system_accesslist_ips.map { |ip_address| IPAddr.new(ip_address).include?(IPAddr.new(request.ip)) }.any?
-      end
+      rack_attack_access_authorized?("/system", Decidim.system_accesslist_ips, request)
+    end
+
+    Rack::Attack.blocklist("block all access to admin") do |request|
+      rack_attack_access_authorized?("/admin", Decidim.admin_accesslist_ips, request)
     end
 
     unless Rails.env.test?

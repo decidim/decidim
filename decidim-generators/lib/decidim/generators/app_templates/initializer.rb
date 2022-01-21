@@ -19,10 +19,11 @@ Decidim.configure do |config|
   # this value for that specific organization.
   config.default_locale = :en
 
-  # Restrict access to the system part with an authorized ip list.
+  # Restrict access to the system or admin part with an authorized ip list.
   # You can use a single ip like ("1.2.3.4"), or an ip subnet like ("1.2.3.4/24")
   # You may specify multiple ip in an array ["1.2.3.4", "1.2.3.4/24"]
   # config.system_accesslist_ips = ["127.0.0.1"]
+  # config.admin_accesslist_ips = ["127.0.0.1"]
 
   # Defines a list of custom content processors. They are used to parse and
   # render specific tags inside some user-provided content. Check the docs for
