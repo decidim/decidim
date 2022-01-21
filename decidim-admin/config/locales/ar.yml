@@ -449,6 +449,9 @@ ar:
             does_not_belong: لا ينتمي
             offensive: هجومي
             spam: بريد مؤذي
+        reports:
+          index:
+            content_original_language: لغة المحتوى الأصلية
       newsletter_templates:
         index:
           preview_template: معاينة
@@ -736,6 +739,9 @@ ar:
             reported_content_url: تم الإبلاغ عن عنوان URL للمحتوى
             reports: تقارير
             visit_url: زيارة العنوان الشبكي
+        report:
+          fields:
+            locale: اللغة
   errors:
     messages:
       invalid_json: JSON غير صالح
