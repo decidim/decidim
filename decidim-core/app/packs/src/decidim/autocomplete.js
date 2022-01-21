@@ -4,7 +4,7 @@ export default class AutoComplete {
   constructor(el, options = {}) {
     this.element = el;
     this.stickySelectedSpan = null;
-    this.clearStickySelection = null;
+    this.clearStickySelectionSpan = null;
     this.stickyHiddenInput = null;
     this.promptDiv = null;
     const thresholdTemp = options.threshold || 2;
@@ -172,15 +172,15 @@ export default class AutoComplete {
       this.addStickySelectItem(event.detail.selection);
       break;
     case "click":
-      if (event.target === this.clearStickySelection) {
-        this.hideStickySelection();
+      if (event.target === this.clearStickySelectionSpan) {
+        this.removeStickySelection();
       }
       break;
     case "keyup":
-      if (this.stickyHiddenInput.value !== "" && event.target === this.element && (["Escape", "Backspace", "Delete"].includes(event.key) || this.element.value.length > 1)) {
-        this.hideStickySelection();
+      if (this.stickyHiddenInput.value !== "" && event.target === this.element && (["Escape", "Backspace", "Delete"].includes(event.key) || /^[a-z0-9]$/i.test(event.key))) {
+        this.removeStickySelection();
       } else if (this.options.searchPrompt) {
-        if (this.element.value.length < this.options.threshold) {
+        if (this.stickyHiddenInput.value === "" && this.element.value.length < this.options.threshold) {
           this.promptDiv.style.display = "block";
         } else {
           this.promptDiv.style.display = "none";
@@ -202,10 +202,10 @@ export default class AutoComplete {
     return hiddenInput;
   }
 
-  hideStickySelection() {
+  removeStickySelection() {
     this.stickyHiddenInput.value = "";
     this.element.placeholder = this.options.placeholder;
-    this.clearStickySelection.style.display = "none";
+    this.clearStickySelectionSpan.style.display = "none";
     this.stickySelectedSpan.style.display = "none";
   }
 
@@ -214,7 +214,7 @@ export default class AutoComplete {
     this.element.placeholder = "";
     this.stickySelectedSpan.innerHTML = selection.value[selection.key];
     this.stickySelectedSpan.style.display = "block";
-    this.clearStickySelection.style.display = "block";
+    this.clearStickySelectionSpan.style.display = "block";
     this.setInput("");
   }
 
@@ -249,16 +249,16 @@ export default class AutoComplete {
     this.stickySelectedSpan.addEventListener("click", () => this.element.focus());
     this.stickyHiddenInput = this.createHiddenInput();
 
-    this.clearStickySelection = document.createElement("span");
-    this.clearStickySelection.className = "clear-sticky-selection";
-    this.clearStickySelection.innerHTML = "&times;";
-    this.clearStickySelection.style.display = "none";
-    this.clearStickySelection.addEventListener("click", this);
+    this.clearStickySelectionSpan = document.createElement("span");
+    this.clearStickySelectionSpan.className = "clear-sticky-selection";
+    this.clearStickySelectionSpan.innerHTML = "&times;";
+    this.clearStickySelectionSpan.style.display = "none";
+    this.clearStickySelectionSpan.addEventListener("click", this);
 
     this.element.addEventListener("selection", this);
     this.element.addEventListener("keyup", this);
 
-    this.acWrapper.insertBefore(this.clearStickySelection, this.element);
+    this.acWrapper.insertBefore(this.clearStickySelectionSpan, this.element);
     this.acWrapper.insertBefore(this.stickySelectedSpan, this.element);
     if (this.options.selected) {
       this.addStickySelectItem(this.options.selected);
