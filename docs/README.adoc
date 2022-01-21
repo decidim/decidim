@@ -56,6 +56,8 @@ Then the result would be:
      branches: develop
 ----
 
+If building locally doesn't show any change, then check also that the branch corresponds with the one that you're working locally.
+
 == Add a new link in the sidebar
 
 For adding a new link in the sidebar you need to add it in https://raw.githubusercontent.com/decidim/documentation/master/en/modules/ROOT/nav.adoc[nav.adoc file]
