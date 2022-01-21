@@ -138,7 +138,7 @@ describe "Admin manages votings", type: :system do
         es: "Mi nuevo título",
         ca: "El meu nou títol"
       )
-      dynamically_attach_file(:banner_image, image3_path)
+      dynamically_attach_file(:banner_image, image3_path, remove_before: true)
       select "Online", from: :voting_voting_type
 
       within ".edit_voting" do
@@ -184,7 +184,7 @@ describe "Admin manages votings", type: :system do
     end
 
     it "does not update the voting" do
-      dynamically_attach_file(:banner_image, image_invalid_path)
+      dynamically_attach_file(:banner_image, image_invalid_path, remove_before: true)
 
       within ".edit_voting" do
         find("*[type=submit]").click

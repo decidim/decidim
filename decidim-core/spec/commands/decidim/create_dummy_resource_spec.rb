@@ -67,8 +67,8 @@ module Decidim
       context "when uploading images" do
         let(:uploaded_images) do
           [
-            Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-            Decidim::Dev.test_file("city2.jpeg", "image/jpeg")
+            { file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") },
+            { file: upload_test_file(Decidim::Dev.asset("city2.jpeg"), content_type: "image/jpeg") }
           ]
         end
 
