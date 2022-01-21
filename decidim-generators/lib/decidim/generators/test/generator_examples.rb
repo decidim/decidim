@@ -156,6 +156,20 @@ shared_examples_for "an application with configurable env vars" do
     }
   end
 
+  let(:env_maps_mix) do
+    {
+      "RAILS_ENV" => "production",
+      "MAPS_STATIC_PROVIDER" => "here",
+      "MAPS_DYNAMIC_PROVIDER" => "osm",
+      "MAPS_STATIC_API_KEY" => "a-maps-api-key",
+      "MAPS_DYNAMIC_API_KEY" => "another-maps-api-key",
+      "MAPS_DYNAMIC_URL" => "https://tiles.example.org/{z}/{x}/{y}.png?key={apiKey}&{foo}",
+      "MAPS_ATTRIBUTION" => '<a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors',
+      "MAPS_GEOCODING_HOST" => "nominatim.example.org",
+      "MAPS_EXTRA_VARS" => URI.encode_www_form({ api_key: true, foo: "bar=baz" })
+    }
+  end
+
   let(:secrets_off) do
     {
       %w(omniauth facebook enabled) => false,
@@ -387,6 +401,32 @@ shared_examples_for "an application with configurable env vars" do
     }
   end
 
+  let(:initializer_maps_mix) do
+    {
+      "maps" => {
+        "provider" => "here",
+        "api_key" => "a-maps-api-key",
+        "static" => {
+          "url" => "https://image.maps.ls.hereapi.com/mia/1.6/mapview"
+        },
+        "dynamic" => {
+          "provider" => "osm",
+          "api_key" => "another-maps-api-key",
+          "tile_layer" => {
+            "url" => "https://tiles.example.org/{z}/{x}/{y}.png?key={apiKey}&{foo}",
+            "attribution" => '<a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors',
+            "api_key" => true,
+            "foo" => "bar=baz"
+          }
+        },
+        "geocoding" => {
+          "host" => "nominatim.example.org",
+          "use_https" => true
+        }
+      }
+    }
+  end
+
   let(:rails_off) do
     {
       "Rails.logger.level" => 0,
@@ -433,6 +473,12 @@ shared_examples_for "an application with configurable env vars" do
     initializer_maps_osm.each do |key, value|
       current = json_on[key]
       expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env Maps OSM (#{value})"
+    end
+
+    json_on = initializer_config_for(test_app, env_maps_mix)
+    initializer_maps_mix.each do |key, value|
+      current = json_on[key]
+      expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env Maps MIX (#{value})"
     end
 
     rails_off.each do |key, value|

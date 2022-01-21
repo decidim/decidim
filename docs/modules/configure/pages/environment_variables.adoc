@@ -98,7 +98,82 @@ The next tables show all the default Env Vars available when running a default D
 |===
 |Name |Value |Default value|Multitenant's System configurable
 
-|GEOCODER_API_KEY
+
+|MAPS_PROVIDER
+|For a simple geolocation and tile maps service configuration define this value to one of the supported providers, currently `here` for https://HERE.com[HERE Maps] or `osm` for https://www.openstreetmap.org[OpenStreatMap]. See xref:services:maps.adoc[Maps].
+|
+|No
+
+|MAPS_API_KEY
+|For a simple geolocation and tile maps service configuration define this value in case the provider needs it (if you are using Here Maps, you will need an API key). See xref:services:maps.adoc[Maps].
+
+*Note that if you are using the `here` service you don't need to do anything else. If using `osm` however check the rest of env vars related to maps for a proper configuration*
+|
+|No
+
+|MAPS_DYNAMIC_URL
+|If you are using a `osm` as a provider, you need to define this variable. Keep in mind that OpenStreetMap cannot be used directly due its non-commercial license in many cases. See xref:services:maps.adoc[Maps].
+
+*You need to define this variable if using `osm` as a provider, usually the URL goes in the form of `https://tile.openstreetmap.org/{z}/{x}/{y}.png?key={apiKey}&{foo}`*
+|
+|No
+
+|MAPS_STATIC_URL
+|If you are using a `osm` as a provider, you need to define this variable. Keep in mind that OpenStreetMap cannot be used directly due its non-commercial license in many cases. See xref:services:maps.adoc[Maps].
+
+*You need to define this variable if using `osm` as a provider, usually the URL goes in the form of `http://staticmap.openstreetmap.de/`*
+|https://image.maps.ls.hereapi.com/mia/1.6/mapview (only if using Here Maps)
+|No
+
+|MAPS_ATTRIBUTION
+|If you are using a `osm` as a provider, you need to define this variable. OpenStreeMap requires you to show the credits and that's what this does. See xref:services:maps.adoc[Maps].
+
+*You need to define this variable if using `osm` as a provider, the next text is a pretty common value: `<a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors`*
+|
+|No
+
+|MAPS_EXTRA_VARS
+|Some providers may require you to send additional variables in the dynamic tile request (custom api keys, secrets, etc). Use this to do that, you can define as many pairs of "variable"/"value" in a URL-encoded string. See xref:services:maps.adoc[Maps].
+
+*Note that to defined this variable might not be necessary in most cases, if you do it must look something like `api_key=true&foo=bar%3Dbaz`*
+|
+|No
+
+|MAPS_GEOCODING_HOST
+|If you are using a `osm` as a provider, you need to define this variable to define the geocoder service to to translate addresses into latitude/longitude coordinates. See xref:services:maps.adoc[Maps].
+
+*You need to define this variable if using `osm` as a provider, usually the URL goes in the form of `https://nominatim.openstreetmap.org`*
+|
+|No
+
+|MAPS_DYNAMIC_PROVIDER
+|For advanced cases, you can define this value instead or in combination of MAPS_PROVIDER (which will be the default). This allows to set up different providers for the static tile provider than the dynamic. See xref:services:maps.adoc[Maps].
+
+*Note that you don't need to define this variable for the most common, simple, one provider cases.*
+|
+|No
+
+|MAPS_STATIC_PROVIDER
+|For advanced cases, you can define this value instead or in combination of MAPS_PROVIDER (which will be the default). This allows to set up different providers for the static tile provider than the dynamic. See xref:services:maps.adoc[Maps].
+
+*Note that you don't need to define this variable for the most common, simple, one provider cases.*
+|
+|No
+
+|MAPS_STATIC_API_KEY
+|For advanced cases, you can define this value instead or in combination of MAPS_API_KEY (which will be the default). This allows to set up different providers for the static tile provider than the dynamic requiring different API KEYS. See xref:services:maps.adoc[Maps].
+
+*Note that you don't need to define this variable for the most common, simple, one provider cases.*
+|
+|No
+
+|MAPS_DYNAMIC_API_KEY
+|For advanced cases, you can define this value instead or in combination of MAPS_API_KEY (which will be the default). This allows to set up different providers for the static tile provider than the dynamic requiring different API KEYS. See xref:services:maps.adoc[Maps].
+
+*Note that you don't need to define this variable for the most common, simple, one provider cases.*
+|
+|No
+
 |API key for Geocoder and map provider if using https://HERE.com[HERE Maps]. See xref:services:maps.adoc[Maps].
 |
 |No
@@ -111,6 +186,11 @@ The next tables show all the default Env Vars available when running a default D
 |ETHERPAD_API_KEY
 |API key for communicating with the Etherpad server. See xref:services:etherpad.adoc[Etherpad].
 |
+|No
+
+|ETHERPAD_API_VERSION
+|Etherpad API version, this is unlikely to be needed to be changed. See xref:services:etherpad.adoc[Etherpad].
+|1.2.1
 |No
 
 |OMNIAUTH_FACEBOOK_APP_ID
@@ -315,7 +395,7 @@ If not set, it will be ignored.
 |No
 
 |DECIDIM_EXPIRE_SESSION_AFTER
-|In minutes, How long can a user remained logged in before the session expires. 
+|In minutes, How long can a user remained logged in before the session expires.
 
 Notice that this is also maximum time that user can idle before getting automatically signed out.
 |30
@@ -341,7 +421,7 @@ If a caching system is in place, it can also allow cache and log poisoning attac
 |No
 
 |DECIDIM_MAXIMUM_CONVERSATION_MESSAGE_LENGTH
-|The maximum length (number of characters) for conversation messages. Conversations are private threads between two or more users or groups. 
+|The maximum length (number of characters) for conversation messages. Conversations are private threads between two or more users or groups.
 
 This does not affect comments as its length can be configured by administrators in the component's settings.
 |1000
