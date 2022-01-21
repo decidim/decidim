@@ -22,8 +22,8 @@ module Decidim
           filters[argument.to_sym] = v
         end
         Decidim::UserBaseEntity
-          .where.not(confirmed_at: nil)
-          .where(blocked_at: nil)
+          .confirmed
+          .not_blocked
           .find_by(filters)
       end
     end
