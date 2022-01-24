@@ -22,6 +22,15 @@ module Decidim
           expect(users).to include({ "id" => user.id.to_s, "__typename" => "User" },
                                    "id" => user_group.id.to_s, "__typename" => "UserGroup")
         end
+
+        context "when user is blocked" do
+          let(:user) { create(:user, :blocked, :confirmed, organization: current_organization) }
+
+          it "doesn't returns all the types" do
+            users = response["users"]
+            expect(users).to include("id" => user_group.id.to_s, "__typename" => "UserGroup")
+          end
+        end
       end
 
       context "when user or groups are not confirmed" do
@@ -42,6 +51,15 @@ module Decidim
           users = response["users"]
           expect(users).to include("id" => user.id.to_s)
           expect(users).not_to include("id" => user_group.id.to_s)
+        end
+
+        context "when user is blocked" do
+          let(:user) { create(:user, :blocked, :confirmed, organization: current_organization) }
+
+          it "doesn't returns all the types" do
+            users = response["users"]
+            expect(users).to eq([])
+          end
         end
       end
 
@@ -86,6 +104,14 @@ module Decidim
             expect(response["users"]).to include("name" => user5.name)
             expect(response["users"]).to include("name" => user6.name)
           end
+
+          context "when user is blocked" do
+            let!(:user1) { create(:user, :blocked, :confirmed, nickname: "_foo_user_1", name: "FooBar User 1", organization: current_organization) }
+
+            it "doesn't returns matching users" do
+              expect(response["users"]).not_to include("name" => user1.name)
+            end
+          end
         end
 
         context "when search a user by name" do
@@ -100,6 +126,14 @@ module Decidim
             expect(response["users"]).to include("name" => user5.name)
             expect(response["users"]).to include("name" => user6.name)
           end
+
+          context "when user is blocked" do
+            let!(:user1) { create(:user, :blocked, :confirmed, nickname: "_foo_user_1", name: "FooBar User 1", organization: current_organization) }
+
+            it "doesn't returns matching users" do
+              expect(response["users"]).not_to include("name" => user1.name)
+            end
+          end
         end
 
         context "when search a user by wildcard" do
@@ -113,6 +147,14 @@ module Decidim
             expect(response["users"]).not_to include("name" => user4.name)
             expect(response["users"]).to include("name" => user5.name)
             expect(response["users"]).to include("name" => user6.name)
+          end
+
+          context "when user is blocked" do
+            let!(:user1) { create(:user, :blocked, :confirmed, nickname: "_foo_user_1", name: "FooBar User 1", organization: current_organization) }
+
+            it "doesn't returns matching users" do
+              expect(response["users"]).not_to include("name" => user1.name)
+            end
           end
         end
 
@@ -129,6 +171,14 @@ module Decidim
             expect(response["users"]).to include("name" => user5.name)
             expect(response["users"]).to include("name" => user6.name)
           end
+
+          context "when user is blocked" do
+            let!(:user1) { create(:user, :blocked, :confirmed, nickname: "_foo_user_1", name: "FooBar User 1", organization: current_organization) }
+
+            it "doesn't returns matching users" do
+              expect(response["users"]).not_to include("name" => user1.name)
+            end
+          end
         end
 
         context "when search a user by wildcard but with exclusion list" do
@@ -144,6 +194,14 @@ module Decidim
             expect(response["users"]).not_to include("name" => user5.name)
             expect(response["users"]).to include("name" => user6.name)
           end
+
+          context "when user is blocked" do
+            let!(:user1) { create(:user, :blocked, :confirmed, nickname: "_foo_user_1", name: "FooBar User 1", organization: current_organization) }
+
+            it "doesn't returns matching users" do
+              expect(response["users"]).not_to include("name" => user1.name)
+            end
+          end
         end
 
         context "when search a user by wildcard but with multiple exclusion list" do
@@ -158,6 +216,14 @@ module Decidim
             expect(response["users"]).not_to include("name" => user4.name)
             expect(response["users"]).not_to include("name" => user5.name)
             expect(response["users"]).not_to include("name" => user6.name)
+          end
+
+          context "when user is blocked" do
+            let!(:user1) { create(:user, :blocked, :confirmed, nickname: "_foo_user_1", name: "FooBar User 1", organization: current_organization) }
+
+            it "doesn't returns matching users" do
+              expect(response["users"]).not_to include("name" => user1.name)
+            end
           end
         end
       end
