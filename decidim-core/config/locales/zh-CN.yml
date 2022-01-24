@@ -629,7 +629,6 @@ zh-CN:
       file_help:
         file:
           explanation: '文件指南：'
-          message_1: 必须是图像或文档。
         image:
           explanation: '图像指南：'
           message_1: 更喜欢一个没有任何文本的横屏图像。
