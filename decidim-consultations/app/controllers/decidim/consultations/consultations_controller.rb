@@ -38,28 +38,21 @@ module Decidim
       end
 
       def consultations
-        @consultations = search.results
+        @consultations = search.result
         @consultations = reorder(@consultations)
         @consultations = paginate(@consultations)
       end
 
       alias collection consultations
 
-      def search_klass
-        ConsultationSearch
+      def search_collection
+        Consultation.published
       end
 
       def default_filter_params
         {
-          search_text: "",
+          search_text_cont: "",
           state: "all"
-        }
-      end
-
-      def context_params
-        {
-          organization: current_organization,
-          current_user: current_user
         }
       end
     end
