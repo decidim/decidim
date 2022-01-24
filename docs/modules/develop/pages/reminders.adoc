@@ -1,0 +1,138 @@
+= Reminders
+
+Reminders can be used to remind users about anything they need to know about regarding a specific component. It is assumed the reminders are always related to a component. Currently they are only implemented in the budgets component to remind users if they did not finish their vote but added something to their vote earlier.
+
+The automatic reminder generation should run once every day and the reminder generator will contain the logic that decides who to remind about what. The generator class will queue the reminders that need to be sent.
+
+* To run automatic reminder generator.
++
+[source,ruby]
+----
+bundle exec rake decidim:reminders:all
+----
+
+== Key concepts
+
+Reminders can be created either automatically or through an admin triggered action from the admin panel. For instance, we can send budgeting reminders automatically after two hours, one week and two weeks after voting has been started. If the admin wanted to remind all users at the start of final day of the voting, which would be two days after the last automatic reminder or 2.5 weeks after the voting start, they would have to trigger it manually or change the configuration of the budgeting reminder.
+
+The reminders are controlled by a generator class which generates the reminders to be sent. The generator controls how and when the reminders are generated as it can be very context specific when to send the reminders. For instance, in the budgeting component, we need to find all unfinished orders that have been started more than two hours ago and which have not been already reminded enough many times.
+
+Reminders are defined through their own manifests which defines the following parameters for the reminders:
+
+- The generator class which is used to run the logic for creating the reminders
+- The form class which is used for defining specific parameters for the view where admin users can manually trigger the reminders to be sent
+- The command class which will queue the reminders when admin triggers the reminders manually
+
+=== The reminder objects
+
+Reminders consist of the following database objects:
+
+- Reminder which holds the main reminder object that is attached to a user to be reminded about and the component for which the reminder is created for. The reminder can have many deliveries and many records to be reminded about.
+- ReminderDelivery which holds a log of all deliveries sent to the user. This may be useful in cases where we need to audit the system or solve a user support request asking why they were reminded for a specific thing at a specific time. In the backend, this also lets us do conditional logic based on how many times the user has been reminded and when the last reminder was sent.
+- ReminderRecord which holds information about the records the reminder is related to. This lets us combine reminders that are related to multiple records at a time, so that we don't need to send mulitple emails for each record. For example, the budgeting reminders will contain information about in which budgets the user has pending votes which allows us to combine this information in a single email, instead of sending one email per pending order in each budget.
+
+==== ReminderRecord states
+
+The ReminderRecord object holds a "state" attribute which tells whether the record is in one of the following states:
+
+- `active` - The reminder record is active for the reminder to be sent. Only active records should be included in the reminder.
+- `pending` - The reminder record is "pending" which means that the reminder should probably be sent soon but not for sure. For example, in the budgeting reminders the reminder record is "pending" if voting has been started but it has been started just a moment before automatically sending the reminders. In this situation, we would not want to remind the user if they started the voting process two minutes before the automatic reminder sending was run on the server.
+- `deleted` - The record has been "deleted", so it will not need any further reminders. We still keep the ReminderRecord in order to preserve the backlog about when the previous reminders were sent. For example, in the budgeting reminders, the ReminderRecord is related to a budgeting "order" (or vote) which can be deleted by the user, and therefore won't need any further reminders.
+- `completed` - The record has been "completed", so it will not need any further reminders. The reminders can be specific to the state of the remindable objects, so we change the ReminderRecord state to "completed" when the record will not need any further reminders. For example, in the budgeting reminders, we would not want to remind the user anymore if they completed their vote in a budget but they still have pending order in another budget that will still need further reminders. In this situation, we would want to include only the pending order in the further reminders, still keeping the backlog information about the previous reminders for the already completed budget order (vote).
+
+== Defining a reminder
+
+Reminders can be defined through initializers by defining calling the `registed` method on the reminders registry object at the Decidim main module as follows:
+
+[source,ruby]
+----
+Decidim.reminders_registry.register(:orders) do |reminder_registry|
+  reminder_registry.generator_class_name = "Decidim::YourModule::YourReminderGenerator"
+  reminder_registry.form_class_name = "Decidim::YourModule::Admin::YourReminderForm"
+  reminder_registry.command_class_name = "Decidim::YourModule::Admin::CreateYourReminders"
+
+  # The reminder settings object lets you define configurations that can be changed by the system administrators.
+  # For example, if you want to make the intervals configurable when the reminders will be sent, you can provide a
+  # configuration for that.
+  reminder_registry.settings do |settings|
+    # For example, if your reminder should be automatically sent three times at specific intervals
+    settings.attribute :reminder_times, type: :array, default: [2.hours, 1.week, 2.weeks]
+  end
+
+  # The messages that will be shown for the reminder user interface if the admin wants to manually trigger the
+  # reminders. The title is shown at the top of the page and the description will be shown under it where you can
+  # provide information e.g. on how many reminders would be sent if the admin triggered the action.
+  reminder_registry.messages do |msg|
+    msg.set(:title) { |count: 0| I18n.t("decidim.budgets.admin.reminders.orders.title", count: count) }
+    msg.set(:description) { I18n.t("decidim.budgets.admin.reminders.orders.description") }
+  end
+end
+----
+
+=== Defining a reminder generator
+
+The generator object holds the main logic for creating the reminders. You can see one example at `Decidim::Budgets::OrderReminderGenerator` which generates the reminders for the pending orders. Another example could be for the upcoming meetings that will be happening in the next two days which could be implemented by defining the following reminder generator:
+
+[source,ruby]
+----
+# frozen_string_literal: true
+
+module Decidim
+  module Meetings
+    # This class is the generator class which creates and updates meeting related reminders,
+    # after reminder is generated it is send to user who are participating to upcoming meetings.
+    class MeetingReminderGenerator
+      attr_reader :reminder_jobs_queued
+
+      def initialize
+        @reminder_manifest = Decidim.reminders_registry.for(:meetings)
+        @reminder_jobs_queued = 0
+        @queued_reminders = []
+      end
+
+      # Creates reminders and updates them if they already exists.
+      def generate
+        Decidim::Component.where(manifest_name: "meetings").each do |component|
+          send_reminders(component)
+        end
+      end
+
+      # This can be called by the admin command that manually triggers the reminders.
+      def generate_for(component)
+        send_reminders(component)
+      end
+
+      private
+
+      attr_reader :reminder_manifest, :queued_reminders
+
+      def send_reminders(component)
+        # before_days could be provided as a configuration option, e.g. `2.days`
+        before_days = reminder_manifest.settings.attributes[:before_days]
+        Decidim::Meetings::Meeting.where(component: component).where(
+          "start_time >= ? AND start_time <= ?",
+          DateTime.now + before_days.days
+          DateTime.now + before_days.days + 1.day
+        ).each do |meeting|
+          Decidim::Meetings::Registration.where(meeting: meeting).each do |registration|
+            reminder = Decidim::Reminder.find_or_create_by(user: registration.user, component: component)
+            record = Decidim::ReminderRecord.find_or_create_by(reminder: reminder, remindable: meeting)
+            record.update(state: "active") unless record.active?
+            reminder.records << record
+            reminder.save!
+            next if queued_reminders.include?(reminder.id)
+
+            Decidim::Meetings::SendMeetingRemindersJob.perform_later(reminder)
+            @reminder_jobs_queued += 1
+            queued_reminders << reminder.id
+          end
+        end
+      end
+    end
+  end
+end
+----
+
+The `Decidim::Meetings::SendMeetingRemindersJob` would be responsible for delivering the emails for the upcoming meetings in the specified component.
+
+In addition, you need to create the Command and the Form objects to handle the manually triggered reminders from the admin panel in case you decide to implement these for the specified component. Please take example from `Decidim::Budgets::Admin::CreateOrderReminders` and `Decidim::Budgets::Admin::OrderReminderForm` to implement these. Also note that providing the admin triggered manual notifications is not necessary when you can omit creating these classes and the related view changes.

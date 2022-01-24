@@ -41,7 +41,7 @@
       <% if current || !required %>
         <a class="button" role="button" href="<%= scopes_picker_path(current: current&.id, **context) %>" aria-controls="<%= picker_target_id %>" data-picker-value="<%= current&.id || global_value %>" data-picker-text="<%= scope_name_for_picker(current, t("decidim.scopes.global")) %>" data-picker-choose>
       <% else %>
-        <a class="button muted">
+        <a class="button" disabled="true">
       <% end %>
           <%= t("decidim.scopes.picker.choose") %>
         </a>

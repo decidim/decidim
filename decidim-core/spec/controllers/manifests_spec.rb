@@ -28,7 +28,6 @@ module Decidim
         expect(manifest["theme_color"]).to eq("#f0f0f0")
         expect(manifest["display"]).to eq("standalone")
         expect(manifest["start_url"]).to eq("/")
-
         expect(manifest["icons"]).to match(
           [
             a_hash_including("src" => a_string_starting_with("/"), "sizes" => "32x32", "type" => "image/png"),

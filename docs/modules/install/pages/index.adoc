@@ -107,6 +107,9 @@ You can configure it with `crontab -e`, for instance if you've created your Deci
 
 # Delete old registrations forms
 3 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_meetings:clean_registration_forms
+
+# Generate reminders
+4 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:reminders:all
 ----
 
 === Further configuration
