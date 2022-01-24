@@ -12,6 +12,18 @@ In the next version (v0.28.0) it will be fully removed from the database.
 
 ### Added
 
+- **decidim-core**, **decidim-budgets**: Reminders for pending orders in budgets [#8621](https://github.com/decidim/decidim/pull/8621). To generate reminders:
+
+```bash
+bundle exec rake decidim:reminders:all
+```
+
+Or add cronjob:
+
+```bash
+4 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:reminders:all
+```
+
 #### New Api Documentation engine
 PR [\#8631](https://github.com/decidim/decidim/pull/8631) Replaces graphql-docs npm package with gem. In this PR we have also added 3 configurable paramaters:
 

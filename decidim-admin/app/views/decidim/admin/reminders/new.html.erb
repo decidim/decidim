@@ -1,0 +1,21 @@
+<%= decidim_form_for(@form, url: component_reminders_path(name: reminder_manifest.name), class: "form grid-container") do |form| %>
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title flex--sbc">
+        <%= reminder_manifest.message(:title, count: @form.try(:reminder_amount)) %>
+      </h2>
+    </div>
+    <div class="card-section">
+      <div class="row">
+        <div class="columns small-12">
+          <p><%= reminder_manifest.message(:description) %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="columns small-12 text-center">
+          <%= form.submit t(".submit") %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
