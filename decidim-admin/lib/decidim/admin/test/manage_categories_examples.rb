@@ -14,9 +14,6 @@ shared_examples "manage categories examples" do
 
     expect(page).to have_selector("input#category_name_en[value='#{translated(category.name, locale: :en)}']")
     expect(page).to have_selector("input#category_weight[value='#{category.weight}']")
-    within ".editor .editor-container" do
-      expect(page).to have_content(strip_tags(translated(category.description, locale: :en)))
-    end
 
     expect(page).to have_selector("select#category_parent_id")
   end
@@ -31,13 +28,6 @@ shared_examples "manage categories examples" do
         en: "My category",
         es: "Mi categoría",
         ca: "La meva categoria"
-      )
-      fill_in_i18n_editor(
-        :category_description,
-        "#category-description-tabs",
-        en: "Description",
-        es: "Descripción",
-        ca: "Descripció"
       )
 
       find("*[type=submit]").click
