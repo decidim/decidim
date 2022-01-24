@@ -81,6 +81,10 @@ module Decidim
         true
       end
 
+      def self.ransackable_scopes(_auth_object = nil)
+        [:with_category, :with_scope]
+      end
+
       ransacker :id_string do
         Arel.sql(%{cast("decidim_accountability_results"."id" as text)})
       end

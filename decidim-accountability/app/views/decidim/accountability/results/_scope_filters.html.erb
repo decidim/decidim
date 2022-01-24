@@ -4,7 +4,7 @@
 
     <ul class="tags tags--action">
       <li <%= active_class_if_current(nil) %>>
-          <%= link_to url_for(filter: { category_id: category.try(:id) }) do %>
+          <%= link_to url_for(filter: { with_category: category.try(:id) }) do %>
             <span class="show-for-sr"><%= Decidim::Scope.model_name.human(count: 2) %></span>
             <%= t("results.filters.all", scope: "decidim.accountability") %>
           <% end %>
@@ -12,7 +12,7 @@
 
       <% if current_participatory_space.scope %>
         <li <%= active_class_if_current(current_participatory_space.scope.id) %>>
-          <%= link_to url_for(filter: { scope_id: current_participatory_space.scope.id, category_id: category.try(:id) }) do %>
+          <%= link_to url_for(filter: { with_scope: current_participatory_space.scope.id, with_category: category.try(:id) }) do %>
             <span class="show-for-sr"><%= Decidim::Scope.model_name.human(count: 1) %></span>
             <%= translated_attribute(current_participatory_space.scope.name) %>
           <% end %>
@@ -20,7 +20,7 @@
       <% end %>
       <% current_participatory_space.subscopes.each do |scope| %>
         <li <%= active_class_if_current(scope.id) %>>
-          <%= link_to url_for(filter: { scope_id: scope.id, category_id: category.try(:id) }) do %>
+          <%= link_to url_for(filter: { with_scope: scope.id, with_category: category.try(:id) }) do %>
             <span class="show-for-sr"><%= Decidim::Scope.model_name.human(count: 1) %></span>
             <%= translated_attribute(scope.name) %>
           <% end %>
