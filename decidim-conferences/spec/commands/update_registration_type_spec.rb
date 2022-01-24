@@ -26,9 +26,9 @@ module Decidim::Conferences
         current_user: current_user,
         title: { en: "New title" },
         attributes: {
-          title: { en: "New title" },
-          weight: 2,
-          description: { en: "New description" }
+          "title" => { en: "New title" },
+          "weight" => 2,
+          "description" => { en: "New description" }
         }
       )
     end

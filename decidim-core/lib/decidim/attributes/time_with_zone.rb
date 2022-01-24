@@ -2,19 +2,21 @@
 
 module Decidim
   module Attributes
-    # Custom Virtus value to parse a String representing a Time using
+    # Custom attributes value to parse a String representing a Time using
     # the app TimeZone.
-    class TimeWithZone < Virtus::Attribute
-      def coerce(value)
+    class TimeWithZone < ActiveModel::Type::Time
+      def type
+        :"decidim/attributes/time_with_zone"
+      end
+
+      private
+
+      def cast_value(value)
         return value unless value.is_a?(String)
 
         Time.zone.strptime(value, I18n.t("time.formats.decidim_short"))
       rescue ArgumentError
         nil
-      end
-
-      def type
-        Axiom::Types::Time
       end
     end
   end

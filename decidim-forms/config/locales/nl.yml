@@ -74,6 +74,7 @@ nl:
           form:
             add_question: Vraag toevoegen
             add_separator: Scheidingsteken toevoegen
+            add_title_and_description: Titel en beschrijving toevoegen
             already_answered_warning: De vragenlijst is al door enkele gebruikers beantwoord, dus u kunt de vragen niet wijzigen.
             collapse: Alle vragen samenvouwen
             expand: Vouw alle vragen uit
@@ -102,6 +103,15 @@ nl:
             remove: Verwijderen
             separator: Scheidingsteken
             up: Omhoog
+          title_and_description:
+            collapse: Inklappen
+            description: Beschrijving
+            down: Naar beneden
+            expand: Uitklappen
+            remove: Verwijderen
+            title: Titel
+            title_and_description: Titel en beschrijving
+            up: Naar boven
           update:
             invalid: Er zijn fouten opgetreden bij het opslaan van de vragenlijst.
             success: Formulier succesvol opgeslagen.
@@ -124,6 +134,7 @@ nl:
         short_answer: Kort antwoord
         single_option: Enkele optie
         sorting: sorteer-
+        title_and_description: Titel en beschrijving
       questionnaires:
         answer:
           invalid: Er zijn fouten opgetreden bij het beantwoorden van de vragenlijst.

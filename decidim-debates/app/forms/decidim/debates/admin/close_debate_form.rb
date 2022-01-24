@@ -14,13 +14,15 @@ module Decidim
           validates translated_attribute, length: { minimum: 10, maximum: 10_000 }, if: ->(record) { record.default_locale?(locale) }
         end
 
-        attribute :debate, Debate
-
         validates :debate, presence: true
         validate :user_can_close_debate
 
         def closed_at
           debate&.closed_at || Time.current
+        end
+
+        def debate
+          @debate ||= Debate.find_by(id: id)
         end
 
         private

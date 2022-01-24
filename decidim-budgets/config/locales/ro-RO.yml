@@ -22,6 +22,11 @@ ro:
         few: Proiecte
         other: Proiecte
   decidim:
+    admin:
+      filters:
+        projects:
+          selected_at_null:
+            label: Selectate
     budgets:
       actions:
         attachment_collections: Dosare
@@ -135,6 +140,7 @@ ro:
             total_budget: Buget total
         project:
           fields:
+            category: Categorie
             title: Titlu
       order_summary_mailer:
         order_summary:

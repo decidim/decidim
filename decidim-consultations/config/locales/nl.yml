@@ -357,6 +357,7 @@ nl:
     resources:
       consultations:
         actions:
+          comment: Reactie
           vote: Stem
     statistics:
       consultations_count: Raadplegingen

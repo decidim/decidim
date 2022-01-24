@@ -53,7 +53,6 @@ module Decidim
         enforce_permission_to :edit, :debate, debate: debate
 
         @form = form(DebateForm).from_params(params)
-        @form.debate = debate
 
         UpdateDebate.call(@form) do
           on(:ok) do |debate|
@@ -72,7 +71,6 @@ module Decidim
         enforce_permission_to :close, :debate, debate: debate
 
         @form = form(CloseDebateForm).from_params(params)
-        @form.debate = debate
 
         CloseDebate.call(@form) do
           on(:ok) do |debate|
@@ -123,7 +121,7 @@ module Decidim
       def default_filter_params
         {
           search_text_cont: "",
-          origin: %w(official citizens user_group),
+          origin: %w(official participants user_group),
           activity: "all",
           with_any_category: default_filter_category_params,
           with_any_scope: default_filter_scope_params,

@@ -53,16 +53,17 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
           expect(page).to have_content("Choose template")
         end
 
-        it "loads the last 5 templates in the select" do
-          page.find(".Select-control").click
+        it "loads the templates in the select" do
+          page.find("input[name='select-template']").click
 
-          within ".Select-menu" do
-            expect(page).to have_selector(".Select-option:not(.is-focused)", count: 5)
+          within "#template-list", visible: :hidden do
+            expect(page).to have_selector("option", visible: :hidden, count: 6)
           end
         end
 
         it "displays the preview when a template is selected" do
-          autocomplete_select template.name["en"], from: :questionnaire_template_id
+          select(template.name["en"], from: "select-template")
+
           within ".questionnaire-template-preview" do
             expect(page).to have_i18n_content(template.name)
             expect(page).to have_i18n_content(question.body)
@@ -88,7 +89,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
       )
       visit questionnaire_edit_path
 
-      autocomplete_select template.name["en"], from: :questionnaire_template_id
+      select(template.name["en"], from: "select-template")
 
       within ".create-from-template" do
         find("*[type=submit]").click

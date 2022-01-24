@@ -2,7 +2,7 @@
 
 module Decidim
   module Initiatives
-    # This controller contains the logic regarding citizen initiatives
+    # This controller contains the logic regarding participants initiatives
     class InitiativesController < Decidim::Initiatives::ApplicationController
       include ParticipatorySpaceContext
       participatory_space_layout only: [:show]

@@ -220,7 +220,7 @@ shared_examples_for "a resource search with origin" do |factory_name|
   describe "results" do
     let!(:official_resource) { create(factory_name, :official, { component: component }.merge(factory_params)) }
     let!(:user_group_resource) { create(factory_name, :user_group_author, { component: component }.merge(factory_params)) }
-    let!(:citizen_resource) { create(factory_name, :citizen_author, { component: component }.merge(factory_params)) }
+    let!(:participant_resource) { create(factory_name, :participant_author, { component: component }.merge(factory_params)) }
 
     if FactoryBot.factory_by_name(factory_name).defined_traits.map(&:name).include?(:meeting_resource)
       let!(:meeting_resource) { create(factory_name, :official_meeting, { component: component }.merge(factory_params)) }
@@ -244,8 +244,8 @@ shared_examples_for "a resource search with origin" do |factory_name|
       end
     end
 
-    context "when filtering citizen resources" do
-      let(:origins) { %w(citizens) }
+    context "when filtering participants resources" do
+      let(:origins) { %w(participants) }
 
       it "returns only citizen resources" do
         expect(subject).not_to include(CGI.escapeHTML(translated(official_resource.try(:title) || official_resource.try(:name))))

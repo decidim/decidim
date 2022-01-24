@@ -4,7 +4,7 @@ require "devise/models/decidim_validatable"
 require "valid_email2"
 
 module Decidim
-  # A UserGroup is an organization of citizens
+  # A UserGroup is an organization of participants
   class UserGroup < UserBaseEntity
     include Decidim::Traceable
     include Decidim::DataPortability

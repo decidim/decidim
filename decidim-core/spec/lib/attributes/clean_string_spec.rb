@@ -4,8 +4,14 @@ require "spec_helper"
 
 module Decidim
   describe Attributes::CleanString do
-    describe "#coerce" do
-      subject { described_class.build(Attributes::CleanString, {}).coerce(value) }
+    describe "#type" do
+      it "returns :\"decidim/attributes/clean_string\"" do
+        expect(subject.type).to be(:"decidim/attributes/clean_string")
+      end
+    end
+
+    describe "#cast" do
+      subject { described_class.new.cast(value) }
 
       context "with long string with carriage returns" do
         let(:value) do

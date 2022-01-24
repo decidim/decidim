@@ -1,0 +1,22 @@
+{
+  "name": "<%= organization_params.name %>",
+  "lang": "<%= organization_params.default_locale %>",
+  "description": "<%= organization_params.translated_description %>",
+  "icons": [
+    {
+      "src": "<%= current_organization.attached_uploader(:favicon).variant_path :small %>",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "<%= current_organization.attached_uploader(:favicon).variant_path :medium %>",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "<%= current_organization.attached_uploader(:favicon).variant_path :big %>",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

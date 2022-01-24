@@ -28,7 +28,7 @@ module Decidim
              .joins(:coauthorships)
              .where(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
       }
-      scope :citizens_origin, lambda {
+      scope :participants_origin, lambda {
         where.not(coauthorships_count: 0)
              .joins(:coauthorships)
              .where.not(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })

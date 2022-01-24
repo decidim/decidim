@@ -175,17 +175,43 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     expect(page).to have_selector("input[value='This is the second service']")
   end
 
-  it "allows the user to preview the meeting" do
+  it "allows the user to preview a published meeting" do
+    meeting_path = resource_locator(meeting).path
+
     within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
       klass = "action-icon--preview"
-      href = resource_locator(meeting).path
-      target = "blank"
 
       expect(page).to have_selector(
         :xpath,
-        "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
+        "//a[contains(@class,'#{klass}')][@href='#{meeting_path}'][@target='blank']"
       )
     end
+
+    # Visit the meeting
+    page.visit meeting_path
+
+    expect(page).to have_current_path(meeting_path)
+  end
+
+  it "allows the user to preview an unpublished meeting" do
+    unpublished_meeting = create :meeting, scope: scope, services: [], component: current_component
+    visit current_path
+
+    meeting_path = resource_locator(unpublished_meeting).path
+
+    within find("tr", text: Decidim::Meetings::MeetingPresenter.new(unpublished_meeting).title) do
+      klass = "action-icon--preview"
+
+      expect(page).to have_selector(
+        :xpath,
+        "//a[contains(@class,'#{klass}')][@href='#{meeting_path}'][@target='blank']"
+      )
+    end
+
+    # Visit the unpublished meeting
+    page.visit meeting_path
+
+    expect(page).to have_current_path(meeting_path)
   end
 
   it "creates a new meeting", :slow, :serves_geocoding_autocomplete do # rubocop:disable RSpec/ExampleLength
@@ -240,17 +266,6 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
 
     scope_pick select_data_picker(:meeting_decidim_scope_id), scope
     select translated(category.name), from: :meeting_decidim_category_id
-
-    # the field is not visible by default
-    expect(page).not_to have_field("Custom content in registration email")
-    # make the field visible
-    find("#meeting_customize_registration_email").click
-    expect(help_text_for("div[data-tabs-content*='meeting-registration_email_custom_content-tab']")).to be_present
-    fill_in_i18n_editor(
-      :meeting_registration_email_custom_content,
-      "#meeting-registration_email_custom_content-tabs",
-      en: "We're very happy you registered for this event!"
-    )
 
     within ".new_meeting" do
       find("*[type=submit]").click
@@ -351,14 +366,11 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     within ".new_meeting" do
       select "Registration disabled", from: :meeting_registration_type
       expect(page).to have_no_field("Registration URL")
-      expect(page).to have_no_field("Available slots")
 
       select "On a different platform", from: :meeting_registration_type
       expect(page).to have_field("Registration URL")
-      expect(page).to have_no_field("Available slots")
 
       select "On this platform", from: :meeting_registration_type
-      expect(page).to have_field("Available slots")
       expect(page).to have_no_field("Registration URL")
     end
   end

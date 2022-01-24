@@ -7,7 +7,6 @@ module Decidim
       mimic :debate
 
       attribute :conclusions, Decidim::Attributes::CleanString
-      attribute :debate, Debate
 
       validates :debate, presence: true
       validates :conclusions, presence: true, length: { minimum: 10, maximum: 10_000 }
@@ -19,12 +18,15 @@ module Decidim
 
       def map_model(debate)
         super
-        self.debate = debate
 
         # Debates can be translated in different languages from the admin but
         # the public form doesn't allow it. When a user closes a debate the
         # user locale is taken as the text locale.
         self.conclusions = debate.conclusions&.values&.first
+      end
+
+      def debate
+        @debate ||= Debate.find_by(id: id)
       end
 
       private

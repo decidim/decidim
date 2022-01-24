@@ -262,8 +262,9 @@ module Decidim
       end
 
       # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
+      # Returns authors name or title in case it's a meeting
       def reported_searchable_content_extras
-        [authors.map(&:name).join("\n")]
+        [authors.map { |p| p.respond_to?(:name) ? p.name : p.title }.join("\n")]
       end
 
       # Public: Whether the proposal is official or not.
