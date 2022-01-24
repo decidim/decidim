@@ -26,6 +26,22 @@ module Decidim
           .where(decidim_user_group_id: nil)
       }
 
+      scope :origin, lambda { |*origin_keys|
+        search_values = origin_keys.compact.reject(&:blank?)
+
+        conditions = [:official, :citizens, :user_group].map do |key|
+          search_values.member?(key.to_s) ? try("#{key}_origin") : nil
+        end.compact
+        return self unless conditions.any?
+
+        scoped_query = where(id: conditions.shift)
+        conditions.each do |condition|
+          scoped_query = scoped_query.or(where(id: condition))
+        end
+
+        scoped_query
+      }
+
       validates :author, presence: true
       validate :verified_user_group, :user_group_membership
       validate :author_belongs_to_organization

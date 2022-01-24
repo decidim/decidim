@@ -46,6 +46,24 @@ module Decidim
              .where(decidim_coauthorships: { decidim_author_type: "Decidim::Meetings::Meeting" })
       }
 
+      scope :origin, lambda { |*origin_keys|
+        search_values = origin_keys.compact.reject(&:blank?)
+
+        conditions = [:official, :citizens, :user_group, :meeting].map do |key|
+          search_values.member?(key.to_s) ? try("#{key}_origin") : nil
+        end.compact
+        return self unless conditions.any?
+
+        scoped_query = where(id: conditions.shift)
+        conditions.each do |condition|
+          scoped_query = scoped_query.or(where(id: condition))
+        end
+
+        scoped_query
+      }
+
+      scope :coauthored_by, ->(author) { where.not(coauthorships_count: 0).from_all_author_identities(author) }
+
       validates :coauthorships, presence: true
 
       # Overwrite default reload method to unset the instance variables so reloading works as expected.
