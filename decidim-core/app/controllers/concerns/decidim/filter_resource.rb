@@ -25,31 +25,34 @@ module Decidim
     end
 
     included do
-      helper_method :search, :filter
+      helper_method :search, :search_params, :filter
 
       private
 
       def search
-        @search ||= search_klass.new(search_params)
+        @search ||= search_collection.ransack(search_params, context_params.merge(auth_object: current_user))
       end
 
-      def search_klass
+      def search_collection
         raise NotImplementedError, "A search class is neeeded to filter resources"
       end
 
-      def filter
-        @filter ||= Filter.new(filter_params)
-      end
+      # Kept for legacy reasons as this is the object passed to the filter forms
+      alias_method :filter, :search
 
       def search_params
-        default_search_params
-          .merge(filter_params)
-          .merge(context_params)
+        default_search_params.merge(filter_params)
       end
 
+      # Fetches the correct filter parameters from the request parameters in
+      # order to limit the parameters which can be used for searching the
+      # resources. Otherwise the user could pass extra search parameters from
+      # the request using the Ransack API.
       def filter_params
-        default_filter_params
-          .merge(params.to_unsafe_h[:filter].try(:symbolize_keys) || {})
+        @filter_params = begin
+          passed_params = params.to_unsafe_h[:filter].try(:symbolize_keys) || {}
+          default_filter_params.merge(passed_params.slice(*default_filter_params.keys))
+        end
       end
 
       def default_search_params
@@ -76,14 +79,14 @@ module Decidim
         end
       end
 
-      # If the controller responds to current_component, its search service uses the
-      # base class Decidim::ResourceSearch; else it uses the ParticipatorySpaceSearch.
+      # If the controller responds to current_component, its is probably
+      # searching against that component. Otherwise it is be likely to search
+      # against a participatory space.
       # They need different context_params to set up the base_query:
-      # - ResourceSearch uses `component`
-      # - ParticipatorySpaceSearch uses `organization`
+      # - Witin the components, the `component` is used to filter the results
+      # - Within the participatory spaces, the `organization` is used to filter the results
       # - Both use `current_user`
-      # - Both need `organization` for localized searches in order to fetch the
-      #   available locales from the organization in Decidim::ResourceSearch.
+      # - Both may need `organization` for different purposes
       def context_params
         context = {
           current_user: current_user,
