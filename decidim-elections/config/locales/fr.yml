@@ -642,7 +642,7 @@ fr:
           selections: "%{selected} sur %{max_selections}<br> sélections"
         onboarding_modal:
           close: Fermer la fenêtre de dialogue
-          create_account: Créer un compte
+          create_account: S'inscrire
           description: Voulez-vous créer un compte sur Decidim ? Vous pourrez participer aux concertations et prendre une part active dans l'organisation.
           no_account: Non, merci.
           title: Nouveau sur Decidim ?
