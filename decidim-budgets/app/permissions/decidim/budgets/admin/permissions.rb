@@ -26,6 +26,11 @@ module Decidim
             when :update, :destroy
               permission_action.allow! if project.present?
             end
+          when :order
+            case permission_action.action
+            when :remind
+              permission_action.allow!
+            end
           end
 
           permission_action
