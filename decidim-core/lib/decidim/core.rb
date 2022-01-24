@@ -64,6 +64,7 @@ module Decidim
   autoload :NewsletterEncryptor, "decidim/newsletter_encryptor"
   autoload :NewsletterParticipant, "decidim/newsletter_participant"
   autoload :Searchable, "decidim/searchable"
+  autoload :SearchExtensions, "decidim/search_extensions"
   autoload :SearchResourceFieldsMapper, "decidim/search_resource_fields_mapper"
   autoload :QueryExtensions, "decidim/query_extensions"
   autoload :ParticipatorySpaceResourceable, "decidim/participatory_space_resourceable"
@@ -97,6 +98,7 @@ module Decidim
   autoload :AttachmentAttributes, "decidim/attachment_attributes"
   autoload :CarrierWaveMigratorService, "decidim/carrier_wave_migrator_service"
   autoload :CommonPasswords, "decidim/common_passwords"
+  autoload :HasArea, "decidim/has_area"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
