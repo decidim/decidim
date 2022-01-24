@@ -27,10 +27,12 @@ module Decidim
       end
 
       def filtered_processes(date_filter)
-        ParticipatoryProcessSearch.new(
-          date: date_filter,
-          scope_id: get_filter(:scope_id),
-          area_id: get_filter(:area_id),
+        ParticipatoryProcess.ransack(
+          {
+            date: date_filter,
+            with_scope: get_filter(:scope_id),
+            with_area: get_filter(:area_id)
+          },
           current_user: current_user,
           organization: current_organization
         )
@@ -40,7 +42,7 @@ module Decidim
         return @process_count_by_filter if @process_count_by_filter
 
         @process_count_by_filter = %w(active upcoming past).inject({}) do |collection_by_filter, filter_name|
-          filtered_processes = filtered_processes(filter_name).results
+          filtered_processes = filtered_processes(filter_name).result
           processes = filtered_processes.groupless
           groups = Decidim::ParticipatoryProcessGroup.where(id: filtered_processes.grouped.group_ids)
           collection_by_filter.merge(filter_name => processes.count + groups.count)

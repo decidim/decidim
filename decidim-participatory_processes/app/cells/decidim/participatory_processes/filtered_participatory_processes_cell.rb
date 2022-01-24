@@ -24,13 +24,15 @@ module Decidim
       include Decidim::CardHelper
 
       def elements
-        @elements ||= search.results
+        @elements ||= search.result
       end
 
       private
 
-      def search_klass
-        Decidim::ParticipatoryProcesses::ParticipatoryProcessSearch
+      def search_collection
+        Decidim::ParticipatoryProcesses::ParticipatoryProcess.where(
+          organization: current_organization
+        ).published.visible_for(current_user).includes(:area)
       end
 
       def default_search_params

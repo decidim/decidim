@@ -53,18 +53,19 @@ module Decidim
       def process_count_by_filter
         @process_count_by_filter ||= begin
           counts = ALL_FILTERS.without("all").each_with_object({}) do |filter_name, collection_by_filter|
-            collection_by_filter.update(filter_name => filtered_processes(filter_name).results.count)
+            collection_by_filter.update(filter_name => filtered_processes(filter_name).result.count)
           end
           counts.update("all" => counts.values.sum)
         end
       end
 
       def filtered_processes(date_filter)
-        Decidim::ParticipatoryProcesses::ParticipatoryProcessSearch.new(
-          base_relation: base_relation,
-          date: date_filter,
-          scope_id: get_filter(:scope_id),
-          area_id: get_filter(:area_id),
+        base_relation.ransack(
+          {
+            date: date_filter,
+            with_scope: get_filter(:scope_id),
+            with_area: get_filter(:area_id)
+          },
           current_user: current_user,
           organization: current_organization
         )
