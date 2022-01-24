@@ -85,6 +85,7 @@ module Decidim
                         # scope_id: :decidim_scope_id,
                         organization_id: :decidim_organization_id,
                         A: :name,
+                        B: :nickname,
                         datetime: :created_at
                       },
                       index_on_create: ->(user) { !(user.deleted? || user.blocked?) },
