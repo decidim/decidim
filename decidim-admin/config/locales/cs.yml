@@ -842,6 +842,11 @@ cs:
           explanation: 'Nahrajte soubor CSV. Musí mít dva sloupce s e-mailem v prvním sloupci souboru a jméno v posledním sloupci souboru (e-mail, jméno) uživatelů, které chcete přidat do participačního prostoru, bez záhlaví. Vyhněte se používání neplatných znaků jako `<>?%&^*#@()[]=+:;"{}\|` v uživatelském jméně.'
           title: Nahrajte Váš CSV soubor
           upload: Nahrát
+      reminders:
+        create:
+          error: Při vytváření připomenutí došlo k chybě.
+        new:
+          submit: Odeslat
       resource_permissions:
         edit:
           submit: Předložit
