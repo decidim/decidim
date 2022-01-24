@@ -38,7 +38,6 @@ require "mime-types"
 require "diffy"
 require "social-share-button"
 require "ransack"
-require "searchlight"
 require "webpacker"
 
 # Needed for the assets:precompile task, for configuring webpacker instance
@@ -163,6 +162,7 @@ module Decidim
 
         Decidim.stats.register :processes_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, start_at, end_at|
           processes = ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcesses.new(organization)
+
           processes = processes.where("created_at >= ?", start_at) if start_at.present?
           processes = processes.where("created_at <= ?", end_at) if end_at.present?
           processes.count
