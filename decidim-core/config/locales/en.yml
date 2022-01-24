@@ -1001,6 +1001,7 @@ en:
           next: Next
           no_conversations: You have no conversations yet
           title: Conversations
+          to: To
         reply:
           placeholder: Your reply...
           send: Send
