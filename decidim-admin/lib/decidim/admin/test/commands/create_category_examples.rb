@@ -12,10 +12,7 @@ module Decidim
             "category" => {
               "name_en" => Decidim::Faker::Localized.paragraph(sentence_count: 3),
               "name_es" => Decidim::Faker::Localized.paragraph(sentence_count: 3),
-              "name_ca" => Decidim::Faker::Localized.paragraph(sentence_count: 3),
-              "description_en" => Decidim::Faker::Localized.paragraph(sentence_count: 3),
-              "description_es" => Decidim::Faker::Localized.paragraph(sentence_count: 3),
-              "description_ca" => Decidim::Faker::Localized.paragraph(sentence_count: 3)
+              "name_ca" => Decidim::Faker::Localized.paragraph(sentence_count: 3)
             }
           }
         end

@@ -21,8 +21,9 @@
   <meta name="theme-color" content="<%= current_organization.colors["theme"] %>">
 <% end %>
 
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<%= legacy_favicon %>
+<%= favicon %>
+<%= apple_favicon %>
 <link rel="manifest" href="/manifest.webmanifest">
 
 <%= stylesheet_pack_tag "decidim_core", media: "all" %>

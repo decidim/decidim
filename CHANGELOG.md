@@ -2,7 +2,27 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+DEPRECATION NOTE: The `description` field in the categories admin forms has been removed (this applies to any participatory space using categories). For now it's still available in the database, so you can extract it with the following command in the Rails console:
+
+```ruby
+Decidim::Category.pluck(:id, :name, :description)
+```
+
+In the next version (v0.28.0) it will be fully removed from the database.
+
 ### Added
+
+- **decidim-core**, **decidim-budgets**: Reminders for pending orders in budgets [#8621](https://github.com/decidim/decidim/pull/8621). To generate reminders:
+
+```bash
+bundle exec rake decidim:reminders:all
+```
+
+Or add cronjob:
+
+```bash
+4 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:reminders:all
+```
 
 #### New Api Documentation engine
 PR [\#8631](https://github.com/decidim/decidim/pull/8631) Replaces graphql-docs npm package with gem. In this PR we have also added 3 configurable paramaters:
@@ -19,6 +39,16 @@ Decidim::Api.schema_max_depth = 15
 ```
 
 The static documentation will be rendered into : ```app/views/static/api/docs``` which is being refreshed automatically when you will run ```rake decidim:upgrade```.
+
+#### Global search user by nickname
+
+PR [\#8658](https://github.com/decidim/decidim/pull/8663) Added the ability to search for a user by nickname, to update the existing search, Run in a rails console or create a migration with:
+
+```ruby
+  Decidim::User.find_each(&:try_update_index_for_search_resource)
+```
+
+Please be aware that it could take a while if your database has a lot of Users.
 
 #### `Decidim::Form`s no longer use `Rectify::Form` and `Virtus` should be no longer used
 
