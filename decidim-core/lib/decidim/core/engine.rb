@@ -87,6 +87,17 @@ module Decidim
         Decidim::Api.add_orphan_type Decidim::Core::UserGroupType
       end
 
+      initializer "decidim.ransack" do
+        Ransack.configure do |config|
+          # Avoid turning parameter values such as user_id[]=1&user_id[]=2 into
+          # { user_id: [true, "2"] }. This option allows us to handle the type
+          # convertions manually instead for each case.
+          # See: https://github.com/activerecord-hackery/ransack/issues/593
+          # See: https://github.com/activerecord-hackery/ransack/pull/742
+          config.sanitize_custom_scope_booleans = false
+        end
+      end
+
       initializer "decidim.i18n_exceptions" do
         ActionView::Base.raise_on_missing_translations = true unless Rails.env.production?
       end
