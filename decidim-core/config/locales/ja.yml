@@ -733,6 +733,8 @@ ja:
       file_help:
         file:
           explanation: 'ファイルのガイダンス:'
+          message_1: 正方形の画像でなければなりません。
+          message_2: 画像の推奨サイズは512x512です。
         image:
           explanation: '画像のガイダンス:'
           message_1: テキストを含まない風景画像が適しています。
@@ -976,6 +978,7 @@ ja:
           next: 次へ
           no_conversations: 会話がまだありません
           title: 会話
+          to: 宛先
         reply:
           placeholder: あなたの返信...
           send: 送信
