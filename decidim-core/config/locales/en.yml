@@ -1115,6 +1115,7 @@ en:
       show:
         administrators: Administrators
         allow_public_contact: Allow anyone to send me a direct message, even if I don't follow them.
+        allow_push_notifications: Get push notifications to find out what's going on when you're not on Decidim. You can turn them off anytime.
         direct_messages: Receive direct messages from anyone
         email_on_moderations: I want to receive an email every time something or someone is reported for moderation.
         email_on_notification: I want to receive an email every time I receive a notification.
@@ -1124,12 +1125,11 @@ en:
         notification_settings:
           close_meeting_reminder: I want to receive email reminders of closed meetings unpublished reports
         own_activity: My own activity, like when someone comments in my proposal or mentions me
+        push_notifications: Push notifications
+        push_notifications_reminder: To get notifications from Decidim, you'll need to allow them in your browser settings first.
         receive_notifications_about: I want to get notifications about
         send_notifications_by_email: Send notifications by email
         update_notifications_settings: Save changes
-        push_notifications: Push notifications
-        push_notifications_reminder: To get notifications from Decidim, you'll need to allow them in your browser settings first.
-        allow_push_notifications: Get push notifications to find out what's going on when you're not on Decidim. You can turn them off anytime.
       update:
         error: There was a problem updating your notifications settings.
         success: Your notifications settings were successfully updated.
