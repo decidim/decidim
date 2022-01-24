@@ -1,100 +1,35 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A class to search for recent activity performed in a Decidim Organization.
-  # It is intended to be used in the user profile, to retrieve activity and
-  # timeline for that user.
-  #
-  # It will return any action for a given resource, except `create` on resources
-  # that implement the `Decidim::Publicable` concern to avoid leaking private
-  # data.
-  #
-  # Possible options:
-  #
-  # :organization - the `Decidim::Organization` to scope to search. Required.
-  # :user - an optional `Decidim::USer` that performed the activites
-  # :follows - a collection of `Decidim::Follow` resources. It will return any
-  #   activity affecting any of these resources, performed by any of them or
-  #   contained in any of them as spaces.
-  # :scopes - a collection of `Decidim::Scope`. It will return any activity that
-  #   took place in any of those scopes.
-  class ActivitySearch < Searchlight::Search
-    # Needed by Searchlight, this is the base query that will be used to
-    # append other criteria to the search.
-    def base_query
+  # This query finds the public ActionLog entries that can be shown in the
+  # participant views of the application.
+  class PublicActivities < Rectify::Query
+    def initialize(organization, options = {})
+      @organization = organization
+      @resource_name = options[:resource_name]
+      @user = options[:user]
+      @current_user = options[:current_user]
+      @follows = options[:follows]
+      @scopes = options[:scopes]
+    end
+
+    def query
       query = ActionLog
               .where(visibility: %w(public-only all))
-              .where(organization: options.fetch(:organization))
+              .where(organization: organization)
 
-      query = query.where(user: options[:user]) if options[:user]
-      query = query.where(resource_type: options[:resource_name]) if options[:resource_name]
+      query = query.where(user: user) if user
+      query = query.where(resource_type: resource_name) if resource_name
 
       query = filter_follows(query)
       filter_hidden(query)
     end
 
-    # Overwrites the default Searchlight run method since we want to return
-    # activities in an specific order but we need to set it at the end of the chain.
-    def run
-      super.order(created_at: :desc)
-    end
-
-    # Adds a constrain to filter by resource type(s).
-    def search_resource_type
-      if resource_types.include?(resource_type)
-        scope_for(resource_type)
-      else
-        all_resources_scope
-      end
-    end
-
-    # All the resource types that are eligible to be included as an activity.
-    def resource_types
-      @resource_types ||= %w(
-        Decidim::Accountability::Result
-        Decidim::Blogs::Post
-        Decidim::Comments::Comment
-        Decidim::Consultations::Question
-        Decidim::Debates::Debate
-        Decidim::Meetings::Meeting
-        Decidim::Proposals::Proposal
-        Decidim::Surveys::Survey
-        Decidim::Assembly
-        Decidim::Consultation
-        Decidim::Initiative
-        Decidim::ParticipatoryProcess
-      ).select do |klass|
-        klass.safe_constantize.present?
-      end
-    end
-
     private
 
-    def publicable_resource_types
-      @publicable_resource_types ||= resource_types.select { |klass| klass.constantize.column_names.include?("published_at") }
-    end
-
-    def scope_for(resource_type)
-      if publicable_resource_types.include?(resource_type)
-        query.where(resource_type: resource_type).where.not(action: "create")
-      else
-        query.where(resource_type: resource_type)
-      end
-    end
-
-    def all_resources_scope
-      query
-        .where(
-          "(action <> ? AND resource_type IN (?)) OR (resource_type IN (?))",
-          "create",
-          publicable_resource_types,
-          (resource_types - publicable_resource_types)
-        )
-    end
+    attr_reader :organization, :resource_name, :user, :current_user, :follows, :scopes
 
     def filter_follows(query)
-      follows = options[:follows]
-      interesting_scopes = options[:scopes]
       conditions = []
 
       if follows.present?
@@ -108,7 +43,7 @@ module Decidim
         conditions += followed_spaces_conditions(follows)
       end
 
-      conditions += interesting_scopes_conditions(interesting_scopes)
+      conditions += interesting_scopes_conditions(scopes)
 
       return query if conditions.empty?
 
@@ -134,7 +69,7 @@ module Decidim
 
       # Filter out the private space items that should not be visible for the
       # current user.
-      current_user_id = options.fetch(:current_user, nil)&.id.to_i
+      current_user_id = current_user&.id.to_i
       Decidim.participatory_space_manifests.map do |manifest|
         klass = manifest.model_class_name.constantize
         next unless klass.include?(Decidim::HasPrivateUsers)

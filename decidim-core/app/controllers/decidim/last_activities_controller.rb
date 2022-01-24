@@ -28,15 +28,13 @@ module Decidim
     end
 
     def activities
-      @activities ||= paginate(search.results)
+      @activities ||= paginate(search.result)
     end
 
-    def search_klass
-      HomeActivitySearch
-    end
-
-    def context_params
-      { organization: current_organization }
+    def search_collection
+      ActionLog
+        .where(visibility: %w(public-only all))
+        .where(organization: current_organization)
     end
 
     def default_filter_params
