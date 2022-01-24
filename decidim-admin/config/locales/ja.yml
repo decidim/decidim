@@ -830,6 +830,13 @@ ja:
           explanation: 'CSV ファイルをアップロードします。ファイルは 1列目に電子メール、2列目に名前を持つ形式である必要があります(email, name)。 ユーザー名に `<>?%&^*#@()[]=+:;"{}\|`のような無効な文字を使用しないでください。'
           title: CSVファイルをアップロード
           upload: アップロード
+      reminders:
+        create:
+          error: リマインダー作成中に問題が発生しました。
+          success:
+            other: "%{count} ユーザーに通知されます。"
+        new:
+          submit: 送信
       resource_permissions:
         edit:
           submit: 送信
