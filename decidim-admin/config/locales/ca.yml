@@ -834,6 +834,14 @@ ca:
           explanation: 'Carrega el teu arxiu CSV. Ha de tenir dues columnes amb l''adreça de correu electrònic a la primera columna i el nom a la segona (adreça electrònica, nom) dels usuaris que vulguis afegir a l''espai de participació, sense capçaleres. Evita emprar caràcter invàlids com `<>?%&^*#@()[]=+:;"{}\|` al nom d''usuari.'
           title: Puja el fitxer CSV
           upload: Carrega
+      reminders:
+        create:
+          error: Hi ha hagut un problema en crear els recordatoris.
+          success:
+            one: "Es recordarà a %{count} usuari."
+            other: "Es recordarà a %{count} usuaris."
+        new:
+          submit: Envia
       resource_permissions:
         edit:
           submit: Enviar
