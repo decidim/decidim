@@ -57,10 +57,10 @@
       </div>
     <% end %>
 
-    <div class="push-notifications hide">
-      <% if @notifications_settings.meet_push_notifications_requirements?  %>
-        <p><strong><%= t(".push_notifications") %></strong></p>
-        <p class="push-notifications__reminder hide"><i><%= t(".push_notifications_reminder").html_safe %></i></p>
+    <% if @notifications_settings.meet_push_notifications_requirements?  %>
+    <div class="push-notifications">
+      <p><strong><%= t(".push_notifications") %></strong></p>
+        <p class="push-notifications__reminder"><i><%= t(".push_notifications_reminder").html_safe %></i></p>
         <div class="switch tiny switch-with-label allow_push_notifications">
           <label>
             <%= f.check_box :allow_push_notifications, label: false, class: "switch-input" %>
@@ -68,8 +68,8 @@
             <span class="switch-label"><%= t(".allow_push_notifications").html_safe %></span>
           </label>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
 
     <%= f.submit t(".update_notifications_settings") %>
   <% end %>
