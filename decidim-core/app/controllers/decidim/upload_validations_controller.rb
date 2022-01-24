@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
+  # The controller to handle upload validations
   class UploadValidationsController < Decidim::ApplicationController
     include FormFactory
 

@@ -1,19 +1,31 @@
 import { Uploader } from "src/decidim/direct_uploads/uploader";
 
+
+// This class handles logic inside upload modal, but since modal is not inside the form
+// logic here moves "upload items" / hidden inputs to form.
 export default class UploadModal {
   constructor(button, options = {}) {
+    // Button that opens the modal.
     this.button = button;
     this.options = Object.assign({
-      token: button.dataset.token,
+      // Field name / attribute of resource (e.g. avatar)
       addAttribute: button.dataset.addAttribute,
+      // The resource to which the attribute belongs (e.g. user)
       resourceName: button.dataset.resourceName,
+      // Ruby class of the resource (e.g. Decidim::User)
       resourceClass: button.dataset.resourceClass,
+      // Defines if file is optional
       optional: button.dataset.optional === "true",
+      // Defines if multiple files can be uploaded
       multiple: button.dataset.multiple === "true",
+      // Defines if file(s) can have titles
       titled: button.dataset.titled === "true",
+      // Defines maximum file size in bytes
       maxFileSize: button.dataset.maxFileSize,
+      // Class of the current form object (e.g. Decidim::AccountForm)
       formObjectClass: button.dataset.formObjectClass
     }, options)
+
     this.name = this.button.name;
     this.modal = document.querySelector(`#${button.dataset.open}`);
     this.attachmentCounter = 0;
@@ -36,7 +48,7 @@ export default class UploadModal {
     const uploadItem = this.createUploadItem(file.name, file.name.split(".")[0], "init");
     const uploader = new Uploader(this, uploadItem, {
       file: file,
-      url: this.input.dataset.directuploadurl,
+      url: this.input.dataset.directUploadUrl,
       attachmentName: file.name
     });
     if (uploader.fileTooBig) {

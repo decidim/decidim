@@ -1,12 +1,16 @@
 # frozen_string_literal: true
 
 module Decidim
+  # A form object used to handle upload validations, this is used when user is
+  # adding files to dropzone in upload modal.
   class UploadValidationForm < Decidim::Form
     include Decidim::HasUploadValidations
 
     attribute :resource, String
-    # Attribute can not be named as attribute!
+    # Property is named as attribute in upload modal and passthru validator, but it
+    # cannot be named as attribute here.
     attribute :property, String
+    attribute :titled, Boolean
     attribute :blob, String
     attribute :klass, String
 

@@ -11,7 +11,7 @@ export class Uploader {
       this.fileTooBig = true;
       this.showError([modal.locales.file_too_big]);
     } else {
-      this.upload = new DirectUpload(options.file, options.url, options.token, options.file.name, this);
+      this.upload = new DirectUpload(options.file, options.url, this);
     }
   }
 
@@ -46,14 +46,10 @@ export class Uploader {
     }
 
     if (!this.validationSent) {
-      let attribute = this.modal.options.addAttribute;
-      if (this.modal.options.titled) {
-        attribute = "file"
-      }
-      console.log("this.modal.options.formObjectClass", this.modal.options.formObjectClass);
       const params = new URLSearchParams({
         resource: this.modal.options.resourceClass,
-        property: attribute,
+        property: this.modal.options.addAttribute,
+        titled: this.modal.options.titled,
         blob: blobId,
         klass: this.modal.options.formObjectClass
       });

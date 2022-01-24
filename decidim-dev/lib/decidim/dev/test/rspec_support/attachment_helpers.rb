@@ -10,7 +10,8 @@ module AttachmentHelpers
     ActiveSupport::NumberHelper.number_to_human_size(attachment.file_size)
   end
 
-  # Creates blob and returns its signed_id
+  # Creates ActiveStorage::Blob object and returns its signed_id
+  # Used in non-system tests that need files.
   def upload_test_file(file, options = {})
     filename = options[:filename] || solve_filename(file)
     content_type = options[:content_type] || solve_content_type(file)

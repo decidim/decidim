@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
+  # This cell creates the necessary elements for dynamic uploads.
   class UploadModalCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
     include ERB::Util
@@ -19,10 +20,6 @@ module Decidim
       "button small hollow add-field add-attachment" if has_title?
 
       "button small primary add-attachment"
-    end
-
-    def token
-      ""
     end
 
     def label
@@ -73,7 +70,9 @@ module Decidim
       options[:optional]
     end
 
-    # Lisää kommentti miksi tämmönen metodi täällä ylipäätään on
+    # By default Foundation adds form errors next to input, but since input is in the modal
+    # and modal is hidden by default, we need to add an additional validation field to the form.
+    # This should only be necessary when file is required by the form.
     def input_validation_field
       object_name = "#{add_attribute}_validation"
       object_name = "#{form.object.model_name.param_key}[#{add_attribute}_validation]" if form.object.present?
@@ -170,6 +169,10 @@ module Decidim
       return ActiveStorage::Blob.find_signed(attachment) if attachment.is_a? String
       return attachment.file.blob if attachment.is_a? Decidim::Attachment
       return attachment.blob if attachment.respond_to? :blob
+    end
+
+    def direct_upload_url
+      Rails.application.class.routes.url_helpers.rails_direct_uploads_path
     end
 
     def form_object_class

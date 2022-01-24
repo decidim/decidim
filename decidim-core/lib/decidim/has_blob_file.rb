@@ -3,6 +3,10 @@
 require "active_support/concern"
 
 module Decidim
+  # Concern for form objects and commands to handle conversion from a signed_id to a blob.
+  #
+  # When adding files from UI we add signed id of ActiveStorage::Blob to form (and thus to the parameters).
+  # After we want to process the file in form or command we can find the blob via it's signed_id.
   module HasBlobFile
     extend ActiveSupport::Concern
 
