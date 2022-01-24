@@ -29,7 +29,7 @@ module Decidim
       scope :origin, lambda { |*origin_keys|
         search_values = origin_keys.compact.reject(&:blank?)
 
-        conditions = [:official, :citizens, :user_group].map do |key|
+        conditions = [:official, :participants, :user_group].map do |key|
           search_values.member?(key.to_s) ? try("#{key}_origin") : nil
         end.compact
         return self unless conditions.any?
