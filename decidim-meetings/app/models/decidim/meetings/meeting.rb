@@ -25,6 +25,7 @@ module Decidim
       include Decidim::Authorable
       include Decidim::TranslatableResource
       include Decidim::Publicable
+      include Decidim::SearchExtensions
 
       TYPE_OF_MEETING = %w(in_person online hybrid).freeze
       REGISTRATION_TYPE = %w(registration_disabled on_this_platform on_different_platform).freeze
@@ -59,6 +60,24 @@ module Decidim
       scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }
       scope :withdrawn, -> { where(state: "withdrawn") }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
+      scope :availability, lambda { |state_key|
+        case state_key
+        when "withdrawn"
+          withdrawn
+        else
+          except_withdrawn
+        end
+      }
+      scope_search_multi :date, [:upcoming, :past]
+      scope :space, lambda { |*target_space|
+        target_spaces = target_space.compact.reject(&:blank?)
+
+        return self if target_spaces.blank? || target_spaces.include?("all")
+
+        joins(:component).where(
+          decidim_components: { participatory_space_type: target_spaces.map(&:classify) }
+        )
+      }
 
       scope :visible_meeting_for, lambda { |user|
         (all.published.distinct if user&.admin?) ||
@@ -108,6 +127,10 @@ module Decidim
       }
 
       scope :visible, -> { where("decidim_meetings_meetings.private_meeting != ? OR decidim_meetings_meetings.transparent = ?", true, true) }
+
+      scope :authored_by, ->(author) { where(decidim_author_id: author) }
+
+      scope_search_multi :type, TYPE_OF_MEETING.map(&:to_sym)
 
       TYPE_OF_MEETING.each do |type|
         scope type.to_sym, -> { where(type_of_meeting: type.to_sym) }
@@ -342,13 +365,7 @@ module Decidim
         order(Arel::Nodes::InfixOperation.new("", field, Arel.sql("DESC")))
       end
 
-      ransacker :type do
-        Arel.sql(%("decidim_meetings_meetings"."type_of_meeting"))
-      end
-
-      ransacker :title do
-        Arel.sql(%{cast("decidim_meetings_meetings"."title" as text)})
-      end
+      ransacker_i18n_multi :search_text, [:title, :description]
 
       ransacker :id_string do
         Arel.sql(%{cast("decidim_meetings_meetings"."id" as text)})
@@ -358,13 +375,12 @@ module Decidim
         Arel.sql("(start_time > NOW())")
       end
 
-      ransacker :origin do
-        Arel.sql("CASE
-            WHEN decidim_author_type = 'Decidim::Organization' THEN 'official'
-            WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NOT NULL THEN 'user_group'
-            WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NULL THEN 'citizen'
-            ELSE 'unknown' END
-        ")
+      def self.ransackable_scopes(_auth_object = nil)
+        [:type, :availability, :date, :space, :origin, :with_any_scope, :with_any_category]
+      end
+
+      def self.ransack(params = {}, options = {})
+        MeetingSearch.new(self, params, options)
       end
 
       private

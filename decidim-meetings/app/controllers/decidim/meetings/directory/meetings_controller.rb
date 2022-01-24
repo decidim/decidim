@@ -25,23 +25,26 @@ module Decidim
         private
 
         def meetings
-          @meetings ||= paginate(search.results)
+          @meetings ||= paginate(search.result)
         end
 
-        def search_klass
-          ::Decidim::Meetings::Directory::MeetingSearch
+        def search_collection
+          Meeting.where(component: meeting_components).published.availability(filter_params[:state]).includes(
+            :component,
+            attachments: :file_attachment
+          )
         end
 
         def default_filter_params
           {
             date: "upcoming",
-            search_text: "",
+            title_or_description_cont: "",
             activity: "all",
-            scope_id: default_filter_scope_params,
+            with_any_scope: default_filter_scope_params,
             space: default_filter_space_params,
             type: default_filter_type_params,
             origin: default_filter_origin_params,
-            category_id: default_filter_category_params
+            with_any_category: default_filter_category_params
           }
         end
 
@@ -66,10 +69,6 @@ module Decidim
 
         def default_filter_scope_params
           %w(all global) + current_organization.scopes.pluck(:id).map(&:to_s)
-        end
-
-        def context_params
-          { component: meeting_components, organization: current_organization, current_user: current_user }
         end
 
         def meeting_components
