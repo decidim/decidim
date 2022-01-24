@@ -16,9 +16,9 @@ module Decidim
           .url_helpers
           .assemblies_path(
             filter: {
-              scope_id: filter.scope_id,
-              area_id: filter.area_id,
-              type_id: type_id
+              with_scope: filter.scope_id,
+              with_area: filter.area_id,
+              with_type: type_id
             }
           )
       end
@@ -28,7 +28,7 @@ module Decidim
       end
 
       def current_filter_name
-        type = AssembliesType.find_by(id: filter.type_id)
+        type = AssembliesType.find_by(id: search_params[:type_id])
         return translated_attribute type.title if type
 
         t("all", scope: "decidim.assemblies.filter")

@@ -34,6 +34,7 @@ module Decidim
     include Decidim::Searchable
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
+    include Decidim::HasArea
 
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
     CREATED_BY = %w(city_council public others).freeze
@@ -68,6 +69,12 @@ module Decidim
 
     has_many :children, foreign_key: "parent_id", class_name: "Decidim::Assembly", inverse_of: :parent, dependent: :destroy
     belongs_to :parent, class_name: "Decidim::Assembly", inverse_of: :children, optional: true, counter_cache: :children_count
+
+    scope :with_type, lambda { |type_id|
+      return self if type_id.blank?
+
+      where(decidim_assemblies_type_id: type_id)
+    }
 
     has_one_attached :hero_image
     validates_upload :hero_image, uploader: Decidim::HeroImageUploader
@@ -154,6 +161,10 @@ module Decidim
 
     def attachment_context
       :admin
+    end
+
+    def self.ransackable_scopes(_auth_object = nil)
+      [:with_type, :with_area, :with_scope]
     end
 
     private

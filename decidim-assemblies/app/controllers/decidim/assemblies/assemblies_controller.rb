@@ -48,15 +48,15 @@ module Decidim
 
       private
 
-      def search_klass
-        AssemblySearch
+      def search_collection
+        Assembly
       end
 
       def default_filter_params
         {
-          scope_id: nil,
-          area_id: nil,
-          type_id: nil
+          with_scope: nil,
+          with_area: nil,
+          with_type: nil
         }
       end
 
@@ -77,7 +77,7 @@ module Decidim
       end
 
       def parent_assemblies
-        search.results.parent_assemblies.order(weight: :asc, promoted: :desc)
+        search.result.parent_assemblies.order(weight: :asc, promoted: :desc)
       end
 
       def stats
