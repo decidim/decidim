@@ -37,7 +37,7 @@ module Decidim
           render "decidim/proposals/proposals/participatory_texts/participatory_text"
         else
           @base_query = search
-                        .results
+                        .result
                         .published
                         .not_hidden
 
@@ -211,18 +211,18 @@ module Decidim
 
       private
 
-      def search_klass
-        ProposalSearch
+      def search_collection
+        Proposal.where(component: current_component).published.availability(params[:filter].try(:[], :state_withdraw))
       end
 
       def default_filter_params
         {
-          search_text: "",
+          search_text_cont: "",
           origin: default_filter_origin_params,
           activity: "all",
-          category_id: default_filter_category_params,
-          state: %w(accepted evaluating state_not_published),
-          scope_id: default_filter_scope_params,
+          with_any_category: default_filter_category_params,
+          status: %w(accepted evaluating state_not_published),
+          with_any_scope: default_filter_scope_params,
           related_to: "",
           type: "all"
         }

@@ -16,6 +16,7 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::Randomable
+      include Decidim::SearchExtensions
 
       has_many :collaborator_requests,
                class_name: "Decidim::Proposals::CollaborativeDraftCollaboratorRequest",
@@ -34,6 +35,8 @@ module Decidim
       scope :withdrawn, -> { where(state: "withdrawn") }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
       scope :published, -> { where(state: "published") }
+
+      scope_search_multi :status, [:open, :published, :withdrawn]
 
       # Checks whether the user can edit the given proposal.
       #
@@ -67,6 +70,12 @@ module Decidim
       # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
       def reported_searchable_content_extras
         [authors.map(&:name).join("\n")]
+      end
+
+      ransacker_text_multi :search_text, [:title, :body]
+
+      def self.ransackable_scopes(_auth_object = nil)
+        [:status, :related_to, :with_any_scope, :with_any_category]
       end
     end
   end
