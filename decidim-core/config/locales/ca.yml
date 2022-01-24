@@ -747,6 +747,8 @@ ca:
       file_help:
         file:
           explanation: 'Instruccions per a l''arxiu:'
+          message_1: Ha de ser una imatge quadrada.
+          message_2: La mida recomanada per a aquesta imatge és 512x512.
         image:
           explanation: 'Instruccions per a la imatge:'
           message_1: Preferiblement una imatge apaïsada que no tingui cap text.
