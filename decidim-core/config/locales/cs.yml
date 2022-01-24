@@ -788,6 +788,8 @@ cs:
       file_help:
         file:
           explanation: 'Pokyny pro soubor:'
+          message_1: Měl by být čtvercový obrázek.
+          message_2: Doporučená velikost pro tento obrázek je 512 x 512.
         image:
           explanation: 'Pokyny pro obrázek:'
           message_1: Je vhodnější obrázek na šířku, který nemá žádný text.
@@ -1031,6 +1033,7 @@ cs:
           next: Další
           no_conversations: Nemáte zatím žádné konverzace
           title: Konverzace
+          to: Komu
         reply:
           placeholder: Vaše odpověď...
           send: Poslat
