@@ -15,8 +15,7 @@ module Decidim
 
       def index
         @sortitions = search
-                      .results
-                      .includes(:author)
+                      .result
                       .includes(:category)
 
         @sortitions = paginate(@sortitions)
@@ -29,14 +28,14 @@ module Decidim
         Sortition.find(params[:id])
       end
 
-      def search_klass
-        SortitionSearch
+      def search_collection
+        Sortition
       end
 
       def default_filter_params
         {
-          search_text: "",
-          category_id: "",
+          search_text_cont: "",
+          with_category: "",
           state: "active"
         }
       end

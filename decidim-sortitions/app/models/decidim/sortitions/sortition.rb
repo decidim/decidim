@@ -14,6 +14,7 @@ module Decidim
       include Decidim::Comments::CommentableWithComponent
       include Decidim::Randomable
       include Decidim::TranslatableResource
+      include Decidim::SearchExtensions
 
       component_manifest_name "sortitions"
 
@@ -26,13 +27,19 @@ module Decidim
                  class_name: "Decidim::User",
                  optional: true
 
-      scope :categorized_as, lambda { |category_id|
-        includes(:categorization)
-          .where("decidim_categorizations.decidim_category_id" => category_id)
-      }
-
       scope :active, -> { where(cancelled_on: nil) }
       scope :cancelled, -> { where.not(cancelled_on: nil) }
+
+      scope :state, lambda { |state_key|
+        case state_key
+        when "active"
+          active
+        when "cancelled"
+          cancelled
+        else # Assume 'all'
+          self
+        end
+      }
 
       def self.log_presenter_class_for(_log)
         Decidim::Sortitions::AdminLog::SortitionPresenter
@@ -45,7 +52,7 @@ module Decidim
       def similar_count
         Sortition.where(component: component)
                  .where(decidim_proposals_component: decidim_proposals_component)
-                 .categorized_as(category&.id)
+                 .with_category(category&.id)
                  .where(target_items: target_items)
                  .count
       end
@@ -76,6 +83,12 @@ module Decidim
       # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
       def allow_resource_permissions?
         true
+      end
+
+      ransacker_i18n_multi :search_text, [:title, :additional_info, :witnesses]
+
+      def self.ransackable_scopes(_auth_object = nil)
+        [:state, :with_category]
       end
     end
   end
