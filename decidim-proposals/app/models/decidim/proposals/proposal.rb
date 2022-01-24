@@ -353,11 +353,11 @@ module Decidim
       end
 
       def self.ransackable_scopes(auth_object = nil)
-        if auth_object&.admin?
-          [:valuator_role_ids_has]
-        else
-          [:origin, :status, :voted_by, :coauthored_by, :related_to, :with_any_scope, :with_any_category]
-        end
+        base = [:origin, :status, :voted_by, :coauthored_by, :related_to, :with_any_scope, :with_any_category]
+        return base unless auth_object&.admin?
+
+        # Add extra scopes for admins for the admin panel searches
+        base + [:valuator_role_ids_has]
       end
 
       ransacker_i18n_multi :search_text, [:title, :body]
