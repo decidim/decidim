@@ -730,7 +730,6 @@ nl:
       file_help:
         file:
           explanation: 'Eigenschappen bestand:'
-          message_1: Moet een afbeelding of een document zijn.
         image:
           explanation: 'Eigenschappen afbeelding:'
           message_1: Bij voorkeur een afbeelding in 'landscape' die geen tekst bevat.
