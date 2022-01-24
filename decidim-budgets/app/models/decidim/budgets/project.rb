@@ -18,6 +18,7 @@ module Decidim
       include Decidim::Randomable
       include Decidim::Searchable
       include Decidim::TranslatableResource
+      include Decidim::SearchExtensions
 
       translatable_fields :title, :description
 
@@ -32,6 +33,8 @@ module Decidim
 
       scope :selected, -> { where.not(selected_at: nil) }
       scope :not_selected, -> { where(selected_at: nil) }
+
+      scope_search_multi :status, [:selected, :not_selected]
 
       searchable_fields(
         scope_id: :decidim_scope_id,
@@ -103,6 +106,8 @@ module Decidim
         Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
       end
 
+      ransacker_i18n_multi :search_text, [:title, :description]
+
       ransacker :selected do
         Arel.sql(%{("decidim_budgets_projects"."selected_at")::text})
       end
@@ -118,6 +123,10 @@ module Decidim
         )
         SQL
         Arel.sql(query)
+      end
+
+      def self.ransackable_scopes(_auth_object = nil)
+        [:status, :with_any_scope, :with_any_category]
       end
     end
   end
