@@ -239,7 +239,7 @@ shared_examples_for "a resource search with origin" do |factory_name|
 
       it "returns only official resources" do
         expect(subject).to include(CGI.escapeHTML(translated(official_resource.try(:title) || official_resource.try(:name))))
-        expect(subject).not_to include(CGI.escapeHTML(translated(citizen_resource.try(:title) || citizen_resource.try(:name))))
+        expect(subject).not_to include(CGI.escapeHTML(translated(participant_resource.try(:title) || participant_resource.try(:name))))
         expect(subject).not_to include(CGI.escapeHTML(translated(user_group_resource.try(:title) || user_group_resource.try(:name))))
       end
     end
@@ -249,7 +249,7 @@ shared_examples_for "a resource search with origin" do |factory_name|
 
       it "returns only citizen resources" do
         expect(subject).not_to include(CGI.escapeHTML(translated(official_resource.try(:title) || official_resource.try(:name))))
-        expect(subject).to include(CGI.escapeHTML(translated(citizen_resource.try(:title) || citizen_resource.try(:name))))
+        expect(subject).to include(CGI.escapeHTML(translated(participant_resource.try(:title) || participant_resource.try(:name))))
         expect(subject).not_to include(CGI.escapeHTML(translated(user_group_resource.try(:title) || user_group_resource.try(:name))))
       end
     end
@@ -259,7 +259,7 @@ shared_examples_for "a resource search with origin" do |factory_name|
 
       it "returns only user groups resources" do
         expect(subject).not_to include(CGI.escapeHTML(translated(official_resource.try(:title) || official_resource.try(:name))))
-        expect(subject).not_to include(CGI.escapeHTML(translated(citizen_resource.try(:title) || citizen_resource.try(:name))))
+        expect(subject).not_to include(CGI.escapeHTML(translated(participant_resource.try(:title) || participant_resource.try(:name))))
         expect(subject).to include(CGI.escapeHTML(translated(user_group_resource.try(:title) || user_group_resource.try(:name))))
       end
     end
@@ -270,7 +270,7 @@ shared_examples_for "a resource search with origin" do |factory_name|
 
         it "returns only meeting resources" do
           expect(subject).not_to include(CGI.escapeHTML(translated(official_resource.try(:title) || official_resource.try(:name))))
-          expect(subject).not_to include(CGI.escapeHTML(translated(citizen_resource.try(:title) || citizen_resource.try(:name))))
+          expect(subject).not_to include(CGI.escapeHTML(translated(participant_resource.try(:title) || participant_resource.try(:name))))
           expect(subject).not_to include(CGI.escapeHTML(translated(user_group_resource.try(:title) || user_group_resource.try(:name))))
           expect(subject).to include(CGI.escapeHTML(translated(meeting_resource.try(:title) || meeting_resource.try(:name))))
         end
