@@ -57,21 +57,21 @@ module Decidim
       end
 
       def paginated_elections
-        @paginated_elections ||= paginate(search.results.published)
+        @paginated_elections ||= paginate(search.result.published)
         @paginated_elections = reorder(@paginated_elections)
       end
 
       def scheduled_elections
-        @scheduled_elections ||= search_klass.new(search_params.merge(state: %w(active upcoming))).results
+        @scheduled_elections ||= search_collection.ransack(search_params.merge(state: %w(active upcoming))).result
       end
 
-      def search_klass
-        ElectionSearch
+      def search_collection
+        Election.published
       end
 
       def default_filter_params
         {
-          search_text: "",
+          search_text_cont: "",
           state: default_filter_state_params
         }
       end
@@ -84,10 +84,6 @@ module Decidim
         else
           %w()
         end
-      end
-
-      def context_params
-        { component: current_component, organization: current_organization }
       end
     end
   end

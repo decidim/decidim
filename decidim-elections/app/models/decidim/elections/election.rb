@@ -14,6 +14,7 @@ module Decidim
       include Traceable
       include Loggable
       include Decidim::Forms::HasQuestionnaire
+      include Decidim::SearchExtensions
 
       translatable_fields :title, :description
 
@@ -42,6 +43,8 @@ module Decidim
         where("start_time < ?", Time.current)
           .where("end_time < ?", Time.current)
       }
+
+      scope_search_multi :state, [:active, :upcoming, :finished]
 
       def self.log_presenter_class_for(_log)
         Decidim::Elections::AdminLog::ElectionPresenter
@@ -137,6 +140,12 @@ module Decidim
       # Public: Overrides the Resourceable concern method to allow setting permissions at resource level
       def allow_resource_permissions?
         true
+      end
+
+      ransacker_i18n_multi :search_text, [:title, :description]
+
+      def self.ransackable_scopes(_auth_object = nil)
+        [:state]
       end
     end
   end
