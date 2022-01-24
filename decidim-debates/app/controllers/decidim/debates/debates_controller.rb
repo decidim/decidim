@@ -98,7 +98,7 @@ module Decidim
       end
 
       def debates
-        @debates ||= reorder(search.results)
+        @debates ||= reorder(search.result)
       end
 
       def debate
@@ -109,8 +109,8 @@ module Decidim
         @close_debate_form ||= form(CloseDebateForm).from_model(debate)
       end
 
-      def search_klass
-        DebateSearch
+      def search_collection
+        Debate
       end
 
       def default_search_params
@@ -122,12 +122,11 @@ module Decidim
 
       def default_filter_params
         {
-          search_text: "",
+          search_text_cont: "",
           origin: %w(official citizens user_group),
           activity: "all",
-          category_id: default_filter_category_params,
-          scope_id: default_filter_scope_params,
-          status: "all",
+          with_any_category: default_filter_category_params,
+          with_any_scope: default_filter_scope_params,
           state: %w(open closed)
         }
       end
