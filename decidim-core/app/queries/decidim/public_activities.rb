@@ -22,7 +22,9 @@ module Decidim
       query = query.where(resource_type: resource_name) if resource_name
 
       query = filter_follows(query)
-      filter_hidden(query)
+      query = filter_hidden(query)
+
+      query.order(created_at: :desc)
     end
 
     private
