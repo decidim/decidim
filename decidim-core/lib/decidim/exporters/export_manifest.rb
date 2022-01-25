@@ -10,7 +10,7 @@ module Decidim
     #
     class ExportManifest
       include ActiveModel::Model
-      include Virtus.model
+      include Decidim::AttributeObject::Model
 
       # A setting to choose if the collection exported by this manifest should
       # be included in the open data export available for all users.
@@ -26,6 +26,7 @@ module Decidim
       # manifest - The parent manifest where this export manifest belongs to.
       #
       def initialize(name, manifest)
+        super()
         @name = name.to_sym
         @manifest = manifest
       end

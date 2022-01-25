@@ -3,6 +3,7 @@
 require "decidim/core/engine"
 require "decidim/core/api"
 require "decidim/core/version"
+
 # Decidim configuration.
 module Decidim
   autoload :Deprecations, "decidim/deprecations"
@@ -43,7 +44,6 @@ module Decidim
   autoload :FriendlyDates, "decidim/friendly_dates"
   autoload :Nicknamizable, "decidim/nicknamizable"
   autoload :HasReference, "decidim/has_reference"
-  autoload :Attributes, "decidim/attributes"
   autoload :StatsRegistry, "decidim/stats_registry"
   autoload :Exporters, "decidim/exporters"
   autoload :FileZipper, "decidim/file_zipper"
@@ -96,7 +96,11 @@ module Decidim
   autoload :RecordEncryptor, "decidim/record_encryptor"
   autoload :AttachmentAttributes, "decidim/attachment_attributes"
   autoload :CarrierWaveMigratorService, "decidim/carrier_wave_migrator_service"
+  autoload :ReminderRegistry, "decidim/reminder_registry"
+  autoload :ReminderManifest, "decidim/reminder_manifest"
+  autoload :ManifestMessages, "decidim/manifest_messages"
   autoload :CommonPasswords, "decidim/common_passwords"
+  autoload :AttributeObject, "decidim/attribute_object"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -532,6 +536,10 @@ module Decidim
   # Public: Stores the registry of participatory spaces
   def self.participatory_space_registry
     @participatory_space_registry ||= ManifestRegistry.new(:participatory_spaces)
+  end
+
+  def self.reminders_registry
+    @reminders_registry ||= ReminderRegistry.new
   end
 
   # Public: Stores the registry of resource spaces

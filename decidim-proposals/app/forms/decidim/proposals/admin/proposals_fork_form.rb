@@ -7,7 +7,7 @@ module Decidim
       class ProposalsForkForm < Decidim::Form
         mimic :proposals_import
 
-        attribute :target_component_id, Integer
+        attribute :target_component_id, Array[Integer]
         attribute :proposal_ids, Array
 
         validates :target_component, :proposals, :current_component, presence: true
@@ -55,7 +55,7 @@ module Decidim
         #
         # We receive this as ["id"] since it's from a select in a form.
         def clean_target_component_id
-          target_component_id.first.to_i
+          target_component_id.first
         end
       end
     end

@@ -16,6 +16,8 @@ module Decidim
 
       after_initialize :set_default_salt
 
+      attr_accessor :questionnaire_template_id
+
       # Public: returns whether the questionnaire questions can be modified or not.
       def questions_editable?
         has_component = questionnaire_for.respond_to? :component

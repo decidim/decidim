@@ -30,7 +30,7 @@ module Decidim::Assemblies
           ceased_date: nil,
           designation_date: Time.current,
           position: Decidim::AssemblyMember::POSITIONS.sample,
-          position_other: "",
+          position_other: Faker::Lorem.word,
           existing_user: existing_user,
           non_user_avatar: non_user_avatar,
           user_id: user&.id

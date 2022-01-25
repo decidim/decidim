@@ -14,7 +14,7 @@ module Decidim
 
         def manage_president(polling_station, president_id)
           unassign_president(polling_station)
-          return if president_id.nil?
+          return if president_id.blank?
 
           assign_president(president_id, polling_station)
           notify_officer(president_id, polling_station.voting)

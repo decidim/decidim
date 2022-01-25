@@ -279,12 +279,9 @@ describe "Conversations", type: :system do
           visit_inbox
           expect(page).to have_content("New conversation")
           click_button "New conversation"
-          expect(page).to have_selector(".js-multiple-mentions")
-          # The sleep function is called due to a setTimeout function in input_multiple_mentions
-          sleep(2)
-          find(".js-multiple-mentions").fill_in with: "@"
-          page.execute_script('$(".js-multiple-mentions")[0].dispatchEvent(new Event("keydown"));$(".js-multiple-mentions")[0].dispatchEvent(new Event("keyup"));')
-          expect(page).to have_selector(".tribute-container .disabled-tribute-element")
+          expect(page).to have_selector("#add_conversation_users")
+          find("#add_conversation_users").fill_in with: "@#{interlocutor2.nickname.chars.first}"
+          expect(page).to have_selector("#autoComplete_list_1 li.disabled", wait: 2)
         end
       end
     end

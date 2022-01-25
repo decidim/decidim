@@ -4,13 +4,13 @@ require "active_support/concern"
 
 module Decidim
   # A set of convenience methods to deal with I18n attributes and validations
-  # in a way that's compatible with Virtus and ActiveModel, thus making it easy
-  # to integrate into Rails' forms and similar workflows.
+  # in a way that's compatible with AttributeObject and ActiveModel, thus making
+  # it easy to integrate into Rails' forms and similar workflows.
   module TranslatableAttributes
     extend ActiveSupport::Concern
 
     class_methods do
-      # Public: Mirrors Virtus' `attribute` interface to define attributes in
+      # Public: Mirrors the `attribute` interface to define attributes in
       # multiple locales.
       #
       # name - The attribute's name
@@ -35,7 +35,7 @@ module Decidim
       #
       # Returns nothing.
       def translatable_attribute(name, type, *options)
-        attribute name, Hash, default: {}
+        attribute name, Hash[String => Object], default: {}
 
         locales.each do |locale|
           attribute_name = "#{name}_#{locale}".gsub("-", "__")
@@ -44,12 +44,16 @@ module Decidim
           define_method attribute_name do
             field = public_send(name) || {}
             value = field[locale.to_s] || field[locale.to_sym]
-            attribute_set[attribute_name].coerce(value)
+            value_type = self.class.attribute_types[attribute_name.to_s]
+            value_type ? value_type.cast(value) : value
           end
 
           define_method "#{attribute_name}=" do |value|
             field = public_send(name) || {}
-            public_send("#{name}=", field.merge(locale => super(value)))
+            final = super(value)
+            return unless final # Do not set the `nil` values for the parent hash
+
+            public_send("#{name}=", field.merge(locale => final))
           end
 
           yield(attribute_name, locale) if block_given?

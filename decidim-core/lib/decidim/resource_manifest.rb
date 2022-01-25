@@ -15,7 +15,7 @@ module Decidim
   #
   class ResourceManifest
     include ActiveModel::Model
-    include Virtus.model
+    include Decidim::AttributeObject::Model
 
     # The name of the resource we are exposing.
     attribute :name, String

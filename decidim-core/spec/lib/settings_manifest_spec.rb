@@ -18,7 +18,7 @@ module Decidim
       end
 
       it "coerces options" do
-        subject.attribute "something", "type" => "boolean", "default" => true
+        subject.attribute "something", "type" => :boolean, "default" => true
         expect(subject.attributes[:something].type).to eq(:boolean)
         expect(subject.attributes[:something].default_value).to eq(true)
       end
@@ -92,7 +92,7 @@ module Decidim
       describe "supported types" do
         it "supports booleans" do
           attribute = SettingsManifest::Attribute.new(type: :boolean)
-          expect(attribute.type_class).to eq(Virtus::Attribute::Boolean)
+          expect(attribute.type_class).to eq(:boolean)
           expect(attribute.default_value).to eq(false)
         end
 
@@ -160,9 +160,9 @@ module Decidim
         expect(settings.something_enabled).to eq(true)
         expect(settings.comments_enabled).to eq(false)
 
-        expect(settings.attributes).to include(something_enabled: true)
-        expect(settings.attributes).to include(comments_enabled: false)
-        expect(settings.attributes).not_to include(invalid_option: true)
+        expect(settings.attributes).to include("something_enabled" => true)
+        expect(settings.attributes).to include("comments_enabled" => false)
+        expect(settings.attributes).not_to include("invalid_option" => true)
       end
 
       it "adds presence validation to the model according the presenceness of the setting" do

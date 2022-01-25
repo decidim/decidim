@@ -59,7 +59,8 @@ module Decidim::Meetings
     describe "when attendees_count is invalid" do
       let(:attendees_count) { "a" }
 
-      it { is_expected.not_to be_valid }
+      # The value is cast to the correct type so "a" becomes 0 which is valid.
+      it { is_expected.to be_valid }
     end
 
     describe "map_model" do
