@@ -43,7 +43,7 @@ describe "Explore elections", :slow, type: :system do
       it "allows searching by text" do
         visit_component
         within ".filters" do
-          fill_in "filter[search_text]", with: translated(elections.first.title)
+          fill_in "filter[search_text_cont]", with: translated(elections.first.title)
 
           # The form should be auto-submitted when filter box is filled up, but
           # somehow it's not happening. So we workaround that be explicitly

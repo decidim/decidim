@@ -108,7 +108,7 @@ describe "Votings", type: :system do
       it "allows searching by text" do
         visit decidim_votings.votings_path
         within ".filters" do
-          fill_in "filter[search_text]", with: translated(voting.title)
+          fill_in "filter[search_text_cont]", with: translated(voting.title)
 
           # The form should be auto-submitted when filter box is filled up, but
           # somehow it's not happening. So we workaround that be explicitly
