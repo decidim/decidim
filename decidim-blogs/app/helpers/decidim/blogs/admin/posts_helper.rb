@@ -18,6 +18,28 @@ module Decidim
           body = translated_attribute(post.body)
           CGI.unescapeHTML html_truncate(body, max_length: max_length)
         end
+        
+        def post_author_select_field(form, name, options = {})
+        
+        select_options = [
+           [current_organization.name, current_organization.id],
+           [current_user.name, current_user.id] 
+          ] 
+        if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? 
+          user_groups = Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
+          select_options = select_options + user_groups.map { |g| [g.name, g.id] }
+        end 
+        
+        form.select(    
+          name,
+          select_options,
+          #selected: @form.user_group_id.presence,
+          #include_blank: current_user.name,
+          #label: options.has_key?(:label) ? options[:label] : true
+        )
+        
+        
+        end
       end
     end
   end
