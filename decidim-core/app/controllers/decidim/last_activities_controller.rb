@@ -38,7 +38,7 @@ module Decidim
     end
 
     def default_filter_params
-      { resource_type: "all" }
+      { with_resource_type: "all" }
     end
   end
 end
