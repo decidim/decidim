@@ -94,7 +94,7 @@ The next tables show all the default Env Vars available when running a default D
 
 |===
 
-.Optional Decidim Env Vars for external services integration
+.Optional Decidim Env Vars for external services integrations
 |===
 |Name |Value |Default value|Multitenant's System configurable
 
@@ -171,10 +171,6 @@ The next tables show all the default Env Vars available when running a default D
 |For advanced cases, you can define this value instead or in combination of MAPS_API_KEY (which will be the default). This allows to set up different providers for the static tile provider than the dynamic requiring different API KEYS. See xref:services:maps.adoc[Maps].
 
 *Note that you don't need to define this variable for the most common, simple, one provider cases.*
-|
-|No
-
-|API key for Geocoder and map provider if using https://HERE.com[HERE Maps]. See xref:services:maps.adoc[Maps].
 |
 |No
 
@@ -337,7 +333,7 @@ Mind that this depends on your environment, for instance you could also need to 
 |*Yes*
 
 |DECIDIM_MAX_REPORTS_BEFORE_HIDING
-|The number of reports which a resource can receive before hiding it. This affects moderations for resources such as proposals or users.
+|The number of reports which a resource can receive before hiding it. This affects moderations for resources such as proposals or users (spammers).
 |3
 |No
 
@@ -385,7 +381,7 @@ If not set, it will be ignored.
 |No
 
 |DECIDIM_DEFAULT_CSV_COL_SEP
-|Sets Decidim::Exporters::CSV's default column separator. This is used in general in any process that generate CSV files.
+|Sets Decidim::Exporters::CSV's default column separator. This is used in general in any activity that generates a CSV file.
 |;
 |No
 
@@ -409,12 +405,12 @@ Notice that expire_session_after won't take effect when the user wants to be rem
 |No
 
 |DECIDIM_SESSION_TIMEOUT_INTERVAL
-|In seconds, defines how often `session_timeouter.js` checks time between current moment and last request. This is a periodic poll method that it is used to show the user an alert that the session is about to expire if is doing nothing.
+|In seconds, defines how often `session_timeouter.js` checks time between the current moment and the last request. This is a periodic poll method (performed by a JS script) that is used to show users an alert that the session is about to expire after a period of inactivity.
 |10
 |No
 
 |DECIDIM_FOLLOW_HTTP_X_FORWARDED_HOST
-|Exposes a configuration option: HTTP_X_FORWADED_HOST header follow-up.
+|Exposes a configuration option: `HTTP_X_FORWADED_HOST` header follow-up.
 
 If a caching system is in place, it can also allow cache and log poisoning attacks, allowing attackers to control the contents of caches and logs that could be used for other attacks.
 |false
@@ -438,7 +434,7 @@ Separate each item of the array with a comma AND a space, for instance:
 |DECIDIM_ALLOW_OPEN_REDIRECTS
 |Disable the redirection to the external host when performing redirect back.
 
-*This is not recommended to activate unless you know what are you doing*
+*This is not recommended to activate unless you know what you are doing*
 
 For more details https://github.com/rails/rails/issues/39643
 
@@ -454,7 +450,7 @@ Additional context: This has been revealed as an issue during a security audit o
 |Name |Value |Default value|Multitenant's System configurable
 
 |RAILS_LOG_TO_STDOUT
-|If defined (value is indifferent) it'll show the log contents on the shell Standard Out. It's special relevant on certain hosting providers (for example, Heroku or Docker). It's also part of https://12factor.net/logs[12factor's recommendations].
+|If defined (value is indifferent) it'll show the log content on the shell Standard Out. It's special relevant on certain hosting providers (for example, Heroku or Docker). It's also part of https://12factor.net/logs[12factor's recommendations].
 |
 |No
 
@@ -464,7 +460,7 @@ Additional context: This has been revealed as an issue during a security audit o
 |No
 
 |RAILS_LOG_LEVEL
-|The log level for the application. This makes more or less verbose the logger. Usually, is a good choice to use `info` after a period of testing a production application.
+|The log level for the application. This makes more or less verbose the logger. Usually, it is a good choice to use `info` after a period of testing a production application.
 
 It must be one of these: `debug`, `info`, `warn`, `error`, `fatal`
 
@@ -473,7 +469,7 @@ Note that this only applies to production environments.
 |No
 
 |RAILS_ASSET_HOST
-|If you use a CDN or another type of assets management, you can specify the host (an path) for it so, instead of Rails serving your assets (CSS, Javascript, Images) will use your custom system. For instance `https://assets.example.org`
+|If you use a CDN or another type of assets management, you can specify the host (and path) for it so, instead of Rails serving your assets (CSS, Javascript, Images) will use your custom system. For instance `https://assets.example.org`
 |
 |No
 
@@ -484,6 +480,11 @@ Note that this only applies to production environments.
 
 |RAILS_MAX_THREADS
 |Specifies the maximum number of concurrent database connections and `threads` that Puma will use to serve requests. Please refer to http://guides.rubyonrails.org/configuring.html#database-pooling for more information.
+|5
+|No
+
+|REDIS_URL
+|If using Sidekiq as a queue adapter for processing background jobs, a Redis database is needed. Sidekiq uses this env var if defined, if not defaults to `localhost:6379`. Please refer to https://github.com/mperham/sidekiq/wiki/Using-Redis for more information.
 |5
 |No
 
