@@ -33,13 +33,16 @@ module Decidim
       # GET /initiatives
       def index
         enforce_permission_to :list, :initiative
-        return unless search.result.blank? && params.dig("filter", "state") != %w(closed)
+        return unless search.result.blank? && params.dig("filter", "with_any_state") != %w(closed)
 
-        @closed_initiatives = search.result.closed
+        @closed_initiatives = search_collection.ransack(
+          search_params.merge(with_any_state: %w(closed)),
+          context_params.merge(auth_object: current_user)
+        )
 
-        if @closed_initiatives.present?
+        if @closed_initiatives.result.present?
           params[:filter] ||= {}
-          params[:filter][:date] = %w(closed)
+          params[:filter][:with_any_state] = %w(closed)
           @forced_closed_initiatives = true
 
           @search = @closed_initiatives
