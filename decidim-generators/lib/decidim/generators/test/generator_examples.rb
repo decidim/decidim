@@ -42,6 +42,8 @@ shared_examples_for "a new development application" do
 
       expect(schema).to match(/create_table "#{table}"|create_table :#{table}/)
     end
+
+    expect(Pathname.new("#{test_app}/node_modules/@rails/webpacker")).to be_directory
   end
 end
 

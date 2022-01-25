@@ -160,7 +160,7 @@ module Decidim
 
         gsub_file "config/environments/production.rb",
                   /config.log_level = :debug/,
-                  "config.log_level = %w(debug, info, warn, error, fatal).include?(ENV['RAILS_LOG_LEVEL']) ? ENV['RAILS_LOG_LEVEL'] : :debug"
+                  "config.log_level = %w(debug info warn error fatal).include?(ENV['RAILS_LOG_LEVEL']) ? ENV['RAILS_LOG_LEVEL'] : :debug"
 
         gsub_file "config/environments/production.rb",
                   %r{# config.action_controller.asset_host = 'http://assets.example.com'},
