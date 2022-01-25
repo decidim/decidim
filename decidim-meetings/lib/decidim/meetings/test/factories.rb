@@ -86,7 +86,7 @@ FactoryBot.define do
       end
     end
 
-    trait(:citizen_author) { not_official }
+    trait(:participant_author) { not_official }
 
     trait :user_group_author do
       author do
