@@ -96,10 +96,22 @@
   display: flex;
   flex-direction: column;
 
+  @include breakpoint(large down){
+    margin-bottom: .5rem;
+  }
+
   .actions-wrapper{
     display: flex;
     justify-content: flex-start;
     align-items: baseline;
+
+    button.primary{
+      margin-right: .5rem;
+    }
+
+    button.remove-attachment{
+      cursor: pointer;
+    }
 
     &.titled{
       flex-direction: column-reverse;
@@ -113,14 +125,6 @@
       span:last-child{
         margin-right: .5rem;
       }
-    }
-
-    button.primary{
-      margin-right: .5rem;
-    }
-
-    button.remove-attachment{
-      cursor: pointer;
     }
   }
 

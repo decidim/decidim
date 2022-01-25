@@ -52,6 +52,8 @@
     <%= link_to image_tag(file_attachment_path(attachments.first), alt: attribute), file_attachment_path(attachments.first) %>
   <% elsif !has_title? && uploader_default_image_path(attribute).present? %>
       <span><%= t("default_image", scope: "decidim.forms") %></span>
-      <%= image_tag uploader_default_image_path(attribute) %>
+      <%= link_to uploader_default_image_path(attribute) do %>
+        <%= image_tag uploader_default_image_path(attribute) %>
+      <% end %>
   <% end %>
 </div>
