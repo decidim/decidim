@@ -37,8 +37,9 @@ module Decidim
         raise NotImplementedError, "A search class is neeeded to filter resources"
       end
 
-      # Kept for legacy reasons as this is the object passed to the filter forms
-      alias_method :filter, :search
+      def filter
+        @filter ||= Filter.new(filter_params)
+      end
 
       def search_params
         default_search_params.merge(filter_params)
