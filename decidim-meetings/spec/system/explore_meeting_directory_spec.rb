@@ -54,7 +54,7 @@ describe "Explore meeting directory", type: :system do
       it "allows filtering by category" do
         visit directory
 
-        within ".category_id_check_boxes_tree_filter" do
+        within ".with_any_category_check_boxes_tree_filter" do
           check "All"
           check translated(participatory_process.title)
         end
@@ -77,7 +77,7 @@ describe "Explore meeting directory", type: :system do
     it "allows filtering by scope" do
       visit directory
 
-      within ".scope_id_check_boxes_tree_filter" do
+      within ".with_any_scope_check_boxes_tree_filter" do
         check "All"
         check translated(meeting.scope.name)
       end
