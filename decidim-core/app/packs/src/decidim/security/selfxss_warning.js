@@ -1,7 +1,11 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console, no-process-env, no-undef */
 
 $(() => {
   if (!console) {
+    return;
+  }
+
+  if (process.env.NODE_ENV === "development") {
     return;
   }
 

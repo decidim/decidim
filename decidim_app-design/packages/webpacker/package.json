@@ -39,13 +39,16 @@
     "pnp-webpack-plugin": "^1.7.0",
     "sass": "^1.45.2",
     "sass-loader": ">= 12.4.0",
+    "source-map-loader": "^0.2.4",
     "style-loader": "^3.0.0",
     "terser-webpack-plugin": "^5.2.4",
     "webpack": "^5.53.0",
     "webpack-assets-manifest": "^5.0.6",
     "webpack-cli": "^4.8.0",
     "webpack-merge": "^5.8.0",
-    "webpack-sources": "^3.2.1"
+    "webpack-sources": "^3.2.1",
+    "workbox-recipes": "^6.4.2",
+    "workbox-webpack-plugin": "^6.4.2"
   },
   "devDependencies": {
     "eslint": "^8.6.0",

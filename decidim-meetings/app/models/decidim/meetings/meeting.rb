@@ -61,7 +61,7 @@ module Decidim
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
 
       scope :visible_meeting_for, lambda { |user|
-        (all.published.distinct if user&.admin?) ||
+        (all.distinct if user&.admin?) ||
           if user.present?
             spaces = Decidim.participatory_space_registry.manifests.map do |manifest|
               {

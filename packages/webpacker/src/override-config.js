@@ -47,6 +47,5 @@ const overrideSassRule = (modifyConfig) => {
   return modifyConfig;
 }
 
-module.exports = (originalConfig) => { // eslint-disable-line
-  return overrideSassRule(originalConfig);
-};
+// Since all modifiers are functions, we can use a reduce clause to apply all them
+module.exports = (originalConfig) => [overrideSassRule].reduce((acc, modifier) => modifier(acc), originalConfig)
