@@ -10,7 +10,6 @@ module Decidim
     # Property is named as attribute in upload modal and passthru validator, but it
     # cannot be named as attribute here.
     attribute :property, String
-    attribute :titled, Boolean
     attribute :blob, String
     attribute :klass, String
 

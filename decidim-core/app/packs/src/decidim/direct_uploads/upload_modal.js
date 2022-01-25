@@ -45,7 +45,8 @@ export default class UploadModal {
       return;
     }
 
-    const uploadItem = this.createUploadItem(file.name, file.name.split(".")[0], "init");
+    const title = file.name.split(".")[0].slice(0, 31);
+    const uploadItem = this.createUploadItem(file.name, title, "init");
     const uploader = new Uploader(this, uploadItem, {
       file: file,
       url: this.input.dataset.directUploadUrl,
@@ -83,7 +84,6 @@ export default class UploadModal {
         }
 
         if (this.options.titled) {
-          const title = file.name.split(".")[0];
           const hiddenTitleField = document.createElement("input");
           hiddenTitleField.classList.add("hidden-title");
           hiddenTitleField.setAttribute("type", "hidden");
@@ -136,8 +136,14 @@ export default class UploadModal {
     thirdRow.classList.add("row", "upload-item-third-row");
 
     const fileNameSpan = document.createElement("span");
-    fileNameSpan.classList.add("columns", "small-5", "file-name-span");
-    fileNameSpan.innerHTML = fileName;
+    let fileNameSpanClasses = ["columns", "file-name-span"];
+    if (this.options.titled) {
+      fileNameSpanClasses.push("small-4", "medium-5");
+    } else {
+      fileNameSpanClasses.push("small-12");
+    }
+    fileNameSpan.classList.add(...fileNameSpanClasses);
+    fileNameSpan.innerHTML = this.truncateFilename(fileName);
 
     const progressBar = document.createElement("div");
     progressBar.classList.add("progress-bar");
@@ -159,7 +165,7 @@ export default class UploadModal {
     progressBarWrapper.classList.add("columns", "progress-bar-wrapper");
     progressBarWrapper.appendChild(progressBarBorder);
     if (this.options.titled) {
-      progressBarWrapper.classList.add("small-5");
+      progressBarWrapper.classList.add("small-4", "medium-5");
     } else {
       progressBarWrapper.classList.add("small-10");
     }
@@ -168,7 +174,7 @@ export default class UploadModal {
     errorList.classList.add("upload-errors");
 
     const removeButton = document.createElement("button");
-    removeButton.classList.add("columns", "small-2", "remove-upload-item");
+    removeButton.classList.add("columns", "small-3", "medium-2", "remove-upload-item");
     removeButton.innerHTML = `&times; ${this.locales.remove}`;
     removeButton.addEventListener(("click"), (event) => {
       event.preventDefault();
@@ -179,7 +185,7 @@ export default class UploadModal {
 
     const titleAndFileNameSpan = document.createElement("span");
     titleAndFileNameSpan.classList.add("columns", "small-5", "title-and-filename-span");
-    titleAndFileNameSpan.innerHTML = `${title} (${fileName})`;
+    titleAndFileNameSpan.innerHTML = `${title} (${this.truncateFilename(fileName)})`;
 
     firstRow.appendChild(fileNameSpan);
     secondRow.appendChild(progressBarWrapper);
@@ -187,20 +193,20 @@ export default class UploadModal {
 
     let tileInputContainer = null;
     if (this.options.titled) {
-      const titleInput = document.createElement("input");
-      titleInput.classList.add("attachment-title");
-      titleInput.type = "text";
-      titleInput.value = title;
+      const titleInputContainer = document.createElement("input");
+      titleInputContainer.classList.add("attachment-title");
+      titleInputContainer.type = "text";
+      titleInputContainer.value = title;
       tileInputContainer = document.createElement("div");
       tileInputContainer.classList.add("columns", "small-5", "title-input-container");
-      tileInputContainer.appendChild(titleInput);
-      const titleSpan = document.createElement("span");
-      titleSpan.classList.add("title-span");
-      titleSpan.innerHTML = this.locales.title;
+      tileInputContainer.appendChild(titleInputContainer);
+      const titleLabelSpan = document.createElement("span");
+      titleLabelSpan.classList.add("title-label-span");
+      titleLabelSpan.innerHTML = this.locales.title;
 
       const titleContainer = document.createElement("div");
-      titleContainer.classList.add("columns", "small-7", "title-container");
-      titleContainer.appendChild(titleSpan);
+      titleContainer.classList.add("columns", "small-8", "medium-7", "title-container");
+      titleContainer.appendChild(titleLabelSpan);
       firstRow.appendChild(titleContainer);
       secondRow.appendChild(tileInputContainer);
     }
@@ -241,5 +247,15 @@ export default class UploadModal {
       }
       item.remove();
     })
+  }
+
+  truncateFilename(filename, maxLength = 31) {
+    if (filename.length <= maxLength) {
+      return filename;
+    }
+
+    const charactersFromBegin = Math.floor(maxLength / 2) - 3;
+    const charactersFromEnd = maxLength - charactersFromBegin - 3;
+    return `${filename.slice(0, charactersFromBegin)}...${filename.slice(-charactersFromEnd)}`;
   }
 }

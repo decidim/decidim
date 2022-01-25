@@ -131,10 +131,18 @@ module Decidim
       translated_attribute(attachment.title)
     end
 
+    def truncated_file_name_for(attachment, max_length = 31)
+      filename = file_name_for(attachment)
+      return filename if filename.length <= max_length
+
+      name = File.basename(filename, File.extname(filename))
+      name.truncate(max_length, omission: "...#{name.last(max_length / 2 - 3)}#{File.extname(filename)}")
+    end
+
     def file_name_for(attachment)
       filename = begin
-        return attachment.filename if attachment.is_a? ActiveStorage::Blob
-        return blob(attachment).filename if blob(attachment).present?
+        return attachment.filename.to_s if attachment.is_a? ActiveStorage::Blob
+        return blob(attachment).filename.to_s if blob(attachment).present?
 
         attachment.url.split("/").last
       end

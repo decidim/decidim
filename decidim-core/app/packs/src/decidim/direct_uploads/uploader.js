@@ -49,7 +49,6 @@ export class Uploader {
       const params = new URLSearchParams({
         resource: this.modal.options.resourceClass,
         property: this.modal.options.addAttribute,
-        titled: this.modal.options.titled,
         blob: blobId,
         klass: this.modal.options.formObjectClass
       });

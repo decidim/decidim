@@ -69,9 +69,9 @@ const addSaveButtonEventListener = (um) => {
       if (um.options.titled) {
         const title = item.querySelector("input[type='text']").value;
         details.dataset.title = title;
-        span.innerHTML = `${title} (${item.dataset.filename})`;
+        span.innerHTML = `${title} (${um.truncateFilename(item.dataset.filename)})`;
       } else {
-        span.innerHTML = item.dataset.filename
+        span.innerHTML = um.truncateFilename(item.dataset.filename, 19);
       }
       span.style.display = "block";
     });
