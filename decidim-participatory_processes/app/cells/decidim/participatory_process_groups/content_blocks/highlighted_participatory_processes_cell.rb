@@ -42,14 +42,8 @@ module Decidim
 
         def default_filter_params
           {
-            scope_id: nil,
-            area_id: nil
-          }
-        end
-
-        def default_search_params
-          {
-            base_relation: base_relation
+            with_scope: nil,
+            with_area: nil
           }
         end
 

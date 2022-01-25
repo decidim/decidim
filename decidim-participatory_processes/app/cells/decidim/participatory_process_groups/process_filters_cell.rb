@@ -32,8 +32,8 @@ module Decidim
           .participatory_process_group_path(
             model,
             filter: {
-              scope_id: get_filter(:scope_id),
-              area_id: get_filter(:area_id),
+              with_scope: get_filter(:with_scope),
+              with_area: get_filter(:with_area),
               date: filter
             }
           )
@@ -53,22 +53,24 @@ module Decidim
       def process_count_by_filter
         @process_count_by_filter ||= begin
           counts = ALL_FILTERS.without("all").each_with_object({}) do |filter_name, collection_by_filter|
-            collection_by_filter.update(filter_name => filtered_processes(filter_name).result.count)
+            collection_by_filter.update(filter_name => filtered_processes(filter_name).count)
           end
           counts.update("all" => counts.values.sum)
         end
       end
 
       def filtered_processes(date_filter)
-        base_relation.ransack(
+        query = base_relation.ransack(
           {
             date: date_filter,
-            with_scope: get_filter(:scope_id),
-            with_area: get_filter(:area_id)
+            with_scope: get_filter(:with_scope),
+            with_area: get_filter(:with_area)
           },
           current_user: current_user,
           organization: current_organization
-        )
+        ).result
+
+        query.published.visible_for(current_user)
       end
 
       def default_date_filter
