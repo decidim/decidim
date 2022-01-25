@@ -1,0 +1,57 @@
+<div class="dynamical-uploads <%= with_title %> upload-container-for-<%= attribute %>">
+  <%= tag.strong label unless has_title? %>
+  <div class="<%= actions_wrapper_class %>">
+    <div class="active-attachments">
+      <% attachments.each do |attachment| %>
+        <% next if attachment.is_a? Array %>
+
+        <div class="attachment-details" data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded">
+          <% if has_title? %>
+            <span><%= title_for(attachment) %> (<%= file_name_for(attachment) %>)</span>
+            <%= form.hidden_field attribute, multiple: true, value: attachment.id, id: attachment.id %>
+          <% else %>
+            <% if blob(attachment).image? %>
+              <span><%= file_name_for(attachment) %></span>
+            <% else %>
+              <%= link_to file_name_for(attachment), file_attachment_path(attachment) %>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <%= tag.button button_label,
+      id: attribute,
+      name: attribute,
+      class: button_class,
+      data: {
+        open: modal_id,
+        add_attribute: add_attribute,
+        resource_name: resource_name,
+        resource_class: resource_class,
+        optional: optional,
+        max_file_size: max_file_size,
+        multiple: multiple,
+        titled: has_title?,
+        form_object_class: form_object_class
+      } %>
+    <%= input_validation_field unless optional %>
+    <% if !has_title? && optional %>
+      <div class="remove-attachment-container" id="attachment_<%= id_for(attachments.first) %>" data-closable>
+        <button class="remove-attachment"
+              aria-label="<%= t("remove_this_file", scope: "decidim.forms") %>"
+              title="<%= t("remove_this_file", scope: "decidim.forms") %>"
+              type="button" data-close>
+          <span aria-hidden="true">&times; <%= t("decidim.forms.upload.labels.remove") %></span>
+        </button>
+      </div>
+    <% end %>
+  </div>
+
+  <% if !has_title? && file_attachment_path(attachments.first) && blob(attachments.first).image? %>
+    <strong><%= attachment_label %></strong>
+    <%= link_to image_tag(file_attachment_path(attachments.first), alt: attribute), file_attachment_path(attachments.first) %>
+  <% elsif !has_title? && uploader_default_image_path(attribute).present? %>
+      <span><%= t("default_image", scope: "decidim.forms") %></span>
+      <%= image_tag uploader_default_image_path(attribute) %>
+  <% end %>
+</div>
