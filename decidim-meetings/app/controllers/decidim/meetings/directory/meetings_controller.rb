@@ -29,7 +29,7 @@ module Decidim
         end
 
         def search_collection
-          Meeting.where(component: meeting_components).published.availability(filter_params[:state]).includes(
+          Meeting.where(component: meeting_components).published.not_hidden.availability(filter_params[:state]).includes(
             :component,
             attachments: :file_attachment
           )
