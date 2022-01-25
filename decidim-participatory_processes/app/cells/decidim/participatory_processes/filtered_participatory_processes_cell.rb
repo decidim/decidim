@@ -30,14 +30,15 @@ module Decidim
       private
 
       def search_collection
-        Decidim::ParticipatoryProcesses::ParticipatoryProcess.where(
-          organization: current_organization
-        ).published.visible_for(current_user).includes(:area)
+        base_relation.published.visible_for(current_user).includes(:area)
       end
 
-      def default_search_params
+      def base_relation
+        model
+      end
+
+      def default_filter_params
         {
-          base_relation: model,
           date: default_date_filter
         }
       end
