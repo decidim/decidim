@@ -25,6 +25,7 @@ module Decidim
       {
         term: params[:term],
         resource_type: nil,
+        space_state: nil,
         decidim_scope_id: nil
       }
     end
