@@ -266,8 +266,6 @@ Decidim.register_component(:proposals) do |component|
       ) do
         proposal = Decidim::Proposals::Proposal.new(params)
 
-        proposal.add_coauthor(participatory_space.organization)
-
         coauthor = case n
                    when 0
                      Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).order(Arel.sql("RANDOM()")).first
