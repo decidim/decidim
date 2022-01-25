@@ -48,7 +48,7 @@ module Decidim
           context_params.merge(auth_object: current_user)
         )
 
-        if @past_meetings.present?
+        if @past_meetings.result.present?
           params[:filter] ||= {}
           params[:filter][:date] = %w(past)
           @forced_past_meetings = true
