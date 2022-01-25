@@ -28,7 +28,7 @@ module Decidim
       end
 
       def current_filter_name
-        type = AssembliesType.find_by(id: search_params[:type_id])
+        type = AssembliesType.find_by(id: search_params[:with_type])
         return translated_attribute type.title if type
 
         t("all", scope: "decidim.assemblies.filter")
