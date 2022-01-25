@@ -43,7 +43,10 @@ module Decidim
       def index
         return unless search.result.blank? && params.dig("filter", "date") != %w(past)
 
-        @past_meetings = search.result.past
+        @past_meetings = search_collection.ransack(
+          search_params.merge(date: %w(past)),
+          context_params.merge(auth_object: current_user)
+        )
 
         if @past_meetings.present?
           params[:filter] ||= {}
