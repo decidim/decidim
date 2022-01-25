@@ -365,6 +365,7 @@ module Decidim
         order(Arel::Nodes::InfixOperation.new("", field, Arel.sql("DESC")))
       end
 
+      ransacker_i18n :title
       ransacker_i18n_multi :search_text, [:title, :description]
 
       ransacker :id_string do

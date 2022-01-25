@@ -120,6 +120,7 @@ module Decidim
       !active?
     end
 
+    ransacker_i18n :title
     ransacker_i18n_multi :search_text, [:title, :subtitle, :description]
 
     def self.ransackable_scopes(_auth_object = nil)
