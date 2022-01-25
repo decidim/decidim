@@ -108,7 +108,7 @@ module Decidim
       end
 
       def search_collection
-        Debate
+        Debate.not_hidden
       end
 
       def default_search_params
