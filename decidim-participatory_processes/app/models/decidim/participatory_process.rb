@@ -84,11 +84,13 @@ module Decidim
       else # Assume 'all'
         timezone = ActiveSupport::TimeZone.find_tzinfo(Time.zone.name).identifier
         order(
-          sanitize_sql_array(
-            [
-              "ABS(start_date - (CURRENT_DATE at time zone :timezone)::date)",
-              { timezone: timezone }
-            ]
+          Arel.sql(
+            sanitize_sql_array(
+              [
+                "ABS(start_date - (CURRENT_DATE at time zone :timezone)::date)",
+                { timezone: timezone }
+              ]
+            )
           )
         )
       end
