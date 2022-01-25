@@ -31,7 +31,7 @@ module Decidim
         delegate :scopes, to: :current_organization
 
         def query
-          @query ||= base_query.ransack(ransack_params, auth_object: current_user)
+          @query ||= base_query.ransack(ransack_params, search_context: :admin, auth_object: current_user)
         end
 
         private

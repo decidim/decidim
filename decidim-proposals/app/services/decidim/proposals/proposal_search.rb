@@ -8,6 +8,8 @@ module Decidim
       attr_reader :type, :activity
 
       def build(params)
+        return super if search_context == :admin
+
         @type = params[:type]
         @activity = params[:activity]
 

@@ -5,12 +5,13 @@ module Decidim
   # searches to work with context attributes that are not passed from the user
   # interface.
   class ResourceSearch < Ransack::Search
-    attr_reader :user, :organization, :component
+    attr_reader :user, :organization, :component, :search_context
 
     def initialize(object, params = {}, options = {})
       @user = options[:current_user] || options[:user]
       @component = options[:component]
       @organization = options[:organization] || component&.organization
+      @search_context = options[:search_context] || :participants
       configure(options)
 
       # The super method calls the build method below, which can be overridden

@@ -8,6 +8,8 @@ module Decidim
       attr_reader :author
 
       def build(params)
+        return super if search_context == :admin
+
         @author = params[:author]
 
         if params[:author] == "myself" && user
