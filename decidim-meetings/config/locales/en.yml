@@ -90,15 +90,15 @@ en:
             values:
               'false': Past
               'true': Upcoming
-          origin_eq:
+          origin:
             label: Origin
             values:
               official: Official
-              participant: Participant
+              participants: Participant
               user_group: User Groups
           scope_id_eq:
             label: Scope
-          type_eq:
+          type:
             label: Type of meeting
             values:
               hybrid: Both
