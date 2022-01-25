@@ -49,12 +49,12 @@ RSpec.describe "Proposal search", type: :request do
   it_behaves_like "a resource search with categories", :proposal
   it_behaves_like "a resource search with origin", :proposal
 
-  it "displays all non-withdrawn proposals without any filters" do
+  it "displays all non-withdrawn and non-rejected proposals without any filters" do
     expect(subject).to include(CGI.escapeHTML(translated(proposal1.title)))
     expect(subject).to include(CGI.escapeHTML(translated(proposal2.title)))
     expect(subject).to include(CGI.escapeHTML(translated(proposal3.title)))
     expect(subject).not_to include(CGI.escapeHTML(translated(proposal4.title)))
-    expect(subject).to include(CGI.escapeHTML(translated(proposal5.title)))
+    expect(subject).not_to include(CGI.escapeHTML(translated(proposal5.title)))
     expect(subject).to include(CGI.escapeHTML(translated(proposal6.title)))
     expect(subject).to include(CGI.escapeHTML(translated(proposal7.title)))
   end
