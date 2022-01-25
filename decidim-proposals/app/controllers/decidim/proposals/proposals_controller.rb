@@ -212,7 +212,7 @@ module Decidim
       private
 
       def search_collection
-        Proposal.where(component: current_component).published.availability(params[:filter].try(:[], :state_withdraw))
+        Proposal.where(component: current_component).published.not_hidden.availability(params[:filter].try(:[], :state_withdraw))
       end
 
       def default_filter_params

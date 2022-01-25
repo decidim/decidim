@@ -138,7 +138,7 @@ module Decidim
       end
 
       def search_collection
-        CollaborativeDraft
+        CollaborativeDraft.not_hidden
       end
 
       def default_filter_params
