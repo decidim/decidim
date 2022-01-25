@@ -178,23 +178,6 @@ describe "Admin manages votings", type: :system do
     end
   end
 
-  # I DONT KNOW HOW THIS SHOULD WORK NOW..!
-  # describe "updating a voting with invalid image" do
-  #   before do
-  #     click_link translated(voting.title)
-  #   end
-
-  #   it "does not update the voting" do
-  #     dynamically_attach_file(:banner_image, image_invalid_path, remove_before: true)
-
-  #     within ".edit_voting" do
-  #       find("*[type=submit]").click
-  #     end
-
-  #     expect(page).to have_admin_callout("problem")
-  #   end
-  # end
-
   describe "updating a voting without images" do
     let!(:voting3) { create(:voting, organization: organization) }
 

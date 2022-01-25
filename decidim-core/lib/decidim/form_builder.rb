@@ -393,6 +393,13 @@ module Decidim
       template.html_safe
     end
 
+    # Public: Generates a file upload field for Decidim::Attachment type of attachment.
+    # It is similar to upload method, but it changes some options so that attachment can
+    # have title and different upload validations.
+    #
+    # attribute    - The String name of the attribute to build the field.
+    # options      - A Hash with options to build the field. See upload method for
+    # more detailed information.
     def attachment(attribute, options = {})
       object_attachment = object.attachment.present?
       record = object_attachment ? object.attachment : object
@@ -409,10 +416,29 @@ module Decidim
       upload(attribute, options)
     end
 
+    # Public: Generates a file upload field and sets the form as multipart.
+    # If the file is an image it displays the default image if present or the current one.
+    # By default it also generates a button to replace the file.
+    #
+    # attribute    - The String name of the attribute to build the field.
+    # options      - A Hash with options to build the field.
+    #              * max_file_size: Maximum size for the file (If you really want to change max
+    #                 file size you should probably change it in validator).
+    #              * resouce_name: Name of the resource (e.g. user)
+    #              * resource_class: Attribute's resource class (e.g. Decidim::User)
+    #              * resouce_class: Class of the resource (e.g. user)
+    #              * optional: Whether the file can be optional or not.
+    #              * titled: Whether the file can have title or not.
+    #              * show_current: Whether the current file is displayed next to the button.
+    #              * help: Array of help messages which are displayed inside of the upload modal.
+    #              * label: Label for the attribute
+    #              * button_label: Label for the button
+    #              * button_edit_label: Button label when file is already selected.
     def upload(attribute, options = {})
       self.multipart = true
       max_file_size = options[:max_file_size] || max_file_size(object, attribute)
       button_label = options[:button_label] || choose_button_label(attribute)
+
       options = {
         attribute: attribute,
         resource_name: @object_name,
@@ -737,23 +763,6 @@ module Decidim
       label(attribute, (text || "").html_safe, options)
     end
 
-    # Private: Returns default url for attribute when uploader is an
-    # image and has defined a default url
-    # def uploader_default_image_path(attribute)
-    #   uploader = FileValidatorHumanizer.new(object, attribute).uploader
-    #   return if uploader.blank?
-    #   return unless uploader.is_a?(Decidim::ImageUploader)
-
-    #   uploader.try(:default_url)
-    # end
-
-    # Private: Returns blob path when file is attached
-    # def file_attachment_path(file)
-    #   return unless file && file.try(:attached?)
-
-    #   Rails.application.routes.url_helpers.rails_blob_url(file.blob, only_path: true)
-    # end
-
     def required_for_attribute(attribute)
       if attribute_required?(attribute)
         visible_title = content_tag(:span, "*", "aria-hidden": true)
@@ -801,32 +810,6 @@ module Decidim
 
     def sanitize_for_dom_selector(name)
       name.to_s.parameterize.underscore
-    end
-
-    def extension_allowlist_help(extension_allowlist)
-      content_tag :p, class: "extensions-help help-text" do
-        safe_join([
-                    content_tag(:span, I18n.t("extension_allowlist", scope: "decidim.forms.files")),
-                    " ",
-                    safe_join(extension_allowlist.map { |ext| content_tag(:b, ext) }, ", ")
-                  ])
-      end
-    end
-
-    def image_dimensions_help(dimensions_info)
-      content_tag :p, class: "image-dimensions-help help-text" do
-        safe_join([
-                    content_tag(:span, I18n.t("dimensions_info", scope: "decidim.forms.images")),
-                    " ",
-                    content_tag(:span) do
-                      safe_join(dimensions_info.map do |_version, info|
-                        processor = @template.content_tag(:span, I18n.t("processors.#{info[:processor]}", scope: "decidim.forms.images"))
-                        dimensions = @template.content_tag(:b, I18n.t("dimensions", scope: "decidim.forms.images", width: info[:dimensions].first, height: info[:dimensions].last))
-                        safe_join([processor, "  ", dimensions, ". ".html_safe])
-                      end)
-                    end
-                  ])
-      end
     end
 
     # Private: Creates a tag from the given options for the field prefix and
