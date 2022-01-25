@@ -49,7 +49,7 @@ module Decidim
       private
 
       def search_collection
-        Assembly
+        Assembly.where(organization: current_organization).published.visible_for(current_user)
       end
 
       def default_filter_params
