@@ -8,6 +8,8 @@ namespace :decidim do
     task install: :environment do
       raise "Decidim gem is not installed" if decidim_path.nil?
 
+      # Removing bin/yarn makes assets:precompile task to don't execute `yarn install`
+      remove_file_from_application "bin/yarn"
       # Babel config
       copy_file_to_application "babel.config.json"
       # PostCSS configuration
@@ -19,6 +21,17 @@ namespace :decidim do
 
       # Install JS dependencies
       install_decidim_npm
+
+      # Remove the webpacker dependencies as they come through Decidim dependencies.
+      # This ensures we can control their versions from Decidim dependencies to avoid version conflicts.
+      webpacker_packages = %w(
+        @rails/actioncable
+        @rails/activestorage
+        @rails/ujs
+        turbolinks
+      )
+      system! "npm uninstall #{webpacker_packages.join(" ")}"
+
       # Modify the webpack binstubs
       add_binstub_load_path "bin/webpack"
       add_binstub_load_path "bin/webpack-dev-server"
