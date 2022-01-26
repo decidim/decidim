@@ -74,8 +74,7 @@ module Decidim
     # and modal is hidden by default, we need to add an additional validation field to the form.
     # This should only be necessary when file is required by the form.
     def input_validation_field
-      object_name = "#{add_attribute}_validation"
-      object_name = "#{form.object.model_name.param_key}[#{add_attribute}_validation]" if form.object.present?
+      object_name = form.object.present? ? "#{form.object.model_name.param_key}[#{add_attribute}_validation]" : "#{add_attribute}_validation"
       input = check_box_tag object_name, 1, attachments.present?, class: "hide", label: false, required: !optional
       message = form.send(:abide_error_element, add_attribute) + form.send(:error_and_help_text, add_attribute)
       input + message
@@ -165,7 +164,7 @@ module Decidim
     end
 
     def uploader_default_image_path(attribute)
-      uploader = FileValidatorHumanizer.new(form.object, attribute).uploader
+      uploader = Decidim::FileValidatorHumanizer.new(form.object, attribute).uploader
       return if uploader.blank?
       return unless uploader.is_a?(Decidim::ImageUploader)
 
