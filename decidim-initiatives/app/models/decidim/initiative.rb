@@ -447,7 +447,7 @@ module Decidim
       type.scopes
     end
 
-    # Private: A validator that verifies the signaature type is allowed by the InitiativeType.
+    # Private: A validator that verifies the signature type is allowed by the InitiativeType.
     def signature_type_allowed
       return if published?
 
