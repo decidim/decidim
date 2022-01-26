@@ -122,6 +122,7 @@ PATH
       i18n-tasks (~> 0.9.18)
       mdl (~> 0.5)
       nokogiri (~> 1.12)
+      parallel_tests (~> 3.7)
       puma (~> 5.0)
       rails-controller-testing (~> 1.0)
       rspec-cells (~> 0.3.4)
@@ -593,6 +594,8 @@ GEM
       activerecord (>= 5.2)
       request_store (~> 1.1)
     parallel (1.21.0)
+    parallel_tests (3.7.3)
+      parallel
     parser (3.1.0.0)
       ast (~> 2.4.1)
     pg (1.1.4)

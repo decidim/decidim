@@ -3,6 +3,7 @@
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
 require "decidim/dev"
+require "parallel_tests/tasks"
 
 RSpec::Core::RakeTask.new(:spec) do |t|
   t.rspec_opts = "--format progress --format RspecJunitFormatter -o ~/rspec/rspec.xml" if ENV["CI"]

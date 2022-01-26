@@ -26,6 +26,7 @@ env:
   RUBY_VERSION: 2.7.5
   NODE_VERSION: 16.9.1
   DECIDIM_MODULE: decidim-accountability
+  TEST_ENV_NUMBER: 2
 
 jobs:
   main:
@@ -57,7 +58,10 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           name: ${{ env.DECIDIM_MODULE }}
-      - run: bundle exec rspec
+      - run: bundle exec rake parallel:create parallel:migrate
+        name: Parallel tests
+        working-directory: ./spec/decidim_dummy_app/
+      - run: bundle exec parallel:spec
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:
