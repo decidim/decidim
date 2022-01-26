@@ -8,7 +8,7 @@
       },
       {
         "metric": "speed-index",
-        "budget": 4000
+        "budget": 10000
       },
       {
         "metric": "interactive",
