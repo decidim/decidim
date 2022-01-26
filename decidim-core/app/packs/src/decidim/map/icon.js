@@ -1,5 +1,5 @@
 import * as L from "leaflet";
-import {SVGIcon} from "src/decidim/map/svg-icon";
+import { SVGIcon } from "src/decidim/map/svg-icon";
 
 L.DivIcon.SVGIcon = SVGIcon;
 L.DivIcon.SVGIcon.DecidimIcon = L.DivIcon.SVGIcon.extend({

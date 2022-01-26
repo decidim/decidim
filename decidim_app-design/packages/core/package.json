@@ -10,7 +10,6 @@
   "author": "Decidim Contributors",
   "license": "AGPL-3.0",
   "dependencies": {
-    "@decidim/leaflet-svgicon": "^1.0.0",
     "@joeattardi/emoji-button": "^4.6.2",
     "@tarekraafat/autocomplete.js": "^10.2.6",
     "@zeitiger/appendaround": "^1.0.0",
