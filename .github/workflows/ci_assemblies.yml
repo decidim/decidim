@@ -21,6 +21,7 @@ env:
   RUBY_VERSION: 2.7.5
   NODE_VERSION: 16.9.1
   DECIDIM_MODULE: decidim-assemblies
+  PARALLEL_TEST_PROCESSORS: 4
 
 jobs:
   main:
@@ -52,7 +53,10 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           name: ${{ env.DECIDIM_MODULE }}
-      - run: bundle exec rspec
+          processor_count: ${{ env.PARALLEL_TEST_PROCESSORS }}
+          ruby_version: ${{ env.RUBY_VERSION }}
+          node_version: ${{ env.NODE_VERSION }}
+      - run: bundle exec parallel_rspec
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:
