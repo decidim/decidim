@@ -1,4 +1,4 @@
-name: "[CI] Admin (system tests 1)"
+name: "[CI] Admin (system tests)"
 on:
   push:
     branches:
