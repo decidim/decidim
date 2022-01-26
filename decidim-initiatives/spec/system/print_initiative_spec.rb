@@ -6,7 +6,7 @@ describe "User prints the initiative", type: :system do
   context "when initiative print" do
     include_context "when admins initiative"
     let!(:initiative) do
-      create(:initiative, organization: organization, scoped_type: initiative_scope, author: author, state: :accepted)
+      create(:initiative, organization: organization, scoped_type: initiative_scope, author: author, state: :created || :validating)
     end
 
     before do
