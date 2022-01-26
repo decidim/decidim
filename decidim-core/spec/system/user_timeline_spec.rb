@@ -59,6 +59,9 @@ describe "User timeline", type: :system do
         Decidim::DummyResources::DummyResource
       )
     )
+    allow(Decidim::ActionLog).to receive(:publicable_public_resource_types).and_return(
+      %w(Decidim::DummyResources::DummyResource)
+    )
 
     Decidim::Follow.create!(user: user, followable: user2)
     Decidim::Follow.create!(user: user, followable: action_log_2.participatory_space)

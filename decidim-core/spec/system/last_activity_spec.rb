@@ -30,6 +30,9 @@ describe "Last activity", type: :system do
         Decidim::DummyResources::DummyResource
       )
     )
+    allow(Decidim::ActionLog).to receive(:publicable_public_resource_types).and_return(
+      %w(Decidim::DummyResources::DummyResource)
+    )
 
     create :content_block, organization: organization, scope_name: :homepage, manifest_name: :last_activity
     switch_to_host organization.host

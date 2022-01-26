@@ -19,6 +19,9 @@ describe Decidim::ContentBlocks::LastActivityCell, type: :cell do
     allow(Decidim::ActionLog).to receive(:public_resource_types).and_return(
       %w(Decidim::DummyResources::DummyResource)
     )
+    allow(Decidim::ActionLog).to receive(:publicable_public_resource_types).and_return(
+      %w(Decidim::DummyResources::DummyResource)
+    )
 
     allow(cell).to receive(:controller).and_return(controller)
   end

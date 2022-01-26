@@ -42,6 +42,9 @@ describe "User activity", type: :system do
         Decidim::DummyResources::DummyResource
       )
     )
+    allow(Decidim::ActionLog).to receive(:publicable_public_resource_types).and_return(
+      %w(Decidim::DummyResources::DummyResource)
+    )
 
     switch_to_host organization.host
   end
