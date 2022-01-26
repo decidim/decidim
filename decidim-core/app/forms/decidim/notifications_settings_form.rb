@@ -2,7 +2,7 @@
 
 module Decidim
   # The form object that handles the data behind updating a user's
-  # notifications settings in her profile page.
+  # notifications settings in their profile page.
   class NotificationsSettingsForm < Form
     mimic :user
 

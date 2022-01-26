@@ -82,7 +82,7 @@ describe "Private Assemblies", type: :system do
           visit decidim_assemblies.assemblies_path
         end
 
-        it "lists only the not private assembly" do
+        it "doesn't list the private assembly" do
           within "#parent-assemblies" do
             within "#parent-assemblies h3" do
               expect(page).to have_content("1")
@@ -103,10 +103,10 @@ describe "Private Assemblies", type: :system do
           visit decidim_assemblies.assemblies_path
         end
 
-        context "when the user is not an admin" do
+        context "when the user isn't admin" do
           let(:logged_in_user) { user }
 
-          it "lists only the not private assembly" do
+          it "doesn't list the private assembly" do
             within "#parent-assemblies" do
               within "#parent-assemblies h3" do
                 expect(page).to have_content("1")

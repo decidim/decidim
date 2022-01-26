@@ -64,7 +64,7 @@ module Decidim
         private
 
         def choose_random_trustees
-          return @trustee_ids if @trustee_ids.any? || defined?(@trustees)
+          return @trustee_ids if @trustee_ids&.any? || defined?(@trustees)
 
           @trustees = if participatory_space_trustees_with_public_key.count >= bulletin_board.number_of_trustees
                         participatory_space_trustees_with_public_key.sample(bulletin_board.number_of_trustees)

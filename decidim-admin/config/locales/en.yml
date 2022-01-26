@@ -369,6 +369,13 @@ en:
           values:
             'false': 'No'
             'true': 'Yes'
+        moderated_users:
+          reports_reason_eq:
+            label: Report reason
+            values:
+              does_not_belong: Does not belong
+              offensive: Offensive
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Type
@@ -403,9 +410,11 @@ en:
         search_label: Search
         search_placeholder:
           name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
+          report_count_eq: Report count eq
           reported_id_string_or_reported_content_cont: Search %{collection} by reportable id or content.
           title_cont: Search %{collection} by title.
           user_name_or_user_email_cont: Search %{collection} by name or email.
+          user_name_or_user_nickname_or_user_email_cont: Search %{collection} by email, name or nickname.
         state_eq:
           label: State
           values:
@@ -827,6 +836,14 @@ en:
           explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file (email, name) of the users that you want to add to the participatory space, without headers. Avoid using invalid chars like `<>?%&^*#@()[]=+:;"{}\|` in user name.
           title: Upload your CSV file
           upload: Upload
+      reminders:
+        create:
+          error: There was a problem creating reminders.
+          success:
+            one: "%{count} user will be reminded."
+            other: "%{count} users will be reminded."
+        new:
+          submit: Send
       resource_permissions:
         edit:
           submit: Submit

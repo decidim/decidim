@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="row">
-    <div class="columns medium-9 medium-centered tabs-panel is-active" id="conversations" role="tabpanel" aria-label="<%= conversation_label_for(participants) %>">
+    <div class="columns medium-9 medium-centered tabs-panel is-active" id="conversations" role="tabpanel" aria-label="<%= strip_tags(conversation_label_for(participants)) %>">
       <div class="conversation">
 
         <div class="conversation-header flex--cc absolutes">
@@ -26,7 +26,7 @@
               <% if participants.count == 1 %>
                 <%= t(".chat_with") %> <%= conversation_name_for(participants) %>
               <% else %>
-                <%= t(".title", usernames: username_list(participants)) %>
+                <%= t(".title", usernames: username_list(participants)).html_safe %>
               <% end %>
             </h1>
           </div>

@@ -50,11 +50,11 @@ module Decidim
             media_link,
             form.current_user,
             form.attributes.slice(
-              :title,
-              :link,
-              :weight,
-              :date
-            ),
+              "title",
+              "link",
+              "weight",
+              "date"
+            ).symbolize_keys,
             log_info
           )
         end

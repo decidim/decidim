@@ -10,7 +10,7 @@
     </li>
     <li class="card-data__item card--list__item card-data__item--expand absolutes">
       <div class="mr-s">
-        <%= t("decidim.user_conversations.index.from") %>: <strong><%= conversation_interlocutors(conversation) %></strong>
+        <%= t("decidim.user_conversations.index.from") %>: <strong><%= conversation_interlocutors(conversation).html_safe %></strong>
         <br>
         <span class="muted">
           <%= truncate conversation.last_message.body, length: 150 %>

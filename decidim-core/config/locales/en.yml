@@ -756,8 +756,8 @@ en:
       file_help:
         file:
           explanation: 'Guidance for file:'
-          message_1: Has to be an image or a document.
-          message_2: For images, use preferrably landscape images, the service crops the image. For CSV files, the separator between columns must be a comma (",")
+          message_1: Has to be a square image.
+          message_2: The recommended size for this image is 512x512.
         image:
           explanation: 'Guidance for image:'
           message_1: Preferrably a landscape image that does not have any text.
@@ -1001,6 +1001,7 @@ en:
           next: Next
           no_conversations: You have no conversations yet
           title: Conversations
+          to: To
         reply:
           placeholder: Your reply...
           send: Send
@@ -1076,6 +1077,12 @@ en:
         greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hello,
         subject: Do you want to keep receiving relevant information about %{organization_name}?
+    notification_mailer:
+      event_received:
+        no_translation_available: Sorry, the automated translation could not be retrieved when the email has been sent. You can check the translation of the original text on the following link %{link}.
+        original_text: 'Original text:'
+        same_language: The content has been posted in your preferred language (%{language}), this is why no automated translation is displayed in this email.
+        translated_text: 'Automatically translated text:'
     notifications:
       no_notifications: No notifications yet.
     notifications_settings:
@@ -1095,6 +1102,10 @@ en:
       update:
         error: There was a problem updating your notifications settings.
         success: Your notifications settings were successfully updated.
+    offline:
+      show:
+        message: It looks like you're currently offline. Please, try again later.
+        retry: Retry
     open_data:
       not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
     own_user_groups:
@@ -1636,6 +1647,8 @@ en:
       notifications_dashboard:
         mark_all_as_read: Mark all as read
         mark_as_read: Mark as read
+      offline_banner:
+        cache_version_page: Oooops! Your network is offline. This is a previously cached version of the page you're visiting, perhaps the content is not up to date.
       social_media_links:
         facebook: "%{organization} at Facebook"
         github: "%{organization} at GitHub"

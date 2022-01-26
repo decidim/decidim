@@ -61,7 +61,7 @@ module Decidim
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
 
       scope :visible_meeting_for, lambda { |user|
-        (all.published.distinct if user&.admin?) ||
+        (all.distinct if user&.admin?) ||
           if user.present?
             spaces = Decidim.participatory_space_registry.manifests.map do |manifest|
               {
@@ -126,6 +126,10 @@ module Decidim
 
       # we create a salt for the meeting only on new meetings to prevent changing old IDs for existing (Ether)PADs
       before_create :set_default_salt
+
+      def self.participants_iframe_embed_types
+        iframe_embed_types.except(:open_in_live_event_page)
+      end
 
       # Return registrations of a particular meeting made by users representing a group
       def user_group_registrations
@@ -358,7 +362,7 @@ module Decidim
         Arel.sql("CASE
             WHEN decidim_author_type = 'Decidim::Organization' THEN 'official'
             WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NOT NULL THEN 'user_group'
-            WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NULL THEN 'citizen'
+            WHEN decidim_author_type = 'Decidim::UserBaseEntity' AND decidim_user_group_id IS NULL THEN 'participant'
             ELSE 'unknown' END
         ")
       end

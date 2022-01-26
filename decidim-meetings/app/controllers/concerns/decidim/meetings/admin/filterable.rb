@@ -37,7 +37,7 @@ module Decidim
               category_id_eq: category_ids_hash(categories.first_class),
               closed_at_present: %w(true false),
               is_upcoming_true: %w(true false),
-              origin_eq: %w(citizen official user_group)
+              origin_eq: %w(participant official user_group)
             }
           end
 
