@@ -42,7 +42,7 @@ RSpec.describe "Meeting directory search", type: :request do
   end
 
   context "when filtering by category" do
-    let(:filter_params) { { with_any_directory_category: category_ids } }
+    let(:filter_params) { { with_any_global_category: category_ids } }
 
     context "and no category filter is present" do
       let(:category_ids) { nil }

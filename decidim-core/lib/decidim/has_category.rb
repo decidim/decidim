@@ -34,6 +34,18 @@ module Decidim
         )
       }
 
+      scope :with_any_global_category, lambda { |*categories|
+        return self if categories.include?("all")
+
+        cat_ids = categories.without("without")
+        additional_ids = cat_ids.select { |a| a =~ /Decidim__/ }
+        additional_ids = additional_ids.map { |a| a.gsub("__", "::").gsub(/(\d+)/, '.\1').split(".") }
+        additional_ids = additional_ids.map { |v| v.first.safe_constantize.send(:find, v.last.to_i).category_ids }
+        additional_ids = additional_ids.flatten
+
+        with_any_category(*(categories + additional_ids))
+      }
+
       validate :category_belongs_to_organization
 
       def previous_category

@@ -46,7 +46,7 @@ module Decidim
             space: default_filter_space_params,
             type: default_filter_type_params,
             origin: default_filter_origin_params,
-            with_any_directory_category: default_filter_category_params
+            with_any_global_category: default_filter_category_params
           }
         end
 

@@ -79,18 +79,6 @@ module Decidim
         )
       }
 
-      scope :with_any_directory_category, lambda { |*categories|
-        return self if categories.include?("all")
-
-        cat_ids = categories.without("without")
-        additional_ids = cat_ids.select { |a| a =~ /Decidim__/ }
-        additional_ids = additional_ids.map { |a| a.gsub("__", "::").gsub(/(\d+)/, '.\1').split(".") }
-        additional_ids = additional_ids.map { |v| v.first.safe_constantize.send(:find, v.last.to_i).category_ids }
-        additional_ids = additional_ids.flatten
-
-        with_any_category(*(categories + additional_ids))
-      }
-
       scope :visible_meeting_for, lambda { |user|
         (all.distinct if user&.admin?) ||
           if user.present?
@@ -389,7 +377,7 @@ module Decidim
       end
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:type, :availability, :date, :space, :origin, :with_any_scope, :with_any_category, :with_any_directory_category]
+        [:type, :availability, :date, :space, :origin, :with_any_scope, :with_any_category, :with_any_global_category]
       end
 
       def self.ransack(params = {}, options = {})
