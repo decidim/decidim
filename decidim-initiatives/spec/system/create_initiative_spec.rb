@@ -267,6 +267,14 @@ describe "Initiative", type: :system do
             end
           end
 
+          context "when the scope isn't selected" do
+            it "shows an error" do
+              select("Online", from: "Signature collection type")
+              find_button("Continue").click
+              expect(page).to have_content("There's an error in this field")
+            end
+          end
+
           context "when the initiative type does not enable custom signature end date" do
             it "does not show the signature end date" do
               expect(page).not_to have_content("End of signature collection period")

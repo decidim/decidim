@@ -52,6 +52,7 @@
               <div class="field">
                 <%= f.select :scope_id,
                              scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id] },
+                             required: true,
                              include_blank: t(".select_scope") %>
               </div>
             <% end %>
