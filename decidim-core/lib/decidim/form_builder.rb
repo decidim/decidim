@@ -431,6 +431,9 @@ module Decidim
     #              * titled: Whether the file can have title or not.
     #              * show_current: Whether the current file is displayed next to the button.
     #              * help: Array of help messages which are displayed inside of the upload modal.
+    #              * dimensions_info: Hash about resize dimensions (e.g. {:medium=>{:processor=>:resize_to_fit, :dimensions=>[600, 160]}})
+    #                 produces 'Resized to fit 600 x 160 px.'
+    #              * extension_allowlist: Array of allowed file extensions (e.g. %w(jpeg jpg png))
     #              * label: Label for the attribute
     #              * button_label: Label for the button
     #              * button_edit_label: Button label when file is already selected.
@@ -438,7 +441,6 @@ module Decidim
       self.multipart = true
       max_file_size = options[:max_file_size] || max_file_size(object, attribute)
       button_label = options[:button_label] || choose_button_label(attribute)
-
       options = {
         attribute: attribute,
         resource_name: @object_name,
@@ -447,7 +449,7 @@ module Decidim
         titled: false,
         show_current: true,
         max_file_size: max_file_size,
-        help: options[:help] || upload_help(object, attribute, options),
+        help: upload_help(object, attribute, options),
         label: label_for(attribute),
         button_label: button_label,
         button_edit_label: I18n.t("decidim.forms.upload.labels.replace")
@@ -495,7 +497,10 @@ module Decidim
         end
       end
 
-      help_messages.each.map { |msg| I18n.t(msg, scope: help_scope) } + humanizer.messages
+      help_messages = help_messages.each.map { |msg| I18n.t(msg, scope: help_scope) } + humanizer.messages
+      help_messages += extension_allowlist_help(options[:extension_allowlist]) if options[:extension_allowlist]
+      help_messages += image_dimensions_help(options[:dimensions_info]) if options[:dimensions_info]
+      help_messages
     end
 
     # Public: Returns the translated name for the given attribute.
@@ -810,6 +815,18 @@ module Decidim
 
     def sanitize_for_dom_selector(name)
       name.to_s.parameterize.underscore
+    end
+
+    def extension_allowlist_help(extension_allowlist)
+      ["#{I18n.t("extension_allowlist", scope: "decidim.forms.files")} #{extension_allowlist.map { |ext| ext }.join(", ")}"]
+    end
+
+    def image_dimensions_help(dimensions_info)
+      dimensions_info.map do |_version, info|
+        processor = I18n.t("processors.#{info[:processor]}", scope: "decidim.forms.images")
+        dimensions = I18n.t("dimensions", scope: "decidim.forms.images", width: info[:dimensions].first, height: info[:dimensions].last)
+        safe_join([processor, "  ", dimensions, ". ".html_safe])
+      end
     end
 
     # Private: Creates a tag from the given options for the field prefix and

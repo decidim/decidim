@@ -1,1 +1,19 @@
 @import "stylesheets/decidim/modules/upload_modal";
+
+.attachment-modal{
+  button{
+    cursor: pointer;
+  }
+
+  .upload-item-second-row{
+    display: flex;
+
+    .progress-bar-wrapper{
+      flex: 4 1 0;
+    }
+
+    .remove-upload-item{
+      flex: 1 1 0;
+    }
+  }
+}
