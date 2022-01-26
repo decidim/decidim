@@ -7,6 +7,8 @@ module Decidim
 
     skip_before_action :verify_organization
 
+    before_action :underscore_params!
+
     def create
       @form = form(Decidim::UploadValidationForm).from_params(params)
 
@@ -33,6 +35,10 @@ module Decidim
       return true unless current_organization
 
       super
+    end
+
+    def underscore_params!
+      params.transform_keys!(&:underscore)
     end
   end
 end

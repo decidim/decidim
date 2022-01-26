@@ -47,10 +47,10 @@ export class Uploader {
 
     if (!this.validationSent) {
       const params = new URLSearchParams({
-        resource: this.modal.options.resourceClass,
+        resourceClass: this.modal.options.resourceClass,
         property: this.modal.options.addAttribute,
         blob: blobId,
-        klass: this.modal.options.formObjectClass
+        formClass: this.modal.options.formObjectClass
       });
 
       fetch(`/upload_validations?${params.toString()}`, {

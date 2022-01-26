@@ -8,17 +8,17 @@ module Decidim
 
     let(:params) do
       {
-        resource: resource,
+        resource_class: resource_class,
         property: property,
         blob: blob,
-        klass: klass
+        form_class: form_class
       }
     end
 
-    let(:resource) { "Decidim::DummyResources::DummyResource" }
+    let(:resource_class) { "Decidim::DummyResources::DummyResource" }
     let(:property) { "avatar" }
     let(:blob) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
-    let(:klass) { "Decidim::DummyResources::DummyForm" }
+    let(:form_class) { "Decidim::DummyResources::DummyForm" }
 
     let(:parsed_response) { JSON.parse(response.body) }
 

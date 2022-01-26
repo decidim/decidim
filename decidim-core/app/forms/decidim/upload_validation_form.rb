@@ -6,23 +6,23 @@ module Decidim
   class UploadValidationForm < Decidim::Form
     include Decidim::HasUploadValidations
 
-    attribute :resource, String
+    attribute :resource_class, String
     # Property is named as attribute in upload modal and passthru validator, but it
     # cannot be named as attribute here.
     attribute :property, String
     attribute :blob, String
-    attribute :klass, String
+    attribute :form_class, String
 
-    validates :resource, presence: true
+    validates :resource_class, presence: true
     validates :property, presence: true
     validates :blob, presence: true
-    validate :file, if: ->(form) { form.resource.present? && form.property.present? && form.blob.present? }
+    validate :file, if: ->(form) { form.resource_class.present? && form.property.present? && form.blob.present? }
 
     def file
       org = organization
       PassthruValidator.new(
         attributes: [property],
-        to: resource.constantize,
+        to: resource_class.constantize,
         with: lambda { |record|
           hash = {}
           hash.merge!(validation_with)
@@ -42,7 +42,7 @@ module Decidim
 
     def form_object_class
       @form_object_class ||= begin
-        klass.constantize if klass.present?
+        form_class.constantize if form_class.present?
       rescue NameError
         nil
       end
