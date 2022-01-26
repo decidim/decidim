@@ -1,10 +1,11 @@
 import * as L from "leaflet";
-import { SVGIcon } from "leaflet-svgicon"
+import { SVGIcon } from "@decidim/leaflet-svgicon";
 
 L.DivIcon.SVGIcon = SVGIcon;
 L.DivIcon.SVGIcon.DecidimIcon = L.DivIcon.SVGIcon.extend({
   options: {
     fillColor: "#ef604d",
+    fillOpacity: 1,
     opacity: 0
   },
   _createPathDescription: function() {
