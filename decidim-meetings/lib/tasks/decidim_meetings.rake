@@ -35,7 +35,7 @@ namespace :decidim_meetings do
       authors = meeting.author.is_a?(Decidim::User) ? [meeting.author] : space_admins
       authors.each do |author|
         args = [meeting, author]
-        send_notif = author.component_notification_settings.fetch("close_meeting_reminder", "0")
+        send_notif = author.component_notification_settings.fetch("close_meeting_reminder", "1")
         # Send the notification
         Decidim::Meetings::CloseMeetingReminderMailer.send(method, *args).deliver_later if send_notif == "1"
       end
