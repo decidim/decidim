@@ -123,7 +123,15 @@ Decidim.configure do |config|
     if Rails.application.secrets.maps[:extra_vars].present?
       vars = URI.decode_www_form(Rails.application.secrets.maps[:extra_vars])
       vars.each do |key, value|
-        config.maps[:dynamic][:tile_layer][key] = value
+        # perform a naive type conversion
+        config.maps[:dynamic][:tile_layer][key] = case value
+                                                  when /^true$|^false$/i
+                                                    value.downcase == "true"
+                                                  when /\A[-+]?\d+\z/
+                                                    value.to_i
+                                                  else
+                                                    value
+                                                  end
       end
     end
   end

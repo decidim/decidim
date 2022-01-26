@@ -168,7 +168,7 @@ shared_examples_for "an application with configurable env vars" do
       "MAPS_DYNAMIC_URL" => "https://tiles.example.org/{z}/{x}/{y}.png?key={apiKey}&{foo}",
       "MAPS_ATTRIBUTION" => '<a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors',
       "MAPS_GEOCODING_HOST" => "nominatim.example.org",
-      "MAPS_EXTRA_VARS" => URI.encode_www_form({ api_key: true, foo: "bar=baz" })
+      "MAPS_EXTRA_VARS" => URI.encode_www_form({ api_key: true, num: 123, foo: "bar=baz" })
     }
   end
 
@@ -418,6 +418,7 @@ shared_examples_for "an application with configurable env vars" do
             "url" => "https://tiles.example.org/{z}/{x}/{y}.png?key={apiKey}&{foo}",
             "attribution" => '<a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors',
             "api_key" => true,
+            "num" => 123,
             "foo" => "bar=baz"
           }
         },
