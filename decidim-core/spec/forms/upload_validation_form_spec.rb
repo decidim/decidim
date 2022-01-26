@@ -38,17 +38,27 @@ module Decidim
       it { is_expected.to be_valid }
     end
 
-    context "when validation fails" do
-      let(:passthru_validator) { DummyPassthruValidator.new }
+    context "when property is missing" do
+      let(:property) { nil }
 
       it "is invalid" do
         expect(subject.invalid?).to eq(true)
       end
     end
 
-    class DummyPassthruValidator
-      def validate_each(record, attribute, _value)
-        record.errors.add(attribute, "Dummy error")
+    context "when blob is missing" do
+      let(:blob) { nil }
+
+      it "is invalid" do
+        expect(subject.invalid?).to eq(true)
+      end
+    end
+
+    context "when resouce class is missing" do
+      let(:resource) { nil }
+
+      it "is invalid" do
+        expect(subject.invalid?).to eq(true)
       end
     end
   end

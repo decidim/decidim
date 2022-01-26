@@ -13,7 +13,10 @@ module Decidim
     attribute :blob, String
     attribute :klass, String
 
-    validate :file
+    validates :resource, presence: true
+    validates :property, presence: true
+    validates :blob, presence: true
+    validate :file, if: ->(form) { form.resource.present? && form.property.present? && form.blob.present? }
 
     def file
       org = organization
