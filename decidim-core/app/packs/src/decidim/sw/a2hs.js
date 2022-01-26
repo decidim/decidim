@@ -7,7 +7,7 @@ const shouldCountVisitedPages = () => userChoice !== "dismissed" && visitedPages
 const shouldPrompt = () => deferredPrompt && userChoice !== "dismissed" && visitedPages.length >= DELAYED_VISITS
 
 window.addEventListener("beforeinstallprompt", (event) => {
-  event.preventDefault()
+  console.log("Se lanzó el beforeinstallprompt")
   deferredPrompt = event
 
   // allow the user surf through different locations before prompt him anything
