@@ -114,7 +114,7 @@ ca:
             description: Descripció
             down: Baixar
             expand: Expandir
-            remove: Suprimeix
+            remove: Esborrar
             title: Títol
             title_and_description: Títol i descripció
             up: Pujar
