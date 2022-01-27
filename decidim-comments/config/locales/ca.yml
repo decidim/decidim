@@ -20,7 +20,7 @@ ca:
         shared:
           availability_fields:
             enabled: Comentaris habilitats
-            end_time: Comentaris habilitats fins el
+            end_time: Comentaris habilitats fins al
             start_time: Comentaris habilitats des de
       comments:
         create:
