@@ -19,6 +19,7 @@ env:
   RUBY_VERSION: 2.7.5
   NODE_VERSION: 16.9.1
   DECIDIM_MODULE: decidim-generators
+  PARALLEL_TEST_PROCESSORS: 4
 
 jobs:
   main:
@@ -73,7 +74,7 @@ jobs:
       - run: bundle exec brakeman --rails6 --force-scan .
         name: Scanning Security issues on module
         working-directory: ${{ env.DECIDIM_MODULE }}
-      - run: bundle exec rspec
+      - run: bundle exec rake parallel:spec
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:
