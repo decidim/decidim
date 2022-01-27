@@ -386,7 +386,7 @@ ca:
       actions:
         answer_proposal: Respondre a la proposta
         edit_proposal: Edita la proposta
-        import: Importa des d'un altre component
+        import: Importar des d'un altre component
         new: Nova proposta
         participatory_texts: Textos participatius
         show: Veure proposta
@@ -557,11 +557,11 @@ ca:
             title: Importar propostes
         proposals_merges:
           create:
-            invalid: 'S''ha produït un error al fusionar les propostes seleccionades doncs alguna d''elles:'
+            invalid: 'S''ha produït un error en fusionar les propostes seleccionades doncs alguna d''elles:'
             success: S'han combinat amb èxit les propostes en una de nova.
         proposals_splits:
           create:
-            invalid: 'S''ha produït un error al dividir les propostes seleccionades doncs alguna d''elles:'
+            invalid: 'S''ha produït un error en dividir les propostes seleccionades doncs alguna d''elles:'
             success: Les propostes s'han dividit en d'altres de noves correctament.
         valuation_assignments:
           create:
