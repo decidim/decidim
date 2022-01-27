@@ -108,7 +108,7 @@ ca:
           orders:
             description: Les usuàries rebran un correu amb els enllaços als pressupostos on tenen "comandes" pendents.
             title:
-              one: Estàs a punt d'enviar un correu recordatori a la usuària %{count}
+              one: Estàs a punt d'enviar un correu recordatori a %{count} usuària
               other: Estàs a punt d'enviar un correu recordatori a les usuàries %{count}
       admin_log:
         budget:
@@ -259,6 +259,15 @@ ca:
         show:
           budget: Pressupost
           view_all_projects: Veure tots els projectes
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: 'Àrees a les quals no has finalitzat el vot:'
+          email_intro: Has iniciat la votació als pressupostos participatius, però no l'has completat.
+          email_link: Ves-hi i segueix votant
+          email_outro: Si us plau, recorda completar el vot. Per votar, primer has de seleccionar la proposta o propostes que vols votar i a després confirmar el teu vot amb el botó "Votar".
+          email_subject:
+            one: Tens un vot no finalitzat a la votació dels pressupostos participatius
+            other: Tens alguns vots no finalitzats a la votació dels pressupostos participatius
     components:
       budgets:
         actions:
