@@ -1089,6 +1089,8 @@ en:
       show:
         administrators: Administrators
         allow_public_contact: Allow anyone to send me a direct message, even if I don't follow them.
+        component_notification_settings:
+          close_meeting_reminder: I want to receive email reminders of closed meetings unpublished reports
         direct_messages: Receive direct messages from anyone
         email_on_moderations: I want to receive an email every time something is reported for moderation.
         email_on_notification: I want to receive an email every time I receive a notification.
