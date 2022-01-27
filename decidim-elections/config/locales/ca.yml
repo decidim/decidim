@@ -342,7 +342,7 @@ ca:
           report_missing_trustee: "%{user_name} ha notificat %{trustee_name} com a absent durant el recompte de les eleccions %{resource_name} a %{space_name}"
           setup: "%{user_name} ha creat l'elecció %{resource_name} a %{space_name}"
           start_key_ceremony: "%{user_name} ha iniciat la cerimònia de claus per l'elecció %{resource_name} a %{space_name}"
-          start_tally: "%{user_name} ha iniciat el recompte de l'elecció %{resource_name} de %{space_name}"
+          start_tally: "%{user_name} ha iniciat el recompte de l'elecció %{resource_name} a %{space_name}"
           start_vote: "%{user_name} ha iniciat el període de votació per a l'elecció %{resource_name} a %{space_name}"
           unpublish: "%{user_name} ha despublicat l'elecció %{resource_name} a %{space_name}"
           update: "%{user_name} ha actualitzat l'elecció %{resource_name} a %{space_name}"
@@ -1014,7 +1014,7 @@ ca:
           create: "%{user_name} ha assignat a la usuària %{monitoring_committee_member_user} com a membre de la comissió de seguiment a l'espai %{space_name}"
           delete: "%{user_name} desassignat a la usuària %{monitoring_committee_member_user} com a membre de la comissió de seguiment a l'espai %{space_name}"
         polling_officer:
-          create: "%{user_name} ha assignat a la usuària %{polling_officer_user} com a membre de mesa electoral a l'espai %{space_name}"
+          create: "%{user_name} ha assignat a la usuària %{polling_officer_user} com a gestora de mesa a l'espai %{space_name}"
           delete: "%{user_name} ha desassignat a la usuària %{polling_officer_user} com a gestora de mesa a l'espai %{space_name}"
         polling_station:
           create: "%{user_name} ha creat el punt de votació %{resource_name} a l'espai %{space_name}"
