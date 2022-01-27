@@ -1000,7 +1000,7 @@ ca:
         show:
           back: Tornar a totes les converses
           chat_with: Conversa amb
-          deleted_accounts: No podeu tenir una conversa amb un compte d'usuari eliminat.
+          deleted_accounts: No podeu tenir una conversa amb un compte d'usuària eliminat.
           not_allowed: Aquesta participant no accepta missatges directes.
           title: Conversa amb %{usernames}
         start:
@@ -1095,8 +1095,8 @@ ca:
         success: La configuració de les notificacions s'ha actualitzat correctament.
     offline:
       show:
-        message: Sembla que esteu desconnectats. Torneu-ho a intentar més tard, si us plau.
-        retry: Torna-ho a Provar
+        message: Sembla que estàs desconnectada. Torna a intentar-ho més tard, si us plau.
+        retry: Torna-ho a provar
     open_data:
       not_available_yet: Els fitxers Open Data encara no estan disponibles, torna-ho a provar d'aquí a uns minuts.
     own_user_groups:
@@ -1375,7 +1375,7 @@ ca:
         title_reply: Respondre
       show:
         back: Mostra totes les converses
-        deleted_accounts: No podeu tenir una conversa amb un compte d'usuari eliminat.
+        deleted_accounts: No podeu tenir una conversa amb un compte d'usuària eliminat.
         not_allowed: Aquesta participant no accepta missatges directes.
         title: Conversa amb %{usernames}
       update:
@@ -1638,7 +1638,7 @@ ca:
         mark_all_as_read: Marcar tot com a llegit
         mark_as_read: Marcar com a llegit
       offline_banner:
-        cache_version_page: Ostres! La vostra xarxa està desconnectada. El que esteu veient és una versió prèvia de la pàgina desada a la memòria cau i que podria no estar actualitzada.
+        cache_version_page: Ostres! La teva xarxa està desconnectada. El que estàs veient és una versió prèvia de la pàgina desada a la memòria cau i que podria no estar actualitzada.
       social_media_links:
         facebook: "%{organization} a Facebook"
         github: "%{organization} a GitHub"
