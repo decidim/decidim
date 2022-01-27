@@ -1,4 +1,4 @@
-name: "[CI] Proposals (system public 1)"
+name: "[CI] Proposals (system public)"
 on:
   push:
     branches:
