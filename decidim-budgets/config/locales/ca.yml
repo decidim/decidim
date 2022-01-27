@@ -104,6 +104,12 @@ ca:
             no_components: No hi ha cap component de propostes en aquest espai participatiu per importar les propostes a projectes.
             select_component: Selecciona un component
             title: Importar propostes
+        reminders:
+          orders:
+            description: Les usuàries rebran un correu amb els enllaços als pressupostos on tenen "comandes" pendents.
+            title:
+              one: Estàs a punt d'enviar un correu recordatori a la usuària %{count}
+              other: Estàs a punt d'enviar un correu recordatori a les usuàries %{count}
       admin_log:
         budget:
           create: "%{user_name} ha creat el pressupost %{resource_name} a l'espai %{space_name}"
