@@ -967,7 +967,7 @@ ca:
         show:
           back: Tornar a totes les converses
           chat_with: Conversa amb
-          deleted_accounts: No podeu tenir una conversa amb un compte d'usuari eliminat.
+          deleted_accounts: No podeu tenir una conversa amb un compte d'usuària eliminat.
           not_allowed: Aquesta participant no accepta missatges directes.
           title: Conversa amb %{usernames}
         start:
@@ -1332,7 +1332,7 @@ ca:
         title_reply: Respondre
       show:
         back: Mostra totes les converses
-        deleted_accounts: No podeu tenir una conversa amb un compte d'usuari eliminat.
+        deleted_accounts: No podeu tenir una conversa amb un compte d'usuària eliminat.
         not_allowed: Aquesta participant no accepta missatges directes.
         title: Conversa amb %{usernames}
       update:
