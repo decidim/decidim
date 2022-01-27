@@ -992,6 +992,7 @@ ca:
           next: Següent
           no_conversations: Encara no tens converses
           title: Converses
+          to: Per a
         reply:
           placeholder: La teva resposta...
           send: Enviar
