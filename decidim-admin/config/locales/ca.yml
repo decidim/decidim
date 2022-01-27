@@ -838,8 +838,8 @@ ca:
         create:
           error: Hi ha hagut un problema en crear els recordatoris.
           success:
-            one: "Es recordarà a %{count} usuari."
-            other: "Es recordarà a %{count} usuaris."
+            one: "Es recordarà a %{count} usuària."
+            other: "Es recordarà a %{count} usuàries."
         new:
           submit: Envia
       resource_permissions:
