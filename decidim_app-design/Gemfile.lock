@@ -1,13 +1,3 @@
-GIT
-  remote: https://github.com/sgruhier/foundation_rails_helper.git
-  revision: 45709e28f567b2e619a06091eb63d4f050f861d8
-  specs:
-    foundation_rails_helper (3.0.0)
-      actionpack (>= 4.1, < 7.0)
-      activemodel (>= 4.1, < 7.0)
-      activesupport (>= 4.1, < 7.0)
-      railties (>= 4.1, < 7.0)
-
 PATH
   remote: ..
   specs:
@@ -84,7 +74,7 @@ PATH
       doorkeeper-i18n (~> 4.0)
       file_validators (~> 2.1)
       fog-local (~> 0.6)
-      foundation_rails_helper (~> 3.0)
+      foundation_rails_helper (~> 4.0)
       geocoder (~> 1.5)
       hashdiff (>= 0.4.0, < 2.0.0)
       invisible_captcha (~> 0.12)
@@ -448,6 +438,11 @@ GEM
     fog-local (0.7.0)
       fog-core (>= 1.27, < 3.0)
     formatador (0.3.0)
+    foundation_rails_helper (4.0.0)
+      actionpack (>= 4.1, < 7.0)
+      activemodel (>= 4.1, < 7.0)
+      activesupport (>= 4.1, < 7.0)
+      railties (>= 4.1, < 7.0)
     gemoji (3.0.1)
     geocoder (1.7.2)
     globalid (0.5.2)
@@ -852,7 +847,6 @@ DEPENDENCIES
   decidim-initiatives!
   decidim-templates!
   faker (~> 2.14)
-  foundation_rails_helper!
   letter_opener_web (~> 1.3)
   listen (~> 3.1)
   puma (>= 5.5.1)

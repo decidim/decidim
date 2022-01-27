@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
   s.add_dependency "doorkeeper-i18n", "~> 4.0"
   s.add_dependency "file_validators", "~> 2.1"
   s.add_dependency "fog-local", "~> 0.6"
-  s.add_dependency "foundation_rails_helper", "~> 3.0"
+  s.add_dependency "foundation_rails_helper", "~> 4.0"
   s.add_dependency "geocoder", "~> 1.5"
   s.add_dependency "hashdiff", ">= 0.4.0", "< 2.0.0"
   s.add_dependency "invisible_captcha", "~> 0.12"
