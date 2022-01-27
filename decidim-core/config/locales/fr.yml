@@ -745,6 +745,8 @@ fr:
       file_help:
         file:
           explanation: 'Orientation pour le fichier :'
+          message_1: Doit être une image carrée.
+          message_2: La taille recommandée pour cette image est de 512x512.
         image:
           explanation: 'Orientation pour l''image:'
           message_1: De préférence une image au format paysage qui n'a pas de texte.
@@ -988,6 +990,7 @@ fr:
           next: Suivant
           no_conversations: Vous n'avez encore aucune conversation
           title: Conversations
+          to: À
         reply:
           placeholder: Votre réponse...
           send: Envoyer
