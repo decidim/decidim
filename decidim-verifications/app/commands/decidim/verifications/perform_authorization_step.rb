@@ -3,7 +3,7 @@
 module Decidim
   module Verifications
     # A command to create a partial authorization for a user.
-    class PerformAuthorizationStep < Rectify::Command
+    class PerformAuthorizationStep < Decidim::Command
       # Public: Initializes the command.
       #
       # authorization - An Authorization object.
