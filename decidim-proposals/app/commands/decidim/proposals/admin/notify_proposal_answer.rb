@@ -4,7 +4,7 @@ module Decidim
   module Proposals
     module Admin
       # A command to notify about the change of the published state for a proposal.
-      class NotifyProposalAnswer < Rectify::Command
+      class NotifyProposalAnswer < Decidim::Command
         # Public: Initializes the command.
         #
         # proposal - The proposal to write the answer for.
