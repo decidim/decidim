@@ -2,8 +2,11 @@
 
 // Leaflet-SVGIcon
 // SVG icon for any marker class
-// Ilya Atkin
-// ilya.atkin@unh.edu
+//
+// Copyright (c) 2016 University of New Hampshire - The MIT License
+// Author: Ilya Atkin <ilya.atkin@unh.edu>
+// Originally copied from https://github.com/iatkin/leaflet-svgicon
+//
 
 let SVGIcon = L.DivIcon.extend({
   options: {
