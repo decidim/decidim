@@ -3,7 +3,7 @@
 module Decidim
   module Amendable
     # A command with all the business logic when a user promotes a rejected emendation.
-    class Promote < Rectify::Command
+    class Promote < Decidim::Command
       # Public: Initializes the command.
       #
       # emendation - The emendation to promote.
