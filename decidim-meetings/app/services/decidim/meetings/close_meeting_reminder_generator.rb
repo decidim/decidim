@@ -52,7 +52,7 @@ module Decidim
               reminder.records << record
               reminder.save!
 
-              Decidim::Meetings::SendCloseMeetingReminderJob.perform_now(record)
+              Decidim::Meetings::SendCloseMeetingReminderJob.perform_later(record)
               @reminder_jobs_queued += 1
             end
           end
