@@ -4,7 +4,7 @@ module Decidim
   module Initiatives
     module Admin
       # A command with all the business logic that creates a new initiative type
-      class CreateInitiativeType < Rectify::Command
+      class CreateInitiativeType < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.
