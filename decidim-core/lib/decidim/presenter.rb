@@ -6,11 +6,6 @@ module Decidim
       __getobj__[:organization]
     end
 
-    def attach_controller(controller)
-      @controller = controller
-      self
-    end
-
     def method_missing(method_name, *args, &block)
       if view_context.respond_to?(method_name)
         view_context.public_send(method_name, *args, &block)
