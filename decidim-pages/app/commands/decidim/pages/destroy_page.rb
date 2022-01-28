@@ -4,7 +4,7 @@ module Decidim
   module Pages
     # Command that gets called when the page of this component needs to be
     # destroyed. It usually happens as a callback when the component is removed.
-    class DestroyPage < Rectify::Command
+    class DestroyPage < Decidim::Command
       def initialize(component)
         @component = component
       end
