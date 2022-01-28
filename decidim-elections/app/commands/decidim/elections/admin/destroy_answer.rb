@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user destroys an Answer
       # from the admin panel.
-      class DestroyAnswer < Rectify::Command
+      class DestroyAnswer < Decidim::Command
         include ::Decidim::AttachmentMethods
         include ::Decidim::GalleryMethods
 
