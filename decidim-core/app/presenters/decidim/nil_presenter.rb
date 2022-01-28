@@ -7,7 +7,8 @@ module Decidim
   #
   # It behaves as a presenter for deleted resources.
   # Returns an empty string for most of the method calls.
-  class NilPresenter < SimpleDelegator
+  class NilPresenter
+
     def deleted?
       true
     end
