@@ -111,7 +111,7 @@ module Decidim
       end
 
       context "with --branch flag" do
-        let(:default_branch) { "fix/open-dependency" }
+        let(:default_branch) { "decidim" }
         let(:command) { "decidim --branch #{default_branch} #{test_app}" }
 
         it_behaves_like "a new production application"
