@@ -6,7 +6,7 @@ module Decidim
       #
       # Presenter for questionnaire response
       #
-      class QuestionnaireParticipantPresenter < Rectify::Presenter
+      class QuestionnaireParticipantPresenter < SimpleDelegator
         attribute :participant, Decidim::Forms::Answer
 
         def session_token

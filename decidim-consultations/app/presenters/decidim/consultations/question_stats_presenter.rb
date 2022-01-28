@@ -3,7 +3,7 @@
 module Decidim
   module Consultations
     # A presenter to render statistics in the homepage.
-    class QuestionStatsPresenter < Rectify::Presenter
+    class QuestionStatsPresenter < SimpleDelegator
       attribute :question, Decidim::Consultations::Question
 
       def supports_count

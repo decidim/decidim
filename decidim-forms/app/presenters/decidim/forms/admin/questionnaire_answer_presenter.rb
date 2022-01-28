@@ -6,7 +6,7 @@ module Decidim
       #
       # Presenter for questionnaire answer
       #
-      class QuestionnaireAnswerPresenter < Rectify::Presenter
+      class QuestionnaireAnswerPresenter < SimpleDelegator
         include Decidim::TranslatableAttributes
 
         attribute :answer, Decidim::Forms::Answer

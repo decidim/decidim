@@ -2,7 +2,7 @@
 
 module Decidim
   # A presenter to render statistics in the homepage.
-  class HomeStatsPresenter < Rectify::Presenter
+  class HomeStatsPresenter < SimpleDelegator
     attribute :organization, Decidim::Organization
 
     # Public: Render a collection of primary stats.
