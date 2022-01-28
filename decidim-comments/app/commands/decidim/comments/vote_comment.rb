@@ -3,7 +3,7 @@
 module Decidim
   module Comments
     # A command with all the business logic to upvote a comment
-    class VoteComment < Rectify::Command
+    class VoteComment < Decidim::Command
       # Public: Initializes the command.
       #
       # comment - A comment
