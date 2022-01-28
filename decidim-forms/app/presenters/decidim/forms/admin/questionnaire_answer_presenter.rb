@@ -6,10 +6,12 @@ module Decidim
       #
       # Presenter for questionnaire answer
       #
-      class QuestionnaireAnswerPresenter < SimpleDelegator
+      class QuestionnaireAnswerPresenter < Decidim::Presenter
         include Decidim::TranslatableAttributes
 
-        attribute :answer, Decidim::Forms::Answer
+        def answer
+          __getobj__.fetch(:answer)
+        end
 
         def question
           translated_attribute(answer.question.body)

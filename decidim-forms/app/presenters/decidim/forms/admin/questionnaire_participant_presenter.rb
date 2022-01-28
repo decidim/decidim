@@ -6,8 +6,10 @@ module Decidim
       #
       # Presenter for questionnaire response
       #
-      class QuestionnaireParticipantPresenter < SimpleDelegator
-        attribute :participant, Decidim::Forms::Answer
+      class QuestionnaireParticipantPresenter < Decidim::Presenter
+        def participant
+          __getobj__.fetch(:participant)
+        end
 
         def session_token
           participant.session_token || "-"

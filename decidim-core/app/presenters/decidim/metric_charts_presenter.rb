@@ -2,7 +2,7 @@
 
 module Decidim
   # A presenter to render metrics in pages
-  class MetricChartsPresenter < SimpleDelegator
+  class MetricChartsPresenter < Decidim::Presenter
     # Public: Render a collection of primary metrics.
     def highlighted
       render_highlighted(highlighted_metrics)

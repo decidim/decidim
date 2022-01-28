@@ -3,8 +3,10 @@
 module Decidim
   module Consultations
     # A presenter to render statistics in the homepage.
-    class QuestionStatsPresenter < SimpleDelegator
-      attribute :question, Decidim::Consultations::Question
+    class QuestionStatsPresenter < Decidim::Presenter
+      def question
+        __getobj__.fetch(:question)
+      end
 
       def supports_count
         question.votes_count
