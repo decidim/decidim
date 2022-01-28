@@ -4,7 +4,7 @@ module Decidim
   module Conferences
     module Admin
       # This command is executed when the user updates the conference diploma configuration.
-      class UpdateDiploma < Rectify::Command
+      class UpdateDiploma < Decidim::Command
         # Initializes a UpdateDiploma Command.
         #
         # form - The form from which to get the data.
