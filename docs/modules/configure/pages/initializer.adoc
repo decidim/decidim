@@ -387,8 +387,7 @@ An example class would be something like:
   end
 ....
 
-See Decidim docs at https://docs.decidim.org/en/develop/machine_translations/
-for more information about how it works and how to set it up.
+See xref:develop:machine_translations.adoc[Machine Translations] for more information about how it works and how to set it up.
 
 == Default CSV column separator
 
