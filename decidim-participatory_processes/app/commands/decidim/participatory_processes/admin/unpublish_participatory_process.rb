@@ -4,7 +4,7 @@ module Decidim
   module ParticipatoryProcesses
     module Admin
       # A command that sets a participatory process as unpublished.
-      class UnpublishParticipatoryProcess < Rectify::Command
+      class UnpublishParticipatoryProcess < Decidim::Command
         # Public: Initializes the command.
         #
         # process - A ParticipatoryProcess that will be unpublished
