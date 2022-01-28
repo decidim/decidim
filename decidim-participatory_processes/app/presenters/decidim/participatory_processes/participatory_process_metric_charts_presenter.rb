@@ -4,7 +4,6 @@ module Decidim
   module ParticipatoryProcesses
     # A presenter to render metrics in ParticipatoryProcesses statistics page
     class ParticipatoryProcessMetricChartsPresenter < Decidim::MetricChartsPresenter
-
       def participatory_process
         __getobj__.fetch(:participatory_process)
       end
