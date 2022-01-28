@@ -6,16 +6,13 @@ module Decidim::Amendable
     include Decidim::ApplicationHelper
 
     def show
-      cell "decidim/announcement", announcement
+      cell "decidim/announcement", announcement, callout_class: state_classes
     end
 
     private
 
     def announcement
-      {
-        announcement: emendation_message + promoted_message,
-        callout_class: state_classes
-      }
+      emendation_message + promoted_message
     end
 
     def emendation_message
