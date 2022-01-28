@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A command with all the business logic when rejecting a user_group.
-    class RejectUserGroup < Rectify::Command
+    class RejectUserGroup < Decidim::Command
       # Public: Initializes the command.
       #
       # user_group - The user_group to reject

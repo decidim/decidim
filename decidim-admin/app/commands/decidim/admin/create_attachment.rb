@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # A command with all the business logic to add an attachment to a
     # participatory process.
-    class CreateAttachment < Rectify::Command
+    class CreateAttachment < Decidim::Command
       # Public: Initializes the command.
       #
       # form - A form object with the params.
