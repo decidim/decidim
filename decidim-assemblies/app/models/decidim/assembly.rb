@@ -35,6 +35,7 @@ module Decidim
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
     include Decidim::HasArea
+    include Decidim::SearchExtensions
 
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
     CREATED_BY = %w(city_council public others).freeze
@@ -213,9 +214,7 @@ module Decidim
     # rubocop:enable Rails/SkipsModelValidations
 
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
-    ransacker :title do |parent|
-      Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
-    end
+    ransacker_i18n :title
 
     ransack_alias :type_id, :decidim_assemblies_type_id
   end

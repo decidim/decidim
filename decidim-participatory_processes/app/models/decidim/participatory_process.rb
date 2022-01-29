@@ -22,6 +22,7 @@ module Decidim
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
     include Decidim::HasArea
+    include Decidim::SearchExtensions
 
     translatable_fields :title, :subtitle, :short_description, :description, :developer_group, :meta_scope, :local_area,
                         :target, :participatory_scope, :participatory_structure, :announcement
@@ -197,9 +198,7 @@ module Decidim
     end
 
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
-    ransacker :title do |parent|
-      Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
-    end
+    ransacker_i18n :title
 
     def self.ransackable_scopes(_auth_object = nil)
       [:with_date, :with_area, :with_scope]

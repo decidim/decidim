@@ -19,6 +19,7 @@ module Decidim
       include Decidim::Randomable
       include Decidim::Searchable
       include Decidim::TranslatableResource
+      include Decidim::SearchExtensions
 
       component_manifest_name "accountability"
 
@@ -90,9 +91,7 @@ module Decidim
       end
 
       # Allow ransacker to search for a key in a hstore column (`title`.`en`)
-      ransacker :title do |parent|
-        Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
-      end
+      ransacker_i18n :title
 
       private
 
