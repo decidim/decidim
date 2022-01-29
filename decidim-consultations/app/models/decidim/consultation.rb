@@ -113,7 +113,7 @@ module Decidim
     ransacker_i18n_multi :search_text, [:title, :subtitle, :description]
 
     def self.ransackable_scopes(_auth_object = nil)
-      [:state]
+      [:with_any_date]
     end
   end
 end
