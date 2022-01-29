@@ -101,6 +101,7 @@ module Decidim
   autoload :ManifestMessages, "decidim/manifest_messages"
   autoload :CommonPasswords, "decidim/common_passwords"
   autoload :AttributeObject, "decidim/attribute_object"
+  autoload :Query, "decidim/query"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
