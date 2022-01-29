@@ -82,12 +82,11 @@ module Decidim
 
       # If the controller responds to current_component, its is probably
       # searching against that component. Otherwise it is be likely to search
-      # against a participatory space.
-      # They need different context_params to set up the base_query:
-      # - Witin the components, the `component` is used to filter the results
-      # - Within the participatory spaces, the `organization` is used to filter the results
-      # - Both use `current_user`
-      # - Both may need `organization` for different purposes
+      # against a participatory space. The context params are passed to the
+      # Ransack search classes which may be customized per model in case they
+      # need this contextual information. For such searches, take a look at the
+      # ResourceSearch class or any search class inheriting from that which
+      # utilize this context information, such as the current user.
       def context_params
         context = {
           current_user: current_user,
