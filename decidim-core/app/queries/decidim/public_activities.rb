@@ -2,7 +2,26 @@
 
 module Decidim
   # This query finds the public ActionLog entries that can be shown in the
-  # participant views of the application.
+  # participant views of the application within a Decidim Organization. It is
+  # intended to be used in the user profile, to retrieve activity and timeline
+  # for that user.
+  #
+  # This will create the base query for the activities but the resulting query
+  # needs to be scoped with either `with_resource_type` or
+  # `with_new_resource_type` in order to avoid leaking private data.
+  #
+  # Possible options:
+  #
+  # :resource_name - an optional name for a resource for searching only that
+  #    type of resources.
+  # :user - an optional `Decidim::User` that performed the activites
+  # :current_user - an optional `Decidim::User` for defining whether to show the
+  #   private log entries that relate to the current user.
+  # :follows - a collection of `Decidim::Follow` resources. It will return any
+  #   activity affecting any of these resources, performed by any of them or
+  #   contained in any of them as spaces.
+  # :scopes - a collection of `Decidim::Scope`. It will return any activity that
+  #   took place in any of those scopes.
   class PublicActivities < Rectify::Query
     def initialize(organization, options = {})
       @organization = organization
