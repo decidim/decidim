@@ -1,5 +1,3 @@
-D:doctype: book
-
 image::https://cdn.rawgit.com/decidim/decidim/develop/logo.svg[Decidim Logo,400]
 
 The participatory democracy framework.
