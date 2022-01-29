@@ -42,7 +42,7 @@ RSpec.describe "Assembly search", type: :request do
   end
 
   context "when filtering by assembly type" do
-    let(:filter_params) { { with_type: assembly1.assembly_type.id } }
+    let(:filter_params) { { type_id_eq: assembly1.assembly_type.id } }
 
     it "displays matching assemblies" do
       expect(subject).to include(translated(assembly1.title))

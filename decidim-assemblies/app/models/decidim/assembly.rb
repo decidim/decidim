@@ -70,12 +70,6 @@ module Decidim
     has_many :children, foreign_key: "parent_id", class_name: "Decidim::Assembly", inverse_of: :parent, dependent: :destroy
     belongs_to :parent, class_name: "Decidim::Assembly", inverse_of: :children, optional: true, counter_cache: :children_count
 
-    scope :with_type, lambda { |type_id|
-      return self if type_id.blank?
-
-      where(decidim_assemblies_type_id: type_id)
-    }
-
     has_one_attached :hero_image
     validates_upload :hero_image, uploader: Decidim::HeroImageUploader
 
@@ -164,7 +158,7 @@ module Decidim
     end
 
     def self.ransackable_scopes(_auth_object = nil)
-      [:with_type, :with_area, :with_scope]
+      [:with_area, :with_scope]
     end
 
     private
@@ -222,5 +216,7 @@ module Decidim
     ransacker :title do |parent|
       Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
     end
+
+    ransack_alias :type_id, :decidim_assemblies_type_id
   end
 end
