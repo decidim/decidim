@@ -52,18 +52,7 @@ module Decidim
     scope :finished, -> { published.where("end_voting_date < ?", Time.now.utc) }
     scope :order_by_most_recent, -> { order(created_at: :desc) }
 
-    scope :state, lambda { |state_key|
-      case state_key
-      when "active"
-        active
-      when "upcoming"
-        upcoming
-      when "finished"
-        finished
-      else # Assume all
-        self
-      end
-    }
+    scope_search_multi :with_any_date, [:active, :upcoming, :finished]
 
     searchable_fields({
                         participatory_space: :itself,

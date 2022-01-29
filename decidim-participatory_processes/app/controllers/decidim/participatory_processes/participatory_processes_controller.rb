@@ -48,7 +48,7 @@ module Decidim
         {
           with_scope: nil,
           with_area: nil,
-          date: default_date_filter
+          with_date: default_date_filter
         }
       end
 

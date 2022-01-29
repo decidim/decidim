@@ -17,7 +17,7 @@ module Decidim
     # cell(
     #   "decidim/participatory_processes/filtered_participatory_processes",
     #   group.participatory_processes.published,
-    #   date_filter: "active"
+    #   default_filter: "active"
     # )
     class FilteredParticipatoryProcessesCell < Decidim::ViewModel
       include Decidim::FilterResource
@@ -39,7 +39,7 @@ module Decidim
 
       def default_filter_params
         {
-          date: default_date_filter
+          with_date: default_date_filter
         }
       end
 

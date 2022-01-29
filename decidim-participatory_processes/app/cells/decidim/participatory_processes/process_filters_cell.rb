@@ -13,13 +13,13 @@ module Decidim
             filter: {
               with_scope: get_filter(:with_scope),
               with_area: get_filter(:with_area),
-              date: filter
+              with_date: filter
             }
           )
       end
 
       def current_filter
-        get_filter(:date, model[:default_filter])
+        get_filter(:with_date, model[:default_filter])
       end
 
       def get_filter(filter_name, default = nil)
@@ -29,7 +29,7 @@ module Decidim
       def filtered_processes(date_filter)
         query = ParticipatoryProcess.ransack(
           {
-            date: date_filter,
+            with_date: date_filter,
             with_scope: get_filter(:with_scope),
             with_area: get_filter(:with_area)
           },

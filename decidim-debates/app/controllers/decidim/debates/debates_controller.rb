@@ -121,11 +121,11 @@ module Decidim
       def default_filter_params
         {
           search_text_cont: "",
-          origin: %w(official participants user_group),
+          with_any_origin: %w(official participants user_group),
           activity: "all",
           with_any_category: default_filter_category_params,
           with_any_scope: default_filter_scope_params,
-          state: %w(open closed)
+          with_any_state: %w(open closed)
         }
       end
     end

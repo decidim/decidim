@@ -28,7 +28,7 @@
                                "aria-controls": "sortitions" %>
   <% end %>
 
-  <%= form.collection_radio_buttons :state,
+  <%= form.collection_radio_buttons :with_any_state,
                                     [["all", t(".all")], ["active", t(".active")], ["cancelled", t(".cancelled")]],
                                     :first,
                                     :last,

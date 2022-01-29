@@ -29,8 +29,8 @@ module Decidim
         end
 
         def search_collection
-          Meeting.where(component: meeting_components).published.not_hidden.visible_meeting_for(current_user).availability(
-            filter_params[:state]
+          Meeting.where(component: meeting_components).published.not_hidden.visible_meetings_for(current_user).with_availability(
+            filter_params[:availability]
           ).includes(
             :component,
             attachments: :file_attachment
@@ -39,13 +39,13 @@ module Decidim
 
         def default_filter_params
           {
-            date: "upcoming",
+            with_any_date: "upcoming",
             title_or_description_cont: "",
             activity: "all",
             with_any_scope: default_filter_scope_params,
-            space: default_filter_space_params,
-            type: default_filter_type_params,
-            origin: default_filter_origin_params,
+            with_any_space: default_filter_space_params,
+            with_any_type: default_filter_type_params,
+            with_any_origin: default_filter_origin_params,
             with_any_global_category: default_filter_category_params
           }
         end

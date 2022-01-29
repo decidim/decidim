@@ -14,7 +14,7 @@
     </div>
   </div>
 
-  <%= form.check_boxes_tree :state, filter_debates_state_values, legend_title: t(".state"), "aria-controls": "debates" %>
+  <%= form.check_boxes_tree :with_any_state, filter_debates_state_values, legend_title: t(".state"), "aria-controls": "debates" %>
 
   <% if current_component.has_subscopes? %>
     <%= form.check_boxes_tree :with_any_scope, filter_scopes_values, legend_title: t(".scope"), "aria-controls": "debates" %>
@@ -24,7 +24,7 @@
     <%= form.check_boxes_tree :with_any_category, filter_categories_values, legend_title: t(".category"), "aria-controls": "debates" %>
   <% end %>
 
-  <%= form.check_boxes_tree :origin, filter_origin_values, legend_title: t(".origin"), "aria-controls": "debates" %>
+  <%= form.check_boxes_tree :with_any_origin, filter_origin_values, legend_title: t(".origin"), "aria-controls": "debates" %>
 
   <% if current_user %>
     <%= form.collection_radio_buttons :activity, activity_filter_values, :first, :last, { legend_title: t(".activity") }, "aria-controls": "debates" %>

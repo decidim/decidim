@@ -30,16 +30,7 @@ module Decidim
       scope :active, -> { where(cancelled_on: nil) }
       scope :cancelled, -> { where.not(cancelled_on: nil) }
 
-      scope :state, lambda { |state_key|
-        case state_key
-        when "active"
-          active
-        when "cancelled"
-          cancelled
-        else # Assume 'all'
-          self
-        end
-      }
+      scope_search_multi :with_any_state, [:active, :cancelled]
 
       def self.log_presenter_class_for(_log)
         Decidim::Sortitions::AdminLog::SortitionPresenter
@@ -88,7 +79,7 @@ module Decidim
       ransacker_i18n_multi :search_text, [:title, :additional_info, :witnesses]
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:state, :with_category]
+        [:with_any_state, :with_category]
       end
     end
   end

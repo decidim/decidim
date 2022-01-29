@@ -14,13 +14,13 @@
     </div>
   </div>
 
-  <%= form.hidden_field "state", value: params.dig("filter", "state") %>
+  <%= form.hidden_field "availability", value: params.dig("filter", "availability") %>
 
   <% unless @forced_past_meetings %>
-    <%= form.check_boxes_tree :date, filter_date_values, legend_title: t(".date") %>
+    <%= form.check_boxes_tree :with_any_date, filter_date_values, legend_title: t(".date") %>
   <% end %>
 
-  <%= form.check_boxes_tree :type, filter_type_values, legend_title: t(".type") %>
+  <%= form.check_boxes_tree :with_any_type, filter_type_values, legend_title: t(".type") %>
 
   <% if current_component.has_subscopes? %>
     <%= form.check_boxes_tree :with_any_scope, filter_scopes_values, legend_title: t(".scope") %>
@@ -31,7 +31,7 @@
   <% end %>
 
   <% if component_settings.creation_enabled_for_participants? %>
-    <%= form.check_boxes_tree :origin, filter_origin_values, legend_title: t(".origin") %>
+    <%= form.check_boxes_tree :with_any_origin, filter_origin_values, legend_title: t(".origin") %>
   <% end %>
 
   <% if current_user %>

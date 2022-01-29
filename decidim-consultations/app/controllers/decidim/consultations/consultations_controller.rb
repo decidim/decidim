@@ -52,7 +52,7 @@ module Decidim
       def default_filter_params
         {
           search_text_cont: "",
-          state: "all"
+          with_any_date: "all"
         }
       end
     end

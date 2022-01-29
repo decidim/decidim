@@ -20,6 +20,6 @@
     </div>
   </div>
 
-  <%= form.check_boxes_tree :state, state_filter_values, legend_title: t(".state") %>
+  <%= form.check_boxes_tree :with_any_date, date_filter_values, legend_title: t(".date") %>
   <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
 <% end %>

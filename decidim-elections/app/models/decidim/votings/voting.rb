@@ -63,7 +63,7 @@ module Decidim
       scope :order_by_most_recent, -> { order(created_at: :desc) }
       scope :promoted, -> { published.where(promoted: true) }
 
-      scope_search_multi :state, [:active, :upcoming, :finished]
+      scope_search_multi :with_any_date, [:active, :upcoming, :finished]
 
       def upcoming?
         start_time > Time.now.utc
@@ -163,7 +163,7 @@ module Decidim
       ransacker_i18n_multi :search_text, [:title, :description]
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:state]
+        [:with_any_date]
       end
     end
   end

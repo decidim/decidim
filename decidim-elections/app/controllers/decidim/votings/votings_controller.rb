@@ -136,7 +136,7 @@ module Decidim
       end
 
       def finished_votings
-        @finished_votings ||= search_collection.ransack(search_params.merge(state: ["finished"])).result
+        @finished_votings ||= search_collection.ransack(search_params.merge(with_any_date: ["finished"])).result
       end
 
       def only_finished_votings?
@@ -152,7 +152,7 @@ module Decidim
       def default_filter_params
         {
           search_text_cont: "",
-          state: [""]
+          with_any_date: [""]
         }
       end
 

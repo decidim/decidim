@@ -60,7 +60,7 @@ module Decidim
       scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }
       scope :withdrawn, -> { where(state: "withdrawn") }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
-      scope :availability, lambda { |state_key|
+      scope :with_availability, lambda { |state_key|
         case state_key
         when "withdrawn"
           withdrawn
@@ -68,8 +68,8 @@ module Decidim
           except_withdrawn
         end
       }
-      scope_search_multi :date, [:upcoming, :past]
-      scope :space, lambda { |*target_space|
+      scope_search_multi :with_any_date, [:upcoming, :past]
+      scope :with_any_space, lambda { |*target_space|
         target_spaces = target_space.compact.reject(&:blank?)
 
         return self if target_spaces.blank? || target_spaces.include?("all")
@@ -79,7 +79,7 @@ module Decidim
         )
       }
 
-      scope :visible_meeting_for, lambda { |user|
+      scope :visible_meetings_for, lambda { |user|
         (all.distinct if user&.admin?) ||
           if user.present?
             spaces = Decidim.participatory_space_registry.manifests.map do |manifest|
@@ -130,7 +130,7 @@ module Decidim
 
       scope :authored_by, ->(author) { where(decidim_author_id: author) }
 
-      scope_search_multi :type, TYPE_OF_MEETING.map(&:to_sym)
+      scope_search_multi :with_any_type, TYPE_OF_MEETING.map(&:to_sym)
 
       TYPE_OF_MEETING.each do |type|
         scope type.to_sym, -> { where(type_of_meeting: type.to_sym) }
@@ -238,7 +238,7 @@ module Decidim
       end
 
       def current_user_can_visit_meeting?(user)
-        Decidim::Meetings::Meeting.visible_meeting_for(user).exists?(id: id)
+        Decidim::Meetings::Meeting.visible_meetings_for(user).exists?(id: id)
       end
 
       def iframe_access_level_allowed_for_user?(user)
@@ -377,7 +377,7 @@ module Decidim
       end
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:type, :availability, :date, :space, :origin, :with_any_scope, :with_any_category, :with_any_global_category]
+        [:with_any_type, :with_any_date, :with_any_space, :with_any_origin, :with_any_scope, :with_any_category, :with_any_global_category]
       end
 
       def self.ransack(params = {}, options = {})

@@ -72,7 +72,7 @@ module Decidim
       scope :published, -> { where.not(published_at: nil) }
       scope :order_by_most_recent, -> { order(created_at: :desc) }
 
-      scope :availability, lambda { |state_key|
+      scope :with_availability, lambda { |state_key|
         case state_key
         when "withdrawn"
           withdrawn
@@ -104,7 +104,7 @@ module Decidim
         order(Arel.sql("#{sort_by_valuation_assignments_count_nulls_last_query} DESC NULLS LAST").to_s)
       }
 
-      scope_search_multi :status, [:accepted, :rejected, :evaluating, :state_not_published]
+      scope_search_multi :with_any_state, [:accepted, :rejected, :evaluating, :state_not_published]
 
       def self.with_valuation_assigned_to(user, space)
         valuator_roles = space.user_roles(:valuator).where(user: user)
@@ -354,7 +354,7 @@ module Decidim
       end
 
       def self.ransackable_scopes(auth_object = nil)
-        base = [:origin, :status, :voted_by, :coauthored_by, :related_to, :with_any_scope, :with_any_category]
+        base = [:with_any_origin, :with_any_state, :voted_by, :coauthored_by, :related_to, :with_any_scope, :with_any_category]
         return base unless auth_object&.admin?
 
         # Add extra scopes for admins for the admin panel searches

@@ -44,13 +44,13 @@ module Decidim
         return unless search.result.blank? && params.dig("filter", "date") != %w(past)
 
         @past_meetings = search_collection.ransack(
-          search_params.merge(date: %w(past)),
+          search_params.merge(with_any_date: %w(past)),
           context_params.merge(auth_object: current_user)
         )
 
         if @past_meetings.result.present?
           params[:filter] ||= {}
-          params[:filter][:date] = %w(past)
+          params[:filter][:with_any_date] = %w(past)
           @forced_past_meetings = true
           @search = @past_meetings
         end
@@ -119,8 +119,8 @@ module Decidim
       end
 
       def search_collection
-        Meeting.where(component: current_component).published.not_hidden.visible_meeting_for(current_user).availability(
-          filter_params[:state]
+        Meeting.where(component: current_component).published.not_hidden.visible_meetings_for(current_user).with_availability(
+          filter_params[:with_availability]
         ).includes(
           :component,
           attachments: :file_attachment
@@ -134,13 +134,14 @@ module Decidim
       def default_filter_params
         {
           search_text_cont: "",
-          date: %w(upcoming),
+          with_any_date: %w(upcoming),
           activity: "all",
+          with_availability: "",
           with_any_scope: default_filter_scope_params,
           with_any_category: default_filter_category_params,
-          state: nil,
-          origin: default_filter_origin_params,
-          type: default_filter_type_params
+          with_any_state: nil,
+          with_any_origin: default_filter_origin_params,
+          with_any_type: default_filter_type_params
         }
       end
     end

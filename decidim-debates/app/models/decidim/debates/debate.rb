@@ -54,7 +54,7 @@ module Decidim
           }
         )
       }
-      scope_search_multi :state, [:open, :closed]
+      scope_search_multi :with_any_state, [:open, :closed]
 
       def self.log_presenter_class_for(_log)
         Decidim::Debates::AdminLog::DebatePresenter
@@ -198,7 +198,7 @@ module Decidim
       ransacker_i18n_multi :search_text, [:title, :description]
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:state, :origin, :with_any_category, :with_any_scope]
+        [:with_any_state, :with_any_origin, :with_any_category, :with_any_scope]
       end
 
       def self.ransack(params = {}, options = {})

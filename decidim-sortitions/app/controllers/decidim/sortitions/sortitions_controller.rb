@@ -36,7 +36,7 @@ module Decidim
         {
           search_text_cont: "",
           with_category: "",
-          state: "active"
+          with_any_state: "active"
         }
       end
     end

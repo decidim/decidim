@@ -34,7 +34,7 @@ module Decidim
       scope :selected, -> { where.not(selected_at: nil) }
       scope :not_selected, -> { where(selected_at: nil) }
 
-      scope_search_multi :status, [:selected, :not_selected]
+      scope_search_multi :with_any_status, [:selected, :not_selected]
 
       searchable_fields(
         scope_id: :decidim_scope_id,

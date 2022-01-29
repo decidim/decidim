@@ -36,7 +36,7 @@ module Decidim
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
       scope :published, -> { where(state: "published") }
 
-      scope_search_multi :status, [:open, :published, :withdrawn]
+      scope_search_multi :with_any_state, [:open, :published, :withdrawn]
 
       # Checks whether the user can edit the given proposal.
       #
@@ -75,7 +75,7 @@ module Decidim
       ransacker_text_multi :search_text, [:title, :body]
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:status, :related_to, :with_any_scope, :with_any_category]
+        [:with_any_state, :related_to, :with_any_scope, :with_any_category]
       end
     end
   end

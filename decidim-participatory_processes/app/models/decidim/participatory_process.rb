@@ -73,7 +73,7 @@ module Decidim
     scope :upcoming, -> { where(arel_table[:start_date].gt(Date.current)) }
     scope :active, -> { where(arel_table[:start_date].lteq(Date.current).and(arel_table[:end_date].gteq(Date.current).or(arel_table[:end_date].eq(nil)))) }
 
-    scope :date, lambda { |date_key|
+    scope :with_date, lambda { |date_key|
       case date_key
       when "active"
         active.order(start_date: :desc)
@@ -202,7 +202,7 @@ module Decidim
     end
 
     def self.ransackable_scopes(_auth_object = nil)
-      [:date, :with_area, :with_scope]
+      [:with_date, :with_area, :with_scope]
     end
   end
 end

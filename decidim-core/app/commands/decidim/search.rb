@@ -30,9 +30,9 @@ module Decidim
         result_ids = filtered_query_for(class_name).pluck(:resource_id)
         results_count = result_ids.count
 
-        results = if filters[:resource_type].present? && filters[:resource_type] == class_name
+        results = if filters[:with_resource_type].present? && filters[:with_resource_type] == class_name
                     paginate(klass.order_by_id_list(result_ids))
-                  elsif filters[:resource_type].present?
+                  elsif filters[:with_resource_type].present?
                     ApplicationRecord.none
                   else
                     klass.order_by_id_list(result_ids.take(HIGHLIGHTED_RESULTS_COUNT))
@@ -63,11 +63,11 @@ module Decidim
     end
 
     def spaces_to_filter
-      return nil if filters[:space_state].blank?
+      return nil if filters[:with_space_state].blank?
 
       Decidim.participatory_space_manifests.flat_map do |manifest|
         public_spaces = manifest.participatory_spaces.call(organization).public_spaces
-        spaces = case filters[:space_state]
+        spaces = case filters[:with_space_state]
                  when "active"
                    public_spaces.active_spaces
                  when "future"

@@ -34,13 +34,13 @@ module Decidim
             filter: {
               with_scope: get_filter(:with_scope),
               with_area: get_filter(:with_area),
-              date: filter
+              with_date: filter
             }
           )
       end
 
       def current_filter
-        get_filter(:date, default_date_filter)
+        get_filter(:with_date, default_date_filter)
       end
 
       def base_relation
@@ -62,7 +62,7 @@ module Decidim
       def filtered_processes(date_filter)
         query = base_relation.ransack(
           {
-            date: date_filter,
+            with_date: date_filter,
             with_scope: get_filter(:with_scope),
             with_area: get_filter(:with_area)
           },

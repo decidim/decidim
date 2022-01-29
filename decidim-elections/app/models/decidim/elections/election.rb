@@ -44,7 +44,7 @@ module Decidim
           .where("end_time < ?", Time.current)
       }
 
-      scope_search_multi :state, [:active, :upcoming, :finished]
+      scope_search_multi :with_any_date, [:active, :upcoming, :finished]
 
       def self.log_presenter_class_for(_log)
         Decidim::Elections::AdminLog::ElectionPresenter
@@ -145,7 +145,7 @@ module Decidim
       ransacker_i18n_multi :search_text, [:title, :description]
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:state]
+        [:with_any_date]
       end
     end
   end

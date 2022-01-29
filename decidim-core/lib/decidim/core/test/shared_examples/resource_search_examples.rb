@@ -215,7 +215,7 @@ shared_examples_for "a resource search with origin" do |factory_name|
   rescue StandardError
     {}
   end
-  let(:filter_params) { { origin: origins } }
+  let(:filter_params) { { with_any_origin: origins } }
 
   describe "results" do
     let!(:official_resource) { create(factory_name, :official, { component: component }.merge(factory_params)) }

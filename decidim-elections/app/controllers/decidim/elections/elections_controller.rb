@@ -62,7 +62,7 @@ module Decidim
       end
 
       def scheduled_elections
-        @scheduled_elections ||= search_collection.ransack(search_params.merge(state: %w(active upcoming))).result
+        @scheduled_elections ||= search_collection.ransack(search_params.merge(with_any_date: %w(active upcoming))).result
       end
 
       def search_collection
@@ -72,11 +72,11 @@ module Decidim
       def default_filter_params
         {
           search_text_cont: "",
-          state: default_filter_state_params
+          with_any_date: default_filter_date_params
         }
       end
 
-      def default_filter_state_params
+      def default_filter_date_params
         if elections.active.any?
           %w(active)
         elsif elections.upcoming.any?

@@ -145,7 +145,7 @@ module Decidim
         {
           search_text_cont: "",
           with_any_category: default_filter_category_params,
-          status: %w(open),
+          with_any_state: %w(open),
           with_any_scope: default_filter_scope_params,
           related_to: ""
         }
