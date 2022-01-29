@@ -126,7 +126,7 @@ module Decidim
       end
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:status, :with_any_scope, :with_any_category]
+        [:with_any_status, :with_any_scope, :with_any_category]
       end
     end
   end
