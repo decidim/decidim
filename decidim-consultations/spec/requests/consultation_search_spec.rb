@@ -50,7 +50,7 @@ RSpec.describe "Consultation search", type: :request do
   end
 
   context "when filtering by date" do
-    let(:filter_params) { { date: date } }
+    let(:filter_params) { { with_any_date: date } }
 
     context "and the state is active" do
       let(:date) { "active" }
