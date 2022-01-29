@@ -18,45 +18,19 @@ module Decidim
         raise "You need to define at least one field in the second argument" if attrs.count < 1
         return ransacker_i18n(field_name, attrs.first) if attrs.count < 2
 
-        # Build a grouped OR query with all the fields.
-        ransacker field_name do |parent|
-          node = nil
-          attrs.each do |attr_name|
-            target = Arel::Nodes::InfixOperation.new("->>", parent.table[attr_name], Arel::Nodes.build_quoted(I18n.locale.to_s))
-            casted = Arel::Nodes::NamedFunction.new("CAST", [target.as("TEXT")])
+        # Create an i18n ransacker search for each of the provided attributes.
+        attrs.each { |attr_name| ransacker_i18n(attr_name) }
 
-            if node.nil?
-              node = casted
-            else
-              operation = Arel::Nodes::InfixOperation.new("||", casted, Arel::Nodes.build_quoted(" "))
-              node = Arel::Nodes::InfixOperation.new("||", node, operation)
-            end
-          end
-
-          Arel::Nodes::Grouping.new(node)
-        end
+        # Create the field name search alias for the attributes
+        ransacker_text_multi(field_name, attrs)
       end
 
       def ransacker_text_multi(field_name, attrs)
         raise "The second argument needs to be an array" unless attrs.is_a?(Array)
         raise "You need to define at least two fields in the second argument" if attrs.count < 1
 
-        # Build a grouped OR query with all the fields.
-        ransacker field_name do |parent|
-          node = nil
-          attrs.each do |attr_name|
-            target = parent.table[attr_name]
-
-            if node.nil?
-              node = target
-            else
-              operation = Arel::Nodes::InfixOperation.new("||", target, Arel::Nodes.build_quoted(" "))
-              node = Arel::Nodes::InfixOperation.new("||", node, operation)
-            end
-          end
-
-          Arel::Nodes::Grouping.new(node)
-        end
+        # Alias the field_name as an OR query with all the provided fields.
+        ransack_alias field_name, attrs.join("_or_").to_sym
       end
 
       def scope_search_multi(scope_key, possible_scopes)
