@@ -16,7 +16,7 @@ module Decidim
       include Decidim::HasUploadValidations
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections
-      include Decidim::SearchExtensions
+      include Decidim::FilterableResource
 
       enum voting_type: [:in_person, :online, :hybrid].index_with(&:to_s), _suffix: :voting
 

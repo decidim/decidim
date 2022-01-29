@@ -19,7 +19,7 @@ module Decidim
       include Decidim::Randomable
       include Decidim::Searchable
       include Decidim::TranslatableResource
-      include Decidim::SearchExtensions
+      include Decidim::FilterableResource
 
       component_manifest_name "accountability"
 

@@ -14,7 +14,7 @@ module Decidim
       include Traceable
       include Loggable
       include Decidim::Forms::HasQuestionnaire
-      include Decidim::SearchExtensions
+      include Decidim::FilterableResource
 
       translatable_fields :title, :description
 

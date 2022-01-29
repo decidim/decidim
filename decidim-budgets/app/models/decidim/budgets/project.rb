@@ -18,7 +18,7 @@ module Decidim
       include Decidim::Randomable
       include Decidim::Searchable
       include Decidim::TranslatableResource
-      include Decidim::SearchExtensions
+      include Decidim::FilterableResource
 
       translatable_fields :title, :description
 

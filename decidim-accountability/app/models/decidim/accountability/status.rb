@@ -7,7 +7,7 @@ module Decidim
     class Status < Accountability::ApplicationRecord
       include Decidim::HasComponent
       include Decidim::TranslatableResource
-      include Decidim::SearchExtensions
+      include Decidim::FilterableResource
 
       component_manifest_name "accountability"
 

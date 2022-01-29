@@ -8,7 +8,7 @@ module Decidim
     include Decidim::Traceable
     include Decidim::Loggable
     include Decidim::TranslatableResource
-    include Decidim::SearchExtensions
+    include Decidim::FilterableResource
 
     translatable_fields :name
 

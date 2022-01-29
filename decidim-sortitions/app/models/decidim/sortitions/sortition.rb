@@ -14,7 +14,7 @@ module Decidim
       include Decidim::Comments::CommentableWithComponent
       include Decidim::Randomable
       include Decidim::TranslatableResource
-      include Decidim::SearchExtensions
+      include Decidim::FilterableResource
 
       component_manifest_name "sortitions"
 

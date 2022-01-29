@@ -25,7 +25,7 @@ module Decidim
       include Decidim::Authorable
       include Decidim::TranslatableResource
       include Decidim::Publicable
-      include Decidim::SearchExtensions
+      include Decidim::FilterableResource
 
       TYPE_OF_MEETING = %w(in_person online hybrid).freeze
       REGISTRATION_TYPE = %w(registration_disabled on_this_platform on_different_platform).freeze

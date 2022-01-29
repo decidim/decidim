@@ -14,7 +14,7 @@ module Decidim
     include Decidim::Searchable
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
-    include Decidim::SearchExtensions
+    include Decidim::FilterableResource
 
     translatable_fields :title, :subtitle, :description
 

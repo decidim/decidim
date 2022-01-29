@@ -25,7 +25,7 @@ module Decidim
       include Decidim::TranslatableAttributes
       include Decidim::Endorsable
       include Decidim::Randomable
-      include Decidim::SearchExtensions
+      include Decidim::FilterableResource
 
       belongs_to :last_comment_by, polymorphic: true, foreign_type: "last_comment_by_type", optional: true
       component_manifest_name "debates"

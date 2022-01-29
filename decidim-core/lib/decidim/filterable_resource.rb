@@ -3,7 +3,7 @@
 module Decidim
   # A concern that adds extra search helpers for the models for Ransack
   # searches.
-  module SearchExtensions
+  module FilterableResource
     extend ActiveSupport::Concern
 
     class_methods do

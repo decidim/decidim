@@ -7,7 +7,7 @@ module Decidim
       include Traceable
       include Loggable
       include Decidim::TranslatableResource
-      include Decidim::SearchExtensions
+      include Decidim::FilterableResource
 
       translatable_fields :title, :location, :location_hints
 

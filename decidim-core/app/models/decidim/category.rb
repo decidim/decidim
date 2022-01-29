@@ -5,7 +5,7 @@ module Decidim
   # context of a participatory process.
   class Category < ApplicationRecord
     include Decidim::TranslatableResource
-    include Decidim::SearchExtensions
+    include Decidim::FilterableResource
 
     translatable_fields :name
 

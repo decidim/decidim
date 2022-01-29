@@ -27,7 +27,7 @@ module Decidim
       include Decidim::Proposals::Valuatable
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
-      include Decidim::SearchExtensions
+      include Decidim::FilterableResource
 
       translatable_fields :title, :body
 

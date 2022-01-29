@@ -23,7 +23,7 @@ module Decidim
     include Decidim::TranslatableResource
     include Decidim::HasResourcePermission
     include Decidim::HasArea
-    include Decidim::SearchExtensions
+    include Decidim::FilterableResource
 
     translatable_fields :title, :description, :answer
 
