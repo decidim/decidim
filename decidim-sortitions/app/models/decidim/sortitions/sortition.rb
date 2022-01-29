@@ -76,6 +76,8 @@ module Decidim
         true
       end
 
+      # Create i18n ransackers for :title, :additional_info and :witnesses.
+      # Create the :search_text ransacker alias for searching from all of these.
       ransacker_i18n_multi :search_text, [:title, :additional_info, :witnesses]
 
       def self.ransackable_scopes(_auth_object = nil)

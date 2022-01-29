@@ -72,6 +72,7 @@ module Decidim
         [authors.map(&:name).join("\n")]
       end
 
+      # Create the :search_text ransacker alias for searching from both :title or :body.
       ransacker_text_multi :search_text, [:title, :body]
 
       def self.ransackable_scopes(_auth_object = nil)

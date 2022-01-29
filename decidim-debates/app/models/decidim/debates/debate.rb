@@ -195,6 +195,8 @@ module Decidim
       end
       # rubocop:enable Rails/SkipsModelValidations
 
+      # Create i18n ransackers for :title and :description.
+      # Create the :search_text ransacker alias for searching from both of these.
       ransacker_i18n_multi :search_text, [:title, :description]
 
       def self.ransackable_scopes(_auth_object = nil)

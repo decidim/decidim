@@ -361,6 +361,8 @@ module Decidim
         base + [:valuator_role_ids_has]
       end
 
+      # Create i18n ransackers for :title and :body.
+      # Create the :search_text ransacker alias for searching from both of these.
       ransacker_i18n_multi :search_text, [:title, :body]
 
       ransacker :state_published do
