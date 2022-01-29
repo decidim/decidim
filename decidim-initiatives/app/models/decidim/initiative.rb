@@ -515,33 +515,10 @@ module Decidim
     end
 
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
-    [:title, :description].each do |column|
-      ransacker_i18n column
-    end
+    [:title, :description].each { |column| ransacker_i18n(column) }
 
-    # Build a grouped OR query with all the text searchable fields.
-    ransacker :search_text do |parent|
-      # i18n fields
-      title, description = *[:title, :description].map do |key|
-        Arel::Nodes::NamedFunction.new(
-          "CAST",
-          [Arel::Nodes::InfixOperation.new("->>", parent.table[key], Arel::Nodes.build_quoted(I18n.locale.to_s)).as("TEXT")]
-        )
-      end
-
-      node = parent.table[:id]
-      [
-        title,
-        description,
-        Arel::Nodes::SqlLiteral.new("#{Decidim::UserBaseEntity.table_name}.name"),
-        Arel::Nodes::SqlLiteral.new("#{Decidim::UserBaseEntity.table_name}.nickname")
-      ].each do |current|
-        node = Arel::Nodes::InfixOperation.new("||", node, Arel::Nodes.build_quoted(" ")) unless node.nil?
-        node = Arel::Nodes::InfixOperation.new("||", node, current)
-      end
-
-      Arel::Nodes::Grouping.new(node)
-    end
+    # Alias search_text as a grouped OR query with all the text searchable fields.
+    ransack_alias :search_text, :id_string_or_title_or_description_or_author_name_or_author_nickname
 
     # Allow ransacker to search on an Enum Field
     ransacker :state, formatter: proc { |int| states[int] }
