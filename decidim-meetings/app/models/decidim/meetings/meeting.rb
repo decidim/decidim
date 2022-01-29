@@ -79,7 +79,7 @@ module Decidim
         )
       }
 
-      scope :visible_meetings_for, lambda { |user|
+      scope :visible_for, lambda { |user|
         (all.distinct if user&.admin?) ||
           if user.present?
             spaces = Decidim.participatory_space_registry.manifests.map do |manifest|
@@ -238,7 +238,7 @@ module Decidim
       end
 
       def current_user_can_visit_meeting?(user)
-        Decidim::Meetings::Meeting.visible_meetings_for(user).exists?(id: id)
+        Decidim::Meetings::Meeting.visible_for(user).exists?(id: id)
       end
 
       def iframe_access_level_allowed_for_user?(user)

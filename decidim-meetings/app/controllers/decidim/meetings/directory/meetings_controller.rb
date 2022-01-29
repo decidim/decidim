@@ -29,7 +29,7 @@ module Decidim
         end
 
         def search_collection
-          Meeting.where(component: meeting_components).published.not_hidden.visible_meetings_for(current_user).with_availability(
+          Meeting.where(component: meeting_components).published.not_hidden.visible_for(current_user).with_availability(
             filter_params[:availability]
           ).includes(
             :component,

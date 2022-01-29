@@ -16,7 +16,7 @@ module Decidim
           @upcoming_meetings ||= Decidim::Meetings::Meeting
                                  .includes(component: :participatory_space)
                                  .where(component: meeting_components)
-                                 .visible_meetings_for(current_user)
+                                 .visible_for(current_user)
                                  .where("end_time >= ?", Time.current)
                                  .except_withdrawn
                                  .order(start_time: :asc)
