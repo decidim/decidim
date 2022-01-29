@@ -3,7 +3,7 @@
 module Decidim
   module Sortitions
     module Admin
-      class ParticipatorySpaceProposals < Rectify::Query
+      class ParticipatorySpaceProposals < Decidim::Query
         # Sugar syntax. Retrieve all proposals for the given sortition.
         def self.for(sortition)
           new(sortition).query
