@@ -89,8 +89,10 @@ RSpec.describe "Debate search", type: :request do
   end
 
   context "when searching by state" do
+    let(:filter_params) { { with_any_state: state } }
+
     context "and the state is open" do
-      let(:filter_params) { { state: %w(open) } }
+      let(:state) { %w(open) }
 
       it "returns the open debates" do
         expect(subject).to include(translated(debate1.title))
@@ -101,7 +103,7 @@ RSpec.describe "Debate search", type: :request do
     end
 
     context "and the state is closed" do
-      let(:filter_params) { { state: %w(closed) } }
+      let(:state) { %w(closed) }
 
       it "returns the closed debates" do
         expect(subject).not_to include(translated(debate1.title))

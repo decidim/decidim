@@ -52,7 +52,7 @@ RSpec.describe "Sortition search", type: :request do
   end
 
   context "when searching by state" do
-    let(:filter_params) { { state: state } }
+    let(:filter_params) { { with_any_state: state } }
 
     context "and the state is active" do
       let(:state) { "active" }

@@ -80,7 +80,7 @@ RSpec.describe "Meeting search", type: :request do
   end
 
   context "when searching by date" do
-    let(:filter_params) { { date: date } }
+    let(:filter_params) { { with_any_date: date } }
     let!(:past_meeting) do
       create(:meeting, :published, component: component, start_time: 10.days.ago, end_time: 1.day.ago)
     end
@@ -118,11 +118,11 @@ RSpec.describe "Meeting search", type: :request do
     end
   end
 
-  context "when searching by state" do
-    let(:filter_params) { { state: state } }
+  context "when searching by availability" do
+    let(:filter_params) { { with_availability: availability } }
 
-    context "and state is withdrawn" do
-      let(:state) { "withdrawn" }
+    context "and availability is withdrawn" do
+      let(:availability) { "withdrawn" }
 
       it "only returns meetings that are withdrawn" do
         expect(subject).not_to include(translated(meeting1.title))
@@ -132,8 +132,8 @@ RSpec.describe "Meeting search", type: :request do
       end
     end
 
-    context "and state is not set" do
-      let(:state) { nil }
+    context "and availability is not set" do
+      let(:availability) { nil }
 
       it "only returns meetings that are not withdrawn" do
         expect(subject).to include(translated(meeting1.title))
@@ -162,6 +162,7 @@ RSpec.describe "Meeting search", type: :request do
     let!(:online_meeting) do
       create(:meeting, :published, :online, component: component)
     end
+    let(:filter_params) { { with_any_type: type } }
 
     before do
       get(
@@ -172,7 +173,7 @@ RSpec.describe "Meeting search", type: :request do
     end
 
     context "and type is online" do
-      let(:filter_params) { { type: ["online"] } }
+      let(:type) { ["online"] }
 
       it "only lists online meetings" do
         expect(subject).to include(translated(online_meeting.title))
@@ -181,7 +182,7 @@ RSpec.describe "Meeting search", type: :request do
     end
 
     context "and type is in_person" do
-      let(:filter_params) { { type: ["in_person"] } }
+      let(:type) { ["in_person"] }
 
       it "only lists online meetings" do
         expect(subject).to include(translated(in_person_meeting.title))

@@ -76,7 +76,7 @@ describe "Explore meetings", :slow, type: :system do
           it "lists the filtered meetings" do
             visit_component
 
-            within ".origin_check_boxes_tree_filter" do
+            within ".with_any_origin_check_boxes_tree_filter" do
               uncheck "All"
               check "Official"
             end
@@ -95,7 +95,7 @@ describe "Explore meetings", :slow, type: :system do
           it "lists the filtered meetings" do
             visit_component
 
-            within ".origin_check_boxes_tree_filter" do
+            within ".with_any_origin_check_boxes_tree_filter" do
               uncheck "All"
               check "Groups"
             end
@@ -113,7 +113,7 @@ describe "Explore meetings", :slow, type: :system do
           it "lists the filtered meetings" do
             visit_component
 
-            within ".origin_check_boxes_tree_filter" do
+            within ".with_any_origin_check_boxes_tree_filter" do
               uncheck "All"
               check "Participants"
             end
@@ -147,7 +147,7 @@ describe "Explore meetings", :slow, type: :system do
         past_meeting = create(:meeting, :published, component: component, start_time: 1.day.ago)
         visit_component
 
-        within ".date_check_boxes_tree_filter" do
+        within ".with_any_date_check_boxes_tree_filter" do
           uncheck "All"
           check "Past"
         end
@@ -155,7 +155,7 @@ describe "Explore meetings", :slow, type: :system do
         expect(page).to have_css(".card--meeting", count: 1)
         expect(page).to have_content(translated(past_meeting.title))
 
-        within ".date_check_boxes_tree_filter" do
+        within ".with_any_date_check_boxes_tree_filter" do
           uncheck "All"
           check "Upcoming"
         end

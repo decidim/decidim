@@ -90,7 +90,7 @@ describe "Explore projects", :slow, type: :system do
 
           visit_budget
 
-          within ".status_check_boxes_tree_filter" do
+          within ".with_any_status_check_boxes_tree_filter" do
             uncheck "Selected"
           end
 

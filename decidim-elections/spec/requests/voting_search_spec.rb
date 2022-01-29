@@ -58,11 +58,11 @@ RSpec.describe "Voting search", type: :request do
     end
   end
 
-  context "when searching by state" do
-    let(:filter_params) { { state: state } }
+  context "when searching by date" do
+    let(:filter_params) { { with_any_date: date } }
 
-    context "and the state is active" do
-      let(:state) { %w(active) }
+    context "and the date is active" do
+      let(:date) { %w(active) }
 
       it "only displays active votings" do
         expect(subject).not_to include(translated(published_voting.title))
@@ -77,8 +77,8 @@ RSpec.describe "Voting search", type: :request do
       end
     end
 
-    context "and the state is finished" do
-      let(:state) { %w(finished) }
+    context "and the date is finished" do
+      let(:date) { %w(finished) }
 
       it "only displays finished votings" do
         expect(subject).not_to include(translated(published_voting.title))
@@ -93,8 +93,8 @@ RSpec.describe "Voting search", type: :request do
       end
     end
 
-    context "and the state is upcoming" do
-      let(:state) { %w(upcoming) }
+    context "and the date is upcoming" do
+      let(:date) { %w(upcoming) }
 
       it "only displays upcoming votings" do
         expect(subject).to include(translated(published_voting.title))
@@ -109,8 +109,8 @@ RSpec.describe "Voting search", type: :request do
       end
     end
 
-    context "and the state is finished or upcoming" do
-      let(:state) { %w(finished upcoming) }
+    context "and the date is finished or upcoming" do
+      let(:date) { %w(finished upcoming) }
 
       it "only displays finished and upcoming votings" do
         expect(subject).to include(translated(published_voting.title))

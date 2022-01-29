@@ -116,7 +116,7 @@ describe "Explore debates", type: :system do
             create(:debate, :participant_author, component: component, skip_injection: true)
             visit_component
 
-            within ".filters .origin_check_boxes_tree_filter" do
+            within ".filters .with_any_origin_check_boxes_tree_filter" do
               uncheck "All"
               check "Official"
             end
@@ -133,7 +133,7 @@ describe "Explore debates", type: :system do
             create(:debate, component: component, skip_injection: true)
             visit_component
 
-            within ".filters .origin_check_boxes_tree_filter" do
+            within ".filters .with_any_origin_check_boxes_tree_filter" do
               uncheck "All"
               check "Participants"
             end

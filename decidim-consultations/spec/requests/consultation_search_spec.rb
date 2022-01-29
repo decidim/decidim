@@ -49,11 +49,11 @@ RSpec.describe "Consultation search", type: :request do
     end
   end
 
-  context "when filtering by state" do
-    let(:filter_params) { { state: state } }
+  context "when filtering by date" do
+    let(:filter_params) { { date: date } }
 
     context "and the state is active" do
-      let(:state) { "active" }
+      let(:date) { "active" }
 
       it "returns the active consultations" do
         expect(subject).to include(translated(consultation1.title))
@@ -67,7 +67,7 @@ RSpec.describe "Consultation search", type: :request do
     end
 
     context "and the state is upcoming" do
-      let(:state) { "upcoming" }
+      let(:date) { "upcoming" }
 
       it "returns the upcoming consultations" do
         expect(subject).not_to include(translated(consultation1.title))
@@ -81,7 +81,7 @@ RSpec.describe "Consultation search", type: :request do
     end
 
     context "and the state is finished" do
-      let(:state) { "finished" }
+      let(:date) { "finished" }
 
       it "returns the finished consultations" do
         expect(subject).not_to include(translated(consultation1.title))
@@ -95,7 +95,7 @@ RSpec.describe "Consultation search", type: :request do
     end
 
     context "and the state is all" do
-      let(:state) { "all" }
+      let(:date) { "all" }
 
       it "returns the all consultations" do
         expect(subject).to include(translated(consultation1.title))

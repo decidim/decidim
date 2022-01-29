@@ -51,7 +51,7 @@ describe "Filter Proposals", :slow, type: :system do
           create(:proposal, component: component, scope: scope)
           visit_component
 
-          within ".filters .origin_check_boxes_tree_filter" do
+          within ".filters .with_any_origin_check_boxes_tree_filter" do
             uncheck "All"
             check "Official"
           end
@@ -67,7 +67,7 @@ describe "Filter Proposals", :slow, type: :system do
           create(:proposal, :official, component: component, scope: scope)
           visit_component
 
-          within ".filters .origin_check_boxes_tree_filter" do
+          within ".filters .with_any_origin_check_boxes_tree_filter" do
             uncheck "All"
             check "Participants"
           end
@@ -215,7 +215,7 @@ describe "Filter Proposals", :slow, type: :system do
           create(:proposal, :accepted, component: component, scope: scope)
           visit_component
 
-          within ".filters .status_check_boxes_tree_filter" do
+          within ".filters .with_any_state_check_boxes_tree_filter" do
             check "All"
             uncheck "All"
             check "Accepted"
@@ -233,7 +233,7 @@ describe "Filter Proposals", :slow, type: :system do
           create(:proposal, :rejected, component: component, scope: scope)
           visit_component
 
-          within ".filters .status_check_boxes_tree_filter" do
+          within ".filters .with_any_state_check_boxes_tree_filter" do
             check "All"
             uncheck "All"
             check "Rejected"
@@ -257,7 +257,7 @@ describe "Filter Proposals", :slow, type: :system do
           end
 
           it "shows only accepted proposals with published answers" do
-            within ".filters .status_check_boxes_tree_filter" do
+            within ".filters .with_any_state_check_boxes_tree_filter" do
               check "All"
               uncheck "All"
               check "Accepted"
@@ -272,7 +272,7 @@ describe "Filter Proposals", :slow, type: :system do
           end
 
           it "shows accepted proposals with not published answers as not answered" do
-            within ".filters .status_check_boxes_tree_filter" do
+            within ".filters .with_any_state_check_boxes_tree_filter" do
               check "All"
               uncheck "All"
               check "Not answered"
@@ -642,7 +642,7 @@ describe "Filter Proposals", :slow, type: :system do
     end
 
     it "recover filters from initial pages" do
-      within ".filters .status_check_boxes_tree_filter" do
+      within ".filters .with_any_state_check_boxes_tree_filter" do
         check "Rejected"
       end
 
@@ -654,19 +654,19 @@ describe "Filter Proposals", :slow, type: :system do
     end
 
     it "recover filters from previous pages" do
-      within ".filters .status_check_boxes_tree_filter" do
+      within ".filters .with_any_state_check_boxes_tree_filter" do
         check "All"
         uncheck "All"
       end
-      within ".filters .origin_check_boxes_tree_filter" do
+      within ".filters .with_any_origin_check_boxes_tree_filter" do
         uncheck "All"
       end
 
-      within ".filters .origin_check_boxes_tree_filter" do
+      within ".filters .with_any_origin_check_boxes_tree_filter" do
         check "Official"
       end
 
-      within ".filters .status_check_boxes_tree_filter" do
+      within ".filters .with_any_state_check_boxes_tree_filter" do
         check "Accepted"
       end
 

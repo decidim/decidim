@@ -72,7 +72,7 @@ RSpec.describe "Participatory process search", type: :request do
   end
 
   context "when filtering by date" do
-    let(:filter_params) { { date: date } }
+    let(:filter_params) { { with_date: date } }
 
     context "and the date is set to active" do
       let(:date) { "active" }

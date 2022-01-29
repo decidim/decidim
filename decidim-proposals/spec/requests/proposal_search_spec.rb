@@ -73,11 +73,11 @@ RSpec.describe "Proposal search", type: :request do
     end
   end
 
-  context "when searching by status" do
-    let(:filter_params) { { status: statuses } }
+  context "when searching by state" do
+    let(:filter_params) { { with_any_state: states } }
 
     context "and the status is empty or default" do
-      let(:statuses) { [] }
+      let(:states) { [] }
 
       it "displays all except withdrawn proposals" do
         expect(subject).to include(CGI.escapeHTML(translated(proposal1.title)))
@@ -91,7 +91,7 @@ RSpec.describe "Proposal search", type: :request do
     end
 
     context "and the status is accepted, evaluating or state_not_published" do
-      let(:statuses) { %w(accepted evaluating state_not_published) }
+      let(:states) { %w(accepted evaluating state_not_published) }
 
       it "does not display withdrawn or rejected proposals" do
         expect(subject).to include(CGI.escapeHTML(translated(proposal1.title)))
@@ -105,7 +105,7 @@ RSpec.describe "Proposal search", type: :request do
     end
 
     context "and the status is accepted" do
-      let(:statuses) { %w(accepted) }
+      let(:states) { %w(accepted) }
 
       it "displays only accepted proposals" do
         expect(subject).not_to include(CGI.escapeHTML(translated(proposal1.title)))
@@ -119,7 +119,7 @@ RSpec.describe "Proposal search", type: :request do
     end
 
     context "and the status is rejected" do
-      let(:statuses) { %w(rejected) }
+      let(:states) { %w(rejected) }
 
       it "displays only rejected proposals" do
         expect(subject).not_to include(CGI.escapeHTML(translated(proposal1.title)))
@@ -133,7 +133,7 @@ RSpec.describe "Proposal search", type: :request do
     end
 
     context "and the status is withdrawn" do
-      let(:filter_params) { { state_withdraw: "withdrawn" } }
+      let(:filter_params) { { with_availability: "withdrawn" } }
 
       it "displays only withdrawn proposals" do
         expect(subject).not_to include(CGI.escapeHTML(translated(proposal1.title)))

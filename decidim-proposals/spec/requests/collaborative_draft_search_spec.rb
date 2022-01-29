@@ -76,11 +76,11 @@ RSpec.describe "Collaborative draft search", type: :request do
     end
   end
 
-  context "when searching by status" do
-    let(:filter_params) { { status: statuses } }
+  context "when searching by state" do
+    let(:filter_params) { { with_any_state: states } }
 
     context "and the status is open" do
-      let(:statuses) { %w(open) }
+      let(:states) { %w(open) }
 
       it "displays only open collaborative drafts" do
         expect(subject).to include(CGI.escapeHTML(translated(collaborative_draft1.title)))
@@ -94,7 +94,7 @@ RSpec.describe "Collaborative draft search", type: :request do
     end
 
     context "and the status is withdrawn" do
-      let(:statuses) { %w(withdrawn) }
+      let(:states) { %w(withdrawn) }
 
       it "displays only withdrawn collaborative drafts" do
         expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft1.title)))
@@ -108,7 +108,7 @@ RSpec.describe "Collaborative draft search", type: :request do
     end
 
     context "and the status is published" do
-      let(:statuses) { %w(published) }
+      let(:states) { %w(published) }
 
       it "displays only withdrawn proposals" do
         expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft1.title)))

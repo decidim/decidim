@@ -67,8 +67,10 @@ RSpec.describe "Project search", type: :request do
   end
 
   context "when searching by status" do
+    let(:filter_params) { { with_any_status: status } }
+
     context "with the all scope" do
-      let(:filter_params) { { status: ["all"] } }
+      let(:status) { ["all"] }
 
       it "displays all projects" do
         expect(subject).to include(translated(project1.title))
@@ -78,7 +80,7 @@ RSpec.describe "Project search", type: :request do
     end
 
     context "and the status is selected" do
-      let(:filter_params) { { status: ["selected"] } }
+      let(:status) { ["selected"] }
 
       it "displays the selected projects" do
         expect(subject).to include(translated(project1.title))
@@ -88,7 +90,7 @@ RSpec.describe "Project search", type: :request do
     end
 
     context "and the status is not selected" do
-      let(:filter_params) { { status: ["not_selected"] } }
+      let(:status) { ["not_selected"] }
 
       it "displays the selected projects" do
         expect(subject).not_to include(translated(project1.title))
