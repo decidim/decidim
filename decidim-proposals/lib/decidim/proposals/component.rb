@@ -265,6 +265,8 @@ Decidim.register_component(:proposals) do |component|
         visibility: "all"
       ) do
         proposal = Decidim::Proposals::Proposal.new(params)
+        
+        meeting_component = participatory_space.components.find_by(manifest_name: "meetings")
 
         coauthor = case n
                    when 0
@@ -272,7 +274,7 @@ Decidim.register_component(:proposals) do |component|
                    when 1
                      Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).order(Arel.sql("RANDOM()")).first
                    when 2
-                     Decidim::Meetings::Meeting.where(component: component).order(Arel.sql("RANDOM()")).first
+                     Decidim::Meetings::Meeting.where(component: meeting_component).order(Arel.sql("RANDOM()")).first
                    else
                      participatory_space.organization
                    end
