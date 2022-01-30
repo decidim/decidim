@@ -2,6 +2,5 @@
 
 module Decidim
   class Query < Rectify::Query
-
   end
 end
