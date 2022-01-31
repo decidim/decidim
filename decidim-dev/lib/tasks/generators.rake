@@ -55,7 +55,7 @@ namespace :decidim do
   end
 
   desc "Generates VAPID keys for push notifications"
-  task :generate do
+  task :generate_vapid_keys do
     vapid_key = Webpush.generate_key
 
     puts("VAPID keys correctly generated.")
