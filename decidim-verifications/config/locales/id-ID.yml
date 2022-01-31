@@ -138,6 +138,9 @@ id:
               offline_verification: Verifikasi offline
               title: Verifikasi online yang tertunda
               verification_number: 'Verifikasi #%{n}'
+          rejections:
+            create:
+              success: Verifikasi ditolak. Pengguna akan diminta untuk mengubah dokumennya
         authorizations:
           choose:
             choose_a_type: 'Silakan pilih bagaimana Anda ingin diverifikasi:'
