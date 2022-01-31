@@ -186,6 +186,9 @@ es:
               offline_verification: Verificación presencial
               title: Verificaciones online pendientes
               verification_number: 'Verificación #%{n}'
+          rejections:
+            create:
+              success: Verificación rechazada. Se pedirá a la participante que modifique sus documentos
         authorizations:
           choose:
             choose_a_type: 'Por favor selecciona como te quieres verificar:'
