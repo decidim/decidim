@@ -437,7 +437,7 @@ fr-CA:
           back: Élections disponibles
           callout:
             already_voted: Vous avez déjà voté pour cette élection. Vous pouvez modifier votre vote ou le vérifier.
-            pending_vote: Votre vote est en cours de validation sur le serveur.
+            pending_vote: Votre vote est en cours de validation le serveur.
             vote_rejected: Il n'a pas été possible de vérifier votre vote. Veuillez recommencer.
           election_log: Journal de l'élection
           preview: Aperçu
@@ -463,7 +463,7 @@ fr-CA:
             votes: Votes
         election:
           fields:
-            bb_status: Statut du Panneau d'affichage
+            bb_status: Statut du Tableau d'affichage
             end_time: Prend fin à
             start_time: Commence à
             title: Titre
@@ -525,7 +525,7 @@ fr-CA:
               end_tally: Dépouillement terminé
               tally:
                 cast: Valider le dépouillement
-                share: Partager le dépouillement
+                share: Partager le décompte
             list:
               status: Statut
               task: Tâche
@@ -543,8 +543,8 @@ fr-CA:
         menu:
           trustee_zone: Espace de garant
         no_bulletin_board:
-          body: Un Panneau d'affichage configuré est requis pour cette section. Contactez l'administrateur pour plus de détails.
-          title: Désolé, le Panneau d'affichage n'est pas encore configuré.
+          body: Un tableau d'affichage configuré est requis pour cette section. Contactez l'administrateur pour plus de détails.
+          title: Désolé, le tableau d'affichage n'est pas encore configuré.
         trustees:
           show:
             elections:
@@ -589,7 +589,7 @@ fr-CA:
           ballot_hash: 'L''identifiant de votre bulletin est:'
           cast: Valider votre vote
           description: Ici, vous pouvez valider votre vote de sorte qu'il soit correctement compté ou alternativement vous pouvez vérifier que votre bulletin a bien été chiffré. Pour des raisons de sécurité, l’audit de votre bulletin révélera son contenu. Si vous souhaitez valider votre vote, vous devrez donc recommencer le processus de vote.
-          header: 'Le bulletin est chiffré : validez-le ou auditez-le'
+          header: 'Le bulletin est chiffré: validez-le ou auditez-le'
         casting:
           header: Vote en cours...
           text: Votre bulletin a bien été pris en compte.
