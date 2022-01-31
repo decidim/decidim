@@ -69,6 +69,10 @@ module Decidim
                                default: "true",
                                desc: "Doesn't force to use ssl"
 
+      class_option :locales, type: :string,
+                             default: "false",
+                             desc: "Force the available locales to the ones specified. Separate with comas"
+
       class_option :skip_webpack_install, type: :boolean,
                                           default: true,
                                           desc: "Don't run Webpack install"
@@ -170,6 +174,11 @@ module Decidim
           gsub_file "config/initializers/decidim.rb",
                     /# config.force_ssl = true/,
                     "config.force_ssl = false"
+        end
+        if options[:locales].present?
+          gsub_file "config/initializers/decidim.rb",
+                    /# config.available_locales = %w\(en es ca\)/,
+                    "config.available_locales = %w(#{options[:locales].gsub(",", " ")})"
         end
       end
 

@@ -19,6 +19,9 @@ Once generated, the default initializers allows to setup most of the optional co
 
 Documentation is also updated so be sure to check the options in the [Environment Variables](https://docs.decidim.org/en/configure/environment_variables/) doc.
 
+Note that this change does not affect existing installations as only the `config/initializers/decidim.rb` and `config/secrets.yml` files are involved.
+However you can migrate to the new structure easily by creating a new Decidim app and copying or adapting those files to your own project.
+
 #### Reminders for pending orders in budgets
 
 **decidim-core**, **decidim-budgets**: Reminders for pending orders in budgets [#8621](https://github.com/decidim/decidim/pull/8621). To generate reminders:
