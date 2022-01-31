@@ -186,6 +186,9 @@ gl:
               offline_verification: Verificación sen conexión
               title: Verificacións pendentes
               verification_number: 'Verificación # %{n}'
+          rejections:
+            create:
+              success: Verificación rexeitada. Invitará ao usuario a que modifique os seus documentos
         authorizations:
           choose:
             choose_a_type: 'Selecciona como queres verificar:'
