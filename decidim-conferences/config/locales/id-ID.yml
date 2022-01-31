@@ -308,6 +308,7 @@ id:
             invites: Undangan
             search: Pencarian
           new:
+            explanation: Pengguna akan diundang untuk bergabung dengan konferensi. Jika email tidak terdaftar mereka akan diundang ke organisasi juga.
             invite: Undang
             new_invite: Undang pengguna
         conference_registrations:
