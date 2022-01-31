@@ -309,6 +309,7 @@ zh-CN:
             invites: 邀请
             search: 搜索
           new:
+            explanation: 与会者将被邀请参加会议。如果她的电子邮件未注册，她也将被邀请加入组织。
             invite: 邀请
             new_invite: Invite participant
         conference_registrations:
