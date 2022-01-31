@@ -312,6 +312,7 @@ hu:
             invites: Meghívottak
             search: Keresés
           new:
+            explanation: A felhasználó meghívást kap egy konferenciára. Ha az e-mail nincs regisztrálva, akkor a szervezet is meghívást kap.
             invite: Meghívás
             new_invite: Felhasználó meghívása
         conference_registrations:
