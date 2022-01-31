@@ -338,16 +338,16 @@ fr-CA:
           delete: "%{user_name} a supprimé l'élection %{resource_name} dans %{space_name}"
           end_vote: "%{user_name} a terminé la période de vote pour l'élection %{resource_name} de l'espace %{space_name} sur le Tableau des Bulletins"
           publish: "%{user_name} a publié l'élection %{resource_name} de %{space_name}"
-          publish_results: "%{user_name} a publié les résultats de l'élection %{resource_name} de %{space_name} sur le Panneau d'affichage"
-          report_missing_trustee: "%{user_name} a signalé %{trustee_name} en tant que garant absent pendant le dépouillement de l'élection %{resource_name} de %{space_name} sur le Panneau d'affichage"
-          setup: "%{user_name} a créé l'élection %{resource_name} de %{space_name} sur le Panneau d'affichage"
+          publish_results: "%{user_name} a publié les résultats de l'élection %{resource_name} de %{space_name} sur le Tableau d'Affichage"
+          report_missing_trustee: "%{user_name} a signalé %{trustee_name} en tant qu'accesseur manquant pendant le dépouillement de l'élection %{resource_name} de %{space_name} sur le Tableau d'affichage"
+          setup: "%{user_name} a créé l'élection %{resource_name} de %{space_name} sur le Tableau d'affichage"
           start_key_ceremony: "%{user_name} a commencé la cérémonie des clés pour l'élection %{resource_name} de %{space_name} sur le Panneau d'affichage"
-          start_tally: "%{user_name} a commencé le dépouillement pour l'élection %{resource_name} de %{space_name} sur le Panneau d'affichage"
-          start_vote: "%{user_name} a commencé la période de vote pour l'élection %{resource_name} de %{space_name} sur le Panneau d'affichage"
+          start_tally: "%{user_name} a commencé le dépouillement pour l'élection %{resource_name} de %{space_name} sur le Tableau d'affichage"
+          start_vote: "%{user_name} a commencé la période de vote pour l'élection %{resource_name} de %{space_name} sur le Tableau d'affichage"
           unpublish: "%{user_name} a dépublié le %{resource_name} de l'élection %{space_name}"
           update: "%{user_name} a mis à jour l'élection %{resource_name} de %{space_name}"
         trustee:
-          create: "%{user_name} a nommé l'utilisateur %{trustee_user} en tant que Garant"
+          create: "%{user_name} a nommé l'utilisateur %{trustee_user} en tant que accesseur"
       election_m:
         badge_name:
           finished: Terminées
@@ -447,7 +447,7 @@ fr-CA:
           back: Élections disponibles
           callout:
             already_voted: Vous avez déjà voté pour cette élection. Vous pouvez modifier votre vote ou le vérifier.
-            pending_vote: Votre vote est en cours de validation sur le serveur.
+            pending_vote: Votre vote est en cours de validation le serveur.
             vote_rejected: Il n'a pas été possible de vérifier votre vote. Veuillez recommencer.
           election_log: Journal de l'élection
           preview: Aperçu
@@ -473,7 +473,7 @@ fr-CA:
             votes: Votes
         election:
           fields:
-            bb_status: Statut du Panneau d'affichage
+            bb_status: Statut du Tableau d'affichage
             end_time: Prend fin à
             start_time: Commence à
             title: Titre
@@ -535,7 +535,7 @@ fr-CA:
               end_tally: Dépouillement terminé
               tally:
                 cast: Valider le dépouillement
-                share: Partager le dépouillement
+                share: Partager le décompte
             list:
               status: Statut
               task: Tâche
@@ -553,8 +553,8 @@ fr-CA:
         menu:
           trustee_zone: Espace de garant
         no_bulletin_board:
-          body: Un Panneau d'affichage configuré est requis pour cette section. Contactez l'administrateur pour plus de détails.
-          title: Désolé, le Panneau d'affichage n'est pas encore configuré.
+          body: Un tableau d'affichage configuré est requis pour cette section. Contactez l'administrateur pour plus de détails.
+          title: Désolé, le tableau d'affichage n'est pas encore configuré.
         trustees:
           show:
             elections:
@@ -599,7 +599,7 @@ fr-CA:
           ballot_hash: 'L''identifiant de votre bulletin est:'
           cast: Valider votre vote
           description: Ici, vous pouvez valider votre vote de sorte qu'il soit correctement compté ou alternativement vous pouvez vérifier que votre bulletin a bien été chiffré. Pour des raisons de sécurité, l’audit de votre bulletin révélera son contenu. Si vous souhaitez valider votre vote, vous devrez donc recommencer le processus de vote.
-          header: 'Le bulletin est chiffré : validez-le ou auditez-le'
+          header: 'Le bulletin est chiffré: validez-le ou auditez-le'
         casting:
           header: Vote en cours...
           text: Votre bulletin a bien été pris en compte.
@@ -1181,7 +1181,7 @@ fr-CA:
             census_verified: Le participant n'a pas encore voté.
             complete_voting: Vote terminé
             identify_another: Identifier un autre participant
-            questions_title: 'Ils ont le droit de voter sur les questions suivantes :'
+            questions_title: 'Elle a le droit de voter sur les questions suivantes:'
             questions_title_voted: 'Le participant a déjà voté en ligne et a le droit de voter dans les questions suivantes :'
             voted: Le participant a voté
           create:
