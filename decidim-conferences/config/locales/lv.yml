@@ -315,6 +315,7 @@ lv:
             invites: Ielūgumi
             search: Meklēt
           new:
+            explanation: Dalībniece tiks uzaicināta pievienoties konferencei. Ja viņas e-pasts nav reģistrēts, viņa tiks uzaicināta pievienoties organizācijai.
             invite: Uzaicināt
             new_invite: Uzaicināt dalībnieku
         conference_registrations:
