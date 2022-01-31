@@ -109,6 +109,11 @@ cs:
         reminders:
           orders:
             description: Uživatelé obdrží e-mail s odkazy na rozpočty, kde se čeká na vyjádření.
+            title:
+              one: Chystáte se odeslat připomenutí e-mailu %{count} uživateli
+              few: Chystáte se odeslat připomenutí e-mailu %{count} uživatelům
+              many: Chystáte se odeslat připomenutí e-mailu %{count} uživatelům
+              other: Chystáte se odeslat připomenutí e-mailu %{count} uživatelům
       admin_log:
         budget:
           create: "%{user_name} vytvořil %{resource_name} rozpočet ve skupině %{space_name}"
