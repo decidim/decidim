@@ -1,5 +1,5 @@
 <p class="email-greeting"><%= t ".hello", username: @user.name %></p>
 
-<p class="email-instructions"><%= t ".body", meeting_title: translated_attribute(@meeting.title).html_safe %></p>
+<p class="email-instructions"><%= t(".body", meeting_title: translated_attribute(@meeting.title), meeting_path: @meeting.reported_content_url).html_safe %></p>
 
 <p class="email-closing"><%= t(".greetings", organization_name: h(@organization.name), organization_url: decidim.root_url(host: @organization.host)).html_safe %></p>
