@@ -30,7 +30,11 @@ module Decidim
       private
 
       def search
-        @search ||= search_collection.ransack(search_params, context_params.merge(auth_object: current_user))
+        @search ||= search_with(search_params)
+      end
+
+      def search_with(provided_params)
+        search_collection.ransack(provided_params, context_params.merge(auth_object: current_user))
       end
 
       def search_collection
