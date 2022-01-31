@@ -188,7 +188,7 @@ it:
               verification_number: 'Verifica n. %{n}'
           rejections:
             create:
-              success: Verifica respinta. Il partecipante sarà invitato a modificare i suoi documenti
+              success: Verifica respinta. L'utente serà richiesto di modificare i suoi documenti
         authorizations:
           choose:
             choose_a_type: 'Si prega di selezionare come si desidera essere verificato:'
