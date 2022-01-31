@@ -140,6 +140,9 @@
               offline_verification: Offline verifisering
               title: Venter på online verifiseringer
               verification_number: 'Verifikasjon #%{n}'
+          rejections:
+            create:
+              success: Verifikasjon avvist. Deltakeren vil bli bedt om å endre sine dokumenter
         authorizations:
           choose:
             choose_a_type: 'Vennligst velg hvordan du vil bli verifisert:'
