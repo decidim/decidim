@@ -3,7 +3,7 @@ fr:
     attributes:
       conference:
         assemblies_ids: Assemblées associées
-        available_slots: Emplacements disponibles
+        available_slots: Nombre de places disponibles
         banner_image: Image d'en-tête
         consultations_ids: Votations associées
         copy_categories: Copier les catégories
