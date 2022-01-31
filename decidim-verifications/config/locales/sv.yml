@@ -170,6 +170,9 @@ sv:
               offline_verification: Offline-verifiering
               title: Väntande online-verifieringar
               verification_number: 'Verifiering #%{n}'
+          rejections:
+            create:
+              success: Verifieringen avvisades. Användaren kommer att uppmanas att rätta sina handlingar
         authorizations:
           choose:
             choose_a_type: 'Var god välj hur du vill verifieras:'
