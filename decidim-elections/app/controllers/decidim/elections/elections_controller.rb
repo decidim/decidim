@@ -62,7 +62,7 @@ module Decidim
       end
 
       def scheduled_elections
-        @scheduled_elections ||= search_with(search_params.merge(with_any_date: %w(active upcoming))).result
+        @scheduled_elections ||= search_with(filter_params.merge(with_any_date: %w(active upcoming))).result
       end
 
       def search_collection

@@ -136,7 +136,7 @@ module Decidim
       end
 
       def finished_votings
-        @finished_votings ||= search_with(search_params.merge(with_any_date: %w(finished))).result
+        @finished_votings ||= search_with(filter_params.merge(with_any_date: %w(finished))).result
       end
 
       def only_finished_votings?

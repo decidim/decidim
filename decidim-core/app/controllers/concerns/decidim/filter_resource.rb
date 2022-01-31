@@ -25,12 +25,12 @@ module Decidim
     end
 
     included do
-      helper_method :search, :search_params, :filter
+      helper_method :search, :filter_params, :filter
 
       private
 
       def search
-        @search ||= search_with(search_params)
+        @search ||= search_with(filter_params)
       end
 
       def search_with(provided_params)
@@ -45,10 +45,6 @@ module Decidim
         @filter ||= Filter.new(filter_params)
       end
 
-      def search_params
-        default_search_params.merge(filter_params)
-      end
-
       # Fetches the correct filter parameters from the request parameters in
       # order to limit the parameters which can be used for searching the
       # resources. Otherwise the user could pass extra search parameters from
@@ -58,10 +54,6 @@ module Decidim
           passed_params = params.to_unsafe_h[:filter].try(:symbolize_keys) || {}
           default_filter_params.merge(passed_params.slice(*default_filter_params.keys))
         end
-      end
-
-      def default_search_params
-        {}
       end
 
       def default_filter_params

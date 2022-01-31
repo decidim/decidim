@@ -111,13 +111,6 @@ module Decidim
         Debate.not_hidden
       end
 
-      def default_search_params
-        {
-          page: params[:page],
-          per_page: 12
-        }
-      end
-
       def default_filter_params
         {
           search_text_cont: "",
