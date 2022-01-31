@@ -689,7 +689,10 @@ ro:
               text_area_placeholder: Te rugăm să îți scrii mesajul
         in_person_votes:
           complete_voting:
+            questions_title: 'Are drept de vot pentru umătoarele întrebări:'
             questions_title_voted: 'Participantul a votat deja online și are drept de vot pentru următoarele întrebări:'
+          in_person_form:
+            census_not_present_description: Trebuie mers la biroul de reclamații pentru recensământ sau să contacteze echipa de suport.
           update:
             success:
               rejected: Votul nu a fost acceptat de către Panoul de afișare. Te rugăm contactează administratorul de sistem.
