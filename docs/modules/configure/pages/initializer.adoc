@@ -1,6 +1,10 @@
 = Initializer
 
-There are some settings that you'll need to change in the `config/initializer/decidim.rb` file.
+There are some settings that you'll need to change in the `config/initializer/decidim.rb` file. We recommend that, whenever it is possible, you use xref:configure:environment_variables.adoc[Environment Variables], as just cleaner and easier to work with.
+
+If you need to add special logic or if you feel more comfortable working with Ruby code instead of Environment Variables, then you can of course do all the changes that you need directly in the initializer file. Take into account that this file could be published in a Version Control System (like `git`) so you should be careful with the secrets/API keys that you add here.
+
+Remember to restart your server when making changes in this file.
 
 This is where you can change the behaviour defined on the different components (most notably from `decidim-core`).
 
