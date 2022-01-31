@@ -186,6 +186,9 @@ fi:
               offline_verification: Offline-vahvistus
               title: Odottaa verkkotarkastuksia
               verification_number: 'Vahvistus #%{n}'
+          rejections:
+            create:
+              success: Vahvistus hylätty. Käyttäjää pyydetään muuttamaan asiakirjojaan
         authorizations:
           choose:
             choose_a_type: 'Valitse, kuinka haluat varmistaa henkilöllisyytesi:'
