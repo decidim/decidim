@@ -351,6 +351,7 @@ fi-pl:
             invites: Kutsut
             search: Hae
           new:
+            explanation: Käyttäjä kutsutaan mukaan konferenssiin. Jos sähköposti ei ole rekisteröity, käyttäjä kutsutaan myös organisaatioon.
             invite: Kutsu
             new_invite: Kutsu käyttäjä
         conference_registrations:
