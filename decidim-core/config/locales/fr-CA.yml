@@ -84,7 +84,7 @@ fr-CA:
       about_x_months:
         one: environ %{count} mois
         other: environ %{count} mois
-      half_a_minute: 30 secondes
+      half_a_minute: une demi-minute
       less_than_x_minutes:
         one: moins d’une minute.
         other: moins de %{count} min.
@@ -745,6 +745,8 @@ fr-CA:
       file_help:
         file:
           explanation: 'Orientation pour le fichier :'
+          message_1: Doit être une image ou un document.
+          message_2: Pour les images, utilisez de préférence des formats paysage, car le service recadre l'image. Pour les fichiers CSV, le séparateur entre les colonnes doit être une virgule (",")
         image:
           explanation: 'Orientation pour l''image:'
           message_1: De préférence une image de paysage qui n'a pas de texte.
@@ -988,6 +990,7 @@ fr-CA:
           next: Suivant
           no_conversations: Vous n'avez encore aucune conversation
           title: Conversations
+          to: À
         reply:
           placeholder: Votre réponse...
           send: Envoyer
