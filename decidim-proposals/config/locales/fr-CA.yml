@@ -206,7 +206,7 @@ fr-CA:
               most_followed: Les plus suivies
               most_voted: Les plus votées
               random: Aléatoire
-              recent: Les plus récentes
+              recent: Récentes
               with_more_authors: Avec le plus d'auteurs
             endorsements_blocked: Bloquer les soutiens
             endorsements_enabled: Activer le module de soutiens
@@ -399,10 +399,10 @@ fr-CA:
           proposals: Propositions
         imports:
           help:
-            answers: 'Le document d''import doit contenir les colonnes suivantes : id, state (accepted, evaluating, rejected), answer/fr (et les autres langues activées pour l''organisation le cas échéant).'
-            proposals: Le fichier doit comprendre les colonnes title/fr et body/fr (ou une autre locale de votre choix, par ex. title/de et body/de). Les colonnes scope/id et category/id sont également prises en charge.
+            answers: 'Le document d''importation doit contenir les colonnes suivantes : Id, État (accepté, évaluation, rejeté), réponse/fr (et d''autres langues activées pour l''organisme).'
+            proposals: Le fichier doit comprendre les colonnes title/fr et corps/fr (ou une autre locale de votre choix, par ex. titre/de et corps/de). Les colonnes scope/id et category/id sont également pris en charge.
           label:
-            answers: Importer des réponses depuis un fichier
+            answers: Importer des valeurs depuis un fichier
             proposals: Importer des propositions depuis un fichier
           resources:
             answers:
