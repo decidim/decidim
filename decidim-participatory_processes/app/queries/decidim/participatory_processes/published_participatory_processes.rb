@@ -3,7 +3,7 @@
 module Decidim
   module ParticipatoryProcesses
     # This query filters published processes only.
-    class PublishedParticipatoryProcesses < Rectify::Query
+    class PublishedParticipatoryProcesses < Decidim::Query
       def query
         Decidim::ParticipatoryProcess.published
       end
