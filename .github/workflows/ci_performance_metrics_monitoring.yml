@@ -1,4 +1,4 @@
-name: "[CI] Generators"
+name: "[CI] Performance Metrics monitoring"
 on:
   push:
     branches:
@@ -11,15 +11,16 @@ on:
     paths:
       - "*"
       - ".github/**"
+      - "decidim-api/**"
       - "decidim-core/**"
-      - "decidim-generators/**"
+      - "decidim-dev/**"
 
 env:
   CI: "true"
-  RUBY_VERSION: 2.7.5
+  SIMPLECOV: "true"
+  RUBY_VERSION: 2.7.1
   NODE_VERSION: 16.9.1
-  DECIDIM_MODULE: decidim-generators
-  PARALLEL_TEST_PROCESSORS: 2
+  RAILS_ENV: development
 
 jobs:
   main:
@@ -68,16 +69,21 @@ jobs:
           key: npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             npm-
-      - run: bundle install --jobs 4 --retry 3
-        name: Install Ruby deps
-        working-directory: ${{ env.DECIDIM_MODULE }}
-      - run: bundle exec brakeman --rails6 --force-scan .
-        name: Scanning Security issues on module
-        working-directory: ${{ env.DECIDIM_MODULE }}
-      - run: bundle exec rake parallel:spec
-        name: RSpec
-        working-directory: ${{ env.DECIDIM_MODULE }}
-        env:
-          SIMPLECOV: "true"
-      - run: ./.github/upload_coverage.sh $DECIDIM_MODULE $GITHUB_EVENT_PATH
-        name: Upload coverage
+      - run: bundle exec rake development_app
+        name: Create development app
+      - run: bundle exec rails assets:precompile
+        name: Precompile assets
+        working-directory: ./development_app/
+      - run: bundle exec rails decidim:lighthouse:prepare_urls
+        name: Setup lighthouse urls
+        working-directory: ./development_app/
+      - run: bundle exec rails server -b localhost -d
+        name: Run Rails server
+        working-directory: ./development_app/
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v8
+        with:
+          runs: 3 # run more than once to warm up the application
+          uploadArtifacts: true
+          budgetPath: ./.github/workflows/lighthouse_budget.json # test performance budgets
+          temporaryPublicStorage: true
