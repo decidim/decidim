@@ -186,7 +186,7 @@ ja:
               verification_number: '認証 #%{n}'
           rejections:
             create:
-              success: 本人確認が拒否されました。参加者は書類の修正を求められます
+              success: 本人確認が拒否されました。参加者は書類を修正するよう求められます。
         authorizations:
           choose:
             choose_a_type: '確認方法を選択してください：'
