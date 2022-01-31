@@ -318,6 +318,7 @@ sk:
             invites: Pozvánky
             search: Hľadať
           new:
+            explanation: Tento účastník bude pozvaný na účasť na konferencii. Ak jeho e-mail ešte nie je registrovaný, bude pozvaný aj k účasti na platforme.
             invite: Pozvať
             new_invite: Pozvať účastníka
         conference_registrations:
