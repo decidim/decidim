@@ -55,6 +55,5 @@ module Decidim::Initiatives
         end
       end
     end
-
   end
 end
