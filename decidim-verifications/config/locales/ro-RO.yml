@@ -188,6 +188,9 @@ ro:
               offline_verification: Verificare offline
               title: Verificări online în așteptare
               verification_number: 'Verificare #%{n}'
+          rejections:
+            create:
+              success: Verificare respinsă. Participantul va fi îndemnat să își modifice documentele
         authorizations:
           choose:
             choose_a_type: 'Te rugăm selectează cum preferi verificarea:'
