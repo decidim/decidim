@@ -37,14 +37,12 @@ describe "Private Assemblies", type: :system do
       end
 
       context "when user is logged in" do
-        before do
-          switch_to_host(organization.host)
-          login_as logged_in_user, scope: :user
-          visit decidim_assemblies.assemblies_path
-        end
-
         context "when is not an assembly private user" do
-          let(:logged_in_user) { user }
+          before do
+            switch_to_host(organization.host)
+            login_as user, scope: :user
+            visit decidim_assemblies.assemblies_path
+          end
 
           it "lists all the assemblies" do
             within "#parent-assemblies" do
@@ -61,7 +59,11 @@ describe "Private Assemblies", type: :system do
         end
 
         context "when the user is admin" do
-          let(:logged_in_user) { admin }
+          before do
+            switch_to_host(organization.host)
+            login_as admin, scope: :user
+            visit decidim_assemblies.assemblies_path
+          end
 
           it "doesn't show the privacy warning in attachments admin" do
             visit decidim_admin_assemblies.assembly_attachments_path(private_assembly)
@@ -97,14 +99,12 @@ describe "Private Assemblies", type: :system do
       end
 
       context "when user is logged in and is not an assembly private user" do
-        before do
-          switch_to_host(organization.host)
-          login_as logged_in_user, scope: :user
-          visit decidim_assemblies.assemblies_path
-        end
-
         context "when the user isn't admin" do
-          let(:logged_in_user) { user }
+          before do
+            switch_to_host(organization.host)
+            login_as user, scope: :user
+            visit decidim_assemblies.assemblies_path
+          end
 
           it "doesn't list the private assembly" do
             within "#parent-assemblies" do
@@ -121,7 +121,11 @@ describe "Private Assemblies", type: :system do
         end
 
         context "when the user is admin" do
-          let(:logged_in_user) { admin }
+          before do
+            switch_to_host(organization.host)
+            login_as admin, scope: :user
+            visit decidim_assemblies.assemblies_path
+          end
 
           it "lists private assemblies" do
             within "#parent-assemblies" do
