@@ -82,6 +82,38 @@ shared_examples_for "an application with configurable env vars" do
     }
   end
 
+  let(:env_false) do
+    {
+      "RAILS_ENV" => "production",
+      "OMNIAUTH_FACEBOOK_APP_ID" => "false",
+      "OMNIAUTH_FACEBOOK_APP_SECRET" => "false",
+      "OMNIAUTH_TWITTER_API_KEY" => "no",
+      "OMNIAUTH_TWITTER_API_SECRET" => "false",
+      "OMNIAUTH_GOOGLE_CLIENT_ID" => "FalSe",
+      "OMNIAUTH_GOOGLE_CLIENT_SECRET" => "false",
+      "MAPS_API_KEY" => "0",
+      "ETHERPAD_SERVER" => "No",
+      "ETHERPAD_API_KEY" => "false",
+      "DECIDIM_APPLICATION_NAME" => "FALSE",
+      "DECIDIM_MAILER_SENDER" => "NO",
+      "DECIDIM_AVAILABLE_LOCALES" => "false",
+      "DECIDIM_DEFAULT_LOCALE" => "false",
+      "DECIDIM_ENABLE_HTML_HEADER_SNIPPETS" => "false",
+      "DECIDIM_CURRENCY_UNIT" => "false",
+      "DECIDIM_IMAGE_UPLOADER_QUALITY" => "false",
+      "DECIDIM_MAXIMUM_ATTACHMENT_SIZE" => "false",
+      "DECIDIM_MAXIMUM_AVATAR_SIZE" => "false",
+      "DECIDIM_MAX_REPORTS_BEFORE_HIDING" => "false",
+      "DECIDIM_THROTTLING_MAX_REQUESTS" => "false",
+      "DECIDIM_THROTTLING_PERIOD" => "false",
+      "DECIDIM_UNCONFIRMED_ACCESS_FOR" => "false",
+      "DECIDIM_SYSTEM_ACCESSLIST_IPS" => "false",
+      "DECIDIM_BASE_UPLOADS_PATH" => "false",
+      "DECIDIM_DEFAULT_CSV_COL_SEP" => "false",
+      "DECIDIM_CORS_ENABLED" => "false"
+    }
+  end
+
   let(:env_on) do
     {
       "RAILS_ENV" => "production",
@@ -179,7 +211,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(omniauth google_oauth2 enabled) => false,
       %w(decidim application_name) => "My Application Name",
       %w(decidim mailer_sender) => "change-me@example.org",
-      %w(decidim available_locales) => %w(en ca es),
+      %w(decidim available_locales) => %w(ca cs de en es eu fi fr it ja nl pl pt ro),
       %w(decidim default_locale) => "en",
       %w(decidim force_ssl) => "auto",
       %w(decidim enable_html_header_snippets) => false,
@@ -296,7 +328,7 @@ shared_examples_for "an application with configurable env vars" do
     {
       "application_name" => "My Application Name",
       "mailer_sender" => "change-me@example.org",
-      "available_locales" => %w(en ca es),
+      "available_locales" => %w(ca cs de en es eu fi fr it ja nl pl pt ro),
       "default_locale" => "en",
       "force_ssl" => true,
       "enable_html_header_snippets" => false,
@@ -448,47 +480,62 @@ shared_examples_for "an application with configurable env vars" do
 
   it "env vars generate secrets application" do
     expect(result[1]).to be_success, result[0]
+    # Test onto the secret generated when ENV vars are empty strings or undefined
     json_off = json_secrets_for(test_app, env_off)
     secrets_off.each do |keys, value|
       current = json_off.dig(*keys)
       expect(current).to eq(value), "Secret #{keys} = (#{current}) expected to match Env OFF (#{value})"
     end
 
+    # Test onto the secret generated when ENV vars are set
     json_on = json_secrets_for(test_app, env_on)
     secrets_on.each do |keys, value|
       current = json_on.dig(*keys)
       expect(current).to eq(value), "Secret #{keys} = (#{current}) expected to match Env ON (#{value})"
     end
 
+    # Test onto the initializer when ENV vars are empty strings or undefined
     json_off = initializer_config_for(test_app, env_off)
     initializer_off.each do |key, value|
       current = json_off[key]
       expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env OFF (#{value})"
     end
 
+    # Test onto the initializer when ENV vars are set to the string "false"
+    json_false = initializer_config_for(test_app, env_false)
+    initializer_off.each do |key, value|
+      current = json_false[key]
+      expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env FALSE (#{value})"
+    end
+
+    # Test onto the initializer when ENV vars are set
     json_on = initializer_config_for(test_app, env_on)
     initializer_on.each do |key, value|
       current = json_on[key]
       expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env ON (#{value})"
     end
 
+    # Test onto the initializer when ENV vars are set to OpenstreetMap configuration
     json_on = initializer_config_for(test_app, env_maps_osm)
     initializer_maps_osm.each do |key, value|
       current = json_on[key]
       expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env Maps OSM (#{value})"
     end
 
+    # Test onto the initializer when ENV vars are set to OpenstreetMap-HERE mix configuration
     json_on = initializer_config_for(test_app, env_maps_mix)
     initializer_maps_mix.each do |key, value|
       current = json_on[key]
       expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env Maps MIX (#{value})"
     end
 
+    # Test onto some extra Rails confing when ENV vars are empty or undefined
     rails_off.each do |key, value|
       current = rails_value(key, test_app, env_off)
       expect(current).to eq(value), "Rails config (#{key}) = (#{current}) expected to match Env OFF (#{value})"
     end
 
+    # Test onto some extra Rails confing when ENV vars are set
     rails_on.each do |key, value|
       current = rails_value(key, test_app, env_on)
       expect(current).to eq(value), "Rails config (#{key}) = (#{current}) expected to match Env ON (#{value})"
