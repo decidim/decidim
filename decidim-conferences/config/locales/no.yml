@@ -312,6 +312,7 @@
             invites: Invitasjoner
             search: Søk
           new:
+            explanation: Deltakeren vil bli invitert til å delta en konferanse. Hvis e-posten hennes ikke er registrert, vil hun også bli invitert i organisasjonen.
             invite: Inviter
             new_invite: Inviter deltaker
         conference_registrations:
