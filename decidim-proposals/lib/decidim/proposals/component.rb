@@ -265,7 +265,6 @@ Decidim.register_component(:proposals) do |component|
         visibility: "all"
       ) do
         proposal = Decidim::Proposals::Proposal.new(params)
-        
         meeting_component = participatory_space.components.find_by(manifest_name: "meetings")
 
         coauthor = case n
