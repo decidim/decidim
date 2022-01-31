@@ -10,7 +10,8 @@ module Decidim::Initiatives
 
     let(:my_cell) { cell("decidim/initiatives/initiative_m", initiative, context: { show_space: show_space }) }
     let(:cell_html) { my_cell.call }
-    let!(:initiative) { create(:initiative, hashtag: "my_hashtag") }
+    let(:state) { :published }
+    let!(:initiative) { create(:initiative, hashtag: "my_hashtag", state: state) }
     let(:user) { create :user, organization: initiative.organization }
 
     before do
@@ -24,9 +25,36 @@ module Decidim::Initiatives
         expect(subject).to have_css(".card--initiative")
       end
 
+      it "shows signatures" do
+        expect(subject).to have_css(".progress__bar__number")
+        expect(subject).to have_css(".progress__bar__text")
+        expect(subject.to_s).to include("signatures")
+      end
+
       it "renders the hashtag" do
         expect(subject).to have_content("#my_hashtag")
       end
+
+      context "when initiative state is rejected" do
+        let(:state) { :rejected }
+
+        it "shows signatures" do
+          expect(subject).to have_css(".progress__bar__number")
+          expect(subject).to have_css(".progress__bar__text")
+          expect(subject.to_s).to include("signatures")
+        end
+      end
+
+      context "when initiative state is accepted" do
+        let(:state) { :accepted }
+
+        it "shows signatures" do
+          expect(subject).to have_css(".progress__bar__number")
+          expect(subject).to have_css(".progress__bar__text")
+          expect(subject.to_s).to include("signatures")
+        end
+      end
     end
+
   end
 end
