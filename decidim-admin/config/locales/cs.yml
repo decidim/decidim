@@ -845,6 +845,11 @@ cs:
       reminders:
         create:
           error: Při vytváření připomenutí došlo k chybě.
+          success:
+            one: "%{count} uživatel bude upozorněn."
+            few: "%{count} uživatelé budou upozorněni."
+            many: "%{count} uživatelů bude upozorněno."
+            other: "%{count} uživatelů bude upozorněno."
         new:
           submit: Odeslat
       resource_permissions:
