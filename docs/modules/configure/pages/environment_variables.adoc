@@ -266,14 +266,16 @@ The next tables show all the default Env Vars available when running a default D
 |Name |Value |Default value|Multitenant's System configurable
 
 |DECIDIM_AVAILABLE_LOCALES
-|a list of, coma separated, locales that will be available for each organization configured in the System configuration. Check for the https://github.com/decidim/decidim/blob/develop/decidim-core/lib/decidim/core.rb#L163[Supported values] in ISO639 format.
-|en,ca,es
-|No
+|a list of, coma separated, locales that will be available for each organization configured in the System configuration. Check for the https://github.com/decidim/decidim/blob/3d4ec74bdce406e2ee6934b830d3c06398ab72c0/decidim-core/lib/decidim/core.rb#L166[Supported values] in ISO639 format.
+|ca, cs, de, en, es, eu, fi, fr, it, ja, nl, pl, pt, ro
+|*Partially*, Only when creating a new organization the admin needs to choose between these values
 
 |DECIDIM_DEFAULT_LOCALE
 |The default locale to be used as a fallback (note that, in practice, this value must always be defined in the System configuration for each organization anyway).
+
+*Note that `DECIDIM_AVALABLE_LOCALES` must include this value*
 |en
-|*Yes*
+|*Partially*, Only when creating a new organization
 
 |DECIDIM_FORCE_SSL
 |By default, Decidim enforces a SSL connection (https), sometimes it is necessary to disable it in order to handle this through a proxy system (note that use Decidim without SSL at all is NOT RECOMMENDED). This value can take 3 values:
