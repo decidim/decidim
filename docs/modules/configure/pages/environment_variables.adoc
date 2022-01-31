@@ -220,7 +220,7 @@ The next tables show all the default Env Vars available when running a default D
 |*Yes*
 
 |BULLETIN_BOARD_SERVER
-|The full URL to identify a https://github.com/decidim/decidim-bulletin-board[Bulletin Board Server]. *It must point to the Graphql API* (ie: https://bulletinexample.com/api) See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
+|The full URL to identify a https://github.com/decidim/decidim-bulletin-board[Bulletin Board Server]. *It must point to the Graphql API* (ie: https://bulletinboard.example.org/api) See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
 |
 |No
 
