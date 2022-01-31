@@ -1168,12 +1168,14 @@ pl:
             census_verified: Uczestnik jeszcze nie głosował.
             complete_voting: Zakończ głosowanie
             identify_another: Zidentyfikuj innego uczestnika
+            questions_title: 'Ma prawo do głosowania w następujących kwestiach:'
             questions_title_voted: 'Uczestnik głosował już online i ma prawo głosować w następujących kwestiach:'
             voted: Uczestnik zagłosował
           create:
             error: Głos nie został zarejestrowany. Spróbuj ponownie.
           in_person_form:
             census_not_present: Uczestnik nie jest umieszczony na liście wyborców.
+            census_not_present_description: Wyborca musi złożyć skargę na nieprawidłowości w liście wyborców, albo skontaktować się z pomocą techniczną.
             date_of_birth: Data urodzenia
             day: Dzień
             day_placeholder: DD
