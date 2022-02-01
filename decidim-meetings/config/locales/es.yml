@@ -534,7 +534,7 @@ es:
           meeting_minutes: Acta del encuentro
           micro_camera_permissions_warning: Cuando hagas clic en el botón de abajo, se te pedirán permisos de micrófono y/o cámara y te unirás a la videoconferencia
           no_slots_available: No hay plazas disponibles
-          organizations: Organizaciones que han asistido
+          organizations: Organizaciones asistentes
           registration_code_help_text: Tu código de inscripción
           registration_state:
             validated: VALIDADO
