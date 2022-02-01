@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when an admin imports proposals from
       # one component to projects of a budget.
-      class ImportProposalsToBudgets < Rectify::Command
+      class ImportProposalsToBudgets < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

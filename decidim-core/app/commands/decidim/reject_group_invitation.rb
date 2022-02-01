@@ -3,7 +3,7 @@
 module Decidim
   # A command with all the business logic to reject an invitation to belong to a
   # group.
-  class RejectGroupInvitation < Rectify::Command
+  class RejectGroupInvitation < Decidim::Command
     # Public: Initializes the command.
     #
     # user_group - the UserGroup where the user has been invited

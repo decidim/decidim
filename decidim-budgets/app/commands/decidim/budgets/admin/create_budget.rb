@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user creates an Budget
       # from the admin panel.
-      class CreateBudget < Rectify::Command
+      class CreateBudget < Decidim::Command
         def initialize(form)
           @form = form
         end

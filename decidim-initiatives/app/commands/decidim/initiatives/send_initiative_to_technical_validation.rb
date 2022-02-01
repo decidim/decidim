@@ -4,7 +4,7 @@ module Decidim
   module Initiatives
     # A command with all the business logic that sends an
     # existing initiative to technical validation.
-    class SendInitiativeToTechnicalValidation < Rectify::Command
+    class SendInitiativeToTechnicalValidation < Decidim::Command
       # Public: Initializes the command.
       #
       # initiative - Decidim::Initiative

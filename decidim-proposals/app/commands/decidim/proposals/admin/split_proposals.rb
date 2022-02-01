@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when an admin splits proposals from
       # one component to another.
-      class SplitProposals < Rectify::Command
+      class SplitProposals < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

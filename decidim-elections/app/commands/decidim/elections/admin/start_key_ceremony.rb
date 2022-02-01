@@ -4,7 +4,7 @@ module Decidim
   module Elections
     module Admin
       # This command gets called to start the key ceremony in the Bulletin Board.
-      class StartKeyCeremony < Rectify::Command
+      class StartKeyCeremony < Decidim::Command
         # Public: Initializes the command.
         #
         # form - An ActionForm object with the information needed to perform an action

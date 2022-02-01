@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user changes a Blog from the admin
       # panel.
-      class UpdatePost < Rectify::Command
+      class UpdatePost < Decidim::Command
         # Initializes a UpdateBlog Command.
         #
         # form - The form from which to get the data.
