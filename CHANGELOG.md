@@ -14,7 +14,7 @@ In the next version (v0.28.0) it will be fully removed from the database.
 
 #### Default Decidim app fully configurable via ENV vars
 
-PR [#8725](https://github.com/decidim/decidim/pull/8725) Modifies the default generator to create a new Decidim app (command `decidim my-decidim`). 
+PR [#8725](https://github.com/decidim/decidim/pull/8725) Modifies the default generator to create a new Decidim app (command `decidim my-decidim`).
 Once generated, the default initializers allows to setup most of the optional configuration values (such as geolocation, languages, etc) for Decidim entirely via ENV variables.
 
 Documentation is also updated so be sure to check the options in the [Environment Variables](https://docs.decidim.org/en/configure/environment_variables/) doc.
