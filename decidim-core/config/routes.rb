@@ -5,6 +5,8 @@ Decidim::Core::Engine.routes.draw do
 
   get "/offline", to: "offline#show"
 
+  post "/subscribe_to_notifications", to: "notifications_subscriptions#create"
+
   devise_for :users,
              class_name: "Decidim::User",
              module: :devise,
