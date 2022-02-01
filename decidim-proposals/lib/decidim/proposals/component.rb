@@ -282,13 +282,6 @@ Decidim.register_component(:proposals) do |component|
         proposal
       end
 
-      if n.positive?
-        Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample(n).each do |author|
-          user_group = [true, false].sample ? Decidim::UserGroups::ManageableUserGroups.for(author).verified.sample : nil
-          proposal.add_coauthor(author, user_group: user_group)
-        end
-      end
-
       if proposal.state.nil?
         email = "amendment-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-amend#{n}@example.org"
         name = "#{Faker::Name.name} #{participatory_space.id} #{n} amend#{n}"
