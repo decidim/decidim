@@ -177,7 +177,7 @@ module Decidim
         end
         if options[:locales].present?
           gsub_file "config/initializers/decidim.rb",
-                    /# config.available_locales = %w\(en es ca\)/,
+                    /# config.available_locales = %w\(en ca es\)/,
                     "config.available_locales = %w(#{options[:locales].gsub(",", " ")})"
         end
       end
