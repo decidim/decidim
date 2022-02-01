@@ -331,9 +331,6 @@ pt-BR:
           upcoming: Próximos
         end_date: Finaliza
         footer:
-          remaining_time:
-            one: "<strong>%{count} hora %{minutes} minutos</strong> restantes para votar."
-            other: "<strong>%{count} horas %{minutes} minutos</strong> restantes para votar."
           view: Visualizar
           vote: Votar
         label:
@@ -413,8 +410,9 @@ pt-BR:
           selected: Selecionado
           title: Resultados da eleição
           votes:
-            one: "%{count} voto"
+            one: "%{count} votos"
             other: "%{count} votos"
+            zero: "%{count} votos"
         show:
           action_button:
             change_vote: Mude seu voto
