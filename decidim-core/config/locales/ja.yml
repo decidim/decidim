@@ -89,8 +89,6 @@ ja:
         other: "%{count} 時間前"
       x_minutes:
         other: "%{count} 分前"
-      x_seconds:
-        other: "%{count} 秒前"
   decidim:
     accessibility:
       external_link: 外部リンク
@@ -978,6 +976,7 @@ ja:
           next: 次へ
           no_conversations: 会話がまだありません
           title: 会話
+          to: 宛先
         reply:
           placeholder: あなたの返信...
           send: 送信
