@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A command with all the business logic to destroy a scope.
-    class DestroyScope < Rectify::Command
+    class DestroyScope < Decidim::Command
       # Public: Initializes the command.
       #
       # scope - The Scope to destroy

@@ -3,7 +3,7 @@
 module Decidim
   module Verifications
     # A command to revoke authorizations with filter
-    class RevokeByConditionAuthorizations < Rectify::Command
+    class RevokeByConditionAuthorizations < Decidim::Command
       # Public: Initializes the command.
       #
       # organization - Organization object.

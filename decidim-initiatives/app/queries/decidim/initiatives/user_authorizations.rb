@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     # Class used the retrieve the authorizations for a user.
-    class UserAuthorizations < Rectify::Query
+    class UserAuthorizations < Decidim::Query
       attr_reader :user
 
       # Syntactic sugar to initialize the class and return the queried objects.

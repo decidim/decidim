@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # A command that reorders a collection of content blocks. It also creates
     # the ones that might be missing.
-    class ReorderContentBlocks < Rectify::Command
+    class ReorderContentBlocks < Decidim::Command
       # Public: Initializes the command.
       #
       # organization - the Organization where the content blocks reside

@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new participatory
       # process in the system.
-      class CreateParticipatoryProcessStep < Rectify::Command
+      class CreateParticipatoryProcessStep < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

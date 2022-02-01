@@ -103,6 +103,8 @@ module Decidim
   autoload :CommonPasswords, "decidim/common_passwords"
   autoload :HasArea, "decidim/has_area"
   autoload :AttributeObject, "decidim/attribute_object"
+  autoload :Query, "decidim/query"
+  autoload :Command, "decidim/command"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.

@@ -4,7 +4,7 @@ module Decidim
   module Conferences
     module Admin
       # A command to notify users when a role is assigned for a Conference
-      class NotifyRoleAssignedToConference < Rectify::Command
+      class NotifyRoleAssignedToConference < Decidim::Command
         def send_notification(user)
           Decidim::EventsManager.publish(
             event: "decidim.events.conferences.role_assigned",

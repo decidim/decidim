@@ -2,7 +2,7 @@
 
 module Decidim
   # This command updates the user's interests.
-  class UpdateUserInterests < Rectify::Command
+  class UpdateUserInterests < Decidim::Command
     # Updates a user's intersts.
     #
     # user - The user to be updated.

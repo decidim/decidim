@@ -4,7 +4,7 @@ module Decidim
   module Assemblies
     module Admin
       # A command that sets an assembly as unpublished.
-      class UnpublishAssembly < Rectify::Command
+      class UnpublishAssembly < Decidim::Command
         # Public: Initializes the command.
         #
         # assembly - A Assembly that will be published

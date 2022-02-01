@@ -4,7 +4,7 @@ module Decidim
   module Assemblies
     # A class used to find the Assemblies that the given user has
     # the specific role privilege.
-    class AssembliesWithUserRole < Rectify::Query
+    class AssembliesWithUserRole < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # user - a User that needs to find which assemblies can manage

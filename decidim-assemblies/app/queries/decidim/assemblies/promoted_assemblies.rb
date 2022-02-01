@@ -3,7 +3,7 @@
 module Decidim
   module Assemblies
     # This query filters assemblies so only promoted ones are returned.
-    class PromotedAssemblies < Rectify::Query
+    class PromotedAssemblies < Decidim::Query
       def query
         Decidim::Assembly.promoted
       end

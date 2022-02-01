@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     # A command with all the business logic when a user updates a collaborative_draft.
-    class UpdateCollaborativeDraft < Rectify::Command
+    class UpdateCollaborativeDraft < Decidim::Command
       include HashtagsMethods
 
       # Public: Initializes the command.

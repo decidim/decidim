@@ -3,7 +3,7 @@
 module Decidim
   module Assemblies
     # This query filters assemblies by type.
-    class FilteredAssemblies < Rectify::Query
+    class FilteredAssemblies < Decidim::Query
       def initialize(filter)
         @filter = filter
       end

@@ -2,7 +2,7 @@
 
 module Decidim
   # A command that will act as a search service, with all the business logic for performing searches.
-  class Search < Rectify::Command
+  class Search < Decidim::Command
     ACCEPTED_FILTERS = [:decidim_scope_id_eq].freeze
     HIGHLIGHTED_RESULTS_COUNT = 4
 
