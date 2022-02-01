@@ -100,9 +100,6 @@ es:
       x_minutes:
         one: hace 1 minuto
         other: "hace %{count} minutos"
-      x_seconds:
-        one: hace 1 segundo
-        other: "hace %{count} segundos"
   decidim:
     accessibility:
       external_link: Enlace externo
