@@ -267,6 +267,8 @@ The next tables show all the default Env Vars available when running a default D
 
 |DECIDIM_AVAILABLE_LOCALES
 |a list of, coma separated, locales that will be available for each organization configured in the System configuration. Check for the https://github.com/decidim/decidim/blob/3d4ec74bdce406e2ee6934b830d3c06398ab72c0/decidim-core/lib/decidim/core.rb#L166[Supported values] in ISO639 format.
+
+*Be careful while setting up this value, you can easily shoot yourself in the food as Decidim will crash if one of the languages is not supported*
 |ca, cs, de, en, es, eu, fi, fr, it, ja, nl, pl, pt, ro
 |*Partially*, Only when creating a new organization the admin needs to choose between these values
 

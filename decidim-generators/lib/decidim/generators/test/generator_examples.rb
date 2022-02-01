@@ -94,11 +94,9 @@ shared_examples_for "an application with configurable env vars" do
       "MAPS_API_KEY" => "0",
       "ETHERPAD_SERVER" => "No",
       "ETHERPAD_API_KEY" => "false",
-      "DECIDIM_APPLICATION_NAME" => "FALSE",
-      "DECIDIM_MAILER_SENDER" => "NO",
       "DECIDIM_AVAILABLE_LOCALES" => "false",
       "DECIDIM_DEFAULT_LOCALE" => "false",
-      "DECIDIM_ENABLE_HTML_HEADER_SNIPPETS" => "false",
+      "DECIDIM_ENABLE_HTML_HEADER_SNIPPETS" => "FalSe",
       "DECIDIM_CURRENCY_UNIT" => "false",
       "DECIDIM_IMAGE_UPLOADER_QUALITY" => "false",
       "DECIDIM_MAXIMUM_ATTACHMENT_SIZE" => "false",
@@ -108,9 +106,7 @@ shared_examples_for "an application with configurable env vars" do
       "DECIDIM_THROTTLING_PERIOD" => "false",
       "DECIDIM_UNCONFIRMED_ACCESS_FOR" => "false",
       "DECIDIM_SYSTEM_ACCESSLIST_IPS" => "false",
-      "DECIDIM_BASE_UPLOADS_PATH" => "false",
-      "DECIDIM_DEFAULT_CSV_COL_SEP" => "false",
-      "DECIDIM_CORS_ENABLED" => "false"
+      "DECIDIM_CORS_ENABLED" => "falsE"
     }
   end
 
@@ -128,7 +124,7 @@ shared_examples_for "an application with configurable env vars" do
       "SMTP_PASSWORD" => "a-smtp-password",
       "SMTP_ADDRESS" => "a-smtp-address",
       "SMTP_DOMAIN" => "a-smtp-domain",
-      "SMTP_PORT" => "a-smtp-port",
+      "SMTP_PORT" => "12345",
       "SMTP_STARTTLS_AUTO" => "a-smtp-starttls-auto",
       "SMTP_AUTHENTICATION" => "a-smtp-authentication",
       "BULLETIN_BOARD_SERVER" => "a-bulletin-board-server",
@@ -137,8 +133,8 @@ shared_examples_for "an application with configurable env vars" do
       "AUTHORITY_NAME" => "an-authority-name",
       "AUTHORITY_PRIVATE_KEY" => "an-authority-private-key",
       "ELECTIONS_SCHEME_NAME" => "an-elections-scheme-name",
-      "ELECTIONS_NUMBER_OF_TRUSTEES" => "an-elections-number-of-trustees",
-      "ELECTIONS_QUORUM" => "an-elections-quorum",
+      "ELECTIONS_NUMBER_OF_TRUSTEES" => "345",
+      "ELECTIONS_QUORUM" => "987",
       "DECIDIM_APPLICATION_NAME" => "\"A test\" {application}",
       "DECIDIM_MAILER_SENDER" => "noreply@example.org",
       "DECIDIM_AVAILABLE_LOCALES" => "de, fr, zh-CN",
@@ -269,8 +265,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(smtp_password) => "a-smtp-password",
       %w(smtp_address) => "a-smtp-address",
       %w(smtp_domain) => "a-smtp-domain",
-      %w(smtp_port) => "a-smtp-port",
-      %w(smtp_starttls_auto) => "a-smtp-starttls-auto",
+      %w(smtp_port) => 12_345,
+      %w(smtp_starttls_auto) => true,
       %w(smtp_authentication) => "a-smtp-authentication",
       %w(elections bulletin_board_server) => "a-bulletin-board-server",
       %w(elections bulletin_board_public_key) => "a-bulletin-public-key",
@@ -278,8 +274,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(elections authority_name) => "an-authority-name",
       %w(elections authority_private_key) => "an-authority-private-key",
       %w(elections scheme_name) => "an-elections-scheme-name",
-      %w(elections number_of_trustees) => "an-elections-number-of-trustees",
-      %w(elections quorum) => "an-elections-quorum",
+      %w(elections number_of_trustees) => 345,
+      %w(elections quorum) => 987,
       %w(decidim application_name) => "\"A test\" {application}",
       %w(decidim mailer_sender) => "noreply@example.org",
       %w(decidim available_locales) => %w(de fr zh-CN),
@@ -484,61 +480,61 @@ shared_examples_for "an application with configurable env vars" do
     json_off = json_secrets_for(test_app, env_off)
     secrets_off.each do |keys, value|
       current = json_off.dig(*keys)
-      expect(current).to eq(value), "Secret #{keys} = (#{current}) expected to match Env OFF (#{value})"
+      expect(current).to eq(value), "Secret #{keys} = (#{current}) expected to match Env:OFF (#{value})"
     end
 
     # Test onto the secret generated when ENV vars are set
     json_on = json_secrets_for(test_app, env_on)
     secrets_on.each do |keys, value|
       current = json_on.dig(*keys)
-      expect(current).to eq(value), "Secret #{keys} = (#{current}) expected to match Env ON (#{value})"
+      expect(current).to eq(value), "Secret #{keys} = (#{current}) expected to match Env:ON (#{value})"
     end
 
     # Test onto the initializer when ENV vars are empty strings or undefined
     json_off = initializer_config_for(test_app, env_off)
     initializer_off.each do |key, value|
       current = json_off[key]
-      expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env OFF (#{value})"
+      expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env:OFF (#{value})"
     end
 
     # Test onto the initializer when ENV vars are set to the string "false"
     json_false = initializer_config_for(test_app, env_false)
     initializer_off.each do |key, value|
       current = json_false[key]
-      expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env FALSE (#{value})"
+      expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env:FALSE (#{value})"
     end
 
     # Test onto the initializer when ENV vars are set
     json_on = initializer_config_for(test_app, env_on)
     initializer_on.each do |key, value|
       current = json_on[key]
-      expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env ON (#{value})"
+      expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env:ON (#{value})"
     end
 
     # Test onto the initializer when ENV vars are set to OpenstreetMap configuration
     json_on = initializer_config_for(test_app, env_maps_osm)
     initializer_maps_osm.each do |key, value|
       current = json_on[key]
-      expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env Maps OSM (#{value})"
+      expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env:Maps OSM (#{value})"
     end
 
     # Test onto the initializer when ENV vars are set to OpenstreetMap-HERE mix configuration
     json_on = initializer_config_for(test_app, env_maps_mix)
     initializer_maps_mix.each do |key, value|
       current = json_on[key]
-      expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env Maps MIX (#{value})"
+      expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env:Maps MIX (#{value})"
     end
 
     # Test onto some extra Rails confing when ENV vars are empty or undefined
     rails_off.each do |key, value|
       current = rails_value(key, test_app, env_off)
-      expect(current).to eq(value), "Rails config (#{key}) = (#{current}) expected to match Env OFF (#{value})"
+      expect(current).to eq(value), "Rails config (#{key}) = (#{current}) expected to match Env:OFF (#{value})"
     end
 
     # Test onto some extra Rails confing when ENV vars are set
     rails_on.each do |key, value|
       current = rails_value(key, test_app, env_on)
-      expect(current).to eq(value), "Rails config (#{key}) = (#{current}) expected to match Env ON (#{value})"
+      expect(current).to eq(value), "Rails config (#{key}) = (#{current}) expected to match Env:ON (#{value})"
     end
   end
 end

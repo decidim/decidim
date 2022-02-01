@@ -70,7 +70,7 @@ module Decidim
                                desc: "Doesn't force to use ssl"
 
       class_option :locales, type: :string,
-                             default: "false",
+                             default: "",
                              desc: "Force the available locales to the ones specified. Separate with comas"
 
       class_option :skip_webpack_install, type: :boolean,
@@ -167,7 +167,7 @@ module Decidim
                   "config.log_level = %w(debug info warn error fatal).include?(ENV['RAILS_LOG_LEVEL']) ? ENV['RAILS_LOG_LEVEL'] : :debug"
 
         gsub_file "config/environments/production.rb",
-                  %r{# config.action_controller.asset_host = 'http://assets.example.org'},
+                  %r{# config.action_controller.asset_host = 'http://assets.example.com'},
                   "config.action_controller.asset_host = ENV['RAILS_ASSET_HOST'] if ENV['RAILS_ASSET_HOST'].present?"
 
         if options[:force_ssl] == "false"

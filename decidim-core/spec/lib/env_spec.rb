@@ -21,6 +21,7 @@ module Decidim
       it "returns nil" do
         expect(subject.value).to eq(nil)
         expect(subject.to_s).to eq("")
+        expect(subject.to_i).to eq(0)
         expect(subject.to_json).to eq("null")
         expect(subject.blank?).to eq(true)
         expect(subject.present?).to eq(false)
@@ -33,6 +34,7 @@ module Decidim
         it "returns the default" do
           expect(subject.value).to eq(42)
           expect(subject.to_s).to eq("42")
+          expect(subject.to_i).to eq(42)
           expect(subject.to_json).to eq("42")
           expect(subject.blank?).to eq(false)
           expect(subject.present?).to eq(true)
@@ -47,6 +49,7 @@ module Decidim
         expect(subject.value).to eq(value)
         expect(subject.to_s).not_to eq("")
         expect(subject.to_s).to eq(value.to_s)
+        expect(subject.to_i).to eq(value.to_s.to_i)
         expect(subject.to_json).not_to eq("null")
         expect(subject.to_json).to eq(value.to_json)
         expect(subject.present?).to eq(true)
@@ -60,6 +63,7 @@ module Decidim
         it "returns the default" do
           expect(subject.value).not_to eq(42)
           expect(subject.value).to eq(value)
+          expect(subject.to_i).to eq(value.to_s.to_i)
           expect(subject.to_array).to eq([value.to_s])
         end
       end
@@ -69,10 +73,10 @@ module Decidim
       it "returns false" do
         expect(subject.value).to eq(value)
         expect(subject.to_s).to eq(value)
+        expect(subject.to_i).to eq(0)
         expect(subject.to_json).to eq(value.to_json)
         expect(subject.blank?).to eq(true)
         expect(subject.present?).to eq(false)
-        expect(subject.to_array).to eq([value.to_s])
       end
 
       context "and has a default" do
@@ -82,9 +86,12 @@ module Decidim
           expect(subject.value).to eq(value)
           expect(subject.to_s).to eq(value)
           expect(subject.to_json).to eq(value.to_json)
+        end
+
+        it "the default is applied" do
+          expect(subject.to_i).to eq(42)
           expect(subject.blank?).to eq(true)
           expect(subject.present?).to eq(false)
-          expect(subject.to_array).to eq([value.to_s])
         end
       end
     end
@@ -113,6 +120,20 @@ module Decidim
 
         it "behaves as present" do
           expect(subject.default_or_present_if_exists).to eq(default)
+        end
+      end
+    end
+
+    shared_examples "empty array or default" do
+      it "returns empty array" do
+        expect(subject.to_array).to eq([])
+      end
+
+      context "and has a default" do
+        let(:default) { "en,ca" }
+
+        it "returns default as array" do
+          expect(subject.to_array).to eq(%w(en ca))
         end
       end
     end
@@ -181,6 +202,12 @@ module Decidim
         it "can convert to array" do
           expect(subject.to_array(separator: ", ")).to eq(["en,es", "fr", "ca"])
         end
+      end
+
+      context "and value is falsey" do
+        let(:value) { "False" }
+
+        it_behaves_like "empty array or default"
       end
     end
   end

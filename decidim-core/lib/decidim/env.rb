@@ -28,6 +28,15 @@ module Decidim
     end
     # rubocop:enable Rails/Present
 
+    def to_boolean_string
+      present?.to_s
+    end
+
+    def to_i
+      str = blank? ? @default : value
+      str.to_s.to_i
+    end
+
     def default_or_present_if_exists
       return @default unless ENV.has_key?(@name)
 
@@ -35,7 +44,8 @@ module Decidim
     end
 
     def to_array(separator: ",")
-      value.to_s.split(separator).map(&:strip)
+      str = blank? ? @default : value
+      str.to_s.split(separator).map(&:strip)
     end
   end
 end
