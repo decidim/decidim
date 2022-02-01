@@ -9,7 +9,7 @@ const shouldPrompt = () => deferredPrompt && userChoice !== "dismissed" && visit
 window.addEventListener("beforeinstallprompt", (event) => {
   deferredPrompt = event
 
-  // allow the user browse through different locations before prompt him anything
+  // allow the user browse through different locations before prompt them anything
   if (shouldCountVisitedPages()) {
     sessionStorage.setItem("visitedPages", JSON.stringify([...visitedPages, location.pathname]))
   }
