@@ -304,7 +304,7 @@ ro:
             update: Actualizare
           form:
             address_help: 'Adresă: utilizată de Geocoder pentru a găsi locaţia'
-            available_slots_help: Lăsați la 0 dacă aveți locuri nelimitate disponibile
+            available_slots_help: Lasă această opțiune la 0 dacă ai sloturi disponibile nelimitate
             disclaimer: 'Declinare: Prin utilizarea unui sistem extern de înregistrare, acceptați faptul că organizatorii %{organization} nu sunt responsabili pentru datele furnizate de utilizatorii serviciului extern.'
             location_help: 'Locație: mesaj direcționat către utilizatori care implică locul la care să se întâlnească'
             location_hints_help: 'Sugestii privind locaţia: informaţii suplimentare. Exemplu: parterul clădirii dacă este o întâlnire în personaă, sau parola pentru intrare dacă este vorba de o întâlnire online cu acces restrâns.'
