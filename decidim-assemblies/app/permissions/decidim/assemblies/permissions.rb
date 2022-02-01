@@ -71,6 +71,19 @@ module Decidim
         user.admin? || (assembly ? can_manage_assembly?(role: :admin) : has_manageable_assemblies?)
       end
 
+      def admin_assembly?
+        case user_role
+        when "admin"
+          true
+        when "moderator"
+          false
+        when "collaborator"
+          false
+        when "valuator"
+          false
+        end
+      end
+
       # Checks if it has any manageable assembly, with any possible role.
       def has_manageable_assemblies?(role: :any)
         return unless user
@@ -151,12 +164,12 @@ module Decidim
         allow! if user.admin? || has_manageable_assemblies?
       end
 
-      # Only organization admins can create a assembly
+      # Only organization admins and assemblies admins can create a assembly
       def user_can_create_assembly?
         return unless permission_action.action == :create &&
                       permission_action.subject == :assembly
 
-        toggle_allow(user.admin?)
+        toggle_allow(user.admin? || admin_assembly?)
       end
 
       def user_can_read_assemblies_setting?
@@ -185,10 +198,11 @@ module Decidim
       end
 
       def allowed_list_of_assemblies?
-        assemblies = AssembliesWithUserRole.for(user)
+        assemblies = AssembliesWithUserRole.for(user, user_role)
         parent_assemblies = assemblies.flat_map { |assembly| [assembly.id] + assembly.ancestors.pluck(:id) }
+        child_assemblies = assemblies.flat_map { |assembly| [assembly.id] + assembly.children.pluck(:id) }
 
-        allowed_list_of_assemblies = Decidim::Assembly.where(id: assemblies + parent_assemblies)
+        allowed_list_of_assemblies = Decidim::Assembly.where(id: assemblies + parent_assemblies + child_assemblies)
         allowed_list_of_assemblies.uniq.member?(assembly)
       end
 
@@ -223,13 +237,10 @@ module Decidim
       end
 
       # Process admins can perform everything *inside* that assembly. They cannot
-      # create a assembly or perform actions on assembly groups or other
-      # assemblies.
+      # perform actions on assembly groups or other assemblies.
       def assembly_admin_action?
         return unless can_manage_assembly?(role: :admin)
         return if user.admin?
-        return disallow! if permission_action.action == :create &&
-                            permission_action.subject == :assembly
 
         is_allowed = [
           :attachment,
@@ -278,6 +289,10 @@ module Decidim
 
       def assembly
         @assembly ||= context.fetch(:current_participatory_space, nil) || context.fetch(:assembly, nil)
+      end
+
+      def user_role
+        Decidim::AssemblyUserRole.find_by(decidim_user_id: user.id).role
       end
     end
   end

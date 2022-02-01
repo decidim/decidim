@@ -272,7 +272,7 @@ describe Decidim::Assemblies::Permissions do
     it_behaves_like(
       "access for roles",
       org_admin: true,
-      admin: false,
+      admin: true,
       collaborator: false,
       moderator: false,
       valuator: false
@@ -363,7 +363,7 @@ describe Decidim::Assemblies::Permissions do
           { scope: :admin, action: :create, subject: :assembly }
         end
 
-        it { is_expected.to eq false }
+        it { is_expected.to eq true }
       end
 
       shared_examples "allows any action on subject" do |action_subject|
@@ -526,7 +526,7 @@ describe Decidim::Assemblies::Permissions do
           { scope: :admin, action: :list, subject: :assembly }
         end
 
-        it { is_expected.to eq(false) }
+        it { is_expected.to eq(true) }
       end
     end
   end
