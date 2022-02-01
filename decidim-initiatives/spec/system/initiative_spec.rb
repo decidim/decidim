@@ -4,8 +4,9 @@ require "spec_helper"
 
 describe "Initiative", type: :system do
   let(:organization) { create(:organization) }
+  let(:state) { :published }
   let(:base_initiative) do
-    create(:initiative, organization: organization)
+    create(:initiative, organization: organization, state: state)
   end
 
   before do
@@ -43,9 +44,32 @@ describe "Initiative", type: :system do
         end
       end
 
+      it "shows signatures when published" do
+        expect(page).to have_css(".progress__bar__number")
+        expect(page).to have_css(".progress__bar__text")
+      end
+
       it "shows the author name once in the authors list" do
         within ".initiative-authors" do
           expect(page).to have_content(initiative.author_name, count: 1)
+        end
+      end
+
+      context "when initiative state is rejected" do
+        let(:state) { :rejected }
+
+        it "shows signatures" do
+          expect(page).to have_css(".progress__bar__number")
+          expect(page).to have_css(".progress__bar__text")
+        end
+      end
+
+      context "when initiative state is accepted" do
+        let(:state) { :accepted }
+
+        it "shows signatures" do
+          expect(page).to have_css(".progress__bar__number")
+          expect(page).to have_css(".progress__bar__text")
         end
       end
 
