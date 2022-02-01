@@ -34,7 +34,7 @@ namespace :decidim do
       "--force_ssl",
       "false",
       "--locales",
-      "en,es,ca"
+      "en,ca,es"
     )
   end
 
@@ -52,7 +52,7 @@ namespace :decidim do
         "--demo",
         "--profiling",
         "--locales",
-        "en,es,ca"
+        "en,ca,es"
       )
     end
   end
