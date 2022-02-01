@@ -348,7 +348,9 @@ ja:
         end_date: 終了
         footer:
           remaining_time:
+            one: "投票期間は残り <strong>%{count} 時間 %{minutes} 分</strong> です。"
             other: "投票期間は残り <strong>%{count} 時間 %{minutes} 分</strong> です。"
+            zero: "投票期間は残り <strong>%{minutes} 分</strong> です。"
           view: 表示
           vote: 投票
         label:
@@ -427,7 +429,9 @@ ja:
           selected: 選択済
           title: 選挙結果
           votes:
+            one: "%{count} 票"
             other: "%{count} 票"
+            zero: "%{count} 票"
         show:
           action_button:
             change_vote: 投票の変更
