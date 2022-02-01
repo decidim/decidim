@@ -147,8 +147,9 @@ gl:
           upcoming: Vindeiras
         footer:
           remaining_time:
-            one: "<strong>%{count} hora %{minutes} minutos</strong> para votar."
-            other: "<strong>%{count} horas %{minutes} minutos</strong> para votar."
+            one: "Falta <strong>%{count} hora %{minutes} minutos</strong> para votar."
+            other: "Faltan <strong>%{count} horas %{minutes} minutos</strong> para votar."
+            zero: "Faltan <strong>%{minutes} minutos</strong> para votar."
           view: Ver
           vote: Votar
         label:
@@ -188,6 +189,10 @@ gl:
           description: 'Estes son os resultados da votación, para cada pregunta:'
           percentage: "%{count}%"
           selected: Seleccionado
+          votes:
+            one: "%{count} voto"
+            other: "%{count} votos"
+            zero: "%{count} votos"
         show:
           action_button:
             change_vote: Troca o teu voto
