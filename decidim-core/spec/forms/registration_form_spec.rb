@@ -59,6 +59,12 @@ module Decidim
       it { is_expected.to be_invalid }
     end
 
+    context "when the nickname is not in lowercase" do
+      let(:nickname) { "FegjF" }
+
+      it { is_expected.to be_invalid }
+    end
+
     context "when the email is not present" do
       let(:email) { nil }
 
