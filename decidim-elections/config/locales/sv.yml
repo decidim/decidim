@@ -241,9 +241,6 @@ sv:
           unfold: Veckla ut
         results:
           selected: Valda
-          votes:
-            one: "%{count} röst"
-            other: "%{count} röster"
         show:
           action_button:
             vote: Starta omröstningen
