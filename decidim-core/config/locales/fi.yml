@@ -100,9 +100,6 @@ fi:
       x_minutes:
         one: minuutti sitten
         other: "%{count} minuuttia sitten"
-      x_seconds:
-        one: sekunti sitten
-        other: "%{count} sekuntia sitten"
   decidim:
     accessibility:
       external_link: Ulkoinen linkki
