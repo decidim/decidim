@@ -101,6 +101,11 @@ ga:
         filters_small_view:
           filter: Scag
           unfold: Oscail
+        results:
+          votes:
+            one: "%{count} vóta"
+            other: "%{count} vótaí"
+            zero: "%{count} vótaí"
         show:
           action_button:
             change_vote: Athraigh do vóta
