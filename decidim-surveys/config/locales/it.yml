@@ -23,8 +23,8 @@ it:
             clean_after_publish: Eliminare le risposte quando si pubblica il sondaggio
             ends_at: Risposte accettate fino al
             ends_at_help: Lascia vuoto se nessuna data è specificata
-            scope_id: Ambito
-            scopes_enabled: Ambiti abilitati
+            scope_id: Obiettivo
+            scopes_enabled: Obiettivi abilitati
             starts_at: Risposte accettate da
             starts_at_help: Lascia vuoto se nessuna data è specificata
           step:
