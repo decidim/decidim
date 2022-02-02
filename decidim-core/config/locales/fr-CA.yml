@@ -100,6 +100,10 @@ fr-CA:
       x_minutes:
         one: Il y a 1 min
         other: "Il y a %{count} min"
+      x_seconds:
+        one: Il y a 1 seconde
+        other: "Il y a %{count} secondes"
+        zero: à l’instant
   decidim:
     accessibility:
       external_link: Lien externe
