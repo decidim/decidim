@@ -73,6 +73,12 @@ eu:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      x_seconds:
+        one: Orain dela segundu 1
+        other: "Orain dela %{count} segundu"
+        zero: orain
   decidim:
     accessibility:
       external_link: Kanpoko lotura
