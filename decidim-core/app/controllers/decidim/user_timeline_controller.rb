@@ -17,10 +17,14 @@ module Decidim
 
     private
 
+    #alias :user :current_user
+
     def user
+      return nil unless params[:nickname]
+
       @user ||= Decidim::User.find_by(
         organization: current_organization,
-        nickname: params[:nickname]
+        nickname: params[:nickname].downcase
       )
     end
 
