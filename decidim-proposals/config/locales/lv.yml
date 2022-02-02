@@ -497,7 +497,6 @@ lv:
           all: Visi
         filter_origin_values:
           all: Visi
-          citizens: Pilsoņi
           meetings: Sanāksmes
           official: Oficiālā
           user_groups: Grupas
