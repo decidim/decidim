@@ -282,6 +282,9 @@ es-MX:
           edit:
             close: Cerrar
             title: Cerrar encuentro
+        meeting_copies:
+          form:
+            select_a_meeting_type: Por favor, selecciona un tipo de encuentro
         meetings:
           close:
             invalid: Ha habido un problema al cerrar este encuentro

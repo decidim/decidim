@@ -59,6 +59,10 @@ es-MX:
       read_more: Leer más
     components:
       blogs:
+        actions:
+          create: Crear
+          destroy: Borrar
+          update: Actualizar
         name: Blog
         settings:
           global:

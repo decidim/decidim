@@ -35,7 +35,7 @@ fr:
         origin_component_id: Fonctionnalité dont on veut copier les propositions
       proposals_import:
         import_proposals: Importer des propositions
-        keep_answers: Garder l'état et les réponses
+        keep_answers: Conserver l'état et les réponses aux propositions
         keep_authors: Gardez les auteurs originaux
       valuation_assignment:
         admin_log:
@@ -116,7 +116,7 @@ fr:
       proposals:
         actions:
           amend: Amender
-          comment: Commentaire
+          comment: Commenter
           create: Créer
           endorse: Soutenir
           vote: Voter
@@ -670,7 +670,7 @@ fr:
         success: Le brouillon de la proposition a bien été supprimé.
       last_activity:
         new_proposal_at_html: "<span>Nouvelle proposition à %{link}</span>"
-        proposal_updated_at_html: "<span>Débat mis à jour à %{link}</span>"
+        proposal_updated_at_html: "<span>Proposition mise à jour à %{link}</span>"
       models:
         collaborative_draft:
           fields:

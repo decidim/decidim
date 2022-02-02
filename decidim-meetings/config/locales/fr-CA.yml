@@ -182,6 +182,9 @@ fr-CA:
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Vous pouvez arrêter de la suivre à partir du lien précédent.
           email_subject: La rencontre "%{resource_title}" commencera dans moins de 48h.
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
+    forms:
+      meetings:
+        attendees_count_help_text: N’oubliez pas d’inclure le nombre total de participants à votre événement, que ce soit en présentiel, en ligne ou en hybride.
     gamification:
       badges:
         attended_meetings:
@@ -621,6 +624,8 @@ fr-CA:
       proposals_from_meeting:
         meeting_proposal: 'Propositions créées lors de cette rencontre :'
         proposal_meeting: 'Rencontres associées :'
+    statistics:
+      meetings_count: Rencontres
   devise:
     mailer:
       join_meeting:

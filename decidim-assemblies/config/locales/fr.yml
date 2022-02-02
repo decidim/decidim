@@ -52,7 +52,7 @@ fr:
         target: Participants
         title: Titre
         twitter: Twitter
-        weight: Rang
+        weight: Rang d'affichage
         youtube: Youtube
       assembly_member:
         birthday: Date de naissance
@@ -63,7 +63,7 @@ fr:
         full_name: Nom et prénom
         gender: Genre
         position: Statut
-        user_id: Utilisateur
+        user_id: Utilisateur ou groupe
       assembly_user_role:
         email: E-mail
         name: "Nom\n"

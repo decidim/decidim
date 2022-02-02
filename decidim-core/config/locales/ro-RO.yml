@@ -982,6 +982,7 @@ ro:
         show:
           back: Înapoi la toate conversațiile
           chat_with: Conversație cu
+          deleted_accounts: Nu poți avea o conversație cu conturi șterse.
           not_allowed: Acest participant nu acceptă mesaje directe.
           title: Conversație cu %{usernames}
         start:
@@ -1347,6 +1348,7 @@ ro:
         title_reply: Răspuns
       show:
         back: Arată toate conversațiile
+        deleted_accounts: Nu poți avea o conversație cu conturi șterse.
         not_allowed: Acest utilizator nu mai acceptă mesaje directe.
         title: Conversație cu %{usernames}
       update:

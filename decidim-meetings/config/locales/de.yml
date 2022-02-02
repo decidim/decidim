@@ -69,6 +69,25 @@ de:
         other: Anmeldungen
   decidim:
     admin:
+      filters:
+        meetings:
+          is_upcoming_true:
+            label: Datum
+            values:
+              'false': Vergangenheit
+              'true': Anstehend
+          origin_eq:
+            label: Ursprung
+            values:
+              official: Offiziell
+              user_group: Benutzergruppen
+          scope_id_eq:
+            label: Umfang
+          type_eq:
+            label: Art des Treffens
+            values:
+              hybrid: Beides
+              in_person: Persönlich
       meeting_copies:
         create:
           error: Es gab einen Fehler beim Duplizieren dieses Meetings.
@@ -353,6 +372,11 @@ de:
       last_activity:
         meeting_updated_at_html: "<span>Besprechung aktualisiert unter %{link}</span>"
         new_meeting_at_html: "<span>Neues Treffen um %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Administrativ
+          close: Schließen
+          questions: Fragen
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -368,6 +392,11 @@ de:
           close: Sitzung beenden
           title: Sitzung beenden
       meetings:
+        calendar_modal:
+          add_to_calendar: Zum Kalender hinzufügen
+          apple: Zu Apple Kalender hinzufügen
+          close_window: Fenster schließen
+          full_details_html: Für alle Details gehen Sie zu %{link}
         count:
           meetings_count:
             one: "%{count} Besprechung"
@@ -480,6 +509,11 @@ de:
             official_meeting: Offizielle Besprechung
             start_time: Anfangsdatum
             title: Titel
+      polls:
+        questions:
+          published_question:
+            question: Frage
+            question_replied: Frage beantwortet
       read_more: "(Weiterlesen)"
       registration_mailer:
         confirmation:

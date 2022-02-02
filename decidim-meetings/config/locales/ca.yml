@@ -282,6 +282,9 @@ ca:
           edit:
             close: Tancar
             title: Tancar trobada
+        meeting_copies:
+          form:
+            select_a_meeting_type: Si us plau, selecciona un tipus de trobada
         meetings:
           close:
             invalid: S'ha produït un error en tancar aquesta trobada
@@ -300,7 +303,7 @@ ca:
             update: Actualitzar
           form:
             address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
-            available_slots_help: Deixeu-ho a 0 si les places disponibles són il·limitades
+            available_slots_help: Deixa-ho a 0 si les places disponibles són il·limitades
             disclaimer: 'Descàrrec de responsabilitat: en utilitzar un sistema d''inscripcions extern, ets conscient que els organitzadors de %{organization} no són responsables de les dades proporcionades per les usuàries al servei extern.'
             location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
             location_hints_help: 'Detalls d''ubicació: informació addicional. Exemple: la planta de l''edifici si es tracta d''una reunió presencial, o la contrasenya de la reunió si es tracta d''una reunió en línia amb accés restringit.'
@@ -513,7 +516,7 @@ ca:
           meeting_minutes: Acta de la trobada
           micro_camera_permissions_warning: Quan facis clic en el botó de sota, se't demanaran permisos per al micròfon i/o la càmera, i t'uniràs a la videoconferència
           no_slots_available: No hi ha places disponible
-          organizations: Organitzacions que han assistit
+          organizations: Organitzacions assistents
           registration_code_help_text: El teu codi de registre
           registration_state:
             validated: VALIDAT
@@ -569,7 +572,7 @@ ca:
             question_replied: Pregunta contestada
             reply_question: Contestar a la pregunta
       public_participants_list:
-        attending_participants: Participants que han assistit
+        attending_participants: Participants assistents
         hidden_participants_count:
           one: i %{count} persona més
           other: i %{count} persones més

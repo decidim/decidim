@@ -1,1 +1,13 @@
 ar:
+  decidim:
+    elections:
+      trustee_zone:
+        trustees:
+          show:
+            identification_keys:
+              cancel: إلغاء
+    votings:
+      polling_officer_zone:
+        closures:
+          sign:
+            cancel: إلغاء
