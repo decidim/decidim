@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     # A command with all the business logic when a user withdraws a collaborative_draft.
-    class WithdrawCollaborativeDraft < Rectify::Command
+    class WithdrawCollaborativeDraft < Decidim::Command
       # Public: Initializes the command.
       #
       # collaborative_draft     - The collaborative_draft to withdraw.

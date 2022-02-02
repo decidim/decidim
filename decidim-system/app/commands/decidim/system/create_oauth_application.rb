@@ -3,7 +3,7 @@
 module Decidim
   module System
     # Creates an OAuthApplication.
-    class CreateOAuthApplication < Rectify::Command
+    class CreateOAuthApplication < Decidim::Command
       # Initializes the command.
       #
       # form - The source fo data for this OAuthApplication.

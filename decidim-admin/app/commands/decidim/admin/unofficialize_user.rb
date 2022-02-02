@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A command with all the business logic when unofficializing a user.
-    class UnofficializeUser < Rectify::Command
+    class UnofficializeUser < Decidim::Command
       # Public: Initializes the command.
       #
       # user - The user to be unofficialized.

@@ -3,7 +3,7 @@
 module Decidim
   module UserGroups
     # Use this class to find the invitations to user groups the given user has.
-    class InvitedMemberships < Rectify::Query
+    class InvitedMemberships < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # user - a User that needs to find which groups they have been invited to

@@ -4,7 +4,7 @@ module Decidim
   module Votings
     module Admin
       # This command gets called when a voting is published from the admin panel.
-      class PublishVoting < Rectify::Command
+      class PublishVoting < Decidim::Command
         # Public: Initializes the command.
         #
         # voting - The voting to publish.

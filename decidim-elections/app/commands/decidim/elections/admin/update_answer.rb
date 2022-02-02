@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user updates an Answer
       # from the admin panel.
-      class UpdateAnswer < Rectify::Command
+      class UpdateAnswer < Decidim::Command
         include ::Decidim::AttachmentMethods
         include ::Decidim::GalleryMethods
 

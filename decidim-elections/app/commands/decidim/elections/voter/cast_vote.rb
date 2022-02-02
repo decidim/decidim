@@ -4,7 +4,7 @@ module Decidim
   module Elections
     module Voter
       # This command allows the user to store and cast their vote.
-      class CastVote < Rectify::Command
+      class CastVote < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form with necessary info to cast a vote.

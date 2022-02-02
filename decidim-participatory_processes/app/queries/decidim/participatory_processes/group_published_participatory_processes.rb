@@ -3,14 +3,14 @@
 module Decidim
   module ParticipatoryProcesses
     # This query class filters published processes of a participatory process group
-    class GroupPublishedParticipatoryProcesses < Rectify::Query
+    class GroupPublishedParticipatoryProcesses < Decidim::Query
       def initialize(group, user = nil)
         @group = group
         @user = user
       end
 
       def query
-        Rectify::Query.merge(
+        Decidim::Query.merge(
           GroupParticipatoryProcesses.new(@group),
           VisibleParticipatoryProcesses.new(@user),
           PublishedParticipatoryProcesses.new

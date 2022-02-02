@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # This command gets called when a component is published from the admin panel.
-    class PublishComponent < Rectify::Command
+    class PublishComponent < Decidim::Command
       # Public: Initializes the command.
       #
       # component - The component to publish.

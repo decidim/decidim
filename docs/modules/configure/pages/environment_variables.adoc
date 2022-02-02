@@ -492,6 +492,12 @@ Note that this only applies to production environments.
 |5
 |No
 
+|VAPID_PUBLIC_KEY
+|VAPID public key that will be used to sign the Push API requests. It can be generated runing the task: `rake decidim:generate_vapid_keys`
+
+|VAPID_PRIVATE_KEY
+|VAPID private key that will be used to sign the Push API requests. It can be generated runing the task: `rake decidim:generate_vapid_keys`
+
 |===
 
 Please take care that all these configurations would be the defaults but *some of these could also be changed on a Multitenant's System configuration* (for instance SMTP or OAUTH providers).

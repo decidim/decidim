@@ -3,7 +3,7 @@
 module Decidim
   module Meetings
     # This command is executed when the user leaves a meeting.
-    class LeaveMeeting < Rectify::Command
+    class LeaveMeeting < Decidim::Command
       # Initializes a LeaveMeeting Command.
       #
       # meeting - The current instance of the meeting to be left.

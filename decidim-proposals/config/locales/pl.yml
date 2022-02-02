@@ -548,7 +548,6 @@ pl:
           all: Wszystko
         filter_origin_values:
           all: Wszystko
-          citizens: Obywatele
           meetings: Spotkania
           official: Urzędnik
           user_groups: Grupy użytkowników

@@ -3,7 +3,7 @@
 module Decidim
   module Comments
     # A command with all the business logic to update an existing comment
-    class UpdateComment < Rectify::Command
+    class UpdateComment < Decidim::Command
       # Public: Initializes the command.
       #
       # comment - Decidim::Comments::Comment

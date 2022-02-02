@@ -3,7 +3,7 @@
 module Decidim
   module Assemblies
     # This query filters published assemblies only.
-    class PublishedAssemblies < Rectify::Query
+    class PublishedAssemblies < Decidim::Query
       def query
         Decidim::Assembly.published
       end

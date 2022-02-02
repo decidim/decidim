@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user destroys a polling station
       # from the admin panel.
-      class DestroyPollingStation < Rectify::Command
+      class DestroyPollingStation < Decidim::Command
         def initialize(polling_station, current_user)
           @polling_station = polling_station
           @current_user = current_user

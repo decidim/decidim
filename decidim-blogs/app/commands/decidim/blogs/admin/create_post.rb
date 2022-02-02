@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user creates a Post from the admin
       # panel.
-      class CreatePost < Rectify::Command
+      class CreatePost < Decidim::Command
         def initialize(form, current_user)
           @form = form
           @current_user = current_user
