@@ -32,6 +32,7 @@ module Decidim
       return unless recipient
 
       notification.save!
+      SendPushNotification.new.perform(notification)
     end
 
     private

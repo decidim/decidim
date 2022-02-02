@@ -24,6 +24,36 @@ self.__WB_DISABLE_DEV_LOGS = true
 // eslint-disable-next-line no-unused-vars
 const dummy = self.__WB_MANIFEST;
 
+self.addEventListener("push", (event) => {
+  let title = event.data.json().title;
+  let body = event.data.json().body;
+  let icon = event.data.json().icon;
+  let url = event.data.json().url;
+  let tag = "new-notification-tag";
+
+  event.waitUntil(
+    self.registration.showNotification(title, {body: body, icon: icon, tag: tag, data: { url: url }})
+  )
+});
+
+self.addEventListener("notificationclick", function(event) {
+  event.notification.close();
+
+  // This looks to see if the current is already open and
+  // focuses if it is
+  event.waitUntil(clients.matchAll({
+    type: "window"
+  }).then(function(clientList) {
+    for (let i = 0; i < clientList.length; i++) {
+      let client = clientList[i];
+      if (client.url === "/" && "focus" in client)
+      {return client.focus();}
+    }
+    if (clients.openWindow)
+    {return clients.openWindow(event.notification.data.url);}
+  }));
+});
+
 // avoid caching admin or users paths
 registerRoute(
   ({ url }) => ["/admin/", "/users/"].some((path) => url.pathname.startsWith(path)),

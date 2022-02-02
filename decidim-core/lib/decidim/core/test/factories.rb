@@ -139,6 +139,7 @@ FactoryBot.define do
     accepted_tos_version { organization.tos_version }
     email_on_notification { true }
     email_on_moderations { true }
+    allow_push_notifications { false }
 
     trait :confirmed do
       confirmed_at { Time.current }
@@ -600,6 +601,13 @@ FactoryBot.define do
         some_extra_data: "1"
       }
     end
+  end
+
+  factory :notifications_subscription, class: "Decidim::NotificationsSubscription" do
+    user { build(:user) }
+    endpoint { Faker::Internet.url }
+    p256dh { Faker::Crypto.sha256 }
+    auth { Faker::Crypto.sha256 }
   end
 
   factory :action_log, class: "Decidim::ActionLog" do
