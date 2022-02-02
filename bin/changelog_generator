@@ -113,6 +113,10 @@ types = {
     label: "type: removal",
     skip_modules: false
   },
+  "Internal" => {
+    label: "type: internal",
+    skip_modules: true
+  },
   "Developer improvements" => {
     label: "target: developer-experience",
     skip_modules: true

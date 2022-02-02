@@ -2,6 +2,38 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+## [0.26.0.rc2](https://github.com/decidim/decidim/tree/v0.26.0.rc2)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-meetings**: Backport "Fix for preview unpublished meetings by admin user" to v0.26 [\#8724](https://github.com/decidim/decidim/pull/8724)
+- **decidim-comments**: Backport "Adds emojis when user edits a comment" to v0.26 [\#8743](https://github.com/decidim/decidim/pull/8743)
+- **decidim-core**: Backport "Properly mark sender and recipient in Conversation" to v0.26 [\#8746](https://github.com/decidim/decidim/pull/8746)
+- **decidim-participatory processes**: Backport "Fix order by weight in processes groups' processes content block" to v0.26 [\#8771](https://github.com/decidim/decidim/pull/8771)
+- **decidim-core**: Backport "Don't display blocked users in mentions" to v0.26 [\#8770](https://github.com/decidim/decidim/pull/8770)
+
+### Removed
+
+Nothing.
+
+### Internal
+
+- Backport "Revert the i18n-tasks initialization syntax" to v0.26 [\#8696](https://github.com/decidim/decidim/pull/8696)
+- Backport "Lock graphql version to 1.12 minor" to v0.26 [\#8695](https://github.com/decidim/decidim/pull/8695)
+- Disable codeclimate's stylelint [\#8711](https://github.com/decidim/decidim/pull/8711)
+
+### Developer improvements
+
+- Backport "Fix webpacker generator for modules" to v0.26 [\#8750](https://github.com/decidim/decidim/pull/8750)
+
 ## [0.26.0.rc1](https://github.com/decidim/decidim/tree/v0.26.0.rc1)
 
 ### Migration notes
