@@ -122,6 +122,10 @@ cs:
         few: "před %{count} minutami"
         many: "před %{count} minutami"
         other: "před %{count} minutami"
+      x_seconds:
+        one: před 1 vteřinou
+        other: "před %{count} vteřinami"
+        zero: právě teď
   decidim:
     accessibility:
       external_link: Externí odkaz
