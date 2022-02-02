@@ -286,8 +286,8 @@ module Decidim
         root = if options[:path]
                  expanded_path
                elsif branch.present?
-                # "https://raw.githubusercontent.com/decidim/decidim/#{branch}/decidim-generators"
-                # TODO: uncomment and remove this before mergin
+                 # "https://raw.githubusercontent.com/decidim/decidim/#{branch}/decidim-generators"
+                 # TODO: uncomment and remove this before mergin
                  "https://raw.githubusercontent.com/Platoniq/decidim/#{branch}/decidim-generators"
                else
                  root_path
