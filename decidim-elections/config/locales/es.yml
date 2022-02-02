@@ -356,8 +356,9 @@ es:
         end_date: Termina
         footer:
           remaining_time:
-            one: "<strong>%{count} hora %{minutes} minutos</strong> restantes para votar."
-            other: "<strong>%{count} horas %{minutes} minutos</strong> restantes para votar."
+            one: "Quedan <strong>%{count} hora %{minutes} minutos</strong> restantes para votar."
+            other: "Quedan <strong>%{count} horas %{minutes} minutos</strong> restantes para votar."
+            zero: "Quedan <strong>%{minutes} minutos</strong> restantes para votar."
           view: Ver
           vote: Votar
         label:
@@ -439,6 +440,7 @@ es:
           votes:
             one: "%{count} voto"
             other: "%{count} votos"
+            zero: "%{count} votos"
         show:
           action_button:
             change_vote: Cambia tu voto

@@ -373,9 +373,8 @@ cs:
         footer:
           remaining_time:
             one: "Na hlasování zbývá <strong>%{count} hodina a %{minutes} minut</strong>."
-            few: "Na hlasování zbývá <strong>%{count} hodiny a %{minutes} minut</strong>."
-            many: "Na hlasování zbývá <strong>%{count} hodin a %{minutes} minut</strong>."
             other: "Na hlasování zbývá <strong>%{count} hodin a %{minutes} minut</strong>."
+            zero: "Na hlasování zbývá <strong>%{minutes} minut</strong>."
           view: Zobrazit
           vote: Hlasovat
         label:
@@ -458,9 +457,8 @@ cs:
           title: Výsledky voleb
           votes:
             one: "%{count} hlas"
-            few: "%{count} hlasy"
-            many: "%{count} hlasů"
             other: "%{count} hlasů"
+            zero: "%{count} hlasů"
         show:
           action_button:
             change_vote: Změňte svůj hlas

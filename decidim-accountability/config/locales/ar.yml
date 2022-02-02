@@ -169,6 +169,11 @@ ar:
             votes: الدعم
         timeline:
           title: تطور المشروع
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: الفئة
     components:
       accountability:
         name: المسائلة

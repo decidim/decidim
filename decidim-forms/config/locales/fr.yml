@@ -113,11 +113,11 @@ fr:
             collapse: Réduire
             description: Description
             down: Descendre
-            expand: Déveloper
+            expand: Développer
             remove: Supprimer
             title: Titre
             title_and_description: Titre et description
-            up: Vers le haut
+            up: Monter
           update:
             invalid: Il y a eu des erreurs lors de la sauvegarde du questionnaire.
             success: Le questionnaire a bien été sauvegardé.
@@ -151,7 +151,7 @@ fr:
           max_choices: 'Choix maximum: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Connectez-vous avec votre compte</a> ou <a href="%{sign_up_link}">inscrivez-vous</a> pour répondre au questionnaire.
+            anonymous_user_message: <a href="%{sign_in_link}">Identifiez-vous avec votre compte</a> ou <a href="%{sign_up_link}">créez un compte</a> pour répondre au questionnaire.
             title: Répondez au questionnaire
           current_step: Étape %{step}
           of_total_steps: de %{total_steps}

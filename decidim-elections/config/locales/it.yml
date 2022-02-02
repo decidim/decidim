@@ -347,9 +347,6 @@ it:
           upcoming: Imminente
         end_date: Fine
         footer:
-          remaining_time:
-            one: "<strong>%{count} ora %{minutes} minuti</strong> rimanenti per votare."
-            other: "<strong>%{count} ore %{minutes} minuti</strong> rimanenti per votare."
           view: Visualizza
           vote: Vota
         label:
@@ -431,6 +428,7 @@ it:
           votes:
             one: "%{count} voto"
             other: "%{count} voti"
+            zero: "%{count} voti"
         show:
           action_button:
             change_vote: Cambia il tuo voto

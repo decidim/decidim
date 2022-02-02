@@ -236,6 +236,7 @@ ro:
               'false': nu are <strong>o cheie publică</strong>
               'true': are o <strong>cheie publică</strong>
             requirements:
+              minimum_answers: Fiecare întrebare are <strong>cel puţin 2 răspunsuri</strong>.
               trustees_number: Spațiul participativ are <strong>cel puțin %{number} împuterniciți cu chei publice</strong>.
             submit: Configurează alegerile
             success: Alegerile au fost trimise cu succes către Panoul de afișare
@@ -246,6 +247,9 @@ ro:
             trustees: Împuterniciți
           key_ceremony:
             continue: Continuă
+          results_published:
+            selected: Selectat
+            submit: Trimite
           tally:
             continue: Continuă
             invalid: A apărut o problemă la raportarea împuternicitului care lipsește
@@ -329,9 +333,9 @@ ro:
         end_date: Se termină
         footer:
           remaining_time:
-            one: "<strong>%{count} oră %{minutes} minute</strong> rămase de votat."
-            few: "<strong>%{count} ore %{minutes} minute</strong> rămase de votat."
+            one: "<strong>%{count} oră %{minutes} minute</strong> rămasă pentru a vota."
             other: "<strong>%{count} ore %{minutes} minute</strong> rămase pentru a vota."
+            zero: "<strong>%{minutes} minute</strong> rămase pentru a vota."
           view: Vizualizare
           vote: Votează
         label:
@@ -384,6 +388,7 @@ ro:
             how_to_verify: 'Odată ce ai descărcat fișierul și te-ai asigurat că este în regulă, poți continua pornind verificatorul universal. Clonează <a href=''https://github.com/decidim/decidim-bulletin-board''>acestă arhivă</a> și, din dosarul rădăcină, rulează comanda următoare:'
             title: Verifică rezultatele alegerilor
           verify: Verifică alegerile
+          vote_title: Procesul de votare
         filters:
           active: Activ
           all: Toate
@@ -402,7 +407,12 @@ ro:
           title: Întrebări aferente alegerilor
         results:
           description: 'Acestea sunt rezultatele votului, pentru fiecare întrebare:'
+          selected: Selectate
           title: Rezultatele alegerilor
+          votes:
+            one: "%{count} vot"
+            other: "%{count} de voturi"
+            zero: "%{count} de voturi"
         show:
           action_button:
             change_vote: Schimbă-ți votul
@@ -424,11 +434,13 @@ ro:
       feedback:
         answer:
           invalid: A apărut o problemă la trimiterea feedback-ului tău.
+          success: Feedback trimis cu succes.
       models:
         answer:
           fields:
             proposals: Propuneri
             title: Titlu
+            votes: Voturi
         election:
           fields:
             bb_status: Stadiul panoului de afișare
@@ -440,10 +452,18 @@ ro:
             answers: Răspunsuri
             max_selections: Selecții maxime
             title: Titlu
+        trustees_participatory_space:
+          fields:
+            email: E-mail
+            name: Nume
       orders:
         label: Ordonează alegerile după
+        older: Mai vechi
+        recent: Recente
       trustee_zone:
         elections:
+          backup_modal:
+            title: Copie de rezervă chei pentru %{election}
           key_ceremony_steps:
             title: Crează chei electorale pentru %{election}
           tally_steps:

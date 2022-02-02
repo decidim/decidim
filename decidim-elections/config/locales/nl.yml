@@ -298,6 +298,12 @@ nl:
           update: "%{user_name} heeft de verkiezing %{resource_name} van %{space_name} bijgewerkt"
         trustee:
           create: "%{user_name} heeft de gebruiker %{trustee_user} aangewezen als Trustee"
+      election_m:
+        footer:
+          remaining_time:
+            one: "<strong>%{count} uur %{minutes} minuten</strong> over om te stemmen."
+            other: "<strong>%{count} uur %{minutes} minuten</strong> over om te stemmen."
+            zero: "<strong>%{minutes} minuten</strong> over om te stemmen."
       elections:
         count:
           elections_count:
@@ -354,6 +360,10 @@ nl:
         results:
           description: 'Dit zijn de resultaten van de stemronde, voor elke vraag:'
           percentage: "%{count}%"
+          votes:
+            one: "%{count} stem"
+            other: "%{count} stemmen"
+            zero: "%{count} stemmen"
         show:
           action_button:
             change_vote: Wijzig je stem

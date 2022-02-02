@@ -99,9 +99,6 @@ nl:
       x_minutes:
         one: 1 minuut geleden
         other: "%{count} minuten geleden"
-      x_seconds:
-        one: 1 seconde geleden
-        other: "%{count} seconden geleden"
   decidim:
     accessibility:
       external_link: Externe link

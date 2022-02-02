@@ -124,9 +124,8 @@ cs:
         other: "před %{count} minutami"
       x_seconds:
         one: před 1 vteřinou
-        few: "před %{count} vteřinami"
-        many: "před %{count} vteřinami"
         other: "před %{count} vteřinami"
+        zero: právě teď
   decidim:
     accessibility:
       external_link: Externí odkaz
@@ -1033,6 +1032,7 @@ cs:
           next: Další
           no_conversations: Nemáte zatím žádné konverzace
           title: Konverzace
+          to: Komu
         reply:
           placeholder: Vaše odpověď...
           send: Poslat

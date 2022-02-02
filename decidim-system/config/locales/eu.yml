@@ -139,7 +139,7 @@ eu:
             default_hint: Megabytes (MB). Fitxategiaren tamainaren muga hori fitxategien igoera guztietarako erabiltzen den lehenetsia da, kontrakoa zehaztu ezean.
             title: Gehieneko fitxategi tamaina
           intro: |
-            Mesedez, kontuz ibili doikuntza horiek aldatzean. 
+            Mesedez, kontuz ibili doikuntza horiek aldatzean.
             Zenbat eta aukera gutxiago, hobe.
             Fitxategi espezifikoen luzapenak edo MIME motakoak baimentzeak segurtasun-arriskuen eraginpean jar ditzake sistemaren erabiltzaileak, eta webgunearen irisgarritasunari ere eragin diezaioke.
         index:

@@ -337,6 +337,10 @@ eu:
           upcoming: Hurrengoak
         end_date: Amaitu
         footer:
+          remaining_time:
+            one: "<strong>%{count} ordu %{minutes} minutu </strong> geratzen da bozkatzeko."
+            other: "<strong>%{count} ordu %{minutes} minutu </strong> geratzen da bozkatzeko."
+            zero: "<strong>%{minutes} ordu minutu </strong> geratzen da bozkatzeko."
           view: Ikusi
           vote: Eman botoa
         label:
@@ -416,8 +420,9 @@ eu:
           selected: Hautatua
           title: Hautaketaren emaitzak
           votes:
-            one: "Boto %{count}"
+            one: "%{count} boto"
             other: "%{count} boto"
+            zero: "%{count} boto"
         show:
           action_button:
             change_vote: Aldatu zure botoa

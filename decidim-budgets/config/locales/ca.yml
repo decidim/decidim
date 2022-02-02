@@ -21,6 +21,18 @@ ca:
         one: Projecte
         other: Projectes
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Categoria
+          scope_id_eq:
+            label: Àmbit
+          selected_at_null:
+            label: Seleccionat
+            values:
+              'false': Seleccionat per implementar
+              'true': No s'ha seleccionat per implementar
     budgets:
       actions:
         attachment_collections: Carpetes
@@ -134,6 +146,8 @@ ca:
             total_budget: Pressupost total
         project:
           fields:
+            category: Categoria
+            id: ID
             title: Títol
       order_summary_mailer:
         order_summary:
@@ -186,6 +200,12 @@ ca:
           projects_count:
             one: 1 projecte
             other: "%{count} projectes"
+        exit_modal:
+          cancel: Tornar a la votació
+          close_modal: Tancar el modal
+          exit: Sortir de la votació
+          message: El teu vot no ha estat registrat perquè encara no ha completat el procés de votació. Segur que vols sortir de la votació?
+          title: Encara no has votat
         filters:
           category: Categoria
           scope: Àmbit

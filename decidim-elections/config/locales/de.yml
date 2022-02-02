@@ -334,6 +334,7 @@ de:
           remaining_time:
             one: "<strong>%{count} Stunde %{minutes} Minuten</strong> verbleiben zur Abstimmung."
             other: "<strong>%{count} Stunden %{minutes} Minuten</strong> verbleiben zur Abstimmung."
+            zero: "<strong>%{minutes} Minuten</strong> verbleibend zur Abstimmung."
           view: Ansicht
           vote: Abstimmung
         label:
@@ -415,6 +416,7 @@ de:
           votes:
             one: "%{count} Stimme"
             other: "%{count} Stimmen"
+            zero: "%{count} Stimmen"
         show:
           action_button:
             change_vote: Stimme ändern
