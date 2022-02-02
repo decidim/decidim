@@ -249,7 +249,10 @@ module Decidim
         @gem_modifier ||= if options[:path]
                             "path: \"#{options[:path]}\""
                           elsif branch.present?
-                            "git: \"https://github.com/decidim/decidim.git\", branch: \"#{branch}\""
+                            # "git: \"https://github.com/decidim/decidim.git\", branch: \"#{branch}\""
+                            # TODO: uncomment and remove this before mergin
+                            /"git: \"https://github.com/Platoniq/decidim.git\", branch: \"#{branch}\""
+
                           else
                             "\"#{Decidim::Generators.version}\""
                           end
@@ -258,7 +261,8 @@ module Decidim
       def branch
         return if options[:path]
 
-        @branch ||= options[:edge] ? "develop" : options[:branch].presence
+        # TODO: change to "develop" before mergin
+        @branch ||= options[:edge] ? "feat/complete-env-vars" : options[:branch].presence
       end
 
       def app_name
