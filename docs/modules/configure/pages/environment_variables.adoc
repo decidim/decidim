@@ -259,6 +259,16 @@ The next tables show all the default Env Vars available when running a default D
 |
 |No
 
+|VAPID_PUBLIC_KEY
+|VAPID public key that will be used to sign the Push API requests. It can be generated running the task: `rake decidim:generate_vapid_keys`
+|
+|No
+
+|VAPID_PRIVATE_KEY
+|VAPID private key that will be used to sign the Push API requests. It can be generated running the task: `rake decidim:generate_vapid_keys`
+|
+|No
+
 |===
 
 .Additional Optional Decidim Env Vars for the setting up the application
@@ -491,12 +501,6 @@ Note that this only applies to production environments.
 |If using Sidekiq as a queue adapter for processing background jobs, a Redis database is needed. Sidekiq uses this env var if defined, if not defaults to `localhost:6379`. Please refer to https://github.com/mperham/sidekiq/wiki/Using-Redis for more information.
 |5
 |No
-
-|VAPID_PUBLIC_KEY
-|VAPID public key that will be used to sign the Push API requests. It can be generated runing the task: `rake decidim:generate_vapid_keys`
-
-|VAPID_PRIVATE_KEY
-|VAPID private key that will be used to sign the Push API requests. It can be generated runing the task: `rake decidim:generate_vapid_keys`
 
 |===
 

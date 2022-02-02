@@ -247,14 +247,13 @@ module Decidim
 
       def gem_modifier
         @gem_modifier ||= if options[:path]
-                            "path: \"#{options[:path]}\""
+                            %(path: "#{options[:path]}")
                           elsif branch.present?
-                            # "git: \"https://github.com/decidim/decidim.git\", branch: \"#{branch}\""
+                            # %(git: "https://github.com/decidim/decidim.git", branch: "#{branch}")
                             # TODO: uncomment and remove this before mergin
-                            /"git: \"https://github.com/Platoniq/decidim.git\", branch: \"#{branch}\""
-
+                            %(git: "https://github.com/Platoniq/decidim.git", branch: "#{branch}")
                           else
-                            "\"#{Decidim::Generators.version}\""
+                            %("#{Decidim::Generators.version}")
                           end
       end
 

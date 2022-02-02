@@ -170,7 +170,9 @@ shared_examples_for "an application with configurable env vars" do
       "ETHERPAD_API_KEY" => "an-etherpad-key",
       "ETHERPAD_API_VERSION" => "1.2.2",
       "MAPS_PROVIDER" => "here",
-      "MAPS_API_KEY" => "a-maps-api-key"
+      "MAPS_API_KEY" => "a-maps-api-key",
+      "VAPID_PUBLIC_KEY" => "a-vapid-public-key",
+      "VAPID_PRIVATE_KEY" => "a-vapid-private-key"
     }
   end
 
@@ -245,7 +247,10 @@ shared_examples_for "an application with configurable env vars" do
       %w(maps dynamic_url) => nil,
       %w(maps attribution) => nil,
       %w(maps extra_vars) => nil,
-      %w(maps geocoding_host) => nil
+      %w(maps geocoding_host) => nil,
+      %w(vapid enabled) => false,
+      %w(vapid public_key) => nil,
+      %w(vapid private_key) => nil
     }
   end
 
@@ -316,7 +321,10 @@ shared_examples_for "an application with configurable env vars" do
       %w(maps dynamic_url) => nil,
       %w(maps attribution) => nil,
       %w(maps extra_vars) => nil,
-      %w(maps geocoding_host) => nil
+      %w(maps geocoding_host) => nil,
+      %w(vapid enabled) => true,
+      %w(vapid public_key) => "a-vapid-public-key",
+      %w(vapid private_key) => "a-vapid-private-key"
     }
   end
 
