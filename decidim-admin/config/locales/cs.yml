@@ -256,6 +256,8 @@ cs:
         update:
           error: Při aktualizaci této přílohy došlo k chybě.
           success: Příloha byla úspěšně aktualizována.
+      attachments_privacy_warning:
+        message: Buďte opatrní při práci s přílohami v soukromém prostoru. Každý účastník by mohl sdílet tento dokument s ostatními.
       autocomplete:
         no_results: Nenalezeny žádné výsledky
         search_prompt: Zadejte nejméně tři znaky, které chcete vyhledat
