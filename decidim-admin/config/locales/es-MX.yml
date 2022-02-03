@@ -256,6 +256,8 @@ es-MX:
         update:
           error: Se ha producido un error al actualizar este archivo adjunto.
           success: Adjunto actualizado correctamente.
+      attachments_privacy_warning:
+        message: Tenga cuidado al trabajar con archivos adjuntos en un espacio privado. Cualquier participante podría compartir este documento a otras personas.
       autocomplete:
         no_results: No se han encontrado resultados
         search_prompt: Escriba al menos tres caracteres para buscar
