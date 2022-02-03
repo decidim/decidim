@@ -34,9 +34,15 @@
         subtitle: Undertittel
         target: Hvem som deltar
         title: Tittel
+        weight: Prioritert rekkefølge
       participatory_process_group:
         description: Beskrivelse
+        developer_group: Promotørgruppe
+        group_url: Nettside
+        hashtag: Emneknagg
         hero_image: Bilde
+        local_area: Organisasjonsområde
+        meta_scope: Omfang metadata
         participatory_process_ids: Relaterte prosesser
       participatory_process_step:
         cta_path: Annonseringsknapp
