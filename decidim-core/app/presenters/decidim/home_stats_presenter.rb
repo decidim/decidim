@@ -2,7 +2,11 @@
 
 module Decidim
   # A presenter to render statistics in the homepage.
-  class HomeStatsPresenter < Decidim::Presenter
+  class HomeStatsPresenter < SimpleDelegator
+    def organization
+      __getobj__[:organization]
+    end
+
     # Public: Render a collection of primary stats.
     def highlighted
       highlighted_stats = Decidim.stats.only([:users_count, :processes_count]).with_context(organization).map { |name, data| [name, data] }

@@ -30,7 +30,7 @@ module Decidim
         end
 
         def status
-          t(registered? ? "registered" : "unregistered", scope: "decidim.forms.user_answers_serializer")
+          I18n.t(registered? ? "registered" : "unregistered", scope: "decidim.forms.user_answers_serializer")
         end
 
         def answers
