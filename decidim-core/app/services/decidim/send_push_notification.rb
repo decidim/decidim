@@ -34,7 +34,7 @@ module Decidim
         title: notification.event_class.constantize.model_name.human,
         body: ActionView::Base.full_sanitizer.sanitize(notification.event_class_instance.notification_title),
         icon: notification.user.organization.attached_uploader(:favicon).variant_url(:big, host: notification.user.organization.host),
-        url: notification.resource.reported_content_url
+        data: { url: notification.resource.reported_content_url }
       }
     end
 
