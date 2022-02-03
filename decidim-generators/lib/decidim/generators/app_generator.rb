@@ -69,6 +69,10 @@ module Decidim
                                default: "true",
                                desc: "Doesn't force to use ssl"
 
+      class_option :locales, type: :string,
+                             default: "",
+                             desc: "Force the available locales to the ones specified. Separate with comas"
+
       class_option :skip_webpack_install, type: :boolean,
                                           default: true,
                                           desc: "Don't run Webpack install"
@@ -158,11 +162,27 @@ module Decidim
       def decidim_initializer
         copy_file "initializer.rb", "config/initializers/decidim.rb"
 
+        gsub_file "config/environments/production.rb",
+                  /config.log_level = :debug/,
+                  "config.log_level = %w(debug info warn error fatal).include?(ENV['RAILS_LOG_LEVEL']) ? ENV['RAILS_LOG_LEVEL'] : :debug"
+
+        gsub_file "config/environments/production.rb",
+                  %r{# config.action_controller.asset_host = 'http://assets.example.com'},
+                  "config.action_controller.asset_host = ENV['RAILS_ASSET_HOST'] if ENV['RAILS_ASSET_HOST'].present?"
+
         if options[:force_ssl] == "false"
           gsub_file "config/initializers/decidim.rb",
                     /# config.force_ssl = true/,
                     "config.force_ssl = false"
         end
+        return if options[:locales].blank?
+
+        gsub_file "config/initializers/decidim.rb",
+                  /#{Regexp.escape("# config.available_locales = %w(en ca es)")}/,
+                  "config.available_locales = %w(#{options[:locales].gsub(",", " ")})"
+        gsub_file "config/initializers/decidim.rb",
+                  /#{Regexp.escape("config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]")}/,
+                  "# config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]"
       end
 
       def authorization_handler
@@ -230,11 +250,11 @@ module Decidim
 
       def gem_modifier
         @gem_modifier ||= if options[:path]
-                            "path: \"#{options[:path]}\""
+                            %(path: "#{options[:path]}")
                           elsif branch.present?
-                            "git: \"https://github.com/decidim/decidim.git\", branch: \"#{branch}\""
+                            %(git: "https://github.com/decidim/decidim.git", branch: "#{branch}")
                           else
-                            "\"#{Decidim::Generators.version}\""
+                            %("#{Decidim::Generators.version}")
                           end
       end
 

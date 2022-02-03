@@ -33,7 +33,9 @@ namespace :decidim do
       "--skip_spring",
       "--demo",
       "--force_ssl",
-      "false"
+      "false",
+      "--locales",
+      "en,ca,es"
     )
   end
 
@@ -49,7 +51,9 @@ namespace :decidim do
         "--recreate_db",
         "--seed_db",
         "--demo",
-        "--profiling"
+        "--profiling",
+        "--locales",
+        "en,ca,es"
       )
     end
   end
