@@ -7,10 +7,16 @@ module Decidim
       # Presenter for questionnaire answer
       #
       class QuestionnaireAnswerPresenter < Decidim::Presenter
+        delegate :content_tag, to: :view_context
+
         include Decidim::TranslatableAttributes
 
         def answer
           __getobj__.fetch(:answer)
+        end
+
+        def view_context
+          __getobj__.fetch(:view_context)
         end
 
         def question

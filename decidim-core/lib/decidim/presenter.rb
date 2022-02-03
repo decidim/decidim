@@ -2,7 +2,6 @@
 
 module Decidim
   class Presenter < SimpleDelegator
-
     #
     # def method_missing(method_name, *args, &block)
     #   if view_context.respond_to?(method_name)

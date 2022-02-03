@@ -3,6 +3,12 @@
 module Decidim
   # A presenter to render metrics in pages
   class MetricChartsPresenter < Decidim::Presenter
+    delegate :content_tag, :concat, :safe_join, to: :view_context
+
+    def view_context
+      __getobj__.fetch(:view_context)
+    end
+
     # Public: Render a collection of primary metrics.
     def highlighted
       render_highlighted(highlighted_metrics)
