@@ -31,8 +31,7 @@ module Decidim
       return unless resource
       return unless recipient
 
-      notification.save!
-      SendPushNotification.new.perform(notification)
+      notification if notification.save!
     end
 
     private

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "webpush"
 
 module Decidim
@@ -21,35 +22,35 @@ module Decidim
       subscription = Decidim::NotificationsSubscription.find_by(user: user)
       return unless subscription
 
-      message_params = notification_params(notification)
-      payload = payload(message_params, subscription) # Replace sus to suscription
+      message_params = notification_params(Decidim::PushNotificationPresenter.new(notification))
+      payload = payload(message_params, subscription)
 
       Webpush.payload_send(payload)
     end
 
-    private
-
     def notification_params(notification)
       {
-        title: notification.event_class.constantize.model_name.human,
-        body: ActionView::Base.full_sanitizer.sanitize(notification.event_class_instance.notification_title),
-        icon: notification.user.organization.attached_uploader(:favicon).variant_url(:big, host: notification.user.organization.host),
-        data: { url: notification.resource.reported_content_url }
+        title: notification.title,
+        body: notification.body,
+        icon: notification.icon,
+        data: { url: notification.url }
       }
     end
 
-    def payload(message_params, suscription)
+    def payload(message_params, subscription)
       {
         message: JSON.generate(message_params),
-        endpoint: suscription.endpoint,
-        p256dh: suscription.p256dh,
-        auth: suscription.auth,
+        endpoint: subscription.endpoint,
+        p256dh: subscription.p256dh,
+        auth: subscription.auth,
         vapid: {
           public_key: public_key,
           private_key: private_key
         }
       }
     end
+
+    private
 
     def public_key
       ENV["VAPID_PUBLIC_KEY"]

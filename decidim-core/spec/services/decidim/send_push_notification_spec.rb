@@ -37,11 +37,52 @@ describe Decidim::SendPushNotification do
     end
 
     describe "#perform" do
-      it "returns true" do
+      it "returns 201 and created if the message is sent ok" do
         allow(Webpush).to receive(:payload_send).and_return(double("result", message: "Created", code: "201"))
 
         expect(subject.perform(notification).code).to eq("201")
         expect(subject.perform(notification).message).to eq("Created")
+      end
+    end
+
+    describe "#notification_params" do
+      let(:notification) { double("notification", title: "a_title", body: "a_body", icon: "an_icon", url: "a_url") }
+
+      it "returns a hash with the notification fields" do
+        result = subject.notification_params(notification)
+
+        expect(result).to match(
+          a_hash_including(
+            title: "a_title",
+            body: "a_body",
+            icon: "an_icon",
+            data: a_hash_including({ url: "a_url" })
+          )
+        )
+      end
+    end
+
+    describe "#payload" do
+      let(:message_params) {{ title: "a_title", body: "a_body", icon: "an_icon", data: { url: "a_url" }}}
+      let(:subscription) { build(:notifications_subscription) }
+
+      before do
+        stub_const("ENV", { "VAPID_PUBLIC_KEY" => "public_key", "VAPID_PRIVATE_KEY" => "private_key" })
+      end
+
+      it "returns true" do
+        result = subject.payload(message_params, subscription)
+
+        expect(result).to match(
+          message: '{"title":"a_title","body":"a_body","icon":"an_icon","data":{"url":"a_url"}}',
+          endpoint: subscription.endpoint,
+          p256dh: subscription.p256dh,
+          auth: subscription.auth,
+          vapid: a_hash_including(
+            public_key: "public_key",
+            private_key: "private_key"
+          )
+        )
       end
     end
   end
