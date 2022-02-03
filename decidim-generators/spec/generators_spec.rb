@@ -67,8 +67,7 @@ module Decidim
       end
 
       context "with --branch flag" do
-        # TODO: change to "develop" before mergin
-        let(:default_branch) { "feat/complete-env-vars" }
+        let(:default_branch) { "develop" }
         let(:command) { "decidim --branch #{default_branch} #{test_app}" }
 
         it_behaves_like "a new production application"

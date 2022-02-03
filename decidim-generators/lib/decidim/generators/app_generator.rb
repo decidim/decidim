@@ -175,14 +175,14 @@ module Decidim
                     /# config.force_ssl = true/,
                     "config.force_ssl = false"
         end
-        if options[:locales].present?
-          gsub_file "config/initializers/decidim.rb",
-                    /#{Regexp.escape("# config.available_locales = %w(en ca es)")}/,
-                    "config.available_locales = %w(#{options[:locales].gsub(",", " ")})"
-          gsub_file "config/initializers/decidim.rb",
-                    /#{Regexp.escape("config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]")}/,
-                    "# config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]"
-        end
+        return if options[:locales].blank?
+
+        gsub_file "config/initializers/decidim.rb",
+                  /#{Regexp.escape("# config.available_locales = %w(en ca es)")}/,
+                  "config.available_locales = %w(#{options[:locales].gsub(",", " ")})"
+        gsub_file "config/initializers/decidim.rb",
+                  /#{Regexp.escape("config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]")}/,
+                  "# config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]"
       end
 
       def authorization_handler
@@ -252,9 +252,7 @@ module Decidim
         @gem_modifier ||= if options[:path]
                             %(path: "#{options[:path]}")
                           elsif branch.present?
-                            # %(git: "https://github.com/decidim/decidim.git", branch: "#{branch}")
-                            # TODO: uncomment and remove this before mergin
-                            %(git: "https://github.com/Platoniq/decidim.git", branch: "#{branch}")
+                            %(git: "https://github.com/decidim/decidim.git", branch: "#{branch}")
                           else
                             %("#{Decidim::Generators.version}")
                           end
@@ -263,8 +261,7 @@ module Decidim
       def branch
         return if options[:path]
 
-        # TODO: change to "develop" before mergin
-        @branch ||= options[:edge] ? "feat/complete-env-vars" : options[:branch].presence
+        @branch ||= options[:edge] ? "develop" : options[:branch].presence
       end
 
       def app_name
@@ -289,9 +286,7 @@ module Decidim
         root = if options[:path]
                  expanded_path
                elsif branch.present?
-                 # "https://raw.githubusercontent.com/decidim/decidim/#{branch}/decidim-generators"
-                 # TODO: uncomment and remove this before mergin
-                 "https://raw.githubusercontent.com/Platoniq/decidim/#{branch}/decidim-generators"
+                 "https://raw.githubusercontent.com/decidim/decidim/#{branch}/decidim-generators"
                else
                  root_path
                end
