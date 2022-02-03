@@ -63,7 +63,7 @@ describe Decidim::SendPushNotification do
     end
 
     describe "#payload" do
-      let(:message_params) {{ title: "a_title", body: "a_body", icon: "an_icon", data: { url: "a_url" }}}
+      let(:message_params) { { title: "a_title", body: "a_body", icon: "an_icon", data: { url: "a_url" } }}
       let(:subscription) { build(:notifications_subscription) }
 
       before do
