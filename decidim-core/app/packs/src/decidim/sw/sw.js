@@ -25,15 +25,8 @@ self.__WB_DISABLE_DEV_LOGS = true
 const dummy = self.__WB_MANIFEST;
 
 self.addEventListener("push", (event) => {
-  let title = event.data.json().title;
-  let body = event.data.json().body;
-  let icon = event.data.json().icon;
-  let url = event.data.json().url;
-  let tag = "new-notification-tag";
-
-  event.waitUntil(
-    self.registration.showNotification(title, {body: body, icon: icon, tag: tag, data: { url: url }})
-  )
+  const { title, ...opts } = event.data.json();
+  event.waitUntil(self.registration.showNotification(title, { ...opts }));
 });
 
 self.addEventListener("notificationclick", function(event) {
