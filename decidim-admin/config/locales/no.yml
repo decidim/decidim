@@ -48,6 +48,7 @@
         favicon: Ikon
         force_authentication: Tving godkjenning
         force_users_to_authenticate_before_access_organization: Pålegg brukere å godkjenne før tilgang til organisasjonen
+        from: Avsenders e-postadresse
         github_handler: GitHub brukernavn
         header_snippets: Utdrag topptekst
         highlight_alternative_color: Fremhev, alternativ
