@@ -38,20 +38,21 @@ self.addEventListener("push", (event) => {
 
 self.addEventListener("notificationclick", function(event) {
   event.notification.close();
-
-  // This looks to see if the current is already open and
-  // focuses if it is
-  event.waitUntil(clients.matchAll({
-    type: "window"
-  }).then(function(clientList) {
-    for (let i = 0; i < clientList.length; i++) {
-      let client = clientList[i];
-      if (client.url === "/" && "focus" in client)
-      {return client.focus();}
-    }
-    if (clients.openWindow)
-    {return clients.openWindow(event.notification.data.url);}
-  }));
+  // Get all the Window clients
+  event.waitUntil(
+    self.clients.matchAll({ type: "window" }).then((clientsArr) => {
+      const windowToFocus = clientsArr.find((windowClient) => windowClient.url === event.notification.data.url);
+      if (windowToFocus) {
+        // If a Window tab matching the targeted URL already exists, focus that;
+        windowToFocus.focus()
+      } else {
+        // Otherwise, open a new tab to the applicable URL and focus it.
+        self.clients.
+          openWindow(event.notification.data.url).
+          then((windowClient) => windowClient && windowClient.focus());
+      }
+    })
+  );
 });
 
 // avoid caching admin or users paths
