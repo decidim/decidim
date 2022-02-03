@@ -6,7 +6,7 @@ module Decidim
     delegate :content_tag, :concat, :safe_join, to: :view_context
 
     def view_context
-      __getobj__.fetch(:view_context, ActionController::Base.new.view_context)
+      @view_context ||= __getobj__.fetch(:view_context, ActionController::Base.new.view_context)
     end
 
     # Public: Render a collection of primary metrics.
