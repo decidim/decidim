@@ -2,11 +2,11 @@
 
 module Decidim
   # A presenter to render metrics in pages
-  class MetricChartsPresenter < Decidim::Presenter
+  class MetricChartsPresenter < SimpleDelegator
     delegate :content_tag, :concat, :safe_join, to: :view_context
 
     def view_context
-      __getobj__.fetch(:view_context)
+      __getobj__.fetch(:view_context, ActionController::Base.new.view_context)
     end
 
     # Public: Render a collection of primary metrics.

@@ -106,7 +106,6 @@ module Decidim
   autoload :AttributeObject, "decidim/attribute_object"
   autoload :Query, "decidim/query"
   autoload :Command, "decidim/command"
-  autoload :Presenter, "decidim/presenter"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.

@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     # A presenter to render statistics in the homepage.
-    class InitiativeStatsPresenter < Decidim::Presenter
+    class InitiativeStatsPresenter < SimpleDelegator
       def initiative
         __getobj__.fetch(:initiative)
       end

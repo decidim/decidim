@@ -6,8 +6,8 @@ module Decidim
       #
       # Presenter for questionnaire answer
       #
-      class QuestionnaireAnswerPresenter < Decidim::Presenter
-        delegate :content_tag, to: :view_context
+      class QuestionnaireAnswerPresenter < SimpleDelegator
+        delegate :content_tag, :safe_join, to: :view_context
 
         include Decidim::TranslatableAttributes
 
@@ -16,7 +16,7 @@ module Decidim
         end
 
         def view_context
-          __getobj__.fetch(:view_context)
+          __getobj__.fetch(:view_context, ActionController::Base.new.view_context)
         end
 
         def question

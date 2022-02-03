@@ -6,7 +6,7 @@ module Decidim
       #
       # Presenter for questionnaire response
       #
-      class QuestionnaireParticipantPresenter < Decidim::Presenter
+      class QuestionnaireParticipantPresenter < SimpleDelegator
         def participant
           __getobj__.fetch(:participant)
         end

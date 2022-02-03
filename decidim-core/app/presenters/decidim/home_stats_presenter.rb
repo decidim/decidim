@@ -4,7 +4,7 @@ module Decidim
   # A presenter to render statistics in the homepage.
   class HomeStatsPresenter < SimpleDelegator
     def organization
-      __getobj__[:organization]
+      __getobj__.fetch(:organization)
     end
 
     # Public: Render a collection of primary stats.

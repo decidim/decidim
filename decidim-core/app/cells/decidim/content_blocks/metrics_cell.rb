@@ -4,7 +4,7 @@ module Decidim
   module ContentBlocks
     class MetricsCell < Decidim::ViewModel
       def metrics
-        @metrics ||= MetricChartsPresenter.new(organization: current_organization, view_context: view_context)
+        @metrics ||= MetricChartsPresenter.new(organization: current_organization)
       end
     end
   end
