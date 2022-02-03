@@ -177,8 +177,11 @@ module Decidim
         end
         if options[:locales].present?
           gsub_file "config/initializers/decidim.rb",
-                    /# config.available_locales = %w\(en ca es\)/,
+                    /#{Regexp.escape("# config.available_locales = %w(en ca es)")}/,
                     "config.available_locales = %w(#{options[:locales].gsub(",", " ")})"
+          gsub_file "config/initializers/decidim.rb",
+                    /#{Regexp.escape("config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]")}/,
+                    "# config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]"
         end
       end
 
