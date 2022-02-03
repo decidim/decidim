@@ -162,6 +162,7 @@
             entry_date: Dato
       result_m:
         executed: Utført
+        view: Vis
       results:
         count:
           results_count:
@@ -197,10 +198,14 @@
         results:
           category_id_eq:
             label: Kategori
+          scope_id_eq:
+            label: Tema
           status_id_eq:
             label: Status
     components:
       accountability:
+        actions:
+          comment: Kommentar
         name: Ansvarlighet
         settings:
           global:
@@ -212,6 +217,7 @@
             heading_parent_level_results: Navn på "Resultater"
             intro: Introduksjon
             scope_id: Tema
+            scopes_enabled: Temaer aktivert
             subcategories_label: Navn på "Underkategorier"
           step:
             comments_blocked: Kommentarer blokkert
@@ -240,3 +246,5 @@
         result_project: Prosjekter inkludert i dette resultatet
       included_proposals:
         result_proposal: Forslagene er inkludert i dette resultatet
+    statistics:
+      results_count: Resultater
