@@ -1,6 +1,8 @@
 "no":
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Aktiver organisasjonskart
       assembly:
         area_id: Område
         assembly_type: Forsamlingstype
@@ -50,6 +52,7 @@
         target: Hvem deltar
         title: Tittel
         twitter: Twitter
+        weight: Prioritert rekkefølge
         youtube: YouTube
       assembly_member:
         birthday: Fødselsdag
@@ -60,6 +63,7 @@
         full_name: Fullt navn
         gender: Kjønn
         position: Stilling
+        user_id: Bruker eller gruppe
       assembly_user_role:
         email: Epost
         name: Navn
@@ -246,6 +250,7 @@
         update: "%{user_name} oppdaterte forsamlingens innstillinger"
       assembly_type:
         create: "%{user_name} opprettet %{resource_name} forsamlingstypen"
+        delete: "%{user_name} fjernet forsamlingstypen %{resource_name}"
         publish: "%{user_name} publiserte %{resource_name} forsamlingstypen"
         unpublish: "%{user_name} avpubliserte %{resource_name} forsamlingstypen"
         update: "%{user_name} oppdaterte %{resource_name} forsamlingstypen"
@@ -257,6 +262,7 @@
       admin:
         assemblies:
           form:
+            announcement_help: Teksten du skriver her vil bli vist til brukeren rett under forsamlingsinformasjonen.
             duration: Varighet
             duration_help: Hvis varigheten av denne forsamlingen er limitert, velg en sluttdato. Hvis ikke, vil den vises som ubestemt.
             filters: Filter
@@ -416,6 +422,8 @@
     participatory_processes:
       show:
         related_assemblies: Relaterte forsamlinger
+    statistics:
+      assemblies_count: Forsamlinger
   errors:
     messages:
       cannot_be_blank: kan ikke være blank
