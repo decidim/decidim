@@ -54,6 +54,36 @@ module Decidim::Initiatives
           expect(subject.to_s).to include("signatures")
         end
       end
+
+      context "when initiative state is created" do
+        let(:state) { :created }
+
+        it "does not show signatures" do
+          expect(subject).not_to have_css(".progress__bar__number")
+          expect(subject).not_to have_css(".progress__bar__text")
+          expect(subject.to_s).not_to include("signatures")
+        end
+      end
+
+      context "when initiative state is validating" do
+        let(:state) { :validating }
+
+        it "does not show signatures" do
+          expect(subject).not_to have_css(".progress__bar__number")
+          expect(subject).not_to have_css(".progress__bar__text")
+          expect(subject.to_s).not_to include("signatures")
+        end
+      end
+
+      context "when initiative state is discarded" do
+        let(:state) { :discarded }
+
+        it "does not show signatures" do
+          expect(subject).not_to have_css(".progress__bar__number")
+          expect(subject).not_to have_css(".progress__bar__text")
+          expect(subject.to_s).not_to include("signatures")
+        end
+      end
     end
   end
 end
