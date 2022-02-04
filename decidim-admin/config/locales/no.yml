@@ -450,12 +450,23 @@
           impersonate_existing_user: Administrer deltaker "%{name}"
           impersonate_new_managed_user: Administrer ny deltaker
       imports:
+        creators:
+          proposalcreator: Opprett innspill
         error: Det oppstod et problem under importen
+        help:
+          proposalcreator: Filen må ha kolonnenavn tittel/no og body/no (eller en annen instans som du foretrekker f. eks. Tittel/ca og body/ca). Omfang/id og kategori/id-kolonner støttes.
+        import_from_file: Importer fra fil
+        invalid_lines: Fant feil i ressursnummer %{invalid_lines}
         new:
+          accepted_mime_types:
+            csv: csv
+            json: json
+            xlsx: xlsx
           actions:
             back: Tilbake
           file_legend: Legg til en importfil som vil bli analysert.
           import: Importer
+        notice: "%{number} %{resource_name} ble importert"
       logs:
         logs_list:
           no_logs_yet: Det er ingen logger ennå
