@@ -67,6 +67,11 @@
         other: Registreringer
   decidim:
     admin:
+      filters:
+        meetings:
+          origin_eq:
+            values:
+              citizen: Innbygger
       meeting_copies:
         create:
           error: Det oppstod et problem med å publisere dette møtet.
@@ -249,6 +254,7 @@
           form:
             address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
             location_help: 'Plassering: melding rettet til brukerne som antyder stedet å møte på'
+            registration_email_help: Denne teksten vil dukke opp i midten av e-posten med registreringsbekreftelsen. Like etter registreringskoden.
           index:
             title: Møter
           new:
@@ -353,6 +359,8 @@
             all: Alle
             past: Tidligere
             upcoming: Kommende
+          origin_values:
+            citizens: Innbyggere
           search: Søk
         filters_small_view:
           close_modal: Lukk modal
