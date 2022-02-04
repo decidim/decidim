@@ -79,6 +79,12 @@
         menu:
           votings_submenu:
             monitoring_committee: Kontrollgruppe
+      polling_officer_zone:
+        in_person_votes:
+          complete_voting:
+            questions_title: 'Hun har stemmerett i følgende spørsmål:'
+          in_person_form:
+            census_not_present_description: Hun må gå til folketellingskontoret eller ta kontakt med kundestøtten.
       votings:
         login:
           start_voting: Start avstemning
