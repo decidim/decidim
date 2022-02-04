@@ -38,6 +38,10 @@
         type_of_meeting: Type møte
     errors:
       models:
+        meeting:
+          attributes:
+            show_embedded_iframe:
+              not_embeddable: Denne URL-adressen kan ikke legges til
         meeting_agenda:
           attributes:
             base:
@@ -67,6 +71,11 @@
         other: Registreringer
   decidim:
     admin:
+      filters:
+        meetings:
+          origin_eq:
+            values:
+              citizen: Innbygger
       meeting_copies:
         create:
           error: Det oppstod et problem med å publisere dette møtet.
@@ -249,6 +258,8 @@
           form:
             address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
             location_help: 'Plassering: melding rettet til brukerne som antyder stedet å møte på'
+            registration_email_help: Denne teksten vil dukke opp i midten av e-posten med registreringsbekreftelsen. Like etter registreringskoden.
+            show_embedded_iframe_help: Gjerne legg til en iframe for denne videokonferansens URL. Kun noen få tjenester tillater innbygging (dvs. YouTube, Twitch...)
           index:
             title: Møter
           new:
@@ -360,12 +371,16 @@
             all: Alle
             past: Tidligere
             upcoming: Kommende
+          origin_values:
+            citizens: Innbyggere
           search: Søk
         filters_small_view:
           close_modal: Lukk modal
           filter: Filter
           filter_by: Filtrer etter
           unfold: Åpne
+        form:
+          show_embedded_iframe_help: Gjerne legg til en iframe for denne videokonferansens URL. Kun noen få tjenester tillater innbygging (dvs. YouTube, Twitch...)
         meeting_minutes:
           related_information: Relatert Informasjon
         meetings:
