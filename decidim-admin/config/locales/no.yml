@@ -208,6 +208,7 @@
           error: Det oppstod et problem med å opprette et nytt område.
           success: Området ble opprettet.
         destroy:
+          has_spaces: Dette området har avhengige rom. Vennligst sørg for at ingen deltakende rom refererer til dette rommet før du sletter det.
           success: Området ble ødelagt
         edit:
           title: Endre området
@@ -257,6 +258,12 @@
       autocomplete:
         no_results: Ingen resultat funnet
         search_prompt: Skriv minst tre tegn for å søke
+      block_user:
+        new:
+          action: Blokker konto og send begrunnelse
+          description: Blokkering av en bruker vil gjøre kontoen ubrukelig. Du kan i din begrunnelse angi eventuelle retningslinjer på måter du vil vurdere å re-aktivere brukeren.
+          justification: Begrunnelse
+          title: Blokker bruker %{name}
       categories:
         create:
           error: Det oppstod et problem med å oppdatere denne kategorien.
@@ -299,6 +306,7 @@
           headers:
             actions: Handlinger
             name: Komponentnavn
+            scope: Komponenttype
             type: Komponenttype
         new:
           add: Legg til komponent
@@ -311,10 +319,31 @@
         update:
           error: Det oppstod et problem med å oppdatere denne komponenten.
           success: Komponenten ble oppdatert.
+      conflicts:
+        attempts: Forsøk
+        'false': 'Nei'
+        managed_user_name: Håndtert bruker
+        solved: Løst
+        title: Verifiseringskonflikter
+        transfer:
+          email: E-post
+          error: Det oppstod et problem med overføring av gjeldende deltaker til håndtert deltaker.
+          name: Navn
+          reason: Årsak
+          success: Overføringen er gjennomført.
+          title: Overfør
+        'true': 'Ja'
+        user_name: Bruker
       dashboard:
         show:
           view_more_logs: Vis flere logger
           welcome: Velkommen til Decidim administrator Panel.
+      domain_whitelist:
+        form:
+          domain_too_short: Domene er for kort
+        update:
+          error: Kunne ikke oppdatere domene-hviteliste
+          success: Domene-hviteliste oppdatert
       exports:
         export_as: "%{name} som %{export_format}"
         formats:
@@ -327,6 +356,16 @@
         category_id_eq:
           label: Kategori
         filter_label: Filter
+        invitation_accepted_at_present:
+          label: Invitasjonen er akseptert
+          values:
+            'false': 'Nei'
+            'true': 'Ja'
+        last_sign_in_at_present:
+          label: Noensinne logget inn
+          values:
+            'false': 'Nei'
+            'true': 'Ja'
         officialized_at_null:
           label: Stat
           values:
@@ -501,7 +540,19 @@
             users_count: Deltakere teller
       moderated_users:
         index:
+          name: Navn
           nickname: Kallenavn
+          reason: Årsak
+          reports: Antall rapporter
+          title: Oppføring rapporterte brukere
+        report:
+          reasons:
+            does_not_belong: Tilhører ikke
+            offensive: Støtende
+            spam: Søppelpost
+        tabs:
+          blocked: Blokkert
+          unblocked: Ikke blokkert
       moderations:
         index:
           title: Moderering
@@ -510,6 +561,21 @@
             does_not_belong: Tilhører ikke
             offensive: Offensiv
             spam: Søppelpost
+        reports:
+          index:
+            author: Forfatter(e)
+            callout_html: Innhold vises i moderasjonsområdet når det er signalisert av en bruker (kan være alle med en registrert konto) ved å klikke på %{icon} flagget ved siden av elementet.
+            content_original_language: Innhold originalspråk
+            participatory_space: Deltakende rom
+            reported_content: Rapportert innhold
+            see_current: Se gjeldende
+            see_original: Se originalen
+            title: Moderasjonsrapporter
+          show:
+            report_details: Årsaksdetaljer
+            report_language: Rapporter språk
+            report_reason: Årsak
+            title: Rapporter detaljer
       newsletter_templates:
         index:
           preview_template: Forhåndsvis
