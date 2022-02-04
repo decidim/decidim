@@ -587,6 +587,7 @@
       newsletters:
         create:
           error: Det oppstod et problem med å opprette dette nyhetsbrevet.
+          success: Nyhetsbrev opprettet. Vennligst se gjennom før du sender.
         deliver:
           error: Det oppstod et problem med å levere dette nyhetsbrevet.
           success: Nyhetsbrevet ble levert.
@@ -640,6 +641,9 @@
           error: Det oppstod et problem med å oppdatere dette nyhetsbrevet.
           success: Nyhetsbrev oppdatert. Vennligst se gjennom det før du sender.
       officializations:
+        block:
+          error: Det oppstod en feil under blokkering av deltakeren
+          success: Deltageren ble blokkert
         create:
           success: Deltaker ble offisialisert
         destroy:
@@ -647,6 +651,7 @@
         index:
           actions: Handlinger
           badge: Merke
+          block: Blokker bruker
           created_at: Opprette På
           name: Navn
           nickname: Kallenavn
@@ -654,8 +659,10 @@
           officialize: Offisialiser
           officialized: Offisialisert
           reofficialize: Offisialiser igjen
+          reports: Rapporter
           show_email: Vis e-postadresse
           status: Status
+          unblock: Fjern blokkering av bruker
           unofficialize: Uoffisialisert
         new:
           badge: Offisialiserings merke
@@ -663,10 +670,15 @@
           title: Offisialiser deltaker "%{name}"
         show_email_modal:
           close_modal: Lukk modal
+          description: Hvis du trenger å kontakte en deltaker direkte, kan du klikke på Vis for å se e-postadressen. Denne handlingen vil bli logget.
           email_address: E-postadresser
           full_name: Fullt navn
           hidden: skjult
           show: Vis
+          title: Vis deltakerens e-postadresse
+        unblock:
+          error: Kunne ikke fjerne blokkering av deltaker
+          success: Deltaker godkjent på ny
       organization:
         edit:
           title: Rediger organisasjon
@@ -698,6 +710,17 @@
             layout_appearance_title: Rediger layout utseende
             preview: Forhåndsvis
           omnipresent_banner_appearance_title: Endre enerådende banner
+      organization_external_domain_whitelist:
+        edit:
+          update: Oppdater
+        external_domain:
+          down: Ned
+          external_domain: Eksternt domene
+          remove: Fjern
+          up: Opp
+        form:
+          add: Legg til i hviteliste
+          title: Hviteliste for eksterne domener
       organization_homepage:
         edit:
           active_content_blocks: Aktive innholdsblokkerer
@@ -713,6 +736,7 @@
           error: Det oppstod et problem med å slette en privat deltaker for dette deltakerområdet.
           success: Deltakerområde privat deltaker tilgang ødelagt.
         index:
+          import_via_csv: Importer fra CSV
           title: Deltakerområdets private deltaker
         new:
           create: Opprett
