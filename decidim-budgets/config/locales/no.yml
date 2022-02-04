@@ -129,25 +129,55 @@
       budget_list_item:
         voting_finished: Du har stemt i dette budsjettet
         voting_started: Du har begynt å stemme i dette budsjettet
+      budgets_list:
+        cancel_order:
+          more_than_one: slett stemmen din på %{name} og start på nytt
+          only_one: slett stemmen din og begynn på nytt.
+        finished_message: Du har fullført avstemmingen. Takk for at du deltar!
+        highlighted_cta: Stem på %{name}
+        if_change_opinion: Hvis du har endret mening, kan du
+        my_budgets: Mine budsjetter
+        progress: Fullfør stemmegivningen
+        show: Se prosjekter
+        vote: Stem
+        voted_on: Du har stemt på %{links}
+      limit_announcement:
+        cant_vote: Du kan ikke stemme på dette budsjettet. <a href="%{landing_path}">Prøv på et annet budsjett</a>.
+        limit_reached: Du har aktive stemmer i %{links}. For å stemme på dette budsjettet må du <a href="%{landing_path}">slette stemmen din og starte på nytt</a>.
       models:
+        budget:
+          fields:
+            name: Navn
+            projects_count: Antall prosjekter
+            total_budget: Totalt budsjett
         project:
           fields:
+            category: Kategori
+            id: ID
             title: Tittel
       order_summary_mailer:
         order_summary:
           selected_projects: 'Prosjektene du har valgt er:'
           subject: Du har stemt på %{space_name} i deltakelsesrommet
+          voted_on_space: Du har stemt på %{budget_name} budsjettet for %{space_name} medvirkningsrom.
+          voted_on_space_with_scope: Du har stemt på %{budget_name} budsjettet for %{space_name} medvirkningsrommet på %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
+          are_you_sure: Hvis du ombestemmer deg, kan du endre stemmen din senere.
           cancel: Avbryt
           confirm: Bekreft
           description: Dette er prosjektene du har valgt å være en del av budsjettet.
           title: Bekreft stemme
         budget_excess:
           budget_excess:
+            description: Prosjektet overskrider det maksimale budsjettet og kan ikke legges til. Hvis du vil, kan du slette et prosjekt du allerede har valgt å legge til, eller avlegg stemme i henhold til de gitte rammene.
             title: Maksimalt budsjett overskredet
           close: Lukk
+          description: Prosjektet overskrider det maksimale budsjettet og kan ikke legges til. Hvis du vil, kan du slette et prosjekt du allerede har valgt å legge til, eller avlegg stemme i henhold til de gitte rammene.
           ok: OK
+          projects_excess:
+            description: Prosjektet overskrider maksimalt antall prosjekter og kan ikke legges til. Hvis du vil, kan du slette et prosjekt du allerede har valgt å legge til, eller foreta stemme i henhold til gitte rammene.
+            title: Maksimal antall prosjekter overskredet
         budget_summary:
           are_you_sure: Er du sikker på at du vil avbryte din stemme?
           assigned: 'Tildelt:'
@@ -155,16 +185,41 @@
           checked_out:
             description: Du har allerede stemt for budsjettet. Hvis du har ombestemt deg, kan du %{cancel_link}.
             title: Budtjett avstemning fullført
+          minimum_projects_rule:
+            description: Hvilke prosjekter mener du vi bør tildele budsjett for? Velg minst %{minimum_number} prosjekter du vil og stem i henhold til dine preferanser for å definere budsjettet.
+            instruction: "<li>Velg minst %{minimum_number} prosjekter du vil og stemme i henhold til dine preferanser for å definere budsjettet.</li>"
+          projects_rule:
+            description: Hvilke prosjekter mener du vi bør tildele budsjett for? Velg minst %{minimum_number} og opptil %{maximum_number} prosjekter du ønsker og stem i henhold til dine preferanser for å definere budsjettet.
+            instruction: "<li>Velg minst %{minimum_number} og inntil %{maximum_number} prosjekter du ønsker og stem i henhold til dine preferanser for å definere budsjettet</li>"
+          projects_rule_maximum_only:
+            description: Hvilke prosjekter mener du vi bør tildele budsjett for? Velg opptil %{maximum_number} prosjekter du ønsker og stem i henhold til dine preferanser for å definere budsjettet.
+            instruction: "<li>Velg opptil %{maximum_number} prosjekter du ønsker og stem i henhold til dine preferanser for å definere budsjettet.</li>"
+          rules:
+            title: Budsjettregler
           title: Du bestemmer budsjettet
+          total_budget: Totalt budsjett
+          total_projects: Totalt antall stemmer
+          vote_threshold_percent_rule:
+            description: Hvilke prosjekter mener du vi bør tildele budsjett for? Tilordne minst %{minimum_budget} til de prosjektene du ønsker og stem i henhold til dine preferanser for å definere budsjettet.
+            instruction: "<li>Tilordne minst %{minimum_budget} til de prosjektene du ønsker og stem i henhold til dine preferanser for å definere budsjettet.</li>"
         count:
           projects_count:
             one: 1 prosjekt
             other: "%{count} prosjekter"
+        exit_modal:
+          cancel: Tilbake til avstemming
+          close_modal: Lukk dialogboks
+          exit: Avslutt avstemning
+          message: Stemmen din er ikke registrert fordi du ikke har fullført avstemmingen. Er du sikker på at du vil avslutte avstemming?
+          title: Du har ikke stemt enda
         filters:
           category: Kategori
           scope: Tema
           search: Søk
+          status: Status
           status_values:
+            all: Alle
+            not_selected: Ikke valgt
             selected: Valgt
         filters_small_view:
           close_modal: Lukk modal
