@@ -129,6 +129,10 @@
               allowed_file_content_types: Ugyldig bildefil
             official_img_header:
               allowed_file_content_types: Ugyldig bildefil
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Ugyldig medie-type
   activerecord:
     attributes:
       decidim/static_page:
@@ -147,23 +151,41 @@
     admin:
       actions:
         add: Legg til
+        attachment:
+          new: Nytt vedlegg
+        attachment_collection:
+          new: Ny vedleggssamling
         browse: Bla gjennom
+        category:
+          new: Ny kategori
+        export: Eksporter alt
+        export-selection: Eksporter valg
+        import: Importer
         manage: Administrer
         new: Nytt %{name}
+        newsletter:
+          new: Nytt nyhetsbrev
+        participatory_space_private_user:
+          new: Nytt deltakerområde for privat bruker
         per_page: Per side
         permissions: Tillatelser
         reject: Avvis
         share: Del
+        user:
+          new: Ny bruker
         verify: Verifiser
       admin_terms_of_use:
         accept:
           error: Det oppstod et problem med å godkjenne administrator vilkårene.
           success: Flott! Du har godtatt administratorenes vilkår for bruk.
         actions:
+          accept: Jeg godtar følgende vilkår
+          are_you_sure: Er du sikker på at du vil avslå administratorvilkårene for bruk?
           refuse: Avslå administratorvilkårene
           title: Godta vilkårene for bruk
         required_review:
           alert: 'Påkrevd: Gå gjennom administrasjons vilkårene våre'
+          callout: Vennligst ta deg tid til å se gjennom administratorers bruksvilkår. Ellers vil du ikke kunne administrere plattformen.
           cta: Se over dem nå.
         title: Administrator vilkår for bruk
       area_types:
