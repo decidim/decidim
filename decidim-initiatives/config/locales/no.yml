@@ -337,6 +337,8 @@
           email_outro: Du har mottatt denne varslingen fordi du følger %{author_nickname}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
           email_subject: Initiativ påtegne av %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet ble påtegnet av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      form:
+        attachment_legend: "(Valgfritt) Legg til vedlegg"
       index:
         title: Initiativer
       initiative_signatures:
