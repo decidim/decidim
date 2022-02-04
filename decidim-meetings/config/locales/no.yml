@@ -278,6 +278,7 @@
           form:
             available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig.
             invites: Invitasjoner
+            registration_email_help: Denne teksten vil dukke opp i midten av e-posten med registreringsbekreftelsen. Like etter registreringskoden.
             registration_form: Registreingsskjema
             registrations_count:
               one: Det har vært %{count} registrering.
