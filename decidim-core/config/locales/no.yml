@@ -660,6 +660,7 @@
         file:
           explanation: 'Veiledning for fil:'
           message_1: Må være et bilde eller et dokument.
+          message_2: For bilder, bruk foretrekkes landskapsbilder, tjenesten beskjærer bildet. For CSV-filer, må skilletegnet mellom kolonner være en komma (",")
         image:
           explanation: 'Veiledning for bilde:'
           message_1: Et landskapsbilde uten tekst er å anbefale.
