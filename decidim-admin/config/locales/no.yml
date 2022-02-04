@@ -10,7 +10,7 @@
         organization: Organisasjon
         plural: Flertall
       attachment:
-        attachment_collection_id: Mapper
+        attachment_collection_id: Mappe
         description: Beskrivelse
         file: Fil
         title: Vedlegg eller bildenavn
@@ -366,11 +366,25 @@
           values:
             'false': 'Nei'
             'true': 'Ja'
+        moderations:
+          reportable_type_string_eq:
+            label: Type
         officialized_at_null:
           label: Stat
           values:
             'false': Offisialisert
             'true': Ikke offisialisert
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Invitasjon godtatt
+            values:
+              'false': Ikke akseptert
+              'true': Godkjent
+          user_invitation_sent_at_not_null:
+            label: Invitasjon sendt
+            values:
+              'false': Ikke sendt
+              'true': Sendt
         private_space_eq:
           label: Privat
           values:
@@ -386,9 +400,17 @@
         search_label: Søk
         search_placeholder:
           name_or_nickname_or_email_cont: Søk %{collection} via email, navn eller kallenavn.
+          reported_id_string_or_reported_content_cont: Søk %{collection} av rapporterbar id eller innhold.
           title_cont: Søk %{collection} etter tittel.
+          user_name_or_user_email_cont: Søk %{collection} etter navn eller e-post.
         state_eq:
           label: Tilstand
+      forms:
+        file_help:
+          import:
+            explanation: 'Veiledning for fil:'
+            message_1: CSV, JSON og Excel (.xlsx)-filer støttes
+            message_2: For CSV-filer, må skilletegnet mellom kolonner være et semikolon (";")
       help_sections:
         error: Det oppsto et problem med å oppdatere hjelpeseksjonene
         form:
@@ -427,6 +449,13 @@
           impersonate_existing_managed_user: Administrer deltaker "%{name}"
           impersonate_existing_user: Administrer deltaker "%{name}"
           impersonate_new_managed_user: Administrer ny deltaker
+      imports:
+        error: Det oppstod et problem under importen
+        new:
+          actions:
+            back: Tilbake
+          file_legend: Legg til en importfil som vil bli analysert.
+          import: Importer
       logs:
         logs_list:
           no_logs_yet: Det er ingen logger ennå
@@ -447,11 +476,14 @@
         areas: Områder
         configuration: Konfigurasjon
         dashboard: Skrivebord
+        external_domain_whitelist: Tillatte eksterne domener
         help_sections: Hjelpeseksjoner
         homepage: Hjemmeside
         impersonations: Etterligninger
+        moderation: Globale moderasjoner
         newsletters: Nyhetsbrev
         participants: Deltakere
+        reported_users: Rapporterte brukere
         scope_types: Tematyper
         scopes: Tema
         settings: Innstillinger
@@ -513,6 +545,7 @@
             expires_at: Utløper
             last_used_at: Sist brukt
             times_used: Ganger brukt
+            token: Token
             user: Opprettet av
         static_page:
           fields:
@@ -540,6 +573,11 @@
             users_count: Deltakere teller
       moderated_users:
         index:
+          actions:
+            block: Blokker bruker
+            title: Handlinger
+            unblock: Fjern blokkering av bruker
+            unreport: Opphev rapport
           name: Navn
           nickname: Kallenavn
           reason: Årsak
@@ -797,6 +835,11 @@
           share: Del
         destroy:
           error: Et problem oppstod under ødelggelsen av token.
+          success: Token ble ødelagt.
+        share_tokens:
+          empty: Ingen aktive token
+          help: Disse tokenene brukes til å dele denne upubliserte ressursen til hvilken som helst bruker. De vil bli skjult når ressursen publiseres. Klikk på tokenenes deleikon for å besøke den delte URL-en.
+          title: Del tokener
       shared:
         gallery:
           add_images: Legg til bilder
@@ -854,6 +897,7 @@
         impersonatable_users: Håndterbare deltakere
         impersonations: Deltakernes administrasjon
         metrics: Måltall
+        panel: Administrator
         participants: Deltakere
         scope_types: Tematyper
         scopes: Tema
@@ -913,8 +957,23 @@
           no_users_count_statistics_yet: Det er ingen statistikk på antall brukere enda
           participants: Deltakere
       view_public_page: Vis offentlig side
+    forms:
+      errors:
+        impersonate_user:
+          reason: Du må oppgi en grunn når du behandler en ikke-behandlet deltaker
+    metrics:
+      blocked_users:
+        object: blokkerte brukere
+        title: Blokkerte brukere
+      reported_users:
+        object: rapporterte brukere
+        title: Rapporterte brukere
+      user_reports:
+        object: brukerrapporter
+        title: Brukerrapporter
     moderations:
       actions:
+        expand: Utvid
         hidden: Skjult
         hide: Skjul
         not_hidden: Ikke skjult
@@ -935,18 +994,28 @@
       models:
         moderation:
           fields:
+            created_at: Opprettelsesdato
             hidden_at: Skjult på
+            participatory_space: Deltakerrom
             report_count: Antall
             reportable_id: Id
+            reportable_type: Type
             reported_content_url: Rapportert innholds URL
             reports: Rapporter
             visit_url: Besøk URL
+        report:
+          fields:
+            details: Årsaksdetaljer
+            locale: Språk
+            reason: Årsak
   errors:
     messages:
       invalid_json: Ugyldig JSON
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Globale moderasjoner
         newsletters:
           title: Nyhetsbrev
         settings:
