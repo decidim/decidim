@@ -748,6 +748,7 @@
           invalid: Det oppstod et problem med å lese CSV-filen.
           success: CSV fil lastet opp. Vi sender en invitasjons email til deltakerne. Dette kan ta en stund.
         new:
+          explanation: 'Last opp din CSV-fil. Det må være to kolonner uten overskrifter, e-post i den første kolonnen og navn i den siste kolonnen (e-post, navn) til brukerne du vil legge til i det deltakende rommet. Unngå å bruke ugyldige tegn som `<>?%&^*#@()[]=+:;"{}\″` med brukernavn.'
           title: Last opp din CSV fil
           upload: Last opp
       resource_permissions:
@@ -793,8 +794,12 @@
           success: Temaet ble oppdatert
       share_tokens:
         actions:
+          confirm_destroy: Er du sikker på at du vil slette denne token?
           destroy: Slett
           share: Del
+        destroy:
+          error: Et problem oppstod under ødelggelsen av token.
+          success: Token ble ødelagt.
       shared:
         gallery:
           add_images: Legg til bilder
