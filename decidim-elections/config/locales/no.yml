@@ -17,6 +17,9 @@
         proposals_imports:
           create:
             invalid: Det oppstod et problem under importen av forslag til svar
+      admin_log:
+        election:
+          end_vote: "%{user_name} avsluttet avstemmingsperioden for valget av %{resource_name} i Bulletin Board"
       elections:
         count:
           elections_count:
@@ -79,6 +82,17 @@
         menu:
           votings_submenu:
             monitoring_committee: Kontrollgruppe
+      census:
+        admin:
+          census:
+            create:
+              invalid_csv_header: Topptekst i CSV-en har feil antall felt - vennligst les instruksjonene nøye
+      polling_officer_zone:
+        in_person_votes:
+          complete_voting:
+            questions_title: 'Hun har stemmerett i følgende spørsmål:'
+          in_person_form:
+            census_not_present_description: Hun må gå til folketellingskontoret eller ta kontakt med kundestøtten.
       votings:
         login:
           start_voting: Start avstemning
