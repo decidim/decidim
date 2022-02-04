@@ -797,6 +797,11 @@ it:
           explanation: 'Carica il file CSV. Il file deve contenere due colonne (e-mail e nome) senza intestazioni: nella prima sono elencati gli indirizzi e-mail degli utenti che si desidera aggiungere allo spazio partecipativo, nella seconda i loro nomi. Evita di usare caratteri non validi come `<>?%&^*#@()[]=+:;"{}\|` nella colonna dei nomi.'
           title: Carica il tuo file CSV
           upload: Carica File
+      reminders:
+        create:
+          error: Si è verificato un errore durante la creazione dei promemoria.
+        new:
+          submit: Invia
       resource_permissions:
         edit:
           submit: Invia

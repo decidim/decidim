@@ -257,6 +257,8 @@ en:
         update:
           error: There was a problem updating this attachment.
           success: Attachment updated successfully.
+      attachments_privacy_warning:
+        message: Be careful when working with attachments in a private space. Any participant could share this document to others.
       autocomplete:
         no_results: No results found
         search_prompt: Type at least three characters to search

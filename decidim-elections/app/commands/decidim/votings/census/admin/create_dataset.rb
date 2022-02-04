@@ -8,7 +8,7 @@ module Decidim
       module Admin
         # A command with the business logic to create census dataset for a
         # voting space.
-        class CreateDataset < Rectify::Command
+        class CreateDataset < Decidim::Command
           include Decidim::HasBlobFile
 
           def initialize(form, current_user)

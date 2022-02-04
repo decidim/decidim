@@ -4,7 +4,7 @@ module Decidim
   module Consultations
     module Admin
       # A command that configures how many and how much questions can be voted.
-      class UpdateQuestionConfiguration < Rectify::Command
+      class UpdateQuestionConfiguration < Decidim::Command
         # Public: Initializes the command.
         #
         # question - the Question to update

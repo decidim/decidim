@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user changes a Result from the admin
       # panel.
-      class UpdateStatus < Rectify::Command
+      class UpdateStatus < Decidim::Command
         # Initializes an UpdateStatus Command.
         #
         # form - The form from which to get the data.

@@ -4,8 +4,9 @@ require "csv"
 
 module Decidim
   module Admin
-    class ProcessParticipatorySpacePrivateUserImportCsv < Rectify::Command
+    class ProcessParticipatorySpacePrivateUserImportCsv < Decidim::Command
       include Decidim::HasBlobFile
+
       # Public: Initializes the command.
       #
       # form - the form object containing the uploaded file

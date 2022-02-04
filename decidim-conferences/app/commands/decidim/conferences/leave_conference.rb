@@ -3,7 +3,7 @@
 module Decidim
   module Conferences
     # This command is executed when the user leaves a conference.
-    class LeaveConference < Rectify::Command
+    class LeaveConference < Decidim::Command
       # Initializes a LeaveConference Command.
       #
       # conference - The current instance of the conference to be left.

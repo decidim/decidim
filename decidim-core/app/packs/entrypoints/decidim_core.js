@@ -56,7 +56,7 @@ import "src/decidim/notifications"
 import "src/decidim/identity_selector_dialog"
 import "src/decidim/gallery"
 import "src/decidim/direct_uploads/upload_field"
-import "src/decidim/sw/loader"
+import "src/decidim/sw"
 
 // CSS
 import "entrypoints/decidim_core.scss"

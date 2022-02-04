@@ -2,7 +2,7 @@
 
 module Decidim
   # This command unsubscribes user from newsletter.
-  class UnsubscribeSettings < Rectify::Command
+  class UnsubscribeSettings < Decidim::Command
     # unsubscribe user from newsletter.
     #
     # user - The user to be updated.

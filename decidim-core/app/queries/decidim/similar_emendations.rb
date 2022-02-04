@@ -2,7 +2,7 @@
 
 module Decidim
   # Class used to retrieve similar emendations, scoped to the current component.
-  class SimilarEmendations < Rectify::Query
+  class SimilarEmendations < Decidim::Query
     include Decidim::TranslationsHelper
 
     # Syntactic sugar to initialize the class and return the queried objects.

@@ -499,7 +499,6 @@ el:
           all: Όλα
         filter_origin_values:
           all: Όλα
-          citizens: Πολίτες
           meetings: Συσκέψεις
           official: Επίσημη
           user_groups: Ομάδες

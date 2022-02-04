@@ -4,7 +4,7 @@ module Decidim
   module Conferences
     module Admin
       # A command that sets an conference as unpublished.
-      class UnpublishConference < Rectify::Command
+      class UnpublishConference < Decidim::Command
         # Public: Initializes the command.
         #
         # conference - A Conference that will be published

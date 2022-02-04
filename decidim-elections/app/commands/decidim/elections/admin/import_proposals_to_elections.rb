@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command is executed when an admin imports proposals from
       # one component to answers of elections component.
-      class ImportProposalsToElections < Rectify::Command
+      class ImportProposalsToElections < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

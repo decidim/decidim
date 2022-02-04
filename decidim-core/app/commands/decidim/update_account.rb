@@ -2,7 +2,7 @@
 
 module Decidim
   # This command updates the user's account.
-  class UpdateAccount < Rectify::Command
+  class UpdateAccount < Decidim::Command
     # Updates a user's account.
     #
     # user - The user to be updated.

@@ -3,7 +3,7 @@
 module Decidim
   # This query counts registered users from a collection of organizations
   # in an optional interval of time.
-  class StatsUsersCount < Rectify::Query
+  class StatsUsersCount < Decidim::Query
     def self.for(organization, start_at = nil, end_at = nil)
       new(organization, start_at, end_at).query
     end

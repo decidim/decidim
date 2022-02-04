@@ -592,7 +592,6 @@ fi:
           all: Kaikki
         filter_origin_values:
           all: Kaikki
-          citizens: Kansalaiset
           meetings: Tapaamiset
           official: Virallinen
           user_groups: Käyttäjäryhmät

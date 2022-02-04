@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic that unpublishes an
       # existing meeting.
-      class UnpublishMeeting < Rectify::Command
+      class UnpublishMeeting < Decidim::Command
         # Public: Initializes the command.
         #
         # meeting - Decidim::Meetings::Meeting

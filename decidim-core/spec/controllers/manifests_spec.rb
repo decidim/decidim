@@ -6,7 +6,7 @@ module Decidim
   describe ManifestsController, type: :controller do
     routes { Decidim::Core::Engine.routes }
 
-    let(:organization) { create(:organization) }
+    let(:organization) { create(:organization, colors: { "theme" => "#f0f0f0" }) }
 
     before do
       request.env["decidim.current_organization"] = organization
@@ -24,12 +24,16 @@ module Decidim
         expect(manifest["name"]).to eq(organization.name)
         expect(manifest["lang"]).to eq(organization.default_locale)
         expect(manifest["description"]).to eq(ActionView::Base.full_sanitizer.sanitize(organization.description["en"]))
-
+        expect(manifest["background_color"]).to eq("#f0f0f0")
+        expect(manifest["theme_color"]).to eq("#f0f0f0")
+        expect(manifest["display"]).to eq("standalone")
+        expect(manifest["start_url"]).to eq("/")
         expect(manifest["icons"]).to match(
           [
             a_hash_including("src" => a_string_starting_with("/"), "sizes" => "32x32", "type" => "image/png"),
             a_hash_including("src" => a_string_starting_with("/"), "sizes" => "180x180", "type" => "image/png"),
-            a_hash_including("src" => a_string_starting_with("/"), "sizes" => "192x192", "type" => "image/png")
+            a_hash_including("src" => a_string_starting_with("/"), "sizes" => "192x192", "type" => "image/png"),
+            a_hash_including("src" => a_string_starting_with("/"), "sizes" => "512x512", "type" => "image/png")
           ]
         )
       end

@@ -4,7 +4,7 @@ module Decidim
   module Elections
     module Admin
       # This command updates the status of the action and the election if it got changed
-      class UpdateActionStatus < Rectify::Command
+      class UpdateActionStatus < Decidim::Command
         # Public: Initializes the command.
         #
         # action - The pending action to be updated

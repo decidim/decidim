@@ -4,7 +4,7 @@ module Decidim
   module System
     # A command with all the business logic when updating an admin in
     # the system.
-    class UpdateAdmin < Rectify::Command
+    class UpdateAdmin < Decidim::Command
       # Public: Initializes the command.
       #
       # form - A form object with the params.

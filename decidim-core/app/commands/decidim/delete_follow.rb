@@ -2,7 +2,7 @@
 
 module Decidim
   # A command with all the business logic for when a user stops following a resource.
-  class DeleteFollow < Rectify::Command
+  class DeleteFollow < Decidim::Command
     # Public: Initializes the command.
     #
     # form         - A form object with the params.

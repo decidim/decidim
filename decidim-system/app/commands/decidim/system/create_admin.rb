@@ -4,7 +4,7 @@ module Decidim
   module System
     # A command with all the business logic when creating a new admin in
     # the system.
-    class CreateAdmin < Rectify::Command
+    class CreateAdmin < Decidim::Command
       # Public: Initializes the command.
       #
       # form - A form object with the params.

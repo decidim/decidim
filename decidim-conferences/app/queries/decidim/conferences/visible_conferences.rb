@@ -3,7 +3,7 @@
 module Decidim
   module Conferences
     # This query class filters conferences given a current_user.
-    class VisibleConferences < Rectify::Query
+    class VisibleConferences < Decidim::Query
       def query
         Decidim::Conference.public_spaces
       end

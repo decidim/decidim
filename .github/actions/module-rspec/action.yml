@@ -7,13 +7,17 @@ inputs:
   github_token:
     description: 'Github token'
     required: true
-  ruby-version:
+  ruby_version:
     description: 'Ruby Version'
     default: "2.7.5"
     required: false
-  node-version:
+  node_version:
     description: 'Node version'
     default: '16.9.1'
+    required: false
+  processor_count:
+    description: "Number or parallel jobs to run"
+    default: "4"
     required: false
 
 runs:
@@ -25,11 +29,11 @@ runs:
         GITHUB_TOKEN: " ${{ inputs.github_token }}"
     - uses: ruby/setup-ruby@v1
       with:
-        ruby-version: ${{ inputs.ruby-version }}
+        ruby-version: ${{ inputs.ruby_version }}
         bundler-cache: true
     - uses: actions/setup-node@v1
       with:
-        node-version: ${{ inputs.node-version }}
+        node-version: ${{ inputs.node_version }}
     - name: Get npm cache directory path
       id: npm-cache-dir-path
       run: echo "::set-output name=dir::$(npm get cache)-${{ inputs.name }}"
@@ -56,3 +60,9 @@ runs:
       name: Scanning Security issues on module
       working-directory: ${{ inputs.name }}
       shell: "bash"
+    - run: bundle exec rake parallel:create parallel:migrate
+      name: Parallel tests
+      shell: "bash"
+      working-directory: ./spec/decidim_dummy_app/
+      env:
+        PARALLEL_TEST_PROCESSORS: " ${{ inputs.processor_count }}"
