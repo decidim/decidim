@@ -73,6 +73,33 @@ describe "Initiative", type: :system do
         end
       end
 
+      context "when initiative state is created" do
+        let(:state) { :created }
+
+        it "does not show signatures" do
+          expect(page).not_to have_css(".progress__bar__number")
+          expect(page).not_to have_css(".progress__bar__text")
+        end
+      end
+
+      context "when initiative state is validating" do
+        let(:state) { :validating }
+
+        it "does not show signatures" do
+          expect(page).not_to have_css(".progress__bar__number")
+          expect(page).not_to have_css(".progress__bar__text")
+        end
+      end
+
+      context "when initiative state is discarded" do
+        let(:state) { :discarded }
+
+        it "does not show signatures" do
+          expect(page).not_to have_css(".progress__bar__number")
+          expect(page).not_to have_css(".progress__bar__text")
+        end
+      end
+
       it_behaves_like "has attachments"
     end
   end
