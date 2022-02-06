@@ -2,7 +2,7 @@
 /* eslint id-length: ["error", { "exceptions": ["$"] }] */
 
 import "src/decidim/init"
-
+import Rails from "@rails/ujs"
 import createQuillEditor from "src/decidim/editor"
 
 
@@ -30,4 +30,4 @@ $(() => {
 });
 
 // This needs to be loaded after confirm dialog to bind properly
-Rails.start()
+Rails.start();
