@@ -1,7 +1,7 @@
 /* eslint-disable require-jsdoc */
 
 import lineBreakButtonHandler from "src/decidim/editor/linebreak_module"
-import "src/decidim/vendor/image-resize.min"
+import 'src/decidim/vendor/quill-image-resize-module/ImageResize'
 import "src/decidim/vendor/image-upload.min"
 
 const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "video", "image", "alt", "break", "width", "style", "code", "blockquote", "indent"];
