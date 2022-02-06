@@ -1,5 +1,5 @@
 /* eslint no-unused-vars: 0 */
-import Tribute from "src/decidim/vendor/tribute"
+import "src/decidim/vendor/tribute"
 
 $(() => {
   const $hashtagContainer = $(".js-hashtags");

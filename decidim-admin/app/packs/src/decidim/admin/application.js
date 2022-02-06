@@ -10,10 +10,12 @@ import Configuration from "src/decidim/configuration"
 import InputCharacterCounter from "src/decidim/input_character_counter"
 import managedUsersForm from "src/decidim/admin/managed_users"
 
-window.Decidim = window.Decidim || {};
 window.Decidim.managedUsersForm = managedUsersForm
-window.Decidim.config = new Configuration()
 window.Decidim.InputCharacterCounter = InputCharacterCounter;
+
+if (typeof DecidimCharacterCounter !== "undefined") {
+  Decidim.InputCharacterCounter.configureMessages(DecidimCharacterCounter);
+}
 
 $(() => {
   window.theDataPicker = new DataPicker($(".data-picker"));

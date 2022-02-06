@@ -14,6 +14,6 @@ pin "foundation-sites", to: "https://ga.jspm.io/npm:foundation-sites@6.7.0/dist/
 
 pin "bootstrap-tagsinput", to: "https://ga.jspm.io/npm:bootstrap-tagsinput@0.7.1/dist/bootstrap-tagsinput.js"
 
-pin_all_from File.expand_path("../app/packs/src/decidim", __dir__), under: "src/decidim"
+pin "jquery-serializejson", to: "https://ga.jspm.io/npm:jquery-serializejson@2.9.0/jquery.serializejson.js"
 
-# pin_all_from File.expand_path("../app/packs/src/decidim/dev", __dir__), under: "src/decidim/dev"
+pin_all_from File.expand_path("../app/packs/src/decidim", __dir__), under: "src/decidim"

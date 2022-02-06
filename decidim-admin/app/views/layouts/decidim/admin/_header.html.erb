@@ -1,6 +1,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <%= csrf_meta_tags %>
 <%= stylesheet_pack_tag "decidim_admin", media: "all" %>
-<%= javascript_pack_tag "decidim_admin", defer: false %>
+<%#= javascript_pack_tag "decidim_admin", defer: false %>
+<%= javascript_importmap_tags("src/decidim/admin", shim: Decidim.enable_shim) %>
+
 <%= organization_colors %>
 <%= snippets.display(:head) %>
