@@ -56,6 +56,10 @@ runs:
       name: Precompile assets
       working-directory: ./spec/decidim_dummy_app/
       shell: "bash"
+    - run: bundle exec rake importmap:install
+      name: Importmaps
+      working-directory: ./spec/decidim_dummy_app/
+      shell: "bash"
     - run: bundle exec brakeman --rails6 --force-scan .
       name: Scanning Security issues on module
       working-directory: ${{ inputs.name }}
