@@ -40,6 +40,8 @@ require "social-share-button"
 require "ransack"
 require "webpacker"
 
+require "importmap-rails"
+
 # Needed for the assets:precompile task, for configuring webpacker instance
 require "decidim/webpacker"
 
@@ -69,6 +71,15 @@ module Decidim
 
       initializer "decidim.rectify_extension", after: "decidim.action_controller" do
         ::Rectify::Query.include Decidim::RectifyQueryExtension
+      end
+
+      initializer "decidim.importmap", before: "importmap" do |app|
+        app.config.importmap.paths << Engine.root.join("config/importmap.rb")
+        app.config.importmap.cache_sweepers << Engine.root.join("app/packs/src")
+      end
+
+      initializer "decidim_system.importmap.assets", before: "importmap.assets" do |app|
+        app.config.assets.paths << Engine.root.join("app/packs") if app.config.respond_to?(:assets)
       end
 
       initializer "decidim.middleware" do |app|

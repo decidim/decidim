@@ -5,5 +5,5 @@ js_configs = {
 %>
 
 <script>
-  Decidim.config.set(<%== js_configs.to_json %>);
+  var DecidimConfig = <%== js_configs.to_json %>;
 </script>
