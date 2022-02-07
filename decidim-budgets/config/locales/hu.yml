@@ -62,6 +62,8 @@ hu:
       models:
         project:
           fields:
+            category: Kategória
+            id: Azonosító
             title: Cím
       order_summary_mailer:
         order_summary:
