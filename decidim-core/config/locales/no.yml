@@ -63,6 +63,7 @@
   carrierwave:
     errors:
       image_too_big: Dette bilde er for stort
+      not_inside_organization: Filen er ikke tilknyttet noen organisasjon
   date:
     formats:
       decidim_short: "%d.%m-%Y"
@@ -70,12 +71,40 @@
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: omtrent 1 time
+        other: omtrent %{count} timer
+      about_x_months:
+        one: omtrent 1 måned
+        other: omtrent %{count} måneder
+      half_a_minute: et halvt minutt
+      less_than_x_minutes:
+        one: mindre enn et minutt.
+        other: mindre enn %{count} minutter.
+      less_than_x_seconds:
+        one: akkurat nå
+        other: mindre enn %{count} sekunder.
+      x_days:
+        one: 1 dag siden
+        other: "%{count} dager siden"
+      x_hours:
+        one: 1 time siden
+        other: "%{count} timer siden"
+      x_minutes:
+        one: 1 minutt siden
+        other: "%{count} minutter siden"
+      x_seconds:
+        one: 1 sekund siden
+        other: "%{count} sekunder siden"
   decidim:
     accessibility:
       external_link: Ekstern lenke
       logo: "%{organization} s offisielle logo"
       skip_button: Gå til hovedinnhold
     account:
+      blocked: Denne kontoen er sperret på grunn av brudd på vilkår og betingelser
       data_portability_export:
         file_no_exists: Filen finnes ikke
         notice: Opplastingen av dataen din pågår. Du vil få en e-mail når den er ferdig.
