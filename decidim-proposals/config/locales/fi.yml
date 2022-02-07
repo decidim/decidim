@@ -594,6 +594,7 @@ fi:
           all: Kaikki
           meetings: Tapaamiset
           official: Virallinen
+          participants: Osallistujat
           user_groups: Käyttäjäryhmät
         filter_scope_values:
           all: Kaikki
