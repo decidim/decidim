@@ -25,64 +25,56 @@ module Decidim::Initiatives
         expect(subject).to have_css(".card--initiative")
       end
 
-      it "shows signatures" do
-        expect(subject).to have_css(".progress__bar__number")
-        expect(subject).to have_css(".progress__bar__text")
-        expect(subject.to_s).to include("signatures")
+      shared_examples_for "card shows signatures" do
+        it "shows signatures" do
+          expect(subject).to have_css(".progress__bar__number")
+          expect(subject).to have_css(".progress__bar__text")
+          expect(subject.to_s).to include("signatures")
+        end
+      end
+
+      shared_examples_for "card does not show signatures" do
+        it "does not show signatures" do
+          expect(subject).not_to have_css(".progress__bar__number")
+          expect(subject).not_to have_css(".progress__bar__text")
+          expect(subject.to_s).not_to include("signatures")
+        end
       end
 
       it "renders the hashtag" do
         expect(subject).to have_content("#my_hashtag")
       end
 
+      it_should_behave_like "card shows signatures"
+
       context "when initiative state is rejected" do
         let(:state) { :rejected }
 
-        it "shows signatures" do
-          expect(subject).to have_css(".progress__bar__number")
-          expect(subject).to have_css(".progress__bar__text")
-          expect(subject.to_s).to include("signatures")
-        end
+        it_should_behave_like "card shows signatures"
       end
 
       context "when initiative state is accepted" do
         let(:state) { :accepted }
 
-        it "shows signatures" do
-          expect(subject).to have_css(".progress__bar__number")
-          expect(subject).to have_css(".progress__bar__text")
-          expect(subject.to_s).to include("signatures")
-        end
+        it_should_behave_like "card shows signatures"
       end
 
       context "when initiative state is created" do
         let(:state) { :created }
 
-        it "does not show signatures" do
-          expect(subject).not_to have_css(".progress__bar__number")
-          expect(subject).not_to have_css(".progress__bar__text")
-          expect(subject.to_s).not_to include("signatures")
-        end
+        it_should_behave_like "card does not show signatures"
       end
 
       context "when initiative state is validating" do
         let(:state) { :validating }
 
-        it "does not show signatures" do
-          expect(subject).not_to have_css(".progress__bar__number")
-          expect(subject).not_to have_css(".progress__bar__text")
-          expect(subject.to_s).not_to include("signatures")
-        end
+        it_should_behave_like "card does not show signatures"
       end
 
       context "when initiative state is discarded" do
         let(:state) { :discarded }
 
-        it "does not show signatures" do
-          expect(subject).not_to have_css(".progress__bar__number")
-          expect(subject).not_to have_css(".progress__bar__text")
-          expect(subject.to_s).not_to include("signatures")
-        end
+       it_should_behave_like "card does not show signatures"
       end
     end
   end
