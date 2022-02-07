@@ -10,10 +10,8 @@ class ChangeUppercasedNicknamed < ActiveRecord::Migration[6.0]
       next if user1.nickname.downcase == user1.nickname
 
       i = 1
-      Decidim::User.find_each do |user2|
+      Decidim::User.where("nickname ILIKE ?", user1.nickname.downcase).order(:created_at).each do |user2|
         next if has_changed.include? user2
-        next if user1 == user2
-        next unless user1.nickname.downcase == user2.nickname.downcase
 
         # change his nickname to the lowercased one with -1 if it's the first, -2 if it's the second etc
         user2.nickname = "#{user2.nickname.downcase}-#{i}"
