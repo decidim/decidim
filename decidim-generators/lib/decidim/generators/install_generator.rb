@@ -104,9 +104,9 @@ module Decidim
       end
 
       def remove_old_assets
-        remove_file "config/initializers/assets.rb"
-        remove_dir("app/assets")
-        remove_dir("app/javascript")
+        # remove_file "config/initializers/assets.rb"
+        # remove_dir("app/assets")
+        # remove_dir("app/javascript")
       end
 
       def remove_sprockets_requirement
@@ -119,10 +119,9 @@ module Decidim
           require "action_cable/engine"
           require "rails/test_unit/railtie"
         RUBY
-
-        gsub_file "config/environments/development.rb", /config\.assets.*$/, ""
-        gsub_file "config/environments/test.rb", /config\.assets.*$/, ""
-        gsub_file "config/environments/production.rb", /config\.assets.*$/, ""
+        # gsub_file "config/environments/development.rb", /config\.assets.*$/, ""
+        # gsub_file "config/environments/test.rb", /config\.assets.*$/, ""
+        # gsub_file "config/environments/production.rb", /config\.assets.*$/, ""
       end
 
       def copy_migrations
