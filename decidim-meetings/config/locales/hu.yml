@@ -62,6 +62,11 @@ hu:
         other: Regisztrációk
   decidim:
     admin:
+      filters:
+        meetings:
+          origin_eq:
+            values:
+              participant: Résztvevő
       meeting_copies:
         create:
           error: Hiba történt a találkozó duplikálása során.
@@ -325,6 +330,8 @@ hu:
         filters:
           category: Kategória
           date: Dátum
+          origin_values:
+            participants: Résztvevők
           search: Keresés
         filters_small_view:
           close_modal: Modal bezárása
