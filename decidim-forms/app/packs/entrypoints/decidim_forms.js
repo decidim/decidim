@@ -1,4 +1,4 @@
-import "src/decidim/forms/forms"
+import "src/decidim/forms/index"
 
 // Images
 require.context("../images", true)
