@@ -100,6 +100,10 @@ fi:
       x_minutes:
         one: minuutti sitten
         other: "%{count} minuuttia sitten"
+      x_seconds:
+        one: sekunti sitten
+        other: "%{count} sekuntia sitten"
+        zero: juuri nyt
   decidim:
     accessibility:
       external_link: Ulkoinen linkki
@@ -991,6 +995,7 @@ fi:
           next: Seuraava
           no_conversations: Sinulla ei vielä ole keskusteluja
           title: Keskustelut
+          to: Vastaanottaja
         reply:
           placeholder: Vastauksesi...
           send: Lähetä
