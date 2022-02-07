@@ -136,6 +136,15 @@ module Decidim
           end
         end
       end
+
+      initializer "decidim_initiatives.importmap", before: "importmap" do |app|
+        app.config.importmap.paths << Engine.root.join("config/importmap.rb")
+        app.config.importmap.cache_sweepers << Engine.root.join("app/packs/src")
+      end
+
+      initializer "decidim_initiatives.importmap.assets", before: "importmap.assets" do |app|
+        app.config.assets.paths << Engine.root.join("app/packs") if app.config.respond_to?(:assets)
+      end
     end
   end
 end
