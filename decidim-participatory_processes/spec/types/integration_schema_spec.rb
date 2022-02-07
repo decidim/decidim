@@ -9,9 +9,9 @@ describe "Decidim::Api::QueryType" do
 
   let(:locale) { "en" }
 
-  let(:pp) { create(:participatory_process, organization: current_organization) }
+  let(:participatory_process) { create(:participatory_process, organization: current_organization) }
 
-  let(:participatory_process) do
+  let(:participatory_process_query) do
     %(
       participatoryProcess {
         announcement{
@@ -152,46 +152,46 @@ describe "Decidim::Api::QueryType" do
     )
   end
 
-  let(:pp_components) { [] }
-  let!(:pp_data) do
+  let(:components) { [] }
+  let!(:participatory_process_response) do
     {
       "announcement" => {
-        "locales" => pp.announcement.keys.sort,
-        "translation" => pp.announcement[locale]
+        "locales" => participatory_process.announcement.keys.sort,
+        "translation" => participatory_process.announcement[locale]
       },
       "attachments" => [],
-      "bannerImage" => pp.attached_uploader(:banner_image).path.sub(Rails.root.join("public").to_s, ""),
+      "bannerImage" => participatory_process.attached_uploader(:banner_image).path.sub(Rails.root.join("public").to_s, ""),
       "categories" => [],
-      "components" => pp_components,
-      "createdAt" => pp.created_at.iso8601.to_s.gsub("Z", "+00:00"),
-      "description" => { "translation" => pp.description[locale] },
-      "developerGroup" => { "translation" => pp.developer_group[locale] },
-      "endDate" => pp.end_date.to_s,
+      "components" => components,
+      "createdAt" => participatory_process.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "description" => { "translation" => participatory_process.description[locale] },
+      "developerGroup" => { "translation" => participatory_process.developer_group[locale] },
+      "endDate" => participatory_process.end_date.to_s,
       "hashtag" => "",
-      "heroImage" => pp.attached_uploader(:hero_image).path.sub(Rails.root.join("public").to_s, ""),
-      "id" => pp.id.to_s,
+      "heroImage" => participatory_process.attached_uploader(:hero_image).path.sub(Rails.root.join("public").to_s, ""),
+      "id" => participatory_process.id.to_s,
       "linkedParticipatorySpaces" => [],
-      "localArea" => { "translation" => pp.local_area[locale] },
-      "metaScope" => { "translation" => pp.meta_scope[locale] },
+      "localArea" => { "translation" => participatory_process.local_area[locale] },
+      "metaScope" => { "translation" => participatory_process.meta_scope[locale] },
       "participatoryProcessGroup" => nil,
-      "participatoryScope" => { "translation" => pp.participatory_scope[locale] },
-      "participatoryStructure" => { "translation" => pp.participatory_structure[locale] },
+      "participatoryScope" => { "translation" => participatory_process.participatory_scope[locale] },
+      "participatoryStructure" => { "translation" => participatory_process.participatory_structure[locale] },
       "promoted" => false,
-      "publishedAt" => pp.published_at.iso8601.to_s.gsub("Z", "+00:00"),
-      "reference" => pp.reference,
-      "scope" => pp.scope,
-      "scopesEnabled" => pp.scopes_enabled,
-      "shortDescription" => { "translation" => pp.short_description[locale] },
-      "showMetrics" => pp.show_metrics,
-      "showStatistics" => pp.show_statistics,
-      "slug" => pp.slug,
-      "startDate" => pp.start_date.to_s,
-      "steps" => pp.steps.to_a,
-      "subtitle" => { "translation" => pp.subtitle[locale] },
-      "target" => { "translation" => pp.target[locale] },
-      "title" => { "translation" => pp.title[locale] },
+      "publishedAt" => participatory_process.published_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "reference" => participatory_process.reference,
+      "scope" => participatory_process.scope,
+      "scopesEnabled" => participatory_process.scopes_enabled,
+      "shortDescription" => { "translation" => participatory_process.short_description[locale] },
+      "showMetrics" => participatory_process.show_metrics,
+      "showStatistics" => participatory_process.show_statistics,
+      "slug" => participatory_process.slug,
+      "startDate" => participatory_process.start_date.to_s,
+      "steps" => participatory_process.steps.to_a,
+      "subtitle" => { "translation" => participatory_process.subtitle[locale] },
+      "target" => { "translation" => participatory_process.target[locale] },
+      "title" => { "translation" => participatory_process.title[locale] },
       "type" => "Decidim::ParticipatoryProcess",
-      "updatedAt" => pp.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "updatedAt" => participatory_process.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
       "stats" => [
         { "name" => "dummies_count_high", "value" => 0 },
         { "name" => "pages_count", "value" => 0 },
@@ -210,7 +210,7 @@ describe "Decidim::Api::QueryType" do
   let(:query) do
     %(
       query {
-        #{participatory_process}
+        #{participatory_process_query}
       }
     )
   end
@@ -220,6 +220,6 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error(StandardError)
     end
 
-    it { expect(response["participatoryProcess"]).to eq(pp_data) }
+    it { expect(response["participatoryProcess"]).to eq(participatory_process_response) }
   end
 end
