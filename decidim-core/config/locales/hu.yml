@@ -68,6 +68,12 @@ hu:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      x_seconds:
+        one: 1 másodperce
+        other: "%{count} másodperce"
+        zero: éppen most
   decidim:
     accessibility:
       logo: "%{organization} hivatalos logója"
@@ -815,6 +821,7 @@ hu:
           next: Következő
           no_conversations: Még nincsenek beszélgetések
           title: Beszélgetések
+          to: Címzett
         reply:
           placeholder: A válaszod...
           send: Elküld
