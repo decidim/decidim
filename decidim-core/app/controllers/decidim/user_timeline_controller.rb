@@ -17,8 +17,6 @@ module Decidim
 
     private
 
-    #alias :user :current_user
-
     def user
       return nil unless params[:nickname]
 

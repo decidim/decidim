@@ -9,7 +9,6 @@ module Decidim
     let(:organization) { create(:organization) }
     let!(:user) { create(:user, :confirmed, nickname: "nick", organization: organization) }
 
-
     before do
       request.env["decidim.current_organization"] = organization
       sign_in user

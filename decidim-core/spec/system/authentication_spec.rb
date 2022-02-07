@@ -227,7 +227,6 @@ describe "Authentication", type: :system do
     end
 
     context "when nickname is filled with uppercase" do
-
       it "show an error message" do
         find(".sign-up-link").click
 
