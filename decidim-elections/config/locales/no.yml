@@ -189,6 +189,12 @@
           key_ceremony:
             continue: Fortsett
             title: Hovedseremoni
+      election_m:
+        footer:
+          remaining_time:
+            one: "<strong>%{count} time %{minutes} minutter</strong> gjenstår for å stemme."
+            other: "<strong>%{count} time %{minutes} minutter</strong> gjenstår for å stemme."
+            zero: "<strong>%{minutes} minutter</strong> gjenstår for å stemme."
       elections:
         count:
           elections_count:
