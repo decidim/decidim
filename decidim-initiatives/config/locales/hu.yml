@@ -301,6 +301,8 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{author_nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: '%{author_nickname} támogatta a kezdeményezést'
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a>kezdeményezést támogatta: <a href="%{author_path}">%{author_name} %{author_nickname}</a>.'
+      form:
+        attachment_legend: "(Opcionális) Csatolmány hozzáadása"
       index:
         title: Kezdeményezések
       initiative_signatures:
