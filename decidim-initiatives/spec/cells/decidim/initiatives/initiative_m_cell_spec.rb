@@ -45,36 +45,36 @@ module Decidim::Initiatives
         expect(subject).to have_content("#my_hashtag")
       end
 
-      it_should_behave_like "card shows signatures"
+      it_behaves_like "card shows signatures"
 
       context "when initiative state is rejected" do
         let(:state) { :rejected }
 
-        it_should_behave_like "card shows signatures"
+        it_behaves_like "card shows signatures"
       end
 
       context "when initiative state is accepted" do
         let(:state) { :accepted }
 
-        it_should_behave_like "card shows signatures"
+        it_behaves_like "card shows signatures"
       end
 
       context "when initiative state is created" do
         let(:state) { :created }
 
-        it_should_behave_like "card does not show signatures"
+        it_behaves_like "card does not show signatures"
       end
 
       context "when initiative state is validating" do
         let(:state) { :validating }
 
-        it_should_behave_like "card does not show signatures"
+        it_behaves_like "card does not show signatures"
       end
 
       context "when initiative state is discarded" do
         let(:state) { :discarded }
 
-       it_should_behave_like "card does not show signatures"
+        it_behaves_like "card does not show signatures"
       end
     end
   end
