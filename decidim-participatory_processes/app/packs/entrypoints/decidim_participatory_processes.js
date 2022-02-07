@@ -1,4 +1,4 @@
-import "src/decidim/participatory_processes/filters"
+import "src/decidim/participatory_processes/index"
 
 // Images
 require.context("../images", true)
