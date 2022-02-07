@@ -7,6 +7,7 @@
         category_id: Kategori
         decidim_scope_id: Tema
         has_address: Har adresse
+        scope_id: Tema
         state: Delstat
         title: Tittel
         user_group_id: Opprett samarbeids utkast som
@@ -19,17 +20,22 @@
         category_id: Kategori
         decidim_scope_id: Tema
         has_address: Har adresse
+        scope_id: Tema
         state: Delstat
         suggested_hashtags: Foreslåtte hashtags
         title: Tittel
         user_group_id: Opprett forslag som
       proposal_answer:
         answer: Svar
+        cost: Kostnad
+        cost_report: Kostnadsrapport
+        execution_period: Utførelsesperiode
       proposals_copy:
         copy_proposals: Jeg forstår at dette vil importere alle forslag fra den valgte komponenten til den nåværende, og at denne handlingen ikke kan reverseres.
         origin_component_id: Komponent å kopiere forslagene fra
       proposals_import:
         import_proposals: Importer forslag
+        keep_answers: Behold status og svar
         keep_authors: Behold originale forfattere
     errors:
       models:
@@ -48,9 +54,20 @@
               identical: OG tittelen kan ikke være identisk
             title:
               identical: OG teksten kan ikke være identisk
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Er ikke offisiell
+              supported: Har mottatt støtte eller påtegninger
+        proposals_split:
+          attributes:
+            base:
+              not_official: Er ikke offisiell
+              supported: Har mottatt støtte eller påtegninger
     models:
       decidim/proposals/accepted_proposal_event: Forslag akseptert
       decidim/proposals/admin/update_proposal_category_event: Forslags kategorien ble endret
+      decidim/proposals/admin/update_proposal_scope_event: Forslagstema er endret
       decidim/proposals/creation_enabled_event: Opprettelse av forslag aktivert
       decidim/proposals/endorsing_enabled_event: Forslags påtegning aktivert
       decidim/proposals/evaluating_proposal_event: Forslaget blir evaluert
@@ -75,15 +92,40 @@
   decidim:
     admin:
       filters:
+        proposals:
+          category_id_eq:
+            label: Kategori
+          is_emendation_true:
+            label: Type
+            values:
+              'false': Forslag
+              'true': Endringer
+          scope_id_eq:
+            label: Tema
+          state_eq:
+            label: Tilstand
+            values:
+              accepted: Aksepterte
+              evaluating: Vurderer
+              published: Publisert
+              rejected: Avvist
+              validating: Teknisk validering
+              withdrawn: Tilbakekalt
+          state_null:
+            label: Tilstand
+            values:
+              'true': Ikke besvart
         search_placeholder:
           id_string_or_title_cont: Søk %{collection} etter ID eller tittel.
     components:
       proposals:
         actions:
           amend: Endre
+          comment: Kommentar
           create: Opprett
           endorse: Påtegne
           vote: Støtte
+          vote_comment: Stem på kommentar
           withdraw: Trekk tilbake
         name: Forslag
         settings:
@@ -96,6 +138,18 @@
             can_accumulate_supports_beyond_threshold: Kan samle støtter utover terskelen
             collaborative_drafts_enabled: Samarbeids utkaster aktivert
             comments_enabled: Kommentarer aktivert
+            comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
+            default_sort_order: Standard sortering av forslag
+            default_sort_order_help: Standardverdien betyr at hvis støtte er aktivert, vil forslagene bli vist i tilfeldig rekkefølge og hvis støttene er blokkert, vil de bli sortert etter de mest støttede forslagene.
+            default_sort_order_options:
+              default: Standardverdi
+              most_commented: Mest kommenterte
+              most_endorsed: Mest påtegnet
+              most_followed: Mest fulgte
+              most_voted: Mest støttet
+              random: Tilfeldig
+              recent: Nylig
+              with_more_authors: Med flere forfattere
             geocoding_enabled: Geokoding aktivert
             minimum_votes_per_user: Minimum støtter per bruker
             new_proposal_body_template: Nytt forslag korppsmal
@@ -106,6 +160,10 @@
             participatory_texts_enabled_readonly: Kan ikke samhandle med denne innstillingen hvis det finnes eksisterende forslag. Vennligst, opprett et nytt "Forslags komponent" hvis du vil aktivere denne funksjonen eller forkaste alle importerte forslag i `Deltakende tekster` -menyen hvis du vil deaktivere den.
             proposal_answering_enabled: Forslags besvaring aktivert
             proposal_edit_before_minutes: Forslag kan redigeres av forfattere før så mange minutter går
+            proposal_edit_time: Forslagsredigering
+            proposal_edit_time_choices:
+              infinite: Tillat å redigere forslag til en uendelig tidsperiode
+              limited: Tillat redigering av forslag innenfor en bestemt tidsramme
             proposal_length: Maksimal forslagstekst lengde
             proposal_limit: Forslagsgrense per deltaker
             proposal_wizard_step_1_help_text: Forslags veiviseren "Opprett" trinn-hjelpeteksten
@@ -113,6 +171,8 @@
             proposal_wizard_step_3_help_text: Forslags veiviseren "Fullfør " trinn-hjelpeteksten
             proposal_wizard_step_4_help_text: Forslags veiviseren "Publiser" trinn-hjelpeteksten
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert forslag
+            scope_id: Tema
+            scopes_enabled: Aktiverte temaer
             threshold_per_proposal: Terskel per forslag
             vote_limit: Støttegrense per deltaker
           step:
@@ -123,6 +183,9 @@
             amendment_reaction_enabled: Endrings reaksjon aktivert
             amendment_reaction_enabled_help: Forslagets forfattere vil kunne godta eller avvise Deltakerens emendasjoner.
             amendments_visibility: Endringens synlighet
+            amendments_visibility_choices:
+              all: Endringer er synlig for alle
+              participants: Endringen er bare synlig for forfatteren
             amendments_visibility_help: Hvis alternativet "Endringer er bare synlige for forfatterne" er valgt, må deltaker være logget inn for å se endringene som er gjort.
             announcement: Kunngjøring
             answers_with_costs: Aktiver kostnader på forslag til svar
