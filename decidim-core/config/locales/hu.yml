@@ -628,6 +628,9 @@ hu:
           password: A jelszó túl rövid.
           password_confirmation: A jelszó megerősítés meg kell egyezzen a jelszóval.
         error: Hiba van ebben a mezőben.
+      file_help:
+        file:
+          message_2: A javasolt képméret 512x512 pixel.
       remove_this_file: Töröld ezt a fájlt
     gamification:
       all_badges_link: Az összes elérhető jelvény megtekintése.
@@ -815,6 +818,7 @@ hu:
           next: Következő
           no_conversations: Még nincsenek beszélgetések
           title: Beszélgetések
+          to: Címzett
         reply:
           placeholder: A válaszod...
           send: Elküld
@@ -892,6 +896,10 @@ hu:
       update:
         error: Hiba történt az értesítési beállítások frissítése során.
         success: Az értesítési beállításaid frissítése sikeres volt.
+    offline:
+      show:
+        message: Úgy tűnik, nem kapcsolódik az internethez. Kérjük, próbálja meg újra később.
+        retry: Újra
     open_data:
       not_available_yet: Az Open Data fájlok még nem érhetők el, próbálkozzon újra pár perc múlva.
     own_user_groups:
@@ -1302,6 +1310,8 @@ hu:
         expire_time_html: A munkamenet <b><span class="minutes">%{minutes}</span> perc múlva lejár</b>.
       notifications_dashboard:
         mark_all_as_read: Összes megjelölése olvasottként
+      offline_banner:
+        cache_version_page: Upsz! Nem kapcsolódik az internetre. Most az oldal egy régebbi, eltárolt változatát látja, ami lehet, hogy nem teljesen friss.
       user_menu:
         admin_dashboard: Admin vezérlőpult
         conversations: Beszélgetések
