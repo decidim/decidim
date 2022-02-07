@@ -1272,11 +1272,23 @@
       followers_count: Følgere
       headline: Statistikk
       no_stats: Det finnes ingen statistikk enda.
+      pages_count: Sider
+      participants_count: Deltakere
+      users_count: Deltakere
+    tags:
+      filter_results_for_category: 'Filtrer resultater for kategori: %{resource}'
+      filter_results_for_scope: 'Filtrere resultater for tema: %{resource}'
+    translation_bar:
+      help_text: "<strong>Advarsel:</strong> Innhold kan automatisk bli oversatt og ikke alltid være 100 % nøyaktig."
+      show_original: Vis originaltekst
+      show_translated: Vis automatisk oversatt tekst
     user_activity:
       index:
         no_activities_warning: Denne deltakeren har ikke hatt noe aktivitet ennå.
+    user_contact_disabled: Denne deltakeren godtar ikke direktemeldinger.
     user_conversations:
       create:
+        error: Meldingen kunne ikke opprettes. Prøv igjen senere
         existing_error: Meldingen kunne ikke opprettes. Samtalen eksisterer allerede, prøv igjen nå.
         success: Samtalen startet vellykket!
       index:
@@ -1300,6 +1312,8 @@
         send: Send
         title_reply: Svar
       show:
+        back: Vis alle samtaler
+        deleted_accounts: Du kan ikke ha en samtale med slettede kontoer.
         not_allowed: Denne brukeren godtar ingen flere direktemeldinger.
         title: Samtale med %{usernames}
       update:
@@ -1315,7 +1329,11 @@
         success: Interessene dine er oppdatert.
     user_report_mailer:
       notify:
+        body_1: Brukeren %{user} er rapportert av %{token}
+        body_2: 'Årsak: %{reason}'
+        greetings: Hei,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hei %{admin},
+        subject: En ny bruker har blitt rapportert i %{organization_name}
     version:
       show:
         back_to_resource: Gå tilbake
@@ -1341,6 +1359,7 @@
         number_of_versions: Versjoner
         title: Versjoner
     versions_list_item:
+      back: Vis alle versjoner
       show:
         version_index: Versjon %{index}
     welcome_notification:
@@ -1519,6 +1538,10 @@
       too_short: er for kort (under 15 tegn)
   forms:
     correct_errors: Det er feil i skjemaet, korriger dem for å fortsette.
+    length_validator:
+      minimum:
+        one: Minst %{count} tegn
+        other: Minst %{count} tegn
     required: Påkrevd
     required_explanation: "Obligatoriske felt er markert med en stjerne"
   invisible_captcha:
@@ -1539,9 +1562,11 @@
         made_with_open_source: Nettsted laget med <a target="_blank" href="https://github.com/decidim/decidim">fri programvare</a>.
       header:
         close_menu: Lukk meny
+        main_menu: Hovedmeny
         navigation: Navigasjon
         sign_in: Logg på
         sign_up: Registrer deg
+        user_menu: Brukermeny
       impersonation_warning:
         close_session: Lukk økt
         description_html: Du administrerer deltakeren <b>%{user_name}</b>.
@@ -1551,12 +1576,19 @@
       notifications_dashboard:
         mark_all_as_read: Merk alt som lest
         mark_as_read: Merk som lest
+      offline_banner:
+        cache_version_page: Oooops! Nettverket ditt er frakoblet. Dette er en tidligere bufret versjon av siden du besøker, kanskje er innholdet ikke oppdatert.
       social_media_links:
         facebook: "%{organization} på Facebook"
         github: "%{organization} på GitHub"
         instagram: "%{organization} på Instagram"
         twitter: "%{organization} på Twitter"
         youtube: "%{organization} på YouTube"
+      timeout_modal:
+        body: Du har vært inaktiv i %{minutes} minutter. Hvis du fortsetter å være inaktiv, vil du automatisk bli logget ut for din egen sikkerhet.
+        continue_session: Fortsett økten
+        sign_out: Logg ut
+        title: Ønsker du å fortsette økten?
       user_menu:
         account: 'Brukerkonto: %{name}'
         admin_dashboard: Admin hovedpanel
@@ -1565,6 +1597,7 @@
         profile: Min konto
         public_profile: Min offentlige profil
         sign_out: Logg ut
+        title: Lenker til profil
       user_profile:
         account: Konto
         authorizations: Fullmakter
@@ -1578,11 +1611,14 @@
         see_more: Se mer
   locale:
     name: Engelsk
+    name_with_error: Engelsk (feil!)
   password_validator:
+    blacklisted: er svartelistet
     domain_included_in_password: er for lik dette domenenavnet
     email_included_in_password: er for lik e-postadressen din
     fallback: er ikke gyldig
     name_included_in_password: er for likt navnet ditt
+    nickname_included_in_password: er for likt kallenavnet ditt
     not_enough_unique_characters: har ikke nok unike tegn
     password_not_allowed: er ikke tillatt
     password_too_common: er for vanlig
@@ -1617,6 +1653,8 @@
       day_of_week: "%a"
       day_of_week_long: "%a%e"
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"
@@ -1642,7 +1680,13 @@
   views:
     pagination:
       first: "&laquo; Først"
+      first_title: Lenke til første side
       last: Siste &raquo;
+      last_title: Lenke til siste side
       next: Neste &rsaquo;
+      next_title: Lenke til neste side
+      pagination: Paginering
       previous: "&lsaquo; Tidligere"
+      previous_title: Lenke til forrige side
+      title: 'Sidenummer: '
       truncate: "&hellip;"
