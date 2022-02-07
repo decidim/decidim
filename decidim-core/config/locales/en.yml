@@ -776,6 +776,7 @@ en:
           remove: Remove
           replace: Replace
           title: Title
+          title_required: Title is required!
           uploaded: Uploaded
           validating: Validating...
           validation_error: Validation error!

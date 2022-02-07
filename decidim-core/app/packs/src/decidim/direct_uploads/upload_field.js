@@ -1,4 +1,5 @@
 import UploadModal from "src/decidim/direct_uploads/upload_modal";
+import { truncateFilename } from "src/decidim/direct_uploads/upload_utility";
 
 const loadAttachments = (um) => {
   Array.from(um.activeAttachments.children).forEach((child) => {
@@ -51,9 +52,7 @@ const addDropZoneEventListeners = (um) => {
 }
 
 const addSaveButtonEventListener = (um) => {
-  const saveButton = um.modal.querySelector(`.add-attachment-${um.name}`);
-
-  saveButton.addEventListener("click", (event) => {
+  um.saveButton.addEventListener("click", (event) => {
     event.preventDefault();
     const validatedItems = um.uploadItems.querySelectorAll(".upload-item[data-state='validated']")
     const validatedItemsCount = validatedItems.length;
@@ -65,23 +64,23 @@ const addSaveButtonEventListener = (um) => {
         details = um.activeAttachments.querySelector(`.attachment-details[data-filename='${item.dataset.filename}'`);
       }
       const span = details.querySelector("span");
-      span.classList.add("filename")
+      span.classList.add("filename");
       if (um.options.titled) {
         const title = item.querySelector("input[type='text']").value;
         details.dataset.title = title;
-        span.innerHTML = `${title} (${um.truncateFilename(item.dataset.filename)})`;
+        span.innerHTML = `${title} (${truncateFilename(item.dataset.filename)})`;
       } else {
-        span.innerHTML = um.truncateFilename(item.dataset.filename, 19);
+        span.innerHTML = truncateFilename(item.dataset.filename, 19);
       }
       span.style.display = "block";
     });
 
     if (validatedItemsCount > 0) {
       // Foundation helper does some magic with error fields, so these must be triggered using jQuery.
-      const $el = $(um.uploadContainer.querySelector("input[type='checkbox']"))
+      const $el = $(um.uploadContainer.querySelector("input[type='checkbox']"));
       if ($el) {
-        $el.prop("checked", true)
-        $el.trigger("change")
+        $el.prop("checked", true);
+        $el.trigger("change");
       }
     }
     um.cleanTrashCan();

@@ -1,5 +1,5 @@
 import { Uploader } from "src/decidim/direct_uploads/uploader";
-
+import { truncateFilename, checkTitles } from "src/decidim/direct_uploads/upload_utility";
 
 // This class handles logic inside upload modal, but since modal is not inside the form
 // logic here moves "upload items" / hidden inputs to form.
@@ -28,6 +28,7 @@ export default class UploadModal {
 
     this.name = this.button.name;
     this.modal = document.querySelector(`#${button.dataset.open}`);
+    this.saveButton = this.modal.querySelector(`button.add-attachment-${this.name}`);
     this.attachmentCounter = 0;
     this.dropZoneEnabled = true;
     this.modalTitle = this.modal.querySelector(".reveal__title");
@@ -143,7 +144,7 @@ export default class UploadModal {
       fileNameSpanClasses.push("small-12");
     }
     fileNameSpan.classList.add(...fileNameSpanClasses);
-    fileNameSpan.innerHTML = this.truncateFilename(fileName);
+    fileNameSpan.innerHTML = truncateFilename(fileName);
 
     const progressBar = document.createElement("div");
     progressBar.classList.add("progress-bar");
@@ -185,21 +186,32 @@ export default class UploadModal {
 
     const titleAndFileNameSpan = document.createElement("span");
     titleAndFileNameSpan.classList.add("columns", "small-5", "title-and-filename-span");
-    titleAndFileNameSpan.innerHTML = `${title} (${this.truncateFilename(fileName)})`;
+    titleAndFileNameSpan.innerHTML = `${title} (${truncateFilename(fileName)})`;
 
     firstRow.appendChild(fileNameSpan);
     secondRow.appendChild(progressBarWrapper);
     thirdRow.appendChild(errorList);
 
-    let tileInputContainer = null;
+    let titleInputContainer = null;
     if (this.options.titled) {
-      const titleInputContainer = document.createElement("input");
-      titleInputContainer.classList.add("attachment-title");
-      titleInputContainer.type = "text";
-      titleInputContainer.value = title;
-      tileInputContainer = document.createElement("div");
-      tileInputContainer.classList.add("columns", "small-5", "title-input-container");
-      tileInputContainer.appendChild(titleInputContainer);
+      const titleInput = document.createElement("input");
+      titleInput.classList.add("attachment-title");
+      titleInput.type = "text";
+      titleInput.value = title;
+      titleInput.addEventListener("input", (event) => {
+        event.preventDefault();
+        checkTitles(this.uploadItems, this.saveButton);
+      })
+      titleInputContainer = document.createElement("div");
+      titleInputContainer.classList.add("columns", "small-5", "title-input-container");
+      titleInputContainer.appendChild(titleInput);
+
+      const noTitleErrorSpan = document.createElement("span");
+      noTitleErrorSpan.classList.add("form-error", "no-title-error");
+      noTitleErrorSpan.role = "alert";
+      noTitleErrorSpan.innerHTML = this.locales.title_required;
+      titleInputContainer.appendChild(noTitleErrorSpan);
+
       const titleLabelSpan = document.createElement("span");
       titleLabelSpan.classList.add("title-label-span");
       titleLabelSpan.innerHTML = this.locales.title;
@@ -208,7 +220,7 @@ export default class UploadModal {
       titleContainer.classList.add("columns", "small-8", "medium-7", "title-container");
       titleContainer.appendChild(titleLabelSpan);
       firstRow.appendChild(titleContainer);
-      secondRow.appendChild(tileInputContainer);
+      secondRow.appendChild(titleInputContainer);
     }
 
     secondRow.appendChild(removeButton);
@@ -247,15 +259,5 @@ export default class UploadModal {
       }
       item.remove();
     })
-  }
-
-  truncateFilename(filename, maxLength = 31) {
-    if (filename.length <= maxLength) {
-      return filename;
-    }
-
-    const charactersFromBegin = Math.floor(maxLength / 2) - 3;
-    const charactersFromEnd = maxLength - charactersFromBegin - 3;
-    return `${filename.slice(0, charactersFromBegin)}...${filename.slice(-charactersFromEnd)}`;
   }
 }
