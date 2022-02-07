@@ -36,6 +36,9 @@ hu:
           votings_submenu:
             monitoring_committee: Ellenőrző Bizottság
       polling_officer_zone:
+        in_person_votes:
+          complete_voting:
+            questions_title: 'A következő kérdésekben jogosultak szavazni:'
         polling_officers:
           index:
             polling_officer_role_description: Szavazóhelyiségi Tisztnek jelöltek (Elnökként vagy Ügyvezetőként) azért, hogy ezen platformon megtartott választásokon intézkedj.
