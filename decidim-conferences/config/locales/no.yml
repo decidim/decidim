@@ -3,6 +3,7 @@
     attributes:
       conference:
         assemblies_ids: Relaterte Forsamlinger
+        available_slots: Tilgjengelige plasser
         banner_image: Bannerafbeelding
         consultations_ids: Relaterte konsultasjoner
         copy_categories: Kopier kategorier
@@ -10,26 +11,59 @@
         copy_features: Kopier funksjoner
         decidim_scope_id: Tema
         description: Beskrivelse
+        end_date: Sluttdato
         hashtag: Hastag
         hero_image: Hjem bilde
+        location: Sted
+        main_logo: Hovedlogo
+        objectives: Mål
         participatory_processes_ids: Relaterte deltakerprosesser
         promoted: Fremhevet
         published_at: Publisert på
+        registration_terms: Registreringsvilkår
+        registrations_enabled: Registreringer aktivert
         scope_id: Tema
         scopes_enabled: Aktiverte temaer
         short_description: Kort beskrivelse
         show_statistics: Vis statistikk
+        sign_date: Underskriftsdato
+        signature: Underskrift
+        signature_name: signaturnavn
         slogan: Slagord
         slug: URL slug
+        start_date: Startdato
         title: Tittel
       conference_media_link:
+        date: Dato
+        link: Lenke
+        title: Tittel
         weight: Vekt
       conference_partner:
+        link: Lenke
+        logo: Logo
+        name: Navn
+        partner_type: Type partner
         weight: Vekt
+      conference_registration_invite:
+        email: E-post
+        name: Navn
+        registration_type_id: Registreringstype
+        user_id: Bruker
       conference_registration_type:
+        description: Beskrivelse
+        price: Pris
+        title: Tittel
         weight: Vekt
       conference_speaker:
+        affiliation: Tilknytning
+        avatar: Profilbilde
+        conference_meeting_ids: Relaterte møter
         full_name: Fullt navn
+        personal_url: Personlig url
+        position: Stilling
+        short_bio: Kort Bio
+        twitter_handle: Brukernavn Twitter
+        user_id: Bruker
       conference_user_role:
         email: Epost
         name: Navn
@@ -212,6 +246,7 @@
             price: Pris
             registrations_count: Registrerings teller
             title: Tittel
+            weight: Prioritert rekkefølge
           name: Registreringstype
       partners:
         create:
@@ -271,6 +306,10 @@
       conferences:
         conference_registration:
           confirm: "%{user_name} bekreftet en konferanseregistrering i %{resource_name} konferanse"
+        partner:
+          create: "%{user_name} opprettet partneren %{resource_name} i konferansen %{space_name}"
+          delete: "%{user_name} fjernet partneren %{resource_name} fra konferansen %{space_name}"
+          update: "%{user_name} oppdaterte partneren %{resource_name} i konferansen %{space_name}"
         registration_type:
           create: "%{user_name} opprettet redigeringstypen %{resource_name} i %{space_name} konferansen"
           publish: "%{user_name} publiserte %{resource_name} registreringstypen i %{space_name} konferansen"
@@ -403,6 +442,7 @@
         personal_website: Personlig nettside
         show:
           more_info: mer info
+          speaking_at: Taler
       conference_speaker_cell:
         personal_url:
           personal_website: Personlig nettside
@@ -461,6 +501,7 @@
         home:
           highlighted_conferences:
             active_conferences: Aktive konferanser
+            conferences_button_title: Lenke til konferansesiden som viser alle konferansene
             see_all_conferences: Se alle konferanser
       photo:
         image:
@@ -476,6 +517,7 @@
         index:
           choose_an_option: 'Velg ditt registrerings alternativ:'
           login_as: Du er innlogget som %{name} <%{email}>
+          no_registrations: Ingen påmeldinger
           register: Registrer
           title: Registreringstyper
       shared:
@@ -522,6 +564,12 @@
           email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" konferansen. Du kan slutte å følge den fra den forrige lenken.
           email_subject: Konferansen "%{resource_title}" er kommende!
           notification_title: <a href="%{resource_path}">%{resource_title}</a> konferansen er om 2 dager.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p>En <strong>konferanse</strong> er en samling av møter i et program, med inviterte aktører som er typisk for store kongresser eller sosiale hendelser (påmelding, liste over organisasjoner som støtter eller sponser arrangementet, osv.).</p> <p>Eksempler: En konferanse kan være en relevant begivenhet for en organisasjon og dens medlemmer, eller finne sted som en del av en deltakerprosess eller som konsultasjon</p>\n"
+          page: "<p>En <strong>konferanse</strong> er en samling av møter i et program, med inviterte aktører som er typisk for store kongresser eller sosiale hendelser (påmelding, liste over organisasjoner som støtter eller sponser arrangementet, osv.).</p> <p>Eksempler: En konferanse kan være en relevant begivenhet for en organisasjon og dens medlemmer, eller finne sted som en del av en deltakerprosess eller som konsultasjon</p>\n"
+          title: Hva er konferanser?
     log:
       value_types:
         conference_presenter:
@@ -532,6 +580,8 @@
         title: Media og Lenker
     menu:
       conferences: Konferanser
+    statistics:
+      conferences_count: Konferanser
   devise:
     mailer:
       join_conference:
