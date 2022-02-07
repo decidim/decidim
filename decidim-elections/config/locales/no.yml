@@ -194,6 +194,16 @@
           publish: "%{user_name} publiserte %{resource_name} -valget"
           publish_results: "%{user_name} offentliggjorde resultatet for valget %{resource_name} på opplysningstavlen"
           setup: "%{user_name} opprettet %{resource_name} valg på oppslagstavlen"
+          start_key_ceremony: "%{user_name} startet hovedseremoni for valget %{resource_name} på oppslagstavlen"
+          start_tally: "%{user_name} startet opptellingen for %{resource_name}-valget på oppslagstavlen"
+          start_vote: "%{user_name} startet valgperioden for %{resource_name}-valget på oppslagstavlen"
+          unpublish: "%{user_name} avpubliserte %{resource_name} -valget"
+      election_m:
+        footer:
+          remaining_time:
+            one: "<strong>%{count} time %{minutes} minutter</strong> gjenstår for å stemme."
+            other: "<strong>%{count} time %{minutes} minutter</strong> gjenstår for å stemme."
+            zero: "<strong>%{minutes} minutter</strong> gjenstår for å stemme."
       elections:
         count:
           elections_count:
