@@ -3,10 +3,28 @@
     attributes:
       answer:
         description: Beskrivelse
+        image: Bilde
+        proposals: Relaterte forslag
+        title: Tittel
       election:
         description: Beskrivelse
+        end_time: Avstemmingen avsluttes
+        start_time: Stemmegivning starter
+        title: Tittel
       question:
         description: Beskrivelse
+        max_selections: Maksimalt antall valg
+        min_selections: Ingen av valgene over
+        title: Tittel
+      voting:
+        end_time: Avstemmingen avsluttes
+        start_time: Avstemningen begynner
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Må festes på nytt
   decidim:
     elections:
       actions:
