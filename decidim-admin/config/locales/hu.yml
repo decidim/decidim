@@ -211,6 +211,8 @@ hu:
         update:
           error: Hiba történt a melléklet frissítése során.
           success: Melléklet frissítése sikeres.
+      attachments_privacy_warning:
+        message: Legyen óvatos a mellékletek kezelése során. Bármely résztvevő megoszthatja a dokumentumokat bárkivel.
       autocomplete:
         no_results: Nincs találat
         search_prompt: Legalább három karakter szükséges a kereséshez
@@ -669,6 +671,11 @@ hu:
         new:
           title: Töltse fel a CSV fájlod
           upload: Feltölt
+      reminders:
+        create:
+          error: Hiba történt a bejegyzés létrehozása során.
+        new:
+          submit: Küldés
       resource_permissions:
         edit:
           submit: Beküldés
