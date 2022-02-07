@@ -63,6 +63,7 @@
   carrierwave:
     errors:
       image_too_big: Dette bilde er for stort
+      not_inside_organization: Filen er ikke tilknyttet noen organisasjon
   date:
     formats:
       decidim_short: "%d.%m-%Y"
@@ -76,6 +77,7 @@
       logo: "%{organization} s offisielle logo"
       skip_button: Gå til hovedinnhold
     account:
+      blocked: Denne kontoen er sperret på grunn av brudd på vilkår og betingelser
       data_portability_export:
         file_no_exists: Filen finnes ikke
         notice: Opplastingen av dataen din pågår. Du vil få en e-mail når den er ferdig.
