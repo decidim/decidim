@@ -1,4 +1,4 @@
-import "src/decidim/templates/admin/choose_template"
+import "src/decidim/templates/admin/index"
 import "entrypoints/decidim_templates.scss";
 
 // Images
