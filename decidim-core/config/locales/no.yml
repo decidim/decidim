@@ -109,6 +109,7 @@
         file_no_exists: Filen finnes ikke
         notice: Opplastingen av dataen din pågår. Du vil få en e-mail når den er ferdig.
       delete:
+        alert: Denne handlingen kan ikke angres. Hvis du sletter kontoen din, vil du ikke kunne logge inn igjen med denne innloggingsinformasjonen. Slettingen av din konto vil resultere i at dine bidrag blir anonymisert. Du vil fortsatt kunne lage en ny konto, men disse bidragene vil ikke bli knyttet til den.
         confirm:
           close: Lukk vindu
           ok: Ja, jeg ønsker å slette kontoen min
@@ -119,6 +120,7 @@
         error: Det oppsto et problem med å slette kontoen din.
         success: Kontoen din ble slettet.
       show:
+        available_locales_helper: Velg språket du vil bruke til å bla gjennom og motta varsler
         change_password: Endre passord
         update_account: Oppdater konto
       update:
@@ -138,6 +140,8 @@
         delete: "%{user_name} fjernet komponenten %{resource_name} fra rommet %{space_name}"
         publish: "%{user_name} publiserte %{resource_name} komponent til %{space_name} rommet"
         unpublish: "%{user_name} avpubliserte %{resource_name} komponent til %{space_name} rommet"
+      impersonation_log:
+        manage: "%{user_name} har behandlet %{resource_name} fordi %{reason}"
       moderation:
         hide: "%{user_name} skjulte en ressurs av type %{resource_type} i %{space_name} rommet"
         unreport: "%{user_name} fjernet en rapport ressurs av type %{resource_type} i %{space_name} rommet"
@@ -154,6 +158,7 @@
         update: "%{user_name} oppdaterte organisasjonens innstillinger"
       participatory_space_private_user:
         create: "%{user_name} inviterte %{resource_name} til å bli en privat deltaker"
+        create_via_csv: "%{user_name} inviterte %{resource_name} via CSV til å være privat deltaker"
         delete: "%{user_name} fjernet deltakeren %{resource_name} som en privat deltaker"
       scope:
         create: "%{user_name} laget temaet %{resource_name}"
@@ -167,15 +172,21 @@
         delete: "%{user_name} slettet %{resource_name} statisk side"
         update: "%{user_name} oppdaterte %{resource_name} statisk side"
       user:
+        block: "%{user_name} blokkert bruker %{resource_name}"
         invite: "%{user_name} inviterte deltakeren %{resource_name} med rolle: %{role}"
         officialize: "%{user_name} gjorde deltakeren %{resource_name} offisiell"
+        promote: "%{user_name} har forfremmet %{resource_name}"
         remove_from_admin: "%{user_name} fjernet deltakeren %{resource_name} med rolle: %{role}"
         show_email: "%{user_name} skaffet eposten til deltakeren %{resource_name}"
+        transfer: "%{user_name} overførte deltakeren %{resource_name}"
+        unblock: "%{user_name} ublokkerte bruker %{resource_name}"
         unofficialize: "%{user_name} gjorde deltakeren %{resource_name} uoffisiell"
       user_group:
         reject: "%{user_name} avslo %{resource_name} gruppens verifikasjon"
         verify: "%{user_name} verifiserte gruppen %{resource_name}"
         verify_via_csv: "%{user_name} verifiserte gruppen %{resource_name} via en CSV fil"
+      user_moderation:
+        unreport: "%{user_name} urapporterte en %{resource_type} – %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>ADMINISTRATOR BRUKERVILKÅR</h2><p>Vi stoler på at du har mottatt det vanlige foredraget fra den lokale systemadministratoren. Det handlet vanligvis om disse tre tingene:</p><ol><li>Respekter andres privatliv.</li><li>Tenk før du klikker.</li><li>Med stor makt kommer stort ansvar.</li></ol>"
     alert:
@@ -266,9 +277,13 @@
         download: Last ned fil
       documents:
         related_documents: Grunnlagsdokumenter
+      geocoding:
+        geocoded_address: Adresse
       photos:
         related_photos: Illustrasjoner
     author:
+      avatar: 'Avatar: %{name}'
+      avatar_multiuser: Avatar for flere brukere
       comments:
         one: kommentar
         other: kommentarer
@@ -293,6 +308,8 @@
         name: Eksempel autorisering
       dummy_authorization_workflow:
         name: Dummy autoriserings arbeidskraft
+      errors:
+        duplicate_authorization: En deltaker er er allerede autorisert med samme data. En administrator vil kontakte deg for å bekrefte dine detaljer.
       expired_at: Utgått på %{timestamp}
       expires_at: Går ut %{timestamp}
       foo_authorization:
@@ -322,6 +339,8 @@
           authorize: Autoriser med "%{authorization}"
           explanation: For å utføre denne handlingen, må du autorisere med "%{authorization}".
           title: Autorisering påkrevet
+        ok:
+          title: Du har blitt autorisert etter du gikk inn på denne siden. Vennligst oppdater siden for å utføre handlingen din
         pending:
           explanation: For å utføre denne handlingen, må du autorisere med "%{authorization}", men autoriseringen din er fortsatt i gang
           resume: Sjekk "%{authorization}" autoriseringen din
@@ -338,6 +357,13 @@
           title: Bekreft e-posten din
       show:
         close_modal: Lukk vinduet
+    block_user_mailer:
+      notify:
+        body_1: Kontoen din ble blokkert.
+        body_2: 'Årsak: %{justification}'
+        greetings: Hei,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hei,
+        subject: Kontoen ble blokkert av %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: å %{count} mer
@@ -374,6 +400,7 @@
             enable_pads_creation: Aktiver oppretting av pads
             resources_permissions_enabled: Ressurs tillatelser aktivert
             scope_id: Tema
+            scopes_enabled: Aktiverte temaer
           step:
             amendment_creation_enabled: Oppretting av endringer aktivert
             amendment_promotion_enabled: Forfremmelse av endringer aktivert
@@ -385,6 +412,13 @@
             dummy_step_translatable_text: Dummy Steg Oversettbar Tekst
     contact: Kontakt
     content_blocks:
+      cta:
+        name: Knapp for bilde, tekst og annonsering
+      cta_settings_form:
+        background_image: Bakgrunnsbilde
+        button_text: Annonseringstekst
+        button_url: URL for annonsering
+        description: Beskrivelse
       footer_sub_hero:
         name: Footer sub hero banner
       hero:
@@ -394,6 +428,11 @@
         welcome_text: Velkomsttekst
       highlighted_content_banner:
         name: Uthevet innholdsbanner
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Sorter elementer etter:'
+          random: Tilfeldig
+          recent: Nyeste
       how_to_participate:
         name: Hvordan delta
       html:
@@ -418,6 +457,7 @@
         ready: Klar
       show:
         download_data: Last ned informasjonen
+        download_data_description: En fil som inneholder all informasjon tilknyttet kontoen din vil bli sendt til <strong>%{user_email}</strong>. Denne e-posten inneholder en .zip-fil og et passord for å åpne den.<br/><br/>For å pakke ut filen vil du trenge <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) eller <a href="https://www.keka.io/">Keka</a> (for MacOS). Hvis du bruker Linux vil du i de fleste tilfeller ha den installert som standard. Dersom dette ikke stemmer, kan du bruke <a href="https://gitlab.gnome.org/GNOME/file-roller">filroller</a> eller <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Etterspør informasjonen
     datepicker:
       help_text: 'Forventet format: %{datepicker_format}'
@@ -453,6 +493,8 @@
           register: Opprett en konto
           sign_in_disabled: Du kan få tilgang til med en ekstern konto
           sign_up_disabled: Registreringen er stoppet, du kan bruke en eksisterende konto for å få tilgang
+        user:
+          timed_out: Du har vært inaktiv for lenge og du har blitt automatisk logget ut fra tjenesten. Hvis du ønsker å fortsette å bruke tjenesten, vennligst logg på igjen.
       shared:
         newsletter_modal:
           buttons:
@@ -488,6 +530,11 @@
           this_application_will_not_be_able_to: 'Dette programmet vil ikke kunne:'
           update_profile: Oppdater profilen din
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> ønsker å bruke profilen din"
+    editor_images:
+      create:
+        error: Feil ved opplasting av bilde
+        success: Opplasting fullført
+      drag_and_drop_help: Legg til bilder ved å dra og slippe eller lime dem inn.
     endorsable:
       endorsements: Påtegnelser
       endorsements_count: Antall tilslutninger
@@ -628,6 +675,11 @@
           notification_title: Brukergruppen %{user_group_name} har oppdatert sin profil, og det er ubekreftet. Du kan nå bekrefte det i <a href="%{groups_admin_path}">admin-panelet</a>.
       notification_event:
         notification_title: En hendelse oppstod til <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: En administrator har fjernet din %{resource_type} fordi den er rapportert som %{report_reasons}.
+          email_outro: Du har mottatt dette varselet fordi du er en forfatter av fjernet innhold.
+          email_subject: Din %{resource_type} har blitt fjernet
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, som du følger, har akkurat godkjent "%{resource_title}" og vi tror det kan være interessant for deg. Sjekk det ut og bidra:'
         email_outro: Du har mottatt dette varselet fordi du følger %{endorser_nickname}. Du kan slutte å motta varsler ved å følge den forrige lenken.
@@ -1093,23 +1145,36 @@
         report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk skjult.</p>
         subject: En ressurs var automatisk skjult
       report:
+        date: Rapportert den
+        details: Detaljer
         hello: Hei %{name},
         id: ID
+        participatory_space: Deltakerområde
+        reason: Årsak
         report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt rapportert.</p>
+        see_report: Se rapport
         subject: En ressurs er blitt rapportert
     reports:
       create:
         error: Det oppstod en feil under opprettelsen av rapporten. Vennligs, prøv igjen senere.
         success: Rapporten har blitt opprettet og vil bli gjennomgått av en administrator.
+    resource_endorsements:
+      create:
+        error: Det oppstod et problem under påtegning.
     scopes:
       global: Alle tema
       picker:
         cancel: Avbryt
+        change: Endre valgt tema
         choose: Velg
+        currently_selected: Nåværende valgt tema
         title: Velg %{field}
       prompt: Velg et tema
       scopes: Tema
+      scopes_picker_input:
+        select_scope: 'Velg et tema (for øyeblikket: %{current})'
     search:
+      results: Søkeresultater
       results_found_for_term: '%{count} Resultater for søket: "%{term}"'
       term_input_placeholder: Søk
     searches:
@@ -1139,6 +1204,8 @@
       confirm_modal:
         cancel: Avbryt
         close_modal: Lukk modal
+        ok: Ok
+        title: Bekreft
       embed_modal:
         close_window: Lukk vindu
         embed: Lim inn denne koden på siden din
@@ -1148,26 +1215,41 @@
         unfold: Åpne
       filter_form_help:
         help: Kryss av på de kriteriene du ønsker å inkludere i søket ditt.
+        skip: Hopp til resultater
       flag_modal:
         already_reported: Dette innholdet er allerede rapportert, og det vil bli vurdert av en administrator.
         close: Lukk
         description: Er dette innholdet upassende?
         does_not_belong: Inneholder ulovlig aktivitet, selvmordstrusler, personlig informasjon eller noe annet du mener ikke hører hjemme på %{organization_name}.
         offensive: Inneholder rasisme, sexisme, banning, persjonangrep, dødstrusler, selvmords forespørsler eller all form for hatefullt språk.
+        reason: Årsak
         report: Rapport
         spam: Inneholder klikkagn, reklame, svindel eller manus-roboter.
         title: Rapporter et problem
+      flag_user_modal:
+        already_reported: Dette innholdet er allerede rapportert og vil bli vurdert av en administrator.
+        close: Lukk
+        description: Hva er upassende med brukeren?
+        does_not_belong: Inneholder ulovlig aktivitet, selvmordstrusler, personlig informasjon eller noe annet du mener ikke hører hjemme på %{organization_name}.
+        offensive: Inneholder rasisme, sexisme, banning, personangrep, dødstrusler, selvmordsforespørsler eller andre former for hatefullt språk.
+        report: Rapporter
+        spam: Inneholder klikkeagn, reklame, svindel eller skriptbotter.
+        title: Rapporter upassende bruker
       floating_help:
+        close: Lukk hjelp
         help: Hjelp
       follow_button:
         sign_in_before_follow: Logg på før du utfører denne handlingen
       login_modal:
+        close_modal: Lukk dialogboks
         please_sign_in: Vennligst logg inn
         sign_up: Registrer deg
       participatory_space_filters:
         filters:
           areas: Områder
           select_an_area: Velg et område
+      public_participation:
+        public_participation: Vis min deltagelse offentlig
       reference:
         reference: 'Referanse: %{reference}'
       represent_user_group:
@@ -1175,12 +1257,21 @@
         select_user_group: Velg en gruppe
       results_per_page:
         label: 'Resultater per side:'
+        title: Velg antall resultater per side
       share_modal:
         close_window: Lukk vindu
+        copy_share_link: Kopier
+        copy_share_link_clarification: Kopier lenke til utklippstavlen
+        copy_share_link_copied: Kopiert!
+        copy_share_link_message: Koblingen ble vellykket kopiert til utklippstavlen.
         share: Del
         share_link: Del lenke
     statistics:
       comments_count: Kommentarer
+      endorsements_count: Påtegnelser
+      followers_count: Følgere
+      headline: Statistikk
+      no_stats: Det finnes ingen statistikk enda.
     user_activity:
       index:
         no_activities_warning: Denne deltakeren har ikke hatt noe aktivitet ennå.
