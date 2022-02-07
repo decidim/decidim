@@ -8,7 +8,7 @@
         title: Tittel
       election:
         description: Beskrivelse
-        end_time: Avstemmingen avsluttes
+        end_time: Avstemningen avsluttes ved
         start_time: Stemmegivning starter
         title: Tittel
       question:
@@ -17,7 +17,7 @@
         min_selections: Ingen av valgene over
         title: Tittel
       voting:
-        end_time: Avstemmingen avsluttes
+        end_time: Avstemningen avsluttes
         start_time: Avstemningen begynner
     errors:
       models:
@@ -35,16 +35,160 @@
               cant_be_changed: kan ikke endres
             public_key:
               cant_be_changed: kan ikke endres
+  activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: Valgansvarlig er allerede ansvarlig for valgstasjonen
+            voting:
+              different_organization: Stemmegivning må være i samme organisasjon som brukeren
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: Valgansvarlig må være i samme stemmegivning som valgstasjonen
+    models:
+      decidim/elections/answer:
+        one: Svar
+        other: Svarene
+      decidim/elections/election:
+        one: Valg
+        other: Valg
+      decidim/elections/question:
+        one: Spørsmål
+        other: Spørsmål
+      decidim/votings/census/dataset:
+        one: Datasett
+        other: Datasett
+      decidim/votings/census/datum:
+        one: Data
+        other: Data
+      decidim/votings/polling_officer:
+        one: Avstemningansvarlig
+        other: Valgansvarlige
+      decidim/votings/polling_station:
+        one: Valgstasjon
+        other: Valgstasjoner
+      decidim/votings/voting:
+        one: Avstemning
+        other: Avstemninger
   decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: Ansvarlige
+          values:
+            assigned: Tildelt
+            unassigned: Ikke tildelt
+        role_eq:
+          label: Rolle
+          values:
+            manager: Ansvarlig
+            president: Leder
+            unassigned: Ikke tildelt
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Søk %{collection} med navn/e-post/kallenavn eller valgstasjon.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Søk %{collection} med tittel, adresse eller brukernavn/e-post/kallenavn.
+        signed_eq:
+          label: Signert
+          values:
+            'false': Signert
+            'true': Ikke signert
+        validated_eq:
+          label: Godkjent
+          values:
+            'false': Godkjent
+            'true': Ikke godkjent
+    components:
+      elections:
+        actions:
+          vote: Stem
+        name: Valg
+        settings:
+          global:
+            announcement: Kunngjøring
+          step:
+            announcement: Kunngjøring
     elections:
       actions:
+        confirm_destroy: Er du sikker?
+        destroy: Ødelegg
+        edit: Rediger
+        feedback: Tilbakemelding fra stemmegiver
         import: Importer forslag til svar
+        manage_answers: Behandle svar
+        new: Ny %{name}
+        preview: Forhåndsvis
+        publish: Publiser
+        title: Handlinger
+        unpublish: Avpubliser
       admin:
+        answers:
+          create:
+            invalid: Kunne ikke opprette svaret
         exports:
           elections: Valg
         proposals_imports:
           create:
             invalid: Det oppstod et problem under importen av forslag til svar
+          new:
+            select_component: Vennligst velg en komponent
+            title: Importer forslag
+        questions:
+          create:
+            invalid: Kunne ikke opprette dette spørsmålet
+            success: Spørsmålet ble opprettet
+          destroy:
+            invalid: Kunne ikke slette dette spørsmålet
+            success: Spørsmålet ble slettet
+          edit:
+            title: Rediger spørsmål
+            update: Oppdater spørsmål
+          index:
+            title: Spørsmål
+          new:
+            create: Lag spørsmål
+            title: Nytt spørsmål
+          update:
+            invalid: Kunne ikke oppdatere dette spørsmålet
+            success: Spørsmålet er oppdatert
+        steps:
+          create_election:
+            errors:
+              max_selections: Spørsmålene har ingen <strong>korrekt verdi for antall svar</strong>
+              minimum_answers: Spørsmål må ha <strong>minst to svar</strong>.
+              minimum_questions: Valget <strong>må ha minst ett spørsmål</strong>.
+              published: Valget er <strong>og ikke publisert</strong>.
+              time_before: Starttiden er <strong>mindre enn 3 timer</strong> før valget starter.
+              trustees_number: Deltakerområdet <strong>må ha minst %{number} tillitsmenn med offentlig nøkkel</strong>.
+            invalid: Det oppstod et problem med opprettelsen av dette valget
+            no_trustees: Det er ikke satt opp noen tillitsmenn for dette deltakelsesrommet
+            not_used_trustee: "(ikke brukt)"
+            public_key:
+              'false': har ikke en <strong>offentlig nøkkel</strong>
+              'true': har en <strong>offentlig nøkkel</strong>
+            requirements:
+              max_selections: Alle spørsmålene har en korrekt verdi for <strong>maks antall svar</strong>.
+              minimum_answers: Hvert spørsmål har <strong>minst 2 svar</strong>.
+              minimum_questions: Valget har <strong>minst 1 spørsmål</strong>.
+              published: Valget er <strong>publisert</strong>.
+              time_before: Oppsettet gjøres <strong>minst %{hours} timer</strong> før valget starter.
+              trustees_number: Deltakerområdet har <strong>minst %{number} tillitsmenn med offentlig nøkkel</strong>.
+            submit: Oppsett av valg
+            success: Valget ble sendt til oppslagstavlen
+            title: Oppsett valg
+            trustees: Valgets tillitsmenn
+          created:
+            invalid: Det var et problem med å starte hovedseremonien
+            submit: Start hovedseremonien
+            success: Forespørsel om start av hovedseremoni ble sendt til oppslagstavlen
+            title: Valget opprettet
+            trustees: Tillitsmenn
+          key_ceremony:
+            continue: Fortsett
+            title: Hovedseremoni
       elections:
         count:
           elections_count:
@@ -70,7 +214,7 @@
             will_verify: Du vil kunne bekrefte stemmen din når avstemningen starter.
           voting_period_status:
             finished: Stemmegivningen startet %{start_time} og opphørte %{end_time}
-            upcoming: Avstemming begynner %{start_time}
+            upcoming: Avstemning begynner %{start_time}
       votes:
         confirm:
           answer: Svar
