@@ -1,6 +1,4 @@
-import "src/decidim/meetings/meetings_form"
-import "src/decidim/meetings/meetings_polls"
-import "src/decidim/forms/forms"
+import "src/decidim/meetings/index"
 
 // Images
 require.context("../images", true)
