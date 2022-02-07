@@ -5,10 +5,6 @@ $(() => {
     return;
   }
 
-  if (process.env.NODE_ENV === "development") {
-    return;
-  }
-
   const allMessages = window.Decidim.config.get("messages");
   if (!allMessages) {
     return;

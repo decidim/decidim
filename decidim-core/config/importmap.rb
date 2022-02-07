@@ -16,4 +16,13 @@ pin "bootstrap-tagsinput", to: "https://ga.jspm.io/npm:bootstrap-tagsinput@0.7.1
 
 pin "jquery-serializejson", to: "https://ga.jspm.io/npm:jquery-serializejson@2.9.0/jquery.serializejson.js"
 
+pin "morphdom", to: "https://ga.jspm.io/npm:morphdom@2.6.1/dist/morphdom.js"
+
+pin "@zeitiger/appendaround", to: "https://ga.jspm.io/npm:@zeitiger/appendaround@1.0.0/appendAround.js"
+
+pin "select", to: "https://ga.jspm.io/npm:select@1.1.2/src/select.js"
+
+pin "svg4everybody", to: "https://ga.jspm.io/npm:svg4everybody@2.1.4/dist/svg4everybody.js"
+pin "@joeattardi/emoji-button", to: "https://ga.jspm.io/npm:@joeattardi/emoji-button@4.6.2/dist/index.js"
+
 pin_all_from File.expand_path("../app/packs/src/decidim", __dir__), under: "src/decidim"
