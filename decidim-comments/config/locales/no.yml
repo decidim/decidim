@@ -16,6 +16,11 @@
         other: Stemmer
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Kommentarer aktivert
+            end_time: Kommentarer aktivert til
       comments_count: Antall kommentarer
       last_activity:
         new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
