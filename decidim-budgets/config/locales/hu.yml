@@ -62,6 +62,8 @@ hu:
       models:
         project:
           fields:
+            category: Kategória
+            id: Azonosító
             title: Cím
       order_summary_mailer:
         order_summary:
@@ -117,6 +119,12 @@ hu:
         show:
           budget: Költségvetés
           view_all_projects: Összes projekt megtekintése
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: 'Nem fejezte be a szavazat leadását itt:'
+          email_intro: Elkezdte a részvételi költségvetési szavazat leadását, de nem fejezte be.
+          email_link: Szavazás folytatása
+          email_outro: Kérjük, fejezze be a szavazat leadását. A szavazáshoz előbb ki kell jelölnie azt a javaslatot vagy javaslatokat, amiket támogatni szeretne, majd a "Szavazok" gombra kattintással adhatja le szavazatát.
     components:
       budgets:
         actions:
