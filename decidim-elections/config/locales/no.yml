@@ -257,6 +257,23 @@
           key_ceremony_ended:
             errors:
               time_before: Valget er klart til å starte. Du må vente %{hours} timer før starttidspunktet (%{start_time}) for å starte avstemmingsperioden.
+            invalid: Kunne starte valgperioden
+            requirements:
+              time_before: Valget vil starte snart. Du kan starte valgperioden manuelt, eller den vil bli startet automatisk før starttidspunktet, %{start_time}.
+            submit: Start valgperiode
+            success: Forespørsel om å starte valgperiode ble sent til oppslagstavle
+            title: Klar for å begynne
+          processing: Behandler...
+          results_published:
+            answer: Svar
+            not_selected: Ikke valgt
+            question: Spørsmål
+            result: Resultat
+            selected: Valgt
+            submit: Send inn
+            title: Resultater publisert
+          tally:
+            title: Opptellingsprosess
       admin_log:
         election:
           end_vote: "%{user_name} avsluttet avstemmingsperioden for valget av %{resource_name} i Bulletin Board"
