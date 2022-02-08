@@ -119,6 +119,8 @@
         feedback: Tilbakemelding fra stemmegiver
         import: Importer forslag til svar
         manage_answers: Behandle svar
+        manage_questions: Behandle spørsmål
+        manage_steps: Behandle trinn
         new: Ny %{name}
         preview: Forhåndsvis
         publish: Publiser
@@ -128,6 +130,28 @@
         answers:
           create:
             invalid: Kunne ikke opprette svaret
+            success: Svar ble opprettet
+          destroy:
+            invalid: Kunne ikke slette dette svaret
+            success: Svaret ble slettet
+          edit:
+            title: Rediger svar
+            update: Oppdater svar
+          index:
+            invalid_max_selections: Du trenger %{missing_answers} flere svar for å matche maksimale valg
+            title: Svar
+          new:
+            create: Opprett svar
+            title: Nytt svar
+          not_selected: Ikke valgt
+          select:
+            disable: Fjern svar
+            enable: Marker svar som valgt
+            invalid: Kunne ikke velge dette svaret
+            success: Svar ble valgt
+          selected: Valgt
+          unselect:
+            invalid: Kunne ikke fjerne svaret
         exports:
           elections: Valg
         proposals_imports:
