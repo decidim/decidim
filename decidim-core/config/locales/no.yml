@@ -5,6 +5,8 @@
         delete_reason: Grunnen til at du vil slette din bruker
       common:
         created_at: Opprettet i
+      conversation:
+        body: Innhold
       group:
         about: Om
         avatar: Profilbilde
@@ -13,6 +15,8 @@
         name: Navn
         nickname: Kallenavn
         phone: Telefon
+      message:
+        body: Innhold
       report:
         details: Ytterlige kommentarer
       user:
@@ -35,6 +39,7 @@
       decidim/profile_updated_event: Profilen er oppdatert
       decidim/promote_to_admin: Forfremmet til gruppe-admin
       decidim/removed_from_group: Fjernet fra gruppen
+      decidim/resource_endorsed_event: Ressurs er tilsluttet
   activerecord:
     attributes:
       decidim/user:
@@ -648,6 +653,9 @@
           email_intro: En administrator har fjernet din %{resource_type} fordi den er rapportert som %{report_reasons}.
           email_outro: Du har mottatt dette varselet fordi du er en forfatter av fjernet innhold.
           email_subject: Din %{resource_type} har blitt fjernet
+          notification_title: |-
+            En administrator har fjernet din %{resource_type} fordi den er rapportert som %{report_reasons}.</br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, som du følger, har akkurat godkjent "%{resource_title}" og vi tror det kan være interessant for deg. Sjekk det ut og bidra:'
         email_outro: Du har mottatt dette varselet fordi du følger %{endorser_nickname}. Du kan slutte å motta varsler ved å følge den forrige lenken.
@@ -661,6 +669,7 @@
           notification_title: <a href="%{resource_path}">Profilsiden</a> til %{name} (%{nickname}), som du følger er blitt oppdatert.
     export_mailer:
       data_portability_export:
+        click_button: 'Klikk på neste link for å laste ned dataen.<br/>Filen vil være tilgjengelig til %{date}.<br/>Du vil trenge <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) eller <a href="https://peazip.github.io">PeaZip</a> (for Linux) for å åpne den. Passord: %{password}'
         download: Last ned
       export:
         ready: Vennligst finn vedlagte en zip-versjon av eksporten din.
@@ -689,10 +698,12 @@
       no_followers: Ingen følgere ennå.
     following:
       no_followings: Følger ikke noen eller noe ennå.
+      non_public_followings: En del av ressursene som følges er ikke offentlige.
     follows:
       create:
         button: Følg
         error: Det oppstod et problem med å følge denne ressursen.
+        participatory_space: Følger <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Stopp å følge
         error: Det oppstod et problem med å slutte å følge denne ressursen.
@@ -849,6 +860,15 @@
       index:
         last_activity: Siste aktivitet
         resource_type: Type
+    links:
+      invalid_url: Ugyldig URL
+      warning:
+        body_1: Du er i ferd med å besøke en ekstern lenke, og vi vil at du skal være forsiktig med hensyn til innholdet på det eksterne nettstedet.
+        body_2: Vennligst sjekk linken du er i ferd med å besøke og sørg for at du anser den som et sikkert nettsted før du fortsetter.
+        cancel: Avbryt
+        close_modal: Lukk dialogboks
+        proceed: Fortsett
+        title: Åpne ekstern lenke
     log:
       base_presenter:
         create: "%{user_name} opprettet %{resource_name}"
@@ -951,6 +971,8 @@
         show:
           back: Tilbake til alle samtaler
           chat_with: Samtale med
+          deleted_accounts: Du kan ikke ha en samtale med slettede kontoer.
+          not_allowed: Denne deltakeren godtar ikke direktemeldinger.
           title: Samtale med %{usernames}
         start:
           send: Send
@@ -958,6 +980,8 @@
         update:
           error: Meldingen ble ikke sendt på grunn av en feil
     metrics:
+      download:
+        csv: Last ned data (CSV)
       followers:
         description: Antall deltakere som følger dette deltakerområdet
         object: følgere
@@ -975,6 +999,25 @@
         note: Du mottok denne e-posten fordi du abonnerer på nyhetsbrev for %{organization_name}. Du kan endre innstillingene dine på <a href="%{link}">varslings siden din</a>.
         see_on_website: Kan ikke se denne e-posten riktig? Se den på <a href="%{link}" target="_blank">nettsiden</a>.
         unsubscribe: For å velge bort å motta denne typen e-mailer, <a href="%{link}" target="_blank" class="unsubscribe">Avslutt abonnementet</a>.
+    newsletter_templates:
+      basic_only_text:
+        body_preview: 'Fylltekst for innhold: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Grunnleggende (kun tekst)
+      basic_only_text_settings_form:
+        body: Tekst
+        interpolations_hint: 'Hint: Du kan bruke "%{name}" hvor som helst i teksten eller emnet, og det blir erstattet av mottakerens navn.'
+      image_text_cta:
+        body_preview: 'Fylltekst for tekst: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
+        cta_text_preview: Annonseringstekst
+        introduction_preview: 'Fylltekst for introduksjon: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Knapp for bilde, tekst og annonsering
+      image_text_cta_settings_form:
+        body: Tekst
+        cta_text: Tekst for annonseringsknapp
+        cta_url: URL for annonseringsknapp
+        interpolations_hint: 'Hint: Du kan bruke "%{name}" hvor som helst i introduksjonen, teksten, CTA-teksten eller emnet, og den vil bli erstattet av mottakerens navn.'
+        introduction: Introduksjon
+        main_image: Hovedbilde
     newsletters:
       unsubscribe:
         check_subscription: Hvis du vil endre preferansene dine, kan du gjøre det på <a href="%{link}" target="_blank">konfigurasjons siden</a>
@@ -1000,6 +1043,10 @@
       no_notifications: Ingen varslinger ennå.
     notifications_settings:
       show:
+        administrators: Administratorer
+        allow_public_contact: La hvem som helst sende meg direktemelding, selv om jeg ikke følger dem.
+        direct_messages: Motta direktemeldinger fra alle
+        email_on_moderations: Jeg ønsker å få en e-post hver gang noe rapporteres til moderasjon.
         email_on_notification: Jeg vil motta en e-post hver gang jeg mottar et varsel.
         everything_followed: Alt jeg følger
         newsletter_notifications: Jeg ønsker å motta nyhetsbrev
@@ -1078,6 +1125,7 @@
       not_allowed: Du er ikke tillatt å se dette innholdet
     profile:
       deleted: Deltakeren slettet
+      inaccessible_message: Denne profilen er utilgjengelig på grunn av brudd på vilkår og betingelser!
       view: Vis
     profiles:
       default_officialization_text_for_user_groups: Denne gruppen er offentlig bekreftet, navnet er bekreftet for å svare til dets virkelige navn
@@ -1085,10 +1133,13 @@
       show:
         activity: Aktivitet
         badges: Merker
+        conversations: Samtaler
         followers: Følgere
         following: Følger
         groups: Grupper
         members: Medlemmer
+        officialized: Offisiell deltaker
+        send_private_message: Send privat melding
         timeline: Tidslinje
         view_full_profile: Vis hele profilen
       sidebar:
@@ -1114,6 +1165,9 @@
         report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt automatisk skjult.</p>
         subject: En ressurs var automatisk skjult
       report:
+        authors: Forfattere
+        content: Rapportert innhold
+        content_original_language: Innhold originalspråk
         date: Rapportert den
         details: Detaljer
         hello: Hei %{name},
