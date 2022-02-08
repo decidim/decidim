@@ -506,6 +506,11 @@
             results: Resultater
             send: Send
             sent: Sendt
+          published_question:
+            max_choices_alert: For mange valg er merket
+            question: Spørsmål
+            question_replied: Spørsmål besvart
+            reply_question: Besvar spørsmål
       read_more: "(Les mer)"
       registration_mailer:
         confirmation:
