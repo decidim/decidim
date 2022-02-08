@@ -156,12 +156,50 @@
           update:
             invalid: Kunne ikke oppdatere dette svaret
             success: Svar ble oppdatert
+        elections:
+          create:
+            invalid: Kunne ikke opprette dette valget
+            success: Valg opprettet
+          destroy:
+            invalid: Kunne ikke slette dette valget
+            success: Valg slettet
+          edit:
+            title: Rediger valg
+            update: Oppdater valg
+          index:
+            no_bulletin_board: Det er ingen <a href="https://github.com/decidim/decidim-bulletin-board">server for oppslagstavle</a> konfigurert, som er nødvendig for å bruke denne modulen. Denne oppgaven skal utføres av systemadministratoren.
+            title: Valg
+          new:
+            create: Opprett valg
+            title: Nytt valg
+          publish:
+            success: Valget er publisert.
+          unpublish:
+            success: Valget har blitt avpublisert.
+          update:
+            invalid: Kunne ikke oppdatere valget
+            success: Valg oppdatert
         exports:
           elections: Valg
+          feedback_form_answers: Svar på tilbakemeldingsskjema
+        menu:
+          trustees: Tillitsmenn
+        models:
+          answer:
+            name: Svar
+          election:
+            name: Valg
+          question:
+            name: Spørsmål
+          trustee:
+            name: Tillitsmann
         proposals_imports:
           create:
             invalid: Det oppstod et problem under importen av forslag til svar
+            success: "%{number} forslag importert til svar"
           new:
+            create: Importer forslag til svar
+            no_components: Det er ingen andre utkastkomponenter i dette deltakerrommet for å importere forslagene til svar.
             select_component: Vennligst velg en komponent
             title: Importer forslag
         questions:
@@ -217,6 +255,9 @@
           key_ceremony:
             continue: Fortsett
             title: Hovedseremoni
+          key_ceremony_ended:
+            errors:
+              time_before: Valget er klart til å starte. Du må vente %{hours} timer før starttidspunktet (%{start_time}) for å starte avstemmingsperioden.
       election_m:
         footer:
           remaining_time:
