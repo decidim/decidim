@@ -1047,7 +1047,7 @@ nl:
             error: De stemming werd niet geregistreerd. Probeer het opnieuw.
           in_person_form:
             census_not_present: Deze gebruiker staat niet op het stemregister.
-            census_not_present_description: Zij/hij moet naar het klachtenbureau gaan of contact opnemen met support.
+            census_not_present_description: Zij moeten zich tot het klachtenbureau voor de verkiezing wenden, of contact opnemen met Support.
             date_of_birth: Geboortedatum
             day: Dag
             day_placeholder: DD

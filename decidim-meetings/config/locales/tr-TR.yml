@@ -255,7 +255,6 @@ tr:
             update: Güncelle
           form:
             address_help: 'Adres: Geocoder tarafından konumu bulmak için kullanılır'
-            available_slots_help: Sınırsız yuvanız varsa bunu 0 olarak bırakın
             disclaimer: 'Sorumluluk reddi: Harici bir kayıt sistemi kullanarak, %{organization} organizatörlerinin, kullanıcılar tarafından harici hizmete sağlanan verilerden sorumlu olmadığını biliyorsunuz.'
             location_help: 'Konum: kullanıcılara buluşulacak yeri ima eden mesaj'
             location_hints_help: 'Konum ipuçları: ek bilgi. Örnek: Yüz yüze bir toplantıysa binanın katı veya kısıtlı erişime sahip çevrimiçi bir toplantıysa toplantı parolası.'
@@ -371,7 +370,6 @@ tr:
           origin: Orijin
           origin_values:
             all: Tümü
-            citizens: Vatandaşlar
             official: Resmi
             user_groups: Gruplar
           scope: Kapsam

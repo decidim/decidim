@@ -569,9 +569,9 @@ nl:
           all: Alle
         filter_origin_values:
           all: Alle
-          citizens: Burgers
           meetings: vergaderingen
           official: Officieel
+          participants: Deelnemers
           user_groups: Groepen
         filter_scope_values:
           all: Alle
