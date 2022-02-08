@@ -10,13 +10,15 @@ module Decidim
         translatable_attribute :title, String
         translatable_attribute :body, String
 
-        attribute :user_group_id, Integer
+        attribute :user_group_id, String
 
         validates :title, translatable_presence: true
         validates :body, translatable_presence: true
 
         def map_model(post)
           self.user_group_id = post.author.id if post.author.is_a?(Decidim::UserGroup)
+          self.user_group_id = "current_organization" if post.author.is_a?(Decidim::Organization)
+          self.user_group_id = "current_user" if post.author.is_a?(Decidim::User)
         end
 
         def user_group
@@ -27,6 +29,8 @@ module Decidim
         end
 
         def author
+          return current_organization if user_group_id == "current_organization"
+
           user_group || current_user
         end
       end
