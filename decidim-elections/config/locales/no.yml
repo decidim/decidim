@@ -153,6 +153,9 @@
           unselect:
             invalid: Kunne ikke fjerne svaret
             success: Svar ble avvalgt
+          update:
+            invalid: Kunne ikke oppdatere dette svaret
+            success: Svar ble oppdatert
         exports:
           elections: Valg
         proposals_imports:
