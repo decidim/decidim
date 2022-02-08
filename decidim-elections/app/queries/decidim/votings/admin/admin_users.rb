@@ -4,7 +4,7 @@ module Decidim
   module Votings
     module Admin
       # A class used to find the admins for a voting or an organization votings.
-      class AdminUsers < Rectify::Query
+      class AdminUsers < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         #
         # voting - a voting that needs to find its voting admins

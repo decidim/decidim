@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # This command gets called when a component is unpublished from the admin panel.
-    class UnpublishComponent < Rectify::Command
+    class UnpublishComponent < Decidim::Command
       # Public: Initializes the command.
       #
       # component - The component to unpublish.

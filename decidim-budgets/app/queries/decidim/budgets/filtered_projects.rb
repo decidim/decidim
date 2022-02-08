@@ -3,7 +3,7 @@
 module Decidim
   module Budgets
     # A class used to find projects filtered by components and a date range
-    class FilteredProjects < Rectify::Query
+    class FilteredProjects < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # components - An array of Decidim::Component

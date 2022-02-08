@@ -5,7 +5,7 @@ module Decidim
     # This query class filters participatory processes groups given a filter name.
     # The filter is applied checking the start and end dates of the processes in
     # the group.
-    class FilteredParticipatoryProcessGroups < Rectify::Query
+    class FilteredParticipatoryProcessGroups < Decidim::Query
       def initialize(filter = "active")
         @filter = filter
       end

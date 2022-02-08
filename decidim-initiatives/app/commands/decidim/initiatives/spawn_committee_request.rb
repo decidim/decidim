@@ -4,7 +4,7 @@ module Decidim
   module Initiatives
     # A command with all the business logic that creates a new membership
     # request for the committee of an initiative.
-    class SpawnCommitteeRequest < Rectify::Command
+    class SpawnCommitteeRequest < Decidim::Command
       # Public: Initializes the command.
       #
       # form - Decidim::Initiative::CommitteeMemberForm

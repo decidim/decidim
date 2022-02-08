@@ -5,7 +5,7 @@ module Decidim
     # A command with all the business logic when creating a new organization in
     # the system. It creates the organization and invites the admin to the
     # system.
-    class RegisterOrganization < Rectify::Command
+    class RegisterOrganization < Decidim::Command
       # Public: Initializes the command.
       #
       # form - A form object with the params.

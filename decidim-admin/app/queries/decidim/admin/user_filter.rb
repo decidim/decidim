@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # A class used to filter users by whitelisted scope or searches on their
     # name
-    class UserFilter < Rectify::Query
+    class UserFilter < Decidim::Query
       WHITELISTED_STATE_SCOPES = %w(
         officialized
         not_officialized

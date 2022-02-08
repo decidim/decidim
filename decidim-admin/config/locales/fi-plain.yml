@@ -367,6 +367,13 @@ fi-pl:
           values:
             'false': 'Ei'
             'true': 'Kyllä'
+        moderated_users:
+          reports_reason_eq:
+            label: Ilmoituksen syy
+            values:
+              does_not_belong: Ei kuulu joukkoon
+              offensive: Loukkaava
+              spam: Roskapostittaja
         moderations:
           reportable_type_string_eq:
             label: Tyyppi
@@ -401,9 +408,11 @@ fi-pl:
         search_label: Hae
         search_placeholder:
           name_or_nickname_or_email_cont: '%{collection}: Hae sähköpostilla, nimellä tai nimimerkillä'
+          report_count_eq: Ilmoitusten määrä
           reported_id_string_or_reported_content_cont: Etsi kohteista %{collection} raportoitavan kohteen ID:n tai sisällön perusteella.
           title_cont: '%{collection}: Hae otsikon perusteella'
           user_name_or_user_email_cont: Hae kohteesta %{collection} nimen tai sähköpostiosoitteen perusteella.
+          user_name_or_user_nickname_or_user_email_cont: Etsi kohteita %{collection} sähköpostiosoitteen, nimen tai nimimerkin perusteella.
         state_eq:
           label: Tila
           values:

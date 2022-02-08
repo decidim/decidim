@@ -9,6 +9,7 @@
   </div>
 
   <div class="card-section">
+    <%= cell("decidim/admin/attachments_privacy_warning", attached_to.attachments) %>
     <% if attached_to.attachments.any? %>
       <div class="table-scroll">
         <table class="table-list">

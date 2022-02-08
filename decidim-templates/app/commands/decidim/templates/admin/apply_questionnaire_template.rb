@@ -4,7 +4,7 @@ module Decidim
   module Templates
     # A command with all the business logic when duplicating a questionnaire template
     module Admin
-      class ApplyQuestionnaireTemplate < Rectify::Command
+      class ApplyQuestionnaireTemplate < Decidim::Command
         include Decidim::Templates::Admin::QuestionnaireCopier
 
         # Public: Initializes the command.

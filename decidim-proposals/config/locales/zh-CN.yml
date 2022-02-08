@@ -510,7 +510,6 @@ zh-CN:
           all: 所有的
         filter_origin_values:
           all: 所有的
-          citizens: Citizens
           meetings: 会议
           official: 官方的
           user_groups: 群組

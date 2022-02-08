@@ -4,7 +4,7 @@ module Decidim
   module Sortitions
     module Admin
       # Query that retrieves a list of proposal components
-      class ParticipatorySpaceProposalComponents < Rectify::Query
+      class ParticipatorySpaceProposalComponents < Decidim::Query
         attr_reader :participatory_space
 
         # Sugar syntax. Allow retrieving all proposal components for the

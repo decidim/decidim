@@ -4,7 +4,7 @@ module Decidim
   module Votings
     module Admin
       # A class join the polling officers with their respective polling stations.
-      class PollingOfficersJoinPollingStations < Rectify::Query
+      class PollingOfficersJoinPollingStations < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         #
         # polling_officers - the collection of polling officers

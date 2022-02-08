@@ -132,6 +132,7 @@ ca:
       new_import:
         attributes:
           file:
+            invalid_file: L'arxiu proporcionat no és vàlid, si us plau comprova que l'arxiu està formatat correctament
             invalid_mime_type: Tipus Mime invàlid
   activerecord:
     attributes:
@@ -366,6 +367,13 @@ ca:
           values:
             'false': 'No'
             'true': 'Sí'
+        moderated_users:
+          reports_reason_eq:
+            label: Motiu de l'informe
+            values:
+              does_not_belong: No correspon
+              offensive: Ofensiu
+              spam: Contingut brossa
         moderations:
           reportable_type_string_eq:
             label: Tipus
@@ -400,11 +408,18 @@ ca:
         search_label: Cercar
         search_placeholder:
           name_or_nickname_or_email_cont: Buscar %{collection} per correu electrònic, nom o àlies.
+          report_count_eq: Número de denúncies
           reported_id_string_or_reported_content_cont: Cercar %{collection} per id o contingut reportable.
           title_cont: Buscar %{collection} per títol.
           user_name_or_user_email_cont: Cerca %{collection} per nom o correu electrònic.
+          user_name_or_user_nickname_or_user_email_cont: Cercar %{collection} per correu electrònic, nom o àlies.
         state_eq:
           label: Estat
+          values:
+            all: Totes
+            pending: Pendents
+            rejected: Rebutjada
+            verified: Verificades
       forms:
         file_help:
           import:
@@ -450,14 +465,40 @@ ca:
           impersonate_existing_user: Gestionar la participant "%{name}"
           impersonate_new_managed_user: Gestionar una nova participant
       imports:
+        and: i
+        data_errors:
+          duplicate_headers:
+            detail: Comprova, si us plau, que l'arxiu conté les columnes o les capçaleres necessàries només una vegada.
+            message:
+              one: Duplicar la columna %{columns}.
+              other: Duplicar les columnes %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Comprova, si us plau, que aquestes línies estan formatades correctament i contenen registres vàlids.
+              message:
+                one: S'ha trobat a la línia %{indexes} de l'arxiu importat.
+                other: S'han trobat errors a les línies %{indexes} de l'arxiu importat.
+            records:
+              detail: Comprova, si us plau, que aquestes línies estan formatades correctament i contenen registres vàlids.
+              message:
+                one: S'ha trobat un error a l'arxiu importat al registre amb número d'ordre %{indexes}.
+                other: S'han trobat errors a l'arxiu importat als registres amb número d'ordre %{indexes}.
+          missing_headers:
+            detail: Comprova, si us plau, que l'arxiu conté les columnes requerides.
+            message:
+              one: Falta la columna %{columns}.
+              other: Falten les columnes %{columns}.
         error: S'ha produït un error durant la importació
+        example_error: No s'ha pogut crear un exemple per al tipus facilitat
         new:
           accepted_mime_types:
-            csv: csv
-            json: json
-            xlsx: xlsx
+            csv: CSV
+            json: JSON
+            xlsx: Excel (.xlsx)
           actions:
             back: Tornar
+          download_example: Descarregar un exemple
+          download_example_format: Exemple de %{name}
           file_legend: Afegir un arxiu d'importació que serà processat.
           import: Importar
         notice: "%{number} %{resource_name} importat correctament"
@@ -744,6 +785,7 @@ ca:
         form:
           colors:
             colors_title: Colors de l'organització
+            colors_warning_html: Advertència! Canviant aquests colors pot trencar l'accessibilitat dels contrasts. Pots comprovar el contrast de la teva selecció a <a href="%{link}">WebAIM Contrast Checker</a> o amb altres eines similars.
             header_snippets_help: Utilitza aquest camp per afegir coses al head d'HTML. L'ús més habitual és integrar serveis de tercers que requereixen codi JavaScript o CSS addicional. A més, pots utilitzar-lo per afegir etiquetes meta addicionals a l'HTML. Tingues en compte que això només es mostrarà a les pàgines públiques, no a la secció d'administració.
           cta_button_path_help: 'Pots redirigir la direcció on enllaça el botó d''acció principal de la pàgina d''inici on desitgis. Utilitza rutes parcials, no URLs completes aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. El botó d''acció principal es mostra a la pàgina d''inici entre el text de benvinguda i la descripció. Exemple: %{url}'
           cta_button_text_help: Pots sobreescriure el text del botó d'acció principal a la pàgina d'inici per cada idioma disponible a la teva organització. Si no s'omple, s'utilitzarà el valor predeterminat. El botó d'acció principal es mostra a la pàgina d'inici entre el text de benvinguda i la descripció.
@@ -792,6 +834,14 @@ ca:
           explanation: 'Carrega el teu arxiu CSV. Ha de tenir dues columnes amb l''adreça de correu electrònic a la primera columna i el nom a la segona (adreça electrònica, nom) dels usuaris que vulguis afegir a l''espai de participació, sense capçaleres. Evita emprar caràcter invàlids com `<>?%&^*#@()[]=+:;"{}\|` al nom d''usuari.'
           title: Puja el fitxer CSV
           upload: Carrega
+      reminders:
+        create:
+          error: Hi ha hagut un problema en crear els recordatoris.
+          success:
+            one: "Es recordarà a %{count} usuària."
+            other: "Es recordarà a %{count} usuàries."
+        new:
+          submit: Envia
       resource_permissions:
         edit:
           submit: Enviar

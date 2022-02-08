@@ -4,7 +4,7 @@ module Decidim
   module Conferences
     module Admin
       # This command gets called when a registration type is unpublished from the admin panel.
-      class UnpublishRegistrationType < Rectify::Command
+      class UnpublishRegistrationType < Decidim::Command
         # Public: Initializes the command.
         #
         # registration_type - The registration_type to unpublish.

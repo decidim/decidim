@@ -4,7 +4,7 @@ module Decidim
   module Votings
     module Admin
       # A command with all the business logic when creating a new voting space
-      class CreateVoting < Rectify::Command
+      class CreateVoting < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

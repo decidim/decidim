@@ -3,7 +3,7 @@
 module Decidim
   module Messaging
     # A class used to find the conversations a user is participating in.
-    class UserConversations < Rectify::Query
+    class UserConversations < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # user - a User that needs to find which processes can manage

@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     # A command with all the business logic when a user or organization votes an initiative.
-    class VoteInitiative < Rectify::Command
+    class VoteInitiative < Decidim::Command
       # Public: Initializes the command.
       #
       # form - A form object with the params.

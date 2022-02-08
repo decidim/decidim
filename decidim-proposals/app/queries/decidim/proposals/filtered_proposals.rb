@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     # A class used to find proposals filtered by components and a date range
-    class FilteredProposals < Rectify::Query
+    class FilteredProposals < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # components - An array of Decidim::Component

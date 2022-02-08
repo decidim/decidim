@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A command to invite an admin.
-    class InviteAdmin < Rectify::Command
+    class InviteAdmin < Decidim::Command
       # Public: Initializes the command.
       #
       # form - A form object with the params.
