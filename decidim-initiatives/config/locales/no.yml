@@ -5,6 +5,7 @@
         decidim_user_group_id: Forfatter
         description: Beskrivelse
         offline_votes: Personlige underskrifter
+        offline_votes_for_scope: Signatur ved fysisk oppmøte for %{scope_name}
         scope_id: Tema
         signature_end_date: Slutt av innsamlingsperiode for signatur
         signature_start_date: Start av innsamlingsperiode for signatur
@@ -21,6 +22,7 @@
         area_enabled: Muliggjør at forfattere velger område for sitt initiativ
         attachments_enabled: Aktiver vedlegg
         banner_image: Bannerafbeelding
+        child_scope_threshold_enabled: Aktiver signaturer for barnetema
         collect_user_extra_fields: Samle deltakerens personlige data ved signatur
         custom_signature_end_date_enabled: Muliggjør at forfattere kan velge slutten av signaturinnsamlingsperioden
         description: Beskrivelse
@@ -28,6 +30,7 @@
         extra_fields_legal_information: Juridisk informasjon om innsamling av personopplysninger
         minimum_committee_members: Minimum av komitémedlemmer
         online_signature_enabled: Online signatur aktivert
+        only_global_scope_enabled: Bare tillat opprettelse av globale initiativtema
         promoting_committee_enabled: Aktiver promoteringskomité
         title: Tittel
         undo_online_signatures_enabled: Aktiver at deltakere kan angre sine online signaturer
@@ -82,10 +85,13 @@
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Søk i %{collection} etter tittel, beskrivelse, ID eller forfatternavn.
       menu:
+        attachments: Vedlegg
+        committee_members: Utvalgets medlemmer
         components: Komponenter
         information: Informasjon
         initiatives: Initiativer
         initiatives_types: Initiativtyper
+        moderations: Moderasjoner
       models:
         initiatives:
           fields:
@@ -136,6 +142,11 @@
           email_outro: Du har mottatt denne varslingen fordi du følger %{resource_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
           email_subject: Initiativunderskrifters sluttdato forlenget!
           notification_title: Slutdatoen for signaturene for <a href="%{resource_path}">%{resource_title}</a> initiativet er blitt utvidet.
+        initiative_sent_to_technical_validation:
+          email_intro: Initiativet "%{resource_title}" er sendt til teknisk validering. Sjekk det ut i <a href="%{admin_initiative_url}">administratorpanelet</a>
+          email_outro: Du har mottatt dette varselet fordi du er en administrator av plattformen.
+          email_subject: Initiativ "%{resource_title}" ble sendt til teknisk validering.
+          notification_title: Initiativet "%{resource_title}" er sendt til teknisk validering. Sjekk det ut i <a href="%{admin_initiative_path}">administratorpanelet</a>
         milestone_completed:
           affected_user:
             email_intro: Ditt initiativ %{resource_title} har oppnådd %{percentage}% av signaturene!
@@ -148,7 +159,10 @@
             email_subject: Ny milepæl fullført!
             notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet har oppnådd de %{percentage}% av signaturer.
         support_threshold_reached:
+          email_intro: Initiativet %{resource_title} har nådd terskelen for antall signaturer
           email_outro: Du har mottatt dette varselet fordi du er en administrator av plattformen.
+          email_subject: Terskel for antall signaturer er nådd
+          notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> har nådd terskelen for antall signaturer
     gamification:
       badges:
         initiatives:
@@ -193,12 +207,17 @@
         content_blocks:
           highlighted_initiatives:
             max_results: Maksimal mengde elementer som skal vises
+            order:
+              default: Standard (mindre nylig)
+              label: 'Sorter element etter:'
+              most_recent: Nyeste
         exports:
           initiatives: Initiativer
         initiatives:
           edit:
             accept: Godta initiativ
             confirm: Er du sikker?
+            confirm_send_to_technical_validation: Er du sikker?
             discard: Forkastet initiativet
             export_pdf_signatures: Eksporter PDF av signaturer
             export_votes: Eksporter signaturer
@@ -208,11 +227,17 @@
             update: Oppdater
           form:
             attachments: Vedlegg
+            settings: Innstillinger
             title: Generell informasjon
           index:
             actions_title: Handling
             preview: Forhåndsvis
             print: Skriv ut
+          initiative_attachments:
+            documents: Dokumenter
+            edit: Rediger
+            new: Ny
+            photos: Bilder
           show:
             print: Skriv ut
           update:
@@ -248,6 +273,8 @@
             destroy: Slett
             update: Oppdater
           form:
+            authorizations: Innstillinger for autorisasjon
+            options: Valg
             title: Generell informasjon
           initiative_type_scopes:
             title: Tema for initiativtypen
@@ -285,9 +312,13 @@
         filter_type_values:
           all: Alle
       committee_requests:
+        approve:
+          success: Forespørselen er godkjent.
         new:
           continue: Fortsett
           help_text: Du er i ferd med å be om å bli medlem av promotør komiteen for dette initiativet
+        revoke:
+          success: Forespørselen er ikke godkjent.
         spawn:
           success: Forespørselen din er sendt til initiativforfatteren.
       content_blocks:
@@ -297,14 +328,23 @@
         fill_data:
           back: Tilbake
           continue: Fortsett
+          fill_data_help: "<ul> <li>Gjennomgå innholdet i ditt initiativ. Er tittelen din lett å forstå? Er målet med initiativet ditt tydelig?</li> <li>Du må velge type signatur. Pålogget, fysisk tilstede eller en kombinasjon av begge</li> <li>Hvilket geografisk tema av satsingen?</li> </ul>"
           initiative_type: Initiativtype
           more_information: "(Mer informasjon)"
+          select_area: Velg et område
           select_scope: Velg et temaet
         finish:
           back: Tilbake
           back_to_initiatives: Tilbake til initiativer
+          callout_text: Gratulerer! Initiativet ditt er opprettet.
+          confirm: Du sender nå initiativet til en administrator for å gjennomgå og publisere det. Når det er publisert vil du ikke kunne redigere den. Er du sikker?
+          edit_my_initiative: Rediger mitt initiativ
           go_to_my_initiatives: Gå til mine initiativer
           more_information: "(Mer informasjon)"
+          send_my_initiative: Send mitt initiativ til teknisk validering
+        finish_help:
+          access_reminder: Du kan få tilgang til dine initiativ gjennom %{link} -filteret på Initiativ-siden.
+          publish_helper_text: Husk at for å publisere ditt initiativ må du fylle ut påkrevd informasjon og <strong>sende den til teknisk validering</strong> slik at en administrator kan gjennomgå det.
         previous_form:
           back: Tilbake
           continue: Fortsett
