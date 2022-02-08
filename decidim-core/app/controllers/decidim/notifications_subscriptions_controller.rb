@@ -13,6 +13,14 @@ module Decidim
         subscription.endpoint = params[:endpoint]
         subscription.p256dh = params[:keys][:p256dh]
       end
+
+      head :ok
+    end
+
+    def delete_by_user
+      Decidim::NotificationsSubscription.where(decidim_user_id: params[:user_id]).destroy_all
+
+      head :ok
     end
   end
 end

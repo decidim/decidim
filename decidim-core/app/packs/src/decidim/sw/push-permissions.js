@@ -16,6 +16,14 @@ window.addEventListener("DOMContentLoaded", async () => {
             throw new Error("Permission not granted for Notification");
           }
         }
+        else {
+          const userId = document.getElementById("userId").value
+
+          await fetch(`/unsubscribe_to_notifications/${userId}`, {
+            headers: { "Content-Type": "application/json" },
+            method: "DELETE"
+          });
+        }
       })
 
       if (toggle.checked) {
