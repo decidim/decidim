@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A command with all the business logic to destroy an area.
-    class DestroyArea < Rectify::Command
+    class DestroyArea < Decidim::Command
       # Public: Initializes the command.
       #
       # area - The area to destroy

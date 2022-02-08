@@ -343,7 +343,6 @@ zh-CN:
           origin: 始发地
           origin_values:
             all: 所有的
-            citizens: Citizens
             official: 官方的
             user_groups: 群組
           scope: 范围

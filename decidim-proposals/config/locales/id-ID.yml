@@ -403,7 +403,6 @@ id:
           all: Semua
         filter_origin_values:
           all: Semua
-          citizens: Warga
           meetings: Rapat
           official: Resmi
           user_groups: Grup Pengguna

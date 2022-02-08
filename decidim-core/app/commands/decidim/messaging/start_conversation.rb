@@ -3,7 +3,7 @@
 module Decidim
   module Messaging
     # A command with all the business logic for replying to a conversation
-    class StartConversation < Rectify::Command
+    class StartConversation < Decidim::Command
       # Public: Initializes the command.
       #
       # form - A conversation form

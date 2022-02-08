@@ -447,7 +447,6 @@
           all: Alle
         filter_origin_values:
           all: Alle
-          citizens: Borgere
           meetings: Møter
           official: Offisiell
           user_groups: Grupper

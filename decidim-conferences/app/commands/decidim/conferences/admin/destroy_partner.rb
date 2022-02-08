@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when destroying an conference
       # partner in the system.
-      class DestroyPartner < Rectify::Command
+      class DestroyPartner < Decidim::Command
         # Public: Initializes the command.
         #
         # conference_partner - the Partner to destroy

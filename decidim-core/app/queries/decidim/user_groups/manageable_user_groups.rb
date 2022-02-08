@@ -5,7 +5,7 @@ module Decidim
     # Use this class to find the user groups the given user can manage. In order
     # to calculate this, we get those groups where the user has a role of
     # creator or admin.
-    class ManageableUserGroups < Rectify::Query
+    class ManageableUserGroups < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # user - a User that needs to find which groups can manage

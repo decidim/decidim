@@ -4,7 +4,7 @@ module Decidim
   module Consultations
     module Admin
       # A command that sets a consultation results as unpublished.
-      class UnpublishConsultationResults < Rectify::Command
+      class UnpublishConsultationResults < Decidim::Command
         # Public: Initializes the command.
         #
         # consultation - A Consultation that will get its results unpublished

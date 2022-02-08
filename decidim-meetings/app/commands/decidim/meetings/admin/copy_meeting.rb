@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when copying a meeting
       # in the system.
-      class CopyMeeting < Rectify::Command
+      class CopyMeeting < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

@@ -4,7 +4,7 @@ module Decidim
   module Assemblies
     module Admin
       # A class used to find the AssemblyMembers's by their status status.
-      class AssemblyMembers < Rectify::Query
+      class AssemblyMembers < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         #
         # assembly_members - the initial AssemblyMember relation that needs to be filtered.

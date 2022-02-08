@@ -4,7 +4,7 @@ module Decidim
   module Votings
     module Voter
       # This command updates the in person vote status
-      class UpdateInPersonVoteStatus < Rectify::Command
+      class UpdateInPersonVoteStatus < Decidim::Command
         # Public: Initializes the command.
         #
         # in_person_vote     - the in person vote that has been updated

@@ -6,6 +6,7 @@ require "decidim/core/version"
 
 # Decidim configuration.
 module Decidim
+  autoload :Env, "decidim/env"
   autoload :Deprecations, "decidim/deprecations"
   autoload :ActsAsAuthor, "decidim/acts_as_author"
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
@@ -101,6 +102,8 @@ module Decidim
   autoload :ManifestMessages, "decidim/manifest_messages"
   autoload :CommonPasswords, "decidim/common_passwords"
   autoload :AttributeObject, "decidim/attribute_object"
+  autoload :Query, "decidim/query"
+  autoload :Command, "decidim/command"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.

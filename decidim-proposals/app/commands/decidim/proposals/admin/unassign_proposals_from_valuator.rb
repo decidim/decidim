@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic to unassign proposals from a given
       # valuator.
-      class UnassignProposalsFromValuator < Rectify::Command
+      class UnassignProposalsFromValuator < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.
