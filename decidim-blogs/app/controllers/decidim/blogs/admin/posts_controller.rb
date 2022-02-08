@@ -7,6 +7,7 @@ module Decidim
       class PostsController < Admin::ApplicationController
         helper UserGroupHelper
         helper PostsHelper
+        
         def new
           enforce_permission_to :create, :blogpost
           @form = form(PostForm).instance
