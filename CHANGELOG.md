@@ -98,7 +98,7 @@ PR [\#8645](https://github.com/decidim/decidim/pull/8645) we now only allow PNG 
 PR [\#8792](https://github.com/decidim/decidim/pull/8792)
 Only downcased nicknames are now authorized. <br/>
 Routing has slightly changed, "profile/TOTO/timeline" is the same as "profile/toto/timeline" now, and for every tab in profiles <br/>
-A migration has been created to downcase every nickname and modify the simiar ones
+A migration has been created to downcase every nickname and modify the similar ones
 
 
 
