@@ -175,12 +175,16 @@
             endorsements_blocked: Påtegnelser blokkert
             endorsements_enabled: Påtegnelser aktivert
             proposal_answering_enabled: Forslags besvaring aktivert
+            publish_answers_immediately: Publiser svar på forslag umiddelbart
             suggested_hashtags: Hashtagger foreslått til deltakere for nye forslag
             votes_blocked: Støtter blokkert
             votes_enabled: Støtter aktivert
             votes_hidden: Støtter skjult (hvis støtter er aktivert, sjekke du av dette vil det skjule antall støtter)
     events:
       proposals:
+        admin:
+          proposal_note_created:
+            email_intro: Noen har lagt ut en merknad på forslaget "%{resource_title}". Sjekk det ut i <a href="%{admin_proposal_info_url}">administratorpanelet</a>
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} har blitt akseptert tilgang som bidragsyter til <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.'
           email_outro: Du har mottatt denne varslingen fordi du er en samarbeidspartner av <a href="%{resource_path}">%{resource_title}</a>.
@@ -337,6 +341,7 @@
         see_all: Vis alle (%{count})
     proposals:
       actions:
+        answer_proposal: Svar på forslag
         edit_proposal: Rediger forslaget
         import: Importer fra en annen komponent
         new: Nytt forslag
@@ -347,6 +352,7 @@
         actions:
           preview: Forhåndsvis
         exports:
+          proposal_comments: Kommentarer
           proposals: Forslag
         models:
           proposal:
@@ -370,6 +376,7 @@
           new_import:
             accepted_mime_types:
               md: Markdown
+              odt: ODT
             bottom_hint: "(Du vil kunne forhåndsvise og sortere dokument seksjoner)"
             title: LEGG TIL DOKUMENT
             upload_document: Last opp dokument
@@ -411,21 +418,27 @@
           form:
             attachment_legend: "(Valgfritt) Legg til et vedlegg"
             created_in_meeting: Dette forslaget kommer fra et møte
+            delete_attachment: Slett vedlegg
             select_a_category: Velg en kategori
             select_a_meeting: Velg et møte
           index:
             actions: Handlinger
+            assign_to_valuator_button: Tildel
             cancel: Avbryt
             change_category: Endre kategori
+            change_scope: Endre tema
             merge: Slå sammen til en ny
             merge_button: Slå sammen
             publish: Publiser
+            publish_answers: Publiser svar
             select_component: Velg en komponent
             selected: valgt
             split: Delte forslag
             split_button: Delt
             title: Forslag
+            unassign_from_valuator_button: Fjern tilegning
             update: Oppdater
+            update_scope_button: Oppdater tema
           new:
             create: Opprett
             title: Opprett forslag
@@ -712,7 +725,11 @@
             document_index: Dokument indeks
           view_index:
             see_index: Se index
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
+          announcement_body: Forslaget ditt er lagret som en kladd. Det må publiseres for at det skal vises på nettstedet.
+          announcement_title: Forslaget ditt har ikke blitt publisert enda
           modify: Endre forslaget
           proposal_edit_before_minutes:
             one: Du vil kunne redigere dette forslaget i løpet av det første minuttet etter at forslaget er publisert. Etter dette tidsvinduet passerer, vil du ikke kunne redigere forslaget.
@@ -722,9 +739,13 @@
         proposal:
           creation_date: 'Opprettet: %{date}'
           view_proposal: Se forslag
+        proposals:
+          empty: Det finnes ingen forslag enda
+          empty_filters: Det er ingen forslag med disse kriteriene
         show:
           answer: Svar
           back_to: Tilbake til
+          back_to_list: Tilbake til listen
           changes_at_title: Endring til "%{title}"
           comments: Kommentarer
           edit_proposal: Rediger forslaget
@@ -746,7 +767,12 @@
           read_more: Les mer
           report: Rapport
           withdraw_btn_hint: Du kan trekke tilbake forslaget ditt hvis du ombestemmer deg, så lenge du ikke har fått noe støtte. Forslaget er ikke slettet, den vil vises i listen av tilbaketrukne forslag.
+          withdraw_confirmation_html: Er du sikker på at du vil trekke tilbake dette forslaget?<br><br><strong>Denne handlingen kan ikke avbrytes!</strong>
           withdraw_proposal: Trekk tilbake forslag
+        tags:
+          changed_from: "(endret fra <u>%{previous_name}</u> av en administrator)"
+        update:
+          title: Oppdater forslag
         vote_button:
           already_voted: Støttet allerede
           already_voted_hover: Trekk tilbake støtte
@@ -778,14 +804,25 @@
             votes: Støtter
         wizard_aside:
           back: Tilbake
+          back_from_step_1: Tilbake til forslag
+          back_from_step_2: Tilbake til forslag
+          back_from_step_3: Tilbake til sammenlign forslag
+          back_from_step_4: Tilbake til redigering av utkast
           info: Du lage et <strong>forslag</strong>.
         wizard_steps:
+          current_step: Gjeldende trinn
           see_steps: se trinn
           step_1: Opprett ditt forslag
           step_2: Sammenlign
           step_3: Fullført
           step_4: Publiser forslaget ditt
           step_of: Trinn %{current_step_num} av %{total_steps}
+          title: Trinn for opprettelse av forslag
+      proposals_picker:
+        choose_proposals: Velg forslag
+        close: Lukk
+        more_proposals: Det er %{number} flere forslag. Begrens søket for å finne dem.
+        no_proposals: Ingen forslag stemmer overens med søkekriteriene, eller så finnes det ikke noe forslag.
       publish:
         error: Det oppstod et problem med å publisere forslaget.
         success: Forslag publisert.
@@ -813,3 +850,7 @@
       included_proposals:
         proposal_project: 'Forslag vises i disse prosjektene:'
         proposal_result: 'Forslag vises i disse resultatene:'
+    statistics:
+      proposals_accepted: Godkjente forslag
+      proposals_count: Forslag
+      supports_count: Støtter
