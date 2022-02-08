@@ -258,6 +258,29 @@
           key_ceremony_ended:
             errors:
               time_before: Valget er klart til å starte. Du må vente %{hours} timer før starttidspunktet (%{start_time}) for å starte avstemmingsperioden.
+            invalid: Kunne starte valgperioden
+            requirements:
+              time_before: Valget vil starte snart. Du kan starte valgperioden manuelt, eller den vil bli startet automatisk før starttidspunktet, %{start_time}.
+            submit: Start valgperiode
+            success: Forespørsel om å starte valgperiode ble sent til oppslagstavle
+            title: Klar for å begynne
+          processing: Behandler...
+          results_published:
+            answer: Svar
+            not_selected: Ikke valgt
+            question: Spørsmål
+            result: Resultat
+            selected: Valgt
+            submit: Send inn
+            title: Resultater publisert
+          tally:
+            continue: Fortsett
+            invalid: Kunne ikke rapportere manglende tillitsmann
+            mark_as_missing: Marker som manglende
+            mark_as_missing_description: Alle tillitsmenn bør delta i denne prosessen, men dersom en tillitsmann ikke kan delta i prosessen, kan du merke det som manglende.
+            success: Manglende tillitsmannrapport ble sendt til oppslagstavle
+            tally_completion: Prosessen vil bli fullført når alle tillitsmenn er aktive eller merket som manglende. Minst %{quorum} tillitsmenn er nødvendig for å fullføre prosessen.
+            title: Opptellingsprosess
       election_m:
         footer:
           remaining_time:
