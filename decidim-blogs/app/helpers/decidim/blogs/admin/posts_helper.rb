@@ -21,8 +21,8 @@ module Decidim
 
         def post_author_select_field(form, name, _options = {})
           select_options = [
-            [current_organization.name, current_organization.id],
-            [current_user.name, current_user.id]
+            [current_organization.name, "current_organization"],
+            [current_user.name, "current_user"]
           ]
           if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any?
             user_groups = Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
