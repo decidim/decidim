@@ -42,6 +42,9 @@ module Decidim
         self.scope_id = model.scope.id if model.scope
 
         self.has_address = true if model.address.present?
+
+        self.photos = [model.photos.first].compact
+        self.documents = model.attachments - photos
       end
 
       # Finds the Category from the category_id.
