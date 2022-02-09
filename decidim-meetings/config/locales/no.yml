@@ -416,6 +416,8 @@
           close: Avslutt møte
           title: Avslutt møte
       meetings:
+        calendar_modal:
+          full_details_html: For komplette detaljer, gå til %{link}
         count:
           meetings_count:
             one: "%{count} møte"
