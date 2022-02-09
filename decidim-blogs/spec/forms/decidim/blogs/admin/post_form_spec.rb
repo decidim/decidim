@@ -60,26 +60,19 @@ module Decidim
             expect(subject.user_group_id).to eq("current_user")
           end
 
+          it "assigns the user name to the form" do
+            expect(subject.author).to eq(author)
+          end
+
           context "when the author is an organization" do
             let(:author) { current_organization }
 
-            it "assigns the organization name to the form" do
+            it "assigns the organization name to the ID" do
               expect(subject.user_group_id).to eq("current_organization")
             end
+
             it "assigns the organization name to the form" do
               expect(subject.author).to eq(current_organization)
-            end
-          end
-
-          context "when the author is a user" do
-            let(:author) { current_user }
-
-            it "assigns the user name to the form" do
-              expect(subject.user_group_id).to eq("current_user")
-            end
-
-            it "assigns the user name to the form" do
-              expect(subject.author).to eq(current_user)
             end
           end
 
@@ -88,10 +81,11 @@ module Decidim
 
             it "assigns the user group ID to the form" do
               expect(subject.user_group_id).to eq(author.id.to_s)
+              expect(subject.author).to eq(author)
             end
           end
-
-
+        end
+      end
     end
   end
 end
