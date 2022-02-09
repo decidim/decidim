@@ -69,5 +69,22 @@ module Decidim
         expect(record.errors[:description_en]).to eq ["can't be blank"]
       end
     end
+
+    context "when translation name is hyphenated" do
+      let(:available_locales) { ["en", "ca", "es-MX"] }
+      let(:default_locale) { :'es-MX' }
+      let(:description) do
+        {
+          "es-MX": "Descripción"
+        }
+      end
+
+      before { allow(Decidim).to receive(:available_locales).and_return(available_locales) }
+
+      it "validates the record" do
+        subject
+        expect(record).to be_valid
+      end
+    end
   end
 end
