@@ -345,7 +345,15 @@
           start_tally: "%{user_name} startet opptellingen for valget %{resource_name} i %{space_name} på oppslagstavlen"
           start_vote: "%{user_name} startet avstemmingen for valget av %{resource_name} i %{space_name} på oppslagstavlen"
           unpublish: "%{user_name} avpubliserte %{resource_name} i %{space_name}-valget"
+          update: "%{user_name} oppdaterte valget %{resource_name} i %{space_name}"
+        trustee:
+          create: "%{user_name} gjorde brukeren %{trustee_user} til tillitsmann"
       election_m:
+        badge_name:
+          finished: Fullført
+          ongoing: Aktiv
+          upcoming: Kommende
+        end_date: Slutter
         footer:
           remaining_time:
             one: "<strong>%{count} time %{minutes} minutter</strong> gjenstår for å stemme."
@@ -508,6 +516,14 @@
               generate_legend_4: Lag en annen kopi av filen på en annen ekstern enhet og lagre den på et svært trygt sted.
               submit: Send inn
               submit_legend: Etter å ha fulgt alle trinnene beskrevet ovenfor, fullfør prosessen med å sende den offentlige identifikasjonsnøkkel til Decidim-serveren.
+              submit_title: Send inn den offentlige identifikasjonsnøkkelen
+              title: Identifikasjonsnøkler for tillitsmenn
+              upload: Last opp dine identifikasjonsnøkler
+              upload_error:
+                invalid_format: Den opplastede filen inneholder ikke en identifikasjonsnøkkel.
+                invalid_key: Identifikasjonsnøklene i den opplastede filen kan ikke lastes.
+                invalid_public_key: Identifikasjonsnøklene i den opplastede filen samsvarer ikke med den offentlige identifikasjonnøkkelen lagret av Decidim.
+              upload_legend: Decidim har dine offentlige identifikasjonsnøkler, men din nettleser har den fortsatt ikke. Du må importere filen med identifikasjonsnøkler til datamaskinen fra sikkerhetskopien du opprettet etter de ble generert.
       votes:
         confirm:
           answer: Svar
