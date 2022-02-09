@@ -13,12 +13,22 @@ class ChangeUppercasedNicknamed < ActiveRecord::Migration[6.0]
         next if has_changed.include? similar_user
 
         # change his nickname to the lowercased one with -1 if it's the first, -2 if it's the second etc
-        similar_user.nickname.update!("#{similar_user.nickname.downcase}-#{index + 1}")
+        similar_user.update!(nickname: "#{similar_user.nickname.downcase}-#{index + 1}")
         has_changed.append(similar_user)
       end
 
-      user.nickname.update!(user.nickname.downcase)
+      user.update!(nickname: user.nickname.downcase)
       has_changed.append(user)
+    end
+
+    has_changed.each do |user|
+      data = {
+        event: "decidim.events.nickname_event",
+        event_class: Decidim::ChangeNicknameEvent,
+        affected_users: [user],
+        resource: user
+      }
+      Decidim::EventsManager.publish(data)
     end
   end
 end
