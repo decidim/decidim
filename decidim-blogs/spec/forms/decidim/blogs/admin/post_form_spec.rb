@@ -52,15 +52,19 @@ module Decidim
             subject.map_model(post)
           end
 
-          it "does not assign the user group for normal users" do
-            expect(subject.user_group_id).to be_nil
+          #  it "does not assign the user group for normal users" do
+          #   expect(subject.user_group_id).to be_nil
+          # end
+
+          it "assigns current_user as author to the form" do
+            expect(subject.user_group_id).to eq("current_user")
           end
 
           context "when the author is a group" do
             let(:author) { create(:user_group, :verified, organization: current_organization) }
 
             it "assigns the user group ID to the form" do
-              expect(subject.user_group_id).to eq(author.id)
+              expect(subject.user_group_id).to eq(author.id.to_s)
             end
           end
         end
