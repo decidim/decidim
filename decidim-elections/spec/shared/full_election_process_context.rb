@@ -42,6 +42,8 @@ module Decidim
           expect(page).to have_content("Key ceremony")
         end
 
+        take_screenshot # FIXME: remove this after debugging in GH Actions
+
         election.reload
       end
 
