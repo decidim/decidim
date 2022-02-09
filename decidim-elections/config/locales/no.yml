@@ -279,6 +279,8 @@
             not_selected: Ikke valgt
             question: Spørsmål
             result: Resultat
+            selected: Valgt
+            submit: Publiser resultater
       admin_log:
         election:
           end_vote: "%{user_name} avsluttet avstemmingsperioden for valget av %{resource_name} i Bulletin Board"
