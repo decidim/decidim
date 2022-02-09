@@ -86,5 +86,15 @@ module Decidim
         expect(record).to be_valid
       end
     end
+
+    context "when organization is blank" do
+      let(:organization) { nil }
+
+      it "does not validate the record" do
+        subject
+        expect(record.errors).not_to be_empty
+        expect(record.errors[:current_organization]).to eq ["can't be blank"]
+      end
+    end
   end
 end

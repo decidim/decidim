@@ -22,7 +22,7 @@ class TranslatablePresenceValidator < ActiveModel::EachValidator
       record.current_organization.default_locale
     else
       record.errors.add(:current_organization, :blank)
-      []
+      Decidim.default_locale
     end
   end
 end
