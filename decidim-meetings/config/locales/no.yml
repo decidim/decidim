@@ -302,6 +302,7 @@
             update: Oppdater
           form:
             address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
+            available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig
             disclaimer: 'Ansvarsfraskrivelse: Ved å bruke et eksternt registreringssystem, er du klar over at opphavspersonene av %{organization} ikke er ansvarlige for dataene som brukerne gir til den eksterne tjenesten.'
             location_help: 'Plassering: melding rettet til brukerne som antyder stedet å møte på'
             location_hints_help: 'Hint: ekstra info. Eksempel: Etasje i bygningen hvis det er et fysisk møte, eller møtepassordet hvis det er et nettmøte med begrenset tilgang.'
@@ -412,6 +413,11 @@
         open_in_live_event_page: Åpne på siden for direktearrangement (med valgfri meningsmåling)
       last_activity:
         new_meeting_at_html: "<span>Nytt møte på %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Administrere
+          close: lukk
+          questions: Spørsmål
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -428,7 +434,12 @@
           title: Avslutt møte
       meetings:
         calendar_modal:
+          add_to_calendar: Legg til i kalender
+          apple: Legg til i Apple kalender
+          close_window: Lukk vindu
           full_details_html: For komplette detaljer, gå til %{link}
+          google: Legg til i Google kalender
+          outlook: Legg til i Outlook kalender
         count:
           meetings_count:
             one: "%{count} møte"
@@ -441,20 +452,45 @@
           title: Rediger møtet ditt
           update: Oppdater
         filters:
+          activity: Min aktivitet
+          all: Alle
           category: Kategori
           date: Dato
           date_values:
             all: Alle
             past: Tidligere
             upcoming: Kommende
+          my_meetings: Mine møter
+          origin: Opprinnelse
           origin_values:
+            all: Alle
             citizens: Innbyggere
+            official: Offisiell
+            user_groups: Grupper
+          scope: Tema
           search: Søk
+          type: Type
+          type_values:
+            all: Alle
+            hybrid: Begge
+            in_person: Fysisk
+            online: Digitalt
         filters_small_view:
           close_modal: Lukk modal
           filter: Filter
           filter_by: Filtrer etter
           unfold: Åpne
+        form:
+          address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
+          available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig
+          create_as: Opprett møte som
+          select_a_category: Velg en kategori
+          select_a_meeting_type: Velg en møtetype
+          select_a_registration_type: Velg en registreringstype
+          select_an_iframe_access_level: Velg et tilgangsnivå for iframe
+        index:
+          click_here: Se alle møter
+          new_meeting: Nytt møte
         meeting_minutes:
           related_information: Relatert Informasjon
         meetings:
