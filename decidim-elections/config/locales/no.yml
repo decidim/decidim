@@ -254,6 +254,7 @@
             trustees: Tillitsmenn
           key_ceremony:
             title: Hovedseremoni
+            trustees: Tillitsmenn
           key_ceremony_ended:
             errors:
               time_before: Valget er klart til å starte. Du må vente %{hours} timer før starttidspunktet (%{start_time}) for å starte avstemmingsperioden.
@@ -274,6 +275,7 @@
             title: Resultater publisert
           tally:
             title: Opptellingsprosess
+            trustees: Tillitsmenn
           tally_ended:
             answer: Svar
             not_selected: Ikke valgt
@@ -281,6 +283,49 @@
             result: Resultat
             selected: Valgt
             submit: Publiser resultater
+            success: Forespørsel om publisering av resultater ble sendt til oppslagstavlen
+            title: Beregnet resultat
+          vote:
+            errors:
+              time_after: Valget pågår enda. Du må vente til det er ferdog (%{end_time}) for å avslutte avstemmingen.
+            invalid: Kunne ikke avslutte avstemmingen
+            requirements:
+              time_after: Valget er ferdig. Du kan avslutte avstemmingen manuelt, eller den vil automatisk avsluttes om noen minutter.
+            submit: Avslutt avstemming
+            success: Forespørsel om avslutt avstemning er sendt til oppslagstavlen
+            title: Avstemming
+          vote_ended:
+            invalid: Kunne ikke starte opptellingen
+            submit: Start opptelling
+            success: Forespørsel om å starte opptelling er sendt til oppslagstavla
+            text: Avstemming avsluttet. Du kan starte opptellingen nå.
+            title: Avstemming avsluttet
+          vote_stats:
+            no_vote_statistics_yet: Ingen statistikk enda
+            title: Valgresultat
+            voters: Velgere
+            votes: Stemmer
+        trustees_participatory_spaces:
+          actions:
+            disable: Deaktiver
+            enable: Vurder
+          create:
+            exists: Tillitsmann eksisterer for deltakerområdet
+            invalid: Kunne ikke opprette tillitsmann
+            success: Tillitsmann opprettet
+          delete:
+            invalid: Kunne ikke fjerne tillitsmann
+            success: Tillitsmann fjernet
+          form:
+            select_user: Velg bruker
+          index:
+            title: Tillitsmenn
+          new:
+            create: Opprett tillitsmann
+            title: Ny tillitsmann
+          update:
+            invalid: Kunne ikke oppdatere %{trustee} tillitsmann
+            success: Tillitsmann %{trustee} oppdatert
       admin_log:
         election:
           end_vote: "%{user_name} avsluttet avstemmingsperioden for valget av %{resource_name} i Bulletin Board"
