@@ -289,6 +289,62 @@
             result: Resultat
             selected: Valgt
             submit: Publiser resultater
+            success: Forespørsel om publisering av resultater ble sendt til oppslagstavlen
+            title: Beregnet resultat
+          vote:
+            errors:
+              time_after: Valget pågår enda. Du må vente til det er ferdog (%{end_time}) for å avslutte avstemmingen.
+            invalid: Kunne ikke avslutte avstemmingen
+            requirements:
+              time_after: Valget er ferdig. Du kan avslutte avstemmingen manuelt, eller den vil automatisk avsluttes om noen minutter.
+            submit: Avslutt avstemming
+            success: Forespørsel om avslutt avstemning er sendt til oppslagstavlen
+            title: Avstemming
+          vote_ended:
+            invalid: Kunne ikke starte opptellingen
+            submit: Start opptelling
+            success: Forespørsel om å starte opptelling er sendt til oppslagstavla
+            text: Avstemming avsluttet. Du kan starte opptellingen nå.
+            title: Avstemming avsluttet
+          vote_stats:
+            no_vote_statistics_yet: Ingen statistikk enda
+            title: Valgresultat
+            voters: Velgere
+            votes: Stemmer
+        trustees_participatory_spaces:
+          actions:
+            disable: Deaktiver
+            enable: Vurder
+          create:
+            exists: Tillitsmann eksisterer for deltakerområdet
+            invalid: Kunne ikke opprette tillitsmann
+            success: Tillitsmann opprettet
+          delete:
+            invalid: Kunne ikke fjerne tillitsmann
+            success: Tillitsmann fjernet
+          form:
+            select_user: Velg bruker
+          index:
+            title: Tillitsmenn
+          new:
+            create: Opprett tillitsmann
+            title: Ny tillitsmann
+          update:
+            invalid: Kunne ikke oppdatere %{trustee} tillitsmann
+            success: Tillitsmann %{trustee} oppdatert
+      admin_log:
+        election:
+          create: "%{user_name} opprettet valget %{resource_name} i %{space_name}"
+          delete: "%{user_name} slettet valget %{resource_name} i %{space_name}"
+          end_vote: "%{user_name} avsluttet avstemmingen for valget %{resource_name} i %{space_name} på oppslagstavlen"
+          publish: "%{user_name} publiserte valget %{resource_name} i %{space_name}"
+          publish_results: "%{user_name} publiserte resultatet for valget %{resource_name} i %{space_name} på opplysningstavlen"
+          report_missing_trustee: "%{user_name} rapporterte %{trustee_name} som en manglende tillitsmann under opptellingen for valget %{resource_name} i %{space_name} på oppslagstavlen"
+          setup: "%{user_name} opprettet valget %{resource_name} i %{space_name} på oppslagstavlen"
+          start_key_ceremony: "%{user_name} startet nøkkelseremonien for valget %{resource_name} i %{space_name} på oppslagstavlen"
+          start_tally: "%{user_name} startet opptellingen for valget %{resource_name} i %{space_name} på oppslagstavlen"
+          start_vote: "%{user_name} startet avstemmingen for valget av %{resource_name} i %{space_name} på oppslagstavlen"
+          unpublish: "%{user_name} avpubliserte %{resource_name} i %{space_name}-valget"
       election_m:
         footer:
           view: Vis
