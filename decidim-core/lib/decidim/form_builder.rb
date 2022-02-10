@@ -823,9 +823,12 @@ module Decidim
 
     def image_dimensions_help(dimensions_info)
       dimensions_info.map do |_version, info|
-        processor = I18n.t("processors.#{info[:processor]}", scope: "decidim.forms.images")
         dimensions = I18n.t("dimensions", scope: "decidim.forms.images", width: info[:dimensions].first, height: info[:dimensions].last)
-        safe_join([processor, "  ", dimensions, ". ".html_safe])
+        I18n.t(
+          "processors.#{info[:processor]}",
+          scope: "decidim.forms.images",
+          dimensions: dimensions
+        ).html_safe
       end
     end
 
