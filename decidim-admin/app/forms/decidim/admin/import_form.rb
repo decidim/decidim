@@ -61,9 +61,9 @@ module Decidim
         manifest.creator
       end
 
-      def importer_for(file_path, mime_type)
+      def importer_for(path, mime_type)
         Import::ImporterFactory.build(
-          file_path,
+          path,
           mime_type,
           context: importer_context,
           creator: creator_class
