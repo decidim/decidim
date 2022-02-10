@@ -46,8 +46,8 @@ describe "Edit proposals", type: :system do
       let(:component) { create(:proposal_component, :with_attachments_allowed, participatory_space: participatory_process) }
 
       context "with a file and photo" do
-        let!(:file) { create(:attachment, :with_pdf, attached_to: proposal) }
-        let!(:photo) { create(:attachment, :with_image, attached_to: proposal) }
+        let!(:file) { create(:attachment, :with_pdf, weight: 1, attached_to: proposal) }
+        let!(:photo) { create(:attachment, :with_image, weight: 0, attached_to: proposal) }
 
         it "can delete attachments" do
           visit_component
