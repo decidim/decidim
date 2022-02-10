@@ -152,32 +152,38 @@ export default function lineBreakButtonHandler(quill) {
   quill.setSelection(range.index + 1, Quill.sources.SILENT);
 }
 
-Quill.register("modules/linebreak", (quill) => {
-  quill.getModule("toolbar").addHandler("linebreak", () => {
-    lineBreakButtonHandler(quill);
-  });
+class LineBreak {
+  constructor(quill) {
+    this.quill = quill;
+    quill.getModule("toolbar").addHandler("linebreak", () => {
+     lineBreakButtonHandler(quill);
+    });
 
-  quill.emitter.on("editor-ready", () => {
-    const length = quill.getLength();
-    const text = quill.getText(length - 2, 2);
+    quill.emitter.on("editor-ready", () => {
+     const length = quill.getLength();
+     const text = quill.getText(length - 2, 2);
 
-    // Remove extraneous new lines
-    if (text === "\n\n") {
-      quill.deleteText(quill.getLength() - 2, 2);
-    }
-  });
+     // Remove extraneous new lines
+     if (text === "\n\n") {
+       quill.deleteText(quill.getLength() - 2, 2);
+     }
+    });
 
-  quill.clipboard.addMatcher("BR", (node) => {
-    if (node?.parentNode?.tagName === "A") {
-      return new Delta().insert("\n");
-    }
-    return new Delta().insert({"break": ""});
-  });
+    quill.clipboard.addMatcher("BR", (node) => {
+     if (node?.parentNode?.tagName === "A") {
+       return new Delta().insert("\n");
+     }
+     return new Delta().insert({"break": ""});
+    });
 
-  addEnterBindings(quill);
-  backspaceBindingsRangeAny(quill);
-  backspaceBindings(quill);
+    addEnterBindings(quill);
+    backspaceBindingsRangeAny(quill);
+    backspaceBindings(quill);
+  }
+}
 
-  return;
-});
+if (window.Quill) {
+  window.Quill.register("modules/linebreak", LineBreak);
+}
+
 

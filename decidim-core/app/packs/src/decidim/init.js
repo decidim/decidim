@@ -1,12 +1,11 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 import $ from 'jquery';
-import Quill from "quill"
+import "quill"
 import "foundation-sites"
 
 import Configuration from "src/decidim/configuration"
 
-window.Quill = Quill;
 window.$ = window.jQuery = $;
 
 window.Decidim = window.Decidim || {};
