@@ -552,9 +552,9 @@ it:
           all: Tutti
         filter_origin_values:
           all: Tutti
-          citizens: Cittadini
           meetings: Incontri
           official: Ufficiale
+          participants: Utenti
           user_groups: Gruppi di utenti
         filter_scope_values:
           all: Tutti

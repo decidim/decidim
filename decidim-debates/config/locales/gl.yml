@@ -78,7 +78,6 @@ gl:
           all: Todo
           category: Categoría
           category_prompt: Selecciona unha categoría
-          citizens: Cidadáns
           official: Oficial
           origin: Orixe
           search: Busca

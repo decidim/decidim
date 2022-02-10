@@ -21,6 +21,18 @@ ca:
         one: Projecte
         other: Projectes
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Categoria
+          scope_id_eq:
+            label: Àmbit
+          selected_at_null:
+            label: Seleccionat
+            values:
+              'false': Seleccionat per implementar
+              'true': No s'ha seleccionat per implementar
     budgets:
       actions:
         attachment_collections: Carpetes
@@ -92,6 +104,12 @@ ca:
             no_components: No hi ha cap component de propostes en aquest espai participatiu per importar les propostes a projectes.
             select_component: Selecciona un component
             title: Importar propostes
+        reminders:
+          orders:
+            description: Les usuàries rebran un correu amb els enllaços als pressupostos on tenen "comandes" pendents.
+            title:
+              one: Estàs a punt d'enviar un correu recordatori a %{count} usuària
+              other: Estàs a punt d'enviar un correu recordatori a les usuàries %{count}
       admin_log:
         budget:
           create: "%{user_name} ha creat el pressupost %{resource_name} a l'espai %{space_name}"
@@ -134,6 +152,8 @@ ca:
             total_budget: Pressupost total
         project:
           fields:
+            category: Categoria
+            id: ID
             title: Títol
       order_summary_mailer:
         order_summary:
@@ -186,6 +206,12 @@ ca:
           projects_count:
             one: 1 projecte
             other: "%{count} projectes"
+        exit_modal:
+          cancel: Tornar a la votació
+          close_modal: Tancar el modal
+          exit: Sortir de la votació
+          message: El teu vot no ha estat registrat perquè encara no ha completat el procés de votació. Segur que vols sortir de la votació?
+          title: Encara no has votat
         filters:
           category: Categoria
           scope: Àmbit
@@ -233,6 +259,15 @@ ca:
         show:
           budget: Pressupost
           view_all_projects: Veure tots els projectes
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: 'Àrees a les quals no has finalitzat el vot:'
+          email_intro: Has iniciat la votació als pressupostos participatius, però no l'has completat.
+          email_link: Ves-hi i segueix votant
+          email_outro: Si us plau, recorda completar el vot. Per votar, primer has de seleccionar la proposta o propostes que vols votar i a després confirmar el teu vot amb el botó "Votar".
+          email_subject:
+            one: Tens un vot no finalitzat a la votació dels pressupostos participatius
+            other: Tens alguns vots no finalitzats a la votació dels pressupostos participatius
     components:
       budgets:
         actions:

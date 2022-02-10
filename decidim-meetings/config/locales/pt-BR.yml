@@ -262,12 +262,10 @@ pt-BR:
             update: Atualizar
           form:
             address_help: 'Endereço: usado pelo Geocodificador para encontrar a localização'
-            available_slots_help: Deixe-o em 0 se você tiver slots ilimitados disponíveis
             disclaimer: 'Aviso: ao usar um sistema de registro externo, você está ciente de que os organizadores do %{organization} não são responsáveis pelos dados fornecidos pelos usuários ao serviço externo.'
             location_help: 'Localização: mensagem direcionada aos usuários que imprimem o local para'
             location_hints_help: 'Dicas de localização: informações adicionais Exemplo: o piso do edifício se é uma reunião presencial, ou a senha da reunião, se é uma reunião online com acesso restrito.'
             online_meeting_url_help: 'Link: permitir que os participantes se conectem diretamente à sua reunião'
-            registration_email_help: Este texto aparecerá no meio do e-mail de confirmação de registro. Logo após o código de registro.
             registration_url_help: 'Link: permitir que os participantes possam acessar o serviço externo que você está usando para inscrições'
             select_a_meeting_type: Por favor, selecione um tipo de reunião
             select_a_registration_type: Por favor, selecione um tipo de registro
@@ -313,6 +311,7 @@ pt-BR:
             available_slots_help: Deixe-o para 0 se você tiver slots ilimitados disponíveis.
             invites: Convites
             recommendation_message: Por razões de privacidade, recomendamos que você exclua esse formulário de inscrição quando não precisar mais dele. Por padrão, isso será daqui a 3 meses após o fim da reunião.
+            registration_email_help: Este texto aparecerá no meio do e-mail de confirmação de registro. Logo após o código de registro.
             registration_form: Formulário de registro
             registrations_count:
               one: Houve %{count} registro.
@@ -407,7 +406,6 @@ pt-BR:
           origin: Origem
           origin_values:
             all: Tudo
-            citizens: Cidadãos
             official: Oficial
             user_groups: Grupos
           scope: Escopo

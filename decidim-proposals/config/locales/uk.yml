@@ -222,7 +222,6 @@ uk:
         withdrawn: Відкликана
       application_helper:
         filter_origin_values:
-          citizens: Громадяни
           official: Службове
         filter_state_values:
           not_answered: Без відповідей

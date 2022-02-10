@@ -367,6 +367,13 @@ ro:
           values:
             'false': 'Nu'
             'true': 'Da'
+        moderated_users:
+          reports_reason_eq:
+            label: Motivul raportării
+            values:
+              does_not_belong: Nu aparține
+              offensive: Jignitor
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Tip
@@ -401,9 +408,11 @@ ro:
         search_label: Caută
         search_placeholder:
           name_or_nickname_or_email_cont: Caută %{collection} după e-mail, nume sau pseudonim.
+          report_count_eq: Număr de raportări
           reported_id_string_or_reported_content_cont: Caută %{collection} după id sau conținut.
           title_cont: Caută %{collection} după titlu.
           user_name_or_user_email_cont: Caută %{collection} după nume sau e-mail.
+          user_name_or_user_nickname_or_user_email_cont: Caută %{collection} după e-mail, nume sau pseudonim.
         state_eq:
           label: Stadiu
           values:
