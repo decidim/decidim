@@ -178,6 +178,25 @@ describe "Admin manages votings", type: :system do
     end
   end
 
+  describe "updating a voting with invalid image" do
+    before do
+      click_link translated(voting.title)
+    end
+
+    it "shows an error inside the upload modal" do
+      find("#banner_image").click
+
+      within ".attachment-modal" do
+        find(".remove-upload-item").click
+        input_element = find("input[type='file']", visible: :all)
+        input_element.attach_file(image_invalid_path)
+
+        expect(page).to have_content("file should be one of image/jpeg, image/png", count: 1)
+        expect(page).to have_css(".upload-errors .form-error", count: 1)
+      end
+    end
+  end
+
   describe "updating a voting without images" do
     let!(:voting3) { create(:voting, organization: organization) }
 
