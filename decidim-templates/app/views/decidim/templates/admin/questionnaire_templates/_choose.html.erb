@@ -41,5 +41,5 @@
   </div>
 </div>
 
-<%= javascript_pack_tag "decidim_templates" %>
+<%= javascript_importmap_tags("src/decidim/templates/admin", shim: Decidim.enable_shim) %>
 <%= stylesheet_pack_tag "decidim_templates", media: "all" %>

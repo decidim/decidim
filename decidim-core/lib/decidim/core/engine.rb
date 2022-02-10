@@ -83,7 +83,10 @@ module Decidim
       end
 
       initializer "decidim_system.importmap.assets", before: "importmap.assets" do |app|
-        app.config.assets.paths << Engine.root.join("app/packs") if app.config.respond_to?(:assets)
+        if app.config.respond_to?(:assets)
+          app.config.assets.paths << Engine.root.join("app/packs")
+          app.config.assets.check_precompiled_asset = false
+        end
       end
 
       initializer "decidim.middleware" do |app|

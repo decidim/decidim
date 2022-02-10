@@ -151,4 +151,4 @@
   </div>
 </div>
 
-<%= javascript_pack_tag "decidim_forms" %>
+<%= javascript_importmap_tags("src/decidim/forms", shim: Decidim.enable_shim) %>

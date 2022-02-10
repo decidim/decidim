@@ -117,7 +117,7 @@
   <% end %>
 </div>
 
-<%= javascript_pack_tag "decidim_forms_admin", defer: false %>
+<%= javascript_importmap_tags("src/decidim/forms/admin", shim: Decidim.enable_shim) %>
 
 <% if questionnaire.questions_editable? %>
   <script>
