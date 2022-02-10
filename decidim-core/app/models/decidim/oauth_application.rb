@@ -9,6 +9,11 @@ module Decidim
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization", inverse_of: :oauth_applications
 
     has_one_attached :organization_logo
+
+    # validates_upload cannot be used here because the file is not necessarily
+    # attached to any organization yet when creating a new OAuth application.
+    # The organization becomes mapped after the OAuth application is created
+    # but the logo needs to be uploaded in the front-end already before that.
     validates(
       :organization_logo,
       file_size: { less_than_or_equal_to: ->(record) { record.maximum_upload_size } },
