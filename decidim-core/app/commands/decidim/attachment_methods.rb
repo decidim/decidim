@@ -36,7 +36,8 @@ module Decidim
       !@form.attachment.file.is_a?(Decidim::ApplicationUploader)
     end
 
-    def create_attachment
+    def create_attachment(weight: 0)
+      attachment.weight = weight
       attachment.attached_to = @attached_to
       attachment.save!
     end
