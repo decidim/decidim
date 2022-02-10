@@ -12,7 +12,7 @@ module Decidim
         @gallery << Attachment.new(
           title: photos_title(photo),
           attached_to: attached_to || gallery_attached_to,
-          file: photos_signed_id(photo),
+          file: photos_signed_id(photo), # Define attached_to before this
           content_type: photos_content_type(photo)
         )
       end

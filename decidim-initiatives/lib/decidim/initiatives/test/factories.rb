@@ -8,6 +8,7 @@ FactoryBot.define do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     organization
+    # Keep banner_image after organization
     banner_image do
       ActiveStorage::Blob.create_after_upload!(
         io: File.open(Decidim::Dev.test_file("city2.jpeg", "image/jpeg")),
