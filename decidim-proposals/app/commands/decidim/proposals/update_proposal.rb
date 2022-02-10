@@ -50,7 +50,7 @@ module Decidim
           document_cleanup!
 
           create_gallery if process_gallery?
-          create_attachments if process_attachments?
+          create_attachments(first_weight: @gallery.count.zero? ? 1 : @gallery.count) if process_attachments?
         end
 
         broadcast(:ok, proposal)

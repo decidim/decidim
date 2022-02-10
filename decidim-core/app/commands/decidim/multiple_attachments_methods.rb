@@ -30,10 +30,18 @@ module Decidim
       false
     end
 
-    def create_attachments
+    def create_attachments(first_weight: 0)
+      weight = first_weight
+      # Add the weights first to the old document
+      @form.documents.each do |document|
+        document.update!(weight: weight)
+        weight += 1
+      end
       @documents.map! do |document|
+        document.weight = weight
         document.attached_to = documents_attached_to
         document.save!
+        weight += 1
         @form.documents << document
       end
     end

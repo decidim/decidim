@@ -32,10 +32,18 @@ module Decidim
       false
     end
 
-    def create_gallery
+    def create_gallery(first_weight: 0)
+      weight = first_weight
+      # Add the weights first to the old photos
+      @form.photos.each do |photo|
+        photo.update!(weight: weight)
+        weight += 1
+      end
       @gallery.map! do |photo|
+        photo.weight = weight
         photo.attached_to = gallery_attached_to
         photo.save!
+        weight += 1
         @form.photos << photo
       end
     end
