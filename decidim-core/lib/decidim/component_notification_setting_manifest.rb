@@ -3,7 +3,7 @@
 module Decidim
   class ComponentNotificationSettingManifest
     include ActiveModel::Model
-    include Virtus.model
+    include Decidim::AttributeObject::Model
 
     attribute :name, Symbol
     attribute :area, Symbol
