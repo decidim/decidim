@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe CreateUploadValidation do
+  describe ValidateUpload do
     describe "call" do
       let(:command) { described_class.new(form) }
       let(:form) do

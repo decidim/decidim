@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  class CreateUploadValidation < Rectify::Command
+  class ValidateUpload < Rectify::Command
     def initialize(form)
       @form = form
     end
