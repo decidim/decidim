@@ -57,21 +57,21 @@ describe "Admin manages organization", type: :system do
         end
 
         it "deletes paragraph changes pressing backspace" do
-          find('div[contenteditable="true"].ql-editor').send_keys "ef", [:enter], "gh", [:backspace], [:backspace], [:backspace], [:backspace]
+          find('div[contenteditable="true"].ql-editor').native.send_keys "ef", [:enter], "gh", [:backspace], [:backspace], [:backspace], [:backspace]
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("<p>e</p>".gsub("\n", ""))
         end
 
         it "deletes linebreaks when pressing backspace" do
-          find('div[contenteditable="true"].ql-editor').send_keys "a", [:left], [:enter], [:shift, :enter], [:backspace], [:backspace]
+          find('div[contenteditable="true"].ql-editor').native.send_keys "a", [:left], [:enter], [:shift, :enter], [:backspace], [:backspace]
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("<p>a</p>".gsub("\n", ""))
         end
 
         it "creates and deletes linebreaks with enter, shift+enter and backspace" do
-          find('div[contenteditable="true"].ql-editor').send_keys "acd", [:left], [:left], [:enter], [:shift, :enter], [:shift, :enter], "b", [:left], [:backspace], [:backspace]
+          find('div[contenteditable="true"].ql-editor').native.send_keys "acd", [:left], [:left], [:enter], [:shift, :enter], [:shift, :enter], "b", [:left], [:backspace], [:backspace]
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("<p>abcd</p>".gsub("\n", ""))
@@ -164,14 +164,14 @@ describe "Admin manages organization", type: :system do
         end
 
         it "creates single br tag" do
-          find('div[contenteditable="true"].ql-editor').send_keys([:left, :left, :left, :left, :left], [:shift, :enter])
+          find('div[contenteditable="true"].ql-editor').native.send_keys([:left, :left, :left, :left, :left], [:shift, :enter])
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq('<p>foo<br><br><a href="https://www.decidim.org" rel="noopener noreferrer" target="_blank">link</a></p>')
         end
 
         it "doesnt create br tag inside a tag" do
-          find('div[contenteditable="true"].ql-editor').send_keys([:left, :left, :left, :left], [:shift, :enter])
+          find('div[contenteditable="true"].ql-editor').native.send_keys([:left, :left, :left, :left], [:shift, :enter])
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq('<p>foo<br><br><a href="https://www.decidim.org" rel="noopener noreferrer" target="_blank">link</a></p>')
@@ -197,7 +197,7 @@ describe "Admin manages organization", type: :system do
         end
 
         it "is still editable" do
-          find('div[contenteditable="true"].ql-editor').send_keys(Array.new(15) { :backspace }, "bar baz")
+          find('div[contenteditable="true"].ql-editor').native.send_keys(Array.new(15) { :backspace }, "bar baz")
           click_button "Update"
           expect(page).to have_content("Organization updated successfully")
           expect(find(
@@ -224,16 +224,16 @@ describe "Admin manages organization", type: :system do
         end
 
         it "renders new br tags inside the editor" do
-          find('div[contenteditable="true"].ql-editor').send_keys [:enter], "Here shift+enter makes line change:", [:shift, :enter], "instead of new paragraph!"
+          find('div[contenteditable="true"].ql-editor').native.send_keys [:enter], "Here shift+enter makes line change:", [:shift, :enter], "instead of new paragraph!"
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("#{terms_content}<p>Here shift+enter makes line change:<br>instead of new paragraph!</p>".gsub("\n", ""))
         end
 
         it "makes smartbreak (<br>) when pressing ⏎ button" do
-          find('div[contenteditable="true"].ql-editor').send_keys [:enter], "foo"
+          find('div[contenteditable="true"].ql-editor').native.send_keys [:enter], "foo"
           click_button("⏎")
-          find('div[contenteditable="true"].ql-editor').send_keys "bar"
+          find('div[contenteditable="true"].ql-editor').native.send_keys "bar"
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("#{terms_content}<p>foo<br>bar</p>".gsub("\n", ""))
@@ -241,16 +241,25 @@ describe "Admin manages organization", type: :system do
 
         describe "editor history" do
           it "has undo" do
-            find('div[contenteditable="true"].ql-editor').send_keys("foo", [:shift, :enter], "bar", [:control, "z"], [:control, "z"],
-                                                                    [:control, "z"], [:control, "z"], [:control, "z"], [:control, "z"],
-                                                                    [:control, "z"])
+            find('div[contenteditable="true"].ql-editor').native.send_keys(
+              "foo",
+              [:shift, :enter],
+              "bar",
+              [:control, "z"],
+              [:control, "z"],
+              [:control, "z"],
+              [:control, "z"],
+              [:control, "z"],
+              [:control, "z"],
+              [:control, "z"]
+            )
             expect(find(
               "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
             )["innerHTML"]).to eq(terms_content.gsub("\n", ""))
           end
 
           it "has redo" do
-            find('div[contenteditable="true"].ql-editor').send_keys [:shift, :enter], "X", [:control, "z"], [:control, :shift, "z"]
+            find('div[contenteditable="true"].ql-editor').native.send_keys [:shift, :enter], "X", [:control, "z"], [:control, :shift, "z"]
             expect(find(
               "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
             )["innerHTML"]).to eq("<p>Paragraph</p><p>Some<br>text<br>here</p><p>Another paragraph<br>X</p>".gsub("\n", ""))
@@ -277,63 +286,63 @@ describe "Admin manages organization", type: :system do
         end
 
         it "renders new list item" do
-          find('div[contenteditable="true"].ql-editor').send_keys [:enter], "List item 4"
+          find('div[contenteditable="true"].ql-editor').native.send_keys [:enter], "List item 4"
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("<p>Paragraph</p><ul><li>List item 1</li><li>List item 2</li><li>List item 3</li><li>List item 4</li></ul>".gsub("\n", ""))
         end
 
         it "ends the list when pressing enter twice and starts new paragraph" do
-          find('div[contenteditable="true"].ql-editor').send_keys [:enter, :enter], "Another paragraph"
+          find('div[contenteditable="true"].ql-editor').native.send_keys [:enter, :enter], "Another paragraph"
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("#{terms_content}<p>Another paragraph</p>".gsub("\n", ""))
         end
 
         it "deletes empty list item when pressing backspace and starts new paragraph" do
-          find('div[contenteditable="true"].ql-editor').send_keys [:enter, :backspace], "Another paragraph"
+          find('div[contenteditable="true"].ql-editor').native.send_keys [:enter, :backspace], "Another paragraph"
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("#{terms_content}<p>Another paragraph</p>".gsub("\n", ""))
         end
 
         it "deletes linebreaks (and smartbreaks) using the backspace" do
-          find('div[contenteditable="true"].ql-editor').send_keys [:enter, :enter, :enter, :backspace, :backspace]
+          find('div[contenteditable="true"].ql-editor').native.send_keys [:enter, :enter, :enter, :backspace, :backspace]
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq(terms_content.to_s.gsub("\n", ""))
         end
 
         it "keeps right curson position when using the backspace" do
-          find('div[contenteditable="true"].ql-editor').send_keys [:enter, "bc", :left, :left, :enter, :backspace, :backspace, "a"]
+          find('div[contenteditable="true"].ql-editor').native.send_keys [:enter, "bc", :left, :left, :enter, :backspace, :backspace, "a"]
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("<p>Paragraph</p><ul><li>List item 1</li><li>List item 2</li><li>List item 3</li><li>abc</li></ul>".to_s.gsub("\n", ""))
         end
 
         it "keeps right format when using the backspace" do
-          find('div[contenteditable="true"].ql-editor').send_keys [:enter, :backspace, "abc", :left, :left, :left, :backspace]
+          find('div[contenteditable="true"].ql-editor').native.send_keys [:enter, :backspace, "abc", :left, :left, :left, :backspace]
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("<p>Paragraph</p><ul><li>List item 1</li><li>List item 2</li><li>List item 3abc</li></ul>".to_s.gsub("\n", ""))
         end
 
         it "keeps right cursor position when using backspace after empty list item" do
-          find('div[contenteditable="true"].ql-editor').send_keys [:enter, "bcd", :left, :left, :left, :enter, :backspace, :enter, :enter, :backspace, :backspace, :backspace, "a"]
+          find('div[contenteditable="true"].ql-editor').native.send_keys [:enter, "bcd", :left, :left, :left, :enter, :backspace, :enter, :enter, :backspace, :backspace, :backspace, "a"]
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("<p>Paragraph</p><ul><li>List item 1</li><li>List item 2</li><li>List item 3</li><li>abcd</li></ul>".to_s.gsub("\n", ""))
         end
 
         it "keeps right cursor position when using backspace after list item with text" do
-          find('div[contenteditable="true"].ql-editor').send_keys [:enter, "acd", :left, :left, :enter, :backspace, :enter, :enter, :backspace, :backspace, :backspace, "b"]
+          find('div[contenteditable="true"].ql-editor').native.send_keys [:enter, "acd", :left, :left, :enter, :backspace, :enter, :enter, :backspace, :backspace, :backspace, "b"]
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("<p>Paragraph</p><ul><li>List item 1</li><li>List item 2</li><li>List item 3</li><li>abcd</li></ul>".to_s.gsub("\n", ""))
         end
 
         it "doesnt delete characters below when pressing backspace" do
-          find('div[contenteditable="true"].ql-editor').send_keys [:up, :up, :up, :home, :enter, :enter, :enter, :backspace, :backspace, :backspace]
+          find('div[contenteditable="true"].ql-editor').native.send_keys [:up, :up, :up, :home, :enter, :enter, :enter, :backspace, :backspace, :backspace]
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq(terms_content.to_s.gsub("\n", ""))
