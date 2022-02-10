@@ -50,26 +50,26 @@ RSpec.describe "Proposal search", type: :request do
   it_behaves_like "a resource search with origin", :proposal
 
   it "displays all non-withdrawn and non-rejected proposals without any filters" do
-    expect(subject).to include(CGI.escapeHTML(translated(proposal1.title)))
-    expect(subject).to include(CGI.escapeHTML(translated(proposal2.title)))
-    expect(subject).to include(CGI.escapeHTML(translated(proposal3.title)))
-    expect(subject).not_to include(CGI.escapeHTML(translated(proposal4.title)))
-    expect(subject).not_to include(CGI.escapeHTML(translated(proposal5.title)))
-    expect(subject).to include(CGI.escapeHTML(translated(proposal6.title)))
-    expect(subject).to include(CGI.escapeHTML(translated(proposal7.title)))
+    expect(subject).to have_escaped_html(translated(proposal1.title))
+    expect(subject).to have_escaped_html(translated(proposal2.title))
+    expect(subject).to have_escaped_html(translated(proposal3.title))
+    expect(subject).not_to have_escaped_html(translated(proposal4.title))
+    expect(subject).not_to have_escaped_html(translated(proposal5.title))
+    expect(subject).to have_escaped_html(translated(proposal6.title))
+    expect(subject).to have_escaped_html(translated(proposal7.title))
   end
 
   context "when searching by text" do
     let(:filter_params) { { search_text_cont: "doggo" } }
 
     it "displays only the proposals containing the search_text" do
-      expect(subject).to include(CGI.escapeHTML(translated(proposal1.title)))
-      expect(subject).to include(CGI.escapeHTML(translated(proposal2.title)))
-      expect(subject).not_to include(CGI.escapeHTML(translated(proposal3.title)))
-      expect(subject).not_to include(CGI.escapeHTML(translated(proposal4.title)))
-      expect(subject).not_to include(CGI.escapeHTML(translated(proposal5.title)))
-      expect(subject).not_to include(CGI.escapeHTML(translated(proposal6.title)))
-      expect(subject).not_to include(CGI.escapeHTML(translated(proposal7.title)))
+      expect(subject).to have_escaped_html(translated(proposal1.title))
+      expect(subject).to have_escaped_html(translated(proposal2.title))
+      expect(subject).not_to have_escaped_html(translated(proposal3.title))
+      expect(subject).not_to have_escaped_html(translated(proposal4.title))
+      expect(subject).not_to have_escaped_html(translated(proposal5.title))
+      expect(subject).not_to have_escaped_html(translated(proposal6.title))
+      expect(subject).not_to have_escaped_html(translated(proposal7.title))
     end
   end
 
@@ -80,13 +80,13 @@ RSpec.describe "Proposal search", type: :request do
       let(:states) { [] }
 
       it "displays all except withdrawn proposals" do
-        expect(subject).to include(CGI.escapeHTML(translated(proposal1.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(proposal2.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(proposal3.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal4.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(proposal5.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(proposal6.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(proposal7.title)))
+        expect(subject).to have_escaped_html(translated(proposal1.title))
+        expect(subject).to have_escaped_html(translated(proposal2.title))
+        expect(subject).to have_escaped_html(translated(proposal3.title))
+        expect(subject).not_to have_escaped_html(translated(proposal4.title))
+        expect(subject).to have_escaped_html(translated(proposal5.title))
+        expect(subject).to have_escaped_html(translated(proposal6.title))
+        expect(subject).to have_escaped_html(translated(proposal7.title))
       end
     end
 
@@ -94,13 +94,13 @@ RSpec.describe "Proposal search", type: :request do
       let(:states) { %w(accepted evaluating state_not_published) }
 
       it "does not display withdrawn or rejected proposals" do
-        expect(subject).to include(CGI.escapeHTML(translated(proposal1.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(proposal2.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(proposal3.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal4.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal5.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(proposal6.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(proposal7.title)))
+        expect(subject).to have_escaped_html(translated(proposal1.title))
+        expect(subject).to have_escaped_html(translated(proposal2.title))
+        expect(subject).to have_escaped_html(translated(proposal3.title))
+        expect(subject).not_to have_escaped_html(translated(proposal4.title))
+        expect(subject).not_to have_escaped_html(translated(proposal5.title))
+        expect(subject).to have_escaped_html(translated(proposal6.title))
+        expect(subject).to have_escaped_html(translated(proposal7.title))
       end
     end
 
@@ -108,13 +108,13 @@ RSpec.describe "Proposal search", type: :request do
       let(:states) { %w(accepted) }
 
       it "displays only accepted proposals" do
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal1.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal2.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal3.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal4.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal5.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(proposal6.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(proposal7.title)))
+        expect(subject).not_to have_escaped_html(translated(proposal1.title))
+        expect(subject).not_to have_escaped_html(translated(proposal2.title))
+        expect(subject).not_to have_escaped_html(translated(proposal3.title))
+        expect(subject).not_to have_escaped_html(translated(proposal4.title))
+        expect(subject).not_to have_escaped_html(translated(proposal5.title))
+        expect(subject).to have_escaped_html(translated(proposal6.title))
+        expect(subject).to have_escaped_html(translated(proposal7.title))
       end
     end
 
@@ -122,13 +122,13 @@ RSpec.describe "Proposal search", type: :request do
       let(:states) { %w(rejected) }
 
       it "displays only rejected proposals" do
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal1.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal2.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal3.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal4.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(proposal5.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal6.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal7.title)))
+        expect(subject).not_to have_escaped_html(translated(proposal1.title))
+        expect(subject).not_to have_escaped_html(translated(proposal2.title))
+        expect(subject).not_to have_escaped_html(translated(proposal3.title))
+        expect(subject).not_to have_escaped_html(translated(proposal4.title))
+        expect(subject).to have_escaped_html(translated(proposal5.title))
+        expect(subject).not_to have_escaped_html(translated(proposal6.title))
+        expect(subject).not_to have_escaped_html(translated(proposal7.title))
       end
     end
 
@@ -136,13 +136,13 @@ RSpec.describe "Proposal search", type: :request do
       let(:filter_params) { { with_availability: "withdrawn" } }
 
       it "displays only withdrawn proposals" do
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal1.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal2.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal3.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(proposal4.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal5.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal6.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal7.title)))
+        expect(subject).not_to have_escaped_html(translated(proposal1.title))
+        expect(subject).not_to have_escaped_html(translated(proposal2.title))
+        expect(subject).not_to have_escaped_html(translated(proposal3.title))
+        expect(subject).to have_escaped_html(translated(proposal4.title))
+        expect(subject).not_to have_escaped_html(translated(proposal5.title))
+        expect(subject).not_to have_escaped_html(translated(proposal6.title))
+        expect(subject).not_to have_escaped_html(translated(proposal7.title))
       end
     end
   end
@@ -154,13 +154,13 @@ RSpec.describe "Proposal search", type: :request do
       let(:related_to) { "Decidim::Meetings::Meeting".underscore }
 
       it "displays only proposals related to meetings" do
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal1.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal2.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal3.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal4.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal5.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(proposal6.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal7.title)))
+        expect(subject).not_to have_escaped_html(translated(proposal1.title))
+        expect(subject).not_to have_escaped_html(translated(proposal2.title))
+        expect(subject).not_to have_escaped_html(translated(proposal3.title))
+        expect(subject).not_to have_escaped_html(translated(proposal4.title))
+        expect(subject).not_to have_escaped_html(translated(proposal5.title))
+        expect(subject).to have_escaped_html(translated(proposal6.title))
+        expect(subject).not_to have_escaped_html(translated(proposal7.title))
       end
     end
 
@@ -168,13 +168,13 @@ RSpec.describe "Proposal search", type: :request do
       let(:related_to) { "Decidim::DummyResources::DummyResource".underscore }
 
       it "displays only proposals related to resources" do
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal1.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal2.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal3.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal4.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal5.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal6.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(proposal7.title)))
+        expect(subject).not_to have_escaped_html(translated(proposal1.title))
+        expect(subject).not_to have_escaped_html(translated(proposal2.title))
+        expect(subject).not_to have_escaped_html(translated(proposal3.title))
+        expect(subject).not_to have_escaped_html(translated(proposal4.title))
+        expect(subject).not_to have_escaped_html(translated(proposal5.title))
+        expect(subject).not_to have_escaped_html(translated(proposal6.title))
+        expect(subject).to have_escaped_html(translated(proposal7.title))
       end
     end
   end
@@ -196,13 +196,13 @@ RSpec.describe "Proposal search", type: :request do
       let(:activity) { "voted" }
 
       it "displays the proposals voted by the user" do
-        expect(subject).to include(CGI.escapeHTML(translated(proposal1.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal2.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal3.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal4.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal5.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal6.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal7.title)))
+        expect(subject).to have_escaped_html(translated(proposal1.title))
+        expect(subject).not_to have_escaped_html(translated(proposal2.title))
+        expect(subject).not_to have_escaped_html(translated(proposal3.title))
+        expect(subject).not_to have_escaped_html(translated(proposal4.title))
+        expect(subject).not_to have_escaped_html(translated(proposal5.title))
+        expect(subject).not_to have_escaped_html(translated(proposal6.title))
+        expect(subject).not_to have_escaped_html(translated(proposal7.title))
       end
     end
 
@@ -210,13 +210,13 @@ RSpec.describe "Proposal search", type: :request do
       let(:activity) { "my_proposals" }
 
       it "displays the proposals created by the user" do
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal1.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal2.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(proposal3.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal4.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal5.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal6.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(proposal7.title)))
+        expect(subject).not_to have_escaped_html(translated(proposal1.title))
+        expect(subject).not_to have_escaped_html(translated(proposal2.title))
+        expect(subject).to have_escaped_html(translated(proposal3.title))
+        expect(subject).not_to have_escaped_html(translated(proposal4.title))
+        expect(subject).not_to have_escaped_html(translated(proposal5.title))
+        expect(subject).not_to have_escaped_html(translated(proposal6.title))
+        expect(subject).not_to have_escaped_html(translated(proposal7.title))
       end
     end
   end

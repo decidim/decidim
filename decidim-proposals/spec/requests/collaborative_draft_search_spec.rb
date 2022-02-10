@@ -53,26 +53,26 @@ RSpec.describe "Collaborative draft search", type: :request do
   it_behaves_like "a resource search with categories", :collaborative_draft
 
   it "displays all collaborative drafts except published and withdrawn without any filters" do
-    expect(subject).to include(CGI.escapeHTML(translated(collaborative_draft1.title)))
-    expect(subject).to include(CGI.escapeHTML(translated(collaborative_draft2.title)))
-    expect(subject).to include(CGI.escapeHTML(translated(collaborative_draft3.title)))
-    expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft4.title)))
-    expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft5.title)))
-    expect(subject).to include(CGI.escapeHTML(translated(collaborative_draft6.title)))
-    expect(subject).to include(CGI.escapeHTML(translated(collaborative_draft7.title)))
+    expect(subject).to have_escaped_html(translated(collaborative_draft1.title))
+    expect(subject).to have_escaped_html(translated(collaborative_draft2.title))
+    expect(subject).to have_escaped_html(translated(collaborative_draft3.title))
+    expect(subject).not_to have_escaped_html(translated(collaborative_draft4.title))
+    expect(subject).not_to have_escaped_html(translated(collaborative_draft5.title))
+    expect(subject).to have_escaped_html(translated(collaborative_draft6.title))
+    expect(subject).to have_escaped_html(translated(collaborative_draft7.title))
   end
 
   context "when searching by text" do
     let(:filter_params) { { search_text_cont: "doggo" } }
 
     it "displays only the collaborative drafts containing the search_text" do
-      expect(subject).to include(CGI.escapeHTML(translated(collaborative_draft1.title)))
-      expect(subject).to include(CGI.escapeHTML(translated(collaborative_draft2.title)))
-      expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft3.title)))
-      expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft4.title)))
-      expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft5.title)))
-      expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft6.title)))
-      expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft7.title)))
+      expect(subject).to have_escaped_html(translated(collaborative_draft1.title))
+      expect(subject).to have_escaped_html(translated(collaborative_draft2.title))
+      expect(subject).not_to have_escaped_html(translated(collaborative_draft3.title))
+      expect(subject).not_to have_escaped_html(translated(collaborative_draft4.title))
+      expect(subject).not_to have_escaped_html(translated(collaborative_draft5.title))
+      expect(subject).not_to have_escaped_html(translated(collaborative_draft6.title))
+      expect(subject).not_to have_escaped_html(translated(collaborative_draft7.title))
     end
   end
 
@@ -83,13 +83,13 @@ RSpec.describe "Collaborative draft search", type: :request do
       let(:states) { %w(open) }
 
       it "displays only open collaborative drafts" do
-        expect(subject).to include(CGI.escapeHTML(translated(collaborative_draft1.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(collaborative_draft2.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(collaborative_draft3.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft4.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft5.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(collaborative_draft6.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(collaborative_draft7.title)))
+        expect(subject).to have_escaped_html(translated(collaborative_draft1.title))
+        expect(subject).to have_escaped_html(translated(collaborative_draft2.title))
+        expect(subject).to have_escaped_html(translated(collaborative_draft3.title))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft4.title))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft5.title))
+        expect(subject).to have_escaped_html(translated(collaborative_draft6.title))
+        expect(subject).to have_escaped_html(translated(collaborative_draft7.title))
       end
     end
 
@@ -97,13 +97,13 @@ RSpec.describe "Collaborative draft search", type: :request do
       let(:states) { %w(withdrawn) }
 
       it "displays only withdrawn collaborative drafts" do
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft1.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft2.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft3.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft4.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(collaborative_draft5.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft6.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft7.title)))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft1.title))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft2.title))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft3.title))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft4.title))
+        expect(subject).to have_escaped_html(translated(collaborative_draft5.title))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft6.title))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft7.title))
       end
     end
 
@@ -111,13 +111,13 @@ RSpec.describe "Collaborative draft search", type: :request do
       let(:states) { %w(published) }
 
       it "displays only withdrawn proposals" do
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft1.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft2.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft3.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(collaborative_draft4.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft5.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft6.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft7.title)))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft1.title))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft2.title))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft3.title))
+        expect(subject).to have_escaped_html(translated(collaborative_draft4.title))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft5.title))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft6.title))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft7.title))
       end
     end
   end
@@ -129,13 +129,13 @@ RSpec.describe "Collaborative draft search", type: :request do
       let(:related_to) { "Decidim::Meetings::Meeting".underscore }
 
       it "displays only proposals related to meetings" do
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft1.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft2.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft3.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft4.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft5.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(collaborative_draft6.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft7.title)))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft1.title))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft2.title))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft3.title))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft4.title))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft5.title))
+        expect(subject).to have_escaped_html(translated(collaborative_draft6.title))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft7.title))
       end
     end
 
@@ -143,13 +143,13 @@ RSpec.describe "Collaborative draft search", type: :request do
       let(:related_to) { "Decidim::DummyResources::DummyResource".underscore }
 
       it "displays only proposals related to resources" do
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft1.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft2.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft3.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft4.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft5.title)))
-        expect(subject).not_to include(CGI.escapeHTML(translated(collaborative_draft6.title)))
-        expect(subject).to include(CGI.escapeHTML(translated(collaborative_draft7.title)))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft1.title))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft2.title))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft3.title))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft4.title))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft5.title))
+        expect(subject).not_to have_escaped_html(translated(collaborative_draft6.title))
+        expect(subject).to have_escaped_html(translated(collaborative_draft7.title))
       end
     end
   end

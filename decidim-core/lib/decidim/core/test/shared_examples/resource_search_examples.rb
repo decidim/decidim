@@ -14,7 +14,7 @@ shared_examples_for "a resource search" do |factory_name|
     it "only returns resources from the given component" do
       external_resource = create(factory_name)
 
-      expect(subject).not_to include(CGI.escapeHTML(translated(external_resource.try(:title) || external_resource.try(:name))))
+      expect(subject).not_to have_escaped_html(translated(external_resource.try(:title) || external_resource.try(:name)))
     end
   end
 end
@@ -49,9 +49,9 @@ shared_examples_for "a resource search with scopes" do |factory_name|
       let(:scope_ids) { [scope1.id] }
 
       it "filters resources by scope" do
-        expect(subject).to include(CGI.escapeHTML(translated(resource.try(:title) || resource.try(:name))))
-        expect(subject).not_to include(CGI.escapeHTML(translated(resource2.try(:title) || resource2.try(:name))))
-        expect(subject).to include(CGI.escapeHTML(translated(resource3.try(:title) || resource3.try(:name))))
+        expect(subject).to have_escaped_html(translated(resource.try(:title) || resource.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(resource2.try(:title) || resource2.try(:name)))
+        expect(subject).to have_escaped_html(translated(resource3.try(:title) || resource3.try(:name)))
       end
     end
 
@@ -59,9 +59,9 @@ shared_examples_for "a resource search with scopes" do |factory_name|
       let(:scope_ids) { [subscope1.id] }
 
       it "filters resources by scope" do
-        expect(subject).not_to include(CGI.escapeHTML(translated(resource.try(:title) || resource.try(:name))))
-        expect(subject).not_to include(CGI.escapeHTML(translated(resource2.try(:title) || resource2.try(:name))))
-        expect(subject).to include(CGI.escapeHTML(translated(resource3.try(:title) || resource3.try(:name))))
+        expect(subject).not_to have_escaped_html(translated(resource.try(:title) || resource.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(resource2.try(:title) || resource2.try(:name)))
+        expect(subject).to have_escaped_html(translated(resource3.try(:title) || resource3.try(:name)))
       end
     end
 
@@ -69,9 +69,9 @@ shared_examples_for "a resource search with scopes" do |factory_name|
       let(:scope_ids) { [scope2.id, scope1.id] }
 
       it "filters resources by scope" do
-        expect(subject).to include(CGI.escapeHTML(translated(resource.try(:title) || resource.try(:name))))
-        expect(subject).to include(CGI.escapeHTML(translated(resource2.try(:title) || resource2.try(:name))))
-        expect(subject).to include(CGI.escapeHTML(translated(resource3.try(:title) || resource3.try(:name))))
+        expect(subject).to have_escaped_html(translated(resource.try(:title) || resource.try(:name)))
+        expect(subject).to have_escaped_html(translated(resource2.try(:title) || resource2.try(:name)))
+        expect(subject).to have_escaped_html(translated(resource3.try(:title) || resource3.try(:name)))
       end
     end
 
@@ -88,10 +88,10 @@ shared_examples_for "a resource search with scopes" do |factory_name|
       end
 
       it "returns resources without a scope" do
-        expect(subject).not_to include(CGI.escapeHTML(translated(resource.try(:title) || resource.try(:name))))
-        expect(subject).not_to include(CGI.escapeHTML(translated(resource2.try(:title) || resource2.try(:name))))
-        expect(subject).not_to include(CGI.escapeHTML(translated(resource3.try(:title) || resource3.try(:name))))
-        expect(subject).to include(CGI.escapeHTML(translated(resource_without_scope.try(:title) || resource_without_scope.try(:name))))
+        expect(subject).not_to have_escaped_html(translated(resource.try(:title) || resource.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(resource2.try(:title) || resource2.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(resource3.try(:title) || resource3.try(:name)))
+        expect(subject).to have_escaped_html(translated(resource_without_scope.try(:title) || resource_without_scope.try(:name)))
       end
     end
 
@@ -108,10 +108,10 @@ shared_examples_for "a resource search with scopes" do |factory_name|
       end
 
       it "returns resources without a scope and with selected scopes" do
-        expect(subject).to include(CGI.escapeHTML(translated(resource_without_scope.try(:title) || resource_without_scope.try(:name))))
-        expect(subject).to include(CGI.escapeHTML(translated(resource.try(:title) || resource.try(:name))))
-        expect(subject).to include(CGI.escapeHTML(translated(resource2.try(:title) || resource2.try(:name))))
-        expect(subject).to include(CGI.escapeHTML(translated(resource3.try(:title) || resource3.try(:name))))
+        expect(subject).to have_escaped_html(translated(resource_without_scope.try(:title) || resource_without_scope.try(:name)))
+        expect(subject).to have_escaped_html(translated(resource.try(:title) || resource.try(:name)))
+        expect(subject).to have_escaped_html(translated(resource2.try(:title) || resource2.try(:name)))
+        expect(subject).to have_escaped_html(translated(resource3.try(:title) || resource3.try(:name)))
       end
     end
   end
@@ -154,10 +154,10 @@ shared_examples_for "a resource search with categories" do |factory_name, catego
       let(:category_ids) { nil }
 
       it "includes all resources" do
-        expect(subject).to include(CGI.escapeHTML(translated(resource.try(:title) || resource.try(:name))))
-        expect(subject).to include(CGI.escapeHTML(translated(resource2.try(:title) || resource2.try(:name))))
-        expect(subject).to include(CGI.escapeHTML(translated(resource3.try(:title) || resource3.try(:name))))
-        expect(subject).to include(CGI.escapeHTML(translated(resource4.try(:title) || resource4.try(:name))))
+        expect(subject).to have_escaped_html(translated(resource.try(:title) || resource.try(:name)))
+        expect(subject).to have_escaped_html(translated(resource2.try(:title) || resource2.try(:name)))
+        expect(subject).to have_escaped_html(translated(resource3.try(:title) || resource3.try(:name)))
+        expect(subject).to have_escaped_html(translated(resource4.try(:title) || resource4.try(:name)))
       end
     end
 
@@ -165,10 +165,10 @@ shared_examples_for "a resource search with categories" do |factory_name, catego
       let(:category_ids) { [category2.id] }
 
       it "includes only resources for that category and its children" do
-        expect(subject).not_to include(CGI.escapeHTML(translated(resource.try(:title) || resource.try(:name))))
-        expect(subject).not_to include(CGI.escapeHTML(translated(resource2.try(:title) || resource2.try(:name))))
-        expect(subject).to include(CGI.escapeHTML(translated(resource3.try(:title) || resource3.try(:name))))
-        expect(subject).to include(CGI.escapeHTML(translated(resource4.try(:title) || resource4.try(:name))))
+        expect(subject).not_to have_escaped_html(translated(resource.try(:title) || resource.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(resource2.try(:title) || resource2.try(:name)))
+        expect(subject).to have_escaped_html(translated(resource3.try(:title) || resource3.try(:name)))
+        expect(subject).to have_escaped_html(translated(resource4.try(:title) || resource4.try(:name)))
       end
     end
 
@@ -176,10 +176,10 @@ shared_examples_for "a resource search with categories" do |factory_name, catego
       let(:category_ids) { [child_category.id] }
 
       it "includes only resources for that category" do
-        expect(subject).not_to include(CGI.escapeHTML(translated(resource.try(:title) || resource.try(:name))))
-        expect(subject).not_to include(CGI.escapeHTML(translated(resource2.try(:title) || resource2.try(:name))))
-        expect(subject).not_to include(CGI.escapeHTML(translated(resource3.try(:title) || resource3.try(:name))))
-        expect(subject).to include(CGI.escapeHTML(translated(resource4.try(:title) || resource4.try(:name))))
+        expect(subject).not_to have_escaped_html(translated(resource.try(:title) || resource.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(resource2.try(:title) || resource2.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(resource3.try(:title) || resource3.try(:name)))
+        expect(subject).to have_escaped_html(translated(resource4.try(:title) || resource4.try(:name)))
       end
     end
 
@@ -187,10 +187,10 @@ shared_examples_for "a resource search with categories" do |factory_name, catego
       let(:category_ids) { ["without"] }
 
       it "returns resources without a category" do
-        expect(subject).to include(CGI.escapeHTML(translated(resource.try(:title) || resource.try(:name))))
-        expect(subject).not_to include(CGI.escapeHTML(translated(resource2.try(:title) || resource2.try(:name))))
-        expect(subject).not_to include(CGI.escapeHTML(translated(resource3.try(:title) || resource3.try(:name))))
-        expect(subject).not_to include(CGI.escapeHTML(translated(resource4.try(:title) || resource4.try(:name))))
+        expect(subject).to have_escaped_html(translated(resource.try(:title) || resource.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(resource2.try(:title) || resource2.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(resource3.try(:title) || resource3.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(resource4.try(:title) || resource4.try(:name)))
       end
     end
 
@@ -199,10 +199,10 @@ shared_examples_for "a resource search with categories" do |factory_name, catego
         let(:category_ids) { ["without", category1.id] }
 
         it "returns resources without a category and with the selected category" do
-          expect(subject).to include(CGI.escapeHTML(translated(resource.try(:title) || resource.try(:name))))
-          expect(subject).to include(CGI.escapeHTML(translated(resource2.try(:title) || resource2.try(:name))))
-          expect(subject).not_to include(CGI.escapeHTML(translated(resource3.try(:title) || resource3.try(:name))))
-          expect(subject).not_to include(CGI.escapeHTML(translated(resource4.try(:title) || resource4.try(:name))))
+          expect(subject).to have_escaped_html(translated(resource.try(:title) || resource.try(:name)))
+          expect(subject).to have_escaped_html(translated(resource2.try(:title) || resource2.try(:name)))
+          expect(subject).not_to have_escaped_html(translated(resource3.try(:title) || resource3.try(:name)))
+          expect(subject).not_to have_escaped_html(translated(resource4.try(:title) || resource4.try(:name)))
         end
       end
     end
@@ -238,9 +238,9 @@ shared_examples_for "a resource search with origin" do |factory_name|
       let(:origins) { %w(official) }
 
       it "returns only official resources" do
-        expect(subject).to include(CGI.escapeHTML(translated(official_resource.try(:title) || official_resource.try(:name))))
-        expect(subject).not_to include(CGI.escapeHTML(translated(participant_resource.try(:title) || participant_resource.try(:name))))
-        expect(subject).not_to include(CGI.escapeHTML(translated(user_group_resource.try(:title) || user_group_resource.try(:name))))
+        expect(subject).to have_escaped_html(translated(official_resource.try(:title) || official_resource.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(participant_resource.try(:title) || participant_resource.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(user_group_resource.try(:title) || user_group_resource.try(:name)))
       end
     end
 
@@ -248,9 +248,9 @@ shared_examples_for "a resource search with origin" do |factory_name|
       let(:origins) { %w(participants) }
 
       it "returns only citizen resources" do
-        expect(subject).not_to include(CGI.escapeHTML(translated(official_resource.try(:title) || official_resource.try(:name))))
-        expect(subject).to include(CGI.escapeHTML(translated(participant_resource.try(:title) || participant_resource.try(:name))))
-        expect(subject).not_to include(CGI.escapeHTML(translated(user_group_resource.try(:title) || user_group_resource.try(:name))))
+        expect(subject).not_to have_escaped_html(translated(official_resource.try(:title) || official_resource.try(:name)))
+        expect(subject).to have_escaped_html(translated(participant_resource.try(:title) || participant_resource.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(user_group_resource.try(:title) || user_group_resource.try(:name)))
       end
     end
 
@@ -258,9 +258,9 @@ shared_examples_for "a resource search with origin" do |factory_name|
       let(:origins) { %w(user_group) }
 
       it "returns only user groups resources" do
-        expect(subject).not_to include(CGI.escapeHTML(translated(official_resource.try(:title) || official_resource.try(:name))))
-        expect(subject).not_to include(CGI.escapeHTML(translated(participant_resource.try(:title) || participant_resource.try(:name))))
-        expect(subject).to include(CGI.escapeHTML(translated(user_group_resource.try(:title) || user_group_resource.try(:name))))
+        expect(subject).not_to have_escaped_html(translated(official_resource.try(:title) || official_resource.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(participant_resource.try(:title) || participant_resource.try(:name)))
+        expect(subject).to have_escaped_html(translated(user_group_resource.try(:title) || user_group_resource.try(:name)))
       end
     end
 
@@ -269,10 +269,10 @@ shared_examples_for "a resource search with origin" do |factory_name|
         let(:origins) { %w(meeting) }
 
         it "returns only meeting resources" do
-          expect(subject).not_to include(CGI.escapeHTML(translated(official_resource.try(:title) || official_resource.try(:name))))
-          expect(subject).not_to include(CGI.escapeHTML(translated(participant_resource.try(:title) || participant_resource.try(:name))))
-          expect(subject).not_to include(CGI.escapeHTML(translated(user_group_resource.try(:title) || user_group_resource.try(:name))))
-          expect(subject).to include(CGI.escapeHTML(translated(meeting_resource.try(:title) || meeting_resource.try(:name))))
+          expect(subject).not_to have_escaped_html(translated(official_resource.try(:title) || official_resource.try(:name)))
+          expect(subject).not_to have_escaped_html(translated(participant_resource.try(:title) || participant_resource.try(:name)))
+          expect(subject).not_to have_escaped_html(translated(user_group_resource.try(:title) || user_group_resource.try(:name)))
+          expect(subject).to have_escaped_html(translated(meeting_resource.try(:title) || meeting_resource.try(:name)))
         end
       end
     end

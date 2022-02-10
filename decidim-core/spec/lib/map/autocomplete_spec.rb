@@ -51,7 +51,7 @@ module Decidim
       end
 
       it "creates the geocoding field markup" do
-        config = CGI.escapeHTML(
+        config = html_escaped(
           { url: "/photon_api" }.to_json
         )
         expect(form_markup).to include(%(
