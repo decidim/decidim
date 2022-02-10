@@ -1,4 +1,5 @@
-pin "d3", to: "https://ga.jspm.io/npm:d3@5.4.0/dist/d3.node.js"
+
+pin "d3", to: "https://ga.jspm.io/npm:d3@5.4.0/index.js"
 pin "d3-array", to: "https://ga.jspm.io/npm:d3-array@1.2.4/dist/d3-array.js"
 pin "d3-axis", to: "https://ga.jspm.io/npm:d3-axis@1.0.12/dist/d3-axis.js"
 pin "d3-brush", to: "https://ga.jspm.io/npm:d3-brush@1.1.6/dist/d3-brush.js"

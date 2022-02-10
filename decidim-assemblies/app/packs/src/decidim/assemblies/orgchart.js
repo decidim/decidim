@@ -488,7 +488,7 @@ const renderOrgCharts = () => {
             // parse variable names
             let groupVariables = stringified
               // match var x-xx= {}
-              .match(/var\s+([\w])+\s*=\s*{\s*}/gi)
+              .match(/let\s+([\w])+\s*=\s*{\s*}/gi)
               // match xxx
               .map((d) => d.match(/\s+\w*/gi).filter((s) => s.trim()))
               // get xxx

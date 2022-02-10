@@ -11,6 +11,7 @@ import delayed from "src/decidim/delayed"
 import CheckBoxesTree from "src/decidim/check_boxes_tree"
 import { registerCallback, unregisterCallback, pushState, replaceState, state } from "src/decidim/history"
 import DataPicker from "src/decidim/data_picker"
+import Rails from "@rails/ujs"
 
 export default class FormFilterComponent {
   constructor($form) {
