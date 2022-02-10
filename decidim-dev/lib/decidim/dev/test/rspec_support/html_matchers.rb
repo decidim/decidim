@@ -3,12 +3,12 @@
 require "rspec-html-matchers"
 
 module EscapeHtmlHelpers
-  def html_escaped(string)
+  def escaped_html(string)
     CGI.escapeHTML(string)
   end
 
   def have_escaped_html(string)
-    include(html_escaped(string))
+    include(escaped_html(string))
   end
 end
 
