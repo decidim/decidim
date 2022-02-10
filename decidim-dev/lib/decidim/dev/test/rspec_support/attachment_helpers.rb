@@ -13,8 +13,8 @@ module AttachmentHelpers
   # Creates ActiveStorage::Blob object and returns its signed_id
   # Used in non-system tests that need files.
   def upload_test_file(file, options = {})
-    filename = options[:filename] || solve_filename(file)
-    content_type = options[:content_type] || solve_content_type(file)
+    filename = options[:filename] || upload_test_file_filename(file)
+    content_type = options[:content_type] || upload_test_file_content_type(file)
 
     blob = ActiveStorage::Blob.create_after_upload!(
       io: File.open(file),
@@ -26,13 +26,13 @@ module AttachmentHelpers
 
   private
 
-  def solve_filename(file)
+  def upload_test_file_filename(file)
     return file.original_filename if file.respond_to? :original_filename
 
     file.split("/").last
   end
 
-  def solve_content_type(file)
+  def upload_test_file_content_type(file)
     return file.content_type if file.respond_to? :content_type
 
     MIME::Types.type_for(file).first.content_type
