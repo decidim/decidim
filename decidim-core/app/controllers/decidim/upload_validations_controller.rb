@@ -12,7 +12,7 @@ module Decidim
     def create
       @form = form(Decidim::UploadValidationForm).from_params(params)
 
-      CreateUploadValidation.call(@form) do
+      ValidateUpload.call(@form) do
         on(:ok) do
           render json: []
         end
