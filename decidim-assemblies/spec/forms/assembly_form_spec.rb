@@ -166,7 +166,7 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
-        context "when attachment is too big" do
+        context "when attachment (hero_image or banner_image) is too big" do
           before do
             organization.settings.tap do |settings|
               settings.upload.maximum_file_size.default = 5
