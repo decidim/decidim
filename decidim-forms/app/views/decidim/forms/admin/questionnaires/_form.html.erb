@@ -117,10 +117,12 @@
   <% end %>
 </div>
 
-<%= javascript_importmap_tags("src/decidim/forms/admin", shim: Decidim.enable_shim) %>
+<%= javascript_import_module_tag("src/decidim/forms/admin") %>
 
 <% if questionnaire.questions_editable? %>
   <script>
-    window.Decidim.createEditableForm()
+    window.addEventListener('DOMContentLoaded', function(){
+      window.Decidim.createEditableForm()
+    });
   </script>
 <% end %>

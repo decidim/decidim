@@ -58,6 +58,8 @@
 
 <% if questionnaire.questions_editable? %>
   <script>
-    window.Decidim.createEditableForm()
+    window.addEventListener('DOMContentLoaded', function(){
+      window.Decidim.createEditableForm()
+    });
   </script>
 <% end %>
