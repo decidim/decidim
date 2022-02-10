@@ -256,6 +256,8 @@ ja:
         update:
           error: この添付ファイルを更新中に問題が発生しました。
           success: 添付ファイルが更新されました。
+      attachments_privacy_warning:
+        message: プライベートスペースで添付ファイルを扱う場合は注意してください．すべての参加者がこの文書を他の人と共有することができます．
       autocomplete:
         no_results: 結果が見つかりませんでした
         search_prompt: 検索するには少なくとも3文字を入力してください
