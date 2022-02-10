@@ -24,15 +24,16 @@ module Decidim
         attributes: [property],
         to: resource_class.constantize,
         with: lambda { |record|
-          hash = {}
-          hash.merge!(validation_with)
-          hash.merge!(organization: record.try(:organization) || org) if record.respond_to?(:organization=)
-          hash
+          validate_with.tap do |hash|
+            hash.merge!(organization: record.try(:organization) || org) if !hash[:organization] && record.respond_to?(:organization=)
+          end
         }
       ).validate_each(self, property.to_sym, blob)
     end
 
-    def validation_with
+    private
+
+    def validate_with
       if form_object_class && form_object_class._validators[property.to_sym].is_a?(Array) && form_object_class._validators[property.to_sym].size.positive?
         passthru = form_object_class._validators[property.to_sym].find { |v| v.is_a?(PassthruValidator) }
         return passthru.options[:with] if passthru && passthru.options[:with].present?
@@ -48,8 +49,6 @@ module Decidim
       end
     end
 
-    def organization
-      @organization ||= current_organization
-    end
+    alias organization current_organization
   end
 end
