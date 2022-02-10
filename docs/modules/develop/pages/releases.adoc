@@ -92,6 +92,7 @@ If this is a *Release Candidate version* release, the steps to follow are:
 . Run `bin/rake update_versions`, this will update all references to the new version.
 . Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
 . Run `bin/rake webpack`, this will update the JavaScript bundle.
+. Run `bin/rspec`, this will check things like if all the officially supported languages translations are OK.
 . Commit all the changes: `git add . && git commit -m "Bump to rcXX version" && git push origin release/x.y-stable`.
 . Tag the release candidate with `git tag vX.Y.Z.rcN && git push origin vX.Y.Z.rcN`.
 
