@@ -324,6 +324,68 @@ describe "Proposals", type: :system do
               expect(page).to have_selector("img[src*=\"city.jpeg\"]", count: 1)
             end
           end
+
+          context "with multiple images" do
+            before do
+              visit complete_proposal_path(component, proposal_draft)
+
+              within ".edit_proposal" do
+                fill_in :proposal_title, with: "Proposal with attachments"
+                fill_in :proposal_body, with: "This is my proposal and I want to upload attachments."
+              end
+            end
+
+            it "sets the card image correctly with zero weight" do
+              # Attach one card image and two document images and go to preview
+              dynamically_attach_file(:photos, Decidim::Dev.asset("city.jpeg"))
+              dynamically_attach_file(:documents, Decidim::Dev.asset("city2.jpeg"))
+              dynamically_attach_file(:documents, Decidim::Dev.asset("city3.jpeg"))
+
+              within ".edit_proposal" do
+                find("*[type=submit]").click
+              end
+
+              # From preview, go back to edit
+              expect(page).to have_content("Your proposal has not yet been published")
+              click_link "Modify the proposal"
+
+              # See that the images are in correct positions and remove the card
+              # image.
+              within ".dynamic-uploads.upload-container-for-photos .active-attachments" do
+                expect(page).to have_content("city.jpeg")
+              end
+              within ".dynamic-uploads.upload-container-for-documents .active-attachments" do
+                expect(page).to have_content("city2.jpeg")
+                expect(page).to have_content("city3.jpeg")
+              end
+
+              within ".dynamic-uploads.upload-container-for-photos" do
+                click_button "Edit image"
+              end
+              within ".attachment-modal" do
+                find("button.remove-upload-item").click
+                click_button "Save"
+              end
+
+              within ".edit_proposal" do
+                find("*[type=submit]").click
+              end
+
+              # From preview, go back to edit
+              expect(page).to have_content("Your proposal has not yet been published")
+              click_link "Modify the proposal"
+
+              # See that the card image is now empty and the two other images
+              # are still in the documents container as they should.
+              within ".dynamic-uploads.upload-container-for-photos .active-attachments" do
+                expect(page).not_to have_selector(".attachment-details")
+              end
+              within ".dynamic-uploads.upload-container-for-documents .active-attachments" do
+                expect(page).to have_content("city2.jpeg")
+                expect(page).to have_content("city3.jpeg")
+              end
+            end
+          end
         end
       end
 
