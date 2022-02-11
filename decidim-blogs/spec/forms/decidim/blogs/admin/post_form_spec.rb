@@ -13,8 +13,9 @@ module Decidim
         end
 
         let(:current_organization) { create(:organization) }
-        # let(:current_user) { create :user, organization: current_organization }
-        # let(:user_group) { create(:user_group, :verified, organization: current_organization) }
+        let(:current_user) { create :user, organization: current_organization }
+        let(:user_group) { create(:user_group, :verified, organization: current_organization) }
+        let(:author_id) { "current_user" }
 
         let(:title) do
           {
@@ -36,7 +37,8 @@ module Decidim
           {
             "post" => {
               "title" => title,
-              "body" => body
+              "body" => body,
+              "author_id" => author_id
             }
           }
         end
@@ -59,7 +61,7 @@ module Decidim
           end
 
           it "assigns user name as author" do
-            expect(subject.author).to be_nil
+            expect(subject.author).to eq(current_user)
           end
 
           context "when author is an organization" do
@@ -75,14 +77,14 @@ module Decidim
           end
 
           context "when the author is a group" do
-            let(:author) { create(:user_group, :verified, organization: current_organization) }
+            let(:author_id) { user_group.id }
 
             it "assigns user_group.id as user_group_id" do
-              expect(subject.user_group_id).to eq(author.id.to_s) # to_s to revise
+              expect(subject.user_group_id).to eq(user_group.id.to_s) # to_s to revise
             end
 
             it "assigns user_group.name as author" do
-              expect(subject.author).to eq(author)
+              expect(subject.author).to eq(user_group)
             end
           end
         end
