@@ -11,7 +11,7 @@ module Capybara
 
       yield if block_given?
 
-      within ".attachment-modal" do
+      within ".upload-modal" do
         find(".remove-upload-item").click if options[:remove_before]
         input_element = find("input[type='file']", visible: :all)
         input_element.attach_file(file_location)

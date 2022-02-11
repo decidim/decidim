@@ -28,7 +28,7 @@ export default class UploadModal {
 
     this.name = this.button.name;
     this.modal = document.querySelector(`#${button.dataset.open}`);
-    this.saveButton = this.modal.querySelector(`button.add-attachment-${this.name}`);
+    this.saveButton = this.modal.querySelector(`button.add-file-${this.name}`);
     this.attachmentCounter = 0;
     this.dropZoneEnabled = true;
     this.modalTitle = this.modal.querySelector(".reveal__title");
@@ -37,7 +37,7 @@ export default class UploadModal {
     this.dropZone = this.modal.querySelector(".dropzone");
     this.input = this.dropZone.querySelector("input");
     this.uploadContainer = document.querySelector(`.upload-container-for-${this.name}`);
-    this.activeAttachments = this.uploadContainer.querySelector(".active-attachments");
+    this.activeAttachments = this.uploadContainer.querySelector(".active-uploads");
     this.trashCan = this.createTrashCan();
   }
 

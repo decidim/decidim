@@ -186,7 +186,7 @@ describe "Admin manages votings", type: :system do
     it "shows an error inside the upload modal" do
       find("#banner_image").click
 
-      within ".attachment-modal" do
+      within ".upload-modal" do
         find(".remove-upload-item").click
         input_element = find("input[type='file']", visible: :all)
         input_element.attach_file(image_invalid_path)

@@ -694,14 +694,14 @@ module Decidim
         let(:present?) { true }
 
         it "renders the remove button" do
-          expect(parsed.css("button.remove-attachment")).not_to be_empty
+          expect(parsed.css("button.remove-upload")).not_to be_empty
         end
 
         context "when the optional argument is false" do
           let(:optional) { false }
 
           it "doesn't render the remove button" do
-            expect(parsed.css("button.remove-attachment")).to be_empty
+            expect(parsed.css("button.remove-upload")).to be_empty
           end
         end
       end

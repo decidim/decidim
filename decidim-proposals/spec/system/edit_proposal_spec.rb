@@ -57,12 +57,12 @@ describe "Edit proposals", type: :system do
           click_link "Edit proposal"
 
           click_button "Edit documents"
-          within ".attachment-modal" do
+          within ".upload-modal" do
             find("button.remove-upload-item").click
             click_button "Save"
           end
           click_button "Edit image"
-          within ".attachment-modal" do
+          within ".upload-modal" do
             find("button.remove-upload-item").click
             click_button "Save"
           end

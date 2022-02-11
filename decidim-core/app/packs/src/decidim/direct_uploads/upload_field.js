@@ -93,7 +93,7 @@ const addRemoveButtonEventListener = (um) => {
     return;
   }
 
-  const removeButton = um.uploadContainer.querySelector("button.remove-attachment");
+  const removeButton = um.uploadContainer.querySelector("button.remove-upload");
 
   if (um.activeAttachments.children.length === 0) {
     removeButton.parentElement.style.display = "none";
@@ -108,7 +108,7 @@ const addRemoveButtonEventListener = (um) => {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const attachmentButtons = document.querySelectorAll("button.add-attachment");
+  const attachmentButtons = document.querySelectorAll("button.add-file");
 
   attachmentButtons.forEach((attachmentButton) => {
     const um = new UploadModal(attachmentButton);

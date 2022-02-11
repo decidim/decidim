@@ -43,11 +43,11 @@ describe Decidim::UploadModal, type: :cell do
   end
 
   it "renders the open button" do
-    expect(subject).to have_css(".add-attachment")
+    expect(subject).to have_css(".add-file")
   end
 
   it "renders modal" do
-    expect(subject).to have_css(".attachment-modal")
+    expect(subject).to have_css(".upload-modal")
   end
 
   it "renders dropzone" do

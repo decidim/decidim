@@ -148,7 +148,7 @@ describe "Admin manages participatory process groups", type: :system do
       end
 
       within ".upload-container-for-hero_image" do
-        find("button.remove-attachment").click
+        find("button.remove-upload").click
       end
       click_button "Update"
 

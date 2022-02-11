@@ -16,10 +16,16 @@ module Decidim
 
     private
 
-    def button_class
-      "button small hollow add-field add-attachment" if has_title?
+    def button_id
+      prefix = form.object_name.present? ? "#{form.object_name}_" : ""
 
-      "button small primary add-attachment"
+      "#{prefix}#{attribute}"
+    end
+
+    def button_class
+      "button small hollow add-field add-file" if has_title?
+
+      "button small primary add-file"
     end
 
     def label
@@ -187,7 +193,7 @@ module Decidim
     end
 
     def modal_id
-      @modal_id ||= "attachments_#{SecureRandom.uuid}"
+      @modal_id ||= "upload_#{SecureRandom.uuid}"
     end
 
     def current_organization

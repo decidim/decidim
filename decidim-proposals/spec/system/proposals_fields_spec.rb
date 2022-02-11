@@ -351,10 +351,10 @@ describe "Proposals", type: :system do
 
               # See that the images are in correct positions and remove the card
               # image.
-              within ".dynamic-uploads.upload-container-for-photos .active-attachments" do
+              within ".dynamic-uploads.upload-container-for-photos .active-uploads" do
                 expect(page).to have_content("city.jpeg")
               end
-              within ".dynamic-uploads.upload-container-for-documents .active-attachments" do
+              within ".dynamic-uploads.upload-container-for-documents .active-uploads" do
                 expect(page).to have_content("city2.jpeg")
                 expect(page).to have_content("city3.jpeg")
               end
@@ -362,7 +362,7 @@ describe "Proposals", type: :system do
               within ".dynamic-uploads.upload-container-for-photos" do
                 click_button "Edit image"
               end
-              within ".attachment-modal" do
+              within ".upload-modal" do
                 find("button.remove-upload-item").click
                 click_button "Save"
               end
@@ -377,10 +377,10 @@ describe "Proposals", type: :system do
 
               # See that the card image is now empty and the two other images
               # are still in the documents container as they should.
-              within ".dynamic-uploads.upload-container-for-photos .active-attachments" do
+              within ".dynamic-uploads.upload-container-for-photos .active-uploads" do
                 expect(page).not_to have_selector(".attachment-details")
               end
-              within ".dynamic-uploads.upload-container-for-documents .active-attachments" do
+              within ".dynamic-uploads.upload-container-for-documents .active-uploads" do
                 expect(page).to have_content("city2.jpeg")
                 expect(page).to have_content("city3.jpeg")
               end

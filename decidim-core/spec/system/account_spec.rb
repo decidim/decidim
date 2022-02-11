@@ -45,7 +45,7 @@ describe "Account", type: :system do
       it "shows error when image is too big" do
         find("#avatar").click
 
-        within ".attachment-modal" do
+        within ".upload-modal" do
           find(".remove-upload-item").click
           input_element = find("input[type='file']", visible: :all)
           input_element.attach_file(Decidim::Dev.asset("5000x5000.png"))

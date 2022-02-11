@@ -1,6 +1,6 @@
 @import "stylesheets/decidim/variables";
 
-.attachment-modal{
+.upload-modal{
   .button{
     margin: 0;
   }
@@ -113,7 +113,7 @@
       margin-right: .5rem;
     }
 
-    button.remove-attachment{
+    button.remove-upload{
       cursor: pointer;
     }
 
@@ -121,7 +121,7 @@
       flex-direction: column-reverse;
     }
 
-    .active-attachments{
+    .active-uploads{
       span.filename{
         margin-right: .5rem;
       }
