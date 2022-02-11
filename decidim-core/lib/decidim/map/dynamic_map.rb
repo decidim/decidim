@@ -81,8 +81,10 @@ module Decidim
 
         # @see Decidim::Map::View::Builder#javascript_snippets
         def javascript_snippets
-          template.javascript_import_module_tag("src/decidim/map/provider/default")
-          template.javascript_import_module_tag("src/decidim/map")
+          [
+            template.javascript_import_module_tag("src/decidim/map/provider/default"),
+            template.javascript_import_module_tag("src/decidim/map")
+          ].join
         end
       end
     end

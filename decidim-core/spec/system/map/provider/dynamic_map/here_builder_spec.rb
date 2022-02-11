@@ -23,7 +23,8 @@ module Decidim
               # further inspection in the rspec expectations.
               <<~HEAD
                 <script type="text/javascript">
-                window.mapIndex = 1;
+                window.addEventListener("DOMContentLoaded", () => {
+                  window.mapIndex = 1;
                   L.tileLayer.here = function(config) {
                     var configId = "tile_layer_config" + window.mapIndex;
 
@@ -35,11 +36,12 @@ module Decidim
                     var mockLayer = { addTo: function(target) {} };
                     return mockLayer;
                   };
+                });
                 </script>
               HEAD
             end
 
-            it "sets up the tile layer" do
+            it "sets up the tile layer", :slow do
               expect(page).to have_selector(
                 "#tile_layer_config1",
                 text: options[:tile_layer][:options].to_json

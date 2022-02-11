@@ -12,26 +12,28 @@ module Decidim
           # inspection in the rspec expectations.
           <<~HEAD
             <script type="text/javascript">
-              window.mapIndex = 1;
-              L.tileLayer = function(url, config) {
-                var urlId = "tile_layer_url" + window.mapIndex;
-                var configId = "tile_layer_config" + window.mapIndex;
+              window.addEventListener("DOMContentLoaded", () => {
+                window.mapIndex = 1;
+                L.tileLayer = function(url, config) {
+                  var urlId = "tile_layer_url" + window.mapIndex;
+                  var configId = "tile_layer_config" + window.mapIndex;
 
-                $("#content").append('<div id="' + urlId + '"></div>');
-                $("#content").append('<div id="' + configId + '"></div>');
-                $("#" + urlId).text(url);
-                $("#" + configId).text(JSON.stringify(config));
+                  $("#content").append('<div id="' + urlId + '"></div>');
+                  $("#content").append('<div id="' + configId + '"></div>');
+                  $("#" + urlId).text(url);
+                  $("#" + configId).text(JSON.stringify(config));
 
-                window.mapIndex++;
+                  window.mapIndex++;
 
-                var mockLayer = { addTo: function(target) {} };
-                return mockLayer;
-              };
+                  var mockLayer = { addTo: function(target) {} };
+                  return mockLayer;
+                };
+              });
             </script>
           HEAD
         end
 
-        it "sets up the tile layer" do
+        it "sets up the tile layer", :slow do
           expect(page).to have_selector(
             "#tile_layer_url1",
             text: options[:tile_layer][:url]
