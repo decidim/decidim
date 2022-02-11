@@ -54,8 +54,8 @@ describe "Admin manages votings", type: :system do
         fill_in :voting_slug, with: "slug"
       end
 
-      dynamically_attach_file(:banner_image, image1_path)
-      dynamically_attach_file(:introductory_image, image2_path)
+      dynamically_attach_file(:voting_banner_image, image1_path)
+      dynamically_attach_file(:voting_introductory_image, image2_path)
 
       within ".new_voting" do
         select "Online", from: :voting_voting_type
@@ -109,8 +109,8 @@ describe "Admin manages votings", type: :system do
         select "Online", from: :voting_voting_type
       end
 
-      dynamically_attach_file(:banner_image, image1_path)
-      dynamically_attach_file(:introductory_image, image2_path)
+      dynamically_attach_file(:voting_banner_image, image1_path)
+      dynamically_attach_file(:voting_introductory_image, image2_path)
 
       within ".new_voting" do
         scope_pick select_data_picker(:voting_scope_id), organization.scopes.first
@@ -138,7 +138,7 @@ describe "Admin manages votings", type: :system do
         es: "Mi nuevo título",
         ca: "El meu nou títol"
       )
-      dynamically_attach_file(:banner_image, image3_path, remove_before: true)
+      dynamically_attach_file(:voting_banner_image, image3_path, remove_before: true)
       select "Online", from: :voting_voting_type
 
       within ".edit_voting" do
@@ -184,7 +184,7 @@ describe "Admin manages votings", type: :system do
     end
 
     it "shows an error inside the upload modal" do
-      find("#banner_image").click
+      find("#voting_banner_image").click
 
       within ".upload-modal" do
         find(".remove-upload-item").click

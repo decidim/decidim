@@ -141,7 +141,7 @@ describe "Identity document request edition", type: :system do
     select doc_type, from: "Type of your document"
     fill_in "Document number (with letter)", with: doc_number
     options = { remove_before: remove_before }
-    dynamically_attach_file("verification_attachment", Decidim::Dev.asset(file_name), options) if file_name
+    dynamically_attach_file(:id_document_upload_verification_attachment, Decidim::Dev.asset(file_name), options) if file_name
 
     click_button "Request verification again"
   end

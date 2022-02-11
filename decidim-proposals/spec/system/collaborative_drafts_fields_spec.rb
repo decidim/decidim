@@ -300,7 +300,7 @@ describe "Collaborative drafts", type: :system do
               fill_in :collaborative_draft_body, with: "This is my collaborative draft and I want to upload attachments."
             end
 
-            dynamically_attach_file(:documents, Decidim::Dev.asset("city.jpeg"), { title: "My attachment" })
+            dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"), { title: "My attachment" })
 
             within ".new_collaborative_draft" do
               find("*[type=submit]").click

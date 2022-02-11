@@ -79,9 +79,9 @@ describe "Edit proposals", type: :system do
           visit_component
           click_link translated(proposal.title)
           click_link "Edit proposal"
-          dynamically_attach_file(:photos, Decidim::Dev.asset("city.jpeg"))
-          dynamically_attach_file(:documents, Decidim::Dev.asset("icon.png"))
-          dynamically_attach_file(:documents, Decidim::Dev.asset("avatar.jpg"))
+          dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("city.jpeg"))
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("icon.png"))
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("avatar.jpg"))
           click_button "Send"
           click_link "Edit proposal"
           within ".photos_container" do
@@ -91,8 +91,8 @@ describe "Edit proposals", type: :system do
             expect(page).to have_content("icon.png")
             expect(page).to have_content("avatar.jpg")
           end
-          dynamically_attach_file(:documents, Decidim::Dev.asset("city2.jpeg"))
-          dynamically_attach_file(:documents, Decidim::Dev.asset("city3.jpeg"))
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
           click_button "Send"
           expect(page).to have_selector(".thumbnail[alt='city']")
           expect(page).to have_selector(".thumbnail[alt='icon']")

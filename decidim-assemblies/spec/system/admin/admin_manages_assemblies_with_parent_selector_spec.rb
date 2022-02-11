@@ -59,8 +59,8 @@ describe "Admin manages assemblies with parent selector", type: :system do
         fill_in :assembly_weight, with: 1
       end
 
-      dynamically_attach_file(:hero_image, image1_path)
-      dynamically_attach_file(:banner_image, image2_path)
+      dynamically_attach_file(:assembly_hero_image, image1_path)
+      dynamically_attach_file(:assembly_banner_image, image2_path)
 
       within ".new_assembly" do
         find("*[type=submit]").click
@@ -121,8 +121,8 @@ describe "Admin manages assemblies with parent selector", type: :system do
         fill_in :assembly_weight, with: 1
       end
 
-      dynamically_attach_file(:hero_image, image1_path)
-      dynamically_attach_file(:banner_image, image2_path)
+      dynamically_attach_file(:assembly_hero_image, image1_path)
+      dynamically_attach_file(:assembly_banner_image, image2_path)
 
       within ".new_assembly" do
         find("*[type=submit]").click

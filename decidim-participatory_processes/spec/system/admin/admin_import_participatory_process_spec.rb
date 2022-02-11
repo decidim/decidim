@@ -26,7 +26,7 @@ describe "Admin imports participatory process", type: :system do
         fill_in :participatory_process_slug, with: "pp-import"
       end
 
-      dynamically_attach_file(:document, Decidim::Dev.asset("participatory_processes.json"))
+      dynamically_attach_file(:participatory_process_document, Decidim::Dev.asset("participatory_processes.json"))
 
       click_button "Import"
     end

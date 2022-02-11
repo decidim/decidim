@@ -220,7 +220,7 @@ shared_examples "manage proposals" do
               fill_in :proposal_attachment_title, with: "My attachment"
             end
 
-            dynamically_attach_file(:photos, Decidim::Dev.asset("city.jpeg"))
+            dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("city.jpeg"))
 
             within ".new_proposal" do
               find("*[type=submit]").click

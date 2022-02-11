@@ -18,8 +18,8 @@ shared_examples "manage diplomas" do
       click_link translated(conference.title)
       visit_edit_diplomas_page
 
-      dynamically_attach_file(:main_logo, main_logo_path)
-      dynamically_attach_file(:signature, signature_path)
+      dynamically_attach_file(:conference_main_logo, main_logo_path)
+      dynamically_attach_file(:conference_signature, signature_path)
 
       within ".edit_conference_diploma" do
         fill_in :conference_sign_date, with: 5.days.from_now

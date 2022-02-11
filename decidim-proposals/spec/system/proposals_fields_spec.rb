@@ -310,7 +310,7 @@ describe "Proposals", type: :system do
               fill_in :proposal_body, with: "This is my proposal and I want to upload attachments."
             end
 
-            dynamically_attach_file(:photos, Decidim::Dev.asset("city.jpeg"))
+            dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("city.jpeg"))
 
             within ".edit_proposal" do
               find("*[type=submit]").click
@@ -337,9 +337,9 @@ describe "Proposals", type: :system do
 
             it "sets the card image correctly with zero weight" do
               # Attach one card image and two document images and go to preview
-              dynamically_attach_file(:photos, Decidim::Dev.asset("city.jpeg"))
-              dynamically_attach_file(:documents, Decidim::Dev.asset("city2.jpeg"))
-              dynamically_attach_file(:documents, Decidim::Dev.asset("city3.jpeg"))
+              dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("city.jpeg"))
+              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
+              dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
 
               within ".edit_proposal" do
                 find("*[type=submit]").click

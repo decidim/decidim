@@ -24,7 +24,7 @@ describe "Manage OAuth applications", type: :system do
       fill_in :oauth_application_organization_url, with: "https://www.barcelona.cat"
     end
 
-    dynamically_attach_file("organization_logo", Decidim::Dev.asset("city.jpeg"))
+    dynamically_attach_file(:oauth_application_organization_logo, Decidim::Dev.asset("city.jpeg"))
 
     within ".new_oauth_application" do
       find("*[type=submit]").click

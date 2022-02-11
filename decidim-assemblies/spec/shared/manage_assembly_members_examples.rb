@@ -24,7 +24,7 @@ shared_examples "manage assembly members examples" do
         )
       end
 
-      dynamically_attach_file("non_user_avatar", Decidim::Dev.asset("avatar.jpg")) do
+      dynamically_attach_file(:assembly_member_non_user_avatar, Decidim::Dev.asset("avatar.jpg")) do
         expect(page).to have_content("You should get the consent of the persons before publishing them as a member")
       end
 

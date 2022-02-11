@@ -33,7 +33,7 @@ describe "Account", type: :system do
 
     describe "update avatar" do
       it "can update avatar" do
-        dynamically_attach_file(:avatar, Decidim::Dev.asset("avatar.jpg"), remove_before: true)
+        dynamically_attach_file(:user_avatar, Decidim::Dev.asset("avatar.jpg"), remove_before: true)
 
         within "form.edit_user" do
           find("*[type=submit]").click
@@ -43,7 +43,7 @@ describe "Account", type: :system do
       end
 
       it "shows error when image is too big" do
-        find("#avatar").click
+        find("#user_avatar_button").click
 
         within ".upload-modal" do
           find(".remove-upload-item").click

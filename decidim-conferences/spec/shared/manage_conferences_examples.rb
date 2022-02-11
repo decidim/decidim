@@ -47,8 +47,8 @@ shared_examples "manage conferences" do
         fill_in :conference_hashtag, with: "#hashtag"
       end
 
-      dynamically_attach_file(:hero_image, image1_path)
-      dynamically_attach_file(:banner_image, image2_path)
+      dynamically_attach_file(:conference_hero_image, image1_path)
+      dynamically_attach_file(:conference_banner_image, image2_path)
 
       within ".new_conference" do
         fill_in :conference_start_date, with: 1.month.ago
@@ -82,7 +82,7 @@ shared_examples "manage conferences" do
         es: "Mi nuevo título",
         ca: "El meu nou títol"
       )
-      dynamically_attach_file(:banner_image, image3_path, remove_before: true)
+      dynamically_attach_file(:conference_banner_image, image3_path, remove_before: true)
 
       within ".edit_conference" do
         find("*[type=submit]").click

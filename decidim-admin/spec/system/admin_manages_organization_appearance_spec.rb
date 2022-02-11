@@ -47,10 +47,10 @@ describe "Admin manages organization", type: :system do
 
       fill_in "Official organization URL", with: "http://www.example.com"
 
-      dynamically_attach_file(:logo, Decidim::Dev.asset("city2.jpeg"))
-      dynamically_attach_file(:favicon, Decidim::Dev.asset("city3.jpeg"), remove_before: true)
-      dynamically_attach_file(:official_img_header, Decidim::Dev.asset("city2.jpeg"), remove_before: true)
-      dynamically_attach_file(:official_img_footer, Decidim::Dev.asset("city3.jpeg"), remove_before: true)
+      dynamically_attach_file(:organization_logo, Decidim::Dev.asset("city2.jpeg"))
+      dynamically_attach_file(:organization_favicon, Decidim::Dev.asset("city3.jpeg"), remove_before: true)
+      dynamically_attach_file(:organization_official_img_header, Decidim::Dev.asset("city2.jpeg"), remove_before: true)
+      dynamically_attach_file(:organization_official_img_footer, Decidim::Dev.asset("city3.jpeg"), remove_before: true)
 
       fill_in :organization_theme_color, with: "#a0a0a0"
 

@@ -58,7 +58,7 @@ describe "Edit collaborative_drafts", type: :system do
           click_link collaborative_draft.title
           click_link "Edit collaborative draft"
 
-          dynamically_attach_file(:documents, Decidim::Dev.asset("city.jpeg"), { title: "My attachment" })
+          dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"), { title: "My attachment" })
 
           within "form.edit_collaborative_draft" do
             find("*[type=submit]").click

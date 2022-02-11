@@ -6,8 +6,8 @@ module Capybara
   module UploadModal
     # Replaces attach_file.
     # Beware that modal does not open within form!
-    def dynamically_attach_file(value, file_location, options = {})
-      find("##{value}").click
+    def dynamically_attach_file(name, file_location, options = {})
+      find("##{name}_button").click
 
       yield if block_given?
 
