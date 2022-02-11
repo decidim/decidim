@@ -8,7 +8,7 @@ pin "lodash/defaultsDeep", to: "https://ga.jspm.io/npm:lodash@4.17.4/defaultsDee
 
 pin "@rails/ujs", to: "https://ga.jspm.io/npm:@rails/ujs@6.0.0/lib/assets/compiled/rails-ujs.js"
 
-pin "foundation-sites", to: "https://ga.jspm.io/npm:foundation-sites@6.7.0/dist/js/foundation.esm.js"
+pin "foundation-sites", to: "https://ga.jspm.io/npm:foundation-sites@6.7.4/dist/js/foundation.esm.js"
 
 pin "bootstrap-tagsinput", to: "https://ga.jspm.io/npm:bootstrap-tagsinput@0.7.1/dist/bootstrap-tagsinput.js"
 
