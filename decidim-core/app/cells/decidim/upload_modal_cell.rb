@@ -19,7 +19,7 @@ module Decidim
     def button_id
       prefix = form.object_name.present? ? "#{form.object_name}_" : ""
 
-      "#{prefix}#{attribute}"
+      "#{prefix.gsub(/[\[\]]/, "_").gsub(/__+/, "_")}#{attribute}_button"
     end
 
     def button_class
