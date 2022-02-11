@@ -25,14 +25,16 @@
       class: button_class,
       data: {
         open: modal_id,
-        add_attribute: add_attribute,
-        resource_name: resource_name,
-        resource_class: resource_class,
-        optional: optional,
-        max_file_size: max_file_size,
-        multiple: multiple,
-        titled: has_title?,
-        form_object_class: form_object_class
+        upload: {
+          add_attribute: add_attribute,
+          resource_name: resource_name,
+          resource_class: resource_class,
+          optional: optional,
+          max_file_size: max_file_size,
+          multiple: multiple,
+          titled: has_title?,
+          form_object_class: form_object_class
+        }.transform_keys { |key| key.to_s.camelize(:lower) }
       } %>
     <%= input_validation_field unless optional %>
     <% if !has_title? && optional %>

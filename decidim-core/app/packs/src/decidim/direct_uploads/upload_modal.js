@@ -7,24 +7,27 @@ export default class UploadModal {
   constructor(button, options = {}) {
     // Button that opens the modal.
     this.button = button;
-    this.options = Object.assign({
-      // Field name / attribute of resource (e.g. avatar)
-      addAttribute: button.dataset.addAttribute,
-      // The resource to which the attribute belongs (e.g. user)
-      resourceName: button.dataset.resourceName,
-      // Ruby class of the resource (e.g. Decidim::User)
-      resourceClass: button.dataset.resourceClass,
-      // Defines if file is optional
-      optional: button.dataset.optional === "true",
-      // Defines if multiple files can be uploaded
-      multiple: button.dataset.multiple === "true",
-      // Defines if file(s) can have titles
-      titled: button.dataset.titled === "true",
-      // Defines maximum file size in bytes
-      maxFileSize: button.dataset.maxFileSize,
-      // Class of the current form object (e.g. Decidim::AccountForm)
-      formObjectClass: button.dataset.formObjectClass
-    }, options)
+
+    // The provided options contains the options passed from the view in the
+    // `data-upload` attribute as a JSON.
+    let providedOptions = {};
+    try {
+      // The providedOptions can contain the following keys:
+      // - addAttribute - Field name / attribute of resource (e.g. avatar)
+      // - resourceName - The resource to which the attribute belongs (e.g. user)
+      // - resourceClass - Ruby class of the resource (e.g. Decidim::User)
+      // - optional - Defines if file is optional
+      // - multiple - Defines if multiple files can be uploaded
+      // - titled - Defines if file(s) can have titles
+      // - maxFileSize - Defines maximum file size in bytes
+      // - formObjectClass - Class of the current form object (e.g. Decidim::AccountForm)
+      providedOptions = JSON.parse(button.dataset.upload);
+      console.log(providedOptions);
+    } catch (_e) {
+      // Don't care about the parse errors, just skip the provided options.
+    }
+
+    this.options = Object.assign(providedOptions, options)
 
     this.name = this.button.name;
     this.modal = document.querySelector(`#${button.dataset.open}`);
