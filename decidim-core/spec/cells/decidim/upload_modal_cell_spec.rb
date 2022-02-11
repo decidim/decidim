@@ -9,6 +9,7 @@ describe Decidim::UploadModal, type: :cell do
   let(:form) do
     double(
       object: object,
+      object_name: "object",
       file_field: file_field,
       abide_error_element: "",
       error_and_help_text: ""
