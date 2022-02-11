@@ -411,7 +411,7 @@ module Decidim
   # This is used primarily by the test suite to disable importmaps shim while testing.
   # You can choose to disable it completely on you system, even though is not recommended.
   config_accessor :enable_shim do
-    !Rails.env.test?
+    !ENV["CI"]
   end
 
   # Public: Registers a global engine. This method is intended to be used
