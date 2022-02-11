@@ -53,7 +53,7 @@ describe "Autocomplete multiselect", type: :system do
           <head>
             <title>Autocomplete multiselect Test</title>
             #{stylesheet_pack_tag "decidim_admin"}
-            #{javascript_pack_tag "decidim_admin"}
+            #{javascript_importmap_tags("src/decidim/admin", shim: Decidim.enable_shim)}
             #{head_extra}
           </head>
           <body>
@@ -71,6 +71,10 @@ describe "Autocomplete multiselect", type: :system do
     end
     let(:template_class) do
       Class.new(ActionView::Base) do
+        include Importmap::ImportmapTagsHelper
+
+        def content_security_policy?; false end
+        def content_security_policy_nonce; nil end
       end
     end
     let(:template) { template_class.new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
