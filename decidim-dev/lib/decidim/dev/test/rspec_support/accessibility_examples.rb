@@ -11,6 +11,8 @@ shared_examples_for "accessible page" do
     html = page.source
     html = "<!DOCTYPE html>\n#{html}" unless html.strip.match?(/^<!DOCTYPE/i)
 
+    html = html.gsub(/<script type="importmap" data-turbo-track="reload">/, %(<script type="application/importmap+json" data-turbo-track="reload">))
+
     expect(html).to be_valid_html
   end
 end
