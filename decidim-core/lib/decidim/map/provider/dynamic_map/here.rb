@@ -41,7 +41,8 @@ module Decidim
           class Builder < Decidim::Map::DynamicMap::Builder
             # @see Decidim::Map::DynamicMap::Builder#javascript_snippets
             def javascript_snippets
-              template.javascript_pack_tag("decidim_map_provider_here", defer: false)
+              template.javascript_import_module_tag("src/decidim/map/provider/here")
+              template.javascript_import_module_tag("src/decidim/map")
             end
           end
         end
