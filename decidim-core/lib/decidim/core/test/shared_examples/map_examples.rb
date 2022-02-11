@@ -14,6 +14,10 @@ shared_context "with frontend map builder" do
 
   let(:template_class) do
     Class.new(ActionView::Base) do
+      include Importmap::ImportmapTagsHelper
+
+      def content_security_policy?; false end
+      def content_security_policy_nonce; nil end
       def protect_against_forgery?
         false
       end
@@ -84,7 +88,7 @@ shared_context "with frontend map elements" do
           <script type="text/javascript">
             // This is just to indicate to Capybara that the page has fully
             // finished loading.
-            window.$(document).ready(function() {
+            window.addEventListener("DOMContentLoaded", () => {
               setTimeout(function() {
                 window.$("body").append('<div id="ready_indicator">Document ready</div>');
               }, 1000);

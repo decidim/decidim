@@ -12,7 +12,7 @@ module Decidim
             let(:html_head) do
               <<~HEAD
                 <script type="text/javascript">
-                  $(function() {
+                  window.addEventListener("DOMContentLoaded", () => {
                     $("body").append('<div id="ajax_request"></div>');
                     $("body").append('<div id="geocoder_suggested"></div>');
                     $("body").append('<div id="geocoder_coordinates"></div>');
