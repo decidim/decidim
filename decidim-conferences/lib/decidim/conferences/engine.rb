@@ -95,7 +95,6 @@ module Decidim
       initializer "decidim_conferences.importmap.assets", before: "importmap.assets" do |app|
         app.config.assets.paths << Engine.root.join("app/packs") if app.config.respond_to?(:assets)
       end
-
     end
   end
 end

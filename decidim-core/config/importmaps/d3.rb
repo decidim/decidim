@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 pin "d3", to: "https://ga.jspm.io/npm:d3@5.4.0/index.js"
 pin "d3-array", to: "https://ga.jspm.io/npm:d3-array@1.2.4/dist/d3-array.js"
