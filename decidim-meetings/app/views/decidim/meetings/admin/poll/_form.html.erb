@@ -54,7 +54,7 @@
   <% end %>
 </div>
 
-<%= javascript_pack_tag "decidim_forms_admin", defer: false %>
+<%= javascript_import_module_tag "src/decidim/meetings/admin" %>
 
 <% if questionnaire.questions_editable? %>
   <script>

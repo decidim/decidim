@@ -3,7 +3,7 @@
   <head>
     <title><%= decidim_page_title %></title>
     <%= render partial: "layouts/decidim/head" %>
-    <%= javascript_pack_tag "decidim_meetings" %>
+    <%= javascript_importmap_tags "src/decidim/meetings" %>
     <%= render partial: "layouts/decidim/js_configuration" %>
   </head>
 
