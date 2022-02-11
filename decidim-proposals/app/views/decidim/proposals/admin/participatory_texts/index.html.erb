@@ -34,7 +34,7 @@
 <% end %>
 <% end -%>
 <script>
-$(window).on("load", function() {
+window.addEventListener('load', (event) => {
   // Not all browsers submit the buttons as form data.
   $('button[name="save_draft"]').on("click", function(ev) {
     ev.preventDefault();
