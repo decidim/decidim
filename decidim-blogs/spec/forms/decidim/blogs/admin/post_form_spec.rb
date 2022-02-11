@@ -38,7 +38,7 @@ module Decidim
             "post" => {
               "title" => title,
               "body" => body,
-              "author_id" => author_id
+              "user_group_id" => author_id
             }
           }
         end
