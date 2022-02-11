@@ -35,6 +35,8 @@
 
 <% if other_available_authorizations.any? %>
   <script>
-    window.Decidim.managedUsersForm()
+    window.addEventListener('DOMContentLoaded', function(){
+      window.Decidim.managedUsersForm()
+    });
   </script>
 <% end %>
