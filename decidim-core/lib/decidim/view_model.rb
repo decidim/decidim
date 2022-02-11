@@ -16,6 +16,7 @@ module Decidim
     include Cell::Caching::Notifications
     include Decidim::MarkupHelper
     include ::Webpacker::Helper
+    include ::Importmap::ImportmapTagsHelper
 
     delegate :current_organization, to: :controller
 
@@ -35,6 +36,10 @@ module Decidim
     end
 
     private
+
+    def content_security_policy_nonce
+      controller.send(:content_security_policy_nonce)
+    end
 
     def render_template(template, options, &block)
       ActiveSupport::Notifications.instrument(
