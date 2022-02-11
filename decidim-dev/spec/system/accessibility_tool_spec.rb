@@ -25,15 +25,15 @@ describe "Accessibility tool", type: :system do
         <head>
           <title>Accessibility Test</title>
           #{stylesheet_pack_tag "decidim_core"}
-          #{javascript_pack_tag "decidim_core", defer: false}
+          #{javascript_importmap_tags("src/decidim/core", shim: Decidim.enable_shim)}
           #{stylesheet_pack_tag "decidim_dev"}
-          #{javascript_pack_tag "decidim_dev", defer: false}
+          #{javascript_import_module_tag("src/decidim/dev/accessibility")}
         </head>
         <body>
           #{document_inner}
 
           <script>
-          Decidim.config.set(#{js_config.to_json});
+          var DecidimConfig = #{js_config.to_json};
           </script>
         </body>
         </html>
