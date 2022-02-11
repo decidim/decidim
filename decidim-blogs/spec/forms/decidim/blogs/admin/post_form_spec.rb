@@ -13,8 +13,8 @@ module Decidim
         end
 
         let(:current_organization) { create(:organization) }
-        let(:current_user) { create :user, organization: current_organization }
-        let(:user_group) { create(:user_group, :verified, organization: current_organization) }
+        # let(:current_user) { create :user, organization: current_organization }
+        # let(:user_group) { create(:user_group, :verified, organization: current_organization) }
 
         let(:title) do
           {
@@ -54,16 +54,12 @@ module Decidim
             subject.map_model(post)
           end
 
-          context "when author is a user" do
-            let(:author) { current_user }
+          it "assigns current_user as user_group_id" do
+            expect(subject.user_group_id).to eq("current_user")
+          end
 
-            it "assigns current_user as user_group_id" do
-              expect(subject.user_group_id).to eq("current_user")
-            end
-
-            it "assigns user name as author" do
-              expect(subject.author).to eq(author)
-            end
+          it "assigns user name as author" do
+            expect(subject.author).to be_nil
           end
 
           context "when author is an organization" do
