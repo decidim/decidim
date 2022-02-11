@@ -77,7 +77,7 @@ module Decidim
           end
 
           context "when the author is a group" do
-            let(:author_id) { user_group.id }
+            let(:author) { user_group }
 
             it "assigns user_group.id as user_group_id" do
               expect(subject.user_group_id).to eq(user_group.id.to_s) # to_s to revise
