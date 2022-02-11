@@ -184,7 +184,7 @@ describe "Admin manages votings", type: :system do
     end
 
     it "shows an error inside the upload modal" do
-      find("#voting_banner_image").click
+      find("#voting_banner_image_button").click
 
       within ".upload-modal" do
         find(".remove-upload-item").click
