@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new
       # conference in the system.
-      class CreateConference < Rectify::Command
+      class CreateConference < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

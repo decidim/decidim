@@ -2,7 +2,7 @@
 
 module Decidim
   # A command with all the business logic to leave a user group.
-  class LeaveUserGroup < Rectify::Command
+  class LeaveUserGroup < Decidim::Command
     # Public: Initializes the command.
     #
     # user - the user that wants to leave the group

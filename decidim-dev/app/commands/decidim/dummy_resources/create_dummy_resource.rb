@@ -2,7 +2,7 @@
 
 module Decidim
   module DummyResources
-    class CreateDummyResource < Rectify::Command
+    class CreateDummyResource < Decidim::Command
       include Decidim::AttachmentMethods
       include Decidim::GalleryMethods
 

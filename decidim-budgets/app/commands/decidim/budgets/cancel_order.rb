@@ -3,7 +3,7 @@
 module Decidim
   module Budgets
     # A command with all the business to cancel an order.
-    class CancelOrder < Rectify::Command
+    class CancelOrder < Decidim::Command
       # Public: Initializes the command.
       #
       # order - The current order for the user.

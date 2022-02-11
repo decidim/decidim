@@ -3,7 +3,7 @@
 module Decidim
   module Verifications
     # A command to authorize a user with an authorization handler.
-    class AuthorizeUser < Rectify::Command
+    class AuthorizeUser < Decidim::Command
       # Public: Initializes the command.
       #
       # handler - An AuthorizationHandler object.

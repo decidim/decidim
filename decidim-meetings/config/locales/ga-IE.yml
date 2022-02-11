@@ -38,7 +38,6 @@ ga:
           origin_eq:
             label: Bunús
             values:
-              citizen: Saoránach
               official: Oifigiúil
           scope_id_eq:
             label: Scóip
@@ -154,7 +153,6 @@ ga:
           origin: Bunús
           origin_values:
             all: Uile
-            citizens: Saoránaigh
             official: Oifigiúil
             user_groups: Grúpaí
           scope: Scóip

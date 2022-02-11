@@ -3,7 +3,7 @@
 module Decidim
   module Meetings
     # A command with all the business logic when a user withdraws a new proposal.
-    class WithdrawMeeting < Rectify::Command
+    class WithdrawMeeting < Decidim::Command
       # Public: Initializes the command.
       #
       # meeting     - The meeting to withdraw.

@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user destroys a Question
       # from the admin panel.
-      class DestroyQuestion < Rectify::Command
+      class DestroyQuestion < Decidim::Command
         def initialize(question, current_user)
           @question = question
           @current_user = current_user

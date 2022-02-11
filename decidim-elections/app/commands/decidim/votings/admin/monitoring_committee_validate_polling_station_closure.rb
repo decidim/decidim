@@ -4,7 +4,7 @@ module Decidim
   module Votings
     module Admin
       # A command with all the business logic for a monitornig committee member to validate a polling station closure
-      class MonitoringCommitteeValidatePollingStationClosure < Rectify::Command
+      class MonitoringCommitteeValidatePollingStationClosure < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

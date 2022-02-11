@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A command with all the business logic when updating an area type.
-    class UpdateAreaType < Rectify::Command
+    class UpdateAreaType < Decidim::Command
       # Public: Initializes the command.
       #
       # area_type - The AreaType to update

@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user destroys a Meeting from the admin
       # panel.
-      class DestroyMeeting < Rectify::Command
+      class DestroyMeeting < Decidim::Command
         # Initializes a CloseMeeting Command.
         #
         # meeting - The current instance of the page to be closed.

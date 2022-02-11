@@ -2,7 +2,7 @@
 
 module Decidim
   # A command with all the business logic for when a user starts following a resource.
-  class CreateFollow < Rectify::Command
+  class CreateFollow < Decidim::Command
     # Public: Initializes the command.
     #
     # form         - A form object with the params.

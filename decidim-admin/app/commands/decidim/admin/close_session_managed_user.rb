@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A command with all the business logic to close a current impersonation session.
-    class CloseSessionManagedUser < Rectify::Command
+    class CloseSessionManagedUser < Decidim::Command
       # Public: Initializes the command.
       #
       # user         - The user impersonated.

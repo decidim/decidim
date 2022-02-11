@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # A command with all the business logic for updating the current
     # organization.
-    class UpdateOrganization < Rectify::Command
+    class UpdateOrganization < Decidim::Command
       # Public: Initializes the command.
       #
       # organization - The Organization that will be updated.

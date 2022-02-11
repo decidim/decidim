@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     # A command with all the business logic when a user updates a proposal.
-    class UpdateProposal < Rectify::Command
+    class UpdateProposal < Decidim::Command
       include ::Decidim::MultipleAttachmentsMethods
       include GalleryMethods
       include HashtagsMethods

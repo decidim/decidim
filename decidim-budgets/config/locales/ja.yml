@@ -103,6 +103,11 @@ ja:
             no_components: この参加型スペースには、プロジェクトにインポートするための他の提案コンポーネントはありません。
             select_component: コンポーネントを選択してください
             title: 提案のインポート
+        reminders:
+          orders:
+            description: ユーザーは、保留中の指定がある予算へのリンクを含む電子メールを受け取ります。
+            title:
+              other: '%{count} ユーザーにメール通知を送信しようとしています'
       admin_log:
         budget:
           create: "%{user_name} が予算 %{resource_name} を %{space_name} に作成しました。"
@@ -249,6 +254,14 @@ ja:
         show:
           budget: 予算
           view_all_projects: すべてのプロジェクトを表示
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: '未完了の投票場所:'
+          email_intro: 参加型予算の投票を開始しましたが、完了していません。
+          email_link: 投票を続行する
+          email_outro: 投票を完了することを忘れないでください。 投票するには、まず投票する提案を選択し、「投票」ボタンで投票を確認する必要があります。
+          email_subject:
+            other: 参加型予算投票に未完了の投票があります
     components:
       budgets:
         actions:

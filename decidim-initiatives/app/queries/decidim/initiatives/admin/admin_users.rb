@@ -4,7 +4,7 @@ module Decidim
   module Initiatives
     module Admin
       # A class used to find the admins for an initiative or an organization initiatives.
-      class AdminUsers < Rectify::Query
+      class AdminUsers < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         #
         # initiative - Decidim::Initiative

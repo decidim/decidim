@@ -4,7 +4,7 @@ module Decidim
   module Elections
     module Trustees
       # A class used to find trustees by participatory space trustee ids.
-      class ByParticipatorySpaceTrusteeIds < Rectify::Query
+      class ByParticipatorySpaceTrusteeIds < Decidim::Query
         # Initializes the class.
         #
         def initialize(trustee_ids)

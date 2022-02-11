@@ -3,7 +3,7 @@
 module Decidim
   module Conferences
     # This query filters conferences so only promoted ones are returned.
-    class PromotedConferences < Rectify::Query
+    class PromotedConferences < Decidim::Query
       def query
         Decidim::Conference.promoted
       end

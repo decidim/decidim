@@ -16,7 +16,16 @@ describe "Homepage", type: :system do
 
   context "when there's an organization" do
     let(:official_url) { "http://mytesturl.me" }
-    let(:organization) { create(:organization, official_url: official_url) }
+    let(:organization) do
+      create(:organization, official_url: official_url,
+                            highlighted_content_banner_enabled: true,
+                            highlighted_content_banner_title: Decidim::Faker::Localized.sentence(word_count: 2),
+                            highlighted_content_banner_short_description: Decidim::Faker::Localized.sentence(word_count: 2),
+                            highlighted_content_banner_action_title: Decidim::Faker::Localized.sentence(word_count: 2),
+                            highlighted_content_banner_action_subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
+                            highlighted_content_banner_action_url: ::Faker::Internet.url,
+                            highlighted_content_banner_image: Decidim::Dev.test_file("city.jpeg", "image/jpeg"))
+    end
 
     before do
       create :content_block, organization: organization, scope_name: :homepage, manifest_name: :hero
@@ -35,6 +44,12 @@ describe "Homepage", type: :system do
     context "when requesting the root path" do
       before do
         visit decidim.root_path
+      end
+
+      context "when having homepage anchors" do
+        %w(hero sub_hero highlighted_content_banner how_to_participate footer_sub_hero).each do |anchor|
+          it { expect(page).to have_selector("##{anchor}", visible: :all) }
+        end
       end
 
       it_behaves_like "accessible page"

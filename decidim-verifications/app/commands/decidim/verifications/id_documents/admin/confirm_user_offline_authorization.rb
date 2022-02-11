@@ -5,7 +5,7 @@ module Decidim
     module IdDocuments
       module Admin
         # A command to confirm a previous partial offline authorization.
-        class ConfirmUserOfflineAuthorization < Rectify::Command
+        class ConfirmUserOfflineAuthorization < Decidim::Command
           # Public: Initializes the command.
           #
           # form - A form object with the verification data to confirm it.
