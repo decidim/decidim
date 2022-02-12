@@ -1,6 +1,10 @@
+/* eslint no-unused-vars: 0 */
+/* eslint id-length: ["error", { "exceptions": ["$"] }] */
+/* eslint no-undef: 0 */
+
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-import $ from 'jquery';
+import $ from "jquery";
 import "quill"
 import "foundation-sites"
 

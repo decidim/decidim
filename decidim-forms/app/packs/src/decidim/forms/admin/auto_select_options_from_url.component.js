@@ -1,3 +1,4 @@
+
 export default class AutoSelectOptionsFromUrl {
   constructor(options = {}) {
     this.$source = options.source;
@@ -19,7 +20,7 @@ export default class AutoSelectOptionsFromUrl {
     $.getJSON(url, params).done(function (data) {
       select.find("option:not([value=''])").remove();
       const selectedValue = select.data("selected");
-      $.each(data, function(i, option) {
+      $.each(data, function(index, option) {
         let optionElement = $(`<option value="${option.id}">${option.body}</option>`).appendTo(select);
         if (option.id === selectedValue) {
           optionElement.attr("selected", true);
@@ -29,9 +30,9 @@ export default class AutoSelectOptionsFromUrl {
       if (selectedValue) {
         select.val(selectedValue);
       }
-    }).fail(function( jqxhr, textStatus, error ) {
-      var err = textStatus + ", " + error;
-      console.error( "Request Failed: " + err );
+    }).fail(function(jqxhr, textStatus, error) {
+      let err = `${textStatus}, ${error}`;
+      console.error(`Request Failed: ${err}`);
     });
   }
 }

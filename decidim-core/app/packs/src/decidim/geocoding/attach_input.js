@@ -122,13 +122,15 @@ export default function attachGeocoding($input, options, callback) {
 
   // When we receive the geocoding event on the field, update the coordinate
   // values.
-  $input.on("geocoder-suggest-coordinates.decidim", (_ev, coordinates) => {
+  $input.on("geocoder-suggest-coordinates.decidim", function(_ev, coordinates)  {
     setCoordinates(coordinates);
     geocoded = true;
 
-    if (typeof callback === 'function') {
-      callback(coordinates);
-    }
+    if (typeof callback === "function") {
+      return callback(coordinates);
+    } 
+    return null;
+    
   });
 
   // Set the initial values if the field defines the coordinates

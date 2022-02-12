@@ -1,3 +1,7 @@
+/* eslint no-undef: 0 */
+/* eslint no-unused-vars: 0 */
+/* eslint no-invalid-this: 0 */
+
 import svg4everybody from "svg4everybody"
 import formDatePicker from "src/decidim/form_datepicker"
 import fixDropdownMenus from "src/decidim/dropdowns_menus"

@@ -1,7 +1,7 @@
 import "src/decidim/vendor/jquery-tmpl"
 import * as L from "leaflet";
 import MapController from "src/decidim/map/controller"
-import { MarkerClusterGroup, MarkerCluster } from "leaflet.markercluster";
+import { MarkerClusterGroup } from "leaflet.markercluster";
 
 export default class MapMarkersController extends MapController {
   start() {

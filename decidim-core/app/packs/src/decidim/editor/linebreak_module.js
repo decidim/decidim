@@ -156,24 +156,24 @@ class LineBreak {
   constructor(quill) {
     this.quill = quill;
     quill.getModule("toolbar").addHandler("linebreak", () => {
-     lineBreakButtonHandler(quill);
+      lineBreakButtonHandler(quill);
     });
 
     quill.emitter.on("editor-ready", () => {
-     const length = quill.getLength();
-     const text = quill.getText(length - 2, 2);
+      const length = quill.getLength();
+      const text = quill.getText(length - 2, 2);
 
-     // Remove extraneous new lines
-     if (text === "\n\n") {
-       quill.deleteText(quill.getLength() - 2, 2);
-     }
+      // Remove extraneous new lines
+      if (text === "\n\n") {
+        quill.deleteText(quill.getLength() - 2, 2);
+      }
     });
 
     quill.clipboard.addMatcher("BR", (node) => {
-     if (node?.parentNode?.tagName === "A") {
-       return new Delta().insert("\n");
-     }
-     return new Delta().insert({"break": ""});
+      if (node?.parentNode?.tagName === "A") {
+        return new Delta().insert("\n");
+      }
+      return new Delta().insert({"break": ""});
     });
 
     addEnterBindings(quill);

@@ -1,4 +1,7 @@
 /* eslint-disable no-invalid-this */
+/* eslint no-unused-vars: 0 */
+/* eslint no-undef: 0 */
+/* eslint id-length: ["error", { "exceptions": ["$"] }] */
 
 import toggleNav from "src/decidim/admin/toggle_nav"
 import createSortList from "src/decidim/admin/sort_list.component"
