@@ -791,6 +791,10 @@ gl:
       update:
         error: Produciuse un erro ao actualizar a configuración das notificacións.
         success: A configuración das notificacións actualizouse correctamente.
+    offline:
+      show:
+        message: Semella que non tes conexión. Por favor, téntao de novo máis tarde.
+        retry: Tentar de novo
     open_data:
       not_available_yet: Os ficheiros Open Data aínda non están dispoñibles. Téntao de novo nuns minutos.
     own_user_groups:
@@ -1202,6 +1206,8 @@ gl:
         expire_time_html: A túa sesión caducará en <b><span class="minutes">%{minutes}</span> minutos</b>.
       notifications_dashboard:
         mark_all_as_read: Marca todo como lido
+      offline_banner:
+        cache_version_page: Vaites! A túa rede está desconectada. O que estás a ver é unha versión previa da páxina gardada na caché, é podería non estar actualizada.
       user_menu:
         admin_dashboard: Taboleiro de administración
         conversations: Conversas
