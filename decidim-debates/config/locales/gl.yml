@@ -80,6 +80,7 @@ gl:
           category_prompt: Selecciona unha categoría
           official: Oficial
           origin: Orixe
+          participants: Participantes
           search: Busca
         filters_small_view:
           close_modal: Pechar modal
