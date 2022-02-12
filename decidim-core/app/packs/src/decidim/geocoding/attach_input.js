@@ -125,7 +125,10 @@ export default function attachGeocoding($input, options, callback) {
   $input.on("geocoder-suggest-coordinates.decidim", (_ev, coordinates) => {
     setCoordinates(coordinates);
     geocoded = true;
-    callback(coordinates)
+
+    if (typeof callback === 'function') {
+      callback(coordinates);
+    }
   });
 
   // Set the initial values if the field defines the coordinates
