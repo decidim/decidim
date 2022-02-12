@@ -808,7 +808,9 @@ gl:
         subject: Queres seguir recibindo información relevante sobre %{organization_name}?
     notification_mailer:
       event_received:
+        no_translation_available: Sentímolo, non foi posíbel recuperar a tradución automática ao enviar o correo. Podes verificar a tradución do texto orixinal na seguinte ligazaón %{link}.
         original_text: 'Texto orixinal:'
+        same_language: O contido foi subido no teu idioma preferido (%{language}), por iso non se amosa ningunha tradución automática neste correo electrónico.
         translated_text: 'Texto traducido automaticamente:'
     notifications:
       no_notifications: Aínda non hai notificacións.
