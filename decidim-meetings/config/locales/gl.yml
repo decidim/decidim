@@ -352,6 +352,8 @@ gl:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Despregar
+        form:
+          select_an_iframe_access_level: Por favor, selecciona o nivel de acceso ao iframe
         index:
           click_here: Ver todas as xuntanzas
           see_all: Ver todas as xuntanzas
