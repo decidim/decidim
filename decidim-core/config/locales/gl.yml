@@ -728,6 +728,7 @@ gl:
           send: Enviar
           title: Responder
         show:
+          deleted_accounts: Non podes manter unha conversa con contas eliminadas.
           title: Conversa con %{usernames}
         start:
           send: Enviar
@@ -986,6 +987,7 @@ gl:
     user_conversations:
       show:
         back: Amosar todas as conversas
+        deleted_accounts: Non podes manter unha conversa con contas eliminadas.
       update:
         error: Mensaxe non enviada. Téntao de novo máis tarde
     user_interests:
