@@ -32,6 +32,7 @@ gl:
             save: Gardar
           form:
             add_question: Engadir pregunta
+            add_title_and_description: Engadir títutlo e descrición
             already_answered_warning: Algúns usuarios xa responderon o cuestionario para que non poida modificar as súas preguntas.
           matrix_row:
             remove: Quitar
@@ -44,6 +45,15 @@ gl:
             question: Pregunta
             remove: Quitar
             statement: Declaración
+            up: Arriba
+          title_and_description:
+            collapse: Contraer
+            description: Descrición
+            down: Abaixo
+            expand: Expandir
+            remove: Eliminar
+            title: Título
+            title_and_description: Título e descrición
             up: Arriba
           update:
             invalid: Produciuse un erro ao gardar o cuestionario.
@@ -58,6 +68,7 @@ gl:
         short_answer: Resposta curta
         single_option: Opción única
         sorting: Clasificación
+        title_and_description: Título e descrición
       questionnaires:
         answer:
           invalid: Houbo erros ao responder ao cuestionario.
