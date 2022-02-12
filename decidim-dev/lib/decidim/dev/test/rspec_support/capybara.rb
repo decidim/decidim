@@ -79,28 +79,28 @@ RSpec.configure do |config|
   end
 
   JS_ERRORS = [
-    %r{Not Found},
-    %r{\/static_map\?sgid=},
-    %r{\/static_map\?locale=},
-    %r{reading 'replace'},
-  ]
+    /Not Found/,
+    %r{/static_map\?sgid=},
+    %r{/static_map\?locale=},
+    /reading 'replace'/
+  ].freeze
 
   config.after(type: :system) do |example|
     unless example.metadata[:driver].eql?(:rack_test)
 
       errors = page.driver.browser.manage.logs.get(:browser)
       if errors.present?
-        aggregate_failures 'javascript errrors' do
+        aggregate_failures "javascript errrors" do
           errors.each do |error|
             warn error.message if error.level == "WARN"
 
             next if JS_ERRORS.map { |err| error.message =~ err }.any?
+
             expect(error.level).not_to eq("SEVERE"), error.message
           end
         end
       end
     end
-
   end
 
   config.include Decidim::CapybaraTestHelpers, type: :system

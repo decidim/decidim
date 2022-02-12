@@ -17,11 +17,9 @@ pin "@rails/ujs", to: "https://ga.jspm.io/npm:@rails/ujs@6.0.0/lib/assets/compil
 
 pin "foundation-sites", to: "https://ga.jspm.io/npm:foundation-sites@6.7.4/dist/js/foundation.esm.js"
 
-
 pin "jquery-serializejson", to: "https://ga.jspm.io/npm:jquery-serializejson@2.9.0/jquery.serializejson.js"
 
 pin "morphdom", to: "https://ga.jspm.io/npm:morphdom@2.6.1/dist/morphdom.js"
-
 
 pin "select", to: "https://ga.jspm.io/npm:select@1.1.2/src/select.js"
 

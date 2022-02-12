@@ -73,8 +73,13 @@ describe "Autocomplete multiselect", type: :system do
       Class.new(ActionView::Base) do
         include Importmap::ImportmapTagsHelper
 
-        def content_security_policy?; false end
-        def content_security_policy_nonce; nil end
+        def content_security_policy?
+          false
+        end
+
+        def content_security_policy_nonce
+          nil
+        end
       end
     end
     let(:template) { template_class.new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }

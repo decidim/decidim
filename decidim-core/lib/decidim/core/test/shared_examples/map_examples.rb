@@ -16,8 +16,14 @@ shared_context "with frontend map builder" do
     Class.new(ActionView::Base) do
       include Importmap::ImportmapTagsHelper
 
-      def content_security_policy?; false end
-      def content_security_policy_nonce; nil end
+      def content_security_policy?
+        false
+      end
+
+      def content_security_policy_nonce
+        nil
+      end
+
       def protect_against_forgery?
         false
       end
