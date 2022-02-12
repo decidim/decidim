@@ -807,6 +807,9 @@ gl:
           explanation: 'Sube o teu ficheiro CSV. Ten de ter dúas columnas co correo electrónico na primeira e o nome na última (correo, nome) dos usuarios que desexes engadir ao espazo de participación, sen cabeceiras. Evita empregar os seguintes caracteres `<>?%&^*#@()[]=+:;"{}\|` no nome de usuario.'
           title: Sube o teu ficheiro CSV
           upload: Subir
+      reminders:
+        new:
+          submit: Enviar
       resource_permissions:
         edit:
           submit: Enviar
