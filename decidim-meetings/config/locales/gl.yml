@@ -64,6 +64,11 @@ gl:
         other: Rexistros
   decidim:
     admin:
+      filters:
+        meetings:
+          origin_eq:
+            values:
+              participant: Participante
       meeting_copies:
         create:
           error: Produciuse un erro ao duplicar esta reunión.
@@ -345,12 +350,16 @@ gl:
         filters:
           category: Categoría
           date: Data
+          origin_values:
+            participants: Participantes
           search: Busca
         filters_small_view:
           close_modal: Pechar modal
           filter: Filtro
           filter_by: Filtrar por
           unfold: Despregar
+        form:
+          select_an_iframe_access_level: Por favor, selecciona o nivel de acceso ao iframe
         index:
           click_here: Ver todas as xuntanzas
           see_all: Ver todas as xuntanzas
