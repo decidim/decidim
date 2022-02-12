@@ -1,7 +1,7 @@
 import "src/decidim/vendor/jquery-tmpl"
 import * as L from "leaflet";
 import MapController from "src/decidim/map/controller"
-import "leaflet.markercluster";
+import { MarkerClusterGroup, MarkerCluster } from "leaflet.markercluster";
 
 export default class MapMarkersController extends MapController {
   start() {
@@ -16,7 +16,7 @@ export default class MapMarkersController extends MapController {
 
   addMarkers(markersData) {
     if (this.markerClusters === null) {
-      this.markerClusters = new L.MarkerClusterGroup();
+      this.markerClusters = new MarkerClusterGroup();
       this.map.addLayer(this.markerClusters);
     }
 
@@ -69,7 +69,7 @@ export default class MapMarkersController extends MapController {
 
   clearMarkers() {
     this.map.removeLayer(this.markerClusters);
-    this.markerClusters = new L.MarkerClusterGroup();
+    this.markerClusters = new MarkerClusterGroup();
     this.map.addLayer(this.markerClusters);
   }
 }

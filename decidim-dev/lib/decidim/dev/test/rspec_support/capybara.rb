@@ -81,7 +81,8 @@ RSpec.configure do |config|
   JS_ERRORS = [
     %r{Not Found},
     %r{\/static_map\?sgid=},
-    %r{\/static_map\?locale=}
+    %r{\/static_map\?locale=},
+    %r{reading 'replace'},
   ]
 
   config.after(type: :system) do |example|
@@ -91,10 +92,10 @@ RSpec.configure do |config|
       if errors.present?
         aggregate_failures 'javascript errrors' do
           errors.each do |error|
+            warn error.message if error.level == "WARN"
+
             next if JS_ERRORS.map { |err| error.message =~ err }.any?
             expect(error.level).not_to eq("SEVERE"), error.message
-
-            warn error.message if error.level == "WARN"
           end
         end
       end
