@@ -520,6 +520,7 @@ gl:
           all: Todo
           meetings: Reunións
           official: Oficial
+          participants: Participantes
           user_groups: Grupos de usuarios
         filter_scope_values:
           all: Todo
