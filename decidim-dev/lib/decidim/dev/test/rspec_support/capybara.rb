@@ -58,7 +58,7 @@ Capybara.asset_host = "http://localhost:3000"
 
 Capybara.server_errors = [SyntaxError, StandardError]
 
-Capybara.default_max_wait_time = 10
+Capybara.default_max_wait_time = 15
 
 RSpec.configure do |config|
   config.before :each, type: :system do
@@ -71,7 +71,7 @@ RSpec.configure do |config|
   end
 
   config.around :each, :slow do |example|
-    max_wait_time_for_slow_specs = 10
+    max_wait_time_for_slow_specs = 30
 
     using_wait_time(max_wait_time_for_slow_specs) do
       example.run
