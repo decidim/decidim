@@ -57,22 +57,22 @@ module Decidim
             subject.map_model(post)
           end
 
-          it "assigns current_user as user_group_id" do
+          it "should assign current_user as user_group_id" do
             expect(subject.user_group_id).to eq("current_user")
           end
 
-          it "assigns user name as author" do
+          it "should assign user name as author" do
             expect(subject.author).to eq(current_user)
           end
 
           context "when author is an organization" do
             let(:author) { current_organization }
 
-            it "assigns 'current_organization' as user_group_id" do
+            it "should assign 'current_organization' as user_group_id" do
               expect(subject.user_group_id).to eq("current_organization")
             end
 
-            it "assigns current_organization as author" do
+            it "should assign current_organization as author" do
               expect(subject.author).to eq(author)
             end
           end
@@ -80,11 +80,11 @@ module Decidim
           context "when the author is a group" do
             let(:author) { user_group }
 
-            it "assigns user_group.id as user_group_id" do
+            it "should assign user_group.id as user_group_id" do
               expect(subject.user_group_id).to eq(user_group.id.to_s) # to_s to revise
             end
 
-            it "assigns user_group.name as author" do
+            it "should assign user_group.name as author" do
               expect(subject.author).to eq(user_group)
             end
           end
