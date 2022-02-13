@@ -16,9 +16,14 @@ module Decidim
         validates :body, translatable_presence: true
 
         def map_model(post)
-          self.user_group_id = post.author.id if post.author.is_a?(Decidim::UserGroup)
-          self.user_group_id = "current_organization" if post.author.is_a?(Decidim::Organization)
-          self.user_group_id = "current_user" if post.author.is_a?(Decidim::User)
+          self.user_group_id = case post.author
+                               when Decidim::UserGroup
+                                 post.author.id
+                               when Decidim::Organization
+                                 "current_organization"
+                               else
+                                 "current_user"
+                               end
         end
 
         def user_group
