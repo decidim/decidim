@@ -4,7 +4,7 @@ module Decidim
   module Conferences
     # A class used to find the Conferences that the given user has
     # the specific role privilege.
-    class ConferencesWithUserRole < Rectify::Query
+    class ConferencesWithUserRole < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # user - a User that needs to find which conferences can manage

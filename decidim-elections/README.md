@@ -8,7 +8,7 @@ The Elections module adds elections to any participatory space.
 
 Elections will be available as a Component for a Participatory Space.
 
-In order to celebrate [End-to-end auditable votings](https://en.wikipedia.org/wiki/End-to-end_auditable_voting_systems) using the Elections module, you will need to connect your Decidim instance with an instance of the [Decidim Bulletin Board application](https://github.com/decidim/decidim-bulletin-board/). To create this connection, please check the [instructions](https://github.com/decidim/decidim/blob/develop/docs/services/elections_bulletin_board.md).
+In order to celebrate [End-to-end auditable votings](https://en.wikipedia.org/wiki/End-to-end_auditable_voting_systems) using the Elections module, you will need to connect your Decidim instance with an instance of the [Decidim Bulletin Board application](https://github.com/decidim/decidim-bulletin-board/). To create this connection, please check the [instructions](https://docs.decidim.org/en/services/elections_bulletin_board/).
 
 ## Installation
 

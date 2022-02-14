@@ -513,7 +513,6 @@ hu:
           all: Minden
         filter_origin_values:
           all: Minden
-          citizens: Állampolgárok
           meetings: Találkozók
           official: Hivatalos
           user_groups: Felhasználói csoportok

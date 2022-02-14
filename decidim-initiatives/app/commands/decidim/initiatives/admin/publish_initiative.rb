@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic that publishes an
       # existing initiative.
-      class PublishInitiative < Rectify::Command
+      class PublishInitiative < Decidim::Command
         # Public: Initializes the command.
         #
         # initiative - Decidim::Initiative

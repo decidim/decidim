@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user creates a Meeting from the admin
       # panel.
-      class CreateAgenda < Rectify::Command
+      class CreateAgenda < Decidim::Command
         def initialize(form, meeting)
           @form = form
           @meeting = meeting

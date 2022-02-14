@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    class UnblockUser < Rectify::Command
+    class UnblockUser < Decidim::Command
       # Public: Initializes the command.
       #
       # blocked_user - the user that is unblocked

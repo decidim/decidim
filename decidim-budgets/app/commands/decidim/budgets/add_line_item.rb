@@ -3,7 +3,7 @@
 module Decidim
   module Budgets
     # A command with all the business to add new line items to orders
-    class AddLineItem < Rectify::Command
+    class AddLineItem < Decidim::Command
       # Public: Initializes the command.
       #
       # order - The current order for the user or nil if it is not created yet.

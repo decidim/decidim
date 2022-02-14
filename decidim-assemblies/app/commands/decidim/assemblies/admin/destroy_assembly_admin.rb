@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when destroying an assembly
       # admin in the system.
-      class DestroyAssemblyAdmin < Rectify::Command
+      class DestroyAssemblyAdmin < Decidim::Command
         # Public: Initializes the command.
         #
         # role - the AssemblyUserRole to destroy

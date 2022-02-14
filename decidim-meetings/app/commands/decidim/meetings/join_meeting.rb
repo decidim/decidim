@@ -3,7 +3,7 @@
 module Decidim
   module Meetings
     # This command is executed when the user joins a meeting.
-    class JoinMeeting < Rectify::Command
+    class JoinMeeting < Decidim::Command
       # Initializes a JoinMeeting Command.
       #
       # meeting - The current instance of the meeting to be joined.

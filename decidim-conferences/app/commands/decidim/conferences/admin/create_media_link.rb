@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new
       # media link for conference in the system.
-      class CreateMediaLink < Rectify::Command
+      class CreateMediaLink < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

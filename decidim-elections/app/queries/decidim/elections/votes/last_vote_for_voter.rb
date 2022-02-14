@@ -4,7 +4,7 @@ module Decidim
   module Elections
     module Votes
       # A class used to find the last vote casted by a voter in an election
-      class LastVoteForVoter < Rectify::Query
+      class LastVoteForVoter < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         #
         # election - the election where the vote was casted

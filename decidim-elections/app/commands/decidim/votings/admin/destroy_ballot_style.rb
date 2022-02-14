@@ -4,7 +4,7 @@ module Decidim
   module Votings
     module Admin
       # A command with the business logic to delete the ballot style
-      class DestroyBallotStyle < Rectify::Command
+      class DestroyBallotStyle < Decidim::Command
         def initialize(ballot_style, current_user)
           @ballot_style = ballot_style
           @current_user = current_user

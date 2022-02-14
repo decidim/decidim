@@ -79,6 +79,7 @@ ca:
           form:
             add_question: Afegeix una pregunta
             add_separator: Afegir separador
+            add_title_and_description: Afegir títol i descripció
             already_answered_warning: No pots modificar les preguntes d'aquest formulari perquè ja ha estat contestat per algunes participants.
             collapse: Redueix totes les preguntes
             expand: Expandeix totes les preguntes
@@ -108,6 +109,15 @@ ca:
             remove: Eliminar
             separator: Separador
             up: Pujar
+          title_and_description:
+            collapse: Replegar
+            description: Descripció
+            down: Baixar
+            expand: Expandir
+            remove: Esborrar
+            title: Títol
+            title_and_description: Títol i descripció
+            up: Pujar
           update:
             invalid: S'ha produït un error en desar el formulari.
             success: Formulari desat correctament.
@@ -131,6 +141,7 @@ ca:
         short_answer: Resposta curta
         single_option: Opció única
         sorting: Ordenació
+        title_and_description: Títol i descripció
       questionnaires:
         answer:
           invalid: S'han produït un error en respondre el formulari.

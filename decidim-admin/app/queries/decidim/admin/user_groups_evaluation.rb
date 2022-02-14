@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A class used to find the UserGroup's by their evaluation state.
-    class UserGroupsEvaluation < Rectify::Query
+    class UserGroupsEvaluation < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # user_groups - the initial User Group relation that needs to be filtered.

@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    class UnreportUser < Rectify::Command
+    class UnreportUser < Decidim::Command
       # Public: Initializes the command.
       #
       # reportable - A Decidim::User - The user reported

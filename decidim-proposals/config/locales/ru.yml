@@ -222,7 +222,6 @@ ru:
         withdrawn: Отозван
       application_helper:
         filter_origin_values:
-          citizens: Граждане
           official: Служебные
         filter_state_values:
           not_answered: Без ответов

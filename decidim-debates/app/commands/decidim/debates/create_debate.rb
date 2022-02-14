@@ -4,7 +4,7 @@ module Decidim
   module Debates
     # This command is executed when the user creates a Debate from the public
     # views.
-    class CreateDebate < Rectify::Command
+    class CreateDebate < Decidim::Command
       def initialize(form)
         @form = form
       end

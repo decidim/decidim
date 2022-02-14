@@ -3,7 +3,7 @@
 module Decidim
   module Consultations
     # This query class filters all consultations given an organization.
-    class OrganizationActiveConsultations < Rectify::Query
+    class OrganizationActiveConsultations < Decidim::Query
       def self.for(organization)
         new(organization).query
       end

@@ -592,7 +592,6 @@ es:
           all: Todas
         filter_origin_values:
           all: Todas
-          citizens: Ciudadanía
           meetings: Encuentros
           official: Oficial
           user_groups: Grupos
