@@ -73,7 +73,7 @@ module Decidim
             end
 
             it "assigns current_organization as author" do
-              expect(subject.author).to eq(author)
+              expect(subject.author).to eq(current_organization)
             end
           end
 
