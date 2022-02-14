@@ -62,8 +62,7 @@ module Decidim
     enum signature_type: [:online, :offline, :any], _suffix: true
     enum state: [:created, :validating, :discarded, :published, :rejected, :accepted]
 
-    validates :title, :description, :state, presence: true
-    validates :signature_type, presence: true
+    validates :title, :description, :state, :signature_type, presence: true
     validates :hashtag,
               uniqueness: true,
               allow_blank: true,
