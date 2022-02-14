@@ -54,6 +54,15 @@ module Decidim
         end
       end
 
+      # I am not sure if this needs to be so complicated, or is enough to do a simple:
+      # searchable.searchable_resources.destroy_all
+      after_touch do |searchable|
+        if searchable.respond_to?(:hidden?) && searchable.hidden?
+          org = self.class.search_resource_fields_mapper.retrieve_organization(searchable)
+          searchable.searchable_resources.by_organization(org.id).destroy_all
+        end
+      end
+
       after_destroy do |searchable|
         if self.class.search_resource_fields_mapper
           org = self.class.search_resource_fields_mapper.retrieve_organization(searchable)
