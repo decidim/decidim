@@ -30,11 +30,11 @@
             <% end %>
 
             <div class="field">
-              <%= f.text_field :title, autofocus: true, required: true %>
+              <%= f.text_field :title, autofocus: true %>
             </div>
 
             <div class="field">
-              <%= f.editor :description, lines: 8, toolbar: :full, required: true %>
+              <%= f.editor :description, lines: 8, toolbar: :full %>
             </div>
 
             <% signature_type_options = signature_type_options(f.object) %>
