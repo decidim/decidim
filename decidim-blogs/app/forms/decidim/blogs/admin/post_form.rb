@@ -11,6 +11,7 @@ module Decidim
         translatable_attribute :body, String
 
         attribute :user_group_id, String
+        attribute :original_author
 
         validates :title, translatable_presence: true
         validates :body, translatable_presence: true
@@ -21,9 +22,10 @@ module Decidim
                                  post.author.id
                                when Decidim::Organization
                                  "current_organization"
-                               else
-                                 "current_user"
+                               when Decidim::User
+                                 post.author.id == current_user.id ? "current_user" : "original_author"
                                end
+          self.original_author = post.author
         end
 
         def user_group
@@ -35,6 +37,7 @@ module Decidim
 
         def author
           return current_organization if user_group_id == "current_organization"
+          return original_author if user_group_id == "original author"
 
           user_group || current_user
         end
