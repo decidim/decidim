@@ -36,8 +36,8 @@ module Decidim
       def default_filter_params
         {
           search_text: "",
-          scope_id: "",
-          category_id: ""
+          with_scope: "",
+          with_category: ""
         }
       end
 
