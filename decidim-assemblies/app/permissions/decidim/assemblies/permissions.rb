@@ -32,6 +32,8 @@ module Decidim
         user_can_list_assembly_list?
         user_can_read_current_assembly?
         user_can_create_assembly?
+        user_can_export_assembly?
+        user_can_copy_assembly?
         user_can_read_assemblies_setting?
 
         # org admins and space admins can do everything in the admin section
@@ -72,35 +74,31 @@ module Decidim
       end
 
       def admin_assembly?
-        assembly.present? && user_allowed_assemblies.include?(assembly) || user_role == "admin"
+        assembly.present? && assembly_admin_allowed_assemblies.include?(assembly)
       end
 
       # Checks if it has any manageable assembly, with any possible role.
       def has_manageable_assemblies?(role: :any)
         return unless user
 
-        if user.admin?
-          assemblies_with_role_privileges(role).any?
-        else
-          user_allowed_assemblies.any?
-        end
+        assemblies_with_role_privileges(role).any?
       end
 
       # Whether the user can manage the given assembly or not.
       def can_manage_assembly?(role: :any)
         return unless user
 
-        if user.admin?
-          assemblies_with_role_privileges(role).include? assembly
-        else
-          user_allowed_assemblies.include? assembly
-        end
+        assemblies_with_role_privileges(role).include? assembly
       end
 
       # Returns a collection of assemblies where the given user has the
       # specific role privilege.
       def assemblies_with_role_privileges(role)
-        Decidim::Assemblies::AssembliesWithUserRole.for(user, role)
+        if role == :admin
+          assembly_admin_allowed_assemblies
+        else
+          Decidim::Assemblies::AssembliesWithUserRole.for(user, role)
+        end
       end
 
       def public_list_assemblies_action?
@@ -168,6 +166,20 @@ module Decidim
         return unless permission_action.action == :create &&
                       permission_action.subject == :assembly
 
+        toggle_allow(user.admin? || admin_assembly? || user_role == "admin")
+      end
+
+      def user_can_export_assembly?
+        return unless permission_action.action == :export &&
+                      permission_action.subject == :assembly
+
+        toggle_allow(user.admin? || admin_assembly?)
+      end
+
+      def user_can_copy_assembly?
+        return unless permission_action.action == :copy &&
+                      permission_action.subject == :assembly
+
         toggle_allow(user.admin? || admin_assembly?)
       end
 
@@ -197,9 +209,9 @@ module Decidim
       end
 
       def allowed_list_of_assemblies?
-        parent_assemblies = user_allowed_assemblies.flat_map { |assembly| [assembly.id] + assembly.ancestors.pluck(:id) }
+        parent_assemblies = assembly_admin_allowed_assemblies.flat_map { |assembly| [assembly.id] + assembly.ancestors.pluck(:id) }
 
-        allowed_list_of_assemblies = Decidim::Assembly.where(id: user_allowed_assemblies + parent_assemblies)
+        allowed_list_of_assemblies = Decidim::Assembly.where(id: assembly_admin_allowed_assemblies + parent_assemblies)
         allowed_list_of_assemblies.uniq.member?(assembly)
       end
 
@@ -293,8 +305,8 @@ module Decidim
         assembly_user_role.present? ? assembly_user_role.role : :any
       end
 
-      def user_allowed_assemblies
-        assemblies = AssembliesWithUserRole.for(user, user_role)
+      def assembly_admin_allowed_assemblies
+        assemblies = AssembliesWithUserRole.for(user, :admin)
         child_assemblies = assemblies.flat_map { |assembly| [assembly.id] + assembly.children.pluck(:id) }
 
         Decidim::Assembly.where(id: assemblies + child_assemblies)
