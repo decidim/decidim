@@ -42,7 +42,7 @@ runs:
       id: npm-cache
       with:
         path: ${{ steps.npm-cache-dir-path.outputs.dir }}
-        key: npm-v1-${{ hashFiles('**/package-lock.json') }}
+        key: npm-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           npm-
     - run: bundle exec rake test_app
