@@ -72,30 +72,29 @@ module Decidim
       end
 
       def admin_assembly?
-        case user_role
-        when "admin"
-          true
-        when "moderator"
-          false
-        when "collaborator"
-          false
-        when "valuator"
-          false
-        end
+        assembly.present? && user_allowed_assemblies.include?(assembly) || user_role == "admin"
       end
 
       # Checks if it has any manageable assembly, with any possible role.
       def has_manageable_assemblies?(role: :any)
         return unless user
 
-        assemblies_with_role_privileges(role).any?
+        if user.admin?
+          assemblies_with_role_privileges(role).any?
+        else
+          user_allowed_assemblies.any?
+        end
       end
 
       # Whether the user can manage the given assembly or not.
       def can_manage_assembly?(role: :any)
         return unless user
 
-        assemblies_with_role_privileges(role).include? assembly
+        if user.admin?
+          assemblies_with_role_privileges(role).include? assembly
+        else
+          user_allowed_assemblies.include? assembly
+        end
       end
 
       # Returns a collection of assemblies where the given user has the
@@ -198,11 +197,9 @@ module Decidim
       end
 
       def allowed_list_of_assemblies?
-        assemblies = AssembliesWithUserRole.for(user, user_role)
-        parent_assemblies = assemblies.flat_map { |assembly| [assembly.id] + assembly.ancestors.pluck(:id) }
-        child_assemblies = assemblies.flat_map { |assembly| [assembly.id] + assembly.children.pluck(:id) }
+        parent_assemblies = user_allowed_assemblies.flat_map { |assembly| [assembly.id] + assembly.ancestors.pluck(:id) }
 
-        allowed_list_of_assemblies = Decidim::Assembly.where(id: assemblies + parent_assemblies + child_assemblies)
+        allowed_list_of_assemblies = Decidim::Assembly.where(id: user_allowed_assemblies + parent_assemblies)
         allowed_list_of_assemblies.uniq.member?(assembly)
       end
 
@@ -292,7 +289,15 @@ module Decidim
       end
 
       def user_role
-        Decidim::AssemblyUserRole.find_by(decidim_user_id: user.id).role
+        assembly_user_role = Decidim::AssemblyUserRole.find_by(decidim_user_id: user.id)
+        assembly_user_role.present? ? assembly_user_role.role : :any
+      end
+
+      def user_allowed_assemblies
+        assemblies = AssembliesWithUserRole.for(user, user_role)
+        child_assemblies = assemblies.flat_map { |assembly| [assembly.id] + assembly.children.pluck(:id) }
+
+        Decidim::Assembly.where(id: assemblies + child_assemblies)
       end
     end
   end
