@@ -48,21 +48,29 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
+        context "when title is missing" do
+          let(:title) do
+            { "en" => "" }
+          end
+
+          it { is_expected.to be_invalid }
+        end
+
+        context "when body is missing" do
+          let(:body) do
+            { "en" => "" }
+          end
+
+          it { is_expected.to be_invalid }
+        end
+
         describe "map_model" do
           let(:component) { create(:post_component, organization: current_organization) }
           let(:post) { create(:post, component: component, author: author) }
-          let(:author) { create(:user, organization: current_organization) }
+          let(:another_user) { create(:user, organization: current_organization) }
 
           before do
             subject.map_model(post)
-          end
-
-          it "assigns current_user as user_group_id" do
-            expect(subject.user_group_id).to eq("current_user")
-          end
-
-          it "assigns user name as author" do
-            expect(subject.author).to eq(current_user)
           end
 
           context "when author is an organization" do
@@ -81,11 +89,35 @@ module Decidim
             let(:author) { user_group }
 
             it "assigns user_group.id as user_group_id" do
-              expect(subject.user_group_id).to eq(user_group.id.to_s) # to_s to revise
+              expect(subject.user_group_id).to eq(user_group.id.to_s)
             end
 
             it "assigns user_group.name as author" do
               expect(subject.author).to eq(user_group)
+            end
+          end
+
+          context "when the author is the current_user" do
+            let(:author) { current_user }
+
+            it "assigns 'current_user' string as user_group_id" do
+              expect(subject.user_group_id).to eq("current_user")
+            end
+
+            it "assigns current_user object as author" do
+              expect(subject.author).to eq(current_user)
+            end
+          end
+
+          context "when the author is another user" do
+            let(:author) { another_user }
+
+            it "assigns 'original_author' string as user_group_id" do
+              expect(subject.user_group_id).to eq("original_author")
+            end
+
+            it "assigns original_user object as author" do
+              expect(subject.author).to eq(author)
             end
           end
         end
