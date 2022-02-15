@@ -118,7 +118,6 @@ module Decidim
         user.admin || process.users.include?(user)
       end
 
-
       # Only organization admins can enter the process groups space area.
       def user_can_enter_process_groups_space_area?
         return unless permission_action.action == :enter &&

@@ -153,7 +153,6 @@ module Decidim
         toggle_allow(initiative_type.attachments_enabled?)
       end
 
-
       def sign_initiative?
         return unless permission_action.action == :sign_initiative &&
                       permission_action.subject == :initiative

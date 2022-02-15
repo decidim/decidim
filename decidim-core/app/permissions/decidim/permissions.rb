@@ -32,7 +32,7 @@ module Decidim
 
     def public_report_content_action?
       return unless permission_action.action == :create &&
-        permission_action.subject == :moderation
+                    permission_action.subject == :moderation
 
       allow!
     end
