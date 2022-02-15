@@ -236,7 +236,7 @@ describe "Participatory Processes", type: :system do
         let(:promoted_items_titles) { page.all("#highlighted-processes .card__title").map(&:text) }
 
         before do
-          promoted_group.title["en"] = "D'Artagnan #{promoted_process.title["en"]}"
+          promoted_group.title["en"] = "D'Artagnan #{promoted_group.title["en"]}"
           promoted_group.save!
           visit decidim_participatory_processes.participatory_processes_path
         end
@@ -252,7 +252,7 @@ describe "Participatory Processes", type: :system do
 
         it "lists all the highlighted process groups" do
           within "#highlighted-processes" do
-            expect(page).to have_content(translated(promoted_process.title, locale: :en))
+            expect(page).to have_content(translated(promoted_group.title, locale: :en))
             expect(page).to have_selector(".card--full", count: 1)
           end
         end
