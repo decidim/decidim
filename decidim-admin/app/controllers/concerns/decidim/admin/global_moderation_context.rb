@@ -38,7 +38,7 @@ module Decidim
         #
         # Returns an `ActiveRecord::Relation`
         def moderations_for_user
-          @moderations_for_user ||= current_user.admin? ? Decidim::Moderation.all : Decidim::Moderation.where(participatory_space: spaces_user_is_admin_to)
+          @moderations_for_user ||= Decidim::Moderation.where(participatory_space: spaces_user_is_admin_to)
         end
       end
     end

@@ -66,16 +66,13 @@ module Decidim
       delegate :start_voting_date, to: :consultation
       delegate :end_voting_date, to: :consultation
       delegate :results_published?, to: :consultation
+      delegate :moderators, to: :consultation
 
       alias participatory_space consultation
 
       # Sorted results for the given question.
       def sorted_results
         responses.order(votes_count: :desc)
-      end
-
-      def admins_query
-        Decidim::Consultations::Admin::AdminUsers
       end
 
       # if results can be shown to admins

@@ -7,7 +7,8 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
   participatory_space.stylesheet = "decidim/consultations/consultations"
 
   participatory_space.participatory_spaces do |organization|
-    Decidim::Consultation.where(organization: organization)
+    consultations = Decidim::Consultation.where(organization: organization)
+    [] + consultations + Decidim::Consultations::Question.where(organization: organization)
   end
 
   participatory_space.query_type = "Decidim::Consultations::ConsultationType"
