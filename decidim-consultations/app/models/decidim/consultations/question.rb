@@ -74,6 +74,10 @@ module Decidim
         responses.order(votes_count: :desc)
       end
 
+      def admins_query
+        Decidim::Consultations::Admin::AdminUsers
+      end
+
       # if results can be shown to admins
       def publishable_results?
         consultation.finished? && sorted_results.any?
