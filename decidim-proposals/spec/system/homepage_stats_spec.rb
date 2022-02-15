@@ -4,9 +4,9 @@ require "spec_helper"
 
 describe "Homepage", type: :system do
   include_context "with a component"
-  let(:manifest_name) { "meetings" }
+  let(:manifest_name) { "proposals" }
 
-  let!(:meetings) { create_list(:meeting, 3, :published, component: component, author: component.organization) }
+  let!(:meetings) { create_list(:proposal, 3, :published, component: component, users: [component.organization]) }
   let!(:moderation) { create :moderation, reportable: meetings.first, hidden_at: 1.day.ago }
 
   let(:day) { Time.zone.yesterday }
@@ -19,8 +19,8 @@ describe "Homepage", type: :system do
     visit decidim.root_path
   end
 
-  it "display unhidden meeting count" do
-    within(".meetings_count") do
+  it "display unhidden proposal count" do
+    within(".proposals_count") do
       expect(page).to have_content(2)
     end
   end

@@ -161,6 +161,12 @@ FactoryBot.define do
     trait :open_in_new_tab_iframe_embed_type do
       iframe_embed_type { :open_in_new_tab }
     end
+
+    trait :moderated do
+      after(:create) do |meeting, _evaluator|
+        create(:moderation, reportable: meeting, hidden_at: 2.days.ago)
+      end
+    end
   end
 
   factory :registration, class: "Decidim::Meetings::Registration" do
