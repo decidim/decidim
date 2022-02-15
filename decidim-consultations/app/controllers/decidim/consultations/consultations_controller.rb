@@ -46,7 +46,7 @@ module Decidim
       alias collection consultations
 
       def search_collection
-        Consultation.published
+        Consultation.where(organization: current_organization).published
       end
 
       def default_filter_params
