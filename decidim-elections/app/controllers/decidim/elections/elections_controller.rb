@@ -16,6 +16,8 @@ module Decidim
       end
 
       def show
+        raise ActionController::RoutingError, "Not Found" unless election
+
         enforce_permission_to :view, :election, election: election
       end
 
@@ -26,11 +28,11 @@ module Decidim
       delegate :bulletin_board_server, :authority_slug, to: :bulletin_board_client
 
       def elections
-        @elections ||= Election.where(component: current_component).published
+        @elections ||= search_collection
       end
 
       def election
-        @election ||= Election.where(component: current_component).find(params[:id])
+        @election ||= search_collection.find_by(id: params[:id])
       end
 
       def onboarding
@@ -66,7 +68,7 @@ module Decidim
       end
 
       def search_collection
-        Election.published
+        Election.where(component: current_component).published
       end
 
       def default_filter_params

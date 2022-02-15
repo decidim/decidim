@@ -26,11 +26,11 @@ module Decidim
       end
 
       def result
-        @result ||= Result.includes(:timeline_entries).where(component: current_component).find(params[:id])
+        @result ||= search_collection.includes(:timeline_entries).find_by(id: params[:id])
       end
 
       def search_collection
-        Result
+        Result.where(component: current_component)
       end
 
       def default_filter_params

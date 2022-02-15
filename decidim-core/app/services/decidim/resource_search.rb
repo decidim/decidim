@@ -25,12 +25,5 @@ module Decidim
       # extra variables based on the options passed to the search class before
       # calling the build method below.
     end
-
-    def build(params)
-      # Set the component for the base search context
-      base.component = component if component && base.attribute_method?("component")
-
-      super
-    end
   end
 end

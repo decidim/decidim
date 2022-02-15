@@ -22,14 +22,18 @@ module Decidim
         @sortitions = reorder(@sortitions)
       end
 
+      def show
+        raise ActionController::RoutingError, "Not Found" unless sortition
+      end
+
       private
 
       def sortition
-        Sortition.find(params[:id])
+        search_collection.find_by(id: params[:id])
       end
 
       def search_collection
-        Sortition
+        Sortition.where(component: current_component)
       end
 
       def default_filter_params
