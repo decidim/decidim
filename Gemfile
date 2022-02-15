@@ -13,7 +13,8 @@ gem "decidim-templates", path: "."
 
 gem "bootsnap", "~> 1.4"
 
-gem "puma", ">= 5.5.1"
+gem "rails", "~> 6.0", ">= 6.0.4.6"
+gem "puma", ">= 5.6.2"
 
 gem "faker", "~> 2.14"
 
