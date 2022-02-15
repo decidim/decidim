@@ -253,7 +253,7 @@ describe "Participatory Processes", type: :system do
         it "lists all the highlighted process groups" do
           within "#highlighted-processes" do
             expect(page).to have_content(translated(promoted_group.title, locale: :en))
-            expect(page).to have_selector(".card--full", count: 1)
+            expect(page).to have_selector(".card--full", count: 2)
           end
         end
 
