@@ -253,7 +253,6 @@ fr:
         all: Tout
         finished: Passées
         search: Rechercher
-        state: État
         upcoming: À venir
       filters_small_view:
         close_modal: Fermer la fenêtre
