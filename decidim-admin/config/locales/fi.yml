@@ -340,6 +340,7 @@ fi:
       dashboard:
         show:
           view_more_logs: Näytä lisää lokitietoja
+          welcome: Tervetuloa hallintapaneeliin.
       domain_whitelist:
         form:
           domain_too_short: Verkkotunnus on liian lyhyt
