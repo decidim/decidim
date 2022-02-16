@@ -656,7 +656,7 @@ en:
         onboarding_modal:
           close: Close modal
           create_account: Create Account
-          description: Do you want to create a new account in the platform? You will be able to participate in the processes and be an active part of the organization.
+          description: Do you want to create a new account on the platform? You will be able to participate in the processes and be an active part of the organization.
           no_account: No, thanks.
           title: New to the platform?
         update:

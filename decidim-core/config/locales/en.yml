@@ -127,7 +127,7 @@ en:
         error: There was a problem deleting your account.
         success: Your account was successfully deleted.
       show:
-        available_locales_helper: Choose the language you want to use to browse and receive notifications in the platform
+        available_locales_helper: Choose the language you want to use to browse and receive notifications on the platform
         change_password: Change password
         update_account: Update account
       update:
