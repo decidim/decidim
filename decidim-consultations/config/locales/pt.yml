@@ -253,7 +253,6 @@ pt:
         all: Todos
         finished: Acabado
         search: Pesquisar
-        state: Estado
         upcoming: Próximas
       filters_small_view:
         close_modal: Fechar janela
