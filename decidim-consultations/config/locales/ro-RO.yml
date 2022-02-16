@@ -259,6 +259,7 @@ ro:
       filters:
         active: Activ
         all: Toate
+        date: Data
         finished: Terminat
         search: Caută
         upcoming: Urmează
