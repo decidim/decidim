@@ -296,7 +296,6 @@ tr:
       dashboard:
         show:
           view_more_logs: Daha fazla günlükleri görüntüle
-          welcome: Decidim Yönetici Paneline hoş geldiniz.
       exports:
         export_as: "%{name} olarak %{export_format}"
         formats:
