@@ -420,7 +420,6 @@ es-MX:
           all: Todas
           finished: Finalizadas
           search: Buscar
-          state: Estado
           upcoming: Próximas
         filters_small_view:
           close_modal: Cerrar el modal
@@ -1308,7 +1307,6 @@ es-MX:
           all: Todas
           finished: Finalizadas
           search: Buscar
-          state: Estado
           upcoming: Próximas
         filters_small_view:
           close_modal: Cerrar ventana
