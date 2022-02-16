@@ -92,12 +92,17 @@ fi:
           scope_id_eq:
             label: Teema
           with_any_origin:
+            label: Alkuperä
             values:
+              official: Viralliset
+              participants: Osallistujat
               user_group: Käyttäjäryhmät
           with_any_type:
             label: Tapaamisen tyyppi
             values:
+              hybrid: Molemmat
               in_person: Fyysinen
+              online: Verkossa
       meeting_copies:
         create:
           error: Tapaamisen kopioiminen epäonnistui.
