@@ -252,7 +252,6 @@ el:
         all: Όλα
         finished: Ολοκληρωμένες
         search: Αναζήτηση
-        state: Κατάσταση
         upcoming: Προσεχείς
       filters_small_view:
         close_modal: Κλείσιμο παραθύρου
