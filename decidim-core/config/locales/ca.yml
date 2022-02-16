@@ -125,7 +125,6 @@ ca:
         error: S'ha produït un error en eliminar el teu compte.
         success: El teu compte s'ha eliminat correctament.
       show:
-        available_locales_helper: Tria l'idioma que vols utilitzar per a navegar i rebre notificacions a Decidim
         change_password: Canvia la contrasenya
         update_account: Actualitzar compte
       update:
