@@ -362,7 +362,6 @@ sv:
           no_account: Nej tack.
         verify:
           form:
-            back: Tillbaka till Decidim
             submit: Kontrollera
         voting_step:
           back: Tillbaka
