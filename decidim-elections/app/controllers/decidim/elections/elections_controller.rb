@@ -30,7 +30,9 @@ module Decidim
       end
 
       def election
-        @election ||= search_collection.find(params[:id])
+        # The single election is searched from non-published records on purpose
+        # to allow previewing for admins.
+        @election ||= Election.where(component: current_component).find(params[:id])
       end
 
       def onboarding
