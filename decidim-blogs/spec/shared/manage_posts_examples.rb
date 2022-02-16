@@ -140,4 +140,12 @@ shared_examples "manage posts" do
       end
     end
   end
+
+  context "when user is the organization" do
+    let(:author) { organization }
+  end
+
+  context "when user is current_user" do
+    let(:author) { user }
+  end
 end
