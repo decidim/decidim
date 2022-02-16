@@ -341,7 +341,7 @@ en:
       dashboard:
         show:
           view_more_logs: View more logs
-          welcome: Welcome to the Decidim Admin Panel.
+          welcome: Welcome to the Admin Panel.
       domain_whitelist:
         form:
           domain_too_short: Domain too short
