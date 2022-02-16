@@ -19,6 +19,7 @@ module Decidim
       include Decidim::Randomable
       include Decidim::Searchable
       include Decidim::TranslatableResource
+      include Decidim::FilterableResource
 
       component_manifest_name "accountability"
 
@@ -81,14 +82,16 @@ module Decidim
         true
       end
 
+      def self.ransackable_scopes(_auth_object = nil)
+        [:with_category, :with_scope]
+      end
+
       ransacker :id_string do
         Arel.sql(%{cast("decidim_accountability_results"."id" as text)})
       end
 
       # Allow ransacker to search for a key in a hstore column (`title`.`en`)
-      ransacker :title do |parent|
-        Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
-      end
+      ransacker_i18n :title
 
       private
 

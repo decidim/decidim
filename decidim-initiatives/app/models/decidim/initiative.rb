@@ -22,6 +22,8 @@ module Decidim
     include Decidim::Initiatives::HasArea
     include Decidim::TranslatableResource
     include Decidim::HasResourcePermission
+    include Decidim::HasArea
+    include Decidim::FilterableResource
 
     translatable_fields :title, :description, :answer
 
@@ -81,6 +83,8 @@ module Decidim
     scope :published, -> { where.not(published_at: nil) }
     scope :with_state, ->(state) { where(state: state) if state.present? }
 
+    scope_search_multi :with_any_state, [:accepted, :rejected, :answered, :open, :closed]
+
     scope :currently_signable, lambda {
       where("signature_start_date <= ?", Date.current)
         .where("signature_end_date >= ?", Date.current)
@@ -107,6 +111,42 @@ module Decidim
     scope :future_spaces, -> { none }
     scope :past_spaces, -> { closed }
 
+    scope :with_any_type, lambda { |*original_type_ids|
+      type_ids = original_type_ids.flatten
+      return self if type_ids.include?("all")
+
+      types = InitiativesTypeScope.where(decidim_initiatives_types_id: type_ids).pluck(:id)
+      where(scoped_type: types)
+    }
+
+    # Redefine the with_any_scope method as the initiative scope is defined by
+    # the initiative type scope.
+    scope :with_any_scope, lambda { |*original_scope_ids|
+      scope_ids = original_scope_ids.flatten
+      return self if scope_ids.include?("all")
+
+      clean_scope_ids = scope_ids
+
+      conditions = []
+      conditions << "decidim_initiatives_type_scopes.decidim_scopes_id IS NULL" if clean_scope_ids.delete("global")
+      conditions.concat(["? = ANY(decidim_scopes.part_of)"] * clean_scope_ids.count) if clean_scope_ids.any?
+
+      joins(:scoped_type).references(:decidim_scopes).where(conditions.join(" OR "), *clean_scope_ids.map(&:to_i))
+    }
+
+    scope :authored_by, lambda { |author|
+      co_authoring_initiative_ids = Decidim::InitiativesCommitteeMember.where(
+        decidim_users_id: author
+      ).pluck(:decidim_initiatives_id)
+
+      where(
+        decidim_author_id: author,
+        decidim_author_type: Decidim::UserBaseEntity.name
+      ).or(
+        where(id: co_authoring_initiative_ids)
+      )
+    }
+
     before_update :set_offline_votes_total
     after_commit :notify_state_change
     after_create :notify_creation
@@ -123,6 +163,10 @@ module Decidim
 
     def self.log_presenter_class_for(_log)
       Decidim::Initiatives::AdminLog::InitiativePresenter
+    end
+
+    def self.ransackable_scopes(_auth_object = nil)
+      [:with_any_state, :with_any_type, :with_any_scope, :with_any_area]
     end
 
     delegate :document_number_authorization_handler, :promoting_committee_enabled?, to: :type
@@ -434,6 +478,10 @@ module Decidim
       ActionAuthorizer.new(user, "comment", self, nil).authorize.ok?
     end
 
+    def self.ransack(params = {}, options = {})
+      Initiatives::InitiativeSearch.new(self, params, options)
+    end
+
     private
 
     # Private: This is just an alias because the naming on InitiativeTypeScope
@@ -467,11 +515,10 @@ module Decidim
     end
 
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
-    [:title, :description].each do |column|
-      ransacker column do |parent|
-        Arel::Nodes::InfixOperation.new("->>", parent.table[column], Arel::Nodes.build_quoted(I18n.locale.to_s))
-      end
-    end
+    [:title, :description].each { |column| ransacker_i18n(column) }
+
+    # Alias search_text as a grouped OR query with all the text searchable fields.
+    ransack_alias :search_text, :id_string_or_title_or_description_or_author_name_or_author_nickname
 
     # Allow ransacker to search on an Enum Field
     ransacker :state, formatter: proc { |int| states[int] }

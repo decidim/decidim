@@ -18,16 +18,32 @@ describe "Explore results", versioning: true, type: :system do
 
   before do
     component.update(settings: { scopes_enabled: true })
+
     visit path
   end
 
   describe "home" do
+    let!(:other_category) { create :category, participatory_space: participatory_space }
+    let!(:other_scope) { create :scope, organization: organization }
+
+    let(:subcategory) { create :subcategory, parent: category }
+    let(:other_subcategory) { create :subcategory, parent: other_category }
+
     let(:path) { decidim_participatory_process_accountability.root_path(participatory_process_slug: participatory_process.slug, component_id: component.id) }
+
+    before do
+      # Add scopes and categories for the results to test they work correctly
+      results[0..2].each { |r| r.update!(category: subcategory, scope: scope) }
+      results[3..-1].each { |r| r.update!(category: other_subcategory, scope: other_scope) }
+
+      # Revisit the path to load updated results
+      visit path
+    end
 
     it "shows categories and subcategories with results" do
       participatory_process.categories.each do |category|
-        results_count = Decidim::Accountability::ResultsCalculator.new(component, nil, category.id).count
-        expect(page).to have_content(translated(category.name)) if !category.subcategories.empty? || results_count.positive?
+        category_count = Decidim::Accountability::ResultsCalculator.new(component, nil, category.id).count
+        expect(page).to have_content(translated(category.name)) if category_count.positive?
       end
     end
 
@@ -46,6 +62,31 @@ describe "Explore results", versioning: true, type: :system do
 
         expect(page).to have_no_content("Global execution status")
         expect(page).to have_no_selector(".progress-figure")
+      end
+    end
+
+    context "with a scope" do
+      before do
+        within "ul.tags.tags--action" do
+          click_link translated(scope.name)
+        end
+      end
+
+      it "shows current scope active" do
+        within "ul.tags.tags--action li.active" do
+          expect(page).to have_content(translated(scope.name))
+        end
+      end
+
+      it "shows only the categories with results matching the current scope" do
+        participatory_process.categories.each do |category|
+          category_count = Decidim::Accountability::ResultsCalculator.new(component, scope.id, category.id).count
+          if category_count.positive?
+            expect(page).to have_content(translated(category.name))
+          else
+            expect(page).not_to have_content(translated(category.name))
+          end
+        end
       end
     end
   end
@@ -74,7 +115,7 @@ describe "Explore results", versioning: true, type: :system do
 
       let(:path) do
         decidim_participatory_process_accountability.results_path(
-          participatory_process_slug: participatory_process.slug, component_id: component.id, filter: { category_id: category.id, scope_id: scope.id }
+          participatory_process_slug: participatory_process.slug, component_id: component.id, filter: { with_category: category.id, with_scope: scope.id }
         )
       end
 

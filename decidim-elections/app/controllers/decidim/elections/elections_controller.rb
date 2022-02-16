@@ -26,10 +26,12 @@ module Decidim
       delegate :bulletin_board_server, :authority_slug, to: :bulletin_board_client
 
       def elections
-        @elections ||= Election.where(component: current_component).published
+        @elections ||= search_collection
       end
 
       def election
+        # The single election is searched from non-published records on purpose
+        # to allow previewing for admins.
         @election ||= Election.where(component: current_component).find(params[:id])
       end
 
@@ -57,26 +59,26 @@ module Decidim
       end
 
       def paginated_elections
-        @paginated_elections ||= paginate(search.results.published)
+        @paginated_elections ||= paginate(search.result.published)
         @paginated_elections = reorder(@paginated_elections)
       end
 
       def scheduled_elections
-        @scheduled_elections ||= search_klass.new(search_params.merge(state: %w(active upcoming))).results
+        @scheduled_elections ||= search_with(filter_params.merge(with_any_date: %w(active upcoming))).result
       end
 
-      def search_klass
-        ElectionSearch
+      def search_collection
+        Election.where(component: current_component).published
       end
 
       def default_filter_params
         {
-          search_text: "",
-          state: default_filter_state_params
+          search_text_cont: "",
+          with_any_date: default_filter_date_params
         }
       end
 
-      def default_filter_state_params
+      def default_filter_date_params
         if elections.active.any?
           %w(active)
         elsif elections.upcoming.any?
@@ -84,10 +86,6 @@ module Decidim
         else
           %w()
         end
-      end
-
-      def context_params
-        { component: current_component, organization: current_organization }
       end
     end
   end

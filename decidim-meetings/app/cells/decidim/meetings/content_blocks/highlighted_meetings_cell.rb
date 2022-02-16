@@ -10,7 +10,7 @@ module Decidim
             .published
             .not_hidden
             .upcoming
-            .visible_meeting_for(current_user)
+            .visible_for(current_user)
             .where(component: published_components)
         end
 

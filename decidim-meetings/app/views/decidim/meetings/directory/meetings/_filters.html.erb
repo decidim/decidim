@@ -4,7 +4,7 @@
   <div class="filters__section">
     <div class="filters__search">
       <div class="input-group">
-        <%= form.search_field :search_text, label: false, class: "input-group-field", placeholder: t("decidim.meetings.meetings.filters.search"), title: t("decidim.meetings.meetings.filters.search"), "aria-label": t("decidim.meetings.meetings.filters.search"), data: { disable_dynamic_change: true } %>
+        <%= form.search_field :title_or_description_cont, label: false, class: "input-group-field", placeholder: t("decidim.meetings.meetings.filters.search"), title: t("decidim.meetings.meetings.filters.search"), "aria-label": t("decidim.meetings.meetings.filters.search"), data: { disable_dynamic_change: true } %>
         <div class="input-group-button">
           <button type="submit" class="button" aria-controls="meetings">
             <%= icon "magnifying-glass", aria_label: t("decidim.meetings.meetings.filters.search"), role: "img" %>
@@ -15,18 +15,18 @@
   </div>
 
   <% unless @forced_past_meetings %>
-    <%= form.check_boxes_tree :date, filter_date_values, legend_title: t("decidim.meetings.meetings.filters.date") %>
+    <%= form.check_boxes_tree :with_any_date, filter_date_values, legend_title: t("decidim.meetings.meetings.filters.date") %>
   <% end %>
 
-  <%= form.check_boxes_tree :type, filter_type_values, legend_title: t("decidim.meetings.meetings.filters.type") %>
+  <%= form.check_boxes_tree :with_any_type, filter_type_values, legend_title: t("decidim.meetings.meetings.filters.type") %>
 
-  <%= form.check_boxes_tree :scope_id, directory_filter_scopes_values, legend_title: t("decidim.meetings.meetings.filters.scope") %>
+  <%= form.check_boxes_tree :with_any_scope, directory_filter_scopes_values, legend_title: t("decidim.meetings.meetings.filters.scope") %>
 
-  <%= form.check_boxes_tree :category_id, directory_filter_categories_values, legend_title: t("decidim.meetings.meetings.filters.category") %>
+  <%= form.check_boxes_tree :with_any_global_category, directory_filter_categories_values, legend_title: t("decidim.meetings.meetings.filters.category") %>
 
-  <%= form.check_boxes_tree :origin, directory_filter_origin_values, legend_title: t("decidim.meetings.meetings.filters.origin") %>
+  <%= form.check_boxes_tree :with_any_origin, directory_filter_origin_values, legend_title: t("decidim.meetings.meetings.filters.origin") %>
 
-  <%= form.check_boxes_tree :space, directory_meeting_spaces_values, legend_title: t("decidim.meetings.directory.meetings.index.space_type") %>
+  <%= form.check_boxes_tree :with_any_space, directory_meeting_spaces_values, legend_title: t("decidim.meetings.directory.meetings.index.space_type") %>
 
   <% if current_user %>
     <%= form.collection_radio_buttons :activity, activity_filter_values, :first, :last, { legend_title: t("decidim.meetings.meetings.filters.activity") }, "aria-controls": "meetings" %>

@@ -5,7 +5,7 @@ module Decidim
     module VotingsHelper
       include Decidim::CheckBoxesTreeHelper
 
-      def filter_states_values
+      def date_filter_values
         TreeNode.new(
           TreePoint.new("", t("votings.filters.all", scope: "decidim.votings")),
           [

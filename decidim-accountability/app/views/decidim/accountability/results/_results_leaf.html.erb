@@ -42,6 +42,6 @@
         </div>
       <% end %>
     </div>
-    <%= decidim_paginate results, order_start_time: params[:order_start_time], scope_id: params[:scope_id] %>
+    <%= decidim_paginate results, order_start_time: params[:order_start_time], with_scope: params.dig(:filter, :with_scope) %>
   </div>
 </div>

@@ -27,12 +27,12 @@ module Decidim
       new_params = {
         utf8: params[:utf8],
         filter: {
-          decidim_scope_id: params.dig(:filter, :decidim_scope_id),
+          with_scope: params.dig(:filter, :with_scope),
           term: params[:term] || params.dig(:filter, :term)
         }
       }
-      new_params[:filter][:resource_type] = resource_type if resource_type.present?
-      new_params[:filter][:space_state] = space_state if space_state.present?
+      new_params[:filter][:with_resource_type] = resource_type if resource_type.present?
+      new_params[:filter][:with_space_state] = space_state if space_state.present?
       decidim.search_path(new_params)
     end
 
@@ -44,14 +44,14 @@ module Decidim
 
     # Generates the path to filter by resource type, considering the other filters.
     def search_path_by_resource_type(resource_type)
-      search_path_by(space_state: params.dig(:filter, :space_state), resource_type: resource_type)
+      search_path_by(space_state: params.dig(:filter, :with_space_state), resource_type: resource_type)
     end
 
     # Generates the path and link to filter by space state, taking into account
     # the other filters applied.
     def search_path_by_state_link(state)
-      path = search_path_by(resource_type: params.dig(:filter, :resource_type), space_state: state)
-      is_active = params.dig(:filter, :space_state).to_s == state.to_s
+      path = search_path_by(resource_type: params.dig(:filter, :with_resource_type), space_state: state)
+      is_active = params.dig(:filter, :with_space_state).to_s == state.to_s
 
       link_to path, class: "order-by__tab#{" is-active" if is_active}" do
         content_tag(:strong, t(state || :all, scope: "decidim.searches.filters.state"))

@@ -3,7 +3,7 @@
     <%= cell(
       "decidim/scopes_picker",
       form,
-      attribute: :scope_id,
+      attribute: :with_scope,
       multiple: true,
       legend_title: I18n.t("decidim.scopes.scopes"),
       label: false,
@@ -11,11 +11,11 @@
     ) %>
   </div>
   <div class="columns mediumlarge-6 large-5">
-    <%= form.areas_select :area_id,
+    <%= form.areas_select :with_area,
                           areas_for_select(current_organization),
                           legend_title: t("decidim.shared.participatory_space_filters.filters.areas"),
                           label: "",
-                          selected: filter.area_id,
+                          selected: filter.with_area,
                           include_blank: t("decidim.shared.participatory_space_filters.filters.select_an_area") %>
   </div>
 <% end %>
