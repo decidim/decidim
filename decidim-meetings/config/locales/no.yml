@@ -101,7 +101,7 @@
             values:
               hybrid: Begge
               in_person: Tilstede
-              online: På nett
+              online: Digitalt
       meeting_copies:
         create:
           error: Det oppstod et problem med å publisere dette møtet.
