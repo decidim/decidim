@@ -273,7 +273,6 @@ ro:
             duration_help: În cazul în care durata acestui grup de lucru este limitată, selectaţi data de încheiere. În caz contrar, va apărea ca nelimitată.
             filters: Filtre
             images: Imagini
-            included_at_help: Selectați data la care aceast grup de lucru a fost adăugat în Decidem. Nu trebuie să fie neapărat aceeași dată cu data creării.
             metadata: Metadate
             other: Altul
             select_a_created_by: Selectați după persoana care a creat
