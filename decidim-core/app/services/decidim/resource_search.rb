@@ -14,9 +14,10 @@ module Decidim
       @search_context = options[:search_context] || :participants
       configure(options)
 
-      # The super method calls the build method below, which can be overridden
-      # by the individual search implementations, so call this as the last thing
-      # at the initialize method.
+      # The super method calls the build method in the super class, which can be
+      # overridden by the individual search implementations, so call this as the
+      # last thing at the initialize method. The params are passed to the
+      # build method as the only argument.
       super
     end
 
