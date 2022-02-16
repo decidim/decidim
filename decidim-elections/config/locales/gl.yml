@@ -270,9 +270,7 @@ gl:
         onboarding_modal:
           close: Pechar modal
           create_account: Crear conta
-          description: Queres crear unha conta nova no Decidim? Poderás participar nos procesos e ser unha parte activa da organización.
           no_account: Non, grazas.
-          title: Novo/a no Decidim?
         update:
           error: Produciuse un problema ao actualizar o estado do voto. Por favor, téntao de novo.
     events:
@@ -392,7 +390,6 @@ gl:
             title: Eleccións
         votings:
           form:
-            census_contact_information_help: A información de contacto é para o participante que desexe informar de problemas co censo. Pode ser un enderezo de correo electrónico, un formulario de contacto noutro sitio web, unha enquisa do Decidim para visitantes, etc.
             select_a_voting_type: Por favor, selecciona un tipo de votación
             voting_type:
               hybrid: Híbrido
