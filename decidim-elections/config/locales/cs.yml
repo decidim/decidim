@@ -440,7 +440,6 @@ cs:
           all: Vše
           finished: Dokončeno
           search: Hledat
-          state: Stav
           upcoming: Nadcházející
         filters_small_view:
           close_modal: Zavřít okno
@@ -1332,7 +1331,6 @@ cs:
           all: Vše
           finished: Dokončeno
           search: Hledat
-          state: Stav
           upcoming: Nadcházející
         filters_small_view:
           close_modal: Zavřít modal
