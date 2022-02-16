@@ -30,6 +30,7 @@ shared_examples "manage posts" do
     within "table" do
       expect(page).to have_content("My new title")
       expect(page).to have_content("Post title 2")
+      expect(page).to have_content(author.name)
     end
   end
 
