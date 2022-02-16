@@ -98,7 +98,7 @@ eu:
             values:
               hybrid: Biok
               in_person: Aurrez aurre
-              online: Linean
+              online: Lineakoa
       meeting_copies:
         create:
           error: Akatsa gertatu da bilera hau bikoiztea.
