@@ -125,7 +125,6 @@ es:
         error: Se ha producido un error al eliminar tu cuenta.
         success: Tu cuenta se ha eliminado correctamente.
       show:
-        available_locales_helper: Elige el idioma que quieres utilizar para navegar y recibir notificaciones en Decidim
         change_password: Cambia la contraseña
         update_account: Actualizar cuenta
       update:
