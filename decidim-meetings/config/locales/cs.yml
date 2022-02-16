@@ -98,11 +98,15 @@ cs:
           scope_id_eq:
             label: Oblast působnosti
           with_any_origin:
+            label: Původ
             values:
+              official: Úředník
+              participants: Účastník
               user_group: Skupiny uživatelů
           with_any_type:
             label: Typ schůzky
             values:
+              hybrid: Obojí
               in_person: Osobně
       meeting_copies:
         create:
