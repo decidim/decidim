@@ -382,7 +382,6 @@ ro:
           all: Toate
           finished: Finalizat
           search: Caută
-          state: Stare
           upcoming: Urmează
         filters_small_view:
           close_modal: Închidere
