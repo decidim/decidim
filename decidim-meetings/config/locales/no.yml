@@ -88,20 +88,15 @@
             values:
               'false': Tidligere
               'true': Kommende
-          origin_eq:
-            label: Opprinnelse
-            values:
-              official: Offisiell
-              participant: Deltaker
-              user_group: Brukergrupper
           scope_id_eq:
             label: Tema
-          type_eq:
+          with_any_origin:
+            values:
+              user_group: Brukergrupper
+          with_any_type:
             label: Type møte
             values:
-              hybrid: Begge
               in_person: Tilstede
-              online: På nett
       meeting_copies:
         create:
           error: Det oppstod et problem med å publisere dette møtet.
