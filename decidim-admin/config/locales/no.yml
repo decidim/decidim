@@ -340,7 +340,6 @@
       dashboard:
         show:
           view_more_logs: Vis flere logger
-          welcome: Velkommen til Decidim administrator Panel.
       domain_whitelist:
         form:
           domain_too_short: Domene er for kort
