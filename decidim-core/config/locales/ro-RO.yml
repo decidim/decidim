@@ -982,6 +982,7 @@ ro:
           next: Următoarea
           no_conversations: Încă nu aveți conversații
           title: Conversații
+          to: Către
         reply:
           placeholder: Răspunsul tău...
           send: Trimite
@@ -1082,6 +1083,10 @@ ro:
       update:
         error: A apărut o eroare la actualizarea setărilor notificărilor.
         success: Setările de notificări au fost actualizate cu succes.
+    offline:
+      show:
+        message: Se pare că ești deconectat. Te rugăm să încerci din nou mai târziu.
+        retry: Încearcă din nou
     open_data:
       not_available_yet: Fişierele de date deschise nu sunt încă disponibile, vă rugăm să încercaţi din nou în câteva minute.
     own_user_groups:
