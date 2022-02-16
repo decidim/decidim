@@ -84,18 +84,13 @@ lb:
             values:
               'false': Vergaangenes
               'true': Demnächst stattfannend
-          origin_eq:
-            label: Ursprung
-            values:
-              official: Offiziell
-              user_group: Benotzergruppen
           scope_id_eq:
             label: Ëmfang
-          type_eq:
-            label: Typ vu Versammlung
+          with_any_origin:
             values:
-              hybrid: Beide
-              online: Online
+              user_group: Benotzergruppen
+          with_any_type:
+            label: Typ vu Versammlung
       meeting_copies:
         create:
           error: Es gab einen Fehler beim Duplizieren dieses Meetings.
