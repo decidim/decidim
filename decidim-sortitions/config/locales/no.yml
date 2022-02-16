@@ -76,7 +76,6 @@
           index:
             title: Sorteringer
           new:
-            confirm: Ved å trykke på neste knapp vil Decidim registrere dato og tid (med presisjon på sekunder) og sammen med terningkastet vil denne informasjonen bli brukt til å generere et tilfeldig valg. Denne handlingen vil ikke kunne gjøres om, når knappen er klikket blir resultatet av denne trekningen publisert, sammen med dataene som er lagt inn i dette skjemaet og ikke kan endres, vennligst sjekk innholdet nøye
             create: Opprett
             title: Ny sortering
           show:
