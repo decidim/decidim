@@ -73,7 +73,6 @@ hu:
           index:
             title: Sorsolások
           new:
-            confirm: A gomb megnyomását követően a Decidim rögzíti a dátumot és az időpontot (másodperc pontossággal), amiket a dobókocka feldobásának eredményével együtt felhasznál a véletlen kiválasztáshoz. A művelet visszavonhatatlan lesz miután rákattintottál a gombra és megjelent az eredmény. Kérlek, többször is ellenőrizd az itt szereplő adatokat, mert többször már nem tudod módosítani őket
             create: Létrehozás
             title: Új sorsolás
           show:
