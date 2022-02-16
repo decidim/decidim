@@ -71,7 +71,6 @@ id:
           index:
             title: Sortasi
           new:
-            confirm: Dengan menekan tombol berikutnya, Decidim akan merekam tanggal dan waktu (dengan ketepatan detik) dan bersama dengan gulungan dadu, informasi ini akan digunakan untuk menghasilkan pilihan acak. Tindakan ini tidak akan dapat dikembalikan, setelah tombol diklik, hasil undian ini akan dipublikasikan, bersama dengan data yang dimasukkan dalam formulir ini dan tidak dapat dimodifikasi, silakan periksa konten dengan cermat
             create: Membuat
             title: Pemilahan baru
           show:
