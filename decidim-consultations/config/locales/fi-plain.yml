@@ -251,6 +251,7 @@ fi-pl:
       filters:
         active: Aktiiviset
         all: Kaikki
+        date: Päivämäärä
         finished: Valmiit
         search: Hae
         upcoming: Tulevat
