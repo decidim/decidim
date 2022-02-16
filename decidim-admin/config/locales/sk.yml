@@ -264,7 +264,6 @@ sk:
       dashboard:
         show:
           view_more_logs: Zobraziť viac logov
-          welcome: Vitajte v Administrátorskom Paneli Decidim.
       exports:
         export_as: "%{name} ako %{export_format}"
         notice: Váš export práve prebieha. Obdržíte e-mail po dokončení.
