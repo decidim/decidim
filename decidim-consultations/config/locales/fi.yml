@@ -253,7 +253,6 @@ fi:
         all: Kaikki
         finished: Valmiit
         search: Hae
-        state: Tila
         upcoming: Tulevat
       filters_small_view:
         close_modal: Sulje ikkuna
