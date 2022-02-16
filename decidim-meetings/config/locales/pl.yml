@@ -84,6 +84,14 @@ pl:
               'true': Zamknięte
           is_upcoming_true:
             label: Data
+          origin_eq:
+            label: Źródło
+            values:
+              official: Oficjalny
+          type_eq:
+            values:
+              hybrid: Oba
+              online: Online
       meeting_copies:
         create:
           error: Wystąpił błąd podczas duplikowania tego spotkania.
