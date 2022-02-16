@@ -88,6 +88,8 @@ module Decidim
 
         # Create empty directory for images
         empty_directory "app/packs/images"
+        # Ensure is keeped by git if necessary (otherwise webpacker do not compile)
+        create_file "app/packs/images/.keep"
 
         # Regenerate webpacker binstubs
         remove_file "bin/yarn"
