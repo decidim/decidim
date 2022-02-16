@@ -340,7 +340,7 @@ ja:
       dashboard:
         show:
           view_more_logs: もっとログを見る
-          welcome: Decidim 管理画面へようこそ。
+          welcome: 管理画面へようこそ。
       domain_whitelist:
         form:
           domain_too_short: ドメインが短すぎます
