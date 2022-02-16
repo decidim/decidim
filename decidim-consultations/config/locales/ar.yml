@@ -264,7 +264,6 @@ ar:
         all: الكل
         finished: تم الانتهاء من
         search: بحث
-        state: الحالة
         upcoming: القادمة
       filters_small_view:
         close_modal: أغلق النافذة
