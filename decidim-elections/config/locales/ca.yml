@@ -420,7 +420,6 @@ ca:
           all: Totes
           finished: Finalizada
           search: Cercar
-          state: Estat
           upcoming: Properes
         filters_small_view:
           close_modal: Tancar el modal
@@ -1308,7 +1307,6 @@ ca:
           all: Totes
           finished: Finalitzades
           search: Cercar
-          state: Estat
           upcoming: Properes
         filters_small_view:
           close_modal: Tancar finestra
