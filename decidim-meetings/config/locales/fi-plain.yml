@@ -89,19 +89,15 @@ fi-pl:
             values:
               'false': Menneet
               'true': Tulevat
-          origin_eq:
-            label: Alkuperä
-            values:
-              official: Viralliset
-              user_group: Käyttäjäryhmät
           scope_id_eq:
             label: Teema
-          type_eq:
+          with_any_origin:
+            values:
+              user_group: Käyttäjäryhmät
+          with_any_type:
             label: Tapaamisen tyyppi
             values:
-              hybrid: Molemmat
               in_person: Fyysinen
-              online: Verkossa
       meeting_copies:
         create:
           error: Tämän tapahtuman monistamisessa tapahtui virhe.
@@ -467,6 +463,7 @@ fi-pl:
           origin_values:
             all: Kaikki
             official: Viralliset
+            participants: Osallistujat
             user_groups: Ryhmät
           scope: Teema
           search: Hae
