@@ -76,7 +76,6 @@ fi:
           index:
             title: Satunnaisvalinnat
           new:
-            confirm: Painamalla seuraavaa painiketta Decidim tallentaa päivämäärän ja kellonajan (sekuntien tarkkuudella) ja yhdessä nopan heiton kanssa näitä tietoja käytetään satunnaisvalinnan luomiseen. Toimenpide on peruuttamaton, kun painiketta painetaan valinnan tulos julkaistaan ​​yhdessä tämän lomakkeen tietojen kanssa eikä sitä voi muuttaa, tarkista sisältö huolellisesti
             create: Luo
             title: Uusi satunnaisvalinta
           show:
