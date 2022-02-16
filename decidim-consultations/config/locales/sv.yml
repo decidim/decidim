@@ -253,7 +253,6 @@ sv:
         all: Alla
         finished: Avslutade
         search: Sök
-        state: Status
         upcoming: Kommande
       filters_small_view:
         close_modal: Stäng fönstret
