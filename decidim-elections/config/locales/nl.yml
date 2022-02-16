@@ -1158,7 +1158,6 @@ nl:
           all: Alle
           finished: Afgelopen
           search: Zoeken
-          state: Status
           upcoming: Gepland
         filters_small_view:
           close_modal: Sluit venster
