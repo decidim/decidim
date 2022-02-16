@@ -125,7 +125,6 @@ fi:
         error: Tilisi poistaminen epäonnistui.
         success: Tilisi poistaminen onnistui.
       show:
-        available_locales_helper: Valitse kieli, jota haluat käyttää selataksesi Decidimiä ja vastaanottaaksesi ilmoituksia
         change_password: Vaihda salasana
         update_account: Päivitä tili
       update:
