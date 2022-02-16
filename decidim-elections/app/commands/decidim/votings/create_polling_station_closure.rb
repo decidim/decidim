@@ -3,7 +3,7 @@
 module Decidim
   module Votings
     # A command with all the business logic when creating a closure for a polling station
-    class CreatePollingStationClosure < Rectify::Command
+    class CreatePollingStationClosure < Decidim::Command
       # Public: Initializes the command.
       #
       # form - A form object with the params.

@@ -3,7 +3,7 @@
 module Decidim
   module Forms
     # A class used to collect user answers for a questionnaire
-    class QuestionnaireParticipants < Rectify::Query
+    class QuestionnaireParticipants < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # questionnaire - a Questionnaire object

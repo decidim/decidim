@@ -442,7 +442,6 @@ ar:
           all: الكل
         filter_origin_values:
           all: الكل
-          citizens: المواطنون
           meetings: اجتماعات
           official: الرسمية
           user_groups: المجموعات

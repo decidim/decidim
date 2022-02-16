@@ -8,6 +8,7 @@ module Decidim
     include Decidim::Traceable
     include Decidim::Loggable
     include Decidim::TranslatableResource
+    include Decidim::FilterableResource
 
     translatable_fields :name
 
@@ -73,9 +74,7 @@ module Decidim
     end
 
     # Allow ransacker to search for a key in a hstore column (`name`.`en`)
-    ransacker :name do |parent|
-      Arel::Nodes::InfixOperation.new("->>", parent.table[:name], Arel::Nodes.build_quoted(I18n.locale.to_s))
-    end
+    ransacker_i18n :name
 
     private
 

@@ -7,7 +7,7 @@ $meetingsCount.html('<%= j(render partial: "decidim/meetings/meetings/count").st
 var $dropdownMenu = $('.dropdown.menu', $meetings);
 $dropdownMenu.foundation();
 
-var markerData = JSON.parse('<%= escape_javascript meetings_data_for_map(search.results).to_json.html_safe %>');
+var markerData = JSON.parse('<%= escape_javascript meetings_data_for_map(search.result).to_json.html_safe %>');
 
 var $map = $("#map");
 var controller = $map.data("map-controller");

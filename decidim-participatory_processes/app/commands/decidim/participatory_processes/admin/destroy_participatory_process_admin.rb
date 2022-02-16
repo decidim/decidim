@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when destroying a participatory
       # process admin in the system.
-      class DestroyParticipatoryProcessAdmin < Rectify::Command
+      class DestroyParticipatoryProcessAdmin < Decidim::Command
         # Public: Initializes the command.
         #
         # role - the ParticipatoryProcessUserRole to destroy

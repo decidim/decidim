@@ -3,7 +3,7 @@
 module Decidim
   module Comments
     # A command with all the business logic to create a new comment
-    class CreateComment < Rectify::Command
+    class CreateComment < Decidim::Command
       # Public: Initializes the command.
       #
       # form - A form object with the params.

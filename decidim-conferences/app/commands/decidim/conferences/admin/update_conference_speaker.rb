@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when updating a conference
       # speaker in the system.
-      class UpdateConferenceSpeaker < Rectify::Command
+      class UpdateConferenceSpeaker < Decidim::Command
         include ::Decidim::AttachmentAttributesMethods
 
         # Public: Initializes the command.
@@ -55,13 +55,13 @@ module Decidim
 
         def attributes
           form.attributes.slice(
-            :full_name,
-            :twitter_handle,
-            :personal_url,
-            :position,
-            :affiliation,
-            :short_bio
-          ).merge(
+            "full_name",
+            "twitter_handle",
+            "personal_url",
+            "position",
+            "affiliation",
+            "short_bio"
+          ).symbolize_keys.merge(
             user: form.user
           ).merge(
             attachment_attributes(:avatar)

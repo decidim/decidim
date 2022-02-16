@@ -2,7 +2,7 @@
   <div class="filters__section">
     <div class="filters__search">
       <div class="input-group">
-        <%= form.search_field :search_text, label: false, class: "input-group-field", placeholder: t(".search"), title: t(".search"), "aria-label": t(".search") %>
+        <%= form.search_field :search_text_cont, label: false, class: "input-group-field", placeholder: t(".search"), title: t(".search"), "aria-label": t(".search") %>
         <div class="input-group-button">
           <button type="submit" class="button">
             <%= icon "magnifying-glass", aria_label: t(".search"), role: "img" %>
@@ -12,15 +12,15 @@
     </div>
   </div>
 
-  <%= form.check_boxes_tree :state, filter_states_values, legend_title: t(".state") %>
+  <%= form.check_boxes_tree :with_any_state, filter_states_values, legend_title: t(".state") %>
 
-  <%= form.check_boxes_tree :scope_id, filter_scopes_values, legend_title: t(".scope") %>
+  <%= form.check_boxes_tree :with_any_scope, filter_scopes_values, legend_title: t(".scope") %>
 
   <% unless single_initiative_type? %>
-    <%= form.check_boxes_tree :type_id, filter_types_values, legend_title: t(".type") %>
+    <%= form.check_boxes_tree :with_any_type, filter_types_values, legend_title: t(".type") %>
   <% end %>
 
-  <%= form.check_boxes_tree :area_id, filter_areas_values, legend_title: t(".area") %>
+  <%= form.check_boxes_tree :with_any_area, filter_areas_values, legend_title: t(".area") %>
 
   <% if current_user %>
     <%= form.collection_radio_buttons :author,

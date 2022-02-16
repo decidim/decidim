@@ -3,7 +3,7 @@
 module Decidim
   module Assemblies
     # This query filters assemblies so only parent assemblies are returned.
-    class ParentAssemblies < Rectify::Query
+    class ParentAssemblies < Decidim::Query
       def query
         Decidim::Assembly.where(parent: nil)
       end

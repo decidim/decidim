@@ -6,6 +6,7 @@ ignore:
   - "decidim-*/lib/decidim/**/participatory_space.rb"
 coverage:
   status:
+    patch: false
     project:
       default:
         threshold: 0.1%

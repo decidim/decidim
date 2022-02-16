@@ -13,8 +13,7 @@ gem "decidim-templates", path: "."
 
 gem "bootsnap", "~> 1.4"
 
-gem "foundation_rails_helper", git: "https://github.com/sgruhier/foundation_rails_helper.git"
-gem "puma", ">= 5.5.1"
+gem "puma", ">= 5.6.2"
 
 gem "faker", "~> 2.14"
 
@@ -29,6 +28,7 @@ group :development, :test do
   gem "decidim-dev", path: "."
 
   gem "brakeman", "~> 5.1"
+  gem "parallel_tests", "~> 3.7"
 end
 
 group :development do

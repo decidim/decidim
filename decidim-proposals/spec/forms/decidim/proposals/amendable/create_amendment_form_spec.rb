@@ -47,14 +47,14 @@ module Decidim
 
       context "when amendable body is not etiquette-compliant" do
         let(:amendable) { create(:proposal, body: "A") }
-        let(:emendation_params) { { title: "A title which is long enough", body: amendable.body } }
+        let(:emendation_params) { { title: "A title which is long enough", body: translated(amendable.body) } }
 
         it { is_expected.to be_valid }
       end
 
       context "when emendation adds more errors than original" do
         let(:amendable) { create(:proposal, title: "AAAAAAAAAAAAAAAAAAAAAAAAAA") }
-        let(:emendation_params) { { title: "AA", body: amendable.body } }
+        let(:emendation_params) { { title: "AA", body: translated(amendable.body) } }
 
         it "is invalid" do
           expect(form).to be_invalid

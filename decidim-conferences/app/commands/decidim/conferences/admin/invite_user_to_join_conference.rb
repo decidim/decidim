@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic to invite users to join a conference.
       #
-      class InviteUserToJoinConference < Rectify::Command
+      class InviteUserToJoinConference < Decidim::Command
         # Public: Initializes the command.
         #
         # form         - A form object with the params.

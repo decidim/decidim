@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # Creates a newsletter and assigns the right author and
     # organization.
-    class CreateNewsletter < Rectify::Command
+    class CreateNewsletter < Decidim::Command
       # Initializes the command.
       #
       # form - The source fo data for this newsletter.

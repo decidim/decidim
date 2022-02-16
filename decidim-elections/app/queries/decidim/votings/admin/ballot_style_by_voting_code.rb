@@ -4,7 +4,7 @@ module Decidim
   module Votings
     module Admin
       # A class used to find trustees by participatory space.
-      class BallotStyleByVotingCode < Rectify::Query
+      class BallotStyleByVotingCode < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         #
         # voting - the voting of the Ballot Style

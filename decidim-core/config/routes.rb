@@ -3,6 +3,8 @@
 Decidim::Core::Engine.routes.draw do
   mount Decidim::Api::Engine => "/api"
 
+  get "/offline", to: "offline#show"
+
   devise_for :users,
              class_name: "Decidim::User",
              module: :devise,
@@ -28,6 +30,8 @@ Decidim::Core::Engine.routes.draw do
   devise_scope :user do
     post "omniauth_registrations" => "devise/omniauth_registrations#create"
   end
+
+  resource :manifest, only: [:show]
 
   resource :locale, only: [:create]
 

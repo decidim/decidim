@@ -11,15 +11,15 @@ module Decidim
           .url_helpers
           .participatory_processes_path(
             filter: {
-              scope_id: get_filter(:scope_id),
-              area_id: get_filter(:area_id),
-              date: filter
+              with_scope: get_filter(:with_scope),
+              with_area: get_filter(:with_area),
+              with_date: filter
             }
           )
       end
 
       def current_filter
-        get_filter(:date, model[:default_filter])
+        get_filter(:with_date, model[:default_filter])
       end
 
       def get_filter(filter_name, default = nil)
@@ -27,20 +27,24 @@ module Decidim
       end
 
       def filtered_processes(date_filter)
-        ParticipatoryProcessSearch.new(
-          date: date_filter,
-          scope_id: get_filter(:scope_id),
-          area_id: get_filter(:area_id),
+        query = ParticipatoryProcess.ransack(
+          {
+            with_date: date_filter,
+            with_scope: get_filter(:with_scope),
+            with_area: get_filter(:with_area)
+          },
           current_user: current_user,
           organization: current_organization
-        )
+        ).result
+
+        query.published.visible_for(current_user)
       end
 
       def process_count_by_filter
         return @process_count_by_filter if @process_count_by_filter
 
         @process_count_by_filter = %w(active upcoming past).inject({}) do |collection_by_filter, filter_name|
-          filtered_processes = filtered_processes(filter_name).results
+          filtered_processes = filtered_processes(filter_name)
           processes = filtered_processes.groupless
           groups = Decidim::ParticipatoryProcessGroup.where(id: filtered_processes.grouped.group_ids)
           collection_by_filter.merge(filter_name => processes.count + groups.count)

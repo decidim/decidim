@@ -834,6 +834,14 @@ fr-CA:
           explanation: 'Téléchargez votre fichier CSV. Il doit avoir deux colonnes avec dans la première colonne les emails, et dans la deuxième colonne les noms (email, nom) des utilisateurs que vous souhaitez ajouter à l''espace participatif, sans en-tête. Évitez les caractères spéciaux comme `<>?%&^*#@()[]=+:;"{}\|` dans les noms des utilisateurs.'
           title: Téléchargez votre fichier CSV
           upload: Télécharger
+      reminders:
+        create:
+          error: Il y a eu un problème lors de la création des rappels.
+          success:
+            one: "%{count} utilisateur recevra un rappel."
+            other: "%{count} utilisateurs recevront un rappel."
+        new:
+          submit: Envoyer
       resource_permissions:
         edit:
           submit: Soumettre

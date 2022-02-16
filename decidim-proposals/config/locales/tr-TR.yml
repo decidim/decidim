@@ -531,7 +531,6 @@ tr:
           all: Tümü
         filter_origin_values:
           all: Tümü
-          citizens: Vatandaşlar
           meetings: Toplantılar
           official: Resmi
           user_groups: Gruplar

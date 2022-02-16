@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user updates an Election
       # from the admin panel.
-      class UpdateElection < Rectify::Command
+      class UpdateElection < Decidim::Command
         include ::Decidim::AttachmentMethods
         include ::Decidim::GalleryMethods
 

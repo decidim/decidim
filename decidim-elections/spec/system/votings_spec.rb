@@ -108,7 +108,7 @@ describe "Votings", type: :system do
       it "allows searching by text" do
         visit decidim_votings.votings_path
         within ".filters" do
-          fill_in "filter[search_text]", with: translated(voting.title)
+          fill_in "filter[search_text_cont]", with: translated(voting.title)
 
           # The form should be auto-submitted when filter box is filled up, but
           # somehow it's not happening. So we workaround that be explicitly
@@ -121,7 +121,7 @@ describe "Votings", type: :system do
         expect(page).to have_content(translated(voting.title))
       end
 
-      describe "when by different states" do
+      describe "when by different dates" do
         let!(:finished_voting) { create(:voting, :finished, organization: organization) }
         let!(:upcoming_voting) { create(:voting, :upcoming, organization: organization) }
         let!(:ongoing_voting) { create(:voting, :ongoing, organization: organization) }
@@ -130,8 +130,8 @@ describe "Votings", type: :system do
           visit decidim_votings.votings_path
         end
 
-        it "allows filtering by finished state" do
-          within ".state_check_boxes_tree_filter" do
+        it "allows filtering by finished date" do
+          within ".with_any_date_check_boxes_tree_filter" do
             uncheck "All"
             check "Finished"
           end
@@ -140,8 +140,8 @@ describe "Votings", type: :system do
           expect(page).to have_content(translated(finished_voting.title))
         end
 
-        it "allows filtering by active state" do
-          within ".state_check_boxes_tree_filter" do
+        it "allows filtering by active date" do
+          within ".with_any_date_check_boxes_tree_filter" do
             uncheck "All"
             check "Active"
           end
@@ -149,8 +149,8 @@ describe "Votings", type: :system do
           expect(page).to have_css(".card--voting", count: 1)
         end
 
-        it "allows filtering by upcoming state" do
-          within ".state_check_boxes_tree_filter" do
+        it "allows filtering by upcoming date" do
+          within ".with_any_date_check_boxes_tree_filter" do
             uncheck "All"
             check "Upcoming"
           end
@@ -159,8 +159,8 @@ describe "Votings", type: :system do
           expect(page).to have_content(translated(upcoming_voting.title))
         end
 
-        it "allows filtering by all states" do
-          within ".state_check_boxes_tree_filter" do
+        it "allows filtering by all date" do
+          within ".with_any_date_check_boxes_tree_filter" do
             uncheck "All"
           end
 

@@ -257,6 +257,8 @@ en:
         update:
           error: There was a problem updating this attachment.
           success: Attachment updated successfully.
+      attachments_privacy_warning:
+        message: Be careful when working with attachments in a private space. Any participant could share this document to others.
       autocomplete:
         no_results: No results found
         search_prompt: Type at least three characters to search
@@ -835,6 +837,14 @@ en:
           explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file (email, name) of the users that you want to add to the participatory space, without headers. Avoid using invalid chars like `<>?%&^*#@()[]=+:;"{}\|` in user name.
           title: Upload your CSV file
           upload: Upload
+      reminders:
+        create:
+          error: There was a problem creating reminders.
+          success:
+            one: "%{count} user will be reminded."
+            other: "%{count} users will be reminded."
+        new:
+          submit: Send
       resource_permissions:
         edit:
           submit: Submit

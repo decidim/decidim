@@ -597,7 +597,6 @@ ro:
           all: Toate
         filter_origin_values:
           all: Toate
-          citizens: Cetățeni
           meetings: Întâlniri
           official: Oficial
           user_groups: Grupuri

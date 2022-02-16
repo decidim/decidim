@@ -280,12 +280,10 @@ pl:
             update: Aktualizuj
           form:
             address_help: 'Adres: używany przez Geocoder do znalezienia lokalizacji'
-            available_slots_help: Pozostaw 0, jeśli masz dostęp do nieograniczonej liczby miejsc
             disclaimer: 'Uwaga: Korzystając z zewnętrznego systemu uwierzytelniania, jesteś świadomy, że organizatorzy %{organization} nie są odpowiedzialni za dane dostarczone przez użytkowników usługi zewnętrznej.'
             location_help: 'Lokalizacja: informacja dla użytkowników dotycząca miejsca spotkania'
             location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku, jeśli jest to spotkanie fizyczne, lub hasło do spotkania, jeśli odbywa się ono online i ma ograniczony dostęp.'
             online_meeting_url_help: 'Link: zezwól uczestnikom na bezpośredni dostęp do Twojego spotkania'
-            registration_email_help: Ten tekst pojawi się w środku wiadomości e-mail z potwierdzeniem rejestracji. Tuż po kodzie rejestracyjnym.
             registration_url_help: 'Link: zezwól użytkownikom na korzystanie z usługi zewnętrznej, której używasz do rejestracji'
             select_a_meeting_type: Wybierz typ spotkania
             select_a_registration_type: Wybierz typ rejestracji
@@ -328,6 +326,7 @@ pl:
             available_slots_help: Zostaw 0, jeśli dostępna jest nieograniczona liczba miejsc.
             invites: Zaproszenia
             recommendation_message: Ze względu na ochronę prywatności zalecamy usunięcie tego podpisu, gdy nie będzie już wymagany. Standardowo są to 3 miesiące od zakończenia spotkania.
+            registration_email_help: Ten tekst pojawi się w środku wiadomości e-mail z potwierdzeniem rejestracji. Tuż po kodzie rejestracyjnym.
             registration_form: Formularz rejestracyjny
             registrations_count:
               one: Była%{count} rejestracja.
@@ -420,7 +419,6 @@ pl:
           origin: Źródło
           origin_values:
             all: Wszystkie
-            citizens: Obywatele
             official: Oficjalny
             user_groups: Grupy
           scope: Zakres

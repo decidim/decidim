@@ -88,7 +88,7 @@ module Decidim
 
         # Create empty directory for images
         empty_directory "app/packs/images"
-        # Ensure is keeped by git if necessary (otherwise webpacker do not compile)
+        # Add a .keep file so directory is included in git when committing
         create_file "app/packs/images/.keep"
 
         # Regenerate webpacker binstubs
