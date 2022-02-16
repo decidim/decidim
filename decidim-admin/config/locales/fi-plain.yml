@@ -256,6 +256,8 @@ fi-pl:
         update:
           error: Tämän liitteen päivityksessä tapahtui virhe.
           success: Liite luotu onnistuneesti.
+      attachments_privacy_warning:
+        message: Ole varovainen, kun työskentelet liitetiedostojen kanssa yksityisessä tilassa. Kuka tahansa osallistuja voi jakaa tämän asiakirjan muille.
       autocomplete:
         no_results: Ei tuloksia
         search_prompt: Kirjoita vähintään kolme merkkiä hakuun
@@ -834,6 +836,14 @@ fi-pl:
           explanation: 'Lataa CSV-tiedosto osallistumistilan käyttäjistä. Tiedostossa on oltava kaksi saraketta tuotaville käyttäjille ilman sarakeotsikoita: sähköpostiosoitteet ensimmäisessä ja nimi toisessa sarakkeessa (sähköposti, nimi). Vältä erikoismerkkejä nimessä, kuten `<>?%&^*#@()[]=+:;"{}\|`.'
           title: Lataa CSV-tiedosto
           upload: Lataa
+      reminders:
+        create:
+          error: Muistutusten luonti epäonnistui.
+          success:
+            one: "%{count} käyttäjää muistutetaan."
+            other: "%{count} käyttäjää muistutetaan."
+        new:
+          submit: Lähetä
       resource_permissions:
         edit:
           submit: Lähetä
