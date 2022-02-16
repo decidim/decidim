@@ -511,15 +511,12 @@ ro:
               generate_legend_3: Asigură-te că nu există o copie a fișierului în calculatorul tău (de exemplu, verifică dosarele Descărcări și Desktop).
               generate_legend_4: Faceți o altă copie a fișierului pe un alt dispozitiv extern și păstrați-l într-un loc foarte sigur.
               submit: Trimiteți
-              submit_legend: După urmărirea tuturor paşilor explicaţi mai sus, finalizaţi procesul de trimitere a cheii publice de identificare la serverul Decidim.
               submit_title: Trimite cheia publică de identificare
               title: Chei de identificare împuternicit
               upload: Încărcați-vă cheile de identificare
               upload_error:
                 invalid_format: Fişierul încărcat nu conţine nici o cheie de identificare.
                 invalid_key: Tastele de identificare din fișierul încărcat nu pot fi încărcate.
-                invalid_public_key: Tastele de identificare din fişierul încărcat nu se potrivesc cu cheia de identificare publică stocată de Decidim.
-              upload_legend: Decidim are cheile tale de identificare publică, dar browserul tău încă nu le are. Trebuie să importați fișierul cu cheile de identificare în calculator din copia de siguranță creată după ce ați generat.
             not_supported_browser_description: Se pare că folosești un browser web care nu poate fi folosit pentru a acționa ca împuternicit. Asigură-te că folosești cea mai recentă versiune de browser, sau încercați să utilizați oricare dintre cele mai populare browsere pentru a putea finaliza sarcinile dvs. drept împuternicit.
             not_supported_browser_title: Actualizează browser-ul pentru a acționa ca împuternicit
             trustee_role_description: Ai fost desemnat drept împuternicit în unele dintre alegerile celebrate în această platformă.
@@ -568,9 +565,7 @@ ro:
         onboarding_modal:
           close: Închidere
           create_account: Creează cont
-          description: Vrei să creezi un cont nou în Decidim? Veţi putea participa la procese şi să fiţi o parte activă a organizaţiei.
           no_account: Nu, mulțumesc.
-          title: Nou în Decidem?
         voting_step:
           back: Înapoi
           continue: Următoarea
