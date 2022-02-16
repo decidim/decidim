@@ -338,7 +338,6 @@ sv:
       dashboard:
         show:
           view_more_logs: Visa fler loggar
-          welcome: Välkommen till Decidims administratörspanel.
       domain_whitelist:
         form:
           domain_too_short: Domänen är för kort
