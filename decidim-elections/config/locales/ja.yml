@@ -400,7 +400,7 @@ ja:
           all: 全て
           finished: 完了
           search: 検索
-          state: 状態
+          state: ステータス：
           upcoming: 今後の予定
         filters_small_view:
           close_modal: ウィンドウを閉じる
@@ -1270,7 +1270,7 @@ ja:
           all: 全て
           finished: 完了
           search: 検索
-          state: ステータス
+          state: ステータス：
           upcoming: 今後の予定
         filters_small_view:
           close_modal: 閉じる
