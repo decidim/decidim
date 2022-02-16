@@ -1309,6 +1309,9 @@ hu:
         expire_time_html: A munkamenet <b><span class="minutes">%{minutes}</span> perc múlva lejár</b>.
       notifications_dashboard:
         mark_all_as_read: Összes megjelölése olvasottként
+      timeout_modal:
+        sign_out: Kijelentkezés
+        title: Folytatja a munkamenetet?
       user_menu:
         admin_dashboard: Admin vezérlőpult
         conversations: Beszélgetések
