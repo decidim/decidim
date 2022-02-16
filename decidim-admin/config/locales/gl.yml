@@ -334,7 +334,6 @@ gl:
       dashboard:
         show:
           view_more_logs: Ver máis rexistros
-          welcome: Benvido ao Panel de administración de decisións.
       domain_whitelist:
         form:
           domain_too_short: Dominio curto de máis
