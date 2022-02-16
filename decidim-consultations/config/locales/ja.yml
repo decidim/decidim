@@ -245,7 +245,6 @@ ja:
         all: すべて
         finished: 完了
         search: 検索
-        state: ステータス
         upcoming: 近日公開
       filters_small_view:
         close_modal: ウィンドウを閉じる
