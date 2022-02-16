@@ -412,7 +412,6 @@ it:
           all: Tutti
           finished: Completata
           search: Cerca
-          state: Stato
           upcoming: Imminente
         filters_small_view:
           close_modal: Chiudi finestra
@@ -1300,7 +1299,6 @@ it:
           all: Tutti
           finished: Finito
           search: Ricerca
-          state: Stato
           upcoming: Prossimi
         filters_small_view:
           close_modal: Chiudi modalità
