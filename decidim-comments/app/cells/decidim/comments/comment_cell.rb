@@ -182,7 +182,7 @@ module Decidim
       end
 
       def has_replies?
-        model.comment_threads.any?
+        model.comment_threads.includes(:moderation).collect { |c| !c.deleted? && !c.hidden? }.any?
       end
 
       # action_authorization_button expects current_component to be available
