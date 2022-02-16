@@ -89,12 +89,17 @@ ja:
           scope_id_eq:
             label: スコープ
           with_any_origin:
+            label: オリジン
             values:
+              official: 公式
+              participants: 参加者
               user_group: ユーザーグループ
           with_any_type:
             label: ミーティングの種類
             values:
+              hybrid: ハイブリッド
               in_person: 対面
+              online: オンライン
       meeting_copies:
         create:
           error: このミーティングを複製する際に問題が発生しました。
