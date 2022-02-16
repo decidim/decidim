@@ -420,7 +420,6 @@ fr:
           all: Toutes
           finished: Terminées
           search: Rechercher
-          state: Statut
           upcoming: À venir
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
@@ -1308,7 +1307,6 @@ fr:
           all: Tous
           finished: Terminées
           search: Rechercher
-          state: Statut
           upcoming: À venir
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
