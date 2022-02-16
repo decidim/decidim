@@ -59,6 +59,12 @@ zh-CN:
         other: 注册
   decidim:
     admin:
+      filters:
+        meetings:
+          origin_eq:
+            label: 始发地
+            values:
+              official: 官方的
       meeting_copies:
         create:
           error: 重复这次会议时出现问题。
