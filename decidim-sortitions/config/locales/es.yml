@@ -76,7 +76,6 @@ es:
           index:
             title: Sorteos
           new:
-            confirm: Al presionar el botón siguiente, Decidim registrará la fecha y la hora (con precisión de segundos) y junto con la tirada de dados, esta información se usará para generar una selección aleatoria. La acción será irreversible, una vez que se haga clic en el botón, se publicará el resultado de este sorteo, junto con los datos ingresados ​​en este formulario y no se pueden modificar, compruebe el contenido detenidamente
             create: Crear
             title: Nuevo sorteo
           show:
