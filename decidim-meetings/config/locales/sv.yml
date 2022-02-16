@@ -89,11 +89,14 @@ sv:
             label: Omfång
           with_any_origin:
             values:
+              participants: Deltagare
               user_group: Användargrupper
           with_any_type:
             label: Mötestyp
             values:
+              hybrid: Båda
               in_person: Fysiska
+              online: Online
       meeting_copies:
         create:
           error: Det gick inte att duplicera mötet.
