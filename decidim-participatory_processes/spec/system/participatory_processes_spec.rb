@@ -236,6 +236,8 @@ describe "Participatory Processes", type: :system do
         let(:promoted_items_titles) { page.all("#highlighted-processes .card__title").map(&:text) }
 
         before do
+          promoted_group.title["en"] = "D'Artagnan #{promoted_group.title["en"]}"
+          promoted_group.save!
           visit decidim_participatory_processes.participatory_processes_path
         end
 
@@ -246,6 +248,13 @@ describe "Participatory Processes", type: :system do
         it "lists only promoted groups" do
           expect(promoted_items_titles).to include(translated(promoted_group.title, locale: :en))
           expect(promoted_items_titles).not_to include(translated(group.title, locale: :en))
+        end
+
+        it "lists all the highlighted process groups" do
+          within "#highlighted-processes" do
+            expect(page).to have_content(translated(promoted_group.title, locale: :en))
+            expect(page).to have_selector(".card--full", count: 2)
+          end
         end
 
         context "and promoted group has defined a CTA content block" do
