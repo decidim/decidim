@@ -270,7 +270,6 @@
             duration_help: Hvis varigheten av denne forsamlingen er limitert, velg en sluttdato. Hvis ikke, vil den vises som ubestemt.
             filters: Filter
             images: Bilder
-            included_at_help: Velg datoen da denne forsamling ble lagt til Decidim. Dette trenger ikke nødvendigvis å være det samme som opprettelsesdatoen.
             metadata: Metadata
             other: Annet
             select_a_created_by: Velg en opprettet av
