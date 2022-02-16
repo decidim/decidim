@@ -331,7 +331,6 @@ pt-BR:
       dashboard:
         show:
           view_more_logs: Ver mais registros
-          welcome: Bem-vindo ao Decidim Admin Panel.
       domain_whitelist:
         form:
           domain_too_short: Domínio muito curto
