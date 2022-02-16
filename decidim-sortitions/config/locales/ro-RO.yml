@@ -78,7 +78,6 @@ ro:
           index:
             title: Trageri la sorți
           new:
-            confirm: Prin apăsarea butonului următor Decidim va înregistra data şi ora (cu precizie de secunde) şi împreună cu aruncarea zarului, această informaţie va fi folosită pentru a genera o selecţie aleatorie. Acțiunea va fi ireversibilă, odată ce butonul este apăsat, rezultatul acestei trageri la sorți va fi publicat împreună cu datele introduse în acest formular și nu pot fi modificate. Te rugăm să verifici cu atenție conținutul
             create: Creează
             title: Tragere la sorți nouă
           show:
