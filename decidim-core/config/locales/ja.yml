@@ -113,7 +113,6 @@ ja:
         error: アカウントの削除中に問題が発生しました。
         success: アカウントが正常に削除されました。
       show:
-        available_locales_helper: Decidimからの通知を閲覧および受信するために使用する言語を選択します
         change_password: パスワードの変更
         update_account: アカウントを更新
       update:
