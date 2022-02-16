@@ -159,7 +159,6 @@ gl:
           all: Todas
           finished: Finalizada
           search: Procurar
-          state: Estado
           upcoming: Vindeiras
         filters_small_view:
           close_modal: Pechar modal
