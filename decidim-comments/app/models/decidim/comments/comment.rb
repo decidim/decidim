@@ -83,9 +83,10 @@ module Decidim
       end
 
       alias original_participatory_space participatory_space
+
       def participatory_space
         return original_participatory_space if original_participatory_space.present?
-        return root_commentable if root_commentable.is_a?(Decidim::Participable)
+        return root_commentable unless root_commentable.respond_to?(:participatory_space)
 
         root_commentable.participatory_space
       end
