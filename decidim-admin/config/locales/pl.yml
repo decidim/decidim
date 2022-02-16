@@ -331,7 +331,6 @@ pl:
       dashboard:
         show:
           view_more_logs: Zobacz więcej logów
-          welcome: Witamy w panelu administracyjnym Decidim.
       domain_whitelist:
         form:
           domain_too_short: Domena jest zbyt krótka
