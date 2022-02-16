@@ -64,11 +64,6 @@ gl:
         other: Rexistros
   decidim:
     admin:
-      filters:
-        meetings:
-          origin_eq:
-            values:
-              participant: Participante
       meeting_copies:
         create:
           error: Produciuse un erro ao duplicar esta reunión.
