@@ -230,6 +230,7 @@ sv:
         filters:
           active: Aktiv
           all: Allt
+          date: Datum
           finished: Avslutad
           search: Sök
           upcoming: Kommande
@@ -567,6 +568,7 @@ sv:
         filters:
           active: Aktiva
           all: Alla
+          date: Datum
           finished: Avslutade
           search: Sök
           upcoming: Kommande
