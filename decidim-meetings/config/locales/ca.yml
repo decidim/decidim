@@ -89,20 +89,15 @@ ca:
             values:
               'false': Passades
               'true': Properes
-          origin_eq:
-            label: Origen
-            values:
-              official: Oficial
-              participant: Participant
-              user_group: Grups
           scope_id_eq:
             label: Àmbit
-          type_eq:
+          with_any_origin:
+            values:
+              user_group: Grups
+          with_any_type:
             label: Tipus de trobada
             values:
-              hybrid: Ambdós
               in_person: Presencial
-              online: En línia
       meeting_copies:
         create:
           error: S'ha produït un error en duplicar aquesta trobada.
