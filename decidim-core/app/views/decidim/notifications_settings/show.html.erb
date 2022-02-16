@@ -28,6 +28,11 @@
       <% end %>
     </div>
 
+    <p><strong><%= t(".notifications_sending_frequency") %></strong></p>
+    <%= f.radio_button("notifications_sending_frequency", t(".notifications_sending_frequencies.real_time")) %>
+    <%= f.radio_button("notifications_sending_frequency", t(".notifications_sending_frequencies.daily")) %>
+    <%= f.radio_button("notifications_sending_frequency", t(".notifications_sending_frequencies.weekly")) %>
+
     <p><strong><%= t(".newsletters") %></strong></p>
     <div class="switch tiny switch-with-label newsletter_notifications">
       <label>

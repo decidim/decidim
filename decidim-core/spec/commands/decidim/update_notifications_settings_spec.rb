@@ -13,7 +13,8 @@ module Decidim
         email_on_moderations: true,
         newsletter_notifications_at: Time.current,
         direct_message_types: "followed-only",
-        notification_settings: { "close_meeting_reminder": "0" }
+        notification_settings: { "close_meeting_reminder": "0" },
+        notifications_sending_frequency: "weekly"
       }
     end
 
@@ -25,6 +26,7 @@ module Decidim
         newsletter_notifications_at: data[:newsletter_notifications_at],
         direct_message_types: data[:direct_message_types],
         notification_settings: data[:notification_settings],
+        notifications_sending_frequency: data[:notifications_sending_frequency],
         valid?: valid
       )
     end
@@ -48,6 +50,7 @@ module Decidim
         expect(user.notification_types).to eq "none"
         expect(user.direct_message_types).to eq "followed-only"
         expect(user.notification_settings["close_meeting_reminder"]).to eq "0"
+        expect(user.notifications_sending_frequency).to eq "weekly"
       end
     end
   end

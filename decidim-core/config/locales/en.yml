@@ -1109,6 +1109,18 @@ en:
         original_text: 'Original text:'
         same_language: The content has been posted in your preferred language (%{language}), this is why no automated translation is displayed in this email.
         translated_text: 'Automatically translated text:'
+    notifications_digest_mailer:
+      subject: This is your mail digest
+      header:
+        daily: Daily Notification Digest
+        weekly: Weekly Notification Digest
+      hello: Hello
+      original_text: 'Original text:'
+      intro:
+        daily: 'These are the notifications from the last day based on the activity you are following:'
+        weekly: 'These are the notifications from the last week based on the activity you are following:'
+      outro: You have received these notifications because you are following this content or its authors. You can unfollow them from their respective pages.
+      see_more: See more notifications
     notifications:
       no_notifications: No notifications yet.
     notifications_settings:
@@ -1126,6 +1138,11 @@ en:
         own_activity: My own activity, like when someone comments in my proposal or mentions me
         receive_notifications_about: I want to get notifications about
         send_notifications_by_email: Send notifications by email
+        notifications_sending_frequency: How often do you want to receive notifications?
+        notifications_sending_frequencies:
+          real_time: Real Time
+          daily: Daily
+          weekly:  Weekly
         update_notifications_settings: Save changes
       update:
         error: There was a problem updating your notifications settings.

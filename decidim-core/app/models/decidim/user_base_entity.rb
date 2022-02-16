@@ -15,6 +15,7 @@ module Decidim
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
     has_many :notifications, foreign_key: "decidim_user_id", class_name: "Decidim::Notification", dependent: :destroy
+    has_many :notifications_subscriptions, foreign_key: "decidim_user_id", class_name: "Decidim::NotificationsSubscription", dependent: :destroy
     has_many :following_follows, foreign_key: "decidim_user_id", class_name: "Decidim::Follow", dependent: :destroy
 
     # Regex for name & nickname format validations
