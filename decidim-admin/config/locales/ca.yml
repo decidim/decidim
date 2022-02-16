@@ -340,7 +340,6 @@ ca:
       dashboard:
         show:
           view_more_logs: Veure més registres
-          welcome: Benvinguda al tauler d'administració de Decidim.
       domain_whitelist:
         form:
           domain_too_short: El domini és massa curt
