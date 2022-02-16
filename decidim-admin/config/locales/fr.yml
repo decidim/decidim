@@ -340,7 +340,7 @@ fr:
       dashboard:
         show:
           view_more_logs: Afficher plus
-          welcome: Bienvenue dans l'espace d'administration de Decidim.
+          welcome: Bienvenue dans l'espace d'administration.
       domain_whitelist:
         form:
           domain_too_short: Le nom de domaine est trop court
