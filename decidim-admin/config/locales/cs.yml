@@ -340,6 +340,7 @@ cs:
       dashboard:
         show:
           view_more_logs: Zobrazit další protokoly
+          welcome: Vítejte v Admin panelu.
       domain_whitelist:
         form:
           domain_too_short: Doména je příliš krátká
