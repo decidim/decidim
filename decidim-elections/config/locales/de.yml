@@ -396,7 +396,6 @@ de:
           all: Alle
           finished: Abgeschlossen
           search: Suche
-          state: Status
           upcoming: Anstehend
         filters_small_view:
           close_modal: Dialog schließen
@@ -1243,7 +1242,6 @@ de:
           all: Alle
           finished: Abgeschlossen
           search: Suchen
-          state: Status
           upcoming: Zukünftig
         filters_small_view:
           close_modal: Dialog schließen
