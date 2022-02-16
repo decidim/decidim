@@ -89,19 +89,15 @@ es-PY:
             values:
               'false': Pasados
               'true': Próximos
-          origin_eq:
-            label: Origen
-            values:
-              official: Oficial
-              user_group: Grupos
           scope_id_eq:
             label: Ámbito
-          type_eq:
+          with_any_origin:
+            values:
+              user_group: Grupos
+          with_any_type:
             label: Tipo de encuentro
             values:
-              hybrid: Ambos
               in_person: Presencial
-              online: En línea
       meeting_copies:
         create:
           error: Se ha producido un error al duplicar este encuentro.
