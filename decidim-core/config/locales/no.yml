@@ -125,7 +125,6 @@
         error: Det oppsto et problem med å slette kontoen din.
         success: Kontoen din ble slettet.
       show:
-        available_locales_helper: Velg språket du vil bruke til å bla gjennom og motta varsler
         change_password: Endre passord
         update_account: Oppdater konto
       update:
