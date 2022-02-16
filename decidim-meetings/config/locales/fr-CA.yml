@@ -92,12 +92,17 @@ fr-CA:
           scope_id_eq:
             label: Périmètre
           with_any_origin:
+            label: Origine
             values:
+              official: Officiel
+              participants: Participantes
               user_group: Groupes d’utilisateurs
           with_any_type:
             label: Type de rencontre
             values:
+              hybrid: Hybride
               in_person: En présentiel
+              online: En ligne
       meeting_copies:
         create:
           error: Une erreur s'est produite lors de la duplication de cette rencontre.
