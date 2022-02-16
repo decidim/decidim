@@ -338,7 +338,6 @@ ro:
       dashboard:
         show:
           view_more_logs: Afișează mai multe înregistrări
-          welcome: Bine ați venit în Panoul de administrare Decidim.
       domain_whitelist:
         form:
           domain_too_short: Domeniul e prea scurt
