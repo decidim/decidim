@@ -76,7 +76,6 @@ eu:
           index:
             title: Sortitions
           new:
-            confirm: Hurrengo botoia sakatuz gero, data eta ordua (segundotan zehaztuta) eta dadoen zerrendarekin batera grabatu egingo dira, informazio hori ausazko hautapena sortzeko erabiliko da. Ekintza atzeraezina izango da, botoia klik egitean zozketaren emaitza argitaratuko da, formulario honetan bildutako datuak eta ezin dira aldatu, egiaztatu edukia arretaz
             create: Sortu
             title: Sortion berria
           show:
