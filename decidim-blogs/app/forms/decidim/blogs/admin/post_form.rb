@@ -37,7 +37,7 @@ module Decidim
 
         def author
           return current_organization if user_group_id == "current_organization"
-          return original_author if user_group_id == "original author"
+          return original_author if user_group_id == "original_author"
 
           user_group || current_user
         end

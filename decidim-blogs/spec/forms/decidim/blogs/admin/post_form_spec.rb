@@ -117,7 +117,7 @@ module Decidim
             end
 
             it "assigns original_user object as author" do
-              expect(subject.author).to eq(author)
+              expect(subject.author).to eq(another_user)
             end
           end
         end
