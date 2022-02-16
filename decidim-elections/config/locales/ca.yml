@@ -577,15 +577,12 @@ ca:
               generate_legend_3: Assegura't de que el teu equip no tingui una còpia de l'arxiu (per exemple, comprova les carpetes de Baixades i Escriptori).
               generate_legend_4: Fes una altra copia de l'arxiu en un dispositiu extern diferent i guarda'l a un lloc molt segur.
               submit: Enviar
-              submit_legend: Després de seguir tots els passos explicats anteriorment, completa el procés enviant la clau d'identificació pública al servidor de Decidim.
               submit_title: Enviar la clau d'identificació pública
               title: Claus d'identificació del garant
               upload: Puja les teves claus d'identificació
               upload_error:
                 invalid_format: L'arxiu pujat no conté cap clau d'identificació.
                 invalid_key: Les claus d'identificació a l'arxiu pujat no es poden carregar.
-                invalid_public_key: Les claus d'identificació a l'arxiu pujat no coincideixen amb la clau d'identificació pública emmagatzemada per Decidim.
-              upload_legend: Decidim té les teves claus públiques d'identificació, però el teu navegador encara no les té. Necessites importar l'arxiu amb les teves claus d'identificació al teu ordinador des de la còpia de seguretat que vas crear després de generar-les.
             not_supported_browser_description: Sembla que estàs usant un navegador que no pot ser utilitzat per a actuar com a garant. Assegura't que estàs usant la versió més recent del teu navegador, o intenta usar qualsevol dels navegadors més populars per a poder completar les teves tasques com a garant.
             not_supported_browser_title: Actualitza el navegador per a actuar com a garant
             trustee_role_description: Se t'ha assignat com a garant en algunes de les eleccions celebrades en aquesta plataforma.
@@ -652,9 +649,7 @@ ca:
         onboarding_modal:
           close: Tanca el modal
           create_account: Crea un compte
-          description: Vols crear un nou compte al Decidim? Podràs participar als processos i ser una part activa de l'organització.
           no_account: No, gràcies.
-          title: Primer cop a Decidim?
         update:
           error: Hi ha hagut un error en actualitzar el vot. Prova-ho de nou.
         verify:
@@ -665,7 +660,6 @@ ca:
             header: Vot no localitzat!
             info: El codi del vot no s'ha trobat a l'urna %{link}, intenta-ho de nou.
           form:
-            back: Tornar a Decidim
             submit: Comprovar
             vote_identifier: 'Codi identificador:'
           header:
@@ -982,7 +976,6 @@ ca:
             assign_missing_officers: Hi ha punts de votació sense president i/o gestors. Si us plau, assigna'ls des de la secció de punts de votació
             update: Actualitzar
           form:
-            census_contact_information_help: La informació de contacte és per a participants que vulguin avisar d'incidències amb el cens. Pot ser una adreça de correu electrònic, un formulari de contacte ubicat en un altre lloc web, una enquesta de Decidim per a visitants, etc.
             select_a_voting_type: Si us plau selecciona un tipus de votació
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             title: Títol
