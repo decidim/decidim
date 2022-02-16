@@ -261,7 +261,6 @@ ro:
         all: Toate
         finished: Terminat
         search: Caută
-        state: Status
         upcoming: Urmează
       filters_small_view:
         close_modal: Închide fereastra
