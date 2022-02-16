@@ -243,6 +243,7 @@ ja:
       filters:
         active: アクティブ
         all: すべて
+        date: 日付
         finished: 完了
         search: 検索
         upcoming: 近日公開
