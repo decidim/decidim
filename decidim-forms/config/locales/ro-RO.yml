@@ -112,10 +112,12 @@ ro:
           title_and_description:
             collapse: Restrânge
             description: Descriere
+            down: Mergi în jos
             expand: Extinde
             remove: Șterge
             title: Titlu
             title_and_description: Titlu și descriere
+            up: Mergi în sus
           update:
             invalid: A apărut o eroare la salvarea chestionarului.
             success: Chestionarul a fost salvat cu succes.
