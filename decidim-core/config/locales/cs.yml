@@ -149,6 +149,7 @@ cs:
         error: Při mazání účtu došlo k chybě.
         success: Účet byl úspěšně smazán.
       show:
+        available_locales_helper: Vyberte jazyk, který chcete použít k procházení a přijímání oznámení na platformě
         change_password: Změnit heslo
         update_account: Aktualizovat účet
       update:
