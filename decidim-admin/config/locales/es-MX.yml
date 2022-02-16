@@ -340,7 +340,6 @@ es-MX:
       dashboard:
         show:
           view_more_logs: Ver más registros
-          welcome: Bienvenido al panel de administración de Decidim.
       domain_whitelist:
         form:
           domain_too_short: Dominio demasiado corto
