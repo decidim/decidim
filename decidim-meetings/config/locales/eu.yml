@@ -85,19 +85,15 @@ eu:
             values:
               'false': Aurrekoak
               'true': Hurrengoak
-          origin_eq:
-            label: Jatorria
-            values:
-              official: Ofiziala
-              user_group: Erabiltzaile-taldeak
           scope_id_eq:
             label: Eremua
-          type_eq:
+          with_any_origin:
+            values:
+              user_group: Erabiltzaile-taldeak
+          with_any_type:
             label: Topaketa mota
             values:
-              hybrid: Biok
               in_person: Aurrez aurre
-              online: Linean
       meeting_copies:
         create:
           error: Akatsa gertatu da bilera hau bikoiztea.
