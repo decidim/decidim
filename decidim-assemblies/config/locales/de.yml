@@ -266,7 +266,6 @@ de:
             duration_help: Wenn die Dauer dieser Assembly begrenzt ist, wählen Sie das Enddatum aus. Andernfalls wird es als unbestimmt angezeigt.
             filters: Filter
             images: Bilder
-            included_at_help: Wählen Sie das Datum aus, an dem diese Baugruppe zu Decidim hinzugefügt wurde. Es muss nicht unbedingt mit dem Erstellungsdatum identisch sein.
             metadata: Metadaten
             other: Andere
             select_a_created_by: Wählen Sie eine erstellt von aus
