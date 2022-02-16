@@ -337,7 +337,6 @@ el:
       dashboard:
         show:
           view_more_logs: Προβολή περισσότερων αρχείων καταγραφής
-          welcome: Καλώς ορίσατε στον Πίνακα διαχειριστή Decidim.
       domain_whitelist:
         form:
           domain_too_short: Πολύ σύντομος τομέας
