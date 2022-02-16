@@ -95,20 +95,15 @@ cs:
             values:
               'false': Minulé
               'true': Nadcházející
-          origin_eq:
-            label: Původ
-            values:
-              official: Úředník
-              participant: Účastník
-              user_group: Skupiny uživatelů
           scope_id_eq:
             label: Oblast působnosti
-          type_eq:
+          with_any_origin:
+            values:
+              user_group: Skupiny uživatelů
+          with_any_type:
             label: Typ schůzky
             values:
-              hybrid: Obojí
               in_person: Osobně
-              online: Online
       meeting_copies:
         create:
           error: Bylo zde chyba, že se tato schůzka zdvojnásobila.
