@@ -399,7 +399,6 @@ eu:
           all: Guztiak
           finished: Amaituta
           search: Bilatu
-          state: Egoera
           upcoming: Hurrengoak
         filters_small_view:
           close_modal: Itxi leihoa
@@ -1284,7 +1283,6 @@ eu:
           all: Guztiak
           finished: Amaituta
           search: Bilatu
-          state: Egoera
           upcoming: Hurrengoak
         filters_small_view:
           close_modal: Itxi leihoa
