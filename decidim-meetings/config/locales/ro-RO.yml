@@ -88,19 +88,15 @@ ro:
             values:
               'false': Trecute
               'true': Viitoare
-          origin_eq:
-            label: Origine
-            values:
-              official: Publice
-              user_group: Grupuri de utilizatori
           scope_id_eq:
             label: Domeniu de interes
-          type_eq:
+          with_any_origin:
+            values:
+              user_group: Grupuri de utilizatori
+          with_any_type:
             label: Tip de întâlnire
             values:
-              hybrid: Ambele
               in_person: În persoană
-              online: Online
       meeting_copies:
         create:
           error: A apărut o problemă la duplicarea acestei reuniuni.
