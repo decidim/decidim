@@ -251,6 +251,7 @@ sv:
       filters:
         active: Aktiv
         all: Alla
+        date: Datum
         finished: Avslutade
         search: Sök
         upcoming: Kommande
