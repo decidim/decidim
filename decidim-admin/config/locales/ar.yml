@@ -265,7 +265,6 @@ ar:
       dashboard:
         show:
           view_more_logs: عرض المزيد من السجلات
-          welcome: مرحبًا بكم في لوحة إدارة Decidim.
       exports:
         export_as: "%{name} ك %{export_format}"
         notice: التصدير الخاص بك قيد التقدم حاليًا. ستتلقى بريدًا إلكترونيًا عند اكتماله.
