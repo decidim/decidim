@@ -92,7 +92,7 @@ ro:
             label: Origine
             values:
               citizen: Cetățean
-              official: Publice
+              official: Oficial
               user_group: Grupuri de utilizatori
           scope_id_eq:
             label: Domeniu de interes
