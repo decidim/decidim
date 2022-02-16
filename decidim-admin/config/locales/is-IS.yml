@@ -251,7 +251,6 @@ is-IS:
       dashboard:
         show:
           view_more_logs: Skoða fleiri logs
-          welcome: Velkomin á Decidim Admin Panel.
       exports:
         export_as: "%{name} sem %{export_format}"
         notice: Útflutningur þinn er í gangi. Þú færð tölvupóst þegar það er lokið.
