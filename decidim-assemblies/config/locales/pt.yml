@@ -270,7 +270,6 @@ pt:
             duration_help: Se a duração desta reunião for limitada, selecione a data final. Caso contrário, aparecerá como indefinida.
             filters: Filtros
             images: Imagens
-            included_at_help: Selecione a data em que esta reunião foi adicionada ao Decidim. Não necessita necessariamente de ser a mesma que a data de criação.
             metadata: Metadados
             other: Outros
             select_a_created_by: Selecione um criado por
