@@ -337,7 +337,6 @@ lb:
       dashboard:
         show:
           view_more_logs: Weitere Protokolle anzeigen
-          welcome: Willkommen im Decidim Admin Panel.
       domain_whitelist:
         form:
           domain_too_short: Domain zu kurz
