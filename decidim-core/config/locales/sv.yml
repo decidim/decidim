@@ -98,7 +98,6 @@ sv:
         error: Det gick inte att radera ditt konto.
         success: Ditt konto har raderats.
       show:
-        available_locales_helper: Välj det språk du vill använda på plattformen och i de notiserna du får
         change_password: Ändra lösenord
         update_account: Uppdatera konto
       update:
