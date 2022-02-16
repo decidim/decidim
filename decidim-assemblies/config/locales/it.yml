@@ -270,7 +270,6 @@ it:
             duration_help: Se la durata di questa assemblea è limitata, selezionare la data di fine. Altrimenti, apparirà come indefinita.
             filters: Filtri
             images: Immagini
-            included_at_help: Seleziona la data in cui questa assemblea è stata aggiunto a Decidim. Non deve necessariamente essere uguale alla data di creazione.
             metadata: Metadati
             other: Altro
             select_a_created_by: Seleziona un creatore
