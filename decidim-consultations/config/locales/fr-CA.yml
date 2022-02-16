@@ -251,6 +251,7 @@ fr-CA:
       filters:
         active: Actives
         all: Tout
+        date: Date
         finished: Passées
         search: Rechercher
         upcoming: À venir
