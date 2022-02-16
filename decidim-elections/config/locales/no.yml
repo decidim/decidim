@@ -421,7 +421,6 @@
           all: Alt
           finished: Fullført
           search: Søk
-          state: Status
           upcoming: Kommende
         filters_small_view:
           close_modal: Lukk dialogboks
