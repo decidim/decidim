@@ -16,8 +16,6 @@ module Decidim
       end
 
       def show
-        raise ActionController::RoutingError, "Not Found" unless election
-
         enforce_permission_to :view, :election, election: election
       end
 
@@ -32,7 +30,7 @@ module Decidim
       end
 
       def election
-        @election ||= search_collection.find_by(id: params[:id])
+        @election ||= search_collection.find(params[:id])
       end
 
       def onboarding
