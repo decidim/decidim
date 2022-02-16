@@ -12,6 +12,14 @@ In the next version (v0.28.0) it will be fully removed from the database.
 
 ### Added
 
+#### Moderated content can now be removed from search index
+PR [\#8811](https://github.com/decidim/decidim/pull/8811) is addressing an issue when the moderated resources are not removed from search index.
+We have introduced a new task  that would remove the moderated content from being displayed in search. Please run the following command if you want to remove old moderated data from your search results
+
+```ruby
+rake decidim:moderation:remove_from_search
+```
+
 #### Default Decidim app fully configurable via ENV vars
 
 PR [#8725](https://github.com/decidim/decidim/pull/8725) Modifies the default generator to create a new Decidim app (command `decidim my-decidim`).
