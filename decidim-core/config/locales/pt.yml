@@ -98,7 +98,6 @@ pt:
         error: Ocorreu um problema ao eliminar a sua conta.
         success: A sua conta foi eliminada corretamente.
       show:
-        available_locales_helper: Escolha a linguagem que quer usar para navegar e receber notificações no Decidim
         change_password: Mudar senha
         update_account: Atualizar conta
       update:
