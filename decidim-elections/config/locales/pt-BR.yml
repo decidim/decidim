@@ -396,7 +396,6 @@ pt-BR:
           all: Todos
           finished: Finalizado
           search: Pesquisa
-          state: Status
           upcoming: Próximos
         filters_small_view:
           close_modal: Fechar modal
@@ -1265,7 +1264,6 @@ pt-BR:
           all: Todos
           finished: Finalizado
           search: Pesquisar
-          state: Status
           upcoming: Próximos
         filters_small_view:
           close_modal: Fechar modal
