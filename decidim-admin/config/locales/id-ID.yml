@@ -245,7 +245,6 @@ id:
       dashboard:
         show:
           view_more_logs: Lihat lebih banyak log
-          welcome: Selamat datang di Panel Admin Decidim.
       exports:
         export_as: "%{name} sebagai %{export_format}"
         notice: Ekspor Anda sedang dalam proses. Anda akan menerima email setelah selesai.
