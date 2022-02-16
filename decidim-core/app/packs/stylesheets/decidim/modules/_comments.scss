@@ -31,6 +31,7 @@ $comment-form-bg: $light-gray;
   display: flex;
 
   .comment__edited,
+  .comment__moderated,
   .comment__deleted{
     font-style: italic;
     color: $muted;
