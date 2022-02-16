@@ -408,6 +408,7 @@ ja:
         filters:
           active: 有効
           all: 全て
+          date: 日付
           finished: 完了
           search: 検索
           upcoming: 今後の予定
@@ -1293,6 +1294,7 @@ ja:
         filters:
           active: 有効
           all: 全て
+          date: 日付
           finished: 完了
           search: 検索
           upcoming: 今後の予定
