@@ -78,7 +78,6 @@ pl:
           index:
             title: Wybór losowy
           new:
-            confirm: Po naciśnięciu przycisku 'Ok' Decidim zapisze datę i godzinę (z dokładnością do sekund) i wraz z rzutem kości informacje te zostaną wykorzystane do wygenerowania losowego wyboru. Działanie to jest nieodwracalne, po kliknięciu przycisku wynik tego losowania zostanie opublikowany wraz z danymi wprowadzonymi w tym formularzu i nie będzie można go zmienić. Upewnij się, że dane z formularza są poprawne
             create: Utwórz
             title: Nowy wybór losowy
           show:
