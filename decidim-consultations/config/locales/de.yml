@@ -253,7 +253,6 @@ de:
         all: Alle
         finished: Fertig
         search: Suche
-        state: Zustand
         upcoming: Bevorstehende
       filters_small_view:
         close_modal: Fenster schließen
