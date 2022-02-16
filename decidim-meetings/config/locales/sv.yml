@@ -85,19 +85,15 @@ sv:
             values:
               'false': Tidigare
               'true': Kommande
-          origin_eq:
-            label: Ursprung
-            values:
-              official: Officiell
-              user_group: Användargrupper
           scope_id_eq:
             label: Omfång
-          type_eq:
+          with_any_origin:
+            values:
+              user_group: Användargrupper
+          with_any_type:
             label: Mötestyp
             values:
-              hybrid: Båda
               in_person: Fysiska
-              online: Online
       meeting_copies:
         create:
           error: Det gick inte att duplicera mötet.
