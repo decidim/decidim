@@ -273,7 +273,6 @@ zh-CN:
       dashboard:
         show:
           view_more_logs: 查看更多日志
-          welcome: 欢迎来到Decidim管理面板
       exports:
         export_as: "%{name} 为 %{export_format}"
         formats:
