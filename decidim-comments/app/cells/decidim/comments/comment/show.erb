@@ -1,5 +1,7 @@
 <%= content_tag :div, id: "comment_#{model.id}", class: comment_classes, data: { comment_id: model.id } do %>
-  <% if model.deleted? %>
+  <% if model.hidden? %>
+    <%= render :moderation_data %>
+  <% elsif model.deleted? %>
     <%= render :deletion_data %>
   <% else %>
     <div class="comment__header">
