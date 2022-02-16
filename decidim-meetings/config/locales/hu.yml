@@ -62,11 +62,6 @@ hu:
         other: Regisztrációk
   decidim:
     admin:
-      filters:
-        meetings:
-          origin_eq:
-            values:
-              participant: Résztvevő
       meeting_copies:
         create:
           error: Hiba történt a találkozó duplikálása során.
