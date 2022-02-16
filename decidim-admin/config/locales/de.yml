@@ -330,7 +330,6 @@ de:
       dashboard:
         show:
           view_more_logs: Weitere Protokolle anzeigen
-          welcome: Willkommen im Decidim Admin Panel.
       exports:
         export_as: "%{name} als %{export_format}"
         formats:
