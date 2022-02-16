@@ -270,7 +270,6 @@ fi:
             duration_help: Jos ryhmän kesto on rajoitettu, valitse päättymispäivä. Muussa tapauksessa se näkyy määrittelemättömänä.
             filters: Suodattimet
             images: Kuvat
-            included_at_help: Valitse päivämäärä, jolloin ryhmä lisättiin Decidimiin. Sen ei välttämättä tarvitse olla sama kuin luomispäivä.
             metadata: Metatiedot
             other: Muut
             select_a_created_by: Valitse luoja
