@@ -42,27 +42,18 @@ shared_examples "searchable results" do
         expect(searchables).not_to be_empty
         expect(term).not_to be_empty
 
-        searchables.each do |searchable|
-          next unless searchable.is_a?(Decidim::Reportable)
-
-          create(:moderation, reportable: searchable, hidden_at: Time.current)
-          # rubocop:disable Rails/SkipsModelValidations
-          searchable.reload.touch
-          # rubocop:enable Rails/SkipsModelValidations
-        end
-
         fill_in "term", with: term
         find("input#term").native.send_keys :enter
 
         expect(page).to have_current_path decidim.search_path, ignore_query: true
         expect(page).to have_content(/results for the search: "#{term}"/i)
         expect(page).to have_selector(".filters__section")
-        expect(page.find("#search-count .section-heading").text.to_i).not_to be_positive
+        expect(page.find("#search-count .section-heading").text.to_i).to be_positive
 
         searchables.each do |searchable|
           next unless searchable.is_a?(Decidim::Reportable)
 
-          searchable.moderation.update(hidden_at: nil)
+          create(:moderation, reportable: searchable, hidden_at: Time.current)
           # rubocop:disable Rails/SkipsModelValidations
           searchable.reload.touch
           # rubocop:enable Rails/SkipsModelValidations
@@ -76,7 +67,7 @@ shared_examples "searchable results" do
         expect(page).to have_current_path decidim.search_path, ignore_query: true
         expect(page).to have_content(/results for the search: "#{term}"/i)
         expect(page).to have_selector(".filters__section")
-        expect(page.find("#search-count .section-heading").text.to_i).to be_positive
+        expect(page.find("#search-count .section-heading").text.to_i).not_to be_positive
       end
     end
 

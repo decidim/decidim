@@ -55,7 +55,6 @@ module Decidim
       end
 
       after_touch do |searchable|
-        try_update_index_for_search_resource
         remove_from_index(searchable) if searchable.respond_to?(:hidden?) && searchable.hidden?
       end
 
