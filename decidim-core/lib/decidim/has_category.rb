@@ -11,6 +11,41 @@ module Decidim
       has_one :categorization, as: :categorizable
       has_one :category, through: :categorization
 
+      scope :with_category, lambda { |category|
+        return includes(:category).where(decidim_categories: { id: nil }) if category == "without" || category.nil?
+
+        includes(:category).where(decidim_categories: { id: category }).or(
+          includes(:category).where(decidim_categories: { parent_id: category })
+        )
+      }
+
+      scope :with_any_category, lambda { |*categories|
+        return self if categories.include?("all")
+
+        parent_ids = categories.without("without")
+        cat_ids = parent_ids.dup
+        cat_ids.prepend(nil) if categories.include?("without")
+
+        subquery = includes(:category).where(decidim_categories: { id: cat_ids })
+        return subquery if parent_ids.none?
+
+        subquery.or(
+          includes(:category).where(decidim_categories: { parent_id: parent_ids })
+        )
+      }
+
+      scope :with_any_global_category, lambda { |*categories|
+        return self if categories.include?("all")
+
+        cat_ids = categories.without("without")
+        additional_ids = cat_ids.select { |a| a =~ /Decidim__/ }
+        additional_ids = additional_ids.map { |a| a.gsub("__", "::").gsub(/(\d+)/, '.\1').split(".") }
+        additional_ids = additional_ids.map { |v| v.first.safe_constantize.send(:find, v.last.to_i).category_ids }
+        additional_ids = additional_ids.flatten
+
+        with_any_category(*(categories + additional_ids))
+      }
+
       validate :category_belongs_to_organization
 
       def previous_category

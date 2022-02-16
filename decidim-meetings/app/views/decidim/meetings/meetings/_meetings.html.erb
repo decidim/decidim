@@ -34,10 +34,10 @@
 
 <div class="row">
   <div class="text-right">
-    <% if params.dig("filter", "state").present? && params["filter"]["state"] == "withdrawn" %>
-      <%= link_to t("decidim.meetings.meetings.index.see_all"), meetings_path("filter[state]" => nil) %>
+    <% if params.dig("filter", "with_availability").present? && params["filter"]["with_availability"] == "withdrawn" %>
+      <%= link_to t("decidim.meetings.meetings.index.see_all"), meetings_path("filter[with_availability]" => nil) %>
     <% else %>
-      <%= link_to t("decidim.meetings.meetings.index.see_all_withdrawn"), meetings_path("filter[state]" => "withdrawn") %>
+      <%= link_to t("decidim.meetings.meetings.index.see_all_withdrawn"), meetings_path("filter[with_availability]" => "withdrawn") %>
     <% end %>
   </div>
 </div>

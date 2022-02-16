@@ -29,7 +29,7 @@ describe "Explore projects", :slow, type: :system do
       it "allows searching by text" do
         visit_budget
         within ".filters__search" do
-          fill_in "filter[search_text]", with: translated(project.title)
+          fill_in "filter[search_text_cont]", with: translated(project.title)
 
           find(".button").click
         end
@@ -47,7 +47,7 @@ describe "Explore projects", :slow, type: :system do
 
         visit_budget
 
-        within ".scope_id_check_boxes_tree_filter" do
+        within ".with_any_scope_check_boxes_tree_filter" do
           uncheck "All"
           check translated(scope.name)
         end
@@ -65,7 +65,7 @@ describe "Explore projects", :slow, type: :system do
 
         visit_budget
 
-        within ".category_id_check_boxes_tree_filter" do
+        within ".with_any_category_check_boxes_tree_filter" do
           uncheck "All"
           check translated(category.name)
         end
@@ -90,7 +90,7 @@ describe "Explore projects", :slow, type: :system do
 
           visit_budget
 
-          within ".status_check_boxes_tree_filter" do
+          within ".with_any_status_check_boxes_tree_filter" do
             uncheck "Selected"
           end
 

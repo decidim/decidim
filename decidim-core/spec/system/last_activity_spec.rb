@@ -3,22 +3,6 @@
 require "spec_helper"
 
 describe "Last activity", type: :system do
-  Decidim::ActivitySearch.class_eval do
-    def resource_types
-      %w(
-        Decidim::Comments::Comment
-        Decidim::DummyResources::DummyResource
-      )
-    end
-  end
-  Decidim::HomeActivitySearch.class_eval do
-    def resource_types
-      %w(
-        Decidim::Comments::Comment
-        Decidim::DummyResources::DummyResource
-      )
-    end
-  end
   let(:organization) { create(:organization) }
   let(:comment) { create(:comment) }
   let!(:action_log) do
@@ -40,6 +24,16 @@ describe "Last activity", type: :system do
   end
 
   before do
+    allow(Decidim::ActionLog).to receive(:public_resource_types).and_return(
+      %w(
+        Decidim::Comments::Comment
+        Decidim::DummyResources::DummyResource
+      )
+    )
+    allow(Decidim::ActionLog).to receive(:publicable_public_resource_types).and_return(
+      %w(Decidim::DummyResources::DummyResource)
+    )
+
     create :content_block, organization: organization, scope_name: :homepage, manifest_name: :last_activity
     switch_to_host organization.host
   end

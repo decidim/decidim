@@ -4,7 +4,7 @@ module Decidim
   module Consultations
     module ConsultationsHelper
       # Returns  options for state filter selector.
-      def options_for_state_filter
+      def options_for_date_filter
         [
           ["all", t("consultations.filters.all", scope: "decidim")],
           ["active", t("consultations.filters.active", scope: "decidim")],
