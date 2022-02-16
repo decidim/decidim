@@ -75,7 +75,6 @@ lv:
           index:
             title: Izlozes
           new:
-            confirm: Nospiežot nākamo pogu, Decidim fiksēs datumu un laiku (ar sekundes precizitāti) un kopā ar kauliņa metienu šo informāciju izmantos, lai ģenerētu nejaušu izvēli. Darbība kļūs neatgriezeniska brīdī, kad tiks noklikšķināts uz pogas. Izlozes rezultāts tiks publicēts kopā ar šajā veidlapā ievadītajiem datiem, un to nevar mainīt. Lūdzu, rūpīgi pārbaudiet visu saturu.
             create: Izveidot
             title: Jauna izloze
           show:
