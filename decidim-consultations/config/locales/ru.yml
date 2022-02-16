@@ -203,7 +203,6 @@ ru:
         all: Все
         finished: Завершившиеся
         search: Поиск
-        state: Cостояние
         upcoming: Предстоящие
       filters_small_view:
         close_modal: Закрыть окно
