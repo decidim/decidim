@@ -419,7 +419,6 @@ pt:
           all: Todos
           finished: Terminado
           search: Pesquisar
-          state: Estado
           upcoming: Seguinte
         filters_small_view:
           close_modal: Fechar o modal
@@ -1307,7 +1306,6 @@ pt:
           all: Todos
           finished: Terminado
           search: Pesquisar
-          state: Estado
           upcoming: Seguinte
         filters_small_view:
           close_modal: Fechar o modal
