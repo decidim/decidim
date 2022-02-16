@@ -256,6 +256,8 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquest adjunt.
           success: Adjunt actualitzat correctament.
+      attachments_privacy_warning:
+        message: Tingues cura quan treballis amb adjunts en un espai privat. Qualsevol participant pot compartir aquest document amb tercers.
       autocomplete:
         no_results: No s'han trobat resultats
         search_prompt: Escriu com a mínim tres caràcters per cercar
