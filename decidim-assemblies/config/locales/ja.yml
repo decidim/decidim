@@ -267,7 +267,6 @@ ja:
             duration_help: この参加スペースの持続時間が限られている場合は、終了日を選択します。それ以外の場合は、不定義として表示されます。
             filters: フィルタ
             images: 画像
-            included_at_help: この参加スペースがDecidimに追加された日付を選択します。必ずしも作成日と同じである必要はありません。
             metadata: メタデータ
             other: その他
             select_a_created_by: 作成者を選択してください
