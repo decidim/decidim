@@ -91,12 +91,17 @@ ro:
           scope_id_eq:
             label: Domeniu de interes
           with_any_origin:
+            label: Origine
             values:
+              official: Oficial
+              participants: Participant
               user_group: Grupuri de utilizatori
           with_any_type:
             label: Tip de întâlnire
             values:
+              hybrid: Ambele
               in_person: În persoană
+              online: Online
       meeting_copies:
         create:
           error: A apărut o problemă la duplicarea acestei reuniuni.
@@ -401,8 +406,10 @@ ro:
             space_type: Spaţiu participativ
       iframe_access_level:
         all: Toți vizitatorii
+        registered: Participanții înregistrați la acest eveniment
       iframe_embed_type:
         embed_in_meeting_page: Incorporează în pagina de şedinţe
+        open_in_live_event_page: Deschide în pagina de evenimente live (cu sondaje opționale)
         open_in_new_tab: Deschideți în filă nouă
       last_activity:
         meeting_updated_at_html: "<span>Întâlnire actualizată la %{link}</span>"
@@ -460,6 +467,7 @@ ro:
           origin_values:
             all: Toate
             official: Oficial
+            participants: Participanți
             user_groups: Grupuri
           scope: Domeniu de interes
           search: Caută
