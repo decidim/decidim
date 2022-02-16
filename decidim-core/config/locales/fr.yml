@@ -125,7 +125,6 @@ fr:
         error: Une erreur s'est produite lors de la suppression de votre compte.
         success: Votre compte a été supprimé avec succès.
       show:
-        available_locales_helper: Choisissez la langue que vous souhaitez utiliser pour naviguer et recevoir des notifications dans %{organization_name}
         change_password: Changer de mot de passe
         update_account: Mettre à jour votre compte
       update:
