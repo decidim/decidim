@@ -104,6 +104,12 @@ fi-pl:
             no_components: Tässä osallisuustilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiin.
             select_component: Valitse komponentti
             title: Tuo ehdotuksia
+        reminders:
+          orders:
+            description: Käyttäjät saavat sähköpostiviestin, jossa on linkit budjetteihin, joissa heillä on odottavia ääniä.
+            title:
+              one: Olet lähettämässä muistutuksen sähköpostiin %{count} käyttäjälle
+              other: Olet lähettämässä muistutuksen sähköpostiin %{count} käyttäjälle
       admin_log:
         budget:
           create: "%{user_name} loi budjetin %{resource_name} osallistumistilassa %{space_name}"
@@ -253,6 +259,15 @@ fi-pl:
         show:
           budget: Budjetti
           view_all_projects: Näytä kaikki suunnitelmat
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: 'Alueet, joissa sinulla on keskeneräinen ääni:'
+          email_intro: Olet aloittanut osallistuvan budjetoinnin äänestyksen, mutta et suorittanut sitä loppuun.
+          email_link: Siirry jatkamaan äänestystä
+          email_outro: Muistathan saattaa äänesi loppuun saakka. Äänestääksesi, sinun on valittava se ehdotus tai ne ehdotukset, joita haluat äänestää ja tämän jälkeen vahvistettava äänesti "Äänestä" -painikkeella.
+          email_subject:
+            one: Sinulla on keskeneräinen ääni osallistavan budjetoinnin äänestyksessä
+            other: Sinulla on keskeneräisiä ääniä osallistavan budjetoinnin äänestyksessä
     components:
       budgets:
         actions:
