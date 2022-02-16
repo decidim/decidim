@@ -83,6 +83,10 @@ ro:
   datetime:
     distance_in_words:
       half_a_minute: jumătate de minut
+      x_seconds:
+        one: Acum 1 sec
+        other: "%{count} secunde în urmă"
+        zero: chiar acum
   decidim:
     accessibility:
       external_link: Link extern
@@ -983,6 +987,7 @@ ro:
           next: Următoarea
           no_conversations: Încă nu aveți conversații
           title: Conversații
+          to: Către
         reply:
           placeholder: Răspunsul tău...
           send: Trimite
