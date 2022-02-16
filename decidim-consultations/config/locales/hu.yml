@@ -250,7 +250,6 @@ hu:
         all: Összes
         finished: Befejezett
         search: Keresés
-        state: Állapot
         upcoming: Közelgő
       filters_small_view:
         close_modal: Ablak bezárása
