@@ -269,7 +269,6 @@ pl:
         all: Wszystko
         finished: Zakończone
         search: Szukaj
-        state: Status
         upcoming: Nadchodzące
       filters_small_view:
         close_modal: Zamknij okno
