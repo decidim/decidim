@@ -88,7 +88,9 @@ sv:
           scope_id_eq:
             label: Omfång
           with_any_origin:
+            label: Ursprung
             values:
+              official: Officiella
               participants: Deltagare
               user_group: Användargrupper
           with_any_type:
@@ -393,6 +395,8 @@ sv:
           index:
             meetings: Möten
             space_type: Deltagarutrymme
+      iframe_embed_type:
+        none: Ingen
       last_activity:
         meeting_updated_at_html: "<span>Mötet uppdaterades på %{link}</span>"
         new_meeting_at_html: "<span>Nytt möte på %{link}</span>"
