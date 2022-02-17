@@ -62,6 +62,7 @@ module Decidim
 
         scope = manifest.resource_scope(component)
         scope = scope.where("#{self.class.table_name}.id != ?", id) if manifest.model_class == self.class
+        scope = scope.not_hidden if manifest.model_class.respond_to?(:not_hidden)
         scope.includes(:component).where.not(decidim_components: { published_at: nil })
       end
 
