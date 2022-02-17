@@ -14,7 +14,7 @@ module Decidim
     # Send the push notification. Returns `nil` if the user didn't allowed push notifications
     # or if the subscription to push notifications doesn't exist
     #
-    # Returns the result of the dispatch
+    # Returns the result of the dispatch or nil if user or subscription are empty
     def perform(notification)
       user = notification.user
       return unless user.allow_push_notifications
