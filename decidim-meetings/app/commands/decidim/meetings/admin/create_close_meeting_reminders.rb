@@ -3,7 +3,7 @@
 module Decidim
   module Meetings
     module Admin
-      class CreateCloseMeetingReminders < Rectify::Command
+      class CreateCloseMeetingReminders < Decidim::Command
       end
     end
   end
