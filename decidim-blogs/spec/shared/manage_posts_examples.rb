@@ -144,8 +144,8 @@ shared_examples "manage posts" do
 
   context "when user is the organization" do
     let(:author) { organization }
-    #let(:user_group) { create :user_group, :confirmed, :verified, organization: organization }
-    #let!(:membership) { create(:user_group_membership, user: user, user_group: user_group) }
+    # let(:user_group) { create :user_group, :confirmed, :verified, organization: organization }
+    # let!(:membership) { create(:user_group_membership, user: user, user_group: user_group) }
 
     it "can set organization as posts author", :slow do
       find(".card-title a.button").click
