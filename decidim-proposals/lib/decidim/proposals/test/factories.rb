@@ -240,10 +240,6 @@ FactoryBot.define do
         }
       end
     end
-
-    trait :with_assembly_participatory_space do
-      participatory_space { create(:assembly, organization: organization) }
-    end
   end
 
   factory :proposal, class: "Decidim::Proposals::Proposal" do
@@ -421,10 +417,6 @@ FactoryBot.define do
       after :create do |proposal|
         proposal.attachments << create(:attachment, :with_pdf, attached_to: proposal)
       end
-    end
-
-    trait :with_assembly_component do
-      component { create(:proposal_component, :with_assembly_participatory_space) }
     end
   end
 

@@ -41,7 +41,9 @@ describe Decidim::Proposals::Admin::ProposalNoteCreatedEvent do
   end
 
   context "when proposals component added to assemblies participatory space" do
-    let(:resource) { create :proposal, :with_assembly_component, title: ::Faker::Lorem.characters(number: 25) }
+    let(:assembly) { create(:assembly) }
+    let(:proposal_component) { create :proposal_component, participatory_space: assembly }
+    let(:resource) { create :proposal, component: proposal_component, title: ::Faker::Lorem.characters(number: 25) }
     let(:admin_proposal_info_path) { "/admin/assemblies/#{participatory_space.slug}/components/#{component.id}/manage/proposals/#{resource.id}" }
     let(:admin_proposal_info_url) { "http://#{organization.host}/admin/assemblies/#{participatory_space.slug}/components/#{component.id}/manage/proposals/#{resource.id}" }
 
