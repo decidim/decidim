@@ -32,7 +32,7 @@ There's also a installation script made by http://www.platoniq.net/[Platoniq] th
 [source,console]
 ----
 wget -O install-decidim.sh https://raw.githubusercontent.com/Platoniq/decidim-install/master/script/install-decidim.sh
-chmod +x decidim-install.sh
+chmod +x install-decidim.sh
 ./install-decidim.sh decidim_application
 ----
 
