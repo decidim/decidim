@@ -22,6 +22,7 @@ sv:
               c: C val
             test_options:
               bar: Bar
+              baz: Baz
               foo: Foo
           step:
             endorsements_blocked: Instämmanden är blockerade
@@ -29,6 +30,7 @@ sv:
             readonly_step_attribute: Skrivskyddade steg attribut
             test_options:
               bar: Bar
+              baz: Baz
               foo: Foo
     dummy:
       admin:
