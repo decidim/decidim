@@ -530,6 +530,9 @@ sv:
     menu:
       initiatives: Initiativ
     resources:
+      initiative:
+        actions:
+          comment: Kommentera
       initiatives_type:
         actions:
           title: Åtgärder
