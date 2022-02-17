@@ -367,6 +367,10 @@ sv:
           values:
             'false': 'Nej'
             'true': 'Ja'
+        moderated_users:
+          reports_reason_eq:
+            values:
+              spam: Skräp
         moderations:
           reportable_type_string_eq:
             label: Typ
