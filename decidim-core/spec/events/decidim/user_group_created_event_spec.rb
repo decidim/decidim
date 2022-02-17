@@ -7,7 +7,7 @@ describe Decidim::UserGroupCreatedEvent do
 
   let(:event_name) { "decidim.events.groups.user_group_created" }
   let(:resource) { create :user_group }
-  let(:user_group_name) { CGI.escapeHTML(resource.name) }
+  let(:user_group_name) { escaped_html(resource.name) }
   let(:admin_panel_url) { "http://#{organization.host}/admin/user_groups" }
 
   it_behaves_like "a simple event", true

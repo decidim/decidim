@@ -1,14 +1,14 @@
 <%= filter_form_for filter do |form| %>
   <div class="columns mediumlarge-6 large-5">
-    <%= scopes_picker_filter form, :scope_id, checkboxes_on_top: checkboxes_on_top %>
+    <%= scopes_picker_filter form, :with_scope, checkboxes_on_top: checkboxes_on_top %>
   </div>
   <div class="columns mediumlarge-6 large-5">
-    <%= form.areas_select :area_id,
+    <%= form.areas_select :with_area,
                           areas_for_select(current_organization),
                           {
                             legend_title: t(".areas"),
                             label: "",
-                            selected: filter.area_id,
+                            selected: filter.with_area,
                             include_blank: t(".select_an_area")
                           },
                           "aria-label": t(".areas") %>

@@ -28,7 +28,7 @@ module Decidim
       def meetings
         return unless meeting_component.published? || !meeting_component.presence
 
-        @meetings ||= Decidim::Meetings::Meeting.where(component: meeting_component).visible_meeting_for(current_user).order(:start_time)
+        @meetings ||= Decidim::Meetings::Meeting.where(component: meeting_component).visible_for(current_user).order(:start_time)
       end
 
       def meeting_days
