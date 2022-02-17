@@ -251,6 +251,7 @@ ca:
       filters:
         active: Actiu
         all: Totes
+        date: Data
         finished: Acabat
         search: Cerca
         upcoming: Proper
