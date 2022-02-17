@@ -29,20 +29,20 @@ module Decidim
         @past_meetings ||= meetings.past.order(end_time: :desc, start_time: :desc).limit(3)
       end
 
-      def past_meetings_count
-        @past_meetings_count ||= meetings.past.count
-      end
-
-      def upcoming_meetings_count
-        @upcoming_meetings_count ||= meetings.upcoming.count
-      end
-
       def upcoming_meetings
         @upcoming_meetings ||= meetings.upcoming.order(:start_time, :end_time).limit(3)
       end
 
       def meetings_count
         @meetings_count ||= meetings.count
+      end
+
+      def past_meetings_count
+        @past_meetings_count ||= meetings.past.count
+      end
+
+      def upcoming_meetings_count
+        @upcoming_meetings_count ||= meetings.upcoming.count
       end
     end
   end
