@@ -366,6 +366,10 @@ sv:
           values:
             'false': 'Nej'
             'true': 'Ja'
+        moderated_users:
+          reports_reason_eq:
+            values:
+              spam: Skräp
         moderations:
           reportable_type_string_eq:
             label: Typ
@@ -824,6 +828,9 @@ sv:
           explanation: 'Skicka in din CSV-fil. Den måste ha två kolumner över de användare som du vill lägga till deltagarutrymmet, utan rubriker, med e-postadressen i den första kolumnen i filen och namnet i den sista kolumnen i filen (e-post, namn). Undvik olämpliga karaktärer som `<>?%&^*#@()[]=+:;"{}\|` i användarnamn.'
           title: Skicka CSV-fil
           upload: Skicka
+      reminders:
+        new:
+          submit: Skicka
       resource_permissions:
         edit:
           submit: Skicka in
