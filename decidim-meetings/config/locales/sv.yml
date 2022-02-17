@@ -395,6 +395,8 @@ sv:
           index:
             meetings: Möten
             space_type: Deltagarutrymme
+      iframe_access_level:
+        all: Alla besökare
       iframe_embed_type:
         none: Ingen
       last_activity:
@@ -452,6 +454,7 @@ sv:
           origin_values:
             all: Alla
             official: Officiell
+            participants: Deltagare
             user_groups: Grupper
           scope: Omfattning
           search: Sök
