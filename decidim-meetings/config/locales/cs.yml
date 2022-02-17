@@ -108,6 +108,7 @@ cs:
             values:
               hybrid: Obojí
               in_person: Osobně
+              online: Online
       meeting_copies:
         create:
           error: Bylo zde chyba, že se tato schůzka zdvojnásobila.
