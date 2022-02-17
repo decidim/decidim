@@ -43,6 +43,9 @@ sv:
       decidim/elections/question:
         one: Fråga
         other: Frågor
+      decidim/votings/census/dataset:
+        one: Datamängd
+        other: Datamängder
       decidim/votings/census/datum:
         one: Datum
         other: Datum
@@ -135,6 +138,8 @@ sv:
             success: Val har uppdaterats
         exports:
           elections: Val
+        menu:
+          trustees: Förvaltare
         models:
           answer:
             name: Svar
@@ -175,6 +180,8 @@ sv:
             not_used_trustee: "(används inte)"
           created:
             trustees: Förvaltare
+          key_ceremony:
+            continue: Fortsätt
           processing: Bearbetar...
           results_published:
             answer: Svar
@@ -183,6 +190,8 @@ sv:
             result: Resultat
             selected: Valda
             submit: Skicka in
+          tally:
+            continue: Fortsätt
           tally_ended:
             answer: Svar
             not_selected: Inte vald
@@ -225,8 +234,14 @@ sv:
             one: "%{count} val"
             other: "%{count} val"
         election_log:
+          complete: Fullständig
+          download: Ladda ner
           not_created: Inte skapat
+          not_ready: Inte klart
           not_started: Inte påbörjad
+          published: Publicerad
+          results_title: Resultat
+          started: Startad
         filters:
           active: Aktiv
           all: Allt
@@ -386,11 +401,14 @@ sv:
         ballot_styles:
           edit:
             update: Uppdatera
+          form:
+            election: Omröstning
           index:
             actions:
               destroy: Radera
               edit: Redigera
               new: Ny
+              title: Åtgärder
           new:
             create: Skapa
         index:
@@ -438,17 +456,27 @@ sv:
               title: Titel
         monitoring_committee_election_results:
           actions:
+            title: Åtgärder
             view: Visa
           results:
+            selected: Valda
             totals: Totalt
         monitoring_committee_members:
           new:
             create: Skapa
         monitoring_committee_polling_station_closures:
           actions:
+            title: Åtgärder
+            validate: Validera
             view: Visa
           closures:
+            signed: Signerat?
             validated: Bekräftad?
+          edit:
+            monitoring_committee_notes: Anmärkningar
+        monitoring_committee_verify_elections:
+          index:
+            download: Ladda ner
         polling_officers:
           index:
             role_manager: chef
@@ -487,6 +515,10 @@ sv:
         document_types:
           dni: ID-kort
           nie: Personnummer
+          passport: Pass
+        export_mailer:
+          access_codes_export:
+            download: Ladda ner
       content_blocks:
         landing_page:
           description:
@@ -531,6 +563,8 @@ sv:
         polling_officers:
           index:
             polling_station:
+              address: Adress
+              election: Omröstning
               name: Namn
               role: Din roll
               voting: Omröstning
@@ -559,6 +593,7 @@ sv:
         check_fields:
           day: Dag
           day_placeholder: DD
+          document_number_placeholder: ID-nummer
           month: Månad
           month_placeholder: MM
           postal_code: Postnummer
