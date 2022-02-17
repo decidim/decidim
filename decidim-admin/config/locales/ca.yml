@@ -340,6 +340,7 @@ ca:
       dashboard:
         show:
           view_more_logs: Veure més registres
+          welcome: Benvinguda al Tauler d'Aministració.
       domain_whitelist:
         form:
           domain_too_short: El domini és massa curt
