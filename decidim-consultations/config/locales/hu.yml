@@ -248,6 +248,7 @@ hu:
       filters:
         active: Aktív
         all: Összes
+        date: Dátum
         finished: Befejezett
         search: Keresés
         upcoming: Közelgő
