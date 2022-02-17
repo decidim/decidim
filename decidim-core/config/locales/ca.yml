@@ -125,6 +125,7 @@ ca:
         error: S'ha produït un error en eliminar el teu compte.
         success: El teu compte s'ha eliminat correctament.
       show:
+        available_locales_helper: Tria l'idioma que en que vols navegar i rebre notificacions de la plataforma
         change_password: Canvia la contrasenya
         update_account: Actualitzar compte
       update:
