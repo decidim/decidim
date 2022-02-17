@@ -60,7 +60,7 @@ module Decidim
     end
 
     context "when the nickname is not in lowercase" do
-      let(:nickname) { "FegjF" }
+      let(:nickname) { "Nickname" }
 
       it { is_expected.to be_invalid }
     end
