@@ -396,6 +396,8 @@ sv:
           index:
             meetings: Möten
             space_type: Deltagarutrymme
+      iframe_access_level:
+        all: Alla besökare
       iframe_embed_type:
         none: Ingen
       last_activity:
