@@ -369,6 +369,8 @@ sv:
         moderated_users:
           reports_reason_eq:
             values:
+              does_not_belong: Tillhör inte
+              offensive: Olämpligt
               spam: Skräp
         moderations:
           reportable_type_string_eq:
