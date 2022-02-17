@@ -108,6 +108,13 @@ sv:
             remove: Radera
             separator: Avgränsare
             up: Upp
+          title_and_description:
+            collapse: Kollapsa
+            down: Ner
+            expand: Expandera
+            remove: Ta bort
+            title: Titel
+            up: Upp
           update:
             invalid: Det gick inte att spara formuläret.
       errors:
