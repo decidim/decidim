@@ -26,6 +26,7 @@ sv:
     components:
       debates:
         actions:
+          comment: Kommentera
           create: Skapa
           endorse: Instäm
         name: Debatter
