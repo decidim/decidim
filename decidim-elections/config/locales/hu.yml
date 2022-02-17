@@ -11,6 +11,8 @@ hu:
           unpublish:
             success: A választás publikálását sikeresen visszavonta.
       elections:
+        filters:
+          date: Dátum
         show:
           action_button:
             change_vote: Szavazatának megváltoztatása
@@ -47,5 +49,7 @@ hu:
               role: A te szereped
               voting: Szavazás
       votings:
+        filters:
+          date: Dátum
         login:
           start_voting: Szavazás kezdete
