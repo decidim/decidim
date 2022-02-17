@@ -101,6 +101,9 @@ PR [\#8645](https://github.com/decidim/decidim/pull/8645) we now only allow PNG 
 - **decidim-meetings**: The `visible_meetings_for` scope for the `Meeting` model has been renamed to `visible_for` in [\#8748](https://github.com/decidim/decidim/pull/8748) for consistency.
 - **decidim-core**: The `official_origin`, `participants_origin`, `user_group_origin` and `meeting_origin` scopes for the `Decidim::Authorable` and `Decidim::Coauthorable` concerns have been changed to `with_official_origin`, `with_participants_origin`, `with_user_group_origin` and `with_meeting_origin` respectively in [\#8748](https://github.com/decidim/decidim/pull/8748) for consistency. See the Searchlight removal change notes for reasoning.
 
+#### Deprecation of `Rectify::Presenter`
+PR [\#8758](https://github.com/decidim/decidim/pull/8758) is deprecating the implementation of `Rectify::Presenter` in favour of `SimpleDelegator`
+
 #### Searchlight removal causes changes in the participant searches
 
 The `searchlight` gem has been removed in favor of Ransack as of [\#8748](https://github.com/decidim/decidim/pull/8748) in order to standardize all searches within Decidim around a single way of performing searches. Ransack was selected as the preferred search backend because it is better maintained and has a larger community of developers around it compared to Searchlight.
