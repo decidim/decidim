@@ -6,17 +6,10 @@ module Decidim
   describe ComponentNotificationSettingManifest do
     subject { described_class.new }
 
-    let(:default_value) { "1" }
-    let(:attributes) do
-      {
-        default_value: "1"
-      }
-    end
-
     context "when all the values are correct" do
       before do
         subject.name = "component_notif_manifest"
-        subject.area = "administrators"
+        subject.settings_area = "administrators"
       end
 
       it { is_expected.to be_valid }
@@ -25,7 +18,7 @@ module Decidim
     context "without a name" do
       before do
         subject.name = nil
-        subject.area = "administrators"
+        subject.settings_area = "administrators"
       end
 
       it { is_expected.to be_valid }
@@ -33,7 +26,7 @@ module Decidim
 
     context "without an area" do
       before do
-        subject.area = nil
+        subject.settings_area = nil
       end
 
       it { is_expected.to be_invalid }
@@ -41,7 +34,7 @@ module Decidim
 
     context "with an invalid area" do
       before do
-        subject.area = "admin"
+        subject.settings_area = "admin"
       end
 
       it { is_expected.to be_invalid }
@@ -49,8 +42,8 @@ module Decidim
 
     context "with an invalid default value" do
       before do
-        subject.area = "administrators"
-        subject.default_value = "true"
+        subject.settings_area = "administrators"
+        subject.default_value = nil
       end
 
       it { is_expected.to be_invalid }

@@ -16,7 +16,7 @@ module Decidim
 
       # Send the user an email reminder to close the meetings
       #
-      # reminder - the reminder to send.
+      # record - the reminder record specific to a past meeting.
       def close_meeting_reminder(record)
         @reminder = record.reminder
         @user = record.reminder.user

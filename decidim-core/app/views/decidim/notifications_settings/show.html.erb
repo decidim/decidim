@@ -56,11 +56,11 @@
         </label>
       </div>
 
-      <% Decidim.component_notification_settings_registry.manifests.filter{ |a| a.area == :administrators }.each do |manifest| %>
+      <% Decidim.component_notification_settings_registry.manifests.filter{ |a| a.settings_area == :administrators }.each do |manifest| %>
         <div class="switch tiny switch-with-label component_notification_settings">
           <label>
             <%= f.check_box "component_notification_settings[#{manifest.name}]",
-                            checked: current_user.component_notification_settings.fetch(manifest.name.to_s, manifest.default_value) == "1",
+                            checked: current_user.component_notification_settings.fetch(manifest.name.to_s, manifest.default_value),
                             label: false,
                             class: "switch-input" %>
             <span class="switch-paddle"></span>

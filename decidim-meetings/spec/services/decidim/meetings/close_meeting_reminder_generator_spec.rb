@@ -18,10 +18,10 @@ module Decidim::Meetings
     let(:intervals) { [3.days, 7.days] }
     let(:organization) { create(:organization) }
     let(:participatory_process) { create(:participatory_process, organization: organization) }
-    let(:component) { create(:component, :published, manifest_name: :meetings, participatory_space: participatory_process) }
+    let!(:component) { create(:component, :published, manifest_name: "meetings", participatory_space: participatory_process) }
     let(:user) { create(:user, :admin, organization: organization, email: "user@example.org") }
-    let(:meeting_3) { create(:meeting, :published, component: component, author: user) }
-    let(:meeting_7) { create(:meeting, :published, component: component, author: user) }
+    let!(:meeting) { create(:meeting, :published, component: component, author: user, start_time: start_time, end_time: end_time, closed_at: closed_at) }
+    let(:closed_at) { nil }
 
     before do
       allow(Decidim.reminders_registry).to receive(:for).with(:close_meeting).and_return(manifest)
@@ -29,10 +29,11 @@ module Decidim::Meetings
 
     describe "#generate" do
       context "when there is a past meeting without a report in the the last 3 days" do
+        let(:start_time) { 4.days.ago }
+        let(:end_time) { 3.days.ago }
+
         context "and the meeting is closed" do
-          before do
-            meeting_3.update!(start_time: 4.days.ago, end_time: 3.days.ago, closed_at: 2.days.ago)
-          end
+          let(:closed_at) { 2.days.ago }
 
           it "does not send the reminder" do
             expect(Decidim::Meetings::SendCloseMeetingReminderJob).not_to receive(:perform_later)
@@ -42,10 +43,6 @@ module Decidim::Meetings
         end
 
         context "and the meeting is not closed" do
-          before do
-            meeting_3.update!(start_time: 4.days.ago, end_time: 3.days.ago)
-          end
-
           it "sends reminder" do
             expect(Decidim::Meetings::SendCloseMeetingReminderJob).to receive(:perform_later)
 
@@ -55,10 +52,11 @@ module Decidim::Meetings
       end
 
       context "when there is a past meeting without a report in the the last 7 days" do
+        let(:start_time) { 8.days.ago }
+        let(:end_time) { 7.days.ago }
+
         context "when the meeting is closed" do
-          before do
-            meeting_7.update!(start_time: 8.days.ago, end_time: 7.days.ago, closed_at: 2.days.ago)
-          end
+          let(:closed_at) { 2.days.ago }
 
           it "does not send the reminder" do
             expect(Decidim::Meetings::SendCloseMeetingReminderJob).not_to receive(:perform_later)
@@ -69,10 +67,6 @@ module Decidim::Meetings
         end
 
         context "when the meeting is not closed" do
-          before do
-            meeting_7.update!(start_time: 8.days.ago, end_time: 7.days.ago)
-          end
-
           it "sends reminder" do
             expect(Decidim::Meetings::SendCloseMeetingReminderJob).to receive(:perform_later)
 
@@ -83,7 +77,8 @@ module Decidim::Meetings
       end
 
       context "when the meeting is in the past but end date does not correspond to the interval" do
-        let(:meeting_9) { create(:meeting, :published, component: component, author: user, start_time: 10.days.ago, end_time: 9.days.ago) }
+        let(:start_time) { 10.days.ago }
+        let(:end_time) { 9.days.ago }
 
         it "does not send the reminder" do
           expect(Decidim::Meetings::SendCloseMeetingReminderJob).not_to receive(:perform_later)
@@ -95,10 +90,8 @@ module Decidim::Meetings
 
       context "when the reminder exists" do
         let!(:reminder) { create(:reminder, user: user, component: component) }
-
-        before do
-          meeting_3.update!(start_time: 4.days.ago, end_time: 3.days.ago)
-        end
+        let(:start_time) { 4.days.ago }
+        let(:end_time) { 3.days.ago }
 
         it "sends existing reminder" do
           expect(Decidim::Meetings::SendCloseMeetingReminderJob).to receive(:perform_later)
