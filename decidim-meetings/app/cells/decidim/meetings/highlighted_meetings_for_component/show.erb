@@ -1,7 +1,8 @@
 <% if upcoming_meetings.any? %>
   <div class="section row collapse upcoming_meetings">
     <h3 class="section-heading">
-      <%= translated_attribute(model.name) %> - <%= t("decidim.participatory_spaces.highlighted_meetings.upcoming_meetings") %> <a href="<%= main_component_path(model) %>" class="text-small"><%= t("decidim.participatory_spaces.highlighted_meetings.see_all", count: meetings_count) %></a>
+      <%= translated_attribute(model.name) %> - <%= t("decidim.participatory_spaces.highlighted_meetings.upcoming_meetings") %>
+      <a href="<%= main_component_path(model) %>" class="text-small"><%= t("decidim.participatory_spaces.highlighted_meetings.see_all", count: upcoming_meetings_count) %></a>
     </h3>
     <div class="card card--list">
       <% upcoming_meetings.includes(:component).each do |meeting| %>
@@ -9,7 +10,7 @@
       <% end %>
     </div>
     <%= link_to(
-      t("decidim.participatory_spaces.highlighted_meetings.see_all", count: meetings_count),
+      t("decidim.participatory_spaces.highlighted_meetings.see_all", count: upcoming_meetings_count),
       main_component_path(model),
       class: "button button--sc hollow button--right"
     ) %>
@@ -17,7 +18,7 @@
 <% elsif past_meetings.any? %>
   <div class="section row collapse past_meetings">
     <h3 class="section-heading">
-      <%= translated_attribute(model.name) %> - <%= t("decidim.participatory_spaces.highlighted_meetings.past_meetings") %> <a href="<%= main_component_path(model) %>" class="text-small"><%= t("decidim.participatory_spaces.highlighted_meetings.see_all", count: meetings_count) %></a>
+      <%= translated_attribute(model.name) %> - <%= t("decidim.participatory_spaces.highlighted_meetings.past_meetings") %> <a href="<%= main_component_path(model) %>" class="text-small"><%= t("decidim.participatory_spaces.highlighted_meetings.see_all", count: past_meetings_count) %></a>
     </h3>
     <div class="card card--list">
       <% past_meetings.each do |meeting| %>
@@ -25,7 +26,7 @@
       <% end %>
     </div>
     <%= link_to(
-      t("decidim.participatory_spaces.highlighted_meetings.see_all", count: meetings_count),
+      t("decidim.participatory_spaces.highlighted_meetings.see_all", count: past_meetings_count),
       main_component_path(model),
       class: "button button--sc hollow button--right"
     ) %>
