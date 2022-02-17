@@ -835,6 +835,9 @@ en:
           explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file (email, name) of the users that you want to add to the participatory space, without headers. Avoid using invalid chars like `<>?%&^*#@()[]=+:;"{}\|` in user name.
           title: Upload your CSV file
           upload: Upload
+          delete_current: Delete current private participants
+          delete_current_warning: This will delete all the current participants, without the possibility of recovering them.
+          confirm_dialog: Are you sure you want to delete all current participants ?
       reminders:
         create:
           error: There was a problem creating reminders.

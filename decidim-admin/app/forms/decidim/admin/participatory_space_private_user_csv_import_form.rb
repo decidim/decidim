@@ -10,6 +10,7 @@ module Decidim
       include Decidim::HasUploadValidations
 
       attribute :file
+      attribute :delete_current_private_participants, Boolean
       attribute :user_name, String
       attribute :email, String
 
