@@ -100,7 +100,7 @@ ca:
           type_eq:
             label: Tipus de trobada
             values:
-              hybrid: Ambdós
+              hybrid: Ambdues
               in_person: Presencial
               online: En línia
       meeting_copies:

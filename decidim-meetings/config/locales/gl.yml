@@ -225,6 +225,9 @@ gl:
           edit:
             close: Pechar
             title: Pechar reunión
+        meeting_copies:
+          form:
+            select_a_meeting_type: Por favor, selecciona un tipo de xuntanza
         meetings:
           close:
             invalid: Produciuse un problema ao pechar esta reunión

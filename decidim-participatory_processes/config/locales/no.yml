@@ -16,7 +16,7 @@
         hashtag: Emneknagg
         hero_image: Hovedbilde
         local_area: Organisasjonsområde
-        meta_scope: Tema metadata
+        meta_scope: Omfang av metadata
         participatory_process_group_id: Prosessgruppe
         participatory_scope: Medvirkningen gjelder
         participatory_structure: Hvordan det blir gjort
@@ -34,10 +34,20 @@
         subtitle: Undertittel
         target: Hvem som deltar
         title: Tittel
+        weight: Prioritert rekkefølge
       participatory_process_group:
         description: Beskrivelse
+        developer_group: Promotørgruppe
+        group_url: Nettside
+        hashtag: Emneknagg
         hero_image: Bilde
+        local_area: Organisasjonsområde
+        meta_scope: Tema metadata
         participatory_process_ids: Relaterte prosesser
+        participatory_scope: Medvirkningen gjelder
+        participatory_structure: Hvordan blir det gjort
+        target: Hvem medvirker
+        title: Tittel
       participatory_process_step:
         cta_path: Annonseringsknapp
         cta_text: Annonseringstekst
@@ -93,6 +103,9 @@
         unpublish: Avpubliser
       menu:
         participatory_process_groups: Prosessgrupper
+        participatory_process_groups_submenu:
+          info: Informasjon
+          landing_page: Startsiden
         participatory_processes: Prosesser
         participatory_processes_submenu:
           attachment_collections: Mapper
@@ -115,6 +128,8 @@
             title: Tittel
           name: Deltakende prosess
         participatory_process_group:
+          fields:
+            title: Tittel
           name: Prosessgruppe
         participatory_process_step:
           fields:
@@ -142,6 +157,13 @@
           copy: Kopier
           select: Velg hvilke data du vil kopiere
           title: Kopier deltakende prosess
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Aktive innholdsbokser
+          inactive_content_blocks: Inaktive innholdsbokser
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Oppdater
       participatory_process_groups:
         destroy:
           error: Det oppstod en feil under slettingen av prosessgruppen.
@@ -299,8 +321,28 @@
         related_assemblies: Relaterte forsamlinger
     participatory_process_groups:
       content_blocks:
+        html_1:
+          name: Første HTML-blokk
+        html_2:
+          name: Andre HTML-blokk
+        html_3:
+          name: Tredje HTML-blokk
+        metadata:
+          developer_group: Promotert av
+          name: Metadata
+          participatory_scope: Hva er bestemt
+          participatory_structure: Hvordan blir det bestemt
+          target: Hvem deltar
+        participatory_processes:
+          name: Deltakende prosesser
         stats:
           name: Aktivitet
+        title:
+          meta_scope: Omfang
+          name: Tittel, beskrivelse og hashtag
+          participatory_processes:
+            one: 1 prosess
+            other: "%{count} prosesser"
       show:
         title: Prosessgrupper
     participatory_process_steps:
@@ -312,9 +354,17 @@
         content_blocks:
           highlighted_processes:
             max_results: Maksimalt antall elementer som vises
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne prosessen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metadata
+            title: Generell Informasjon
+            visibility: Synlighet
         participatory_process_imports:
           form:
             document_legend: Legg til et dokumentet
@@ -352,7 +402,12 @@
             active_step: Aktiv medvirkningsfase
             more_information: Mer informasjon
             participate: Delta
+            participate_in: Delta i prosess %{resource_name}
+            processes_button_title: Lenke til prosessiden som viser alle prosesser
             see_all_processes: Se alle prosesser
+      participatory_process_steps:
+        index:
+          back_to_process: Tilbake til prosesssiden
       participatory_processes:
         filters:
           counters:
@@ -382,6 +437,8 @@
           loading: Laster inn resultater...
       show:
         area: Område
+        belongs_to_group: Denne prosessen tilhører
+        dates: Datoer
         developer_group: Prosessen styres av
         end_date: Sluttdato
         local_area: Organisasjonsområde
@@ -393,11 +450,14 @@
         start_date: Startdato
         target: Hvem kan delta
         unspecified: Ikke spesifisert
+    statistics:
+      processes_count: Prosesser
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
           browse: Bla gjennom
+          browse_resource: Bla gjennom prosessgruppe %{resource_name}
           processes_count: 'Prosesser:'
       participatory_process_widgets:
         show:
@@ -409,11 +469,17 @@
         participatory_process:
           active_step: 'Nåværende fase:'
           more_info: Mer info
+          more_info_about: Mer informasjon om prosess %{resource_name}
           take_part: Delta
+          take_part_in: Delta i prosess %{resource_name}
         promoted_process:
           active_step: 'Nåværende fase:'
           more_info: Mer info
+          more_info_about: Mer informasjon om prosess %{resource_name}
           take_part: Delta
+          take_part_in: Delta i prosess %{resource_name}
+        promoted_process_group:
+          more_info: Mer info
       process_header_steps:
         step: Fase %{current} av %{total}
         view_steps: Vis faser

@@ -24,6 +24,26 @@
         full_address: Full adresse
         verification_code: Verifiseringskode
   decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: Nyttig hvis prosessen allerede har begynt og du vil tilbakekalle tillatelsene for den forrige prosessen.
+          button: Opphev alle
+          button_before: Tilbakekall før dato
+          destroy:
+            confirm: Tilbakekall før dato-autorisering kan ikke angres. Er du sikker på at du vil fortsette?
+            confirm_all: Tilbakekall alle autorisasjoner kan ikke angres. Er du sikker på at du vil fortsette?
+          destroy_nok: Det har vært et problem under tilbakekalling av autorisasjoner.
+          destroy_ok: Alle matchede autorisasjoner er nå tilbakekallet.
+          info: Det er totalt %{count} bekreftede deltakere.
+          no_data: Ingen bekreftede deltakere
+          title: Tilbakekall av autorisasjoner
+        authorization_workflows: Autorisasjoner
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} oppdaterte identitetsdokumenters autorisasjonskofigurasjon"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} bekreftet at %{resource_name} bruker en offline identitetdokumentsautorisasjon"
     authorization_handlers:
       admin:
         csv_census:
@@ -55,12 +75,22 @@
       postal_letter:
         explanation: Vi sender deg et postbrev med en kode som du må oppgi slik at vi kan bekrefte adressen din
         name: Kode med post brev
+    events:
+      verifications:
+        verify_with_managed_user:
+          notification_title: Deltakeren <a href="%{resource_path}">%{resource_title}</a> har forsøkt å verifisere seg selv med data fra den håndterte deltakeren <a href="%{managed_user_path}">%{managed_user_name}</a>
     verifications:
       authorizations:
+        authorization_metadata:
+          info: 'Dette er data fra den gjeldende verifikasjonen:'
+          no_data_stored: Ingen data lagret.
         create:
           error: Det oppstod et problem med å opprette autoriseringen.
           success: Du er blitt autorisert.
           unconfirmed: Du må bekrefte e-posten din for å autorisere deg.
+        destroy:
+          error: Det oppsto et problem med å slette autorisasjonen.
+          success: Du har slettet autorisasjonen.
         first_login:
           actions:
             another_dummy_authorization_handler: Verifiser mot et annet eksempel på autorisasjons behandler
@@ -69,13 +99,23 @@
             dummy_authorization_workflow: Verifiser mot eksempelets autoriserings arbeidsflyt
             id_documents: Bli verifisert med å laste opp ditt identitets dokumentet
             postal_letter: Bli verifisert med å motta en verifiseringskode gjennom posten
+            sms: Bli bekreftet ved å motta en verifiseringskode på SMS
           title: Verifiser din identitet
           verify_with_these_options: 'Disse er de tilgjengelige alternativene for å verifisere identiteten din:'
+        index:
+          expired_verification: Verifikasjon utløpt
+          pending_verification: Venter på verifisering
+          show_renew_info: Klikk for å fornye verifisering
+          unauthorized_verification: Forny verifisering
         new:
           authorize: Send
           authorize_with: Verifiser med %{authorizer}
         renew_modal:
           cancel: Avbryt
+          close: lukk
+          continue: Fortsett
+          info_renew: Hvis du ønsker å oppdatere dataene, fortsetter du med fornyelsen
+          title: Forny verifisering
         skip_verification: Du kan hoppe over dette for nå og %{link}
         start_exploring: begynn å utforske
       csv_census:
@@ -95,6 +135,7 @@
             title: Nåværende folketelling data
           instructions:
             body: For å gjøre dette må du gå inn i systemadministrasjon og legge til cvs_census autoriseringen til organisasjonen
+            title: Du må aktivere CSV-tellingen for denne organisasjonen
           new:
             file: ".csv fil med e-postdata"
             info: 'Må være en fil i CSV-format med bare en kolonne med e-postadressen:'
@@ -109,6 +150,11 @@
           postal_codes:
             one: Deltakelse er begrenset til deltakere med postnummer %{postal_codes}.
             other: 'Deltakelse er begrenset til deltakere med postnummer %{postal_codes}.'
+          scope: Deltakelse er begrenset til deltakere med tema %{scope_name}.
+          user_postal_codes:
+            one: Deltagelse er begrenset til deltakere med postnummer %{postal_codes}, og postnummeret ditt er %{user_postal_code}.
+            other: 'Deltagelse er begrenset til deltakere med følgende postkoder: %{postal_codes}. Ditt postnummer er %{user_postal_code}.'
+          user_scope: Deltakelse er begrenset til deltakere med tema %{scope_name}, og ditt tema er %{user_scope_name}.
       id_documents:
         admin:
           config:
