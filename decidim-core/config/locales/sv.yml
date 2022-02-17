@@ -78,6 +78,21 @@ sv:
       decidim_with_month_name_short: "%d %b"
   datetime:
     distance_in_words:
+      about_x_hours:
+        one: ungefär 1 timme
+        other: ungefär %{count} timmar
+      less_than_x_seconds:
+        one: just nu
+        other: mindre än %{count} sekunder
+      x_days:
+        one: 1 dag sedan
+        other: "%{count} dagar sedan"
+      x_hours:
+        one: 1 timme sedan
+        other: "%{count} timmar sedan"
+      x_minutes:
+        one: 1 min sedan
+        other: "%{count} min sedan"
       x_seconds:
         one: 1 sek. sedan
         other: "%{count} sek. sedan"
