@@ -110,6 +110,7 @@ sv:
             up: Upp
           title_and_description:
             collapse: Kollapsa
+            description: Beskrivning
             down: Ner
             expand: Expandera
             remove: Ta bort
