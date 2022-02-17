@@ -4,7 +4,7 @@
   <div class="filters__section">
     <div class="filters__search">
       <div class="input-group">
-        <%= form.search_field :search_text, label: false, class: "input-group-field", placeholder: t(".search"), title: t(".search"), "aria-label": t(".search"), data: { disable_dynamic_change: true } %>
+        <%= form.search_field :search_text_cont, label: false, class: "input-group-field", placeholder: t(".search"), title: t(".search"), "aria-label": t(".search"), data: { disable_dynamic_change: true } %>
         <div class="input-group-button">
           <button type="submit" class="button" aria-controls="meetings">
             <%= icon "magnifying-glass", aria_label: t(".search"), role: "img" %>
@@ -14,24 +14,24 @@
     </div>
   </div>
 
-  <%= form.hidden_field "state", value: params.dig("filter", "state") %>
+  <%= form.hidden_field "with_availability", value: params.dig("filter", "with_availability") %>
 
   <% unless @forced_past_meetings %>
-    <%= form.check_boxes_tree :date, filter_date_values, legend_title: t(".date") %>
+    <%= form.check_boxes_tree :with_any_date, filter_date_values, legend_title: t(".date") %>
   <% end %>
 
-  <%= form.check_boxes_tree :type, filter_type_values, legend_title: t(".type") %>
+  <%= form.check_boxes_tree :with_any_type, filter_type_values, legend_title: t(".type") %>
 
   <% if current_component.has_subscopes? %>
-    <%= form.check_boxes_tree :scope_id, filter_scopes_values, legend_title: t(".scope") %>
+    <%= form.check_boxes_tree :with_any_scope, filter_scopes_values, legend_title: t(".scope") %>
   <% end %>
 
   <% if current_component.categories.any? %>
-    <%= form.check_boxes_tree :category_id, filter_categories_values, legend_title: t(".category") %>
+    <%= form.check_boxes_tree :with_any_category, filter_categories_values, legend_title: t(".category") %>
   <% end %>
 
   <% if component_settings.creation_enabled_for_participants? %>
-    <%= form.check_boxes_tree :origin, filter_origin_values, legend_title: t(".origin") %>
+    <%= form.check_boxes_tree :with_any_origin, filter_origin_values, legend_title: t(".origin") %>
   <% end %>
 
   <% if current_user %>

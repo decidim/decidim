@@ -18,6 +18,17 @@ module Decidim
       # An association with the permissions settings for the resource
       has_one :resource_permission, as: :resource, class_name: "Decidim::ResourcePermission"
 
+      scope :related_to, lambda { |related_to_key|
+        from = joins(:resource_links_from).where(
+          decidim_resource_links: { to_type: related_to_key.camelcase }
+        )
+        to = joins(:resource_links_to).where(
+          decidim_resource_links: { from_type: related_to_key.camelcase }
+        )
+
+        where(id: from).or(where(id: to))
+      }
+
       # Finds all the linked resources to or from this model for a given resource
       # name and link name.
       #

@@ -23,7 +23,7 @@ module Decidim
         end
 
         def filtered_relation
-          @filtered_relation ||= search.results
+          @filtered_relation ||= search.result
         end
 
         def default_date_filter
@@ -36,20 +36,14 @@ module Decidim
 
         private
 
-        def search_klass
-          Decidim::ParticipatoryProcesses::ParticipatoryProcessSearch
+        def search_collection
+          base_relation
         end
 
         def default_filter_params
           {
-            scope_id: nil,
-            area_id: nil
-          }
-        end
-
-        def default_search_params
-          {
-            base_relation: base_relation
+            with_scope: nil,
+            with_area: nil
           }
         end
 

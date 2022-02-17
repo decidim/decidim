@@ -119,7 +119,7 @@ describe "Filter Participatory Processes", type: :system do
 
     context "and choosing a scope" do
       before do
-        visit decidim_participatory_processes.participatory_processes_path(filter: { scope_id: scope.id })
+        visit decidim_participatory_processes.participatory_processes_path(filter: { with_scope: scope.id })
       end
 
       it "lists all processes belonging to that scope" do
@@ -140,7 +140,7 @@ describe "Filter Participatory Processes", type: :system do
 
     context "and choosing an area" do
       before do
-        select translated(area.name), from: "filter[area_id]"
+        select translated(area.name), from: "filter[with_area]"
       end
 
       it "lists all processes belonging to that area" do
@@ -159,8 +159,8 @@ describe "Filter Participatory Processes", type: :system do
       end
 
       it "doesnt show filters" do
-        expect(page).not_to have_css(".area_id_areas_select_filter")
-        expect(page).not_to have_css(".scope_id_scopes_picker_filter")
+        expect(page).not_to have_css(".with_area_areas_select_filter")
+        expect(page).not_to have_css(".with_scope_scopes_picker_filter")
       end
     end
   end

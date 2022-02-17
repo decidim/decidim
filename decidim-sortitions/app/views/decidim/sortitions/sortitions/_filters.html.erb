@@ -4,7 +4,7 @@
   <div class="filters__section">
     <div class="filters__search">
       <div class="input-group">
-        <%= form.search_field :search_text, label: false, class: "input-group-field", placeholder: t(".search"), title: t(".search"), "aria-label": t(".search"), data: { disable_dynamic_change: true } %>
+        <%= form.search_field :search_text_cont, label: false, class: "input-group-field", placeholder: t(".search"), title: t(".search"), "aria-label": t(".search"), data: { disable_dynamic_change: true } %>
         <div class="input-group-button">
           <button type="submit" class="button" aria-controls="sortitions">
             <%= icon "magnifying-glass", aria_label: t(".search"), role: "img" %>
@@ -15,7 +15,7 @@
   </div>
 
   <% if current_participatory_space.categories.any? %>
-    <%= form.categories_select :category_id,
+    <%= form.categories_select :with_category,
                                current_participatory_space.categories,
                                {
                                  legend_title: t(".category"),
@@ -28,7 +28,7 @@
                                "aria-controls": "sortitions" %>
   <% end %>
 
-  <%= form.collection_radio_buttons :state,
+  <%= form.collection_radio_buttons :with_any_state,
                                     [["all", t(".all")], ["active", t(".active")], ["cancelled", t(".cancelled")]],
                                     :first,
                                     :last,
