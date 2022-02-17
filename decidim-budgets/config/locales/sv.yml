@@ -197,6 +197,9 @@ sv:
           projects_count:
             one: Ett projekt
             other: "%{count} projekt"
+        exit_modal:
+          close_modal: Stäng fönster
+          exit: Lämna omröstning
         filters:
           category: Kategori
           scope: Omfång
