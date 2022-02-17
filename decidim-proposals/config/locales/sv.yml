@@ -592,6 +592,7 @@ sv:
           all: Alla
           meetings: Möten
           official: Officiella
+          participants: Deltagare
           user_groups: Grupper
         filter_scope_values:
           all: Alla
