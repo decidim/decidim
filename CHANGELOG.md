@@ -17,7 +17,7 @@ PR [\#8811](https://github.com/decidim/decidim/pull/8811) is addressing an issue
 We have introduced a new task  that would remove the moderated content from being displayed in search. Please run the following command if you want to remove old moderated data from your search results
 
 ```ruby
-rake decidim:moderation:remove_from_search
+rake decidim:upgrade:v0_27:moderation:remove_from_search
 ```
 
 #### Default Decidim app fully configurable via ENV vars
