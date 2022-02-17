@@ -39,12 +39,12 @@ class UpdateUsersNickname < ActiveRecord::Migration[6.0]
     logger.info("Process terminated, #{has_changed.count} users nickname have been updated.")
   end
 
-  def send_notification_to(user, new_nickname)
+  def send_notification_to(user, _new_nickname)
     Decidim::EventsManager.publish({
                                      event: "decidim.events.nickname_event",
                                      event_class: Decidim::ChangeNicknameEvent,
                                      affected_users: [user],
-                                     resource: user,
+                                     resource: user
                                    })
   end
 
