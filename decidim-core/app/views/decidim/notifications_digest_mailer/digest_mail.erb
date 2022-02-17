@@ -10,7 +10,7 @@
   <div class="email-content-notifications">
     <% length = @notifications.size - 1 %>
     <% @notifications.each_with_index do |notification, i| %>
-      <%= render("decidim/notifications_digest_mailer/email_content", notification: notification)%>
+      <%= render("decidim/notifications_digest_mailer/email_content", notification: notification) %>
       <% if i < length %>
         <hr class="email-element-separator">
       <% end %>
@@ -25,4 +25,3 @@
 
   <p class="email-closing"><%= @notifications_digest.outro %></p>
 </div>
-
