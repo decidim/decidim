@@ -6,24 +6,15 @@ module Decidim
     delegate :organization, to: :user, prefix: false
     delegate :url_helpers, to: "Decidim::Core::Engine.routes"
 
-    i18n_attributes :old_nickname, :new_nickname
+    i18n_attributes :link_to_account_settings
 
     def notification_title
-      I18n.t("decidim.events.nickname_event.notification_title", i18n_options).to_s.html_safe
-    end
-
-    def resource_path
-      nil
-    end
-
-    def resource_title
-      nil
+      I18n.t("decidim.events.nickname_event.notification_body", i18n_options).to_s.html_safe
     end
 
     def i18n_options
       {
-        old_nickname: extra["old_nickname"],
-        new_nickname: extra["new_nickname"]
+        link_to_account_settings: url_helpers.account_path
       }
     end
   end

@@ -45,10 +45,6 @@ class UpdateUsersNickname < ActiveRecord::Migration[6.0]
                                      event_class: Decidim::ChangeNicknameEvent,
                                      affected_users: [user],
                                      resource: user,
-                                     extra: {
-                                       old_nickname: user.nickname,
-                                       new_nickname: new_nickname
-                                     }
                                    })
   end
 
