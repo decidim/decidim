@@ -10,6 +10,8 @@ module Decidim
       component_public_action?
       search_scope_action?
 
+      public_report_content_action?
+
       return permission_action unless user
 
       user_manager_permissions
@@ -27,6 +29,13 @@ module Decidim
     end
 
     private
+
+    def public_report_content_action?
+      return unless permission_action.action == :create &&
+                    permission_action.subject == :moderation
+
+      allow!
+    end
 
     def read_public_pages_action?
       return unless permission_action.subject == :public_page &&

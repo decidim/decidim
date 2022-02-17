@@ -19,7 +19,6 @@ module Decidim
           public_list_process_groups_action?
           public_read_process_group_action?
           public_read_process_action?
-          public_report_content_action?
           return permission_action
         end
 
@@ -117,13 +116,6 @@ module Decidim
         return false unless user
 
         user.admin || process.users.include?(user)
-      end
-
-      def public_report_content_action?
-        return unless permission_action.action == :create &&
-                      permission_action.subject == :moderation
-
-        allow!
       end
 
       # Only organization admins can enter the process groups space area.
