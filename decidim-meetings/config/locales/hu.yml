@@ -62,6 +62,16 @@ hu:
         other: Regisztrációk
   decidim:
     admin:
+      filters:
+        meetings:
+          with_any_origin:
+            values:
+              official: Hivatalos
+              participants: Résztvevő
+          with_any_type:
+            values:
+              hybrid: Mindkettő
+              online: Online
       meeting_copies:
         create:
           error: Hiba történt a találkozó duplikálása során.
