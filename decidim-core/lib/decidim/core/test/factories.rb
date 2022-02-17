@@ -714,7 +714,7 @@ FactoryBot.define do
   factory :user_report, class: "Decidim::UserReport" do
     reason { "spam" }
     moderation { create(:user_moderation, user: user) }
-    user { build(:user, organization: moderation.organization) }
+    user { build(:user) }
   end
 
   factory :user_moderation, class: "Decidim::UserModeration" do

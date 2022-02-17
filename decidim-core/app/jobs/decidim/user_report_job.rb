@@ -4,8 +4,8 @@ module Decidim
   class UserReportJob < ApplicationJob
     queue_as :user_report
 
-    def perform(admin, reporting_user, report)
-      UserReportMailer.notify(admin, reporting_user, report).deliver_now
+    def perform(admin, report)
+      UserReportMailer.notify(admin, report).deliver_now
     end
   end
 end

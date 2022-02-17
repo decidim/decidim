@@ -4,7 +4,7 @@ module Decidim
   # A custom mailer to notify Decidim users
   # that they have been reported
   class UserReportMailer < ApplicationMailer
-    def notify(admin, token, report)
+    def notify(admin, report)
       @report = report
       @admin = admin
       @organization = report.moderation.user.organization

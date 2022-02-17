@@ -13,7 +13,7 @@ module Decidim
     let(:reason) { "spam" }
 
     describe "#notify" do
-      let(:mail) { described_class.notify(admin, reporter, user_report) }
+      let(:mail) { described_class.notify(admin, user_report) }
 
       describe "email body" do
         it "includes the reported user name" do
