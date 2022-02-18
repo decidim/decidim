@@ -172,8 +172,6 @@ cs:
         permissions: Oprávnění
         reject: Odmítnout
         share: Sdílet
-        user:
-          new: Nový uživatel
         verify: Ověřit
       admin_terms_of_use:
         accept:
@@ -971,7 +969,6 @@ cs:
         static_pages: Stránky
         statistics: Aktivita
         user_groups: Skupiny
-        users: Účastníci
       user_group:
         csv_verify:
           invalid: Při čtení souboru CSV došlo k chybě.
@@ -1007,7 +1004,6 @@ cs:
           role: Role
         new:
           create: Pozvat
-          title: Pozvat účastníka jako administrátora
       users_statistics:
         users_count:
           admins: Administrátoři
