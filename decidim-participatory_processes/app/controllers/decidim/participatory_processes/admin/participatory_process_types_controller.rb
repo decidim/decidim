@@ -3,7 +3,7 @@
 module Decidim
   module ParticipatoryProcesses
     module Admin
-      # Cotroller used to manage participatory process types for the current
+      # Controller used to manage participatory process types for the current
       # organization
       class ParticipatoryProcessTypesController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
         helper_method :collection, :current_participatory_process_type
