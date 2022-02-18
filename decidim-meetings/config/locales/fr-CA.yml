@@ -95,7 +95,7 @@ fr-CA:
             label: Origine
             values:
               official: Officiel
-              participants: Participantes
+              participants: Participants
               user_group: Groupes d’utilisateurs
           with_any_type:
             label: Type de rencontre
