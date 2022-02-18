@@ -1402,6 +1402,7 @@ en:
       notify:
         body_1: User %{user} has been reported by %{token}
         body_2: 'Reason: %{reason}'
+        details: User provided details
         greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hello %{admin},
         subject: A new user has been reported in %{organization_name}
