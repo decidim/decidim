@@ -687,7 +687,6 @@ sk:
         static_pages: Stránky
         statistics: Aktivita
         user_groups: Skupiny
-        users: Účastníci
       user_group:
         csv_verify:
           invalid: Vyskytol sa problém s čítaním súboru CSV.
@@ -723,7 +722,6 @@ sk:
           role: Rola
         new:
           create: Pozvať
-          title: Pozvať účastníka ako administrátora
       users_statistics:
         users_count:
           admins: Administrátori
