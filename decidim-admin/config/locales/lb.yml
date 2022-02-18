@@ -912,7 +912,7 @@ lb:
         static_pages: Seiten
         statistics: Aktivität
         user_groups: Benutzergruppen
-        users: Benutzer
+        users: Teilnehmer
       user_group:
         csv_verify:
           invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
