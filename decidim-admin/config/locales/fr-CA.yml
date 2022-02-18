@@ -172,8 +172,6 @@ fr-CA:
         permissions: Autorisations
         reject: Rejeter
         share: Partager
-        user:
-          new: Nouvel utilisateur
         verify: Vérifier
       admin_terms_of_use:
         accept:
@@ -961,7 +959,6 @@ fr-CA:
         static_pages: Pages
         statistics: Activité
         user_groups: Groupes d'utilisateurs
-        users: Utilisateurs
       user_group:
         csv_verify:
           invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
@@ -997,7 +994,6 @@ fr-CA:
           role: Rôle
         new:
           create: Inviter
-          title: Inviter l'utilisateur en tant qu'administrateur
       users_statistics:
         users_count:
           admins: Administrateurs
