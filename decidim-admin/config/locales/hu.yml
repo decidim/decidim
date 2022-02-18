@@ -775,7 +775,6 @@ hu:
         static_pages: Oldalak
         statistics: Tevékenység
         user_groups: Csoportok
-        users: Résztvevők
       user_group:
         csv_verify:
           invalid: Hiba történt a CSV fájl olvasásában.
@@ -811,7 +810,6 @@ hu:
           role: Szerep
         new:
           create: Meghívás
-          title: A résztvevő meghívása rendszergazdaként
       users_statistics:
         users_count:
           admins: Adminok
