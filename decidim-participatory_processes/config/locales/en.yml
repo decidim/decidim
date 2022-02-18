@@ -231,7 +231,7 @@ en:
           success: Participatory phase successfully updated.
       participatory_process_types:
         create:
-          error: There was a proble creating a new process type.
+          error: There was a problem creating a new process type.
           success: Process type successfully created.
         destroy:
           success: Process type successfully deleted.
