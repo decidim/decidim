@@ -593,7 +593,6 @@ id:
         scopes: Scopes
         static_pages: Halaman
         user_groups: Grup Pengguna
-        users: Pengguna
       user_group:
         csv_verify:
           invalid: Ada kesalahan saat membaca file CSV.
@@ -629,7 +628,6 @@ id:
           role: Peran
         new:
           create: Undang
-          title: Undang pengguna sebagai administrator
       users_statistics:
         users_count:
           admins: Admin
