@@ -22,7 +22,7 @@ describe "Admin manages budgets", type: :system do
 
   it "creates a new budget" do
     within ".card-title" do
-      page.find(".button.button--title").click
+      click_link "New Budget"
     end
 
     within ".new_budget" do
