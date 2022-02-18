@@ -95,6 +95,9 @@ module Decidim
       hash << I18n.locale.to_s
       hash << model.class.name.underscore
       hash << model.cache_key_with_version
+      if (author_cell = author)
+        hash.push(Digest::MD5.hexdigest(author_cell.send(:cache_hash)))
+      end
 
       hash.join(Decidim.cache_key_separator)
     end
