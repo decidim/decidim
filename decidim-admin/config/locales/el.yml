@@ -171,8 +171,6 @@ el:
         permissions: Δικαιώματα
         reject: Απόρριψη
         share: Κοινοποίηση
-        user:
-          new: Νέος χρήστης
         verify: Επαλήθευση
       admin_terms_of_use:
         accept:
@@ -904,7 +902,6 @@ el:
         static_pages: Σελίδες
         statistics: Δραστηριότητα
         user_groups: Ομάδες
-        users: Συμμετέχοντες
       user_group:
         csv_verify:
           invalid: Υπήρξε ένα πρόβλημα κατά την ανάγνωση του αρχείου CSV.
@@ -940,7 +937,6 @@ el:
           role: Ρόλος
         new:
           create: Πρόσκληση
-          title: Προσκαλέστε τον συμμετέχοντα ως διαχειριστή
       users_statistics:
         users_count:
           admins: Διαχειριστές
