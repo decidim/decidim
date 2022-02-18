@@ -172,8 +172,6 @@ fi:
         permissions: Oikeudet
         reject: Hylkää
         share: Jaa
-        user:
-          new: Uusi käyttäjä
         verify: Vahvista
       admin_terms_of_use:
         accept:
@@ -961,7 +959,6 @@ fi:
         static_pages: Sivut
         statistics: Toiminta
         user_groups: Käyttäjäryhmät
-        users: Käyttäjät
       user_group:
         csv_verify:
           invalid: CSV-tiedoston käsittely epäonnistui.
@@ -997,7 +994,6 @@ fi:
           role: Rooli
         new:
           create: Kutsu
-          title: Kutsu käyttäjä hallinnointikäyttäjäksi
       users_statistics:
         users_count:
           admins: Ylläpitäjät
