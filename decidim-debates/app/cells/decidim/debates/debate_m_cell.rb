@@ -51,6 +51,10 @@ module Decidim
         start_date != end_date
       end
 
+      def has_actions?
+        false
+      end
+
       def debate_date
         return render(:open_date) unless start_date && end_date
         return render(:multiple_dates) if spans_multiple_dates?
