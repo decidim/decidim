@@ -897,7 +897,7 @@ gl:
         static_pages: Páxinas
         statistics: Actividade
         user_groups: Grupos de usuarios
-        users: Usuarios
+        users: Participantes
       user_group:
         csv_verify:
           invalid: Produciuse un erro ao ler o ficheiro CSV.
