@@ -29,10 +29,10 @@ module Decidim::Conferences
         current_user: current_user,
         title: { en: "title" },
         attributes: {
-          title: { en: "title" },
-          weight: 1,
-          price: 300,
-          description: { en: "registration type description" }
+          "title" => { en: "title" },
+          "weight" => 1,
+          "price" => 300,
+          "description" => { en: "registration type description" }
         }
       )
     end
