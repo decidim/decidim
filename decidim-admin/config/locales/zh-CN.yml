@@ -730,7 +730,6 @@ zh-CN:
         static_pages: 页 次
         statistics: 活动
         user_groups: 群組
-        users: 参加者
       user_group:
         csv_verify:
           invalid: 读取CSV文件时出现问题。
@@ -766,7 +765,6 @@ zh-CN:
           role: 作用
         new:
           create: 邀请
-          title: 邀请参与者作为管理员
       users_statistics:
         users_count:
           admins: 管理员
