@@ -76,6 +76,7 @@ fi-pl:
           index:
             title: Satunnaisvalinnat
           new:
+            confirm: Kun painat painiketta, palvelin tallentaa päivämäärän ja kellonajan (sekunnin tarkkuudella) ja näitä tietoja käytetään yhdessä nopanheiton kanssa satunnaisen valinnan luomiseen. Toimintoa ei voi peruuttaa. Kun painiketta napsautetaan, arvonnan tulos julkaistaan yhdessä tähän lomakkeeseen syötettyjen tietojen kanssa. Tietoja ei voi muuttaa jälkikäteen, joten tarkista sisältö huolellisesti
             create: Luo
             title: Uusi satunnaisvalinta
           show:
