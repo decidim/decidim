@@ -1377,6 +1377,7 @@ ja:
       notify:
         body_1: ユーザー %{user} が %{token} によって報告されました
         body_2: '理由: %{reason}'
+        details: ユーザーが提供した詳細
         greetings: ようこそ、<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: こんにちは、 %{admin} さん。
         subject: '%{organization_name} で新しいユーザーが報告されました'
