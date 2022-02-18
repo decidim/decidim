@@ -23,9 +23,7 @@ module Decidim
                                when Decidim::Organization
                                  "current_organization"
                                when Decidim::User
-                                 "current_user"
-                               else
-                                 "original_author"
+                                 post.author&.id == current_user.id ? "current_user" : "original_author"
                                end
           self.original_author = post.author
         end
