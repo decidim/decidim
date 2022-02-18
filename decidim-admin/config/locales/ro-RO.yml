@@ -172,8 +172,6 @@ ro:
         permissions: Drepturi
         reject: Respinge
         share: Distribuie
-        user:
-          new: Utilizator nou
         verify: Verifică
       admin_terms_of_use:
         accept:
@@ -960,7 +958,6 @@ ro:
         static_pages: Pagini
         statistics: Activitate
         user_groups: Grupuri
-        users: Participanți
       user_group:
         csv_verify:
           invalid: A apărut o problemă la citirea fișierului CSV.
@@ -996,7 +993,6 @@ ro:
           role: Rol
         new:
           create: Invită
-          title: Invită participantul ca administrator
       users_statistics:
         users_count:
           admins: Administratori
