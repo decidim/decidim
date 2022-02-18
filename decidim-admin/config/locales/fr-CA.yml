@@ -915,7 +915,7 @@ fr-CA:
         static_pages: Pages
         statistics: Activité
         user_groups: Groupes d'utilisateurs
-        users: Utilisateurs
+        users: Participants
       user_group:
         csv_verify:
           invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
