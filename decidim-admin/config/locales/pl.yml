@@ -903,7 +903,7 @@ pl:
         static_pages: Strony
         statistics: Aktywność
         user_groups: Grupy użytkowników
-        users: Administratorzy
+        users: Użytkownicy
       user_group:
         csv_verify:
           invalid: Wystąpił błąd podczas odczytu pliku CSV.
