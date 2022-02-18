@@ -223,6 +223,12 @@ module Decidim
           expect(parent.comment_threads.count).to eq 3
         end
 
+        it "returns 2 when a comment has been moderated" do
+          Decidim::Moderation.create!(reportable: comments.last, participatory_space: comments.last.participatory_space, hidden_at: 1.day.ago)
+
+          expect(parent.comment_threads.count).to eq 3
+        end
+
         describe "#body_length" do
           context "when no default comments length specified" do
             let!(:body) { { en: ::Faker::Lorem.sentence(word_count: 1000) } }

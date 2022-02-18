@@ -67,7 +67,7 @@ module Decidim::Comments
             expect(subject).not_to have_css(".add-comment")
           end
 
-          it "does not render the single comment warning" do
+          it "renders the single comment warning" do
             expect(subject).to have_css(".callout.secondary", text: "You are seeing a single comment")
             expect(subject).to have_css(".callout.secondary", text: "View all comments")
           end

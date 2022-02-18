@@ -59,7 +59,7 @@ module Decidim::Comments
         let(:comment) { create(:comment, commentable: commentable, created_at: 1.day.ago) }
         let!(:moderation) { create(:moderation, hidden_at: 6.hours.ago, reportable: comment) }
 
-        it "renders the card with a deletion message and replies" do
+        it "renders the card with a moderation message and replies" do
           expect(subject).to have_css("#comment_#{comment.id}")
           expect(subject).to have_css("#comment-#{comment.id}-replies", text: "")
           expect(subject).to have_css(".comment__moderated")
