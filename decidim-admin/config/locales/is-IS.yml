@@ -140,8 +140,6 @@ is-IS:
         permissions: Heimildir
         reject: Hafna
         share: Deila
-        user:
-          new: Nýr notandi
         verify: Staðfestu
       area_types:
         create:
