@@ -1393,6 +1393,7 @@ ca:
       notify:
         body_1: La usuària %{user} ha estat reportada per %{token}
         body_2: 'Motiu: %{reason}'
+        details: Detalls proporcionats per la usuària
         greetings: Salutacions,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola %{admin},
         subject: Una nova usuària ha estat reportada a %{organization_name}
