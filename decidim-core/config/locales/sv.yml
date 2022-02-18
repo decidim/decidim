@@ -81,6 +81,13 @@ sv:
       about_x_hours:
         one: ungefär 1 timme
         other: ungefär %{count} timmar
+      about_x_months:
+        one: ungefär 1 månad
+        other: ungefär %{count} månader
+      half_a_minute: en halv minut
+      less_than_x_minutes:
+        one: mindre än en minut
+        other: mindre än %{count} minut
       less_than_x_seconds:
         one: just nu
         other: mindre än %{count} sekunder
@@ -174,6 +181,7 @@ sv:
         block: "%{user_name} blockerade användaren %{resource_name}"
         invite: "%{user_name} bjöd in användaren %{resource_name} med rollen: %{role}"
         officialize: "%{user_name} gjorde deltagaren %{resource_name} officiell"
+        promote: "%{user_name} befordrade %{resource_name}"
         remove_from_admin: "%{user_name} tog bort deltagaren %{resource_name} med rollen: %{role}"
         show_email: "%{user_name} hämtade e-postadressen för deltagaren %{resource_name}"
         transfer: "%{user_name} överförde deltagaren %{resource_name}"
@@ -996,6 +1004,7 @@ sv:
         show:
           back: Tillbaka till alla konversationer
           chat_with: Konversation med
+          deleted_accounts: Du kan inte meddela raderade konton.
           not_allowed: Deltagaren tar inte emot direktmeddelanden.
           title: Samtal med %{usernames}
         start:
@@ -1063,6 +1072,12 @@ sv:
         greetings: Hälsningar,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallå,
         subject: Vill du fortsätta att få relevant information om %{organization_name}?
+    notification_mailer:
+      event_received:
+        no_translation_available: Tyvärr kunde maskinöversättningen inte hämtas när e-postmeddelandet skickades. Du kan kontrollera översättningen av originaltexten på följande länk %{link}.
+        original_text: 'Originaltext:'
+        same_language: Innehållet har skrevs i ditt valda språk (%{language}) så ingen automatisk översättning visas i detta e-post.
+        translated_text: 'Maskinöversatt text:'
     notifications:
       no_notifications: Inga meddelanden ännu.
     notifications_settings:
@@ -1360,6 +1375,7 @@ sv:
         title_reply: Svara
       show:
         back: Visa alla samtal
+        deleted_accounts: Du kan inte meddela raderade konton.
         not_allowed: Den här användaren accepterar inte fler direkta meddelanden.
         title: Konversation med %{usernames}
       update:
@@ -1657,10 +1673,12 @@ sv:
     name: Svenska
     name_with_error: Svenska (fel!)
   password_validator:
+    blacklisted: är svartlistad
     domain_included_in_password: är för likt detta domännamn
     email_included_in_password: är för likt din e-post
     fallback: är inte giltigt
     name_included_in_password: är för likt ditt namn
+    nickname_included_in_password: är för likt ditt användarnamn
     not_enough_unique_characters: har inte tillräckligt med unika tecken
     password_not_allowed: är ej tillåtet
     password_too_common: är för vanligt
