@@ -17,7 +17,7 @@ module Decidim
       end
 
       def current_type_filter_name
-        participatory_process_types_for_select.find { |_, id| id == get_filter(:type_id) }&.first ||
+        participatory_process_types_for_select.find { |_, id| id == get_filter(:with_type) }&.first ||
           I18n.t("all_types", scope: "decidim.participatory_processes.participatory_processes.filters")
       end
 
@@ -42,7 +42,7 @@ module Decidim
             with_date: date_filter,
             with_scope: get_filter(:with_scope),
             with_area: get_filter(:with_area),
-          with_type: filter_by_type ? get_filter(:with_type) : nil
+            with_type: filter_with_type ? get_filter(:with_type) : nil
           },
           current_user: current_user,
           organization: current_organization
@@ -108,7 +108,7 @@ module Decidim
 
       def participatory_process_types
         @participatory_process_types ||= Decidim::ParticipatoryProcessType.joins(:processes).where(
-          decidim_participatory_processes: { id: filtered_processes(current_filter, filter_by_type: false).results }
+          decidim_participatory_processes: { id: filtered_processes(current_filter, filter_with_type: false) }
         ).distinct
       end
 
