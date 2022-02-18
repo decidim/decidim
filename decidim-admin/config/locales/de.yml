@@ -169,8 +169,6 @@ de:
         permissions: Berechtigungen
         reject: Ablehnen
         share: Teilen
-        user:
-          new: Neuer Benutzer
         verify: Überprüfen
       admin_terms_of_use:
         accept:
@@ -898,7 +896,6 @@ de:
         static_pages: Seiten
         statistics: Aktivität
         user_groups: Benutzergruppen
-        users: Benutzer
       user_group:
         csv_verify:
           invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
@@ -934,7 +931,6 @@ de:
           role: Rolle
         new:
           create: Einladen
-          title: Benutzer als Administrator einladen
       users_statistics:
         users_count:
           admins: Admins
