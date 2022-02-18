@@ -594,7 +594,7 @@ id:
         scopes: Scopes
         static_pages: Halaman
         user_groups: Grup Pengguna
-        users: Pengguna
+        users: Peserta
       user_group:
         csv_verify:
           invalid: Ada kesalahan saat membaca file CSV.
