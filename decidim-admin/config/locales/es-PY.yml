@@ -951,7 +951,7 @@ es-PY:
         static_pages: Páginas
         statistics: Actividad
         user_groups: Grupos de usuarios
-        users: Usuarios
+        users: Participantes
       user_group:
         csv_verify:
           invalid: Se produjo un error al leer el archivo CSV.
