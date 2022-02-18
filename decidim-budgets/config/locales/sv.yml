@@ -264,6 +264,10 @@ sv:
           email_budgets: 'Områden där du inte har skickat din röst:'
           email_intro: Du har börjat rösta i medborgarbudgeten men inte skickat den.
           email_link: Rösta klart
+          email_outro: Kom ihåg att slutföra omröstningen. För att rösta måste du först välja ett eller flera förslag som du vill rösta för och bekräfta din röst med knappen "Rösta".
+          email_subject:
+            one: Du har börjat rösta i medborgarbudgeten men glömt skicka din röst
+            other: Du har börjat rösta i medborgarbudgeten men glömt skicka dina röster
     components:
       budgets:
         actions:
