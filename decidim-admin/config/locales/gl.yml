@@ -171,8 +171,6 @@ gl:
         permissions: Permisos
         reject: Rexeitar
         share: Compartir
-        user:
-          new: Novo usuario
         verify: Verifique
       admin_terms_of_use:
         accept:
@@ -942,7 +940,6 @@ gl:
         static_pages: Páxinas
         statistics: Actividade
         user_groups: Grupos de usuarios
-        users: Usuarios
       user_group:
         csv_verify:
           invalid: Produciuse un erro ao ler o ficheiro CSV.
@@ -978,7 +975,6 @@ gl:
           role: Rol
         new:
           create: Invitar
-          title: Convidar ao usuario como administrador
       users_statistics:
         users_count:
           admins: Administradores
