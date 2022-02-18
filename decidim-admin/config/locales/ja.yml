@@ -172,6 +172,8 @@ ja:
         permissions: アクセス許可
         reject: 拒否
         share: 共有
+        user:
+          new: 新しい管理者
         verify: 確認する
       admin_terms_of_use:
         accept:
@@ -954,6 +956,7 @@ ja:
         static_pages: ページ
         statistics: アクティビティ
         user_groups: グループ
+        users: 管理者
       user_group:
         csv_verify:
           invalid: CSVファイルの読み込みに問題が発生しました。
@@ -989,6 +992,7 @@ ja:
           role: ロール
         new:
           create: 招待
+          title: 新しい管理者を招待する
       users_statistics:
         users_count:
           admins: 管理者
