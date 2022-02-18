@@ -172,8 +172,6 @@ es-MX:
         permissions: Permisos
         reject: Rechazar
         share: Compartir
-        user:
-          new: Nuevo ususario
         verify: Verificar
       admin_terms_of_use:
         accept:
@@ -952,7 +950,6 @@ es-MX:
         static_pages: Páginas
         statistics: Actividad
         user_groups: Grupos de usuarios
-        users: Usuarios
       user_group:
         csv_verify:
           invalid: Se produjo un error al leer el archivo CSV.
@@ -988,7 +985,6 @@ es-MX:
           role: Rol
         new:
           create: Invitar
-          title: Invitar a un usuario como administrador
       users_statistics:
         users_count:
           admins: Administradores
