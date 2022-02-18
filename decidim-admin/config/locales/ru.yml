@@ -574,7 +574,6 @@ ru:
         scopes: Охваты
         static_pages: Страницы
         user_groups: Группы участников
-        users: Участники
       user_group:
         reject:
           invalid: При отказе от этой группы участников произошла ошибка.
@@ -605,7 +604,6 @@ ru:
           role: Роль
         new:
           create: Пригласить
-          title: Пригласить участника в качестве администратора
       users_statistics:
         users_count:
           admins: Администраторы
