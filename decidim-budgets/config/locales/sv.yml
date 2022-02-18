@@ -30,6 +30,9 @@ sv:
             label: Omfång
           selected_at_null:
             label: Valda
+            values:
+              'false': Valda för genomförande
+              'true': Inte valda för genomförande
     budgets:
       actions:
         attachment_collections: Mappar
@@ -198,8 +201,11 @@ sv:
             one: Ett projekt
             other: "%{count} projekt"
         exit_modal:
+          cancel: Tillbaka till omröstningen
           close_modal: Stäng fönster
           exit: Lämna omröstning
+          message: Din röst har inte registrerats eftersom du ännu inte har slutfört omröstningen. Är du säker på att du vill avsluta omröstningen?
+          title: Du har ännu inte röstat
         filters:
           category: Kategori
           scope: Omfång
