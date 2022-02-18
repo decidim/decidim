@@ -4,8 +4,11 @@ module Decidim
   module Assemblies
     # A presenter to render statistics in an Assembly.
     class AssemblyStatsPresenter < Decidim::StatsPresenter
-      attribute :assembly, Decidim::Assembly
       include Decidim::IconHelper
+
+      def assembly
+        __getobj__.fetch(:assembly)
+      end
 
       # Public: returns a collection of stats (Hash) for the Assembly Home.
       def collection

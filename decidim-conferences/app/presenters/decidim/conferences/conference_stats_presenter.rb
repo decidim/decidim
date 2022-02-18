@@ -4,8 +4,11 @@ module Decidim
   module Conferences
     # A presenter to render statistics in the homepage.
     class ConferenceStatsPresenter < Decidim::StatsPresenter
-      attribute :conference, Decidim::Conference
       include IconHelper
+
+      def conference
+        __getobj__.fetch(:conference)
+      end
 
       # Public: Render a collection of primary stats.
       def highlighted
