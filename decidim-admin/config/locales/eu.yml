@@ -172,8 +172,6 @@ eu:
         permissions: Baimenak
         reject: Ukatu
         share: Partekatu
-        user:
-          new: Beste erabiltzaile bat
         verify: Egiaztatu
       admin_terms_of_use:
         accept:
@@ -932,7 +930,6 @@ eu:
         static_pages: Orriak
         statistics: Jarduera
         user_groups: Erabiltzaile-taldeak
-        users: Erabiltzaileak
       user_group:
         csv_verify:
           invalid: Errore bat gertatu da CSV fitxategia irakurtzean.
@@ -968,7 +965,6 @@ eu:
           role: Rola
         new:
           create: Gonbit egin
-          title: Gonbit egin erabiltzaile bati administratzaile gisa
       users_statistics:
         users_count:
           admins: Administratzaileak
