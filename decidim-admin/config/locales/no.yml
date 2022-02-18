@@ -172,8 +172,6 @@
         permissions: Tillatelser
         reject: Avvis
         share: Del
-        user:
-          new: Ny bruker
         verify: Verifiser
       admin_terms_of_use:
         accept:
@@ -960,7 +958,6 @@
         static_pages: Sider
         statistics: Aktivitet
         user_groups: Grupper
-        users: Deltakere
       user_group:
         csv_verify:
           invalid: Det oppstod et problem med å lese CSV-filen.
@@ -996,7 +993,6 @@
           role: Rolle
         new:
           create: Inviter
-          title: Inviter deltaker som administrator
       users_statistics:
         users_count:
           admins: Adminer
