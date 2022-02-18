@@ -4,7 +4,7 @@ module Decidim
   module Elections
     module TrusteeZone
       # This command allows the user to update their trustee information
-      class UpdateTrustee < Rectify::Command
+      class UpdateTrustee < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form with the new trustee information

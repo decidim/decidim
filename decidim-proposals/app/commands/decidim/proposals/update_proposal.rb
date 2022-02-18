@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     # A command with all the business logic when a user updates a proposal.
-    class UpdateProposal < Rectify::Command
+    class UpdateProposal < Decidim::Command
       include ::Decidim::MultipleAttachmentsMethods
       include GalleryMethods
       include HashtagsMethods
@@ -45,11 +45,12 @@ module Decidim
           else
             update_proposal
           end
-          create_gallery if process_gallery?
-          create_attachments if process_attachments?
 
           photo_cleanup!
           document_cleanup!
+
+          create_gallery if process_gallery?
+          create_attachments if process_attachments?
         end
 
         broadcast(:ok, proposal)

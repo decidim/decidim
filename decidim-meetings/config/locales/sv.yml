@@ -42,10 +42,6 @@ sv:
         type_of_meeting: Typ
     errors:
       models:
-        meeting:
-          attributes:
-            show_embedded_iframe:
-              not_embeddable: URL:en kan inte integreras
         meeting_agenda:
           attributes:
             base:
@@ -92,7 +88,6 @@ sv:
           origin_eq:
             label: Ursprung
             values:
-              citizen: Medborgare
               official: Officiell
               user_group: Användargrupper
           scope_id_eq:
@@ -300,16 +295,13 @@ sv:
             update: Uppdatera
           form:
             address_help: 'Adress: anger en plats för Geocoder'
-            available_slots_help: Lämna det till 0 om du har obegränsade platser
             disclaimer: 'Disclaimer: När du använder ett externt anmälningssystem är du medveten om att administratörerna för %{organization} inte är ansvariga för de data som tillhandahålls av användarna till den externa tjänsten.'
             location_help: 'Plats: meddelande till användarna som anger mötesplats'
             location_hints_help: 'Tips för att hitta platsen: ytterligare information. Exempel: våningen om det är ett fysiskt möte eller möteslösenordet om det är ett online möte.'
             online_meeting_url_help: 'Länk: tillåt deltagare att koppla sig direct till ditt möte'
-            registration_email_help: Denna text kommer att synas i mitten av e-postet för registreringsbekräftelse, efter registreringskod.
             registration_url_help: 'Länk: tillåt deltagare att registrera sig på en extern tjänst'
             select_a_meeting_type: Välj mötestyp
             select_a_registration_type: Välj en registreringsmetod
-            show_embedded_iframe_help: Välj om adressen ska integreras som iframe. Endast ett fåtal tjänster tillåter integrering (t.ex. Youtube, Twitch...)
           index:
             title: Möten
           new:
@@ -352,6 +344,7 @@ sv:
             available_slots_help: Lämna det till 0 om du har obegränsade platser.
             invites: Inbjudningar
             recommendation_message: Av sekretessskäl rekommenderar vi att du tar bort detta inskriptionsformulär när du inte längre behöver det. Som standard är detta 3 månader efter att mötet avslutats.
+            registration_email_help: Denna text kommer att synas i mitten av e-postet för registreringsbekräftelse, efter registreringskod.
             registration_form: Anmälningsformulär
             registrations_count:
               one: Det har gjorts %{count} anmälan.
@@ -455,7 +448,6 @@ sv:
           origin: Ursprung
           origin_values:
             all: Alla
-            citizens: Medborgare
             official: Officiell
             user_groups: Grupper
           scope: Omfattning
@@ -483,7 +475,6 @@ sv:
           select_a_category: Välj en kategori
           select_a_meeting_type: Välj mötestyp
           select_a_registration_type: Välj en registreringsmetod
-          show_embedded_iframe_help: Välj om adressen ska integreras som iframe. Endast ett fåtal tjänster tillåter integrering (t.ex. Youtube, Twitch...)
         index:
           click_here: Se alla möten
           new_meeting: Nytt möte

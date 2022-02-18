@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new assembly
       # member in the system.
-      class CreateAssemblyMember < Rectify::Command
+      class CreateAssemblyMember < Decidim::Command
         include ::Decidim::AttachmentAttributesMethods
 
         # Public: Initializes the command.
@@ -53,16 +53,16 @@ module Decidim
 
         def assembly_member_attributes
           form.attributes.slice(
-            :full_name,
-            :gender,
-            :birthday,
-            :birthplace,
-            :ceased_date,
-            :designation_date,
-            :position,
-            :position_other,
-            :weight
-          ).merge(
+            "full_name",
+            "gender",
+            "birthday",
+            "birthplace",
+            "ceased_date",
+            "designation_date",
+            "position",
+            "position_other",
+            "weight"
+          ).symbolize_keys.merge(
             assembly: assembly,
             user: form.user
           ).merge(

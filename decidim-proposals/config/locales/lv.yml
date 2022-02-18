@@ -142,7 +142,6 @@ lv:
             answers_with_costs: Iespējot izmaksas priekšlikumu atbildēs
             automatic_hashtags: Mirkļbirkas tiek pievienotas visiem priekšlikumiem
             comments_blocked: Komentāri ir bloķēti
-            creation_enabled: Priekšlikuma izveide ir iespējota
             endorsements_blocked: Atbalsti ir bloķēti
             endorsements_enabled: Atbalsti ir iespējoti
             proposal_answering_enabled: Atbilde uz priekšlikumiem ir iespējota
@@ -235,7 +234,6 @@ lv:
           email_intro: Priekšlikums "%{resource_title}" ir pievienots "%{participatory_space_title}", kam jūs sekojat.
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat "%{participatory_space_title}". Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
           email_subject: Jauns priekšlikums "%{resource_title}" tika pievienots %{participatory_space_title}
-          notification_title: Priekšlikums <a href="%{resource_path}">%{resource_title}</a> ir pievienots %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Jūsu priekšlikums "%{resource_title}" tika noraidīts. Jūs varat izlasīt atbildi šajā lapā:'
@@ -499,7 +497,6 @@ lv:
           all: Visi
         filter_origin_values:
           all: Visi
-          citizens: Pilsoņi
           meetings: Sanāksmes
           official: Oficiālā
           user_groups: Grupas

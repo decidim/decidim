@@ -14,7 +14,6 @@ el:
     models:
       decidim/debates/create_debate_event: Συζήτηση
       decidim/debates/creation_disabled_event: Οι συζητήσεις απενεργοποιήθηκαν
-      decidim/debates/creation_enabled_event: Οι συζητήσεις ενεργοποιήθηκαν
   activerecord:
     models:
       decidim/debates/debate:
@@ -33,7 +32,6 @@ el:
           step:
             announcement: Ανακοίνωση
             comments_blocked: Τα σχόλια αποκλείστηκαν
-            creation_enabled: Η δημιουργία συζήτησης από συμμετέχοντες ενεργοποιήθηκε
     debates:
       actions:
         confirm_destroy: Είστε βέβαιοι;
@@ -80,7 +78,6 @@ el:
           all: Όλα
           category: Κατηγορία
           category_prompt: Επιλέξτε μια κατηγορία
-          citizens: Πολίτες
           official: Επίσημη
           origin: Προέλευση
           search: Αναζήτηση

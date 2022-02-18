@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     # Class uses to retrieve similar initiatives types.
-    class SimilarInitiatives < Rectify::Query
+    class SimilarInitiatives < Decidim::Query
       include Decidim::TranslationsHelper
       include CurrentLocale
 

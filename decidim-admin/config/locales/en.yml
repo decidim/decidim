@@ -174,7 +174,7 @@ en:
         reject: Reject
         share: Share
         user:
-          new: New user
+          new: New admin
         verify: Verify
       admin_terms_of_use:
         accept:
@@ -257,6 +257,8 @@ en:
         update:
           error: There was a problem updating this attachment.
           success: Attachment updated successfully.
+      attachments_privacy_warning:
+        message: Be careful when working with attachments in a private space. Any participant could share this document to others.
       autocomplete:
         no_results: No results found
         search_prompt: Type at least three characters to search
@@ -339,7 +341,7 @@ en:
       dashboard:
         show:
           view_more_logs: View more logs
-          welcome: Welcome to the Decidim Admin Panel.
+          welcome: Welcome to the Admin Panel.
       domain_whitelist:
         form:
           domain_too_short: Domain too short
@@ -368,6 +370,13 @@ en:
           values:
             'false': 'No'
             'true': 'Yes'
+        moderated_users:
+          reports_reason_eq:
+            label: Report reason
+            values:
+              does_not_belong: Does not belong
+              offensive: Offensive
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Type
@@ -402,9 +411,11 @@ en:
         search_label: Search
         search_placeholder:
           name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
+          report_count_eq: Report count eq
           reported_id_string_or_reported_content_cont: Search %{collection} by reportable id or content.
           title_cont: Search %{collection} by title.
           user_name_or_user_email_cont: Search %{collection} by name or email.
+          user_name_or_user_nickname_or_user_email_cont: Search %{collection} by email, name or nickname.
         state_eq:
           label: State
           values:
@@ -826,6 +837,14 @@ en:
           explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file (email, name) of the users that you want to add to the participatory space, without headers. Avoid using invalid chars like `<>?%&^*#@()[]=+:;"{}\|` in user name.
           title: Upload your CSV file
           upload: Upload
+      reminders:
+        create:
+          error: There was a problem creating reminders.
+          success:
+            one: "%{count} user will be reminded."
+            other: "%{count} users will be reminded."
+        new:
+          submit: Send
       resource_permissions:
         edit:
           submit: Submit
@@ -943,7 +962,7 @@ en:
         static_pages: Pages
         statistics: Activity
         user_groups: Groups
-        users: Participants
+        users: Administrators
       user_group:
         csv_verify:
           invalid: There was a problem reading the CSV file.
@@ -979,7 +998,7 @@ en:
           role: Role
         new:
           create: Invite
-          title: Invite participant as administrator
+          title: Invite new administrator
       users_statistics:
         users_count:
           admins: Admins

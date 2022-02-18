@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # This command deals with destroying a Component from the admin panel.
-    class DestroyComponent < Rectify::Command
+    class DestroyComponent < Decidim::Command
       # Public: Initializes the command.
       #
       # component - The Component to be destroyed.

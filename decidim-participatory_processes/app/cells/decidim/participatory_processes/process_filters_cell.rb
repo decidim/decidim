@@ -13,7 +13,7 @@ module Decidim
       end
 
       def current_filter
-        get_filter(:date, model[:default_filter])
+        get_filter(:with_date, model[:default_filter])
       end
 
       def current_type_filter_name
@@ -28,30 +28,34 @@ module Decidim
       def filter_params(date_filter, type_filter)
         {
           filter: {
-            scope_id: get_filter(:scope_id),
-            area_id: get_filter(:area_id),
-            type_id: type_filter || get_filter(:type_id),
-            date: date_filter
+            with_date: date_filter,
+            with_scope: get_filter(:with_scope),
+            with_area: get_filter(:with_area),
+            with_type: type_filter || get_filter(:with_type)
           }
         }
       end
 
-      def filtered_processes(date_filter, filter_by_type: true)
-        ParticipatoryProcessSearch.new(
-          date: date_filter,
-          scope_id: get_filter(:scope_id),
-          area_id: get_filter(:area_id),
-          type_id: filter_by_type ? get_filter(:type_id) : nil,
+      def filtered_processes(date_filter, filter_with_type: true)
+        query = ParticipatoryProcess.ransack(
+          {
+            with_date: date_filter,
+            with_scope: get_filter(:with_scope),
+            with_area: get_filter(:with_area),
+          with_type: filter_by_type ? get_filter(:with_type) : nil
+          },
           current_user: current_user,
           organization: current_organization
-        )
+        ).result
+
+        query.published.visible_for(current_user)
       end
 
       def process_count_by_filter
         return @process_count_by_filter if @process_count_by_filter
 
         @process_count_by_filter = %w(active upcoming past).inject({}) do |collection_by_filter, filter_name|
-          filtered_processes = filtered_processes(filter_name).results
+          filtered_processes = filtered_processes(filter_name)
           processes = filtered_processes.groupless
           groups = Decidim::ParticipatoryProcessGroup.where(id: filtered_processes.grouped.group_ids)
           collection_by_filter.merge(filter_name => processes.count + groups.count)

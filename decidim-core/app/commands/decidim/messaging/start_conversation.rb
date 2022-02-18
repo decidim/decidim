@@ -3,7 +3,7 @@
 module Decidim
   module Messaging
     # A command with all the business logic for replying to a conversation
-    class StartConversation < Rectify::Command
+    class StartConversation < Decidim::Command
       # Public: Initializes the command.
       #
       # form - A conversation form
@@ -72,7 +72,7 @@ module Decidim
       end
 
       # in order for a recipient to receive an email it should not have direct-messages disabled
-      # if direct-messages are disabled, only send if he follows the sending user
+      # if direct-messages are disabled, only send if they follow the sending user
       def notify(recipient)
         return unless recipient.accepts_conversation?(form.context.current_user)
 

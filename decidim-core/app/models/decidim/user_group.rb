@@ -4,7 +4,7 @@ require "devise/models/decidim_validatable"
 require "valid_email2"
 
 module Decidim
-  # A UserGroup is an organization of citizens
+  # A UserGroup is an organization of participants
   class UserGroup < UserBaseEntity
     include Decidim::Traceable
     include Decidim::DataPortability
@@ -25,9 +25,6 @@ module Decidim
 
     validate :correct_state
     validate :unique_document_number, if: :has_document_number?
-
-    has_one_attached :avatar
-    validates_upload :avatar, uploader: Decidim::AvatarUploader
 
     devise :confirmable, :decidim_validatable, confirmation_keys: [:decidim_organization_id, :email]
 

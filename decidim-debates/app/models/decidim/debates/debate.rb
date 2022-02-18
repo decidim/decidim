@@ -25,6 +25,7 @@ module Decidim
       include Decidim::TranslatableAttributes
       include Decidim::Endorsable
       include Decidim::Randomable
+      include Decidim::FilterableResource
 
       belongs_to :last_comment_by, polymorphic: true, foreign_type: "last_comment_by_type", optional: true
       component_manifest_name "debates"
@@ -53,6 +54,7 @@ module Decidim
           }
         )
       }
+      scope_search_multi :with_any_state, [:open, :closed]
 
       def self.log_presenter_class_for(_log)
         Decidim::Debates::AdminLog::DebatePresenter
@@ -192,6 +194,18 @@ module Decidim
         )
       end
       # rubocop:enable Rails/SkipsModelValidations
+
+      # Create i18n ransackers for :title and :description.
+      # Create the :search_text ransacker alias for searching from both of these.
+      ransacker_i18n_multi :search_text, [:title, :description]
+
+      def self.ransackable_scopes(_auth_object = nil)
+        [:with_any_state, :with_any_origin, :with_any_category, :with_any_scope]
+      end
+
+      def self.ransack(params = {}, options = {})
+        DebateSearch.new(self, params, options)
+      end
 
       private
 

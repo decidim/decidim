@@ -1,4 +1,4 @@
-pt:
+pt-BR:
   activemodel:
     models:
       decidim/blogs/create_post_event: Nova postagem no blog

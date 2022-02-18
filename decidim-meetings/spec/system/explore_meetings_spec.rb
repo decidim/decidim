@@ -76,7 +76,7 @@ describe "Explore meetings", :slow, type: :system do
           it "lists the filtered meetings" do
             visit_component
 
-            within ".origin_check_boxes_tree_filter" do
+            within ".with_any_origin_check_boxes_tree_filter" do
               uncheck "All"
               check "Official"
             end
@@ -95,7 +95,7 @@ describe "Explore meetings", :slow, type: :system do
           it "lists the filtered meetings" do
             visit_component
 
-            within ".origin_check_boxes_tree_filter" do
+            within ".with_any_origin_check_boxes_tree_filter" do
               uncheck "All"
               check "Groups"
             end
@@ -109,13 +109,13 @@ describe "Explore meetings", :slow, type: :system do
           end
         end
 
-        context "with 'citizens' origin" do
+        context "with 'participants' origin" do
           it "lists the filtered meetings" do
             visit_component
 
-            within ".origin_check_boxes_tree_filter" do
+            within ".with_any_origin_check_boxes_tree_filter" do
               uncheck "All"
-              check "Citizens"
+              check "Participants"
             end
 
             expect(page).to have_no_content("6 MEETINGS")
@@ -130,7 +130,7 @@ describe "Explore meetings", :slow, type: :system do
         within ".filters" do
           # It seems that there's another field with the same name in another form on page.
           # Because of that we try to select the correct field to set the value and submit the right form
-          find(:css, "#content form.new_filter [name='filter[search_text]']").set(translated(meetings.first.title))
+          find(:css, "#content form.new_filter [name='filter[search_text_cont]']").set(translated(meetings.first.title))
 
           # The form should be auto-submitted when filter box is filled up, but
           # somehow it's not happening. So we workaround that be explicitly
@@ -147,7 +147,7 @@ describe "Explore meetings", :slow, type: :system do
         past_meeting = create(:meeting, :published, component: component, start_time: 1.day.ago)
         visit_component
 
-        within ".date_check_boxes_tree_filter" do
+        within ".with_any_date_check_boxes_tree_filter" do
           uncheck "All"
           check "Past"
         end
@@ -155,7 +155,7 @@ describe "Explore meetings", :slow, type: :system do
         expect(page).to have_css(".card--meeting", count: 1)
         expect(page).to have_content(translated(past_meeting.title))
 
-        within ".date_check_boxes_tree_filter" do
+        within ".with_any_date_check_boxes_tree_filter" do
           uncheck "All"
           check "Upcoming"
         end
@@ -171,7 +171,7 @@ describe "Explore meetings", :slow, type: :system do
 
         visit_component
 
-        within ".scope_id_check_boxes_tree_filter" do
+        within ".with_any_scope_check_boxes_tree_filter" do
           check "All"
           uncheck "All"
           check translated(scope.name)

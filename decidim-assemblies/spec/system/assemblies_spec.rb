@@ -156,7 +156,7 @@ describe "Assemblies", type: :system do
       let(:target_path) { decidim_assemblies.assembly_path(assembly) }
     end
 
-    context "and requesting the assebly path" do
+    context "and requesting the assembly path" do
       before do
         visit decidim_assemblies.assembly_path(assembly)
       end

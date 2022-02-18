@@ -14,7 +14,6 @@ uk:
     models:
       decidim/debates/create_debate_event: Обговорення
       decidim/debates/creation_disabled_event: Обговорення вимкнене
-      decidim/debates/creation_enabled_event: Обговорення увімкнене
   activerecord:
     models:
       decidim/debates/debate:
@@ -35,7 +34,6 @@ uk:
           step:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено
-            creation_enabled: Започаткування обговорень учасниками увімкнено
     debates:
       actions:
         confirm_destroy: Ви впевнені?
@@ -84,7 +82,6 @@ uk:
           all: Усі
           category: Категорія
           category_prompt: Оберіть категорію
-          citizens: Громадяни
           official: Службове
           origin: Джерело
           search: Шукати

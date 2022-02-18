@@ -16,10 +16,10 @@ on:
 
 env:
   CI: "true"
-  SIMPLECOV: "true"
-  RUBY_VERSION: 2.7.1
+  RUBY_VERSION: 2.7.5
   NODE_VERSION: 16.9.1
   DECIDIM_MODULE: decidim-generators
+  PARALLEL_TEST_PROCESSORS: 2
 
 jobs:
   main:
@@ -74,8 +74,10 @@ jobs:
       - run: bundle exec brakeman --rails6 --force-scan .
         name: Scanning Security issues on module
         working-directory: ${{ env.DECIDIM_MODULE }}
-      - run: bundle exec rspec
+      - run: bundle exec rake parallel:spec
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
+        env:
+          SIMPLECOV: "true"
       - run: ./.github/upload_coverage.sh $DECIDIM_MODULE $GITHUB_EVENT_PATH
         name: Upload coverage

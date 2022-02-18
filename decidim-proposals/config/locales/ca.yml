@@ -57,6 +57,16 @@ ca:
               identical: I el títol no pot ser idèntic
             title:
               identical: I el cos no pot ser idèntic
+        proposals_merge:
+          attributes:
+            base:
+              not_official: No son oficials
+              supported: Han rebut suports o adhesions
+        proposals_split:
+          attributes:
+            base:
+              not_official: No son oficials
+              supported: Han rebut suports o adhesions
     models:
       decidim/proposals/accepted_proposal_event: S'ha acceptat la proposta
       decidim/proposals/admin/update_proposal_category_event: S'ha canviat la categoria de la proposta
@@ -134,6 +144,17 @@ ca:
             collaborative_drafts_enabled: Esborranys col·laboratius habilitats
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            default_sort_order: Ordre de propostes per defecte
+            default_sort_order_help: '''Per defecte'' vol dir que si els suports estan habilitats, les propostes es mostraran aleatòriament, i si els suports estan bloquejats, aleshores es mostraran de més a menys suports.'
+            default_sort_order_options:
+              default: Per defecte
+              most_commented: Més comentades
+              most_endorsed: Amb més adhesions
+              most_followed: Amb més seguidores
+              most_voted: Amb més suports
+              random: Aleatòriament
+              recent: Recents
+              with_more_authors: Amb més autores
             geocoding_enabled: Geocodificació habilitada
             minimum_votes_per_user: Suports mínims per participant
             new_proposal_body_template: Plantilla pel text de nova proposta
@@ -175,7 +196,18 @@ ca:
             answers_with_costs: Habilitar cost en les respostes a propostes
             automatic_hashtags: Hashtags afegits a totes les propostes
             comments_blocked: Comentaris bloquejats
-            creation_enabled: Habilitar la creació de propostes
+            creation_enabled: Les participants poden crear propostes
+            default_sort_order: Ordre per defecte de propostes
+            default_sort_order_help: '''Per defecte'' vol dir que si els suports estan habilitats, les propostes es mostraran aleatòriament, i si els suports estan bloquejats, aleshores es mostraran de més a menys suports.'
+            default_sort_order_options:
+              default: Per defecte
+              most_commented: Més comentades
+              most_endorsed: Amb més adhesions
+              most_followed: Amb més seguidores
+              most_voted: Amb més suports
+              random: Aleatòriament
+              recent: Recents
+              with_more_authors: Amb més autores
             endorsements_blocked: Adhesions bloquejades
             endorsements_enabled: Adhesions habilitades
             proposal_answering_enabled: Resposta a propostes activada
@@ -268,7 +300,7 @@ ca:
           email_intro: La proposta "%{resource_title}" s'ha afegit a "%{participatory_space_title}", que segueixes.
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Nova proposta "%{resource_title}" afegida a %{participatory_space_title}
-          notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> s'ha afegit a %{participatory_space_title}
+          notification_title: '%{author} ha afegit la proposta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}'
         proposal_rejected:
           affected_user:
             email_intro: 'La teva proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta en aquesta pàgina:'
@@ -354,7 +386,7 @@ ca:
       actions:
         answer_proposal: Respondre a la proposta
         edit_proposal: Edita la proposta
-        import: Importa des d'un altre component
+        import: Importar des d'un altre component
         new: Nova proposta
         participatory_texts: Textos participatius
         show: Veure proposta
@@ -365,6 +397,23 @@ ca:
         exports:
           proposal_comments: Comentaris
           proposals: Propostes
+        imports:
+          help:
+            answers: 'El document d''importació ha tenir les columnes següents: id, estat (acceptada, en avaluació, rebutjada) resposta/es (en els diferents idiomes habilitats a la plataforma).'
+            proposals: L'arxiu ha d'incloure els noms de columna title/ca i body/ca (o un altre idioma de preferència per exemple, title/es i body/es). També s'admeten les columnes scope/id i category/id.
+          label:
+            answers: Importar respostes des d'un fitxer
+            proposals: Importar propostes des d'un fitxer
+          resources:
+            answers:
+              one: resposta a la proposta
+              other: respostes a la proposta
+            proposals:
+              one: proposta
+              other: propostes
+          title:
+            answers: Importar respostes a les propostes
+            proposals: Importar propostes
         models:
           proposal:
             name: Proposta
@@ -508,9 +557,11 @@ ca:
             title: Importar propostes
         proposals_merges:
           create:
+            invalid: 'S''ha produït un error en fusionar les propostes seleccionades doncs alguna d''elles:'
             success: S'han combinat amb èxit les propostes en una de nova.
         proposals_splits:
           create:
+            invalid: 'S''ha produït un error en dividir les propostes seleccionades doncs alguna d''elles:'
             success: Les propostes s'han dividit en d'altres de noves correctament.
         valuation_assignments:
           create:
@@ -541,9 +592,9 @@ ca:
           all: Totes
         filter_origin_values:
           all: Totes
-          citizens: Ciutadania
           meetings: Trobades
           official: Oficial
+          participants: Participants
           user_groups: Grups
         filter_scope_values:
           all: Totes
@@ -750,9 +801,12 @@ ca:
           filter_by: Filtra per
           unfold: Desplega
         index:
+          click_here: Veure totes les propostes
           collaborative_drafts_list: Accedeix a esborranys col·laboratius
           new_proposal: Nova proposta
+          see_all: Veure totes les propostes
           see_all_withdrawn: Veure totes les propostes retirades
+          text_banner: Estàs veient un llistat de propostes retirades per les seves autores. %{go_back_link}.
           view_proposal: Veure proposta
         linked_proposals:
           proposal_votes:
@@ -762,7 +816,7 @@ ca:
           send: Continua
           title: Crea la teva proposta
         orders:
-          label: 'Ordenar propostes per:'
+          label: 'Ordenar propostes:'
           most_commented: Més comentades
           most_endorsed: Amb més adhesions
           most_followed: Amb més seguidores

@@ -1,4 +1,4 @@
-pt:
+pt-BR:
   activemodel:
     attributes:
       initiative:
@@ -408,7 +408,6 @@ pt:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> se candidatou ao comitê de promotores da sua iniciativa <a href="%{resource_url}">%{resource_title}</a>. Para aceitar ou rejeitar, clique <a href="%{resource_url}/edit">aqui</a>.
       form:
         add_attachments: Documentos
-        attachment_legend: "(Opcional) Adicionar um anexo"
         delete_attachment: Excluir
       index:
         title: Iniciativas

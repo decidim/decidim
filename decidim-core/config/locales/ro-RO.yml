@@ -80,6 +80,9 @@ ro:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      half_a_minute: jumătate de minut
   decidim:
     accessibility:
       external_link: Link extern
@@ -987,6 +990,7 @@ ro:
         show:
           back: Înapoi la toate conversațiile
           chat_with: Conversație cu
+          deleted_accounts: Nu poți avea o conversație cu conturi șterse.
           not_allowed: Acest participant nu acceptă mesaje directe.
           title: Conversație cu %{usernames}
         start:
@@ -1054,6 +1058,12 @@ ro:
         greetings: Salutări,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Salut,
         subject: Doriți să continuați să primiți informații relevante despre %{organization_name}?
+    notification_mailer:
+      event_received:
+        no_translation_available: Ne pare rău, traducerea automată nu a putut fi recuperată atunci când e-mailul a fost trimis. Puteți verifica traducerea textului original pe următorul link %{link}.
+        original_text: 'Text original:'
+        same_language: Conținutul a fost postat în limba preferată (%{language}), de aceea nu este afișată nicio traducere automată în acest e-mail.
+        translated_text: 'Text tradus automat:'
     notifications:
       no_notifications: Nici o notificare încă.
     notifications_settings:
@@ -1352,6 +1362,7 @@ ro:
         title_reply: Răspuns
       show:
         back: Arată toate conversațiile
+        deleted_accounts: Nu poți avea o conversație cu conturi șterse.
         not_allowed: Acest utilizator nu mai acceptă mesaje directe.
         title: Conversație cu %{usernames}
       update:
@@ -1656,6 +1667,7 @@ ro:
     email_included_in_password: este prea asemănător cu adresa de e-mail
     fallback: nu este valid
     name_included_in_password: este prea asemănător cu numele tău
+    nickname_included_in_password: este prea similar cu nickname-ul dvs
     not_enough_unique_characters: nu are destule caractere unice
     password_not_allowed: nu este permis
     password_too_common: este prea frecvent

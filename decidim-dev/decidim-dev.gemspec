@@ -30,7 +30,8 @@ Gem::Specification.new do |s|
   s.add_dependency "erb_lint", "~> 0.0.35"
   s.add_dependency "i18n-tasks", "~> 0.9.18"
   s.add_dependency "mdl", "~> 0.5"
-  s.add_dependency "nokogiri", "~> 1.11", ">= 1.11.4"
+  s.add_dependency "nokogiri", "~> 1.12"
+  s.add_dependency "parallel_tests", "~> 3.7"
   s.add_dependency "puma", "~> 5.0"
   s.add_dependency "rails-controller-testing", "~> 1.0"
   s.add_dependency "rspec-cells", "~> 0.3.4"
@@ -47,5 +48,6 @@ Gem::Specification.new do |s|
   s.add_dependency "system_test_html_screenshots", "~> 0.2"
   s.add_dependency "w3c_rspec_validators", "~> 0.3.0"
   s.add_dependency "webmock", "~> 3.6"
+  s.add_dependency "webpush", "~> 1.1"
   s.add_dependency "wisper-rspec", "~> 1.0"
 end

@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     # A command with all the business logic when a user or organization unvotes an initiative.
-    class UnvoteInitiative < Rectify::Command
+    class UnvoteInitiative < Decidim::Command
       # Public: Initializes the command.
       #
       # initiative   - A Decidim::Initiative object.

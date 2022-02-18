@@ -4,7 +4,7 @@ module Decidim
   module Sortitions
     module Admin
       # Command that creates a sortition that selects proposals
-      class CreateSortition < Rectify::Command
+      class CreateSortition < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

@@ -17,7 +17,7 @@ nl:
       decidim/debates/close_debate_event: Debat gesloten
       decidim/debates/create_debate_event: Debat
       decidim/debates/creation_disabled_event: Debatten uitgeschakeld
-      decidim/debates/creation_enabled_event: Debatten ingeschakeld
+      decidim/debates/creation_enabled_event: Aanmaken van debatten ingeschakeld
   activerecord:
     models:
       decidim/debates/debate:
@@ -27,6 +27,7 @@ nl:
     components:
       debates:
         actions:
+          comment: Reactie
           create: Aanmaken
         name: Debatten
         settings:
@@ -39,7 +40,7 @@ nl:
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
-            creation_enabled: Gebruikers kunnen zelf debat aanmaken
+            creation_enabled: Gebruikers kunnen debatten maken
     debates:
       actions:
         close: Sluiten
@@ -100,11 +101,11 @@ nl:
           all: Alle
           category: Categorie
           category_prompt: Selecteer een categorie
-          citizens: Burgers
           commented: Reactie
           my_debates: Mijn debatten
           official: Officieel
           origin: Oorsprong
+          participants: Deelnemers
           scope: Scope
           search: Zoeken
           state: Status

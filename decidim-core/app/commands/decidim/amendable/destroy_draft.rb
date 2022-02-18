@@ -3,7 +3,7 @@
 module Decidim
   module Amendable
     # A command with all the business logic when a user starts amending a resource.
-    class DestroyDraft < Rectify::Command
+    class DestroyDraft < Decidim::Command
       # Public: Initializes the command.
       #
       # amendment     - The amendment to destroy.

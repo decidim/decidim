@@ -17,7 +17,6 @@ eu:
       decidim/debates/close_debate_event: Eztabaida itxita
       decidim/debates/create_debate_event: Debate
       decidim/debates/creation_disabled_event: Debateak desgaituta daude
-      decidim/debates/creation_enabled_event: Debateak gaituta
   activerecord:
     models:
       decidim/debates/debate:
@@ -41,7 +40,6 @@ eu:
           step:
             announcement: Anuntzio
             comments_blocked: Iruzkinak blokeatuta
-            creation_enabled: Erabiltzaileek gaitutako eztabaida sortzea
             endorsements_blocked: Atxikimenduak blokeatuta
             endorsements_enabled: Atxikimenduak gaituta
     debates:
@@ -117,7 +115,6 @@ eu:
           all: guztiak
           category: Kategoria
           category_prompt: Aukeratu kategoria bat
-          citizens: Hiritarrak
           commented: Iruzkina eginda
           my_debates: Nire eztabaidak
           official: Ofiziala

@@ -168,7 +168,6 @@ gl:
             announcement: Anuncio
             automatic_hashtags: Hashtags engadido a todas as propostas
             comments_blocked: Comentarios bloqueados
-            creation_enabled: Creación de proposta habilitada
             default_sort_order: Orde predefinido das propostas
             default_sort_order_help: Predefinido significa que se os apoios están activos, as propostas amosaranse ordenadas ao chou e se están bloqueados, entón serán ordenados de máis a menos apoios.
             default_sort_order_options:
@@ -264,7 +263,6 @@ gl:
           email_intro: A proposta "%{resource_title}" engadiuse a "%{participatory_space_title}" que estás seguindo.
           email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: Nova proposta "%{resource_title}" engadida a %{participatory_space_title}
-          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> engadiuse a %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'A túa proposta "%{resource_title}" foi rexeitada. Podes ler a resposta nesta páxina:'
@@ -520,7 +518,6 @@ gl:
           all: Todo
         filter_origin_values:
           all: Todo
-          citizens: Cidadáns
           meetings: Reunións
           official: Oficial
           user_groups: Grupos de usuarios

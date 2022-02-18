@@ -15,7 +15,6 @@
       decidim/debates/close_debate_event: Innspillstråden er stengt
       decidim/debates/create_debate_event: Innspillstråd
       decidim/debates/creation_disabled_event: Innspillstråder deaktivert
-      decidim/debates/creation_enabled_event: Innspillstråder aktivert
   activerecord:
     models:
       decidim/debates/debate:
@@ -36,7 +35,6 @@
           step:
             announcement: Kunngjøring
             comments_blocked: Kommentarer er blokkert
-            creation_enabled: Innspill fra deltakere aktivert
     debates:
       actions:
         close: Lukk
@@ -101,7 +99,6 @@
           all: Alle
           category: Kategori
           category_prompt: Velg en kategori
-          citizens: Innbyggere
           official: Offentlig
           origin: Opprinnelse
           scope: Tema

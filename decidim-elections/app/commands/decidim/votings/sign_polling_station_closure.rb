@@ -3,7 +3,7 @@
 module Decidim
   module Votings
     # A command with all the business logic when signing a closure of a polling station
-    class SignPollingStationClosure < Rectify::Command
+    class SignPollingStationClosure < Decidim::Command
       # Public: Initializes the command.
       #
       # form - A form object with the params.

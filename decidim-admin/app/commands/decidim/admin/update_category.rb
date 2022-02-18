@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # A command with all the business logic when updating a category in the
     # system.
-    class UpdateCategory < Rectify::Command
+    class UpdateCategory < Decidim::Command
       attr_reader :category
 
       # Public: Initializes the command.
@@ -41,8 +41,7 @@ module Decidim
         {
           name: form.name,
           weight: form.weight,
-          parent_id: form.parent_id,
-          description: form.description
+          parent_id: form.parent_id
         }
       end
     end

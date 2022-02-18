@@ -4,20 +4,21 @@ require "spec_helper"
 
 shared_examples_for "add questions" do
   it "adds a few questions and separators to the questionnaire" do
-    questions_body = ["This is the first question", "This is the second question"]
+    fields_body = ["This is the first question", "This is the second question", "This is the first title and description"]
 
     within "form.edit_questionnaire" do
       click_button "Add question"
       click_button "Add separator"
+      click_button "Add title and description"
       click_button "Add question"
 
-      expect(page).to have_selector(".questionnaire-question", count: 3)
+      expect(page).to have_selector(".questionnaire-question", count: 4)
 
       expand_all_questions
 
-      page.all(".questionnaire-question .collapsible").each_with_index do |question, idx|
-        within question do
-          fill_in find_nested_form_field_locator("body_en"), with: questions_body[idx]
+      page.all(".questionnaire-question .collapsible").each_with_index do |field, idx|
+        within field do
+          fill_in find_nested_form_field_locator("body_en"), with: fields_body[idx]
         end
       end
 
@@ -30,12 +31,42 @@ shared_examples_for "add questions" do
 
     expect(page).to have_selector("input[value='This is the first question']")
     expect(page).to have_selector("input[value='This is the second question']")
+    expect(page).to have_selector("input[value='This is the first title and description']")
     expect(page).to have_content("Separator #2")
   end
 
   it "adds a question with a rich text description" do
     within "form.edit_questionnaire" do
       click_button "Add question"
+      expand_all_questions
+
+      within ".questionnaire-question" do
+        fill_in find_nested_form_field_locator("body_en"), with: "Body"
+
+        fill_in_editor find_nested_form_field_locator("description_en", visible: false), with: "<strong>Superkalifragilistic description</strong>"
+      end
+
+      click_button "Save"
+    end
+
+    expect(page).to have_admin_callout("successfully")
+
+    component.update!(
+      step_settings: {
+        component.participatory_space.active_step.id => {
+          allow_answers: true
+        }
+      }
+    )
+
+    visit questionnaire_public_path
+
+    expect(page).to have_selector("strong", text: "Superkalifragilistic description")
+  end
+
+  it "adds a title-and-description" do
+    within "form.edit_questionnaire" do
+      click_button "Add title and description"
       expand_all_questions
 
       within ".questionnaire-question" do

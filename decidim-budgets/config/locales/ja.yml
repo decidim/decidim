@@ -20,6 +20,18 @@ ja:
       decidim/budgets/project:
         other: プロジェクト
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: カテゴリ
+          scope_id_eq:
+            label: スコープ
+          selected_at_null:
+            label: 選択済み
+            values:
+              'false': 選択済み
+              'true': 未選択
     budgets:
       actions:
         attachment_collections: フォルダ
@@ -88,9 +100,14 @@ ja:
             success: "%{number} 件の提案がプロジェクトにインポートされました"
           new:
             create: プロジェクトへの提案をインポート
-            no_components: この参加スペースには、プロジェクトにインポートするための他の提案コンポーネントはありません。
+            no_components: この参加型スペースには、プロジェクトにインポートするための他の提案コンポーネントはありません。
             select_component: コンポーネントを選択してください
             title: 提案のインポート
+        reminders:
+          orders:
+            description: ユーザーは、保留中の指定がある予算へのリンクを含む電子メールを受け取ります。
+            title:
+              other: '%{count} ユーザーにメール通知を送信しようとしています'
       admin_log:
         budget:
           create: "%{user_name} が予算 %{resource_name} を %{space_name} に作成しました。"
@@ -133,13 +150,15 @@ ja:
             total_budget: 予算の合計
         project:
           fields:
+            category: カテゴリ
+            id: ID
             title: タイトル
       order_summary_mailer:
         order_summary:
           selected_projects: '選択したプロジェクトは次のとおりです。'
-          subject: '%{space_name} 参加スペースに投票しました'
-          voted_on_space: '%{budget_name} 参加スペースの %{space_name} 予算に投票しました。'
-          voted_on_space_with_scope: '%{budget_name} (%{space_name}) の %{scope_name} 参加スペースの %{scope_type} 予算に投票しました。'
+          subject: 参加型スペース%{space_name} に投票しました
+          voted_on_space: '%{budget_name} 参加型スペースの %{space_name} 予算に投票しました。'
+          voted_on_space_with_scope: '%{budget_name} (%{space_name}) の %{scope_name} 参加型スペースの %{scope_type} 予算に投票しました。'
       projects:
         budget_confirm:
           are_you_sure: 気が変わった場合は、後で投票を変更できます。
@@ -184,6 +203,12 @@ ja:
         count:
           projects_count:
             other: "%{count} プロジェクト"
+        exit_modal:
+          cancel: 投票に戻る
+          close_modal: 閉じる
+          exit: 投票を終了
+          message: 投票プロセスがまだ完了していないため、投票が登録されていません。投票を終了してもよろしいですか？
+          title: まだ投票していません
         filters:
           category: カテゴリ
           scope: スコープ
@@ -209,7 +234,7 @@ ja:
           highest_cost: 最高コスト
           label: 'プロジェクトを注文:'
           lowest_cost: 最低コスト
-          most_voted: Most voted
+          most_voted: 投票順
           random: ランダムな注文
           selected: 選択済
         project:
@@ -229,6 +254,14 @@ ja:
         show:
           budget: 予算
           view_all_projects: すべてのプロジェクトを表示
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: '未完了の投票場所:'
+          email_intro: 参加型予算の投票を開始しましたが、完了していません。
+          email_link: 投票を続行する
+          email_outro: 投票を完了することを忘れないでください。 投票するには、まず投票する提案を選択し、「投票」ボタンで投票を確認する必要があります。
+          email_subject:
+            other: 参加型予算投票に未完了の投票があります
     components:
       budgets:
         actions:

@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic to assign proposals to a given
       # valuator.
-      class AssignProposalsToValuator < Rectify::Command
+      class AssignProposalsToValuator < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

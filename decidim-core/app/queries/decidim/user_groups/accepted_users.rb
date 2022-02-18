@@ -3,7 +3,7 @@
 module Decidim
   module UserGroups
     # Use this class to find the accepted members of the given user group.
-    class AcceptedUsers < Rectify::Query
+    class AcceptedUsers < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # user_group - a UserGroup that needs to find its accepted members

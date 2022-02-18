@@ -33,7 +33,7 @@ module Decidim
       end
 
       def current_filter
-        get_filter(:date, default_date_filter)
+        get_filter(:with_date, default_date_filter)
       end
 
       def base_relation
@@ -46,22 +46,25 @@ module Decidim
       def process_count_by_filter
         @process_count_by_filter ||= begin
           counts = ALL_FILTERS.without("all").each_with_object({}) do |filter_name, collection_by_filter|
-            collection_by_filter.update(filter_name => filtered_processes(filter_name).results.count)
+            collection_by_filter.update(filter_name => filtered_processes(filter_name).count)
           end
           counts.update("all" => counts.values.sum)
         end
       end
 
-      def filtered_processes(date_filter, filter_by_type: true)
-        Decidim::ParticipatoryProcesses::ParticipatoryProcessSearch.new(
-          base_relation: base_relation,
-          date: date_filter,
-          scope_id: get_filter(:scope_id),
-          area_id: get_filter(:area_id),
-          type_id: filter_by_type ? get_filter(:type_id) : nil,
+      def filtered_processes(date_filter, filter_with_type: true)
+        query = base_relation.ransack(
+          {
+            with_date: date_filter,
+            with_scope: get_filter(:with_scope),
+            with_area: get_filter(:with_area),
+            with_type: filter_with_type ? get_filter(:with_type) : nil
+          },
           current_user: current_user,
           organization: current_organization
-        )
+        ).result
+
+        query.published.visible_for(current_user)
       end
 
       def default_date_filter

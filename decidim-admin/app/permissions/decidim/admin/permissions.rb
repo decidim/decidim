@@ -56,6 +56,7 @@ module Decidim
           allow! if permission_action.subject == :static_page_topic
           allow! if permission_action.subject == :help_sections
           allow! if permission_action.subject == :share_token
+          allow! if permission_action.subject == :reminder
         end
 
         permission_action

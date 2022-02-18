@@ -2,7 +2,7 @@
 
 module Decidim
   # A command with all the business logic to create a user through the sign up form.
-  class CreateRegistration < Rectify::Command
+  class CreateRegistration < Decidim::Command
     # Public: Initializes the command.
     #
     # form - A form object with the params.

@@ -3,7 +3,7 @@
 module Decidim
   module Amendable
     # A command with all the business logic to accept an amend.
-    class Accept < Rectify::Command
+    class Accept < Decidim::Command
       # Public: Initializes the command.
       #
       # form         - A form object with the params.

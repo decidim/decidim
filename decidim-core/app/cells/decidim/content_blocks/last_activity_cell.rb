@@ -52,14 +52,14 @@ module Decidim
         hash << Digest::MD5.hexdigest(valid_activities.map(&:cache_key_with_version).to_s)
         hash << I18n.locale.to_s
 
-        hash.join("/")
+        hash.join(Decidim.cache_key_separator)
       end
 
       def activities
-        @activities ||= HomeActivitySearch.new(
+        @activities ||= ActionLog.where(
           organization: current_organization,
-          resource_type: "all"
-        ).results.limit(activities_to_show * 6)
+          visibility: %w(public-only all)
+        ).with_new_resource_type("all").order(created_at: :desc).limit(activities_to_show * 6)
       end
 
       def activities_to_show

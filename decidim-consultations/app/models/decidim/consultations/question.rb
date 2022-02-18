@@ -66,6 +66,7 @@ module Decidim
       delegate :start_voting_date, to: :consultation
       delegate :end_voting_date, to: :consultation
       delegate :results_published?, to: :consultation
+      delegate :moderators, to: :consultation
 
       alias participatory_space consultation
 

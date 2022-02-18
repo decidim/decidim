@@ -160,7 +160,6 @@ hu:
             answers_with_costs: Költségek engedélyezése javaslati válaszoknál
             automatic_hashtags: Hashtagek hozzáadva minden javaslathoz
             comments_blocked: Megjegyzések letiltva
-            creation_enabled: Javaslat létrehozása engedélyezve
             endorsements_blocked: Jóváhagyások letiltva
             endorsements_enabled: Jóváhagyások engedélyezve
             proposal_answering_enabled: Javaslat válasz engedélyezve
@@ -247,7 +246,6 @@ hu:
           email_intro: 'A(z) "%{resource_title}" című javaslatot hozzáadtuk ehhez: "%{participatory_space_title}" (követed).'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Leiratkozás az előző link segítségével.'
           email_subject: Új javaslat "%{resource_title}" hozzáadva az %{participatory_space_title}
-          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat hozzáadva ehhez: %{participatory_space_title}'
         proposal_rejected:
           affected_user:
             email_intro: 'Javaslata "%{resource_title}" elutasításra került. A válasz ezen az oldalon olvasható:'
@@ -515,7 +513,6 @@ hu:
           all: Minden
         filter_origin_values:
           all: Minden
-          citizens: Állampolgárok
           meetings: Találkozók
           official: Hivatalos
           user_groups: Felhasználói csoportok

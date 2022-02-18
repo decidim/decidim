@@ -42,10 +42,6 @@ it:
         type_of_meeting: Tipo
     errors:
       models:
-        meeting:
-          attributes:
-            show_embedded_iframe:
-              not_embeddable: Questo URL non può essere incorporato
         meeting_agenda:
           attributes:
             base:
@@ -92,8 +88,8 @@ it:
           origin_eq:
             label: Origine
             values:
-              citizen: Cittadina
               official: Ufficiale
+              participant: Utente
               user_group: Gruppi di utenti
           scope_id_eq:
             label: Ambito
@@ -300,16 +296,13 @@ it:
             update: Modifica
           form:
             address_help: 'Indirizzo: usato da Geocoder per trovare la posizione'
-            available_slots_help: Lasciare a 0 se si dispone di posti illimitati disponibili
             disclaimer: 'Disclaimer: Utilizzando un sistema di registrazione esterno, sei consapevole che gli organizzatori di %{organization} non sono responsabili per i dati forniti dagli utenti al servizio esterno.'
             location_help: 'Posizione: messaggio diretto agli utenti che riporta il luogo dell''incontro'
             location_hints_help: 'Suggerimenti: informazioni aggiuntive. Esempio: il pavimento dell''edificio se si tratta di una riunione di persona o la password di riunione se si tratta di una riunione online con accesso ristretto.'
             online_meeting_url_help: 'Link: permette ai partecipanti di connettersi direttamente alla tua riunione'
-            registration_email_help: Questo testo apparirà nel mezzo dell'email di conferma della registrazione. Subito dopo il codice di registrazione.
             registration_url_help: 'Link: consentire ai partecipanti di accedere al servizio esterno che stai utilizzando per le iscrizioni'
             select_a_meeting_type: Seleziona un tipo di riunione
             select_a_registration_type: Seleziona un tipo di registrazione
-            show_embedded_iframe_help: Indica se incorporare o meno l'iframe per questo URL della videoconferenza. Solo alcuni servizi consentono l'incorporazione (es. Youtube, Twitch...)
           index:
             title: Incontri
           new:
@@ -352,6 +345,7 @@ it:
             available_slots_help: Lasciare a 0 se disponi di slot illimitati.
             invites: Inviti
             recommendation_message: Per motivi di privacy, ti consigliamo di eliminare questo modulo di iscrizione quando non ne hai più bisogno. Per impostazione predefinita, questo avverrà 3 mesi dopo la fine della riunione.
+            registration_email_help: Questo testo apparirà nel mezzo dell'email di conferma della registrazione. Subito dopo il codice di registrazione.
             registration_form: Formulario di registrazione
             registrations_count:
               one: C'è stata %{count} registrazione.
@@ -446,8 +440,8 @@ it:
           origin: Origine
           origin_values:
             all: Tutte
-            citizens: Cittadini
             official: Ufficiale
+            participants: Utenti
             user_groups: Gruppi
           scope: Ambito
           search: Cerca
@@ -474,7 +468,6 @@ it:
           select_a_category: Scegli una categoria
           select_a_meeting_type: Seleziona un tipo di riunione
           select_a_registration_type: Seleziona un tipo di registrazione
-          show_embedded_iframe_help: Indica se incorporare o meno l'iframe per questo URL della videoconferenza. Solo alcuni servizi consentono l'incorporazione (es. Youtube, Twitch...)
         index:
           new_meeting: Nuova riunione
         meeting_minutes:

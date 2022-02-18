@@ -192,7 +192,6 @@ eu:
             answers_with_costs: Gaitu kostua proposamenen erantzunetan
             automatic_hashtags: Hashtags proposamen guztiei gehitu zaie
             comments_blocked: Iruzkinak blokeatuta
-            creation_enabled: Proposamenaren sorrera gaituta
             default_sort_order: Proposamenen hurrenkera lehenetsia
             default_sort_order_options:
               default: Lehenetsita
@@ -295,7 +294,6 @@ eu:
           email_intro: '"%{resource_title}" proposamena ondorengo "%{participatory_space_title}" erantsi zaizu.'
           email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
           email_subject: Proposamen berria "%{resource_title}" %{participatory_space_title}gehitu da
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena %{participatory_space_title}-ra gehitu da
         proposal_rejected:
           affected_user:
             email_intro: 'Zure proposamena "%{resource_title}" baztertu egin da. Orri honetan erantzun dezakezu:'
@@ -573,7 +571,6 @@ eu:
           all: guztiak
         filter_origin_values:
           all: guztiak
-          citizens: Hiritarrak
           meetings: Bilerak
           official: Ofiziala
           user_groups: Erabiltzaile taldeak

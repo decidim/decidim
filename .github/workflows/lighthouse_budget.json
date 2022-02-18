@@ -1,0 +1,23 @@
+[
+  {
+    "path": "/*",
+    "timings": [
+      {
+        "metric": "first-contentful-paint",
+        "budget": 10000
+      },
+      {
+        "metric": "speed-index",
+        "budget": 10000
+      },
+      {
+        "metric": "interactive",
+        "budget": 10000
+      },
+      {
+        "metric": "largest-contentful-paint",
+        "budget": 10000
+      }
+    ]
+  }
+]

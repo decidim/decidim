@@ -45,7 +45,7 @@ module Decidim::Admin
               dummy: { options: { "perry" => "mason" } }
             },
             authorization_handlers_names: ["dummy"],
-            authorization_handlers_options: { dummy: { "perry" => "mason" } }
+            authorization_handlers_options: { "dummy" => { "perry" => "mason" } }
           )
         }
       )

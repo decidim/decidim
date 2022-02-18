@@ -146,7 +146,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
             affected_users: a_collection_containing_exactly(*affected_group_users),
             extra: {
               comment_id: comment.id,
-              group: group
+              group_id: group.id
             }
           )
         expect(Decidim::EventsManager)
@@ -198,7 +198,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
               affected_users: a_collection_containing_exactly(*affected_group_users),
               extra: {
                 comment_id: comment.id,
-                group: group
+                group_id: group.id
               }
             )
           expect(Decidim::EventsManager)
@@ -232,7 +232,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
               affected_users: a_collection_containing_exactly(*affected_group_users),
               extra: {
                 comment_id: comment.id,
-                group: group
+                group_id: group.id
               }
             )
 
@@ -416,6 +416,23 @@ describe Decidim::Comments::NewCommentNotificationCreator do
         .ordered
 
       described_class.new(user_group_comment, []).create
+    end
+  end
+
+  describe "when a comment notification is created" do
+    let(:event_class) { Decidim::Comments::CommentCreatedEvent }
+    let(:event_name) { "decidim.events.comments.comment_created" }
+    let(:extra) { { comment_id: create(:comment).id } }
+    let(:user) { create(:user) }
+
+    let(:notification) { create(:notification, user: user, event_class: event_class, event_name: event_name, extra: extra) }
+
+    it "includes the conversation link" do
+      comment_id = notification.extra["comment_id"]
+      comment_definition_string = "commentId=#{comment_id}#comment_#{comment_id}"
+      notification_text = notification.event_class_instance.notification_title
+
+      expect(notification_text).to include(comment_definition_string)
     end
   end
 end

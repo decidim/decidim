@@ -252,9 +252,9 @@ en:
       filters:
         active: Active
         all: All
+        date: Date
         finished: Finished
         search: Search
-        state: Status
         upcoming: Upcoming
       filters_small_view:
         close_modal: Close window

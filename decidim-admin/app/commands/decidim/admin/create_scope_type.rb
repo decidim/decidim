@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A command with all the business logic when creating a scope type.
-    class CreateScopeType < Rectify::Command
+    class CreateScopeType < Decidim::Command
       # Public: Initializes the command.
       #
       # form - A form object with the params.

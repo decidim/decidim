@@ -125,9 +125,9 @@ module Decidim
 
       def build_form(klass, parameters)
         @form = if single_initiative_type?
-                  form(klass).from_params(parameters.merge(type_id: current_organization_initiatives_type.first.id), extra_context)
+                  form(klass).from_params(parameters.except(:id).merge(type_id: current_organization_initiatives_type.first.id), extra_context)
                 else
-                  form(klass).from_params(parameters, extra_context)
+                  form(klass).from_params(parameters.except(:id), extra_context)
                 end
 
         attributes = @form.attributes_with_values

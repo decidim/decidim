@@ -77,12 +77,12 @@ module Decidim
 
       let(:public_attributes) do
         {
-          handler_name: String,
-          document_number: String,
-          postal_code: String,
-          birthday: Date,
-          scope_id: Integer,
-          name_and_surname: String
+          "handler_name" => :string,
+          "document_number" => :string,
+          "postal_code" => :string,
+          "birthday" => :"decidim/attributes/localized_date",
+          "scope_id" => :integer,
+          "name_and_surname" => :string
         }
       end
 

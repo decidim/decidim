@@ -14,10 +14,16 @@
     </li>
     <li class="card-data__item card--list__item card-data__item--expand absolutes">
       <div class="mr-s">
-        <% if conversation.interlocutors(current_user).count == 1 %>
-          <%= t("from", scope: "decidim.messaging.conversations.index") %>: <%= conversation_name_for(conversation.interlocutors(current_user)) %>
+        <% if conversation.messages.last.decidim_sender_id == current_user.id %>
+          <%= t("to", scope: "decidim.messaging.conversations.index") %>:
         <% else %>
-          <%= t("from", scope: "decidim.messaging.conversations.index") %>: <strong><%= username_list(conversation.interlocutors(current_user), shorten: true) %></strong>
+          <%= t("from", scope: "decidim.messaging.conversations.index") %>:
+        <% end %>
+
+        <% if conversation.interlocutors(current_user).count == 1 %>
+          <%= conversation_name_for(conversation.interlocutors(current_user)) %>
+        <% else %>
+          <strong><%= username_list(conversation.interlocutors(current_user), shorten: true).html_safe %></strong>
         <% end %>
         <br>
         <span class="muted">
@@ -45,7 +51,7 @@
           <% if conversation.interlocutors(current_user).count == 1 %>
             <%= icon "chevron-right", class: "card__link icon--big", role: "img", aria_label: t(".show", sender: conversation.interlocutors(current_user).first.name) %>
           <% else %>
-            <%= icon "chevron-right", class: "card__link icon--big", role: "img", aria_label: t(".show", sender: username_list(conversation.interlocutors(current_user))) %>
+            <%= icon "chevron-right", class: "card__link icon--big", role: "img", aria_label: t(".show", sender: strip_tags(username_list(conversation.interlocutors(current_user)))) %>
           <% end %>
         <% end %>
       </div>

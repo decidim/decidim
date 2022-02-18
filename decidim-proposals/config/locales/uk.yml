@@ -82,7 +82,6 @@ uk:
           step:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено
-            creation_enabled: Внесення пропозицій увімкнено
             endorsements_blocked: Надання підтримки вимкнене
             endorsements_enabled: Надання підтримки увімкнено
             proposal_answering_enabled: Відповіді на пропозиції увімкнено
@@ -122,7 +121,6 @@ uk:
         proposal_published_for_space:
           email_intro: До "%{participatory_space_title}", за яким ви стежите, була додана пропозиція "%{resource_title}".
           email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{participatory_space_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-          notification_title: До %{participatory_space_title} було додано пропозицію <a href="%{resource_path}">%{resource_title}</a>
         proposal_rejected:
           follower:
             email_intro: 'Пропозиція "%{resource_title}" була відхилена. Ви можете прочитати відповідь на сторінці:'
@@ -224,7 +222,6 @@ uk:
         withdrawn: Відкликана
       application_helper:
         filter_origin_values:
-          citizens: Громадяни
           official: Службове
         filter_state_values:
           not_answered: Без відповідей

@@ -168,7 +168,6 @@ tr:
             answers_with_costs: Teklif yanıtlarında maliyetleri etkinleştirin
             automatic_hashtags: Tüm tekliflere etiketler eklendi
             comments_blocked: Yorumlar engellendi
-            creation_enabled: Teklif oluşturma etkin
             endorsements_blocked: Onaylar engellendi
             endorsements_enabled: Onaylar etkin
             proposal_answering_enabled: Teklif yanıtlama etkin
@@ -261,7 +260,6 @@ tr:
           email_intro: '"%{resource_title}" teklifi takip ettiğiniz "%{participatory_space_title}" listesine eklendi.'
           email_outro: Bu bildirimi, "%{participatory_space_title}" takip ettiğiniz için aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.
           email_subject: Yeni teklif "%{resource_title}" %{participatory_space_title} eklendi
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> önerisi %{participatory_space_title} alanına eklendi
         proposal_rejected:
           affected_user:
             email_intro: 'Teklifiniz "%{resource_title}" reddedildi. Cevabı bu sayfada okuyabilirsiniz:'
@@ -533,7 +531,6 @@ tr:
           all: Tümü
         filter_origin_values:
           all: Tümü
-          citizens: Vatandaşlar
           meetings: Toplantılar
           official: Resmi
           user_groups: Gruplar

@@ -54,7 +54,7 @@ describe "Explore meeting directory", type: :system do
       it "allows filtering by category" do
         visit directory
 
-        within ".category_id_check_boxes_tree_filter" do
+        within ".with_any_global_category_check_boxes_tree_filter" do
           check "All"
           check translated(participatory_process.title)
         end
@@ -77,7 +77,7 @@ describe "Explore meeting directory", type: :system do
     it "allows filtering by scope" do
       visit directory
 
-      within ".scope_id_check_boxes_tree_filter" do
+      within ".with_any_scope_check_boxes_tree_filter" do
         check "All"
         check translated(meeting.scope.name)
       end
@@ -93,7 +93,7 @@ describe "Explore meeting directory", type: :system do
       it "lists the filtered meetings" do
         visit directory
 
-        within ".origin_check_boxes_tree_filter" do
+        within ".with_any_origin_check_boxes_tree_filter" do
           uncheck "All"
           check "Official"
         end
@@ -113,7 +113,7 @@ describe "Explore meeting directory", type: :system do
       it "lists the filtered meetings" do
         visit directory
 
-        within ".origin_check_boxes_tree_filter" do
+        within ".with_any_origin_check_boxes_tree_filter" do
           uncheck "All"
           check "Groups"
         end
@@ -126,13 +126,13 @@ describe "Explore meeting directory", type: :system do
       end
     end
 
-    context "with 'citizens' origin" do
+    context "with 'participants' origin" do
       it "lists the filtered meetings" do
         visit directory
 
-        within ".origin_check_boxes_tree_filter" do
+        within ".with_any_origin_check_boxes_tree_filter" do
           uncheck "All"
-          check "Citizens"
+          check "Participants"
         end
 
         expect(page).to have_css(".card--meeting", count: 6)
@@ -151,7 +151,7 @@ describe "Explore meeting directory", type: :system do
       end
 
       it "allows filtering by type 'online'" do
-        within ".type_check_boxes_tree_filter" do
+        within ".with_any_type_check_boxes_tree_filter" do
           uncheck "All"
           check "Online"
         end
@@ -168,7 +168,7 @@ describe "Explore meeting directory", type: :system do
       end
 
       it "allows filtering by type 'in-person'" do
-        within ".type_check_boxes_tree_filter" do
+        within ".with_any_type_check_boxes_tree_filter" do
           uncheck "All"
           check "In-person"
         end
@@ -184,7 +184,7 @@ describe "Explore meeting directory", type: :system do
       end
 
       it "allows filtering by type 'both'" do
-        within ".type_check_boxes_tree_filter" do
+        within ".with_any_type_check_boxes_tree_filter" do
           uncheck "All"
           check "Both"
         end
@@ -200,7 +200,7 @@ describe "Explore meeting directory", type: :system do
     end
 
     it "allows filtering by past events" do
-      within ".date_check_boxes_tree_filter" do
+      within ".with_any_date_check_boxes_tree_filter" do
         uncheck "All"
         check "Past"
       end
@@ -232,7 +232,7 @@ describe "Explore meeting directory", type: :system do
       # have_content to wait for the card list to change. This is a hack to
       # reset the contents to no meetings at all, and then showing only the upcoming
       # assembly meetings.
-      within ".date_check_boxes_tree_filter" do
+      within ".with_any_date_check_boxes_tree_filter" do
         uncheck "All"
         check "Past"
       end
@@ -243,7 +243,7 @@ describe "Explore meeting directory", type: :system do
         check "Assemblies"
       end
 
-      within ".date_check_boxes_tree_filter" do
+      within ".with_any_date_check_boxes_tree_filter" do
         check "Upcoming"
       end
 

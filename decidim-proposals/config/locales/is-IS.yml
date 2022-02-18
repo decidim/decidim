@@ -43,7 +43,6 @@ is-IS:
           step:
             announcement: Tilkynning
             comments_blocked: Athugasemdir læst
-            creation_enabled: Tillaga stofnun virkt
             endorsements_blocked: Áritanir lokaðar
             endorsements_enabled: Tilmæli virkt
             proposal_answering_enabled: Tillaga svarað virkt
@@ -78,7 +77,6 @@ is-IS:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> tillöguna var gefin út af <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Tillagan "%{resource_title}" hefur verið bætt við "%{participatory_space_title}" sem þú fylgist með.
-          notification_title: Tillagan <a href="%{resource_path}">%{resource_title}</a> hefur verið bætt við %{participatory_space_title}
         proposal_rejected:
           follower:
             email_intro: 'Tillagan "%{resource_title}" hefur verið hafnað. Þú getur lesið svarið á þessari síðu:'
@@ -171,7 +169,6 @@ is-IS:
         withdrawn: Aftakað
       application_helper:
         filter_origin_values:
-          citizens: Borgarar
           official: Opinber
         filter_state_values:
           not_answered: Ekki svarað

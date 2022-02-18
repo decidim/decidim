@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # A command with all the business logic for updating the current
     # organization appearance.
-    class UpdateOrganizationAppearance < Rectify::Command
+    class UpdateOrganizationAppearance < Decidim::Command
       include ::Decidim::AttachmentAttributesMethods
 
       # Public: Initializes the command.
@@ -102,7 +102,8 @@ module Decidim
             warning: form.warning_color,
             alert: form.alert_color,
             highlight: form.highlight_color,
-            "highlight-alternative": form.highlight_alternative_color
+            "highlight-alternative": form.highlight_alternative_color,
+            theme: form.theme_color
           }
         }
       end

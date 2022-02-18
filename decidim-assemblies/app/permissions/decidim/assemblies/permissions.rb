@@ -17,7 +17,6 @@ module Decidim
           public_list_assemblies_action?
           public_read_assembly_action?
           public_list_members_action?
-          public_report_content_action?
           return permission_action
         end
 
@@ -121,13 +120,6 @@ module Decidim
       def public_list_members_action?
         return unless permission_action.action == :list &&
                       permission_action.subject == :members
-
-        allow!
-      end
-
-      def public_report_content_action?
-        return unless permission_action.action == :create &&
-                      permission_action.subject == :moderation
 
         allow!
       end

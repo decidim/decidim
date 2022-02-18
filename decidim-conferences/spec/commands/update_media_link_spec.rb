@@ -17,10 +17,10 @@ module Decidim::Conferences
         current_user: current_user,
         title: { en: "New title" },
         attributes: {
-          title: { en: "New title" },
-          weight: media_link.weight,
-          link: media_link.link,
-          date: 7.days.from_now
+          "title" => { en: "New title" },
+          "weight" => media_link.weight,
+          "link" => media_link.link,
+          "date" => 7.days.from_now
         }
       )
     end

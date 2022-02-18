@@ -7,7 +7,7 @@ module Decidim
       attribute :closing_report, String
       attribute :proposal_ids, Array[Integer]
       attribute :proposals
-      attribute :closed_at, Decidim::Attributes::TimeWithZone, default: ->(_form, _attribute) { Time.current }
+      attribute :closed_at, Decidim::Attributes::TimeWithZone, default: -> { Time.current }
       attribute :attendees_count, Integer, default: 0
 
       validates :closing_report, presence: true

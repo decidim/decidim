@@ -88,6 +88,8 @@ module Decidim
 
         # Create empty directory for images
         empty_directory "app/packs/images"
+        # Add a .keep file so directory is included in git when committing
+        create_file "app/packs/images/.keep"
 
         # Regenerate webpacker binstubs
         remove_file "bin/yarn"
@@ -95,6 +97,10 @@ module Decidim
 
         # Run Decidim custom webpacker installation
         rails "decidim:webpacker:install"
+      end
+
+      def build_api_docs
+        rails "decidim_api:generate_docs"
       end
 
       def remove_old_assets

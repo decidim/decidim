@@ -37,6 +37,45 @@ module Decidim
                class_name: "Decidim::Area",
                optional: true
 
+    scope :with_resource_type, lambda { |resource_type_key|
+      if publicable_public_resource_types.include?(resource_type_key)
+        where(resource_type: resource_type_key).where.not(action: "create")
+      elsif public_resource_types.include?(resource_type_key)
+        where(resource_type: resource_type_key)
+      else
+        with_all_resources
+      end
+    }
+
+    scope :with_new_resource_type, lambda { |resource_type_key|
+      if publicable_public_resource_types.include?(resource_type_key)
+        where(resource_type: resource_type_key, action: "publish")
+      elsif public_resource_types.include?(resource_type_key)
+        where(resource_type: resource_type_key, action: "create")
+      else
+        with_all_new_resources
+      end
+    }
+
+    scope :with_all_resources, lambda {
+      where(
+        "(action <> ? AND resource_type IN (?)) OR (resource_type IN (?))",
+        "create",
+        publicable_public_resource_types,
+        (public_resource_types - publicable_public_resource_types)
+      )
+    }
+
+    scope :with_all_new_resources, lambda {
+      where(
+        "(action = ? AND resource_type IN (?)) OR (action = ? AND resource_type IN (?))",
+        "publish",
+        publicable_public_resource_types,
+        "create",
+        (public_resource_types - publicable_public_resource_types)
+      )
+    }
+
     validates :organization, :user, :action, presence: true
     validates :resource, presence: true, if: ->(log) { log.action != "delete" }
     validates :visibility, presence: true, inclusion: { in: %w(admin-only public-only all) }
@@ -47,6 +86,34 @@ module Decidim
     # A scope that filters all the logs that should be visible at the admin panel.
     def self.for_admin
       where(visibility: %w(admin-only all))
+    end
+
+    # All the resource types that are eligible to be included as an activity.
+    def self.public_resource_types
+      @public_resource_types ||= %w(
+        Decidim::Accountability::Result
+        Decidim::Blogs::Post
+        Decidim::Comments::Comment
+        Decidim::Consultations::Question
+        Decidim::Debates::Debate
+        Decidim::Meetings::Meeting
+        Decidim::Proposals::Proposal
+        Decidim::Surveys::Survey
+        Decidim::Assembly
+        Decidim::Consultation
+        Decidim::Initiative
+        Decidim::ParticipatoryProcess
+      ).select do |klass|
+        klass.safe_constantize.present?
+      end
+    end
+
+    def self.publicable_public_resource_types
+      @publicable_public_resource_types ||= public_resource_types.select { |klass| klass.constantize.column_names.include?("published_at") }
+    end
+
+    def self.ransackable_scopes(_auth_object = nil)
+      [:with_resource_type]
     end
 
     # Overwrites the method so that records cannot be modified.

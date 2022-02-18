@@ -12,18 +12,34 @@ module Decidim
       belongs_to :author, polymorphic: true, foreign_key: "decidim_author_id", foreign_type: "decidim_author_type"
       belongs_to :user_group, foreign_key: "decidim_user_group_id", class_name: "Decidim::UserGroup", optional: true
 
-      scope :official_origin, lambda {
+      scope :with_official_origin, lambda {
         where(decidim_author_type: "Decidim::Organization")
       }
 
-      scope :user_group_origin, lambda {
+      scope :with_user_group_origin, lambda {
         where(decidim_author_type: "Decidim::UserBaseEntity")
           .where.not(decidim_user_group_id: nil)
       }
 
-      scope :citizens_origin, lambda {
+      scope :with_participants_origin, lambda {
         where(decidim_author_type: "Decidim::UserBaseEntity")
           .where(decidim_user_group_id: nil)
+      }
+
+      scope :with_any_origin, lambda { |*origin_keys|
+        search_values = origin_keys.compact.reject(&:blank?)
+
+        conditions = [:official, :participants, :user_group].map do |key|
+          search_values.member?(key.to_s) ? try("with_#{key}_origin") : nil
+        end.compact
+        return self unless conditions.any?
+
+        scoped_query = where(id: conditions.shift)
+        conditions.each do |condition|
+          scoped_query = scoped_query.or(where(id: condition))
+        end
+
+        scoped_query
       }
 
       validates :author, presence: true

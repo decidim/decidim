@@ -14,7 +14,6 @@ id:
     models:
       decidim/debates/create_debate_event: Perdebatan
       decidim/debates/creation_disabled_event: Debat dinonaktifkan
-      decidim/debates/creation_enabled_event: Debat diaktifkan
   activerecord:
     models:
       decidim/debates/debate:
@@ -32,7 +31,6 @@ id:
           step:
             announcement: Pengumuman
             comments_blocked: Komentar diblokir
-            creation_enabled: Pembuatan debat oleh peserta diaktifkan
     debates:
       actions:
         confirm_destroy: Apakah kamu yakin
@@ -78,7 +76,6 @@ id:
           all: Semua
           category: Kategori
           category_prompt: Pilih Kategori
-          citizens: Warga
           official: Resmi
           origin: Asal
           search: Pencarian

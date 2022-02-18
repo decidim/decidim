@@ -2,7 +2,7 @@
 
 module Decidim
   # The form object that handles the data behind updating a user's
-  # account in her profile page.
+  # account in their profile page.
   class AccountForm < Form
     include Decidim::HasUploadValidations
 

@@ -21,6 +21,18 @@ fi:
         one: Suunnitelma
         other: Suunnitelmat
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Aihepiiri
+          scope_id_eq:
+            label: Teema
+          selected_at_null:
+            label: Valittu
+            values:
+              'false': Valittu toteutukseen
+              'true': Ei valittu toteutukseen
     budgets:
       actions:
         attachment_collections: Kansiot
@@ -134,6 +146,8 @@ fi:
             total_budget: Kokonaisbudjetti
         project:
           fields:
+            category: Aihepiiri
+            id: ID
             title: Otsikko
       order_summary_mailer:
         order_summary:
@@ -186,6 +200,12 @@ fi:
           projects_count:
             one: 1 suunnitelma
             other: "%{count} suunnitelmaa"
+        exit_modal:
+          cancel: Palaa äänestykseen
+          close_modal: Sulje ikkuna
+          exit: Poistu äänestyksestä
+          message: Ääntäsi ei ole kirjattu, koska et ole vielä suorittanut äänestystä loppuun asti. Haluatko varmasti poistua äänestyksestä?
+          title: Et ole vielä äänestänyt
         filters:
           category: Aihepiiri
           scope: Teema

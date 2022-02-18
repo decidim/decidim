@@ -196,7 +196,6 @@ pt:
             answers_with_costs: Ativar custos nas respostas a propostas
             automatic_hashtags: Hashtags adicionados a todas as propostas
             comments_blocked: Comentários bloqueados
-            creation_enabled: Criação de proposta ativada
             default_sort_order: Ordenamento por defeitos das propostas
             default_sort_order_help: Por defeito significa que se os apoios estiverem activos as propostas serão ordenadas ao acaso, e se os apoios estiverem bloqueados serão ordenadas do maior para o menor número de apoios.
             default_sort_order_options:
@@ -300,7 +299,6 @@ pt:
           email_intro: A proposta "%{resource_title}" foi adicionada a "%{participatory_space_title}" que você segue.
           email_outro: Recebeu esta notificação porque segue "%{participatory_space_title}". Pode deixar de receber notificações seguindo a hiperligação anterior.
           email_subject: Nova proposta "%{resource_title}" adicionada a %{participatory_space_title}
-          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi adicionada a %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'A sua proposta "%{resource_title}" foi rejeitada. Pode ler a resposta nesta página:'
@@ -575,7 +573,6 @@ pt:
           all: Todos
         filter_origin_values:
           all: Todos
-          citizens: Cidadãos
           meetings: Reuniões
           official: Oficial
           user_groups: Grupos

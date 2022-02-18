@@ -22,6 +22,18 @@ en:
         one: Project
         other: Projects
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Category
+          scope_id_eq:
+            label: Scope
+          selected_at_null:
+            label: Selected
+            values:
+              'false': Selected for implementation
+              'true': Not selected for implementation
     budgets:
       actions:
         attachment_collections: Folders
@@ -93,6 +105,12 @@ en:
             no_components: There are no other proposal components in this participatory space to import the proposals into projects.
             select_component: Please select a component
             title: Import proposals
+        reminders:
+          orders:
+            description: Users will receive an email with links to the budgets where they have pending order.
+            title:
+              one: You are about to send an email reminder to %{count} user
+              other: You are about to send an email reminder to %{count} users
       admin_log:
         budget:
           create: "%{user_name} created the %{resource_name} budget in the %{space_name} space"
@@ -135,6 +153,8 @@ en:
             total_budget: Total budget
         project:
           fields:
+            category: Category
+            id: ID
             title: Title
       order_summary_mailer:
         order_summary:
@@ -240,6 +260,15 @@ en:
         show:
           budget: Budget
           view_all_projects: View all projects
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: 'Areas where you have an unfinished vote:'
+          email_intro: You have started the participatory budgeting vote, but have not completed it.
+          email_link: Go to continue voting
+          email_outro: Please remember to complete the vote. To vote, you must first select the proposal or proposals you want to vote on and then confirm your vote with the "Vote" button.
+          email_subject:
+            one: You have an unfinished vote in the participatory budgeting vote
+            other: You have unfinished votes in the participatory budgeting vote
     components:
       budgets:
         actions:

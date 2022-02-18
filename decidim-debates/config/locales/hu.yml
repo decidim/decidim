@@ -16,7 +16,6 @@ hu:
       decidim/debates/close_debate_event: Vita lezárva
       decidim/debates/create_debate_event: Vita
       decidim/debates/creation_disabled_event: Viták letiltva
-      decidim/debates/creation_enabled_event: Viták engedélyezve
   activerecord:
     models:
       decidim/debates/debate:
@@ -36,7 +35,6 @@ hu:
           step:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
-            creation_enabled: Felhasználók általi viták létrehozása engedélyezve
             endorsements_blocked: Jóváhagyások letiltva
             endorsements_enabled: Jóváhagyások engedélyezve
     debates:
@@ -98,7 +96,6 @@ hu:
           all: Összes
           category: Kategória
           category_prompt: Válassz kategóriát
-          citizens: Állampolgárok
           official: Hivatalos
           origin: Kiindulópont
           search: Keresés

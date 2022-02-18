@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the admin user creates a trustee
       # from the admin panel.
-      class AddUserAsTrustee < Rectify::Command
+      class AddUserAsTrustee < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

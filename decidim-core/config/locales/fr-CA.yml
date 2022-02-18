@@ -76,6 +76,33 @@ fr-CA:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: environ %{count} heure
+        other: environ %{count} heures
+      about_x_months:
+        one: environ %{count} mois
+        other: environ %{count} mois
+      half_a_minute: une demi-minute
+      less_than_x_minutes:
+        one: moins d’une minute.
+        other: moins de %{count} min.
+      less_than_x_seconds:
+        one: à l’instant
+        other: moins de %{count} sec.
+      x_days:
+        one: Hier
+        other: "Il y a %{count} jours"
+      x_hours:
+        one: Il y a 1 heure
+        other: "Il y a %{count} heures"
+      x_minutes:
+        one: Il y a 1 min
+        other: "Il y a %{count} min"
+      x_seconds:
+        one: Il y a 1 seconde
+        other: "Il y a %{count} secondes"
   decidim:
     accessibility:
       external_link: Lien externe
@@ -963,6 +990,7 @@ fr-CA:
           next: Suivant
           no_conversations: Vous n'avez encore aucune conversation
           title: Conversations
+          to: À
         reply:
           placeholder: Votre réponse...
           send: Envoyer
@@ -970,6 +998,7 @@ fr-CA:
         show:
           back: Retour à toutes les conversations
           chat_with: Conversation avec
+          deleted_accounts: Vous ne pouvez pas avoir de conversation avec des comptes supprimés.
           not_allowed: Cet utilisateur ne souhaite pas recevoir de messages directs.
           title: Conversation avec %{usernames}
         start:
@@ -1037,6 +1066,12 @@ fr-CA:
         greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Bonjour,
         subject: Voulez-vous continuer à recevoir des informations pertinentes sur %{organization_name} ?
+    notification_mailer:
+      event_received:
+        no_translation_available: Désolé, la traduction automatique n'a pas pu être récupérée lorsque l'e-mail a été envoyé. Vous pouvez voir la traduction du texte original sur le lien suivant %{link}.
+        original_text: 'Texte original :'
+        same_language: Le contenu a été publié dans votre langue préférée (%{language}), c'est pourquoi aucune traduction automatique n'est affichée dans cet e-mail.
+        translated_text: 'Traduction automatique du texte :'
     notifications:
       no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
@@ -1056,6 +1091,10 @@ fr-CA:
       update:
         error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.
         success: Vos paramètres de notifications ont été mis à jour avec succès.
+    offline:
+      show:
+        message: On dirait que vous êtes actuellement hors ligne. Veuillez réessayer plus tard.
+        retry: Réessayer
     open_data:
       not_available_yet: Les fichiers Open Data ne sont pas encore disponibles. Veuillez réessayer dans quelques minutes.
     own_user_groups:
@@ -1334,6 +1373,7 @@ fr-CA:
         title_reply: Répondre
       show:
         back: Afficher toutes les conversations
+        deleted_accounts: Vous ne pouvez pas avoir de conversation avec des comptes supprimés.
         not_allowed: Cet utilisateur n'accepte plus de messages directs.
         title: Conversation avec %{usernames}
       update:
@@ -1596,6 +1636,8 @@ fr-CA:
       notifications_dashboard:
         mark_all_as_read: Marquer tout comme lu
         mark_as_read: Marquer comme lu
+      offline_banner:
+        cache_version_page: Oups ! Votre réseau est hors ligne. Vous visitez actuellement une version précédemment mise en cache de la page, peut-être que son contenu n'est pas à jour.
       social_media_links:
         facebook: "%{organization} sur Facebook"
         github: "%{organization} sur GitHub"
@@ -1631,10 +1673,12 @@ fr-CA:
     name: Français
     name_with_error: Anglais (erreur !)
   password_validator:
+    blacklisted: sur liste noire
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
     email_included_in_password: est trop similaire à votre email
     fallback: n'est pas valide
     name_included_in_password: est trop similaire à votre nom
+    nickname_included_in_password: est trop similaire à votre surnom
     not_enough_unique_characters: n'a pas assez de caractères uniques
     password_not_allowed: n'est pas autorisé
     password_too_common: est trop commun
@@ -1669,6 +1713,8 @@ fr-CA:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%d %B %Y %H h %M min %S s"

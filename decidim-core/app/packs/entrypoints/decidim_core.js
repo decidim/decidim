@@ -31,6 +31,7 @@ import "src/decidim/account_form"
 import "src/decidim/data_picker"
 import "src/decidim/dropdowns_menus"
 import "src/decidim/append_redirect_url_to_modals"
+import "src/decidim/form_attachments"
 import "src/decidim/form_validator"
 import "src/decidim/ajax_modals"
 import "src/decidim/conferences"
@@ -54,6 +55,7 @@ import "src/decidim/start_conversation_dialog"
 import "src/decidim/notifications"
 import "src/decidim/identity_selector_dialog"
 import "src/decidim/gallery"
+import "src/decidim/sw"
 
 // CSS
 import "entrypoints/decidim_core.scss"
@@ -66,4 +68,3 @@ require.context("../images", true)
 
 // This needs to be loaded after confirm dialog to bind properly
 Rails.start()
-

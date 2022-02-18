@@ -126,14 +126,6 @@ describe Decidim::Assemblies::Permissions do
       it { is_expected.to eq true }
     end
 
-    context "when reporting a resource" do
-      let(:action) do
-        { scope: :public, action: :create, subject: :moderation }
-      end
-
-      it { is_expected.to eq true }
-    end
-
     context "when any other action" do
       let(:action) do
         { scope: :public, action: :foo, subject: :bar }
@@ -524,7 +516,7 @@ describe Decidim::Assemblies::Permissions do
         it { is_expected.to eq(true) }
       end
 
-      context "when the assembly has one ancestor" do
+      context "when the assembly has one sucessor" do
         before do
           create :assembly_user_role, user: user, assembly: assembly.parent
         end
