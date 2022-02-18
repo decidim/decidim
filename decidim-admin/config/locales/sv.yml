@@ -172,6 +172,8 @@ sv:
         permissions: Behörigheter
         reject: Avvisa
         share: Dela
+        user:
+          new: Ny admin
         verify: Kontrollera
       admin_terms_of_use:
         accept:
@@ -948,6 +950,7 @@ sv:
         static_pages: Sidor
         statistics: Aktivitet
         user_groups: Grupper
+        users: Administratörer
       user_group:
         csv_verify:
           invalid: Det gick inte att läsa CSV-filen.
