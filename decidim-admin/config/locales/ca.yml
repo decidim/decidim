@@ -172,6 +172,8 @@ ca:
         permissions: Permisos
         reject: Rebutjar
         share: Compartir
+        user:
+          new: Nova administradora
         verify: Verificar
       admin_terms_of_use:
         accept:
@@ -959,6 +961,7 @@ ca:
         static_pages: Pàgines
         statistics: Activitat
         user_groups: Grups
+        users: Administradores
       user_group:
         csv_verify:
           invalid: S'ha produït un error en llegir el fitxer CSV.
@@ -994,6 +997,7 @@ ca:
           role: Rol
         new:
           create: Convidar
+          title: Convidar una nova administradora
       users_statistics:
         users_count:
           admins: Administradores
