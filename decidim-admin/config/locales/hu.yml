@@ -133,6 +133,8 @@ hu:
         per_page: Oldalanként
         permissions: Engedélyek
         reject: Elutasít
+        user:
+          new: Új adminisztrátor
         verify: Ellenőrzés
       admin_terms_of_use:
         accept:
@@ -775,6 +777,7 @@ hu:
         static_pages: Oldalak
         statistics: Tevékenység
         user_groups: Csoportok
+        users: Adminisztrátorok
       user_group:
         csv_verify:
           invalid: Hiba történt a CSV fájl olvasásában.
@@ -810,6 +813,7 @@ hu:
           role: Szerep
         new:
           create: Meghívás
+          title: Új adminisztrátor létrehozása
       users_statistics:
         users_count:
           admins: Adminok
