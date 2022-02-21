@@ -7,6 +7,16 @@
 ### Added
 
 Nothing.
+#### Moderated content can now be removed from search index
+PR [\#8811](https://github.com/decidim/decidim/pull/8811) is addressing an issue when the moderated resources are not removed from the general search index.
+
+This will automatically work for new moderated resources. For already existing ones, we have introduced a new task that will remove the moderated content from being displayed in search:
+
+```ruby
+bin/rails decidim:upgrade:moderation:remove_from_search
+```
+
+#### Default Decidim app fully configurable via ENV vars
 
 ### Changed
 
