@@ -48,9 +48,9 @@ module Decidim
       before { allow(Decidim::Search).to receive(:call) }
 
       it "takes the resource_type filter into account" do
-        expect(Decidim::Search).to receive(:call).with(any_args, hash_including(resource_type: resource_type), a_kind_of(Hash))
+        expect(Decidim::Search).to receive(:call).with(any_args, hash_including(with_resource_type: resource_type), a_kind_of(Hash))
 
-        get :index, params: { term: "Blues", "filter[resource_type]" => resource_type }
+        get :index, params: { term: "Blues", "filter[with_resource_type]" => resource_type }
       end
     end
 
@@ -61,9 +61,9 @@ module Decidim
       before { allow(Decidim::Search).to receive(:call) }
 
       it "takes the scope filter into account" do
-        expect(Decidim::Search).to receive(:call).with(any_args, hash_including(scope_id: scope_id), a_kind_of(Hash))
+        expect(Decidim::Search).to receive(:call).with(any_args, hash_including(decidim_scope_id_eq: scope_id), a_kind_of(Hash))
 
-        get :index, params: { term: "Blues", "filter[scope_id]" => scope_id }
+        get :index, params: { term: "Blues", "filter[decidim_scope_id_eq]" => scope_id }
       end
     end
 
@@ -73,10 +73,10 @@ module Decidim
 
       before { allow(Decidim::Search).to receive(:call) }
 
-      it "takes the scope filter into account" do
-        expect(Decidim::Search).to receive(:call).with(any_args, hash_including(space_state: space_state), a_kind_of(Hash))
+      it "takes the space filter into account" do
+        expect(Decidim::Search).to receive(:call).with(any_args, hash_including(with_space_state: space_state), a_kind_of(Hash))
 
-        get :index, params: { term: "Blues", "filter[space_state]" => space_state }
+        get :index, params: { term: "Blues", "filter[with_space_state]" => space_state }
       end
     end
   end

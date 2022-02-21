@@ -134,14 +134,6 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       it { is_expected.to eq true }
     end
 
-    context "when reporting a resource" do
-      let(:action) do
-        { scope: :public, action: :create, subject: :moderation }
-      end
-
-      it { is_expected.to eq true }
-    end
-
     context "when any other action" do
       let(:action) do
         { scope: :public, action: :foo, subject: :bar }

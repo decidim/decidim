@@ -13,7 +13,7 @@ module Decidim
         end
 
         def admin_proposal_info_url
-          decidim_admin_participatory_process_proposals.proposal_url(resource, resource.component.mounted_params)
+          send(resource.component.mounted_admin_engine).proposal_url(resource, resource.component.mounted_params)
         end
 
         private

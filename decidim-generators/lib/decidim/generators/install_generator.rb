@@ -89,7 +89,7 @@ module Decidim
         # Create empty directory for images
         empty_directory "app/packs/images"
         # Add a .keep file so directory is included in git when committing
-        run "touch app/packs/images/.keep"
+        create_file "app/packs/images/.keep"
 
         # Regenerate webpacker binstubs
         remove_file "bin/yarn"

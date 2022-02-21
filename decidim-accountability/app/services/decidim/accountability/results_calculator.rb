@@ -22,12 +22,16 @@ module Decidim
       attr_reader :component, :scope_id, :category_id
 
       def results
-        @results ||= ResultSearch.new(
-          component: component,
-          scope_id: scope_id,
-          category_id: category_id,
-          deep_search: false
-        ).results
+        @results ||= begin
+          query = Result.where(
+            parent_id: nil,
+            component: component
+          )
+          query = query.with_any_scope(scope_id) if scope_id
+          query = query.with_any_category(category_id) if category_id
+
+          query
+        end
       end
     end
   end
