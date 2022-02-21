@@ -87,6 +87,7 @@ hu:
         error: Hiba történt a fiók törlése során.
         success: Fiók törlése sikeres.
       show:
+        available_locales_helper: Válassza ki a nyelvet, amelyet használni szeretne a platformon való értesítések böngészéshez és fogadásához
         change_password: Jelszó módosítása
         update_account: Fiók frissítése
       update:
@@ -1103,6 +1104,9 @@ hu:
       update:
         error: Hiba történt az érdeklődési körök frissítése közben.
         success: Az érdeklődési köreid sikeresen frissültek.
+    user_report_mailer:
+      notify:
+        details: Felhasználó által megadott adatok
     version_author:
       show:
         deleted: Törölt résztvevő
