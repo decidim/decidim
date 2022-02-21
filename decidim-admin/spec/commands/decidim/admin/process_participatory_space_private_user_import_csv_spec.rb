@@ -18,6 +18,7 @@ module Decidim::Admin
         private_users_to: private_users_to,
         current_organization: organization,
         file: file,
+        delete_current_private_participants: false,
         valid?: validity
       )
     end
