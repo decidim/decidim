@@ -69,6 +69,17 @@ module Decidim::Comments
       end
     end
 
+    context "when the comment is hidden" do
+      before do
+        moderation = create(:moderation, reportable: comment, participatory_space: comment.component.participatory_space, report_count: 1, hidden_at: Time.current)
+        create(:report, moderation: moderation)
+      end
+
+      it "is not included in the query" do
+        expect(subject.query).not_to be_empty
+      end
+    end
+
     context "when order_by is not default" do
       context "when order by recent" do
         let!(:order_by) { "recent" }
