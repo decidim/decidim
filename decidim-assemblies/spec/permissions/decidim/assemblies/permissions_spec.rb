@@ -559,94 +559,94 @@ describe Decidim::Assemblies::Permissions do
         it { is_expected.to eq(true) }
       end
     end
+  end
 
-    describe "actions by assemblies types when user is an admin assembly" do
-      let!(:user) { create :assembly_admin, assembly: mother_assembly }
-      let(:mother_assembly) { create :assembly, parent: assembly, organization: organization, hashtag: "mother" }
-      let(:child_assembly) { create :assembly, parent: mother_assembly, organization: organization, hashtag: "child" }
+  describe "when acting with assemblies admins and children assemblies" do
+    let!(:user) { create :assembly_admin, assembly: mother_assembly }
+    let(:mother_assembly) { create :assembly, parent: assembly, organization: organization, hashtag: "mother" }
+    let(:child_assembly) { create :assembly, parent: mother_assembly, organization: organization, hashtag: "child" }
 
-      context "when assembly is a grandmother assembly" do
-        let(:context) { { assembly: assembly } }
+    context "when assembly is a grandmother assembly" do
+      let(:context) { { assembly: assembly } }
 
-        context "and action is :list" do
-          let(:action) do
-            { scope: :admin, action: :list, subject: :assembly }
-          end
-
-          it { is_expected.to eq(true) }
+      context "and action is :list" do
+        let(:action) do
+          { scope: :admin, action: :list, subject: :assembly }
         end
 
-        context "and action is :export" do
-          let(:action) do
-            { scope: :admin, action: :export, subject: :assembly }
-          end
-
-          it { is_expected.to eq(false) }
-        end
-
-        context "and action is :copy" do
-          let(:action) do
-            { scope: :admin, action: :copy, subject: :assembly }
-          end
-
-          it { is_expected.to eq(false) }
-        end
+        it { is_expected.to eq(true) }
       end
 
-      context "when assembly is a mother assembly" do
-        let(:context) { { assembly: mother_assembly } }
-
-        context "and action is :list" do
-          let(:action) do
-            { scope: :admin, action: :list, subject: :assembly }
-          end
-
-          it { is_expected.to eq(true) }
+      context "and action is :export" do
+        let(:action) do
+          { scope: :admin, action: :export, subject: :assembly }
         end
 
-        context "and action is :export" do
-          let(:action) do
-            { scope: :admin, action: :export, subject: :assembly }
-          end
-
-          it { is_expected.to eq(true) }
-        end
-
-        context "and action is :copy" do
-          let(:action) do
-            { scope: :admin, action: :copy, subject: :assembly }
-          end
-
-          it { is_expected.to eq(true) }
-        end
+        it { is_expected.to eq(false) }
       end
 
-      context "when assembly is a child assembly" do
-        let(:context) { { assembly: child_assembly } }
-
-        context "and action is :list" do
-          let(:action) do
-            { scope: :admin, action: :list, subject: :assembly }
-          end
-
-          it { is_expected.to eq(true) }
+      context "and action is :copy" do
+        let(:action) do
+          { scope: :admin, action: :copy, subject: :assembly }
         end
 
-        context "and action is :export" do
-          let(:action) do
-            { scope: :admin, action: :export, subject: :assembly }
-          end
+        it { is_expected.to eq(false) }
+      end
+    end
 
-          it { is_expected.to eq(true) }
+    context "when assembly is a mother assembly" do
+      let(:context) { { assembly: mother_assembly } }
+
+      context "and action is :list" do
+        let(:action) do
+          { scope: :admin, action: :list, subject: :assembly }
         end
 
-        context "and action is :copy" do
-          let(:action) do
-            { scope: :admin, action: :copy, subject: :assembly }
-          end
+        it { is_expected.to eq(true) }
+      end
 
-          it { is_expected.to eq(true) }
+      context "and action is :export" do
+        let(:action) do
+          { scope: :admin, action: :export, subject: :assembly }
         end
+
+        it { is_expected.to eq(true) }
+      end
+
+      context "and action is :copy" do
+        let(:action) do
+          { scope: :admin, action: :copy, subject: :assembly }
+        end
+
+        it { is_expected.to eq(true) }
+      end
+    end
+
+    context "when assembly is a child assembly" do
+      let(:context) { { assembly: child_assembly } }
+
+      context "and action is :list" do
+        let(:action) do
+          { scope: :admin, action: :list, subject: :assembly }
+        end
+
+        it { is_expected.to eq(true) }
+      end
+
+      context "and action is :export" do
+        let(:action) do
+          { scope: :admin, action: :export, subject: :assembly }
+        end
+
+        it { is_expected.to eq(true) }
+      end
+
+      context "and action is :copy" do
+        let(:action) do
+          { scope: :admin, action: :copy, subject: :assembly }
+        end
+
+        it { is_expected.to eq(true) }
       end
     end
   end
