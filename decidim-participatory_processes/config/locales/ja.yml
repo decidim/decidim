@@ -260,7 +260,7 @@ ja:
           success: 参加型プロセスグループを作成しました。
       titles:
         participatory_process_groups: 参加型プロセスグループ
-        participatory_processes: 参加型するプロセス
+        participatory_processes: 参加型プロセス
       users:
         resend_invitation:
           error: 招待状の再送信中に問題が発生しました。
