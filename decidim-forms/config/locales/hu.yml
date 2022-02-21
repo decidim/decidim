@@ -34,6 +34,7 @@ hu:
             save: Mentés
           form:
             add_question: Kérdés hozzáadása
+            add_title_and_description: Adj hozzá címet és leírást
             already_answered_warning: Néhány felhasználó már válaszolt a kérdőívre, így nem változtathatja meg kérdéseit.
             collapse: Minden kérdés összecsukása
             expand: Minden kérdés kibontása
@@ -51,6 +52,15 @@ hu:
             remove: Eltávolít
             statement: Nyilatkozat
             up: Fel
+          title_and_description:
+            collapse: Összecsuk
+            description: Leírás
+            down: Le
+            expand: Kibont
+            remove: Eltávolít
+            title: Cím
+            title_and_description: Cím és leírás
+            up: Fel
           update:
             invalid: Hiba történt a kérdőív mentésekor.
       errors:
@@ -64,6 +74,7 @@ hu:
         short_answer: Rövid válasz
         single_option: Egy választási lehetőség
         sorting: Válogatás
+        title_and_description: Cím és leírás
       questionnaires:
         answer:
           invalid: Hiba történt a kérdőív megválaszolásakor.
