@@ -288,6 +288,7 @@ hu:
       dashboard:
         show:
           view_more_logs: További naplók megtekintése
+          welcome: Üdvözölünk az Admin Panelben.
       exports:
         export_as: "%{name} mint %{export_format}"
         formats:
