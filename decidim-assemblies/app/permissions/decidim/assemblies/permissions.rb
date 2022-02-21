@@ -73,6 +73,8 @@ module Decidim
         user.admin? || (assembly ? can_manage_assembly?(role: :admin) : has_manageable_assemblies?)
       end
 
+      # It's an admin assembly when assembly exists and the user is allowed to
+      # manage the current assembly.
       def admin_assembly?
         assembly.present? && assembly_admin_allowed_assemblies.include?(assembly)
       end
