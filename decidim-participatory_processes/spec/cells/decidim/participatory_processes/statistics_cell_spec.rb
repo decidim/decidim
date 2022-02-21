@@ -18,7 +18,6 @@ module Decidim::ParticipatoryProcesses
 
     context "when rendering" do
       it "renders the statistics wrapper" do
-        puts subject
         expect(subject).to have_css(".section-statistics")
       end
 

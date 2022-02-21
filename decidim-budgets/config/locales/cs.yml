@@ -106,6 +106,14 @@ cs:
             no_components: V tomto participativním prostoru neexistují jiné komponenty návrhu, které by mohly importovat návrhy do projektů.
             select_component: Vyberte součást
             title: Importovat návrhy
+        reminders:
+          orders:
+            description: Uživatelé obdrží e-mail s odkazy na rozpočty, kde se čeká na vyjádření.
+            title:
+              one: Chystáte se odeslat připomenutí e-mailu %{count} uživateli
+              few: Chystáte se odeslat připomenutí e-mailu %{count} uživatelům
+              many: Chystáte se odeslat připomenutí e-mailu %{count} uživatelům
+              other: Chystáte se odeslat připomenutí e-mailu %{count} uživatelům
       admin_log:
         budget:
           create: "%{user_name} vytvořil %{resource_name} rozpočet ve skupině %{space_name}"
@@ -261,6 +269,17 @@ cs:
         show:
           budget: Rozpočet
           view_all_projects: Zobrazit všechny projekty
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: 'Oblasti, kde máte nedokončené hlasování:'
+          email_intro: Zahájili jste hlasování o participačním rozpočtu, ale nedokončili jste ho.
+          email_link: Pokračovat v hlasování
+          email_outro: Nezapomeňte prosím dokončit hlasování. Chcete-li hlasovat, musíte nejprve vybrat návrh nebo návrhy, o kterých chcete hlasovat, a potvrdit svůj hlas pomocí tlačítka "Hlasování".
+          email_subject:
+            one: Máte nedokončené hlasování v participativním rozpočtovém hlasování
+            few: Máte nedokončené hlasování v participativním rozpočtovém hlasování
+            many: Máte nedokončená hlasování v participativním rozpočtovém hlasování
+            other: Máte nedokončené hlasování v participativním rozpočtovém hlasování
     components:
       budgets:
         actions:

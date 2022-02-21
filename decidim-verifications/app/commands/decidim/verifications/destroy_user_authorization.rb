@@ -3,7 +3,7 @@
 module Decidim
   module Verifications
     # A command to Destroy the Authorization of a user.
-    class DestroyUserAuthorization < Rectify::Command
+    class DestroyUserAuthorization < Decidim::Command
       def initialize(authorization)
         @authorization = authorization
       end

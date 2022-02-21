@@ -4,7 +4,7 @@ module Decidim
   # A command with all the business logic to demote an admin. This means
   # removing their admin righta dn converting them to a basic member. It's the
   # coutnerpart of `PromoteMembership`.
-  class DemoteMembership < Rectify::Command
+  class DemoteMembership < Decidim::Command
     # Public: Initializes the command.
     #
     # membership - the UserGroupMembership to be demoted.

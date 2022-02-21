@@ -4,7 +4,7 @@ module Decidim
   module Votings
     module Admin
       # This command gets called when a voting is unpublished from the admin panel.
-      class UnpublishVoting < Rectify::Command
+      class UnpublishVoting < Decidim::Command
         # Public: Initializes the command.
         #
         # voting - The voting to unpublish.

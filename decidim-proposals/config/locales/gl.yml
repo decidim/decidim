@@ -518,7 +518,6 @@ gl:
           all: Todo
         filter_origin_values:
           all: Todo
-          citizens: Cidadáns
           meetings: Reunións
           official: Oficial
           user_groups: Grupos de usuarios

@@ -39,4 +39,26 @@ describe Decidim::Proposals::Admin::ProposalNoteCreatedEvent do
         .to include(%(Someone has left a note on the proposal <a href="#{resource_path}">#{resource_title}</a>. Check it out at <a href="#{admin_proposal_info_path}">the admin panel</a>))
     end
   end
+
+  context "when proposals component added to assemblies participatory space" do
+    let(:assembly) { create(:assembly) }
+    let(:proposal_component) { create :proposal_component, participatory_space: assembly }
+    let(:resource) { create :proposal, component: proposal_component, title: ::Faker::Lorem.characters(number: 25) }
+    let(:admin_proposal_info_path) { "/admin/assemblies/#{participatory_space.slug}/components/#{component.id}/manage/proposals/#{resource.id}" }
+    let(:admin_proposal_info_url) { "http://#{organization.host}/admin/assemblies/#{participatory_space.slug}/components/#{component.id}/manage/proposals/#{resource.id}" }
+
+    describe "email_intro" do
+      it "is generated correctly" do
+        expect(subject.email_intro)
+          .to eq(%(Someone has left a note on the proposal "#{resource_title}". Check it out at <a href="#{admin_proposal_info_url}">the admin panel</a>))
+      end
+    end
+
+    describe "notification_title" do
+      it "is generated correctly" do
+        expect(subject.notification_title)
+          .to include(%(Someone has left a note on the proposal <a href="#{resource_path}">#{resource_title}</a>. Check it out at <a href="#{admin_proposal_info_path}">the admin panel</a>))
+      end
+    end
+  end
 end

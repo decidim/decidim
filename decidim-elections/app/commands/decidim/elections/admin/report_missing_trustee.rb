@@ -4,7 +4,7 @@ module Decidim
   module Elections
     module Admin
       # This command gets called to report a missing trustee during the tally process.
-      class ReportMissingTrustee < Rectify::Command
+      class ReportMissingTrustee < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A ReportMissingTrusteeForm object with the information needed to report the missing trustee.

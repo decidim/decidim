@@ -3,7 +3,7 @@
 module Decidim
   module Verifications
     # A command to confirm a previous partial authorization.
-    class ConfirmUserAuthorization < Rectify::Command
+    class ConfirmUserAuthorization < Decidim::Command
       # Number of failed confirmation attempts before throttling.
       MAX_FAILED_ATTEMPTS = 2
 

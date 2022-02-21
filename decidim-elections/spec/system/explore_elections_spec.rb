@@ -43,7 +43,7 @@ describe "Explore elections", :slow, type: :system do
       it "allows searching by text" do
         visit_component
         within ".filters" do
-          fill_in "filter[search_text]", with: translated(elections.first.title)
+          fill_in "filter[search_text_cont]", with: translated(elections.first.title)
 
           # The form should be auto-submitted when filter box is filled up, but
           # somehow it's not happening. So we workaround that be explicitly
@@ -56,12 +56,12 @@ describe "Explore elections", :slow, type: :system do
         expect(page).to have_content(translated(elections.first.title))
       end
 
-      it "allows filtering by state" do
+      it "allows filtering by date" do
         finished_election = create(:election, :complete, :published, :finished, component: component)
         upcoming_election = create(:election, :complete, :published, :upcoming, component: component)
         visit_component
 
-        within ".state_check_boxes_tree_filter" do
+        within ".with_any_date_check_boxes_tree_filter" do
           uncheck "All"
           check "Finished"
         end
@@ -69,14 +69,14 @@ describe "Explore elections", :slow, type: :system do
         expect(page).to have_css(".card--election", count: 1)
         expect(page).to have_content(translated(finished_election.title))
 
-        within ".state_check_boxes_tree_filter" do
+        within ".with_any_date_check_boxes_tree_filter" do
           uncheck "All"
           check "Active"
         end
 
         expect(page).to have_css(".card--election", count: 5)
 
-        within ".state_check_boxes_tree_filter" do
+        within ".with_any_date_check_boxes_tree_filter" do
           uncheck "All"
           check "Upcoming"
         end
@@ -84,7 +84,7 @@ describe "Explore elections", :slow, type: :system do
         expect(page).to have_css(".card--election", count: 1)
         expect(page).to have_content(translated(upcoming_election.title))
 
-        within ".state_check_boxes_tree_filter" do
+        within ".with_any_date_check_boxes_tree_filter" do
           uncheck "All"
         end
 

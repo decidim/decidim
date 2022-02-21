@@ -3,7 +3,7 @@
 module Decidim
   module Comments
     # A command with all the business logic to delete a comment
-    class DeleteComment < Rectify::Command
+    class DeleteComment < Decidim::Command
       # Public: Initializes the command.
       #
       # comment - The comment to delete.

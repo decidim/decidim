@@ -14,6 +14,7 @@ module Decidim
     include Decidim::Searchable
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
+    include Decidim::FilterableResource
 
     translatable_fields :title, :subtitle, :description
 
@@ -50,6 +51,8 @@ module Decidim
     }
     scope :finished, -> { published.where("end_voting_date < ?", Time.now.utc) }
     scope :order_by_most_recent, -> { order(created_at: :desc) }
+
+    scope_search_multi :with_any_date, [:active, :upcoming, :finished]
 
     searchable_fields({
                         participatory_space: :itself,
@@ -106,9 +109,12 @@ module Decidim
       !active?
     end
 
-    # Allow ransacker to search for a key in a hstore column (`title`.`en`)
-    ransacker :title do |parent|
-      Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
+    # Create i18n ransackers for :title, :subtitle and :description.
+    # Create the :search_text ransacker alias for searching from all of these.
+    ransacker_i18n_multi :search_text, [:title, :subtitle, :description]
+
+    def self.ransackable_scopes(_auth_object = nil)
+      [:with_any_date]
     end
   end
 end

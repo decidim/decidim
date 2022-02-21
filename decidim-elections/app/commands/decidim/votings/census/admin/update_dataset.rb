@@ -11,7 +11,7 @@ module Decidim
         # dataset - the Decidim::Votings::Census::Dataset to update
         # attributes - the hash of attibutes to update
         # user - the user performing the action (used for tracing)
-        class UpdateDataset < Rectify::Command
+        class UpdateDataset < Decidim::Command
           def initialize(dataset, attributes, user)
             @dataset = dataset
             @attributes = attributes

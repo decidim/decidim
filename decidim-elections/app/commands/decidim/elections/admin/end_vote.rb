@@ -4,7 +4,7 @@ module Decidim
   module Elections
     module Admin
       # This command gets called to end the voting period in the Bulletin Board.
-      class EndVote < Rectify::Command
+      class EndVote < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A VotePeriodForm object with the information needed to start or end the vote period

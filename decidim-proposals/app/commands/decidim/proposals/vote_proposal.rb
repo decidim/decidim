@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     # A command with all the business logic when a user votes a proposal.
-    class VoteProposal < Rectify::Command
+    class VoteProposal < Decidim::Command
       # Public: Initializes the command.
       #
       # proposal     - A Decidim::Proposals::Proposal object.

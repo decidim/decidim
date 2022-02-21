@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     # Command to check if sms code provided by user is valid
-    class ValidateSmsCode < Rectify::Command
+    class ValidateSmsCode < Decidim::Command
       # Public: Initializes the command.
       #
       # form - form containing confirmation_code.

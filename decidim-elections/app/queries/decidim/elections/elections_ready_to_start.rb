@@ -3,7 +3,7 @@
 module Decidim
   module Elections
     # A class used to find elections ready and near to start the voting period
-    class ElectionsReadyToStart < Rectify::Query
+    class ElectionsReadyToStart < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       def self.for
         new.query

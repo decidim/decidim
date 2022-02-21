@@ -4,7 +4,7 @@ module Decidim
   module Initiatives
     # A command with all the business logic that updates an
     # existing initiative.
-    class UpdateInitiative < Rectify::Command
+    class UpdateInitiative < Decidim::Command
       include ::Decidim::MultipleAttachmentsMethods
       include ::Decidim::GalleryMethods
       include CurrentLocale

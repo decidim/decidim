@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A command with all the business logic to destroy a participatory space private user.
-    class DestroyParticipatorySpacePrivateUser < Rectify::Command
+    class DestroyParticipatorySpacePrivateUser < Decidim::Command
       # Public: Initializes the command.
       #
       # participatory_space_private_user - The participatory space private user to destroy

@@ -4,7 +4,7 @@
   <div class="filters__section">
     <div class="filters__search">
       <div class="input-group">
-        <%= form.search_field :search_text,
+        <%= form.search_field :search_text_cont,
                               label: false,
                               class: "input-group-field",
                               placeholder: t(".search"),
@@ -20,6 +20,6 @@
     </div>
   </div>
 
-  <%= form.check_boxes_tree :state, state_filter_values, legend_title: t(".state") %>
+  <%= form.check_boxes_tree :with_any_date, date_filter_values, legend_title: t(".date") %>
   <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
 <% end %>

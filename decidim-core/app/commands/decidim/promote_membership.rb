@@ -2,7 +2,7 @@
 
 module Decidim
   # A command with all the business logic to promote a user to group admin.
-  class PromoteMembership < Rectify::Command
+  class PromoteMembership < Decidim::Command
     # Public: Initializes the command.
     #
     # membership - the UserGroupMembership to be promoted.

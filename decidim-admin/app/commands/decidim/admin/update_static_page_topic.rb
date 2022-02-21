@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A command with all the business logic when updating a static page topic.
-    class UpdateStaticPageTopic < Rectify::Command
+    class UpdateStaticPageTopic < Decidim::Command
       # Public: Initializes the command.
       #
       # page - The StaticPageTopic to update

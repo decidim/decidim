@@ -590,7 +590,6 @@ sv:
           all: Alla
         filter_origin_values:
           all: Alla
-          citizens: Medborgare
           meetings: Möten
           official: Officiella
           user_groups: Grupper

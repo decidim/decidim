@@ -2,35 +2,24 @@
 
 module Decidim
   module Debates
-    # This class handles search and filtering of debates. Needs a
-    # `current_component` param with a `Decidim::Component` in order to
-    # find the debates.
+    # This service scopes the debate searches with parameters that cannot be
+    # passed from the user interface.
     class DebateSearch < ResourceSearch
-      text_search_fields :title, :description
+      attr_reader :activity
 
-      # Public: Initializes the service.
-      # component     - A Decidim::Component to get the debates from.
-      # page        - The page number to paginate the results.
-      # per_page    - The number of debates to return per page.
-      def initialize(options = {})
-        super(Debate.not_hidden, options)
-      end
+      def build(params)
+        @activity = params[:activity]
 
-      # Handle the activity filter
-      def search_activity
-        case activity
-        when "commented"
-          query.commented_by(user)
-        when "my_debates"
-          query.authored_by(user)
-        else # Assume 'all'
-          query
+        if params[:activity] && user
+          case params[:activity]
+          when "commented"
+            add_scope(:commented_by, user)
+          when "my_debates"
+            add_scope(:authored_by, user)
+          end
         end
-      end
 
-      # Handle the state filter
-      def search_state
-        apply_scopes(%w(open closed), state)
+        super
       end
     end
   end
