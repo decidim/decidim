@@ -62,8 +62,7 @@ module Decidim
     enum signature_type: [:online, :offline, :any], _suffix: true
     enum state: [:created, :validating, :discarded, :published, :rejected, :accepted]
 
-    validates :title, :description, :state, presence: true
-    validates :signature_type, presence: true
+    validates :title, :description, :state, :signature_type, presence: true
     validates :hashtag,
               uniqueness: true,
               allow_blank: true,
@@ -128,37 +127,30 @@ module Decidim
     delegate :document_number_authorization_handler, :promoting_committee_enabled?, to: :type
     delegate :type, :scope, :scope_name, to: :scoped_type, allow_nil: true
 
-    # PUBLIC banner image
-    #
-    # Overrides participatory space's banner image with the banner image defined
+    # Public: Overrides participatory space's banner image with the banner image defined
     # for the initiative type.
     #
-    # RETURNS Decidim::BannerImageUploader
+    # Returns Decidim::BannerImageUploader
     def banner_image
       type.attached_uploader(:banner_image)
     end
 
-    # PUBLIC
+    # Public: Check if an initiative has been created by an individual person.
+    # If it's false, then it has been created by an authorized organization.
     #
-    # Returns true when an initiative has been created by an individual person.
-    # False in case it has been created by an authorized organization.
-    #
-    # RETURN boolean
+    # Returns a Boolean
     def created_by_individual?
       decidim_user_group_id.nil?
     end
 
-    # PUBLIC
+    # Public: check if an initiative is open
     #
-    # RETURN boolean TRUE when the initiative is open, false in case its
-    # not closed.
+    # Returns a Boolean
     def open?
       !closed?
     end
 
-    # PUBLIC
-    #
-    # Returns when an initiative is closed. An initiative is closed when
+    # Public: Checks if an initiative is closed. An initiative is closed when
     # at least one of the following conditions is true:
     #
     # * It has been discarded.
@@ -166,17 +158,15 @@ module Decidim
     # * It has been accepted.
     # * Signature collection period has finished.
     #
-    # RETURNS BOOLEAN
+    # Returns a Boolean
     def closed?
       discarded? || rejected? || accepted? || !votes_enabled?
     end
 
-    # PUBLIC
-    #
-    # Returns the author name. If it has been created by an organization it will
+    # Public: Returns the author name. If it has been created by an organization it will
     # return the organization's name. Otherwise it will return author's name.
     #
-    # RETURN string
+    # Returns a string
     def author_name
       user_group&.name || author.name
     end
@@ -196,7 +186,7 @@ module Decidim
 
     # Public: Checks if the organization has given an answer for the initiative.
     #
-    # Returns Boolean.
+    # Returns a Boolean.
     def answered?
       answered_at.present?
     end
@@ -407,13 +397,11 @@ module Decidim
       nil
     end
 
-    # PUBLIC
-    #
-    # Checks if the type the initiative belongs to enables SMS code
+    # Public: Checks if the type the initiative belongs to enables SMS code
     # verification step. Tis configuration is ignored if the organization
     # doesn't have the sms authorization available
     #
-    # RETURNS boolean
+    # Returns a Boolean
     def validate_sms_code_on_votes?
       organization.available_authorizations.include?("sms") && type.validate_sms_code_on_votes?
     end
@@ -447,7 +435,7 @@ module Decidim
       type.scopes
     end
 
-    # Private: A validator that verifies the signaature type is allowed by the InitiativeType.
+    # Private: A validator that verifies the signature type is allowed by the InitiativeType.
     def signature_type_allowed
       return if published?
 
