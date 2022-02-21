@@ -74,7 +74,7 @@ module Decidim
       end
 
       def has_comments?
-        object.comment_threads.size.positive?
+        object.comment_threads.not_hidden.size.positive?
       end
 
       def already_reported

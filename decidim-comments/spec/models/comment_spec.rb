@@ -223,10 +223,10 @@ module Decidim
           expect(parent.comment_threads.count).to eq 3
         end
 
-        it "returns 2 when a comment has been moderated" do
+        it "still returns 3 when a comment has been moderated" do
           Decidim::Moderation.create!(reportable: comments.last, participatory_space: comments.last.participatory_space, hidden_at: 1.day.ago)
 
-          expect(parent.comment_threads.count).to eq 2
+          expect(parent.comment_threads.count).to eq 3
         end
 
         describe "#body_length" do
