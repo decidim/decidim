@@ -592,7 +592,7 @@ describe "Proposals", type: :system do
 
       it "finds the correct proposal" do
         within "form.new_filter" do
-          find("input[name='filter[search_text]']", match: :first).set("lorem")
+          find("input[name='filter[search_text_cont]']", match: :first).set("lorem")
           find("*[type=submit]").click
         end
 

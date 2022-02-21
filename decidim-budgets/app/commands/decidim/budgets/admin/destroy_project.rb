@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user deletes a Project from the admin
       # panel.
-      class DestroyProject < Rectify::Command
+      class DestroyProject < Decidim::Command
         # Initializes an UpdateProject Command.
         #
         # project - The current instance of the project to be destroyed.

@@ -2,7 +2,7 @@
 
 module Decidim
   # A general presenter to render statistics in participatory spaces.
-  class StatsPresenter < Rectify::Presenter
+  class StatsPresenter < SimpleDelegator
     def comments_stats(name)
       comments = Decidim.component_manifests.map do |component_manifest|
         component_manifest.stats.only([:comments_count])

@@ -3,7 +3,7 @@
 module Decidim
   module Votings
     # A command to check if census data is given
-    class CheckCensus < Rectify::Command
+    class CheckCensus < Decidim::Command
       def initialize(form)
         @form = form
       end

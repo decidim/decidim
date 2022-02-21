@@ -4,7 +4,7 @@ module Decidim
   module Conferences
     module Admin
       # A class used to find the ConferenceInvites by their status status.
-      class ConferenceInvites < Rectify::Query
+      class ConferenceInvites < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         #
         # conference_invites - the initial Invites relation that needs to be filtered.

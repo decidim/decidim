@@ -711,6 +711,9 @@ ar:
       index:
         last_activity: النشاط الاخير
         resource_type: نوع
+    links:
+      warning:
+        cancel: إلغاء
     log:
       base_presenter:
         create: "%{user_name} تم الإنشاء %{resource_name}"
@@ -920,6 +923,7 @@ ar:
         report_html: <p>بعد <a href="%{url}">محتوى</a> تم إخفاء تلقائيا.</p>
         subject: تم إخفاء المورد تلقائيًا
       report:
+        content_original_language: لغة المحتوى الأصلية
         hello: مرحبا %{name}،
         report_html: <p>تم الإبلاغ عن المحتوى <a href="%{url}">التالي</a> .</p>
         subject: تم الإبلاغ عن مورد
@@ -962,6 +966,8 @@ ar:
           other: "%{count} النتائج"
         view_all: عرض الكل (%{count})
     shared:
+      confirm_modal:
+        cancel: إلغاء
       embed_modal:
         close_window: أغلق النافذة
         embed: يرجى لصق هذا الرمز في صفحتك
@@ -1218,6 +1224,8 @@ ar:
         close_session: اغلق الموسم
         description_html: أنت تدير المشارك <b>%{user_name}</b>.
         expire_time_html: سوف تنتهي جلستك في <b><span class="minutes">%{minutes}</span> دقائق</b>.
+      language_chooser:
+        choose_language: اختر اللغة
       notifications_dashboard:
         mark_all_as_read: اشر عليها بانها قرات
       user_menu:

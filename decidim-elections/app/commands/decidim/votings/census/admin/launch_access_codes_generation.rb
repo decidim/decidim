@@ -5,7 +5,7 @@ module Decidim
     module Census
       module Admin
         # A command to launch the access codes generation
-        class LaunchAccessCodesGeneration < Rectify::Command
+        class LaunchAccessCodesGeneration < Decidim::Command
           def initialize(dataset, user)
             @dataset = dataset
             @user = user

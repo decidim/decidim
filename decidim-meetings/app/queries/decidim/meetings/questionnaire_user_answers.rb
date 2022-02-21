@@ -3,7 +3,7 @@
 module Decidim
   module Meetings
     # A class used to collect user answers for a questionnaire
-    class QuestionnaireUserAnswers < Rectify::Query
+    class QuestionnaireUserAnswers < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # questionnaire - a Questionnaire object

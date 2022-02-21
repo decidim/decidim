@@ -4,7 +4,7 @@ module Decidim
   module Proposals
     module Admin
       # A command with all the business logic when an admin answers a proposal.
-      class AnswerProposal < Rectify::Command
+      class AnswerProposal < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

@@ -2,7 +2,7 @@
 
 module Decidim
   # A command with all the business logic to invite a user to a group.
-  class InviteUserToGroup < Rectify::Command
+  class InviteUserToGroup < Decidim::Command
     # Public: Initializes the command.
     #
     # form - A form object with the params.

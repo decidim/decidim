@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user creates a Project from the admin
       # panel.
-      class CreateProject < Rectify::Command
+      class CreateProject < Decidim::Command
         include ::Decidim::AttachmentMethods
         include ::Decidim::GalleryMethods
 

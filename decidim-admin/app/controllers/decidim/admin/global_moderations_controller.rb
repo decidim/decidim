@@ -14,9 +14,9 @@ module Decidim
       def collection
         @collection ||=
           if params[:hidden]
-            moderations_for_user.where.not(hidden_at: nil)
+            moderations_for_user.hidden
           else
-            moderations_for_user.where(hidden_at: nil)
+            moderations_for_user.not_hidden
           end
       end
 

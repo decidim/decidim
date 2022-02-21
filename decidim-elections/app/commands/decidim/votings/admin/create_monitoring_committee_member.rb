@@ -4,7 +4,7 @@ module Decidim
   module Votings
     module Admin
       # A command with the business logic to create a new monitoring committee member
-      class CreateMonitoringCommitteeMember < Rectify::Command
+      class CreateMonitoringCommitteeMember < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params

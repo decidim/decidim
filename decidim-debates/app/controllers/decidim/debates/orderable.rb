@@ -24,11 +24,11 @@ module Decidim
         def reorder(debates)
           case order
           when "recent"
-            debates.order("created_at DESC")
+            debates.order(created_at: :desc)
           when "commented"
-            debates.order("comments_count DESC")
+            debates.order(comments_count: :desc)
           when "updated"
-            debates.order("updated_at DESC")
+            debates.order(updated_at: :desc)
           when "random"
             debates.order_randomly(random_seed)
           else

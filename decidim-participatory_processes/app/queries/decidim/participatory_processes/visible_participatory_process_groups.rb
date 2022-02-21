@@ -3,7 +3,7 @@
 module Decidim
   module ParticipatoryProcesses
     # This query class filters participatory processes given a current_user.
-    class VisibleParticipatoryProcessGroups < Rectify::Query
+    class VisibleParticipatoryProcessGroups < Decidim::Query
       def initialize(current_user)
         @current_user = current_user
       end

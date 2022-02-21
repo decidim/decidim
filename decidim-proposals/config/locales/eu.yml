@@ -571,7 +571,6 @@ eu:
           all: guztiak
         filter_origin_values:
           all: guztiak
-          citizens: Hiritarrak
           meetings: Bilerak
           official: Ofiziala
           user_groups: Erabiltzaile taldeak

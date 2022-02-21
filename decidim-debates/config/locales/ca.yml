@@ -17,6 +17,7 @@ ca:
       decidim/debates/close_debate_event: Debat tancat
       decidim/debates/create_debate_event: Debat
       decidim/debates/creation_disabled_event: Debats deshabilitats
+      decidim/debates/creation_enabled_event: Creació de debats activada
   activerecord:
     models:
       decidim/debates/debate:
@@ -40,6 +41,7 @@ ca:
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
+            creation_enabled: Les participants poden crear debats
             endorsements_blocked: Adhesions bloquejades
             endorsements_enabled: Adhesions habilitades
     debates:
@@ -115,11 +117,11 @@ ca:
           all: Tots
           category: Categoria
           category_prompt: Selecciona una categoria
-          citizens: Ciutadania
           commented: Comentat
           my_debates: Els meus debats
           official: Oficial
           origin: Origen
+          participants: Participants
           scope: Àmbit
           search: Cerca
           state: Estat

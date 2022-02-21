@@ -40,15 +40,15 @@ module Decidim
 
       private
 
-      def search_klass
-        ParticipatoryProcessSearch
+      def search_collection
+        ParticipatoryProcess.where(organization: current_organization).published.visible_for(current_user).includes(:area)
       end
 
       def default_filter_params
         {
-          scope_id: nil,
-          area_id: nil,
-          date: default_date_filter
+          with_scope: nil,
+          with_area: nil,
+          with_date: default_date_filter
         }
       end
 
@@ -85,7 +85,7 @@ module Decidim
       end
 
       def filtered_processes
-        search.results
+        search.result
       end
 
       def participatory_processes
@@ -102,7 +102,7 @@ module Decidim
       end
 
       def metrics
-        @metrics ||= ParticipatoryProcessMetricChartsPresenter.new(participatory_process: current_participatory_space)
+        @metrics ||= ParticipatoryProcessMetricChartsPresenter.new(participatory_process: current_participatory_space, view_context: view_context)
       end
 
       def participatory_process_group

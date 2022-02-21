@@ -4,7 +4,7 @@
   <div class="filters__section">
     <div class="filters__search">
       <div class="input-group">
-        <%= form.search_field :search_text, label: false, class: "input-group-field", placeholder: t(".search"), title: t(".search"), "aria-label": t(".search"), data: { disable_dynamic_change: true } %>
+        <%= form.search_field :search_text_cont, label: false, class: "input-group-field", placeholder: t(".search"), title: t(".search"), "aria-label": t(".search"), data: { disable_dynamic_change: true } %>
         <div class="input-group-button">
           <button type="submit" class="button" aria-controls="projects">
             <%= icon "magnifying-glass", aria_label: t(".search"), role: "img" %>
@@ -15,15 +15,15 @@
   </div>
 
   <% if voting_finished? %>
-    <%= form.check_boxes_tree :status, filter_status_values, legend_title: t(".status"), "aria-controls": "projects" %>
+    <%= form.check_boxes_tree :with_any_status, filter_status_values, legend_title: t(".status"), "aria-controls": "projects" %>
   <% end %>
 
   <% if current_component.has_subscopes? %>
-    <%= form.check_boxes_tree :scope_id, resource_filter_scope_values(budget.scope), legend_title: t(".scope"), "aria-controls": "projects" %>
+    <%= form.check_boxes_tree :with_any_scope, resource_filter_scope_values(budget.scope), legend_title: t(".scope"), "aria-controls": "projects" %>
   <% end %>
 
   <% if current_participatory_space.categories.any? %>
-    <%= form.check_boxes_tree :category_id, filter_categories_values, legend_title: t(".category"), "aria-controls": "projects" %>
+    <%= form.check_boxes_tree :with_any_category, filter_categories_values, legend_title: t(".category"), "aria-controls": "projects" %>
   <% end %>
 
   <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>

@@ -7,11 +7,13 @@ module Decidim
     let(:organization) { create(:organization, name: "Test Organization") }
     let(:admin) { create(:user, :admin, organization: organization) }
     let(:reporter) { create(:user, :confirmed, organization: organization) }
+    let(:moderation) { create(:user_moderation, user: user) }
+    let(:user_report) { create(:user_report, user: reporter, reason: reason, details: "Lorem ipsum", moderation: moderation) }
     let(:user) { create(:user, :confirmed, organization: organization) }
     let(:reason) { "spam" }
 
     describe "#notify" do
-      let(:mail) { described_class.notify(admin, reporter, reason, user) }
+      let(:mail) { described_class.notify(admin, user_report) }
 
       describe "email body" do
         it "includes the reported user name" do
@@ -23,7 +25,7 @@ module Decidim
         end
 
         it "includes the reason" do
-          expect(email_body(mail)).to include(reason)
+          expect(email_body(mail)).to include(I18n.t(reason, scope: "decidim.shared.flag_user_modal"))
         end
 
         context "when the user is already blocked" do
@@ -31,8 +33,9 @@ module Decidim
 
           it "includes the reported user's original name" do
             # The `user.name` is set to "Blocked user"
-            expect(email_body(mail)).not_to include(user.name)
-            expect(email_body(mail)).to include(user.user_name)
+            expect(email_body(mail)).to include(user.name)
+            expect(email_body(mail)).to include(reporter.name)
+            expect(email_body(mail)).to include(admin.name)
           end
         end
       end

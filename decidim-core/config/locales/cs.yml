@@ -1033,6 +1033,7 @@ cs:
           next: Další
           no_conversations: Nemáte zatím žádné konverzace
           title: Konverzace
+          to: Komu
         reply:
           placeholder: Vaše odpověď...
           send: Poslat
@@ -1133,6 +1134,10 @@ cs:
       update:
         error: Při aktualizaci nastavení oznámení došlo k chybě.
         success: Nastavení oznámení bylo úspěšně aktualizováno.
+    offline:
+      show:
+        message: Vypadá to, že jste v režimu offline. Zkuste to prosím později.
+        retry: Zkusit znovu
     open_data:
       not_available_yet: Soubory Open Data nejsou dosud k dispozici. Zkuste to prosím znovu za pár minut.
     own_user_groups:
@@ -1682,6 +1687,8 @@ cs:
       notifications_dashboard:
         mark_all_as_read: Označit vše jako přečtené
         mark_as_read: Označit jako přečtené
+      offline_banner:
+        cache_version_page: Jejda! Vaše síť je offline. Toto je dříve uložená verze stránky, kterou navštívíte, možná není aktualizovaná.
       social_media_links:
         facebook: "%{organization} na Facebooku"
         github: "%{organization} na GitHubu"

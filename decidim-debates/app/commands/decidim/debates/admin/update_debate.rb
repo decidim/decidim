@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user changes a Debate from the admin
       # panel.
-      class UpdateDebate < Rectify::Command
+      class UpdateDebate < Decidim::Command
         # Initializes a UpdateDebate Command.
         #
         # form - The form from which to get the data.
