@@ -25,9 +25,7 @@ module Decidim
       def call
         return broadcast(:invalid) unless @form.valid?
 
-        if @form.delete_current_private_participants
-          delete_all_current_private_participants
-        end
+        delete_all_current_private_participants if @form.delete_current_private_participants
 
         process_csv
         broadcast(:ok)
