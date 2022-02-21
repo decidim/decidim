@@ -324,6 +324,7 @@ de:
         'false': 'Nein'
         managed_user_name: Verwalteter Benutzer
         solved: Gelöst
+        title: Überprüfungskonflikte
         transfer:
           email: E-Mail
           error: Es gab ein Problem bei der Übertragung des aktuellen Teilnehmers zu den verwalteten Teilnehmern.
@@ -337,6 +338,12 @@ de:
         show:
           view_more_logs: Weitere Protokolle anzeigen
           welcome: Willkommen im Decidim Admin Panel.
+      domain_whitelist:
+        form:
+          domain_too_short: Domain zu kurz
+        update:
+          error: Fehler beim Aktualisieren der Domain-Whitelist
+          success: Domain-Whitelist erfolgreich aktualisiert
       exports:
         export_as: "%{name} als %{export_format}"
         formats:
@@ -350,10 +357,12 @@ de:
           label: Kategorie
         filter_label: Filtern
         invitation_accepted_at_present:
+          label: Einladung angenommen
           values:
             'false': 'Nein'
             'true': 'Ja'
         last_sign_in_at_present:
+          label: Schon einmal eingeloggt
           values:
             'false': 'Nein'
             'true': 'Ja'
