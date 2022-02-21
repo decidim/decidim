@@ -5,14 +5,14 @@
     </h2>
   </div>
   <div class="card-section">
-    <%= decidim_form_for(@form, url: participatory_space_private_users_csv_import_path, html: { class: "form", onsubmit: "return confirm('"+t(".confirm_dialog")+"');"}) do |form| %>
+    <%= decidim_form_for(@form, url: participatory_space_private_users_csv_import_path, html: { class: "form"}) do |form| %>
       <p><%= t(".explanation") %></p>
       <div class="row column">
         <%= form.upload :file, optional: false %>
       </div>
 
       <div class="row column delete-current" >
-        <%= form.check_box :delete_current_private_participants, label: t(".delete_current") %>
+        <%= form.check_box :delete_current_private_participants, label: t(".delete_current"), data: {confirmMessage: t(".confirm_dialog")} %>
       </div>
 
       <div class="delete-current-warning" >
