@@ -15,9 +15,16 @@ describe "Finished consultations", type: :system do
     end
 
     it "shows them" do
-      visit decidim_consultations.finished_consultations_path
-      expect(page).to have_content("PAST CONSULTATIONS")
-      expect(page).to have_i18n_content(consultation.title)
+      visit decidim_consultations.consultations_path
+
+      within ".filters" do
+        choose "Finished"
+      end
+
+      within ".card--consultation" do
+        expect(page).to have_content("FINISHED")
+        expect(page).to have_i18n_content(consultation.title)
+      end
     end
   end
 
@@ -27,9 +34,12 @@ describe "Finished consultations", type: :system do
     end
 
     it "shows them" do
-      visit decidim_consultations.finished_consultations_path
-      expect(page).to have_content("ACTIVE CONSULTATIONS")
-      expect(page).to have_i18n_content(consultation.title)
+      visit decidim_consultations.consultations_path
+
+      within ".card--consultation" do
+        expect(page).to have_content("OPEN VOTES")
+        expect(page).to have_i18n_content(consultation.title)
+      end
     end
   end
 end
