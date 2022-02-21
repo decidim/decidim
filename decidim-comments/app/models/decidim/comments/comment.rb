@@ -102,13 +102,6 @@ module Decidim
         root_commentable.accepts_new_comments? && depth < MAX_DEPTH
       end
 
-      # Public: Override comment threads to exclude hidden ones.
-      #
-      # Returns comment.
-      def comment_threads
-        super.reject(&:hidden?)
-      end
-
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`.
       # Return the comment author together with whatever ActiveRecord::Relation is returned by
       # the `commentable`. This will cause the comment author to be notified when the
