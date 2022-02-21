@@ -32,7 +32,7 @@ describe "import private users via csv with the possibility to deleting some", t
     it "doesn't ask for confirmation" do
       find("button[type='submit']").click
 
-      expect { page.driver.browser.switch_to.alert}.to raise_error(Selenium::WebDriver::Error::NoSuchAlertError)
+      expect { page.driver.browser.switch_to.alert }.to raise_error(Selenium::WebDriver::Error::NoSuchAlertError)
     end
   end
 
