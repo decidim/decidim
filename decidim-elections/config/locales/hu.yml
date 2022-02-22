@@ -141,11 +141,14 @@ hu:
             invalid: Hiba történt a kérdés frissítése során
             success: Kérdés frissítése sikeres
         steps:
+          create_election:
+            trustees: Választási megbízottak
           created:
             trustees: Felügyelők
           key_ceremony:
             continue: Folytatás
           key_ceremony_ended:
+            invalid: Hiba történt a szavazási időszak elindításakor
             title: Készen áll a kezdésre
       elections:
         results:
