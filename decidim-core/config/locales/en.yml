@@ -1315,6 +1315,8 @@ en:
         close_modal: Close modal
         please_sign_in: Please sign in
         sign_up: Sign up
+      mentions_modal:
+        remove_recipient: Remove recipient %{name}
       participatory_space_filters:
         filters:
           areas: Areas
