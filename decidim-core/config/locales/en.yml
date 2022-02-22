@@ -700,6 +700,11 @@ en:
         email_subject: "%{endorser_nickname} has performed a new endorsement"
         notification_title: The <a href="%{resource_path}">%{resource_title}</a> %{resource_type} has been endorsed by <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
+        user_officialized:
+          email_intro: Participant %{name} (%{nickname}) has been officialized.
+          email_outro: You have received this notification because you are an administrator of the organization.
+          email_subject: "%{name} has been officialized"
+          notification_title: Participant %{name} (%{nickname}) has been officialized.
         profile_updated:
           email_intro: The <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
           email_outro: You have received this notification because you are following %{nickname}. You can stop receiving notifications following the previous link.
