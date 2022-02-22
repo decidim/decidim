@@ -103,8 +103,6 @@ There are specific things that you need to change regarding your Form or `Virtus
 `rake decidim_comments:update_participatory_process_in_comments` to migrate existing comments to the new structure.
 You can manually regenerate the docs by running: ```rake decidim_api:generate_docs```
 
-* [#8866](https://github.com/decidim/decidim/pull/8866) Possibility to delete every current participants of a participatory
-space when adding some via csv, with warning message and confirmation dialog box
 #### Custom icons new uploader
 
 PR [\#8645](https://github.com/decidim/decidim/pull/8645) we now only allow PNG images at Favicon so we can provide higher quality versions to mobile devices.
