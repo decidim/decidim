@@ -663,7 +663,7 @@ ar:
         scopes: نطاقات
         static_pages: صفحات
         user_groups: المجموعات
-        users: المشاركين
+        users: المشاركون
       user_group:
         csv_verify:
           invalid: حدثت مشكلة في قراءة ملف CSV.

@@ -110,6 +110,7 @@ sv:
             up: Upp
           update:
             invalid: Det gick inte att spara formuläret.
+            success: Formuläret har sparats.
       errors:
         answer:
           body: Kroppen kan inte vara to

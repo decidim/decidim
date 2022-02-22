@@ -915,7 +915,7 @@ eu:
         static_pages: Orriak
         statistics: Jarduera
         user_groups: Erabiltzaile-taldeak
-        users: Erabiltzaileak
+        users: Parte-hartzaileak
       user_group:
         csv_verify:
           invalid: Errore bat gertatu da CSV fitxategia irakurtzean.

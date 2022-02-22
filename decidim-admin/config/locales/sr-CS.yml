@@ -564,6 +564,7 @@ sr:
       titles:
         metrics: Metrika
         statistics: Aktivnost
+        users: Učesnici
       user_groups:
         index:
           filter:

@@ -33,6 +33,10 @@ hu:
         transparent: Átlátszó
     errors:
       models:
+        meeting:
+          attributes:
+            show_embedded_iframe:
+              not_embeddable: Ez az URL nem ágyazható be
         meeting_agenda:
           attributes:
             base:
@@ -62,6 +66,16 @@ hu:
         other: Regisztrációk
   decidim:
     admin:
+      filters:
+        meetings:
+          origin_eq:
+            values:
+              citizen: Polgár
+              user_group: Felhasználói csoportok
+          type_eq:
+            label: Értekezlet típusa
+            values:
+              in_person: Személyesen
       meeting_copies:
         create:
           error: Hiba történt a találkozó duplikálása során.
@@ -241,6 +255,8 @@ hu:
           form:
             address_help: 'Cím: Geocoder használata a helymeghatározáshoz'
             location_help: 'Helyszín: üzenet az adott felhasználóknak a találkozó helyéről'
+            registration_email_help: Ez a szöveg a regisztrációt megerősítő e-mail közepén fog megjelenni. Épp a regisztrációs kód után.
+            show_embedded_iframe_help: Beágyazza-e az iframe-et ehhez a videokonferencia URL-hez. Csak néhány szolgáltatás engedélyezi a beágyazást (például Youtube, Twitch...)
           index:
             title: Találkozók
           new:
@@ -330,12 +346,16 @@ hu:
         filters:
           category: Kategória
           date: Dátum
+          origin_values:
+            citizens: Polgárok
           search: Keresés
         filters_small_view:
           close_modal: Modal bezárása
           filter: Szűrő
           filter_by: 'Szűrés ez alapján:'
           unfold: Kibont
+        form:
+          show_embedded_iframe_help: Beágyazza-e az iframe-et ehhez a videokonferencia URL-hez. Csak néhány szolgáltatás engedélyezi a beágyazást (például Youtube, Twitch...)
         meeting_minutes:
           related_information: Kapcsolódó információ
         meetings:

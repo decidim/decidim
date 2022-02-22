@@ -172,7 +172,7 @@ sv:
         reject: Avvisa
         share: Dela
         user:
-          new: Ny användare
+          new: Ny admin
         verify: Kontrollera
       admin_terms_of_use:
         accept:

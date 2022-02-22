@@ -153,6 +153,7 @@ sv:
         block: "%{user_name} blockerade användaren %{resource_name}"
         invite: "%{user_name} bjöd in användaren %{resource_name} med rollen: %{role}"
         officialize: "%{user_name} gjorde deltagaren %{resource_name} officiell"
+        promote: "%{user_name} befordrade %{resource_name}"
         remove_from_admin: "%{user_name} tog bort deltagaren %{resource_name} med rollen: %{role}"
         show_email: "%{user_name} hämtade e-postadressen för deltagaren %{resource_name}"
         transfer: "%{user_name} överförde deltagaren %{resource_name}"
@@ -969,6 +970,7 @@ sv:
         show:
           back: Tillbaka till alla konversationer
           chat_with: Konversation med
+          deleted_accounts: Du kan inte meddela raderade konton.
           not_allowed: Deltagaren tar inte emot direktmeddelanden.
           title: Samtal med %{usernames}
         start:
@@ -1333,6 +1335,7 @@ sv:
         title_reply: Svara
       show:
         back: Visa alla samtal
+        deleted_accounts: Du kan inte meddela raderade konton.
         not_allowed: Den här användaren accepterar inte fler direkta meddelanden.
         title: Konversation med %{usernames}
       update:

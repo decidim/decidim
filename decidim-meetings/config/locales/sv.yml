@@ -282,6 +282,9 @@ sv:
           edit:
             close: Stäng
             title: Stäng mötet
+        meeting_copies:
+          form:
+            select_a_meeting_type: Välj mötestyp
         meetings:
           close:
             invalid: Det gick inte att stänga mötet

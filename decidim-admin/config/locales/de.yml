@@ -32,6 +32,7 @@ de:
         body: Haupttext
         subject: Betreff
       organization:
+        admin_terms_of_use_body: Inhalt für die Admin-Nutzungsbedingungen
         alert_color: Benachrichtigung
         available_authorizations: Verfügbare Autorisierungen
         badges_enabled: Abzeichen aktivieren
@@ -47,6 +48,7 @@ de:
         favicon: Icon
         force_authentication: Authentifizierung erzwingen
         force_users_to_authenticate_before_access_organization: Benutzer müssen sich authentifizieren bevor sie auf die Organisation zugreifen können
+        from: E-Mail-Adresse des Absenders
         github_handler: GitHub-Handler
         header_snippets: Header-Snippets
         highlight_alternative_color: Hervorhebung, Alternative
@@ -178,10 +180,12 @@ de:
           success: Super! Sie haben die Admin-Nutzungsbedingungen akzeptiert.
         actions:
           accept: Ich stimme den folgenden Bedingungen zu
+          are_you_sure: Sind Sie sicher, dass Sie die Admin-Nutzungsbedingungen ablehnen möchten?
           refuse: Die Admin-Nutzungsbedingungen ablehnen
           title: Den Admin-Nutzungsbedingungen zustimmen
         required_review:
           alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
+          callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Ansonsten können Sie die Plattform nicht verwalten.
           cta: Lesen Sie sie jetzt.
         title: Admin-Nutzungsbedingungen
       area_types:
@@ -204,6 +208,7 @@ de:
           error: Beim Erstellen eines neuen Bereichs ist ein Fehler aufgetreten.
           success: Bereich wurde erfolgreich erstellt.
         destroy:
+          has_spaces: Dieser Bereich hat abhängige partizipative Räume. Bitte stellen Sie sicher, dass kein partizipativer Raum mehr diesen Bereich referenziert, bevor sie ihn löschen.
           success: Bereich wurde erfolgreich zerstört
         edit:
           title: Bereich bearbeiten
@@ -256,6 +261,7 @@ de:
       block_user:
         new:
           action: Konto sperren und Begründung senden
+          description: Das Blockieren eines Benutzers wird sein Konto unbrauchbar machen. Sie können begründen und Richtlinien dafür bieten, wie der Benutzer vorgehen könnte, damit Sie in Betracht ziehen, die Blockierung wieder aufzuheben.
           justification: Begründung
           title: Benutzer %{name} blockieren
       categories:
@@ -318,6 +324,7 @@ de:
         'false': 'Nein'
         managed_user_name: Verwalteter Benutzer
         solved: Gelöst
+        title: Überprüfungskonflikte
         transfer:
           email: E-Mail
           error: Es gab ein Problem bei der Übertragung des aktuellen Teilnehmers zu den verwalteten Teilnehmern.
@@ -331,6 +338,12 @@ de:
         show:
           view_more_logs: Weitere Protokolle anzeigen
           welcome: Willkommen im Decidim Admin Panel.
+      domain_whitelist:
+        form:
+          domain_too_short: Domain zu kurz
+        update:
+          error: Fehler beim Aktualisieren der Domain-Whitelist
+          success: Domain-Whitelist erfolgreich aktualisiert
       exports:
         export_as: "%{name} als %{export_format}"
         formats:
@@ -344,10 +357,12 @@ de:
           label: Kategorie
         filter_label: Filtern
         invitation_accepted_at_present:
+          label: Einladung angenommen
           values:
             'false': 'Nein'
             'true': 'Ja'
         last_sign_in_at_present:
+          label: Schon einmal eingeloggt
           values:
             'false': 'Nein'
             'true': 'Ja'
@@ -897,7 +912,7 @@ de:
         static_pages: Seiten
         statistics: Aktivität
         user_groups: Benutzergruppen
-        users: Benutzer
+        users: Teilnehmer
       user_group:
         csv_verify:
           invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
