@@ -52,8 +52,6 @@ describe "Explore meetings", :slow, type: :system do
           click_link "See all withdrawn meetings"
         end
 
-        # it_behaves_like "accessible page"
-
         it "shows all the withdrawn meetings" do
           expect(page).to have_css(".card--meeting.alert", count: 3)
           within ".callout.warning", match: :first do
