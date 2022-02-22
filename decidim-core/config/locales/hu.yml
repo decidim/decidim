@@ -1144,6 +1144,7 @@ hu:
         title_reply: Válasz
       show:
         back: Beszélgetések megtekintése
+        title: Beszélgetés %{usernames} nevű felhasználóval
       update:
         error: Üzenet elküldése sikertelen. Próbáld újra később
     user_interests:
@@ -1168,6 +1169,9 @@ hu:
     versions:
       resource_version:
         see_other_versions: lásd a többi verziót
+    versions_list:
+      show:
+        back_to_resource: Visszalépés
     welcome_notification:
       default_body: <p>Szia{{name}}, üdvözöllek és köszönöm, hogy csatlakoztál a {{organization}} szervezethez</p><ul><li>Ha gyorsan meg szeretnéd tudni, hogy mit tehetsz itt, nézd meg a <a href="{{help_url}}">Súgó</a> részt.</li><li>Miután elolvastad, megkapod az első jelvényed. Itt van egy <a href="{{badges_url}}">lista a</a> jelvényekről, melyeket akkor érdemelsz ki, ha részt veszel a {{organization}} által biztosított lehetőségekben. </li></ul> Végül, de nem utolsósorban, a platform lehetőséget biztosít, hogy kapcsolódj más emberekhez is! Oszd meg velük a tapasztalatodat a {{organization}} részvételében. Tegyél javaslatokat, megjegyzéseket, generálj konstruktív vitákat és gondold végig, hogyan járulj hozzá a közjó előmozdításához. Gyűjts érveket, hogy meggyőzz másokat, hallgass meg és olvasd el mások meggyőződést, fejezd ki ötleteidet konkrét és közvetlen módon, válaszolj türelemmel és határozottan, védd meg ötleteidet és hagyd nyitva elmédet, hogy elősegítsd az együttműködést és lehetőséget teremts más emberek ötleteinek befogadásához.</p>
       default_subject: Köszönjük, hogy csatlakoztál a {{organization}} szervezethez!
@@ -1356,20 +1360,27 @@ hu:
       edit_link:
         edit: Szerkesztés
       footer:
+        decidim_logo: Decidim-logó
         download_open_data: Töltse le a Nyílt Adat fájlokat
         made_with_open_source: Az oldal <a target="_blank" href="https://github.com/decidim/decidim">nyílt forráskódú szoftverrel</a> készült.
       header:
         close_menu: Menü bezárása
+        main_menu: Főmenü
         navigation: Navigáció
         sign_in: Bejelentkezés
         sign_up: Regisztráció
+        user_menu: Felhasználói menü
       impersonation_warning:
         close_session: Munkamenet bezárása
         description_html: <b>%{user_name}</b> felhasználó menedzselése.
         expire_time_html: A munkamenet <b><span class="minutes">%{minutes}</span> perc múlva lejár</b>.
+      language_chooser:
+        choose_language: Válassz nyelvet
       notifications_dashboard:
         mark_all_as_read: Összes megjelölése olvasottként
+        mark_as_read: Megjelölés olvasottként
       timeout_modal:
+        continue_session: Munkamenet folytatása
         sign_out: Kijelentkezés
         title: Folytatod a munkameneted?
       user_menu:
