@@ -113,6 +113,7 @@ ja:
         error: アカウントの削除中に問題が発生しました。
         success: アカウントが正常に削除されました。
       show:
+        available_locales_helper: プラットフォーム上での通知と表示に使用する言語を選択してください
         change_password: パスワードの変更
         update_account: アカウントを更新
       update:
