@@ -2,6 +2,53 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+## [0.26.0](https://github.com/decidim/decidim/tree/v0.26.0)
+
+### Added
+
+Nothing.
+
+### Changed
+
+- **decidim-comments**: Backport "Show hidden comments replies" to v0.26 [\#8868](https://github.com/decidim/decidim/pull/8868)
+
+### Fixed
+
+- **decidim-proposals**: Backport "Fix geocoding NaN values" to v0.26 [\#8778](https://github.com/decidim/decidim/pull/8778)
+- **decidim-core**: Backport "Add 'nofollow noopener' rel to the profile personal URL" to v0.26 [\#8780](https://github.com/decidim/decidim/pull/8780)
+- **decidim-generators**: Backport "Add .keep file to empty directory to include on git committing" to v0.26 [\#8788](https://github.com/decidim/decidim/pull/8788)
+- **decidim-core**: Backport "Fix avatar upload validation errors are displayed twice" to v0.26 [\#8798](https://github.com/decidim/decidim/pull/8798)
+- **decidim-meetings**: Backport "Fix displaying hidden meetings in homepage's 'upcoming meetings' content block" to v0.26 [\#8819](https://github.com/decidim/decidim/pull/8819)
+- **decidim-participatory processes**: Backport "Fix characters not encoded in highlighted participatory processes groups title" to v0.26 [\#8824](https://github.com/decidim/decidim/pull/8824)
+- **decidim-comments**: Backport "Fix displaying hidden related resources" to v0.26 [\#8835](https://github.com/decidim/decidim/pull/8835)
+- **decidim-generators**: Backport "Add natively a .keep file to empty directory to include on git committing" to v0.26 [\#8836](https://github.com/decidim/decidim/pull/8836)
+- **decidim-consultations**, **decidim-core**, **decidim-elections**: Backport "Fix report moderation for all the spaces" to v0.26 [\#8841](https://github.com/decidim/decidim/pull/8841)
+- **decidim-meetings**, **decidim-participatory processes**: Backport "Fix displaying hidden meetings in show process page" to v0.26 [\#8843](https://github.com/decidim/decidim/pull/8843)
+- **decidim-meetings**: Backport "Fix displaying hidden resources in global search" to v0.26  [\#8850](https://github.com/decidim/decidim/pull/8850)
+- **decidim-core**: Backport "Fix activity cell disappearing author images" to v0.26 [\#8848](https://github.com/decidim/decidim/pull/8848)
+- **decidim-initiatives**: Backport "Fix scope validation on initiative's creation" to v0.26 [\#8857](https://github.com/decidim/decidim/pull/8857)
+- **decidim-accountability**: Backport "Fix accountability categories' colors" to v0.26 [\#8858](https://github.com/decidim/decidim/pull/8858)
+- **decidim-debates**: Backport "Remove actions from debates' cards" to v0.26 [\#8861](https://github.com/decidim/decidim/pull/8861)
+- **decidim-assemblies**: Backport "Fix assemblies title when there are unpublished children" to v0.26 [\#8860](https://github.com/decidim/decidim/pull/8860)
+- **decidim-core**: Backport "Fix cache_hash generation in AuthorCell" to v0.26 [\#8862](https://github.com/decidim/decidim/pull/8862)
+- **decidim-meetings**, **decidim-participatory processes**: Backport "Fix displaying hidden meetings in processes group's 'upcoming meetings' content block" to v0.26 [\#8864](https://github.com/decidim/decidim/pull/8864)
+- **decidim-assemblies**, **decidim-conferences**, **decidim-consultations**, **decidim-proposals**: Backport "Fix notifications when there is a note proposal in other spaces than processes" to v0.26 [\#8865](https://github.com/decidim/decidim/pull/8865)
+- **decidim-proposals**: Backport "Fix answered proposals display" to v0.26 [\#8863](https://github.com/decidim/decidim/pull/8863)
+- **decidim-comments**: Backport "Show hidden comments replies" to v0.26 [\#8868](https://github.com/decidim/decidim/pull/8868)
+- **decidim-meetings**: Backport "Fix meetings iframe embed code" to v0.26 [\#8884](https://github.com/decidim/decidim/pull/8884)
+
+### Removed
+
+Nothing.
+
+### Internal
+
+- Backport "Fix flaky test in UpdateAssemblyMember" to v0.26 [\#8803](https://github.com/decidim/decidim/pull/8803)
+
+### Developer improvements
+
+Nothing.
+
 ## [0.26.0.rc2](https://github.com/decidim/decidim/tree/v0.26.0.rc2)
 
 ### Added
@@ -216,7 +263,7 @@ rails decidim:active_storage_migrations:migrate_inline_images_to_active_storage[
 
 - Fix Luxembourgish locale [\#8270](https://github.com/decidim/decidim/pull/8270)
 - Fix ARIA roles for dialogs and tooltips [\#8293](https://github.com/decidim/decidim/pull/8293)
-- Add selectors on _edit_form_fields  [\#8353](https://github.com/decidim/decidim/pull/8353)
+- Add selectors on edit_form_fields [\#8353](https://github.com/decidim/decidim/pull/8353)
 - Fix HTTPOnly and secure flag on the cookie acceptance cookie [\#8358](https://github.com/decidim/decidim/pull/8358)
 - Add Brakeman to GitHub Actions for improving security [\#6832](https://github.com/decidim/decidim/pull/6832)
 - Disallow redirection to the host when performing redirect_back [\#8296](https://github.com/decidim/decidim/pull/8296)
