@@ -106,6 +106,8 @@ hu:
             success: A választás sikeresen publikálásra került.
           unpublish:
             success: A választás publikálását sikeresen visszavonta.
+        menu:
+          trustees: Felügyelők
         models:
           answer:
             name: Válasz
@@ -115,9 +117,36 @@ hu:
             name: Kérdés
           trustee:
             name: Felügyelő
+        proposals_imports:
+          new:
+            create: Válaszjavaslatok importálása
+            select_component: Kérjük, válassz egy komponenst
+            title: Javaslatok importálása
+        questions:
+          create:
+            invalid: Hiba történt a kérdés létrehozása során
+            success: Kérdés létrehozása sikeres
+          destroy:
+            invalid: Hiba történt a kérdés törlése során
+            success: Kérdés törlése sikeres
+          edit:
+            title: Kérdés szerkesztése
+            update: Kérdés frissítése
+          index:
+            title: Kérdések
+          new:
+            create: Kérdés létrehozása
+            title: Új kérdés
+          update:
+            invalid: Hiba történt a kérdés frissítése során
+            success: Kérdés frissítése sikeres
         steps:
+          created:
+            trustees: Felügyelők
           key_ceremony:
             continue: Folytatás
+          key_ceremony_ended:
+            title: Készen áll a kezdésre
       elections:
         filters:
           date: Dátum
