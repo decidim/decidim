@@ -84,6 +84,16 @@ Copy the existing images from `app/assets/images` to `app/packs/images`. Images 
 cp -rp app/assets/images/* app/packs/images/
 ----
 
+For instance, add the image "app/packs/images/test.png" in a view using the helper:
+
+[source,erb]
+----
+<%= image_pack_tag "media/images/test.png" =>
+----
+
+Note that, by default, all images are flattened in a single directory (any subdirectory structure is lost when requiring an image using the `image_pack_tag`).
+So, if you have a file in a subdirectory such as `app/packs/images/subfolder/test.png`, you still need to call for the image using `image_pack_tag "media/images/test.png"`
+
 === Migrate stylesheets
 
 Existing stylesheets should be moved from `app/assets/stylesheets` to `app/packs/stylesheets` and imported with `@import` into `decidim_application.scss`. Take into account that you might need to adjust a bit the paths of the `@import` to adjust them to the new locations.
