@@ -11,7 +11,7 @@ eu:
     blogs:
       actions:
         confirm_destroy: Ziur mezua ezabatu nahi duzula?
-        destroy: ezabatu
+        destroy: Ezabatu
         edit: Editatu
         new: Post berria
         title: Ekintzak
@@ -60,10 +60,9 @@ eu:
     components:
       blogs:
         actions:
-          amend: Zuzendu
-          comment: Iruzkina egin
-          endorse: Atxiki
-          vote: Proiektuaren alde egin
+          create: Sortu
+          destroy: Ezabatu
+          update: Eguneratu
         name: Bloga
         settings:
           global:

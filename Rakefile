@@ -68,6 +68,7 @@ task :check_locale_completeness do
 end
 
 load "decidim-dev/lib/tasks/generators.rake"
+load "lib/tasks/common_passwords_tasks.rake"
 
 desc "Generates a dummy app for testing"
 task test_app: "decidim:generate_external_test_app"

@@ -82,7 +82,6 @@ ru:
           step:
             announcement: Объявление
             comments_blocked: Комментарии отключены
-            creation_enabled: Включена возможность создания предложений
             endorsements_blocked: Возможность выразить поддержку отключена
             endorsements_enabled: Возможность выразить поддержку включена
             proposal_answering_enabled: Включена возможность отвечать на предложения
@@ -122,7 +121,6 @@ ru:
         proposal_published_for_space:
           email_intro: В "%{participatory_space_title}", за которым вы следите, добавлено предложение "%{resource_title}".
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
-          notification_title: В %{participatory_space_title} было добавлено предложение <a href="%{resource_path}">%{resource_title}</a>
         proposal_rejected:
           follower:
             email_intro: 'Предложение "%{resource_title}" было отклонено. Вы можете прочитать ответ на странице:'
@@ -224,7 +222,6 @@ ru:
         withdrawn: Отозван
       application_helper:
         filter_origin_values:
-          citizens: Граждане
           official: Служебные
         filter_state_values:
           not_answered: Без ответов

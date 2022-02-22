@@ -11,7 +11,7 @@ ro:
         update: "%{user_name} a actualizat pagina %{resource_name} în %{space_name}"
     components:
       pages:
-        name: Pagină
+        name: Pagina
         settings:
           global:
             announcement: Anunţ
@@ -21,14 +21,14 @@ ro:
       admin:
         models:
           components:
-            body: Corp
+            body: Conținut
         pages:
           edit:
-            save: Actualizare
-            title: Editare pagină
+            save: Actualizează
+            title: Editează pagina
           update:
             invalid: A apărut o eroare la salvarea paginii.
-            success: Pagină salvată cu succes.
+            success: Pagina a fost salvată cu succes.
       home:
         hero:
           participate_title: Participă la procesele platformei

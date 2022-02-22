@@ -4,7 +4,7 @@ module Decidim
   module Surveys
     # Command that gets called whenever a component's survey has to be created. It
     # usually happens as a callback when the component itself is created.
-    class CreateSurvey < Rectify::Command
+    class CreateSurvey < Decidim::Command
       def initialize(component)
         @component = component
       end

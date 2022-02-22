@@ -42,13 +42,13 @@ module Decidim
   loading="lazy"
   src="#{embed_transformed_url(request_host)}"
   style="height: 100%; width: 100%; border: 0px;"
-/>
+></iframe>
         )
       end
 
       private
 
-      EMBEDDABLE_SERVICES = %( www.youtube.com www.twitch.tv )
+      EMBEDDABLE_SERVICES = %( www.youtube.com www.twitch.tv meet.jit.si )
 
       attr_accessor :online_meeting_service_url
 

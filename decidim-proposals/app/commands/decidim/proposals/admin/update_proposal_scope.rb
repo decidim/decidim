@@ -4,7 +4,7 @@ module Decidim
   module Proposals
     module Admin
       #  A command with all the business logic when an admin batch updates proposals scope.
-      class UpdateProposalScope < Rectify::Command
+      class UpdateProposalScope < Decidim::Command
         include TranslatableAttributes
         # Public: Initializes the command.
         #

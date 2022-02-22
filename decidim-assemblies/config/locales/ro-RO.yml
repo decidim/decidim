@@ -35,7 +35,7 @@ ro:
         local_area: Zona grupului de lucru
         meta_scope: Metadate privind domeniul
         parent_id: Grup de lucru părinte
-        participatory_processes_ids: Procese participative conexe
+        participatory_processes_ids: Procese participative asociate
         participatory_scope: Ce se decide
         participatory_structure: Cum se decide
         private_space: Spațiu privat
@@ -46,13 +46,13 @@ ro:
         scopes_enabled: Domenii activate
         short_description: Descriere scurtă
         show_statistics: Arată statistici
-        slug: Adresă URL
+        slug: URL slug
         special_features: Funcționalități speciale
         subtitle: Subtitlu
         target: Cine participă
         title: Titlu
         twitter: Twitter
-        weight: Ordinea procesului
+        weight: Ordinea în poziționare
         youtube: YouTube
       assembly_member:
         birthday: Data nașterii
@@ -106,7 +106,7 @@ ro:
           public: Public
           published: Publicat
         new:
-          create: Crează
+          create: Creează
           title: Grup de lucru nou
         update:
           error: A apărut o eroare la actualizarea acestui grup de lucru.
@@ -126,7 +126,7 @@ ro:
         destroy:
           success: Tipul grupului de lucru a fost șters cu succes.
         new:
-          create: Crează
+          create: Creează
           title: Tip nou de grup de lucru
         update:
           error: A apărut o eroare la actualizarea acestui grup de lucru.
@@ -156,7 +156,7 @@ ro:
         index:
           assembly_members_title: Membrii grupului de lucru
         new:
-          create: Crează
+          create: Creează
           title: Membru nou al grupului de lucru.
         update:
           error: A apărut o problemă la adăugarea unui membru pentru acest grup de lucru.
@@ -180,7 +180,7 @@ ro:
         index:
           assembly_admins_title: Administratori ai grupului de lucru
         new:
-          create: Crează
+          create: Creează
           title: Nou administrator al grupului de lucru.
         update:
           error: A apărut o eroare la actualizarea unui administrator pentru acest grup de lucru.
@@ -194,7 +194,7 @@ ro:
         assemblies_submenu:
           assembly_admins: Administratorii grupului de lucru
           assembly_members: Membri
-          attachment_collections: Foldere
+          attachment_collections: Dosare
           attachment_files: Fișiere
           attachments: Atașamente
           categories: Categorii
@@ -280,7 +280,7 @@ ro:
             select_an_area: Selectați o zonă
             select_an_assembly_type: Selectaţi un tip de grup de lucru
             select_parent_assembly: Selectați grupul de lucru părinte
-            slug_help: 'Adresele URL sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
             social_handlers: Rețele de socializare
             title: Informaţii generale
             visbility: Vizibilitate
@@ -294,11 +294,11 @@ ro:
             title: Titlu
         assembly_copies:
           form:
-            slug_help: 'Adresele URL sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         assembly_imports:
           form:
             document_legend: Adaugă un document
-            slug_help: 'Adresele URL sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            slug_help: 'URL slugs sunt folosite pentru a genera URL-urile care indică acest grup de lucru. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         assembly_members:
           form:
             existing_user: Participant existent
@@ -386,14 +386,14 @@ ro:
         purpose_of_action: Scopul acțiunii
         read_less: Citește mai puțin
         read_more: Citește mai mult
-        related_participatory_processes: Procese participative conexe
-        scope: Domeniu
+        related_participatory_processes: Procese participative asociate
+        scope: Domeniu de interes
         social_networks: Rețele sociale
         social_networks_title: Distribuie aceast grup de lucru pe
         target: Cine participă
     assembly_members:
       assembly_member:
-        designated_on: Desemnat către
+        designated_on: Desemnat la
       index:
         title: Membri
     events:
@@ -412,8 +412,8 @@ ro:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>O <strong>Grupul de lucru</strong> este un grup de oameni care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de interes.</p> <p>Grupurile de lucru țin ședințe, unele sunt private și altele sunt deschise. Dacă sunt deschise, este posibilă participarea la acestea (de exemplu: participarea la activitate, dacă numărul de participanți permite acest lucru; adăugarea de puncte pe ordinea de zi sau formularea de observații cu privire la propunerile și deciziile luate de acest grup).</p> <p>Exemple: o adunare generală (care se întruneşte o dată pe an pentru a defini principalele direcţii de acţiune ale unei organizaţiei, precum şi organele sale executive prin vot); un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale) sunt toate exemple de grupuri de lucru.</p>\n"
-          page: "<p>O <strong>Grupul de lucru</strong> este un grup de oameni care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de interes.</p> <p>Grupurile de lucru țin ședințe, unele sunt private și altele sunt deschise. Dacă sunt deschise, este posibilă participarea la acestea (de exemplu: participarea la activitate, dacă numărul de participanți permite acest lucru; adăugarea de puncte pe ordinea de zi sau formularea de observații cu privire la propunerile și deciziile luate de acest grup).</p> <p>Exemple: o adunare generală (care se întruneşte o dată pe an pentru a defini principalele direcţii de acţiune ale unei organizaţiei, precum şi organele sale executive prin vot); un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale) sunt toate exemple de grupuri de lucru.</p>\n"
+          contextual: "<p>Un <strong>grup de lucru</strong> reprezintă un grup de oameni care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de interes.</p> <p>Grupurile de lucru organizează întâlniri, unele sunt private și altele sunt deschise. Dacă sunt deschise, oricine poate participa (de exemplu: dacă nu a fost încă atins numărul maxim de participanți pentru o anumită întâlnire te poți înscrie, poți adăuga subiecte pe ordinea de zi sau poți contribui cu comentarii la propunerile și deciziile acestui grup). </p> <p> Exemple: un grup de lucru care se întrunește pentru definirea unui regulament pentru bugetare participativă, un grup de lucru care își propune să definească temele de proiectare pentru regenerare urbană prin consultarea atât a specialiștilor cât și a cetățenilor, un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale).</p>\n"
+          page: "<p>Un <strong>grup de lucru</strong> reprezintă un grup de oameni care se întrunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de interes.</p> <p>Grupurile de lucru organizează întâlniri, unele sunt private și altele sunt deschise. Dacă sunt deschise, oricine poate participa (de exemplu: dacă nu a fost încă atins numărul maxim de participanți pentru o anumită întâlnire te poți înscrie, poți adăuga subiecte pe ordinea de zi sau poți contribui cu comentarii la propunerile și deciziile acestui grup). </p> <p> Exemple: un grup de lucru care se întrunește pentru definirea unui regulament pentru bugetare participativă, un grup de lucru care își propune să definească temele de proiectare pentru regenerare urbană prin consultarea atât a specialiștilor cât și a cetățenilor, un consiliu consultativ pentru egalitate (care se întrunește la fiecare două luni pentru a formula propuneri privind modalitățile de îmbunătățire a relațiilor de gen în organizație); o comisie de evaluare (care se întrunește lunar pentru a monitoriza un proces) sau un organism de garantare (care colectează incidentele; abuzurile sau propunerile de îmbunătățire a procedurilor decizionale).</p>\n"
           title: Ce sunt grupurile de lucru?
     log:
       value_types:
@@ -430,7 +430,7 @@ ro:
         title: Grupuri de lucru
     participatory_processes:
       show:
-        related_assemblies: Grupuri de lucru asemănătoare
+        related_assemblies: Grupuri de lucru asociate
     statistics:
       assemblies_count: Grupuri de lucru
   errors:

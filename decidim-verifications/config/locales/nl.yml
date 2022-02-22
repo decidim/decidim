@@ -184,7 +184,7 @@ nl:
               verification_number: 'Verificatie # %{n}'
           rejections:
             create:
-              success: Verificatie geweigerd. De deelnemer wordt gevraagd om haar documenten te wijzigen
+              success: Verificatie geweigerd. De deelnemer wordt gevraagd om zijn/haar documenten te wijzigen
         authorizations:
           choose:
             choose_a_type: 'Selecteer alstublieft hoe u wilt worden geverifieerd:'

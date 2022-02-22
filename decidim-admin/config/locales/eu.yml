@@ -2,7 +2,7 @@ eu:
   activemodel:
     attributes:
       area:
-        area_type: Area mota
+        area_type: Eremu mota
         name: Izena
         organization: Erakundea
       area_type:
@@ -50,7 +50,7 @@ eu:
         force_users_to_authenticate_before_access_organization: Behartu erabiltzaileak autentikatzera erakundean sartu baino lehen
         from: Igorlearen helbide elektronikoa
         github_handler: GitHub kudeatzailea
-        header_snippets: Goiburuko mozkinak
+        header_snippets: Goiburuko zatiak
         highlight_alternative_color: Nabarmendua, aukerakoa
         highlight_color: Nabarmendua
         highlighted_content_banner_action_subtitle: Ekintza botoia azpititulua
@@ -307,7 +307,7 @@ eu:
           headers:
             actions: Ekintzak
             name: Osagaiaren izena
-            scope: Osagaiaren eremua
+            scope: Osagaiaren esparrua
             type: Osagai mota
         new:
           add: Gehitu osagaia
@@ -367,6 +367,11 @@ eu:
           values:
             'false': 'Ez'
             'true': 'Bai'
+        moderated_users:
+          reports_reason_eq:
+            label: Arrazoiaren berri eman
+            values:
+              offensive: Iraingarria
         moderations:
           reportable_type_string_eq:
             label: Mota
@@ -397,13 +402,14 @@ eu:
             'false': Argitaratu da
             'true': Ez da argitaratu
         scope_id_eq:
-          label: Eremua
+          label: Esparrua
         search_label: Search
         search_placeholder:
           name_or_nickname_or_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
           reported_id_string_or_reported_content_cont: Bilatu %{collection} eduki edo Id erreportablearen arabera.
           title_cont: Bilatu %{collection} tituluaren arabera.
           user_name_or_user_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
+          user_name_or_user_nickname_or_user_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
         state_eq:
           label: Egoera
           values:
@@ -457,7 +463,16 @@ eu:
           impersonate_new_managed_user: Ordezkatu erabiltzaile kudeatu berria
       imports:
         and: eta
+        data_errors:
+          duplicate_headers:
+            detail: Mesedez, egiaztatu fitxategiak behin bakarrik eskatzen diren zutabeak edo goiburuak dituela.
+          invalid_indexes:
+            lines:
+              detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
+            records:
+              detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
         error: Errorea gertatu da inportatzean
+        example_error: Ezin izan da adibiderik sortu emandako motarako
         new:
           accepted_mime_types:
             csv: csv
@@ -655,7 +670,7 @@ eu:
           confirm_delete: Ziur zaude buletin hau deuseztatu nahi duzula?
           followers: 'jarraitzaileak '
           has_been_sent_to: 'Honi bidalia: '
-          no_scopes: Eremurik gabe
+          no_scopes: Esparrurik gabe
           not_sent: Ez bidalita
           participants: 'parte-hartzaileak '
           segmented_to: 'Honentzat zatitua %{subject}: '
@@ -673,8 +688,8 @@ eu:
           none: Bat ere ez
           participants_help: Bidali albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu parte-hartzailetan esku hartu duten parte-hartzaile guztiei.
           recipients_count: 'Buletin hau erabiltzaile hauei bidaliko zaie: <strong id=''recipients_count''>%{count}</strong>.'
-          scopes_help: Bidali albisteen buletina "Nire interesekoak" konfigurazioan edozein eremu aktibatuta duten parte-hartzaileei.
-          select_scopes: Iragazi "Nire interesekoak" konfigurazioan edozein eremu aktibatu duten parte-hartzaileentzat.
+          scopes_help: Bidali albisteen buletina "Nire interesekoak" konfigurazioan edozein esparru aktibatuta duten parte-hartzaileei.
+          select_scopes: Iragazi "Nire interesekoak" konfigurazioan edozein esparru aktibatu duten parte-hartzaileentzat.
           select_spaces: Hautatu espazioak buletina zatitzeko
           select_users: Hautatu zein erabiltzaileri bidali nahi diezun buletina
           send_to_all_users: Bidali erabiltzaile guztiei
@@ -752,6 +767,7 @@ eu:
         form:
           colors:
             colors_title: Antolaketa koloreak
+            colors_warning_html: "\nKontuz! Kolore horiek aldatzeak irisgarritasun-kontrasteak hautsi ditzake. Zure aukeraren kontrastea egiazta dezakezu <a href=\"%{link}\">WebAIM Contrast Checker</a> edo antzeko tresnekin."
             header_snippets_help: Erabili eremu hau HTML goiburuari gauzak gehitzeko. Erabilerarik ohikoena da JavaScript edo CSS gehigarriak behar dituzten hirugarrenen zerbitzuak txertatzea. Gainera, HTMLari meta-etiketa gehigarriak gehitzeko erabil dezakezu. Kontuan hartu orri publikoetan baino ez dela erakutsiko, ez administrazio atalean.
           cta_button_path_help: 'Orrialde nagusira deitzeko dei-botoirako esteka gainidatzi dezakezu. Erabili bideak partzialak, ez URL osoak hemen. Letrak, zenbakiak, marrak eta barrak onartzen ditu eta gutun batekin hasi behar duzu. The Call To Action botoian hasierako orrian erakusten da ongietorri testua eta azalpena. Adibidea: %{url}'
           cta_button_text_help: Hasierako pantailako Call To Action botoian testua gainidatz dezakezu zure erakundeko hizkuntza bakoitzarentzat. Ezartzen bada, balio lehenetsia erabiliko da. The Call To Action botoian hasierako orrian erakusten da ongietorri testua eta azalpena.
@@ -778,7 +794,7 @@ eu:
           inactive_content_blocks: Eduki eduki gabeko blokeak
       organization_homepage_content_blocks:
         edit:
-          update: eguneratzearen
+          update: Eguneratu
       participatory_space_private_users:
         create:
           error: Errore bat gertatu da partaidetza espazio honen erabiltzaile pribatua gehitzean.
@@ -809,7 +825,7 @@ eu:
       resources:
         index:
           headers:
-            scope: Eremua
+            scope: Esparrua
       scope_types:
         create:
           error: Errore bat gertatu da esparru mota berri bat sortzean.

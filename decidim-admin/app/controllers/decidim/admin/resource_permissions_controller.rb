@@ -47,8 +47,8 @@ module Decidim
       def permission_forms
         actions.inject({}) do |result, action|
           form = PermissionForm.new(
-            authorization_handlers: authorizations_for(action),
-            authorizations_handlers_options: options_for(action)
+            authorization_handlers: authorizations_for(action).keys,
+            authorization_handlers_options: options_for(action)
           )
 
           result.update(action => form)

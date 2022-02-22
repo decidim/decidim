@@ -77,6 +77,34 @@ en:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: about 1 hour
+        other: about %{count} hours
+      about_x_months:
+        one: about 1 month
+        other: about %{count} months
+      half_a_minute: half a minute
+      less_than_x_minutes:
+        one: less than a min.
+        other: less than %{count} min.
+      less_than_x_seconds:
+        one: right now
+        other: less than %{count} sec.
+      x_days:
+        one: 1 day ago
+        other: "%{count} days ago"
+      x_hours:
+        one: 1 hour ago
+        other: "%{count} hours ago"
+      x_minutes:
+        one: 1 min. ago
+        other: "%{count} min. ago"
+      x_seconds:
+        one: 1 sec. ago
+        other: "%{count} sec. ago"
+        zero: right now
   decidim:
     accessibility:
       external_link: External link
@@ -99,7 +127,7 @@ en:
         error: There was a problem deleting your account.
         success: Your account was successfully deleted.
       show:
-        available_locales_helper: Choose the language you want to use to browse and receive notifications in Decidim
+        available_locales_helper: Choose the language you want to use to browse and receive notifications on the platform
         change_password: Change password
         update_account: Update account
       update:
@@ -728,8 +756,8 @@ en:
       file_help:
         file:
           explanation: 'Guidance for file:'
-          message_1: Has to be an image or a document.
-          message_2: For images, use preferrably landscape images, the service crops the image. For CSV files, the separator between columns must be a comma (",")
+          message_1: Has to be a square image.
+          message_2: The recommended size for this image is 512x512.
         image:
           explanation: 'Guidance for image:'
           message_1: Preferrably a landscape image that does not have any text.
@@ -973,6 +1001,7 @@ en:
           next: Next
           no_conversations: You have no conversations yet
           title: Conversations
+          to: To
         reply:
           placeholder: Your reply...
           send: Send
@@ -980,6 +1009,7 @@ en:
         show:
           back: Back to all conversations
           chat_with: Conversation with
+          deleted_accounts: You can't have a conversation with deleted accounts.
           not_allowed: This participant does not accept direct messages.
           title: Conversation with %{usernames}
         start:
@@ -1047,6 +1077,12 @@ en:
         greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hello,
         subject: Do you want to keep receiving relevant information about %{organization_name}?
+    notification_mailer:
+      event_received:
+        no_translation_available: Sorry, the automated translation could not be retrieved when the email has been sent. You can check the translation of the original text on the following link %{link}.
+        original_text: 'Original text:'
+        same_language: The content has been posted in your preferred language (%{language}), this is why no automated translation is displayed in this email.
+        translated_text: 'Automatically translated text:'
     notifications:
       no_notifications: No notifications yet.
     notifications_settings:
@@ -1066,6 +1102,10 @@ en:
       update:
         error: There was a problem updating your notifications settings.
         success: Your notifications settings were successfully updated.
+    offline:
+      show:
+        message: It looks like you're currently offline. Please, try again later.
+        retry: Retry
     open_data:
       not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
     own_user_groups:
@@ -1344,6 +1384,7 @@ en:
         title_reply: Reply
       show:
         back: Show all conversations
+        deleted_accounts: You can't have a conversation with deleted accounts.
         not_allowed: This user does not accept any more direct messages.
         title: Conversation with %{usernames}
       update:
@@ -1361,6 +1402,7 @@ en:
       notify:
         body_1: User %{user} has been reported by %{token}
         body_2: 'Reason: %{reason}'
+        details: User provided details
         greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hello %{admin},
         subject: A new user has been reported in %{organization_name}
@@ -1606,6 +1648,8 @@ en:
       notifications_dashboard:
         mark_all_as_read: Mark all as read
         mark_as_read: Mark as read
+      offline_banner:
+        cache_version_page: Oooops! Your network is offline. This is a previously cached version of the page you're visiting, perhaps the content is not up to date.
       social_media_links:
         facebook: "%{organization} at Facebook"
         github: "%{organization} at GitHub"
@@ -1641,10 +1685,12 @@ en:
     name: English
     name_with_error: English (error!)
   password_validator:
+    blacklisted: is blacklisted
     domain_included_in_password: is too similar to this domain name
     email_included_in_password: is too similar to your email
     fallback: is not valid
     name_included_in_password: is too similar to your name
+    nickname_included_in_password: is too similar to your nickname
     not_enough_unique_characters: does not have enough unique characters
     password_not_allowed: is not allowed
     password_too_common: is too common
@@ -1679,6 +1725,8 @@ en:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"

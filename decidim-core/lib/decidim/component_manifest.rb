@@ -12,10 +12,10 @@ module Decidim
   # `Decidim.register_component`.
   class ComponentManifest
     include ActiveModel::Model
-    include Virtus.model
+    include Decidim::AttributeObject::Model
 
-    attribute :admin_engine, Rails::Engine
-    attribute :engine, Rails::Engine
+    attribute :admin_engine, Rails::Engine, {}
+    attribute :engine, Rails::Engine, {}
 
     attribute :name, Symbol
     attribute :hooks, Hash[Symbol => Array[Proc]], default: {}

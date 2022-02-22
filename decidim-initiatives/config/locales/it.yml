@@ -408,7 +408,6 @@ it:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha fatto domanda per il comitato promoter della tua iniziativa <a href="%{resource_url}">%{resource_title}</a>. Per accettare o rifiutare clicca <a href="%{resource_url}/edit">qui</a>.
       form:
         add_attachments: Documenti
-        attachment_legend: "(Opzionale) Aggiungere un allegato"
         delete_attachment: Cancella
       index:
         title: Iniziative

@@ -79,6 +79,7 @@ fr-CA:
           form:
             add_question: Ajouter une question
             add_separator: Ajouter un séparateur
+            add_title_and_description: Ajouter un titre et une description
             already_answered_warning: Certains utilisateurs ont déjà répondu au questionnaire, vous ne pouvez donc pas modifier ses questions.
             collapse: Réduire toutes les questions
             expand: Développer toutes les questions
@@ -108,6 +109,15 @@ fr-CA:
             remove: Retirer
             separator: Séparateur
             up: Haut
+          title_and_description:
+            collapse: Réduire
+            description: Description
+            down: Descendre
+            expand: Déveloper
+            remove: Supprimer
+            title: Titre
+            title_and_description: Titre et description
+            up: Vers le haut
           update:
             invalid: Il y a eu des erreurs lors de la sauvegarde du questionnaire.
             success: Le formulaire a bien été sauvegardé.
@@ -131,6 +141,7 @@ fr-CA:
         short_answer: Réponse courte
         single_option: Option unique
         sorting: Tri
+        title_and_description: Titre et description
       questionnaires:
         answer:
           invalid: Il y a eu des erreurs en répondant au questionnaire.

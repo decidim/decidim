@@ -55,7 +55,7 @@ namespace :decidim do
     end
   end
 
-  desc "Check and notify users to update her newsletter notifications settings"
+  desc "Check and notify users to update their newsletter notifications settings"
   task check_users_newsletter_opt_in: :environment do
     print %(
 > This will send an email to all the users that have marked the newsletter by default. This should only be run if you were using Decidim before v0.11

@@ -8,7 +8,7 @@ describe Decidim::PadIframeCell, type: :cell do
   let(:my_cell) { cell("decidim/pad_iframe", model, context: { current_user: current_user }) }
   let(:model) { create(:dummy_resource) }
   let(:current_user) { model.author }
-  let(:pad) { instance_double(EtherpadLite::Pad, text: pad_text) }
+  let(:pad) { instance_double(Decidim::Etherpad::Pad, text: pad_text) }
   let(:pad_text) { "This is the content of the pad" }
 
   before do

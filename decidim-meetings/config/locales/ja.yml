@@ -44,8 +44,8 @@ ja:
       models:
         meeting:
           attributes:
-            show_embedded_iframe:
-              not_embeddable: このURLは埋め込めません
+            iframe_embed_type:
+              not_embeddable: このURLはミーティングまたはライブイベントページに埋め込むことができません
         meeting_agenda:
           attributes:
             base:
@@ -89,8 +89,8 @@ ja:
           origin_eq:
             label: 起案者
             values:
-              citizen: 市民
               official: 公式
+              participant: 参加者
               user_group: ユーザーグループ
           scope_id_eq:
             label: スコープ
@@ -261,7 +261,7 @@ ja:
             existing_user: 既存の参加者
             invite: 招待
             invite_explanation: 参加者は、ミーティングや組織にも招待されます。
-            non_user: 非既存の参加者
+            non_user: 非参加者
             select_user: 参加者を選択
           index:
             filter:
@@ -278,6 +278,9 @@ ja:
           edit:
             close: 閉じる
             title: ミーティングを閉じる
+        meeting_copies:
+          form:
+            select_a_meeting_type: ミーティング種別を選択してください
         meetings:
           close:
             invalid: このミーティングを終了する際に問題が発生しました
@@ -295,16 +298,15 @@ ja:
             update: 更新
           form:
             address_help: 'アドレス: ジオコーダーが場所を見つけるために使用'
-            available_slots_help: 無制限の場合は0のままにしてください
             disclaimer: '免責事項: 外部登録システムを使用する場合、 %{organization} の主催者は、ユーザーが外部サービスに提供したデータについて責任を負いません。'
             location_help: '場所: ユーザーにメッセージが表示されます。'
             location_hints_help: '位置情報のヒント：追加情報。 例: 対面ミーティングでの建物のフロア、またはアクセス制限のあるオンラインミーティングでのミーティングパスワード。'
             online_meeting_url_help: 'リンク: 参加者があなたのミーティングに直接接続できるようにします'
-            registration_email_help: このテキストは登録確認メールの途中に表示されます。場所は登録コードの直後になります。
             registration_url_help: 'リンク: 参加者が登録に使用している外部サービスにアクセスできるようにします'
             select_a_meeting_type: ミーティング種別を選択してください
             select_a_registration_type: 登録種別を選択してください
-            show_embedded_iframe_help: このビデオ会議URLのiframeを埋め込むかどうか。いくつかのサービスのみが埋め込めます (例：YouTube、Twitchなど) 。
+            select_an_iframe_access_level: Iframeアクセスレベルを選択してください
+            show_embedded_iframe_help: ミーティングやライブイベント( YouTube、Twitch、Jitsi) に埋め込むことができるサービスは限られたもののみです。
           index:
             title: ミーティング
           new:
@@ -347,6 +349,7 @@ ja:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
             invites: 招待
             recommendation_message: プライバシー上の理由から、不要になったときにこの碑文フォームを削除することをお勧めします。 デフォルトでは、ミーティングが終了してから3ヶ月です。
+            registration_email_help: このテキストは登録確認メールの途中に表示されます。場所は登録コードの直後になります。
             registration_form: 登録フォーム
             registrations_count:
               other: '%{count} 件の登録がありました。'
@@ -373,11 +376,18 @@ ja:
           value_types:
             organizer_presenter:
               not_found: '主催者がデータベース上に見つかりませんでした (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: すべて
+        filter_meeting_space_values:
+          all: すべて
+        filter_scope_values:
+          all: すべて
       calendar_modal:
         calendar_url: カレンダー URL
         close_window: ウィンドウを閉じる
         export_calendar: カレンダーをエクスポート
-      conference_venues: ミーティング会場
+      conference_venues: カンファレンス会場
       content_blocks:
         upcoming_meetings:
           name: これからのミーティング
@@ -387,7 +397,16 @@ ja:
         meetings:
           index:
             meetings: ミーティング
-            space_type: 参加者のスペース
+            space_type: 参加型スペース
+      iframe_access_level:
+        all: すべての訪問者
+        registered: このミーティングに参加者を登録しました
+        signed_in: ログイン済みの参加者のみ
+      iframe_embed_type:
+        embed_in_meeting_page: ミーティングページに埋め込む
+        none: なし
+        open_in_live_event_page: ライブイベントページで開く (オプションの投票付き)
+        open_in_new_tab: URLを新しいタブで開く
       last_activity:
         meeting_updated_at_html: "<span>ミーティングが %{link} に更新されました</span>"
         new_meeting_at_html: "<span> %{link}に新しいミーティング</span>"
@@ -441,8 +460,8 @@ ja:
           origin: 起案者：
           origin_values:
             all: すべて
-            citizens: 一般参加者
             official: 事務局
+            participants: 参加者
             user_groups: グループ
           scope: スコープ
           search: 検索
@@ -469,7 +488,8 @@ ja:
           select_a_category: カテゴリを選択してください
           select_a_meeting_type: ミーティング種別を選択してください
           select_a_registration_type: 登録種別を選択してください
-          show_embedded_iframe_help: このビデオ会議URLのiframeを埋め込むかどうか。いくつかのサービスのみが埋め込めます (例：YouTube、Twitchなど) 。
+          select_an_iframe_access_level: iframeアクセスレベルを選択してください
+          show_embedded_iframe_help: ミーティングやライブイベント（YouTube、Twitch、Jitsi）に埋め込むことができるサービスは限られたもののみです。
         index:
           click_here: すべてのミーティングを見る
           new_meeting: 新しいミーティング
@@ -593,7 +613,7 @@ ja:
         online: オンライン
       types:
         private_meeting: プライベートミーティング
-        transparent: 透明度
+        transparent: 透明性
         withdraw: 取り消し
       versions:
         back_to_resource: ミーティングに戻る

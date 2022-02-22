@@ -9,12 +9,11 @@ module Decidim
 
       translatable_attribute :name, String
       attribute :weight, Integer, default: 0
-      translatable_attribute :description, String
       attribute :parent_id, Integer
 
       mimic :category
 
-      validates :name, :description, translatable_presence: true
+      validates :name, translatable_presence: true
       validates :parent_id, inclusion: { in: :parent_categories_ids }, allow_blank: true
 
       delegate :current_participatory_space, to: :context, prefix: false

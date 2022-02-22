@@ -3,7 +3,7 @@
 module Decidim
   module Votings
     # This query class filters all votings given an organization.
-    class OrganizationVotings < Rectify::Query
+    class OrganizationVotings < Decidim::Query
       def initialize(organization)
         @organization = organization
       end

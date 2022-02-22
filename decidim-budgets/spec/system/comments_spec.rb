@@ -20,6 +20,23 @@ describe "Comments", type: :system do
     end
   end
 
+  describe "Get link" do
+    it "opens single comment to another window" do
+      visit decidim_budgets.budget_project_path(id: commentable.id, budget_id: budget.id)
+
+      another_window = window_opened_by do
+        find(".icon--ellipses", match: :first).click
+        click_link "Get link"
+      end
+
+      within_window(another_window) do
+        expect(page).to have_content(commentable.title["en"])
+        expect(page).to have_content(comments.first.body["en"])
+        expect(page).not_to have_content(comments.second.body["en"])
+      end
+    end
+  end
+
   private
 
   def decidim_comments

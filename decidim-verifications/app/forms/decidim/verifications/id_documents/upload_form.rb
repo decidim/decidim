@@ -8,7 +8,7 @@ module Decidim
       class UploadForm < InformationForm
         mimic :id_document_upload
 
-        attribute :verification_attachment, String
+        attribute :verification_attachment
 
         validates :verification_attachment,
                   passthru: { to: Decidim::Authorization },

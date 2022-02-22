@@ -46,6 +46,9 @@ module Decidim
             scope: scope,
             title: title,
             body: body,
+            address: address,
+            latitude: latitude,
+            longitude: longitude,
             component: component,
             published_at: Time.current
           )
@@ -67,6 +70,18 @@ module Decidim
 
         def body
           locale_hasher("body", available_locales)
+        end
+
+        def address
+          data.has_key?(:address) ? data[:address] : nil
+        end
+
+        def latitude
+          data.has_key?(:latitude) ? data[:latitude] : nil
+        end
+
+        def longitude
+          data.has_key?(:longitude) ? data[:longitude] : nil
         end
 
         def available_locales

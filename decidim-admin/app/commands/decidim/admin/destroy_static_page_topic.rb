@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # This command deals with destroying a StaticPageTopic from the admin panel.
-    class DestroyStaticPageTopic < Rectify::Command
+    class DestroyStaticPageTopic < Decidim::Command
       # Public: Initializes the command.
       #
       # page - The StaticPageTopic to be destroyed.

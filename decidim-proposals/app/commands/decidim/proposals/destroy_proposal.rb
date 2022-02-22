@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     # A command with all the business logic when a user destroys a draft proposal.
-    class DestroyProposal < Rectify::Command
+    class DestroyProposal < Decidim::Command
       # Public: Initializes the command.
       #
       # proposal     - The proposal to destroy.

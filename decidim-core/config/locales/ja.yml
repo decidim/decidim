@@ -39,12 +39,12 @@ ja:
       decidim/profile_updated_event: プロフィールが更新されました
       decidim/promote_to_admin: グループ管理者に昇格しました
       decidim/removed_from_group: グループから削除しました
-      decidim/resource_endorsed_event: 支持されたリソース
+      decidim/resource_endorsed_event: オススメされた
   activerecord:
     attributes:
       decidim/user:
         current_password: 現在のパスワード
-        email: Eメールアドレス
+        email: メールアドレス
         name: アカウントID
         password: パスワード
         password_confirmation: パスワードの確認
@@ -53,7 +53,7 @@ ja:
       decidim/amendment:
         other: 修正
       decidim/endorsement:
-        other: 支持
+        other: オススメ
       decidim/user:
         other: 参加者
       decidim/user_group:
@@ -67,11 +67,30 @@ ja:
       not_inside_organization: ファイルはどの組織にも添付されていません
   date:
     formats:
-      decidim_short: "%d/%m/%Y"
-      decidim_short_with_month_name_short: "%d %b %Y"
-      decidim_with_day_and_month_name: "%A %d %b %Y"
-      decidim_with_month_name: "%d %B %Y"
-      decidim_with_month_name_short: "%d %b"
+      decidim_short: "%Y/%m/%d"
+      decidim_short_with_month_name_short: "%Y %b %d"
+      decidim_with_day_and_month_name: "%Y %b %d %A"
+      decidim_with_month_name: "%Y %B %d"
+      decidim_with_month_name_short: "%b %d"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        other: 約 %{count} 時間
+      about_x_months:
+        other: 約%{count} ヶ月
+      half_a_minute: 約30秒
+      less_than_x_minutes:
+        other: '%{count} 分未満'
+      less_than_x_seconds:
+        other: '%{count} 秒未満'
+      x_days:
+        other: "%{count} 日前"
+      x_hours:
+        other: "%{count} 時間前"
+      x_minutes:
+        other: "%{count} 分前"
+      x_seconds:
+        other: "%{count} 秒前"
   decidim:
     accessibility:
       external_link: 外部リンク
@@ -263,7 +282,7 @@ ja:
       comments:
         other: コメント
       endorsements:
-        other: 承認
+        other: オススメ
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: '「A」で始まるパスポート番号を入力して確認する'
@@ -288,9 +307,9 @@ ja:
       expires_at: '%{timestamp} で期限切れ'
       foo_authorization:
         fields:
-          bar: バー
+          bar: Bar
           foo: Foo
-        name: Foo authorization
+        name: Foo 認証
       granted_at: '%{timestamp} で付与されます'
       renew: 検証を更新する
       sms:
@@ -351,8 +370,8 @@ ja:
           collaborative_draft: 共同草案
           comment: コメント
           debate: ディベート
-          initiative: 取り組み
-          meeting: 会議
+          initiative: イニシアチブ
+          meeting: ミーティング
           post: 投稿
           proposal: 提案
           question: 質問
@@ -505,11 +524,11 @@ ja:
         success: 画像が正常にアップロードされました
       drag_and_drop_help: ドラッグ&ドロップまたは貼り付けることで画像を追加できます。
     endorsable:
-      endorsements: 支持
-      endorsements_count: 支持数
+      endorsements: オススメ
+      endorsements_count: オススメ数
     endorsement_buttons_cell:
-      already_endorsed: 支持済み
-      endorse: 支持する
+      already_endorsed: オススメ済み
+      endorse: オススメする
     endorsements:
       identities:
         done: 完了
@@ -633,15 +652,15 @@ ja:
           email_subject: あなたは %{user_group_name} グループから削除されました！
           notification_title: <a href="%{resource_path}">%{user_group_name}</a> グループから削除されました。
         user_group_created:
-          email_intro: '%{user_group_name}という名前の新しいユーザーグループが作成されました。 <a href="%{groups_admin_url}">管理パネル</a> で確認できるようになりました。'
+          email_intro: '%{user_group_name} という名前の新しいユーザーグループが作成されました。 <a href="%{groups_admin_url}">管理画面</a> で確認できるようになりました。'
           email_outro: あなたはプラットフォームの管理者であるため、この通知を受け取りました。
           email_subject: 新しいユーザーグループが作成されました
-          notification_title: '%{user_group_name} ユーザーグループが作成されました。 <a href="%{groups_admin_path}">管理パネル</a> で確認できるようになりました。'
+          notification_title: '%{user_group_name} ユーザーグループが作成されました。 <a href="%{groups_admin_path}">管理画面</a> で確認できるようになりました。'
         user_group_updated:
           email_intro: ユーザーグループ「 %{user_group_name} 」がプロフィールページをアップデートし、未承認のままになっています。 <a href="%{groups_admin_url}">管理画面</a>から承認してください。
           email_outro: あなたはプラットフォームの管理者であるため、この通知を受け取りました。
           email_subject: ユーザーグループがプロファイルを更新しました
-          notification_title: '%{user_group_name} ユーザーグループがプロファイルを更新し、未検証のままにしました。 <a href="%{groups_admin_path}">管理パネル</a> で確認できるようになりました。'
+          notification_title: '%{user_group_name} ユーザーグループがプロファイルを更新し、未検証のままにしました。 <a href="%{groups_admin_path}">管理画面</a> で確認できるようになりました。'
       notification_event:
         notification_title: <a href="%{resource_path}">%{resource_title}</a> にイベントが発生しました。
       reports:
@@ -653,10 +672,10 @@ ja:
             %{resource_type} として報告されたため、管理者が %{report_reasons} を削除しました。</br>
             <i>%{resource_content}</i>
       resource_endorsed:
-        email_intro: 'あなたがフォローしている%{endorser_name} %{endorser_nickname}は、「%{resource_title}」を支持しました。私たちはあなたにとって興味深いことかもしれません。 チェックアウトして貢献：'
+        email_intro: 'あなたがフォローしている%{endorser_name} %{endorser_nickname} は、「%{resource_title}」をオススメしました。私たちはあなたにとって興味深いことかもしれません。 チェックアウトして貢献：'
         email_outro: '%{endorser_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
-        email_subject: "%{endorser_nickname} が新しい承認を行いました"
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} は <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>によって承認されました。
+        email_subject: "%{endorser_nickname} が新しいオススメを行いました"
+        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} は <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>によってオススメされました。
       users:
         profile_updated:
           email_intro: あなたがフォロー中の %{name} (%{nickname}) さんの <a href="%{resource_url}">プロフィールページ</a> が更新されました。
@@ -790,7 +809,7 @@ ja:
       actions:
         are_you_sure: よろしいですか？
         promote_to_admin: 管理者にする
-        remove_from_group: Remove participant
+        remove_from_group: 参加者の削除
       index:
         current_members_without_admins: '現在のメンバー (管理者なし):'
         manage_members: メンバーの管理
@@ -844,14 +863,14 @@ ja:
     help:
       main_topic:
         default_page:
-          content: "<p>%{organization} では、トップメニューにあるスペース（参加型プロセスや参加スペース、取り組み、議案）から、さまざまなトピックに参加したり、決定したりすることができます。</p> <p>それぞれのスペースには、参加するためのさまざまなオプションが用意されています: (個人または他の人と一緒に) 提案をする 、ディベートに参加する、実施するプロジェクトの優先順位を決める、対面会議に出席する、その他のアクションを行う等。</p>\n"
+          content: "<p>%{organization} では、トップメニューにあるスペース（参加型プロセスや参加スペース、取り組み、議案）から、さまざまなトピックに参加したり、決定したりすることができます。</p> <p>それぞれのスペースには、参加するためのさまざまなオプションが用意されています: （個人または他の人と一緒に）提案をする 、ディベートに参加する、実施するプロジェクトの優先順位を決める、対面ミーティングに出席する、その他のアクションを行う等。</p>\n"
           title: '%{organization} で何ができますか？'
         description: '%{organization} についてもっと読む'
         title: 一般的なヘルプ
     last_activities:
       activities:
         no_activities_warning: アクティビティがありません
-      all: すべてのアクティビティタイプ
+      all: すべてのアクティビティ種別
       index:
         last_activity: 最後のアクティビティ
         resource_type: タイプ
@@ -876,13 +895,13 @@ ja:
         update_with_space: "%{user_name} さんが %{resource_name} で %{space_name} を更新しました"
       value_types:
         area_presenter:
-          not_found: 'The area was not found on the データベース (ID: %{id})'
+          not_found: 'エリアがデータベース上に見つかりませんでした (ID: %{id})'
         area_type_presenter:
-          not_found: 'The area type was not found on the database (ID: %{id})'
+          not_found: 'エリア種別がデータベース上に見つかりませんでした (ID: %{id})'
         scope_presenter:
-          not_found: 'The scope was not found on the database(ID: %{id})'
+          not_found: 'スコープがデータベース上に見つかりませんでした (ID: %{id})'
         scope_type_presenter:
-          not_found: 'The scope type was not found on the データベース (ID: %{id})'
+          not_found: 'スコープ種別がデータベース上に見つかりませんでした (ID: %{id})'
     managed_users:
       expired_session: 出席者の現在の管理セッションの有効期限が切れています。
     map:
@@ -959,6 +978,7 @@ ja:
           next: 次へ
           no_conversations: 会話がまだありません
           title: 会話
+          to: 宛先
         reply:
           placeholder: あなたの返信...
           send: 送信
@@ -966,6 +986,7 @@ ja:
         show:
           back: すべての会話に戻る
           chat_with: 会話
+          deleted_accounts: 削除されたアカウントと会話することはできません。
           not_allowed: この参加者はダイレクトメッセージを受け付けません。
           title: '%{usernames} との会話'
         start:
@@ -1033,6 +1054,12 @@ ja:
         greetings: こんにちは、<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: こんにちは、
         subject: '%{organization_name} に関する関連情報を引き続き受信しますか？'
+    notification_mailer:
+      event_received:
+        no_translation_available: 申し訳ありませんが、メール送信時に自動翻訳を取得できませんでした。 原文の翻訳は、次のリンク %{link} で確認できます。
+        original_text: '原文:'
+        same_language: コンテンツはあなたの設定された言語(%{language}) で投稿されました。このため、このメールには自動翻訳は表示されません。
+        translated_text: '自動翻訳されたテキスト:'
     notifications:
       no_notifications: まだ通知はありません。
     notifications_settings:
@@ -1052,6 +1079,10 @@ ja:
       update:
         error: 通知設定の更新中に問題が発生しました。
         success: 通知設定が正常に更新されました。
+    offline:
+      show:
+        message: 現在オフラインのようです。後でもう一度お試しください。
+        retry: 再試行
     open_data:
       not_available_yet: オープンデータファイルはまだ利用できません。数分後にもう一度お試しください。
     own_user_groups:
@@ -1146,7 +1177,7 @@ ja:
         edit_profile: プロフィールを編集
         edit_user_group: グループプロファイルを編集
         fill_in_email_to_confirm_it: グループのメールアドレスを入力して確認してください
-        invite_user: Invite participant
+        invite_user: 参加者の招待
         join_user_group: グループに参加するリクエスト
         leave_user_group: グループから退出する
         manage_user_group_admins: 管理者の管理
@@ -1166,7 +1197,7 @@ ja:
         details: 詳細
         hello: こんにちは、 %{name} さん。
         id: ID
-        participatory_space: 参加者のスペース
+        participatory_space: 参加型スペース
         reason: 理由：
         report_html: <p>次の <a href="%{url}">コンテンツ</a> が報告されました。</p>
         see_report: 報告を見る
@@ -1177,7 +1208,7 @@ ja:
         success: レポートは正常に作成され、管理者によってレビューされます。
     resource_endorsements:
       create:
-        error: 承認アクション中に問題がありました。
+        error: オススメする際に問題がありました。
     scopes:
       global: グローバルスコープ
       picker:
@@ -1284,7 +1315,7 @@ ja:
         share_link: リンクを共有
     statistics:
       comments_count: コメント
-      endorsements_count: 支持
+      endorsements_count: オススメ
       followers_count: フォロワー
       headline: 統計情報
       no_stats: 統計情報はまだありません。
@@ -1329,6 +1360,7 @@ ja:
         title_reply: 返信
       show:
         back: すべての会話を表示
+        deleted_accounts: 削除されたアカウントと会話することはできません。
         not_allowed: このユーザーはこれ以上のダイレクトメッセージを受け付けません。
         title: '%{usernames} との会話'
       update:
@@ -1575,7 +1607,7 @@ ja:
       header:
         close_menu: メニューを閉じる
         main_menu: メインメニュー
-        navigation: Navigation
+        navigation: ナビゲーション
         sign_in: ログイン
         sign_up: 新規登録
         user_menu: ユーザーメニュー
@@ -1588,6 +1620,8 @@ ja:
       notifications_dashboard:
         mark_all_as_read: すべて既読にする
         mark_as_read: 既読にする
+      offline_banner:
+        cache_version_page: あなたのネットワークはオフラインです。以前にアクセスしたページのキャッシュされたバージョンを表示しています。コンテンツは最新ではないかもしれません。
       social_media_links:
         facebook: "Facebook の %{organization}"
         github: "GitHub の %{organization}"
@@ -1623,35 +1657,37 @@ ja:
     name: 日本語
     name_with_error: 英語 (エラー!)
   password_validator:
+    blacklisted: ブラックリストに登録済み
     domain_included_in_password: このドメイン名に似ています
     email_included_in_password: はあなたのメールアドレスに似ています
     fallback: 有効ではありません
     name_included_in_password: あなたの名前に似ています
+    nickname_included_in_password: ニックネームに類似しすぎています
     not_enough_unique_characters: ユニークな文字が十分ではありません
     password_not_allowed: は許可されていません
     password_too_common: あまりにも一般的です
     password_too_long: 長すぎます
     password_too_short: 短すぎます
   social_share_button:
-    delicious: おいしいです
+    delicious: Delicious
     douban: Douban
-    email: Eメールアドレス
+    email: Eメール
     facebook: Facebook
     google_bookmark: Google ブックマーク
     google_plus: Google+
-    hacker_news: ハッカーニュース
+    hacker_news: Hacker News
     linkedin: Linkedin
     pinterest: Pinterest
     qq: Qzone
     reddit: Reddit
     share_to: '%{name} に共有'
     telegram: Telegram
-    tumblr: タンブラー
+    tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: WeChatを開き、「ディスカバー」ボタンをクリックし、「QRコードをスキャン」メニューをクリックします。
-    weibo: Sina Weibo
+    weibo: Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
     xing: Xing
@@ -1659,18 +1695,20 @@ ja:
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
-      day_of_week_long: "%a %e"
-      day_of_year: "%d.%m.%y"
-      decidim_day_of_year: "%d %B %Y"
-      decidim_short: "%d/%m/%Y %H:%M"
-      default: "%a, %d %b %Y %H:%M:%S %z"
+      day_of_week_long: "%e %a"
+      day_of_year: "%y.%m.%d"
+      ddmm: "%m/%d"
+      ddmmyyyy: "%Y/%m/%d"
+      decidim_day_of_year: "%Y %B %d"
+      decidim_short: "%Y/%m/%d %H:%M"
+      default: "%Y %d %b (%a) %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
-            accept_until_format: "%B %d, %Y %I:%M %p"
+            accept_until_format: "%Y %B %d, %I:%M %p"
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
-      short: "%d/%m/%Y %H:%M"
+      short: "%Y/%m/%d %H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:
@@ -1679,7 +1717,7 @@ ja:
     dropdown:
       choose_diff_view_html: 'HTML ビューモード:'
       choose_diff_view_mode: 'ビューモードを比較:'
-      option_escaped: Escaped
+      option_escaped: エスケープあり
       option_split: 並べて表示
       option_unescaped: エスケープなし
       option_unified: 統合された

@@ -18,7 +18,7 @@ module Decidim
     end
 
     def delete_attachment(attachment)
-      Attachment.find(attachment.id).delete if attachment.id == proposal.documents.first.id
+      Attachment.find(attachment.id).delete if attachment.id.to_i == proposal.documents.first.id
     end
 
     def attachment_invalid?

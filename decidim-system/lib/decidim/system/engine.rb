@@ -48,6 +48,10 @@ module Decidim
                         active: [%w(decidim/system/oauth_applications), []]
         end
       end
+
+      initializer "decidim_system.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
     end
   end
 end

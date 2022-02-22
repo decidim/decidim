@@ -156,19 +156,4 @@ describe "Admin manages participatory texts", type: :system do
       expect(translated(proposal.body).delete("\r")).to eq(new_body)
     end
   end
-
-  describe "updating participatory texts in draft mode" do
-    let!(:proposal) { create :proposal, :draft, component: current_component, participatory_text_level: "article" }
-    let!(:new_body) { Faker::Lorem.unique.sentences(number: 3).join("\n") }
-
-    it "persists changes and all proposals remain as drafts" do
-      visit_participatory_texts
-      validate_occurrences(sections: 0, subsections: 0, articles: 1)
-      edit_participatory_text_body(0, new_body)
-      save_participatory_text_drafts
-      validate_occurrences(sections: 0, subsections: 0, articles: 1)
-      proposal.reload
-      expect(translated(proposal.body).delete("\r")).to eq(new_body)
-    end
-  end
 end

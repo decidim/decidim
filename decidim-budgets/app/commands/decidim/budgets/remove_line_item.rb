@@ -3,7 +3,7 @@
 module Decidim
   module Budgets
     # A command with all the business to add remove line items from orders
-    class RemoveLineItem < Rectify::Command
+    class RemoveLineItem < Decidim::Command
       # Public: Initializes the command.
       #
       # order - The current order for the user

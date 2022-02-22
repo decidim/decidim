@@ -15,9 +15,9 @@ module Decidim
         attribute :scope_id, Integer
         attribute :promoted, Boolean
         attribute :remove_banner_image, Boolean, default: false
-        attribute :banner_image, String
+        attribute :banner_image
         attribute :remove_introductory_image, Boolean, default: false
-        attribute :introductory_image, String
+        attribute :introductory_image
         attribute :voting_type, String
         attribute :census_contact_information, String
 

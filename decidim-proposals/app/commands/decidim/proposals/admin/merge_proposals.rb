@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when an admin merges proposals from
       # one component to another.
-      class MergeProposals < Rectify::Command
+      class MergeProposals < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

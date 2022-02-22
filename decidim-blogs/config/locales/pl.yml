@@ -49,7 +49,7 @@ pl:
             author: Autor
             body: Treść
             created_at: Utworzono
-            title: tytuł
+            title: Tytuł
       posts:
         show:
           back: Powrót do listy
@@ -61,11 +61,6 @@ pl:
       read_more: Czytaj więcej
     components:
       blogs:
-        actions:
-          amend: Popraw
-          comment: Skomentuj
-          endorse: Potwierdzić
-          vote: Głosuj
         name: Blog
         settings:
           global:

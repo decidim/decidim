@@ -57,6 +57,16 @@ sv:
               identical: OCH titeln kan inte vara identisk
             title:
               identical: OCH innehållet kan inte vara identiskt
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Är inte officiella
+              supported: Har fått stöd eller instämmande
+        proposals_split:
+          attributes:
+            base:
+              not_official: Är inte officiella
+              supported: Har fått stöd eller instämmande
     models:
       decidim/proposals/accepted_proposal_event: Förslag accepterat
       decidim/proposals/admin/update_proposal_category_event: Förslagskategori ändrad
@@ -134,6 +144,17 @@ sv:
             collaborative_drafts_enabled: Samarbetsutkast aktiverat
             comments_enabled: Kommentarer aktiverade
             comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
+            default_sort_order: Förvald produkt sortering
+            default_sort_order_help: Förinställt innebär att om stödet är aktiverat kommer förslagen sorteras slumpmässigt, och om stöden är blockerade kommer de att sorteras efter mest stödda.
+            default_sort_order_options:
+              default: Förinställt
+              most_commented: Mest kommenterade
+              most_endorsed: Mest instämda i
+              most_followed: Mest följda
+              most_voted: Mest stödda
+              random: Slumpmässigt
+              recent: Senaste
+              with_more_authors: Med fler författare
             geocoding_enabled: Geokodning aktiverad
             minimum_votes_per_user: Minsta antal stöd per användare
             new_proposal_body_template: Innehållsmall för nytt förslag
@@ -175,7 +196,17 @@ sv:
             answers_with_costs: Tillåt kostnader i svar på förslag
             automatic_hashtags: Hashtags läggs till i alla förslag
             comments_blocked: Kommentarer blockerade
-            creation_enabled: Skapande av förslag aktiverat
+            default_sort_order: Förvald produkt sortering
+            default_sort_order_help: Förinställt innebär att om stödet är aktiverat kommer förslagen sorteras slumpmässigt, och om stöden är blockerade kommer de att sorteras efter mest stödda.
+            default_sort_order_options:
+              default: Förinställt
+              most_commented: Mest kommenterade
+              most_endorsed: Mest instämda i
+              most_followed: Mest följda
+              most_voted: Mest stödda
+              random: Slumpmässigt
+              recent: Senaste
+              with_more_authors: Med fler författare
             endorsements_blocked: Instämmanden är blockerade
             endorsements_enabled: Instämmanden aktiverade
             proposal_answering_enabled: Svar på förslag aktiverat
@@ -268,7 +299,6 @@ sv:
           email_intro: Förslaget "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
           email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan sluta att ta emot meddelanden genom att följa föregående länk.
           email_subject: Nytt förslag "%{resource_title}" lades till %{participatory_space_title}
-          notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har lagts till %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Ditt förslag "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
@@ -365,6 +395,23 @@ sv:
         exports:
           proposal_comments: Kommentarer
           proposals: Förslag
+        imports:
+          help:
+            answers: 'Importdokumentet ska innehålla följande kolumner: id, state (accepterat, utvärderat, avvisat), answer/sv, answer/en (och andra språk aktiverade för organisationen).'
+            proposals: Filen måste ha kolumnnamn title/sv och body/sv (eller ett annat språk som du föredrar t. ex.. title/en och body/en). Även scope/id och category/id kolumner stöds.
+          label:
+            answers: Importera svar från en fil
+            proposals: Importerar förslag från en fil
+          resources:
+            answers:
+              one: svar till förslaget
+              other: svar till förslaget
+            proposals:
+              one: förslag
+              other: förslag
+          title:
+            answers: Importera svar till förslag
+            proposals: Importera förslag
         models:
           proposal:
             name: Förslag
@@ -508,9 +555,11 @@ sv:
             title: Importera förslag
         proposals_merges:
           create:
+            invalid: 'Det gick inte att slå samman de valda förslagen på grund av vissa av dem:'
             success: Förslagen har sammanfogats till ett nytt förslag.
         proposals_splits:
           create:
+            invalid: 'Det gick inte att dela upp de valda förslagen på grund av vissa av dem:'
             success: Förslagen har delats upp till nya förslag.
         valuation_assignments:
           create:
@@ -541,7 +590,6 @@ sv:
           all: Alla
         filter_origin_values:
           all: Alla
-          citizens: Medborgare
           meetings: Möten
           official: Officiella
           user_groups: Grupper
@@ -750,9 +798,12 @@ sv:
           filter_by: Filtrera efter
           unfold: Veckla ut
         index:
+          click_here: Se alla förslag
           collaborative_drafts_list: Visa gemensamma utkast
           new_proposal: Nytt förslag
+          see_all: Se alla förslag
           see_all_withdrawn: Se alla tillbakadragna förslag
+          text_banner: Du tittar på listan över förslag som dragits tillbaka av deras författare. %{go_back_link}.
           view_proposal: Visa förslag
         linked_proposals:
           proposal_votes:

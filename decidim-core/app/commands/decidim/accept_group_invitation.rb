@@ -3,7 +3,7 @@
 module Decidim
   # A command with all the business logic to accept an invitation to belong to a
   # group.
-  class AcceptGroupInvitation < Rectify::Command
+  class AcceptGroupInvitation < Decidim::Command
     # Public: Initializes the command.
     #
     # user_group - the UserGroup where the user has been invited

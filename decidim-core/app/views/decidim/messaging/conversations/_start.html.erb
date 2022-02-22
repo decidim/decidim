@@ -6,13 +6,12 @@
   </h2>
 
   <%= form_for form, url: decidim.conversations_path, remote: true do |f| %>
-    <%= form_required_explanation %>
 
     <% @form.recipient.each do |recipient| %>
       <%= f.hidden_field :recipient_id, id: nil, name: "conversation[recipient_id][]", value: recipient.id %>
     <% end %>
     <%= f.label :body, nil, class: "show-for-sr" %>
-    <%= f.text_area :body, label: false, rows: 4, required: true %>
+    <%= f.text_area :body, label: false, rows: 4, required: true, data: { input_emoji: true } %>
 
     <%= f.submit t(".send") %>
   <% end %>

@@ -4,7 +4,7 @@ module Decidim
   module Debates
     module Admin
       # A command with all the business logic when an admin closes a debate.
-      class CloseDebate < Rectify::Command
+      class CloseDebate < Decidim::Command
         # Public: Initializes the command.
         #
         # form         - A form object with the params.

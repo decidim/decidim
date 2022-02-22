@@ -271,7 +271,7 @@ en:
             duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
             filters: Filters
             images: Images
-            included_at_help: Select the date when this assembly was added to Decidim. It does not necessarily have to be the same as the creation date.
+            included_at_help: Select the date when this assembly was added to the platform. It does not necessarily have to be the same as the creation date.
             metadata: Metadata
             other: Other
             select_a_created_by: Select a created by

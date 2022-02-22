@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when destroying a media link
       # in the system.
-      class DestroyMediaLink < Rectify::Command
+      class DestroyMediaLink < Decidim::Command
         # Public: Initializes the command.
         #
         # media_link - the MediaLink to destroy

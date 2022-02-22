@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    class CreateImport < Rectify::Command
+    class CreateImport < Decidim::Command
       def initialize(form)
         @form = form
       end

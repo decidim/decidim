@@ -1,5 +1,4 @@
-
-<div class="intro">
+<div class="content">
   <div class="version">Decidim <%= Decidim.version %></div>
 
   <h1><%= current_organization.name %> API documentation</h1>
@@ -8,12 +7,4 @@
   <% end %>
 </div>
 
-<div class="info">
-  <%= render_doc("usage") %>
-</div>
-
-<div id="documentation"></div>
-
-<script>
- window.renderDocumentation("<%= root_path %>");
-</script>
+<%= static_api_docs_content %>

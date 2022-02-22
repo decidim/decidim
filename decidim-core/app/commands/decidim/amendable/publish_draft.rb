@@ -3,7 +3,7 @@
 module Decidim
   module Amendable
     # A command with all the business logic when a user publishes an amendment draft.
-    class PublishDraft < Rectify::Command
+    class PublishDraft < Decidim::Command
       # Public: Initializes the command.
       #
       # form         - A form object with the params.

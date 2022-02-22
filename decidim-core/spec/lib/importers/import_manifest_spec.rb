@@ -58,7 +58,7 @@ module Decidim
           expect(msg.render(:baz)).to eq("Biz")
         end
 
-        expect(subject.messages).to be_a(described_class::Messages)
+        expect(subject.messages).to be_a(described_class::ImportManifestMessages)
         expect(subject.messages.has?(:foo)).to be(true)
         expect(subject.messages.render(:foo)).to be("Bar")
       end

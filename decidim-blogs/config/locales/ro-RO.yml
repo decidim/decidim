@@ -11,7 +11,7 @@ ro:
   decidim:
     blogs:
       actions:
-        confirm_destroy: Ești sigur că vrei să ştergi această postare?
+        confirm_destroy: Sigur dorești să ştergi această postare?
         destroy: Șterge
         edit: Editează
         new: Postare nouă
@@ -35,8 +35,8 @@ ro:
           index:
             title: Postări
           new:
-            create: Crează
-            title: Crează postare
+            create: Creează
+            title: Creează postare
           update:
             invalid: A apărut o eroare la salvarea postării.
             success: Postarea a fost salvată cu succes
@@ -61,10 +61,9 @@ ro:
     components:
       blogs:
         actions:
-          amend: Modifică
-          comment: Comentează
-          endorse: Susține
-          vote: Votează
+          create: Creează
+          destroy: Șterge
+          update: Actualizează
         name: Blog
         settings:
           global:

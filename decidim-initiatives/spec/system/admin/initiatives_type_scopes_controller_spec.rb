@@ -55,14 +55,6 @@ describe "InitiativeTypeScopesController", type: :system do
         expect(page).to have_content("The scope has been successfully updated")
       end
     end
-  end
-
-  context "when editing an initiative type scope" do
-    let!(:initiative_type_scope) { create :initiatives_type_scope, type: initiatives_type }
-
-    before do
-      visit decidim_admin_initiatives.edit_initiatives_type_path(initiatives_type)
-    end
 
     it "removes the initiative type scope" do
       click_link "Configure"

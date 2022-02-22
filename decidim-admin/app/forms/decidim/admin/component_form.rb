@@ -25,6 +25,8 @@ module Decidim
 
       attribute :share_tokens, Array[ShareToken]
 
+      validate :validate_settings, :validate_step_settings
+
       def settings?
         settings.manifest.attributes.any?
       end
@@ -39,13 +41,20 @@ module Decidim
 
       private
 
-      # Overwrites Rectify::Form#form_attributes_valid? to validate nested `step_settings` attributes.
-      def form_attributes_valid?
-        return false unless errors.empty? && settings_errors_empty? # Preserves errors from custom validation methods
+      def validate_settings
+        return unless errors.empty? && settings_errors_empty? # Preserves errors from custom validation methods
 
-        attributes_that_respond_to(:valid?).concat(
-          step_settings.each_value.select { |attribute| attribute.respond_to?(:valid?) }
-        ).all?(&:valid?)
+        attributes.each do |key, value|
+          next unless value.respond_to?(:valid?)
+
+          errors.add(key, :invalid) unless value.valid?
+        end
+      end
+
+      def validate_step_settings
+        return unless step_settings.respond_to?(:attributes)
+
+        errors.add(:step_settings, :invalid) unless step_settings.attributes.values.all? { |v| !v.respond_to?(:valid?) || v.valid? }
       end
 
       def settings_errors_empty?

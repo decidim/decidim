@@ -16,6 +16,12 @@ es:
         other: Votos
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Comentarios habilitados
+            end_time: Comentarios habilitados hasta
+            start_time: Comentarios habilitados desde
       comments:
         create:
           error: Se ha producido un error al crear el comentario.
@@ -93,6 +99,7 @@ es:
         blocked_comments_warning: Los comentarios están deshabilitados en este momento, pero puedes leer los anteriores.
         comment_details_title: Detalles del comentario
         loading: Cargando los comentarios ...
+        single_comment_warning: <a href="%{url}">Ver todos los comentarios</a>
         single_comment_warning_title: Estás viendo un solo comentario
         title:
           one: "%{count} comentario"

@@ -3,9 +3,7 @@
 module Decidim
   module Meetings
     class MeetingRegistrationsEnabledEvent < Decidim::Events::SimpleEvent
-      def resource_text
-        translated_attribute(resource.description)
-      end
+      include Decidim::Meetings::MeetingEvent
     end
   end
 end

@@ -146,3 +146,5 @@ fr-CA:
           count:
             one: 1 tirage au sort
             other: "%{count} tirages au sort"
+    statistics:
+      sortitions_count: Tirages au sort

@@ -28,7 +28,7 @@ FactoryBot.define do
       end_time { 1.day.from_now }
     end
 
-    trait :citizen_author do
+    trait :participant_author do
       start_time { nil }
       end_time { nil }
       author do

@@ -37,11 +37,11 @@ fr:
         survey_closed:
           email_intro: L'enquête %{resource_title} proposée dans %{participatory_space_title} est maintenant terminée.
           email_outro: Vous venez de recevoir une notification venant de %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir des notifications en suivant le lien précédent.
-          email_subject: L'enquête de l'espace participatif %{participatory_space_title} est terminée
+          email_subject: L'enquête de la concertation %{participatory_space_title} est terminée
           notification_title: L'enquête <a href="%{resource_path}">%{resource_title}</a> ouverte dans <a href="%{participatory_space_url}">%{participatory_space_title}</a> est terminée.
         survey_opened:
-          email_intro: 'L''enquête %{resource_title} est désormais ouverte dans l''espace participatif %{participatory_space_title}. Vous pouvez y participer depuis la page suivante :'
-          email_outro: Vous avez reçu cette notification car vous suivez l'espace participatif %{participatory_space_title}. Vous pouvez arrêter de recevoir ces notifications à partir du lien précédent.
+          email_intro: 'L''enquête %{resource_title} est désormais ouverte dans la concertation %{participatory_space_title}. Vous pouvez y participer depuis la page suivante :'
+          email_outro: Vous avez reçu cette notification car vous suivez la concertation %{participatory_space_title}. Vous pouvez arrêter de recevoir ces notifications à partir du lien précédent.
           email_subject: Une nouvelle enquête a été créée dans %{participatory_space_title}
           notification_title: 'L''enquête <a href="%{resource_path}">%{resource_title}</a> est ouverte. Vous pouvez y participer en vous rendant sur le lien suivant : <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
     metrics:
@@ -49,6 +49,8 @@ fr:
         description: Nombre d'enquêtes auxquelles ont répondu les utilisateurs
         object: réponses aux enquêtes
         title: Réponses aux enquêtes
+    statistics:
+      answers_count: Réponses
     surveys:
       admin:
         exports:

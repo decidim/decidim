@@ -121,6 +121,7 @@ ignore_unused:
   - activerecord.models.*
   - booleans.*
   - '{date,time.formats}.*'
+  - datetime.distance_in_words.*
   - decidim.admin.participatory_process_steps.default_title
   - decidim.authorization_handlers.{direct,multistep}
   - decidim.admin.models.assembly_member.positions.*
@@ -315,7 +316,6 @@ ignore_unused:
   - decidim.assemblies.admin.assembly_members.form.explanation
   - decidim.assemblies.admin.assembly_members.form.image_guide
   - decidim.assemblies.admin.assembly_members.form.non_user_avatar_help
-
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

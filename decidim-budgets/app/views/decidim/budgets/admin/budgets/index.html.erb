@@ -5,6 +5,9 @@
         <%= t(".title") %>
       </div>
       <div class="flex--cc flex-gap--1">
+        <% if allowed_to? :remind, :order %>
+          <%= link_to "Send voting reminders", admin_reminders_path(current_component, name: "orders"), class: "button tiny button--title" %>
+        <% end %>
         <% if allowed_to? :export, :budget %>
           <%= export_dropdown %>
         <% end %>

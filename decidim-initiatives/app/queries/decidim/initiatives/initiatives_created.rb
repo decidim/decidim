@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     # Class uses to retrieve the initiatives created by the given user.
-    class InitiativesCreated < Rectify::Query
+    class InitiativesCreated < Decidim::Query
       attr_reader :user
 
       # Syntactic sugar to initialize the class and return the queried objects.

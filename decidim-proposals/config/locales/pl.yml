@@ -72,22 +72,22 @@ pl:
       decidim/proposals/collaborative_draft:
         one: Wspólny szkic
         few: Wspólne szkice
-        many: Wspólne szkice
+        many: Wspólne szkiców
         other: Wspólne szkice
       decidim/proposals/proposal:
         one: Propozycja
         few: Propozycje
-        many: Propozycje
+        many: Propozycji
         other: Propozycje
       decidim/proposals/proposal_note:
         one: Uwaga
         few: Uwagi
-        many: Uwagi
+        many: Uwag
         other: Uwagi
       decidim/proposals/proposal_vote:
         one: Wsparcie
-        few: Wsparć
-        many: Wsparcia
+        few: Wsparcia
+        many: Wsparć
         other: Wsparcia
   decidim:
     admin:
@@ -182,7 +182,6 @@ pl:
             answers_with_costs: Zezwalaj na koszty w odpowiedziach na propozycje
             automatic_hashtags: Hashtagi dodane do wszystkich propozycji
             comments_blocked: Komentarze zablokowane
-            creation_enabled: Włączono tworzenie propozycji
             endorsements_blocked: Rekomendacje zostały zablokowane
             endorsements_enabled: Rekomendacje włączone
             proposal_answering_enabled: Włączono odpowiadanie na propozycję
@@ -275,7 +274,6 @@ pl:
           email_intro: Propozycja "%{resource_title}" została dodana do przestrzeni "%{participatory_space_title}", którą obserwujesz.
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie kliknij w przycisk obserwowania.
           email_subject: Nowa propozycja "%{resource_title}" została dodana do %{participatory_space_title}
-          notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została dodana do %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Twoja propozycja "%{resource_title}" została odrzucona. Możesz przeczytać odpowiedź na tej stronie:'
@@ -550,7 +548,6 @@ pl:
           all: Wszystko
         filter_origin_values:
           all: Wszystko
-          citizens: Obywatele
           meetings: Spotkania
           official: Urzędnik
           user_groups: Grupy użytkowników
@@ -622,7 +619,7 @@ pl:
           new_collaborative_draft: Nowy wspólny szkic
         orders:
           label: 'Sortuj szkice według:'
-          most_contributed: Najwięcej kontrybucji
+          most_contributed: Najbardziej wspierane
           random: Losowo
           recent: Najnowszy
         requests:
@@ -680,7 +677,7 @@ pl:
         success: Szkic propozycji został usunięty.
       last_activity:
         new_proposal_at_html: "<span>Nowa propozycja pod %{link}</span>"
-        proposal_updated_at_html: "<span>Wniosek zaktualizowany o %{link}</span>"
+        proposal_updated_at_html: "<span>Propozycja zaktualizowana o %{link}</span>"
       models:
         collaborative_draft:
           fields:

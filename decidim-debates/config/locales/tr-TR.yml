@@ -17,7 +17,6 @@ tr:
       decidim/debates/close_debate_event: Tartışma kapandı
       decidim/debates/create_debate_event: tartışma
       decidim/debates/creation_disabled_event: Tartışmalar devre dışı bırakıldı
-      decidim/debates/creation_enabled_event: Tartışmalar etkin
   activerecord:
     models:
       decidim/debates/debate:
@@ -40,7 +39,6 @@ tr:
           step:
             announcement: duyuru
             comments_blocked: Yorumlar engellendi
-            creation_enabled: Katılımcılar tarafından tartışma yaratıldı etkin
             endorsements_blocked: Onaylar engellendi
             endorsements_enabled: Onaylar etkinleştirildi
     debates:
@@ -116,7 +114,6 @@ tr:
           all: Tümü
           category: Kategori
           category_prompt: Bir kategori seç
-          citizens: Vatandaşlar
           commented: Yorum yaptı
           my_debates: Tartışmalarım
           official: Resmi

@@ -34,6 +34,7 @@ fr-CA:
         subtitle: Sous-titre
         target: Participants
         title: Titre
+        weight: Rang d'affichage
       participatory_process_group:
         description: Description
         developer_group: Groupe d'initiateurs
@@ -449,6 +450,8 @@ fr-CA:
         start_date: Date de début
         target: Participants
         unspecified: Non précisé
+    statistics:
+      processes_count: Concertations
   layouts:
     decidim:
       participatory_process_groups:

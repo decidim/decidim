@@ -14,7 +14,6 @@ gl:
     models:
       decidim/debates/create_debate_event: Debate
       decidim/debates/creation_disabled_event: Debates desactivados
-      decidim/debates/creation_enabled_event: Debates habilitados
   activerecord:
     models:
       decidim/debates/debate:
@@ -33,7 +32,6 @@ gl:
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
-            creation_enabled: Debate creado polos usuarios activado
     debates:
       actions:
         confirm_destroy: Estás seguro?
@@ -80,7 +78,6 @@ gl:
           all: Todo
           category: Categoría
           category_prompt: Selecciona unha categoría
-          citizens: Cidadáns
           official: Oficial
           origin: Orixe
           search: Busca

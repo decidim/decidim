@@ -379,7 +379,6 @@ tr:
           notification_title: <a href="%{resource_path}">%{resource_title} </a> girişimi <a href="%{author_path}">%{author_name} %{author_nickname} </a> tarafından onaylandı.
       form:
         add_attachments: Dokümanlar
-        attachment_legend: "(İsteğe bağlı) Ekler Ekleyin"
         delete_attachment: Sil
       index:
         title: Girişimler

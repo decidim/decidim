@@ -713,8 +713,8 @@ FactoryBot.define do
 
   factory :user_report, class: "Decidim::UserReport" do
     reason { "spam" }
-    moderation { build(:user_moderation) }
-    user { build(:user, organization: moderation.organization) }
+    moderation { create(:user_moderation, user: user) }
+    user { build(:user) }
   end
 
   factory :user_moderation, class: "Decidim::UserModeration" do
@@ -754,5 +754,19 @@ FactoryBot.define do
     organization
     author { create(:user, :admin, :confirmed, organization: organization) }
     file { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+  end
+
+  factory :reminder, class: "Decidim::Reminder" do
+    user { build(:user) }
+    component { build(:dummy_component, organization: user.organization) }
+  end
+
+  factory :reminder_record, class: "Decidim::ReminderRecord" do
+    reminder { create(:reminder) }
+    remindable { build(:dummy_resource) }
+  end
+
+  factory :reminder_delivery, class: "Decidim::ReminderDelivery" do
+    reminder { create(:reminder) }
   end
 end

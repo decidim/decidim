@@ -12,7 +12,7 @@ module Decidim
   # `Decidim.register_participatory_space`.
   class ParticipatorySpaceManifest
     include ActiveModel::Model
-    include Virtus.model
+    include Decidim::AttributeObject::Model
 
     attribute :name, Symbol
 

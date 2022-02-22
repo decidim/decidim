@@ -42,10 +42,6 @@ pt:
         type_of_meeting: Tipo
     errors:
       models:
-        meeting:
-          attributes:
-            show_embedded_iframe:
-              not_embeddable: Este URL não pode ser embutido
         meeting_agenda:
           attributes:
             base:
@@ -92,7 +88,6 @@ pt:
           origin_eq:
             label: Origem
             values:
-              citizen: Cidadão
               official: Oficial
               user_group: Grupos de utilizadores
           scope_id_eq:
@@ -300,16 +295,13 @@ pt:
             update: Atualizar
           form:
             address_help: 'Endereço: utilizado por Geocoder para encontrar a localização'
-            available_slots_help: Deixar em 0 se tiver número ilimitado de intervalos de tempo disponíveis
             disclaimer: 'Declinação de responsabilidade: Ao usar um registo externo ao sistema fica ao corrente que os organizadores de %{organization} não são responsáveis pelos dados fornecidos pelo utilizador ao serviço externo.'
             location_help: 'Localização: mensagem direcionada para os utilizadores indicando o local de encontro'
             location_hints_help: 'Sugestões de localização: informação adicional. Exemplo: o piso do edifício se for uma reunião presencial, ou a palavra-chave se for uma reunião on-line de acesso restrito.'
             online_meeting_url_help: 'Ligação: permitir aos participantes ligarem-se directamente à sua reunião'
-            registration_email_help: Este texto irá aparecer no meio do e-mail de confirmação de registo. Logo a seguir ao código de registo.
             registration_url_help: 'Ligação: permitir aos participantes dirigirem-se ao serviço externo que está a usar para os registos'
             select_a_meeting_type: Por favor seleccione um tipo de reunião
             select_a_registration_type: Por favor seleccione um tipo de registo
-            show_embedded_iframe_help: URL para embutir ou não um iframe para esta video conferência. Só alguns serviços permitem ser embutidos (por exemplo, Youtube, Twitch...)
           index:
             title: Reuniões
           new:
@@ -352,6 +344,7 @@ pt:
             available_slots_help: Deixar a 0 se tiver intervalos de tempo ilimitados disponíveis.
             invites: Convites
             recommendation_message: Por questões de privacidade recomendamos que elimine este formulário de inscrição quando já não for necessário. Por predefinição, isto acontece 3 meses após o fim da reunião.
+            registration_email_help: Este texto irá aparecer no meio do e-mail de confirmação de registo. Logo a seguir ao código de registo.
             registration_form: Formulário de registo
             registrations_count:
               one: Houve %{count} registo.
@@ -446,7 +439,6 @@ pt:
           origin: Origem
           origin_values:
             all: Todos
-            citizens: Cidadãos
             official: Oficial
             user_groups: Grupos
           scope: Âmbito
@@ -474,7 +466,6 @@ pt:
           select_a_category: Por favor selecione uma categoria
           select_a_meeting_type: Por favor seleccione um tipo de reunião
           select_a_registration_type: Por favor seleccione um tipo de registo
-          show_embedded_iframe_help: URL para embutir ou não um iframe para esta video conferência. Só alguns serviços permitem ser embutidos (por exemplo, Youtube, Twitch...)
         index:
           new_meeting: Nova reunião
         meeting_minutes:

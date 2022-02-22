@@ -8,8 +8,6 @@ namespace :decidim do
     task install: :environment do
       raise "Decidim gem is not installed" if decidim_path.nil?
 
-      # Remove yarn.lock (because bin/rails webpacker:install has been executed)
-      remove_file_from_application "yarn.lock"
       # Removing bin/yarn makes assets:precompile task to don't execute `yarn install`
       remove_file_from_application "bin/yarn"
       # Babel config
@@ -20,9 +18,6 @@ namespace :decidim do
       copy_file_to_application "decidim-core/lib/decidim/webpacker/webpacker.yml", "config/webpacker.yml"
       # Webpack JS config files
       copy_folder_to_application "decidim-core/lib/decidim/webpacker/webpack", "config"
-      # Modify the webpack binstubs
-      add_binstub_load_path "bin/webpack"
-      add_binstub_load_path "bin/webpack-dev-server"
 
       # Install JS dependencies
       install_decidim_npm
@@ -33,14 +28,13 @@ namespace :decidim do
         @rails/actioncable
         @rails/activestorage
         @rails/ujs
-        @rails/webpacker
         turbolinks
-        webpack
-        webpack-cli
-        @webpack-cli/serve
-        webpack-dev-server
       )
       system! "npm uninstall #{webpacker_packages.join(" ")}"
+
+      # Modify the webpack binstubs
+      add_binstub_load_path "bin/webpack"
+      add_binstub_load_path "bin/webpack-dev-server"
 
       # Add the Browserslist configuration to the project
       add_decidim_browserslist_configuration

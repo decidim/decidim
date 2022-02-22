@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A class used to find the users that can moderate the participatory
       # process.
-      class Moderators < Rectify::Query
+      class Moderators < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         #
         # process - a process that needs to find its moderators

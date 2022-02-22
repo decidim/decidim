@@ -3,7 +3,7 @@
 module Decidim
   # A command with all the business logic to accept a join request to a user
   # group.
-  class AcceptUserGroupJoinRequest < Rectify::Command
+  class AcceptUserGroupJoinRequest < Decidim::Command
     # Public: Initializes the command.
     #
     # membership - the UserGroupMembership to be accepted.

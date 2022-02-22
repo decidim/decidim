@@ -6,7 +6,7 @@ module Decidim
   module Admin
     # A command with all the business logic when processing the CSV to verify
     # user groups.
-    class ProcessUserGroupVerificationCsv < Rectify::Command
+    class ProcessUserGroupVerificationCsv < Decidim::Command
       # Public: Initializes the command.
       #
       # form - the form object containing the uploaded file

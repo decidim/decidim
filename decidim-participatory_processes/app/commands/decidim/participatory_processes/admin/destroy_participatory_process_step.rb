@@ -4,7 +4,7 @@ module Decidim
   module ParticipatoryProcesses
     module Admin
       # A command that sets all steps in a participatory process as inactive
-      class DestroyParticipatoryProcessStep < Rectify::Command
+      class DestroyParticipatoryProcessStep < Decidim::Command
         # Public: Initializes the command.
         #
         # step - A ParticipatoryProcessStep that will be deactivated

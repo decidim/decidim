@@ -42,6 +42,7 @@ describe Decidim::Votings::AnswerResultForm do
   describe "when value is not a number" do
     let(:value) { "abcde" }
 
-    it { is_expected.to be_invalid }
+    # The value is cast to the correct type so "abcde" becomes 0 which is valid.
+    it { is_expected.to be_valid }
   end
 end

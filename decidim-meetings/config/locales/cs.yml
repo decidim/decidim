@@ -44,8 +44,8 @@ cs:
       models:
         meeting:
           attributes:
-            show_embedded_iframe:
-              not_embeddable: Tato adresa URL nemůže být vložena
+            iframe_embed_type:
+              not_embeddable: Tato adresa URL nemůže být vložena do stránky schůzky nebo živé události
         meeting_agenda:
           attributes:
             base:
@@ -98,8 +98,8 @@ cs:
           origin_eq:
             label: Původ
             values:
-              citizen: Občané
               official: Úředník
+              participant: Účastník
               user_group: Skupiny uživatelů
           scope_id_eq:
             label: Oblast působnosti
@@ -290,6 +290,9 @@ cs:
           edit:
             close: Zavřít
             title: Zavřete schůzku
+        meeting_copies:
+          form:
+            select_a_meeting_type: Vyberte prosím typ schůzky
         meetings:
           close:
             invalid: Při setkání došlo k problému
@@ -310,16 +313,15 @@ cs:
             update: Aktualizace
           form:
             address_help: 'Adresa: použita Geocoderem k nalezení polohy'
-            available_slots_help: Ponechte 0, pokud máte k dispozici neomezený počet slotů
             disclaimer: 'Prohlášení o zřeknutí: Použitím externího registračního systému jste si vědomi toho, že organizátoři %{organization} nejsou odpovědní za data poskytovaná uživateli externí službě.'
             location_help: 'Poloha: zpráva určená uživatelům, kteří předávají místo, aby se setkali'
             location_hints_help: 'Upřesnění k místu: dodatečné informace. Příklad: patro budovy, pokud se jedná o osobní schůzku, nebo vstupní heslo pro schůzku, pokud se jedná o schůzku s omezeným přístupem.'
             online_meeting_url_help: 'Odkaz: Umožnit účastníkům připojení přímo k vaší schůzce'
-            registration_email_help: Tento text se zobrazí uprostřed potvrzení registračním e-mailem. Hned za registračním kódem.
             registration_url_help: 'Odkaz: umožnit účastníkům jít na externí službu, kterou používáte pro registrace'
             select_a_meeting_type: Vyberte prosím typ schůzky
             select_a_registration_type: Vyberte prosím typ registrace
-            show_embedded_iframe_help: Rozhodněte o vložení URL iframe pro tuto videokonferenci. Pouze některé služby umožňují vložení (např. Youtube, Twitch...)
+            select_an_iframe_access_level: Vyberte prosím úroveň přístupu iframe
+            show_embedded_iframe_help: Pouze pár služeb umožňuje vložení do schůzky nebo živé události (YouTube, Twitch a Jitsi)
           index:
             title: Setkání
           new:
@@ -362,6 +364,7 @@ cs:
             available_slots_help: Nechte to na 0, pokud máte k dispozici neomezené sloty.
             invites: Pozvánky
             recommendation_message: Z důvodu ochrany osobních údajů doporučujeme odstranit tento nadepsaný formulář, když jej již nepotřebujete. Ve výchozím nastavení je to 3 měsíce po ukončení schůzky.
+            registration_email_help: Tento text se zobrazí uprostřed potvrzení registračním e-mailem. Hned za registračním kódem.
             registration_form: Registrační formulář
             registrations_count:
               one: Byla zde registrace %{count}.
@@ -413,6 +416,15 @@ cs:
           index:
             meetings: Setkání
             space_type: Účastní prostor
+      iframe_access_level:
+        all: Všichni návštěvníci
+        registered: Registrovaní účastníci této schůzky
+        signed_in: Pouze přihlášení účastníci
+      iframe_embed_type:
+        embed_in_meeting_page: Vložit do stránky schůzky
+        none: Žádný
+        open_in_live_event_page: Otevřít na stránce živé události (s volitelnými anketami)
+        open_in_new_tab: Otevřít URL v nové kartě
       last_activity:
         meeting_updated_at_html: "<span>Schůzka aktualizována na %{link}</span>"
         new_meeting_at_html: "<span>Nové setkání v %{link}</span>"
@@ -469,8 +481,8 @@ cs:
           origin: Původ
           origin_values:
             all: Vše
-            citizens: Občané
             official: Úředník
+            participants: Účastníci
             user_groups: Skupiny
           scope: Oblast působnosti
           search: Vyhledávání
@@ -497,7 +509,8 @@ cs:
           select_a_category: Vyberte prosím kategorii
           select_a_meeting_type: Vyberte prosím typ schůzky
           select_a_registration_type: Vyberte prosím typ registrace
-          show_embedded_iframe_help: Rozhodněte o vložení URL iframe pro tuto videokonferenci. Pouze některé služby umožňují vložení (např. Youtube, Twitch...)
+          select_an_iframe_access_level: Vyberte prosím úroveň přístupu iframe
+          show_embedded_iframe_help: Pouze pár služeb umožňuje vložení do schůzky nebo živé události (YouTube, Twitch a Jitsi)
         index:
           click_here: Zobrazit všechny schůzky
           new_meeting: Nová schůzka

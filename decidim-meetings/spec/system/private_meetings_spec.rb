@@ -75,7 +75,7 @@ describe "Private meetings", type: :system do
           end
         end
 
-        context "when user is logged in and has not been invited to meeting" do
+        context "when user is logged in and has not been invited to the meeting" do
           before do
             switch_to_host(organization.host)
             login_as user, scope: :user
@@ -92,7 +92,7 @@ describe "Private meetings", type: :system do
           end
         end
 
-        context "when user is logged in and has been invited to meeting" do
+        context "when user is logged in and has been invited to the meeting" do
           before do
             switch_to_host(organization.host)
             login_as other_user, scope: :user

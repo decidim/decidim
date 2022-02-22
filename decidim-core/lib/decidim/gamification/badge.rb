@@ -5,7 +5,7 @@ module Decidim
     # This class represents an abstract badge. Instances of this class can define
     # different badge types with different rules such as gaining new levels, etc.
     class Badge
-      include Virtus.model
+      include Decidim::AttributeObject::Model
       include ActiveModel::Validations
 
       # The name of the badge.
@@ -14,7 +14,7 @@ module Decidim
       # An array of scores needed to reach a new level. For example, the array
       # [1, 5, 10] represents 1 point to get to Level 1, 5 points to get to level 2,
       # 10 points to get to level 3.
-      attribute :levels, Array, default: []
+      attribute :levels, Array[Integer], default: []
 
       # An array of types for which this badge is valid for.
       attribute :valid_for, Array[Symbol], default: [:user]

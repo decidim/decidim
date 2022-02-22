@@ -34,6 +34,8 @@ module Decidim
     include Decidim::Searchable
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
+    include Decidim::HasArea
+    include Decidim::FilterableResource
 
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
     CREATED_BY = %w(city_council public others).freeze
@@ -92,21 +94,6 @@ module Decidim
                       },
                       index_on_create: ->(_assembly) { false },
                       index_on_update: ->(assembly) { assembly.visible? })
-
-    # Overwriting existing method Decidim::HasPrivateUsers.visible_for
-    def self.visible_for(user)
-      if user
-        return all if user.admin?
-
-        left_outer_joins(:participatory_space_private_users).where(
-          %{private_space = false OR
-          (private_space = true AND is_transparent = true) OR
-          decidim_participatory_space_private_users.decidim_user_id = ?}, user.id
-        ).distinct
-      else
-        public_spaces
-      end
-    end
 
     # Overwriting existing method Decidim::HasPrivateUsers.public_spaces
     def self.public_spaces
@@ -171,6 +158,10 @@ module Decidim
       :admin
     end
 
+    def self.ransackable_scopes(_auth_object = nil)
+      [:with_area, :with_scope]
+    end
+
     private
 
     # When an assembly changes their parent, we need to update the parents_path attribute
@@ -223,8 +214,8 @@ module Decidim
     # rubocop:enable Rails/SkipsModelValidations
 
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
-    ransacker :title do |parent|
-      Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
-    end
+    ransacker_i18n :title
+
+    ransack_alias :type_id, :decidim_assemblies_type_id
   end
 end

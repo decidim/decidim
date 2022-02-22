@@ -9,7 +9,7 @@
         <%= f.hidden_field :recipient_id, id: nil, name: "conversation[recipient_id][]", value: recipient.id %>
       <% end %>
 
-      <%= f.text_area :body, label: false, rows: 4, required: true, placeholder: t("decidim.user_conversations.reply.placeholder") %>
+      <%= f.text_area :body, label: false, rows: 4, required: true, placeholder: t("decidim.user_conversations.reply.placeholder"), data: { input_emoji: true } %>
 
       <%= f.submit t("decidim.user_conversations.reply.send"), class: "button secondary light pull-right", data: { disable: true } %>
     <% end %>

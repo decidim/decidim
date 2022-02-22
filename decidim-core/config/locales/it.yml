@@ -974,6 +974,7 @@ it:
         show:
           back: Torna a tutte le conversazioni
           chat_with: Conversazione con
+          deleted_accounts: Non è possibile avere una conversazione con account eliminati.
           not_allowed: Questo partecipante non accetta messaggi diretti.
           title: Conversazione con %{usernames}
         start:
@@ -1041,6 +1042,9 @@ it:
         greetings: Saluti,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Ciao,
         subject: Vuoi continuare a ricevere informazioni rilevanti su %{organization_name}?
+    notification_mailer:
+      event_received:
+        translated_text: 'Testo tradotto automaticamente:'
     notifications:
       no_notifications: Nessuna notifica.
     notifications_settings:
@@ -1060,6 +1064,10 @@ it:
       update:
         error: Si è verificato un errore durante l'aggiornamento delle impostazioni di notifica.
         success: OK, le impostazioni per le notifiche sono state modificate.
+    offline:
+      show:
+        message: Sembra che tu sia attualmente offline. Per favore, riprova più tardi.
+        retry: Riprova
     open_data:
       not_available_yet: I file Open Data non sono ancora disponibili, riprova tra qualche minuto.
     own_user_groups:
@@ -1600,6 +1608,8 @@ it:
       notifications_dashboard:
         mark_all_as_read: Contrassegnare tutti come letti
         mark_as_read: Segna come già letto
+      offline_banner:
+        cache_version_page: Oooops! La tua rete è offline. Questa è una versione precedentemente memorizzata nella cache della pagina che stai visitando, forse il contenuto non è aggiornato.
       social_media_links:
         facebook: "%{organization} su Facebook"
         github: "%{organization} su GitHub"
@@ -1635,10 +1645,12 @@ it:
     name: Italiano
     name_with_error: Inglese (errore!)
   password_validator:
+    blacklisted: è nella blacklist
     domain_included_in_password: è troppo simile a questo nome di dominio
     email_included_in_password: è troppo simile alla tua email
     fallback: non è valido
     name_included_in_password: è troppo simile al tuo nome
+    nickname_included_in_password: è troppo simile al tuo nickname
     not_enough_unique_characters: non ha abbastanza caratteri unici
     password_not_allowed: non è permesso
     password_too_common: è troppo comune

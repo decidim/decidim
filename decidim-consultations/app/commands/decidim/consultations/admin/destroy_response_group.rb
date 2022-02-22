@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic to destroy a response group in the
       # system.
-      class DestroyResponseGroup < Rectify::Command
+      class DestroyResponseGroup < Decidim::Command
         # Public: Initializes the command.
         #
         # response_group - A ResponseGroup that will be destroyed

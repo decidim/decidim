@@ -41,6 +41,8 @@ module Decidim::Meetings
     let(:end_time) { 2.days.from_now + 4.hours }
     let(:private_meeting) { false }
     let(:transparent) { true }
+    let(:type_of_meeting) { :in_person }
+    let(:online_meeting_url) { nil }
     let(:attributes) do
       {
         title_en: title[:en],
@@ -52,7 +54,9 @@ module Decidim::Meetings
         end_time: end_time,
         private_meeting: private_meeting,
         transparent: transparent,
-        services: services
+        services: services,
+        type_of_meeting: type_of_meeting,
+        online_meeting_url: online_meeting_url
       }
     end
 
@@ -74,16 +78,44 @@ module Decidim::Meetings
       it { is_expected.not_to be_valid }
     end
 
-    describe "when location is missing" do
+    describe "when location is missing in an in person meeting" do
       let(:location) { { en: nil } }
 
       it { is_expected.not_to be_valid }
     end
 
-    describe "when address is missing" do
+    describe "when location is missing in an hybrid meeting" do
+      let(:location) { { en: nil } }
+      let(:type_of_meeting) { :hybrid }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    describe "when location is missing in an online meeting" do
+      let(:location) { { en: nil } }
+      let(:type_of_meeting) { :online }
+
+      it { is_expected.to be_valid }
+    end
+
+    describe "when address is missing in an in person meeting" do
       let(:address) { nil }
 
       it { is_expected.not_to be_valid }
+    end
+
+    describe "when address is missing in an hybrid meeting" do
+      let(:address) { nil }
+      let(:type_of_meeting) { :hybrid }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    describe "when address is missing in an online meeting" do
+      let(:address) { nil }
+      let(:type_of_meeting) { :online }
+
+      it { is_expected.to be_valid }
     end
 
     describe "when start_time is missing" do

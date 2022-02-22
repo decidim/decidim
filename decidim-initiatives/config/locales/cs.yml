@@ -414,7 +414,7 @@ cs:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> požádal o funkci ve výboru vaší iniciativy <a href="%{resource_url}">%{resource_title}</a>. Chcete-li přijmout nebo odmítnout <a href="%{resource_url}/edit">, klepněte zde</a>.
       form:
         add_attachments: Dokumenty
-        attachment_legend: "(Volitelné) přidat přílohy"
+        attachment_legend: "(Volitelné) Přidat přílohu"
         delete_attachment: Smazat
       index:
         title: Iniciativy

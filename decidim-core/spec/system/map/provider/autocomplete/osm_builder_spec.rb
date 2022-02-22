@@ -83,7 +83,7 @@ module Decidim
             it "calls the geocoding API correctly" do
               find("#test_address").set("city")
               expect(page).to have_selector(
-                ".tribute-container",
+                ".autoComplete_wrapper",
                 text: [
                   "Park, Street1 1, 123456, City1, State1, Country1",
                   "Street2, 654321, City2, Country2",
@@ -103,7 +103,7 @@ module Decidim
                 }.to_json
               )
 
-              find(".tribute-container ul#results li", match: :first).click
+              find(".autoComplete_wrapper ul#autoComplete_list_1 li", match: :first).click
               expect(page).to have_selector(
                 "#geocoder_suggested",
                 text: {

@@ -52,7 +52,7 @@ describe "Identity document online review", type: :system do
     before { click_link "Reject" }
 
     it "dismisses the verification from the list" do
-      expect(page).to have_content("Verification rejected. Participant will be prompted to amend her documents")
+      expect(page).to have_content("Verification rejected. Participant will be prompted to amend their documents")
       expect(page).to have_no_content("Verification #")
     end
 

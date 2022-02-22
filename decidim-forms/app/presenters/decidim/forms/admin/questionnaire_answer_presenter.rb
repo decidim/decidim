@@ -6,10 +6,18 @@ module Decidim
       #
       # Presenter for questionnaire answer
       #
-      class QuestionnaireAnswerPresenter < Rectify::Presenter
+      class QuestionnaireAnswerPresenter < SimpleDelegator
+        delegate :content_tag, :safe_join, to: :view_context
+
         include Decidim::TranslatableAttributes
 
-        attribute :answer, Decidim::Forms::Answer
+        def answer
+          __getobj__.fetch(:answer)
+        end
+
+        def view_context
+          __getobj__.fetch(:view_context, ActionController::Base.new.view_context)
+        end
 
         def question
           translated_attribute(answer.question.body)
@@ -21,10 +29,13 @@ module Decidim
           return "-" if answer.choices.empty?
 
           choices = answer.choices.map do |choice|
-            choice.try(:custom_body) || choice.try(:body)
+            {
+              answer_option_body: choice.try(:answer_option).try(:translated_body),
+              choice_body: body_or_custom_body(choice)
+            }
           end
 
-          return choices.first if answer.question.question_type == "single_option"
+          return choice(choices.first) if answer.question.question_type == "single_option"
 
           content_tag(:ul) do
             safe_join(choices.map { |c| choice(c) })
@@ -52,10 +63,22 @@ module Decidim
           # rubocop:enable Style/StringConcatenation
         end
 
-        def choice(choice_body)
+        def choice(choice_hash)
           content_tag :li do
-            choice_body
+            render_body_for choice_hash
           end
+        end
+
+        def render_body_for(choice_hash)
+          return choice_hash[:answer_option_body] if choice_hash[:choice_body].blank?
+
+          "#{choice_hash[:answer_option_body]} (#{choice_hash[:choice_body]})"
+        end
+
+        def body_or_custom_body(choice)
+          return choice.custom_body if choice.try(:custom_body).present?
+
+          ""
         end
       end
     end

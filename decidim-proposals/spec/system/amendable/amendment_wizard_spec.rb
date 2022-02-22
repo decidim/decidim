@@ -225,8 +225,8 @@ describe "Amendment Wizard", type: :system do
           find("*[type=submit]").click
         end
 
-        # It seems that from version 83 of chromdriver, it gets really picky
-        # Content mus be inside the virtual window of test
+        # It seems that from version 83 of chromedriver, it gets really picky
+        # Content must be inside the virtual window of test
         # Got the idea from:
         # https://stackoverflow.com/a/39103252
         page.scroll_to(find(".edit_amendment"))

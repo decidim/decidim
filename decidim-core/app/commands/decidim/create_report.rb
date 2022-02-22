@@ -2,7 +2,7 @@
 
 module Decidim
   # A command with all the business logic when a user creates a report.
-  class CreateReport < Rectify::Command
+  class CreateReport < Decidim::Command
     # Public: Initializes the command.
     #
     # form         - A form object with the params.

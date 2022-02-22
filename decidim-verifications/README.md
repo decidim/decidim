@@ -43,7 +43,7 @@ Decidim implements two type of authorization methods:
 
 * _Form authorizations_.
 
-  When your verification method is simple enough, you can use a `Rectify::Form`
+  When your verification method is simple enough, you can use a `Decidim::Form`
   to implement it. "Simple" here means that the authorization can be granted
   with the submission of a single form. For example, to validate a user against
   a census API you will need a form with some fields that your users will use to
@@ -150,7 +150,7 @@ Decidim::Verifications.register_workflow(:my_workflow) do |workflow|
 end
 ```
 
-The format of the options you can define is the standard for a virtus attribute,
+The format of the options you can define is the standard for a Decidim attribute,
 plus an additional `required` (true by default) option were you can choose
 whether the option is compulsory when configuring the workflow as a permission
 for an action or not.

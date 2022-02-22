@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    class BlockUser < Rectify::Command
+    class BlockUser < Decidim::Command
       # Public: Initializes the command.
       #
       # form - BlockUserForm

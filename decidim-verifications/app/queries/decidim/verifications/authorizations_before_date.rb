@@ -3,7 +3,7 @@
 module Decidim
   module Verifications
     # Finds authorizations by different criteria
-    class AuthorizationsBeforeDate < Rectify::Query
+    class AuthorizationsBeforeDate < Decidim::Query
       # Initializes the class.
       #
       # @param organization [Organization] The organization where this authorization belongs to

@@ -2,7 +2,7 @@
 
 module Decidim
   # This class search for objects related to Metrics, and creates a new registry within
-  # his own parameters
+  # its own parameters
   class MetricManage
     def self.for(day_string, organization)
       new(day_string, organization)

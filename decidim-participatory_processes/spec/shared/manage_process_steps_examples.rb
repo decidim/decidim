@@ -41,7 +41,12 @@ shared_examples "manage process steps examples" do
     page.find(".datepicker-dropdown .day", text: "22").click
 
     within ".new_participatory_process_step" do
-      find("*[type=submit]").click
+      # For some reason, the form submit button click can fail unless the page
+      # is first scrolled to this element
+      # Got the idea from:
+      # https://stackoverflow.com/a/39103252
+      page.scroll_to(find(".form-general-submit"))
+      find(".form-general-submit").click
     end
 
     expect(page).to have_admin_callout("successfully")

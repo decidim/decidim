@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when copying a new participatory
       # assembly in the system.
-      class CopyAssembly < Rectify::Command
+      class CopyAssembly < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -87,7 +87,8 @@ module Decidim
               name: component.name,
               participatory_space: @copied_assembly,
               settings: component.settings,
-              step_settings: component.step_settings
+              step_settings: component.step_settings,
+              weight: component.weight
             )
             component.manifest.run_hooks(:copy, new_component: new_component, old_component: component)
           end

@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new participatory
       # process in the system.
-      class UpdateParticipatoryProcess < Rectify::Command
+      class UpdateParticipatoryProcess < Decidim::Command
         include ::Decidim::AttachmentAttributesMethods
 
         # Public: Initializes the command.

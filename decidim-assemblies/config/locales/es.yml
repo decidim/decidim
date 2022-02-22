@@ -61,6 +61,7 @@ es:
         designation_date: Fecha de designación
         full_name: Nombre completo
         gender: Género
+        non_user_avatar: Avatar
         position: Posición
         user_id: Participante o grupo
       assembly_user_role:
@@ -181,6 +182,9 @@ es:
         update:
           error: Se ha producido un error al actualizar una administradora para esta asamblea.
           success: Administradora actualizada correctamente para esta asamblea.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Tipo de asamblea
       menu:
         assemblies: Asambleas
         assemblies_settings: Configuración
@@ -295,7 +299,10 @@ es:
         assembly_members:
           form:
             existing_user: Participante existente
+            explanation: 'Instrucciones para la imagen:'
+            image_guide: Preferiblemente una imagen apaisada que no tenga ningún texto.
             non_user: No participante
+            non_user_avatar_help: Debes obtener el consentimiento de las personas antes de publicarlas como miembros.
             select_a_position: Selecciona una posición
             select_user: Selecciona una participante
             user_type: Tipo de participante

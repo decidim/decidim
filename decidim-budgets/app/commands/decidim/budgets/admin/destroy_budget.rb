@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user destroys a Budget
       # from the admin panel.
-      class DestroyBudget < Rectify::Command
+      class DestroyBudget < Decidim::Command
         def initialize(budget, current_user)
           @budget = budget
           @current_user = current_user

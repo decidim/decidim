@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user changes a Project from the admin
       # panel.
-      class UpdateProject < Rectify::Command
+      class UpdateProject < Decidim::Command
         include ::Decidim::AttachmentMethods
         include ::Decidim::GalleryMethods
 

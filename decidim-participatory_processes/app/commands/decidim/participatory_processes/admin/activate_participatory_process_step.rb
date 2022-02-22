@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command that sets a step in a participatory process as active (and
       # unsets a previous active step)
-      class ActivateParticipatoryProcessStep < Rectify::Command
+      class ActivateParticipatoryProcessStep < Decidim::Command
         # Public: Initializes the command.
         #
         # step - A ParticipatoryProcessStep that will be activated

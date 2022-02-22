@@ -4,7 +4,7 @@ module Decidim
   module Elections
     module Admin
       # This command gets called to report a missing trustee during the tally process.
-      class ReportMissingTrustee < Rectify::Command
+      class ReportMissingTrustee < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A ReportMissingTrusteeForm object with the information needed to report the missing trustee.
@@ -32,7 +32,7 @@ module Decidim
 
         attr_accessor :form
 
-        delegate :election, :bulletin_board, to: :form
+        delegate :election, :bulletin_board, :trustee, to: :form
 
         def log_action
           Decidim.traceability.perform_action!(
@@ -40,7 +40,9 @@ module Decidim
             election,
             form.current_user,
             extra: {
-              trustee_id: form.trustee_id
+              trustee_id: form.trustee_id,
+              name: trustee.name,
+              nickname: trustee.user.nickname
             },
             visibility: "all"
           )

@@ -33,7 +33,7 @@ describe "Admin filters meetings", type: :system do
     before { visit_component_admin }
 
     TYPES.each do |state|
-      i18n_state = I18n.t(state, scope: "decidim.admin.filters.meetings.type_eq.values")
+      i18n_state = I18n.t(state, scope: "decidim.admin.filters.meetings.with_any_type.values")
 
       context "filtering meetings by type: #{i18n_state}" do
         it_behaves_like "a filtered collection", options: "Type", filter: i18n_state do
@@ -67,32 +67,32 @@ describe "Admin filters meetings", type: :system do
 
   context "when filtering by origin" do
     let!(:official_meeting) { create(:meeting, :official, component: component) }
-    let!(:citizen_meeting) { create(:meeting, :not_official, component: component) }
+    let!(:participant_meeting) { create(:meeting, :not_official, component: component) }
     let!(:user_group_meeting) { create(:meeting, :user_group_author, component: component) }
 
     before { visit_component_admin }
 
-    context "when filtering citizens " do
-      context "when no official event is present" do
-        it_behaves_like "a filtered collection", options: "Origin", filter: "Citizen" do
-          let(:in_filter) { translated(citizen_meeting.title) }
+    context "when filtering participants" do
+      context "when no official meeting is present" do
+        it_behaves_like "a filtered collection", options: "Origin", filter: "Participant" do
+          let(:in_filter) { translated(participant_meeting.title) }
           let(:not_in_filter) { translated(official_meeting.title) }
         end
       end
 
       context "when no user group is present" do
-        it_behaves_like "a filtered collection", options: "Origin", filter: "Citizen" do
-          let(:in_filter) { translated(citizen_meeting.title) }
+        it_behaves_like "a filtered collection", options: "Origin", filter: "Participant" do
+          let(:in_filter) { translated(participant_meeting.title) }
           let(:not_in_filter) { translated(user_group_meeting.title) }
         end
       end
     end
 
-    context "when filtering official " do
-      context "when no citizen event is present" do
+    context "when filtering official" do
+      context "when no participant meeting is present" do
         it_behaves_like "a filtered collection", options: "Origin", filter: "Official" do
           let(:in_filter) { translated(official_meeting.title) }
-          let(:not_in_filter) { translated(citizen_meeting.title) }
+          let(:not_in_filter) { translated(participant_meeting.title) }
         end
       end
 
@@ -104,15 +104,15 @@ describe "Admin filters meetings", type: :system do
       end
     end
 
-    context "when filtering official " do
-      context "when no citizen event is present" do
+    context "when filtering user groups" do
+      context "when no participant meeting is present" do
         it_behaves_like "a filtered collection", options: "Origin", filter: "User Groups" do
           let(:in_filter) { translated(user_group_meeting.title) }
-          let(:not_in_filter) { translated(citizen_meeting.title) }
+          let(:not_in_filter) { translated(participant_meeting.title) }
         end
       end
 
-      context "when no official event is present" do
+      context "when no official meeting is present" do
         it_behaves_like "a filtered collection", options: "Origin", filter: "User Groups" do
           let(:in_filter) { translated(user_group_meeting.title) }
           let(:not_in_filter) { translated(official_meeting.title) }
@@ -122,19 +122,19 @@ describe "Admin filters meetings", type: :system do
   end
 
   context "when filtering by Date" do
-    let!(:past_event) { create(:meeting, :past, component: component) }
-    let!(:future_event) { create(:meeting, :upcoming, component: component) }
+    let!(:past_meeting) { create(:meeting, :past, component: component) }
+    let!(:future_meeting) { create(:meeting, :upcoming, component: component) }
 
     before { visit_component_admin }
 
     it_behaves_like "a filtered collection", options: "Date", filter: "Upcoming" do
-      let(:in_filter) { translated(future_event.title) }
-      let(:not_in_filter) { translated(past_event.title) }
+      let(:in_filter) { translated(future_meeting.title) }
+      let(:not_in_filter) { translated(past_meeting.title) }
     end
 
     it_behaves_like "a filtered collection", options: "Date", filter: "Past" do
-      let(:in_filter) { translated(past_event.title) }
-      let(:not_in_filter) { translated(future_event.title) }
+      let(:in_filter) { translated(past_meeting.title) }
+      let(:not_in_filter) { translated(future_meeting.title) }
     end
   end
 

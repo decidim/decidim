@@ -2,7 +2,7 @@
 
 module Decidim
   # A command with all the business logic to create a user group.
-  class CreateUserGroup < Rectify::Command
+  class CreateUserGroup < Decidim::Command
     # Public: Initializes the command.
     #
     # form - A form object with the params.

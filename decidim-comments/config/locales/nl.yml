@@ -16,6 +16,12 @@ nl:
         other: Stemmen
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Reacties ingeschakeld
+            end_time: Reacties ingeschakeld tot
+            start_time: Commentaren ingeschakeld vanaf
       comments:
         delete:
           error: De reactie kon niet worden verwijderd.
@@ -90,6 +96,7 @@ nl:
         blocked_comments_warning: Reacties zijn op dit moment uitgeschakeld, maar je kan de vorige berichten lezen.
         comment_details_title: Reactieonderdelen
         loading: Reacties laden...
+        single_comment_warning: <a href="%{url}">Bekijk alle reacties</a>
         single_comment_warning_title: Je ziet een enkele reactie
       down_vote_button:
         text: Ik ben het niet eens met deze reactie

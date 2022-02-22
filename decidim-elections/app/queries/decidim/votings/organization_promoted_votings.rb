@@ -3,7 +3,7 @@
 module Decidim
   module Votings
     # This query selects the promoted votings
-    class OrganizationPromotedVotings < Rectify::Query
+    class OrganizationPromotedVotings < Decidim::Query
       def initialize(organization)
         @organization = organization
       end

@@ -110,7 +110,7 @@ module Decidim
       end
 
       #
-      # Given a user, returns her interlocutors in this conversation
+      # Given a user, returns their interlocutors in this conversation
       #
       # @param user [Decidim::User] The user to find interlocutors for
       #
@@ -121,7 +121,7 @@ module Decidim
       end
 
       #
-      # Given a user, returns if ALL the interlocutors allow her to join the conversation
+      # Given a user, returns if ALL the interlocutors allow the user to join the conversation
       #
       # @return Boolean
       #
@@ -129,6 +129,15 @@ module Decidim
         # if user is a group, members are accepted
         blocked = interlocutors(user).detect { |participant| !participant.accepts_conversation?(user) }
         blocked.blank?
+      end
+
+      #
+      # Given a user, returns if ALL the interlocutors have their accounts deleted
+      #
+      # @return Boolean
+      #
+      def with_deleted_users?(user)
+        interlocutors(user).all?(&:deleted?)
       end
 
       #

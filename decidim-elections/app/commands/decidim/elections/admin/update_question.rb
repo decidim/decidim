@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user updates a Question
       # from the admin panel.
-      class UpdateQuestion < Rectify::Command
+      class UpdateQuestion < Decidim::Command
         def initialize(form, question)
           @form = form
           @question = question

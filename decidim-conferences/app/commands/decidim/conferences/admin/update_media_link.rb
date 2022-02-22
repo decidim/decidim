@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when updating a conference
       # speaker in the system.
-      class UpdateMediaLink < Rectify::Command
+      class UpdateMediaLink < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -50,11 +50,11 @@ module Decidim
             media_link,
             form.current_user,
             form.attributes.slice(
-              :title,
-              :link,
-              :weight,
-              :date
-            ),
+              "title",
+              "link",
+              "weight",
+              "date"
+            ).symbolize_keys,
             log_info
           )
         end

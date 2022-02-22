@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     # A command with all the business logic when a user unvotes a proposal.
-    class UnvoteProposal < Rectify::Command
+    class UnvoteProposal < Decidim::Command
       # Public: Initializes the command.
       #
       # proposal     - A Decidim::Proposals::Proposal object.

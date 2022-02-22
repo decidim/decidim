@@ -54,7 +54,7 @@ describe "show", type: :system do
     let!(:sortition) { create(:sortition, :cancelled, component: component) }
 
     before do
-      page.visit "#{main_component_path(component)}?filter[state]=cancelled"
+      page.visit "#{main_component_path(component)}?filter[with_any_state]=cancelled"
       click_link "View"
     end
 

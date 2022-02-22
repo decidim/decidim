@@ -188,14 +188,14 @@ module Decidim
         false
       end
 
-      def respond_to_missing?
+      def respond_to_missing?(*)
         true
       end
 
       def method_missing(method, *args)
         if method.to_s.ends_with?("?")
           false
-        elsif [:avatar_url, :profile_path, :badge, :followers_count].include?(method)
+        elsif [:avatar_url, :profile_path, :badge, :followers_count, :cache_key_with_version].include?(method)
           ""
         else
           super

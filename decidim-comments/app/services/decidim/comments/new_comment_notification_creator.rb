@@ -56,7 +56,7 @@ module Decidim
           affected_users = group.accepted_users - already_notified_users
           @already_notified_users += affected_users
 
-          notify(:user_group_mentioned, affected_users: affected_users, extra: { group: group })
+          notify(:user_group_mentioned, affected_users: affected_users, extra: { group_id: group.id })
         end
       end
 

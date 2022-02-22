@@ -61,6 +61,7 @@ nl:
         designation_date: Ontwerpdatum
         full_name: Volledige naam
         gender: Geslacht
+        non_user_avatar: Profielfoto
         position: Positie
         user_id: Gebruiker of gebruikersgroep
       assembly_user_role:
@@ -181,6 +182,9 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van een admin voor deze groep.
           success: Beheerder is succesvol bijgewerkt voor deze vergadering.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Groepstype
       menu:
         assemblies: Groepen
         assemblies_settings: Instellingen
@@ -295,7 +299,10 @@ nl:
         assembly_members:
           form:
             existing_user: Bestaande deelnemer
+            explanation: 'Eigenschappen afbeelding:'
+            image_guide: Bij voorkeur een afbeelding in 'portretmodus' (staand) die geen tekst bevat.
             non_user: Niet deelnemer
+            non_user_avatar_help: Je hebt de toestemming nodig van de personen voordat je ze als lid publiceert.
             select_a_position: Selecteer een positie
             select_user: Selecteer een deelnemer
             user_type: Type deelnemer

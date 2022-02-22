@@ -10,7 +10,6 @@ import Rails from "@rails/ujs"
 import "foundation-sites"
 import "src/decidim/vendor/foundation-datepicker"
 import "src/decidim/foundation_datepicker_locales"
-import "jquery.autocomplete"
 import "jquery-serializejson"
 
 import "src/decidim/admin/tab_focus"
@@ -34,6 +33,7 @@ import "src/decidim/ajax_modals"
 import "src/decidim/admin/officializations"
 import "src/decidim/session_timeouter"
 import "src/decidim/slug_form"
+import "src/decidim/admin/admin_autocomplete"
 
 // CSS
 import "entrypoints/decidim_admin.scss";

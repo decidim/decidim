@@ -63,9 +63,7 @@ module Decidim
                   proposal.reload
 
                   expect(translated(proposal_form.title)).to eq translated(proposal.title)
-                  if proposal.participatory_text_level == Decidim::Proposals::ParticipatoryTextSection::LEVELS[:article]
-                    expect(translated(proposal_form.body.stringify_keys)).to eq translated(proposal.body)
-                  end
+                  expect(proposal_form.body).to eq translated(proposal.body) if proposal.participatory_text_level == Decidim::Proposals::ParticipatoryTextSection::LEVELS[:article]
                   expect(proposal_form.position).to eq proposal.position
                 end
               end

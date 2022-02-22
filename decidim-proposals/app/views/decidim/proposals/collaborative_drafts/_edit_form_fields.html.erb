@@ -61,7 +61,7 @@
 <% end %>
 
 <% if component_settings.attachments_allowed? %>
-  <fieldset>
+  <fieldset class="attachments_container">
     <legend><%= t("attachment_legend", scope: "decidim.proposals.collaborative_drafts.edit") %></legend>
     <%= form.fields_for :attachment, @form.attachment do |nested_form| %>
       <div class="field">

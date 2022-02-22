@@ -3,7 +3,7 @@
 module Decidim
   module Conferences
     # This command is executed when the user declines an invite to the conference.
-    class DeclineInvitation < Rectify::Command
+    class DeclineInvitation < Decidim::Command
       # Initializes a DeclineInvitation Command.
       #
       # conference - The current instance of the conference where user has been invited.

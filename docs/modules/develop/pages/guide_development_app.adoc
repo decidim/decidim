@@ -1,39 +1,72 @@
 = Development App
 
-In order to start developing you will need what is called a `development_app`. This is nearly the same as a new Decidim app (that you can create with `decidim app_name`) but with a Gemfile pre-configured for local development and some other small config modifications.
-You need it in order to have a Rails application configured to lookup Decidim modules from your filesystem. This way changes in your modules will be directly observed by this `development_app`.
+In order to start developing you will need what is called a `development_app`. This is nearly the same as a new Decidim
+app (that you can create with `decidim app_name`) but with a Gemfile pre-configured for local development and some other small config modifications.
 
-You can create a `development_app` from inside the project's root folder with the command:
+We recommend that you first have a xref:install:manual.adoc[working Decidim app] so that you have fullfilled all the necessary
+system and services requirements, like having a working Ruby installation, PostgreSQL, Node.JS, etc.
+
+You'll need to configure the PostgreSQL database before anything. For this,
+
+1. Configure postgresql with a super-user. For instance, for a user called `decidim_development_app_user` with password `changeme`, it'd be:
+
+[source,console]
+----
+sudo -u postgres psql -c "CREATE USER decidim_development_app_user WITH SUPERUSER CREATEDB NOCREATEROLE PASSWORD 'changeme'"
+----
+
+2. Save the database configuration in your environment variables configuration. If you've followed the xref:install:manual.adoc[Decidim installation manual],
+then you should have a working https://github.com/rbenv/rbenv-vars[rbenv-vars] in your environment:
+
+[source,console]
+----
+echo "DATABASE_USERNAME=decidim_development_app_user" >> ~/.rbenv-vars
+echo "DATABASE_PASSWORD=changeme" >> ~/.rbenv-vars
+----
+
+Of course you should change the password before anything.
+
+2. Then you can create a `development_app` from inside the project's root folder with the command:
 
 [source,console]
 ----
 git clone https://github.com/decidim/decidim.git
 cd decidim
 bundle install
-bundle exec rake development_app
-cd development_app
+bin/rake development_app
 ----
 
 A development_app/ entry appears in the .gitignore file, so you don't have to worry about committing the development app by mistake.
 
-On creation, this steps are automatically invoked by the generator:
+[NOTE]
+====
+On creation, these steps are automatically invoked by the generator:
 
 * create a `config/database.yml`
 * `bundle install`
 * `bin/rails decidim:upgrade`
-* `bin/rails db:migrate db:seed`
+* `bin/rails db:create`
+* `bin/rails db:migrate`
+* `bin/rails db:seed`
 
-If the default database.yml does not suit your needs you can always configure it at your will and run this steps manually.
+Mind that if everything went well you shouldn't need to run these commands manually.
+====
 
-The last command will set your database and add some example data (called "seed data") so that you can start trying Decidim. We don't recommend using seed data for production environments, but it's useful for local development and staging environments.
+If the default database.yml does not suit your needs you can always configure it at your will and run these steps manually, although
+we recommend that you make the database configurations with environment variables (ENV VARs) so it's easy for you to regenerate the database. 
+
+The last command will set your database and add some example data (called "seed data") so that you can start trying Decidim.
+We don't recommend using seed data for production environments, but it's useful for local development and staging environments.
 
 Once the app is created you are ready to start the server:
 
-* `bin/rails s`
+* `bin/rails server`
 
 == Migrations
 
-When creating new migrations in Decidim's modules, you will need to "apply" this migrations to your development_app. The way to do this is by copying the migration from your module into the db/migrate dir of your development_app. Luckily we already have a script that automates this: it copies all missing migrations in development_app/db/migrate. The command is:
+When creating new migrations in Decidim's modules, you will need to "apply" this migrations to your development_app. The way
+to do this is by copying the migration from your module into the db/migrate dir of your development_app. Luckily we already
+have a script that automates this: it copies all missing migrations in development_app/db/migrate. The command is:
 
 [source,console]
 ----
@@ -42,3 +75,25 @@ bin/rails decidim:upgrade
 
 Anyway we recommend re-creating your development_app every once in a while.
 
+== Updating from develop
+
+We recommend that you periodically update your codebase with the last changes from the main repository. For this, you'll need
+to follow these instructions:
+
+[source,console]
+----
+git pull origin develop
+bin/rails decidim:upgrade
+bin/rails db:migrate
+----
+
+And restart your rails server (with Ctrl+C to stop it).
+
+== Re-creating the development_app
+
+If you're working with old branches or there were multiple changes in develop, you'll need to re-create your development_app.
+
+[source,console]
+----
+bin/rake development_app
+----

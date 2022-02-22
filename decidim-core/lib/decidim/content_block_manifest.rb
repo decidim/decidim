@@ -20,7 +20,7 @@ module Decidim
   # be unique per scope.
   class ContentBlockManifest
     include ActiveModel::Model
-    include Virtus.model
+    include Decidim::AttributeObject::Model
 
     attribute :name, Symbol
     attribute :public_name_key, String

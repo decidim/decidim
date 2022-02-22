@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when destroying a conference
       # registration type in the system.
-      class DestroyRegistrationType < Rectify::Command
+      class DestroyRegistrationType < Decidim::Command
         # Public: Initializes the command.
         #
         # registration_type - the Partner to destroy

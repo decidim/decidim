@@ -1,43 +1,20 @@
-import Tribute from "src/decidim/vendor/tribute"
+import AutoComplete from "src/decidim/autocomplete";
 
 $(() => {
   $("[data-decidim-geocoding]").each((_i, el) => {
     const $input = $(el);
-    const $fieldContainer = $input.parent();
 
-    $fieldContainer.addClass("has-tribute");
-
-    const tribute = new Tribute(
-      {
-        autocompleteMode: true,
-        // autocompleteSeparator: / \+ /, // See below, requires Tribute update
-        allowSpaces: true,
-        positionMenu: false,
-        replaceTextSuffix: "",
-        menuContainer: $fieldContainer.get(0),
-        noMatchTemplate: null,
-        values: (text, cb) => {
-          $input.trigger("geocoder-suggest.decidim", [text, cb]);
-        }
+    const autoComplete = new AutoComplete(el, {
+      mode: "single",
+      dataMatchKeys: ["value"],
+      dataSource: (query, callback) => {
+        $input.trigger("geocoder-suggest.decidim", [query, callback]);
       }
-    );
+    });
+    el.addEventListener("selection", autoComplete);
 
-    // Port https://github.com/zurb/tribute/pull/406
-    // This changes the autocomplete separator from space to " + " so that
-    // we can do searches such as "streetname 4" including a space. Otherwise
-    // this would do two separate searches for "streetname" and "4".
-    tribute.range.getLastWordInText = (text) => {
-      const final = text.replace(/\u00A0/g, " ");
-      const wordsArray = final.split(/ \+ /);
-      const worldsCount = wordsArray.length - 1;
-
-      return wordsArray[worldsCount].trim();
-    };
-
-    tribute.attach($input.get(0));
-
-    $input.on("tribute-replaced", function(ev) {
-      const selectedItem = ev.detail.item.original;
+    $input.on("selection", (event) => {
+      const selectedItem = event.detail.selection.value;
       $input.trigger("geocoder-suggest-select.decidim", [selectedItem]);
 
       // Not all geocoding autocomplete APIs include the coordinates in the
@@ -48,7 +25,5 @@ $(() => {
         $input.trigger("geocoder-suggest-coordinates.decidim", [selectedItem.coordinates]);
       }
     });
-
-    $input.data("geocoder-tribute", tribute);
   });
 });

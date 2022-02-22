@@ -186,7 +186,7 @@ it:
             answers_with_costs: Abilita i costi sulle risposte proposte
             automatic_hashtags: Hashtag aggiunti a tutte le proposte
             comments_blocked: Commenti bloccati
-            creation_enabled: Creazione della proposta abilitata
+            creation_enabled: I partecipanti possono creare proposte
             endorsements_blocked: Approvazioni bloccate
             endorsements_enabled: Approvazioni abilitate
             proposal_answering_enabled: Risposta alla proposta abilitata
@@ -279,7 +279,7 @@ it:
           email_intro: La proposta "%{resource_title}" è stata aggiunta a "%{participatory_space_title}" che stai seguendo.
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{participatory_space_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: Nuova proposta "%{resource_title}" aggiunta a %{participatory_space_title}
-          notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata aggiunta a %{participatory_space_title}
+          notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata aggiunta a %{participatory_space_title} da %{author}
         proposal_rejected:
           affected_user:
             email_intro: 'La tua proposta "%{resource_title}" è stata respinta. Puoi leggere la risposta in questa pagina:'
@@ -552,9 +552,9 @@ it:
           all: Tutti
         filter_origin_values:
           all: Tutti
-          citizens: Cittadini
           meetings: Incontri
           official: Ufficiale
+          participants: Utenti
           user_groups: Gruppi di utenti
         filter_scope_values:
           all: Tutti

@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user creates a Status from the admin
       # panel.
-      class CreateStatus < Rectify::Command
+      class CreateStatus < Decidim::Command
         def initialize(form)
           @form = form
         end

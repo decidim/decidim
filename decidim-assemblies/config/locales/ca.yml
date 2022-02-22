@@ -300,7 +300,9 @@ ca:
           form:
             existing_user: Participant existent
             explanation: 'Instruccions per a la imatge:'
+            image_guide: Preferiblement una imatge apaïsada que no tingui cap text.
             non_user: No participant
+            non_user_avatar_help: Cal tenir el consentiment de la persona abans publicar-la com a membre.
             select_a_position: Selecciona una posició
             select_user: Selecciona una participant
             user_type: Tipus de participant

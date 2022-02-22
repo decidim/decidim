@@ -339,6 +339,7 @@ fi:
           end_vote: "%{user_name} päätti äänestysajan vaalille %{resource_name} osallistumistilan %{space_name} sähköisellä ääniuurnalla"
           publish: "%{user_name} julkaisi vaalin %{resource_name} osallistumistilassa %{space_name}"
           publish_results: "%{user_name} julkaisi tulokset vaalille %{resource_name} osallistumistilan %{space_name} sähköisellä ääniuurnalla"
+          report_missing_trustee: "%{user_name} ilmoitti henkilön %{trustee_name} puuttuvaksi luottamushenkilöksi äänestyksen %{resource_name} sähköisellä vaaliuurnalla osallistumistilassa %{space_name}"
           setup: "%{user_name} loi vaalin %{resource_name} osallistumistilan %{space_name} sähköiselle ääniuurnalle"
           start_key_ceremony: "%{user_name} aloitti avainseremonian vaalille %{resource_name} osallistumistilan %{space_name} sähköisellä ääniuurnalla"
           start_tally: "%{user_name} aloitti ääntenlaskennan vaalille %{resource_name} osallistumistilan %{space_name} sähköisellä ääniuurnalla"

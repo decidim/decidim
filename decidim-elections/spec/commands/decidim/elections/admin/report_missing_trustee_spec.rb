@@ -50,7 +50,11 @@ describe Decidim::Elections::Admin::ReportMissingTrustee do
     it "logs the performed action", versioning: true do
       expect(Decidim.traceability)
         .to receive(:perform_action!)
-        .with(:report_missing_trustee, election, user, extra: { trustee_id: trustee.id }, visibility: "all")
+        .with(:report_missing_trustee, election, user, extra: {
+                trustee_id: trustee.id,
+                name: trustee.name,
+                nickname: trustee.user.nickname
+              }, visibility: "all")
         .and_call_original
 
       expect { subject.call }.to change(Decidim::ActionLog, :count)

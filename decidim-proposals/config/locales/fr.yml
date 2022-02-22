@@ -35,7 +35,7 @@ fr:
         origin_component_id: Fonctionnalité dont on veut copier les propositions
       proposals_import:
         import_proposals: Importer des propositions
-        keep_answers: Garder l'état et les réponses
+        keep_answers: Conserver l'état et les réponses aux propositions
         keep_authors: Gardez les auteurs originaux
       valuation_assignment:
         admin_log:
@@ -61,12 +61,12 @@ fr:
           attributes:
             base:
               not_official: Non officiels
-              supported: Avoir reçu des soutiens ou des approbations
+              supported: A reçu des votes ou des soutiens
         proposals_split:
           attributes:
             base:
               not_official: Non officiels
-              supported: A reçu des soutiens ou des approbations
+              supported: A reçu des votes ou des soutiens
     models:
       decidim/proposals/accepted_proposal_event: Proposition acceptée
       decidim/proposals/admin/update_proposal_category_event: Catégorie de proposition modifiée
@@ -126,7 +126,7 @@ fr:
       proposals:
         actions:
           amend: Amender
-          comment: Commentaire
+          comment: Commenter
           create: Créer
           endorse: Soutenir
           vote: Voter
@@ -145,15 +145,15 @@ fr:
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur maximum (en caractères) des commentaires (laisser 0 pour la valeur par défaut)
             default_sort_order: Tri des propositions par défaut
-            default_sort_order_help: Par défaut, si l’es aides sont activés, les propositions seront affichées par ordre aléatoire, et si les aides sont bloqués, alors ils seront triés par l’aide le plus soutenu.
+            default_sort_order_help: L'option par défaut signifie que si les votes sont activés, les propositions seront affichées par ordre aléatoire, et si les votes sont bloqués, alors elles seront triées par nombre de votes.
             default_sort_order_options:
-              default: Défaut
+              default: Par défaut
               most_commented: Les plus commentées
-              most_endorsed: Les plus approuvées
+              most_endorsed: Les plus soutenues
               most_followed: Les plus suivies
-              most_voted: Les plus soutenues
+              most_voted: Les plus votées
               random: Aléatoire
-              recent: Les plus récents
+              recent: Les plus récentes
               with_more_authors: Avec le plus d'auteurs
             geocoding_enabled: Géocodage activé
             minimum_votes_per_user: Nombre minimum de votes par utilisateur
@@ -196,9 +196,18 @@ fr:
             answers_with_costs: Activer les coûts sur les réponses aux propositions
             automatic_hashtags: Hashtags ajoutés à toutes les propositions
             comments_blocked: Bloquer la création de nouveaux commentaires
-            creation_enabled: Autoriser la création de nouvelles propositions
+            creation_enabled: Les participants peuvent créer des propositions
             default_sort_order: Tri des propositions par défaut
-            default_sort_order_help: Par défaut, si les aides sont activés, les propositions seront affichées par ordre aléatoire, et si les aides sont bloqués, alors ils seront triés par l’aide le plus soutenu.
+            default_sort_order_help: L'option par défaut signifie que si les votes sont activés, les propositions seront affichées par ordre aléatoire, et si les votes sont bloqués, alors elles seront triées par nombre de votes.
+            default_sort_order_options:
+              default: Par défaut
+              most_commented: Les plus commentées
+              most_endorsed: Les plus soutenues
+              most_followed: Les plus suivies
+              most_voted: Les plus votées
+              random: Aléatoire
+              recent: Les plus récentes
+              with_more_authors: Avec le plus d'auteurs
             endorsements_blocked: Bloquer les soutiens
             endorsements_enabled: Activer le module de soutiens
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
@@ -291,7 +300,7 @@ fr:
           email_intro: La proposition "%{resource_title}" a été publiée dans "%{participatory_space_title}" que vous suivez.
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez cesser de le suivre en cliquant sur le lien précédent.
           email_subject: Nouvelle proposition "%{resource_title}" ajoutée à %{participatory_space_title}
-          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été publiée dans %{participatory_space_title}
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title} par %{author}
         proposal_rejected:
           affected_user:
             email_intro: 'Votre proposition "%{resource_title}" a été rejetée. Vous pouvez lire la réponse sur cette page:'
@@ -390,10 +399,10 @@ fr:
           proposals: Propositions
         imports:
           help:
-            answers: 'Le document d''importation doit contenir les colonnes suivantes : Id, État (accepté, évaluation, rejeté), réponse/fr (et d''autres langues activées pour l''organisme).'
-            proposals: Le fichier doit comprendre les colonnes title/fr et corps/fr (ou une autre locale de votre choix, par ex. titre/de et corps/de). Les colonnes scope/id et category/id sont également pris en charge.
+            answers: 'Le document d''import doit contenir les colonnes suivantes : id, state (accepted, evaluating, rejected), answer/fr (et les autres langues activées pour l''organisation le cas échéant).'
+            proposals: Le fichier doit comprendre les colonnes title/fr et body/fr (ou une autre locale de votre choix, par ex. title/de et body/de). Les colonnes scope/id et category/id sont également prises en charge.
           label:
-            answers: Importer des valeurs depuis un fichier
+            answers: Importer des réponses depuis un fichier
             proposals: Importer des propositions depuis un fichier
           resources:
             answers:
@@ -552,7 +561,7 @@ fr:
             success: A fusionné avec succès les propositions dans un nouveau.
         proposals_splits:
           create:
-            invalid: 'Une erreur est survenue lors de la division des propositions sélectionnées à cause de certaines d''entre elles:'
+            invalid: 'Une erreur est survenue lors du fractionnement des propositions sélectionnées à cause de certaines d''entre elles:'
             success: Divisé avec succès les propositions en nouvelles.
         valuation_assignments:
           create:
@@ -583,9 +592,9 @@ fr:
           all: Tout
         filter_origin_values:
           all: Tout
-          citizens: Propositions citoyennes
           meetings: Des réunions
           official: Propositions officielles
+          participants: Participants
           user_groups: Groupes d'utilisateurs
         filter_scope_values:
           all: Tout
@@ -709,7 +718,7 @@ fr:
         success: Le brouillon de la proposition a bien été supprimé.
       last_activity:
         new_proposal_at_html: "<span>Nouvelle proposition à %{link}</span>"
-        proposal_updated_at_html: "<span>Débat mis à jour à %{link}</span>"
+        proposal_updated_at_html: "<span>Proposition mise à jour à %{link}</span>"
       models:
         collaborative_draft:
           fields:

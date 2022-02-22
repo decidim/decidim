@@ -21,6 +21,18 @@ nl:
         one: project
         other: projecten
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Categorie
+          scope_id_eq:
+            label: Scope
+          selected_at_null:
+            label: Geselecteerd
+            values:
+              'false': Geselecteerd voor implementatie
+              'true': Niet geselecteerd voor implementatie
     budgets:
       actions:
         attachment_collections: Mappen
@@ -119,6 +131,9 @@ nl:
         highlighted_cta: Stem op %{name}
         if_change_opinion: Als je van gedachten veranderd bent, kun je
         my_budgets: Mijn budgetten
+        progress: Beëindig stemmen
+        show: Bekijk projecten
+        vote: Stem
         voted_on: Je hebt gestemd op %{links}
       limit_announcement:
         cant_vote: Je kunt niet stemmen op dit budget. <a href="%{landing_path}">Probeer een ander budget</a>.
@@ -131,6 +146,8 @@ nl:
             total_budget: Totale budget
         project:
           fields:
+            category: Categorie
+            id: ID
             title: Titel
       order_summary_mailer:
         order_summary:
@@ -233,6 +250,7 @@ nl:
     components:
       budgets:
         actions:
+          comment: Reactie
           vote: Stemmen
         name: Budgetten
         settings:

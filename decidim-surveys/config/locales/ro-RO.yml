@@ -1,14 +1,14 @@
 ro:
   activemodel:
     models:
-      decidim/surveys/closed_survey_event: Sondaj terminat
-      decidim/surveys/opened_survey_event: Sondaj început
+      decidim/surveys/closed_survey_event: Sondajul s-a încheiat
+      decidim/surveys/opened_survey_event: Sondajul a început
   activerecord:
     models:
       decidim/surveys/survey:
         one: Sondaj
-        few: Chestionare
-        other: Chestionare
+        few: Sondaje
+        other: Sondaje
       decidim/surveys/survey_answer:
         one: Răspuns
         few: Răspunsuri
@@ -17,54 +17,54 @@ ro:
     components:
       surveys:
         actions:
-          answer: Răspuns
+          answer: Răspunde
         name: Sondaj
         settings:
           global:
             announcement: Anunţ
-            clean_after_publish: Ștergeți răspunsurile la publicarea sondajului
-            ends_at: Răspunsuri acceptate până la
-            ends_at_help: Lăsați necompletat pentru nicio dată specifică
+            clean_after_publish: Șterge răspunsurile odată cu publicarea sondajului
+            ends_at: Răspunsuri sunt acceptate până la
+            ends_at_help: Lasă necompletat pentru nicio dată specifică
             scope_id: Domeniu de interes
-            scopes_enabled: Domenii de interes activate
+            scopes_enabled: Domenii activate
             starts_at: Răspunsuri acceptate de la
-            starts_at_help: Lăsați necompletat pentru nicio dată specifică
+            starts_at_help: Lasă necompletat pentru nicio dată specifică
           step:
             allow_answers: Permite răspunsuri
-            allow_unregistered: Permite utilizatorilor neînregistrați să răspundă la chestionar
-            allow_unregistered_help: Dacă este activ, nu va fi necesară nicio autentificare pentru a răspunde la chestionar. Acest lucru poate duce la date slabe sau nefiabile și va fi mai vulnerabil la atacuri automate. Utilizați cu prudență!
+            allow_unregistered: Permite utilizatorilor neînregistrați să răspundă la sondaj
+            allow_unregistered_help: Dacă este activ, nu va fi necesară autentificarea pentru a răspunde la sondaj. Acest lucru poate duce la date slabe sau nefiabile și un grad mai mare de vulnerabilitate la atacuri automate. Utilizează cu prudență!
             announcement: Anunţ
     events:
       surveys:
         survey_closed:
           email_intro: Sondajul %{resource_title} din %{participatory_space_title} a fost închis.
-          email_outro: Ați primit această notificare deoarece urmăriți %{participatory_space_title}. Puteți înceta să primiți notificări urmând linkul anterior.
-          email_subject: Un chestionar s-a terminat în %{participatory_space_title}
-          notification_title: Sondajul <a href="%{resource_path}">%{resource_title}</a> în <a href="%{participatory_space_url}">%{participatory_space_title}</a> s-a încheiat.
+          email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula aceste notificări de la link-ul anterior.
+          email_subject: În %{participatory_space_title} s-a încheiat un sondaj
+          notification_title: Sondajul <a href="%{resource_path}">%{resource_title}</a> din <a href="%{participatory_space_url}">%{participatory_space_title}</a> s-a încheiat.
         survey_opened:
-          email_intro: 'Sondajul %{resource_title} în %{participatory_space_title} este acum deschis. Puteți participa la acesta din această pagină:'
-          email_outro: Ați primit această notificare deoarece urmăriți %{participatory_space_title}. Puteți înceta să primiți notificări urmând linkul anterior.
-          email_subject: Un nou chestionar în %{participatory_space_title}
-          notification_title: Sondajul <a href="%{resource_path}">%{resource_title}</a> în <a href="%{participatory_space_url}">%{participatory_space_title}</a> este acum deschis.
+          email_intro: 'Sondajul %{resource_title} din %{participatory_space_title} este acum deschis. Poți participa la acesta din această pagină:'
+          email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula aceste notificări de la link-ul anterior.
+          email_subject: Un nou sondaj în %{participatory_space_title}
+          notification_title: Sondajul <a href="%{resource_path}">%{resource_title}</a> din <a href="%{participatory_space_url}">%{participatory_space_title}</a> este acum deschis.
     metrics:
       survey_answers:
         description: Numărul de sondaje la care au răspuns participanții
         object: răspunsuri la sondaje
-        title: Răspunsuri la chestionare
+        title: Răspunsuri la sondaje
     statistics:
       answers_count: Răspunsuri
     surveys:
       admin:
         exports:
-          survey_user_answers: Răspunsurile participanților la sondaj
+          survey_user_answers: Răspunsuri ale participantului la sondaj
         surveys:
           update:
             invalid: A apărut o eroare la salvarea sondajului.
-            success: Chestionar salvat cu succes.
+            success: Sondajul a fost salvat cu succes.
       last_activity:
-        new_survey_at_html: "<span>Nou chestionar la %{link}</span>"
+        new_survey_at_html: "<span>Sondaj nou la %{link}</span>"
       surveys:
         answer:
-          invalid: A apărut o problemă în răspunsul la sondaj.
-          spam_detected: A apărut o problemă la răspunsul la formular. Poate aţi fost prea rapid, puteţi încerca din nou?
-          success: Sondaj răspuns cu succes.
+          invalid: A apărut o problemă în timpul răspunsului pentru sondaj.
+          spam_detected: A apărut o problemă în timpul răspunsului pentru sondaj. Poate ai fost prea rapid, poţi încerca din nou?
+          success: Răspunsul pentru sondaj a fost înregistrat cu succes.

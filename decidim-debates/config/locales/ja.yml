@@ -17,7 +17,7 @@ ja:
       decidim/debates/close_debate_event: ディベートが終了しました
       decidim/debates/create_debate_event: ディベート
       decidim/debates/creation_disabled_event: ディベートは無効です
-      decidim/debates/creation_enabled_event: ディベートは有効です
+      decidim/debates/creation_enabled_event: ディベートの作成が有効です
   activerecord:
     models:
       decidim/debates/debate:
@@ -28,7 +28,7 @@ ja:
         actions:
           comment: コメント
           create: 作成
-          endorse: 支持
+          endorse: オススメ
         name: ディベート
         settings:
           global:
@@ -40,9 +40,9 @@ ja:
           step:
             announcement: お知らせ
             comments_blocked: コメントをブロック
-            creation_enabled: 参加者によるディベートの作成が有効になりました
-            endorsements_blocked: 支持がブロックされました
-            endorsements_enabled: 支持を有効にする
+            creation_enabled: 参加者はディベートを作成できます
+            endorsements_blocked: オススメがブロックされました
+            endorsements_enabled: オススメを有効にする
     debates:
       actions:
         close: 閉じる
@@ -115,11 +115,11 @@ ja:
           all: すべて
           category: カテゴリ
           category_prompt: カテゴリを選択
-          citizens: 一般参加者
           commented: 'コメント:'
           my_debates: 私の議論
           official: 事務局
           origin: 起案者：
+          participants: 参加者
           scope: スコープ
           search: 検索
           state: ステータス
@@ -185,8 +185,8 @@ ja:
           space_followers:
             email_intro: |-
               こんにちは、
-              %{resource_title}参加スペースに新しいディベート「 %{space_title} 」が作成されました。チェックして貢献：
-            email_outro: '%{space_title} の参加スペースをフォローしているため、この通知を受信しました。前のリンクに続く通知の受信を停止できます。'
+              %{resource_title} 参加型スペースに新しいディベート「 %{space_title} 」が作成されました。チェックして貢献：
+            email_outro: '%{space_title} の参加型スペースをフォローしているため、この通知を受信しました。前のリンクに続く通知の受信を停止できます。'
             email_subject: '%{resource_title}に新しいディベート " %{space_title}"'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> のディベートは <a href="%{space_path}">%{space_title}</a> に作成されました。
           user_followers:

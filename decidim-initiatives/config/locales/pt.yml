@@ -408,7 +408,6 @@ pt:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a>  candidatou-se para a comissão promotora da sua iniciativa <a href="%{resource_url}">%{resource_title}</a>. Para aceitar ou rejeitar clique <a href="%{resource_url}/edit">aqui</a>.
       form:
         add_attachments: Documentos
-        attachment_legend: "(Opcional) Adicionar Anexos"
         delete_attachment: Eliminar
       index:
         title: Iniciativas

@@ -223,6 +223,7 @@ eu:
         questions: Galderak
         response_groups: Erantzun-multzoak
         responses: Erantzunak
+        results: Emaitzak
     consultations:
       admin:
         content_blocks:
@@ -320,6 +321,8 @@ eu:
     help:
       participatory_spaces:
         consultations:
+          contextual: "<p><strong>Kontsultak</strong> aukera ematen du elkarte bat osatzen duten pertsona guztiei galdera argi bat egiteko, parte hartzeko deia egiteko, eztabaida pizteko eta erantzuna emateko edo aurka egiteko. Kontsultaren ordua iristen denean, bozkatu eta emaitzak argitaratu ditzakezu.</p> <p>Adibideak: Kontsultak erakunde bati eragiten dion ia edozein alderdiri buruzkoak izan daitezke: adibidez, erakundearen izena edo logotipoa aldatzeko aukeren artean erabakitzeko, erakunde handiago bateko kide izateari buruz galdetuta Bai edo Ez erantzuteko, estrategia berri bat edo lan-talde baten lana baliogabetzeko edo baztertzeko, edo karguek gehienez 1, 2 edo 3 agintalditan egon behar duten erabakitzeko</p>\n"
+          page: "<p><strong>Kontsultak</strong> aukera ematen du elkarte bat osatzen duten pertsona guztiei galdera argi bat egiteko, parte hartzeko deia egiteko, eztabaida pizteko eta erantzuna emateko edo aurka egiteko. Kontsultaren ordua iristen denean, bozkatu eta emaitzak argitaratu ditzakezu.</p> <p>Adibideak: Kontsultak erakunde bati eragiten dion ia edozein alderdiri buruzkoak izan daitezke: adibidez, erakundearen izena edo logotipoa aldatzeko aukeren artean erabakitzeko, erakunde handiago bateko kide izateari buruz galdetuta Bai edo Ez erantzuteko, estrategia berri bat edo lan-talde baten lana baliogabetzeko edo baztertzeko, edo karguek gehienez 1, 2 edo 3 agintalditan egon behar duten erabakitzeko</p>"
           title: Zer dira kontsultak?
     menu:
       consultations: kontsultak

@@ -48,6 +48,7 @@ sv:
         favicon: Ikon
         force_authentication: Tvinga autentisering
         force_users_to_authenticate_before_access_organization: Tvinga användare att autentisera sig innan att komma in organisationen
+        from: Avsändarens e-postadress
         github_handler: GitHub-hanterare
         header_snippets: Rubriksnuttar
         highlight_alternative_color: Markera alternativ
@@ -131,6 +132,7 @@ sv:
       new_import:
         attributes:
           file:
+            invalid_file: 'Ogiltig fil: Kontrollera formatteringen eller försök igen'
             invalid_mime_type: Ogiltig MIME type
   activerecord:
     attributes:
@@ -179,10 +181,12 @@ sv:
           success: Du har godkänt användarvillkoren för administratörer.
         actions:
           accept: Jag godkänner villkoren
+          are_you_sure: Är du säker på att du vill avvisa administratörsvillkoren?
           refuse: Avvisa villkoren för administratörer
           title: Godkänn användarvillkoren
         required_review:
           alert: 'Krav: granska villkoren för administratörer'
+          callout: Granska användarvillkoren för administratörer. Annars kan du inte administrera plattformen.
           cta: Granska dem nu.
         title: Användarvillkor för administratörer
       area_types:
@@ -205,6 +209,7 @@ sv:
           error: Det gick inte att skapa ett nytt område.
           success: Området har har skapats.
         destroy:
+          has_spaces: Det finns redan deltagarutrymmen för detta område. Se till att inget utrymme refererar till detta område innan du tar bort det.
           success: Området har tagits bort
         edit:
           title: Redigera område
@@ -257,6 +262,7 @@ sv:
       block_user:
         new:
           action: Blockera konto och skicka motivering
+          description: Att blockera en användare kommer att göra dess konto oanvändbart, du kan skriva din motivering och riktlinjer för hur du anser att du skulle överväga att avblockera användaren.
           justification: Motivering
           title: Blockera användare %{name}
       categories:
@@ -319,6 +325,7 @@ sv:
         'false': 'Nej'
         managed_user_name: Hanterad användare
         solved: Löst
+        title: Verifieringskonflikter
         transfer:
           email: E-post
           error: Det gick inte att konvertera användaren till hanterad användare.
@@ -345,7 +352,7 @@ sv:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Exporten pågår just nu. Du får ett e-brev när den är klar.
+        notice: Exporten pågår just nu. Du får ett e-post när den är klar.
       filters:
         category_id_eq:
           label: Kategori
@@ -399,6 +406,11 @@ sv:
           user_name_or_user_email_cont: Sök %{collection} efter namn eller e-post.
         state_eq:
           label: Län
+          values:
+            all: Alla
+            pending: Väntande
+            rejected: Avvisade
+            verified: Verifierade
       forms:
         file_help:
           import:
@@ -444,7 +456,31 @@ sv:
           impersonate_existing_user: Hantera deltagaren "%{name}"
           impersonate_new_managed_user: Hantera ny deltagare
       imports:
+        and: och
+        data_errors:
+          duplicate_headers:
+            detail: Kontrollera att filen innehåller alla nödvändiga kolumner och att de finns bara en gång.
+            message:
+              one: 'Dubbel kolumn: %{columns}.'
+              other: 'Dubbla kolumner: %{columns}.'
+          invalid_indexes:
+            lines:
+              detail: Kontrollera att dessa linjer är korrekt formaterade och innehåller giltiga rader.
+              message:
+                one: Hittade ett fel i importfilen vid rad %{indexes}.
+                other: Hittade ett fel i importfilen vid rader %{indexes}.
+            records:
+              detail: Kontrollera att den här texten är korrekt formaterad och innehåller giltiga rader.
+              message:
+                one: Hittade ett fel i importfilen vid ordernummer %{indexes}.
+                other: Hittade ett fel i importfilen vid ordernummer %{indexes}.
+          missing_headers:
+            detail: Kontrollera att filen innehåller alla nödvändiga kolumner.
+            message:
+              one: 'Saknad kolumn: %{columns}.'
+              other: 'Saknade kolumner: %{columns}.'
         error: Ett fel uppstod under importeringsprocessen
+        example_error: Kunde inte skapa ett exempel för följande typ
         new:
           accepted_mime_types:
             csv: csv
@@ -452,6 +488,8 @@ sv:
             xlsx: xlsx
           actions:
             back: Tillbaka
+          download_example: Ladda ned exempel
+          download_example_format: Exempel som %{name}
           file_legend: Lägg till en fil som kommer importeras.
           import: Importera
         notice: "%{number} %{resource_name} har importerats"
@@ -475,6 +513,7 @@ sv:
         areas: Områden
         configuration: Konfiguration
         dashboard: Kontrollpanel
+        external_domain_whitelist: Tillåtna externa domäner
         help_sections: Hjälpavsnitt
         homepage: Hemsida
         impersonations: Uppträd som
@@ -623,6 +662,7 @@ sv:
       newsletters:
         create:
           error: Det gick inte att skapa nyhetsbrevet.
+          success: Nyhetsbrevet har skapats. Granska det innan du skickar.
         deliver:
           error: Det gick inte att skicka nyhetsbrevet.
           success: Nyhetsbrevet har skickats.
@@ -705,10 +745,12 @@ sv:
           title: Gör deltagaren "%{name}" officiell
         show_email_modal:
           close_modal: Stäng modal
+          description: Om du behöver kontakta en deltagare direkt kan du klicka på Visa för att se deras e-postadress. Denna åtgärd kommer att loggas.
           email_address: E-postadress
           full_name: Fullständigt namn
           hidden: dold
           show: Visa
+          title: Visa deltagarens e-postadress
         unblock:
           error: Det gick inte att avblockera användaren
           success: Deltagaren har avblockerats
@@ -734,6 +776,7 @@ sv:
         form:
           colors:
             colors_title: Organisationsfärger
+            colors_warning_html: Varning! Att ändra dessa färger kan bryta minska kontrasterna och tillgängligheten. Du kan kontrollera kontrasten i ditt val med <a href="%{link}">WebAIM Contrast Checker</a> eller andra liknande verktyg.
             header_snippets_help: Lägg till saker i HTML-huvudet med detta fält. Den vanligaste användningen är att integrera tjänster från tredje part som kräver särskild JavaScript eller CSS. Du kan också lägga till extra meta-taggar i HTML-koden. Märk att detta endast kommer att läggas in på offentliga sidor, inte i administratörsdelen.
           cta_button_path_help: 'Du kan ändra vad uppmaningsknappen på hemsidan länkar till. Använd partiella sökvägar, inte fullständiga URL:er här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste inledas med en bokstav. Uppmaningsknappen visas på hemsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
           cta_button_text_help: Du kan ha separata texter på uppmaningsknappen på hemsidan för varje tillgängligt språk i organisationen. Om det inte anges kommer det förvalda värdet att användas. Uppmaningsknappen visas på hemsidan mellan välkomsttexten och beskrivningen.
@@ -945,6 +988,10 @@ sv:
           no_users_count_statistics_yet: Det finns ingen statistik för användare än
           participants: Deltagare
       view_public_page: Visa offentlig sida
+    forms:
+      errors:
+        impersonate_user:
+          reason: Du måste ange en anledning vid hantering av en icke-hanterad användare
     metrics:
       blocked_users:
         object: blockerade användare

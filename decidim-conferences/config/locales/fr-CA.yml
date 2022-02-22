@@ -55,12 +55,12 @@ fr-CA:
         title: Titre
         weight: Rang d'affichage
       conference_speaker:
-        affiliation: Affiliation
+        affiliation: Organisme
         avatar: Image de profil
         conference_meeting_ids: Réunions connexes
         full_name: Nom complet
         personal_url: URL personnelle
-        position: Position
+        position: Profession
         short_bio: Courte bio
         twitter_handle: Gestionnaire Twitter
         user_id: Utilisateur

@@ -1,7 +1,7 @@
 <%= render partial: "decidim/shared/component_announcement" %>
 
-<% if current_component.settings.maps_enabled? && search.results.not_online.exists? %>
-  <%= cell "decidim/meetings/meetings_map", search.results %>
+<% if current_component.settings.maps_enabled? && search.result.not_online.exists? %>
+  <%= cell "decidim/meetings/meetings_map", search.result %>
 <% end %>
 
 <div class="row columns">

@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     # This query retrieves the organization prioritized initiatives that will appear in the homepage
-    class OrganizationPrioritizedInitiatives < Rectify::Query
+    class OrganizationPrioritizedInitiatives < Decidim::Query
       attr_reader :organization, :order
 
       def initialize(organization, order)

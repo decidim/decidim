@@ -405,7 +405,6 @@ eu:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> k eskatu du <a href="%{resource_url}">%{resource_title}</a> zure ekimenaren batzorde bultzatzailearekin bat egitea. eskaera onartzeko edo ez onartzeko, egin klik hemen <a href="%{resource_url}/edit">aquí</a>.
       form:
         add_attachments: Dokumentuak
-        attachment_legend: "(Aukerakoa) Gehitu eranskinak"
         delete_attachment: Ezabatu
       index:
         title: Ekimenak
@@ -507,7 +506,7 @@ eu:
           phone_number: Telefono zenbakia
           place_date: Lekua, data
           postal_code: Posta-kodea/ZIP
-          print: Inprimatu	
+          print: Inprimatu
           province: Probintzia/Estatua
           section: 'Antolakuntzak eskatzen badu, mesedez, inprimatu eta bete formulario hau, adierazten den tokira bidaltzeko:'
           signature: Sinadura

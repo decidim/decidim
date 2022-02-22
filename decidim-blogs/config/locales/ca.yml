@@ -60,10 +60,9 @@ ca:
     components:
       blogs:
         actions:
-          amend: Esmenar
-          comment: Comentar
-          endorse: Adherir-se
-          vote: Donar suport
+          create: Crear
+          destroy: Esborrar
+          update: Actualitzar
         name: Blog
         settings:
           global:

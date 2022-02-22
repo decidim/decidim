@@ -1,4 +1,4 @@
-<section class="extended home-section">
+<section id="how_to_participate" class="extended home-section">
   <div class="wrapper-home">
     <div class="row column text-center">
       <h2 class="heading3"><%= t("decidim.pages.home.extended.how_to_participate") %></h2>
@@ -41,7 +41,7 @@
     <div class="row">
       <div class="columns small-centered small-10
                 smallmedium-8 medium-6 large-4">
-        <%= link_to t("decidim.pages.home.extended.more_info", resource_name: translated_attribute(current_organization.name, current_organization)), decidim.page_path("faq"), class: "button expanded hollow button--sc" %>
+        <%= link_to t("decidim.pages.home.extended.more_info", resource_name: translated_attribute(current_organization.name, current_organization)), decidim.pages_path, class: "button expanded hollow button--sc" %>
       </div>
     </div>
   </div>

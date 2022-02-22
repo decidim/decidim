@@ -6,18 +6,20 @@
       </div>
     </div>
     <div class="row">
-      <div class="row columns mentions__container">
+      <div class="row columns multiple-mentions" data-name="recipient_id[]" data-multiple="true">
         <label for="add_conversation_users"><%= t "decidim.user_conversations.index.add_max_users" %></label>
         <input id="add_conversation_users" type="text"
-            class="js-multiple-mentions mentions__container"
+            spellcheck="false"
+            autocomplete="off"
             placeholder="<%= t("decidim.user_conversations.index.add_users_placeholder") %>"
             data-noresults="<%= t("decidim.user_conversations.index.no_results") %>"
             contenteditable="true"
             data-direct-messages-disabled="<%= t("decidim.user_conversations.index.participant_with_disabled_message_reception") %>"
+            data-selected="multiple-mentions-selected"
             aria-expanded="false">
       </div>
       <div class="columns large-12">
-        <div class="js-multiple-mentions-recipients"></div>
+        <ul class="multiple-mentions-selected"></ul>
       </div>
     </div>
   </div>

@@ -13,7 +13,7 @@ module Decidim
 
         translatable_attribute :title, String
         translatable_attribute :description, String
-        attribute :banner_image, String
+        attribute :banner_image
         attribute :signature_type, String
         attribute :undo_online_signatures_enabled, Boolean
         attribute :attachments_enabled, Boolean

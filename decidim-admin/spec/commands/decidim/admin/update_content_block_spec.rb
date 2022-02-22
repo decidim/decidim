@@ -54,7 +54,7 @@ module Decidim::Admin
       it "updates the content block settings" do
         subject.call
         content_block.reload
-        expect(content_block.settings.welcome_text[:en]).to eq("My text")
+        expect(content_block.settings.welcome_text["en"]).to eq("My text")
       end
 
       context "when the image does not exist" do

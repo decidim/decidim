@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A command with all the business logic when updating an attachment collection.
-    class UpdateAttachmentCollection < Rectify::Command
+    class UpdateAttachmentCollection < Decidim::Command
       # Public: Initializes the command.
       #
       # attachment_collection - The AttachmentCollection to update

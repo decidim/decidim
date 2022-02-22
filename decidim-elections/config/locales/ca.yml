@@ -253,6 +253,7 @@ ca:
             title: Elecció creada
             trustees: Garants
           key_ceremony:
+            continue: Continuar
             title: Cerimònia de claus
           key_ceremony_ended:
             errors:
@@ -273,7 +274,14 @@ ca:
             submit: Enviar
             title: Resultats publicats
           tally:
+            continue: Continuar
+            invalid: S'ha produït un error en notificar l'absència de la garant
+            mark_as_missing: Marcar com absent
+            mark_as_missing_description: Totes les garants haurien de participar en aquest procés, però si una garant no en pot prendre part, la pots marcar com a absent.
+            success: La notificació d'absència de la garant ha estat enviada correctament
+            tally_completion: El procés es completarà quan totes les garants estiguin actives o marcades com a absents. Fan falta com un mínim de %{quorum} garant per a completar el procés.
             title: Procés de recompte
+            undo_mark_as_missing: Una garant marcada com a absent per error podrà participar abans de la finalització del procés. Pot actuar com de costum i la seva absència serà ignorada.
           tally_ended:
             answer: Resposta
             not_selected: No seleccionat
@@ -324,6 +332,22 @@ ca:
           update:
             invalid: S'ha produït un error en actualitzar el garant %{trustee}
             success: El garant %{trustee} s'ha actualitzat correctament
+      admin_log:
+        election:
+          create: "%{user_name} ha creat l'elecció %{resource_name} a %{space_name}"
+          delete: "%{user_name} ha eliminat l'elecció %{resource_name} a %{space_name}"
+          end_vote: "%{user_name} ha tancat el període de votació per a l'elecció %{resource_name} a %{space_name}"
+          publish: "%{user_name} ha publicat l'elecció %{resource_name} a %{space_name}"
+          publish_results: "%{user_name} ha publicat els resultats de l'elecció %{resource_name} a %{space_name}"
+          report_missing_trustee: "%{user_name} ha notificat %{trustee_name} com a absent durant el recompte de les eleccions %{resource_name} a %{space_name}"
+          setup: "%{user_name} ha creat l'elecció %{resource_name} a %{space_name}"
+          start_key_ceremony: "%{user_name} ha iniciat la cerimònia de claus per l'elecció %{resource_name} a %{space_name}"
+          start_tally: "%{user_name} ha iniciat el recompte de l'elecció %{resource_name} a %{space_name}"
+          start_vote: "%{user_name} ha iniciat el període de votació per a l'elecció %{resource_name} a %{space_name}"
+          unpublish: "%{user_name} ha despublicat l'elecció %{resource_name} a %{space_name}"
+          update: "%{user_name} ha actualitzat l'elecció %{resource_name} a %{space_name}"
+        trustee:
+          create: "%{user_name} ha assignat a la usuària %{trustee_user} com a garant"
       election_m:
         badge_name:
           finished: Acabada
@@ -978,6 +1002,24 @@ ca:
             invalid: S'ha produït un error en actualitzar aquesta votació
             success: La votació s'ha actualitzat correctament
       admin_log:
+        ballot_style:
+          create: "%{user_name} ha creat un estil de papereta amb codi %{ballot_style_code} a l'espai %{space_name}"
+          delete: "%{user_name} ha eliminat l'estil de papereta amb codi %{ballot_style_code} a l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat l'estil de papereta amb codi %{ballot_style_code} a l'espai %{space_name}"
+        census:
+          create: "%{user_name} ha creat el cens per l'espai %{space_name}"
+          delete: "%{user_name} ha eliminat el cens per l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat el cens per l'espai %{space_name}"
+        monitoring_committee_member:
+          create: "%{user_name} ha assignat a la usuària %{monitoring_committee_member_user} com a membre de la comissió de seguiment a l'espai %{space_name}"
+          delete: "%{user_name} desassignat a la usuària %{monitoring_committee_member_user} com a membre de la comissió de seguiment a l'espai %{space_name}"
+        polling_officer:
+          create: "%{user_name} ha assignat a la usuària %{polling_officer_user} com a gestora de mesa a l'espai %{space_name}"
+          delete: "%{user_name} ha desassignat a la usuària %{polling_officer_user} com a gestora de mesa a l'espai %{space_name}"
+        polling_station:
+          create: "%{user_name} ha creat el punt de votació %{resource_name} a l'espai %{space_name}"
+          delete: "%{user_name} ha eliminat el punt de votació %{resource_name} a l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat el punt de votació %{resource_name} a l'espai %{space_name}"
         voting:
           create: "%{user_name} ha creat la votació %{resource_name}"
           publish: "%{user_name} ha publicat la votació %{resource_name}"
@@ -987,6 +1029,7 @@ ca:
           census:
             create:
               invalid: Hi ha hagut un error en pujar el cens, prova-ho de nou més tard.
+              invalid_csv_header: Les capçaleres al CSV manquen o no son correctes. Si us plau, rellegeix atentament les instruccions
             creating_data:
               info_message: "<strong>Si us plau espera</strong>, processades %{processed_count} de %{raw_count} fileres al fitxer de %{file}."
             delete:

@@ -79,6 +79,7 @@ es:
           form:
             add_question: Añadir pregunta
             add_separator: Añadir separador
+            add_title_and_description: Añadir título y descripción
             already_answered_warning: Algunas participantes ya han respondido el formulario, por lo que no puedes modificar las preguntas.
             collapse: Contraer todas las preguntas
             expand: Expandir todos las preguntas
@@ -108,6 +109,15 @@ es:
             remove: Eliminar
             separator: Separador
             up: Subir
+          title_and_description:
+            collapse: Contraer
+            description: Descripción
+            down: Bajar
+            expand: Expandir
+            remove: Eliminar
+            title: Título
+            title_and_description: Título y descripción
+            up: Subir
           update:
             invalid: Se ha producido un error al guardar el formulario.
             success: Formulario guardado correctamente.
@@ -131,6 +141,7 @@ es:
         short_answer: Respuesta corta
         single_option: Opción única
         sorting: Ordenación
+        title_and_description: Titulo y descripción
       questionnaires:
         answer:
           invalid: Se ha producido un error al responder el formulario.

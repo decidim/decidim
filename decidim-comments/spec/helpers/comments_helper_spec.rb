@@ -31,7 +31,8 @@ module Decidim
               dummy_resource,
               machine_translations: machine_translations_toggled?,
               single_comment: nil,
-              order: nil
+              order: nil,
+              polymorphic: nil
             ).and_return(cell)
 
           helper.comments_for(dummy_resource)

@@ -1,10 +1,7 @@
 <html>
   <head>
     <title><%= current_organization.name %> - API Documentation</title>
-    <%= javascript_pack_tag "decidim_api_docs", defer: false %>
-    <%= stylesheet_pack_tag "decidim_api_docs" %>
-    <style>
-    </style>
+    <%= stylesheet_pack_tag("decidim_api_docs") %>
   </head>
   <body>
     <%= yield %>

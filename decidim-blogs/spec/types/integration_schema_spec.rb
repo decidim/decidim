@@ -219,12 +219,6 @@ describe "Decidim::Api::QueryType" do
 
           it { expect(edges).to eq([{ "node" => { "id" => other_post.id.to_s } }]) }
         end
-
-        context "with updatedBefore" do
-          let(:criteria) { "filter: { updatedBefore: \"#{post.created_at.to_date}\" } " }
-
-          it { expect(edges).to eq([{ "node" => { "id" => other_post.id.to_s } }]) }
-        end
       end
     end
   end

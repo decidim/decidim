@@ -14,7 +14,6 @@ sk:
     models:
       decidim/debates/create_debate_event: Debata
       decidim/debates/creation_disabled_event: Debaty zakázané
-      decidim/debates/creation_enabled_event: Debaty povolené
   activerecord:
     models:
       decidim/debates/debate:
@@ -35,7 +34,6 @@ sk:
           step:
             announcement: Oznámenie
             comments_blocked: Komentáre blokované
-            creation_enabled: Vytvorenie debaty používateľmi povolené
     debates:
       actions:
         confirm_destroy: Ste si istí?
@@ -84,7 +82,6 @@ sk:
           all: Všetko
           category: Kategória
           category_prompt: Vyberte kategóriu
-          citizens: Občania
           official: Oficiálni
           origin: Pôvod
           search: Vyhľadávanie

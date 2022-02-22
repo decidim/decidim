@@ -3,9 +3,7 @@
 module Decidim
   module Meetings
     class CloseMeetingEvent < Decidim::Events::SimpleEvent
-      def resource_text
-        translated_attribute(resource.description)
-      end
+      include Decidim::Meetings::MeetingEvent
 
       def event_has_roles?
         true

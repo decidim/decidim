@@ -7,6 +7,7 @@ module Decidim
     #
     class MeetingPresenter < Decidim::ResourcePresenter
       include Decidim::ResourceHelper
+      include Decidim::SanitizeHelper
 
       def meeting
         __getobj__
@@ -18,13 +19,15 @@ module Decidim
         super meeting.title, links, html_escape, all_locales
       end
 
-      def description(links: false, all_locales: false)
+      def description(links: false, extras: true, strip_tags: false, all_locales: false)
         return unless meeting
 
-        handle_locales(meeting.description, all_locales) do |content|
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize_editor(content))
+        new_description = handle_locales(meeting.description, all_locales) do |content|
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(sanitized(content))
           renderer.render(links: links).html_safe
         end
+
+        content_handle_locale(new_description, all_locales, extras, links, strip_tags)
       end
 
       def location(all_locales: false)
@@ -55,7 +58,7 @@ module Decidim
         return unless meeting
 
         handle_locales(meeting.closing_report, all_locales) do |content|
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize_editor(content))
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(sanitized(content))
           renderer.render(links: links).html_safe
         end
       end
@@ -64,7 +67,7 @@ module Decidim
         return unless meeting
 
         handle_locales(meeting.registration_email_custom_content, all_locales) do |content|
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize_editor(content))
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(sanitized(content))
           renderer.render(links: links).html_safe
         end
       end
@@ -97,7 +100,7 @@ module Decidim
         resource_locator(meeting).path
       end
 
-      def avatar_url
+      def avatar_url(_variant = nil)
         ActionController::Base.helpers.asset_pack_path("media/images/decidim_meetings.svg")
       end
 
@@ -124,6 +127,10 @@ module Decidim
         return unless meeting
 
         proposals.map.with_index { |proposal, index| "#{index + 1}) #{proposal.title}\n" }
+      end
+
+      def sanitized(content)
+        decidim_sanitize_editor(content)
       end
     end
   end

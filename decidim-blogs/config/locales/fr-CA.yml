@@ -60,10 +60,9 @@ fr-CA:
     components:
       blogs:
         actions:
-          amend: Amender
-          comment: Commenter
-          endorse: Soutenir
-          vote: Voter
+          create: Créer
+          destroy: Supprimer
+          update: Mettre à jour
         name: Actualités
         settings:
           global:

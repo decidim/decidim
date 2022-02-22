@@ -367,6 +367,13 @@ fr-CA:
           values:
             'false': 'Non'
             'true': 'Oui'
+        moderated_users:
+          reports_reason_eq:
+            label: Raison du signalement
+            values:
+              does_not_belong: N'appartient pas
+              offensive: Offensant
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Type
@@ -401,9 +408,11 @@ fr-CA:
         search_label: Rechercher
         search_placeholder:
           name_or_nickname_or_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo.
+          report_count_eq: Nombre de signalement
           reported_id_string_or_reported_content_cont: Rechercher %{collection} par Id ou par contenu.
           title_cont: Search %{collection} par titre.
           user_name_or_user_email_cont: Rechercher %{collection} par nom ou par email.
+          user_name_or_user_nickname_or_user_email_cont: Rechercher les %{collection} par e-mail, nom ou pseudo.
         state_eq:
           label: État
           values:
@@ -488,7 +497,7 @@ fr-CA:
             xlsx: xlsx
           actions:
             back: Retour
-          download_example: Télécharger l''exemple
+          download_example: Télécharger l'exemple
           download_example_format: Exemple comme %{name}
           file_legend: Ajouter un fichier d'import qui sera analysé.
           import: Importer
@@ -776,6 +785,7 @@ fr-CA:
         form:
           colors:
             colors_title: Couleurs de l'organisation
+            colors_warning_html: Attention ! La modification de ces couleurs peut rompre les contrastes d'accessibilité. Vous pouvez vérifier le contraste de votre choix avec <a href="%{link}">WebAIM Contrast Checker</a> ou d'autres outils similaires.
             header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises HTML <head> </head>. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.
           cta_button_path_help: 'Vous pouvez remplacer le lien vers lequel renvoie le bouton de la page d''accueil. Utilisez ici des chemins partiels et non des URL complets. Il accepte les lettres, les chiffres, les tirets et les barres obliques, et doit commencer par une lettre. Le bouton apparaît sur la page d''accueil entre le texte de bienvenue et la description. Exemple : %{url}'
           cta_button_text_help: Vous pouvez remplacer le texte du bouton dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton apparaît sur la page d'accueil entre le texte de bienvenue et la description.
@@ -824,6 +834,14 @@ fr-CA:
           explanation: 'Téléchargez votre fichier CSV. Il doit avoir deux colonnes avec dans la première colonne les emails, et dans la deuxième colonne les noms (email, nom) des utilisateurs que vous souhaitez ajouter à l''espace participatif, sans en-tête. Évitez les caractères spéciaux comme `<>?%&^*#@()[]=+:;"{}\|` dans les noms des utilisateurs.'
           title: Téléchargez votre fichier CSV
           upload: Télécharger
+      reminders:
+        create:
+          error: Il y a eu un problème lors de la création des rappels.
+          success:
+            one: "%{count} utilisateur recevra un rappel."
+            other: "%{count} utilisateurs recevront un rappel."
+        new:
+          submit: Envoyer
       resource_permissions:
         edit:
           submit: Soumettre

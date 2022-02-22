@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new participatory
       # assembly in the system.
-      class CreateAssembly < Rectify::Command
+      class CreateAssembly < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

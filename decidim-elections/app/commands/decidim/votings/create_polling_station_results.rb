@@ -3,7 +3,7 @@
 module Decidim
   module Votings
     # A command with all the business logic when creating results for a polling station
-    class CreatePollingStationResults < Rectify::Command
+    class CreatePollingStationResults < Decidim::Command
       # Public: Initializes the command.
       #
       # form - A form object with the params.

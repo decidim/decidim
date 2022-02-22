@@ -4,7 +4,7 @@ module Decidim
   module Meetings
     module Admin
       # This command is executed when the user updates the meeting registrations.
-      class UpdateRegistrations < Rectify::Command
+      class UpdateRegistrations < Decidim::Command
         # Initializes a UpdateRegistrations Command.
         #
         # form - The form from which to get the data.
@@ -40,6 +40,8 @@ module Decidim
             meeting.available_slots = form.available_slots
             meeting.reserved_slots = form.reserved_slots
             meeting.registration_terms = form.registration_terms
+            meeting.customize_registration_email = form.customize_registration_email
+            meeting.registration_email_custom_content = form.registration_email_custom_content if form.customize_registration_email
           end
 
           meeting.save!

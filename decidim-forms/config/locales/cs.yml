@@ -79,6 +79,7 @@ cs:
           form:
             add_question: Přidat otázku
             add_separator: Přidat oddělovač
+            add_title_and_description: Přidat název a popis
             already_answered_warning: Formulář je již zodpovězen některými uživateli, takže jeho otázky nemůžete upravovat.
             collapse: Sbalit všechny otázky
             expand: Rozbalit všechny otázky
@@ -108,6 +109,15 @@ cs:
             remove: Odebrat
             separator: Oddělovač
             up: Nahoru
+          title_and_description:
+            collapse: Sbalit
+            description: Popis
+            down: Dolů
+            expand: Rozbalit
+            remove: Odebrat
+            title: Název
+            title_and_description: Název a popis
+            up: Nahoru
           update:
             invalid: Při ukládání dotazníku došlo k chybám.
             success: Formulář byl úspěšně uložen.
@@ -131,6 +141,7 @@ cs:
         short_answer: Stručná odpověď
         single_option: Jedna možnost
         sorting: Třídění
+        title_and_description: Název a popis
       questionnaires:
         answer:
           invalid: Při odpovědi na dotazník došlo k chybám.

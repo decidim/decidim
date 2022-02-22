@@ -235,8 +235,6 @@ gl:
             success: Reunión eliminada correctamente
           edit:
             update: Actualización
-          form:
-            registration_email_help: Este texto aparecerá no medio do correo de confirmación do rexistro, xusto despois do código de rexistro.
           index:
             title: Reunións
           new:
@@ -266,6 +264,7 @@ gl:
           form:
             available_slots_help: Déixao a 0 se ten slots ilimitados dispoñibles.
             invites: Invitacións
+            registration_email_help: Este texto aparecerá no medio do correo de confirmación do rexistro, xusto despois do código de rexistro.
             registration_form: Formulario de inscrición
             registrations_count:
               one: Houbo un rexistro de %{count}.
@@ -306,12 +305,18 @@ gl:
       conference_venues: Lugares de conferencias
       content_blocks:
         upcoming_meetings:
+          name: Vindeiras xuntanzas
+          upcoming_meetings: Vindeiras xuntanzas
           view_all_meetings: Ver todo
       directory:
         meetings:
           index:
             meetings: Reunións
             space_type: Espazo participativo
+      iframe_access_level:
+        all: Todos os visitantes
+      iframe_embed_type:
+        open_in_new_tab: Abrir ligazón nunha nova lapela
       last_activity:
         meeting_updated_at_html: "<span>Xuntanza actualizada en %{link}</span>"
         new_meeting_at_html: "<span>Nova reunión en %{link}</span>"

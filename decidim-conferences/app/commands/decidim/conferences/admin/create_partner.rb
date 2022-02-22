@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new partner
       # in the system.
-      class CreatePartner < Rectify::Command
+      class CreatePartner < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -72,13 +72,13 @@ module Decidim
         def attributes
           { conference: conference }.merge(
             form.attributes.slice(
-              :name,
-              :weight,
-              :link,
-              :partner_type,
-              :logo,
-              :remove_avatar
-            )
+              "name",
+              "weight",
+              "link",
+              "partner_type",
+              "logo",
+              "remove_avatar"
+            ).symbolize_keys
           )
         end
       end

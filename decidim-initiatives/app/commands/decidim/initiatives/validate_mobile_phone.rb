@@ -4,7 +4,7 @@ module Decidim
   module Initiatives
     # Command to check if mobile phone has an authorization and
     # deliver sms code
-    class ValidateMobilePhone < Rectify::Command
+    class ValidateMobilePhone < Decidim::Command
       # Public: Initializes the command.
       #
       # form - A MobilePhoneForm.

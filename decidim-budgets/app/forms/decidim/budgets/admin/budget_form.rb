@@ -24,14 +24,14 @@ module Decidim
         #
         # Returns a Decidim::Scope
         def scope
-          @scope ||= @decidim_scope_id ? current_component.scopes.find_by(id: @decidim_scope_id) : current_component.scope
+          @scope ||= @attributes["decidim_scope_id"].value ? current_component.scopes.find_by(id: @attributes["decidim_scope_id"].value) : current_component.scope
         end
 
         # Scope identifier
         #
         # Returns the scope identifier related to the meeting
         def decidim_scope_id
-          @decidim_scope_id || scope&.id
+          super || scope&.id
         end
       end
     end

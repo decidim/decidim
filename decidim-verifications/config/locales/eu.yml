@@ -8,7 +8,7 @@ eu:
         online: Online
       id_document_information:
         document_number: Dokumentuaren zenbakia (letra batekin)
-        document_type: Dokumentuaren mota
+        document_type: Dokumentu mota
       id_document_upload:
         document_number: Dokumentuaren zenbakia (letra batekin)
         document_type: Zure dokumentuaren mota

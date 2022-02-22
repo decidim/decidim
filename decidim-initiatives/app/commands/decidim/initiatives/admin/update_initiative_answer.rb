@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic to answer
       # initiatives.
-      class UpdateInitiativeAnswer < Rectify::Command
+      class UpdateInitiativeAnswer < Decidim::Command
         # Public: Initializes the command.
         #
         # initiative   - Decidim::Initiative

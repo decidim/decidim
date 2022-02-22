@@ -4,7 +4,7 @@ module Decidim
   module Assemblies
     module Admin
       # A class used to find the admins for an assembly or an organization assemblies.
-      class AdminUsers < Rectify::Query
+      class AdminUsers < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         #
         # assembly - an assembly that needs to find its assembly admins

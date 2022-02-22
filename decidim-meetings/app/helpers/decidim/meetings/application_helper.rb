@@ -8,15 +8,15 @@ module Decidim
       include PaginateHelper
       include Decidim::MapHelper
       include Decidim::Meetings::MapHelper
-      include Decidim::Meetings::MeetingsHelper
       include Decidim::Comments::CommentsHelper
       include Decidim::SanitizeHelper
       include Decidim::CheckBoxesTreeHelper
+      include Decidim::RichTextEditorHelper
 
       def filter_origin_values
         origin_values = []
         origin_values << TreePoint.new("official", t("decidim.meetings.meetings.filters.origin_values.official"))
-        origin_values << TreePoint.new("citizens", t("decidim.meetings.meetings.filters.origin_values.citizens")) # todo
+        origin_values << TreePoint.new("participants", t("decidim.meetings.meetings.filters.origin_values.participants")) # todo
         if current_organization.user_groups_enabled?
           origin_values << TreePoint.new("user_group", t("decidim.meetings.meetings.filters.origin_values.user_groups")) # todo
         end
@@ -56,6 +56,18 @@ module Decidim
           ["all", t("decidim.meetings.meetings.filters.all")],
           ["my_meetings", t("decidim.meetings.meetings.filters.my_meetings")]
         ]
+      end
+
+      # If the meeting is official or the rich text editor is enabled on the
+      # frontend, the meeting body is considered as safe content; that's unless
+      # the meeting comes from a collaborative_draft or a participatory_text.
+      def safe_content?
+        rich_text_editor_in_public_views? || @meeting.official?
+      end
+
+      # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.
+      def render_meeting_body(meeting)
+        render_sanitized_content(meeting, :description)
       end
     end
   end

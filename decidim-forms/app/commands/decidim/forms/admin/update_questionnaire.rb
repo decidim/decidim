@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user changes a Questionnaire from the admin
       # panel.
-      class UpdateQuestionnaire < Rectify::Command
+      class UpdateQuestionnaire < Decidim::Command
         # Initializes a UpdateQuestionnaire Command.
         #
         # form - The form from which to get the data.

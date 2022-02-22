@@ -39,7 +39,7 @@ describe PassthruValidator do
         ActiveModel::Name.new(self, nil, "Validatable")
       end
 
-      include Virtus.model
+      include Decidim::AttributeObject::Model
       include ActiveModel::Validations
 
       attribute :file
@@ -108,7 +108,7 @@ describe PassthruValidator do
         it { is_expected.to be_valid }
       end
 
-      context "when the if condition returns false" do
+      context "when the unless condition returns false" do
         let(:validator_settings) { { unless: -> { false } } }
 
         it { is_expected.to be_invalid }

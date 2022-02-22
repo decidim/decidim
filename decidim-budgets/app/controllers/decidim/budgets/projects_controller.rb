@@ -28,7 +28,7 @@ module Decidim
       def projects
         return @projects if @projects
 
-        @projects = search.results.page(params[:page]).per(current_component.settings.projects_per_page)
+        @projects = search.result.page(params[:page]).per(current_component.settings.projects_per_page)
         @projects = reorder(@projects)
       end
 
@@ -36,25 +36,21 @@ module Decidim
         @project ||= Project.find_by(id: params[:id])
       end
 
-      def search_klass
-        ProjectSearch
+      def search_collection
+        Project.where(budget: budget).includes([:scope, :component, :attachments, :category])
       end
 
       def default_filter_params
         {
-          search_text: "",
-          status: default_filter_status_params,
-          scope_id: default_filter_scope_params,
-          category_id: default_filter_category_params
+          search_text_cont: "",
+          with_any_status: default_filter_status_params,
+          with_any_scope: default_filter_scope_params,
+          with_any_category: default_filter_category_params
         }
       end
 
       def default_filter_status_params
         voting_finished? ? %w(selected) : %w(all)
-      end
-
-      def context_params
-        { budget: budget, component: current_component, organization: current_organization }
       end
     end
   end

@@ -1,5 +1,3 @@
-:doctype: book
-
 image::https://cdn.rawgit.com/decidim/decidim/develop/logo.svg[Decidim Logo,400]
 
 The participatory democracy framework.
@@ -15,7 +13,7 @@ All members of the Decidim community agree with http://www.decidim.org/contract/
 
 '''
 
-image:https://img.shields.io/gem/v/decidim.svg[Gem,link=https://rubygems.org/gems/decidim] image:https://img.shields.io/gem/dt/decidim.svg[Gem,link=https://rubygems.org/gems/decidim] image:https://img.shields.io/github/contributors/decidim/decidim.svg[GitHub contributors,link=https://github.com/decidim/decidim/graphs/contributors] image:http://img.shields.io/badge/yard-docs-blue.svg[Yard Docs,link=http://rubydoc.info/github/decidim/decidim/master] image:https://img.shields.io/gitter/room/nwjs/nw.js.svg[Gitter,link=https://gitter.im/decidim/decidim]
+image:https://img.shields.io/gem/v/decidim.svg[Gem,link=https://rubygems.org/gems/decidim] image:https://img.shields.io/gem/dt/decidim.svg[Gem,link=https://rubygems.org/gems/decidim] image:https://img.shields.io/github/contributors/decidim/decidim.svg[GitHub contributors,link=https://github.com/decidim/decidim/graphs/contributors] image:http://img.shields.io/badge/yard-docs-blue.svg[Yard Docs,link=http://rubydoc.info/github/decidim/decidim/master] image:https://img.shields.io/matrix/decidimdevs:matrix.org[Matrix,link=https://matrix.to/#/#decidimdevs:matrix.org]
 
 Code quality
 
@@ -103,7 +101,7 @@ We recommend doing that on GitHub (or any other code hosting platform) before pu
 
 You can read more on "http://producingoss.com/en/governments-and-open-source.html#starting-open-for-govs[Being Open Source From Day One is Especially Important for Government Projects]".
 
-If you have any trouble you can contact us on https://gitter.im/decidim/decidim[Gitter].
+If you have any trouble you can contact us on https://app.element.io/#/room/#decidimdevs:matrix.org[our Matrix.org chat room for developers].
 
 == Example applications
 

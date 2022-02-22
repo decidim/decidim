@@ -9,59 +9,59 @@ ro:
   decidim:
     admin:
       menu:
-        templates: Șabloane
+        templates: Modele
       templates:
         apply:
-          error: A apărut o eroare la aplicarea acestui șablon.
-          success: Șablonul aplicat cu succes
+          error: A apărut o eroare la aplicarea acestui model.
+          success: Modelul a fost aplicat cu succes
         copy:
-          error: A apărut o eroare la copierea acestui șablon.
-          success: Șablon copiat cu succes
+          error: A apărut o eroare la copierea acestui model.
+          success: Modelul a fost copiat cu succes
         create:
-          error: A apărut o eroare la crearea acestui șablon.
-          success: Șablon creat cu succes
+          error: A apărut o eroare la crearea acestui model.
+          success: Modelul a fost creat cu succes
         destroy:
-          success: Şablon şters cu succes
-        empty: Nu există încă nici un şabloan.
+          success: Modelul a fost şters cu succes
+        empty: Nu există încă nici un model.
         update:
-          error: A apărut o eroare la actualizarea acestui șablon.
-          success: Şablon actualizat cu succes
+          error: A apărut o eroare la actualizarea acestui model.
+          success: Modelul a fost actualizat cu succes
       titles:
         template_types:
-          questionnaires: Şabloane chestionar
-        templates: Şabloane
+          questionnaires: Model de chestionar
+        templates: Modele
     models:
       questionnaire_template:
         fields:
           questions: Număr de întrebări
-          title: Nume chestionar
+          title: Numele chestionarului
       template:
         fields:
           created_at: Creat la
-        name: Șablon
+        name: Model
     templates:
       admin:
         questionnaire_templates:
           choose:
-            create_from_template: Creați un șablon
-            description: Sunteți pe cale să creați un nou chestionar. Puteți alege un șablon predefinit și să-l modificați ulterior.
-            label: Alegeți un șablon
-            placeholder: Alegeți un șablon
+            create_from_template: Creează după model
+            description: Ești pe cale de a crea un nou chestionar. Poți alege un model predefinit și să-l modifici ulterior.
+            label: Alege un model
+            placeholder: Alege un model
             skip_template: Treci peste
           edit:
             edit: Editează
-            empty: Încă nu există întrebări
+            empty: Nu există încă întrebări
             questionnaire: Chestionar
           form:
-            save: Salveaza
-            template_title: Informatii Sablon
-            title: Sablon chestionar %{questionnaire_for}
+            save: Salvează
+            template_title: Informatii despre model
+            title: Model de chestionar %{questionnaire_for}
           index:
-            confirm_delete: Sunteți sigur că doriți să ștergeți acest șablon?
-            title: Şabloane chestionar
+            confirm_delete: Sigur dorești să ștergi acest model?
+            title: Model de chestionar
           preview:
             current_step: Pasul %{step}
             of_total_steps: din %{total_steps}
-            tos_agreement: Prin participare acceptați termenii și condițiile sale de utilizare
+            tos_agreement: Prin participare accepți Termenii și condițiile sale de utilizare
       template_types:
         questionnaires: Chestionare

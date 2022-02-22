@@ -3,8 +3,10 @@
 require "decidim/core/engine"
 require "decidim/core/api"
 require "decidim/core/version"
+
 # Decidim configuration.
 module Decidim
+  autoload :Env, "decidim/env"
   autoload :Deprecations, "decidim/deprecations"
   autoload :ActsAsAuthor, "decidim/acts_as_author"
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
@@ -43,7 +45,6 @@ module Decidim
   autoload :FriendlyDates, "decidim/friendly_dates"
   autoload :Nicknamizable, "decidim/nicknamizable"
   autoload :HasReference, "decidim/has_reference"
-  autoload :Attributes, "decidim/attributes"
   autoload :StatsRegistry, "decidim/stats_registry"
   autoload :Exporters, "decidim/exporters"
   autoload :FileZipper, "decidim/file_zipper"
@@ -64,6 +65,7 @@ module Decidim
   autoload :NewsletterEncryptor, "decidim/newsletter_encryptor"
   autoload :NewsletterParticipant, "decidim/newsletter_participant"
   autoload :Searchable, "decidim/searchable"
+  autoload :FilterableResource, "decidim/filterable_resource"
   autoload :SearchResourceFieldsMapper, "decidim/search_resource_fields_mapper"
   autoload :QueryExtensions, "decidim/query_extensions"
   autoload :ParticipatorySpaceResourceable, "decidim/participatory_space_resourceable"
@@ -77,6 +79,7 @@ module Decidim
   autoload :Amendable, "decidim/amendable"
   autoload :Gamification, "decidim/gamification"
   autoload :Hashtag, "decidim/hashtag"
+  autoload :Etherpad, "decidim/etherpad"
   autoload :Paddable, "decidim/paddable"
   autoload :OpenDataExporter, "decidim/open_data_exporter"
   autoload :IoEncoder, "decidim/io_encoder"
@@ -95,6 +98,14 @@ module Decidim
   autoload :RecordEncryptor, "decidim/record_encryptor"
   autoload :AttachmentAttributes, "decidim/attachment_attributes"
   autoload :CarrierWaveMigratorService, "decidim/carrier_wave_migrator_service"
+  autoload :ReminderRegistry, "decidim/reminder_registry"
+  autoload :ReminderManifest, "decidim/reminder_manifest"
+  autoload :ManifestMessages, "decidim/manifest_messages"
+  autoload :CommonPasswords, "decidim/common_passwords"
+  autoload :HasArea, "decidim/has_area"
+  autoload :AttributeObject, "decidim/attribute_object"
+  autoload :Query, "decidim/query"
+  autoload :Command, "decidim/command"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -384,6 +395,18 @@ module Decidim
     "decidim-cc"
   end
 
+  # Blacklisted passwords. Array may contain strings and regex entries.
+  config_accessor :password_blacklist do
+    []
+  end
+
+  # This is an internal key that allow us to properly configure the caching key separator. This is useful for redis cache store
+  # as it creates some namespaces within the cached data.
+  # use `config.cache_key_separator = ":"` in your initializer to have namespaced data
+  config_accessor :cache_key_separator do
+    "/"
+  end
+
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #
@@ -520,6 +543,10 @@ module Decidim
     @participatory_space_registry ||= ManifestRegistry.new(:participatory_spaces)
   end
 
+  def self.reminders_registry
+    @reminders_registry ||= ReminderRegistry.new
+  end
+
   # Public: Stores the registry of resource spaces
   def self.resource_registry
     @resource_registry ||= ManifestRegistry.new(:resources)
@@ -593,8 +620,11 @@ module Decidim
   end
 
   # Defines the time after which the machine translation job should be enabled.
-  # In some cases, it is required to have a delay, otherwise the ttanslation job will be discarded:
-  #  Discarded Decidim::MachineTranslationResourceJob due to a ActiveJob::DeserializationError.
+  # In some cases, like when Workers is processing faster than ActiveRecord can commit to Database,
+  # it is required to have a delay, to prevent any discarding with
+  # Decidim::MachineTranslationResourceJob due to a ActiveJob::DeserializationError.
+  # In some Decidim Installations, ActiveJob can be configured to discard jobs failing with
+  # ActiveJob::DeserializationError
   config_accessor :machine_translation_delay do
     0.seconds
   end
@@ -603,5 +633,9 @@ module Decidim
     return unless Decidim.enable_machine_translations
 
     Decidim.machine_translation_service.to_s.safe_constantize
+  end
+
+  def self.register_assets_path(path)
+    Rails.autoloaders.main.ignore(path) if Rails.configuration.autoloader == :zeitwerk
   end
 end

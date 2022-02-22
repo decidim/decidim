@@ -8,10 +8,4 @@ shared_examples_for "resourceable" do
       expect(subject.resource_title).to be_present
     end
   end
-
-  describe "resource_description" do
-    it "is defined" do
-      expect(subject.resource_title).to be_present
-    end
-  end
 end

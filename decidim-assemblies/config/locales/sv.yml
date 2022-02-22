@@ -61,6 +61,7 @@ sv:
         designation_date: Utnämningsdatum
         full_name: Fullständigt namn
         gender: Kön
+        non_user_avatar: Profilbild
         position: Befattning
         user_id: Användare
       assembly_user_role:
@@ -181,6 +182,9 @@ sv:
         update:
           error: Det gick inte att uppdatera en administratör för gruppen.
           success: Administratören för gruppen har uppdaterats.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Typ av grupp
       menu:
         assemblies: Grupper
         assemblies_settings: Inställningar
@@ -295,7 +299,10 @@ sv:
         assembly_members:
           form:
             existing_user: Befintlig deltagare
+            explanation: 'Vägledning för bild:'
+            image_guide: Helst en porträttbild utan text.
             non_user: Ej deltagande
+            non_user_avatar_help: Du bör få samtycke av personerna innan du publicerar dem som medlem.
             select_a_position: Välj en position
             select_user: Välj en deltagare
             user_type: Typ av deltagare

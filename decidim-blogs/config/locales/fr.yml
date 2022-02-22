@@ -15,7 +15,7 @@ fr:
         edit: Modifier
         new: Nouvel article
         title: Actions
-        user_group_id: Créer un article comme
+        user_group_id: Créer un article en tant que
       admin:
         models:
           components:
@@ -60,10 +60,9 @@ fr:
     components:
       blogs:
         actions:
-          amend: Amender
-          comment: Commenter
-          endorse: Soutenir
-          vote: Voter
+          create: Créer
+          destroy: Supprimer
+          update: Mettre à jour
         name: Actualités
         settings:
           global:
@@ -83,4 +82,4 @@ fr:
           email_subject: Nouvel article publié dans %{participatory_space_title}
           notification_title: L'article <a href="%{resource_path}">%{resource_title}</a> a été publié dans %{participatory_space_title}
     statistics:
-      posts_count: Publications
+      posts_count: Articles

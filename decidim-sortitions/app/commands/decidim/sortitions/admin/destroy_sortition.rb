@@ -4,7 +4,7 @@ module Decidim
   module Sortitions
     module Admin
       # Command that cancels a sortition
-      class DestroySortition < Rectify::Command
+      class DestroySortition < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

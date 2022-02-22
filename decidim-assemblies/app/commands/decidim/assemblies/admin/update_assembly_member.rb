@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when updating an assembly
       # member in the system.
-      class UpdateAssemblyMember < Rectify::Command
+      class UpdateAssemblyMember < Decidim::Command
         include ::Decidim::AttachmentAttributesMethods
 
         # Public: Initializes the command.
@@ -51,16 +51,16 @@ module Decidim
 
         def attributes
           form.attributes.slice(
-            :full_name,
-            :gender,
-            :birthday,
-            :birthplace,
-            :ceased_date,
-            :designation_date,
-            :position,
-            :position_other,
-            :weight
-          ).merge(
+            "full_name",
+            "gender",
+            "birthday",
+            "birthplace",
+            "ceased_date",
+            "designation_date",
+            "position",
+            "position_other",
+            "weight"
+          ).symbolize_keys.merge(
             user: form.user
           ).merge(
             attachment_attributes(:non_user_avatar)

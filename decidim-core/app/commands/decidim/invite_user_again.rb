@@ -2,7 +2,7 @@
 
 module Decidim
   # A command with the business logic to invite an user to an organization.
-  class InviteUserAgain < Rectify::Command
+  class InviteUserAgain < Decidim::Command
     # Public: Initializes the command.
     #
     # user         - The user that receives the invitation instructions.

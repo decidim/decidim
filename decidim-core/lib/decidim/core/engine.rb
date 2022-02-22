@@ -17,7 +17,6 @@ require "rectify"
 require "carrierwave"
 require "rails-i18n"
 require "date_validator"
-require "truncato"
 require "file_validators"
 require "omniauth"
 require "omniauth-facebook"
@@ -34,14 +33,11 @@ require "cell/partial"
 require "kaminari"
 require "doorkeeper"
 require "doorkeeper-i18n"
-require "nobspw"
 require "batch-loader"
-require "etherpad-lite"
+require "mime-types"
 require "diffy"
-require "anchored"
 require "social-share-button"
 require "ransack"
-require "searchlight"
 require "webpacker"
 
 # Needed for the assets:precompile task, for configuring webpacker instance
@@ -89,6 +85,17 @@ module Decidim
 
         Decidim::Api.add_orphan_type Decidim::Core::UserType
         Decidim::Api.add_orphan_type Decidim::Core::UserGroupType
+      end
+
+      initializer "decidim.ransack" do
+        Ransack.configure do |config|
+          # Avoid turning parameter values such as user_id[]=1&user_id[]=2 into
+          # { user_id: [true, "2"] }. This option allows us to handle the type
+          # convertions manually instead for each case.
+          # See: https://github.com/activerecord-hackery/ransack/issues/593
+          # See: https://github.com/activerecord-hackery/ransack/pull/742
+          config.sanitize_custom_scope_booleans = false
+        end
       end
 
       initializer "decidim.i18n_exceptions" do
@@ -166,6 +173,7 @@ module Decidim
 
         Decidim.stats.register :processes_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, start_at, end_at|
           processes = ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcesses.new(organization)
+
           processes = processes.where("created_at >= ?", start_at) if start_at.present?
           processes = processes.where("created_at <= ?", end_at) if end_at.present?
           processes.count
@@ -540,12 +548,12 @@ module Decidim
         end
       end
 
-      initializer "nbspw" do
-        NOBSPW.configuration.use_ruby_grep = true
-      end
-
       initializer "decidim.premailer" do
         Premailer::Adapter.use = :decidim
+      end
+
+      initializer "decidim_core.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 
       config.to_prepare do

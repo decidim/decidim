@@ -204,7 +204,7 @@ cs:
             answers_with_costs: Povolit finanční náklady v odpovědích k návrhu
             automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
             comments_blocked: Komentáře byly blokovány
-            creation_enabled: Vytváření návrhu je povoleno
+            creation_enabled: Účastníci mohou vytvářet návrhy
             default_sort_order: Výchozí řazení návrhu
             default_sort_order_help: Výchozí znamená, že pokud jsou podporované funkce povoleny, budou návrhy zobrazeny náhodně, a pokud jsou opory blokovány, pak budou seřazeny podle nejpodporovanější.
             default_sort_order_options:
@@ -308,7 +308,7 @@ cs:
           email_intro: Návrh "%{resource_title}" byl přidán k "%{participatory_space_title}", který sledujete.
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{participatory_space_title}". Můžete jej odhlásit od předchozího odkazu.
           email_subject: Nový návrh "%{resource_title}" byl přidán k %{participatory_space_title}
-          notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl přidán do %{participatory_space_title}
+          notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl přidán do %{participatory_space_title} uživatelem %{author}
         proposal_rejected:
           affected_user:
             email_intro: 'Váš návrh "%{resource_title}" byl zamítnut. Odpověď můžete číst na této stránce:'
@@ -606,9 +606,9 @@ cs:
           all: Vše
         filter_origin_values:
           all: Vše
-          citizens: Občané
           meetings: Setkání
           official: Oficiální
+          participants: Účastníci
           user_groups: Skupiny uživatelů
         filter_scope_values:
           all: Vše

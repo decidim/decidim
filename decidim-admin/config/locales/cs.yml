@@ -367,6 +367,13 @@ cs:
           values:
             'false': 'Ne'
             'true': 'Ano'
+        moderated_users:
+          reports_reason_eq:
+            label: Důvod hlášení
+            values:
+              does_not_belong: Nepatří
+              offensive: Urážlivý
+              spam: Nevyžádané
         moderations:
           reportable_type_string_eq:
             label: Typ
@@ -401,9 +408,11 @@ cs:
         search_label: Hledat
         search_placeholder:
           name_or_nickname_or_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky.
+          report_count_eq: Počet nahlášení
           reported_id_string_or_reported_content_cont: Hledat %{collection} podle nahlášeného Id nebo obsahu.
           title_cont: Hledat %{collection} podle názvu.
           user_name_or_user_email_cont: Hledat %{collection} podle jména nebo e-mailu.
+          user_name_or_user_nickname_or_user_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky.
         state_eq:
           label: Stav
           values:
@@ -833,6 +842,16 @@ cs:
           explanation: 'Nahrajte soubor CSV. Musí mít dva sloupce s e-mailem v prvním sloupci souboru a jméno v posledním sloupci souboru (e-mail, jméno) uživatelů, které chcete přidat do participačního prostoru, bez záhlaví. Vyhněte se používání neplatných znaků jako `<>?%&^*#@()[]=+:;"{}\|` v uživatelském jméně.'
           title: Nahrajte Váš CSV soubor
           upload: Nahrát
+      reminders:
+        create:
+          error: Při vytváření připomenutí došlo k chybě.
+          success:
+            one: "%{count} uživatel bude upozorněn."
+            few: "%{count} uživatelé budou upozorněni."
+            many: "%{count} uživatelů bude upozorněno."
+            other: "%{count} uživatelů bude upozorněno."
+        new:
+          submit: Odeslat
       resource_permissions:
         edit:
           submit: Předložit

@@ -56,7 +56,8 @@ Decidim.register_component(:elections) do |component|
 
   component.exports :elections do |exports|
     exports.collection do |component_instance|
-      Decidim::Elections::Question.where(election: Decidim::Elections::Election.where(component: component_instance).bb_results_published).collect(&:answers).flatten
+      Decidim::Elections::Answer
+        .where(decidim_elections_question_id: Decidim::Elections::Election.where(component: component_instance).bb_results_published.extract_associated(:questions))
     end
 
     exports.include_in_open_data = true

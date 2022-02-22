@@ -103,7 +103,6 @@ id:
             announcement: Pengumuman
             automatic_hashtags: Hashtag ditambahkan ke semua proposal
             comments_blocked: Komentar diblokir
-            creation_enabled: Pembuatan proposal diaktifkan
             endorsements_blocked: Pengesahan dicekal
             endorsements_enabled: Pengesahan diaktifkan
             proposal_answering_enabled: Pengangkatan proposal diaktifkan
@@ -188,7 +187,6 @@ id:
           email_intro: Proposal "%{resource_title}" telah ditambahkan ke "%{participatory_space_title}" yang Anda ikuti.
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{participatory_space_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
           email_subject: Proposal baru "%{resource_title}" ditambahkan ke %{participatory_space_title}
-          notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> telah ditambahkan ke %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Proposal Anda "%{resource_title}" telah ditolak. Anda dapat membaca jawabannya di halaman ini:'
@@ -405,7 +403,6 @@ id:
           all: Semua
         filter_origin_values:
           all: Semua
-          citizens: Warga
           meetings: Rapat
           official: Resmi
           user_groups: Grup Pengguna

@@ -4,7 +4,7 @@ module Decidim
   module Votings
     module Votes
       # A class used to find a non-rejected in person vote registered for a voter in an election
-      class InPersonVoteForVoter < Rectify::Query
+      class InPersonVoteForVoter < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         #
         # election - the election where the vote was casted

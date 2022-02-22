@@ -126,6 +126,7 @@ module Decidim::Proposals
         it "generate a different hash" do
           old_hash = my_cell.send(:cache_hash)
           create(:proposal_vote, proposal: proposal)
+          my_cell.model.reload
 
           expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
         end
@@ -150,6 +151,7 @@ module Decidim::Proposals
         it "generate a different hash" do
           old_hash = my_cell.send(:cache_hash)
           create(:attachment, :with_image, attached_to: proposal)
+          my_cell.model.reload
 
           expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
         end

@@ -103,6 +103,7 @@ shared_context "with frontend map elements" do
     final_html = html_document
     Rails.application.routes.draw do
       get "test_dynamic_map", to: ->(_) { [200, {}, [final_html]] }
+      get "offline", to: ->(_) { [200, {}, [""]] }
     end
 
     visit "/test_dynamic_map"
@@ -180,7 +181,6 @@ shared_examples "a record with front-end geocoding address field" do |geocoded_m
   it "calls the front-end geocoder when an address is written", :slow do
     within view_options[:within_selector] do
       fill_in_geocoding view_options[:address_field], with: geocoded_address_value
-      find(".tribute-container ul#results li", match: :first).click
       find("*[type=submit]").click
     end
 

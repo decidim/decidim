@@ -19,6 +19,8 @@ nl:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Reactie
         name: Loting
         settings:
           global:

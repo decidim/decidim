@@ -10,6 +10,7 @@ require "db-query-matchers"
 require "action_view/helpers/sanitize_helper"
 require "axe-rspec"
 require "w3c_rspec_validators"
+require "decidim/dev/test/w3c_rspec_validators_overrides"
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./rspec_support/ and its subdirectories.

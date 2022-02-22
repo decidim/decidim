@@ -40,16 +40,9 @@ module Decidim
             expect(action_log.version).to be_present
           end
 
-          it "schedules a upcoming meeting notification job 48h before start time" do
-            expect(UpcomingMeetingNotificationJob)
-              .to receive(:generate_checksum).and_return "1234"
-
-            expect(UpcomingMeetingNotificationJob)
-              .to receive_message_chain(:set, :perform_later) # rubocop:disable RSpec/MessageChain
-              .with(set: meeting.start_time - 2.days)
-              .with(kind_of(Integer), "1234")
-
-            subject.call
+          it_behaves_like "emits an upcoming notificaton" do
+            let(:future_start_date) { 1.day.from_now + Decidim::Meetings.upcoming_meeting_notification }
+            let(:past_start_date) { 1.day.ago }
           end
 
           it "sends a notification to the participatory space followers" do

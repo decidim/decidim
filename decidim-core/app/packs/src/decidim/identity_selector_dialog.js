@@ -1,6 +1,6 @@
 /**
  * Makes the #select-identity-button to open a popup for the user to
- * select with which identity he wants to perform an action.
+ * select with which identity they want to perform an action.
  *
  */
 $(() => {

@@ -60,10 +60,9 @@ es-MX:
     components:
       blogs:
         actions:
-          amend: Enmendar
-          comment: Comentar
-          endorse: Adherirse
-          vote: Apoyar
+          create: Crear
+          destroy: Borrar
+          update: Actualizar
         name: Blog
         settings:
           global:

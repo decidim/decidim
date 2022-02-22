@@ -159,7 +159,7 @@ module Decidim
         end
 
         it "sanitizes user input" do
-          expect(comment).to receive(:sanitize_content)
+          expect(comment).to receive(:sanitize_content_for_comment)
           comment.formatted_body
         end
 
@@ -177,6 +177,15 @@ module Decidim
           let(:result) { "<div><blockquote class=\"comment__quote\"><p>quote first line\n<br />quote second line</p></blockquote><p>answer</p></div>" }
 
           it "parses quotes and renders them as blockquotes" do
+            expect(comment.formatted_body).to eq(result)
+          end
+        end
+
+        describe "when the body contains HTML" do
+          let(:body) { %(<a target="alert(1)" href="javascript:alert(document.location)">XSS via target in a tag</a>) }
+          let(:result) { "<div><p>XSS via target in a tag</p></div>" }
+
+          it "parses the HTML and renders them only with accepted tags" do
             expect(comment.formatted_body).to eq(result)
           end
         end
@@ -214,10 +223,10 @@ module Decidim
           expect(parent.comment_threads.count).to eq 3
         end
 
-        it "returns 2 when a comment has been moderated" do
+        it "still returns 3 when a comment has been moderated" do
           Decidim::Moderation.create!(reportable: comments.last, participatory_space: comments.last.participatory_space, hidden_at: 1.day.ago)
 
-          expect(parent.comment_threads.count).to eq 2
+          expect(parent.comment_threads.count).to eq 3
         end
 
         describe "#body_length" do

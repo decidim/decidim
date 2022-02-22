@@ -7,7 +7,7 @@ module Decidim
       attribute :closing_report, String
       attribute :proposal_ids, Array[Integer]
       attribute :proposals
-      attribute :closed_at, Decidim::Attributes::TimeWithZone, default: ->(_form, _attribute) { Time.current }
+      attribute :closed_at, Decidim::Attributes::TimeWithZone, default: -> { Time.current }
       attribute :attendees_count, Integer, default: 0
 
       validates :closing_report, presence: true
@@ -20,7 +20,7 @@ module Decidim
       # Returns nothing.
       def map_model(model)
         self.proposal_ids = model.linked_resources(:proposals, "proposals_from_meeting").pluck(:id)
-        presenter = MeetingPresenter.new(model)
+        presenter = MeetingEditionPresenter.new(model)
         self.closing_report = presenter.closing_report(all_locales: false)
       end
 

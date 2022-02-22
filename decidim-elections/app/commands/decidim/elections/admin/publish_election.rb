@@ -4,7 +4,7 @@ module Decidim
   module Elections
     module Admin
       # This command gets called when a election is published from the admin panel.
-      class PublishElection < Rectify::Command
+      class PublishElection < Decidim::Command
         # Public: Initializes the command.
         #
         # election - The election to publish.

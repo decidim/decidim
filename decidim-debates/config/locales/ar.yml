@@ -14,7 +14,6 @@ ar:
     models:
       decidim/debates/create_debate_event: النقاش
       decidim/debates/creation_disabled_event: تم تعطيل المناقشات
-      decidim/debates/creation_enabled_event: تم تمكين المناقشات
   activerecord:
     models:
       decidim/debates/debate:
@@ -37,7 +36,6 @@ ar:
           step:
             announcement: إعلان
             comments_blocked: تم حظر التعليقات
-            creation_enabled: تم إنشاء المناقشة بواسطة المشاركين
     debates:
       actions:
         confirm_destroy: هل أنت واثق؟
@@ -88,7 +86,6 @@ ar:
           all: الكل
           category: الفئة
           category_prompt: اختر تصنيف
-          citizens: المواطنين
           official: الرسمية
           origin: الأصل
           search: بحث

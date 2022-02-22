@@ -196,9 +196,18 @@ fr-CA:
             answers_with_costs: Activer les coûts sur les réponses aux propositions
             automatic_hashtags: Hashtags ajoutés à toutes les propositions
             comments_blocked: Bloquer la création de nouveaux commentaires
-            creation_enabled: Autoriser la création de nouvelles propositions
+            creation_enabled: Les participants peuvent créer des propositions
             default_sort_order: Tri des propositions par défaut
             default_sort_order_help: Par défaut, si les aides sont activés, les propositions seront affichées par ordre aléatoire, et si les aides sont bloqués, alors ils seront triés par l’aide le plus soutenu.
+            default_sort_order_options:
+              default: Par défaut
+              most_commented: Les plus commentées
+              most_endorsed: Les plus soutenues
+              most_followed: Les plus suivies
+              most_voted: Les plus votées
+              random: Aléatoire
+              recent: Récentes
+              with_more_authors: Avec le plus d'auteurs
             endorsements_blocked: Bloquer les soutiens
             endorsements_enabled: Activer le module de soutiens
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
@@ -291,7 +300,7 @@ fr-CA:
           email_intro: La proposition "%{resource_title}" a été publiée dans "%{participatory_space_title}" que vous suivez.
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez cesser de le suivre en cliquant sur le lien précédent.
           email_subject: Nouvelle proposition "%{resource_title}" ajoutée à %{participatory_space_title}
-          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été publiée dans %{participatory_space_title}
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title} par %{author}
         proposal_rejected:
           affected_user:
             email_intro: 'Votre proposition "%{resource_title}" a été rejetée. Vous pouvez lire la réponse sur cette page:'
@@ -583,9 +592,9 @@ fr-CA:
           all: Tout
         filter_origin_values:
           all: Tout
-          citizens: Propositions citoyennes
           meetings: Des réunions
           official: Propositions officielles
+          participants: Participants
           user_groups: Groupes d'utilisateurs
         filter_scope_values:
           all: Tout

@@ -22,7 +22,7 @@
         <%= form.upload(
               :logo,
               dimensions_info: current_organization.attached_uploader(:logo).dimensions_info,
-              extension_allowlist: current_organization.attached_uploader(:favicon).extension_allowlist
+              extension_allowlist: current_organization.attached_uploader(:logo).extension_allowlist
             ) %>
       </div>
 
@@ -30,7 +30,7 @@
         <%= form.upload(
               :official_img_header,
               dimensions_info: current_organization.attached_uploader(:official_img_header).dimensions_info,
-              extension_allowlist: current_organization.attached_uploader(:favicon).extension_allowlist
+              extension_allowlist: current_organization.attached_uploader(:official_img_header).extension_allowlist
             ) %>
       </div>
 
@@ -38,7 +38,7 @@
         <%= form.upload(
               :official_img_footer,
               dimensions_info: current_organization.attached_uploader(:official_img_footer).dimensions_info,
-              extension_allowlist: current_organization.attached_uploader(:favicon).extension_allowlist
+              extension_allowlist: current_organization.attached_uploader(:official_img_footer).extension_allowlist
             ) %>
       </div>
     </div>

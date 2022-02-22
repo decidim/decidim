@@ -360,6 +360,8 @@ nl:
           email_outro: 'Je hebt deze melding ontvangen omdat je de auteur bent van het initiatief %{resource_title}'
           email_subject: "%{applicant_nickname} wil deelnemen aan je initiatief"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> wil graag deel uitmaken van de promotiecommissie voor jouw initiatief <a href="%{resource_url}">%{resource_title}</a>. Om te accepteren of te weigeren, klik <a href="%{resource_url}/edit">hier</a>.
+      form:
+        attachment_legend: "(Optioneel) Voeg een bijlage toe"
       index:
         title: Initiatieven
       initiative_signatures:
@@ -493,6 +495,9 @@ nl:
     menu:
       initiatives: Initiatieven
     resources:
+      initiative:
+        actions:
+          comment: Reactie
       initiatives_type:
         actions:
           title: acties

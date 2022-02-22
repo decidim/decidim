@@ -25,6 +25,12 @@ module Decidim
 
     validates :name, format: { with: REGEXP_NAME }
 
+    scope :confirmed, -> { where.not(confirmed_at: nil) }
+    scope :not_confirmed, -> { where(confirmed_at: nil) }
+
+    scope :blocked, -> { where(blocked: true) }
+    scope :not_blocked, -> { where(blocked: false) }
+
     # Public: Returns a collection with all the public entities this user is following.
     #
     # This can't be done as with a `has_many :following, through: :following_follows`

@@ -22,7 +22,7 @@ module Decidim
 
             if defined? Decidim::Templates::Admin
               include Decidim::Templates::Admin::Concerns::Templatable
-              helper Decidim::Templates::Admin::TemplatesHelper
+              helper Decidim::DatalistSelectHelper
 
               def templatable_type
                 "Decidim::Forms::Questionnaire"

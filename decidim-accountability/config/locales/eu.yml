@@ -206,18 +206,18 @@ eu:
       accountability:
         actions:
           comment: Iruzkina
-        name: Kontuak
+        name: Jarraipena
         settings:
           global:
             categories_label: '"Kategoriak" izena'
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
-            display_progress_enabled: Bistaratze aurrerapena
+            display_progress_enabled: Erakutsi aurrerapena
             heading_leaf_level_results: '"Proiektuak" izena'
             heading_parent_level_results: '"Emaitzak" izena'
             intro: Intro
             scope_id: Esparrua
-            scopes_enabled: Esparru gaituak
+            scopes_enabled: Esparruak gaituak
             subcategories_label: Izena "Azpikategoriak" izenarekin
           step:
             comments_blocked: Iruzkinak blokeatuta

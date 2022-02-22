@@ -36,15 +36,15 @@ module Decidim
           :match,
           question: question,
           condition_question: condition_question,
-          condition_value: { en: "to Be", es: "o NO", ca: "sEr" }
+          condition_value: { en: "To be", es: "o no", ca: "ser" }
         )
       end
 
       let(:choice_body) do
         {
-          en: "to be or not to be",
-          ca: "Ser o no ser",
-          es: "Ser o no ser"
+          en: "To be or not to be, that is the question",
+          ca: "Ser o no ser, aquesta és la qüestió",
+          es: "Ser o no ser, he ahí el dilema"
         }
       end
       let(:answer_option) { create(:answer_option, question: condition_question, body: choice_body) }
@@ -72,7 +72,7 @@ module Decidim
         context "when condition_type is :answered" do
           let(:condition_type) { :answered }
 
-          context "and body is empty" do
+          context "and form is empty" do
             let(:answer_form) { nil }
 
             it "is not fulfilled" do
@@ -100,7 +100,7 @@ module Decidim
         context "when condition_type is :not_answered" do
           let(:condition_type) { :not_answered }
 
-          context "and body is empty" do
+          context "and form is empty" do
             let(:answer_form) { nil }
 
             it "is not fulfilled" do
@@ -138,7 +138,7 @@ module Decidim
           end
 
           context "and body contains the text in :en" do
-            let(:answer_body) { "To be or not to be" }
+            let(:answer_body) { "To be or not to be, that is the question" }
 
             it "is fulfilled" do
               expect(subject.fulfilled?(answer_form)).to be true
@@ -154,7 +154,7 @@ module Decidim
           end
 
           context "and body contains the text in :ca" do
-            let(:answer_body) { "Ser o no ser" }
+            let(:answer_body) { "Ser o no ser, aquesta és la qüestió" }
 
             it "is fulfilled" do
               expect(subject.fulfilled?(answer_form)).to be true
@@ -170,7 +170,7 @@ module Decidim
           end
 
           context "and body contains the text in :es" do
-            let(:answer_body) { "Ser o no ser" }
+            let(:answer_body) { "Ser o no ser, he ahí el dilema" }
 
             it "is fulfilled" do
               expect(subject.fulfilled?(answer_form)).to be true

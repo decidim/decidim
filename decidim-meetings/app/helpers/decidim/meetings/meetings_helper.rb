@@ -5,6 +5,7 @@ module Decidim
     # Custom helpers used in meetings views
     module MeetingsHelper
       include Decidim::ApplicationHelper
+      include Decidim::Meetings::ApplicationHelper
       include Decidim::TranslationsHelper
       include Decidim::ResourceHelper
 

@@ -146,6 +146,12 @@ gl:
           projects_count:
             one: 1 proxecto
             other: "%{count} proxectos"
+        exit_modal:
+          cancel: Volver á votación
+          close_modal: Pechar modal
+          exit: Saír da votación
+          message: O teu voto non foi rexistrado xa que aínda non completaches o proceso de votación. Estás certo/a de querer saír da votación?
+          title: Aínda non votaches
         filters:
           category: Categoría
           scope: Alcance

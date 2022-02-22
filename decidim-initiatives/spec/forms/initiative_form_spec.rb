@@ -12,11 +12,11 @@ module Decidim
       let(:scope) { create(:initiatives_type_scope, type: initiatives_type) }
       let(:attachment_params) { nil }
 
-      let(:title) { Decidim::Faker::Localized.sentence(word_count: 5) }
+      let(:title) { ::Faker::Lorem.sentence(word_count: 5) }
       let(:attributes) do
         {
           title: title,
-          description: Decidim::Faker::Localized.sentence(word_count: 25),
+          description: ::Faker::Lorem.sentence(word_count: 25),
           type_id: initiatives_type.id,
           scope_id: scope&.scope&.id,
           signature_type: "offline",

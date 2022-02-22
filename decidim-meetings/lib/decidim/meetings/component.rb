@@ -46,7 +46,7 @@ Decidim.register_component(:meetings) do |component|
         .not_hidden
         .visible
         .where(component: component_instance)
-        .includes(:scope, :category, component: { participatory_space: :organization })
+        .includes(:scope, :category, :attachments, component: { participatory_space: :organization })
     end
 
     exports.include_in_open_data = true
@@ -129,6 +129,7 @@ Decidim.register_component(:meetings) do |component|
 
     2.times do
       start_time = [rand(1..20).weeks.from_now, rand(1..20).weeks.ago].sample
+      end_time = start_time + [rand(1..4).hours, rand(1..20).days].sample
       params = {
         component: component,
         scope: Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
@@ -140,7 +141,7 @@ Decidim.register_component(:meetings) do |component|
         location: Decidim::Faker::Localized.sentence,
         location_hints: Decidim::Faker::Localized.sentence,
         start_time: start_time,
-        end_time: start_time + rand(1..4).hours,
+        end_time: end_time,
         address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}",
         latitude: Faker::Address.latitude,
         longitude: Faker::Address.longitude,

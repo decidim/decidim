@@ -24,4 +24,8 @@ describe "Admin manages proposals", type: :system do
   it_behaves_like "merge proposals"
   it_behaves_like "split proposals"
   it_behaves_like "publish answers"
+
+  it_behaves_like "sorted moderations" do
+    let!(:reportables) { create_list(:proposal, 17, component: current_component) }
+  end
 end

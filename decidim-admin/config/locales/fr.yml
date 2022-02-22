@@ -24,7 +24,7 @@ fr:
       component:
         name: Titre
         published_at: Publiée à
-        weight: Rang
+        weight: Rang d'affichage
       id: ID
       import:
         user_group_id: Créer des imports en tant que
@@ -48,7 +48,7 @@ fr:
         favicon: Icône
         force_authentication: Forcer l'authentification
         force_users_to_authenticate_before_access_organization: Forcer les utilisateurs à s'authentifier avant d'accéder à l'organisation
-        from: Adresse mail de l'expéditeur
+        from: Adresse email de l’expéditeur
         github_handler: Gestionnaire GitHub
         header_snippets: Éléments à ajouter entre les balises HTML
         highlight_alternative_color: Surbrillance alternative
@@ -113,12 +113,12 @@ fr:
         show_in_footer: Montrer dans le pied de page
         slug: Identifiant
         title: Titre
-        weight: Rang
+        weight: Rang d'affichage
       static_page_topic:
         description: La description
         show_in_footer: Montrer dans le pied de page
         title: Titre
-        weight: Rang
+        weight: Rang d'affichage
       user_group_csv_verification:
         file: Fichier
     errors:
@@ -181,7 +181,7 @@ fr:
           success: Super! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
           accept: J'accepte les conditions d'utilisation suivantes
-          are_you_sure: Êtes-vous sûr de vouloir refuser les conditions d'utilisation de l'administrateur?
+          are_you_sure: Êtes-vous sûr de vouloir refuser les conditions d'utilisation de l'administrateur ?
           refuse: Refuser les conditions d'utilisation administrateur
           title: Accepter les conditions d'utilisation
         required_review:
@@ -209,7 +209,7 @@ fr:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
           success: Zone d'application créée avec succès.
         destroy:
-          has_spaces: Cette zone a des espaces dépendants. Veuillez vous assurer qu'aucun espace participatif ne référence cette zone avant de la supprimer.
+          has_spaces: Des espaces dépendent de cette zone d'application. Veuillez vous assurer qu'aucun espace participatif n'est lié à cette zone avant de la supprimer.
           success: La zone d'application a bien été supprimée
         edit:
           title: Modifier la zone d'application
@@ -262,7 +262,7 @@ fr:
       block_user:
         new:
           action: Bloquer le compte et envoyer la justification
-          description: Bloquer un utilisateur rendra son compte inutilisable. Vous devriez fournir dans votre justification des actions à effectuer par ce dernier pour envisager le déblocage.
+          description: Bloquer un utilisateur rendra son compte inutilisable, vous devriez fournir dans votre justification les conditions de déblocage de l'utilisateur.
           justification: Justification
           title: Bloquer l'utilisateur %{name}
       categories:
@@ -343,7 +343,7 @@ fr:
         form:
           domain_too_short: Le nom de domaine est trop court
         update:
-          error: Échec lors de la mise à jour de la liste blanches du domaine
+          error: Échec lors de la mise à jour de la liste blanche du domaine
           success: Liste blanche du domaine mise à jour avec succès
       exports:
         export_as: "%{name} en format %{export_format}"
@@ -367,6 +367,13 @@ fr:
           values:
             'false': 'Non'
             'true': 'Oui'
+        moderated_users:
+          reports_reason_eq:
+            label: Raison du signalement
+            values:
+              does_not_belong: N'appartient pas
+              offensive: Offensant
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Type
@@ -401,9 +408,11 @@ fr:
         search_label: Rechercher
         search_placeholder:
           name_or_nickname_or_email_cont: Rechercher les %{collection} par e-mail, nom ou pseudo.
+          report_count_eq: Nombre de signalement
           reported_id_string_or_reported_content_cont: Rechercher %{collection} par Id ou par contenu.
           title_cont: Rechercher %{collection} par titre.
           user_name_or_user_email_cont: Rechercher %{collection} par nom ou par email.
+          user_name_or_user_nickname_or_user_email_cont: Rechercher les %{collection} par e-mail, nom ou pseudo.
         state_eq:
           label: État
           values:
@@ -467,13 +476,13 @@ fr:
             lines:
               detail: Veuillez vérifier que ces lignes sont correctement formatées et contiennent des données valides.
               message:
-                one: Une erreur a été trouvée dans le fichier d'importation à la ligne %{indexes}.
-                other: Erreurs trouvées dans le fichier d'importation sur les lignes %{indexes}.
+                one: Une erreur a été trouvée dans le fichier d'import à la ligne %{indexes}.
+                other: Des erreurs ont été trouvées dans le fichier d'import sur les lignes %{indexes}.
             records:
               detail: Veuillez vérifier que ces lignes sont correctement formatées et contiennent des données valides.
               message:
-                one: Une erreur a été trouvée dans le fichier d'importation pour les enregistrements avec le numéro de commande %{indexes}.
-                other: Erreurs trouvées dans le fichier d'importation pour les enregistrements avec les numéros de commande %{indexes}.
+                one: Une erreur a été trouvée dans le fichier d'import pour les enregistrements avec le numéro de commande %{indexes}.
+                other: Des erreurs ont été trouvées dans le fichier d'import pour les enregistrements avec les numéros de commande %{indexes}.
           missing_headers:
             detail: Veuillez vérifier que le fichier contient les colonnes requises.
             message:
@@ -485,14 +494,14 @@ fr:
           accepted_mime_types:
             csv: csv
             json: json
-            xlsx: xlsx
+            xlsx: Excel (.xlsx)
           actions:
             back: Retour
-          download_example: Télécharger l''exemple
+          download_example: Télécharger l'exemple
           download_example_format: Exemple comme %{name}
           file_legend: Ajouter un fichier d'import qui sera analysé.
           import: Importer
-        notice: "%{number} %{resource_name} importées avec succès"
+        notice: "%{count} %{resource_name} importées avec succès"
       logs:
         logs_list:
           no_logs_yet: Il n'y a pas encore de journal d'activité
@@ -662,7 +671,7 @@ fr:
       newsletters:
         create:
           error: Il y a eu une erreur lors de la création de cette newsletter.
-          success: Bulletin d'information créé avec succès. Veuillez le vérifier avant de l'envoyer.
+          success: Newsletter créée avec succès. N'hésitez pas à la relire avant de l'envoyer.
         deliver:
           error: Il y a eu une erreur lors de l'envoi de cette newsletter.
           success: Newsletter envoyée avec succès.
@@ -745,12 +754,12 @@ fr:
           title: Valider l'utilisateur "%{name}"
         show_email_modal:
           close_modal: Fermer la fenêtre de dialogue
-          description: Si vous avez besoin de contacter directement un participant, vous pouvez cliquer sur le bouton Afficher pour voir leur adresse mèl. Cette action sera enregistrée.
+          description: Si vous avez besoin de contacter directement un participant, vous pouvez cliquer sur le bouton Afficher pour voir son adresse mail. Cette action sera enregistrée.
           email_address: Adresse e-mail
           full_name: Nom complet
           hidden: masqués
           show: Afficher
-          title: Afficher l'adresse e-mail du participant
+          title: Afficher l'adresse e-mail de l'utilisateur
         unblock:
           error: Une erreur s'est produite lors du déblocage du participant
           success: Participant débloqué avec succès
@@ -776,6 +785,7 @@ fr:
         form:
           colors:
             colors_title: Couleurs de l'organisation
+            colors_warning_html: Attention ! La modification de ces couleurs peut rompre les contrastes d'accessibilité. Vous pouvez vérifier le contraste de votre choix avec <a href="%{link}">WebAIM Contrast Checker</a> ou d'autres outils similaires.
             header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises HTML <head> </head>. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.
           cta_button_path_help: 'Vous pouvez remplacer le lien vers lequel renvoie le bouton de la page d''accueil. Utilisez ici des chemins partiels et non des URL complets. Il accepte les lettres, les chiffres, les tirets et les barres obliques, et doit commencer par une lettre. Le bouton apparaît sur la page d''accueil entre le texte de bienvenue et la description. Exemple : %{url}'
           cta_button_text_help: Vous pouvez remplacer le texte du bouton dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton apparaît sur la page d'accueil entre le texte de bienvenue et la description.
@@ -791,7 +801,7 @@ fr:
         external_domain:
           down: Descendre
           external_domain: Domaine externe
-          remove: Supprimer
+          remove: Retirer
           up: Monter
         form:
           add: Ajouter à la liste blanche
@@ -824,6 +834,14 @@ fr:
           explanation: 'Téléchargez votre fichier CSV. Il doit avoir deux colonnes avec dans la première colonne les emails, et dans la deuxième colonne les noms (email, nom) des utilisateurs que vous souhaitez ajouter à l''espace participatif, sans en-tête. Évitez les caractères spéciaux comme `<>?%&^*#@()[]=+:;"{}\|` dans les noms des utilisateurs.'
           title: Téléchargez votre fichier CSV
           upload: Télécharger
+      reminders:
+        create:
+          error: Il y a eu un problème lors de la création des rappels.
+          success:
+            one: "%{count} utilisateur recevra un rappel."
+            other: "%{count} utilisateurs recevront un rappel."
+        new:
+          submit: Envoyer
       resource_permissions:
         edit:
           submit: Soumettre
@@ -990,7 +1008,7 @@ fr:
     forms:
       errors:
         impersonate_user:
-          reason: Vous devez fournir une raison si vous modérer un participant actuellement non-modéré
+          reason: Vous devez fournir une raison si vous modérer un utilisateur actuellement non-modéré
     metrics:
       blocked_users:
         object: utilisateurs bloqués

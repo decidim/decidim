@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic that unpublishes an
       # existing initiative.
-      class UnpublishInitiative < Rectify::Command
+      class UnpublishInitiative < Decidim::Command
         # Public: Initializes the command.
         #
         # initiative - Decidim::Initiative

@@ -35,7 +35,7 @@ module Decidim
       def filter_origin_values
         origin_values = []
         origin_values << TreePoint.new("official", t("decidim.debates.debates.filters.official"))
-        origin_values << TreePoint.new("citizens", t("decidim.debates.debates.filters.citizens"))
+        origin_values << TreePoint.new("participants", t("decidim.debates.debates.filters.participants"))
         origin_values << TreePoint.new("user_group", t("decidim.debates.debates.filters.user_groups")) if current_organization.user_groups_enabled?
 
         TreeNode.new(TreePoint.new("", t("decidim.debates.debates.filters.all")), origin_values)

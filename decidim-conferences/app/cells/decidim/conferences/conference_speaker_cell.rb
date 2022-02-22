@@ -42,7 +42,7 @@ module Decidim
       def avatar_path
         return Decidim::UserPresenter.new(model.user).avatar_url if model.user.present?
 
-        model.attached_uploader(:avatar).path
+        Decidim::ConferenceSpeakerPresenter.new(model).avatar_url
       end
 
       def has_profile?

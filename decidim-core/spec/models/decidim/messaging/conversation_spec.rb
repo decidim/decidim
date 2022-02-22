@@ -48,6 +48,27 @@ describe Decidim::Messaging::Conversation do
           expect(conversation.accept_user?(originator)).to eq(true)
         end
       end
+
+      context "and all the interlocutor have their accounts deleted" do
+        before do
+          allow(interlocutor).to receive(:deleted?).and_return(true)
+          allow(interlocutor2).to receive(:deleted?).and_return(true)
+        end
+
+        it "with_deleted_users? returns true" do
+          expect(conversation.with_deleted_users?(originator)).to eq(true)
+        end
+      end
+
+      context "and one of the interlocutor has the account deleted" do
+        before do
+          allow(interlocutor).to receive(:deleted?).and_return(true)
+        end
+
+        it "with_deleted_users? returns false" do
+          expect(conversation.with_deleted_users?(originator)).to eq(false)
+        end
+      end
     end
 
     context "when the originator is a group" do

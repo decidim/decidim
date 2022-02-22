@@ -45,8 +45,8 @@ en:
       models:
         meeting:
           attributes:
-            show_embedded_iframe:
-              not_embeddable: This URL can't be embedded
+            iframe_embed_type:
+              not_embeddable: This URL can't be embedded in meeting or live event page
         meeting_agenda:
           attributes:
             base:
@@ -90,15 +90,15 @@ en:
             values:
               'false': Past
               'true': Upcoming
-          origin_eq:
-            label: Origin
-            values:
-              citizen: Citizen
-              official: Official
-              user_group: User Groups
           scope_id_eq:
             label: Scope
-          type_eq:
+          with_any_origin:
+            label: Origin
+            values:
+              official: Official
+              participants: Participant
+              user_group: User Groups
+          with_any_type:
             label: Type of meeting
             values:
               hybrid: Both
@@ -283,6 +283,9 @@ en:
           edit:
             close: Close
             title: Close meeting
+        meeting_copies:
+          form:
+            select_a_meeting_type: Please select a meeting type
         meetings:
           close:
             invalid: There was a problem closing this meeting
@@ -301,16 +304,15 @@ en:
             update: Update
           form:
             address_help: 'Address: used by Geocoder to find the location'
-            available_slots_help: Leave it to 0 if you have unlimited slots available
             disclaimer: 'Disclaimer: By using an external registration system, you''re aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
             location_help: 'Location: message directed to the users implying the spot to meet at'
             location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
             online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
-            registration_email_help: This text will appear in the middle of the registration confirmation email. Just after the registration code.
             registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
             select_a_meeting_type: Please select a meeting type
             select_a_registration_type: Please select a registration type
-            show_embedded_iframe_help: Whether or not embed the iframe for this videoconference URL. Only a few services allow embedding (i.e. Youtube, Twitch...)
+            select_an_iframe_access_level: Please select an iframe access level
+            show_embedded_iframe_help: Only a few services allow embedding in meeting or live event (YouTube, Twitch and Jitsi)
           index:
             title: Meetings
           new:
@@ -353,6 +355,7 @@ en:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invites: Invitations
             recommendation_message: For privacy reasons we recommend that you delete this inscription form when you no longer need it. By default this is 3 months after the meeting has ended.
+            registration_email_help: This text will appear in the middle of the registration confirmation email. Just after the registration code.
             registration_form: Registration form
             registrations_count:
               one: There has been %{count} registration.
@@ -402,6 +405,15 @@ en:
           index:
             meetings: Meetings
             space_type: Participatory space
+      iframe_access_level:
+        all: All visitors
+        registered: Registered participants to this meeting
+        signed_in: Only signed-in participants
+      iframe_embed_type:
+        embed_in_meeting_page: Embed in meeting page
+        none: None
+        open_in_live_event_page: Open in live event page (with optional polls)
+        open_in_new_tab: Open URL in a new tab
       last_activity:
         meeting_updated_at_html: "<span>Meeting updated at %{link}</span>"
         new_meeting_at_html: "<span>New meeting at %{link}</span>"
@@ -456,8 +468,8 @@ en:
           origin: Origin
           origin_values:
             all: All
-            citizens: Citizens
             official: Official
+            participants: Participants
             user_groups: Groups
           scope: Scope
           search: Search
@@ -484,7 +496,8 @@ en:
           select_a_category: Please select a category
           select_a_meeting_type: Please select a meeting type
           select_a_registration_type: Please select a registration type
-          show_embedded_iframe_help: Whether or not embed the iframe for this videoconference URL. Only a few services allow embedding (i.e. Youtube, Twitch...)
+          select_an_iframe_access_level: Please select an iframe access level
+          show_embedded_iframe_help: Only a few services allow embedding in meeting or live event (YouTube, Twitch and Jitsi)
         index:
           click_here: See all meetings
           new_meeting: New meeting

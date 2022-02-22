@@ -4,7 +4,7 @@ module Decidim
   module Votings
     module Admin
       # A command with the business logic to create the ballot style
-      class CreateBallotStyle < Rectify::Command
+      class CreateBallotStyle < Decidim::Command
         def initialize(form)
           @form = form
         end

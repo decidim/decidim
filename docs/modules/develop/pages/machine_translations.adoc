@@ -1,6 +1,6 @@
 = Using machine translations
 
-For multilingual organizations, Decidim includes a way to integrate with amachine translation service. The aim of this integration is to provide machine translations for any user-generated content.
+For multilingual organizations, Decidim includes a way to integrate with a machine translation service. The aim of this integration is to provide machine translations for any user-generated content.
 
 == Flow description
 
@@ -16,6 +16,8 @@ This workflow will only start if the machine translation service is configured i
 == Create your own machine translation service
 
 You can use the `Decidim::Dev::DummyTranslator` service as a base. Any new translator service will need to implement the same API as this class.
+In order to test the `Decidim::Dev::DummyTranslator` you will need to add at the top of `config/initializers/decidim.rb` the following line:
+`require "decidim/dev/dummy_translator"`
 
 == Integrating with async services
 
@@ -33,10 +35,14 @@ This is an option in the Decidim initializer:
 ----
 config.enable_machine_translations = true
 config.machine_translation_service = "MyApp::MyOwnTranslationService"
+config.machine_translation_delay = 0.seconds
 ----
 
 The class will need to be implemented, or reuse one from the community. Check the docs on how to implement a machine translation service.
 
 == Enabling the integration, organization-wise
 
-Each organization will be able to enable/disable machine translations if they want to. They can do that from the organization configuration.
+Each organization will be able to enable / disable the machine translations if they want to. The administrators of the organization perform the action from `Settings` -> `Configuration` admin menu, where they can enable or disable the machine translation system, and also they can select the priority.
+
+* Original text first means that the platform will always display the original content as it has been added by contributors
+* Translated text first means that the platform will always display the translation first.

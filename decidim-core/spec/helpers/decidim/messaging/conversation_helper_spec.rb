@@ -54,6 +54,27 @@ module Decidim
         end
       end
 
+      describe "#username_list" do
+        let(:user) { create :user, :confirmed }
+        let(:participants) { [user] }
+
+        before do
+          helper.instance_variable_set(:@virtual_path, "decidim.messaging.conversations.show")
+        end
+
+        it "includes the user name" do
+          expect(helper.username_list(participants)).to eq "<strong>#{user.name}</strong>"
+        end
+
+        context "when user is deleted" do
+          let(:user) { create :user, :deleted }
+
+          it "doesn't include the user name" do
+            expect(helper.username_list(participants)).to eq "<span class=\"label label--small label--basic\">Participant deleted</span>"
+          end
+        end
+      end
+
       describe "#conversation_name_for" do
         let(:user) { create :user, :confirmed }
         let(:participants) { [user] }

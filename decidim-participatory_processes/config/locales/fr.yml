@@ -20,7 +20,7 @@ fr:
         participatory_process_group_id: Groupe de processus
         participatory_scope: Objectifs
         participatory_structure: Modalités de décision
-        promoted: Mise en avant
+        promoted: Mis en avant
         published_at: Publiée à
         related_process_ids: Concertations liées
         scope_id: Périmètre d'application
@@ -34,6 +34,7 @@ fr:
         subtitle: Sous-titre
         target: Participants
         title: Titre
+        weight: Rang d'affichage
       participatory_process_group:
         description: Description
         developer_group: Groupe d'initiateurs
@@ -71,8 +72,8 @@ fr:
   activerecord:
     models:
       decidim/participatory_process:
-        one: Processus participatif
-        other: Processus participatifs
+        one: Concertation
+        other: Concertations
       decidim/participatory_process_group:
         one: Groupe de concertations
         other: Groupes de concertations
@@ -122,7 +123,7 @@ fr:
           fields:
             created_at: Créée le
             private: Privée
-            promoted: Mise en avant
+            promoted: Mettre en avant
             published: Publiée
             title: Titre
           name: Concertation
@@ -225,13 +226,13 @@ fr:
         destroy:
           success: Utilisateur supprimé avec succès de cette concertation.
         edit:
-          title: Mettre à jour l'administrateur du processus participatif
+          title: Mettre à jour l'administrateur de la concertation
           update: Mettre à jour
         index:
           process_admins_title: Administrateurs de la concertation
         new:
           create: Créer
-          title: Nouvel administrateur du processus participatif
+          title: Nouvel administrateur de la concertation
         update:
           error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette concertation.
           success: L'utilisateur a été mis à jour avec succès pour cette concertation.
@@ -288,10 +289,10 @@ fr:
     events:
       participatory_process:
         role_assigned:
-          email_intro: Vous avez été assigné en tant que %{role} pour le processus participatif "%{resource_title}".
-          email_outro: Vous avez reçu cette notification parce que vous êtes %{role} du processus participatif "%{resource_title}".
+          email_intro: Vous avez été assigné en tant que %{role} pour la concertation "%{resource_title}".
+          email_outro: Vous avez reçu cette notification parce que vous êtes %{role} de la concertation "%{resource_title}".
           email_subject: Vous avez été assigné comme %{role} pour "%{resource_title}".
-          notification_title: Vous avez été assigné en tant que %{role} pour le processus participatif <a href="%{resource_url}">%{resource_title}</a>.
+          notification_title: Vous avez été assigné en tant que %{role} pour la concertation <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
           email_intro: 'L''étape %{resource_title} vient d''être activée pour %{participatory_space_title}. Vous pouvez désormais la consulter sur cette page :'
           email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir ces notifications en suivant le lien précédent.
@@ -305,8 +306,8 @@ fr:
     help:
       participatory_spaces:
         participatory_processes:
-          contextual: "<p>Un <strong>processus de participation</strong> est une séquence d'activités de participation (par exemple , premier remplir un sondage, puis faire des propositions, les discuter en face-à-face ou virtuelles, et enfin les hiérarchiser) dans le but de définir et de prendre une décision sur un sujet spécifique.</p> <p>Exemples de processus participatifs: un processus d’élection des membres du comité (où les candidatures sont d'abord présentées, puis débattues et finalement une candidature est choisie), les budgets participatifs (où les propositions sont faites, évaluées économiquement et votées avec l'argent disponible), un processus de planification stratégique, la rédaction collaborative d'un règlement ou d'une norme, la conception d'un espace urbain ou la production d'un plan de politique publique.</p>\n"
-          page: "<p>Un <strong>processus de participation</strong> est une séquence d'activités de participation (par exemple , premier remplir un sondage, puis faire des propositions, les discuter en face-à-face ou virtuelles, et enfin les hiérarchiser) dans le but de définir et de prendre une décision sur un sujet spécifique.</p> <p>Exemples de processus participatifs: un processus d’élection des membres du comité (où les candidatures sont d'abord présentées, puis débattues et finalement une candidature est choisie), les budgets participatifs (où les propositions sont faites, évaluées économiquement et votées avec l'argent disponible), un processus de planification stratégique, la rédaction collaborative d'un règlement ou d'une norme, la conception d'un espace urbain ou la production d'un plan de politique publique.</p>\n"
+          contextual: "<p>Une <strong>concertation</strong> est une séquence d'activités de participation (par exemple remplir un sondage, puis faire des propositions, les discuter en face-à-face ou en ligne, et enfin les hiérarchiser) dans le but de définir et de prendre une décision sur un sujet spécifique.</p> <p>Exemples de processus participatifs: un processus d’élection des membres du comité (où les candidatures sont d'abord présentées, puis débattues et finalement une candidature est choisie), les budgets participatifs (où les propositions sont faites, évaluées économiquement et votées selon l'argent disponible), un processus de planification stratégique, la rédaction collaborative d'un règlement ou d'une norme, la conception d'un espace urbain ou la production d'un plan de politique publique.</p>\n"
+          page: "<p>Une <strong>concertation</strong> est une séquence d'activités de participation (par exemple remplir un sondage, puis faire des propositions, les discuter en face-à-face ou en ligne, et enfin les hiérarchiser) dans le but de définir et de prendre une décision sur un sujet spécifique.</p> <p>Exemples de processus participatifs: un processus d’élection des membres du comité (où les candidatures sont d'abord présentées, puis débattues et finalement une candidature est choisie), les budgets participatifs (où les propositions sont faites, évaluées économiquement et votées selon l'argent disponible), un processus de planification stratégique, la rédaction collaborative d'un règlement ou d'une norme, la conception d'un espace urbain ou la production d'un plan de politique publique.</p>\n"
           title: Qu'est-ce qu'une concertation ?
     menu:
       processes: Concertations
@@ -327,7 +328,7 @@ fr:
         html_3:
           name: Bloc HTML 3
         metadata:
-          developer_group: Promu par
+          developer_group: Organisateur
           name: Métadonnées
           participatory_scope: Objectifs
           participatory_structure: Modalités de décision
@@ -402,7 +403,7 @@ fr:
             more_information: Plus d'informations
             participate: Participer
             participate_in: Participer au processus %{resource_name}
-            processes_button_title: Lien vers la page Concertation où toutes les concertations sont affichées
+            processes_button_title: Lien vers la page des concertations où toutes les concertations sont affichées
             see_all_processes: Voir toutes les concertations
       participatory_process_steps:
         index:
@@ -427,9 +428,9 @@ fr:
             no_active_nor_upcoming: Aucune concertation active ni à venir
             no_active_nor_upcoming_callout: Il n'y a pas de concertations actives ni à venir. Voici une liste des concertations passées.
           names:
-            active: Actifs
-            all: Tous
-            past: Passés
+            active: Actives
+            all: Toutes
+            past: Passées
             upcoming: À venir
           see: Voir
         index:
@@ -449,6 +450,8 @@ fr:
         start_date: Date de début
         target: Participants
         unspecified: Non précisé
+    statistics:
+      processes_count: Concertations
   layouts:
     decidim:
       participatory_process_groups:

@@ -2,7 +2,7 @@
 
 module Decidim
   # A command with all the business logic to join a user group.
-  class JoinUserGroup < Rectify::Command
+  class JoinUserGroup < Decidim::Command
     # Public: Initializes the command.
     #
     # user - the user that wants to join the group

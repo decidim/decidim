@@ -21,6 +21,10 @@ module Decidim
         extra[:downvotes]
       end
 
+      def perform_translation?
+        false
+      end
+
       private
 
       def resource_url_params

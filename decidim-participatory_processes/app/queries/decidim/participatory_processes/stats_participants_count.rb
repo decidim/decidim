@@ -4,7 +4,7 @@ module Decidim
   module ParticipatoryProcesses
     # This class counts unique Participants on a participatory process or
     # participatory processes belonging to a participatory process group
-    class StatsParticipantsCount < Rectify::Query
+    class StatsParticipantsCount < Decidim::Query
       def self.for(participatory_space)
         return 0 unless participatory_space.is_a?(Decidim::ParticipatoryProcess) ||
                         participatory_space.is_a?(Decidim::ParticipatoryProcessGroup) && participatory_space.participatory_processes.exists?

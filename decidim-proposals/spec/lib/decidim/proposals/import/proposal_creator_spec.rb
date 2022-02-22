@@ -14,6 +14,9 @@ describe Decidim::Proposals::Import::ProposalCreator do
       scope: scope,
       :"title/en" => Faker::Lorem.sentence,
       :"body/en" => Faker::Lorem.paragraph(sentence_count: 3),
+      address: "#{Faker::Address.street_name}, #{Faker::Address.city}",
+      latitude: Faker::Address.latitude,
+      longitude: Faker::Address.longitude,
       component: component,
       published_at: moment
     }
@@ -52,6 +55,9 @@ describe Decidim::Proposals::Import::ProposalCreator do
         :"body/en" => data[:"body/en"],
         category: data[:category],
         scope: data[:scope],
+        address: data[:address],
+        latitude: data[:latitude],
+        longitude: data[:longitude],
         component: data[:component],
         published_at: data[:published_at]
       )
@@ -68,6 +74,9 @@ describe Decidim::Proposals::Import::ProposalCreator do
       expect(record.scope).to eq(scope)
       expect(record.title["en"]).to eq(data[:"title/en"])
       expect(record.body["en"]).to eq(data[:"body/en"])
+      expect(record.address).to eq(data[:address])
+      expect(record.latitude).to eq(data[:latitude])
+      expect(record.longitude).to eq(data[:longitude])
       expect(record.published_at).to be >= (moment)
     end
   end

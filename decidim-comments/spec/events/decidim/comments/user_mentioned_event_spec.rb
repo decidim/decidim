@@ -3,16 +3,25 @@
 require "spec_helper"
 
 describe Decidim::Comments::UserMentionedEvent do
-  let(:event_name) { "decidim.events.comments.user_mentioned" }
-
   include_context "when it's a comment event"
 
-  before do
-    body = "Comment mentioning some user, @#{comment.author.nickname}"
-    parsed_body = Decidim::ContentProcessor.parse(body, current_organization: comment.organization)
-    comment.body = { en: parsed_body.rewrite }
-    comment.save
-  end
+  let(:organization) { create(:organization) }
+
+  let(:event_name) { "decidim.events.comments.user_mentioned" }
+  let(:ca_comment_content) { "<div><p>Un commentaire pour #{author_link}</p></div>" }
+  let(:en_comment_content) { "<div><p>Comment mentioning some user, #{author_link}</p></div>" }
+  let(:author_link) { "<a class=\"user-mention\" href=\"http://#{organization.host}/profiles/#{author.nickname}\">@#{author.nickname}</a>" }
+  let(:parsed_body) { Decidim::ContentProcessor.parse("Comment mentioning some user, @#{author.nickname}", current_organization: organization) }
+  let(:parsed_ca_body) { Decidim::ContentProcessor.parse("Un commentaire pour @#{author.nickname}", current_organization: organization) }
+  let(:body) { { en: parsed_body.rewrite, "machine_translations": { "ca": parsed_ca_body.rewrite } } }
+
+  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:component) { create(:component, participatory_space: participatory_process) }
+  let(:commentable) { create(:dummy_resource, component: component) }
+
+  let(:author) { create :user, organization: organization }
+  let!(:comment) { create :comment, body: body, author: author, commentable: commentable }
+  let(:user) { create :user, organization: organization, locale: "ca" }
 
   it_behaves_like "a comment event"
 
@@ -38,17 +47,33 @@ describe Decidim::Comments::UserMentionedEvent do
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include("You have been mentioned in <a href=\"#{resource_path}#comment_#{comment.id}\">#{translated resource.title}</a>")
+        .to include("You have been mentioned in <a href=\"#{resource_path}?commentId=#{comment.id}#comment_#{comment.id}\">#{translated resource.title}</a>")
 
       expect(subject.notification_title)
-        .to include(" by <a href=\"/profiles/#{comment_author.nickname}\">#{comment_author.name} @#{comment_author.nickname}</a>")
+        .to include(" by <a href=\"/profiles/#{author.nickname}\">#{author.name} @#{author.nickname}</a>")
     end
   end
 
   describe "resource_text" do
     it "correctly renders comments with mentions" do
       expect(subject.resource_text).not_to include("gid://")
-      expect(subject.resource_text).to include("@#{comment.author.nickname}")
+      expect(subject.resource_text).to include("@#{author.nickname}")
     end
+  end
+
+  describe "translated notifications" do
+    let(:en_body) { parsed_body.rewrite }
+
+    let(:body) { { en: en_body, "machine_translations": { "ca": parsed_ca_body.rewrite } } }
+
+    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:component) { create(:component, participatory_space: participatory_process) }
+    let(:commentable) { create(:dummy_resource, component: component) }
+    let!(:comment) { create :comment, body: body, author: author, commentable: commentable }
+    let(:en_version) { en_comment_content }
+    let(:machine_translated) { ca_comment_content }
+    let(:translatable) { true }
+
+    it_behaves_like "a translated event"
   end
 end

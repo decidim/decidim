@@ -79,6 +79,7 @@ es-PY:
           form:
             add_question: Añadir pregunta
             add_separator: Añadir separador
+            add_title_and_description: Añadir título y descripción
             already_answered_warning: Algunos usuarios ya han respondido al cuestionario, por lo que no puedes modificar las preguntas.
             collapse: Contraer todas las preguntas
             expand: Expandir todos las preguntas
@@ -108,6 +109,15 @@ es-PY:
             remove: Eliminar
             separator: Separador
             up: Subir
+          title_and_description:
+            collapse: Contraer
+            description: Descripción
+            down: Bajar
+            expand: Expandir
+            remove: Eliminar
+            title: Título
+            title_and_description: Título y descripción
+            up: Subir
           update:
             invalid: Ha habido errores al guardar el cuestionario.
             success: Formulario guardado correctamente.
@@ -131,6 +141,7 @@ es-PY:
         short_answer: Respuesta corta
         single_option: Opción única
         sorting: Ordenación
+        title_and_description: Titulo y descripción
       questionnaires:
         answer:
           invalid: Ha habido errores al responder al cuestionario.

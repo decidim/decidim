@@ -18,7 +18,7 @@ en:
       decidim/debates/close_debate_event: Debate closed
       decidim/debates/create_debate_event: Debate
       decidim/debates/creation_disabled_event: Debates disabled
-      decidim/debates/creation_enabled_event: Debates enabled
+      decidim/debates/creation_enabled_event: Debates creation enabled
   activerecord:
     models:
       decidim/debates/debate:
@@ -42,7 +42,7 @@ en:
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
-            creation_enabled: Debate creation by participants enabled
+            creation_enabled: Participants can create debates
             endorsements_blocked: Endorsements blocked
             endorsements_enabled: Endorsements enabled
     debates:
@@ -118,11 +118,11 @@ en:
           all: All
           category: Category
           category_prompt: Select a category
-          citizens: Citizens
           commented: Commented
           my_debates: My debates
           official: Official
           origin: Origin
+          participants: Participants
           scope: Scope
           search: Search
           state: Status

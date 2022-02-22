@@ -11,7 +11,6 @@ module Decidim
       attribute :category_id, Integer
       attribute :scope_id, Integer
       attribute :user_group_id, Integer
-      attribute :debate, Debate
 
       validates :title, presence: true
       validates :description, presence: true
@@ -22,8 +21,6 @@ module Decidim
 
       def map_model(debate)
         super
-        self.debate = debate
-
         # Debates can be translated in different languages from the admin but
         # the public form doesn't allow it. When a user creates a debate the
         # user locale is taken as the text locale.
@@ -45,14 +42,18 @@ module Decidim
       #
       # Returns a Decidim::Scope
       def scope
-        @scope ||= @scope_id ? current_component.scopes.find_by(id: @scope_id) : current_component.scope
+        @scope ||= @attributes["scope_id"].value ? current_component.scopes.find_by(id: @attributes["scope_id"].value) : current_component.scope
       end
 
       # Scope identifier
       #
       # Returns the scope identifier related to the debate
       def scope_id
-        @scope_id || scope&.id
+        super || scope&.id
+      end
+
+      def debate
+        @debate ||= Debate.find_by(id: id)
       end
 
       private

@@ -30,7 +30,7 @@ module Decidim
         hash << current_organization.cache_key_with_version
         hash << I18n.locale.to_s
 
-        hash.join("/")
+        hash.join(Decidim.cache_key_separator)
       end
     end
   end

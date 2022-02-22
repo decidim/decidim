@@ -340,6 +340,7 @@ en:
           end_vote: "%{user_name} ended the voting period for the election %{resource_name} of %{space_name} on the Bulletin Board"
           publish: "%{user_name} published the election %{resource_name} of %{space_name}"
           publish_results: "%{user_name} published the results for the election %{resource_name} of %{space_name} on the Bulletin Board"
+          report_missing_trustee: "%{user_name} reported %{trustee_name} as a missing trustee during the tally for the election %{resource_name} of %{space_name} on the Bulletin Board"
           setup: "%{user_name} created the election %{resource_name} of %{space_name} on the Bulletin Board"
           start_key_ceremony: "%{user_name} started the key ceremony for the election %{resource_name} of %{space_name} on the Bulletin Board"
           start_tally: "%{user_name} started the tally for the election %{resource_name} of %{space_name} on the Bulletin Board"
@@ -419,9 +420,9 @@ en:
         filters:
           active: Active
           all: All
+          date: Date
           finished: Finished
           search: Search
-          state: Status
           upcoming: Upcoming
         filters_small_view:
           close_modal: Close modal
@@ -580,15 +581,15 @@ en:
               generate_legend_3: Ensure your computer doesn't have a copy of the file (e.g. check the Downloads and Desktop folders).
               generate_legend_4: Make another copy of the file on a different external device and store it in a very safe place.
               submit: Submit
-              submit_legend: After following all the steps explained above, complete the process sending the public identification key to the Decidim server.
+              submit_legend: After following all the steps explained above, complete the process sending the public identification key to the server.
               submit_title: Submit the public identification key
               title: Trustee identification keys
               upload: Upload your identification keys
               upload_error:
                 invalid_format: The uploaded file doesn't contain any identification key.
                 invalid_key: The identification keys in the uploaded file can't be loaded.
-                invalid_public_key: The identification keys in the uploaded file doesn't match the public identification key stored by Decidim.
-              upload_legend: Decidim has your public identification keys, but your browser still doesn't have it. You need to import the file with your identification keys to your computer from the backup you created after generating them.
+                invalid_public_key: The identification keys in the uploaded file doesn't match the public identification key stored.
+              upload_legend: The server has your public identification keys, but your browser still doesn't have it. You need to import the file with your identification keys to your computer from the backup you created after generating them.
             not_supported_browser_description: It looks like you are using a web browser that can't be used to act as a Trustee. Make sure you're using the most recent version of your browser, or try using any of the most popular browsers to be able to complete your Trustee tasks.
             not_supported_browser_title: Upgrade browser to act as a Trustee
             trustee_role_description: You have been assigned to act as a Trustee in some of the elections celebrated in this platform.
@@ -655,9 +656,9 @@ en:
         onboarding_modal:
           close: Close modal
           create_account: Create Account
-          description: Do you want to create a new account in Decidim? You will be able to participate in the processes and be an active part of the organization.
+          description: Do you want to create a new account on the platform? You will be able to participate in the processes and be an active part of the organization.
           no_account: No, thanks.
-          title: New to Decidim?
+          title: New to the platform?
         update:
           error: There was a problem updating the vote status. Please, vote again.
         verify:
@@ -668,7 +669,7 @@ en:
             header: Vote not found!
             info: The vote code was not found in the %{link} ballot box, try again.
           form:
-            back: Back to Decidim
+            back: Back to the platform
             submit: Check
             vote_identifier: 'Identifier code:'
           header:
@@ -985,7 +986,7 @@ en:
             assign_missing_officers: There are Polling Stations without President and/or Managers. Please assign them from the Polling stations section
             update: Update
           form:
-            census_contact_information_help: This contact information is for a participant who wants to report issues with the census. It can be an email address, a contact form on another site, a Decidim survey for visitors, etc.
+            census_contact_information_help: This contact information is for a participant who wants to report issues with the census. It can be an email address, a contact form on another site, a survey for visitors, etc.
             select_a_voting_type: Please select a voting type
             slug_help: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: Title
@@ -1183,14 +1184,14 @@ en:
             census_verified: The participant has not voted yet.
             complete_voting: Complete voting
             identify_another: Identify another participant
-            questions_title: 'She is entitled to vote in the following questions:'
+            questions_title: 'They''re entitled to vote in the following questions:'
             questions_title_voted: 'The participant has already voted online and is entitled to vote in the following questions:'
             voted: The participant has voted
           create:
             error: The vote was not registered. Please try again.
           in_person_form:
             census_not_present: This participant is not listed in the census.
-            census_not_present_description: She must go to the census complaint office or contact support.
+            census_not_present_description: They must go to the census complaint office or contact support.
             date_of_birth: Date of birth
             day: Day
             day_placeholder: DD
@@ -1308,9 +1309,9 @@ en:
         filters:
           active: Active
           all: All
+          date: Date
           finished: Finished
           search: Search
-          state: Status
           upcoming: Upcoming
         filters_small_view:
           close_modal: Close modal

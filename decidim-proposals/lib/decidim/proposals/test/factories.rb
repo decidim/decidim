@@ -305,7 +305,7 @@ FactoryBot.define do
       published_at { nil }
     end
 
-    trait :citizen_author do
+    trait :participant_author do
       after :build do |proposal|
         proposal.coauthorships.clear
         user = build(:user, organization: proposal.component.participatory_space.organization)

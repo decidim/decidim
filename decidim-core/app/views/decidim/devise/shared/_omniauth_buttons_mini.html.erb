@@ -1,21 +1,23 @@
 <% if Devise.mappings[:user].omniauthable? && current_organization.enabled_omniauth_providers.any? %>
   <div class="row">
     <div class="columns medium-8 medium-centered">
-      <span class="register__separator">
-        <span class="register__separator__text"><%= t("or", scope: "decidim.devise.shared.omniauth_buttons") %></span>
-      </span>
       <div class="text-center">
         <%- current_organization.enabled_omniauth_providers.keys.each do |provider| %>
+        <div class="social-register">
           <%= link_to decidim.send("user_#{provider}_omniauth_authorize_path"), class: "button button--social button--#{normalize_provider_name(provider)} button--social--mini", method: :post do %>
             <span class="button--social__icon" aria-hidden="true">
               <%= oauth_icon provider %>
             </span>
-            <span class="show-for-sr">
+            <span class="button--social__text">
               <%= t("devise.shared.links.sign_in_with_provider", provider: normalize_provider_name(provider).titleize) %>
             </span>
           <% end %>
+        </div>
         <% end %>
       </div>
+      <span class="register__separator">
+        <span class="register__separator__text"><%= t("or", scope: "decidim.devise.shared.omniauth_buttons") %></span>
+      </span>
     </div>
   </div>
 <% end %>

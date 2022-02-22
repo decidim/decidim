@@ -352,7 +352,7 @@ en:
             invites: Invites
             search: Search
           new:
-            explanation: The participant will be invited to join a conference. If her email is not registered she will be invited to the organization as well.
+            explanation: The participant will be invited to join a conference. If their email is not registered, they'll be invited to the organization as well.
             invite: Invite
             new_invite: Invite participant
         conference_registrations:

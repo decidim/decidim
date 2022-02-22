@@ -8,6 +8,7 @@ module Decidim
     class ProposalPresenter < Decidim::ResourcePresenter
       include Rails.application.routes.mounted_helpers
       include ActionView::Helpers::UrlHelper
+      include Decidim::SanitizeHelper
 
       def author
         @author ||= if official?
@@ -49,15 +50,7 @@ module Decidim
       def body(links: false, extras: true, strip_tags: false, all_locales: false)
         return unless proposal
 
-        handle_locales(proposal.body, all_locales) do |content|
-          content = strip_tags(sanitize_text(content)) if strip_tags
-
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
-          content = renderer.render(links: links, extras: extras).html_safe
-
-          content = Decidim::ContentRenderers::LinkRenderer.new(content).render if links
-          content
-        end
+        content_handle_locale(proposal.body, all_locales, extras, links, strip_tags)
       end
 
       # Returns the proposal versions, hiding not published answers
@@ -88,45 +81,6 @@ module Decidim
 
       def resource_manifest
         proposal.class.resource_manifest
-      end
-
-      private
-
-      def sanitize_unordered_lists(text)
-        text.gsub(%r{(?=.*</ul>)(?!.*?<li>.*?</ol>.*?</ul>)<li>}) { |li| "#{li}• " }
-      end
-
-      def sanitize_ordered_lists(text)
-        i = 0
-
-        text.gsub(%r{(?=.*</ol>)(?!.*?<li>.*?</ul>.*?</ol>)<li>}) do |li|
-          i += 1
-
-          li + "#{i}. "
-        end
-      end
-
-      def add_line_feeds_to_paragraphs(text)
-        text.gsub("</p>") { |p| "#{p}\n\n" }
-      end
-
-      def add_line_feeds_to_list_items(text)
-        text.gsub("</li>") { |li| "#{li}\n" }
-      end
-
-      # Adds line feeds after the paragraph and list item closing tags.
-      #
-      # Returns a String.
-      def add_line_feeds(text)
-        add_line_feeds_to_paragraphs(add_line_feeds_to_list_items(text))
-      end
-
-      # Maintains the paragraphs and lists separations with their bullet points and
-      # list numberings where appropriate.
-      #
-      # Returns a String.
-      def sanitize_text(text)
-        add_line_feeds(sanitize_ordered_lists(sanitize_unordered_lists(text)))
       end
     end
   end

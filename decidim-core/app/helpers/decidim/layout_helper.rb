@@ -15,6 +15,20 @@ module Decidim
       end)
     end
 
+    def apple_favicon
+      icon_image = current_organization.attached_uploader(:favicon).variant_url(:medium, host: current_organization.host)
+      return unless icon_image
+
+      favicon_link_tag(icon_image, rel: "apple-touch-icon", type: "image/png")
+    end
+
+    def legacy_favicon
+      icon_image = current_organization.attached_uploader(:favicon).variant_url(:small, host: current_organization.host)
+      return unless icon_image
+
+      favicon_link_tag(icon_image.gsub(".png", ".ico"), rel: "icon", sizes: "any", type: nil)
+    end
+
     # Outputs an SVG-based icon.
     #
     # name    - The String with the icon name.

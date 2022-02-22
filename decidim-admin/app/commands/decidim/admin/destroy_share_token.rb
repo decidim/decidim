@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A command with all the business logic to destroy a share token.
-    class DestroyShareToken < Rectify::Command
+    class DestroyShareToken < Decidim::Command
       # Public: Initializes the command.
       #
       # share_token - The share_token to destroy

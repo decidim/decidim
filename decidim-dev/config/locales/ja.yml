@@ -25,8 +25,8 @@ ja:
               baz: Baz
               foo: Foo
           step:
-            endorsements_blocked: 支持をブロック
-            endorsements_enabled: 支持を有効にする
+            endorsements_blocked: オススメをブロック
+            endorsements_enabled: オススメを有効にする
             readonly_step_attribute: 読み取り専用ステップ属性
             test_options:
               bar: バー

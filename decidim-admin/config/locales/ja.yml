@@ -42,14 +42,14 @@ ja:
         customize_welcome_notification: ウェルカム通知をカスタマイズ
         default_locale: 既定のロケール：
         description: 説明
-        enable_omnipresent_banner: Show omnipresent banner
-        enable_participatory_space_filters: 参加スペースフィルタを有効にする
-        facebook_handler: Facebook handler
+        enable_omnipresent_banner: Omnipresentバナーを表示
+        enable_participatory_space_filters: 参加型スペースフィルタを有効にする
+        facebook_handler: Facebook ハンドラー
         favicon: アイコン
         force_authentication: 認証の強制
         force_users_to_authenticate_before_access_organization: 組織にアクセスする前にユーザーの認証を強制する
         from: 送信者メールアドレス
-        github_handler: GitHub handler
+        github_handler: GitHub ハンドラー
         header_snippets: ヘッダスニペットを表示
         highlight_alternative_color: 代替のハイライト
         highlight_color: 強調表示
@@ -61,7 +61,7 @@ ja:
         highlighted_content_banner_short_description: 短い説明
         highlighted_content_banner_title: タイトル
         host: ホスト
-        instagram_handler: Instagram handler
+        instagram_handler: Instagram ハンドラー
         logo: ロゴ
         machine_translation_display_priority: 機械翻訳表示の優先度
         machine_translation_display_priority_original: 元のテキストを最初にする
@@ -79,26 +79,26 @@ ja:
         primary_color: プライマリ（プライマリ）
         reference_prefix: 参照の接頭辞：
         rich_text_editor_in_public_views: 参加者にリッチテキストエディタを有効にする
-        secondary_color: Secondary
+        secondary_color: セカンダリ
         secondary_hosts: セカンダリホスト
         send_welcome_notification: ウェルカム通知を送信
         success_color: 成功
         time_zone: タイムゾーン
-        tos_version: Terms of service version
-        twitter_handler: Twitter handler
+        tos_version: 利用規約のバージョン
+        twitter_handler: Twitter ハンドラー
         user_groups_enabled: グループを有効にする
         users_registration_mode: ユーザー登録モード
         warning_color: 警告
-        welcome_notification_body: Welcome通知本文
+        welcome_notification_body: ウェルカム通知本文
         welcome_notification_subject: ウェルカム通知の件名
-        youtube_handler: YouTube handler
+        youtube_handler: YouTube ハンドラー
       scope:
         code: コード
         name: 名前
         organization: 組織
         parent_id: 親
-        scope_type: スコープの種類
-        scope_type_id: スコープの種類
+        scope_type: スコープ種別
+        scope_type_id: スコープ種別
       scope_type:
         name: 名前
         organization: 組織
@@ -167,7 +167,7 @@ ja:
         newsletter:
           new: 新しいニュースレター
         participatory_space_private_user:
-          new: 新しい参加スペースのプライベートユーザー
+          new: 新しい参加型スペースのプライベートユーザー
         per_page: ページごと
         permissions: アクセス許可
         reject: 拒否
@@ -191,25 +191,25 @@ ja:
         title: 管理者向け利用規約
       area_types:
         create:
-          error: 新しいエリアタイプの作成中に問題が発生しました。
-          success: エリアタイプが正常に作成されました。
+          error: 新しいエリア種別の作成中に問題が発生しました。
+          success: エリア種別が正常に作成されました。
         destroy:
-          success: エリアタイプを削除しました
+          success: エリア種別を削除しました
         edit:
-          title: エリアタイプの編集
+          title: エリア種別の編集
           update: 更新
         new:
-          create: エリアタイプを作成
-          title: 新しいエリアタイプ
+          create: エリア種別を作成
+          title: 新しいエリア種別
         update:
-          error: このエリアタイプの更新中に問題が発生しました。
-          success: エリアタイプが正常に更新されました
+          error: このエリア種別の更新中に問題が発生しました。
+          success: エリア種別が正常に更新されました
       areas:
         create:
           error: 新しいエリアの作成中に問題が発生しました。
           success: エリアの作成に成功しました。
         destroy:
-          has_spaces: このエリアには依存スペースがあります。削除する前に参加スペースがこのエリアを参照していないことを確認してください。
+          has_spaces: このエリアには依存スペースがあります。削除する前に参加型スペースがこのエリアを参照していないことを確認してください。
           success: エリアの削除に成功しました
         edit:
           title: エリアを編集
@@ -338,7 +338,7 @@ ja:
       dashboard:
         show:
           view_more_logs: もっとログを見る
-          welcome: Decidim Admin Panelへようこそ。
+          welcome: Decidim 管理画面へようこそ。
       domain_whitelist:
         form:
           domain_too_short: ドメインが短すぎます
@@ -367,6 +367,13 @@ ja:
           values:
             'false': 'いいえ'
             'true': 'はい'
+        moderated_users:
+          reports_reason_eq:
+            label: 理由を報告
+            values:
+              does_not_belong: 所属していない
+              offensive: 攻撃的である
+              spam: スパムである
         moderations:
           reportable_type_string_eq:
             label: タイプ
@@ -401,9 +408,11 @@ ja:
         search_label: 検索
         search_placeholder:
           name_or_nickname_or_email_cont: '%{collection} をメール、表示名、アカウントIDで検索します。'
+          report_count_eq: 報告数
           reported_id_string_or_reported_content_cont: 報告可能なIDまたはコンテンツで %{collection} を検索します。
           title_cont: '%{collection} をタイトルで検索します。'
           user_name_or_user_email_cont: '%{collection} を名前またはメールアドレスで検索します。'
+          user_name_or_user_nickname_or_user_email_cont: '%{collection} をメール、表示名、アカウントIDで検索します。'
         state_eq:
           label: 都道府県：
           values:
@@ -480,7 +489,7 @@ ja:
         new:
           accepted_mime_types:
             csv: csv
-            json: json
+            json: JSON
             xlsx: xlsx
           actions:
             back: 戻る
@@ -505,7 +514,7 @@ ja:
         admin_log: 管理者アクティビティログ
         admins: 管理者
         appearance: 外観
-        area_types: エリアの種類
+        area_types: エリア種別
         areas: エリア
         configuration: 設定
         dashboard: ダッシュボード
@@ -517,7 +526,7 @@ ja:
         newsletters: ニュースレター
         participants: 参加者
         reported_users: 報告済みユーザー
-        scope_types: スコープの種類
+        scope_types: スコープ種別
         scopes: スコープ
         settings: 設定
         static_pages: ページ
@@ -529,7 +538,7 @@ ja:
       models:
         area:
           fields:
-            area_type: エリアの種類
+            area_type: エリア種別
             name: 名前
         area_type:
           fields:
@@ -563,11 +572,11 @@ ja:
             subject: 件名
           name: ニュースレター
         participatory_space_private_user:
-          name: 参加スペースプライベート参加者
+          name: 参加型スペースプライベート参加者
         scope:
           fields:
             name: 名前
-            scope_type: スコープの種類
+            scope_type: スコープ種別
         scope_type:
           fields:
             name: 名前
@@ -630,7 +639,7 @@ ja:
         report:
           reasons:
             does_not_belong: 属していません
-            offensive: 攻撃
+            offensive: 攻撃的
             spam: スパム
         reports:
           index:
@@ -689,9 +698,9 @@ ja:
           all_users_help: 確認済みのすべてのユーザーにニュースレターを送信します。
           confirm_deliver: このニュースレターを配信してもよろしいですか？この操作は元に戻せません。
           deliver: ニュースレターを配信する
-          followers_help: リスト内の選択した参加スペースに従っているすべての確認済みユーザーにニュースレターを送信します。
+          followers_help: リスト内の選択した参加型スペースに従っているすべての確認済みユーザーにニュースレターを送信します。
           none: なし
-          participants_help: 選択した参加スペースに参加しているすべての確認済みユーザーにニュースレターを送信します。
+          participants_help: 選択した参加型スペースに参加しているすべての確認済みユーザーにニュースレターを送信します。
           recipients_count: このニュースレターは、 <strong id='recipients_count'>%{count}</strong> のユーザーに送信されます。
           scopes_help: アカウントの「私の興味」設定で選択したスコープのいずれかを有効にしているユーザーにニュースレターを送信します。
           select_scopes: アカウントの「趣味」設定で選択したスコープを有効にしているユーザーをフィルタリングします。
@@ -744,7 +753,7 @@ ja:
           description: 直接参加者に連絡する必要がある場合、彼らの電子メールアドレスを見るために表示ボタンをクリックしてください。このアクションは記録されます。
           email_address: メールアドレス
           full_name: フルネーム
-          hidden: hidden
+          hidden: 非表示
           show: 表示
           title: 参加者のメールアドレスを表示
         unblock:
@@ -781,7 +790,7 @@ ja:
           images:
             layout_appearance_title: レイアウトを編集
             preview: プレビュー
-          omnipresent_banner_appearance_title: Edit omnipresent banner
+          omnipresent_banner_appearance_title: Omnipresentバナーを編集
       organization_external_domain_whitelist:
         edit:
           update: 更新
@@ -802,17 +811,17 @@ ja:
           update: 更新
       participatory_space_private_users:
         create:
-          error: この参加スペースにプライベート参加者を追加する際に問題が発生しました。
-          success: 参加スペースのプライベート参加者アクセスが正常に作成されました。
+          error: この参加型スペースにプライベート参加者を追加する際に問題が発生しました。
+          success: 参加型スペースのプライベート参加者アクセスが正常に作成されました。
         destroy:
-          error: この参加スペースのプライベート参加者を削除する際に問題が発生しました。
-          success: 参加スペースのプライベート参加者アクセスが正常に破棄されました。
+          error: この参加型スペースのプライベート参加者を削除する際に問題が発生しました。
+          success: 参加型スペースのプライベート参加者アクセスが正常に破棄されました。
         index:
           import_via_csv: CSV形式でインポート
-          title: 参加スペースプライベート参加者
+          title: 参加型スペースプライベート参加者
         new:
           create: 作成
-          title: 新しい参加空間のプライベート参加者。
+          title: 新しい参加型スペースのプライベート参加者。
       participatory_space_private_users_csv_imports:
         create:
           invalid: CSVファイルの読み込みに問題が発生しました。
@@ -821,6 +830,13 @@ ja:
           explanation: 'CSV ファイルをアップロードします。ファイルは 1列目に電子メール、2列目に名前を持つ形式である必要があります(email, name)。 ユーザー名に `<>?%&^*#@()[]=+:;"{}\|`のような無効な文字を使用しないでください。'
           title: CSVファイルをアップロード
           upload: アップロード
+      reminders:
+        create:
+          error: リマインダー作成中に問題が発生しました。
+          success:
+            other: "%{count} ユーザーに通知されます。"
+        new:
+          submit: 送信
       resource_permissions:
         edit:
           submit: 送信
@@ -833,19 +849,19 @@ ja:
             scope: スコープ
       scope_types:
         create:
-          error: 新しいスコープタイプの作成中に問題が発生しました。
-          success: スコープタイプが正常に作成されました。
+          error: 新しいスコープ種別の作成中に問題が発生しました。
+          success: スコープ種別が正常に作成されました。
         destroy:
-          success: スコープの種類が削除されました
+          success: スコープ種別が削除されました
         edit:
-          title: スコープの種類を編集
+          title: スコープ種別を編集
           update: 更新
         new:
-          create: スコープの種類を作成
+          create: スコープ種別を作成
           title: 新しいスコープ
         update:
-          error: このスコープタイプの更新中に問題が発生しました。
-          success: スコープの種類が正常に更新されました
+          error: このスコープ種別の更新中に問題が発生しました。
+          success: スコープ種別が正常に更新されました
       scopes:
         create:
           error: 新しいスコープの作成中に問題が発生しました。
@@ -924,7 +940,7 @@ ja:
           success: ページが正常に更新されました
       titles:
         admin_log: 管理者ログ
-        area_types: エリアの種類
+        area_types: エリア種別
         areas: エリア
         authorization_workflows: 確認方法
         dashboard: ダッシュボード
@@ -933,7 +949,7 @@ ja:
         metrics: 指標
         panel: 管理者
         participants: 参加者
-        scope_types: スコープの種類
+        scope_types: スコープ種別
         scopes: スコープ
         static_pages: ページ
         statistics: アクティビティ
@@ -978,9 +994,9 @@ ja:
       users_statistics:
         users_count:
           admins: 管理者
-          last_day: 最終日
-          last_month: Last month
-          last_week: 先週の
+          last_day: 過去24時間
+          last_month: 過去1ヶ月間
+          last_week: 過去1週間
           no_users_count_statistics_yet: まだユーザー数の統計がありません
           participants: 参加者
       view_public_page: 公開ページを表示
@@ -1001,9 +1017,9 @@ ja:
     moderations:
       actions:
         expand: 展開
-        hidden: Hidden
+        hidden: 非表示
         hide: 非表示
-        not_hidden: 非表示にしない
+        not_hidden: 表示
         title: アクション
         unhide: Unhide
         unreport: 報告解除

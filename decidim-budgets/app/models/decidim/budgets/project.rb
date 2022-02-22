@@ -18,6 +18,7 @@ module Decidim
       include Decidim::Randomable
       include Decidim::Searchable
       include Decidim::TranslatableResource
+      include Decidim::FilterableResource
 
       translatable_fields :title, :description
 
@@ -32,6 +33,8 @@ module Decidim
 
       scope :selected, -> { where.not(selected_at: nil) }
       scope :not_selected, -> { where(selected_at: nil) }
+
+      scope_search_multi :with_any_status, [:selected, :not_selected]
 
       searchable_fields(
         scope_id: :decidim_scope_id,
@@ -92,6 +95,35 @@ module Decidim
       # Public: Returns the attachment context for this record.
       def attachment_context
         :admin
+      end
+
+      ransacker :id_string do
+        Arel.sql(%{cast("decidim_budgets_projects"."id" as text)})
+      end
+
+      # Create i18n ransackers for :title and :description.
+      # Create the :search_text ransacker alias for searching from both of these.
+      ransacker_i18n_multi :search_text, [:title, :description]
+
+      ransacker :selected do
+        Arel.sql(%{("decidim_budgets_projects"."selected_at")::text})
+      end
+
+      ransacker :confirmed_orders_count do
+        query = <<-SQL.squish
+        (
+            SELECT COUNT(decidim_budgets_line_items.decidim_order_id)
+            FROM decidim_budgets_line_items
+            LEFT JOIN decidim_budgets_orders ON decidim_budgets_orders.id = decidim_budgets_line_items.decidim_order_id
+            WHERE decidim_budgets_orders.checked_out_at IS NOT NULL
+            AND decidim_budgets_projects.id = decidim_budgets_line_items.decidim_project_id
+        )
+        SQL
+        Arel.sql(query)
+      end
+
+      def self.ransackable_scopes(_auth_object = nil)
+        [:with_any_status, :with_any_scope, :with_any_category]
       end
     end
   end

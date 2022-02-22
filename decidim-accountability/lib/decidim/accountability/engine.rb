@@ -39,6 +39,10 @@ module Decidim
           end
         end
       end
+
+      initializer "decidim_accountability.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
     end
   end
 end

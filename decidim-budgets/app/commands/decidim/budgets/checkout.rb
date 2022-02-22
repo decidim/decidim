@@ -3,7 +3,7 @@
 module Decidim
   module Budgets
     # A command with all the business to checkout.
-    class Checkout < Rectify::Command
+    class Checkout < Decidim::Command
       # Public: Initializes the command.
       #
       # order - The current order for the user.

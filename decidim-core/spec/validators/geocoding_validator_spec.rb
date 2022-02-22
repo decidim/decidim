@@ -9,7 +9,7 @@ describe GeocodingValidator do
         ActiveModel::Name.new(self, nil, "Validatable")
       end
 
-      include Virtus.model
+      include Decidim::AttributeObject::Model
       include ActiveModel::Validations
 
       attribute :address

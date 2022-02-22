@@ -7,7 +7,7 @@ describe Decidim::Debates::CreateDebateEvent do
 
   include_context "when a simple event"
 
-  let(:resource) { create :debate, :citizen_author }
+  let(:resource) { create :debate, :participant_author }
   let(:space) { resource.participatory_space }
   let(:event_name) { "decidim.events.debates.debate_created" }
   let(:space_path) { resource_locator(space).path }

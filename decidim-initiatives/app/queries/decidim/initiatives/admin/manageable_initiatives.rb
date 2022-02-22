@@ -6,7 +6,7 @@ module Decidim
       # Class that retrieves manageable initiatives for the given user.
       # Regular users will get only their initiatives. Administrators will
       # retrieve all initiatives.
-      class ManageableInitiatives < Rectify::Query
+      class ManageableInitiatives < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects
         #
         # user - Decidim::User

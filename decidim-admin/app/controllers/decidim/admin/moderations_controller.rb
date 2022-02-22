@@ -67,14 +67,18 @@ module Decidim
 
       private
 
+      def ransack_params
+        query_params[:q] || { s: "created_at desc" }
+      end
+
       # Private: This method is used by the `Filterable` concern as the base query
       #          without applying filtering and/or sorting options.
       def collection
         @collection ||= begin
           if params[:hidden]
-            participatory_space_moderations.where.not(hidden_at: nil)
+            participatory_space_moderations.hidden
           else
-            participatory_space_moderations.where(hidden_at: nil)
+            participatory_space_moderations.not_hidden
           end
         end
       end

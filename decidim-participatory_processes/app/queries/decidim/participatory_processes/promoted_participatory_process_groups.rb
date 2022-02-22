@@ -3,7 +3,7 @@
 module Decidim
   module ParticipatoryProcesses
     # This query filters participatory process groups so only promoted ones are returned.
-    class PromotedParticipatoryProcessGroups < Rectify::Query
+    class PromotedParticipatoryProcessGroups < Decidim::Query
       def query
         Decidim::ParticipatoryProcessGroup.promoted
       end

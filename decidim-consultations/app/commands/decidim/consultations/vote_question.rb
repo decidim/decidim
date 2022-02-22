@@ -3,7 +3,7 @@
 module Decidim
   module Consultations
     # A command with all the business logic when a user votes a question.
-    class VoteQuestion < Rectify::Command
+    class VoteQuestion < Decidim::Command
       # Public: Initializes the command.
       #
       # form   - A Decidim::Consultations::VoteForm object.

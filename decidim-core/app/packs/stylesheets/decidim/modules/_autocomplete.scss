@@ -1,0 +1,99 @@
+@import "@tarekraafat/autocomplete.js/dist/css/autoComplete.02.css";
+
+$autocomplete-item-color: $secondary !default;
+$autocomplete-item-hover-bg: #ededed !default;
+$autocomplete-multiselect-bg: $white !default;
+$autocomplete-multiselect-border-color: $medium-gray !default;
+$autocomplete-multiselect-search-prompt-color: $dark-gray;
+
+.autoComplete_wrapper{
+  width: 100%;
+
+  input{
+    color: $black;
+    width: 100%;
+    margin: 0;
+  }
+
+  ul{
+    position: relative;
+    margin: 0;
+
+    li{
+      color: $autocomplete-item-color;
+
+      span{
+        &.author__avatar{
+          display: inline-block;
+        }
+      }
+
+      &:hover,
+      &[aria-selected="true"]{
+        background-color: $autocomplete-item-hover-bg;
+      }
+
+      &.disabled{
+        pointer-events: none;
+        opacity: .6;
+      }
+
+      .is-group{
+        float: right;
+      }
+    }
+  }
+
+  span{
+    &.autocomplete__selected-item.sticky{
+      position: absolute;
+      height: 3rem;
+      line-height: 3rem;
+      padding: 0 1rem;
+    }
+  }
+
+  .clear-sticky-selection{
+    display: inline;
+    position: absolute;
+    font-size: 1.3rem;
+    cursor: pointer;
+    right: 1rem;
+  }
+
+  .clear-multi-selection{
+    cursor: pointer;
+  }
+
+  .search-prompt{
+    color: $autocomplete-multiselect-search-prompt-color;
+    border: 1px solid $autocomplete-multiselect-border-color;
+    padding: .2rem;
+  }
+}
+
+.multiselect{
+  background-color: $autocomplete-multiselect-bg;
+  display: inline-block;
+  border: 1px solid $autocomplete-multiselect-border-color;
+  width: 100%;
+  cursor: text;
+  padding: 0 .5rem;
+  min-height: 2.4375rem;
+
+  span{
+    display: inline-block;
+    position: relative;
+    margin: .5rem .5rem .5rem 0;
+
+    input{
+      border: none;
+      outline: none;
+    }
+
+    &.clear-multi-selection{
+      margin: 0 0 0 .2rem;
+      cursor: pointer;
+    }
+  }
+}

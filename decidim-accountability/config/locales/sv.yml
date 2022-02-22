@@ -204,6 +204,8 @@ sv:
             label: Status
     components:
       accountability:
+        actions:
+          comment: Kommentar
         name: Ansvarsskyldighet
         settings:
           global:

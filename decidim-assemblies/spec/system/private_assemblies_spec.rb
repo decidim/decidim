@@ -16,7 +16,7 @@ describe "Private Assemblies", type: :system do
     context "and the assembly is transparent" do
       let!(:private_assembly) { create :assembly, :published, organization: organization, private_space: true, is_transparent: true }
 
-      context "and no user is loged in" do
+      context "and no user is logged in" do
         before do
           switch_to_host(organization.host)
           visit decidim_assemblies.assemblies_path
@@ -36,23 +36,40 @@ describe "Private Assemblies", type: :system do
         end
       end
 
-      context "when user is loged in and is not a assembly private user" do
-        before do
-          switch_to_host(organization.host)
-          login_as user, scope: :user
-          visit decidim_assemblies.assemblies_path
+      context "when user is logged in" do
+        context "when is not an assembly private user" do
+          before do
+            switch_to_host(organization.host)
+            login_as user, scope: :user
+            visit decidim_assemblies.assemblies_path
+          end
+
+          it "lists all the assemblies" do
+            within "#parent-assemblies" do
+              within "#parent-assemblies h3" do
+                expect(page).to have_content("2")
+              end
+
+              expect(page).to have_content(translated(assembly.title, locale: :en))
+              expect(page).to have_selector(".card--assembly", count: 2)
+
+              expect(page).to have_content(translated(private_assembly.title, locale: :en))
+            end
+          end
         end
 
-        it "lists all the assemblies" do
-          within "#parent-assemblies" do
-            within "#parent-assemblies h3" do
-              expect(page).to have_content("2")
+        context "when the user is admin" do
+          before do
+            switch_to_host(organization.host)
+            login_as admin, scope: :user
+            visit decidim_assemblies.assemblies_path
+          end
+
+          it "doesn't show the privacy warning in attachments admin" do
+            visit decidim_admin_assemblies.assembly_attachments_path(private_assembly)
+            within "#attachments" do
+              expect(page).to have_no_content("Any participant could share this document to others")
             end
-
-            expect(page).to have_content(translated(assembly.title, locale: :en))
-            expect(page).to have_selector(".card--assembly", count: 2)
-
-            expect(page).to have_content(translated(private_assembly.title, locale: :en))
           end
         end
       end
@@ -61,13 +78,13 @@ describe "Private Assemblies", type: :system do
     context "when the assembly is not transparent" do
       let!(:private_assembly) { create :assembly, :published, organization: organization, private_space: true, is_transparent: false }
 
-      context "and no user is loged in" do
+      context "and no user is logged in" do
         before do
           switch_to_host(organization.host)
           visit decidim_assemblies.assemblies_path
         end
 
-        it "lists only the not private assembly" do
+        it "doesn't list the private assembly" do
           within "#parent-assemblies" do
             within "#parent-assemblies h3" do
               expect(page).to have_content("1")
@@ -81,17 +98,15 @@ describe "Private Assemblies", type: :system do
         end
       end
 
-      context "when user is loged in and is not a assembly private user" do
-        before do
-          switch_to_host(organization.host)
-          login_as logged_in_user, scope: :user
-          visit decidim_assemblies.assemblies_path
-        end
+      context "when user is logged in and is not an assembly private user" do
+        context "when the user isn't admin" do
+          before do
+            switch_to_host(organization.host)
+            login_as user, scope: :user
+            visit decidim_assemblies.assemblies_path
+          end
 
-        context "when the user is admin" do
-          let(:logged_in_user) { user }
-
-          it "lists only the not private assembly" do
+          it "doesn't list the private assembly" do
             within "#parent-assemblies" do
               within "#parent-assemblies h3" do
                 expect(page).to have_content("1")
@@ -106,7 +121,11 @@ describe "Private Assemblies", type: :system do
         end
 
         context "when the user is admin" do
-          let(:logged_in_user) { admin }
+          before do
+            switch_to_host(organization.host)
+            login_as admin, scope: :user
+            visit decidim_assemblies.assemblies_path
+          end
 
           it "lists private assemblies" do
             within "#parent-assemblies" do
@@ -126,10 +145,17 @@ describe "Private Assemblies", type: :system do
             expect(page).to have_current_path decidim_assemblies.assembly_path(private_assembly)
             expect(page).to have_content "This is a private assembly"
           end
+
+          it "shows the privacy warning in attachments admin" do
+            visit decidim_admin_assemblies.assembly_attachments_path(private_assembly)
+            within "#attachments" do
+              expect(page).to have_content("Any participant could share this document to others")
+            end
+          end
         end
       end
 
-      context "when user is loged in and is assembly private user" do
+      context "when user is logged in and is an assembly private user" do
         before do
           switch_to_host(organization.host)
           login_as other_user, scope: :user

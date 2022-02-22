@@ -24,7 +24,7 @@ ro:
       component:
         name: Nume
         published_at: Publicat în
-        weight: Pondere în poziționare
+        weight: Ordinea în poziționare
       id: ID
       import:
         user_group_id: Creează importuri ca
@@ -37,8 +37,8 @@ ro:
         available_authorizations: Autorizații disponibile
         badges_enabled: Activează insigne
         comments_max_length: Lungimea maximă a comentariilor (Lasă 0 pentru valoarea implicită)
-        cta_button_path: Calea butonului de Apel la acțiune
-        cta_button_text: Textul butonului de Apel la acțiune
+        cta_button_path: Calea butonului Apel la acţiune
+        cta_button_text: Textul butonului Apel la acțiune
         customize_welcome_notification: Personalizați notificarea de bun venit
         default_locale: Localizare implicită
         description: Descriere
@@ -104,21 +104,21 @@ ro:
         organization: Organizație
         plural: Plural
       settings:
-        scope_id: Domeniu
+        scope_id: Domeniu de interes
       static_page:
         allow_public_access: Permiteți accesul fără autentificare
         changed_notably: Au avut loc modificări semnificative.
         content: Conținut
         organization: Organizație
         show_in_footer: Afișează în subsol
-        slug: Adresă URL
+        slug: URL slug
         title: Titlu
-        weight: Pondere în poziționare
+        weight: Ordinea în poziționare
       static_page_topic:
         description: Descriere
         show_in_footer: Afișează în subsol
         title: Titlu
-        weight: Pondere în poziționare
+        weight: Ordinea în poziționare
       user_group_csv_verification:
         file: Fişier
     errors:
@@ -138,7 +138,7 @@ ro:
     attributes:
       decidim/static_page:
         content: Conținut
-        slug: Adresă URL
+        slug: URL slug
         title: Titlu
       doorkeeper/application:
         authorize_url: Autorizează URL
@@ -181,7 +181,7 @@ ro:
           success: Super! Ai acceptat termenii de utilizare ai administratorului.
         actions:
           accept: Sunt de acord cu următorii termeni
-          are_you_sure: Sunteți sigur că doriți să refuzați termenii de utilizare ai administratorului?
+          are_you_sure: Sigur dorești să refuzi termenii de utilizare ai adiminstratorului?
           refuse: Refuz termenii
           title: Acceptă termenii și condițiile de utilizare
         required_review:
@@ -199,7 +199,7 @@ ro:
           title: Editează tipul de zonă
           update: Actualizează
         new:
-          create: Crează tip de zonă
+          create: Creează tip de zonă
           title: Tip nou de zonă
         update:
           error: A apărut o eroare la actualizarea acestui tip de zonă.
@@ -224,21 +224,21 @@ ro:
       attachment_collections:
         create:
           error: A apărut o eroare la crearea unui nou dosar.
-          success: Folderul a fost creat cu succes.
+          success: Dosarul a fost creat cu succes.
         destroy:
-          success: Folderul a fost eliminat cu succes.
+          success: Dosarul a fost eliminat cu succes.
         edit:
-          title: Editează folderul
+          title: Editează dosarul
           update: Actualizează
         index:
-          attachment_collection_used: Acest folder nu poate fi eliminat deoarece este în uz.
-          attachment_collections_title: Foldere ataşate
+          attachment_collection_used: Acest dosar nu poate fi eliminat deoarece este în uz.
+          attachment_collections_title: Dosare ataşate
         new:
-          create: Crează
-          title: Folder nou
+          create: Creează
+          title: Dosar nou
         update:
-          error: A apărut o eroare la actualizarea acestui folder.
-          success: Folderul a fost actualizat cu succes.
+          error: A apărut o eroare la actualizarea acestui dosar.
+          success: Dosarul a fost actualizat cu succes.
       attachments:
         create:
           error: A apărut o eroare la crearea unui nou atașament.
@@ -251,7 +251,7 @@ ro:
         index:
           attachments_title: Atașamente
         new:
-          create: Crează un atașament
+          create: Creează un atașament
           title: Atașament nou
         update:
           error: A apărut o eroare la actualizarea acestui atașament.
@@ -286,8 +286,8 @@ ro:
           success: Categoria a fost actualizată cu succes.
       component_permissions:
         update:
-          error: A apărut o eroare la actualizarea permisiunilor acestei componente.
-          success: Permisiunile au fost actualizate cu succes.
+          error: A apărut o eroare la actualizarea drepturilor de acces pentru acestă componentă.
+          success: Drepturile au fost actualizate cu succes.
       components:
         create:
           error: A apărut o eroare la crearea acestei componente.
@@ -307,7 +307,7 @@ ro:
           headers:
             actions: Acțiuni
             name: Numele componentei
-            scope: Domeniul de aplicare al componentei
+            scope: Domeniul componentei
             type: Tipul componentei
         new:
           add: Adaugă componentă
@@ -367,6 +367,13 @@ ro:
           values:
             'false': 'Nu'
             'true': 'Da'
+        moderated_users:
+          reports_reason_eq:
+            label: Motivul raportării
+            values:
+              does_not_belong: Nu aparține
+              offensive: Jignitor
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Tip
@@ -400,10 +407,12 @@ ro:
           label: Domeniu
         search_label: Caută
         search_placeholder:
-          name_or_nickname_or_email_cont: Caută %{collection} după e-mail, nume sau poreclă.
+          name_or_nickname_or_email_cont: Caută %{collection} după e-mail, nume sau pseudonim.
+          report_count_eq: Număr de raportări
           reported_id_string_or_reported_content_cont: Caută %{collection} după id sau conținut.
           title_cont: Caută %{collection} după titlu.
           user_name_or_user_email_cont: Caută %{collection} după nume sau e-mail.
+          user_name_or_user_nickname_or_user_email_cont: Caută %{collection} după e-mail, nume sau pseudonim.
         state_eq:
           label: Stadiu
           values:
@@ -460,6 +469,10 @@ ro:
         data_errors:
           duplicate_headers:
             detail: Te rugăm verifică dacă fişierul conţine coloanele sau antetele obligatorii o singură dată.
+            message:
+              one: Duplică coloana %{columns}.
+              few: Duplică coloanele %{columns}.
+              other: Duplică coloanele %{columns}.
           invalid_indexes:
             lines:
               detail: Te rugăm verifică dacă aceste linii sunt formatate corect şi conţin înregistrări valide.
@@ -469,8 +482,16 @@ ro:
                 other: Am găsit erori în documentul importat la liniile %{indexes}.
             records:
               detail: Te rugăm verifică dacă aceste linii sunt formatate corect şi conţin înregistrări valide.
+              message:
+                one: Am găsit erori în fișierul importat pentru înregistrările cu numerele de ordine %{indexes}.
+                few: Am găsit erori în fișierul importat pentru înregistrările cu numerele de ordine %{indexes}.
+                other: Am găsit erori în fișierul importat pentru înregistrările cu numerele de ordine %{indexes}.
           missing_headers:
             detail: Te rugăm verifică dacă fișierul conține coloanele obligatorii.
+            message:
+              one: Coloană lipsă %{columns}.
+              few: Coloane lipsă %{columns}.
+              other: Coloane lipsă %{columns}.
         error: A apărut o problemă în timpul importului
         example_error: Nu am putut crea un exemplu pentru tipul dat
         new:
@@ -514,7 +535,7 @@ ro:
         participants: Participanți
         reported_users: Utilizatori raportați
         scope_types: Tipuri de domenii
-        scopes: Domenii
+        scopes: Domenii de interes
         settings: Setări
         static_pages: Pagini
         user_groups: Grupuri
@@ -533,13 +554,13 @@ ro:
             plural: Plural
         attachment:
           fields:
-            collection: Folder
+            collection: Dosar
             content_type: Tip
             file_size: Dimensiune
             title: Titlu
           name: Atașament
         attachment_collection:
-          name: Folder
+          name: Dosar
         category:
           name: Categorie
         impersonation_log:
@@ -608,7 +629,7 @@ ro:
             unblock: Deblochează utilizatorul
             unreport: Anulează raportarea
           name: Nume
-          nickname: Poreclă
+          nickname: Pseudonim
           reason: Motiv
           reports: Număr de raportări
           title: Listarea utilizatorilor raportați
@@ -668,8 +689,8 @@ ro:
           all: toate
           all_users: 'Toți utilizatorii '
           and: 'şi '
-          confirm_delete: Ești sigur că vrei să ştergi acest buletin informativ?
-          followers: 'abonați '
+          confirm_delete: Sigur dorești să ştergi acest buletin informativ?
+          followers: 'urmăritori '
           has_been_sent_to: 'A fost trimis la: '
           no_scopes: Nici un domeniu
           not_sent: Nu a fost trimis
@@ -683,18 +704,18 @@ ro:
         select_recipients_to_deliver:
           all_spaces: Toți
           all_users_help: Trimite buletinul informativ tuturor utilizatorilor confirmați.
-          confirm_deliver: Ești sigur că vrei să livrezi acest buletin informativ? Această acţiune nu poate fi anulată.
+          confirm_deliver: Sigur dorești să livrezi acest buletin informativ? Această acţiune nu poate fi anulată.
           deliver: Trimite buletinul informativ
           followers_help: Trimite buletinul informativ tuturor utilizatorilor confirmați care urmăresc orice spații participative selectate din listă.
           none: Niciunul
           participants_help: Trimite buletinul informativ tuturor utilizatorilor confirmați care au participat la oricare dintre spațiile participative selectate din listă.
           recipients_count: Acest buletin informativ va fi trimis la <strong id='recipients_count'>%{count}</strong> utilizatori.
-          scopes_help: Trimite buletinul informativ utilizatorilor care au unul din domeniile selectate activat în setările contului "Interesele mele".
-          select_scopes: Filtrați pentru utilizatorii care au activat oricare dintre domeniile selectate în setările privind „Interesele mele” din contul lor.
+          scopes_help: Trimite buletinul informativ utilizatorilor care au unul dintre domeniile selectate activat în setările privind „Interesele mele” din contul lor.
+          select_scopes: Filtrați utilizatorii care au activat oricare dintre domeniile selectate în setările privind „Interesele mele” din contul lor.
           select_spaces: Selectează spațiile pentru segmentarea buletinului informativ
           select_users: Selectează utilizatorii cărora vrei să trimiți buletinul informativ
           send_to_all_users: Trimite către toți utilizatorii
-          send_to_followers: Trimite către abonați
+          send_to_followers: Trimite către urmăritori
           send_to_participants: Trimite către participanți
           title: Selectează destinatarii pentru trimitere
           warning: "<strong>Atenție:</strong> Acest buletin informativ va fi trimis doar utilizatorilor care au activat <em>Vreau să primesc știri</em> în setările lor."
@@ -721,7 +742,7 @@ ro:
           block: Blochează utilizator
           created_at: Creat la
           name: Nume
-          nickname: Poreclă
+          nickname: Pseudonim
           not_officialized: Nevalidat
           officialize: Validează
           officialized: Validat
@@ -770,7 +791,7 @@ ro:
             colors_title: Culorile organizației
             colors_warning_html: Atenție! Schimbarea acestor culori poate distruge contrastele de accesibilitate. Poți verifica contrastul alegerii tale cu <a href="%{link}">WebAIM Contrast Checker</a> sau alte unelte similare.
             header_snippets_help: Utilizează acest câmp pentru a adăuga elemente în antetul HTML. Cea mai frecventă utilizare este integrarea de servicii terțe care necesită JavaScript sau CSS suplimentare. De asemenea, poți adăuga metataguri suplimentare la HTML. Reține că acest lucru va avea efect doar în paginile publice, nu și în secțiunea administrativă.
-          cta_button_path_help: 'Poți modifica adresa către care direcționează butonul Apel la acțiune de pe pagina principală. Aici utilizează căi parțiale, nu URL-uri complete. Se acceptă numai litere, numere, cratime și bare oblice și trebuie să înceapă cu o literă. Butonul „Apel la acțiune” este afișat pe prima pagină, între textul de întâmpinare și descriere. Exemplu: %{url}'
+          cta_button_path_help: 'Poți modifica adresa către care direcționează butonul Apel la acțiune de pe pagina principală. Aici poți utiliza doar căi parțiale, nu URL-uri complete. Se acceptă numai litere, numere, cratime și bare oblice și trebuie să înceapă cu o literă. Butonul „Apel la acțiune” este afișat pe prima pagină, între textul de întâmpinare și descriere. Exemplu: %{url}'
           cta_button_text_help: Poți înlocui textul butonului Apel la acțiune de pe pagina principală pentru fiecare limbă disponibilă în organizația ta. În cazul în care nu există alte limbi setate, se utilizează valoarea implicită. Butonul „Apel la acțiune” este afișat pe pagina principală, între textul de întâmpinare și descriere.
           homepage_appearance_title: Editează aspectul paginii principale
           homepage_highlighted_content_banner_title: Banner pentru conținut evidențiat
@@ -820,9 +841,9 @@ ro:
       resource_permissions:
         edit:
           submit: Trimite
-          title: Editează permisiunile
+          title: Editează drepturile
         update:
-          success: Permisiunile au fost actualizate cu succes.
+          success: Drepturile au fost actualizate cu succes.
       resources:
         index:
           headers:
@@ -834,10 +855,10 @@ ro:
         destroy:
           success: Tipul de domeniu a fost eliminat cu succes
         edit:
-          title: Modifică tipul domeniului
+          title: Editează tipul domeniului
           update: Actualizează
         new:
-          create: Crează tip de domeniu
+          create: Creează tip de domeniu
           title: Domeniu nou
         update:
           error: A apărut o problemă la actualizarea acestui tip de domeniu.
@@ -852,7 +873,7 @@ ro:
           title: Editează domeniul
           update: Actualizează
         new:
-          create: Crează domeniu
+          create: Creează domeniu
           title: Domeniu nou
         no_scopes: Nu există niciun domeniu la acest nivel.
         update:
@@ -865,7 +886,7 @@ ro:
           share: Distribuie
         destroy:
           error: A apărut o problemă la distrugerea acestui token.
-          success: Tokenul a fost eliminat.
+          success: Token-ul a fost distrus cu succes.
         share_tokens:
           empty: Nu există token-uri active
           help: Aceste tipuri de token sunt utilizate pentru a distribui public această resursă nepublicată cu orice utilizator. Acestea vor fi ascunse la momentul publicării resursei. Faceți clic pe pictograma de distribuire aferentă acestui token pentru a vizita URL-ul distribuit.
@@ -908,7 +929,7 @@ ro:
         index:
           last_notable_change: Ultima modificare importantă
         new:
-          create: Crează o pagină
+          create: Creează o pagină
           title: Pagină nouă
         topic:
           destroy: Elimină subiectul
@@ -930,7 +951,7 @@ ro:
         panel: Administrator
         participants: Participanți
         scope_types: Tipuri de domeniu
-        scopes: Domenii
+        scopes: Domenii de interes
         static_pages: Pagini
         statistics: Activitate
         user_groups: Grupuri
@@ -999,7 +1020,7 @@ ro:
         expand: Extinde
         hidden: Ascuns
         hide: Ascunde
-        not_hidden: Nu este ascuns
+        not_hidden: Neascuns
         title: Acțiuni
         unhide: Anulează ascunderea
         unreport: Anulează raportarea
@@ -1010,7 +1031,7 @@ ro:
             success: Resursa a fost ascunsă cu succes.
           unhide:
             invalid: A apărut o problemă la anularea ascunderii resursei.
-            success: Anularea ascunderii resursei a fost reaizată cu succes.
+            success: Anularea ascunderii resursei a fost realizată cu succes.
           unreport:
             invalid: A apărut o problemă la anularea raportării resursei.
             success: Anularea raportării resursei a fost efectuată cu succes.

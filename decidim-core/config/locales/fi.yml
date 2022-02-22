@@ -76,6 +76,33 @@ fi:
       decidim_with_day_and_month_name: "%A %d. %b %Y"
       decidim_with_month_name: "%B %d. %Y"
       decidim_with_month_name_short: "%d. %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: noin tunti
+        other: noin %{count} tuntia
+      about_x_months:
+        one: noin kuukausi
+        other: noin %{count} kuukautta
+      half_a_minute: puoli minuuttia
+      less_than_x_minutes:
+        one: alle minuutti.
+        other: alle %{count} minuuttia.
+      less_than_x_seconds:
+        one: juuri nyt
+        other: vähemmän kuin %{count} sekuntia.
+      x_days:
+        one: päivä sitten
+        other: "%{count} päivää sitten"
+      x_hours:
+        one: tunti sitten
+        other: "%{count} tuntia sitten"
+      x_minutes:
+        one: minuutti sitten
+        other: "%{count} minuuttia sitten"
+      x_seconds:
+        one: sekunti sitten
+        other: "%{count} sekuntia sitten"
   decidim:
     accessibility:
       external_link: Ulkoinen linkki
@@ -701,6 +728,7 @@ fi:
       no_followers: Ei vielä seuraajia.
     following:
       no_followings: Ei vielä seuraa ketään tai mitään.
+      non_public_followings: Osa seuratuista kohteista ei ole julkisia.
     follows:
       create:
         button: Seuraa
@@ -973,6 +1001,7 @@ fi:
         show:
           back: Takaisin kaikkiin keskusteluihin
           chat_with: Keskustelu osallistujien kanssa
+          deleted_accounts: Et voi keskustella poistettujen käyttäjätilien kanssa.
           not_allowed: Tämä osallistuja ei halua vastaanottaa yksityisviestejä.
           title: 'Keskustelu: %{usernames}'
         start:
@@ -1040,6 +1069,12 @@ fi:
         greetings: Tervehdys,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hei,
         subject: Haluatko jatkaa olennaisen tiedon vastaanottamista koskien %{organization_name} -palvelua?
+    notification_mailer:
+      event_received:
+        no_translation_available: 'Valitettavasti automatisoitua käännöstä ei ollut saatavilla, kun tämä sähköposti on lähetetty. Voit tarkistaa käännöksen alkuperäisestä tekstistä tämän linkin kautta: %{link}.'
+        original_text: 'Alkuperäinen teksti:'
+        same_language: Sisältö on lisätty toivomallasi kielellä (%{language}), minkä takia tässä viestissä ei näytetä automaattista käännöstä.
+        translated_text: 'Automaattisesti käännetty teksti:'
     notifications:
       no_notifications: Ei vielä ilmoituksia.
     notifications_settings:
@@ -1337,6 +1372,7 @@ fi:
         title_reply: Vastaa
       show:
         back: Näytä kaikki keskustelut
+        deleted_accounts: Et voi keskustella poistettujen käyttäjätilien kanssa.
         not_allowed: Tämä käyttäjä ei ole sallinut yksityisviestejä muilta käyttäjiltä.
         title: 'Keskustelu: %{usernames}'
       update:
@@ -1634,10 +1670,12 @@ fi:
     name: Suomi
     name_with_error: Suomi (virhe!)
   password_validator:
+    blacklisted: on mustalla listalla
     domain_included_in_password: liian samankaltainen palvelun verkko-osoitteen kanssa
     email_included_in_password: liian samankaltainen sähköpostisi kanssa
     fallback: ei ole hyväksytyn muotoinen
     name_included_in_password: liian samankaltainen nimesi kanssa
+    nickname_included_in_password: liian samankaltainen nimesi kanssa
     not_enough_unique_characters: ei sisällä tarpeeksi yksilöllisiä merkkejä
     password_not_allowed: ei ole sallittu
     password_too_common: liian yleinen
@@ -1672,6 +1710,8 @@ fi:
       day_of_week: "%a"
       day_of_week_long: "%a %e."
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m."
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%B %d. %Y"
       decidim_short: "%d.%m.%Y %H:%M"
       default: "%a, %d. %b %Y %H:%M:%S %z"

@@ -20,6 +20,10 @@ describe Decidim::Comments::CommentUpvotedEvent do
       let(:resource) { comment.commentable }
       let(:comment) { create :comment }
       let(:resource_title) { decidim_html_escape(translated(resource.title)) }
+
+      it_behaves_like "a translated comment event" do
+        let(:translatable) { false }
+      end
     end
   end
 end

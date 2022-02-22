@@ -3,7 +3,7 @@
 module Decidim
   module Meetings
     # This command is executed when the user creates an Answer in a meeting poll.
-    class CreateAnswer < Rectify::Command
+    class CreateAnswer < Decidim::Command
       def initialize(form, current_user, questionnaire)
         @form = form
         @current_user = current_user

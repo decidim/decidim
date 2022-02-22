@@ -55,7 +55,28 @@ module Decidim
       render
     end
 
+    def perform_caching?
+      true
+    end
+
     private
+
+    def cache_hash
+      hash = []
+
+      hash.push(I18n.locale)
+      hash.push(model.cache_key_with_version) if model.respond_to?(:cache_key_with_version)
+      hash.push(from_context.cache_key_with_version) if from_context.respond_to?(:cache_key_with_version)
+      hash.push(current_user.try(:id))
+      hash.push(current_user.present?)
+      hash.push(commentable?)
+      hash.push(endorsable?)
+      hash.push(actionable?)
+      hash.push(withdrawable?)
+      hash.push(flaggable?)
+      hash.push(profile_path?)
+      hash.join(Decidim.cache_key_separator)
+    end
 
     def from_context_path
       resource_locator(from_context).path

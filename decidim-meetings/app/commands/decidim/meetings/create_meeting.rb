@@ -4,7 +4,7 @@ module Decidim
   module Meetings
     # This command is executed when a participant or user group creates a Meeting from the public
     # views.
-    class CreateMeeting < Rectify::Command
+    class CreateMeeting < Decidim::Command
       def initialize(form)
         @form = form
       end
@@ -21,6 +21,7 @@ module Decidim
           send_notification
         end
 
+        create_follow_form_resource(form.current_user)
         broadcast(:ok, meeting)
       end
 
@@ -54,7 +55,8 @@ module Decidim
           type_of_meeting: form.clean_type_of_meeting,
           component: form.current_component,
           published_at: Time.current,
-          show_embedded_iframe: form.show_embedded_iframe
+          iframe_embed_type: form.iframe_embed_type,
+          iframe_access_level: form.iframe_access_level
         }
 
         @meeting = Decidim.traceability.create!(
@@ -63,13 +65,18 @@ module Decidim
           params,
           visibility: "public-only"
         )
+        Decidim.traceability.perform_action!(:publish, meeting, form.current_user, visibility: "all") do
+          meeting.publish!
+        end
       end
 
       def schedule_upcoming_meeting_notification
+        return if meeting.start_time < Time.zone.now
+
         checksum = Decidim::Meetings::UpcomingMeetingNotificationJob.generate_checksum(meeting)
 
         Decidim::Meetings::UpcomingMeetingNotificationJob
-          .set(wait_until: meeting.start_time - 2.days)
+          .set(wait_until: meeting.start_time - Decidim::Meetings.upcoming_meeting_notification)
           .perform_later(meeting.id, checksum)
       end
 
@@ -80,6 +87,11 @@ module Decidim
           resource: meeting,
           followers: meeting.participatory_space.followers
         )
+      end
+
+      def create_follow_form_resource(user)
+        follow_form = Decidim::FollowForm.from_params(followable_gid: meeting.to_signed_global_id.to_s).with_context(current_user: user)
+        Decidim::CreateFollow.call(follow_form, user)
       end
     end
   end

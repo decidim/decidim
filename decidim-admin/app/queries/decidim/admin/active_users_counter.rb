@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # Counts active users making a distinction between whether they are admins or participants
-    class ActiveUsersCounter < Rectify::Query
+    class ActiveUsersCounter < Decidim::Query
       # Initializes the class.
       #
       # @param organization [Organization] Current organization

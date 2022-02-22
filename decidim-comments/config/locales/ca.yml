@@ -16,6 +16,12 @@ ca:
         other: Vots
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Comentaris habilitats
+            end_time: Comentaris habilitats fins al
+            start_time: Comentaris habilitats des de
       comments:
         create:
           error: S'ha produït un error en crear el comentari.

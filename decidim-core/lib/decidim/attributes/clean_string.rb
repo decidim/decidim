@@ -2,16 +2,22 @@
 
 module Decidim
   module Attributes
-    # Custom Virtus value to "standardize" the newline characters within strings
-    # that are sent through user entered forms. This strips out the carriage
-    # return characters from the strings in order to avoid validation mismatches
-    # with the string lengths between the frontend and the backend.
+    # Custom attributes value to "standardize" the newline characters within
+    # strings that are sent through user entered forms. This strips out the
+    # carriage return characters from the strings in order to avoid validation
+    # mismatches with the string lengths between the frontend and the backend.
     #
     # This type should be used with forms that have:
     # - A user input defined with the <textarea> element
     # - The input element having the `maxlength` attribute defined for it
     # - The backend having a maximum length validation for the input
-    class CleanString < Virtus::Attribute
+    class CleanString < ActiveModel::Type::Value
+      def type # :nodoc:
+        :"decidim/attributes/clean_string"
+      end
+
+      private
+
       # When using Windows or copying texts from existing documents, the text
       # can contain the carriage return characters (\r) that the front-end
       # character counter does not consider as actual characters. This happens
@@ -27,7 +33,7 @@ module Decidim
       # are included in the data that gets sent to the server. In order to fix
       # this mismatch, remove the carriage return characters from the text
       # using this attribute type.
-      def coerce(value)
+      def cast_value(value)
         return value unless value.is_a?(String)
 
         value.gsub(/\r/, "")

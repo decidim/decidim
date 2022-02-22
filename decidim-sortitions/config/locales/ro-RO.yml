@@ -2,93 +2,95 @@ ro:
   activemodel:
     attributes:
       sortition:
-        additional_info: Informații despre sortare
-        decidim_category_id: Categorii ale setului de propuneri în care doriți să aplicați desenul
+        additional_info: Informații privind tragerea la sorți
+        decidim_category_id: Categorii ale setului de propuneri în care doriți să aplicați tragerea la sorți
         decidim_proposals_component_id: Set de propuneri
-        dice: Rezultatul murdăriei pe robinet. Rulează un mor cu 6 laturi sau caută o altă metodă aleatorie pentru a genera un număr de la 1 la 6, și introduceți aici numărul rezultat în fața unor martori. Acest lucru contribuie la calitatea și la garantarea caracterului aleatoriu al rezultatului.
-        target_items: Numărul de propuneri care urmează să fie selectate (indică numărul de propuneri pe care doriți să le selectați prin desenarea multor grupuri de propuneri pe care le-ați ales anterior)
+        dice: Rezultat pe baza aruncării cu zarul. Folosește un zar cu 6 fețe sau caută o altă modalitate aleatorie de a genera un număr de la 1 la 6 și introdu aici numărul rezultat în fața unor martori. Acest lucru contribuie la calitatea și garanția unui rezultat aleatoriu
+        target_items: Numărul de propuneri de selectat (indică numărul de propuneri pe care dorești să fie selectat prin tragere la sorți a grupului de propuneri pe care le-ai ales anterior)
         title: Titlu
         witnesses: Martori
     models:
-      decidim/sortitions/create_sortition_event: Sortare
+      decidim/sortitions/create_sortition_event: Tragere la sorți
   activerecord:
     models:
       decidim/sortitions/sortition:
-        one: Sortare
-        few: Sortări
-        other: Sortări
+        one: Tragere la sorți
+        few: Trageri la sorți
+        other: Trageri la sorți
   decidim:
     components:
       sortitions:
-        name: Sortări
+        actions:
+          comment: Comentează
+        name: Trageri la sorți
         settings:
           global:
             comments_enabled: Comentarii activate
-            comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
+            comments_max_length: Lungimea maximă a comentariilor (Lasă 0 pentru valoarea implicită)
     events:
       sortitions:
         sortition_created:
-          email_intro: Sortarea "%{resource_title}" a fost adăugată la "%{participatory_space_title}" pe care o urmărești.
-          email_outro: Ați primit această notificare deoarece urmăriți „%{participatory_space_title}”. O puteți anula de la link-ul anterior.
-          email_subject: Sortare nouă adăugată la %{participatory_space_title}
-          notification_title: Sortarea <a href="%{resource_path}">%{resource_title}</a> a fost adăugată la %{participatory_space_title}
+          email_intro: Tragerea la sorți "%{resource_title}" a fost adăugată la "%{participatory_space_title}”, spațiu pe care îl urmărești.
+          email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula abonarea de la link-ul anterior.
+          email_subject: O nouă tragere la sorți a fost adăugată la %{participatory_space_title}
+          notification_title: Tragerea la sorți <a href="%{resource_path}">%{resource_title}</a> a fost adăugată la %{participatory_space_title}
     sortitions:
       admin:
         actions:
-          destroy: Anulează sortarea
-          edit: Editare
-          new: Sortare nouă
-          show: Detalii sortare
+          destroy: Anulează tragerea la sorți
+          edit: Editează
+          new: Tragere la sorți nouă
+          show: Detalii privind tragerea la sorți
         models:
           sortition:
             fields:
               category: Categorie
               created_at: Data creării
               decidim_proposals_component: Componenta propuneri
-              dice: Șoareci
+              dice: Zar
               reference: Referință
-              request_timestamp: Timp de desenare
-              seed: Secret
-              target_items: Elemente de selectat
+              request_timestamp: Ora tragerii la sorți
+              seed: Valoare aleatorie
+              target_items: Articole de selectat
               title: Titlu
             name:
-              one: Sortare
-              few: Sortări
-              other: Sortări
+              one: Tragere la sorți
+              few: Trageri la sorți
+              other: Trageri la sorți
         sortitions:
           confirm_destroy:
-            confirm_destroy: Ești sigur că vrei să anulezi acest sortare?
-            destroy: Anulează sortarea
-            title: Anularea sortării
+            confirm_destroy: Sigur dorești să anulezi această tragere la sorți?
+            destroy: Anulează tragerea la sorți
+            title: Anularea tragerii la sorți
           create:
-            error: A apărut o problemă la crearea unei noi sortări.
-            success: Sortare creată cu succes
+            error: A apărut o problemă la crearea unei noi trageri la sorți.
+            success: Tragerea la sorți a fost creată cu succes
           destroy:
-            error: Nu se poate anula sortarea.
-            success: Sortare anulată cu succes
+            error: Nu se poate anula tragerea la sorți.
+            success: Tragerea la sorți a fost anulată cu succes
           edit:
-            title: Actualizează informațiile despre sortare
-            update: Actualizare
+            title: Actualizează informațiile despre tragerea la sorți
+            update: Actualizează
           form:
             all_categories: Toate categoriile
             select_proposal_component: Selectează setul de propuneri
-            title: Sortare nouă pentru propuneri
+            title: Tragere la sorți nouă pentru propuneri
           index:
-            title: Sortări
+            title: Trageri la sorți
           new:
-            confirm: Prin apăsarea butonului următor Decidim va înregistra data şi ora (cu precizie de secunde) şi împreună cu dice rull, această informaţie va fi folosită pentru a genera o selecţie aleatorie. Acțiunea va fi ireversibilă, odată ce butonul este apăsat, rezultatul acestei remize va fi publicat, împreună cu datele introduse în acest formular și nu pot fi modificate, vă rugăm să verificați cu atenție conținutul
-            create: Crează
-            title: Sortare nouă
+            confirm: Prin apăsarea butonului următor Decidim va înregistra data şi ora (cu precizie de secunde) şi împreună cu aruncarea zarului, această informaţie va fi folosită pentru a genera o selecţie aleatorie. Acțiunea va fi ireversibilă, odată ce butonul este apăsat, rezultatul acestei trageri la sorți va fi publicat împreună cu datele introduse în acest formular și nu pot fi modificate. Te rugăm să verifici cu atenție conținutul
+            create: Creează
+            title: Tragere la sorți nouă
           show:
-            selected_proposals: Propuneri selectate pentru remiză
+            selected_proposals: Propuneri selectate pentru tragerea la sorți
           update:
-            error: A apărut o eroare la actualizarea sortării.
-            success: Sortare actualizată cu succes
+            error: A apărut o eroare la actualizarea tragerii la sorți.
+            success: Tragerea la sorți a fost actualizată cu succes
       admin_log:
         sortition:
-          create: "%{user_name} a creat sortarea %{resource_name} în %{space_name}"
-          delete: "%{user_name} a anulat sortarea %{resource_name} în %{space_name}"
-          update: "%{user_name} a actualizat sortarea %{resource_name} în %{space_name}"
+          create: "%{user_name} a creat tragerea la sorți %{resource_name} în %{space_name}"
+          delete: "%{user_name} a anulat tragerea la sorți %{resource_name} în %{space_name}"
+          update: "%{user_name} a actualizat tragerea la sorți %{resource_name} în %{space_name}"
       sortitions:
         count:
           proposals_count:
@@ -96,59 +98,59 @@ ro:
             few: "%{count} propuneri"
             other: "%{count} propuneri"
         filters:
-          active: Activ
+          active: Active
           all: Toate
-          cancelled: Anulat
+          cancelled: Anulate
           category: Categorie
-          category_prompt: Selectați o categorie
+          category_prompt: Selectează o categorie
           search: Caută
-          state: Status
+          state: Stadiu
         filters_small_view:
           close_modal: Închide fereastra
-          filter: Filtrare
-          filter_by: Filtrare după
-          unfold: Desfășurat
+          filter: Filtrează
+          filter_by: Filtrează după
+          unfold: Extinde
         linked_sortitions:
           selected_proposals: Propuneri selectate
         orders:
-          label: 'Ordonează sortări după:'
+          label: 'Ordonează tragerile la sorți după:'
           random: Aleator
           recent: Recente
         results_count:
           count:
-            one: propunerea selectată
+            one: propunere selectată
             few: propuneri selectate
             other: propuneri selectate
         show:
-          algorithm: Codul algoritmului de sortare
+          algorithm: Codul algoritmului tragerii la sorți
           any_category: din toate categoriile
           back: Înapoi la listă
-          cancelled: Sortare anulată
-          candidate_proposal_ids: Ordinea și ID-urile propunerilor de sortare
-          candidate_proposals_info: 'Sortarea a fost efectuată dintre următoarele propuneri (%{category_label}), cu următoarele documente de identitate (în îngroșarea propunerilor selectate)  '
+          cancelled: Tragere la sorți anulată
+          candidate_proposal_ids: Ordinea și ID-ul propunerilor din tragerea la sorți
+          candidate_proposals_info: 'Tragerea la sorți a fost efectuată între următoarele propuneri (%{category_label}), având următoarele ID-uri (propunerile selectate apar cu caractere îngroșate)  '
           category: din categoria %{category}
-          dice_result: "(1) Rezultatul la șoareci"
-          introduction: 'Această pagină conţine rezultatele sortării %{reference}. Prin această sortare, %{target_items} număr de rezultate au fost selectate aleatoriu și cu o distribuție de probabilitate egală din setul de propuneri afișate la nivel inferior. Împreună cu rezultatele, informațiile afișate pe această pagină oferă toate informațiile necesare pentru a maximiza garanțiile și pentru a reproduce rezultatele. Cheia pentru calitatea acestei sortări este dubla randomizare oferită de rularea unui dicționar (verificat de către martori) și momentul precis al sortării care oferă date pentru un algoritm care generează o selecție aleatorie. Semințele în timp pentru sortare sunt atât de precise (secunde) încât este imposibil să se controleze de către oameni, oferind astfel o contribuție dublă „incontrolabilă” pentru a garanta un rezultat corect.  '
+          dice_result: "(1) Rezultatul aruncării zarului"
+          introduction: 'Această pagină conține rezultatele tragerii la sorți %{reference}. Prin intermediul acestei trageri la sorți, un număr de %{target_items} rezultate au fost selectate în mod aleatoriu și cu o distribuție egală a probabilității, din setul de propuneri afișate mai jos. Împreună cu rezultatele, informațiile afișate pe această pagină oferă toate informațiile necesare pentru o garanție maximă și pentru a reproduce rezultatele. Cheia pentru calitatea acestei trageri la sorți este caracterul aleatoriu dublu asigurat de aruncarea zarului (verificată de martori) și de ora exactă a tragerii la sorți, care oferă input pentru un algoritm care generează o selecție aleatorie. Valoarea inițială a timpului pentru tragerea la sorți este atât de precisă (secunde) încât este imposibil de controlat de către om, asigurându-se astfel un dublu input „incontrolabil” pentru a se garanta un rezultat echitabil.  '
           mathematical_result: Rezultatul (1) x (2)
-          proposals_selected_by_sortition: Propuneri selectate de sortare
-          sortition_reproducibility_details: Detalii de reproductibilitate sortare
-          time_seed: "(2) Seminţe în timp"
+          proposals_selected_by_sortition: Propuneri selectate prin tragere la sorți
+          sortition_reproducibility_details: Detalii privind replicarea tragerii la sorți
+          time_seed: "(2) Data și ora"
           witnesses: Martori
         sortition:
-          random_seed: Seedere aleatoare
+          random_seed: Valoare inițială aleatorie
           selected_proposals:
             one: propunere selectată
             few: propuneri selectate
             other: propuneri selectate
-          view: Vizualizare
+          view: Vizualizează
         sortition_author:
           deleted: Participant șters
         sortition_cancel_author:
           deleted: Participant șters
         sortitions_count:
           count:
-            one: O sortare
-            few: "%{count} sortări"
-            other: "%{count} sortări"
+            one: 1 tragere la sorți
+            few: "%{count} trageri la sorți"
+            other: "%{count} trageri la sorți"
     statistics:
       sortitions_count: Trageri la sorți

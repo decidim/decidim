@@ -10,3 +10,5 @@ require "decidim/dev/test/base_spec_helper"
 
 require "decidim/forms/test"
 require "decidim/comments/test"
+require "decidim/meetings/test/translated_event"
+require "decidim/meetings/test/notifications_handling"

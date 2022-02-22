@@ -1269,10 +1269,11 @@ RSpec/NamedSubject:
   Enabled: false
 
 RSpec/RepeatedExampleGroupDescription:
-  Enabled: false
+  Enabled: true
 
 RSpec/RepeatedExampleGroupBody:
-  Enabled: false
+  Enabled: true
+
 RSpec/VerifiedDoubles:
   Enabled: false
 

@@ -279,7 +279,7 @@ module Decidim::Meetings
     end
 
     describe "pad_is_visible?" do
-      let(:pad) { instance_double(EtherpadLite::Pad, id: "pad-id", read_only_id: "read-only-id") }
+      let(:pad) { instance_double(Decidim::Etherpad::Pad, id: "pad-id", read_only_id: "read-only-id") }
 
       before do
         allow(meeting).to receive(:pad).and_return(pad)
@@ -325,7 +325,7 @@ module Decidim::Meetings
     end
 
     describe "pad_is_writable?" do
-      let(:pad) { instance_double(EtherpadLite::Pad, id: "pad-id", read_only_id: "read-only-id") }
+      let(:pad) { instance_double(Decidim::Etherpad::Pad, id: "pad-id", read_only_id: "read-only-id") }
 
       before do
         allow(meeting).to receive(:pad).and_return(pad)

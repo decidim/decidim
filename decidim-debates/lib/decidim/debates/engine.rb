@@ -97,6 +97,10 @@ module Decidim
           metric_operation.manager_class = "Decidim::Debates::Metrics::DebateFollowersMetricMeasure"
         end
       end
+
+      initializer "decidim_debates.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
     end
   end
 end

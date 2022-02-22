@@ -6,7 +6,7 @@ module Decidim
     # specify it's own creator, which will be responsible for producing (creating)
     # and finishing (saving) the imported resource.
     class ImportManifest
-      include Virtus.model
+      include Decidim::AttributeObject::Model
 
       attr_reader :name, :manifest
 
@@ -24,7 +24,7 @@ module Decidim
         super()
         @name = name.to_sym
         @manifest = manifest
-        @messages = Messages.new
+        @messages = ImportManifestMessages.new
       end
 
       # Public: Sets the creator when an argument is provided, returns the
@@ -112,25 +112,7 @@ module Decidim
         @example.present?
       end
 
-      class Messages
-        def initialize
-          @store = {}
-        end
-
-        def has?(key)
-          @store.has_key?(key)
-        end
-
-        def set(key, &block)
-          raise ArgumentError, "You need to provide a block for the message." unless block_given?
-
-          @store[key] = block
-        end
-
-        def render(key, context = nil, **extra)
-          context.instance_exec(**extra, &@store[key]) if @store[key]
-        end
-      end
+      class ImportManifestMessages < Decidim::ManifestMessages; end
     end
   end
 end

@@ -23,6 +23,28 @@ module Decidim
   end
 end
 
+# Customize the screenshot helper to fix the file paths for examples that have
+# unallowed characters in them. Otherwise the artefacts creation and upload
+# fails at GitHub actions. See the list of unallowed characters from:
+# https://github.com/actions/toolkit/blob/main/packages/artifact/docs/additional-information.md#non-supported-characters
+module ActionDispatch::SystemTesting::TestHelpers::ScreenshotHelper
+  # This method is not needed after update to Rails 7.0
+  def _screenshot_counter
+    @_screenshot_counter ||= 0
+    @_screenshot_counter += 1
+  end
+
+  def image_name
+    # By default, this only cleans up the forward and backward slash characters.
+    sanitized_method_name = method_name.tr("/\\()\":<>|*?", "-----------")
+    # The unique method is automatically available after update to Rails 7.0,
+    # so the following line can be removed after upgrade to Rails 7.0.
+    unique = failed? ? "failures" : (_screenshot_counter || 0).to_s
+    name = "#{unique}_#{sanitized_method_name}"
+    name[0...225]
+  end
+end
+
 Capybara.register_driver :headless_chrome do |app|
   options = ::Selenium::WebDriver::Chrome::Options.new
   options.args << "--headless"
@@ -30,7 +52,7 @@ Capybara.register_driver :headless_chrome do |app|
   options.args << if ENV["BIG_SCREEN_SIZE"].present?
                     "--window-size=1920,3000"
                   else
-                    "--window-size=1024,768"
+                    "--window-size=1920,1080"
                   end
 
   Capybara::Selenium::Driver.new(

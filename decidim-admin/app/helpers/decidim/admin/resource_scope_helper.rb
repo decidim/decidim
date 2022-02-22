@@ -29,6 +29,15 @@ module Decidim
         content_tag(:td, scope_name)
       end
 
+      # Public: This helper shows th with the sort link element.
+      def th_scope_sort_link
+        return unless resource_with_scopes_enabled?
+
+        content_tag(:th) do
+          sort_link(query, :scope_name, t("decidim.admin.resources.index.headers.scope"))
+        end
+      end
+
       private
 
       def resource_with_scopes_enabled?

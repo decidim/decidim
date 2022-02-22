@@ -11,14 +11,15 @@ describe Decidim::Debates::UpdateDebate do
   let(:scope) { create :scope, organization: organization }
   let(:category) { create :category, participatory_space: participatory_process }
   let(:user) { create :user, organization: organization }
-  let!(:debate) { create :debate, author: user, component: current_component }
+  let(:author) { user }
+  let!(:debate) { create :debate, author: author, component: current_component }
   let(:form) do
     Decidim::Debates::DebateForm.from_params(
       title: "title",
       description: "description",
       scope_id: scope.id,
       category_id: category.id,
-      debate: debate
+      id: debate.id
     ).with_context(
       current_organization: organization,
       current_participatory_space: current_component.participatory_space,
@@ -39,14 +40,13 @@ describe Decidim::Debates::UpdateDebate do
     it "doesn't update the debate" do
       expect do
         subject.call
+        debate.reload
       end.not_to change(debate, :title)
     end
   end
 
   describe "when the debate is not editable by the user" do
-    before do
-      expect(debate).to receive(:editable_by?).and_return(false)
-    end
+    let(:author) { create :user, organization: organization }
 
     it "broadcasts invalid" do
       expect { subject.call }.to broadcast(:invalid)
@@ -55,32 +55,40 @@ describe Decidim::Debates::UpdateDebate do
     it "doesn't update the debate" do
       expect do
         subject.call
+        debate.reload
       end.not_to change(debate, :title)
     end
   end
 
   context "when everything is ok" do
     it "updates the debate" do
-      expect { subject.call }.to change(debate, :title)
+      expect do
+        subject.call
+        debate.reload
+      end.to change(debate, :title)
     end
 
     it "sets the scope" do
       subject.call
+      debate.reload
       expect(debate.scope).to eq scope
     end
 
     it "sets the category" do
       subject.call
+      debate.reload
       expect(debate.category).to eq category
     end
 
     it "sets the title with i18n" do
       subject.call
+      debate.reload
       expect(debate.title.except("machine_translations").values.uniq).to eq ["title"]
     end
 
     it "sets the description with i18n" do
       subject.call
+      debate.reload
       expect(debate.description.except("machine_translations").values.uniq).to eq ["description"]
     end
 

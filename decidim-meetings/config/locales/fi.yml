@@ -44,8 +44,8 @@ fi:
       models:
         meeting:
           attributes:
-            show_embedded_iframe:
-              not_embeddable: Tätä URL-osoitetta ei voi upottaa
+            iframe_embed_type:
+              not_embeddable: Tätä URL-osoitetta ei voi upottaa tapaamisen sivulle tai reaaliaikaisen tapahtuman sivulle
         meeting_agenda:
           attributes:
             base:
@@ -92,7 +92,6 @@ fi:
           origin_eq:
             label: Alkuperä
             values:
-              citizen: Kansalaiset
               official: Viralliset
               user_group: Käyttäjäryhmät
           scope_id_eq:
@@ -282,6 +281,9 @@ fi:
           edit:
             close: Sulje
             title: Sulje tapaaminen
+        meeting_copies:
+          form:
+            select_a_meeting_type: Valitse tapaamisen tyyppi
         meetings:
           close:
             invalid: Tapaamisen sulkeminen epäonnistui
@@ -300,16 +302,15 @@ fi:
             update: Päivitä
           form:
             address_help: 'Osoite: käytetään karttapisteen etsimiseen geokoodauksen avulla'
-            available_slots_help: Määritä tähän kenttään arvo 0, jos tapahtuman paikkamäärää ei ole rajoitettu
             disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että organisaatio %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
             location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
             location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapaamisissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
             online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
-            registration_email_help: Tämä teksti näytetään tapahtumailmoittautumisten vahvistussähköpostin keskiosassa. Teksti näkyy heti ilmoittautumiskoodin jälkeen.
             registration_url_help: 'Linkki: salli käyttäjien siirtyminen käytettyyn ulkoiseen ilmoittautumispalveluun'
             select_a_meeting_type: Valitse tapaamisen tyyppi
             select_a_registration_type: Valitse ilmoittautumisten tyyppi
-            show_embedded_iframe_help: Määrittää, upotetaanko tämän videotapaamisen URL tapaamisen sivulle. Ainoastaan muutamat palvelut sallivat upotuksen ulkopuolisiin palveluihin (esim. YouTube, Twitch...)
+            select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
+            show_embedded_iframe_help: Vain harvat palvelut sallivat tapaamisen upottamisen reaaliaikaisesti tapahtumasivulle (YouTube, Twitch ja Jitsi)
           index:
             title: Tapaamiset
           new:
@@ -352,6 +353,7 @@ fi:
             available_slots_help: Jätä arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
             invites: Kutsut
             recommendation_message: Osallistujien yksityisyyden kannalta suosittelemme, että poistat tämän lomakkeen tiedot, kun et enää tarvitse niitä. Oletuksena se säilytetään 3 kuukautta tapaamisen päättymisen jälkeen.
+            registration_email_help: Tämä teksti näytetään tapahtumailmoittautumisten vahvistussähköpostin keskiosassa. Teksti näkyy heti ilmoittautumiskoodin jälkeen.
             registration_form: Ilmoittautumislomake
             registrations_count:
               one: Tapahtumaan on %{count} ilmoittautuminen.
@@ -379,6 +381,13 @@ fi:
           value_types:
             organizer_presenter:
               not_found: 'Järjestäjää ei löytynyt tietokannasta (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Kaikki
+        filter_meeting_space_values:
+          all: Kaikki
+        filter_scope_values:
+          all: Kaikki
       calendar_modal:
         calendar_url: Kalenterin URL
         close_window: Sulje ikkuna
@@ -386,12 +395,23 @@ fi:
       conference_venues: Tapahtumapaikat
       content_blocks:
         upcoming_meetings:
+          name: Tulevat tapaamiset
+          upcoming_meetings: Tulevat tapaamiset
           view_all_meetings: Näytä kaikki
       directory:
         meetings:
           index:
             meetings: Tapaamiset
             space_type: Osallistumistila
+      iframe_access_level:
+        all: Kaikki kävijät
+        registered: Tähän tapaamiseen ilmoittautuneet osallistujat
+        signed_in: Vain sisäänkirjautuneet osallistujat
+      iframe_embed_type:
+        embed_in_meeting_page: Upota tapaamisen sivulle
+        none: Ei mitään
+        open_in_live_event_page: Avaa upotus tapahtuman sivulla reaaliajassa (liitä vapaaehtoisia mielipidekyselyjä)
+        open_in_new_tab: Avaa uudessa välilehdessä
       last_activity:
         meeting_updated_at_html: "<span>Tapaaminen päivitetty osoitteessa %{link}</span>"
         new_meeting_at_html: "<span>Uusi tapaaminen osoitteessa %{link}</span>"
@@ -446,7 +466,6 @@ fi:
           origin: Alkuperä
           origin_values:
             all: Kaikki
-            citizens: Kansalaiset
             official: Viralliset
             user_groups: Ryhmät
           scope: Teema
@@ -474,7 +493,8 @@ fi:
           select_a_category: Valitse aihepiiri
           select_a_meeting_type: Valitse tapaamisen tyyppi
           select_a_registration_type: Valitse ilmoittautumisten tyyppi
-          show_embedded_iframe_help: Määrittää, upotetaanko tämän videotapaamisen URL tapaamisen sivulle. Ainoastaan muutamat palvelut sallivat upotuksen ulkopuolisiin palveluihin (esim. YouTube, Twitch...)
+          select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
+          show_embedded_iframe_help: Vain harvat palvelut sallivat tapaamisen upottamisen reaaliaikaisesti tapahtumasivulle (YouTube, Twitch ja Jitsi)
         index:
           click_here: Näytä kaikki tapahtumat
           new_meeting: Uusi tapaaminen

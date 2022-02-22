@@ -22,6 +22,7 @@ es-PY:
               c: Opción C
             test_options:
               bar: Barra
+              baz: Baz
               foo: Foo
           step:
             endorsements_blocked: Adhesiones bloqueadas
@@ -29,6 +30,7 @@ es-PY:
             readonly_step_attribute: Atributo de sólo lectura
             test_options:
               bar: Barra
+              baz: Baz
               foo: Foo
     dummy:
       admin:

@@ -175,17 +175,43 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     expect(page).to have_selector("input[value='This is the second service']")
   end
 
-  it "allows the user to preview the meeting" do
+  it "allows the user to preview a published meeting" do
+    meeting_path = resource_locator(meeting).path
+
     within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
       klass = "action-icon--preview"
-      href = resource_locator(meeting).path
-      target = "blank"
 
       expect(page).to have_selector(
         :xpath,
-        "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
+        "//a[contains(@class,'#{klass}')][@href='#{meeting_path}'][@target='blank']"
       )
     end
+
+    # Visit the meeting
+    page.visit meeting_path
+
+    expect(page).to have_current_path(meeting_path)
+  end
+
+  it "allows the user to preview an unpublished meeting" do
+    unpublished_meeting = create :meeting, scope: scope, services: [], component: current_component
+    visit current_path
+
+    meeting_path = resource_locator(unpublished_meeting).path
+
+    within find("tr", text: Decidim::Meetings::MeetingPresenter.new(unpublished_meeting).title) do
+      klass = "action-icon--preview"
+
+      expect(page).to have_selector(
+        :xpath,
+        "//a[contains(@class,'#{klass}')][@href='#{meeting_path}'][@target='blank']"
+      )
+    end
+
+    # Visit the unpublished meeting
+    page.visit meeting_path
+
+    expect(page).to have_current_path(meeting_path)
   end
 
   it "creates a new meeting", :slow, :serves_geocoding_autocomplete do # rubocop:disable RSpec/ExampleLength
@@ -240,17 +266,6 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
 
     scope_pick select_data_picker(:meeting_decidim_scope_id), scope
     select translated(category.name), from: :meeting_decidim_category_id
-
-    # the field is not visible by default
-    expect(page).not_to have_field("Custom content in registration email")
-    # make the field visible
-    find("#meeting_customize_registration_email").click
-    expect(help_text_for("div[data-tabs-content*='meeting-registration_email_custom_content-tab']")).to be_present
-    fill_in_i18n_editor(
-      :meeting_registration_email_custom_content,
-      "#meeting-registration_email_custom_content-tabs",
-      en: "We're very happy you registered for this event!"
-    )
 
     within ".new_meeting" do
       find("*[type=submit]").click
@@ -351,74 +366,12 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     within ".new_meeting" do
       select "Registration disabled", from: :meeting_registration_type
       expect(page).to have_no_field("Registration URL")
-      expect(page).to have_no_field("Available slots")
 
       select "On a different platform", from: :meeting_registration_type
       expect(page).to have_field("Registration URL")
-      expect(page).to have_no_field("Available slots")
 
       select "On this platform", from: :meeting_registration_type
-      expect(page).to have_field("Available slots")
       expect(page).to have_no_field("Registration URL")
-    end
-  end
-
-  describe "duplicating a meeting" do
-    it "creates a new meeting", :slow, :serves_geocoding_autocomplete do
-      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
-        click_link "Duplicate"
-      end
-
-      fill_in_i18n(
-        :meeting_title,
-        "#meeting-title-tabs",
-        en: "My duplicate meeting",
-        es: "Mi meeting duplicado",
-        ca: "El meu meeting duplicat"
-      )
-      fill_in_i18n(
-        :meeting_location,
-        "#meeting-location-tabs",
-        en: "Location",
-        es: "Location",
-        ca: "Location"
-      )
-      fill_in_i18n(
-        :meeting_location_hints,
-        "#meeting-location_hints-tabs",
-        en: "Location hints",
-        es: "Location hints",
-        ca: "Location hints"
-      )
-      fill_in_i18n_editor(
-        :meeting_description,
-        "#meeting-description-tabs",
-        en: "A longer description",
-        es: "Descripción más larga",
-        ca: "Descripció més llarga"
-      )
-
-      fill_in_geocoding :meeting_address, with: address
-
-      page.execute_script("$('#meeting_start_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "10:00").click
-      page.find(".datepicker-dropdown .minute", text: "10:50").click
-
-      page.execute_script("$('#meeting_end_time').focus()")
-      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "12:00").click
-      page.find(".datepicker-dropdown .minute", text: "12:50").click
-
-      within ".copy_meetings" do
-        find("*[type=submit]").click
-      end
-
-      expect(page).to have_admin_callout("successfully")
-
-      within "table" do
-        expect(page).to have_content("My duplicate meeting")
-      end
     end
   end
 

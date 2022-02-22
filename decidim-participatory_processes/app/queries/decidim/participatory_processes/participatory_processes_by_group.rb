@@ -3,7 +3,7 @@
 module Decidim
   module ParticipatoryProcesses
     # A class used to find the ParticipatoryProcesses from a ProcessGroup.
-    class ParticipatoryProcessesByGroup < Rectify::Query
+    class ParticipatoryProcessesByGroup < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       def self.for(process_group)
         new(process_group).query

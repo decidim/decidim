@@ -60,8 +60,9 @@ sv:
     components:
       blogs:
         actions:
-          amend: Redigera
-          vote: Rösta
+          create: Skapa
+          destroy: Radera
+          update: Uppdatera
         name: Blogg
         settings:
           global:

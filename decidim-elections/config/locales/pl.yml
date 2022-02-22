@@ -269,6 +269,7 @@ pl:
             title: Utworzono wybory
             trustees: Mężowie (osoby) zaufania
           key_ceremony:
+            continue: Dalej
             title: '"Ceremonia kluczy"'
           key_ceremony_ended:
             errors:
@@ -289,6 +290,8 @@ pl:
             submit: Prześlij
             title: Opublikowano wyniki
           tally:
+            continue: Dalej
+            mark_as_missing: Oznacz jako brakujący
             title: Ustalenie wyniku głosowania
           tally_ended:
             answer: Odpowiedź
@@ -340,6 +343,11 @@ pl:
           update:
             invalid: Podczas aktualizacji męża (osoby) zaufania %{trustee} wystąpił błąd
             success: Mąż (osoba) zaufania %{trustee} został pomyślnie zaktualizowany
+      admin_log:
+        election:
+          publish: "%{user_name} opublikował(a) wybory %{resource_name} w %{space_name}"
+          publish_results: "%{user_name} opublikował wyniki głosowania w %{resource_name} w %{space_name} na tablicy ogłoszeń"
+          unpublish: "%{user_name} cofnął/cofnęła publikację wyborów %{resource_name} w %{space_name}"
       election_m:
         badge_name:
           finished: Zakończone

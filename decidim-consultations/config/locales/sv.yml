@@ -359,6 +359,7 @@ sv:
     resources:
       consultations:
         actions:
+          comment: Kommentera
           vote: Rösta
     statistics:
       consultations_count: Samråd

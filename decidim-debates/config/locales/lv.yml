@@ -14,7 +14,6 @@ lv:
     models:
       decidim/debates/create_debate_event: Debates
       decidim/debates/creation_disabled_event: Debates ir atspējotas
-      decidim/debates/creation_enabled_event: Debates ir iespējotas
   decidim:
     components:
       debates:
@@ -27,7 +26,6 @@ lv:
           step:
             announcement: Paziņojums
             comments_blocked: Komentāri ir bloķēti
-            creation_enabled: Iespējota dalībnieku debašu veidošana
     debates:
       actions:
         confirm_destroy: Vai esat pārliecināts?
@@ -68,7 +66,6 @@ lv:
           all: Visi
           category: Kategorija
           category_prompt: Izvēlieties kategoriju
-          citizens: Pilsoņi
           official: Oficiālā
           origin: Izcelsme
           search: Meklēt

@@ -161,7 +161,6 @@ zh-CN:
             answers_with_costs: 启用建议答案的成本
             automatic_hashtags: 添加到所有建议的标签
             comments_blocked: 评论已阻止
-            creation_enabled: 建议创建已启用
             endorsements_blocked: 已阻止授权
             endorsements_enabled: 授权已启用
             proposal_answering_enabled: 建议答案已启用
@@ -247,7 +246,6 @@ zh-CN:
           email_intro: 提议 "%{resource_title}" 已被添加到"%{participatory_space_title}"，您正在关注它。
           email_outro: 您收到此通知是因为您正在关注 "%{participatory_space_title}"。您可以停止收到跟随上一个链接的通知。
           email_subject: 新提议 "%{resource_title}" 已添加到 %{participatory_space_title}
-          notification_title: 提议 <a href="%{resource_path}">%{resource_title}</a> 已被添加到 %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: '您的提议 "%{resource_title}" 已被拒绝。您可以在此页中读取答案：'
@@ -512,7 +510,6 @@ zh-CN:
           all: 所有的
         filter_origin_values:
           all: 所有的
-          citizens: Citizens
           meetings: 会议
           official: 官方的
           user_groups: 群組

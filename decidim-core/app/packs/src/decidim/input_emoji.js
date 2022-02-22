@@ -7,8 +7,17 @@ export default function addInputEmoji() {
   if (containers.length) {
     containers.forEach((elem) => {
       const picker = new EmojiButton({
-        position: "bottom-end"
+        position: "bottom-end",
+        rootElement: elem.closest("form")?.parentElement || document.body,
+        zIndex: 2000
       });
+
+      // if the selector is inside a modal window
+      // this allows shows the emoji menu uncut
+      const reveal = elem.closest("[data-reveal]")
+      if (reveal) {
+        reveal.style.overflowY = "unset"
+      }
 
       const wrapper = document.createElement("div");
       wrapper.className = "emoji__container"

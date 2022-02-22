@@ -34,7 +34,11 @@ module Decidim
             let!(:second_meeting) do
               create(:meeting, :published, start_time: meeting.start_time.advance(weeks: 1), component: meeting.component)
             end
+            let!(:moderated_meeting) do
+              create(:meeting, :moderated, :published, start_time: meeting.start_time.advance(weeks: 1), component: meeting.component)
+            end
 
+            it { is_expected.not_to include(moderated_meeting) }
             it { is_expected.not_to include(past_meeting) }
             it { is_expected.to include(meeting) }
             it { is_expected.to include(second_meeting) }
