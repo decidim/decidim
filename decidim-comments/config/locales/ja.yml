@@ -68,6 +68,7 @@ ja:
         edit: 編集
         edited: 編集済み
         hide_replies: 返信を非表示
+        moderated_at: '%{date} にモデレートされたコメント'
         reply: 返信
         report:
           action: レポート
