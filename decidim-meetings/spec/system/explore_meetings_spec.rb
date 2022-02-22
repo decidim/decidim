@@ -36,8 +36,6 @@ describe "Explore meetings", :slow, type: :system do
           click_link "See all withdrawn meetings"
         end
 
-        # it_behaves_like "accessible page"
-
         it "shows an empty page with a message" do
           expect(page).to have_content("No meetings match your search criteria or there isn't any meeting scheduled.")
           within ".callout.warning", match: :first do
