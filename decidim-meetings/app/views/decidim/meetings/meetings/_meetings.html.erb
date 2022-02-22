@@ -1,7 +1,7 @@
-<% if params.dig("filter", "state").present? && params["filter"]["state"] == "withdrawn" %>
+<% if params.dig("filter", "with_availability").present? && params["filter"]["with_availability"] == "withdrawn" %>
   <div class="callout warning">
     <%= t("decidim.meetings.meetings.index.text_banner",
-          go_back_link: link_to(t("decidim.meetings.meetings.index.click_here"), meetings_path("filter[state]" => nil)),
+          go_back_link: link_to(t("decidim.meetings.meetings.index.click_here"), meetings_path("filter[with_availability]" => nil)),
           ).html_safe %>
   </div>
 <% end %>
