@@ -1,6 +1,6 @@
 import Rails from "@rails/ujs";
 
-// Make the reomte form submit buttons disabled when the form is being
+// Make the remote form submit buttons disabled when the form is being
 // submitted to avoid multiple submits.
 document.addEventListener("ajax:beforeSend", (ev) => {
   if (!ev.target.matches("form[data-remote]")) {
