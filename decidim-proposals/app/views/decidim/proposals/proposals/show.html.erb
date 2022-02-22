@@ -42,9 +42,9 @@ extra_admin_link(
   </div>
 
   <% if @proposal.emendation? %>
-    <h3 class="heading3"><%= t(".changes_at_title", title: present(@proposal.amendable).title(links: true, html_escape: true)) %></h3>
+    <h2 class="heading3"><%= t(".changes_at_title", title: present(@proposal.amendable).title(links: true, html_escape: true)) %></h2>
   <% else %>
-    <h3 class="heading3"><%= present(@proposal).title(links: true, html_escape: true) %></h3>
+    <h2 class="heading3"><%= present(@proposal).title(links: true, html_escape: true) %></h2>
   <% end %>
   <% unless component_settings.participatory_texts_enabled? %>
     <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3, context: { current_user: current_user }) %>
