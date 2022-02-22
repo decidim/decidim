@@ -172,6 +172,8 @@ es:
         permissions: Permisos
         reject: Rechazar
         share: Compartir
+        user:
+          new: Nueva administradora
         verify: Verificar
       admin_terms_of_use:
         accept:
@@ -254,6 +256,8 @@ es:
         update:
           error: Se ha producido un error al actualizar este adjunto.
           success: Adjunto actualizado correctamente.
+      attachments_privacy_warning:
+        message: Por favor ten cuidado al trabajar con archivos adjuntos en un espacio privado. Cualquier participante puede compartir este documento con otras.
       autocomplete:
         no_results: No se han encontrado resultados
         search_prompt: Escriba al menos tres caracteres para buscar
