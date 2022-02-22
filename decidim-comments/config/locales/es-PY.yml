@@ -70,6 +70,7 @@ es-PY:
         edit: Editar
         edited: Editado
         hide_replies: Ocultar respuestas
+        moderated_at: Comentario moderado el %{date}
         reply: Respuesta
         report:
           action: Denunciar
