@@ -666,6 +666,7 @@ ca:
             header: Vot no localitzat!
             info: El codi del vot no s'ha trobat a l'urna %{link}, intenta-ho de nou.
           form:
+            back: Tornar a la plataforma
             submit: Comprovar
             vote_identifier: 'Codi identificador:'
           header:
