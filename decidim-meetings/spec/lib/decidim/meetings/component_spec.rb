@@ -120,6 +120,7 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
     let!(:first_meeting) { create :meeting, :published }
     let(:component) { first_meeting.component }
     let!(:second_meeting) { create :meeting, :published, component: component }
+    let!(:unpublished_meeting) { create :meeting, component: component }
     let(:participatory_process) { component.participatory_space }
     let(:organization) { participatory_process.organization }
 
@@ -127,7 +128,7 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
       let!(:user) { create :user, admin: true, organization: organization }
 
       it "exports all meetings from the component" do
-        expect(subject).to match_array([first_meeting, second_meeting])
+        expect(subject).to match_array([first_meeting, second_meeting, unpublished_meeting])
       end
     end
   end
