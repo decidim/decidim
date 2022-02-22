@@ -70,6 +70,7 @@ fr:
         edit: Modifier
         edited: Modifié
         hide_replies: Cacher les réponses
+        moderated_at: Commentaire modéré le %{date}
         reply: Répondre
         report:
           action: Signaler
