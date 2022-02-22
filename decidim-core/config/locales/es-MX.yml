@@ -992,6 +992,7 @@ es-MX:
           next: Siguente
           no_conversations: Aún no tienes conversaciones
           title: Conversaciones
+          to: A
         reply:
           placeholder: Tu respuesta...
           send: Enviar
