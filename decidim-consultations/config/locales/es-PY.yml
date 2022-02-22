@@ -251,6 +251,7 @@ es-PY:
       filters:
         active: Activo
         all: Todas
+        date: Fecha
         finished: Completada
         search: Buscar
         upcoming: Próximo
