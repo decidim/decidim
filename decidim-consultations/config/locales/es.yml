@@ -251,6 +251,7 @@ es:
       filters:
         active: Activo
         all: Todas
+        date: Fecha
         finished: Acabada
         search: Buscar
         upcoming: Próximo
