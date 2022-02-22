@@ -59,7 +59,6 @@
 
     <% if @notifications_settings.meet_push_notifications_requirements? %>
       <div class="push-notifications">
-        <input id="userId" name="user_id" type="hidden" value="<%= current_user.id %>">
         <p><strong><%= t(".push_notifications") %></strong></p>
           <p class="push-notifications__reminder"><i><%= t(".push_notifications_reminder").html_safe %></i></p>
           <div class="switch tiny switch-with-label allow_push_notifications">

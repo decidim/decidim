@@ -6,7 +6,7 @@ Decidim::Core::Engine.routes.draw do
   get "/offline", to: "offline#show"
 
   post "/subscribe_to_notifications", to: "notifications_subscriptions#create"
-  delete "/unsubscribe_to_notifications/:user_id", to: "notifications_subscriptions#delete_by_user"
+  delete "/unsubscribe_to_notifications", to: "notifications_subscriptions#delete"
 
   devise_for :users,
              class_name: "Decidim::User",

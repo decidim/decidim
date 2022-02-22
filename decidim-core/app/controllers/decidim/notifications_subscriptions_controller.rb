@@ -17,8 +17,8 @@ module Decidim
       head :ok
     end
 
-    def delete_by_user
-      Decidim::NotificationsSubscription.where(decidim_user_id: params[:user_id]).destroy_all
+    def delete
+      Decidim::NotificationsSubscription.where(decidim_user_id: current_user.id).destroy_all
 
       head :ok
     end

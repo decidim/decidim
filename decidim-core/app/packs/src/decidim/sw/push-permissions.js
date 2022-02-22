@@ -17,9 +17,7 @@ window.addEventListener("DOMContentLoaded", async () => {
           }
         }
         else {
-          const userId = document.getElementById("userId").value
-
-          await fetch(`/unsubscribe_to_notifications/${userId}`, {
+          await fetch("/unsubscribe_to_notifications", {
             headers: { "Content-Type": "application/json" },
             method: "DELETE"
           });
