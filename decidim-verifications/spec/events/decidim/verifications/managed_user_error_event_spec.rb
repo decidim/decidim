@@ -38,7 +38,25 @@ describe Decidim::Verifications::ManagedUserErrorEvent do
 
   describe "notification_title" do
     it "is generated correctly" do
-      expect(subject.notification_title).to eq("The participant <a href=\"/profiles/#{resource.current_user.nickname}\">#{resource.current_user.name}</a> has tried to verify herself with the data of the managed participant <a href=\"/profiles/#{resource.managed_user.nickname}\">#{resource.managed_user.name}</a>")
+      expect(subject.notification_title).to eq("The participant <a href=\"/profiles/#{resource.current_user.nickname}\">#{resource.current_user.name}</a> has tried to verify herself with the data of the managed participant <a href=\"/profiles/#{resource.managed_user.nickname}\">#{resource.managed_user.name}</a>.")
+    end
+  end
+
+  describe "email_subject" do
+    it "is generated correctly" do
+      expect(subject.email_subject).to eq("Failed verification attempt against a managed participant")
+    end
+  end
+
+  describe "email_intro" do
+    it "is generated correctly" do
+      expect(subject.email_intro).to eq("The participant <a href=\"/profiles/#{resource.current_user.nickname}\">#{resource.current_user.name}</a> has tried to verify herself with the data of the managed participant <a href=\"/profiles/#{resource.managed_user.nickname}\">#{resource.managed_user.name}</a>.")
+    end
+  end
+
+  describe "email_outro" do
+    it "is generated correctly" do
+      expect(subject.email_outro).to eq("Check the <a href=\"/admin/conflicts\">Verifications's conflicts list</a> and contact the participant to verify her details and solve the issue.")
     end
   end
 end
