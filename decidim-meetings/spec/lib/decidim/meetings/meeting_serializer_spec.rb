@@ -9,7 +9,7 @@ module Decidim
         described_class.new(meeting)
       end
 
-      let!(:meeting) { create(:meeting, contributions_count: 5, attendees_count: 10, attending_organizations: "Some organization") }
+      let!(:meeting) { create(:meeting, :published, contributions_count: 5, attendees_count: 10, attending_organizations: "Some organization") }
       let!(:category) { create(:category, participatory_space: component.participatory_space) }
       let!(:scope) { create(:scope, organization: component.participatory_space.organization) }
       let(:participatory_process) { component.participatory_space }
@@ -121,6 +121,10 @@ module Decidim
         it "serializes related results" do
           expect(serialized[:related_results].length).to eq(2)
           expect(serialized[:related_results].first).to match(%r{http.*/results})
+        end
+
+        it "serialized the published column" do
+          expect(serialized).to include(published: meeting.published?)
         end
       end
     end
