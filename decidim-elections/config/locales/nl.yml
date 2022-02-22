@@ -470,15 +470,12 @@ nl:
               generate_legend_3: Zorg ervoor dat uw computer geen kopie van het bestand heeft (kijk bijvoorbeeld naar de downloads en Desktop-mappen).
               generate_legend_4: Maak nog een kopie van het bestand op een ander extern apparaat en sla het op een zeer veilige plaats.
               submit: Verzenden
-              submit_legend: Na het volgen van alle bovenstaande stappen, voltooi het proces door de publieke identificatiesleutel naar de Decidim server te sturen.
               submit_title: Vul de publieke identificatiesleutel in
               title: Trustee identificatiesleutels
               upload: Upload jouw identificatiesleutels
               upload_error:
                 invalid_format: Het geüploade bestand bevat geen identificatiesleutel.
                 invalid_key: De identificatiesleutels in het geüploade bestand kunnen niet worden geladen.
-                invalid_public_key: De identificatiesleutels in het geüploade bestand komen niet overeen met de publieke identificatiesleutel die door Decidim is opgeslagen.
-              upload_legend: Decidim heeft jouw publieke identificatiesleutels, maar je browser heeft deze nog niet. Je moet het bestand met jouw identificatiesleutels importeren naar je computer, vanuit de back-up die je hebt gemaakt na het genereren ervan.
             not_supported_browser_description: Het lijkt erop dat je een webbrowser gebruikt die niet kan gebruikt worden als Trustee. Zorg ervoor dat je de meest recente versie van je browser gebruikt, of probeer een van de populairste browsers te gebruiken om je Trustee taken te voltooien.
             not_supported_browser_title: Upgrade de browser om als Trustee te fungeren
             trustee_role_description: Je bent aangeduid om als Trustee te fungeren in enkele verkiezingen op dit platform.
@@ -541,9 +538,7 @@ nl:
         onboarding_modal:
           close: Sluit venster
           create_account: Account aanmaken
-          description: Wil je en nieuwe account aanmaken in Decidim? Je kunt deelnemen aan de processen en een actief deel van de organisatie zijn.
           no_account: Nee, bedankt.
-          title: Nieuw bij Decidim?
         update:
           error: Er is een probleem opgetreden bij het bijwerken van stemstatus. Probeer het opnieuw.
         verify:
@@ -554,7 +549,6 @@ nl:
             header: Stem niet gevonden!
             info: De stemcode werd niet gevonden in de stembus %{link}, probeer het opnieuw.
           form:
-            back: Terug naar Decidim
             submit: Controleer
             vote_identifier: 'Identificatiecode:'
           header:
@@ -842,7 +836,6 @@ nl:
             assign_missing_officers: Er zijn stembureaus zonder voorzitter en/of manager. Duid deze aan in onderdeel Stembureau
             update: Bijwerken
           form:
-            census_contact_information_help: Deze contactinformatie is bedoeld voor een deelnemer die problemen met de kiezerslijst wil melden. Het kan een e-mailadres, een contactformulier zijn op een andere site, een Decidim enquête voor bezoekers, enz.
             select_a_voting_type: Selecteer een type stemming
             slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
             title: Titel
@@ -1158,7 +1151,6 @@ nl:
           all: Alle
           finished: Afgelopen
           search: Zoeken
-          state: Status
           upcoming: Gepland
         filters_small_view:
           close_modal: Sluit venster

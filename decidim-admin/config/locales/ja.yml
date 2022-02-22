@@ -173,7 +173,7 @@ ja:
         reject: 拒否
         share: 共有
         user:
-          new: 新規ユーザー
+          new: 新しい管理者
         verify: 確認する
       admin_terms_of_use:
         accept:
@@ -256,6 +256,8 @@ ja:
         update:
           error: この添付ファイルを更新中に問題が発生しました。
           success: 添付ファイルが更新されました。
+      attachments_privacy_warning:
+        message: プライベートスペースで添付ファイルを扱う場合は注意してください．すべての参加者がこの文書を他の人と共有することができます．
       autocomplete:
         no_results: 結果が見つかりませんでした
         search_prompt: 検索するには少なくとも3文字を入力してください
@@ -338,7 +340,7 @@ ja:
       dashboard:
         show:
           view_more_logs: もっとログを見る
-          welcome: Decidim 管理画面へようこそ。
+          welcome: 管理画面へようこそ。
       domain_whitelist:
         form:
           domain_too_short: ドメインが短すぎます
@@ -954,7 +956,7 @@ ja:
         static_pages: ページ
         statistics: アクティビティ
         user_groups: グループ
-        users: 参加者
+        users: 管理者
       user_group:
         csv_verify:
           invalid: CSVファイルの読み込みに問題が発生しました。
@@ -990,7 +992,7 @@ ja:
           role: ロール
         new:
           create: 招待
-          title: 管理者として参加者を招待
+          title: 新しい管理者を招待する
       users_statistics:
         users_count:
           admins: 管理者

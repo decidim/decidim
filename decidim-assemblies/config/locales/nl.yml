@@ -270,7 +270,6 @@ nl:
             duration_help: Als de duur van deze groep beperkt is, selecteert u de einddatum. Anders zal dit verschijnen als onbepaald.
             filters: Filters
             images: Afbeeldingen
-            included_at_help: Selecteer de datum waarop deze groep aan Decidim is toegevoegd. Het hoeft niet noodzakelijk hetzelfde te zijn als de aanmaakdatum.
             metadata: Metadata
             other: Overige
             select_a_created_by: Selecteer op 'gemaakt door'

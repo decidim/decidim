@@ -171,8 +171,6 @@ pt:
         permissions: Permissões
         reject: Rejeitar
         share: Partilhar
-        user:
-          new: Novo utilizador
         verify: Verificar
       admin_terms_of_use:
         accept:
@@ -337,7 +335,6 @@ pt:
       dashboard:
         show:
           view_more_logs: Ver mais registos
-          welcome: Bem-vindo ao Painel de Administração de Decidim.
       domain_whitelist:
         form:
           domain_too_short: Domínio demasiado curto
@@ -914,7 +911,6 @@ pt:
         static_pages: Páginas
         statistics: Atividade
         user_groups: Grupos
-        users: Participantes
       user_group:
         csv_verify:
           invalid: Ocorreu um problema ao ler o ficheiro CSV.
@@ -950,7 +946,6 @@ pt:
           role: Função
         new:
           create: Convidar
-          title: Convidar o(a) participante como administrador(a)
       users_statistics:
         users_count:
           admins: Administradores

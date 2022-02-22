@@ -125,7 +125,7 @@ fi-pl:
         error: Tilin poistossa tapahtui virhe.
         success: Tilisi poistaminen onnistui.
       show:
-        available_locales_helper: Valitse kieli, jota haluat käyttää selataksesi Decidimiä ja vastaanottaaksesi ilmoituksia
+        available_locales_helper: Valitse haluamasi kieli alustan käyttämiseen ja ilmoitusten vastaanottamiseen
         change_password: Vaihda salasana
         update_account: Päivitä tili
       update:
@@ -994,6 +994,7 @@ fi-pl:
           next: Seuraava
           no_conversations: Sinulla ei vielä ole keskusteluja
           title: Keskustelut
+          to: Vastaanottaja
         reply:
           placeholder: Vastauksesi...
           send: Lähetä
@@ -1094,6 +1095,10 @@ fi-pl:
       update:
         error: Ilmoitusasetustesi päivityksessä tapahtui virhe.
         success: Ilmoitusasetuksesi päivitettiin onnistuneesti.
+    offline:
+      show:
+        message: Näyttää, että olet tällä hetkellä offline-tilassa. Yritä myöhemmin uudestaan.
+        retry: Yritä uudestaan
     open_data:
       not_available_yet: Avoimet datatiedostot eivät ole vielä käytettävissä, yritä uudelleen muutaman minuutin kuluttua.
     own_user_groups:
@@ -1635,6 +1640,8 @@ fi-pl:
       notifications_dashboard:
         mark_all_as_read: Merkitse kaikki luetuiksi
         mark_as_read: Merkitse luetuiksi
+      offline_banner:
+        cache_version_page: Hups! Verkkosi on offline-tilassa. Tämä on aiemmin välimuistissa oleva versio vierailemasi sivusta, jonka sisältö ei välttämättä ole ajan tasalla.
       social_media_links:
         facebook: "%{organization} Facebookissa"
         github: "%{organization} GitHubissa"

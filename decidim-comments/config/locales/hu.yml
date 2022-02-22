@@ -43,6 +43,7 @@ hu:
           in_favor: Támogatom
         deleted_user: Törölt felhasználó
         hide_replies: Válaszok elrejtése
+        moderated_at: Hozzászólás moderálva %{date}
         reply: Válasz
         report:
           action: Jelentés

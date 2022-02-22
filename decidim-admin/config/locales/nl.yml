@@ -166,8 +166,6 @@ nl:
         per_page: Per pagina
         permissions: Permissies
         reject: Weigeren
-        user:
-          new: Nieuwe gebruiker
         verify: Verifiëren
       admin_terms_of_use:
         accept:
@@ -319,7 +317,6 @@ nl:
       dashboard:
         show:
           view_more_logs: Bekijk meer logs
-          welcome: Welkom bij het Decidim Admin Panel.
       domain_whitelist:
         form:
           domain_too_short: Domein te kort
@@ -897,7 +894,6 @@ nl:
         static_pages: Pagina's
         statistics: Activiteit
         user_groups: groepen
-        users: Deelnemers
       user_group:
         csv_verify:
           invalid: Er is een fout opgetreden bij het lezen van het CSV-bestand.
@@ -933,7 +929,6 @@ nl:
           role: Rol
         new:
           create: Nodig uit
-          title: Nodig deelnemer uit als beheerder
       users_statistics:
         users_count:
           admins: Admins

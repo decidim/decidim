@@ -85,20 +85,15 @@ nl:
             values:
               'false': Verleden
               'true': Toekomstige
-          origin_eq:
-            label: Herkomst
-            values:
-              official: Officieel
-              participant: Deelnemer
-              user_group: Gebruikersgroepen
           scope_id_eq:
             label: Scope
-          type_eq:
+          with_any_origin:
+            values:
+              user_group: Gebruikersgroepen
+          with_any_type:
             label: Type vergadering
             values:
-              hybrid: Beide
               in_person: Fysiek
-              online: Online
       meeting_copies:
         create:
           error: Er is een fout opgetreden tijdens het dupliceren van deze vergadering.

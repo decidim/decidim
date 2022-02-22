@@ -296,7 +296,6 @@ tr:
       dashboard:
         show:
           view_more_logs: Daha fazla günlükleri görüntüle
-          welcome: Decidim Yönetici Paneline hoş geldiniz.
       exports:
         export_as: "%{name} olarak %{export_format}"
         formats:
@@ -801,7 +800,6 @@ tr:
         static_pages: Sayfalar
         statistics: Aktivite
         user_groups: Kullanıcı Grupları
-        users: Kullanıcılar
       user_group:
         csv_verify:
           invalid: CSV dosyasını okurken bir hata oluştu.
@@ -837,7 +835,6 @@ tr:
           role: Rol
         new:
           create: Davet et
-          title: Kullanıcıyı yönetici olarak davet et
       users_statistics:
         users_count:
           admins: Yöneticiler

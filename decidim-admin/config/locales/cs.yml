@@ -173,7 +173,7 @@ cs:
         reject: Odmítnout
         share: Sdílet
         user:
-          new: Nový uživatel
+          new: Nový administrátor
         verify: Ověřit
       admin_terms_of_use:
         accept:
@@ -256,6 +256,8 @@ cs:
         update:
           error: Při aktualizaci této přílohy došlo k chybě.
           success: Příloha byla úspěšně aktualizována.
+      attachments_privacy_warning:
+        message: Buďte opatrní při práci s přílohami v soukromém prostoru. Každý účastník by mohl sdílet tento dokument s ostatními.
       autocomplete:
         no_results: Nenalezeny žádné výsledky
         search_prompt: Zadejte nejméně tři znaky, které chcete vyhledat
@@ -338,7 +340,7 @@ cs:
       dashboard:
         show:
           view_more_logs: Zobrazit další protokoly
-          welcome: Vítejte v administrátorském panelu Decidim.
+          welcome: Vítejte v Admin panelu.
       domain_whitelist:
         form:
           domain_too_short: Doména je příliš krátká
@@ -969,7 +971,7 @@ cs:
         static_pages: Stránky
         statistics: Aktivita
         user_groups: Skupiny
-        users: Účastníci
+        users: Administrátoři
       user_group:
         csv_verify:
           invalid: Při čtení souboru CSV došlo k chybě.
@@ -1005,7 +1007,7 @@ cs:
           role: Role
         new:
           create: Pozvat
-          title: Pozvat účastníka jako administrátora
+          title: Pozvat nového administrátora
       users_statistics:
         users_count:
           admins: Administrátoři

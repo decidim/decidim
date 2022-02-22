@@ -95,15 +95,15 @@ cs:
             values:
               'false': Minulé
               'true': Nadcházející
-          origin_eq:
+          scope_id_eq:
+            label: Oblast působnosti
+          with_any_origin:
             label: Původ
             values:
               official: Úředník
-              participant: Účastník
+              participants: Účastník
               user_group: Skupiny uživatelů
-          scope_id_eq:
-            label: Oblast působnosti
-          type_eq:
+          with_any_type:
             label: Typ schůzky
             values:
               hybrid: Obojí

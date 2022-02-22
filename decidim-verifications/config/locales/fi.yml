@@ -188,7 +188,7 @@ fi:
               verification_number: 'Vahvistus #%{n}'
           rejections:
             create:
-              success: Vahvistus hylätty. Käyttäjää pyydetään muuttamaan asiakirjojaan
+              success: Vahvistus hylätty. Käyttäjää pyydetään päivittämään lataamiaan asiakirjoja
         authorizations:
           choose:
             choose_a_type: 'Valitse, kuinka haluat varmistaa henkilöllisyytesi:'

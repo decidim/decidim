@@ -77,7 +77,6 @@ sk:
           index:
             title: Voľby losovaním
           new:
-            confirm: Stlačením ďalšieho tlačidla Decidim zaznamená dátum a čas (s presnosťou na sekundy) a spoločne s hodom kockami budú tieto informácie použité pre generovanie náhodného výberu. Akcia bude nevratná, po kliknutí na tlačidlo sa výsledky tejto kresby uverejní s údajmi uvedenými v tomto formulári a nemožno ich zmeniť, skontrolujte prosím pozorne obsah
             create: Vytvoriť
             title: Nové rozvrhnutie
           show:

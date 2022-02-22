@@ -262,7 +262,6 @@ lv:
       dashboard:
         show:
           view_more_logs: Skatīt vairāk ierakstu
-          welcome: Laipni lūdzam Decidim administratora panelī.
       exports:
         export_as: "%{name} kā %{export_format}"
         notice: Pašlaik notiek jūsu eksportēšana. Jūs saņemsiet e-pastu, kad tā būs pabeigta.
@@ -681,7 +680,6 @@ lv:
         static_pages: Lapas
         statistics: Aktivitāte
         user_groups: Grupas
-        users: Dalībnieki
       user_group:
         csv_verify:
           invalid: CSV faila lasīšanas laikā radās problēma.
@@ -717,7 +715,6 @@ lv:
           role: Loma
         new:
           create: Uzaicināt
-          title: Uzaicināt dalībnieku par administratoru
       users_statistics:
         users_count:
           admins: Administratori
