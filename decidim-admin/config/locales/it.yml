@@ -914,7 +914,7 @@ it:
         static_pages: Pagine
         statistics: Attività
         user_groups: Gruppi di utenti
-        users: Utenti
+        users: Partecipanti
       user_group:
         csv_verify:
           invalid: Si è verificato un errore durante la lettura del file CSV.

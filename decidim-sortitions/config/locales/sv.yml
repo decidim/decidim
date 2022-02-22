@@ -19,6 +19,8 @@ sv:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Kommentera
         name: Tilldelningar
         settings:
           global:

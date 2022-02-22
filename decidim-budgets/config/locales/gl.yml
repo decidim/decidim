@@ -20,6 +20,18 @@ gl:
         one: Proxecto
         other: Proxectos
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Categoría
+          scope_id_eq:
+            label: Ámbito
+          selected_at_null:
+            label: Seleccionado
+            values:
+              'false': Seleccionado para implementación
+              'true': Sen seleccionar para implementación
     budgets:
       actions:
         attachment_collections: Carpetas
@@ -115,6 +127,8 @@ gl:
             total_budget: Orzamento total
         project:
           fields:
+            category: Categoría
+            id: ID
             title: Título
       order_summary_mailer:
         order_summary:

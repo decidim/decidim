@@ -19,10 +19,13 @@
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Kommenter
         name: Sorteringer
         settings:
           global:
             comments_enabled: Kommentarer aktivert
+            comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
     events:
       sortitions:
         sortition_created:
@@ -117,6 +120,7 @@
         show:
           algorithm: Sorterings algoritmekode
           any_category: fra alle kategorier
+          back: Tilbake til listen
           cancelled: Avbrutt sortering
           candidate_proposal_ids: Sorterings forslags ordre og IDer
           candidate_proposals_info: 'Sorteringen ble gjennomført blant følgende forslag (%{category_label}), med følgende ID-er (i fet skrift, de valgte forslagene)  '
@@ -142,3 +146,5 @@
           count:
             one: 1 sortering
             other: "%{count} sorteringer"
+    statistics:
+      sortitions_count: Sorteringer

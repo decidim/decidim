@@ -86,10 +86,10 @@ nl:
               'false': Verleden
               'true': Toekomstige
           origin_eq:
-            label: Herkomst
+            label: Oorsprong
             values:
               citizen: Inwoners
-              official: Officieel
+              official: Officiële
               user_group: Gebruikersgroepen
           scope_id_eq:
             label: Scope

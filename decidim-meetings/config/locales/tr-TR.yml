@@ -67,6 +67,16 @@ tr:
         other: Kayıtlar
   decidim:
     admin:
+      filters:
+        meetings:
+          origin_eq:
+            label: Orijin
+            values:
+              official: Resmi
+          type_eq:
+            values:
+              hybrid: Her ikisi
+              online: Çevrimiçi
       meeting_copies:
         create:
           error: Bu toplantıyı kopyalarken bir sorun oluştu.

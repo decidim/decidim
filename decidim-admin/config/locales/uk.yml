@@ -531,7 +531,6 @@ uk:
         scopes: Обсяги
         static_pages: Сторінки
         user_groups: Гурти учасників
-        users: Учасники
       user_group:
         reject:
           invalid: При відхиленні цього гурту учасників сталася помилка.

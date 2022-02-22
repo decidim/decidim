@@ -6,12 +6,14 @@
         description: Beskrivelse
         title: Tittel
         total_budget: Totalt budsjett
+        weight: Prioritert rekkefølge
       project:
         budget_amount: Budsjettbeløp
         decidim_category_id: Kategori
         decidim_scope_id: Tema
         description: Beskrivelse
         proposal_ids: Relaterte forslag
+        selected: Utvalgt for implementering
         title: Tittel
   activerecord:
     models:
@@ -19,6 +21,18 @@
         one: Prosjekt
         other: Prosjekter
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Kategori
+          scope_id_eq:
+            label: Tema
+          selected_at_null:
+            label: Valgt
+            values:
+              'false': Utvalgt for implementering
+              'true': Ikke valgt for implementering
     budgets:
       actions:
         attachment_collections: Mapper
@@ -35,7 +49,30 @@
         budgets:
           create:
             invalid: Det oppsto et problem med å opprette dette budsjettet
+            success: Budsjett opprettet
+          destroy:
+            invalid: Det oppsto et problem med å slette dette budsjettet
+            success: Budsjettet ble slettet
+          edit:
+            title: Rediger budsjett
+            update: Oppdater budsjett
+          index:
+            finished_orders: Avsluttede stemmer
+            pending_orders: Ventende stemmer
+            title: Budsjetter
+            users_with_finished_orders: Brukere med ferdige stemmer
+            users_with_pending_orders: Brukere med ventende stemmer
+          new:
+            create: Opprett budsjett
+            title: Nytt budsjett
+          update:
+            invalid: Det oppsto et problem med å opprette dette budsjettet
+            success: Budsjett opprettet
+        exports:
+          projects: Prosjekter
         models:
+          budget:
+            name: Budsjett
           project:
             name: Prosjekt
         projects:
@@ -50,6 +87,7 @@
           index:
             finished_orders: Avsluttede stemmer
             pending_orders: Ventende stemmer
+            selected: Valgt
             title: Prosjekter
           new:
             create: Opprett
@@ -65,30 +103,75 @@
             create: Importer forslag til prosjekter
             no_components: Det er ingen andre forslag komponenter i dette deltaker området å importere forslagene inn i prosjekter.
             select_component: Velg en komponent
+            title: Importer forslag
       admin_log:
+        budget:
+          create: "%{user_name} opprettet %{resource_name} budsjettet i rommet %{space_name}"
+          delete: "%{user_name} slettet %{resource_name} budsjettet i rommet %{space_name}"
+          update: "%{user_name} oppdaterte %{resource_name} budsjettet i rommet %{space_name}"
         project:
           create: "%{user_name} opprettet %{resource_name} prosjektet i %{space_name} rommet"
           delete: "%{user_name} slettet %{resource_name} prosjektet i %{space_name} rommet"
           update: "%{user_name} oppdaterte %{resource_name} prosjektet i %{space_name} rommet"
+      budget:
+        view: Vis alle budsjettprosjekter
+      budget_information_modal:
+        back_to: Tilbake til %{component_name}
+        close_modal: Lukk dialogboks
+        continue: Fortsett
+        more_information: Mer informasjon
+      budget_list_item:
+        voting_finished: Du har stemt i dette budsjettet
+        voting_started: Du har begynt å stemme i dette budsjettet
+      budgets_list:
+        cancel_order:
+          more_than_one: slett stemmen din på %{name} og start på nytt
+          only_one: slett stemmen din og begynn på nytt.
+        finished_message: Du har fullført avstemmingen. Takk for at du deltar!
+        highlighted_cta: Stem på %{name}
+        if_change_opinion: Hvis du har endret mening, kan du
+        my_budgets: Mine budsjetter
+        progress: Fullfør stemmegivningen
+        show: Se prosjekter
+        vote: Stem
+        voted_on: Du har stemt på %{links}
+      limit_announcement:
+        cant_vote: Du kan ikke stemme på dette budsjettet. <a href="%{landing_path}">Prøv på et annet budsjett</a>.
+        limit_reached: Du har aktive stemmer i %{links}. For å stemme på dette budsjettet må du <a href="%{landing_path}">slette stemmen din og starte på nytt</a>.
       models:
+        budget:
+          fields:
+            name: Navn
+            projects_count: Antall prosjekter
+            total_budget: Totalt budsjett
         project:
           fields:
+            category: Kategori
+            id: ID
             title: Tittel
       order_summary_mailer:
         order_summary:
           selected_projects: 'Prosjektene du har valgt er:'
           subject: Du har stemt på %{space_name} i deltakelsesrommet
+          voted_on_space: Du har stemt på %{budget_name} budsjettet for %{space_name} medvirkningsrom.
+          voted_on_space_with_scope: Du har stemt på %{budget_name} budsjettet for %{space_name} medvirkningsrommet på %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
+          are_you_sure: Hvis du ombestemmer deg, kan du endre stemmen din senere.
           cancel: Avbryt
           confirm: Bekreft
           description: Dette er prosjektene du har valgt å være en del av budsjettet.
           title: Bekreft stemme
         budget_excess:
           budget_excess:
+            description: Prosjektet overskrider det maksimale budsjettet og kan ikke legges til. Hvis du vil, kan du slette et prosjekt du allerede har valgt å legge til, eller avlegg stemme i henhold til de gitte rammene.
             title: Maksimalt budsjett overskredet
           close: Lukk
+          description: Prosjektet overskrider det maksimale budsjettet og kan ikke legges til. Hvis du vil, kan du slette et prosjekt du allerede har valgt å legge til, eller avlegg stemme i henhold til de gitte rammene.
           ok: OK
+          projects_excess:
+            description: Prosjektet overskrider maksimalt antall prosjekter og kan ikke legges til. Hvis du vil, kan du slette et prosjekt du allerede har valgt å legge til, eller foreta stemme i henhold til gitte rammene.
+            title: Maksimal antall prosjekter overskredet
         budget_summary:
           are_you_sure: Er du sikker på at du vil avbryte din stemme?
           assigned: 'Tildelt:'
@@ -96,15 +179,42 @@
           checked_out:
             description: Du har allerede stemt for budsjettet. Hvis du har ombestemt deg, kan du %{cancel_link}.
             title: Budtjett avstemning fullført
+          minimum_projects_rule:
+            description: Hvilke prosjekter mener du vi bør tildele budsjett for? Velg minst %{minimum_number} prosjekter du vil og stem i henhold til dine preferanser for å definere budsjettet.
+            instruction: "<li>Velg minst %{minimum_number} prosjekter du vil og stemme i henhold til dine preferanser for å definere budsjettet.</li>"
+          projects_rule:
+            description: Hvilke prosjekter mener du vi bør tildele budsjett for? Velg minst %{minimum_number} og opptil %{maximum_number} prosjekter du ønsker og stem i henhold til dine preferanser for å definere budsjettet.
+            instruction: "<li>Velg minst %{minimum_number} og inntil %{maximum_number} prosjekter du ønsker og stem i henhold til dine preferanser for å definere budsjettet</li>"
+          projects_rule_maximum_only:
+            description: Hvilke prosjekter mener du vi bør tildele budsjett for? Velg opptil %{maximum_number} prosjekter du ønsker og stem i henhold til dine preferanser for å definere budsjettet.
+            instruction: "<li>Velg opptil %{maximum_number} prosjekter du ønsker og stem i henhold til dine preferanser for å definere budsjettet.</li>"
+          rules:
+            title: Budsjettregler
           title: Du bestemmer budsjettet
+          total_budget: Totalt budsjett
+          total_projects: Totalt antall stemmer
+          vote_threshold_percent_rule:
+            description: Hvilke prosjekter mener du vi bør tildele budsjett for? Tilordne minst %{minimum_budget} til de prosjektene du ønsker og stem i henhold til dine preferanser for å definere budsjettet.
+            instruction: "<li>Tilordne minst %{minimum_budget} til de prosjektene du ønsker og stem i henhold til dine preferanser for å definere budsjettet.</li>"
         count:
           projects_count:
             one: 1 prosjekt
             other: "%{count} prosjekter"
+        exit_modal:
+          cancel: Tilbake til avstemming
+          close_modal: Lukk dialogboks
+          exit: Avslutt avstemning
+          message: Stemmen din er ikke registrert fordi du ikke har fullført avstemmingen. Er du sikker på at du vil avslutte avstemming?
+          title: Du har ikke stemt enda
         filters:
           category: Kategori
           scope: Tema
           search: Søk
+          status: Status
+          status_values:
+            all: Alle
+            not_selected: Ikke valgt
+            selected: Valgt
         filters_small_view:
           close_modal: Lukk modal
           filter: Filter
@@ -124,21 +234,29 @@
           lowest_cost: Laveste kostnad
           most_voted: Mest stemte
           random: Tilfeldig rekkefølge
+          selected: Valgt
         project:
           add: Legg til prosjektet %{resource_name} til din stemme
           remove: Fjern prosjektet %{resource_name} fra stemmen din
+          selected: Valgt
           view: Vis
+          votes:
+            one: stem
+            other: stemmer
+          you_voted: Du stemte dette
         project_budget_button:
           add: Legg til i stemmen din
           add_descriptive: Legg til prosjektet %{resource_name} til din stemme
           added: Lagt til stemmen din
           added_descriptive: Prosjektet %{resource_name} er lagt til din stemme
+        projects_for: Prosjekter for %{name}
         show:
           budget: Budsjett
           view_all_projects: Vis alle prosjekter
     components:
       budgets:
         actions:
+          comment: Kommenter
           vote: Stemme
         name: Budsjetter
         settings:
@@ -150,18 +268,46 @@
               errors:
                 budget_voting_rule_only_one: Bare én regel for stemmegivning må være aktivert
                 budget_voting_rule_required: En avstemningsregel kreves
+            landing_page_content: Landingsside budsjett
+            more_information_modal: Mer informasjon
             projects_per_page: Prosjekter per side
+            resources_permissions_enabled: Handlingstillatelser kan settes for hvert prosjekt
+            scope_id: Tema
+            scopes_enabled: Temaer aktivert
+            title: Tittel
             total_budget: Totalt budsjett
             vote_minimum_budget_projects_number: Minimum antall prosjekter å stemme på
             vote_rule_minimum_budget_projects_enabled: 'Aktiver regel: Minimum antall prosjekter det skal stemmes på'
+            vote_rule_selected_projects_enabled: 'Aktiver regel: Valgte prosjekter med minimum og maksimalt antall prosjekter som skal stemmes på'
             vote_rule_threshold_percent_enabled: 'Aktiver regel: Minimum budsjettprosent'
+            vote_selected_projects_maximum: Maksimalt antall prosjekter som skal velges
+            vote_selected_projects_minimum: Minste antall prosjekter som skal velges
             vote_threshold_percent: Stemmeterskel prosent
+            workflow: Arbeidsflyt
+            workflow_choices:
+              all: 'Stemme i alt: gir deltakerne mulighet til å stemme på alle budsjetter.'
+              one: 'Stem i én: gir deltakerne mulighet til å stemme på et hvilket som helst budsjett, men bare i ett.'
           step:
             announcement: Kunngjøring
             comments_blocked: Kommentarer blokkert
+            highlighted_heading: Uthevet overskrift
+            landing_page_content: Landingsside budsjett
+            list_heading: Liste overskrift
+            more_information_modal: Mer informasjon
             show_votes: Vis stemmer
+            title: Tittel
+            votes: Stemmegivning
             votes_choices:
+              disabled: Stemmegivning deaktivert
               enabled: Stemming aktivert
+              finished: Stemmegivningen er ferdig
+    events:
+      budgets:
+        budget_published:
+          email_intro: '%{resource_title} budsjettet er nå aktivt for %{participatory_space_title}. Du kan se det fra denne siden:'
+          email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan avslutte varsler hvis du følger den forrige lenken.
+          email_subject: '%{resource_title} budsjettet er nå aktivt for %{participatory_space_title}.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> budsjettet er nå aktivt for %{participatory_space_title}.
     orders:
       checkout:
         error: Det oppstod et problem med å behandle din stemme
@@ -169,5 +315,11 @@
       destroy:
         error: Det oppstod et problem med å avbryte stemmen din
         success: Stemmen din ble kansellert
+    resource_links:
+      included_proposals:
+        project_proposal: Forslag inkludert i dette prosjektet
+    statistics:
+      orders_count: Støtter
+      projects_count: Prosjekter
   index:
     confirmed_orders_count: Stemmer teller

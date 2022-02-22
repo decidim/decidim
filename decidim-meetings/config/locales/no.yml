@@ -17,11 +17,13 @@
       meeting:
         address: Adresse
         available_slots: Tilgjengelige plasser for dette møtet
+        customize_registration_email: Tilpass registrerings-e-post
         decidim_category_id: Kategori
         decidim_scope_id: Tema
         decidim_user_group_id: Brukergruppe
         description: Beskrivelse
         end_time: Sluttid
+        id: ID
         location: Plassering
         location_hints: Plasseringstips
         online_meeting_url: Link til nettmøte
@@ -32,12 +34,17 @@
         registration_terms: Registrerings vilkår
         registration_url: Link til registrering
         registrations_enabled: Registreringer aktivert
+        show_embedded_iframe: Vis innebygd iframe for denne nettadressen
         start_time: Start-Tid
         title: Tittel
         transparent: Privat
         type_of_meeting: Type møte
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Denne URL-adressen kan ikke bygges inn i møte eller arrangementsside
         meeting_agenda:
           attributes:
             base:
@@ -67,6 +74,34 @@
         other: Registreringer
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Kategori
+          closed_at_present:
+            label: Status
+            values:
+              'false': Åpen
+              'true': Lukket
+          is_upcoming_true:
+            label: Dato
+            values:
+              'false': Tidligere
+              'true': Kommende
+          origin_eq:
+            label: Opprinnelse
+            values:
+              citizen: Innbygger
+              official: Offisiell
+              user_group: Brukergrupper
+          scope_id_eq:
+            label: Tema
+          type_eq:
+            label: Type møte
+            values:
+              hybrid: Begge
+              in_person: Tilstede
+              online: Digitalt
       meeting_copies:
         create:
           error: Det oppstod et problem med å publisere dette møtet.
@@ -78,6 +113,7 @@
     components:
       meetings:
         actions:
+          comment: Kommenter
           join: Bli med
         name: Møter
         settings:
@@ -88,6 +124,8 @@
             creation_enabled_for_participants: Deltakere kan opprette møter
             default_registration_terms: Standard registreringsvilkår
             enable_pads_creation: Aktiver oppretting av pads
+            maps_enabled: Kart aktivert
+            registration_code_enabled: Registreringskode aktivert
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
             scope_id: Tema
             scopes_enabled: Temaer aktivert
@@ -111,6 +149,7 @@
             email_subject: Møtet "%{resource_title}" ble avsluttet
             notification_title: <a href="%{resource_path}">%{resource_title}</a> møtet ble lukket.
         meeting_created:
+          button_text: Registrer deg til møtet
           email_intro: Møtet "%{resource_title}" er blitt lagt til "%{participatory_space_title}" som du følger.
           email_outro: Du har mottatt denne varslingen fordi du følger "%{participatory_space_title}". Du kan slutte å følge den fra den forrige lenken.
           email_subject: Nytt møte lagt til %{participatory_space_title}
@@ -142,6 +181,9 @@
           email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" møte. Du kan slutte å følge den fra den forrige lenken.
           email_subject: '"%{resource_title}" møtet starter om mindre enn 48 timer.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> møtet starter om mindre enn 48 timer.
+    forms:
+      meetings:
+        attendees_count_help_text: Ikke glem å inkludere det totale antallet deltakere ved arrangementet. Hvorvidt det skal være fysisk, hybrid, eller på nett, er det viktig at vi vet hvor mange som er involvert.
     gamification:
       badges:
         attended_meetings:
@@ -167,6 +209,7 @@
           proposals_count:
             one: 'Dette møtet kan ikke slettes, da det har %{count} forslag tilknyttet:'
             other: 'Dette møtet kan ikke slettes, da det har %{count} forslag tilknyttet:'
+        manage_poll: Administrere menignsmåling
         new: Nytt møte
         preview: Forhåndsvis
         registrations: Registreringer
@@ -203,6 +246,8 @@
             invalid: Det oppstod et problem med å oppdatere denne dagsordenen
             success: Dagsorden oppdatert
         exports:
+          answers: Svar
+          meeting_comments: Kommentarer
           meetings: Møter
           registrations: Registreringer
         invite_join_meeting_mailer:
@@ -236,24 +281,46 @@
           edit:
             close: Lukk
             title: Lukk møte
+        meeting_copies:
+          form:
+            select_a_meeting_type: Vennligst velg en møtetype
         meetings:
           close:
             invalid: Det oppstod et problem med å avslutte dette møtet
             success: Møtet ble avsluttet
           create:
             invalid: Det oppstod et problem med å opprette dette møtet
+            success: Møtet ble opprettet. Merk at dette ikke er publisert enda, du må publisere det manuelt.
           destroy:
+            invalid:
+              proposals_count:
+                one: Dette møtet kan ikke slettes, da det har %{count} forslag tilknyttet
+                other: Dette møtet kan ikke slettes, da det har %{count} forslag tilknyttet
             success: Møtet ble slettet
           edit:
+            title: Rediger møte
             update: Oppdater
           form:
             address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
+            available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig
+            disclaimer: 'Ansvarsfraskrivelse: Ved å bruke et eksternt registreringssystem, er du klar over at opphavspersonene av %{organization} ikke er ansvarlige for dataene som brukerne gir til den eksterne tjenesten.'
             location_help: 'Plassering: melding rettet til brukerne som antyder stedet å møte på'
+            location_hints_help: 'Hint: ekstra info. Eksempel: Etasje i bygningen hvis det er et fysisk møte, eller møtepassordet hvis det er et nettmøte med begrenset tilgang.'
+            online_meeting_url_help: 'Lenke: tillat deltakere å koble direkte til møtet ditt'
+            registration_email_help: Denne teksten vil dukke opp i midten av e-posten med registreringsbekreftelsen. Like etter registreringskoden.
+            registration_url_help: 'Lenke: La deltakerne gå på den eksterne tjenesten du bruker for registreringer'
+            select_a_meeting_type: Vennligst velg en møtetype
+            select_a_registration_type: Velg en registreringstype
+            select_an_iframe_access_level: Velg et tilgangsnivå for iframe
+            show_embedded_iframe_help: Kun noen få tjenester tillater integrering i møte eller direktearrangement (YouTube, Twitch og Jitsi)
           index:
             title: Møter
           new:
             create: Opprett
             title: Opprett møte
+          publish:
+            invalid: Kunne ikke publisere møtet
+            success: Møtet ble publisert
           service:
             description: Beskrivelse
             down: Ned
@@ -264,9 +331,18 @@
           services:
             add_service: Legg til tjeneste
             services: Tjenester
+          unpublish:
+            invalid: Kunne ikke avpublisere møtet
+            success: Møtet ble avpublisert
           update:
             invalid: Det oppstod et problem med å oppdatere dette møtet
             success: Møtet ble oppdatert
+        meetings_poll:
+          form:
+            title: Rediger meningsmåling for %{questionnaire_for}
+          update:
+            invalid: Kunne ikke oppdatere meningsmåling for møtet
+            success: Møtets meningsmåling ble oppdatert
         models:
           meeting:
             name: Møte
@@ -305,6 +381,13 @@
           value_types:
             organizer_presenter:
               not_found: 'Arrangøren ble ikke funnet i databasen (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Alle
+        filter_meeting_space_values:
+          all: Alle
+        filter_scope_values:
+          all: Alle
       calendar_modal:
         calendar_url: Kalender URL
         close_window: Lukk vindu
@@ -312,14 +395,29 @@
       conference_venues: Konferanse Arenaer
       content_blocks:
         upcoming_meetings:
+          name: Kommende møter
+          upcoming_meetings: Kommende møter
           view_all_meetings: Vis alle
       directory:
         meetings:
           index:
             meetings: Møter
             space_type: Deltakerområde
+      iframe_access_level:
+        all: Alle besøkende
+        registered: Registrerte deltakere til dette møtet
+        signed_in: Bare påloggede deltakere
+      iframe_embed_type:
+        embed_in_meeting_page: Bygg inn på møteside
+        none: Ingen
+        open_in_live_event_page: Åpne på siden for direktearrangement (med valgfri meningsmåling)
       last_activity:
         new_meeting_at_html: "<span>Nytt møte på %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Administrere
+          close: lukk
+          questions: Spørsmål
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -335,6 +433,13 @@
           close: Avslutt møte
           title: Avslutt møte
       meetings:
+        calendar_modal:
+          add_to_calendar: Legg til i kalender
+          apple: Legg til i Apple kalender
+          close_window: Lukk vindu
+          full_details_html: For komplette detaljer, gå til %{link}
+          google: Legg til i Google kalender
+          outlook: Legg til i Outlook kalender
         count:
           meetings_count:
             one: "%{count} møte"
@@ -347,18 +452,45 @@
           title: Rediger møtet ditt
           update: Oppdater
         filters:
+          activity: Min aktivitet
+          all: Alle
           category: Kategori
           date: Dato
           date_values:
             all: Alle
             past: Tidligere
             upcoming: Kommende
+          my_meetings: Mine møter
+          origin: Opprinnelse
+          origin_values:
+            all: Alle
+            citizens: Innbyggere
+            official: Offisiell
+            user_groups: Grupper
+          scope: Tema
           search: Søk
+          type: Type
+          type_values:
+            all: Alle
+            hybrid: Begge
+            in_person: Fysisk
+            online: Digitalt
         filters_small_view:
           close_modal: Lukk modal
           filter: Filter
           filter_by: Filtrer etter
           unfold: Åpne
+        form:
+          address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
+          available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig
+          create_as: Opprett møte som
+          select_a_category: Velg en kategori
+          select_a_meeting_type: Velg en møtetype
+          select_a_registration_type: Velg en registreringstype
+          select_an_iframe_access_level: Velg et tilgangsnivå for iframe
+        index:
+          click_here: Se alle møter
+          new_meeting: Nytt møte
         meeting_minutes:
           related_information: Relatert Informasjon
         meetings:
@@ -406,6 +538,26 @@
             map: Kart
             start_time: Startdato
             title: Tittel
+      polls:
+        questions:
+          closed_question:
+            question_results: Resultat av spørsmål
+          index:
+            empty_questions: Gjennom dette møtet stilles noen spørsmål, og du vil kunne svare på dem. De vil bli vist her.
+          index_admin:
+            admin_dashboard: Administrators dashbord
+            edit: Rediger i admin
+            question: Spørsmål
+            received_answer: mottatt svar
+            received_answers: mottatt svar
+            results: Resultater
+            send: Send
+            sent: Sendt
+          published_question:
+            max_choices_alert: For mange valg er merket
+            question: Spørsmål
+            question_replied: Spørsmål besvart
+            reply_question: Besvar spørsmål
       read_more: "(Les mer)"
       registration_mailer:
         confirmation:

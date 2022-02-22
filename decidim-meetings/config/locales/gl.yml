@@ -225,6 +225,9 @@ gl:
           edit:
             close: Pechar
             title: Pechar reunión
+        meeting_copies:
+          form:
+            select_a_meeting_type: Por favor, selecciona un tipo de xuntanza
         meetings:
           close:
             invalid: Produciuse un problema ao pechar esta reunión
@@ -352,6 +355,8 @@ gl:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Despregar
+        form:
+          select_an_iframe_access_level: Por favor, selecciona o nivel de acceso ao iframe
         index:
           click_here: Ver todas as xuntanzas
           see_all: Ver todas as xuntanzas

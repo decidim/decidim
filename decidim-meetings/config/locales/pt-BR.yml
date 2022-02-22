@@ -69,6 +69,16 @@ pt-BR:
         other: Registros
   decidim:
     admin:
+      filters:
+        meetings:
+          origin_eq:
+            label: Origem
+            values:
+              official: Oficial
+          type_eq:
+            values:
+              hybrid: Ambos
+              online: On-line
       meeting_copies:
         create:
           error: Ocorreu um erro ao duplicar esta reunião.

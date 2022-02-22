@@ -89,6 +89,10 @@ ja:
         other: "%{count} 時間前"
       x_minutes:
         other: "%{count} 分前"
+      x_seconds:
+        one: 1 秒前
+        other: "%{count} 秒前"
+        zero: たった今
   decidim:
     accessibility:
       external_link: 外部リンク

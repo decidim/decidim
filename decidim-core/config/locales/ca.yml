@@ -100,6 +100,10 @@ ca:
       x_minutes:
         one: fa 1 minut
         other: "fa %{count} minuts"
+      x_seconds:
+        one: fa 1 segon
+        other: "fa %{count} segons"
+        zero: ara mateix
   decidim:
     accessibility:
       external_link: Enllaç extern

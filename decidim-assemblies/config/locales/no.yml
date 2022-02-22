@@ -1,6 +1,8 @@
 "no":
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Aktiver organisasjonskart
       assembly:
         area_id: Område
         assembly_type: Forsamlingstype
@@ -50,6 +52,7 @@
         target: Hvem deltar
         title: Tittel
         twitter: Twitter
+        weight: Prioritert rekkefølge
         youtube: YouTube
       assembly_member:
         birthday: Fødselsdag
@@ -58,7 +61,9 @@
         designation_date: Valgdato
         full_name: Fullt navn
         gender: Kjønn
+        non_user_avatar: Profilbilde
         position: Stilling
+        user_id: Bruker eller gruppe
       assembly_user_role:
         email: Epost
         name: Navn
@@ -177,6 +182,9 @@
         update:
           error: Det oppstod et problem med å oppdatere en administrator for denne forsamlingen.
           success: Admin ble oppdatert for denne forsamlingen.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Forsamlingstype
       menu:
         assemblies: Forsamlinger
         assemblies_settings: Innstillinger
@@ -245,6 +253,7 @@
         update: "%{user_name} oppdaterte forsamlingens innstillinger"
       assembly_type:
         create: "%{user_name} opprettet %{resource_name} forsamlingstypen"
+        delete: "%{user_name} fjernet forsamlingstypen %{resource_name}"
         publish: "%{user_name} publiserte %{resource_name} forsamlingstypen"
         unpublish: "%{user_name} avpubliserte %{resource_name} forsamlingstypen"
         update: "%{user_name} oppdaterte %{resource_name} forsamlingstypen"
@@ -256,6 +265,7 @@
       admin:
         assemblies:
           form:
+            announcement_help: Teksten du skriver her vil bli vist til brukeren rett under forsamlingsinformasjonen.
             duration: Varighet
             duration_help: Hvis varigheten av denne forsamlingen er limitert, velg en sluttdato. Hvis ikke, vil den vises som ubestemt.
             filters: Filter
@@ -289,7 +299,10 @@
         assembly_members:
           form:
             existing_user: Eksisterende deltaker
+            explanation: 'Veiledning for bilde:'
+            image_guide: Helst et portrettbilde uten tekst.
             non_user: Ingen deltakende
+            non_user_avatar_help: Du bør få samtykke fra personene før du offentliggjør dem som medlem.
             select_a_position: Velg en posisjon
             select_user: Velg en deltaker
             user_type: Deltakertype
@@ -415,6 +428,8 @@
     participatory_processes:
       show:
         related_assemblies: Relaterte forsamlinger
+    statistics:
+      assemblies_count: Forsamlinger
   errors:
     messages:
       cannot_be_blank: kan ikke være blank

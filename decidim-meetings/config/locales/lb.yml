@@ -85,18 +85,13 @@ lb:
               'false': Vergaangenes
               'true': Demnächst stattfannend
           origin_eq:
-            label: Ursprung
             values:
               citizen: Bierger*in
-              official: Offiziell
               user_group: Benotzergruppen
           scope_id_eq:
             label: Ëmfang
           type_eq:
             label: Typ vu Versammlung
-            values:
-              hybrid: Beide
-              online: Online
       meeting_copies:
         create:
           error: Es gab einen Fehler beim Duplizieren dieses Meetings.

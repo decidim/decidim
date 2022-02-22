@@ -93,7 +93,7 @@ fr:
             label: Origine
             values:
               citizen: Participants
-              official: Officielle
+              official: Officiel
               user_group: Groupes d’utilisateurs
           scope_id_eq:
             label: Secteur

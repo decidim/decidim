@@ -32,6 +32,7 @@ de:
         body: Haupttext
         subject: Betreff
       organization:
+        admin_terms_of_use_body: Inhalt für die Admin-Nutzungsbedingungen
         alert_color: Benachrichtigung
         available_authorizations: Verfügbare Autorisierungen
         badges_enabled: Abzeichen aktivieren
@@ -47,6 +48,7 @@ de:
         favicon: Icon
         force_authentication: Authentifizierung erzwingen
         force_users_to_authenticate_before_access_organization: Benutzer müssen sich authentifizieren bevor sie auf die Organisation zugreifen können
+        from: E-Mail-Adresse des Absenders
         github_handler: GitHub-Handler
         header_snippets: Header-Snippets
         highlight_alternative_color: Hervorhebung, Alternative
@@ -130,6 +132,7 @@ de:
       new_import:
         attributes:
           file:
+            invalid_file: Ungültige Datei, bitte überprüfen Sie, ob die Datei korrekt formatiert ist
             invalid_mime_type: Ungültiger MIME-Typ
   activerecord:
     attributes:
@@ -178,10 +181,12 @@ de:
           success: Super! Sie haben die Admin-Nutzungsbedingungen akzeptiert.
         actions:
           accept: Ich stimme den folgenden Bedingungen zu
+          are_you_sure: Sind Sie sicher, dass Sie die Admin-Nutzungsbedingungen ablehnen möchten?
           refuse: Die Admin-Nutzungsbedingungen ablehnen
           title: Den Admin-Nutzungsbedingungen zustimmen
         required_review:
           alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
+          callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Ansonsten können Sie die Plattform nicht verwalten.
           cta: Lesen Sie sie jetzt.
         title: Admin-Nutzungsbedingungen
       area_types:
@@ -204,6 +209,7 @@ de:
           error: Beim Erstellen eines neuen Bereichs ist ein Fehler aufgetreten.
           success: Bereich wurde erfolgreich erstellt.
         destroy:
+          has_spaces: Dieser Bereich hat abhängige partizipative Räume. Bitte stellen Sie sicher, dass kein partizipativer Raum mehr diesen Bereich referenziert, bevor sie ihn löschen.
           success: Bereich wurde erfolgreich zerstört
         edit:
           title: Bereich bearbeiten
@@ -256,6 +262,7 @@ de:
       block_user:
         new:
           action: Konto sperren und Begründung senden
+          description: Das Blockieren eines Benutzers wird sein Konto unbrauchbar machen. Sie können begründen und Richtlinien dafür bieten, wie der Benutzer vorgehen könnte, damit Sie in Betracht ziehen, die Blockierung wieder aufzuheben.
           justification: Begründung
           title: Benutzer %{name} blockieren
       categories:
@@ -318,6 +325,7 @@ de:
         'false': 'Nein'
         managed_user_name: Verwalteter Benutzer
         solved: Gelöst
+        title: Überprüfungskonflikte
         transfer:
           email: E-Mail
           error: Es gab ein Problem bei der Übertragung des aktuellen Teilnehmers zu den verwalteten Teilnehmern.
@@ -331,6 +339,12 @@ de:
         show:
           view_more_logs: Weitere Protokolle anzeigen
           welcome: Willkommen im Decidim Admin Panel.
+      domain_whitelist:
+        form:
+          domain_too_short: Domain zu kurz
+        update:
+          error: Fehler beim Aktualisieren der Domain-Whitelist
+          success: Domain-Whitelist erfolgreich aktualisiert
       exports:
         export_as: "%{name} als %{export_format}"
         formats:
@@ -344,13 +358,22 @@ de:
           label: Kategorie
         filter_label: Filtern
         invitation_accepted_at_present:
+          label: Einladung angenommen
           values:
             'false': 'Nein'
             'true': 'Ja'
         last_sign_in_at_present:
+          label: Schon einmal eingeloggt
           values:
             'false': 'Nein'
             'true': 'Ja'
+        moderated_users:
+          reports_reason_eq:
+            label: Grund der Meldung
+            values:
+              does_not_belong: Gehört nicht hier hin
+              offensive: Offensiv
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Art
@@ -388,6 +411,7 @@ de:
           reported_id_string_or_reported_content_cont: Suche %{collection} nach meldbarer Id oder Inhalt.
           title_cont: In %{collection} nach Titel suchen.
           user_name_or_user_email_cont: In %{collection} nach Name oder E-Mail suchen.
+          user_name_or_user_nickname_or_user_email_cont: '%{collection} nach E-Mail, Name oder Benutzername durchsuchen.'
         state_eq:
           label: Bundesland
           values:
@@ -441,6 +465,15 @@ de:
           impersonate_new_managed_user: Sich als neuer verwalteter Benutzer ausgeben
       imports:
         and: und
+        data_errors:
+          duplicate_headers:
+            detail: Bitte überprüfen Sie, dass die Datei benötigte Spalten oder Kopfzeilen nur einmal enthält.
+            message:
+              one: Spalte %{columns} duplizieren.
+              other: Spalten %{columns} duplizieren.
+          invalid_indexes:
+            lines:
+              detail: Bitte überprüfen Sie, ob diese Zeilen korrekt formatiert sind und gültige Datensätze enthalten.
         error: Beim Importieren ist ein Fehler aufgetreten
         new:
           accepted_mime_types:
@@ -899,7 +932,7 @@ de:
         static_pages: Seiten
         statistics: Aktivität
         user_groups: Benutzergruppen
-        users: Benutzer
+        users: Teilnehmer
       user_group:
         csv_verify:
           invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.

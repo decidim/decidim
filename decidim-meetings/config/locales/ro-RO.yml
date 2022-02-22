@@ -92,7 +92,7 @@ ro:
             label: Origine
             values:
               citizen: Cetățean
-              official: Publice
+              official: Oficial
               user_group: Grupuri de utilizatori
           scope_id_eq:
             label: Domeniu de interes
@@ -407,8 +407,10 @@ ro:
             space_type: Spaţiu participativ
       iframe_access_level:
         all: Toți vizitatorii
+        registered: Participanții înregistrați la acest eveniment
       iframe_embed_type:
         embed_in_meeting_page: Incorporează în pagina de şedinţe
+        open_in_live_event_page: Deschide în pagina de evenimente live (cu sondaje opționale)
         open_in_new_tab: Deschideți în filă nouă
       last_activity:
         meeting_updated_at_html: "<span>Întâlnire actualizată la %{link}</span>"

@@ -87,10 +87,10 @@ ja:
               'false': 過去
               'true': 近日公開
           origin_eq:
-            label: 起案者
+            label: 起案者：
             values:
               citizen: 市民
-              official: 公式
+              official: 事務局
               user_group: ユーザーグループ
           scope_id_eq:
             label: スコープ

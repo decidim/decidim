@@ -951,7 +951,7 @@ fi:
         static_pages: Sivut
         statistics: Toiminta
         user_groups: Käyttäjäryhmät
-        users: Käyttäjät
+        users: Osallistujat
       user_group:
         csv_verify:
           invalid: CSV-tiedoston käsittely epäonnistui.

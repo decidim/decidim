@@ -358,6 +358,13 @@ gl:
           values:
             'false': 'Non'
             'true': 'Si'
+        moderated_users:
+          reports_reason_eq:
+            label: Motivo do informe
+            values:
+              does_not_belong: Non pertence
+              offensive: Ofensivo
+              spam: Lixo
         moderations:
           reportable_type_string_eq:
             label: Tipo
@@ -392,9 +399,11 @@ gl:
         search_label: Busca
         search_placeholder:
           name_or_nickname_or_email_cont: Procurar %{collection} por correo electrónico, nome ou alcume.
+          report_count_eq: Número de denuncias
           reported_id_string_or_reported_content_cont: Procurar %{collection} por contido ou Id reportábel.
           title_cont: Procurar %{collection} por título.
           user_name_or_user_email_cont: Procurar %{collection} por nome ou correo electrónico.
+          user_name_or_user_nickname_or_user_email_cont: Pescudar %{collection} por correo, nome ou alcume.
         state_eq:
           label: Estado
           values:
@@ -924,7 +933,7 @@ gl:
         static_pages: Páxinas
         statistics: Actividade
         user_groups: Grupos de usuarios
-        users: Usuarios
+        users: Participantes
       user_group:
         csv_verify:
           invalid: Produciuse un erro ao ler o ficheiro CSV.

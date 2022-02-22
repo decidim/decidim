@@ -42,6 +42,10 @@ sv:
         type_of_meeting: Typ
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Denna URL kan inte bäddas in på ett mötes- eller liveevenemangssida
         meeting_agenda:
           attributes:
             base:
@@ -278,6 +282,9 @@ sv:
           edit:
             close: Stäng
             title: Stäng mötet
+        meeting_copies:
+          form:
+            select_a_meeting_type: Välj mötestyp
         meetings:
           close:
             invalid: Det gick inte att stänga mötet
@@ -305,6 +312,8 @@ sv:
             registration_url_help: 'Länk: tillåt deltagare att registrera sig på en extern tjänst'
             select_a_meeting_type: Välj mötestyp
             select_a_registration_type: Välj en registreringsmetod
+            select_an_iframe_access_level: Välj vem får tillgång till denna iframe
+            show_embedded_iframe_help: Endast ett fåtal tjänster tillåter inbäddning i möten eller live-event (t.ex. YouTube, Twitch och Jitsi)
           index:
             title: Möten
           new:
@@ -396,6 +405,15 @@ sv:
           index:
             meetings: Möten
             space_type: Deltagarutrymme
+      iframe_access_level:
+        all: Alla besökare
+        registered: Registrerade deltagare till detta möte
+        signed_in: Endast registrerade deltagare
+      iframe_embed_type:
+        embed_in_meeting_page: Bädda in på mötessidan
+        none: Ingen
+        open_in_live_event_page: Öppna i live event sida (med valfria omröstningar)
+        open_in_new_tab: Öppna länk i ny flik
       last_activity:
         meeting_updated_at_html: "<span>Mötet uppdaterades på %{link}</span>"
         new_meeting_at_html: "<span>Nytt möte på %{link}</span>"
@@ -478,6 +496,8 @@ sv:
           select_a_category: Välj en kategori
           select_a_meeting_type: Välj mötestyp
           select_a_registration_type: Välj en registreringsmetod
+          select_an_iframe_access_level: Välj vem får tillgång till denna iframe
+          show_embedded_iframe_help: Endast ett fåtal tjänster tillåter inbäddning i möten eller live-event (t.ex. YouTube, Twitch och Jitsi)
         index:
           click_here: Se alla möten
           new_meeting: Nytt möte

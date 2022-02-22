@@ -801,7 +801,7 @@ tr:
         static_pages: Sayfalar
         statistics: Aktivite
         user_groups: Kullanıcı Grupları
-        users: Kullanıcılar
+        users: Katılımcılar
       user_group:
         csv_verify:
           invalid: CSV dosyasını okurken bir hata oluştu.

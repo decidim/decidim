@@ -94,6 +94,7 @@
         create:
           error: Det oppstod et problem med å lage en ny konsultasjon.
           success: Konsultasjonen ble opprettet.
+        deprecation_warning: Konsultasjonsmodulen vil bli avviklet i nær fremtid. Vi arbeider med den neste kryptografiske sikre versjonen kalt avstemminger.
         edit:
           update: Oppdater
         form:
@@ -320,6 +321,8 @@
     help:
       participatory_spaces:
         consultations:
+          contextual: "<p>En <strong>konsultasjon</strong> er et rom som tillater deg å stille et klart spørsmål til alle som danner en organisasjon, be om deltakelse i konsultasjonen, opprette og opprettholde en debatt for eller mot et svar. Når høringsdatoen kommer, kan du stemme og offentliggjøre resultatene av stemmene.</p> <p>Eksempler: Konsultasjonene kan dreie seg om nesten ethvert aspekt som berører en organisasjon: noen eksempler er å endre navnet eller logoen til organisasjonen som tilbyr flere alternativer, bestemmer Ja eller Nei for å bli en del av en større organisasjon, validerer eller avviser en ny strategisk plan eller resultatet av en arbeidsgruppe, eller definere om stillingene skal forbli maksimalt 1, 2 eller 3 mandater.</p>\n"
+          page: "<p>En <strong>konsultasjon</strong> er et rom som tillater deg å stille et klart spørsmål til alle som danner en organisasjon, be om deltakelse i konsultasjonen, opprette og opprettholde en debatt for eller mot et svar. Når høringsdatoen kommer, kan du stemme og offentliggjøre resultatene av stemmene.</p> <p>Eksempler: Konsultasjonene kan dreie seg om nesten ethvert aspekt som berører en organisasjon: noen eksempler er å endre navnet eller logoen til organisasjonen som tilbyr flere alternativer, bestemmer Ja eller Nei for å bli en del av en større organisasjon, validerer eller avviser en ny strategisk plan eller resultatet av en arbeidsgruppe, eller definere om stillingene skal forbli maksimalt 1, 2 eller 3 mandater i organisasjonen.</p>\n"
           title: Hva er konsultasjoner?
     menu:
       consultations: Konsultasjoner
@@ -344,17 +347,23 @@
         verification_required: Verifiser kontoen din for å stemme
         vote: Stemme
       vote_modal:
+        close_modal: Lukk dialogboks
         contextual_help: Vennligst velg et alternativ.
         title: 'Konsultasjon: spørsmål stemme'
       vote_modal_confirm:
         change: Endre
+        close_modal: Lukk dialogboks
         confirm: Bekreft
         contextual_help: Bekreft det valgte alternativet.
         title: 'Konsultasjon: bekreft stemme'
     resources:
       consultations:
         actions:
+          comment: Kommenter
           vote: Stemme
+    statistics:
+      consultations_count: Konsultasjoner
+      votes_count: Stemmer
   layouts:
     decidim:
       consultation_voting_data:

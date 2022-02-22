@@ -100,6 +100,10 @@ es-PY:
       x_minutes:
         one: hace 1 minuto
         other: "hace %{count} minutos"
+      x_seconds:
+        one: hace 1 segundo
+        other: "hace %{count} segundos"
+        zero: ahora mismo
   decidim:
     accessibility:
       external_link: Enlace externo
@@ -992,6 +996,7 @@ es-PY:
           next: Siguente
           no_conversations: Aún no tienes conversaciones
           title: Conversaciones
+          to: A
         reply:
           placeholder: Tu respuesta...
           send: Enviar

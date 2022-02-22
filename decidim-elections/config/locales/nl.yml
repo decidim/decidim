@@ -354,6 +354,8 @@ nl:
             not_started: Het stemproces is nog niet begonnen.
             started: Het stemproces is begonnen.
           vote_title: Stemproces
+        filters:
+          state: Status
         preview:
           available_answers: 'Beschikbare antwoorden:'
           description: 'Dit zijn de vragen die je tijdens het stemproces tegenkomt:'

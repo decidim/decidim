@@ -102,7 +102,7 @@ es-PY:
             values:
               hybrid: Ambos
               in_person: Presencial
-              online: En línea
+              online: Online
       meeting_copies:
         create:
           error: Se ha producido un error al duplicar este encuentro.

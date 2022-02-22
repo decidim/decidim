@@ -62,6 +62,8 @@ hu:
       models:
         project:
           fields:
+            category: Kategória
+            id: Azonosító
             title: Cím
       order_summary_mailer:
         order_summary:
@@ -89,6 +91,12 @@ hu:
           projects_count:
             one: 1 projekt
             other: "%{count} projektek"
+        exit_modal:
+          cancel: Vissza a szavazáshoz
+          close_modal: Felugró ablak bezárása
+          exit: Kilépés a szavazásból
+          message: Szavazatod nem regisztráltuk, mert még nem fejezted be a szavazási folyamatot. Biztosan kilépsz a szavazásból?
+          title: Még nem szavaztál
         filters:
           category: Kategória
           scope: Hatáskör

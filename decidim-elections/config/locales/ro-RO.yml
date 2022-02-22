@@ -236,6 +236,7 @@ ro:
               'false': nu are <strong>o cheie publică</strong>
               'true': are o <strong>cheie publică</strong>
             requirements:
+              max_selections: Toate întrebările au o valoare corectă pentru <strong>maximum de răspunsuri</strong>.
               minimum_answers: Fiecare întrebare are <strong>cel puţin 2 răspunsuri</strong>.
               trustees_number: Spațiul participativ are <strong>cel puțin %{number} împuterniciți cu chei publice</strong>.
             submit: Configurează alegerile
@@ -247,9 +248,15 @@ ro:
             trustees: Împuterniciți
           key_ceremony:
             continue: Continuă
+          processing: Se procesează...
           results_published:
+            answer: Răspuns
+            not_selected: Nu este selectat
+            question: Întrebare
+            result: Rezultat
             selected: Selectat
             submit: Trimite
+            title: Rezultate publicate
           tally:
             continue: Continuă
             invalid: A apărut o problemă la raportarea împuternicitului care lipsește
@@ -394,7 +401,6 @@ ro:
           all: Toate
           finished: Finalizat
           search: Caută
-          state: Stare
           upcoming: Urmează
         filters_small_view:
           close_modal: Închidere
@@ -618,10 +624,19 @@ ro:
               name: Atașamente și dosare aferente votării
             elections:
               name: Alegeri cu votare
+        index:
+          not_published: Anulează publicarea
+          published: Publicate
+        landing_page:
+          edit:
+            active_content_blocks: Blocuri de conținut active
+            inactive_content_blocks: Blocuri de conținut inactive
         menu:
           votings_submenu:
             attachment_collections: Dosare
+            attachment_files: Fișiere
             components: Componente
+            landing_page: Pagina principală
             monitoring_committee: Comitetul de monitorizare
             monitoring_committee_members: Membri
             monitoring_committee_verify_elections: Verifică alegerile
@@ -636,6 +651,9 @@ ro:
           new:
             create: Creează
             title: Creează un membru al comitetului de monitorizare
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: Acțiuni
         monitoring_committee_verify_elections:
           index:
             how_to_run_verifier: 'Odată ce ai descărcat fișierul și te-ai asigurat că este în regulă, poți continua pornind verificatorul universal. Clonează <a href=''https://github.com/decidim/decidim-bulletin-board''>acestă arhivă</a> și, din dosarul rădăcină, rulează comanda următoare:'

@@ -411,6 +411,7 @@ ro:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> a depus cerere pentru comitetul de promovare al inițiativa tale <a href="%{resource_url}">%{resource_title}</a>. Pentru a accepta sau respinge apasă <a href="%{resource_url}/edit">aici</a>.
       form:
         add_attachments: Documente
+        attachment_legend: "(Opțional) Adaugă un atașament"
         delete_attachment: Șterge
       index:
         title: Inițiative
