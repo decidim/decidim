@@ -92,12 +92,17 @@ es-PY:
           scope_id_eq:
             label: Ámbito
           with_any_origin:
+            label: Origen
             values:
+              official: Oficial
+              participants: Participante
               user_group: Grupos
           with_any_type:
             label: Tipo de encuentro
             values:
+              hybrid: Ambos
               in_person: Presencial
+              online: Online
       meeting_copies:
         create:
           error: Se ha producido un error al duplicar este encuentro.
@@ -463,6 +468,7 @@ es-PY:
           origin_values:
             all: Todos
             official: Oficial
+            participants: Participantes
             user_groups: Grupos
           scope: Ámbito
           search: Buscar
