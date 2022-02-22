@@ -16,7 +16,7 @@ en:
         edit: Edit
         new: New post
         title: Actions
-        user_group_id: Create post as
+        author_id: Create post as
       admin:
         models:
           components:

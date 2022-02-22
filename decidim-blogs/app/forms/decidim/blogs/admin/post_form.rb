@@ -10,36 +10,20 @@ module Decidim
         translatable_attribute :title, String
         translatable_attribute :body, String
 
-        attribute :user_group_id, String
-        attribute :original_author
+        attribute :decidim_author_id, Integer
 
         validates :title, translatable_presence: true
         validates :body, translatable_presence: true
 
-        def map_model(post)
-          self.user_group_id = case post.author
-                               when Decidim::UserGroup
-                                 post.author.id
-                               when Decidim::Organization
-                                 "current_organization"
-                               when Decidim::User
-                                 post.author&.id == current_user.id ? "current_user" : "original_author"
-                               end
-          self.original_author = post.author
-        end
-
-        def user_group
-          @user_group ||= Decidim::UserGroup.find_by(
+        def user_or_group
+          @user_or_group ||= Decidim::UserBaseEntity.find_by(
             organization: current_organization,
-            id: user_group_id.to_i
+            id: decidim_author_id
           )
         end
 
         def author
-          return current_organization if user_group_id == "current_organization"
-          return original_author if user_group_id == "original_author"
-
-          user_group || current_user
+          user_or_group || current_organization
         end
       end
     end
