@@ -4,13 +4,18 @@
       <%= t("versions.dropdown.choose_diff_view_mode") %>
     </span>
 
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li class="is-dropdown-submenu-parent">
-        <a id="diff-view-selected">
-          <%= t("versions.dropdown.option_unified") %>
+    <ul class="dropdown menu" data-dropdown-menu
+      data-autoclose="false"
+      data-disable-hover="true"
+      data-click-open="true"
+      data-close-on-click="true"
+      tabindex="-1">
+      <li class="is-dropdown-submenu-parent" tabindex="-1">
+        <a href="#diffmode-chooser-menu" id="diff-view-selected" aria-controls="diffmode-chooser-menu" aria-haspopup="true" aria-label="<%= t("versions.dropdown.choose_diff_view_mode_menu") %>">
+          <span aria-hidden="true"><%= t("versions.dropdown.option_unified") %></span>
         </a>
 
-        <ul class="menu">
+        <ul class="menu is-dropdown-submenu" id="diffmode-chooser-menu" role="menu" aria-labelledby="diff-view-selected" tabindex="-1">
           <li>
             <%= link_to "#diff-view-unified", class: "diff-view-mode", id:"diff-view-unified" do %>
               <%= t("versions.dropdown.option_unified") %>
