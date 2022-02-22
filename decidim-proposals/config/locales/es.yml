@@ -594,6 +594,7 @@ es:
           all: Todas
           meetings: Encuentros
           official: Oficial
+          participants: Participantes
           user_groups: Grupos
         filter_scope_values:
           all: Todas
