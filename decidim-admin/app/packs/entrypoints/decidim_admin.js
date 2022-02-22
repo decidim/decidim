@@ -34,7 +34,6 @@ import "src/decidim/admin/officializations"
 import "src/decidim/session_timeouter"
 import "src/decidim/slug_form"
 import "src/decidim/admin/admin_autocomplete"
-import "src/decidim/admin/warn_when_deleting_current_users"
 
 // CSS
 import "entrypoints/decidim_admin.scss";

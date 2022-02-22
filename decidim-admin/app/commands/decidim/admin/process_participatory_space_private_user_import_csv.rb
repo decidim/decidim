@@ -25,17 +25,11 @@ module Decidim
       def call
         return broadcast(:invalid) unless @form.valid?
 
-        delete_all_current_private_participants if @form.delete_current_private_participants
-
         process_csv
         broadcast(:ok)
       end
 
       private
-
-      def delete_all_current_private_participants
-        Decidim::ParticipatorySpacePrivateUser.delete_by(privatable_to_id: @private_users_to.id, privatable_to_type: @private_users_to.class.to_s)
-      end
 
       def process_csv
         CSV.foreach(@form.file.path, encoding: "BOM|UTF-8") do |email, user_name|
