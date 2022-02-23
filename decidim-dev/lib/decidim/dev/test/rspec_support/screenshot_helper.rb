@@ -20,6 +20,7 @@ module ActionDispatch
         end
 
         private
+
         # This method is not needed after update to Rails 7.0
         def _screenshot_counter
           @_screenshot_counter ||= 0
