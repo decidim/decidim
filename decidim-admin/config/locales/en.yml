@@ -48,8 +48,7 @@ en:
         facebook_handler: Facebook handler
         favicon: Icon
         force_authentication: Force authentication
-        force_users_to_authenticate_before_access_organization: Force users to authenticate
-          before access organization
+        force_users_to_authenticate_before_access_organization: Force users to authenticate before access organization
         from: Sender's email address
         github_handler: GitHub handler
         header_snippets: Header snippets
@@ -134,8 +133,7 @@ en:
       new_import:
         attributes:
           file:
-            invalid_file: Invalid file provided, please check that the file is correctly
-              formatted
+            invalid_file: Invalid file provided, please check that the file is correctly formatted
             invalid_mime_type: Invalid mime type
   activerecord:
     attributes:
@@ -189,8 +187,7 @@ en:
           title: Agree to the terms and conditions of use
         required_review:
           alert: 'Required: Review our admin terms of use'
-          callout: Please take a moment to review Admin Terms of Use. Otherwise you
-            won't be able to manage the platform.
+          callout: Please take a moment to review Admin Terms of Use. Otherwise you won't be able to manage the platform.
           cta: Review them now.
         title: Admin Terms of Use
       area_types:
@@ -213,8 +210,7 @@ en:
           error: There was a problem creating a new area.
           success: Area created successfully.
         destroy:
-          has_spaces: This area has dependent spaces. Please make sure no Participatory
-            Space references this area before deleting it.
+          has_spaces: This area has dependent spaces. Please make sure no Participatory Space references this area before deleting it.
           success: Area successfully destroyed
         edit:
           title: Edit area
@@ -236,8 +232,7 @@ en:
           title: Edit folder
           update: Update
         index:
-          attachment_collection_used: This folder cannot be removed because it is
-            in use.
+          attachment_collection_used: This folder cannot be removed because it is in use.
           attachment_collections_title: Attachment folders
         new:
           create: Create
@@ -263,17 +258,14 @@ en:
           error: There was a problem updating this attachment.
           success: Attachment updated successfully.
       attachments_privacy_warning:
-        message: Be careful when working with attachments in a private space. Any
-          participant could share this document to others.
+        message: Be careful when working with attachments in a private space. Any participant could share this document to others.
       autocomplete:
         no_results: No results found
         search_prompt: Type at least three characters to search
       block_user:
         new:
           action: Block account and send justification
-          description: Blocking a user will render their account unusable. You may
-            provide in your justification any guidelines on ways you would consider
-            unblocking the user.
+          description: Blocking a user will render their account unusable. You may provide in your justification any guidelines on ways you would consider unblocking the user.
           justification: Justification
           title: Block User %{name}
       categories:
@@ -281,8 +273,7 @@ en:
           error: There was a problem creating this category.
           success: Category created successfully.
         destroy:
-          error: There was a problem deleting this category. Please delete any subcategory
-            first, make sure no other entity belongs to this category and try again.
+          error: There was a problem deleting this category. Please delete any subcategory first, make sure no other entity belongs to this category and try again.
           success: Category deleted successfully.
         edit:
           title: Edit category
@@ -340,8 +331,7 @@ en:
         title: Verification conflicts
         transfer:
           email: Email
-          error: There was a problem transfering the current participant to managed
-            participant.
+          error: There was a problem transfering the current participant to managed participant.
           name: Name
           reason: Reason
           success: The current transfer has been successfully completed.
@@ -365,8 +355,7 @@ en:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Your export is currently in progress. You'll receive an email when
-          it's complete.
+        notice: Your export is currently in progress. You'll receive an email when it's complete.
       filters:
         category_id_eq:
           label: Category
@@ -423,12 +412,10 @@ en:
         search_placeholder:
           name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
           report_count_eq: Report count eq
-          reported_id_string_or_reported_content_cont: Search %{collection} by reportable
-            id or content.
+          reported_id_string_or_reported_content_cont: Search %{collection} by reportable id or content.
           title_cont: Search %{collection} by title.
           user_name_or_user_email_cont: Search %{collection} by name or email.
-          user_name_or_user_nickname_or_user_email_cont: Search %{collection} by email,
-            name or nickname.
+          user_name_or_user_nickname_or_user_email_cont: Search %{collection} by email, name or nickname.
         state_eq:
           label: State
           values:
@@ -441,8 +428,7 @@ en:
           import:
             explanation: 'Guidance for file:'
             message_1: CSV, JSON and Excel (.xlsx) files are supported
-            message_2: For CSV files, the separator between columns must be a semicolon
-              (";")
+            message_2: For CSV files, the separator between columns must be a semicolon (";")
       help_sections:
         error: There was a problem updating the help sections
         form:
@@ -459,8 +445,7 @@ en:
           impersonate_new_managed_user: Manage new participant
           managed: Managed
           name: Name
-          needs_authorization_warning: You need at least one authorization enabled
-            for this organization.
+          needs_authorization_warning: You need at least one authorization enabled for this organization.
           not_managed: Not managed
           promote: Promote
           search: Search
@@ -486,26 +471,21 @@ en:
         and: and
         data_errors:
           duplicate_headers:
-            detail: Please check that file contains required columns or headers only
-              once.
+            detail: Please check that file contains required columns or headers only once.
             message:
               one: Duplicate column %{columns}.
               other: Duplicate columns %{columns}.
           invalid_indexes:
             lines:
-              detail: Please check that these lines are formatted correctly and contain
-                valid records.
+              detail: Please check that these lines are formatted correctly and contain valid records.
               message:
                 one: Found an error in the import file on line %{indexes}.
                 other: Found errors in the import file on lines %{indexes}.
             records:
-              detail: Please check that these records are formatted correctly and
-                contain valid records.
+              detail: Please check that these records are formatted correctly and contain valid records.
               message:
-                one: Found an error in the import file for records with order numbers
-                  %{indexes}.
-                other: Found errors in the import file for records with order numbers
-                  %{indexes}.
+                one: Found an error in the import file for records with order numbers %{indexes}.
+                other: Found errors in the import file for records with order numbers %{indexes}.
           missing_headers:
             detail: Please check that the file contains required columns.
             message:
@@ -534,10 +514,7 @@ en:
           success: The managed participant has been successfully promoted.
         promotions:
           new:
-            explanation: Managed participants can be promoted to standard participants.
-              It means they will be invited to the application and you will not be
-              able to manage them again. The invited participant will receive an email
-              to accept your invitation.
+            explanation: Managed participants can be promoted to standard participants. It means they will be invited to the application and you will not be able to manage them again. The invited participant will receive an email to accept your invitation.
             new_managed_user_promotion: New managed participant promotion
             promote: Promote
       menu:
@@ -674,9 +651,7 @@ en:
         reports:
           index:
             author: Author(s)
-            callout_html: A content appears in the moderation panel when it has been
-              signaled by a user (can be anyone with a registered account) by clicking
-              on the %{icon} flag next to the item.
+            callout_html: A content appears in the moderation panel when it has been signaled by a user (can be anyone with a registered account) by clicking on the %{icon} flag next to the item.
             content_original_language: Content original language
             participatory_space: Participatory space
             reported_content: Reported content
@@ -728,29 +703,21 @@ en:
         select_recipients_to_deliver:
           all_spaces: All
           all_users_help: Sends newsletter to all confirmed users.
-          confirm_deliver: Are you sure you want to deliver this newsletter? This
-            action cannot be undone.
+          confirm_deliver: Are you sure you want to deliver this newsletter? This action cannot be undone.
           deliver: Deliver newsletter
-          followers_help: Sends newsletter to all confirmed users that follow any
-            selected participatory spaces in the list.
+          followers_help: Sends newsletter to all confirmed users that follow any selected participatory spaces in the list.
           none: None
-          participants_help: Sends newsletter to all confirmed users that have participated
-            in any of the selected participatory spaces in the list.
-          recipients_count: This newsletter will be send to <strong id='recipients_count'>%{count}</strong>
-            users.
-          scopes_help: Sends newsletter to users that have any of the selected scope
-            activated in their account's "My Interests" settings.
-          select_scopes: Filter for users having activated any selected scope in their
-            account's My Interests settings.
+          participants_help: Sends newsletter to all confirmed users that have participated in any of the selected participatory spaces in the list.
+          recipients_count: This newsletter will be send to <strong id='recipients_count'>%{count}</strong> users.
+          scopes_help: Sends newsletter to users that have any of the selected scope activated in their account's "My Interests" settings.
+          select_scopes: Filter for users having activated any selected scope in their account's My Interests settings.
           select_spaces: Select spaces to segment the newsletter
           select_users: Select which users you want to send the newsletter
           send_to_all_users: Send to all users
           send_to_followers: Send to followers
           send_to_participants: Send to participants
           title: Select recipients to deliver
-          warning: "<strong>Attention:</strong> This newsletter will only be send
-            to users that have activated <em>I want to receive newsletters</em> in
-            their notifications settings."
+          warning: "<strong>Attention:</strong> This newsletter will only be send to users that have activated <em>I want to receive newsletters</em> in their notifications settings."
         send:
           no_recipients: No recipients for this selection
         show:
@@ -790,8 +757,7 @@ en:
           title: Officialize participant "%{name}"
         show_email_modal:
           close_modal: Close modal
-          description: If you need to contact a participant directly, you can click
-            on the Show button to see their email address. This action will be logged.
+          description: If you need to contact a participant directly, you can click on the Show button to see their email address. This action will be logged.
           email_address: Email address
           full_name: Full name
           hidden: hidden
@@ -808,8 +774,7 @@ en:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
-          rich_text_editor_in_public_views_help: In some text areas, participants
-            will be able to insert some HTML tags by using the rich text editor.
+          rich_text_editor_in_public_views_help: In some text areas, participants will be able to insert some HTML tags by using the rich text editor.
           social_handlers: Social
           twitter: Twitter
           url: URL
@@ -823,23 +788,10 @@ en:
         form:
           colors:
             colors_title: Organization colors
-            colors_warning_html: Warning! Changing these colors can break the accessibility
-              contrasts. You can check the contrast of your choosing with <a href="%{link}">WebAIM
-              Contrast Checker</a> or other similar tools.
-            header_snippets_help: Use this field to add things to the HTML head. The
-              most common use is to integrate third-party services that require some
-              extra JavaScript or CSS. Also, you can use it to add extra meta tags
-              to the HTML. Note that this will only be rendered in public pages, not
-              in the admin section.
-          cta_button_path_help: 'You can overwrite where the Call To Action button
-            in the homepage links to. Use partial paths, not full URLs here. Accepts
-            letters, numbers, dashes and slashes, and must start with a letter. The
-            Call To Action button is shown in the homepage between the welcome text
-            and the description. Example: %{url}'
-          cta_button_text_help: You can overwrite the Call To Action button text in
-            the homepage for each available language in your organization. If not
-            set, the default value will be used. The Call To Action button is shown
-            in the homepage between the welcome text and the description.
+            colors_warning_html: Warning! Changing these colors can break the accessibility contrasts. You can check the contrast of your choosing with <a href="%{link}">WebAIM Contrast Checker</a> or other similar tools.
+            header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.
+          cta_button_path_help: 'You can overwrite where the Call To Action button in the homepage links to. Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. The Call To Action button is shown in the homepage between the welcome text and the description. Example: %{url}'
+          cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
           homepage_appearance_title: Edit homepage appearance
           homepage_highlighted_content_banner_title: Highligted content banner
           images:
@@ -866,12 +818,10 @@ en:
           update: Update
       participatory_space_private_users:
         create:
-          error: There was a problem adding a private participant for this participatory
-            space.
+          error: There was a problem adding a private participant for this participatory space.
           success: Participatory space private participant access successfully created.
         destroy:
-          error: There was a problem deleting a private participant for this participatory
-            space.
+          error: There was a problem deleting a private participant for this participatory space.
           success: Participatory space private participant access successfully destroyed.
         index:
           import_via_csv: Import via CSV
@@ -882,21 +832,15 @@ en:
       participatory_space_private_users_csv_imports:
         create:
           invalid: There was a problem reading the CSV file.
-          success: CSV file uploaded successfully, we're sending an invitation email
-            to participants. This might take a while.
+          success: CSV file uploaded successfully, we're sending an invitation email to participants. This might take a while.
         new:
           destroy:
             button: Delete all
             confirm: Are you sure you want to delete all current participants ?
             empty: You have no current private participants.
-            explanation: You have %{count} current private participants. Do you want
-              to delete all without the possibility of recovering them ?
+            explanation: You have %{count} current private participants. Do you want to delete all without the possibility of recovering them ?
             title: Delete current private participants
-          explanation: Upload your CSV file. It must have two columns with email in
-            the first column of the file and name in the last column of the file (email,
-            name) of the users that you want to add to the participatory space, without
-            headers. Avoid using invalid chars like `<>?%&^*#@()[]=+:;"{}\|` in user
-            name.
+          explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file (email, name) of the users that you want to add to the participatory space, without headers. Avoid using invalid chars like `<>?%&^*#@()[]=+:;"{}\|` in user name.
           title: Upload your CSV file
           upload: Upload
       reminders:
@@ -958,9 +902,7 @@ en:
           success: Token destroyed successfully.
         share_tokens:
           empty: There are no active tokens
-          help: These tokens are used to publicly share this unpublished resource
-            to any user. They will be hidden when the resource is published. Click
-            on the token's share icon to visit the shareable URL.
+          help: These tokens are used to publicly share this unpublished resource to any user. They will be hidden when the resource is published. Click on the token's share icon to visit the shareable URL.
           title: Share tokens
       shared:
         gallery:
@@ -991,14 +933,12 @@ en:
         destroy:
           success: Page successfully destroyed
         edit:
-          changed_notably_help: If checked, participants will be notified to accept
-            the new terms and conditions.
+          changed_notably_help: If checked, participants will be notified to accept the new terms and conditions.
           title: Edit page
           update: Update
         form:
           none: None
-          slug_help: 'Use partial paths, not full URLs here. Accepts letters, numbers,
-            dashes and slashes, and must start with a letter. Example: %{url}'
+          slug_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. Example: %{url}'
         index:
           last_notable_change: Last notable change
         new:
@@ -1032,8 +972,7 @@ en:
       user_group:
         csv_verify:
           invalid: There was a problem reading the CSV file.
-          success: CSV file uploaded successfully, we're verifying the groups matching
-            the criteria. This might take a while.
+          success: CSV file uploaded successfully, we're verifying the groups matching the criteria. This might take a while.
         reject:
           invalid: There was a problem rejecting this group.
           success: Group successfully rejected
@@ -1049,10 +988,7 @@ en:
           verify_via_csv: Verify via CSV
       user_groups_csv_verifications:
         new:
-          explanation: Upload your CSV file. It must have the official emails of the
-            groups in your organization in the first column of the file, without headers.
-            Only groups that have confirmed their email and that have an email appearing
-            in the CSV file will be validated.
+          explanation: Upload your CSV file. It must have the official emails of the groups in your organization in the first column of the file, without headers. Only groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
           title: Upload your CSV file
           upload: Upload
       users:
