@@ -44,8 +44,6 @@ describe "Index proposals", type: :system do
         click_link "See all withdrawn proposals"
       end
 
-      # it_behaves_like "accessible page"
-
       it "shows all the withdrawn proposals" do
         expect(page).to have_css(".card--proposal.alert", count: 3)
         within ".callout.warning" do
