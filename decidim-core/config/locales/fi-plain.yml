@@ -1395,6 +1395,7 @@ fi-pl:
       notify:
         body_1: Käyttäjä %{user} on ilmoitettu käyttäjän %{token} toimesta
         body_2: 'Syy: %{reason}'
+        details: Käyttäjä antoi lisätietoja
         greetings: Terveisin,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hei %{admin},
         subject: Uusi käyttäjä on ilmoitettu palvelussa %{organization_name}
