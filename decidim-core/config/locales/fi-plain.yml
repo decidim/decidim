@@ -106,6 +106,7 @@ fi-pl:
   decidim:
     accessibility:
       external_link: Ulkoinen linkki
+      front_page_link: Siirry etusivulle
       logo: "Organisaation %{organization} virallinen logo"
       skip_button: Siirry sisältöön
     account:
@@ -1308,6 +1309,8 @@ fi-pl:
         close_modal: Sulje ikkuna
         please_sign_in: Kirjaudu sisään
         sign_up: Rekisteröidy
+      mentions_modal:
+        remove_recipient: Poista vastaanottaja %{name}
       participatory_space_filters:
         filters:
           areas: alueet
@@ -1738,6 +1741,7 @@ fi-pl:
     dropdown:
       choose_diff_view_html: 'HTML-tarkastelutapa:'
       choose_diff_view_mode: 'Vertailutila:'
+      choose_diff_view_mode_menu: Valitse vertailutila
       option_escaped: Teknisten elementtien käsittely käytössä
       option_split: Vierekkäin
       option_unescaped: Teknisten elementtien käsittely pois käytöstä
