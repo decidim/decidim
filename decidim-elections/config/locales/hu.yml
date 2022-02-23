@@ -119,6 +119,9 @@ hu:
             title: Új válasz
           not_selected: Nincs kiválasztva
           selected: Kiválasztva
+          update:
+            invalid: Hiba történt a válasz frissítése során
+            success: Válasz sikeresen frissítve
         elections:
           create:
             success: Választás sikeresen létrehozva
