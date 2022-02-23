@@ -25,8 +25,6 @@ describe "Index proposals", type: :system do
         click_link "See all withdrawn proposals"
       end
 
-      # it_behaves_like "accessible page"
-
       it "shows an empty page with a message" do
         expect(page).to have_content("There isn't any proposal with this criteria")
         within ".callout.warning" do
