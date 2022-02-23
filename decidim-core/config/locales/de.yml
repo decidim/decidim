@@ -1250,6 +1250,8 @@ de:
         close_modal: Modal schließen
         please_sign_in: Bitte einloggen
         sign_up: Registrieren
+      mentions_modal:
+        remove_recipient: Empfänger %{name} entfernen
       participatory_space_filters:
         filters:
           areas: Bereiche
@@ -1334,6 +1336,7 @@ de:
       notify:
         body_1: Benutzer %{user} wurde von %{token} gemeldet
         body_2: 'Grund: %{reason}'
+        details: Vom Nutzer übermittelte Details
         greetings: Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallo %{admin},
         subject: Ein neuer Benutzer wurde in %{organization_name} gemeldet
