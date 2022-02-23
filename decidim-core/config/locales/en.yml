@@ -1738,6 +1738,7 @@ en:
     dropdown:
       choose_diff_view_html: 'HTML view mode:'
       choose_diff_view_mode: 'Compare view mode:'
+      choose_diff_view_mode_menu: Choose compare mode
       option_escaped: Escaped
       option_split: Side-by-side
       option_unescaped: Unescaped
