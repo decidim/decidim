@@ -105,6 +105,7 @@ hu:
         error: Hiba történt a fiók törlése során.
         success: Fiók törlése sikeres.
       show:
+        available_locales_helper: Válasszd ki a nyelvet, amelyet használni szeretnél a Decidim értesítéseinek böngészéshez és fogadásához
         change_password: Jelszó módosítása
         update_account: Fiók frissítése
       update:
@@ -672,6 +673,10 @@ hu:
           password: A jelszó túl rövid.
           password_confirmation: A jelszó megerősítés meg kell egyezzen a jelszóval.
         error: Hiba van ebben a mezőben.
+      file_help:
+        file:
+          message_1: Képnek vagy dokumentumnak kell lennie.
+          message_2: A képekhez lehetőleg fekvő képeket használjon, a szolgáltatás megvágja a képet. CSV-fájlok esetén az oszlopok közötti elválasztójelnek vesszőnek (",") kell lennie
       remove_this_file: Töröld ezt a fájlt
     gamification:
       all_badges_link: Az összes elérhető jelvény megtekintése.
