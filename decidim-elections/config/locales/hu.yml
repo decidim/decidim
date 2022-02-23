@@ -120,7 +120,8 @@ hu:
           not_selected: Nincs kiválasztva
           selected: Kiválasztva
           update:
-            success: Válasz sikeresen frissítva
+            invalid: Hiba történt a válasz frissítése során
+            success: Válasz sikeresen frissítve
         elections:
           create:
             success: Választás sikeresen létrehozva
@@ -200,6 +201,12 @@ hu:
             already_voted: Már szavaztál?
             verify_here: Itt ellenőrizheted szavazatod.
             will_verify: A választás megkezdését követően ellenőrizheted szavazatod.
+      votes:
+        onboarding_modal:
+          title: Kezdő a Decidim -ben?
+        verify:
+          form:
+            back: Vissza a Decidim -be
     events:
       elections:
         election_published:
@@ -212,7 +219,20 @@ hu:
         menu:
           votings_submenu:
             monitoring_committee: Ellenőrző Bizottság
+        votings:
+          form:
+            census_contact_information_help: Ez a kapcsolatfelvételi információ azoknak a résztvevőknek szól, akik a népszámlálással kapcsolatos problémákat szeretnének jelenteni. Ez lehet e-mail cím, kapcsolatfelvételi űrlap egy másik oldalon, kérdőív a látogatók számára, stb.
+      census:
+        admin:
+          census:
+            create:
+              invalid_csv_header: A CSV fejléce nem megfelelő számú mezőt tartalmaz – kérjük, figyelmesen olvassa el az utasításokat
       polling_officer_zone:
+        in_person_votes:
+          complete_voting:
+            questions_title: 'A következő kérdésekben jogosult szavazni:'
+          in_person_form:
+            census_not_present_description: Be kell mennie a népszámlálási panaszirodába, vagy kapcsolatba kell lépnie az ügyfélszolgálattal.
         polling_officers:
           index:
             polling_officer_role_description: Szavazóhelyiségi Tisztnek jelöltek (Elnökként vagy Ügyvezetőként) azért, hogy ezen platformon megtartott választásokon intézkedj.
