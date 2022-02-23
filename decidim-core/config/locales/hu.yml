@@ -82,6 +82,7 @@ hu:
   decidim:
     accessibility:
       external_link: Külső hivatkozás
+      front_page_link: Ugrás a címlapra
       logo: "%{organization} hivatalos logója"
       skip_button: Ugrás a fő tartalomra
     account:
@@ -1122,6 +1123,8 @@ hu:
       login_modal:
         please_sign_in: Jelentkezz be
         sign_up: Regisztrálj
+      mentions_modal:
+        remove_recipient: '%{name} címzett eltávolítása'
       participatory_space_filters:
         filters:
           areas: Területek
@@ -1488,6 +1491,7 @@ hu:
     dropdown:
       choose_diff_view_html: 'HTML megtekintési mód:'
       choose_diff_view_mode: 'Összehasonlító nézet mód:'
+      choose_diff_view_mode_menu: Válassz összehasonlítási módot
       option_escaped: Feloldott
       option_split: Egymás mellet
       option_unescaped: Feloldatlan
