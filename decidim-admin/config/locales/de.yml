@@ -474,7 +474,21 @@ de:
           invalid_indexes:
             lines:
               detail: Bitte überprüfen Sie, ob diese Zeilen korrekt formatiert sind und gültige Datensätze enthalten.
+              message:
+                one: Fehler in der Importdatei auf Zeile %{indexes} gefunden.
+                other: Fehler in der Importdatei auf den Zeilen %{indexes} gefunden.
+            records:
+              detail: Bitte überprüfen Sie, ob diese Zeilen korrekt formatiert sind und gültige Datensätze enthalten.
+              message:
+                one: Fehler in der Importdatei beim Eintrag Nummer %{indexes} gefunden.
+                other: Fehler in der Importdatei bei den Einträgen Nummer %{indexes} gefunden.
+          missing_headers:
+            detail: Bitte überprüfen Sie, ob die Datei die erforderlichen Spalten enthält.
+            message:
+              one: Fehlende Spalte %{columns}.
+              other: Fehlende Spalten %{columns}.
         error: Beim Importieren ist ein Fehler aufgetreten
+        example_error: Konnte kein Beispiel für den angegebenen Typ erstellen
         new:
           accepted_mime_types:
             csv: CSV
