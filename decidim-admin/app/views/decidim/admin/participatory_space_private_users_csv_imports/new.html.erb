@@ -6,9 +6,9 @@
   </div>
   <div class="card-section">
     <% if @count > 0 %>
-      <p> <%= t(".destroy.explanation",{count: @count}) %>
+      <p> <%= t(".destroy.explanation",{ count: @count }) %>
       </p>
-      <%=link_to  t(".destroy.button"),
+      <%= link_to  t(".destroy.button"),
                   destroy_all_participatory_space_private_users_csv_import_path,
                   method: :delete,
                   class: "button alert",
@@ -25,7 +25,7 @@
     </h2>
   </div>
   <div class="card-section">
-    <%= decidim_form_for(@form, url: participatory_space_private_users_csv_import_path, html: { class: "form"}) do |form| %>
+    <%= decidim_form_for(@form, url: participatory_space_private_users_csv_import_path, html: { class: "form" }) do |form| %>
       <p><%= t(".explanation") %></p>
       <div class="row column">
         <%= form.upload :file, optional: false %>
