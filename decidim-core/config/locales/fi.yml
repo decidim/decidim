@@ -106,6 +106,7 @@ fi:
   decidim:
     accessibility:
       external_link: Ulkoinen linkki
+      front_page_link: Siirry etusivulle
       logo: "Organisaation %{organization} virallinen logo"
       skip_button: Siirry sisältöön
     account:
