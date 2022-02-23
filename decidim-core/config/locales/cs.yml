@@ -130,6 +130,7 @@ cs:
   decidim:
     accessibility:
       external_link: Externí odkaz
+      front_page_link: Přejít na titulní stránku
       logo: "Oficiální logo %{organization}"
       skip_button: Přeskočit na hlavní obsah
     account:
@@ -1349,6 +1350,8 @@ cs:
         close_modal: Zavřít okno
         please_sign_in: Přihlaste se, prosím
         sign_up: Přihlásit se
+      mentions_modal:
+        remove_recipient: Odebrat příjemce %{name}
       participatory_space_filters:
         filters:
           areas: Oblasti
@@ -1785,6 +1788,7 @@ cs:
     dropdown:
       choose_diff_view_html: 'Režim HTML zobrazení:'
       choose_diff_view_mode: 'Mód srovnávacího zobrazení:'
+      choose_diff_view_mode_menu: Vyberte režim porovnání
       option_escaped: Escapované
       option_split: Vedle sebe
       option_unescaped: Neošetřené Esc
