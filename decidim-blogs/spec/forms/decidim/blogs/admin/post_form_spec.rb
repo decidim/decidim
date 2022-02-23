@@ -74,6 +74,11 @@ module Decidim
           end
         end
 
+          it "assigns current_organization as author" do
+            expect(subject.author).to eq(current_organization)
+          end
+        end
+        
         context "when decidim_author_id is user_group" do
           let(:decidim_author_id) { user_group.id }
 
@@ -107,7 +112,7 @@ module Decidim
           end
 
           context "when author is an organization" do
-            it "assigns 'current_organization' as decidim_author_id" do
+            it "assigns current_organization.id as decidim_author_id" do
               expect(subject.decidim_author_id).to eq(current_organization.id)
             end
 
@@ -123,7 +128,7 @@ module Decidim
               expect(subject.decidim_author_id).to eq(user_group.id)
             end
 
-            it "assigns user_group.name as author" do
+            it "assigns user_group as author" do
               expect(subject.author).to eq(user_group)
             end
           end
@@ -131,7 +136,7 @@ module Decidim
           context "when the author is the current_user" do
             let(:author) { current_user }
 
-            it "assigns 'current_user' string as decidim_author_id" do
+            it "assigns current_user.id as decidim_author_id" do
               expect(subject.decidim_author_id).to eq(current_user.id)
             end
 
@@ -143,11 +148,11 @@ module Decidim
           context "when the author is another user" do
             let(:author) { another_user }
 
-            it "assigns 'original_author' string as decidim_author_id" do
+            it "assigns another_user.id as decidim_author_id" do
               expect(subject.decidim_author_id).to eq(another_user.id)
             end
 
-            it "assigns original_user object as author" do
+            it "assigns another_user object as author" do
               expect(subject.author).to eq(another_user)
             end
           end

@@ -92,7 +92,7 @@ shared_examples "manage posts" do
     it "can set user group as posts author", :slow do
       find(".card-title a.button").click
 
-      select user_group.name, from: "post_user_group_id"
+      select user_group.name, from: "post_decidim_author_id"
 
       fill_in_i18n(
         :post_title,
@@ -130,7 +130,7 @@ shared_examples "manage posts" do
       end
 
       within ".edit_post" do
-        select user_group.name, from: "post_user_group_id"
+        select user_group.name, from: "post_decidim_author_id"
         find("*[type=submit]").click
       end
 
@@ -150,7 +150,7 @@ shared_examples "manage posts" do
     it "can set organization as posts author", :slow do
       find(".card-title a.button").click
 
-      select organization.name, from: "post_user_group_id"
+      select organization.name, from: "post_decidim_author_id"
 
       fill_in_i18n(
         :post_title,
@@ -188,7 +188,7 @@ shared_examples "manage posts" do
       end
 
       within ".edit_post" do
-        select organization.name, from: "post_user_group_id"
+        select organization.name, from: "post_decidim_author_id"
         find("*[type=submit]").click
       end
 
@@ -208,7 +208,7 @@ shared_examples "manage posts" do
     it "can set current_user as posts author", :slow do
       find(".card-title a.button").click
 
-      select user.name, from: "post_user_group_id"
+      select user.name, from: "post_decidim_author_id"
 
       fill_in_i18n(
         :post_title,
@@ -246,7 +246,7 @@ shared_examples "manage posts" do
       end
 
       within ".edit_post" do
-        select user.name, from: "post_user_group_id"
+        select user.name, from: "post_decidim_author_id"
         find("*[type=submit]").click
       end
 
