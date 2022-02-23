@@ -1304,6 +1304,8 @@ fr:
         close_modal: Fermer la fenêtre de dialogue
         please_sign_in: Veuillez vous identifier
         sign_up: Créer un compte
+      mentions_modal:
+        remove_recipient: Supprimer le destinataire %{name}
       participatory_space_filters:
         filters:
           areas: Zones d'application
