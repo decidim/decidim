@@ -98,14 +98,46 @@ hu:
       actions:
         confirm_destroy: Biztos vagy benne?
         destroy: Töröl
+        edit: Szerkeszt
+        feedback: Szavazó visszajelzése
+        import: Válaszjavaslatok importálása
+        manage_answers: Válaszok kezelése
+        manage_questions: Kérdések kezelése
+        preview: Előnézet
         publish: Közzétesz
+        title: Műveletek
         unpublish: Közzététel visszavonása
       admin:
+        answers:
+          edit:
+            title: Válasz szerkesztése
+            update: Válasz frissítése
+          index:
+            title: Válaszok
+          new:
+            create: Válasz létrehozása
+            title: Új válasz
+          not_selected: Nincs kiválasztva
+          selected: Kiválasztva
         elections:
+          create:
+            success: Választás sikeresen létrehozva
+          edit:
+            update: Választás frissítése
+          index:
+            title: Választások
+          new:
+            create: Választás létrehozása
+            title: Új választás
           publish:
             success: A választás sikeresen publikálásra került.
           unpublish:
             success: A választás publikálását sikeresen visszavonta.
+          update:
+            invalid: Hiba történt a választás frissítése során
+            success: Választás sikeresen frissítve
+        exports:
+          elections: Választások
         menu:
           trustees: Felügyelők
         models:
