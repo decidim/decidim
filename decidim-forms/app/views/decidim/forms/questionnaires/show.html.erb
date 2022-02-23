@@ -8,7 +8,7 @@
 <%= render partial: "decidim/shared/component_announcement" %>
 
 <div class="row columns">
-  <h3 class="section-heading"><%= translated_attribute questionnaire.title %></h3>
+  <h2 class="section-heading"><%= translated_attribute questionnaire.title %></h2>
   <div class="row">
     <div class="columns large-<%= columns %> medium-centered lead">
       <%= decidim_sanitize_editor translated_attribute questionnaire.description %>
