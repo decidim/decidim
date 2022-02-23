@@ -23,14 +23,32 @@ module Decidim
     end
 
     def activities
-      @activities ||= paginate(
-        PublicActivities.new(
-          current_organization,
-          user: user,
-          current_user: current_user,
-          resource_name: filter.resource_type
-        ).query.with_resource_type("all")
-      )
+      @activities ||= begin
+        paginate(
+          activity_class.new(
+            current_organization,
+            user: user,
+            current_user: current_user,
+            resource_name: filter.resource_type
+          ).query.public_send(activity_method, *activity_arguments)
+        )
+      end
+    end
+
+    def activity_method
+      own_activities? ? :with_private_resources : :with_resource_type
+    end
+
+    def activity_arguments
+      own_activities? ? [] : %w(all)
+    end
+
+    def activity_class
+      own_activities? ? OwnActivities : PublicActivities
+    end
+
+    def own_activities?
+      @own_activities ||= current_user == user
     end
 
     def default_filter_params
