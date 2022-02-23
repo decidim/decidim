@@ -94,6 +94,7 @@ ja:
   decidim:
     accessibility:
       external_link: 外部リンク
+      front_page_link: フロントページに移動
       logo: "%{organization}の公式ロゴ"
       skip_button: メインコンテンツにスキップ
     account:
