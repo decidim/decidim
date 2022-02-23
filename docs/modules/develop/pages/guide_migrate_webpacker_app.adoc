@@ -88,7 +88,7 @@ For instance, add the image "app/packs/images/test.png" in a view using the help
 
 [source,erb]
 ----
-<%= image_pack_tag "media/images/test.png" =>
+<%= image_pack_tag "media/images/test.png" %>
 ----
 
 Note that, by default, all images are flattened in a single directory (any subdirectory structure is lost when requiring an image using the `image_pack_tag`).
@@ -187,7 +187,7 @@ Decidim.register_assets_path File.expand_path("app/packs", Rails.application.roo
 
 The deployment needs to be updated to manually run `npm install` before assets are precompiled.
 
-In the case of Capistrano this can be done with a before hook:
+In the case of Capistrano this can be done with a before hook (can be added at the end of your `config/deploy.rb` file):
 
 [source,ruby]
 ----
@@ -195,11 +195,7 @@ namespace :deploy do
   desc "Decidim webpacker configuration"
   task :decidim_webpacker_install do
     on roles(:all) do
-      within release_path do
-        with rails_env: fetch(:rails_env) do
-          execute "npm ci"
-        end
-      end
+      execute "cd #{release_path}; npm ci"
     end
   end
 
@@ -235,7 +231,7 @@ In some case it might be that some packages are not well resolved when installin
 ...
 ----
 
-Try to add the package `@rails/webpacker` manually in your `package.json` file next to the `@decidim/webpacker` package:
+These might be due some kind of corruption in your `package-json.lock` file, you can try either to remove this file and recreate it with `npm install` or to add the package `@rails/webpacker` manually in your `package.json` file next to the `@decidim/webpacker` package:
 
 [source,json]
 ----
