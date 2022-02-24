@@ -1,11 +1,11 @@
 <div class="budget-list__text card__text">
   <div>
     <%= link_to resource_path, class: "card__link" do %>
-      <h5 class="card__title budget-list__title">
+      <h3 class="card__title budget-list__title">
         <%= cell("decidim/budgets/project_selected_status", model) %>
 
         <%= resource_title %>
-      </h5>
+      </h3>
     <% end %>
 
     <div class="show-for-medium">
