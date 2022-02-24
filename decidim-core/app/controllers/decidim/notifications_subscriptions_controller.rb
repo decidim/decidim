@@ -3,8 +3,6 @@
 module Decidim
   # The controller to handle the subscriptions to push notifications
   class NotificationsSubscriptionsController < Decidim::ApplicationController
-    skip_before_action :verify_authenticity_token
-
     def create
       return unless current_user
 

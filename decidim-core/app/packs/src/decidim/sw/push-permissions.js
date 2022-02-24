@@ -18,7 +18,10 @@ window.addEventListener("DOMContentLoaded", async () => {
         }
         else {
           await fetch("/unsubscribe_to_notifications", {
-            headers: { "Content-Type": "application/json" },
+            headers: {
+              "Content-Type": "application/json",
+              "X-CSRF-Token": document.querySelector("meta[name=csrf-token]").content
+            },
             method: "DELETE"
           });
         }
