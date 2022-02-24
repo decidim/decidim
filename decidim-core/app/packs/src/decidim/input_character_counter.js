@@ -91,11 +91,11 @@ export default class InputCharacterCounter {
 
     if (this.maxCharacters > 0) {
       const remaining = this.maxCharacters - numCharacters;
+      let remainingCharacters = this.$input.data("remaining-characters")
       let message = MESSAGES.charactersLeft.other;
       if (remaining === 1) {
         message = MESSAGES.charactersLeft.one;
       }
-      var remainingCharacters = this.$input.data("remaining-characters")
       if (document.querySelector(`textarea[data-remaining-characters="${remainingCharacters}"]`)) {
         if (remaining < 4) {
           document.querySelector(`textarea[data-remaining-characters="${remainingCharacters}"]`).nextElementSibling.setAttribute("style", "visibility:hidden");
