@@ -1697,6 +1697,7 @@ it:
     dropdown:
       choose_diff_view_html: 'Modalità visualizzazione HTML:'
       choose_diff_view_mode: 'Modalità di visualizzazione confronto:'
+      choose_diff_view_mode_menu: Scegli la modalità di ricerca
       option_escaped: Escaped
       option_split: Affiancati
       option_unescaped: Unescaped
