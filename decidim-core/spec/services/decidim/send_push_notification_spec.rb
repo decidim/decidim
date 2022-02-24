@@ -5,6 +5,25 @@ require "spec_helper"
 describe Decidim::SendPushNotification do
   subject { described_class.new }
 
+  before do
+    allow(Rails.application.secrets).to receive("vapid").and_return({ enabled: true, public_key: "public_key", private_key: "private_key" })
+  end
+
+  context "without vapid settings config" do
+    before do
+      allow(Rails.application.secrets).to receive("vapid").and_return({ enabled: false })
+    end
+
+    describe "#perform" do
+      let(:user) { create(:user, allow_push_notifications: false) }
+      let(:notification) { create :notification, user: user }
+
+      it "returns false" do
+        expect(subject.perform(notification)).to be_falsy
+      end
+    end
+  end
+
   context "with a user that doesn't allow push notifications" do
     describe "#perform" do
       let(:user) { create(:user, allow_push_notifications: false) }
@@ -65,10 +84,6 @@ describe Decidim::SendPushNotification do
     describe "#payload" do
       let(:message_params) { { title: "a_title", body: "a_body", icon: "an_icon", data: { url: "a_url" } } }
       let(:subscription) { build(:notifications_subscription) }
-
-      before do
-        stub_const("ENV", { "VAPID_PUBLIC_KEY" => "public_key", "VAPID_PRIVATE_KEY" => "private_key" })
-      end
 
       it "returns true" do
         result = subject.payload(message_params, subscription)

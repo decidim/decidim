@@ -16,6 +16,8 @@ module Decidim
     #
     # Returns the result of the dispatch or nil if user or subscription are empty
     def perform(notification)
+      return unless Rails.application.secrets.vapid[:enabled]
+
       user = notification.user
       return unless user.allow_push_notifications
 
@@ -44,20 +46,10 @@ module Decidim
         p256dh: subscription.p256dh,
         auth: subscription.auth,
         vapid: {
-          public_key: public_key,
-          private_key: private_key
+          public_key: Rails.application.secrets.vapid[:public_key],
+          private_key: Rails.application.secrets.vapid[:private_key]
         }
       }
-    end
-
-    private
-
-    def public_key
-      ENV["VAPID_PUBLIC_KEY"]
-    end
-
-    def private_key
-      ENV["VAPID_PRIVATE_KEY"]
     end
   end
 end

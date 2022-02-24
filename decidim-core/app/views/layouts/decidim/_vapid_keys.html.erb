@@ -1,3 +1,3 @@
-<% if ENV["VAPID_PUBLIC_KEY"].present? %>
-  <input id="vapidPublicKey" name="vapid_public_key" type="hidden" value='<%= Base64.urlsafe_decode64(ENV["VAPID_PUBLIC_KEY"]).bytes %>'>
+<% if Rails.application.secrets.vapid[:enabled] %>
+  <input id="vapidPublicKey" name="vapid_public_key" type="hidden" value='<%= Base64.urlsafe_decode64(Rails.application.secrets.vapid[:public_key]).bytes %>'>
 <% end %>
