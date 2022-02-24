@@ -1666,6 +1666,7 @@ de:
     dropdown:
       choose_diff_view_html: 'HTML-Ansicht:'
       choose_diff_view_mode: 'Vergleichsansicht:'
+      choose_diff_view_mode_menu: Vergleichsmodus wählen
       option_escaped: aus der Seite herausgekommen
       option_split: Nebeneinander
       option_unescaped: aus der Seite nicht herausgekommen
