@@ -93,6 +93,7 @@ ar:
         error: حدثت مشكلة في حذف حسابك.
         success: تم حذف حسابك بنجاح.
       show:
+        available_locales_helper: اختر اللغة التي تريد استخدامها لتصفح وتلقي الإشعارات على المنصة
         change_password: غير كلمة السر
         update_account: تحديث الحساب
       update:
