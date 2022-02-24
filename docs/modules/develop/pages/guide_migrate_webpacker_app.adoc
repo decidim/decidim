@@ -121,6 +121,16 @@ Sometimes assets are included in `vendor/assets/` folder or imported from gems. 
 1. if the asset is a javascript that is available as npm package the recommendation is to add it to package.json with `npm install`. If it's not available you might want to copy it to `app/packs/src` and import it.
 2. if the asset is a stylesheet it should be copied to `app/packs/stylesheets` and imported with `@import...` from `_decidim-settings.scss`. Alternatively you can use the optional asset includes as described below to include these in the Decidim main SCSS files.
 
+=== Migrate uploads to ActiveStorage
+
+The old method (CarrierWave) to handle user uploads has changed, now it uses ActiveStorage.
+This means that all the old files need to be migrated to the new system. Use the following rake task to perform this task:
+
+[source,console]
+----
+RAILS_ENV=production bin/rails decidim:active_storage_migrations:migrate_from_carrierwave_to_active_storage
+----
+
 === Optional asset includes
 
 Decidim Webpacker provides a new configuration convention that allows you to add extra configurations for webpacker using a configuration file named `config/assets.rb`. Within this file, you have the following API methods available:
