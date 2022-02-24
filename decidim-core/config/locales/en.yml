@@ -108,6 +108,7 @@ en:
   decidim:
     accessibility:
       external_link: External link
+      front_page_link: Go to front page
       logo: "%{organization}'s official logo"
       skip_button: Skip to main content
     account:
