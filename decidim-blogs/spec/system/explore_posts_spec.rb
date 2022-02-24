@@ -6,6 +6,13 @@ describe "Explore posts", type: :system do
   include_context "with a component"
   let(:manifest_name) { "blogs" }
 
+  let(:current_organization) { create(:organization) }
+ # let(:current_user) { create :user, organization: current_organization }
+ # let(:another_user) { create(:user, organization: current_organization) }
+ # let(:user_group) { create(:user_group, :verified, organization: current_organization) }
+ # let(:decidim_author_id) { "" }
+  let(:author) { current_organization }
+
   let!(:old_post) { create(:post, component: component, created_at: Time.current - 2.days) }
   let!(:new_post) { create(:post, component: component, created_at: Time.current) }
 
@@ -59,6 +66,15 @@ describe "Explore posts", type: :system do
     before do
       visit resource_locator(post).path
     end
+
+# ADDED PROBABLY WRONG
+    context "testing organization" do
+      it "shows current_organization as author" do
+byebug
+       expect(page).to have_content(post.author.name)
+      end
+    end
+# ADDED PROBABLY WRONG
 
     it "show post info" do
       expect(page).to have_i18n_content(post.title)
