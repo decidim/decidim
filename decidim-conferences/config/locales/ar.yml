@@ -19,13 +19,17 @@ ar:
         scopes_enabled: النطاقات المُفعّلَة
         short_description: وصف قصير
         show_statistics: عرض الإحصائيات
+        signature_name: اسم التوقيع
         slogan: شعار
         slug: سبيكة العنوان الشبكي
         title: عنوان
       conference_media_link:
         weight: وزن
       conference_partner:
+        name: الإسم
         weight: وزن
+      conference_registration_invite:
+        name: الإسم
       conference_registration_type:
         weight: وزن
       conference_speaker:
