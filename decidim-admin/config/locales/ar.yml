@@ -56,6 +56,7 @@ ar:
         omnipresent_banner_short_description: وصف قصير
         omnipresent_banner_title: العنوان
         omnipresent_banner_url: العنوان الشبكي
+        organization_locales: لغات المنظمة
         primary_color: ابتدائي
         reference_prefix: بادئة المرجع
         rich_text_editor_in_public_views: إتاحة محرر النص الغني للمشارِكين
@@ -113,7 +114,7 @@ ar:
         client_id: معرف العميل
         client_secret: سر العميل
         organization_name: اسم المنظمة
-        organization_url: العنوان الشبكي للمؤسسة
+        organization_url: العنوان الشبكي للمنظمة
         redirect_uri: إعادة توجيه URI
         site: موقع الويب
   decidim:
@@ -264,6 +265,7 @@ ar:
         transfer:
           name: الإسم
         'true': 'نعم'
+        user_name: المستخدم
       dashboard:
         show:
           view_more_logs: عرض المزيد من السجلات
