@@ -385,6 +385,10 @@ ar:
             map: خريطة
             start_time: تاريخ البدء
             title: عنوان
+      polls:
+        questions:
+          index_admin:
+            results: النتائج
       read_more: "(قراءة المزيد)"
       registration_mailer:
         confirmation:
