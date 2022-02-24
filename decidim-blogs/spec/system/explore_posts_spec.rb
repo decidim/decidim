@@ -70,7 +70,6 @@ describe "Explore posts", type: :system do
 # ADDED PROBABLY WRONG
     context "testing organization" do
       it "shows current_organization as author" do
-byebug
        expect(page).to have_content(post.author.name)
       end
     end
