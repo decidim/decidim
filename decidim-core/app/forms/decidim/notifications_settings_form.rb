@@ -52,7 +52,7 @@ module Decidim
     end
 
     def meet_push_notifications_requirements?
-      ENV.has_key?("VAPID_PUBLIC_KEY") && ENV.has_key?("VAPID_PRIVATE_KEY")
+      Rails.application.secrets.vapid[:enabled]
     end
   end
 end
