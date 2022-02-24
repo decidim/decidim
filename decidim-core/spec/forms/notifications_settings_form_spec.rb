@@ -182,21 +182,21 @@ module Decidim
     describe "#meet_push_notifications_requirements?" do
       context "when the notifications requirements are met" do
         before do
-          stub_const("ENV", {})
+          allow(Rails.application.secrets).to receive("vapid").and_return({ enabled: true })
         end
 
         it "returns true" do
-          expect(subject.meet_push_notifications_requirements?).to eq false
+          expect(subject.meet_push_notifications_requirements?).to eq true
         end
       end
 
       context "when the notifications requirements aren't met" do
         before do
-          stub_const("ENV", { "VAPID_PUBLIC_KEY" => "public_key", "VAPID_PRIVATE_KEY" => "private_key" })
+          allow(Rails.application.secrets).to receive("vapid").and_return({ enabled: false })
         end
 
-        it "returns false " do
-          expect(subject.meet_push_notifications_requirements?).to eq true
+        it "returns false" do
+          expect(subject.meet_push_notifications_requirements?).to eq false
         end
       end
     end
