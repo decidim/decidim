@@ -13,8 +13,8 @@ describe "Explore posts", type: :system do
  # let(:decidim_author_id) { "" }
   let(:author) { current_organization }
 
-  let!(:old_post) { create(:post, component: component, created_at: Time.current - 2.days) }
-  let!(:new_post) { create(:post, component: component, created_at: Time.current) }
+  let!(:old_post) { create(:post, component: component, author: author, created_at: Time.current - 2.days) }
+  let!(:new_post) { create(:post, component: component, author: author, created_at: Time.current) }
 
   let!(:image) { create(:attachment, attached_to: old_post) }
 
