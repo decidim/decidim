@@ -5,6 +5,9 @@ js_configs = {
     "selfxssWarning": {
       title: t("decidim.security.selfxss_warning.title"),
       description: t("decidim.security.selfxss_warning.description")
+    },
+    "mentionsModal": {
+      "removeRecipient": t("decidim.shared.mentions_modal.remove_recipient", name: "%name%")
     }
   },
   external_domain_whitelist: [current_organization.host] + current_organization.external_domain_whitelist

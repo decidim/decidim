@@ -3,6 +3,7 @@
     attributes:
       dummy_resource:
         created_at: Opprettet på
+        decidim_scope_id: Tema
         field: Mitt felt
         start_date: Startdato
         title: Tittel
@@ -13,12 +14,23 @@
       dummy:
         settings:
           global:
+            readonly_attribute: Skrivebeskyttet attributt
+            test: En test
+            test_choices:
+              a: A-valg
+              b: B-valg
+              c: C-valg
             test_options:
               bar: Felt
+              baz: Baz
               foo: Foo
           step:
+            endorsements_blocked: Påtegnelser blokkert
+            endorsements_enabled: Påtegnelser aktivert
+            readonly_step_attribute: Skrivebeskyttet trinn-attributt
             test_options:
               bar: Felt
+              baz: Baz
               foo: Foo
     dummy:
       admin:

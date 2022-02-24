@@ -263,7 +263,6 @@ tr:
             duration_help: Bu kurulun süresi sınırlıysa, bitiş tarihini seçin. Aksi takdirde belirsiz görünecektir.
             filters: Filtreler
             images: Resimler
-            included_at_help: Bu kurulun Decidim'e eklendiği tarihi seçin. Yaratılış tarihi ile aynı olmak zorunda değildir.
             metadata: Meta veri
             other: Diğer
             select_a_created_by: tarafından oluşturulanı seçin

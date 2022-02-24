@@ -108,6 +108,7 @@ en:
   decidim:
     accessibility:
       external_link: External link
+      front_page_link: Go to front page
       logo: "%{organization}'s official logo"
       skip_button: Skip to main content
     account:
@@ -1332,6 +1333,8 @@ en:
         close_modal: Close modal
         please_sign_in: Please sign in
         sign_up: Sign up
+      mentions_modal:
+        remove_recipient: Remove recipient %{name}
       participatory_space_filters:
         filters:
           areas: Areas
@@ -1419,6 +1422,7 @@ en:
       notify:
         body_1: User %{user} has been reported by %{token}
         body_2: 'Reason: %{reason}'
+        details: User provided details
         greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hello %{admin},
         subject: A new user has been reported in %{organization_name}
@@ -1761,6 +1765,7 @@ en:
     dropdown:
       choose_diff_view_html: 'HTML view mode:'
       choose_diff_view_mode: 'Compare view mode:'
+      choose_diff_view_mode_menu: Choose compare mode
       option_escaped: Escaped
       option_split: Side-by-side
       option_unescaped: Unescaped

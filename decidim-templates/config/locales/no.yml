@@ -1,5 +1,67 @@
 "no":
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Tittel
+      template:
+        description: Beskrivelse
+        name: Navn
   decidim:
     admin:
       menu:
         templates: Maler
+      templates:
+        apply:
+          error: Det oppstod et problem med å bruke denne malen.
+          success: Mal lagt til
+        copy:
+          error: Det oppstod et problem under kopiering av denne malen.
+          success: Malen ble kopiert
+        create:
+          error: Det oppstod et problem under oppretting av malen.
+          success: Malen er opprettet
+        destroy:
+          success: Malen ble slettet
+        empty: Det finnes ingen maler enda.
+        update:
+          error: Det oppstod et problem under oppdatering av denne malen.
+          success: Mal oppdatert
+      titles:
+        template_types:
+          questionnaires: Maler for spørreskjema
+        templates: Maler
+    models:
+      questionnaire_template:
+        fields:
+          questions: Antall spørsmål
+          title: Tittel på spørreskjema
+      template:
+        fields:
+          created_at: Opprettet
+        name: Mal
+    templates:
+      admin:
+        questionnaire_templates:
+          choose:
+            create_from_template: Opprett fra mal
+            description: Du holder på å opprette et nytt spørreskjema. Du kan velge en forhåndsdefinert mal og endre den etterpå.
+            label: Velg mal
+            placeholder: Velg mal
+            skip_template: Hopp over
+          edit:
+            edit: Rediger
+            empty: Det er ingen spørsmål enda
+            questionnaire: Spørreskjema
+          form:
+            save: Lagre
+            template_title: Informasjon om mal
+            title: Spørreskjema mal %{questionnaire_for}
+          index:
+            confirm_delete: Er du sikker på at du vil slette denne malen?
+            title: Spørreskjema maler
+          preview:
+            current_step: Trinn %{step}
+            of_total_steps: av %{total_steps}
+            tos_agreement: Ved å delta godtar du bruksvilkårene
+      template_types:
+        questionnaires: Spørreskjema

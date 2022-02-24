@@ -264,7 +264,6 @@ sk:
       dashboard:
         show:
           view_more_logs: Zobraziť viac logov
-          welcome: Vitajte v Administrátorskom Paneli Decidim.
       exports:
         export_as: "%{name} ako %{export_format}"
         notice: Váš export práve prebieha. Obdržíte e-mail po dokončení.
@@ -688,7 +687,6 @@ sk:
         static_pages: Stránky
         statistics: Aktivita
         user_groups: Skupiny
-        users: Účastníci
       user_group:
         csv_verify:
           invalid: Vyskytol sa problém s čítaním súboru CSV.
@@ -724,7 +722,6 @@ sk:
           role: Rola
         new:
           create: Pozvať
-          title: Pozvať účastníka ako administrátora
       users_statistics:
         users_count:
           admins: Administrátori

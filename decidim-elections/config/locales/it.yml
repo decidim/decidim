@@ -412,7 +412,6 @@ it:
           all: Tutti
           finished: Completata
           search: Cerca
-          state: Stato
           upcoming: Imminente
         filters_small_view:
           close_modal: Chiudi finestra
@@ -570,15 +569,12 @@ it:
               generate_legend_3: Assicurati che sul computer non ci sia una copia del file (controlla anche le cartelle Download e Desktop).
               generate_legend_4: Fai un'altra copia del file su un altro dispositivo esterno e memorizzarlo in un luogo molto sicuro.
               submit: Invia
-              submit_legend: Dopo aver seguito tutti i passaggi sopra illustrati, completare il processo inviando il codice di identificazione pubblica al server Decidim.
               submit_title: Invia la chiave di identificazione pubblica
               title: Codici di identificazione del Garante
               upload: Carica i tuoi codici di identificazione
               upload_error:
                 invalid_format: Il file caricato non contiene alcun codice di identificazione.
                 invalid_key: I codici di identificazione nel file caricato non possono essere caricati.
-                invalid_public_key: I codici di identificazione nel file caricato non corrispondono a quelli pubblici memorizzati da Decidim.
-              upload_legend: Decidim ha i tuoi codici di identificazione pubblici, ma il tuo browser ancora no. È necessario importare il file con i codici di identificazione sul computer dal backup creato dopo averli generati.
             not_supported_browser_description: Sembra che tu stia usando un browser web che non può essere usato in qualitá di Garante. Assicurati di utilizzare la versione più recente del tuo browser, o prova ad utilizzare uno dei browser più popolari che ti permettano di esercitare il ruolo di Garante.
             not_supported_browser_title: Aggiorna il browser per fungere da Garante
             trustee_role_description: Ti è stato assegnato di ruolo di Garante in alcune delle elezioni che si svolgeranno su questa piattaforma.
@@ -645,9 +641,7 @@ it:
         onboarding_modal:
           close: Chiudi finestra
           create_account: Crea Account
-          description: Vuoi creare un nuovo account in Decidim? Potrai partecipare ai processi ed essere parte attiva dell'organizzazione.
           no_account: No, grazie.
-          title: Nuovo su Decidim?
         update:
           error: Si è verificato un errore durante l'aggiornamento del voto. Si prega di votare di nuovo.
         verify:
@@ -658,7 +652,6 @@ it:
             header: Voto non trovato!
             info: Il codice di voto non è stato trovato nella scheda elettorale %{link}, riprova.
           form:
-            back: Torna su Decidim
             submit: Controlla
             vote_identifier: 'Codice identificativo:'
           header:
@@ -975,7 +968,6 @@ it:
             assign_missing_officers: Ci sono stazioni di sondaggio senza Presidente e/o Manager. Si prega di assegnarle dalla sezione Postazioni di sondaggio
             update: Aggiorna
           form:
-            census_contact_information_help: Questa informazione di contatto è per un partecipante che vuole segnalare problemi con il censimento. Può essere un indirizzo e-mail, un modulo di contatto su un altro sito, un sondaggio Decidim per i visitatori, ecc.
             select_a_voting_type: Seleziona un tipo di votazione
             slug_help: 'Gli URL slugs sono usati per generare gli URL che puntano a questo voto. Accetta solo lettere, numeri e trattini e deve iniziare con una lettera. Esempio: %{url}'
             title: Titolo
@@ -1300,7 +1292,6 @@ it:
           all: Tutti
           finished: Finito
           search: Ricerca
-          state: Stato
           upcoming: Prossimi
         filters_small_view:
           close_modal: Chiudi modalità

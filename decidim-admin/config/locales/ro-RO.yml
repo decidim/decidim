@@ -172,8 +172,6 @@ ro:
         permissions: Drepturi
         reject: Respinge
         share: Distribuie
-        user:
-          new: Utilizator nou
         verify: Verifică
       admin_terms_of_use:
         accept:
@@ -256,6 +254,8 @@ ro:
         update:
           error: A apărut o eroare la actualizarea acestui atașament.
           success: Atașamentul a fost actualizat cu succes.
+      attachments_privacy_warning:
+        message: Fiți precaut atunci când lucrați cu atașamente într-un spațiu privat. Orice participant poate distribui acest document altora.
       autocomplete:
         no_results: Nu a fost găsit niciun rezultat
         search_prompt: Tastați cel puțin trei caractere pentru a căuta
@@ -338,7 +338,7 @@ ro:
       dashboard:
         show:
           view_more_logs: Afișează mai multe înregistrări
-          welcome: Bine ați venit în Panoul de administrare Decidim.
+          welcome: Bine ați venit în Panoul de administrare.
       domain_whitelist:
         form:
           domain_too_short: Domeniul e prea scurt
@@ -838,6 +838,9 @@ ro:
           explanation: 'Încărcă fişierul tău CSV. Trebuie să aibă două coloane cu e-mail în prima coloană a fișierului și numele în ultima coloană (e-mail, numele) pentru utilizatorii pe care doriţi să îi adăugaţi în spaţiul participativ, fără antet. Evită folosirea caracterelor invalide, cum ar fi `<>?%&^*#@()[]=+:;"{}\<unk> ` în numele utilizatorului.'
           title: Încarcă fișierul tău CSV
           upload: Încarcă
+      reminders:
+        new:
+          submit: Trimite
       resource_permissions:
         edit:
           submit: Trimite
@@ -955,7 +958,6 @@ ro:
         static_pages: Pagini
         statistics: Activitate
         user_groups: Grupuri
-        users: Participanți
       user_group:
         csv_verify:
           invalid: A apărut o problemă la citirea fișierului CSV.
@@ -991,7 +993,6 @@ ro:
           role: Rol
         new:
           create: Invită
-          title: Invită participantul ca administrator
       users_statistics:
         users_count:
           admins: Administratori

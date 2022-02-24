@@ -408,9 +408,9 @@ ja:
         filters:
           active: 有効
           all: 全て
+          date: 日付
           finished: 完了
           search: 検索
-          state: 状態
           upcoming: 今後の予定
         filters_small_view:
           close_modal: ウィンドウを閉じる
@@ -567,15 +567,13 @@ ja:
               generate_legend_3: コンピュータにファイルのコピーがないことを確認してください(例:ダウンロードフォルダとデスクトップフォルダを確認してください)。
               generate_legend_4: 異なる外部デバイスにファイルの別のコピーを作成し、非常に安全な場所に保存します。
               submit: 送信
-              submit_legend: 上記のすべての手順に従った後、公開識別キーを Decidim サーバーに送信するプロセスを完了します。
               submit_title: 公開識別キーを送信
               title: 受託者の識別キー
               upload: 識別キーをアップロード
               upload_error:
                 invalid_format: アップロードされたファイルには識別キーが含まれていません。
                 invalid_key: アップロードされたファイルの識別キーは読み込めません。
-                invalid_public_key: アップロードされたファイルの識別キーは、Decidim が保存した公開識別キーと一致しません。
-              upload_legend: Decidimはあなたの公開識別キーを持っていますが、お使いのブラウザにはまだありません。識別キーを生成した後に作成したバックアップから、識別キーの入ったファイルをコンピュータにインポートする必要があります。
+                invalid_public_key: アップロードされたファイルの識別キーが公開鍵と一致しません。
             not_supported_browser_description: 受託者としての活動に使用できないWebブラウザを使用しているようです。最新バージョンのブラウザを使用するか、または一般的なブラウザを使用して、受託者のタスクを完了できるようにしてください。
             not_supported_browser_title: ブラウザをアップグレードして受託者として行動する
             trustee_role_description: あなたは、このプラットフォームで行われる選挙のいくつかで受託者を務めることになっています。
@@ -642,9 +640,9 @@ ja:
         onboarding_modal:
           close: 閉じる
           create_account: アカウントの作成
-          description: Decidimで新しいアカウントを作成しますか？ プロセスに参加し、組織の積極的な一員になることができます。
+          description: プラットフォームに新しいアカウントを作成しますか？ プロセスに参加し、組織の積極的な一員になることができます。
           no_account: いいえ結構です。
-          title: Decidimは初めてですか？
+          title: プラットフォームは初めてですか？
         update:
           error: 投票ステータスの更新中に問題が発生しました。もう一度投票してください。
         verify:
@@ -655,7 +653,7 @@ ja:
             header: 投票が見つかりません！
             info: 投票コードが %{link} 投票箱に見つかりませんでした。もう一度やり直してください。
           form:
-            back: Decidimに戻る
+            back: プラットフォームに戻る
             submit: チェック
             vote_identifier: '識別コード:'
           header:
@@ -972,7 +970,6 @@ ja:
             assign_missing_officers: 投票管理者またはマネージャーがいない投票所があります。投票所セクションからアサインしてください
             update: 更新
           form:
-            census_contact_information_help: この連絡先情報は、センサスで問題を報告したい参加者のためのものです。 それは電子メールアドレス、別のサイトの連絡先フォーム、訪問者のためのDecidimアンケートなどである可能性があります。
             select_a_voting_type: 投票方式を選択してください
             slug_help: 'URLスラグは、この投票を指すURLを生成するために使用されます。 使用できるのはアルファベット、数字、ダッシュのみで、アルファベットから始める必要があります。例: %{url}'
             title: タイトル
@@ -1294,9 +1291,9 @@ ja:
         filters:
           active: 有効
           all: 全て
+          date: 日付
           finished: 完了
           search: 検索
-          state: ステータス
           upcoming: 今後の予定
         filters_small_view:
           close_modal: 閉じる

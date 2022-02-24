@@ -35,7 +35,7 @@ module Decidim
 
       def default_filter_params
         {
-          search_text: "",
+          search_text_cont: "",
           with_scope: "",
           with_category: ""
         }

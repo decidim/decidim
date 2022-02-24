@@ -6,11 +6,15 @@ $(() => {
     return;
   }
 
+  const allMessages = window.Decidim.config.get("messages");
+  const messages = allMessages.mentionsModal || {};
+
   const $searchInput = $("input", $fieldContainer);
   const $selectedItems = $(`ul.${$searchInput.data().selected}`);
   const options = $fieldContainer.data();
   let selected = [];
   const iconsPath = window.Decidim.config.get("icons_path");
+  const removeLabel = messages.removeRecipient || "Remove recipient %name%";
 
   const autoComplete = new AutoComplete($searchInput[0], {
     dataMatchKeys: ["name", "nickname"],
@@ -58,12 +62,13 @@ $(() => {
       return;
     }
 
+    const label = removeLabel.replace("%name%", selection.value.name);
     $selectedItems.append(`
       <li>
-        <input type="hidden" name="${options.name}" value="${selection.value.id}">
+        <input type="hidden" name="${options.name}" value="${id}">
         <img src="${selection.value.avatarUrl}" class="author__avatar" alt="${selection.value.name}">
         <b>${selection.value.name}</b>
-        <button class="float-right" data-remove=${id} tabindex="0" aria-controls="0" aria-label="Close" role="tab">&times;</button>
+        <button type="button" class="float-right" data-remove="${id}" tabindex="0" aria-controls="0" aria-label="${label}">&times;</button>
       </li>
     `);
 

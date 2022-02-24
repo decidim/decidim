@@ -102,7 +102,7 @@ module Decidim
       end
 
       def metrics
-        @metrics ||= ParticipatoryProcessMetricChartsPresenter.new(participatory_process: current_participatory_space)
+        @metrics ||= ParticipatoryProcessMetricChartsPresenter.new(participatory_process: current_participatory_space, view_context: view_context)
       end
 
       def participatory_process_group

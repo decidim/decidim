@@ -170,8 +170,6 @@ pt-BR:
         permissions: Permissões
         reject: Negar
         share: Compartilhar
-        user:
-          new: Novo usuário
         verify: Verificar
       admin_terms_of_use:
         accept:
@@ -331,7 +329,6 @@ pt-BR:
       dashboard:
         show:
           view_more_logs: Ver mais registros
-          welcome: Bem-vindo ao Decidim Admin Panel.
       domain_whitelist:
         form:
           domain_too_short: Domínio muito curto
@@ -899,7 +896,6 @@ pt-BR:
         static_pages: Páginas
         statistics: Atividade
         user_groups: Grupos de usuários
-        users: Usuários
       user_group:
         csv_verify:
           invalid: Ocorreu um erro ao ler o arquivo CSV.
@@ -935,7 +931,6 @@ pt-BR:
           role: Cargo
         new:
           create: Convite
-          title: Convide o usuário como administrador
       users_statistics:
         users_count:
           admins: Admins

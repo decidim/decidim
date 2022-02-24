@@ -63,6 +63,7 @@ module Decidim
         @proposals ||= Decidim.find_resource_manifest(:proposals).try(:resource_scope, component)
                          &.includes(:component)
                          &.published
+                         &.not_hidden
                          &.order(id: :asc)
       end
 

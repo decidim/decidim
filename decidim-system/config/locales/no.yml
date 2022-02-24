@@ -1,9 +1,36 @@
 "no":
   activemodel:
     attributes:
+      oauth_application:
+        name: OAuth applikasjonsnavn
+        organization_logo: Organisasjonslogo (Firkant)
+        organization_name: Organisasjon
+        organization_url: Orginasjonens URL
+        redirect_uri: Omdiriger URI
+      organization:
+        address: SMTP vertsnavn
+        from_email: E-postadresse
+        from_label: Etikett
+        password: Passord
+        port: Port
+        user_name: Brukernavn
       organization_file_uploads:
+        allowed_content_types:
+          admin: Admin MIME-typer
+          default: Standard MIME-typer
+        allowed_file_extensions:
+          admin: Admin filtyper
+          default: Standard filtyper
+          image: Filtyper for bilder
         maximum_file_size:
+          avatar: Profil bildestørrelse
           default: Standard filstørrelse
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Omdirigert URI må være en SSL URI
   decidim:
     system:
       actions:
@@ -30,6 +57,9 @@
         update:
           error: Det oppsto et problem med å oppdatere administratoren.
           success: Admin ble oppdatert
+      dashboard:
+        show:
+          current_organizations: Gjeldende organisasjoner
       default_pages:
         placeholders:
           content: Legg til meningsfylt innhold til den statiske siden %{page} på administrator kontrollpanelet.
@@ -37,6 +67,7 @@
       menu:
         admins: Adminer
         dashboard: Skrivebord
+        oauth_applications: OAuth applikasjoner
         organizations: Organisasjoner
       models:
         admin:
@@ -46,26 +77,70 @@
           name: Administrator
           validations:
             email_uniqueness: en annen administrator med samme email eksisterer allerede
+        oauth_application:
+          fields:
+            created_at: Opprettet
+            name: OAuth applikasjonsnavn
+            organization_name: Organisasjon
+          name: OAuth applikasjon
         organization:
           actions:
             save_and_invite: Opprett organisasjon og inviter administrator
           fields:
             created_at: Opprettet på
+            file_upload_settings: Innstillinger for filopplasting
             name: Navn
             omniauth_settings: Omniauth innstillinger
             smtp_settings: SMTP innstillinger
           name: Organisasjon
+      oauth_applications:
+        create:
+          error: Kunne ikke opprette denne applikasjonen.
+          success: Applikasjonen ble opprettet.
+        destroy:
+          error: Kunne ikke ødelegge denne applikasjonen.
+          success: Applikasjonen ble ødelagt.
+        edit:
+          save: Lagre
+          title: Rediger applikasjon
+        form:
+          select_organization: Velg en organisasjon
+        index:
+          confirm_delete: Er du sikker på at du vil slette denne applikasjonen?
+          title: OAuth applikasjoner
+        new:
+          save: Lagre
+          title: Ny applikasjon
+        update:
+          error: Kunne ikke oppdatere denne applikasjonen.
+          success: Applikasjonen ble oppdatert.
       organizations:
+        advanced_settings:
+          hide: Skjul avanserte innstillinger
+          show: Vis avanserte innstillingar
         create:
           error: Det oppstod et problem med å opprette en ny organisasjon.
           success: Organisasjonen ble opprettet.
         edit:
           secondary_hosts_hint: Skriv inn hver enkelt av dem på en ny linje
         file_upload_settings:
+          content_types:
+            admin_hint: Disse MIME-typene er tillatt for opplastninger i administratorseksjonen. Administratorer må være klar over risikoene ved opplastning av visse formater, slik kan du forvente at de er forsiktige med filopplastninger.
+            default_hint: Disse MIME-typene er tillatt for alle brukere som standard.
+            intro_html: Du legger til wildcard med stjernetegnet til MIME-typene, f.eks <code>bilde/*</code>.
+            title: Tillatte MIME-typer
+          file_extensions:
+            admin_hint: Disse filtypene er tillatt for administratorseksjonen. Administratorbrukere bør være klar over risikoen ved opplasting av enkelte dokumentformater, slik kan du forvente at de er mer forsiktige med filopplastninger.
+            default_hint: Disse filtypene er tillatt for alle brukere som standard.
+            image_hint: Disse filtypene er tillatt for alle former for bildeopplasting.
+            title: Tillatte filtyper
           file_sizes:
             avatar_hint: Megabyte (MB). Denne begrensning på filstørrelse brukes for opplasting av avatarbilde.
             default_hint: Megabyte (MB). Denne filstørrelsesgrensen er standardverdien som brukes for alle filopplastinger med mindre annet er angitt.
             title: Maks filstørrelse
+          intro: |
+            Vær ekstra forsiktig når du vurderer å endre disse innstillingene. Jo mindre du tillater, jo bedre.
+            Å tillate spesifikke filtyper eller MIME-typer kan utsette systembrukerne for sikkerhetsrisiko, og det kan også påvirke tilgjengeligheten til nettstedet.
         index:
           title: Organisasjoner
         new:
@@ -73,7 +148,12 @@
           secondary_hosts_hint: Skriv inn hver enkelt av dem på en ny linje
           title: Ny organisasjon
         omniauth_settings:
+          decidim:
+            client_id: Klient ID
+            client_secret: Klient hemmlighet
+            site_url: Nettsteds-URL
           enabled: Aktivert
+          enabled_by_default: Denne leverandøren er aktivert som standard. Den kan redigeres, men ikke deaktiveres.
           facebook:
             app_id: App ID
             app_secret: App hemmelighet
@@ -85,6 +165,14 @@
           twitter:
             api_key: API-nøkkel
             api_secret: API secret
+        smtp_settings:
+          fieldsets:
+            sender: Avsender
+          instructions:
+            from_label: 'E-postavsender vil være: "Ditt organisasjons navn <your-organization@example.org>". La stå tomt for å bruke ''E-postadresse'' som merkelapp'
+          placeholder:
+            from_email: din-organisasjon@eksempel.org
+            from_label: navn på organisasjonen
         update:
           error: Det oppstod et problem med å oppdatere denne organisasjon.
           success: Organisasjonen ble oppdatert.

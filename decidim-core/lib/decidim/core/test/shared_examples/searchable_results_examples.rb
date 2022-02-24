@@ -37,6 +37,40 @@ shared_examples "searchable results" do
       end
     end
 
+    context "when moderation is involved" do
+      it "not contains these searchables" do
+        expect(searchables).not_to be_empty
+        expect(term).not_to be_empty
+
+        fill_in "term", with: term
+        find("input#term").native.send_keys :enter
+
+        expect(page).to have_current_path decidim.search_path, ignore_query: true
+        expect(page).to have_content(/results for the search: "#{term}"/i)
+        expect(page).to have_selector(".filters__section")
+        expect(page.find("#search-count .section-heading").text.to_i).to be_positive
+
+        searchables.each do |searchable|
+          next unless searchable.is_a?(Decidim::Reportable)
+
+          create(:moderation, reportable: searchable, hidden_at: Time.current)
+          # rubocop:disable Rails/SkipsModelValidations
+          searchable.reload.touch
+          # rubocop:enable Rails/SkipsModelValidations
+        end
+
+        visit decidim.root_path
+
+        fill_in "term", with: term
+        find("input#term").native.send_keys :enter
+
+        expect(page).to have_current_path decidim.search_path, ignore_query: true
+        expect(page).to have_content(/results for the search: "#{term}"/i)
+        expect(page).to have_selector(".filters__section")
+        expect(page.find("#search-count .section-heading").text.to_i).not_to be_positive
+      end
+    end
+
     context "when participatory space is not visible" do
       shared_examples_for "no searchs found" do
         it "not contains these searchables" do

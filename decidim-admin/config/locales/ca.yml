@@ -173,7 +173,7 @@ ca:
         reject: Rebutjar
         share: Compartir
         user:
-          new: Nou usuari
+          new: Nova administradora
         verify: Verificar
       admin_terms_of_use:
         accept:
@@ -256,6 +256,8 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquest adjunt.
           success: Adjunt actualitzat correctament.
+      attachments_privacy_warning:
+        message: Tingues cura quan treballis amb adjunts en un espai privat. Qualsevol participant pot compartir aquest document amb tercers.
       autocomplete:
         no_results: No s'han trobat resultats
         search_prompt: Escriu com a mínim tres caràcters per cercar
@@ -338,7 +340,7 @@ ca:
       dashboard:
         show:
           view_more_logs: Veure més registres
-          welcome: Benvinguda al tauler d'administració de Decidim.
+          welcome: Benvinguda al Tauler d'Aministració.
       domain_whitelist:
         form:
           domain_too_short: El domini és massa curt
@@ -959,7 +961,7 @@ ca:
         static_pages: Pàgines
         statistics: Activitat
         user_groups: Grups
-        users: Participants
+        users: Administradores
       user_group:
         csv_verify:
           invalid: S'ha produït un error en llegir el fitxer CSV.
@@ -995,7 +997,7 @@ ca:
           role: Rol
         new:
           create: Convidar
-          title: Convidar una participant com a administradora
+          title: Convidar una nova administradora
       users_statistics:
         users_count:
           admins: Administradores

@@ -21,8 +21,12 @@ sv:
           global:
             announcement: Meddelande
             clean_after_publish: Ta bort svar vid publicering av enkäten
+            ends_at: Svar accepterade tills
+            ends_at_help: Lämna tomt för inget slutdatum
             scope_id: Omfång
             scopes_enabled: Omfång aktiverade
+            starts_at: Svar accepterade från
+            starts_at_help: Lämna tomt för inget startdatum
           step:
             allow_answers: Tillåt svar
             allow_unregistered: Tillåt ej registrerade användare att besvara enkäten

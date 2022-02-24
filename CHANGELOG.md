@@ -12,6 +12,15 @@ In the next version (v0.28.0) it will be fully removed from the database.
 
 ### Added
 
+#### Moderated content can now be removed from search index
+PR [\#8811](https://github.com/decidim/decidim/pull/8811) is addressing an issue when the moderated resources are not removed from the general search index.
+
+This will automatically work for new moderated resources. For already existing ones, we have introduced a new task that will remove the moderated content from being displayed in search:
+
+```ruby
+bin/rails decidim:upgrade:moderation:remove_from_search
+```
+
 #### Default Decidim app fully configurable via ENV vars
 
 PR [#8725](https://github.com/decidim/decidim/pull/8725) Modifies the default generator to create a new Decidim app (command `decidim my-decidim`).
@@ -100,6 +109,9 @@ PR [\#8645](https://github.com/decidim/decidim/pull/8645) we now only allow PNG 
 - **decidim-debates**, **decidim-initiatives**, **decidim-meetings**: The resource search classes `Decidim::Debates::DebateSearch`, `Decidim::Intitatives::InitiativeSearch` and `Decidim::Meetings::MeetingSearch` are rewritten for the Ransack searches due to Searchlight removal at [\#8748](https://github.com/decidim/decidim/pull/8748). The role of these classes is now to pass contextual information to the searches, such as the current user. All other search filtering should happen directly through Ransack.
 - **decidim-meetings**: The `visible_meetings_for` scope for the `Meeting` model has been renamed to `visible_for` in [\#8748](https://github.com/decidim/decidim/pull/8748) for consistency.
 - **decidim-core**: The `official_origin`, `participants_origin`, `user_group_origin` and `meeting_origin` scopes for the `Decidim::Authorable` and `Decidim::Coauthorable` concerns have been changed to `with_official_origin`, `with_participants_origin`, `with_user_group_origin` and `with_meeting_origin` respectively in [\#8748](https://github.com/decidim/decidim/pull/8748) for consistency. See the Searchlight removal change notes for reasoning.
+
+#### Deprecation of `Rectify::Presenter`
+PR [\#8758](https://github.com/decidim/decidim/pull/8758) is deprecating the implementation of `Rectify::Presenter` in favour of `SimpleDelegator`
 
 #### Searchlight removal causes changes in the participant searches
 

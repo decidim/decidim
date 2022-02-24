@@ -3,8 +3,10 @@
 module Decidim
   module Initiatives
     # A presenter to render statistics in the homepage.
-    class InitiativeStatsPresenter < Rectify::Presenter
-      attribute :initiative, Decidim::Initiative
+    class InitiativeStatsPresenter < SimpleDelegator
+      def initiative
+        __getobj__.fetch(:initiative)
+      end
 
       def comments_count
         Rails.cache.fetch(

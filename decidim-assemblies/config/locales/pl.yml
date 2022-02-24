@@ -275,7 +275,6 @@ pl:
             duration_help: Jeśli czas trwania tego zespołu jest ograniczony, wybierz datę końcową. W przeciwnym razie pojawi się jako nieokreślony.
             filters: Filtry
             images: Obrazy
-            included_at_help: Wybierz datę dodania tego zespołu do Decidim. To niekoniecznie musi być ta sama data co data utworzenia.
             metadata: Metadane
             other: Inny
             select_a_created_by: Wybierz utworzony przez

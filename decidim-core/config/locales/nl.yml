@@ -124,7 +124,6 @@ nl:
         error: Er is een fout opgetreden bij het verwijderen van uw account.
         success: Uw account is succesvol verwijderd.
       show:
-        available_locales_helper: Kies de taal die je wil gebruiken om te surfen en om meldingen te ontvangen in Decidim
         change_password: Wachtwoord wijzigen
         update_account: Account bijwerken
       update:

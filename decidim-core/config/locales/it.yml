@@ -98,7 +98,6 @@ it:
         error: Si è verificato un errore durante l'eliminazione del tuo account.
         success: Il tuo account è stato eliminato correttamente.
       show:
-        available_locales_helper: Scegli la lingua che vuoi usare per navigare e ricevere notifiche in Decidim
         change_password: Cambia password
         update_account: Aggiorna l'account
       update:

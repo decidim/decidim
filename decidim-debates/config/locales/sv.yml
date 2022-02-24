@@ -26,6 +26,7 @@ sv:
     components:
       debates:
         actions:
+          comment: Kommentera
           create: Skapa
           endorse: Instäm
         name: Debatter
@@ -118,6 +119,7 @@ sv:
           my_debates: Mina debatter
           official: Officiell
           origin: Ursprung
+          participants: Deltagare
           scope: Omfång
           search: Sök
           state: Status

@@ -19,10 +19,13 @@
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Kommenter
         name: Sorteringer
         settings:
           global:
             comments_enabled: Kommentarer aktivert
+            comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
     events:
       sortitions:
         sortition_created:
@@ -73,7 +76,6 @@
           index:
             title: Sorteringer
           new:
-            confirm: Ved å trykke på neste knapp vil Decidim registrere dato og tid (med presisjon på sekunder) og sammen med terningkastet vil denne informasjonen bli brukt til å generere et tilfeldig valg. Denne handlingen vil ikke kunne gjøres om, når knappen er klikket blir resultatet av denne trekningen publisert, sammen med dataene som er lagt inn i dette skjemaet og ikke kan endres, vennligst sjekk innholdet nøye
             create: Opprett
             title: Ny sortering
           show:
@@ -117,6 +119,7 @@
         show:
           algorithm: Sorterings algoritmekode
           any_category: fra alle kategorier
+          back: Tilbake til listen
           cancelled: Avbrutt sortering
           candidate_proposal_ids: Sorterings forslags ordre og IDer
           candidate_proposals_info: 'Sorteringen ble gjennomført blant følgende forslag (%{category_label}), med følgende ID-er (i fet skrift, de valgte forslagene)  '
@@ -142,3 +145,5 @@
           count:
             one: 1 sortering
             other: "%{count} sorteringer"
+    statistics:
+      sortitions_count: Sorteringer
