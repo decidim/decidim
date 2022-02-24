@@ -1,13 +1,25 @@
 ar:
   decidim:
     elections:
+      elections:
+        election_log:
+          results_title: النتائج
+        results:
+          percentage: "%{count}%"
       trustee_zone:
         trustees:
           show:
             identification_keys:
               cancel: إلغاء
     votings:
+      admin:
+        monitoring_committee_election_results:
+          actions:
+            title: الإجراءات
       polling_officer_zone:
         closures:
+          edit:
+            modal_ballots_results_count_error:
+              close_modal: غلق
           sign:
             cancel: إلغاء
