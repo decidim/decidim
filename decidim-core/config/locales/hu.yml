@@ -1484,6 +1484,7 @@ hu:
     dropdown:
       choose_diff_view_html: 'HTML megtekintési mód:'
       choose_diff_view_mode: 'Összehasonlító nézet mód:'
+      choose_diff_view_mode_menu: Válassz összehasonlítási módot
       option_escaped: Feloldott
       option_split: Egymás mellet
       option_unescaped: Feloldatlan
