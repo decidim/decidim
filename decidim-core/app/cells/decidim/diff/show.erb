@@ -1,6 +1,8 @@
 <%= render :diff_mode_dropdown %>
 <%= render :diff_mode_html %>
 
-<% diff_data.each do |data| %>
-  <%= attribute(data) %>
-<% end %>
+<div aria-live="polite">
+  <% diff_data.each do |data| %>
+    <%= attribute(data) %>
+  <% end %>
+</div>
