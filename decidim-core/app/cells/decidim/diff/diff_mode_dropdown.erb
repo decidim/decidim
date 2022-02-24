@@ -1,3 +1,10 @@
+<%
+menu_id = attribute_diff_id("diffmode-chooser-menu")
+selected_id = attribute_diff_id("diff-view-selected")
+button_unified_id = attribute_diff_id("diff-view-unified")
+button_split_id = attribute_diff_id("diff-view-unified")
+%>
+
 <div class="diff-view-by show-for-mediumlarge">
   <div class="diff-view-by__dropdown">
     <span class="diff-view-by__text">
@@ -11,19 +18,19 @@
       data-close-on-click="true"
       tabindex="-1">
       <li class="is-dropdown-submenu-parent" tabindex="-1">
-        <a href="#diffmode-chooser-menu" id="diff-view-selected" aria-controls="diffmode-chooser-menu" aria-haspopup="true" aria-label="<%= t("versions.dropdown.choose_diff_view_mode_menu") %>">
+        <a href="#<%= menu_id %>" id="<%= selected_id %>" aria-controls="<%= menu_id %>" aria-haspopup="true" aria-label="<%= t("versions.dropdown.choose_diff_view_mode_menu") %>">
           <span aria-hidden="true"><%= t("versions.dropdown.option_unified") %></span>
         </a>
 
-        <ul class="menu is-dropdown-submenu" id="diffmode-chooser-menu" role="menu" aria-labelledby="diff-view-selected" tabindex="-1">
+        <ul class="menu is-dropdown-submenu" id="<%= menu_id %>" role="menu" aria-labelledby="<%= selected_id %>" tabindex="-1">
           <li>
-            <%= link_to "#diff-view-unified", class: "diff-view-mode", id:"diff-view-unified" do %>
+            <%= link_to "##{button_unified_id}", class: "diff-view-mode", id: button_unified_id do %>
               <%= t("versions.dropdown.option_unified") %>
             <% end %>
           </li>
 
           <li>
-            <%= link_to "#diff-view-split", class: "diff-view-mode", id:"diff-view-split" do %>
+            <%= link_to "##{button_split_id}", class: "diff-view-mode", id: button_split_id do %>
               <%= t("versions.dropdown.option_split") %>
             <% end %>
           </li>
