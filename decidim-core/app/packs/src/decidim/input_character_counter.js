@@ -95,11 +95,11 @@ export default class InputCharacterCounter {
       if (remaining === 1) {
         message = MESSAGES.charactersLeft.one;
       }
-      if (remaining<4) {
-        document.querySelector("textarea[data-remaining-characters='"+this.$input.data("remaining-characters")+"']").nextElementSibling.setAttribute("style","visibility:hidden");
+      if (remaining < 4) {
+        document.querySelector("textarea[data-remaining-characters=\"${this.$input.data('remaining-characters')}\"]").nextElementSibling.setAttribute("style", "visibility:hidden");
       }
-      else{
-        document.querySelector("textarea[data-remaining-characters='"+this.$input.data("remaining-characters")+"']").nextElementSibling.setAttribute("style","visibility:visible");
+      else {
+        document.querySelector("textarea[data-remaining-characters=\"${this.$input.data('remaining-characters')}\"]").nextElementSibling.setAttribute("style", "visibility:visible");
       }
       showMessages.push(message.replace(COUNT_KEY, remaining));
     }
