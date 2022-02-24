@@ -4,7 +4,7 @@ module Decidim
   module Budgets
     module Admin
       # This command is executed when admin sends vote reminders.
-      class CreateOrderReminders < Rectify::Command
+      class CreateOrderReminders < Decidim::Command
         def initialize(form)
           @form = form
         end

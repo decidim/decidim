@@ -4,7 +4,7 @@ module Decidim
   module Votings
     module Admin
       # A command with the business logic to destroy a monitoring committee member
-      class DestroyMonitoringCommitteeMember < Rectify::Command
+      class DestroyMonitoringCommitteeMember < Decidim::Command
         # Public: Initializes the command.
         #
         # monitoring_committee_member - the MonitoringCommitteeMember to destroy

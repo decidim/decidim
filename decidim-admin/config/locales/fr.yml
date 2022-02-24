@@ -24,7 +24,7 @@ fr:
       component:
         name: Titre
         published_at: Publiée à
-        weight: Rang
+        weight: Rang d'affichage
       id: ID
       import:
         user_group_id: Créer des imports en tant que
@@ -48,7 +48,7 @@ fr:
         favicon: Icône
         force_authentication: Forcer l'authentification
         force_users_to_authenticate_before_access_organization: Forcer les utilisateurs à s'authentifier avant d'accéder à l'organisation
-        from: Adresse mail de l'expéditeur
+        from: Adresse email de l’expéditeur
         github_handler: Gestionnaire GitHub
         header_snippets: Éléments à ajouter entre les balises HTML
         highlight_alternative_color: Surbrillance alternative
@@ -113,12 +113,12 @@ fr:
         show_in_footer: Montrer dans le pied de page
         slug: Identifiant
         title: Titre
-        weight: Rang
+        weight: Rang d'affichage
       static_page_topic:
         description: La description
         show_in_footer: Montrer dans le pied de page
         title: Titre
-        weight: Rang
+        weight: Rang d'affichage
       user_group_csv_verification:
         file: Fichier
     errors:
@@ -173,7 +173,7 @@ fr:
         reject: Rejeter
         share: Partager
         user:
-          new: Nouvel utilisateur
+          new: Nouvel administrateur
         verify: Vérifier
       admin_terms_of_use:
         accept:
@@ -181,7 +181,7 @@ fr:
           success: Super! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
           accept: J'accepte les conditions d'utilisation suivantes
-          are_you_sure: Êtes-vous sûr de vouloir refuser les conditions d'utilisation de l'administrateur?
+          are_you_sure: Êtes-vous sûr de vouloir refuser les conditions d'utilisation de l'administrateur ?
           refuse: Refuser les conditions d'utilisation administrateur
           title: Accepter les conditions d'utilisation
         required_review:
@@ -209,7 +209,7 @@ fr:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
           success: Zone d'application créée avec succès.
         destroy:
-          has_spaces: Cette zone a des espaces dépendants. Veuillez vous assurer qu'aucun espace participatif ne référence cette zone avant de la supprimer.
+          has_spaces: Des espaces dépendent de cette zone d'application. Veuillez vous assurer qu'aucun espace participatif n'est lié à cette zone avant de la supprimer.
           success: La zone d'application a bien été supprimée
         edit:
           title: Modifier la zone d'application
@@ -256,6 +256,8 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce document lié.
           success: Document lié mis à jour avec succès.
+      attachments_privacy_warning:
+        message: Soyez prudent lorsque vous travaillez avec des pièces jointes dans un espace privé. Tout participant pourrait partager ce document à d'autres.
       autocomplete:
         no_results: Aucun résultat trouvé
         search_prompt: Renseignez au moins trois caractères pour lancer la recherche
@@ -338,12 +340,12 @@ fr:
       dashboard:
         show:
           view_more_logs: Afficher plus
-          welcome: Bienvenue dans l'espace d'administration de Decidim.
+          welcome: Bienvenue dans l'espace d'administration.
       domain_whitelist:
         form:
           domain_too_short: Le nom de domaine est trop court
         update:
-          error: Échec lors de la mise à jour de la liste blanches du domaine
+          error: Échec lors de la mise à jour de la liste blanche du domaine
           success: Liste blanche du domaine mise à jour avec succès
       exports:
         export_as: "%{name} en format %{export_format}"
@@ -476,13 +478,13 @@ fr:
             lines:
               detail: Veuillez vérifier que ces lignes sont correctement formatées et contiennent des données valides.
               message:
-                one: Une erreur a été trouvée dans le fichier d'importation à la ligne %{indexes}.
-                other: Erreurs trouvées dans le fichier d'importation sur les lignes %{indexes}.
+                one: Une erreur a été trouvée dans le fichier d'import à la ligne %{indexes}.
+                other: Des erreurs ont été trouvées dans le fichier d'import sur les lignes %{indexes}.
             records:
               detail: Veuillez vérifier que ces lignes sont correctement formatées et contiennent des données valides.
               message:
-                one: Une erreur a été trouvée dans le fichier d'importation pour les enregistrements avec le numéro de commande %{indexes}.
-                other: Erreurs trouvées dans le fichier d'importation pour les enregistrements avec les numéros de commande %{indexes}.
+                one: Une erreur a été trouvée dans le fichier d'import pour les enregistrements avec le numéro de commande %{indexes}.
+                other: Des erreurs ont été trouvées dans le fichier d'import pour les enregistrements avec les numéros de commande %{indexes}.
           missing_headers:
             detail: Veuillez vérifier que le fichier contient les colonnes requises.
             message:
@@ -671,7 +673,7 @@ fr:
       newsletters:
         create:
           error: Il y a eu une erreur lors de la création de cette newsletter.
-          success: Bulletin d'information créé avec succès. Veuillez le vérifier avant de l'envoyer.
+          success: Newsletter créée avec succès. N'hésitez pas à la relire avant de l'envoyer.
         deliver:
           error: Il y a eu une erreur lors de l'envoi de cette newsletter.
           success: Newsletter envoyée avec succès.
@@ -801,7 +803,7 @@ fr:
         external_domain:
           down: Descendre
           external_domain: Domaine externe
-          remove: Supprimer
+          remove: Retirer
           up: Monter
         form:
           add: Ajouter à la liste blanche
@@ -834,6 +836,14 @@ fr:
           explanation: 'Téléchargez votre fichier CSV. Il doit avoir deux colonnes avec dans la première colonne les emails, et dans la deuxième colonne les noms (email, nom) des utilisateurs que vous souhaitez ajouter à l''espace participatif, sans en-tête. Évitez les caractères spéciaux comme `<>?%&^*#@()[]=+:;"{}\|` dans les noms des utilisateurs.'
           title: Téléchargez votre fichier CSV
           upload: Télécharger
+      reminders:
+        create:
+          error: Il y a eu un problème lors de la création des rappels.
+          success:
+            one: "%{count} utilisateur recevra un rappel."
+            other: "%{count} utilisateurs recevront un rappel."
+        new:
+          submit: Envoyer
       resource_permissions:
         edit:
           submit: Soumettre
@@ -951,7 +961,7 @@ fr:
         static_pages: Pages
         statistics: Activité
         user_groups: Groupes d'utilisateurs
-        users: Utilisateurs
+        users: Administrateurs
       user_group:
         csv_verify:
           invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
@@ -987,7 +997,7 @@ fr:
           role: Rôle
         new:
           create: Inviter
-          title: Inviter l'utilisateur en tant qu'administrateur
+          title: Inviter un nouvel administrateur
       users_statistics:
         users_count:
           admins: Administrateurs

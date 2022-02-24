@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     # Class used to retrieve similar proposals.
-    class SimilarProposals < Rectify::Query
+    class SimilarProposals < Decidim::Query
       include Decidim::TranslationsHelper
 
       # Syntactic sugar to initialize the class and return the queried objects.

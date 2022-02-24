@@ -76,7 +76,6 @@ gl:
           index:
             title: Edicións
           new:
-            confirm: Ao premer o botón seguinte, Decidim gravará a data e a hora (con precisión de segundos) e xunto co rolo de datos, esta información usarase para xerar unha selección aleatoria. A acción será irreversible, unha vez que se faga clic no botón, o resultado deste sorteo será publicado, xunto cos datos introducidos neste formulario e non se pode modificar, comprobe o contido con atención
             create: Crear
             title: Nova xeración
           show:

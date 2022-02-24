@@ -4,7 +4,7 @@ module Decidim
   module Conferences
     module Admin
       # A class used to find the admins for an conference or an organization conferences.
-      class AdminUsers < Rectify::Query
+      class AdminUsers < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         #
         # conference - an conference that needs to find its conference admins

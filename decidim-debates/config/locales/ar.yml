@@ -86,7 +86,6 @@ ar:
           all: الكل
           category: الفئة
           category_prompt: اختر تصنيف
-          citizens: المواطنين
           official: الرسمية
           origin: الأصل
           search: بحث

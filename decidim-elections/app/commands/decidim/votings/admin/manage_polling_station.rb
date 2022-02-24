@@ -4,7 +4,7 @@ module Decidim
   module Votings
     module Admin
       # A command with the shared business logic to manage a polling station
-      class ManagePollingStation < Rectify::Command
+      class ManagePollingStation < Decidim::Command
         def manage_polling_officers(polling_station, president_id, managers_ids)
           manage_president(polling_station, president_id)
           manage_managers(polling_station, managers_ids)

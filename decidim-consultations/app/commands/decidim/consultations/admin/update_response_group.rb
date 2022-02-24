@@ -4,7 +4,7 @@ module Decidim
   module Consultations
     module Admin
       # A command with all the business logic when updating a new response group
-      class UpdateResponseGroup < Rectify::Command
+      class UpdateResponseGroup < Decidim::Command
         # Public: Initializes the command.
         #
         # response_group - the response group to update

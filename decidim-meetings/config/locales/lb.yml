@@ -84,19 +84,13 @@ lb:
             values:
               'false': Vergaangenes
               'true': Demnächst stattfannend
-          origin_eq:
-            label: Ursprung
-            values:
-              citizen: Bierger*in
-              official: Offiziell
-              user_group: Benotzergruppen
           scope_id_eq:
             label: Ëmfang
-          type_eq:
-            label: Typ vu Versammlung
+          with_any_origin:
             values:
-              hybrid: Beide
-              online: Online
+              user_group: Benotzergruppen
+          with_any_type:
+            label: Typ vu Versammlung
       meeting_copies:
         create:
           error: Es gab einen Fehler beim Duplizieren dieses Meetings.
@@ -232,12 +226,10 @@ lb:
             update: Aktualisieren
           form:
             address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
-            available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben
             disclaimer: 'Haftungsausschluss: Durch Verwendung eines externen Registrierungssystems wissen Sie, dass die Organisatoren von %{organization} nicht für die Daten verantwortlich sind, welche die Benutzer dem externen Dienst zur Verfügung stellen.'
             location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
             location_hints_help: 'Hinweise zum Standort: Zusätzliche Informationen. Beispiel: das Stockwerk im Gebäude wenn es eine Sitzung vor Ort ist, oder das Passwort wenn es eine Online-Sitzung mit eingeschränktem Zugriff ist.'
             online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
-            registration_email_help: Dieser Text erscheint in der Mitte der Registrierungs-E-Mail, direkt nach dem Registrierungscode.
             registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
             select_a_meeting_type: Bitte eine Meeting-Typ auswählen
             select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
@@ -277,6 +269,7 @@ lb:
             available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
             invites: Aluedungen
             recommendation_message: Aus Datenschutzgründen empfehlen wir, dass Sie dieses Einschreibeformular löschen, wenn es nicht länger benötigt wird. Standardmäßig ist das 3 Monate nachdem die Besprechung durchgeführt wurde.
+            registration_email_help: Dieser Text erscheint in der Mitte der Registrierungs-E-Mail, direkt nach dem Registrierungscode.
             registration_form: Anmeldeformular
             registrations_count:
               one: Es wurde %{count} registriert.

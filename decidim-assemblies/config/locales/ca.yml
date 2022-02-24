@@ -270,7 +270,7 @@ ca:
             duration_help: Si la durada d'aquesta assemblea és limitada, selecciona la data de finalització. En cas contrari, apareixerà com a indefinida.
             filters: Filtres
             images: Imatges
-            included_at_help: Selecciona la data en què es va afegir aquest assemblea a Decidim. No necessàriament ha de ser la mateixa que la data de creació.
+            included_at_help: Selecciona la data en què es va afegir aquesta assemblea a la plataforma. No necessàriament ha de ser la mateixa que la data de creació.
             metadata: Metadades
             other: Altre
             select_a_created_by: Selecciona una creadora
@@ -300,7 +300,9 @@ ca:
           form:
             existing_user: Participant existent
             explanation: 'Instruccions per a la imatge:'
+            image_guide: Preferiblement una imatge apaïsada que no tingui cap text.
             non_user: No participant
+            non_user_avatar_help: Cal tenir el consentiment de la persona abans publicar-la com a membre.
             select_a_position: Selecciona una posició
             select_user: Selecciona una participant
             user_type: Tipus de participant

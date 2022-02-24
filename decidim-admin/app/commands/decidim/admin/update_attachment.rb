@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # A command with all the business logic to update an attachment from a
     # participatory process.
-    class UpdateAttachment < Rectify::Command
+    class UpdateAttachment < Decidim::Command
       include ::Decidim::AttachmentAttributesMethods
 
       attr_reader :attachment

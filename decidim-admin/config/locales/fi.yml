@@ -172,8 +172,6 @@ fi:
         permissions: Oikeudet
         reject: Hylkää
         share: Jaa
-        user:
-          new: Uusi käyttäjä
         verify: Vahvista
       admin_terms_of_use:
         accept:
@@ -256,6 +254,8 @@ fi:
         update:
           error: Liitteen päivitys epäonnistui.
           success: Liitteen luonti onnistui.
+      attachments_privacy_warning:
+        message: Ole varovainen, kun työskentelet liitetiedostojen kanssa yksityisessä tilassa. Kuka tahansa osallistuja voi jakaa tämän asiakirjan muille.
       autocomplete:
         no_results: Ei tuloksia
         search_prompt: Kirjoita vähintään kolme merkkiä hakuun
@@ -338,7 +338,7 @@ fi:
       dashboard:
         show:
           view_more_logs: Näytä lisää lokitietoja
-          welcome: Tervetuloa Decidimin hallintapaneeliin.
+          welcome: Tervetuloa hallintapaneeliin.
       domain_whitelist:
         form:
           domain_too_short: Verkkotunnus on liian lyhyt
@@ -834,6 +834,14 @@ fi:
           explanation: 'Lataa CSV-tiedosto osallistumistilan käyttäjistä. Tiedostossa on oltava kaksi saraketta tuotaville käyttäjille ilman sarakeotsikoita: sähköpostiosoitteet ensimmäisessä ja nimi toisessa sarakkeessa (sähköposti, nimi). Vältä erikoismerkkejä nimessä, kuten `<>?%&^*#@()[]=+:;"{}\|`.'
           title: Lataa CSV-tiedosto
           upload: Lataa
+      reminders:
+        create:
+          error: Muistutusten luonti epäonnistui.
+          success:
+            one: "%{count} käyttäjää muistutetaan."
+            other: "%{count} käyttäjää muistutetaan."
+        new:
+          submit: Lähetä
       resource_permissions:
         edit:
           submit: Lähetä
@@ -951,7 +959,6 @@ fi:
         static_pages: Sivut
         statistics: Toiminta
         user_groups: Käyttäjäryhmät
-        users: Käyttäjät
       user_group:
         csv_verify:
           invalid: CSV-tiedoston käsittely epäonnistui.
@@ -987,7 +994,6 @@ fi:
           role: Rooli
         new:
           create: Kutsu
-          title: Kutsu käyttäjä hallinnointikäyttäjäksi
       users_statistics:
         users_count:
           admins: Ylläpitäjät

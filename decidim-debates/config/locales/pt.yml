@@ -115,7 +115,6 @@ pt:
           all: Todos
           category: Categoria
           category_prompt: Selecione uma categoria
-          citizens: Cidadãos
           commented: Comentários
           my_debates: Os meus debates
           official: Oficial

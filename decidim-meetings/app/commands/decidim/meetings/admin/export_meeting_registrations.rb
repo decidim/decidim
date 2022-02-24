@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user exports the registrations of
       # a Meeting from the admin panel.
-      class ExportMeetingRegistrations < Rectify::Command
+      class ExportMeetingRegistrations < Decidim::Command
         # meeting - The current instance of the page to be closed.
         # format - a string representing the export format
         # current_user - the user performing the action

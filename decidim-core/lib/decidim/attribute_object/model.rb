@@ -7,8 +7,8 @@ module Decidim
   module AttributeObject
     # This provides a dummy model implementation for replacing the Virtus models
     # using ActiveModel. This class is a lightweight version of
-    # ActiveModel::Model with the `ActiveModel::Attributes` module and its
-    # overridden methods + adds the support for nested attributes.
+    # `ActiveModel::Model` with the `ActiveModel::Attributes` module and its
+    # overridden methods.
     #
     # The main purpose of this class is to provide a backwards compatible API
     # for defining classes that hold attributes, such as the form classes.
@@ -111,7 +111,7 @@ module Decidim
       # Deprecated:
       # Attributes access through symbols is deprecated and may be removed in
       # future versions. Please refactor all your attributes calls to access the
-      # attributes through symbol keys.
+      # attributes through string keys.
       def attributes
         super.with_indifferent_access
       end

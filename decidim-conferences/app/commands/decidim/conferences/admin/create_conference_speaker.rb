@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new conference
       # speaker in the system.
-      class CreateConferenceSpeaker < Rectify::Command
+      class CreateConferenceSpeaker < Decidim::Command
         include ::Decidim::AttachmentAttributesMethods
 
         # Public: Initializes the command.

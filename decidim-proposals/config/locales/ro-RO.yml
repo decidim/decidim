@@ -200,6 +200,7 @@ ro:
             answers_with_costs: Activează opțiunea de cost în răspunsurile la propuneri
             automatic_hashtags: Hashtag-uri adăugate la toate propunerile
             comments_blocked: Comentarii blocate
+            creation_enabled: Participantul poate crea propuneri
             default_sort_order: Mod implicit de sortare a propunerilor
             default_sort_order_help: Implicit înseamnă că dacă este activată votarea, propunerile vor fi afișate aleatoriu, și dacă votarea este blocată, atunci vor fi sortate în funcție de cele mai multe voturi.
             default_sort_order_options:
@@ -303,6 +304,7 @@ ro:
           email_intro: Propunerea "%{resource_title}" a fost adăugată la "%{participatory_space_title}", spațiu participativ pe care îl urmărești.
           email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula aceste notificări de la link-ul anterior.
           email_subject: O nouă propunere "%{resource_title}" a fost adăugată la %{participatory_space_title}
+          notification_title: Propunerea <a href="%{resource_path}">%{resource_title}</a> a fost adăugată la %{participatory_space_title} de %{author}
         proposal_rejected:
           affected_user:
             email_intro: 'Propunerea ta "%{resource_title}" a fost respinsă. Poți citi răspunsul în această pagină:'
@@ -597,9 +599,9 @@ ro:
           all: Toate
         filter_origin_values:
           all: Toate
-          citizens: Cetățeni
           meetings: Întâlniri
           official: Oficial
+          participants: Participanți
           user_groups: Grupuri
         filter_scope_values:
           all: Toate

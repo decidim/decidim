@@ -86,15 +86,15 @@ ja:
             values:
               'false': 過去
               'true': 近日公開
-          origin_eq:
-            label: 起案者
-            values:
-              citizen: 市民
-              official: 公式
-              user_group: ユーザーグループ
           scope_id_eq:
             label: スコープ
-          type_eq:
+          with_any_origin:
+            label: オリジン
+            values:
+              official: 公式
+              participants: 参加者
+              user_group: ユーザーグループ
+          with_any_type:
             label: ミーティングの種類
             values:
               hybrid: ハイブリッド
@@ -298,12 +298,10 @@ ja:
             update: 更新
           form:
             address_help: 'アドレス: ジオコーダーが場所を見つけるために使用'
-            available_slots_help: 無制限の場合は0のままにしてください
             disclaimer: '免責事項: 外部登録システムを使用する場合、 %{organization} の主催者は、ユーザーが外部サービスに提供したデータについて責任を負いません。'
             location_help: '場所: ユーザーにメッセージが表示されます。'
             location_hints_help: '位置情報のヒント：追加情報。 例: 対面ミーティングでの建物のフロア、またはアクセス制限のあるオンラインミーティングでのミーティングパスワード。'
             online_meeting_url_help: 'リンク: 参加者があなたのミーティングに直接接続できるようにします'
-            registration_email_help: このテキストは登録確認メールの途中に表示されます。場所は登録コードの直後になります。
             registration_url_help: 'リンク: 参加者が登録に使用している外部サービスにアクセスできるようにします'
             select_a_meeting_type: ミーティング種別を選択してください
             select_a_registration_type: 登録種別を選択してください
@@ -351,6 +349,7 @@ ja:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
             invites: 招待
             recommendation_message: プライバシー上の理由から、不要になったときにこの碑文フォームを削除することをお勧めします。 デフォルトでは、ミーティングが終了してから3ヶ月です。
+            registration_email_help: このテキストは登録確認メールの途中に表示されます。場所は登録コードの直後になります。
             registration_form: 登録フォーム
             registrations_count:
               other: '%{count} 件の登録がありました。'
@@ -461,8 +460,8 @@ ja:
           origin: 起案者：
           origin_values:
             all: すべて
-            citizens: 一般参加者
             official: 事務局
+            participants: 参加者
             user_groups: グループ
           scope: スコープ
           search: 検索
@@ -489,6 +488,7 @@ ja:
           select_a_category: カテゴリを選択してください
           select_a_meeting_type: ミーティング種別を選択してください
           select_a_registration_type: 登録種別を選択してください
+          select_an_iframe_access_level: iframeアクセスレベルを選択してください
           show_embedded_iframe_help: ミーティングやライブイベント（YouTube、Twitch、Jitsi）に埋め込むことができるサービスは限られたもののみです。
         index:
           click_here: すべてのミーティングを見る

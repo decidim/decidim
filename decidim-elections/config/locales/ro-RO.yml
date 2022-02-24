@@ -236,6 +236,8 @@ ro:
               'false': nu are <strong>o cheie publică</strong>
               'true': are o <strong>cheie publică</strong>
             requirements:
+              max_selections: Toate întrebările au o valoare corectă pentru <strong>maximum de răspunsuri</strong>.
+              minimum_answers: Fiecare întrebare are <strong>cel puţin 2 răspunsuri</strong>.
               trustees_number: Spațiul participativ are <strong>cel puțin %{number} împuterniciți cu chei publice</strong>.
             submit: Configurează alegerile
             success: Alegerile au fost trimise cu succes către Panoul de afișare
@@ -246,6 +248,15 @@ ro:
             trustees: Împuterniciți
           key_ceremony:
             continue: Continuă
+          processing: Se procesează...
+          results_published:
+            answer: Răspuns
+            not_selected: Nu este selectat
+            question: Întrebare
+            result: Rezultat
+            selected: Selectat
+            submit: Trimite
+            title: Rezultate publicate
           tally:
             continue: Continuă
             invalid: A apărut o problemă la raportarea împuternicitului care lipsește
@@ -384,12 +395,12 @@ ro:
             how_to_verify: 'Odată ce ai descărcat fișierul și te-ai asigurat că este în regulă, poți continua pornind verificatorul universal. Clonează <a href=''https://github.com/decidim/decidim-bulletin-board''>acestă arhivă</a> și, din dosarul rădăcină, rulează comanda următoare:'
             title: Verifică rezultatele alegerilor
           verify: Verifică alegerile
+          vote_title: Procesul de votare
         filters:
           active: Activ
           all: Toate
           finished: Finalizat
           search: Caută
-          state: Stare
           upcoming: Urmează
         filters_small_view:
           close_modal: Închidere
@@ -402,6 +413,7 @@ ro:
           title: Întrebări aferente alegerilor
         results:
           description: 'Acestea sunt rezultatele votului, pentru fiecare întrebare:'
+          selected: Selectate
           title: Rezultatele alegerilor
         show:
           action_button:
@@ -424,11 +436,13 @@ ro:
       feedback:
         answer:
           invalid: A apărut o problemă la trimiterea feedback-ului tău.
+          success: Feedback trimis cu succes.
       models:
         answer:
           fields:
             proposals: Propuneri
             title: Titlu
+            votes: Voturi
         election:
           fields:
             bb_status: Stadiul panoului de afișare
@@ -440,10 +454,18 @@ ro:
             answers: Răspunsuri
             max_selections: Selecții maxime
             title: Titlu
+        trustees_participatory_space:
+          fields:
+            email: E-mail
+            name: Nume
       orders:
         label: Ordonează alegerile după
+        older: Mai vechi
+        recent: Recente
       trustee_zone:
         elections:
+          backup_modal:
+            title: Copie de rezervă chei pentru %{election}
           key_ceremony_steps:
             title: Crează chei electorale pentru %{election}
           tally_steps:
@@ -496,15 +518,12 @@ ro:
               generate_legend_3: Asigură-te că nu există o copie a fișierului în calculatorul tău (de exemplu, verifică dosarele Descărcări și Desktop).
               generate_legend_4: Faceți o altă copie a fișierului pe un alt dispozitiv extern și păstrați-l într-un loc foarte sigur.
               submit: Trimiteți
-              submit_legend: După urmărirea tuturor paşilor explicaţi mai sus, finalizaţi procesul de trimitere a cheii publice de identificare la serverul Decidim.
               submit_title: Trimite cheia publică de identificare
               title: Chei de identificare împuternicit
               upload: Încărcați-vă cheile de identificare
               upload_error:
                 invalid_format: Fişierul încărcat nu conţine nici o cheie de identificare.
                 invalid_key: Tastele de identificare din fișierul încărcat nu pot fi încărcate.
-                invalid_public_key: Tastele de identificare din fişierul încărcat nu se potrivesc cu cheia de identificare publică stocată de Decidim.
-              upload_legend: Decidim are cheile tale de identificare publică, dar browserul tău încă nu le are. Trebuie să importați fișierul cu cheile de identificare în calculator din copia de siguranță creată după ce ați generat.
             not_supported_browser_description: Se pare că folosești un browser web care nu poate fi folosit pentru a acționa ca împuternicit. Asigură-te că folosești cea mai recentă versiune de browser, sau încercați să utilizați oricare dintre cele mai populare browsere pentru a putea finaliza sarcinile dvs. drept împuternicit.
             not_supported_browser_title: Actualizează browser-ul pentru a acționa ca împuternicit
             trustee_role_description: Ai fost desemnat drept împuternicit în unele dintre alegerile celebrate în această platformă.
@@ -553,9 +572,7 @@ ro:
         onboarding_modal:
           close: Închidere
           create_account: Creează cont
-          description: Vrei să creezi un cont nou în Decidim? Veţi putea participa la procese şi să fiţi o parte activă a organizaţiei.
           no_account: Nu, mulțumesc.
-          title: Nou în Decidem?
         voting_step:
           back: Înapoi
           continue: Următoarea
@@ -598,10 +615,19 @@ ro:
               name: Atașamente și dosare aferente votării
             elections:
               name: Alegeri cu votare
+        index:
+          not_published: Anulează publicarea
+          published: Publicate
+        landing_page:
+          edit:
+            active_content_blocks: Blocuri de conținut active
+            inactive_content_blocks: Blocuri de conținut inactive
         menu:
           votings_submenu:
             attachment_collections: Dosare
+            attachment_files: Fișiere
             components: Componente
+            landing_page: Pagina principală
             monitoring_committee: Comitetul de monitorizare
             monitoring_committee_members: Membri
             monitoring_committee_verify_elections: Verifică alegerile
@@ -616,6 +642,9 @@ ro:
           new:
             create: Creează
             title: Creează un membru al comitetului de monitorizare
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: Acțiuni
         monitoring_committee_verify_elections:
           index:
             how_to_run_verifier: 'Odată ce ai descărcat fișierul și te-ai asigurat că este în regulă, poți continua pornind verificatorul universal. Clonează <a href=''https://github.com/decidim/decidim-bulletin-board''>acestă arhivă</a> și, din dosarul rădăcină, rulează comanda următoare:'

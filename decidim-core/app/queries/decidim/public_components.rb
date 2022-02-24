@@ -3,7 +3,7 @@
 module Decidim
   # This query finds the published components for all public participatory
   # spaces in the given organization. Can filter by manifest name.
-  class PublicComponents < Rectify::Query
+  class PublicComponents < Decidim::Query
     def self.for(organization, manifest_name: nil)
       new(organization, manifest_name: manifest_name).query
     end

@@ -174,7 +174,7 @@ en:
         reject: Reject
         share: Share
         user:
-          new: New user
+          new: New admin
         verify: Verify
       admin_terms_of_use:
         accept:
@@ -257,6 +257,8 @@ en:
         update:
           error: There was a problem updating this attachment.
           success: Attachment updated successfully.
+      attachments_privacy_warning:
+        message: Be careful when working with attachments in a private space. Any participant could share this document to others.
       autocomplete:
         no_results: No results found
         search_prompt: Type at least three characters to search
@@ -339,7 +341,7 @@ en:
       dashboard:
         show:
           view_more_logs: View more logs
-          welcome: Welcome to the Decidim Admin Panel.
+          welcome: Welcome to the Admin Panel.
       domain_whitelist:
         form:
           domain_too_short: Domain too short
@@ -960,7 +962,7 @@ en:
         static_pages: Pages
         statistics: Activity
         user_groups: Groups
-        users: Participants
+        users: Administrators
       user_group:
         csv_verify:
           invalid: There was a problem reading the CSV file.
@@ -996,7 +998,7 @@ en:
           role: Role
         new:
           create: Invite
-          title: Invite participant as administrator
+          title: Invite new administrator
       users_statistics:
         users_count:
           admins: Admins

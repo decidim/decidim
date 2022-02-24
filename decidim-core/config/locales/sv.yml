@@ -76,6 +76,33 @@ sv:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: ungefär 1 timme
+        other: ungefär %{count} timmar
+      about_x_months:
+        one: ungefär 1 månad
+        other: ungefär %{count} månader
+      half_a_minute: en halv minut
+      less_than_x_minutes:
+        one: mindre än en minut
+        other: mindre än %{count} minut
+      less_than_x_seconds:
+        one: just nu
+        other: mindre än %{count} sekunder
+      x_days:
+        one: 1 dag sedan
+        other: "%{count} dagar sedan"
+      x_hours:
+        one: 1 timme sedan
+        other: "%{count} timmar sedan"
+      x_minutes:
+        one: 1 min sedan
+        other: "%{count} min sedan"
+      x_seconds:
+        one: 1 sek. sedan
+        other: "%{count} sek. sedan"
   decidim:
     accessibility:
       external_link: Extern länk
@@ -98,7 +125,7 @@ sv:
         error: Det gick inte att radera ditt konto.
         success: Ditt konto har raderats.
       show:
-        available_locales_helper: Välj det språk du vill använda på plattformen och i de notiserna du får
+        available_locales_helper: Välj det språk du vill använda på plattformen och få i notiserna
         change_password: Ändra lösenord
         update_account: Uppdatera konto
       update:
@@ -153,6 +180,7 @@ sv:
         block: "%{user_name} blockerade användaren %{resource_name}"
         invite: "%{user_name} bjöd in användaren %{resource_name} med rollen: %{role}"
         officialize: "%{user_name} gjorde deltagaren %{resource_name} officiell"
+        promote: "%{user_name} befordrade %{resource_name}"
         remove_from_admin: "%{user_name} tog bort deltagaren %{resource_name} med rollen: %{role}"
         show_email: "%{user_name} hämtade e-postadressen för deltagaren %{resource_name}"
         transfer: "%{user_name} överförde deltagaren %{resource_name}"
@@ -967,6 +995,7 @@ sv:
           next: Nästa
           no_conversations: Du har inga konversationer än
           title: Samtal
+          to: Till
         reply:
           placeholder: Ditt svar...
           send: Skicka
@@ -974,6 +1003,7 @@ sv:
         show:
           back: Tillbaka till alla konversationer
           chat_with: Konversation med
+          deleted_accounts: Du kan inte meddela raderade konton.
           not_allowed: Deltagaren tar inte emot direktmeddelanden.
           title: Samtal med %{usernames}
         start:
@@ -1041,6 +1071,12 @@ sv:
         greetings: Hälsningar,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallå,
         subject: Vill du fortsätta att få relevant information om %{organization_name}?
+    notification_mailer:
+      event_received:
+        no_translation_available: Tyvärr kunde maskinöversättningen inte hämtas när e-postmeddelandet skickades. Du kan kontrollera översättningen av originaltexten på följande länk %{link}.
+        original_text: 'Originaltext:'
+        same_language: Innehållet har skrevs i ditt valda språk (%{language}) så ingen automatisk översättning visas i detta e-post.
+        translated_text: 'Maskinöversatt text:'
     notifications:
       no_notifications: Inga meddelanden ännu.
     notifications_settings:
@@ -1048,18 +1084,22 @@ sv:
         administrators: Administratörer
         allow_public_contact: Tillåt alla att skicka direktmeddelanden till mig, även de som jag inte följer.
         direct_messages: Ta emot direktmeddelanden från alla
-        email_on_moderations: Jag vill få ett e-brev varje gång något anmäls för moderering.
-        email_on_notification: Jag vill få ett e-brev varje gång jag får ett meddelande.
+        email_on_moderations: Jag vill få ett e-post varje gång något anmäls för moderering.
+        email_on_notification: Jag vill få ett e-post varje gång jag får en notis.
         everything_followed: Allt jag följer
         newsletter_notifications: Jag vill få nyhetsbrev
         newsletters: Nyhetsbrev
         own_activity: Min egen verksamhet, som när någon kommenterar mitt förslag eller nämner mig
-        receive_notifications_about: Jag vill få meddelanden om
+        receive_notifications_about: Jag vill få notiser om
         send_notifications_by_email: Skicka meddelanden via e-post
         update_notifications_settings: Spara ändringar
       update:
         error: Det gick inte att uppdatera dina meddelandeinställningar.
         success: Dina meddelandeinställningar har uppdaterats.
+    offline:
+      show:
+        message: Det verkar som om du är offline. Försök igen senare.
+        retry: Försök igen
     open_data:
       not_available_yet: De öppna datafilerna är ännu inte tillgängliga, var vänlig försök igen om några minuter.
     own_user_groups:
@@ -1338,6 +1378,7 @@ sv:
         title_reply: Svara
       show:
         back: Visa alla samtal
+        deleted_accounts: Du kan inte meddela raderade konton.
         not_allowed: Den här användaren accepterar inte fler direkta meddelanden.
         title: Konversation med %{usernames}
       update:
@@ -1355,6 +1396,7 @@ sv:
       notify:
         body_1: Användaren %{user} har rapporterats av %{token}
         body_2: 'Anledning: %{reason}'
+        details: Detaljer från användaren
         greetings: Hälsningar,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hej %{admin},
         subject: En ny användare har rapporterats på %{organization_name}
@@ -1600,6 +1642,8 @@ sv:
       notifications_dashboard:
         mark_all_as_read: Markera allt som läst
         mark_as_read: Markera som läst
+      offline_banner:
+        cache_version_page: Hoppsan! Du är inte kopplat till Internet längre. Detta är en tidigare cachad version av sidan du besöker, innehållet kan ha ändrats.
       social_media_links:
         facebook: "%{organization} på Facebook"
         github: "%{organization} på GitHub"
@@ -1635,10 +1679,12 @@ sv:
     name: Svenska
     name_with_error: Svenska (fel!)
   password_validator:
+    blacklisted: är svartlistad
     domain_included_in_password: är för likt detta domännamn
     email_included_in_password: är för likt din e-post
     fallback: är inte giltigt
     name_included_in_password: är för likt ditt namn
+    nickname_included_in_password: är för likt ditt användarnamn
     not_enough_unique_characters: har inte tillräckligt med unika tecken
     password_not_allowed: är ej tillåtet
     password_too_common: är för vanligt
@@ -1673,6 +1719,8 @@ sv:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
+      ddmm: "%d/%m"
+      ddmmyyyy: "%d/%m/%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%d %B %Y kl.%H:%M:%S"

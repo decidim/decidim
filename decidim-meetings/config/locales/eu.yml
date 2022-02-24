@@ -85,20 +85,15 @@ eu:
             values:
               'false': Aurrekoak
               'true': Hurrengoak
-          origin_eq:
-            label: Jatorria
-            values:
-              citizen: Hiritarrak
-              official: Ofiziala
-              user_group: Erabiltzaile-taldeak
           scope_id_eq:
             label: Eremua
-          type_eq:
+          with_any_origin:
+            values:
+              user_group: Erabiltzaile-taldeak
+          with_any_type:
             label: Topaketa mota
             values:
-              hybrid: Biok
               in_person: Aurrez aurre
-              online: Linean
       meeting_copies:
         create:
           error: Akatsa gertatu da bilera hau bikoiztea.
@@ -296,12 +291,10 @@ eu:
             update: Eguneratu
           form:
             address_help: 'Helbidea: Geocoderrek erabilia kokapena aurkitzeko'
-            available_slots_help: Uzti 0an erabiltzeko espazio mugatua baduzu
             disclaimer: 'Erantzukizun-deskargua: Kanpoko inskripzio-sistema bat erabiliz, onartzen duzu %{organization} ko antolatzaileak ez direla kanpo-zerbitzuko erabiltzaileek emandako datuen erantzule.'
             location_help: 'Kokapena: mezua part-hartzaileei zuzendua biltzeko lekua adieraziz'
             location_hints_help: 'Kokapen-aholkuak: informazio gehigarria. Adibidea: eraikinaren solairua, aurrez aurreko topaketa bada, edo aretoaren pasahitza, sarrera mugatua duen online topaketa bada.'
             online_meeting_url_help: 'Lotura: Utzi parte-hartzaileei zuzenean konektatzen zure topaketara'
-            registration_email_help: Testu hau izen-ematea baieztatzeko postaren erdian agertuko da. Inskripzio kodearen ondoren.
             registration_url_help: 'Lotura: parte-hartzaileei aukera ematea izena emateko erabiltzen ari zaren kanpoko zerbitzura joateko'
             select_a_meeting_type: Mesedez, hautatu topaketa mota bat
             select_a_registration_type: Mesedez, hautatu erregistro mota bat
@@ -347,6 +340,7 @@ eu:
             available_slots_help: Utzi 0an izen-emate mugagabeak edukiz gero.
             invites: Gonbidapenak
             recommendation_message: Pribatutasuna dela eta, izena emateko inprimaki hau kentzea gomendatzen dizugu, behar ez duzunean. Besterik adierazi ezean, hau da, bilera amaitu eta 3 hilabetera.
+            registration_email_help: Testu hau izen-ematea baieztatzeko postaren erdian agertuko da. Inskripzio kodearen ondoren.
             registration_form: Izena emateko inprimakia
             registrations_count:
               one: Dena den, %{count} erregistratzeko.
@@ -448,7 +442,6 @@ eu:
           origin: Jatorria
           origin_values:
             all: Denak
-            citizens: Hiritarrak
             official: Ofiziala
             user_groups: Taldeak
           scope: Eremua

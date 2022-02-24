@@ -20,6 +20,13 @@
         settings:
           global:
             announcement: Kunngjøring
+            clean_after_publish: Slett svar ved publisering av spørreundersøkelsen
+            ends_at: Svar akseptert til
+            ends_at_help: La være tom for ingen bestemt dato
+            scope_id: Tema
+            scopes_enabled: Aktiverte temaer
+            starts_at: Svar akseptert fra
+            starts_at_help: La være tom for ingen bestemt dato
           step:
             allow_answers: Tillat svar
             allow_unregistered: Tillat uregistrerte brukere å svare på undersøkelsen
@@ -42,6 +49,8 @@
         description: Antall undersøkelser besvart av deltakerne
         object: svar på undersøkelser
         title: Svar på undersøkelser
+    statistics:
+      answers_count: Svar
     surveys:
       admin:
         exports:

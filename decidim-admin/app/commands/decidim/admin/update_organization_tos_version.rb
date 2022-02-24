@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # A command with the business logic for updating the current
     # organization tos_version attribute.
-    class UpdateOrganizationTosVersion < Rectify::Command
+    class UpdateOrganizationTosVersion < Decidim::Command
       # Public: Initializes the command.
       #
       # organization - The Organization that will be updated.

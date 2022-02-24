@@ -3,7 +3,7 @@ fr:
     attributes:
       conference:
         assemblies_ids: Assemblées associées
-        available_slots: Emplacements disponibles
+        available_slots: Nombre de places disponibles
         banner_image: Image d'en-tête
         consultations_ids: Votations associées
         copy_categories: Copier les catégories
@@ -45,22 +45,22 @@ fr:
         partner_type: Type de partenaire
         weight: Rang d'affichage
       conference_registration_invite:
-        email: Courriel
+        email: Email
         name: Nom
         registration_type_id: Type d'inscription
-        user_id: Utilisateur·rice
+        user_id: Utilisateur
       conference_registration_type:
         description: Description
         price: Prix
         title: Titre
         weight: Rang d'affichage
       conference_speaker:
-        affiliation: Affiliation
-        avatar: Image de profil
-        conference_meeting_ids: Réunions connexes
+        affiliation: Organisme
+        avatar: Avatar
+        conference_meeting_ids: Rencontres associées
         full_name: Nom complet
-        personal_url: URL personnelle
-        position: Position
+        personal_url: Site internet personnel
+        position: Profession
         short_bio: Courte bio
         twitter_handle: Gestionnaire Twitter
         user_id: Utilisateur
@@ -351,7 +351,7 @@ fr:
             invites: Invite
             search: Chercher
           new:
-            explanation: L'utilisateur sera invité à participer à une conférence. Si l'e-mail n'est pas enregistré, ils seront également invités à l'organisation.
+            explanation: L'utilisateur sera invité à participer à une conférence. Si l'e-mail n'est pas enregistré, ils seront également invités dans l'organisation.
             invite: Inviter
             new_invite: Inviter un utilisateur
         conference_registrations:

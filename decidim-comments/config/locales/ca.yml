@@ -16,6 +16,12 @@ ca:
         other: Vots
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Comentaris habilitats
+            end_time: Comentaris habilitats fins al
+            start_time: Comentaris habilitats des de
       comments:
         create:
           error: S'ha produït un error en crear el comentari.
@@ -64,6 +70,7 @@ ca:
         edit: Editar
         edited: Editat
         hide_replies: Oculta les respostes
+        moderated_at: Comentari moderat el %{date}
         reply: Respondre
         report:
           action: Denúncia

@@ -20,7 +20,7 @@ fr:
         participatory_process_group_id: Groupe de processus
         participatory_scope: Objectifs
         participatory_structure: Modalités de décision
-        promoted: Mise en avant
+        promoted: Mis en avant
         published_at: Publiée à
         related_process_ids: Concertations liées
         scope_id: Périmètre d'application
@@ -34,6 +34,7 @@ fr:
         subtitle: Sous-titre
         target: Participants
         title: Titre
+        weight: Rang d'affichage
       participatory_process_group:
         description: Description
         developer_group: Groupe d'initiateurs
@@ -122,7 +123,7 @@ fr:
           fields:
             created_at: Créée le
             private: Privée
-            promoted: Mise en avant
+            promoted: Mettre en avant
             published: Publiée
             title: Titre
           name: Concertation
@@ -327,7 +328,7 @@ fr:
         html_3:
           name: Bloc HTML 3
         metadata:
-          developer_group: Mis en avant par
+          developer_group: Organisateur
           name: Métadonnées
           participatory_scope: Objectifs
           participatory_structure: Modalités de décision
@@ -402,7 +403,7 @@ fr:
             more_information: Plus d'informations
             participate: Participer
             participate_in: Participer au processus %{resource_name}
-            processes_button_title: Lien vers la page Concertation où toutes les concertations sont affichées
+            processes_button_title: Lien vers la page des concertations où toutes les concertations sont affichées
             see_all_processes: Voir toutes les concertations
       participatory_process_steps:
         index:
@@ -449,6 +450,8 @@ fr:
         start_date: Date de début
         target: Participants
         unspecified: Non précisé
+    statistics:
+      processes_count: Concertations
   layouts:
     decidim:
       participatory_process_groups:

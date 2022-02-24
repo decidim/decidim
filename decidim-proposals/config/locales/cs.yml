@@ -606,9 +606,9 @@ cs:
           all: Vše
         filter_origin_values:
           all: Vše
-          citizens: Občané
           meetings: Setkání
           official: Oficiální
+          participants: Účastníci
           user_groups: Skupiny uživatelů
         filter_scope_values:
           all: Vše

@@ -59,6 +59,10 @@ eu:
       read_more: Irakurri gehiago
     components:
       blogs:
+        actions:
+          create: Sortu
+          destroy: Ezabatu
+          update: Eguneratu
         name: Bloga
         settings:
           global:

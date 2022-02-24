@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic to send diplomas to registered conference users.
       #
-      class SendConferenceDiplomas < Rectify::Command
+      class SendConferenceDiplomas < Decidim::Command
         # Public: Initializes the command.
         #
         # conference      - The conference which the user is invited to.

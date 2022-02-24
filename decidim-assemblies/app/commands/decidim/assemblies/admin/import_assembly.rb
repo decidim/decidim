@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic to import a new assembly
       # in the system.
-      class ImportAssembly < Rectify::Command
+      class ImportAssembly < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

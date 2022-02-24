@@ -76,6 +76,33 @@ es-PY:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadamente 1 hora
+        other: aproximadamente %{count} horas
+      about_x_months:
+        one: aproximadamente 1 mes
+        other: aproximadamente %{count} meses
+      half_a_minute: medio minuto
+      less_than_x_minutes:
+        one: menos de 1 minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: ahora mismo
+        other: menos de %{count} segundos
+      x_days:
+        one: hace 1 día
+        other: "hace %{count} días"
+      x_hours:
+        one: hace 1 hora
+        other: "hace %{count} días"
+      x_minutes:
+        one: hace 1 minuto
+        other: "hace %{count} minutos"
+      x_seconds:
+        one: hace 1 segundo
+        other: "hace %{count} segundos"
   decidim:
     accessibility:
       external_link: Enlace externo
@@ -98,7 +125,7 @@ es-PY:
         error: Se ha producido un error al eliminar tu cuenta.
         success: Tu cuenta se ha eliminado correctamente.
       show:
-        available_locales_helper: Elige el idioma que quieres utilizar para navegar y recibir notificaciones en Decidim
+        available_locales_helper: Elige el idioma que deseas utilizar para navegar y recibir notificaciones en la plataforma
         change_password: Cambia la contraseña
         update_account: Actualizar cuenta
       update:
@@ -507,6 +534,11 @@ es-PY:
           this_application_will_not_be_able_to: 'Esta aplicación no podrá:'
           update_profile: Actualiza tu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quiere usar tu cuenta"
+    editor_images:
+      create:
+        error: Error al subir la imagen
+        success: Imagen subida con éxito
+      drag_and_drop_help: Puedes añadir imágenes arrastrando y soltándolas o también pegándolas.
     endorsable:
       endorsements: Adhesiones
       endorsements_count: Número de adhesiones
@@ -697,6 +729,7 @@ es-PY:
       no_followers: Aún no hay seguidores.
     following:
       no_followings: No sigue a nadie ni a nada todavía.
+      non_public_followings: Algunos de los recursos seguidos no son públicos.
     follows:
       create:
         button: Seguir
@@ -962,6 +995,7 @@ es-PY:
           next: Siguente
           no_conversations: Aún no tienes conversaciones
           title: Conversaciones
+          to: A
         reply:
           placeholder: Tu respuesta...
           send: Enviar
@@ -969,6 +1003,7 @@ es-PY:
         show:
           back: Volver a todas las conversaciones
           chat_with: Conversación con
+          deleted_accounts: No puedes tener una conversación con cuentas borradas.
           not_allowed: Esta participante no acepta mensajes directos.
           title: Conversacion con %{usernames}
         start:
@@ -1036,6 +1071,12 @@ es-PY:
         greetings: Saludos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola,
         subject: '¿Desea seguir recibiendo información relevante sobre %{organization_name}?'
+    notification_mailer:
+      event_received:
+        no_translation_available: Lo sentimos, no se pudo recuperar la traducción automática al enviar el correo electrónico. Puedes comprobar la traducción del texto original en el siguiente enlace %{link}.
+        original_text: 'Texto original:'
+        same_language: El contenido ha sido publicado en tu idioma preferido (%{language}), por eso no se muestra ninguna traducción automática en este correo electrónico.
+        translated_text: 'Texto traducido automáticamente:'
     notifications:
       no_notifications: No hay notificaciones aún.
     notifications_settings:
@@ -1055,6 +1096,10 @@ es-PY:
       update:
         error: Ha habido un error al actualizar la configuración de las notificaciones.
         success: La configuración de las notificaciones se han actualizado correctamente.
+    offline:
+      show:
+        message: Parece que estás desconectada. Por favor, inténtalo de nuevo más tarde.
+        retry: Reintentar
     open_data:
       not_available_yet: Los ficheros de datos abiertos aún no están disponibles, inténtalo de nuevo en unos minutos.
     own_user_groups:
@@ -1333,6 +1378,7 @@ es-PY:
         title_reply: Responder
       show:
         back: Ver todas las conversaciones
+        deleted_accounts: No puedes tener una conversación con cuentas borradas.
         not_allowed: Esta participante no acepta mensajes directos.
         title: Conversación con %{usernames}
       update:
@@ -1350,6 +1396,7 @@ es-PY:
       notify:
         body_1: La usuaria %{user} ha sido reportada por %{token}
         body_2: 'Motivo: %{reason}'
+        details: Datos proporcionados por la usuaria
         greetings: Saludos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola %{admin},
         subject: Una nueva usuaria ha sido reportada en %{organization_name}
@@ -1595,6 +1642,8 @@ es-PY:
       notifications_dashboard:
         mark_all_as_read: Marcar todo como leído
         mark_as_read: Marcar como leído
+      offline_banner:
+        cache_version_page: '¡Ups! Tu red está desconectada. Esta es una versión en caché de la página que estás visitando, quizás el contenido no está actualizado.'
       social_media_links:
         facebook: "%{organization} en Facebook"
         github: "%{organization} en GitHub"
@@ -1630,10 +1679,12 @@ es-PY:
     name: Castellano
     name_with_error: Inglés (¡error!)
   password_validator:
+    blacklisted: en la lista negra
     domain_included_in_password: Es muy similar a este nombre de dominio
     email_included_in_password: Es muy similar a tu correo electrónico
     fallback: No es válido
     name_included_in_password: Es muy similar a tu nombre
+    nickname_included_in_password: es demasiado similar a tu alias
     not_enough_unique_characters: No tiene suficientes caracteres únicos
     password_not_allowed: No se permite
     password_too_common: Es demasiado común
@@ -1668,6 +1719,8 @@ es-PY:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d/%m/%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"

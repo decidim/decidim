@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # Delivers the newsletter to its recipients.
-    class DeliverNewsletter < Rectify::Command
+    class DeliverNewsletter < Decidim::Command
       # Initializes the command.
       #
       # newsletter - The newsletter to deliver.

@@ -105,7 +105,6 @@ ro:
         error: A apărut o eroare la ștergerea contului tău.
         success: Contul tău a fost șters cu succes.
       show:
-        available_locales_helper: Alege limba pe care dorești să o utilizezi pentru a naviga și primi notificări în Decidim
         change_password: Schimbă parola
         update_account: Actualizați contul
       update:
@@ -983,6 +982,7 @@ ro:
           next: Următoarea
           no_conversations: Încă nu aveți conversații
           title: Conversații
+          to: Către
         reply:
           placeholder: Răspunsul tău...
           send: Trimite
@@ -990,6 +990,7 @@ ro:
         show:
           back: Înapoi la toate conversațiile
           chat_with: Conversație cu
+          deleted_accounts: Nu poți avea o conversație cu conturi șterse.
           not_allowed: Acest participant nu acceptă mesaje directe.
           title: Conversație cu %{usernames}
         start:
@@ -1057,6 +1058,12 @@ ro:
         greetings: Salutări,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Salut,
         subject: Doriți să continuați să primiți informații relevante despre %{organization_name}?
+    notification_mailer:
+      event_received:
+        no_translation_available: Ne pare rău, traducerea automată nu a putut fi recuperată atunci când e-mailul a fost trimis. Puteți verifica traducerea textului original pe următorul link %{link}.
+        original_text: 'Text original:'
+        same_language: Conținutul a fost postat în limba preferată (%{language}), de aceea nu este afișată nicio traducere automată în acest e-mail.
+        translated_text: 'Text tradus automat:'
     notifications:
       no_notifications: Nici o notificare încă.
     notifications_settings:
@@ -1076,6 +1083,10 @@ ro:
       update:
         error: A apărut o eroare la actualizarea setărilor notificărilor.
         success: Setările de notificări au fost actualizate cu succes.
+    offline:
+      show:
+        message: Se pare că ești deconectat. Te rugăm să încerci din nou mai târziu.
+        retry: Încearcă din nou
     open_data:
       not_available_yet: Fişierele de date deschise nu sunt încă disponibile, vă rugăm să încercaţi din nou în câteva minute.
     own_user_groups:
@@ -1355,6 +1366,7 @@ ro:
         title_reply: Răspuns
       show:
         back: Arată toate conversațiile
+        deleted_accounts: Nu poți avea o conversație cu conturi șterse.
         not_allowed: Acest utilizator nu mai acceptă mesaje directe.
         title: Conversație cu %{usernames}
       update:
@@ -1659,6 +1671,7 @@ ro:
     email_included_in_password: este prea asemănător cu adresa de e-mail
     fallback: nu este valid
     name_included_in_password: este prea asemănător cu numele tău
+    nickname_included_in_password: este prea similar cu nickname-ul dvs
     not_enough_unique_characters: nu are destule caractere unice
     password_not_allowed: nu este permis
     password_too_common: este prea frecvent

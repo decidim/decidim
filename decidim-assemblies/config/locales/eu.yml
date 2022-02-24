@@ -270,7 +270,6 @@ eu:
             duration_help: Muntaia honen iraupena mugatua bada, hautatu amaiera-data. Bestela, mugagabea izango da.
             filters: iragazkiak
             images: Irudiak
-            included_at_help: Hautatu muntaia hau Decidim-era gehitu denean. Ez du derrigorrez sorkuntzako data izan behar.
             metadata: Metadata
             other: Beste
             select_a_created_by: Aukeratu egilea by egilea
@@ -356,7 +355,7 @@ eu:
           highlighted_assemblies:
             active_assemblies: Batzar aktiboak
             assemblies_button_title: Lotura batzar guztiak erakusten dituen Batzarren orrialdera
-            see_all_assemblies: Ikusi muntaia guztiak
+            see_all_assemblies: Ikusi biltzar guztiak
         user_profile:
           member_of:
             member_of: Kidea

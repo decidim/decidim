@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # A command with all the business logic for updating the current
     # organization appearance.
-    class UpdateOrganizationAppearance < Rectify::Command
+    class UpdateOrganizationAppearance < Decidim::Command
       include ::Decidim::AttachmentAttributesMethods
 
       # Public: Initializes the command.

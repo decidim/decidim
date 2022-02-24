@@ -171,8 +171,6 @@ it:
         permissions: Permessi
         reject: Rifiuta
         share: Condividi
-        user:
-          new: Nuovo utente
         verify: Verifica
       admin_terms_of_use:
         accept:
@@ -337,7 +335,6 @@ it:
       dashboard:
         show:
           view_more_logs: Visualizza più registri
-          welcome: Benvenuti nel pannello di amministrazione di Decidim.
       domain_whitelist:
         form:
           domain_too_short: Dominio troppo corto
@@ -797,6 +794,11 @@ it:
           explanation: 'Carica il file CSV. Il file deve contenere due colonne (e-mail e nome) senza intestazioni: nella prima sono elencati gli indirizzi e-mail degli utenti che si desidera aggiungere allo spazio partecipativo, nella seconda i loro nomi. Evita di usare caratteri non validi come `<>?%&^*#@()[]=+:;"{}\|` nella colonna dei nomi.'
           title: Carica il tuo file CSV
           upload: Carica File
+      reminders:
+        create:
+          error: Si è verificato un errore durante la creazione dei promemoria.
+        new:
+          submit: Invia
       resource_permissions:
         edit:
           submit: Invia
@@ -914,7 +916,6 @@ it:
         static_pages: Pagine
         statistics: Attività
         user_groups: Gruppi di utenti
-        users: Utenti
       user_group:
         csv_verify:
           invalid: Si è verificato un errore durante la lettura del file CSV.
@@ -950,7 +951,6 @@ it:
           role: Ruolo
         new:
           create: Invita
-          title: Invita l'utente in qualità di amministratrice/tore
       users_statistics:
         users_count:
           admins: Amministratori

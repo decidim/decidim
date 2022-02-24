@@ -7,7 +7,7 @@ module Decidim
     # Managed users can be promoted to standard users. It means they
     # will be invited to the application and will lose the managed flag
     # so the user cannot be impersonated anymore.
-    class PromoteManagedUser < Rectify::Command
+    class PromoteManagedUser < Decidim::Command
       # Public: Initializes the command.
       #
       # form         - A form object with the params.

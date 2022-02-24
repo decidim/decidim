@@ -4,7 +4,7 @@ module Decidim
   module ParticipatoryProcesses
     module Admin
       # A command with all the business logic when deleting a ParticipatoryProcessGroup.
-      class DestroyParticipatoryProcessGroup < Rectify::Command
+      class DestroyParticipatoryProcessGroup < Decidim::Command
         # Public: Initializes the command.
         #
         # participatory_process_group - the ParticipatoryProcessGroup to delete.

@@ -15,12 +15,6 @@ module Decidim
           %w(all) + Decidim::Meetings::Meeting::TYPE_OF_MEETING
         end
 
-        def default_search_params
-          {
-            scope: Meeting.not_hidden.visible_meeting_for(current_user)
-          }
-        end
-
         def default_filter_origin_params
           filter_origin_params = %w(participants)
           filter_origin_params << "official"

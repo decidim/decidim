@@ -57,6 +57,16 @@ es-PY:
               identical: Y el título no puede ser idéntico
             title:
               identical: Y el cuerpo no puede ser idéntico
+        proposals_merge:
+          attributes:
+            base:
+              not_official: No son oficiales
+              supported: Han recibido apoyos o adhesiones
+        proposals_split:
+          attributes:
+            base:
+              not_official: No son oficiales
+              supported: No han recibido apoyos ni adhesiones
     models:
       decidim/proposals/accepted_proposal_event: Propuesta aceptada
       decidim/proposals/admin/update_proposal_category_event: La categoría de la propuesta ha cambiado
@@ -134,6 +144,17 @@ es-PY:
             collaborative_drafts_enabled: Habilitar borradores colaborativos
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            default_sort_order: Ordenación por defecto de propuestas
+            default_sort_order_help: Por defecto significa que si los apoyos están habilitados, las propuestas se mostrarán en orden aleatorio, y si los apoyos están bloqueados, se ordenarán por las más apoyadas.
+            default_sort_order_options:
+              default: Por defecto
+              most_commented: Más comentadas
+              most_endorsed: Con más adhesiones
+              most_followed: Más seguidas
+              most_voted: Con más apoyos
+              random: Aleatorio
+              recent: Recientes
+              with_more_authors: Con más autoras
             geocoding_enabled: Geocodificación habilitada
             minimum_votes_per_user: Votos mínimos por usuario
             new_proposal_body_template: Plantilla para el texto de nueva propuesta
@@ -175,6 +196,18 @@ es-PY:
             answers_with_costs: Habilitar coste en las respuestas a propuestas
             automatic_hashtags: Hashtags añadidos a todas las propuestas.
             comments_blocked: Comentarios bloqueados
+            creation_enabled: Las participantes pueden crear propuestas
+            default_sort_order: Orden predeterminado de propuestas
+            default_sort_order_help: Por defecto significa que si los apoyos están habilitados, las propuestas se mostrarán en orden aleatorio, y si los apoyos están bloqueados, se ordenarán por las más apoyadas.
+            default_sort_order_options:
+              default: Por defecto
+              most_commented: Más comentadas
+              most_endorsed: Con más adhesiones
+              most_followed: Más seguidas
+              most_voted: Con más apoyos
+              random: Aleatorio
+              recent: Recientes
+              with_more_authors: Con más autoras
             endorsements_blocked: Adhesiones bloqueados
             endorsements_enabled: Adhesiones habilitados
             proposal_answering_enabled: Contestación de propuesta habilitada
@@ -267,6 +300,7 @@ es-PY:
           email_intro: La propuesta "%{resource_title}" se ha añadido a "%{participatory_space_title}" que estás siguiendo.
           email_outro: Recibiste esta notificación porque estás siguiendo "%{participatory_space_title}". Puedes dejar de seguirlo desde el enlace anterior.
           email_subject: Nueva propuesta "%{resource_title}" añadida a %{participatory_space_title}
+          notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido añadida a %{participatory_space_title} por %{author}
         proposal_rejected:
           affected_user:
             email_intro: 'Su propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
@@ -363,6 +397,23 @@ es-PY:
         exports:
           proposal_comments: Comentarios
           proposals: Propuestas
+        imports:
+          help:
+            answers: 'El documento de importación debe contener las siguientes columnas: id, estado (aceptado, evaluación, rechazado), respuesta/es (y otros idiomas habilitados por la organización).'
+            proposals: El archivo debe incluir los nombres de columna title/en y body/en (u otro idioma de tu preferencia, por ejemplo title/es y body/es). También se admiten las columnas scope/id y category/id.
+          label:
+            answers: Importar respuestas desde un archivo
+            proposals: Importar propuestas desde un archivo
+          resources:
+            answers:
+              one: respuesta a propuesta
+              other: respuestas a propuestas
+            proposals:
+              one: propuesta
+              other: propuestas
+          title:
+            answers: Importar respuestas de propuestas
+            proposals: Importar propuestas
         models:
           proposal:
             name: Propuesta
@@ -506,9 +557,11 @@ es-PY:
             title: Importar propuestas
         proposals_merges:
           create:
+            invalid: 'Ha habido un problema al fusionar las propuestas seleccionadas porque algunas de ellas:'
             success: Fusionó con éxito las propuestas en una nueva.
         proposals_splits:
           create:
+            invalid: 'Ha habido un problema al dividir las propuestas seleccionadas porque algunas de ellas:'
             success: Dividió con éxito las propuestas en otras nuevas.
         valuation_assignments:
           create:
@@ -539,9 +592,9 @@ es-PY:
           all: Todos
         filter_origin_values:
           all: Todos
-          citizens: Ciudadanía
           meetings: Reuniones
           official: Oficial
+          participants: Participantes
           user_groups: Grupos de Usuarios
         filter_scope_values:
           all: Todos
@@ -748,9 +801,12 @@ es-PY:
           filter_by: Filtrar por
           unfold: Desplegar
         index:
+          click_here: Ver todas las propuestas
           collaborative_drafts_list: Acceder a borradores colaborativos
           new_proposal: Nueva propuesta
+          see_all: Ver todas las propuestas
           see_all_withdrawn: Ver todas las propuestas retiradas
+          text_banner: Estás viendo la lista de propuestas retiradas por sus autoras. %{go_back_link}.
           view_proposal: Ver propuesta
         linked_proposals:
           proposal_votes:

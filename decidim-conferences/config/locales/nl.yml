@@ -351,7 +351,7 @@ nl:
             invites: Uitnodigingen
             search: Zoeken
           new:
-            explanation: De gebruiker wordt uitgenodigd om deel te nemen aan een conferentie. Als de e-mail niet is geregistreerd, worden ze ook uitgenodigd voor de organisatie.
+            explanation: De gebruiker wordt uitgenodigd om deel te nemen aan een conferentie. Als zijn/haar e-mailadres niet is geregistreerd, worden ze ook uitgenodigd voor de organisatie.
             invite: Nodig uit
             new_invite: Nodig deelnemer uit
         conference_registrations:

@@ -78,7 +78,6 @@ el:
           all: Όλα
           category: Κατηγορία
           category_prompt: Επιλέξτε μια κατηγορία
-          citizens: Πολίτες
           official: Επίσημη
           origin: Προέλευση
           search: Αναζήτηση

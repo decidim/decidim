@@ -21,6 +21,16 @@ eu:
         one: Proiektua
         other: Proiektuak
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Kategoria
+          selected_at_null:
+            label: Hautatua
+            values:
+              'false': Gauzatzeko hautatua
+              'true': Ez hautaua gauzatzeko
     budgets:
       actions:
         attachment_collections: Karpetak
@@ -134,6 +144,7 @@ eu:
             total_budget: Aurrekontua guztira
         project:
           fields:
+            category: Kategoria
             title: Titulua
       order_summary_mailer:
         order_summary:
@@ -186,6 +197,11 @@ eu:
           projects_count:
             one: Proiektu bat
             other: "%{count} proiektu"
+        exit_modal:
+          cancel: Berriro bozkatu
+          exit: Bozketatik irten
+          message: Zure botoa ez da erregistratu, oraindik ez duzulako osatu bozketa-prozesua. Ziur zaude bozketatik irten nahi duzula?
+          title: Oraindik ez duzu bozkatu
         filters:
           category: Kategoria
           scope: Esparrua

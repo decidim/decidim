@@ -196,6 +196,7 @@ fr-CA:
             answers_with_costs: Activer les coûts sur les réponses aux propositions
             automatic_hashtags: Hashtags ajoutés à toutes les propositions
             comments_blocked: Bloquer la création de nouveaux commentaires
+            creation_enabled: Les participants peuvent créer des propositions
             default_sort_order: Tri des propositions par défaut
             default_sort_order_help: Par défaut, si les aides sont activés, les propositions seront affichées par ordre aléatoire, et si les aides sont bloqués, alors ils seront triés par l’aide le plus soutenu.
             default_sort_order_options:
@@ -591,9 +592,9 @@ fr-CA:
           all: Tout
         filter_origin_values:
           all: Tout
-          citizens: Propositions citoyennes
           meetings: Des réunions
           official: Propositions officielles
+          participants: Participants
           user_groups: Groupes d'utilisateurs
         filter_scope_values:
           all: Tout

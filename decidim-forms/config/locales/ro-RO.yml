@@ -79,6 +79,7 @@ ro:
           form:
             add_question: Adaugă întrebare
             add_separator: Adaugă separator
+            add_title_and_description: Adaugă titlu și descriere
             already_answered_warning: Au fost înregistrare deja câteva răspunsuri de la utilizatori pentru acest chestionar. De aceea, nu mai poți modifica întrebările.
             collapse: Restrânge toate întrebările
             expand: Extinde toate întrebările
@@ -108,6 +109,15 @@ ro:
             remove: Elimină
             separator: Separator
             up: Mergi în sus
+          title_and_description:
+            collapse: Restrânge
+            description: Descriere
+            down: Mergi în jos
+            expand: Extinde
+            remove: Șterge
+            title: Titlu
+            title_and_description: Titlu și descriere
+            up: Mergi în sus
           update:
             invalid: A apărut o eroare la salvarea chestionarului.
             success: Chestionarul a fost salvat cu succes.
@@ -131,6 +141,7 @@ ro:
         short_answer: Răspuns scurt
         single_option: Opțiune unică
         sorting: Sortare
+        title_and_description: Titlu și descriere
       questionnaires:
         answer:
           invalid: A apărut o problemă la completarea chestionarului.

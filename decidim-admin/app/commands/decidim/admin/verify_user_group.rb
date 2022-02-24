@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A command with all the business logic when verifying a user_group.
-    class VerifyUserGroup < Rectify::Command
+    class VerifyUserGroup < Decidim::Command
       # Public: Initializes the command.
       #
       # user_group - The user_group to verify

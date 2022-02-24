@@ -33,7 +33,7 @@ describe "Admin filters meetings", type: :system do
     before { visit_component_admin }
 
     TYPES.each do |state|
-      i18n_state = I18n.t(state, scope: "decidim.admin.filters.meetings.type_eq.values")
+      i18n_state = I18n.t(state, scope: "decidim.admin.filters.meetings.with_any_type.values")
 
       context "filtering meetings by type: #{i18n_state}" do
         it_behaves_like "a filtered collection", options: "Type", filter: i18n_state do

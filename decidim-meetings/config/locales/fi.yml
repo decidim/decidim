@@ -89,15 +89,15 @@ fi:
             values:
               'false': Menneet
               'true': Tulevat
-          origin_eq:
-            label: Alkuperä
-            values:
-              citizen: Kansalaiset
-              official: Viralliset
-              user_group: Käyttäjäryhmät
           scope_id_eq:
             label: Teema
-          type_eq:
+          with_any_origin:
+            label: Alkuperä
+            values:
+              official: Viralliset
+              participants: Osallistujat
+              user_group: Käyttäjäryhmät
+          with_any_type:
             label: Tapaamisen tyyppi
             values:
               hybrid: Molemmat
@@ -303,12 +303,10 @@ fi:
             update: Päivitä
           form:
             address_help: 'Osoite: käytetään karttapisteen etsimiseen geokoodauksen avulla'
-            available_slots_help: Määritä tähän kenttään arvo 0, jos tapahtuman paikkamäärää ei ole rajoitettu
             disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että organisaatio %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
             location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
             location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapaamisissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
             online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
-            registration_email_help: Tämä teksti näytetään tapahtumailmoittautumisten vahvistussähköpostin keskiosassa. Teksti näkyy heti ilmoittautumiskoodin jälkeen.
             registration_url_help: 'Linkki: salli käyttäjien siirtyminen käytettyyn ulkoiseen ilmoittautumispalveluun'
             select_a_meeting_type: Valitse tapaamisen tyyppi
             select_a_registration_type: Valitse ilmoittautumisten tyyppi
@@ -356,6 +354,7 @@ fi:
             available_slots_help: Jätä arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
             invites: Kutsut
             recommendation_message: Osallistujien yksityisyyden kannalta suosittelemme, että poistat tämän lomakkeen tiedot, kun et enää tarvitse niitä. Oletuksena se säilytetään 3 kuukautta tapaamisen päättymisen jälkeen.
+            registration_email_help: Tämä teksti näytetään tapahtumailmoittautumisten vahvistussähköpostin keskiosassa. Teksti näkyy heti ilmoittautumiskoodin jälkeen.
             registration_form: Ilmoittautumislomake
             registrations_count:
               one: Tapahtumaan on %{count} ilmoittautuminen.
@@ -468,8 +467,8 @@ fi:
           origin: Alkuperä
           origin_values:
             all: Kaikki
-            citizens: Kansalaiset
             official: Viralliset
+            participants: Osallistujat
             user_groups: Ryhmät
           scope: Teema
           search: Hae

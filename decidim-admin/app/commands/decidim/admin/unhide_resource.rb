@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A command with all the business logic when a user hides a resource.
-    class UnhideResource < Rectify::Command
+    class UnhideResource < Decidim::Command
       # Public: Initializes the command.
       #
       # reportable - A Decidim::Reportable

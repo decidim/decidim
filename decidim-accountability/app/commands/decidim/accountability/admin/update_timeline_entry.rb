@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user changes a Result from the admin
       # panel.
-      class UpdateTimelineEntry < Rectify::Command
+      class UpdateTimelineEntry < Decidim::Command
         # Initializes an UpdateTimelineEntry Command.
         #
         # form - The form from which to get the data.

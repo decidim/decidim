@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # This command gets called when a content block is updated from the admin
     # panel.
-    class UpdateHelpSections < Rectify::Command
+    class UpdateHelpSections < Decidim::Command
       def initialize(form, organization)
         @form = form
         @organization = organization

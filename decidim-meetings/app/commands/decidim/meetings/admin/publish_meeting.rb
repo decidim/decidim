@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic that publishes an
       # existing meeting.
-      class PublishMeeting < Rectify::Command
+      class PublishMeeting < Decidim::Command
         # Public: Initializes the command.
         #
         # meeting - Decidim::Meetings::Meeting

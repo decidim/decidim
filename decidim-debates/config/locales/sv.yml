@@ -26,6 +26,7 @@ sv:
     components:
       debates:
         actions:
+          comment: Kommentera
           create: Skapa
           endorse: Instäm
         name: Debatter
@@ -114,11 +115,11 @@ sv:
           all: Alla
           category: Kategori
           category_prompt: Välj en kategori
-          citizens: Medborgare
           commented: Kommenterade
           my_debates: Mina debatter
           official: Officiell
           origin: Ursprung
+          participants: Deltagare
           scope: Omfång
           search: Sök
           state: Status

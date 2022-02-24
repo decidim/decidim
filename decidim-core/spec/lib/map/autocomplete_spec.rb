@@ -51,12 +51,34 @@ module Decidim
       end
 
       it "creates the geocoding field markup" do
-        config = CGI.escapeHTML(
+        config = escaped_html(
           { url: "/photon_api" }.to_json
         )
         expect(form_markup).to include(%(
           <input autocomplete="off" data-decidim-geocoding="#{config}" type="text" name="test[address]" id="test_address" />
         ).strip)
+      end
+
+      context "when object responds to latitude and longitude" do
+        let(:object) do
+          double(
+            latitude: nil,
+            longitude: nil
+          )
+        end
+
+        let(:form_markup) do
+          template.form_for :test, url: "/test" do |form|
+            allow(form).to receive(:object).and_return(object)
+            form.geocoding_field(:address)
+          end
+        end
+
+        it "does not add empty values" do
+          expect(form_markup).not_to include(%(
+            data-coordinates=
+          ).strip)
+        end
       end
     end
   end

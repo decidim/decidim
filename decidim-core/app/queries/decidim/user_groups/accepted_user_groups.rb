@@ -5,7 +5,7 @@ module Decidim
     # Use this class to find the user groups the given user is accepted. In order
     # to calculate this, we get those groups where the user has a role of
     # member, creator or admin.
-    class AcceptedUserGroups < Rectify::Query
+    class AcceptedUserGroups < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # user - a User that needs to find the groups where they are accepted

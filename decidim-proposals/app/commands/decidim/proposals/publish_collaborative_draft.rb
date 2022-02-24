@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     # A command with all the business logic when a user publishes a collaborative_draft.
-    class PublishCollaborativeDraft < Rectify::Command
+    class PublishCollaborativeDraft < Decidim::Command
       # Public: Initializes the command.
       #
       # collaborative_draft - The collaborative_draft to publish.

@@ -4,7 +4,7 @@ module Decidim
   module Votings
     module Admin
       # A command with the business logic to destroy a poling officer
-      class DestroyPollingOfficer < Rectify::Command
+      class DestroyPollingOfficer < Decidim::Command
         # Public: Initializes the command.
         #
         # polling_officer - the PollingOfficer to destroy

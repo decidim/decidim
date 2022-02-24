@@ -3,7 +3,7 @@
 module Decidim
   module Votings
     # A command to send the access code
-    class SendAccessCode < Rectify::Command
+    class SendAccessCode < Decidim::Command
       def initialize(datum, medium)
         @datum = datum
         @medium = medium

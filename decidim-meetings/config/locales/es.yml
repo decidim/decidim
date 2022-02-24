@@ -89,20 +89,20 @@ es:
             values:
               'false': Pasados
               'true': Próximos
-          origin_eq:
-            label: Origen
-            values:
-              citizen: Ciudadanía
-              official: Oficial
-              user_group: Grupos
           scope_id_eq:
             label: Ámbito
-          type_eq:
+          with_any_origin:
+            label: Origen
+            values:
+              official: Oficial
+              participants: Participante
+              user_group: Grupos
+          with_any_type:
             label: Tipo de encuentro
             values:
               hybrid: Ambos
               in_person: Presencial
-              online: En línea
+              online: Online
       meeting_copies:
         create:
           error: Se ha producido un error al duplicar este encuentro.
@@ -303,12 +303,10 @@ es:
             update: Actualizar
           form:
             address_help: 'Dirección: usada por Geocoder para encontrar la ubicación'
-            available_slots_help: Déjalo a 0 si tienes espacio ilimitado disponible
             disclaimer: 'Descargo de responsabilidad: Mediante el uso de un sistema de inscripción externo, aceptas que los organizadores de %{organization} no son responsables de los datos proporcionados por los usuarios al servicio externo.'
             location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
             location_hints_help: 'Consejos de ubicación: información adicional. Ejemplo: la planta del edificio si se trata de un encuentro presencial, o la contraseña de la sala si se trata de un encuentro online con acceso restringido.'
             online_meeting_url_help: 'Enlace: permitir a las participantes conectarse directamente a tu encuentro'
-            registration_email_help: Este texto aparecerá en medio del correo de confirmación de inscripción. Justo después del código de inscripción.
             registration_url_help: 'Enlace: permitir a las participantes ir al servicio externo que estás utilizando para las inscripciones'
             select_a_meeting_type: Por favor, selecciona un tipo de encuentro
             select_a_registration_type: Por favor, seleccione un tipo de inscripción
@@ -356,6 +354,7 @@ es:
             available_slots_help: Dejar a 0 si las inscripciones son ilimitadas.
             invites: Invitaciones
             recommendation_message: Por razones de privacidad te recomendamos que elimines este formulario de inscripción cuando ya no lo necesites. Por defecto, esto es 3 meses después de que la reunión haya finalizado.
+            registration_email_help: Este texto aparecerá en medio del correo de confirmación de inscripción. Justo después del código de inscripción.
             registration_form: Formulario de inscripción
             registrations_count:
               one: Ha habido %{count} inscripción.
@@ -468,8 +467,8 @@ es:
           origin: Origen
           origin_values:
             all: Todos
-            citizens: Ciudadanía
             official: Oficial
+            participants: Participantes
             user_groups: Grupos
           scope: Ámbito
           search: Buscar
@@ -534,7 +533,7 @@ es:
           meeting_minutes: Acta del encuentro
           micro_camera_permissions_warning: Cuando hagas clic en el botón de abajo, se te pedirán permisos de micrófono y/o cámara y te unirás a la videoconferencia
           no_slots_available: No hay plazas disponibles
-          organizations: Organizaciones que han asistido
+          organizations: Organizaciones asistentes
           registration_code_help_text: Tu código de inscripción
           registration_state:
             validated: VALIDADO

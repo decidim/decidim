@@ -88,15 +88,15 @@ ro:
             values:
               'false': Trecute
               'true': Viitoare
-          origin_eq:
-            label: Origine
-            values:
-              citizen: Cetățean
-              official: Publice
-              user_group: Grupuri de utilizatori
           scope_id_eq:
             label: Domeniu de interes
-          type_eq:
+          with_any_origin:
+            label: Origine
+            values:
+              official: Oficial
+              participants: Participant
+              user_group: Grupuri de utilizatori
+          with_any_type:
             label: Tip de întâlnire
             values:
               hybrid: Ambele
@@ -304,12 +304,10 @@ ro:
             update: Actualizare
           form:
             address_help: 'Adresă: utilizată de Geocoder pentru a găsi locaţia'
-            available_slots_help: Lăsați la 0 dacă aveți locuri nelimitate disponibile
             disclaimer: 'Declinare: Prin utilizarea unui sistem extern de înregistrare, acceptați faptul că organizatorii %{organization} nu sunt responsabili pentru datele furnizate de utilizatorii serviciului extern.'
             location_help: 'Locație: mesaj direcționat către utilizatori care implică locul la care să se întâlnească'
             location_hints_help: 'Sugestii privind locaţia: informaţii suplimentare. Exemplu: parterul clădirii dacă este o întâlnire în personaă, sau parola pentru intrare dacă este vorba de o întâlnire online cu acces restrâns.'
             online_meeting_url_help: 'Link: permite participanților să se conecteze direct la întâlnirea ta'
-            registration_email_help: Acest text va apărea în mijlocul e-mailului de confirmare a înregistrării. Imediat după codul de înregistrare.
             registration_url_help: 'Link: permite participanților să acceseze serviciul extern pe care îl utilizezi pentru înregistrare'
             select_a_meeting_type: Te rugăm să selectezi un tip de ședință
             select_a_registration_type: Te rugăm să selectezi un tip de înregistrare
@@ -355,6 +353,7 @@ ro:
             available_slots_help: Lăsați la 0 dacă aveți sloturi nelimitate disponibile.
             invites: Invitații
             recommendation_message: Din motive de confidenţialitate îți recomandăm să şterge acest formular atunci când nu mai ai nevoie de el. Acest lucru se întâmplă în mod automat la 3 luni după încheierea ședinței.
+            registration_email_help: Acest text va apărea în mijlocul e-mailului de confirmare a înregistrării. Imediat după codul de înregistrare.
             registration_form: Formular de înregistrare
             registrations_count:
               one: A existat %{count} înregistrări.
@@ -407,8 +406,10 @@ ro:
             space_type: Spaţiu participativ
       iframe_access_level:
         all: Toți vizitatorii
+        registered: Participanții înregistrați la acest eveniment
       iframe_embed_type:
         embed_in_meeting_page: Incorporează în pagina de şedinţe
+        open_in_live_event_page: Deschide în pagina de evenimente live (cu sondaje opționale)
         open_in_new_tab: Deschideți în filă nouă
       last_activity:
         meeting_updated_at_html: "<span>Întâlnire actualizată la %{link}</span>"
@@ -465,8 +466,8 @@ ro:
           origin: Origine
           origin_values:
             all: Toate
-            citizens: Cetățeni
             official: Oficial
+            participants: Participanți
             user_groups: Grupuri
           scope: Domeniu de interes
           search: Caută

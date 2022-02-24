@@ -126,6 +126,7 @@ ar:
         per_page: في كل صفحة
         permissions: تصريحات
         reject: رفض
+        share: مشاركة
         verify: التحقق
       admin_terms_of_use:
         accept:
@@ -258,10 +259,12 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث هذا المكون.
           success: تم تحديث المكون بنجاح.
+      conflicts:
+        'false': 'لا'
+        'true': 'نعم'
       dashboard:
         show:
           view_more_logs: عرض المزيد من السجلات
-          welcome: مرحبًا بكم في لوحة إدارة Decidim.
       exports:
         export_as: "%{name} ك %{export_format}"
         notice: التصدير الخاص بك قيد التقدم حاليًا. ستتلقى بريدًا إلكترونيًا عند اكتماله.
@@ -269,6 +272,14 @@ ar:
         category_id_eq:
           label: الفئة
         filter_label: تصفية
+        invitation_accepted_at_present:
+          values:
+            'false': 'لا'
+            'true': 'نعم'
+        last_sign_in_at_present:
+          values:
+            'false': 'لا'
+            'true': 'نعم'
         officialized_at_null:
           label: حالة
           values:
@@ -437,6 +448,9 @@ ar:
             does_not_belong: لا ينتمي
             offensive: هجومي
             spam: بريد مؤذي
+        reports:
+          index:
+            content_original_language: لغة المحتوى الأصلية
       newsletter_templates:
         index:
           preview_template: معاينة
@@ -648,7 +662,6 @@ ar:
         scopes: نطاقات
         static_pages: صفحات
         user_groups: المجموعات
-        users: المشاركين
       user_group:
         csv_verify:
           invalid: حدثت مشكلة في قراءة ملف CSV.
@@ -684,7 +697,6 @@ ar:
           role: وظيفة
         new:
           create: دعا
-          title: دعوة مشارك كمسؤول
       users_statistics:
         users_count:
           admins: المدراء
@@ -717,6 +729,9 @@ ar:
             reported_content_url: تم الإبلاغ عن عنوان URL للمحتوى
             reports: تقارير
             visit_url: زيارة العنوان الشبكي
+        report:
+          fields:
+            locale: اللغة
   errors:
     messages:
       invalid_json: JSON غير صالح

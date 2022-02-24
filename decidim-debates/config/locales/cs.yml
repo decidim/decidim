@@ -121,11 +121,11 @@ cs:
           all: Vše
           category: Kategorie
           category_prompt: Vyberte kategorii
-          citizens: Občané
           commented: Okomentováno
           my_debates: Moje rozpravy
           official: Oficiální
           origin: Původ
+          participants: Účastníci
           scope: Oblast působnosti
           search: Hledat
           state: Stav

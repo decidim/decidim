@@ -76,6 +76,33 @@ ca:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: al voltant d’1 hora
+        other: al voltant de %{count} hores
+      about_x_months:
+        one: al voltant d’1 mes
+        other: al voltant de %{count} mesos
+      half_a_minute: mig minut
+      less_than_x_minutes:
+        one: menys d’un minut
+        other: menys de %{count} minuts
+      less_than_x_seconds:
+        one: ara mateix
+        other: menys de %{count} segons
+      x_days:
+        one: fa 1 dia
+        other: "fa %{count} dies"
+      x_hours:
+        one: fa 1 hora
+        other: "fa %{count} hores"
+      x_minutes:
+        one: fa 1 minut
+        other: "fa %{count} minuts"
+      x_seconds:
+        one: fa 1 segon
+        other: "fa %{count} segons"
   decidim:
     accessibility:
       external_link: Enllaç extern
@@ -98,7 +125,7 @@ ca:
         error: S'ha produït un error en eliminar el teu compte.
         success: El teu compte s'ha eliminat correctament.
       show:
-        available_locales_helper: Tria l'idioma que vols utilitzar per a navegar i rebre notificacions a Decidim
+        available_locales_helper: Tria l'idioma que en que vols navegar i rebre notificacions de la plataforma
         change_password: Canvia la contrasenya
         update_account: Actualitzar compte
       update:
@@ -504,6 +531,11 @@ ca:
           this_application_will_not_be_able_to: 'Aquesta aplicació no podrà:'
           update_profile: Actualitza el teu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vol utilitzar el teu compte"
+    editor_images:
+      create:
+        error: S'ha produït un error en pujar la imatge
+        success: La imatge s'ha pujat correctament
+      drag_and_drop_help: Afegeix imatges arrossegant-les i deixant-les anar o bé enganxant-les.
     endorsable:
       endorsements: Adhesions
       endorsements_count: Número d'adhesions
@@ -715,8 +747,8 @@ ca:
       file_help:
         file:
           explanation: 'Instruccions per a l''arxiu:'
-          message_1: Ha de ser una imatge o un document.
-          message_2: Per a les imatges, utilitza preferentment imatges apaïsades, el servei retalla la imatge. Per als arxius CSV, el separador entre columnes ha de ser una coma (",")
+          message_1: Ha de ser una imatge quadrada.
+          message_2: La mida recomanada per a aquesta imatge és 512x512.
         image:
           explanation: 'Instruccions per a la imatge:'
           message_1: Preferiblement una imatge apaïsada que no tingui cap text.
@@ -960,6 +992,7 @@ ca:
           next: Següent
           no_conversations: Encara no tens converses
           title: Converses
+          to: Per a
         reply:
           placeholder: La teva resposta...
           send: Enviar
@@ -967,7 +1000,7 @@ ca:
         show:
           back: Tornar a totes les converses
           chat_with: Conversa amb
-          deleted_accounts: No podeu tenir una conversa amb un compte d'usuari eliminat.
+          deleted_accounts: No podeu tenir una conversa amb un compte d'usuària eliminat.
           not_allowed: Aquesta participant no accepta missatges directes.
           title: Conversa amb %{usernames}
         start:
@@ -1035,6 +1068,12 @@ ca:
         greetings: Salutacions,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola,
         subject: Vols seguir rebent informació rellevant sobre %{organization_name}?
+    notification_mailer:
+      event_received:
+        no_translation_available: Ho sentim, no s'ha pogut recuperar la traducció automàtica en enviar el correu. Pots comprovar la traducció del text original a través del següent enllaç %{link}.
+        original_text: 'Text original:'
+        same_language: El contingut s'ha publicat en la teva llengua de preferència (%{language}), és per això que no es mostra cap traducció automàtica en aquest correu electrònic.
+        translated_text: 'Text de la traducció automàtica:'
     notifications:
       no_notifications: Encara no hi ha notificacions.
     notifications_settings:
@@ -1054,6 +1093,10 @@ ca:
       update:
         error: S'ha produït un error en actualitzar la configuració de les notificacions.
         success: La configuració de les notificacions s'ha actualitzat correctament.
+    offline:
+      show:
+        message: Sembla que estàs desconnectada. Torna a intentar-ho més tard, si us plau.
+        retry: Torna-ho a provar
     open_data:
       not_available_yet: Els fitxers Open Data encara no estan disponibles, torna-ho a provar d'aquí a uns minuts.
     own_user_groups:
@@ -1332,7 +1375,7 @@ ca:
         title_reply: Respondre
       show:
         back: Mostra totes les converses
-        deleted_accounts: No podeu tenir una conversa amb un compte d'usuari eliminat.
+        deleted_accounts: No podeu tenir una conversa amb un compte d'usuària eliminat.
         not_allowed: Aquesta participant no accepta missatges directes.
         title: Conversa amb %{usernames}
       update:
@@ -1350,6 +1393,7 @@ ca:
       notify:
         body_1: La usuària %{user} ha estat reportada per %{token}
         body_2: 'Motiu: %{reason}'
+        details: Detalls proporcionats per la usuària
         greetings: Salutacions,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola %{admin},
         subject: Una nova usuària ha estat reportada a %{organization_name}
@@ -1594,6 +1638,8 @@ ca:
       notifications_dashboard:
         mark_all_as_read: Marcar tot com a llegit
         mark_as_read: Marcar com a llegit
+      offline_banner:
+        cache_version_page: Ostres! La teva xarxa està desconnectada. El que estàs veient és una versió prèvia de la pàgina desada a la memòria cau i que podria no estar actualitzada.
       social_media_links:
         facebook: "%{organization} a Facebook"
         github: "%{organization} a GitHub"
@@ -1629,10 +1675,12 @@ ca:
     name: Català
     name_with_error: Anglès (error!)
   password_validator:
+    blacklisted: a la llista negra
     domain_included_in_password: és massa semblant a aquest nom de domini
     email_included_in_password: és massa similar al teu correu electrònic
     fallback: no és vàlid
     name_included_in_password: és massa semblant al teu nom
+    nickname_included_in_password: és massa semblant al teu àlies
     not_enough_unique_characters: no té prou caràcters únics
     password_not_allowed: no està permès
     password_too_common: és massa comú
@@ -1667,6 +1715,8 @@ ca:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d/%m/%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"

@@ -196,6 +196,7 @@ fi-pl:
             answers_with_costs: Ota käyttöön kustannusarviointi ehdotusten vastauksissa
             automatic_hashtags: Hashtagit lisätty kaikkiin ehdotuksiin
             comments_blocked: Kommentit on estetty
+            creation_enabled: Osallistujat voivat luoda ehdotuksia
             default_sort_order: Ehdotuksen oletusjärjestys
             default_sort_order_help: Oletus tarkoittaa, että mikäli kannatukset ovat käytössä, ehdotukset näytetään satunnaisessa järjestyksessä ja mikäli kannatukset on estetty, niin ehdotukset järjestetään eniten kannatuksia saaneet ensin.
             default_sort_order_options:
@@ -299,6 +300,7 @@ fi-pl:
           email_intro: Ehdotus "%{resource_title}", jota seuraat, on lisätty kohteeseen "%{participatory_space_title}".
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Uusi ehdotus "%{resource_title}" lisätty kohteeseen %{participatory_space_title}
+          notification_title: '%{author} on lisännyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> kohteeseen %{participatory_space_title}'
         proposal_rejected:
           affected_user:
             email_intro: 'Ehdotuksesi "%{resource_title}" on hylätty. Voit lukea vastauksen täältä:'
@@ -590,9 +592,9 @@ fi-pl:
           all: Kaikki
         filter_origin_values:
           all: Kaikki
-          citizens: Kansalaiset
           meetings: Tapaamiset
           official: Virallinen
+          participants: Osallistujat
           user_groups: Käyttäjäryhmät
         filter_scope_values:
           all: Kaikki

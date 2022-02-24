@@ -4,7 +4,7 @@ module Decidim
   module Votings
     module Voter
       # This command allows the user to register an in person vote.
-      class InPersonVote < Rectify::Command
+      class InPersonVote < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form with necessary info to register an in person vote.

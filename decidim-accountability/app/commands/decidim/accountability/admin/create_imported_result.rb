@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user creates a Result from the admin
       # panel.
-      class CreateImportedResult < Rectify::Command
+      class CreateImportedResult < Decidim::Command
         def initialize(form, parent_id = nil)
           @form = form
           @parent_id = parent_id

@@ -253,6 +253,7 @@ ca:
             title: Elecció creada
             trustees: Garants
           key_ceremony:
+            continue: Continuar
             title: Cerimònia de claus
           key_ceremony_ended:
             errors:
@@ -273,7 +274,14 @@ ca:
             submit: Enviar
             title: Resultats publicats
           tally:
+            continue: Continuar
+            invalid: S'ha produït un error en notificar l'absència de la garant
+            mark_as_missing: Marcar com absent
+            mark_as_missing_description: Totes les garants haurien de participar en aquest procés, però si una garant no en pot prendre part, la pots marcar com a absent.
+            success: La notificació d'absència de la garant ha estat enviada correctament
+            tally_completion: El procés es completarà quan totes les garants estiguin actives o marcades com a absents. Fan falta com un mínim de %{quorum} garant per a completar el procés.
             title: Procés de recompte
+            undo_mark_as_missing: Una garant marcada com a absent per error podrà participar abans de la finalització del procés. Pot actuar com de costum i la seva absència serà ignorada.
           tally_ended:
             answer: Resposta
             not_selected: No seleccionat
@@ -324,6 +332,22 @@ ca:
           update:
             invalid: S'ha produït un error en actualitzar el garant %{trustee}
             success: El garant %{trustee} s'ha actualitzat correctament
+      admin_log:
+        election:
+          create: "%{user_name} ha creat l'elecció %{resource_name} a %{space_name}"
+          delete: "%{user_name} ha eliminat l'elecció %{resource_name} a %{space_name}"
+          end_vote: "%{user_name} ha tancat el període de votació per a l'elecció %{resource_name} a %{space_name}"
+          publish: "%{user_name} ha publicat l'elecció %{resource_name} a %{space_name}"
+          publish_results: "%{user_name} ha publicat els resultats de l'elecció %{resource_name} a %{space_name}"
+          report_missing_trustee: "%{user_name} ha notificat %{trustee_name} com a absent durant el recompte de les eleccions %{resource_name} a %{space_name}"
+          setup: "%{user_name} ha creat l'elecció %{resource_name} a %{space_name}"
+          start_key_ceremony: "%{user_name} ha iniciat la cerimònia de claus per l'elecció %{resource_name} a %{space_name}"
+          start_tally: "%{user_name} ha iniciat el recompte de l'elecció %{resource_name} a %{space_name}"
+          start_vote: "%{user_name} ha iniciat el període de votació per a l'elecció %{resource_name} a %{space_name}"
+          unpublish: "%{user_name} ha despublicat l'elecció %{resource_name} a %{space_name}"
+          update: "%{user_name} ha actualitzat l'elecció %{resource_name} a %{space_name}"
+        trustee:
+          create: "%{user_name} ha assignat a la usuària %{trustee_user} com a garant"
       election_m:
         badge_name:
           finished: Acabada
@@ -394,9 +418,9 @@ ca:
         filters:
           active: Activa
           all: Totes
+          date: Data
           finished: Finalizada
           search: Cercar
-          state: Estat
           upcoming: Properes
         filters_small_view:
           close_modal: Tancar el modal
@@ -554,14 +578,14 @@ ca:
               generate_legend_3: Assegura't de que el teu equip no tingui una còpia de l'arxiu (per exemple, comprova les carpetes de Baixades i Escriptori).
               generate_legend_4: Fes una altra copia de l'arxiu en un dispositiu extern diferent i guarda'l a un lloc molt segur.
               submit: Enviar
-              submit_legend: Després de seguir tots els passos explicats anteriorment, completa el procés enviant la clau d'identificació pública al servidor de Decidim.
+              submit_legend: Després de seguir tots els passos explicats anteriorment, completa el procés enviant la clau d'identificació pública al servidor.
               submit_title: Enviar la clau d'identificació pública
               title: Claus d'identificació del garant
               upload: Puja les teves claus d'identificació
               upload_error:
                 invalid_format: L'arxiu pujat no conté cap clau d'identificació.
                 invalid_key: Les claus d'identificació a l'arxiu pujat no es poden carregar.
-                invalid_public_key: Les claus d'identificació a l'arxiu pujat no coincideixen amb la clau d'identificació pública emmagatzemada per Decidim.
+                invalid_public_key: Les claus d'identificació a l'arxiu pujat no coincideixen amb la clau d'identificació pública emmagatzemada.
               upload_legend: Decidim té les teves claus públiques d'identificació, però el teu navegador encara no les té. Necessites importar l'arxiu amb les teves claus d'identificació al teu ordinador des de la còpia de seguretat que vas crear després de generar-les.
             not_supported_browser_description: Sembla que estàs usant un navegador que no pot ser utilitzat per a actuar com a garant. Assegura't que estàs usant la versió més recent del teu navegador, o intenta usar qualsevol dels navegadors més populars per a poder completar les teves tasques com a garant.
             not_supported_browser_title: Actualitza el navegador per a actuar com a garant
@@ -629,9 +653,9 @@ ca:
         onboarding_modal:
           close: Tanca el modal
           create_account: Crea un compte
-          description: Vols crear un nou compte al Decidim? Podràs participar als processos i ser una part activa de l'organització.
+          description: Vols crear un nou compte? Podràs participar als processos i ser part activa de l'organització.
           no_account: No, gràcies.
-          title: Primer cop a Decidim?
+          title: Ets nova a la plataforma?
         update:
           error: Hi ha hagut un error en actualitzar el vot. Prova-ho de nou.
         verify:
@@ -642,7 +666,7 @@ ca:
             header: Vot no localitzat!
             info: El codi del vot no s'ha trobat a l'urna %{link}, intenta-ho de nou.
           form:
-            back: Tornar a Decidim
+            back: Tornar a la plataforma
             submit: Comprovar
             vote_identifier: 'Codi identificador:'
           header:
@@ -978,6 +1002,24 @@ ca:
             invalid: S'ha produït un error en actualitzar aquesta votació
             success: La votació s'ha actualitzat correctament
       admin_log:
+        ballot_style:
+          create: "%{user_name} ha creat un estil de papereta amb codi %{ballot_style_code} a l'espai %{space_name}"
+          delete: "%{user_name} ha eliminat l'estil de papereta amb codi %{ballot_style_code} a l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat l'estil de papereta amb codi %{ballot_style_code} a l'espai %{space_name}"
+        census:
+          create: "%{user_name} ha creat el cens per l'espai %{space_name}"
+          delete: "%{user_name} ha eliminat el cens per l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat el cens per l'espai %{space_name}"
+        monitoring_committee_member:
+          create: "%{user_name} ha assignat a la usuària %{monitoring_committee_member_user} com a membre de la comissió de seguiment a l'espai %{space_name}"
+          delete: "%{user_name} desassignat a la usuària %{monitoring_committee_member_user} com a membre de la comissió de seguiment a l'espai %{space_name}"
+        polling_officer:
+          create: "%{user_name} ha assignat a la usuària %{polling_officer_user} com a gestora de mesa a l'espai %{space_name}"
+          delete: "%{user_name} ha desassignat a la usuària %{polling_officer_user} com a gestora de mesa a l'espai %{space_name}"
+        polling_station:
+          create: "%{user_name} ha creat el punt de votació %{resource_name} a l'espai %{space_name}"
+          delete: "%{user_name} ha eliminat el punt de votació %{resource_name} a l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat el punt de votació %{resource_name} a l'espai %{space_name}"
         voting:
           create: "%{user_name} ha creat la votació %{resource_name}"
           publish: "%{user_name} ha publicat la votació %{resource_name}"
@@ -987,6 +1029,7 @@ ca:
           census:
             create:
               invalid: Hi ha hagut un error en pujar el cens, prova-ho de nou més tard.
+              invalid_csv_header: Les capçaleres al CSV manquen o no son correctes. Si us plau, rellegeix atentament les instruccions
             creating_data:
               info_message: "<strong>Si us plau espera</strong>, processades %{processed_count} de %{raw_count} fileres al fitxer de %{file}."
             delete:
@@ -1263,9 +1306,9 @@ ca:
         filters:
           active: Actives
           all: Totes
+          date: Data
           finished: Finalitzades
           search: Cercar
-          state: Estat
           upcoming: Properes
         filters_small_view:
           close_modal: Tancar finestra

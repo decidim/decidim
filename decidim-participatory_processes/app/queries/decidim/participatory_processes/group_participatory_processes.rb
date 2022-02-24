@@ -3,7 +3,7 @@
 module Decidim
   module ParticipatoryProcesses
     # This query class filters all processes of a participatory process group
-    class GroupParticipatoryProcesses < Rectify::Query
+    class GroupParticipatoryProcesses < Decidim::Query
       def initialize(group)
         @group = group
       end

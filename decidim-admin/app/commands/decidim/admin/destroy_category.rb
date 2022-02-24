@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # A command with all the business logic to destroy a category in the
     # system.
-    class DestroyCategory < Rectify::Command
+    class DestroyCategory < Decidim::Command
       # Public: Initializes the command.
       #
       # category - A Category that will be destroyed

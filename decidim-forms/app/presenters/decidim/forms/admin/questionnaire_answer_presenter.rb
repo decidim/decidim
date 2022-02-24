@@ -6,10 +6,18 @@ module Decidim
       #
       # Presenter for questionnaire answer
       #
-      class QuestionnaireAnswerPresenter < Rectify::Presenter
+      class QuestionnaireAnswerPresenter < SimpleDelegator
+        delegate :content_tag, :safe_join, to: :view_context
+
         include Decidim::TranslatableAttributes
 
-        attribute :answer, Decidim::Forms::Answer
+        def answer
+          __getobj__.fetch(:answer)
+        end
+
+        def view_context
+          __getobj__.fetch(:view_context, ActionController::Base.new.view_context)
+        end
 
         def question
           translated_attribute(answer.question.body)

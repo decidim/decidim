@@ -48,9 +48,9 @@ module Decidim
       end
     end
 
-    def capture(command)
+    def capture(command, env: {}, with_stderr: true)
       interpolated_in_folder(command) do |cmd|
-        self.class.capture(cmd)
+        self.class.capture(cmd, env: env, with_stderr: with_stderr)
       end
     end
 
@@ -79,8 +79,10 @@ module Decidim
     end
 
     class << self
-      def capture(cmd, env: {})
-        Open3.capture2e(env, cmd)
+      def capture(cmd, env: {}, with_stderr: true)
+        return Open3.capture2e(env, cmd) if with_stderr
+
+        Open3.capture2(env, cmd)
       end
 
       def run(cmd, out: $stdout)

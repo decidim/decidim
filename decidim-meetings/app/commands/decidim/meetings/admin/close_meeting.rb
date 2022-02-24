@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user closes a Meeting from the admin
       # panel.
-      class CloseMeeting < Rectify::Command
+      class CloseMeeting < Decidim::Command
         # Initializes a CloseMeeting Command.
         #
         # form - The form from which to get the data.

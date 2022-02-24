@@ -115,11 +115,11 @@ ja:
           all: すべて
           category: カテゴリ
           category_prompt: カテゴリを選択
-          citizens: 一般参加者
           commented: 'コメント:'
           my_debates: 私の議論
           official: 事務局
           origin: 起案者：
+          participants: 参加者
           scope: スコープ
           search: 検索
           state: ステータス

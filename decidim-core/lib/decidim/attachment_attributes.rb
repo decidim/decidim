@@ -37,7 +37,7 @@ module Decidim
         define_method name do
           return instance_variable_get(variable_name) if instance_variable_defined?(variable_name)
 
-          original = @attributes["photos"].value_before_type_cast
+          original = @attributes[name.to_s].value_before_type_cast
           return original if original && !original.is_a?(Array)
 
           instance_variable_set(

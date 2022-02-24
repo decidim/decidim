@@ -7,7 +7,7 @@ module Decidim
   # and it's generator class.
   class ReminderManifest
     include ActiveModel::Model
-    include Virtus.model
+    include Decidim::AttributeObject::Model
 
     attribute :generator_class_name, String
     attribute :form_class_name, String
@@ -18,6 +18,7 @@ module Decidim
     attr_reader :name
 
     def initialize(name:)
+      super()
       @name = name
       @messages = ReminderManifestMessages.new
     end

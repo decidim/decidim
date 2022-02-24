@@ -8,7 +8,9 @@ if ENV["SIMPLECOV"]
 end
 
 require "spec_helper"
+require "json"
 require "decidim/gem_manager"
+require "decidim/generators/test/generator_examples"
 
 module Decidim
   describe Generators do
@@ -51,57 +53,11 @@ module Decidim
 
       after { FileUtils.rm_rf(test_app) }
 
-      shared_examples_for "a new production application" do
-        it "includes optional plugins commented out in Gemfile" do
-          expect(result[1]).to be_success, result[0]
-
-          expect(File.read("#{test_app}/Gemfile"))
-            .to match(/^# gem "decidim-initiatives"/)
-            .and match(/^# gem "decidim-consultations"/)
-            .and match(/^# gem "decidim-elections"/)
-            .and match(/^# gem "decidim-conferences"/)
-            .and match(/^# gem "decidim-templates"/)
-        end
-      end
-
-      shared_examples_for "a new development application" do
-        it "includes optional plugins uncommented in Gemfile" do
-          expect(result[1]).to be_success, result[0]
-
-          expect(File.read("#{test_app}/Gemfile"))
-            .to match(/^gem "decidim-initiatives"/)
-            .and match(/^gem "decidim-consultations"/)
-            .and match(/^gem "decidim-elections"/)
-            .and match(/^gem "decidim-conferences"/)
-            .and match(/^gem "decidim-templates"/)
-
-          # Checks that every table from a migration is included in the generated schema
-          schema = File.read("#{test_app}/db/schema.rb")
-          tables = []
-          dropped = []
-          Decidim::GemManager.plugins.each do |plugin|
-            Dir.glob("#{plugin}db/migrate/*.rb").each do |migration|
-              lines = File.readlines(migration)
-              tables.concat(lines.filter { |line| line.match? "create_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
-              dropped.concat(lines.filter { |line| line.match? "drop_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
-              tables.concat(lines.filter { |line| line.match? "rename_table" }.map { |line| line.match(/(, :)([a-z_0-9]+)/)[2] })
-              dropped.concat(lines.filter { |line| line.match? "rename_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
-            end
-          end
-          tables.each do |table|
-            next if dropped.include? table
-
-            expect(schema).to match(/create_table "#{table}"|create_table :#{table}/)
-          end
-
-          expect(Pathname.new("#{test_app}/node_modules/@rails/webpacker")).to be_directory
-        end
-      end
-
       context "without flags" do
         let(:command) { "decidim #{test_app}" }
 
         it_behaves_like "a new production application"
+        it_behaves_like "an application with configurable env vars"
       end
 
       context "with --edge flag" do

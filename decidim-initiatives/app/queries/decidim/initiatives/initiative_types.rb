@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     # Class uses to retrieve the available initiative types.
-    class InitiativeTypes < Rectify::Query
+    class InitiativeTypes < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # organization - Decidim::Organization

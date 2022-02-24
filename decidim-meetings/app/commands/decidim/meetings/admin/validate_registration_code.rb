@@ -4,7 +4,7 @@ module Decidim
   module Meetings
     module Admin
       # This command is executed when the admin validates a registration code in the admin panel.
-      class ValidateRegistrationCode < Rectify::Command
+      class ValidateRegistrationCode < Decidim::Command
         # Initializes a ValidateRegistrationCode Command.
         #
         # form - The form from which to get the data.

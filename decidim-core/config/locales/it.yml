@@ -98,7 +98,6 @@ it:
         error: Si è verificato un errore durante l'eliminazione del tuo account.
         success: Il tuo account è stato eliminato correttamente.
       show:
-        available_locales_helper: Scegli la lingua che vuoi usare per navigare e ricevere notifiche in Decidim
         change_password: Cambia password
         update_account: Aggiorna l'account
       update:
@@ -1064,6 +1063,10 @@ it:
       update:
         error: Si è verificato un errore durante l'aggiornamento delle impostazioni di notifica.
         success: OK, le impostazioni per le notifiche sono state modificate.
+    offline:
+      show:
+        message: Sembra che tu sia attualmente offline. Per favore, riprova più tardi.
+        retry: Riprova
     open_data:
       not_available_yet: I file Open Data non sono ancora disponibili, riprova tra qualche minuto.
     own_user_groups:
@@ -1604,6 +1607,8 @@ it:
       notifications_dashboard:
         mark_all_as_read: Contrassegnare tutti come letti
         mark_as_read: Segna come già letto
+      offline_banner:
+        cache_version_page: Oooops! La tua rete è offline. Questa è una versione precedentemente memorizzata nella cache della pagina che stai visitando, forse il contenuto non è aggiornato.
       social_media_links:
         facebook: "%{organization} su Facebook"
         github: "%{organization} su GitHub"

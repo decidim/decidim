@@ -69,6 +69,22 @@ de:
         other: Anmeldungen
   decidim:
     admin:
+      filters:
+        meetings:
+          is_upcoming_true:
+            label: Datum
+            values:
+              'false': Vergangenheit
+              'true': Anstehend
+          scope_id_eq:
+            label: Umfang
+          with_any_origin:
+            values:
+              user_group: Benutzergruppen
+          with_any_type:
+            label: Art des Treffens
+            values:
+              in_person: Persönlich
       meeting_copies:
         create:
           error: Es gab einen Fehler beim Duplizieren dieses Meetings.
@@ -258,12 +274,10 @@ de:
             update: Aktualisieren
           form:
             address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
-            available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben
             disclaimer: 'Haftungsausschluss: Durch Verwendung eines externen Registrierungssystems wissen Sie, dass die Organisatoren von %{organization} nicht für die Daten verantwortlich sind, welche die Benutzer dem externen Dienst zur Verfügung stellen.'
             location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
             location_hints_help: 'Hinweise zum Standort: Zusätzliche Informationen. Beispiel: das Stockwerk im Gebäude wenn es eine Sitzung vor Ort ist, oder das Passwort wenn es eine Online-Sitzung mit eingeschränktem Zugriff ist.'
             online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
-            registration_email_help: Dieser Text erscheint in der Mitte der Registrierungs-E-Mail, direkt nach dem Registrierungscode.
             registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
             select_a_meeting_type: Bitte eine Meeting-Typ auswählen
             select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
@@ -303,6 +317,7 @@ de:
             available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
             invites: Lädt ein
             recommendation_message: Aus Datenschutzgründen empfehlen wir, dass Sie dieses Einschreibeformular löschen, wenn es nicht länger benötigt wird. Standardmäßig ist das 3 Monate nachdem die Besprechung durchgeführt wurde.
+            registration_email_help: Dieser Text erscheint in der Mitte der Registrierungs-E-Mail, direkt nach dem Registrierungscode.
             registration_form: Anmeldeformular
             registrations_count:
               one: Es wurde %{count} registriert.
@@ -330,6 +345,13 @@ de:
           value_types:
             organizer_presenter:
               not_found: 'Der Organisator wurde nicht in der Datenbank gefunden (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Alle
+        filter_meeting_space_values:
+          all: Alle
+        filter_scope_values:
+          all: Alle
       calendar_modal:
         calendar_url: Kalender-URL
         close_window: Fenster schließen
@@ -337,15 +359,31 @@ de:
       conference_venues: Tagungsstätten
       content_blocks:
         upcoming_meetings:
+          name: Bevorstehende Treffen
+          upcoming_meetings: Bevorstehende Treffen
           view_all_meetings: Alle ansehen
       directory:
         meetings:
           index:
             meetings: Meetings
             space_type: Partizipativer Raum
+      iframe_access_level:
+        all: Alle Besucher
+        registered: Registrierte Teilnehmer zu diesem Meeting
+        signed_in: Nur angemeldete Teilnehmer
+      iframe_embed_type:
+        embed_in_meeting_page: In Meeting-Seite einbetten
+        none: Keiner
+        open_in_live_event_page: In Live-Event-Seite öffnen (mit optionalen Umfragen)
+        open_in_new_tab: Link in neuem Tab öffnen
       last_activity:
         meeting_updated_at_html: "<span>Besprechung aktualisiert unter %{link}</span>"
         new_meeting_at_html: "<span>Neues Treffen um %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Administrativ
+          close: Schließen
+          questions: Fragen
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -361,6 +399,11 @@ de:
           close: Sitzung beenden
           title: Sitzung beenden
       meetings:
+        calendar_modal:
+          add_to_calendar: Zum Kalender hinzufügen
+          apple: Zu Apple Kalender hinzufügen
+          close_window: Fenster schließen
+          full_details_html: Für alle Details gehen Sie zu %{link}
         count:
           meetings_count:
             one: "%{count} Besprechung"
@@ -385,7 +428,6 @@ de:
           origin: Ursprung
           origin_values:
             all: Alle
-            citizens: Einzelpersonen
             official: Offiziell
             user_groups: Gruppen
           scope: Umfang
@@ -473,6 +515,11 @@ de:
             official_meeting: Offizielle Besprechung
             start_time: Anfangsdatum
             title: Titel
+      polls:
+        questions:
+          published_question:
+            question: Frage
+            question_replied: Frage beantwortet
       read_more: "(Weiterlesen)"
       registration_mailer:
         confirmation:
@@ -502,6 +549,8 @@ de:
         transparent: Transparent
       versions:
         back_to_resource: Zurück zur Besprechung
+      withdraw:
+        success: Das Meeting wurde erfolgreich zurückgezogen
     metrics:
       meetings:
         description: Anzahl der erstellten Meetings

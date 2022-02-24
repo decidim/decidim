@@ -2,7 +2,7 @@
 
 module Decidim
   # A command with all the business logic to create an editor image.
-  class CreateEditorImage < Rectify::Command
+  class CreateEditorImage < Decidim::Command
     # Public: Initializes the command.
     #
     # form - A form object with the params.

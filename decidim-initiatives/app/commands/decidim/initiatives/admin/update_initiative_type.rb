@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic that updates an
       # existing initiative type.
-      class UpdateInitiativeType < Rectify::Command
+      class UpdateInitiativeType < Decidim::Command
         # Public: Initializes the command.
         #
         # initiative_type: Decidim::InitiativesType

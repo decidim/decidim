@@ -4,7 +4,7 @@ module Decidim
   module Templates
     module Admin
       # Updates the questionnaire template given form data.
-      class UpdateTemplate < Rectify::Command
+      class UpdateTemplate < Decidim::Command
         # Initializes the command.
         #
         # template - The Template to update.

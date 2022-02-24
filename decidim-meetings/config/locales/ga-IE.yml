@@ -35,17 +35,8 @@ ga:
             values:
               'false': Roimhe
               'true': Le teacht
-          origin_eq:
-            label: Bunús
-            values:
-              citizen: Saoránach
-              official: Oifigiúil
           scope_id_eq:
             label: Scóip
-          type_eq:
-            values:
-              hybrid: Araon
-              online: Ar líne
       meeting_copies:
         new:
           copy: Cóipeáil
@@ -154,7 +145,6 @@ ga:
           origin: Bunús
           origin_values:
             all: Uile
-            citizens: Saoránaigh
             official: Oifigiúil
             user_groups: Grúpaí
           scope: Scóip

@@ -23,28 +23,46 @@ module Decidim
       scope :from_author, ->(author) { from_all_author_identities(author).where("decidim_coauthorships.decidim_user_group_id": nil) }
       # retrieves models from the given UserGroup.
       scope :from_user_group, ->(user_group) { joins(:coauthorships).where("decidim_coauthorships.decidim_user_group_id": user_group.id) }
-      scope :official_origin, lambda {
+      scope :with_official_origin, lambda {
         where.not(coauthorships_count: 0)
              .joins(:coauthorships)
              .where(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
       }
-      scope :participants_origin, lambda {
+      scope :with_participants_origin, lambda {
         where.not(coauthorships_count: 0)
              .joins(:coauthorships)
              .where.not(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
              .where(decidim_coauthorships: { decidim_user_group_id: nil })
       }
-      scope :user_group_origin, lambda {
+      scope :with_user_group_origin, lambda {
         where.not(coauthorships_count: 0)
              .joins(:coauthorships)
              .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
              .where.not(decidim_coauthorships: { decidim_user_group_id: nil })
       }
-      scope :meeting_origin, lambda {
+      scope :with_meeting_origin, lambda {
         where.not(coauthorships_count: 0)
              .joins(:coauthorships)
              .where(decidim_coauthorships: { decidim_author_type: "Decidim::Meetings::Meeting" })
       }
+
+      scope :with_any_origin, lambda { |*origin_keys|
+        search_values = origin_keys.compact.reject(&:blank?)
+
+        conditions = [:official, :participants, :user_group, :meeting].map do |key|
+          search_values.member?(key.to_s) ? try("with_#{key}_origin") : nil
+        end.compact
+        return self unless conditions.any?
+
+        scoped_query = where(id: conditions.shift)
+        conditions.each do |condition|
+          scoped_query = scoped_query.or(where(id: condition))
+        end
+
+        scoped_query
+      }
+
+      scope :coauthored_by, ->(author) { where.not(coauthorships_count: 0).from_all_author_identities(author) }
 
       validates :coauthorships, presence: true
 

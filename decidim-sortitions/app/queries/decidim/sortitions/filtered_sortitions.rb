@@ -3,7 +3,7 @@
 module Decidim
   module Sortitions
     # A class used to find sortitions filtered by components and a date range
-    class FilteredSortitions < Rectify::Query
+    class FilteredSortitions < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # components - An array of Decidim::Component

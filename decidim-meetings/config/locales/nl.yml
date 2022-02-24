@@ -85,20 +85,15 @@ nl:
             values:
               'false': Verleden
               'true': Toekomstige
-          origin_eq:
-            label: Herkomst
-            values:
-              citizen: Inwoners
-              official: Officieel
-              user_group: Gebruikersgroepen
           scope_id_eq:
             label: Scope
-          type_eq:
+          with_any_origin:
+            values:
+              user_group: Gebruikersgroepen
+          with_any_type:
             label: Type vergadering
             values:
-              hybrid: Beide
               in_person: Fysiek
-              online: Online
       meeting_copies:
         create:
           error: Er is een fout opgetreden tijdens het dupliceren van deze vergadering.
@@ -289,12 +284,10 @@ nl:
             update: Bijwerken
           form:
             address_help: 'Adres: gebruikt door Geocoder om de locatie te vinden'
-            available_slots_help: Laat op 0 staan als je onbeperkt aantal tijdsblokken beschikbaar hebt
             disclaimer: 'Disclaimer: Door gebruik te maken van een extern registratiesysteem, ben je op de hoogte dat de organisatoren van %{organization} niet verantwoordelijk zijn voor de gegevens die door gebruikers aan de externe dienst worden verstrekt.'
             location_help: 'Locatie: bericht gericht aan de gebruikers die de locatie op een vergadering plaatsen'
             location_hints_help: 'Locatie hints: aanvullende informatie. Bijvoorbeeld: de verdieping van het gebouw als het een fysieke vergadering is, of het vergaderwachtwoord als het een online vergadering is met beperkte toegang.'
             online_meeting_url_help: 'Link: laat deelnemers direct verbinding maken met je vergadering'
-            registration_email_help: Deze tekst verschijnt in het midden van de registratie bevestigingsmail, net na de registratiecode.
             registration_url_help: 'Link: verleen deelnemers toegang tot de externe dienst die je gebruikt voor registraties'
             select_a_meeting_type: Selecteer een vergaderingstype
             select_a_registration_type: Selecteer een registratietype
@@ -340,6 +333,7 @@ nl:
             available_slots_help: Laat het op 0 indien u onbeperkt beschikbare plaatsen hebt.
             invites: Uitnodigingen
             recommendation_message: Om privacyredenen raden we je aan dit inscriptformulier te verwijderen als je het niet meer nodig hebt. Standaard is dit 3 maanden na afloop van de vergadering.
+            registration_email_help: Deze tekst verschijnt in het midden van de registratie bevestigingsmail, net na de registratiecode.
             registration_form: Registratieformulier
             registrations_count:
               one: Er is %{count} registratie geweest.
@@ -443,8 +437,8 @@ nl:
           origin: Oorsprong
           origin_values:
             all: Allemaal
-            citizens: Burgers
             official: Officiële
+            participants: Deelnemers
             user_groups: Groepen
           scope: Bereik
           search: Zoeken

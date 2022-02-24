@@ -52,7 +52,7 @@ fr:
         target: Participants
         title: Titre
         twitter: Twitter
-        weight: Rang
+        weight: Rang d'affichage
         youtube: Youtube
       assembly_member:
         birthday: Date de naissance
@@ -63,7 +63,7 @@ fr:
         gender: Genre
         non_user_avatar: Avatar
         position: Statut
-        user_id: Utilisateur
+        user_id: Utilisateur ou groupe
       assembly_user_role:
         email: E-mail
         name: "Nom\n"
@@ -270,7 +270,7 @@ fr:
             duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
             filters: Filtres
             images: Images
-            included_at_help: Sélectionnez la date à laquelle cet assemblée a été ajoutée à Decidim. Elle ne doit pas nécessairement être identique à la date de création.
+            included_at_help: Sélectionnez la date à laquelle cet assemblée a été ajoutée à la plateforme. Elle ne doit pas nécessairement être identique à la date de création.
             metadata: Métadonnées
             other: Autre
             select_a_created_by: Sélectionnez un créateur
@@ -299,10 +299,10 @@ fr:
         assembly_members:
           form:
             existing_user: Utilisateur existant
-            explanation: 'Instruction concernant l’image:'
+            explanation: 'Instruction concernant l’image :'
             image_guide: De préférence une image en format portrait sans texte.
             non_user: Utilisateur inconnu
-            non_user_avatar_help: Vous devriez obtenir le consentement des personnes avant de les publier en tant que membre.
+            non_user_avatar_help: Vous devriez obtenir le consentement de l'utilisateur avant d'ajouter une image à son profil.
             select_a_position: Sélectionnez un statut
             select_user: Sélectionnez un utilisateur
             user_type: Type d'utilisateur

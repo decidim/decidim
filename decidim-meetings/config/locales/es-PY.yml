@@ -42,6 +42,10 @@ es-PY:
         type_of_meeting: Tipo
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Esta URL no puede ser incrustada en la página de encuentro o evento en directo
         meeting_agenda:
           attributes:
             base:
@@ -85,20 +89,20 @@ es-PY:
             values:
               'false': Pasados
               'true': Próximos
-          origin_eq:
-            label: Origen
-            values:
-              citizen: Ciudadanía
-              official: Oficial
-              user_group: Grupos
           scope_id_eq:
             label: Ámbito
-          type_eq:
+          with_any_origin:
+            label: Origen
+            values:
+              official: Oficial
+              participants: Participante
+              user_group: Grupos
+          with_any_type:
             label: Tipo de encuentro
             values:
               hybrid: Ambos
               in_person: Presencial
-              online: En línea
+              online: Online
       meeting_copies:
         create:
           error: Se ha producido un error al duplicar este encuentro.
@@ -278,6 +282,9 @@ es-PY:
           edit:
             close: Cerrar
             title: Cerrar encuentro
+        meeting_copies:
+          form:
+            select_a_meeting_type: Por favor, selecciona un tipo de encuentro
         meetings:
           close:
             invalid: Ha habido un problema al cerrar este encuentro
@@ -296,15 +303,15 @@ es-PY:
             update: Actualizar
           form:
             address_help: 'Dirección: usada por Geocoder para encontrar la ubicación'
-            available_slots_help: Déjalo a 0 si tienes espacio ilimitado disponible
             disclaimer: 'Descargo de responsabilidad: Mediante el uso de un sistema de inscripción externo, aceptas que los organizadores de %{organization} no son responsables de los datos proporcionados por los usuarios al servicio externo.'
             location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
             location_hints_help: 'Consejos de ubicación: información adicional. Ejemplo: la planta del edificio si se trata de un encuentro presencial, o la contraseña de la sala si se trata de un encuentro online con acceso restringido.'
             online_meeting_url_help: 'Enlace: permitir a las participantes conectarse directamente a tu encuentro'
-            registration_email_help: Este texto aparecerá en medio del correo de confirmación de inscripción. Justo después del código de inscripción.
             registration_url_help: 'Enlace: permitir a las participantes ir al servicio externo que estás utilizando para las inscripciones'
             select_a_meeting_type: Por favor, selecciona un tipo de encuentro
             select_a_registration_type: Por favor, seleccione un tipo de inscripción
+            select_an_iframe_access_level: Por favor, seleccione un nivel de acceso iframe
+            show_embedded_iframe_help: Solo unos pocos servicios se pueden incrustar en encuentros o eventos en directo (YouTube, Twitch y Jitsi)
           index:
             title: Encuentros
           new:
@@ -347,6 +354,7 @@ es-PY:
             available_slots_help: Déjalo a 0 si tiene inscripciones ilimitadas.
             invites: Invitaciones
             recommendation_message: Por razones de privacidad te recomendamos que elimines este formulario de inscripción cuando ya no lo necesites. Por defecto, esto es 3 meses después de que la reunión haya finalizado.
+            registration_email_help: Este texto aparecerá en medio del correo de confirmación de inscripción. Justo después del código de inscripción.
             registration_form: Formulario de inscripción
             registrations_count:
               one: Ha habido %{count} registro.
@@ -374,6 +382,13 @@ es-PY:
           value_types:
             organizer_presenter:
               not_found: 'El organizador no se encontró en la base de datos (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Todas
+        filter_meeting_space_values:
+          all: Todos
+        filter_scope_values:
+          all: Todos
       calendar_modal:
         calendar_url: URL del calendario
         close_window: Cerrar ventana
@@ -381,12 +396,23 @@ es-PY:
       conference_venues: Lugares de conferencia
       content_blocks:
         upcoming_meetings:
+          name: Próximos encuentros
+          upcoming_meetings: Próximos encuentros
           view_all_meetings: Ver todo
       directory:
         meetings:
           index:
             meetings: Reuniones
             space_type: Espacio participativo
+      iframe_access_level:
+        all: Todos los visitantes
+        registered: Participantes inscritas en este encuentro
+        signed_in: Sólo participantes registradas
+      iframe_embed_type:
+        embed_in_meeting_page: Incrustar en la página del encuentro
+        none: Ninguno
+        open_in_live_event_page: Abrir en la página del evento en directo (con encuestas opcionales)
+        open_in_new_tab: Abrir en nueva pestaña
       last_activity:
         meeting_updated_at_html: "<span>Encuentro actualizado a las %{link}</span>"
         new_meeting_at_html: "<span>Nueva reunión en %{link}</span>"
@@ -441,8 +467,8 @@ es-PY:
           origin: Origen
           origin_values:
             all: Todos
-            citizens: Ciudadanos
             official: Oficial
+            participants: Participantes
             user_groups: Grupos
           scope: Ámbito
           search: Buscar
@@ -469,8 +495,14 @@ es-PY:
           select_a_category: Por favor, selecciona una categoría
           select_a_meeting_type: Por favor, selecciona un tipo de encuentro
           select_a_registration_type: Por favor, selecciona un tipo de inscripción
+          select_an_iframe_access_level: Por favor, selecciona un nivel de acceso iframe
+          show_embedded_iframe_help: Solo unos pocos servicios se pueden incrustar en encuentros o eventos en directo (YouTube, Twitch y Jitsi)
         index:
+          click_here: Ver todos los encuentros
           new_meeting: Nuevo encuentro
+          see_all: Ver todos los encuentros
+          see_all_withdrawn: Ver todos los encuentros retirados
+          text_banner: Estás viendo la lista de encuentros retirados por sus autores. %{go_back_link}.
         meeting_minutes:
           related_information: Información relacionada
         meetings:
@@ -489,6 +521,7 @@ es-PY:
           close_meeting: Cerrar encuentro
           contributions: Número de contribuciones
           date: Fecha
+          edit_close_meeting: Editar informe del encuentro
           edit_meeting: Editar el encuentro
           going: Te has inscrito en este encuentro
           join: Inscribirse al encuentro
@@ -510,6 +543,9 @@ es-PY:
             other: "%{count} ranuras restantes"
           view: Ver
           visit_finished: Ver encuentro pasado
+          withdraw_btn_hint: Puedes retirar tu encuentro si cambias de opinión. El encuentro no será eliminado, aparecerá en la lista de encuentros retirados.
+          withdraw_confirmation_html: '¿Seguro que quieres retirar este encuentro?<br><br><strong>¡Esta acción no se puede cancelar!</strong>'
+          withdraw_meeting: Retirar encuentro
         update:
           invalid: Se ha producido un error al actualizar este encuentro.
           success: Has actualizado el encuentro con éxito.
@@ -587,8 +623,12 @@ es-PY:
       types:
         private_meeting: Encuentro privado
         transparent: Transparente
+        withdraw: Retirado
       versions:
         back_to_resource: Volver al encuentro
+      withdraw:
+        error: Se ha producido un error al retirar el encuentro
+        success: El encuentro se ha retirado con éxito
     metrics:
       meetings:
         description: Número de reuniones creadas

@@ -3,7 +3,7 @@
 module Decidim
   module System
     # Updates the OAuth application given form data.
-    class UpdateOAuthApplication < Rectify::Command
+    class UpdateOAuthApplication < Decidim::Command
       # Initializes the command.
       #
       # application - The OAuthApplication to update.

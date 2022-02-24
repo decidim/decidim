@@ -21,6 +21,8 @@ module Decidim
     include Decidim::Searchable
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
+    include Decidim::HasArea
+    include Decidim::FilterableResource
 
     translatable_fields :title, :subtitle, :short_description, :description, :developer_group, :meta_scope, :local_area,
                         :target, :participatory_scope, :participatory_structure, :announcement
@@ -28,10 +30,6 @@ module Decidim
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
-    belongs_to :area,
-               foreign_key: "decidim_area_id",
-               class_name: "Decidim::Area",
-               optional: true
     belongs_to :participatory_process_group,
                foreign_key: "decidim_participatory_process_group_id",
                class_name: "Decidim::ParticipatoryProcessGroup",
@@ -75,6 +73,29 @@ module Decidim
     scope :past, -> { where(arel_table[:end_date].lt(Date.current)) }
     scope :upcoming, -> { where(arel_table[:start_date].gt(Date.current)) }
     scope :active, -> { where(arel_table[:start_date].lteq(Date.current).and(arel_table[:end_date].gteq(Date.current).or(arel_table[:end_date].eq(nil)))) }
+
+    scope :with_date, lambda { |date_key|
+      case date_key
+      when "active"
+        active.order(start_date: :desc)
+      when "past"
+        past.order(end_date: :desc)
+      when "upcoming"
+        upcoming.order(start_date: :asc)
+      else # Assume 'all'
+        timezone = ActiveSupport::TimeZone.find_tzinfo(Time.zone.name).identifier
+        order(
+          Arel.sql(
+            sanitize_sql_array(
+              [
+                "ABS(start_date - (CURRENT_DATE at time zone :timezone)::date)",
+                { timezone: timezone }
+              ]
+            )
+          )
+        )
+      end
+    }
 
     searchable_fields({
                         scope_id: :decidim_scope_id,
@@ -177,8 +198,10 @@ module Decidim
     end
 
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
-    ransacker :title do |parent|
-      Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
+    ransacker_i18n :title
+
+    def self.ransackable_scopes(_auth_object = nil)
+      [:with_date, :with_area, :with_scope]
     end
   end
 end

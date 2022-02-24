@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when updating an existing participatory
       # consultation in the system.
-      class UpdateConsultation < Rectify::Command
+      class UpdateConsultation < Decidim::Command
         include ::Decidim::AttachmentAttributesMethods
 
         # Public: Initializes the command.

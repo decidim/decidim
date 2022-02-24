@@ -4,7 +4,7 @@ module Decidim
   module Meetings
     # This command is executed when the user changes a Meeting from the admin
     # panel.
-    class UpdateMeeting < Rectify::Command
+    class UpdateMeeting < Decidim::Command
       # Initializes a UpdateMeeting Command.
       #
       # form - The form from which to get the data.

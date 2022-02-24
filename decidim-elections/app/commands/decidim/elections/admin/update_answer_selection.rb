@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when an admin marks an answer
       # as selected.
-      class UpdateAnswerSelection < Rectify::Command
+      class UpdateAnswerSelection < Decidim::Command
         def initialize(answer, selected)
           @answer = answer
           @selected = selected

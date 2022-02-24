@@ -6,7 +6,7 @@ module Decidim
       module Admin
         # A command with the business logic to create increment the dataset
         # processed rows and change the state when the last is processed
-        class IncrementDatasetProcessedRows < Rectify::Command
+        class IncrementDatasetProcessedRows < Decidim::Command
           def initialize(dataset)
             @dataset = dataset
           end

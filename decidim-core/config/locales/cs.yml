@@ -149,7 +149,7 @@ cs:
         error: Při mazání účtu došlo k chybě.
         success: Účet byl úspěšně smazán.
       show:
-        available_locales_helper: Vyberte jazyk, který chcete použít k procházení a přijímání oznámení v Decidim
+        available_locales_helper: Vyberte jazyk, který chcete použít k procházení a přijímání oznámení na platformě
         change_password: Změnit heslo
         update_account: Aktualizovat účet
       update:
@@ -1033,6 +1033,7 @@ cs:
           next: Další
           no_conversations: Nemáte zatím žádné konverzace
           title: Konverzace
+          to: Komu
         reply:
           placeholder: Vaše odpověď...
           send: Poslat
@@ -1133,6 +1134,10 @@ cs:
       update:
         error: Při aktualizaci nastavení oznámení došlo k chybě.
         success: Nastavení oznámení bylo úspěšně aktualizováno.
+    offline:
+      show:
+        message: Vypadá to, že jste v režimu offline. Zkuste to prosím později.
+        retry: Zkusit znovu
     open_data:
       not_available_yet: Soubory Open Data nejsou dosud k dispozici. Zkuste to prosím znovu za pár minut.
     own_user_groups:
@@ -1431,6 +1436,7 @@ cs:
       notify:
         body_1: Uživatel %{user} byl nahlášen od %{token}
         body_2: 'Důvod: %{reason}'
+        details: Podrobnosti poskytnuté uživatelem
         greetings: Zdravíme<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Dobrý den %{admin},
         subject: Nový uživatel byl nahlášen v %{organization_name}
@@ -1682,6 +1688,8 @@ cs:
       notifications_dashboard:
         mark_all_as_read: Označit vše jako přečtené
         mark_as_read: Označit jako přečtené
+      offline_banner:
+        cache_version_page: Jejda! Vaše síť je offline. Toto je dříve uložená verze stránky, kterou navštívíte, možná není aktualizovaná.
       social_media_links:
         facebook: "%{organization} na Facebooku"
         github: "%{organization} na GitHubu"

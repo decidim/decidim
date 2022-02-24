@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A command with all the business logic when updating an area.
-    class UpdateArea < Rectify::Command
+    class UpdateArea < Decidim::Command
       # Public: Initializes the command.
       #
       # area - The Area to update

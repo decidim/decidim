@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when updating an existing
       # voting in the system.
-      class UpdateVoting < Rectify::Command
+      class UpdateVoting < Decidim::Command
         include ::Decidim::AttachmentAttributesMethods
 
         # Public: Initializes the command.

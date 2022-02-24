@@ -539,7 +539,6 @@ pt-BR:
           all: Todos
         filter_origin_values:
           all: Todos
-          citizens: Cidadãos
           meetings: Reuniões
           official: Oficial
           user_groups: Grupos de usuários

@@ -3,7 +3,7 @@
 module Decidim
   module Forms
     # This command is executed when the user answers a Questionnaire.
-    class AnswerQuestionnaire < Rectify::Command
+    class AnswerQuestionnaire < Decidim::Command
       include ::Decidim::MultipleAttachmentsMethods
 
       # Initializes a AnswerQuestionnaire Command.

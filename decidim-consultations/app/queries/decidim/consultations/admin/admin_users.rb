@@ -4,7 +4,7 @@ module Decidim
   module Consultations
     module Admin
       # A class used to find the admins for a consultation or an organization consultations.
-      class AdminUsers < Rectify::Query
+      class AdminUsers < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         #
         # consultation - a consultation that needs to find its consultation admins

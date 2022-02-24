@@ -124,7 +124,6 @@ nl:
         error: Er is een fout opgetreden bij het verwijderen van uw account.
         success: Uw account is succesvol verwijderd.
       show:
-        available_locales_helper: Kies de taal die je wil gebruiken om te surfen en om meldingen te ontvangen in Decidim
         change_password: Wachtwoord wijzigen
         update_account: Account bijwerken
       update:
@@ -1074,6 +1073,10 @@ nl:
       update:
         error: Er is een fout opgetreden bij het bijwerken van uw notificatie instellingen.
         success: Uw notificatie instellingen zijn bijgewerkt.
+    offline:
+      show:
+        message: Het lijkt erop dat je momenteel offline bent. Probeer het later opnieuw.
+        retry: Probeer opnieuw
     open_data:
       not_available_yet: De Open Data-bestanden zijn nog niet beschikbaar. Probeer het over een paar minuten opnieuw.
     own_user_groups:
@@ -1593,6 +1596,8 @@ nl:
       notifications_dashboard:
         mark_all_as_read: Alles als gelezen markeren
         mark_as_read: Markeren als gelezen
+      offline_banner:
+        cache_version_page: Oeps! Je netwerk is offline. Dit is een eerdere gecachete versie van de pagina die je bezoekt, misschien is de inhoud niet up-to-date.
       social_media_links:
         facebook: "%{organization} op Facebook"
         github: "%{organization} op GitHub"

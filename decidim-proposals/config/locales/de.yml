@@ -539,7 +539,6 @@ de:
           all: Alle
         filter_origin_values:
           all: Alle
-          citizens: Einzelpersonen
           meetings: Meetings
           official: Offiziell
           user_groups: Benutzergruppen

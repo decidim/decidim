@@ -438,9 +438,9 @@ cs:
         filters:
           active: Aktivní
           all: Vše
+          date: Datum
           finished: Dokončeno
           search: Hledat
-          state: Stav
           upcoming: Nadcházející
         filters_small_view:
           close_modal: Zavřít okno
@@ -600,15 +600,15 @@ cs:
               generate_legend_3: Ujistěte se, že váš počítač nemá kopii souboru (např. zkontrolujte složky Stahování a plocha).
               generate_legend_4: Vytvořit další kopii souboru na jiném externím zařízení a uložit jej na velmi bezpečném místě.
               submit: Odeslat
-              submit_legend: Po splnění všech výše uvedených kroků dokončete proces odesílání veřejného identifikačního klíče na server Decidim.
+              submit_legend: Po splnění všech výše uvedených kroků dokončete proces odesílání veřejného identifikačního klíče na server.
               submit_title: Odeslat veřejný identifikační klíč
               title: Identifikační klíče důvěrníka
               upload: Nahrajte své identifikační klíče
               upload_error:
                 invalid_format: Nahraný soubor neobsahuje žádný identifikační klíč.
                 invalid_key: Identifikační klíče v nahraném souboru nelze načíst.
-                invalid_public_key: Identifikační klíče v nahraném souboru neodpovídají veřejnému identifikačnímu klíči uloženému v Decidim.
-              upload_legend: Decidim má vaše veřejné identifikační klíče, ale váš prohlížeč jej stále nemá. Je třeba importovat soubor s identifikačními klíči do počítače ze zálohy, kterou jste vytvořili po jejich vygenerování.
+                invalid_public_key: Identifikační klíče v nahraném souboru neodpovídají uloženému veřejnému identifikačnímu klíči.
+              upload_legend: Server má vaše veřejné identifikační klíče, ale váš prohlížeč jej stále nemá. Je třeba importovat soubor s identifikačními klíči do počítače ze zálohy, kterou jste vytvořili po jejich vygenerování.
             not_supported_browser_description: Vypadá to, že používáte webový prohlížeč, který nelze použít jako správce. Ujistěte se, že používáte nejnovější verzi prohlížeče, nebo zkuste použít některý z nejpopulárnějších prohlížečů, abyste mohli dokončit své úkoly správce.
             not_supported_browser_title: Upgradujte prohlížeč abyste mohl fungovat jako důvěrník
             trustee_role_description: Byl jste pověřen, abyste v některých volbách, které na této platformě probíhají, jednal jako důvěrník.
@@ -675,9 +675,9 @@ cs:
         onboarding_modal:
           close: Zavřít okno
           create_account: Vytvořit účet
-          description: Chcete si vytvořit nový účet v Decidimu? Budete se moci účastnit procesů a být aktivní součástí organizace.
+          description: Chcete vytvořit nový účet na platformě? Budete se moci účastnit procesů a být aktivní součástí organizace.
           no_account: Ne, děkuji.
-          title: Jste v Decidim poprvé?
+          title: Jste na platformě nový?
         update:
           error: Při aktualizaci statusu hlasování se vyskytl problém. Prosím, hlasujte znovu.
         verify:
@@ -688,7 +688,7 @@ cs:
             header: Hlasování nenalezeno!
             info: Kód hlasu nebyl nalezen v %{link} volebních urnám, zkuste to znovu.
           form:
-            back: Zpět na Deidim
+            back: Zpět na platformu
             submit: Ověřit
             vote_identifier: 'Identifikační kód:'
           header:
@@ -1005,7 +1005,7 @@ cs:
             assign_missing_officers: Existují volební místnosti bez předsedy a/nebo manažerů. Prosím, přiřaďte je ze sekce volebních místností
             update: Aktualizovat
           form:
-            census_contact_information_help: Tato kontaktní informace je určena pro účastníka, který chce nahlásit problémy se sčítáním. Může to být e-mailová adresa, kontaktní formulář na jiné stránce, anketa Decidim pro návštěvníky, atd.
+            census_contact_information_help: Tato kontaktní informace je určena pro účastníka, který chce nahlásit problémy se sčítáním. Může to být e-mailová adresa, kontaktní formulář na jiné stránce, průzkum pro návštěvníky atd.
             select_a_voting_type: Vyberte prosím typ hlasování
             slug_help: 'URL slugů se používají k generování URL, které odkazují na toto hlasování. přijímá pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
             title: Název
@@ -1330,9 +1330,9 @@ cs:
         filters:
           active: Aktivní
           all: Vše
+          date: Datum
           finished: Dokončeno
           search: Hledat
-          state: Stav
           upcoming: Nadcházející
         filters_small_view:
           close_modal: Zavřít modal

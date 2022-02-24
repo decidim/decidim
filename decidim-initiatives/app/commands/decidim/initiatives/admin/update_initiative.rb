@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic that updates an
       # existing initiative.
-      class UpdateInitiative < Rectify::Command
+      class UpdateInitiative < Decidim::Command
         include Decidim::Initiatives::AttachmentMethods
 
         # Public: Initializes the command.

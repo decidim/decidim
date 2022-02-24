@@ -253,6 +253,7 @@ es-MX:
             title: Elección creada
             trustees: Garantes
           key_ceremony:
+            continue: Continuar
             title: Ceremonia de claves
           key_ceremony_ended:
             errors:
@@ -273,7 +274,14 @@ es-MX:
             submit: Enviar
             title: Resultados publicados
           tally:
+            continue: Continuar
+            invalid: Hubo un problema al reportar al garante ausente
+            mark_as_missing: Marcar como ausente
+            mark_as_missing_description: Todos los garantes deberían participar en este proceso, pero si uno de ellos no puede tomar parte en él, puedes marcarlo como ausente.
+            success: El reporte del garante que falta fue enviado con éxito al Bulletin Board
+            tally_completion: El proceso se completará cuando todos los garantes estén activos o marcados como ausentes. Se requiere al menos %{quorum} garantes para completar el proceso.
             title: Proceso de recuento
+            undo_mark_as_missing: Un garante marcado como ausente por error podrá participar antes de completar el proceso. Pueden proceder como de costumbre y la marca de ausente será ignorada.
           tally_ended:
             answer: Respuesta
             not_selected: No seleccionado
@@ -324,6 +332,22 @@ es-MX:
           update:
             invalid: Se ha producido un error al actualizar el garante %{trustee}
             success: El garante %{trustee} se ha actualizado correctamente
+      admin_log:
+        election:
+          create: "%{user_name} creó la elección %{resource_name} de %{space_name}"
+          delete: "%{user_name} eliminó la elección %{resource_name} de %{space_name}"
+          end_vote: "%{user_name} terminó el período de votación para la elección %{resource_name} de %{space_name} en el Bulletin Board"
+          publish: "%{user_name} publicó la elección %{resource_name} de %{space_name}"
+          publish_results: "%{user_name} publicó los resultados para la elección %{resource_name} de %{space_name} en el Bulletin Board"
+          report_missing_trustee: "%{user_name} reportó a %{trustee_name} como garante ausente durante el recuento de la elección %{resource_name} de %{space_name} en el Bulletin Board"
+          setup: "%{user_name} creó la elección %{resource_name} de %{space_name} en el Bulletin Board"
+          start_key_ceremony: "%{user_name} comenzó la ceremonia claves para la elección %{resource_name} de %{space_name} en el Bulletin Board"
+          start_tally: "%{user_name} comenzó el recuento de la elección %{resource_name} de %{space_name} en el Bulletin Board"
+          start_vote: "%{user_name} comenzó el período de votación para la elección %{resource_name} de %{space_name} en el Bulletin Board"
+          unpublish: "%{user_name} ha despublicado el %{resource_name} de la elección de %{space_name}"
+          update: "%{user_name} actualizó la elección %{resource_name} de %{space_name}"
+        trustee:
+          create: "%{user_name} asignó al usuario %{trustee_user} como garante"
       election_m:
         badge_name:
           finished: Finalizada
@@ -394,9 +418,9 @@ es-MX:
         filters:
           active: Activas
           all: Todas
+          date: Fecha
           finished: Finalizadas
           search: Buscar
-          state: Estado
           upcoming: Próximas
         filters_small_view:
           close_modal: Cerrar el modal
@@ -554,15 +578,15 @@ es-MX:
               generate_legend_3: Asegúrate de que tu equipo no tenga una copia del archivo (por ejemplo, comprueba las carpetas de Descargas y Escritorio).
               generate_legend_4: Haz otra copia del archivo en un dispositivo externo diferente y guárdalo en un lugar muy seguro.
               submit: Enviar
-              submit_legend: Después de seguir todos los pasos explicados anteriormente, completa el proceso enviando la clave de identificación pública al servidor de Decidim.
+              submit_legend: Después de seguir todos los pasos explicados anteriormente, completa el proceso enviando la clave de identificación pública al servidor.
               submit_title: Enviar la clave pública de identificación
               title: Claves de identificación del garante
               upload: Sube tus claves de identificación
               upload_error:
                 invalid_format: El archivo subido no contiene ninguna clave de identificación.
                 invalid_key: Las claves de identificación en el archivo subido no se pueden cargar.
-                invalid_public_key: Las claves de identificación en el archivo subido no coinciden con la clave de identificación pública almacenada por Decidim.
-              upload_legend: Decidim tiene tus claves públicas de identificación, pero tu navegador todavía no las tiene. Necesitas importar el archivo con tus claves de identificación a tu ordenador desde la copia de seguridad que creaste después de generarlas.
+                invalid_public_key: Las claves de identificación en el archivo subido no coinciden con la clave pública de identificación almacenada.
+              upload_legend: El servidor tiene sus claves públicas de identificación, pero su navegador todavía no las tiene. Necesitas importar el archivo con tus claves de identificación a tu ordenador desde la copia de seguridad que creaste después de generarlas.
             not_supported_browser_description: Parece que estás usando un navegador que no puede ser utilizado para actuar como garante. Asegúrate de que estás usando la versión más reciente de tu navegador, o intenta usar cualquiera de los navegadores más populares para poder completar tus tareas como garante.
             not_supported_browser_title: Actualiza el navegador para actuar como garante
             trustee_role_description: Se le ha asignado como garante en algunas de las elecciones celebradas en esta plataforma.
@@ -629,9 +653,9 @@ es-MX:
         onboarding_modal:
           close: Cerrar modal
           create_account: Crear Cuenta
-          description: '¿Quieres crear una nueva cuenta en Decidim? Así participarás en los procesos y ser parte activa de la organización.'
+          description: '¿Quieres crear una nueva cuenta en la plataforma? Podrás participar en los procesos y ser parte activa de la organización.'
           no_account: No, gracias.
-          title: '¿Es tu primera vez en Decidim?'
+          title: '¿Eres nueva en la plataforma?'
         update:
           error: Ha habido un problema al actualizar el estado del voto. Vuelve a intentarlo.
         verify:
@@ -642,7 +666,7 @@ es-MX:
             header: Voto no encontrado!
             info: El código de voto no se ha encontrado en la urna de %{link}, inténtelo de nuevo.
           form:
-            back: Volver a Decidim
+            back: Volver a la plataforma
             submit: Comprobar
             vote_identifier: 'Código identificador:'
           header:
@@ -959,7 +983,7 @@ es-MX:
             assign_missing_officers: Hay puntos de votación sin presidente y/o administradores. Asígnalos desde la sección de puntos de votación
             update: Actualizar
           form:
-            census_contact_information_help: Esta información de contacto es para una participante que quiere reportar problemas con el censo. Puede ser una dirección de correo electrónico, un formulario de contacto en otro sitio, una encuesta de Decidim para visitantes, etc.
+            census_contact_information_help: Esta información de contacto es para una participante que quiere reportar problemas con el censo. Puede ser una dirección de correo electrónico, un formulario de contacto en otro sitio, una encuesta para visitantes, etc.
             select_a_voting_type: Por favor, selecciona un tipo de votación
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta votación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Título
@@ -978,6 +1002,24 @@ es-MX:
             invalid: Hubo un problema al actualizar esta votación
             success: Votación actualizada correctamente
       admin_log:
+        ballot_style:
+          create: "%{user_name} creó un estilo de papeleta con código %{ballot_style_code} en el espacio %{space_name}"
+          delete: "%{user_name} eliminó el estilo de la papeleta con el código %{ballot_style_code} en el espacio %{space_name}"
+          update: "%{user_name} actualizó el estilo de la papeleta con el código %{ballot_style_code} en el espacio %{space_name}"
+        census:
+          create: "%{user_name} creó el censo para el espacio %{space_name}"
+          delete: "%{user_name} eliminó el censo del espacio %{space_name}"
+          update: "%{user_name} actualizó el censo del espacio %{space_name}"
+        monitoring_committee_member:
+          create: "%{user_name} asignó al usuario %{monitoring_committee_member_user} como miembro del comité de seguimiento en el espacio %{space_name}"
+          delete: "%{user_name} desasignó el usuario %{monitoring_committee_member_user} como miembro del comité de seguimiento en el espacio %{space_name}"
+        polling_officer:
+          create: "%{user_name} asignó al usuario %{polling_officer_user} como gestor de mesa en el espacio %{space_name}"
+          delete: "%{user_name} desasignó al usuario %{polling_officer_user} como gestor de mesa en el espacio %{space_name}"
+        polling_station:
+          create: "%{user_name} creó el punto de votación %{resource_name} en el espacio %{space_name}"
+          delete: "%{user_name} eliminó el punto de votación %{resource_name} en el espacio %{space_name}"
+          update: "%{user_name} actualizó el punto de votación %{resource_name} en el espacio %{space_name}"
         voting:
           create: "%{user_name} creó la votación %{resource_name}"
           publish: "%{user_name} publicó la votación %{resource_name}"
@@ -987,6 +1029,7 @@ es-MX:
           census:
             create:
               invalid: Se ha producido un error al subir el censo, por favor inténtalo de nuevo más tarde.
+              invalid_csv_header: Los encabezados CSV faltan o no son correctos - por favor lee las instrucciones cuidadosamente
             creating_data:
               info_message: "<strong>Por favor espera</strong>, procesadas %{processed_count} de %{raw_count} filas del fichero %{file}."
             delete:
@@ -1263,9 +1306,9 @@ es-MX:
         filters:
           active: Activas
           all: Todas
+          date: Fecha
           finished: Finalizadas
           search: Buscar
-          state: Estado
           upcoming: Próximas
         filters_small_view:
           close_modal: Cerrar ventana

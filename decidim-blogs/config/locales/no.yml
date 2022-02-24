@@ -15,6 +15,7 @@
         edit: Editar
         new: Nytt innlegg
         title: Handlinger
+        user_group_id: Opprett innlegg som
       admin:
         models:
           components:
@@ -29,6 +30,7 @@
             success: Innlegget ble slettet
           edit:
             save: Oppdater
+            title: Rediger innlegg
           index:
             title: Innlegg
           new:
@@ -57,6 +59,10 @@
       read_more: Les mer
     components:
       blogs:
+        actions:
+          create: Opprett
+          destroy: Slett
+          update: Oppdater
         name: Blogg
         settings:
           global:
@@ -75,3 +81,5 @@
           email_outro: Du har mottatt denne varslingen fordi du følger "%{participatory_space_title}". Du kan slutte å følge den fra den forrige lenken.
           email_subject: Nytt innlegg publisert i %{participatory_space_title}
           notification_title: Innlegget <a href="%{resource_path}">%{resource_title}</a> er blitt publisert til %{participatory_space_title}
+    statistics:
+      posts_count: Innlegg

@@ -72,6 +72,13 @@ describe "Private Participatory Processes", type: :system do
             expect(page).to have_selector(".card", count: 2)
           end
         end
+
+        it "shows the privacy warning in attachments admin" do
+          visit decidim_admin_participatory_processes.participatory_process_attachments_path(private_participatory_process)
+          within "#attachments" do
+            expect(page).to have_content("Any participant could share this document to others")
+          end
+        end
       end
     end
 

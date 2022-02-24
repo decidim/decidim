@@ -225,6 +225,9 @@ gl:
           edit:
             close: Pechar
             title: Pechar reunión
+        meeting_copies:
+          form:
+            select_a_meeting_type: Por favor, selecciona un tipo de xuntanza
         meetings:
           close:
             invalid: Produciuse un problema ao pechar esta reunión
@@ -235,8 +238,6 @@ gl:
             success: Reunión eliminada correctamente
           edit:
             update: Actualización
-          form:
-            registration_email_help: Este texto aparecerá no medio do correo de confirmación do rexistro, xusto despois do código de rexistro.
           index:
             title: Reunións
           new:
@@ -266,6 +267,7 @@ gl:
           form:
             available_slots_help: Déixao a 0 se ten slots ilimitados dispoñibles.
             invites: Invitacións
+            registration_email_help: Este texto aparecerá no medio do correo de confirmación do rexistro, xusto despois do código de rexistro.
             registration_form: Formulario de inscrición
             registrations_count:
               one: Houbo un rexistro de %{count}.
@@ -346,12 +348,16 @@ gl:
         filters:
           category: Categoría
           date: Data
+          origin_values:
+            participants: Participantes
           search: Busca
         filters_small_view:
           close_modal: Pechar modal
           filter: Filtro
           filter_by: Filtrar por
           unfold: Despregar
+        form:
+          select_an_iframe_access_level: Por favor, selecciona o nivel de acceso ao iframe
         index:
           click_here: Ver todas as xuntanzas
           see_all: Ver todas as xuntanzas

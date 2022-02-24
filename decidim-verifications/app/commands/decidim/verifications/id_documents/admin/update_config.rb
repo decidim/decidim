@@ -4,7 +4,7 @@ module Decidim
   module Verifications
     module IdDocuments
       module Admin
-        class UpdateConfig < Rectify::Command
+        class UpdateConfig < Decidim::Command
           def initialize(form)
             @form = form
           end

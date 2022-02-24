@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when destroying an conference
       # admin in the system.
-      class DestroyConferenceAdmin < Rectify::Command
+      class DestroyConferenceAdmin < Decidim::Command
         # Public: Initializes the command.
         #
         # role - the ConferenceUserRole to destroy

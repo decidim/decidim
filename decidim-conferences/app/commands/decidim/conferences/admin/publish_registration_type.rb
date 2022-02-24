@@ -4,7 +4,7 @@ module Decidim
   module Conferences
     module Admin
       # This command gets called when a registration_type is published from the admin panel.
-      class PublishRegistrationType < Rectify::Command
+      class PublishRegistrationType < Decidim::Command
         # Public: Initializes the command.
         #
         # registration_type - The registration_type to publish.

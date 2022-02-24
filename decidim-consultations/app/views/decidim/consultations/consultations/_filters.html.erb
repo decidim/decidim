@@ -4,7 +4,7 @@
   <div class="filters__section">
     <div class="filters__search">
       <div class="input-group">
-        <%= form.search_field :search_text,
+        <%= form.search_field :search_text_cont,
                               label: false,
                               class: "input-group-field",
                               placeholder: t("consultations.filters.search", scope: "decidim"),
@@ -20,11 +20,11 @@
     </div>
   </div>
 
-  <%= form.collection_radio_buttons :state,
-                                    options_for_state_filter,
+  <%= form.collection_radio_buttons :with_any_date,
+                                    options_for_date_filter,
                                     :first,
                                     :last,
-                                    { legend_title: t("consultations.filters.state", scope: "decidim") },
+                                    { legend_title: t("consultations.filters.date", scope: "decidim") },
                                     "aria-controls": "consultations" %>
 
   <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>

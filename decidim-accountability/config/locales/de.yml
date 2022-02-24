@@ -204,6 +204,8 @@ de:
             label: Status
     components:
       accountability:
+        actions:
+          comment: Kommentar
         name: Rechenschaftspflicht
         settings:
           global:

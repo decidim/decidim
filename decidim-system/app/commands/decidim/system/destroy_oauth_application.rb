@@ -3,7 +3,7 @@
 module Decidim
   module System
     # This command deals with destroying an application from the admin panel.
-    class DestroyOAuthApplication < Rectify::Command
+    class DestroyOAuthApplication < Decidim::Command
       # Public: Initializes the command.
       #
       # application - The OAuthApplication to be destroyed.

@@ -39,7 +39,7 @@ fr:
           error: Une erreur s'est produite lors du vote sur le commentaire.
     components:
       add_comment_form:
-        account_message: Pour ajouter votre commentaire <a href="%{sign_in_url}"> connectez-vous avec votre compte</a> ou <a href="%{sign_up_url}">inscrivez-vous</a>.
+        account_message: Pour ajouter votre commentaire <a href="%{sign_in_url}"> identifiez-vous avec votre compte</a> ou <a href="%{sign_up_url}">créez un compte</a>.
         form:
           body:
             label: Commentaire
@@ -49,13 +49,13 @@ fr:
           user_group_id:
             label: Commenter en tant que
         opinion:
-          label: Votre avis sur ce sujet
+          label: Que pensez-vous de cela ?
           negative: Négatif
-          negative_selected: Votre avis sur ce sujet est négatif
+          negative_selected: Votre opinion sur ce sujet est négative
           neutral: Neutre
-          neutral_selected: Votre avis sur ce sujet est neutre
+          neutral_selected: Votre opinion sur ce sujet est neutre
           positive: Positif
-          positive_selected: Votre avis sur ce sujet est positif
+          positive_selected: Votre opinion sur ce sujet est positive
         remaining_characters: "%{count} caractères restants"
         remaining_characters_1: "%{count} caractère restant"
         title: Ajoutez votre commentaire
@@ -63,13 +63,14 @@ fr:
         alignment:
           against: Contre
           in_favor: Pour
-        confirm_destroy: Êtes-vous sûr de vouloir supprimer ce commentaire?
+        confirm_destroy: Êtes-vous sûr de vouloir supprimer ce commentaire ?
         delete: Supprimer
         deleted_at: Commentaire supprimé le %{date}
         deleted_user: Utilisateur supprimé
         edit: Modifier
         edited: Modifié
         hide_replies: Cacher les réponses
+        moderated_at: Commentaire modéré le %{date}
         reply: Répondre
         report:
           action: Signaler
@@ -94,7 +95,7 @@ fr:
       comment_thread:
         title: Conversation avec %{authorName}
       comments:
-        blocked_comments_for_unauthorized_user_warning: Vous devez valider votre inscription pour commenter maintenant, mais vous pouvez lire les commentaires précédents.
+        blocked_comments_for_unauthorized_user_warning: Vous devez faire vérifier votre compte pour commenter, mais vous pouvez lire les commentaires précédents.
         blocked_comments_for_user_warning: Vous n'êtes pas en mesure de commenter pour le moment, mais vous pouvez lire les précédents.
         blocked_comments_warning: Les commentaires sont actuellement désactivés, mais vous pouvez lire ceux déjà saisis.
         comment_details_title: Détails du commentaire
@@ -111,7 +112,7 @@ fr:
         form:
           body:
             label: Commentaire
-            placeholder: Que pensez-vous de cela?
+            placeholder: Que pensez-vous de cela ?
           submit: Envoyer
         title: Modifier votre commentaire
       up_vote_button:

@@ -125,7 +125,7 @@ fr-CA:
         error: Une erreur s'est produite lors de la suppression de votre compte.
         success: Votre compte a été supprimé avec succès.
       show:
-        available_locales_helper: Choisissez la langue que vous souhaitez utiliser pour naviguer et recevoir des notifications dans Decidim
+        available_locales_helper: Choisissez la langue que vous souhaitez utiliser pour naviguer et recevoir des notifications sur la plateforme
         change_password: Changer de mot de passe
         update_account: Mettre à jour votre compte
       update:
@@ -990,6 +990,7 @@ fr-CA:
           next: Suivant
           no_conversations: Vous n'avez encore aucune conversation
           title: Conversations
+          to: À
         reply:
           placeholder: Votre réponse...
           send: Envoyer
@@ -1065,6 +1066,12 @@ fr-CA:
         greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Bonjour,
         subject: Voulez-vous continuer à recevoir des informations pertinentes sur %{organization_name} ?
+    notification_mailer:
+      event_received:
+        no_translation_available: Désolé, la traduction automatique n'a pas pu être récupérée lorsque l'e-mail a été envoyé. Vous pouvez voir la traduction du texte original sur le lien suivant %{link}.
+        original_text: 'Texte original :'
+        same_language: Le contenu a été publié dans votre langue préférée (%{language}), c'est pourquoi aucune traduction automatique n'est affichée dans cet e-mail.
+        translated_text: 'Traduction automatique du texte :'
     notifications:
       no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
@@ -1084,6 +1091,10 @@ fr-CA:
       update:
         error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.
         success: Vos paramètres de notifications ont été mis à jour avec succès.
+    offline:
+      show:
+        message: On dirait que vous êtes actuellement hors ligne. Veuillez réessayer plus tard.
+        retry: Réessayer
     open_data:
       not_available_yet: Les fichiers Open Data ne sont pas encore disponibles. Veuillez réessayer dans quelques minutes.
     own_user_groups:
@@ -1380,6 +1391,7 @@ fr-CA:
       notify:
         body_1: L'utilisateur %{user} a été signalé par %{token}
         body_2: 'Motif : %{reason}'
+        details: Détails fournis par l'utilisateur
         greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Bonjour %{admin},
         subject: Un nouvel utilisateur a été signalé dans %{organization_name}
@@ -1625,6 +1637,8 @@ fr-CA:
       notifications_dashboard:
         mark_all_as_read: Marquer tout comme lu
         mark_as_read: Marquer comme lu
+      offline_banner:
+        cache_version_page: Oups ! Votre réseau est hors ligne. Vous visitez actuellement une version précédemment mise en cache de la page, peut-être que son contenu n'est pas à jour.
       social_media_links:
         facebook: "%{organization} sur Facebook"
         github: "%{organization} sur GitHub"

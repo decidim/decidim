@@ -408,6 +408,7 @@ ca:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha sol·licitat formar part de la comissió promotora de la teva iniciativa <a href="%{resource_url}">%{resource_title}</a>. Per acceptar-ho o rebutjar-ho fes clic <a href="%{resource_url}/edit">aquí</a>.
       form:
         add_attachments: Documents
+        attachment_legend: "(Opcional) Afegir un fitxer adjunt"
         delete_attachment: Esborrar
       index:
         title: Iniciatives

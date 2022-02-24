@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user updates a trustee
       # status from the admin panel.
-      class UpdateTrusteeParticipatorySpace < Rectify::Command
+      class UpdateTrusteeParticipatorySpace < Decidim::Command
         # Public: Initializes the command.
         #
         # trustee_participatory_space - A trustee_participatory_space

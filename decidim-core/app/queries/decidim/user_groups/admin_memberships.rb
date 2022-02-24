@@ -4,7 +4,7 @@ module Decidim
   module UserGroups
     # Use this class to find the the admins of the given user group with the
     # "admin" role. It returns memberships.
-    class AdminMemberships < Rectify::Query
+    class AdminMemberships < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # user_group - a UserGroup that needs to find its admin users

@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     # A command with all the business logic that creates a new initiative.
-    class ApproveMembershipRequest < Rectify::Command
+    class ApproveMembershipRequest < Decidim::Command
       # Public: Initializes the command.
       #
       # membership_request - A pending committee member

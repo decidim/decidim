@@ -113,7 +113,7 @@ ja:
         error: アカウントの削除中に問題が発生しました。
         success: アカウントが正常に削除されました。
       show:
-        available_locales_helper: Decidimからの通知を閲覧および受信するために使用する言語を選択します
+        available_locales_helper: プラットフォーム上での通知と表示に使用する言語を選択してください
         change_password: パスワードの変更
         update_account: アカウントを更新
       update:
@@ -978,6 +978,7 @@ ja:
           next: 次へ
           no_conversations: 会話がまだありません
           title: 会話
+          to: 宛先
         reply:
           placeholder: あなたの返信...
           send: 送信
@@ -1078,6 +1079,10 @@ ja:
       update:
         error: 通知設定の更新中に問題が発生しました。
         success: 通知設定が正常に更新されました。
+    offline:
+      show:
+        message: 現在オフラインのようです。後でもう一度お試しください。
+        retry: 再試行
     open_data:
       not_available_yet: オープンデータファイルはまだ利用できません。数分後にもう一度お試しください。
     own_user_groups:
@@ -1373,6 +1378,7 @@ ja:
       notify:
         body_1: ユーザー %{user} が %{token} によって報告されました
         body_2: '理由: %{reason}'
+        details: ユーザーが提供した詳細
         greetings: ようこそ、<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: こんにちは、 %{admin} さん。
         subject: '%{organization_name} で新しいユーザーが報告されました'
@@ -1615,6 +1621,8 @@ ja:
       notifications_dashboard:
         mark_all_as_read: すべて既読にする
         mark_as_read: 既読にする
+      offline_banner:
+        cache_version_page: あなたのネットワークはオフラインです。以前にアクセスしたページのキャッシュされたバージョンを表示しています。コンテンツは最新ではないかもしれません。
       social_media_links:
         facebook: "Facebook の %{organization}"
         github: "GitHub の %{organization}"

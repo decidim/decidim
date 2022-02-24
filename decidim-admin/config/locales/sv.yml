@@ -173,7 +173,7 @@ sv:
         reject: Avvisa
         share: Dela
         user:
-          new: Ny användare
+          new: Ny admin
         verify: Kontrollera
       admin_terms_of_use:
         accept:
@@ -256,6 +256,8 @@ sv:
         update:
           error: Det gick inte att uppdatera bilagan.
           success: Bilagan har uppdaterats.
+      attachments_privacy_warning:
+        message: Var försiktig när du arbetar med bilagor i ett privat utrymme. En deltagare skulle kunna dela detta dokument utanför plattformen.
       autocomplete:
         no_results: Hittade inga resultat
         search_prompt: Sök genom att skriva minst tre tecken
@@ -338,7 +340,7 @@ sv:
       dashboard:
         show:
           view_more_logs: Visa fler loggar
-          welcome: Välkommen till Decidims administratörspanel.
+          welcome: Välkommen till Adminpanelen.
       domain_whitelist:
         form:
           domain_too_short: Domänen är för kort
@@ -352,7 +354,7 @@ sv:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Exporten pågår just nu. Du får ett e-brev när den är klar.
+        notice: Exporten pågår just nu. Du får ett e-post när den är klar.
       filters:
         category_id_eq:
           label: Kategori
@@ -367,6 +369,13 @@ sv:
           values:
             'false': 'Nej'
             'true': 'Ja'
+        moderated_users:
+          reports_reason_eq:
+            label: Grund till rapportering
+            values:
+              does_not_belong: Tillhör inte
+              offensive: Olämpligt
+              spam: Skräp
         moderations:
           reportable_type_string_eq:
             label: Typ
@@ -401,9 +410,11 @@ sv:
         search_label: Sök
         search_placeholder:
           name_or_nickname_or_email_cont: Sök i %{collection} efter e-post, namn eller smeknamn.
+          report_count_eq: Antal rapporteringar
           reported_id_string_or_reported_content_cont: Sök %{collection} efter anmälningsID eller innehåll.
           title_cont: Sök %{collection} efter titel.
           user_name_or_user_email_cont: Sök %{collection} efter namn eller e-post.
+          user_name_or_user_nickname_or_user_email_cont: Sök i %{collection} efter e-post, namn eller användarnamn.
         state_eq:
           label: Län
           values:
@@ -825,6 +836,14 @@ sv:
           explanation: 'Skicka in din CSV-fil. Den måste ha två kolumner över de användare som du vill lägga till deltagarutrymmet, utan rubriker, med e-postadressen i den första kolumnen i filen och namnet i den sista kolumnen i filen (e-post, namn). Undvik olämpliga karaktärer som `<>?%&^*#@()[]=+:;"{}\|` i användarnamn.'
           title: Skicka CSV-fil
           upload: Skicka
+      reminders:
+        create:
+          error: Det gick inte att skapa påminnelser.
+          success:
+            one: "%{count} användare kommer påminnas."
+            other: "%{count} användare kommer påminnas."
+        new:
+          submit: Skicka
       resource_permissions:
         edit:
           submit: Skicka in
@@ -942,7 +961,7 @@ sv:
         static_pages: Sidor
         statistics: Aktivitet
         user_groups: Grupper
-        users: Deltagare
+        users: Administratörer
       user_group:
         csv_verify:
           invalid: Det gick inte att läsa CSV-filen.
@@ -978,7 +997,7 @@ sv:
           role: Roll
         new:
           create: Bjud in
-          title: Bjud in användaren som administratör
+          title: Bjud in ny administratör
       users_statistics:
         users_count:
           admins: Administratörer

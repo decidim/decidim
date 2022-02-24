@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new participatory
       # assembly in the system.
-      class UpdateAssembly < Rectify::Command
+      class UpdateAssembly < Decidim::Command
         include ::Decidim::AttachmentAttributesMethods
 
         # Public: Initializes the command.

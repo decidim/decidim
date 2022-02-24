@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when copying a new participatory
       # process in the system.
-      class CopyParticipatoryProcess < Rectify::Command
+      class CopyParticipatoryProcess < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

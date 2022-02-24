@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A command to remove the admin privilege to an user.
-    class RemoveAdmin < Rectify::Command
+    class RemoveAdmin < Decidim::Command
       # Public: Initializes the command.
       #
       # user - the user that will no longer be an admin

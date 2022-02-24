@@ -3,7 +3,7 @@
 module Decidim
   module System
     # A command that will create default help pages for an organization.
-    class PopulateHelp < Rectify::Command
+    class PopulateHelp < Decidim::Command
       # Public: Initializes the command.
       #
       # organization - An organization

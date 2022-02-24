@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when an admin imports proposals from
       # a participatory text.
-      class ImportParticipatoryText < Rectify::Command
+      class ImportParticipatoryText < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

@@ -4,7 +4,7 @@ module Decidim
   module Templates
     module Admin
       # This command deals with destroying a template from the admin panel.
-      class DestroyTemplate < Rectify::Command
+      class DestroyTemplate < Decidim::Command
         # Public: Initializes the command.
         #
         # template - The Template to be destroyed.

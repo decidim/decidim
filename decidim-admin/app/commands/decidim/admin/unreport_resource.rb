@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # A command with all the business logic when a user unreports a resource.
-    class UnreportResource < Rectify::Command
+    class UnreportResource < Decidim::Command
       # Public: Initializes the command.
       #
       # reportable - A Decidim::Reportable

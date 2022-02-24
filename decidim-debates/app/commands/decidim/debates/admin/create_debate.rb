@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user creates a Debate from the admin
       # panel.
-      class CreateDebate < Rectify::Command
+      class CreateDebate < Decidim::Command
         def initialize(form)
           @form = form
         end

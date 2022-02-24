@@ -25,8 +25,15 @@ ro:
     admin:
       filters:
         projects:
+          category_id_eq:
+            label: Categorie
+          scope_id_eq:
+            label: Domeniu de interes
           selected_at_null:
             label: Selectate
+            values:
+              'false': Implementare alesă
+              'true': Implementare refuzată
     budgets:
       actions:
         attachment_collections: Dosare
@@ -141,6 +148,7 @@ ro:
         project:
           fields:
             category: Categorie
+            id: ID
             title: Titlu
       order_summary_mailer:
         order_summary:

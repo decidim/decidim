@@ -10,7 +10,7 @@ module Decidim
       end
 
       def current_scope
-        params[:filter][:scope_id] if params[:filter]
+        params[:filter][:with_scope] if params[:filter]
       end
 
       def progress_calculator(scope_id, category_id)
@@ -18,7 +18,7 @@ module Decidim
       end
 
       def category
-        return if (category_id = params.dig(:filter, :category_id)).blank?
+        return if (category_id = params.dig(:filter, :with_category)).blank?
 
         @category ||= current_participatory_space.categories.find(category_id.is_a?(Array) ? category_id.first : category_id)
       end

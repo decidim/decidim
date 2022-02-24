@@ -117,11 +117,11 @@ fi:
           all: Kaikki
           category: Aihepiiri
           category_prompt: Valitse aihepiiri
-          citizens: Kansalaiset
           commented: Kommentoitu
           my_debates: Omat keskustelut
           official: Virallinen
           origin: Alkuperä
+          participants: Osallistujat
           scope: Teema
           search: Hae
           state: Tila

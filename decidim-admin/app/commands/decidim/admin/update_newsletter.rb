@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # Updates the newsletter given form data.
-    class UpdateNewsletter < Rectify::Command
+    class UpdateNewsletter < Decidim::Command
       # Initializes the command.
       #
       # newsletter - The Newsletter to update.

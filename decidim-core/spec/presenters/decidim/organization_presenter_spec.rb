@@ -14,6 +14,18 @@ module Decidim
           expect(subject.translated_description).to eq("A necessitatibus quo. 1")
         end
       end
+
+      describe "#start_url" do
+        it "returns the url that opens when the installed pwa is launched" do
+          expect(subject.start_url).to eq("/")
+        end
+      end
+
+      describe "#pwa_display" do
+        it "returns the pwa_display value" do
+          expect(subject.pwa_display).to eq("standalone")
+        end
+      end
     end
   end
 end

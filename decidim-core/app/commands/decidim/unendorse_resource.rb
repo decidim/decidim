@@ -2,7 +2,7 @@
 
 module Decidim
   # A command with all the business logic to unendorse a resource, both as a user or as a user_group.
-  class UnendorseResource < Rectify::Command
+  class UnendorseResource < Decidim::Command
     # Public: Initializes the command.
     #
     # resource     - A Decidim::Endorsable object.

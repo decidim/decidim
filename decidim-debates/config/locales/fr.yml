@@ -17,6 +17,7 @@ fr:
       decidim/debates/close_debate_event: Débat terminé
       decidim/debates/create_debate_event: Débat
       decidim/debates/creation_disabled_event: Débats désactivés
+      decidim/debates/creation_enabled_event: Création de débats activée
   activerecord:
     models:
       decidim/debates/debate:
@@ -40,6 +41,7 @@ fr:
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
+            creation_enabled: Les participants peuvent créer des débats
             endorsements_blocked: Soutiens bloqués
             endorsements_enabled: Soutiens activés
     debates:
@@ -115,11 +117,11 @@ fr:
           all: Tout
           category: Catégorie
           category_prompt: Choisir une catégorie
-          citizens: Citoyenne
           commented: Commenté
           my_debates: Mes débats
           official: Officielle
           origin: Origine
+          participants: Participants
           scope: Secteur
           search: Rechercher
           state: Statut

@@ -61,6 +61,12 @@ fr-CA:
       decidim/votings/census/dataset:
         one: Jeu de données
         other: Jeux de données
+      decidim/votings/census/datum:
+        one: Donnée
+        other: Données
+      decidim/votings/polling_officer:
+        one: Responsable du scrutin
+        other: Responsables du scrutin
       decidim/votings/polling_station:
         one: Bureau de vote
         other: Bureaux de vote
@@ -412,9 +418,9 @@ fr-CA:
         filters:
           active: Actif
           all: Toutes
+          date: Date
           finished: Terminées
           search: Rechercher
-          state: Statut
           upcoming: À venir
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
@@ -572,15 +578,15 @@ fr-CA:
               generate_legend_3: Assurez-vous que votre ordinateur ne possède pas de copie du fichier (par exemple, vérifiez les dossiers Téléchargements et Bureau).
               generate_legend_4: Faites une autre copie du fichier sur un appareil externe et conservez-le dans un endroit très sûr.
               submit: Envoyer
-              submit_legend: Après avoir suivi toutes les étapes expliquées ci-dessus, complétez le processus d'envoi de la clé d'identification publique au serveur Decidim.
+              submit_legend: Après avoir suivi toutes les étapes expliquées ci-dessus, complétez le processus d'envoi de la clé d'identification publique au serveur.
               submit_title: Soumettre la clé d'identification publique
               title: Clés d'identification du garant
               upload: Téléchargez vos clés d'identification
               upload_error:
                 invalid_format: Le fichier téléchargé ne contient pas de clé d'identification.
                 invalid_key: Impossible de charger les clés d'identification à partir du fichier téléchargé.
-                invalid_public_key: Les clés d'identification dans le fichier téléchargé ne correspondent pas à la clé d'identification publique stockée par Decidim.
-              upload_legend: Decidim a vos clés d'identification publiques, mais votre navigateur ne l'a toujours pas. Vous devez importer le fichier avec vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après leur génération.
+                invalid_public_key: Les clés d'identification dans le fichier téléchargé ne correspondent pas à la clé d'identification publique stockée.
+              upload_legend: Le serveur a vos clés d'identification publiques, mais votre navigateur ne les a toujours pas. Vous devez importer le fichier avec vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après leur génération.
             not_supported_browser_description: On dirait que vous utilisez un navigateur Web qui ne peut pas être utilisé pour agir en tant que garant. Assurez-vous d'utiliser la version la plus récente de votre navigateur, ou essayez d'utiliser l'un des navigateurs les plus populaires pour accomplir vos tâches de garant.
             not_supported_browser_title: Mettre à niveau le navigateur pour agir en tant que garant
             trustee_role_description: Vous avez été assigné à agir en tant que garant lors de certaines des élections mises en place sur cette plateforme.
@@ -596,6 +602,7 @@ fr-CA:
           header: 'Le bulletin est chiffré: validez-le ou auditez-le'
         casting:
           header: Vote en cours...
+          text: Votre bulletin a bien été pris en compte.
         confirm:
           answer: Répondre
           answer_number: répondre à %{number}
@@ -612,8 +619,12 @@ fr-CA:
           header: Vote confirmé
           lead: Votre vote a été comptabilisé !
           text: 'Vous pouvez vérifier que votre vote a bien été ajouté à la zone des urnes avec l''identifiant suivant : <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_link: Pour vérifier que votre vote a bien été pris en compte, copiez l'identifiant et collez-le sur la <a href="%{link}">page de vérification de vote</a>
         create:
           error: Un problème s'est produit lors de la validation du vote. Veuillez réessayer.
+        encrypting:
+          header: Chiffrement du vote...
+          text: Votre bulletin est en cours de chiffrement afin de garantir le secret de votre vote.
         failed:
           header: Le vote a échoué
           lead: Votre vote n'a pas été exprimé!
@@ -621,8 +632,11 @@ fr-CA:
           try_again: Réessayez
         header:
           ballot_decision: Validez ou auditez votre vote
+          casting: Vote en cours
           confirm: Confirmer votre vote
           confirmed: Vote confirmé
+          encrypting: Chiffrement du vote
+          failed: Le vote a échoué
         messages:
           invalid_token: Votre session dans l'isoloir n'est pas valide. Essayez de voter à nouveau.
           not_allowed: Vous n'êtes pas autorisé à voter sur cette élection pour le moment.
@@ -639,14 +653,27 @@ fr-CA:
         onboarding_modal:
           close: Fermer la fenêtre de dialogue
           create_account: Créer un compte
-          description: Voulez-vous créer un compte sur Decidim ? Vous pourrez participer à toutes les concertations et prendre une part active dans l'organisation.
+          description: Voulez-vous créer un compte sur la plateforme ? Vous pourrez participer aux concertations et prendre une part active dans l'organisation.
           no_account: Non, merci.
-          title: Nouveau sur Decidim ?
+          title: Nouveau sur la plateforme ?
+        update:
+          error: Une erreur s'est produite lors de la mise à jour du statut du vote. Tentez de voter à nouveau. 
         verify:
           content:
             heading: Vérifiez votre vote
+            info: Ce vérificateur s'assure que votre vote, identifié avec une chaîne de texte chiffrée, a été diffusé correctement et se trouve bien dans l'urne.
           error:
             header: Vote introuvable !
+            info: Le code de vote n'a pas été trouvé dans %{link} l'urne, essayez à nouveau.
+          form:
+            back: Retour à la plateforme
+            submit: Vérifier
+            vote_identifier: 'Code d''identification :'
+          header:
+            title: Vérifiez votre vote
+          success:
+            header: Vote trouvé !
+            info: Votre vote chiffré se trouve bien dans %{link} l'urne
         voting_step:
           back: Précédent
           continue: Suivant
@@ -671,6 +698,22 @@ fr-CA:
             email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_name}".
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_name}.
             notification_title: Vous êtes garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
+        votes:
+          accepted_votes:
+            email_intro: 'Votre vote a été accepté ! En utilisant votre jeton de vote : %{encrypted_vote_hash}, vous pouvez vérifier votre vote <a href="%{verify_url}">ici</a>.'
+            email_outro: Vous avez reçu cette notification parce que vous avez voté pour l'élection %{resource_name}.
+            email_subject: Votre vote pour %{resource_name} a été accepté.
+            notification_title: 'Votre vote a été accepté. Vérifiez votre vote <a href="%{verify_url}">ici</a> en utilisant votre jeton de vote : %{encrypted_vote_hash}'
+      votings:
+        polling_officers:
+          polling_station_assigned:
+            email_intro: Vous avez été assigné en tant que %{role} du Bureau de vote %{polling_station_name} sur <a href="%{resource_url}">%{resource_title}</a>. Vous pouvez gérer le Bureau de vote à partir de la <a href="%{polling_officer_zone_url}">zones des responsable du scrutin</a>.
+            email_outro: Vous avez reçu cette notification parce que vous avez été assigné au rôle de %{role} sur %{polling_station_name}.
+            email_subject: Vous êtes %{role} du Bureau de vote %{polling_station_name}.
+            notification_title: Vous êtes %{role} du Bureau de vote %{polling_station_name} sur le vote <a href="%{resource_path}">%{resource_title}</a>.
+        send_access_code:
+          instruction: 'Voici le code d''accès que vous avez demandé : %{access_code}, avec lequel vous pourrez participer à %{voting}.'
+          subject: Votre code d'accès pour participer à %{voting}
     help:
       participatory_spaces:
         votings:
@@ -679,40 +722,117 @@ fr-CA:
           title: Que sont les élections ?
     menu:
       votings: Élections
+    statistics:
+      elections_count: Élections
+      votings_count: Votes
     votings:
       admin:
         ballot_styles:
+          create:
+            error: Il y a eu un problème lors de la création de ce style de bulletin
+            success: Style de bulletin créé avec succès
+          destroy:
+            invalid: Un problème est survenu lors de la suppression de ce style de bulletin
+            success: Style de bulletin supprimé avec succès
+          edit:
+            title: Modifier le style de bulletin
+            update: Mettre à jour
+          form:
+            code_help: 'Note : le code est le lien entre le recensement et un bulletin de vote. Lors du téléchargement des données de recensement, chaque entrée se verra assignée un style de vote en faisant la correspondance avec le code'
+            election: Élection
+            questions: Questions pour ce style de bulletin
+            questions_help: 'Note : sélectionnez les questions de la fonctionnalité Élection que vous souhaitez présenter aux électeurs affectés à ce style de bulletin'
           index:
             actions:
               confirm_destroy: Êtes-vous sûr·e ?
+              destroy: Supprimer
+              edit: Modifier
+              new: Nouveau
+              title: Actions
+            associated_census_data: Entrées de recensement associées
+            explanation_callout: Un style de bulletin spécifie quelles questions seront présentées aux électeurs dans le stand. Dans un style de bulletin, vous pouvez choisir quelles questions de la fonctionnalité Élection de ce vote appartiennent à un bulletin de vote. Le code de style de bulletin est utilisé pour faire correspondre un électeur du recensement avec le bulletin de vote qui lui sera présenté dans l'isoloir. Ne créez pas de style de vote si vous voulez présenter toutes les questions.
+            title: Styles de bulletin
+          new:
+            create: Créer
+            title: Créer un style de bulletin
+          update:
+            invalid: Il y a eu un problème lors de la création de ce style de bulletin
+            success: Style de bulletin mis à jour avec succès
         content_blocks:
           highlighted_votings:
             max_results: Nombre maximum d'éléments à afficher
+          landing_page:
+            attachments_and_folders:
+              name: Pièces jointes et dossiers du vote
+            description:
+              name: Description du vote
+            elections:
+              name: Élections
+            header:
+              name: Header du vote
+            html_block_1:
+              name: Bloc HTML 1 du Vote
+            html_block_2:
+              name: Bloc HTML 2 du Vote
+            html_block_3:
+              name: Bloc HTML 3 du Vote
+            metrics:
+              name: Métriques de vote
+            polling_stations:
+              name: Bureaux de vote
+            stats:
+              name: Statistiques du vote
+            timeline:
+              name: Calendrier du vote
         index:
           not_published: Non publié
           published: Publié
+        landing_page:
+          content_blocks:
+            edit:
+              update: Mettre à jour
+          edit:
+            active_content_blocks: Blocs de contenu actifs
+            inactive_content_blocks: Blocs de contenu inactifs
         menu:
           votings: Élections
           votings_submenu:
             attachment_collections: Dossiers
             attachment_files: Fichiers
             attachments: Pièces jointes
+            ballot_styles: Styles de bulletin
             census: Recensement
+            components: Fonctionnalités
             info: Information
             landing_page: Page d’accueil
             monitoring_committee: Comité de suivi
+            monitoring_committee_election_results: Valider les résultats
             monitoring_committee_members: Membres
+            monitoring_committee_polling_station_closures: Valider les certificats
+            monitoring_committee_verify_elections: Vérifier les élections
+            polling_officers: Responsables du scrutin
             polling_stations: Bureaux de vote
         models:
+          ballot_style:
+            fields:
+              code: Code
+            name: Style de bulletin
           monitoring_committee_member:
             fields:
+              email: Email
               name: Nom
+            name: Membre du comité de suivi
           polling_officer:
             fields:
+              email: Email
               name: Nom
+              polling_station: Bureau de vote (rôle)
+            name: Responsable du scrutin
           polling_station:
             fields:
               address: Adresse
+              polling_station_managers: Directeurs
+              polling_station_president: Président
               title: Titre
             name: Bureau de vote
           voting:
@@ -721,16 +841,106 @@ fr-CA:
               promoted: Mise en avant
               published: Publié
               title: Titre
+        monitoring_committee_election_results:
+          actions:
+            title: Actions
+            view: Afficher
+          index:
+            title: Choisissez une élection pour laquelle vous souhaitez voir les résultats
+          results:
+            bulletin_board: Panneau d'affichage
+            election_totals: Total des élections
+            polling_stations: Bureaux de vote
+            result_types:
+              blank_answers: Réponses vides
+              blank_ballots: Votes blancs
+              null_ballots: Votes nuls
+              total_ballots: Total des votes
+              valid_ballots: Votes valides
+            selected: Sélectionné
+            title: Résultats pour l'élection <i>%{election_title}</i>
+            totals: Totaux
+          show:
+            change_election: Changer l'élection
+            publish_results: Publier les résultats
+            publishing: Publication en cours ...
+          update:
+            invalid: Un problème est survenu lors de la publication des résultats
+            rejected: La publication des résultats a été rejetée par le Panneau d'affichage. Réessayez ou contactez l'administrateur système.
+            success: Les résultats ont été publiés avec succès
         monitoring_committee_members:
+          create:
+            invalid: Un problème est survenu lors de la création de ce membre du comité de suivi
+            success: Membre du comité de suivi créé avec succès
+          destroy:
+            invalid: Un problème est survenu lors de la suppression de ce membre du comité de suivi
+            success: Membre du comité de suivi supprimé avec succès
           form:
+            existing_user: Utilisateur existant
+            non_user: Inviter un nouveau participant
             select_user: Recherche par nom, email ou pseudo
             user_type: Type de participant
+          index:
+            title: Comité de suivi
+          new:
+            create: Créer
+            title: Créer un membre du comité de suivi
+        monitoring_committee_polling_station_closures:
+          actions:
+            title: Actions
+            validate: Valider
+            view: Afficher
+          closures:
+            change_election: Changer l'élection
+            signed: Signé?
+            title: Bureaux de vote pour l'élection <i>%{election_title}</i>
+            validated: Validé?
+          edit:
+            change_polling_station: Retourner aux bureaux de vote
+            monitoring_committee_notes: Remarques
+            monitoring_committee_notes_placeholder: Signaler tout incident ici
+            title: Résultats pour l'élection <i>%{election_title}</i> dans le bureau de vote <i>%{polling_station_title}</i>
+          elections:
+            title: Choisissez une élection que vous souhaitez valider
+          show:
+            change_polling_station: Retour aux bureaux de vote
+            monitoring_committee_notes: Remarques du comité de suivi
+          validate:
+            error: Un problème est survenu lors de la validation de la fermeture
+            success: La fermeture a été validée correctement
+        monitoring_committee_verify_elections:
+          index:
+            download: Télécharger
+            how_to_checksum: 'Pour vous assurer que le fichier que vous avez téléchargé n''a pas été corrompu ou altéré pendant le processus de téléchargement, exécutez la commande suivante dans votre console et vérifiez que la sortie correspond à la somme de contrôle indiquée ci-dessus :'
+            how_to_download: Pour vérifier une élection, téléchargez son fichier vérifiable à partir du tableau ci-dessus.
+            how_to_run_verifier: 'Une fois le fichier téléchargé et vérifié, vous pouvez exécuter le vérificateur universel. Clonez <a href=''https://github.com/decidim/decidim-bulletin-board''>ce dépôt</a> et, depuis le dossier racine, exécutez la commande suivante :'
+            how_to_title: Comment vérifier la validité d'une élection
+            not_available: Pas encore disponible
+            title: Élections
         polling_officers:
+          create:
+            invalid: Une erreur est survenue lors de la création de ce responsable de scrutin
+            success: Le responsable de scrutin a été créé avec succès
+          destroy:
+            invalid: Une erreur est survenue lors de la suppression de ce responsable de scrutin
+            success: Le responsable de scrutin a été supprimé avec succès
           form:
             existing_user: Participant existant
             non_user: Inviter un nouveau participant
             select_user: Recherche par nom, email ou pseudo
             user_type: Type du participant
+          index:
+            role_manager: directeur
+            role_president: président
+            title: Responsables du scrutin
+          new:
+            create: Créer
+            title: Créer un responsable du scrutin
+          polling_officers_picker:
+            choose_polling_officers: Choisir les responsables du scrutin
+            close: Fermer
+            more_polling_officers: Il y a %{number} responsables du scrutin supplémentaires. Affinez votre recherche pour les localiser.
+            no_polling_officers: Aucun responsable du scrutin ne correspond à vos critères de recherche ou il n'y a pas de responsable du scrutin.
         polling_stations:
           create:
             invalid: Une erreur est survenue lors de la création de ce bureau de vote
@@ -745,6 +955,9 @@ fr-CA:
             address_help: 'Adresse: utilisée par l''outil de géocadage pour trouver l''emplacement'
             location_help: 'Lieu : message adressé aux électeurs informant du lieu exact du bureau de vote'
             location_hints_help: 'Indices de localisation : informations complémentaires. Par exemple : l''étage du bâtiment où se trouve le bureau de vote.'
+            polling_station_managers_help: 'Directeur du scrutin : les personnes qui seront gestionnaires des bureaux de vote. Assurez-vous que les responsables du scrutin ont déjà été créés dans les bureaux de vote et qu''ils ne sont pas déjà affectés à un autre bureau de vote'
+            polling_station_president_help: 'Président du scrutin : les personnes qui agiront en tant que président du bureau de vote. Assurez-vous que les présidents ont déjà été créés dans les bureaux de vote et qu''ils ne sont pas déjà affectés à un autre bureau de vote'
+            select_president: Sélectionnez un responsable de scrutin en tant que président du bureau de vote
           index:
             title: Bureaux de vote
           new:
@@ -766,11 +979,18 @@ fr-CA:
             invalid: Une erreur s'est produite lors de la création de cette élection
             success: Élection créée avec succès
           edit:
+            add_election_component: Vous n'avez aucune élection configurée pour ce vote. Veuillez en créer une dans la section Fonctionnalités
             assign_missing_officers: Il reste des bureaux de votes sans président et/ou accesseurs. Veuillez lier ces derniers à partir de la section Bureaux de votes
             update: Mettre à jour
           form:
+            census_contact_information_help: Cette information de contact est destinée à un participant qui veut signaler des problèmes avec le recensement. Il peut s'agir d'une adresse e-mail, d'un formulaire de contact sur un autre site, d'une enquête pour les visiteurs, etc.
+            select_a_voting_type: Veuillez sélectionner un type de vote
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui renvoient vers cette élection. Ils ne contiennent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
             title: Titre
+            voting_type:
+              hybrid: Hybride
+              in_person: En présentiel
+              online: En ligne
           new:
             create: Créer
             title: Nouvelle élection
@@ -782,6 +1002,24 @@ fr-CA:
             invalid: Une erreur s'est produite lors de la mise à jour de cette élection
             success: Élection mise à jour avec succès
       admin_log:
+        ballot_style:
+          create: "%{user_name} a créé un style de bulletin avec le code %{ballot_style_code} dans l'espace %{space_name}"
+          delete: "%{user_name} a supprimé un style de bulletin avec le code %{ballot_style_code} dans l'espace %{space_name}"
+          update: "%{user_name} a mis à jour un style de bulletin avec le code %{ballot_style_code} dans l'espace %{space_name}"
+        census:
+          create: "%{user_name} a créé le recensement pour l'espace %{space_name}"
+          delete: "%{user_name} a supprimé le recensement pour l'espace %{space_name}"
+          update: "%{user_name} a mis à jour le recensement pour l'espace %{space_name}"
+        monitoring_committee_member:
+          create: "%{user_name} a assigné l'utilisateur %{monitoring_committee_member_user} en tant que membre du comité de suivi dans l'espace %{space_name}"
+          delete: "%{user_name} a supprimé l'utilisateur %{monitoring_committee_member_user} en tant que membre du comité de suivi dans l'espace %{space_name}"
+        polling_officer:
+          create: "%{user_name} a assigné l'utilisateur %{polling_officer_user} en tant que responsable de scrutin dans l'espace %{space_name}"
+          delete: "%{user_name} a supprimé l'utilisateur %{polling_officer_user} en tant que responsable de scrutin dans l'espace %{space_name}"
+        polling_station:
+          create: "%{user_name} a créé le bureau de vote %{resource_name} dans l'espace %{space_name}"
+          delete: "%{user_name} a supprimé le bureau de vote %{resource_name} dans l'espace %{space_name}"
+          update: "%{user_name} a mis à jour le bureau de vote %{resource_name} dans l'espace %{space_name}"
         voting:
           create: "%{user_name} a créé l'élection %{resource_name}"
           publish: "%{user_name} a publié l'élection %{resource_name}"
@@ -789,30 +1027,64 @@ fr-CA:
       census:
         admin:
           census:
+            create:
+              invalid: Une erreur s'est produite lors de la mise à jour du recensement, veuillez réessayer plus tard.
+              invalid_csv_header: Les en-têtes CSV sont manquants ou incorrects - veuillez lire attentivement les instructions
             creating_data:
               info_message: "<strong>Veuillez patienter</strong>, %{processed_count} traités sur %{raw_count} lignes à partir du fichier %{file}."
             delete:
               button: Supprimer toutes les données du recensement
               confirm: La suppression du recensement est irréversible. Êtes-vous sûr de vouloir continuer ?
             destroy:
+              error: Une erreur s'est produite lors de la suppression du recensement, veuillez réessayer plus tard.
               success: Données de recensement supprimées
+            export_access_codes:
+              button: Exporter les codes d'accès aux votes
+              callout: Vous pouvez maintenant exporter les codes d'accès. Cela ne peut être fait qu'une seule fois. Une fois que vous avez lancé l'exportation, vous recevrez un e-mail avec les instructions sur <strong>%{email}</strong>
+              confirm: Vous ne pouvez exporter les codes d'accès qu'une seule fois. Assurez-vous d'avoir accès au compte de messagerie <strong>%{email}</strong>.
+              file_not_exists: Ce fichier n'existe pas
+              launch_error: Problème lors du lancement de l'export des codes d'accès
+              launch_success: L'export des codes d'accès a été lancée. Vous recevrez sous peu un e-mail à %{email}
+            exporting_access_codes:
+              info_message: "<strong>Veuillez patienter</strong>, l'export est en cours de préparation, vous le recevrez sous peu sur %{email}"
+            freeze:
+              callout: Le recensement est gelé et ne peut pas être modifié.
             generate_access_codes:
               button: Générer des codes d'accès au vote
+              callout: Vous pouvez maintenant procéder à la génération des codes d'accès. N'oubliez pas qu'après la génération des codes d'accès, vous ne pourrez plus modifier le recensement.
               confirm: Si vous continuez, vous ne pourrez plus modifier le recensement.
               info_message_all: "<strong>Toutes les lignes ont été importées avec succès</strong> depuis le fichier %{file} (%{raw_count} sur %{data_count})."
               info_message_warn: Veuillez vérifier qu'aucune donnée n'est manquante, car %{data_count} enregistrements ont été créés et le fichier téléchargé %{file} a %{raw_count} lignes.
+              launch_error: Problème lors du lancement de la génération des codes d'accès
+              launch_success: Génération de codes lancée.
+            generating_access_codes:
+              info_message: "<strong>Veuillez patienter</strong>, les codes d'accès au vote sont en cours de génération..."
             new:
               file_help:
                 explanation: 'Instructions concernant le fichier :'
                 message_1: Seuls les fichiers CSV (.csv) sont autorisés.
                 message_2: Le séparateur de colonnes doit être un point-virgule (";").
+              has_ballot_styles_message: Vous avez mis en place des styles de bulletin. Assurez-vous que le champ "%{ballot_style_code_header}" dans le CSV correspond au code du style de bulletin désiré.
               info_message: "<strong>Il n'y a pas encore de recensement.</strong> Veuillez utiliser le formulaire ci-dessous pour le créer en important un fichier CSV."
+              missing_ballot_styles_message: 'Il n''y a pas encore de style de bulletin pour ce vote. Si vous souhaitez avoir des questions conditionnelles (ex : présenter à l’électeur des questions différentes en fonction de son quartier/ville de résidence), vous devez configurer les <a href=%{ballot_styles_admin_path}>styles de bulletin</a> <strong>avant</strong> d''importer le recensement. Si vous voulez présenter les mêmes questions à tous les électeurs, vous pouvez passer à la procédure d''import du recensement.'
               submit: Valider le fichier csv
               title: Créer le recensement
             show:
               heading: Recensement de l'espace de vote
+            upload_info:
+              csv_example_with_ballot_style: 'Un exemple du fichier <strong>avec</strong> styles de bulletin :'
+              csv_example_without_ballot_style: 'Un exemple du fichier <strong>sans</strong> styles de bulletin :'
+              csv_header_after: Ne pas inclure le dernier champ ("%{ballot_style_code_header}") si vous n'avez pas besoin de styles de bulletin/questions conditionnelles
+              csv_header_before: 'Le fichier de recensement doit être un fichier CSV avec l''en-tête suivante :'
         document_types:
+          dni: Carte nationale d'identité
+          nie: Carte de séjour ou de résident
           passport: Passeport
+        export_mailer:
+          access_codes_export:
+            click_button: 'Cliquez sur le lien suivant pour télécharger les données des codes d''accès.<br/>Le fichier sera disponible jusqu''au %{date}.<br/>Vous aurez besoin de <a href="https://www.7-zip.org/">7-Zip</a> (pour Windows), <a href="https://www.keka.io/en/">Keka</a> (pour MacOS) ou <a href="https://peazip.github.io">PeaZip</a> (pour Linux) pour l''ouvrir. Mot de passe : %{password}'
+            download: Télécharger
+            subject: L'export des codes d'accès au vote pour %{voting_title} est disponible
         vote_flow:
           already_voted_in_person: Ce participant a déjà voté en personne et n'a plus le droit de voter.
           datum_not_found: Les données données ne correspondent à aucun électeur.
@@ -830,6 +1102,12 @@ fr-CA:
             no_polling_stations: Il n'y a pas encore de bureau de vote.
           timeline:
             heading: Chronologie
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: Êtes-vous sûr?
+          destroy: Supprimer
+          new: Nouveau membre
+          title: Actions
       pages:
         home:
           highlighted_votings:
@@ -838,8 +1116,51 @@ fr-CA:
             votings_button_title: Lien vers la page Votations où toutes les votations sont affichées
       polling_officer_zone:
         closures:
+          back_to_polling_stations: Retourner aux bureaux de vote
+          certify:
+            add_images: Ajouter des images
+            error: Une erreur est survenue lors de la mise en place du certificat, veuillez réessayer.
+            form_legend: Télécharger une photo du certificat de clôture électoral
+            heading: Recomptage des votes - Télécharger un certificat
+            info_text: Veuillez télécharger une photo du certificat de fermeture électorale.
+            submit: Télécharger le certificat
+            success: Le certificat à été téléchargé avec succès.
+          create:
+            error: Une erreur s'est produite lors de la création de la fermeture, veuillez réessayer plus tard.
+            success: Fermeture créée avec succès.
+          edit:
+            heading: Recomptage des votes - Comptage des réponses
+            info_text: Veuillez introduire le nombre total de réponses pour chaque question.
+            modal_ballots_results_count_error:
+              close_modal: Fermer
+              info_text: Le nombre total de bulletins ne correspond pas au nombre total d'enveloppes. Veuillez vérifier le nombre total de bulletins.
+              title: Le total des bulletins ne correspond pas
+            save_recount: Enregistrer le comptage
+            total_ballots: Total des votes
+            total_blank_ballots: Nombre total de bulletins blanc
+            total_null_ballots: Nombre total de bulletins nuls
+            total_valid_ballots: Nombre total de bulletins valides
+          new:
+            election: 'Élection:'
+            heading: Recomptage des votes
+            info_text: 'Veuillez introduire le nombre total de bulletins de vote (enveloppes) recomptés dans ce Bureau de vote:'
+            modal_ballots_count_error:
+              btn_validate_total: Valider le nombre total de bulletins
+              close_modal: Fermer
+              info_explanation_text: 'Veuillez examiner le nombre total de bulletins de vote. Si le nombre total est incorrect, vous devez fournir une explication pour le comité de suivi :'
+              info_text: Le nombre total de bulletins de vote introduits ne correspond pas au nombre de personnes qui ont voté dans ce Bureau de vote.
+              message_for_monitoring_committee: Message pour le comité de suivi
+              review_recount: Revoir le comptage
+              text_area_placeholder: Veuillez saisir votre message
+              title: Le total des enregistrements ne correspond pas
+              total_ballots: 'Nombre total de bulletins :'
+              total_people: 'Nombre total de personnes :'
+            polling_station: 'Bureau de vote :'
+            submit: Vérifier le nombre total
+            total_ballots_count: Nombre de bulletins
           show:
             heading: Recomptage des votes
+            info_text: Fermeture électorale du bureau de vote.
           sign:
             cancel: Annuler
             check_box: J'ai passé en revue ce certificat, il est identique à celui de fermeture des élections physiques
@@ -851,6 +1172,9 @@ fr-CA:
             submit: Signer la fermeture
             success: Fermeture signée avec succès.
             title: Cette action ne peut pas être annulée
+          update:
+            error: Une erreur s'est produite lors de la mise à jour des résultats de fermeture, veuillez réessayer plus tard.
+            success: Résultats de fermeture mis à jour avec succès.
         in_person_votes:
           complete_voting:
             available_answers: 'Réponses disponibles:'
@@ -893,14 +1217,32 @@ fr-CA:
             name: Nom
             title: 'Vérifiez que les données suivantes sont correctes:'
             verify_document: Document requis
+        menu:
+          polling_officer_zone: Zone des responsables du scrutin
         polling_officers:
           index:
             polling_officer_role_description: Vous avez été assigné à agir en tant qu’officier du Bureau de vote (Président ou Gestionnaire) sur certaines des élections ayant lieu sur cette plateforme.
             polling_station:
+              address: Adresse
+              count_votes: Nombre de votes
+              election: Élection
+              identify_person: Identifier une personne
               name: Nom
               no_polling_stations: Vous n'êtes pas encore assigné à un Bureau de vote.
               role: Votre rôle
+              show_closure: Voir la fermeture
+              title: Bureaux de vote
               voting: Élection
+      polling_officers:
+        actions:
+          confirm_destroy: Êtes-vous sûr?
+          destroy: Supprimer
+          new: Nouveau
+          title: Actions
+        roles:
+          manager: Directeur
+          president: Président
+          unassigned: Non assigné
       polling_station_closure_recount:
         nota_option: Vide / Aucune des options ci-dessus
         polling_officer_notes: 'Notes de l''accesseur :'
@@ -920,11 +1262,24 @@ fr-CA:
           title: Actions
       votings:
         access_code_modal:
+          email: Envoyer par e-mail à %{email}
+          info: Vous avez besoin d'un code d'accès pour participer. Si vous n'en avez pas reçu un par courrier, nous pouvons vous en envoyer un nouveau.
+          no_email: Aucun email disponible
+          no_sms: Aucun numéro de téléphone disponible
           sms: Envoyer par SMS à %{sms}
           title: Obtenir un code d’accès
         check_census:
           check_status: Vérifiez le statut
+          description: Ici, vous avez la possibilité de vérifier vos données de recensement pour savoir si vous avez le droit de participer à ce vote. Vous devriez déjà avoir un code d'accès, mais si vous l'avez perdu, vous pouvez le demander à nouveau, lorsque vos données sont correctes.
+          error:
+            info: 'Veuillez réessayer. Si vous pensez que les données du système sont incorrectes, vous pouvez les signaler ici : %{census_contact_information}.'
+            title: Les données de recensement sont incorrectes!
           form_title: 'Remplissez le formulaire suivant pour vérifier vos données de recensement:'
+          invalid: Un problème est survenu lors de la vérification du recensement.
+          success:
+            access_link: par SMS ou e-mail.
+            info: Vous devriez déjà avoir reçu votre code d'accès par courrier postal. Si vous ne l'avez pas, vous pouvez le demander ici
+            title: Vos données de recensement sont correctes!
           title: Puis-je voter ?
         check_fields:
           date_of_birth: Date de naissance
@@ -951,9 +1306,9 @@ fr-CA:
         filters:
           active: Actifs
           all: Tous
+          date: Date
           finished: Terminées
           search: Rechercher
-          state: Statut
           upcoming: À venir
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
@@ -967,15 +1322,20 @@ fr-CA:
         login:
           access_code: Code d'accès
           access_code_placeholder: Code d'accès
+          ask_for_a_new_one: Demander un nouveau.
           dont_have_access_code: Vous n'avez pas de code d'accès?
           form_title: 'Remplissez le formulaire suivant pour accéder au vote :'
           start_voting: Commencer à voter
           step: Identification
           title: Je m'identifie avec mes données de recensement de vote
+        no_census_contact_information: Il n'y a pas encore d'informations de contact
         orders:
           label: 'Trier les votations par:'
           random: Aléatoire
           recent: Les plus récentes
+        send_access_code:
+          invalid: Un problème est survenu lors de l'envoi du code d'accès
+          success: Votre code d'accès a été envoyé avec succès
         show:
           dates: Dates
       votings_m:

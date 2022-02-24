@@ -4,7 +4,7 @@ module Decidim
   module Elections
     module Admin
       # A class used to find actions with a pending status
-      class PendingActions < Rectify::Query
+      class PendingActions < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         def self.for
           new.query

@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     # A command with all the business logic that creates a new initiative.
-    class CreateInitiative < Rectify::Command
+    class CreateInitiative < Decidim::Command
       include CurrentLocale
       include ::Decidim::MultipleAttachmentsMethods
 

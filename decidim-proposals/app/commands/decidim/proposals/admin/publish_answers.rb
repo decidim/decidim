@@ -4,7 +4,7 @@ module Decidim
   module Proposals
     module Admin
       # A command with all the business logic to publish many answers at once.
-      class PublishAnswers < Rectify::Command
+      class PublishAnswers < Decidim::Command
         # Public: Initializes the command.
         #
         # component - The component that contains the answers.

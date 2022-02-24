@@ -3,7 +3,7 @@
 module Decidim
   module Meetings
     # A class used to find meetings filtered by components and a date range
-    class FilteredMeetings < Rectify::Query
+    class FilteredMeetings < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # components - An array of Decidim::Component

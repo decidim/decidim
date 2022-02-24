@@ -86,6 +86,8 @@ FactoryBot.define do
       end
     end
 
+    trait(:participant_author) { not_official }
+
     trait :user_group_author do
       author do
         create(:user, organization: component.organization) if component
@@ -158,6 +160,12 @@ FactoryBot.define do
 
     trait :open_in_new_tab_iframe_embed_type do
       iframe_embed_type { :open_in_new_tab }
+    end
+
+    trait :moderated do
+      after(:create) do |meeting, _evaluator|
+        create(:moderation, reportable: meeting, hidden_at: 2.days.ago)
+      end
     end
   end
 

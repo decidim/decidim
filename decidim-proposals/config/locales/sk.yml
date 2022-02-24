@@ -501,7 +501,6 @@ sk:
           all: Všetko
         filter_origin_values:
           all: Všetko
-          citizens: Občania
           meetings: Stretnutie
           official: Oficiálne
           user_groups: Skupiny užívateľov

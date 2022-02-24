@@ -4,7 +4,7 @@ module Decidim
   module Proposals
     module Admin
       # A command with all the business logic related with an admin discarding participatory text proposals.
-      class DiscardParticipatoryText < Rectify::Command
+      class DiscardParticipatoryText < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A PreviewParticipatoryTextForm form object with the params.

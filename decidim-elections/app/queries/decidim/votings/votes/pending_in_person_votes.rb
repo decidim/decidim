@@ -4,7 +4,7 @@ module Decidim
   module Votings
     module Votes
       # A class used to find in person votes with a pending status
-      class PendingInPersonVotes < Rectify::Query
+      class PendingInPersonVotes < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         def self.for
           new.query

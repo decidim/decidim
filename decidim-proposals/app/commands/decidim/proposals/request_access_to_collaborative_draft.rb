@@ -4,7 +4,7 @@ module Decidim
   module Proposals
     # A command with all the business logic when a user requests access
     # to edit a collaborative draft.
-    class RequestAccessToCollaborativeDraft < Rectify::Command
+    class RequestAccessToCollaborativeDraft < Decidim::Command
       # Public: Initializes the command.
       #
       # form         - A form object with the params.

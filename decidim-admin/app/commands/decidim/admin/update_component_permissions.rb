@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # This command gets called when permissions for a component are updated
     # in the admin panel.
-    class UpdateComponentPermissions < Rectify::Command
+    class UpdateComponentPermissions < Decidim::Command
       # Public: Initializes the command.
       #
       # form    - The form from which the data in this component comes from.

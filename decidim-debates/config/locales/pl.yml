@@ -119,7 +119,6 @@ pl:
           all: Wszystkie
           category: Kategoria
           category_prompt: Wybierz kategorię
-          citizens: Obywatele
           commented: Skomentowano
           my_debates: Moje debaty
           official: Urzędnik

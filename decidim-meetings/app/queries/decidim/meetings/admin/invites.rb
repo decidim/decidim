@@ -4,7 +4,7 @@ module Decidim
   module Meetings
     module Admin
       # A class used to find the Invites by their status status.
-      class Invites < Rectify::Query
+      class Invites < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         #
         # invites - the initial Invites relation that needs to be filtered.

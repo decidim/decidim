@@ -4,7 +4,7 @@ module Decidim
   module Elections
     module TrusteeZone
       # This command updates the election status if it got changed
-      class UpdateElectionBulletinBoardStatus < Rectify::Command
+      class UpdateElectionBulletinBoardStatus < Decidim::Command
         # Public: Initializes the command.
         #
         # status - The actual election status

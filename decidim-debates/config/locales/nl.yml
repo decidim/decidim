@@ -101,11 +101,11 @@ nl:
           all: Alle
           category: Categorie
           category_prompt: Selecteer een categorie
-          citizens: Burgers
           commented: Reactie
           my_debates: Mijn debatten
           official: Officieel
           origin: Oorsprong
+          participants: Deelnemers
           scope: Scope
           search: Zoeken
           state: Status

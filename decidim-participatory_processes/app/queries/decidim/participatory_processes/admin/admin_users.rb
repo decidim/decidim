@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A class used to find the admins for a participatory process including
       # organization admins.
-      class AdminUsers < Rectify::Query
+      class AdminUsers < Decidim::Query
         # Syntactic sugar to initialize the class and return the queried objects.
         #
         # process - a process that needs to find its process admins

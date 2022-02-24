@@ -60,7 +60,7 @@ describe "Vote online in an election inside a Voting", type: :system do
           click_button "Submit"
         end
 
-        expect(page).to have_content("New to Decidim?")
+        expect(page).to have_content("New to the platform?")
 
         within "#onboarding-modal" do
           click_button "No, thanks."
@@ -76,7 +76,7 @@ describe "Vote online in an election inside a Voting", type: :system do
       it "can vote and sign up without feedback" do
         vote_with_census_data
 
-        expect(page).to have_content("New to Decidim?")
+        expect(page).to have_content("New to the platform?")
 
         within "#onboarding-modal" do
           click_button "No, thanks."
@@ -88,7 +88,7 @@ describe "Vote online in an election inside a Voting", type: :system do
 
         expect(page).to have_current_path router.elections_path
 
-        expect(page).not_to have_content("New to Decidim?")
+        expect(page).not_to have_content("New to the platform?")
       end
     end
   end

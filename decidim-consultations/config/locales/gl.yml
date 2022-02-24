@@ -199,7 +199,6 @@ gl:
         all: Todo
         finished: Terminado
         search: Busca
-        state: Estado
         upcoming: Próximos
       filters_small_view:
         close_modal: Pechar ventá
