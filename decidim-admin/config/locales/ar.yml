@@ -261,6 +261,8 @@ ar:
           success: تم تحديث المكون بنجاح.
       conflicts:
         'false': 'لا'
+        transfer:
+          name: الإسم
         'true': 'نعم'
       dashboard:
         show:
@@ -441,6 +443,11 @@ ar:
             phone: هاتف
             state: حالة
             users_count: عدد المشاركين
+      moderated_users:
+        index:
+          name: الإسم
+          nickname: الاسم المستعار
+          reason: السبب
       moderations:
         index:
           title: الإشراف
@@ -452,6 +459,8 @@ ar:
         reports:
           index:
             content_original_language: لغة المحتوى الأصلية
+          show:
+            report_reason: السبب
       newsletter_templates:
         index:
           preview_template: معاينة
@@ -518,6 +527,8 @@ ar:
           badge: شارة رسمية
           officialize: الصفة الرسمية
           title: إضفاء الطابع الرسمي على المشارك "%{name}"
+        show_email_modal:
+          full_name: الاسم الكامل
       organization:
         edit:
           title: تحرير المنظمة
