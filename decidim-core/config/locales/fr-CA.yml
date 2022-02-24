@@ -1728,6 +1728,7 @@ fr-CA:
     dropdown:
       choose_diff_view_html: 'Mode d''affichage HTML :'
       choose_diff_view_mode: 'Sélectionner le mode de vue :'
+      choose_diff_view_mode_menu: Choisissez le mode de comparaison
       option_escaped: Echappé
       option_split: Côte à côte
       option_unescaped: Non échappé
