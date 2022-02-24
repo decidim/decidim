@@ -36,16 +36,23 @@ ar:
   decidim:
     accountability:
       actions:
+        attachment_collections: المجلدات
+        attachments: المرفقات
         confirm_destroy: هل أنت متأكد أنك تريد حذف هذا %{name}؟
         destroy: حذف
         edit: تعديل
+        import_csv: استيراد CSV
         new: جديد %{name}
         preview: معاينة
         timeline_entries: تطور المشروع
         title: أفعال
       admin:
         exports:
+          result_comments: التعليقات
           results: النتائج
+        import_results:
+          new:
+            import: استيراد
         models:
           result:
             name: نتيجة
@@ -115,6 +122,12 @@ ar:
         value_types:
           parent_presenter:
             not_found: 'لم يتم العثور على الأصل في قاعدة البيانات (المعرف: %{id})'
+      content_blocks:
+        highlighted_results:
+          results: النتائج
+      import_mailer:
+        import:
+          errors: أخطاء
       last_activity:
         new_result_at_html: "<span>نتيجة جديدة في %{link}</span>"
       models:
@@ -210,3 +223,5 @@ ar:
         result_project: المشاريع المدرجة في هذه النتيجة
       included_proposals:
         result_proposal: المقترحات المدرجة في هذه النتيجة
+    statistics:
+      results_count: النتائج
