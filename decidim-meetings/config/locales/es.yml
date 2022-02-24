@@ -89,19 +89,20 @@ es:
             values:
               'false': Pasados
               'true': Próximos
-          origin_eq:
+          scope_id_eq:
+            label: Ámbito
+          with_any_origin:
             label: Origen
             values:
               official: Oficial
+              participants: Participante
               user_group: Grupos
-          scope_id_eq:
-            label: Ámbito
-          type_eq:
+          with_any_type:
             label: Tipo de encuentro
             values:
               hybrid: Ambos
               in_person: Presencial
-              online: En línea
+              online: Online
       meeting_copies:
         create:
           error: Se ha producido un error al duplicar este encuentro.
@@ -467,6 +468,7 @@ es:
           origin_values:
             all: Todos
             official: Oficial
+            participants: Participantes
             user_groups: Grupos
           scope: Ámbito
           search: Buscar

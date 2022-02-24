@@ -98,7 +98,6 @@ lb:
         error: Et gouf e Problem beim Läschen vum Kont.
         success: De Kont gouf geläscht.
       show:
-        available_locales_helper: Wiel eng Sprooch fir deng Sichfunktioun an deng Noriichten op der Decidim-Plattform
         change_password: Passwuert änneren
         update_account: Kont aktualiséieren
       update:

@@ -80,7 +80,7 @@ cs:
           index:
             title: Losování
           new:
-            confirm: Stisknutím dalšího tlačítka Decidim zaznamená datum a čas (s přesností sekund) a spolu s vržením kostkou tyto informace budou použity k vytvoření náhodného výběru. Akce bude nevratná, po kliknutí na tlačítko bude výsledek tohoto vrhu publikován, spolu s údaji zadanými v tomto formuláři a nelze je změnit, pečlivě zkontrolujte obsah
+            confirm: Stisknutím dalšího tlačítka bude platforma zaznamenávat datum a čas (s přesností sekund) a společně s kostkou, tyto informace budou použity k vytvoření náhodného výběru. Akce bude nevratná, po kliknutí na tlačítko bude výsledek tohoto remízu publikován, spolu s údaji zadanými v tomto formuláři a nelze je změnit, pečlivě zkontrolujte obsah
             create: Vytvořit
             title: Nové losování
           show:

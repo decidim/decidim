@@ -68,8 +68,8 @@ You can download these files directly with these commands:
 
 [source,console]
 ----
-mkdir -p app/packs/src/decidim app/packs/stylesheets/decidim app/packs/stylesheets/images
-touch app/packs/src/decidim/.keep app/packs/stylesheets/decidim/.keep app/packs/stylesheets/images/.keep
+mkdir -p app/packs/src/decidim app/packs/stylesheets/decidim app/packs/images
+touch app/packs/src/decidim/.keep app/packs/stylesheets/decidim/.keep app/packs/images/.keep
 wget https://raw.githubusercontent.com/decidim/decidim/develop/decidim-generators/lib/decidim/generators/app_templates/decidim_application.js -O app/packs/src/decidim/decidim_application.js
 wget https://raw.githubusercontent.com/decidim/decidim/develop/decidim-generators/lib/decidim/generators/app_templates/decidim_application.scss -O app/packs/stylesheets/decidim/decidim_application.scss
 wget https://raw.githubusercontent.com/decidim/decidim/develop/decidim-generators/lib/decidim/generators/app_templates/_decidim-settings.scss -O app/packs/stylesheets/decidim/_decidim-settings.scss
@@ -83,6 +83,16 @@ Copy the existing images from `app/assets/images` to `app/packs/images`. Images 
 ----
 cp -rp app/assets/images/* app/packs/images/
 ----
+
+For instance, add the image "app/packs/images/test.png" in a view using the helper:
+
+[source,erb]
+----
+<%= image_pack_tag "media/images/test.png" =>
+----
+
+Note that, by default, all images are flattened in a single directory (any subdirectory structure is lost when requiring an image using the `image_pack_tag`).
+So, if you have a file in a subdirectory such as `app/packs/images/subfolder/test.png`, you still need to call for the image using `image_pack_tag "media/images/test.png"`
 
 === Migrate stylesheets
 
@@ -215,3 +225,24 @@ npm ERR!
 ----
 
 Then you need to check again that you're using the correct Node.js and NPM versions.
+
+In some case it might be that some packages are not well resolved when installing NPM modules. If you get messages like:
+
+[source,console]
+----
+...
+[webpack-cli] Error: Cannot find module '@rails/webpacker'
+...
+----
+
+Try to add the package `@rails/webpacker` manually in your `package.json` file next to the `@decidim/webpacker` package:
+
+[source,json]
+----
+...
+    "@decidim/webpacker": "^0.25.2",
+    "@rails/webpacker": "^6.0.0-rc.5",
+...
+----
+
+Then execute `npm install`.

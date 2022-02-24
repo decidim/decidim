@@ -9,6 +9,7 @@ input{
 
 a{
   color: $anchor-color;
+  font-weight: $anchor-font-weight;
 
   &:hover{
     color: $anchor-color-hover;

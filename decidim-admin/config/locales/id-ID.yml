@@ -245,7 +245,6 @@ id:
       dashboard:
         show:
           view_more_logs: Lihat lebih banyak log
-          welcome: Selamat datang di Panel Admin Decidim.
       exports:
         export_as: "%{name} sebagai %{export_format}"
         notice: Ekspor Anda sedang dalam proses. Anda akan menerima email setelah selesai.
@@ -594,7 +593,6 @@ id:
         scopes: Scopes
         static_pages: Halaman
         user_groups: Grup Pengguna
-        users: Pengguna
       user_group:
         csv_verify:
           invalid: Ada kesalahan saat membaca file CSV.
@@ -630,7 +628,6 @@ id:
           role: Peran
         new:
           create: Undang
-          title: Undang pengguna sebagai administrator
       users_statistics:
         users_count:
           admins: Admin
