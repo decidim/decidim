@@ -1713,6 +1713,7 @@ ja:
     dropdown:
       choose_diff_view_html: 'HTML ビューモード:'
       choose_diff_view_mode: 'ビューモードを比較:'
+      choose_diff_view_mode_menu: 比較モードを選択
       option_escaped: エスケープあり
       option_split: 並べて表示
       option_unescaped: エスケープなし
