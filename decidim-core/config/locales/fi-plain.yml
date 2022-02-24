@@ -1732,6 +1732,7 @@ fi-pl:
     dropdown:
       choose_diff_view_html: 'HTML-tarkastelutapa:'
       choose_diff_view_mode: 'Vertailutila:'
+      choose_diff_view_mode_menu: Valitse vertailutila
       option_escaped: Teknisten elementtien käsittely käytössä
       option_split: Vierekkäin
       option_unescaped: Teknisten elementtien käsittely pois käytöstä
