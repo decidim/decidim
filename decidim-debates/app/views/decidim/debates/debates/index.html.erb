@@ -2,9 +2,9 @@
 
 <div class="row columns">
   <div class="title-action">
-    <h3 id="debates-count" class="title-action__title section-heading">
+    <h2 id="debates-count" class="title-action__title section-heading">
       <%= render partial: "count" %>
-    </h3>
+    </h2>
     <% if current_settings.creation_enabled? && current_component.participatory_space.can_participate?(current_user) %>
       <%= action_authorized_link_to :create, new_debate_path, class: "title-action__action button small", data: { "redirect_url" => new_debate_path } do %>
         <%= t(".new_debate") %>
