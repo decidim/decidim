@@ -64,6 +64,9 @@ ar:
           delete: "%{user_name} حذف المشروع %{resource_name} في %{space_name} الفضاء"
           update: "%{user_name} تحديث المشروع %{resource_name} في %{space_name} الفضاء"
       models:
+        budget:
+          fields:
+            name: الإسم
         project:
           fields:
             title: عنوان
