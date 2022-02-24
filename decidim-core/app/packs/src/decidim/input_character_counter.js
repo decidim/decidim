@@ -95,11 +95,14 @@ export default class InputCharacterCounter {
       if (remaining === 1) {
         message = MESSAGES.charactersLeft.one;
       }
-      if (remaining < 4) {
-        document.querySelector("textarea[data-remaining-characters=\"${this.$input.data('remaining-characters')}\"]").nextElementSibling.setAttribute("style", "visibility:hidden");
-      }
-      else {
-        document.querySelector("textarea[data-remaining-characters=\"${this.$input.data('remaining-characters')}\"]").nextElementSibling.setAttribute("style", "visibility:visible");
+      var remainingCharacters = this.$input.data("remaining-characters")
+      if (document.querySelector(`textarea[data-remaining-characters="${remainingCharacters}"]`)) {
+        if (remaining < 4) {
+          document.querySelector(`textarea[data-remaining-characters="${remainingCharacters}"]`).nextElementSibling.setAttribute("style", "visibility:hidden");
+        }
+        else {
+          document.querySelector(`textarea[data-remaining-characters="${remainingCharacters}"]`).nextElementSibling.setAttribute("style", "visibility:visible");
+        }
       }
       showMessages.push(message.replace(COUNT_KEY, remaining));
     }
