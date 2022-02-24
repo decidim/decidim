@@ -132,6 +132,21 @@ shared_examples "comments" do
             end
           end
         end
+
+        it "displays the emoji button while it can be activated" do
+          if component.present?
+            component.update!(settings: { comments_max_length: 10 })
+            visit current_path
+
+            within ".add-comment" do
+              expect(page).to have_selector("svg")
+              find(:css, "textarea:enabled").set("123456789")
+              expect(page).not_to have_selector("svg")
+              find(:css, "textarea:enabled").set("123")
+              expect(page).to have_selector("svg")
+            end
+          end
+        end
       end
     end
 
