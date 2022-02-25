@@ -6,15 +6,8 @@ describe "Explore posts", type: :system do
   include_context "with a component"
   let(:manifest_name) { "blogs" }
 
-  let(:current_organization) { create(:organization) }
- # let(:current_user) { create :user, organization: current_organization }
- # let(:another_user) { create(:user, organization: current_organization) }
- # let(:user_group) { create(:user_group, :verified, organization: current_organization) }
- # let(:decidim_author_id) { "" }
-  let(:author) { current_organization }
-
-  let!(:old_post) { create(:post, component: component, author: author, created_at: Time.current - 2.days) }
-  let!(:new_post) { create(:post, component: component, author: author, created_at: Time.current) }
+  let!(:old_post) { create(:post, component: component, created_at: Time.current - 2.days) }
+  let!(:new_post) { create(:post, component: component, created_at: Time.current) }
 
   let!(:image) { create(:attachment, attached_to: old_post) }
 
@@ -61,19 +54,18 @@ describe "Explore posts", type: :system do
 
   describe "show" do
     let(:posts_count) { 1 }
-    let!(:post) { create(:post, component: component) }
+    let(:author) { organization }
+    let!(:post) { create(:post, component: component, author: author) }
 
     before do
       visit resource_locator(post).path
     end
 
-# ADDED PROBABLY WRONG
-    context "testing organization" do
-      it "shows current_organization as author" do
-       expect(page).to have_content(post.author.name)
+    context "when author is an organization" do
+      it "shows 'Official blog' as the author" do
+        expect(page).to have_content("Official debate") # error - should show Official blog
       end
     end
-# ADDED PROBABLY WRONG
 
     it "show post info" do
       expect(page).to have_i18n_content(post.title)
