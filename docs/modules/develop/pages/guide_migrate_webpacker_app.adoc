@@ -215,6 +215,7 @@ end
 
 Also, in the case of Capistrano it's interesting to add to the shared_paths the following folders:
 
+* `storage` *IMPORTANT!*
 * `tmp/webpacker-cache`
 * `node_modules`
 * `public/decidim-packs`
