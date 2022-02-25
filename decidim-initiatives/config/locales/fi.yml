@@ -274,6 +274,8 @@ fi:
             update: Päivitä
           form:
             authorizations: Varmennuksen asetukset
+            child_scope_threshold_enabled_help: 'Tämä asetus ei tue fyysisiä äänestyksiä, se ottaa käyttöön alateemat ja toimii sellaisten tunnistautumistapojen kanssa, jotka yhdistävät käyttäjän tiettyyn teemaan. Varmista, että valitset tällaisen tunnistautumistavan alla olevista asetuksista. Tämän asetuksen toiminta vaatii teemojen määrityksen hierarkisesti: 1 isäntä - N lasta. Jos tarvitset lisätietoja kuinka tämä asetus toimii, tutustu <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">asetuksen dokumentaatioon täältä</a>.'
+            only_global_scope_enabled_help: Ota tämä asetus käyttöön, jos otit käyttöön "alateemojen allekirjoitukset" ja asetit yleisen yläteeman. Ottamalla tämän asetuksen käyttöön, aloitteen tyypin valinta sivuutetaan aloitteiden luontinäkymässä. Saat <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">lisätietoja tästä ominaisuudesta täältä</a>.
             options: Valinnat
             title: Yleistä tietoa
           initiative_type_scopes:
