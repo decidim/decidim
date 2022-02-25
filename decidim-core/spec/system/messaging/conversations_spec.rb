@@ -57,7 +57,7 @@ describe "Conversations", type: :system do
       expect(page).to have_current_path decidim.new_conversation_path(recipient_id: recipient.id)
     end
 
-    it_behaves_like "field with maximum length", "conversation_body"
+    it_behaves_like "conversation field with maximum length", "conversation_body"
 
     it_behaves_like "create new conversation"
 

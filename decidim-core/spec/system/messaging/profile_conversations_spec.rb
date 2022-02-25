@@ -139,7 +139,7 @@ describe "ProfileConversations", type: :system do
           find("#conversation-#{conversation.id}").click
         end
 
-        it_behaves_like "field with maximum length", "message_body"
+        it_behaves_like "conversation field with maximum length", "message_body"
 
         describe "reply to conversation" do
           let(:reply_message) { ::Faker::Lorem.sentence }
