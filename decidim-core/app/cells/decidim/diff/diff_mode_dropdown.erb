@@ -9,21 +9,21 @@
       data-disable-hover="true"
       data-click-open="true"
       data-close-on-click="true"
-      tabindex="-1">
-      <li class="is-dropdown-submenu-parent" tabindex="-1">
-        <a href="#diffmode-chooser-menu" id="diff-view-selected" aria-controls="diffmode-chooser-menu" aria-haspopup="true" aria-label="<%= t("versions.dropdown.choose_diff_view_mode_menu") %>">
+      role="menubar">
+      <li class="is-dropdown-submenu-parent" role="presentation">
+        <a href="#diffmode-chooser-menu" id="diff-view-selected" aria-controls="diffmode-chooser-menu" aria-haspopup="true" aria-label="<%= t("versions.dropdown.choose_diff_view_mode_menu") %>" role="menuitem">
           <span aria-hidden="true"><%= t("versions.dropdown.option_unified") %></span>
         </a>
 
-        <ul class="menu is-dropdown-submenu" id="diffmode-chooser-menu" role="menu" aria-labelledby="diff-view-selected" tabindex="-1">
-          <li>
-            <%= link_to "#diff-view-unified", class: "diff-view-mode", id:"diff-view-unified" do %>
+        <ul class="menu is-dropdown-submenu" id="diffmode-chooser-menu" role="menu" aria-labelledby="diff-view-selected">
+          <li role="presentation">
+            <%= link_to "#diff-view-unified", class: "diff-view-mode", id:"diff-view-unified", role: "menuitem" do %>
               <%= t("versions.dropdown.option_unified") %>
             <% end %>
           </li>
 
-          <li>
-            <%= link_to "#diff-view-split", class: "diff-view-mode", id:"diff-view-split" do %>
+          <li role="presentation">
+            <%= link_to "#diff-view-split", class: "diff-view-mode", id:"diff-view-split", role: "menuitem" do %>
               <%= t("versions.dropdown.option_split") %>
             <% end %>
           </li>
