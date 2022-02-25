@@ -19,7 +19,7 @@ module Decidim
         attribute :signature_start_date, Decidim::Attributes::LocalizedDate
         attribute :signature_end_date, Decidim::Attributes::LocalizedDate
         attribute :hashtag, String
-        attribute :offline_votes, Hash[String => Integer]
+        attribute :offline_votes, Hash
         attribute :state, String
         attribute :attachment, AttachmentForm
 
