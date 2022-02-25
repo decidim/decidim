@@ -362,9 +362,9 @@ module Decidim
     end
 
     def set_offline_votes_total
-      return if offline_votes.blank? || scope.nil?
+      return if offline_votes.blank?
 
-      offline_votes["total"] = offline_votes[scope.id.to_s]
+      offline_votes["total"] = offline_votes[scope&.id.to_s] || offline_votes["global"]
     end
 
     # Public: Finds all the InitiativeTypeScopes that are eligible to be voted by a user.
