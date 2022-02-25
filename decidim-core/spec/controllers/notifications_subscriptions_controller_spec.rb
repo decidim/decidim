@@ -36,7 +36,7 @@ module Decidim
 
       it "returns the notifications_subscription created" do
         expect do
-          delete :delete_by_user, params: { user_id: user.id }
+          delete :delete
         end.to change { Decidim::NotificationsSubscription.count }.to(0)
 
         expect(response).to have_http_status(:ok)
