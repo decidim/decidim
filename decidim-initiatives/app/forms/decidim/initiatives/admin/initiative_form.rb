@@ -38,31 +38,11 @@ module Decidim
         validate :notify_missing_attachment_if_errored
         validate :area_is_not_removed
 
-        # rubocop:disable Metrics/CyclomaticComplexity
-        # rubocop:disable Metrics/PerceivedComplexity
         def map_model(model)
           self.type_id = model.type.id
           self.decidim_scope_id = model.scope&.id
-          self.offline_votes = model.offline_votes
-
-          if offline_votes.empty?
-            self.offline_votes = model.votable_initiative_type_scopes.each_with_object({}) do |initiative_scope_type, all_votes|
-              all_votes[initiative_scope_type.decidim_scopes_id || "global"] = [0, initiative_scope_type.scope_name]
-            end
-          else
-            offline_votes.delete("total")
-            self.offline_votes = offline_votes.each_with_object({}) do |(decidim_scope_id, votes), all_votes|
-              scope_name = model.votable_initiative_type_scopes.find do |initiative_scope_type|
-                initiative_scope_type.global_scope? && decidim_scope_id == "global" ||
-                  initiative_scope_type.decidim_scopes_id == decidim_scope_id.to_i
-              end.scope_name
-
-              all_votes[decidim_scope_id || "global"] = [votes, scope_name]
-            end
-          end
+          self.offline_votes = offline_votes.empty? ? zero_offine_votes_with_scopes_names(model) : offline_votes_with_scopes_names(model)
         end
-        # rubocop:enable Metrics/CyclomaticComplexity
-        # rubocop:enable Metrics/PerceivedComplexity
 
         def signature_type_updatable?
           @signature_type_updatable ||= begin
@@ -90,6 +70,26 @@ module Decidim
         end
 
         private
+
+        # Private: set the in-person signatures to zero for every scope
+        def zero_offine_votes_with_scopes_names(model)
+          model.votable_initiative_type_scopes.each_with_object({}) do |initiative_scope_type, all_votes|
+            all_votes[initiative_scope_type.decidim_scopes_id || "global"] = [0, initiative_scope_type.scope_name]
+          end
+        end
+
+        # Private: set the in-person signatures for every scope
+        def offline_votes_with_scopes_names(model)
+          model.offline_votes.delete("total")
+          model.offline_votes.each_with_object({}) do |(decidim_scope_id, votes), all_votes|
+            scope_name = model.votable_initiative_type_scopes.find do |initiative_scope_type|
+              initiative_scope_type.global_scope? && decidim_scope_id == "global" ||
+                initiative_scope_type.decidim_scopes_id == decidim_scope_id.to_i
+            end.scope_name
+
+            all_votes[decidim_scope_id || "global"] = [votes, scope_name]
+          end
+        end
 
         def type
           @type ||= type_id ? Decidim::InitiativesType.find(type_id) : context.initiative.type
