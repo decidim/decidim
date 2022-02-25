@@ -73,6 +73,7 @@ describe "Explore posts", type: :system do
 
     context "when author is a user_group" do
       let(:decidim_author_id) { user_group.id }
+
       it "shows user group as the author" do
         expect(page).to have_content(post.author.name)
       end
@@ -80,6 +81,7 @@ describe "Explore posts", type: :system do
 
     context "when author is a user" do
       let(:decidim_author_id) { current_user.id }
+
       it "shows user as the author" do
         expect(page).to have_content(post.author.name)
       end
