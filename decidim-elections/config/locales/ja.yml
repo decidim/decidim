@@ -1056,7 +1056,7 @@ ja:
               submit: CSVを送信
               title: センサスを作成
             show:
-              heading: 空間センサスに投票する
+              heading: センサスに投票する
             upload_info:
               csv_example_with_ballot_style: '投票スタイル<strong>のある</strong>ファイルの例:'
               csv_example_without_ballot_style: '投票スタイル<strong>のない</strong>ファイルの例:'
