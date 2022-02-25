@@ -54,6 +54,10 @@ describe "Explore posts", type: :system do
 
   describe "show" do
     let(:posts_count) { 1 }
+    let(:current_organization) { create(:organization) }
+    let(:current_user) { create :user, organization: current_organization }
+    let(:user_group) { create(:user_group, :verified, organization: current_organization) }
+    let(:decidim_author_id) { "" }
     let(:author) { organization }
     let!(:post) { create(:post, component: component, author: author) }
 
@@ -64,6 +68,20 @@ describe "Explore posts", type: :system do
     context "when author is an organization" do
       it "shows 'Official blog' as the author" do
         expect(page).to have_content("Official debate") # error - should show Official blog
+      end
+    end
+
+    context "when author is a user_group" do
+      let(:decidim_author_id) { user_group.id }
+      it "shows user group as the author" do
+        expect(page).to have_content(post.author.name)
+      end
+    end
+
+    context "when author is a user" do
+      let(:decidim_author_id) { current_user.id }
+      it "shows user as the author" do
+        expect(page).to have_content(post.author.name)
       end
     end
 
