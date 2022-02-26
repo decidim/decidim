@@ -54,10 +54,10 @@ describe "Explore posts", type: :system do
 
   describe "show" do
     let(:posts_count) { 1 }
-    let(:current_organization) { create(:organization) }
-    let(:current_user) { create :user, organization: current_organization }
-    let(:user_group) { create(:user_group, :verified, organization: current_organization) }
-    let(:decidim_author_id) { "" }
+    # let(:current_organization) { create(:organization) }
+    # let(:current_user) { create :user, organization: current_organization }
+    # let(:user_group) { create(:user_group, :verified, organization: current_organization) }
+    # let(:decidim_author_id) { "" }
     let(:author) { organization }
     let!(:post) { create(:post, component: component, author: author) }
 
@@ -72,18 +72,22 @@ describe "Explore posts", type: :system do
     end
 
     context "when author is a user_group" do
-      let(:decidim_author_id) { user_group.id }
+      let(:user_group) { create(:user_group, :verified, organization: organization) }
+      # let(:decidim_author_id) { user_group.id }
+      let!(:post) { create(:post, component: component, author: user_group) }
 
       it "shows user group as the author" do
-        expect(page).to have_content(post.author.name)
+        expect(page).to have_content(user_group.name)
       end
     end
 
     context "when author is a user" do
-      let(:decidim_author_id) { current_user.id }
+      # let(:decidim_author_id) { current_user.id }
+      let(:author) { user }
+      let!(:post) { create(:post, component: component, author: author) }
 
       it "shows user as the author" do
-        expect(page).to have_content(post.author.name)
+        expect(page).to have_content(user.name)
       end
     end
 
