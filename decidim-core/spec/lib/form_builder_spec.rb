@@ -693,16 +693,8 @@ module Decidim
       context "when the file is present" do
         let(:present?) { true }
 
-        it "renders the remove button" do
-          expect(parsed.css("button.remove-upload")).not_to be_empty
-        end
-
-        context "when the optional argument is false" do
-          let(:optional) { false }
-
-          it "doesn't render the remove button" do
-            expect(parsed.css("button.remove-upload")).to be_empty
-          end
+        it "renders the add file button" do
+          expect(parsed.css("button.add-file")).not_to be_empty
         end
       end
 
