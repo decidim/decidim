@@ -396,10 +396,10 @@ ja:
               'false': 未送信
               'true': 送信済み
         private_space_eq:
-          label: 非公開
+          label: プライベート
           values:
             'false': 公開
-            'true': 非公開
+            'true': プライベート
         published_at_null:
           label: 公開済み
           values:
