@@ -3,7 +3,7 @@ window.addEventListener("load", async () => {
   if ("serviceWorker" in navigator) {
     const registration = await navigator.serviceWorker.register("/sw.js", { scope: "/" });
 
-    if (registration) {
+    if (registration && Notification.permission === "granted") {
       const vapidElement = document.querySelector("#vapidPublicKey")
       // element could not exist in DOM
       if (vapidElement) {
