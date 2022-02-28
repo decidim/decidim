@@ -88,25 +88,6 @@ const addSaveButtonEventListener = (um) => {
   });
 }
 
-const addRemoveButtonEventListener = (um) => {
-  if (um.options.titled || !um.options.optional) {
-    return;
-  }
-
-  const removeButton = um.uploadContainer.querySelector("button.remove-upload");
-
-  if (um.activeAttachments.children.length === 0) {
-    removeButton.parentElement.style.display = "none";
-  }
-
-  removeButton.addEventListener("click", (event) => {
-    event.preventDefault();
-    removeButton.parentElement.style.display = "none";
-    um.uploadItems.innerHTML = "";
-    um.activeAttachments.innerHTML = `<input name='${um.options.resourceName}[remove_${um.name}]' type="hidden" value="true">`;
-  })
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   const attachmentButtons = document.querySelectorAll("button.add-file");
 
@@ -117,6 +98,5 @@ document.addEventListener("DOMContentLoaded", () => {
     addButtonEventListener(um);
     addDropZoneEventListeners(um);
     addSaveButtonEventListener(um);
-    addRemoveButtonEventListener(um);
   })
 })

@@ -25,7 +25,7 @@ module Decidim
     def button_class
       "button small hollow add-field add-file" if has_title?
 
-      "button small primary add-file"
+      "button small add-file"
     end
 
     def label
