@@ -48,7 +48,7 @@ module Decidim::ParticipatoryProcesses
         participatory_process_group: participatory_process_group,
         show_statistics: false,
         show_metrics: false,
-        announcement: { en: "message" },
+        announcement: { en: "message" }
       )
     end
     let(:invalid) { false }
