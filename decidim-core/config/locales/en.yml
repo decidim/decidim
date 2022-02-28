@@ -765,7 +765,6 @@ en:
       file_validation:
         allowed_file_extensions: 'Allowed file extensions: %{extensions}'
         max_file_size: 'Maximum file size: %{megabytes}MB'
-      remove_this_file: Remove this file
       upload:
         labels:
           add_attachment: Add attachment
