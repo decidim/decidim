@@ -271,6 +271,8 @@ ja:
             update: 更新
           form:
             authorizations: 認証設定
+            child_scope_threshold_enabled_help: "この設定では、対面での署名収集をサポートせず、サブスコープの署\n名フラグを有効にし、スコープとユーザーを関連付ける承認ハンドラと連携します。オーソリゼーションの設定で、下記のオーソリゼーションを必ず選択してください。これが機能するためには、1つのスコープ - N個のサブスコープというように、階層的に構成されている必要があります。この設定がどのように機能するかについては、 <a href=\"https://docs.decidim.org/en/admin/spaces/initiatives/\" target=\"_blank\">このリンク</a> を参照してください。"
+            only_global_scope_enabled_help: '「下層スコープ署名」を有効にし、グローバルスコープを親スコープとして設定する場合、このフラグをチェックします。これを有効にすると、イニシアチブ作成ウィザードでイニシアチブ種別の選択がスキップされます。この設定の仕組みについての詳細は、<a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">このリンク</a> を参照してください。'
             options: オプション
             title: 一般情報
           initiative_type_scopes:
