@@ -22,6 +22,7 @@ env:
   NODE_VERSION: 16.9.1
   DECIDIM_MODULE: decidim-pages
   PARALLEL_TEST_PROCESSORS: 2
+  VALIDATOR_HTML_URI: http://localhost:8888/
 
 jobs:
   main:
@@ -40,6 +41,9 @@ jobs:
           --health-retries 5
         env:
           POSTGRES_PASSWORD: postgres
+      validator:
+        image: ghcr.io/validator/validator:latest
+        ports: ["8888:8888"]
     env:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
