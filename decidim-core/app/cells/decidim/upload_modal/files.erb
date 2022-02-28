@@ -37,16 +37,6 @@
         }.transform_keys { |key| key.to_s.camelize(:lower) }
       } %>
     <%= input_validation_field unless optional %>
-    <% if !has_title? && optional %>
-      <div class="remove-upload-container" id="attachment_<%= id_for(attachments.first) %>" data-closable>
-        <button class="remove-upload"
-              aria-label="<%= t("remove_this_file", scope: "decidim.forms") %>"
-              title="<%= t("remove_this_file", scope: "decidim.forms") %>"
-              type="button" data-close>
-          <span aria-hidden="true">&times; <%= t("decidim.forms.upload.labels.remove") %></span>
-        </button>
-      </div>
-    <% end %>
   </div>
 
   <% if !has_title? && file_attachment_path(attachments.first) && blob(attachments.first).image? %>
