@@ -12,6 +12,7 @@
       .file-name-span{
         flex: 4 1 0;
       }
+
       .title-container{
         flex: 3.5 1 0;
       }
@@ -26,6 +27,7 @@
 
         .progress-bar-border{
           border: 1px solid map-get($foundation-palette, primary);
+
           .progress-bar{
             background-color: map-get($foundation-palette, primary);
           }
