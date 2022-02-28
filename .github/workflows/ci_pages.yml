@@ -22,7 +22,6 @@ env:
   NODE_VERSION: 16.9.1
   DECIDIM_MODULE: decidim-pages
   PARALLEL_TEST_PROCESSORS: 2
-  VALIDATOR_HTML_URI: http://localhost:8888/
 
 jobs:
   main:
@@ -49,6 +48,7 @@ jobs:
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
       RUBYOPT: '-W:no-deprecated'
+      VALIDATOR_HTML_URI: http://localhost:8888/
     steps:
       - uses: actions/checkout@v2.0.0
         with:
