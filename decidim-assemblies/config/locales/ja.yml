@@ -96,7 +96,7 @@ ja:
           update: 更新
         index:
           not_published: 未公開
-          private: 非公開
+          private: プライベート
           public: 公開
           published: 公開済み
         new:
@@ -195,7 +195,7 @@ ja:
           components: コンポーネント
           info: 情報
           moderations: モデレーション
-          private_users: 非公開ユーザー
+          private_users: プライベートユーザー
         assemblies_types: 参加スペース種別
       models:
         assemblies_types:
@@ -205,7 +205,7 @@ ja:
         assembly:
           fields:
             created_at: 作成日時
-            private: 非公開
+            private: プライベート
             promoted: 強調表示
             published: 公開済み
             title: タイトル
