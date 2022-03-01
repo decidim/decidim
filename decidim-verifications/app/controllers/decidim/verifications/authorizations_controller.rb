@@ -35,7 +35,7 @@ module Decidim
       end
 
       def create
-        AuthorizeUser.call(handler) do
+        AuthorizeUser.call(handler, current_organization) do
           on(:ok) do
             flash[:notice] = t("authorizations.create.success", scope: "decidim.verifications")
             redirect_to redirect_url || authorizations_path
