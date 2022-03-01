@@ -33,15 +33,15 @@ $(() => {
   $(document).on("click", ".diff-view-by a.diff-view-html", (event) => {
     event.preventDefault();
     const $target = $(event.target);
-    $target.parents(".is-dropdown-submenu-parent").find("#diff-view-selected").text($target.text());
+    $target.parents(".is-dropdown-submenu-parent").find("#diff-view-html-selected").text($target.text());
     const $visibleDiffViewsId = $allDiffViews.not(".hide").first().attr("id").split("_").slice(1, -1).join("_");
     const $visibleDiffViews = $allDiffViews.filter(`[id*=${$visibleDiffViewsId}]`)
 
-    if ($target.attr("id") === "escaped-html") {
+    if ($target.attr("id") === "diff-view-escaped-html") {
       $visibleDiffViews.filter("[id$=_unescaped]").addClass("hide");
       $visibleDiffViews.filter("[id$=_escaped]").removeClass("hide");
     }
-    if ($target.attr("id") === "unescaped-html") {
+    if ($target.attr("id") === "diff-view-unescaped-html") {
       $visibleDiffViews.filter("[id$=_escaped]").addClass("hide");
       $visibleDiffViews.filter("[id$=_unescaped]").removeClass("hide");
     }
