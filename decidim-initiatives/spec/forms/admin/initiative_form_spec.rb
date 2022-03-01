@@ -46,6 +46,52 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
+        describe "#map_model" do
+          subject { described_class.from_model(initiative).with_context(context) }
+
+          context "when there are offline votes" do
+            context "with a specific scope" do
+              context "when there are no votes" do
+                it "returns the correct offline_votes" do
+                  scope_name = scope.scope_name["en"]
+                  expected = { initiative.scope.id.to_s.to_sym => [0, { "ca" => scope_name, "en" => scope_name, "es" => scope_name }] }
+                  expect(subject.offline_votes).to eq expected
+                end
+              end
+
+              context "when there are votes" do
+                before { initiative.update!(offline_votes: { "total" => "100", initiative.scope.id.to_s => "100" }) }
+
+                it "returns the correct offline_votes" do
+                  scope_name = scope.scope_name["en"]
+                  expected = { initiative.scope.id.to_s.to_sym => ["100", { "ca" => scope_name, "en" => scope_name, "es" => scope_name }] }
+                  expect(subject.offline_votes).to eq expected
+                end
+              end
+            end
+
+            context "with the global scope" do
+              let(:scope) { create(:initiatives_type_scope, scope: nil) }
+
+              context "when there are no votes" do
+                it "returns the correct offline_votes" do
+                  expected = { global: [0, { "en" => "Global scope" }] }
+                  expect(subject.offline_votes).to eq expected
+                end
+              end
+
+              context "when there are votes" do
+                before { initiative.update!(offline_votes: { "total" => "100", "global" => "100" }) }
+
+                it "returns the correct offline_votes" do
+                  expected = { global: ["100", { "en" => "Global scope" }] }
+                  expect(subject.offline_votes).to eq expected
+                end
+              end
+            end
+          end
+        end
+
         describe "#signature_type_updatable?" do
           subject { described_class.from_model(initiative).with_context(context).signature_type_updatable? }
 

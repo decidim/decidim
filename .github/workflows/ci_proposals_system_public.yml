@@ -45,11 +45,15 @@ jobs:
           --health-retries 5
         env:
           POSTGRES_PASSWORD: postgres
+      validator:
+        image: ghcr.io/validator/validator:latest
+        ports: ["8888:8888"]
     env:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
       RUBYOPT: '-W:no-deprecated'
+      VALIDATOR_HTML_URI: http://localhost:8888/
     steps:
       - uses: actions/checkout@v2.0.0
         with:
