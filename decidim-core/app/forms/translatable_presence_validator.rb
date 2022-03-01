@@ -9,7 +9,7 @@
 # object (or the `default_locale` of the form's organization) for the given field.
 class TranslatablePresenceValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, _value)
-    translated_attr = "#{attribute}_#{default_locale_for(record)}"
+    translated_attr = "#{attribute}_#{default_locale_for(record)}".gsub("-", "__")
     record.errors.add(translated_attr, :blank) if record.send(translated_attr).blank?
   end
 
@@ -22,7 +22,7 @@ class TranslatablePresenceValidator < ActiveModel::EachValidator
       record.current_organization.default_locale
     else
       record.errors.add(:current_organization, :blank)
-      []
+      Decidim.default_locale
     end
   end
 end
