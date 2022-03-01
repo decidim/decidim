@@ -119,7 +119,7 @@ ja:
         participatory_process:
           fields:
             created_at: 作成日時
-            private: 非公開
+            private: プライベート
             promoted: 強調表示
             published: 公開済み
             title: タイトル
@@ -241,7 +241,7 @@ ja:
           update: 更新
         index:
           not_published: 未公開
-          private: 非公開
+          private: プライベート
           public: 公開
           published: 公開済み
         new:
