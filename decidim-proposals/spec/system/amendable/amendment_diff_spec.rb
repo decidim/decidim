@@ -25,6 +25,8 @@ describe "Amendment Diff", versioning: true, type: :system do
         visit emendation_path
       end
 
+      it_behaves_like "accessible page"
+
       it "shows the changed attributes compared to the last version of the amended proposal" do
         expect(page).to have_content('Amendment to "Updated long enough title"')
 
