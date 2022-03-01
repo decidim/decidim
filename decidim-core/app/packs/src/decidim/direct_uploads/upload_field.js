@@ -75,6 +75,10 @@ const addSaveButtonEventListener = (um) => {
       span.style.display = "block";
     });
 
+    if (!um.options.titled && um.trashCan.children.length > 0) {
+      um.activeAttachments.innerHTML = `<input name='${um.options.resourceName}[remove_${um.name}]' type="hidden" value="true">`;
+    }
+
     if (validatedItemsCount > 0) {
       // Foundation helper does some magic with error fields, so these must be triggered using jQuery.
       const $el = $(um.uploadContainer.querySelector("input[type='checkbox']"));

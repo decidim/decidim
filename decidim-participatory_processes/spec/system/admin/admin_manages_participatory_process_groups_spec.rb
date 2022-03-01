@@ -148,8 +148,12 @@ describe "Admin manages participatory process groups", type: :system do
       end
 
       within ".upload-container-for-hero_image" do
-        find("button.remove-upload").click
+        find("#participatory_process_group_hero_image_button").click
       end
+
+      find(".remove-upload-item").click
+      click_button "Save"
+
       click_button "Update"
 
       expect(page).to have_no_css("img")
