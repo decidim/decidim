@@ -4,8 +4,9 @@ require "spec_helper"
 
 module Decidim::Verifications
   describe AuthorizeUser do
-    subject { described_class.new(handler) }
+    subject { described_class.new(handler, organization) }
 
+    let(:organization) { create(:organization) }
     let(:user) { create(:user, :confirmed) }
     let(:document_number) { "12345678X" }
     let(:handler) do
@@ -107,7 +108,7 @@ module Decidim::Verifications
             event: "decidim.events.verifications.managed_user_error_event",
             event_class: Decidim::Verifications::ManagedUserErrorEvent,
             resource: conflict,
-            affected_users: Decidim::User.where(admin: true)
+            affected_users: Decidim::User.where(admin: true, organization: organization)
           )
         end
       end
