@@ -21,23 +21,23 @@ module Decidim
 
           def filters
             [
-              :type_eq,
+              :with_any_type,
               :is_upcoming_true,
               :scope_id_eq,
               :category_id_eq,
-              :origin_eq,
+              :with_any_origin,
               :closed_at_present
             ]
           end
 
           def filters_with_values
             {
-              type_eq: meeting_types,
+              with_any_type: meeting_types,
               scope_id_eq: scope_ids_hash(scopes.top_level),
               category_id_eq: category_ids_hash(categories.first_class),
               closed_at_present: %w(true false),
               is_upcoming_true: %w(true false),
-              origin_eq: %w(participant official user_group)
+              with_any_origin: %w(participants official user_group)
             }
           end
 

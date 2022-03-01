@@ -4,8 +4,11 @@ module Decidim
   module ParticipatoryProcesses
     # A presenter to render statistics in the homepage.
     class ParticipatoryProcessStatsPresenter < Decidim::StatsPresenter
-      attribute :participatory_process, Decidim::ParticipatoryProcess
       include Decidim::IconHelper
+
+      def participatory_process
+        __getobj__.fetch(:participatory_process)
+      end
 
       # Public: returns a collection of stats (Hash) for the Process Home.
       def collection

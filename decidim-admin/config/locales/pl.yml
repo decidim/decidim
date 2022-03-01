@@ -170,8 +170,6 @@ pl:
         permissions: Uprawnienia
         reject: Odrzuć
         share: Udostępnij
-        user:
-          new: Nowy administrator
         verify: Zweryfikuj
       admin_terms_of_use:
         accept:
@@ -331,7 +329,6 @@ pl:
       dashboard:
         show:
           view_more_logs: Zobacz więcej logów
-          welcome: Witamy w panelu administracyjnym Decidim.
       domain_whitelist:
         form:
           domain_too_short: Domena jest zbyt krótka
@@ -904,7 +901,6 @@ pl:
         static_pages: Strony
         statistics: Aktywność
         user_groups: Grupy użytkowników
-        users: Administratorzy
       user_group:
         csv_verify:
           invalid: Wystąpił błąd podczas odczytu pliku CSV.
@@ -940,7 +936,6 @@ pl:
           role: Rola
         new:
           create: Zaproś
-          title: Zaproś użytkownika jako administratora
       users_statistics:
         users_count:
           admins: Administratorzy

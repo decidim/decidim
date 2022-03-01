@@ -19,6 +19,8 @@ sv:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Kommentera
         name: Tilldelningar
         settings:
           global:
@@ -74,7 +76,6 @@ sv:
           index:
             title: Tilldelningar
           new:
-            confirm: När du trycker på nästa knapp kommer Decidim att registrera datum och tid (med precision i sekunder) och tillsammans med tärningskastet genereras ett slumpmässigt urval. Åtgärden kan inte ångras eller göras om. När knappen har klickats kommer resultatet av lottningen att publiceras, tillsammans med de uppgifter som anges i formuläret, och kan inte längre ändras. Kontrollera innehållet noggrant
             create: Skapa
             title: Ny tilldelning
           show:

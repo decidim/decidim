@@ -3,7 +3,9 @@
 module Decidim
   module Admin
     class DashboardMetricChartsPresenter < Decidim::MetricChartsPresenter
-      attribute :summary, Boolean
+      def summary?
+        __getobj__.fetch(:summary)
+      end
 
       def render_not_highlighted(metrics)
         safe_join(

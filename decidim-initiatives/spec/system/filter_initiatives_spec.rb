@@ -37,7 +37,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
     context "when selecting all scopes" do
       it "lists all initiatives", :slow do
-        within ".filters .scope_id_check_boxes_tree_filter" do
+        within ".filters .with_any_scope_check_boxes_tree_filter" do
           check "All"
         end
 
@@ -48,7 +48,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
     context "when selecting the global scope" do
       it "lists the filtered initiatives", :slow do
-        within ".filters .scope_id_check_boxes_tree_filter" do
+        within ".filters .with_any_scope_check_boxes_tree_filter" do
           uncheck "All"
           check "Global"
         end
@@ -60,7 +60,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
     context "when selecting one scope" do
       it "lists the filtered initiatives", :slow do
-        within ".filters .scope_id_check_boxes_tree_filter" do
+        within ".filters .with_any_scope_check_boxes_tree_filter" do
           uncheck "All"
           check scoped_type1.scope_name[I18n.locale.to_s]
         end
@@ -90,7 +90,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
     context "when selecting all states" do
       it "lists all initiatives", :slow do
-        within ".filters .state_check_boxes_tree_filter" do
+        within ".filters .with_any_state_check_boxes_tree_filter" do
           uncheck "All"
           check "All"
         end
@@ -102,7 +102,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
     context "when selecting the open state" do
       it "lists the open initiatives", :slow do
-        within ".filters .state_check_boxes_tree_filter" do
+        within ".filters .with_any_state_check_boxes_tree_filter" do
           uncheck "All"
           check "Open"
         end
@@ -114,7 +114,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
     context "when selecting the closed state" do
       it "lists the closed initiatives" do
-        within ".filters .state_check_boxes_tree_filter" do
+        within ".filters .with_any_state_check_boxes_tree_filter" do
           uncheck "All"
           check "Closed"
         end
@@ -126,7 +126,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
     context "when selecting the accepted state" do
       it "lists the accepted initiatives" do
-        within ".filters .state_check_boxes_tree_filter" do
+        within ".filters .with_any_state_check_boxes_tree_filter" do
           uncheck "All"
           within ".filters__has-subfilters" do
             click_button
@@ -141,7 +141,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
     context "when selecting the rejected state" do
       it "lists the rejected initiatives" do
-        within ".filters .state_check_boxes_tree_filter" do
+        within ".filters .with_any_state_check_boxes_tree_filter" do
           uncheck "All"
           within ".filters__has-subfilters" do
             click_button
@@ -156,7 +156,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
     context "when selecting the answered state" do
       it "lists the answered initiatives" do
-        within ".filters .state_check_boxes_tree_filter" do
+        within ".filters .with_any_state_check_boxes_tree_filter" do
           uncheck "All"
           check "Answered"
         end
@@ -182,7 +182,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
       it "doesn't display TYPE filter" do
         expect(page).not_to have_content(/Type/i)
-        expect(page).not_to have_css(".filters__section.type_id_check_boxes_tree_filter")
+        expect(page).not_to have_css(".filters__section.with_any_type_check_boxes_tree_filter")
       end
 
       it "lists all initiatives", :slow do
@@ -207,7 +207,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
       context "when selecting all types" do
         it "lists all initiatives", :slow do
-          within ".filters .type_id_check_boxes_tree_filter" do
+          within ".filters .with_any_type_check_boxes_tree_filter" do
             check "All"
           end
 
@@ -218,7 +218,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
       context "when selecting one type" do
         it "lists the filtered initiatives", :slow do
-          within ".filters .type_id_check_boxes_tree_filter" do
+          within ".filters .with_any_type_check_boxes_tree_filter" do
             uncheck "All"
             check type1.title[I18n.locale.to_s]
           end
@@ -247,7 +247,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
     context "when selecting all areas" do
       it "lists all initiatives", :slow do
-        within ".filters .area_id_check_boxes_tree_filter" do
+        within ".filters .with_any_area_check_boxes_tree_filter" do
           uncheck "All"
           check "All"
         end
@@ -259,7 +259,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
     context "when selecting one area" do
       it "lists the filtered initiatives", :slow do
-        within ".filters .area_id_check_boxes_tree_filter" do
+        within ".filters .with_any_area_check_boxes_tree_filter" do
           uncheck "All"
           within all(".filters__has-subfilters").first do
             click_button
@@ -277,7 +277,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
     context "when selecting one area type" do
       it "lists the filtered initiatives", :slow do
-        within ".filters .area_id_check_boxes_tree_filter" do
+        within ".filters .with_any_area_check_boxes_tree_filter" do
           uncheck "All"
           check area_type1.name[I18n.locale.to_s]
         end

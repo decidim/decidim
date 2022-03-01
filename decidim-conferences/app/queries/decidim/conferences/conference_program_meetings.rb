@@ -10,7 +10,7 @@ module Decidim
       end
 
       def query
-        Decidim::Meetings::Meeting.where(component: @component).visible_meeting_for(@user)
+        Decidim::Meetings::Meeting.where(component: @component).visible_for(@user)
       end
     end
   end

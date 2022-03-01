@@ -76,17 +76,14 @@ de:
             values:
               'false': Vergangenheit
               'true': Anstehend
-          origin_eq:
-            label: Ursprung
-            values:
-              official: Offiziell
-              user_group: Benutzergruppen
           scope_id_eq:
             label: Umfang
-          type_eq:
+          with_any_origin:
+            values:
+              user_group: Benutzergruppen
+          with_any_type:
             label: Art des Treffens
             values:
-              hybrid: Beides
               in_person: Persönlich
       meeting_copies:
         create:

@@ -4,7 +4,7 @@ module Decidim
   #
   # Decorator to format validation errors of a form in html format
   #
-  class ValidationErrorsPresenter < Rectify::Presenter
+  class ValidationErrorsPresenter < SimpleDelegator
     include Decidim::SanitizeHelper
 
     attr_reader :error, :form

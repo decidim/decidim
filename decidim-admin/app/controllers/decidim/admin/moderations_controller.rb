@@ -76,9 +76,9 @@ module Decidim
       def collection
         @collection ||= begin
           if params[:hidden]
-            participatory_space_moderations.where.not(hidden_at: nil)
+            participatory_space_moderations.hidden
           else
-            participatory_space_moderations.where(hidden_at: nil)
+            participatory_space_moderations.not_hidden
           end
         end
       end

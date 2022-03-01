@@ -26,13 +26,12 @@ module Decidim
 
     def activities
       @activities ||= paginate(
-        ActivitySearch.new(
-          organization: current_organization,
-          resource_type: "all",
+        PublicActivities.new(
+          current_organization,
           scopes: current_user.interested_scopes,
           follows: follows,
           resource_name: filter.resource_type
-        ).run
+        ).query.with_resource_type("all")
       )
     end
 

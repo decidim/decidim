@@ -249,7 +249,6 @@ ru:
       dashboard:
         show:
           view_more_logs: Просмотреть другие журналы
-          welcome: Добро пожаловать в админ-панель Десидим!
       exports:
         export_as: "%{name} как %{export_format}"
         notice: Идет сохранение в виде файла. Вы получите электронное письмо, когда оно будет завершено.
@@ -575,7 +574,6 @@ ru:
         scopes: Охваты
         static_pages: Страницы
         user_groups: Группы участников
-        users: Участники
       user_group:
         reject:
           invalid: При отказе от этой группы участников произошла ошибка.
@@ -606,7 +604,6 @@ ru:
           role: Роль
         new:
           create: Пригласить
-          title: Пригласить участника в качестве администратора
       users_statistics:
         users_count:
           admins: Администраторы

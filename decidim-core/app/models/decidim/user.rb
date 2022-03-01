@@ -51,9 +51,6 @@ module Decidim
 
     validate :all_roles_are_valid
 
-    has_one_attached :avatar
-    validates_upload :avatar, uploader: Decidim::AvatarUploader
-
     has_one_attached :data_portability_file
 
     scope :not_deleted, -> { where(deleted_at: nil) }

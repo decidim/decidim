@@ -419,7 +419,6 @@ pt:
           all: Todos
           finished: Terminado
           search: Pesquisar
-          state: Estado
           upcoming: Seguinte
         filters_small_view:
           close_modal: Fechar o modal
@@ -577,15 +576,12 @@ pt:
               generate_legend_3: Verifique se o seu computador não tem uma cópia do ficheiro (por exemplo verifique nas pastas Downloads ou Desktop).
               generate_legend_4: Faça uma cópia du ficheiro num dispositivo externo e guarde-o num local seguro.
               submit: Submeter
-              submit_legend: Depois de seguir todos os passos explicados acima, complete o processo enviando a chave de identificação pública para o servidor Decidim.
               submit_title: Submeter a chave de identificação pública
               title: Chaves de identificação de curador
               upload: Enviar as suas chaves de identificação
               upload_error:
                 invalid_format: O ficheiro enviado não contém nenhuma chave de identificação.
                 invalid_key: As chaves de identificação no ficheiro enviado não puderam ser carregadas.
-                invalid_public_key: As chaves de identificação no ficheiro enviado não correspondem à chave de identificação pública guardada pelo Decidim.
-              upload_legend: O Decidim tem as suas chaves de identificação públicas, mas o seu navegador não tem. Precisa de importar o ficheiro com as suas chaves de identificação para o seu computador a partir da cópia de segurança que criou após as gerar.
             not_supported_browser_description: Parece que está a utilizar um navegador web que não pode ser utilizado para agir como curador. Certifique-se que está a suar a versão mais recente do seu navegador, ou tente usar um dos navegadores mais populares para que seja possível as suas tarefas de Curador.
             not_supported_browser_title: Actualize o seu navegador para poder agir como Curador
             trustee_role_description: Foi designado para agir como Curador em algumas eleições celebradas nesta plataforma.
@@ -652,9 +648,7 @@ pt:
         onboarding_modal:
           close: Fechar o modal
           create_account: Criar conta
-          description: Deseja criar uma conta nova com Decidim? Será capaz de participar nos processos e de ser um parte activa da organização.
           no_account: Não, obrigado.
-          title: Novo no Decidim?
         update:
           error: Houve um problema ao actualizar o seu voto. Por favor, tente de novo.
         verify:
@@ -665,7 +659,6 @@ pt:
             header: Voto não encontrado!
             info: O código do voto não foi encontrado na urna de voto de %{link}, tente de novo.
           form:
-            back: Retroceder para o Decidim
             submit: Verificar
             vote_identifier: 'Código de identificação:'
           header:
@@ -982,7 +975,6 @@ pt:
             assign_missing_officers: Há Secções de Voto sem Presidente e/ou Gestores. Por favor atribua-os a partir da área de Secções de Voto
             update: Actualizar
           form:
-            census_contact_information_help: Esta informação de contacto destina-se a um participante que queira denunciar problemas com o recenseamento. Pode ser um endereço de e-mail, um formulário de contacto noutro sítio internet, um inquérito Decidim para visitantes, etc.
             select_a_voting_type: Por favor seleccione um tipo de votação
             slug_help: 'Os identificadores URL são utilizados para gerar os URLs que direccionam para esta votação. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
             title: Título
@@ -1307,7 +1299,6 @@ pt:
           all: Todos
           finished: Terminado
           search: Pesquisar
-          state: Estado
           upcoming: Seguinte
         filters_small_view:
           close_modal: Fechar o modal

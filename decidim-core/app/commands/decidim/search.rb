@@ -3,7 +3,7 @@
 module Decidim
   # A command that will act as a search service, with all the business logic for performing searches.
   class Search < Decidim::Command
-    ACCEPTED_FILTERS = [:decidim_scope_id].freeze
+    ACCEPTED_FILTERS = [:decidim_scope_id_eq].freeze
     HIGHLIGHTED_RESULTS_COUNT = 4
 
     # Public: Initializes the command.
@@ -30,9 +30,9 @@ module Decidim
         result_ids = filtered_query_for(class_name).pluck(:resource_id)
         results_count = result_ids.count
 
-        results = if filters[:resource_type].present? && filters[:resource_type] == class_name
+        results = if filters[:with_resource_type].present? && filters[:with_resource_type] == class_name
                     paginate(klass.order_by_id_list(result_ids))
-                  elsif filters[:resource_type].present?
+                  elsif filters[:with_resource_type].present?
                     ApplicationRecord.none
                   else
                     klass.order_by_id_list(result_ids.take(HIGHLIGHTED_RESULTS_COUNT))
@@ -59,15 +59,15 @@ module Decidim
     def clean_filters
       @clean_filters ||= filters.select do |attribute_name, value|
         ACCEPTED_FILTERS.include?(attribute_name.to_sym) && value.present?
-      end.merge(decidim_participatory_space: spaces_to_filter).compact
+      end.compact
     end
 
     def spaces_to_filter
-      return nil if filters[:space_state].blank?
+      return nil if filters[:with_space_state].blank?
 
       Decidim.participatory_space_manifests.flat_map do |manifest|
         public_spaces = manifest.participatory_spaces.call(organization).public_spaces
-        spaces = case filters[:space_state]
+        spaces = case filters[:with_space_state]
                  when "active"
                    public_spaces.active_spaces
                  when "future"
@@ -88,9 +88,10 @@ module Decidim
         resource_type: class_name
       )
 
-      clean_filters.each_pair do |attribute_name, value|
-        query = query.where(attribute_name => value)
+      if (spaces = spaces_to_filter)
+        query = query.where(decidim_participatory_space: spaces)
       end
+      query = query.ransack(clean_filters).result if clean_filters.any?
 
       query = query.order("datetime DESC")
       query = query.global_search(I18n.transliterate(term)) if term.present?

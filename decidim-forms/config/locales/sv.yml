@@ -79,6 +79,7 @@ sv:
           form:
             add_question: Lägg till fråga
             add_separator: Lägg till separator
+            add_title_and_description: Lägg till titel och beskrivning
             already_answered_warning: Frågeformuläret har redan besvarats av vissa användare så du inte kan ändra dess frågor.
             collapse: Komprimera alla frågor
             expand: Expandera alla frågor
@@ -108,8 +109,18 @@ sv:
             remove: Radera
             separator: Avgränsare
             up: Upp
+          title_and_description:
+            collapse: Kollapsa
+            description: Beskrivning
+            down: Ner
+            expand: Expandera
+            remove: Ta bort
+            title: Titel
+            title_and_description: Titel och beskrivning
+            up: Upp
           update:
             invalid: Det gick inte att spara formuläret.
+            success: Formuläret har sparats.
       errors:
         answer:
           body: Kroppen kan inte vara to
@@ -130,6 +141,7 @@ sv:
         short_answer: Kort svar
         single_option: Ett alternativ
         sorting: Sortering
+        title_and_description: Titel och beskrivning
       questionnaires:
         answer:
           invalid: Det gick inte att besvara formuläret.

@@ -39,13 +39,13 @@ describe Decidim::UserActivityCell, type: :cell do
   let(:commentable) { create(:dummy_resource, component: component, published_at: Time.current) }
   let(:comments) { create_list(:comment, 15, author: model, commentable: commentable) }
   let(:activities) do
-    Decidim::ActivitySearch.new(
-      organization: component.organization,
+    Decidim::PublicActivities.new(
+      component.organization,
       user: model,
       current_user: current_user,
       resource_type: "all",
       resource_name: filter.resource_type
-    ).run.page(current_page).per(10)
+    ).query.page(current_page).per(10)
   end
   let(:current_page) { 1 }
   let!(:logs) do

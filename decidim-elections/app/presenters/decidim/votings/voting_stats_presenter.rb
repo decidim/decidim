@@ -4,8 +4,11 @@ module Decidim
   module Votings
     # A presenter to render statistics in the homepage.
     class VotingStatsPresenter < Decidim::StatsPresenter
-      attribute :voting, Decidim::Votings::Voting
       include Decidim::IconHelper
+
+      def voting
+        __getobj__.fetch(:voting)
+      end
 
       # Public: returns a collection of stats (Hash) for the Voting Landing.
       def collection

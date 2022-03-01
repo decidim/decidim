@@ -96,7 +96,7 @@ module Decidim
       end
 
       def debates
-        @debates ||= reorder(search.results)
+        @debates ||= reorder(search.result)
       end
 
       def debate
@@ -107,26 +107,18 @@ module Decidim
         @close_debate_form ||= form(CloseDebateForm).from_model(debate)
       end
 
-      def search_klass
-        DebateSearch
-      end
-
-      def default_search_params
-        {
-          page: params[:page],
-          per_page: 12
-        }
+      def search_collection
+        Debate.where(component: current_component).not_hidden
       end
 
       def default_filter_params
         {
-          search_text: "",
-          origin: %w(official participants user_group),
+          search_text_cont: "",
+          with_any_origin: %w(official participants user_group),
           activity: "all",
-          category_id: default_filter_category_params,
-          scope_id: default_filter_scope_params,
-          status: "all",
-          state: %w(open closed)
+          with_any_category: default_filter_category_params,
+          with_any_scope: default_filter_scope_params,
+          with_any_state: %w(open closed)
         }
       end
     end

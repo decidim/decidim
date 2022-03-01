@@ -2,8 +2,10 @@
 
 module Decidim
   # A presenter to render statistics in the homepage.
-  class HomeStatsPresenter < Rectify::Presenter
-    attribute :organization, Decidim::Organization
+  class HomeStatsPresenter < SimpleDelegator
+    def organization
+      __getobj__.fetch(:organization)
+    end
 
     # Public: Render a collection of primary stats.
     def highlighted

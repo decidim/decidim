@@ -4,7 +4,7 @@
   <div class="filters__section">
     <div class="filters__search">
       <div class="input-group">
-        <%= form.search_field :search_text, label: false, class: "input-group-field", placeholder: t(".search"), title: t(".search"), "aria-label": t(".search"), data: { disable_dynamic_change: true } %>
+        <%= form.search_field :search_text_cont, label: false, class: "input-group-field", placeholder: t(".search"), title: t(".search"), "aria-label": t(".search"), data: { disable_dynamic_change: true } %>
         <div class="input-group-button">
           <button type="submit" class="button" aria-controls="collaborative_drafts">
             <%= icon "magnifying-glass", aria_label: t(".search"), role: "img" %>
@@ -14,18 +14,18 @@
     </div>
   </div>
 
-  <%= form.check_boxes_tree :state, filter_collaborative_drafts_state_values, legend_title: t(".state"), "aria-controls": "collaborative_drafts" %>
+  <%= form.check_boxes_tree :with_any_state, filter_collaborative_drafts_state_values, legend_title: t(".state"), "aria-controls": "collaborative_drafts" %>
 
   <% if linked_classes_for(Decidim::Proposals::CollaborativeDraft).any? %>
     <%= form.collection_radio_buttons :related_to, linked_classes_filter_values_for(Decidim::Proposals::CollaborativeDraft), :first, :last, { legend_title: t(".related_to") }, "aria-controls": "collaborative_drafts" %>
   <% end %>
 
   <% if current_component.has_subscopes? %>
-    <%= form.check_boxes_tree :scope_id, filter_scopes_values, legend_title: t(".scope"), "aria-controls": "collaborative_drafts" %>
+    <%= form.check_boxes_tree :with_any_scope, filter_scopes_values, legend_title: t(".scope"), "aria-controls": "collaborative_drafts" %>
   <% end %>
 
   <% if current_component.categories.any? %>
-    <%= form.check_boxes_tree :category_id, filter_categories_values, legend_title: t(".category"), "aria-controls": "collaborative_drafts" %>
+    <%= form.check_boxes_tree :with_any_category, filter_categories_values, legend_title: t(".category"), "aria-controls": "collaborative_drafts" %>
   <% end %>
 
   <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>

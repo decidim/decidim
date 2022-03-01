@@ -253,7 +253,6 @@ nl:
         all: Alle
         finished: Voltooid
         search: Zoeken
-        state: Staat
         upcoming: Toekomstige
       filters_small_view:
         close_modal: Sluit venster

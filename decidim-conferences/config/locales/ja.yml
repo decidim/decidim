@@ -37,13 +37,13 @@ ja:
         date: 日付
         link: リンク
         title: タイトル
-        weight: 重量
+        weight: 重みづけ
       conference_partner:
         link: リンク
         logo: ロゴ
         name: 名前
         partner_type: パートナータイプ
-        weight: 重量
+        weight: 重みづけ
       conference_registration_invite:
         email: Eメールアドレス
         name: 名前
@@ -53,7 +53,7 @@ ja:
         description: 説明
         price: 価格
         title: タイトル
-        weight: 重量
+        weight: 重みづけ
       conference_speaker:
         affiliation: 所属
         avatar: アバター

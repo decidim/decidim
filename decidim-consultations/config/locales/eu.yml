@@ -253,7 +253,6 @@ eu:
         all: guztiak
         finished: Amaitu
         search: Search
-        state: Estatu
         upcoming: Datozen
       filters_small_view:
         close_modal: Itxi leihoa

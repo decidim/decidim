@@ -7,6 +7,7 @@ module Decidim
       include Traceable
       include Loggable
       include Decidim::TranslatableResource
+      include Decidim::FilterableResource
 
       translatable_fields :title, :location, :location_hints
 
@@ -37,9 +38,7 @@ module Decidim
       alias participatory_space voting
 
       # Allow ransacker to search for a key in a hstore column (`title`.`en`)
-      ransacker :title do |parent|
-        Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
-      end
+      ransacker_i18n :title
 
       [:manager, :president].each do |role|
         [:name, :email, :nickname].each do |field|

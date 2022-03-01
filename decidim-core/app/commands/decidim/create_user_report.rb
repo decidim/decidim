@@ -56,7 +56,7 @@ module Decidim
 
     def send_notification_to_admins!
       current_organization.admins.each do |admin|
-        Decidim::UserReportJob.perform_later(admin, current_user, form.reason, reportable)
+        Decidim::UserReportJob.perform_later(admin, report)
       end
     end
 

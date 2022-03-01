@@ -63,7 +63,6 @@ is-IS:
           index:
             title: Flokkanir
           new:
-            confirm: Með því að ýta á næstu hnappinn mun Decidim skrá dagsetningu og tíma (með nákvæmni sekúndna) og ásamt dice rúlla, verða þessar upplýsingar notaðar til að búa til handahófi val. Aðgerðin verður óafturkræf, þegar hnappurinn er smelltur verður niðurstaðan af þessari teikningu birt, ásamt þeim gögnum sem slegnar eru inn á þessu eyðublaði og ekki hægt að breyta, vinsamlegast athugaðu efnið vandlega
             create: Búa til
             title: Ný flokkun
           show:

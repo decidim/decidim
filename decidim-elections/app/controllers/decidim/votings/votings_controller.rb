@@ -127,7 +127,7 @@ module Decidim
       end
 
       def paginated_votings
-        @paginated_votings ||= paginate(search.results.published)
+        @paginated_votings ||= paginate(search.result.published)
         @paginated_votings = reorder(@paginated_votings)
       end
 
@@ -136,7 +136,7 @@ module Decidim
       end
 
       def finished_votings
-        @finished_votings ||= search_klass.new(search_params.merge(state: ["finished"])).results
+        @finished_votings ||= search_with(filter_params.merge(with_any_date: %w(finished))).result
       end
 
       def only_finished_votings?
@@ -145,21 +145,14 @@ module Decidim
         published_votings.count == finished_votings.count
       end
 
-      def search_klass
-        VotingSearch
+      def search_collection
+        Voting.where(organization: current_organization).published
       end
 
       def default_filter_params
         {
-          search_text: "",
-          state: [""]
-        }
-      end
-
-      def context_params
-        {
-          organization: current_organization,
-          current_user: current_user
+          search_text_cont: "",
+          with_any_date: [""]
         }
       end
 

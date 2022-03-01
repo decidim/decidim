@@ -2,83 +2,28 @@
 
 module Decidim
   module Proposals
-    # A service to encapsualte all the logic when searching and filtering
-    # proposals in a participatory process.
+    # This service scopes the proposal searches with parameters that cannot be
+    # passed from the user interface.
     class ProposalSearch < ResourceSearch
-      text_search_fields :title, :body
+      attr_reader :type, :activity
 
-      # Public: Initializes the service.
-      # component     - A Decidim::Component to get the proposals from.
-      # page        - The page number to paginate the results.
-      # per_page    - The number of proposals to return per page.
-      def initialize(options = {})
-        options[:scope] = options.fetch(:scope, Proposal)
-        options[:scope] = options[:state_withdraw] == "withdrawn" ? options[:scope].withdrawn : options[:scope].except_withdrawn
-        super(options[:scope], options)
-      end
+      def build(params)
+        return super if search_context == :admin
 
-      # Handle the activity filter
-      def search_activity
-        case activity
-        when "voted"
-          query
-            .includes(:votes)
-            .where(decidim_proposals_proposal_votes: { decidim_author_id: user })
-        when "my_proposals"
-          query
-            .where.not(coauthorships_count: 0)
-            .joins(:coauthorships)
-            .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
-            .where(decidim_coauthorships: { decidim_author_id: user })
-        else # Assume 'all'
-          query
+        @type = params[:type]
+        @activity = params[:activity]
+
+        if params[:activity] && user
+          case params[:activity]
+          when "voted"
+            add_scope(:voted_by, user)
+          when "my_proposals"
+            add_scope(:coauthored_by, user)
+          end
         end
-      end
+        add_scope(:with_type, [params[:type], user, component]) if params[:type]
 
-      def search_state_withdraw
-        return query if state_withdraw == "withdrawn"
-
-        query.except_withdrawn
-      end
-
-      # Handle the state filter
-      def search_state
-        apply_scopes(%w(accepted rejected evaluating state_not_published), state)
-      end
-
-      # Handle the amendment type filter
-      def search_type
-        case type
-        when "proposals"
-          query.only_amendables
-        when "amendments"
-          query.only_visible_emendations_for(user, component)
-        else # Assume 'all'
-          query.amendables_and_visible_emendations_for(user, component)
-        end
-      end
-
-      # Filters Proposals by the name of the classes they are linked to. By default,
-      # returns all Proposals. When a `related_to` param is given, then it camelcases item
-      # to find the real class name and checks the links for the Proposals.
-      #
-      # The `related_to` param is expected to be in this form:
-      #
-      #   "decidim/meetings/meeting"
-      #
-      # This can be achieved by performing `klass.name.underscore`.
-      #
-      # Returns only those proposals that are linked to the given class name.
-      def search_related_to
-        from = query
-               .joins(:resource_links_from)
-               .where(decidim_resource_links: { to_type: related_to.camelcase })
-
-        to = query
-             .joins(:resource_links_to)
-             .where(decidim_resource_links: { from_type: related_to.camelcase })
-
-        query.where(id: from).or(query.where(id: to))
+        super
       end
     end
   end
