@@ -131,9 +131,9 @@ ja:
       organization:
         update: "%{user_name} が組織設定を更新しました"
       participatory_space_private_user:
-        create: "%{user_name} が %{resource_name} を非公開参加者に招待しました"
-        create_via_csv: "%{user_name} が %{resource_name} をCSV経由で非公開参加者に招待しました"
-        delete: "%{user_name} が参加者 %{resource_name} を非公開参加者として削除しました"
+        create: "%{user_name} が %{resource_name} をプライベート参加者に招待しました"
+        create_via_csv: "%{user_name} が %{resource_name} をCSV経由でプライベート参加者に招待しました"
+        delete: "%{user_name} がプライベート参加者の %{resource_name} を削除しました"
       scope:
         create: "%{user_name} が %{resource_name} スコープを作成しました"
         create_with_parent: "%{user_name} は %{resource_name} スコープ内で %{parent_scope} スコープを作成しました"
@@ -1307,7 +1307,7 @@ ja:
         add_max_users: '会話にユーザーを追加: 最大 9 人のユーザー'
         add_users_placeholder: 検索...
         close: 閉じる
-        conversations_info: 会話は非公開です。他の誰も見ることはできません。会話はプラットフォームに登録されている参加者またはグループで開始できます。
+        conversations_info: 会話はプライベートです。他の誰も見ることはできません。会話はプラットフォームに登録されている参加者またはグループで開始できます。
         from: '差出人:'
         last_message: 最後のメッセージ
         modal_title: 新しい会話
