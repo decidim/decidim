@@ -35,7 +35,7 @@ edit_link(
   <div class="row">
     <div class="columns medium-7 mediumlarge-8">
       <div class="section">
-        <h2><%= t(".title") %></h2>
+        <h2 class="show-for-sr"><%= t(".title") %></h2>
         <div class="lead">
           <%= decidim_sanitize_editor translated_attribute(current_participatory_space.short_description) %>
         </div>
