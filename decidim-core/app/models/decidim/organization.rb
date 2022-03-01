@@ -146,7 +146,7 @@ module Decidim
     # Returns the presenter for this author, to be used in the views.
     # Required by ActsAsAuthor.
     def presenter
-      Decidim::Debates::OfficialAuthorPresenter.new
+      Decidim::OfficialAuthorPresenter.new
     end
 
     def static_pages_accessible_for(user)
