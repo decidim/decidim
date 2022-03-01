@@ -694,6 +694,11 @@ fr:
           email_outro: Vous recevez cette notification car vous suivez « %{nickname} ». Vous pouvez cesser de le suivre à partir du lien précédent.
           email_subject: "%{nickname} a mis à jour son profil public"
           notification_title: Le <a href="%{resource_path}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
+        user_officialized:
+          email_intro: Le participant %{name} (%{nickname}) a été officialisé.
+          email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de l'organisation.
+          email_subject: "%{name} a été officialisé"
+          notification_title: Le participant %{name} (%{nickname}) a été officialisé.
     export_mailer:
       data_portability_export:
         click_button: 'Cliquez sur le bouton suivant pour télécharger vos données.<br/>Le fichier sera disponible jusqu''au %{date}.<br/>Vous aurez besoin de <a href="https://www.7-zip.org/">7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) ou <a href="https://peazip.github.io">PeaZip</a> (Linux) pour l''ouvrir. Mot de passe : %{password}'
