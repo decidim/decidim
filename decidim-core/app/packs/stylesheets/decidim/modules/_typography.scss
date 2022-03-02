@@ -9,6 +9,7 @@ input{
 
 a{
   color: $anchor-color;
+  font-weight: $anchor-font-weight;
 
   &:hover{
     color: $anchor-color-hover;
@@ -89,6 +90,7 @@ button{
 
 .heading-small{
   font-size: 1rem;
+  line-height: $header-lineheight;
 }
 
 hr{
