@@ -125,7 +125,7 @@ es-PY:
         error: Se ha producido un error al eliminar tu cuenta.
         success: Tu cuenta se ha eliminado correctamente.
       show:
-        available_locales_helper: Elige el idioma que quieres utilizar para navegar y recibir notificaciones en Decidim
+        available_locales_helper: Elige el idioma que deseas utilizar para navegar y recibir notificaciones en la plataforma
         change_password: Cambia la contraseña
         update_account: Actualizar cuenta
       update:
@@ -995,6 +995,7 @@ es-PY:
           next: Siguente
           no_conversations: Aún no tienes conversaciones
           title: Conversaciones
+          to: A
         reply:
           placeholder: Tu respuesta...
           send: Enviar
@@ -1095,6 +1096,10 @@ es-PY:
       update:
         error: Ha habido un error al actualizar la configuración de las notificaciones.
         success: La configuración de las notificaciones se han actualizado correctamente.
+    offline:
+      show:
+        message: Parece que estás desconectada. Por favor, inténtalo de nuevo más tarde.
+        retry: Reintentar
     open_data:
       not_available_yet: Los ficheros de datos abiertos aún no están disponibles, inténtalo de nuevo en unos minutos.
     own_user_groups:
@@ -1391,6 +1396,7 @@ es-PY:
       notify:
         body_1: La usuaria %{user} ha sido reportada por %{token}
         body_2: 'Motivo: %{reason}'
+        details: Datos proporcionados por la usuaria
         greetings: Saludos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola %{admin},
         subject: Una nueva usuaria ha sido reportada en %{organization_name}
@@ -1636,6 +1642,8 @@ es-PY:
       notifications_dashboard:
         mark_all_as_read: Marcar todo como leído
         mark_as_read: Marcar como leído
+      offline_banner:
+        cache_version_page: '¡Ups! Tu red está desconectada. Esta es una versión en caché de la página que estás visitando, quizás el contenido no está actualizado.'
       social_media_links:
         facebook: "%{organization} en Facebook"
         github: "%{organization} en GitHub"

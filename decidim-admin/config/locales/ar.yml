@@ -265,7 +265,6 @@ ar:
       dashboard:
         show:
           view_more_logs: عرض المزيد من السجلات
-          welcome: مرحبًا بكم في لوحة إدارة Decidim.
       exports:
         export_as: "%{name} ك %{export_format}"
         notice: التصدير الخاص بك قيد التقدم حاليًا. ستتلقى بريدًا إلكترونيًا عند اكتماله.
@@ -663,7 +662,6 @@ ar:
         scopes: نطاقات
         static_pages: صفحات
         user_groups: المجموعات
-        users: المشاركين
       user_group:
         csv_verify:
           invalid: حدثت مشكلة في قراءة ملف CSV.
@@ -699,7 +697,6 @@ ar:
           role: وظيفة
         new:
           create: دعا
-          title: دعوة مشارك كمسؤول
       users_statistics:
         users_count:
           admins: المدراء

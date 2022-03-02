@@ -133,6 +133,8 @@ hu:
         per_page: Oldalanként
         permissions: Engedélyek
         reject: Elutasít
+        user:
+          new: Új adminisztrátor
         verify: Ellenőrzés
       admin_terms_of_use:
         accept:
@@ -211,6 +213,8 @@ hu:
         update:
           error: Hiba történt a melléklet frissítése során.
           success: Melléklet frissítése sikeres.
+      attachments_privacy_warning:
+        message: Legyen óvatos a mellékletek kezelése során. Bármely résztvevő megoszthatja a dokumentumokat bárkivel.
       autocomplete:
         no_results: Nincs találat
         search_prompt: Legalább három karakter szükséges a kereséshez
@@ -284,7 +288,7 @@ hu:
       dashboard:
         show:
           view_more_logs: További naplók megtekintése
-          welcome: Üdvözöljük a Decidim Admin Panelben.
+          welcome: Üdvözölünk az Admin Panelben.
       exports:
         export_as: "%{name} mint %{export_format}"
         formats:
@@ -669,6 +673,11 @@ hu:
         new:
           title: Töltse fel a CSV fájlod
           upload: Feltölt
+      reminders:
+        create:
+          error: Hiba történt a bejegyzés létrehozása során.
+        new:
+          submit: Küldés
       resource_permissions:
         edit:
           submit: Beküldés
@@ -769,7 +778,7 @@ hu:
         static_pages: Oldalak
         statistics: Tevékenység
         user_groups: Csoportok
-        users: Résztvevők
+        users: Adminisztrátorok
       user_group:
         csv_verify:
           invalid: Hiba történt a CSV fájl olvasásában.
@@ -805,7 +814,7 @@ hu:
           role: Szerep
         new:
           create: Meghívás
-          title: A résztvevő meghívása rendszergazdaként
+          title: Új adminisztrátor létrehozása
       users_statistics:
         users_count:
           admins: Adminok

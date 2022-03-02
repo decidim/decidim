@@ -85,6 +85,7 @@ module Decidim
 
           expect(embed_code).to include(subject.embed_transformed_url(request_host))
           expect(embed_code).to include("<iframe")
+          expect(embed_code).to include("</iframe")
         end
       end
     end

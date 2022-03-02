@@ -270,7 +270,7 @@ es-MX:
             duration_help: Si la duración de esta asamblea es limitada, selecciona la fecha de finalización. De lo contrario, aparecerá como indefinida.
             filters: Filtros
             images: Imágenes
-            included_at_help: Selecciona la fecha en que se agregó este ensamblaje a Decidim. No necesariamente tiene que ser la misma que la fecha de creación.
+            included_at_help: Selecciona la fecha en la que se añadió esta asamblea a la plataforma. No necesariamente tiene que ser la misma que la fecha de creación.
             metadata: Metadatos
             other: Otro
             select_a_created_by: Selecciona creada por

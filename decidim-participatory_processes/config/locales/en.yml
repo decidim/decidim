@@ -474,6 +474,8 @@ en:
           see: See
         index:
           loading: Loading results...
+        show:
+          title: About this process
       show:
         area: Area
         belongs_to_group: This process belongs to

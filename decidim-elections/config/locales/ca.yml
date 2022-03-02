@@ -418,9 +418,9 @@ ca:
         filters:
           active: Activa
           all: Totes
+          date: Data
           finished: Finalizada
           search: Cercar
-          state: Estat
           upcoming: Properes
         filters_small_view:
           close_modal: Tancar el modal
@@ -578,14 +578,14 @@ ca:
               generate_legend_3: Assegura't de que el teu equip no tingui una còpia de l'arxiu (per exemple, comprova les carpetes de Baixades i Escriptori).
               generate_legend_4: Fes una altra copia de l'arxiu en un dispositiu extern diferent i guarda'l a un lloc molt segur.
               submit: Enviar
-              submit_legend: Després de seguir tots els passos explicats anteriorment, completa el procés enviant la clau d'identificació pública al servidor de Decidim.
+              submit_legend: Després de seguir tots els passos explicats anteriorment, completa el procés enviant la clau d'identificació pública al servidor.
               submit_title: Enviar la clau d'identificació pública
               title: Claus d'identificació del garant
               upload: Puja les teves claus d'identificació
               upload_error:
                 invalid_format: L'arxiu pujat no conté cap clau d'identificació.
                 invalid_key: Les claus d'identificació a l'arxiu pujat no es poden carregar.
-                invalid_public_key: Les claus d'identificació a l'arxiu pujat no coincideixen amb la clau d'identificació pública emmagatzemada per Decidim.
+                invalid_public_key: Les claus d'identificació a l'arxiu pujat no coincideixen amb la clau d'identificació pública emmagatzemada.
               upload_legend: Decidim té les teves claus públiques d'identificació, però el teu navegador encara no les té. Necessites importar l'arxiu amb les teves claus d'identificació al teu ordinador des de la còpia de seguretat que vas crear després de generar-les.
             not_supported_browser_description: Sembla que estàs usant un navegador que no pot ser utilitzat per a actuar com a garant. Assegura't que estàs usant la versió més recent del teu navegador, o intenta usar qualsevol dels navegadors més populars per a poder completar les teves tasques com a garant.
             not_supported_browser_title: Actualitza el navegador per a actuar com a garant
@@ -653,9 +653,9 @@ ca:
         onboarding_modal:
           close: Tanca el modal
           create_account: Crea un compte
-          description: Vols crear un nou compte al Decidim? Podràs participar als processos i ser una part activa de l'organització.
+          description: Vols crear un nou compte? Podràs participar als processos i ser part activa de l'organització.
           no_account: No, gràcies.
-          title: Primer cop a Decidim?
+          title: Ets nova a la plataforma?
         update:
           error: Hi ha hagut un error en actualitzar el vot. Prova-ho de nou.
         verify:
@@ -666,7 +666,7 @@ ca:
             header: Vot no localitzat!
             info: El codi del vot no s'ha trobat a l'urna %{link}, intenta-ho de nou.
           form:
-            back: Tornar a Decidim
+            back: Tornar a la plataforma
             submit: Comprovar
             vote_identifier: 'Codi identificador:'
           header:
@@ -1306,9 +1306,9 @@ ca:
         filters:
           active: Actives
           all: Totes
+          date: Data
           finished: Finalitzades
           search: Cercar
-          state: Estat
           upcoming: Properes
         filters_small_view:
           close_modal: Tancar finestra

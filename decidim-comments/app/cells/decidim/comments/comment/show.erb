@@ -1,5 +1,7 @@
 <%= content_tag :div, id: "comment_#{model.id}", class: comment_classes, data: { comment_id: model.id } do %>
-  <% if model.deleted? %>
+  <% if model.hidden? %>
+    <%= render :moderation_data %>
+  <% elsif model.deleted? %>
     <%= render :deletion_data %>
   <% else %>
     <div class="comment__header">
@@ -30,14 +32,14 @@
     </div>
   <% end %>
   <div id="comment-<%= model.id %>-replies">
-    <% if has_replies? %>
+    <% if has_replies_in_children? %>
       <% replies.each do |reply| %>
         <%= cell("decidim/comments/comment", reply, root_depth: root_depth, order: order, reloaded: reloaded?) %>
       <% end %>
     <% end %>
   </div>
   <% if can_reply? %>
-    <div class="comment__additionalreply<%= " hide" unless has_replies? %>">
+    <div class="comment__additionalreply<%= " hide" unless commentable? %>">
       <button class="comment__reply muted-link" aria-controls="<%= reply_id %>" data-toggle="<%= reply_id %>">
         <%= icon "pencil", class: "icon--small", role: "img", "aria-hidden": true %>&nbsp;<%= t("decidim.components.comment.reply") %>
       </button>

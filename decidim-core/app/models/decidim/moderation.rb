@@ -12,6 +12,9 @@ module Decidim
 
     delegate :component, :organization, to: :reportable
 
+    scope :hidden, -> { where.not(hidden_at: nil) }
+    scope :not_hidden, -> { where(hidden_at: nil) }
+
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::ModerationPresenter
     end

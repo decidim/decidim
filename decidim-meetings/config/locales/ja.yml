@@ -86,15 +86,15 @@ ja:
             values:
               'false': 過去
               'true': 近日公開
-          origin_eq:
-            label: 起案者
-            values:
-              official: 公式
-              participant: 参加者
-              user_group: ユーザーグループ
           scope_id_eq:
             label: スコープ
-          type_eq:
+          with_any_origin:
+            label: オリジン
+            values:
+              official: 公式
+              participants: 参加者
+              user_group: ユーザーグループ
+          with_any_type:
             label: ミーティングの種類
             values:
               hybrid: ハイブリッド

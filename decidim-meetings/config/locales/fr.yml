@@ -89,15 +89,15 @@ fr:
             values:
               'false': Passées
               'true': À venir
-          origin_eq:
-            label: Origine
-            values:
-              official: Officielle
-              participant: Participant
-              user_group: Groupes d’utilisateurs
           scope_id_eq:
             label: Secteur
-          type_eq:
+          with_any_origin:
+            label: Origine
+            values:
+              official: Officiel
+              participants: Participants
+              user_group: Groupes d’utilisateurs
+          with_any_type:
             label: Type de rencontre
             values:
               hybrid: Hybride

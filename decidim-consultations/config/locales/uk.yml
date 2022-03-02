@@ -203,7 +203,6 @@ uk:
         all: Усі
         finished: Завершені
         search: Шукати
-        state: Стан
         upcoming: Прийдешні
       filters_small_view:
         close_modal: Закрити вікно

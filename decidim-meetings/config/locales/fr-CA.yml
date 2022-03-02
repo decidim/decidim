@@ -89,15 +89,15 @@ fr-CA:
             values:
               'false': Passés
               'true': À venir
-          origin_eq:
+          scope_id_eq:
+            label: Périmètre
+          with_any_origin:
             label: Origine
             values:
               official: Officiel
-              participant: Participant
+              participants: Participants
               user_group: Groupes d’utilisateurs
-          scope_id_eq:
-            label: Périmètre
-          type_eq:
+          with_any_type:
             label: Type de rencontre
             values:
               hybrid: Hybride

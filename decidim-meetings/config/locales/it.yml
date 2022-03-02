@@ -85,20 +85,15 @@ it:
             values:
               'false': Conclusi
               'true': Prossimi
-          origin_eq:
-            label: Origine
-            values:
-              official: Ufficiale
-              participant: Utente
-              user_group: Gruppi di utenti
           scope_id_eq:
             label: Ambito
-          type_eq:
+          with_any_origin:
+            values:
+              user_group: Gruppi di utenti
+          with_any_type:
             label: Tipologia di incontro
             values:
-              hybrid: Entrambi
               in_person: Fisiche
-              online: Online
       meeting_copies:
         create:
           error: C'era un errore en duplicazione di questo incontro.

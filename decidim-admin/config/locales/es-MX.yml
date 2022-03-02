@@ -173,7 +173,7 @@ es-MX:
         reject: Rechazar
         share: Compartir
         user:
-          new: Nuevo ususario
+          new: Nueva administradora
         verify: Verificar
       admin_terms_of_use:
         accept:
@@ -256,6 +256,8 @@ es-MX:
         update:
           error: Se ha producido un error al actualizar este archivo adjunto.
           success: Adjunto actualizado correctamente.
+      attachments_privacy_warning:
+        message: Tenga cuidado al trabajar con archivos adjuntos en un espacio privado. Cualquier participante podría compartir este documento a otras personas.
       autocomplete:
         no_results: No se han encontrado resultados
         search_prompt: Escriba al menos tres caracteres para buscar
@@ -338,7 +340,7 @@ es-MX:
       dashboard:
         show:
           view_more_logs: Ver más registros
-          welcome: Bienvenido al panel de administración de Decidim.
+          welcome: Bienvenida al panel de administración.
       domain_whitelist:
         form:
           domain_too_short: Dominio demasiado corto
@@ -834,6 +836,14 @@ es-MX:
           explanation: 'Sube tu archivo CSV. Debe tener dos columnas con correo electrónico en la primera columna del archivo y el nombre en la última columna del archivo (correo electrónico, nombre) de los usuarios que deseas añadir al espacio participativo, sin encabezados. Evitar usar caracteres no válidos como `<>?%&^*#@()[]=+:;"{}\|` en el nombre de usuario.'
           title: Sube tu archivo CSV
           upload: Subir
+      reminders:
+        create:
+          error: Se ha producido un error al crear los recordatorios.
+          success:
+            one: "%{count} usuaria será recordada."
+            other: "%{count} usuarias serán recordadas."
+        new:
+          submit: Enviar
       resource_permissions:
         edit:
           submit: Enviar
@@ -951,7 +961,7 @@ es-MX:
         static_pages: Páginas
         statistics: Actividad
         user_groups: Grupos de usuarios
-        users: Usuarios
+        users: Administradoras
       user_group:
         csv_verify:
           invalid: Se produjo un error al leer el archivo CSV.
@@ -987,7 +997,7 @@ es-MX:
           role: Rol
         new:
           create: Invitar
-          title: Invitar a un usuario como administrador
+          title: Invitar nueva administradora
       users_statistics:
         users_count:
           admins: Administradores

@@ -264,7 +264,6 @@ sr:
       dashboard:
         show:
           view_more_logs: Pogledaj još zapisa iz evidencije
-          welcome: Dobrošli u Decidim Admin Panel.
       exports:
         export_as: "%{name} kao %{export_format}"
         notice: Vaš prenos podataka je u toku. Dobićete e-mail poruku kada bude završen.

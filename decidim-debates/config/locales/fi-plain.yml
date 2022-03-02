@@ -121,6 +121,7 @@ fi-pl:
           my_debates: Omat keskustelut
           official: Virallinen
           origin: Alkuperä
+          participants: Osallistujat
           scope: Teema
           search: Hae
           state: Tila

@@ -127,19 +127,19 @@ describe "Meeting", type: :system, download: true do
     it "doesn't show the year" do
       visit_meeting
 
-      within ".extra__date" do
+      within ".extra__date-container" do
         expect(page).to have_no_content(meeting.start_time.year)
       end
     end
   end
 
   context "when the meeting is different from the current year" do
-    let(:meeting) { create(:meeting, :published, component: component, start_time: 1.year.ago) }
+    let(:meeting) { create(:meeting, :published, component: component, start_time: 1.year.ago, end_time: 1.year.ago + 7.days) }
 
     it "shows the year" do
       visit_meeting
 
-      within ".extra__date" do
+      within ".extra__date-container" do
         expect(page).to have_content(meeting.start_time.year)
       end
     end
