@@ -771,7 +771,7 @@ en:
           instructions: You can move the point on the map.
         edit:
           add_documents: Add documents
-          add_image: Add Image
+          add_image: Add image
           attachment_legend: "(Optional) Add an attachment"
           back: Back
           edit_documents: Edit documents
