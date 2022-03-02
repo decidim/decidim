@@ -719,10 +719,12 @@ de:
           title: Benutzer "%{name}" offiziellisieren
         show_email_modal:
           close_modal: Modal schließen
+          description: Wenn Sie einen Teilnehmer direkt kontaktieren möchten, können Sie auf die Schaltfläche "Anzeigen" klicken, um seine E-Mail-Adresse zu sehen. Diese Aktion wird protokolliert.
           email_address: E-Mail-Adresse
           full_name: Voller Name
           hidden: versteckt
           show: Anzeigen
+          title: E-Mail-Adresse des Teilnehmers anzeigen
         unblock:
           error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten
           success: Blockierung des Teilnehmers wurde erfolgreich aufgehoben
@@ -767,6 +769,7 @@ de:
           up: Hoch
         form:
           add: Zur Whitelist hinzufügen
+          title: Externe Domain-Whitelist
       organization_homepage:
         edit:
           active_content_blocks: Aktive Inhaltsblöcke
