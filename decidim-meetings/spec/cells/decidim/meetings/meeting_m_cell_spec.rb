@@ -25,10 +25,21 @@ module Decidim::Meetings
         expect(cell_html).to have_no_content(I18n.l(meeting.created_at.to_date, format: :decidim_short))
       end
 
-      context "when an image is attached to the meeting" do
+      context "when there are long descriptions" do
+        before do
+          meeting.update!(description: { en: "A really long text" * 800 })
+        end
+
+        it "truncates the description" do
+          truncated_description_length = cell_html.find(".card__text--paragraph").text.strip.length
+          expect(truncated_description_length).to be < 130
+        end
+      end
+
+      context "with attached image" do
         let!(:attachment) { create(:attachment, attached_to: meeting) }
 
-        it "renders the picture" do
+        it "renders the image" do
           expect(cell_html).to have_css(".card__image")
         end
       end
@@ -43,7 +54,7 @@ module Decidim::Meetings
         meeting.reload
       end
 
-      it "escapes them correclty" do
+      it "escapes them correctly" do
         expect(the_cell.title).not_to eq("#{@original_title} &amp;&#39;&lt;")
         # as the `cell` test helper wraps content in a Capybara artifact that already converts html entities
         # we should compare with the expected visual result, as we were checking the DOM instead of the html
