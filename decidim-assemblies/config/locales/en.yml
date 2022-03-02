@@ -320,6 +320,9 @@ en:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: About this assembly
       assembly_members:
         index:
           members: Members
