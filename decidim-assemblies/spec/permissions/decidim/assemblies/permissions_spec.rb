@@ -648,6 +648,14 @@ describe Decidim::Assemblies::Permissions do
 
         it { is_expected.to eq(true) }
       end
+
+      context "and action is :read the current assembly" do
+        let(:action) do
+          { scope: :admin, action: :read, subject: :assembly }
+        end
+
+        it { is_expected.to eq(true) }
+      end
     end
   end
 end

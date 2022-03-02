@@ -221,7 +221,7 @@ module Decidim
         return unless read_assembly_list_permission_action?
         return if permission_action.subject == :assembly_list
 
-        toggle_allow(user.admin? || can_manage_assembly?)
+        toggle_allow(user.admin? || can_manage_assembly? || admin_assembly?)
       end
 
       # A moderator needs to be able to read the assembly they are assigned to,
