@@ -22,7 +22,7 @@ module Decidim
   #   contained in any of them as spaces.
   # :scopes - a collection of `Decidim::Scope`. It will return any activity that
   #   took place in any of those scopes.
-  class PublicActivities < Rectify::Query
+  class PublicActivities < Decidim::Query
     def initialize(organization, options = {})
       @organization = organization
       @resource_name = options[:resource_name]
