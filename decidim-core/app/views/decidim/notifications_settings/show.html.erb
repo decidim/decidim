@@ -29,8 +29,7 @@
     </div>
 
     <p><strong><%= t(".notifications_sending_frequency") %></strong></p>
-    <%= f.radio_button("notifications_sending_frequency", t(".notifications_sending_frequencies.daily")) %>
-    <%= f.radio_button("notifications_sending_frequency", t(".notifications_sending_frequencies.weekly")) %>
+    <%= f.collection_radio_buttons :notifications_sending_frequency, t(".notifications_sending_frequencies"), :first, :last %>
 
     <p><strong><%= t(".newsletters") %></strong></p>
     <div class="switch tiny switch-with-label newsletter_notifications">

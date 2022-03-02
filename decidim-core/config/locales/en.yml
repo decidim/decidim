@@ -1134,7 +1134,6 @@ en:
         newsletters: Newsletters
         notifications_sending_frequencies:
           daily: Daily
-          real_time: Real Time
           weekly: Weekly
         notification_settings:
           close_meeting_reminder: I want to receive email reminders of closed meetings unpublished reports
