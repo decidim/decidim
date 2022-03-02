@@ -21,6 +21,7 @@ module Decidim
         let(:component) { create(:post_component, organization: current_organization) }
         let(:post) { create(:post, component: component, author: author) }
         let(:author) { current_organization }
+        let(:user_from_another_org) { create(:user) }
 
         let(:title) do
           {
@@ -66,6 +67,24 @@ module Decidim
           end
 
           it { is_expected.to be_invalid }
+        end
+
+        context "when organization is specified" do
+          let(:decidim_author_id) { current_organization.id }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when author is a current_user" do
+          let(:decidim_author_id) { current_user.id }
+
+          it { is_expected.to be_valid }
+
+          context "when the author belongs to different organization" do
+            let(:decidim_author_id) { user_from_another_org.id }
+
+            it { is_expected.to be_invalid }
+          end
         end
 
         context "when decidim_author_id is empty" do
