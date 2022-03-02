@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when updating a participatory
       # process type in the system.
-      class UpdateParticipatoryProcessType < Rectify::Command
+      class UpdateParticipatoryProcessType < Decidim::Command
         # Public: Initializes the command.
         #
         # participatory_process_type - A participatory_process_type object to
