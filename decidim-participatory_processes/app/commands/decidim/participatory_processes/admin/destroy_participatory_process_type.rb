@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when destroying a participatory
       # process type in the system.
-      class DestroyParticipatoryProcessType < Rectify::Command
+      class DestroyParticipatoryProcessType < Decidim::Command
         # Public: Initializes the command.
         #
         # participatory_process_type - A participatory_process_type object to
