@@ -489,7 +489,7 @@ GEM
       ice_cube (~> 0.16)
     ice_cube (0.16.4)
     ice_nine (0.11.2)
-    image_processing (1.12.1)
+    image_processing (1.12.2)
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
     invisible_captcha (0.13.0)
