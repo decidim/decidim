@@ -13,7 +13,7 @@ In the next version (v0.28.0) it will be fully removed from the database.
 ### Added
 
 #### Dynamic attachment uploads
-PR [\#8681] https://github.com/decidim/decidim/pull/8681 Changes the way file uploads work in Decidim. Files are now dynamically loaded inside the modal so we can give the user immediate feedback on validation. There are now two different types of file fields: titled and untitled. Titled file fields related to ```Decidim::Attachment``` internally.
+PR [\#8681] https://github.com/decidim/decidim/pull/8681 Changes the way file uploads work in Decidim. Files are now dynamically uploaded inside the modal so we can give the user immediate feedback on validation. There are now two different types of file fields: titled and untitled. Titled file fields related to ```Decidim::Attachment``` internally.
 
 **To update your module** you probably have to update forms and commands related to upload field (also views should be updated in case of titled attachments). After successful a upload and submitting a form, request params should contain signed_id of [ActiveStorage::Blob](https://api.rubyonrails.org/classes/ActiveStorage/Blob.html) which you need to find the blob at the backend.
 
