@@ -41,7 +41,6 @@ Or add cronjob:
 PR [#8012](https://github.com/decidim/decidim/pull/8012) Participatory space to comments, to fix the statistics. Use
 `rake decidim_comments:update_participatory_process_in_comments` to migrate existing comments to the new structure.
 
-* [\#8583](https://github.com/decidim/decidim/pull/8583) Adds a new model to filter participatory processes by type. The setting of participatory process group type is optional and if no processes are asigned to types the type selector is not shown in the filters of the processes index or processes content block of a processes group. The filter only lists the types with processes in the context of the other filters search results.
 #### New Api Documentation engine
 
 PR [\#8631](https://github.com/decidim/decidim/pull/8631) Replaces graphql-docs npm package with gem. In this PR we have also added 3 configurable parameters:
