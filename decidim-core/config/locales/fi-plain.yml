@@ -698,6 +698,11 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: "%{nickname} päivitti profiiliaan"
           notification_title: Seuraamasi käyttäjän %{name} (%{nickname}) <a href="%{resource_path}">profiilisivua</a> on päivitetty.
+        user_officialized:
+          email_intro: Osallistuja %{name} (%{nickname}) on virallistettu.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet tämän organisaation hallintakäyttäjä.
+          email_subject: "%{name} on virallistettu"
+          notification_title: Osallistuja %{name} (%{nickname}) on virallistettu.
     export_mailer:
       data_portability_export:
         click_button: 'Napsauta Seuraava-linkkiä ladataksesi tietosi.<br/>Tiedosto on saatavilla %{date} saakka.<br/>Tarvitset paketin avaamiseen <a href="https://www.7-zip.org/">7-Zip-ohjelmiston</a> (Windows-käyttöjärjestelmille), <a href="https://www.keka.io/en/">Keka-ohjelmiston</a> (MacOS-käyttöjärjestelmille) tai <a href="https://peazip.github.io">PeaZip-ohjelmiston</a> (Linux-käyttöjärjestelmille). Salasana: %{password}'
