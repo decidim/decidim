@@ -1085,6 +1085,7 @@ it:
           description:
             show_less: Mostra meno
             show_more: Continua a leggere
+            title: Informazioni su questa votazione
           metrics:
             heading: Statistiche
           polling_stations:
