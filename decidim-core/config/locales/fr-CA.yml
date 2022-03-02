@@ -107,6 +107,7 @@ fr-CA:
   decidim:
     accessibility:
       external_link: Lien externe
+      front_page_link: Aller à la première page
       logo: "Logo officiel de %{organization}"
       skip_button: Passer au contenu principal
     account:
