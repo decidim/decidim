@@ -753,10 +753,12 @@ de:
           title: Benutzer "%{name}" offiziellisieren
         show_email_modal:
           close_modal: Modal schließen
+          description: Wenn Sie einen Teilnehmer direkt kontaktieren möchten, können Sie auf die Schaltfläche "Anzeigen" klicken, um seine E-Mail-Adresse zu sehen. Diese Aktion wird protokolliert.
           email_address: E-Mail-Adresse
           full_name: Voller Name
           hidden: versteckt
           show: Anzeigen
+          title: E-Mail-Adresse des Teilnehmers anzeigen
         unblock:
           error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten
           success: Blockierung des Teilnehmers wurde erfolgreich aufgehoben
@@ -782,6 +784,7 @@ de:
         form:
           colors:
             colors_title: Organisationsfarben
+            colors_warning_html: Warnung! Das Ändern dieser Farben kann die für Barrierefreiheit notwendigen Kontraste brechen. Sie können den Kontrast Ihrer Wahl mit <a href="%{link}">WebAIM Contrast Checker</a> oder ähnlichen Tools überprüfen.
             header_snippets_help: Verwenden Sie dieses Feld, um Dinge zum HTML-Kopf hinzuzufügen. Die häufigste Verwendung ist die Integration von Drittanbieterdiensten, für die zusätzliches JavaScript oder CSS erforderlich ist. Außerdem können Sie damit dem HTML zusätzliche Meta-Tags hinzufügen. Beachten Sie, dass dies nur auf öffentlichen Seiten und nicht im Admin-Bereich erfolgt.
           cta_button_path_help: 'Sie können überschreiben, wo die Call To Action-Schaltfläche in der Homepage verlinkt ist. Verwenden Sie hier Teilpfade, nicht vollständige URLs. Akzeptiert Buchstaben, Zahlen, Bindestriche und Schrägstriche und muss mit einem Buchstaben beginnen. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt. Beispiel: %{url}'
           cta_button_text_help: Sie können den Text der Call To Action-Schaltfläche auf der Startseite für jede verfügbare Sprache in Ihrer Organisation überschreiben. Wenn nicht festgelegt, wird der Standardwert verwendet. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt.
@@ -801,6 +804,7 @@ de:
           up: Hoch
         form:
           add: Zur Whitelist hinzufügen
+          title: Externe Domain-Whitelist
       organization_homepage:
         edit:
           active_content_blocks: Aktive Inhaltsblöcke
