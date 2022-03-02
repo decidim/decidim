@@ -435,6 +435,8 @@ it:
           see: Vedi tutto
         index:
           loading: Caricamento risultati...
+        show:
+          title: Informazioni su questo processo
       show:
         area: Area
         belongs_to_group: Questo processo appartiene a
