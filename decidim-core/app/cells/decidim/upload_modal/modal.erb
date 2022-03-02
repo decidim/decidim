@@ -1,7 +1,7 @@
 <div class="reveal upload-modal" id="<%= modal_id %>" data-reveal>
   <div class="reveal__header">
     <h3 class="reveal__title" data-addlabel="<%= button_label %>" data-editlabel="<%= button_edit_label %>"><%= label %></h3>
-    <button class="close-button" data-close aria-label="<%= t(".close_modal") %>"
+    <button class="close-button" data-close aria-label="<%= t("layouts.decidim.upload_modal.close_modal") %>"
       type="button">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -42,8 +42,8 @@
 
   <div class="row columns reveal__content">
     <div class="text-center">
-      <button class="button add-file-<%= attribute %>" data-close><%= "Save" %></button>
-      <button class="link cancel-attachment margin-left-1" data-close><%= "Cancel" %></button>
+      <button class="button add-file-<%= attribute %>" data-close><%= t("decidim.forms.upload.labels.save") %></button>
+      <button class="link cancel-attachment margin-left-1" data-close><%= t("decidim.forms.upload.labels.cancel") %></button>
     </div>
   </div>
 </div>
