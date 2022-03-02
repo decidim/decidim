@@ -129,6 +129,7 @@ cs:
   decidim:
     accessibility:
       external_link: Externí odkaz
+      front_page_link: Přejít na titulní stránku
       logo: "Oficiální logo %{organization}"
       skip_button: Přeskočit na hlavní obsah
     account:
