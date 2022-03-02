@@ -86,6 +86,7 @@ hu:
   decidim:
     accessibility:
       external_link: Külső hivatkozás
+      front_page_link: Ugrás a címlapra
       logo: "%{organization} hivatalos logója"
       skip_button: Ugrás a fő tartalomra
     account:
