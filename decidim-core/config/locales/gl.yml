@@ -565,7 +565,6 @@ gl:
         button: Deixar de seguir
         error: Houbo un erro ao seguir este recurso.
     forms:
-      current_file: Arquivo actual
       current_image: Imaxe actual
       default_image: Imaxe predeterminada
       errors:
@@ -574,7 +573,6 @@ gl:
         file:
           message_1: Ten que ser unha imaxe cadrada.
           message_2: O tamaño recomendado para esta imaxe é de 512x512.
-      remove_this_file: Elimina este ficheiro
     gamification:
       all_badges_link: Consulta todas as insignias dispoñibles.
       badges:
