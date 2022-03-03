@@ -34,6 +34,15 @@ $(() => {
     dialogMode($(ev.target));
   });
 
+  // Trap the focus within the mobile menu if the user enters it. This is an
+  // accessibility feature forcing the focus within the
+  $("#offCanvas").on("openedEnd.zf.offCanvas", (ev) => {
+    ev.target.querySelector(".main-nav a").focus();
+    window.focusGuard.trap(ev.target);
+  }).on("closed.zf.offCanvas", () => {
+    window.focusGuard.disable();
+  });
+
   fixDropdownMenus();
 
   svg4everybody();
