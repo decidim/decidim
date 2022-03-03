@@ -674,6 +674,7 @@ sk:
             many: "%{count} návrhov"
             other: "%{count} návrhov"
         edit:
+          add_documents: Dokumenty
           attachment_legend: "(Voliteľné) Pridanie prílohy"
           back: Zadná
           select_a_category: Vyberte kategóriu
