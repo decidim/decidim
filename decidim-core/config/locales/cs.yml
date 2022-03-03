@@ -802,6 +802,26 @@ cs:
       file_validation:
         allowed_file_extensions: 'Povolené přípony souborů: %{extensions}'
         max_file_size: 'Maximální velikost souboru: %{megabytes}MB'
+      upload:
+        labels:
+          add_attachment: Přidat přílohu
+          add_file: Přidat soubor
+          add_image: Přidat obrázek
+          cancel: Zrušit
+          edit_image: Upravit obrázek
+          error: Chyba!
+          file_too_big: 'Soubor je příliš velký! Maximun velikost souboru: %{megabytes}MB'
+          remove: Odebrat
+          replace: Nahradit
+          save: Uložit
+          title: Název
+          title_required: Název je povinný!
+          uploaded: Nahráno
+          validating: Probíhá ověřování...
+          validation_error: Chyba ověření!
+      upload_help:
+        dropzone: Přetáhněte soubory sem nebo klikněte pro nahrání
+        explanation: Návod pro %{attribute}
     gamification:
       all_badges_link: Zobrazit všechny dostupné odznaky.
       badges:
@@ -1707,6 +1727,8 @@ cs:
         continue_session: Pokračovat v relaci
         sign_out: Odhlásit se
         title: Chcete pokračovat v relaci?
+      upload_modal:
+        close_modal: Zavřít modal
       user_menu:
         account: 'Uživatelský účet: %{name}'
         admin_dashboard: Ovládací panel
