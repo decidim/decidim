@@ -713,6 +713,7 @@
             one: "%{count} forslag"
             other: "%{count} forslag"
         edit:
+          add_documents: Dokumenter
           attachment_legend: "(Valgfritt) Legg til et vedlegg"
           back: Tilbake
           select_a_category: Velg en kategori
