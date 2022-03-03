@@ -572,7 +572,6 @@ ar:
         button: إيقاف المتابَعة
         error: حدثت مشكلة في إلغاء متابعة هذا المورد.
     forms:
-      current_file: الملف الحالي
       current_image: الصورة الحالية
       default_image: الصورة الافتراضية
       errors:
@@ -580,7 +579,6 @@ ar:
           password: الكلمة السرية قصيرة جدا.
           password_confirmation: يجب أن يكون تأكيد كلمة المرور مطابق للكلمة السرية.
         error: يوجد خطأ في هذا المجال.
-      remove_this_file: أزل هذا الملف
     gamification:
       all_badges_link: رؤية جميع الشارات المتاحة.
       badges:
