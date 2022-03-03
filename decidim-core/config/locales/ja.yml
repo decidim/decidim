@@ -723,7 +723,6 @@ ja:
         button: フォローを停止
         error: リソースのフォローを解除する際に問題が発生しました。
     forms:
-      current_file: 現在のファイル
       current_image: 現在の画像
       default_image: デフォルトの画像
       errors:
@@ -743,7 +742,6 @@ ja:
       file_validation:
         allowed_file_extensions: 'アップロード可能なファイル形式: %{extensions}'
         max_file_size: '最大ファイルサイズ: %{megabytes}MB'
-      remove_this_file: このファイルを削除
     gamification:
       all_badges_link: 利用可能なバッジをすべて表示
       badges:
