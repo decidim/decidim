@@ -693,12 +693,8 @@ gl:
         dynamic_map_instructions:
           instructions: Podes mover o punto no mapa.
         edit:
-          add_documents: Documentos
-          add_images: Ficheiro
           attachment_legend: "(Opcional) Engada un anexo"
           back: De volta
-          delete_document: Eliminar documento
-          delete_image: Eliminar imaxe
           gallery_legend: "(Opcional) Engadir unha imaxe ao cartón de proposta"
           select_a_category: Selecciona unha categoría
           send: Enviar
