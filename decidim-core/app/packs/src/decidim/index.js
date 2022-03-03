@@ -14,6 +14,7 @@ import DataPicker from "src/decidim/data_picker"
 import FormFilterComponent from "src/decidim/form_filter"
 import addInputEmoji from "src/decidim/input_emoji"
 import dialogMode from "src/decidim/dialog_mode"
+import FocusGuard from "src/decidim/focus_guard"
 
 window.Decidim = window.Decidim || {};
 window.Decidim.config = new Configuration()
@@ -26,6 +27,7 @@ window.Decidim.addInputEmoji = addInputEmoji;
 
 $(() => {
   window.theDataPicker = new DataPicker($(".data-picker"));
+  window.focusGuard = new FocusGuard(document.querySelector("body"));
 
   $(document).foundation();
   $(document).on("open.zf.reveal", (ev) => {

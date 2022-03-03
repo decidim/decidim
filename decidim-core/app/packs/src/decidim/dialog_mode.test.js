@@ -17,6 +17,7 @@ jest.mock("jquery", () => {
 import $ from "jquery"; // eslint-disable-line id-length
 import "foundation-sites";
 
+import FocusGuard from "./focus_guard.js";
 import dialogMode from "./dialog_mode.js";
 
 describe("dialogMode", () => {
@@ -53,6 +54,16 @@ describe("dialogMode", () => {
       </div>
     </div>
   `;
+
+  window.focusGuard = new FocusGuard(document.body);
+
+  // Mock the isVisible element because these elements do not have offsetWidth
+  // or offsetHeight during the test which are checked against to see whether
+  // the element is visible or not.
+  jest.spyOn(window.focusGuard, "isVisible").mockImplementation((element) => {
+    const display = global.window.getComputedStyle(element).display;
+    return ["inline", "block", "inline-block"].includes(display);
+  });
 
   beforeEach(() => {
     $("body").html(content);
