@@ -36,6 +36,9 @@ module Decidim
           user_groups = Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
           return if user_groups.include? author
           return if author == Post.find(id)&.author
+          if author == Post.find(id).author.is_a?(Decidim::User) && Post.find(id).author.id != current_user.id && Post.find(id).author.organization == current_user.organization
+            return
+          end
 
           errors.add(:decidim_author_id, :invalid)
         end
