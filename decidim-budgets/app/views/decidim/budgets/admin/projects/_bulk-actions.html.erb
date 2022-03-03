@@ -1,0 +1,17 @@
+<div class="flex--cc flex-gap--1">
+  <%= render partial: "decidim/budgets/admin/projects/bulk_actions/dropdown" %>
+
+  <%= render partial: "decidim/budgets/admin/projects/bulk_actions/recategorize" %>
+  <%#= render partial: "decidim/projects/admin/projects/bulk_actions/scope-change" %>
+  <%#= render partial: "decidim/projects/admin/projects/bulk_actions/merge" %>
+  <%#= render partial: "decidim/projects/admin/projects/bulk_actions/split" %>
+  <%#= render partial: "decidim/projects/admin/projects/bulk_actions/assign_to_valuator" %>
+  <%#= render partial: "decidim/projects/admin/projects/bulk_actions/unassign_from_valuator" %>
+  <%#= render partial: "decidim/projects/admin/projects/bulk_actions/publish_answers" %>
+
+  <%= link_to t("actions.import", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_budget_projects_import_path(budget), class: "button tiny button--title" if allowed_to? :import_projects, :project %>
+  <% if allowed_to? :export, :budget %>
+  <%= export_dropdown(current_component, budget.id) %>
+  <% end %>
+  <%= link_to t("actions.new", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_budget_project_path, class: "button tiny button--title new" if allowed_to? :create, :project %>
+</div>

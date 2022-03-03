@@ -5,13 +5,7 @@
         <%= link_to translated_attribute(budget.title), budgets_path %> &gt;
         <%= t(".title") %>
       </div>
-      <div class="flex--cc flex-gap--1">
-        <%= link_to t("actions.import", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_budget_proposals_import_path(budget), class: "button tiny button--title" if allowed_to? :import_proposals, :project %>
-        <% if allowed_to? :export, :budget %>
-          <%= export_dropdown(current_component, budget.id) %>
-        <% end %>
-        <%= link_to t("actions.new", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_budget_project_path, class: "button tiny button--title new" if allowed_to? :create, :project %>
-      </div>
+      <%= render partial: "bulk-actions" %>
     </h2>
   </div>
 
@@ -21,6 +15,7 @@
       <table class="table-list">
         <thead>
           <tr>
+            <th><%= check_box_tag "projects_bulk", "all", false, class: "js-check-all" %></th>
             <th><%= sort_link(query, :id, t("models.project.fields.id", scope: "decidim.budgets"), default_order: :desc) %>
             <th><%= sort_link(query, :title, t("models.project.fields.title", scope: "decidim.budgets")) %></th>
             <th><%= sort_link(query, :category_name, t("models.project.fields.category", scope: "decidim.budgets") ) %></th>
@@ -33,6 +28,9 @@
         <tbody>
           <% projects.each do |project| %>
             <tr data-id="<%= project.id %>">
+              <td>
+                <%= check_box_tag "project_ids_s[]", project.id, false, class: "js-check-all-project js-project-list-check js-project-id-#{project.id}" %><br>
+              </td>
               <td>
                 <%= project.id %><br>
               </td>
@@ -52,7 +50,7 @@
                 <% if project.selected? %>
                   <%= content_tag :strong, t(".selected"), class: "text-success" %>
                 <% else %>
-                  <%= content_tag :span, "×", class: "text-muted" %>
+                  <%= content_tag :span, "x", class: "text-muted" %>
                 <% end %>
               </td>
               <td class="table-list__actions">
@@ -91,3 +89,5 @@
     <strong><%= t ".pending_orders" %>:&nbsp;</strong><span><%= pending_orders.count %></span>
   </div>
 </div>
+
+<%= javascript_pack_tag "decidim_budgets_admin" %>

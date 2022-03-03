@@ -1,0 +1,56 @@
+<div id="js-bulk-actions-wrapper">
+  <button
+    id="js-bulk-actions-button"
+    class="button button--nomargin tiny success light dropdown hide"
+    type="button"
+    data-toggle="js-bulk-actions-dropdown">
+    <%= t("decidim.budgets.admin.projects.index.actions") %>
+  </button>
+
+  <div
+    id="js-bulk-actions-dropdown"
+    class="dropdown-pane"
+    data-position="bottom"
+    data-alignment="right"
+    data-dropdown="dropdown"
+    data-auto-focus="false"
+    data-events="resize">
+    <ul class="list-reset">
+      <li>
+        <button type="button" data-action="recategorize-projects">
+          <%= t("decidim.budgets.admin.projects.index.change_category") %>
+        </button>
+      </li>
+      <li>
+        <button type="button" data-action="scope-change-projects">
+          <%#= t("decidim.budgets.admin.projects.index.change_scope") %>
+        </button>
+      </li>
+      <li>
+        <button type="button" data-action="merge-projects">
+          <%#= t("decidim.budgets.admin.projects.index.merge") %>
+        </button>
+      </li>
+      <li>
+        <button type="button" data-action="split-projects">
+          <%#= t("decidim.budgets.admin.projects.index.split") %>
+        </button>
+      </li>
+      <li>
+        <button type="button" data-action="assign-projects-to-valuator">
+          <%#= t("decidim.budgets.admin.projects.index.assign_to_valuator") %>
+        </button>
+      </li>
+      <li>
+        <button type="button" data-action="unassign-projects-from-valuator">
+          <%#= t("decidim.budgets.admin.projects.index.unassign_from_valuator") %>
+        </button>
+      </li>
+      <li>
+        <button type="button" data-action="publish-answers">
+          <%#= t("decidim.budgets.admin.projects.index.publish_answers") %>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>

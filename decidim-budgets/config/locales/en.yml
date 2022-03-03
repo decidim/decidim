@@ -86,16 +86,30 @@ en:
             title: Edit project
             update: Update
           index:
+            actions: Actions
+            cancel: Cancel
+            change_category: Change category
             finished_orders: Finished votes
             pending_orders: Pending votes
             selected: Selected
             title: Projects
+            update: Update
           new:
             create: Create
             title: New project
           update:
             invalid: There was a problem updating this project
             success: Project successfully updated
+          update_category:
+            invalid: 'These projects already had the %{subject_name} category: %{projects}.'
+            select_a_category: Please select a category
+            select_a_project: Please select a project
+            success: 'Projects successfully updated to the %{subject_name} category: %{projects}.'
+          update_scope:
+            invalid: 'These projects already had the %{subject_name} scope: %{projects}.'
+            select_a_project: Please select a project
+            select_a_scope: Please select a scope
+            success: 'Projects successfully updated to the %{subject_name} scope: %{projects}.'
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals into projects

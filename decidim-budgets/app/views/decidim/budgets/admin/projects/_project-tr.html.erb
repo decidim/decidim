@@ -1,0 +1,26 @@
+<tr data-id="<%= project.id %>">
+  <td>
+    <%= check_box_tag "project_ids_s[]", project.id, false, class: "js-check-all-project js-project-list-check  js-project-id-#{project.id}" %><br>
+  </td>
+  <td>
+    <%= project.id %><br>
+  </td>
+  <td>
+    <%= translated_attribute(project.title) %>
+  </td>
+  <td>
+    <% if project.category %>
+      <%= translated_attribute project.category.name %>
+    <% end %>
+  </td>
+
+  <%= td_resource_scope_for(project.scope) %>
+
+  <td>
+    <%= project.confirmed_orders_count %>
+  </td>
+
+  <td class="table-list__actions">
+   <%= icon_link_to "eye", resource_locator([budget, project]).path, t("actions.preview", scope: "decidim.budgets"), target: :blank, class: "action-icon--preview" %>
+  </td>
+</tr>
