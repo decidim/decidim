@@ -767,12 +767,8 @@ fr:
           description: Les coordonnées seront mises à jour en cliquant sur le bouton 'Aperçu'. Cependant, l'adresse ne change pas.
           instructions: Vous pouvez déplacer le point sur la carte.
         edit:
-          add_documents: Documents
-          add_images: Fichier
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
-          delete_document: Supprimer le document
-          delete_image: Supprimer l'image
           gallery_legend: "(Facultatif) Ajouter une image à la carte de proposition"
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
