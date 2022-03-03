@@ -706,7 +706,6 @@ de:
         button: Entfolgen
         error: Beim Entfolgen dieser Ressource ist ein Fehler aufgetreten.
     forms:
-      current_file: Aktuelle Datei
       current_image: Aktuelles Bild
       default_image: Standardbild
       errors:
@@ -726,7 +725,6 @@ de:
       file_validation:
         allowed_file_extensions: 'Erlaubte Dateiendungen: %{extensions}'
         max_file_size: 'Maximale Dateigröße: %{megabytes}MB'
-      remove_this_file: Diese Datei entfernen
     gamification:
       all_badges_link: Sieh dir alle verfügbaren Abzeichen an.
       badges:
