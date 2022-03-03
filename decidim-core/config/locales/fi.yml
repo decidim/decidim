@@ -744,7 +744,6 @@ fi:
         button: Lopeta seuranta
         error: Tämän kohteen seuraamisen lopetus epäonnistui.
     forms:
-      current_file: Nykyinen tiedosto
       current_image: Nykyinen kuva
       default_image: Oletuskuva
       errors:
@@ -764,7 +763,6 @@ fi:
       file_validation:
         allowed_file_extensions: 'Sallitut tiedostopäätteet: %{extensions}'
         max_file_size: 'Tiedoston koon rajoitus: %{megabytes}Mt'
-      remove_this_file: Poista tiedosto
     gamification:
       all_badges_link: Kaikki saatavilla olevat kunniamerkit.
       badges:
