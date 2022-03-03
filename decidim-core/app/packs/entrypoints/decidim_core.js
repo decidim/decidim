@@ -56,6 +56,7 @@ import "src/decidim/start_conversation_dialog"
 import "src/decidim/notifications"
 import "src/decidim/identity_selector_dialog"
 import "src/decidim/gallery"
+import "src/decidim/direct_uploads/upload_field"
 import "src/decidim/sw"
 
 // CSS

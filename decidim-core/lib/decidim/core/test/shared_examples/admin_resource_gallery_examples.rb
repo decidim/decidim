@@ -4,8 +4,14 @@ shared_examples "admin creates resource gallery" do
   context "when uploading images" do
     let(:uploaded_photos) do
       [
-        Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-        Decidim::Dev.test_file("city2.jpeg", "image/jpeg")
+        {
+          title: "Picture of the city",
+          file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("city.jpeg", "image/jpeg"), filename: "city.jpeg").signed_id
+        },
+        {
+          title: "Picture of another city",
+          file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("city2.jpeg", "image/jpeg"), filename: "city2.jpeg").signed_id
+        }
       ]
     end
     let(:photos) { [] }
@@ -33,8 +39,14 @@ shared_examples "admin manages resource gallery" do
   context "when managing images" do
     let(:uploaded_photos) do
       [
-        Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-        Decidim::Dev.test_file("city2.jpeg", "image/jpeg")
+        {
+          title: "Picture of the city",
+          file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("city.jpeg", "image/jpeg"), filename: "city.jpeg").signed_id
+        },
+        {
+          title: "Picture of another city",
+          file: ActiveStorage::Blob.create_and_upload!(io: Decidim::Dev.test_file("city2.jpeg", "image/jpeg"), filename: "city2.jpeg").signed_id
+        }
       ]
     end
     let(:photos) { [] }

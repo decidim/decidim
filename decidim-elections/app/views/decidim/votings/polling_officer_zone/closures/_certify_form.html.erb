@@ -6,7 +6,9 @@
     <fieldset>
       <legend><%= t("form_legend", scope: "decidim.votings.polling_officer_zone.closures.certify") %></legend>
       <div class="row column">
-        <%= form.file_field :add_photos, multiple: true, label: t("add_images", scope: "decidim.votings.polling_officer_zone.closures.certify") %>
+        <%= form.attachment :photos,
+          multiple: true,
+          label: t("add_images", scope: "decidim.votings.polling_officer_zone.closures.certify") %>
       </div>
     </fieldset>
   </div>

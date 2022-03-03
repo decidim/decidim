@@ -751,7 +751,6 @@ en:
         button: Stop following
         error: There was a problem unfollowing this resource.
     forms:
-      current_file: Current file
       current_image: Current image
       default_image: Default image
       errors:
@@ -771,7 +770,26 @@ en:
       file_validation:
         allowed_file_extensions: 'Allowed file extensions: %{extensions}'
         max_file_size: 'Maximum file size: %{megabytes}MB'
-      remove_this_file: Remove this file
+      upload:
+        labels:
+          add_attachment: Add attachment
+          add_file: Add file
+          add_image: Add image
+          cancel: Cancel
+          edit_image: Edit image
+          error: Error!
+          file_too_big: 'File is too big! Maximun file size: %{megabytes}MB'
+          remove: Remove
+          replace: Replace
+          save: Save
+          title: Title
+          title_required: Title is required!
+          uploaded: Uploaded
+          validating: Validating...
+          validation_error: Validation error!
+      upload_help:
+        dropzone: Drop files here or click to upload
+        explanation: Guidance for %{attribute}
     gamification:
       all_badges_link: See all available badges.
       badges:
@@ -1669,6 +1687,8 @@ en:
         continue_session: Continue session
         sign_out: Sign out
         title: Would you like to continue your session?
+      upload_modal:
+        close_modal: Close modal
       user_menu:
         account: 'User account: %{name}'
         admin_dashboard: Admin dashboard

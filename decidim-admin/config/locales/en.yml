@@ -902,6 +902,7 @@ en:
         gallery:
           add_images: Add images
           delete_image: Delete Image
+          edit_images: Edit images
           gallery_legend: Add an image gallery (Optional)
       static_page_topics:
         create:

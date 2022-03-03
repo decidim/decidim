@@ -12,11 +12,19 @@ module Decidim
 
           attribute :file
 
-          validates_upload :file
+          validates_upload :blob
           validates :file, presence: true
 
           def organization
             context.current_participatory_space&.organization
+          end
+
+          def blob
+            @blob ||= begin
+              return if file.blank?
+
+              ActiveStorage::Blob.find_signed(file)
+            end
           end
         end
       end

@@ -218,7 +218,11 @@ shared_examples "manage proposals" do
               fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Proposal with attachments"
               fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "This is my proposal and I want to upload attachments."
               fill_in :proposal_attachment_title, with: "My attachment"
-              attach_file :proposal_attachment_file, Decidim::Dev.asset("city.jpeg")
+            end
+
+            dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("city.jpeg"))
+
+            within ".new_proposal" do
               find("*[type=submit]").click
             end
 
