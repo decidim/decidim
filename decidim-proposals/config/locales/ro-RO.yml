@@ -777,12 +777,8 @@ ro:
           description: Coordonatele vor fi actualizate când apeși pe butonul 'previzualizează'. Cu toate acestea, adresa nu se schimbă.
           instructions: Poți muta punctul de pe hartă.
         edit:
-          add_documents: Documente
-          add_images: Fişier
           attachment_legend: "(Opțional) Adaugă un atașament"
           back: Înapoi
-          delete_document: Șterge documentul
-          delete_image: Șterge imaginea
           gallery_legend: "(Opțional) Adaugă o imagine la cardul de propunere"
           select_a_category: Te rugăm selectează o categorie
           send: Trimite
