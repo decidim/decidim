@@ -711,7 +711,7 @@ de:
             one: "%{count} Vorschlag"
             other: "%{count} Vorschläge"
         edit:
-          add_documents: Dokumente
+          add_documents: Unterlagen
           add_images: Datei
           attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
           back: Zurück
