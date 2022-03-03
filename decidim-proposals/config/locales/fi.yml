@@ -767,12 +767,8 @@ fi:
           description: Koordinaatit päivitetään, kun painat Esikatsele-painiketta. Osoitetekstiä ei muuteta.
           instructions: Voit siirtää pistettä kartalla.
         edit:
-          add_documents: Asiakirjat
-          add_images: Tiedosto
           attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
-          delete_document: Poista tiedosto
-          delete_image: Poista kuva
           gallery_legend: "(Valinnainen) Lisää kuva ehdotuskorttiin"
           select_a_category: Valitse aihepiiri
           send: Lähetä
