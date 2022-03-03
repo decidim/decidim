@@ -740,7 +740,6 @@ fr-CA:
         button: Ne plus suivre
         error: Une erreur s'est produite lors du traitement de votre demande de ne plus suivre ce contenu.
     forms:
-      current_file: Fichier actuel
       current_image: Image actuelle
       default_image: Image par défaut
       errors:
@@ -760,7 +759,6 @@ fr-CA:
       file_validation:
         allowed_file_extensions: 'Extensions de fichier autorisées : %{extensions}'
         max_file_size: 'Taille maximale du fichier : %{megabytes}Mo'
-      remove_this_file: Supprimer ce fichier
     gamification:
       all_badges_link: Voir tous les badges disponibles.
       badges:
