@@ -767,12 +767,8 @@ sv:
           description: Koordinaterna uppdateras när du klickar på knappen 'Förhandsgranska'. Adressen ändras dock inte.
           instructions: Nu kan du flytta markören på kartan.
         edit:
-          add_documents: Dokument
-          add_images: Bild
           attachment_legend: "(Valfritt) Lägg till en bilaga"
           back: Tillbaka
-          delete_document: Radera dokument
-          delete_image: Radera bild
           gallery_legend: "(Frivilligt) Lägg till en bild"
           select_a_category: Välj en kategori
           send: Skicka
