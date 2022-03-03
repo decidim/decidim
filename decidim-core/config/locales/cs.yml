@@ -783,7 +783,6 @@ cs:
         button: Ukončit sledování
         error: Při sledování tohoto zdroje došlo k chybě.
     forms:
-      current_file: Aktuální soubor
       current_image: Aktuální obrázek
       default_image: Výchozí obrázek
       errors:
@@ -803,7 +802,6 @@ cs:
       file_validation:
         allowed_file_extensions: 'Povolené přípony souborů: %{extensions}'
         max_file_size: 'Maximální velikost souboru: %{megabytes}MB'
-      remove_this_file: Odstranit tento soubor
     gamification:
       all_badges_link: Zobrazit všechny dostupné odznaky.
       badges:
