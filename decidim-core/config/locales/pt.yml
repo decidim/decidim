@@ -704,7 +704,6 @@ pt:
         button: Parar de seguir
         error: Ocorreu um problema ao seguir este recurso.
     forms:
-      current_file: Ficheiro atual
       current_image: Imagem actual
       default_image: Imagem por defeito
       errors:
@@ -724,7 +723,6 @@ pt:
       file_validation:
         allowed_file_extensions: 'Extensões de ficheiro permitidas: %{extensions}'
         max_file_size: 'Tamanho máximo do ficheiro: %{megabytes}MB'
-      remove_this_file: Remover este ficheiro
     gamification:
       all_badges_link: Ver todos os distintivos disponíveis.
       badges:
