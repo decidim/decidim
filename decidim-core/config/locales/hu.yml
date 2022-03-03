@@ -662,7 +662,6 @@ hu:
         button: Követés törlése
         error: Hiba történt az erőforrás követésének visszavonásakor.
     forms:
-      current_file: Jelenlegi fájl
       current_image: Jelenlegi kép
       default_image: Alapértelmezett kép
       errors:
@@ -673,7 +672,6 @@ hu:
       file_help:
         file:
           message_2: A javasolt képméret 512x512 pixel.
-      remove_this_file: Töröld ezt a fájlt
     gamification:
       all_badges_link: Az összes elérhető jelvény megtekintése.
       badges:
