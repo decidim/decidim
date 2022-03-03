@@ -128,10 +128,6 @@ fi:
         extension_allowlist: 'Sallitut tiedostopäätteet:'
       images:
         dimensions: "%{width} x %{height} pikseliä"
-        dimensions_info: 'Tämän kuvan koko tulee olemaan:'
-        processors:
-          resize_and_pad: Muutetaan kokoon ja täytetään
-          resize_to_fit: Muutetaan mahtumaan kokoon
       question_types:
         files: Tiedostot
         long_answer: Pitkä vastaus
