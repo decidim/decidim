@@ -739,7 +739,6 @@
         button: Stopp å følge
         error: Det oppstod et problem med å slutte å følge denne ressursen.
     forms:
-      current_file: Nåværende fil
       current_image: Nåværende bilde
       default_image: Standard bilde
       errors:
@@ -759,7 +758,6 @@
       file_validation:
         allowed_file_extensions: 'Tillatte filetternavn: %{extensions}'
         max_file_size: 'Maksimal filstørrelse: %{megabytes}MB'
-      remove_this_file: Fjern denne filen
     gamification:
       all_badges_link: Se alle tilgjengelige merker.
       badges:
