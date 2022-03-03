@@ -710,7 +710,6 @@ it:
         button: Smetti di seguire
         error: Si è verificato un errore ad smettere questa risorsa.
     forms:
-      current_file: File attuale
       current_image: Immagine attuale
       default_image: Immagine predefinita
       errors:
@@ -730,7 +729,6 @@ it:
       file_validation:
         allowed_file_extensions: 'Estensioni file consentite: %{extensions}'
         max_file_size: 'Dimensione massima file: %{megabytes}MB'
-      remove_this_file: Rimuovere questo file
     gamification:
       all_badges_link: Vedi tutti i badge disponibili.
       badges:
