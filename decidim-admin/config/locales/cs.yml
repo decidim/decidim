@@ -911,6 +911,7 @@ cs:
         gallery:
           add_images: Přidat obrázky
           delete_image: Odstranit obrázek
+          edit_images: Upravit obrázky
           gallery_legend: Přidat galerii obrázků (volitelné)
       static_page_topics:
         create:
