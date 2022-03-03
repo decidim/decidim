@@ -83,7 +83,9 @@ module Decidim
           context "when the author belongs to different organization" do
             let(:decidim_author_id) { user_from_another_org.id }
 
-            it { is_expected.to be_invalid }
+            it "sets the author to the current_organization" do
+              expect(subject.author).to eq(current_organization)
+            end
           end
         end
 
