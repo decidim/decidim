@@ -128,6 +128,8 @@ module Decidim
           end
 
           context "when author is an organization" do
+            let(:author) { current_organization }
+
             it "assigns current_organization.id as decidim_author_id" do
               expect(subject.decidim_author_id).to eq(current_organization.id)
             end
