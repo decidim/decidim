@@ -20,6 +20,7 @@ module Decidim
       self.notifications_from_followed = ["all", "followed-only"].include? user.notification_types
       self.notifications_from_own_activity = ["all", "own-only"].include? user.notification_types
       self.allow_public_contact = user.direct_message_types == "all"
+      self.notifications_sending_frequency = user.notifications_sending_frequency
     end
 
     def newsletter_notifications_at
