@@ -128,10 +128,6 @@ cs:
         extension_allowlist: 'Akceptované formáty:'
       images:
         dimensions: "%{width} x %{height} px"
-        dimensions_info: 'Tento obrázek bude:'
-        processors:
-          resize_and_pad: Zmenšeno a odsazeno k
-          resize_to_fit: Upravena velikost na vyplnění
       question_types:
         files: Soubory
         long_answer: Dlouhá odpověď
