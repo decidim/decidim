@@ -35,7 +35,8 @@ $(() => {
   });
 
   // Trap the focus within the mobile menu if the user enters it. This is an
-  // accessibility feature forcing the focus within the
+  // accessibility feature forcing the focus within the offcanvas container
+  // which holds the mobile menu.
   $("#offCanvas").on("openedEnd.zf.offCanvas", (ev) => {
     ev.target.querySelector(".main-nav a").focus();
     window.focusGuard.trap(ev.target);
