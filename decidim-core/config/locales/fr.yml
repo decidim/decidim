@@ -759,6 +759,26 @@ fr:
       file_validation:
         allowed_file_extensions: 'Extensions de fichier autorisées : %{extensions}'
         max_file_size: 'Taille maximale du fichier : %{megabytes}Mo'
+      upload:
+        labels:
+          add_attachment: Ajouter une pièce jointe
+          add_file: Ajouter un fichier
+          add_image: Ajouter une image
+          cancel: Annuler
+          edit_image: Modifier l'Image
+          error: Erreur !
+          file_too_big: 'Le fichier est trop volumineux! Taille de fichier maximum: %{megabytes}Mo'
+          remove: Supprimer
+          replace: Remplacer
+          save: Sauvegarder
+          title: Titre
+          title_required: Le titre est requis !
+          uploaded: Téléchargé
+          validating: Validation en cours...
+          validation_error: Erreur de validation !
+      upload_help:
+        dropzone: Déposez les fichiers ici ou cliquez pour télécharger
+        explanation: Explication pour %{attribute}
     gamification:
       all_badges_link: Voir tous les badges disponibles.
       badges:
