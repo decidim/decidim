@@ -338,12 +338,9 @@ describe "Proposals", type: :system do
             it "sets the card image correctly with zero weight" do
               # Attach one card image and two document images and go to preview
               dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("city.jpeg"))
-              expect(page).to have_selector(".hidden-title[value='city'][name='proposal[add_photos][0][title]']", visible: :hidden)
-              expect(page).to have_selector("[type='hidden'][name='proposal[add_photos][0][file]']", visible: :hidden)
               dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
-              expect(page).to have_selector(".hidden-title[value='city2'][name='proposal[add_documents][0][title]']", visible: :hidden)
-              expect(page).to have_selector("[type='hidden'][name='proposal[add_documents][0][file]']", visible: :hidden)
               dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
+              # Check that javascript has been executed before submitting the form
               expect(page).to have_selector(".hidden-title[value='city3'][name='proposal[add_documents][1][title]']", visible: :hidden)
               expect(page).to have_selector("[type='hidden'][name='proposal[add_documents][1][file]']", visible: :hidden)
 
