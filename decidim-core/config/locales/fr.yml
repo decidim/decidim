@@ -1676,6 +1676,8 @@ fr:
         continue_session: Continuer la session
         sign_out: Se déconnecter
         title: Voulez-vous poursuivre votre session ?
+      upload_modal:
+        close_modal: Fermer la fenêtre
       user_menu:
         account: 'Compte utilisateur: %{name}'
         admin_dashboard: Tableau de bord des administrateurs
