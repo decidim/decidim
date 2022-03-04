@@ -19,8 +19,7 @@ module Decidim
         let(:user_group) { create(:user_group, :verified, organization: current_organization) }
         let(:decidim_author_id) { "" }
         let(:component) { create(:post_component, organization: current_organization) }
-        let(:post) { create(:post, component: component, author: author) }
-        let(:author) { current_organization }
+        # let(:post) { create(:post, component: component, author: author) }
         let(:user_from_another_org) { create(:user) }
 
         let(:title) do
@@ -111,7 +110,7 @@ module Decidim
           end
         end
 
-        context "when decidim_author_id is another_user" do
+        context "when decidim_author_id is another_user from the same organization" do
           let(:decidim_author_id) { another_user.id }
 
           it "assigns another_user as author" do
@@ -127,9 +126,10 @@ module Decidim
             )
           end
 
-          context "when author is an organization" do
-            let(:author) { current_organization }
+          let(:author) { current_organization }
+          let(:post) { create(:post, component: component, author: author) }
 
+          context "when author is an organization" do
             it "assigns current_organization.id as decidim_author_id" do
               expect(subject.decidim_author_id).to eq(current_organization.id)
             end
