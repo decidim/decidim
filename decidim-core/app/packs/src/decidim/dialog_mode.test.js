@@ -1,15 +1,21 @@
 /* global jest, global */
 
+// Custom visibility check for the tests because the of because the elements do
+// not have offsetWidth or offsetHeight during the tests which are checked
+// against to see whether the element is visible or not. This is also how jQuery
+// behaves internally.
+const isElementVisible = (element) => {
+  const display = global.window.getComputedStyle(element).display;
+  return ["inline", "block", "inline-block"].includes(display);
+}
+
 // Mock jQuery because the visibility indicator works differently within jest.
 // This fixes jQuery reporting $(".element").is(":visible") correctly during the
 // tests and within foundation, too.
 jest.mock("jquery", () => {
   const jq = jest.requireActual("jquery");
 
-  jq.expr.pseudos.visible = (elem) => {
-    const display = global.window.getComputedStyle(elem).display;
-    return ["inline", "block", "inline-block"].includes(display);
-  };
+  jq.expr.pseudos.visible = isElementVisible;
 
   return jq;
 });
@@ -57,13 +63,9 @@ describe("dialogMode", () => {
 
   window.focusGuard = new FocusGuard(document.body);
 
-  // Mock the isVisible element because these elements do not have offsetWidth
-  // or offsetHeight during the test which are checked against to see whether
-  // the element is visible or not.
-  jest.spyOn(window.focusGuard, "isVisible").mockImplementation((element) => {
-    const display = global.window.getComputedStyle(element).display;
-    return ["inline", "block", "inline-block"].includes(display);
-  });
+  // Mock the isVisible element because the default visibility check does not
+  // work during the tests.
+  jest.spyOn(window.focusGuard, "isVisible").mockImplementation(isElementVisible);
 
   beforeEach(() => {
     $("body").html(content);
