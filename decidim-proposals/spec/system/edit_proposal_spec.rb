@@ -82,9 +82,10 @@ describe "Edit proposals", type: :system do
           dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("city.jpeg"))
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("icon.png"))
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("avatar.jpg"))
-          # Check that javascript has been executed before submitting the form
           expect(page).to have_selector(".hidden-title[value='avatar'][name='proposal[add_documents][1][title]']", visible: :hidden)
-          expect(page).to have_selector("[type='hidden'][name='proposal[add_documents][1][file]']", visible: :hidden)
+          blob = ActiveStorage::Blob.last
+          expect(blob.filename.sanitized).to eq("avatar.jpg")
+          expect(page).to have_selector("[value='#{blob.signed_id}'][name='proposal[add_documents][1][file]']", visible: :hidden)
           click_button "Send"
           click_link "Edit proposal"
           within ".photos_container" do
@@ -97,7 +98,9 @@ describe "Edit proposals", type: :system do
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
           expect(page).to have_selector(".hidden-title[value='city3'][name='proposal[add_documents][1][title]']", visible: :hidden)
-          expect(page).to have_selector("[type='hidden'][name='proposal[add_documents][1][file]']", visible: :hidden)
+          blob = ActiveStorage::Blob.last
+          expect(blob.filename.sanitized).to eq("city3.jpeg")
+          expect(page).to have_selector("[value='#{blob.signed_id}'][name='proposal[add_documents][1][file]']", visible: :hidden)
           click_button "Send"
           expect(page).to have_selector(".thumbnail[alt='city']")
           expect(page).to have_selector(".thumbnail[alt='icon']")
