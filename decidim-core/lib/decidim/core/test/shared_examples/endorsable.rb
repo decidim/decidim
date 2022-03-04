@@ -3,7 +3,7 @@
 require "spec_helper"
 
 shared_examples_for "endorsable" do
-  context "endorsable interface" do
+  context "when endorsable" do
     let(:user) { create(:user, organization: subject.organization) }
 
     describe "#endorsed_by?" do
@@ -50,7 +50,6 @@ shared_examples_for "endorsable" do
             it "returns true if the resource is endorsed by other user of the same organization" do
               expect(subject).to be_endorsed_by(another_user, user_group)
             end
-
           end
 
           context "with another organization" do
@@ -68,4 +67,3 @@ shared_examples_for "endorsable" do
     end
   end
 end
-
