@@ -16,6 +16,14 @@ $(() => {
   const iconsPath = window.Decidim.config.get("icons_path");
   const removeLabel = messages.removeRecipient || "Remove recipient %name%";
 
+  let emptyFocusElement = $fieldContainer[0].querySelector(".empty-list");
+  if (!emptyFocusElement) {
+    emptyFocusElement = document.createElement("div");
+    emptyFocusElement.tabIndex = "-1";
+    emptyFocusElement.className = "empty-list";
+    $selectedItems.before(emptyFocusElement);
+  }
+
   const autoComplete = new AutoComplete($searchInput[0], {
     dataMatchKeys: ["name", "nickname"],
     dataSource: (query, callback) => {
@@ -64,7 +72,7 @@ $(() => {
 
     const label = removeLabel.replace("%name%", selection.value.name);
     $selectedItems.append(`
-      <li>
+      <li tabindex="-1">
         <input type="hidden" name="${options.name}" value="${id}">
         <img src="${selection.value.avatarUrl}" class="author__avatar" alt="${selection.value.name}">
         <b>${selection.value.name}</b>
@@ -78,8 +86,12 @@ $(() => {
     $selectedItems.find(`*[data-remove="${id}"]`).on("keypress click", (evt) => {
       const target = evt.target.parentNode;
       if (target.tagName === "LI") {
+        const focusElement = target.nextElementSibling || target.previousElementSibling || emptyFocusElement;
+
         selected = selected.filter((identifier) => identifier !== id);
         target.remove();
+
+        focusElement.focus();
       }
     })
   })
