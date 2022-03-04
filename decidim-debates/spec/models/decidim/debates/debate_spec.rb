@@ -11,6 +11,7 @@ describe Decidim::Debates::Debate do
   it { is_expected.to be_valid }
   it { is_expected.to be_versioned }
 
+  include_examples "endorsable"
   include_examples "has component"
   include_examples "has category"
   include_examples "resourceable"
