@@ -742,6 +742,14 @@ ja:
       file_validation:
         allowed_file_extensions: 'アップロード可能なファイル形式: %{extensions}'
         max_file_size: '最大ファイルサイズ: %{megabytes}MB'
+      upload:
+        labels:
+          add_attachment: 添付ファイルを追加
+          add_file: ファイルを追加
+          add_image: 画像を追加
+          cancel: キャンセル
+          edit_image: 画像を編集
+          error: エラー
     gamification:
       all_badges_link: 利用可能なバッジをすべて表示
       badges:
