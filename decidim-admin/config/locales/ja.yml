@@ -896,6 +896,7 @@ ja:
         gallery:
           add_images: 画像を追加
           delete_image: 画像を削除
+          edit_images: 画像を編集
           gallery_legend: 画像ギャラリーを追加 (オプション)
       static_page_topics:
         create:
