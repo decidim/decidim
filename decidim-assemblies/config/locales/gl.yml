@@ -318,6 +318,9 @@ gl:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Sobre esta xuntanza
       assembly_members:
         index:
           members: Membros
