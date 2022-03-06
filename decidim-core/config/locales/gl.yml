@@ -86,6 +86,8 @@ gl:
         other: "hai %{count} seg"
         zero: agora
   decidim:
+    accessibility:
+      front_page_link: Ir á páxina principal
     account:
       data_portability_export:
         file_no_exists: O ficheiro non existe
