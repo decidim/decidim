@@ -64,6 +64,17 @@ gl:
         other: Rexistros
   decidim:
     admin:
+      filters:
+        meetings:
+          with_any_origin:
+            label: Orixe
+            values:
+              official: Oficial
+              participants: Participante
+          with_any_type:
+            values:
+              hybrid: Ambos
+              online: En liña
       meeting_copies:
         create:
           error: Produciuse un erro ao duplicar esta reunión.
