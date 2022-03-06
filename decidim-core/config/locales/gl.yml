@@ -532,6 +532,11 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo %{nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: "%{nickname} actualizou o seu perfil"
           notification_title: O <a href="%{resource_path}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
+        user_officialized:
+          email_intro: O participante %{name} (%{nickname}) foi oficializado.
+          email_outro: Recibiches esta notificación por que es administrador da organización.
+          email_subject: "%{name} foi oficializado"
+          notification_title: O participante %{name} (%{nickname}) foi oficializado.
     export_mailer:
       data_portability_export:
         download: Descarga
@@ -1309,6 +1314,9 @@ gl:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    dropdown:
+      choose_diff_view_mode_menu: Escoller o modo de comparación
   views:
     pagination:
       first: "&laquo; Primeiro"
