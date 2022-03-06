@@ -462,6 +462,7 @@ gl:
           description:
             show_less: Ler menos
             show_more: Ler máis
+            title: Sobre esta votación
           metrics:
             heading: Métricas
           polling_stations:
