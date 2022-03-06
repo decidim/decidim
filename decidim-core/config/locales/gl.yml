@@ -531,6 +531,11 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo %{nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: "%{nickname} actualizou o seu perfil"
           notification_title: O <a href="%{resource_path}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
+        user_officialized:
+          email_intro: O participante %{name} (%{nickname}) foi oficializado.
+          email_outro: Recibiches esta notificación por que es administrador da organización.
+          email_subject: "%{name} foi oficializado"
+          notification_title: O participante %{name} (%{nickname}) foi oficializado.
     export_mailer:
       data_portability_export:
         download: Descarga
@@ -589,6 +594,12 @@ gl:
           save: Gardar
           title: Título
           title_required: O título é obrigatorio!
+          uploaded: Cargado
+          validating: Validando...
+          validation_error: Erro de validación!
+      upload_help:
+        dropzone: Solta os ficheiros aquí ou preme para cargar
+        explanation: Guía para %{attribute}
     gamification:
       all_badges_link: Consulta todas as insignias dispoñibles.
       badges:
@@ -1012,6 +1023,8 @@ gl:
       login_modal:
         please_sign_in: Inicia sesión
         sign_up: Rexistrarse
+      mentions_modal:
+        remove_recipient: Eliminar o destinatario %{name}
       participatory_space_filters:
         filters:
           areas: Ámbitos
@@ -1265,6 +1278,8 @@ gl:
         mark_all_as_read: Marca todo como lido
       offline_banner:
         cache_version_page: Vaites! A túa rede está desconectada. O que estás a ver é unha versión previa da páxina gardada na caché, é podería non estar actualizada.
+      upload_modal:
+        close_modal: Pechar modal
       user_menu:
         admin_dashboard: Taboleiro de administración
         conversations: Conversas
@@ -1333,6 +1348,9 @@ gl:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       time_of_day: "%H:%M"
+  versions:
+    dropdown:
+      choose_diff_view_mode_menu: Escoller o modo de comparación
   views:
     pagination:
       first: "&laquo; Primeiro"
