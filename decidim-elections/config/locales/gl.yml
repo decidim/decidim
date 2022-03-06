@@ -271,8 +271,12 @@ gl:
           close: Pechar modal
           create_account: Crear conta
           no_account: Non, grazas.
+          title: Es novo na plataforma?
         update:
           error: Produciuse un problema ao actualizar o estado do voto. Por favor, téntao de novo.
+        verify:
+          form:
+            back: Volver á plataforma
     events:
       elections:
         votes:
@@ -454,6 +458,7 @@ gl:
           description:
             show_less: Ler menos
             show_more: Ler máis
+            title: Sobre esta votación
           metrics:
             heading: Métricas
           polling_stations:
