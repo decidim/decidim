@@ -838,7 +838,7 @@ en:
             button: Delete all
             confirm: Are you sure you want to delete all current participants ?
             empty: You have no current private participants.
-            explanation: You have %{count} current private participants. Do you want to delete all without the possibility of recovering them ?
+            explanation: You have %{count} private participants.
             title: Delete current private participants
           explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file (email, name) of the users that you want to add to the participatory space, without headers. Avoid using invalid chars like `<>?%&^*#@()[]=+:;"{}\|` in user name.
           title: Upload your CSV file
