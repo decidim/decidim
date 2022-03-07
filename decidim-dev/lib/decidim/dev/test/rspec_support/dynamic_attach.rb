@@ -22,7 +22,6 @@ module Capybara
         all("input.attachment-title").last.set(options[:title]) if options.has_key?(:title)
         click_button "Save"
       end
-      expect_no_js_errors
     end
   end
 end
