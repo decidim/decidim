@@ -756,6 +756,18 @@ ja:
           cancel: キャンセル
           edit_image: 画像を編集
           error: エラー
+          file_too_big: 'ファイルが大きすぎます。最大ファイルサイズ: %{megabytes}MB'
+          remove: 削除
+          replace: 置換
+          save: 保存
+          title: タイトル
+          title_required: タイトルが必要です
+          uploaded: アップロード済
+          validating: 検証中...
+          validation_error: 検証エラー
+      upload_help:
+        dropzone: ここにファイルをドロップするか、クリックしてアップロードします
+        explanation: '%{attribute} のガイド'
     gamification:
       all_badges_link: 利用可能なバッジをすべて表示
       badges:
@@ -916,7 +928,7 @@ ja:
         scope_type_presenter:
           not_found: 'スコープ種別がデータベース上に見つかりませんでした (ID: %{id})'
     managed_users:
-      expired_session: 出席者の現在の管理セッションの有効期限が切れています。
+      expired_session: 参加者の現在の管理セッションの有効期限が切れています。
     map:
       dynamic:
         screen_reader_explanation: 以下の要素は、このページ上のアイテムを地図上のポイントとして表示するマップです。 この要素はスクリーンリーダーで使用することができますが、理解しにくいかもしれません。
@@ -1649,6 +1661,8 @@ ja:
         continue_session: セッションを続ける
         sign_out: ログアウト
         title: セッションを続行しますか？
+      upload_modal:
+        close_modal: モーダルを閉じる
       user_menu:
         account: 'ユーザーアカウント: %{name}'
         admin_dashboard: 管理ダッシュボード
