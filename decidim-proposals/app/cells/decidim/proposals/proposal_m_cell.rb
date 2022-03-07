@@ -122,7 +122,7 @@ module Decidim
       end
 
       def resource_image_path
-        @resource_image_path ||= has_image? ? model.attachments.find_by("content_type like '%image%'").url : nil
+        @resource_image_path ||= has_image? ? model.attachments.find_by("content_type like '%image%'").thumbnail_url : nil
       end
 
       def cache_hash
