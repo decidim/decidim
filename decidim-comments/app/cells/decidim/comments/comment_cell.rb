@@ -34,7 +34,7 @@ module Decidim
       end
 
       def perform_caching?
-        super && has_replies_in_children? == false
+        super && has_replies_in_children? == false && current_user.blank?
       end
 
       private
@@ -134,7 +134,7 @@ module Decidim
       end
 
       def commentable_path(params = {})
-        if root_commentable.is_a?(Decidim::Budgets::Project)
+        if defined?(Decidim::Budgets) && root_commentable.is_a?(Decidim::Budgets::Project)
           resource_locator([root_commentable.budget, root_commentable]).path(params)
         else
           resource_locator(root_commentable).path(params)
