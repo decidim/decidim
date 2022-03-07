@@ -836,7 +836,7 @@ en:
         new:
           destroy:
             button: Delete all
-            confirm: Are you sure you want to delete all current participants ?
+            confirm: Are you sure you want to delete all private participants? This action can't be undone, you will not be able to recover them.  
             empty: You have no current private participants.
             explanation: You have %{count} private participants.
             title: Delete current private participants
