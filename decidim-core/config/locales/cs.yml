@@ -22,6 +22,7 @@ cs:
       user:
         about: O nás
         email: Váš email
+        locale: Jazyk
         name: Vaše jméno
         nickname: Přezdívka
         password: Heslo
