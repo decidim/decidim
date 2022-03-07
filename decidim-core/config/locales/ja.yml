@@ -685,6 +685,11 @@ ja:
           email_outro: '%{nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: "%{nickname} がプロフィールを更新しました"
           notification_title: あなたがフォロー中の %{name} (%{nickname}) さんの <a href="%{resource_path}">プロフィールページ</a> が更新されました。
+        user_officialized:
+          email_intro: 参加者 %{name} (%{nickname}) が公式化されました。
+          email_outro: あなたは組織の管理者であるため、この通知を受け取りました。
+          email_subject: "%{name} が公式化されました"
+          notification_title: 参加者 %{name} (%{nickname}) が公式化されました。
     export_mailer:
       data_portability_export:
         click_button: '次のリンクをクリックするとあなたのデータがダウンロードできます。<br/>このファイルは %{date} まで利用できます。<br/>ファイルを開くには <a href="https://www.7-zip.org/">7-Zip</a> (Windowsユーザー向け), <a href="https://www.keka.io/en/">Keka</a> (MacOSユーザー向け) または <a href="https://peazip.github.io">PeaZip</a> (Linuxユーザー向け)等が必要です。パスワード:%{password}'
