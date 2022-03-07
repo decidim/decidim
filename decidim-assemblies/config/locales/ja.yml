@@ -316,6 +316,9 @@ ja:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: この参加スペースについて
       assembly_members:
         index:
           members: メンバー
