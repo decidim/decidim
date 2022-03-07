@@ -89,11 +89,13 @@ en:
             actions: Actions
             cancel: Cancel
             change_category: Change category
+            change_scope: Change scope
             finished_orders: Finished votes
             pending_orders: Pending votes
             selected: Selected
             title: Projects
             update: Update
+            update_scope_button: Update scope
           new:
             create: Create
             title: New project
@@ -169,6 +171,7 @@ en:
           fields:
             category: Category
             id: ID
+            scope: Scope
             title: Title
       order_summary_mailer:
         order_summary:

@@ -16,6 +16,8 @@ module Decidim
           resources :projects do
             collection do
               post :update_category
+              post :update_scope
+              post :update_selections
               resource :proposals_import, only: [:new, :create]
             end
           end

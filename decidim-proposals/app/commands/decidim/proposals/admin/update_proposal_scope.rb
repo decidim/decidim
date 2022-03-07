@@ -11,7 +11,7 @@ module Decidim
         # scope_id - the scope id to update
         # proposal_ids - the proposals ids to update.
         def initialize(scope_id, proposal_ids)
-          @scope = Decidim::Scope.find_by id: scope_id
+          @scope = ::Decidim::Scope.find_by id: scope_id
           @proposal_ids = proposal_ids
           @response = { scope_name: "", successful: [], errored: [] }
         end

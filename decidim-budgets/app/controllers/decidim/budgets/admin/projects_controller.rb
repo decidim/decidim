@@ -102,6 +102,35 @@ module Decidim
           end
         end
 
+        def update_scope
+          # enforce_permission_to :update, :project_scope
+
+          ::Decidim::Budgets::Admin::UpdateProjectScope.call(params[:scope_id], project_ids) do
+            on(:invalid_scope) do
+              flash.now[:error] = t(
+                "projects.update_scope.select_a_scope",
+                scope: "decidim.budgets.admin"
+              )
+            end
+
+            on(:invalid_project_ids) do
+              flash.now[:alert] = t(
+                "projects.update_scope.select_a_project",
+                scope: "decidim.budgets.admin"
+              )
+            end
+
+            on(:update_projects_scope) do
+              flash.now[:notice] = update_projects_bulk_response_successful(@response, :scope)
+              flash.now[:alert] = update_projects_bulk_response_errored(@response, :scope)
+            end
+
+            respond_to do |format|
+              format.js
+            end
+          end
+        end
+
         private
 
         def projects
