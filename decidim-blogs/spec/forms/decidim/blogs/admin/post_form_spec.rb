@@ -21,6 +21,7 @@ module Decidim
         let(:component) { create(:post_component, organization: current_organization) }
         # let(:post) { create(:post, component: component, author: author) }
         let(:user_from_another_org) { create(:user) }
+        let(:post_id) { nil }
 
         let(:title) do
           {
@@ -43,7 +44,8 @@ module Decidim
             "post" => {
               "title" => title,
               "body" => body,
-              "decidim_author_id" => decidim_author_id
+              "decidim_author_id" => decidim_author_id,
+              "id" => post_id
             }
           }
         end
@@ -111,6 +113,7 @@ module Decidim
         end
 
         context "when decidim_author_id is another_user from the same organization" do
+          let(:post_id) { post.id }
           let(:decidim_author_id) { another_user.id }
 
           it { is_expected.to be_invalid }
