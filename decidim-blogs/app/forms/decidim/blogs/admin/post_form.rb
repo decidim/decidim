@@ -11,6 +11,7 @@ module Decidim
         translatable_attribute :body, String
 
         attribute :decidim_author_id, Integer
+        attribute :id, Integer
 
         validates :title, translatable_presence: true
         validates :body, translatable_presence: true
@@ -36,7 +37,9 @@ module Decidim
           user_groups = Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
           return if user_groups.include? author
 
-          post_author = Post.find(id)&.author
+          post_id = id
+
+          post_author = Post.find(post_id)&.author
           return if author == post_author
 
           errors.add(:decidim_author_id, :invalid) unless post_author&.organization == current_organization

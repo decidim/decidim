@@ -113,9 +113,7 @@ module Decidim
         context "when decidim_author_id is another_user from the same organization" do
           let(:decidim_author_id) { another_user.id }
 
-          it "assigns another_user as author" do
-            expect(subject.author).to eq(another_user)
-          end
+          it { is_expected.to be_invalid }
         end
 
         describe "when assigns a model" do
