@@ -1,5 +1,5 @@
 <div id="js-recategorize-projects-actions" class="hide js-bulk-action-form">
-  <%= form_tag(update_category_budget_projects_path, method: :post, remote: true, id: "js-form-recategorize-project", class: "flex--cc flex-gap--1") do %>
+  <%= form_tag(update_category_budget_projects_path, method: :post, remote: true, id: "js-form-recategorize-projects", class: "flex--cc flex-gap--1") do %>
     <div class="checkboxes hide">
       <% projects.each do |project| %>
         <%= check_box_tag "project_ids[]", project.id, false, class: "js-check-all-project js-project-id-#{project.id}" %>

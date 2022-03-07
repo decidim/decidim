@@ -90,8 +90,11 @@ en:
             cancel: Cancel
             change_category: Change category
             change_scope: Change scope
+            change_selected: Change selected
+            deselect_implementation: Unselect
             finished_orders: Finished votes
             pending_orders: Pending votes
+            select_for_implementation: Select
             selected: Selected
             title: Projects
             update: Update
@@ -112,6 +115,11 @@ en:
             select_a_project: Please select a project
             select_a_scope: Please select a scope
             success: 'Projects successfully updated to the %{subject_name} scope: %{projects}.'
+          update_selected:
+            invalid: 'These projects already had the same selected: %{projects}.'
+            select_a_project: Please select a project
+            select_a_selection: Please select a selection
+            success: 'Projects selection successfully changed: %{projects}.'
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals into projects

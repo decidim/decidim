@@ -8,6 +8,7 @@ module Decidim
         include Decidim::ApplicationHelper
         include Decidim::Proposals::Admin::Picker if Decidim::Budgets.enable_proposal_linking
         include Decidim::Budgets::Admin::Filterable
+        helper Decidim::Budgets::Admin::ProjectBulkActionsHelper
 
         helper_method :projects, :finished_orders, :pending_orders, :present, :project_ids
 
@@ -131,6 +132,35 @@ module Decidim
           end
         end
 
+        def update_selected
+          # enforce_permission_to :update, :project_selected
+
+          ::Decidim::Budgets::Admin::UpdateProjectSelection.call(params.dig(:selected, "value"), project_ids) do
+            on(:invalid_selection) do
+              flash.now[:error] = t(
+                "projects.update_scope.select_a_selection",
+                scope: "decidim.budgets.admin"
+              )
+            end
+
+            on(:invalid_project_ids) do
+              flash.now[:alert] = t(
+                "projects.update_scope.select_a_project",
+                scope: "decidim.budgets.admin"
+              )
+            end
+
+            on(:update_projects_selection) do
+              flash.now[:notice] = update_projects_bulk_response_successful(@response, :selected)
+              flash.now[:alert] = update_projects_bulk_response_errored(@response, :selected)
+            end
+
+            respond_to do |format|
+              format.js
+            end
+          end
+        end
+
         private
 
         def projects
@@ -175,6 +205,13 @@ module Decidim
               projects: response[:successful].to_sentence,
               scope: "decidim.budgets.admin"
             )
+          when :selected
+            t(
+              "projects.update_selected.success",
+              subject_name: response[:subject_name],
+              projects: response[:successful].to_sentence,
+              scope: "decidim.budgets.admin"
+            )
           end
         end
 
@@ -192,6 +229,13 @@ module Decidim
           when :scope
             t(
               "projects.update_scope.invalid",
+              subject_name: response[:subject_name],
+              projects: response[:errored].to_sentence,
+              scope: "decidim.budgets.admin"
+            )
+          when :selected
+            t(
+              "projects.update_selected.invalid",
               subject_name: response[:subject_name],
               projects: response[:errored].to_sentence,
               scope: "decidim.budgets.admin"

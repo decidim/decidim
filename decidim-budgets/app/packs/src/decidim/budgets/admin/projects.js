@@ -74,7 +74,7 @@ $(() => {
       let action = $(e.target).data("action");
 
       if (action) {
-        $(`#js-form-${action}`).submit(function() {
+        $(`#js-form-${action}`).on("submit", function() {
           $(".layout-content > .callout-wrapper").html("");
         })
 

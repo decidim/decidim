@@ -3,7 +3,7 @@
 
   <%= render partial: "decidim/budgets/admin/projects/bulk_actions/recategorize" %>
   <%= render partial: "decidim/budgets/admin/projects/bulk_actions/scope-change" %>
-  <%#= render partial: "decidim/budgets/admin/projects/bulk_actions/merge" %>
+  <%= render partial: "decidim/budgets/admin/projects/bulk_actions/change-selected" %>
 
   <%= link_to t("actions.import", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_budget_projects_import_path(budget), class: "button tiny button--title" if allowed_to? :import_projects, :project %>
   <% if allowed_to? :export, :budget %>
