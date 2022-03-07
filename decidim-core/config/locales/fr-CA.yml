@@ -22,6 +22,7 @@ fr-CA:
       user:
         about: A propos de moi
         email: Votre email
+        locale: Langue
         name: Votre nom
         nickname: Surnom
         password: Mot de passe
