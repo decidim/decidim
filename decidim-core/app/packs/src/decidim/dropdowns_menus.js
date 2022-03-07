@@ -13,6 +13,7 @@ export default function fixDropdownMenus() {
     // user to focus on the li element instead of the <a> element where we
     // actually need the focus to be in.
     $("li.is-dropdown-submenu-parent", element).removeAttr("aria-haspopup").removeAttr("aria-label");
+    $("li.is-dropdown-submenu-parent > a:first", element).removeAttr("aria-label");
     // Foundation marks the wrong role for the submenu elements
     $("ul.is-dropdown-submenu", element).attr("role", "menu");
   })
