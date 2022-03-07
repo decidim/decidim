@@ -19,7 +19,7 @@ module Decidim
         let(:user_group) { create(:user_group, :verified, organization: current_organization) }
         let(:decidim_author_id) { "" }
         let(:component) { create(:post_component, organization: current_organization) }
-        # let(:post) { create(:post, component: component, author: author) }
+        let(:post) { create(:post, component: component, author: author) }
         let(:user_from_another_org) { create(:user) }
         let(:post_id) { nil }
 
@@ -114,6 +114,7 @@ module Decidim
 
         context "when decidim_author_id is another_user from the same organization" do
           let(:post_id) { post.id }
+          let(:author) { current_user }
           let(:decidim_author_id) { another_user.id }
 
           it { is_expected.to be_invalid }

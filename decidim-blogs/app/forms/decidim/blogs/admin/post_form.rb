@@ -42,7 +42,7 @@ module Decidim
           post_author = Post.find(post_id)&.author
           return if author == post_author
 
-          errors.add(:decidim_author_id, :invalid) unless post_author&.organization == current_organization
+          errors.add(:decidim_author_id, :invalid) unless post_author.try(:organization) == current_organization
 
           errors.add(:decidim_author_id, :invalid)
         end
