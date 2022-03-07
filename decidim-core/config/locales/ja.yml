@@ -879,7 +879,7 @@ ja:
         scope_type_presenter:
           not_found: 'スコープ種別がデータベース上に見つかりませんでした (ID: %{id})'
     managed_users:
-      expired_session: 出席者の現在の管理セッションの有効期限が切れています。
+      expired_session: 参加者の現在の管理セッションの有効期限が切れています。
     map:
       dynamic:
         screen_reader_explanation: 以下の要素は、このページ上のアイテムを地図上のポイントとして表示するマップです。 この要素はスクリーンリーダーで使用することができますが、理解しにくいかもしれません。
