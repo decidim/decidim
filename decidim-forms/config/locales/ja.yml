@@ -128,6 +128,8 @@ ja:
         extension_allowlist: '承認されたフォーマット:'
       images:
         dimensions: "%{width} x %{height} px"
+        processors:
+          resize_and_pad: この画像はリサイズされ、 %{dimensions} に合わされます。
       question_types:
         files: ファイル
         long_answer: 長い回答
