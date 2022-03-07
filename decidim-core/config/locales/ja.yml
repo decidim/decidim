@@ -22,6 +22,7 @@ ja:
       user:
         about: About
         email: あなたのメールアドレス
+        locale: 地域
         name: 表示名
         nickname: アカウントID
         password: パスワード
