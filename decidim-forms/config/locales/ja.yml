@@ -130,6 +130,7 @@ ja:
         dimensions: "%{width} x %{height} px"
         processors:
           resize_and_pad: この画像はリサイズされ、 %{dimensions} に合わされます。
+          resize_to_fit: この画像は %{dimensions} に合うようにリサイズされます。
       question_types:
         files: ファイル
         long_answer: 長い回答
