@@ -23,6 +23,7 @@ en:
       user:
         about: About
         email: Your email
+        locale: Locale
         name: Your name
         nickname: Nickname
         password: Password
