@@ -23,9 +23,9 @@ en:
       user:
         about: About
         email: Your email
+        locale: Locale
         name: Your name
         nickname: Nickname
-        locale: Locale
         password: Password
         password_confirmation: Confirm your password
         personal_url: Personal URL
