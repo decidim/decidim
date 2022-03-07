@@ -1088,6 +1088,7 @@ ja:
           description:
             show_less: 詳細を閉じる
             show_more: 続きを読む
+            title: この投票について
           metrics:
             heading: メトリクス
           polling_stations:
