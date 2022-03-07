@@ -89,6 +89,39 @@ describe "Explore results", versioning: true, type: :system do
         end
       end
     end
+
+    context "when searching" do
+      let!(:matching_result1) do
+        create(
+          :result,
+          title: Decidim::Faker::Localized.literal("A doggo in the title"),
+          component: component
+        )
+      end
+      let!(:matching_result2) do
+        create(
+          :result,
+          title: Decidim::Faker::Localized.literal("Other matching result"),
+          description: Decidim::Faker::Localized.literal("There is a doggo in the office"),
+          component: component
+        )
+      end
+
+      it "displays the correct search results" do
+        fill_in :filter_search_text_cont, with: "doggo"
+        within "form .filters__search" do
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("2 RESULTS")
+        expect(page).to have_content(translated(matching_result1.title))
+        expect(page).to have_content(translated(matching_result2.title))
+
+        results.each do |result|
+          expect(page).not_to have_content(translated(result.title))
+        end
+      end
+    end
   end
 
   describe "index" do

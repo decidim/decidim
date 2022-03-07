@@ -13,6 +13,7 @@ RSpec.describe "Result search", type: :request do
   let!(:result1) do
     create(
       :result,
+      title: Decidim::Faker::Localized.literal("A doggo in the title"),
       component: component,
       parent: nil,
       category: create(:category, participatory_space: participatory_space)
@@ -21,6 +22,7 @@ RSpec.describe "Result search", type: :request do
   let!(:result2) do
     create(
       :result,
+      description: Decidim::Faker::Localized.literal("There is a doggo in the office"),
       component: component,
       parent: result1,
       category: create(:category, participatory_space: participatory_space)
@@ -31,6 +33,14 @@ RSpec.describe "Result search", type: :request do
       :result,
       component: component,
       parent: result2,
+      category: create(:category, participatory_space: participatory_space)
+    )
+  end
+  let!(:result4) do
+    create(
+      :result,
+      component: component,
+      parent: nil,
       category: create(:category, participatory_space: participatory_space)
     )
   end
@@ -50,6 +60,7 @@ RSpec.describe "Result search", type: :request do
 
     it "displays all categories that have top-level results" do
       expect(subject).to include(translated(result1.category.name))
+      expect(subject).to include(translated(result4.category.name))
     end
 
     it "does not display the categories that only have sub-results" do
@@ -66,7 +77,7 @@ RSpec.describe "Result search", type: :request do
     context "when deep searching" do
       context "when the parent_id is nil" do
         it "returns the search on all results" do
-          expect(subject).to match_array [result1, result2]
+          expect(subject).to match_array [result1, result2, result4]
         end
       end
 
@@ -84,6 +95,14 @@ RSpec.describe "Result search", type: :request do
         it "returns the search on the children of result" do
           expect(subject).to match_array [result3]
         end
+      end
+    end
+
+    context "when searching by text" do
+      let(:filter_params) { { search_text_cont: "doggo" } }
+
+      it "returns the search results matching the word in title or description" do
+        expect(subject).to match_array [result1, result2]
       end
     end
   end

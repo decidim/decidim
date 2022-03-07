@@ -27,6 +27,40 @@ describe "Explore meetings", :slow, type: :system do
       end
     end
 
+    context "when checking withdrawn meetings" do
+      context "when there are no withrawn meetings" do
+        let!(:meeting) { create_list(:meeting, 3, :published, component: component) }
+
+        before do
+          visit_component
+          click_link "See all withdrawn meetings"
+        end
+
+        it "shows an empty page with a message" do
+          expect(page).to have_content("No meetings match your search criteria or there isn't any meeting scheduled.")
+          within ".callout.warning", match: :first do
+            expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
+          end
+        end
+      end
+
+      context "when there are withrawn meetings" do
+        let!(:withdrawn_meetings) { create_list(:meeting, 3, :withdrawn, :published, component: component) }
+
+        before do
+          visit_component
+          click_link "See all withdrawn meetings"
+        end
+
+        it "shows all the withdrawn meetings" do
+          expect(page).to have_css(".card--meeting.alert", count: 3)
+          within ".callout.warning", match: :first do
+            expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
+          end
+        end
+      end
+    end
+
     context "with hidden meetings" do
       let(:meeting) { meetings.last }
 

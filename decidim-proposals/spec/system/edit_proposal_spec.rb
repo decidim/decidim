@@ -44,28 +44,62 @@ describe "Edit proposals", type: :system do
 
     context "with attachments allowed" do
       let(:component) { create(:proposal_component, :with_attachments_allowed, participatory_space: participatory_process) }
-      let!(:file) { create(:attachment, :with_pdf, attached_to: proposal) }
-      let!(:photo) { create(:attachment, :with_image, attached_to: proposal) }
 
-      it "can delete attachments" do
-        visit_component
-        click_link translated(proposal.title)
-        expect(page).to have_content("RELATED DOCUMENTS")
-        expect(page).to have_content("RELATED IMAGES")
-        click_link "Edit proposal"
+      context "with a file and photo" do
+        let!(:file) { create(:attachment, :with_pdf, weight: 1, attached_to: proposal) }
+        let!(:photo) { create(:attachment, :with_image, weight: 0, attached_to: proposal) }
 
-        within "#attachment_#{file.id}" do
-          click_button "Delete Document"
+        it "can delete attachments" do
+          visit_component
+          click_link translated(proposal.title)
+          expect(page).to have_content("RELATED DOCUMENTS")
+          expect(page).to have_content("RELATED IMAGES")
+          click_link "Edit proposal"
+
+          click_button "Edit documents"
+          within ".upload-modal" do
+            find("button.remove-upload-item").click
+            click_button "Save"
+          end
+          click_button "Edit image"
+          within ".upload-modal" do
+            find("button.remove-upload-item").click
+            click_button "Save"
+          end
+
+          click_button "Send"
+
+          expect(page).to have_no_content("Related documents")
+          expect(page).to have_no_content("Related images")
         end
+      end
 
-        within "#attachment_#{photo.id}" do
-          click_button "Delete Image"
+      context "with multiple images" do
+        it "can add many images many times" do
+          visit_component
+          click_link translated(proposal.title)
+          click_link "Edit proposal"
+          dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("city.jpeg"))
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("icon.png"))
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("avatar.jpg"))
+          click_button "Send"
+          click_link "Edit proposal"
+          within ".photos_container" do
+            expect(page).to have_content("city.jpeg")
+          end
+          within ".attachments_container" do
+            expect(page).to have_content("icon.png")
+            expect(page).to have_content("avatar.jpg")
+          end
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
+          dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
+          click_button "Send"
+          expect(page).to have_selector(".thumbnail[alt='city']")
+          expect(page).to have_selector(".thumbnail[alt='icon']")
+          expect(page).to have_selector(".thumbnail[alt='avatar']")
+          expect(page).to have_selector(".thumbnail[alt='city2']")
+          expect(page).to have_selector(".thumbnail[alt='city3']")
         end
-
-        click_button "Send"
-
-        expect(page).to have_no_content("Related documents")
-        expect(page).to have_no_content("Related images")
       end
     end
 

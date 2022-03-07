@@ -8,7 +8,14 @@ FactoryBot.define do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     organization
-    banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") } # Keep after organization
+    # Keep banner_image after organization
+    banner_image do
+      ActiveStorage::Blob.create_after_upload!(
+        io: File.open(Decidim::Dev.test_file("city2.jpeg", "image/jpeg")),
+        filename: "city2.jpeg",
+        content_type: "image/jpeg"
+      ).signed_id
+    end
     signature_type { :online }
     attachments_enabled { true }
     undo_online_signatures_enabled { true }

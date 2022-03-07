@@ -66,6 +66,7 @@ module Decidim
 
       hash.push(I18n.locale)
       hash.push(model.cache_key_with_version) if model.respond_to?(:cache_key_with_version)
+      hash.push(from_context.cache_key_with_version) if from_context.respond_to?(:cache_key_with_version)
       hash.push(current_user.try(:id))
       hash.push(current_user.present?)
       hash.push(commentable?)

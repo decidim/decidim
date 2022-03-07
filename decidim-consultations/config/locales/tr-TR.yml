@@ -252,7 +252,6 @@ tr:
         all: Tümü
         finished: Bitti
         search: Arama
-        state: Statü
         upcoming: Yaklaşan
       filters_small_view:
         close_modal: Pencereyi kapat

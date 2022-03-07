@@ -23,6 +23,7 @@ en:
       user:
         about: About
         email: Your email
+        locale: Locale
         name: Your name
         nickname: Nickname
         password: Password
@@ -108,6 +109,7 @@ en:
   decidim:
     accessibility:
       external_link: External link
+      front_page_link: Go to front page
       logo: "%{organization}'s official logo"
       skip_button: Skip to main content
     account:
@@ -704,6 +706,11 @@ en:
           email_outro: You have received this notification because you are following %{nickname}. You can stop receiving notifications following the previous link.
           email_subject: "%{nickname} updated their profile"
           notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
+        user_officialized:
+          email_intro: Participant %{name} (%{nickname}) has been officialized.
+          email_outro: You have received this notification because you are an administrator of the organization.
+          email_subject: "%{name} has been officialized"
+          notification_title: Participant %{name} (%{nickname}) has been officialized.
     export_mailer:
       data_portability_export:
         click_button: 'Click the next link to download your data.<br/>The file will be available until %{date}.<br/>You will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) to open it. Password: %{password}'
@@ -745,7 +752,6 @@ en:
         button: Stop following
         error: There was a problem unfollowing this resource.
     forms:
-      current_file: Current file
       current_image: Current image
       default_image: Default image
       errors:
@@ -765,7 +771,26 @@ en:
       file_validation:
         allowed_file_extensions: 'Allowed file extensions: %{extensions}'
         max_file_size: 'Maximum file size: %{megabytes}MB'
-      remove_this_file: Remove this file
+      upload:
+        labels:
+          add_attachment: Add attachment
+          add_file: Add file
+          add_image: Add image
+          cancel: Cancel
+          edit_image: Edit image
+          error: Error!
+          file_too_big: 'File is too big! Maximun file size: %{megabytes}MB'
+          remove: Remove
+          replace: Replace
+          save: Save
+          title: Title
+          title_required: Title is required!
+          uploaded: Uploaded
+          validating: Validating...
+          validation_error: Validation error!
+      upload_help:
+        dropzone: Drop files here or click to upload
+        explanation: Guidance for %{attribute}
     gamification:
       all_badges_link: See all available badges.
       badges:
@@ -1315,6 +1340,8 @@ en:
         close_modal: Close modal
         please_sign_in: Please sign in
         sign_up: Sign up
+      mentions_modal:
+        remove_recipient: Remove recipient %{name}
       participatory_space_filters:
         filters:
           areas: Areas
@@ -1402,6 +1429,7 @@ en:
       notify:
         body_1: User %{user} has been reported by %{token}
         body_2: 'Reason: %{reason}'
+        details: User provided details
         greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hello %{admin},
         subject: A new user has been reported in %{organization_name}
@@ -1660,6 +1688,8 @@ en:
         continue_session: Continue session
         sign_out: Sign out
         title: Would you like to continue your session?
+      upload_modal:
+        close_modal: Close modal
       user_menu:
         account: 'User account: %{name}'
         admin_dashboard: Admin dashboard
@@ -1744,6 +1774,7 @@ en:
     dropdown:
       choose_diff_view_html: 'HTML view mode:'
       choose_diff_view_mode: 'Compare view mode:'
+      choose_diff_view_mode_menu: Choose compare mode
       option_escaped: Escaped
       option_split: Side-by-side
       option_unescaped: Unescaped

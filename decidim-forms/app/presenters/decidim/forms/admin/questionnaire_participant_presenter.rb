@@ -6,8 +6,10 @@ module Decidim
       #
       # Presenter for questionnaire response
       #
-      class QuestionnaireParticipantPresenter < Rectify::Presenter
-        attribute :participant, Decidim::Forms::Answer
+      class QuestionnaireParticipantPresenter < SimpleDelegator
+        def participant
+          __getobj__.fetch(:participant)
+        end
 
         def session_token
           participant.session_token || "-"
@@ -28,7 +30,7 @@ module Decidim
         end
 
         def status
-          t(registered? ? "registered" : "unregistered", scope: "decidim.forms.user_answers_serializer")
+          I18n.t(registered? ? "registered" : "unregistered", scope: "decidim.forms.user_answers_serializer")
         end
 
         def answers

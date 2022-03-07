@@ -1,7 +1,14 @@
 <p class="email-greeting"><%= t ".hello", admin: h(@admin.name) %></p>
 
-<p class="email-instructions"><%= t ".body_1", user: h(@user.user_name), token: h(@token.name) %></p>
+<p class="email-instructions"><%= t ".body_1", user: h(@report.moderation.user.name), token: h(@report.user.name) %></p>
 
-<p class="email-instructions"><%= t ".body_2", reason: h(@reason) %></p>
+<p class="email-instructions"><%= t ".body_2", reason: t(@report.reason, organization_name: @report.moderation.user.organization.name, scope: "decidim.shared.flag_user_modal") %></p>
 
-<p class="email-closing"><%= t(".greetings", organization_name: h(@organization.name), organization_url: decidim.root_url(host: @organization.host)).html_safe %></p>
+<% if @report.details.present? %>
+  <p class="email-instructions"><%= t(".details") %></p>
+  <blockquote>
+    <%= @report.details %>
+  </blockquote>
+<% end %>
+
+<p class="email-closing"><%= t(".greetings", organization_name: h(@report.moderation.user.organization.name), organization_url: decidim.root_url(host: @report.moderation.user.organization.host)).html_safe %></p>

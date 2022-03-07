@@ -418,9 +418,9 @@ fr:
         filters:
           active: Actif
           all: Toutes
+          date: Date
           finished: Terminées
           search: Rechercher
-          state: Statut
           upcoming: À venir
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
@@ -578,15 +578,15 @@ fr:
               generate_legend_3: Assurez-vous que votre ordinateur ne possède pas de copie du fichier (par exemple, vérifiez les dossiers Téléchargements et Bureau).
               generate_legend_4: Faites une autre copie du fichier sur un appareil externe et conservez-le dans un endroit très sûr.
               submit: Envoyer
-              submit_legend: Après avoir suivi toutes les étapes expliquées ci-dessus, complétez le processus d'envoi de la clé d'identification publique au serveur Decidim.
+              submit_legend: Après avoir suivi toutes les étapes expliquées ci-dessus, complétez le processus d'envoi de la clé d'identification publique au serveur.
               submit_title: Soumettre la clé d'identification publique
               title: Clés d'identification du garant
               upload: Téléchargez vos clés d'identification
               upload_error:
                 invalid_format: Le fichier téléchargé ne contient pas de clé d'identification.
                 invalid_key: Impossible de charger les clés d'identification à partir du fichier téléchargé.
-                invalid_public_key: Les clés d'identification dans le fichier téléchargé ne correspondent pas à la clé d'identification publique stockée par Decidim.
-              upload_legend: Decidim a vos clés d'identification publiques, mais votre navigateur ne l'a toujours pas. Vous devez importer le fichier avec vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après leur génération.
+                invalid_public_key: Les clés d'identification dans le fichier téléchargé ne correspondent pas à la clé d'identification publique stockée.
+              upload_legend: Le serveur a vos clés d'identification publiques, mais votre navigateur ne les a toujours pas. Vous devez importer le fichier avec vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après leur génération.
             not_supported_browser_description: On dirait que vous utilisez un navigateur Web qui ne peut pas être utilisé pour agir en tant que garant. Assurez-vous d'utiliser la version la plus récente de votre navigateur, ou essayez d'utiliser l'un des navigateurs les plus populaires pour accomplir vos tâches de garant.
             not_supported_browser_title: Mettre à niveau le navigateur pour agir en tant que garant
             trustee_role_description: Vous avez été assigné à agir en tant que garant lors de certaines des élections mises en place sur cette plateforme.
@@ -653,9 +653,9 @@ fr:
         onboarding_modal:
           close: Fermer la fenêtre de dialogue
           create_account: S'inscrire
-          description: Voulez-vous créer un compte sur Decidim ? Vous pourrez participer aux concertations et prendre une part active dans l'organisation.
+          description: Voulez-vous créer un compte sur la plateforme ? Vous pourrez participer aux concertations et prendre une part active dans l'organisation.
           no_account: Non, merci.
-          title: Nouveau sur Decidim ?
+          title: Nouveau sur la plateforme ?
         update:
           error: Une erreur s'est produite lors de la mise à jour du statut du vote. Tentez de voter à nouveau. 
         verify:
@@ -666,7 +666,7 @@ fr:
             header: Vote introuvable !
             info: Le code de vote n'a pas été trouvé dans %{link} l'urne, essayez à nouveau.
           form:
-            back: Retour à Decidim
+            back: Retour à la plateforme
             submit: Vérifier
             vote_identifier: 'Code d''identification :'
           header:
@@ -983,7 +983,7 @@ fr:
             assign_missing_officers: Il reste des bureaux de votes sans président et/ou directeurs. Veuillez lier ces derniers à partir de la section Bureaux de votes
             update: Mettre à jour
           form:
-            census_contact_information_help: Cette information de contact est destinée à un participant qui veut signaler des problèmes avec le recensement. Il peut s'agir d'une adresse e-mail, d'un formulaire de contact sur un autre site, d'une enquête Decidim pour les visiteurs, etc.
+            census_contact_information_help: Cette information de contact est destinée à un participant qui veut signaler des problèmes avec le recensement. Il peut s'agir d'une adresse e-mail, d'un formulaire de contact sur un autre site, d'une enquête pour les visiteurs, etc.
             select_a_voting_type: Veuillez sélectionner un type de vote
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui renvoient vers cette élection. Ils ne contiennent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
             title: Titre
@@ -1306,9 +1306,9 @@ fr:
         filters:
           active: Actifs
           all: Tous
+          date: Date
           finished: Terminées
           search: Rechercher
-          state: Statut
           upcoming: À venir
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue

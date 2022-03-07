@@ -1,7 +1,6 @@
 .accountability{
   .categories{
     a:hover{
-      background-color: var(--secondary);
       text-decoration: underline;
     }
 
@@ -69,7 +68,7 @@
 
       .card__link{
         .category--line{
-          background-color: var(--secondary);
+          background-color: $light-gray-dark;
           border-radius: 4px;
           min-height: 9rem;
           padding: 1rem;

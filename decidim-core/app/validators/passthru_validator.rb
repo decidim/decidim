@@ -18,6 +18,9 @@
 #     validates :image, passthru: { to: Person, attribute: :avatar_image }
 #   end
 class PassthruValidator < ActiveModel::EachValidator
+  # record - Form object (e.g. Decidim::UploadValidationForm)
+  # attribute - The attribute to validate (e.g. :avatar)
+  # value - Blob's signed id (e.g. "eyJfcmFpbHMi...")
   def validate_each(record, attribute, value)
     return unless target_class
 
@@ -25,12 +28,20 @@ class PassthruValidator < ActiveModel::EachValidator
 
     # Create a dummy record for which the validations are actually run on
     dummy = validation_record(record)
+    if dummy.respond_to?(dummy_attr) && !(value.class <= ActiveStorage::Attached)
+      dummy.public_send("#{dummy_attr}=", value)
+      value = dummy.public_send(dummy_attr)
+    elsif dummy.respond_to? :file
+      dummy.public_send("file=", value)
+      value = dummy.public_send(:file)
+    end
 
     target_validators(attribute).each do |validator|
       next unless validator.is_a?(ActiveModel::EachValidator)
       next unless check_validator_conditions(dummy, validator)
 
       dummy.errors.clear
+
       validator.validate_each(dummy, dummy_attr, value)
       dummy.errors[dummy_attr].each do |err|
         record.errors.add(attribute, err)

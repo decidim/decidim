@@ -114,8 +114,8 @@ describe "Polling Officer zone", type: :system do
       it "can attach images to the closure" do
         expect(page).to have_content("Vote recount - Upload certificate")
 
+        dynamically_attach_file(:closure_certify_photos, Decidim::Dev.asset("city.jpeg"))
         within ".form.certify_closure" do
-          attach_file :closure_certify_add_photos, Decidim::Dev.asset("city.jpeg")
           find("*[type=submit]").click
         end
 

@@ -170,6 +170,8 @@ Decidim::Core::Engine.routes.draw do
     get :unsubscribe, on: :collection
   end
 
+  resources :upload_validations, only: [:create]
+
   resources :last_activities, only: [:index]
 
   use_doorkeeper do

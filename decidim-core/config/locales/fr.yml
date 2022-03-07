@@ -125,7 +125,7 @@ fr:
         error: Une erreur s'est produite lors de la suppression de votre compte.
         success: Votre compte a été supprimé avec succès.
       show:
-        available_locales_helper: Choisissez la langue que vous souhaitez utiliser pour naviguer et recevoir des notifications dans %{organization_name}
+        available_locales_helper: Choisissez la langue que vous souhaitez utiliser pour naviguer et recevoir des notifications sur la plateforme
         change_password: Changer de mot de passe
         update_account: Mettre à jour votre compte
       update:
@@ -1391,6 +1391,7 @@ fr:
       notify:
         body_1: L'utilisateur %{user} a été signalé par %{token}
         body_2: 'Motif : %{reason}'
+        details: Détails fournis par l'utilisateur
         greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Bonjour %{admin},
         subject: Un nouvel utilisateur a été signalé dans %{organization_name}

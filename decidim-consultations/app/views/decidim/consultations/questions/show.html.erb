@@ -40,17 +40,17 @@
 
     <div class="columns medium-5">
       <% unless translated_attribute(current_question.origin_scope).blank? %>
-        <h4 class="heading6"><%= t "question.origin_scope", scope: "activemodel.attributes" %></h4>
+        <h3 class="heading6"><%= t "question.origin_scope", scope: "activemodel.attributes" %></h3>
         <p><%= translated_attribute current_question.origin_scope %></p>
       <% end %>
 
-      <h4 class="heading6"><%= t "question.promoter_group", scope: "activemodel.attributes" %></h4>
+      <h3 class="heading6"><%= t "question.promoter_group", scope: "activemodel.attributes" %></h3>
       <p><%= translated_attribute current_question.promoter_group %></p>
 
-      <h4 class="heading6"><%= t "question.scope", scope: "activemodel.attributes" %></h4>
+      <h3 class="heading6"><%= t "question.scope", scope: "activemodel.attributes" %></h3>
       <p><%= translated_attribute current_question.scope.name %></p>
 
-      <h4 class="heading6"><%= t "question.participatory_scope", scope: "activemodel.attributes" %></h4>
+      <h3 class="heading6"><%= t "question.participatory_scope", scope: "activemodel.attributes" %></h3>
       <p><%= translated_attribute current_question.participatory_scope %></p>
     </div>
   </div>

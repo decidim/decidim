@@ -191,7 +191,6 @@ id:
         all: Semua
         finished: Jadi
         search: Pencarian
-        state: Negara
         upcoming: Mendatang
       filters_small_view:
         close_modal: Tutup jendela
