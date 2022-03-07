@@ -427,6 +427,8 @@ ja:
           see: 見る
         index:
           loading: 結果を読み込み中...
+        show:
+          title: このプロセスについて
       show:
         area: エリア
         belongs_to_group: このプロセスの所属グループ
