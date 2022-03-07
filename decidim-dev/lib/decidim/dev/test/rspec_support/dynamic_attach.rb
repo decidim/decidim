@@ -17,11 +17,10 @@ module Capybara
         input_element.attach_file(file_location)
         expect(page).to have_css("div.progress-bar.filled", wait: 5)
         all("input.attachment-title").last.set(options[:title]) if options.has_key?(:title)
-        sleep(2)
         click_button "Save"
       end
       expect_no_js_errors
-      sleep(2)
+      sleep(1)
     end
   end
 end
