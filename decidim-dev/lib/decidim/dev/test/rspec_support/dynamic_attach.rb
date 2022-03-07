@@ -8,7 +8,7 @@ module Capybara
     # Beware that modal does not open within form!
     def dynamically_attach_file(name, file_location, options = {})
       find("##{name}_button").click
-      filename = options[:filename] || file_location.split("/").last
+      filename = options[:filename] || file_location.to_s.split("/").last
 
       yield if block_given?
 
