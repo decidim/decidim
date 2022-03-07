@@ -435,6 +435,8 @@ fr-CA:
           see: Voir
         index:
           loading: Chargement des résultats...
+        show:
+          title: A propos de cette concertation
       show:
         area: Périmètre d'assemblée
         belongs_to_group: Cette concertation appartient à
