@@ -757,8 +757,10 @@ ja:
           description: '「プレビュー」ボタンをクリックすると座標が更新されますが、アドレスは変更されません。'
           instructions: 地図上のポイントを移動できます。
         edit:
+          add_image: 画像を追加
           attachment_legend: "(オプション) 添付ファイルを追加"
           back: 戻る
+          edit_image: 画像を編集
           gallery_legend: "(オプション) 提案カードに画像を追加する"
           select_a_category: カテゴリを選択してください
           send: 送信
