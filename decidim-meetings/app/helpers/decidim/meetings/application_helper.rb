@@ -44,6 +44,7 @@ module Decidim
         TreeNode.new(
           TreePoint.new("", t("decidim.meetings.meetings.filters.date_values.all")),
           [
+            TreePoint.new("ongoing", t("decidim.meetings.meetings.filters.date_values.ongoing")),
             TreePoint.new("upcoming", t("decidim.meetings.meetings.filters.date_values.upcoming")),
             TreePoint.new("past", t("decidim.meetings.meetings.filters.date_values.past"))
           ]

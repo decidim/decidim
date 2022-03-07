@@ -96,9 +96,21 @@ RSpec.describe "Meeting search", type: :request do
     context "and date is upcoming" do
       let(:date) { ["upcoming"] }
 
-      it "only returns that are scheduled in the future" do
+      it "only returns meetings that are scheduled in the future" do
         expect(subject).to include(translated(meeting1.title))
         expect(subject).to include(translated(meeting2.title))
+        expect(subject).not_to include(translated(meeting3.title))
+        expect(subject).not_to include(translated(meeting4.title))
+        expect(subject).not_to include(translated(past_meeting.title))
+      end
+    end
+
+    context "and date is ongoing" do
+      let(:date) { ["ongoing"] }
+
+      it "only returns meetings that are in progress" do
+        expect(subject).to include(translated(meeting2.title))
+        expect(subject).not_to include(translated(meeting1.title))
         expect(subject).not_to include(translated(meeting3.title))
         expect(subject).not_to include(translated(meeting4.title))
         expect(subject).not_to include(translated(past_meeting.title))

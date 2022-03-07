@@ -58,6 +58,7 @@ module Decidim
       scope :published, -> { where.not(published_at: nil) }
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
       scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }
+      scope :ongoing, -> { where(arel_table[:start_time].lteq(Time.current).and(arel_table[:end_time].gteq(Time.current))) }
       scope :withdrawn, -> { where(state: "withdrawn") }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
       scope :with_availability, lambda { |state_key|
@@ -68,7 +69,7 @@ module Decidim
           except_withdrawn
         end
       }
-      scope_search_multi :with_any_date, [:upcoming, :past]
+      scope_search_multi :with_any_date, [:upcoming, :past, :ongoing]
       scope :with_any_space, lambda { |*target_space|
         target_spaces = target_space.compact.reject(&:blank?)
 

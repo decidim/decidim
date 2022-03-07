@@ -462,6 +462,7 @@ en:
           date: Date
           date_values:
             all: All
+            ongoing: Ongoing
             past: Past
             upcoming: Upcoming
           my_meetings: My meetings
