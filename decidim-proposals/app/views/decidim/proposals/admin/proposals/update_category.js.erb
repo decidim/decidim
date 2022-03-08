@@ -1,15 +1,15 @@
 <% if flash.now[:error].present? %>
   $("#js-form-recategorize-proposals #category_id").addClass("is-invalid-input")
-  $("<%= escape_javascript(render partial: %q{js-callout}, locals: { css: %q{alert}, text: flash.now[:error] }) %>").appendTo(".callout-wrapper");
+  $("<%= escape_javascript(render partial: %q{decidim/admin/shared/js-callout}, locals: { css: %q{alert}, text: flash.now[:error] }) %>").appendTo(".callout-wrapper");
 <% end %>
 
 <% if flash.now[:alert].present? %>
   $("#js-form-recategorize-proposals #category_id").removeClass("is-invalid-input")
-  $("<%= escape_javascript(render partial: %q{js-callout}, locals: { css: %q{warning}, text: flash.now[:alert] }) %>").appendTo(".callout-wrapper");
+  $("<%= escape_javascript(render partial: %q{decidim/admin/shared/js-callout}, locals: { css: %q{warning}, text: flash.now[:alert] }) %>").appendTo(".callout-wrapper");
 <% end %>
 
 <% if flash.now[:notice].present? %>
-  $("<%= escape_javascript(render partial: %q{js-callout}, locals: { css: %q{success}, text: flash.now[:notice] }) %>").appendTo(".callout-wrapper");
+  $("<%= escape_javascript(render partial: %q{decidim/admin/shared/js-callout}, locals: { css: %q{success}, text: flash.now[:notice] }) %>").appendTo(".callout-wrapper");
 
   <% proposal_ids.each do |id| %>
     $(".table-list [data-id='<%= id %>']")
