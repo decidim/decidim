@@ -279,6 +279,7 @@ export default class FormFilterComponent {
 
     Rails.fire(this.$form[0], "submit");
     pushState(newPath, newState);
+    this._saveFilters(newPath);
   }
 
   /**
@@ -315,5 +316,21 @@ export default class FormFilterComponent {
   _getUID() {
     return `filter-form-${new Date().setUTCMilliseconds()}-${Math.floor(Math.random() * 10000000)}`;
   }
-}
 
+  /**
+   * Saves the changed filters on sessionStorage API.
+   * @private
+   * @param {string} pathWithQueryStrings - path with all the query strings for filter. To be used with backToListLink().
+   * @returns {Void} - Returns nothing.
+   */
+  _saveFilters(pathWithQueryStrings) {
+    if (!window.sessionStorage) {
+      return;
+    }
+
+    const pathName = window.location.pathname;
+    const filteredParams = JSON.parse(sessionStorage.getItem("filteredParams")) || {};
+    sessionStorage.setItem("filteredParams", JSON.stringify({[pathName]: pathWithQueryStrings}));
+   }
+
+}
