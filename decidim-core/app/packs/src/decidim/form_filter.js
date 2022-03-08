@@ -329,8 +329,7 @@ export default class FormFilterComponent {
     }
 
     const pathName = window.location.pathname;
-    const filteredParams = JSON.parse(sessionStorage.getItem("filteredParams")) || {};
     sessionStorage.setItem("filteredParams", JSON.stringify({[pathName]: pathWithQueryStrings}));
-   }
+  }
 
 }

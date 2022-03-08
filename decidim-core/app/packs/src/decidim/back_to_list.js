@@ -4,7 +4,7 @@
  * For this to work it needs the filteredParams in SessionStorage, that's saved on FormFilterComponent.
  * @returns {void}
  */
- const backToListLink = function() {
+const backToListLink = function() {
   if ($(".js-back-to-list").length > 0) {
 
     if (!window.sessionStorage) {
@@ -13,7 +13,7 @@
 
     const path = window.location.pathname;
     const filteredParams = JSON.parse(sessionStorage.getItem("filteredParams")) || {};
-    Object.keys(filteredParams).forEach(function(url){
+    Object.keys(filteredParams).forEach(function(url) {
       if (path.includes(url)) {
         $(".js-back-to-list").attr("href", filteredParams[url]);
       }
