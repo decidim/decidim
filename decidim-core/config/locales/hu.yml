@@ -22,6 +22,7 @@ hu:
       user:
         about: Magamról
         email: Email címed
+        locale: Hely
         name: Neved
         nickname: Becenév
         password: Jelszó
@@ -627,6 +628,8 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: "%{nickname} frissítette profilját"
           notification_title: '%{name} (%{nickname}) (akit egyébként követsz) <a href="%{resource_path}">profil oldala</a> frissült.'
+        user_officialized:
+          email_outro: Azért kapta ezt az értesítést, mert Ön a szervezet adminisztrátora.
     export_mailer:
       data_portability_export:
         download: Letöltés
@@ -672,6 +675,25 @@ hu:
       file_help:
         file:
           message_2: A javasolt képméret 512x512 pixel.
+      upload:
+        labels:
+          add_attachment: Melléklet hozzáadása
+          add_file: Fájl hozzáadása
+          add_image: Képek hozzáadása
+          cancel: Mégse
+          edit_image: Kép szerkesztése
+          error: Hiba!
+          file_too_big: 'A fájl túl nagy! Maximális méret: %{megabytes}MB'
+          remove: Eltávolítás
+          replace: Csere
+          save: Mentés
+          title: Cím
+          title_required: A cím megadása kötelező!
+          uploaded: Feltöltve
+          validating: Ellenőrzés...
+          validation_error: Hitelesítési hiba!
+      upload_help:
+        dropzone: Húzza ide fájlokat vagy kattintson a feltöltéshez
     gamification:
       all_badges_link: Az összes elérhető jelvény megtekintése.
       badges:
