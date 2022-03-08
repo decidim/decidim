@@ -730,6 +730,7 @@ hu:
         gallery:
           add_images: Képek hozzáadása
           delete_image: Kép törlése
+          edit_images: Kép szerkesztése
           gallery_legend: Képgaléria hozzáadása (opcionális)
       static_page_topics:
         create:
