@@ -138,14 +138,14 @@ module Decidim
           ::Decidim::Budgets::Admin::UpdateProjectSelection.call(params.dig(:selected, "value"), project_ids) do
             on(:invalid_selection) do
               flash.now[:error] = t(
-                "projects.update_scope.select_a_selection",
+                "projects.update_selected.select_a_selection",
                 scope: "decidim.budgets.admin"
               )
             end
 
             on(:invalid_project_ids) do
               flash.now[:alert] = t(
-                "projects.update_scope.select_a_project",
+                "projects.update_selected.select_a_project",
                 scope: "decidim.budgets.admin"
               )
             end

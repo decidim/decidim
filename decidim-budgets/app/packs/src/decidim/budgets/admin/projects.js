@@ -1,3 +1,4 @@
+/* eslint-disable no-invalid-this */
 $(() => {
   const selectedProjectsCount = function() {
     return $(".table-list .js-check-all-project:checked").length
@@ -69,9 +70,9 @@ $(() => {
     hideBulkActionForms();
     $("#js-bulk-actions-button").addClass("hide");
 
-    $("#js-bulk-actions-dropdown ul li button").click(function(e) {
-      e.preventDefault();
-      let action = $(e.target).data("action");
+    $("#js-bulk-actions-dropdown ul li button").click(function(event) {
+      event.preventDefault();
+      let action = $(event.target).data("action");
 
       if (action) {
         $(`#js-form-${action}`).on("submit", function() {
@@ -100,7 +101,7 @@ $(() => {
     });
 
     // project checkbox change
-    $(".table-list").on("change", ".js-check-all-project", function (e) {
+    $(".table-list").on("change", ".js-check-all-project", function () {
       let projectId = $(this).val()
       let checked = $(this).prop("checked")
 
@@ -130,10 +131,11 @@ $(() => {
       selectedProjectsCountUpdate();
     });
 
-    $(".js-cancel-bulk-action").on("click", function (e) {
+    $(".js-cancel-bulk-action").on("click", function () {
       hideBulkActionForms()
       showBulkActionsButton();
       showOtherActionsButtons();
     });
   }
 });
+/* eslint-enable no-invalid-this */
