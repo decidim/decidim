@@ -1,4 +1,8 @@
 const COUNT_KEY = "%count%";
+// How often SR announces the message in relation to maximum characters. E.g.
+// if max characters is 1000, screen reader announces the remaining characters
+// every 100 (= 0.1 * 1000) characters.
+const SR_ANNOUNCE_THRESHOLD = 0.1;
 const DEFAULT_MESSAGES = {
   charactersAtLeast: {
     one: `at least ${COUNT_KEY} character`,
@@ -22,14 +26,18 @@ export default class InputCharacterCounter {
     this.minCharacters = parseInt(this.$input.attr("minlength"), 10);
     this.maxCharacters = parseInt(this.$input.attr("maxlength"), 10);
 
-    if (this.$target.length < 1) {
-      let targetId = null;
+    let targetId = this.$target.attr("id");
+    if (typeof targetId === "undefined") {
       if (this.$input.attr("id") && this.$input.attr("id").length > 0) {
         targetId = `${this.$input.attr("id")}_characters`;
       } else {
         targetId = `characters_${Math.random().toString(36).substr(2, 9)}`;
       }
+    }
 
+    if (this.$target.length > 0) {
+      this.$target.attr("id", targetId)
+    } else {
       this.$target = $(`<span id="${targetId}" class="form-input-extra-before" />`)
 
       // If input is a hidden for WYSIWYG editor add it at the end
@@ -49,6 +57,17 @@ export default class InputCharacterCounter {
     }
 
     if (this.$target.length > 0 && (this.maxCharacters > 0 || this.minCharacters > 0)) {
+      // Create the screen reader target element. We don't want to constantly
+      // announce every change to screen reader, only occasionally.
+      this.$srTarget = $(
+        `<div role="status" aria-live="polite" id="${targetId}_sr" class="show-for-sr" />`
+      );
+      this.$target.before(this.$srTarget);
+      this.$target.attr("aria-hidden", "true");
+      if (typeof this.$input.attr("aria-describedby") === "undefined") {
+        this.$input.attr("aria-describedby", this.$srTarget.attr("id"));
+      }
+
       this.bindEvents();
     }
   }
@@ -69,17 +88,42 @@ export default class InputCharacterCounter {
     this.$input.on("keyup", () => {
       this.updateStatus();
     });
+    this.$input.on("input", () => {
+      this.checkScreenReaderUpdate();
+    });
+    this.$input.on("focus blur", () => {
+      this.updateScreenReaderStatus();
+    });
     if (this.$input.get(0) !== null) {
       this.$input.get(0).addEventListener("emoji.added", () => {
         this.updateStatus();
       });
     }
     this.updateStatus();
+    this.updateScreenReaderStatus();
   }
 
-  updateStatus() {
-    const numCharacters = this.$input.val().length;
+  getInputLength() {
+    return this.$input.val().length;
+  }
+
+  getScreenReaderLength() {
+    const currentLength = this.getInputLength();
+    if (this.maxCharacters < 1) {
+      return currentLength;
+    }
+
+    // Get the closest length for the input "gaps" defined by the threshold.
+    const gap = this.maxCharacters * SR_ANNOUNCE_THRESHOLD;
+    return currentLength - currentLength % gap;
+  }
+
+  getMessages(currentLength = null) {
     const showMessages = [];
+    let inputLength = currentLength;
+    if (inputLength === null) {
+      inputLength = this.getInputLength()
+    }
 
     if (this.minCharacters > 0) {
       let message = MESSAGES.charactersAtLeast.other;
@@ -90,7 +134,7 @@ export default class InputCharacterCounter {
     }
 
     if (this.maxCharacters > 0) {
-      const remaining = this.maxCharacters - numCharacters;
+      const remaining = this.maxCharacters - inputLength;
       let message = MESSAGES.charactersLeft.other;
       if (remaining === 1) {
         message = MESSAGES.charactersLeft.one;
@@ -98,7 +142,29 @@ export default class InputCharacterCounter {
       showMessages.push(message.replace(COUNT_KEY, remaining));
     }
 
-    this.$target.text(showMessages.join(", "));
+    return showMessages;
+  }
+
+  updateStatus() {
+    this.$target.text(this.getMessages().join(", "));
+  }
+
+  checkScreenReaderUpdate() {
+    if (this.maxCharacters < 1) {
+      return;
+    }
+
+    const currentLength = this.getScreenReaderLength();
+    if (currentLength === this.announcedAt) {
+      return;
+    }
+
+    this.announcedAt = currentLength;
+    this.updateScreenReaderStatus(currentLength);
+  }
+
+  updateScreenReaderStatus(currentLength = null) {
+    this.$srTarget.text(this.getMessages(currentLength).join(", "));
   }
 }
 
