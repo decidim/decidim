@@ -22,6 +22,7 @@ hu:
       user:
         about: Magamról
         email: Email címed
+        locale: Hely
         name: Neved
         nickname: Becenév
         password: Jelszó
@@ -631,6 +632,8 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert őt követed: "%{nickname}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: "%{nickname} frissítette profilját"
           notification_title: '%{name} (%{nickname}) (akit egyébként követsz) <a href="%{resource_path}">profil oldala</a> frissült.'
+        user_officialized:
+          email_outro: Azért kapta ezt az értesítést, mert Ön a szervezet adminisztrátora.
     export_mailer:
       data_portability_export:
         download: Letöltés
