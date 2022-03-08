@@ -81,12 +81,16 @@ module Decidim
 
           it { is_expected.to be_valid }
 
-          context "when the author belongs to different organization" do
-            let(:decidim_author_id) { user_from_another_org.id }
+          it "assigns current_user as author" do
+            expect(subject.author).to eq(current_user)
+          end
+        end
 
-            it "sets the author to the current_organization" do
-              expect(subject.author).to eq(current_organization)
-            end
+        context "when the author belongs to different organization" do
+          let(:decidim_author_id) { user_from_another_org.id }
+
+          it "sets the author to the current_organization" do
+            expect(subject.author).to eq(current_organization)
           end
         end
 
@@ -101,14 +105,6 @@ module Decidim
 
           it "assigns user_group as author" do
             expect(subject.author).to eq(user_group)
-          end
-        end
-
-        context "when decidim_author_id is current_user" do
-          let(:decidim_author_id) { current_user.id }
-
-          it "assigns current_user as author" do
-            expect(subject.author).to eq(current_user)
           end
         end
 
@@ -129,11 +125,10 @@ module Decidim
           end
 
           let(:author) { current_organization }
-          let(:post) { create(:post, component: component, author: author) }
 
           context "when author is an organization" do
             it "assigns current_organization.id as decidim_author_id" do
-              expect(subject.decidim_author_id).to eq(current_organization.id)
+              expect(subject.decidim_author_id).to eq(nil)
             end
 
             it "assigns current_organization as author" do

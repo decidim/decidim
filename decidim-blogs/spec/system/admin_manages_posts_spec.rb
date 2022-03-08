@@ -10,5 +10,15 @@ describe "Admin manages posts", type: :system do
 
   include_context "when managing a component as an admin"
 
-  it_behaves_like "manage posts"
+  context "when author is the organization" do
+    let(:author) { organization }
+
+    it_behaves_like "manage posts"
+  end
+
+  context "when author is a user" do
+    let(:author) { create :user, organization: organization }
+
+    it_behaves_like "manage posts"
+  end
 end

@@ -21,7 +21,7 @@ module Decidim
 
         def post_author_select_field(form, name, _options = {})
           select_options = [
-            [current_organization.name, " "],
+            [current_organization.name, ""],
             [current_user.name, current_user.id]
           ]
           select_options << [form.object.author.name, form.object.author.id] if form.object.author.is_a?(Decidim::User) && form.object.author.id != current_user.id

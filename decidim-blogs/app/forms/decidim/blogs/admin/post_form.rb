@@ -17,6 +17,10 @@ module Decidim
         validates :body, translatable_presence: true
         validate :can_set_author
 
+        def map_model(model)
+          self.decidim_author_id = nil if model.author.is_a? Decidim::Organization
+        end
+
         def user_or_group
           @user_or_group ||= Decidim::UserBaseEntity.find_by(
             organization: current_organization,
@@ -34,17 +38,19 @@ module Decidim
           return if author == current_user.organization
           return if author == current_user
 
-          user_groups = Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
           return if user_groups.include? author
 
-          post_id = id
-
-          post_author = Post.find(post_id)&.author
-          return if author == post_author
-
-          errors.add(:decidim_author_id, :invalid) unless post_author.try(:organization) == current_organization
+          return if author == post&.author
 
           errors.add(:decidim_author_id, :invalid)
+        end
+
+        def post
+          @post ||= Post.find_by(id: id)
+        end
+
+        def user_groups
+          @user_groups ||= Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
         end
       end
     end

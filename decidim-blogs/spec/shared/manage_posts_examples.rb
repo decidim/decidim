@@ -7,6 +7,8 @@ shared_examples "manage posts" do
     end
 
     within ".edit_post" do
+      expect(page).to have_select("post_decidim_author_id", selected: author.name)
+
       fill_in_i18n(
         :post_title,
         "#post-title-tabs",
@@ -144,8 +146,6 @@ shared_examples "manage posts" do
 
   context "when user is the organization" do
     let(:author) { organization }
-    # let(:user_group) { create :user_group, :confirmed, :verified, organization: organization }
-    # let!(:membership) { create(:user_group_membership, user: user, user_group: user_group) }
 
     it "can set organization as posts author", :slow do
       find(".card-title a.button").click
@@ -202,8 +202,6 @@ shared_examples "manage posts" do
 
   context "when user is current_user" do
     let(:author) { user }
-    # let(:user_group) { create :user_group, :confirmed, :verified, organization: organization }
-    # let!(:membership) { create(:user_group_membership, user: user, user_group: user_group) }
 
     it "can set current_user as posts author", :slow do
       find(".card-title a.button").click
