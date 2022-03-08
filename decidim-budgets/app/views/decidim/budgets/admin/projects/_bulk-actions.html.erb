@@ -5,7 +5,7 @@
   <%= render partial: "decidim/budgets/admin/projects/bulk_actions/scope-change" %>
   <%= render partial: "decidim/budgets/admin/projects/bulk_actions/change-selected" %>
 
-  <%= link_to t("actions.import", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_budget_projects_import_path(budget), class: "button tiny button--title" if allowed_to? :import_projects, :project %>
+  <%= link_to t("actions.import", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_budget_proposals_import_path(budget), class: "button tiny button--title" if allowed_to? :import_proposals, :project %>
   <% if allowed_to? :export, :budget %>
   <%= export_dropdown(current_component, budget.id) %>
   <% end %>
