@@ -5,7 +5,7 @@
     </h2>
   </div>
   <div class="card-section">
-    <% if @count %>
+    <% if @count!=0 %>
       <p> <%= t(".destroy.explanation", { count: @count }) %>
       </p>
       <%= link_to  t(".destroy.button"),

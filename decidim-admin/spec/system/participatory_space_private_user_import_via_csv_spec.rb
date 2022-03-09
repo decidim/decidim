@@ -22,16 +22,13 @@ describe "Admin manages participatory space private users via csv import", type:
 
   context "when there are no existing users" do
     it "doesn't propose to delete" do
-      expect(page).to have_content("You have no current private participants.")
+      expect(page).to have_content("You have no private participants.")
     end
   end
 
   context "when there are existing users" do
     before do
-      (0..5).each do |_i|
-        user = create :user, organization: organization
-        create :assembly_private_user, user: user, privatable_to: assembly
-      end
+      create_list :assembly_private_user, 3, privatable_to: assembly, user: create(:user, organization: assembly.organization)
       visit current_path
     end
 
@@ -42,11 +39,11 @@ describe "Admin manages participatory space private users via csv import", type:
     it "ask you for confirmation and delete existing users" do
       find(".alert").click
 
-      expect(page).to have_content("Are you sure you want to delete all current participants ?")
+      expect(page).to have_content("Are you sure you want to delete all private participants?")
 
       find("a.button[data-confirm-ok]").click
 
-      expect(page).to have_content("You have no current private participants")
+      expect(page).to have_content("You have no private participants")
     end
   end
 end
