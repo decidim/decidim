@@ -93,6 +93,11 @@ There are specific things that you need to change regarding your Form or `Virtus
 
 PR [\#8645](https://github.com/decidim/decidim/pull/8645) we now only allow PNG images at Favicon so we can provide higher quality versions to mobile devices.
 
+
+### Rake task to fix nickname uniqueness
+
+PR[\8792](https://github.com/decidim/decidim/pull/8792) We added a rake task to modify users similar nivknames, case insensitively. If two users have the same nickname (case insensitively), the last one is renamed with "-00000", being of course a random number.
+
 ### Changed
 
 - **decidim-core**: The `Decidim::ActivitySearch` class has been rewritten as `Decidim::PublicActivities` which is now a `Rectify::Query` class instead of `Searchlight::Search` class due to the removal of Searchlight at [\#8748](https://github.com/decidim/decidim/pull/8748).
