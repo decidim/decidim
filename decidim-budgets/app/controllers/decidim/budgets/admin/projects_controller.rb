@@ -76,7 +76,7 @@ module Decidim
         end
 
         def update_category
-          # enforce_permission_to :update, :project_category
+          enforce_permission_to :update, :project_category
 
           ::Decidim::Budgets::Admin::UpdateProjectCategory.call(params[:category][:id], project_ids) do
             on(:invalid_category) do
@@ -104,7 +104,7 @@ module Decidim
         end
 
         def update_scope
-          # enforce_permission_to :update, :project_scope
+          enforce_permission_to :update, :project_scope
 
           ::Decidim::Budgets::Admin::UpdateProjectScope.call(params[:scope_id], project_ids) do
             on(:invalid_scope) do
@@ -133,7 +133,7 @@ module Decidim
         end
 
         def update_selected
-          # enforce_permission_to :update, :project_selected
+          enforce_permission_to :update, :project_selected
 
           ::Decidim::Budgets::Admin::UpdateProjectSelection.call(params.dig(:selected, "value"), project_ids) do
             on(:invalid_selection) do

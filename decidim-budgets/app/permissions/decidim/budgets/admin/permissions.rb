@@ -33,6 +33,12 @@ module Decidim
             when :remind
               permission_action.allow!
             end
+          when :project_category
+            permission_action.allow!
+          when :project_scope
+            permission_action.allow!
+          when :project_selected
+            permission_action.allow!
           end
 
           permission_action
