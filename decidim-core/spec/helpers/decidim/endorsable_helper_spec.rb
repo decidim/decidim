@@ -43,5 +43,56 @@ module Decidim
         it { is_expected.to be false }
       end
     end
+
+    describe "render_endorsement_identity" do
+      subject { helper.render_endorsement_identity(resource, user, user_group) }
+
+      let(:organization) { create(:organization) }
+      let(:component) { create(:component, :published, organization: organization) }
+      let(:resource) { create(:dummy_resource, component: component) }
+      let(:user) { create(:user, :confirmed, organization: organization) }
+      let(:user_group) { nil }
+
+      before do
+        allow(helper).to receive(:endorsements_path).and_return(Decidim::Core::Engine.routes.url_helpers.endorsements_path(id: resource))
+        allow(helper).to receive(:endorsement_path).and_return(Decidim::Core::Engine.routes.url_helpers.endorsement_path(id: resource))
+        allow(controller).to receive(:current_user).and_return(user)
+      end
+
+      context "when it's a user" do
+        context "and they haven't endorsed yet" do
+          it { is_expected.not_to include("selected") }
+        end
+
+        context "and they have already endorsed" do
+          let!(:endorsement) { create(:endorsement, resource: resource, author: user) }
+
+          it { is_expected.to include("selected") }
+        end
+      end
+
+      context "when it's a user group" do
+        let(:another_user) { create(:user, :confirmed, organization: organization) }
+        let!(:user_group) { create(:user_group, verified_at: Time.current, organization: organization) }
+        let!(:membership) { create(:user_group_membership, user_group: user_group, user: user, role: "admin") }
+        let!(:another_membership) { create(:user_group_membership, user_group: user_group, user: another_user, role: "admin") }
+
+        context "and they haven't endorsed yet" do
+          it { is_expected.not_to include("selected") }
+        end
+
+        context "and they have already endorsed" do
+          let!(:endorsement) { create(:endorsement, resource: resource, author: user, user_group: user_group) }
+
+          it { is_expected.to include("selected") }
+        end
+
+        context "and another admin of the group have already endorsed" do
+          let!(:endorsement) { create(:endorsement, resource: resource, author: another_user, user_group: user_group) }
+
+          it { is_expected.to include("selected") }
+        end
+      end
+    end
   end
 end
