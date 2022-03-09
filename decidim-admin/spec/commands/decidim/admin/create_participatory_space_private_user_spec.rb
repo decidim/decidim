@@ -76,32 +76,6 @@ module Decidim::Admin
 
           subject.call
         end
-
-        context "when the current users are not to be deleted" do
-          let(:user1) { create(:user, organization: privatable_to.organization) }
-
-          before do
-            Decidim::ParticipatorySpacePrivateUser.create!(decidim_user_id: user1.id, privatable_to_id: privatable_to.id, privatable_to_type: privatable_to.class.to_s)
-          end
-
-          it "doesn't suppress the existing users" do
-            expected_number = Decidim::ParticipatorySpacePrivateUser.where(privatable_to_id: privatable_to.id, privatable_to_type: privatable_to.class.to_s).count
-
-            subject.call
-
-            expect(Decidim::ParticipatorySpacePrivateUser.where(privatable_to_id: privatable_to.id, privatable_to_type: privatable_to.class.to_s).count).to equal(1 + expected_number)
-          end
-        end
-
-        context "when the current users are to be deleted" do
-          let(:delete) { true }
-
-          it "suppress the existing users" do
-            subject.call
-
-            expect(Decidim::ParticipatorySpacePrivateUser.where(privatable_to_id: privatable_to.id, privatable_to_type: privatable_to.class.to_s).count).to equal(1)
-          end
-        end
       end
 
       it "don't invite the user again" do

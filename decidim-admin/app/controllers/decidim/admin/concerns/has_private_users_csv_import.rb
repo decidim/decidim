@@ -18,7 +18,7 @@ module Decidim
           def new
             enforce_permission_to :csv_import, :space_private_user
             @form = form(ParticipatorySpacePrivateUserCsvImportForm).from_params({}, privatable_to: privatable_to)
-            @count = Decidim::ParticipatorySpacePrivateUser.where(privatable_to_id: privatable_to.id, privatable_to_type: privatable_to.class.to_s).count
+            @count = Decidim::ParticipatorySpacePrivateUser.by_participatory_space(privatable_to).count
             render template: "decidim/admin/participatory_space_private_users_csv_imports/new"
           end
 
@@ -40,7 +40,8 @@ module Decidim
           end
 
           def destroy_all
-            Decidim::ParticipatorySpacePrivateUser.delete_by(privatable_to_id: privatable_to.id, privatable_to_type: privatable_to.class.to_s)
+            enforce_permission_to :csv_import, :space_private_user
+            Decidim::ParticipatorySpacePrivateUser.by_participatory_space(privatable_to).delete_all
             redirect_to new_participatory_space_private_users_csv_import_path
           end
 

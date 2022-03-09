@@ -39,10 +39,14 @@ describe "import private users via csv with the possibility to deleting some", t
       expect(page).to have_selector(".alert")
     end
 
-    it "ask you for confirmation" do
+    it "ask you for confirmation and delete existing users" do
       find(".alert").click
 
       expect(page).to have_content("Are you sure you want to delete all current participants ?")
+
+      find("a.button[data-confirm-ok]").click
+
+      expect(page).to have_content("You have no current private participants")
     end
   end
 end
