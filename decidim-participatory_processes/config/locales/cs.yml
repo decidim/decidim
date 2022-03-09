@@ -250,6 +250,7 @@ cs:
           title: Nový typ procesu
         update:
           error: Při aktualizaci tohoto typu procesu došlo k chybě.
+          success: Typ procesu byl úspěšně aktualizován.
       participatory_process_user_roles:
         create:
           error: Při přidávání uživatele pro tento participační proces došlo k chybě.
@@ -294,6 +295,7 @@ cs:
           success: Skupina úspěšně vytvořená skupina účastníků.
       titles:
         participatory_process_groups: Skupiny zúčastněných procesů
+        participatory_process_types: Typy participačních procesů
         participatory_processes: Participativní procesy
       users:
         resend_invitation:
@@ -313,6 +315,10 @@ cs:
         create: "%{user_name} vytvořil %{resource_name} krok ve %{space_name} účastnických procesech"
         delete: "%{user_name} odstraněno %{resource_name} krok ve %{space_name} účastnických procesech"
         update: "%{user_name} aktualizoval %{resource_name} krok ve %{space_name} účastnických procesech"
+      participatory_process_type:
+        create: "%{user_name} vytvořil %{resource_name} typ participačního procesu"
+        delete: "%{user_name} odstranil %{resource_name} typ participačního procesu"
+        update: "%{user_name} aktualizoval %{resource_name} typ participačního procesu"
       participatory_process_user_role:
         create: "%{user_name} pozval uživatele %{resource_name} do procesu participace %{space_name}"
         delete: "%{user_name} odstranil uživatele %{resource_name} z procesu participace %{space_name}"
@@ -340,6 +346,10 @@ cs:
           contextual: "<p> <strong>Participační proces</strong> je sled aktivit participativního charakteru (např. Nejprve vyplnění průzkumu, následné předkládání návrhů, diskuse o nich v rámci osobních nebo virtuálních schůzek a nakonec jejich prioritizace) s cílem definovat a rozhodnout na konkrétní téma.</p> <p>Příklady participačních procesů jsou: <strong>proces volby členů výboru</strong> (kde jsou kandidatury poprvé představeny, pak diskutovány a nakonec je vybrána kandidatura), <strong>participační rozpočty</strong> (kde jsou návrhy předloženy, ekonomicky oceňovány a hlasovány s dostupnými prostředky); <strong>proces strategického plánování</strong>, společné vypracování nařízení nebo normy, návrh městského prostoru nebo vypracování plánu veřejného pořádku.</p>\n"
           page: "<p> <strong>participační proces</strong> je sled aktivit participativního charakteru (např. Nejprve vyplnění průzkumu, následné předkládání návrhů, diskuse o nich v rámci osobních nebo virtuálních schůzek a nakonec jejich prioritizace) s cílem definovat a rozhodnout na konkrétní téma.</p> <p>Příklady participačních procesů jsou: proces volby členů výboru (kde jsou kandidatury poprvé představeny, pak diskutovány a nakonec je vybrána kandidatura), participační rozpočty (kde jsou návrhy předloženy, ekonomicky oceňovány a hlasovány s dostupnými prostředky); proces strategického plánování, společné vypracování nařízení nebo normy, návrh městského prostoru nebo vypracování plánu veřejného pořádku.</p>\n"
           title: Co je participační proces?
+    log:
+      value_types:
+        participatory_process_type_presenter:
+          not_found: 'Typ procesu nebyl v databázi nalezen (ID: %{id})'
     menu:
       processes: Procesy
     metrics:
@@ -417,6 +427,7 @@ cs:
             related_processes: Související procesy
             scope_type_max_depth_help: Omezit hloubku filtru rozsahu. Filtr se zobrazí od obecného k vybranému typu rozsahu.
             select_an_area: Vyberte oblast
+            select_participatory_process_type: Vyberte typ procesu
             select_process_group: Vyberte skupinu procesů
             slug_help: 'Sloupce adres URL se používají k vygenerování adres URL, které směřují k tomuto procesu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
             title: Obecná informace
@@ -443,6 +454,7 @@ cs:
           back_to_process: Zpět na stránku procesu
       participatory_processes:
         filters:
+          all_types: Všechny typy
           counters:
             active:
               one: 1 aktivní proces
@@ -468,6 +480,7 @@ cs:
             no_active: Žádné aktivní procesy
             no_active_nor_upcoming: Žádné aktivní ani nadcházející procesy
             no_active_nor_upcoming_callout: Neexistují žádné aktivní ani nadcházející procesy. Zde je seznam minulých.
+          filter_by: Zobrazit
           names:
             active: Aktivní
             all: Vše
