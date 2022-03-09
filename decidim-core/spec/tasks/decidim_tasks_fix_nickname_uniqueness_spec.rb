@@ -28,7 +28,6 @@ describe "rake decidim:upgrade:fix_nickname_uniqueness", type: :task do
       expect(Decidim::EventsManager).to receive(:publish).exactly(3).times
 
       task.execute
-
     end
   end
 end
