@@ -18,10 +18,17 @@ describe "rake decidim:upgrade:fix_nickname_uniqueness", type: :task do
     it "has to change nicknames" do
       task.execute
       expect(user1.reload.nickname).to eq("toto")
-      expect(user2.reload.nickname).to match(/Toto-\d{5}/)
-      expect(user3.reload.nickname).to match(/TOTO-\d{5}/)
+      expect(user2.reload.nickname).to match(/Toto-\d{0,5}/)
+      expect(user3.reload.nickname).to match(/TOTO-\d{0,5}/)
       expect(user4.reload.nickname).to eq("foO")
-      expect(user5.reload.nickname).to match(/Foo-\d{5}/)
+      expect(user5.reload.nickname).to match(/Foo-\d{0,5}/)
+    end
+
+    it "send notifications" do
+      expect(Decidim::EventsManager).to receive(:publish).exactly(3).times
+
+      task.execute
+
     end
   end
 end
