@@ -94,10 +94,6 @@ There are specific things that you need to change regarding your Form or `Virtus
 PR [\#8645](https://github.com/decidim/decidim/pull/8645) we now only allow PNG images at Favicon so we can provide higher quality versions to mobile devices.
 
 
-### Rake task to fix nickname uniqueness
-
-PR[\8792](https://github.com/decidim/decidim/pull/8792) We added a rake task to modify users similar nivknames, case insensitively. If two users have the same nickname (case insensitively), the last one is renamed with "-00000", being of course a random number.
-
 ### Changed
 
 - **decidim-core**: The `Decidim::ActivitySearch` class has been rewritten as `Decidim::PublicActivities` which is now a `Rectify::Query` class instead of `Searchlight::Search` class due to the removal of Searchlight at [\#8748](https://github.com/decidim/decidim/pull/8748).
@@ -105,7 +101,7 @@ PR[\8792](https://github.com/decidim/decidim/pull/8792) We added a rake task to 
 - **decidim-debates**, **decidim-initiatives**, **decidim-meetings**: The resource search classes `Decidim::Debates::DebateSearch`, `Decidim::Intitatives::InitiativeSearch` and `Decidim::Meetings::MeetingSearch` are rewritten for the Ransack searches due to Searchlight removal at [\#8748](https://github.com/decidim/decidim/pull/8748). The role of these classes is now to pass contextual information to the searches, such as the current user. All other search filtering should happen directly through Ransack.
 - **decidim-meetings**: The `visible_meetings_for` scope for the `Meeting` model has been renamed to `visible_for` in [\#8748](https://github.com/decidim/decidim/pull/8748) for consistency.
 - **decidim-core**: The `official_origin`, `participants_origin`, `user_group_origin` and `meeting_origin` scopes for the `Decidim::Authorable` and `Decidim::Coauthorable` concerns have been changed to `with_official_origin`, `with_participants_origin`, `with_user_group_origin` and `with_meeting_origin` respectively in [\#8748](https://github.com/decidim/decidim/pull/8748) for consistency. See the Searchlight removal change notes for reasoning.
-- **decidim-core**: Only downcase nicknames are now authorized, a migration has been created to downcase every nickname and modify if some are similar. Routing has has been made case insensitive for every tab in profiles.
+- **decidim-core**: Nicknames are now differents case insensitively, a rake tasks has been created to check every nickname and modify if some are similar. Routing and mentions has has been made case insensitive for every tab in profiles.
 
 #### Searchlight removal causes changes in the participant searches
 
