@@ -18,7 +18,11 @@ module Decidim
       #
       # Returns Boolean.
       def endorsed_by?(user, user_group = nil)
-        endorsements.where(author: user, user_group: user_group).any?
+        if user_group
+          endorsements.where(user_group: user_group).any?
+        else
+          endorsements.where(author: user, user_group: nil).any?
+        end
       end
     end
   end
