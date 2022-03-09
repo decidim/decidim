@@ -1,0 +1,9 @@
+<%= decidim_form_for(@form, html: { class: "form edit_participatory_process_type" }) do |f| %>
+  <h2 class="process-title-summary">
+    <%= t("participatory_process_types.edit.title", scope: "decidim.admin") %>
+  </h2>
+  <%= render partial: "form", object: f %>
+  <div class="button--double form-general-submit">
+    <%= f.submit t("participatory_process_types.edit.update", scope: "decidim.admin"), class: "button" %>
+  </div>
+<% end %>
