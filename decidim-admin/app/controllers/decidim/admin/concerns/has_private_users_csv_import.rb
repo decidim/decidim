@@ -42,7 +42,7 @@ module Decidim
           def destroy_all
             enforce_permission_to :csv_import, :space_private_user
             Decidim::ParticipatorySpacePrivateUser.by_participatory_space(privatable_to).delete_all
-            redirect_to new_participatory_space_private_users_csv_import_path
+            redirect_to new_participatory_space_private_users_csv_imports_path
           end
 
           # Public: Returns a String or Object that will be passed to `redirect_to` after

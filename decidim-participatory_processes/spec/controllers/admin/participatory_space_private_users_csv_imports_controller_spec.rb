@@ -20,12 +20,12 @@ module Decidim
         end
 
         it 'is routed to' do
-          assert_generates "/destroy_all", { :controller => 'decidim/participatory_processes/admin/participatory_space_private_users_csv_imports', :action => 'destroy_all' }
+          expect(:delete => "destroy_all").to route_to(:controller => 'decidim/participatory_processes/admin/participatory_space_private_users_csv_imports', :action => 'destroy_all')
         end
 
         it "suppress the existing users" do
 
-          get "/csv_imports/destroy_all"
+          get :destroy_all
 
           expect (response).to change { Decidim::ParticipatorySpacePrivateUser.by_participatory_space(private_user.privatable_to).count }.by(1)
         end
