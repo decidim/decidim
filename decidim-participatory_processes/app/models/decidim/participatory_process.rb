@@ -56,6 +56,10 @@ module Decidim
                foreign_key: "decidim_scope_type_id",
                class_name: "Decidim::ScopeType",
                optional: true
+    belongs_to :participatory_process_type,
+               foreign_key: "decidim_participatory_process_type_id",
+               class_name: "Decidim::ParticipatoryProcessType",
+               optional: true
 
     has_many :components, as: :participatory_space, dependent: :destroy
 
@@ -96,6 +100,8 @@ module Decidim
         )
       end
     }
+
+    scope :with_type, ->(type_id) { where(decidim_participatory_process_type_id: type_id) }
 
     searchable_fields({
                         scope_id: :decidim_scope_id,
@@ -201,7 +207,7 @@ module Decidim
     ransacker_i18n :title
 
     def self.ransackable_scopes(_auth_object = nil)
-      [:with_date, :with_area, :with_scope]
+      [:with_date, :with_area, :with_scope, :with_type]
     end
   end
 end
