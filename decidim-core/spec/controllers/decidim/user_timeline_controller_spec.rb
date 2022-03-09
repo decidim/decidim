@@ -7,7 +7,7 @@ module Decidim
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }
-    let!(:user) { create(:user, :confirmed, nickname: "nick", organization: organization) }
+    let!(:user) { create(:user, :confirmed, nickname: "Nick", organization: organization) }
 
     before do
       request.env["decidim.current_organization"] = organization
@@ -25,7 +25,7 @@ module Decidim
 
       context "with my user with uppercase" do
         it "returns the lowercased user" do
-          get :index, params: { nickname: "Nick" }
+          get :index, params: { nickname: "NICK" }
           expect(response).to render_template(:index)
         end
       end

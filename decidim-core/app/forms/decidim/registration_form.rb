@@ -39,7 +39,9 @@ module Decidim
     end
 
     def nickname_unique_in_organization
-      errors.add :nickname, :taken if User.no_active_invitation.find_by(nickname: nickname, organization: current_organization).present?
+      return false unless nickname
+
+      errors.add :nickname, :taken if User.no_active_invitation.find_by("LOWER(nickname)= ? AND decidim_organization_id = ?", nickname.downcase, current_organization.id).present?
     end
 
     def no_pending_invitations_exist

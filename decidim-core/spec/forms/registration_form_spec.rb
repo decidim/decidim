@@ -59,12 +59,6 @@ module Decidim
       it { is_expected.to be_invalid }
     end
 
-    context "when the nickname is not in lowercase" do
-      let(:nickname) { "Nickname" }
-
-      it { is_expected.to be_invalid }
-    end
-
     context "when the email is not present" do
       let(:email) { nil }
 
@@ -84,7 +78,7 @@ module Decidim
     end
 
     context "when the nickname already exists" do
-      let!(:user) { create(:user, organization: organization, nickname: nickname) }
+      let!(:user) { create(:user, organization: organization, nickname: nickname.upcase) }
 
       it { is_expected.to be_invalid }
 

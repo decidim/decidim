@@ -13,7 +13,7 @@ module Decidim
     include Decidim::UserReportable
     include Decidim::Traceable
 
-    REGEXP_NICKNAME = /\A[a-z0-9_\-]+\z/.freeze
+    REGEXP_NICKNAME = /\A[\w\-]+\z/.freeze
 
     class Roles
       def self.all

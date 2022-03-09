@@ -226,14 +226,16 @@ describe "Authentication", type: :system do
       end
     end
 
-    context "when nickname is filled with uppercase" do
+    context "when nickname is not unique case insensitively" do
+      let!(:user) { create(:user, nickname: "Nick", organization: organization) }
+
       it "show an error message" do
         find(".sign-up-link").click
 
         within ".new_user" do
           fill_in :registration_user_email, with: "user@example.org"
           fill_in :registration_user_name, with: "Responsible Citizen"
-          fill_in :registration_user_nickname, with: "Nick"
+          fill_in :registration_user_nickname, with: "NiCk"
           fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
           fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
           check :registration_user_tos_agreement
@@ -241,7 +243,7 @@ describe "Authentication", type: :system do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("is invalid")
+        expect(page).to have_content("has already been taken")
       end
     end
 
