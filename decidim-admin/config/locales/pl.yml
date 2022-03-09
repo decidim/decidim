@@ -40,7 +40,7 @@ pl:
         cta_button_path: Ścieżka przycisku CTA
         cta_button_text: Tekst przycisku CTA
         customize_welcome_notification: Dostosuj treść komunikatu powitalnego
-        default_locale: Domena domyślna
+        default_locale: Domyślny język
         description: Opis
         enable_omnipresent_banner: Pokaż stały banner
         facebook_handler: Handler Facebooka
