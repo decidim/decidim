@@ -328,7 +328,7 @@ ja:
         title: 確認の競合
         transfer:
           email: Eメールアドレス
-          error: 参加者から管理参加者への移転中に問題が発生しました。
+          error: 参加者から管理対象参加者への移行中に問題が発生しました。
           name: 名前
           reason: 理由
           success: 現在の移転が正常に完了しました。
@@ -436,14 +436,14 @@ ja:
           filter:
             all: すべて
             managed: 管理
-            not_managed: 未管理
+            not_managed: 非管理対象
           filter_by: フィルター
           impersonate: なりすまし
           impersonate_new_managed_user: 新規参加者の管理
           managed: 管理
           name: 名前
           needs_authorization_warning: この組織に対して少なくとも1つの承認が有効になっている必要があります。
-          not_managed: 未管理
+          not_managed: 非管理対象
           promote: プロモート
           search: 検索
           status: ステータス
@@ -454,14 +454,14 @@ ja:
           success: 現在の偽装セッションは正常に終了しました。
         create:
           error: 参加者の管理に問題がありました。
-          success: 管理対象の参加者が正常に作成されました。
+          success: 管理対象参加者が正常に作成されました。
         form:
           authorization_method: 認証方法
           name: 名前
           reason: 理由：
         new:
           impersonate: なりすまし
-          impersonate_existing_managed_user: 参加者を管理 "%{name}"
+          impersonate_existing_managed_user: 参加者 "%{name}" を管理
           impersonate_existing_user: 参加者を管理 "%{name}"
           impersonate_new_managed_user: 新規参加者の管理
       imports:
@@ -503,12 +503,12 @@ ja:
           no_logs_yet: ログはまだありません
       managed_users:
         promotion:
-          error: 運営参加者の促進には問題がありました。
-          success: 管理対象の参加者が正常に昇進されました。
+          error: 管理対象参加者の昇格に問題が発生しました。
+          success: 管理対象参加者が正常に昇格されました。
         promotions:
           new:
-            explanation: 管理された参加者は標準参加者に昇格することができます。 つまり、彼らはアプリケーションに招待され、あなたはそれらを再び管理することはできません。 招待された参加者は、招待を承諾するためのメールを受け取ります。
-            new_managed_user_promotion: 新しいマネージド参加者のプロモーション
+            explanation: 管理対象参加者は通常の参加者に昇格することができます。 その場合、彼らはアプリケーションに招待され、あなたはそれらを再び管理することはできなくなります。 招待された参加者は、招待を承諾するためのメールを受け取ります。
+            new_managed_user_promotion: 新しい管理対象参加者の昇格
             promote: プロモート
       menu:
         admin_log: 管理者アクティビティログ
@@ -996,7 +996,7 @@ ja:
     forms:
       errors:
         impersonate_user:
-          reason: 管理されていない参加者を管理する場合、その理由を入力する必要があります
+          reason: 管理対象ではない参加者を管理する場合、その理由を入力する必要があります
     metrics:
       blocked_users:
         object: ブロックされたユーザー
