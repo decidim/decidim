@@ -76,7 +76,7 @@ describe "Explore projects", :slow, type: :system do
         end
       end
 
-      it "allows filtering by category" do
+      it "works with 'back to list' link" do
         category = categories.first
         project.category = category
         project.save
