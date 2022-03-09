@@ -696,7 +696,7 @@ describe "Filter Proposals", :slow, type: :system do
       visit_component
     end
 
-    it "saves the filtering in Session Storage" do
+    it "saves and restores the filtering" do
       expect(page).to have_css(".card.card--proposal", count: 6)
 
       within ".filters .with_any_state_check_boxes_tree_filter" do
@@ -706,7 +706,6 @@ describe "Filter Proposals", :slow, type: :system do
       expect(page).to have_css(".card.card--proposal", count: 8)
 
       page.find(".card.card--proposal .card__link", match: :first).click
-
       click_link "Back to list"
 
       expect(page).to have_css(".card.card--proposal", count: 8)
