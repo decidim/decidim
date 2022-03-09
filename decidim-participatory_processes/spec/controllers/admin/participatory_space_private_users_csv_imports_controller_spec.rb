@@ -9,14 +9,14 @@ module Decidim
         routes { Decidim::ParticipatoryProcesses::AdminEngine.routes }
 
         let(:organization) { create :organization }
-        let(:user) { create(:user, :admin, :confirmed, organization: organization) }
-        let(:user1) { create(:user, organization: organization) }
-        let(:private_user) { create(:participatory_space_private_user, user: user1) }
+        let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
+        let(:user) { create(:user, organization: organization) }
+        let(:private_user) { create(:participatory_space_private_user, user: user) }
 
         before do
           request.env["decidim.current_organization"] = organization
           request.env["decidim.current_participatory_process"] = private_user.privatable_to
-          sign_in user, scope: :user
+          sign_in admin, scope: :user
         end
 
         it 'is routed to' do
