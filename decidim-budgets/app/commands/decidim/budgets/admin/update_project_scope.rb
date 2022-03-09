@@ -6,6 +6,10 @@ module Decidim
       class UpdateProjectScope < Decidim::Command
         include TranslatableAttributes
 
+        # Public: Initializes the command.
+        #
+        # scope_id - the scope id to update
+        # project_ids - the project ids to update.
         def initialize(scope_id, project_ids)
           @scope = ::Decidim::Scope.find_by id: scope_id
           @project_ids = project_ids

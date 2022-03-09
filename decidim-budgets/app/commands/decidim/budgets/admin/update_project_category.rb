@@ -6,6 +6,10 @@ module Decidim
       class UpdateProjectCategory < Decidim::Command
         include TranslatableAttributes
 
+        # Public: Initializes the command.
+        #
+        # category_id - the category id to update
+        # project_ids - the project ids to update.
         def initialize(category_id, project_ids)
           @category = Decidim::Category.find_by id: category_id
           @project_ids = project_ids

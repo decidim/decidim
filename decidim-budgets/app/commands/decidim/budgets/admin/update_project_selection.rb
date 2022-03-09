@@ -6,6 +6,10 @@ module Decidim
       class UpdateProjectSelection < Decidim::Command
         include TranslatableAttributes
 
+        # Public: Initializes the command.
+        #
+        # selection - Defines if projects are selected (for implementation)
+        # project_ids - the project ids to update.
         def initialize(selection, project_ids)
           @selection = selection
           @project_ids = project_ids
@@ -13,7 +17,7 @@ module Decidim
         end
 
         def call
-          return broadcast(:invalid_selection) if @selection.blank? || %w(true false).exclude?(@selection)
+          return broadcast(:invalid_selection) if @selection.blank? || [true, false, "true", "false"].exclude?(@selection)
           return broadcast(:invalid_project_ids) if @project_ids.blank?
 
           @selection = ActiveModel::Type::Boolean.new.cast(@selection)
