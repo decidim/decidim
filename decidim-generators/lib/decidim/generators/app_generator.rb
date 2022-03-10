@@ -73,6 +73,10 @@ module Decidim
                              default: "",
                              desc: "Force the available locales to the ones specified. Separate with comas"
 
+      class_option :storage, type: :string,
+                             default: "locale",
+                             desc: "Setup the Gemfile with the appropiate gem to handle a storage provider. Supported options are: local (default), s3, gcs, azure"
+
       class_option :skip_webpack_install, type: :boolean,
                                           default: true,
                                           desc: "Don't run Webpack install"
@@ -132,6 +136,23 @@ module Decidim
         end
 
         run "bundle install"
+      end
+
+      def add_storage_provider
+        template "storage.yml.erb", "config/storage.yml", force: true
+
+        providers = options[:storage].split(",")
+        gem_group :production do
+          gem "aws-sdk-s3", require: false if providers.include?("s3")
+          gem "azure-storage-blob", require: false if providers.include?("azure")
+          gem "google-cloud-storage", "~> 1.11", require: false if providers.include?("gcs")
+        end
+
+        abort("#{providers.first} is not supported as storage provider, please use local, s3, gcs or azure") unless providers.first.in?("local", "s3", "gcs", "azure")
+
+        gsub_file "config/environments/production.rb",
+                  /config.active_storage.service = :local/,
+                  "config.active_storage.service = Rails.application.secrets.dig(:storage, :provider) || :local"
       end
 
       def tweak_bootsnap

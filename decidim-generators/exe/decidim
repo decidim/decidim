@@ -28,7 +28,14 @@ Options:
   --help                   display this help and exit
   --version                output version information and exit
   --component [name]       creates a component for Decidim
-  [name]                   creates an application based on Decidim"
+  [name]                   creates an application based on Decidim
+
+Extra options:
+  --locales [locales]      Force the available locales to the ones specified. Separate with comas
+  --force_ssl [true|false] Enables or disables mandatory redirection to HTTPS (defaults to enabled)
+  --storage [provider]     Setup the Gemfile with the appropiate gem to handle a storage provider. Supported options are: local (default), s3, gcs, azure
+  --profiling              Adds profiling gems for development
+"
 else
   require "decidim/generators/app_generator"
 
