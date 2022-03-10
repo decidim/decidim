@@ -123,19 +123,45 @@ describe "Account", type: :system do
           expect(user.reload.valid_password?("sekritpass123")).to eq(false)
         end
       end
+    end
 
-      context "when updating the email" do
-        it "needs to confirm it" do
-          within "form.edit_user" do
-            fill_in :user_email, with: "foo@bar.com"
+    context "when updating the email" do
+      before do
+        within "form.edit_user" do
+          fill_in :user_email, with: "foo@bar.com"
 
-            find("*[type=submit]").click
-          end
-
-          within_flash_messages do
-            expect(page).to have_content("email to confirm")
-          end
+          perform_enqueued_jobs { find("*[type=submit]").click }
         end
+      end
+
+      after do
+        clear_enqueued_jobs
+      end
+
+      it "needs to confirm it" do
+        within_flash_messages do
+          expect(page).to have_content("email to confirm")
+        end
+
+        expect(page).to have_selector("#user_email[disabled='disabled']")
+        expect(page).to have_content("An email change is currently pending on your account")
+      end
+
+      it "resend confirmation" do
+        click_link "Resend the confirmation email"
+        perform_enqueued_jobs
+
+        expect(emails.count).to eq(2)
+
+        visit last_email_link
+        expect(page).to have_content("Your email address has been successfully confirmed")
+      end
+
+      it "cancels the email change" do
+        click_link "cancel the email change"
+
+        expect(page).to have_content("Email change cancelled successfully")
+        expect(page).not_to have_content("An email change is currently pending on your account")
       end
     end
 

@@ -67,7 +67,6 @@ $(() => {
     const alert = document.querySelector(".email-confirmation-alert");
     link.addEventListener("click", (event) => {
       event.preventDefault();
-      console.log("Resend instructions");
 
       fetch(link.href, {
         method: "POST",
@@ -75,7 +74,7 @@ $(() => {
           "Content-Type": "application/json",
           "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
         }
-      }).then((data) => {
+      }).then((response) => response.json()).then((data) => {
         if (data?.message === "success") {
           location.reload();
         } else {
