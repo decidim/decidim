@@ -1,0 +1,18 @@
+<% if current_user.unconfirmed_email.present? %>
+  <%= form.email_field :email, disabled: true %>
+  <div id="email-change-pending">
+    <p><%= t(".pending_email_change", unconfirmed_email: current_user.unconfirmed_email) %></p>
+    <p><%= t(".pending_email_link_intro") %></p>
+    <p id="resend-email-confirmation-instructions"
+       data-success="<%= t(".confirmation_email_resent_successfully") %>"
+       data-error="<%= t(".confirmation_email_resent_error") %>">
+      <%== t(".pending_email_did_not_receive", resend_path: resend_confirmation_instructions_account_path) %>
+    </p>
+    <p id="cancel-email-change"
+       data-error="<%= t(".cancel_email_change_error") %>">
+      <%== t(".pending_email_start_over", cancel_path: cancel_email_change_account_path) %>
+    </p>
+  </div>
+<% else %>
+  <%= form.email_field :email %>
+<% end %>

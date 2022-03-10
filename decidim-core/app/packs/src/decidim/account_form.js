@@ -1,8 +1,9 @@
-/**
- * Since the delete account has a modal to confirm it we need to copy the content of the
- * reason field to the hidden field in the form inside the modal.
- */
 $(() => {
+
+  /**
+   * Since the delete account has a modal to confirm it we need to copy the content of the
+   * reason field to the hidden field in the form inside the modal.
+   */
   const $deleteAccountForm = $(".delete-account");
   const $deleteAccountModalForm = $(".delete-account-modal");
 
@@ -23,5 +24,66 @@ $(() => {
       event.stopPropagation();
       return false;
     });
+  }
+
+
+  /**
+   * Resend the confirmation email logig here, we use fetch here because link is inside the form.
+  */
+  const resendInstructions = document.querySelector("form.edit_user")?.querySelector("#resend-email-confirmation-instructions");
+
+  if (resendInstructions) {
+    const link = resendInstructions.querySelector("a");
+    const alert = document.querySelector(".email-confirmation-alert");
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      console.log("Resend instructions");
+
+      fetch(link.href, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
+        }
+      }).then((data) => {
+        alert.classList.remove("hide");
+        if (data.ok) {
+          alert.innerHTML = resendInstructions.dataset.success;
+          alert.classList.add("success");
+        } else {
+          alert.innerHTML = resendInstructions.dataset.error;
+          alert.classList.add("alert");
+        }
+      });
+    })
+  }
+
+  /**
+   * Cancel the email change logic, this uses fetch because link is inside the form.
+  */
+  const cancelEmailChange = document.querySelector("form.edit_user")?.querySelector("#cancel-email-change");
+
+  if (cancelEmailChange) {
+    const link = cancelEmailChange.querySelector("a");
+    const alert = document.querySelector(".email-confirmation-alert");
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      console.log("Resend instructions");
+
+      fetch(link.href, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
+        }
+      }).then((data) => {
+        if (data.ok) {
+          location.reload();
+        } else {
+          alert.innerHTML = cancelEmailChange.dataset.error;
+          alert.classList.add("alert");
+        }
+      });
+    })
   }
 });

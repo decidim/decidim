@@ -1,3 +1,4 @@
+<%= alert_box("", "email-confirmation-alert hide margin-bottom-1", false) %>
 <% add_decidim_page_title(t("profile", scope: "layouts.decidim.user_menu")) %>
 <% content_for(:subtitle) { t("profile", scope: "layouts.decidim.user_menu") } %>
 
@@ -13,7 +14,7 @@
 
       <%= f.text_field :name %>
       <%= f.text_field :nickname %>
-      <%= f.email_field :email %>
+      <%= render partial: "email_field", locals: { form: f } %>
       <%= f.url_field :personal_url %>
       <%= f.text_area :about, rows: 5 %>
 

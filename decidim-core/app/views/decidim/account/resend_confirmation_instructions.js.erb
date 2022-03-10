@@ -1,0 +1,3 @@
+<% if flash.now[:notice].present? %>
+  $("<%= escape_javascript(render partial: %q{decidim/admin/shared/js-callout}, locals: { css: %q{success}, text: flash.now[:notice] }) %>").appendTo(".callout-wrapper");
+<% end %>

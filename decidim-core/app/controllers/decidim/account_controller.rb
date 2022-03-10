@@ -56,6 +56,32 @@ module Decidim
       redirect_to decidim.root_path
     end
 
+    def resend_confirmation_instructions
+      enforce_permission_to :update, :user, current_user: current_user
+
+      ResendConfirmationInstructions.call(current_user) do
+        on(:ok) do
+          format.json render: "success"
+        end
+
+        on(:invalid) do
+          format.json render: "error"
+        end
+      end
+    end
+
+    def cancel_email_change
+      enforce_permission_to :update, :user, current_user: current_user
+
+      if current_user.unconfirmed_email
+        current_user.update(unconfirmed_email: nil)
+        flash[:notice] = t("account.email_field.cancel_email_change_successfully", scope: "decidim")
+        format.json render: "success"
+      else
+        format.json render: "error"
+      end
+    end
+
     private
 
     def account_params
