@@ -187,7 +187,7 @@ describe "Decidim::Api::QueryType" do
       "target" => { "translation" => participatory_process.target[locale] },
       "title" => { "translation" => participatory_process.title[locale] },
       "type" => "Decidim::ParticipatoryProcess",
-      "updatedAt" => participatory_process.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "updatedAt" => participatory_process.updated_at.iso8601.to_s.gsub("Z", "+00:00")
     }
   end
   let(:query) do
