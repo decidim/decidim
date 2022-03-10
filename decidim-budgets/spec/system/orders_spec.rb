@@ -451,10 +451,7 @@ describe "Orders", type: :system do
             end
 
             it "does not show activity log entry to another user" do
-              within_user_menu do
-                find(".sign-out-link").click
-              end
-              login_as another_user, scope: :user
+              relogin_as another_user, scope: :user
               page.visit decidim.profile_activity_path(nickname: user.nickname)
               expect(page).to have_content(user.name)
               expect(page).to have_current_path "/profiles/#{user.nickname}/activity"

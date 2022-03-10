@@ -2,7 +2,7 @@
 
 module Decidim
   module Budgets
-    # A cell to display when actions happen on a proposal.
+    # A cell to display when actions happen on an order.
     class OrderActivityCell < ActivityCell
       def title
         I18n.t(
