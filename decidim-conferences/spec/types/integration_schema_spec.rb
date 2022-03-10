@@ -43,8 +43,8 @@ describe "Decidim::Api::QueryType" do
       "stats" => [
         { "name" => "dummies_count_high", "value" => 0 },
         { "name" => "pages_count", "value" => 0 },
-        { "name" => "meetings_count", "value" => 0 },
         { "name" => "proposals_count", "value" => 0 },
+        { "name" => "meetings_count", "value" => 0 },
         { "name" => "budgets_count", "value" => 0 },
         { "name" => "surveys_count", "value" => 0 },
         { "name" => "results_count", "value" => 0 },

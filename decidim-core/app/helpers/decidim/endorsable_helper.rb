@@ -76,12 +76,13 @@ module Decidim
     #   user       - The user that is endorsing at the end (mandatory).
     #   user_group - The user_group on behalf of which the endorsement is being done (optional).
     def render_endorsement_identity(resource, user, user_group = nil)
-      presenter = if user_group
-                    Decidim::UserGroupPresenter.new(user_group)
-                  else
-                    Decidim::UserPresenter.new(user)
-                  end
-      selected = resource.endorsed_by?(user, user_group)
+      if user_group
+        presenter = Decidim::UserGroupPresenter.new(user_group)
+        selected = resource.endorsed_by?(user, user_group)
+      else
+        presenter = Decidim::UserPresenter.new(user)
+        selected = resource.endorsed_by?(user)
+      end
       http_method = selected ? :delete : :post
       render partial: "decidim/endorsements/identity", locals:
       { identity: presenter, selected: selected,
