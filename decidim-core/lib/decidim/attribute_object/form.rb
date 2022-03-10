@@ -45,7 +45,7 @@ module Decidim
           attrs[key] =
             case value
             when ActiveStorage::Attached::One
-              value.attachment.blob
+              value.attachment.try(:blob)
             when ActiveStorage::Attached::Many
               value.attachments.map(&:blob)
             else
