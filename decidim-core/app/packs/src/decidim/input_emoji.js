@@ -11,6 +11,9 @@ export default function addInputEmoji() {
         rootElement: elem.closest("form")?.parentElement || document.body,
         zIndex: 2000
       });
+      let handlerPicker = function() {
+        picker.togglePicker(btnContainer);
+      }
 
       // if the selector is inside a modal window
       // this allows shows the emoji menu uncut
@@ -29,23 +32,22 @@ export default function addInputEmoji() {
       wrapper.appendChild(elem);
       wrapper.appendChild(btnContainer);
 
-      var handlerPicker = function(e) { picker.togglePicker(btnContainer); }
-
       btnContainer.addEventListener("click", handlerPicker);
 
-      document.addEventListener("hideEmoji",function(e) {
-        if(e.detail.elem==btnContainer){
-          btnContainer.removeEventListener("click", handlerPicker);
-          btnContainer.setAttribute("style","color:lightgrey");
+      document.addEventListener("characterCounter",function(event) {
+        if (event.detail.remaining > 4) {
+          if (event.detail.elem === btnContainer) {
+            btnContainer.addEventListener("click", handlerPicker);
+            btnContainer.removeAttribute("style");
+          }
+        } else {
+          if (event.detail.elem === btnContainer) {
+            btnContainer.removeEventListener("click", handlerPicker);
+            btnContainer.setAttribute("style", "color:lightgrey");
+          }
         }
       });
 
-      document.addEventListener("showEmoji",function(e) {
-        if(e.detail.elem==btnContainer){
-          btnContainer.addEventListener("click", handlerPicker );
-          btnContainer.removeAttribute("style");
-        }
-      });
 
       picker.on("emoji", ({ emoji }) => {
         elem.value += ` ${emoji} `

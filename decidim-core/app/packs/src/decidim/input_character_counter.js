@@ -97,14 +97,9 @@ export default class InputCharacterCounter {
         message = MESSAGES.charactersLeft.one;
       }
       if (document.querySelector(`textarea[data-remaining-characters="${remainingCharacters}"]`)) {
-        if (remaining < 4) {
-          const eventHide = new CustomEvent('hideEmoji', { detail: { elem: document.querySelector(`textarea[data-remaining-characters="${remainingCharacters}"]`).nextElementSibling }});
-          document.dispatchEvent(eventHide);
-        }
-        else {
-          const eventShow = new CustomEvent('showEmoji', { detail: { elem: document.querySelector(`textarea[data-remaining-characters="${remainingCharacters}"]`).nextElementSibling }});
-          document.dispatchEvent(eventShow);
-        }
+          document.dispatchEvent(
+            new CustomEvent("characterCounter", { detail: { elem: document.querySelector(`textarea[data-remaining-characters="${remainingCharacters}"]`).nextElementSibling, remaining: remaining }})
+          );
       }
       showMessages.push(message.replace(COUNT_KEY, remaining));
     }
