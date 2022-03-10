@@ -11,6 +11,7 @@ require "simplecov" if ENV["SIMPLECOV"]
 require "decidim/core"
 require "decidim/core/test"
 require "decidim/admin/test"
+require "decidim/api/test"
 
 require_relative "rspec_support/component"
 require_relative "rspec_support/authorization"
